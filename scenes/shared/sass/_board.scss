@@ -120,7 +120,7 @@ $board-actions-height-md: 54px;
     font-size: 0;
     -webkit-font-smoothing: antialiased;
     line-height: 1;
-    position: fixed;
+    position: absolute;  // position at top of scene, not page (IE11 workaround)
     right: 0;
     text-align: center;
     transform: scale(0.71);

@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+'use strict';
 
 goog.provide('app.Character');
 
@@ -32,40 +33,45 @@ app.Character = function(name, mapElem, drawerElem) {
 
   this.mapElem = mapElem;
   this.drawerElem = drawerElem;
+
+  // Find elements
+  this.colliderElem = this.mapElem.find(`.character-collider--${this.name}`);
+  this.drawerItemElem = this.drawerElem.find(`.drawer__item--${this.name}`);
+  this.layerElem = null;
+
+  // Handle found event
+  this.colliderElem.on('click touchstart', this.onFound_.bind(this));
+  this.drawerItemElem.on('click', this.onSelected_.bind(this));
 };
 
 /**
  * Initialize a character with location, scale and a click event
- * @param {Array<string>} characterKeys The list of layer names in the svg.
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  */
-app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
-  if (!characterKeys) {
+app.Character.prototype.reset = function(mapDimensions) {
+  let svgMapElem = this.mapElem.find('.map__svg');
+
+  this.isFound = false;
+  this.drawerItemElem.removeClass('drawer__item--found')
+      .removeClass('drawer__item--focused');
+
+  // Hide all spots
+  for (let i = 1; i <= app.Constants.SPAWN_COUNT; i++) {
+    this.getLayer_(svgMapElem, i).hide();
+  }
+
+  // Show one random spot
+  let randomSpot = Math.ceil(Math.random() * app.Constants.SPAWN_COUNT);
+  this.layerElem = this.getLayer_(svgMapElem, randomSpot).show();
+
+  // In case character layers are missing from the SVG
+  if (this.layerElem.length === 0) {
+    console.error(`Layer ${randomSpot} for ${this.name} not found.`);
     return;
   }
 
-  // Find elements
-  this.elem = this.mapElem.find(`.character-collider--${this.name}`);
-  this.uiElem = this.drawerElem.find(`.drawer__item--${this.name}`);
-  this.svgMapElem = this.mapElem.find('#santasearch-characters-svg');
-
-  // Handle found event
-  this.elem.on('click touchstart', this.onFound_.bind(this));
-  this.uiElem.on('click', this.onSelected_.bind(this));
-
-  let randomKey = Math.floor(Math.random() * characterKeys.length);
-  let characterToSpawn = characterKeys[randomKey];
-
-  this.isFound = false;
-  this.uiElem.removeClass('drawer__item--found');
-
-  // Show only one location for each character
-  characterKeys.forEach((characterKey) => {
-    this.svgMapElem.find(`#${characterKey}`).hide();
-  });
-  let characterElem = this.svgMapElem.find(`#${characterToSpawn}`).show();
-
-  let characterBoundaries = characterElem[0].getBoundingClientRect();
+  this.layerElem[0].classList.add('map__character');
+  let characterBoundaries = this.layerElem[0].getBoundingClientRect();
 
   let leftOffset = (mapDimensions.width - this.mapElem.width()) / 2;
   let topOffset = (mapDimensions.height - this.mapElem.height()) / 2;
@@ -86,18 +92,29 @@ app.Character.prototype.initialize = function(characterKeys, mapDimensions) {
 };
 
 /**
+ * Get the layer in the SVG for the character.
+ * @param {!jQuery} svgMapElem The SVG map element.
+ * @param {number} number The number of the layer.
+ * @private
+ */
+app.Character.prototype.getLayer_ = function(svgMapElem, number) {
+  let name = this.name.replace('-', '').toUpperCase();
+  return svgMapElem.find(`#${name}-${number}`);
+};
+
+/**
  * Positions a character based on map dimensions.
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  */
 app.Character.prototype.updatePosition = function(mapDimensions) {
-  if (!this.elem) {
+  if (!this.colliderElem) {
     return;
   }
 
   let left = mapDimensions.width * this.location.left;
   let top = mapDimensions.height * this.location.top;
 
-  this.elem.css('transform', `translate3d(${left}px, ${top}px, 0)`);
+  this.colliderElem.css('transform', `translate3d(${left}px, ${top}px, 0)`);
 };
 
 /**
@@ -105,15 +122,15 @@ app.Character.prototype.updatePosition = function(mapDimensions) {
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  */
 app.Character.prototype.updateScale = function(mapDimensions) {
-  if (!this.elem) {
+  if (!this.colliderElem) {
     return;
   }
 
   let characterWidth = mapDimensions.width * this.scale.width;
   let characterHeight = mapDimensions.height * this.scale.height;
 
-  this.elem.css('width', characterWidth);
-  this.elem.css('height', characterHeight);
+  this.colliderElem.css('width', characterWidth);
+  this.colliderElem.css('height', characterHeight);
 };
 
 /**
@@ -130,10 +147,14 @@ app.Character.prototype.onFound_ = function() {
     return;
   }
 
-  let wasFocused = this.uiElem.hasClass('drawer__item--focused');
+  window.santaApp.fire('sound-trigger', `ss_character_${this.name}`);
+  let wasFocused = this.drawerItemElem.hasClass('drawer__item--focused');
   this.isFound = true;
-  this.uiElem.removeClass('drawer__item--focused');
-  this.uiElem.addClass('drawer__item--found');
+  this.drawerItemElem.removeClass('drawer__item--focused');
+  this.drawerItemElem.addClass('drawer__item--found');
+
+  this.layerElem[0].classList.add('map__character--found');
+  console.log(this.layerElem);
 
   if (wasFocused && this.onLostFocus) {
     this.onLostFocus();
@@ -159,12 +180,12 @@ app.Character.prototype.onSelected_ = function() {
  * Focuses a character in the UI that the user should try to find.
  */
 app.Character.prototype.focus = function() {
-  this.uiElem.addClass('drawer__item--focused');
+  this.drawerItemElem.addClass('drawer__item--focused');
 };
 
 /**
  * Removes focus from the character.
  */
 app.Character.prototype.blur = function() {
-  this.uiElem.removeClass('drawer__item--focused');
+  this.drawerItemElem.removeClass('drawer__item--focused');
 };

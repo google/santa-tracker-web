@@ -54,7 +54,7 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <dorf-scene route="village" always-active icon="1f384"
+      <dorf-scene route="village" freeform icon="1f384"
           id="village"
           mode$="{{mode}}"
           path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
@@ -232,7 +232,7 @@ Santa Tracker app.
 
       <template is="dom-repeat" items="{{videoRoutes}}">
         <video-scene route$="{{item}}"
-            mode$="{{mode}}"
+            mode$="{{mode}}" mute$="{{userMute}}"
             path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
       </template>
 
@@ -240,7 +240,7 @@ Santa Tracker app.
           path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
 
-      <press-scene route="press" icon="1f4f0"
+      <press-scene route="press" freeform icon="1f4f0"
           path$="scenes/press/press-scene.html"></press-scene>
 
     </lazy-pages>
@@ -298,7 +298,8 @@ var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
 var VIDEO_ROUTES = [
   'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
-  'office', 'tired', 'com-room', 'reload', 'slacking-off', 'wheressanta'
+  'office', 'tired', 'com-room', 'reload', 'slacking-off', 'wheressanta',
+  'santasback'
 ];
 
 // Timing for playing random videos in Cast mode, in ms.
@@ -377,7 +378,11 @@ Polymer({
     /**
      * Whether the sounds are globally muted by the user.
      */
-    userMute: Boolean,
+    userMute: {
+      type: Boolean,
+      notify: true,
+      observer: '_userMuteChanged'
+    },
 
     /**
      * Whether the page is in the background.
@@ -385,15 +390,6 @@ Polymer({
     pageInBackground: {
       type: Boolean,
       readOnly: true
-    },
-
-    /**
-     * Computes the global mute state.
-     */
-    _globalMute: {
-      type: Boolean,
-      observer: '_globalMuteChanged',
-      computed: '_computeGlobalMute(userMute, pageInBackground)'
     },
 
     /**
@@ -619,9 +615,10 @@ Polymer({
     this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
     this._setFlightFinishedAt(this.config.FLIGHT_FINISHED);
 
-    var apiClient = getUrlParameter('api_client') || 'web';
+    var defaultApiClient = 'cast' in window ? 'web_chromecast' : 'web';
+    var apiClient = getUrlParameter('api_client') || defaultApiClient;
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
-      apiClient = 'web';
+      apiClient = defaultApiClient;
     }
 
     var loadSound = true;
@@ -644,7 +641,7 @@ Polymer({
     }
 
     if (loadSound) {
-      var sc = new SoundController(this.soundsLoaded.bind(this));
+      var sc = new SoundController(this._soundsLoaded.bind(this));
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
@@ -693,15 +690,12 @@ Polymer({
       // Schedule a reload in the next ~2 hours, but only after the last user
       // click.
       var reloader = function(ev) {
-        if (ev && !isRealEvent(ev)) {
-          return;  // ignore fake events, such as simulated clicks
-        }
         var when = Math.random() * 1000 * 60 * 60 * 2;  // next two hours
         window.clearTimeout(reloadTimeout);
         reloadTimeout = window.setTimeout(function() {
           window.location.reload();
         }, when);
-      }
+      };
       document.addEventListener('click', reloader);
       reloader();
     }.bind(this));
@@ -721,7 +715,7 @@ Polymer({
     var scene = this.selectedScene;
     if (scene) {
       this.$.preloader.active = !scene.loaded;
-      this.$.preloader.value = scene.preloadProgress;
+      this.$.preloader.value = scene.preloadProgress || 0;  // prevent undefined
     } else {
       this.$.preloader.active = false;
     }
@@ -731,6 +725,11 @@ Polymer({
     if (scene == this.$.village) {
       this._notifyHouses();
     }
+
+    scene.sceneParams = this.$.router.sceneParams || {};
+    this.$.router.sceneParams = null;  // clear, passed to first scene
+    // TODO(samthor): We should clear the #-params here, since they've been
+    // consumed.
   },
 
   onVideoSceneDone: function(event) {
@@ -816,7 +815,7 @@ Polymer({
   },
 
   _selectedSceneChanged: function(newValue, oldValue) {
-    this.$.chrome.isFixedToolbar = (newValue != this.$.village);
+    this.$.chrome.isFixedToolbar = newValue && !newValue.hasAttribute('freeform');
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
@@ -825,11 +824,6 @@ Polymer({
       this._triggerRandom();
     }
 
-    // Let the selected scene know about params.
-    // TODO(samthor): How does this interact with two-way binding?
-    if (this.selectedScene) {
-      this.selectedScene.sceneParams = this.sceneParams;
-    }
     this._updateWindowTitle();
   },
 
@@ -839,11 +833,12 @@ Polymer({
     }
 
     // Only remove certain elements from the DOM.
-    var dontRemoveEl = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
-    if (dontRemoveEl) {
+    var isPermanentScene = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
+    if (isPermanentScene) {
       return;
     }
 
+    // Find and remove the previous scene, if any.
     var prevSelectedScene = null;
     for (var i = 0, scene; scene = this.$.lazypages.items[i]; ++i) {
       if (scene.route == this.prevSelectedRoute) {
@@ -851,23 +846,27 @@ Polymer({
         break;
       }
     }
-
-    // Remove previous scene if it shouldn't always be active.
-    if (prevSelectedScene && !prevSelectedScene.alwaysActive) {
-      var dom = Polymer.dom(this.$.lazypages);
-      dom.removeChild(prevSelectedScene);
-
-      // Re-construct removed scene and add it back to lazy-pages. Note that
-      // loading-* isn't copied, since the element is already loaded.
-      var el = document.createElement(prevSelectedScene.localName);
-      el.route = prevSelectedScene.route;
-      el.santaApp = this;
-      el.loaded = true;
-      el.setAttribute('route', el.route);
-      el.setAttribute('mode', this.mode);
-
-      dom.appendChild(el);
+    if (!prevSelectedScene) {
+      return;
     }
+
+    var dom = Polymer.dom(this.$.lazypages);
+    dom.removeChild(prevSelectedScene);
+
+    // Re-construct removed scene and add it back to lazy-pages. Note that
+    // loading-* isn't copied, since the element is already loaded.
+    var el = document.createElement(prevSelectedScene.localName);
+    el.route = prevSelectedScene.route;
+    el.santaApp = this;
+    el.loaded = true;
+
+    ['route', 'mode', 'freeform'].forEach(function(attr) {
+      if (prevSelectedScene.hasAttribute(attr)) {
+        el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
+      }
+    });
+
+    dom.appendChild(el);
   },
 
   _routeChanged: function() {
@@ -910,7 +909,10 @@ Polymer({
   _updateWindowTitle: function() {
     var scene = this.selectedScene;
     var raw = scene && scene.getAttribute('icon');
-    var icon = raw ? String.fromCodePoint(parseInt(raw, 16)) : '';
+    var icon = '';
+    if (raw && String.fromCodePoint) {  // no emoji on IE11
+      icon = String.fromCodePoint(parseInt(raw, 16));
+    }
     document.title = icon + WINDOW_TITLE;
   },
 
@@ -930,29 +932,13 @@ Polymer({
     }
   },
 
-  _computeGlobalMute: function(userMute, pageInBackground) {
-    return userMute || pageInBackground;
+  _userMuteChanged: function(userMute) {
+    this.fire('sound-ambient', userMute ? 'global_sound_off' : 'global_sound_on');
   },
 
-  _globalMuteChanged: function(newValue) {
-    if (newValue)  {
-      this.fire('sound-ambient', 'global_blur');
-      this.fire('sound-ambient', 'global_pause');
-      if (this.selectedScene && this.selectedScene.fire) {
-        this.selectedScene.fire('scene-pause', true);
-      }
-    } else {
-      this.fire('sound-ambient', 'global_focus');
-      this.fire('sound-ambient', 'global_unpause');
-      if (this.selectedScene && this.selectedScene.fire) {
-        this.selectedScene.fire('scene-pause', false);
-      }
-    }
-  },
-
-  soundsLoaded: function(soundsName) {
-    // TODO(bckenny): selectedScene.fire check may be unecessary as it's not
-    // clear if it's possible for selectedScene to not be upgraded by this point
+  _soundsLoaded: function(soundsName) {
+    // _soundsLoaded is typically invoked after a scene preloads audio, but the
+    // scene may have changed in that time, so check upgraded state again.
     if (this.selectedScene && this.selectedScene.fire) {
       this.selectedScene.fire('sounds-loaded', soundsName);
     }
@@ -1070,6 +1056,9 @@ Polymer({
   sceneIsUnlocked: function(moduleName) {
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
+        if (santaApp.mode == 'portal') {
+          return !house.disabled && (this.santaService.now() > house.portalLaunchDate);
+        }
         return !house.disabled && (this.santaService.now() > house.launchDate);
       }
     }
@@ -1120,12 +1109,18 @@ Polymer({
         for (var i = 0; i < this._houses.length; i++) {
           var house = this._houses[i];
 
-          if (house.launchDate > todayDate) {
+          var launchDate;
+          if (santaApp.mode == 'portal') {
+            launchDate = house.portalLaunchDate;
+          } else {
+            launchDate = house.launchDate;
+          }
+          if (launchDate > todayDate) {
             house.iced = true;
             continue;
           }
           this.unlockHouse(i);
-          if (isSameDay(house.launchDate, todayDate)) {
+          if (isSameDay(launchDate, todayDate)) {
             todayHouse = house.module;
           }
         }

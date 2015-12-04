@@ -98,7 +98,7 @@ Call from santa scene.
     onShow: function() {
       this.fire('sound-ambient', 'callfromsanta_start');
       var div = this.$['module-callfromsanta'];
-      this.fire('sound-ambient', 'music_start_ingame');
+      //this.fire('sound-ambient', 'music_start_ingame');
       this.animationHelper = new CSSAnimationHelper(div);
       this.scene = new scenes.callfromsanta.Scene(div);
       this.scene.init();

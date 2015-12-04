@@ -2,17 +2,20 @@
 <script>
 (function() {
   var session = null;
-  var applicationID = 'FA3B9AAD';
+  var applicationID = location.hostname == 'santatracker.google.com' ? '76D471B7' : 'FA3B9AAD';
   var namespace = 'urn:x-cast:com.google.cast.santatracker';
 
   function sessionListener(e) {
     console.debug('cast_sender sessionId', e.sessionId);
+    window.santaApp.analyticsService.trackEvent('cast', 'connect');
+
     session = e;
-    session.addUpdateListener(function(isAlive) {
-      if (!isAlive) {
+    session.addUpdateListener(function() {
+      if (session.status != chrome.cast.SessionStatus.CONNECTED) {
+        window.santaApp.analyticsService.trackEvent('cast', 'disconnect');
         session = null;
       }
-    });  
+    });
     session.addMessageListener(namespace, function(namespace, message) {
       console.debug('cast_sender recieved message', namespace, message);
     });
@@ -35,8 +38,7 @@
     var apiConfig = new chrome.cast.ApiConfig(sessionRequest,
       sessionListener,
       receiverListener,
-      chrome.cast.AutoJoinPolicy.TAB_AND_ORIGIN_SCOPED,
-      chrome.cast.DefaultActionPolicy.CREATE_SESSION);
+      chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED);
     chrome.cast.initialize(apiConfig, function() {
       // great success
     }, function(message) {

@@ -32,8 +32,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tradtions.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-traditions-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -49,8 +55,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-codelab.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-codelab-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -65,8 +77,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-airport.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-airport-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -82,8 +100,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-season-of-giving.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-seasonofgiving-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -99,15 +123,15 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'http://google.com',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santa-is-back.png',
         'type': 'PNG file',
         'class': 'press-card-dl'
       },
       {
-        'title': 'Video',
-        'url': '#',
-        'type': 'YouTube Link',
-        'class': 'press-card-play'
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC2-santasback-full.gif',
+        'type': 'GIF file',
+        'class': 'press-card-dl'
       }
     ]
   },
@@ -121,8 +145,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santa-selfie.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC3-santaselfie-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -138,8 +168,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-translations.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC4-translation-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -154,7 +190,7 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-call-from-santa_US-only.png',
         'type': 'PNG file',
         'class': 'press-card-dl'
       }
@@ -170,8 +206,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-briefing.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC5-brief-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -186,8 +228,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-present-drop.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC6-presentdrop-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -203,8 +251,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santa-search.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC7-santasearch-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -219,8 +273,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-windtunnel.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC8-windtunnel-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -235,8 +295,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-racer.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC9-racer-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -251,8 +317,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-elf-jamband.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC10-elfjamband-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -267,8 +339,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-gumball-tilt.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC11-gumballtilt-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -283,8 +361,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santa-cards.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC12-santacards-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -299,8 +383,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-elf-jetpack.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC13-elfjetpack-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -315,8 +405,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-gift-slingshot.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC14-gifslingshot-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -332,8 +428,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-map-quiz.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC15-mapquiz-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -349,8 +451,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-present-bounce.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC16-presentbounce-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -362,12 +470,19 @@ var Cards = [
     'ordinal': 'th',
     'type': 'Play',
     'new': true,
+    'education': true,
     'description': 'The elves are back to coding practice, but mixing in their dancing skills. Use code to choreograph the elves dances - but watch out, as you get better, the dances get harder!',
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-code-boogie.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC17-codeboogie-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -382,8 +497,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-elf-car.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DECX-carpool-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -399,8 +520,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-city-lights.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC19-citylights-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -415,8 +542,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-mission-control.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC20-missioncontrol-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -428,14 +561,9 @@ var Cards = [
     'ordinal': 'st',
     'type': 'Play',
     'new': true,
+    'education': true,
     'description': 'This holiday season, we partnered with Google.org to showcase how certain organizations are helping kids with special needs.',
     'resources': [
-      {
-        'title': 'Still Screenshot',
-        'url': '#',
-        'type': 'PNG file',
-        'class': 'press-card-dl'
-      }
     ]
   },
   {
@@ -448,8 +576,14 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-memory-match.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC22-memorymatch-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
@@ -465,7 +599,7 @@ var Cards = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': '#',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santas-takeoff.png',
         'type': 'PNG file',
         'class': 'press-card-dl'
       }

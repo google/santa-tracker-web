@@ -13,9 +13,11 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+'use strict';
 
 goog.provide('app.Game');
 
+goog.require('app.ChooseMap');
 goog.require('app.Constants');
 goog.require('app.Controls');
 goog.require('app.Map');
@@ -25,12 +27,13 @@ goog.require('app.shared.utils');
 /**
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
+ * @param {string} componentDir A path to the directory for the game.
  * @implements {SharedGame}
  * @constructor
  * @struct
  * @export
  */
-app.Game = function(elem) {
+app.Game = function(elem, componentDir) {
   this.elem = $(elem);
   this.mapElem = this.elem.find('.map');
   this.guiElem = this.elem.find('.gui');
@@ -38,6 +41,7 @@ app.Game = function(elem) {
 
   this.gameoverModal = new app.shared.Gameover(this,
       this.elem.find('.gameover'));
+  this.chooseMap = new app.ChooseMap(this.elem.find('.choose-map'));
 
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
@@ -52,9 +56,10 @@ app.Game = function(elem) {
 
   /** @type {{height: number, width: number}} */
   this.mapDimensions = { height: 0, width: 0 };
-  this.map = new app.Map(this.mapElem, this.drawerElem, this.mapDimensions);
+  this.map = new app.Map(this.mapElem, this.drawerElem, componentDir, this.mapDimensions);
 
   this.onFrame_ = this.onFrame_.bind(this);
+  this.startMap_ = this.startMap_.bind(this);
 };
 
 /**
@@ -96,6 +101,8 @@ app.Game.prototype.getRandomHintDistanceOffset_ = function() {
  * @private
  */
 app.Game.prototype.hintLocation_ = function(character) {
+  window.santaApp.fire('sound-trigger', 'ss_button_hint');
+
   // The location of the character is a top/left percentage of the map
   let characterLocation = character.location;
 
@@ -251,18 +258,25 @@ app.Game.prototype.updatePan_ = function() {
  * Resets all game entities and restarts the game. Can be called at any time.
  */
 app.Game.prototype.restart = function() {
-  this.paused = false;
-  this.unfreezeGame();
   this.onResize_();
+  this.chooseMap.show(this.startMap_);
+};
 
-  window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
-  this.gameStartTime = +new Date;
-
+/**
+ * Start the map.
+ * @param {string} mapName The name of the map.
+ * @private
+ */
+app.Game.prototype.startMap_ = function(mapName) {
   this.controls.reset();
   this.scale_(1);
-  this.map.initialize();
-
+  this.map.setMap(mapName);
   this.controls.start();
+
+  this.paused = false;
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'santasearch'});
+  this.gameStartTime = +new Date;
+  this.unfreezeGame();
 };
 
 /**
@@ -276,6 +290,7 @@ app.Game.prototype.update = function(delta) {
 
   if (this.map.allFound) {
     this.gameover();
+    this.isPlaying = false;
     return;
   }
 

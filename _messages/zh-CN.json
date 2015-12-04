@@ -261,7 +261,7 @@
 		"message": "迈左脚"
 	},
 	"codeboogie-block-leftfoot-tooltip": {
-		"message": "向左跨出一步。"
+		"message": "向左踏一步。"
 	},
 	"codeboogie-block-rightarm": {
 		"message": "伸展右臂"
@@ -273,43 +273,58 @@
 		"message": "迈右脚"
 	},
 	"codeboogie-block-rightfoot-tooltip": {
-		"message": "向右跨出一步。"
+		"message": "向右踏一步。"
 	},
 	"codeboogie-block-shake": {
-		"message": "摆臀"
+		"message": "扭屁股"
 	},
 	"codeboogie-block-shake-tooltip": {
-		"message": "甩臀。"
+		"message": "扭一扭屁股。"
 	},
 	"codeboogie-block-split": {
-		"message": "两脚分开"
+		"message": "一字马"
 	},
 	"codeboogie-block-split-tooltip": {
-		"message": "两腿分开。"
+		"message": "来个一字马。"
 	},
 	"codeboogie-get-dancing": {
 		"message": "开始跳舞吧！"
 	},
+	"codeboogie-lets-dance": {
+		"message": "一展舞姿"
+	},
 	"codeboogie-next-dance": {
 		"message": "下一支舞"
+	},
+	"codeboogie-nice-moves": {
+		"message": "舞林之王！"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "请按照方块提示跳舞。"
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "知道吗？您只需 {{ideal}} 个方块即能完成这支舞蹈。请尝试使用以下方块。"
+		"message": "知道吗？您只需 {{ideal}} 个方块就能完成这支舞蹈。来吧，用下面的方块跳跳看。"
 	},
 	"codeboogie-result-perfect-success": {
-		"message": "跳得不错！您已出色完成了这支舞蹈。"
+		"message": "真棒！这整场舞您都跳得很好。"
 	},
 	"codeboogie-result-too-few-blocks-fail": {
-		"message": "您用的方块没错，不过请用更多方块来完成这支舞蹈。"
+		"message": "您用的方块没错，但要用到更多方块才能过关。"
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "知道吗？您只需 {{ideal}} 个方块就能完成这支舞蹈。"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "您跳得太快啦。"
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "您的动作好像不对哦。请这样做："
 	},
 	"codeboogie-success": {
 		"message": "成功！"
 	},
 	"codeboogie-watch-closely": {
-		"message": "请认真观看老师的示范！"
+		"message": "看仔细噢！"
 	},
 	"codelab-block-moveeast": {
 		"message": "东"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "多米尼加共和国"
+	},
+	"donate_button": {
+		"message": "捐赠"
+	},
+	"donate_text": {
+		"message": "在 DonorsChoose.org 上帮助有特别需要的项目筹资，贡献自己的爱心和力量。今年 12 月份，我们匹配成功的捐款比例提升了 50%，影响力翻了一番。我们将再接再厉，直至实现捐款达到 1 百万美元的目标。手牵手，肩并肩，我们定能推动融合教育的全方位发展：#ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "阿尔及利亚"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "沙特阿拉伯"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "姜饼人"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "圣诞老婆婆"
+	},
+	"santasearch_character_pegman": {
+		"message": "街景小人"
+	},
+	"santasearch_character_penguin": {
+		"message": "企鹅"
+	},
+	"santasearch_character_rudolph": {
+		"message": "驯鹿鲁道夫"
+	},
+	"santasearch_character_santa": {
+		"message": "圣诞老人"
+	},
 	"santasearch_hint": {
 		"message": "提示"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "圣诞老人自拍"
+	},
+	"scene_seasonofcaring": {
+		"message": "送温暖的季节"
 	},
 	"scene_seasonofgiving": {
 		"message": "礼物漫天飞"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "与您的距离"
+	},
+	"tracker_flight_nearby": {
+		"message": "圣诞老人就在附近，快来找找看"
+	},
+	"tracker_flight_start": {
+		"message": "圣诞老人已从北极出发，您现在可以跟着他环游世界啦"
 	},
 	"tracker_gifts_delivered": {
 		"message": "已送出的礼物数"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "在 Google Cast 上寻找圣诞老人"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome 扩展程序"
 	},
 	"village_takesoff": {
 		"message": "圣诞老人出发倒计时"

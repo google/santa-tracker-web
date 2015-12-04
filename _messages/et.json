@@ -290,8 +290,14 @@
 	"codeboogie-get-dancing": {
 		"message": "Tantsige!"
 	},
+	"codeboogie-lets-dance": {
+		"message": "Tantsime"
+	},
 	"codeboogie-next-dance": {
 		"message": "Järgmine tants"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Tantsulõvi!"
 	},
 	"codeboogie-result-missing-block-fail": {
 		"message": "Proovige alloleva plokiga tantsutaktis püsida."
@@ -304,6 +310,15 @@
 	},
 	"codeboogie-result-too-few-blocks-fail": {
 		"message": "Kasutate õigeid plokke, kuid proovige neid tantsu lõpetamiseks õigel ajal kasutada."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Kas teadsite, et võite selle tantsu lõpetada vaid {{ideal}} plokiga?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Tegite liiga palju samme."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Tegite vist vale sammu. Proovige hoopis seda:"
 	},
 	"codeboogie-success": {
 		"message": "Õnnestus!"
@@ -454,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikaani Vabariik"
+	},
+	"donate_button": {
+		"message": "Anneta"
+	},
+	"donate_text": {
+		"message": "Aidake saidil DonorsChoose.org erivajadustega lastele mõeldud projekte rahastada. Kahekordistame detsembrikuu jooksul kasutajate annetused, annetades omalt poolt 50%, kuni saavutame eesmärgi miljon USA dollarit. Koos aitame muuta klassid kaasavamaks. #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Alžeeria"
@@ -836,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saudi Araabia"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Piparkoogimehike"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Jõulumemm"
+	},
+	"santasearch_character_pegman": {
+		"message": "Abimees"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingviin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Jõuluvana"
+	},
 	"santasearch_hint": {
 		"message": "Vihje"
 	},
@@ -919,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Jõuluvana selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Helde aeg"
 	},
 	"scene_seasonofgiving": {
 		"message": "Pühadelahkus"
@@ -1039,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Kaugus teist"
+	},
+	"tracker_flight_nearby": {
+		"message": "Jõuluvana on lähedal – vaadake, kus"
+	},
+	"tracker_flight_start": {
+		"message": "Jõuluvana asus põhjapooluselt teele ja nüüd saate tema teekonda jälgida"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Kohale toimetatud kingitusi"
@@ -4768,6 +4816,9 @@
 	},
 	"village_santa_cast": {
 		"message": "Jõuluvana Google Castis"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome'i laiend"
 	},
 	"village_takesoff": {
 		"message": "Jõuluvana asub teele"

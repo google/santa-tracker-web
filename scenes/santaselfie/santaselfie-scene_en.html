@@ -155,7 +155,7 @@ Santaselfie scene.
         </div>
       </div>
       <div class="gui">
-        <div class="shareOverlay overlay">
+        <div class="shareOverlay overlay shareOverlay--barber">
           <div class="shareOverlay-dialog overlay-dialog">
             <div class="shareOverlay-imageWrapper">
               <div class="shareOverlay-image"></div>
@@ -265,7 +265,7 @@ Santaselfie scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams.beard) {
+      if (this.game && this.sceneParams && this.sceneParams.beard) {
         this.game.restoreBeard(this.sceneParams.beard);
       }
     }
