@@ -140,8 +140,7 @@ Must be a child of bubble-overlay.
       x: {
         type: Number,
         value: 0,
-        notify: true,
-        // observer: '_xChanged'
+        notify: true
       },
 
       /**
@@ -150,8 +149,7 @@ Must be a child of bubble-overlay.
       y: {
         type: Number,
         value: 0,
-        notify: true,
-        // observer: '_yChanged'
+        notify: true
       },
 
       /**
@@ -202,14 +200,6 @@ Must be a child of bubble-overlay.
     _moveBubble: function(x, y, radius, bubble) {
       this.bubble.move(x, y, radius);
     },
-
-    // _xChanged: function() {
-    //   this.bubble.move(this.x, this.y, this.radius);
-    // },
-
-    // _yChanged: function() {
-    //   this.bubble.move(this.x, this.y, this.radius);
-    // },
 
     /**
      * Changes bubble's radius.
