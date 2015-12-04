@@ -36,17 +36,18 @@ Tracker scene.
 <dom-module id="tracker-scene">
 <template>
   <style>
-      #tracker-zoom-controls-zoomin::shadow iron-icon,
-      #tracker-zoom-controls-zoomout::shadow iron-icon {
-        -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
-        filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
-      }
-      .fit {
-        @apply(--layout-fit);
-      }
-    </style>
+    #tracker-zoom-controls-zoomin::shadow iron-icon,
+    #tracker-zoom-controls-zoomout::shadow iron-icon {
+      -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
+      filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
+    }
+    .fit {
+      @apply(--layout-fit);
+    }
+  </style>
 
-  <iron-a11y-keys keys="esc" on-keys-pressed="keyHandler"></iron-a11y-keys>
+  <!-- Keyboard handler -->
+  <iron-a11y-keys keys="esc" on-keys-pressed="_keyHandler"></iron-a11y-keys>
 
   <div id="module-tracker">
     <div class="scene">
@@ -193,7 +194,7 @@ Tracker scene.
               </li>
               <li >
                 <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large">{{formatInt_(location.presentsDelivered)}}</div>
+                <div class="stat-large">{{_formatInt(location.presentsDelivered)}}</div>
               </li>
               <template is="dom-if" if="{{!location.stopover}}">
                 <li>
@@ -251,7 +252,7 @@ Tracker scene.
               </template>
               <li>
                 <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                <div class="stat-large">{{formatInt_(location.presentsDelivered)}}</div>
+                <div class="stat-large">{{_formatInt(location.presentsDelivered)}}</div>
               </li>
             </ul>
           </template>
@@ -308,7 +309,7 @@ Tracker scene.
        */
       location: {
         type: Object,
-        observer: 'locationChanged'
+        observer: '_locationChanged'
       },
 
       /**
@@ -317,7 +318,7 @@ Tracker scene.
       destinations: {
         type: Array,
         value: null,
-        observer: 'destinationsChanged'
+        observer: '_destinationsChanged'
       },
 
       /**
@@ -565,7 +566,7 @@ Tracker scene.
       }.bind(this));
 
       navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
-        this.geoLocationError_.bind(this), {
+        this._geoLocationError.bind(this), {
           enableHighAccuracy: false,
           timeout: 4000,
           maximumAge: Infinity // We really don't care
@@ -643,19 +644,19 @@ Tracker scene.
       this.fire('analytics-track-event', {category: 'geolocation', action: 'success'});
     },
 
-    geoLocationError_: function(error) {
+    _geoLocationError: function(error) {
       this.userLocation = null;
       this.$.intro.closeIntro();
       this.fire('analytics-track-event', {category: 'geolocation', action: 'error'});
     },
 
-    destinationsChanged: function() {
+    _destinationsChanged: function() {
       if (this.worldView_) {
         this.worldView_.setDestinations(this.destinations || []);
       }
     },
 
-    locationChanged: function() {
+    _locationChanged: function() {
       var location = this.location;
 
       this.arrival_ = this.formatCountdown_(location.next.arrival);
@@ -779,7 +780,7 @@ Tracker scene.
     formatDistance_: function(dist) {
       // TODO: localise? (miles)
       // 0xA0 non-breaking space
-      return this.formatInt_(dist / 1000) + '\xA0km';
+      return this._formatInt(dist / 1000) + '\xA0km';
     },
 
     formatCountdown_: function(timestamp) {
@@ -808,11 +809,11 @@ Tracker scene.
       return parts.join(':');
     },
 
-    formatInt_: function(value) {
+    _formatInt: function(value) {
       return new Number(Math.floor(value)).toLocaleString();
     },
 
-    keyHandler: function(e, detail) {
+    _keyHandler: function(e, detail) {
       switch(detail) {
         case 'esc':
           e.stopPropagation();

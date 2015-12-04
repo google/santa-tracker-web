@@ -48,11 +48,14 @@ Canvas overlay to draw animated cut-out bubbles over the content.
       color: {
         type: String,
         value: '#ff0000'
+      },
+
+      bubbles: {
+        type: Array,
+        value: function() { return []; }
       }
 
     },
-
-    bubbles: null,
 
     ready: function() {
       this.ctx = this.$.canvas.getContext('2d');
@@ -105,10 +108,8 @@ Canvas overlay to draw animated cut-out bubbles over the content.
 <!--
 A cut-out bubble in the canvas over the content.
 Must be a child of bubble-overlay.
-
-@element canvas-bubble
 -->
-<dom-module id="canvas-bubble" attributes="x y">
+<dom-module id="canvas-bubble">
 <template>
   <style>
     :host {
@@ -121,59 +122,94 @@ Must be a child of bubble-overlay.
 <script>
   Polymer({
 
+    is: 'canvas-bubble',
+
     properties: {
 
       /**
        * Bubble's radius (0 is closed).
        */
-      radius: 0,
+      radius: {
+        type: Number,
+        value: 0
+      },
 
       /**
        * Bubble's location along x axis.
        */
-      x: 0,
+      x: {
+        type: Number,
+        value: 0,
+        notify: true,
+        // observer: '_xChanged'
+      },
 
       /**
        * Bubble's location along y axis.
        */
-      y: 0,
+      y: {
+        type: Number,
+        value: 0,
+        notify: true,
+        // observer: '_yChanged'
+      },
+
+      /**
+       * Underlying canvas bubble.
+       * @type Bubble
+       */
+      bubble: {
+        type: Object,
+        value: undefined
+      }
 
     },
+
+    observers: [
+      '_moveBubble(x, y, radius, bubble)'
+    ],
 
     ready: function() {
-      this.setupBubble_();
-      this.updatePosition_();
+      this._setupBubble();
+      this._updatePosition();
     },
 
-    setupBubble_: function() {
-      if (this.parentNode.tagName !== 'BUBBLE-OVERLAY') {
-        console.warn('The parent of the bubble has to be a <bubble-overlay> element.');
-      }
-      this.bubble = new Bubble(this.x, this.y, this.parentNode);
+    _setupBubble: function() {
+      var parent = Polymer.dom(this).parentNode;
 
-      this.bubble.addEventListener('translate', function() {
+      if (parent.localName !== 'bubble-overlay') {
+        console.warn(
+            'The parent element of the bubble has to be a <bubble-overlay>.');
+      }
+      this.bubble = new Bubble(this.x, this.y, parent);
+
+      this.bubble.addEventListener('translate', function(e) {
         this.fire('translate');
       }.bind(this));
 
-      this.bubble.addEventListener('resize', function() {
+      this.bubble.addEventListener('resize', function(e) {
         this.fire('resize');
       }.bind(this));
     },
 
-    updatePosition_: function() {
+    _updatePosition: function() {
       this.style.width = 2 * this.radius + 'px';
       this.style.height = 2 * this.radius + 'px';
       this.style.top = this.y - this.radius + 'px';
       this.style.left = this.x - this.radius + 'px';
     },
 
-    xChanged: function() {
-      this.bubble.move(this.x, this.y, this.radius);
+    _moveBubble: function(x, y, radius, bubble) {
+      this.bubble.move(x, y, radius);
     },
 
-    yChanged: function() {
-      this.bubble.move(this.x, this.y, this.radius);
-    },
+    // _xChanged: function() {
+    //   this.bubble.move(this.x, this.y, this.radius);
+    // },
+
+    // _yChanged: function() {
+    //   this.bubble.move(this.x, this.y, this.radius);
+    // },
 
     /**
      * Changes bubble's radius.
@@ -185,7 +221,7 @@ Must be a child of bubble-overlay.
     open: function(radius, callback) {
       this.bubble.open(radius, callback);
       this.radius = radius;
-      this.updatePosition_();
+      this._updatePosition();
     },
 
     /**
@@ -202,7 +238,7 @@ Must be a child of bubble-overlay.
       this.x = x;
       this.y = y;
       this.radius = radius;
-      this.updatePosition_();
+      this._updatePosition();
     }
   });
 </script>
