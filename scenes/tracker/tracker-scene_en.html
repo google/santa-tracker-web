@@ -52,8 +52,8 @@ Tracker scene.
   <div id="module-tracker">
     <div class="scene">
 
+      <!-- Conditional required to prevent double loading -->
       <template is="dom-if" if="{{santaApp}}">
-        <!-- Conditional required to prevent double loading -->
         <google-maps-api version="3.exp"
                          client-id="{{santaApp.config.CLIENT_ID}}"
                          language="{{santaApp.language}}"
@@ -63,7 +63,7 @@ Tracker scene.
       <city-feed id="feed" class="fit" timeline="{{santaApp.timeline}}"
                  santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed>
 
-      <tracker-intro id="intro"
+      <tracker-intro id="intro" hidden
           user-location="{{userLocation}}"
           santa-distance="{{initialSantaDistance}}"
           santa-location="{{initialSantaLocation}}"></tracker-intro>
@@ -130,7 +130,7 @@ Tracker scene.
             </a>
           </div>
         </template>
-        <template is="dom-if" bind="{{trackerCard}}">
+        <template is="dom-if" if="[[trackerCard]]">
           <div class="card card-{{trackerCard.type}}">
             <template bind ref="mini-cards-template"></template>
           </div>
@@ -138,15 +138,17 @@ Tracker scene.
       </div>
 
       <div id="tracker-zoom-controls" hidden>
-        <paper-fab id="tracker-zoom-controls-zoomin" icon="santa:add" alt="Zoom in" mini on-tap="trackerZoomIn"></paper-fab>
-        <paper-fab id="tracker-zoom-controls-zoomout" icon="santa:remove" alt="Zoom out" mini on-tap="trackerZoomOut"></paper-fab>
+        <paper-fab id="tracker-zoom-controls-zoomin" icon="santa:add"
+                   alt="Zoom in" mini on-tap="trackerZoomIn"></paper-fab>
+        <paper-fab id="tracker-zoom-controls-zoomout" icon="santa:remove"
+                   alt="Zoom out" mini on-tap="trackerZoomOut"></paper-fab>
       </div>
 
       <div id="trackermap" class="fit"></div>
 
       <iron-media-query query="max-width:660px" query-matches="{{isPhoneSize}}"></iron-media-query>
 
-      <template is="dom-if" if="{{cityFeedActive}}">
+      <template is="dom-if" if="[[cityFeedActive]]">
         <div id="city-stats">
           <ul>
             <li hidden$="{{!location.stopover}}">
@@ -360,7 +362,7 @@ Tracker scene.
       cityFeedActive:  {
         type: Boolean,
         value: false,
-        observer: 'cityFeedActiveChanged'
+        observer: '_cityFeedActiveChanged'
       },
 
       /**
@@ -461,13 +463,15 @@ Tracker scene.
       this.preloadImages(images);
     },
 
-    onCurrentLocationClicked: function(e, detail, sender) {
+    // TODO: lots to update here for Polymer 1.0.
+    onCurrentLocationClicked: function(e, detail) {
       e.preventDefault();
       var destId = sender.templateInstance.model.location.stopover.id;
       this.cityFeedActive = true;
       this.$.feed.scrollToDest(destId);
     },
 
+    // TODO: lots to update here for Polymer 1.0.
     onTrackerCardClicked: function(e, detail, sender) {
       e.preventDefault();
       this.cityFeedActive = true;
@@ -480,9 +484,11 @@ Tracker scene.
     },
 
     trackSanta: function() {
-      if (this.trackingInterval_) return;
+      if (this.trackingInterval_) {
+        return;
+      }
 
-      this.updateSanta_();
+      this._updateSanta();
     },
 
     trackerZoomIn: function() {
@@ -497,7 +503,7 @@ Tracker scene.
       }
     },
 
-    updateSanta_: function() {
+    _updateSanta: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
         this.location = location;
       }.bind(this));
@@ -508,7 +514,7 @@ Tracker scene.
       }
 
       if (!this.trackingInterval_) {
-        this.trackingInterval_ = window.setInterval(this.updateSanta_.bind(this), 250);
+        this.trackingInterval_ = window.setInterval(this._updateSanta.bind(this), 250);
       }
     },
 
@@ -518,7 +524,9 @@ Tracker scene.
     },
 
     setupTracker: function() {
-      if (!this.mapReady_ || !this.shown || this.worldView_) return;
+      if (!this.mapReady_ || !this.shown || this.worldView_) {
+        return;
+      }
 
       this.worldView_ = new WorldView(this, this.componentDir);
       this.worldView_.setupMap();
@@ -574,7 +582,7 @@ Tracker scene.
 
       this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
 
-      this.cityFeedActiveChanged();  // trigger listener for cityFeedActive now that worldView_ exists
+      this._cityFeedActiveChanged();  // trigger listener for cityFeedActive now that worldView_ exists
 
       this.trackSanta();
     },
@@ -699,7 +707,7 @@ Tracker scene.
       }
     },
 
-    cityFeedActiveChanged: function() {
+    _cityFeedActiveChanged: function() {
       if (!this.worldView_) {
         return;  // ignore, called when worldView_ is created
       }
