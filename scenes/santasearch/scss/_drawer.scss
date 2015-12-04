@@ -55,6 +55,7 @@ $character-focus-background-color: #93D629;
     left: 50%;
     margin-left: -($character-focus-size / 2);
     margin-top: -($character-focus-size / 2) - 10em;
+    pointer-events: none;
     position: absolute;
     top: 50%;
     width: $character-focus-size;

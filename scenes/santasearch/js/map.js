@@ -22,14 +22,14 @@ goog.require('app.Constants');
 
 /**
  * The map where characters are hidden.
- * @param {!jQuery} mapElem The element for the map.
- * @param {!jQuery} drawerElem The element for the drawer.
+ * @param {!jQuery} elem The scene element.
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  * @constructor
  */
-app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
+app.Map = function(elem, mapElem, componentDir, mapDimensions) {
   this.mapElem = mapElem;
-  this.drawerElem = drawerElem;
+  this.drawerElem = elem.find('.drawer');
+  this.sizeElem = elem.find('.viewport__size');
   this.componentDir = componentDir;
   this.mapDimensions = mapDimensions;
 
@@ -53,7 +53,7 @@ app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
 
   // Initialize characters
   app.Constants.CHARACTERS.forEach((name) => {
-    let character = new app.Character(name, this.mapElem, this.drawerElem);
+    let character = new app.Character(name, mapElem, this.drawerElem);
     character.onLostFocus = this.focusNextUnfoundCharacter_;
     character.onSelected = this.changeFocus_.bind(this, character);
     this.characters[name] = character;
@@ -165,4 +165,22 @@ app.Map.prototype.changeFocus_ = function(character) {
   this.focusedCharacter.blur();
   character.focus();
   this.focusedCharacter = character;
+};
+
+/**
+ * Change the size of the map.
+ */
+app.Map.prototype.changeSize = function(mapDimensions) {
+  this.mapDimensions = mapDimensions;
+
+  this.mapElem.css('width', this.mapDimensions.width);
+  this.mapElem.css('height', this.mapDimensions.height);
+
+  this.sizeElem.css('width', this.mapDimensions.width);
+  this.sizeElem.css('height', this.mapDimensions.height);
+
+  this.mapElem.css('margin-left', -(this.mapDimensions.width / 2));
+  this.mapElem.css('margin-top', -(this.mapDimensions.height / 2));
+
+  this.updateCharacters();
 };

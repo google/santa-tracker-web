@@ -35,6 +35,7 @@ goog.require('app.shared.utils');
  */
 app.Game = function(elem, componentDir) {
   this.elem = $(elem);
+  this.viewportElem = this.elem.find('.viewport--map');
   this.mapElem = this.elem.find('.map');
   this.guiElem = this.elem.find('.gui');
   this.drawerElem = this.elem.find('.drawer');
@@ -43,20 +44,20 @@ app.Game = function(elem, componentDir) {
       this.elem.find('.gameover'));
   this.chooseMap = new app.ChooseMap(this.elem.find('.choose-map'));
 
+  /** @type {{height: number, width: number}} */
+  this.mapDimensions = { height: 0, width: 0 };
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
-  this.controls = new app.Controls(this.elem, this.mapElem);
+  this.controls = new app.Controls(this.elem, this.mapElem, this.mapDimensions);
 
   this.gameAspectRatio = 1600 / 900;
-  this.drawerHeight = 0;
   this.paused = false;
   this.isPlaying = false;
   this.lastFrame = 0;
   this.requestId = 0;
 
-  /** @type {{height: number, width: number}} */
-  this.mapDimensions = { height: 0, width: 0 };
-  this.map = new app.Map(this.mapElem, this.drawerElem, componentDir, this.mapDimensions);
+  this.map = new app.Map(this.elem, this.mapElem, componentDir,
+      this.mapDimensions);
 
   this.onFrame_ = this.onFrame_.bind(this);
   this.startMap_ = this.startMap_.bind(this);
@@ -177,26 +178,31 @@ app.Game.prototype.panAndScaleToTarget_ = function(scaleBefore, scaleTarget,
  * @private
  */
 app.Game.prototype.scale_ = function(value) {
-  let windowAspectRatio = this.elem.width() / this.elem.height();
+  let width = +this.viewportElem.width();
+  let height = +this.viewportElem.height();
+  let windowAspectRatio = width / height;
 
   if (windowAspectRatio < this.gameAspectRatio) {
-    this.mapDimensions.width = this.elem.height() * this.gameAspectRatio;
-    this.mapDimensions.height = +this.elem.height();
+    this.mapDimensions.width = height * this.gameAspectRatio;
+    this.mapDimensions.height = height;
   } else {
-    this.mapDimensions.width = +this.elem.width();
-    this.mapDimensions.height = this.elem.width() / this.gameAspectRatio;
+    this.mapDimensions.width = width;
+    this.mapDimensions.height = width / this.gameAspectRatio;
   }
 
   this.mapDimensions.width *= value;
   this.mapDimensions.height *= value;
 
-  this.mapElem.css('width', this.mapDimensions.width);
-  this.mapElem.css('height', this.mapDimensions.height);
+  this.mapDimensions.viewportWidth = width;
+  this.mapDimensions.viewportHeight = height;
 
-  this.mapElem.css('margin-left', -(this.mapDimensions.width / 2));
-  this.mapElem.css('margin-top', -(this.mapDimensions.height / 2));
+  let centerX = this.mapDimensions.width / 2;
+  this.mapDimensions.viewportLeft = centerX - (width / 2);
+  let centerY = this.mapDimensions.height / 2;
+  this.mapDimensions.viewportTop = centerY - (height / 2);
 
-  this.map.updateCharacters();
+  this.map.changeSize(this.mapDimensions);
+  this.controls.syncScroll();
 };
 
 /**
@@ -206,7 +212,7 @@ app.Game.prototype.scale_ = function(value) {
  * @private
  */
 app.Game.prototype.clampXPanForWidth_ = function(panX, width) {
-  let max = (width - this.elem.width()) / 2;
+  let max = (width - this.viewportElem.width()) / 2;
 
   let diff = max - Math.abs(panX);
 
@@ -224,11 +230,7 @@ app.Game.prototype.clampXPanForWidth_ = function(panX, width) {
  * @private
  */
 app.Game.prototype.clampYPanForHeight_ = function(panY, height) {
-  let max = (height - this.elem.height()) / 2;
-
-  if (panY < 0) {
-    max += this.drawerHeight;
-  }
+  let max = (height - this.viewportElem.height()) / 2;
 
   let diff = max - Math.abs(panY);
 
@@ -396,8 +398,8 @@ app.Game.prototype.togglePause = function() {
  * @private
  */
 app.Game.prototype.onResize_ = function() {
-  let width = this.elem.width();
-  let height = this.elem.height();
+  let width = this.viewportElem.width();
+  let height = this.viewportElem.height();
   let windowWidthLargerThanMap = width > this.mapDimensions.width;
   let windowHeightLargerThanMap = height > this.mapDimensions.height;
 
@@ -409,8 +411,7 @@ app.Game.prototype.onResize_ = function() {
 
   // Scale GUI
   var scale = Math.min(1, this.elem.width() / 1200);
-  this.guiElem.css('font-size', scale + 'px');
-  this.drawerHeight = +this.drawerElem.height();
+  this.elem.css('font-size', scale + 'px');
 };
 
 /**

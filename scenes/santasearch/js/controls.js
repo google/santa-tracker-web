@@ -25,12 +25,15 @@ goog.require('app.Constants');
  * @param {!jQuery} mapElem The map element.
  * @constructor
  */
-app.Controls = function(elem, mapElem) {
+app.Controls = function(elem, mapElem, mapDimensions) {
   this.elem = elem;
   this.mapElem = mapElem;
+  this.scrollableElem = this.elem.find('.viewport--scrollable');
+  this.mapDimensions = mapDimensions;
 
   this.enabled = false;
 
+  this.syncingScroll = false;
   this.selecting = false;
   this.pinching = false;
   this.originalPinchDistance = undefined;
@@ -65,6 +68,8 @@ app.Controls.prototype.start = function() {
   this.elem.on('mouseup.santasearch', this.onMouseup_.bind(this));
   this.elem.on('mouseleave.santasearch', this.onMouseup_.bind(this));
 
+  this.scrollableElem.on('scroll.santasearch', this.onScroll_.bind(this));
+
   this.elem.find('.zoom__in').on('click', this.zoomIn_.bind(this));
   this.elem.find('.zoom__out').on('click', this.zoomOut_.bind(this));
   this.elem.on('dblclick.santasearch', this.nextZoomLevel_.bind(this));
@@ -81,6 +86,7 @@ app.Controls.prototype.reset = function() {
   this.pan.y = 0;
   this.pinching = false;
   this.selecting = false;
+  this.syncScroll();
 
   this.scaleTarget = undefined;
 };
@@ -106,6 +112,17 @@ app.Controls.prototype.updateLocation_ = function(x, y) {
   this.lastLocation.x = x;
   this.lastLocation.y = y;
   this.hasLastLocation = true;
+
+  this.syncScroll();
+};
+
+/**
+ * Keep scroll position in sync
+ */
+app.Controls.prototype.syncScroll = function() {
+  this.syncingScroll = true;
+  this.scrollableElem.scrollLeft(this.mapDimensions.viewportLeft - this.pan.x);
+  this.scrollableElem.scrollTop(this.mapDimensions.viewportTop - this.pan.y);
 };
 
 /**
@@ -268,6 +285,24 @@ app.Controls.prototype.onMouseup_ = function(event) {
 };
 
 /**
+ * Handle scroll event.
+ * @param {jQuery.Event} event The scroll event.
+ * @private
+ */
+app.Controls.prototype.onScroll_ = function(event) {
+  if (this.syncingScroll) {
+    this.syncingScroll = false;
+    return;
+  }
+
+  let dimensions = this.mapDimensions;
+  this.pan.x = dimensions.viewportLeft - this.scrollableElem.scrollLeft();
+  this.pan.y = dimensions.viewportTop - this.scrollableElem.scrollTop();
+
+  this.needsPanUpdate = true;
+};
+
+/**
  * Scale and pan.
  * @param {number} from The current zoom level.
  * @param {number} to The new zoom level.
@@ -338,14 +373,14 @@ app.Controls.prototype.zoomOut_ = function() {
  * @private
  */
 app.Controls.prototype.nextZoomLevel_ = function(event) {
-  let x = (window.innerWidth / 2) - event.pageX;
-  let y = (window.innerHeight / 2) - event.pageY;
+  let x = (this.mapDimensions.viewportWidth / 2) - event.pageX;
+  let y = (this.mapDimensions.viewportHeight / 2) - event.pageY;
   this.pan.x += x / this.scale;
   this.pan.y += y / this.scale;
 
   if (this.scale === app.Constants.ZOOM_MAX) {
-    this.scaleTarget = 1;
+    this.scalePan(this.scale, 1);
   } else {
-    this.zoomIn_();
+    this.scalePan(this.scale, this.scale + app.Constants.ZOOM_STEP_SIZE);
   }
 };

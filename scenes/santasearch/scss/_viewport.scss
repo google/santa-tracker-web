@@ -1,0 +1,16 @@
+##{$name} .viewport {
+  bottom: 75em;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &--scrollable {
+    overflow: auto;
+  }
+
+  &--map {
+    pointer-events: none;
+  }
+}

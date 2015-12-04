@@ -1,5 +1,10 @@
 ##{$name} .character-collider {
+  pointer-events: auto;
   position: absolute;
   left: 0;
   top: 0;
+
+  &--found {
+    pointer-events: none;
+  }
 }

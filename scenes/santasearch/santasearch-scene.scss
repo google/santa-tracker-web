@@ -12,8 +12,10 @@ $gameover-bg: $scene-bg;
 @import 'scss/character-collider';
 @import 'scss/drawer';
 @import 'scss/hint';
+@import 'scss/viewport';
 
 ##{$name} {
+  font-size: 1px;
   position: absolute;
   top: 0;
   right: 0;
@@ -27,10 +29,6 @@ $gameover-bg: $scene-bg;
     position: absolute;
     right: 0;
     top: 0;
-  }
-
-  .gui {
-    font-size: 1px;
   }
 
   // No logo in board
