@@ -183,6 +183,9 @@ City feed view in Tracker
               </iron-pages>
             </div>
 
+             <!-- TODO(ebidel): Dry this up. Duplicated markup from left-side
+                   cards above due to loss of <template ref> in Polymer 1.0. -->
+
              <!-- mini cards -->
               <div hidden$="{{!itemIsType(item, 'facts')}}">
                 <div class="card-header">
@@ -248,6 +251,7 @@ City feed view in Tracker
 
               <!-- TODO(ebidel): Dry this up. Duplicated markup from left-side
                    cards above due to loss of <template ref> in Polymer 1.0. -->
+
               <!-- mini cards -->
               <div hidden$="{{!itemIsType(item.nextCard, 'facts')}}">
                 <div class="card-header">

@@ -290,7 +290,7 @@ WorldView.prototype.showSceneMarkers_ = function() {
     var visible = now > launchDate;
     if (marker.getVisible() != visible) {
       marker.setVisible(visible);
-    }    
+    }
   }
 };
 

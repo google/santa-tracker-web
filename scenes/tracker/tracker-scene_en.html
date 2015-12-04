@@ -72,7 +72,7 @@ Tracker scene.
       <div id="cards">
         <template id="mini-cards-template">
           <div hidden$="{{!modelTypeIs_('city')}}" class="card-city">
-            <a href="{{pageUrl}}#tracker" on-tap="onTrackerCardClicked">
+            <a href$="{{pageUrl}}#tracker" on-tap="onTrackerCardClicked">
               <div class="card-header">
                 <div class="corner-image"></div>
                 <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -87,7 +87,7 @@ Tracker scene.
             </a>
           </div>
           <div hidden$="{{!modelTypeIs_('facts')}}">
-            <a href="{{pageUrl}}#tracker" on-tap="onTrackerCardClicked">
+            <a href$="{{pageUrl}}#tracker" on-tap="onTrackerCardClicked">
               <div class="card-header">
                 <div class="corner-image"></div>
                 <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -121,7 +121,7 @@ Tracker scene.
           </div>
 
           <div hidden$="{{!modelTypeIs_('video')}}">
-            <a href="{{pageUrl}}#{{ytMapping[model.youtubeId]}}">
+            <a href$="{{pageUrl}}#{{ytMapping[model.youtubeId]}}">
               <div class="card-header">
                 <div class="corner-image"></div>
                 <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -153,7 +153,7 @@ Tracker scene.
         <div id="city-stats">
           <ul>
             <li hidden$="{{!location.stopover}}">
-              <a href="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked">
+              <a href$="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked">
                 <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                 <div class="ico ico-marker"></div>
                 <div class="stat">{{location.stopover.city}}</div>
@@ -183,7 +183,7 @@ Tracker scene.
       </template>
 
       <template is="dom-if" if="{{!cityFeedActive}}">
-        <div id="status-bar" class="[[_computeTernary(navOpen, 'slide-up', '')]] [[_computeTernary(location, 'show', '')]]">
+        <div id="status-bar" class$="[[_computeTernary(navOpen, 'slide-up', '')]] [[_computeTernary(location, 'show', '')]]">
           <template is="dom-if" if="{{userLocation}}">
             <ul>
               <li>
@@ -218,7 +218,7 @@ Tracker scene.
                   <div class="stat">{{departure_}}</div>
                 </li>
                 <li>
-                  <a href="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href$="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
                   <div class="stat">{{location.stopover.city}}</div></a>
                 </li>
@@ -230,7 +230,7 @@ Tracker scene.
             <ul>
               <template is="dom-if" if="{{location.stopover}}">
                 <li>
-                  <a href="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <a href$="{{pageUrl}}#tracker" on-tap="onCurrentLocationClicked"><h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
                   <div class="ico ico-marker"></div>
                   <div class="stat">{{location.stopover.city}}</div></a>
                 </li>
