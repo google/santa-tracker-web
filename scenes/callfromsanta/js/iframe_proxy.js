@@ -146,22 +146,22 @@ app.IframeProxy.prototype.onReceiveMessage = function(event) {
       this.scene.onHideUnmuteMessage();
       break;
     case 'santa_start_type':
-      Klang.triggerEvent('santa_start_type');
+      window.santaApp.fire('sound-trigger', 'santa_start_type');
       break;
     case 'mp3_play':
-      Klang.triggerEvent('mp3_play');
+      window.santaApp.fire('sound-trigger', 'mp3_play');
       break;
     case 'mp3_finished':
-      Klang.triggerEvent('mp3_finished');
+      window.santaApp.fire('sound-trigger', 'mp3_finished');
       break;
     case 'santa_stop_type':
-      Klang.triggerEvent('santa_stop_type');
+      window.santaApp.fire('sound-trigger', 'santa_stop_type');
       break;
     case 'new_message':
-      Klang.triggerEvent('new_message');
+      window.santaApp.fire('sound-trigger', 'new_message');
       break;
     case 'keydown_user':
-      Klang.triggerEvent('keydown_user');
+      window.santaApp.fire('sound-trigger', 'keydown_user');
       break;
   }
 };
