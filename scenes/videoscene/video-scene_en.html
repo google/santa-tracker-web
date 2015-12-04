@@ -25,13 +25,25 @@ Video scene.
 -->
 <dom-module id="video-scene">
 <template>
+  <style>
+  :host[mode="cast"] .actions {
+    display: none;
+  }
+  :host[mode="cast"] #poster {
+    display: none;
+  }
+  .fit {
+    @apply(--layout-fit);
+  }
+  </style>
+
   <iron-a11y-keys keys="enter space"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-video" class="fit">
     <div class="scene" class="fit">
 
-      <div id="poster" class$="{{_computeTernary(poster, '', 'faded')}}"
+      <div id="poster" class$="{{_computeTernary(paused, '', 'faded')}}"
           on-transitionend="hidePoster"
           style$="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
         <div id="start" hidden$="{{!start}}">
@@ -53,13 +65,6 @@ Video scene.
       </template>
 
       <div id="videoboard" class="sceneboard">
-        <a href="{{pageUrl}}#village" class="back" hidden$="{{sourceIsTracker}}">
-          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-        </a>
-        <a href="{{pageUrl}}#tracker" class="back" hidden$="{{!sourceIsTracker}}">
-          <i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg>
-        </a>
-        <div class="sceneboard-back"></div>
         <div id="controls" hidden$="{{!controls}}">
           <div class="scrubber">
             <div class="tracker" style$="transform: translateX({{_computeScrubPixels(currentTime, _duration)}}px)">{{_currentTimeFormatted}}</div>
@@ -76,48 +81,22 @@ Video scene.
 <script>
 (function() {
   var VIDEO_IDS = {
-    'trailer': {
-      id: 'IdpQSy4IB_I',
-    },
-    'carpool': {
-      id: 'h83b1lWPuvQ'
-    },
-    'liftoff': {
-      id: 'oCAKV4Ikhec'
-    },
-    'jingle': {
-      id: 'sQnKCU_A0Yc',
-      sourceIsTracker: true
-    },
-    'satellite': {
-      id: 'ZJPL56IPTjw',
-      sourceIsTracker: true
-    },
-    'temptation': {
-      id: '2FtcJJ9vzVQ',
-      sourceIsTracker: true
-    },
-    'office': {
-      id: 'IXmDOu-eSx4',
-      sourceIsTracker: true
-    },
-    'tired': {
-      id: '2UGX3bT9u20',
-      sourceIsTracker: true
-    },
-    'com-room': {
-      id: '_WdYujHlmHA',
-      sourceIsTracker: true
-    },
-    'reload': {
-      id: 'vHMeXs36NTE',
-      sourceIsTracker: true
-    },
-    'slacking-off': {
-      id: 'uEl2WIZOVdQ',
-      sourceIsTracker: true
-    }
+    'wheressanta': '0qrFL0mn3Uk',
+    'santasback': 'nXLNcfNsWAY',
+    'trailer': 'IdpQSy4IB_I',
+    'carpool': 'h83b1lWPuvQ',
+    'liftoff': 'oCAKV4Ikhec',  // 2013: BfF7vfw6Zjw
+    'jingle': 'sQnKCU_A0Yc',
+    'satellite': 'ZJPL56IPTjw',
+    'temptation': '2FtcJJ9vzVQ',
+    'office': 'IXmDOu-eSx4',
+    'tired': '2UGX3bT9u20',
+    'com-room': '_WdYujHlmHA',
+    'reload': 'vHMeXs36NTE',
+    'slacking-off': 'uEl2WIZOVdQ',
   };
+
+  var CAST_VOLUME = 30;  // of 100
 
   Polymer({
     is: 'video-scene',
@@ -129,14 +108,6 @@ Video scene.
        * True if the video is paused.
        */
       paused: {
-        type: Boolean,
-        value: true
-      },
-
-      /**
-       * True if the poster image should show.
-       */
-      poster: {
         type: Boolean,
         value: true
       },
@@ -183,29 +154,31 @@ Video scene.
       },
 
       /**
-       * Whether this video's source is the tracker (true) or village (false).
+       * Whether to mute this video. As this audio is played through an iframe,
+       * and not through Klang, this flag needs to be set on the inner
+       * `google-youtube` element.
        */
-      sourceIsTracker: {
+      mute: {
         type: Boolean,
-        computed: '_computeSourceIsTracker(route)'
+        observer: '_muteChanged'
       },
 
       /**
        * The currentTime of the video. Bound to the `google-youtube` element.
        */
-      currentTime: {type: Number},
+      currentTime: Number,
 
       /**
        * The formtted currentTime of the video. Bound to `google-youtube`,
        * where the property is readOnly.
        */
-      _currentTimeFormatted: {type: String},
+      _currentTimeFormatted: String,
 
       /**
        * The duration of the video. Bound to `google-youtube`, where the
        * property is readOnly.
        */
-      _duration: {type: Number},
+      _duration: Number,
     },
 
     /**
@@ -226,6 +199,14 @@ Video scene.
       this.player.seekTo(0);
       this.player.pause();
       this.controls = false;
+
+      this._muteChanged(this.mute);  // run mute logic for the first time
+
+      // Autoplay on Cast mode.
+      if (this.getAttribute('mode') == 'cast') {
+        this.playVideo();
+        this.player.setVolume(CAST_VOLUME);
+      }
     },
 
     hidePoster: function(e, detail) {
@@ -240,6 +221,7 @@ Video scene.
           break;
         case 0: // ended
           this.controls = false;
+          this.fire('video-scene-done');
           break;
         case 1: // playing
           this.paused = false;
@@ -260,7 +242,6 @@ Video scene.
 
     togglePause: function() {
       this.paused = !this.paused;
-      this.poster = false;
       this.start = false;
 
       if (this.paused) {
@@ -271,7 +252,6 @@ Video scene.
     },
 
     playVideo: function() {
-      this.poster = false;
       this.start = false;
       this.player.play();
     },
@@ -291,25 +271,15 @@ Video scene.
     onShow: function() {
       this.showPlayer = true;
 
-      this.fire('sound-ambient', 'global_sound_off');
+      this.fire('sound-ambient', 'videoplayer_start');
     },
 
     onHide: function() {
       this.player.pause();
-      this.fire('sound-ambient', 'global_sound_on');
+      this.fire('sound-ambient', 'videoplayer_end');
 
       this.showPlayer = false;
       this.player = null;
-    },
-
-    onPause: function() {
-      this.player.pause();
-    },
-
-    onResume: function() {
-      if (this.controls) {
-        this.player.play();
-      }
     },
 
     keyHandler: function(e, detail) {
@@ -323,18 +293,22 @@ Video scene.
     },
 
     _computeVideoId: function(route) {
-      var o = VIDEO_IDS[route];
-      return o ? o.id : null;
-    },
-
-    _computeSourceIsTracker: function(route) {
-      var o = VIDEO_IDS[route];
-      return !!(o && o.sourceIsTracker);  // default false
+      return VIDEO_IDS[route];
     },
 
     _computeScrubPixels: function(currenttime, duration) {
       return (currenttime / duration) * 150;  // 150px is a magic constant
-    }
+    },
+
+    _muteChanged: function(newValue) {
+      if (this.player) {
+        if (newValue) {
+          this.player.mute();
+        } else {
+          this.player.unMute();
+        }
+      }
+    },
   });
 })();
 </script>

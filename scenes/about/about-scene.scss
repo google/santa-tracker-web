@@ -6,21 +6,10 @@ $name: 'module-about';
   background: #7847b2;
   overflow: auto;
 
-
-
   #about-banner {
     display: block;
     height: 315px;
     background: url(img/about.png) 50% 30px no-repeat;
-  }
-
-  .sceneboard {
-    height: 45px;
-    background: #9ece2b;
-  }
-
-  .sceneboard-back {
-    border-radius: 0 0 4px 4px;
   }
 
   #about-banner, #about-content {

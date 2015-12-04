@@ -51,7 +51,7 @@ SB.Game = function(elem, componentDir) {
 
   this.level = 0;
 
-  this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-up keys-leftright');
+  this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-up keys-leftright', 'spacenav-up spacenav-leftright');
   this.controls = new Controls(this, this.tutorial);
   this.renderer = new SB.Renderer(
       /** @type {!HTMLCanvasElement} */ (elem.querySelector('canvas.game')));
@@ -212,7 +212,7 @@ SB.Game.prototype.watchSceneSize_ = function() {
   var viewElem = moduleElem.find('.view');
   var updateSize = function() {
     var width = window.innerWidth,
-      height = window.innerHeight,
+      height = window.innerHeight - window.santaApp.headerSize,
       scale = width < 900 ? width / 900 : 1;
     scale = height < 640 ?
       Math.min(height / 640, scale) :

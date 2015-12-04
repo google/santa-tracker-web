@@ -38,7 +38,7 @@ goog.scope(function () {
      */
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
-      this.currentDirection_ = this.config_.beltDirection;
+      this.currentDirection_ = 1//this.config_.beltDirection;
       this.body_ = this.buildBody_();
     }
 
@@ -104,22 +104,23 @@ goog.scope(function () {
       const height = this.config_.style.height;
 
       bodyDef.type = b2.BodyDef.b2_staticBody;
-      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
+      
+      // Set start position based on mouse position in scene
+      const mousePos = this.getMouseWorldVector(this.config_.mouseX, this.config_.mouseY);
+      bodyDef.position.Set(mousePos.x, mousePos.y);
 
       // Box2D hack to simulate surface velocity on static body
       bodyDef.linearVelocity = this.getBeltDirectionVector_();
-
-      // object angle
-      bodyDef.angle = this.config_.rotation * Math.PI / 180;
 
       const plateFixDef = this.getPlateFixtureDef_();
       const cornerLeftFixDef = this.getCornerFixtureDef_(-width/2 + height/2);
       const cornerRightFixDef = this.getCornerFixtureDef_(width/2 - height/2);
 
       const body = this.world_.CreateBody(bodyDef);
-      body.CreateFixture(plateFixDef);
-      body.CreateFixture(cornerLeftFixDef);
-      body.CreateFixture(cornerRightFixDef);
+      // body.SetActive(false);
+      const plateFix = body.CreateFixture(plateFixDef);
+      const leftFix = body.CreateFixture(cornerLeftFixDef);
+      const rightFix = body.CreateFixture(cornerRightFixDef);
       return body;
     }
 

@@ -63,7 +63,7 @@ Game = function(elem) {
   this.player = new Player(this, this.elem.find('.player'));
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'));
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
-  this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-space keys-updown');
+  this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-space keys-updown', 'spacenav-space spacenav-updown');
   this.controls = new Controls(this);
   this.levelUp = new LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.scoreElem = this.elem.find('.score-sign');
@@ -426,12 +426,12 @@ Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = window.innerWidth;
-    var height = window.innerHeight;
+    var height = window.innerHeight - window.santaApp.headerSize;
     var scale = width < 980 ? width / 980 : 1;
     scale = height < 600 ? Math.min(height / 600, scale) : scale;
 
-    size.height = window.innerHeight * (1 / scale);
-    size.width = window.innerWidth * (1 / scale);
+    size.height = height * (1 / scale);
+    size.width = width * (1 / scale);
     game.setScale(scale);
   };
 

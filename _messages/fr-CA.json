@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Colombie"
 	},
+	"codeboogie-block-jump": {
+		"message": "Sauter"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Faites un saut."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pointer à gauche"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pointez vers la gauche."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas à gauche"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Faites un pas vers la gauche."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pointer à droite"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pointez vers la droite."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas à droite"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Faites un pas vers la droite."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hanches"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Bougez les hanches."
+	},
+	"codeboogie-block-split": {
+		"message": "Grand écart"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faites un grand écart."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Dansez!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Dansons"
+	},
+	"codeboogie-next-dance": {
+		"message": "Danse suivante"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Quel talent!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Essayez le bloc ci-dessous pour reproduire la danse."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Saviez-vous que vous pouviez compléter cette danse avec seulement {{ideal}} blocs? Essayez d'utiliser le bloc ci-dessous."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Beaux mouvements! Vous avez complété la danse à la perfection."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Vous utilisez les bons blocs, mais essayez d'en utiliser davantage pour compléter la danse."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Saviez-vous que vous pouviez compléter cette danse avec seulement {{ideal}} blocs?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Vous avez fait trop de pas."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "On dirait que vous avez fait un mauvais mouvement. Essayez plutôt celui-ci :"
+	},
+	"codeboogie-success": {
+		"message": "Réussite!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Regardez attentivement!"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "République dominicaine"
+	},
+	"donate_button": {
+		"message": "Faire un don"
+	},
+	"donate_text": {
+		"message": "Contribuez au financement d'un projet pour enfants à besoins spéciaux sur DonorsChoose.org. En ce mois de décembre, nous doublerons l'aide en donnant 50 % du montant amassé par les utilisateurs, jusqu'à concurrence de notre objectif de 1 M$ US. Ensemble, nous pouvons rendre les classes plus accueillantes pour tous. #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algérie"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Arabie saoudite"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Bonhomme en pain d'épice"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mère Noël"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingouin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Père Noël"
+	},
 	"santasearch_hint": {
 		"message": "Indice"
 	},
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Autoportrait du père Noël"
+	},
+	"scene_seasonofcaring": {
+		"message": "Saison de l'entraide"
 	},
 	"scene_seasonofgiving": {
 		"message": "La saison pour offrir"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distance depuis votre emplacement"
+	},
+	"tracker_flight_nearby": {
+		"message": "Le père Noël est tout près, trouve-le"
+	},
+	"tracker_flight_start": {
+		"message": "Le père Noël a quitté le pôle Nord et tu peux maintenant suivre son itinéraire"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Cadeaux distribués"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Télécharger l'application"
 	},
+	"village_more": {
+		"message": "Autres façons d'explorer"
+	},
 	"village_santa_cardboard": {
 		"message": "Le père Noël sur Cardboard"
 	},
 	"village_santa_cast": {
 		"message": "Le père Noël sur Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Extension Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël commence sa tournée dans"

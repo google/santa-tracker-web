@@ -15,3 +15,5 @@ elements/*/*.css
 *.min.js
 bin/
 nginx/
+dive/
+.devmode

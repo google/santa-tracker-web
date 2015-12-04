@@ -22,7 +22,12 @@ Undersea scene.
 -->
 <dom-module id="undersea-scene">
 <template>
-  <div id="module-undersea" fit>
+  <style>
+    #module-undersea {
+      @apply(--layout-fit);
+    }
+  </style>
+  <div id="module-undersea">
     <div class="scene">
       <div class="santa">
         <ul class="bubbles">
@@ -112,12 +117,6 @@ Undersea scene.
           <div class="eye"></div>
           <div class="eye"></div>
         </div>
-      </div>
-    </div>
-
-    <div class="gui">
-      <div class="board board--scene">
-        <a id="global-back-to-tracker" href="{{pageUrl}}#tracker" class="back"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
       </div>
     </div>
   </div>

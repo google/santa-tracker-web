@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../js/utils.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -40,13 +40,17 @@ Example
         will-change: transform;
         transform: translateZ(0);
       }
+
+      #counter {
+        @apply(--layout-horizontal);
+      }
     </style>
 
     <div hidden>
       <content id="content" select="*"></content>
     </div>
 
-    <div id="counter" class="layout horizontal">
+    <div id="counter">
       <template is="dom-repeat" items="{{titles}}">
         <div class="counter-box" hidden$="{{_computeHide(index, displayDigits)}}">
           <div class="holder active"></div>
@@ -86,10 +90,10 @@ Example
         /**
          * The end time for this countdown, in milliseconds.
          */
-        countDownEndDate: {
+        countdownEndAt: {
           type: Number,
           value: 1450951200000, // Dec 24, 2015,
-          observer: '_countDownEndDateChanged'
+          observer: '_countdownEndAtChanged'
         },
 
         /**
@@ -109,7 +113,7 @@ Example
         },
 
         /**
-         * True when the countdown has reached `countDownEndDate`.
+         * True when the countdown has reached `countdownEndAt`.
          */
         finished: {
           value: false,
@@ -175,10 +179,10 @@ Example
         this._setTitles(titles);
       },
 
-      _countDownEndDateChanged: function() {
+      _countdownEndAtChanged: function() {
         // string - number type cohesion works, but let's be explicit when
-        // we get a new countDownEndDate.
-        this.countDownEndDate = parseInt(this.countDownEndDate);
+        // we get a new countdownEndAt.
+        this.countdownEndAt = parseInt(this.countdownEndAt);
       },
 
       /**
@@ -187,7 +191,7 @@ Example
       _getCurrentTime: function() {
         var now = this.santaService ? this.santaService.now() : Date.now();
 
-        var diff = Math.max(0, this.countDownEndDate - now);
+        var diff = Math.max(0, this.countdownEndAt - now);
         var msPerDay = 24 * 60 * 60 * 1000;
 
         var daysX = diff / msPerDay;

@@ -2,7 +2,8 @@ $scenes: "village" "tracker"
     "airport" "traditions" "codelab" "app" "seasonofcaring" "santasback" "santaselfie" "translations" "callfromsanta" "briefing" "presentdrop" "santasearch" "windtunnel" "racer" "jamband" "gumball" "postcard" "jetpack" "boatload" "mercator" "presentbounce" "codeboogie" "elf-car" "citylights" "commandcentre" "seasonofgiving" "matching" "liftoff";
 
 $indent-left: 24px;
-$toolbar-default-color: #50def5;
+$toolbar-default-color: #00c6ed;
+$width-tablet: 768px;  // iPad in portrait
 
 santa-chrome {
   #drawer {
@@ -23,6 +24,9 @@ santa-chrome {
       }
       a {
         color: #64ae69;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -33,6 +37,7 @@ santa-chrome {
 
     paper-toolbar.close-sidebar {
       background-color: transparent;
+      padding-left: 8px;
 
       iron-icon {
         color: inherit;
@@ -60,6 +65,18 @@ santa-chrome {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+
+      .lock {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(img/lock.svg) 90% 50% no-repeat;
+        background-color: rgba(87, 214, 147, 0.5);
+        background-size: 42px 42px;
+      }
     }
     @each $scene in $scenes {
       .menucard-#{$scene} {
@@ -109,7 +126,7 @@ santa-chrome {
     pointer-events: none;  // make sure scroll events pass through toolbar.
     background-color: transparent;
 
-    paper-icon-button[icon="menu"] {
+    paper-icon-button[icon="santa:menu"] {
       margin-right: 8px !important;
     }
 
@@ -121,6 +138,8 @@ santa-chrome {
       bottom: 0;
       z-index: -1;
 
+      pointer-events: none;  // make sure scroll events pass through toolbar.
+      
       will-change: opacity;
       transform: translateZ(0);
       opacity: 0;
@@ -168,54 +187,80 @@ santa-chrome {
       font-size: 0;  // hide spacing between divs
       pointer-events: auto;  // set these icons to be accessible again
 
-      button {
-        width: 68px;
-        height: 100%;
-        box-sizing: border-box;
-        padding: 4px;
+      .box {
         position: relative;
-        display: inline-block;
-        border-left: 1px solid rgba(0,0,0,0.125);
-        background: transparent no-repeat center;
-        font-size: 0;
+        margin-left: 19px;
 
-        &:first-child {
-          border-left: none;
-        }
-
-        &#gplus {
-          background-image: url(img/share-gplus.svg);
-        }
-        &#twitter {
-          background-image: url(img/share-twitter.svg);
-        }
-        &#facebook {
-          background-image: url(img/share-facebook.svg);
-        }
-
-        &::before {
-          z-index: -1;
+        &:before {
           content: "";
-          display: block;
           position: absolute;
-          top: 0;
-          left: 4px;
-          right: 4px;
-          bottom: 0;
-          border-radius: 2px;
-          background: rgba(0,0,0,.25);
-          opacity: 0;
-          transform: translateZ(0);
-          will-change: opacity;
+          top: 6px;
+          left: -10px;
+          bottom: 6px;
+          border-left: 1px solid rgba(0,0,0,0.125);
         }
-        &:hover::before {
-          opacity: 1;
+        &:first-child {
+          &:before {
+            border-left: none;
+          }
         }
       }
     }
     @media (max-width: 600px) {
       .shareicons {
         display: none;
+      }
+    }
+  }
+
+  #sound {
+    position: absolute;
+    right: 0;
+    top: 64px;
+    background: #00c6ed;
+    height: 45px;
+    width: 40px;
+    border-radius: 50% 0 0 50%;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+
+    button {
+      height: 45px;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 0 0 0 7px;
+      outline: 0;
+      pointer-events: auto;
+      border: 0;
+      margin: 0;
+      text-align: center;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    i {
+      float: left;
+      width: 31px;
+      height: 30px;
+      background: url(img/sound-on.svg) 50% 50% no-repeat;
+    }
+
+    &.off {
+      i {
+        background: url(img/sound-off.svg) 50% 50% no-repeat;
+      }
+    }
+  }
+
+  @media (max-width: $width-tablet - 1) {
+    #sound {
+      right: auto;
+      left: 0;
+      top: auto;
+      bottom: 12px;
+      border-radius: 0 50% 50% 0;
+
+      button {
+        padding: 0 0 0 3px;
       }
     }
   }

@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Kolumbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Podskok"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Podskok."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Ręka w lewo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Ręka w lewo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Krok w lewo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Krok w lewo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Ręka w prawo"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Ręka w prawo."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Krok w prawo"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Krok w prawo."
+	},
+	"codeboogie-block-shake": {
+		"message": "Kręć biodrami"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Kręć biodrami."
+	},
+	"codeboogie-block-split": {
+		"message": "Szpagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Szpagat."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Zacznij tańczyć"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Zatańczmy"
+	},
+	"codeboogie-next-dance": {
+		"message": "Następny taniec"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Świetne ruchy!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Skorzystaj ze wskazówki poniżej, żeby zatańczyć tak samo."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Możesz dokończyć taniec, używając mniejszej liczby wskazówek. Spróbuj wybrać tę poniżej."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Świetne ruchy! Twój taniec był doskonały."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Wybierasz właściwe wskazówki, ale musisz używać ich więcej, żeby dokończyć taniec."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Możesz dokończyć taniec, używając mniejszej liczby wskazówek."
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Taniec był zbyt długi."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Ten krok nie był poprawny. Zamiast niego wypróbuj ten:"
+	},
+	"codeboogie-success": {
+		"message": "Udało się!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Patrz uważnie"
+	},
 	"codelab-block-moveeast": {
 		"message": "wschód"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikana"
+	},
+	"donate_button": {
+		"message": "Przekaż darowiznę"
+	},
+	"donate_text": {
+		"message": "Pomóż sfinansować projekt dla osób o specjalnych potrzebach w witrynie DonorsChoose.org. W grudniu podwajamy wysiłki, dokładając połowę równowartości darowizn, aż do osiągnięcia miliona dolarów. Razem możemy sprawić, że klasy będą bardziej przyjazne dla każdego dziecka. #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algieria"
@@ -747,7 +834,7 @@
 		"message": "Portoryko"
 	},
 	"press": {
-		"message": "Prasa"
+		"message": "Dla prasy"
 	},
 	"pt_language_name": {
 		"message": "portugalski"
@@ -769,6 +856,24 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudyjska"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Piernikowy ludzik"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Pani Mikołajowa"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingwin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Święty Mikołaj"
 	},
 	"santasearch_hint": {
 		"message": "Podpowiedź"
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Selfie Świętego Mikołaja"
+	},
+	"scene_seasonofcaring": {
+		"message": "Czas troski o innych"
 	},
 	"scene_seasonofgiving": {
 		"message": "Czas prezentów"
@@ -974,6 +1082,12 @@
 	"tracker_distance_from_you": {
 		"message": "Odległość od Ciebie"
 	},
+	"tracker_flight_nearby": {
+		"message": "Święty Mikołaj jest tuż tuż, znajdź go"
+	},
+	"tracker_flight_start": {
+		"message": "Święty Mikołaj wyruszył już z Bieguna Północnego, a Ty możesz śledzić jego trasę"
+	},
 	"tracker_gifts_delivered": {
 		"message": "Wręczone prezenty"
 	},
@@ -999,7 +1113,7 @@
 		"message": "Zobacz trasę"
 	},
 	"tracker_track": {
-		"message": "Gdzie jest Święty Mikołaj"
+		"message": "Śledź trasę Mikołaja"
 	},
 	"tracker_weather": {
 		"message": "Pogoda"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Pobierz aplikację"
 	},
+	"village_more": {
+		"message": "Więcej zabawy z Mikołajem"
+	},
 	"village_santa_cardboard": {
-		"message": "Święty Mikołaj w Cardboard"
+		"message": "Wypatruj Świętego Mikołaja przez gogle Cardboard"
 	},
 	"village_santa_cast": {
-		"message": "Święty Mikołaj w Google Cast"
+		"message": "Szukaj Świętego Mikołaja przez Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Rozszerzenie Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Święty Mikołaj wyrusza za"

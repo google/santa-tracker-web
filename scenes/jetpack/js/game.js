@@ -59,7 +59,7 @@ app.Game = function(elem) {
   this.player = new app.Player(this, this.elem.find('.player'));
   this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-updown', 'keys-leftright keys-updown');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-updown', 'keys-leftright keys-updown', 'spacenav-leftright spacenav-updown');
   this.controls = new app.Controls(this);
 
   // Cache a bound onFrame since we need it each frame.
@@ -408,11 +408,12 @@ app.Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = window.innerWidth,
+        height = window.innerHeight - window.santaApp.headerSize,
         scale = width < 980 ? width / 980 : 1;
     game.setScale(scale);
 
-    size.height = window.innerHeight * (1 / game.scale);
-    size.width = window.innerWidth * (1 / game.scale);
+    size.height = height * (1 / game.scale);
+    size.width = width * (1 / game.scale);
   };
 
   updateSize();

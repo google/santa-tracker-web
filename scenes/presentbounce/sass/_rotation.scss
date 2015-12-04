@@ -17,7 +17,7 @@
     transition: opacity 150ms;
   }
 
-  .object:hover {
+  .object:not(.is-inactive):hover {
     .object__rotate-handle {
       opacity: 1;
     }

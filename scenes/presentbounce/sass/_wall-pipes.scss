@@ -8,24 +8,12 @@
 
     &--horizontal {
       top: 100%;
-      margin-top: -40%;
+      margin-top: -45vh;
     }
 
-    &--panel {
-      top: 0%;
-      left: 100%;
-      margin-top: 0;
-      margin-left: -362px;
-      width: 362px;
+    &--top {
+      top: 0;
+       margin-top: -20vh;
     }
-
-    // &--button-pipes {
-    //   height: 322px:
-    //   top: 0%;
-    //   left: 50%;
-    //   width: 722px;
-    // }
-
   }
-
 }

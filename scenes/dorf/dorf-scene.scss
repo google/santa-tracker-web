@@ -8,10 +8,31 @@ $name: 'module-dorf';
 $width-big: 600px;
 $toolbar-size: 64px;
 
+[lang='de'] ##{$name} {
+  h1 {
+    font-size: 62px !important;
+  }
+}
+[lang='en'] ##{$name} {
+  #village-donate {
+    display: block !important;
+  }
+}
+
 ##{$name} {
   background: #f5f2e2;
   position: relative;
   min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
+
+  p {
+    margin: 35px auto 0;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    max-width: 480px;
+  }
 
   header {
     // NOTE: This is intentionally not position: relative (or absolute, ...)
@@ -44,7 +65,7 @@ $toolbar-size: 64px;
       height: 630px;
       overflow: hidden;
 
-      > * {
+      span {
         display: inline-block;
         position: absolute;
       }
@@ -90,21 +111,44 @@ $toolbar-size: 64px;
         animation: #{$name}-plane 75s infinite linear;
       }
       .cloud {
-        opacity: 0;  // this will be overwritten by animation
+        opacity: 0.5;
+        transform: translate(-400px);  // rest off-screen
         position: absolute;
         width: 113px;
         height: 68px;
         margin-left: -(113px/2);
-        background: url(img/cloud-big_2x.png) center no-repeat;
+        background: transparent center no-repeat;
         background-size: contain;
         // this only animates across the screen for <10% of the time
         animation: #{$name}-cloud 25s infinite linear;
       }
-      .skydive {
-        animation: #{$name}-skydive 40s infinite ease-in;
-        margin-left: calc(50% + 460px);
+      .cloud0 {
+        background-image: url(img/cloud1.svg);
+      }
+      .cloud1 {
+        background-image: url(img/cloud2.svg);
+      }
+      .cloud2 {
+        background-image: url(img/cloud3.svg);
+      }
 
+      #village-pegman {
+        transform: translateY($skydive-start-pos);
         @include will-change(transform, opacity);
+        opacity: 0;
+        transition: opacity 2s ease;
+
+        &.skydive {
+          opacity: 1;
+          animation: #{$name}-skydive 10s 1 ease-in;
+          animation-fill-mode: forwards;
+        }
+
+        &.hide {
+          opacity: 0;
+        }
+
+        margin-left: calc(50% + 360px);
 
         > span {
           position: absolute;
@@ -112,16 +156,22 @@ $toolbar-size: 64px;
           background-repeat: no-repeat;
           background-size: contain;
           transform: translate(-50%, -50%);  // center span
-          animation-duration: inherit;
-          animation-iteration-count: infinite;
+          @include will-change(opacity);
+          visibility: hidden;
         }
 
         .pegman-1 {
+          background-image: url(img/pegman-dive.svg);
           width: 60px;
           height: 60px;
-          background-image: url(img/pegman-dive.svg);
-          animation-name: #{$name}-skydive-pegman-1;
         }
+
+        &.stage1 {
+          .pegman-1 {
+            visibility: visible;
+          }
+        }
+
         .pegman-2, .pegman-3 {
           a {
             position: absolute;
@@ -133,19 +183,25 @@ $toolbar-size: 64px;
           }
         }
         .pegman-2 {
-          margin-top: -7px;
+          margin-top: -34px;
+          margin-left: -26px;
           width: 112px;
           height: 112px;
           background-image: url(img/pegman-chute.svg);
-          animation-name: #{$name}-skydive-pegman-2;
         }
+
+        &.stage2 {
+          .pegman-2 {
+            visibility: visible;
+          }
+        }
+
         .pegman-3 {
-          margin-left: 61px;
-          margin-top: 24px;
+          margin-left: 21px;
+          margin-top: -16px;
+          background-image: url(img/pegman-land.svg);
           width: 140px;
           height: 140px;
-          background-image: url(img/pegman-land.svg);
-          animation-name: #{$name}-skydive-pegman-3;
 
           a {
             height: 60px;
@@ -153,9 +209,18 @@ $toolbar-size: 64px;
           }
         }
 
+        &.stage3 {
+          .pegman-3 {
+            visibility: visible;
+          }
+        }
+
         @media (max-width: ($width-desktop - 1)) {
           margin-left: calc(50% + 360px);
-          animation: #{$name}-skydive-tablet 40s infinite ease-in;
+          &.skydive {
+            animation: #{$name}-skydive-tablet 10s 1 ease-in;
+            animation-fill-mode: forwards;
+          }
 
           .pegman-1 {
             width: 60px * $tablet-desktop-ratio;
@@ -163,16 +228,22 @@ $toolbar-size: 64px;
           }
 
           .pegman-2 {
-            margin-top: -7px * $tablet-desktop-ratio;
+            margin-top: -34px * $tablet-desktop-ratio;
+            margin-left: -26px * $tablet-desktop-ratio;
             width: 112px * $tablet-desktop-ratio;
             height: 112px * $tablet-desktop-ratio;
           }
           .pegman-3 {
-            margin-left: 61px * $tablet-desktop-ratio;
-            margin-top: 24px * $tablet-desktop-ratio;
+            margin-left: 21px * $tablet-desktop-ratio;
+            margin-top: -16px * $tablet-desktop-ratio;
             width: 140px * $tablet-desktop-ratio;
             height: 140px * $tablet-desktop-ratio;
           }
+        }
+        @media (max-width: ($width-tablet - 1)) {
+          // Land pegman right in the middle of the village, where there's just snow.
+          margin-left: calc(50% - 100px);
+          margin-top: 20px;
         }
       }
     }
@@ -181,7 +252,6 @@ $toolbar-size: 64px;
       z-index: $base-raised-z-index;
       position: absolute;
       width: 100%;
-      height: 630px;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 
       display: flex;
@@ -195,12 +265,32 @@ $toolbar-size: 64px;
       // south, and Chrome is confused when painting.
       @include will-change();
 
+      #ornament {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%);
+        background: url(img/ornament.svg) 50% 20% no-repeat;
+        background-size: contain;
+        width: 450px;
+        height: 250px;
+        z-index: -10;  // hide in background
+
+        @media (max-width: ($width-tablet - 1)) {
+          top: 20px;
+          width: 300px;
+        }
+      }
+
       #count-down {
         padding: 60px 0 30px 0;
 
-        &.large {
-          padding-bottom: 60px;
-          transform: scale(1.6);
+        &.mode-cast {
+          padding-top: 70px;
+          padding-bottom: 55px;
+          transform: scale(1.55);
+
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125) !important;
         }
       }
 
@@ -208,7 +298,7 @@ $toolbar-size: 64px;
       h2 {
         font-size: 12px;
         letter-spacing: 1px;
-        font-weight: 500;
+        font-weight: 600;
         color: #fff;
         margin: 6px 0;
         line-height: 12px;
@@ -217,42 +307,44 @@ $toolbar-size: 64px;
 
       h1 {
         @include will-change();
-        margin: 0;
+        margin: 0 8px;
         font-family: 'Lobster', sans-serif;
-        font-size: 62px;
-        line-height: 50px;
+        font-size: 72px;
+        line-height: 54px;
         color: white;
         text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-        transform: rotateZ(-3deg);
+        transform: rotateZ(-3deg) skew(-4deg);
       }
 
       p {
-        margin: 35px 0 0 0;
-        color: #fff;
-        text-align: center;
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 26px;
-        max-width: 360px;
+        font-weight: 500;
+        margin-top: 35px;
+        letter-spacing: -1px;
       }
 
-      /** Make header elements small on mobile */
-      @media (max-width: $width-twocol) {
-        h1 {
-          font-size: 44px;
-          line-height: 36px;
-        }
-        h2 {
-          font-size: 10px;
-          line-height: 10px;
-        }
-        p {
-          font-size: 16px;
-          max-width: 260px;
-          margin-top: 36px;
-          padding-bottom: 4px;
-        }
+      .castlogo {
+        width: 120px;
+        height: 30px;
+        background: url(img/google_logo.svg) no-repeat center;
+        background-size: contain;
+        margin-bottom: 14px;
       }
+    }
+
+    #header-mobilevillage {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      display: none;
+    }
+    #header-mobileelves {
+      position: absolute;
+      top: 210px + 180px;
+      width: 320px;
+      left: 20px;
+      height: 120px;
+      display: none;
     }
   }
 
@@ -265,6 +357,10 @@ $toolbar-size: 64px;
     position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
 
+    #mobiletext {
+      display: none;
+    }
+
     #houses {
       position: relative;
       display: flex;
@@ -272,51 +368,31 @@ $toolbar-size: 64px;
     }
   }
 
-  .house-new-today {
-    div {
-      position: absolute;
-      height: percent(280px * $svg-ratio, $dim-house);
-      width:  percent(315px * $svg-ratio, $dim-house);
-      background: center no-repeat;
-      background-size: cover;
-      z-index: $house-row-2-z-index;
-      top: percent(-20px, $dim-house);
-      left: percent(-5px, $dim-house);
-
-      a {
-        text-decoration: none;
-        width: 95%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        top: -20px;
-      }
-
-      h4 {
-        margin: 0 auto;
-        text-align: center;
-        font-family: 'Lobster', sans-serif;
-        font-weight: 200;
-        font-size: 2.275em;
-        line-height: 1.5em;
-        text-shadow: 0 2px 0 rgba(0,0,0,0.25);
-        transform: rotateZ(-6deg);
-        color: #fff;
-      }
-
-      h5 {
-        color: #fff;
-        text-align: center;
-        margin: 0;
-        font-weight: normal;
-        font-size: 16px;
-      }
-    }
-  }
-
   .house {
     position: relative;
+    color: #fff;
+    text-align: center;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h4 {
+      margin: 0;
+      padding-top: 0.25em;
+      font-family: 'Lobster', sans-serif;
+      font-size: 2.875em;
+      line-height: 1.5em;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+      transform: rotateZ(-3deg);
+    }
+    h3 {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.5em;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    }
 
     /** Common card styling */
     .link {
@@ -329,6 +405,30 @@ $toolbar-size: 64px;
         height: 100%;
         position: absolute;
         color: white;
+
+        // disabled cards only
+        .color {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          display: none;
+        }
+
+        .text {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+
+          .img-lock {
+            width: 42px;
+            height: 42px;
+            background: url(img/lock.svg) no-repeat center;
+            background-size: contain;
+          }
+        }
 
         .image {
           width: 100%;
@@ -344,64 +444,165 @@ $toolbar-size: 64px;
           padding-top: 0.25em;
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
         }
-        h4 {
-          margin: 0;
-          padding-top: 0.25em;
+
+        .label {
+          position: absolute;
+          bottom: 4%;
+          right: 50%;
+          transform: translate(($height-newcard-mobile * 0.5) + 14px) rotate(12deg);
+          background: url(img/new-today-tag.svg) center no-repeat;
+          background-size: cover;
+          box-sizing: border-box;
+          width: 85px;
+          height: 53px;
+          padding: 0 4px 9px 16px;
+          line-height: 44px;
+          font-size: 14px;
           font-family: 'Lobster', sans-serif;
-          font-size: 2.875em;
-          line-height: 1.5em;
-          text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-          transform: rotateZ(-3deg);
-        }
-        h3 {
-          margin: 0;
-          font-size: 1em;
-          line-height: 1.5em;
-          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+          font-weight: 400;
+          text-align: center;
         }
       }
     }
-  }
+  }  // .house
+  .house-new-today {
+    a {
+      position: absolute;
+      top: percent(-20px, $dim-house);
+      left: percent(-5px, $dim-house);
+      height: percent(280px * $svg-ratio, $dim-house);
+      width:  percent(315px * $svg-ratio, $dim-house);
+      z-index: $house-z-index-front;
 
-  #village-footer {
-    // TODO(samthor): Footer needs to be scaled for both tablet and mobile.
-
-    z-index: $base-background-z-index;
-    height: 560px;
-
-    @media (max-width: ($width-desktop - 1)) {
-      height: 400px;
+      div.card {
+        @include will-change(transform);
+        transform: translateY(0);
+        transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      }
+      &:hover {
+        div.card {
+          transform: translateY(-16px);
+          transition: transform 0.2s;
+        }
+      }
     }
 
+    div.card {
+      background: center no-repeat;
+      background-size: cover;
+
+      width: 100%;
+      height: 100%;
+      padding-right: 5%;
+      box-sizing: border-box;
+
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      h4 {
+        margin-top: -0.8em;
+        text-align: center;
+        font-size: 2.275em;
+        transform: rotateZ(-6deg);
+        font-weight: 400;
+      }
+    }
+  }  // .house-new-today
+
+  #village-footer {
+    z-index: $base-background-z-index;
     position: relative;
-    margin-top: -200px;  // nb. removed on mobile
+    padding-bottom: 8px;
+    background: url(img/footer-snow-tile.svg) center 110% repeat-x;
+    background-size: 1000px;
+    min-height: 200px;
+    margin-top: -200px;  // nb: removed on mobile
 
     // NOTE: Give this a layer, as it extends over its neighbour to the north,
     // and Chrome is confused when painting.
     @include will-change();
 
     p {
-      margin: 35px 0 0 0;
-      max-width: 600px;
-      margin: 0 auto;
-      margin-top: 20px;
+      margin: 20px auto;
+      padding: 0 12px;
       color: #3474ba;
-      text-align: center;
       font-weight: 500;
       font-size: 22px;
       line-height: 26px;
       max-width: 400px;
     }
 
-    #village-footer-elves {
-      background-image: url(img/footer-elves.svg);
-      background-repeat: no-repeat;
-      background-position: 50% 90%;
-      background-size: contain;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      bottom: 0;
+    img {
+      max-width: $width-desktop + 240px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  #village-donate {
+    background: #48d891;
+    color: white;
+    display: none;  // en only
+
+    #wrapper {
+      margin: 0 auto;
+      max-width: 768px;
+      padding: 32px 16px;
+      min-height: 250px;
+      background: url(img/donate-kids.svg) bottom right no-repeat;
+
+      h3 {
+        margin: 0;
+        font-family: 'Lobster', sans-serif;
+        font-size: 2.0em;
+        line-height: 1.0em;
+        padding-bottom: 0.4em;
+        font-size: 200;
+        letter-spacing: 1px;
+      }
+
+      p {
+        margin: 0;
+        text-align: left;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        font-weight: 600;
+      }
+
+      .button {
+        background: url(img/donate-ornament.svg) center no-repeat;
+        background-size: contain;
+        display: inline-block;
+        margin-top: 24px;
+        @include will-change();
+
+        a {
+          display: inline-block;
+          margin: 20px 32px 26px;
+
+          color: #fff;
+          font-family: 'Roboto', sans-serif;
+          font-size: 1em;
+          text-transform: uppercase;
+          font-weight: bold;
+          background-color: #FCC600;
+          bottom: 0px;
+          padding: 12px 24px;
+          letter-spacing: 1px;
+          font-weight: 700;
+          border-radius: 5px;
+          box-shadow: 0 6px 0 #E98D23;
+          text-decoration: none;
+          position: relative;
+          transition: transform 0.1s, box-shadow 0.1s;
+
+          &:active {
+            transform: translateY(8px);
+            box-shadow: none;
+          };
+        }
+      }
     }
   }
 
@@ -460,7 +661,7 @@ $toolbar-size: 64px;
           .ice {
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.2s ease-out;
+            transition: opacity 2s ease-out;
             will-change: none;  // don't create a layer; this only transitions once
           }
 
@@ -553,10 +754,11 @@ $toolbar-size: 64px;
         // ignored anyway.
         @include will-change();
 
-        $duration-in: 0.4s;
-        $easing-in: cubic-bezier(0.380, 0.800, 0.475, 1.285);
+        $duration-in: 0.23s;
+        $easing-in: cubic-bezier(0,1,.33,1.28);
         $duration-out: 0.2s;
-        $easing-out: ease-in;
+        $easing-out: cubic-bezier(.83,.02,1,.01);
+        $easing-rotate-in: ease-out;
 
         .card {
           $hs: $hover-card-size / 2;
@@ -564,25 +766,42 @@ $toolbar-size: 64px;
           height: $hover-card-size !important;
           margin: (-$hs) 0 0 (-$hs);
           @include will-change(transform, opacity);
-          border-radius: 10000px;
-          overflow: hidden;
           transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
           transform: scale(0);
           opacity: 0.25;
           left: 50%;
           top: 50%;
-          box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+
+          .label {
+            display: none;  // hide the 'new' label
+          }
+
+          .image {
+            border-radius: 10000px;
+            box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+          }
 
           .launchdate {
             display: none;
           }
+
+          .image {
+            transform: rotate(10deg);
+            transition: transform .01s ease-out $duration-out;
+          }
         }
 
-        &:hover, &:active {
+        // only change state on links with hrefs
+        &[href]:hover, &[href]:active {
           .card {
             transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
             transform: scale(1);
             opacity: 1;
+
+            .image {
+              transform: rotate(0deg);
+              transition: transform $duration-in $easing-rotate-in .02s;
+            }
           }
         }
       }  // .link
@@ -642,13 +861,71 @@ $toolbar-size: 64px;
   @media (max-width: $width-tablet - 1) {
     font-size: 14px;
 
+    header {
+      margin-bottom: -80px;
+
+      #header-content {
+        #count-down {
+          padding-top: 90px;
+        }
+        p, h1 {
+          display: none;
+        }
+      }
+
+      #header-skyeffect {
+        margin-top: -180px;
+      }
+      #header-background {
+        margin-top: -180px;
+        height: 305px + 180px;
+        background-position: center;
+      }
+
+      #header-mobilevillage {
+        display: block;
+        background: url(img/mobile-header.svg) center bottom no-repeat;
+      }
+      #header-mobileelves {
+        display: block;
+        background: url(img/mobile-header-elves.svg) center left no-repeat;
+      }
+    }
+
     #village-all {
+      #mobiletext {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.33);
+        display: block;
+        background: #00c6ed;
+        color: white;
+        padding: 17px 24px 16px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+
+        p {
+          font-size: 1.4em;
+          line-height: 1.45em;
+          letter-spacing: -1px;
+          font-weight: 500;
+
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
+          margin: 0 auto;
+        }
+      }
+
       #houses {
         align-items: stretch;
 
+        .house-new-today {
+          display: none;
+        }
+        h5 {
+          display: none;  // this is Play/Learn etc below houses
+        }
+
         .house {
           width: 50%;
-          height: $height-card-mobile;
+          min-height: $height-card-mobile;
+          flex-grow: 1;
 
           &[disabled] {
             display: none;  // don't display in flexbox at all
@@ -658,30 +935,68 @@ $toolbar-size: 64px;
             display: none;
           }
 
-          &.iced {
-            height: auto;
-            min-height: $height-icedcard-mobile;
+          .text {
+            margin-top: 12px;
 
-            .card {
+            .launchdate {
+              margin: 0;
+              margin-top: -8px;
+              font-size: 2em;
+              line-height: 1.4em;
+              text-shadow: none;
+            }
+            h4 {
+              display: none;
+            }
+            h3 {
+              letter-spacing: 1px;
+              font-size: 1em;
+              line-height: 1em;
+              font-weight: 500;
+              color: #fff;
+              margin-top: 2px;
+              text-transform: uppercase;
+              font-family: inherit;
+              transform: none;
+              text-shadow: none;
+            }
+          }
+
+          &.iced {
+            .text {
               h3, h4 {
                 display: none;
               }
             }
 
+            .text {
+              margin: 0;
+              justify-content: center;
+              .launchdate {
+                font-size: 5em;
+              }
+            }
+
             // fade out iced cards
-            &::after {
-              z-index: 100;
-              position: absolute;
-              content: "";
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background: rgba(0, 0, 0, 0.5);
-              pointer-events: none;
+            .color {
+              display: block;
+              opacity: 0.75;
             }
           }
-        }
+
+          &.new-today {
+            height: $height-newcard-mobile;
+
+            .text {
+              margin-top: 24px;
+            }
+
+            .card {
+              // use natural size
+              background: url(img/new-today-path.svg) center no-repeat;
+            }
+          }
+        }  // .house
       }
 
       #ground, #road, .easter-egg {
@@ -690,7 +1005,13 @@ $toolbar-size: 64px;
     }
 
     #village-footer {
-      margin-top: 32px;
+      margin-top: 0;
+      background-size: 500px;
+    }
+    #village-donate {
+      #wrapper {
+        min-height: 350px;
+      }
     }
   }
 
@@ -701,6 +1022,11 @@ $toolbar-size: 64px;
         .house {
           width: 100%;
         }
+      }
+    }
+    #village-donate {
+      #wrapper {
+        min-height: 400px;
       }
     }
   }

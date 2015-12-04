@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Colombië"
 	},
+	"codeboogie-block-jump": {
+		"message": "Spring"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Doen 'n sprong."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Wys na links"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Wys na links."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Tree na links"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Neem 'n tree na links."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Wys na regs"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Wys na regs."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Tree na regs"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Neem 'n tree na regs."
+	},
+	"codeboogie-block-shake": {
+		"message": "Heupskud"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Doen 'n heupskud."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Doen 'n split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Dans bietjie!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Kom ons dans"
+	},
+	"codeboogie-next-dance": {
+		"message": "Volgende dans"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Goed gedoen!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Probeer die blok hieronder om by die dans te pas."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Het jy geweet jy kan hierdie dans met net {{ideal}} blokke voltooi? Probeer die blok hieronder gebruik."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Goed gedoen! Jy het die dans perfek voltooi."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Jy gebruik die regte blokke, maar probeer meer gebruik om die dans te voltooi."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Het jy geweet jy kan hierdie dans met net {{ideal}} blokke voltooi?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Jy het te veel danspassies uitgevoer."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Lyk of jy die verkeerde danspassie uitgevoer het. Probeer eerder hierdie een:"
+	},
+	"codeboogie-success": {
+		"message": "Sukses!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Kyk mooi!"
+	},
 	"codelab-block-moveeast": {
 		"message": "oos"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikaanse Republiek"
+	},
+	"donate_button": {
+		"message": "Skenk"
+	},
+	"donate_text": {
+		"message": "Help om 'n projek vir spesiale behoeftes op DonorsChoose.org te befonds. Hierdie Desember help ons om die impak te verdubbel deur skenkings met 50% te ewenaar totdat ons ons doelwit bereik het om $1 miljoen te skenk. Tesame kan ons help om klaskamers vir alle kinders meer inklusief te maak #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algerië"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saoedi-Arabië"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Gemmerbroodmannetjie"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mev. Kersvader"
+	},
+	"santasearch_character_pegman": {
+		"message": "Penmannetjie"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pikkewyn"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Kersvader"
+	},
 	"santasearch_hint": {
 		"message": "Wenk"
 	},
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Kersvader-selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Seisoen van omgee"
 	},
 	"scene_seasonofgiving": {
 		"message": "Seisoen van geskenke"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Afstand van jou af"
+	},
+	"tracker_flight_nearby": {
+		"message": "Kersvader is naby – vind uit waar"
+	},
+	"tracker_flight_start": {
+		"message": "Kersvader het die Noordpool verlaat, en jy kan nou sy roete volg"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Geskenke afgelewer"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Kry die program"
 	},
+	"village_more": {
+		"message": "Meer maniere om te verken"
+	},
 	"village_santa_cardboard": {
 		"message": "Kersvader op Cardboard"
 	},
 	"village_santa_cast": {
 		"message": "Kersvader op Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome-uitbreiding"
 	},
 	"village_takesoff": {
 		"message": "Kersvader vertrek oor"

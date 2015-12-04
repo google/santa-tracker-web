@@ -226,9 +226,6 @@ Jamband scene.
           </div>
         </div>
         <div class="board board--game">
-          <a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
-            <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-          </a>
           <div class="logo"></div>
         </div>
       </div>
@@ -341,7 +338,7 @@ Jamband scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams.band && this.bandStarted) {
+      if (this.sceneParams && this.sceneParams.band && this.bandStarted) {
         this.game.restoreBand(this.sceneParams.band);
       }
     },

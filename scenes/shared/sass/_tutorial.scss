@@ -59,6 +59,13 @@
   @include tutorial(touch-updown, '../shared/img/tutorial/touch-updown-landscape.svg', 4);
   @include tutorial(touch-leftright, '../shared/img/tutorial/touch-leftright-landscape.svg', 4);
 
+  // Portal spacenav
+  @include tutorial(spacenav-leftright, '../shared/img/tutorial/PortalHorizontalArrows_TransparentBG.gif', 1);
+  @include tutorial(spacenav-updown, '../shared/img/tutorial/PortalVerticalArrows_TransparentBG.gif', 1);
+  @include tutorial(spacenav-space, '../shared/img/tutorial/PortalCenterPush_TransparentBG.gif', 1);
+  @include tutorial(spacenav-arrows, '../shared/img/tutorial/PortalArrows_TransparentBG.gif', 1);
+  @include tutorial(spacenav-up, '../shared/img/tutorial/PortalUpArrow_TransparentBG.gif', 1);
+
   @media (orientation: portrait) {
     .tutorial.touch-updown .tutorial-inner {
       background-image: url('../shared/img/tutorial/touch-updown-portrait.svg');

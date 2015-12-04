@@ -60,7 +60,7 @@ app.FrameWrapper = function(el, staticDir) {
  */
 app.FrameWrapper.prototype.restart = function() {
   this.isPlaying = true;
-
+  window.santaApp.fire('sound-ambient', 'music_start_scene');
   this.iframeChannel.call('restart');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codelab'});
 };
@@ -83,8 +83,8 @@ app.FrameWrapper.prototype.dispose = function() {
  * Loads the gameplay frame into the iframe.
  */
 app.FrameWrapper.prototype.setIframeSrc = function() {
-  var filename = '../codelabframe/codelabframe-scene_' + document.documentElement.lang + '.html';
-  this.iframeEl.attr('src', this.staticDir + filename + location.search);
+  var filename = window.DEV_SCENE ? 'index.html' : 'codelabframe-scene_' + document.documentElement.lang + '.html';
+  this.iframeEl.attr('src', this.staticDir + '../codelabframe/' + filename + location.search);
 };
 
 app.FrameWrapper.prototype.triggerSound = function(event) {

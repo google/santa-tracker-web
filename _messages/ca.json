@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Colòmbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Salteu"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Salteu."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Braç a l'esquerra"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Alceu el braç cap a l'esquerra."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas a l'esquerra"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Feu un pas a l'esquerra."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Braç a la dreta"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Alceu el braç cap a la dreta."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas a la dreta"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Feu un pas a la dreta."
+	},
+	"codeboogie-block-shake": {
+		"message": "Moveu els malucs"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Moveu els malucs."
+	},
+	"codeboogie-block-split": {
+		"message": "Espagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Feu l'espagat."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Tothom a ballar!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "A ballar!"
+	},
+	"codeboogie-next-dance": {
+		"message": "Següent ball"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Fantàstic!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Proveu el bloc següent i imiteu el ball."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Sabíeu que podeu acabar el ball amb només {{ideal}} blocs? Proveu de fer servir el bloc següent."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Sou el rei de la pista! Heu ballat molt bé."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Esteu fent servir els blocs correctes, però n'heu de fer més per fer acabar el ball."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Sabíeu que podeu acabar el ball amb només {{ideal}} blocs?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Heu fet massa passos."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Sembla que us heu equivocat de pas. Proveu amb aquest:"
+	},
+	"codeboogie-success": {
+		"message": "Molt bé!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Pareu atenció!"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "República Dominicana"
+	},
+	"donate_button": {
+		"message": "Dóna"
+	},
+	"donate_text": {
+		"message": "Ajudeu a finançar un projecte per a nens amb necessitats especials a DonorsChoose.org. Aquest desembre igualarem l'import de les donacions per duplicar-ne l'impacte, fins que assolim el nostre objectiu de donar 1 milió de dòlars. Junts podem millorar la inclusió a les aules #ForEveryKid."
 	},
 	"dz_country_name": {
 		"message": "Algèria"
@@ -747,7 +834,7 @@
 		"message": "Puerto Rico"
 	},
 	"press": {
-		"message": "Prem"
+		"message": "Premsa"
 	},
 	"pt_language_name": {
 		"message": "Portuguès"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Aràbia Saudita"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Home de gingebre"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mare Noel"
+	},
+	"santasearch_character_pegman": {
+		"message": "Homenet taronja"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingüí"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Pare Noel"
+	},
 	"santasearch_hint": {
 		"message": "Pista"
 	},
@@ -780,7 +885,7 @@
 		"message": "Al museu"
 	},
 	"santasearch_level_select": {
-		"message": "Vés"
+		"message": "Fantàstic!"
 	},
 	"santasearch_search_for_santa": {
 		"message": "On és el Pare Noel?"
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "La selfie del Pare Noel"
+	},
+	"scene_seasonofcaring": {
+		"message": "Temps de solidaritat"
 	},
 	"scene_seasonofgiving": {
 		"message": "Temps de regals"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distància respecte a l'usuari"
+	},
+	"tracker_flight_nearby": {
+		"message": "El Pare Noel és a prop; esbrineu on"
+	},
+	"tracker_flight_start": {
+		"message": "El Pare Noel ha sortit del Pol Nord i ara ja podeu seguir la seva ruta"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Regals entregats"
@@ -4692,13 +4806,19 @@
 		"message": "Exploreu, jugueu i apreneu amb els elfs del Pare Noel durant tot el mes de desembre"
 	},
 	"village_get_the_app": {
-		"message": "Obtén l'aplicació"
+		"message": "Baixa l'aplicació"
+	},
+	"village_more": {
+		"message": "Què més podeu fer?"
 	},
 	"village_santa_cardboard": {
 		"message": "El Pare Noel a Cardboard"
 	},
 	"village_santa_cast": {
 		"message": "El Pare Noel a Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Extensió de Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "El Pare Noel surt d'aquí a"

@@ -26,6 +26,7 @@ goog.require('app.Constants');
 goog.require('app.Scoreboard');
 goog.require('app.config.Levels');
 goog.require('app.world.Level');
+goog.require('app.Drawer');
 
 
 
@@ -38,10 +39,13 @@ goog.require('app.world.Level');
  */
 app.Game = function(elem) {
   this.elem = $(elem);
-  this.viewElem = this.elem.find('.scene');
+  this.viewportElem = this.elem.find('.js-viewport');
+  this.sceneElem = this.elem.find('.scene');
   this.levelElem = this.elem.find('.levelboard');
+  this.backgroundElem = this.elem.find('.bg');
 
   this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
+  this.drawer = new app.Drawer(this.elem);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'mouse');
@@ -55,7 +59,26 @@ app.Game = function(elem) {
   this.onFrame_ = this.onFrame_.bind(this);
   this.loadNextLevel_ = this.loadNextLevel_.bind(this);
   this.onLevelCompleted = this.onLevelCompleted.bind(this);
+
+  // bind events
+  this.addEventListeners_();
 };
+
+/**
+ * Adds event listeners on elements
+ */
+app.Game.prototype.addEventListeners_ = function() {
+  this.backgroundElem.on('click', this.onInteraction.bind(this));
+  this.elem.on('click', '.tutorial', this.onInteraction.bind(this));
+}
+
+/**
+ * Removes event listeners on elements
+ */
+app.Game.prototype.removeEventListeners_ = function() {
+  this.backgroundElem.off("click", this.onInteraction);
+  this.elem.off('click', '.tutorial', this.onInteraction);
+}
 
 /**
  * Starts the game.
@@ -65,7 +88,7 @@ app.Game.prototype.start = function() {
   // Bind listener to scale scene when window resizes
   this.watchSceneSize_();
   this.restart();
-  //this.tutorial.start();
+  this.tutorial.start();
 };
 
 /**
@@ -111,6 +134,15 @@ app.Game.prototype.onFrame_ = function() {
   this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
+/** 
+ * Handles user clicks on the background
+ */
+app.Game.prototype.onInteraction = function() {
+  if (this.currentLevel_) {
+    this.currentLevel_.onInteraction();
+  }
+}
+
 /**
  * Transition to the next level.
  * @private
@@ -135,9 +167,8 @@ app.Game.prototype.loadNextLevel_ = function() {
   if (this.currentLevel_) {
     this.currentLevel_.destroy();
   }
-  this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted);
+  this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted, this.tutorial, this.scoreboard, this.drawer);
 };
-
 
 /**
  * Callback when current level is successfully completed
@@ -236,9 +267,9 @@ app.Game.prototype.resume = function() {
  */
 app.Game.prototype.setScale = function(scale, width, height) {
   this.scale = scale;
-  this.windowWidth = width;
-  this.windowHeight = height;
-  this.viewElem.css({
+  this.viewportWidth = width;
+  this.viewportHeight = height;
+  this.sceneElem.css({
     transform: 'scale(' + scale + ')',
     width: width / scale + 'px',
     height: height / scale + 'px'
@@ -249,10 +280,10 @@ app.Game.prototype.getViewport = function () {
   return {
     sceneOffset: this.sceneOffset,
     scale: this.scale,
-    width: this.windowWidth / this.scale,
-    height: this.windowHeight / this.scale,
-    windowWidth: this.windowWidth,
-    windowHeight: this.windowHeight
+    width: this.viewportWidth / this.scale,
+    height: this.viewportHeight / this.scale,
+    viewportWidth: this.viewportWidth,
+    viewportHeight: this.viewportHeight
   };
 };
 
@@ -261,13 +292,13 @@ app.Game.prototype.getViewport = function () {
  * @private
  */
 app.Game.prototype.watchSceneSize_ = function() {
-  var bgElem = this.bgElem,
+  var viewportElem = this.viewportElem,
       game = this;
 
   var updateSize = function() {
-    var width = window.innerWidth,
-      height = window.innerHeight,
-      scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
+    var width = viewportElem.width(), // window.innerWidth,
+        height = viewportElem.height(), //window.innerHeight,
+        scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
           width / app.Constants.VIEWPORT_MIN_WIDTH :
           1;
 
@@ -276,7 +307,7 @@ app.Game.prototype.watchSceneSize_ = function() {
         scale;
 
     game.setScale(scale, width, height);
-    game.sceneOffset = game.elem.offset();
+    game.sceneOffset = viewportElem.offset();
   };
 
   updateSize();
@@ -298,6 +329,7 @@ app.Game.prototype.dispose = function() {
   $(window).off('.presentbounce');
   $(document).off('.presentbounce');
 
+  this.removeEventListeners_();
   this.levelUp.dispose();
   this.tutorial.dispose();
 };

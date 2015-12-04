@@ -173,16 +173,20 @@ app.OrnamentNavigation.prototype.handleResize = function() {
   var currentOrnamentNum;
   var currentOrnament;
 
-  if ($(window).width() < 1025) {
+  var width = window.innerWidth;
+  var height = window.innerHeight - window.santaApp.headerSize;
+
+  if (width <= 1024) {
     tempElem = this.elem.find('.Tool-crayon--violet')[0];
-    topOffset = tempElem.getBoundingClientRect().top - 84;
+    // note that tempElem is fixed, but we need to also offset by headerSize
+    topOffset = tempElem.getBoundingClientRect().top - 84 - window.santaApp.headerSize;
     tempCSS = {
       'left': '50%',
       'top': topOffset,
       'width': '180px',
       'transform': 'translate(-50%, 0px) scale(0.9)'
     };
-    this.ornamentCopyContainer.css('height', $(window).height());
+    this.ornamentCopyContainer.css('height', height);
     this.buttonInfo.css('top', topOffset - 5);
   } else {
     currentOrnamentNum = app.GameManager.currentIndex;
@@ -194,7 +198,7 @@ app.OrnamentNavigation.prototype.handleResize = function() {
     }
     tempCSS = {
       'left': currentCopy[0].getBoundingClientRect().left,
-      'top': currentCopy[0].getBoundingClientRect().top - 98,
+      'top': currentCopy[0].getBoundingClientRect().top - 128,
       'transform': 'none',
       'width': '200px'
     };

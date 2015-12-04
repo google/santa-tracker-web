@@ -51,7 +51,7 @@ goog.scope(function () {
       fixDef.friction = this.config_.material.friction;
       fixDef.restitution = this.config_.material.restitution;
       fixDef.shape = new b2.CircleShape( Unit.toWorld(this.config_.style.width/2) );
-   
+
       const body = this.world_.CreateBody(bodyDef);
       body.CreateFixture(fixDef);
 

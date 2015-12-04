@@ -271,7 +271,7 @@ app.Tools = function(game, elem, exporter) {
  * Resize
  */
 app.Tools.prototype.handleResize = function() {
-  var wh = $(window).height();
+  var wh = $(window).height() - window.santaApp.headerSize;
   var maxToolHeight = this.elem.height();
   var cols;
 
@@ -332,6 +332,12 @@ app.Tools.prototype.mouseChanged = function(mouse) {
  */
 app.Tools.prototype.selectTool = function(e) {
   var previousTool = this.selectedTool;
+  var isSlider =
+      $(e.target).closest('.crayon-size-wrapper').length > 0;
+
+  if (isSlider) {
+    return;
+  }
 
   this.selectedTool = this.tools.filter(function(tool) {
     if (tool.container[0] === e.target && !tool.isSelected) {

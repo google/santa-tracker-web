@@ -27,11 +27,11 @@ app.config.Styles = {
     width: 361,
     height: 220,
     innerHTML: `
-        <div class="dropper__button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.2 131.2"><path fill="#D4D4D6" d="M0 0h131.2v131.2H0z"/><circle fill="#77787C" cx="12.2" cy="12.2" r="6.2"/><circle fill="#77787C" cx="119" cy="12.2" r="6.2"/><circle fill="#77787C" cx="12.2" cy="119" r="6.2"/><circle fill="#77787C" cx="119" cy="119" r="6.2"/><circle opacity=".25" fill="#434343" cx="72.6" cy="72.6" r="48.6"/><circle fill="#378F43" cx="65.6" cy="65.6" r="48.6"/><circle fill="#3BB34A" cx="60.9" cy="60.9" r="48.6"/><g fill="#378F43"><path d="M29 64.9h63.8L60.9 96.8zM44.9 33h31.9v31.9H44.9z"/></g></svg>
+        <div class="js-dropper__button dropper__button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.2 131.2"><path fill="#D4D4D6" d="M0 0h131.2v131.2H0z"></path><circle fill="#77787C" cx="12.2" cy="12.2" r="6.2"></circle><circle fill="#77787C" cx="119" cy="12.2" r="6.2"></circle><circle  fill="#77787C" cx="12.2" cy="119" r="6.2"></circle><circle fill="#77787C" cx="119" cy="119" r="6.2"></circle><circle class="dropper__button__shadow" opacity=".25" fill="#434343" cx="72.6" cy="72.6" r="48.6"></circle><circle class="dropper__button__side" fill="#378F43" cx="65.6" cy="65.6" r="48.6"></circle><g class="dropper__button__hitarea"><circle class="dropper__button__surface" fill="#3BB34A" cx="60.9" cy="60.9" r="48.6"></circle><path fill="#378F43" class="dropper__button__pointer" d="M29 64.9h63.8L60.9 96.8zM44.9 33h31.9v31.9H44.9z"></path></g></svg>
         </div>
         <div class="dropper__pipe">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.2 226.1"><path opacity=".25" fill="#434343" d="M203.2 67.5V51.2h-8.6V0h-179v51.2H7v16.3h8.6v142.3H7v16.3h196.2v-16.3h-8.6V67.5z"/><path fill="#D4D4D6" d="M8.6 0h179v203.3H8.6z"/><path fill="#FFF" d="M8.6 0h161v203.3H8.6z"/><path fill="#E53A35" d="M0 44.2h196.2v16.3H0zM0 202.8h196.2v16.3H0z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-273.6 65.9 204 260"><path opacity=".25" fill="#424242" d="M-69.6 133.4V117h-8.6V65.9h-179.7V117h-8.6v16.4h8.6v142.4h-8.6v16.3h197v-16.3h-8.6V133.4h8.5z"/><path fill="#D3D4D6" d="M-265 65.9h179.7v203.4H-265V65.9z"/><path fill="#FFF" d="M-265 65.9h161.6v203.4H-265V65.9z"/><path fill="#E53935" d="M-273.6 110h197v16.3h-197V110zm0 158.8h197v16.3h-197v-16.3z"/><path fill="#333" d="M-87.8 308.5c-4.8 0-8.7 3.9-8.7 8.7h8.7v-8.7z"/><path fill="#FFE200" d="M-79 317.2c0-4.8-3.9-8.7-8.7-8.7v8.7h8.7z"/><path fill="#333" d="M-79 317.2h-8.7v8.7c4.7 0 8.7-3.9 8.7-8.7z"/><path fill="#FFE200" d="M-96.5 317.2c0 4.8 3.9 8.7 8.7 8.7v-8.7h-8.7z"/><path fill="#333" d="M-262.5 308.5c-4.8 0-8.7 3.9-8.7 8.7h8.7v-8.7z"/><path fill="#FFE200" d="M-253.7 317.2c0-4.8-3.9-8.7-8.7-8.7v8.7h8.7z"/><path fill="#333" d="M-253.7 317.2h-8.7v8.7c4.8 0 8.7-3.9 8.7-8.7z"/><path fill="#FFE200" d="M-271.2 317.2c0 4.8 3.9 8.7 8.7 8.7v-8.7h-8.7z"/><g><path fill="#333" d="M-204.2 308.5c-4.8 0-8.7 3.9-8.7 8.7h8.7v-8.7z"/><path fill="#FFE200" d="M-195.5 317.2c0-4.8-3.9-8.7-8.7-8.7v8.7h8.7z"/><path fill="#333" d="M-195.5 317.2h-8.7v8.7c4.8 0 8.7-3.9 8.7-8.7z"/><path fill="#FFE200" d="M-213 317.2c0 4.8 3.9 8.7 8.7 8.7v-8.7h-8.7z"/></g><g><path fill="#333" d="M-146 308.5c-4.8 0-8.7 3.9-8.7 8.7h8.7v-8.7z"/><path fill="#FFE200" d="M-137.3 317.2c0-4.8-3.9-8.7-8.7-8.7v8.7h8.7z"/><path fill="#333" d="M-137.3 317.2h-8.7v8.7c4.8 0 8.7-3.9 8.7-8.7z"/><path fill="#FFE200" d="M-154.7 317.2c0 4.8 3.9 8.7 8.7 8.7v-8.7h-8.7z"/></g></svg>
         </div>
     `,
     marginTop: -90 // align dom element to bottom
@@ -45,7 +45,7 @@ app.config.Styles = {
   },
   presentBall: {
     className: 'object--present-circle',
-    innerHTML: '',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.6 49.6"><circle fill="#DA4737" cx="24.8" cy="24.8" r="24.8"/><path fill="#F0B31D" d="M21.7 28v21.5c1 .1 2.1.2 3.1.2 1.1 0 2.1-.1 3.1-.2L28 28h21.5c.1-1 .2-2.1.2-3.1 0-1.1-.1-2.1-.2-3.1H28V.3c-1-.1-2.1-.2-3.2-.2s-2.1.1-3.2.2v21.5H.1c-.1 1-.2 2.1-.2 3.1 0 1.1.1 2.1.2 3.1h21.6z"/></svg>',
     width: 50,
     height: 50,
     dynamicShadow: true
@@ -68,12 +68,12 @@ app.config.Styles = {
     className: 'object--target',
     innerHTML: `
       <div class="target">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 177.5"><g opacity=".1"><path fill="#010101" d="M133.8 26.9l12.6-19.4H38.6l12.6 19.4c-15.9 7.8-26.8 24.1-26.8 43 0 26.4 21.4 47.8 47.8 47.8h40.5c26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="#010101" d="M133.8 26.9l12.6-19.4h-26.2l-12.6 19.4c15.9 7.8 26.8 24.1 26.8 43 0 24.9-19 45.3-43.3 47.6 1.5.1 20.1.2 21.6.2 26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="none" stroke="#010101" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M51.2 26.9h82.6M117.7 26.9c2.7 0 5.2 1.1 6.2 3.4s.4 5.3-1.6 7c-.8.7-1.8 1.2-2.5 1.9-1.6 1.8-1.5 4.7-.1 6.6 1.4 1.9 3.7 3 6.1 3.5"/><path fill="none" stroke="#010101" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M120 26.9c5.2 0 10.5 2.8 11.7 6.3.4 1.2.1 2.5-.7 3.5-.5.6-1.3 1-1.7 1.7-.9 1.2-.5 3 .6 4 1 1.1 2.5 1.5 4 1.7"/></g><path fill="#E53A35" d="M126.3 19.4L138.9 0H31.1l12.6 19.4c-15.9 7.8-26.8 24.1-26.8 43 0 26.4 21.4 47.8 47.8 47.8h40.5c26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="#bb3131" d="M126.3 19.4L138.9 0h-26.2l-12.6 19.4c15.9 7.8 26.8 24.1 26.8 43 0 24.9-19 45.3-43.3 47.6 1.5.1 20.1.2 21.6.2 26.4 0 47.8-21.4 47.8-47.8.1-18.9-10.9-35.2-26.7-43z"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M43.7 19.4h82.6M110.2 19.4c2.7 0 5.2 1.1 6.2 3.4s.4 5.3-1.6 7c-.8.7-1.8 1.2-2.5 1.9-1.6 1.8-1.5 4.7-.1 6.6 1.4 1.9 3.7 3 6.1 3.5"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M112.5 19.4c5.2 0 10.5 2.8 11.7 6.3.4 1.2.1 2.5-.7 3.5-.5.6-1.3 1-1.7 1.7-.9 1.2-.5 3 .6 4 1 1.1 2.5 1.5 4 1.7"/><g><g opacity=".1" fill="#010101"><path d="M157.5 137.7h-130c-11 0-20-9-20-20h170c0 11-9 20-20 20zM58.4 137.7h68.1V185H58.4z"/><path d="M116.6 137.7h10V185h-10z"/></g><path fill="#333" d="M150 130.2H20c-11 0-20-9-20-20h170c0 11-9 20-20 20z"/><path fill="#D4D4D6" d="M50.9 130.2H119v47.3H50.9z"/><path fill="#989898" d="M109.1 130.2h10v47.3h-10z"/></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178 178"><path opacity=".25" fill="#434343" d="M7 117.6c0 11.1 9 20.1 20.1 20.1h31.1V178h68.5v-40.4h31.1c11.1 0 20.1-9 20.1-20.1H7z"/><path opacity=".25" fill="#434343" d="M136 27.5c.2-.3.3-.7.3-1 0-.8-.4-1.5-1-1.9L146.7 7H38.4l11.5 17.6c-.6.4-1 1.1-1 1.9 0 .4.1.7.3 1-14.9 8.1-25 23.9-25 42.1 0 26.5 21.5 48 48.1 48h40.8c26.6 0 48.1-21.5 48.1-48-.2-18.2-10.3-33.9-25.2-42.1z"/><path fill="#333" d="M151 130.6H20c-11 0-20-9-20-20v-.1h171v.1c0 11-9 20-20 20z"/><path fill="#D4D4D6" d="M51.2 130.6h68.5V178H51.2z"/><path fill="#989898" d="M109.7 130.6h10V178h-10z"/><g><path fill="#E53A35" d="M127 19.5L139.6 0H31.3L44 19.5c-16 7.8-27 24.2-27 43.1 0 26.5 21.5 48 48.1 48h40.8c26.6 0 48.1-21.5 48.1-48-.1-19-11.1-35.3-27-43.1z"/><path fill="#434343" d="M127 19.5L139.6 0h-26.3l-12.7 19.5c16 7.8 27 24.2 27 43.1 0 24.9-19.1 45.4-43.5 47.7 1.5.1 20.2.2 21.8.2 26.6 0 48.1-21.5 48.1-48-.1-18.9-11.1-35.2-27-43z" opacity=".25"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M44 19.5h83M110.8 19.5c2.7 0 5.2 1.1 6.3 3.5s.4 5.3-1.6 7c-.8.7-1.8 1.2-2.5 1.9-1.6 1.8-1.5 4.7-.1 6.7s3.8 3 6.1 3.5"/><path fill="none" stroke="#FED600" stroke-width="4.434" stroke-linecap="round" stroke-miterlimit="10" d="M113.2 19.5c5.3 0 10.6 2.9 11.7 6.3.4 1.2.1 2.5-.7 3.5-.5.6-1.3 1-1.7 1.7-.9 1.2-.5 3 .6 4.1 1 1.1 2.6 1.5 4 1.7"/></g></svg>
       </div>
     `,
-    width: 170,
+    width: 200,
     height: 177,
-    objectWidth: 112,
+    objectWidth: 132,
     objectHeight: 100
   },
   angledBeam: {
@@ -94,7 +94,7 @@ app.config.Styles = {
     hasAngle: false
   },
   conveyorBelt: {
-    className: 'object--conveyorBelt',
+    className: 'js-object-conveyorBelt object--conveyorBelt',
     innerHTML: `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="151.4 -7 388.4 81.4"><path class="belt shadow" opacity=".25" fill="none" stroke="#424242" stroke-width="8" stroke-miterlimit="10" stroke-dasharray="24" d="M535.8 38.7c0 17.5-14.2 31.7-31.7 31.7h-307c-17.5-.1-31.7-14.2-31.7-31.7S179.6 7 197.1 7h307.1c17.5 0 31.6 14.2 31.6 31.7"/><g class="wheelshadow" opacity=".25"><circle fill="#424242" cx="196.7" cy="38.4" r="32"/><circle fill="#424242" cx="503.8" cy="38.4" r="32"/></g><g class="wheel"><circle fill="#EF6C00" cx="191.7" cy="33.4" r="32"/><path fill="#FFF" d="M222.5 25c.3 8-2.6 16.1-8.7 22.2-9.2 9.2-24.2 9.2-33.5 0-7.3-7.3-7.3-19.1 0-26.3 2.8-2.8 6.4-4.3 10.3-4.3 3.9 0 7.6 1.5 10.3 4.3 2.1 2.1 3.3 5 3.3 8s-1.2 5.9-3.3 8c-1.7 1.7-3.8 2.6-6.2 2.6-2.3 0-4.5-.9-6.2-2.6-2.6-2.6-2.6-6.8 0-9.4 1-1 2.2-1.5 3.6-1.5 1.3 0 2.6.5 3.5 1.5.7.7 1.1 1.6 1.1 2.6s-.4 1.9-1.1 2.6c-1 1-2.7 1-3.7 0-.7-.7-.7-1.9 0-2.5.6-.6.6-1.6 0-2.3-.6-.6-1.6-.6-2.3 0-1.9 1.9-1.9 5.2 0 7.1 2.3 2.3 6 2.3 8.3 0 1.3-1.3 2-3 2-4.9 0-1.8-.7-3.6-2-4.9-1.6-1.6-3.6-2.4-5.8-2.4s-4.3.9-5.8 2.4c-3.8 3.8-3.8 10.1 0 14 2.3 2.3 5.3 3.5 8.4 3.5 3.2 0 6.2-1.2 8.4-3.5 2.7-2.7 4.3-6.4 4.3-10.3 0-3.9-1.5-7.5-4.3-10.3-3.4-3.4-7.8-5.2-12.6-5.2-4.7 0-9.2 1.8-12.6 5.2-8.5 8.5-8.5 22.3 0 30.8 10.5 10.5 27.5 10.5 38 0 3.1-3.1 5.5-6.7 7.1-10.5.3-1.8.5-3.7.5-5.6.1-2.8-.3-5.6-1-8.3z"/></g><g class="wheel"><circle fill="#37B34A" cx="498.8" cy="33.4" r="32"/><path fill="#FFF" d="M467.9 25c-.3 8 2.6 16.1 8.7 22.2 9.2 9.2 24.2 9.2 33.5 0 7.3-7.3 7.3-19.1 0-26.3-2.8-2.8-6.4-4.3-10.3-4.3s-7.6 1.5-10.3 4.3c-2.1 2.1-3.3 5-3.3 8s1.2 5.9 3.3 8c1.7 1.7 3.8 2.6 6.2 2.6 2.3 0 4.5-.9 6.2-2.6 2.6-2.6 2.6-6.8 0-9.4-1-1-2.2-1.5-3.6-1.5-1.3 0-2.6.5-3.5 1.5-.7.7-1.1 1.6-1.1 2.6s.4 1.9 1.1 2.6c1 1 2.7 1 3.7 0 .7-.7.7-1.9 0-2.5-.6-.6-.6-1.6 0-2.3.6-.6 1.6-.6 2.3 0 1.9 1.9 1.9 5.2 0 7.1-2.3 2.3-6 2.3-8.3 0-1.3-1.3-2-3-2-4.9 0-1.8.7-3.6 2-4.9 1.6-1.6 3.6-2.4 5.8-2.4 2.2 0 4.3.9 5.8 2.4 3.8 3.8 3.8 10.1 0 14-2.3 2.3-5.3 3.5-8.4 3.5-3.2 0-6.2-1.2-8.4-3.5-2.7-2.7-4.3-6.4-4.3-10.3 0-3.9 1.5-7.5 4.3-10.3 3.4-3.4 7.8-5.2 12.6-5.2 4.7 0 9.2 1.8 12.6 5.2 8.5 8.5 8.5 22.3 0 30.8-10.5 10.5-27.5 10.5-38 0-3.1-3.1-5.5-6.7-7.1-10.5-.3-1.8-.5-3.7-.5-5.6-.1-2.8.3-5.6 1-8.3z"/></g><path class="belt" fill="none" stroke="#F9CE1D" stroke-width="8" stroke-miterlimit="10" stroke-dasharray="24" d="M530.4 33.4c0 17.5-14.2 31.7-31.7 31.7h-307C174.2 65 160 50.9 160 33.4s14.2-31.7 31.7-31.7h307.1c17.5 0 31.6 14.2 31.6 31.7"/></svg>
       <div class="object__rotate-handle js-rotate-handle">
@@ -105,7 +105,7 @@ app.config.Styles = {
     padding: 5
   },
   spring: {
-    className: 'object--spring',
+    className: 'js-object-spring object--spring',
     innerHTML: `
       <div class="spring">
         <div class="spring__top">
@@ -120,7 +120,7 @@ app.config.Styles = {
       <div class="object__rotate-handle js-rotate-handle">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.7 34.7"><circle opacity=".25" fill="#424242" cx="20.9" cy="20.9" r="13.9"/><circle fill="#E91C24" cx="13.9" cy="13.9" r="13.9"/><g fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10"><path d="M17.5 8.4c1.9 1.3 2.9 3.3 2.9 5.5 0 3.6-2.9 6.6-6.6 6.6s-6.6-2.9-6.6-6.6 2.9-6.6 6.6-6.6"/><path d="M10.7 5.3l3.2 2-2 3.1"/></g></svg>
       </div>`,
-    height: 85,
+    height: 68, // 85
     width: 75,
     jointAngle: false
   }

@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Kolumbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Hyppää"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Hyppää ilmaan."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Osoita: vasen"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Osoita vasemmalle."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Vasen askel"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ota askel vasemmalle."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Osoita: oikea"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Osoita oikealle."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Oikea askel"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ota askel oikealle."
+	},
+	"codeboogie-block-shake": {
+		"message": "Lantioheilutus"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Heiluta lantiota."
+	},
+	"codeboogie-block-split": {
+		"message": "Spagaatti"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Tee spagaatti."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Aloita tanssi!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Tanssitaan"
+	},
+	"codeboogie-next-dance": {
+		"message": "Seuraava tanssi"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Mitä liikkeitä!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Kokeile käyttää tanssiin sopivia paloja."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Tiesitkö, että voit läpäistä tanssin vain {{ideal}} palalla? Kokeile alla olevaa palaa."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Sinulla on rytmi veressä! Suoriuduit tanssista virheettömästi."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Käytät oikeita paloja, mutta tanssissa tarvitset niitä enemmän."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Tiesitkö, että voit läpäistä tämän tanssin vain {{ideal}} palalla?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Teit liian monta liikettä."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Taisit tehdä väärän liikkeen. Kokeile sen sijaan tätä:"
+	},
+	"codeboogie-success": {
+		"message": "Onnistui!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Katso tarkkaan!"
+	},
 	"codelab-block-moveeast": {
 		"message": "itään"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikaaninen tasavalta"
+	},
+	"donate_button": {
+		"message": "Lahjoita"
+	},
+	"donate_text": {
+		"message": "Anna lahjoitus hyväntekeväisyysjärjestölle osoitteessa DonorsChoose.org. Joulukuun ajan Google tukee tehtyjä lahjoituksia 50 %:n lisäsummalla, kunnes saavutamme lahjoitustavoitteemme 1 miljoona Yhdysvaltain dollaria. Yhdessä voimme tukea kaikkien lasten koulutaivalta. #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algeria"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saudi-Arabia"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Piparkakkupoika"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Pukin muori"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingviini"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Petteri"
+	},
+	"santasearch_character_santa": {
+		"message": "Joulupukki"
+	},
 	"santasearch_hint": {
 		"message": "Vinkki"
 	},
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Pukin selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Välittämisen aika"
 	},
 	"scene_seasonofgiving": {
 		"message": "Antamisen aika"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Etäisyys sijainnistasi"
+	},
+	"tracker_flight_nearby": {
+		"message": "Pukki on jo lähellä! Katso missä!"
+	},
+	"tracker_flight_start": {
+		"message": "Pukki on lähtenyt liikkeelle Korvatunturilta, ja voit nyt seurata hänen reittiään."
 	},
 	"tracker_gifts_delivered": {
 		"message": "Toimitetut lahjat"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Hanki sovellus"
 	},
+	"village_more": {
+		"message": "Lisää hauskoja pelejä"
+	},
 	"village_santa_cardboard": {
 		"message": "Pukki Cardboardissa"
 	},
 	"village_santa_cast": {
 		"message": "Pukki Google Castissa"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome -laajennus"
 	},
 	"village_takesoff": {
 		"message": "Aikaa joulupukin lähtöön:"

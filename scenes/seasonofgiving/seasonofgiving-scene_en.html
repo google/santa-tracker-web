@@ -19,7 +19,13 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="seasonofgiving-scene.css" />
-
+<style>
+  seasonofgiving-scene[mode="portal"] #module-seasonofgiving .scene-ornament-wrapper .ornament-copy a:not(.Button) {
+    color:white;
+    pointer-events:none;
+    cursor: default;
+  }
+</style>
 <!--
 Season of giving scene.
 -->
@@ -38,6 +44,10 @@ Season of giving scene.
     :host([mode="portal"]) .shareButtons {
       display: none !important;
     }
+    :host([mode="portal"]) #module-seasonofgiving .Tool-bottomContainer {
+      display: none !important;
+    }
+
   </style>
 
   <div id="module-seasonofgiving">
@@ -237,9 +247,6 @@ Season of giving scene.
         </div>
         <div class="Tool-panel">
           <div class="Tool-wrapper">
-            <a class="Tool-backContainer" id="global-back-to-village" href="{{pageUrl}}#village">
-              <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-            </a>
             <div class="Tool-header-container">
               <div class="Tool-header"></div>
             </div>
@@ -332,8 +339,7 @@ Season of giving scene.
       </div>
     </div>
     <div class="gui">
-      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
-          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+      <div class="board board--game">
         <div class="logo"></div>
         <div class="score">
           <div class="label">
@@ -458,6 +464,9 @@ Season of giving scene.
       var module = this.$['module-seasonofgiving'];
 
       this.game = new scenes.seasonofgiving.Game(module, this.componentDir);
+      if (this.santaApp.mode == 'portal') {
+        this.game.tools.sizeSlider.updateValueTo(3);
+       }
       this.game.start();
     },
     onHide: function() {

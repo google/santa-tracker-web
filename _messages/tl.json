@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Lumundag"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Lumundag."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Tumuro sa kaliwa"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Tumuro pakaliwa."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Humakbang sa kaliwa"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Isang hakbang pakaliwa."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Tumuro sa kanan"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Tumuro pakanan."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Humakbang sa kanan"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Isang hakbang pakanan."
+	},
+	"codeboogie-block-shake": {
+		"message": "Kumembot nang mabilis"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Kumembot nang mabilis."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Mag-split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Sayaw na!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Magsayaw tayo"
+	},
+	"codeboogie-next-dance": {
+		"message": "Susunod na Sayaw"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Ang galing mo!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Subukan ang bloke sa ibaba upang tumugma sa sayaw."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Alam mo bang kaya mong tapusin ang sayaw na ito sa {{ideal}} (na) bloke lang? Subukang gamitin ang bloke sa ibaba."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Ang galing ng galaw mo! Walang sablay mong natapos ang sayaw."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Tama ang mga blokeng ginagamit mo, ngunit subukang gamitin ang mas marami pa nito upang makumpleto ang sayaw."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Alam mo bang kaya mong tapusin ang sayaw na ito sa {{ideal}} (na) bloke lang?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Napakaraming hakbang ang ginawa mo."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Mukhang mali ang ginawa mo roon ah. Subukan mo nga ito:"
+	},
+	"codeboogie-success": {
+		"message": "Tagumpay!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Tingnang mabuti!"
+	},
 	"codelab-block-moveeast": {
 		"message": "silangan"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominican Republic"
+	},
+	"donate_button": {
+		"message": "Mag-donate"
+	},
+	"donate_text": {
+		"message": "Tumulong na pondohan ang isang proyekto para sa mga espesyal na pangangailangan sa DonorsChoose.org. Ngayong Disyembre, tutulong kami na madoble ang epekto sa pamamagitan ng pagtutumbas sa mga donasyon nang 50%, hanggang sa maabot namin ang aming layunin na makapag-ambag ng US$1m. Sama-sama, makatutulong tayong gawing mas kumpleto ang mga silid-aralan #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algeria"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saudi Arabia"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Gingerbread Man"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mrs. Claus"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Penguin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Santa Claus"
+	},
 	"santasearch_hint": {
 		"message": "Pahiwatig"
 	},
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Santa Selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Panahon ng Pagmamalasakit"
 	},
 	"scene_seasonofgiving": {
 		"message": "Panahon ng Bigayan"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distansya mula sa iyo"
+	},
+	"tracker_flight_nearby": {
+		"message": "Malapit lang si Santa, alamin kung saan"
+	},
+	"tracker_flight_start": {
+		"message": "Umalis na si Santa sa North Pole, at maaari mo na ngayong sundan ang ruta niya"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Mga naihatid na regalo"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Kunin ang App"
 	},
+	"village_more": {
+		"message": "Mas Marami Pang Paraan para Mag-explore"
+	},
 	"village_santa_cardboard": {
 		"message": "Santa sa Cardboard"
 	},
 	"village_santa_cast": {
 		"message": "Santa sa Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome Extension"
 	},
 	"village_takesoff": {
 		"message": "Lilipad na si Santa sa loob ng"

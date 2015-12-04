@@ -25,17 +25,20 @@ app.Constants = {
   TOTAL_LEVELS: 10,
 
   // initial size of levelboard wrapper
-  CANVAS_WIDTH: 1600, //1100;
-  CANVAS_HEIGHT: 900, //620;
+  CANVAS_WIDTH: 1600,
+  CANVAS_HEIGHT: 900,
 
   // When do we start scaling down?
-  VIEWPORT_MIN_WIDTH: 1440,
-  VIEWPORT_MIN_HEIGHT: 810,
+  VIEWPORT_MIN_WIDTH: 1600,
+  VIEWPORT_MIN_HEIGHT: 900,
 
   SHADOW_OFFSET_PX: 10, // distance to ball shadow
   CONVEYOR_BELT_SPEED: 4, // make sure belt animation is matching
   CORNER_RESOLUTION: 10, // for candy cane polygons
-  
+
+  USER_OBJECT_TYPE_BELT: 'USER_OBJECT_TYPE_BELT',
+  USER_OBJECT_TYPE_SPRING: 'USER_OBJECT_TYPE_SPRING',
+
   PHYSICS_GRAVITY: 150,
   PHYSICS_SCALE: 30,
   PHYSICS_TIME_STEP: 1 / 60,

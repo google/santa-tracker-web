@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "கொலம்பியா"
 	},
+	"codeboogie-block-jump": {
+		"message": "குதிக்கவும்"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "குதிக்கவும்."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "இடது கையை வை"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "இடது பக்கம் வைக்கவும்."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "இடது காலை வை"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "இடது பக்கம் காலை வைக்கவும்."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "வலது கையை வை"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "வலது பக்கம் வைக்கவும்."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "வலது காலை வை"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "வலது பக்கம் காலை வைக்கவும்."
+	},
+	"codeboogie-block-shake": {
+		"message": "இடுப்பை ஆட்டு"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "இடுப்பை ஆட்டவும்."
+	},
+	"codeboogie-block-split": {
+		"message": "பிரி"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "பிரிக்கவும்."
+	},
+	"codeboogie-get-dancing": {
+		"message": "நடனமாடுங்கள்!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "நடனம் ஆடலாம்"
+	},
+	"codeboogie-next-dance": {
+		"message": "அடுத்த நடனம்"
+	},
+	"codeboogie-nice-moves": {
+		"message": "அருமை!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "நடனத்துடன் பொருத்த, கீழேயுள்ள ப்ளாக்கை முயற்சிக்கவும்."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "{{ideal}} ப்ளாக்குகளை மட்டும் பயன்படுத்தி இந்த நடனத்தை முடிக்கலாம் என்று தெரியுமா? கீழேயுள்ள ப்ளாக்குகளைப் பயன்படுத்தி முயற்சிக்கவும்."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "அருமை! சரியாக ஆடி முடித்துவிட்டீர்கள்."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "சரியான ப்ளாக்குகளைப் பயன்படுத்துகிறீர்கள், நடனத்தை முடிக்க அவற்றை அதிகமாகப் பயன்படுத்தவும்."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "{{ideal}} ப்ளாக்குகளை மட்டும் பயன்படுத்தி இந்த நடனத்தை முடிக்கலாம் என்று தெரியுமா?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "மிக அதிகமான நகர்வுகளைச் செய்துவிட்டீர்கள்."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "தவறான ஒன்றை நகர்த்தியது போலத் தெரிகிறது. அதற்குப் பதிலாக இதை முயற்சிக்கவும்:"
+	},
+	"codeboogie-success": {
+		"message": "வெற்றி!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "கவனமாகப் பார்க்கவும்!"
+	},
 	"codelab-block-moveeast": {
 		"message": "கிழக்கு"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "டொமினிகன் குடியரசு"
+	},
+	"donate_button": {
+		"message": "நன்கொடையளி"
+	},
+	"donate_text": {
+		"message": "DonorsChoose.org என்பதில் சிறப்புத் தேவைகளுக்கான திட்டப்பணிக்கு நிதியுதவி அளிக்கவும். இந்த டிசம்பர் மாதத்தில், எங்கள் ஒரு மில்லியன் அமெரிக்க டாலர்கள் நன்கொடை இலக்கை அடையும்வரை, ஒவ்வொரு நன்கொடையிலும் 50%த்தைக் கூடுதலாக அளித்து உதவுகின்றோம். நாம் ஒன்றாக இணைந்து, வகுப்பறைகளை இன்னும் ஆர்வமுடையதாக்க உதவலாம் #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "அல்ஜீரியா"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "சவுதி அரேபியா"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "ஜிஞ்சர்பிரட் மேன்"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "திருமதி. கிளாஸ்"
+	},
+	"santasearch_character_pegman": {
+		"message": "பெக்மேன்"
+	},
+	"santasearch_character_penguin": {
+		"message": "பென்குயின்"
+	},
+	"santasearch_character_rudolph": {
+		"message": "ருடால்ஃப்"
+	},
+	"santasearch_character_santa": {
+		"message": "சான்டா கிளாஸ்"
+	},
 	"santasearch_hint": {
 		"message": "குறிப்பு"
 	},
@@ -783,7 +888,7 @@
 		"message": "கோ!"
 	},
 	"santasearch_search_for_santa": {
-		"message": "சான்டாவை தேடவும்!"
+		"message": "சான்டாவைத் தேடவும்!"
 	},
 	"santasvillage": {
 		"message": "சான்டாவின் கிராமம்"
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "சான்டா செல்ஃபி"
+	},
+	"scene_seasonofcaring": {
+		"message": "கவனிக்கும் பருவம்"
 	},
 	"scene_seasonofgiving": {
 		"message": "கொடுக்கும் பருவம்"
@@ -974,6 +1082,12 @@
 	"tracker_distance_from_you": {
 		"message": "உங்களிடமிருந்துள்ள தூரம்"
 	},
+	"tracker_flight_nearby": {
+		"message": "சான்டா அருகில் இருக்கிறார், எங்கே என்று கண்டறியுங்கள்"
+	},
+	"tracker_flight_start": {
+		"message": "வட துருவத்தில் இருந்து சான்டா புறப்பட்டுவிட்டார், இப்போது நீங்கள் அவரின் வழியைப் பின்தொடரலாம்"
+	},
 	"tracker_gifts_delivered": {
 		"message": "பரிசுகள் வழங்கப்பட்டன"
 	},
@@ -999,7 +1113,7 @@
 		"message": "வழியைக் காட்டு"
 	},
 	"tracker_track": {
-		"message": "சேன்டாவைக் கண்கானி"
+		"message": "சான்டாவைக் கண்கானி"
 	},
 	"tracker_weather": {
 		"message": "வானிலை"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "பயன்பாட்டைப் பெறுக"
 	},
+	"village_more": {
+		"message": "கண்டறிவதற்கான மேலும் வழிகள்"
+	},
 	"village_santa_cardboard": {
 		"message": "கார்ட்போர்டில் சான்டா"
 	},
 	"village_santa_cast": {
 		"message": "Google Cast இல் சான்டா"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome நீட்டிப்பு"
 	},
 	"village_takesoff": {
 		"message": "சான்டா புறப்பட ஆகும் நேரம்"

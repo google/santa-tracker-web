@@ -48,7 +48,7 @@ var Game = function(elem) {
   this.cards = new Cards();
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
-  this.tutorial = new Tutorial(this.elem, 'touch-matching', 'mouse-matching');
+  this.tutorial = new Tutorial(this.elem, 'touch-matching', 'mouse-matching', 'touch-matching');
 
   this.$doors = this.elem.find(Constants.SELECTOR_DOOR);
   this.$targets = this.elem.find(Constants.SELECTOR_DOOR_TARGET);
@@ -394,7 +394,7 @@ Game.prototype.resetDoors_ = function() {
 Game.prototype.restart = function() {
   this.levelModel.set(1);
   this.startLevel_();
-  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
+  window.santaApp.fire('sound-trigger', 'music_start_ingame');
   // Reset the scoreboard
   this.scoreboard.reset();
   window.santaApp.fire('analytics-track-game-start', {gameid: 'matching'});

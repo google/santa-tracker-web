@@ -52,6 +52,19 @@ function randomRange(min, opt_max) {
 }
 
 /**
+ * Returns a random choice from the given array or array-like.
+ * @param {!IArrayLike} array
+ * @return {*}
+ */
+function randomChoice(array) {
+  if (array.length) {
+    var idx = Math.floor(Math.random() * array.length);
+    return array[idx];
+  }
+  return null;
+}
+
+/**
   * Checks whether the passed dates are the same calendar day.
   * @param {!Date} date1
   * @param {!Date} date2
@@ -76,6 +89,36 @@ function assert(condition, opt_message) {
     throw new Error('Assertion failed' +
         (opt_message ? ': ' + opt_message : ''));
   }
+}
+
+/**
+ * @param {string} param URL parameter to look for.
+ * @return {string|undefined} undefined if the URL parameter does not exist.
+ */
+function getUrlParameter(param) {
+  if (!window.location.search) {
+    return;
+  }
+  var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
+  if (!m) {
+    return;
+  }
+  return decodeURIComponent(m[1]);
+}
+
+/**
+ * Sets the prefixed CSS property safely for webkit.
+ * @param {!Element} el to apply property to
+ * @param {string} prop to set
+ * @param {string} value to set
+ */
+function webkitStyle(el, prop, value) {
+  if (!prop.length) {
+    return;
+  }
+  var prefixVersion = 'webkit' + prop.substr(0, 1).toUpperCase() + prop.substr(1);
+  el.style[prefixVersion] = value;
+  el.style[prop] = value;
 }
 
 /**

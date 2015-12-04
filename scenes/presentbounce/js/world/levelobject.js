@@ -55,6 +55,10 @@ goog.scope(function () {
       this.body_ = null;
     }
 
+    setCollisionFixture(obj) {
+      this.collisionFixture = obj;
+    }
+
     /**
      * @protected
      */
@@ -104,7 +108,6 @@ goog.scope(function () {
       let height = this.config_.style.height
       const padding = this.config_.style.padding;
 
-
       // DOM element can have optional padding around Box2d body
       width = padding ? width + padding*2 : width;
       height = padding ? height + padding*2 : height;
@@ -115,12 +118,17 @@ goog.scope(function () {
         marginTop = this.config_.style.marginTop;
       }
 
+      let marginLeft = width * -0.5;
+      if (typeof this.config_.style.marginLeft !== 'undefined') {
+        marginLeft = this.config_.style.marginLeft;
+      }
+
       // Set to Box2D body dimension and offset center of gravity
       el.style.width = width + 'px';
       el.style.height = height + 'px';
 
       el.style.marginTop = marginTop + 'px';
-      el.style.marginLeft = (width * -0.5) + 'px';
+      el.style.marginLeft = marginLeft + 'px';
     }
 
     /**
@@ -198,6 +206,7 @@ goog.scope(function () {
     onUserInteractionStart() {
       // disable bouncy surfaces while dragging
       this.setRestitution_(0);
+      this.level_.onInteraction();
     }
 
     /**

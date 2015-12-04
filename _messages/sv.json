@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Hopp"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Hoppa."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Peka åt vänster"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Peka åt vänster."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Gå åt vänster"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Ta ett steg åt vänster."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Peka åt höger"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Peka åt höger."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Gå åt höger"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Ta ett steg åt höger."
+	},
+	"codeboogie-block-shake": {
+		"message": "Höftskak"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Skaka på höfterna."
+	},
+	"codeboogie-block-split": {
+		"message": "Split"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Gör en split."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Börja dansa!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Dags att dansa"
+	},
+	"codeboogie-next-dance": {
+		"message": "Nästa dans"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Snyggt!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prova med blocket nedan för att matcha dansen."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Visste du att du kan dansa hela dansen med bara {{ideal}} block? Försök använda blocket nedan."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Snyggt! Du dansade perfekt."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du använder rätt block, men försök använda fler för att dansa hela dansen."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Visste du att du kan dansa hela dansen med bara {{ideal}} block?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Du gjorde för många rörelser."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Det verkar som att du gjorde fel här. Prova det här istället:"
+	},
+	"codeboogie-success": {
+		"message": "Succé!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Titta noga!"
+	},
 	"codelab-block-moveeast": {
 		"message": "österut"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikanska republiken"
+	},
+	"donate_button": {
+		"message": "Skänk"
+	},
+	"donate_text": {
+		"message": "Bidra till ett projekt för personer med särskilda behov på DonorsChoose.org. I december dubblerar vi effekten genom att matcha alla donationer med 50 % tills vi har nått målet på 1 000 000 USD. Tillsammans kan vi göra klassrummen till en plats för alla. #ForEveryKid."
 	},
 	"dz_country_name": {
 		"message": "Algeriet"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Saudiarabien"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Pepparkaksgubben"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Tomtemor"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingvin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Jultomten"
+	},
 	"santasearch_hint": {
 		"message": "Ledtråd"
 	},
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Tomteselfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Givmildhetens årstid"
 	},
 	"scene_seasonofgiving": {
 		"message": "Gåvornas säsong"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Avstånd från dig"
+	},
+	"tracker_flight_nearby": {
+		"message": "Jultomten är i närheten. Ta reda på var"
+	},
+	"tracker_flight_start": {
+		"message": "Jultomten har lämnat Nordpolen. Följ hans rutt."
 	},
 	"tracker_gifts_delivered": {
 		"message": "Levererade paket"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Hämta appen"
 	},
+	"village_more": {
+		"message": "Fler sätt att utforska"
+	},
 	"village_santa_cardboard": {
 		"message": "Jultomten på Cardboard"
 	},
 	"village_santa_cast": {
 		"message": "Jultomten på Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome-tillägg"
 	},
 	"village_takesoff": {
 		"message": "Tomten lyfter om"

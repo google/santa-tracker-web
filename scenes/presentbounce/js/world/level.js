@@ -47,11 +47,15 @@ goog.scope(function() {
      * @param {!Function} onCompleteCallback Callback function when level is completed
      * @export
      */
-    constructor(game, elem, levelData, onCompleteCallback) {
+    constructor(game, elem, levelData, onCompleteCallback, tutorial, scoreboard, drawer) {
       this.game_ = game;
-      this.elem = $(elem);
+      this.elem = elem;
       this.levelData_ = levelData;
       this.onCompleteCallback = onCompleteCallback;
+
+      this.tutorial = tutorial || null;
+      this.scoreboard = scoreboard || null;
+      this.drawer = drawer || null;
 
       this.userObjects_ = [];
       this.levelObjects_ = [];
@@ -61,6 +65,10 @@ goog.scope(function() {
       this.target_ = null;
       this.isLevelLoaded_ = false;
       this.debug_ = !!location.search.match(/[?&]debug=true/);
+      this.hasInteractionStarted = false;
+
+      // Total ammount of objects available to be dragged and dropped
+      this.numObjectsAvailable = 0;
 
       this.buildWorld_();
 
@@ -73,7 +81,50 @@ goog.scope(function() {
 
       this.world_.SetContactListener(listener);
 
+      // bind events
+      this.onUserObjectDropped_ = this.onUserObjectDropped_.bind(this);
+      this.onTestDropObject_ = this.onTestDropObject_.bind(this);
+      this.addEventListeners_();
+
       this.init_();
+    }
+
+    /**
+     * Adds event listeners on elements
+     */
+    addEventListeners_() {
+      this.elem.on("click", this.onInteraction.bind(this));
+    }
+
+    /**
+     * Removes event listeners on elements
+     */
+    removeEventListeners_() {
+      this.elem.off("click", this.onInteraction);
+    }
+    
+    /**
+     * Callback for when the level is completed.
+     * Figures out the score and calls the game that this level is completed.
+     */
+    onLevelCompleted() {
+      let score = 0;
+      let currentTime = this.scoreboard.getCountdown();
+      const BASE_POINTS = 5;
+      const TIME_MODIFIDER = 30;
+
+      // Start with some base points
+      score = BASE_POINTS;
+
+      // Points based on speed:
+      // the smaller the currentTime, the bigger the score should be
+      score += Math.max(TIME_MODIFIDER - currentTime, 0);
+
+      // More points if using less tools
+      score += (this.numObjectsAvailable * BASE_POINTS);
+
+      // Calls the game complete callback
+      this.onCompleteCallback( Math.round(score) );
     }
 
     /**
@@ -116,6 +167,11 @@ goog.scope(function() {
      */
     onPostSolve_(contact, impulse) {}
 
+    /**
+     * Postions the element's container in the screen
+     * given the information we know about the canvas.
+     * @param  {Object} el The object the be positioned
+     */
     positionWrapperElement_(el) {
       el.css({
         position: 'absolute',
@@ -188,12 +244,63 @@ goog.scope(function() {
      */
     buildUserObjects_() {
       for (let beltData of this.levelData_.conveyorBelts) {
-        const belt = new ConveyorBelt(this, this.world_, beltData);
-        this.userObjects_.push(belt);
+        this.drawer.add(beltData, Constants.USER_OBJECT_TYPE_BELT, this.onUserObjectDropped_, this.onTestDropObject_);
+        this.numObjectsAvailable++;
       }
       for (let springData of this.levelData_.springs) {
-        const spring = new Spring(this, this.world_, springData);
-        this.userObjects_.push(spring);
+        this.drawer.add(springData, Constants.USER_OBJECT_TYPE_SPRING, this.onUserObjectDropped_, this.onTestDropObject_);
+        this.numObjectsAvailable++;
+      }
+
+      this.drawer.updateVisibility();
+    }
+
+    /**
+     * Callback from the drawer to create the World object when dropped inside the level
+     * @private
+     */
+    onUserObjectDropped_(objectData, objectType, position, callback) {
+      objectData.mouseX = position.x;
+      objectData.mouseY = position.y;
+      if (objectType === Constants.USER_OBJECT_TYPE_BELT) {
+        const belt = new ConveyorBelt(this, this.world_, objectData); 
+        if (belt.isBoundingBoxOverlappingOtherObject()) {
+          belt.destroy();
+          callback('OVERLAP ERROR');
+        }
+        else {
+          this.userObjects_.push(belt);
+        }
+      }
+      else if (objectType === Constants.USER_OBJECT_TYPE_SPRING) {
+        const spring = new Spring(this, this.world_, objectData);
+        if (spring.isBoundingBoxOverlappingOtherObject()) {
+          spring.destroy();
+          callback('OVERLAP ERROR');
+        }
+        else {
+          this.userObjects_.push(spring);
+        }
+      }
+    }
+
+    /**
+     * Callback from the drawer to test dropping an object
+     * Temporarily create object, test for overlap, and then destroy the object
+     * @private
+     */
+    onTestDropObject_(objectData, objectType, position, validCallback) {
+      objectData.mouseX = position.x;
+      objectData.mouseY = position.y;
+      if (objectType === Constants.USER_OBJECT_TYPE_BELT) {
+        const belt = new ConveyorBelt(this, this.world_, objectData);
+        validCallback( !belt.isBoundingBoxOverlappingOtherObject() );
+        belt.destroy();
+      }
+      else if (objectType === Constants.USER_OBJECT_TYPE_SPRING) {
+        const spring = new Spring(this, this.world_, objectData);
+        validCallback( !spring.isBoundingBoxOverlappingOtherObject() );
+        spring.destroy();
       }
     }
 
@@ -263,6 +370,14 @@ goog.scope(function() {
       // loop through user placed objects
       for (let object of this.userObjects_) {
         object.draw();
+      }
+    }
+
+    onInteraction() {
+      if (!this.hasInteractionStarted) {
+        this.hasInteractionStarted = true;
+        this.tutorial.off('device-tilt');
+        this.tutorial.off('mouse' );
       }
     }
 
@@ -341,12 +456,21 @@ goog.scope(function() {
     }
 
     /**
+     * Helper to check if game is paused
+     * @public
+     */
+    isGamePaused() {
+      return this.game_.paused;
+    }
+
+    /**
      * Destroy level and all Box2D/DOM resources
      * @public
      */
     destroy() {
       this.isLevelLoaded_ = false;
       this.destroyBall();
+      this.removeEventListeners_();
 
       for (let object of this.levelObjects_) {
         object.destroy();

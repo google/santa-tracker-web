@@ -22,6 +22,11 @@ About scene.
 -->
 <dom-module id="about-scene">
 <template>
+  <style>
+    .fit {
+      @apply(--layout-fit);
+    }
+  </style>
   <div id="module-about" class="fit">
     <div class="scene fit">
       <a href="{{pageUrl}}#village" id="about-banner"></a>
@@ -31,10 +36,6 @@ About scene.
         <p><i18n-msg msgid="about-content-two">PLACEHOLDER_i18n</i18n-msg></p>
         <p><i18n-msg msgid="about-content-three">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
-    </div>
-    <div class="sceneboard">
-      <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-      <div class="sceneboard-back"></div>
     </div>
   </div>
 </template>

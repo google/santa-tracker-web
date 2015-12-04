@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-block-jump": {
+		"message": "Skok"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Skočite."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Rukom ulijevo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Usmjerite ruku ulijevo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Korak ulijevo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Zakoračite ulijevo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Rukom udesno"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Usmjerite ruku udesno."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Korak udesno"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Zakoračite udesno."
+	},
+	"codeboogie-block-shake": {
+		"message": "Njihanje bokova"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Zanjišite bokove."
+	},
+	"codeboogie-block-split": {
+		"message": "Špaga"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Napravite špagu."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Zaplešite!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Zaplešimo"
+	},
+	"codeboogie-next-dance": {
+		"message": "Sljedeći ples"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Odlični pokreti!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Pokušajte upotrijebiti blok ispod da biste pravilno otplesali."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Jeste li znali da broj blokova za dovršenje ovog plesa ne treba biti veći od {{ideal}}? Pokušajte s blokom ispod."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Odlični pokreti! Savršeno ste otplesali."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Upotrebljavate prave blokove, ali pokušajte ih upotrijebiti više da biste dovršili ples."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Jeste li znali da broj blokova za dovršenje ovog plesa ne treba biti veći od {{ideal}}?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Napravili ste previše koraka."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Čini se da ste napravili pogrešan pokret. Pokušajte s ovim:"
+	},
+	"codeboogie-success": {
+		"message": "Uspjeli ste!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Dobro gledajte!"
+	},
 	"codelab-block-moveeast": {
 		"message": "istočno"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikanska Republika"
+	},
+	"donate_button": {
+		"message": "Donirajte"
+	},
+	"donate_text": {
+		"message": "Pomozite u financiranju projekta za osobe s posebnim potrebama na adresi DonorsChoose.org. Ovog prosinca udvostručujemo učinak uplatom dodatnih 50% na svaku donaciju, sve dok naše donacije ne dosegnu ciljani iznos od 1 milijun USD. Zajedno možemo doprinijeti povećanju inkluzije u razredima, uz krilaticu #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Alžir"
@@ -770,8 +857,26 @@
 	"sa_country_name": {
 		"message": "Saudijska Arabija"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Đumbirko"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Gđa Božićnjak"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingvin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Djed Božićnjak"
+	},
 	"santasearch_hint": {
-		"message": "Natuknica"
+		"message": "Savjet"
 	},
 	"santasearch_level_lab": {
 		"message": "U laboratoriju"
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Djedičin selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Pravo je vrijeme da pomognemo"
 	},
 	"scene_seasonofgiving": {
 		"message": "Vrijeme darivanja"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Udaljenost od vas"
+	},
+	"tracker_flight_nearby": {
+		"message": "Djed Božićnjak je blizu, saznajte gdje"
+	},
+	"tracker_flight_start": {
+		"message": "Djed Božićnjak krenuo je sa Sjevernog pola i sada ga možete slijediti na njegovu putu"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Dostavljeni darovi"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Nabavite aplikaciju"
 	},
+	"village_more": {
+		"message": "Više načina istraživanja"
+	},
 	"village_santa_cardboard": {
 		"message": "Djed Božićnjak na Cardboardu"
 	},
 	"village_santa_cast": {
 		"message": "Djed Božićnjak na Google Castu"
+	},
+	"village_santa_crx": {
+		"message": "Proširenje za Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Djed Božićnjak kreće za"

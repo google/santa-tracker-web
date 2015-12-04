@@ -54,7 +54,7 @@ app.Game = function(context) {
   this.finish = new app.Finish(this);
   this.scoreboard = new Scoreboard(this, this.context.find('.board'));
   this.gameoverDialog = new Gameover(this, this.context.find('.gameover'));
-  this.tutorial = new Tutorial(this.context, 'touch-updown', 'keys-updown');
+  this.tutorial = new Tutorial(this.context, 'touch-updown', 'keys-updown', 'spacenav-updown');
   this.controls = new app.Controls(this);
 
   this.gameSize = Constants.GAME_BASE_SIZE;

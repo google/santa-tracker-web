@@ -16,6 +16,12 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../components/i18n-msg/i18n-msg.html">
 <script>
 (function() {
+  function closest(el, name) {
+    while (el && el.localName != name) {
+      el = el.parentNode;
+    }
+    return el;
+  }
 
   /** @polymerBehavior */
   window.SantaAppBehavior = {
@@ -42,21 +48,16 @@ specific language governing permissions and limitations under the License.
       santaApp: {
         type: Object,
         readOnly: true,
+        value: function() {
+          return closest(this, 'santa-app');
+        },
         // Noop. Subclass scenes can define this to know when santaApp changes.
         observer: '_santaAppChanged'
       },
     },
 
     attached: function() {
-      // Find the nearest santa-app.
-      var curr = this;
-      while (curr && curr.localName != 'santa-app') {
-        curr = curr.parentNode;
-      }
-      if (!curr) {
-        console.warn('unable to find santaApp for', this.localName);
-      }
-      this._setSantaApp(curr);
+      this._setSantaApp(closest(this, 'santa-app'));
     },
 
     detached: function() {

@@ -154,7 +154,6 @@ Translations scene.
       </div>
     </div>
     <div class="board board--scene">
-      <a id="global-back-to-village" href="{{pageUrl}}#village" class="back"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
       <div class="logo"></div>
     </div>
   </div>
@@ -185,6 +184,7 @@ Translations scene.
 
     onShow: function() {
       this.fire('sound-ambient', 'translations_start');
+      this.fire('sound-ambient', 'music_start_scene');
       var div = this.$['module-translations'];
 
       // Fill language selector dropdowns with translated language names.

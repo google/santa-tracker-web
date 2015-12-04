@@ -9,11 +9,6 @@ $name: 'module-press';
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
 
-  .fit.scroll {
-    height: 100vh;
-    overflow: auto;
-  }
-  
   .clearfix {
     &:after {
       content: '';
@@ -41,15 +36,6 @@ $name: 'module-press';
   #press-banner {
     display: block;
     height: 315px;
-  }
-
-  .sceneboard {
-    height: 45px;
-    background: #9ece2b;
-  }
-
-  .sceneboard-back {
-    border-radius: 0 0 4px 4px;
   }
 
   a {
@@ -180,7 +166,7 @@ $name: 'module-press';
   
   #press-intro {
     @extend .clearfix;
-    height: 500px;
+    height: 600px;
     width: 100%;
 
     h2, {
@@ -267,6 +253,10 @@ $name: 'module-press';
           background-size: cover;
         }
       }
+    }
+
+    p {
+      min-height: 144px;
     }
 
     .press-card-links {

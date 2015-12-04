@@ -43,7 +43,7 @@ app.Game = function(elem) {
   this.player = new app.Player(this, this.elem.find('.player'));
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
-  this.tutorial = new Tutorial(this.elem, 'touch-leftright', 'keys-space keys-leftright');
+  this.tutorial = new Tutorial(this.elem, 'touch-leftright', 'keys-space keys-leftright', 'spacenav-space spacenav-leftright');
   this.controls = new app.Controls(this);
   this.levels = new app.Levels(this);
   this.entities = [];
@@ -321,7 +321,7 @@ app.Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = win.width();
-    var height = win.height();
+    var height = win.height() - window.santaApp.headerSize;
     var scale = width < 890 ? width / 890 : 1;
     scale = height < 660 ? Math.min(height / 640, scale) : scale;
     this.setScale(scale);

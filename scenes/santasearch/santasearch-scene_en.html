@@ -1,0 +1,216 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../js/webanimations.html">
+
+<link rel="import" href="../../components/google-apis/google-legacy-loader.html">
+<script src="santasearch-scene.min.js"></script>
+
+<link rel="stylesheet" href="santasearch-scene.css" />
+
+<!--
+Santasearch scene.
+-->
+<dom-module id="santasearch-scene">
+<template>
+  <style>
+    :host([mode="portal"]) .shareButtons {
+      display: none !important;
+    }
+  </style>
+
+  <div id="module-santasearch">
+    <div class="scene">
+      <div class="map">
+        <div class="character-collider character-collider--santa"></div>
+        <div class="character-collider character-collider--gingerbread-man"></div>
+        <div class="character-collider character-collider--penguin"></div>
+        <div class="character-collider character-collider--pegman"></div>
+        <div class="character-collider character-collider--rudolph"></div>
+        <div class="character-collider character-collider--mrs-claus"></div>
+      </div>
+    </div>
+    <div class="gui">
+      <div class="drawer">
+        <div class="drawer__item drawer__item--santa">
+          <div class="drawer__character-wrapper">
+            <div class="drawer__foreground character character--santa-shadow"></div>
+            <div class="drawer__foreground character character--santa"></div>
+            <div class="drawer__hint">
+              <button class="hint"><i18n-msg msgid="santasearch_hint">PLACEHOLDER_i18n</i18n-msg></button>
+            </div>
+          </div>
+        </div>
+        <div class="drawer__item drawer__item--penguin">
+          <div class="drawer__character-wrapper">
+            <div class="drawer__foreground character character--penguin-shadow"></div>
+            <div class="drawer__foreground character character--penguin"></div>
+            <div class="drawer__hint">
+              <button class="hint"><i18n-msg msgid="santasearch_hint">PLACEHOLDER_i18n</i18n-msg></button>
+            </div>
+          </div>
+        </div>
+        <div class="drawer__item drawer__item--gingerbread-man">
+          <div class="drawer__character-wrapper">
+            <div class="drawer__foreground character character--gingerbread-man-shadow"></div>
+            <div class="drawer__foreground character character--gingerbread-man"></div>
+            <div class="drawer__hint">
+              <button class="hint"><i18n-msg msgid="santasearch_hint">PLACEHOLDER_i18n</i18n-msg></button>
+            </div>
+          </div>
+        </div>
+        <div class="drawer__item drawer__item--rudolph">
+          <div class="drawer__character-wrapper">
+            <div class="drawer__foreground character character--rudolph-shadow"></div>
+            <div class="drawer__foreground character character--rudolph"></div>
+            <div class="drawer__hint">
+              <button class="hint"><i18n-msg msgid="santasearch_hint">PLACEHOLDER_i18n</i18n-msg></button>
+            </div>
+          </div>
+        </div>
+        <div class="drawer__item drawer__item--pegman">
+          <div class="drawer__character-wrapper">
+            <div class="drawer__foreground character character--pegman-shadow"></div>
+            <div class="drawer__foreground character character--pegman"></div>
+            <div class="drawer__hint">
+              <button class="hint"><i18n-msg msgid="santasearch_hint">PLACEHOLDER_i18n</i18n-msg></button>
+            </div>
+          </div>
+        </div>
+        <div class="drawer__item drawer__item--mrs-claus">
+          <div class="drawer__character-wrapper">
+            <div class="drawer__foreground character character--mrs-claus-shadow"></div>
+            <div class="drawer__foreground character character--mrs-claus"></div>
+            <div class="drawer__hint">
+              <button class="hint"><i18n-msg msgid="santasearch_hint">PLACEHOLDER_i18n</i18n-msg></button>
+            </div>
+          </div>
+        </div>
+        <div class="drawer__mobile-hint">
+          <button class="hint hint--mobile">?</button>
+        </div>
+        <div class="zoom">
+          <button class="zoom__in">Zoom in</button>
+          <button class="zoom__out">Zoom out</button>
+        </div>
+      </div>
+      <div class="choose-map overlay is-visible">
+        <div class="overlay-dialog">
+          <div class="choose-map__title-wrapper">
+            <h2 class="choose-map__title"><i18n-msg msgid="santasearch_search_for_santa">PLACEHOLDER_i18n</i18n-msg></h2>
+          </div>
+          <div class="choose-map__grid">
+            <div class="choose-map__option" data-map="museum">
+              <div class="choose-map__image">
+                <div class="choose-map__bg choose-map__bg--museum"></div>
+                <h3 class="choose-map__go">
+                  <i18n-msg msgid="santasearch_level_select">PLACEHOLDER_i18n</i18n-msg>
+                </h3>
+                <div class="choose-map__characters choose-map__characters--left"></div>
+                <div class="choose-map__characters choose-map__characters--right"></div>
+                <div class="choose-map__santa"></div>
+              </div>
+              <div class="choose-map__magnifier"></div>
+              <h3 class="choose-map__text"><i18n-msg msgid="santasearch_level_museum">PLACEHOLDER_i18n</i18n-msg></h3>
+            </div>
+            <div class="choose-map__option" data-map="secretlab">
+              <div class="choose-map__image">
+                <div class="choose-map__bg choose-map__bg--secretlab"></div>
+                <h3 class="choose-map__go">
+                  <i18n-msg msgid="santasearch_level_select">PLACEHOLDER_i18n</i18n-msg>
+                </h3>
+                <div class="choose-map__characters choose-map__characters--left"></div>
+                <div class="choose-map__characters choose-map__characters--right"></div>
+                <div class="choose-map__santa"></div>
+              </div>
+              <div class="choose-map__magnifier"></div>
+              <h3 class="choose-map__text"><i18n-msg msgid="santasearch_level_lab">PLACEHOLDER_i18n</i18n-msg></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gameover overlay">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner"></div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    is: 'santasearch-scene',
+    behaviors: [window.SantaSceneBehavior],
+    game: null,
+
+    onPreload: function() {
+      this.preloadSounds('santasearch_load_sounds', 30);
+      this.preloadImages([
+        'img/choose-map/characters-left.svg',
+        'img/choose-map/characters-right.svg',
+        'img/choose-map/magnifying-glass.svg',
+        'img/choose-map/santa.svg',
+        'img/maps/museum.svg',
+        'img/maps/secretlab.svg',
+        'img/check.svg',
+        'img/gameover.svg',
+        'img/gingerbread-man-shadow.svg',
+        'img/gingerbread-man.svg',
+        'img/mrs-claus-shadow.svg',
+        'img/mrs-claus.svg',
+        'img/museum.svg',
+        'img/pegman-shadow.svg',
+        'img/pegman.svg',
+        'img/penguin-shadow.svg',
+        'img/penguin.svg',
+        'img/rudolph-shadow.svg',
+        'img/rudolph.svg',
+        'img/santa-shadow.svg',
+        'img/santa.svg',
+        'img/secretlab.svg',
+        'img/zoom.svg'
+      ]);
+    },
+
+    onShow: function() {
+      var module = this.$['module-santasearch'];
+
+      this.game = new scenes.santasearch.Game(module, this.componentDir);
+      this.game.start();
+      this.fire('sound-ambient', 'santasearch_start');
+    },
+
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'santasearch_end');
+    }
+  });
+
+})();
+</script>
+</dom-module>

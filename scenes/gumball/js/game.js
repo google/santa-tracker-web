@@ -52,7 +52,7 @@ app.Game = function(elem) {
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));
 
-  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-leftright');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-leftright', 'spacenav-leftright');
   this.controls = new app.Controls(this);
   this.spheres = [];
   this.isPlaying = false;
@@ -452,7 +452,7 @@ app.Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = window.innerWidth,
-      height = window.innerHeight,
+      height = window.innerHeight - window.santaApp.headerSize,
       scale = width < 900 ? width / 900 : 1;
     scale = height < 640 ?
         Math.min(height / 640, scale) :

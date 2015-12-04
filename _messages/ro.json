@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Columbia"
 	},
+	"codeboogie-block-jump": {
+		"message": "Săritură"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Săriți."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Arătați spre stânga"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Arătați spre stânga."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas spre stânga"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Faceți un pas spre stânga."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Arătați spre dreapta"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Arătați spre dreapta."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas spre dreapta"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Faceți un pas spre dreapta."
+	},
+	"codeboogie-block-shake": {
+		"message": "Dat din șolduri"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Dați din șolduri."
+	},
+	"codeboogie-block-split": {
+		"message": "Șpagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Faceți șpagatul."
+	},
+	"codeboogie-get-dancing": {
+		"message": "La dans!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Să dansăm"
+	},
+	"codeboogie-next-dance": {
+		"message": "Dansul următor"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Frumoase mișcări!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Încercați blocul de mai jos pentru a dansa corect."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Știați că puteți încheia acest dans cu numai {{ideal}} blocuri? Încercați să folosiți blocul de mai jos."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Frumoase mișcări! Ați încheiat perfect dansul."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Folosiți blocurile corecte. Încercați însă mai multe pentru a finaliza dansul."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Știați că puteți încheia acest dans cu doar {{ideal}} blocuri?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Ați făcut prea mulți pași."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Se pare că ați efectuat mișcarea greșită. Încercați-o în schimb pe aceasta:"
+	},
+	"codeboogie-success": {
+		"message": "Ați reușit!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Fiți atent(ă)!"
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Republica Dominicană"
+	},
+	"donate_button": {
+		"message": "Donați"
+	},
+	"donate_text": {
+		"message": "Contribuiți la finanțarea unui proiect pentru nevoi speciale pe DonorsChoose.org. În această lună decembrie, contribuim la dublarea impactului prin ajustarea donațiilor cu 50%, până când ne îndeplinim obiectivul de a dona 1 milion de dolari SUA. Împreună, putem contribui la a face clasele mai cuprinzătoare #pentru fiecare copil"
 	},
 	"dz_country_name": {
 		"message": "Algeria"
@@ -747,7 +834,7 @@
 		"message": "Puerto Rico"
 	},
 	"press": {
-		"message": "Apăsați"
+		"message": "Presă"
 	},
 	"pt_language_name": {
 		"message": "Portugheză"
@@ -769,6 +856,24 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudită"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Omul de turtă dulce"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Dna Crăciun"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Moș Crăciun"
 	},
 	"santasearch_hint": {
 		"message": "Indiciu"
@@ -854,6 +959,9 @@
 	"scene_santaselfie": {
 		"message": "Moș Crăciun la frizer"
 	},
+	"scene_seasonofcaring": {
+		"message": "Sezonul bucuriei de a îngriji"
+	},
 	"scene_seasonofgiving": {
 		"message": "Anotimpul cadourilor"
 	},
@@ -873,7 +981,7 @@
 		"message": "Moș Crăciun s-a întors"
 	},
 	"scene_windtunnel": {
-		"message": "Tunel aerodinamic"
+		"message": "Tunel de vânt"
 	},
 	"score": {
 		"message": "Scor"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Distanța față de tine"
+	},
+	"tracker_flight_nearby": {
+		"message": "Moș Crăciun este în apropiere. Aflați unde."
+	},
+	"tracker_flight_start": {
+		"message": "Moș Crăciun a plecat de la Polul Nord. Acum îi puteți urmări traseul."
 	},
 	"tracker_gifts_delivered": {
 		"message": "Cadouri livrate"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "Descărcați aplicația"
 	},
+	"village_more": {
+		"message": "Alte metode de explorat"
+	},
 	"village_santa_cardboard": {
 		"message": "Moș Crăciun pe Cardboard"
 	},
 	"village_santa_cast": {
 		"message": "Moș Crăciun pe Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Extensie Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Moș Crăciun pornește în"

@@ -39,23 +39,27 @@ goog.scope(function () {
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
+      this.$button_ = this.$el_.find('.js-dropper__button');
 
       this.onDropClick = this.onDropClick.bind(this);
       this.addEventListeners_();
     }
 
     addEventListeners_() {
-      this.$el_.on(app.InputEvent.START, this.onDropClick);
+      this.$button_.on(app.InputEvent.START, this.onDropClick);
     }
 
     removeEventListeners_() {
-      this.$el_.off(app.InputEvent.START, this.onDropClick);
+      this.$button_.off(app.InputEvent.START, this.onDropClick);
     }
 
     onDropClick() {
-      this.level_.dropBall();
-      window.santaApp.fire('sound-trigger', 'pb_button');
-      window.santaApp.fire('sound-trigger', 'pb_present_fall');
+      if ( !this.level_.isGamePaused() ) {
+        this.level_.dropBall();
+        this.level_.onInteraction();
+        window.santaApp.fire('sound-trigger', 'pb_button');
+        window.santaApp.fire('sound-trigger', 'pb_present_fall');
+      }
     }
 
     /**

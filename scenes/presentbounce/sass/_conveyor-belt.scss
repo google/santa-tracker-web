@@ -11,14 +11,18 @@
 
     .wheel {
       transform-origin: center center;
-      animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;
+      animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;   
     }
 
     &.js-animation-reverse .belt,
     &.js-animation-reverse .wheel {
       animation-direction: reverse;
     }
+  }
 
+  .drawer .object--conveyorBelt .belt,
+  .drawer .object--conveyorBelt .wheel {
+    animation-play-state: paused;
   }
 
 }

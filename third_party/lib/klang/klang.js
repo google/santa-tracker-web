@@ -493,7 +493,8 @@ var __extends = this.__extends || function (d, b) {
                 this._currentFile.currentTime = 0;
                 this._currentFile.audioElement.currentTime = 0;
                 //this._currentFile.audioElement.volume =
-                this.setVolume();
+                this.update();
+                //this.setVolume();
                 this._currentFile.audioElement.play();
                 //otherFile.audioElement.volume = 0;
                 // this._currentFile.audioElement.currentTime = 0;
@@ -534,9 +535,7 @@ var __extends = this.__extends || function (d, b) {
                 this.state = ATAudioSource.STATE_PLAYING;
                 return;
             } else {
-                if(!keepVolume) {
-                    this.getOutput().setVolume(this.getOutput().getVolume());
-                }
+                this.update();
             }
             this._currentFile.audioElement.currentTime = 0;
             this._currentFile.audioElement.play();
@@ -605,8 +604,8 @@ var __extends = this.__extends || function (d, b) {
             return this;
         };
         ATAudioSource.prototype.setVolume = function (value) {
-            value = value === undefined ? this.getOutput().getVolume() : value;
-            value = Math.max(0, Math.min(1, value * this._destination.calcVolume() * Klang.audioTagHandler.getGlobalVolume() * Klang.audioTagHandler.getFocusBlurVolume()));
+            value = value === undefined ? this.getOutput().getVolume() : value * this.getOutput().getVolume();
+            value = Math.max(0, Math.min(1, value * Klang.audioTagHandler.getGlobalVolume() * Klang.audioTagHandler.getFocusBlurVolume()));
             if(this._currentFile.audioElement && isFinite(value)) {
                 this._currentFile.audioElement.volume = value;
             }
@@ -1347,7 +1346,7 @@ var __extends = this.__extends || function (d, b) {
         * @param {Function} readyCallback Function to call when auto-load sounds have loaded.
         * @param {Function} progressCallback Function to call as loading of sounds progresses.
         */
-        function (options, readyCallback, progressCallback) {
+        function (options, readyCallback, progressCallback, url) {
             this._readyCallback = readyCallback;
             this._progressCallback = progressCallback || function () {
             };
@@ -1355,7 +1354,7 @@ var __extends = this.__extends || function (d, b) {
                 Klang.log("Loading config (editor)");
                 var data = this.createConfigNode(options);
                 Core.settings = data.settings;
-                Core.instance.initContent(data);
+                Core.instance.initContent(data, null, url);
                 // Parsa JSON-filen
                 //var data = this.parseConfigJSON(options.config);
                 // Initiera klang
@@ -2080,10 +2079,6 @@ var __extends = this.__extends || function (d, b) {
                 return false;
             }
             return true;
-            Klang.version = "n/a";
-            //"Flash not available"
-            readyCallback(false);
-            return false;
         }
         // try {
         Klang.version = "webaudio";
@@ -2105,7 +2100,7 @@ var __extends = this.__extends || function (d, b) {
                     Klang.readyState = Klang.READY_STATE_LOADED;
                     readyCallback && readyCallback(success);
                     processEventQue();
-                }, progressCallback);
+                }, progressCallback, json);
             }, function () {
                 //error
                             });
@@ -2114,7 +2109,7 @@ var __extends = this.__extends || function (d, b) {
                 Klang.readyState = Klang.READY_STATE_LOADED;
                 readyCallback && readyCallback(success);
                 processEventQue();
-            }, progressCallback);
+            }, progressCallback, json);
         }
         return true;
         //   }
@@ -2754,14 +2749,43 @@ var __extends = this.__extends || function (d, b) {
                         group
                     ];
                 }
+                var groupsToLoad = group.length;
+                var _filesLoadedCallback = function () {
+                    groupsToLoad--;
+                    if(groupsToLoad === 0) {
+                        filesLoadedCallback && filesLoadedCallback.apply(this, arguments);
+                    }
+                };
+                var loadProgression = {
+                };
+                var _progressCallback = function (prog) {
+                    if(progressCallback) {
+                        loadProgression[this.name] = prog;
+                        var cnt = 0;
+                        var totProg = 0;
+                        for(var key in loadProgression) {
+                            if(loadProgression.hasOwnProperty(key)) {
+                                cnt++;
+                                totProg += loadProgression[key];
+                            }
+                        }
+                        totProg /= cnt;
+                        progressCallback(totProg);
+                    }
+                };
+                var _loadFailedCallback = function () {
+                    _filesLoadedCallback();
+                };
                 for(var ix = 0, len = group.length; ix < len; ix++) {
+                    loadProgression[group[ix]] = 0;
                     this._groups[group[ix]] = {
                     };
                     this._groups[group[ix]]._loadedFiles = [];
-                    this._groups[group[ix]].filesLoadedCallback = filesLoadedCallback;
-                    this._groups[group[ix]].progressCallback = progressCallback;
-                    this._groups[group[ix]].loadFailedCallback = loadFailedCallback;
+                    this._groups[group[ix]].filesLoadedCallback = _filesLoadedCallback;
+                    this._groups[group[ix]].progressCallback = _progressCallback.bind(this._groups[group[ix]]);
+                    this._groups[group[ix]].loadFailedCallback = _loadFailedCallback;
                     this._groups[group[ix]].loadInterrupted = false;
+                    this._groups[group[ix]].name = group[ix];
                     this._groups[group[ix]].progress = {
                         totalBytes: 0,
                         loadedBytes: 0,
@@ -3746,7 +3770,7 @@ var __extends = this.__extends || function (d, b) {
                     var timePlayed = Util.now() - this._startTime;
                     var loopTimePlayed = Util.now() + this._startOffset - this._loopStartTime;
                     if(this._startOffset + timePlayed > this._duration) {
-                        return this._loopStart + loopTimePlayed % duration;
+                        return (this._loopStart || 0) + loopTimePlayed % duration;
                     } else {
                         return this._startOffset + timePlayed;
                     }
@@ -11844,7 +11868,7 @@ var __extends = this.__extends || function (d, b) {
             }
             var scheduleTime = Util.now() + toNextBarSec;
             to.play(scheduleTime, 0, false);
-            from && from.fadeOutAndStop(fadeOutTime, scheduleTime - 1);
+            from && from.fadeOutAndStop(fadeOutTime, scheduleTime);
             return scheduleTime;
         }
         Util.transition = transition;

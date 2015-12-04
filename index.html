@@ -36,8 +36,8 @@ specific language governing permissions and limitations under the License.
   <meta name="mobile-web-app-capable" content="yes"> <!-- fallback -->
 
   <!-- app status bar themes -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#30B443">
-  <meta name="theme-color" content="#30B443">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#00c6ed">
+  <meta name="theme-color" content="#00c6ed">
   <meta name="msapplication-TileColor" content="#30B443">
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -65,28 +65,6 @@ specific language governing permissions and limitations under the License.
     });
 
     /**
-     * Filters out clicks on links that do not match current domain
-     */
-    function clickFilter(event) {
-      if (event.target === undefined) {
-        return;
-      }
-
-      if (event.target.localName !== 'a') {
-        return;
-      }
-
-      var url_check = location.protocol + "//" + document.domain;
-
-      if (event.target.href.search(url_check)) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
-
-      return;
-    }
-
-    /**
      * @param {string} param URL parameter to look for.
      * @return {string|undefined} undefined if the URL parameter does not exist.
      */
@@ -94,15 +72,15 @@ specific language governing permissions and limitations under the License.
       if (!window.location.search) {
         return;
       }
-      var m = new RegExp(param + '=([^&]*)').exec(
-          window.location.search.substring(1));
+      var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
       if (!m) {
         return;
       }
       return decodeURIComponent(m[1]);
     }
 
-    if (getUrlParameter('api_client')) {
+    var apiClient = getUrlParameter('api_client');
+    if (apiClient) {
       ga_.pushCommand(['_setCampSourceKey', 'api_client']);
       ga_.pushCommand(['_setCampMediumKey', 'api_client']);
     }
@@ -131,6 +109,11 @@ specific language governing permissions and limitations under the License.
       // no older Android browser
       if (uaString.indexOf('Chrome') === -1 && uaString.indexOf('Android') !== -1) {
         return !/^Google/.test(navigator.vendor);
+      }
+      // no older Chrome (e.g., Samsung browser fork or ancient install)
+      var chromeVersion = /Chrome\/(\d+)/.exec(uaString);
+      if (chromeVersion && chromeVersion[1]) {
+        return parseInt(chromeVersion[1], 10) >= 43;
       }
       // no Opera < 15
       if (uaString.indexOf('Opera') !== -1) {
@@ -161,11 +144,11 @@ specific language governing permissions and limitations under the License.
       } catch (e){}
     };
   </script>
-
-  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
-  <link rel="import" href="elements/elements_en.html" />
+  <script src="components/webcomponentsjs/webcomponents-lite.min.js" async></script>
+  <link rel="import" href="elements/elements_en.html">
+  <link rel="import" href="js/ccsender.html" async>
 </head>
-<body class="fullbleed" unresolved>
+<body data-version="" unresolved>
 
 <santa-app id="santaApp"></santa-app>
 
@@ -186,8 +169,19 @@ if (inEmbed) {
 
 window.santaApp = document.querySelector('santa-app');
 
+// For Portal mode, filter out clicks that don't match the current domain.
 if (window.santaApp.mode == 'portal') {
-  document.body.addEventListener('click', clickFilter);
+  document.body.addEventListener('click', function clickFilter(event) {
+    if (!event.target || event.target.localName != 'a') {
+      return;
+    }
+
+    var url_check = location.protocol + '//' + document.domain;
+    if (event.target.href.search(url_check)) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  });
 }
 
 var POLYMER_ANALYTICS_TIMEOUT_ = 60 * 1000;
@@ -234,6 +228,15 @@ if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
   });
 }
 })();
+</script>
+<script>
+    if (santaApp.mode == 'portal') {
+      /* add spacenav libraries and call spacenav initializer */
+      /* the weird scr + ipt is to avoid issues in html */
+      document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/eventemitter2/eventemitter2.min.js"></scr' + 'ipt>');
+      document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/roslibjs/roslib.min.js"></scr' + 'ipt>');
+      document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/spacenav/spacenav.js"></scr' + 'ipt>');
+    }
 </script>
 </body>
 </html>

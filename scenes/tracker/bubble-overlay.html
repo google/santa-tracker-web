@@ -19,7 +19,7 @@ specific language governing permissions and limitations under the License.
 <!--
 Canvas overlay to draw animated cut-out bubbles over the content.
 -->
-<dom-module id="bubble-overlay" attributes="color">
+<dom-module id="bubble-overlay">
 <template>
   <style>
     :host {
@@ -64,7 +64,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
      */
     draw: function() {
       this.$.canvas.width = window.innerWidth;
-      this.$.canvas.height = window.innerHeight;
+      this.$.canvas.height = window.innerHeight - window.santaApp.headerSize;
       this.ctx.fillStyle = this.color;
       this.ctx.fillRect(0, 0, this.$.canvas.width, this.$.canvas.height);
       this.refresh();
@@ -121,32 +121,24 @@ Must be a child of bubble-overlay.
 <script>
   Polymer({
 
-    /**
-     * Bubble's radius.
-     *
-     * @property radius
-     * @type number
-     * @default 0 (bubble is closed)
-     */
-    radius: 0,
+    properties: {
 
-    /**
-     * Bubble's location along x axis.
-     *
-     * @property x
-     * @type number
-     * @default 0
-     */
-    x: 0,
+      /**
+       * Bubble's radius (0 is closed).
+       */
+      radius: 0,
 
-    /**
-     * Bubble's location along y axis.
-     *
-     * @property y
-     * @type number
-     * @default 0
-     */
-    y: 0,
+      /**
+       * Bubble's location along x axis.
+       */
+      x: 0,
+
+      /**
+       * Bubble's location along y axis.
+       */
+      y: 0,
+
+    },
 
     ready: function() {
       this.setupBubble_();

@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-block-jump": {
+		"message": "Skok"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Skočite."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Pokažite levo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Pokažite levo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Korak levo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Naredite korak v levo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Pokažite desno"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Pokažite desno."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Korak desno"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Naredite korak v desno."
+	},
+	"codeboogie-block-shake": {
+		"message": "Stresanje bokov"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Pomigajte z boki."
+	},
+	"codeboogie-block-split": {
+		"message": "Špaga"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Naredite špago."
+	},
+	"codeboogie-get-dancing": {
+		"message": "Zaplešite!"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Zaplešimo"
+	},
+	"codeboogie-next-dance": {
+		"message": "Naslednji ples"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Lepo!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Poskusite s spodnjim koščkom posnemati ples."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Ste vedeli, da lahko ples dokončate samo s tem številom koščkov: {{ideal}}? Uporabite spodnji košček."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Lepo! Odplesali ste popolno."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Uporabljate prave koščke, vendar jih za dokončanje plesa uporabite več."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Ste vedeli, da lahko ples dokončate samo s tem številom koščkov: {{ideal}}?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Naredili ste preveč korakov."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Videti je, da ste naredili napačen korak. Poskusite s tem:"
+	},
+	"codeboogie-success": {
+		"message": "Odlično!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Glejte pozorno!"
+	},
 	"codelab-block-moveeast": {
 		"message": "vzhod"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "Dominikanska republika"
+	},
+	"donate_button": {
+		"message": "Doniraj"
+	},
+	"donate_text": {
+		"message": "Sodelujte pri financiranju projekta, ki pomaga osebam s posebnimi potrebami, na DonorsChoose.org. Ta december bomo še dodatno prispevali 50 % vaših donacij, dokler ne dosežemo ciljnega milijona dolarjev. Skupaj lahko dosežemo, da bodo učilnice prijaznejše vsem #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Alžirija"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "Savdska Arabija"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Lectov možic"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Gospa Božiček"
+	},
+	"santasearch_character_pegman": {
+		"message": "Možic"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingvin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Božiček"
+	},
 	"santasearch_hint": {
 		"message": "Namig"
 	},
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "Božičkov selfi"
+	},
+	"scene_seasonofcaring": {
+		"message": "Čas za sočutje"
 	},
 	"scene_seasonofgiving": {
 		"message": "Čas podarjanja"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "Oddaljenost od vas"
+	},
+	"tracker_flight_nearby": {
+		"message": "Božiček je v bližini, ugotovite, kje."
+	},
+	"tracker_flight_start": {
+		"message": "Božiček je zapustil Severni pol in zdaj lahko sledite njegovi poti."
 	},
 	"tracker_gifts_delivered": {
 		"message": "Dostavljena darila"
@@ -4692,13 +4806,19 @@
 		"message": "Ves december lahko raziskujete, se igrate in učite z Božičkovimi palčki"
 	},
 	"village_get_the_app": {
-		"message": "Prenesite program"
+		"message": "Prenesite aplikacijo"
+	},
+	"village_more": {
+		"message": "Več načinov raziskovanja"
 	},
 	"village_santa_cardboard": {
 		"message": "Božiček v napravi Cardboard"
 	},
 	"village_santa_cast": {
 		"message": "Božiček na platformi Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Razširitev za Google Chrome"
 	},
 	"village_takesoff": {
 		"message": "Božiček odleti čez:"

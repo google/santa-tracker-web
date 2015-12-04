@@ -245,6 +245,87 @@
 	"co_country_name": {
 		"message": "コロンビア"
 	},
+	"codeboogie-block-jump": {
+		"message": "ジャンプ"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "ジャンプする。"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "左を指す"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "左を指す。"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "左足でステップ"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "左足で一歩ステップを踏む。"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "右を指す"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "右を指す。"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "右足でステップ"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "右足で一歩ステップを踏む。"
+	},
+	"codeboogie-block-shake": {
+		"message": "おしりをふる"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "おしりをふる。"
+	},
+	"codeboogie-block-split": {
+		"message": "開脚"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "開脚する。"
+	},
+	"codeboogie-get-dancing": {
+		"message": "ダンスしよう！"
+	},
+	"codeboogie-lets-dance": {
+		"message": "踊りましょう"
+	},
+	"codeboogie-next-dance": {
+		"message": "次のダンス"
+	},
+	"codeboogie-nice-moves": {
+		"message": "よくできました"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "ダンスに合わせて、下のブロックにチャレンジ！"
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "{{ideal}} 個のブロックだけでこのダンスをクリアできます。下のブロックを使ってみてください。"
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "ダンスをクリアしました！"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "正しいブロックを使っていましたが、ダンスをクリアするには、もっとブロックを使いましょう。"
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "{{ideal}} 個のブロックだけでこのダンスをクリアできます。"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "ステップが多すぎました。"
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "ステップを間違えたようです。これを試してみましょう:"
+	},
+	"codeboogie-success": {
+		"message": "成功！"
+	},
+	"codeboogie-watch-closely": {
+		"message": "よく見て！"
+	},
 	"codelab-block-moveeast": {
 		"message": "東"
 	},
@@ -388,6 +469,12 @@
 	},
 	"do_country_name": {
 		"message": "ドミニカ共和国"
+	},
+	"donate_button": {
+		"message": "寄付する"
+	},
+	"donate_text": {
+		"message": "DonorsChoose.org の特別支援プロジェクトへの資金援助をお願いいたします。今年の 12 月、Google は皆様からの寄付の効果を倍増させるため、目標の 100 万米ドルに達するまで寄付額の最大 50% を補助します。Google とともに、もっと学びやすい教室を作る手助けしてください。#ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "アルジェリア"
@@ -770,6 +857,24 @@
 	"sa_country_name": {
 		"message": "サウジアラビア"
 	},
+	"santasearch_character_gingerbread_man": {
+		"message": "ジンジャーブレッド マン"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "サンタさんの奥さん"
+	},
+	"santasearch_character_pegman": {
+		"message": "ペグマン"
+	},
+	"santasearch_character_penguin": {
+		"message": "ペンギン"
+	},
+	"santasearch_character_rudolph": {
+		"message": "ルドルフ"
+	},
+	"santasearch_character_santa": {
+		"message": "サンタクロース"
+	},
 	"santasearch_hint": {
 		"message": "ヒント"
 	},
@@ -853,6 +958,9 @@
 	},
 	"scene_santaselfie": {
 		"message": "サンタさんの自分撮り写真"
+	},
+	"scene_seasonofcaring": {
+		"message": "思いやりの季節"
 	},
 	"scene_seasonofgiving": {
 		"message": "プレゼントの季節"
@@ -973,6 +1081,12 @@
 	},
 	"tracker_distance_from_you": {
 		"message": "あなたのいる場所からの距離"
+	},
+	"tracker_flight_nearby": {
+		"message": "サンタさんが今近くにいます。探してみましょう！"
+	},
+	"tracker_flight_start": {
+		"message": "サンタさんが北極を出発しました。追いかけましょう！"
 	},
 	"tracker_gifts_delivered": {
 		"message": "配ったプレゼントの数"
@@ -4694,11 +4808,17 @@
 	"village_get_the_app": {
 		"message": "アプリをダウンロード"
 	},
+	"village_more": {
+		"message": "もっと詳しく"
+	},
 	"village_santa_cardboard": {
 		"message": "Cardboard でサンタさんを探す"
 	},
 	"village_santa_cast": {
 		"message": "Google Cast でサンタさんを探す"
+	},
+	"village_santa_crx": {
+		"message": "Google Chrome 拡張機能"
 	},
 	"village_takesoff": {
 		"message": "サンタさんの出発まであと"

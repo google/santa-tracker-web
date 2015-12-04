@@ -1,0 +1,60 @@
+$name: 'module-santasearch';
+$scene-bg: #44B3E6;
+$gameover-bg: $scene-bg;
+
+@import "../shared/sass/button";
+@import "../shared/sass/gameover";
+
+@import 'scss/choose-map';
+@import 'scss/map';
+@import 'scss/zoom';
+@import 'scss/character';
+@import 'scss/character-collider';
+@import 'scss/drawer';
+@import 'scss/hint';
+
+##{$name} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .scene {
+    background-color: $scene-bg;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .gui {
+    font-size: 1px;
+  }
+
+  // No logo in board
+  .board .logo {
+    display: none;
+  }
+
+  // Change game over image
+  .gameover-winner {
+    background: url('img/gameover.svg') 50% 100% no-repeat;
+    height: 100px;
+
+    @media (min-width: $gameover-width-bp) {
+      height: 265px;
+    }
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}

@@ -72,9 +72,6 @@ Santaselfie scene.
           </div>
         </div>
         <div class="Tools board">
-          <a class="Tool-backContainer" id="global-back-to-village" href="{{pageUrl}}#village">
-            <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
-          </a>
           <div class="Tool-poleContainer">
             <div class="Tool-pole"></div>
           </div>
@@ -158,7 +155,7 @@ Santaselfie scene.
         </div>
       </div>
       <div class="gui">
-        <div class="shareOverlay overlay">
+        <div class="shareOverlay overlay shareOverlay--barber">
           <div class="shareOverlay-dialog overlay-dialog">
             <div class="shareOverlay-imageWrapper">
               <div class="shareOverlay-image"></div>
@@ -268,7 +265,7 @@ Santaselfie scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams.beard) {
+      if (this.game && this.sceneParams && this.sceneParams.beard) {
         this.game.restoreBeard(this.sceneParams.beard);
       }
     }

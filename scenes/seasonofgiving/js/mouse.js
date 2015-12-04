@@ -43,7 +43,7 @@ app.Mouse = function($elem) {
     var widthReductionFactor = 1420; // The game should get bigger as the width decreases.
 
     var width = $(window).width();
-    var height = $(window).height();
+    var height = $(window).height() - window.santaApp.headerSize;
 
     var scaleWidth = (width + widthReductionFactor) / (originalWidth + widthReductionFactor);
     var scaleHeight = height / originalHeight;
