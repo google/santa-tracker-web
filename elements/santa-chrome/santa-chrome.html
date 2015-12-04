@@ -453,7 +453,7 @@ specific language governing permissions and limitations under the License.
      * query string. Ignores English languages.
      */
     _localizeUrl: function(url, lang) {
-      lang = lang.toLowerString();
+      lang = lang.toLowerCase();
       if (!lang && lang.length < 2 || lang.substr(0, 2) == 'en') {
         return url;
       }
@@ -462,8 +462,6 @@ specific language governing permissions and limitations under the License.
       } else {
         return url + '&hl=' + lang;
       }
-    },
-
     },
 
   });
