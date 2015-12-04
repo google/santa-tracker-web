@@ -41,7 +41,9 @@ app.ChooseMap = function(elem) {
 app.ChooseMap.prototype.setMap_ = function(event) {
   let mapName = $(event.currentTarget).data('map');
   this.callback_(mapName);
-  this.overlay.hide();
+  window.setTimeout(() => {
+    this.overlay.hide();
+  }, 100);
 };
 
 /**
