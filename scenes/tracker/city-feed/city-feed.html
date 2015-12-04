@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../components/iron-list/iron-list.html">
 <link rel="import" href="../../../components/iron-pages/iron-pages.html">
 <link rel="import" href="../../../components/iron-selector/iron-selector.html">
@@ -46,7 +47,7 @@ Polymer({
 </dom-module>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="city-feed.css" />
+<link rel="stylesheet" href="city-feed.css">
 
 <!--
 City feed view in Tracker
@@ -106,7 +107,7 @@ City feed view in Tracker
       <div class="corner-image"></div>
     </div>
     <div class="card-body">
-      <iron-image sizing="cover" preload load?="{{model.imageUrl}}" fade src="{{model.imageUrl}}"></iron-image>
+      <iron-image sizing="cover" preload load="{{model.imageUrl}}" fade src="{{model.imageUrl}}"></iron-image>
     </div>
   </div>
 
@@ -142,12 +143,13 @@ City feed view in Tracker
 </template>
 
 <div id="module-city-feed" class="fit">
-  <div class="scene" class="fit">
+  <div class="scene fit">
 
-    <iron-media-query query="(max-width:960px)" queryMatches="{{isMobileSize}}"></iron-media-query>
+    <iron-media-query query="(max-width:960px)"
+        query-matches="{{isMobileSize}}"></iron-media-query>
 
-    <iron-list id="feed" data="{{stream}}" selectionEnabled="false"
-               height="350" runwayFactor="4" on-scroll="onScroll">
+    <iron-list id="feed" data="{{stream}}" selection-enabled="false"
+               height="350" on-scroll="onScroll">
       <template>
         <div layout$="{{!isMobileSize}}" class="horizontal start-justified">
           <!-- TODO: When this is fully ported, it should use the flex
@@ -163,7 +165,8 @@ City feed view in Tracker
                   <h4 class="white">{{model.stop.region}}</h4>
                   <h1>{{model.stop.city}}</h1>
                 </div>
-                <iron-selector id="cardselector" class="card-icons" selected="{{model.selectedCard}}" on-iron-activate="onCardSelected">
+                <iron-selector id="cardselector" class="card-icons" selected="{{model.selectedCard}}"
+                      on-iron-activate="onCardSelected">
                   <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[0]}}">
                   <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[1]}}">
                   <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview" hidden?="{{!model.stop.details.streetView}}">
