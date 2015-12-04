@@ -47,13 +47,14 @@ Tracker scene.
   </style>
 
   <!-- Keyboard handler -->
+  <!-- TODO(ebidel): this doesn't work yet -->
   <iron-a11y-keys keys="esc" on-keys-pressed="_keyHandler"></iron-a11y-keys>
 
   <div id="module-tracker">
     <div class="scene">
 
       <!-- Conditional required to prevent double loading -->
-      <template is="dom-if" if="{{santaApp}}">
+      <template is="dom-if" if="[[santaApp]]">
         <google-maps-api version="3.exp"
                          client-id="{{santaApp.config.CLIENT_ID}}"
                          language="{{santaApp.language}}"
@@ -63,7 +64,7 @@ Tracker scene.
       <city-feed id="feed" class="fit" timeline="{{santaApp.timeline}}"
                  santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed>
 
-      <tracker-intro id="intro" hidden
+      <tracker-intro id="intro"
           user-location="{{userLocation}}"
           santa-distance="{{initialSantaDistance}}"
           santa-location="{{initialSantaLocation}}"></tracker-intro>
