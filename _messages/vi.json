@@ -90,7 +90,7 @@
 		"message": "Canada"
 	},
 	"ca_tradition": {
-		"message": "Trẻ em Canada thường ăn mừng Giáng sinh với đầy tuyết trắng. Chúng quấn khăn choàng cổ \u0026 đội mũ len của người Canada để chơi trong tuyết, chơi trượt băng \u0026 đi xe trượt băng! Vào đêm Giáng sinh, trẻ em để sữa và bánh quy bên lò sưởi cho ông già Noel (đôi khi là củ cà rốt cho chú tuần lộc của ông)."
+		"message": "Trẻ em Canada thường ăn mừng Giáng sinh với đầy tuyết trắng. Chúng quấn khăn choàng cổ và đội mũ len của người Canada để chơi trong tuyết, chơi trượt băng và đi xe trượt băng! Vào đêm Giáng sinh, trẻ em để sữa và bánh quy bên lò sưởi cho ông già Noel (đôi khi là củ cà rốt cho chú tuần lộc của ông)."
 	},
 	"calendar": {
 		"message": "Lịch"
@@ -450,13 +450,13 @@
 		"message": "Tiếng Đức"
 	},
 	"de_tradition": {
-		"message": "Hầu như ở mọi German town, chợ Giáng sinh được mở tại quảng trường thị trấn. Người dân sẽ tụ tập để nghe các ban nhạc kèn đồng \u0026 thưởng thức món ăn truyền thống của vùng. Họ ăn bánh gừng hình trái tim, hạnh nhân ngào đường, các loại đồ ngọt và uống rượu được pha chế (Glühwein) hoặc rượu táo."
+		"message": "Hầu như ở mọi thị trấn của Đức, chợ Giáng sinh được mở tại quảng trường thị trấn. Người dân sẽ tụ tập để nghe các ban nhạc kèn đồng và thưởng thức món ăn truyền thống của vùng. Họ ăn bánh gừng hình trái tim, hạnh nhân ngào đường, các loại đồ ngọt và uống rượu được pha chế (Glühwein) hoặc rượu táo."
 	},
 	"deck": {
 		"message": "Trang trí"
 	},
 	"deckdescription": {
-		"message": "Trang trí trình duyệt của bạn bằng tiện ích Ông già Noel của Chrome."
+		"message": "Trang trí trình duyệt của bạn bằng tiện ích ông già Noel của Chrome."
 	},
 	"detected": {
 		"message": "được phát hiện"
@@ -891,7 +891,7 @@
 		"message": "Tìm kiếm ông già Noel!"
 	},
 	"santasvillage": {
-		"message": "Ngôi làng của Ông già Noel"
+		"message": "Ngôi làng của ông già Noel"
 	},
 	"santatracker": {
 		"message": "Theo chân ông già Noel"
@@ -909,7 +909,7 @@
 		"message": "Chỉ dẫn của Bà già Noel"
 	},
 	"scene_callfromsanta": {
-		"message": "Cuộc gọi từ Ông già Noel"
+		"message": "Cuộc gọi từ ông già Noel"
 	},
 	"scene_citylights": {
 		"message": "Ánh đèn thành phố"
@@ -942,7 +942,7 @@
 		"message": "Câu đố trên bản đồ"
 	},
 	"scene_postcard": {
-		"message": "Thiệp Ông già Noel"
+		"message": "Thiệp ông già Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Trò chơi nảy quà"
@@ -954,10 +954,10 @@
 		"message": "Cuộc đua của Rudolph mũi đỏ"
 	},
 	"scene_santasearch": {
-		"message": "Tìm kiếm Ông già Noel"
+		"message": "Tìm kiếm ông già Noel"
 	},
 	"scene_santaselfie": {
-		"message": "Ảnh tự sướng của Ông già Noel"
+		"message": "Ảnh tự sướng của ông già Noel"
 	},
 	"scene_seasonofcaring": {
 		"message": "Mùa yêu thương"
@@ -1032,7 +1032,7 @@
 		"message": "Chad"
 	},
 	"terms-and-privacy": {
-		"message": "Điều khoản \u0026amp; Bảo mật"
+		"message": "Điều khoản và vảo mật"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -4788,7 +4788,7 @@
 		"message": "Hoa Kỳ"
 	},
 	"us_tradition": {
-		"message": "Ở Hoa Kỳ, vớ được treo vào đêm Giáng sinh. Truyền thuyết kể rằng Thánh Nicholas biết được một gia đình khốn khó. Để gây bất ngờ, Thánh Nicholas trèo xuống ống khói của nhà họ và đặt túi vàng quý giá vào đôi vớ treo. Từ thời điểm này, Thánh Nicholas được gọi là ông già Noel, người tặng quà."
+		"message": "Ở Hoa Kỳ, tất được treo vào đêm Giáng sinh. Truyền thuyết kể rằng Thánh Nicholas biết được một gia đình khốn khó. Để gây bất ngờ, Thánh Nicholas trèo xuống ống khói của nhà họ và đặt túi vàng quý giá vào đôi tất treo. Từ thời điểm này, Thánh Nicholas được gọi là ông già Noel, người tặng quà."
 	},
 	"uy_country_name": {
 		"message": "Uruguay"
@@ -4800,10 +4800,10 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Hãy trở lại vào ngày 24 và giúp chúng tôi theo chân Ông già Noel suốt cả đêm!"
+		"message": "Hãy trở lại vào ngày 24 và giúp chúng tôi theo chân ông già Noel suốt cả đêm!"
 	},
 	"village_explore": {
-		"message": "Khám phá, chơi và học với các Chú lùn của Ông già Noel suốt cả Tháng 12"
+		"message": "Khám phá, chơi và học cùng các chú lùn của ông già Noel suốt cả tháng 12"
 	},
 	"village_get_the_app": {
 		"message": "Tải ứng dụng"
