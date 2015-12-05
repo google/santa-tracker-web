@@ -377,10 +377,11 @@ app.Controls.prototype.nextZoomLevel_ = function(event) {
   let y = (this.mapDimensions.viewportHeight / 2) - event.pageY;
   this.pan.x += x / this.scale;
   this.pan.y += y / this.scale;
+  this.needsPanUpdate = true;
 
   if (this.scale === app.Constants.ZOOM_MAX) {
-    this.scalePan(this.scale, 1);
+    this.scaleTarget = 1;
   } else {
-    this.scalePan(this.scale, this.scale + app.Constants.ZOOM_STEP_SIZE);
+    this.zoomIn_();
   }
 };
