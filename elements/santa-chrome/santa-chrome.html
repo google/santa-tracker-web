@@ -455,7 +455,7 @@ specific language governing permissions and limitations under the License.
      */
     _localizeUrl: function(url, lang) {
       lang = lang.toLowerCase();
-      if (!lang && lang.length < 2 || lang.substr(0, 2) == 'en') {
+      if (!lang || lang.substr(0, 2) == 'en') {
         return url;
       }
       if (url.indexOf('?') == -1) {
