@@ -26,12 +26,13 @@ goog.require('app.Constants');
  * @param {{height: number, width: number}} mapDimensions The map dimensions.
  * @constructor
  */
-app.Map = function(elem, mapElem, componentDir, mapDimensions) {
+app.Map = function(elem, mapElem, componentDir, mapDimensions, controls) {
   this.mapElem = mapElem;
   this.drawerElem = elem.find('.drawer');
   this.sizeElem = elem.find('.viewport__size');
   this.componentDir = componentDir;
   this.mapDimensions = mapDimensions;
+  this.controls = controls;
 
   /** @type {!Object<app.Character>} */
   this.characters = {
@@ -118,7 +119,9 @@ app.Map.prototype.loadMap_ = function(mapName) {
  * @private
  */
 app.Map.prototype.setHintTarget_ = function() {
-  this.hintTarget = this.focusedCharacter;
+  if (this.controls.enabled) {
+    this.hintTarget = this.focusedCharacter;
+  }
 };
 
 /**

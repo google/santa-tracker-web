@@ -57,7 +57,7 @@ app.Game = function(elem, componentDir) {
   this.requestId = 0;
 
   this.map = new app.Map(this.elem, this.mapElem, componentDir,
-      this.mapDimensions);
+      this.mapDimensions, this.controls);
 
   this.onFrame_ = this.onFrame_.bind(this);
   this.startMap_ = this.startMap_.bind(this);

@@ -72,7 +72,7 @@ app.Controls.prototype.start = function() {
 
   this.elem.find('.zoom__in').on('click', this.zoomIn_.bind(this));
   this.elem.find('.zoom__out').on('click', this.zoomOut_.bind(this));
-  this.elem.on('dblclick.santasearch', this.nextZoomLevel_.bind(this));
+  this.scrollableElem.on('dblclick.santasearch', this.nextZoomLevel_.bind(this));
 
   this.enabled = true;
 };
