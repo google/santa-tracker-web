@@ -5,6 +5,10 @@ $choose-map-width-large: 450em;
   color: #fff;
   background: $scene-bg;
 
+  &__dialog {
+    overflow: hidden;
+  }
+
   &__title-wrapper {
     margin: 30px auto;
     width: 450em;
