@@ -10,7 +10,7 @@ $hint-shadow-color: #cd6a17;
     box-shadow: 0 1.5px 0 $hint-shadow-color, 1px 3px rgba(0, 0, 0, 0.16);
     cursor: pointer;
     font-size: 12px;
-    min-height: auto;
+    min-height: 0;
     padding: 5px 10px;
     pointer-events: auto;
     transform: none;
