@@ -89,18 +89,18 @@ app.BlocklyLayout = class {
    */
   layoutToolboxRow_(blocks) {
     // Responsive variables
-    var blockWidth = 0;
-    var gap = app.BlocklyLayout.TOOLBOX_GAP;
-    var margin = app.BlocklyLayout.TOOLBOX_MARGIN;
-    var cursorY = app.BlocklyLayout.TOOLBOX_TOP;
+    let blockWidth = 0;
+    let gap = app.BlocklyLayout.TOOLBOX_GAP;
+    let margin = app.BlocklyLayout.TOOLBOX_MARGIN;
+    let cursorY = app.BlocklyLayout.TOOLBOX_TOP;
     if (this.windowWidth > 660) {
       margin = app.BlocklyLayout.TOOLBOX_SM_MARGIN;
       cursorY = app.BlocklyLayout.TOOLBOX_SM_TOP;
     }
 
-    for (var i = 0, block; block = blocks[i]; i++) {
-      var root = block.getSvgRoot();
-      var blockHW = block.getHeightWidth();
+    for (let i = 0, block = null; block = blocks[i]; i++) {
+      let root = block.getSvgRoot();
+      let blockHW = block.getHeightWidth();
       blockWidth = blockHW.width;
       block.moveTo(margin, cursorY);
       cursorY += blockHW.height + gap;
@@ -110,31 +110,24 @@ app.BlocklyLayout = class {
   }
 
   layoutToolboxCardinal_(blocks) {
-    var cursorY = this.windowHeight >= 600 ? app.BlocklyLayout.TOOLBOX_MD_TOP :
+    let cursorY = this.windowHeight >= 600 ? app.BlocklyLayout.TOOLBOX_MD_TOP :
         app.BlocklyLayout.TOOLBOX_MD_SHORT_TOP;
-    var margin = app.BlocklyLayout.TOOLBOX_MD_MARGIN;
-    var gap = app.BlocklyLayout.TOOLBOX_MD_GAP;
-    var blockSize = blocks[0].getHeightWidth();
-    var toolboxWidth = (blockSize.width + gap) * 2 - gap + margin * 2;
+    let margin = app.BlocklyLayout.TOOLBOX_MD_MARGIN;
+    let gap = app.BlocklyLayout.TOOLBOX_MD_GAP;
+    let blockSize = blocks[0].getHeightWidth();
+    let toolboxWidth = (blockSize.width + gap) * 2 - gap + margin * 2;
 
-    // Three columns.
-    var leftX = toolboxWidth / 2 - (blockSize.width + gap / 2);
-    var centerX = toolboxWidth / 2 - blockSize.width / 2;
-    var rightX = toolboxWidth / 2 + gap / 2;
+    // Two columns.
+    let leftX = toolboxWidth / 2 - (blockSize.width + gap / 2);
+    let rightX = toolboxWidth / 2 + gap / 2;
 
-    // Dance moves
-    for (var i = 0, block; block = blocks[i]; i++) {
+    // Layout blocks in two columns, in order.
+    for (let i = 0, block = null; block = blocks[i]; i++) {
       if (i > 0 && i % 2 === 0) {
         cursorY += blockSize.height + gap;
       }
       block.moveTo(i % 2 === 0 ? leftX : rightX, cursorY);
     }
-
-    cursorY += blockSize.height;
-    // Repeat
-    //if (blocks.length > 4) {
-    //  blocks[4].moveTo(centerX, cursorY);
-    //}
 
     return toolboxWidth;
   }
@@ -145,13 +138,13 @@ app.BlocklyLayout = class {
    */
   layoutWorkspace_() {
     this.layoutRequest_ = null;
-    var leftEdge = this.blockly_.getToolbarWidth();
-    var blocklyWidth = this.windowWidth - this.game_.scene.getWidth();
-    var workspaceWidth = blocklyWidth - leftEdge;
+    let leftEdge = this.blockly_.getToolbarWidth();
+    let blocklyWidth = this.windowWidth - this.game_.scene.getWidth();
+    let workspaceWidth = blocklyWidth - leftEdge;
     this.blockly_.el.style.width = blocklyWidth + 'px';
 
-    var whenrunLeft = app.BlocklyLayout.WHENRUN_LEFT;
-    var whenrunTop = app.BlocklyLayout.WHENRUN_TOP;
+    let whenrunLeft = app.BlocklyLayout.WHENRUN_LEFT;
+    let whenrunTop = app.BlocklyLayout.WHENRUN_TOP;
     if (this.windowWidth > 660) {
       whenrunLeft = app.BlocklyLayout.WHENRUN_SM_LEFT;
       whenrunTop = app.BlocklyLayout.WHENRUN_SM_TOP;
@@ -161,8 +154,8 @@ app.BlocklyLayout = class {
       whenrunTop = app.BlocklyLayout.WHENRUN_MD_TOP;
     }
 
-    var blocks = this.blockly_.getTopBlocks(false);
-    for (var i = 0, block; block = blocks[i]; i++) {
+    let blocks = this.blockly_.getTopBlocks(false);
+    for (let i = 0, block = null; block = blocks[i]; i++) {
       if (block.type === 'when_run') {
         block.moveTo(whenrunLeft, whenrunTop);
       }
@@ -172,80 +165,80 @@ app.BlocklyLayout = class {
 
 /**
  * Whitespace between blocks on mobile.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_GAP = 10;
 /**
  * Whitespace between blocks on desktop.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_MD_GAP = 24;
 
 /**
  * Whitespace to left/right edges on mobile.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_MARGIN = 10;
 /**
  * Whitespace to left/right edges on tablet.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_SM_MARGIN = 24;
 /**
  * Whitespace to left/right edges on desktop.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_MD_MARGIN = 59;
 
 /**
  * Whitespace to top on mobile.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_TOP = 10;
 /**
  * Whitespace to top on tablet.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_SM_TOP = 24;
 /**
  * Whitespace to top on desktop.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_MD_TOP = 160;
 /**
  * Whitespace to top on short desktop.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.TOOLBOX_MD_SHORT_TOP = 90;
 
 /**
  * Top position of when run block on mobile.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.WHENRUN_TOP = 10;
 /**
  * Top position of when run block on tablet.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.WHENRUN_SM_TOP = 24;
 /**
  * Top position of when run block on desktop.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.WHENRUN_MD_TOP = 32;
 
 /**
  * Left position of when run block on mobile.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.WHENRUN_LEFT = 10;
 /**
  * Left position of when run block on tablet.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.WHENRUN_SM_LEFT = 24;
 /**
  * Left position of when run block on desktop.
- * @type {number}
+ * @const {number}
  */
 app.BlocklyLayout.WHENRUN_MD_LEFT = 32;

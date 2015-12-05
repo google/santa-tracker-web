@@ -74,6 +74,8 @@ app.DanceLevel = class extends app.Level {
     this.idealBlockCount = options.idealBlockCount || Infinity;
     this.requiredBlocks = options.requiredBlocks || [];
     this.fadeTiles = options.fadeTiles == null ? true : options.fadeTiles;
+    this.ceilingLights = this.stage === 'stage2' || this.stage === 'stage3';
+    this.floorLights = this.stage === 'stage3';
     this.specialMove = options.specialMove;
   }
 
@@ -154,7 +156,7 @@ app.DanceLevel = class extends app.Level {
     }
 
     return new app.DanceLevelResult(levelComplete, message, {
-      allowRetry: allowRetry,
+      allowRetry,
       animationQueue: animationQueue,
       code: code,
       endTitle: app.I18n.getMsg(endTitleMsg),
@@ -305,8 +307,8 @@ app.DanceLevelResultOptions;
  * Results form level run which can be displayed to the user.
  *
  * @param {boolean} levelComplete is true if the level was completed.
- * @param {string=} message which can be shown to the user.
- * @param {app.DanceLevelResultOptions=} options for these results.
+ * @param {?string} message which can be shown to the user.
+ * @param {app.DanceLevelResultOptions} options for these results.
  * @constructor
  */
 app.DanceLevelResult = class extends app.LevelResult {

@@ -83,7 +83,7 @@ app.Sequencer = class {
     if (Klang.version === 'webaudio') {
       let loop = this.getPlayingLoop();
       currPos = loop ? loop.position : 0;
-    }else {
+    } else {
       currPos = new Date().getTime() / 1000;
     }
     let beat = Math.floor(currPos / (60 / this._bpm));
@@ -95,6 +95,6 @@ app.Sequencer = class {
       this.play();
     }
 
-    window.requestAnimationFrame(t => this.update(t));
+    window.requestAnimationFrame(() => this.update());
   }
 };

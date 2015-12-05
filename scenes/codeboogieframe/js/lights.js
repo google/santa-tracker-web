@@ -49,8 +49,8 @@ app.Lights = class {
   }
 
   setLevel(level) {
-    this.ceilingActive = level.stage === 'stage2' || level.stage === 'stage3';
-    this.floorActive = level.stage === 'stage3';
+    this.ceilingActive = level.ceilingLights;
+    this.floorActive = level.floorLights;
   }
 
   onBeat(beat, bpm, isPlaying) {

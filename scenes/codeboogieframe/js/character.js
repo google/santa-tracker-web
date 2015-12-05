@@ -48,14 +48,6 @@ app.Character = class {
       let image = new Image();
 
       image.onload = () => {
-        //let canvas = document.createElement('canvas');
-        //canvas.width = image.width;
-        //canvas.height = image.height;
-        //
-        //let context = canvas.getContext('2d');
-        //context.drawImage(image, 0, 0);
-        //this.images[key] = canvas;
-
         this.images[key] = image;
       };
 
