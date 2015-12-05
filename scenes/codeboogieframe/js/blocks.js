@@ -40,34 +40,34 @@ app.blocks.miniBlockXml = function(type) {
 /**
  * Utility function to define a block.
  * @param {string} type of block to create
- * @param {Object.<string>=} attrs map of block attributes
- * @param {Object.<string>=} fields map of field keys to values
- * @param {string=} child block to run as DO statement.
- * @param {string=} next block to run after this one.
+ * @param {Object.<string>=} opt_attrs map of block attributes
+ * @param {Object.<string>=} opt_fields map of field keys to values
+ * @param {?string=} opt_child block to run as DO statement.
+ * @param {?string=} opt_next block to run after this one.
  * @return {string} XML of block definition
  */
-app.blocks.blockXml = function(type, attrs, fields, child, next) {
+app.blocks.blockXml = function(type, opt_attrs, opt_fields, opt_child, opt_next) {
   var xml = '<block type="' + type + '"';
-  if (attrs) {
-    for (var key in attrs) {
-      if (attrs.hasOwnProperty(key) && attrs[key] != null) {
-        xml += ' ' + key + '="' + attrs[key] + '"';
+  if (opt_attrs) {
+    for (var key in opt_attrs) {
+      if (opt_attrs.hasOwnProperty(key) && opt_attrs[key] != null) {
+        xml += ' ' + key + '="' + opt_attrs[key] + '"';
       }
     }
   }
   xml += '>';
-  if (fields) {
-    for (key in fields) {
-      if (fields.hasOwnProperty(key)) {
-        xml += '<field name="' + key + '">' + fields[key] + '</field>';
+  if (opt_fields) {
+    for (key in opt_fields) {
+      if (opt_fields.hasOwnProperty(key)) {
+        xml += '<field name="' + key + '">' + opt_fields[key] + '</field>';
       }
     }
   }
-  if (child) {
-    xml += '<statement name="DO">' + child + '</statement>';
+  if (opt_child) {
+    xml += '<statement name="DO">' + opt_child + '</statement>';
   }
-  if (next) {
-    xml += '<next>' + next + '</next>';
+  if (opt_next) {
+    xml += '<next>' + opt_next + '</next>';
   }
   xml += '</block>';
   return xml;
@@ -135,6 +135,7 @@ app.blocks.install = function() {
          * @this {Blockly.Block}
          */
         init: function() {
+          this.contextMenu = false;
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
               .appendField(new Blockly.FieldImage(null, 23, 32))
@@ -158,6 +159,7 @@ app.blocks.install = function() {
          * @this {Blockly.Block}
          */
         init: function() {
+          this.contextMenu = false;
           this.setHSV(296, 0.491, 0.624);
           this.appendDummyInput()
               .appendField(new Blockly.FieldImage(null, 48 - 24, 43 - 10));
@@ -200,6 +202,7 @@ app.blocks.install = function() {
      * @this {Blockly.Block}
      */
     init: function() {
+      this.contextMenu = false;
       this.setHSV(26, 0.77, 0.96);
       this.appendDummyInput()
           .appendField(app.I18n.getMsg('CB_whenRun'));
@@ -216,6 +219,7 @@ app.blocks.install = function() {
      * @this {Blockly.Block}
      */
     init: function() {
+      this.contextMenu = false;
       this.setHSV(187, 1, 0.753);
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 28, 32))
@@ -233,6 +237,7 @@ app.blocks.install = function() {
      * @this {Blockly.Block}
      */
     init: function() {
+      this.contextMenu = false;
       this.setHSV(187, 1, 0.753);
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 23, 32));

@@ -109,8 +109,6 @@ app.BlockRunner = class {
     } else {
       this.runAnimations_();
     }
-
-    //Klang.triggerEvent('computer_play');
   }
 
   beforeAnimations_() {

@@ -47,7 +47,7 @@ const frameCounts = {
 };
 
 app.Animation = class {
-  constructor(name, bpm) {
+  constructor(name, bpm, data) {
     this.name = name;
 
     this.frame = 0;
@@ -55,7 +55,7 @@ app.Animation = class {
     this.frameDuration = 1000 / fps * (60 / bpm * 2);
     this.elapsedTime = 0;
     this.paused = true;
-    this.data = app.AnimationData();
+    this.data = data;
   }
 
   play() {

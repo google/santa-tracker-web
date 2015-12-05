@@ -109,7 +109,6 @@ app.levels.push(
       app.Step.JUMP,
       app.Step.RIGHT_ARM
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
         app.blocks.miniBlockXml('dance_pointRight') +
         app.blocks.miniBlockXml('dance_stepLeft') +
@@ -122,7 +121,7 @@ app.levels.push(
   new app.DanceLevel({
     bpm: 130,
     track: 1,
-    idealBlockCount: 4,
+    idealBlockCount: 5,
     stage: 'stage2',
     steps: [
       app.Step.JUMP,
@@ -134,7 +133,6 @@ app.levels.push(
       app.Step.LEFT_ARM,
       app.Step.LEFT_FOOT
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
     app.blocks.miniBlockXml('dance_pointRight') +
     app.blocks.miniBlockXml('dance_stepLeft') +
@@ -159,7 +157,6 @@ app.levels.push(
       app.Step.JUMP,
       app.Step.SPLIT
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
     app.blocks.miniBlockXml('dance_pointRight') +
     app.blocks.miniBlockXml('dance_stepLeft') +
@@ -186,7 +183,6 @@ app.levels.push(
       app.Step.LEFT_FOOT,
       app.Step.SHAKE
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
         app.blocks.miniBlockXml('dance_pointRight') +
         app.blocks.miniBlockXml('dance_stepLeft') +
@@ -213,7 +209,6 @@ app.levels.push(
       app.Step.SPLIT,
       app.Step.RIGHT_ARM
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
     app.blocks.miniBlockXml('dance_pointRight') +
     app.blocks.miniBlockXml('dance_stepLeft') +
@@ -251,7 +246,6 @@ app.levels.push(
       app.Step.JUMP,
       app.Step.SPLIT
     ],
-    requiredBlocks: ['dance_pointLeft'],
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
     app.blocks.miniBlockXml('dance_pointRight') +
     app.blocks.miniBlockXml('dance_stepLeft') +

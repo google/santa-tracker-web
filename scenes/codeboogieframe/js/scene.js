@@ -328,6 +328,7 @@ app.Scene = class {
           app.Constants.SCENE_TOGGLE_DURATION);
     } else {
       this.blockRunner_.execute();
+      Klang.triggerEvent('generic_button_click');
     }
   }
 

@@ -28,6 +28,7 @@ app.Character = class {
     this.animation = null;
     this.currentState = null;
     this.el = el;
+    this.data = app.AnimationData(color);
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -42,20 +43,10 @@ app.Character = class {
   }
 
   renderSprites_(color) {
-    let data = app.AnimationData(color);
-
-    Object.keys(data).forEach(key => {
+    Object.keys(this.data).forEach(key => {
       let image = new Image();
 
       image.onload = () => {
-        //let canvas = document.createElement('canvas');
-        //canvas.width = image.width;
-        //canvas.height = image.height;
-        //
-        //let context = canvas.getContext('2d');
-        //context.drawImage(image, 0, 0);
-        //this.images[key] = canvas;
-
         this.images[key] = image;
       };
 
@@ -89,7 +80,7 @@ app.Character = class {
   }
 
   play(step, bpm) {
-    this.animation = new app.Animation(step, bpm);
+    this.animation = new app.Animation(step, bpm, this.data);
     this.animation.play();
   }
 };

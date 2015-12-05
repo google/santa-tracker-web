@@ -43,9 +43,6 @@ goog.require('goog.events.EventTarget');
  */
 app.AnimationItem;
 
-/**
- * @unrestricted
- */
 app.AnimationPlayer = class extends goog.events.EventTarget {
   /**
    * Plays character animations
