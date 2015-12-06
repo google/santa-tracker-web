@@ -32,6 +32,10 @@ body {
       display: none;
     }
   }
+
+  * {
+    user-select: none;
+  }
 }
 
 #preload_placeholder {
