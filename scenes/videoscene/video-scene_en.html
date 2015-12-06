@@ -235,6 +235,10 @@ Video scene.
       }
     },
 
+    /**
+     * Restarts this video. Only called from the controls div, which is only available once the
+     * video is ready.
+     */
     restartVideo: function() {
       this.player.seekTo(0);
       this.player.play();
@@ -244,13 +248,18 @@ Video scene.
       this.paused = !this.paused;
       this.start = false;
 
-      if (this.paused) {
-        this.player.pause();
-      } else {
-        this.player.play();
+      if (this.player) {
+        if (this.paused) {
+          this.player.pause();
+        } else {
+          this.player.play();
+        }
       }
     },
 
+    /**
+     * Plays this video. Called from the poster/start div, only available once the video is ready.
+     */
     playVideo: function() {
       this.start = false;
       this.player.play();
@@ -275,7 +284,7 @@ Video scene.
     },
 
     onHide: function() {
-      this.player.pause();
+      this.player && this.player.pause();
       this.fire('sound-ambient', 'videoplayer_end');
 
       this.showPlayer = false;
