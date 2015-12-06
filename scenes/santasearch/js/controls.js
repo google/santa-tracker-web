@@ -23,13 +23,15 @@ goog.require('app.Constants');
  * Handles user input for controlling the game.
  * @param {!jQuery} elem The game element.
  * @param {!jQuery} mapElem The map element.
+ * @param {{width: number, height: number, left: number, top: number}}
+ *     viewportDimensions The dimensions of the viewport.
  * @constructor
  */
-app.Controls = function(elem, mapElem, mapDimensions) {
+app.Controls = function(elem, mapElem, viewportDimensions) {
   this.elem = elem;
   this.mapElem = mapElem;
   this.scrollableElem = this.elem.find('.viewport--scrollable');
-  this.mapDimensions = mapDimensions;
+  this.viewportDimensions = viewportDimensions;
 
   this.enabled = false;
 
@@ -121,8 +123,8 @@ app.Controls.prototype.updateLocation_ = function(x, y) {
  */
 app.Controls.prototype.syncScroll = function() {
   this.syncingScroll = true;
-  this.scrollableElem.scrollLeft(this.mapDimensions.viewportLeft - this.pan.x);
-  this.scrollableElem.scrollTop(this.mapDimensions.viewportTop - this.pan.y);
+  this.scrollableElem.scrollLeft(this.viewportDimensions.left - this.pan.x);
+  this.scrollableElem.scrollTop(this.viewportDimensions.top - this.pan.y);
 };
 
 /**
@@ -295,9 +297,9 @@ app.Controls.prototype.onScroll_ = function(event) {
     return;
   }
 
-  let dimensions = this.mapDimensions;
-  this.pan.x = dimensions.viewportLeft - this.scrollableElem.scrollLeft();
-  this.pan.y = dimensions.viewportTop - this.scrollableElem.scrollTop();
+  let dimensions = this.viewportDimensions;
+  this.pan.x = dimensions.left - this.scrollableElem.scrollLeft();
+  this.pan.y = dimensions.top - this.scrollableElem.scrollTop();
 
   this.needsPanUpdate = true;
 };
@@ -373,8 +375,8 @@ app.Controls.prototype.zoomOut_ = function() {
  * @private
  */
 app.Controls.prototype.nextZoomLevel_ = function(event) {
-  let x = (this.mapDimensions.viewportWidth / 2) - event.pageX;
-  let y = (this.mapDimensions.viewportHeight / 2) - event.pageY;
+  let x = (this.viewportDimensions.width / 2) - event.pageX;
+  let y = (this.viewportDimensions.height / 2) - event.pageY;
   this.pan.x += x / this.scale;
   this.pan.y += y / this.scale;
   this.needsPanUpdate = true;

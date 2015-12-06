@@ -44,11 +44,13 @@ app.Game = function(elem, componentDir) {
       this.elem.find('.gameover'));
   this.chooseMap = new app.ChooseMap(this.elem.find('.choose-map'));
 
-  /** @type {{height: number, width: number}} */
+  /** @type {{width: number, height: number}} */
   this.mapDimensions = { height: 0, width: 0 };
+  /** @type {{width: number, height: number, left: number, top: number}} */
+  this.viewportDimensions = { width: 0, height: 0, left: 0, top: 0 };
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
-  this.controls = new app.Controls(this.elem, this.mapElem, this.mapDimensions);
+  this.controls = new app.Controls(this.elem, this.mapElem, this.viewportDimensions);
 
   this.gameAspectRatio = 1600 / 900;
   this.paused = false;
@@ -56,8 +58,7 @@ app.Game = function(elem, componentDir) {
   this.lastFrame = 0;
   this.requestId = 0;
 
-  this.map = new app.Map(this.elem, this.mapElem, componentDir,
-      this.mapDimensions, this.controls);
+  this.map = new app.Map(this.elem, this.mapElem, componentDir, this.controls);
 
   this.onFrame_ = this.onFrame_.bind(this);
   this.startMap_ = this.startMap_.bind(this);
@@ -193,13 +194,13 @@ app.Game.prototype.scale_ = function(value) {
   this.mapDimensions.width *= value;
   this.mapDimensions.height *= value;
 
-  this.mapDimensions.viewportWidth = width;
-  this.mapDimensions.viewportHeight = height;
+  this.viewportDimensions.width = width;
+  this.viewportDimensions.height = height;
 
   let centerX = this.mapDimensions.width / 2;
-  this.mapDimensions.viewportLeft = centerX - (width / 2);
+  this.viewportDimensions.left = centerX - (width / 2);
   let centerY = this.mapDimensions.height / 2;
-  this.mapDimensions.viewportTop = centerY - (height / 2);
+  this.viewportDimensions.top = centerY - (height / 2);
 
   this.map.changeSize(this.mapDimensions);
   this.controls.syncScroll();
@@ -272,7 +273,7 @@ app.Game.prototype.restart = function() {
 app.Game.prototype.startMap_ = function(mapName) {
   this.controls.reset();
   this.scale_(1);
-  this.map.setMap(mapName);
+  this.map.setMap(mapName, this.mapDimensions);
   this.controls.start();
 
   this.paused = false;
