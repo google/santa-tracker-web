@@ -42,6 +42,10 @@ goog.scope(function () {
       this.registerForCollisions(this.onCollision);
     }
 
+    /**
+     * onCollision callback called from the Level.
+     * @param  {Object} contact Contact containing both objects that are colliding.
+     */
     onCollision() {
       utils.animWithClass(this.$el_, 'animate');
       window.santaApp.fire('sound-trigger', 'pb_boing');

@@ -45,14 +45,24 @@ goog.scope(function () {
       this.addEventListeners_();
     }
 
+    /**
+     * Add input event listeners
+     */
     addEventListeners_() {
       this.$button_.on(app.InputEvent.START, this.onDropClick);
     }
 
+    /**
+     * Removes input even listeners
+     */
     removeEventListeners_() {
       this.$button_.off(app.InputEvent.START, this.onDropClick);
     }
 
+    /**
+     * Callback for when the CTA button is clicked
+     * to cause a drop to happen.
+     */
     onDropClick() {
       if ( !this.level_.isGamePaused() ) {
         this.level_.dropBall();
@@ -93,6 +103,10 @@ goog.scope(function () {
       return body;
     }
 
+    /**
+     * Destroy dropper
+     * @public
+     */
     destroy() {
       super.destroy();
       this.removeEventListeners_();

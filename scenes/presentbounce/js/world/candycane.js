@@ -43,6 +43,9 @@ goog.scope(function () {
       this.registerForCollisions(this.onCollision);
     }
 
+    /**
+     * Callback for when a collision happens
+     */
     onCollision() {
       window.santaApp.fire('sound-trigger', 'pb_wall');
     }
@@ -85,7 +88,7 @@ goog.scope(function () {
         vertices.push( new b2.Vec2( Unit.toWorld(p.x), Unit.toWorld(p.y)) );
       }
     }
-    
+
     /**
      * Add and return all vertices of the shape as an array
      * vectors must be added in clockwise order in Box2D coordinates

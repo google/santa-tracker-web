@@ -39,6 +39,10 @@ goog.scope(function () {
       this.body_ = this.buildBody_();
     }
 
+    /**
+     * Builds a Box2d body with its fixtures.
+     * @return {Object} Box2d body object
+     */
     buildBody_() {
       const bodyDef = new b2.BodyDef();
       bodyDef.type = b2.BodyDef.b2_dynamicBody;

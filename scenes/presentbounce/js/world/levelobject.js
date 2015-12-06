@@ -55,6 +55,10 @@ goog.scope(function () {
       this.body_ = null;
     }
 
+    /**
+     * Sets which fixture should be used for collision comparison.
+     * @param {Object} obj Fixture to saved
+     */
     setCollisionFixture(obj) {
       this.collisionFixture = obj;
     }
