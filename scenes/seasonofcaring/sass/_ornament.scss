@@ -52,6 +52,10 @@ $santa-face-height: 375px;
     @media (max-width: 400px) {
       max-width: 70%;
     }
+
+    &--wwh {
+      max-width: 120px;
+    }
   }
 
   .ornament-copy-container {
@@ -222,8 +226,8 @@ $santa-face-height: 375px;
     width: 187px;
   }
 
-  .icon--wwf {
-    background-image: url(img/icons/wwf.svg);
+  .icon--wwh {
+    background-image: url(img/icons/wwh.svg);
     height: 81px;
     width: 54px;
   }
@@ -277,7 +281,7 @@ $santa-face-height: 375px;
     visibility: visible;
   }
 
-  .ornament-outline--wwf {
+  .ornament-outline--wwh {
     border-color: #f3a72f;
   }
 
