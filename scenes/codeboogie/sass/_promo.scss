@@ -1,0 +1,24 @@
+##{$name} {
+  .footer-promo {
+    margin-top: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+
+    @media (min-width: 661px) {
+      font-size: 18px;
+      margin: 30px -150px 0;
+    }
+
+    a {
+      color: #FDBD26;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
