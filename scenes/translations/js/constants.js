@@ -137,7 +137,7 @@ goog.scope(function() {
         'pt': 'Saudações festivas',
         'ru': 'С Новым годом и Рождеством',
         'sk': 'Šťastné sviatky',
-        'es': 'Saludos festivos',
+        'es': '¡Felices Fiestas!',
         'sv': 'God Jul och Gott Nytt År',
         'th': 'ส่งความสุขช่วงเทศกาล',
         'tr': 'Tatil Kutlamaları'
