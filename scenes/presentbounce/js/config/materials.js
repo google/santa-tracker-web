@@ -51,6 +51,6 @@ app.config.Materials = {
   spring: {
     density: 1,
     friction: 1, // dont slide on spring
-    restitution: 0.9
+    restitution: 1.1
   }
 };
