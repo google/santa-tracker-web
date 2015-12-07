@@ -252,7 +252,7 @@ goog.scope(function() {
         this.numObjectsAvailable++;
       }
 
-      this.drawer.updateVisibility();
+      this.drawer.updateDrawerVisibility();
     }
 
     /**
@@ -262,25 +262,30 @@ goog.scope(function() {
     onUserObjectDropped_(objectData, objectType, position, callback) {
       objectData.mouseX = position.x;
       objectData.mouseY = position.y;
+      var hasError = false;
       if (objectType === Constants.USER_OBJECT_TYPE_BELT) {
         const belt = new ConveyorBelt(this, this.world_, objectData); 
         if (belt.isBoundingBoxOverlappingOtherObject()) {
           belt.destroy();
-          callback('OVERLAP ERROR');
+          hasError = true;
         }
         else {
+          hasError = false;
           this.userObjects_.push(belt);
         }
+        callback( hasError );
       }
       else if (objectType === Constants.USER_OBJECT_TYPE_SPRING) {
         const spring = new Spring(this, this.world_, objectData);
         if (spring.isBoundingBoxOverlappingOtherObject()) {
           spring.destroy();
-          callback('OVERLAP ERROR');
+          hasError = true;
         }
         else {
+          hasError = false;
           this.userObjects_.push(spring);
         }
+        callback( hasError );
       }
     }
 
