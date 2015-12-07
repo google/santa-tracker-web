@@ -28,8 +28,9 @@
     border-radius: 100%;
   }
 
-  .object--target {
+  .object.object--target {
     z-index: $z-index-above-present;
+    left: 5px; // match SVG
   }
 
   &.frozen,

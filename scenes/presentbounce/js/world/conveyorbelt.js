@@ -25,7 +25,7 @@ goog.require('app.world.UserObject');
 
 goog.scope(function () {
   const Unit = app.Unit;
-
+  const COLLISION_ID = 'conveyorBeltFixture';
 
   /**
    * ConveyorBelt class
@@ -138,10 +138,13 @@ goog.scope(function () {
       const cornerRightFixDef = this.getCornerFixtureDef_(width/2 - height/2);
 
       const body = this.world_.CreateBody(bodyDef);
-      // body.SetActive(false);
+
       const plateFix = body.CreateFixture(plateFixDef);
       const leftFix = body.CreateFixture(cornerLeftFixDef);
       const rightFix = body.CreateFixture(cornerRightFixDef);
+
+      plateFix.collisionID = COLLISION_ID;
+
       return body;
     }
 
@@ -172,6 +175,7 @@ goog.scope(function () {
 
   }
 
+  ConveyorBelt.COLLISION_ID = COLLISION_ID;
 
   app.world.ConveyorBelt = ConveyorBelt;
 
