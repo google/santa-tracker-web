@@ -253,7 +253,7 @@ app.Drawer.prototype.createDraggableElement_ = function(data) {
  * Goes through the drawers and check which should be shown or hidden.
  * @param {Object} drawer (Optional) pass a drawer to check only that one.
  */
-app.Drawer.prototype.updateDrawerVisibility = function (drawer) {
+app.Drawer.prototype.updateDrawersVisibility = function (drawer) {
   var toggleVisibility = function(drawer) {
     (drawer && drawer.count > 0) ? this.showDrawer(drawer) : this.hideDrawer(drawer);
   }.bind(this);

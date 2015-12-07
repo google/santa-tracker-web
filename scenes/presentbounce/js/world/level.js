@@ -252,7 +252,7 @@ goog.scope(function() {
         this.numObjectsAvailable++;
       }
 
-      this.drawer.updateDrawerVisibility();
+      this.drawer.updateDrawersVisibility();
     }
 
     /**
