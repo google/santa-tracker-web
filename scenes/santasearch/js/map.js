@@ -115,7 +115,7 @@ app.Map.prototype.loadMap_ = function(mapName, mapDimensions) {
     // href in production (which is served from maps.gstatic.com...). Refer
     // to the local pageUrl instead, since the clippath elements are inlined.
     var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
-    var all = this.mapElem[0].querySelectorAll('[style]');
+    var all = svgMap.querySelectorAll('[style]');
     for (var i = 0, el; el = all[i]; ++i) {
       var s = el.style;
       if (s.clipPath) {
