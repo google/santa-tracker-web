@@ -111,6 +111,19 @@ app.Map.prototype.loadMap_ = function(mapName, mapDimensions) {
     // Remove existing maps
     this.mapElem.find('.map__svg').remove();
 
+    // Work around base href, which causes all inline IDs to refer to the base
+    // href in production (which is served from maps.gstatic.com...). Refer
+    // to the local pageUrl instead, since the clippath elements are inlined.
+    var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
+    var all = svgMap.querySelectorAll('[style]');
+    for (var i = 0, el; el = all[i]; ++i) {
+      var s = el.style;
+      if (s.clipPath) {
+        // nb. assumes `url("#` or `url(#` ...
+        s.clipPath = s.clipPath.replace('#', `${pageUrl}#`);
+      }
+    }
+
     // Add the new map into the dom
     this.mapElem.prepend(svgMap.children[0]);
     this.mapName = mapName;
