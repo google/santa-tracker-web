@@ -20,10 +20,12 @@ goog.provide('app.world.PresentBall');
 goog.require('b2');
 goog.require('app.Unit');
 goog.require('app.world.GravityObject');
+goog.provide('app.world.ConveyorBelt');
 
 
 goog.scope(function () {
   const Unit = app.Unit;
+  const ConveyorBelt = app.world.ConveyorBelt;
 
 
   /**
@@ -37,6 +39,30 @@ goog.scope(function () {
     constructor(...args) {
       super(...args); // super(...arguments) doesn't work in Closure Compiler
       this.body_ = this.buildBody_();
+      this.onCollision_ = this.onCollision_.bind(this);
+      this.registerForCollisions( this.onCollision_ );
+    }
+
+
+    /**
+     * Detect when colliding with Conveyorbelt and cancel out angular velocity
+     * caused by surface speed of belt
+     * @private
+     */
+    onCollision_(contact) {
+      if (contact.GetFixtureA().collisionID === ConveyorBelt.COLLISION_ID) {
+        if (!this.previousAngularVelocity) {
+          this.previousAngularVelocity = this.body_.GetAngularVelocity();
+          return;
+        }
+
+        // set Angular velocity to 0 if velocity is not accelerating/decellerating
+        if (Math.round(this.previousAngularVelocity*10)/10 == Math.round(this.body_.GetAngularVelocity()*10)/10) {
+          this.body_.SetAngularVelocity(0);
+        }
+
+        this.previousAngularVelocity = this.body_.GetAngularVelocity();
+      }
     }
 
     /**
@@ -58,9 +84,6 @@ goog.scope(function () {
 
       const body = this.world_.CreateBody(bodyDef);
       body.CreateFixture(fixDef);
-
-      // dampend rotation on belt
-      body.SetAngularDamping(1);
 
       return body;
     }
