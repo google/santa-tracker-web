@@ -156,10 +156,10 @@ app.Drawer.prototype.onDropError = function($el) {
 app.Drawer.prototype.onDropSuccess = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
   var drawer = this.$drawers[drawerType];
-  this.decrementCount( drawer );
   $el.remove();
-  // this number of objects is now zero
-  // hide the drawer
+  // Note: no need to decrement the counte here
+  // that happens onDrag
+  // check if that reached zero
   if (drawer.count === 0) {
     this.hideDrawer(drawer);
   }
