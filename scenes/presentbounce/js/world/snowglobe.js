@@ -39,6 +39,10 @@ goog.scope(function () {
       this.body_ = this.buildBody_();
     }
 
+    /**
+     * Builds the Box2d body with its fixtures.
+     * @return {Object} Box2d body object.
+     */
     buildBody_() {
       const radius = this.config_.style.width/2;
       const plateWidth = this.config_.style.width*0.4;

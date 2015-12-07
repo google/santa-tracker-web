@@ -102,7 +102,7 @@ goog.scope(function() {
     removeEventListeners_() {
       this.elem.off("click", this.onInteraction);
     }
-    
+
     /**
      * Callback for when the level is completed.
      * Figures out the score and calls the game that this level is completed.
@@ -373,6 +373,9 @@ goog.scope(function() {
       }
     }
 
+    /**
+     * When the first user interaction happens on the scene.
+     */
     onInteraction() {
       if (!this.hasInteractionStarted) {
         this.hasInteractionStarted = true;

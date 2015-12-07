@@ -42,6 +42,10 @@ goog.scope(function () {
       this.registerForCollisions( this.onCollision_ );
     }
 
+    /**
+     * onCollision callback called from the Level.
+     * @param  {Object} contact Contact containing both objects that are colliding.
+     */
     onCollision_(contact) {
       if (!this.collisionFixture) return;
 

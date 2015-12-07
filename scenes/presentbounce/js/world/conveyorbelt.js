@@ -51,27 +51,44 @@ goog.scope(function () {
       this.body_.m_linearVelocity = vector;
     }
 
+    /**
+     * Returns the belt direction in a Vector format
+     * @param  {Number} direction direction can be -1 or 1
+     * @return {Object}           Box2d vector format
+     */
     getBeltDirectionVector_(direction = this.currentDirection_) {
       return new b2.Vec2(app.Constants.CONVEYOR_BELT_SPEED * direction, 0);
     }
 
+    /**
+     * Toogles the direction to go the opposite of its current direction.
+     */
     toggleBeltDirection_() {
       this.currentDirection_ *= -1;
       this.$el_.toggleClass('js-animation-reverse', this.currentDirection_ === -1);
       this.updateBeltDirection_(this.getBeltDirectionVector_());
     }
 
+    /**
+     * Pauses the conveyor belt.
+     */
     pauseBelt_() {
       this.$el_.addClass('js-animation-paused');
       this.updateBeltDirection_(this.getBeltDirectionVector_(0));
     }
 
+    /**
+     * Resumes the conveyor belt.
+     */
     resumeBelt_() {
       this.$el_.removeClass('js-animation-paused');
       this.updateBeltDirection_(this.getBeltDirectionVector_());
     }
 
-    // create horizontal plate fixture def
+    /**
+     * Create horizontal plate fixture def
+     * @return {Object} Box2d fixture object
+     */
     getPlateFixtureDef_() {
       const fixDef = new b2.FixtureDef();
       const width = this.config_.style.width;
@@ -84,7 +101,11 @@ goog.scope(function () {
       return fixDef;
     }
 
-    // create rounded corner fixture def
+    /**
+     * Create rounded corner fixture def
+     * @param  {Number} offsetPixels Number of pixels to offset this fixture
+     * @return {Object}              Box2d fixture object
+     */
     getCornerFixtureDef_(offsetPixels) {
       const fixDef = new b2.FixtureDef();
       fixDef.density = this.config_.material.density;
@@ -104,7 +125,7 @@ goog.scope(function () {
       const height = this.config_.style.height;
 
       bodyDef.type = b2.BodyDef.b2_staticBody;
-      
+
       // Set start position based on mouse position in scene
       const mousePos = this.getMouseWorldVector(this.config_.mouseX, this.config_.mouseY);
       bodyDef.position.Set(mousePos.x, mousePos.y);
@@ -124,6 +145,9 @@ goog.scope(function () {
       return body;
     }
 
+    /**
+     * Callback for the end of a user tap
+     */
     onTapEnd() {
       this.toggleBeltDirection_();
     }
