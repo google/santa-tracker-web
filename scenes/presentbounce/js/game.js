@@ -168,6 +168,7 @@ app.Game.prototype.loadNextLevel_ = function() {
     this.currentLevel_.destroy();
   }
   this.currentLevel_ = new app.world.Level(this, this.levelElem, levelData, this.onLevelCompleted, this.tutorial, this.scoreboard, this.drawer);
+  this.drawer.setInteractionCallback(this.onInteraction.bind(this));
 };
 
 /**

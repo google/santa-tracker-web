@@ -43,6 +43,8 @@ app.Drawer = function(elem) {
   this.CLASS_ANIMATE = 'animate';
 
   this.onDrag = this.onDrag.bind(this);
+  this.hasInteractionStarted = false;
+  this.interactionCallback = null;
 
   this.$drawers = {};
   this.$drawers[Constants.USER_OBJECT_TYPE_SPRING] = {
@@ -109,15 +111,45 @@ app.Drawer.prototype.getDrawerTypeFromEl_ = function($el) {
 app.Drawer.prototype.onDrag = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
   this.decrementCount( this.$drawers[drawerType] );
+  if (!this.hasInteractionStarted) {
+    this.hasInteractionStarted = true;
+    // Tell level that something happened
+    // so it hides the tutorial etc
+    if (typeof this.interactionCallback === "function") {
+      this.interactionCallback();
+    }
+  }
 };
+
+/**
+ * Sets an interaction callback function to be called
+ * as soon as something is dragged.
+ * @param {Function} callbackFn Function to be called.
+ */
+app.Drawer.prototype.setInteractionCallback = function(callbackFn) {
+  this.hasInteractionStarted = false;
+  this.interactionCallback = callbackFn;
+}
 
 /**
  * Callback for when an drop is invalid (can't drop in that place)
  * @param  {Object} $el Element with the drop error
  */
 app.Drawer.prototype.onDropError = function($el) {
+  console.log("Drawer :: onDropError", $el);
   var drawerType = this.getDrawerTypeFromEl_($el);
   this.incrementCount( this.$drawers[drawerType] );
+};
+
+/**
+ * Callback for when an drop is valid.
+ * @param  {Object} $el Element with the successfull drop
+ */
+app.Drawer.prototype.onDropSuccess = function($el) {
+  // remove the element from the drawer
+  console.log("Drawer :: onDropSuccess", $el);
+  var drawerType = this.getDrawerTypeFromEl_($el);
+  // this.incrementCount( this.$drawers[drawerType] );
 };
 
 /**
