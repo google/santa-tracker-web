@@ -180,17 +180,3 @@ app.Draggable.prototype.touchend_ = function(e) {
   $(window).off('touchmove.presentbounce touchend.presentbounce');
   e.preventDefault();
 };
-
-/**
- * Creates app.Draggable instances for all valid elements under the root, but
- * only if Web Audio is supported.
- * @param {!Element} root element to search under
- * @constructor
- */
-// app.DragDrop = function(root) {
-  // if (app.Audio.isSupported()) {
-    // root.find('.js-draggable').each(function(index, elem) {
-      // new app.Draggable($(elem), root);
-    // });
-  // }
-// };
