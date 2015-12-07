@@ -32,11 +32,10 @@ app.Character = function(name, mapElem, drawerElem) {
   this.isFound = false;
 
   this.mapElem = mapElem;
-  this.drawerElem = drawerElem;
 
   // Find elements
   this.colliderElem = this.mapElem.find(`.character-collider--${this.name}`);
-  this.drawerItemElem = this.drawerElem.find(`.drawer__item--${this.name}`);
+  this.drawerItemElem = drawerElem.find(`.drawer__item--${this.name}`);
   this.layerElem = null;
 
   // Handle found event
@@ -54,6 +53,7 @@ app.Character.prototype.reset = function(mapDimensions) {
   this.isFound = false;
   this.drawerItemElem.removeClass('drawer__item--found')
       .removeClass('drawer__item--focused');
+  this.colliderElem.removeClass('character-collider--found');
 
   // Hide all spots
   for (let i = 1; i <= app.Constants.SPAWN_COUNT; i++) {
@@ -152,6 +152,7 @@ app.Character.prototype.onFound_ = function() {
   this.isFound = true;
   this.drawerItemElem.removeClass('drawer__item--focused');
   this.drawerItemElem.addClass('drawer__item--found');
+  this.colliderElem.addClass('character-collider--found');
 
   this.layerElem[0].classList.add('map__character--found');
   console.log(this.layerElem);
