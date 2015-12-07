@@ -140,7 +140,11 @@ app.Drawer.prototype.onDropError = function($el) {
   var drawer = this.$drawers[drawerType];
   var $drawer = drawer.$node;
   var $counter = this.getCounterEl_( $drawer );
-  console.log("Drawer :: onDropError", $el);
+  // this is coming from zero
+  // show the drawer again
+  if (drawer.count === 0) {
+    this.showDrawer(drawer);
+  }
   this.incrementCount( drawer );
   this.showCounter( $counter );
 };
@@ -150,12 +154,12 @@ app.Drawer.prototype.onDropError = function($el) {
  * @param  {Object} $el Element with the successfull drop
  */
 app.Drawer.prototype.onDropSuccess = function($el) {
-  // remove the element from the drawer
-  console.log("Drawer :: onDropSuccess", $el);
   var drawerType = this.getDrawerTypeFromEl_($el);
   var drawer = this.$drawers[drawerType];
   this.decrementCount( drawer );
   $el.remove();
+  // this number of objects is now zero
+  // hide the drawer
   if (drawer.count === 0) {
     this.hideDrawer(drawer);
   }
@@ -272,7 +276,6 @@ app.Drawer.prototype.updateDrawerVisibility = function (drawer) {
 app.Drawer.prototype.incrementCount = function(drawer) {
   if (drawer.count === 0) {
     this.showCounter(drawer.$node);
-    this.showDrawer(drawer);
   }
   drawer.count++;
   this.updateCounterText(drawer);
