@@ -58,21 +58,8 @@ goog.scope(function () {
       }
     }
 
-    /**
-     * @inheritDoc
-     */
-    buildBody_() {
-      const bodyDef = new b2.BodyDef();
-      bodyDef.type = b2.BodyDef.b2_staticBody;
-      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y - Unit.toWorld(30));
+    buildBowlFixtures_(body, material, worldHeight, worldWidth) {
 
-      // create the target fixture definition
-      const width = this.config_.style.objectWidth;
-      const height = this.config_.style.objectHeight;
-      const material = this.config_.material;
-
-      const worldWidth = Unit.toWorld(width);
-      const worldHeight = Unit.toWorld(height);
 
       const leftEdgeFixDef = new b2.FixtureDef();
       leftEdgeFixDef.density = material.globeDensity;
@@ -92,12 +79,6 @@ goog.scope(function () {
       bottomFixDef.restitution = material.restitution;
       bottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.4, worldHeight/2), new b2.Vec2(worldWidth*0.4, worldHeight/2));
 
-      const innerBottomFixDef = new b2.FixtureDef();
-      innerBottomFixDef.density = material.globeDensity;
-      innerBottomFixDef.friction = material.friction;
-      innerBottomFixDef.restitution = material.restitution;
-      innerBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.3, worldHeight/2.5), new b2.Vec2(worldWidth*0.3, worldHeight/2.5));
-
       const rightFixDef = new b2.FixtureDef();
       rightFixDef.density = material.globeDensity;
       rightFixDef.friction = material.friction;
@@ -110,13 +91,61 @@ goog.scope(function () {
       rightEdgeFixDef.restitution = material.restitution;
       rightEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.4, -worldHeight*0.4), new b2.Vec2(worldWidth/2.2, -worldHeight/2));
 
-      const body = this.world_.CreateBody( bodyDef );
       body.CreateFixture( leftEdgeFixDef );
       body.CreateFixture( leftFixDef );
       body.CreateFixture( rightFixDef );
       body.CreateFixture( rightEdgeFixDef );
       body.CreateFixture( bottomFixDef );
+    }
+
+    buildBaseFixtures_(body, material, worldHeight, worldWidth) {
+      const plateFixDef = new b2.FixtureDef();
+      plateFixDef.density = material.globeDensity;
+      plateFixDef.friction = material.friction;
+      plateFixDef.restitution = material.restitution;
+      plateFixDef.shape = new b2.PolygonShape();
+      plateFixDef.shape.SetAsOrientedBox(worldWidth*.75, worldHeight*0.1, new b2.Vec2(0, worldHeight*0.78), 0);
+
+      const pillarFixDef = new b2.FixtureDef();
+      pillarFixDef.density = material.globeDensity;
+      pillarFixDef.friction = material.friction;
+      pillarFixDef.restitution = material.restitution;
+      pillarFixDef.shape = new b2.PolygonShape();
+      pillarFixDef.shape.SetAsOrientedBox(worldWidth*.3, worldHeight*3, new b2.Vec2(0, worldHeight*3.9), 0);
+
+      body.CreateFixture( plateFixDef );
+      body.CreateFixture( pillarFixDef );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    buildBody_() {
+      const bodyDef = new b2.BodyDef();
+      bodyDef.type = b2.BodyDef.b2_staticBody;
+      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y - Unit.toWorld(30));
+
+      // create the target fixture definition
+      const width = this.config_.style.objectWidth;
+      const height = this.config_.style.objectHeight;
+      const material = this.config_.material;
+
+      const worldWidth = Unit.toWorld(width);
+      const worldHeight = Unit.toWorld(height);
+
+      const body = this.world_.CreateBody( bodyDef );
+
+      this.buildBowlFixtures_(body, material, worldHeight, worldWidth);
+      this.buildBaseFixtures_(body, material, worldHeight, worldWidth);
+
+      // target collision fixture
+      const innerBottomFixDef = new b2.FixtureDef();
+      innerBottomFixDef.density = material.globeDensity;
+      innerBottomFixDef.friction = material.friction;
+      innerBottomFixDef.restitution = material.restitution;
+      innerBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.3, worldHeight/2.5), new b2.Vec2(worldWidth*0.3, worldHeight/2.5));
       this.setCollisionFixture( body.CreateFixture( innerBottomFixDef ) );
+
       return body;
     }
   }
