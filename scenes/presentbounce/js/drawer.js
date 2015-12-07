@@ -21,6 +21,10 @@ goog.provide('app.Drawer');
 goog.require('app.Draggable');
 goog.require('app.shared.utils');
 
+/**
+ * @param {!Element} drawer element for the context
+ * @construtor
+ */
 app.Drawer = function(elem) {
   this.elem = elem || null;
   this.$elem = $(elem);
@@ -56,9 +60,16 @@ app.Drawer = function(elem) {
 
 };
 
+/**
+ * Adds an element to the drawer and makes it draggable.
+ * @param {Object} data           Config data being passed from the level.
+ * @param {String} type           What type of object this is. Can be conveyorbelt or spring.
+ * @param {Function} onDropCallback Callback to be called on drop.
+ * @param {Function} onTestCallback Callback to be called to test if it's a valid drop or not.
+ */
 app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) {
   var $drawer = this.$drawers[type];
-  var $node = this.createDOMNode_(data);
+  var $node = this.createDraggableElement_(data);
 
   $drawer
     .$node
@@ -82,96 +93,163 @@ app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) 
 
 };
 
-app.Drawer.prototype.getDrawerTypeFromEl = function($el) {
+/**
+ * Gets a drawer type element from a given DOM element.
+ * @param  {Object} $el The element that needs to be checked.
+ * @return {String}     The type of element (belt/spring).
+ */
+app.Drawer.prototype.getDrawerTypeFromEl_ = function($el) {
   return $el.closest('.' + this.CLASS_DRAWER_HOLDER).data('type');
 };
 
+/**
+ * Callback for when an element is being dragged.
+ * @param  {Object} $el Element being dragged.
+ */
 app.Drawer.prototype.onDrag = function($el) {
-  var drawerType = this.getDrawerTypeFromEl($el);
+  var drawerType = this.getDrawerTypeFromEl_($el);
   this.decrementCount( this.$drawers[drawerType] );
 };
 
+/**
+ * Callback for when an drop is invalid (can't drop in that place)
+ * @param  {Object} $el Element with the drop error
+ */
 app.Drawer.prototype.onDropError = function($el) {
-  var drawerType = this.getDrawerTypeFromEl($el);
+  var drawerType = this.getDrawerTypeFromEl_($el);
   this.incrementCount( this.$drawers[drawerType] );
 };
 
+/**
+ * Shows a specific drawer.
+ * @param  {Object} $el The drawer element
+ */
 app.Drawer.prototype.showDrawer = function($el) {
   $el.addClass( this.CLASS_HOLDER_VISIBLE );
   setTimeout(function() {
-    this.showObject( this.getDraggableEl( $el ));
-    this.showCounter( this.getCounterEl( $el ) );
+    this.showObject( this.getDraggableEl_( $el ));
+    this.showCounter( this.getCounterEl_( $el ) );
   }.bind(this), 200);
 };
 
-app.Drawer.prototype.getCounterEl = function($el) {
+/**
+ * Hides a drawer.
+ * @param  {Object} $el The drawer element.
+ */
+app.Drawer.prototype.hideDrawer = function($el) {
+  $el.removeClass( this.CLASS_HOLDER_VISIBLE );
+  this.hideCounter( this.getCounterEl_($el) );
+};
+
+/**
+ * Helper function to get the counter element from a drawer.
+ * @param  {Object} $el The drawer element.
+ * @return {Object}     The counter element.
+ */
+app.Drawer.prototype.getCounterEl_ = function($el) {
   return $el.find( '.' + this.CLASS_COUNTER );
 };
 
-app.Drawer.prototype.getDraggableEl = function($el) {
+/**
+ * Helper function to get the draggable element from a drawer.
+ * @param  {Object} $el The drawer element reference.
+ * @return {Object}     The draggable element
+ */
+app.Drawer.prototype.getDraggableEl_ = function($el) {
   return $el.find( '.' + this.CLASS_DRAGGABLE );
 };
 
+/**
+ * Shows the object(s) from a drawer.
+ * @param  {Object} $el The drawer element.
+ */
 app.Drawer.prototype.showObject = function($el) {
   $el.addClass( this.CLASS_OBJECT_VISIBLE );
 };
 
+/**
+ * Hides the object(s) from a drawer.
+ * @param  {Object} $el The drawer element.
+ */
 app.Drawer.prototype.hideObject = function($el) {
   $el.removeClass( this.CLASS_OBJECT_VISIBLE );
 };
 
+/**
+ * Shows the counter from a specific drawer.
+ * @param  {Object} $el The counter to be shown.
+ */
 app.Drawer.prototype.showCounter = function($el) {
   $el.addClass( this.CLASS_COUNT_VISIBLE );
 };
 
+/**
+ * Hides the counter from the drawer.
+ * @param  {Object} $el The counter to be hidden.
+ */
 app.Drawer.prototype.hideCounter = function($el) {
   $el.removeClass( this.CLASS_COUNT_VISIBLE );
 };
 
-app.Drawer.prototype.hide = function($el) {
-  $el
-    .removeClass( this.CLASS_HOLDER_VISIBLE )
-    .find( '.' + this.CLASS_COUNTER )
-    .removeClass( this.CLASS_COUNT_VISIBLE );
-};
 
-app.Drawer.prototype.createDOMNode_ = function(data) {
+/**
+ * Creates a DOM element for a draggable object .
+ * @param  {Object} data Config to be used as reference for the creation.
+ * @return {Object}      jQuery object.
+ */
+app.Drawer.prototype.createDraggableElement_ = function(data) {
   var classes = [this.CLASS_DRAGGABLE, 'object ' + data.style.className];
   return $('<div />').addClass(classes.join(' ')).html(data.style.innerHTML || '');
 };
 
+/**
+ * Goes through the drawer and check which should be shown or hidden.
+ */
 app.Drawer.prototype.updateVisibility = function () {
   var $drawer = null;
   for (var prop in this.$drawers) {
     if (this.$drawers.hasOwnProperty(prop)) {
       $drawer = this.$drawers[prop];
-      ($drawer.count > 0) ? this.showDrawer($drawer.$node) : this.hide($drawer.$node);
+      ($drawer.count > 0) ? this.showDrawer($drawer.$node) : this.hideDrawer($drawer.$node);
     }
   }
 };
 
+/**
+ * Increments the counter by one in a specific drawer.
+ * @param  {Object} $drawer Drawer element.
+ */
 app.Drawer.prototype.incrementCount = function($drawer) {
   $drawer.count++;
-  this.updateCountText($drawer);
+  this.updateCounterText($drawer);
 };
 
+/**
+ * Decrements the counter by one in a specific drawer.
+ * @param  {Object} $drawer Drawer element.
+ */
 app.Drawer.prototype.decrementCount = function($drawer) {
   $drawer.count = Math.max($drawer.count-1, 0);
   if ($drawer.count === 0) {
-    this.hideCounter( this.getCounterEl($drawer.$node) );
+    this.hideCounter( this.getCounterEl_($drawer.$node) );
   }
-  this.updateCountText($drawer);
+  this.updateCounterText($drawer);
 };
 
-app.Drawer.prototype.updateCountText = function($drawer) {
-  var $node = $drawer.$node;
-  $node
-    .find('.' + this.CLASS_COUNTER)
-    .text($drawer.count);
-
-  this.animateCount($node);
+/**
+ * Updates the text of a counter from a specific drawer.
+ * @param  {Object} $drawer The drawer element.
+ */
+app.Drawer.prototype.updateCounterText = function($drawer) {
+  var $counter = this.getCounterEl_( $drawer.$node );
+  $counter.text($drawer.count);
+  this.animateCounter($counter);
 };
 
-app.Drawer.prototype.animateCount = function($node) {
-  utils.animWithClass($node.find('.' + this.CLASS_COUNTER), this.CLASS_ANIMATE);
+/**
+ * Triggers a CSS3 animation on the counter element.
+ * @param  {Object} $counter jQuery counter element to be animated.
+ */
+app.Drawer.prototype.animateCounter = function($counter) {
+  utils.animWithClass($counter, this.CLASS_ANIMATE);
 };
