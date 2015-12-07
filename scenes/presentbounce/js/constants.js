@@ -33,7 +33,7 @@ app.Constants = {
   VIEWPORT_MIN_HEIGHT: 900,
 
   SHADOW_OFFSET_PX: 10, // distance to ball shadow
-  CONVEYOR_BELT_SPEED: 4, // make sure belt animation is matching
+  CONVEYOR_BELT_SPEED: 6, // make sure belt animation is matching
   CORNER_RESOLUTION: 10, // for candy cane polygons
 
   USER_OBJECT_TYPE_BELT: 'USER_OBJECT_TYPE_BELT',
