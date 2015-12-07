@@ -20,7 +20,7 @@ goog.provide('app.world.PresentBall');
 goog.require('b2');
 goog.require('app.Unit');
 goog.require('app.world.GravityObject');
-goog.provide('app.world.ConveyorBelt');
+goog.require('app.world.ConveyorBelt');
 
 
 goog.scope(function () {
