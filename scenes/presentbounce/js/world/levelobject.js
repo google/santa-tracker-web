@@ -151,6 +151,20 @@ goog.scope(function () {
     }
 
     /**
+     * Pause callback passed to instances.
+     */
+    pause() {
+      // override to add custom forces before World step
+    }
+
+    /**
+     * Resume callback passed to instances.
+     */
+    resume() {
+      // override to add custom forces before World step
+    }
+
+    /**
      * @public
      */
     position() {

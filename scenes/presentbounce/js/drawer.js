@@ -73,7 +73,7 @@ app.Drawer.prototype.pause = function() {
 /**
  * Sets the sets to be not paused.
  */
-app.Drawer.prototype.continue = function() {
+app.Drawer.prototype.resume = function() {
   this.isGamePaused = false;
 };
 

@@ -70,6 +70,22 @@ goog.scope(function () {
     }
 
     /**
+     * Callback from the level
+     * telling the objects that we are paused.
+     */
+    pause() {
+      this.pauseBelt_();
+    }
+
+    /**
+     * Called from level
+     * telling that we are continuing.
+     */
+    resume() {
+      this.resumeBelt_();
+    }
+
+    /**
      * Pauses the conveyor belt.
      */
     pauseBelt_() {
