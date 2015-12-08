@@ -133,14 +133,19 @@
 			line-height: 20px;
 			font-size: 15px;
 			position: absolute;
-			top: 25px;
-			left: 30px;
+			top: 10px;
+			left: 10px;
 			z-index: 20;
 			opacity: 0;
 			transform: scale(0.6);
 			transition-property: transform, opacity;
 			transition-duration: 800ms;
 			transition-timing-function: $easeOutExpo;
+
+			@media (min-width: $board-desktop-breakpoint) {
+				top: 25px;
+				left: 30px;
+			}
 
 			&--visible {
 				opacity: 1;
