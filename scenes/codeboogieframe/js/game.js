@@ -47,7 +47,7 @@ app.Game = function(elem) {
 
   this.iframeChannel = new app.shared.FrameRPC(window.parent, {
     restart: this.restart.bind(this),
-    beat: (beat, bpm) => this.scene.player.onBeat(beat, bpm)
+    beat: this.scene.player.onBeat.bind(this.scene.player)
   });
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));

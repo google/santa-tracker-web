@@ -167,7 +167,7 @@ var SCENE_CLOSURE_CONFIG = {
   },
   codeboogieframe: {
     closureLibrary: true,
-    typeSafe: true,
+    typeSafe: false,
     entryPoint: 'app.Game',
     isFrame: true,
     libraries: ['third_party/lib/blockly/**/*.js']
