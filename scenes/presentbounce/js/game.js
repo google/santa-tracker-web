@@ -228,6 +228,7 @@ app.Game.prototype.onLevelCompleted = function(score) {
 app.Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
+  this.drawer.pause();
   window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
 };
 
@@ -239,6 +240,7 @@ app.Game.prototype.unfreezeGame = function() {
     this.elem.removeClass('frozen').focus();
 
     this.isPlaying = true;
+    this.drawer.continue();
     this.lastFrame = +new Date() / 1000;
     this.requestId = utils.requestAnimFrame(this.onFrame_);
   }

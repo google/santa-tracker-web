@@ -46,6 +46,7 @@ app.Drawer = function(elem) {
   this.onDrag = this.onDrag.bind(this);
   this.hasInteractionStarted = false;
   this.interactionCallback = null;
+  this.isGamePaused = false;
 
   this.$drawers = {};
   this.$restart = this.$elem.find( '.' + this.CLASS_RESTART );
@@ -59,6 +60,28 @@ app.Drawer = function(elem) {
     .$node
     .data('type', Constants.USER_OBJECT_TYPE_SPRING);
 
+};
+
+
+/**
+ * Sets the state to be paused.
+ */
+app.Drawer.prototype.pause = function() {
+  this.isGamePaused = true;
+};
+
+/**
+ * Sets the sets to be not paused.
+ */
+app.Drawer.prototype.continue = function() {
+  this.isGamePaused = false;
+};
+
+/**
+ * Returns the game state
+ */
+app.Drawer.prototype.isPaused = function() {
+  return this.isGamePaused;
 };
 
 /**

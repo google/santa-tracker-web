@@ -108,8 +108,13 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
  * @private
  */
 app.Draggable.prototype.mousedown_ = function(e) {
-  var startX = e.clientX;
-  var startY = e.clientY;
+  var startX = null;
+  var startY = null;
+
+  if (this.drawer.isPaused()) return;
+
+  startX = e.clientX;
+  startY = e.clientY;
 
   this.dragStart_(startX, startY);
 
@@ -124,8 +129,13 @@ app.Draggable.prototype.mousedown_ = function(e) {
  * @private
  */
 app.Draggable.prototype.touchstart_ = function(e) {
-  var startX = e.originalEvent.touches[0].clientX;
-  var startY = e.originalEvent.touches[0].clientY;
+  var startX = null;
+  var startY = null;
+
+  if (this.drawer.isPaused()) return;
+
+  startX = e.originalEvent.touches[0].clientX;
+  startY = e.originalEvent.touches[0].clientY;
 
   this.dragStart_(startX, startY);
 
