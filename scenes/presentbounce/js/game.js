@@ -120,6 +120,7 @@ app.Game.prototype.restartLevel = function() {
 
   // Reset the timer
   this.scoreboard.resetTimer();
+  this.scoreboard.unpause();
   this.loadLevel_();
 
   // Start game
