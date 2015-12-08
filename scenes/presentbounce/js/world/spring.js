@@ -20,11 +20,14 @@ goog.provide('app.world.Spring');
 goog.require('b2');
 goog.require('app.Unit');
 goog.require('app.world.UserObject');
+goog.require('app.world.PresentBall');
+goog.require('app.world.PresentSquare');
 goog.require('app.shared.utils');
 
 goog.scope(function () {
   const Unit = app.Unit;
-
+  const PresentBall = app.world.PresentBall;
+  const PresentSquare = app.world.PresentSquare;
 
   /**
    * Spring class

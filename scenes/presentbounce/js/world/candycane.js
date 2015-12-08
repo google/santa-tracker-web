@@ -21,11 +21,15 @@ goog.require('b2');
 goog.require('app.Constants');
 goog.require('app.Unit');
 goog.require('app.world.LevelObject');
+goog.require('app.world.PresentBall');
+goog.require('app.world.PresentSquare');
 
 
 goog.scope(function () {
   const Constants = app.Constants;
   const Unit = app.Unit;
+  const PresentBall = app.world.PresentBall;
+  const PresentSquare = app.world.PresentSquare;
 
 
   /**

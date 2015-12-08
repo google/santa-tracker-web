@@ -61,7 +61,7 @@ goog.scope(function () {
       const body = this.world_.CreateBody(bodyDef);
       const bodyFix = body.CreateFixture(fixDef);
 
-      boxyFix.collisionID = COLLISION_ID;
+      bodyFix.collisionID = COLLISION_ID;
 
       return body;
     }
