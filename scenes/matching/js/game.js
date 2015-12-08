@@ -179,7 +179,7 @@ Game.prototype.onTargetClick_ = function(event) {
  */
 Game.prototype.onTargetTouch_ = function(event) {
   event.preventDefault();
-  this.onTargetClick(event);
+  this.onTargetClick_(event);
 };
 
 /**
