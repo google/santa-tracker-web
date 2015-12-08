@@ -36,6 +36,7 @@ app.Drawer = function(elem) {
   this.CLASS_BELT = 'js-object-conveyorBelt';
   this.CLASS_INACTIVE = 'is-inactive';
   this.CLASS_COUNTER = 'js-drawer-counter';
+  this.CLASS_RESTART = 'js-drawer-restart';
   this.CLASS_DRAGGABLE = 'js-draggable';
   this.CLASS_HOLDER_VISIBLE = 'drawer__holder--visible';
   this.CLASS_COUNT_VISIBLE = 'drawer__counter--visible';
@@ -47,10 +48,16 @@ app.Drawer = function(elem) {
   this.interactionCallback = null;
 
   this.$drawers = {};
+  this.$restart = this.$elem.find( '.' + this.CLASS_RESTART );
   this.setDrawers();
 
-  this.$drawers[Constants.USER_OBJECT_TYPE_BELT].$node.data('type', Constants.USER_OBJECT_TYPE_BELT);
-  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING].$node.data('type', Constants.USER_OBJECT_TYPE_SPRING);
+  this.$drawers[Constants.USER_OBJECT_TYPE_BELT]
+    .$node
+    .data('type', Constants.USER_OBJECT_TYPE_BELT);
+
+  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING]
+    .$node
+    .data('type', Constants.USER_OBJECT_TYPE_SPRING);
 
 };
 
@@ -257,6 +264,12 @@ app.Drawer.prototype.hideCounter = function($drawer) {
   $drawer.removeClass( this.CLASS_COUNT_VISIBLE );
 };
 
+/**
+ * Shows the restart drawer button. Not visible on desktop.
+ */
+app.Drawer.prototype.showRestart = function() {
+  this.$restart.addClass( this.CLASS_HOLDER_VISIBLE );
+};
 
 /**
  * Creates a DOM element for a draggable object .
@@ -286,6 +299,7 @@ app.Drawer.prototype.updateDrawersVisibility = function (drawer) {
       }
     }
   }
+  this.showRestart();
 };
 
 /**
