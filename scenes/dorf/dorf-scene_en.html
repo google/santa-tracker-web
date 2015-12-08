@@ -445,6 +445,9 @@ Village scene (2015).
         // Setup a new game
         this.ticTacToeScore = {'red': 0, 'blue': 0};
 
+        this.$['easteregg-tic-tac-toe-win'].classList.remove('red', 'blue',
+          'pos-0', 'pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5', 'pos-6', 'pos-7');
+
         this._ticTacToeCells = [].slice.call(ticTacGameBoard.querySelectorAll('.tic-tac'));
         this._ticTacToeCells.forEach(function(cell) {
           cell.classList.remove('cross', 'naught', 'red', 'blue');
