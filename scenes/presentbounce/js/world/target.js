@@ -58,6 +58,79 @@ goog.scope(function () {
       }
     }
 
+    buildBowlFixtures_(body, material, worldHeight, worldWidth) {
+
+
+      const leftEdgeFixDef = new b2.FixtureDef();
+      leftEdgeFixDef.density = material.globeDensity;
+      leftEdgeFixDef.friction = material.friction;
+      leftEdgeFixDef.restitution = material.restitution;
+      leftEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth/2.2, -worldHeight/2), new b2.Vec2(-worldWidth*0.4, -worldHeight*0.4));
+
+      const lefToptFixDef = new b2.FixtureDef();
+      lefToptFixDef.density = material.globeDensity;
+      lefToptFixDef.friction = material.friction;
+      lefToptFixDef.restitution = material.restitution;
+      lefToptFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.4, -worldHeight*0.4), new b2.Vec2(-worldWidth*0.6, worldHeight*0.15));
+
+      const leftBottomFixDef = new b2.FixtureDef();
+      leftBottomFixDef.density = material.globeDensity;
+      leftBottomFixDef.friction = material.friction;
+      leftBottomFixDef.restitution = material.restitution;
+      leftBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.6, worldHeight*0.15), new b2.Vec2(-worldWidth*0.45, worldHeight*0.6));
+
+      const bottomFixDef = new b2.FixtureDef();
+      bottomFixDef.density = material.globeDensity;
+      bottomFixDef.friction = material.friction;
+      bottomFixDef.restitution = material.restitution;
+      bottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.45, worldHeight*0.6), new b2.Vec2(worldWidth*0.45, worldHeight*0.6));
+
+      const rightBottomFixDef = new b2.FixtureDef();
+      rightBottomFixDef.density = material.globeDensity;
+      rightBottomFixDef.friction = material.friction;
+      rightBottomFixDef.restitution = material.restitution;
+      rightBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.45, worldHeight*0.6), new b2.Vec2(worldWidth*0.6, worldHeight*0.15));
+
+      const rightTopFixDef = new b2.FixtureDef();
+      rightTopFixDef.density = material.globeDensity;
+      rightTopFixDef.friction = material.friction;
+      rightTopFixDef.restitution = material.restitution;
+      rightTopFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.6, worldHeight*0.15), new b2.Vec2(worldWidth*0.4, -worldHeight*0.4));
+
+      const rightEdgeFixDef = new b2.FixtureDef();
+      rightEdgeFixDef.density = material.globeDensity;
+      rightEdgeFixDef.friction = material.friction;
+      rightEdgeFixDef.restitution = material.restitution;
+      rightEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.4, -worldHeight*0.4), new b2.Vec2(worldWidth/2.2, -worldHeight/2));
+
+      body.CreateFixture( leftEdgeFixDef );
+      body.CreateFixture( lefToptFixDef );
+      body.CreateFixture( leftBottomFixDef );
+      body.CreateFixture( bottomFixDef );
+      body.CreateFixture( rightBottomFixDef );
+      body.CreateFixture( rightTopFixDef );
+      body.CreateFixture( rightEdgeFixDef );
+    }
+
+    buildBaseFixtures_(body, material, worldHeight, worldWidth) {
+      const plateFixDef = new b2.FixtureDef();
+      plateFixDef.density = material.globeDensity;
+      plateFixDef.friction = material.friction;
+      plateFixDef.restitution = material.restitution;
+      plateFixDef.shape = new b2.PolygonShape();
+      plateFixDef.shape.SetAsOrientedBox(worldWidth*.75, worldHeight*0.1, new b2.Vec2(0, worldHeight*0.78), 0);
+
+      const pillarFixDef = new b2.FixtureDef();
+      pillarFixDef.density = material.globeDensity;
+      pillarFixDef.friction = material.friction;
+      pillarFixDef.restitution = material.restitution;
+      pillarFixDef.shape = new b2.PolygonShape();
+      pillarFixDef.shape.SetAsOrientedBox(worldWidth*.3, worldHeight*3, new b2.Vec2(0, worldHeight*3.9), 0);
+
+      body.CreateFixture( plateFixDef );
+      body.CreateFixture( pillarFixDef );
+    }
+
     /**
      * @inheritDoc
      */
@@ -74,49 +147,19 @@ goog.scope(function () {
       const worldWidth = Unit.toWorld(width);
       const worldHeight = Unit.toWorld(height);
 
-      const leftEdgeFixDef = new b2.FixtureDef();
-      leftEdgeFixDef.density = material.globeDensity;
-      leftEdgeFixDef.friction = material.friction;
-      leftEdgeFixDef.restitution = material.restitution;
-      leftEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth/2.2, -worldHeight/2), new b2.Vec2(-worldWidth*0.4, -worldHeight*0.4));
+      const body = this.world_.CreateBody( bodyDef );
 
-      const leftFixDef = new b2.FixtureDef();
-      leftFixDef.density = material.globeDensity;
-      leftFixDef.friction = material.friction;
-      leftFixDef.restitution = material.restitution;
-      leftFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.4, -worldHeight*0.4), new b2.Vec2(-worldWidth*0.4, worldHeight/2));
+      this.buildBowlFixtures_(body, material, worldHeight, worldWidth);
+      this.buildBaseFixtures_(body, material, worldHeight, worldWidth);
 
-      const bottomFixDef = new b2.FixtureDef();
-      bottomFixDef.density = material.globeDensity;
-      bottomFixDef.friction = material.friction;
-      bottomFixDef.restitution = material.restitution;
-      bottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.4, worldHeight/2), new b2.Vec2(worldWidth*0.4, worldHeight/2));
-
+      // target collision fixture
       const innerBottomFixDef = new b2.FixtureDef();
       innerBottomFixDef.density = material.globeDensity;
       innerBottomFixDef.friction = material.friction;
       innerBottomFixDef.restitution = material.restitution;
       innerBottomFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0.3, worldHeight/2.5), new b2.Vec2(worldWidth*0.3, worldHeight/2.5));
-
-      const rightFixDef = new b2.FixtureDef();
-      rightFixDef.density = material.globeDensity;
-      rightFixDef.friction = material.friction;
-      rightFixDef.restitution = material.restitution;
-      rightFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.4, worldHeight/2), new b2.Vec2(worldWidth*0.4, -worldHeight*0.4));
-
-      const rightEdgeFixDef = new b2.FixtureDef();
-      rightEdgeFixDef.density = material.globeDensity;
-      rightEdgeFixDef.friction = material.friction;
-      rightEdgeFixDef.restitution = material.restitution;
-      rightEdgeFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(worldWidth*0.4, -worldHeight*0.4), new b2.Vec2(worldWidth/2.2, -worldHeight/2));
-
-      const body = this.world_.CreateBody( bodyDef );
-      body.CreateFixture( leftEdgeFixDef );
-      body.CreateFixture( leftFixDef );
-      body.CreateFixture( rightFixDef );
-      body.CreateFixture( rightEdgeFixDef );
-      body.CreateFixture( bottomFixDef );
       this.setCollisionFixture( body.CreateFixture( innerBottomFixDef ) );
+
       return body;
     }
   }

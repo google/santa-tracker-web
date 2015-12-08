@@ -73,7 +73,7 @@ app.config.Styles = {
     `,
     width: 200,
     height: 177,
-    objectWidth: 132,
+    objectWidth: 128,
     objectHeight: 100
   },
   angledBeam: {

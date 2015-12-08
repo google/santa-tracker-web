@@ -81,12 +81,18 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
 
   // check if dropped in zone
   var dropZoneEl = this.rootEl.find('.js-drop-target').filter(isDragOver).first();
+
   if (dropZoneEl.length) {
-    this.onDropCallback(x, y, (error) => {
-      // callback only called if overlap was detected
-      // console.log('DROP ERROR DETECTED', error);
-      // this.drawer()
+    this.onDropCallback(x, y, (hasError) => {
+      if (hasError) {
+        this.drawer.onDropError(this.el);
+      }
+      else {
+        this.drawer.onDropSuccess(this.el);
+      }
     });
+  } else {
+    this.drawer.onDropError(this.el);
   }
 
   this.el.css({
@@ -180,17 +186,3 @@ app.Draggable.prototype.touchend_ = function(e) {
   $(window).off('touchmove.presentbounce touchend.presentbounce');
   e.preventDefault();
 };
-
-/**
- * Creates app.Draggable instances for all valid elements under the root, but
- * only if Web Audio is supported.
- * @param {!Element} root element to search under
- * @constructor
- */
-// app.DragDrop = function(root) {
-  // if (app.Audio.isSupported()) {
-    // root.find('.js-draggable').each(function(index, elem) {
-      // new app.Draggable($(elem), root);
-    // });
-  // }
-// };

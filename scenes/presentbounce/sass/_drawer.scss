@@ -4,10 +4,15 @@
 	$drawer-mobile-size: 50px;
 	$drawer-tablet-size: 92px;
 	$drawer-desktop-height: 130px;
+	$mobile-scale-factor: 1.45;
 
 	.drawer {
 
-		height: $drawer-mobile-size;
+		height: $drawer-mobile-size * 1.45; // compensate the scaling
+
+		@media (min-width: $board-mobile-breakpoint) {
+			height: $drawer-mobile-size;
+		}
 
 		@media (min-width: $board-desktop-breakpoint) {
 			width: 100%;
@@ -22,10 +27,9 @@
 			overflow: hidden;
 			height: 100%;
 			width: 0;
-			transition-property: transform;
+			transition-property: transform, width;
 			transition-duration: 500ms;
 			transition-timing-function: $easeOutExpo;
-			transform: translateY(100%);
 
 			@media (min-width: $board-desktop-breakpoint) {
 				float: none;
@@ -43,7 +47,6 @@
 				padding: 15px;
 				width: $drawer-mobile-size * 1.45; // compensate the scaling
 				height: $drawer-mobile-size * 1.45; // compensate the scaling
-				transform: translateY(0%);
 
 				@media (min-width: $board-mobile-breakpoint) {
 					width: $drawer-mobile-size;
@@ -148,6 +151,7 @@
 				animation-name: #{$name}-counter-bounce;
 				animation-duration: 700ms;
 				animation-timing-function: $easeOutBack;
+				animation-fill-mode: forwards;
 			}
 		}
 	}
@@ -158,7 +162,10 @@
 	0% {
 		transform: scale(1);
 	}
+	50% {
+		transform: scale(1.6);
+	}
 	100% {
-		transform: scale(2);
+		transform: scale(1);
 	}
 }
