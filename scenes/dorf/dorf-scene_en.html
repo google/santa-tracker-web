@@ -55,9 +55,7 @@ Village scene (2015).
         <span class="sun"></span>
         <span class="plane"></span>
         <span id="village-pegman">
-          <span class="pegman-1"></span>
-          <span class="pegman-2"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
-          <span class="pegman-3"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
+          <a id="village-pegman-image" href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a>
         </span>
         <div id="effectholder">
         </div>
@@ -251,6 +249,9 @@ Village scene (2015).
   var RANDOM_EGG_WAIT_MIN = 5000;
   var RANDOM_EGG_WAIT_MAX = 30000;
 
+  var PEGMAN_WAIT_MIN = 15000;  // needs to be > 10s of falling
+  var PEGMAN_WAIT_MAX = 30000;
+
   var SNOWFLAKE_ROTATION = 60;
   var SNOWFLAKE_SPEED_MIN = 2.5;
   var SNOWFLAKE_SPEED_MAX = 10;
@@ -374,7 +375,7 @@ Village scene (2015).
       'easteregg-snowmobile1.click': '_driveSnowmobile',
       'easteregg-snowmobile2.click': '_driveSnowmobile',
       'easteregg-snowmobile3.click': '_driveSnowmobile',
-      'easteregg-snowmobile4.click': '_driveSnowmobile'
+      'easteregg-snowmobile4.click': '_driveSnowmobile',
     },
 
     /**
@@ -551,69 +552,6 @@ Village scene (2015).
         }
       }
       return false;
-    },
-
-    _pegmanTimers: [],
-
-    _resetPegmanDive: function() {
-      for (var i = 0; i < this._pegmanTimers.length; i++) {
-        this.cancelAsync(this._pegmanTimers[i]);
-      }
-      this._pegmanTimers = [];
-    },
-
-    _pegmanDive: function() {
-      var SKY_DIVE_TIME = 10000;
-      var SKY_DIVE_FALL = .75 * SKY_DIVE_TIME;
-      var SKY_DIVE_LAND = SKY_DIVE_TIME + 200;
-      var SKY_DIVE_FADE = SKY_DIVE_LAND + 10000;
-      var SKY_DIVE_RESTART = SKY_DIVE_FADE + 2000;
-      var PEGMAN_WAIT = SKY_DIVE_RESTART + 2000;
-
-      var pegman = this.$['village-pegman'];
-      pegman.classList.remove('skydive', 'stage1', 'stage2', 'stage3', 'hide');
-
-      if (!this.active) {
-        return; // not active, no point jumping
-      }
-
-      var pegman = this.$['village-pegman'];
-
-      // Jump!
-      pegman.classList.add('skydive', 'stage1');
-      this._pegmanTimers[0] = this.async(function() {
-        if (!this.active) {
-          return;
-        }
-
-        pegman.classList.remove('stage1');
-        pegman.classList.add('stage2');
-      }, SKY_DIVE_FALL);
-
-      this._pegmanTimers[1] = this.async(function() {
-        if (!this.active) {
-          return;
-        }
-
-        pegman.classList.remove('stage2');
-        pegman.classList.add('stage3');
-      }, SKY_DIVE_LAND);
-
-      this._pegmanTimers[2] = this.async(function() {
-        if (!this.active) {
-          return;
-        }
-
-        pegman.classList.add('hide');
-      }, SKY_DIVE_FADE);
-
-      this._pegmanTimers[3] = this.async(function() {
-        pegman.classList.remove('skydive');
-      }, SKY_DIVE_RESTART);
-
-      this._pegmanTimers[4] = this.async(function() {
-        this._pegmanDive();
-      }, PEGMAN_WAIT);
     },
 
     _driveSnowmobile: function(e) {
@@ -857,6 +795,7 @@ Village scene (2015).
       if (this.santaApp.mode == 'cast') {
         ratio = 0.5;
       }
+      ratio = 0;
 
       for (var i = 0, count = Math.floor(ratio * SNOWFLAKE_COUNT); i < count; ++i) {
         // Delay snowflakes by their count+5 sec.
@@ -877,13 +816,31 @@ Village scene (2015).
       this._stopEasterEggs();
     },
 
+    _pegmanStep: function() {
+      if (!this.active) {
+        return;  // give up, not active
+      }
+      var pegman = this.$['village-pegman'];
+      if (!pegman.classList.contains('active')) {
+        // fall from the sky
+        pegman.classList.add('active');
+      } else {
+        pegman.classList.add('fadeout');
+        this.async(function() {
+          pegman.classList.remove('fadeout', 'active');
+        }, 500);
+      }
+      this.async(this._pegmanStep, randomRange(PEGMAN_WAIT_MIN, PEGMAN_WAIT_MAX));
+    },
+
     _startEasterEggs: function() {
       if (this.santaApp.mode != 'cast') {
         this._stopEasterEggs();
         this._randomEasterEggs();  // stops self if no longer active
         this._playTicTacToe();
       }
-      this._pegmanDive();
+
+      this._pegmanStep();  // stops self if not active
     },
 
     _stopEasterEggs: function() {
@@ -892,7 +849,6 @@ Village scene (2015).
       }
       this._playTicTacToeTimers = [];
 
-      this._resetPegmanDive();
       this.cancelAsync(this._eggTimer);
     },
 
