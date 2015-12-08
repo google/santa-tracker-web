@@ -161,7 +161,7 @@ City feed view in Tracker
                   <template is="dom-if" if="{{item.stop.details.streetView}}" restamp>
                     <template is="dom-if" if="{{_isSelectedCard(item.selectedCard, 2)}}" restamp>
                       <google-streetview-pano version="3.exp" class="fit"
-                          panoid="{{item.stop.details.streetView.id}}"
+                          pano-id="{{item.stop.details.streetView.id}}"
                           heading="{{item.stop.details.streetView.heading}}"
                           client-id="{{santaApp.config.CLIENT_ID}}"
                           language="{{santaApp.language}}"

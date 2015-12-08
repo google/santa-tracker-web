@@ -714,6 +714,7 @@ Tracker scene.
       }
 
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
+      var cityStats = this.$['module-tracker'].querySelector('#city-stats');
 
       if (this.cityFeedActive) {
         this.trackerCard = null;
@@ -721,14 +722,12 @@ Tracker scene.
         // Wait for circle animation to finish before we fade in stats and city feed.
         this.async(function() {
           this.$.feed.active = true;
-
-          var cityStats = this.$['module-tracker'].querySelector('#city-stats');
-          cityStats.style.opacity = 1;
+          if (cityStats) {
+            cityStats.style.opacity = 1;
+          }
         }, 550);
       } else {
         this.$.feed.active = false;
-
-        var cityStats = this.$['module-tracker'].querySelector('#city-stats');
         if (cityStats) {
           cityStats.style.opacity = 0;
         }
