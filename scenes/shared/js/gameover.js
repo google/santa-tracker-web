@@ -26,8 +26,10 @@ app.shared.Gameover = Gameover;
 
 /**
  * Gameover screen.
- * @param {!SharedGame} game The game object.
+ *
+ * @param {T} game The game object.
  * @param {Element|!jQuery} elem The gameover element.
+ * @template T
  * @constructor
  */
 function Gameover(game, elem) {

@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-clap": {
+		"message": "Clap"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Do a clap."
+	},
 	"codeboogie-block-jump": {
 		"message": "Jump"
 	},
@@ -325,6 +331,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Watch closely!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Your turn"
 	},
 	"codelab-block-moveeast": {
 		"message": "east"

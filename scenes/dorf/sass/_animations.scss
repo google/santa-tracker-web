@@ -73,27 +73,14 @@
 }
 
 @keyframes #{$name}-skydive {
-  0% {
-    transform: translateY($skydive-start-pos);
-  }
-  #{$skydive-fallto} {
-    transform: translateY($skydive-fallto-pos);
-  }
-  100% {
-    transform: translateY($skydive-land-pos);
-  }
+  0%                 { transform: translateY($skydive-start-pos); }
+  #{$skydive-fallto} { transform: translateY($skydive-fallto-pos); }
+  100%               { transform: translateY($skydive-land-pos); }
 }
 
-@keyframes #{$name}-skydive-tablet {
-  0% {
-    transform: translateY($skydive-start-pos);
-  }
-  #{$skydive-fallto} {
-    transform: translateY($skydive-fallto-pos);
-  }
-  100% {
-    transform: translateY($skydive-land-tablet-pos);
-  }
+@keyframes #{$name}-skydive-image {
+  0    { background-position: 0 0; }
+  100% { background-position: 0 -256px; }
 }
 
 // TODO(samthor): We may not be able to animate in terms of 'vw'.

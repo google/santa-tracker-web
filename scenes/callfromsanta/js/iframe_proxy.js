@@ -145,5 +145,23 @@ app.IframeProxy.prototype.onReceiveMessage = function(event) {
     case 'hide_unmute':
       this.scene.onHideUnmuteMessage();
       break;
+    case 'santa_start_type':
+      window.santaApp.fire('sound-trigger', 'santa_start_type');
+      break;
+    case 'mp3_play':
+      window.santaApp.fire('sound-trigger', 'mp3_play');
+      break;
+    case 'mp3_finished':
+      window.santaApp.fire('sound-trigger', 'mp3_finished');
+      break;
+    case 'santa_stop_type':
+      window.santaApp.fire('sound-trigger', 'santa_stop_type');
+      break;
+    case 'new_message':
+      window.santaApp.fire('sound-trigger', 'new_message');
+      break;
+    case 'keydown_user':
+      window.santaApp.fire('sound-trigger', 'keydown_user');
+      break;
   }
 };

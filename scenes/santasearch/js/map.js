@@ -22,16 +22,18 @@ goog.require('app.Constants');
 
 /**
  * The map where characters are hidden.
- * @param {!jQuery} mapElem The element for the map.
- * @param {!jQuery} drawerElem The element for the drawer.
- * @param {{height: number, width: number}} mapDimensions The map dimensions.
+ * @param {!jQuery} elem The scene element.
+ * @param {!jQuery} mapElem The map element.
+ * @param {string} componentDir The path to the scene.
+ * @param {app.Controls} controls The controls object.
  * @constructor
  */
-app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
+app.Map = function(elem, mapElem, componentDir, controls) {
   this.mapElem = mapElem;
-  this.drawerElem = drawerElem;
+  this.drawerElem = elem.find('.drawer');
+  this.sizeElem = elem.find('.viewport__size');
   this.componentDir = componentDir;
-  this.mapDimensions = mapDimensions;
+  this.controls = controls;
 
   /** @type {!Object<app.Character>} */
   this.characters = {
@@ -53,7 +55,7 @@ app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
 
   // Initialize characters
   app.Constants.CHARACTERS.forEach((name) => {
-    let character = new app.Character(name, this.mapElem, this.drawerElem);
+    let character = new app.Character(name, mapElem, this.drawerElem);
     character.onLostFocus = this.focusNextUnfoundCharacter_;
     character.onSelected = this.changeFocus_.bind(this, character);
     this.characters[name] = character;
@@ -62,12 +64,14 @@ app.Map = function(mapElem, drawerElem, componentDir, mapDimensions) {
 
 /**
  * Initialize the map.
+ * @param {string} mapName The name of the map.
+ * @param {{width: number, height: number}} mapDimensions The map dimensions.
  */
-app.Map.prototype.setMap = function(mapName) {
+app.Map.prototype.setMap = function(mapName, mapDimensions) {
   this.allFound = false;
   this.hintTarget = undefined;
 
-  this.loadMap_(mapName);
+  this.loadMap_(mapName, mapDimensions);
 
   this.drawerElem.on('click.santasearch', '.hint', this.setHintTarget_).show();
   this.mapName = mapName;
@@ -75,14 +79,15 @@ app.Map.prototype.setMap = function(mapName) {
 
 /**
  * Reset characters.
+ * @param {{width: number, height: number}} mapDimensions The map dimensions.
  */
-app.Map.prototype.resetCharacters_ = function() {
+app.Map.prototype.resetCharacters_ = function(mapDimensions) {
   app.Constants.CHARACTERS.forEach((name) => {
     let character = this.characters[name];
-    character.reset(this.mapDimensions);
+    character.reset(mapDimensions);
   });
 
-  this.updateCharacters();
+  this.updateCharacters_(mapDimensions);
 
   // Focus on Santa
   this.focusedCharacter = this.characters.santa;
@@ -92,11 +97,12 @@ app.Map.prototype.resetCharacters_ = function() {
 /**
  * Load the map and add it to the dom.
  * @param {string} mapName The name of the map to load.
+ * @param {{width: number, height: number}} mapDimensions The map dimensions.
  * @private
  */
-app.Map.prototype.loadMap_ = function(mapName) {
+app.Map.prototype.loadMap_ = function(mapName, mapDimensions) {
   if (this.mapName === mapName) {
-    this.resetCharacters_();
+    this.resetCharacters_(mapDimensions);
     return;
   }
 
@@ -105,11 +111,27 @@ app.Map.prototype.loadMap_ = function(mapName) {
     // Remove existing maps
     this.mapElem.find('.map__svg').remove();
 
+    // Work around base href, which causes all inline IDs to refer to the base
+    // href in production (which is served from maps.gstatic.com...). Refer
+    // to the local pageUrl instead, since the clippath elements are inlined.
+    var re = /^url\((["']?)#/;  // match `url("#` with optional quote in group 1
+    var candidates = ['clipPath', 'stroke', 'fill'];
+    var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
+    var all = svgMap.querySelectorAll('[style]');
+    for (var i = 0, el; el = all[i]; ++i) {
+      var s = el.style;
+      candidates.forEach(function(c) {
+        if (s[c]) {
+          s[c] = s[c].replace(re, 'url($1' + pageUrl + '#');
+        }
+      });
+    }
+
     // Add the new map into the dom
     this.mapElem.prepend(svgMap.children[0]);
     this.mapName = mapName;
 
-    this.resetCharacters_();
+    this.resetCharacters_(mapDimensions);
   });
 };
 
@@ -118,17 +140,21 @@ app.Map.prototype.loadMap_ = function(mapName) {
  * @private
  */
 app.Map.prototype.setHintTarget_ = function() {
-  this.hintTarget = this.focusedCharacter;
+  if (this.controls.enabled) {
+    this.hintTarget = this.focusedCharacter;
+  }
 };
 
 /**
  * Updates scale and location of characters, called after map is scaled.
+ * @param {{width: number, height: number}} mapDimensions The map dimensions.
+ * @private
  */
-app.Map.prototype.updateCharacters = function() {
+app.Map.prototype.updateCharacters_ = function(mapDimensions) {
   app.Constants.CHARACTERS.forEach((name) => {
     let character = this.characters[name];
-    character.updateScale(this.mapDimensions);
-    character.updatePosition(this.mapDimensions);
+    character.updateScale(mapDimensions);
+    character.updatePosition(mapDimensions);
   });
 };
 
@@ -165,4 +191,21 @@ app.Map.prototype.changeFocus_ = function(character) {
   this.focusedCharacter.blur();
   character.focus();
   this.focusedCharacter = character;
+};
+
+/**
+ * Change the size of the map.
+ * @param {{width: number, height: number}} mapDimensions The map dimensions.
+ */
+app.Map.prototype.changeSize = function(mapDimensions) {
+  this.mapElem.css('width', mapDimensions.width);
+  this.mapElem.css('height', mapDimensions.height);
+
+  this.sizeElem.css('width', mapDimensions.width);
+  this.sizeElem.css('height', mapDimensions.height);
+
+  this.mapElem.css('margin-left', -(mapDimensions.width / 2));
+  this.mapElem.css('margin-top', -(mapDimensions.height / 2));
+
+  this.updateCharacters_(mapDimensions);
 };

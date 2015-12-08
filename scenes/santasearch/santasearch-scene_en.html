@@ -33,19 +33,25 @@ Santasearch scene.
 
   <div id="module-santasearch">
     <div class="scene">
-      <div class="map">
-        <div class="character-collider character-collider--santa"></div>
-        <div class="character-collider character-collider--gingerbread-man"></div>
-        <div class="character-collider character-collider--penguin"></div>
-        <div class="character-collider character-collider--pegman"></div>
-        <div class="character-collider character-collider--rudolph"></div>
-        <div class="character-collider character-collider--mrs-claus"></div>
+      <div class="viewport viewport--scrollable">
+        <div class="viewport__size"></div>
+      </div>
+      <div class="viewport viewport--map">
+        <div class="map">
+          <div class="character-collider character-collider--santa"></div>
+          <div class="character-collider character-collider--gingerbread-man"></div>
+          <div class="character-collider character-collider--penguin"></div>
+          <div class="character-collider character-collider--pegman"></div>
+          <div class="character-collider character-collider--rudolph"></div>
+          <div class="character-collider character-collider--mrs-claus"></div>
+        </div>
       </div>
     </div>
     <div class="gui">
       <div class="drawer">
         <div class="drawer__item drawer__item--santa">
           <div class="drawer__character-wrapper">
+            <div class="drawer__bg"></div>
             <div class="drawer__foreground character character--santa-shadow"></div>
             <div class="drawer__foreground character character--santa"></div>
             <div class="drawer__hint">
@@ -55,6 +61,7 @@ Santasearch scene.
         </div>
         <div class="drawer__item drawer__item--penguin">
           <div class="drawer__character-wrapper">
+            <div class="drawer__bg"></div>
             <div class="drawer__foreground character character--penguin-shadow"></div>
             <div class="drawer__foreground character character--penguin"></div>
             <div class="drawer__hint">
@@ -64,6 +71,7 @@ Santasearch scene.
         </div>
         <div class="drawer__item drawer__item--gingerbread-man">
           <div class="drawer__character-wrapper">
+            <div class="drawer__bg"></div>
             <div class="drawer__foreground character character--gingerbread-man-shadow"></div>
             <div class="drawer__foreground character character--gingerbread-man"></div>
             <div class="drawer__hint">
@@ -73,6 +81,7 @@ Santasearch scene.
         </div>
         <div class="drawer__item drawer__item--rudolph">
           <div class="drawer__character-wrapper">
+            <div class="drawer__bg"></div>
             <div class="drawer__foreground character character--rudolph-shadow"></div>
             <div class="drawer__foreground character character--rudolph"></div>
             <div class="drawer__hint">
@@ -82,6 +91,7 @@ Santasearch scene.
         </div>
         <div class="drawer__item drawer__item--pegman">
           <div class="drawer__character-wrapper">
+            <div class="drawer__bg"></div>
             <div class="drawer__foreground character character--pegman-shadow"></div>
             <div class="drawer__foreground character character--pegman"></div>
             <div class="drawer__hint">
@@ -91,6 +101,7 @@ Santasearch scene.
         </div>
         <div class="drawer__item drawer__item--mrs-claus">
           <div class="drawer__character-wrapper">
+            <div class="drawer__bg"></div>
             <div class="drawer__foreground character character--mrs-claus-shadow"></div>
             <div class="drawer__foreground character character--mrs-claus"></div>
             <div class="drawer__hint">
@@ -107,7 +118,7 @@ Santasearch scene.
         </div>
       </div>
       <div class="choose-map overlay is-visible">
-        <div class="overlay-dialog">
+        <div class="choose-map__dialog overlay-dialog">
           <div class="choose-map__title-wrapper">
             <h2 class="choose-map__title"><i18n-msg msgid="santasearch_search_for_santa">PLACEHOLDER_i18n</i18n-msg></h2>
           </div>

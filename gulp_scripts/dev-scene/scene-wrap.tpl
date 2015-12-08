@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Scene: %(sceneName)s</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
     <style>
         html, body {
@@ -67,7 +68,9 @@
 
             // Configure SoundController.
             SoundController.klangSrc_ = '../../' + SoundController.klangSrc_;
-            SoundController.klangConfigSrc_ = '../../' + SoundController.klangConfigSrc_;
+            if (SoundController.klangConfigSrc_.indexOf('http') !== 0) {
+                SoundController.klangConfigSrc_ = '../../' + SoundController.klangConfigSrc_;
+            }
 
             // Create any pending Polymer components.
             __polymerComponents.forEach(function(component) {

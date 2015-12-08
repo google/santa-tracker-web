@@ -1,0 +1,303 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+
+<script src="codeboogie-scene.min.js"></script>
+<link rel="import" href="../../js/webanimations.html">
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="codeboogie-scene.css" />
+
+<!--
+Codeboogie scene.
+-->
+<dom-module id="codeboogie-scene">
+<template>
+  <div id="module-codeboogie">
+    <iframe src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0" data-codeboogie-frame></iframe>
+    <div class="gui">
+      <div class="board board--game board--levelOnly">
+        <div class="logo"></div>
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level has-count">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span><span class="dark-text">/9</span>
+          </div>
+          <div class="level-dots">
+            <div class="level-item is-active">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">1</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">2</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">3</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">4</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">5</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">6</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">7</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">8</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">9</div>
+            </div>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label">
+            <i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining">
+              <!---->
+            </div>
+          </div>
+          <div class="status">
+            <!---->
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="gameover overlay is-levelOnly">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner">
+            <div class="gameover-level">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_level">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+          <div class="footer-promo">
+            <i18n-msg msgid="codelab-mwc-promo">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+        </div>
+      </div>
+      <div class="force-rotate portrait">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  // Whether the sounds for the scene are loaded and the band can commence
+  // jamming. Static so that it's permanent across multiple visits to the scene.
+  var soundsLoaded = false;
+
+  Polymer({
+    is: 'codeboogie-scene',
+    behaviors: [window.SantaSceneBehavior],
+    frame: null,
+
+    properties: {
+      /**
+       * Whether the scene has already started.
+       */
+      started: {
+        type: Boolean,
+        value: false
+      }
+    },
+
+    listeners: {
+      'sounds-loaded': 'onSoundsLoaded'
+    },
+
+    onPreload: function() {
+      this.preloadSounds('codeboogie_load_sounds', 60);
+      this.preloadImages([
+        '../codeboogieframe/img/blank.png',
+        '../codeboogieframe/img/block-hip-shake.svg',
+        '../codeboogieframe/img/block-jump.svg',
+        '../codeboogieframe/img/block-point-left.svg',
+        '../codeboogieframe/img/block-point-right.svg',
+        '../codeboogieframe/img/block-repeat.svg',
+        '../codeboogieframe/img/block-splits.svg',
+        '../codeboogieframe/img/block-step-left.svg',
+        '../codeboogieframe/img/block-step-right.svg',
+        '../codeboogieframe/img/icons_hip-shake-white.svg',
+        '../codeboogieframe/img/icons_jump-white.svg',
+        '../codeboogieframe/img/icons_point-left-white.svg',
+        '../codeboogieframe/img/icons_point-right-white.svg',
+        '../codeboogieframe/img/icons_splits-white.svg',
+        '../codeboogieframe/img/icons_step-left-white.svg',
+        '../codeboogieframe/img/icons_step-right-white.svg',
+        '../codeboogieframe/img/loading.png',
+        '../codeboogieframe/img/logo.svg',
+        '../codeboogieframe/img/madewithcode.svg',
+        '../codeboogieframe/img/media/handclosed.cur',
+        '../codeboogieframe/img/media/handopen.cur',
+        '../codeboogieframe/img/queue-hip-shake.svg',
+        '../codeboogieframe/img/queue-jump.svg',
+        '../codeboogieframe/img/queue-point-left.svg',
+        '../codeboogieframe/img/queue-point-right.svg',
+        '../codeboogieframe/img/queue-splits.svg',
+        '../codeboogieframe/img/queue-step-left.svg',
+        '../codeboogieframe/img/queue-step-right.svg',
+        '../codeboogieframe/img/stages/stage1.svg',
+        '../codeboogieframe/img/stages/stage2.svg',
+        '../codeboogieframe/img/stages/stage3.svg',
+        '../codeboogieframe/img/steps/green/carlton_0.png',
+        '../codeboogieframe/img/steps/green/carlton_1.png',
+        '../codeboogieframe/img/steps/green/carlton_2.png',
+        '../codeboogieframe/img/steps/green/carlton_3.png',
+        '../codeboogieframe/img/steps/green/clap_0.png',
+        '../codeboogieframe/img/steps/green/elvis_0.png',
+        '../codeboogieframe/img/steps/green/elvis_1.png',
+        '../codeboogieframe/img/steps/green/fail_0.png',
+        '../codeboogieframe/img/steps/green/fail_1.png',
+        '../codeboogieframe/img/steps/green/hip_0.png',
+        '../codeboogieframe/img/steps/green/hip_1.png',
+        '../codeboogieframe/img/steps/green/idle_0.png',
+        '../codeboogieframe/img/steps/green/jump_0.png',
+        '../codeboogieframe/img/steps/green/jump_1.png',
+        '../codeboogieframe/img/steps/green/pointLeft_0.png',
+        '../codeboogieframe/img/steps/green/pointLeft_1.png',
+        '../codeboogieframe/img/steps/green/pointRight_0.png',
+        '../codeboogieframe/img/steps/green/pointRight_1.png',
+        '../codeboogieframe/img/steps/green/splits_0.png',
+        '../codeboogieframe/img/steps/green/splits_1.png',
+        '../codeboogieframe/img/steps/green/spongebob_0.png',
+        '../codeboogieframe/img/steps/green/spongebob_1.png',
+        '../codeboogieframe/img/steps/green/stepLeft_0.png',
+        '../codeboogieframe/img/steps/green/stepLeft_1.png',
+        '../codeboogieframe/img/steps/green/stepRight_0.png',
+        '../codeboogieframe/img/steps/green/stepRight_1.png',
+        '../codeboogieframe/img/steps/green/thriller_0.png',
+        '../codeboogieframe/img/steps/green/thriller_1.png',
+        '../codeboogieframe/img/steps/green/thriller_2.png',
+        '../codeboogieframe/img/steps/green/thriller_3.png',
+        '../codeboogieframe/img/steps/purple/carlton_0.png',
+        '../codeboogieframe/img/steps/purple/carlton_1.png',
+        '../codeboogieframe/img/steps/purple/carlton_2.png',
+        '../codeboogieframe/img/steps/purple/carlton_3.png',
+        '../codeboogieframe/img/steps/purple/clap_0.png',
+        '../codeboogieframe/img/steps/purple/elvis_0.png',
+        '../codeboogieframe/img/steps/purple/elvis_1.png',
+        '../codeboogieframe/img/steps/purple/fail_0.png',
+        '../codeboogieframe/img/steps/purple/fail_1.png',
+        '../codeboogieframe/img/steps/purple/hip_0.png',
+        '../codeboogieframe/img/steps/purple/hip_1.png',
+        '../codeboogieframe/img/steps/purple/idle_0.png',
+        '../codeboogieframe/img/steps/purple/jump_0.png',
+        '../codeboogieframe/img/steps/purple/jump_1.png',
+        '../codeboogieframe/img/steps/purple/pointLeft_0.png',
+        '../codeboogieframe/img/steps/purple/pointLeft_1.png',
+        '../codeboogieframe/img/steps/purple/pointRight_0.png',
+        '../codeboogieframe/img/steps/purple/pointRight_1.png',
+        '../codeboogieframe/img/steps/purple/splits_0.png',
+        '../codeboogieframe/img/steps/purple/splits_1.png',
+        '../codeboogieframe/img/steps/purple/spongebob_0.png',
+        '../codeboogieframe/img/steps/purple/spongebob_1.png',
+        '../codeboogieframe/img/steps/purple/stepLeft_0.png',
+        '../codeboogieframe/img/steps/purple/stepLeft_1.png',
+        '../codeboogieframe/img/steps/purple/stepRight_0.png',
+        '../codeboogieframe/img/steps/purple/stepRight_1.png',
+        '../codeboogieframe/img/steps/purple/thriller_0.png',
+        '../codeboogieframe/img/steps/purple/thriller_1.png',
+        '../codeboogieframe/img/steps/purple/thriller_2.png',
+        '../codeboogieframe/img/steps/purple/thriller_3.png',
+        '../codeboogieframe/img/steps/purple/watch_0.png',
+        '../codeboogieframe/img/steps/purple/watch_1.png',
+        '../codeboogieframe/img/tutorial/maze.gif',
+        '../codeboogieframe/img/tutorial/shadow.svg'
+      ]);
+    },
+
+    onShow: function() {
+      var module = this.$['module-codeboogie'];
+      this.frame = new scenes.codeboogie.FrameWrapper(module, this.componentDir);
+
+      this.gatedStart();
+    },
+
+    onHide: function() {
+      this.frame.dispose();
+      this.frame = null;
+      this.fire('sound-ambient', 'cb_end');
+    },
+
+    onSoundsLoaded: function(e, soundsName) {
+      if (soundsName === 'codeboogie_load_sounds') {
+        soundsLoaded = true;
+        this.gatedStart();
+      }
+    },
+
+    gatedStart: function() {
+      if (this.frame && soundsLoaded && !this.started) {
+        this.frame.start();
+        this.bandStarted = true;
+      }
+    }
+  });
+
+})();
+</script>
+</dom-module>

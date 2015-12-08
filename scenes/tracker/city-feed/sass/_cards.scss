@@ -42,7 +42,7 @@
 
   .card-body {
     z-index: 1;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     border-radius: 0 0 5px 5px;
@@ -331,6 +331,10 @@
     .card-header, .card-body, .card-footer {
       background-color: #1875d1;
     }
+    .card-body {
+      border-radius: 0;
+    }
+
     .card-footer {
       border-radius: 0 0 5px 5px;
     }

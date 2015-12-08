@@ -1,0 +1,29 @@
+$name: 'module-codeboogie';
+@import "sass/bg";
+@import "sass/blockly";
+@import "sass/result";
+@import "sass/scene";
+@import "sass/tutorial";
+
+body {
+  margin: 0;
+}
+
+##{$name} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}

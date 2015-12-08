@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../components/iron-list/iron-list.html">
 <link rel="import" href="../../../components/iron-pages/iron-pages.html">
 <link rel="import" href="../../../components/iron-selector/iron-selector.html">
@@ -46,7 +47,7 @@ Polymer({
 </dom-module>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="city-feed.css" />
+<link rel="stylesheet" href="city-feed.css">
 
 <!--
 City feed view in Tracker
@@ -78,6 +79,10 @@ City feed view in Tracker
     @apply(--layout-start-justified);
   }
 
+  .justified {
+    @apply(--layout-justified);
+  }
+
   .fit {
     @apply(--layout-fit);
   }
@@ -87,87 +92,36 @@ City feed view in Tracker
   }
 </style>
 
-<template id="mini-cards-template">
-  <div hidden$="{{!modelTypeIs_('facts')}}">
-    <div class="card-header">
-      <div class="corner-image"></div>
-      <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
-    </div>
-    <div class="card-body">
-      <p>{{model.didyouknow}}</p>
-    </div>
-    <div class="card-footer">
-      <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
-    </div>
-  </div>
-
-  <div hidden$="{{!modelTypeIs_('photos')}}" style="height: 100%">
-    <div class="card-header">
-      <div class="corner-image"></div>
-    </div>
-    <div class="card-body">
-      <iron-image sizing="cover" preload load?="{{model.imageUrl}}" fade src="{{model.imageUrl}}"></iron-image>
-    </div>
-  </div>
-
-  <div hidden$="{{!modelTypeIs_('scene')}}" style="height: 100%">
-    <a href="{{pageUrl}}#{{model.game}}">
-      <div class="card-header">
-        <div class="corner-image"></div>
-      </div>
-      <div class="card-body"></div>
-    </a>
-  </div>
-
-  <div hidden$="{{!modelTypeIs_('update')}}">
-    <div class="card-header">
-      <div class="corner-image"></div>
-      <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
-    </div>
-    <div class="card-body">
-      <p>{{model.status}}</p>
-    </div>
-  </div>
-
-  <div hidden$="{{!modelTypeIs_('video')}}">
-    <a href="{{pageUrl}}#{{videoMap[model.youtubeId]}}">
-      <div class="card-header">
-        <div class="corner-image"></div>
-        <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
-        <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
-      </div>
-      <div class="card-body card-{{videoMap[model.youtubeId]}}"></div>
-    </a>
-  </div>
-</template>
-
 <div id="module-city-feed" class="fit">
-  <div class="scene" class="fit">
+  <div class="scene fit">
 
-    <iron-media-query query="(max-width:960px)" queryMatches="{{isMobileSize}}"></iron-media-query>
+    <iron-media-query query="(max-width:960px)"
+        query-matches="{{isMobileSize}}"></iron-media-query>
 
-    <iron-list id="feed" data="{{stream}}" selectionEnabled="false"
-               height="350" runwayFactor="4" on-scroll="onScroll">
+    <iron-list id="feed" items="[[stream]]" as="item" on-scroll="onScroll">
       <template>
-        <div layout$="{{!isMobileSize}}" class="horizontal start-justified">
-          <!-- TODO: When this is fully ported, it should use the flex
-            class, not attribute -->
-          <div class="card card-{{model.type}} {{model.game ? 'card-' + model.game : ''}}"
-               flex$="{{modelTypeIs_('city')}}">
-            <div class="divider">{{model.timestamp | formatTime}}</div>
+        <div class$="{{_computeCardLayout(isMobileSize)}}" data-index$="[[index]]">
+          <div class$="card {{_computeCardClasses(item)}}">
+            <div class="divider">{{formatTime(item.timestamp)}}</div>
 
-            <div hidden?="{{model.type != 'city'}}">
+            <div hidden$="{{!itemIsType(item, 'city')}}">
               <div class="card-header">
                 <div class="corner-image"></div>
                 <div>
-                  <h4 class="white">{{model.stop.region}}</h4>
-                  <h1>{{model.stop.city}}</h1>
+                  <h4 class="white">{{item.stop.region}}</h4>
+                  <h1>{{item.stop.city}}</h1>
                 </div>
-                <iron-selector id="cardselector" class="card-icons" selected="{{model.selectedCard}}" on-iron-activate="onCardSelected">
-                  <img src="img/tracker-and-city-SVGs_feed-city-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[0]}}">
-                  <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg" data-name="photo" hidden?="{{!model.stop.details.photos[1]}}">
-                  <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg" data-name="streetview" hidden?="{{!model.stop.details.streetView}}">
-                  <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg" on-tap="{{onWikipedia}}" data-name="wikipedia" hidden?="{{!model.stop.details.hasWiki}}">
+                <iron-selector id="cardselector" class="card-icons" selected="{{item.selectedCard}}"
+                      on-iron-activate="_onCardSelected">
+                  <img src="img/tracker-and-city-SVGs_feed-city-icon.svg"
+                       data-name="photo" hidden$="{{!item.stop.details.photos.0}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg"
+                       data-name="photo" hidden$="{{!item.stop.details.photos.1}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg"
+                       data-name="streetview" hidden$="{{!item.stop.details.streetView}}">
+                  <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg"
+                       on-tap="_onWikipedia" data-name="wikipedia"
+                       hidden$="{{!item.stop.details.hasWiki}}">
                 </iron-selector>
                 <div class="stats">
                   <div class="horizontal">
@@ -175,40 +129,41 @@ City feed view in Tracker
                       <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
                       <div class="horizontal centered">
                         <div class="ico ico-clock"></div>
-                        <h2 class="stat-large">{{model.stop.arrival | formatTime}}</h2>
+                        <h2 class="stat-large">{{formatTime(item.stop.arrival)}}</h2>
                       </div>
                     </div>
                     <div>
                       <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
                       <div class="horizontal centered">
                         <div class="ico ico-weatherchanel"></div>
-                        <h2 class="stat-large white">{{model.stop.details.weather.tempC}}&deg;C / {{model.stop.details.weather.tempF}}&deg;F</h2>
+                        <h2 class="stat-large white">
+                          <span>{{item.stop.details.weather.tempC}}</span>&deg;C /
+                          <span>{{item.stop.details.weather.tempF}}</span>&deg;
+                        </h2>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <iron-pages class="card-body" selected="{{model.selectedCard}}">
-                <div>
-                  <iron-image sizing="cover" load?="{{model.stop.details.photos[0]}}" preload fade src="{{model.stop.details.photos[0].url}}"></iron-image>
-                  <div class="attribution" hidden?="{{!model.stop.details.photos[0]}}">
-                    <span class="attrib"><html-echo html="{{model.stop.details.photos[0].attributionHtml}}"></html-echo></span><span class="addview">Add your own <a href="https://www.google.com/maps/views/home">photos</a> to {{model.stop.city}}</span>
+              <iron-pages class="card-body" selected="{{item.selectedCard}}">
+                <template is="dom-repeat" items="[[item.stop.details.photos]]" as="photo">
+                  <div>
+                    <iron-image class="fit" sizing="cover" preload fade src="{{photo.url}}"></iron-image>
+                    <div class="attribution" hidden$="{{!photo}}">
+                      <span class="attrib">
+                        <html-echo html="{{photo.attributionHtml}}"></html-echo>
+                      </span>
+                      <span class="addview">Add your own <a href="https://www.google.com/maps/views/home">photos</a> to <span>{{item.stop.city}}</span></span>
+                    </div>
                   </div>
-                </div>
+                </template>
                 <div>
-                  <iron-image sizing="cover" preload load?="{{model.stop.details.photos[1]}}" fade src="{{model.stop.details.photos[1].url}}"></iron-image>
-                  <div class="attribution" hidden?="{{!model.stop.details.photos[1]}}">
-                    <span class="attrib"><html-echo html="{{model.stop.details.photos[1].attributionHtml}}"></html-echo></span><span class="addview">Add your own <a href="https://www.google.com/maps/views/home">photos</a> to {{model.stop.city}}</span>
-                  </div>
-                </div>
-                <div>
-                  <template if="{{model.stop.details.streetView}}">
-                    <template if="{{model.selectedCard == 2}}">
+                  <template is="dom-if" if="{{item.stop.details.streetView}}" restamp>
+                    <template is="dom-if" if="{{_isSelectedCard(item.selectedCard, 2)}}" restamp>
                       <google-streetview-pano version="3.exp" class="fit"
-                          panoid="{{model.stop.details.streetView.id}}"
-                          heading="{{model.stop.details.streetView.heading}}"
+                          panoid="{{item.stop.details.streetView.id}}"
+                          heading="{{item.stop.details.streetView.heading}}"
                           client-id="{{santaApp.config.CLIENT_ID}}"
-                          libraries="places,geometry"
                           language="{{santaApp.language}}"
                           disable-default-ui></google-streetview-pano>
                     </template>
@@ -217,24 +172,141 @@ City feed view in Tracker
                 <div class="wikipedia">
                   <div class="gradientbar"></div>
                   <div class="wikipedia__logo"></div>
-                  <html-echo class="wikipedia__body" html="{{model.stop.details.wikipedia.excerpt}}"></html-echo>
+                  <html-echo class="wikipedia__body" html="{{item.stop.details.wikipedia.excerpt}}"></html-echo>
                   <div class="attribution">
                     <span class="wiki-cc">Available under
-                    <a target="wiki" href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+                    <a target="wiki" href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
                     terms</span>
-                    <a target="wiki" href="{{model.stop.details.wikipedia.url}}">{{model.stop.details.wikipedia.url}}</a>
+                    <a target="wiki" href$="{{item.stop.details.wikipedia.url}}">{{item.stop.details.wikipedia.url}}</a>
                   </div>
                 </div>
               </iron-pages>
             </div>
 
-            <template bind ref="mini-cards-template"></template>
+             <!-- TODO(ebidel): Dry this up. Duplicated markup from left-side
+                   cards above due to loss of <template ref> in Polymer 1.0. -->
+
+             <!-- mini cards -->
+              <div hidden$="{{!itemIsType(item, 'facts')}}">
+                <div class="card-header">
+                  <div class="corner-image"></div>
+                  <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+                </div>
+                <div class="card-body">
+                  <p>{{item.didyouknow}}</p>
+                </div>
+                <div class="card-footer">
+                  <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
+                </div>
+              </div>
+
+              <div hidden$="{{!itemIsType(item, 'photos')}}" style="height: 100%">
+                <div class="card-header">
+                  <div class="corner-image"></div>
+                </div>
+                <div class="card-body">
+                  <iron-image sizing="cover" preload prevent-load="{{!item.imageUrl}}"
+                              fade src="{{item.imageUrl}}"></iron-image>
+                </div>
+              </div>
+
+              <div hidden$="{{!itemIsType(item, 'scene')}}" style="height: 100%">
+                <a href$="{{pageUrl}}#{{item.game}}">
+                  <div class="card-header">
+                    <div class="corner-image"></div>
+                  </div>
+                  <div class="card-body"></div>
+                </a>
+              </div>
+
+              <div hidden$="{{!itemIsType(item, 'update')}}">
+                <div class="card-header">
+                  <div class="corner-image"></div>
+                  <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
+                </div>
+                <div class="card-body">
+                  <p>{{item.status}}</p>
+                </div>
+              </div>
+
+              <div hidden$="{{!itemIsType(item, 'video')}}">
+                <a href$="{{pageUrl}}#{{_computeVideoName(item.youtubeId)}}">
+                  <div class="card-header">
+                    <div class="corner-image"></div>
+                    <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+                    <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
+                  </div>
+                  <div class$="card-body card-{{_computeVideoName(item.youtubeId)}}"></div>
+                </a>
+              </div>
+              <!-- mini cards -->
+
           </div>
 
-          <template is="dom-if" if="{{model.nextCard}}" bind="{{model.nextCard as model}}">
-            <div class="card card-{{model.nextCard.type}} {{model.nextCard.game ? 'card-' + model.nextCard.game : ''}}">
-              <div class="divider">{{formatTime(model.nextCard.timestamp)}}</div>
-              <template bind ref="mini-cards-template"></template>
+          <template is="dom-if" if="[[item.nextCard]]" restamp>
+            <div class$="card {{_computeNextCardClasses(item.nextCard)}}">
+              <div class="divider">{{formatTime(item.nextCard.timestamp)}}</div>
+
+              <!-- <template bind ref="mini-cards-template"></template> -->
+
+              <!-- TODO(ebidel): Dry this up. Duplicated markup from left-side
+                   cards above due to loss of <template ref> in Polymer 1.0. -->
+
+              <!-- mini cards -->
+              <div hidden$="{{!itemIsType(item.nextCard, 'facts')}}">
+                <div class="card-header">
+                  <div class="corner-image"></div>
+                  <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+                </div>
+                <div class="card-body">
+                  <p>{{item.nextCard.didyouknow}}</p>
+                </div>
+                <div class="card-footer">
+                  <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
+                </div>
+              </div>
+
+              <div hidden$="{{!itemIsType(item.nextCard, 'photos')}}" style="height: 100%">
+                <div class="card-header">
+                  <div class="corner-image"></div>
+                </div>
+                <div class="card-body">
+                  <iron-image sizing="cover" preload prevent-load="{{!item.nextCard.imageUrl}}"
+                              fade src="{{item.nextCard.imageUrl}}"></iron-image>
+                </div>
+              </div>
+
+              <div hidden$="{{!itemIsType(item.nextCard, 'scene')}}" style="height: 100%">
+                <a href$="{{pageUrl}}#{{item.nextCard.game}}">
+                  <div class="card-header">
+                    <div class="corner-image"></div>
+                  </div>
+                  <div class="card-body"></div>
+                </a>
+              </div>
+
+              <div hidden$="{{!itemIsType(item.nextCard, 'update')}}">
+                <div class="card-header">
+                  <div class="corner-image"></div>
+                  <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
+                </div>
+                <div class="card-body">
+                  <p>{{item.nextCard.status}}</p>
+                </div>
+              </div>
+
+              <div hidden$="{{!itemIsType(item.nextCard, 'video')}}">
+                <a href$="{{pageUrl}}#{{_computeVideoName(item.nextCard.youtubeId)}}">
+                  <div class="card-header">
+                    <div class="corner-image"></div>
+                    <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+                    <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
+                  </div>
+                  <div class$="card-body card-{{_computeVideoName(item.nextCard.youtubeId)}}"></div>
+                </a>
+              </div>
+              <!-- mini cards -->
+
             </div>
           </template>
 
@@ -268,8 +340,6 @@ var destLookup_ = {};
 
 var CARD_CENTERED_THRESHOLD = 100; // Top/bottom margin of a stream card to declare it as centered on screen.
 
-//  attributes="active location timeline santaApp videoMap"
-
 Polymer({
   is: 'city-feed',
 
@@ -282,7 +352,7 @@ Polymer({
       type: Boolean,
       value: false,
       reflectToAttribute: true,
-      observer: 'activeChanged'
+      observer: '_activeChanged'
     },
 
     /**
@@ -290,10 +360,8 @@ Polymer({
      */
     timeline: {
       type: Array,
-      value: function() {
-        return [];
-      },
-      observer: 'timelineChanged'
+      value: function() { return []; },
+      observer: '_timelineChanged'
     },
 
     /**
@@ -327,7 +395,7 @@ Polymer({
      * The timestamp of the card which is currently visible in the center of
      * the stream.
      */
-    cardInView: {
+    _cardInView: {
       type: Number,
       value: null
     },
@@ -365,7 +433,7 @@ Polymer({
     this.pendingScroll_ = {};
   },
 
-  activeChanged: function() {
+  _activeChanged: function() {
     if (this.active) {
       // TODO(ericbidelman): shouldn't have to call this with new iron-list. Investigate.
       //this.$.feed.updateSize();
@@ -380,7 +448,7 @@ Polymer({
         });
       }
     } else {
-      this.cardInView = null;
+      this._cardInView = null;
 
       // Remove any deep link URL params when stream is hidden.
       var newHref = location.href.substr(0,
@@ -397,7 +465,7 @@ Polymer({
     }
   },
 
-  timelineChanged: function() {
+  _timelineChanged: function() {
     if (!this.timeline || !this.timeline.length) {
       return;
     }
@@ -434,8 +502,8 @@ Polymer({
 
     this.stream = adjustedStream;
 
-    if (this.active && this.cardInView) {
-      this.scrollToTime(this.cardInView);
+    if (this.active && this._cardInView) {
+      this.scrollToTime(this._cardInView);
     }
   },
 
@@ -504,8 +572,9 @@ Polymer({
     return parts.join(':');
   },
 
-  onWikipedia: function(e, detail, sender) {
-    var location = sender.templateInstance.model.model.stop;
+  _onWikipedia: function(e, detail) {
+    //var location = sender.templateInstance.model.model.stop;
+    var location = e.model.item.stop;
 
     // Don't make details API request if wikipedia article has already been fetched.
     if (location.details.wikipedia) {
@@ -517,31 +586,36 @@ Polymer({
     });
   },
 
-  onCardSelected: function(e, detail, sender) {
-    var destId = sender.templateInstance.model.model.stop.id;
+  _onCardSelected: function(e, detail, sender) {
+    var destId = e.model.item.stop.id;
     var type = detail.item.getAttribute('data-name');
-    this.fire('analytics-track-event', {category: 'citycard', action: type,
-                                        label: destId});
+    this.fire('analytics-track-event', {
+      category: 'citycard',
+      action: type,
+      label: destId
+    });
   },
 
-  // Determines the most central visible card in the stream's viewport.
+  // Determines the most central visible card in the stream's viewport for deep linking.
   updateCardInView: function() {
     this.updateQueued_ = false;
 
-    var coreListHeight = this.$.feed.offsetHeight;
+    var listHeight = this.$.feed.offsetHeight;
+    var listChildren = this.$.feed.$$('#items').children;
 
-    for (var i = 0, el; el = this.$.feed.children[i]; ++i) {
+    for (var i = 0, el; el = listChildren[i]; ++i) {
       var elBounds = el.getBoundingClientRect();
-      if (0 < elBounds.top && elBounds.top < coreListHeight) {
+      if (0 < elBounds.top && elBounds.top < listHeight) {
         var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
-        var yUpper = (coreListHeight / 2) + CARD_CENTERED_THRESHOLD;
-        var yLower = (coreListHeight / 2) - CARD_CENTERED_THRESHOLD;
+        var yUpper = (listHeight / 2) + CARD_CENTERED_THRESHOLD;
+        var yLower = (listHeight / 2) - CARD_CENTERED_THRESHOLD;
 
         // If card is on center of screen, add deep link to URL.
         if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
-          var timestamp = el.templateInstance.model.model.timestamp;
+          var idx = Number(el.getAttribute('data-index'));
+          var timestamp = this.$.feed.items[idx].timestamp;
 
-          this.cardInView = timestamp;
+          this._cardInView = timestamp;
 
           var newHref = location.href.substr(0,
                         location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
@@ -553,7 +627,7 @@ Polymer({
     }
   },
 
-  onScroll: function(e, detail, sender) {
+  onScroll: function(e, detail) {
     // Debounce scrolling.
     if (!this.updateQueued_) {
       this.async(function() {
@@ -564,8 +638,42 @@ Polymer({
     this.updateQueued_ = true;
   },
 
-  modelTypeIs_: function(type) {
-    return type == this.model.type;
+  itemIsType: function(item, type) {
+    return type == item.type;
+  },
+
+  _computeCardClasses: function(item, opt_isNextCard) {
+    // TODO(ebidel): unclear why item can every be undefined.
+    if (!item) {
+      return '';
+    }
+
+    var isNextCard = opt_isNextCard || false;
+
+    var str = 'card-' + item.type;
+    if (item.game) {
+      str += ' card-' + item.game;
+    }
+    if (!isNextCard && item.type === 'city') {
+      str += ' flex';
+    }
+    return str;
+  },
+
+  _computeNextCardClasses: function(item) {
+    return this._computeCardClasses(item, true);
+  },
+
+  _computeVideoName: function(youtubeId) {
+    return this.videoMap[youtubeId];
+  },
+
+  _isSelectedCard: function(card, index) {
+    return card === index;
+  },
+
+  _computeCardLayout: function(isMobile) {
+    return !isMobile ? 'layout horizontal justified' : '';
   }
 
 });

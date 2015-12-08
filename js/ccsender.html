@@ -1,12 +1,13 @@
 <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
 <script>
 (function() {
+  var TIMEOUT_SECONDS = 50;  // default is 10s
   var session = null;
   var applicationID = location.hostname == 'santatracker.google.com' ? '76D471B7' : 'FA3B9AAD';
   var namespace = 'urn:x-cast:com.google.cast.santatracker';
 
   function sessionListener(e) {
-    console.debug('cast_sender sessionId', e.sessionId);
+    console.info('cast_sender sessionId', e.sessionId);
     window.santaApp.analyticsService.trackEvent('cast', 'connect');
 
     session = e;
@@ -17,7 +18,7 @@
       }
     });
     session.addMessageListener(namespace, function(namespace, message) {
-      console.debug('cast_sender recieved message', namespace, message);
+      console.info('cast_sender recieved message', namespace, message);
     });
   }
 
@@ -34,7 +35,9 @@
       console.warn('cast_sender api error', errorInfo);
       return;
     }
-    var sessionRequest = new chrome.cast.SessionRequest(applicationID);
+    var sessionRequest = new chrome.cast.SessionRequest(applicationID,
+      [chrome.cast.Capability.VIDEO_OUT],
+      1000 * TIMEOUT_SECONDS);
     var apiConfig = new chrome.cast.ApiConfig(sessionRequest,
       sessionListener,
       receiverListener,

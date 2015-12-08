@@ -30,7 +30,10 @@ Village scene (2015).
   :host[mode="cast"] #header-content p {
     display: none;
   }
-  :host[mode="cast"] .launchdate {
+  :host[mode="cast"] #eastereggs * {
+    /* Most browsers will still load backgrounds even with display: none, so
+     * hide them */
+    background: none !important;
     display: none !important;
   }
   :host[mode="cast"] .ice {
@@ -52,9 +55,7 @@ Village scene (2015).
         <span class="sun"></span>
         <span class="plane"></span>
         <span id="village-pegman">
-          <span class="pegman-1"></span>
-          <span class="pegman-2"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
-          <span class="pegman-3"><a href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a></span>
+          <a id="village-pegman-image" href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a>
         </span>
         <div id="effectholder">
         </div>
@@ -65,7 +66,7 @@ Village scene (2015).
         <div id="count-down" class$="mode-{{santaApp.mode}}">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
-                           animate="{{!_equal(santaApp.mode, 'cast')}}"
+                           animate="{{!_isCastMode(santaApp.mode)}}"
                            santa-service="[[santaService]]"
                            countdown-end-at="[[countdownEndAt]]"
                            finished="{{countdownFinished}}">
@@ -75,7 +76,7 @@ Village scene (2015).
             <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
           </countdown-timer>
         </div>
-        <div class="castlogo" hidden$="{{!_equal(santaApp.mode, 'cast')}}"></div>
+        <div class="castlogo" hidden$="{{!_isCastMode(santaApp.mode)}}"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
@@ -103,10 +104,12 @@ Village scene (2015).
                disabled$="{{item.disabled}}">
             <div class="assets housez">
               <div class="building"></div>
-              <template is="dom-if" if="{{!item.hideDate}}">
-                <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+              <template is="dom-if" if="{{!_isCastMode(santaApp.mode)}}">
+                <template is="dom-if" if="{{!item.hideDate}}">
+                  <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
+                </template>
+                <div class="ice"></div>
               </template>
-              <div class="ice"></div>
             </div>
             <template is="dom-if" if="{{!item.disabled}}">
               <div class="action">
@@ -212,12 +215,11 @@ Village scene (2015).
             <div id="easteregg-tic-tac-toe-elves-blue" class="elves move"></div>
             <div id="easteregg-tic-tac-toe-win"></div>
           </div>
-        </div><!-- #eastereggs -->
-
+        </div>
       </div>
     </div>
 
-    <template is="dom-if" if="{{!_equal(santaApp.mode, 'cast')}}">
+    <template is="dom-if" if="{{!_isCastMode(santaApp.mode)}}">
       <div id="village-footer">
         <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
         <img src="{{componentDir}}img/footer-elves.svg" />
@@ -246,6 +248,9 @@ Village scene (2015).
 
   var RANDOM_EGG_WAIT_MIN = 5000;
   var RANDOM_EGG_WAIT_MAX = 30000;
+
+  var PEGMAN_WAIT_MIN = 15000;  // needs to be > 10s of falling
+  var PEGMAN_WAIT_MAX = 30000;
 
   var SNOWFLAKE_ROTATION = 60;
   var SNOWFLAKE_SPEED_MIN = 2.5;
@@ -370,7 +375,7 @@ Village scene (2015).
       'easteregg-snowmobile1.click': '_driveSnowmobile',
       'easteregg-snowmobile2.click': '_driveSnowmobile',
       'easteregg-snowmobile3.click': '_driveSnowmobile',
-      'easteregg-snowmobile4.click': '_driveSnowmobile'
+      'easteregg-snowmobile4.click': '_driveSnowmobile',
     },
 
     /**
@@ -439,6 +444,9 @@ Village scene (2015).
 
         // Setup a new game
         this.ticTacToeScore = {'red': 0, 'blue': 0};
+
+        this.$['easteregg-tic-tac-toe-win'].classList.remove('red', 'blue',
+          'pos-0', 'pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5', 'pos-6', 'pos-7');
 
         this._ticTacToeCells = [].slice.call(ticTacGameBoard.querySelectorAll('.tic-tac'));
         this._ticTacToeCells.forEach(function(cell) {
@@ -547,69 +555,6 @@ Village scene (2015).
         }
       }
       return false;
-    },
-
-    _pegmanTimers: [],
-
-    _resetPegmanDive: function() {
-      for (var i = 0; i < this._pegmanTimers.length; i++) {
-        this.cancelAsync(this._pegmanTimers[i]);
-      }
-      this._pegmanTimers = [];
-    },
-
-    _pegmanDive: function() {
-      var SKY_DIVE_TIME = 10000;
-      var SKY_DIVE_FALL = .75 * SKY_DIVE_TIME;
-      var SKY_DIVE_LAND = SKY_DIVE_TIME + 200;
-      var SKY_DIVE_FADE = SKY_DIVE_LAND + 10000;
-      var SKY_DIVE_RESTART = SKY_DIVE_FADE + 2000;
-      var PEGMAN_WAIT = SKY_DIVE_RESTART + 2000;
-
-      var pegman = this.$['village-pegman'];
-      pegman.classList.remove('skydive', 'stage1', 'stage2', 'stage3', 'hide');
-
-      if (!this.active) {
-        return; // not active, no point jumping
-      }
-
-      var pegman = this.$['village-pegman'];
-
-      // Jump!
-      pegman.classList.add('skydive', 'stage1');
-      this._pegmanTimers[0] = this.async(function() {
-        if (!this.active) {
-          return;
-        }
-
-        pegman.classList.remove('stage1');
-        pegman.classList.add('stage2');
-      }, SKY_DIVE_FALL);
-
-      this._pegmanTimers[1] = this.async(function() {
-        if (!this.active) {
-          return;
-        }
-
-        pegman.classList.remove('stage2');
-        pegman.classList.add('stage3');
-      }, SKY_DIVE_LAND);
-
-      this._pegmanTimers[2] = this.async(function() {
-        if (!this.active) {
-          return;
-        }
-
-        pegman.classList.add('hide');
-      }, SKY_DIVE_FADE);
-
-      this._pegmanTimers[3] = this.async(function() {
-        pegman.classList.remove('skydive');
-      }, SKY_DIVE_RESTART);
-
-      this._pegmanTimers[4] = this.async(function() {
-        this._pegmanDive();
-      }, PEGMAN_WAIT);
     },
 
     _driveSnowmobile: function(e) {
@@ -849,12 +794,18 @@ Village scene (2015).
       var eh = this.$.effectholder;
       eh.textContent = '';  // clear
 
-      for (var i = 0; i < SNOWFLAKE_COUNT; ++i) {
+      var ratio = 1;
+      if (this.santaApp.mode == 'cast') {
+        ratio = 0.5;
+      }
+      ratio = 0;
+
+      for (var i = 0, count = Math.floor(ratio * SNOWFLAKE_COUNT); i < count; ++i) {
         // Delay snowflakes by their count+5 sec.
         var x = snowflakeFactory(null, i + 5);
         eh.appendChild(x);
       }
-      for (var i = 0; i < CLOUD_COUNT; ++i) {
+      for (var i = 0, count = Math.floor(ratio * CLOUD_COUNT); i < count; ++i) {
         // Delay clouds by their count+1 sec, and every second is reverse.
         var x = cloudFactory(null, i + 1, i % 2);
         eh.appendChild(x);
@@ -868,13 +819,31 @@ Village scene (2015).
       this._stopEasterEggs();
     },
 
+    _pegmanStep: function() {
+      if (!this.active) {
+        return;  // give up, not active
+      }
+      var pegman = this.$['village-pegman'];
+      if (!pegman.classList.contains('active')) {
+        // fall from the sky
+        pegman.classList.add('active');
+      } else {
+        pegman.classList.add('fadeout');
+        this.async(function() {
+          pegman.classList.remove('fadeout', 'active');
+        }, 500);
+      }
+      this.async(this._pegmanStep, randomRange(PEGMAN_WAIT_MIN, PEGMAN_WAIT_MAX));
+    },
+
     _startEasterEggs: function() {
       if (this.santaApp.mode != 'cast') {
         this._stopEasterEggs();
         this._randomEasterEggs();  // stops self if no longer active
-        this._pegmanDive();
         this._playTicTacToe();
       }
+
+      this._pegmanStep();  // stops self if not active
     },
 
     _stopEasterEggs: function() {
@@ -883,9 +852,13 @@ Village scene (2015).
       }
       this._playTicTacToeTimers = [];
 
-      this._resetPegmanDive();
       this.cancelAsync(this._eggTimer);
-    }
+    },
+
+    _isCastMode: function(mode) {
+      return mode == 'cast';
+    },
+
   });
 })();
 </script>

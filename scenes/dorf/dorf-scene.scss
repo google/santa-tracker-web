@@ -133,117 +133,54 @@ $toolbar-size: 64px;
       }
 
       #village-pegman {
-        transform: translateY($skydive-start-pos);
+        $img-width: 192px;
+        $img-height: 128px;
+
         @include will-change(transform, opacity);
-        opacity: 0;
-        transition: opacity 2s ease;
+        transform: translateY(-1000px) translateZ(0);  // hide offscreen
+        pointer-events: auto;
 
-        &.skydive {
-          opacity: 1;
-          animation: #{$name}-skydive 10s 1 ease-in;
-          animation-fill-mode: forwards;
-        }
+        position: absolute;
+        overflow: hidden;
 
-        &.hide {
+        &.fadeout {
+          transition: opacity 0.5s;
           opacity: 0;
         }
 
-        margin-left: calc(50% + 360px);
-
-        > span {
-          position: absolute;
-          background-position: center;
+        #village-pegman-image {
+          width: $img-width;
+          height: $img-height;
+          display: block;
+          background: url(img/pegman-frames.png);
           background-repeat: no-repeat;
-          background-size: contain;
-          transform: translate(-50%, -50%);  // center span
-          @include will-change(opacity);
-          visibility: hidden;
+          background-size: $img-width ($img-height * 3);
+          font-size: 0;
         }
 
-        .pegman-1 {
-          background-image: url(img/pegman-dive.svg);
-          width: 60px;
-          height: 60px;
-        }
-
-        &.stage1 {
-          .pegman-1 {
-            visibility: visible;
-          }
-        }
-
-        .pegman-2, .pegman-3 {
-          a {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: auto;
-            text-indent: -3000em;
-            outline: 0;
-          }
-        }
-        .pegman-2 {
-          margin-top: -34px;
-          margin-left: -26px;
-          width: 112px;
-          height: 112px;
-          background-image: url(img/pegman-chute.svg);
-        }
-
-        &.stage2 {
-          .pegman-2 {
-            visibility: visible;
-          }
-        }
-
-        .pegman-3 {
-          margin-left: 21px;
-          margin-top: -16px;
-          background-image: url(img/pegman-land.svg);
-          width: 140px;
-          height: 140px;
-
-          a {
-            height: 60px;
-            top: 40px;
-          }
-        }
-
-        &.stage3 {
-          .pegman-3 {
-            visibility: visible;
-          }
-        }
+        left: calc(50% + 520px);
 
         @media (max-width: ($width-desktop - 1)) {
-          margin-left: calc(50% + 360px);
-          &.skydive {
-            animation: #{$name}-skydive-tablet 10s 1 ease-in;
-            animation-fill-mode: forwards;
-          }
+          top: 20px;
+          left: calc(50% + 300px);
 
-          .pegman-1 {
-            width: 60px * $tablet-desktop-ratio;
-            height: 60px * $tablet-desktop-ratio;
-          }
-
-          .pegman-2 {
-            margin-top: -34px * $tablet-desktop-ratio;
-            margin-left: -26px * $tablet-desktop-ratio;
-            width: 112px * $tablet-desktop-ratio;
-            height: 112px * $tablet-desktop-ratio;
-          }
-          .pegman-3 {
-            margin-left: 21px * $tablet-desktop-ratio;
-            margin-top: -16px * $tablet-desktop-ratio;
-            width: 140px * $tablet-desktop-ratio;
-            height: 140px * $tablet-desktop-ratio;
+          #village-pegman-image {
+            transform: scale(0.6);
           }
         }
         @media (max-width: ($width-tablet - 1)) {
           // Land pegman right in the middle of the village, where there's just snow.
-          margin-left: calc(50% - 100px);
-          margin-top: 20px;
+          left: calc(50% - 120px);
+        }
+
+        &.active {
+          animation: 10s #{$name}-skydive ease-in;
+          animation-fill-mode: forwards;
+          #village-pegman-image {
+            animation: 6s #{$name}-skydive-image steps(2);
+            animation-delay: 4s;
+            animation-fill-mode: both;
+          }
         }
       }
     }

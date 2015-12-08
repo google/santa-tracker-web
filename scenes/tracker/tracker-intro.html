@@ -20,12 +20,12 @@ specific language governing permissions and limitations under the License.
 <script src="../shared/js/mapstyles.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="tracker-intro.css" />
+<link rel="stylesheet" href="tracker-intro.css">
 
 <!--
 Intro for the tracker scene.
 -->
-<dom-module id="tracker-intro" on-transitionend="goesOffScreen">
+<dom-module id="tracker-intro">
 <template>
   <style>
   /* Outside of tracker-intro.scss because it requires shimming. */
@@ -34,18 +34,18 @@ Intro for the tracker scene.
     height: 100%;
     display: block;
     position: relative;
-    transition: -webkit-transform 0.3s ease;
     transition: transform 0.3s ease;
     z-index: 3; /* higher than rest of tracker */
   }
   </style>
   <div id="tracker-intro-module">
+
     <bubble-overlay id="overlay" opacity="1" color="#13AB27">
-      <canvas-bubble id="userBubble" x="{{userBubbleCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
-      <canvas-bubble id="santaBubble" x="{{santaBubbleCenterX_}}" y="{{winCenterY_}}"></canvas-bubble>
+      <canvas-bubble id="userBubble" x="{{_userBubbleCenterX}}" y="{{_winCenterY}}"></canvas-bubble>
+      <canvas-bubble id="santaBubble" x="{{_santaBubbleCenterX}}" y="{{_winCenterY}}"></canvas-bubble>
     </bubble-overlay>
 
-    <div class="top" id="top">
+    <div id="top" class="top">
       <p class="welcome">
         <i18n-msg msgid="tracker_intro_welcome">PLACEHOLDER_i18n</i18n-msg></a>
       </p>
@@ -56,15 +56,15 @@ Intro for the tracker scene.
     <div id="santa-loading"></div>
 
     <div class="pin-wrapper" id="pinWrapper">
-      <img class="pin" id="pin" src="img/pin.svg" />
+      <img class="pin" id="pin" src="img/pin.svg">
     </div>
 
     <div id="santaPath">
-      <img src="img/tracker_intro_path.svg" />
+      <img src="img/tracker_intro_path.svg">
     </div>
 
     <div id="santaSleigh">
-      <img src="img/santa_sw.svg" />
+      <img src="img/santa_sw.svg">
     </div>
 
     <div id="userMap">
@@ -72,21 +72,21 @@ Intro for the tracker scene.
     </div>
 
     <div class="bottom-wrapper">
-      <div class="user-location" id="userLocation">
+      <div id="userLocation" class="user-location" >
         <p class="info">
           <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
-          <br />
+          <br>
           <em>{{userLocation.name}}</em>
         </p>
       </div>
 
-      <div class="santa-distance" id="santaDistance">
-        <p>Santa is {{formatDistance_(santaDistance)}} away</p>
+      <div id="santaDistance" class="santa-distance" >
+        <p>Santa is <span>{{_formatDistance(santaDistance)}}</span> away</p>
       </div>
     </div>
 
     <div class="skip">
-      <a href="{{pageUrl}}#" on-click="closeIntro"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+      <a href$="{{pageUrl}}#" on-click="closeIntro"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
   </div>
 
@@ -107,7 +107,8 @@ Intro for the tracker scene.
        */
       userLocation: {
         type: Object,
-        value: null
+        value: function() { return {}; },
+        observer: '_userLocationChanged'
       },
 
       /**
@@ -127,18 +128,37 @@ Intro for the tracker scene.
       },
 
       // window center point.
-      winCenterX_: 0,
-      winCenterY_: 0,
+      _winCenterX: {
+        type: Number,
+        value: 0
+      },
+
+      _winCenterY: {
+        type: Number,
+        value: 0
+      },
 
       // The space between two opened bubbles in pixels.
-      bubbleOffset: 0,
+      bubbleOffset: {
+        type: Number,
+        value: 0
+      },
 
       // Santa's bubble center point.
-      santaBubbleCenterX_: 0,
+      _santaBubbleCenterX: {
+        type: Number,
+        value: 0
+      },
 
       // User's bubble center point.
-      userBubbleCenterX_: 0,
+      _userBubbleCenterX: {
+        type: Number,
+        value: 0
+      }
+    },
 
+    listeners: {
+      'transitionend': 'goesOffScreen'
     },
 
     /**
@@ -154,10 +174,7 @@ Intro for the tracker scene.
       this.resizeHandler_ =  this.resize_.bind(this);
       window.addEventListener('resize', this.resizeHandler_);
 
-      this.async(function() {
-        // `domReady` from Polymer 0.5.
-        this.updateLayout_();
-      }.bind(this));
+      this.async(this.updateLayout_);
     },
 
     detached: function() {
@@ -166,25 +183,25 @@ Intro for the tracker scene.
     },
 
     updateLayout_: function() {
-      this.$.pinWrapper.style.left = this.userBubbleCenterX_ + 'px';
-      this.$.userMap.style.left = this.userBubbleCenterX_ + 'px';
-      this.$.santaSleigh.style.left = this.santaBubbleCenterX_ + 'px';
-      this.$.pinWrapper.style.top = this.winCenterY_ + 'px';
-      this.$.santaSleigh.style.top = this.winCenterY_ + 'px';
-      this.$.userMap.style.top = this.winCenterY_ + 'px';
-      this.$.santaPath.style.left = this.userBubbleCenterX_ + 30 + 'px';
-      this.$.santaPath.style.top = this.winCenterY_ + 'px';
+      this.$.pinWrapper.style.left = this._userBubbleCenterX + 'px';
+      this.$.userMap.style.left = this._userBubbleCenterX + 'px';
+      this.$.santaSleigh.style.left = this._santaBubbleCenterX + 'px';
+      this.$.pinWrapper.style.top = this._winCenterY + 'px';
+      this.$.santaSleigh.style.top = this._winCenterY + 'px';
+      this.$.userMap.style.top = this._winCenterY + 'px';
+      this.$.santaPath.style.left = this._userBubbleCenterX + 30 + 'px';
+      this.$.santaPath.style.top = this._winCenterY + 'px';
     },
 
     calculateLayoutValues_: function() {
       var height = window.innerHeight - window.santaApp.headerSize;
-      var isUserBubbleCentered = this.userBubbleCenterX_ === this.winCenterX_;
+      var isUserBubbleCentered = this._userBubbleCenterX === this._winCenterX;
       this.bubbleOffset = Math.max(Math.floor(window.innerWidth / 8), 90);
-      this.winCenterX_ = Math.floor(window.innerWidth / 2);
-      this.winCenterY_ = Math.floor(height / 2);
-      this.santaBubbleCenterX_ = this.winCenterX_ + this.bubbleOffset;
-      this.userBubbleCenterX_ = isUserBubbleCentered ?
-          this.winCenterX_ : this.winCenterX_ - this.bubbleOffset;
+      this._winCenterX = Math.floor(window.innerWidth / 2);
+      this._winCenterY = Math.floor(height / 2);
+      this._santaBubbleCenterX = this._winCenterX + this.bubbleOffset;
+      this._userBubbleCenterX = isUserBubbleCentered ?
+          this._winCenterX : this._winCenterX - this.bubbleOffset;
     },
 
     resize_: function() {
@@ -218,7 +235,7 @@ Intro for the tracker scene.
       }
     },
 
-    formatDistance_: function(dist) {
+    _formatDistance: function(dist) {
       // TODO: localise? (miles)
       // 0xA0 non-breaking space
       return new Number(Math.floor(dist / 1000)).toLocaleString() + '\xA0km';
@@ -239,11 +256,11 @@ Intro for the tracker scene.
       }.bind(this));
     },
 
-    userLocationChanged: function() {
+    _userLocationChanged: function() {
       this.$['santa-loading'].classList.remove('final');
       if (this.layoutReady_ && !this.map_) {
         window.clearTimeout(this.continueTimeout_);
-        this.setupUserMap_();
+        this._setupUserMap();
       }
     },
 
@@ -253,7 +270,7 @@ Intro for the tracker scene.
       this.continueTimeout_ = window.setTimeout(this.bypass.bind(this), GEO_WAIT_TIME);
 
       if (this.userLocation) {
-        this.setupUserMap_();
+        this._setupUserMap();
       }
     },
 
@@ -261,7 +278,7 @@ Intro for the tracker scene.
       this.closeIntro();
     },
 
-    setupUserMap_: function() {
+    _setupUserMap: function() {
       this.map_ = new google.maps.Map(this.$.userMapInner, {
         center: new google.maps.LatLng(
             this.userLocation.location.lat,
@@ -332,11 +349,11 @@ Intro for the tracker scene.
       var santaSleigh = this.$.santaSleigh;
       var santaPath = this.$.santaPath;
 
-      bubble.move(this.winCenterX_ - this.bubbleOffset,
-          this.winCenterY_, BUBBLE_RADIUS_SMALL, function() {
+      bubble.move(this._winCenterX - this.bubbleOffset,
+          this._winCenterY, BUBBLE_RADIUS_SMALL, function() {
         santaSleigh.style.zIndex = 3;
         santaPath.shown_ = true;
-        santaPath.style.left = this.userBubbleCenterX_ + 30 + 'px';
+        santaPath.style.left = this._userBubbleCenterX + 30 + 'px';
         santaPath.style.width = 2 * this.bubbleOffset - 80 + 'px';
         this.async(function() {
           this.resize_();
@@ -356,8 +373,8 @@ Intro for the tracker scene.
      */
     closeIntro: function(e, detail) {
       e && e.preventDefault();
-      this.style.transform = this.style.webkitTransform = 'translateY(-' + 2 * this.winCenterY_ + 'px)';
-      this.classList.add('offscreen');
+      this.style.transform = this.style.webkitTransform = 'translateY(-' + 2 * this._winCenterY + 'px)';
+      Polymer.dom(this).classList.add('offscreen');
     },
 
     /**
@@ -368,12 +385,11 @@ Intro for the tracker scene.
     destroy: function() {
       this.$.userBubble.bubble.destroy();
       this.$.santaBubble.bubble.destroy();
-      this.parentNode.removeChild(this);
+      Polymer.dom(this).parentNode.removeChild(this);
     },
 
-    goesOffScreen: function(e, detail, sender) {
-      // TODO: we no longer have 'sender'
-      if (sender.classList.contains('offscreen')) {
+    goesOffScreen: function(e, detail) {
+      if (Polymer.dom(e).rootTarget.classList.contains('offscreen')) {
         this.destroy();
       }
     }
