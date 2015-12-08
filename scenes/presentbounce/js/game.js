@@ -210,6 +210,8 @@ app.Game.prototype.onLevelCompleted = function(score) {
     this.scoreboard.addScore(score);
   }
 
+  window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
+
   // Check for game end
   if (this.level === app.config.Levels.length - 1) {
     this.gameover();
@@ -239,7 +241,6 @@ app.Game.prototype.unfreezeGame = function() {
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
     this.requestId = utils.requestAnimFrame(this.onFrame_);
-    window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
   }
 };
 

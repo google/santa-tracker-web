@@ -26,6 +26,7 @@ goog.require('app.world.ConveyorBelt');
 goog.scope(function () {
   const Unit = app.Unit;
   const ConveyorBelt = app.world.ConveyorBelt;
+  const COLLISION_ID = 'presentBallFixture';
 
 
   /**
@@ -83,12 +84,15 @@ goog.scope(function () {
       fixDef.shape = new b2.CircleShape( Unit.toWorld(this.config_.style.width/2) );
 
       const body = this.world_.CreateBody(bodyDef);
-      body.CreateFixture(fixDef);
+      const bodyFix = body.CreateFixture(fixDef);
+
+      boxyFix.collisionID = COLLISION_ID;
 
       return body;
     }
   }
 
+  PresentBall.COLLISION_ID = COLLISION_ID;
 
   app.world.PresentBall = PresentBall;
 

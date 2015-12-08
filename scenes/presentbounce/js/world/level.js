@@ -275,6 +275,7 @@ goog.scope(function() {
           this.userObjects_.push(belt);
         }
         callback( hasError );
+        window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
       }
       else if (objectType === Constants.USER_OBJECT_TYPE_SPRING) {
         const spring = new Spring(this, this.world_, objectData);

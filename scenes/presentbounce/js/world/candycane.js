@@ -46,8 +46,13 @@ goog.scope(function () {
     /**
      * Callback for when a collision happens
      */
-    onCollision() {
-      window.santaApp.fire('sound-trigger', 'pb_wall');
+    onCollision(contact) {
+      // check if it's a ball before playing 'boing' the sound
+      if (contact.getFixtureA().collisionID === PresentBall.COLLISION_ID ||
+          contact.getFixtureA().collisionID === PresentSquare.COLLISION_ID
+      ) {
+        window.santaApp.fire('sound-trigger', 'pb_wall');
+      }
     }
 
     /**

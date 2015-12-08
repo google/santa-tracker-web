@@ -183,9 +183,9 @@ app.Drawer.prototype.onDropSuccess = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
   var drawer = this.$drawers[drawerType];
   $el.remove();
-  // Note: no need to decrement the counte here
-  // that happens onDrag
-  // check if that reached zero
+  // Note: no need to decrement the counter here
+  // as that already happens onDrag for instant feedback
+  // so, just check if we reached zero
   if (drawer.count === 0) {
     this.hideDrawer(drawer);
   }

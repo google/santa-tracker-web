@@ -46,9 +46,14 @@ goog.scope(function () {
      * onCollision callback called from the Level.
      * @param  {Object} contact Contact containing both objects that are colliding.
      */
-    onCollision() {
+    onCollision(contact) {
       utils.animWithClass(this.$el_, 'animate');
-      window.santaApp.fire('sound-trigger', 'pb_boing');
+      // check if it's a ball before playing 'boing' the sound
+      if (contact.getFixtureA().collisionID === PresentBall.COLLISION_ID ||
+          contact.getFixtureA().collisionID === PresentSquare.COLLISION_ID
+      ) {
+        window.santaApp.fire('sound-trigger', 'pb_boing');
+      }
     }
 
     /**
