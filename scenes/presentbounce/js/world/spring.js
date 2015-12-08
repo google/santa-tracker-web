@@ -49,8 +49,8 @@ goog.scope(function () {
     onCollision(contact) {
       utils.animWithClass(this.$el_, 'animate');
       // check if it's a ball before playing 'boing' the sound
-      if (contact.getFixtureA().collisionID === PresentBall.COLLISION_ID ||
-          contact.getFixtureA().collisionID === PresentSquare.COLLISION_ID
+      if (contact && contact.GetFixtureA().collisionID === PresentBall.COLLISION_ID ||
+          contact.GetFixtureA().collisionID === PresentSquare.COLLISION_ID
       ) {
         window.santaApp.fire('sound-trigger', 'pb_boing');
       }

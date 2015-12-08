@@ -74,7 +74,7 @@ goog.scope(function () {
      */
     pauseBelt_() {
       this.$el_.addClass('js-animation-paused');
-      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
       this.updateBeltDirection_(this.getBeltDirectionVector_(0));
     }
 
