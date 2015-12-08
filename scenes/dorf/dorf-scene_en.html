@@ -826,7 +826,7 @@ Village scene (2015).
         pegman.classList.add('active');
       } else {
         pegman.classList.add('fadeout');
-        window.setTimeout(function() {
+        this.async(function() {
           pegman.classList.remove('fadeout', 'active');
         }, 500);
       }
