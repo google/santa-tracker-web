@@ -29,7 +29,7 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 1092px;
+    width: 722px;
     z-index: 0;
 
     @media (max-width: 1600px) {
@@ -119,14 +119,6 @@
 
   .ornament-item--wheelmap {
     background-image: url(img/ornament/wheelmap.png);
-  }
-
-  .ornament-item--solar-aid {
-    background-image: url(img/ornament/solar-aid.png);
-  }
-
-  .ornament-item--charity-water {
-    background-image: url(img/ornament/charity-water.png);
   }
 
   .ornament-item-name {
