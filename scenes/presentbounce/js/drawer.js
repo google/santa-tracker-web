@@ -47,6 +47,29 @@ app.Drawer = function(elem) {
   this.interactionCallback = null;
 
   this.$drawers = {};
+  this.setDrawers();
+
+  this.$drawers[Constants.USER_OBJECT_TYPE_BELT].$node.data('type', Constants.USER_OBJECT_TYPE_BELT);
+  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING].$node.data('type', Constants.USER_OBJECT_TYPE_SPRING);
+
+};
+
+/**
+ * Resets the drawers completely to it's initial state.
+ */
+app.Drawer.prototype.reset = function() {
+  this.setDrawers();
+  for (var prop in this.$drawers) {
+    if (this.$drawers.hasOwnProperty(prop)) {
+      this.getDraggableEl_( this.$drawers[prop].$node ).remove();
+    }
+  }
+};
+
+/**
+ * Caches the drawer elements and resets the count.
+ */
+app.Drawer.prototype.setDrawers = function() {
   this.$drawers[Constants.USER_OBJECT_TYPE_SPRING] = {
     count: 0,
     $node: this.$elem.find( '.' + this.CLASS_DRAWER_SPRING )
@@ -56,11 +79,7 @@ app.Drawer = function(elem) {
     count: 0,
     $node: this.$elem.find( '.' + this.CLASS_DRAWER_BELT )
   };
-
-  this.$drawers[Constants.USER_OBJECT_TYPE_BELT].$node.data('type', Constants.USER_OBJECT_TYPE_BELT);
-  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING].$node.data('type', Constants.USER_OBJECT_TYPE_SPRING);
-
-};
+}
 
 /**
  * Adds an element to the drawer and makes it draggable.

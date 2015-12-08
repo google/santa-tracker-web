@@ -47,8 +47,7 @@ app.Scoreboard = function(game, elem, totalLevels) {
  */
 app.Scoreboard.prototype.reset = function() {
   this.score = 0;
-  this.countdown = -1;
-  this.lastSeconds = null;
+  this.resetTimer();
 
   this.setLevel(0);
 
@@ -56,6 +55,11 @@ app.Scoreboard.prototype.reset = function() {
   this.onFrame(0);
   this.addScore(0);
 };
+
+app.Scoreboard.prototype.resetTimer = function() {
+  this.countdown = -1;
+  this.lastSeconds = null;
+}
 
 
 /**
@@ -88,7 +92,7 @@ app.Scoreboard.prototype.attachEvents = function() {
   });
   this.elem.find('.restart').on('click', function(event) {
     $(event.target).blur();
-    self.game.restart();
+    self.game.restartLevel();
   });
 };
 

@@ -111,6 +111,25 @@ app.Game.prototype.restart = function() {
 };
 
 /**
+ * Restarts the current level.
+ * Similar to a typical restart except we don't reset everything
+ * and keep the current state.
+ */
+app.Game.prototype.restartLevel = function() {
+  this.paused = false;
+
+  // Reset the timer
+  this.scoreboard.resetTimer();
+  this.loadLevel_();
+
+  // Start game
+  window.santaApp.fire('sound-trigger', 'pb_game_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'presentbounce'});
+  this.unfreezeGame();
+}
+
+/**
  * Game loop. Runs every frame using requestAnimationFrame.
  * @private
  */
@@ -150,18 +169,27 @@ app.Game.prototype.onInteraction = function() {
 app.Game.prototype.loadNextLevel_ = function() {
   // Next level
   this.level++;
-  var levelNumber = this.level % app.config.Levels.length;
 
+  this.loadLevel_();
+
+  // Update scoreboard
+  this.scoreboard.setLevel(this.level);
+  this.scoreboard.restart();
+
+};
+
+/**
+ * Transition to the current level
+ * @private
+ */
+app.Game.prototype.loadLevel_ = function() {
+  var levelNumber = this.level % app.config.Levels.length;
   var levelData = app.config.Levels[levelNumber];
 
   // Send Klang event
   if (this.level > 0) {
     window.santaApp.fire('sound-trigger', 'pb_level_up');
   }
-
-  // Update scoreboard
-  this.scoreboard.setLevel(this.level);
-  this.scoreboard.restart();
 
   // Load new level
   if (this.currentLevel_) {

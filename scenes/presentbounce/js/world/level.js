@@ -220,6 +220,7 @@ goog.scope(function() {
      */
     init_() {
       this.isLevelLoaded_ = true;
+      this.drawer.reset();
       this.buildLevelObjects_();
       this.buildUserObjects_();
     }
