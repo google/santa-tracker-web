@@ -366,6 +366,7 @@ goog.scope(function() {
         this.ball_.draw();
         if (this.hasBallExitedScreen_()) {
           this.destroyBall();
+          window.santaApp.fire('sound-trigger', 'pb_ball_fallout');
         }
       }
       // loop through fixed level objects

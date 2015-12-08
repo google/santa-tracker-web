@@ -111,6 +111,7 @@ app.Drawer.prototype.getDrawerTypeFromEl_ = function($el) {
 app.Drawer.prototype.onDrag = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
   this.decrementCount( this.$drawers[drawerType] );
+  window.santaApp.fire('sound-trigger', 'pb_grab_item');
   if (!this.hasInteractionStarted) {
     this.hasInteractionStarted = true;
     // Tell level that something happened
@@ -147,6 +148,7 @@ app.Drawer.prototype.onDropError = function($el) {
   }
   this.incrementCount( drawer );
   this.showCounter( $counter );
+  window.santaApp.fire('sound-trigger', 'pb_error');
 };
 
 /**
@@ -163,6 +165,7 @@ app.Drawer.prototype.onDropSuccess = function($el) {
   if (drawer.count === 0) {
     this.hideDrawer(drawer);
   }
+  window.santaApp.fire('sound-trigger', 'pb_place_item');
 };
 
 /**

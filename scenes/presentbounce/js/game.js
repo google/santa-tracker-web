@@ -180,7 +180,7 @@ app.Game.prototype.onLevelCompleted = function(score) {
   if (score) {
     this.scoreboard.addScore(score);
   }
-
+  window.santaApp.fire('sound-trigger', 'pd_ball_finish');
   // Check for game end
   if (this.level === app.config.Levels.length - 1) {
     this.gameover();

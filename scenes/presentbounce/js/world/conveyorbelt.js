@@ -67,6 +67,7 @@ goog.scope(function () {
       this.currentDirection_ *= -1;
       this.$el_.toggleClass('js-animation-reverse', this.currentDirection_ === -1);
       this.updateBeltDirection_(this.getBeltDirectionVector_());
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_change_direction');
     }
 
     /**
