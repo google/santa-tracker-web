@@ -300,15 +300,6 @@
     }
   }
 
-  .Tool-crayon--black {
-    @include makeCrayon('img/tools/crayon-black.svg');
-
-    &.Tool--selected {
-      width: 176px;
-      height: 176px;
-    }
-  }
-
   .Tool-crayon--brown {
     @include makeCrayon('img/tools/crayon-brown.svg');
 
