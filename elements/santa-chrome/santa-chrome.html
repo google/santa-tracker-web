@@ -136,7 +136,7 @@ specific language governing permissions and limitations under the License.
           <a href$="{{_calculateTrackerUrl(pageUrl, trackerUnlocked)}}">
             <div class="menucard menucard-tracker">
               <template is="dom-if" if="{{!trackerUnlocked}}">
-                <div class="lock" style$="background-color: {{trackerColor}}"></div>
+                <div class="lock"></div>
               </template>
               <h2>{{_dec24th}}</h2>
               <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
