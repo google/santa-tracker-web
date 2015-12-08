@@ -109,12 +109,12 @@ specific language governing permissions and limitations under the License.
                     query-matches="{{_smallScreen}}"></iron-media-query>
 
   <paper-drawer-panel id="sidebar" force-narrow
-                      disable-edge-swipe="{{disabled}}"
+                      disable-edge-swipe="true"
                       disable-swipe="{{disabled}}"
                       drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
-    <div id="drawer" drawer class="scroll" on-click="_closeDrawerLink">
+    <div id="drawer" drawer class="scroll" on-tap="_closeDrawerLink">
       <div hidden$="{{disabled}}">
-        <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
+        <paper-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
         </paper-toolbar>
