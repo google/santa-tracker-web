@@ -120,8 +120,7 @@ app.config.Styles = {
       <div class="object__rotate-handle js-rotate-handle">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.7 34.7"><circle opacity=".25" fill="#424242" cx="20.9" cy="20.9" r="13.9"/><circle fill="#E91C24" cx="13.9" cy="13.9" r="13.9"/><g fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10"><path d="M17.5 8.4c1.9 1.3 2.9 3.3 2.9 5.5 0 3.6-2.9 6.6-6.6 6.6s-6.6-2.9-6.6-6.6 2.9-6.6 6.6-6.6"/><path d="M10.7 5.3l3.2 2-2 3.1"/></g></svg>
       </div>`,
-    height: 68, // 85
-    width: 75,
-    jointAngle: false
+    height: 80,
+    width: 75
   }
 };

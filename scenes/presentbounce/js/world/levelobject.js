@@ -191,13 +191,37 @@ goog.scope(function () {
 
 
     /**
-     * @public
+     * Sets restitution on all fixtures to specified value
+     * Stores original value on fixture as user data
+     * @private
      */
     setRestitution_(restitution) {
       if (this.body_) {
         let node = this.body_.GetFixtureList().GetFirstNode();
         while (node) {
-          node.fixture.SetRestitution(restitution);
+          if (typeof restitution !== 'undefined') {
+            node.fixture.originalRestitution_ = node.fixture.GetRestitution();
+            node.fixture.SetRestitution(restitution);
+          }
+          else if (typeof node.fixture.originalRestitution_ !== 'undefined') {
+            node.fixture.SetRestitution(node.fixture.originalRestitution_);
+          }
+          node = node.GetNextNode();
+        }
+      }
+    }
+
+    /**
+     * Resets restitution to original value on all fixtures
+     * @private
+     */
+    resetRestitution_() {
+      if (this.body_) {
+        let node = this.body_.GetFixtureList().GetFirstNode();
+        while (node) {
+          if (typeof node.fixture.originalRestitution_ !== 'undefined') {
+            node.fixture.SetRestitution(node.fixture.originalRestitution_);
+          }
           node = node.GetNextNode();
         }
       }
@@ -218,7 +242,7 @@ goog.scope(function () {
      * @public
      */
     onUserInteractionEnd() {
-      this.setRestitution_(this.config_.material.restitution);
+      this.resetRestitution_();
     }
 
     /**
