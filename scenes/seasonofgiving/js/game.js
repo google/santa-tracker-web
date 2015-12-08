@@ -53,10 +53,6 @@ app.Game = function(elem, componentDir) {
   this.tools = new app.Tools(this, this.elem, this.exporter);
   this.ornaments = [];
 
-  if (document.documentElement.getAttribute('lang') !== 'en') {
-    $('.no-en').remove();
-  }
-
   // find all ornaments and build
   var masterOrnaments = this.elem.find('.canvas[id^="canvas--"]');
   var ornament;
