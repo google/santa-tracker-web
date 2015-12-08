@@ -30,7 +30,7 @@ goog.require('app.shared.ShareButtons');
 app.Scene = function(context) {
   this.gallery = $('#press-secondary', context);
 
-  this.shareButtons = new app.shared.ShareButtons(context.querySelector('footer'));
+  this.shareButtons = new app.shared.ShareButtons(/** @type {!Element} */(context.querySelector('footer')));
 
   this.cards = Cards;
   this.active = '';
@@ -47,7 +47,7 @@ app.Scene = function(context) {
 
 app.Scene.prototype.getCards = function() {
   return this.cards;
-}
+};
 
 /**
  * Functionality needed to fire on show.
@@ -58,7 +58,7 @@ app.Scene.prototype.show = function(active) {
 
   this.active = active;
   this.setActiveFilter_();
-}
+};
 
 /**
  * Initializes the Scene by biding some events
@@ -69,7 +69,7 @@ app.Scene.prototype.show = function(active) {
 app.Scene.prototype.init_ = function() {
   this.$filters.on('click', this.onFilterSelect_.bind(this));
   this.unlockCards_();
-}
+};
 
 /**
  * Unlock cards based on date.
@@ -84,7 +84,7 @@ app.Scene.prototype.unlockCards_ = function() {
       element.locked = true;
     }
   });
-}
+};
 
 /**
  * Event to select filter for scenes.
@@ -117,7 +117,7 @@ app.Scene.prototype.setActiveFilter_ = function() {
 
     var $cards = this.active ? this.$cards.filter('[press-' + this.active + ']') : this.$cards;
     $cards.removeAttr('hidden').each(function(index, element) {
-      $(element).removeClass('clear-desktop-row clear-tablet-row')
+      $(element).removeClass('clear-desktop-row clear-tablet-row');
       if (index % 3 == 0) {
         $(element).addClass('clear-desktop-row');
       }

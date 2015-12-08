@@ -48,7 +48,6 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    * Plays character animations
    *
    * @param {Element} el for characters
-   * @constructor
    * @unrestricted
    */
   constructor(el) {
