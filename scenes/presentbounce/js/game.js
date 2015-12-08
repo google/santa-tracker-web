@@ -96,6 +96,7 @@ app.Game.prototype.start = function() {
  */
 app.Game.prototype.restart = function() {
   var match = location.search.match(/[?&]level=(\d+)/) || [];
+  this.previousLevel = 0;
   this.level = (+match[1] || 1) - 2;
   this.paused = false;
 
@@ -169,6 +170,7 @@ app.Game.prototype.onInteraction = function() {
  */
 app.Game.prototype.loadNextLevel_ = function() {
   // Next level
+  this.previousLevel = this.level;
   this.level++;
 
   this.loadLevel_();
@@ -188,7 +190,7 @@ app.Game.prototype.loadLevel_ = function() {
   var levelData = app.config.Levels[levelNumber];
 
   // Send Klang event
-  if (this.level > 0) {
+  if (this.level > 0 && this.level > this.previousLevel) {
     window.santaApp.fire('sound-trigger', 'pb_level_up');
   }
 
@@ -229,7 +231,7 @@ app.Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
   this.drawer.pause();
-  window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
+  this.currentLevel_.pause();
 };
 
 /**
@@ -240,7 +242,8 @@ app.Game.prototype.unfreezeGame = function() {
     this.elem.removeClass('frozen').focus();
 
     this.isPlaying = true;
-    this.drawer.continue();
+    this.drawer.resume();
+    this.currentLevel_.resume();
     this.lastFrame = +new Date() / 1000;
     this.requestId = utils.requestAnimFrame(this.onFrame_);
   }
