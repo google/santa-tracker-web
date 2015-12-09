@@ -61,7 +61,7 @@ Tracker scene.
                          on-api-load="mapsAPIReady"></google-maps-api>
       </template>
 
-      <city-feed id="feed" class="fit" timeline="{{santaApp.timeline}}"
+      <city-feed id="feed" class="fit" timeline="{{timeline}}"
                  santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed>
 
       <tracker-intro id="intro"
@@ -316,12 +316,20 @@ Tracker scene.
       },
 
       /**
-       * Santa's destinations. Should be bound into this element.
+       * Santa's destinations as they come in.
        */
       destinations: {
         type: Array,
         value: null,
         observer: '_destinationsChanged'
+      },
+
+      /**
+       * Full list of timeline feed items.
+       */
+      timeline: {
+        type: Array,
+        value: function() { return []; }
       },
 
       /**
@@ -533,15 +541,20 @@ Tracker scene.
       this.worldView_.setupMap();
       this.worldView_.show();
 
-      // Santa API returning destinations is async. Upgrading this element is
-      // async. The Maps API being ready is async. If destinations have not
-      // been returned by the API at this point, sync santa and get us some!
-      if (this.santaApp.destinations && this.santaApp.destinations.length) {
-        this.destinations = this.santaApp.destinations;
-      } else {
-        this.santaApp.santaService.sync(function() {
-          this.destinations = this.santaApp.destinations;
-        }.bind(this));
+      // TODO: we don't have a removeListener in SantaService. This will add
+      // an additional listener every time someone switches back to tracker.
+      this.santaApp.santaService.addListener('destinations_changed', function(dests) {
+        this.destinations = dests || [];
+      }.bind(this));
+
+      this.santaApp.santaService.addListener('timeline_changed', function(timeline) {
+        this.timeline = timeline || [];
+      }.bind(this));
+
+      // Sync if we need to.
+      this.destinations = this.santaApp.santaService.getDestinations();
+      if (!this.destinations.length) {
+        this.santaApp.santaService.sync(); // dests set in event listener above.
       }
 
       this.$.intro.showTitle();
