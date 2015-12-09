@@ -474,6 +474,10 @@ goog.scope(function() {
       return this.game_.paused;
     }
 
+    /**
+     * Since the level is paused,
+     * pass on this state to all objects.
+     */
     pause() {
       for (let object of this.levelObjects_) {
         object.pause();
@@ -484,6 +488,10 @@ goog.scope(function() {
       }
     }
 
+    /**
+     * Since the level is resuming,
+     * pass on this state to all objects.
+     */
     resume() {
       for (let object of this.levelObjects_) {
         object.resume();
@@ -502,6 +510,8 @@ goog.scope(function() {
       this.isLevelLoaded_ = false;
       this.destroyBall();
       this.removeEventListeners_();
+
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
 
       for (let object of this.levelObjects_) {
         object.destroy();
