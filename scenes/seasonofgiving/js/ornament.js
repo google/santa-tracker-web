@@ -320,8 +320,8 @@ app.Ornament.prototype.mouseDown = function(event) {
   }
 
   this.lastPoint = {
-    x: e.x -  this.canvas.getBoundingClientRect().left,
-    y: e.y -  this.canvas.getBoundingClientRect().top
+    x: e.x - this.canvas.getBoundingClientRect().left,
+    y: e.y - this.canvas.getBoundingClientRect().top
   };
 
   this.randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
