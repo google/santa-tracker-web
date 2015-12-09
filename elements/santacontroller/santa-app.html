@@ -830,6 +830,7 @@ Polymer({
 
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = newValue && !newValue.hasAttribute('freeform');
+    this.$.chrome.closeDrawer();
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;

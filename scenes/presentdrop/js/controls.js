@@ -140,7 +140,7 @@ app.Controls.prototype.touchStartedInGUI = null;
 
 /**
  * Touch started. Ignores gui touches. Called dynamically.
- * @param {!Event} e The event object.
+ * @param {!jQuery.Event} e The event object.
  */
 app.Controls.prototype.onTouchStart_ = function(e) {
   if (!this.game.isPlaying) return;
@@ -152,7 +152,7 @@ app.Controls.prototype.onTouchStart_ = function(e) {
   }
 
   var stagePos = this.stage.offset();
-  var touch = e.changedTouches[0];
+  var touch = e.originalEvent.changedTouches[0];
 
   // Correct position if game is scaled
   var touchX = touch.pageX / this.game.scale;
@@ -171,7 +171,7 @@ app.Controls.prototype.onTouchStart_ = function(e) {
 
 /**
  * Touch moved. Called dynamically.
- * @param {!Event} e The event object.
+ * @param {!jQuery.Event} e The event object.
  * @private
  */
 app.Controls.prototype.onTouchMove_ = function(e) {
@@ -192,7 +192,7 @@ app.Controls.prototype.onTouchMove_ = function(e) {
 
 /**
  * Touch ended. Called dynamically.
- * @param {!Event} e The event object.
+ * @param {!jQuery.Event} e The event object.
  * @private
  */
 app.Controls.prototype.onTouchEnd_ = function(e) {
@@ -207,16 +207,16 @@ app.Controls.prototype.onTouchEnd_ = function(e) {
 
 /**
  * Returns the active touch from a touch event.
- * @param {!Event} e A touch event.
+ * @param {!jQuery.Event} e A touch event.
  * @return {Touch} The active touch.
  * @private
  */
 app.Controls.prototype.getCurrentTouch_ = function(e) {
-  if (this.currentTouchId === null) {
+  if (this.currentTouchId === null) {  // zero is valid touch ID
     return null;
   }
-  for (var i = 0, touch; touch = e.changedTouches[i]; i++) {
-    if (touch.identifier === this.currentTouchId) {
+  for (var i = 0, touch; touch = e.originalEvent.changedTouches[i]; i++) {
+    if (touch.identifier == this.currentTouchId) {
       return touch;
     }
   }
