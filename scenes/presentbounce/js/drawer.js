@@ -146,7 +146,7 @@ app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) 
 
 /**
  * Gets a drawer type element from a given DOM element.
- * @param  {Object} $el The element that needs to be checked.
+ * @param  {jQuery} $el The element that needs to be checked.
  * @return {String}     The type of element (belt/spring).
  */
 app.Drawer.prototype.getDrawerTypeFromEl_ = function($el) {
@@ -155,7 +155,7 @@ app.Drawer.prototype.getDrawerTypeFromEl_ = function($el) {
 
 /**
  * Callback for when an element is being dragged.
- * @param  {Object} $el Element being dragged.
+ * @param  {jQuery} $el Element being dragged.
  */
 app.Drawer.prototype.onDrag = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
@@ -182,7 +182,7 @@ app.Drawer.prototype.setInteractionCallback = function(callbackFn) {
 
 /**
  * Callback for when an drop is invalid (can't drop in that place)
- * @param  {Object} $el Element with the drop error
+ * @param  {jQuery} $el Element with the drop error
  */
 app.Drawer.prototype.onDropError = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
@@ -200,7 +200,7 @@ app.Drawer.prototype.onDropError = function($el) {
 
 /**
  * Callback for when an drop is valid.
- * @param  {Object} $el Element with the successfull drop
+ * @param  {jQuery} $el Element with the successfull drop
  */
 app.Drawer.prototype.onDropSuccess = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
@@ -216,7 +216,7 @@ app.Drawer.prototype.onDropSuccess = function($el) {
 
 /**
  * Shows a specific drawer.
- * @param  {Object} $el The drawer element
+ * @param  {jQuery} $el The drawer element
  */
 app.Drawer.prototype.showDrawer = function(drawer) {
   var $drawer = drawer.$node;
@@ -229,7 +229,7 @@ app.Drawer.prototype.showDrawer = function(drawer) {
 
 /**
  * Hides a drawer.
- * @param  {Object} $el The drawer element.
+ * @param  {jQuery} $el The drawer element.
  */
 app.Drawer.prototype.hideDrawer = function(drawer) {
   var $drawer = drawer.$node;
@@ -239,7 +239,7 @@ app.Drawer.prototype.hideDrawer = function(drawer) {
 
 /**
  * Helper function to get the counter element from a drawer.
- * @param  {Object} $el The drawer element.
+ * @param  {jQuery} $el The drawer element.
  * @return {Object}     The counter element.
  */
 app.Drawer.prototype.getCounterEl_ = function($el) {
@@ -248,7 +248,7 @@ app.Drawer.prototype.getCounterEl_ = function($el) {
 
 /**
  * Helper function to get the draggable element from a drawer.
- * @param  {Object} $el The drawer element reference.
+ * @param  {jQuery} $el The drawer element reference.
  * @return {Object}     The draggable element
  */
 app.Drawer.prototype.getDraggableEl_ = function($el) {
@@ -257,7 +257,7 @@ app.Drawer.prototype.getDraggableEl_ = function($el) {
 
 /**
  * Shows the object(s) from a drawer.
- * @param  {Object} $el The object element.
+ * @param  {jQuery} $el The object element.
  */
 app.Drawer.prototype.showObject = function($el) {
   $el.addClass( this.CLASS_OBJECT_VISIBLE );
@@ -265,7 +265,7 @@ app.Drawer.prototype.showObject = function($el) {
 
 /**
  * Hides the object(s) from a drawer.
- * @param  {Object} $el The object element.
+ * @param  {jQuery} $el The object element.
  */
 app.Drawer.prototype.hideObject = function($el) {
   $el.removeClass( this.CLASS_OBJECT_VISIBLE );
@@ -273,18 +273,18 @@ app.Drawer.prototype.hideObject = function($el) {
 
 /**
  * Shows the counter from a specific drawer.
- * @param  {Object} $el The counter to be shown.
+ * @param  {jQuery} $el The counter to be shown.
  */
-app.Drawer.prototype.showCounter = function($drawer) {
-  $drawer.addClass( this.CLASS_COUNT_VISIBLE );
+app.Drawer.prototype.showCounter = function($el) {
+  $el.addClass( this.CLASS_COUNT_VISIBLE );
 };
 
 /**
  * Hides the counter from the drawer.
- * @param  {Object} $el The counter to be hidden.
+ * @param  {jQuery} $el The counter to be hidden.
  */
-app.Drawer.prototype.hideCounter = function($drawer) {
-  $drawer.removeClass( this.CLASS_COUNT_VISIBLE );
+app.Drawer.prototype.hideCounter = function($el) {
+  $el.removeClass( this.CLASS_COUNT_VISIBLE );
 };
 
 /**
@@ -361,7 +361,7 @@ app.Drawer.prototype.updateCounterText = function(drawer) {
 
 /**
  * Triggers a CSS3 animation on the counter element.
- * @param  {Object} $counter jQuery counter element to be animated.
+ * @param  {jQuery} $counter jQuery counter element to be animated.
  */
 app.Drawer.prototype.animateCounter = function($counter) {
   utils.animWithClass($counter, this.CLASS_ANIMATE);
