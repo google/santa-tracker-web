@@ -1,0 +1,6 @@
+// Common CSS for frame-based games.
+
+html:not([lang|="en"]) .no-en {
+  display: none !important;
+}
+

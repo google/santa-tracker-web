@@ -51,3 +51,7 @@ body {
   }
   margin-top: -104px;
 }
+
+html:not([lang|="en"]) .no-en {
+  display: none !important;
+}
