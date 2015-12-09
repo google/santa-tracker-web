@@ -1,0 +1,145 @@
+$choose-mode-width-small: 80em;
+$choose-mode-width-large: 45em;
+
+##{$name} .choose-mode {
+  color: #fff;
+  background: #3F49A3;
+
+  &__dialog {
+    overflow: hidden;
+  }
+
+  &__title-wrapper {
+    margin: 30px auto;
+    width: 45em;
+  }
+
+  &__title {
+    font-family: 'Lobster', sans-serif;
+    font-size: 10em;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 0.95;
+    margin: 0;
+    text-shadow : 6px 6px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  &__option {
+    cursor: pointer;
+    margin: 0 auto;
+    position: relative;
+    width: $choose-mode-width-small;
+  }
+
+  &__image {
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    height: $choose-mode-width-small;
+    overflow: hidden;
+    position: relative;
+    width: $choose-mode-width-small;
+    /* this fixes the overflow:hidden in Chrome */
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+  }
+
+  &__text {
+    font-size: 3em;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+
+  &__bg {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: $choose-mode-width-small;
+    width: $choose-mode-width-small;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+    background-color: white;
+
+    &--museum {
+      background-image: url(img/choose-mode/museum.svg);
+    }
+
+    &--secretlab {
+      background-image: url(img/choose-mode/secretlab.svg);
+    }
+  }
+
+  &__go {
+    color: #fff;
+    font-family: 'Lobster', sans-serif;
+    font-size: 7.3em;
+    left: 50%;
+    letter-spacing: -1.5px;
+    line-height: 0.95;
+    margin-left: -0.7em;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    text-shadow : 5px 5px 0 rgba(0, 0, 0, 0.15);
+    transition: opacity 400ms 200ms ease-in-out;
+  }
+
+  &__option:hover {
+    .choose-mode__bg {
+      opacity: 0.7;
+    }
+
+    .choose-mode__santa {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .choose-mode__characters--left {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .choose-mode__characters--right {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .choose-mode__magnifier {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition-delay: 0.5s;
+    }
+
+    .choose-mode__go {
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 680px) {
+    &__option {
+      font-size: 0.6em;
+    }
+
+    &__text {
+      margin-bottom: 0;
+    }
+
+    &__grid {
+      justify-content: space-between;
+      display: flex;
+      width: 102em;
+    }
+
+    &__title-wrapper {
+      font-size: 0.7em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    &__option {
+      font-size: 0.5em;
+    }
+
+    &__grid {
+      width: 88em;
+    }
+  }
+}

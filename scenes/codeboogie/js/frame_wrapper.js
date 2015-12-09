@@ -20,6 +20,7 @@ goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.Gameover');
 goog.require('app.Sequencer');
+goog.require('app.ChooseMode');
 
 /**
  * IFrame proxy class.
@@ -32,6 +33,7 @@ goog.require('app.Sequencer');
 app.FrameWrapper = function(el, staticDir) {
   this.staticDir = staticDir;
   this.el = $(el);
+  this.chooseMode = new app.ChooseMode(this.el.find('.choose-mode'));
   this.gameoverView = new app.shared.Gameover(this, this.el.find('.gameover'));
   this.scoreboardView = new app.Scoreboard(this.el.find('.board'), 10);
   this.gameStartTime = +new Date;
@@ -73,8 +75,10 @@ app.FrameWrapper.prototype.start = function() {
 app.FrameWrapper.prototype.restart = function() {
   this.isPlaying = true;
 
-  this.iframeChannel.call('restart');
-  window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
+  this.chooseMode.show(() => {
+    this.iframeChannel.call('restart');
+    window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
+  });
 };
 
 /**
