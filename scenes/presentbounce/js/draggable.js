@@ -19,6 +19,9 @@ goog.provide('app.Draggable');
 /**
  * @param {!Element} elem that can be dragged
  * @param {!Element} root to use to find droppable targets
+ * @param {function(data, type, {x, y}), errorCallback} onDropCallback callback function to be called when a drop happens
+ * @param {function(data, type, {x, y}, validCallback)} testDropCallback callback function to be called when testing if a drop is valid happens
+ * @param {!app.Drawer} drawer the drawer instance
  * @constructor
  */
 app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer) {

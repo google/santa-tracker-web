@@ -22,82 +22,74 @@ goog.require('app.Unit');
 goog.require('app.world.GravityObject');
 goog.require('app.world.ConveyorBelt');
 
+/**
+ * PresentBall class
+ * @constructor
+ * @extends app.world.GravityObject
+ */
+app.world.PresentBall = class extends app.world.GravityObject {
 
-goog.scope(function () {
-  const Unit = app.Unit;
-  const ConveyorBelt = app.world.ConveyorBelt;
-  const COLLISION_ID = 'presentBallFixture';
+  /**
+   * @override
+   */
+  constructor(...args) {
+    super(...args); // super(...arguments) doesn't work in Closure Compiler
+    this.body_ = this.buildBody_();
+    this.previousAngularVelocity = null;
+    this.onCollision_ = this.onCollision_.bind(this);
+    this.registerForCollisions( this.onCollision_ );
+  }
 
 
   /**
-   * PresentBall class
+   * Detect when colliding with Conveyorbelt and cancel out angular velocity
+   * caused by surface speed of belt
+   * @private
    */
-  class PresentBall extends app.world.GravityObject {
-
-    /**
-     * @override
-     */
-    constructor(...args) {
-      super(...args); // super(...arguments) doesn't work in Closure Compiler
-      this.body_ = this.buildBody_();
-      this.onCollision_ = this.onCollision_.bind(this);
-      this.registerForCollisions( this.onCollision_ );
-    }
-
-
-    /**
-     * Detect when colliding with Conveyorbelt and cancel out angular velocity
-     * caused by surface speed of belt
-     * @private
-     */
-    onCollision_(contact) {
-      if (contact && (
-        contact.GetFixtureA().collisionID === ConveyorBelt.COLLISION_ID ||
-        contact.GetFixtureB().collisionID === ConveyorBelt.COLLISION_ID )
-      ) {
-          window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_bounce');
-          if (!this.previousAngularVelocity) {
-            this.previousAngularVelocity = this.body_.GetAngularVelocity();
-            return;
-        }
-
-        // set Angular velocity to 0 if velocity is not accelerating/decellerating
-        if (Math.round(this.previousAngularVelocity*10)/10 == Math.round(this.body_.GetAngularVelocity()*10)/10) {
-          this.body_.SetAngularVelocity(0);
-        }
-
-        this.previousAngularVelocity = this.body_.GetAngularVelocity();
+  onCollision_(contact) {
+    if (contact && (
+      contact.GetFixtureA().collisionID === app.world.ConveyorBelt.COLLISION_ID ||
+      contact.GetFixtureB().collisionID === app.world.ConveyorBelt.COLLISION_ID )
+    ) {
+        window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_bounce');
+        if (!this.previousAngularVelocity) {
+          this.previousAngularVelocity = this.body_.GetAngularVelocity();
+          return;
       }
-    }
 
-    /**
-     * Builds a Box2d body with its fixtures.
-     * @return {Object} Box2d body object
-     */
-    buildBody_() {
-      const bodyDef = new b2.BodyDef();
-      bodyDef.type = b2.BodyDef.b2_dynamicBody;
-      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
+      // set Angular velocity to 0 if velocity is not accelerating/decellerating
+      if (Math.round(this.previousAngularVelocity*10)/10 == Math.round(this.body_.GetAngularVelocity()*10)/10) {
+        this.body_.SetAngularVelocity(0);
+      }
 
-      const fixDef = new b2.FixtureDef();
-      const width = this.config_.style.width;
-      const height = this.config_.style.height;
-      fixDef.density = this.config_.material.density;
-      fixDef.friction = this.config_.material.friction;
-      fixDef.restitution = this.config_.material.restitution;
-      fixDef.shape = new b2.CircleShape( Unit.toWorld(this.config_.style.width/2) );
-
-      const body = this.world_.CreateBody(bodyDef);
-      const bodyFix = body.CreateFixture(fixDef);
-
-      bodyFix.collisionID = COLLISION_ID;
-
-      return body;
+      this.previousAngularVelocity = this.body_.GetAngularVelocity();
     }
   }
 
-  PresentBall.COLLISION_ID = COLLISION_ID;
+  /**
+   * Builds a Box2d body with its fixtures.
+   * @return {Object} Box2d body object
+   */
+  buildBody_() {
+    const bodyDef = new b2.BodyDef();
+    bodyDef.type = b2.BodyDef.b2_dynamicBody;
+    bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
 
-  app.world.PresentBall = PresentBall;
+    const fixDef = new b2.FixtureDef();
+    const width = this.config_.style.width;
+    const height = this.config_.style.height;
+    fixDef.density = this.config_.material.density;
+    fixDef.friction = this.config_.material.friction;
+    fixDef.restitution = this.config_.material.restitution;
+    fixDef.shape = new b2.CircleShape( app.Unit.toWorld(this.config_.style.width/2) );
 
-});
+    const body = this.world_.CreateBody(bodyDef);
+    const bodyFix = body.CreateFixture(fixDef);
+
+    bodyFix.collisionID = app.world.PresentBall.COLLISION_ID;
+
+    return body;
+  }
+}
+
+app.world.PresentBall.COLLISION_ID = 'presentBallFixture';

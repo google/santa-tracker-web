@@ -29,20 +29,6 @@ app.Drawer = function(elem) {
   this.elem = elem || null;
   this.$elem = $(elem);
 
-  this.CLASS_DRAWER_SPRING = 'js-drawer-spring';
-  this.CLASS_DRAWER_BELT = 'js-drawer-belt';
-  this.CLASS_DRAWER_HOLDER = 'js-drawer-holder';
-  this.CLASS_SPRING = 'js-object-spring';
-  this.CLASS_BELT = 'js-object-conveyorBelt';
-  this.CLASS_INACTIVE = 'is-inactive';
-  this.CLASS_COUNTER = 'js-drawer-counter';
-  this.CLASS_RESTART = 'js-drawer-restart';
-  this.CLASS_DRAGGABLE = 'js-draggable';
-  this.CLASS_HOLDER_VISIBLE = 'drawer__holder--visible';
-  this.CLASS_COUNT_VISIBLE = 'drawer__counter--visible';
-  this.CLASS_OBJECT_VISIBLE = 'object--visible';
-  this.CLASS_ANIMATE = 'animate';
-
   this.onDrag = this.onDrag.bind(this);
   this.hasInteractionStarted = false;
   this.interactionCallback = null;
@@ -62,6 +48,19 @@ app.Drawer = function(elem) {
 
 };
 
+app.Drawer.prototype.CLASS_DRAWER_SPRING = 'js-drawer-spring';
+app.Drawer.prototype.CLASS_DRAWER_BELT = 'js-drawer-belt';
+app.Drawer.prototype.CLASS_DRAWER_HOLDER = 'js-drawer-holder';
+app.Drawer.prototype.CLASS_SPRING = 'js-object-spring';
+app.Drawer.prototype.CLASS_BELT = 'js-object-conveyorBelt';
+app.Drawer.prototype.CLASS_INACTIVE = 'is-inactive';
+app.Drawer.prototype.CLASS_COUNTER = 'js-drawer-counter';
+app.Drawer.prototype.CLASS_RESTART = 'js-drawer-restart';
+app.Drawer.prototype.CLASS_DRAGGABLE = 'js-draggable';
+app.Drawer.prototype.CLASS_HOLDER_VISIBLE = 'drawer__holder--visible';
+app.Drawer.prototype.CLASS_COUNT_VISIBLE = 'drawer__counter--visible';
+app.Drawer.prototype.CLASS_OBJECT_VISIBLE = 'object--visible';
+app.Drawer.prototype.CLASS_ANIMATE = 'animate';
 
 /**
  * Sets the state to be paused.

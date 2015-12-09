@@ -23,7 +23,7 @@ goog.require('app.Constants');
 /**
  * Static helper functions for converting between pixels and Box2D SI units
  */
-class Unit {
+app.Unit = class {
   /**
    * Convert Box2D world SI unit to pixels
    */
@@ -46,5 +46,3 @@ class Unit {
      return {x, y};
   }
 }
-
-app.Unit = Unit;

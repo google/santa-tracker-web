@@ -21,54 +21,46 @@ goog.require('b2');
 goog.require('app.Unit');
 goog.require('app.world.GravityObject');
 
-
-goog.scope(function () {
-  const Unit = app.Unit;
-  const COLLISION_ID = 'presentSquareFixture';
-
+/**
+ * PresentSquare class
+ * @constructor
+ * @extends app.world.GravityObject
+ */
+app.world.PresentSquare = class extends app.world.GravityObject {
 
   /**
-   * PresentSquare class
+   * @override
    */
-  class PresentSquare extends app.world.GravityObject {
-
-    /**
-     * @override
-     */
-    constructor(...args) {
-      super(...args); // super(...arguments) doesn't work in Closure Compiler
-      this.body_ = this.buildBody_();
-    }
-
-    /**
-     * Builds a Box2d body with its fixtures.
-     * @return {Object} Box2d body object
-     */
-    buildBody_() {
-      const bodyDef = new b2.BodyDef();
-      bodyDef.type = b2.BodyDef.b2_dynamicBody;
-      bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
-
-      const fixDef = new b2.FixtureDef();
-      const width = this.config_.style.width;
-      const height = this.config_.style.height;
-      fixDef.density = this.config_.material.density;
-      fixDef.friction = this.config_.material.friction;
-      fixDef.restitution = this.config_.material.restitution;
-      fixDef.shape = new b2.PolygonShape();
-      fixDef.shape.SetAsBox( Unit.toWorld(width/2), Unit.toWorld(height/2) );
-
-      const body = this.world_.CreateBody(bodyDef);
-      const bodyFix = body.CreateFixture(fixDef);
-
-      bodyFix.collisionID = COLLISION_ID;
-
-      return body;
-    }
+  constructor(...args) {
+    super(...args); // super(...arguments) doesn't work in Closure Compiler
+    this.body_ = this.buildBody_();
   }
 
-  PresentSquare.COLLISION_ID = COLLISION_ID;
+  /**
+   * Builds a Box2d body with its fixtures.
+   * @return {Object} Box2d body object
+   */
+  buildBody_() {
+    const bodyDef = new b2.BodyDef();
+    bodyDef.type = b2.BodyDef.b2_dynamicBody;
+    bodyDef.position.Set(this.initialWorldPos_.x, this.initialWorldPos_.y);
 
-  app.world.PresentSquare = PresentSquare;
+    const fixDef = new b2.FixtureDef();
+    const width = this.config_.style.width;
+    const height = this.config_.style.height;
+    fixDef.density = this.config_.material.density;
+    fixDef.friction = this.config_.material.friction;
+    fixDef.restitution = this.config_.material.restitution;
+    fixDef.shape = new b2.PolygonShape();
+    fixDef.shape.SetAsBox( app.Unit.toWorld(width/2), app.Unit.toWorld(height/2) );
 
-});
+    const body = this.world_.CreateBody(bodyDef);
+    const bodyFix = body.CreateFixture(fixDef);
+
+    bodyFix.collisionID = app.world.PresentSquare.COLLISION_ID;
+
+    return body;
+  }
+}
+
+app.world.PresentSquare.COLLISION_ID = 'presentSquareFixture';

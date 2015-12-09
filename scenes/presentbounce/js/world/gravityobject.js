@@ -25,8 +25,10 @@ goog.require('app.world.LevelObject');
 /**
  * Abtract Base Class - GravityObject class
  * Creats both a Box2D body and renders it as a DOM element.
+ * @constructor
+ * @extends app.world.LevelObject
  */
-class GravityObject extends app.world.LevelObject {
+app.world.GravityObject = class extends app.world.LevelObject {
 
   /**
    * Add custom gravity force before Box2D World step
@@ -38,4 +40,4 @@ class GravityObject extends app.world.LevelObject {
 }
 
 
-app.world.GravityObject = GravityObject;
+// app.world.GravityObject = GravityObject;
