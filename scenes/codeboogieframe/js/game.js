@@ -115,7 +115,10 @@ app.Game.prototype.start = function() {
 /**
  * Resets all game entities and restarts the game. Can be called at any time.
  */
-app.Game.prototype.restart = function() {
+app.Game.prototype.restart = function(mode) {
+  // Handle different game modes;
+  console.log('Game mode: ' + mode);
+
   var match = location.search.match(/[?&]level=(\d+)/) || [];
   var levelNumber = (+match[1] - 1 || 0) - 1;
   this.levelNumber = levelNumber;

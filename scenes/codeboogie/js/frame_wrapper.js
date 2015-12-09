@@ -75,8 +75,8 @@ app.FrameWrapper.prototype.start = function() {
 app.FrameWrapper.prototype.restart = function() {
   this.isPlaying = true;
 
-  this.chooseMode.show(() => {
-    this.iframeChannel.call('restart');
+  this.chooseMode.show((mode) => {
+    this.iframeChannel.call('restart', mode);
     window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
   });
 };
