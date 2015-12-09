@@ -44,7 +44,7 @@ app.world.Level = class {
    */
   constructor(game, elem, levelData, onCompleteCallback, tutorial, scoreboard, drawer) {
     this.game_ = game;
-    this.$elem = elem;
+    this.elem = elem;
     this.levelData_ = levelData;
     this.onCompleteCallback = onCompleteCallback;
 
@@ -90,14 +90,14 @@ app.world.Level = class {
    * Adds event listeners on elements
    */
   addEventListeners_() {
-    this.$elem.on("click", this.onInteraction.bind(this));
+    this.elem.on("click", this.onInteraction.bind(this));
   }
 
   /**
    * Removes event listeners on elements
    */
   removeEventListeners_() {
-    this.$elem.off("click", this.onInteraction);
+    this.elem.off("click", this.onInteraction);
   }
 
   /**
@@ -188,7 +188,7 @@ app.world.Level = class {
     );
 
     // set dimensions of DOM wrapper
-    this.positionWrapperElement_(this.$elem);
+    this.positionWrapperElement_(this.elem);
 
     if (this.debug_) {
       this.$debugCanvas_ = $('<canvas>')
@@ -197,7 +197,7 @@ app.world.Level = class {
               width: app.Constants.CANVAS_WIDTH,
               height: app.Constants.CANVAS_HEIGHT
           })
-          .appendTo(this.$elem);
+          .appendTo(this.elem);
 
       const debugDraw = new b2.DebugDraw();
       debugDraw.SetSprite(this.$debugCanvas_[0].getContext("2d"));
