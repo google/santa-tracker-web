@@ -369,6 +369,7 @@ goog.scope(function() {
         this.ball_.draw();
         if (this.hasBallExitedScreen_()) {
           this.destroyBall();
+          window.santaApp.fire('sound-trigger', 'pb_ball_fallout');
         }
       }
       // loop through fixed level objects
@@ -523,7 +524,8 @@ goog.scope(function() {
       this.userObjects_.length = 0;
       this.levelObjects_.length = 0;
       this.world_ = null;
-
+      
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
       if (this.$debugCanvas_) {
         this.$debugCanvas_.remove();
       }

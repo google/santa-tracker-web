@@ -209,7 +209,7 @@ app.Game.prototype.onLevelCompleted = function(score) {
   if (score) {
     this.scoreboard.addScore(score);
   }
-
+  window.santaApp.fire('sound-trigger', 'pd_ball_finish');
   window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
 
   // Check for game end
@@ -357,7 +357,7 @@ app.Game.prototype.dispose = function() {
       gameid: 'presentbounce', timePlayed: new Date - this.gameStartTime, level: this.level
     });
   }
-
+  window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
   utils.cancelAnimFrame(this.requestId);
   $(window).off('.presentbounce');
   $(document).off('.presentbounce');
