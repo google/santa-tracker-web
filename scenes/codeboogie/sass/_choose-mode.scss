@@ -6,7 +6,6 @@ $choose-mode-width-large: 45em;
   background: #3F49A3;
 
   &__dialog {
-    overflow: hidden;
     width: 80%;
     max-width: 80em;
   }
@@ -35,11 +34,7 @@ $choose-mode-width-large: 45em;
   &__image {
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 50%;
-    overflow: hidden;
     position: relative;
-    /* this fixes the overflow:hidden in Chrome */
-    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
   }
 
   &__text {
@@ -64,14 +59,17 @@ $choose-mode-width-large: 45em;
     width: 100%;
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
-    background-color: #3F74E2;
 
     &--teacher {
-      //background-image: url(img/choose-mode/museum.svg);
+      background-image: url(img/mode-class.svg);
+      margin-bottom: -10%;
+      margin-left: -10%;
+      padding-bottom: 110%;
+      width: 110%;
     }
 
     &--freestyle {
-      //background-image: url(img/choose-mode/secretlab.svg);
+      background-image: url(img/mode-freestyle.svg);
     }
   }
 
