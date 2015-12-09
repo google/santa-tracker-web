@@ -48,24 +48,25 @@ $choose-mode-width-large: 45em;
   &__description {
     font-size: 1em;
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin: 10px 0 20px 0;
     font-weight: normal;
   }
 
   &__bg {
     background-repeat: no-repeat;
     background-size: contain;
-    padding-bottom: 100%;
-    width: 100%;
+    padding-bottom: 50%;
+    width: 50%;
+    transform: translateX(50%);
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
 
     &--teacher {
       background-image: url(img/mode-class.svg);
-      margin-bottom: -10%;
+      margin-bottom: -5%;
       margin-left: -10%;
-      padding-bottom: 110%;
-      width: 110%;
+      padding-bottom: 60%;
+      width: 60%;
     }
 
     &--freestyle {
@@ -103,6 +104,18 @@ $choose-mode-width-large: 45em;
 
     &__description {
       font-size: 1em;
+    }
+
+    &__bg {
+      width: 100%;
+      padding-bottom: 100%;
+      transform: none;
+
+      &--teacher {
+        margin-bottom: -10%;
+        padding-bottom: 110%;
+        width: 110%;
+      }
     }
 
     &__grid {
