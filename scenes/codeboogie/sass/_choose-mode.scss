@@ -7,16 +7,17 @@ $choose-mode-width-large: 45em;
 
   &__dialog {
     overflow: hidden;
+    width: 80%;
+    max-width: 80em;
   }
 
   &__title-wrapper {
-    margin: 30px auto;
-    width: 45em;
+    margin: 0 auto 4em auto;
   }
 
   &__title {
     font-family: 'Lobster', sans-serif;
-    font-size: 10em;
+    font-size: 3em;
     font-weight: 400;
     letter-spacing: -2px;
     line-height: 0.95;
@@ -28,45 +29,49 @@ $choose-mode-width-large: 45em;
     cursor: pointer;
     margin: 0 auto;
     position: relative;
-    width: $choose-mode-width-small;
+    flex: 0 1 45%;
   }
 
   &__image {
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
-    height: $choose-mode-width-small;
     overflow: hidden;
     position: relative;
-    width: $choose-mode-width-small;
     /* this fixes the overflow:hidden in Chrome */
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
   }
 
   &__text {
-    font-size: 3em;
+    font-size: 1.5em;
     letter-spacing: 2px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    opacity: 0.6;
+    line-height: 1.4;
     text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  &__description {
+    font-size: 1em;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-weight: normal;
   }
 
   &__bg {
     background-repeat: no-repeat;
     background-size: contain;
-    height: $choose-mode-width-small;
-    width: $choose-mode-width-small;
+    padding-bottom: 100%;
+    width: 100%;
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
-    background-color: white;
+    background-color: #3F74E2;
 
-    &--museum {
-      background-image: url(img/choose-mode/museum.svg);
+    &--teacher {
+      //background-image: url(img/choose-mode/museum.svg);
     }
 
-    &--secretlab {
-      background-image: url(img/choose-mode/secretlab.svg);
+    &--freestyle {
+      //background-image: url(img/choose-mode/secretlab.svg);
     }
   }
 
@@ -85,61 +90,53 @@ $choose-mode-width-large: 45em;
     transition: opacity 400ms 200ms ease-in-out;
   }
 
-  &__option:hover {
-    .choose-mode__bg {
-      opacity: 0.7;
-    }
-
-    .choose-mode__santa {
-      transform: translate3d(0, 0, 0);
-    }
-
-    .choose-mode__characters--left {
-      transform: translate3d(0, 0, 0);
-    }
-
-    .choose-mode__characters--right {
-      transform: translate3d(0, 0, 0);
-    }
-
-    .choose-mode__magnifier {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition-delay: 0.5s;
-    }
-
-    .choose-mode__go {
-      opacity: 1;
-    }
-  }
-
   @media (min-width: 680px) {
-    &__option {
-      font-size: 0.6em;
+    &__title {
+      font-size: 8em;
+    }
+
+    &__title-wrapper {
+      margin: 0 auto 8em auto;
     }
 
     &__text {
-      margin-bottom: 0;
+      font-size: 1.5em;
+    }
+
+    &__description {
+      font-size: 1em;
     }
 
     &__grid {
       justify-content: space-between;
       display: flex;
-      width: 102em;
+      width: 100%;
     }
 
     &__title-wrapper {
       font-size: 0.7em;
     }
-  }
 
-  @media (min-width: 1200px) {
-    &__option {
-      font-size: 0.5em;
-    }
+    &__option:hover {
+      .choose-mode__bg {
+        opacity: 0.7;
+      }
 
-    &__grid {
-      width: 88em;
+      .choose-mode__santa {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .choose-mode__characters--left {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .choose-mode__characters--right {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .choose-mode__go {
+        opacity: 1;
+      }
     }
   }
 }
