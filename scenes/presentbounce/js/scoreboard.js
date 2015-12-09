@@ -35,7 +35,6 @@ app.Scoreboard = function(game, elem, totalLevels) {
   this.secondsElem = this.elem.find('.time .seconds');
   this.levelItemElems = this.elem.find('.level .level-item');
 
-
   this.attachEvents();
 
   // Initial state
@@ -47,16 +46,24 @@ app.Scoreboard = function(game, elem, totalLevels) {
  */
 app.Scoreboard.prototype.reset = function() {
   this.score = 0;
-  this.countdown = -1;
-  this.lastSeconds = null;
-
+  this.resetTimer();
   this.setLevel(0);
-
-  this.elem.find('.pause').removeClass('paused');
-  this.onFrame(0);
+  this.unpause();
   this.addScore(0);
 };
 
+app.Scoreboard.prototype.unpause = function() {
+  this.elem.find('.pause').removeClass('paused');
+  this.onFrame(0);
+}
+
+/**
+ * Resets the countdown to start again.
+ */
+app.Scoreboard.prototype.resetTimer = function() {
+  this.countdown = -1;
+  this.lastSeconds = null;
+}
 
 /**
  * Restart the timer
@@ -67,13 +74,13 @@ app.Scoreboard.prototype.restart = function() {
   this.onFrame(0);
 };
 
-
 /**
  * Attaches events for scoreboard interactions.
  */
 app.Scoreboard.prototype.attachEvents = function() {
   var self = this;  // intentionally held, so that 'this' is the element
   this.elem.find('.pause').on('click', function(event) {
+    self.game.onInteraction();
     $(event.target).blur();
 
     $(this).toggleClass('paused');
@@ -88,7 +95,8 @@ app.Scoreboard.prototype.attachEvents = function() {
   });
   this.elem.find('.restart').on('click', function(event) {
     $(event.target).blur();
-    self.game.restart();
+    self.game.onInteraction();
+    self.game.restartLevel();
   });
 };
 

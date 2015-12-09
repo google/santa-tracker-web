@@ -21,11 +21,15 @@ goog.require('b2');
 goog.require('app.Constants');
 goog.require('app.Unit');
 goog.require('app.world.LevelObject');
+goog.require('app.world.PresentBall');
+goog.require('app.world.PresentSquare');
 
 
 goog.scope(function () {
   const Constants = app.Constants;
   const Unit = app.Unit;
+  const PresentBall = app.world.PresentBall;
+  const PresentSquare = app.world.PresentSquare;
 
 
   /**
@@ -46,8 +50,17 @@ goog.scope(function () {
     /**
      * Callback for when a collision happens
      */
-    onCollision() {
-      window.santaApp.fire('sound-trigger', 'pb_wall');
+    onCollision(contact) {
+      // check if it's a ball before playing 'boing' the sound
+      if (contact && (
+          contact.GetFixtureA().collisionID === PresentBall.COLLISION_ID   ||
+          contact.GetFixtureA().collisionID === PresentSquare.COLLISION_ID ||
+          contact.GetFixtureB().collisionID === PresentBall.COLLISION_ID   ||
+          contact.GetFixtureB().collisionID === PresentSquare.COLLISION_ID )
+      ) {
+        console.log('CANDY COL');
+        window.santaApp.fire('sound-trigger', 'pb_wall');
+      }
     }
 
     /**

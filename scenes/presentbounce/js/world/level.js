@@ -219,7 +219,9 @@ goog.scope(function() {
      * @private
      */
     init_() {
+      // window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
       this.isLevelLoaded_ = true;
+      this.drawer.reset();
       this.buildLevelObjects_();
       this.buildUserObjects_();
     }
@@ -272,6 +274,7 @@ goog.scope(function() {
         else {
           hasError = false;
           this.userObjects_.push(belt);
+          window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
         }
         callback( hasError );
       }
@@ -470,6 +473,26 @@ goog.scope(function() {
      */
     isGamePaused() {
       return this.game_.paused;
+    }
+
+    pause() {
+      for (let object of this.levelObjects_) {
+        object.pause();
+      }
+      // loop through user placed objects
+      for (let object of this.userObjects_) {
+        object.pause();
+      }
+    }
+
+    resume() {
+      for (let object of this.levelObjects_) {
+        object.resume();
+      }
+      // loop through user placed objects
+      for (let object of this.userObjects_) {
+        object.resume();
+      }
     }
 
     /**

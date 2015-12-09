@@ -26,6 +26,7 @@ goog.require('app.world.ConveyorBelt');
 goog.scope(function () {
   const Unit = app.Unit;
   const ConveyorBelt = app.world.ConveyorBelt;
+  const COLLISION_ID = 'presentBallFixture';
 
 
   /**
@@ -50,10 +51,13 @@ goog.scope(function () {
      * @private
      */
     onCollision_(contact) {
-      if (contact.GetFixtureA().collisionID === ConveyorBelt.COLLISION_ID) {
-        if (!this.previousAngularVelocity) {
-          this.previousAngularVelocity = this.body_.GetAngularVelocity();
-          return;
+      if (contact && (
+        contact.GetFixtureA().collisionID === ConveyorBelt.COLLISION_ID ||
+        contact.GetFixtureB().collisionID === ConveyorBelt.COLLISION_ID )
+      ) {
+          if (!this.previousAngularVelocity) {
+            this.previousAngularVelocity = this.body_.GetAngularVelocity();
+            return;
         }
 
         // set Angular velocity to 0 if velocity is not accelerating/decellerating
@@ -83,12 +87,15 @@ goog.scope(function () {
       fixDef.shape = new b2.CircleShape( Unit.toWorld(this.config_.style.width/2) );
 
       const body = this.world_.CreateBody(bodyDef);
-      body.CreateFixture(fixDef);
+      const bodyFix = body.CreateFixture(fixDef);
+
+      bodyFix.collisionID = COLLISION_ID;
 
       return body;
     }
   }
 
+  PresentBall.COLLISION_ID = COLLISION_ID;
 
   app.world.PresentBall = PresentBall;
 

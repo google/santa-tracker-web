@@ -103,7 +103,7 @@ goog.scope(function () {
     isBoundingBoxOverlappingOtherObject() {
       let isOverlapping = false;
       let aabb = null;
-      
+
       // GET BOUNDING BOX
       let node = this.body_.GetFixtureList().GetFirstNode();
       while (node)
@@ -373,7 +373,7 @@ goog.scope(function () {
 
       this.moveAngle_ = this.getTouchRadianAngle_(e);
       e = app.InputEvent.normalize(e);
-      
+
       // check if we should rotate
       if (this.moveAngle_ !== null) {
         this.setRotation_();

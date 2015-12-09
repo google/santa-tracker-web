@@ -17,10 +17,15 @@
     transition: opacity 150ms;
   }
 
+  .object--spring .object__rotate-handle {
+    right: -50%;
+  }
+
   .object:not(.is-inactive):hover {
     .object__rotate-handle {
       opacity: 1;
     }
   }
+
 
 }

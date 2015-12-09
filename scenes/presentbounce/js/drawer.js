@@ -36,6 +36,7 @@ app.Drawer = function(elem) {
   this.CLASS_BELT = 'js-object-conveyorBelt';
   this.CLASS_INACTIVE = 'is-inactive';
   this.CLASS_COUNTER = 'js-drawer-counter';
+  this.CLASS_RESTART = 'js-drawer-restart';
   this.CLASS_DRAGGABLE = 'js-draggable';
   this.CLASS_HOLDER_VISIBLE = 'drawer__holder--visible';
   this.CLASS_COUNT_VISIBLE = 'drawer__counter--visible';
@@ -45,8 +46,60 @@ app.Drawer = function(elem) {
   this.onDrag = this.onDrag.bind(this);
   this.hasInteractionStarted = false;
   this.interactionCallback = null;
+  this.isGamePaused = false;
 
   this.$drawers = {};
+  this.$restart = this.$elem.find( '.' + this.CLASS_RESTART );
+  this.setDrawers();
+
+  this.$drawers[Constants.USER_OBJECT_TYPE_BELT]
+    .$node
+    .data('type', Constants.USER_OBJECT_TYPE_BELT);
+
+  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING]
+    .$node
+    .data('type', Constants.USER_OBJECT_TYPE_SPRING);
+
+};
+
+
+/**
+ * Sets the state to be paused.
+ */
+app.Drawer.prototype.pause = function() {
+  this.isGamePaused = true;
+};
+
+/**
+ * Sets the sets to be not paused.
+ */
+app.Drawer.prototype.resume = function() {
+  this.isGamePaused = false;
+};
+
+/**
+ * Returns the game state
+ */
+app.Drawer.prototype.isPaused = function() {
+  return this.isGamePaused;
+};
+
+/**
+ * Resets the drawers completely to it's initial state.
+ */
+app.Drawer.prototype.reset = function() {
+  this.setDrawers();
+  for (var prop in this.$drawers) {
+    if (this.$drawers.hasOwnProperty(prop)) {
+      this.getDraggableEl_( this.$drawers[prop].$node ).remove();
+    }
+  }
+};
+
+/**
+ * Caches the drawer elements and resets the count.
+ */
+app.Drawer.prototype.setDrawers = function() {
   this.$drawers[Constants.USER_OBJECT_TYPE_SPRING] = {
     count: 0,
     $node: this.$elem.find( '.' + this.CLASS_DRAWER_SPRING )
@@ -56,11 +109,7 @@ app.Drawer = function(elem) {
     count: 0,
     $node: this.$elem.find( '.' + this.CLASS_DRAWER_BELT )
   };
-
-  this.$drawers[Constants.USER_OBJECT_TYPE_BELT].$node.data('type', Constants.USER_OBJECT_TYPE_BELT);
-  this.$drawers[Constants.USER_OBJECT_TYPE_SPRING].$node.data('type', Constants.USER_OBJECT_TYPE_SPRING);
-
-};
+}
 
 /**
  * Adds an element to the drawer and makes it draggable.
@@ -159,9 +208,9 @@ app.Drawer.prototype.onDropSuccess = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
   var drawer = this.$drawers[drawerType];
   $el.remove();
-  // Note: no need to decrement the counte here
-  // that happens onDrag
-  // check if that reached zero
+  // Note: no need to decrement the counter here
+  // as that already happens onDrag for instant feedback
+  // so, just check if we reached zero
   if (drawer.count === 0) {
     this.hideDrawer(drawer);
   }
@@ -241,6 +290,12 @@ app.Drawer.prototype.hideCounter = function($drawer) {
   $drawer.removeClass( this.CLASS_COUNT_VISIBLE );
 };
 
+/**
+ * Shows the restart drawer button. Not visible on desktop.
+ */
+app.Drawer.prototype.showRestart = function() {
+  this.$restart.addClass( this.CLASS_HOLDER_VISIBLE );
+};
 
 /**
  * Creates a DOM element for a draggable object .
@@ -270,6 +325,7 @@ app.Drawer.prototype.updateDrawersVisibility = function (drawer) {
       }
     }
   }
+  this.showRestart();
 };
 
 /**

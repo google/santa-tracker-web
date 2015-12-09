@@ -24,6 +24,7 @@ goog.require('app.world.GravityObject');
 
 goog.scope(function () {
   const Unit = app.Unit;
+  const COLLISION_ID = 'presentSquareFixture';
 
 
   /**
@@ -58,12 +59,15 @@ goog.scope(function () {
       fixDef.shape.SetAsBox( Unit.toWorld(width/2), Unit.toWorld(height/2) );
 
       const body = this.world_.CreateBody(bodyDef);
-      body.CreateFixture(fixDef);
+      const bodyFix = body.CreateFixture(fixDef);
+
+      bodyFix.collisionID = COLLISION_ID;
 
       return body;
     }
   }
 
+  PresentSquare.COLLISION_ID = COLLISION_ID;
 
   app.world.PresentSquare = PresentSquare;
 

@@ -20,11 +20,14 @@ goog.provide('app.world.Spring');
 goog.require('b2');
 goog.require('app.Unit');
 goog.require('app.world.UserObject');
+goog.require('app.world.PresentBall');
+goog.require('app.world.PresentSquare');
 goog.require('app.shared.utils');
 
 goog.scope(function () {
   const Unit = app.Unit;
-
+  const PresentBall = app.world.PresentBall;
+  const PresentSquare = app.world.PresentSquare;
 
   /**
    * Spring class
@@ -46,9 +49,17 @@ goog.scope(function () {
      * onCollision callback called from the Level.
      * @param  {Object} contact Contact containing both objects that are colliding.
      */
-    onCollision() {
-      utils.animWithClass(this.$el_, 'animate');
-      window.santaApp.fire('sound-trigger', 'pb_boing');
+    onCollision(contact) {
+      // check if it's a ball before playing 'boing' the sound
+      if (contact && contact.GetFixtureA() === this.topPlateFixture_ && (
+          contact.GetFixtureA().collisionID === PresentBall.COLLISION_ID   ||
+          contact.GetFixtureA().collisionID === PresentSquare.COLLISION_ID ||
+          contact.GetFixtureB().collisionID === PresentBall.COLLISION_ID   ||
+          contact.GetFixtureB().collisionID === PresentSquare.COLLISION_ID )
+      ) {
+        utils.animWithClass(this.$el_, 'animate');
+        window.santaApp.fire('sound-trigger', 'pb_boing');
+      }
     }
 
     /**
@@ -61,18 +72,28 @@ goog.scope(function () {
       // Set start position based on mouse position in scene
       const mousePos = this.getMouseWorldVector(this.config_.mouseX, this.config_.mouseY);
       bodyDef.position.Set(mousePos.x, mousePos.y);
-
-      const fixDef = new b2.FixtureDef();
       const width = this.config_.style.width;
       const height = this.config_.style.height;
-      fixDef.density = this.config_.material.density;
-      fixDef.friction = this.config_.material.friction;
-      fixDef.restitution = this.config_.material.restitution;
-      fixDef.shape = new b2.PolygonShape();
-      fixDef.shape.SetAsBox( Unit.toWorld(width/2), Unit.toWorld(height/2) );
+
+      const topPlateFixDef = new b2.FixtureDef();
+      topPlateFixDef.density = this.config_.material.density;
+      topPlateFixDef.friction = this.config_.material.friction;
+      topPlateFixDef.restitution = this.config_.material.restitution;
+      topPlateFixDef.shape = new b2.PolygonShape();
+      topPlateFixDef.shape.SetAsOrientedBox( Unit.toWorld(width/2), Unit.toWorld(1), new b2.Vec2(0, -Unit.toWorld(height/2)), 0);
+
+      const springFixDef = new b2.FixtureDef();
+      springFixDef.density = this.config_.material.density;
+      springFixDef.friction = this.config_.material.friction;
+      springFixDef.restitution = 0.3;
+      springFixDef.shape = new b2.PolygonShape();
+      springFixDef.shape.SetAsBox( Unit.toWorld(width*.4), Unit.toWorld(height/2) );
 
       const body = this.world_.CreateBody(bodyDef);
-      body.CreateFixture(fixDef);
+      body.CreateFixture(springFixDef);
+
+      // keep reference of top fixture so we can check for collision on it later
+      this.topPlateFixture_ = body.CreateFixture(topPlateFixDef);
       return body;
     }
   }

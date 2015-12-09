@@ -96,6 +96,7 @@ app.Game.prototype.start = function() {
  */
 app.Game.prototype.restart = function() {
   var match = location.search.match(/[?&]level=(\d+)/) || [];
+  this.previousLevel = 0;
   this.level = (+match[1] || 1) - 2;
   this.paused = false;
 
@@ -109,6 +110,26 @@ app.Game.prototype.restart = function() {
   window.santaApp.fire('analytics-track-game-start', {gameid: 'presentbounce'});
   this.unfreezeGame();
 };
+
+/**
+ * Restarts the current level.
+ * Similar to a typical restart except we don't reset everything
+ * and keep the current state.
+ */
+app.Game.prototype.restartLevel = function() {
+  this.paused = false;
+
+  // Reset the timer
+  this.scoreboard.resetTimer();
+  this.scoreboard.unpause();
+  this.loadLevel_();
+
+  // Start game
+  window.santaApp.fire('sound-trigger', 'pb_game_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'presentbounce'});
+  this.unfreezeGame();
+}
 
 /**
  * Game loop. Runs every frame using requestAnimationFrame.
@@ -149,19 +170,29 @@ app.Game.prototype.onInteraction = function() {
  */
 app.Game.prototype.loadNextLevel_ = function() {
   // Next level
+  this.previousLevel = this.level;
   this.level++;
-  var levelNumber = this.level % app.config.Levels.length;
 
-  var levelData = app.config.Levels[levelNumber];
-
-  // Send Klang event
-  if (this.level > 0) {
-    window.santaApp.fire('sound-trigger', 'pb_level_up');
-  }
+  this.loadLevel_();
 
   // Update scoreboard
   this.scoreboard.setLevel(this.level);
   this.scoreboard.restart();
+
+};
+
+/**
+ * Transition to the current level
+ * @private
+ */
+app.Game.prototype.loadLevel_ = function() {
+  var levelNumber = this.level % app.config.Levels.length;
+  var levelData = app.config.Levels[levelNumber];
+
+  // Send Klang event
+  if (this.level > 0 && this.level > this.previousLevel) {
+    window.santaApp.fire('sound-trigger', 'pb_level_up');
+  }
 
   // Load new level
   if (this.currentLevel_) {
@@ -180,7 +211,13 @@ app.Game.prototype.onLevelCompleted = function(score) {
   if (score) {
     this.scoreboard.addScore(score);
   }
+<<<<<<< HEAD
   window.santaApp.fire('sound-trigger', 'pd_ball_finish');
+=======
+
+  window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
+
+>>>>>>> cd8364c1d661e3a7b9d0300aa1abff00e766cf81
   // Check for game end
   if (this.level === app.config.Levels.length - 1) {
     this.gameover();
@@ -197,7 +234,8 @@ app.Game.prototype.onLevelCompleted = function(score) {
 app.Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
-  window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
+  this.drawer.pause();
+  this.currentLevel_.pause();
 };
 
 /**
@@ -208,9 +246,10 @@ app.Game.prototype.unfreezeGame = function() {
     this.elem.removeClass('frozen').focus();
 
     this.isPlaying = true;
+    this.drawer.resume();
+    this.currentLevel_.resume();
     this.lastFrame = +new Date() / 1000;
     this.requestId = utils.requestAnimFrame(this.onFrame_);
-    window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
   }
 };
 

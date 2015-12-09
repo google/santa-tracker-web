@@ -71,10 +71,27 @@ goog.scope(function () {
     }
 
     /**
+     * Callback from the level
+     * telling the objects that we are paused.
+     */
+    pause() {
+      this.pauseBelt_();
+    }
+
+    /**
+     * Called from level
+     * telling that we are continuing.
+     */
+    resume() {
+      this.resumeBelt_();
+    }
+
+    /**
      * Pauses the conveyor belt.
      */
     pauseBelt_() {
       this.$el_.addClass('js-animation-paused');
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
       this.updateBeltDirection_(this.getBeltDirectionVector_(0));
     }
 
@@ -83,6 +100,7 @@ goog.scope(function () {
      */
     resumeBelt_() {
       this.$el_.removeClass('js-animation-paused');
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
       this.updateBeltDirection_(this.getBeltDirectionVector_());
     }
 
