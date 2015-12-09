@@ -29,8 +29,6 @@ goog.require('app.world.Level');
 goog.require('app.Drawer');
 
 
-
-
 /**
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
@@ -155,7 +153,7 @@ app.Game.prototype.onFrame_ = function() {
   this.requestId = utils.requestAnimFrame(this.onFrame_);
 };
 
-/** 
+/**
  * Handles user clicks on the background
  */
 app.Game.prototype.onInteraction = function() {
@@ -240,7 +238,6 @@ app.Game.prototype.freezeGame = function() {
 app.Game.prototype.unfreezeGame = function() {
   if (!this.isPlaying) {
     this.elem.removeClass('frozen').focus();
-
     this.isPlaying = true;
     this.drawer.resume();
     this.currentLevel_.resume();
