@@ -58,7 +58,7 @@ goog.scope(function () {
           contact.GetFixtureB().collisionID === PresentBall.COLLISION_ID   ||
           contact.GetFixtureB().collisionID === PresentSquare.COLLISION_ID )
       ) {
-        console.log('CANDY COL');
+        // console.log('CANDY COL');
         window.santaApp.fire('sound-trigger', 'pb_wall');
       }
     }
