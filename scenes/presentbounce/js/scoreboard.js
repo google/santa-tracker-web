@@ -22,7 +22,7 @@ goog.provide('app.Scoreboard');
  * @constructor
  * @param {!app.Game} game The object which can be paused or restarted
  * @param {!Element} elem The scoreboard element.
- * @param {!totalLevels} levels The total number of levels.
+ * @param {!totalLevels} totalLevels The total number of levels.
  */
 app.Scoreboard = function(game, elem, totalLevels) {
   this.game = game;
