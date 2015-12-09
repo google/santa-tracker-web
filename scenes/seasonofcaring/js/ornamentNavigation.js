@@ -175,7 +175,7 @@ app.OrnamentNavigation.prototype.handleResize = function() {
 
   if ($(window).width() < 1025) {
     tempElem = this.elem.find('.Tool-crayon--violet')[0];
-    topOffset = tempElem.getBoundingClientRect().top - 84;
+    topOffset = tempElem.getBoundingClientRect().top - 128;
     tempCSS = {
       'left': '50%',
       'top': topOffset,
