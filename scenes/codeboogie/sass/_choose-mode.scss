@@ -59,7 +59,7 @@ $choose-mode-width-large: 45em;
     width: 50%;
     transform: translateX(50%);
     opacity: 1;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 200ms ease-in-out;
 
     &--teacher {
       background-image: url(img/mode-class.svg);
@@ -106,6 +106,11 @@ $choose-mode-width-large: 45em;
       font-size: 1em;
     }
 
+    &__text, &__description {
+      opacity: 0.8;
+      transition: opacity 200ms;
+    }
+
     &__bg {
       width: 100%;
       padding-bottom: 100%;
@@ -145,7 +150,7 @@ $choose-mode-width-large: 45em;
         transform: translate3d(0, 0, 0);
       }
 
-      .choose-mode__go {
+      .choose-mode__go, .choose-mode__text, .choose-mode__description {
         opacity: 1;
       }
     }
