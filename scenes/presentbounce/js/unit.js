@@ -41,8 +41,8 @@ app.Unit = class {
    * @return Object<x, y>
    */
   static relativeWorld(percentageX, percentageY) {
-     const x = Unit.toWorld(app.Constants.CANVAS_WIDTH * percentageX);
-     const y = Unit.toWorld(app.Constants.CANVAS_HEIGHT * percentageY);
+     const x = app.Unit.toWorld(app.Constants.CANVAS_WIDTH * percentageX);
+     const y = app.Unit.toWorld(app.Constants.CANVAS_HEIGHT * percentageY);
      return {x, y};
   }
 }
