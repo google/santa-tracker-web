@@ -80,7 +80,7 @@ goog.scope(function () {
       buttonFixDef.restitution = material.restitution;
       buttonFixDef.shape = new b2.PolygonShape();
       buttonFixDef.shape.SetAsOrientedBox(worldWidth*0.18, worldHeight*0.3, new b2.Vec2(worldWidth*0.32, worldHeight*0.13), 0);
-      
+
       body.CreateFixture( buttonFixDef );
     }
 
@@ -96,7 +96,7 @@ goog.scope(function () {
       rightFixDef.friction = material.friction;
       rightFixDef.restitution = material.restitution;
       rightFixDef.shape = b2.PolygonShape.AsEdge(new b2.Vec2(-worldWidth*0, -worldHeight), new b2.Vec2(-worldWidth*0, worldHeight*0.5));
-      
+
       body.CreateFixture( leftFixDef );
       body.CreateFixture( rightFixDef );
     }
