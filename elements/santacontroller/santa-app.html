@@ -499,23 +499,6 @@ Polymer({
     },
 
     /**
-     * Full list of tracker destinations as they've come in.
-     */
-    destinations: {
-      type: Array
-    },
-
-    /**
-     * Full list of timeline feed items.
-     */
-    timeline: {
-      type: Array,
-      value: function() {
-        return [];
-      }
-    },
-
-    /**
      * List of video routes. Used for template binding.
      */
     videoRoutes: {
@@ -671,14 +654,6 @@ Polymer({
     var version = document.body.getAttribute('data-version');
     this.santaService = new SantaService(apiClient, this.language, version);
     this.santaService.sync(this._checkSchedule.bind(this));
-
-    this.santaService.addListener('destinations_changed', function(destinations) {
-      this.destinations = destinations || [];
-    }.bind(this));
-
-    this.santaService.addListener('timeline_changed', function(timeline) {
-      this.timeline = timeline || [];
-    }.bind(this));
 
     this.santaService.addListener('kill', function justKillMe() {
       this.analyticsService.trackEvent('API', 'killed');
