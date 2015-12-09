@@ -3,40 +3,48 @@ $name: 'module-about';
 @import "../shared/sass/sceneboard";
 
 ##{$name} {
-  background: #7847b2;
-  overflow: auto;
+  background: rgb(23, 204, 130);
+  min-height: 100%;
 
   #about-banner {
     display: block;
-    height: 315px;
-    background: url(img/about.png) 50% 30px no-repeat;
+    height: 215px;
+    background: url(img/about.png) no-repeat center;
+    background-size: 50%;
   }
 
   #about-banner, #about-content {
-    width: 474px;
+    max-width: 520px;
+    padding: 0 16px;
     margin: 0 auto;
   }
 
-  #about-content {
+  .feature {
     color: #fff;
+    background: #9575CD;
 
     a {
       color: #fff;
     }
+  }
 
+  #about-content {
     h1 {
       margin: 0;
-      padding: 0;
+      padding: 16px 0;
       font-family: 'Lobster', sans-serif;
-      font-weight: 600;
-      font-size: 40px;
+      font-weight: normal;
+      font-size: 42px;
+      line-height: 48px;
+      text-align: center;
     }
 
     p {
       margin: 0;
-      font-size: 13px;
-      line-height: 22px;
-      padding: 15px 0;
+      padding: 0;
+      padding-bottom: 10px;
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 

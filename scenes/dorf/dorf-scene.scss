@@ -13,11 +13,6 @@ $toolbar-size: 64px;
     font-size: 62px !important;
   }
 }
-[lang='en'] ##{$name} {
-  #village-donate {
-    display: block !important;
-  }
-}
 
 ##{$name} {
   background: #f5f2e2;
@@ -349,6 +344,7 @@ $toolbar-size: 64px;
           height: 100%;
           position: absolute;
           display: none;
+          background: #00c6ed;
         }
 
         .text {
@@ -472,7 +468,7 @@ $toolbar-size: 64px;
 
     img {
       max-width: $width-desktop + 240px;
-      margin: 0 auto;
+      margin: 20px auto 0;
       display: block;
     }
   }
@@ -480,7 +476,6 @@ $toolbar-size: 64px;
   #village-donate {
     background: #48d891;
     color: white;
-    display: none;  // en only
 
     #wrapper {
       margin: 0 auto;

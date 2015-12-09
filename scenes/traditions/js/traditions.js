@@ -74,10 +74,6 @@ Traditions.prototype.setup = function() {
    * @private {google.maps.LatLngBounds}
    */
   this.markerBounds_ = null;
-
-  if (document.documentElement.lang.indexOf('en') == 0) {
-    this.el_.querySelector('#lessons-popup').hidden = false;
-  }
 };
 
 /**

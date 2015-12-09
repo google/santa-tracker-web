@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../lazy-pages.html">
+<link rel="import" href="../../js/utils.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -40,7 +41,7 @@ Santa Tracker app.
   <santa-chrome id="chrome"
       mode$="{{mode}}"
       disabled="{{isCastMode(mode)}}"
-      color="{{_colorForRoute(route, _houses)}}"
+      color="{{colorForRoute(route)}}"
       tracker-unlocked="{{postCountdown}}"
       today-house="{{todayHouse}}"
       mute="{{userMute}}">
@@ -61,10 +62,12 @@ Santa Tracker app.
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
 
-      <about-scene route="about" icon="2753"
+      <about-scene route="about" freeform icon="2753"
+          header-color="rgb(39, 186, 131)"
           path$="scenes/about/about-scene_[[language]].html"></about-scene>
 
       <airport-scene route="airport" icon="1f6c4"
+          header-color="#fdbe27"
           path$="scenes/airport/airport-scene_[[language]].html"></airport-scene>
 
       <blimp-scene route="blimp" icon="1f6a1"
@@ -86,18 +89,21 @@ Santa Tracker app.
       <citylights-scene route="citylights" icon="1f306"
           path$="scenes/citylights/citylights-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#182a4a"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
 
       <codeboogie-scene route="codeboogie" icon="1f4dd"
           path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#9a519f"
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codeboogie/img/loading.svg"></codeboogie-scene>
 
       <codelab-scene route="codelab" icon="1f4dd"
           path$="scenes/codelab/codelab-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#9a519f"
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
 
@@ -119,6 +125,7 @@ Santa Tracker app.
       <gumball-scene route="gumball" icon="1f36d"
           path$="scenes/gumball/gumball-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#fdbe27"
           loading-bg-color="#8d23a9"
           loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
 
@@ -131,12 +138,14 @@ Santa Tracker app.
       <jamband-scene route="jamband" icon="1f3b6"
           path$="scenes/jamband/jamband-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#fdbe27"
           loading-bg-color="#fdbe27"
           loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
 
       <jetpack-scene route="jetpack" icon="1f680"
           path$="scenes/jetpack/jetpack-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#9a519f"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
 
@@ -157,6 +166,8 @@ Santa Tracker app.
           mode$="{{mode}}"
           loading-bg-color="#fbbf2c"
           loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
+
+      <!-- presentbounce header-color="#4172e8 -->
 
       <playground-scene route="playground" icon="1f3aa"
           path$="scenes/playground/playground-scene_[[language]].html"
@@ -190,18 +201,21 @@ Santa Tracker app.
       <santasearch-scene route="santasearch" icon=""
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#00904a"
           loading-bg-color="#29B6F6"
           loading-src="scenes/santasearch/img/loading.svg"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#4172e8"
           loading-bg-color="#83D7F5"
           loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#9dca3b"
           loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
 
       <streetview-scene route="streetview" icon="1f3a5"
@@ -214,11 +228,13 @@ Santa Tracker app.
       <traditions-scene route="traditions" icon="1f4cc"
           path$="scenes/traditions/traditions-scene_[[language]].html"
           mode$="{{mode}}"
+          header-color="#fdbe27"
           loading-bg-color="rgb(255,224,0)"
           loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
 
       <translations-scene route="translations" icon="1f4e2"
           path$="scenes/translations/translations-scene_[[language]].html"
+          header-color="#558b2f"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/translations/img/loading.png"></translations-scene>
 
@@ -483,23 +499,6 @@ Polymer({
     },
 
     /**
-     * Full list of tracker destinations as they've come in.
-     */
-    destinations: {
-      type: Array
-    },
-
-    /**
-     * Full list of timeline feed items.
-     */
-    timeline: {
-      type: Array,
-      value: function() {
-        return [];
-      }
-    },
-
-    /**
      * List of video routes. Used for template binding.
      */
     videoRoutes: {
@@ -656,14 +655,6 @@ Polymer({
     this.santaService = new SantaService(apiClient, this.language, version);
     this.santaService.sync(this._checkSchedule.bind(this));
 
-    this.santaService.addListener('destinations_changed', function(destinations) {
-      this.destinations = destinations || [];
-    }.bind(this));
-
-    this.santaService.addListener('timeline_changed', function(timeline) {
-      this.timeline = timeline || [];
-    }.bind(this));
-
     this.santaService.addListener('kill', function justKillMe() {
       this.analyticsService.trackEvent('API', 'killed');
       // redirect after analytics has been processed
@@ -814,6 +805,7 @@ Polymer({
 
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = newValue && !newValue.hasAttribute('freeform');
+    this.$.chrome.closeDrawer();
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
@@ -858,7 +850,8 @@ Polymer({
     el.santaApp = this;
     el.loaded = true;
 
-    ['route', 'mode', 'freeform'].forEach(function(attr) {
+    var retainAttr = ['route', 'mode', 'freeform', 'header-color'];
+    retainAttr.forEach(function(attr) {
       if (prevSelectedScene.hasAttribute(attr)) {
         el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
       }
@@ -1208,18 +1201,16 @@ Polymer({
     });
   },
 
-  _colorForRoute: function(route, houses) {
-    if (!route || route == 'village') {
+  /**
+   * Returns the (static) color for the given route. Returns the blank string
+   * if there is no color.
+   */
+  colorForRoute: function(route) {
+    var el = this.$.lazypages.querySelector('[route="' + route + '"]');
+    if (!el || !el.hasAttribute('header-color')) {
       return '';
     }
-
-    for (var i = 0, house; house = houses[i]; ++i) {
-      if (house.module == route) {
-        return house.color || '';
-      }
-    }
-
-    return '';
+    return el.getAttribute('header-color');
   },
 
   isCastMode: function(mode) {

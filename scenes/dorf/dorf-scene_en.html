@@ -116,7 +116,7 @@ Village scene (2015).
                 <a class="link" href$="{{_calculateHref(item, item.iced)}}">
                   <div class$="card card-{{item.module}}">
                     <div class="image"></div>
-                    <div class="color" style$="background: {{item.color}}"></div>
+                    <div class="color" style$="background-color: [[_colorForRoute(santaApp, item.module)]]"></div>
                     <div class="text">
                       <div class="launchdate" hidden$="{{item.hideDate}}">{{_calculateDateNo(item.launchDate)}}</div>
                       <h4>{{_string('category', item.category, santaApp.strings)}}</h4>
@@ -224,7 +224,7 @@ Village scene (2015).
         <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
         <img src="{{componentDir}}img/footer-elves.svg" />
       </div>
-      <div id="village-donate">
+      <div id="village-donate" class="no-en">
         <div id="wrapper">
           <h3>#ForEveryKid</h3>
           <p>
@@ -857,6 +857,13 @@ Village scene (2015).
 
     _isCastMode: function(mode) {
       return mode == 'cast';
+    },
+
+    /**
+     * Wraps `santaApp.colorForRoute`.
+     */
+    _colorForRoute: function(santaApp, id) {
+      return santaApp.colorForRoute(id);
     },
 
   });

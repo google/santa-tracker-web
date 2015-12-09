@@ -167,7 +167,7 @@ var SCENE_CLOSURE_CONFIG = {
   },
   codeboogieframe: {
     closureLibrary: true,
-    typeSafe: true,
+    typeSafe: false,
     entryPoint: 'app.Game',
     isFrame: true,
     libraries: ['third_party/lib/blockly/**/*.js']
@@ -451,22 +451,28 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'js/jquery.html',
     'js/modernizr.html',
     'js/webanimations.html',
-    'elements/santa-icons.html',
+    'js/utils.html',
     'components/polymer/polymer.html',
     'scenes/scene-behavior.html',
-    'components/i18n-msg/i18n-msg.html',
-    'components/iron-jsonp-library/iron-jsonp-library.html',
-    'components/iron-a11y-keys/iron-a11y-keys.html',
-    'components/iron-media-query/iron-media-query.html',
     'components/google-apis/google-client-loader.html',
     'components/google-apis/google-maps-api.html',
     'components/google-apis/google-js-api.html',
     'components/google-apis/google-legacy-loader.html',
     'components/google-apis/google-plusone-api.html',
     'components/google-apis/google-youtube-api.html',
-    'components/iron-selector/iron-selector.html',
+    'components/i18n-msg/i18n-msg.html',
+    'components/iron-jsonp-library/iron-jsonp-library.html',
+    'components/iron-a11y-keys/iron-a11y-keys.html',
+    'components/iron-icon/iron-icon.html',
+    'components/iron-iconset-svg/iron-iconset-svg.html',
+    'components/iron-media-query/iron-media-query.html',
+    'components/iron-meta/iron-meta.html',
     'components/iron-pages/iron-pages.html',
-    'components/paper-item/paper-item.html'
+    'components/iron-selector/iron-selector.html',
+    'components/paper-item/paper-item.html',
+    'components/paper-fab/paper-fab.html',
+    'components/paper-ripple/paper-ripple.html',
+    'elements/santa-icons.html',
   ];
   return gulp.src([
       'scenes/*/*-scene*.html'
@@ -503,7 +509,7 @@ gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service']
       inlineScripts: true,
       inlineCss: true,
       stripComments: true,
-      dest: 'elements'
+      dest: 'elements',
     }))
     .pipe($.crisper({scriptInHead: true})) // Separate HTML/JS into separate files.
     .pipe($.if('*.html', i18n_replace({

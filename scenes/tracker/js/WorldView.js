@@ -365,7 +365,11 @@ WorldView.prototype.addMarkers_ = function(dests) {
 };
 
 WorldView.prototype.filterMarkers_ = function() {
-  var now = this.base_.santaApp.santaService.now();
+  var now = Infinity;
+  if (this.base_.santaApp) {
+    // might be called before/after santaApp is available
+    now = this.base_.santaApp.santaService.now();
+  }
 
   for (var i = 0, marker; marker = this.routeMarkers_[i]; i++) {
     var dest = /** @type {SantaLocation} */(marker.get('st_dest'));
