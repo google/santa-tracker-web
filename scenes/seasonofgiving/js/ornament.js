@@ -320,8 +320,8 @@ app.Ornament.prototype.mouseDown = function(event) {
   }
 
   this.lastPoint = {
-    x: e.x -  $(this.canvas).offset().left,
-    y: e.y -  $(this.canvas).offset().top
+    x: e.x -  this.canvas.getBoundingClientRect().left,
+    y: e.y -  this.canvas.getBoundingClientRect().top
   };
 
   this.randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -355,7 +355,7 @@ app.Ornament.prototype.mouseMove = function(event) {
     return;
   }
 
-  var rect = $(this.canvas).offset();
+  var rect = this.canvas.getBoundingClientRect();
   var e = {};
   if (event.type === 'mousemove') {
     e.x = event.pageX;
