@@ -799,6 +799,34 @@
         "description": "Short hint after failing a level. One or two sentences max.",
         "message": "You are using the right blocks, but try using more of them to complete the dance."
     },
+    "codeboogie-go": {
+        "description": "",
+        "message": "Go!"
+    },
+    "codeboogie-choose-game-mode": {
+        "description": "",
+        "message": "Choose a game mode"
+    },
+    "codeboogie-mode-dance-class": {
+        "description": "",
+        "message": "Dance class"
+    },
+    "codeboogie-mode-dance-class-description": {
+        "description": "",
+        "message": "Match the teacher's moves"
+    },
+    "codeboogie-mode-freestyle": {
+        "description": "",
+        "message": "Dance freestyle"
+    },
+    "codeboogie-mode-freestyle-description": {
+        "description": "",
+        "message": "Make your own moves and share with friends"
+    },
+    "codeboogie-share-moves": {
+        "description": "",
+        "message": "Share my moves"
+    },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
         "message": "when run"
