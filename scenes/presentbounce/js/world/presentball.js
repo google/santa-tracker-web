@@ -55,6 +55,7 @@ goog.scope(function () {
         contact.GetFixtureA().collisionID === ConveyorBelt.COLLISION_ID ||
         contact.GetFixtureB().collisionID === ConveyorBelt.COLLISION_ID )
       ) {
+          window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_bounce');
           if (!this.previousAngularVelocity) {
             this.previousAngularVelocity = this.body_.GetAngularVelocity();
             return;

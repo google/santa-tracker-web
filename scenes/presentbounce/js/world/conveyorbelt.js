@@ -76,6 +76,7 @@ goog.scope(function () {
      */
     pause() {
       this.pauseBelt_();
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
     }
 
     /**
@@ -84,6 +85,7 @@ goog.scope(function () {
      */
     resume() {
       this.resumeBelt_();
+      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
     }
 
     /**
@@ -91,7 +93,6 @@ goog.scope(function () {
      */
     pauseBelt_() {
       this.$el_.addClass('js-animation-paused');
-      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
       this.updateBeltDirection_(this.getBeltDirectionVector_(0));
     }
 
@@ -100,7 +101,6 @@ goog.scope(function () {
      */
     resumeBelt_() {
       this.$el_.removeClass('js-animation-paused');
-      window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
       this.updateBeltDirection_(this.getBeltDirectionVector_());
     }
 

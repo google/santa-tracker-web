@@ -211,13 +211,9 @@ app.Game.prototype.onLevelCompleted = function(score) {
   if (score) {
     this.scoreboard.addScore(score);
   }
-<<<<<<< HEAD
   window.santaApp.fire('sound-trigger', 'pd_ball_finish');
-=======
-
   window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
 
->>>>>>> cd8364c1d661e3a7b9d0300aa1abff00e766cf81
   // Check for game end
   if (this.level === app.config.Levels.length - 1) {
     this.gameover();
@@ -364,7 +360,7 @@ app.Game.prototype.dispose = function() {
       gameid: 'presentbounce', timePlayed: new Date - this.gameStartTime, level: this.level
     });
   }
-
+  window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
   utils.cancelAnimFrame(this.requestId);
   $(window).off('.presentbounce');
   $(document).off('.presentbounce');

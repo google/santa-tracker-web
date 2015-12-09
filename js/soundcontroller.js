@@ -91,7 +91,7 @@ SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.js';
  */
 SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
-  Klang.init('http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.json', function(success) {
+  Klang.init(SoundController.klangConfigSrc_, function(success) {
     if (success) {
       console.log('Klang loaded');
       this.klangLoaded_ = true;
