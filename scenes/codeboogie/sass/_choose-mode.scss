@@ -38,11 +38,14 @@ $choose-mode-width-large: 45em;
   }
 
   &__text {
-    font-size: 1.5em;
-    letter-spacing: 2px;
+    font-size: 2em;
     line-height: 1.4;
-    text-transform: uppercase;
     margin-bottom: 0;
+    margin-top: -0.8em;
+  }
+
+  &__text--teacher {
+    margin-top: -2em;
   }
 
   &__description {
@@ -50,6 +53,10 @@ $choose-mode-width-large: 45em;
     line-height: 1.4;
     margin: 4px 0 20px 0;
     font-weight: normal;
+  }
+
+  &__text, &__description {
+    transform: translateZ(0);
   }
 
   &__bg {
@@ -63,10 +70,9 @@ $choose-mode-width-large: 45em;
 
     &--teacher {
       background-image: url(img/mode-class.svg);
-      margin-bottom: -5%;
-      margin-left: -10%;
-      padding-bottom: 60%;
-      width: 60%;
+      margin-left: -8%;
+      padding-bottom: 55%;
+      width: 55%;
     }
 
     &--freestyle {
@@ -99,16 +105,11 @@ $choose-mode-width-large: 45em;
     }
 
     &__text {
-      font-size: 1.5em;
+      font-size: 3em;
     }
 
     &__description {
       font-size: 1em;
-    }
-
-    &__text, &__description {
-      opacity: 0.8;
-      transition: opacity 200ms;
     }
 
     &__bg {
@@ -117,7 +118,6 @@ $choose-mode-width-large: 45em;
       transform: none;
 
       &--teacher {
-        margin-bottom: -10%;
         padding-bottom: 110%;
         width: 110%;
       }
