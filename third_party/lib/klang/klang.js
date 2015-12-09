@@ -483,7 +483,7 @@ var __extends = this.__extends || function (d, b) {
             //this._currentFile.audioElement.loop = this._loop;
             this.beforeEnding = this.beforeEnding.bind(this);
         }
-        ATAudioSource.STATE_PLAYING = 3;
+        ATAudioSource.STATE_PLAYING = 2;
         ATAudioSource.STATE_STOPPING = 3;
         ATAudioSource.STATE_STOPPED = 4;
         ATAudioSource.prototype.beforeEnding = function () {
@@ -845,9 +845,9 @@ var __extends = this.__extends || function (d, b) {
         ATProcess.prototype.start = function (args) {
             try  {
                 if(typeof this._data.at_action === 'function') {
-                    this._data.at_action(Util, this._vars, args);
+                    this._data.at_action(Util, this._vars, args, Util.vars);
                 } else {
-                    new Function("Util", "me", "args", this._data.at_action)(Util, this._vars, args);
+                    new Function("Util", "me", "args", "vars", this._data.at_action)(Util, this._vars, args, Util.vars);
                 }
             } catch (ex) {
                 Klang.err("Klang: error in process '" + this._name + "': " + ex.name + ": " + ex.message);
@@ -916,6 +916,12 @@ var __extends = this.__extends || function (d, b) {
             } else {
                 baseURL = filePath;
             }
+            if(data.debug) {
+                Klang.debugData.ignoredEvents = data.debug.ignored_events || Klang.debugData.ignoredEvents;
+                Klang.debugData.logToConsole = data.debug.log_to_console || Klang.debugData.logToConsole;
+            }
+            this._logIgnore = data.debug.log_ignore || data.log_ignore || {
+            };
             var format = ".mp3";
             if(Klang.detector.browser['name'] == "Firefox" || Klang.detector.browser['name'] == "Chrome") {
                 format = ".ogg";
@@ -969,12 +975,14 @@ var __extends = this.__extends || function (d, b) {
                     this._audio[as].connect(this._busses[this._audio[as]._destination_name]);
                 }
             }
+            // set vars to Util
+            this.setVars(data.vars);
             // Create processes
             this._processes = {
             };
             for(var p in data.processes) {
                 var processData = data.processes[p];
-                // skapa inte processer som itne används i audiotag
+                // skapa inte processer som inte används i audiotag
                 if(processData.at_action) {
                     var processArgs = {
                     };
@@ -1009,6 +1017,43 @@ var __extends = this.__extends || function (d, b) {
                     document.addEventListener(evtname, visChange);
                 }
             }
+        };
+        AudioTagHandler.prototype.setVars = function (vars) {
+            if(vars) {
+                for(var key in vars) {
+                    if(typeof vars[key] == "string" && vars[key].indexOf("me.") > -1) {
+                        vars[key] = this.findInstance(vars[key].split('me.')[1]);
+                    } else if(typeof vars[key] == "object") {
+                        var obj = vars[key];
+                        for(var prop in obj) {
+                            if(obj.hasOwnProperty(prop)) {
+                                if(typeof obj[prop] == "string" && obj[prop].indexOf("me.") > -1) {
+                                    obj[prop] = this.findInstance(obj[prop].split('me.')[1]);
+                                }
+                            }
+                        }
+                    }
+                }
+                Util.vars = vars;
+            }
+        };
+        AudioTagHandler.prototype.findInstance = /**
+        * Finds audio / bus / object by it's name.
+        * @param name identified by name of the object.
+        * @return Object identified by name or null if not found.
+        */
+        function (name) {
+            var instance;
+            if(this._audio[name]) {
+                instance = this._audio[name];
+            } else if(this._busses[name]) {
+                instance = this._busses[name];
+            }
+            // Kasta ett undantag om ingen instans matchade namnet
+            if(!instance) {
+                Klang.warn("Core: Unknown reference: '" + name + "'");
+            }
+            return instance;
         };
         AudioTagHandler.prototype.fadeBusVolume = function (bus, value, duration) {
             var b = this._busses[bus._name];
@@ -1134,15 +1179,18 @@ var __extends = this.__extends || function (d, b) {
             for(var i = 0; i < args.length; i++) {
                 str += args[i] + ", ";
             }
-            if(name != "sound_position") {
-                var arg = "";
-                if(args) {
-                    arg = args[0];
-                }
-            }
             if(!this._events) {
                 // not initialized
                 return;
+            }
+            if(!this._events[name]) {
+                if(Klang.debugData.logToConsole && !this._logIgnore[name]) {
+                    Klang.logc("Klang ATHandler: Incoming sound event: '" + name + "  ' " + " ,    " + args, Util.LOG_UNIMPLEMENTED_EVENT_COLOR);
+                }
+            } else {
+                if(Klang.debugData.logToConsole && !this._logIgnore[name]) {
+                    Klang.logc("Klang ATHandler: Incoming sound event: '" + name + " ' " + ",   " + args, Util.LOG_EVENT_COLOR);
+                }
             }
             try  {
                 var eventTarget = this._events[name];

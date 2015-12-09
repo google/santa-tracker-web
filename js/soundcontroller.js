@@ -93,7 +93,6 @@ SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
   Klang.init(SoundController.klangConfigSrc_, function(success) {
     if (success) {
-      //Klang.loggingEnabled=true;
       console.log('Klang loaded');
       this.klangLoaded_ = true;
 
