@@ -107,7 +107,7 @@ app.world.Level = class {
   onLevelCompleted() {
     let score = 0;
     let currentTime = this.scoreboard.getCountdown();
-    const BASE_POINTS = 5;
+    const BASE_POINTS = 50;
     const TIME_MODIFIDER = 30;
 
     // Start with some base points
@@ -115,7 +115,7 @@ app.world.Level = class {
 
     // Points based on speed:
     // the smaller the currentTime, the bigger the score should be
-    score += Math.max(TIME_MODIFIDER - currentTime, 0);
+    score *= Math.max(TIME_MODIFIDER/currentTime, 0);
 
     // More points if using less tools
     score += (this.numObjectsAvailable * BASE_POINTS);
