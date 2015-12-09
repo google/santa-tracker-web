@@ -535,7 +535,10 @@ var __extends = this.__extends || function (d, b) {
                 this.state = ATAudioSource.STATE_PLAYING;
                 return;
             } else {
-                this.update();
+                //fadeInAndplay uses keepVolume as the volume is fading
+                if(!keepVolume) {
+                    this.update();
+                }
             }
             this._currentFile.audioElement.currentTime = 0;
             this._currentFile.audioElement.play();
@@ -556,7 +559,8 @@ var __extends = this.__extends || function (d, b) {
             this.state = ATAudioSource.STATE_PLAYING;
             return this;
         };
-        ATAudioSource.prototype.fadeInAndPlay = function (targetValue, duration, when, offset) {
+        ATAudioSource.prototype.fadeInAndPlay = //targetValue not used
+        function (targetValue, duration, when, offset) {
             when = when || 0;
             if(when > 0) {
                 var _this = this;
@@ -570,8 +574,9 @@ var __extends = this.__extends || function (d, b) {
         };
         ATAudioSource.prototype.doFadeInAndPlay = function (targetValue, duration) {
             this._gain.setVolume(this.state == ATAudioSource.STATE_PLAYING ? this._gain.getVolume() : 0);
-            this.play(0, 0, false, true);
-            this._gain.fadeVolume(targetValue, duration);
+            this.play(0, 0, true, true);
+            //targetValue not needed the correct volume gets calculated during the fade
+            this._gain.fadeVolume(1, duration);
             return this;
         };
         ATAudioSource.prototype.stop = function (when) {
@@ -674,6 +679,13 @@ var __extends = this.__extends || function (d, b) {
             }
             return this;
         };
+        Object.defineProperty(ATAudioGroup.prototype, "content", {
+            get: function () {
+                return this._content;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(ATAudioGroup.prototype, "playing", {
             get: function () {
                 var playing = false;
@@ -1164,7 +1176,8 @@ var __extends = this.__extends || function (d, b) {
                 if(audio && audio.setVolume && audio.getOutput()) {
                     var audioOut = audio.getOutput();
                     if(audioOut) {
-                        audio.setVolume(audioOut.getVolume());
+                        //audio.setVolume(audioOut.getVolume());
+                        audio.update();
                     }
                 }
             }
@@ -2042,7 +2055,7 @@ var __extends = this.__extends || function (d, b) {
         Klang.readyState = Klang.READY_STATE_NOT_INITIATED;
         var doWebaudio = options.forceMode === 'webaudio' || (!options.forceMode && window.AudioContext !== undefined);
         var doAudioTag = options.forceMode === 'audiotag' || (!options.forceMode && !window.AudioContext);
-        // ebAudio first
+        // webAudio first
         if(doWebaudio) {
             if(!Klang.context) {
                 Klang.context = new AudioContext();
@@ -2080,46 +2093,41 @@ var __extends = this.__extends || function (d, b) {
             }
             return true;
         }
-        // try {
-        Klang.version = "webaudio";
-        if(Core.isInited()) {
-            Klang.warn("Klang already initialized");
-        }
-        //Används för att själv styra om till fallback json fil i jfk
-        /*if (Klang.fallback) {
-        json = json.substring(0, json.indexOf("config.json"))+Klang.fallback;
-        }*/
-        // js vs json
-        if(typeof json === 'string' && json.indexOf('.json') === -1 && json.indexOf('.js') > 1) {
-            //in case someone decided to use a KLANG_CONFIG global
-            var oldKLANG_CONFIG = window['KLANG_CONFIG'];
-            Util.loadScriptFile(json, function () {
-                var config = window['KLANG_CONFIG'];
-                window['KLANG_CONFIG'] = oldKLANG_CONFIG;
-                Core.instance.loadJSON(config, function (success) {
+        try  {
+            Klang.version = "webaudio";
+            if(Core.isInited()) {
+                Klang.warn("Klang already initialized");
+            }
+            // js vs json
+            if(typeof json === 'string' && json.indexOf('.json') === -1 && json.indexOf('.js') > 1) {
+                //in case someone decided to use a KLANG_CONFIG global
+                var oldKLANG_CONFIG = window['KLANG_CONFIG'];
+                Util.loadScriptFile(json, function () {
+                    var config = window['KLANG_CONFIG'];
+                    window['KLANG_CONFIG'] = oldKLANG_CONFIG;
+                    Core.instance.loadJSON(config, function (success) {
+                        Klang.readyState = Klang.READY_STATE_LOADED;
+                        readyCallback && readyCallback(success);
+                        processEventQue();
+                    }, progressCallback, json);
+                }, function () {
+                    //error
+                                    });
+            } else {
+                Core.instance.loadJSON(json, function (success) {
                     Klang.readyState = Klang.READY_STATE_LOADED;
                     readyCallback && readyCallback(success);
                     processEventQue();
                 }, progressCallback, json);
-            }, function () {
-                //error
-                            });
-        } else {
-            Core.instance.loadJSON(json, function (success) {
-                Klang.readyState = Klang.READY_STATE_LOADED;
-                readyCallback && readyCallback(success);
-                processEventQue();
-            }, progressCallback, json);
-        }
-        return true;
-        //   }
-        // catch (ex) {
-        //    //     Klang.err("Klang exception: unable to parse config file: '" + json + "': " + ex.name + ": " + ex.message);
-        //    //    //     Klang.version = "failed web audio";
-        //     readyCallback(false);
-        //     return false;
-        // }
             }
+            return true;
+        } catch (ex) {
+            Klang.err("Klang exception: unable to parse config file: '" + json + "': " + ex.name + ": " + ex.message);
+            Klang.version = "failed web audio";
+            readyCallback(false);
+            return false;
+        }
+    }
     Klang.init = init;
     /**
     * Initializes web audio for iOS devices, should be called on a touch event.
@@ -2960,6 +2968,7 @@ var __extends = this.__extends || function (d, b) {
         */
         var Audio = (function () {
             function Audio(data, name) {
+                this.data = data;
                 this._name = name;
                 this._type = data.type;
                 this._output = Klang.context.createGain();
@@ -3140,6 +3149,11 @@ var __extends = this.__extends || function (d, b) {
                     this.connect(Core.instance.findInstance(this.destinationName).input);
                 }
             };
+            Audio.prototype.clone = function () {
+                var clone = new this["constructor"](this.data, this._name);
+                clone.connect(Core.instance.findInstance(this.destinationName).input);
+                return clone;
+            };
             return Audio;
         })();
         Model.Audio = Audio;        
@@ -3169,7 +3183,6 @@ var __extends = this.__extends || function (d, b) {
                 this._pauseTime = -1;
                 // Hur lång tid av ljudet som spelats
                 this._pauseStartTime = -1;
-                this.data = data;
                 this.editorName = data.editorName;
                 this._fileId = data.file_id;
                 this._playbackRate = data.playback_rate || 1.0;
@@ -8885,9 +8898,9 @@ var __extends = this.__extends || function (d, b) {
                         if(pitchStartFreq != -1) {
                             this.source.frequency.setValueAtTime(pitchStartFreq, when);
                             if(Klang.safari) {
-                                this.source.frequency.setTargetValueAtTime(pitchTargetFreq, when, pitchEG.decay);
+                                this.source.frequency.setTargetValueAtTime(pitchTargetFreq, when, pitchEG.decay || 0.0001);
                             } else {
-                                this.source.frequency.setTargetAtTime(pitchTargetFreq, when, pitchEG.decay);
+                                this.source.frequency.setTargetAtTime(pitchTargetFreq, when, pitchEG.decay || 0.0001);
                             }
                         } else// om contour är 0 sätts värdet direkt
                          {
@@ -8911,9 +8924,9 @@ var __extends = this.__extends || function (d, b) {
                         this.filter.frequency.setValueAtTime(this.filterStartFreq, when);
                         this.filter.frequency.exponentialRampToValueAtTime(this.filterTargetFreq, when + filterEG.attack);
                         if(Klang.safari) {
-                            this.filter.frequency.setTargetValueAtTime(this.filterTargetFreq * filterEG.sustain, when + filterEG.attack, filterEG.decay);
+                            this.filter.frequency.setTargetValueAtTime(this.filterTargetFreq * filterEG.sustain, when + filterEG.attack, filterEG.decay || 0.0001);
                         } else {
-                            this.filter.frequency.setTargetAtTime(this.filterTargetFreq * filterEG.sustain, when + filterEG.attack, filterEG.decay);
+                            this.filter.frequency.setTargetAtTime(this.filterTargetFreq * filterEG.sustain, when + filterEG.attack, filterEG.decay || 0.0001);
                         }
                     }
                 }
@@ -8933,9 +8946,9 @@ var __extends = this.__extends || function (d, b) {
                     this._envelope.gain.setValueAtTime(0.0, when);
                     this._envelope.gain.linearRampToValueAtTime(vol, when + gainEG.attack);
                     if(Klang.safari) {
-                        this._envelope.gain.setTargetValueAtTime(vol * gainEG.sustain, when + gainEG.attack, gainEG.decay);
+                        this._envelope.gain.setTargetValueAtTime(vol * gainEG.sustain, when + gainEG.attack, gainEG.decay || 0.0001);
                     } else {
-                        this._envelope.gain.setTargetAtTime(vol * gainEG.sustain, when + gainEG.attack, gainEG.decay);
+                        this._envelope.gain.setTargetAtTime(vol * gainEG.sustain, when + gainEG.attack, gainEG.decay || 0.0001);
                     }
                 } else {
                     this._envelope.gain.setValueAtTime(vol, when);
@@ -10016,9 +10029,9 @@ var __extends = this.__extends || function (d, b) {
                 copy.output.gain.setValueAtTime(0.0, when);
                 copy.output.gain.linearRampToValueAtTime(vol, when + this._gainEG.attack);
                 if(copy.output.gain.setTargetAtTime) {
-                    copy.output.gain.setTargetAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay);
+                    copy.output.gain.setTargetAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay || 0.0001);
                 } else if(copy.output.gain.setTargetValueAtTime) {
-                    copy.output.gain.setTargetValueAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay);
+                    copy.output.gain.setTargetValueAtTime(vol * this._gainEG.sustain, when + this._gainEG.attack, this._gainEG.decay || 0.0001);
                 }
             };
             SamplePlayer.prototype.adsr = /**
@@ -10308,6 +10321,13 @@ var __extends = this.__extends || function (d, b) {
                         for(var jx = 0, len = this._registeredSynths.length; jx < len; jx++) {
                             this._registeredSynths[jx].update(this._currentStep, this._scheduleTime);
                         }
+                        var currentStep = this.currentStep;
+                        var currentBeat = Math.floor(currentStep);
+                        if(currentBeat !== this._lastBeat) {
+                            this.trigger('beforeNextBeat', currentBeat, this.getBeatTime(0) - this._scheduleTime, this._scheduleTime);
+                        }
+                        this._lastBeat = currentBeat;
+                        this.trigger('progress', this._currentStep, this.getBeatTime(0) - this._scheduleTime, this._scheduleTime);
                         // Gå till nästa step
                         this._currentStep += this._resolution;
                         //this._scheduleTime += (60.0 / this._bpm) * this._resolution;
@@ -10323,14 +10343,6 @@ var __extends = this.__extends || function (d, b) {
                             this._scheduleTime += (60.0 / this._bpm) * this._resolution;
                         }
                     }
-                    var currentStep = this.currentStep;
-                    var currentBeat = Math.floor(currentStep);
-                    var now = Klang.context.currentTime;
-                    if(currentBeat !== this._lastBeat) {
-                        this.trigger('beforeNextBeat', currentBeat, this.getBeatTime(0) - now, now);
-                        this._lastBeat = currentBeat;
-                    }
-                    this.trigger('progress', this._currentStep, this.getBeatTime(0) - now, this._scheduleTime);
                 }
                 // Hax för att kunna anropa en privat funktion med setTimeout
                 var _this = this;

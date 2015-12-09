@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../lazy-pages.html">
+<link rel="import" href="../../js/utils.html">
 
 <link rel="import" href="dependencies.html">
 
@@ -88,6 +89,12 @@ Santa Tracker app.
           mode$="{{mode}}"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
+
+      <codeboogie-scene route="codeboogie" icon="1f4dd"
+          path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-bg-color="#3f4ea1"
+          loading-src="scenes/codeboogie/img/loading.svg"></codeboogie-scene>
 
       <codelab-scene route="codelab" icon="1f4dd"
           path$="scenes/codelab/codelab-scene_[[language]].html"
@@ -208,10 +215,7 @@ Santa Tracker app.
           path$="scenes/streetview/streetview-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"></streetview-scene>
 
-      <!-- TODO(samthor): The Polymer upgrade path mucks with binding this value
-        and it may not be updated after the first time -->
       <tracker-scene id="tracker" route="tracker" icon="1f385"
-          destinations="{{destinations}}"
           path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
 
       <traditions-scene route="traditions" icon="1f4cc"

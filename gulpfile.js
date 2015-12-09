@@ -138,6 +138,18 @@ var SCENE_CLOSURE_CONFIG = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  codeboogie: {
+    typeSafe: false,
+    entryPoint: 'app.FrameWrapper',
+    dependencies: ['codeboogieframe']
+  },
+  codeboogieframe: {
+    closureLibrary: true,
+    typeSafe: false,
+    entryPoint: 'app.Game',
+    isFrame: true,
+    libraries: ['third_party/lib/blockly/**/*.js']
+  },
   codelab: {
     typeSafe: false,
     entryPoint: 'app.FrameWrapper',
@@ -147,7 +159,8 @@ var SCENE_CLOSURE_CONFIG = {
     closureLibrary: true,
     typeSafe: false,
     entryPoint: 'app.Game',
-    isFrame: true
+    isFrame: true,
+    libraries: ['third_party/lib/blockly/**/*.js']
   },
   commandcentre: {
     typeSafe: false,
@@ -191,7 +204,7 @@ var SCENE_CLOSURE_CONFIG = {
   },
   presentbounce: {
     closureLibrary: true,
-    typeSafe: false,
+    typeSafe: true,
     entryPoint: 'app.Game'
   },
   presentdrop: {
@@ -318,6 +331,13 @@ gulp.task('compile-scenes', ['compile-santa-api-service'], function() {
     }
     compilerSrc.push('!' + closureLibraryPath + '/**_test.js');
 
+    // Extra closure compiled libraries required by scene. Unfortunately
+    // closure compiler does not support standard bash glob '**/*.ext'. Only
+    // unstandard '**.ext' which bash/gulp does not support.
+    var libraries = config.libraries || [];
+    libraries = libraries.map(function(lib) { return lib.replace('**/*', '**'); });
+    compilerSrc = compilerSrc.concat(libraries);
+
     return stream.add(gulp.src([
       'scenes/' + sceneName + '/js/**/*.js',
       'scenes/shared/js/*.js',
@@ -359,6 +379,42 @@ function addCompilerFlagOptions(opts) {
   return opts;
 }
 
+gulp.task('build-scene-deps', function() {
+  // compile each scene, merging them into a single gulp stream as we go
+  return SCENE_NAMES.reduce(function(stream, sceneName) {
+    var config = SCENE_CLOSURE_CONFIG[sceneName];
+    var fileName = sceneName + '-scene.deps.js';
+    var dest = '.devmode/scenes/' + sceneName;
+    var scripts = [
+      'scenes/' + sceneName + '/js/**/*.js',
+      'scenes/shared/js/*.js'
+    ].concat(config.libraries || []);
+
+    return stream.add(gulp.src(scripts)
+        .pipe($.newer(dest + '/' + fileName))
+        .pipe(closureDeps({
+          baseDir: '.',
+          fileName: fileName,
+          prefix: '../../../..'
+        }))
+        .pipe($.changed(dest, {hasChanged: $.changed.compareSha1Digest}))
+        .pipe(gulp.dest(dest)));
+  }, mergeStream());
+});
+
+gulp.task('create-dev-scenes', function() {
+  // compile each scene, merging them into a single gulp stream as we go
+  return SCENE_NAMES.reduce(function(stream, sceneName) {
+    var dest = '.devmode/scenes/' + sceneName;
+    return stream.add(
+        gulp.src('scenes/' + sceneName + '/' + sceneName + '-scene_en.html')
+            .pipe(devScene(sceneName, SCENE_CLOSURE_CONFIG[sceneName]))
+            .pipe($.newer(dest + '/index.html'))
+            .pipe(gulp.dest(dest))
+    );
+  }, mergeStream());
+});
+
 gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() {
   // These are the 'common' elements inlined in elements_en.html. They can be
   // safely stripped (i.e., not inlined) from all scenes.
@@ -367,20 +423,28 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
     'js/jquery.html',
     'js/modernizr.html',
     'js/webanimations.html',
+    'js/utils.html',
     'components/polymer/polymer.html',
     'scenes/scene-behavior.html',
-    'components/i18n-msg/i18n-msg.html',
-    'components/iron-jsonp-library/iron-jsonp-library.html',
-    'components/iron-a11y-keys/iron-a11y-keys.html',
     'components/google-apis/google-client-loader.html',
     'components/google-apis/google-maps-api.html',
     'components/google-apis/google-js-api.html', // tracker
     'components/google-apis/google-legacy-loader.html',
-    'components/google-apis/google-plusone-api.html', // tracker
-    'components/google-apis/google-youtube-api.html', // tracker
-    'components/iron-selector/iron-selector.html',
+    'components/google-apis/google-plusone-api.html',
+    'components/google-apis/google-youtube-api.html',
+    'components/i18n-msg/i18n-msg.html',
+    'components/iron-jsonp-library/iron-jsonp-library.html',
+    'components/iron-a11y-keys/iron-a11y-keys.html',
+    'components/iron-icon/iron-icon.html',
+    'components/iron-iconset-svg/iron-iconset-svg.html',
+    'components/iron-media-query/iron-media-query.html',
+    'components/iron-meta/iron-meta.html',
     'components/iron-pages/iron-pages.html',
-    'components/paper-item/paper-item.html'
+    'components/iron-selector/iron-selector.html',
+    'components/paper-item/paper-item.html',
+    'components/paper-fab/paper-fab.html',
+    'components/paper-ripple/paper-ripple.html',
+    'elements/santa-icons.html',
   ];
   return gulp.src([
       'scenes/*/*-scene*.html'
@@ -418,7 +482,7 @@ gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service']
       inlineScripts: true,
       inlineCss: true,
       stripComments: true,
-      dest: 'elements'
+      dest: 'elements',
     }))
     .pipe(i18n_replace({
       strict: !!argv.strict,

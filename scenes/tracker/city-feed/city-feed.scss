@@ -354,12 +354,11 @@ $name: 'module-city-feed';
 @media (min-width: 1px) and (max-width: $mobileBreakpoint) {
   ##{$name} {
     iron-list {
-      left: 20px;
-      width: auto;
+      margin: 0 auto;
     }
 
     .scene {
-      right: 40px;
+      width: 100%;
     }
   }
 }

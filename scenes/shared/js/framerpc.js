@@ -16,12 +16,26 @@
 
 goog.provide('app.shared.FrameRPC');
 
-app.shared.FrameRPC = function(options, api) {
-  this.targetWindow = options;
+/**
+ * Simple RPC channel for communicating between frames using postMessage.
+ *
+ * @param {Window} target frame to send messages to.
+ * @param {Object} api of methods available to other frame.
+ * @constructor
+ */
+app.shared.FrameRPC = function(target, api) {
+  var isChild = target === window.parent;
+  this.targetWindow = target;
   this.api = api;
+  this.buffered = [];
+  this.isReady = isChild;
 
-  if(!!window.postMessage) {
+  if (!!window.postMessage) {
     window.addEventListener('message', this.onReceiveMessage.bind(this), false);
+
+    if (isChild) {
+      this.call('__ready');
+    }
   }
 };
 
@@ -29,24 +43,34 @@ app.shared.FrameRPC = function(options, api) {
  * Removes the event listeners from this module.
  */
 app.shared.FrameRPC.prototype.dispose = function() {
-  if(!!window.postMessage) {
+  if (!!window.postMessage) {
     window.removeEventListener('message', this.onReceiveMessage, false);
   }
 };
 
 /**
  * Posts a message to the iframe
+ *
+ * @param {string} methodName rpc method to call.
+ * @param {...*} args parameters for rpc method.
  **/
-app.shared.FrameRPC.prototype.call = function(methodName/*, ...args */) {
+app.shared.FrameRPC.prototype.call = function(methodName, args) {
   var message = {
     method: methodName,
     args: Array.prototype.slice.call(arguments, 1)
   };
-  this.targetWindow.postMessage(message, '*');
+
+  if (this.isReady) {
+    this.targetWindow.postMessage(message, '*');
+  } else {
+    this.buffered.push(message);
+  }
 };
 
 /**
  * Callback for when we have received a message from the iframe.
+ *
+ * @param {Event} event post message event.
  */
 app.shared.FrameRPC.prototype.onReceiveMessage = function(event) {
   // Only process messages from our iframe.
@@ -58,8 +82,26 @@ app.shared.FrameRPC.prototype.onReceiveMessage = function(event) {
     return;
   }
 
+  if (method === '__ready') {
+    this.ready_();
+    return;
+  }
+
   var isPrivate = method[method.length - 1] === '_';
   if (this.api.hasOwnProperty(method) && !isPrivate) {
     this.api[method].apply(this.api, event.data.args);
+  }
+};
+
+/**
+ * Mark the channel as ready and send any buffered messages.
+ *
+ * @private
+ */
+app.shared.FrameRPC.prototype.ready_ = function() {
+  this.isReady = true;
+  var message;
+  while (message = this.buffered.shift()) {
+    this.targetWindow.postMessage(message, '*');
   }
 };

@@ -94,7 +94,7 @@ specific language governing permissions and limitations under the License.
     display: none !important;
   }
   :host[mode="portal"] #sound {
-    display: none !important;
+    top: 100px;
   }
   .scroll {
     @apply(--layout-scroll);
@@ -109,12 +109,12 @@ specific language governing permissions and limitations under the License.
                     query-matches="{{_smallScreen}}"></iron-media-query>
 
   <paper-drawer-panel id="sidebar" force-narrow
-                      disable-edge-swipe="{{disabled}}"
+                      disable-edge-swipe="true"
                       disable-swipe="{{disabled}}"
                       drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
-    <div id="drawer" drawer class="scroll" on-click="_closeDrawerLink">
+    <div id="drawer" drawer class="scroll" on-tap="_closeDrawerLink">
       <div hidden$="{{disabled}}">
-        <paper-toolbar class="close-sidebar" on-click="closeDrawer" tabindex="0">
+        <paper-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
         </paper-toolbar>
@@ -149,7 +149,7 @@ specific language governing permissions and limitations under the License.
             <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
           </h2>
           <ul>
-            <li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker">
+            <li><a target="_blank" href$="[[_localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker', santaApp.language)]]">
               <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
             <li><a href="{{pageUrl}}#press">
@@ -158,13 +158,13 @@ specific language governing permissions and limitations under the License.
             <li><a href="{{pageUrl}}#about">
               <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a target="_blank" href="https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb">
+            <li><a target="_blank" href$="[[_localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb', santaApp.language)]]">
               <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a target="_blank" href="https://www.google.com/policies/">
+            <li><a target="_blank" href$="[[_localizeUrl('https://www.google.com/policies/', santaApp.language)]]">
               <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a target="_blank" href="https://maps.google.com/help/maps/helloworld/index.html">
+            <li><a target="_blank" href$="[[_localizeUrl('https://maps.google.com/maps/about/', santaApp.language)]]">
               <i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
           </ul>
@@ -181,28 +181,33 @@ specific language governing permissions and limitations under the License.
             <option value="de">Deutsch</option>
             <option value="et">Eesti</option>
             <option value="en">English</option>
+            <option value="en-GB">English (United Kingdom)</option>
             <option value="es">Español</option>
+            <option value="es-419">Español (América Latina)</option>
             <option value="fr">Français</option>
             <option value="fr-CA">Français (Canada)</option>
             <option value="hr">Hrvatski</option>
             <option value="id">Indonesia</option>
             <option value="it">Italiano</option>
+            <option value="ko">한국어</option>
             <option value="ja">日本語</option>
             <option value="lv">Latvijas</option>
             <option value="lt">Lietuvos</option>
             <option value="no">Norsk</option>
             <option value="pl">Polski</option>
             <option value="pt-BR">Português (Brasil)</option>
-            <option value="pt-PR">Português (Portugal)</option>
+            <option value="pt-PT">Português (Portugal)</option>
+            <option value="ru">Русский</ru>
             <option value="ro">Română</option>
             <option value="sl">Slovenija</option>
             <option value="sv">Svenska</option>
             <option value="tl">Tagalog</option>
+            <option value="vi">Tiếng Việt</option>
             <option value="fi">Viimeistely</option>
             <option value="bg">Български</option>
             <option value="uk">Український</option>
-            <option value="ta-IN">தமிழ்</option>
-            <option value="ms">മലയാളം </option>
+            <option value="ta">தமிழ்</option>
+            <option value="ml">മലയാളം </option>
             <option value="th">ภาษาไทย</option>
           </select>
         </div>
@@ -444,6 +449,22 @@ specific language governing permissions and limitations under the License.
 
     _computeDrawerWidth: function(smallScreen) {
       return smallScreen ? '100%' : '400px';
+    },
+
+    /**
+     * Returns the localized version of a URL: with hl=<lang> appended to the
+     * query string. Ignores English languages.
+     */
+    _localizeUrl: function(url, lang) {
+      lang = lang.toLowerCase();
+      if (!lang || lang.substr(0, 2) == 'en') {
+        return url;
+      }
+      if (url.indexOf('?') == -1) {
+        return url + '?hl=' + lang;
+      } else {
+        return url + '&hl=' + lang;
+      }
     },
 
   });

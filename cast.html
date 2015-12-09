@@ -13,7 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <!DOCTYPE html>
-<html lang="en" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <base href="">
@@ -27,6 +27,9 @@ specific language governing permissions and limitations under the License.
   <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
   <script>
 (function() {
+  cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
+  window.ga_ = {pushCommand: function() {}};  // no analytics in Cast
+
   var CAST_EXPIRY_MINUTES = 15;
   var CAST_SAFETY_SECONDS = 180;
 
@@ -67,26 +70,10 @@ specific language governing permissions and limitations under the License.
 }());
   </script>
 
-  <!-- Analytics -->
-  <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
   <script>
     window.DEV = true; // NOTE: replaced by string - do not change formatting.
-
-    window.ga_ = new gweb.analytics.AutoTrack({
-      'profile': location.hostname == 'santatracker.google.com' ? 'UA-37048309-1' : 'UA-37048309-2'
-    });
-
-    // Track and log any errors to analytics
-    window.onerror = function(message, file, lineNumber) {
-      // We don't want to trigger any errors inside window.onerror otherwise
-      // things will get real bad, real quick.
-      try {
-        window.ga_.pushCommand(['_trackEvent', 'error', file + ':' + lineNumber,
-            '' + message]);
-      } catch (e){}
-    };
   </script>
-  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <!-- NOTE: Cast doesn't include webcomponents, as a modern Chrome is assumed -->
   <link rel="import" href="elements/elements_en.html" />
 </head>
 <body data-version="" unresolved>
@@ -108,6 +95,16 @@ if (window.DEV) {
     I18nMsg.url = '_messages';
   });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.performance && window.performance.timing) {
+    var t = window.performance.timing;
+    var loadTime = t.domInteractive - t.domLoading;
+    console.debug('took', loadTime, 'ms from domLoading -> domInteractive');
+  } else {
+    console.debug('no timing information');
+  }
+});
 
 })();
 </script>

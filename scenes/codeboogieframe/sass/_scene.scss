@@ -1,0 +1,411 @@
+##{$name} {
+  $worldBackground: #3f4da1;
+
+  .scene {
+    background: $worldBackground center center / cover;
+    bottom: 0;
+    font-size: 10px; // For relative em sizing and scaling.
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+  }
+
+  &.level--stage1 .scene {
+    background-image: url(img/stages/stage1.svg);
+  }
+
+  &.level--stage2 .scene {
+    background-image: url(img/stages/stage2.svg);
+  }
+
+  &.level--stage3 .scene {
+    background-image: url(img/stages/stage3.svg);
+  }
+
+  .scene-underlay {
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateZ(0);
+    visibility: hidden;
+  }
+
+  .scene__world {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scene__lights {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+  }
+
+  .scene__light {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .ceilingLight {
+    position: absolute;
+    width: 105.3em;
+    height: 59.1em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 105.3em 59.1em;
+    background-image: url(img/lights/ceiling.svg);
+
+    &--left {
+      left: calc(50% - 75em);
+    }
+
+    &--right {
+      right: calc(50% - 75em);
+    }
+  }
+
+  &.level--stage1 .ceilingLight {
+    display: none;
+  }
+
+  .ceilingLight__beam {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(img/lights/ceiling-light.svg);
+    opacity: 0;
+    transition: opacity 100ms;
+    transform: translate3d(0, 0, 0);
+
+    &--white {
+      background-image: url(img/lights/ceiling-light.svg);
+    }
+
+    &--red {
+      background-image: url(img/lights/ceiling-light--red.svg);
+    }
+
+    &--green {
+      background-image: url(img/lights/ceiling-light--green.svg);
+    }
+  }
+
+  .scene__characters {
+    bottom: 22%;
+    height: 480px;
+    left: 50%;
+    margin-bottom: -72px;
+    position: absolute;
+    transform: scale(.9);
+    transform-origin: 50% 85%;
+  }
+
+  .scene__character {
+    bottom: 0;
+    position: absolute;
+    transition: transform 1s linear;
+  }
+
+  .scene__character.is-showing {
+    transform: translate3d(-50%, 0, 0);
+    z-index: 1;
+  }
+
+  .scene__character--player {
+    transform: translate3d((-50% - 20%), 0, 0);
+  }
+
+  .scene__character--player.is-watching {
+    transform: translate3d((-50% - 20%), -10%, 0) scale(.86);
+  }
+
+  .scene__character--teacher {
+    transform: translate3d((-50% + 20%), 0, 0);
+  }
+
+  &.level--freestyle .scene__character--player {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  &.level--freestyle .scene__character--teacher {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .scene__character--player {
+      transform: translate3d((-50% - 25%), 0, 0);
+    }
+
+    .scene__character--player.is-watching {
+      transform: translate3d((-50% - 25%), -10%, 0) scale(.86);
+    }
+
+    .scene__character--teacher {
+      transform: translate3d((-50% + 25%), 0, 0);
+    }
+  }
+
+  .title {
+    color: white;
+    font-family: 'Lobster';
+    font-size: 8em;
+    height: 1em;
+    position: absolute;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    top: 3rem;
+    width: 100%;
+    z-index: 1;
+
+    animation: .15s .35s cb_title_appear backwards;
+  }
+
+  .title--small {
+    font-size: 5em;
+  }
+
+  .title--sub {
+    margin-top: 2rem;
+    font-size: 25em;
+  }
+
+  .title--destroy {
+    animation: .15s .25s cb_title_disappear forwards;
+  }
+
+  &.level--bpm120 .title {
+    animation-delay: 60s / 120 - .15s;
+  }
+
+  &.level--bpm120 .title--destroy {
+    animation-delay: 60s / 120 - .25s;
+  }
+
+  &.level--bpm130 .title {
+    animation-delay: 60s / 130 - .15s;
+  }
+
+  &.level--bpm130 .title--destroy {
+    animation-delay: 60s / 130 - .25s;
+  }
+
+  &.level--bpm140 .title {
+    animation-delay: 60s / 140 - .15s;
+  }
+
+  &.level--bpm140 .title--destroy {
+    animation-delay: 60s / 140 - .25s;
+  }
+
+  .scene__moves {
+    height: 8.5em;
+    margin: 0 auto;
+    transition: transform 200ms ease-in;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 70%;
+
+    @media (min-width: 1025px) {
+      bottom: 5%;
+    }
+  }
+
+  .scene__moves-move {
+    border-radius: .8em;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    counter-increment: tile;
+    flex: 0 0 11em;
+    height: 8.5em;
+    margin-right: .8em;
+    position: relative;
+
+    background-size: 10em 8.5em;
+    background-repeat: no-repeat;
+
+    &.move__pointLeft {
+      background-image: url(img/icons_point-left-white.svg);
+    }
+
+    &.move__pointRight {
+      background-image: url(img/icons_point-right-white.svg);
+    }
+
+    &.move__stepLeft {
+      background-image: url(img/icons_step-left-white.svg);
+    }
+
+    &.move__stepRight {
+      background-image: url(img/icons_step-right-white.svg);
+    }
+
+    &.move__jump {
+      background-image: url(img/icons_jump-white.svg);
+    }
+    &.move__splits {
+      background-image: url(img/icons_splits-white.svg);
+    }
+    &.move__hip {
+      background-image: url(img/icons_hip-shake-white.svg);
+    }
+  }
+
+  .scene__moves-move:after {
+    bottom: -2em;
+    color: white;
+    content: counter(tile);
+    font-family: 'Lobster';
+    font-size: 140%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+  }
+
+  .fade-in {
+    animation: 500ms cb_title_appear;
+    animation-fill-mode: forwards;
+  }
+
+  .fade-out {
+    animation: 500ms cb_title_disappear;
+    animation-fill-mode: forwards;
+  }
+
+  .scene__play-tab {
+    border-radius: 50%;
+    bottom: 60px;
+    height: 100px;
+    left: (-100px / 2);
+    position: absolute;
+    width: 100px;
+
+    @media (min-width: 661px) {
+      bottom: 80px;
+    }
+
+    @media (min-width: 1025px) {
+      bottom: 15px;
+    }
+  }
+
+  $button-background-diameter: 100px;
+  $button-margin: 12px;
+  $button-diameter: $button-background-diameter - $button-margin * 2;
+  $button-color: #FF8B39;
+
+  // We need to force this play button on GPU for Safari for some reason so the z-index works.
+  // Some browsers also round down the pixel size of the GPU layer which trims the box-shadow,
+  // which is why we force this bigger parent on the GPU.
+  .scene__play-layer {
+    background-color: $worldBackground;
+    border-radius: 50%;
+    height: $button-background-diameter;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    width: $button-background-diameter;
+    z-index: 1;
+  }
+
+  .scene__play {
+    background: $button-color;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px $button-margin / 2 darken($button-color, 5%);
+    cursor: pointer;
+    font-size: inherit;
+    height: $button-diameter - $button-margin / 2;
+    margin: $button-margin;
+    padding: 0;
+    position: relative;
+    width: $button-diameter;
+    transition: box-shadow 100ms, transform 100ms;
+    z-index: 1;
+  }
+
+  .scene__play:before {
+    border-bottom: 18px solid transparent;
+    border-left: 30px solid white;
+    border-top: 18px solid transparent;
+    content: '';
+    display: block;
+    height: 0;
+    left: calc(50% - 12px);
+    position: absolute;
+    top: calc(50% - 18px);
+    width: 0;
+  }
+
+  .scene__play:after {
+    border-radius: 50%;
+    bottom: 0;
+    box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: box-shadow 100ms;
+  }
+
+  .scene__play:focus {
+    outline: 0;
+  }
+
+  .scene__play:active {
+    outline: 0;
+    transform: translate3d(0, 6px, 0);
+    box-shadow: 0px 0px darken($button-color, 5%);
+
+    &:after {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+@keyframes cb_title_appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cb_title_disappear {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}

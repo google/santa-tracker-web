@@ -735,6 +735,14 @@
         "description": "Code block tooltip for a dancing move where the character shakes the hip. Written as a command in first person.",
         "message": "Do a hip shake."
     },
+    "codeboogie-block-clap": {
+        "description": "Code block label for a dancing move where the character claps. 15char limit.",
+        "message": "Clap"
+    },
+    "codeboogie-block-clap-tooltip": {
+        "description": "Code block tooltip for a dancing move where the character claps. Written as a command in first person.",
+        "message": "Do a clap."
+    },
     "codeboogie-get-dancing": {
         "description": "Large title to encourage the player to try out the dancing code blocks. 15char limit.",
         "message": "Get dancing!"
@@ -742,6 +750,10 @@
     "codeboogie-watch-closely": {
         "description": "Title to indicate the teacher is going to do the dance moves that they should copy",
         "message": "Watch closely!"
+    },
+    "codeboogie-your-turn": {
+        "description": "Large title to prompt player to assemble his dance routine. 15char limit.",
+        "message": "Your turn"
     },
     "codeboogie-lets-dance": {
         "description": "Large title before player starts dancing his routine. 15char limit.",
