@@ -124,6 +124,10 @@ app.Scoreboard.prototype.onFrame = function(delta) {
   }
 };
 
+/**
+ * Returns the current countdown
+ * @return {number} Countdown
+ */
 app.Scoreboard.prototype.getCountdown = function() {
   return this.countdown;
 };
