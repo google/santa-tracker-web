@@ -326,6 +326,6 @@ app.DanceLevelResult = class extends app.LevelResult {
   }
 
   showResult() {
-    return !this.watching();
+    return this.skipAnimation || !this.watching();
   }
 };
