@@ -118,7 +118,8 @@ app.Scene = class {
     // Show the scene in portrait, then hide it after 3 seconds.
     this.portraitToggleScene(true);
 
-    let introAnimation = level.introAnimation();
+    let introAnimation = !level.freestyle && level.introAnimation();
+
     if (introAnimation) {
       this.blockRunner_.runAnimation(introAnimation);
     } else {

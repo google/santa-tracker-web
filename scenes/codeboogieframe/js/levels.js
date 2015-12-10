@@ -15,6 +15,7 @@
  */
 
 goog.provide('app.levels');
+goog.provide('app.freestyleLevel');
 
 goog.require('app.DanceLevel');
 goog.require('app.blocks');
@@ -257,3 +258,23 @@ app.levels.push(
     specialMove: app.Step.SPONGEBOB
   })
 );
+
+app.freestyleLevel = [
+  new app.DanceLevel({
+    freestyle: true,
+    bpm: 130,
+    track: 1,
+    idealBlockCount: Infinity,
+    stage: 'stage3',
+    steps: [],
+    toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
+    app.blocks.miniBlockXml('dance_pointRight') +
+    app.blocks.miniBlockXml('dance_stepLeft') +
+    app.blocks.miniBlockXml('dance_stepRight') +
+    app.blocks.miniBlockXml('dance_jump') +
+    app.blocks.miniBlockXml('dance_splits') +
+    app.blocks.miniBlockXml('dance_hip') +
+    app.blocks.miniBlockXml('controls_repeat'),
+    specialMove: app.Step.SPONGEBOB,
+  })
+]

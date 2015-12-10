@@ -31,7 +31,8 @@ app.DanceStatus = {
   NOT_ENOUGH_STEPS: 'NOT_ENOUGH_STEPS',
   WRONG_STEPS: 'WRONG_STEPS',
   TOO_MANY_STEPS: 'TOO_MANY_STEPS',
-  SUCCESS: 'SUCCESS'
+  SUCCESS: 'SUCCESS',
+  FREESTYLE: 'FREESTYLE'
 };
 
 /**
@@ -121,6 +122,7 @@ app.DanceLevel = class extends app.Level {
           app.I18n.getMsg('CB_resultEmptyBlockFail'),
           {skipAnimation: true});
     }
+
     if (blockly.hasExtraTopBlocks()) {
       return new app.DanceLevelResult(false,
           app.I18n.getMsg('CB_resultExtraTopBlockFail'),
@@ -159,10 +161,11 @@ app.DanceLevel = class extends app.Level {
       allowRetry,
       animationQueue: animationQueue,
       code: code,
-      endTitle: app.I18n.getMsg(endTitleMsg),
+      endTitle: !this.freestyle && app.I18n.getMsg(endTitleMsg),
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
-      missingBlocks: missingBlocks
+      missingBlocks: missingBlocks,
+      freestyle: this.freestyle
     });
   }
 
@@ -175,6 +178,10 @@ app.DanceLevel = class extends app.Level {
    * @return {app.DanceStatus}
    */
   evaluateStatus(playerSteps) {
+    if (this.freestyle) {
+      return app.DanceStatus.FREESTYLE;
+    }
+
     let stepCount = 0;
     for (let i = 0, block = null; block = playerSteps[i]; i++) {
       // Ignore highlight only blocks
@@ -209,10 +216,15 @@ app.DanceLevel = class extends app.Level {
    */
   createAnimationQueue(playerSteps, result) {
     let queue = [];
-
     playerSteps = playerSteps.filter(b => b.step);
+
+    if (this.freestyle) {
+      this.steps = playerSteps.map(x => x.step);
+    }
+
     for (let i = 0, step = null; step = this.steps[i]; i++) {
       let playerStep = playerSteps[i];
+
       let animation = {
         teacherStep: step,
         playerStep: playerStep ? playerStep.step : 'watch',
@@ -252,7 +264,7 @@ app.DanceLevel = class extends app.Level {
       });
     }
 
-    if (result === app.DanceStatus.SUCCESS) {
+    if (result === app.DanceStatus.SUCCESS && !this.freestyle) {
       let specialMove = this.specialMove || app.Step.CARLTON;
 
       queue.push({
@@ -322,10 +334,18 @@ app.DanceLevelResult = class extends app.LevelResult {
   }
 
   watching() {
-    return !this.freestyle && this.danceStatus === app.DanceStatus.NO_STEPS;
+    if (this.freestyle) {
+      return false;
+    }
+
+    return this.danceStatus === app.DanceStatus.NO_STEPS;
   }
 
   showResult() {
+    if (this.freestyle) {
+      return false;
+    }
+
     return this.skipAnimation || !this.watching();
   }
 };
