@@ -52,6 +52,7 @@ $board-level-bp: 1025px;
   @media (min-width: 680px) {
     .overlay-title {
       font-size: 8em;
+      font-size: 8vw;
     }
 
     .overlay-title-wrapper {
@@ -66,6 +67,10 @@ $board-level-bp: 1025px;
   }
 
   @media (min-width: 1025px) {
+    .overlay-title {
+      font-size: 8em;
+    }
+
     // Less height of logo in scoreboard
     .board .logo {
       height: 68px;
