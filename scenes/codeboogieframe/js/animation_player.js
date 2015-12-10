@@ -91,6 +91,10 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
+    if (result.freestyle) {
+      this.moveTiles.setLength(result.animationQueue.length - 1);
+    }
+
     this.lastResult = result;
     this.animationQueue = result.animationQueue;
     this.moveTiles.reset();
