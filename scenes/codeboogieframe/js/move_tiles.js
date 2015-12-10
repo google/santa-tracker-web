@@ -38,7 +38,7 @@ app.MoveTiles = class {
     let tiles = length ? Math.min(length, maxTiles) : maxTiles;
 
     this.el.style.width = `${tiles * tilewidth / 10}em`;
-    this.el.style.left = `calc(50% + ${tiles / 2 * tilewidth / 10}em)`;
+    this.el.style.left = `calc(50% + ${tiles / 2 * tilewidth / 10}em + 0.5em)`;
   }
 
   add(move) {
