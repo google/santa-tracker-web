@@ -23,4 +23,11 @@ $board-level-bp: 1025px;
       height: 68px;
     }
   }
+
+  &.level--freestyle {
+    .board {
+      display: none;
+    }
+  }
 }
+
