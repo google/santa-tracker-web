@@ -33,7 +33,7 @@ goog.require('app.ChooseMode');
 app.FrameWrapper = function(el, staticDir) {
   this.staticDir = staticDir;
   this.el = $(el);
-  this.chooseMode = new app.ChooseMode(this.el.find('.choose-mode'));
+  this.chooseMode = new app.ChooseMode(this.el.find('.choose-mode'), this.el.find('.choose-stage'));
   this.gameoverView = new app.shared.Gameover(this, this.el.find('.gameover'));
   this.scoreboardView = new app.Scoreboard(this.el.find('.board'), 10);
   this.gameStartTime = +new Date;
@@ -82,9 +82,9 @@ app.FrameWrapper.prototype.restart = function(customLevel) {
     this.startMode('custom', customLevel);
     this.setLevelClass('custom');
   } else {
-    this.chooseMode.show((mode) => {
+    this.chooseMode.show((mode, stage) => {
       this.setLevelClass(mode);
-      this.startMode(mode, null);
+      this.startMode(mode, stage);
     });
   }
 };

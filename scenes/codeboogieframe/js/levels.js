@@ -14,7 +14,9 @@
  * the License.
  */
 
-goog.provide('app.levels');
+'use strict';
+
+goog.provide('app.Levels');
 goog.provide('app.freestyleLevel');
 
 goog.require('app.DanceLevel');
@@ -25,12 +27,56 @@ goog.require('app.Step');
  * Array of levels.
  * @type {!Array.<app.DanceLevel>}
  */
-app.levels = [];
+app.Levels = {
+  getDanceClasses: () => danceClasses,
+
+  createFreestyleLevel(stage) {
+    const stages = {
+      'studio': {
+        stage: 'stage1',
+        track: 0,
+        bpm: 120
+      },
+      'stage': {
+        stage: 'stage2',
+        track: 1,
+        bpm: 130
+      },
+      'disco': {
+        stage: 'stage3',
+        track: 2,
+        bpm: 140
+      },
+    }
+
+    let stageData = stages[stage];
+
+    return [
+      new app.DanceLevel({
+        freestyle: true,
+        bpm: stageData.bpm,
+        track: stageData.track,
+        idealBlockCount: Infinity,
+        stage: stageData.stage,
+        steps: [],
+        toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
+        app.blocks.miniBlockXml('dance_pointRight') +
+        app.blocks.miniBlockXml('dance_stepLeft') +
+        app.blocks.miniBlockXml('dance_stepRight') +
+        app.blocks.miniBlockXml('dance_jump') +
+        app.blocks.miniBlockXml('dance_splits') +
+        app.blocks.miniBlockXml('dance_hip') +
+        app.blocks.miniBlockXml('controls_repeat'),
+        specialMove: app.Step.SPONGEBOB,
+      })
+    ];
+  }
+};
 
 /**
- * Create levels.
+ * Dance classes.
  */
-app.levels.push(
+const danceClasses = [
   new app.DanceLevel({
     bpm: 120,
     track: 0,
@@ -256,25 +302,5 @@ app.levels.push(
     app.blocks.miniBlockXml('dance_hip') +
     app.blocks.miniBlockXml('controls_repeat'),
     specialMove: app.Step.SPONGEBOB
-  })
-);
-
-app.freestyleLevel = [
-  new app.DanceLevel({
-    freestyle: true,
-    bpm: 130,
-    track: 1,
-    idealBlockCount: Infinity,
-    stage: 'stage3',
-    steps: [],
-    toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
-    app.blocks.miniBlockXml('dance_pointRight') +
-    app.blocks.miniBlockXml('dance_stepLeft') +
-    app.blocks.miniBlockXml('dance_stepRight') +
-    app.blocks.miniBlockXml('dance_jump') +
-    app.blocks.miniBlockXml('dance_splits') +
-    app.blocks.miniBlockXml('dance_hip') +
-    app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.SPONGEBOB,
   })
 ];

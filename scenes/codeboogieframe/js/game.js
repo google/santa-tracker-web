@@ -23,7 +23,7 @@ goog.require('app.Constants');
 goog.require('app.Result');
 goog.require('app.Scene');
 goog.require('app.SceneTutorial');
-goog.require('app.levels');
+goog.require('app.Levels');
 goog.require('app.freestyleLevel');
 goog.require('app.monkeypatches');
 goog.require('app.shared.FrameRPC');
@@ -85,7 +85,7 @@ app.Game.prototype.bumpLevel = function() {
   // Next level
   this.levelNumber++;
 
-  this.level = app.levels[this.levelNumber];
+  this.level = this.levels[this.levelNumber];
   if (!this.level) {
     this.iframeChannel.call('gameover');
     return;
@@ -130,12 +130,15 @@ app.Game.prototype.start = function() {
  */
 app.Game.prototype.restart = function(mode, customLevel) {
   if (mode === app.GameMode.FREESTYLE) {
-    app.levels = app.freestyleLevel;
+    let stage = customLevel
+    this.levels = app.Levels.createFreestyleLevel(stage);
   } else if (mode === app.GameMode.CUSTOM) {
     let level = app.DanceLevel.deserialize(customLevel);
     if (level) {
-      app.levels = [level];
+      this.levels = [level];
     }
+  } else {
+    this.levels = app.Levels.getDanceClasses();
   }
 
   var match = location.search.match(/[?&]level=(\d+)/) || [];

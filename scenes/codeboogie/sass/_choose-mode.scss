@@ -9,35 +9,6 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
 }
 
 ##{$name} .choose-mode {
-  color: #fff;
-  background: #3F49A3;
-
-  &__dialog {
-    width: 80%;
-    max-width: 80em;
-  }
-
-  &__title-wrapper {
-    margin: 0 auto 4em auto;
-  }
-
-  &__title {
-    font-family: 'Lobster', sans-serif;
-    font-size: 3em;
-    font-weight: 400;
-    letter-spacing: -2px;
-    line-height: 0.95;
-    margin: 0;
-    text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
-  }
-
-  &__option {
-    cursor: pointer;
-    margin: 0 auto 40px;
-    position: relative;
-    flex: 0 1 45%;
-  }
-
   &__image {
     background-repeat: no-repeat;
     background-size: contain;
@@ -107,14 +78,6 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
   }
 
   @media (min-width: 680px) {
-    &__title {
-      font-size: 8em;
-    }
-
-    &__title-wrapper {
-      margin: 0 auto 8em auto;
-    }
-
     &__info {
       padding-top: 100%;
     }
@@ -139,31 +102,13 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
       }
     }
 
-    &__grid {
-      justify-content: space-between;
-      display: flex;
-      width: 100%;
-    }
-
     &__title-wrapper {
       font-size: 0.7em;
     }
 
-    &__option:hover {
+    .grid__option:hover {
       .choose-mode__bg {
         opacity: 0.7;
-      }
-
-      .choose-mode__santa {
-        transform: translate3d(0, 0, 0);
-      }
-
-      .choose-mode__characters--left {
-        transform: translate3d(0, 0, 0);
-      }
-
-      .choose-mode__characters--right {
-        transform: translate3d(0, 0, 0);
       }
 
       .choose-mode__go, .choose-mode__text, .choose-mode__description {

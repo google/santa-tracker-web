@@ -343,7 +343,7 @@ app.Scene = class {
     if (!result.showResult()) {
       return;
     }
-    if (this.level === app.levels[app.levels.length - 1]) {
+    if (this.level === game.levels[game.levels.length - 1]) {
       result.isFinalLevel = true;
     }
 

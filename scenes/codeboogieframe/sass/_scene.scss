@@ -49,6 +49,10 @@
     overflow: hidden;
   }
 
+  &.level--stage1 .scene__lights {
+    display: none;
+  }
+
   .scene__light {
     background-position: center center;
     background-repeat: no-repeat;
