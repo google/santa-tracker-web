@@ -304,7 +304,103 @@ app.DanceLevel = class extends app.Level {
         ' level--bpm' + this.bpm +
         (this.freestyle ? ' level--freestyle' : '');
   }
+
+  /**
+   * Loads a custom level from serialized string.
+   *
+   * @param {string} level
+   * @return {app.DanceLevel}
+   */
+  static deserialize(level) {
+    let stage = null;
+    let steps = [];
+    for (let i = 0, val = 0; i < level.length; i++) {
+      val = parseInt(level[i], 16);
+
+      if (i === 0) {
+        stage = app.DanceLevel.SERIALIZE_LEVELS[parseInt(level[i], 16)];
+        if (stage == null) return;
+      } else {
+        let step = app.DanceLevel.SERIALIZE_STEPS[parseInt(level[i], 16)];
+        if (step == null) return;
+        steps.push(step);
+      }
+    }
+
+    return new app.DanceLevel({
+        bpm: stage.bpm,
+        track: stage.track,
+        longerIntro: true,
+        stage: stage.stage,
+        steps: steps,
+        toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
+            app.blocks.miniBlockXml('dance_pointRight') +
+            app.blocks.miniBlockXml('dance_stepLeft') +
+            app.blocks.miniBlockXml('dance_stepRight') +
+            app.blocks.miniBlockXml('dance_jump') +
+            app.blocks.miniBlockXml('dance_splits') +
+            app.blocks.miniBlockXml('dance_hip') +
+            app.blocks.miniBlockXml('controls_repeat'),
+        specialMove: stage.specialMove
+    });
+  }
 };
+
+/**
+ * Order of steps used for serialization.
+ *
+ * @const {Array.<app.Step>}
+ */
+app.DanceLevel.SERIALIZE_STEPS = [
+  app.Step.LEFT_ARM,
+  app.Step.RIGHT_ARM,
+  app.Step.LEFT_FOOT,
+  app.Step.RIGHT_FOOT,
+  app.Step.JUMP,
+  app.Step.SPLIT,
+  app.Step.SHAKE
+];
+
+/**
+ * Order of levels used for serialization.
+ *
+ * @const {Array.<{stage, bpm, track, specialMove}>}
+ */
+app.DanceLevel.SERIALIZE_LEVELS = [
+  {
+    stage: 'stage1',
+    bpm: 120,
+    track: 0,
+    specialMove: app.Step.CARLTON
+  },
+  {
+    stage: 'stage2',
+    bpm: 130,
+    track: 1,
+    specialMove: app.Step.ELVIS
+  },
+  {
+    stage: 'stage3',
+    bpm: 140,
+    track: 2,
+    specialMove: app.Step.SPONGEBOB
+  }
+];
+
+/**
+ * Order of steps used for serialization.
+ *
+ * @const {Array.<app.Step>}
+ */
+app.DanceLevel.SERIALIZE_STEPS = [
+  app.Step.LEFT_ARM,
+  app.Step.RIGHT_ARM,
+  app.Step.LEFT_FOOT,
+  app.Step.RIGHT_FOOT,
+  app.Step.JUMP,
+  app.Step.SPLIT,
+  app.Step.SHAKE
+];
 
 /**
  * @typedef {{

@@ -277,4 +277,4 @@ app.freestyleLevel = [
     app.blocks.miniBlockXml('controls_repeat'),
     specialMove: app.Step.SPONGEBOB,
   })
-]
+];

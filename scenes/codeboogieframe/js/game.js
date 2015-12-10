@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-
+'use strict';
 
 goog.provide('app.Game');
 
@@ -28,6 +28,15 @@ goog.require('app.freestyleLevel');
 goog.require('app.monkeypatches');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.utils');
+
+/**
+ * @enum {string}
+ */
+app.GameMode = {
+  TEACHER: 'teacher',
+  FREESTYLE: 'freestyle',
+  CUSTOM: 'custom'
+};
 
 /**
  * Main game class
@@ -115,10 +124,18 @@ app.Game.prototype.start = function() {
 
 /**
  * Resets all game entities and restarts the game. Can be called at any time.
+ *
+ * @param {app.GameMode} mode to play.
+ * @param {string} customLevel serialized string.
  */
-app.Game.prototype.restart = function(mode) {
-  if (mode === 'freestyle') {
+app.Game.prototype.restart = function(mode, customLevel) {
+  if (mode === app.GameMode.FREESTYLE) {
     app.levels = app.freestyleLevel;
+  } else if (mode === app.GameMode.CUSTOM) {
+    let level = app.DanceLevel.deserialize(customLevel);
+    if (level) {
+      app.levels = [level];
+    }
   }
 
   var match = location.search.match(/[?&]level=(\d+)/) || [];

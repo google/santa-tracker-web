@@ -109,7 +109,7 @@ Codeboogie scene.
           <button type="button" class="pause"></button>
         </div>
       </div>
-      <div class="choose-mode overlay is-visible">
+      <div class="choose-mode overlay">
         <div class="choose-mode__dialog overlay-dialog">
           <div class="choose-mode__title-wrapper">
             <h2 class="choose-mode__title"><i18n-msg msgid="codeboogie-choose-game-mode">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -325,8 +325,8 @@ Codeboogie scene.
 
     gatedStart: function() {
       if (this.frame && soundsLoaded && !this.started) {
-        this.frame.start();
-        this.bandStarted = true;
+        this.frame.start(this.sceneParams);
+        this.started = true;
       }
     }
   });
