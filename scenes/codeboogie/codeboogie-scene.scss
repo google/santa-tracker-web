@@ -8,6 +8,7 @@ $board-level-bp: 1025px;
 @import "../shared/sass/board";
 @import "sass/promo";
 @import "sass/choose-mode";
+@import "sass/choose-stage";
 
 ##{$name} {
   background: #364189;
@@ -16,6 +17,53 @@ $board-level-bp: 1025px;
   right: 0;
   bottom: 0;
   left: 0;
+
+  .overlay {
+    color: #fff;
+    background: #3F49A3;
+
+    &-dialog {
+      width: 80%;
+      max-width: 80em;
+    }
+
+    &-title {
+      font-family: 'Lobster', sans-serif;
+      font-size: 3em;
+      font-weight: 400;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      margin: 0;
+      text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    &-title-wrapper {
+      margin: 0 auto 4em auto;
+    }
+  }
+
+  .grid__option {
+    cursor: pointer;
+    margin: 0 auto 40px;
+    position: relative;
+    flex: 0 1 45%;
+  }
+
+  @media (min-width: 680px) {
+    .overlay-title {
+      font-size: 8em;
+    }
+
+    .overlay-title-wrapper {
+      margin: 0 auto 8em auto;
+    }
+
+    .grid {
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+    }
+  }
 
   @media (min-width: 1025px) {
     // Less height of logo in scoreboard

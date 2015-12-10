@@ -111,11 +111,11 @@ Codeboogie scene.
       </div>
       <div class="choose-mode overlay">
         <div class="choose-mode__dialog overlay-dialog">
-          <div class="choose-mode__title-wrapper">
-            <h2 class="choose-mode__title"><i18n-msg msgid="codeboogie-choose-game-mode">PLACEHOLDER_i18n</i18n-msg></h2>
+          <div class="overlay-title-wrapper">
+            <h2 class="overlay-title"><i18n-msg msgid="codeboogie-choose-game-mode">PLACEHOLDER_i18n</i18n-msg></h2>
           </div>
-          <div class="choose-mode__grid">
-            <div class="choose-mode__option" data-mode="teacher">
+          <div class="grid">
+            <div class="grid__option" data-mode="teacher">
               <div class="choose-mode__image">
                 <div class="choose-mode__bg choose-mode__bg--teacher"></div>
                 <h3 class="choose-mode__go">
@@ -127,7 +127,7 @@ Codeboogie scene.
                 <h4 class="choose-mode__description"><i18n-msg msgid="codeboogie-mode-dance-class-description">PLACEHOLDER_i18n</i18n-msg></h4>
               </div>
             </div>
-            <div class="choose-mode__option" data-mode="freestyle">
+            <div class="grid__option" data-mode="freestyle">
               <div class="choose-mode__image">
                 <div class="choose-mode__bg choose-mode__bg--freestyle"></div>
                 <h3 class="choose-mode__go">
@@ -139,6 +139,30 @@ Codeboogie scene.
                 <h4 class="choose-mode__description"><i18n-msg msgid="codeboogie-mode-freestyle-description">PLACEHOLDER_i18n</i18n-msg></h4>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="choose-stage overlay">
+        <div class="choose-stage__dialog overlay-dialog">
+          <div class="overlay-title-wrapper">
+            <h2 class="overlay-title"><i18n-msg msgid="codeboogie-choose-stage">PLACEHOLDER_i18n</i18n-msg></h2>
+          </div>
+          <div class="grid">
+            <div class="grid__option" data-stage="studio">
+              <div class="choose-stage__bg choose-stage__bg--studio"></div>
+            </div>
+            <div class="grid__option" data-stage="stage">
+              <div class="choose-stage__bg choose-stage__bg--stage"></div>
+            </div>
+            <div class="grid__option" data-stage="disco">
+              <div class="choose-stage__bg choose-stage__bg--disco"></div>
+            </div>
+          </div>
+          <div>
+            <a href="javascript:;" class="choose-stage__back">
+              <i class="choose-stage__back-icon"></i>
+              <i18n-msg msgid="codeboogie-back-to-start">PLACEHOLDER_i18n</i18n-msg>
+            </a>
           </div>
         </div>
       </div>

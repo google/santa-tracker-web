@@ -131,12 +131,16 @@ app.Game.prototype.start = function() {
 app.Game.prototype.restart = function(mode, customLevel) {
   if (mode === app.GameMode.FREESTYLE) {
     app.levels = app.freestyleLevel;
+<<<<<<< Updated upstream
   } else if (mode === app.GameMode.CUSTOM) {
     let level = app.DanceLevel.deserialize(customLevel);
     if (level) {
       app.levels = [level];
     }
   }
+=======
+	}
+>>>>>>> Stashed changes
 
   var match = location.search.match(/[?&]level=(\d+)/) || [];
   var levelNumber = (+match[1] - 1 || 0) - 1;

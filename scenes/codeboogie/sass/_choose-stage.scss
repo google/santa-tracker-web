@@ -1,0 +1,51 @@
+$stages: ('studio', 'stage', 'disco');
+
+##{$name} .choose-stage {
+  &__bg {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    padding-bottom: 50%;
+    transition: opacity 200ms ease-in-out;
+    width: 50%;
+
+    @each $stage in $stages {
+      &--#{$stage} {
+        background-image: url(img/stage-#{$stage}.svg);
+      }
+    }
+  }
+
+  &__back {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 0;
+
+    &,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__back-icon {
+    background: url(img/back-arrow.svg) no-repeat center center / contain;
+    display: inline-block;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+    width: 16px;
+  }
+
+  @media (min-width: 680px) {
+    &__bg {
+      padding-bottom: 100%;
+      width: 100%;
+    }
+
+    .grid__option {
+      flex-basis: 30%;
+    }
+  }
+}

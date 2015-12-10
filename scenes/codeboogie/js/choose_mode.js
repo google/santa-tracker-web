@@ -25,23 +25,56 @@ goog.require('app.shared.Overlay');
  * @constructor
  * @struct
  */
-app.ChooseMode = function(elem) {
+app.ChooseMode = function(elem, stage) {
   this.elem = elem;
+  this.stage = stage;
   this.callback_ = null;
 
-  this.elem.on('click', '.choose-mode__option', this.selectMode_.bind(this));
+  this.elem.on('click', '.grid__option', this.selectMode_.bind(this));
+  this.stage.on('click', '.grid__option', this.selectStage_.bind(this));
+  this.stage.on('click', '.choose-stage__back', this.back_.bind(this));
+
   this.overlay = new app.shared.Overlay(this.elem);
+  this.stageOverlay = new app.shared.Overlay(this.stage);
+};
+
+/**
+ * User chooses a mode.
+ */
+app.ChooseMode.prototype.selectMode_ = function(event) {
+  this.mode = $(event.currentTarget).data('mode');
+
+	if (this.mode === 'freestyle') {
+		return this.stageOverlay.show();
+	}
+
+	this.continue_();
+};
+
+/**
+ * User chooses a stage.
+ */
+app.ChooseMode.prototype.selectStage_ = function(event) {
+	this.stage = $(event.currentTarget).data('stage');
+	this.continue_();
+};
+
+/**
+ * Back to choosing a mode.
+ */
+app.ChooseMode.prototype.back_ = function(event) {
+	this.stageOverlay.hide();
 };
 
 /**
  * Set the map when the user chooses.
  */
-app.ChooseMode.prototype.selectMode_ = function(event) {
-  let mode = $(event.currentTarget).data('mode');
-  this.callback_(mode);
-  window.setTimeout(() => {
-    this.overlay.hide();
-  }, 100);
+app.ChooseMode.prototype.continue_ = function() {
+	this.callback_(this.mode, this.stage);
+	window.setTimeout(() => {
+		this.overlay.hide();
+		this.stageOverlay.hide();
+	}, 100);
 };
 
 /**
