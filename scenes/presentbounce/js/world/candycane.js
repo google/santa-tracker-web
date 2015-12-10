@@ -48,10 +48,10 @@ app.world.CandyCane = class extends app.world.LevelObject {
   onCollision(contact) {
     // check if it's a ball before playing 'boing' the sound
     if (contact && (
-        contact.GetFixtureA().collisionID === app.PresentBall.COLLISION_ID   ||
-        contact.GetFixtureA().collisionID === app.PresentSquare.COLLISION_ID ||
-        contact.GetFixtureB().collisionID === app.PresentBall.COLLISION_ID   ||
-        contact.GetFixtureB().collisionID === app.PresentSquare.COLLISION_ID )
+        contact.GetFixtureA().collisionID === app.world.PresentBall.COLLISION_ID   ||
+        contact.GetFixtureA().collisionID === app.world.PresentSquare.COLLISION_ID ||
+        contact.GetFixtureB().collisionID === app.world.PresentBall.COLLISION_ID   ||
+        contact.GetFixtureB().collisionID === app.world.PresentSquare.COLLISION_ID )
     ) {
       // console.log('CANDY COL');
       window.santaApp.fire('sound-trigger', 'pb_wall');
