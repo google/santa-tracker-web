@@ -31,8 +31,7 @@ app.DanceStatus = {
   NOT_ENOUGH_STEPS: 'NOT_ENOUGH_STEPS',
   WRONG_STEPS: 'WRONG_STEPS',
   TOO_MANY_STEPS: 'TOO_MANY_STEPS',
-  SUCCESS: 'SUCCESS',
-  FREESTYLE: 'FREESTYLE'
+  SUCCESS: 'SUCCESS'
 };
 
 /**
@@ -160,6 +159,9 @@ app.DanceLevel = class extends app.Level {
       }
     } else if (numEnabledBlocks > this.idealBlockCount) {
       message = app.I18n.getMsg('CB_resultTooManyBlocksSuccess');
+    } else if (this.freestyle) {
+      message = app.I18n.getMsg('CB_shareMoves');
+      endTitleMsg = 'CB_keepDancing';
     } else {
       allowRetry = false;
     }
@@ -168,7 +170,7 @@ app.DanceLevel = class extends app.Level {
       allowRetry,
       animationQueue: animationQueue,
       code: code,
-      endTitle: !this.freestyle && app.I18n.getMsg(endTitleMsg),
+      endTitle: app.I18n.getMsg(endTitleMsg),
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
       missingBlocks: missingBlocks,
@@ -186,7 +188,7 @@ app.DanceLevel = class extends app.Level {
    */
   evaluateStatus(playerSteps) {
     if (this.freestyle) {
-      return app.DanceStatus.FREESTYLE;
+      return app.DanceStatus.SUCCESS;
     }
 
     let stepCount = 0;
@@ -445,10 +447,6 @@ app.DanceLevelResult = class extends app.LevelResult {
   }
 
   showResult() {
-    if (this.freestyle) {
-      return false;
-    }
-
     return this.skipAnimation || !this.watching();
   }
 };
