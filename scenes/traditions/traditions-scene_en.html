@@ -35,17 +35,6 @@ Traditions scene.
 <dom-module id="traditions-scene">
 <template>
   <style>
-  :host([mode="cast"]) .sceneboard,
-  :host([mode="cast"]) #lessons-popup {
-    display: none;
-  }
-  :host([mode="cast"]) .traditions-tradition {
-    max-width: 50% !important;
-    left: 150px !important;
-  }
-  :host([mode="cast"]) .traditions-tradition p {
-    font-size: 3vh !important;
-  }
   :host([mode="portal"]) #lessons-popup {
     display: none;
   }
@@ -135,7 +124,7 @@ Traditions scene.
           <p><i18n-msg msgid="nz_tradition">PLACEHOLDER_i18n</i18n-msg></p>
         </div>
       </div>
-      <div id="lessons-popup" hidden>
+      <div id="lessons-popup" class="no-en">
         <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="{{pageUrl}}#" on-click="toggleLessons">here</a></p>
       </div>
       <div id="lessons" hidden>

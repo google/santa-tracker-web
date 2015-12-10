@@ -112,7 +112,7 @@ specific language governing permissions and limitations under the License.
                       disable-edge-swipe="true"
                       disable-swipe="{{disabled}}"
                       drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
-    <div id="drawer" drawer class="scroll" on-tap="_closeDrawerLink">
+    <div id="drawer" drawer class="scroll">
       <div hidden$="{{disabled}}">
         <paper-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
@@ -136,7 +136,7 @@ specific language governing permissions and limitations under the License.
           <a href$="{{_calculateTrackerUrl(pageUrl, trackerUnlocked)}}">
             <div class="menucard menucard-tracker">
               <template is="dom-if" if="{{!trackerUnlocked}}">
-                <div class="lock" style$="background-color: {{trackerColor}}"></div>
+                <div class="lock"></div>
               </template>
               <h2>{{_dec24th}}</h2>
               <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -383,20 +383,6 @@ specific language governing permissions and limitations under the License.
      */
     closeDrawer: function() {
       this.$.sidebar.closeDrawer();
-    },
-
-    /**
-     * Close the drawer, if the generating event has a link in its heirarchy.
-     */
-    _closeDrawerLink: function(e) {
-      var t = e.target;
-      while (t && t != this) {
-        if (t.localName == 'a') {
-          this.closeDrawer();
-          return;
-        }
-        t = t.parentNode;
-      }
     },
 
     _computeDec24thString: function(lang) {
