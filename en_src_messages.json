@@ -799,6 +799,46 @@
         "description": "Short hint after failing a level. One or two sentences max.",
         "message": "You are using the right blocks, but try using more of them to complete the dance."
     },
+    "codeboogie-go": {
+        "description": "Overlay on mode and stage select shown on hover. Needs to be a single word.",
+        "message": "Go!"
+    },
+    "codeboogie-choose-game-mode": {
+        "description": "Large title telling the user to pick between classes and freestyle modes. Single sentence.",
+        "message": "Choose a game mode"
+    },
+    "codeboogie-choose-stage": {
+        "description": "Large title telling the user to pick a location (stage). Single sentence.",
+        "message": "Choose a stage"
+    },
+    "codeboogie-mode-dance-class": {
+        "description": "Title for gameplay mode where the user copies a dance teacher.",
+        "message": "Dance class"
+    },
+    "codeboogie-mode-dance-class-description": {
+        "description": "Small text shown below dance class title. Single sentence.",
+        "message": "Match the teacher's moves"
+    },
+    "codeboogie-mode-freestyle": {
+        "description": "Title for gameplay mode where user can make up their own dances.",
+        "message": "Dance freestyle"
+    },
+    "codeboogie-mode-freestyle-description": {
+        "description": "Small text show below freestyle title. Single sentence.",
+        "message": "Make your own moves and share with friends"
+    },
+    "codeboogie-share-moves": {
+        "description": "Subtitle that encourages the user to click the share button.",
+        "message": "Share your moves and challenge your friends"
+    },
+    "codeboogie-back-to-start": {
+        "description": "Link text for going from the pick a stage screen (second screen) back to the gameplay mode screen (first screen).",
+        "message": "Back to start"
+    },
+    "codeboogie-keep-dancing": {
+        "description": "Button text to continue making your own dance in freestyle mode.",
+        "message": "Keep dancing"
+    },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
         "message": "when run"
