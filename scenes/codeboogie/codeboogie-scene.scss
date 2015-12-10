@@ -24,7 +24,7 @@ $board-level-bp: 1025px;
     }
   }
 
-  &.level--freestyle {
+  &.level--freestyle, &.level--custom {
     .board {
       display: none;
     }

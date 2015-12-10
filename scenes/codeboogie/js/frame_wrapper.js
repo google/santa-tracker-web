@@ -80,20 +80,30 @@ app.FrameWrapper.prototype.restart = function(customLevel) {
 
   if (customLevel) {
     this.startMode('custom', customLevel);
+    this.setLevelClass('custom');
   } else {
     this.chooseMode.show((mode) => {
-      // Remove any classes that start with level--
-      var domEl = this.el[0];
-      var classes = domEl.className.split(' ')
-        .filter(c => c.lastIndexOf('level--', 0) !== 0);
-
-      classes.push(`level--${mode}`);
-
-      domEl.className = classes.join(' ').trim();
+      this.setLevelClass(mode);
       this.startMode(mode, null);
     });
   }
 };
+
+/**
+ * Set a class on the game element so we know which mode we're in.
+ *
+ * @param {string} mode identifier. Can be teacher, freestyle or custom.
+ */
+app.FrameWrapper.prototype.setLevelClass = function(mode) {
+  // Remove any classes that start with level--
+  var domEl = this.el[0];
+  var classes = domEl.className.split(' ')
+    .filter(c => c.lastIndexOf('level--', 0) !== 0);
+
+  classes.push(`level--${mode}`);
+
+  domEl.className = classes.join(' ').trim();
+}
 
 /**
  * Starts a specific game mode.
