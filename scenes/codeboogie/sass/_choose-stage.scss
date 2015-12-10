@@ -17,10 +17,12 @@ $stages: ('studio', 'stage', 'disco');
   }
 
   &__back {
+    display: inline-block;
     color: #fff;
     font-size: 18px;
     font-weight: 900;
-    margin: 0;
+    margin: 1em 0 0;
+    position: relative;
 
     &,
     &:focus,
@@ -31,11 +33,18 @@ $stages: ('studio', 'stage', 'disco');
 
   &__back-icon {
     background: url(img/back-arrow.svg) no-repeat center center / contain;
-    display: inline-block;
+    display: block;
     height: 16px;
-    margin-right: 8px;
-    vertical-align: middle;
+    margin-right: 12px;
+    position: absolute;
+    right: 100%;
+    top: 2px;
+    transition: transform .2s;
     width: 16px;
+  }
+  
+  &__back:hover .choose-stage__back-icon {
+    transform: translateX(-4px);
   }
 
   @media (min-width: 680px) {
