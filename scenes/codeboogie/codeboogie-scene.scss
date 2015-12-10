@@ -49,6 +49,23 @@ $board-level-bp: 1025px;
     flex: 0 1 45%;
   }
 
+  .go {
+    color: #fff;
+    font-family: 'Lobster', sans-serif;
+    font-size: 7.3em;
+    left: 50%;
+    letter-spacing: -1.5px;
+    line-height: 0.95;
+    margin-left: -0.7em;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    text-shadow : 5px 5px 0 rgba(0, 0, 0, 0.15);
+    transition: opacity 400ms 200ms ease, transform 400ms 200ms ease;
+    transform: translate3d(0, -.5em, 0);
+  }
+
+
   @media (min-width: 680px) {
     .overlay-title {
       font-size: 8em;
@@ -63,6 +80,11 @@ $board-level-bp: 1025px;
       justify-content: space-between;
       display: flex;
       width: 100%;
+    }
+    
+    .grid__option:hover .go {
+      opacity: 1;
+      transform: none;
     }
   }
 
@@ -96,7 +118,5 @@ $board-level-bp: 1025px;
       display: none;
     }
   }
-
-
 }
 

@@ -63,22 +63,6 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
     }
   }
 
-  &__go {
-    color: #fff;
-    font-family: 'Lobster', sans-serif;
-    font-size: 7.3em;
-    left: 50%;
-    letter-spacing: -1.5px;
-    line-height: 0.95;
-    margin-left: -0.7em;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    text-shadow : 5px 5px 0 rgba(0, 0, 0, 0.15);
-    transition: opacity 400ms 200ms ease, transform 400ms 200ms ease;
-    transform: translate3d(0, -.5em, 0);
-  }
-
   @media (min-width: 680px) {
     &__info {
       padding-top: 100%;
@@ -115,10 +99,6 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
 
       .choose-mode__go, .choose-mode__text, .choose-mode__description {
         opacity: 1;
-      }
-
-      .choose-mode__go {
-        transform: translate3d(0, 0, 0);
       }
     }
   }
