@@ -341,6 +341,9 @@
   "codeboogie-choose-game-mode": {
     "message": "Choose a game mode"
   },
+  "codeboogie-choose-stage": {
+    "message": "Choose a stage"
+	},
   "codeboogie-mode-dance-class": {
     "message": "Dance class"
   },
@@ -355,6 +358,9 @@
   },
   "codeboogie-share-moves": {
     "message": "Share my moves"
+  },
+  "codeboogie-back-to-start": {
+    "message": "Back to start"
   },
 	"codelab-block-moveeast": {
 		"message": "east"

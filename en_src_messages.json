@@ -807,6 +807,10 @@
         "description": "",
         "message": "Choose a game mode"
     },
+    "codeboogie-choose-stage": {
+        "description": "",
+        "message": "Choose a stage"
+    },
     "codeboogie-mode-dance-class": {
         "description": "",
         "message": "Dance class"
@@ -826,6 +830,10 @@
     "codeboogie-share-moves": {
         "description": "",
         "message": "Share my moves"
+    },
+    "codeboogie-back-to-start": {
+        "description": "",
+        "message": "Back to start"
     },
     "codelab-block-whenrun": {
         "description": "Code block label. 15char limit. Start of the code, reads to indicate that blocks below it will execute in order",
