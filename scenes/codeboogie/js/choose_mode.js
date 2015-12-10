@@ -38,6 +38,10 @@ app.ChooseMode = function(elem) {
  */
 app.ChooseMode.prototype.selectMode_ = function(event) {
   let mode = $(event.currentTarget).data('mode');
+
+  // Need to trigger a sound in a click event to allow sound on safari mobile.
+  Klang.triggerEvent('cb_ingame_win');
+
   this.callback_(mode);
   window.setTimeout(() => {
     this.overlay.hide();
