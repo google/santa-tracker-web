@@ -75,6 +75,20 @@ $board-level-bp: 1025px;
     .board .logo {
       height: 68px;
     }
+
+    &.level--freestyle:after, &.level--custom:after {
+      content: '';
+      position: absolute;
+      background-image: url(img/logo.svg);
+      background-repeat: no-repeat;
+      background-size: 108px 101px;
+      background-position: 50% 50%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      height: 160px;
+      width: 238px;
+    }
   }
 
   &.level--freestyle, &.level--custom {
@@ -82,5 +96,7 @@ $board-level-bp: 1025px;
       display: none;
     }
   }
+
+
 }
 
