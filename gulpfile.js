@@ -224,6 +224,11 @@ var SCENE_CLOSURE_CONFIG = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  presentbounce: {
+    closureLibrary: true,
+    typeSafe: false,
+    entryPoint: 'app.Game'
+  },
   presentdrop: {
     entryPoint: 'app.Game'
   },

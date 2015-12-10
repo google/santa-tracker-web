@@ -1,0 +1,46 @@
+##{$name} {
+
+  // .object {
+  //   outline: 1px solid hotpink;
+  // }
+
+  .object--shadow,
+  .object--shadow.object--present-circle,
+  .object--shadow.object--present-rect {
+    outline: none;
+    background: rgba(66,66,66,.25);
+  }
+
+  .object--inactive {
+    transform: scale(0.6);
+  }
+
+  .object--present-rect {
+    background: red;
+    opacity: 0.5;
+  }
+
+  .object--present-circle {
+    border-radius: 100%;
+  }
+
+  .object--snowglobe {
+    border-radius: 100%;
+  }
+
+  .object.object--target {
+    z-index: $z-index-above-present;
+    left: 5px; // match SVG
+  }
+
+  &.frozen,
+  .js-animation-paused {
+    .object--conveyorBelt {
+      .belt,
+      .wheel {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+}

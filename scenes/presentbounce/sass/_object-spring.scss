@@ -1,0 +1,62 @@
+##{$name} {
+
+  $animation-duration: 200ms;
+  $ease-out-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  $ease-out-expo: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+  .object--spring {
+    cursor: move;
+
+    &.animate {
+
+      .spring {
+        animation-name: #{$name}-spring-move;
+        animation-duration: $animation-duration;
+        animation-timing-function: $ease-out-expo;
+      }
+
+      .spring__bottom {
+        animation-name: #{$name}-spring-bounce;
+        animation-duration: $animation-duration;
+        animation-timing-function: $ease-out-expo;
+      }
+    }
+  }
+
+  .spring {
+    position: relative;
+  }
+
+  .spring__top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10; // don't let transform stack it on top of this
+  }
+
+}
+
+@keyframes #{$name}-spring-move {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(40%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes #{$name}-spring-bounce {
+  0% {
+    transform: translateY(0) scaleY(1);
+    transform-origin: center bottom;
+  }
+  50% {
+    transform: translateY(-20%) scaleY(0.6);
+  }
+  100% {
+    transform: translateY(0%) scaleY(1);
+  }
+}

@@ -1,0 +1,19 @@
+##{$name} {
+
+  .wall-decoration {
+
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    &--horizontal {
+      top: 100%;
+      margin-top: -45vh;
+    }
+
+    &--top {
+      top: 0;
+       margin-top: -20vh;
+    }
+  }
+}

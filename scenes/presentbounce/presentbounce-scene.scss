@@ -1,0 +1,123 @@
+$name: 'module-presentbounce';
+$gameover-bg: #29b6f6;
+$rotate-bg: $gameover-bg;
+$z-index-present: 10;
+$z-index-above-present: $z-index-present + 10;
+$board-mobile-breakpoint: 668px;
+$board-desktop-breakpoint: 1025px;
+$border-color: #a52fb7;
+
+
+@import "../shared/sass/levelup";
+@import "../shared/sass/gameover";
+@import "../shared/sass/board";
+@import "../shared/sass/startbutton";
+@import "../shared/sass/rotate";
+@import "../shared/sass/tutorial";
+@import "../shared/sass/_penner-easing";
+
+@import "sass/debug";
+@import "sass/board-custom";
+@import "sass/tutorial-custom";
+@import "sass/drawer";
+@import "sass/draggable";
+@import "sass/bg";
+@import "sass/levelobjects";
+@import "sass/object-spring";
+@import "sass/rotation";
+@import "sass/conveyor-belt";
+@import "sass/wall-pipes";
+@import "sass/dropper";
+@import "sass/target";
+
+
+##{$name} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .presentbounce-scene-viewport {
+    position: absolute;
+
+    // Mobile viewport
+    top: 0px;
+    bottom: 40px;
+    right: 0;
+    left: 0;
+
+     // Tablet UI
+    @media (min-width: 661px) {
+      top: 0;
+      bottom: 50px;
+    }
+
+    // Desktop UI
+    @media (min-width: 1025px) {
+      left: 225px;
+      bottom: 0;
+    }
+  }
+
+  .scene {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: 0 0;
+  }
+
+  .start {
+    background-color: #3ec4f0;
+  }
+
+  user-select: none;
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .btns {
+    position: absolute;
+    top: 4%;
+    left: 2%;
+  }
+
+  .object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    // outline: 1px dashed rgba(255,0,0,.5);
+  }
+
+  .view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -600px;
+    margin-top: -450px;
+    width: 1200px;
+    height: 900px;
+  }
+
+  // Pausing the game pauses all important animations.
+  // &.frozen {
+  //   .ceiling-pipe-lever,
+  //   .ceiling-pipe-hand {
+  //     animation-play-state: paused;
+  //   }
+  // }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}
