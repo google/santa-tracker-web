@@ -18,6 +18,7 @@ $border-color: #a52fb7;
 
 @import "sass/debug";
 @import "sass/board-custom";
+@import "sass/tutorial-custom";
 @import "sass/drawer";
 @import "sass/draggable";
 @import "sass/bg";
@@ -39,7 +40,7 @@ $border-color: #a52fb7;
 
   .presentbounce-scene-viewport {
     position: absolute;
-    
+
     // Mobile viewport
     top: 0px;
     bottom: 40px;

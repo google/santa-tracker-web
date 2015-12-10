@@ -46,7 +46,7 @@ app.Game = function(elem) {
   this.drawer = new app.Drawer(this.elem);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
-  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'mouse');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt drag-and-drop', 'drag-and-drop');
 
   this.isPlaying = false;
   this.paused = false;
@@ -57,6 +57,7 @@ app.Game = function(elem) {
   this.onFrame_ = this.onFrame_.bind(this);
   this.loadNextLevel_ = this.loadNextLevel_.bind(this);
   this.onLevelCompleted = this.onLevelCompleted.bind(this);
+  this.onInteraction = this.onInteraction.bind(this);
 
   // bind events
   this.addEventListeners_();
@@ -66,8 +67,8 @@ app.Game = function(elem) {
  * Adds event listeners on elements
  */
 app.Game.prototype.addEventListeners_ = function() {
-  this.backgroundElem.on('click', this.onInteraction.bind(this));
-  this.elem.on('click', '.tutorial', this.onInteraction.bind(this));
+  this.backgroundElem.on('click', this.onInteraction);
+  this.elem.on('click', '.tutorial', this.onInteraction);
 }
 
 /**

@@ -81,6 +81,7 @@ app.world.Level = class {
     // bind events
     this.onUserObjectDropped_ = this.onUserObjectDropped_.bind(this);
     this.onTestDropObject_ = this.onTestDropObject_.bind(this);
+    this.onInteraction = this.onInteraction.bind(this);
     this.addEventListeners_();
 
     this.init_();
@@ -90,7 +91,7 @@ app.world.Level = class {
    * Adds event listeners on elements
    */
   addEventListeners_() {
-    this.elem.on("click", this.onInteraction.bind(this));
+    this.elem.on("click", this.onInteraction);
   }
 
   /**
@@ -387,7 +388,7 @@ app.world.Level = class {
     if (!this.hasInteractionStarted) {
       this.hasInteractionStarted = true;
       this.tutorial.off('device-tilt');
-      this.tutorial.off('mouse' );
+      this.tutorial.off('drag-and-drop');
     }
   }
 
