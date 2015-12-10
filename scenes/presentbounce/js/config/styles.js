@@ -44,15 +44,15 @@ app.config.Styles = {
     dynamicShadow: true
   },
   presentBall: {
-    className: 'object--present-circle',
-    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.6 49.6"><circle fill="#DA4737" cx="24.8" cy="24.8" r="24.8"/><path fill="#F0B31D" d="M21.7 28v21.5c1 .1 2.1.2 3.1.2 1.1 0 2.1-.1 3.1-.2L28 28h21.5c.1-1 .2-2.1.2-3.1 0-1.1-.1-2.1-.2-3.1H28V.3c-1-.1-2.1-.2-3.2-.2s-2.1.1-3.2.2v21.5H.1c-.1 1-.2 2.1-.2 3.1 0 1.1.1 2.1.2 3.1h21.6z"/></svg>',
+    className: 'object--present-circle present present--circle',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.6 49.6"><circle class="present__circle" fill="#DA4737" cx="24.8" cy="24.8" r="24.8"/><path class="present__circle-cross" fill="#F0B31D" d="M21.7 28v21.5c1 .1 2.1.2 3.1.2 1.1 0 2.1-.1 3.1-.2L28 28h21.5c.1-1 .2-2.1.2-3.1 0-1.1-.1-2.1-.2-3.1H28V.3c-1-.1-2.1-.2-3.2-.2s-2.1.1-3.2.2v21.5H.1c-.1 1-.2 2.1-.2 3.1 0 1.1.1 2.1.2 3.1h21.6z"/></svg>',
     width: 50,
     height: 50,
     dynamicShadow: true
   },
   presentSquare: {
-    className: '',
-    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path fill="#DA4637" d="M0 0h50v50H0z"/><path fill="#F1B31C" d="M28.2 21.8V0h-6.4v21.8H0v6.4h21.8V50h6.4V28.2H50v-6.4"/></svg>',
+    className: 'object--present-square present present--square',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path class="present__square" fill="#DA4637" d="M0 0h50v50H0z"/><path class="present__square-cross" fill="#F1B31C" d="M28.2 21.8V0h-6.4v21.8H0v6.4h21.8V50h6.4V28.2H50v-6.4"/></svg>',
     width: 50,
     height: 50,
     dynamicShadow: true

@@ -1,0 +1,24 @@
+##{$name} {
+
+  @mixin present-theme($index, $color1, $color2) {
+    .present--style-#{$index} {
+      .present {
+        &__square,
+        &__circle {
+          fill: $color1;
+        }
+
+        &__square-cross,
+        &__circle-cross {
+          fill: $color2;
+        }
+      }
+    }
+  }
+
+  @include present-theme(0, #DA4637, #F1B31C);
+  @include present-theme(1, #F1B31C, #37B34A);
+  @include present-theme(2, #37B34A, #AB47BC);
+  @include present-theme(3, #AB47BC, #DA4637);
+
+}

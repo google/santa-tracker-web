@@ -84,6 +84,8 @@ app.world.Level = class {
     this.onInteraction = this.onInteraction.bind(this);
     this.addEventListeners_();
 
+    this.CLASS_PRESENT_STYLE_PREFIX = 'present--style-';
+
     this.init_();
   }
 
@@ -214,7 +216,6 @@ app.world.Level = class {
    * @private
    */
   init_() {
-    // window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
     this.isLevelLoaded_ = true;
     this.drawer.reset();
     this.buildLevelObjects_();
@@ -315,13 +316,25 @@ app.world.Level = class {
    * @public
    */
   dropBall() {
-    //debugEl.innerHTML = 'Debug: ball dropped';
     this.destroyBall();
-
 
     // create ball - use position from dropper
     const ballData = this.levelData_.ball;
     this.ball_ = new ballData.objectType(this, this.world_, ballData);
+
+    this.ball_
+      .$el_
+      .addClass( this.CLASS_PRESENT_STYLE_PREFIX + this.randomIntFromInterval(0, 3) );
+  }
+
+  /**
+   * Gets a random intenger given a range.
+   * @param  {Number} min The mininum possible integer
+   * @param  {Number} max The maximum possible integer
+   * @return {Number}     The randomized integer
+   */
+  randomIntFromInterval(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
   }
 
   /**

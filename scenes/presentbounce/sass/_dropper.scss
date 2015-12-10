@@ -46,7 +46,7 @@
       &:active .dropper__button__hitarea {
         transform: translate3d(4.8px, 4.7px, 0);
       }
-        
+
       .dropper__button__shadow {
         transition: transform 150ms $ease-out-quart;
         transform: translate3d(0, 0, 0);
