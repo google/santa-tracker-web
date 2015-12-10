@@ -1,5 +1,12 @@
 $choose-mode-width-small: 80em;
 $choose-mode-width-large: 45em;
+$choose-mode-teacher-width: 397px;
+$choose-mode-freestyle-width: 360.234px;
+$choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-width;
+
+@function choose-mode-figure-width($max-width) {
+  @return $max-width * (1 + $choose-mode-delta-width / $choose-mode-freestyle-width);
+}
 
 ##{$name} .choose-mode {
   color: #fff;
@@ -21,12 +28,12 @@ $choose-mode-width-large: 45em;
     letter-spacing: -2px;
     line-height: 0.95;
     margin: 0;
-    text-shadow : 6px 6px 0 rgba(0, 0, 0, 0.15);
+    text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
   }
 
   &__option {
     cursor: pointer;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     position: relative;
     flex: 0 1 45%;
   }
@@ -37,15 +44,19 @@ $choose-mode-width-large: 45em;
     position: relative;
   }
 
+  &__info {
+    padding-top: 50%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
   &__text {
     font-size: 2em;
     line-height: 1.4;
     margin-bottom: 0;
     margin-top: -0.8em;
-  }
-
-  &__text--teacher {
-    margin-top: -2em;
   }
 
   &__description {
@@ -64,15 +75,15 @@ $choose-mode-width-large: 45em;
     background-size: contain;
     padding-bottom: 50%;
     width: 50%;
-    transform: translateX(50%);
+    display: inline-block;
     opacity: 1;
     transition: opacity 200ms ease-in-out;
 
     &--teacher {
       background-image: url(img/mode-class.svg);
-      margin-left: -8%;
-      padding-bottom: 55%;
-      width: 55%;
+      margin-left: -(choose-mode-figure-width(50%) - 50%);
+      padding-bottom: choose-mode-figure-width(50%);
+      width: choose-mode-figure-width(50%);
     }
 
     &--freestyle {
@@ -104,6 +115,10 @@ $choose-mode-width-large: 45em;
       margin: 0 auto 8em auto;
     }
 
+    &__info {
+      padding-top: 100%;
+    }
+
     &__text {
       font-size: 3em;
     }
@@ -118,8 +133,9 @@ $choose-mode-width-large: 45em;
       transform: none;
 
       &--teacher {
-        padding-bottom: 110%;
-        width: 110%;
+        padding-bottom: choose-mode-figure-width(100%);
+        width: choose-mode-figure-width(100%);
+        margin-left: -(choose-mode-figure-width(100%) - 100%);
       }
     }
 
