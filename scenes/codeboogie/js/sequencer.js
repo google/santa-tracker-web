@@ -27,7 +27,6 @@ app.Sequencer = class {
     this.beat = -1;
     this._track = null;
     this._variant = 0;
-    this.playingLoopId = null;
     this._playScheduled = false;
   }
 
@@ -48,7 +47,6 @@ app.Sequencer = class {
       if (this.tracks[i].playing && this.tracks[i].position >= 0) {
         if (!playingLoop || this.tracks[i].position < playingLoop.position) {
           playingLoop = this.tracks[i];
-          this.playingLoopId = i;
         }
       }
     }

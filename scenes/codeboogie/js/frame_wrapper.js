@@ -61,24 +61,39 @@ app.FrameWrapper = function(el, staticDir) {
 
 /**
  * Starts the scene.
+ *
+ * @param {{level: string}} params
  */
-app.FrameWrapper.prototype.start = function() {
+app.FrameWrapper.prototype.start = function(params) {
   this.sequencer.start();
 
-  // Too soon for postMessage.
-  this.restart();
+  this.restart(params && params.dance);
 };
 
 /**
  * Restarts the game
+ *
+ * @param {?string} customLevel
  */
-app.FrameWrapper.prototype.restart = function() {
+app.FrameWrapper.prototype.restart = function(customLevel) {
   this.isPlaying = true;
 
-  this.chooseMode.show((mode) => {
-    this.iframeChannel.call('restart', mode);
-    window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
-  });
+  if (customLevel) {
+    this.startMode('custom', customLevel);
+  } else {
+    this.chooseMode.show((mode) => this.startMode(mode, null));
+  }
+};
+
+/**
+ * Starts a specific game mode.
+ *
+ * @param {string} mode identifier. Can be teacher, freestyle or custom.
+ * @param {?string} customLevel serialized.
+ */
+app.FrameWrapper.prototype.startMode = function(mode, customLevel) {
+  this.iframeChannel.call('restart', mode, customLevel);
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
 };
 
 /**
