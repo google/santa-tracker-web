@@ -95,7 +95,6 @@ app.Game.prototype.start = function() {
  */
 app.Game.prototype.restart = function() {
   var match = location.search.match(/[?&]level=(\d+)/) || [];
-  this.previousLevel = 0;
   this.level = (+match[1] || 1) - 2;
   this.paused = false;
 
@@ -169,10 +168,9 @@ app.Game.prototype.onInteraction = function() {
  */
 app.Game.prototype.loadNextLevel_ = function() {
   // Next level
-  this.previousLevel = this.level;
   this.level++;
 
-  this.loadLevel_();
+  this.loadLevel_(true);
 
   // Update scoreboard
   this.scoreboard.setLevel(this.level);
@@ -184,12 +182,12 @@ app.Game.prototype.loadNextLevel_ = function() {
  * Transition to the current level
  * @private
  */
-app.Game.prototype.loadLevel_ = function() {
+app.Game.prototype.loadLevel_ = function(playSound) {
   var levelNumber = this.level % app.config.Levels.length;
   var levelData = app.config.Levels[levelNumber];
 
   // Send Klang event
-  if (this.level > 0 && this.level > this.previousLevel) {
+  if (playSound && this.level > 0) {
     window.santaApp.fire('sound-trigger', 'pb_level_up');
   }
 

@@ -40,7 +40,6 @@ app.world.PresentBall = class extends app.world.GravityObject {
     this.registerForCollisions( this.onCollision_ );
   }
 
-
   /**
    * Detect when colliding with Conveyorbelt and cancel out angular velocity
    * caused by surface speed of belt
