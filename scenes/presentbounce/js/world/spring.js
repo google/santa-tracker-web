@@ -37,9 +37,9 @@ app.world.Spring = class extends app.world.UserObject {
    */
   constructor(...args) {
     super(...args); // super(...arguments) doesn't work in Closure Compiler
+    this.topPlateFixture_ = null;
     this.body_ = this.buildBody_();
     this.onCollision = this.onCollision.bind(this);
-    this.topPlateFixture_ = null;
     this.registerForCollisions(this.onCollision);
   }
 
