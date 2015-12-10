@@ -66,7 +66,9 @@ app.Character = class {
 
     let image = this.images[frame.sprite];
 
-    this.context.canvas.width = this.context.canvas.width;
+
+    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+
     this.context.drawImage(image, frame.x, frame.y,
         frame.width, frame.height, frame.offsetX, frame.offsetY,
         frame.width, frame.height);
