@@ -131,6 +131,13 @@ app.DanceLevel = class extends app.Level {
 
     var danceStatus = this.evaluateStatus(playerSteps);
     var animationQueue = this.createAnimationQueue(playerSteps, danceStatus);
+
+    if (this.freestyle && animationQueue.length > 30) {
+      return new app.DanceLevelResult(false,
+          app.I18n.getMsg('CB_resultTooManySteps'),
+          {skipAnimation: true});
+    }
+
     var levelComplete = danceStatus === app.DanceStatus.SUCCESS;
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
