@@ -28,6 +28,7 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
     line-height: 1.4;
     margin-bottom: 0;
     margin-top: -0.8em;
+    white-space: nowrap;
   }
 
   &__description {
