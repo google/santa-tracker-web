@@ -29,6 +29,7 @@ app.Character = class {
     this.currentState = null;
     this.el = el;
     this.data = app.AnimationData(color);
+    this.lastFrame = null;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -58,12 +59,19 @@ app.Character = class {
     if (!this.animation) return;
 
     let frame = this.animation.update(dt);
+
+    if (frame === this.lastFrmae) {
+      return;
+    }
+
     let image = this.images[frame.sprite];
 
     this.context.canvas.width = this.context.canvas.width;
     this.context.drawImage(image, frame.x, frame.y,
         frame.width, frame.height, frame.offsetX, frame.offsetY,
         frame.width, frame.height);
+
+    this.lastFrame = frame;
   }
 
   setState(state) {
