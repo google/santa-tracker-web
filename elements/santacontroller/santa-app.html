@@ -1184,7 +1184,7 @@ Polymer({
     this.debounce('_notifyHouses', function() {
       if (!this.$.village.fire) {
         // We're not a Polymer element yet, ignore. This will be later called
-        // by onSceneLoaded.
+        // by onSceneReady.
         return;
       }
 
