@@ -253,6 +253,11 @@ var SCENE_CLOSURE_CONFIG = {
     typeSafe: false,
     entryPoint: 'app.Game'
   },
+  seasonofcaring: {
+    typeSafe: false,
+    closureLibrary: true,
+    entryPoint: 'app.Game'
+  },
   seasonofgiving: {
     typeSafe: false,
     closureLibrary: true,

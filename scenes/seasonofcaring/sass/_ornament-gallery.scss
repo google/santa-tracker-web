@@ -1,0 +1,119 @@
+##{$name} {
+  .nav-ornament {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    z-index: 3;
+
+    @media (max-width: 1024px) {
+      bottom: 94px;
+      z-index: 2;
+    }
+
+    @media (max-width: 520px) {
+      bottom: 166px;
+    }
+  }
+
+  .nav-ornament--active {
+    opacity: 1;
+    visibility: visible;
+    transition: .6s opacity ease;
+    transition-delay: .6s;
+  }
+
+  .ornament-gallery {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 722px;
+    z-index: 0;
+
+    @media (max-width: 1600px) {
+      margin-left: 110px;
+    }
+
+    @media (max-width: 1024px) {
+      margin-left: 40px;
+      transform: translate(-50%, -58%);
+    }
+
+    @media (max-width: 700px) {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  .ornament-item {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 408px;
+    margin: 38px;
+    max-height: 408px;
+    max-width: 284px;
+    opacity: 0;
+    position: relative;
+    transform-origin: 50% 60;
+    visibility: hidden;
+    width: 100%;
+
+    @media (max-width: 1200px) {
+      height: 358px;
+      margin: 38px;
+      width: 36%;
+    }
+
+    @media (max-height: 990px) and (min-width: 700px) {
+      height: 250px;
+    }
+
+    @media (max-height: 600px) and (min-width: 700px) {
+      height: 139px;
+    }
+
+    @media (max-width: 700px) {
+      height: 139px;
+      margin: 0;
+      max-width: 100%;
+      width: 49%;
+      margin-bottom: 50px;
+    }
+
+  }
+
+  .ornament-item--enable {
+    background-image: url(img/ornament/enable.png);
+  }
+
+  .ornament-item--rnib {
+    background-image: url(img/ornament/rnib.png);
+  }
+
+  .ornament-item--wwh {
+    background-image: url(img/ornament/wwh.png);
+  }
+
+  .ornament-item--wheelmap {
+    background-image: url(img/ornament/wheelmap.png);
+  }
+
+  .ornament-item-name {
+    color: #9dc69f;
+    font-family: 'Lobster', serif;
+    font-size: 24px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+    }
+  }
+}

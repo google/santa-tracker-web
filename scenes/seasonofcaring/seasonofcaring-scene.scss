@@ -1,0 +1,46 @@
+$name: 'module-seasonofcaring';
+
+@import "../shared/sass/gameover";
+@import "../shared/sass/rotate";
+
+@import "sass/mixins";
+@import "sass/buttons";
+@import "sass/tools";
+@import "sass/ornament";
+@import "sass/ornament-gallery";
+@import "sass/print-ornament";
+@import "sass/responsive";
+
+##{$name} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .seasonofcaring {
+    background: url(img/season-of-giving-bg.svg) no-repeat;
+    background-position: center;
+    background-size: cover;
+  	width: 100%;
+  	height: 100%;
+  }
+
+  #download-bg {
+    background: url(img/header-icon.svg) no-repeat;
+    width: 200px;
+    height: 200px;
+  }
+
+  .scene-container {
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
