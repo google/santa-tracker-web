@@ -39,6 +39,8 @@ app.Result = class {
     this.continueButtonEl = el.querySelector('.result__button--continue');
     this.continueText = this.continueButtonEl && this.continueButtonEl.textContent;
     this.finishText = app.I18n.getMsg('CB_finish');
+    this.retryText = app.I18n.getMsg('CB_tryAgain');
+    this.keepDancingText = app.I18n.getMsg('CB_keepDancing');
     this.shareUrl = null;
 
     // Strangely, Safari doesn't like getAttributeNS. Hopefully this un-namespaced get
@@ -73,6 +75,8 @@ app.Result = class {
 
     if (this.retryButtonEl) {
       this.retryButtonEl.style.display = result.allowRetry ? 'inline-block' : 'none';
+      this.retryButtonEl.textContent =
+          result.freestyle ? this.keepDancingText : this.retryText;
     }
 
     if (this.shareButtonEl) {
