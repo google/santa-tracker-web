@@ -64,7 +64,7 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
     return url.join('&');
   }
 
-  var private_router;
+  var privateRouter;
 
   Polymer({
     is: 'santa-tracker-router',
@@ -72,36 +72,38 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
     hostAttributes: {hidden: true},
 
     properties: {
-      /**
-       * True to automatically replace `window.location.hash` when the route
-       * property changes. This won't add anything to history. To actually
-       * navigate to a new scene, call `.go` or set location directly.
-       */
-      autoHash: {
-        type: Boolean,
-        value: false
-      },
 
       /**
-       * URL route.
+       * URL route. Can be changed by users of this element, and will cause
+       * the current state to be replaced. Use `.go` to emulate a user action.
        */
       route: {
         type: String,
-        value: null,
-        notify: true,
-        observer: '_routeChanged'
+        observer: '_routeChanged',
+        notify: true
       },
 
       /**
-       * URL params specific to the scene. Subclass scenes can use this property
-       * to deeplink into sections of their app.
+       * URL params specific to the scene. Scenes can use this property to
+       * deeplink into sections of their app.
        *
        * Example: /#jamband?band=2,8,-1,1,7,-1
        */
       sceneParams: {
         type: Object,
+        readOnly: true,
         notify: true
-      }
+      },
+
+      /**
+       * Used to record the route seen by the private router. Prevents calls
+       * to window.history.replaceState caused by a route change. This is set
+       * before route is changed, and consumed when `_routeChanged` sees a new
+       * value matching this.
+       */
+      _internalRoute: {
+        type: String
+      },
 
     },
 
@@ -109,44 +111,51 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
      * The Flatiron Route object.
      */
     get router() {
-      if (!private_router) {
-        private_router = new Router();
-        private_router.init();
+      if (!privateRouter) {
+        privateRouter = new Router();
+        privateRouter.init();
       }
-      return private_router;
+      return privateRouter;
     },
 
     ready: function() {
+      var handler = function() {
+        var route = this.router.getRoute() ? this.router.getRoute().join(this.router.delimiter) : '';
+        var pieces = routeToParts(route);
+
+        this._internalRoute = pieces.route;
+        try {
+          this.route = pieces.route;
+          this._setSceneParams(Object.freeze(pieces.params));
+        } finally {
+          this._internalRoute = null;
+        }
+      }.bind(this);
+  
       // Catch all URLs.
-      this.router.on(/(.*)/, function(route) {
-        this.route = route;
-        this.sceneParams = null;
-      }.bind(this));
-      var route = this.router.getRoute() ? this.router.getRoute().join(this.router.delimiter) : '';
-      var pieces = routeToParts(route);
-      this.route = pieces.route;
-      this.sceneParams = Object.freeze(pieces.params);
+      this.router.on(/(.*)/, handler);
+      handler();
+    },
+
+    detached: function() {
+      throw new Error('santa-tracker-router should never be detatched')
     },
 
     go: function(route) {
       window.location.hash = '#' + route;
     },
 
-    _routeChanged: function() {
-      if (this.sceneParams !== undefined && this.autoHash && this.route != null) {
-        // Don't create a history entry when the route changes. This ensures
-        // that when the route is changed programatically (usually because
-        // a user is at the wrong route) they don't get a history event (that,
-        // if they load, will just move them back to a valid route - making the
-        // back button useless).
-        var params = serializeParams(this.sceneParams);
-
-        location.hash = this.route + (params ? '?' + params : '');
-
-        // TODO(thorogood): We shouldn't create a history event when the route
-        // is being set programatically: aka if the wrong #sceneName was loaded.
+    _routeChanged: function(newValue) {
+      if (this._internalRoute == newValue) {
+        this._internalRoute = null;
+        return;
       }
-    }
+
+      var url = window.location.href;
+      var hash = window.location.hash;
+      window.history.replaceState(null, '', url.substr(0, url.length - hash.length) + '#' + newValue);
+      this._setSceneParams({});
+    },
 
   });
 }());

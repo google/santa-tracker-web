@@ -551,11 +551,20 @@ Polymer({
       notify: true
     },
 
+    /**
+     * sceneParams from `santa-tracker-router`. Can't be changed; router
+     * provides this as frozen and readOnly.
+     */
+    sceneParams: {
+      type: Object,
+      observer: 'sceneParamsChanged'
+    },
+
   },
 
   listeners: {
     'scene-progress': 'onSceneProgress',
-    'scene-loaded': 'onSceneLoaded',
+    'scene-ready': 'onSceneReady',
     'video-scene-done': 'onVideoSceneDone',
     'iframe-focus-change': 'onIframeFocusChange',
     'analytics-track-event': 'trackEvent',
@@ -716,15 +725,19 @@ Polymer({
     }
   },
 
-  onSceneLoaded: function(event, scene) {
+  onSceneReady: function(event, scene) {
     if (scene == this.$.village) {
       this._notifyHouses();
     }
+    this.sceneParamsChanged(this.$.router.sceneParams);
+  },
 
-    scene.sceneParams = this.$.router.sceneParams || {};
-    this.$.router.sceneParams = null;  // clear, passed to first scene
-    // TODO(samthor): We should clear the #-params here, since they've been
-    // consumed.
+  sceneParamsChanged: function(newValue) {
+    // sceneParamsChanged might happen while a scene isn't ready yet, so wait
+    // until it's upgraded. onSceneReady will be called then.
+    if (this.selectedScene && this.selectedScene.fire) {
+      this.selectedScene.sceneParams = newValue;
+    }
   },
 
   onVideoSceneDone: function(event) {
@@ -866,41 +879,20 @@ Polymer({
     dom.appendChild(el);
   },
 
-  _routeChanged: function() {
-    // Check if the new route needs a special-case redirect or if it is valid.
-    // If this changes the route, routeChanged() will be called again, repeating
-    // until this.route passes through validateRoute() successfully.
-    var requestedRoute = this.route;
-    switch (requestedRoute) {
-      case 'tourist':
-        // tourist and trailer are synonymous
-        this.route = 'trailer';
-        break;
-      case 'gumballs':
-        this.route = 'gumball';
-        break;
-    }
-    this.validateRoute();
-
-    if (requestedRoute === this.route) {
+  _routeChanged: function(newValue) {
+    if (this.validateRoute()) {
       // Route is valid. Send to analytics and load the scene.
-      this.trackPageview('/' + this.route);
-    } else if (requestedRoute !== '') {
-      // The requested route was changed.
-      var currentRoute = null;
-      var pageUrl = window.location.href.substr(0, location.href.length - location.hash.length);
-      if (pageUrl) {
-        if (this.selectedScene == null) {
-          console.warn('routeChanged but scene is null, route', requestedRoute, new Error());
-        } else {
-          currentRoute = pageUrl + '#' + this.selectedScene.route;
-        }
-      }
-      this.fire('analytics-track-event', { category: 'Routing',
-          action: 'Invalid Route Source', label: currentRoute});
-      this.fire('analytics-track-event', { category: 'Routing',
-          action: 'Invalid Route', label: '/' + requestedRoute});
+      this.trackPageview('/' + newValue);
+      return;
     }
+
+    // The requested route was changed.
+    var currentRoute = this.selectedScene ? this.selectedScene.route : '';
+    this.fire('analytics-track-event', { category: 'Routing',
+        action: 'Invalid Route Source', label: '/' + currentRoute});
+    this.fire('analytics-track-event', { category: 'Routing',
+        action: 'Invalid Route', label: '/' + newValue});
+    this.route = this.defaultRoute;
   },
 
   _updateWindowTitle: function() {
@@ -913,6 +905,9 @@ Polymer({
     document.title = icon + WINDOW_TITLE;
   },
 
+  /**
+   * Returns whether the current route is valid.
+   */
   validateRoute: function() {
     if (this.scheduleChecked) {
       var valid = (this.$.lazypages.isValidRoute(this.route) &&
@@ -920,13 +915,13 @@ Polymer({
                    (this.postCountdown && this.route == TRACKER_ROUTE) ||
                    (this.mode == 'cast' && VIDEO_ROUTES.indexOf(this.route) != -1);
       if (!valid) {
-        if (window.DEV) {
-          console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
-        } else {
-          this.route = this.defaultRoute;
+        if (!window.DEV) {
+          return false;
         }
+        console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
       }
     }
+    return true;
   },
 
   _userMuteChanged: function(userMute) {
@@ -1138,7 +1133,9 @@ Polymer({
     this._notifyHouses();
 
     this.scheduleChecked = true;
-    this.validateRoute();
+    if (!this.validateRoute()) {
+      this.route = this.defaultRoute;
+    }
 
     // Check again at the next hour tick.
     var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
@@ -1148,7 +1145,7 @@ Polymer({
   _escHandler: function(e, detail) {
     switch (e.detail.key) {
       case 'esc':
-        this.route = this.defaultRoute;
+        this.$.router.go(this.defaultRoute);
         break;
     }
   },

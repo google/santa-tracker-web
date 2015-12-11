@@ -149,6 +149,10 @@ specific language governing permissions and limitations under the License.
       this._componentDir = this.resolveUrl('.');
     },
 
+    ready: function() {
+      this.fire('scene-ready', this);
+    },
+
     _activeChanged: function() {
       if (!this.active) {
         if (this.loaded) {  // don't call onHide if not yet loaded
