@@ -187,6 +187,18 @@ app.AnimationData = (color) => {
       "height": 361,
       "offsetX": 480,
       "offsetY": 149
+    },
+    "watch_0": {
+      "width": 183,
+      "height": 358,
+      "offsetX": 480,
+      "offsetY": 152
+    },
+    "watch_1": {
+      "width": 183,
+      "height": 358,
+      "offsetX": 480,
+      "offsetY": 152
     }
   };
 
@@ -199,18 +211,6 @@ app.AnimationData = (color) => {
     },
     "fail_1": {
       "width": 234,
-      "height": 358,
-      "offsetX": 480,
-      "offsetY": 152
-    },
-    "watch_0": {
-      "width": 183,
-      "height": 358,
-      "offsetX": 480,
-      "offsetY": 152
-    },
-    "watch_1": {
-      "width": 183,
       "height": 358,
       "offsetX": 480,
       "offsetY": 152
