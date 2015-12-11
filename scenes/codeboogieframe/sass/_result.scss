@@ -36,7 +36,8 @@
   .result__title {
     font-family: 'Lobster', cursive;
     font-size: 70px;
-    margin-bottom: 10px;
+    margin-bottom: 0.4em;
+    line-height: 0.8;
     opacity: 0;
     transform: translate(0, -100px);
     transition: opacity 0.4s, transform 0.4s;
