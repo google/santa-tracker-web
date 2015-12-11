@@ -18,8 +18,8 @@
 
 goog.provide('app.AnimationData');
 
-app.AnimationData = (color) => {
-  let sharedMoves = {
+app.AnimationData = () => {
+  return {
     "carlton_0": {
       "width": 240,
       "height": 369,
@@ -199,10 +199,7 @@ app.AnimationData = (color) => {
       "height": 358,
       "offsetX": 480,
       "offsetY": 152
-    }
-  };
-
-  let purpleMoves = {
+    },
     "fail_0": {
       "width": 317,
       "height": 354,
@@ -216,10 +213,4 @@ app.AnimationData = (color) => {
       "offsetY": 152
     }
   };
-
-  if (color !== 'green') {
-    goog.object.extend(sharedMoves, purpleMoves);
-  }
-
-  return sharedMoves;
 };

@@ -28,7 +28,7 @@ app.Character = class {
     this.animation = null;
     this.currentState = null;
     this.el = el;
-    this.data = app.AnimationData(color);
+    this.data = app.AnimationData();
     this.lastFrame = null;
 
     // Create canvas
