@@ -15,10 +15,6 @@
 		
 		&.dragging {
 			cursor: grabbing;
-			> * {
-				transform: scale(1.2);
-			}
-			
 			&.no-drop {
 				opacity: 0.5;
 				cursor: no-drop;

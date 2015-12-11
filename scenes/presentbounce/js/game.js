@@ -43,7 +43,7 @@ app.Game = function(elem) {
   this.backgroundElem = this.elem.find('.bg');
 
   this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
-  this.drawer = new app.Drawer(this.elem);
+  this.drawer = new app.Drawer(this.elem, this);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt drag-and-drop', 'drag-and-drop');
@@ -328,8 +328,8 @@ app.Game.prototype.watchSceneSize_ = function() {
       game = this;
 
   var updateSize = function() {
-    var width = viewportElem.width(), // window.innerWidth,
-        height = viewportElem.height(), //window.innerHeight,
+    var width = viewportElem.width(),
+        height = viewportElem.height(),
         scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
           width / app.Constants.VIEWPORT_MIN_WIDTH :
           1;
