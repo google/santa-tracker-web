@@ -6,6 +6,7 @@ $board-level-bp: 1025px;
 @import "../shared/sass/gameover";
 @import "../shared/sass/rotate";
 @import "../shared/sass/board";
+@import "../shared/sass/share-overlay";
 @import "sass/promo";
 @import "sass/choose-mode";
 @import "sass/choose-stage";
@@ -21,7 +22,9 @@ $board-level-bp: 1025px;
   .overlay {
     color: #fff;
     background: #3F49A3;
+  }
 
+  .overlay--picker {
     &-dialog {
       width: 80%;
       max-width: 80em;

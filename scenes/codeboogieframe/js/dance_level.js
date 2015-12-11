@@ -128,15 +128,17 @@ app.DanceLevel = class extends app.Level {
           {skipAnimation: true});
     }
 
-    var danceStatus = this.evaluateStatus(playerSteps);
-    var animationQueue = this.createAnimationQueue(playerSteps, danceStatus);
-
-    if (this.freestyle && animationQueue.length > 30) {
+    // Too long freestyle dance?
+    var playerStepCount = playerSteps.filter(s => !!s.step).length;
+    if (this.freestyle &&
+        playerStepCount > app.DanceLevel.FREESTYLE_STEP_LIMIT) {
       return new app.DanceLevelResult(false,
           app.I18n.getMsg('CB_resultTooManySteps'),
           {skipAnimation: true});
     }
 
+    var danceStatus = this.evaluateStatus(playerSteps);
+    var animationQueue = this.createAnimationQueue(playerSteps, danceStatus);
     var levelComplete = danceStatus === app.DanceStatus.SUCCESS;
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
@@ -145,6 +147,7 @@ app.DanceLevel = class extends app.Level {
         levelComplete ? 'CB_success' : 'CB_tryAgain';
     var allowRetry = true;
     var message = null;
+    var shareUrl = this.serialize(animationQueue);
 
     if (missingBlocks.length) {
       message = levelComplete ?
@@ -174,7 +177,8 @@ app.DanceLevel = class extends app.Level {
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
       missingBlocks: missingBlocks,
-      freestyle: this.freestyle
+      freestyle: this.freestyle,
+      shareUrl: shareUrl
     });
   }
 
@@ -322,10 +326,13 @@ app.DanceLevel = class extends app.Level {
       if (i === 0) {
         stage = app.DanceLevel.SERIALIZE_LEVELS[parseInt(level[i], 16)];
         if (stage == null) return;
-      } else {
+      } else if (i < app.DanceLevel.FREESTYLE_STEP_LIMIT + 1) {
         let step = app.DanceLevel.SERIALIZE_STEPS[parseInt(level[i], 16)];
         if (step == null) return;
         steps.push(step);
+      } else {
+        // Too long dance.
+        return;
       }
     }
 
@@ -345,6 +352,27 @@ app.DanceLevel = class extends app.Level {
             app.blocks.miniBlockXml('controls_repeat'),
         specialMove: stage.specialMove
     });
+  }
+
+  /**
+   * Creates a level url from a freestyle dance.
+   *
+   * @param {Array.<AnimationItem>} animationQueue
+   * @return {string}
+   */
+  serialize(animationQueue) {
+    let level = goog.array.findIndex(app.DanceLevel.SERIALIZE_LEVELS,
+        l => l.stage === this.stage);
+    let steps = animationQueue.map(item => {
+      return app.DanceLevel.SERIALIZE_STEPS.indexOf(item.teacherStep);
+    }).filter(i => i >= 0);
+
+    // Guards and validations.
+    if (!this.freestyle) { return; }
+    if (steps.length === 0) { return; }
+
+    // Format url.
+    return '?dance=' + level + steps.join('');
   }
 };
 
@@ -405,6 +433,13 @@ app.DanceLevel.SERIALIZE_STEPS = [
 ];
 
 /**
+ * Maximum number of dance steps in freestyle and shared challenges.
+ *
+ * @const {number}
+ */
+app.DanceLevel.FREESTYLE_STEP_LIMIT = 32;
+
+/**
  * @typedef {{
  *   allowRetry: boolean,
  *   code: string,
@@ -415,7 +450,8 @@ app.DanceLevel.SERIALIZE_STEPS = [
  *   overlayGraphic: string,
  *   idealBlockCount: number,
  *   isFinalLevel: boolean,
- *   missingBlocks: Array.<string>
+ *   missingBlocks: Array.<string>,
+ *   shareUrl: string
  * }}
  */
 app.DanceLevelResultOptions;
@@ -436,6 +472,7 @@ app.DanceLevelResult = class extends app.LevelResult {
     this.danceStatus = options.danceStatus || app.DanceStatus.NO_STEPS;
     this.freestyle = options.freestyle || false;
     this.endTitle = options.endTitle;
+    this.shareUrl = options.shareUrl;
   }
 
   watching() {

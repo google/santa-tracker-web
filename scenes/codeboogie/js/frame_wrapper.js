@@ -19,6 +19,7 @@ goog.provide('app.FrameWrapper');
 goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.Gameover');
+goog.require('app.shared.ShareOverlay');
 goog.require('app.Sequencer');
 goog.require('app.ChooseMode');
 
@@ -39,6 +40,8 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
+  /** @type {app.shared.ShareOverlay} */
+  this.shareOverlay = null;
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
@@ -46,6 +49,7 @@ app.FrameWrapper = function(el, staticDir) {
     iframeFocusChange: this.iframeFocusChange.bind(this),
     setLevel: this.setLevel.bind(this),
     triggerSound: this.triggerSound.bind(this),
+    share: this.share.bind(this),
     setVariant: this.setVariant.bind(this)
   });
 
@@ -128,6 +132,27 @@ app.FrameWrapper.prototype.dispose = function() {
 
   this.iframeChannel.dispose();
   this.iframeEl = null;
+};
+
+/**
+ * Opens share dialog with a given query string.
+ *
+ * @param {string} query string to share.
+ */
+app.FrameWrapper.prototype.share = function(query) {
+  // Lazy load share overlay. Google API should be ready by then.
+  if (!this.shareOverlay) {
+    this.shareOverlay = new app.shared.ShareOverlay(
+        this.el.find('.shareOverlay'));
+  }
+
+  if (query) {
+    var newHref = location.href.substr(0,
+            location.href.length - location.hash.length) + '#codeboogie' + query;
+    window.history.pushState(null, '', newHref);
+  }
+
+  this.shareOverlay.show('https://santatracker.google.com/#codeboogie' + query, true);
 };
 
 /**

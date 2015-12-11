@@ -25,6 +25,7 @@ Codeboogie scene.
 -->
 <dom-module id="codeboogie-scene">
 <template>
+  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
   <div id="module-codeboogie">
     <iframe src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0" data-codeboogie-frame></iframe>
     <div class="gui">
@@ -109,7 +110,7 @@ Codeboogie scene.
           <button type="button" class="pause"></button>
         </div>
       </div>
-      <div class="choose-mode overlay">
+      <div class="choose-mode overlay overlay--picker">
         <div class="choose-mode__dialog overlay-dialog">
           <div class="overlay-title-wrapper">
             <h2 class="overlay-title"><i18n-msg msgid="codeboogie-choose-game-mode">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -142,7 +143,7 @@ Codeboogie scene.
           </div>
         </div>
       </div>
-      <div class="choose-stage overlay">
+      <div class="choose-stage overlay overlay--picker">
         <div class="choose-stage__dialog overlay-dialog">
           <div class="overlay-title-wrapper">
             <h2 class="overlay-title"><i18n-msg msgid="codeboogie-choose-stage">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -201,6 +202,21 @@ Codeboogie scene.
           <div class="footer-promo">
             <i18n-msg msgid="codelab-mwc-promo">PLACEHOLDER_i18n</i18n-msg>
           </div>
+        </div>
+      </div>
+      <div class="shareOverlay overlay shareOverlay--codeboogie">
+        <div class="shareOverlay-dialog overlay-dialog">
+          <div class="shareOverlay-imageWrapper">
+            <div class="shareOverlay-image"></div>
+          </div>
+          <div class="shareOverlay-buttons">
+            <p class="shareOverlay-label">
+              <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
+            </p>
+            <input type="url" class="shareOverlay-url"/>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+          <button type="button" class="shareOverlay-close"></button>
         </div>
       </div>
       <div class="force-rotate portrait">
