@@ -42,7 +42,7 @@ $stages: ('studio', 'stage', 'disco');
     transition: transform .2s;
     width: 16px;
   }
-  
+
   &__back:hover .choose-stage__back-icon {
     transform: translateX(-4px);
   }
@@ -55,6 +55,16 @@ $stages: ('studio', 'stage', 'disco');
 
     .grid__option {
       flex-basis: 30%;
+    }
+
+    .grid__option:hover {
+      .choose-stage__bg {
+        opacity: 0.7;
+      }
+
+      .choose-stage__text, .choose-stage__description {
+        opacity: 1;
+      }
     }
   }
 }
