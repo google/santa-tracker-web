@@ -45,14 +45,14 @@ app.config.Styles = {
   },
   presentBall: {
     className: 'object--present-circle present present--circle',
-    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.6 49.6"><circle class="present__circle" fill="#DA4737" cx="24.8" cy="24.8" r="24.8"/><path class="present__circle-cross" fill="#F0B31D" d="M21.7 28v21.5c1 .1 2.1.2 3.1.2 1.1 0 2.1-.1 3.1-.2L28 28h21.5c.1-1 .2-2.1.2-3.1 0-1.1-.1-2.1-.2-3.1H28V.3c-1-.1-2.1-.2-3.2-.2s-2.1.1-3.2.2v21.5H.1c-.1 1-.2 2.1-.2 3.1 0 1.1.1 2.1.2 3.1h21.6z"/></svg>',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.6 49.6"><circle fill="#DA4737" cx="24.8" cy="24.8" r="24.8"/><path fill="#F0B31D" d="M40.3 18.1c0-4.8-3.9-8.8-8.8-8.8-1.8 0-3.4.5-4.8 1.4V.1c-.5-.1-1.2-.1-1.9-.1s-1.3 0-2 .1v10.6c-1.4-.9-3-1.4-4.8-1.4-4.8 0-8.8 3.9-8.8 8.8 0 1.8.5 3.4 1.4 4.8H.1c-.1.6-.1 1.2-.1 1.9s0 1.3.1 2h18c-.2.2-.4.5-.6.7-2.2 2.4-4.3 4.7-7.2 4.7v4c4.7 0 7.7-3.3 10.2-6 .8-.9 1.6-1.8 2.4-2.4v21.8c.7.1 1.3.1 2 .1s1.3 0 2-.1V27.8c.8.6 1.6 1.5 2.4 2.4 2.4 2.7 5.5 6 10.2 6v-4c-2.9 0-5-2.3-7.2-4.7-.2-.2-.4-.5-.6-.7h18c.1-.7.1-1.3.1-2s0-1.3-.1-2H38.9c.9-1.4 1.4-3 1.4-4.7zM18 22.8c-2.6 0-4.8-2.1-4.8-4.8s2.1-4.8 4.8-4.8c2.6 0 4.8 2.1 4.8 4.8v4.8H18zm13.6 0h-4.8V18c0-2.6 2.1-4.8 4.8-4.8 2.6 0 4.8 2.1 4.8 4.8s-2.2 4.8-4.8 4.8z"/></svg>',
     width: 50,
     height: 50,
     dynamicShadow: true
   },
   presentSquare: {
     className: 'object--present-square present present--square',
-    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path class="present__square" fill="#DA4637" d="M0 0h50v50H0z"/><path class="present__square-cross" fill="#F1B31C" d="M28.2 21.8V0h-6.4v21.8H0v6.4h21.8V50h6.4V28.2H50v-6.4"/></svg>',
+    innerHTML: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.6 49.6"><path fill="#DA4737" d="M0 0h49.6v49.6H0z"/><path fill="#F0B31D" d="M40.3 18.1c0-4.8-3.9-8.8-8.8-8.8-1.8 0-3.4.5-4.8 1.4V0h-4v10.7c-1.4-.9-3-1.4-4.8-1.4-4.8 0-8.8 3.9-8.8 8.8 0 1.8.5 3.4 1.4 4.8H0v4h18c-.2.2-.4.5-.6.7-2.2 2.4-4.3 4.7-7.2 4.7v4c4.7 0 7.7-3.3 10.2-6 .8-.9 1.6-1.8 2.4-2.4v21.8h4V27.8c.8.6 1.6 1.5 2.4 2.4 2.4 2.7 5.5 6 10.2 6v-4c-2.9 0-5-2.3-7.2-4.7-.2-.2-.4-.5-.6-.7h18v-4H38.9c.9-1.4 1.4-3 1.4-4.7zM18 22.8c-2.6 0-4.8-2.1-4.8-4.8s2.1-4.8 4.8-4.8c2.6 0 4.8 2.1 4.8 4.8v4.8H18zm13.6 0h-4.8V18c0-2.6 2.1-4.8 4.8-4.8 2.6 0 4.8 2.1 4.8 4.8s-2.2 4.8-4.8 4.8z"/></svg>',
     width: 50,
     height: 50,
     dynamicShadow: true
