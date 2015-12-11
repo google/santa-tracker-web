@@ -143,8 +143,14 @@ app.DanceLevel = class extends app.Level {
     var code = blockly.getUserCode();
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
     var numEnabledBlocks = blockly.getCountableBlocks().length;
-    var endTitleMsg = danceStatus === app.DanceStatus.NO_STEPS ? 'CB_yourTurn' :
-        levelComplete ? 'CB_success' : 'CB_tryAgain';
+
+    var endTitleMsg = ''
+
+    if (!this.freestyle) {
+      endTitleMsg = danceStatus === app.DanceStatus.NO_STEPS ? 'CB_yourTurn' :
+          levelComplete ? 'CB_success' : 'CB_tryAgain';
+    }
+
     var allowRetry = true;
     var message = null;
     var shareUrl = this.serialize(animationQueue);
@@ -192,7 +198,7 @@ app.DanceLevel = class extends app.Level {
    */
   evaluateStatus(playerSteps) {
     if (this.freestyle) {
-      return app.DanceStatus.SUCCESS;
+      this.steps = playerSteps.map(x => x.step)
     }
 
     let stepCount = 0;
@@ -287,15 +293,17 @@ app.DanceLevel = class extends app.Level {
       });
     }
 
-    queue.unshift({
-      teacherStep: app.Step.IDLE,
-      playerStep: app.Step.IDLE,
-      title: app.I18n.getMsg(result === app.DanceStatus.NO_STEPS ?
-          'CB_watchClosely' :
-          'CB_letsDance'),
-      isCountdown: true,
-      isIntro: true
-    });
+    if (!(this.freestyle && result === app.DanceStatus.NO_STEPS)) {
+      queue.unshift({
+        teacherStep: app.Step.IDLE,
+        playerStep: app.Step.IDLE,
+        title: app.I18n.getMsg(result === app.DanceStatus.NO_STEPS ?
+            'CB_watchClosely' :
+            'CB_letsDance'),
+        isCountdown: true,
+        isIntro: true
+      });
+    }
 
     return queue;
   }

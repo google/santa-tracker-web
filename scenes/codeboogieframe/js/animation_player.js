@@ -99,7 +99,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     this.lastResult = result;
     this.animationQueue = result.animationQueue;
     this.moveTiles.reset();
-    this.title.setTitle(this.animationQueue[0].title, true);
+    this.title.setTitle(this.animationQueue[0] && this.animationQueue[0].title, true);
 
     if (result.watching()) {
       this.player.setState('is-watching');
