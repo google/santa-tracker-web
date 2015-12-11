@@ -320,6 +320,7 @@ app.DanceLevel = class extends app.Level {
   static deserialize(level) {
     let stage = null;
     let steps = [];
+    level = window.atob(level);
     for (let i = 0, val = 0; i < level.length; i++) {
       val = parseInt(level[i], 16);
 
@@ -372,7 +373,7 @@ app.DanceLevel = class extends app.Level {
     if (steps.length === 0) { return; }
 
     // Format url.
-    return '?dance=' + level + steps.join('');
+    return '?dance=' + btoa(level + steps.join(''));
   }
 };
 
