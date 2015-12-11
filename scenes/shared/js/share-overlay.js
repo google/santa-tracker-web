@@ -35,24 +35,15 @@ app.shared.ShareOverlay = function(elem) {
   this.closeElem = this.elem.querySelector('.shareOverlay-close');
   this.urlElem = this.elem.querySelector('.shareOverlay-url');
 
-  var hideFn = this.hide.bind(this, null);
-  var selectFn = function() {
-    // Use various approaches to select the text. Delay by a frame to work
-    // around an apparent IE10 bug.
-    window.setTimeout(function() {
-      // TODO(thorogood): Factor this out to a helper function.
-      if ('select' in this) {
-        this.select();
-      } else {
-        this.setSelectionRange(0, this.value.length);
-      }
-    }.bind(this), 0);
-  }.bind(this.urlElem);
+  this.closeElem.addEventListener('click', this.hide.bind(this, null));
+  this.urlElem.addEventListener('click', this.selectUrl.bind(this));
+};
 
-  ['click', 'touchend'].forEach(function(name) {
-    this.closeElem.addEventListener(name, hideFn);
-    this.urlElem.addEventListener(name, selectFn);
-  }, this);
+/**
+ * Select the input box's entire contents.
+ */
+app.shared.ShareOverlay.prototype.selectUrl = function() {
+  this.urlElem.select();
 };
 
 /**
@@ -76,6 +67,11 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
   this.urlElem.value = url.replace(/https?:\/\//i, '');
   this.shareButtons.setUrl(url);
   this.overlay.show();
+
+  // delay until after the overlay is visible
+  window.setTimeout(function() {
+    this.selectUrl();
+  }.bind(this), 0);
 };
 
 /**
