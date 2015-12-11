@@ -19,6 +19,14 @@ $board-level-bp: 1025px;
   bottom: 0;
   left: 0;
 
+  .shareOverlay-imageWrapper {
+    margin: 0 auto;
+  }
+
+  .shareOverlay-image {
+    background: url(img/share.svg) no-repeat;
+  }
+
   .overlay {
     color: #fff;
     background: #3F49A3;
