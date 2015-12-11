@@ -197,10 +197,6 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   setLevel(level) {
     this.moveTiles.setLevel(level);
     this.lights.setLevel(level);
-
-    if (level.freestyle) {
-      this.player = new app.Character(
-        this.el.querySelector('.scene__character--player'), 'green');
-    }
+    this.player.setColor(level.freestyle ? 'green' : 'purple');
   }
 };

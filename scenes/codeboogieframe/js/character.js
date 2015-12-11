@@ -30,6 +30,7 @@ app.Character = class {
     this.el = el;
     this.data = app.AnimationData();
     this.lastFrame = null;
+    this.color = color;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -92,5 +93,12 @@ app.Character = class {
   play(step, bpm) {
     this.animation = new app.Animation(step, bpm, this.data);
     this.animation.play();
+  }
+
+  setColor(color) {
+    if (this.color !== color) {
+      this.color = color;
+      this.renderSprites_(color);
+    }
   }
 };
