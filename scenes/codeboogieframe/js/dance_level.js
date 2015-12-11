@@ -198,7 +198,8 @@ app.DanceLevel = class extends app.Level {
    */
   evaluateStatus(playerSteps) {
     if (this.freestyle) {
-      this.steps = playerSteps.map(x => x.step)
+      return playerSteps.length === 0 ?
+          app.DanceStatus.NO_STEPS : app.DanceStatus.SUCCESS
     }
 
     let stepCount = 0;
