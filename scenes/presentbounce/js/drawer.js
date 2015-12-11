@@ -23,11 +23,13 @@ goog.require('app.shared.utils');
 
 /**
  * @param {!Element} drawer element for the context
+ * @param {!game} game the game instance
  * @construtor
  */
-app.Drawer = function(elem) {
-  this.elem = elem || null;
+app.Drawer = function(elem, game) {
+  this.elem = elem;
   this.$elem = $(elem);
+  this.game_ = game;
 
   this.onDrag = this.onDrag.bind(this);
   this.hasInteractionStarted = false;
@@ -138,7 +140,9 @@ app.Drawer.prototype.add = function(data, type, onDropCallback, onTestCallback) 
     (x, y, validCallback) => {
       onTestCallback(data, type, {x, y}, validCallback);
     },
-    this
+    this,
+    data,
+    this.game_
   );
 
 };

@@ -19,17 +19,21 @@ goog.provide('app.Draggable');
 /**
  * @param {!Element} elem that can be dragged
  * @param {!Element} root to use to find droppable targets
- * @param {function(data, type, {x, y}), errorCallback} onDropCallback callback function to be called when a drop happens
- * @param {function(data, type, {x, y}, validCallback)} testDropCallback callback function to be called when testing if a drop is valid happens
+ * @param {!function(data, type, {x, y}), errorCallback} onDropCallback callback function to be called when a drop happens
+ * @param {!function(data, type, {x, y}, validCallback)} testDropCallback callback function to be called when testing if a drop is valid happens
  * @param {!app.Drawer} drawer the drawer instance
+ * @param {!Object} data Config data being passed from the level.
+ * @param {!game} game the game instance
  * @constructor
  */
-app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer) {
+app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer, data, game) {
   this.el = $(elem);
   this.rootEl = root;
   this.onDropCallback = onDropCallback;
   this.testDropCallback = testDropCallback;
-  this.drawer = drawer || null;
+  this.drawer = drawer;
+  this.data_ = data;
+  this.game_ = game;
 
   this.container = $(elem).parent();
   this.el.data('container', this.container);
@@ -46,8 +50,29 @@ app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer) {
  * @private
  */
 app.Draggable.prototype.dragStart_ = function(startX, startY) {
+
+  // Set size of element to match Box2D world
+  const scale = this.game_.getViewport().scale;
+  const padding = this.data_.style.padding || 0;
+  const width = (this.data_.style.width + padding*2) * scale;
+  const height = (this.data_.style.height + padding*2) * scale;
+  this.el.css({
+    width: width,
+    height: height,
+    marginLeft: width/-2,
+    marginTop: height/-2,
+    transform: 'none'
+  });
+
   this.startX = startX;
   this.startY = startY;
+
+  // Calculate mouse offset from center of element
+  const offsetX = this.el.offset().left - (startX - width/2);
+  const offsetY = this.el.offset().top - (startY - height/2);
+  this.startOffsetX = offsetX;
+  this.startOffsetY = offsetY;
+
   this.el.addClass('dragging');
   this.drawer.onDrag(this.el);
 };
@@ -63,7 +88,7 @@ app.Draggable.prototype.dragMove_ = function(left, top, x, y) {
     transform: 'translate3d(' + left + 'px, ' + top + 'px, 0px)'
   });
 
-  this.testDropCallback(x, y, (valid) => {
+  this.testDropCallback(x + this.startOffsetX, y + this.startOffsetY, (valid) => {
     this.el.toggleClass('no-drop', !valid);
   });
 };
@@ -86,7 +111,7 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
   var dropZoneEl = this.rootEl.find('.js-drop-target').filter(isDragOver).first();
 
   if (dropZoneEl.length) {
-    this.onDropCallback(x, y, (hasError) => {
+    this.onDropCallback(x + this.startOffsetX, y + this.startOffsetY, (hasError) => {
       if (hasError) {
         this.drawer.onDropError(this.el);
       }
@@ -100,7 +125,10 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
 
   this.el.css({
     position: '',
-    transform: ''
+    transform: '',
+    margin: '',
+    width: '',
+    height: ''
   });
   this.el.removeClass('dragging');
 };
