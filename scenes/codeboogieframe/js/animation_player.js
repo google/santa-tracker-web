@@ -53,6 +53,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   constructor(el) {
     super();
 
+    this.el = el;
     this.player = new app.Character(
         el.querySelector('.scene__character--player'), 'purple');
     this.teacher = new app.Character(
@@ -196,5 +197,10 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   setLevel(level) {
     this.moveTiles.setLevel(level);
     this.lights.setLevel(level);
+
+    if (level.freestyle) {
+      this.player = new app.Character(
+        this.el.querySelector('.scene__character--player'), 'green');
+    }
   }
 };
