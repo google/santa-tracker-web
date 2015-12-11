@@ -265,13 +265,13 @@ app.DanceLevel = class extends app.Level {
     if (result === app.DanceStatus.TOO_MANY_STEPS) {
       let extraBlock = playerSteps[this.steps.length];
       queue.push({
-        teacherStep: app.Step.WATCH,
+        teacherStep: app.Step.IDLE,
         playerStep: extraBlock.step,
         blockId: extraBlock.blockId,
         title: app.I18n.getMsg('CB_oops')
       });
       queue.push({
-        teacherStep: app.Step.WATCH,
+        teacherStep: app.Step.IDLE,
         playerStep: app.Step.FAIL,
         title: app.I18n.getMsg('CB_oops')
       });
