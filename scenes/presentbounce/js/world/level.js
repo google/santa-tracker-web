@@ -410,7 +410,7 @@ app.world.Level = class {
    */
   hasBallExitedScreen_() {
     if (this.ball_) {
-      return this.ball_.position().y > this.game_.getViewport().height;
+      return this.ball_.position().y > this.game_.getViewport().height*1.3;
     }
     return false;
   }

@@ -328,8 +328,8 @@ app.Game.prototype.watchSceneSize_ = function() {
       game = this;
 
   var updateSize = function() {
-    var width = viewportElem.width(), // window.innerWidth,
-        height = viewportElem.height(), //window.innerHeight,
+    var width = viewportElem.width(),
+        height = viewportElem.height(),
         scale = width < app.Constants.VIEWPORT_MIN_WIDTH ?
           width / app.Constants.VIEWPORT_MIN_WIDTH :
           1;
