@@ -66,7 +66,7 @@ app.Picker.prototype.navigate = function(bg, fg) {
       url = window.location.href,
       hash = window.location.hash;
   
-  window.history.pushState(null, '', url.substr(0, url.length - hash.length) + '#postcard?bg=' + bgNum + '&fg=' + fgNum);
+  window.history.replaceState(null, '', url.substr(0, url.length - hash.length) + '#postcard?bg=' + bgNum + '&fg=' + fgNum);
   this.fromUrl(bgNum, fgNum);
   
   // Sound

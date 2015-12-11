@@ -169,9 +169,9 @@ Postcard scene.
       this.fire('sound-ambient', 'sm_end');
     },
     sceneParamsChanged: function() {
-      if (!this.sceneParams) return;
-      
-      this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
+      if (this.sceneParams && this.scene) {
+        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
+      }
     }
   });
 
