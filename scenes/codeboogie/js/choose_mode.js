@@ -28,7 +28,12 @@ goog.require('app.shared.Overlay');
 app.ChooseMode = function(elem, stage) {
   this.elem = elem;
   this.stage = stage;
+  /** @type {?function(string, string)} */
   this.callback_ = null;
+  /** @type {?string} */
+  this.mode = null;
+  /** @type {?string} */
+  this.selectedStage = null;
 
   this.elem.on('click', '.grid__option', this.selectMode_.bind(this));
   this.stage.on('click', '.grid__option', this.selectStage_.bind(this));
@@ -87,6 +92,8 @@ app.ChooseMode.prototype.continue_ = function() {
  * @param {function(string)} callback Runs when a map is selected.
  */
 app.ChooseMode.prototype.show = function(callback) {
+  this.mode = null;
+  this.selectedStage = null;
   this.callback_ = callback;
   this.overlay.show();
 };

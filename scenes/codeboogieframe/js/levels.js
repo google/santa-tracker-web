@@ -46,8 +46,8 @@ app.Levels = {
         stage: 'stage3',
         track: 2,
         bpm: 140
-      },
-    }
+      }
+    };
 
     let stageData = stages[stage];
 
@@ -67,7 +67,7 @@ app.Levels = {
         app.blocks.miniBlockXml('dance_splits') +
         app.blocks.miniBlockXml('dance_hip') +
         app.blocks.miniBlockXml('controls_repeat'),
-        specialMove: app.Step.SPONGEBOB,
+        specialMove: app.Step.SPONGEBOB
       })
     ];
   }

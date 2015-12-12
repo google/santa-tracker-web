@@ -66,29 +66,30 @@ app.FrameWrapper = function(el, staticDir) {
 /**
  * Starts the scene.
  *
- * @param {{level: string}} params
+ * @param {{dance: string, level: string}} params
  */
 app.FrameWrapper.prototype.start = function(params) {
   this.sequencer.start();
 
-  this.restart(params && params.dance);
+  this.restart(params);
 };
 
 /**
  * Restarts the game
  *
- * @param {?string} customLevel
+ * @param {{dance: string, level: string}} params
  */
-app.FrameWrapper.prototype.restart = function(customLevel) {
+app.FrameWrapper.prototype.restart = function(params) {
   this.isPlaying = true;
+  params = params || {};
 
-  if (customLevel) {
-    this.startMode('custom', customLevel);
+  if (params.dance) {
+    this.startMode('custom', params.dance);
     this.setLevelClass('custom');
   } else {
     this.chooseMode.show((mode, stage) => {
       this.setLevelClass(mode);
-      this.startMode(mode, stage);
+      this.startMode(mode, mode === 'freestyle' ? stage : params.level);
     });
   }
 };
@@ -107,7 +108,7 @@ app.FrameWrapper.prototype.setLevelClass = function(mode) {
   classes.push(`level--${mode}`);
 
   domEl.className = classes.join(' ').trim();
-}
+};
 
 /**
  * Starts a specific game mode.

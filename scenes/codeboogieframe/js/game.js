@@ -136,24 +136,22 @@ app.Game = class {
    * Resets all game entities and restarts the game. Can be called at any time.
    *
    * @param {app.GameMode} mode to play.
-   * @param {string} customLevel serialized string.
+   * @param {string} param
    */
-  restart(mode, customLevel) {
+  restart(mode, param) {
+    this.levelNumber = -1;
+
     if (mode === app.GameMode.FREESTYLE) {
-      let stage = customLevel
-      this.levels = app.Levels.createFreestyleLevel(stage);
+      this.levels = app.Levels.createFreestyleLevel(param);
     } else if (mode === app.GameMode.CUSTOM) {
-      let level = app.DanceLevel.deserialize(customLevel);
+      let level = app.DanceLevel.deserialize(param);
       if (level) {
         this.levels = [level];
       }
     } else {
       this.levels = app.Levels.getDanceClasses();
+      this.levelNumber = (+param - 1 || 0) - 1;
     }
-
-    var match = location.search.match(/[?&]level=(\d+)/) || [];
-    var levelNumber = (+match[1] - 1 || 0) - 1;
-    this.levelNumber = levelNumber;
 
     this.scene.reset();
     this.bumpLevel();
