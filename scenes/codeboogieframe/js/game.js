@@ -50,6 +50,8 @@ app.Game = class {
     this.elem = elem;
     this.levelNumber = null;
     this.level = null;
+    /** @type {?app.GameMode} */
+    this.currentMode = null;
     this.isPlaying = false;
     this.successResult = new app.Result(elem.querySelector('.result--success'), this);
     this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
@@ -88,7 +90,8 @@ app.Game = class {
 
     this.level = this.levels[this.levelNumber];
     if (!this.level) {
-      this.iframeChannel.call('gameover');
+      this.iframeChannel.call(this.currentMode === app.GameMode.TEACHER ?
+          'gameover' : 'restart');
       return;
     }
 
@@ -140,6 +143,7 @@ app.Game = class {
    */
   restart(mode, param) {
     this.levelNumber = -1;
+    this.currentMode = mode;
 
     if (mode === app.GameMode.FREESTYLE) {
       this.levels = app.Levels.createFreestyleLevel(param);

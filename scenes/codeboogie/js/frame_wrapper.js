@@ -46,6 +46,7 @@ app.FrameWrapper = function(el, staticDir) {
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
     gameover: this.gameover.bind(this),
+    restart: this.restart.bind(this),
     iframeFocusChange: this.iframeFocusChange.bind(this),
     setLevel: this.setLevel.bind(this),
     triggerSound: this.triggerSound.bind(this),
