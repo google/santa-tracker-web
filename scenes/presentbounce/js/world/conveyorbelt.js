@@ -35,8 +35,16 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    */
   constructor(...args) {
     super(...args); // super(...arguments) doesn't work in Closure Compiler
-    this.currentDirection_ = 1//this.config_.beltDirection;
+    this.currentDirection_ = 1 //this.config_.beltDirection;
+    this.path = this.$el_.find('.js-belt-path')[0];
+    this.pathShadow = this.$el_.find('.js-belt-shadow-path')[0];
+    this.offset = 0;
+    this.pathLength = this.path.getTotalLength() || -813; // we just happened to know the length hehe :-)
+    this.rAFID = null;
     this.body_ = this.buildBody_();
+    this.BELT_SPEED = 2;
+    this.isPaused = false;
+    this.animateBelt_ = this.animateBelt_.bind(this);
   }
 
   /**
@@ -62,7 +70,6 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    */
   toggleBeltDirection_() {
     this.currentDirection_ *= -1;
-    this.$el_.toggleClass('js-animation-reverse', this.currentDirection_ === -1);
     this.updateBeltDirection_(this.getBeltDirectionVector_());
     window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_change_direction');
   }
@@ -72,6 +79,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    * telling the objects that we are paused.
    */
   pause() {
+    this.isPaused = true;
     this.pauseBelt_();
     window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
   }
@@ -81,15 +89,24 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    * telling that we are continuing.
    */
   resume() {
+    this.isPaused = false;
     this.resumeBelt_();
     window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
+  }
+
+  /**
+   * Play the belt. Alias for legibility purposes.
+   */
+  play() {
+    this.resume();
   }
 
   /**
    * Pauses the conveyor belt.
    */
   pauseBelt_() {
-    this.$el_.addClass('js-animation-paused');
+    cancelAnimationFrame(this.rAFID);
+    this.offset = this.pathLength; // reset offset
     this.updateBeltDirection_(this.getBeltDirectionVector_(0));
   }
 
@@ -97,8 +114,30 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    * Resumes the conveyor belt.
    */
   resumeBelt_() {
-    this.$el_.removeClass('js-animation-paused');
+    // make sure we are not pilling animations
+    cancelAnimationFrame(this.rAFID);
+    this.animateBelt_();
     this.updateBeltDirection_(this.getBeltDirectionVector_());
+  }
+
+  /**
+   * Animates the belt by upadting its strokeDashOffset
+   */
+  animateBelt_() {
+    if (this.isPaused) return;
+
+    // schedule next call
+    this.rAFID = requestAnimationFrame(this.animateBelt_);
+
+    // reset offset if necessary
+    if(this.offset < 0) this.offset = this.pathLength;
+
+    // change the dash offeset to look like it's moving
+    this.path.style.strokeDashoffset = this.offset;
+    this.pathShadow.style.strokeDashoffset = this.offset;
+
+    // prepare the value for next time
+    this.offset = this.offset - (this.BELT_SPEED * this.currentDirection_);
   }
 
   /**
@@ -177,7 +216,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
   onUserInteractionStart() {
     super.onUserInteractionStart();
     // stop belt while dragging
-    this.pauseBelt_();
+    this.pause();
   }
 
   /**
@@ -186,7 +225,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
   onUserInteractionEnd() {
     super.onUserInteractionEnd();
     // Restore surface velocity after dragging
-    this.resumeBelt_();
+    this.resume();
   }
 
 }
