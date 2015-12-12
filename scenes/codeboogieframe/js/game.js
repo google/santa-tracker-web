@@ -56,7 +56,7 @@ app.Game = class {
     this.successResult = new app.Result(elem.querySelector('.result--success'), this);
     this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
     this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
-    this.tutorial_ = new app.SceneTutorial(elem.querySelector('.tutorial'));
+    this.tutorial = new app.SceneTutorial(elem.querySelector('.tutorial'));
 
     this.iframeChannel = new app.shared.FrameRPC(window.parent, {
       restart: this.restart.bind(this),
@@ -77,7 +77,7 @@ app.Game = class {
    * @private
    */
   dispose_() {
-    this.tutorial_.dispose();
+    this.tutorial.dispose();
     this.scene.dispose();
   }
 

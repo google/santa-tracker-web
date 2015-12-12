@@ -123,6 +123,7 @@ app.Scene = class {
     if (introAnimation) {
       this.blockRunner_.runAnimation(introAnimation);
     } else {
+      this.game.tutorial.schedule();
       window.setTimeout(this.portraitToggleScene.bind(this, false), 3000);
     }
   }
@@ -322,6 +323,7 @@ app.Scene = class {
    */
   onClickRun_() {
     this.buttonEl_.blur();
+    this.game.tutorial.toggle(false);
 
     if (this.portraitMode_ && !this.isSceneVisibleInPortrait_()) {
       this.portraitToggleScene(true);
@@ -341,6 +343,13 @@ app.Scene = class {
    */
   onFinishExecution(result) {
     if (!result.showResult()) {
+      if (result.freestyle) {
+        // Empty freestyle. Show tutorial right away.
+        this.game.tutorial.toggle(true);
+      } else {
+        // Demo. Show in a bit if user does nothing.
+        this.game.tutorial.schedule();
+      }
       return;
     }
     if (this.level === game.levels[game.levels.length - 1]) {

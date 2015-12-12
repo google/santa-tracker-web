@@ -495,6 +495,12 @@ app.DanceLevelResult = class extends app.LevelResult {
   }
 
   showResult() {
+    // Clicked play in freestyle without any moves. Do nothing except show tutorial.
+    if (this.freestyle && this.animationQueue.length === 0) {
+      return false;
+    }
+
+    // Otherwise, show result when playing or there is an error.
     return this.skipAnimation || !this.watching();
   }
 };

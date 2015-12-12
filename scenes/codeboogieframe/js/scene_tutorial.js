@@ -27,6 +27,7 @@ app.SceneTutorial = function(el) {
   this.visible_ = false;
   this.scheduleTimeout_ = null;
 
+  this.hasBeenShown = false;
   this.boundOnClick_ = this.onClick_.bind(this);
   this.boundOnBlocklyChange_ = this.onBlocklyChange_.bind(this);
   this.boundOnBlocklyClickBlock_ = this.onBlocklyClickBlock_.bind(this);
@@ -53,7 +54,9 @@ app.SceneTutorial.prototype.dispose = function() {
  * Schedules displaying the tutorial. Only happens max once, some time after the
  * first time requested.
  */
-app.SceneTutorial.prototype.schedule = function() {
+app.SceneTutorial.prototype.schedule = function(force) {
+  if (this.hasBeenShown && !force) { return; }
+
   // Blockly does some non-user initiated workspace changes on timeout, so we wait for
   // them to finish.
   this.scheduleTimeout_ = window.setTimeout(this.toggle.bind(this, true), 4000);
@@ -69,6 +72,7 @@ app.SceneTutorial.prototype.toggle = function(visible) {
     this.scheduleTimeout_ = null;
   }
 
+  this.hasBeenShown = this.hasBeenShown || visible;
   this.visible_ = visible;
   this.el.style.display = visible ? 'block' : 'none';
 };
