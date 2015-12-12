@@ -99,7 +99,6 @@ app.BlocklyLayout = class {
     }
 
     for (let i = 0, block = null; block = blocks[i]; i++) {
-      let root = block.getSvgRoot();
       let blockHW = block.getHeightWidth();
       blockWidth = blockHW.width;
       block.moveTo(margin, cursorY);
@@ -140,7 +139,6 @@ app.BlocklyLayout = class {
     this.layoutRequest_ = null;
     let leftEdge = this.blockly_.getToolbarWidth();
     let blocklyWidth = this.windowWidth - this.game_.scene.getWidth();
-    let workspaceWidth = blocklyWidth - leftEdge;
     this.blockly_.el.style.width = blocklyWidth + 'px';
 
     let whenrunLeft = app.BlocklyLayout.WHENRUN_LEFT;

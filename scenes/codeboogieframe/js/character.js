@@ -61,7 +61,7 @@ app.Character = class {
 
     let frame = this.animation.update(dt);
 
-    if (frame === this.lastFrmae) {
+    if (frame === this.lastFrame) {
       return;
     }
 

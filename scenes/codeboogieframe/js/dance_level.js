@@ -145,7 +145,7 @@ app.DanceLevel = class extends app.Level {
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
     var numEnabledBlocks = blockly.getCountableBlocks().length;
 
-    var endTitleMsg = ''
+    var endTitleMsg = '';
 
     if (!this.freestyle) {
       endTitleMsg = danceStatus === app.DanceStatus.NO_STEPS ? 'CB_yourTurn' :
@@ -325,7 +325,7 @@ app.DanceLevel = class extends app.Level {
    * Loads a custom level from serialized string.
    *
    * @param {string} level
-   * @return {app.DanceLevel}
+   * @return {?app.DanceLevel}
    */
   static deserialize(level) {
     let stage = null;
@@ -336,14 +336,14 @@ app.DanceLevel = class extends app.Level {
 
       if (i === 0) {
         stage = app.DanceLevel.SERIALIZE_LEVELS[parseInt(level[i], 16)];
-        if (stage == null) return;
+        if (stage == null) return null;
       } else if (i < app.DanceLevel.FREESTYLE_STEP_LIMIT + 1) {
         let step = app.DanceLevel.SERIALIZE_STEPS[parseInt(level[i], 16)];
-        if (step == null) return;
+        if (step == null) return null;
         steps.push(step);
       } else {
         // Too long dance.
-        return;
+        return null;
       }
     }
 
@@ -368,8 +368,8 @@ app.DanceLevel = class extends app.Level {
   /**
    * Creates a level url from a freestyle dance.
    *
-   * @param {Array.<AnimationItem>} animationQueue
-   * @return {string}
+   * @param {Array.<app.AnimationItem>} animationQueue
+   * @return {?string}
    */
   serialize(animationQueue) {
     let level = goog.array.findIndex(app.DanceLevel.SERIALIZE_LEVELS,
@@ -379,8 +379,8 @@ app.DanceLevel = class extends app.Level {
     }).filter(i => i >= 0);
 
     // Guards and validations.
-    if (!this.freestyle) { return; }
-    if (steps.length === 0) { return; }
+    if (!this.freestyle) { return null; }
+    if (steps.length === 0) { return null; }
 
     // Format url.
     return '?dance=' + btoa(level + steps.join(''));

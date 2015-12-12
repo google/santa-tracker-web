@@ -109,7 +109,7 @@ app.Scene = class {
   /**
    * Changes the current level.
    *
-   * @param {app.Level} level
+   * @param {app.DanceLevel} level
    */
   setLevel(level) {
     this.level = level;

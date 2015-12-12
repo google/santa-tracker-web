@@ -150,8 +150,10 @@ app.BlockRunner = class {
     var params = [];
     var args = [];
     for (var k in scope) {
-      params.push(k);
-      args.push(scope[k]);
+      if (scope.hasOwnProperty(k)) {
+        params.push(k);
+        args.push(scope[k]);
+      }
     }
     params.push(code);
 

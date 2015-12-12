@@ -120,26 +120,19 @@ app.Game = class {
   }
 
   /**
-   * Starts the game.
-   */
-  start() {
-    this.restart();
-  }
-
-  /**
    * Opens a share overlay to share a url.
    *
    * @param {string} query string to share.
    */
-  share(url) {
-    this.iframeChannel.call('share', url)
+  share(query) {
+    this.iframeChannel.call('share', query)
   }
 
   /**
    * Resets all game entities and restarts the game. Can be called at any time.
    *
-   * @param {app.GameMode} mode to play.
-   * @param {string} param
+   * @param {app.GameMode=} mode to play.
+   * @param {string=} param
    */
   restart(mode, param) {
     this.levelNumber = -1;

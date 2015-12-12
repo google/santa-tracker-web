@@ -67,7 +67,7 @@ app.Result = class {
 
   /**
    * Shows the result screen for the specified level results.
-   * @param {app.LevelResult} result
+   * @param {app.DanceLevelResult} result
    */
   show(result) {
     this.detailsEl.style.display = result.message ? 'block' : 'none';
