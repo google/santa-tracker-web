@@ -30,7 +30,9 @@ $board-level-bp: 1025px;
   .overlay {
     color: #fff;
     background: #3F49A3;
+  }
 
+  .overlay--picker {
     &-dialog {
       width: 80%;
       max-width: 80em;
