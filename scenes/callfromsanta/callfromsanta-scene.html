@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
 <link rel="stylesheet" href="callfromsanta-scene.css" />
 
 <!--
-Call from santa scene.
+Call from Santa scene. No i18n.
 -->
 <dom-module id="callfromsanta-scene">
 <template>
@@ -79,7 +79,8 @@ Call from santa scene.
         </div>
       </div>
     </div>
-    <iframe id="santa-iframe" src="about:blank" width="100%" height="100%" frameBorder="0"></iframe>
+    <iframe id="santa-iframe" src="about:blank" width="100%" height="100%" frameBorder="0"
+        sandbox="allow-scripts allow-forms allow-popups"></iframe>
   </div>
 </template>
 <script>
