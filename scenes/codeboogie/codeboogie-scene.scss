@@ -33,12 +33,12 @@ $board-level-bp: 1025px;
   }
 
   .overlay--picker {
-    &-dialog {
+    .overlay-dialog {
       width: 80%;
       max-width: 80em;
     }
 
-    &-title {
+    .overlay-title {
       font-family: 'Lobster', sans-serif;
       font-size: 3em;
       font-weight: 400;
@@ -48,7 +48,7 @@ $board-level-bp: 1025px;
       text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
     }
 
-    &-title-wrapper {
+    .overlay-title-wrapper {
       margin: 0 auto 4em auto;
     }
   }
