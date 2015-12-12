@@ -21,6 +21,7 @@ goog.provide('app.DanceLevelResult');
 goog.provide('app.DanceStatus');
 goog.require('app.Level');
 goog.require('app.LevelResult');
+goog.require('app.Step');
 
 /**
  * Dance result constants.
