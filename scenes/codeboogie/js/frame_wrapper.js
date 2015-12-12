@@ -146,13 +146,10 @@ app.FrameWrapper.prototype.share = function(query) {
         this.el.find('.shareOverlay'));
   }
 
-  if (query) {
-    var newHref = location.href.substr(0,
-            location.href.length - location.hash.length) + '#codeboogie' + query;
-    window.history.pushState(null, '', newHref);
-  }
-
-  this.shareOverlay.show('https://santatracker.google.com/#codeboogie' + query, true);
+  var newHref = location.href.substr(0,
+      location.href.length - location.hash.length) + '#codeboogie' + query;
+  window.history.pushState(null, '', newHref);
+  this.shareOverlay.show(newHref, true);
 };
 
 /**
