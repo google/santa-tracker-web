@@ -15,7 +15,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
-<link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="santaselfie-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -34,8 +33,6 @@ Santaselfie scene.
       display: none !important;
     }
   </style>
-
-  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
 
   <div id="module-santaselfie">
     <div class="santaselfie">
@@ -242,10 +239,6 @@ Santaselfie scene.
         'img/tools/sprays/red.png',
         'img/tools/sprays/yellow.png'
       ]);
-    },
-
-    googleAPIReady: function() {
-      // TODO(samthor): Does santaselfie use Google APIs?
     },
 
     onShow: function() {
