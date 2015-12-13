@@ -25,6 +25,7 @@ Codeboogie scene.
 -->
 <dom-module id="codeboogie-scene">
 <template>
+  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
   <div id="module-codeboogie">
     <iframe src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0" data-codeboogie-frame></iframe>
     <div class="gui">
@@ -109,6 +110,72 @@ Codeboogie scene.
           <button type="button" class="pause"></button>
         </div>
       </div>
+      <div class="choose-mode overlay overlay--picker">
+        <div class="choose-mode__dialog overlay-dialog">
+          <div class="overlay-title-wrapper">
+            <h2 class="overlay-title"><i18n-msg msgid="codeboogie-choose-game-mode">PLACEHOLDER_i18n</i18n-msg></h2>
+          </div>
+          <div class="grid">
+            <div class="grid__option" data-mode="teacher">
+              <div class="choose-mode__image">
+                <div class="choose-mode__bg choose-mode__bg--teacher"></div>
+                <h3 class="go">
+                  <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+                </h3>
+              </div>
+              <div class="choose-mode__info">
+                <h3 class="choose-mode__text choose-mode__text--teacher"><i18n-msg msgid="codeboogie-mode-dance-class">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h4 class="choose-mode__description"><i18n-msg msgid="codeboogie-mode-dance-class-description">PLACEHOLDER_i18n</i18n-msg></h4>
+              </div>
+            </div>
+            <div class="grid__option" data-mode="freestyle">
+              <div class="choose-mode__image">
+                <div class="choose-mode__bg choose-mode__bg--freestyle"></div>
+                <h3 class="go">
+                  <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+                </h3>
+              </div>
+              <div class="choose-mode-info">
+                <h3 class="choose-mode__text"><i18n-msg msgid="codeboogie-mode-freestyle">PLACEHOLDER_i18n</i18n-msg></h3>
+                <h4 class="choose-mode__description"><i18n-msg msgid="codeboogie-mode-freestyle-description">PLACEHOLDER_i18n</i18n-msg></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="choose-stage overlay overlay--picker">
+        <div class="choose-stage__dialog overlay-dialog">
+          <div class="overlay-title-wrapper">
+            <h2 class="overlay-title"><i18n-msg msgid="codeboogie-choose-stage">PLACEHOLDER_i18n</i18n-msg></h2>
+          </div>
+          <div class="grid">
+            <div class="grid__option" data-stage="studio">
+              <div class="choose-stage__bg choose-stage__bg--studio"></div>
+              <h3 class="go">
+                <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+              </h3>
+            </div>
+            <div class="grid__option" data-stage="stage">
+              <div class="choose-stage__bg choose-stage__bg--stage"></div>
+              <h3 class="go">
+                <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+              </h3>
+            </div>
+            <div class="grid__option" data-stage="disco">
+              <div class="choose-stage__bg choose-stage__bg--disco"></div>
+              <h3 class="go">
+                <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+              </h3>
+            </div>
+          </div>
+          <div>
+            <a href="javascript:;" class="choose-stage__back">
+              <i class="choose-stage__back-icon"></i>
+              <i18n-msg msgid="codeboogie-back-to-start">PLACEHOLDER_i18n</i18n-msg>
+            </a>
+          </div>
+        </div>
+      </div>
       <div class="gameover overlay is-levelOnly">
         <div class="gameover-dialog overlay-dialog">
           <h2 class="gameover-title">
@@ -132,6 +199,21 @@ Codeboogie scene.
           <div class="footer-promo">
             <i18n-msg msgid="codelab-mwc-promo">PLACEHOLDER_i18n</i18n-msg>
           </div>
+        </div>
+      </div>
+      <div class="shareOverlay overlay shareOverlay--codeboogie">
+        <div class="shareOverlay-dialog overlay-dialog">
+          <div class="shareOverlay-imageWrapper">
+            <div class="shareOverlay-image"></div>
+          </div>
+          <div class="shareOverlay-buttons">
+            <p class="shareOverlay-label">
+              <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
+            </p>
+            <input type="url" class="shareOverlay-url"/>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+          <button type="button" class="shareOverlay-close"></button>
         </div>
       </div>
       <div class="force-rotate portrait">
@@ -172,6 +254,15 @@ Codeboogie scene.
     onPreload: function() {
       this.preloadSounds('codeboogie_load_sounds', 60);
       this.preloadImages([
+        './img/back-arrow.svg',
+        './img/loading.svg',
+        './img/logo.svg',
+        './img/mode-class.svg',
+        './img/mode-freestyle.svg',
+        './img/share.svg',
+        './img/stage-disco.svg',
+        './img/stage-stage.svg',
+        './img/stage-studio.svg',
         '../codeboogieframe/img/blank.png',
         '../codeboogieframe/img/block-hip-shake.svg',
         '../codeboogieframe/img/block-jump.svg',
@@ -188,6 +279,19 @@ Codeboogie scene.
         '../codeboogieframe/img/icons_splits-white.svg',
         '../codeboogieframe/img/icons_step-left-white.svg',
         '../codeboogieframe/img/icons_step-right-white.svg',
+        '../codeboogieframe/img/lights/ceiling-light--green.svg',
+        '../codeboogieframe/img/lights/ceiling-light--red.svg',
+        '../codeboogieframe/img/lights/ceiling-light.svg',
+        '../codeboogieframe/img/lights/ceiling.svg',
+        '../codeboogieframe/img/lights/disco_1.svg',
+        '../codeboogieframe/img/lights/disco_2.svg',
+        '../codeboogieframe/img/lights/disco_3.svg',
+        '../codeboogieframe/img/lights/disco_4.svg',
+        '../codeboogieframe/img/lights/disco_5.svg',
+        '../codeboogieframe/img/lights/disco_6.svg',
+        '../codeboogieframe/img/lights/disco_7.svg',
+        '../codeboogieframe/img/lights/disco_8.svg',
+        '../codeboogieframe/img/lights/disco_9.svg',
         '../codeboogieframe/img/loading.png',
         '../codeboogieframe/img/logo.svg',
         '../codeboogieframe/img/madewithcode.svg',
@@ -233,6 +337,8 @@ Codeboogie scene.
         '../codeboogieframe/img/steps/green/thriller_1.png',
         '../codeboogieframe/img/steps/green/thriller_2.png',
         '../codeboogieframe/img/steps/green/thriller_3.png',
+        '../codeboogieframe/img/steps/green/watch_0.png',
+        '../codeboogieframe/img/steps/green/watch_1.png',
         '../codeboogieframe/img/steps/purple/carlton_0.png',
         '../codeboogieframe/img/steps/purple/carlton_1.png',
         '../codeboogieframe/img/steps/purple/carlton_2.png',
@@ -292,8 +398,8 @@ Codeboogie scene.
 
     gatedStart: function() {
       if (this.frame && soundsLoaded && !this.started) {
-        this.frame.start();
-        this.bandStarted = true;
+        this.frame.start(this.sceneParams);
+        this.started = true;
       }
     }
   });

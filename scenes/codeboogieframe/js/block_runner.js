@@ -135,9 +135,9 @@ app.BlockRunner = class {
 
   runAnimations_() {
     this.beforeAnimations_();
+    this.state_ = app.BlockRunnerState.ANIMATING;
 
     this.scene.player.start(this.levelResult);
-    this.state_ = app.BlockRunnerState.ANIMATING;
   }
 
   restartLevel() {
@@ -150,8 +150,10 @@ app.BlockRunner = class {
     var params = [];
     var args = [];
     for (var k in scope) {
-      params.push(k);
-      args.push(scope[k]);
+      if (scope.hasOwnProperty(k)) {
+        params.push(k);
+        args.push(scope[k]);
+      }
     }
     params.push(code);
 

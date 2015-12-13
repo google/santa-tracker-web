@@ -9,13 +9,6 @@
     transform-origin: 0 0;
   }
 
-  // Make first level look like there is a toolbar under puzzle pieces.
-  &.level--puzzle .blockly {
-    @media (min-width: 1025px) {
-      background: linear-gradient(#3f4da1, #3f4da1) 0 0 / 244px 1px repeat-y;
-    }
-  }
-
   // Overlay trash over the toolbar responsively.
   .blockly__trash {
     bottom: 8px;
@@ -69,7 +62,7 @@
     }
   }
 
-  &.level--dance .blockly__promo {
+  .blockly__promo {
     left: 80px;
     right: 60px;
 

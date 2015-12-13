@@ -335,6 +335,39 @@
 	"codeboogie-your-turn": {
 		"message": "Your turn"
 	},
+	"codeboogie-go": {
+    "message": "Go!"
+  },
+  "codeboogie-choose-game-mode": {
+    "message": "Choose a game mode"
+  },
+  "codeboogie-choose-stage": {
+    "message": "Choose a stage"
+	},
+  "codeboogie-mode-dance-class": {
+    "message": "Dance class"
+  },
+  "codeboogie-mode-dance-class-description": {
+    "message": "Match the teacher's moves"
+  },
+  "codeboogie-mode-freestyle": {
+    "message": "Dance freestyle"
+  },
+  "codeboogie-mode-freestyle-description": {
+    "message": "Make your own moves and share with friends"
+  },
+  "codeboogie-share": {
+    "message": "Share"
+  },
+  "codeboogie-share-moves": {
+    "message": "Share your moves and challenge your friends"
+  },
+  "codeboogie-back-to-start": {
+    "message": "Back to start"
+  },
+	"codeboogie-keep-dancing": {
+		"message": "Keep dancing"
+	},
 	"codelab-block-moveeast": {
 		"message": "east"
 	},

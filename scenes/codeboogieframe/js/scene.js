@@ -109,7 +109,7 @@ app.Scene = class {
   /**
    * Changes the current level.
    *
-   * @param {app.Level} level
+   * @param {app.DanceLevel} level
    */
   setLevel(level) {
     this.level = level;
@@ -118,10 +118,12 @@ app.Scene = class {
     // Show the scene in portrait, then hide it after 3 seconds.
     this.portraitToggleScene(true);
 
-    let introAnimation = level.introAnimation();
+    let introAnimation = !level.freestyle && level.introAnimation();
+
     if (introAnimation) {
       this.blockRunner_.runAnimation(introAnimation);
     } else {
+      this.game.tutorial.schedule();
       window.setTimeout(this.portraitToggleScene.bind(this, false), 3000);
     }
   }
@@ -321,6 +323,7 @@ app.Scene = class {
    */
   onClickRun_() {
     this.buttonEl_.blur();
+    this.game.tutorial.toggle(false);
 
     if (this.portraitMode_ && !this.isSceneVisibleInPortrait_()) {
       this.portraitToggleScene(true);
@@ -340,9 +343,16 @@ app.Scene = class {
    */
   onFinishExecution(result) {
     if (!result.showResult()) {
+      if (result.freestyle) {
+        // Empty freestyle. Show tutorial right away.
+        this.game.tutorial.toggle(true);
+      } else {
+        // Demo. Show in a bit if user does nothing.
+        this.game.tutorial.schedule();
+      }
       return;
     }
-    if (this.level === app.levels[app.levels.length - 1]) {
+    if (this.level === game.levels[game.levels.length - 1]) {
       result.isFinalLevel = true;
     }
 

@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+'use strict';
 
 goog.provide('app.Result');
 
@@ -22,32 +23,39 @@ goog.provide('app.Result');
  * @param {!app.Game} game instance to handle user response.
  * @constructor
  */
-app.Result = function(el, game) {
-  this.el = el;
-  this.game = game;
+app.Result = class {
+  constructor(el, game) {
+    this.el = el;
+    this.game = game;
 
-  this.codeEl = el.querySelector('.result__code');
-  this.detailsEl = el.querySelector('.result__details');
-  this.graphicEl = el.querySelector('.result__graphic-type');
-  this.missingBlockEl = el.querySelector('.result__missing-block');
-  this.missingBlockImageEl = el.querySelector('.result__missing-block-image');
-  this.retryButtonEl = el.querySelector('.result__button--retry');
-  this.codeLinkEl = el.querySelector('.result__code-link');
-  this.continueButtonEl = el.querySelector('.result__button--continue');
-  this.continueText = this.continueButtonEl && this.continueButtonEl.textContent;
-  this.finishText = app.I18n.getMsg('CB_finish');
+    this.codeEl = el.querySelector('.result__code');
+    this.detailsEl = el.querySelector('.result__details');
+    this.graphicEl = el.querySelector('.result__graphic-type');
+    this.missingBlockEl = el.querySelector('.result__missing-block');
+    this.missingBlockImageEl = el.querySelector('.result__missing-block-image');
+    this.shareButtonEl = el.querySelector('.result__button--share');
+    this.retryButtonEl = el.querySelector('.result__button--retry');
+    this.codeLinkEl = el.querySelector('.result__code-link');
+    this.continueButtonEl = el.querySelector('.result__button--continue');
+    this.continueText = this.continueButtonEl && this.continueButtonEl.textContent;
+    this.finishText = app.I18n.getMsg('CB_finish');
+    this.retryText = app.I18n.getMsg('CB_tryAgain');
+    this.keepDancingText = app.I18n.getMsg('CB_keepDancing');
+    this.shareUrl = null;
 
-  // Strangely, Safari doesn't like getAttributeNS. Hopefully this un-namespaced get
-  // works in the rest.
-  this.defaultGraphic = this.graphicEl.getAttribute('xlink:href');
+    // Strangely, Safari doesn't like getAttributeNS. Hopefully this un-namespaced get
+    // works in the rest.
+    this.defaultGraphic = this.graphicEl.getAttribute('xlink:href');
 
-  this.bindEvents_();
-};
+    this.bindEvents_();
+  }
 
-app.Result.prototype = {
-  bindEvents_: function() {
+  bindEvents_() {
     if (this.retryButtonEl) {
       this.retryButtonEl.addEventListener('click', this.onRetry.bind(this), false);
+    }
+    if (this.shareButtonEl) {
+      this.shareButtonEl.addEventListener('click', this.onShare.bind(this), false);
     }
     if (this.continueButtonEl) {
       this.continueButtonEl.addEventListener('click', this.onContinue.bind(this), false);
@@ -55,18 +63,25 @@ app.Result.prototype = {
     if (this.codeLinkEl) {
       this.codeLinkEl.addEventListener('click', this.onShowCode.bind(this), false);
     }
-  },
+  }
 
   /**
    * Shows the result screen for the specified level results.
-   * @param {app.LevelResult} result
+   * @param {app.DanceLevelResult} result
    */
-  show: function(result) {
+  show(result) {
     this.detailsEl.style.display = result.message ? 'block' : 'none';
     this.detailsEl.textContent = result.message || '';
 
     if (this.retryButtonEl) {
       this.retryButtonEl.style.display = result.allowRetry ? 'inline-block' : 'none';
+      this.retryButtonEl.textContent =
+          result.freestyle ? this.keepDancingText : this.retryText;
+    }
+
+    if (this.shareButtonEl) {
+      this.shareButtonEl.style.display = result.shareUrl ? 'inline-block' : 'none';
+      this.shareUrl = result.shareUrl;
     }
 
     var missingBlock = result.missingBlocks[0];
@@ -91,26 +106,29 @@ app.Result.prototype = {
 
     this.el.classList.remove('result--show-code');
     this.el.classList.add('is-visible');
+  }
 
-  },
-
-  hide: function() {
+  hide() {
     this.el.classList.remove('is-visible');
-  },
+  }
 
-  onRetry: function() {
+  onRetry() {
     this.hide();
 
     this.game.restartLevel();
-  },
+  }
 
-  onContinue: function() {
+  onShare() {
+    this.game.share(this.shareUrl);
+  }
+
+  onContinue() {
     this.hide();
 
     this.game.bumpLevel();
-  },
+  }
 
-  onShowCode: function() {
+  onShowCode() {
     this.el.classList.add('result--show-code');
   }
 };

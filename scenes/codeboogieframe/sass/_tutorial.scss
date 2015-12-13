@@ -13,6 +13,7 @@
   }
 
   .tutorial__image {
+    background-image: url(img/tutorial/maze.gif);
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: contain;
@@ -22,10 +23,6 @@
     top: 0;
     width: 275px;
     z-index: 2;
-  }
-
-  &.level--dance .tutorial__image {
-    background-image: url(img/tutorial/maze.gif);
   }
 
   .tutorial::before {

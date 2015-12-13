@@ -19,7 +19,9 @@ goog.provide('app.FrameWrapper');
 goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.Gameover');
+goog.require('app.shared.ShareOverlay');
 goog.require('app.Sequencer');
+goog.require('app.ChooseMode');
 
 /**
  * IFrame proxy class.
@@ -32,18 +34,23 @@ goog.require('app.Sequencer');
 app.FrameWrapper = function(el, staticDir) {
   this.staticDir = staticDir;
   this.el = $(el);
+  this.chooseMode = new app.ChooseMode(this.el.find('.choose-mode'), this.el.find('.choose-stage'));
   this.gameoverView = new app.shared.Gameover(this, this.el.find('.gameover'));
   this.scoreboardView = new app.Scoreboard(this.el.find('.board'), 10);
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
+  /** @type {app.shared.ShareOverlay} */
+  this.shareOverlay = null;
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
     gameover: this.gameover.bind(this),
+    restart: this.restart.bind(this),
     iframeFocusChange: this.iframeFocusChange.bind(this),
     setLevel: this.setLevel.bind(this),
     triggerSound: this.triggerSound.bind(this),
+    share: this.share.bind(this),
     setVariant: this.setVariant.bind(this)
   });
 
@@ -59,21 +66,59 @@ app.FrameWrapper = function(el, staticDir) {
 
 /**
  * Starts the scene.
+ *
+ * @param {{dance: string, level: string}} params
  */
-app.FrameWrapper.prototype.start = function() {
+app.FrameWrapper.prototype.start = function(params) {
   this.sequencer.start();
 
-  // Too soon for postMessage.
-  this.restart();
+  this.restart(params);
 };
 
 /**
  * Restarts the game
+ *
+ * @param {{dance: string, level: string}} params
  */
-app.FrameWrapper.prototype.restart = function() {
+app.FrameWrapper.prototype.restart = function(params) {
   this.isPlaying = true;
+  params = params || {};
 
-  this.iframeChannel.call('restart');
+  if (params.dance) {
+    this.startMode('custom', params.dance);
+    this.setLevelClass('custom');
+  } else {
+    this.chooseMode.show((mode, stage) => {
+      this.setLevelClass(mode);
+      this.startMode(mode, mode === 'freestyle' ? stage : params.level);
+    });
+  }
+};
+
+/**
+ * Set a class on the game element so we know which mode we're in.
+ *
+ * @param {string} mode identifier. Can be teacher, freestyle or custom.
+ */
+app.FrameWrapper.prototype.setLevelClass = function(mode) {
+  // Remove any classes that start with level--
+  var domEl = this.el[0];
+  var classes = domEl.className.split(' ')
+    .filter(c => c.lastIndexOf('level--', 0) !== 0);
+
+  classes.push(`level--${mode}`);
+
+  domEl.className = classes.join(' ').trim();
+};
+
+/**
+ * Starts a specific game mode.
+ *
+ * @param {string} mode identifier. Can be teacher, freestyle or custom.
+ * @param {?string} customLevel serialized.
+ */
+app.FrameWrapper.prototype.startMode = function(mode, customLevel) {
+  this.iframeChannel.call('restart', mode, customLevel);
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
 };
 
@@ -89,6 +134,24 @@ app.FrameWrapper.prototype.dispose = function() {
 
   this.iframeChannel.dispose();
   this.iframeEl = null;
+};
+
+/**
+ * Opens share dialog with a given query string.
+ *
+ * @param {string} query string to share.
+ */
+app.FrameWrapper.prototype.share = function(query) {
+  // Lazy load share overlay. Google API should be ready by then.
+  if (!this.shareOverlay) {
+    this.shareOverlay = new app.shared.ShareOverlay(
+        this.el.find('.shareOverlay'));
+  }
+
+  var newHref = location.href.substr(0,
+      location.href.length - location.hash.length) + '#codeboogie' + query;
+  window.history.pushState(null, '', newHref);
+  this.shareOverlay.show(newHref, true);
 };
 
 /**

@@ -1,0 +1,70 @@
+$stages: ('studio', 'stage', 'disco');
+
+##{$name} .choose-stage {
+  &__bg {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    padding-bottom: 50%;
+    transition: opacity 200ms ease-in-out;
+    width: 50%;
+
+    @each $stage in $stages {
+      &--#{$stage} {
+        background-image: url(img/stage-#{$stage}.svg);
+      }
+    }
+  }
+
+  &__back {
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 1em 0 0;
+    position: relative;
+
+    &,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__back-icon {
+    background: url(img/back-arrow.svg) no-repeat center center / contain;
+    display: block;
+    height: 16px;
+    margin-right: 12px;
+    position: absolute;
+    right: 100%;
+    top: 2px;
+    transition: transform .2s;
+    width: 16px;
+  }
+
+  &__back:hover .choose-stage__back-icon {
+    transform: translateX(-4px);
+  }
+
+  @media (min-width: 680px) {
+    &__bg {
+      padding-bottom: 100%;
+      width: 100%;
+    }
+
+    .grid__option {
+      flex-basis: 30%;
+    }
+
+    .grid__option:hover {
+      .choose-stage__bg {
+        opacity: 0.7;
+      }
+
+      .choose-stage__text, .choose-stage__description {
+        opacity: 1;
+      }
+    }
+  }
+}
