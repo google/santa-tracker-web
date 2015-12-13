@@ -18,6 +18,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
 <link rel="import" href="city-feed/city-feed.html">
+<link rel="import" href="city-view/city-view.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
@@ -553,9 +554,13 @@ Tracker scene.
 
       // Sync if we need to.
       this.destinations = this.santaApp.santaService.getDestinations();
-      if (!this.destinations.length) {
+      this.timeline = this.santaApp.santaService.getTimeline();
+
+      if ((!this.destinations || !this.destinations.length) ||
+          (!this.timeline || !this.timeline.length)) {
         this.santaApp.santaService.sync(); // dests set in event listener above.
       }
+      console.log(this.timeline);
 
       this.$.intro.showTitle();
 

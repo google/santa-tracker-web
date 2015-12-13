@@ -4,7 +4,12 @@ $bubble-overlay-z-index: 4;
 $santaSleighHeight: 204px;
 
 ##{$name} {
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
   color: #fff;
   font-family: Roboto, sans-serif;
 

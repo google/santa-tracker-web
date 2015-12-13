@@ -1,0 +1,80 @@
+#city-view {
+  z-index: -1;
+  display: flex;
+  align-items: stretch;
+  pointer-events: all;
+
+  #city-details {
+    height: 100%;
+    width: 554px;
+    background: #00cd82;
+    opacity: 0;
+    overflow: auto;
+    box-sizing: border-box;
+    transition: opacity 250ms linear;
+
+    .ico-marker {
+      background-image: url(../img/marker.svg);
+    }
+
+    .ico-arrow {
+      background-image: url(../img/arrow.svg);
+    }
+
+    .ico-clock {
+      background-image: url(../img/city-feed-timer.svg);
+      width: 22px;
+      height: 22px;
+    }
+
+    .ico-weatherchanel {
+      background-image: url(../img/twc.svg);
+      width: 22px;
+      height: 22px;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+    }
+
+    h1 {
+      color: #EFE8DB;
+      font-size: 42px;
+      line-height: 42px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      color: white;
+      font-size: 22px;
+      font-weight: 300;
+    }
+
+    h4 {
+      text-transform: uppercase;
+      color: white;
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+
+    .stats, .wikipedia, .details {
+      padding: 0 60px;
+    }
+  }
+
+  #city-photos {
+    background: #000;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+&.location-active {
+  #city-view {
+    z-index: 10;
+    #city-details {
+      opacity: 1;
+    }
+  }
+}
