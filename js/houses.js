@@ -132,7 +132,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
-  module: "mercator",
+  module: "codeboogie",
   iced: true,
   launchDate: new Date('Dec 15, 2015'),
   portalLaunchDate: new Date('Dec 1, 2015'),
@@ -144,7 +144,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
 }, {
-  module: "codeboogie",
+  module: "mercator",
   iced: true,
   launchDate: new Date('Dec 17, 2015'),
   portalLaunchDate: new Date('Dec 1, 2015'),
