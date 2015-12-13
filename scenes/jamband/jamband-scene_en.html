@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="jamband-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -25,8 +24,6 @@ Jamband scene.
 -->
 <dom-module id="jamband-scene">
 <template>
-  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
-
   <style>
     :host([mode="portal"]) .Button-share {
       display: none !important;
@@ -205,7 +202,7 @@ Jamband scene.
             </div>
             <div id="drawer-arrow--right" class="Drawer-arrow Drawer-arrow--right"></div>
             <div id="drawer-button--random" class="Button Button--noText Button--round Button-random"></div>
-            <div id="drawer-button--share" class="Button Button-share" hidden$="{{!shareReady}}">
+            <div id="drawer-button--share" class="Button Button-share">
               <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
             </div>
           </div>
@@ -299,13 +296,6 @@ Jamband scene.
       ]);
     },
 
-    googleAPIReady: function() {
-      this.shareReady = true;
-      if (this.bandStarted) {
-        this.game.initShareOverlay();
-      }
-    },
-
     onSoundsLoaded: function(e, soundsName) {
       if (soundsName === 'jamband_load_sounds') {
         soundsLoaded = true;
@@ -330,10 +320,6 @@ Jamband scene.
         this.game.start();
         this.bandStarted = true;
         this.sceneParamsChanged();
-
-        if (this.shareReady) {
-          this.game.initShareOverlay();
-        }
       }
     },
 
