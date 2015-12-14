@@ -115,7 +115,6 @@ Lazy loads children "pages".
 
       Polymer.Base.importHref(path, function() {
         // Great! Nothing else to do.
-        this.fire('scene-loaded', scene);
       }.bind(this), function(e) {
         throw new Error('unable to load path: ' + path);
       });

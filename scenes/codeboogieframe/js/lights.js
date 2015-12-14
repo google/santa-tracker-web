@@ -63,7 +63,7 @@ app.Lights = class {
     }
 
     if (this.ceilingActive) {
-      this.whiteBeams.forEach((beam, index) => {
+      this.whiteBeams.forEach(beam => {
         beam.style.opacity = !isPlaying ? 1 : 0;
       });
 

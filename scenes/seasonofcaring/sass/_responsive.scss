@@ -1,0 +1,19 @@
+// Mobile and tablet
+@media (max-width: 800px), (max-height: 780px) {
+  ##{$name} .Tool--selected {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  ##{$name} {
+    .copy-container {
+      display: block;
+      z-index: 3;
+      background-color: #f06;
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

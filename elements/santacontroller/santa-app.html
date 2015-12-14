@@ -83,7 +83,7 @@ Santa Tracker app.
           path$="scenes/briefing/briefing-scene_[[language]].html"></briefing-scene>
 
       <callfromsanta-scene route="callfromsanta" icon="1f4de"
-          path$="scenes/callfromsanta/callfromsanta-scene_[[language]].html"
+          path$="scenes/callfromsanta/callfromsanta-scene.html"
           loading-bg-color="rgb(129,208,0)"></callfromsanta-scene>
 
       <citylights-scene route="citylights" icon="1f306"
@@ -218,6 +218,11 @@ Santa Tracker app.
           loading-bg-color="#83D7F5"
           loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
 
+      <seasonofcaring-scene route="seasonofcaring" icon="1f3ee"
+          path$="scenes/seasonofcaring/seasonofcaring-scene_[[language]].html"
+          mode$="{{mode}}"
+          loading-src="scenes/seasonofcaring/img/loading.svg"></seasonofcaring-scene>
+
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
           mode$="{{mode}}"
@@ -277,7 +282,7 @@ Santa Tracker app.
     <div msgid="scene-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-briefing"><i18n-msg msgid="scene_briefing">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-seasonofcaring"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-seasonofcaring"><i18n-msg msgid="scene_seasonofcaring">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
@@ -551,18 +556,27 @@ Polymer({
       notify: true
     },
 
+    /**
+     * sceneParams from `santa-tracker-router`. Can't be changed; router
+     * provides this as frozen and readOnly.
+     */
+    sceneParams: {
+      type: Object,
+      observer: 'sceneParamsChanged'
+    },
+
   },
 
   listeners: {
     'scene-progress': 'onSceneProgress',
-    'scene-loaded': 'onSceneLoaded',
+    'scene-ready': 'onSceneReady',
     'video-scene-done': 'onVideoSceneDone',
     'iframe-focus-change': 'onIframeFocusChange',
     'analytics-track-event': 'trackEvent',
     'analytics-track-perf': 'trackPerf',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
-    'analytics-track-social': 'trackSocial',
+    'analytics-track-share': 'trackShare',
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
@@ -716,15 +730,19 @@ Polymer({
     }
   },
 
-  onSceneLoaded: function(event, scene) {
+  onSceneReady: function(event, scene) {
     if (scene == this.$.village) {
       this._notifyHouses();
     }
+    this.sceneParamsChanged(this.$.router.sceneParams);
+  },
 
-    scene.sceneParams = this.$.router.sceneParams || {};
-    this.$.router.sceneParams = null;  // clear, passed to first scene
-    // TODO(samthor): We should clear the #-params here, since they've been
-    // consumed.
+  sceneParamsChanged: function(newValue) {
+    // sceneParamsChanged might happen while a scene isn't ready yet, so wait
+    // until it's upgraded. onSceneReady will be called then.
+    if (this.selectedScene && this.selectedScene.fire) {
+      this.selectedScene.sceneParams = newValue;
+    }
   },
 
   onVideoSceneDone: function(event) {
@@ -866,41 +884,20 @@ Polymer({
     dom.appendChild(el);
   },
 
-  _routeChanged: function() {
-    // Check if the new route needs a special-case redirect or if it is valid.
-    // If this changes the route, routeChanged() will be called again, repeating
-    // until this.route passes through validateRoute() successfully.
-    var requestedRoute = this.route;
-    switch (requestedRoute) {
-      case 'tourist':
-        // tourist and trailer are synonymous
-        this.route = 'trailer';
-        break;
-      case 'gumballs':
-        this.route = 'gumball';
-        break;
-    }
-    this.validateRoute();
-
-    if (requestedRoute === this.route) {
+  _routeChanged: function(newValue) {
+    if (this.validateRoute()) {
       // Route is valid. Send to analytics and load the scene.
-      this.trackPageview('/' + this.route);
-    } else if (requestedRoute !== '') {
-      // The requested route was changed.
-      var currentRoute = null;
-      var pageUrl = window.location.href.substr(0, location.href.length - location.hash.length);
-      if (pageUrl) {
-        if (this.selectedScene == null) {
-          console.warn('routeChanged but scene is null, route', requestedRoute, new Error());
-        } else {
-          currentRoute = pageUrl + '#' + this.selectedScene.route;
-        }
-      }
-      this.fire('analytics-track-event', { category: 'Routing',
-          action: 'Invalid Route Source', label: currentRoute});
-      this.fire('analytics-track-event', { category: 'Routing',
-          action: 'Invalid Route', label: '/' + requestedRoute});
+      this.trackPageview('/' + newValue);
+      return;
     }
+
+    // The requested route was changed.
+    var currentRoute = this.selectedScene ? this.selectedScene.route : '';
+    this.fire('analytics-track-event', { category: 'Routing',
+        action: 'Invalid Route Source', label: '/' + currentRoute});
+    this.fire('analytics-track-event', { category: 'Routing',
+        action: 'Invalid Route', label: '/' + newValue});
+    this.route = this.defaultRoute;
   },
 
   _updateWindowTitle: function() {
@@ -913,6 +910,9 @@ Polymer({
     document.title = icon + WINDOW_TITLE;
   },
 
+  /**
+   * Returns whether the current route is valid.
+   */
   validateRoute: function() {
     if (this.scheduleChecked) {
       var valid = (this.$.lazypages.isValidRoute(this.route) &&
@@ -920,13 +920,13 @@ Polymer({
                    (this.postCountdown && this.route == TRACKER_ROUTE) ||
                    (this.mode == 'cast' && VIDEO_ROUTES.indexOf(this.route) != -1);
       if (!valid) {
-        if (window.DEV) {
-          console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
-        } else {
-          this.route = this.defaultRoute;
+        if (!window.DEV) {
+          return false;
         }
+        console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
       }
     }
+    return true;
   },
 
   _userMuteChanged: function(userMute) {
@@ -965,9 +965,8 @@ Polymer({
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
-  trackSocial: function(e, detail) {
-    this.analyticsService.trackSocial(
-        detail.network, detail.action, detail.target);
+  trackShare: function(e, detail) {
+    this.analyticsService.trackSocial(detail || '', 'share', '/' + this.route);
   },
 
   trackGameStart: function(e, detail) {
@@ -1138,7 +1137,9 @@ Polymer({
     this._notifyHouses();
 
     this.scheduleChecked = true;
-    this.validateRoute();
+    if (!this.validateRoute()) {
+      this.route = this.defaultRoute;
+    }
 
     // Check again at the next hour tick.
     var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
@@ -1148,7 +1149,7 @@ Polymer({
   _escHandler: function(e, detail) {
     switch (e.detail.key) {
       case 'esc':
-        this.route = this.defaultRoute;
+        this.$.router.go(this.defaultRoute);
         break;
     }
   },
@@ -1187,7 +1188,7 @@ Polymer({
     this.debounce('_notifyHouses', function() {
       if (!this.$.village.fire) {
         // We're not a Polymer element yet, ignore. This will be later called
-        // by onSceneLoaded.
+        // by onSceneReady.
         return;
       }
 

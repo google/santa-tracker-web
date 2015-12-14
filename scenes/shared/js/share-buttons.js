@@ -41,11 +41,12 @@ app.shared.ShareButtons = function(elem, opt_url) {
  * @param opt_url {string=} The url. If blank, uses current location..
  */
 app.shared.ShareButtons.prototype.setUrl = function(opt_url) {
+  // TODO(samthor): share with santa-chrome.html
   var url = window.encodeURIComponent(opt_url || window.location.href);
   this.elem.querySelector('a.shareButtons-google').href =
       'https://plus.google.com/share?url=' + url;
   this.elem.querySelector('a.shareButtons-facebook').href =
-      'https://www.facebook.com/sharer.php?p[url]=' + url + '&u=' + url;
+      'https://www.facebook.com/sharer.php?p[url]=' + url;
   this.elem.querySelector('a.shareButtons-twitter').href =
       'https://twitter.com/share?hashtags=santatracker&url=' + url;
 };
@@ -61,14 +62,19 @@ app.shared.ShareButtons.prototype.handleClick_ = function(event) {
   var width = 600;
   var height = 600;
 
+  var id = null;
+
   if (this.classList.contains('shareButtons-twitter')) {
+    id = 'twitter';
     height = 253;
   } else if (this.classList.contains('shareButtons-facebook')) {
+    id = 'facebook';
     height = 229;
   } else if (this.classList.contains('shareButtons-google')) {
-    height = 348;
-    width = 512;
+    id = 'gplus';
   }
+
+  window.santaApp.fire('analytics-track-share', id);
 
   var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + height + ',width=' + width;
   window.open(this.href, '', options);

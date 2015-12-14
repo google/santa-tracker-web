@@ -1,0 +1,110 @@
+$choose-mode-width-small: 80em;
+$choose-mode-width-large: 45em;
+$choose-mode-teacher-width: 397px;
+$choose-mode-freestyle-width: 360.234px;
+$choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-width;
+
+@function choose-mode-figure-width($max-width) {
+  @return $max-width * (1 + $choose-mode-delta-width / $choose-mode-freestyle-width);
+}
+
+##{$name} .choose-mode {
+  &__image {
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+  }
+
+  &__info {
+    padding-top: 50%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 2em;
+    line-height: 1.4;
+    margin-bottom: 0;
+    margin-top: -0.8em;
+    white-space: nowrap;
+  }
+
+  &__description {
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 4px 0 20px 0;
+    font-weight: normal;
+  }
+
+  &__text, &__description {
+    transform: translateZ(0);
+  }
+
+  &__bg {
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom: 50%;
+    width: 50%;
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+
+    &--teacher {
+      background-image: url(img/mode-class.svg);
+      margin-left: -(choose-mode-figure-width(50%) - 50%);
+      padding-bottom: choose-mode-figure-width(50%);
+      width: choose-mode-figure-width(50%);
+    }
+
+    &--freestyle {
+      background-image: url(img/mode-freestyle.svg);
+    }
+  }
+
+  @media (min-width: 680px) {
+    &__info {
+      padding-top: 100%;
+    }
+
+    &__text {
+      font-size: 3em;
+    }
+
+    &__description {
+      font-size: 1em;
+    }
+
+    &__bg {
+      width: 100%;
+      padding-bottom: 100%;
+      transform: none;
+
+      &--teacher {
+        padding-bottom: choose-mode-figure-width(100%);
+        width: choose-mode-figure-width(100%);
+        margin-left: -(choose-mode-figure-width(100%) - 100%);
+      }
+
+      &--freestyle {
+        width: 75%;
+        padding-bottom: 75%;
+      }
+    }
+
+    &__title-wrapper {
+      font-size: 0.7em;
+    }
+
+    .grid__option:hover {
+      .choose-mode__bg {
+        opacity: 0.7;
+      }
+
+      .choose-mode__go, .choose-mode__text, .choose-mode__description {
+        opacity: 1;
+      }
+    }
+  }
+}

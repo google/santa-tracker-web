@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Jouluaattona esittelemme sinulle ylpeinä Joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa Pukin rekeä matkalla ympäri maailman. Eräs ahkerasti Joulupukin matkaa valmistelevista Korvatunturin kehittäjätontuista on päästänyt meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa hyödynnetään Google Mapsin ja rekisuunnittelun uusimpia tekniikoita, ja sen avulla voit seurata Joulupukin matkaa ympäri maailman."
+		"message": "Jouluaattona esittelemme sinulle ylpeinä joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa pukin rekeä matkalla ympäri maailman. Eräs ahkerasti joulupukin matkaa valmistelevista Korvatunturin kehittäjätontuista on päästänyt meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa hyödynnetään Google Mapsin ja rekisuunnittelun uusimpia tekniikoita, ja sen avulla voit seurata joulupukin matkaa ympäri maailman."
 	},
 	"about-content-three": {
-		"message": "Google on luonut ja kehittänyt Google Mapsin Joulupukin jäljittimen joulupukin tonttujen avustamana. Tarvitsetko apua tai onko sinulla muuta kysyttävää? Käy \u003ca href=\"//support.google.com/santatracker\"\u003eohjekeskuksessamme\u003c/a\u003e."
+		"message": "Google on luonut ja kehittänyt Google Mapsin Joulupukin jäljittimen joulupukin tonttujen avustamana. Tarvitsetko apua tai onko sinulla muuta kysyttävää? Käy <a href=\"//support.google.com/santatracker\">ohjekeskuksessamme</a>."
 	},
 	"about-content-two": {
-		"message": "Ystävälliset tontut ovat kutsuneet sinut tutustumaan Joulupukin kylään, kun Pukki valmistautuu matkaan. Tule mukaan ja tutustu kylään, löydät paljon hauskaa tekemistä ja pääset tapaamaan monia mainioita tonttuja."
+		"message": "Ystävälliset tontut ovat kutsuneet sinut tutustumaan joulupukin kylään, kun pukki valmistautuu matkaan. Tule mukaan ja tutustu kylään, löydät paljon hauskaa tekemistä ja pääset tapaamaan monia mainioita tonttuja."
 	},
 	"about-santa": {
 		"message": "Tietoja"
@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Kolumbia"
 	},
+	"codeboogie-block-clap": {
+		"message": "Taputus"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Taputa käsiä."
+	},
 	"codeboogie-block-jump": {
 		"message": "Hyppää"
 	},
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "Aloita tanssi!"
 	},
+	"codeboogie-go": {
+		"message": "Aloita!"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Tanssitaan"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Katso tarkkaan!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Sinun vuorosi"
 	},
 	"codelab-block-moveeast": {
 		"message": "itään"
@@ -369,7 +381,7 @@
 		"message": "Loistavaa"
 	},
 	"codelab-mwc-promo": {
-		"message": "Tutustu muihin Googlen koodausprojekteihin osoitteessa \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Tutustu muihin Googlen koodausprojekteihin osoitteessa <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Seuraava haaste"
@@ -753,7 +765,7 @@
 		"message": "norja"
 	},
 	"nonprofit-jane-description": {
-		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutustu simpanssien elinympäristöihin\u003c/a\u003e Tansanian Gombessa."
+		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Tutustu simpanssien elinympäristöihin</a> Tansanian Gombessa."
 	},
 	"nonprofit-jane-type": {
 		"message": "Simpanssi"
@@ -768,7 +780,7 @@
 		"message": "Metsät"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Ilmastonmuutos vaikuttaa edelleen monien sekä lämpimien että kylmien paikkojen ekojärjestelmien tasapainoon. Ilmaston lämpeneminen pienentää jääkarhujen elinympäristöä arktisella merijäällä, ja ihmisten toiminta, kuten öljy- ja kaasuvarojen hyväksikäyttö sekä merenkulku, aiheuttaa niille lisää uhkia. WWF (World Wildlife Fund) toimii lajien eloonjäämisen varmistamiseksi tekemällä tieteellistä tutkimusta ja yhteistyötä arktisen alueen alkuperäisyhteisöjen kanssa. Google.org on ylpeä \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etuestaan\u003c/a\u003e WWF:lle."
+		"message": "Ilmastonmuutos vaikuttaa edelleen monien sekä lämpimien että kylmien paikkojen ekojärjestelmien tasapainoon. Ilmaston lämpeneminen pienentää jääkarhujen elinympäristöä arktisella merijäällä, ja ihmisten toiminta, kuten öljy- ja kaasuvarojen hyväksikäyttö sekä merenkulku, aiheuttaa niille lisää uhkia. WWF (World Wildlife Fund) toimii lajien eloonjäämisen varmistamiseksi tekemällä tieteellistä tutkimusta ja yhteistyötä arktisen alueen alkuperäisyhteisöjen kanssa. Google.org on ylpeä <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">tuestaan</a> WWF:lle."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Jääkarhu"
@@ -834,7 +846,7 @@
 		"message": "Puerto Rico"
 	},
 	"press": {
-		"message": "Paina"
+		"message": "Lehdistö"
 	},
 	"pt_language_name": {
 		"message": "portugali"
@@ -3285,7 +3297,7 @@
 		"message": "Islanti"
 	},
 	"trivia_hard_083": {
-		"message": "Minkä Euroopan maan tärkeä satamakaupunki on Veiksel-joen suiston lähellä sijaitseva Gdańsk?"
+		"message": "Minkä Euroopan maan tärkeä satamakaupunki on Veikseljoen suiston lähellä sijaitseva Gdańsk?"
 	},
 	"trivia_hard_083_answer0": {
 		"message": "Puola"
@@ -4782,7 +4794,7 @@
 		"message": "Iso-Britanniassa kaikenikäiset joulunviettäjät pitävät illallispöydän paukkukaramelleista. Karamellit on kääritty värikkääseen paperiin, ja kun käärön päitä vedetään vastakkaisiin suuntiin, se repeää äänekkäästi. Paketin sisältä voi löytyä pahvihattu, lelu tai makeisia jouluillan iloksi."
 	},
 	"upgrade-warning": {
-		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja osoitteessa \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja osoitteessa <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Yhdysvallat"

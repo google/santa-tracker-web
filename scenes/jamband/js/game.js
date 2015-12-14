@@ -39,6 +39,10 @@ app.Game = function(elem) {
   this.drawer = new app.Drawer(this.elem);
   this.lights = new app.Lights(this.elem);
   this.instruments = null;
+
+  this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
+  this.elem.find('#drawer-button--share').
+      on('click.jamband touchend.jamband', this.showShareOverlay.bind(this));
 };
 
 /**
@@ -62,17 +66,6 @@ app.Game.prototype.start = function() {
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'jamband'});
 };
-
-/**
- * Initialize the share overlay
- * @export
- */
-app.Game.prototype.initShareOverlay = function() {
-  this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
-  this.elem.find('#drawer-button--share').
-      on('click.jamband touchend.jamband', this.showShareOverlay.bind(this));
-};
-
 
 /**
  * Show share overlay.

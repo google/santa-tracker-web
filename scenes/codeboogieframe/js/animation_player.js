@@ -53,6 +53,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   constructor(el) {
     super();
 
+    this.el = el;
     this.player = new app.Character(
         el.querySelector('.scene__character--player'), 'purple');
     this.teacher = new app.Character(
@@ -91,14 +92,22 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
    * @param {app.DanceLevelResult} result from player to animate.
    */
   start(result) {
+    if (result.freestyle) {
+      this.moveTiles.setLength(result.animationQueue.length - 1);
+    }
+
     this.lastResult = result;
-    this.animationQueue = result.animationQueue;
+    this.animationQueue = result.animationQueue.slice();
     this.moveTiles.reset();
-    this.title.setTitle(this.animationQueue[0].title, true);
+    this.title.setTitle(this.animationQueue[0] && this.animationQueue[0].title, true);
 
     if (result.watching()) {
       this.player.setState('is-watching');
       this.teacher.setState('is-showing');
+    }
+
+    if (this.animationQueue.length === 0) {
+      this.onFinish_();
     }
   }
 
@@ -192,5 +201,6 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   setLevel(level) {
     this.moveTiles.setLevel(level);
     this.lights.setLevel(level);
+    this.player.setColor(level.freestyle ? 'green' : 'purple');
   }
 };

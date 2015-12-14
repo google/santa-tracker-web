@@ -1,0 +1,386 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../js/webanimations.html">
+
+<script src="seasonofcaring-scene.min.js"></script>
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="seasonofcaring-scene.css" />
+
+<!--
+Season of caring scene.
+-->
+<dom-module id="seasonofcaring-scene">
+<template>
+  <div id="module-seasonofcaring">
+    <div class="seasonofcaring">
+      <div class="scene">
+        <div class="nav-ornament">
+          <div class="Button-nav-ornament Button-prev-ornament"></div>
+          <div class="Button-nav-ornament Button-show-all"></div>
+          <div class="Button-nav-ornament Button-next-ornament"></div>
+        </div>
+        <div class="info-container">
+          <div class="Button-info"></div>
+        </div>
+        <div class="scene-container">
+          <div class="scene-gallery active">
+            <div class="ornament-gallery">
+              <div class="ornament-item-row">
+                <div class="ornament-item ornament-item--enable">
+                  <div class="ornament-item-name">E-Nable</div>
+                </div>
+                <div class="ornament-item ornament-item--rnib">
+                  <div class="ornament-item-name">RNIB</div>
+                </div>
+              </div>
+              <div class="ornament-item-row no-en">
+                <div class="ornament-item ornament-item--wwh">
+                  <div class="ornament-item-name">World Wide Hearing</div>
+                </div>
+                <div class="ornament-item ornament-item--wheelmap">
+                  <div class="ornament-item-name">Wheelmap</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scene-ornament-wrapper">
+            <div class="scene-ornament scene-ornament--enable">
+              <div class="ornament">
+                <div class="ornament-wrapper">
+                  <div class="ornament-stage-container ornament-outline ornament-outline--enable">
+                    <div class="ornament-hook"></div><img src="img/color-guide--enable.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas class="canvas temp-canvas"></canvas>
+                    <canvas id="canvas--enable" class="canvas"></canvas>
+                  </div>
+                </div>
+                <div class="ornament-shadow"></div>
+              </div>
+              <div class="ornament-copy-container">
+                <div class="ornament-copy">
+                  <div class="Button-close"></div><img src="img/icons/enable.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject">Prosthetic Limbs</h1>
+                  <p class="ornament-copy-description">
+                    According the CDC, 7 in 1000 people experience limb differences and prosthetics are expensive - up to US$10,000! For growing children, the costs can add up quickly. e-Nable is a global community of people who work together to make 3D printed hands for children with limb differences. Google.org is helping the Enable Community Foundation in supporting the e-NABLE Community to design more hands and increase the number of kids who can get hands.
+                  </p><a target="_blank" href="http://www.EnableCommunityfoundation.org/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scene-ornament-wrapper">
+            <div class="scene-ornament scene-ornament--rnib">
+              <div class="ornament">
+                <div class="ornament-wrapper">
+                  <div class="ornament-stage-container ornament-outline ornament-outline--rnib">
+                    <div class="ornament-hook"></div><img src="img/color-guide--rnib.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas class="canvas temp-canvas"></canvas>
+                    <canvas id="canvas--rnib" class="canvas"></canvas>
+                  </div>
+                </div>
+                <div class="ornament-shadow"></div>
+              </div>
+              <div class="ornament-copy-container">
+                <div class="ornament-copy">
+                  <div class="Button-close"></div><img src="img/icons/rnib.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject">Smart Glasses</h1>
+                  <p class="ornament-copy-description">
+                    There are many people in the world who are living with sight loss, but have some remaining vision left. Google.org is helping RNIB develop ‘smart glasses’ that help people with low vision see shapes and silhouettes more easily. Smart glasses can make the world easier to see, helping people regain their independence and confidence.
+                  </p><a target="_blank" href="https://www.rnib.org.uk/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scene-ornament-wrapper">
+            <div class="scene-ornament scene-ornament--wwh">
+              <div class="ornament">
+                <div class="ornament-wrapper">
+                  <div class="ornament-stage-container ornament-outline ornament-outline--wwh">
+                    <div class="ornament-hook"></div><img src="img/color-guide--wwh.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas class="canvas temp-canvas"></canvas>
+                    <canvas id="canvas--wwh" class="canvas"></canvas>
+                  </div>
+                </div>
+                <div class="ornament-shadow"></div>
+              </div>
+              <div class="ornament-copy-container">
+                <div class="ornament-copy">
+                  <div class="Button-close"></div><img src="img/icons/wwh.svg" crossorigin="anonymous" class="ornament-logo ornament-logo--wwh"/>
+                  <h1 class="ornament-copy-subject">Hearing</h1>
+                  <p class="ornament-copy-description">
+                    Research suggests that 95% of people with hearing loss can be treated with hearing aids, but less than 1% of people in low- and middle-income countries who need hearing aids get them. <a href="http://www.wwhearing.org/">World Wide Hearing</a> (WWH) connects children to their world by providing hearing aids and services. <a href="http://www.wwhearing.org/">WWH</a> is designing an affordable, tablet-based hearing loss diagnostic tool for use in the developing world. More people who need hearing aids can therefore receive them.
+                  </p><a target="_blank" href="http://www.wwhearing.org/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scene-ornament-wrapper no-en">
+            <div class="scene-ornament scene-ornament--wheelmap">
+              <div class="ornament">
+                <div class="ornament-wrapper">
+                  <div class="ornament-stage-container ornament-outline ornament-outline--wheelmap">
+                    <div class="ornament-hook"></div><img src="img/color-guide--wheelmap.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas class="canvas temp-canvas"></canvas>
+                    <canvas id="canvas--wheelmap" class="canvas"></canvas>
+                  </div>
+                </div>
+                <div class="ornament-shadow"></div>
+              </div>
+              <div class="ornament-copy-container">
+                <div class="ornament-copy">
+                  <div class="Button-close"></div><img src="img/icons/wheelmap.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject">Mobility</h1>
+                  <p class="ornament-copy-description">
+                    It can be difficult for wheelchair users to figure out which places are accessible: Cinemas, Restaurants and wherever else they might travel. Wheelmap shows which places are wheelchair accessible so that wheelchair users can spend less time planning routes and more time exploring the world!
+                  </p><a target="_blank" href="http://wheelmap.org/en/map" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Tool-panel">
+          <div class="Tool-wrapper">
+            <a class="Tool-backContainer" id="global-back-to-village" href="{{pageUrl}}#village">
+              <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg>
+            </a>
+            <div class="Tool-header-container">
+              <div class="Tool-header"></div>
+            </div>
+            <div class="Tools">
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#e53935" class="Tool Tool-crayon--red"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#fb8c00" class="Tool Tool-crayon--orange"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#f9ce1d" class="Tool Tool-crayon--yellow"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#7cb342" class="Tool Tool-crayon--light-green"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#388e3c" class="Tool Tool-crayon--green"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#039be5" class="Tool Tool-crayon--light-blue"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#1976d2" class="Tool Tool-crayon--blue"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#5e35b1" class="Tool Tool-crayon--violet"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon">
+                <div data-color="#8e24aa" class="Tool Tool-crayon--purple"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="#5d4037" class="Tool Tool-crayon--brown"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                <div data-color="rainbow" class="Tool Tool-crayon--rainbow"></div>
+              </div>
+              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--eraser Tool--mobile">
+                <div data-color="#fff" class="Tool Tool-crayon--eraser"></div>
+              </div>
+              <div class="Tool-container Tool-container--third crayon-size-wrapper Tool--mobileOnly">
+                <div class="crayon-size-indicator-container">
+                  <div class="crayon-size-indicator crayon-size-indicator--xs"></div>
+                  <div class="crayon-size-indicator crayon-size-indicator--sm"></div>
+                  <div class="crayon-size-indicator crayon-size-indicator--md"></div>
+                  <div class="crayon-size-indicator crayon-size-indicator--lg"></div>
+                </div>
+                <div class="crayon-size-container">
+                  <div class="crayon-padding">
+                    <div class="crayon-size crayon-size--lg"></div>
+                  </div>
+                  <div class="crayon-padding">
+                    <div class="crayon-size crayon-size--md"></div>
+                  </div>
+                  <div class="crayon-padding">
+                    <div class="crayon-size crayon-size--sm"></div>
+                  </div>
+                  <div class="crayon-padding">
+                    <div class="crayon-size crayon-size--xs"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="Tool-container Tool-container--third download--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-download--mobile"></a></div>
+              <div class="Tool-container Tool-container--third trash--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-reset--mobile"></a></div>
+            </div>
+            <div class="Tool-bottomContainer">
+              <div class="Tool-sliderContainer">
+                <div id="Slider" class="Slider goog-slider goog-slider-horizontal">
+                  <div class="goog-slider-thumb">
+                    <div id="Slider-thumb--scale" class="Slider-thumb--scale"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="Buttons">
+            <Button id="print" class="Button Button-print"></Button><a id="download" download="test.png" class="Button Button-download"></a>
+            <Button id="reset" class="Button Button-reset"></Button>
+          </div>
+        </div>
+        <div class="hidden">
+          <canvas class="print-canvas"></canvas>
+          <p class="santatracker-copy"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></p>
+          <p class="print-instructions-copy"><i18n-msg msgid="ornament-print-instructions">PLACEHOLDER_i18n</i18n-msg></p>
+          <p class="more-information-copy">
+            <i18n-msg msgid="nonprofit-more-information">PLACEHOLDER_i18n</i18n-msg>
+
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="gui">
+      <div class="board board--game"><a id="global-back-to-village" href="{{pageUrl}}#village" class="back">
+          <i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <div class="logo"></div>
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label">
+            <i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+          <div class="tracker">
+            <div class="remaining"></div>
+          </div>
+          <div class="status"></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="restart"></button>
+          <button type="button" class="pause"></button>
+        </div>
+      </div>
+      <div class="force-rotate portrait">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+          <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </div>
+      <div class="gameover overlay">
+        <div class="gameover-dialog overlay-dialog">
+          <h2 class="gameover-title">
+            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
+          </h2>
+          <div class="gameover-winner">
+            <div class="gameover-level">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_level">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+            <div class="gameover-score">
+              <p class="gameover-label">
+                <i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg>
+              </p>
+              <p class="gameover-number">0</p>
+            </div>
+          </div>
+          <div class="gameover-buttons">
+            <button type="button" class="Button Button--large gameover-play">
+              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+(function() {
+  Polymer({
+    is: 'seasonofcaring-scene',
+    behaviors: [window.SantaSceneBehavior],
+    game: null,
+
+    onPreload: function() {
+      this.preloadSounds('spirit_load_sounds', 20);
+      this.preloadImages([
+        'img/color-guide--enable.svg',
+        'img/color-guide--rnib.svg',
+        'img/color-guide--wheelmap.svg',
+        'img/color-guide--wwh.svg',
+        'img/download-ornament.svg',
+        'img/header-icon.svg',
+        'img/icons/close.svg',
+        'img/icons/download.svg',
+        'img/icons/enable.svg',
+        'img/icons/info.svg',
+        'img/icons/next.svg',
+        'img/icons/prev.svg',
+        'img/icons/print.svg',
+        'img/icons/rnib.svg',
+        'img/icons/show-all.svg',
+        'img/icons/trash.svg',
+        'img/icons/wheelmap.svg',
+        'img/icons/wwh.svg',
+        'img/ornament-hook.svg',
+        'img/ornament/enable.png',
+        'img/ornament/rnib.png',
+        'img/ornament/wheelmap.png',
+        'img/ornament/wwh.png',
+        'img/print-guide.svg',
+        'img/print-st-logo.svg',
+        'img/season-of-giving-bg.svg',
+        'img/tools/crayon-blue.svg',
+        'img/tools/crayon-brown.svg',
+        'img/tools/crayon-green.svg',
+        'img/tools/crayon-light-blue.svg',
+        'img/tools/crayon-light-green.svg',
+        'img/tools/crayon-orange.svg',
+        'img/tools/crayon-purple.svg',
+        'img/tools/crayon-rainbow.svg',
+        'img/tools/crayon-red.svg',
+        'img/tools/crayon-violet.svg',
+        'img/tools/crayon-yellow.svg',
+        'img/tools/eraser.svg',
+        'img/tools/shadow-crayon.svg',
+        'img/tools/shadow-eraser.svg',
+        'img/tools/slider-size-bg.svg'
+      ]);
+    },
+    onShow: function() {
+      this.fire('sound-ambient', 'spirit_start');
+      var module = this.$['module-seasonofcaring'];
+
+      this.game = new scenes.seasonofcaring.Game(module, this.componentDir);
+      this.game.start();
+    },
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'spirit_end');
+    }
+  });
+
+})();
+</script>
+</dom-module>

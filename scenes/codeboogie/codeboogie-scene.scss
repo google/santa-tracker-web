@@ -6,7 +6,10 @@ $board-level-bp: 1025px;
 @import "../shared/sass/gameover";
 @import "../shared/sass/rotate";
 @import "../shared/sass/board";
+@import "../shared/sass/share-overlay";
 @import "sass/promo";
+@import "sass/choose-mode";
+@import "sass/choose-stage";
 
 ##{$name} {
   background: #364189;
@@ -16,10 +19,126 @@ $board-level-bp: 1025px;
   bottom: 0;
   left: 0;
 
+  .shareOverlay-imageWrapper {
+    margin: 0 auto;
+  }
+
+  .shareOverlay-image {
+    background: url(img/share.svg) no-repeat;
+  }
+
+  .overlay {
+    color: #fff;
+    background: #3F49A3;
+  }
+
+  .overlay--picker {
+    .overlay-dialog {
+      width: 80%;
+      max-width: 80em;
+    }
+
+    .overlay-title {
+      font-family: 'Lobster', sans-serif;
+      font-size: 3em;
+      font-weight: 400;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      margin: 0;
+      text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .overlay-title-wrapper {
+      margin: 0 auto 4em auto;
+    }
+  }
+
+  .grid__option {
+    cursor: pointer;
+    margin: 0 auto 40px;
+    position: relative;
+    flex: 0 1 45%;
+  }
+
+  .go {
+    color: #fff;
+    font-family: 'Lobster', sans-serif;
+    font-size: 7.3em;
+    left: 50%;
+    letter-spacing: -1.5px;
+    line-height: 0.95;
+    margin-left: -0.7em;
+    opacity: 0;
+    position: absolute;
+    text-shadow : 5px 5px 0 rgba(0, 0, 0, 0.15);
+    top: 0;
+    transform: translate3d(0, -.5em, 0);
+    transition: opacity 400ms 200ms ease, transform 400ms 200ms ease;
+    user-select: none;
+  }
+
+  @media (min-width: 680px) {
+    .overlay-title {
+      font-size: 8em;
+      font-size: 8vw;
+    }
+
+    .overlay-title-wrapper {
+      margin: 0 auto 8em auto;
+    }
+
+    .grid {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      width: 100%;
+    }
+
+    .grid__option:hover .go {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   @media (min-width: 1025px) {
+    .overlay-title {
+      font-size: 8em;
+    }
+
     // Less height of logo in scoreboard
     .board .logo {
       height: 68px;
+    }
+  }
+
+  /*
+   * Remove levels from scoreboard on freestyle and custom modes
+   */
+  &.level--freestyle, &.level--custom {
+    .board {
+      height: 68px;
+    }
+
+    .board .logo {
+      display: block;
+      height: 68px;
+    }
+
+    .board .level {
+      display: none;
+    }
+  }
+
+  @media (min-height: 600px) {
+    &.level--freestyle, &.level--custom {
+      .board {
+        height: 140px;
+      }
+
+      .board .logo {
+        height: 140px;
+        background-size: 70% 70%;
+      }
     }
   }
 }

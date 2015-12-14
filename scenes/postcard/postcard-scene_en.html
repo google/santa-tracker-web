@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="postcard-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -25,8 +24,6 @@ Postcard scene.
 -->
 <dom-module id="postcard-scene">
 <template>
-  <google-legacy-loader on-api-load="googleAPIReady"></google-legacy-loader>
-
   <style>
     :host([mode="portal"]) #sharebutton {
         display: none !important;
@@ -111,7 +108,7 @@ Postcard scene.
         <div class="logo"></div>
       </div>
       <div class="Buttons">
-        <button type="button" id="sharebutton" class="Button" hidden>
+        <button type="button" id="sharebutton" class="Button">
           <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
         </button>
       </div>
@@ -153,9 +150,7 @@ Postcard scene.
         'img/sprite.png'
       ]);
     },
-    googleAPIReady: function() {
-      this.$.sharebutton.removeAttribute('hidden');
-    },
+
     onShow: function() {
       var module = this.$['module-postcard'];
       this.fire('sound-ambient', 'sm_start');
@@ -163,15 +158,17 @@ Postcard scene.
       this.scene = new scenes.postcard.Scene(module);
       this.sceneParamsChanged();
     },
+
     onHide: function() {
       this.scene.dispose();
       this.scene = null;
       this.fire('sound-ambient', 'sm_end');
     },
+
     sceneParamsChanged: function() {
-      if (!this.sceneParams) return;
-      
-      this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
+      if (this.sceneParams && this.scene) {
+        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
+      }
     }
   });
 

@@ -28,7 +28,9 @@ app.Character = class {
     this.animation = null;
     this.currentState = null;
     this.el = el;
-    this.data = app.AnimationData(color);
+    this.data = app.AnimationData();
+    this.lastFrame = null;
+    this.color = color;
 
     // Create canvas
     let canvas = document.createElement('canvas');
@@ -58,12 +60,21 @@ app.Character = class {
     if (!this.animation) return;
 
     let frame = this.animation.update(dt);
+
+    if (frame === this.lastFrame) {
+      return;
+    }
+
     let image = this.images[frame.sprite];
 
-    this.context.canvas.width = this.context.canvas.width;
+
+    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+
     this.context.drawImage(image, frame.x, frame.y,
         frame.width, frame.height, frame.offsetX, frame.offsetY,
         frame.width, frame.height);
+
+    this.lastFrame = frame;
   }
 
   setState(state) {
@@ -82,5 +93,12 @@ app.Character = class {
   play(step, bpm) {
     this.animation = new app.Animation(step, bpm, this.data);
     this.animation.play();
+  }
+
+  setColor(color) {
+    if (this.color !== color) {
+      this.color = color;
+      this.renderSprites_(color);
+    }
   }
 };
