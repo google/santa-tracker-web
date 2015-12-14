@@ -89,7 +89,7 @@ app.ChooseMode.prototype.continue_ = function() {
 
 /**
  * Shows the share screen with an animation.
- * @param {function(string)} callback Runs when a map is selected.
+ * @param {function(string, string)} callback Runs when a map is selected.
  */
 app.ChooseMode.prototype.show = function(callback) {
   this.mode = null;
