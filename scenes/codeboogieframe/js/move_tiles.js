@@ -43,7 +43,7 @@ app.MoveTiles = class {
 
   add(move) {
     let tile = document.createElement('div');
-    tile.classList.add('scene__moves-move', 'fade-in', `move__${move}`);
+    tile.className = `scene__moves-move fade-in move__${move}`;
 
     this.el.appendChild(tile);
 
