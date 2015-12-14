@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Durant la Nit de Nadal tindrem l'orgull de presentar el tauler de control del Pare Noel, la tecnologia que propulsa el seu trineu durant el seu viatge per tot el món. Hem rebut aquest avançament especial d'un dels seus follets desenvolupadors, que estan treballant de valent al pol nord per ajudar-lo a preparar el gran dia. El tauler de control del Pare Noel, que inclou la tecnologia més puntera i innovadora de Google Maps i en enginyeria de trineus, us permetrà seguir el seu trajecte per tot el món i conèixer una mica les parades que farà pel camí."
+		"message": "Durant la Nit de Nadal tindrem l'orgull de presentar el tauler de control del Pare Noel, la tecnologia que propulsa el seu trineu durant el seu viatge per tot el món. Hem rebut aquest avançament especial d'un dels seus elfs desenvolupadors, que estan treballant de valent al pol nord per ajudar-lo a preparar el gran dia. El tauler de control del Pare Noel, que inclou la tecnologia més puntera i innovadora de Google Maps i en enginyeria de trineus, us permetrà seguir el seu trajecte per tot el món i conèixer una mica les parades que farà pel camí."
 	},
 	"about-content-three": {
-		"message": "Google ha creat i desenvolupat Segueix el Pare Noel de Google Maps amb una mica d'ajuda dels follets del Pare Noel. Necessiteu ajuda o teniu cap altra pregunta? Visiteu el nostre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'ajuda\u003c/a\u003e."
+		"message": "Google ha creat i desenvolupat Segueix el Pare Noel de Google Maps amb una mica d'ajuda dels elfs del Pare Noel. Necessiteu ajuda o teniu cap altra pregunta? Visiteu el nostre <a href=\"//support.google.com/santatracker\">Centre d'ajuda</a>."
 	},
 	"about-content-two": {
-		"message": "A més, els nostres amics follets us han convidat a descobrir l'aldea del Pare Noel mentre ell es prepara per al seu viatge. Visiteu i exploreu l'aldea; segur que trobeu activitats divertides i coneixeu follets interessants."
+		"message": "A més, els nostres amics elfs us han convidat a descobrir l'aldea del Pare Noel mentre ell es prepara per al seu viatge. Visiteu i exploreu l'aldea; segur que trobeu activitats divertides i coneixeu elfs interessants."
 	},
 	"about-santa": {
 		"message": "Quant a"
@@ -93,7 +93,7 @@
 		"message": "Normalment, els nens canadencs celebren un Nadal envoltats de neu. S'abriguen bé amb una bufanda i amb un gorro de llana típic del Canadà, el toque, i surten a jugar amb la neu i patinar sobre gel. La nit de Nadal, deixen llet i galetes al costat de la llar de foc per al Pare Noel (i, de vegades, una pastanaga per al ren)."
 	},
 	"calendar": {
-		"message": "El calendari"
+		"message": "Calendari"
 	},
 	"category_code": {
 		"message": "Codi: {0}"
@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Colòmbia"
 	},
+	"codeboogie-block-clap": {
+		"message": "Aplaudiment"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Aplaudiu una vegada."
+	},
 	"codeboogie-block-jump": {
 		"message": "Salteu"
 	},
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "Tothom a ballar!"
 	},
+	"codeboogie-go": {
+		"message": "Fantàstic!"
+	},
 	"codeboogie-lets-dance": {
 		"message": "A ballar!"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Pareu atenció!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Us toca"
 	},
 	"codelab-block-moveeast": {
 		"message": "est"
@@ -369,7 +381,7 @@
 		"message": "Fantàstic!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Exploreu més productes de codificació de Google a \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Exploreu més productes de codificació de Google a <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Desafiament següent"
@@ -387,10 +399,10 @@
 		"message": "Sembla que us heu perdut."
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "Proveu una d'aquestes peces, o algunes, per resoldre aquest trencaclosques."
+		"message": "Proveu una d'aquestes peces, o més d'una, per resoldre el trencaclosques."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Sabeu que només us falten {{ideal}} peces per acabar aquest nivell? Proveu de fer servir la peça que trobareu més avall."
+		"message": "Sabeu que només us falten {{ideal}} peces per acabar aquest nivell? Proveu de fer servir aquesta peça:"
 	},
 	"codelab-result-perfect-success": {
 		"message": "L'enhorabona. Heu resolt el trencaclosques a la perfecció."
@@ -504,10 +516,10 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els follets del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
+		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els elfs del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
 	},
 	"error-lost-connection": {
-		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els follets del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
+		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els elfs del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
 	},
 	"error-try-again": {
 		"message": "Torna-ho a provar"
@@ -540,7 +552,7 @@
 		"message": "Gabon"
 	},
 	"gameover": {
-		"message": "S'ha acabat el joc!"
+		"message": "Fi de la partida!"
 	},
 	"gameover_level": {
 		"message": "Heu arribat al nivell:"
@@ -549,7 +561,7 @@
 		"message": "Puntuació:"
 	},
 	"getgooglemaps": {
-		"message": "Obtén Google Maps"
+		"message": "Baixeu Google Maps"
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -717,7 +729,7 @@
 		"message": "Mèxic"
 	},
 	"mx_tradition": {
-		"message": "A Mèxic, els nens de totes les edats trenquen pinyates per celebrar el Nadal. Petits i grans s'ho passen molt bé: es posen una bena als ulls, donen voltes i intenten trencar amb un bastó unes olles penjades en forma d'estrella. Quan la pinyata es trenca, cauen fruits secs, caramels i fruita i tothom en menja."
+		"message": "A Mèxic, els nens de totes les edats trenquen pinyates per celebrar el Nadal. Petits i grans s'ho passen molt bé: es posen una bena als ulls, donen voltes i intenten trencar amb un bastó unes olles penjades en forma d'estrella. Quan la pinyata es trenca, cauen fruits secs, caramels i fruita per a tothom."
 	},
 	"my_country_name": {
 		"message": "Malàisia"
@@ -753,7 +765,7 @@
 		"message": "Noruec"
 	},
 	"nonprofit-jane-description": {
-		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
+		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Exploreu els hàbitats dels ximpanzés</a> de Gombe, a Tanzània."
 	},
 	"nonprofit-jane-type": {
 		"message": "Ximpanzé"
@@ -762,13 +774,13 @@
 		"message": "Per obtenir més informació, visiteu:"
 	},
 	"nonprofit-nature-description": {
-		"message": "The Nature Conservancy treballa per protegir i restaurar boscos dels Estats Units i de tot el món. Gràcies a aquests boscos emblemàtics hi ha vida a tot el planeta. Filtren aigua, netegen l'aire, mantenen comunitats de persones i ofereixen un hàbitat per a espècies animals i plantes importants. Amb el ritme de desforestació que es produeix avui dia, els nostres boscos estaran totalment eliminats d'aquí a 100 anys. El programa Plant a Billion Trees (Planta mil milions d'arbres) de The Nature Conservancy està treballant per plantar mil milions d'arbres d'aquí al 2025 i restaurar els boscos més importants del món."
+		"message": "The Nature Conservancy treballa per protegir i restaurar boscos dels Estats Units i de tot el món. Gràcies a aquests boscos emblemàtics hi ha vida a tot el planeta. Filtren aigua, netegen l'aire, donen feina a comunitats de persones i ofereixen un hàbitat per a importants espècies d'animals i de plantes. Amb el ritme de desforestació que es produeix avui dia, els nostres boscos estaran totalment eliminats d'aquí a 100 anys. El programa Plant a Billion Trees (Planta mil milions d'arbres) de The Nature Conservancy està treballant per plantar mil milions d'arbres d'aquí al 2025 i restaurar els boscos més importants del món."
 	},
 	"nonprofit-nature-type": {
 		"message": "Boscos"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El canvi climàtic continua alterant l'equilibri de molts ecosistemes del món, tant a les zones càlides com a les fredes. A l'Àrtic, els óssos polars estan perdent el seu hàbitat de la banquisa a causa de l'augment de les temperatures, i s'enfronten a més amenaces procedents de les activitats humanes, com ara les explotacions i el transport de petroli i de gas. World Wildlife Fund treballa per garantir la supervivència de les espècies mitjançant la recerca científica i treballa en cooperació amb comunitats natives de l'Àrtic. A Google.org estem orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecol·laborar\u003c/a\u003e amb World Wildlife Fund."
+		"message": "El canvi climàtic continua alterant l'equilibri de molts ecosistemes del món, tant a les zones càlides com a les fredes. A l'Àrtic, els óssos polars estan perdent el seu hàbitat de la banquisa a causa de l'augment de les temperatures, i s'enfronten a més amenaces procedents de les activitats humanes, com ara les explotacions i el transport de petroli i de gas. World Wildlife Fund treballa per garantir la supervivència de les espècies mitjançant la recerca científica i treballa en cooperació amb comunitats natives de l'Àrtic. A Google.org estem orgullosos de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">col·laborar</a> amb World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ós polar"
@@ -4782,7 +4794,7 @@
 		"message": "Al Regne Unit, els més riallers s'ho passen d'allò més bé amb els crackers mentre sopen. Són cilindres embolicats amb paper de colors que tenen llengüetes als extrems. Quan s'estiren aquestes llengüetes, el cilindre explota i fa un fort soroll. En poden sortir barrets de paper, joguines i caramels per alegrar la nit de Nadal."
 	},
 	"upgrade-warning": {
-		"message": "Segueix el Pare Noel no és compatible amb aquesta versió del vostre navegador. Per accedir a Segueix el Pare Noel, cal que baixeu un navegador més modern. Per obtenir més informació, consulteu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Segueix el Pare Noel no és compatible amb aquesta versió del vostre navegador. Per accedir a Segueix el Pare Noel, cal que baixeu un navegador més modern. Per obtenir més informació, consulteu <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Estats Units"

@@ -3,10 +3,10 @@
 		"message": "Na véspera de Natal, exibiremos orgulhosamente o Painel do Papai Noel, a tecnologia que alimenta seu trenó durante sua viagem ao redor do mundo. Recebemos esta prévia especial de um dos duendes desenvolvedores do Papai Noel, que estão trabalhando duro no Polo Norte para ajudar o bom velhinho a se preparar para seu grande dia. Com o Painel do Papai Noel (que conta com o que há de melhor e mais recente em tecnologia do Google Maps e engenharia de trenós), você pode acompanhar o progresso do bom velhinho por todo o mundo e aprender um pouco sobre algumas das suas paradas ao longo do caminho."
 	},
 	"about-content-three": {
-		"message": "Siga o Papai Noel do Google Maps foi criado e desenvolvido pelo Google, com uma ajudinha dos duendes do Papai Noel. Precisa de ajuda ou tem uma pergunta? Acesse nossa \u003ca href=\"//support.google.com/santatracker\"\u003eCentral de Ajuda\u003c/a\u003e."
+		"message": "O Siga o Papai Noel do Google Maps foi criado e desenvolvido pelo Google, com uma ajudinha dos duendes do Papai Noel. Precisa de ajuda ou tem uma pergunta? Acesse nossa <a href=\"//support.google.com/santatracker\">Central de Ajuda</a>."
 	},
 	"about-content-two": {
-		"message": "Os amigáveis duendes também convidaram você para explorar a vila do Papai Noel enquanto ele se prepara para sua viagem. Então, vá em frente e explore a vila. Você pode encontrar algumas atividades divertidas e conhecer duendes interessantes."
+		"message": "Os simpáticos duendes também convidaram você para explorar a vila do Papai Noel enquanto ele se prepara para sua viagem. Então, vá em frente e explore a vila. Você pode encontrar algumas atividades divertidas e conhecer duendes interessantes."
 	},
 	"about-santa": {
 		"message": "Sobre"
@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Colômbia"
 	},
+	"codeboogie-block-clap": {
+		"message": "Palmas"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Bata palmas."
+	},
 	"codeboogie-block-jump": {
 		"message": "Pular"
 	},
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "Comece a dançar"
 	},
+	"codeboogie-go": {
+		"message": "Ir"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Vamos dançar"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Preste atenção."
+	},
+	"codeboogie-your-turn": {
+		"message": "Sua vez"
 	},
 	"codelab-block-moveeast": {
 		"message": "leste"
@@ -369,7 +381,7 @@
 		"message": "Ótimo"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explore mais projetos de codificação do Google em \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Explore mais projetos de codificação do Google em <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Próximo desafio"
@@ -450,7 +462,7 @@
 		"message": "Alemão"
 	},
 	"de_tradition": {
-		"message": "Em quase todas as cidades alemãs, os mercados de Natal abrem nas praças da cidade. As pessoas se reúnem para ouvir bandas de música e degustam pratos típicos da região. Elas comem corações de gengibre, amêndoas de açúcar torrado, doces variados, e bebem vinho quente (Glühwein) ou cidra de maçã."
+		"message": "Em quase todas as cidades alemãs, mercados de Natal abrem nas praças da cidade. As pessoas se reúnem para ouvir bandas e degustar pratos típicos da região. Elas comem corações de gengibre, amêndoas açucaradas, doces variados, e bebem vinho quente (Glühwein) ou cidra de maçã."
 	},
 	"deck": {
 		"message": "Decorar"
@@ -534,7 +546,7 @@
 		"message": "Francês"
 	},
 	"fr_tradition": {
-		"message": "Na França, as crianças costumam colocar seus sapatos para fora, ao lado da lareira, antes da chegada de Père Noël. Se tiverem se comportado durante o ano todo, Père Noël encherá os sapatos com presentes."
+		"message": "Na França, as crianças costumam colocar seus sapatos ao lado da lareira antes da chegada de Père Noël. Se elas tiverem se comportado durante o ano todo, Père Noël encherá os sapatos com presentes."
 	},
 	"ga_country_name": {
 		"message": "Gabão"
@@ -573,7 +585,7 @@
 		"message": "Grécia"
 	},
 	"gr_tradition": {
-		"message": "Na Grécia, os \"kallikántzari\" são criaturas amigáveis, porém problemáticas, que vivem a maior parte do ano no centro da terra. Porém, no Natal, gostam de se esconder nas casas das pessoas, assustá-las, pregar peças ou devorar as guloseimas do Natal. Os gregos têm rituais para afastar esses duendes."
+		"message": "Na Grécia, os \"kallikántzari\" são criaturas cordiais, porém problemáticas, que vivem a maior parte do ano no centro da Terra. Porém, no Natal, gostam de se esconder nas casas das pessoas, assustá-las, pregar peças ou devorar as guloseimas do Natal. Os gregos têm rituais para afastar esses duendes."
 	},
 	"gt_country_name": {
 		"message": "Guatemala"
@@ -627,7 +639,7 @@
 		"message": "Islândia"
 	},
 	"is_tradition": {
-		"message": "Na época do Natal, na Islândia, as famílias presenteiam cada membro da casa com roupas quentes. Segundo a lenda, nessa época, um gato assustador devora as pessoas que não estiverem agasalhadas para o frio invernal. As famílias trabalham juntas para garantir que ninguém \"vá para o gato de Natal\"."
+		"message": "Na época do Natal, na Islândia, as famílias presenteiam cada membro da casa com roupas quentes. Segundo a lenda, nessa época, um gato assustador devora as pessoas que não estiverem agasalhadas para o frio do inverno. As famílias trabalham juntas para garantir que ninguém \"vá para o gato de Natal\"."
 	},
 	"it_country_name": {
 		"message": "Itália"
@@ -645,7 +657,7 @@
 		"message": "Quirguistão"
 	},
 	"kg_tradition": {
-		"message": "No Quirguistão, o Ayaz Ata (avô de gelo) vem à meia-noite na véspera do Ano Novo e deixa presentes sob a árvore do Ano-novo. Quando o relógio bate meia-noite, as famílias em todo o país soltam fogos de artifício para comemorar essa bela ocasião. As cidades ficam tão iluminadas quanto o dia."
+		"message": "No Quirguistão, o Ayaz Ata (avô de gelo) vem à meia-noite na véspera do Ano-Novo e deixa presentes sob a árvore de Ano-Novo. Quando o relógio bate meia-noite, as famílias em todo o país soltam fogos de artifício para comemorar essa bela ocasião. As cidades ficam tão iluminadas quanto o dia."
 	},
 	"ko_language_name": {
 		"message": "Coreano"
@@ -753,7 +765,7 @@
 		"message": "Norueguês"
 	},
 	"nonprofit-jane-description": {
-		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, doenças e comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore o habitat dos chimpanzés\u003c/a\u003e em Gombe, Tanzânia."
+		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explore o habitat dos chimpanzés</a> em Gombe, Tanzânia."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzé"
@@ -762,13 +774,13 @@
 		"message": "Para mais informações, acesse:"
 	},
 	"nonprofit-nature-description": {
-		"message": "O The Nature Conservancy trabalha para proteger e restaurar as florestas dos Estados Unidos e do mundo. Essas florestas icônicas sustentam a vida em todo o planeta. Elas filtram a água, limpam nosso ar, sustentam comunidades de pessoas e fornecem habitat para milhares de espécies importantes de plantas e animais. No ritmo atual de desmatamento, nossas florestas serão eliminadas em cem anos. Por isso, o programa \"Plante um bilhão de arvores\" do The Nature Conservancy está se esforçando para plantar um bilhão de árvores até 2025 e restaurar as florestas mais importantes do mundo."
+		"message": "O The Nature Conservancy trabalha para proteger e restaurar as florestas dos Estados Unidos e do mundo. Essas florestas emblemáticas sustentam a vida em todo o planeta. Elas filtram a água, limpam nosso ar, sustentam comunidades de pessoas e fornecem habitat para espécies importantes de plantas e animais. No ritmo atual de desmatamento, nossas florestas serão eliminadas em cem anos. Por isso, o programa \"Plante um bilhão de arvores\" do The Nature Conservancy está se esforçando para plantar um bilhão de árvores até 2025 e restaurar as florestas mais importantes do mundo."
 	},
 	"nonprofit-nature-type": {
 		"message": "Florestas"
 	},
 	"nonprofit-wwf-description": {
-		"message": "As mudanças climáticas continuam a prejudicar o equilíbrio de muitos ecossistemas do mundo, em lugares quentes e frios. No Ártico, ursos polares estão perdendo seu habitat no mar congelado com o aumento das temperaturas e enfrentam mais ameaças de atividades humanas, como a extração e o transporte de petróleo e gás. O World Wildlife Fund trabalha para garantir a sobrevivência da espécie por meio de pesquisas científicas e trabalhando em parceria com comunidades nativas do Ártico. O Google.org se orgulha de ser \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eparceiro\u003c/a\u003e do World Wildlife Fund."
+		"message": "As mudanças climáticas continuam a prejudicar o equilíbrio de muitos ecossistemas do mundo, em lugares quentes e frios. No Ártico, os ursos polares estão perdendo seu habitat no mar congelado com o aumento das temperaturas e enfrentam mais ameaças de atividades humanas, como a extração e o transporte de petróleo e gás. O World Wildlife Fund trabalha para garantir a sobrevivência da espécie por meio de pesquisas científicas e com o trabalho em parceria com comunidades nativas do Ártico. O Google.org se orgulha de ser <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">parceiro</a> do World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
@@ -786,7 +798,7 @@
 		"message": "Nova Zelândia"
 	},
 	"nz_tradition": {
-		"message": "Como na Nova Zelândia o Natal é no verão, amigos e familiares se reúnem para um churrasco. Comidas típicas de Natal incluem cordeiro assado, às vezes cozido em um \"hangi\" (buraco no solo/escavado na terra). A sobremesa favorita é pavlova: merengue coberto com frutas frescas como morangos e kiwis."
+		"message": "Como na Nova Zelândia o Natal é no verão, amigos e familiares se reúnem para um churrasco. Comidas típicas de Natal incluem cordeiro assado, às vezes cozido em um \"hangi\" (buraco no solo/escavado na terra). A sobremesa favorita é a pavlova: merengue coberto com frutas frescas, como morangos e kiwis."
 	},
 	"om_country_name": {
 		"message": "Omã"
@@ -813,7 +825,7 @@
 		"message": "Filipinas"
 	},
 	"ph_tradition": {
-		"message": "Filipinas é um país conhecido por ter a mais longa temporada de Natal do mundo. Quatro meses são considerados meses de Natal: setembro, outubro, novembro e dezembro. Muitas vezes, as músicas natalinas podem ser ouvidas logo no início de setembro."
+		"message": "As Filipinas são um país conhecido por ter a mais longa temporada de Natal do mundo. Quatro meses são considerados meses natalinos: setembro, outubro, novembro e dezembro. Muitas vezes, as músicas natalinas podem ser ouvidas logo no início de setembro."
 	},
 	"pl_country_name": {
 		"message": "Polônia"
@@ -852,7 +864,7 @@
 		"message": "Russo"
 	},
 	"ru_tradition": {
-		"message": "As crianças da Rússia decoram a árvore de Ano-novo em vez da árvore de Natal. Elas esperam pelo \"Vovô do Frio\" (Ded Moroz), que viaja com sua neta \"Floquinho de neve\" (Snegurochka) para entregar presentes em toda a terra. O \"Vovô do Frio\" vive nas profundezas da floresta em Veliky Ustyug, ao norte da Rússia."
+		"message": "As crianças da Rússia decoram a árvore de Ano-Novo em vez da árvore de Natal. Elas esperam pelo \"Vovô do Frio\", que viaja com sua neta, a \"Donzela da Neve\", para entregar presentes em todo o país. O \"Vovô do Frio\" vive nas profundezas da floresta em Veliky Ustyug, ao norte da Rússia."
 	},
 	"sa_country_name": {
 		"message": "Arábia Saudita"
@@ -927,7 +939,7 @@
 		"message": "Combine presentes"
 	},
 	"scene_gumball": {
-		"message": "Ladeira de bola de chiclete"
+		"message": "Ladeira de bolas de chiclete"
 	},
 	"scene_jamband": {
 		"message": "Banda dos duendes"
@@ -978,7 +990,7 @@
 		"message": "Decolagem do Papai Noel"
 	},
 	"scene_videoscene_santasback": {
-		"message": "Papai Noel voltou"
+		"message": "O Papai Noel voltou"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
@@ -1044,7 +1056,7 @@
 		"message": "Incline o dispositivo"
 	},
 	"time": {
-		"message": "Hora"
+		"message": "Tempo"
 	},
 	"tj_country_name": {
 		"message": "Tajiquistão"
@@ -1704,7 +1716,7 @@
 		"message": "A Estátua da Liberdade é uma grande escultura localizada na Liberty Island, no porto de que cidade americana?"
 	},
 	"trivia_beginner_048_answer0": {
-		"message": "Cidade de Nova York"
+		"message": "Nova York"
 	},
 	"trivia_beginner_048_answer1": {
 		"message": "Atlanta"
@@ -4779,16 +4791,16 @@
 		"message": "Reino Unido"
 	},
 	"uk_tradition": {
-		"message": "No Reino Unido, pessoas de todas as idades se divertem com as bombas de Natal, que são tubos envoltos em papel colorido com abas nas extremidades. Ao puxá-las, o tubo estoura com um alto estampido. No interior, encontram-se chapéus de papel, brinquedos e doces para brincar na noite de Natal."
+		"message": "No Reino Unido, pessoas de todas as idades se divertem com as bombas de Natal, que são tubos envoltos em papel colorido com abas nas extremidades. Ao puxá-las, o tubo estoura com um alto estampido. No interior, encontram-se chapéus de papel, brinquedos e doces, garantindo diversão na noite de Natal."
 	},
 	"upgrade-warning": {
-		"message": "Siga o Papai Noel não é compatível com essa versão do navegador. Para acessar Siga o Papai Noel, faça o download de um navegador moderno. Para mais informações, acesse \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Siga o Papai Noel não é compatível com essa versão do navegador. Para acessar Siga o Papai Noel, faça o download de um navegador moderno. Para mais informações, acesse <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
 	},
 	"us_tradition": {
-		"message": "Nos Estados Unidos, as meias são penduradas na véspera de Natal. A lenda diz que São Nicolau ouviu falar de uma família em necessidade. Para surpreendê-los, ele desceu pela chaminé e colocou pacotes com ouro nas meias. Desde então, São Nicolau é conhecido como Santa Claus, doador de presentes."
+		"message": "Nos Estados Unidos, meias são penduradas na véspera de Natal. Reza a lenda que São Nicolau ouviu falar de uma família em necessidade. Para surpreendê-la, ele desceu pela chaminé e colocou pacotes com ouro nas meias. Desde então, São Nicolau é conhecido como Santa Claus, doador de presentes."
 	},
 	"uy_country_name": {
 		"message": "Uruguai"

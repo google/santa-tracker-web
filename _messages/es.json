@@ -3,7 +3,7 @@
 		"message": "En Nochebuena, tendremos el honor de presentar el panel de control de Papá Noel, la tecnología que impulsa su trineo durante su viaje por todo el mundo. Hemos recibido esta vista previa tan especial de uno de tantos elfos desarrolladores de Papá Noel, que trabajan duro en el Polo Norte para ayudarle a prepararse para el gran día. El panel de control de Papá Noel, que incluye la tecnología más puntera e innovadora de Google Maps, permitirá seguir su viaje por el mundo y conocer un poco los lugares que visite."
 	},
 	"about-content-three": {
-		"message": "Google ha creado y desarrollado Sigue a Papá Noel de Google Maps con un poco de ayuda de los elfos de Papá Noel. ¿Necesitas ayuda o tienes alguna otra pregunta? Visita el \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de ayuda\u003c/a\u003e."
+		"message": "Google ha creado y desarrollado Sigue a Papá Noel de Google Maps con un poco de ayuda de los elfos de Papá Noel. ¿Necesitas ayuda o tienes alguna otra pregunta? Visita el <a href=\"//support.google.com/santatracker\">Centro de Ayuda</a>."
 	},
 	"about-content-two": {
 		"message": "Nuestros amigos, los elfos, te han invitado a visitar la aldea de Papá Noel mientras él se prepara para el viaje. Pasa y explora el pueblo; puede que encuentres actividades divertidas y conozcas a elfos muy interesantes."
@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-clap": {
+		"message": "Palmada"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Da una palmada."
+	},
 	"codeboogie-block-jump": {
 		"message": "Salto"
 	},
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "¡A bailar!"
 	},
+	"codeboogie-go": {
+		"message": "¡Ya!"
+	},
 	"codeboogie-lets-dance": {
 		"message": "¡A bailar!"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "¡Fíjate bien!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Te toca"
 	},
 	"codelab-block-moveeast": {
 		"message": "este"
@@ -369,7 +381,7 @@
 		"message": "Genial"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explora más proyectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Explora más proyectos de codificación de Google en <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Desafío siguiente"
@@ -492,7 +504,7 @@
 		"message": "Griego"
 	},
 	"elvish_language_name": {
-		"message": "Élvico"
+		"message": "Élfico"
 	},
 	"en_language_name": {
 		"message": "Inglés"
@@ -753,7 +765,7 @@
 		"message": "Noruego"
 	},
 	"nonprofit-jane-description": {
-		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eObserva el hábitat de los chimpancés\u003c/a\u003e de Gombe, Tanzania."
+		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Observa el hábitat de los chimpancés</a> de Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpancé"
@@ -768,7 +780,7 @@
 		"message": "Bosques"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El cambio climático sigue alterando el equilibrio de muchos ecosistemas del mundo, tanto en las zonas cálidas como en las frías. En el Ártico, los osos polares están perdiendo su hábitat de la banquisa debido al aumento de la temperatura, y se enfrentan a otras amenazas originadas por las actividades humanas, como las explotaciones y el transporte de petróleo y de gas. World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica en cooperación con comunidades nativas del Ártico. En Google.org estamos orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecooperar\u003c/a\u003e con World Wildlife Fund."
+		"message": "El cambio climático sigue alterando el equilibrio de muchos ecosistemas del mundo, tanto en las zonas cálidas como en las frías. En el Ártico, los osos polares están perdiendo su hábitat de la banquisa debido al aumento de la temperatura, y se enfrentan a otras amenazas originadas por las actividades humanas, como las explotaciones y el transporte de petróleo y de gas. World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica en cooperación con comunidades nativas del Ártico. En Google.org estamos orgullosos de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">cooperar</a> con World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
@@ -4782,7 +4794,7 @@
 		"message": "En el Reino Unido, juerguistas de todas las edades disfrutan de los crackers de Navidad en la mesa durante la cena. Consisten en tubos envueltos en papel de colores, con lengüetas en cada extremo. Cuando se tira de las lengüetas, el tubo estalla con un fuerte chasquido. En su interior, hay sombreros de papel, juguetes y dulces para disfrutar de la Nochebuena."
 	},
 	"upgrade-warning": {
-		"message": "¡Vaya! Esta versión de tu navegador no admite Sigue a Papá Noel. Para acceder a Sigue a Papá Noel, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "¡Vaya! Esta versión de tu navegador no admite Sigue a Papá Noel. Para acceder a Sigue a Papá Noel, descarga un navegador moderno. Para obtener más información, visita <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

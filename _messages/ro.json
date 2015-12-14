@@ -3,7 +3,7 @@
 		"message": "În Ajunul Crăciunului, vom prezenta cu mândrie tabloul de bord al Moșului, tehnologia care pune în mișcare sania cu care călătorește în jurul lumii. Am primit această imagine specială de la unul din numeroșii elfi dezvoltatori ai Moșului, care lucrează din greu la Polul Nord pentru a-l ajuta pe Moș în pregătirile pentru ziua cea mare. Tabloul de bord al Moșului, care dispune de cea mai recentă și extraordinară tehnologie Google Maps și de sisteme de ultimă generație pentru sanie, ne va permite să-i urmărim traseul din jurul lumii și să aflăm mai multe despre câteva dintre locurile vizitate pe drum."
 	},
 	"about-content-three": {
-		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
+		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează <a href=\"//support.google.com/santatracker\">Centrul de ajutor</a>."
 	},
 	"about-content-two": {
 		"message": "Elfii noștri prietenoși te-au invitat să explorezi și satul Moșului în timp ce el se pregătește de călătorie. Așadar pornește în explorarea satului. S-ar putea să descoperi câteva activități distractive și să întâlnești niște elfi deosebiți."
@@ -90,7 +90,7 @@
 		"message": "Canada"
 	},
 	"ca_tradition": {
-		"message": "De obicei, copiii din Canada au parte de un Crăciun alb, cu multă zăpadă. Se înfofolesc cu fulare și toci și ies la joacă în zăpadă, merg cu patinele și se dau pe tobogan! În ajunul Crăciunului, lasă lapte și prăjituri pentru Moș Crăciun lângă șemineu (și uneori câte un morcov pentru renii lui)."
+		"message": "De obicei, copiii din Canada au parte de un Crăciun alb, cu multă zăpadă. Se înfofolesc cu fulare și căciuli și ies la joacă în zăpadă, merg cu patinele și se dau pe tobogan! În ajunul Crăciunului, lasă lapte și prăjituri pentru Moș Crăciun lângă șemineu (și uneori câte un morcov pentru renii lui)."
 	},
 	"calendar": {
 		"message": "Calendarul"
@@ -237,7 +237,7 @@
 		"message": "Chile"
 	},
 	"close": {
-		"message": "Închideți"
+		"message": "Închide"
 	},
 	"cm_country_name": {
 		"message": "Camerun"
@@ -245,50 +245,59 @@
 	"co_country_name": {
 		"message": "Columbia"
 	},
+	"codeboogie-block-clap": {
+		"message": "Aplauze"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Aplaudă o dată."
+	},
 	"codeboogie-block-jump": {
 		"message": "Săritură"
 	},
 	"codeboogie-block-jump-tooltip": {
-		"message": "Săriți."
+		"message": "Sari."
 	},
 	"codeboogie-block-leftarm": {
-		"message": "Arătați spre stânga"
+		"message": "Arată spre stânga"
 	},
 	"codeboogie-block-leftarm-tooltip": {
-		"message": "Arătați spre stânga."
+		"message": "Arată spre stânga."
 	},
 	"codeboogie-block-leftfoot": {
 		"message": "Pas spre stânga"
 	},
 	"codeboogie-block-leftfoot-tooltip": {
-		"message": "Faceți un pas spre stânga."
+		"message": "Fă un pas spre stânga."
 	},
 	"codeboogie-block-rightarm": {
-		"message": "Arătați spre dreapta"
+		"message": "Arată spre dreapta"
 	},
 	"codeboogie-block-rightarm-tooltip": {
-		"message": "Arătați spre dreapta."
+		"message": "Arată spre dreapta."
 	},
 	"codeboogie-block-rightfoot": {
 		"message": "Pas spre dreapta"
 	},
 	"codeboogie-block-rightfoot-tooltip": {
-		"message": "Faceți un pas spre dreapta."
+		"message": "Fă un pas spre dreapta."
 	},
 	"codeboogie-block-shake": {
 		"message": "Dat din șolduri"
 	},
 	"codeboogie-block-shake-tooltip": {
-		"message": "Dați din șolduri."
+		"message": "Dă din șolduri."
 	},
 	"codeboogie-block-split": {
 		"message": "Șpagat"
 	},
 	"codeboogie-block-split-tooltip": {
-		"message": "Faceți șpagatul."
+		"message": "Fă șpagatul."
 	},
 	"codeboogie-get-dancing": {
 		"message": "La dans!"
+	},
+	"codeboogie-go": {
+		"message": "Accesează!"
 	},
 	"codeboogie-lets-dance": {
 		"message": "Să dansăm"
@@ -300,31 +309,34 @@
 		"message": "Ce mișcări!"
 	},
 	"codeboogie-result-missing-block-fail": {
-		"message": "Încercați blocul de mai jos pentru a dansa corect."
+		"message": "Încearcă blocul de mai jos pentru a dansa corect."
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "Știați că puteți încheia acest dans cu numai {{ideal}} blocuri? Încercați să folosiți blocul de mai jos."
+		"message": "Știai că poți încheia acest dans cu numai {{ideal}} blocuri? Încearcă să folosești blocul de mai jos."
 	},
 	"codeboogie-result-perfect-success": {
-		"message": "Frumoase mișcări! Ați încheiat perfect dansul."
+		"message": "Frumoase mișcări! Ai terminat dansul perfect."
 	},
 	"codeboogie-result-too-few-blocks-fail": {
-		"message": "Folosiți blocurile corecte. Încercați însă mai multe pentru a finaliza dansul."
+		"message": "Folosești blocurile corecte. Încearcă însă mai multe pentru a finaliza dansul."
 	},
 	"codeboogie-result-too-many-blocks-success": {
-		"message": "Știați că puteți încheia acest dans cu doar {{ideal}} blocuri?"
+		"message": "Știai că poți încheia acest dans cu doar {{ideal}} blocuri?"
 	},
 	"codeboogie-result-too-many-steps": {
-		"message": "Ați făcut prea mulți pași."
+		"message": "Ai făcut prea mulți pași."
 	},
 	"codeboogie-result-wrong-move": {
-		"message": "Se pare că ați făcut un pas greșit. Iată pasul corect:"
+		"message": "Se pare că ai făcut un pas greșit. Iată pasul corect:"
 	},
 	"codeboogie-success": {
-		"message": "Ați reușit!"
+		"message": "Ai reușit!"
 	},
 	"codeboogie-watch-closely": {
-		"message": "Fiți atent(ă)!"
+		"message": "Fii cu ochii pe instructor!"
+	},
+	"codeboogie-your-turn": {
+		"message": "E rândul tău."
 	},
 	"codelab-block-moveeast": {
 		"message": "est"
@@ -369,7 +381,7 @@
 		"message": "Excelent"
 	},
 	"codelab-mwc-promo": {
-		"message": "Descoperă mai multe proiecte de codificare Google la \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Descoperă mai multe proiecte de codificare Google la <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Următoarea provocare"
@@ -471,10 +483,10 @@
 		"message": "Republica Dominicană"
 	},
 	"donate_button": {
-		"message": "Donați"
+		"message": "Donează"
 	},
 	"donate_text": {
-		"message": "Contribuiți la finanțarea unui proiect pentru nevoi speciale pe DonorsChoose.org. În această lună decembrie, contribuim la dublarea impactului donând 50% din donații, până când ne atingem obiectivul de a dona 1 milion de USD. Împreună, putem promova incluziunea în sălile de clasă #ForEveryKid"
+		"message": "Contribuie la finanțarea unui proiect pentru nevoi speciale pe DonorsChoose.org. În această lună decembrie, dublăm impactul donând 50% din donații, până când ne atingem obiectivul de a dona 1 milion de USD. Împreună, putem promova incluziunea în sălile de clasă #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Algeria"
@@ -753,7 +765,7 @@
 		"message": "Norvegiană"
 	},
 	"nonprofit-jane-description": {
-		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
+		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explorați habitatele cimpanzeilor</a> din Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Cimpanzei"
@@ -768,7 +780,7 @@
 		"message": "Păduri"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003epartener\u003c/a\u003e al World Wildlife Fund."
+		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">partener</a> al World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urși polari"
@@ -885,10 +897,10 @@
 		"message": "La muzeu"
 	},
 	"santasearch_level_select": {
-		"message": "Accesați!"
+		"message": "Accesează!"
 	},
 	"santasearch_search_for_santa": {
-		"message": "Căutați-l pe Moș Crăciun!"
+		"message": "Caută-l pe Moș Crăciun!"
 	},
 	"santasvillage": {
 		"message": "Satul lui Moș Crăciun"
@@ -939,7 +951,7 @@
 		"message": "Potrivire din memorie"
 	},
 	"scene_mercator": {
-		"message": "Test despre hartă"
+		"message": "Test la geografie"
 	},
 	"scene_postcard": {
 		"message": "Vederi de la Moș Crăciun"
@@ -1083,10 +1095,10 @@
 		"message": "Distanța față de tine"
 	},
 	"tracker_flight_nearby": {
-		"message": "Moș Crăciun este în apropiere. Aflați unde."
+		"message": "Moș Crăciun este în apropiere. Află unde."
 	},
 	"tracker_flight_start": {
-		"message": "Moș Crăciun a plecat de la Polul Nord. Acum îi puteți urmări traseul."
+		"message": "Moș Crăciun a plecat de la Polul Nord. Acum îi poți urmări traseul."
 	},
 	"tracker_gifts_delivered": {
 		"message": "Cadouri livrate"
@@ -1113,7 +1125,7 @@
 		"message": "Vezi traseul"
 	},
 	"tracker_track": {
-		"message": "Urmăriți-l pe Moș Crăciun"
+		"message": "Urmărește-l pe Moș Crăciun"
 	},
 	"tracker_weather": {
 		"message": "Condiţiile meteo"
@@ -4782,7 +4794,7 @@
 		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării și dulciuri pentru noaptea de Crăciun."
 	},
 	"upgrade-warning": {
-		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată cu această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată cu această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"
@@ -4803,7 +4815,7 @@
 		"message": "Întoarce-te pe 24 decembrie și ajută-ne să-l urmărim pe Moș Crăciun toată noaptea!"
 	},
 	"village_explore": {
-		"message": "Explorați, jucați-vă și învățați cu elfii lui Moș Crăciun pe tot parcursul lunii decembrie"
+		"message": "Explorează, joacă-te și învață cu elfii lui Moș Crăciun pe tot parcursul lunii decembrie"
 	},
 	"village_get_the_app": {
 		"message": "Descărcați aplicația"

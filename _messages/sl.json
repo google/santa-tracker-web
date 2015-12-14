@@ -3,7 +3,7 @@
 		"message": "Na božični večer bomo ponosno predstavili Božičkovo nadzorno ploščo – tehnologijo, ki poganja njegove sani med potovanjem po svetu. Ta posebni predogled smo prejeli od enega od številnih Božičkovih škratov razvijalcev, ki pridno delajo na Severnem tečaju in pomagajo Božičku pri pripravi na njegov veliki dan. Božičkova nadzorna plošča, ki predstavlja najnovejšo in najboljšo tehnologijo Google Zemljevidov in oblikovanja sani, vam omogoča, da ga spremljate po vsem svetu ter izveste tudi kaj novega o nekaterih postojankah na njegovi poti."
 	},
 	"about-content-three": {
-		"message": "Spremljanje Božičkove poti z Google Zemljevidi je ustvaril in razvil Google s pomočjo Božičkovih škratov. Potrebujete pomoč ali imate vprašanja? Obiščite naš \u003ca href=\"//support.google.com/santatracker\"\u003ecenter za pomoč\u003c/a\u003e."
+		"message": "Spremljanje Božičkove poti z Google Zemljevidi je ustvaril in razvil Google s pomočjo Božičkovih škratov. Potrebujete pomoč ali imate vprašanja? Obiščite naš <a href=\"//support.google.com/santatracker\">center za pomoč</a>."
 	},
 	"about-content-two": {
 		"message": "Naši prijazni škrati vas prav tako vabijo k ogledu Božičkove vasi, medtem ko se Božiček pripravlja na svoje potovanje. Raziščite torej njegovo vas – morda najdete kakšno zabavno dejavnost ali spoznate kakšnega res zanimivega škrata."
@@ -42,7 +42,7 @@
 		"message": "Avstralija"
 	},
 	"au_tradition": {
-		"message": "Ker je Avstralija na južni polobli, to pomeni, da je decembra tam poletje. Namesto bi prisluhnili zvončkom sani in pili kakav, se številni Avstralci napotijo na plažo ter praznujejo tako, da si za kosilo privoščijo rakce in igrajo kriket."
+		"message": "Ker je Avstralija na južni polobli, to pomeni, da je decembra tam poletje. Namesto bi prisluhnili kraguljčkom in pili kakav, se številni Avstralci napotijo na plažo ter praznujejo tako, da si za kosilo privoščijo rakce in igrajo kriket."
 	},
 	"ba_country_name": {
 		"message": "Bosna in Hercegovina"
@@ -201,7 +201,7 @@
 		"message": "Zabaviščni park Tivoli Gardens"
 	},
 	"citylights-panorama-13-location": {
-		"message": "Kobenhavn, Danska"
+		"message": "Köbenhavn, Danska"
 	},
 	"citylights-panorama-14-description": {
 		"message": "Nakupovalno središče Orchard Road"
@@ -244,6 +244,12 @@
 	},
 	"co_country_name": {
 		"message": "Kolumbija"
+	},
+	"codeboogie-block-clap": {
+		"message": "Ploskanje"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Zaploskajte."
 	},
 	"codeboogie-block-jump": {
 		"message": "Skok"
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "Zaplešite!"
 	},
+	"codeboogie-go": {
+		"message": "Pojdi!"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Zaplešimo"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Glejte pozorno!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Na vrsti ste"
 	},
 	"codelab-block-moveeast": {
 		"message": "vzhod"
@@ -369,7 +381,7 @@
 		"message": "Odlično"
 	},
 	"codelab-mwc-promo": {
-		"message": "Raziščite več Googlovih projektov za kodiranje na \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Raziščite več Googlovih projektov za kodiranje na <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Naslednji izziv"
@@ -579,7 +591,7 @@
 		"message": "Gvatemala"
 	},
 	"gt_tradition": {
-		"message": "V Gvatemali praznujejo božič tako, da se zabavajo in plešejo. Nadenejo si klobuke, imenovane Puritina, jedo tamale na gvatemalski način, ob polnoči zanetijo ognjemete in preplešejo noč z različnimi slogi plesa."
+		"message": "V Gvatemali praznujejo božič tako, da se zabavajo in plešejo. Nadenejo si klobuke, imenovane Puritina, jedo tamale na gvatemalski način, ob polnoči zanetijo ognjemete in preplešejo noč v različnih plesnih slogih."
 	},
 	"gy_country_name": {
 		"message": "Gvajana"
@@ -753,7 +765,7 @@
 		"message": "norveščina"
 	},
 	"nonprofit-jane-description": {
-		"message": "Šimpanzi so človekovi najbližji sorodniki v živalskem kraljestvu! Dandanes zaradi izgube življenjskega prostora, bolezni in nezakonite trgovine na svetu živi manj kot 300.000 šimpanzov. Na inštitutu The Jane Goodall Institute (JGI) poskušajo šimpanze zaščititi z opazovanjem in razumevanjem njihovega obnašanja in tudi življenjskih prostorov, v katerih živijo. Inštitut JGI prav tako gradi skupnost ljudi, ki ščitijo in ohranjajo prostoživeče živali in rastline ter okolje, ki si ga delimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eRaziščite življenjske prostore šimpanzov\u003c/a\u003e v narodnem parku Gombe v Tanzaniji."
+		"message": "Šimpanzi so človekovi najbližji sorodniki v živalskem kraljestvu! Dandanes zaradi izgube življenjskega prostora, bolezni in nezakonite trgovine na svetu živi manj kot 300.000 šimpanzov. Na inštitutu The Jane Goodall Institute (JGI) poskušajo šimpanze zaščititi z opazovanjem in razumevanjem njihovega obnašanja in tudi življenjskih prostorov, v katerih živijo. Inštitut JGI prav tako gradi skupnost ljudi, ki ščitijo in ohranjajo prostoživeče živali in rastline ter okolje, ki si ga delimo. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Raziščite življenjske prostore šimpanzov</a> v narodnem parku Gombe v Tanzaniji."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpanz"
@@ -768,7 +780,7 @@
 		"message": "Gozdovi"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Podnebne spremembe še naprej rušijo ravnotežje mnogih svetovnih ekosistemov, tako v toplih kot v hladnih delih sveta. Na Arktiki zaradi naraščajočih temperatur izginja morski led, življenjski prostor polarnih medvedov, ki so še dodatno ogroženi zaradi človeških dejavnosti, kot so pridobivanje nafte in plina ter ladijski promet. Sklad World Wildlife Fund poskuša zagotoviti preživetje vrst preko znanstvenih raziskav in sodelovanja z arktičnimi avtohtonimi skupnostmi. Google.org je ponosni \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e podpornik\u003c/a\u003e skupaj s skladom World Wildlife Fund."
+		"message": "Podnebne spremembe še naprej rušijo ravnotežje mnogih svetovnih ekosistemov, tako v toplih kot v hladnih delih sveta. Na Arktiki zaradi naraščajočih temperatur izginja morski led, življenjski prostor polarnih medvedov, ki so še dodatno ogroženi zaradi človeških dejavnosti, kot so pridobivanje nafte in plina ter ladijski promet. Sklad World Wildlife Fund poskuša zagotoviti preživetje vrst preko znanstvenih raziskav in sodelovanja z arktičnimi avtohtonimi skupnostmi. Google.org je ponosni <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> podpornik</a> skupaj s skladom World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Severni medved"
@@ -4782,13 +4794,13 @@
 		"message": "V Združenem Kraljestvu se veseljaki vseh starosti pri božični večerji radi pozabavajo z božičnimi pokalicami. Pokalice so cevke, ovite s pisanim papirjem in jezičkoma za vlečenje na vsaki strani. Ko povlečete jezička, se cevka razpoči z glasnim pokom. Notri so klobuki iz papirja, igrače in sladkarije, ki jih nato uživate na božični večer."
 	},
 	"upgrade-warning": {
-		"message": "Ojej! Spremljanje Božičkove poti ni podprto v tej različici brskalnika. Za dostop do spremljanja Božičkove poti prenesite sodobnejši brskalnik. Za več informacij obiščite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ojej! Spremljanje Božičkove poti ni podprto v tej različici brskalnika. Za dostop do spremljanja Božičkove poti prenesite sodobnejši brskalnik. Za več informacij obiščite <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Združene države Amerike"
 	},
 	"us_tradition": {
-		"message": "V Združenih državah na božični večer obesijo božične nogavice. Legenda pravi, da je Sv. Nikolaj slišal za družino v stiski. Želel jih je presenetiti, zato je splezal po njihovem dimniku in jim v obešene nogavice nastavili dragocene vrečke zlata. Od takrat dalje je bil poznan kot Božiček, obdarovalec."
+		"message": "V Združenih državah na božični večer obesijo božične nogavice. Legenda pravi, da je sv. Nikolaj slišal za družino v stiski. Želel jih je presenetiti, zato je splezal po njihovem dimniku in jim v obešene nogavice nastavil dragocene vrečke zlata. Od takrat dalje je bil poznan kot Božiček, obdarovalec."
 	},
 	"uy_country_name": {
 		"message": "Urugvaj"

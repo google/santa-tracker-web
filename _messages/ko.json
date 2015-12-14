@@ -3,7 +3,7 @@
 		"message": "크리스마스 이브가 되면 산타의 대시보드가 공개됩니다. 대시보드는 산타가 전 세계를 도는 동안 썰매를 작동시키는 기술입니다. 북국에서 열심히 산타의 크리스마스 준비를 돕는 개발자 엘프가 대시보드를 미리 볼 수 있는 특별한 기회를 Google에 제공했습니다. Google 지도 기술과 썰매 공학의 정수를 소개하는 산타의 대시보드를 통해 전 세계에서 산타를 추적할 수 있으며 산타가 방문한 곳에 대한 재미있는 일반상식도 알아볼 수 있습니다."
 	},
 	"about-content-three": {
-		"message": "산타의 엘프 친구들의 도움을 받아 Google에서 Google 지도 산타 추적기를 만들고 개발했습니다. 도움이 필요하거나 다른 궁금한 점이 있나요? \u003ca href=\"//support.google.com/santatracker\"\u003e도움말 센터\u003c/a\u003e를 방문하세요."
+		"message": "산타의 엘프 친구들의 도움을 받아 Google에서 Google 지도 산타 추적기를 만들고 개발했습니다. 도움이 필요하거나 다른 궁금한 점이 있나요? <a href=\"//support.google.com/santatracker\">도움말 센터</a>를 방문하세요."
 	},
 	"about-content-two": {
 		"message": "친절한 엘프들이 산타가 여정을 준비하는 동안 산타마을을 살펴볼 수 있도록 초대했습니다. 산타마을을 방문하여 이곳저곳 살펴보세요. 재미있는 즐길거리를 발견하거나 흥미로운 엘프 친구들을 만나 볼 수 있습니다."
@@ -33,7 +33,7 @@
 		"message": "아랍어"
 	},
 	"ar_tradition": {
-		"message": "아르헨티나에서는 정확히 자정에 크리스마스가 시작됩니다. 많은 가정에서 크리스마스 파티를 열어 사랑하는 사람들과 함께 선물을 개봉하고 이른 아침에 불꽃놀이를 하며 크리스마스를 시작합니다."
+		"message": "아르헨티나에서는 정확히 자정에 크리스마스가 시작됩니다. 많은 가정에서 크리스마스 파티를 열어 사랑하는 사람들과 함께 선물을 개봉하고 새벽부터 불꽃놀이를 하며 크리스마스를 시작합니다."
 	},
 	"at_country_name": {
 		"message": "오스트리아"
@@ -245,6 +245,15 @@
 	"co_country_name": {
 		"message": "콜롬비아"
 	},
+	"codeboogie-back-to-start": {
+		"message": "처음으로 돌아가기"
+	},
+	"codeboogie-block-clap": {
+		"message": "박수"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "박수를 칩니다."
+	},
 	"codeboogie-block-jump": {
 		"message": "점프"
 	},
@@ -287,11 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "양다리를 일직선으로 쭉 뻗습니다."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "게임 모드 선택"
+	},
+	"codeboogie-choose-stage": {
+		"message": "무대 선택"
+	},
 	"codeboogie-get-dancing": {
 		"message": "춤춰 보세요."
 	},
+	"codeboogie-go": {
+		"message": "시작!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "계속 춤추기"
+	},
 	"codeboogie-lets-dance": {
 		"message": "춤춰 볼까요!"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "춤 배우기"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "선생님의 춤 동작에 맞추기"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "나만의 춤 동작 만들기"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "춤 동작을 직접 만들어 친구와 공유하기"
 	},
 	"codeboogie-next-dance": {
 		"message": "다음 춤"
@@ -320,11 +353,17 @@
 	"codeboogie-result-wrong-move": {
 		"message": "잘못된 스텝을 밟은 것 같네요. 이렇게 해보세요."
 	},
+	"codeboogie-share-moves": {
+		"message": "춤 동작을 공유하고 친구에게 도전하기"
+	},
 	"codeboogie-success": {
 		"message": "성공!"
 	},
 	"codeboogie-watch-closely": {
 		"message": "춤 동작을 자세히 살펴보세요."
+	},
+	"codeboogie-your-turn": {
+		"message": "내 차례"
 	},
 	"codelab-block-moveeast": {
 		"message": "동쪽"
@@ -369,7 +408,7 @@
 		"message": "훌륭합니다!"
 	},
 	"codelab-mwc-promo": {
-		"message": "\u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e에서 Google 코딩 프로젝트를 더 탐색해 보세요."
+		"message": "<a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>에서 Google 코딩 프로젝트를 더 탐색해 보세요."
 	},
 	"codelab-next-challenge": {
 		"message": "다음 도전"
@@ -573,7 +612,7 @@
 		"message": "그리스"
 	},
 	"gr_tradition": {
-		"message": "그리스 전설에 의하면 '칼리칸차로이'라는 우호적이지만 말썽꾸러기인 생명체가 1년 내내 지구 중심에 살고 있다가 크리스마스가 되면 사람들의 집에 숨어 깜짝 놀라게 하거나 재주를 피우거나 크리스마스 음식을 게걸스럽게 먹는다고 합니다. 그리스인들은 이 말썽꾸러기들을 막기 위해 의식을 치릅니다."
+		"message": "그리스 전설에 의하면 '칼리칸차로이'라는 못된 요정이 1년 내내 땅밑 중심부에 살고 있다가 크리스마스가 되면 이집 저집 숨어 들어 사람들을 깜짝 놀래키거나 장난을 치기도 하고 크리스마스 음식을 게걸스럽게 먹어치운다고 합니다. 그리스인들은 이 말썽꾸러기 요정이 찾아 오지 않도록 특별한 의식을 치르기도 합니다."
 	},
 	"gt_country_name": {
 		"message": "과테말라"
@@ -717,7 +756,7 @@
 		"message": "멕시코"
 	},
 	"mx_tradition": {
-		"message": "멕시코에서는 다양한 연령의 어린이들이 피냐타를 깨뜨리며 크리스마스를 즐깁니다. 어른과 아이가 함께 눈가리개를 하고 빙글빙글 돈 다음 높이 걸려 있는 별 모양의 단지를 깨서 열기 위해 막대기를 휘두릅니다. 피냐타를 깨뜨리면 견과류, 과일, 사탕이 쏟아져 나와 모두 함께 즐길 수 있습니다."
+		"message": "멕시코에서는 다양한 연령의 어린이들이 피냐타를 깨뜨리며 크리스마스를 즐깁니다. 어른과 아이가 함께 눈가리개를 하고 빙글빙글 돈 다음 막대기를 휘돌러서 높이 걸려 있는 별 모양의 장식을 깨뜨려 엽니다. 피냐타에서는 쏟아져 나오는 견과류, 과일, 사탕을 모두 함께 즐깁니다."
 	},
 	"my_country_name": {
 		"message": "말레이시아"
@@ -753,7 +792,7 @@
 		"message": "노르웨이어"
 	},
 	"nonprofit-jane-description": {
-		"message": "침팬지는 동물의 왕국에서 인간과 가장 가까운 친척입니다. 현재 서식지 감소, 질병, 불법 거래로 인해 30만 마리 이하의 침팬지만 남아 있습니다. Jane Goodall Institute(JGI, 제인 구달 협회)는 침팬지를 관찰하고 행동 양식을 파악하여 침팬지는 물론 침팬지 서식지를 보호하고 있습니다. 또한 JGI는 야생 동물을 보호하고 환경을 보전하는 공동체를 구축하기 위해 노력하고 있습니다. 탄자니아 곰베에 있는 \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e침팬지 서식지를 살펴보세요\u003c/a\u003e."
+		"message": "침팬지는 동물의 왕국에서 인간과 가장 가까운 친척입니다. 현재 서식지 감소, 질병, 불법 거래로 인해 30만 마리 이하의 침팬지만 남아 있습니다. Jane Goodall Institute(JGI, 제인 구달 협회)는 침팬지를 관찰하고 행동 양식을 파악하여 침팬지는 물론 침팬지 서식지를 보호하고 있습니다. 또한 JGI는 야생 동물을 보호하고 환경을 보전하는 공동체를 구축하기 위해 노력하고 있습니다. 탄자니아 곰베에 있는 <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">침팬지 서식지를 살펴보세요</a>."
 	},
 	"nonprofit-jane-type": {
 		"message": "침팬지"
@@ -768,7 +807,7 @@
 		"message": "삼림"
 	},
 	"nonprofit-wwf-description": {
-		"message": "기후 변화로 인해 온난 지대와 한랭 지대를 모두 포함해 전 세계 여러 곳에서 생태계의 균형이 계속해서 교란되고 있습니다. 북극에서는 북극곰이 온도 상승으로 해빙 서식지를 잃고 있으며 석유 및 가스 개발과 수송 같은 인간의 활동 때문에 추가적인 위협에 직면했습니다. World Wildlife Fund(세계 야생 생물 기금)는 과학 연구 및 북극 원주민 공동체와의 협력을 통해 위기에 처한 종의 생존을 돕기 노력하고 있습니다. Google.org는 World Wildlife Fund를 \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e후원\u003c/a\u003e합니다."
+		"message": "기후 변화로 인해 온난 지대와 한랭 지대를 모두 포함해 전 세계 여러 곳에서 생태계의 균형이 계속해서 교란되고 있습니다. 북극에서는 북극곰이 온도 상승으로 해빙 서식지를 잃고 있으며 석유 및 가스 개발과 수송 같은 인간의 활동 때문에 추가적인 위협에 직면했습니다. World Wildlife Fund(세계 야생 생물 기금)는 과학 연구 및 북극 원주민 공동체와의 협력을 통해 위기에 처한 종의 생존을 돕기 노력하고 있습니다. Google.org는 World Wildlife Fund를 <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">후원</a>합니다."
 	},
 	"nonprofit-wwf-type": {
 		"message": "북극곰"
@@ -813,7 +852,7 @@
 		"message": "필리핀"
 	},
 	"ph_tradition": {
-		"message": "필리핀은 전 세계에서 크리스마스 기간이 가장 긴 것으로 유명합니다. 9월부터 12월까지 총 4개월이 크리스마스 기간으로 간주됩니다. 9월 초부터 크리스마스 캐럴을 흔히 들을 수 있습니다."
+		"message": "필리핀은 전 세계에서 크리스마스 기간이 가장 긴 것으로 유명합니다. 크리스마스는 9월부터 12월까지 총 4개월 동안 이어집니다. 9월 초부터 크리스마스 캐럴을 흔히 들을 수 있습니다."
 	},
 	"pl_country_name": {
 		"message": "폴란드"
@@ -4779,10 +4818,10 @@
 		"message": "영국"
 	},
 	"uk_tradition": {
-		"message": "영국에서는 나이에 관계없이 모든 사람들이 저녁 식사 자리에서 크리스마스 크래커를 즐깁니다. 크래커는 다채로운 색상의 포장지로 감싼 튜브이며 양쪽 끝에 잡아당길 수 있는 부분이 있습니다. 이 부분을 잡아 당기면 커다란 소리와 함께 튜브가 터집니다. 튜브 안에는 크리스마스 저녁 동안 즐길 수 있는 종이 모자, 장난감, 사탕 등이 들어 있습니다."
+		"message": "영국에서는 남녀노소 모두 저녁 식사 자리에서 크리스마스 크래커를 즐깁니다. 크래커는 형형색색의 포장지로 꾸민 사탕 모양의 원통형 장식입니다. 양쪽 끝을 잡아 당기면 '뻥'하는  소리와 함께 터지면서 안에 있던 종이 모자, 장난감, 사탕 등으로 즐거운 저녁 시간을 보낼 수 있습니다."
 	},
 	"upgrade-warning": {
-		"message": "산타 추적기가 지원되지 않는 버전의 브라우저입니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하세요. 자세한 내용은 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e를 방문하세요."
+		"message": "산타 추적기가 지원되지 않는 버전의 브라우저입니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하세요. 자세한 내용은 <a href=\"https://whatbrowser.org\">whatbrowser.org</a>를 방문하세요."
 	},
 	"us_country_name": {
 		"message": "미국"
@@ -4803,10 +4842,10 @@
 		"message": "12월 24일에 다시 방문해 밤새 산타를 추적해 보세요."
 	},
 	"village_explore": {
-		"message": "12월 내내 산타의 엘프 친구들에 대해 알아보고 함께 어울리며 배워 보세요."
+		"message": "12월 한달 동안 산타의 엘프 친구들과 함께 즐거운 시간을 보내세요."
 	},
 	"village_get_the_app": {
-		"message": "앱 다운로드"
+		"message": "Android용 산타 추적기 앱 다운로드"
 	},
 	"village_more": {
 		"message": "산타에 대해 알아볼 수 있는 다양한 방법"
@@ -4818,7 +4857,7 @@
 		"message": "Google Cast에서 산타 찾기"
 	},
 	"village_santa_crx": {
-		"message": "Chrome 확장 프로그램"
+		"message": "산타 Chrome 확장 프로그램 추가"
 	},
 	"village_takesoff": {
 		"message": "산타 출발까지 남은 시간"

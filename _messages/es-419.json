@@ -3,7 +3,7 @@
 		"message": "En Nochebuena, tendremos el agrado de presentar el panel de Santa, la tecnología que impulsa el trineo en su viaje alrededor del mundo. Hemos recibido esta especial vista previa de uno de los tantos duendes programadores de Santa, que trabajan arduamente en el Polo Norte para ayudar a Santa a prepararse para el gran día. El panel de Santa, que presenta la última y mejor tecnología de Google Maps y de diseño de trineos, te permitirá hacer un seguimiento de su viaje por todo el mundo, y podrás aprender más acerca de los diferentes destinos de su recorrido."
 	},
 	"about-content-three": {
-		"message": "Sigue a Santa de Google Maps ha sido creada y diseñada por Google, con ayuda de los duendes de Santa. ¿Necesitas ayuda o tienes más preguntas? Visita nuestro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de ayuda\u003c/a\u003e."
+		"message": "Sigue a Santa de Google Maps ha sido creada y diseñada por Google, con ayuda de los duendes de Santa. ¿Necesitas ayuda o tienes más preguntas? Visita nuestro <a href=\"//support.google.com/santatracker\">Centro de ayuda</a>."
 	},
 	"about-content-two": {
 		"message": "Nuestros simpáticos duendes también te han invitado a explorar la aldea mientras Santa se prepara para su viaje. Así que únete a ellos y explora la aldea. Puedes encontrar divertidas actividades y conocer a los encantadores duendes."
@@ -72,7 +72,7 @@
 		"message": "Brasil"
 	},
 	"br_tradition": {
-		"message": "Los festejos de Navidad comienzan cerca de la medianoche y suelen incluir grandes cenas en familia, regalos y la celebración de la \"Misa del Gallo\" en las iglesias. A pesar del clima cálido y tropical del verano, es frecuente el uso de decoración relacionada con el invierno y la nieve."
+		"message": "Los festejos de Navidad comienzan cerca de la medianoche y suelen incluir grandes cenas en familia, regalos y la celebración de la \"Misa de Gallo\" en las iglesias. A pesar del clima cálido y tropical del verano, es frecuente el uso de decoración relacionada con el invierno y la nieve."
 	},
 	"bt_country_name": {
 		"message": "Bután"
@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-block-clap": {
+		"message": "Aplaude"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Aplaude una vez."
+	},
 	"codeboogie-block-jump": {
 		"message": "Salta"
 	},
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "¡A bailar!"
 	},
+	"codeboogie-go": {
+		"message": "¡Vamos!"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Bailemos"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Presta atención"
+	},
+	"codeboogie-your-turn": {
+		"message": "Tu turno"
 	},
 	"codelab-block-moveeast": {
 		"message": "este"
@@ -369,7 +381,7 @@
 		"message": "Excelente"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explora más proyectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Explora más proyectos de codificación de Google en <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Siguiente desafío"
@@ -753,7 +765,7 @@
 		"message": "Noruego"
 	},
 	"nonprofit-jane-description": {
-		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpacés\u003c/a\u003e en Gombe, Tanzania."
+		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explora los hábitats de los chimpancés</a> en Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpancé"
@@ -768,7 +780,7 @@
 		"message": "Bosques"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003edefensor\u003c/a\u003e de World Wildlife Fund."
+		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">defensor</a> de World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
@@ -852,7 +864,7 @@
 		"message": "Ruso"
 	},
 	"ru_tradition": {
-		"message": "En Rusia, los niños decoran el árbol de Año Nuevo, en lugar del árbol de Navidad y esperan con ansias al Abuelo del Frío, quien viaja con su nieta, la Doncella de Nieve, para repartir regalos en todo el país. El Abuelo del Frío vive en el bosque en Veliky Ustyug, en el norte de Rusia."
+		"message": "En Rusia, los niños decoran el árbol de Año Nuevo, en lugar del árbol de Navidad, y esperan con ansias al Abuelo del Frío, quien viaja con su nieta, la Doncella de Nieve, para repartir regalos en todo el país. El Abuelo del Frío vive en el bosque en Veliky Ustyug, en el norte de Rusia."
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudí"
@@ -4782,7 +4794,7 @@
 		"message": "En el Reino Unido, entusiastas de todas las edades se divierten con un elemento típico llamado \"Christmas cracker\". Son tubos envueltos en papeles de colores, con tiras en cada extremo. Al tirar de ellas, el tubo estalla haciendo un fuerte sonido y salen sombreros de papel, juguetes y golosinas."
 	},
 	"upgrade-warning": {
-		"message": "Sigue a Santa no es compatible con esta versión de tu navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Sigue a Santa no es compatible con esta versión de tu navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

@@ -3,7 +3,7 @@
 		"message": "La veille de Noël, vous pourrez découvrir le tableau de bord du père Noël. Mais dès aujourd'hui, l'un des nombreux lutins qui, au pôle Nord, sont déjà très occupés à préparer la distribution des cadeaux, nous offre ici un aperçu de cette merveille de technologie. Grâce à Google Maps et ce qui se fait de mieux en matière de traîneaux, vous pourrez suivre le père Noël dans sa tournée mondiale tout en découvrant des informations intéressantes sur certaines étapes de son périple."
 	},
 	"about-content-three": {
-		"message": "Sur la piste du père Noël avec Google Maps est un site créé et développé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions ? N'hésitez pas à consulter notre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'aide\u003c/a\u003e."
+		"message": "Sur la piste du père Noël avec Google Maps est un site créé et développé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions ? N'hésitez pas à consulter notre <a href=\"//support.google.com/santatracker\">Centre d'aide</a>."
 	},
 	"about-content-two": {
 		"message": "Pendant que le père Noël se prépare pour sa tournée, nos joyeux lutins vous invitent à découvrir son village. Promenez-vous et amusez-vous !"
@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Colombie"
 	},
+	"codeboogie-block-clap": {
+		"message": "Taper dans ses mains"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Tapez dans vos mains."
+	},
 	"codeboogie-block-jump": {
 		"message": "Sauter"
 	},
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "Dansez !"
 	},
+	"codeboogie-go": {
+		"message": "On y va !"
+	},
 	"codeboogie-lets-dance": {
 		"message": "On danse !"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Faites bien attention !"
+	},
+	"codeboogie-your-turn": {
+		"message": "À vous de jouer"
 	},
 	"codelab-block-moveeast": {
 		"message": "est"
@@ -369,7 +381,7 @@
 		"message": "Super !"
 	},
 	"codelab-mwc-promo": {
-		"message": "Découvrez d'autres projets de codage de Google ici : \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Découvrez d'autres projets de codage de Google ici : <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Défi suivant"
@@ -753,7 +765,7 @@
 		"message": "Norvégien"
 	},
 	"nonprofit-jane-description": {
-		"message": "Les chimpanzés sont l'espèce vivante la plus proche de l'être humain dans le monde animal. Aujourd'hui, il en reste moins de 300 000 en raison de la perte de leur habitat, des maladies et du commerce illégal. Les membres du Jane Goodall Institute (JGI) protègent des chimpanzés tels que Glitter et Gossamer en observant et en analysant leur comportement, mais également leur habitat naturel. Ils s'efforcent également de former des communautés de personnes chargées de protéger et de préserver la vie sauvage, ainsi que l'environnement que nous partageons. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eDécouvrez l'habitat des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."
+		"message": "Les chimpanzés sont l'espèce vivante la plus proche de l'être humain dans le monde animal. Aujourd'hui, il en reste moins de 300 000 en raison de la perte de leur habitat, des maladies et du commerce illégal. Les membres du Jane Goodall Institute (JGI) protègent des chimpanzés tels que Glitter et Gossamer en observant et en analysant leur comportement, mais également leur habitat naturel. Ils s'efforcent également de former des communautés de personnes chargées de protéger et de préserver la vie sauvage, ainsi que l'environnement que nous partageons. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Découvrez l'habitat des chimpanzés</a> à Gombe, en Tanzanie."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzé"
@@ -768,7 +780,7 @@
 		"message": "Forêts"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Le changement climatique continue de perturber l'équilibre de nombreux écosystèmes dans le monde (aussi bien dans les milieux chauds que froids). En Arctique, les ours polaires sont confrontés à la perte de leur habitat en raison de la hausse des températures, responsable de la fonte de la banquise. Ils sont également menacés par les activités humaines, telles que l'exploitation du pétrole et du gaz, ainsi que la navigation maritime. La mission de World Wildlife Fund (WWF) est d'assurer la survie des espèces grâce à des recherches scientifiques et à un travail en collaboration avec les communautés autochtones d'Arctique. À travers Google.org, nous sommes fiers de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003esoutenir\u003c/a\u003e le World Wildlife Fund."
+		"message": "Le changement climatique continue de perturber l'équilibre de nombreux écosystèmes dans le monde (aussi bien dans les milieux chauds que froids). En Arctique, les ours polaires sont confrontés à la perte de leur habitat en raison de la hausse des températures, responsable de la fonte de la banquise. Ils sont également menacés par les activités humaines, telles que l'exploitation du pétrole et du gaz, ainsi que la navigation maritime. La mission de World Wildlife Fund (WWF) est d'assurer la survie des espèces grâce à des recherches scientifiques et à un travail en collaboration avec les communautés autochtones d'Arctique. À travers Google.org, nous sommes fiers de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">soutenir</a> le World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ours polaire"
@@ -4782,13 +4794,13 @@
 		"message": "Au Royaume-Uni, les convives de tous les âges s'amusent avec des Christmas Crackers lors du dîner. Il s'agit de papillotes colorées qui s'ouvrent en éclatant lorsque l'on tire sur leurs deux extrémités. Elles libèrent alors des chapeaux en papier, des jouets et des bonbons pour agrémenter la soirée."
 	},
 	"upgrade-warning": {
-		"message": "Zut ! \"Sur la piste du Père Noël\" ne fonctionne pas avec cette version de votre navigateur. Pour y accéder, téléchargez un navigateur plus récent. Pour en savoir plus, accédez à \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Zut ! \"Sur la piste du Père Noël\" ne fonctionne pas avec cette version de votre navigateur. Pour y accéder, téléchargez un navigateur plus récent. Pour en savoir plus, accédez à <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "États-Unis"
 	},
 	"us_tradition": {
-		"message": "Aux États-Unis, on accroche des chaussettes le 24. Selon la légende, saint Nicolas aurait entendu parler d'une famille pauvre. Pour lui faire une surprise, il serait descendu par la cheminée pour mettre de l'or dans des chaussettes pendues. Ainsi est né le mythe de Santa Claus et de ses cadeaux."
+		"message": "Aux États-Unis, on accroche des chaussettes le 24. Selon la légende, Saint Nicolas aurait entendu parler d'une famille pauvre et serait descendu par la cheminée pour mettre de l'or dans des chaussettes pendues. C'est ainsi qu'est né le mythe de Santa Claus."
 	},
 	"uy_country_name": {
 		"message": "Uruguay"
