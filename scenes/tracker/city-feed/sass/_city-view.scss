@@ -1,5 +1,4 @@
 #city-view {
-  z-index: -1;
   display: flex;
   align-items: stretch;
   pointer-events: all;
@@ -61,16 +60,43 @@
     .stats, .wikipedia, .details {
       padding: 0 60px;
     }
+
+    .stats {
+      margin-bottom: 10px;
+      h4 {
+        color: #E5EBE4;
+      }
+      > div > div {
+        margin-right: 20px;
+      }
+    }
+
+    .wikipedia p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 22px;
+      color: #fff;
+    }
   }
 
   #city-photos {
     background: #000;
     height: 100%;
     width: 100%;
+    position: relative;
+
+    .city-photo, .city-photo-hires {
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
 }
 
-&.location-active {
+&.stop-active {
   #city-view {
     z-index: 10;
     #city-details {

@@ -1,6 +1,6 @@
 $tabletBreakpoint: 960px;
 $mobileBreakpoint: 668px;
-$trackerFeedWidth: 370px;
+$trackerFeedWidth: 530px;
 $trackerFeedPadding: 30px;
 
 $lineColor: rgb(151,216,255);
@@ -15,7 +15,7 @@ $name: 'module-city-feed';
   transform: translateX(calc(100% - #{$trackerFeedWidth + $trackerFeedPadding})) translateZ(0);
   transition: transform 500ms ease-out;
 
-  &.location-active {
+  &.stop-active {
     transform: translateX(0) translateZ(0);
   }
 
@@ -70,6 +70,76 @@ $name: 'module-city-feed';
     width: 100%;
     background: #00cd82;
     margin-bottom: 14px;
+    border-radius: none;
+  }
+
+  .card.card-santa-info {
+    padding-top: 30px; // This should be removed if/when we put the filtery thing on
+
+    .santa-info-row {
+      display: flex;
+      align-items: stretch;
+      align-content: stretch;
+      justify-content: space-between;
+      border-top: 1px solid #2ab786;
+
+      & > div {
+        flex-grow: 1;
+        padding: 17px 30px;
+        position: relative;
+        z-index: 2;
+        box-sizing: border-box;
+        width: calc(50% - 1px);
+      }
+
+      .divider {
+        flex-grow: 0;
+        width: 1px;
+        z-index: 1;
+        padding: 0;
+        border-left: 1px solid #2ab786;
+      }
+
+      h2, h3, h4 {
+        margin: 0;
+      }
+
+      h4 {
+        text-transform: uppercase;
+        color: white;
+        font-size: 11px;
+        margin-bottom: 17px;
+      }
+
+      h2, h3 {
+        color: #FFFEAB;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      .santa-info-distance {
+        .fancy-bg {
+          position: absolute;
+          width: 308px;
+          height: 139px;
+          background-image: url(../img/santa-distance-bg.png);
+          background-size: contain;
+          background-repeat: no-repeat;
+          left: -14px;
+          top: -24px;
+        }
+
+        .fancy-content {
+          position: relative;
+        }
+      }
+    }
   }
 
   .card.card-city {

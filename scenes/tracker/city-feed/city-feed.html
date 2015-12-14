@@ -97,10 +97,11 @@ City feed view in Tracker
   <div class="scene fit">
 
     <div id="city-view" class="fit">
+      <template is="dom-if" if="{{isActiveStop()}}">
       <div id="city-details">
         <a href="#">Back to tracker</a>
         <div class="details">
-          <h4>Tasmania{{item.stop.region}}</h4>
+          <h4>Tasmania{{stop.region}}moo</h4>
           <h1>Hobart{{item.stop.city}}</h1>
         </div>
         <div class="stats">
@@ -125,12 +126,22 @@ City feed view in Tracker
           </div>
         </div>
         <div class="wikipedia">
+          <p><html-echo class="wikipedia__body" html="{{item.stop.details.wikipedia.excerpt}}"></html-echo></p>
+
+          <div class="attribution">
+            <span class="wiki-cc">Available under
+            <a target="wiki" href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+            terms</span>
+            <a target="wiki" href$="{{item.stop.details.wikipedia.url}}">{{item.stop.details.wikipedia.url}}</a>
+          </div>
         </div>
       </div>
       <div id="city-photos">
-        <div class="city-photo">
+        <div class="city-photo" style="background-image:url(https://mw2.google.com/mw-panoramio/photos/medium/17219822.jpg)">
+          <div class="city-photo-hires" style="background-image:url(https://static.panoramio.com.storage.googleapis.com/photos/original/17219822.jpg)"></div>
         </div>
       </div>
+      </template>
     </div>
 
     <iron-media-query query="(max-width:960px)"
@@ -140,6 +151,42 @@ City feed view in Tracker
       <template>
         <div class$="{{_computeCardLayout(isMobileSize)}}" data-index$="[[index]]">
           <div class$="card {{_computeCardClasses(item)}}">
+            <div hidden$="{{!itemIsType(item, 'santa-info')}}">
+              <div class="santa-info-row">
+                <div class="santa-info-distance">
+                  <div class="fancy-bg"></div>
+                  <div class="fancy-content">
+                    <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+                    <h2>12,345km</h2>
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <div>
+                  <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h2>7,234,567,789</h2>
+                </div>
+              </div>
+              <div class="santa-info-row">
+                <div>
+                  <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3><i class="ico ico-arrow-yellow"></i> San Francisco</h3>
+                </div>
+                <div class="divider"></div>
+                <div>
+                  <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3>4:00</h3>
+                </div>
+              </div>
+                <!--
+                <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
+
+
+
+                <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+                  -->
+            </div>
 
             <div hidden$="{{!itemIsType(item, 'city')}}">
               <div class="card-city-bg" style$="background-image:url({{_getPhotoUrl(item.stop.details.photos, 0)}});"></div>
@@ -173,12 +220,9 @@ City feed view in Tracker
                     </div>
                   </div>
                 </div>
-                <paper-fab icon="add" class="card-fab" on-tap="this"></paper-fab>
+                <paper-fab icon="add" class="card-fab" on-tap="_showStop" data-stop$="{{item.stop.id}}"></paper-fab>
               </div>
             </div>
-
-             <!-- TODO(ebidel): Dry this up. Duplicated markup from left-side
-                   cards above due to loss of <template ref> in Polymer 1.0. -->
 
              <!-- mini cards -->
               <div hidden$="{{!itemIsType(item, 'facts')}}">
@@ -292,6 +336,12 @@ Polymer({
       observer: '_timelineChanged'
     },
 
+    activeStop: {
+      type: Object,
+      value: null,
+      observer: '_activeStopChanged'
+    },
+
     /**
      * The timeline feed with additional data and adjusted to support mini cards.
      */
@@ -327,7 +377,6 @@ Polymer({
       type: Number,
       value: null
     },
-
   },
 
   /**
@@ -401,11 +450,33 @@ Polymer({
     }
   },
 
-  showStop: function(stop) {
-    console.log('stop', stop);
+  _showStop: function(e) {
+    var fab;
+    var t = e.target;
+    while (t.nodeName != 'PAPER-FAB') {
+      t = t.parentNode;
+    }
+
+    var stopId = t.dataset.stop;
+    var activeStopIndex = destLookup_[stopId];
+    var activeStop = this.stream[activeStopIndex + 1];
+    this.activeStop = activeStop;
+  },
+
+  _activeStopChanged: function() {
+    if (this.activeStop) {
+      this.$['module-city-feed'].classList.add('stop-active');
+    } else {
+      this.$['module-city-feed'].classList.remove('stop-active');
+    }
+  },
+
+  isActiveStop: function() {
+    return this.activeStop == null ? false: true;
   },
 
   _timelineChanged: function() {
+    console.log('timeline changed');
     if (!this.timeline || !this.timeline.length) {
       return;
     }
@@ -429,12 +500,15 @@ Polymer({
     // same row. The template is wrapped in a flexbox container (<div
     // class="layout horizontal start justified">) which handles the layout.
     for (var i = 0, item; item = stream[i]; ++i) {
-      var nextCard = stream[i + 1];
       if (item.type == 'city') {
         // Cache index of stop to be able to scroll to destination.
         destLookup_[item.stop.id] = i;
       }
     }
+
+    stream.unshift({
+      type: 'santa-info'
+    });
 
     this.stream = stream;
 
@@ -458,7 +532,10 @@ Polymer({
       // Add deep link to opened destination.
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) +
-                    '#tracker?timestamp=' + this.stream[idx].timestamp;
+                    '#tracker';
+      if (this.stream[idx].timestamp) {
+        newHref += '?timestamp=' + this.stream[idx].timestamp;
+      }
       window.history.replaceState(null, '', newHref);
     }
   },
@@ -554,7 +631,11 @@ Polymer({
           this._cardInView = timestamp;
 
           var newHref = location.href.substr(0,
-                        location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
+            location.href.length - location.hash.length) + '#tracker';
+          if (timestamp) {
+            newHref += '?timestamp=' + timestamp;
+          }
+
           window.history.replaceState(null, '', newHref);
 
           break;
