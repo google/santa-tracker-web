@@ -32,25 +32,23 @@ $board-level-bp: 1025px;
     background: #3F49A3;
   }
 
-  .overlay--picker {
-    .overlay-dialog {
-      width: 80%;
-      max-width: 80em;
-    }
+  .overlay-dialog {
+    width: 80%;
+    max-width: 80em;
+  }
 
-    .overlay-title {
-      font-family: 'Lobster', sans-serif;
-      font-size: 3em;
-      font-weight: 400;
-      letter-spacing: -2px;
-      line-height: 0.95;
-      margin: 0;
-      text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
-    }
+  .overlay-title {
+    font-family: 'Lobster', sans-serif;
+    font-size: 3em;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 0.95;
+    margin: 0;
+    text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+  }
 
-    .overlay-title-wrapper {
-      margin: 0 auto 4em auto;
-    }
+  .overlay-title-wrapper {
+    margin: 0 auto 4em auto;
   }
 
   .grid__option {
