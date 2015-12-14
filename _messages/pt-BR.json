@@ -3,7 +3,7 @@
 		"message": "Na véspera de Natal, exibiremos orgulhosamente o Painel do Papai Noel, a tecnologia que alimenta seu trenó durante sua viagem ao redor do mundo. Recebemos esta prévia especial de um dos duendes desenvolvedores do Papai Noel, que estão trabalhando duro no Polo Norte para ajudar o bom velhinho a se preparar para seu grande dia. Com o Painel do Papai Noel (que conta com o que há de melhor e mais recente em tecnologia do Google Maps e engenharia de trenós), você pode acompanhar o progresso do bom velhinho por todo o mundo e aprender um pouco sobre algumas das suas paradas ao longo do caminho."
 	},
 	"about-content-three": {
-		"message": "O Siga o Papai Noel do Google Maps foi criado e desenvolvido pelo Google, com uma ajudinha dos duendes do Papai Noel. Precisa de ajuda ou tem uma pergunta? Acesse nossa <a href=\"//support.google.com/santatracker\">Central de Ajuda</a>."
+		"message": "O Siga o Papai Noel do Google Maps foi criado e desenvolvido pelo Google, com uma ajudinha dos duendes do Papai Noel. Precisa de ajuda ou tem uma pergunta? Acesse nossa \u003ca href=\"//support.google.com/santatracker\"\u003eCentral de Ajuda\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Os simpáticos duendes também convidaram você para explorar a vila do Papai Noel enquanto ele se prepara para sua viagem. Então, vá em frente e explore a vila. Você pode encontrar algumas atividades divertidas e conhecer duendes interessantes."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colômbia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Voltar para o início"
+	},
 	"codeboogie-block-clap": {
 		"message": "Palmas"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Faça um espacate."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Escolha um modo de jogo"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Escolha um palco"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Comece a dançar"
 	},
 	"codeboogie-go": {
 		"message": "Ir"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Continuar dançando"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Vamos dançar"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Aula de dança"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Copie os passos do professor"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Dança livre"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Crie seus próprios passos e compartilhe com amigos"
 	},
 	"codeboogie-next-dance": {
 		"message": "Próxima dança"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Parece que algo deu errado. Em vez disso, tente este passo:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Compartilhe seus passos e desafie seus amigos"
 	},
 	"codeboogie-success": {
 		"message": "Sucesso!"
@@ -381,7 +408,7 @@
 		"message": "Ótimo"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explore mais projetos de codificação do Google em <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Explore mais projetos de codificação do Google em \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Próximo desafio"
@@ -765,7 +792,7 @@
 		"message": "Norueguês"
 	},
 	"nonprofit-jane-description": {
-		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explore o habitat dos chimpanzés</a> em Gombe, Tanzânia."
+		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore o habitat dos chimpanzés\u003c/a\u003e em Gombe, Tanzânia."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzé"
@@ -780,7 +807,7 @@
 		"message": "Florestas"
 	},
 	"nonprofit-wwf-description": {
-		"message": "As mudanças climáticas continuam a prejudicar o equilíbrio de muitos ecossistemas do mundo, em lugares quentes e frios. No Ártico, os ursos polares estão perdendo seu habitat no mar congelado com o aumento das temperaturas e enfrentam mais ameaças de atividades humanas, como a extração e o transporte de petróleo e gás. O World Wildlife Fund trabalha para garantir a sobrevivência da espécie por meio de pesquisas científicas e com o trabalho em parceria com comunidades nativas do Ártico. O Google.org se orgulha de ser <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">parceiro</a> do World Wildlife Fund."
+		"message": "As mudanças climáticas continuam a prejudicar o equilíbrio de muitos ecossistemas do mundo, em lugares quentes e frios. No Ártico, os ursos polares estão perdendo seu habitat no mar congelado com o aumento das temperaturas e enfrentam mais ameaças de atividades humanas, como a extração e o transporte de petróleo e gás. O World Wildlife Fund trabalha para garantir a sobrevivência da espécie por meio de pesquisas científicas e com o trabalho em parceria com comunidades nativas do Ártico. O Google.org se orgulha de ser \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eparceiro\u003c/a\u003e do World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
@@ -4794,7 +4821,7 @@
 		"message": "No Reino Unido, pessoas de todas as idades se divertem com as bombas de Natal, que são tubos envoltos em papel colorido com abas nas extremidades. Ao puxá-las, o tubo estoura com um alto estampido. No interior, encontram-se chapéus de papel, brinquedos e doces, garantindo diversão na noite de Natal."
 	},
 	"upgrade-warning": {
-		"message": "Siga o Papai Noel não é compatível com essa versão do navegador. Para acessar Siga o Papai Noel, faça o download de um navegador moderno. Para mais informações, acesse <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Siga o Papai Noel não é compatível com essa versão do navegador. Para acessar Siga o Papai Noel, faça o download de um navegador moderno. Para mais informações, acesse \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -4818,7 +4845,7 @@
 		"message": "Explore, brinque e aprenda com os Duendes do Papai Noel durante todo o mês de dezembro"
 	},
 	"village_get_the_app": {
-		"message": "Fazer o download do app"
+		"message": "Faça o download do app Siga o Papai Noel para Android"
 	},
 	"village_more": {
 		"message": "Encontre mais formas de explorar"
@@ -4830,7 +4857,7 @@
 		"message": "Papai Noel no Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Extensão do Google Chrome"
+		"message": "Adicionar extensão para Chrome do Siga o Papai Noel"
 	},
 	"village_takesoff": {
 		"message": "O Papai Noel decola em"

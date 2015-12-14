@@ -3,7 +3,7 @@
 		"message": "W Wigilię pokażemy specjalny grafik Świętego Mikołaja i powiemy więcej o technologii, której używa do podróżowania po świecie. Materiały do tej szczególnej prezentacji otrzymaliśmy od jednego z wielu elfów, które na biegunie północnym pracowicie pomagają Świętemu Mikołajowi przygotować się do tego ważnego dnia. Grafik Świętego Mikołaja wykorzystuje najnowsze i najlepsze funkcje Map Google oraz inne technologie używane w saniach. Dzięki niemu możesz śledzić trasę podróży Świętego Mikołaja po całym świecie i dowiedzieć się czegoś o miejscach, w których się zatrzymuje."
 	},
 	"about-content-three": {
-		"message": "Trasa Świętego Mikołaja w Mapach Google została utworzona i jest rozwijana przez Google (przy niewielkim wsparciu elfów). Jeśli potrzebujesz pomocy lub chcesz zadać pytanie, odwiedź nasze <a href=\"//support.google.com/santatracker\">Centrum pomocy</a>."
+		"message": "Trasa Świętego Mikołaja w Mapach Google została utworzona i jest rozwijana przez Google (przy niewielkim wsparciu elfów). Jeśli potrzebujesz pomocy lub chcesz zadać pytanie, odwiedź nasze \u003ca href=\"//support.google.com/santatracker\"\u003eCentrum pomocy\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Nasze znajome elfy zapraszają Cię też do odwiedzenia wioski Świętego Mikołaja podczas jego przygotowań do podróży. Zobacz, jak wygląda miejsce, gdzie mieszka Mikołaj. Możesz też zagrać w ciekawe gry i poznać sympatyczne elfy."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Kolumbia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Zacznij jeszcze raz"
+	},
 	"codeboogie-block-clap": {
 		"message": "Klaśnięcie"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Szpagat."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Wybierz tryb gry"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Wybierz scenę"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Zacznij tańczyć"
 	},
 	"codeboogie-go": {
 		"message": "OK"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Tańcz dalej"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Do tańca"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Klasa tańca"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Naśladuj ruchy nauczyciela"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Taniec freestyle"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Stwórz własne ruchy i podziel się nimi ze znajomymi"
 	},
 	"codeboogie-next-dance": {
 		"message": "Następny taniec"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Ten krok nie był poprawny. Zamiast niego wypróbuj ten:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Podziel się swoimi ruchami ze znajomym i wyzwij ich na pojedynek"
 	},
 	"codeboogie-success": {
 		"message": "Udało się!"
@@ -381,7 +408,7 @@
 		"message": "Doskonale"
 	},
 	"codelab-mwc-promo": {
-		"message": "Zobacz więcej projektów kodowania Google na <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Zobacz więcej projektów kodowania Google na \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Następny poziom"
@@ -765,7 +792,7 @@
 		"message": "norweski"
 	},
 	"nonprofit-jane-description": {
-		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Poznaj siedliska szympansów</a> w Gombe w Tanzanii."
+		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePoznaj siedliska szympansów\u003c/a\u003e w Gombe w Tanzanii."
 	},
 	"nonprofit-jane-type": {
 		"message": "Szympans zwyczajny"
@@ -780,7 +807,7 @@
 		"message": "Lasy"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Postępujące zmiany klimatyczne zaburzają równowagę wielu ekosystemów, zarówno w ciepłych, jak i zimnych obszarach naszego globu. W Arktyce, ze względu na rosnące temperatury, niedźwiedzie polarne tracą swoje naturalne środowisko życia. Zagraża im także działalność człowieka, na przykład wydobywanie oraz przesyłanie ropy i gazu. Organizacja World Wildlife Fund pomaga przetrwać niedźwiedziom polarnym, prowadząc badania naukowe i współpracując z rdzennymi mieszkańcami Arktyki. Google.org z dumą <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">wspiera</a> jej działalność."
+		"message": "Postępujące zmiany klimatyczne zaburzają równowagę wielu ekosystemów, zarówno w ciepłych, jak i zimnych obszarach naszego globu. W Arktyce, ze względu na rosnące temperatury, niedźwiedzie polarne tracą swoje naturalne środowisko życia. Zagraża im także działalność człowieka, na przykład wydobywanie oraz przesyłanie ropy i gazu. Organizacja World Wildlife Fund pomaga przetrwać niedźwiedziom polarnym, prowadząc badania naukowe i współpracując z rdzennymi mieszkańcami Arktyki. Google.org z dumą \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ewspiera\u003c/a\u003e jej działalność."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Niedźwiedź polarny"
@@ -4794,7 +4821,7 @@
 		"message": "W Wielkiej Brytanii w Boże Narodzenie podczas kolacji świętujący bawią się „crackerami”. Są to tubki owinięte sreberkiem, z wstążkami na końcach. Wystarczy za nie pociągnąć, by tubka wystrzeliła z hukiem! Wewnątrz znajdują się papierowe czapeczki, zabawki i słodycze, które umilają wigilijną noc."
 	},
 	"upgrade-warning": {
-		"message": "Ta wersja przeglądarki nie obsługuje Trasy Świętego Mikołaja. Pobierz nowszą przeglądarkę. Więcej informacji znajdziesz na stronie <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Ta wersja przeglądarki nie obsługuje Trasy Świętego Mikołaja. Pobierz nowszą przeglądarkę. Więcej informacji znajdziesz na stronie \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Stany Zjednoczone"
@@ -4818,7 +4845,7 @@
 		"message": "Odkrywaj świat, baw się i ucz z elfami przez cały grudzień"
 	},
 	"village_get_the_app": {
-		"message": "Pobierz aplikację"
+		"message": "Pobierz aplikację Trasa Świętego Mikołaja na Androida."
 	},
 	"village_more": {
 		"message": "Więcej zabawy z Mikołajem"
@@ -4830,7 +4857,7 @@
 		"message": "Szukaj Świętego Mikołaja przez Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Rozszerzenie Google Chrome"
+		"message": "Dodaj rozszerzenie Trasa Świętego Mikołaja w Chrome"
 	},
 	"village_takesoff": {
 		"message": "Święty Mikołaj wyrusza za"

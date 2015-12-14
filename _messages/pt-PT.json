@@ -3,7 +3,7 @@
 		"message": "Na véspera de Natal, vamos ter o prazer de apresentar um painel de controlo do Pai Natal, a tecnologia que impulsiona o trenó na sua viagem à volta do mundo. Recebemos esta pré-visualização especial de um dos muitos duendes programadores do Pai Natal, que trabalham arduamente no Polo Norte para o ajudar a preparar-se para o grande dia. Com o painel de controlo do Pai Natal, que inclui as mais recentes funcionalidades da tecnologia do Google Maps e da engenharia de trenós, poderá acompanhar a sua viagem pelo mundo e também aprender algo sobre os locais de paragem ao longo do caminho."
 	},
 	"about-content-three": {
-		"message": "A viagem do Pai Natal do Google Maps foi criada e desenvolvida pela Google, com uma pequena ajuda dos gnomos do Pai Natal. Precisa de ajuda ou tem outra questão? Visite o nosso <a href=\"//support.google.com/santatracker\">Centro de Ajuda</a>."
+		"message": "A viagem do Pai Natal do Google Maps foi criada e desenvolvida pela Google, com uma pequena ajuda dos gnomos do Pai Natal. Precisa de ajuda ou tem outra questão? Visite o nosso \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de Ajuda\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Os nossos amigos duendes também o convidaram para conhecer a aldeia do Pai Natal enquanto este se prepara para a viagem. Visite a aldeia do Pai Natal e pode ser que descubra atividades divertidas e conheça duendes simpáticos."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colômbia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Regressar ao início"
+	},
 	"codeboogie-block-clap": {
 		"message": "Bater palmas"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Faça uma espargata."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Escolher um modo de jogo"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Escolher um palco"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Toca a dançar!"
 	},
 	"codeboogie-go": {
 		"message": "Vamos!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Continuar a dançar"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Vamos dançar"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Aula de dança"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Siga os passos do professor"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Dança de estilo livre"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Crie os seus próprios passos e partilhe-os com amigos"
 	},
 	"codeboogie-next-dance": {
 		"message": "Dança seguinte"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Esse movimento não parece ser o correto. Experimente este:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Partilhe os seus passos e desafie os amigos"
 	},
 	"codeboogie-success": {
 		"message": "Muito bem!"
@@ -381,7 +408,7 @@
 		"message": "Ótimo"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explore mais projetos de programação Google em <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Explore mais projetos de programação Google em \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Próximo desafio"
@@ -765,7 +792,7 @@
 		"message": "Norueguês"
 	},
 	"nonprofit-jane-description": {
-		"message": "Os chimpanzés são os parentes vivos mais próximos dos humanos no reino animal! Atualmente, existem menos de 300 000 chimpanzés devido à perda do seu habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés através da observação e compreensão dos seus comportamentos, bem como dos habitats em que vivem. O JGI também trabalha para criar uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que partilhamos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explore os habitats dos chimpanzés</a> em Gombe, na Tanzânia."
+		"message": "Os chimpanzés são os parentes vivos mais próximos dos humanos no reino animal! Atualmente, existem menos de 300 000 chimpanzés devido à perda do seu habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés através da observação e compreensão dos seus comportamentos, bem como dos habitats em que vivem. O JGI também trabalha para criar uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que partilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore os habitats dos chimpanzés\u003c/a\u003e em Gombe, na Tanzânia."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzé"
@@ -780,7 +807,7 @@
 		"message": "Florestas"
 	},
 	"nonprofit-wwf-description": {
-		"message": "As alterações climáticas continuam a afetar o equilíbrio da maior parte dos ecossistemas mundiais, tanto em locais quentes como frios. Com o aumento das temperaturas, os ursos polares no Ártico estão a perder o seu habitat composto por gelo do mar e enfrentam ainda mais ameaças com as atividades dos humanos, como a exploração e distribuição de petróleo e gás. O World Wildlife Fund pretende garantir a sobrevivência das espécies através da pesquisa científica e da colaboração com comunidades nativas do Ártico. A Google.org tem o orgulho de ser um <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">apoiante</a> do World Wildlife Fund."
+		"message": "As alterações climáticas continuam a afetar o equilíbrio da maior parte dos ecossistemas mundiais, tanto em locais quentes como frios. Com o aumento das temperaturas, os ursos polares no Ártico estão a perder o seu habitat composto por gelo do mar e enfrentam ainda mais ameaças com as atividades dos humanos, como a exploração e distribuição de petróleo e gás. O World Wildlife Fund pretende garantir a sobrevivência das espécies através da pesquisa científica e da colaboração com comunidades nativas do Ártico. A Google.org tem o orgulho de ser um \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eapoiante\u003c/a\u003e do World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
@@ -4794,7 +4821,7 @@
 		"message": "No Reino Unido, foliões de todas as idades desfrutam de bombons explosivos de Natal à mesa de jantar. Os bombons explosivos são tubos enrolados em papel colorido, com abas para se puxar em cada extremidade. Quando puxa as abas, o tubo rebenta com um estouro e de lá de dentro saltam chapéus de papel, brinquedos e doces para desfrutar na noite de Natal."
 	},
 	"upgrade-warning": {
-		"message": "Ups! A viagem do Pai Natal não é suportada nesta versão do seu navegador. Para aceder a este produto, transfira um navegador mais atual. Para mais informações, visite <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Ups! A viagem do Pai Natal não é suportada nesta versão do seu navegador. Para aceder a este produto, transfira um navegador mais atual. Para mais informações, visite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -4818,7 +4845,7 @@
 		"message": "Explore, jogue e aprenda com os gnomos do Pai Natal durante todo o mês de dezembro"
 	},
 	"village_get_the_app": {
-		"message": "Obter a aplicação"
+		"message": "Obter a aplicação A viagem do Pai Natal para Android"
 	},
 	"village_more": {
 		"message": "Mais formas de explorar"
@@ -4830,7 +4857,7 @@
 		"message": "O Pai Natal no Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Extensão para o Google Chrome"
+		"message": "Adicionar a extensão do Pai Natal no Chrome"
 	},
 	"village_takesoff": {
 		"message": "O Pai Natal levanta voo daqui a"

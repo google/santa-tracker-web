@@ -3,7 +3,7 @@
 		"message": "På julaften viser vi frem nissens kontrollpanel, teknologien som driver sleden hans på reisen verden rundt. Vi har fått denne spesialversjonen fra en av nissens mange utvikler-alver på Nordpolen, der de hjelper nissen med forberedelsene til den store dagen. I nissens kontrollpanel – som inneholder det nyeste og beste innen Google Maps-teknologi og sledeutstyr – kan du følge med på reisen hans gjennom hele verden, og du kan også lære litt om noen av stoppestedene langs ruten."
 	},
 	"about-content-three": {
-		"message": "«Følg julenissen» fra Google Maps er skapt og utviklet av Google med litt hjelp fra julenissens alver. Trenger du hjelp, eller har du flere spørsmål? Gå til <a href=\"//support.google.com/santatracker\">brukerstøtten</a> vår."
+		"message": "«Følg julenissen» fra Google Maps er skapt og utviklet av Google med litt hjelp fra julenissens alver. Trenger du hjelp, eller har du flere spørsmål? Gå til \u003ca href=\"//support.google.com/santatracker\"\u003ebrukerstøtten\u003c/a\u003e vår."
 	},
 	"about-content-two": {
 		"message": "De vennlige alvene har også invitert deg til å utforske nissens landsby mens nissen gjør seg klar for reisen sin. Du er velkommen til å se nærmere på landsbyen hans. Kanskje du finner noen morsomme aktiviteter og møter noen interessante alver?"
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Tilbake til start"
+	},
 	"codeboogie-block-clap": {
 		"message": "Klapp"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Gå ned i spagaten."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Velg spillmodus"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Velg scene"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Dans i vei!"
 	},
 	"codeboogie-go": {
 		"message": "Start!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Fortsett å danse"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Dans i vei"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Dansetime"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Gjør det samme som danselæreren"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Lag egne danser"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Lag din egen dans, og del med venner"
 	},
 	"codeboogie-next-dance": {
 		"message": "Neste dans"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Du gjorde visst feil bevegelse. Prøv dette i stedet:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Del dansene dine med venner, og gi dem en utfordring"
 	},
 	"codeboogie-success": {
 		"message": "Alt riktig!"
@@ -381,7 +408,7 @@
 		"message": "Bra"
 	},
 	"codelab-mwc-promo": {
-		"message": "Utforsk flere Google-kodeprosjekter på <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Utforsk flere Google-kodeprosjekter på \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Neste utfordring"
@@ -765,7 +792,7 @@
 		"message": "Norsk"
 	},
 	"nonprofit-jane-description": {
-		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Utforsk sjimpansenes leveområder</a> i Gombe, Tanzania."
+		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforsk sjimpansenes leveområder\u003c/a\u003e i Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Sjimpanse"
@@ -780,7 +807,7 @@
 		"message": "Skoger"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimaendringene truer balansen i mange av verdens økosystemer, både i varme og kalde strøk. I Arktis fører den stigende temperaturen til at isbjørnene mister leveområdet sitt på sjøisen, og de trues også av menneskelig aktivitet, for eksempel olje- og gassutvikling og skipsfart. World Wildlife Fund jobber for å sikre at arten overlever gjennom vitenskapelig forskning og samarbeid med arktiske lokalsamfunn. Google.org <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">støtter</a> World Wildlife Fund."
+		"message": "Klimaendringene truer balansen i mange av verdens økosystemer, både i varme og kalde strøk. I Arktis fører den stigende temperaturen til at isbjørnene mister leveområdet sitt på sjøisen, og de trues også av menneskelig aktivitet, for eksempel olje- og gassutvikling og skipsfart. World Wildlife Fund jobber for å sikre at arten overlever gjennom vitenskapelig forskning og samarbeid med arktiske lokalsamfunn. Google.org \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003estøtter\u003c/a\u003e World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Isbjørn"
@@ -4794,7 +4821,7 @@
 		"message": "I Storbritannia morer feststemte mennesker i alle aldre seg med smellbongbonger ved middagsbordet. Dette er små rør innpakket i fargerikt papir, med papirremser i hver ende som kan trekkes ut slik at røret sprekker med et stort smell. Inni finnes det papirhatter, leker og godteri som man kan kose seg med på julekvelden."
 	},
 	"upgrade-warning": {
-		"message": "Beklager – «Følg julenissen» fungerer ikke i denne nettleserversjonen. Last ned en moderne nettleser for å få tilgang. Gå til <a href=\"https://whatbrowser.org\">whatbrowser.org</a> hvis du vil ha mer informasjon."
+		"message": "Beklager – «Følg julenissen» fungerer ikke i denne nettleserversjonen. Last ned en moderne nettleser for å få tilgang. Gå til \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e hvis du vil ha mer informasjon."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -4818,7 +4845,7 @@
 		"message": "Utforsk, lek og lær med julenissens alver i hele desember"
 	},
 	"village_get_the_app": {
-		"message": "Skaff deg appen"
+		"message": "Skaff deg Følg julenissen-appen for Android"
 	},
 	"village_more": {
 		"message": "Mer moro med julenissen"
@@ -4830,7 +4857,7 @@
 		"message": "Finn julenissen på Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Utvidelse for Google Chrome"
+		"message": "Legg til Chrome-utvidelsen for Følg julenissen"
 	},
 	"village_takesoff": {
 		"message": "Julenissen tar av om"
