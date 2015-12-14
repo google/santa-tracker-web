@@ -25,7 +25,7 @@ goog.scope(function() {
 
     if (window.navigator.pointerEnabled) {
       eventStart = 'pointerdown';
-      eventMove = 'pointerMove';
+      eventMove = 'pointermove';
       eventCancel = 'pointerup pointerout pointermove';
       eventEnd = 'pointerup';
     } else if (window.navigator.msPointerEnabled) {
