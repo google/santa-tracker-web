@@ -68,6 +68,8 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
   this.shareButtons.setUrl(url);
   this.overlay.show();
 
+  window.santaApp.fire('analytics-track-share', null);
+
   // delay until after the overlay is visible
   window.setTimeout(function() {
     this.selectUrl();

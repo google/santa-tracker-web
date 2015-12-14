@@ -128,10 +128,10 @@ Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value
  *
  * @param {string} network
  * @param {string} action
- * @param {string} target
+ * @param {string} path
  */
-Analytics.prototype.trackSocial = function(network, action, target) {
-  this.ga_.pushCommand(['_trackSocial', network, action, target]);
+Analytics.prototype.trackSocial = function(network, action, path) {
+  this.ga_.pushCommand(['_trackSocial', network, action, undefined, path]);
 };
 
 /**

@@ -576,7 +576,7 @@ Polymer({
     'analytics-track-perf': 'trackPerf',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
-    'analytics-track-social': 'trackSocial',
+    'analytics-track-share': 'trackShare',
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
@@ -965,9 +965,8 @@ Polymer({
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
-  trackSocial: function(e, detail) {
-    this.analyticsService.trackSocial(
-        detail.network, detail.action, detail.target);
+  trackShare: function(e, detail) {
+    this.analyticsService.trackSocial(detail || '', 'share', '/' + this.route);
   },
 
   trackGameStart: function(e, detail) {
