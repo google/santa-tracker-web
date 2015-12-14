@@ -86,7 +86,7 @@ app.FrameWrapper.prototype.restart = function(params) {
   params = params || {};
 
   // TODO(samthor): Only some languages are translated as of 2015-12-15.
-  var supportedLangs = ['en', 'zh-HK', 'et', 'fil', 'fr-CA', 'id', 'ja', 'ko', 'lt', 'th'];
+  var supportedLangs = ['af', 'en', 'zh-HK', 'zh-TW', 'da', 'et', 'fil', 'fr-CA', 'id', 'ja', 'ko', 'lt', 'th'];
   var supported = (supportedLangs.indexOf(document.documentElement.lang) != -1);
 
   if (params.dance) {
