@@ -40,8 +40,9 @@ app.FrameWrapper = function(el, staticDir) {
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
-  /** @type {app.shared.ShareOverlay} */
-  this.shareOverlay = null;
+  /** @type {!app.shared.ShareOverlay} */
+  this.shareOverlay =
+      new app.shared.ShareOverlay(this.el.find('.shareOverlay'));
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
@@ -142,12 +143,6 @@ app.FrameWrapper.prototype.dispose = function() {
  * @param {string} query string to share.
  */
 app.FrameWrapper.prototype.share = function(query) {
-  // Lazy load share overlay. Google API should be ready by then.
-  if (!this.shareOverlay) {
-    this.shareOverlay = new app.shared.ShareOverlay(
-        this.el.find('.shareOverlay'));
-  }
-
   var newHref = location.href.substr(0,
       location.href.length - location.hash.length) + '#codeboogie' + query;
   window.history.pushState(null, '', newHref);

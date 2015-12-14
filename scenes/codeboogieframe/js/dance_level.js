@@ -429,21 +429,6 @@ app.DanceLevel.SERIALIZE_LEVELS = [
 ];
 
 /**
- * Order of steps used for serialization.
- *
- * @const {Array.<app.Step>}
- */
-app.DanceLevel.SERIALIZE_STEPS = [
-  app.Step.LEFT_ARM,
-  app.Step.RIGHT_ARM,
-  app.Step.LEFT_FOOT,
-  app.Step.RIGHT_FOOT,
-  app.Step.JUMP,
-  app.Step.SPLIT,
-  app.Step.SHAKE
-];
-
-/**
  * Maximum number of dance steps in freestyle and shared challenges.
  *
  * @const {number}
