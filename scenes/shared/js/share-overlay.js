@@ -64,7 +64,6 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
     return;
   }
 
-  this.urlElem.value = url.replace(/https?:\/\//i, '');
   this.shareButtons.setUrl(url);
   this.overlay.show();
 

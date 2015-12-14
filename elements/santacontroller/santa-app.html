@@ -966,7 +966,7 @@ Polymer({
   },
 
   trackShare: function(e, detail) {
-    this.analyticsService.trackSocial(detail || '', 'share', '/' + this.route);
+    this.analyticsService.trackEvent('social', 'share', detail || '', '/' + this.route);
   },
 
   trackGameStart: function(e, detail) {
