@@ -41,7 +41,7 @@
 
     @media (min-width: 661px) {
       &-dialog {
-        transform: translateY(-200%);
+        transform: translate3d(0, -200%, 0);
       }
 
       &.is-visible .overlay-dialog {
@@ -78,24 +78,24 @@
 
 @keyframes #{$name}-overlay-dialog-show {
   0% {
-    transform: translateY(-200%);
+    transform: translate3d(0, -200%, 0);
   }
   20% {
-    transform: translateY(-200%);
+    transform: translate3d(0, -200%, 0);
   }
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes #{$name}-overlay-dialog-hide {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   80% {
-    transform: translateY(200%);
+    transform: translate3d(0, 200%, 0);
   }
   100% {
-    transform: translateY(200%);
+    transform: translate3d(0, 200%, 0);
   }
 }
