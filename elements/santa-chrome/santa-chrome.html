@@ -364,6 +364,8 @@ specific language governing permissions and limitations under the License.
       }
       ev.preventDefault();
 
+      this.fire('analytics-track-share', target.id);
+
       var urlToShare = this.shareURL || ('' + window.location.href);
       var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + opt.height + ',width=' + opt.width;
       window.open(opt.prefix +  window.encodeURIComponent(urlToShare), '', options);
