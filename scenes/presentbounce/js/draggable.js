@@ -161,6 +161,8 @@ app.Draggable.prototype.onInputStart_ = function(e) {
     startY = e.clientY;
   }
 
+  console.log("onInputStart_??", Math.random())
+
   this.dragStart_(startX, startY);
 
   this.$document.on(app.InputEvent.MOVE, this.onInputMove_);
@@ -210,6 +212,7 @@ app.Draggable.prototype.onInputMove_ = function(e) {
 app.Draggable.prototype.onInputEnd_ = function(e) {
   this.dragEnd_(this.x, this.y);
 
+  this.$document.off(app.InputEvent.MOVE, this.onInputMove_);
   this.$document.off(app.InputEvent.END, this.onInputEnd_);
   e.preventDefault();
 };
