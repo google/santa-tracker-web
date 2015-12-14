@@ -3,7 +3,7 @@
 		"message": "Op Oukersaand gaan ons trots Kersvader se kontroleskerm bekendstel; die tegnologie wat sy slee op sy reis om die wêreld aandryf. Ons het hierdie spesiale voorskou van een van Kersvader se baie ontwikkelaarelfies ontvang, wat tans baie hard in die Noordpool werk om vir sy groot dag voor te berei. Kersvader se kontroleskerm – wat die nuutste en beste op die gebied van Google Maps-tegnologie en slee-ingenieurswerk bevat – sal jou in staat stel om sy vordering om die wêreld te volg en ook om langs die pad iets oor sy stilhouplekke te leer."
 	},
 	"about-content-three": {
-		"message": "Google Maps se Waar is Kersvader is deur Google geskep en ontwikkel, met 'n bietjie hulp van Santa se elfies af. Het jy hulp nodig of het jy nog 'n vraag? Besoek ons \u003ca href=\"//support.google.com/santatracker\"\u003eHulpsentrum\u003c/a\u003e."
+		"message": "Google Maps se Waar is Kersvader is deur Google geskep en ontwikkel, met 'n bietjie hulp van Santa se elfies af. Het jy hulp nodig of het jy nog 'n vraag? Besoek ons <a href=\"//support.google.com/santatracker\">Hulpsentrum</a>."
 	},
 	"about-content-two": {
 		"message": "Ons vriendelike elfies het jou ook uitgenooi om Kersvader se dorpie te verken terwyl Kersvader gereedmaak vir sy reis. Gaan dus voort en verken sy dorpie; jy kan dalk op 'n paar prettige aktiwiteite afkom en 'n paar interessante elfies ontmoet."
@@ -245,6 +245,15 @@
 	"co_country_name": {
 		"message": "Colombië"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Terug na die begin"
+	},
+	"codeboogie-block-clap": {
+		"message": "Klap"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Klap jou hande."
+	},
 	"codeboogie-block-jump": {
 		"message": "Spring"
 	},
@@ -287,11 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Doen 'n split."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Kies 'n speletjiemodus"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Kies 'n verhoog"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Dans bietjie!"
 	},
+	"codeboogie-go": {
+		"message": "Gaan!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Hou aan dans"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Kom ons dans"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Dansklas"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Boots die instrukteur se passies na"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Dans vrystyl"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Skep jou eie passies en deel dit met vriende"
 	},
 	"codeboogie-next-dance": {
 		"message": "Volgende dans"
@@ -320,11 +353,17 @@
 	"codeboogie-result-wrong-move": {
 		"message": "Lyk of jy die verkeerde danspassie uitgevoer het. Probeer eerder hierdie een:"
 	},
+	"codeboogie-share-moves": {
+		"message": "Deel jou danspassies en daag jou vriende uit"
+	},
 	"codeboogie-success": {
 		"message": "Sukses!"
 	},
 	"codeboogie-watch-closely": {
 		"message": "Kyk mooi!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Jou beurt"
 	},
 	"codelab-block-moveeast": {
 		"message": "oos"
@@ -369,7 +408,7 @@
 		"message": "Fantasties"
 	},
 	"codelab-mwc-promo": {
-		"message": "Bekyk meer Google-koderingprojekte by \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Bekyk meer Google-koderingprojekte by <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Volgende"
@@ -753,7 +792,7 @@
 		"message": "Noors"
 	},
 	"nonprofit-jane-description": {
-		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eVerken die sjimpansee-habitatte\u003c/a\u003e in Gombe, Tanzanië."
+		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Verken die sjimpansee-habitatte</a> in Gombe, Tanzanië."
 	},
 	"nonprofit-jane-type": {
 		"message": "Sjimpansee"
@@ -768,7 +807,7 @@
 		"message": "Woude"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimaatsverandering ontwrig steeds die balans van baie van die wêreld se ekosisteme, in sowel warm as koue plekke. In die Noordpool is ysbere besig om hul ysige seehabitat te verloor en word hulle ook bedreig deur menslike aktiwiteite soos olie- en gasontwikkeling en -verskeping. Die Wêreldnatuurfonds beywer homself om die oorlewing van die spesies te verseker deur wetenskaplike navorsing en deur saam met plaaslike Noordpool-gemeenskappe te werk. Google.org is trots om 'n \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e ondersteuner\u003c/a\u003e van die Wêreldnatuurfonds te wees."
+		"message": "Klimaatsverandering ontwrig steeds die balans van baie van die wêreld se ekosisteme, in sowel warm as koue plekke. In die Noordpool is ysbere besig om hul ysige seehabitat te verloor en word hulle ook bedreig deur menslike aktiwiteite soos olie- en gasontwikkeling en -verskeping. Die Wêreldnatuurfonds beywer homself om die oorlewing van die spesies te verseker deur wetenskaplike navorsing en deur saam met plaaslike Noordpool-gemeenskappe te werk. Google.org is trots om 'n <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> ondersteuner</a> van die Wêreldnatuurfonds te wees."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ysbeer"
@@ -4782,7 +4821,7 @@
 		"message": "In die Verenigde Koninkryk geniet pretmakers van alle ouderdomme Kersklappers saam met aandete. Klappers is helderkleurige buise van karton en papier met punte aan elke kant wat getrek kan word. Wanneer jy die punte trek, bars die buis met 'n harde klap oop! Binne-in is papierhoede, speelgoed en lekkers om op Kersaand te geniet."
 	},
 	"upgrade-warning": {
-		"message": "Oeps! Jou blaaierweergawe steun nie Waar is Kersvader nie. Laai 'n moderne blaaier af om by Waar is Kersvader te kan ingaan. Besoek \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e vir meer inligting."
+		"message": "Oeps! Jou blaaierweergawe steun nie Waar is Kersvader nie. Laai 'n moderne blaaier af om by Waar is Kersvader te kan ingaan. Besoek <a href=\"https://whatbrowser.org\">whatbrowser.org</a> vir meer inligting."
 	},
 	"us_country_name": {
 		"message": "Verenigde State"
@@ -4806,7 +4845,7 @@
 		"message": "Verken, speel en leer die hele Desember saam met Kersvader se elwe"
 	},
 	"village_get_the_app": {
-		"message": "Kry die program"
+		"message": "Kry die Santa Tracker-program vir Android"
 	},
 	"village_more": {
 		"message": "Meer maniere om te verken"
@@ -4818,7 +4857,7 @@
 		"message": "Kersvader op Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Google Chrome-uitbreiding"
+		"message": "Voeg die Santa Chrome-uitbreiding by"
 	},
 	"village_takesoff": {
 		"message": "Kersvader vertrek oor"

@@ -3,7 +3,7 @@
 		"message": "Na Badnjak ćemo s ponosom predstaviti Djedovu nadzornu ploču, tehnologiju koja pokreće njegove saonice tijekom njegova putovanja oko svijeta. Ovaj posebni pregled omogućio nam je jedan od brojnih vilenjaka Djeda Božićnjaka koji marljivo rade na Sjevernom polu i pomažu Djedu Božićnjaku da se pripremi za svoj veliki dan. Djedova nadzorna ploča (sadrži najnovije i najbolje od tehnologije Google karata i inženjeringa za saonice) omogućit će ti da pratiš njegov napredak na putu oko svijeta, a usto ćeš naučiti i ponešto o mjestima na kojima se zaustavi."
 	},
 	"about-content-three": {
-		"message": "Aplikaciju Slijedi Djeda Božićnjaka u Google kartama izradio je i razvio Google uz pomoć vilenjaka Djeda Božićnjaka. Trebaš pomoć ili imaš dodatnih pitanja? Posjeti naš \u003ca href=\"//support.google.com/santatracker\"\u003ecentar za pomoć\u003c/a\u003e."
+		"message": "Aplikaciju Slijedi Djeda Božićnjaka u Google kartama izradio je i razvio Google uz pomoć vilenjaka Djeda Božićnjaka. Trebaš pomoć ili imaš dodatnih pitanja? Posjeti naš <a href=\"//support.google.com/santatracker\">centar za pomoć</a>."
 	},
 	"about-content-two": {
 		"message": "Naši ljubazni vilenjaci pozvali su te da istražiš selo Djeda Božićnjaka dok se on priprema za putovanje. Stoga istraži njegovo selo, možda pronađeš neke zabavne aktivnosti i upoznaš neke zanimljive vilenjake."
@@ -245,6 +245,12 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-block-clap": {
+		"message": "Pljeskanje"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Pljesnite dlanom o dlan."
+	},
 	"codeboogie-block-jump": {
 		"message": "Skok"
 	},
@@ -290,6 +296,9 @@
 	"codeboogie-get-dancing": {
 		"message": "Zaplešite!"
 	},
+	"codeboogie-go": {
+		"message": "Krenimo!"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Zaplešimo"
 	},
@@ -325,6 +334,9 @@
 	},
 	"codeboogie-watch-closely": {
 		"message": "Dobro gledajte!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Vi ste na redu"
 	},
 	"codelab-block-moveeast": {
 		"message": "istočno"
@@ -369,7 +381,7 @@
 		"message": "Odlično"
 	},
 	"codelab-mwc-promo": {
-		"message": "Istraži više Googleovih projekata pisanja koda na adresi \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Istraži više Googleovih projekata pisanja koda na adresi <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Sljedeći izazov"
@@ -753,7 +765,7 @@
 		"message": "norveški"
 	},
 	"nonprofit-jane-description": {
-		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eIstražite staništa čimpanzi\u003c/a\u003e u Gombeu, u Tanzaniji."
+		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Istražite staništa čimpanzi</a> u Gombeu, u Tanzaniji."
 	},
 	"nonprofit-jane-type": {
 		"message": "Čimpanza"
@@ -768,7 +780,7 @@
 		"message": "Šume"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimatske promjene nastavljaju ometati ravnotežu mnogih svjetskih ekosustava, kako u toplim krajevima tako i u hladnima. Polarni medvjedi na Arktiku gube svoje ledeno stanište na vodi zbog povećanih temperatura i suočavaju se s dodatnim prijetnjama koje proizlaze iz ljudskih aktivnosti, kao što su iskorištavanje nalazišta nafte i plina te njihov prijevoz. World Wildlife Fund (Svjetski fond za zaštitu divljih životinja) nastoji osigurati opstanak vrsta znanstvenim istraživanjima i suradnjom s autohtonim zajednicama Arktika. Google.org ponosno \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e podržava\u003c/a\u003e te aktivnosti zajedno s World Wildlife Fundom."
+		"message": "Klimatske promjene nastavljaju ometati ravnotežu mnogih svjetskih ekosustava, kako u toplim krajevima tako i u hladnima. Polarni medvjedi na Arktiku gube svoje ledeno stanište na vodi zbog povećanih temperatura i suočavaju se s dodatnim prijetnjama koje proizlaze iz ljudskih aktivnosti, kao što su iskorištavanje nalazišta nafte i plina te njihov prijevoz. World Wildlife Fund (Svjetski fond za zaštitu divljih životinja) nastoji osigurati opstanak vrsta znanstvenim istraživanjima i suradnjom s autohtonim zajednicama Arktika. Google.org ponosno <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> podržava</a> te aktivnosti zajedno s World Wildlife Fundom."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polarni medvjed"
@@ -4782,7 +4794,7 @@
 		"message": "U Ujedinjenom Kraljevstvu veseljaci svih dobi uživaju u božićnim praskavcima uz večeru. Praskavci su valjci omotani šarenim papirom s jezičcima za povlačenje na oba kraja. Kada te jezičke povučete, valjak se raspukne uz glasan prasak! Unutar njega nalaze se papirnate kape, igračke i slatkiši za zabavu na Badnjak."
 	},
 	"upgrade-warning": {
-		"message": "Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji tvog preglednika. Da ti bude dostupna, preuzmi suvremeniji preglednik. Više informacija potraži na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji tvog preglednika. Da ti bude dostupna, preuzmi suvremeniji preglednik. Više informacija potraži na adresi <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Sjedinjene Američke Države"

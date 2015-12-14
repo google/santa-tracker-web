@@ -3,7 +3,7 @@
 		"message": "La veille de Noël, nous présenterons fièrement le tableau de bord du père Noël, la technologie qui propulse son traîneau durant son voyage international. Nous avons reçu cet aperçu de l'un des multiples lutins concepteurs du père Noël, qui sont actuellement très occupés, au pôle Nord, à aider le père Noël à se préparer pour cette importante journée. Le tableau de bord du père Noël, doté de la plus récente technologie Google Maps et de la meilleure ingénierie de traîneau, vous permettra de suivre sa progression autour du monde et d'en apprendre un peu plus sur les endroits qu'il visitera en cours de route."
 	},
 	"about-content-three": {
-		"message": "Le site Sur les traces du père Noël de Google Maps a été créé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions? Visitez notre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'aide\u003c/a\u003e."
+		"message": "Le site Sur les traces du père Noël de Google Maps a été créé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions? Visitez notre <a href=\"//support.google.com/santatracker\">Centre d'aide</a>."
 	},
 	"about-content-two": {
 		"message": "Nos gentils lutins vous invitent également à découvrir le village du père Noël pendant que ce dernier se prépare pour son grand périple. Alors, allez-y, explorez-le! Vous pourriez y trouver des activités amusantes et y rencontrer des lutins intéressants."
@@ -245,6 +245,15 @@
 	"co_country_name": {
 		"message": "Colombie"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Retour à l'accueil"
+	},
+	"codeboogie-block-clap": {
+		"message": "Frappement des mains"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Frappez dans vos mains."
+	},
 	"codeboogie-block-jump": {
 		"message": "Sauter"
 	},
@@ -287,11 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Faites un grand écart."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Choisir un mode de jeu"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Choisir une scène"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Dansez!"
 	},
+	"codeboogie-go": {
+		"message": "C'est parti!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Continuer la danse"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Dansons"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Leçon de danse"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Imitez les gestes du professeur"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Danse style libre"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Faites vos propres mouvements et partagez-les avec vos amis"
 	},
 	"codeboogie-next-dance": {
 		"message": "Danse suivante"
@@ -320,11 +353,17 @@
 	"codeboogie-result-wrong-move": {
 		"message": "On dirait que vous avez fait un mauvais mouvement. Essayez plutôt celui-ci :"
 	},
+	"codeboogie-share-moves": {
+		"message": "Partagez vos mouvements et mettez vos amis au défi"
+	},
 	"codeboogie-success": {
 		"message": "Réussite!"
 	},
 	"codeboogie-watch-closely": {
 		"message": "Regardez attentivement!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Votre tour"
 	},
 	"codelab-block-moveeast": {
 		"message": "est"
@@ -369,7 +408,7 @@
 		"message": "Excellent"
 	},
 	"codelab-mwc-promo": {
-		"message": "Découvrez davantage de projets de codage Google sur la page suivante : \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Découvrez davantage de projets de codage Google sur la page suivante : <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Prochain défi"
@@ -753,7 +792,7 @@
 		"message": "Norvégien"
 	},
 	"nonprofit-jane-description": {
-		"message": "Les chimpanzés sont les plus proches parents vivants de l'être humain au sein du règne animal! De nos jours, il reste moins de 300 000 chimpanzés dans le monde en raison de la perte de leur habitat, de maladies et du commerce illégal. La Jane Goodall Institute (JGI) protège ces animaux en les observant et en s'efforçant de comprendre leurs comportements ainsi que leurs habitats. La JGI déploie également des efforts pour créer une communauté de personnes qui veillent à protéger et à conserver la faune et la flore et leur environnement. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorez les habitats des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."
+		"message": "Les chimpanzés sont les plus proches parents vivants de l'être humain au sein du règne animal! De nos jours, il reste moins de 300 000 chimpanzés dans le monde en raison de la perte de leur habitat, de maladies et du commerce illégal. La Jane Goodall Institute (JGI) protège ces animaux en les observant et en s'efforçant de comprendre leurs comportements ainsi que leurs habitats. La JGI déploie également des efforts pour créer une communauté de personnes qui veillent à protéger et à conserver la faune et la flore et leur environnement. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explorez les habitats des chimpanzés</a> à Gombe, en Tanzanie."
 	},
 	"nonprofit-jane-type": {
 		"message": "Le chimpanzé"
@@ -768,7 +807,7 @@
 		"message": "Les forêts"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Le changement climatique continue de perturber de nombreux écosystèmes à l'échelle de la planète, dans les régions chaudes comme dans les régions froides. Dans l'Arctique, où la température est à la hausse, les ours polaires perdent peu à peu leur habitat de glace et sont de plus en plus menacés par les activités humaines, comme l'exploitation et le transport pétroliers et gaziers. Le World Wildlife Fund (Fonds mondial pour la nature) œuvre à assurer la survie des espèces grâce à la recherche scientifique et en collaborant avec les peuples autochtones de la région. Par l'entremise de son projet philanthropique Google.org, Google est fière de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e soutenir\u003c/a\u003e cet organisme."
+		"message": "Le changement climatique continue de perturber de nombreux écosystèmes à l'échelle de la planète, dans les régions chaudes comme dans les régions froides. Dans l'Arctique, où la température est à la hausse, les ours polaires perdent peu à peu leur habitat de glace et sont de plus en plus menacés par les activités humaines, comme l'exploitation et le transport pétroliers et gaziers. Le World Wildlife Fund (Fonds mondial pour la nature) œuvre à assurer la survie des espèces grâce à la recherche scientifique et en collaborant avec les peuples autochtones de la région. Par l'entremise de son projet philanthropique Google.org, Google est fière de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> soutenir</a> cet organisme."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ours polaire"
@@ -4782,7 +4821,7 @@
 		"message": "Au Royaume-Uni, les gens de tous âges s'amusent avec des pétards de Noël durant le souper. Les pétards sont des tubes emballés de papier de couleurs vives : lorsque les bouts sont tirés, le tube s'ouvre dans un grand bruit! On trouve à l'intérieur des chapeaux en papier, des jouets et des bonbons."
 	},
 	"upgrade-warning": {
-		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente. Pour en savoir plus, consultez la page \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente. Pour en savoir plus, consultez la page <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "États-Unis"
@@ -4806,7 +4845,7 @@
 		"message": "Découvre, joue et apprends avec les lutins du père Noël durant tout le mois de décembre"
 	},
 	"village_get_the_app": {
-		"message": "Télécharger l'application"
+		"message": "Se procurer l'application Sur les traces du père Noël pour Android"
 	},
 	"village_more": {
 		"message": "Autres façons d'explorer"
@@ -4818,7 +4857,7 @@
 		"message": "Le père Noël sur Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Extension Google Chrome"
+		"message": "Ajouter l'extension Sur les traces du père Noël pour Chrome"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël commence sa tournée dans"

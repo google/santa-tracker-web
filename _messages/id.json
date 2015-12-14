@@ -3,7 +3,7 @@
 		"message": "Pada Malam Natal nanti, kita akan memamerkan dasbor Sinterklas. Itu adalah teknologi ajaib yang menggerakkan kereta salju Sinterklas untuk berkeliling dunia. Kami mendengar kabar tentang dasbor ini dari salah satu kurcaci Sinterklas yang hobinya main komputer. Sekarang mereka sedang sibuk di Kutub Utara, membantu Sinterklas mempersiapkan hari terpentingnya. Dasbor Sinterklas dibuat dengan teknologi canggih dari Google Maps, agar cocok dengan kereta saljunya. Dengan alat ini, kita dapat mengikuti perjalanan Sinterklas mengelilingi dunia, sambil mempelajari hal-hal menarik tentang tempat yang ia singgahi sepanjang perjalanan."
 	},
 	"about-content-three": {
-		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi \u003ca href=\"//support.google.com/santatracker\"\u003ePusat Bantuan\u003c/a\u003e kami."
+		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi <a href=\"//support.google.com/santatracker\">Pusat Bantuan</a> kami."
 	},
 	"about-content-two": {
 		"message": "Kamu telah diundang oleh para kurcaci untuk menjelajahi desa Sinterklas, sementara Sinterklas menyiapkan perjalanannya. Berkunjunglah ke sana dan jelajahi desanya. Mungkin di sana kamu bisa bermain dan bertemu dengan para kurcaci lucu."
@@ -245,6 +245,15 @@
 	"co_country_name": {
 		"message": "Kolombia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Kembali ke awal"
+	},
+	"codeboogie-block-clap": {
+		"message": "Tepuk tangan"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Tepuk tangan"
+	},
 	"codeboogie-block-jump": {
 		"message": "Lompat"
 	},
@@ -287,11 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Lakukan split."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Pilih mode game"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Pilih lokasi"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Menarilah!"
 	},
+	"codeboogie-go": {
+		"message": "Mulai!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Terus menari"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Ayo menari"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Kelas menari"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Sesuaikan dengan gerakan guru"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Menari dengan gaya bebas"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Buat gerakan sendiri dan bagikan dengan teman"
 	},
 	"codeboogie-next-dance": {
 		"message": "Tarian Berikut"
@@ -320,11 +353,17 @@
 	"codeboogie-result-wrong-move": {
 		"message": "Sepertinya Anda melakukan langkah yang salah. Cobalah yang ini:"
 	},
+	"codeboogie-share-moves": {
+		"message": "Bagikan gerakan dan tantang teman Anda"
+	},
 	"codeboogie-success": {
 		"message": "Berhasil!"
 	},
 	"codeboogie-watch-closely": {
 		"message": "Perhatikan baik-baik!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Giliranmu"
 	},
 	"codelab-block-moveeast": {
 		"message": "timur"
@@ -369,7 +408,7 @@
 		"message": "Hebat"
 	},
 	"codelab-mwc-promo": {
-		"message": "Jelajahi proyek pengkodean Google lainnya di \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Jelajahi proyek pengkodean Google lainnya di <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Tantangan Berikutnya"
@@ -642,10 +681,10 @@
 		"message": "Jamaika"
 	},
 	"kg_country_name": {
-		"message": "Kirgizstan"
+		"message": "Kirgistan"
 	},
 	"kg_tradition": {
-		"message": "Di Kirgizstan, Ayaz Ata (Kakek Salju) datang pada tengah Malam Tahun Baru dan meninggalkan hadiah di bawah pohon Tahun Baru. Pas di tengah malam, keluarga di seluruh negeri menyalakan kembang api untuk merayakan peristiwa yang indah ini. Kota menjadi cerah seperti di siang hari."
+		"message": "Di Kirgistan, Ayaz Ata (Kakek Salju) datang pada tengah Malam Tahun Baru dan meninggalkan hadiah di bawah pohon Tahun Baru. Pas di tengah malam, keluarga di seluruh negeri menyalakan kembang api untuk merayakan peristiwa yang indah ini. Kota menjadi cerah seperti di siang hari."
 	},
 	"ko_language_name": {
 		"message": "Korea"
@@ -753,7 +792,7 @@
 		"message": "Norsk"
 	},
 	"nonprofit-jane-description": {
-		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
+		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Jelajahi habitat Simpanse</a> di Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Simpanse"
@@ -768,7 +807,7 @@
 		"message": "Hutan"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ependukung\u003c/a\u003e bersama World Wildlife Fund."
+		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">pendukung</a> bersama World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Beruang Kutub"
@@ -1032,7 +1071,7 @@
 		"message": "Cad"
 	},
 	"terms-and-privacy": {
-		"message": "Persyaratan \u0026amp; Privasi"
+		"message": "Persyaratan &amp; Privasi"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -4686,7 +4725,7 @@
 		"message": "India"
 	},
 	"trivia_medium_094_answer2": {
-		"message": "Kirgizstan"
+		"message": "Kirgistan"
 	},
 	"trivia_medium_095": {
 		"message": "Danau Nipigon merupakan danau terbesar di provinsi mana di Kanada?"
@@ -4782,7 +4821,7 @@
 		"message": "Di Inggris, semua orang memainkan \"Christmas Crackers\" saat makan malam. \"Crackers\" adalah tabung kertas warna-warni yang kedua ujungnya bisa ditarik. Begitu ditarik, tabung akan meletup dengan suara keras! Di dalamnya ada topi kertas, mainan, dan permen untuk dinikmati saat malam Natal."
 	},
 	"upgrade-warning": {
-		"message": "Ups! Pelacak Sinterklas tidak didukung dalam versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut kunjungi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! Pelacak Sinterklas tidak didukung dalam versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut kunjungi <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Amerika Serikat"
@@ -4806,7 +4845,7 @@
 		"message": "Menjelajah, bermain, dan belajar dengan para Kurcaci Sinterklas selama bulan Desember"
 	},
 	"village_get_the_app": {
-		"message": "Dapatkan Aplikasi"
+		"message": "Dapatkan Aplikasi Pelacak Sinterklas untuk Android"
 	},
 	"village_more": {
 		"message": "Cara Lain untuk Menjelajahi"
@@ -4818,7 +4857,7 @@
 		"message": "Sinterklas di Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Ekstensi Google Chrome"
+		"message": "Tambahkan Ekstensi Chrome Sinterklas"
 	},
 	"village_takesoff": {
 		"message": "Sinterklas berangkat dalam"

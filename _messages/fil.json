@@ -3,7 +3,7 @@
 		"message": "Sa Bisperas ng Pasko, ikinararangal naming itampok ang dashboard ni Santa, ang teknolohiyang ginagamit sa kanyang sleigh kapag naglalakbay siya sa buong mundo. Natanggap namin ang espesyal na preview na ito mula sa isa sa maraming developer na elf ni Santa, na nagpapakapagod sa North Pole upang matulungan si Santa na maghanda para sa napakahalagang araw niya. Magagamit mo ang dashboard ni Santa - na ginamitan ng pinakabago at pinakamahusay na teknolohiya ng Google Maps at sleigh engineering - upang sundan ang kanyang paglalakbay sa buong mundo, at magkaroon din ng kaunting kaalaman tungkol sa mga pinupuntahan niya."
 	},
 	"about-content-three": {
-		"message": "Ginawa at binuo ng Google ang Google Maps Santa Tracker, sa tulong ng mga elf ni Santa. Kailangan mo ba ng tulong o mayroong ka pa bang tanong? Bisitahin ang aming \u003ca href=\"//support.google.com/santatracker\"\u003eHelp Center\u003c/a\u003e."
+		"message": "Ginawa at binuo ng Google ang Google Maps Santa Tracker, sa tulong ng mga elf ni Santa. Kailangan mo ba ng tulong o mayroong ka pa bang tanong? Bisitahin ang aming <a href=\"//support.google.com/santatracker\">Help Center</a>."
 	},
 	"about-content-two": {
 		"message": "Inanyayahan ka rin ng aming magigiliw na elf na mamasyal sa village ni Santa habang naghahanda si Santa para sa kanyang paglalakbay. Kaya huwag mahiya at mamasyal sa kanyang village, at baka makakita ka ng ilang aktibidad na nakakatuwang gawin at makakilala ng ilang interesanteng elf."
@@ -369,7 +369,7 @@
 		"message": "Mahusay"
 	},
 	"codelab-mwc-promo": {
-		"message": "Mag-explore ng higit pang mga proyekto sa pagko-code ng Google sa \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Mag-explore ng higit pang mga proyekto sa pagko-code ng Google sa <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Sunod na Hamon"
@@ -753,7 +753,7 @@
 		"message": "Norwegian"
 	},
 	"nonprofit-jane-description": {
-		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
+		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">I-explore ang mga tirahan ng Chimpanzee</a> sa Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
@@ -768,7 +768,7 @@
 		"message": "Kagubatan"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Patuloy na sinisira ng pagbabago sa klima ang balanse ng marami sa mga ecosystem sa mundo, sa parehong maiinit at malalamig na lugar. Sa Arctic, nawawalan na ang mga polar bear ng mga nagyeyelong dagat na tirahan dahil sa pagtaas ng temperatura, at nahaharap sa mga karagdagang banta mula sa mga aktibidad ng tao, gaya ng development ng langis at gasolina at shipping. Kumikilos ang World Wildlife Fund upang matiyak ang kaligtasan ng species sa pamamagitan ng siyentipikong pananaliksik at pakikipagtulungan sa mga katutubong komunidad sa Arctic. Ipinagmamalaki ng Google.org na maging isang \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e tagasuporta\u003c/a\u003e sa World Wildlife Fund."
+		"message": "Patuloy na sinisira ng pagbabago sa klima ang balanse ng marami sa mga ecosystem sa mundo, sa parehong maiinit at malalamig na lugar. Sa Arctic, nawawalan na ang mga polar bear ng mga nagyeyelong dagat na tirahan dahil sa pagtaas ng temperatura, at nahaharap sa mga karagdagang banta mula sa mga aktibidad ng tao, gaya ng development ng langis at gasolina at shipping. Kumikilos ang World Wildlife Fund upang matiyak ang kaligtasan ng species sa pamamagitan ng siyentipikong pananaliksik at pakikipagtulungan sa mga katutubong komunidad sa Arctic. Ipinagmamalaki ng Google.org na maging isang <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> tagasuporta</a> sa World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
@@ -4782,7 +4782,7 @@
 		"message": "Sa United Kingdom, nagpapaputok ang mga nagdiriwang, anuman ang edad, ng mga Christmas cracker sa hapag sa hapunan. Ang cracker ay tube na binalot sa makukulay na papel, na may hahataking tab sa magkabilang dulo. Kapag hinatak mo ang mga tab, sasabog ang tube nang may malakas na tunog! May laman itong mga paper hat, laruan at candy na ie-enjoy sa gabi ng Pasko."
 	},
 	"upgrade-warning": {
-		"message": "Oops! Hindi sinusuportahan ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa higit pang impormasyon, bisitahin ang \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oops! Hindi sinusuportahan ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa higit pang impormasyon, bisitahin ang <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
