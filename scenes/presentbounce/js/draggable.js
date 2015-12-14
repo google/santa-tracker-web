@@ -14,6 +14,7 @@
  * the License.
  */
 
+goog.require('app.InputEvent');
 goog.provide('app.Draggable');
 
 /**
@@ -38,8 +39,13 @@ app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer, d
   this.container = $(elem).parent();
   this.el.data('container', this.container);
 
-  this.el.on('mousedown.presentbounce', this.mousedown_.bind(this));
-  this.el.on('touchstart.presentbounce', this.touchstart_.bind(this));
+  this.$document = $(document);
+
+  this.onInputStart_ = this.onInputStart_.bind(this);
+  this.onInputMove_ = this.onInputMove_.bind(this);
+  this.onInputEnd_ = this.onInputEnd_.bind(this);
+
+  this.el.on(app.InputEvent.START, this.onInputStart_);
 
   this.el.addClass('draggable');
 };
@@ -135,22 +141,30 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
 
 
 /**
- * @param {!Event} e mouse event
+ * @param {!Event} e touch event
  * @private
  */
-app.Draggable.prototype.mousedown_ = function(e) {
+app.Draggable.prototype.onInputStart_ = function(e) {
   var startX = null;
   var startY = null;
 
+
+  e = app.InputEvent.normalize(e);
+
   if (this.drawer.isPaused()) return;
 
-  startX = e.clientX;
-  startY = e.clientY;
+  if (e.hasOwnProperty('touches')) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  } else {
+    startX = e.clientX;
+    startY = e.clientY;
+  }
 
   this.dragStart_(startX, startY);
 
-  $(window).on('mousemove.presentbounce', this.mousemove_.bind(this));
-  $(window).on('mouseup.presentbounce', this.mouseup_.bind(this));
+  this.$document.on(app.InputEvent.MOVE, this.onInputMove_);
+  this.$document.on(app.InputEvent.END, this.onInputEnd_);
 
   e.preventDefault();
 };
@@ -159,47 +173,30 @@ app.Draggable.prototype.mousedown_ = function(e) {
  * @param {!Event} e touch event
  * @private
  */
-app.Draggable.prototype.touchstart_ = function(e) {
-  var startX = null;
-  var startY = null;
+app.Draggable.prototype.onInputMove_ = function(e) {
+  var left = null;
+  var top = null;
 
-  if (this.drawer.isPaused()) return;
+  e = app.InputEvent.normalize(e);
 
-  startX = e.originalEvent.touches[0].clientX;
-  startY = e.originalEvent.touches[0].clientY;
+  if (e.hasOwnProperty('touches')) {
 
-  this.dragStart_(startX, startY);
+    left = e.touches[0].clientX - this.startX;
+    top = e.touches[0].clientY - this.startY;
 
+    // Store the last known position because touchend doesn't
+    this.x = e.touches[0].clientX;
+    this.y = e.touches[0].clientY;
 
-  $(window).on('touchmove.presentbounce', this.touchmove_.bind(this));
-  $(window).on('touchend.presentbounce', this.touchend_.bind(this));
+  } else {
 
-  e.preventDefault();
-};
+    left = e.clientX - this.startX;
+    top = e.clientY - this.startY;
 
-/**
- * @param {!Event} e mouse event
- * @private
- */
-app.Draggable.prototype.mousemove_ = function(e) {
-  var left = e.clientX - this.startX;
-  var top = e.clientY - this.startY;
-
-  this.dragMove_(left, top, e.clientX, e.clientY);
-  e.preventDefault();
-};
-
-/**
- * @param {!Event} e touch event
- * @private
- */
-app.Draggable.prototype.touchmove_ = function(e) {
-  var left = e.originalEvent.touches[0].clientX - this.startX;
-  var top = e.originalEvent.touches[0].clientY - this.startY;
-
-  // Store the last known position because touchend doesn't
-  this.x = e.originalEvent.touches[0].clientX;
-  this.y = e.originalEvent.touches[0].clientY;
+    // Store the last known position because touchend doesn't
+    this.x = e.clientX;
+    this.y = e.clientY;
+  }
 
   this.dragMove_(left, top, this.x, this.y);
   e.preventDefault();
@@ -207,23 +204,12 @@ app.Draggable.prototype.touchmove_ = function(e) {
 };
 
 /**
- * @param {!Event} e mouse event
- * @private
- */
-app.Draggable.prototype.mouseup_ = function(e) {
-  this.dragEnd_(e.clientX, e.clientY);
-
-  $(window).off('mousemove.presentbounce mouseup.presentbounce');
-  e.preventDefault();
-};
-
-/**
  * @param {!Event} e touch event
  * @private
  */
-app.Draggable.prototype.touchend_ = function(e) {
+app.Draggable.prototype.onInputEnd_ = function(e) {
   this.dragEnd_(this.x, this.y);
 
-  $(window).off('touchmove.presentbounce touchend.presentbounce');
+  this.$document.off(app.InputEvent.END, this.onInputEnd_);
   e.preventDefault();
 };
