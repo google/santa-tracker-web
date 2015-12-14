@@ -3,7 +3,7 @@
 		"message": "An Heiligabend präsentieren wir das Weihnachtsmann-Dashboard. Mit dieser Technologie wird der Schlitten des Weihnachtsmanns auf seiner Weltreise angetrieben. Wir haben diese spezielle Vorschau von einem der vielen Entwicklerwichtel des Weihnachtsmanns erhalten, die am Nordpol emsig dabei sind, den Weihnachtsmann bei der Vorbereitung auf seinen großen Tag zu unterstützen. Das Weihnachtsmanns-Dashboard stellt die neuesten und besten Errungenschaften der Google Maps-Technologie und Schlittenkunst vor. Du kannst damit seine Weltreise verfolgen und einiges über seine Zwischenstopps erfahren."
 	},
 	"about-content-three": {
-		"message": "Google hat gemeinsam mit den Wichteln des Weihnachtsmanns \"Auf den Spuren des Weihnachtsmanns\" auf Google Maps gestaltet und entwickelt. Brauchst du Hilfe oder hast du weitere Fragen? <a href=\"//support.google.com/santatracker\">Weitere Informationen findest du in der Google Maps-Hilfe.</a>"
+		"message": "Google hat gemeinsam mit den Wichteln des Weihnachtsmanns \"Auf den Spuren des Weihnachtsmanns\" auf Google Maps gestaltet und entwickelt. Brauchst du Hilfe oder hast du weitere Fragen? \u003ca href=\"//support.google.com/santatracker\"\u003eWeitere Informationen findest du in der Google Maps-Hilfe.\u003c/a\u003e"
 	},
 	"about-content-two": {
 		"message": "Unsere freundlichen Wichtel laden dich zu einem Besuch ins Weihnachtsmanndorf ein, während sich der Weihnachtsmann auf seine Reise vorbereitet. Ganz bestimmt findest du dort unterhaltsame Aktivitäten und begegnest interessanten Wichteln."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Kolumbien"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Zurück zum Start"
+	},
 	"codeboogie-block-clap": {
 		"message": "Klatschen"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Mach einen Spagat!"
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Spielmodus auswählen"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Bühne auswählen"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Du bist dran!"
 	},
 	"codeboogie-go": {
 		"message": "Los"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Weitertanzen"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Lass uns tanzen"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Tanzkurs"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Mach die Schritte des Lehrers nach."
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Freestyle"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Erfinde deine eigenen Tanzschritte und teile sie mit deinen Freunden."
 	},
 	"codeboogie-next-dance": {
 		"message": "Nächster Tanz"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Dieser Tanzschritt hat wohl nicht ganz gepasst. Probier es mal mit diesem hier:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Teile deine Tanzschritte mit anderen und fordere deine Freunde heraus."
 	},
 	"codeboogie-success": {
 		"message": "Geschafft!"
@@ -381,7 +408,7 @@
 		"message": "Super gemacht!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Unter <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a> findest du weitere Programmierprojekte von Google."
+		"message": "Unter \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e findest du weitere Programmierprojekte von Google."
 	},
 	"codelab-next-challenge": {
 		"message": "Nächste Aufgabe"
@@ -765,7 +792,7 @@
 		"message": "Norwegisch"
 	},
 	"nonprofit-jane-description": {
-		"message": "Schimpansen sind die nächsten lebenden Verwandten des Menschen im Tierreich. Wegen zerstörter Lebensräume, Krankheiten und illegalen Handels gibt es heute weniger als 300.000 von ihnen. Das Jane Goodall Institute (JGI) schützt Schimpansen, indem es ihr Verhalten und ihren Lebensraum untersucht und erforscht. Außerdem fördert das JGI die Bildung einer Community, die die Tierwelt und unsere Umwelt schützen und erhalten möchte. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Entdecke die Lebensräume der Schimpansen</a> in Gombe, Tansania."
+		"message": "Schimpansen sind die nächsten lebenden Verwandten des Menschen im Tierreich. Wegen zerstörter Lebensräume, Krankheiten und illegalen Handels gibt es heute weniger als 300.000 von ihnen. Das Jane Goodall Institute (JGI) schützt Schimpansen, indem es ihr Verhalten und ihren Lebensraum untersucht und erforscht. Außerdem fördert das JGI die Bildung einer Community, die die Tierwelt und unsere Umwelt schützen und erhalten möchte. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEntdecke die Lebensräume der Schimpansen\u003c/a\u003e in Gombe, Tansania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Schimpanse"
@@ -780,7 +807,7 @@
 		"message": "Wälder"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Der Klimawandel zerstört das Gleichgewicht vieler Ökosysteme der Welt immer weiter, sowohl an warmen als auch an kalten Orten. In der Arktis verlieren die Eisbären aufgrund der steigenden Temperaturen ihren Lebensraum im Meereis und sind außerdem z. B. durch die Förderung und Verschiffung von Öl und Gas bedroht. Der WWF arbeitet daran, das Überleben der Arten durch wissenschaftliche Forschung und durch die Zusammenarbeit mit arktischen indigenen Gemeinschaften zu sichern. Google ist stolz darauf, <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">den WWF zu unterstützen</a>."
+		"message": "Der Klimawandel zerstört das Gleichgewicht vieler Ökosysteme der Welt immer weiter, sowohl an warmen als auch an kalten Orten. In der Arktis verlieren die Eisbären aufgrund der steigenden Temperaturen ihren Lebensraum im Meereis und sind außerdem z. B. durch die Förderung und Verschiffung von Öl und Gas bedroht. Der WWF arbeitet daran, das Überleben der Arten durch wissenschaftliche Forschung und durch die Zusammenarbeit mit arktischen indigenen Gemeinschaften zu sichern. Google ist stolz darauf, \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eden WWF zu unterstützen\u003c/a\u003e."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polarbär"
@@ -4794,7 +4821,7 @@
 		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug und Süßigkeiten für den Weihnachtsabend aus."
 	},
 	"upgrade-warning": {
-		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen. Weitere Informationen findest du unter <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen. Weitere Informationen findest du unter \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -4818,7 +4845,7 @@
 		"message": "Entdecke, spiele und lerne den ganzen Dezember lang gemeinsam mit den Wichteln des Weihnachtsmanns."
 	},
 	"village_get_the_app": {
-		"message": "App herunterladen"
+		"message": "App \"Auf den Spuren des Weihnachtsmanns\" für Android holen"
 	},
 	"village_more": {
 		"message": "Mehr entdecken"
@@ -4830,7 +4857,7 @@
 		"message": "Mit Google Cast den Weihnachtsmann suchen"
 	},
 	"village_santa_crx": {
-		"message": "Google Chrome-Erweiterung"
+		"message": "Weihnachtliche Chrome-Erweiterung hinzufügen"
 	},
 	"village_takesoff": {
 		"message": "Der Weihnachtsmann startet in"

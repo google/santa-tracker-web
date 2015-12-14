@@ -3,7 +3,7 @@
 		"message": "Pada Malam Natal nanti, kita akan memamerkan dasbor Sinterklas. Itu adalah teknologi ajaib yang menggerakkan kereta salju Sinterklas untuk berkeliling dunia. Kami mendengar kabar tentang dasbor ini dari salah satu kurcaci Sinterklas yang hobinya main komputer. Sekarang mereka sedang sibuk di Kutub Utara, membantu Sinterklas mempersiapkan hari terpentingnya. Dasbor Sinterklas dibuat dengan teknologi canggih dari Google Maps, agar cocok dengan kereta saljunya. Dengan alat ini, kita dapat mengikuti perjalanan Sinterklas mengelilingi dunia, sambil mempelajari hal-hal menarik tentang tempat yang ia singgahi sepanjang perjalanan."
 	},
 	"about-content-three": {
-		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi <a href=\"//support.google.com/santatracker\">Pusat Bantuan</a> kami."
+		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi \u003ca href=\"//support.google.com/santatracker\"\u003ePusat Bantuan\u003c/a\u003e kami."
 	},
 	"about-content-two": {
 		"message": "Kamu telah diundang oleh para kurcaci untuk menjelajahi desa Sinterklas, sementara Sinterklas menyiapkan perjalanannya. Berkunjunglah ke sana dan jelajahi desanya. Mungkin di sana kamu bisa bermain dan bertemu dengan para kurcaci lucu."
@@ -408,7 +408,7 @@
 		"message": "Hebat"
 	},
 	"codelab-mwc-promo": {
-		"message": "Jelajahi proyek pengkodean Google lainnya di <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Jelajahi proyek pengkodean Google lainnya di \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Tantangan Berikutnya"
@@ -792,7 +792,7 @@
 		"message": "Norsk"
 	},
 	"nonprofit-jane-description": {
-		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Jelajahi habitat Simpanse</a> di Gombe, Tanzania."
+		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Simpanse"
@@ -807,7 +807,7 @@
 		"message": "Hutan"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">pendukung</a> bersama World Wildlife Fund."
+		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ependukung\u003c/a\u003e bersama World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Beruang Kutub"
@@ -1071,7 +1071,7 @@
 		"message": "Cad"
 	},
 	"terms-and-privacy": {
-		"message": "Persyaratan &amp; Privasi"
+		"message": "Persyaratan \u0026amp; Privasi"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -4821,7 +4821,7 @@
 		"message": "Di Inggris, semua orang memainkan \"Christmas Crackers\" saat makan malam. \"Crackers\" adalah tabung kertas warna-warni yang kedua ujungnya bisa ditarik. Begitu ditarik, tabung akan meletup dengan suara keras! Di dalamnya ada topi kertas, mainan, dan permen untuk dinikmati saat malam Natal."
 	},
 	"upgrade-warning": {
-		"message": "Ups! Pelacak Sinterklas tidak didukung dalam versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut kunjungi <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Ups! Pelacak Sinterklas tidak didukung dalam versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut kunjungi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Amerika Serikat"

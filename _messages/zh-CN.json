@@ -3,7 +3,7 @@
 		"message": "我们将于平安夜隆重推出圣诞老人行踪面板，也就是圣诞老人环游世界时为他的雪橇提供动力的高科技产品。圣诞老人有许多负责开发工作的小精灵正在北极辛勤工作，帮他为圣诞节做准备。其中一位热情的圣诞精灵还特别邀请我们抢先看看圣诞老人行踪面板，它拥有最新最棒的 Google 地图技术和雪橇工程科技。在圣诞老人行踪面板中，您能够追踪圣诞老人在全世界的足迹，还能对他到访的一些地方有所了解。"
 	},
 	"about-content-three": {
-		"message": "Google 地图“追踪圣诞老人”由 Google 创作开发，在此过程中得到了圣诞精灵的一些帮助。需要帮助或是有其他问题？请访问我们的<a href=\"//support.google.com/santatracker\">帮助中心</a>。"
+		"message": "Google 地图“追踪圣诞老人”由 Google 创作开发，在此过程中得到了圣诞精灵的一些帮助。需要帮助或是有其他问题？请访问我们的\u003ca href=\"//support.google.com/santatracker\"\u003e帮助中心\u003c/a\u003e。"
 	},
 	"about-content-two": {
 		"message": "圣诞老人正在为旅程做准备，与此同时，热情友好的圣诞精灵邀请您前来探索圣诞老人的小镇。快来探索圣诞老人小镇吧，说不定还能参加一些好玩儿的活动，认识几位有趣的圣诞精灵呢。"
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "哥伦比亚"
 	},
+	"codeboogie-back-to-start": {
+		"message": "回到开始页面"
+	},
 	"codeboogie-block-clap": {
 		"message": "拍手"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "来个一字马。"
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "选择游戏模式"
+	},
+	"codeboogie-choose-stage": {
+		"message": "选择关卡"
+	},
 	"codeboogie-get-dancing": {
 		"message": "开始跳舞吧！"
 	},
 	"codeboogie-go": {
 		"message": "开始！"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "继续跳舞"
+	},
 	"codeboogie-lets-dance": {
 		"message": "一展舞姿"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "舞蹈课堂"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "仿照老师的动作跳舞"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "自编舞步"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "自己编排动作，并与朋友们分享"
 	},
 	"codeboogie-next-dance": {
 		"message": "下一支舞"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "您的动作好像不对哦。试试这一步："
+	},
+	"codeboogie-share-moves": {
+		"message": "分享您的舞步，并向朋友们宣战"
 	},
 	"codeboogie-success": {
 		"message": "成功！"
@@ -381,7 +408,7 @@
 		"message": "非常好"
 	},
 	"codelab-mwc-promo": {
-		"message": "访问 <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>，了解更多 Google 编码项目。"
+		"message": "访问 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e，了解更多 Google 编码项目。"
 	},
 	"codelab-next-challenge": {
 		"message": "下一关"
@@ -765,7 +792,7 @@
 		"message": "挪威语"
 	},
 	"nonprofit-jane-description": {
-		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。<a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">立即探索坦桑尼亚贡贝的黑猩猩栖息地</a>。"
+		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
 	},
 	"nonprofit-jane-type": {
 		"message": "黑猩猩"
@@ -780,7 +807,7 @@
 		"message": "森林"
 	},
 	"nonprofit-wwf-description": {
-		"message": "气候变化不断破坏着全球许多地区的生态平衡，无论是温暖的地区还是寒冷的地区都受到了影响。在北极，随着气温不断上升，北极熊正在逐渐失去赖以生存的海冰栖息地，而石油和天然气的开采和运输等人类活动更是威胁着北极熊的生存。World Wildlife Fund 大力开展科学研究，并与北极当地社区携手合作，致力于确保物种的生息繁衍。Google.org 是 World Wildlife Fund 的<a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">支持者</a>，为此我们感到无比骄傲。"
+		"message": "气候变化不断破坏着全球许多地区的生态平衡，无论是温暖的地区还是寒冷的地区都受到了影响。在北极，随着气温不断上升，北极熊正在逐渐失去赖以生存的海冰栖息地，而石油和天然气的开采和运输等人类活动更是威胁着北极熊的生存。World Wildlife Fund 大力开展科学研究，并与北极当地社区携手合作，致力于确保物种的生息繁衍。Google.org 是 World Wildlife Fund 的\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e支持者\u003c/a\u003e，为此我们感到无比骄傲。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "北极熊"
@@ -4794,7 +4821,7 @@
 		"message": "在英国，不同年龄的人围坐在桌旁，一起玩圣诞爆竹游戏。爆竹是一种用彩纸包裹的圆筒，筒的两端系有拉环。拉动拉环时，圆筒会“啪”地一声炸开！里面是纸帽、玩具和糖果，供人们在圣诞夜享用。"
 	},
 	"upgrade-warning": {
-		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新型浏览器。如需更多详情，请访问 <a href=\"https://whatbrowser.org\">whatbrowser.org</a>。"
+		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新型浏览器。如需更多详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
 	},
 	"us_country_name": {
 		"message": "美国"
@@ -4818,7 +4845,7 @@
 		"message": "在弥漫着节日气氛的 12 月，与圣诞老人的小精灵们一起探索、玩耍、学习"
 	},
 	"village_get_the_app": {
-		"message": "下载应用"
+		"message": "下载 Android 版“追踪圣诞老人”应用"
 	},
 	"village_more": {
 		"message": "更多探索方式"
@@ -4830,7 +4857,7 @@
 		"message": "在 Google Cast 上寻找圣诞老人"
 	},
 	"village_santa_crx": {
-		"message": "Google Chrome 扩展程序"
+		"message": "添加圣诞老人 Chrome 扩展程序"
 	},
 	"village_takesoff": {
 		"message": "圣诞老人出发倒计时"

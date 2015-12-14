@@ -3,7 +3,7 @@
 		"message": "Ziemassvētku vakarā ar lepnumu tiks atklāts Ziemassvētku vecīša informācijas panelis — tehnoloģija, kas darbinās ragavas viņa ceļojumā apkārt pasaulei. Šo īpašo priekšskatījuma iespēju mums dāvāja viens no Ziemassvētku vecīša rūķīšiem, kas kopā ar citiem rūķīšiem Ziemeļpolā cītīgi strādā, lai palīdzētu Ziemassvētku vecītim sagatavoties lielajiem svētkiem. Ziemassvētku vecīša informācijas panelī būs pieejama jaunākā un lieliskākā pakalpojuma Google Maps tehnoloģija, kā arī ragavu tehnoloģija, ar ko varēs sekot līdzi Ziemassvētku vecīša ceļojumam apkārt pasaulei un uzzināt par pieturvietām tajā."
 	},
 	"about-content-three": {
-		"message": "Google Maps Ziemassvētku vecīša ceļojumu izstrādāja un ieviesa uzņēmums Google. Tomēr nelielu palīdzību sniedza arī Ziemassvētku vecīša rūķīši. Vai ir nepieciešama palīdzība vai radās jautājums? Apmeklējiet mūsu <a href=\"//support.google.com/santatracker\">palīdzības centru</a>."
+		"message": "Google Maps Ziemassvētku vecīša ceļojumu izstrādāja un ieviesa uzņēmums Google. Tomēr nelielu palīdzību sniedza arī Ziemassvētku vecīša rūķīši. Vai ir nepieciešama palīdzība vai radās jautājums? Apmeklējiet mūsu \u003ca href=\"//support.google.com/santatracker\"\u003epalīdzības centru\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Kamēr Ziemassvētku vecītis gatavojas savam ceļojumam, viesmīlīgie rūķīši tevi aicina aplūkot Ziemassvētku vecīša mājvietu. Dodies ciemos un izpēti viņa ciematu! Pa ceļam atradīsi interesantus uzdevumus un satiksi jaukos rūķīšus."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Kolumbija"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Atpakaļ uz sākumu"
+	},
 	"codeboogie-block-clap": {
 		"message": "Aplaudēšana"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Izpildiet špagatu."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Izvēlieties spēles režīmu"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Izvēlieties vietu"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Sāciet dejot!"
 	},
 	"codeboogie-go": {
 		"message": "Aiziet!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Turpināt dejot"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Padejosim"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Deju nodarbība"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Atkārtojiet skolotāja kustības"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Dejas brīvā stilā"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Izveidojiet pats savas kustības un kopīgojiet tās ar draugiem"
 	},
 	"codeboogie-next-dance": {
 		"message": "Nākamā deja"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Šķiet, veicāt nepareizo darbību. Izmēģiniet tālāk norādīto darbību."
+	},
+	"codeboogie-share-moves": {
+		"message": "Parādiet savu deju draugiem un izaiciniet viņus"
 	},
 	"codeboogie-success": {
 		"message": "Gatavs!"
@@ -381,7 +408,7 @@
 		"message": "Lieliski!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Citus Google kodēšanas projektus skatiet šeit: <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Citus Google kodēšanas projektus skatiet šeit: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Nākamais izaicinājums"
@@ -765,7 +792,7 @@
 		"message": "Norvēģu"
 	},
 	"nonprofit-jane-description": {
-		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">mītošajām šimpanzēm</a>."
+		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003emītošajām šimpanzēm\u003c/a\u003e."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpanze"
@@ -780,7 +807,7 @@
 		"message": "Meži"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimata pārmaiņas turpina negatīvi ietekmēt daudzu pasaules ekosistēmu līdzsvaru gan siltajās, gan aukstajās zemēs. Paaugstinoties gaisa temperatūrai, Arktikā polārie lāči zaudē ledu, kas ir lielu daļu viņu dzīves telpas. Tāpēc viņus ievērojami vairāk apdraud cilvēku darbības, piemēram, naftas un gāzes ieguves un transportēšanas nozares attīstība. Pasaules Dabas Fonds dara visu iespējamo, lai palīdzētu izdzīvot apdraudētajām sugām, veicot zinātnisko izpēti un sadarbojoties ar Arktikas kopienu iedzīvotājiem. Google.org lepojas ar savu ciešo sadarbību ar <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">Pasaules Dabas Fondu</a>."
+		"message": "Klimata pārmaiņas turpina negatīvi ietekmēt daudzu pasaules ekosistēmu līdzsvaru gan siltajās, gan aukstajās zemēs. Paaugstinoties gaisa temperatūrai, Arktikā polārie lāči zaudē ledu, kas ir lielu daļu viņu dzīves telpas. Tāpēc viņus ievērojami vairāk apdraud cilvēku darbības, piemēram, naftas un gāzes ieguves un transportēšanas nozares attīstība. Pasaules Dabas Fonds dara visu iespējamo, lai palīdzētu izdzīvot apdraudētajām sugām, veicot zinātnisko izpēti un sadarbojoties ar Arktikas kopienu iedzīvotājiem. Google.org lepojas ar savu ciešo sadarbību ar \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ePasaules Dabas Fondu\u003c/a\u003e."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polārlācis"
@@ -4794,7 +4821,7 @@
 		"message": "Lielbritānijā svētku dalībnieki neatkarīgi no vecuma pie vakariņu galda šauj plaukšķenes. Tās ir krāsainā papīrā ietītas caurules ar aukliņām abos galos. Paraujot aukliņas, caurule ar skaļu blīkšķi pārplīst. Tajā ir papīra cepurītes, rotaļlietas un saldumi, kas tiek apēsti Ziemassvētku vakarā."
 	},
 	"upgrade-warning": {
-		"message": "Diemžēl vietne Ziemassvētku vecīša ceļojums netiek atbalstīta šajā pārlūkprogrammas versijā. Lai piekļūtu vietnei Ziemassvētku vecīša ceļojums, lejupielādējiet jaunāku pārlūkprogrammu. Plašāku informāciju skatiet vietnē <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Diemžēl vietne Ziemassvētku vecīša ceļojums netiek atbalstīta šajā pārlūkprogrammas versijā. Lai piekļūtu vietnei Ziemassvētku vecīša ceļojums, lejupielādējiet jaunāku pārlūkprogrammu. Plašāku informāciju skatiet vietnē \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Amerikas Savienotās Valstis"
@@ -4818,7 +4845,7 @@
 		"message": "Visu decembri pētiet, spēlējieties un mācieties kopā ar Ziemassvētku vecīša elfiem"
 	},
 	"village_get_the_app": {
-		"message": "Iegūt lietotni"
+		"message": "Iegūstiet lietotni Ziemassvētku vecīša ceļojums Android ierīcēm"
 	},
 	"village_more": {
 		"message": "Vairāk izpētes veidu"
@@ -4830,7 +4857,7 @@
 		"message": "Ziemassvētku vecītis platformā Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Google Chrome paplašinājums"
+		"message": "Pievienot Chrome paplašinājumu"
 	},
 	"village_takesoff": {
 		"message": "Ziemassvētku vecītis dosies ceļā pēc"
