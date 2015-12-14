@@ -86,6 +86,11 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
         width: choose-mode-figure-width(100%);
         margin-left: -(choose-mode-figure-width(100%) - 100%);
       }
+
+      &--freestyle {
+        width: 75%;
+        padding-bottom: 75%;
+      }
     }
 
     &__title-wrapper {
