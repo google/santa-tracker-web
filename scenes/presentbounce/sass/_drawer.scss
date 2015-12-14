@@ -129,6 +129,29 @@
 						left: 50%;
 						transform: none;
 					}
+
+					.conveyor {
+
+						&__wheel {
+
+							margin: 1px;
+							width: auto;
+							height: 100%;
+
+							@media (min-width: $board-desktop-breakpoint) {
+								margin: 3px;
+							}
+
+							&--first {
+								right: 80%;
+							}
+
+							&--last {
+								left: 80%;
+							}
+						}
+
+					}
 				}
 			}
 
@@ -141,19 +164,26 @@
 			border-radius: 50%;
 			color: #fff;
 			display: block;
-			width: 20px;
-			height: 20px;
-			line-height: 20px;
-			font-size: 15px;
+			width: 15px;
+			height: 15px;
+			line-height: 15px;
+			font-size: 10px;
 			position: absolute;
-			top: 10px;
-			left: 10px;
+			top: 6px;
+			left: 6px;
 			z-index: 20;
 			opacity: 0;
 			transform: scale(0.6);
 			transition-property: transform, opacity;
 			transition-duration: 800ms;
 			transition-timing-function: $easeOutExpo;
+
+			@media (min-width: $board-tablet-breakpoint) {
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				font-size: 15px;
+			}
 
 			@media (min-width: $board-desktop-breakpoint) {
 				top: 25px;

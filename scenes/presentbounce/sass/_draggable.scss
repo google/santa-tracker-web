@@ -12,7 +12,7 @@
 		> * {
 			transition: transform 300ms $easeOutQuad;
 		}
-		
+
 		&.dragging {
 			cursor: grabbing;
 			&.no-drop {

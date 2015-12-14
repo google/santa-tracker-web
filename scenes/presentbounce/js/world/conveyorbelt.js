@@ -70,6 +70,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    */
   toggleBeltDirection_() {
     this.currentDirection_ *= -1;
+    this.$el_.toggleClass('js-animation-reverse', this.currentDirection_ === -1);
     this.updateBeltDirection_(this.getBeltDirectionVector_());
     window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_change_direction');
   }
@@ -105,8 +106,8 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    * Pauses the conveyor belt.
    */
   pauseBelt_() {
+    this.$el_.addClass('js-animation-paused'); // for the wheel
     cancelAnimationFrame(this.rAFID);
-    this.offset = this.pathLength; // reset offset
     this.updateBeltDirection_(this.getBeltDirectionVector_(0));
   }
 
@@ -114,6 +115,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    * Resumes the conveyor belt.
    */
   resumeBelt_() {
+    this.$el_.removeClass('js-animation-paused'); // for the wheel
     // make sure we are not pilling animations
     cancelAnimationFrame(this.rAFID);
     this.animateBelt_();
@@ -216,7 +218,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
   onUserInteractionStart() {
     super.onUserInteractionStart();
     // stop belt while dragging
-    this.pause();
+    // this.pause();
   }
 
   /**
@@ -225,7 +227,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
   onUserInteractionEnd() {
     super.onUserInteractionEnd();
     // Restore surface velocity after dragging
-    this.resume();
+    // this.resume();
   }
 
 }
