@@ -143,11 +143,13 @@
 							}
 
 							&--first {
+								left: 0%;
 								right: 80%;
 							}
 
 							&--last {
 								left: 80%;
+								right: 0%;
 							}
 						}
 
