@@ -218,7 +218,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
   onUserInteractionStart() {
     super.onUserInteractionStart();
     // stop belt while dragging
-    // this.pause();
+    this.pause();
   }
 
   /**
@@ -227,7 +227,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
   onUserInteractionEnd() {
     super.onUserInteractionEnd();
     // Restore surface velocity after dragging
-    // this.resume();
+    this.resume();
   }
 
 }
