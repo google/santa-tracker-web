@@ -226,6 +226,10 @@ app.world.Level = class {
     }, 50);
   }
 
+  /**
+   * @private
+   * Shows the level once ready.
+   */
   show_() {
     this.elem.css('visibility', 'visible');
   }
