@@ -58,7 +58,7 @@
     }
 
     .stats, .wikipedia, .details {
-      padding: 0 60px;
+      padding: 0 30px;
     }
 
     .stats {
@@ -71,11 +71,20 @@
       }
     }
 
-    .wikipedia p {
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 22px;
-      color: #fff;
+    .wikipedia {
+      padding-bottom: 30px;
+
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 22px;
+        color: #fff;
+      }
+    }
+
+    .attribution,
+    .attribution a {
+      color: #FFFEAB;
     }
   }
 
@@ -84,6 +93,26 @@
     height: 100%;
     width: 100%;
     position: relative;
+
+    #photoselector {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+
+      img {
+        width: 69px;
+        height: 69px;
+        border-radius: 50%;
+        margin: 0 12px;
+        transform: scale(1);
+        transition: transform 250ms ease;
+        cursor: pointer;
+
+        &.iron-selected {
+          transform: scale(.8);
+        }
+      }
+    }
 
     .city-photo, .city-photo-hires {
       background-size: cover;

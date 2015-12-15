@@ -97,12 +97,12 @@ City feed view in Tracker
   <div class="scene fit">
 
     <div id="city-view" class="fit">
-      <template is="dom-if" if="{{isActiveStop()}}">
+      <template is="dom-if" if="{{_isActiveStop(activeStop)}}">
       <div id="city-details">
         <a href="#">Back to tracker</a>
         <div class="details">
-          <h4>Tasmania{{stop.region}}moo</h4>
-          <h1>Hobart{{item.stop.city}}</h1>
+          <h4>{{activeStop.stop.region}}</h4>
+          <h1>{{activeStop.stop.city}}</h1>
         </div>
         <div class="stats">
           <div class="horizontal">
@@ -110,7 +110,7 @@ City feed view in Tracker
               <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
               <div class="horizontal centered">
                 <div class="ico ico-clock"></div>
-                <h2 class="stat-large">02:00{{formatTime(item.stop.arrival)}}</h2>
+                <h2 class="stat-large">{{formatTime(activeStop.stop.arrival)}}</h2>
               </div>
             </div>
             <div>
@@ -118,34 +118,38 @@ City feed view in Tracker
               <div class="horizontal centered">
                 <div class="ico ico-weatherchanel"></div>
                 <h2 class="stat-large white">
-                  <span>23{{item.stop.details.weather.tempC}}</span>&deg;C /
-                  <span>73{{item.stop.details.weather.tempF}}</span>&deg;F
+                  <span>{{activeStop.stop.details.weather.tempC}}</span>&deg;C /
+                  <span>{{activeStop.stop.details.weather.tempF}}</span>&deg;F
                 </h2>
               </div>
             </div>
           </div>
         </div>
         <div class="wikipedia">
-          <p><html-echo class="wikipedia__body" html="{{item.stop.details.wikipedia.excerpt}}"></html-echo></p>
+          <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
 
           <div class="attribution">
             <span class="wiki-cc">Available under
-            <a target="wiki" href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+            <a href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
             terms</span>
-            <a target="wiki" href$="{{item.stop.details.wikipedia.url}}">{{item.stop.details.wikipedia.url}}</a>
+            <a href$="{{activeStop.stop.details.wikipedia.url}}">{{activeStop.stop.details.wikipedia.url}}</a>
           </div>
         </div>
       </div>
       <div id="city-photos">
-        <div class="city-photo" style="background-image:url(https://mw2.google.com/mw-panoramio/photos/medium/17219822.jpg)">
-          <div class="city-photo-hires" style="background-image:url(https://static.panoramio.com.storage.googleapis.com/photos/original/17219822.jpg)"></div>
+        <div class="city-photo" style$="background-image:url({{cityPhotoLowRes}})">
+          <div class="city-photo-hires" style$="background-image:url({{cityPhotoHiRes}})"></div>
         </div>
+
+        <iron-selector id="photoselector" selected="1"
+              on-iron-activate="_onPhotoSelected">
+          <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo">
+            <img src="{{photo.url}}">
+          </template>
+        </iron-selector>
       </div>
       </template>
     </div>
-
-    <iron-media-query query="(max-width:960px)"
-        query-matches="{{isMobileSize}}"></iron-media-query>
 
     <iron-list id="feed" items="[[stream]]" as="item" on-scroll="onScroll">
       <template>
@@ -157,34 +161,37 @@ City feed view in Tracker
                   <div class="fancy-bg"></div>
                   <div class="fancy-content">
                     <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-                    <h2>12,345km</h2>
+                    <h2>{{_computeSantaDistance(santaDistance)}}</h2>
+                    {{_computeUserLocation(userLocation)}}
                   </div>
                 </div>
                 <div class="divider"></div>
                 <div>
                   <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <h2>7,234,567,789</h2>
+                  <h2>{{_computePresentsDelivered(location)}}</h2>
                 </div>
               </div>
               <div class="santa-info-row">
-                <div>
+                <div hidden$="{{_computeIsSantaFlying(location)}}">
                   <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <h3><i class="ico ico-arrow-yellow"></i> San Francisco</h3>
+                  <h3><i class="ico ico-arrow-yellow"></i> {{_computeNextStop(location)}}</h3>
+                </div>
+                <div hidden$="{{!_computeIsSantaFlying(location)}}">
+                  <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3><i class="ico ico-arrow-yellow"></i> {{_computeCurrentStop(location)}}</h3>
                 </div>
                 <div class="divider"></div>
-                <div>
+                <div hidden$="{{_computeIsSantaFlying(location)}}">
                   <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <h3>4:00</h3>
+                  <h3><i class="ico ico-arrow-yellow"></i>{{_computeArrival(arrival)}}</h3>
+                </div>
+                <div hidden$="{{!_computeIsSantaFlying(location)}}">
+                  <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3><i class="ico ico-arrow-yellow"></i>{{_computeDeparture(departure)}}</h3>
                 </div>
               </div>
                 <!--
                 <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
-
-
-
-                <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
                   -->
             </div>
 
@@ -343,6 +350,46 @@ Polymer({
     },
 
     /**
+     * Current Santa's location.
+     */
+    location: {
+      type: Object,
+    },
+
+    /**
+     * Santa's time of arrival.
+     */
+    arrival: {
+      type: String,
+      value: null
+    },
+
+    /**
+     * Santa's distance.
+     */
+    santaDistance: {
+      type: Number,
+      value: 0
+    },
+
+    /**
+     * Santa's time of arrival.
+     */
+    departure: {
+      type: String,
+      value: null
+    },
+
+    /**
+     * User's location.
+     * @type {Position}
+     */
+    userLocation:  {
+      type: Object,
+      value: null
+    },
+
+    /**
      * The timeline feed with additional data and adjusted to support mini cards.
      */
     stream: {
@@ -395,6 +442,9 @@ Polymer({
    */
   pendingScroll_: null,
 
+  cityPhotoLowRes: '',
+  cityPhotoHiRes: '',
+
   /**
    * True if the list has done its metrics setup and is ready to be shown.
    */
@@ -405,6 +455,16 @@ Polymer({
    */
   updateQueued_: false,
 
+  _formatDistance: function(dist) {
+    // TODO: localise? (miles)
+    // 0xA0 non-breaking space
+    return this._formatInt(dist / 1000) + '\xA0km';
+  },
+
+  _formatInt: function(value) {
+    return new Number(Math.floor(value)).toLocaleString();
+  },
+
   _getPhotoAttribution: function(photos, index) {
     return photos[index].attributionHtml;
   },
@@ -414,8 +474,50 @@ Polymer({
   },
 
   created: function() {
-    this.location = {};
     this.pendingScroll_ = {};
+  },
+
+  _computeUserLocation: function(userLocation) {
+    if (userLocation) {
+      return userLocation.name;
+    }
+  },
+
+  _computeArrival: function(arrival) {
+    return arrival;
+  },
+
+  _computeDeparture: function(departure) {
+    return departure;
+  },
+
+  _computeSantaDistance: function(santaDistance) {
+    return this._formatDistance(santaDistance);
+  },
+
+  _computePresentsDelivered: function(location) {
+    if (location) {
+      return this._formatInt(location.presentsDelivered);
+    }
+    return '...';
+  },
+
+  _computeIsSantaFlying: function(location) {
+    return !!location.stopover;
+  },
+
+  _computeNextStop: function(location) {
+    if (location.next) {
+      return location.next.city;
+    }
+    return '';
+  },
+
+  _computeCurrentStop: function(location) {
+    if (location.stopover) {
+      return location.stopover.city;
+    }
+    return '';
   },
 
   _activeChanged: function() {
@@ -460,7 +562,12 @@ Polymer({
     var stopId = t.dataset.stop;
     var activeStopIndex = destLookup_[stopId];
     var activeStop = this.stream[activeStopIndex + 1];
-    this.activeStop = activeStop;
+
+    activeStop.stop.getDetails(function(details) {
+      activeStop.stop.details = details;
+      this.activeStop = activeStop;
+      console.log(this.activeStop);
+    }.bind(this));
   },
 
   _activeStopChanged: function() {
@@ -471,12 +578,11 @@ Polymer({
     }
   },
 
-  isActiveStop: function() {
-    return this.activeStop == null ? false: true;
+  _isActiveStop: function(activeStop) {
+    return activeStop == null ? false: true;
   },
 
   _timelineChanged: function() {
-    console.log('timeline changed');
     if (!this.timeline || !this.timeline.length) {
       return;
     }
@@ -507,7 +613,8 @@ Polymer({
     }
 
     stream.unshift({
-      type: 'santa-info'
+      type: 'santa-info',
+      timestamp: 0
     });
 
     this.stream = stream;
@@ -599,14 +706,18 @@ Polymer({
     });
   },
 
-  _onCardSelected: function(e, detail, sender) {
-    var destId = e.model.item.stop.id;
-    var type = detail.item.getAttribute('data-name');
+  _onPhotoSelected: function(e, detail, sender) {
+    //var destId = e.model.item.stop.id;
+    /*var type = detail.item.getAttribute('data-name');
     this.fire('analytics-track-event', {
       category: 'citycard',
       action: type,
       label: destId
-    });
+    });*/
+    this.cityPhotoLowRes = detail.item.src;
+
+    this.cityPhotoHiRes = detail.item.src.replace('mw2.google.com/mw-panoramio/photos/medium/',
+        'static.panoramio.com.storage.googleapis.com/photos/original/');
   },
 
   // Determines the most central visible card in the stream's viewport for deep linking.

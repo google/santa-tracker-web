@@ -62,7 +62,11 @@ Tracker scene.
       </template>
 
       <city-feed id="feed" class="fit" timeline="{{timeline}}"
-                 userLocation="{{userLocation}}"
+                 user-location="{{userLocation}}"
+                 location="{{location}}"
+                 santa-distance="{{santaDistance}}"
+                 arrival="{{arrival_}}"
+                 departure="{{departure_}}"
                  santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed>
 
       <tracker-intro id="intro"
@@ -366,7 +370,6 @@ Tracker scene.
       }.bind(this));
 
       this.santaApp.santaService.addListener('timeline_changed', function(timeline) {
-        console.log('timeline_changed', timeline);
         this.timeline = timeline || [];
       }.bind(this));
 
@@ -607,12 +610,6 @@ Tracker scene.
       this.$.intro.closeIntro();
     },
 
-    formatDistance_: function(dist) {
-      // TODO: localise? (miles)
-      // 0xA0 non-breaking space
-      return this._formatInt(dist / 1000) + '\xA0km';
-    },
-
     formatCountdown_: function(timestamp) {
       if (!this.santaApp || !this.santaApp.santaService || isNaN(timestamp)) {
         return '';
@@ -637,10 +634,6 @@ Tracker scene.
       }
 
       return parts.join(':');
-    },
-
-    _formatInt: function(value) {
-      return new Number(Math.floor(value)).toLocaleString();
     },
 
     _keyHandler: function(e, detail) {
