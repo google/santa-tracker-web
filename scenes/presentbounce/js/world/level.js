@@ -115,6 +115,8 @@ app.world.Level = class {
     const BASE_POINTS = 50;
     const TIME_MODIFIDER = 30;
 
+    this.hideBall();
+
     // Start with some base points
     score = BASE_POINTS;
 
@@ -127,6 +129,14 @@ app.world.Level = class {
 
     // Calls the game complete callback
     this.onCompleteCallback( Math.round(score) );
+  }
+
+  /**
+   * Hides the ball by changing it's visibility.
+   */
+  hideBall() {
+    this.ball_.$el_.css('visibility', 'hidden');
+    this.ball_.$shadowEl_.css('visibility', 'hidden');
   }
 
   /**
@@ -566,5 +576,3 @@ app.world.Level = class {
     }
   }
 }
-
-// app.world.Level = Level;
