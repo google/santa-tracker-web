@@ -1050,12 +1050,22 @@ Polymer({
   },
 
   sceneIsUnlocked: function(moduleName) {
+    var dateNow = this.santaService.dateNow();
+
+    // Unlock scenes as soon as anywhere on the Earth has it unlocked: assume
+    // UTC+14 is pretty much as far east as it goes. This doesn't effect houses
+    // being iced, but it means users can share links.
+    var targetOffset = -14 * (60 * 60000);  // as far east as possible
+    var userOffset = dateNow.getTimezoneOffset() * 60000;
+    var eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
+
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
+        var launchDate = house.launchDate;
         if (santaApp.mode == 'portal') {
-          return !house.disabled && (this.santaService.now() > house.portalLaunchDate);
+          launchDate = house.portalLaunchDate;
         }
-        return !house.disabled && (this.santaService.now() > house.launchDate);
+        return !house.disabled && (eastDateNow > launchDate);
       }
     }
 
