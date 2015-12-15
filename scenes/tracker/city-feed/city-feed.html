@@ -125,7 +125,7 @@ City feed view in Tracker
             </div>
           </div>
         </div>
-        <div class="wikipedia">
+        <div class="wikipedia" hidden$="{{!activeStop.stop.details.wikipedia}}">
           <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
 
           <div class="attribution">
@@ -144,7 +144,7 @@ City feed view in Tracker
         <iron-selector id="photoselector" selected="1"
               on-iron-activate="_onPhotoSelected">
           <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo">
-            <img src="{{photo.url}}">
+            <img data-name="wik" src="{{photo.url}}">
           </template>
         </iron-selector>
       </div>
@@ -564,9 +564,8 @@ Polymer({
     var activeStop = this.stream[activeStopIndex + 1];
 
     activeStop.stop.getDetails(function(details) {
-      activeStop.stop.details = details;
+      activeStop.stop.details.wikipedia = details.wikipedia;
       this.activeStop = activeStop;
-      console.log(this.activeStop);
     }.bind(this));
   },
 
@@ -614,7 +613,7 @@ Polymer({
 
     stream.unshift({
       type: 'santa-info',
-      timestamp: 0
+      timestamp: -1
     });
 
     this.stream = stream;
@@ -640,8 +639,9 @@ Polymer({
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) +
                     '#tracker';
-      if (this.stream[idx].timestamp) {
-        newHref += '?timestamp=' + this.stream[idx].timestamp;
+      var timestamp = this.stream[idx].timestamp
+      if (timestamp && timestamp != -1) {
+        newHref += '?timestamp=' + timestamp;
       }
       window.history.replaceState(null, '', newHref);
     }
@@ -692,20 +692,6 @@ Polymer({
     return parts.join(':');
   },
 
-  _onWikipedia: function(e, detail) {
-    //var location = sender.templateInstance.model.model.stop;
-    var location = e.model.item.stop;
-
-    // Don't make details API request if wikipedia article has already been fetched.
-    if (location.details.wikipedia) {
-      return;
-    }
-
-    location.getDetails(function(detail) {
-      location.details.wikipedia = detail.wikipedia;
-    });
-  },
-
   _onPhotoSelected: function(e, detail, sender) {
     //var destId = e.model.item.stop.id;
     /*var type = detail.item.getAttribute('data-name');
@@ -743,7 +729,7 @@ Polymer({
 
           var newHref = location.href.substr(0,
             location.href.length - location.hash.length) + '#tracker';
-          if (timestamp) {
+          if (timestamp && timestamp != -1) {
             newHref += '?timestamp=' + timestamp;
           }
 
