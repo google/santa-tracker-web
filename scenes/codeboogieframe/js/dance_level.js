@@ -214,7 +214,7 @@ app.DanceLevel = class extends app.Level {
         return app.DanceStatus.TOO_MANY_STEPS;
       }
       if (block.step !== this.steps[stepCount]) {
-        playerSteps.splice(stepCount + 1, playerSteps.length);
+        playerSteps.splice(i + 1, playerSteps.length);
         return app.DanceStatus.WRONG_STEPS;
       }
       stepCount++;

@@ -124,17 +124,6 @@ Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value
 };
 
 /**
- * Tracks a social action
- *
- * @param {string} network
- * @param {string} action
- * @param {string} path
- */
-Analytics.prototype.trackSocial = function(network, action, path) {
-  this.ga_.pushCommand(['_trackSocial', network, action, undefined, path]);
-};
-
-/**
  * Tracks that a game has started.
  * @param {string} gameId module id.
  */

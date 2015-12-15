@@ -3,7 +3,7 @@
 		"message": "Jõuluõhtul tutvustame teile jõuluvana juhtpaneeli – tehnoloogiat, mis annab tema saanile energia reisiks ümber maailma. Saime selle spetsiaalse eelvaate jõuluvana ühe arenduspäkapiku käest, kes on põhjapoolusel jõuluvana tähtsa päeva ettevalmistamise nimel kõvasti vaeva näinud. Jõuluvana juhtpaneel, mis sisaldab Google Mapsi ning saaniehituse uusimaid ja suurepärasemaid tehnoloogiaid, võimaldab teil jälgida jõuluvana teekonda ümber maailma ning saada veidi teadmisi tema teekonna mõne peatuspaiga kohta."
 	},
 	"about-content-three": {
-		"message": "Google Mapsi jõuluvana teekonna jälgimise on päkapikkude abiga välja töötanud Google. Kas vajate abi või on teil veel mõni küsimus? Külastage meie <a href=\"//support.google.com/santatracker\">abikeskust</a>."
+		"message": "Google Mapsi jõuluvana teekonna jälgimise on päkapikkude abiga välja töötanud Google. Kas vajate abi või on teil veel mõni küsimus? Külastage meie \u003ca href=\"//support.google.com/santatracker\"\u003eabikeskust\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Meie sõbralikud päkapikud kutsuvad teid jõuluvana küla avastama, samal ajal kui jõuluvana valmistub oma teekonnaks. Tutvuge külaga, kust võite leida vahvat tegevust ja kohtuda huvitavate päkapikkudega."
@@ -408,7 +408,7 @@
 		"message": "Suurepärane"
 	},
 	"codelab-mwc-promo": {
-		"message": "Tutvuge Google’i kodeerimisprojektidega aadressil <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Tutvuge Google’i kodeerimisprojektidega aadressil \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Järgmine väljakutse"
@@ -792,7 +792,7 @@
 		"message": "norra keel"
 	},
 	"nonprofit-jane-description": {
-		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Tutvuge šimpansite elupaikadega</a> Gombes, Tansaanias."
+		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpansid"
@@ -807,7 +807,7 @@
 		"message": "Metsad"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Kliimamuutused häirivad jätkuvalt paljude maailma ökosüsteemide tasakaalu (nii soojades kui ka külmades piirkondades). Temperatuuritõusu tõttu on Arktikas hävimas jääkarude merejääl asuvad elupaigad. Lisaks ohustab jääkarusid ka inimtegevus, nt nafta ja gaasi puurimine ning tarnimine. Organisatsiooni World Wildlife Fund eesmärgiks on tagada liikide ellujäämine ning selleks viiakse läbi teadusuuringuid ja tehakse koostööd Arktika kohalike kogukondadega. Organisatsioonil Google.org on au olla organisatsiooni World Wildlife Fund <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">toetaja</a>."
+		"message": "Kliimamuutused häirivad jätkuvalt paljude maailma ökosüsteemide tasakaalu (nii soojades kui ka külmades piirkondades). Temperatuuritõusu tõttu on Arktikas hävimas jääkarude merejääl asuvad elupaigad. Lisaks ohustab jääkarusid ka inimtegevus, nt nafta ja gaasi puurimine ning tarnimine. Organisatsiooni World Wildlife Fund eesmärgiks on tagada liikide ellujäämine ning selleks viiakse läbi teadusuuringuid ja tehakse koostööd Arktika kohalike kogukondadega. Organisatsioonil Google.org on au olla organisatsiooni World Wildlife Fund \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etoetaja\u003c/a\u003e."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Jääkaru"
@@ -4821,7 +4821,7 @@
 		"message": "Ühendkuningriigis tunnevad kõik jõuluõhtusöögil osalejad suurt rõõmu paukkommidest. Need on värvilisse paberisse pakitud torud, mida saab kummastki otsast tõmmata. Otste tõmbamisel puruneb toru kõva plaksuga. Toru sees on pabermütsid, mänguasjad ja kommid, mida saab jõuluõhtul nautida."
 	},
 	"upgrade-warning": {
-		"message": "Vabandust! Teie brauseri versioon ei toeta Jõuluvana teekonna jälgimist. Juurdepääsuks Jõuluvana teekonna jälgimisele laadige alla ajakohane brauser. Lisateavet leiate saidilt <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Vabandust! Teie brauseri versioon ei toeta Jõuluvana teekonna jälgimist. Juurdepääsuks Jõuluvana teekonna jälgimisele laadige alla ajakohane brauser. Lisateavet leiate saidilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Ameerika Ühendriigid"

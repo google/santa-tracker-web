@@ -418,23 +418,24 @@ var Cards = [
     ]
   },
   {
-    'key': 'mercator',
-    'title': 'Map Quiz',
+    'key': 'codeboogie',
+    'title': 'Code Boogie',
     'opens': '15',
     'ordinal': 'th',
-    'type': 'Learn',
+    'type': 'Play',
+    'new': true,
     'education': true,
-    'description': 'Santa\'s got a lot of places to go. Match the outline of a country to the map in this geography game.',
+    'description': 'The elves are back to coding practice, but mixing in their dancing skills. Use code to choreograph the elves dances - but watch out, as you get better, the dances get harder!',
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-map-quiz.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-code-boogie.png',
         'type': 'PNG file',
         'class': 'press-card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC15-mapquiz-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC17-codeboogie-full.gif',
         'type': 'GIF file',
         'class': 'press-card-dl'
       }
@@ -464,24 +465,23 @@ var Cards = [
     ]
   },
   {
-    'key': 'codeboogie',
-    'title': 'Code Boogie',
+    'key': 'mercator',
+    'title': 'Map Quiz',
     'opens': '17',
     'ordinal': 'th',
-    'type': 'Play',
-    'new': true,
+    'type': 'Learn',
     'education': true,
-    'description': 'The elves are back to coding practice, but mixing in their dancing skills. Use code to choreograph the elves dances - but watch out, as you get better, the dances get harder!',
+    'description': 'Santa\'s got a lot of places to go. Match the outline of a country to the map in this geography game.',
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-code-boogie.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-map-quiz.png',
         'type': 'PNG file',
         'class': 'press-card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC17-codeboogie-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC15-mapquiz-full.gif',
         'type': 'GIF file',
         'class': 'press-card-dl'
       }

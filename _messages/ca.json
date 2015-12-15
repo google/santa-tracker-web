@@ -3,7 +3,7 @@
 		"message": "Durant la Nit de Nadal tindrem l'orgull de presentar el tauler de control del Pare Noel, la tecnologia que propulsa el seu trineu durant el seu viatge per tot el món. Hem rebut aquest avançament especial d'un dels seus elfs desenvolupadors, que estan treballant de valent al pol nord per ajudar-lo a preparar el gran dia. El tauler de control del Pare Noel, que inclou la tecnologia més puntera i innovadora de Google Maps i en enginyeria de trineus, us permetrà seguir el seu trajecte per tot el món i conèixer una mica les parades que farà pel camí."
 	},
 	"about-content-three": {
-		"message": "Google ha creat i desenvolupat Segueix el Pare Noel de Google Maps amb una mica d'ajuda dels elfs del Pare Noel. Necessiteu ajuda o teniu cap altra pregunta? Visiteu el nostre <a href=\"//support.google.com/santatracker\">Centre d'ajuda</a>."
+		"message": "Google ha creat i desenvolupat Segueix el Pare Noel de Google Maps amb una mica d'ajuda dels elfs del Pare Noel. Necessiteu ajuda o teniu cap altra pregunta? Visiteu el nostre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'ajuda\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "A més, els nostres amics elfs us han convidat a descobrir l'aldea del Pare Noel mentre ell es prepara per al seu viatge. Visiteu i exploreu l'aldea; segur que trobeu activitats divertides i coneixeu elfs interessants."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colòmbia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Torna a l'inici"
+	},
 	"codeboogie-block-clap": {
 		"message": "Aplaudiment"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Feu l'espagat."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Seleccioneu un mode de joc"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Seleccioneu un escenari"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Tothom a ballar!"
 	},
 	"codeboogie-go": {
 		"message": "Fantàstic!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Continueu ballant"
+	},
 	"codeboogie-lets-dance": {
 		"message": "A ballar!"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Classe de ball"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Copieu els passos del professor"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Estil lliure"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Creeu els vostres propis passos i compartiu-los amb amics"
 	},
 	"codeboogie-next-dance": {
 		"message": "Següent ball"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Sembla que us heu equivocat de pas. Proveu amb aquest:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Compartiu els vostres passos i desafieu els vostres amics"
 	},
 	"codeboogie-success": {
 		"message": "Molt bé!"
@@ -381,7 +408,7 @@
 		"message": "Fantàstic!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Exploreu més productes de codificació de Google a <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Exploreu més productes de codificació de Google a \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Desafiament següent"
@@ -765,7 +792,7 @@
 		"message": "Noruec"
 	},
 	"nonprofit-jane-description": {
-		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Exploreu els hàbitats dels ximpanzés</a> de Gombe, a Tanzània."
+		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
 	},
 	"nonprofit-jane-type": {
 		"message": "Ximpanzé"
@@ -780,7 +807,7 @@
 		"message": "Boscos"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El canvi climàtic continua alterant l'equilibri de molts ecosistemes del món, tant a les zones càlides com a les fredes. A l'Àrtic, els óssos polars estan perdent el seu hàbitat de la banquisa a causa de l'augment de les temperatures, i s'enfronten a més amenaces procedents de les activitats humanes, com ara les explotacions i el transport de petroli i de gas. World Wildlife Fund treballa per garantir la supervivència de les espècies mitjançant la recerca científica i treballa en cooperació amb comunitats natives de l'Àrtic. A Google.org estem orgullosos de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">col·laborar</a> amb World Wildlife Fund."
+		"message": "El canvi climàtic continua alterant l'equilibri de molts ecosistemes del món, tant a les zones càlides com a les fredes. A l'Àrtic, els óssos polars estan perdent el seu hàbitat de la banquisa a causa de l'augment de les temperatures, i s'enfronten a més amenaces procedents de les activitats humanes, com ara les explotacions i el transport de petroli i de gas. World Wildlife Fund treballa per garantir la supervivència de les espècies mitjançant la recerca científica i treballa en cooperació amb comunitats natives de l'Àrtic. A Google.org estem orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecol·laborar\u003c/a\u003e amb World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ós polar"
@@ -4794,7 +4821,7 @@
 		"message": "Al Regne Unit, els més riallers s'ho passen d'allò més bé amb els crackers mentre sopen. Són cilindres embolicats amb paper de colors que tenen llengüetes als extrems. Quan s'estiren aquestes llengüetes, el cilindre explota i fa un fort soroll. En poden sortir barrets de paper, joguines i caramels per alegrar la nit de Nadal."
 	},
 	"upgrade-warning": {
-		"message": "Segueix el Pare Noel no és compatible amb aquesta versió del vostre navegador. Per accedir a Segueix el Pare Noel, cal que baixeu un navegador més modern. Per obtenir més informació, consulteu <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Segueix el Pare Noel no és compatible amb aquesta versió del vostre navegador. Per accedir a Segueix el Pare Noel, cal que baixeu un navegador més modern. Per obtenir més informació, consulteu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estats Units"
@@ -4818,7 +4845,7 @@
 		"message": "Exploreu, jugueu i apreneu amb els elfs del Pare Noel durant tot el mes de desembre"
 	},
 	"village_get_the_app": {
-		"message": "Baixa l'aplicació"
+		"message": "Baixa l'aplicació Segueix el Pare Noel per a Android"
 	},
 	"village_more": {
 		"message": "Què més podeu fer?"
@@ -4830,7 +4857,7 @@
 		"message": "El Pare Noel a Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Extensió de Google Chrome"
+		"message": "Afegeix l'extensió Segueix el Pare Noel"
 	},
 	"village_takesoff": {
 		"message": "El Pare Noel surt d'aquí a"

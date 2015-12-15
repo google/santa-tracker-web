@@ -3,7 +3,7 @@
 		"message": "În Ajunul Crăciunului, vom prezenta cu mândrie tabloul de bord al Moșului, tehnologia care pune în mișcare sania cu care călătorește în jurul lumii. Am primit această imagine specială de la unul din numeroșii elfi dezvoltatori ai Moșului, care lucrează din greu la Polul Nord pentru a-l ajuta pe Moș în pregătirile pentru ziua cea mare. Tabloul de bord al Moșului, care dispune de cea mai recentă și extraordinară tehnologie Google Maps și de sisteme de ultimă generație pentru sanie, ne va permite să-i urmărim traseul din jurul lumii și să aflăm mai multe despre câteva dintre locurile vizitate pe drum."
 	},
 	"about-content-three": {
-		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează <a href=\"//support.google.com/santatracker\">Centrul de ajutor</a>."
+		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Elfii noștri prietenoși te-au invitat să explorezi și satul Moșului în timp ce el se pregătește de călătorie. Așadar pornește în explorarea satului. S-ar putea să descoperi câteva activități distractive și să întâlnești niște elfi deosebiți."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Columbia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Înapoi la început"
+	},
 	"codeboogie-block-clap": {
 		"message": "Aplauze"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Fă șpagatul."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Alege un mod de joc"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Alege o etapă"
+	},
 	"codeboogie-get-dancing": {
 		"message": "La dans!"
 	},
 	"codeboogie-go": {
 		"message": "Accesează!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Continuă să dansezi"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Să dansăm"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Ora de dans"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Imită mișcările instructorului"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Stil de dans liber"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Creează-ți propriile mișcări și arată-le prietenilor"
 	},
 	"codeboogie-next-dance": {
 		"message": "Dansul următor"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Se pare că ai făcut un pas greșit. Iată pasul corect:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Arată-ți mișcările și provoacă-ți prietenii"
 	},
 	"codeboogie-success": {
 		"message": "Ai reușit!"
@@ -381,7 +408,7 @@
 		"message": "Excelent"
 	},
 	"codelab-mwc-promo": {
-		"message": "Descoperă mai multe proiecte de codificare Google la <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Descoperă mai multe proiecte de codificare Google la \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Următoarea provocare"
@@ -765,7 +792,7 @@
 		"message": "Norvegiană"
 	},
 	"nonprofit-jane-description": {
-		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explorați habitatele cimpanzeilor</a> din Gombe, Tanzania."
+		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Cimpanzei"
@@ -780,7 +807,7 @@
 		"message": "Păduri"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">partener</a> al World Wildlife Fund."
+		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003epartener\u003c/a\u003e al World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urși polari"
@@ -4794,7 +4821,7 @@
 		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării și dulciuri pentru noaptea de Crăciun."
 	},
 	"upgrade-warning": {
-		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată cu această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată cu această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"
@@ -4818,7 +4845,7 @@
 		"message": "Explorează, joacă-te și învață cu elfii lui Moș Crăciun pe tot parcursul lunii decembrie"
 	},
 	"village_get_the_app": {
-		"message": "Descărcați aplicația"
+		"message": "Obține aplicația Pe urmele lui Moș Crăciun pentru Android"
 	},
 	"village_more": {
 		"message": "Alte metode de explorat"
@@ -4830,7 +4857,7 @@
 		"message": "Moș Crăciun pe Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Extensie Google Chrome"
+		"message": "Adaugă extensia Chrome cu Moș Crăciun"
 	},
 	"village_takesoff": {
 		"message": "Moș Crăciun pornește în"

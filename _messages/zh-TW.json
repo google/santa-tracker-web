@@ -3,7 +3,7 @@
 		"message": "我們很榮幸在聖誕夜展示聖誕老人的資訊主頁，幫助聖誕老人駕雪橇環遊世界。為數眾多的研發小精靈在北極努力協助聖誕老人迎接這個重大節日，其中一位小精靈特別給了我們一個可以先睹為快的機會。聖誕老人的資訊主頁上秀出了 Google 地圖最新、最精彩的技術和雪橇工程，您可以在這裡追蹤聖誕老人環遊世界的進度，並認識一下他沿途停靠的幾個地方。"
 	},
 	"about-content-three": {
-		"message": "Google 地圖「聖誕老人追蹤器」是由 Google 開發製作 (當然，聖誕老人小精靈也提供了一點幫助)。如果您有任何疑問或需要協助，請前往<a href=\"//support.google.com/santatracker\">說明中心</a>。"
+		"message": "Google 地圖「聖誕老人追蹤器」是由 Google 開發製作 (當然，聖誕老人小精靈也提供了一點幫助)。如果您有任何疑問或需要協助，請前往\u003ca href=\"//support.google.com/santatracker\"\u003e說明中心\u003c/a\u003e。"
 	},
 	"about-content-two": {
 		"message": "和藹可親的小精靈邀您到聖誕老人的村莊一遊，看看聖誕老人為這次旅程做準備。快來探索他的村莊，許多好玩的活動和有趣的小精靈在等著您！"
@@ -408,7 +408,7 @@
 		"message": "太棒了"
 	},
 	"codelab-mwc-promo": {
-		"message": "前往 <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a> 進一步瞭解 Google 程式設計專案。"
+		"message": "前往 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e 進一步瞭解 Google 程式設計專案。"
 	},
 	"codelab-next-challenge": {
 		"message": "下一關"
@@ -792,7 +792,7 @@
 		"message": "挪威文"
 	},
 	"nonprofit-jane-description": {
-		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，<a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">認識黑猩猩的棲息環境</a>。"
+		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e認識黑猩猩的棲息環境\u003c/a\u003e。"
 	},
 	"nonprofit-jane-type": {
 		"message": "黑猩猩"
@@ -807,7 +807,7 @@
 		"message": "森林"
 	},
 	"nonprofit-wwf-description": {
-		"message": "氣候變遷持續破壞世界各地多個生態系統的平衡，影響範圍遍及低緯度和高緯度地區。北極逐漸升高的氣溫導致冰山消融，使得北極熊的棲息地日漸縮小。此外，隨著石油及天然氣的開採和運送等人類活動趨於旺盛，北極熊須面臨更嚴峻的生存挑戰。World Wildlife Fund 在進行科學研究的同時與北極當地的社群密切合作，共同致力於北極熊的保育工作。Google.org 很榮幸能成為 World Wildlife Fund 的<a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">贊助單位</a>，為保育野生動物盡一份心力。"
+		"message": "氣候變遷持續破壞世界各地多個生態系統的平衡，影響範圍遍及低緯度和高緯度地區。北極逐漸升高的氣溫導致冰山消融，使得北極熊的棲息地日漸縮小。此外，隨著石油及天然氣的開採和運送等人類活動趨於旺盛，北極熊須面臨更嚴峻的生存挑戰。World Wildlife Fund 在進行科學研究的同時與北極當地的社群密切合作，共同致力於北極熊的保育工作。Google.org 很榮幸能成為 World Wildlife Fund 的\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e贊助單位\u003c/a\u003e，為保育野生動物盡一份心力。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "北極熊"
@@ -4821,7 +4821,7 @@
 		"message": "英國人不分老少，晚餐時都會在餐桌上玩起聖誕節拉砲來製造歡樂氣氛。拉砲以色紙包成管狀，每一端都有拉環。拉開拉環時，砲管會爆出巨大聲響！裡頭的紙帽、玩具和糖果可在聖誕夜享用。"
 	},
 	"upgrade-warning": {
-		"message": "糟糕！這個版本的瀏覽器不支援聖誕老人追蹤器。如要使用聖誕老人追蹤器，請下載新版瀏覽器。詳情請見：<a href=\"https://whatbrowser.org\">whatbrowser.org</a>。"
+		"message": "糟糕！這個版本的瀏覽器不支援聖誕老人追蹤器。如要使用聖誕老人追蹤器，請下載新版瀏覽器。詳情請見：\u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
 	},
 	"us_country_name": {
 		"message": "美國"

@@ -3,7 +3,7 @@
 		"message": "On Christmas Eve we’ll be proudly showcasing a preview of Santa’s dashboard – the technology that powers his sleigh during his around-the-world journey. We’ve received this special preview from one of Santa’s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa’s dashboard – featuring the latest and greatest in Google Maps technology and sleigh engineering – will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
 	},
 	"about-content-three": {
-		"message": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa’s elves. Need help or have another question? Visit our <a href=\"//support.google.com/santatracker\">Help Centre</a>."
+		"message": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa’s elves. Need help or have another question? Visit our \u003ca href=\"//support.google.com/santatracker\"\u003eHelp Centre\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Our friendly elves have also invited you to explore Santa’s Village while Santa gets ready for his journey. So go ahead and explore his village – you might just find some fun activities and meet some interesting elves."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Back to start"
+	},
 	"codeboogie-block-clap": {
 		"message": "Clap"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Do a split."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Choose a game mode"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Choose a stage"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Get dancing!"
 	},
 	"codeboogie-go": {
 		"message": "Go!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Keep dancing"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Let's dance"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Dance class"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Match the teacher's moves"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Dance freestyle"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Make your own moves and share with friends"
 	},
 	"codeboogie-next-dance": {
 		"message": "Next Dance"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Seems like you did the wrong move there. Try this one instead:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Share your moves and challenge your friends"
 	},
 	"codeboogie-success": {
 		"message": "Success!"
@@ -381,7 +408,7 @@
 		"message": "Great"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explore more Google coding projects at <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Explore more Google coding projects at \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Next Challenge"
@@ -765,7 +792,7 @@
 		"message": "Norwegian"
 	},
 	"nonprofit-jane-description": {
-		"message": "Chimpanzees are human beings' closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviour as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explore the Chimpanzee habitats</a> in Gombe, Tanzania."
+		"message": "Chimpanzees are human beings' closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviour as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore the Chimpanzee habitats\u003c/a\u003e in Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
@@ -780,7 +807,7 @@
 		"message": "Forests"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Climate change continues to disrupt the balance of many of the world’s ecosystems, in both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat due to rising temperatures, and they face added threats from human activities such as oil and gas development and delivery. World Wildlife Fund works to ensure the survival of the species through scientific research and by working in partnership with native Arctic communities. Google.org is proud to be a <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> supporter</a> of World Wildlife Fund."
+		"message": "Climate change continues to disrupt the balance of many of the world’s ecosystems, in both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat due to rising temperatures, and they face added threats from human activities such as oil and gas development and delivery. World Wildlife Fund works to ensure the survival of the species through scientific research and by working in partnership with native Arctic communities. Google.org is proud to be a \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e supporter\u003c/a\u003e of World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
@@ -1044,7 +1071,7 @@
 		"message": "Chad"
 	},
 	"terms-and-privacy": {
-		"message": "Terms &amp; Privacy"
+		"message": "Terms \u0026amp; Privacy"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -4794,7 +4821,7 @@
 		"message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colourful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys and sweets to enjoy during Christmas night."
 	},
 	"upgrade-warning": {
-		"message": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "United States"
@@ -4818,7 +4845,7 @@
 		"message": "Explore, play and learn with Santa's elves throughout December"
 	},
 	"village_get_the_app": {
-		"message": "Get the App"
+		"message": "Get the Santa Tracker App for Android"
 	},
 	"village_more": {
 		"message": "More Ways to Explore"
@@ -4830,7 +4857,7 @@
 		"message": "Santa on Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Google Chrome Extension"
+		"message": "Add the Santa Chrome Extension"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"

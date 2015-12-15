@@ -129,6 +129,9 @@ $shareOverlay-bg: rgba(40, 181, 245, 0.9) !default;
       line-height: 74px;
       width: 370px;
     }
+    @media (min-width: 600px) {
+      width: 570px;
+    }
   }
 
   .shareOverlay-buttons {

@@ -3,7 +3,7 @@
 		"message": "La vigilia di Natale saremo lieti di presentarti la plancia di comando di Babbo Natale, super tecnologica, che gli consentirà di guidare la slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale, che stanno lavorando sodo al Polo Nord per aiutare Babbo Natale nei preparativi per il grande giorno. La plancia di comando di Babbo Natale, che presenta le soluzioni più recenti e sofisticate della tecnologia di Google Maps e delle tecniche di costruzione di slitte, ti permetterà di seguire Babbo Natale nel suo viaggio intorno al mondo e scoprire qualche dettaglio su alcune delle tappe lungo il percorso."
 	},
 	"about-content-three": {
-		"message": "Segui Babbo Natale di Google Maps è stato creato e sviluppato da Google, con un po' di aiuto da parte degli elfi di Babbo Natale. Hai bisogno di aiuto o hai un'altra domanda? Visita il nostro <a href=\"//support.google.com/santatracker\">Centro assistenza</a>."
+		"message": "Segui Babbo Natale di Google Maps è stato creato e sviluppato da Google, con un po' di aiuto da parte degli elfi di Babbo Natale. Hai bisogno di aiuto o hai un'altra domanda? Visita il nostro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro assistenza\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo e scopri il villaggio di Babbo Natale dove potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Torna all'inizio"
+	},
 	"codeboogie-block-clap": {
 		"message": "Batti le mani"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Fai una spaccata."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Scegli una modalità di gioco"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Scegli uno sfondo"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Balla!"
 	},
 	"codeboogie-go": {
 		"message": "Vai!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Continua a ballare"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Si balla!"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Lezione di danza"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Imita i passi dell'insegnante"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Freestyle"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Esegui i tuoi passi e condividili con gli amici"
 	},
 	"codeboogie-next-dance": {
 		"message": "Prossimo ballo"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Sembra che tu abbia fatto la mossa sbagliata. Prova questa:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Condividi i tuoi passi e sfida i tuoi amici"
 	},
 	"codeboogie-success": {
 		"message": "Ce l'hai fatta!"
@@ -381,7 +408,7 @@
 		"message": "Fantastico"
 	},
 	"codelab-mwc-promo": {
-		"message": "Esplora altri progetti di codifica di Google alla pagina <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Esplora altri progetti di codifica di Google alla pagina \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Prossima sfida"
@@ -765,7 +792,7 @@
 		"message": "Norvegese"
 	},
 	"nonprofit-jane-description": {
-		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Esplora gli habitat degli scimpanzé</a> nel parco di Gombe, Tanzania."
+		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEsplora gli habitat degli scimpanzé\u003c/a\u003e nel parco di Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Scimpanzé"
@@ -780,7 +807,7 @@
 		"message": "Foreste"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Il cambiamento climatico continua a turbare l'equilibrio di molti ecosistemi mondiali, in località calde e fredde. Nell'Artide, gli orsi polari non solo stanno perdendo il loro habitat di ghiaccio marino a causa dell'aumentare delle temperature, ma devono far fronte anche ad altre minacce dovute all'attività umana, come lo sviluppo e la spedizione di petrolio e gas. Il World Wildlife Fund lavora per garantire la sopravvivenza delle specie attraverso la ricerca scientifica e la collaborazione con le comunità autoctone dell'Artide. Google.org è fiera di <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">sostenere</a> questa iniziativa con il World Wildlife Fund."
+		"message": "Il cambiamento climatico continua a turbare l'equilibrio di molti ecosistemi mondiali, in località calde e fredde. Nell'Artide, gli orsi polari non solo stanno perdendo il loro habitat di ghiaccio marino a causa dell'aumentare delle temperature, ma devono far fronte anche ad altre minacce dovute all'attività umana, come lo sviluppo e la spedizione di petrolio e gas. Il World Wildlife Fund lavora per garantire la sopravvivenza delle specie attraverso la ricerca scientifica e la collaborazione con le comunità autoctone dell'Artide. Google.org è fiera di \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003esostenere\u003c/a\u003e questa iniziativa con il World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Orso polare"
@@ -4794,7 +4821,7 @@
 		"message": "Nel Regno Unito, la cena di Natale si festeggia con i \"Christmas Crackers\", cilindri avvolti in carta colorata, dotati di due linguette, tirando le quali, i cilindri esplodono con un rumore scoppiettante. All'interno vi sono cappelli di carta, giocattoli e dolciumi per allietare la notte di Natale."
 	},
 	"upgrade-warning": {
-		"message": "Spiacenti. Segui Babbo Natale non è supportato in questa versione del tuo browser. Per accedervi, scarica un browser più recente. Per ulteriori informazioni, visita <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Spiacenti. Segui Babbo Natale non è supportato in questa versione del tuo browser. Per accedervi, scarica un browser più recente. Per ulteriori informazioni, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Stati Uniti"
@@ -4818,7 +4845,7 @@
 		"message": "Esplora, gioca e impara con i folletti di Babbo Natale per tutto il mese di dicembre"
 	},
 	"village_get_the_app": {
-		"message": "Scarica l'applicazione"
+		"message": "Scarica l'app Segui Babbo Natale per Android"
 	},
 	"village_more": {
 		"message": "Altri modi per esplorare"
@@ -4830,7 +4857,7 @@
 		"message": "Babbo Natale su Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Estensione di Google Chrome"
+		"message": "Aggiungi l'estensione di Babbo Natale per Chrome"
 	},
 	"village_takesoff": {
 		"message": "Babbo Natale decolla tra"

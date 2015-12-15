@@ -64,7 +64,7 @@ app.shared.ShareOverlay.prototype.show = function(url, shorten) {
     return;
   }
 
-  this.urlElem.value = url.replace(/https?:\/\//i, '');
+  this.urlElem.value = url;
   this.shareButtons.setUrl(url);
   this.overlay.show();
 
@@ -88,8 +88,9 @@ app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
   x.onload = function() {
     var shortUrl = null;
     try {
+      // force HTTPS on goo.gl links
       var json = JSON.parse(x.responseText);
-      shortUrl = json['id'];
+      shortUrl = json['id'].replace('http://goo.gl', 'https://goo.gl');
     } catch (e) {}
     callback(shortUrl || url);
   };

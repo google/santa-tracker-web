@@ -1,13 +1,13 @@
 ##{$name} {
 
-	$board-desktop-breakpoint: 1025px;
-	$border-color: #a52fb7;
-	$shadow-color: rgba(66,66,66,.2);
+  $board-desktop-breakpoint: 1025px;
+  $border-color: #a52fb7;
+  $shadow-color: rgba(66,66,66,.2);
 
-	.draggable {
-		&:hover {
-			cursor: grab;
-		}
+  .draggable {
+    &:hover {
+      cursor: grab;
+    }
 
 		> * {
 			transition: transform 300ms $easeOutQuad;
@@ -21,6 +21,6 @@
 			}
 		}
 
-	}
+  }
 
 }

@@ -3,7 +3,7 @@
 		"message": "På julafton tänker vi stolt visa upp jultomtens instrumentpanel, den teknik som ligger bakom hans släde under hans färd runt världen. Vi har fått denna förhandsglimt från en av jultomtens många utvecklarnissar, som arbetar dag och natt på Nordpolen för att hjälpa jultomten att förbereda sig för sin stora dag. Med jultomtens instrumentpanel – som visar upp det senaste och bästa av tekniken bakom Google Maps och slädar – kan du följa var han är i världen och även läsa lite mer om de platser han besöker längs vägen."
 	},
 	"about-content-three": {
-		"message": "Google Maps funktion Följ jultomten skapas och utvecklas av Google, med lite hjälp från tomtenissarna. Behöver du hjälp, eller har du fler frågor? Besök vårt <a href=\"//support.google.com/santatracker\">hjälpcenter</a>."
+		"message": "Google Maps funktion Följ jultomten skapas och utvecklas av Google, med lite hjälp från tomtenissarna. Behöver du hjälp, eller har du fler frågor? Besök vårt \u003ca href=\"//support.google.com/santatracker\"\u003ehjälpcenter\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Våra vänliga nissar har även bjudit in dig att utforska jultomtens by medan jultomten gör sig redo för sin färd. Så utforska den! Du kanske hittar något roligt att göra och träffar på några intressanta nissar."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Tillbaka till start"
+	},
 	"codeboogie-block-clap": {
 		"message": "Klappa"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Gör en split."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Välj ett spelläge"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Välj en scen"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Börja dansa!"
 	},
 	"codeboogie-go": {
 		"message": "Kör!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Fortsätt dansa"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Dags att dansa"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Danslektion"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Härma dansläraren"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Egen dans"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Gör din egen dans och dela den med dina vänner"
 	},
 	"codeboogie-next-dance": {
 		"message": "Nästa dans"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Det verkar som att du gjorde fel här. Prova det här istället:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Dela dansen och utmana dina vänner"
 	},
 	"codeboogie-success": {
 		"message": "Succé!"
@@ -381,7 +408,7 @@
 		"message": "Bra!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Utforska fler Google-kodningsprojekt på <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Utforska fler Google-kodningsprojekt på \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Nästa utmaning"
@@ -765,7 +792,7 @@
 		"message": "norska"
 	},
 	"nonprofit-jane-description": {
-		"message": "Schimpanser är de närmaste nu levande släktingar mänskligheten har i djurriket! I dag finns färre än 300 000 schimpanser kvar i världen på grund av minskade utbredningsområden, sjukdomar och olaglig handel. Jane Goodall Institute (JGI) arbetar för att skydda schimpanserna genom att observera och förstå deras beteende och livsmiljö. JGI strävar efter att bygga upp ett nätverk av människor som skyddar och bevarar vilda djur och vår gemensamma miljö. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Utforska schimpansernas livsmiljö</a> i Gombe i Tanzania."
+		"message": "Schimpanser är de närmaste nu levande släktingar mänskligheten har i djurriket! I dag finns färre än 300 000 schimpanser kvar i världen på grund av minskade utbredningsområden, sjukdomar och olaglig handel. Jane Goodall Institute (JGI) arbetar för att skydda schimpanserna genom att observera och förstå deras beteende och livsmiljö. JGI strävar efter att bygga upp ett nätverk av människor som skyddar och bevarar vilda djur och vår gemensamma miljö. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforska schimpansernas livsmiljö\u003c/a\u003e i Gombe i Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Schimpans"
@@ -780,7 +807,7 @@
 		"message": "Skogar"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimatförändringarna fortsätter att rubba balansen i många av världens ekosystem, både på varma och kalla platser. I Arktis förlorar isbjörnarna sitt ishavshem när temperaturerna stiger, och hotas dessutom av mänsklig aktivitet som utvinning av olja och gas samt sjöfart. Världsnaturfonden arbetar för att säkra att arterna överlever genom vetenskaplig forskning och samarbete med de arktiska urbefolkningarna. Google.org är stolta att <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">stödja</a> Världsnaturfonden."
+		"message": "Klimatförändringarna fortsätter att rubba balansen i många av världens ekosystem, både på varma och kalla platser. I Arktis förlorar isbjörnarna sitt ishavshem när temperaturerna stiger, och hotas dessutom av mänsklig aktivitet som utvinning av olja och gas samt sjöfart. Världsnaturfonden arbetar för att säkra att arterna överlever genom vetenskaplig forskning och samarbete med de arktiska urbefolkningarna. Google.org är stolta att \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003estödja\u003c/a\u003e Världsnaturfonden."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Isbjörn"
@@ -4794,7 +4821,7 @@
 		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker och godis att njuta av under julkvällen."
 	},
 	"upgrade-warning": {
-		"message": "Hoppsan! Följ jultomten stöds inte i den här versionen av din webbläsare. Hämta en modern webbläsare för att gå till Följ jultomten. Mer information finns på <a href=\"https://whatbrowser.org\">whatbrowser.org </a>."
+		"message": "Hoppsan! Följ jultomten stöds inte i den här versionen av din webbläsare. Hämta en modern webbläsare för att gå till Följ jultomten. Mer information finns på \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org \u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -4818,7 +4845,7 @@
 		"message": "Utforska, lek och lär med jultomtens nissar hela december"
 	},
 	"village_get_the_app": {
-		"message": "Hämta appen"
+		"message": "Skaffa appen Följ jultomten till Android"
 	},
 	"village_more": {
 		"message": "Fler sätt att utforska"
@@ -4830,7 +4857,7 @@
 		"message": "Jultomten på Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Google Chrome-tillägg"
+		"message": "Lägg till Jultomten som Chrome-tillägg"
 	},
 	"village_takesoff": {
 		"message": "Tomten lyfter om"

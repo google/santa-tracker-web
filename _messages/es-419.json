@@ -3,7 +3,7 @@
 		"message": "En Nochebuena, tendremos el agrado de presentar el panel de Santa, la tecnología que impulsa el trineo en su viaje alrededor del mundo. Hemos recibido esta especial vista previa de uno de los tantos duendes programadores de Santa, que trabajan arduamente en el Polo Norte para ayudar a Santa a prepararse para el gran día. El panel de Santa, que presenta la última y mejor tecnología de Google Maps y de diseño de trineos, te permitirá hacer un seguimiento de su viaje por todo el mundo, y podrás aprender más acerca de los diferentes destinos de su recorrido."
 	},
 	"about-content-three": {
-		"message": "Sigue a Santa de Google Maps ha sido creada y diseñada por Google, con ayuda de los duendes de Santa. ¿Necesitas ayuda o tienes más preguntas? Visita nuestro <a href=\"//support.google.com/santatracker\">Centro de ayuda</a>."
+		"message": "Sigue a Santa de Google Maps ha sido creada y diseñada por Google, con ayuda de los duendes de Santa. ¿Necesitas ayuda o tienes más preguntas? Visita nuestro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de ayuda\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Nuestros simpáticos duendes también te han invitado a explorar la aldea mientras Santa se prepara para su viaje. Así que únete a ellos y explora la aldea. Puedes encontrar divertidas actividades y conocer a los encantadores duendes."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Volver al inicio"
+	},
 	"codeboogie-block-clap": {
 		"message": "Aplaude"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Haz un split."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Elige un modo de juego"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Elige una etapa"
+	},
 	"codeboogie-get-dancing": {
 		"message": "¡A bailar!"
 	},
 	"codeboogie-go": {
 		"message": "¡Vamos!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Sigue bailando"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Bailemos"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Clases de baile"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Imita los movimientos del profesor."
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Baila estilo libre"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Crea tus propios pasos de baile y compártelos con tus amigos."
 	},
 	"codeboogie-next-dance": {
 		"message": "Siguiente baile"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Parece que hiciste un movimiento incorrecto. Intenta hacer este:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Comparte tus pasos de baile y desafía a tus amigos"
 	},
 	"codeboogie-success": {
 		"message": "¡Muy bien!"
@@ -381,7 +408,7 @@
 		"message": "Excelente"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explora más proyectos de codificación de Google en <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Explora más proyectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Siguiente desafío"
@@ -765,7 +792,7 @@
 		"message": "Noruego"
 	},
 	"nonprofit-jane-description": {
-		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explora los hábitats de los chimpancés</a> en Gombe, Tanzania."
+		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpancés\u003c/a\u003e en Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpancé"
@@ -780,7 +807,7 @@
 		"message": "Bosques"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">defensor</a> de World Wildlife Fund."
+		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003edefensor\u003c/a\u003e de World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
@@ -4794,7 +4821,7 @@
 		"message": "En el Reino Unido, entusiastas de todas las edades se divierten con un elemento típico llamado \"Christmas cracker\". Son tubos envueltos en papeles de colores, con tiras en cada extremo. Al tirar de ellas, el tubo estalla haciendo un fuerte sonido y salen sombreros de papel, juguetes y golosinas."
 	},
 	"upgrade-warning": {
-		"message": "Sigue a Santa no es compatible con esta versión de tu navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Sigue a Santa no es compatible con esta versión de tu navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -4818,7 +4845,7 @@
 		"message": "Explora, juega y aprende con los duendes de Santa durante todo diciembre"
 	},
 	"village_get_the_app": {
-		"message": "Obtén la app"
+		"message": "Obtén la app Sigue a Santa para Android"
 	},
 	"village_more": {
 		"message": "Más formas de explorar"
@@ -4830,7 +4857,7 @@
 		"message": "Santa en Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Extensión de Google Chrome"
+		"message": "Agrega la extensión de Santa para Chrome"
 	},
 	"village_takesoff": {
 		"message": "Santa despegará en"

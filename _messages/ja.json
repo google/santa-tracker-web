@@ -3,7 +3,7 @@
 		"message": "クリスマスイブには、サンタさんがソリに乗って世界中を飛び回る様子を伝えるダッシュボードを公開します。大切な日に向けて北極でせっせとサンタさんのお手伝いをする働き者の妖精たちから、その様子を伝える画像が送られてきています。サンタさんのダッシュボードでは、Googleマップの最新技術やソリの特殊テクノロジーにより、サンタさんが世界中にプレゼントを届ける様子や立ち寄る場所についてのちょっとした情報をご紹介します。"
 	},
 	"about-content-three": {
-		"message": "Google マップの「サンタを追いかけよう」は Google がサンタさんの妖精たちの助けを借りて制作・開発したものです。サポートが必要な場合やその他の疑問点については<a href=\"//support.google.com/santatracker\">ヘルプセンター</a>をご覧ください。"
+		"message": "Google マップの「サンタを追いかけよう」は Google がサンタさんの妖精たちの助けを借りて制作・開発したものです。サポートが必要な場合やその他の疑問点については\u003ca href=\"//support.google.com/santatracker\"\u003eヘルプセンター\u003c/a\u003eをご覧ください。"
 	},
 	"about-content-two": {
 		"message": "また、親切な妖精たちが、旅に向けて準備をしているサンタさんの村にあなたを招待していますので、ぜひ訪ねてみてください。楽しいゲームや愉快な妖精たちが皆さんがやってくるのを待っています。"
@@ -408,7 +408,7 @@
 		"message": "クリア！"
 	},
 	"codelab-mwc-promo": {
-		"message": "Google コーディング プロジェクトの詳細は <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a> をご覧ください。"
+		"message": "Google コーディング プロジェクトの詳細は \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e をご覧ください。"
 	},
 	"codelab-next-challenge": {
 		"message": "次のレベル"
@@ -792,7 +792,7 @@
 		"message": "ノルウェー語"
 	},
 	"nonprofit-jane-description": {
-		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。The Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある<a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">チンパンジー生息域の様子</a>をご覧ください。"
+		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。The Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eチンパンジー生息域の様子\u003c/a\u003eをご覧ください。"
 	},
 	"nonprofit-jane-type": {
 		"message": "チンパンジー"
@@ -807,7 +807,7 @@
 		"message": "森林"
 	},
 	"nonprofit-wwf-description": {
-		"message": "気候変動により、世界各地で生態系のバランスが崩れ、温暖な地域でも寒冷地でも影響が表れています。ホッキョクグマは気温上昇により海氷の上の住処を失い、石油や天然ガスの開発・輸送をはじめとする人間の活動による脅威も増しています。WWF（世界自然保護基金）は、北極圏のネイティブ コミュニティーと協力しながら科学的調査によって種の保護を進めています。Google.org は WWF の<a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">支持団体</a>のひとつです。"
+		"message": "気候変動により、世界各地で生態系のバランスが崩れ、温暖な地域でも寒冷地でも影響が表れています。ホッキョクグマは気温上昇により海氷の上の住処を失い、石油や天然ガスの開発・輸送をはじめとする人間の活動による脅威も増しています。WWF（世界自然保護基金）は、北極圏のネイティブ コミュニティーと協力しながら科学的調査によって種の保護を進めています。Google.org は WWF の\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e支持団体\u003c/a\u003eのひとつです。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "ホッキョクグマ"
@@ -4821,7 +4821,7 @@
 		"message": "英国では、世代を超えてディナーの余興としてクリスマス クラッカーで賑わいます。クラッカーは色とりどりの紙に包まれた円筒状になっており、両端を引っ張ると「パン！」という大きな音とともに筒が弾け、中から紙の帽子やおもちゃ、キャンディなどが出てくるという趣向です。こうしてクリスマスの夜を楽しみます。"
 	},
 	"upgrade-warning": {
-		"message": "アプリ「サンタを追いかけよう」はこのバージョンのブラウザには対応していません。このアプリをご利用になるには、最新のブラウザをダウンロードしてください。詳しくは <a href=\"https://whatbrowser.org\">whatbrowser.org</a> をご覧ください。"
+		"message": "アプリ「サンタを追いかけよう」はこのバージョンのブラウザには対応していません。このアプリをご利用になるには、最新のブラウザをダウンロードしてください。詳しくは \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e をご覧ください。"
 	},
 	"us_country_name": {
 		"message": "アメリカ"
