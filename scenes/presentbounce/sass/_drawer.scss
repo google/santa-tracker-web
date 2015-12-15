@@ -102,6 +102,14 @@
 					left: 25%;
 					width: 50%; // use width to size the tool according to the drawer
 
+					.spring__bottom {
+						height: 36px;
+
+						@media (min-width: $board-tablet-breakpoint) {
+							height: 63px;
+						}
+					}
+
 					@media (min-width: $board-desktop-breakpoint) {
 						width: 57px;
 						height: 63px;
