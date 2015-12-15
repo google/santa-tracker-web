@@ -67,6 +67,7 @@ app.world.Level = class {
     // Total ammount of objects available to be dragged and dropped
     this.numObjectsAvailable = 0;
 
+    this.elem.css('visibility', 'hidden');
     this.buildWorld_();
 
     // Adding collision detection
@@ -221,6 +222,17 @@ app.world.Level = class {
     this.drawer.reset();
     this.buildLevelObjects_();
     this.buildUserObjects_();
+    window.setTimeout( () => {
+      this.show_();
+    }, 50);
+  }
+
+  /**
+   * @private
+   * Shows the level once ready.
+   */
+  show_() {
+    this.elem.css('visibility', 'visible');
   }
 
   /**
