@@ -3,7 +3,7 @@
 		"message": "Vào đêm Giáng sinh, chúng tôi sẽ tự hào hiển thị trang tổng quan của ông già Noel, công nghệ hỗ trợ xe trượt tuyết trong cuộc hành trình vòng quanh thế giới của ông. Chúng tôi đã nhận được bản xem trước đặc biệt này từ một trong nhiều chú lùn nhà phát triển của ông già Noel, những người làm việc chăm chỉ ở Bắc cực để giúp ông già Noel chuẩn bị cho ngày trọng đại của ông. Trang tổng quan của ông già Noel - mô tả điều mới nhất và hay nhất về công nghệ Google Maps và cấu tạo xe trượt tuyết - sẽ cho phép bạn theo dõi tiến trình của ông già Noel trên thế giới và cũng tìm hiểu một chút về một số điểm dừng của ông trong suốt cuộc hành trình."
 	},
 	"about-content-three": {
-		"message": "Theo chân ông già Noel trên Google Maps được tạo và phát triển bởi Google, cùng với một chút trợ giúp từ các chú lùn của ông già Noel. Cần trợ giúp hoặc có thêm câu hỏi? Hãy truy cập vào <a href=\"//support.google.com/santatracker\">Trung tâm trợ giúp</a> của chúng tôi."
+		"message": "Theo chân ông già Noel trên Google Maps được tạo và phát triển bởi Google, cùng với một chút trợ giúp từ các chú lùn của ông già Noel. Cần trợ giúp hoặc có thêm câu hỏi? Hãy truy cập vào \u003ca href=\"//support.google.com/santatracker\"\u003eTrung tâm trợ giúp\u003c/a\u003e của chúng tôi."
 	},
 	"about-content-two": {
 		"message": "Các chú lùn thân thiện của chúng tôi cũng đã mời bạn khám phá ngôi làng của ông già Noel trong khi ông già Noel sẵn sàng cho cuộc hành trình của mình. Vì vậy, hãy tiếp tục và khám phá ngôi làng của ông, bạn có thể tìm thấy một số hoạt động vui nhộn và gặp gỡ một số chú lùn thú vị."
@@ -245,6 +245,9 @@
 	"co_country_name": {
 		"message": "Colombia"
 	},
+	"codeboogie-back-to-start": {
+		"message": "Quay lại phần đầu"
+	},
 	"codeboogie-block-clap": {
 		"message": "Vỗ tay"
 	},
@@ -293,14 +296,35 @@
 	"codeboogie-block-split-tooltip": {
 		"message": "Tách ra."
 	},
+	"codeboogie-choose-game-mode": {
+		"message": "Chọn một chế độ trò chơi"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Chọn một sân khấu"
+	},
 	"codeboogie-get-dancing": {
 		"message": "Thử điệu nhảy!"
 	},
 	"codeboogie-go": {
 		"message": "Đi tiếp!"
 	},
+	"codeboogie-keep-dancing": {
+		"message": "Tiếp tục nhảy"
+	},
 	"codeboogie-lets-dance": {
 		"message": "Chúng ta hãy cùng nhảy"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Lớp học nhảy"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Phù hợp với động tác của giáo viên"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Nhảy tự do"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Thực hiện bước nhảy riêng và chia sẻ với bạn bè"
 	},
 	"codeboogie-next-dance": {
 		"message": "Điệu nhảy tiếp theo"
@@ -328,6 +352,9 @@
 	},
 	"codeboogie-result-wrong-move": {
 		"message": "Có vẻ như bạn đã nhảy sai bước. Hãy thử bước này thay thế:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Chia sẻ bước nhảy và thách đấu bạn bè"
 	},
 	"codeboogie-success": {
 		"message": "Thành công!"
@@ -381,7 +408,7 @@
 		"message": "Tuyệt vời"
 	},
 	"codelab-mwc-promo": {
-		"message": "Khám phá thêm các dự án viết mã của Google tại <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
+		"message": "Khám phá thêm các dự án viết mã của Google tại \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Thách thức mới"
@@ -765,7 +792,7 @@
 		"message": "Tiếng Na Uy"
 	},
 	"nonprofit-jane-description": {
-		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Khám phá môi trường sống của Tinh tinh</a> ở Gombe thuộc Tanzania."
+		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Tinh tinh"
@@ -780,7 +807,7 @@
 		"message": "Rừng"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Biến đổi khí hậu tiếp tục phá vỡ sự cân bằng của nhiều hệ sinh thái trên thế giới, cả những nơi ấm và lạnh. Ở Bắc cực, gấu bắc cực đang mất đi môi trường sống băng biển của chúng bởi nhiệt độ tăng và phải đối mặt với các mối đe dọa gia tăng từ các hoạt động của con người, chẳng hạn như sự phát triển và vận chuyển dầu và khí đốt. World Wildlife Fund làm việc để đảm bảo sự sống còn của các loài thông qua nghiên cứu khoa học và hợp tác với các cộng đồng bản địa ở Bắc cực. Google.org tự hào là <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">người hỗ trợ</a> với World Wildlife Fund."
+		"message": "Biến đổi khí hậu tiếp tục phá vỡ sự cân bằng của nhiều hệ sinh thái trên thế giới, cả những nơi ấm và lạnh. Ở Bắc cực, gấu bắc cực đang mất đi môi trường sống băng biển của chúng bởi nhiệt độ tăng và phải đối mặt với các mối đe dọa gia tăng từ các hoạt động của con người, chẳng hạn như sự phát triển và vận chuyển dầu và khí đốt. World Wildlife Fund làm việc để đảm bảo sự sống còn của các loài thông qua nghiên cứu khoa học và hợp tác với các cộng đồng bản địa ở Bắc cực. Google.org tự hào là \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003engười hỗ trợ\u003c/a\u003e với World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Gấu bắc cực"
@@ -4794,7 +4821,7 @@
 		"message": "Ở Vương quốc Anh, người tham dự đủ mọi lứa tuổi thưởng thức pháo Giáng sinh trên bàn trong bữa ăn. Pháo là các ống được bọc bằng giấy đầy màu sắc, với nút kéo ở mỗi đầu. Khi bạn kéo các nút, ống sẽ phát ra tiếng nổ lớn! Bên trong là mũ giấy, đồ chơi và bánh kẹo để thưởng thức trong đêm Giáng sinh."
 	},
 	"upgrade-warning": {
-		"message": "Rất tiếc! Theo chân ông già Noel không được hỗ trợ trong phiên bản trình duyệt này của bạn. Để truy cập Theo chân ông già Noel, hãy tải xuống trình duyệt hiện đại. Để biết thêm thông tin, hãy truy cập vào <a href=\"https://whatbrowser.org\">whatbrowser.org</a>."
+		"message": "Rất tiếc! Theo chân ông già Noel không được hỗ trợ trong phiên bản trình duyệt này của bạn. Để truy cập Theo chân ông già Noel, hãy tải xuống trình duyệt hiện đại. Để biết thêm thông tin, hãy truy cập vào \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Hoa Kỳ"
@@ -4818,7 +4845,7 @@
 		"message": "Khám phá, chơi và học cùng các chú lùn của ông già Noel suốt cả tháng 12"
 	},
 	"village_get_the_app": {
-		"message": "Tải ứng dụng"
+		"message": "Tải ứng dụng Theo chân ông già Noel cho Android"
 	},
 	"village_more": {
 		"message": "Cách  khám phá khác"
@@ -4830,7 +4857,7 @@
 		"message": "Ông già Noel trên Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Tiện ích Google Chrome"
+		"message": "Thêm tiện ích ông già Noel của Chrome"
 	},
 	"village_takesoff": {
 		"message": "Ông già Noel sẽ khởi hành sau"
