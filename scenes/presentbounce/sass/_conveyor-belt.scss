@@ -11,7 +11,7 @@
 
     .wheel {
       transform-origin: center center;
-      animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;   
+      animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;
     }
 
     &.js-animation-reverse .belt,
