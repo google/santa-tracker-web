@@ -9,21 +9,17 @@
       cursor: grab;
     }
 
-    > * {
-      transition: transform 300ms $easeOutQuad;
-    }
+		> * {
+			transition: transform 300ms $easeOutQuad;
+		}
 
-    &.dragging {
-      cursor: grabbing;
-      > * {
-        transform: scale(1.2);
-      }
-
-      &.no-drop {
-        opacity: 0.25;
-        cursor: no-drop;
-      }
-    }
+		&.dragging {
+			cursor: grabbing;
+			&.no-drop {
+				opacity: 0.5;
+				cursor: no-drop;
+			}
+		}
 
   }
 

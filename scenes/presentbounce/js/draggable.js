@@ -14,28 +14,38 @@
  * the License.
  */
 
+goog.require('app.InputEvent');
 goog.provide('app.Draggable');
 
 /**
  * @param {!Element} elem that can be dragged
  * @param {!Element} root to use to find droppable targets
- * @param {function(data, type, {x, y}), errorCallback} onDropCallback callback function to be called when a drop happens
- * @param {function(data, type, {x, y}, validCallback)} testDropCallback callback function to be called when testing if a drop is valid happens
+ * @param {!function(data, type, {x, y}), errorCallback} onDropCallback callback function to be called when a drop happens
+ * @param {!function(data, type, {x, y}, validCallback)} testDropCallback callback function to be called when testing if a drop is valid happens
  * @param {!app.Drawer} drawer the drawer instance
+ * @param {!Object} data Config data being passed from the level.
+ * @param {!game} game the game instance
  * @constructor
  */
-app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer) {
+app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer, data, game) {
   this.el = $(elem);
   this.rootEl = root;
   this.onDropCallback = onDropCallback;
   this.testDropCallback = testDropCallback;
-  this.drawer = drawer || null;
+  this.drawer = drawer;
+  this.data_ = data;
+  this.game_ = game;
 
   this.container = $(elem).parent();
   this.el.data('container', this.container);
 
-  this.el.on('mousedown.presentbounce', this.mousedown_.bind(this));
-  this.el.on('touchstart.presentbounce', this.touchstart_.bind(this));
+  this.$document = $(document);
+
+  this.onInputStart_ = this.onInputStart_.bind(this);
+  this.onInputMove_ = this.onInputMove_.bind(this);
+  this.onInputEnd_ = this.onInputEnd_.bind(this);
+
+  this.el.on(app.InputEvent.START, this.onInputStart_);
 
   this.el.addClass('draggable');
 };
@@ -46,8 +56,29 @@ app.Draggable = function(elem, root, onDropCallback, testDropCallback, drawer) {
  * @private
  */
 app.Draggable.prototype.dragStart_ = function(startX, startY) {
+
+  // Set size of element to match Box2D world
+  const scale = this.game_.getViewport().scale;
+  const padding = this.data_.style.padding || 0;
+  const width = (this.data_.style.width + padding*2) * scale;
+  const height = (this.data_.style.height + padding*2) * scale;
+  this.el.css({
+    width: width,
+    height: height,
+    marginLeft: width/-2,
+    marginTop: height/-2,
+    transform: 'none'
+  });
+
   this.startX = startX;
   this.startY = startY;
+
+  // Calculate mouse offset from center of element
+  const offsetX = this.el.offset().left - (startX - width/2);
+  const offsetY = this.el.offset().top - (startY - height/2);
+  this.startOffsetX = offsetX;
+  this.startOffsetY = offsetY;
+
   this.el.addClass('dragging');
   this.drawer.onDrag(this.el);
 };
@@ -63,7 +94,7 @@ app.Draggable.prototype.dragMove_ = function(left, top, x, y) {
     transform: 'translate3d(' + left + 'px, ' + top + 'px, 0px)'
   });
 
-  this.testDropCallback(x, y, (valid) => {
+  this.testDropCallback(x + this.startOffsetX, y + this.startOffsetY, (valid) => {
     this.el.toggleClass('no-drop', !valid);
   });
 };
@@ -86,7 +117,7 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
   var dropZoneEl = this.rootEl.find('.js-drop-target').filter(isDragOver).first();
 
   if (dropZoneEl.length) {
-    this.onDropCallback(x, y, (hasError) => {
+    this.onDropCallback(x + this.startOffsetX, y + this.startOffsetY, (hasError) => {
       if (hasError) {
         this.drawer.onDropError(this.el);
       }
@@ -100,29 +131,40 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
 
   this.el.css({
     position: '',
-    transform: ''
+    transform: '',
+    margin: '',
+    width: '',
+    height: ''
   });
   this.el.removeClass('dragging');
 };
 
 
 /**
- * @param {!Event} e mouse event
+ * @param {!Event} e touch event
  * @private
  */
-app.Draggable.prototype.mousedown_ = function(e) {
+app.Draggable.prototype.onInputStart_ = function(e) {
   var startX = null;
   var startY = null;
 
+
+  e = app.InputEvent.normalize(e);
+
   if (this.drawer.isPaused()) return;
 
-  startX = e.clientX;
-  startY = e.clientY;
+  if (e.hasOwnProperty('touches')) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  } else {
+    startX = e.clientX;
+    startY = e.clientY;
+  }
 
   this.dragStart_(startX, startY);
 
-  $(window).on('mousemove.presentbounce', this.mousemove_.bind(this));
-  $(window).on('mouseup.presentbounce', this.mouseup_.bind(this));
+  this.$document.on(app.InputEvent.MOVE, this.onInputMove_);
+  this.$document.on(app.InputEvent.END, this.onInputEnd_);
 
   e.preventDefault();
 };
@@ -131,47 +173,30 @@ app.Draggable.prototype.mousedown_ = function(e) {
  * @param {!Event} e touch event
  * @private
  */
-app.Draggable.prototype.touchstart_ = function(e) {
-  var startX = null;
-  var startY = null;
+app.Draggable.prototype.onInputMove_ = function(e) {
+  var left = null;
+  var top = null;
 
-  if (this.drawer.isPaused()) return;
+  e = app.InputEvent.normalize(e);
 
-  startX = e.originalEvent.touches[0].clientX;
-  startY = e.originalEvent.touches[0].clientY;
+  if (e.hasOwnProperty('touches')) {
 
-  this.dragStart_(startX, startY);
+    left = e.touches[0].clientX - this.startX;
+    top = e.touches[0].clientY - this.startY;
 
+    // Store the last known position because touchend doesn't
+    this.x = e.touches[0].clientX;
+    this.y = e.touches[0].clientY;
 
-  $(window).on('touchmove.presentbounce', this.touchmove_.bind(this));
-  $(window).on('touchend.presentbounce', this.touchend_.bind(this));
+  } else {
 
-  e.preventDefault();
-};
+    left = e.clientX - this.startX;
+    top = e.clientY - this.startY;
 
-/**
- * @param {!Event} e mouse event
- * @private
- */
-app.Draggable.prototype.mousemove_ = function(e) {
-  var left = e.clientX - this.startX;
-  var top = e.clientY - this.startY;
-
-  this.dragMove_(left, top, e.clientX, e.clientY);
-  e.preventDefault();
-};
-
-/**
- * @param {!Event} e touch event
- * @private
- */
-app.Draggable.prototype.touchmove_ = function(e) {
-  var left = e.originalEvent.touches[0].clientX - this.startX;
-  var top = e.originalEvent.touches[0].clientY - this.startY;
-
-  // Store the last known position because touchend doesn't
-  this.x = e.originalEvent.touches[0].clientX;
-  this.y = e.originalEvent.touches[0].clientY;
+    // Store the last known position because touchend doesn't
+    this.x = e.clientX;
+    this.y = e.clientY;
+  }
 
   this.dragMove_(left, top, this.x, this.y);
   e.preventDefault();
@@ -179,23 +204,13 @@ app.Draggable.prototype.touchmove_ = function(e) {
 };
 
 /**
- * @param {!Event} e mouse event
- * @private
- */
-app.Draggable.prototype.mouseup_ = function(e) {
-  this.dragEnd_(e.clientX, e.clientY);
-
-  $(window).off('mousemove.presentbounce mouseup.presentbounce');
-  e.preventDefault();
-};
-
-/**
  * @param {!Event} e touch event
  * @private
  */
-app.Draggable.prototype.touchend_ = function(e) {
+app.Draggable.prototype.onInputEnd_ = function(e) {
   this.dragEnd_(this.x, this.y);
 
-  $(window).off('touchmove.presentbounce touchend.presentbounce');
+  this.$document.off(app.InputEvent.MOVE, this.onInputMove_);
+  this.$document.off(app.InputEvent.END, this.onInputEnd_);
   e.preventDefault();
 };

@@ -25,6 +25,7 @@
 
   .spring {
     position: relative;
+    height: 100%;
   }
 
   .spring__top {
@@ -34,6 +35,12 @@
     width: 100%; // firefox needs size
     height: 20px;
     z-index: 10; // don't let transform stack it on top of this
+    width: 100%;
+    height: 12px;
+  }
+
+  .spring__bottom {
+    height: 83px;
   }
 
 }

@@ -271,6 +271,7 @@ app.world.Level = class {
         hasError = false;
         this.userObjects_.push(belt);
         window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
+        belt.play();
       }
       callback( hasError );
     }
@@ -410,7 +411,7 @@ app.world.Level = class {
    */
   hasBallExitedScreen_() {
     if (this.ball_) {
-      return this.ball_.position().y > this.game_.getViewport().height;
+      return this.ball_.position().y > this.game_.getViewport().height*1.3;
     }
     return false;
   }

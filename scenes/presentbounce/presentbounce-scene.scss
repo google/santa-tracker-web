@@ -3,7 +3,7 @@ $gameover-bg: #29b6f6;
 $rotate-bg: $gameover-bg;
 $z-index-present: 10;
 $z-index-above-present: $z-index-present + 10;
-$board-mobile-breakpoint: 668px;
+$board-tablet-breakpoint: 740px;
 $board-desktop-breakpoint: 1025px;
 $border-color: #a52fb7;
 
@@ -43,14 +43,18 @@ $border-color: #a52fb7;
     position: absolute;
 
     // Mobile viewport
-    top: 0px;
-    bottom: 40px;
+    top: 0;
+    bottom: 30px;
     right: 0;
     left: 0;
 
-     // Tablet UI
+    // iPhone6 UI
     @media (min-width: 661px) {
-      top: 0;
+      bottom: 0px;
+    }
+
+    // Table UI
+    @media (min-width: $board-tablet-breakpoint) {
       bottom: 50px;
     }
 

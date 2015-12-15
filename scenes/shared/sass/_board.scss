@@ -226,7 +226,11 @@ $board-actions-height-md: 54px;
     }
 
     .restart {
-      background: url(../shared/img/board/restart.svg) no-repeat 50% 50% / 33px 33px;
+      background: url(../shared/img/board/restart.svg) no-repeat 50% 50%;
+      background-size: contain;
+      @media (min-width: 1025px) {
+        background-size: 33px 33px;
+      }
     }
 
     .pause {

@@ -5,7 +5,10 @@
     margin-top: 32px;
 
     &:after {
-        background: transparent url('img/target-part.svg') left top repeat-y;
+        background-color: transparent;
+        background-image: url('img/target-part.svg');
+        background-position: left top;
+        background-repeat: repeat-y;
         content: '';
         display: block;
         position: absolute;

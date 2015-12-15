@@ -5,33 +5,46 @@
     cursor: move;
     $belt-speed: 6s;
 
-    .belt {
-      animation: #{$name}-belt-animation $belt-speed linear infinite;
+    .conveyor {
+
+      &__belt {
+        position: relative;
+        height: 100%;
+      }
+
+
+      &__wheel {
+        transform-origin: center center;
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;
+        position: absolute;
+        top: 0;
+        margin: 8px;
+
+        &--first {
+          left: 0;
+        }
+
+        &--last {
+          left: 100%;
+          margin-left: -74px;
+        }
+      }
+
     }
 
-    .wheel {
-      transform-origin: center center;
-      animation: #{$name}-wheel-animation $belt-speed/4 linear infinite;
-    }
-
-    &.js-animation-reverse .belt,
-    &.js-animation-reverse .wheel {
+    &.js-animation-reverse .conveyor__wheel {
       animation-direction: reverse;
     }
   }
 
-  .drawer .object--conveyorBelt .belt,
-  .drawer .object--conveyorBelt .wheel {
+  .js-animation-paused .conveyor__wheel,
+  .drawer .conveyor__wheel {
     animation-play-state: paused;
   }
 
-}
-
-@keyframes #{$name}-belt-animation {
-  to {
-    // document.querySelector('.belt').getTotalLength()
-    stroke-dashoffset: -813.1859130859375;
-  }
 }
 
 @keyframes #{$name}-wheel-animation {
