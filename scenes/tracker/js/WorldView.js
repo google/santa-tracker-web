@@ -48,7 +48,6 @@ function WorldView(base, componentDir) {
   this.santaLayer_ = null;
 
   this.lockOnSanta_ = true;
-  this.circleView_ = null;
 
   this.throttledFilterMarkers_ = throttle(this.filterMarkers_, 1000);
 
@@ -78,10 +77,6 @@ WorldView.prototype.show = function() {
 };
 
 WorldView.prototype.hide = function() {
-  if (this.circleView_) {
-    this.circleView_.hide();
-  }
-
   if (this.santaLayer_) {
     this.santaLayer_.hide();
   }
@@ -121,28 +116,6 @@ WorldView.prototype.setMode = function(mode) {
   }
 
   this.centerOffset_ = this.computeCenterOffset_();
-
-  if (this.mode_ == 'feed') {
-    this.animateCircleIn_();
-  } else {
-    this.animateCircleOut_();
-  }
-};
-
-WorldView.prototype.animateCircleIn_ = function() {
-  if (!this.circleView_) {
-    this.circleView_ = new CircleView(this.base_.$['module-tracker'].querySelector('#trackermap'), 'rgba(141, 35, 169, 0.7)', 1, true);
-
-    google.maps.event.addListener(this.circleView_, 'close', this.onSantaLayerClick_.bind(this));
-  }
-  this.circleView_.setCenter(this.centerOffset_);
-  this.circleView_.show();
-};
-
-WorldView.prototype.animateCircleOut_ = function() {
-  if (this.circleView_) {
-    this.circleView_.hide();
-  }
 };
 
 WorldView.prototype.zoomIn = function() {

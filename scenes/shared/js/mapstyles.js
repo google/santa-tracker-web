@@ -23,7 +23,7 @@ var mapstyles = mapstyles || {
     'featureType': 'water',
     'stylers': [
       { 'visibility': 'on' },
-      { 'color': '#f6efe2' }
+      { 'color': '#69d5d0' }
     ]
   },{
     'featureType': 'landscape',
@@ -41,14 +41,6 @@ var mapstyles = mapstyles || {
       { 'gamma': 3.75 },
       { 'lightness': 70 },
       { 'weight': 1 }
-    ]
-  },{
-    'featureType': 'water',
-    'elementType': 'labels',
-    'stylers': [
-      { 'weight': 0.8 },
-      { 'color': '#c5c6c4' },
-      { 'lightness': 5 }
     ]
   },{
     'featureType': 'landscape.natural',

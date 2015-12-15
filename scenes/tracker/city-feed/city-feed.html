@@ -18,6 +18,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../../components/iron-pages/iron-pages.html">
 <link rel="import" href="../../../components/iron-selector/iron-selector.html">
 <link rel="import" href="../../../components/iron-image/iron-image.html">
+<link rel="import" href="../../../components/iron-icons/iron-icons.html">
 <link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
 <link rel="import" href="../../../components/iron-media-query/iron-media-query.html">
 
@@ -33,7 +34,7 @@ Polymer({
     html: {
       type: String,
       value: null,
-      observers: '_htmlChanged'
+      observer: '_htmlChanged'
     }
   },
 
@@ -95,34 +96,116 @@ City feed view in Tracker
 <div id="module-city-feed" class="fit">
   <div class="scene fit">
 
-    <iron-media-query query="(max-width:960px)"
-        query-matches="{{isMobileSize}}"></iron-media-query>
+    <div id="city-view" class="fit">
+      <template is="dom-if" if="{{_isActiveStop(activeStop)}}">
+      <div id="city-details">
+        <a href="#">Back to tracker</a>
+        <div class="details">
+          <h4>{{activeStop.stop.region}}</h4>
+          <h1>{{activeStop.stop.city}}</h1>
+        </div>
+        <div class="stats">
+          <div class="horizontal">
+            <div>
+              <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="horizontal centered">
+                <div class="ico ico-clock"></div>
+                <h2 class="stat-large">{{formatTime(activeStop.stop.arrival)}}</h2>
+              </div>
+            </div>
+            <div>
+              <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+              <div class="horizontal centered">
+                <div class="ico ico-weatherchanel"></div>
+                <h2 class="stat-large white">
+                  <span>{{activeStop.stop.details.weather.tempC}}</span>&deg;C /
+                  <span>{{activeStop.stop.details.weather.tempF}}</span>&deg;F
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wikipedia" hidden$="{{!activeStop.stop.details.wikipedia}}">
+          <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
+
+          <div class="attribution">
+            <span class="wiki-cc">Available under
+            <a href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+            terms</span>
+            <a href$="{{activeStop.stop.details.wikipedia.url}}">{{activeStop.stop.details.wikipedia.url}}</a>
+          </div>
+        </div>
+      </div>
+      <div id="city-photos">
+        <div class="city-photo" style$="background-image:url({{cityPhotoLowRes}})">
+          <div class="city-photo-hires" style$="background-image:url({{cityPhotoHiRes}})"></div>
+        </div>
+
+        <iron-selector id="photoselector" selected="1"
+              on-iron-activate="_onPhotoSelected">
+          <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo">
+            <img data-name="wik" src="{{photo.url}}">
+          </template>
+        </iron-selector>
+      </div>
+      </template>
+    </div>
 
     <iron-list id="feed" items="[[stream]]" as="item" on-scroll="onScroll">
       <template>
         <div class$="{{_computeCardLayout(isMobileSize)}}" data-index$="[[index]]">
           <div class$="card {{_computeCardClasses(item)}}">
-            <div class="divider">{{formatTime(item.timestamp)}}</div>
+            <div hidden$="{{!itemIsType(item, 'santa-info')}}">
+              <div class="santa-info-row">
+                <div class="santa-info-distance">
+                  <div class="fancy-bg"></div>
+                  <div class="fancy-content">
+                    <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+                    <h2>{{_computeSantaDistance(santaDistance)}}</h2>
+                    {{_computeUserLocation(userLocation)}}
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <div>
+                  <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h2>{{_computePresentsDelivered(location)}}</h2>
+                </div>
+              </div>
+              <div class="santa-info-row">
+                <div hidden$="{{_computeIsSantaFlying(location)}}">
+                  <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3><i class="ico ico-arrow-yellow"></i> {{_computeNextStop(location)}}</h3>
+                </div>
+                <div hidden$="{{!_computeIsSantaFlying(location)}}">
+                  <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3><i class="ico ico-arrow-yellow"></i> {{_computeCurrentStop(location)}}</h3>
+                </div>
+                <div class="divider"></div>
+                <div hidden$="{{_computeIsSantaFlying(location)}}">
+                  <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3><i class="ico ico-arrow-yellow"></i>{{_computeArrival(arrival)}}</h3>
+                </div>
+                <div hidden$="{{!_computeIsSantaFlying(location)}}">
+                  <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h3><i class="ico ico-arrow-yellow"></i>{{_computeDeparture(departure)}}</h3>
+                </div>
+              </div>
+                <!--
+                <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
+                  -->
+            </div>
 
             <div hidden$="{{!itemIsType(item, 'city')}}">
+              <div class="card-city-bg" style$="background-image:url({{_getPhotoUrl(item.stop.details.photos, 0)}});"></div>
               <div class="card-header">
-                <div class="corner-image"></div>
+                <div class="card-city-attribution">
+                  <html-echo html="{{_getPhotoAttribution(item.stop.details.photos, 0)}}"></html-echo>
+                </div>
+
                 <div>
-                  <h4 class="white">{{item.stop.region}}</h4>
+                  <h4>{{item.stop.region}}</h4>
                   <h1>{{item.stop.city}}</h1>
                 </div>
-                <iron-selector id="cardselector" class="card-icons" selected="{{item.selectedCard}}"
-                      on-iron-activate="_onCardSelected">
-                  <img src="img/tracker-and-city-SVGs_feed-city-icon.svg"
-                       data-name="photo" hidden$="{{!item.stop.details.photos.0}}">
-                  <img src="img/tracker-and-city-SVGs_feed-city-photo-icon.svg"
-                       data-name="photo" hidden$="{{!item.stop.details.photos.1}}">
-                  <img src="img/tracker-and-city-SVGs_feed-city-sv-icon.svg"
-                       data-name="streetview" hidden$="{{!item.stop.details.streetView}}">
-                  <img src="img/tracker-and-city-SVGs_feed-city-wiki-icon.svg"
-                       on-tap="_onWikipedia" data-name="wikipedia"
-                       hidden$="{{!item.stop.details.hasWiki}}">
-                </iron-selector>
                 <div class="stats">
                   <div class="horizontal">
                     <div>
@@ -138,53 +221,15 @@ City feed view in Tracker
                         <div class="ico ico-weatherchanel"></div>
                         <h2 class="stat-large white">
                           <span>{{item.stop.details.weather.tempC}}</span>&deg;C /
-                          <span>{{item.stop.details.weather.tempF}}</span>&deg;
+                          <span>{{item.stop.details.weather.tempF}}</span>&deg;F
                         </h2>
                       </div>
                     </div>
                   </div>
                 </div>
+                <paper-fab icon="add" class="card-fab" on-tap="_showStop" data-stop$="{{item.stop.id}}"></paper-fab>
               </div>
-              <iron-pages class="card-body" selected="{{item.selectedCard}}">
-                <template is="dom-repeat" items="[[item.stop.details.photos]]" as="photo">
-                  <div>
-                    <iron-image class="fit" sizing="cover" preload fade src="{{photo.url}}"></iron-image>
-                    <div class="attribution" hidden$="{{!photo}}">
-                      <span class="attrib">
-                        <html-echo html="{{photo.attributionHtml}}"></html-echo>
-                      </span>
-                      <span class="addview">Add your own <a href="https://www.google.com/maps/views/home">photos</a> to <span>{{item.stop.city}}</span></span>
-                    </div>
-                  </div>
-                </template>
-                <div>
-                  <template is="dom-if" if="{{item.stop.details.streetView}}" restamp>
-                    <template is="dom-if" if="{{_isSelectedCard(item.selectedCard, 2)}}" restamp>
-                      <google-streetview-pano version="3.exp" class="fit"
-                          pano-id="{{item.stop.details.streetView.id}}"
-                          heading="{{item.stop.details.streetView.heading}}"
-                          client-id="{{santaApp.config.CLIENT_ID}}"
-                          language="{{santaApp.language}}"
-                          disable-default-ui></google-streetview-pano>
-                    </template>
-                  </template>
-                </div>
-                <div class="wikipedia">
-                  <div class="gradientbar"></div>
-                  <div class="wikipedia__logo"></div>
-                  <html-echo class="wikipedia__body" html="{{item.stop.details.wikipedia.excerpt}}"></html-echo>
-                  <div class="attribution">
-                    <span class="wiki-cc">Available under
-                    <a target="wiki" href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
-                    terms</span>
-                    <a target="wiki" href$="{{item.stop.details.wikipedia.url}}">{{item.stop.details.wikipedia.url}}</a>
-                  </div>
-                </div>
-              </iron-pages>
             </div>
-
-             <!-- TODO(ebidel): Dry this up. Duplicated markup from left-side
-                   cards above due to loss of <template ref> in Polymer 1.0. -->
 
              <!-- mini cards -->
               <div hidden$="{{!itemIsType(item, 'facts')}}">
@@ -192,6 +237,8 @@ City feed view in Tracker
                   <div class="corner-image"></div>
                   <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
                 </div>
+                <div class="divider">{{formatTime(item.timestamp)}}</div>
+
                 <div class="card-body">
                   <p>{{item.didyouknow}}</p>
                 </div>
@@ -242,74 +289,6 @@ City feed view in Tracker
               <!-- mini cards -->
 
           </div>
-
-          <template is="dom-if" if="[[item.nextCard]]" restamp>
-            <div class$="card {{_computeNextCardClasses(item.nextCard)}}">
-              <div class="divider">{{formatTime(item.nextCard.timestamp)}}</div>
-
-              <!-- <template bind ref="mini-cards-template"></template> -->
-
-              <!-- TODO(ebidel): Dry this up. Duplicated markup from left-side
-                   cards above due to loss of <template ref> in Polymer 1.0. -->
-
-              <!-- mini cards -->
-              <div hidden$="{{!itemIsType(item.nextCard, 'facts')}}">
-                <div class="card-header">
-                  <div class="corner-image"></div>
-                  <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
-                </div>
-                <div class="card-body">
-                  <p>{{item.nextCard.didyouknow}}</p>
-                </div>
-                <div class="card-footer">
-                  <p><i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg></p>
-                </div>
-              </div>
-
-              <div hidden$="{{!itemIsType(item.nextCard, 'photos')}}" style="height: 100%">
-                <div class="card-header">
-                  <div class="corner-image"></div>
-                </div>
-                <div class="card-body">
-                  <iron-image sizing="cover" preload prevent-load="{{!item.nextCard.imageUrl}}"
-                              fade src="{{item.nextCard.imageUrl}}"></iron-image>
-                </div>
-              </div>
-
-              <div hidden$="{{!itemIsType(item.nextCard, 'scene')}}" style="height: 100%">
-                <a href$="{{pageUrl}}#{{item.nextCard.game}}">
-                  <div class="card-header">
-                    <div class="corner-image"></div>
-                  </div>
-                  <div class="card-body"></div>
-                </a>
-              </div>
-
-              <div hidden$="{{!itemIsType(item.nextCard, 'update')}}">
-                <div class="card-header">
-                  <div class="corner-image"></div>
-                  <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
-                </div>
-                <div class="card-body">
-                  <p>{{item.nextCard.status}}</p>
-                </div>
-              </div>
-
-              <div hidden$="{{!itemIsType(item.nextCard, 'video')}}">
-                <a href$="{{pageUrl}}#{{_computeVideoName(item.nextCard.youtubeId)}}">
-                  <div class="card-header">
-                    <div class="corner-image"></div>
-                    <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
-                    <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
-                  </div>
-                  <div class$="card-body card-{{_computeVideoName(item.nextCard.youtubeId)}}"></div>
-                </a>
-              </div>
-              <!-- mini cards -->
-
-            </div>
-          </template>
-
         </div>
 
       </template>
@@ -364,6 +343,52 @@ Polymer({
       observer: '_timelineChanged'
     },
 
+    activeStop: {
+      type: Object,
+      value: null,
+      observer: '_activeStopChanged'
+    },
+
+    /**
+     * Current Santa's location.
+     */
+    location: {
+      type: Object,
+    },
+
+    /**
+     * Santa's time of arrival.
+     */
+    arrival: {
+      type: String,
+      value: null
+    },
+
+    /**
+     * Santa's distance.
+     */
+    santaDistance: {
+      type: Number,
+      value: 0
+    },
+
+    /**
+     * Santa's time of arrival.
+     */
+    departure: {
+      type: String,
+      value: null
+    },
+
+    /**
+     * User's location.
+     * @type {Position}
+     */
+    userLocation:  {
+      type: Object,
+      value: null
+    },
+
     /**
      * The timeline feed with additional data and adjusted to support mini cards.
      */
@@ -399,7 +424,6 @@ Polymer({
       type: Number,
       value: null
     },
-
   },
 
   /**
@@ -418,6 +442,9 @@ Polymer({
    */
   pendingScroll_: null,
 
+  cityPhotoLowRes: '',
+  cityPhotoHiRes: '',
+
   /**
    * True if the list has done its metrics setup and is ready to be shown.
    */
@@ -428,9 +455,69 @@ Polymer({
    */
   updateQueued_: false,
 
+  _formatDistance: function(dist) {
+    // TODO: localise? (miles)
+    // 0xA0 non-breaking space
+    return this._formatInt(dist / 1000) + '\xA0km';
+  },
+
+  _formatInt: function(value) {
+    return new Number(Math.floor(value)).toLocaleString();
+  },
+
+  _getPhotoAttribution: function(photos, index) {
+    return photos[index].attributionHtml;
+  },
+
+  _getPhotoUrl: function(photos, index) {
+    return photos[index].url;
+  },
+
   created: function() {
-    this.location = {};
     this.pendingScroll_ = {};
+  },
+
+  _computeUserLocation: function(userLocation) {
+    if (userLocation) {
+      return userLocation.name;
+    }
+  },
+
+  _computeArrival: function(arrival) {
+    return arrival;
+  },
+
+  _computeDeparture: function(departure) {
+    return departure;
+  },
+
+  _computeSantaDistance: function(santaDistance) {
+    return this._formatDistance(santaDistance);
+  },
+
+  _computePresentsDelivered: function(location) {
+    if (location) {
+      return this._formatInt(location.presentsDelivered);
+    }
+    return '...';
+  },
+
+  _computeIsSantaFlying: function(location) {
+    return !!location.stopover;
+  },
+
+  _computeNextStop: function(location) {
+    if (location.next) {
+      return location.next.city;
+    }
+    return '';
+  },
+
+  _computeCurrentStop: function(location) {
+    if (location.stopover) {
+      return location.stopover.city;
+    }
+    return '';
   },
 
   _activeChanged: function() {
@@ -465,6 +552,35 @@ Polymer({
     }
   },
 
+  _showStop: function(e) {
+    var fab;
+    var t = e.target;
+    while (t.nodeName != 'PAPER-FAB') {
+      t = t.parentNode;
+    }
+
+    var stopId = t.dataset.stop;
+    var activeStopIndex = destLookup_[stopId];
+    var activeStop = this.stream[activeStopIndex + 1];
+
+    activeStop.stop.getDetails(function(details) {
+      activeStop.stop.details.wikipedia = details.wikipedia;
+      this.activeStop = activeStop;
+    }.bind(this));
+  },
+
+  _activeStopChanged: function() {
+    if (this.activeStop) {
+      this.$['module-city-feed'].classList.add('stop-active');
+    } else {
+      this.$['module-city-feed'].classList.remove('stop-active');
+    }
+  },
+
+  _isActiveStop: function(activeStop) {
+    return activeStop == null ? false: true;
+  },
+
   _timelineChanged: function() {
     if (!this.timeline || !this.timeline.length) {
       return;
@@ -489,18 +605,18 @@ Polymer({
     // same row. The template is wrapped in a flexbox container (<div
     // class="layout horizontal start justified">) which handles the layout.
     for (var i = 0, item; item = stream[i]; ++i) {
-      var nextCard = stream[i + 1];
       if (item.type == 'city') {
         // Cache index of stop to be able to scroll to destination.
-        destLookup_[item.stop.id] = adjustedStream.length;
-      } else if (item.type != 'city' && nextCard && nextCard.type != 'city') {
-        item.nextCard = nextCard;
-        i++; // skip next item in array.
+        destLookup_[item.stop.id] = i;
       }
-      adjustedStream.push(item);
     }
 
-    this.stream = adjustedStream;
+    stream.unshift({
+      type: 'santa-info',
+      timestamp: -1
+    });
+
+    this.stream = stream;
 
     if (this.active && this._cardInView) {
       this.scrollToTime(this._cardInView);
@@ -522,7 +638,11 @@ Polymer({
       // Add deep link to opened destination.
       var newHref = location.href.substr(0,
                     location.href.length - location.hash.length) +
-                    '#tracker?timestamp=' + this.stream[idx].timestamp;
+                    '#tracker';
+      var timestamp = this.stream[idx].timestamp
+      if (timestamp && timestamp != -1) {
+        newHref += '?timestamp=' + timestamp;
+      }
       window.history.replaceState(null, '', newHref);
     }
   },
@@ -572,28 +692,18 @@ Polymer({
     return parts.join(':');
   },
 
-  _onWikipedia: function(e, detail) {
-    //var location = sender.templateInstance.model.model.stop;
-    var location = e.model.item.stop;
-
-    // Don't make details API request if wikipedia article has already been fetched.
-    if (location.details.wikipedia) {
-      return;
-    }
-
-    location.getDetails(function(detail) {
-      location.details.wikipedia = detail.wikipedia;
-    });
-  },
-
-  _onCardSelected: function(e, detail, sender) {
-    var destId = e.model.item.stop.id;
-    var type = detail.item.getAttribute('data-name');
+  _onPhotoSelected: function(e, detail, sender) {
+    //var destId = e.model.item.stop.id;
+    /*var type = detail.item.getAttribute('data-name');
     this.fire('analytics-track-event', {
       category: 'citycard',
       action: type,
       label: destId
-    });
+    });*/
+    this.cityPhotoLowRes = detail.item.src;
+
+    this.cityPhotoHiRes = detail.item.src.replace('mw2.google.com/mw-panoramio/photos/medium/',
+        'static.panoramio.com.storage.googleapis.com/photos/original/');
   },
 
   // Determines the most central visible card in the stream's viewport for deep linking.
@@ -618,7 +728,11 @@ Polymer({
           this._cardInView = timestamp;
 
           var newHref = location.href.substr(0,
-                        location.href.length - location.hash.length) + '#tracker?timestamp=' + timestamp;
+            location.href.length - location.hash.length) + '#tracker';
+          if (timestamp && timestamp != -1) {
+            newHref += '?timestamp=' + timestamp;
+          }
+
           window.history.replaceState(null, '', newHref);
 
           break;

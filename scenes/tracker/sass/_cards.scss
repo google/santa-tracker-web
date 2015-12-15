@@ -1,10 +1,9 @@
 .card {
-  width: 306px;
+  width: 100%;
   $padding: 20px;
   pointer-events: all;
   color: #fff;
 
-  border-radius: 5px;
   background-color: rgb(106,27,154);
   box-sizing: border-box;
   position: relative;
@@ -15,7 +14,7 @@
   }
 
   &.card-city {
-    height: 201px;
+    height: 250px;
 
     .card-header {
       h3 {
@@ -51,17 +50,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border-radius: 5px;
 
       iron-image {
         z-index: 1;
-        border-radius: 5px;
       }
 
       .cover {
         position: absolute;
         z-index: 2;
-        border-radius: 5px;
         background-image: linear-gradient(-200deg, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 65%,rgba(0,0,0,0) 100%);
       }
     }
@@ -206,7 +202,6 @@
   &.card-gumball, &.card-matching {
     .card-body {
       height: 163px;
-      border-radius: 0 0 5px 5px;
       text-align: center;
 
       span {
@@ -256,7 +251,6 @@
       height: 132px;
       text-align: center;
       background-image: url(city-feed/img/cardavatars/card-trivia.png);
-      border-radius: 0 0 5px 5px;
       span {
         font-size: 120px;
         font-weight: 600;
@@ -345,11 +339,6 @@
       right: 0;
       bottom: 0;
       background-image: url(city-feed/img/cardavatars/card-photo.png);
-      border-radius: 5px;
-
-      iron-image {
-        border-radius: 5px;
-      }
     }
 
     .card-footer {
@@ -388,7 +377,6 @@
       background-repeat: no-repeat;
       height: 85px;
       width: 85px;
-      border-radius: 0 5px 0 0;
     }
   }
 
@@ -414,6 +402,5 @@
       font-weight: 400;
     }
   }
-
 }
 
