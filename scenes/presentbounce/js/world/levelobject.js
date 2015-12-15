@@ -45,6 +45,7 @@ app.world.LevelObject = class {
 
     // Create DOM elements
     this.shadowEl_ = this.createShadowDOMNode_();
+    this.$shadowEl_ = $(this.shadowEl_);
     this.el_ = this.createTextureDOMNode_();
     this.$el_ = $(this.el_);
 

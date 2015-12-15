@@ -85,6 +85,7 @@ app.world.Level = class {
     this.addEventListeners_();
 
     this.CLASS_PRESENT_STYLE_PREFIX = 'present--style-';
+    this.CLASS_PRESENT_ACTIVE = 'present--active';
 
     this.init_();
   }
@@ -317,15 +318,24 @@ app.world.Level = class {
    * @public
    */
   dropBall() {
+    const randomInt = this.randomIntFromInterval(0, 3);
+
     this.destroyBall();
 
     // create ball - use position from dropper
     const ballData = this.levelData_.ball;
     this.ball_ = new ballData.objectType(this, this.world_, ballData);
 
-    this.ball_
-      .$el_
-      .addClass( this.CLASS_PRESENT_STYLE_PREFIX + this.randomIntFromInterval(0, 3) );
+    window.setTimeout(() => {
+      this.ball_
+        .$el_
+        .addClass( this.CLASS_PRESENT_ACTIVE )
+        .addClass( this.CLASS_PRESENT_STYLE_PREFIX + randomInt);
+
+      this.ball_
+          .$shadowEl_
+          .addClass( this.CLASS_PRESENT_ACTIVE );
+    }, 50);
   }
 
   /**
