@@ -161,8 +161,6 @@ app.Draggable.prototype.onInputStart_ = function(e) {
     startY = e.clientY;
   }
 
-  console.log("onInputStart_??", Math.random())
-
   this.dragStart_(startX, startY);
 
   this.$document.on(app.InputEvent.MOVE, this.onInputMove_);
