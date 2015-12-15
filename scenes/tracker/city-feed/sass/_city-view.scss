@@ -6,7 +6,6 @@
   #city-details {
     height: 100%;
     width: 554px;
-    padding-bottom: 30px;
     background: #00cd82;
     opacity: 0;
     overflow: auto;
@@ -73,6 +72,8 @@
     }
 
     .wikipedia {
+      padding-bottom: 30px;
+
       p {
         font-size: 14px;
         font-weight: 300;
