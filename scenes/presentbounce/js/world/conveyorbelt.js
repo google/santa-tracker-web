@@ -35,7 +35,7 @@ app.world.ConveyorBelt = class extends app.world.UserObject {
    */
   constructor(...args) {
     super(...args); // super(...arguments) doesn't work in Closure Compiler
-    this.currentDirection_ = 1 //this.config_.beltDirection;
+    this.currentDirection_ = 1; //this.config_.beltDirection;
     this.path = this.$el_.find('.js-belt-path')[0];
     this.pathShadow = this.$el_.find('.js-belt-shadow-path')[0];
     this.offset = 0;
