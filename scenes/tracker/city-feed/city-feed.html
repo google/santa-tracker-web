@@ -97,9 +97,9 @@ City feed view in Tracker
   <div class="scene fit">
 
     <div id="city-view" class="fit">
-      <template is="dom-if" if="{{_isActiveStop(activeStop)}}">
+      <template is="dom-if" if="{{activeStop}}">
       <div id="city-details">
-        <a href="#">Back to tracker</a>
+        <a href="#"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="details">
           <h4>{{activeStop.stop.region}}</h4>
           <h1>{{activeStop.stop.city}}</h1>
@@ -157,15 +157,15 @@ City feed view in Tracker
           <div class$="card {{_computeCardClasses(item)}}">
             <div hidden$="{{!itemIsType(item, 'santa-info')}}">
               <div class="santa-info-row">
-                <div class="santa-info-distance">
+                <div class="santa-info-distance" hidden$="{{!_hasSantaDistance(santaDistance)}}">
                   <div class="fancy-bg"></div>
                   <div class="fancy-content">
                     <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-                    <h2>{{_computeSantaDistance(santaDistance)}}</h2>
+                    <h2>{{_formatDistance(santaDistance)}}</h2>
                     {{_computeUserLocation(userLocation)}}
                   </div>
                 </div>
-                <div class="divider"></div>
+                <div class="divider" hidden$="{{!_hasSantaDistance(santaDistance)}}"></div>
                 <div>
                   <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
                   <h2>{{_computePresentsDelivered(location)}}</h2>
@@ -318,6 +318,8 @@ City feed view in Tracker
 var destLookup_ = {};
 
 var CARD_CENTERED_THRESHOLD = 100; // Top/bottom margin of a stream card to declare it as centered on screen.
+var PANORAMIO_PATH_MEDIUM = 'mw2.google.com/mw-panoramio/photos/medium/';
+var PANORAMIO_PATH_ORIGINAL = 'static.panoramio.com.storage.googleapis.com/photos/original/';
 
 Polymer({
   is: 'city-feed',
@@ -461,6 +463,10 @@ Polymer({
     return this._formatInt(dist / 1000) + '\xA0km';
   },
 
+  _hasSantaDistance: function(santaDistance) {
+    return !!santaDistance;
+  },
+
   _formatInt: function(value) {
     return new Number(Math.floor(value)).toLocaleString();
   },
@@ -489,10 +495,6 @@ Polymer({
 
   _computeDeparture: function(departure) {
     return departure;
-  },
-
-  _computeSantaDistance: function(santaDistance) {
-    return this._formatDistance(santaDistance);
   },
 
   _computePresentsDelivered: function(location) {
@@ -555,13 +557,13 @@ Polymer({
   _showStop: function(e) {
     var fab;
     var t = e.target;
-    while (t.nodeName != 'PAPER-FAB') {
+    while (t.localName != 'paper-fab') {
       t = t.parentNode;
     }
 
     var stopId = t.dataset.stop;
     var activeStopIndex = destLookup_[stopId];
-    var activeStop = this.stream[activeStopIndex + 1];
+    var activeStop = this.stream[activeStopIndex];
 
     activeStop.stop.getDetails(function(details) {
       activeStop.stop.details.wikipedia = details.wikipedia;
@@ -577,10 +579,6 @@ Polymer({
     }
   },
 
-  _isActiveStop: function(activeStop) {
-    return activeStop == null ? false: true;
-  },
-
   _timelineChanged: function() {
     if (!this.timeline || !this.timeline.length) {
       return;
@@ -588,6 +586,12 @@ Polymer({
 
     // Make a copy so 2-way bindings don't alter original timeline data.
     var stream = this.timeline.slice();
+
+    // Santa info panel is always at the top.
+    stream.unshift({
+      type: 'santa-info',
+      timestamp: -1
+    });
 
     // Add additional metadata needed by the template.
     for (var i = 0, item; item = stream[i]; ++i) {
@@ -610,11 +614,6 @@ Polymer({
         destLookup_[item.stop.id] = i;
       }
     }
-
-    stream.unshift({
-      type: 'santa-info',
-      timestamp: -1
-    });
 
     this.stream = stream;
 
@@ -693,17 +692,10 @@ Polymer({
   },
 
   _onPhotoSelected: function(e, detail, sender) {
-    //var destId = e.model.item.stop.id;
-    /*var type = detail.item.getAttribute('data-name');
-    this.fire('analytics-track-event', {
-      category: 'citycard',
-      action: type,
-      label: destId
-    });*/
     this.cityPhotoLowRes = detail.item.src;
 
-    this.cityPhotoHiRes = detail.item.src.replace('mw2.google.com/mw-panoramio/photos/medium/',
-        'static.panoramio.com.storage.googleapis.com/photos/original/');
+    this.cityPhotoHiRes = detail.item.src.replace(PANORAMIO_PATH_MEDIUM,
+        PANORAMIO_PATH_ORIGINAL);
   },
 
   // Determines the most central visible card in the stream's viewport for deep linking.
