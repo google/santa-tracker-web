@@ -97,9 +97,8 @@ City feed view in Tracker
   <div class="scene fit">
 
     <div id="city-view" class="fit">
-      <template is="dom-if" if="{{activeStop}}">
       <div id="city-details">
-        <a href="#"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+        <a href$="{{pageUrl}}#tracker"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="details">
           <h4>{{activeStop.stop.region}}</h4>
           <h1>{{activeStop.stop.city}}</h1>
@@ -141,14 +140,13 @@ City feed view in Tracker
           <div class="city-photo-hires" style$="background-image:url({{cityPhotoHiRes}})"></div>
         </div>
 
-        <iron-selector id="photoselector" selected="1"
+        <iron-selector id="photoselector" selected="0"
               on-iron-activate="_onPhotoSelected">
-          <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo">
-            <img data-name="wik" src="{{photo.url}}">
+          <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo" index-as="photo_no">
+            <img src="{{photo.url}}">
           </template>
         </iron-selector>
       </div>
-      </template>
     </div>
 
     <iron-list id="feed" items="[[stream]]" as="item" on-scroll="onScroll">
@@ -190,45 +188,44 @@ City feed view in Tracker
                   <h3><i class="ico ico-arrow-yellow"></i>{{_computeDeparture(departure)}}</h3>
                 </div>
               </div>
-                <!--
-                <h4><i18n-msg msgid="tracker_your_location">PLACEHOLDER_i18n</i18n-msg></h4>
-                  -->
             </div>
 
             <div hidden$="{{!itemIsType(item, 'city')}}">
-              <div class="card-city-bg" style$="background-image:url({{_getPhotoUrl(item.stop.details.photos, 0)}});"></div>
-              <div class="card-header">
-                <div class="card-city-attribution">
-                  <html-echo html="{{_getPhotoAttribution(item.stop.details.photos, 0)}}"></html-echo>
-                </div>
+              <a href$="{{pageUrl}}#tracker?stop={{item.stop.id}}">
+                <div class="card-city-bg" style$="background-image:url({{_getPhotoUrl(item.stop.details.photos, 0)}});"></div>
+                <div class="card-header">
+                  <div class="card-city-attribution">
+                    <html-echo html="{{_getPhotoAttribution(item.stop.details.photos, 0)}}"></html-echo>
+                  </div>
 
-                <div>
-                  <h4>{{item.stop.region}}</h4>
-                  <h1>{{item.stop.city}}</h1>
-                </div>
-                <div class="stats">
-                  <div class="horizontal">
-                    <div>
-                      <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
-                      <div class="horizontal centered">
-                        <div class="ico ico-clock"></div>
-                        <h2 class="stat-large">{{formatTime(item.stop.arrival)}}</h2>
+                  <div>
+                    <h4>{{item.stop.region}}</h4>
+                    <h1>{{item.stop.city}}</h1>
+                  </div>
+                  <div class="stats">
+                    <div class="horizontal">
+                      <div>
+                        <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+                        <div class="horizontal centered">
+                          <div class="ico ico-clock"></div>
+                          <h2 class="stat-large">{{formatTime(item.stop.arrival)}}</h2>
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
-                      <div class="horizontal centered">
-                        <div class="ico ico-weatherchanel"></div>
-                        <h2 class="stat-large white">
-                          <span>{{item.stop.details.weather.tempC}}</span>&deg;C /
-                          <span>{{item.stop.details.weather.tempF}}</span>&deg;F
-                        </h2>
+                      <div>
+                        <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+                        <div class="horizontal centered">
+                          <div class="ico ico-weatherchanel"></div>
+                          <h2 class="stat-large white">
+                            <span>{{item.stop.details.weather.tempC}}</span>&deg;C /
+                            <span>{{item.stop.details.weather.tempF}}</span>&deg;F
+                          </h2>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <paper-fab icon="add" class="card-fab"></paper-fab>
                 </div>
-                <paper-fab icon="add" class="card-fab" on-tap="_showStop" data-stop$="{{item.stop.id}}"></paper-fab>
-              </div>
+              </a>
             </div>
 
              <!-- mini cards -->
@@ -523,6 +520,7 @@ Polymer({
   },
 
   _activeChanged: function() {
+    /*
     if (this.active) {
       // TODO(ericbidelman): shouldn't have to call this with new iron-list. Investigate.
       //this.$.feed.updateSize();
@@ -551,27 +549,63 @@ Polymer({
           item.selectedCard = 0;
         }
       }
-    }
+    }*/
   },
 
-  _showStop: function(e) {
+  showFeed: function() {
+    this.activeStop = null;
+  },
+
+  _goToStop: function(e) {
+    var stopId;
+    var t = e.target;
+    while(!stopId) {
+      if (t.dataset) {
+        stopId = t.dataset.stop;
+      }
+      t = t.parentNode;
+    }
+
+    var newHref = location.href.substr(0,
+      location.href.length - location.hash.length) + '#tracker?stop=' + stopId;
+    window.history.replaceState(null, '', newHref);
+  },
+
+  showStop: function(stopId) {
+    if (destLookup_ && destLookup_[stopId]) {
+      var activeStopIndex = destLookup_[stopId];
+      var activeStop = this.stream[activeStopIndex];
+
+      this.cityPhotoLowRes = '';
+      this.cityPhotoHiRes = '';
+
+      activeStop.stop.getDetails(function(details) {
+        activeStop.stop.details.wikipedia = details.wikipedia;
+        this.cityPhotoLowRes = details.photos[0].url
+        this.cityPhotoHiRes = this._getHiResUrl(details.photos[0].url);
+        this.activeStop = activeStop;
+      }.bind(this));
+    } else {
+      this._stopToLoad = stopId;
+    }
+    /**/
+    console.log(destLookup_)
+
+    /*
     var fab;
     var t = e.target;
     while (t.localName != 'paper-fab') {
       t = t.parentNode;
     }
 
-    var stopId = t.dataset.stop;
-    var activeStopIndex = destLookup_[stopId];
-    var activeStop = this.stream[activeStopIndex];
 
-    activeStop.stop.getDetails(function(details) {
-      activeStop.stop.details.wikipedia = details.wikipedia;
-      this.activeStop = activeStop;
-    }.bind(this));
+    var stopId = t.dataset.stop;
+
+    */
   },
 
   _activeStopChanged: function() {
+    console.log('moo');
     if (this.activeStop) {
       this.$['module-city-feed'].classList.add('stop-active');
     } else {
@@ -617,8 +651,8 @@ Polymer({
 
     this.stream = stream;
 
-    if (this.active && this._cardInView) {
-      this.scrollToTime(this._cardInView);
+    if (this._stopToLoad) {
+      this.showStop(this._stopToLoad);
     }
   },
 
@@ -632,6 +666,7 @@ Polymer({
   scrollToDest: function(destId) {
     var idx = destLookup_[destId] || 0;
     this.scrollToIndex(idx);
+    /*
 
     if (this.setupDone_ && this.stream.length) {
       // Add deep link to opened destination.
@@ -644,6 +679,7 @@ Polymer({
       }
       window.history.replaceState(null, '', newHref);
     }
+    */
   },
 
   /**
@@ -693,13 +729,17 @@ Polymer({
 
   _onPhotoSelected: function(e, detail, sender) {
     this.cityPhotoLowRes = detail.item.src;
+    this.cityPhotoHiRes = this._getHiResUrl(detail.item.src);
+  },
 
-    this.cityPhotoHiRes = detail.item.src.replace(PANORAMIO_PATH_MEDIUM,
+  _getHiResUrl: function(url) {
+    return url.replace(PANORAMIO_PATH_MEDIUM,
         PANORAMIO_PATH_ORIGINAL);
   },
 
   // Determines the most central visible card in the stream's viewport for deep linking.
   updateCardInView: function() {
+    /*
     this.updateQueued_ = false;
 
     var listHeight = this.$.feed.offsetHeight;
@@ -730,7 +770,7 @@ Polymer({
           break;
         }
       }
-    }
+    }*/
   },
 
   onScroll: function(e, detail) {

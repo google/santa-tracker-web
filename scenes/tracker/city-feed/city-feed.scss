@@ -153,6 +153,10 @@ $name: 'module-city-feed';
     box-sizing: border-box;
     margin: 0 auto;
 
+    a {
+      text-decoration: none;
+    }
+
     & > div {
       position: relative;
       height: 100%;

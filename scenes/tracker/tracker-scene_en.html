@@ -511,15 +511,15 @@ Tracker scene.
       if (location.stopover) {
         // Make sure the feed doesn't automatically reopen if it was already
         // open for this city.
-        if (!this.feedWasOpenForCurrentCity) {
+        /*if (!this.feedWasOpenForCurrentCity) {
           this.feedWasOpenForCurrentCity = true;
 
           this.worldView_.followSanta();
           this.$.feed.scrollToDest(location.stopover.id);
-        }
+        }*/
         this.departure_ = this.formatCountdown_(location.stopover.departure);
       } else {
-        this.feedWasOpenForCurrentCity = false; // left the location, reset.
+        //this.feedWasOpenForCurrentCity = false; // left the location, reset.
       }
 
       if (this.userLocation) {
@@ -547,7 +547,10 @@ Tracker scene.
         return;  // ignore, called when worldView_ is created
       }
 
-      this.$.feed.active = true;
+      //this.async(function() {
+        this.$.feed.active = true;
+        //}, 550);
+
       /*
 
       this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
@@ -580,11 +583,7 @@ Tracker scene.
       this.trackerCard = null;
       this.navOpen = false;
 
-      if (this.mode === 'cast') {
-        this.openStraightToFeed();
-      } else {
-        this.sceneParamsChanged();
-      }
+      this.sceneParamsChanged();
 
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
@@ -602,13 +601,15 @@ Tracker scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams && this.sceneParams.timestamp) {
-        this.openStraightToFeed();
-        this.$.feed.scrollToTime(this.sceneParams.timestamp);
+      if (this.sceneParams && this.sceneParams.stop) {
+        this.$.feed.showStop(this.sceneParams.stop);
+      } else {
+        this.$.feed.showFeed();
       }
     },
 
     openStraightToFeed: function() {
+      this.$.feed.active = true;
       this.$.intro.closeIntro();
     },
 
