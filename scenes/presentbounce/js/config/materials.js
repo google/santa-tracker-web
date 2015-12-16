@@ -45,7 +45,7 @@ app.config.Materials = {
   },
   conveyorBelt: {
     density: 1,
-    friction: 0.8, // grab onto ball
+    friction: 0.9, // grab onto ball
     restitution: 0.2
   },
   spring: {
