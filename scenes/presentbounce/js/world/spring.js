@@ -49,7 +49,9 @@ app.world.Spring = class extends app.world.UserObject {
    */
   onCollision(contact) {
     // check if it's a ball before playing 'boing' the sound
-    if (contact && contact.GetFixtureA() === this.topPlateFixture_ && (
+    if (contact &&
+        contact.GetFixtureA() === this.topPlateFixture_ ||
+        contact.GetFixtureB() === this.topPlateFixture_ && (
         contact.GetFixtureA().collisionID === app.world.PresentBall.COLLISION_ID   ||
         contact.GetFixtureA().collisionID === app.world.PresentSquare.COLLISION_ID ||
         contact.GetFixtureB().collisionID === app.world.PresentBall.COLLISION_ID   ||
