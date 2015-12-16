@@ -356,35 +356,42 @@ app.config.Levels = [
       material: app.config.Materials.present,
       style: app.config.Styles.presentBall,
       objectType: app.world.PresentBall,
-      relX: 0.25,
-      relY: 0
+      relX: 0.75,
+      relY: 0.15
     },
     dropper: {
       material: app.config.Materials.fixedObject,
       style: app.config.Styles.dropper,
-      relX: 0.3,
-      relY: 0.3
+      relX: 0.8,
+      relY: 0.1
     },
     target: {
       material: app.config.Materials.target,
       style: app.config.Styles.target,
-      relX: 0.8,
-      relY: 0.5
+      relX: 0.2,
+      relY: 0.55
     },
     fixedObjects: [
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
-        relX: 0.25,
-        relY: 0.8,
+        relX: 0.7,
+        relY: 0.6,
+        rotation: 135
+      },
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.5,
+        relY: 0.45,
         rotation: 0
       },
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
-        relX: 0.6,
-        relY: 0.5,
-        rotation: 90
+        relX: 0.5,
+        relY: 0.85,
+        rotation: 0
       }
     ],
     conveyorBelts: [
@@ -609,75 +616,61 @@ app.config.Levels = [
 
   // level 10
   {
-      ball: {
-        material: app.config.Materials.present,
-        style: app.config.Styles.presentSquare,
-        objectType: app.world.PresentSquare,
-        relX: 0.75,
-        relY: 0.15
-      },
-      dropper: {
+    ball: {
+      material: app.config.Materials.present,
+      style: app.config.Styles.presentSquare,
+      objectType: app.world.PresentSquare,
+      relX: 0.25,
+      relY: 0
+    },
+    dropper: {
+      material: app.config.Materials.fixedObject,
+      style: app.config.Styles.dropper,
+      relX: 0.3,
+      relY: 0.3
+    },
+    target: {
+      material: app.config.Materials.target,
+      style: app.config.Styles.target,
+      relX: 0.8,
+      relY: 0.5
+    },
+    fixedObjects: [
+      {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.dropper,
-        relX: 0.8,
-        relY: 0.1
+        style: app.config.Styles.straightBeam,
+        relX: 0.25,
+        relY: 0.8,
+        rotation: 0
       },
-      target: {
-        material: app.config.Materials.target,
-        style: app.config.Styles.target,
-        relX: 0.2,
-        relY: 0.55
+      {
+        material: app.config.Materials.fixedObject,
+        style: app.config.Styles.straightBeam,
+        relX: 0.6,
+        relY: 0.5,
+        rotation: 90
+      }
+    ],
+    conveyorBelts: [
+      {
+        material: app.config.Materials.conveyorBelt,
+        style: app.config.Styles.conveyorBelt
       },
-      fixedObjects: [
-        {
-          material: app.config.Materials.fixedObject,
-          style: app.config.Styles.angledBeam,
-          relX: 0.2,
-          relY: 0.2,
-          rotation: 0
-        },
-        {
-          material: app.config.Materials.fixedObject,
-          style: app.config.Styles.straightBeam,
-          relX: 0.7,
-          relY: 0.6,
-          rotation: 135
-        },
-        {
-          material: app.config.Materials.fixedObject,
-          style: app.config.Styles.straightBeam,
-          relX: 0.5,
-          relY: 0.45,
-          rotation: 0
-        },
-        {
-          material: app.config.Materials.fixedObject,
-          style: app.config.Styles.straightBeam,
-          relX: 0.5,
-          relY: 0.85,
-          rotation: 0
-        }
-      ],
-      conveyorBelts: [
-        {
-          material: app.config.Materials.conveyorBelt,
-          style: app.config.Styles.conveyorBelt
-        },
-        {
-          material: app.config.Materials.conveyorBelt,
-          style: app.config.Styles.conveyorBelt
-        }
-      ],
-      springs: [
-        {
-          material: app.config.Materials.spring,
-          style: app.config.Styles.spring
-        },
-        {
-          material: app.config.Materials.spring,
-          style: app.config.Styles.spring
-        }
-      ]
-    }
+      {
+        material: app.config.Materials.conveyorBelt,
+        style: app.config.Styles.conveyorBelt
+      }
+    ],
+    springs: [
+      {
+        material: app.config.Materials.spring,
+        style: app.config.Styles.spring
+      },
+      {
+        material: app.config.Materials.spring,
+        style: app.config.Styles.spring
+      }
+    ]
+  }
 
 ];
