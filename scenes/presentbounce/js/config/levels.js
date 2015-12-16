@@ -175,15 +175,15 @@ app.config.Levels = [
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
-        relX: 0.4,
-        relY: 0.5,
+        relX: 0.42,
+        relY: 0.38,
         rotation: -45
       },
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
-        relX: 0.5,
-        relY: 0.8,
+        relX: 0.49,
+        relY: 0.72,
         rotation: -45
       },
       {
