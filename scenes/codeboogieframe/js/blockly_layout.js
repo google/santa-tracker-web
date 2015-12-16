@@ -109,7 +109,8 @@ app.BlocklyLayout = class {
   }
 
   layoutToolboxCardinal_(blocks) {
-    let cursorY = this.windowHeight >= 600 ? app.BlocklyLayout.TOOLBOX_MD_TOP :
+    let cursorY = this.windowHeight >= app.BlocklyLayout.MQ_LARGER_BOARD ?
+        app.BlocklyLayout.TOOLBOX_MD_TOP :
         app.BlocklyLayout.TOOLBOX_MD_SHORT_TOP;
     let margin = app.BlocklyLayout.TOOLBOX_MD_MARGIN;
     let gap = app.BlocklyLayout.TOOLBOX_MD_GAP;
@@ -240,3 +241,10 @@ app.BlocklyLayout.WHENRUN_SM_LEFT = 24;
  * @const {number}
  */
 app.BlocklyLayout.WHENRUN_MD_LEFT = 32;
+/**
+ * Height of iframe when board becomes larger. Board
+ * becomes larger when wrapper is 600, but iframe is 56
+ * pixels smaller because of toolbar.
+ * @const {number}
+ */
+app.BlocklyLayout.MQ_LARGER_BOARD = 600 - 56;
