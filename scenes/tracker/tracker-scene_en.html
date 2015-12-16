@@ -61,7 +61,7 @@ Tracker scene.
                          on-api-load="mapsAPIReady"></google-maps-api>
       </template>
 
-      <city-feed id="feed" class="fit" timeline="{{timeline}}"
+      <city-feed id="feed" class="fit" timeline="{{timeline}}" active="{{cityFeedActive}}"
                  user-location="{{userLocation}}"
                  location="{{location}}"
                  santa-distance="{{santaDistance}}"
@@ -192,8 +192,7 @@ Tracker scene.
        */
       cityFeedActive:  {
         type: Boolean,
-        value: false,
-        observer: '_cityFeedActiveChanged'
+        value: false
       },
 
       /**
@@ -399,20 +398,20 @@ Tracker scene.
         var action = this.cityFeedActive ? 'show' : 'hide';
         this.fire('analytics-track-event', {category: 'cityfeed', action: action,
                                             label: 'from santa'});
-      }.bind(this));
+      }.bind(this));*/
+
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
         this.cityFeedActive = true;
-        this.$.feed.scrollToDest(destId);
+        this.$.feed.setStopUrl(destId);
 
-        this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
-                                            label: 'from route marker'});
+        /*this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
+                                            label: 'from route marker'});*/
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'scenemarker_clicked', function(sceneId) {
         this.loadTrackerScene_(sceneId);
       }.bind(this));
-      */
 
       navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
         this._geoLocationError.bind(this), {
@@ -427,7 +426,10 @@ Tracker scene.
     },
 
     loadTrackerScene_: function(sceneId) {
-      this.santaApp.route = sceneId;
+      var newHref = location.href.substr(0,
+            location.href.length - location.hash.length) + '#' + sceneId;
+      //this.santaApp.route = sceneId;
+      window.location = newHref;
     },
 
     isPhoneSizeChanged: function() {
@@ -506,26 +508,15 @@ Tracker scene.
     _locationChanged: function() {
       var location = this.location;
 
-      this.arrival_ = this.formatCountdown_(location.next.arrival);
+      this.arrival_ = this._formatCountdown(location.next.arrival);
 
       if (location.stopover) {
-        // Make sure the feed doesn't automatically reopen if it was already
-        // open for this city.
-        if (!this.feedWasOpenForCurrentCity) {
-          this.feedWasOpenForCurrentCity = true;
-
-          this.worldView_.followSanta();
-          this.$.feed.scrollToDest(location.stopover.id);
-        }
-        this.departure_ = this.formatCountdown_(location.stopover.departure);
-      } else {
-        this.feedWasOpenForCurrentCity = false; // left the location, reset.
+        this.departure_ = this._formatCountdown(location.stopover.departure);
       }
 
       if (this.userLocation) {
         var distance = Spherical.computeDistanceBetween(
-          location.position, this.userLocation.location);
-
+            location.position, this.userLocation.location);
         this.santaDistance = distance;
       }
 
@@ -540,29 +531,6 @@ Tracker scene.
       if (this.worldView_) {
         this.worldView_.moveSanta(location);
       }
-    },
-
-    _cityFeedActiveChanged: function() {
-      if (!this.worldView_) {
-        return;  // ignore, called when worldView_ is created
-      }
-
-      this.$.feed.active = true;
-      /*
-
-      this.worldView_.setMode(this.cityFeedActive ? 'feed' : 'track');
-      var cityStats = this.$['module-tracker'].querySelector('#city-stats');
-
-      this.trackerCard = null;
-
-      // Wait for circle animation to finish before we fade in stats and city feed.
-      this.async(function() {
-        if (cityStats) {
-          cityStats.style.opacity = 1;
-        }
-      }, 550);
-
-      this.fire('tracker-action', {type: 'city-toggle', active: this.cityFeedActive});*/
     },
 
     onShow: function() {
@@ -580,11 +548,7 @@ Tracker scene.
       this.trackerCard = null;
       this.navOpen = false;
 
-      if (this.mode === 'cast') {
-        this.openStraightToFeed();
-      } else {
-        this.sceneParamsChanged();
-      }
+      this.sceneParamsChanged();
 
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
@@ -602,29 +566,34 @@ Tracker scene.
     },
 
     sceneParamsChanged: function() {
-      if (this.sceneParams && this.sceneParams.timestamp) {
-        this.openStraightToFeed();
-        this.$.feed.scrollToTime(this.sceneParams.timestamp);
+      if (this.sceneParams && this.sceneParams.stop) {
+        this.$.feed.showStop(this.sceneParams.stop);
+      } else {
+        this.$.feed.showFeed();
       }
     },
 
     openStraightToFeed: function() {
+      this.$.feed.active = true;
       this.$.intro.closeIntro();
     },
 
-    formatCountdown_: function(timestamp) {
+    /**
+     * Builds a formatted countdown string to the specified timestamp. Isn't localized as it will
+     * just be in the form HH:MM:SS or MM:SS.
+     */
+    _formatCountdown: function(timestamp) {
       if (!this.santaApp || !this.santaApp.santaService || isNaN(timestamp)) {
         return '';
       }
 
       timestamp -= this.santaApp.santaService.now();
 
-      if (isNaN(timestamp)) {
-        return '';
+      if (isNaN(timestamp) || timestamp < 0) {
+        return ''; // don't report undefined or negative timestamps
       }
       timestamp /= 1000;
 
-      // TODO: localise?
       var seconds = Math.floor(timestamp) % 60;
       timestamp /= 60;
       var mins = Math.floor(timestamp) % 60;
@@ -645,10 +614,6 @@ Tracker scene.
           break;
       }
     },
-
-    modelTypeIs_: function(type) {
-      return type == this.model.type;
-    }
   });
 })();
 </script>

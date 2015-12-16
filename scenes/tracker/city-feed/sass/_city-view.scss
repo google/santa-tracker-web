@@ -1,16 +1,129 @@
+$panelWidth: 515px;
+
 #city-view {
-  display: flex;
-  align-items: stretch;
   pointer-events: all;
+  z-index: -1;
+
+  #character {
+    position: absolute;
+    left: $panelWidth;
+    bottom: 0;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.character-santa {
+      width: 443px;
+      height: 669px;
+      background-image: url(../img/tracker-characters-santa.svg);
+    }
+    &.character-elf1 {
+      width: 122px;
+      height: 361px;
+      background-image: url(../img/tracker-characters-elf1.svg);
+    }
+    &.character-elf2 {
+      width: 193px;
+      height: 393px;
+      background-image: url(../img/tracker-characters-elf2.svg);
+    }
+    &.character-elf3 {
+      width: 370px;
+      height: 562px;
+      background-image: url(../img/tracker-characters-elf3.svg);
+    }
+
+    &.character-elf4 {
+      width: 263px;
+      height: 410px;
+      background-image: url(../img/tracker-characters-elf4.svg);
+    }
+
+    &.character-elf5 {
+      width: 235px;
+      height: 446px;
+      background-image: url(../img/tracker-characters-elf5.svg);
+    }
+    &.character-elf6 {
+      width: 457px;
+      height: 306px;
+      background-image: url(../img/tracker-characters-elf6.svg);
+    }
+    &.character-elf7 {
+      width: 366px;
+      height: 280px;
+      background-image: url(../img/tracker-characters-elf7.svg);
+    }
+    &.character-elf8 {
+      width: 540px;
+      height: 371px;
+      background-image: url(../img/tracker-characters-elf8.svg);
+    }
+    &.character-elf9 {
+      width: 644px;
+      height: 444px;
+      background-image: url(../img/tracker-characters-elf9.svg);
+    }
+    &.character-elf10 {
+      width: 191px;
+      height: 713px;
+      background-image: url(../img/tracker-characters-elf10.svg);
+    }
+    &.character-elf11 {
+      width: 636px;
+      height: 396px;
+      background-image: url(../img/tracker-characters-elf11.svg);
+    }
+    &.character-elf12 {
+      width: 583px;
+      height: 506px;
+      background-image: url(../img/tracker-characters-elf12.svg);
+    }
+    &.character-reindeer {
+      width: 573px;
+      height: 533px;
+      background-image: url(../img/tracker-characters-reindeer.svg);
+    }
+    &.character-reindeer2 {
+      width: 360px;
+      height: 555px;
+      background-image: url(../img/tracker-characters-reindeer2.svg);
+    }
+    &.character-penguin {
+      width: 636px;
+      height: 343px;
+      background-image: url(../img/tracker-characters-penguin.svg);
+    }
+    &.character-pegman {
+      width: 514px;
+      height: 563px;
+      background-image: url(../img/tracker-characters-pegman.svg);
+    }
+  }
 
   #city-details {
-    height: 100%;
-    width: 554px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $panelWidth;
     background: #00cd82;
     opacity: 0;
     overflow: auto;
     box-sizing: border-box;
     transition: opacity 250ms linear;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12);
+    z-index: 3;
+
+    .ico {
+      display: inline-block;
+    }
+
+    .ico-arrow-left {
+      height: 15px;
+      width: 17px;
+      background-image: url(../img/arrow-left.svg);
+    }
 
     .ico-marker {
       background-image: url(../img/marker.svg);
@@ -30,6 +143,19 @@
       background-image: url(../img/twc.svg);
       width: 22px;
       height: 22px;
+    }
+
+    .back-to-tracker {
+      display: block;
+      color: #E7E7E7;
+      font-family: 'Lobster';
+      font-size: 26px;
+      text-decoration: none;
+      padding: 25px 0 0 20px;
+
+      .ico {
+        margin-right: 20px;
+      }
     }
 
     h1, h2, h3, h4 {
@@ -58,7 +184,11 @@
     }
 
     .stats, .wikipedia, .details {
-      padding: 0 30px;
+      padding: 0 60px;
+    }
+
+    .details {
+      padding-top: 60px;
     }
 
     .stats {
@@ -89,10 +219,13 @@
   }
 
   #city-photos {
+    z-index: 1;
     background: #000;
-    height: 100%;
-    width: 100%;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: $panelWidth;
 
     #photoselector {
       position: absolute;
