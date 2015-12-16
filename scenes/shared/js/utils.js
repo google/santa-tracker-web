@@ -70,6 +70,30 @@ app.shared.utils = (function() {
     },
 
     /**
+     * Updates any SVG that has inline styles like "url(#blah)" to include the
+     * full local path. This is required in production as our base href there
+     * is actually maps.gstatic.com/...
+     */
+    updateLocalSVGRef: function(node) {
+      var candidates = ['clipPath', 'stroke', 'fill'];
+
+      // Work around base href, which causes all inline IDs to refer to the base
+      // href in production (which is served from maps.gstatic.com...). Refer
+      // to the local pageUrl instead, since the clippath elements are inlined.
+      var re = /^url\((["']?)#/;  // match `url("#` with optional quote in group 1
+      var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
+      var all = node.querySelectorAll('[style]');
+      for (var i = 0, el; el = all[i]; ++i) {
+        var s = el.style;
+        candidates.forEach(function(c) {
+          if (s[c]) {
+            s[c] = s[c].replace(re, 'url($1' + pageUrl + '#');
+          }
+        });
+      }
+    },
+
+    /**
      * Call the callback in start of next frame.
      * @deprecated
      * @param {!Function} callback The callback function.

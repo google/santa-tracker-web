@@ -43,7 +43,7 @@ app.world.LevelObject = class {
     this.collisionFixture = null;
     this.initialWorldPos_ = app.Unit.relativeWorld(this.config_.relX, this.config_.relY);
 
-    // Create DOM elements
+    // Create DOM elements (nb: "DOM for the shadow", not "Shadow DOM").
     this.shadowEl_ = this.createShadowDOMNode_();
     this.$shadowEl_ = $(this.shadowEl_);
     this.el_ = this.createTextureDOMNode_();
@@ -84,12 +84,17 @@ app.world.LevelObject = class {
     const el = document.createElement("div");
     el.className = 'object ' + this.config_.style.className;
     el.innerHTML = this.config_.style.innerHTML || '';
+
+    // Fix local url(#ref) refs.
+    app.shared.utils.updateLocalSVGRef(el);
+
     this.setElementStyle_(el);
     $(this.level_.elem).append(el);
     return el;
   }
 
   /**
+   * Creates DOM for the shadow.
    * @private
    */
   createShadowDOMNode_() {
