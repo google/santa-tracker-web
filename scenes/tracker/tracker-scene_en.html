@@ -599,12 +599,19 @@ Tracker scene.
       var mins = Math.floor(timestamp) % 60;
       timestamp /= 60;
       var hours = Math.floor(timestamp) % 24;
+      var days = Math.floor(timestamp / 24);
+
       var parts = [padDigits(hours), padDigits(mins), padDigits(seconds)];
       if (!hours) {
         parts.shift();
       }
 
-      return parts.join(':');
+      var out = parts.join(':');
+      if (days > 0) {
+        // The Tracker should never be visible with >days to go, but it's useful for testing.
+        return days + 'd ' + out;
+      }
+      return out;
     },
 
     _keyHandler: function(e, detail) {
