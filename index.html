@@ -106,6 +106,10 @@ specific language governing permissions and limitations under the License.
           return parseInt(msie[1], 10) >= 11;
         }
       }
+      // .. but allow all Edge
+      if (uaString.indexOf('Edge/') !== -1) {
+        return true;
+      }
       // no older Android browser
       if (uaString.indexOf('Chrome') === -1 && uaString.indexOf('Android') !== -1) {
         return !/^Google/.test(navigator.vendor);
