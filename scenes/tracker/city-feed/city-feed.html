@@ -143,7 +143,7 @@ City feed view in Tracker
         <iron-selector id="photoselector" selected="0"
               on-iron-activate="_onPhotoSelected">
           <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo">
-            <img src="{{photo.url}}">
+            <img src$="{{photo.url}}">
           </template>
         </iron-selector>
       </div>
@@ -192,10 +192,10 @@ City feed view in Tracker
 
             <div hidden$="{{!itemIsType(item, 'city')}}">
               <a href$="{{pageUrl}}#tracker?stop={{item.stop.id}}">
-                <div class="card-city-bg" style$="background-image:url({{_getPhotoUrl(item.stop.details.photos, 0)}});"></div>
+                <div class="card-city-bg" style$="background-image:url({{item.stop.details.photos.0.url}});"></div>
                 <div class="card-header">
                   <div class="card-city-attribution">
-                    <html-echo html="{{_getPhotoAttribution(item.stop.details.photos, 0)}}"></html-echo>
+                    <html-echo html="{{item.stop.details.photos.0.attributionHtml}}"></html-echo>
                   </div>
 
                   <div>
@@ -467,14 +467,6 @@ Polymer({
 
   _formatInt: function(value) {
     return new Number(Math.floor(value)).toLocaleString();
-  },
-
-  _getPhotoAttribution: function(photos, index) {
-    return photos[index].attributionHtml;
-  },
-
-  _getPhotoUrl: function(photos, index) {
-    return photos[index].url;
   },
 
   created: function() {
