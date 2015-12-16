@@ -95,10 +95,9 @@ City feed view in Tracker
 
 <div id="module-city-feed" class="fit">
   <div class="scene fit">
-
     <div id="city-view" class="fit">
       <div id="city-details">
-        <a href$="{{pageUrl}}#tracker"><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+        <a href$="{{pageUrl}}#tracker" class="back-to-tracker"><i class="ico ico-arrow-left"></i><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
         <div class="details">
           <h4>{{activeStop.stop.region}}</h4>
           <h1>{{activeStop.stop.city}}</h1>
@@ -124,7 +123,7 @@ City feed view in Tracker
             </div>
           </div>
         </div>
-        <div class="wikipedia" hidden$="{{!activeStop.stop.details.wikipedia}}">
+        <div class="wikipedia" hidden$="{{!activeStop.stop.details.hasWiki}}">
           <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
 
           <div class="attribution">
@@ -135,6 +134,7 @@ City feed view in Tracker
           </div>
         </div>
       </div>
+      <div id="character" class$="character-{{cityCharacter}}"></div>
       <div id="city-photos">
         <div class="city-photo" style$="background-image:url({{cityPhotoLowRes}})">
           <div class="city-photo-hires" style$="background-image:url({{cityPhotoHiRes}})"></div>
@@ -443,6 +443,7 @@ Polymer({
 
   cityPhotoLowRes: '',
   cityPhotoHiRes: '',
+  cityCharacter: '',
 
   /**
    * True if the list has done its metrics setup and is ready to be shown.
@@ -501,6 +502,18 @@ Polymer({
     return '...';
   },
 
+  _computeCityCharacter: function() {
+    console.log(this._computeIsSantaFlying(this.location));
+    if (this._computeIsSantaFlying(this.location)) {
+      return 'santa';
+    }
+
+    var characters = ['elf1', 'elf2', 'elf3', 'elf4', 'elf5', 'elf6', 'elf7',  'elf8',
+        'elf9', 'elf10', 'elf11', 'elf12', 'pegman', 'penguin', 'reindeer', 'reindeer2'];
+
+    return characters[Math.floor(Math.random() * characters.length)];
+  },
+
   _computeIsSantaFlying: function(location) {
     return !!location.stopover;
   },
@@ -556,23 +569,16 @@ Polymer({
     this.activeStop = null;
   },
 
-  _goToStop: function(e) {
-    var stopId;
-    var t = e.target;
-    while(!stopId) {
-      if (t.dataset) {
-        stopId = t.dataset.stop;
-      }
-      t = t.parentNode;
-    }
-
+  setStopUrl: function(stopId) {
     var newHref = location.href.substr(0,
-      location.href.length - location.hash.length) + '#tracker?stop=' + stopId;
-    window.history.replaceState(null, '', newHref);
+          location.href.length - location.hash.length) + '#tracker?stop=' + stopId;
+    //window.history.replaceState(null, '', newHref);
+    window.location = newHref;
   },
 
   showStop: function(stopId) {
     if (destLookup_ && destLookup_[stopId]) {
+      this._stopToLoad = false;
       var activeStopIndex = destLookup_[stopId];
       var activeStop = this.stream[activeStopIndex];
 
@@ -583,6 +589,7 @@ Polymer({
         activeStop.stop.details.wikipedia = details.wikipedia;
         this.cityPhotoLowRes = details.photos[0].url
         this.cityPhotoHiRes = this._getHiResUrl(details.photos[0].url);
+        this.cityCharacter = this._computeCityCharacter();
         this.activeStop = activeStop;
       }.bind(this));
     } else {
@@ -599,6 +606,7 @@ Polymer({
   },
 
   _timelineChanged: function() {
+    console.log('timeline changed', this.timeline.length);
     if (!this.timeline || !this.timeline.length) {
       return;
     }

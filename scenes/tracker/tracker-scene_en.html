@@ -399,20 +399,20 @@ Tracker scene.
         var action = this.cityFeedActive ? 'show' : 'hide';
         this.fire('analytics-track-event', {category: 'cityfeed', action: action,
                                             label: 'from santa'});
-      }.bind(this));
+      }.bind(this));*/
+
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
         this.cityFeedActive = true;
-        this.$.feed.scrollToDest(destId);
+        this.$.feed.setStopUrl(destId);
 
-        this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
-                                            label: 'from route marker'});
+        /*this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
+                                            label: 'from route marker'});*/
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'scenemarker_clicked', function(sceneId) {
         this.loadTrackerScene_(sceneId);
       }.bind(this));
-      */
 
       navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
         this._geoLocationError.bind(this), {
@@ -427,7 +427,10 @@ Tracker scene.
     },
 
     loadTrackerScene_: function(sceneId) {
-      this.santaApp.route = sceneId;
+      var newHref = location.href.substr(0,
+            location.href.length - location.hash.length) + '#' + sceneId;
+      //this.santaApp.route = sceneId;
+      window.location = newHref;
     },
 
     isPhoneSizeChanged: function() {
