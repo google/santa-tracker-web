@@ -142,7 +142,7 @@ City feed view in Tracker
 
         <iron-selector id="photoselector" selected="0"
               on-iron-activate="_onPhotoSelected">
-          <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo" index-as="photo_no">
+          <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo">
             <img src="{{photo.url}}">
           </template>
         </iron-selector>
@@ -588,24 +588,9 @@ Polymer({
     } else {
       this._stopToLoad = stopId;
     }
-    /**/
-    console.log(destLookup_)
-
-    /*
-    var fab;
-    var t = e.target;
-    while (t.localName != 'paper-fab') {
-      t = t.parentNode;
-    }
-
-
-    var stopId = t.dataset.stop;
-
-    */
   },
 
   _activeStopChanged: function() {
-    console.log('moo');
     if (this.activeStop) {
       this.$['module-city-feed'].classList.add('stop-active');
     } else {
