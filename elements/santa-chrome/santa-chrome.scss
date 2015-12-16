@@ -163,21 +163,35 @@ santa-chrome {
       cursor: pointer;
     }
 
+    a.linkwrap {
+      display: inline-flex;
+      max-width: 100%;
+      min-width: 25%;
+      pointer-events: auto;
+      text-decoration: none;
+    }
+
     #logo {
-      margin: 4px 8px 0 0;
+      margin: 4px 0 0;
       width: 74px;
-      height: 100%;
+      top: 0;
+      bottom: 0;
       background: url(img/google_logo.svg) center no-repeat;
       background-size: contain;
     }
 
     h1 {
+      padding-left: 8px;
       margin: 0;
       font-family: 'Lobster', sans-serif;
       font-size: 23px;
-      line-height: 64px;
+      line-height: 56px;
       font-weight: 300;
       color: white;
+    }
+
+    .fixsize {
+      height: 56px;
     }
 
     .shareicons {

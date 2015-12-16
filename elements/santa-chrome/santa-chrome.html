@@ -219,10 +219,15 @@ specific language governing permissions and limitations under the License.
         class$="{{_calculateFixedClass(isFixedToolbar, disabled)}}">
       <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}" hidden$="{{disabled}}">
         <paper-icon-button icon="santa:menu" paper-drawer-toggle></paper-icon-button>
-        <div id="logo" title="Google logo"></div>
-        <h1 class="title flex">
-          <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
-        </h1>
+        <div class="flex fixsize">
+          <a class="linkwrap" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}">
+            <div id="logo" title="Google logo">
+            </div>
+            <h1 class="title flex">
+              <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+            </h1>
+          </a>
+        </div>
         <div class="shareicons" on-tap="_onShare">
           <paper-icon-button class="share box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
           <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
@@ -453,6 +458,10 @@ specific language governing permissions and limitations under the License.
       } else {
         return url + '&hl=' + lang;
       }
+    },
+
+    _computeDefaultRoute: function(trackerUnlocked) {
+      return santaApp.defaultRoute;
     },
 
   });
