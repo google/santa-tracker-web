@@ -423,6 +423,11 @@ Polymer({
       type: Number,
       value: null
     },
+
+    /**
+     * The stop ID to load once destinations are available.
+     */
+    _stopToLoad: String,
   },
 
   /**
@@ -494,8 +499,7 @@ Polymer({
     return '...';
   },
 
-  _computeCityCharacter: function() {
-    console.log(this._computeIsSantaFlying(this.location));
+  _chooseCityCharacter: function() {
     if (this._computeIsSantaFlying(this.location)) {
       return 'santa';
     }
@@ -569,24 +573,26 @@ Polymer({
   },
 
   showStop: function(stopId) {
-    if (destLookup_ && destLookup_[stopId]) {
-      this._stopToLoad = false;
-      var activeStopIndex = destLookup_[stopId];
-      var activeStop = this.stream[activeStopIndex];
-
-      this.cityPhotoLowRes = '';
-      this.cityPhotoHiRes = '';
-
-      activeStop.stop.getDetails(function(details) {
-        activeStop.stop.details.wikipedia = details.wikipedia;
-        this.cityPhotoLowRes = details.photos[0].url
-        this.cityPhotoHiRes = this._getHiResUrl(details.photos[0].url);
-        this.cityCharacter = this._computeCityCharacter();
-        this.activeStop = activeStop;
-      }.bind(this));
-    } else {
+    if (!destLookup_[stopId]) {
+      // Destination information hasn't arrived yet, store stop ID for later.
       this._stopToLoad = stopId;
+      return;
     }
+
+    this._stopToLoad = undefined;
+    var activeStopIndex = destLookup_[stopId];
+    var activeStop = this.stream[activeStopIndex];
+
+    this.cityPhotoLowRes = '';
+    this.cityPhotoHiRes = '';
+
+    activeStop.stop.getDetails(function(details) {
+      activeStop.stop.details.wikipedia = details.wikipedia;
+      this.cityPhotoLowRes = details.photos[0].url
+      this.cityPhotoHiRes = this._getHiResUrl(details.photos[0].url);
+      this.cityCharacter = this._chooseCityCharacter();
+      this.activeStop = activeStop;
+    }.bind(this));
   },
 
   _activeStopChanged: function() {
@@ -598,7 +604,6 @@ Polymer({
   },
 
   _timelineChanged: function() {
-    console.log('timeline changed', this.timeline.length);
     if (!this.timeline || !this.timeline.length) {
       return;
     }
@@ -651,20 +656,6 @@ Polymer({
   scrollToDest: function(destId) {
     var idx = destLookup_[destId] || 0;
     this.scrollToIndex(idx);
-    /*
-
-    if (this.setupDone_ && this.stream.length) {
-      // Add deep link to opened destination.
-      var newHref = location.href.substr(0,
-                    location.href.length - location.hash.length) +
-                    '#tracker';
-      var timestamp = this.stream[idx].timestamp
-      if (timestamp && timestamp != -1) {
-        newHref += '?timestamp=' + timestamp;
-      }
-      window.history.replaceState(null, '', newHref);
-    }
-    */
   },
 
   /**
@@ -722,40 +713,11 @@ Polymer({
         PANORAMIO_PATH_ORIGINAL);
   },
 
-  // Determines the most central visible card in the stream's viewport for deep linking.
+  /**
+   * Determines the most central visible card in the stream's viewport for deep linking.
+   */
   updateCardInView: function() {
-    /*
-    this.updateQueued_ = false;
-
-    var listHeight = this.$.feed.offsetHeight;
-    var listChildren = this.$.feed.$$('#items').children;
-
-    for (var i = 0, el; el = listChildren[i]; ++i) {
-      var elBounds = el.getBoundingClientRect();
-      if (0 < elBounds.top && elBounds.top < listHeight) {
-        var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
-        var yUpper = (listHeight / 2) + CARD_CENTERED_THRESHOLD;
-        var yLower = (listHeight / 2) - CARD_CENTERED_THRESHOLD;
-
-        // If card is on center of screen, add deep link to URL.
-        if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
-          var idx = Number(el.getAttribute('data-index'));
-          var timestamp = this.$.feed.items[idx].timestamp;
-
-          this._cardInView = timestamp;
-
-          var newHref = location.href.substr(0,
-            location.href.length - location.hash.length) + '#tracker';
-          if (timestamp && timestamp != -1) {
-            newHref += '?timestamp=' + timestamp;
-          }
-
-          window.history.replaceState(null, '', newHref);
-
-          break;
-        }
-      }
-    }*/
+    // TODO(skarEE): Do we set the timestamp anymore?
   },
 
   onScroll: function(e, detail) {
