@@ -57,6 +57,13 @@ app.Character = class {
       this.images[name] = image;
     };
 
+    image.onerror = () => {
+      image.onerror = null;
+      setTimeout(() => {
+        image.src += '?' + +new Date;
+      }, 1000);
+    }
+
     image.src = `img/steps/${color}/${name}.png`;
   }
 
