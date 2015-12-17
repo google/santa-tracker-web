@@ -45,15 +45,26 @@ app.Character = class {
   }
 
   renderSprites_(color) {
-    Object.keys(this.data).forEach(key => {
-      let image = new Image();
-
-      image.onload = () => {
-        this.images[key] = image;
-      };
-
-      image.src = `img/steps/${color}/${key}.png`;
+    Object.keys(this.data).forEach(name => {
+      this.loadImage(name, color)
     });
+  }
+
+  loadImage(name, color) {
+    let image = new Image();
+
+    image.onload = () => {
+      this.images[name] = image;
+    };
+
+    image.onerror = () => {
+      image.onerror = null;
+      setTimeout(() => {
+        image.src += '?' + +new Date;
+      }, 1000);
+    }
+
+    image.src = `img/steps/${color}/${name}.png`;
   }
 
   update(dt) {
@@ -67,12 +78,19 @@ app.Character = class {
 
     let image = this.images[frame.sprite];
 
+    if (image) {
+      this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
 
-    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
-
-    this.context.drawImage(image, frame.x, frame.y,
-        frame.width, frame.height, frame.offsetX, frame.offsetY,
-        frame.width, frame.height);
+      this.context.drawImage(image, frame.x, frame.y,
+          frame.width, frame.height, frame.offsetX, frame.offsetY,
+          frame.width, frame.height);
+    } else {
+      // Try to load failed image again.
+      // Check if we are displaying the first frame so we don't try 24 times.
+      if (frame.x === 0) {
+        this.loadImage(frame.sprite, this.color);
+      }
+    }
 
     this.lastFrame = frame;
   }
