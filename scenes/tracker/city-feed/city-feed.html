@@ -451,11 +451,6 @@ Polymer({
   cityCharacter: '',
 
   /**
-   * True if the list has done its metrics setup and is ready to be shown.
-   */
-  setupDone_: false,
-
-  /**
    * True if a scroll update has been queued, due to the user scrolling the stream.
    */
   updateQueued_: false,
@@ -665,11 +660,7 @@ Polymer({
    * @param {number} idx Index of item to scroll to.
    */
   scrollToIndex: function(idx) {
-    if (this.setupDone_) {
-      this.$.feed.scrollToIndex(idx);
-    } else {
-      this.pendingScroll_ = {func: this.scrollToIndex, arg: idx};
-    }
+    this.$.feed.scrollToIndex(idx);
   },
 
   /**
