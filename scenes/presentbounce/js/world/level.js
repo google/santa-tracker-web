@@ -64,6 +64,9 @@ app.world.Level = class {
     this.debug_ = !!location.search.match(/[?&]debug=true/);
     this.hasInteractionStarted = false;
 
+    this.hasFirstBeltDropped = false;
+    this.hasBeltInteractionStarted = false;
+
     // Total ammount of objects available to be dragged and dropped
     this.numObjectsAvailable = 0;
 
@@ -276,6 +279,13 @@ app.world.Level = class {
     this.drawer.updateDrawersVisibility();
   }
 
+  toggleBeltTutorial_() {
+    if (!this.hasFirstBeltDropped) {
+      this.hasFirstBeltDropped = true;
+      window.setTimeout(() => { this.tutorial.show_('conveyor-switch') }, 500);
+    }
+  }
+
   /**
    * Callback from the drawer to create the World object when dropped inside the level
    * @private
@@ -283,9 +293,9 @@ app.world.Level = class {
   onUserObjectDropped_(objectData, objectType, position, callback) {
     objectData.mouseX = position.x;
     objectData.mouseY = position.y;
-    var hasError = false;
+    let hasError = false;
     if (objectType === app.Constants.USER_OBJECT_TYPE_BELT) {
-      const belt = new app.world.ConveyorBelt(this, this.world_, objectData); 
+      const belt = new app.world.ConveyorBelt(this, this.world_, objectData);
       if (belt.isBoundingBoxOverlappingOtherObject()) {
         belt.destroy();
         hasError = true;
@@ -295,6 +305,7 @@ app.world.Level = class {
         this.userObjects_.push(belt);
         window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_start');
         belt.play();
+        this.toggleBeltTutorial_();
       }
       callback( hasError );
     }
@@ -435,6 +446,11 @@ app.world.Level = class {
       this.hasInteractionStarted = true;
       this.tutorial.off('device-tilt');
       this.tutorial.off('drag-and-drop');
+    }
+    if (this.hasFirstBeltDropped && !this.hasBeltInteractionStarted) {
+      this.hasBeltInteractionStarted = true;
+      this.tutorial.hide_();
+      this.tutorial.off('conveyor-switch');
     }
   }
 
