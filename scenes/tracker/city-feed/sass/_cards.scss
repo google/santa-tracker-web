@@ -173,7 +173,8 @@
 
   &.card-village {
     .card-header, .card-body, .card-footer {
-      background-color: #00abc0;
+      background-color: #3ddaf2;
+      background-image: linear-gradient(to bottom, #3ddaf2 0%, #8ce8f8 86%, #99eaf9 100%);
     }
 
     .card-body {
