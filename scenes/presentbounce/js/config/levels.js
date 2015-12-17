@@ -59,7 +59,7 @@ app.config.Levels = [
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.4,
         relY: 0.8,
         rotation: 90 + 180 // flip to have proper shadow
@@ -101,18 +101,18 @@ app.config.Levels = [
         style: app.config.Styles.straightBeam,
         relX: 0.55,
         relY: 0.25,
-        rotation: 45 + 180 // flip to have proper shadow
+        rotation: 45
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.6,
         relY: 0.75,
         rotation: 90 + 180 // flip to have proper shadow
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.35,
         relY: 0.7,
         rotation: 90 + 180 // flip to have proper shadow
@@ -167,28 +167,28 @@ app.config.Levels = [
     fixedObjects: [
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.angledBeamInverted,
+        style: app.config.Styles.angledBeamInvertedShadow,
         relX: .15,
         relY: .85,
         rotation: 180
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.42,
         relY: 0.38,
         rotation: -45
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.49,
         relY: 0.72,
         rotation: -45
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.8,
         relY: 0.6,
         rotation: 45 + 180 // flip to have proper shadow
@@ -243,25 +243,25 @@ app.config.Levels = [
         style: app.config.Styles.straightBeam,
         relX: 0.7,
         relY: 0.8,
-        rotation: 35 + 180 // flip to have proper shadow
+        rotation: 35
       },
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
         relX: 0.54,
         relY: 0.60,
-        rotation: 35 + 180 // flip to have proper shadow
+        rotation: 35
       },
       {
         material: app.config.Materials.fixedObject,
         style: app.config.Styles.straightBeam,
         relX: 0.28,
         relY: 0.3,
-        rotation: 35 + 180 // flip to have proper shadow
+        rotation: 35
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.angledBeam,
+        style: app.config.Styles.angledBeamInvertedShadow2,
         relX: .10,
         relY: .25,
         rotation: -90
@@ -309,21 +309,21 @@ app.config.Levels = [
     fixedObjects: [
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.angledBeamInverted,
+        style: app.config.Styles.angledBeamInvertedShadow,
         relX: 0.18,
         relY: 0.6,
         rotation: 180
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.5,
         relY: 0.25,
         rotation: 90 + 180 // flip to have proper shadow
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.5,
         relY: 0.75,
         rotation: 90 + 180 // flip to have proper shadow
@@ -454,7 +454,7 @@ app.config.Levels = [
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.angledBeamInverted,
+        style: app.config.Styles.angledBeamInvertedShadow,
         relX: 0.8,
         relY: 0.3,
         rotation: 180
@@ -520,7 +520,7 @@ app.config.Levels = [
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.25,
         relY: 0.8,
         rotation: 90 + 180 // flip to have proper shadow
@@ -579,7 +579,7 @@ app.config.Levels = [
     fixedObjects: [
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.35,
         relY: 0.4,
         rotation: 90 + 180 // flip to have proper shadow
@@ -645,7 +645,7 @@ app.config.Levels = [
       },
       {
         material: app.config.Materials.fixedObject,
-        style: app.config.Styles.straightBeam,
+        style: app.config.Styles.straightBeamInvertedShadow,
         relX: 0.6,
         relY: 0.5,
         rotation: 90 + 180 // flip to have proper shadow
