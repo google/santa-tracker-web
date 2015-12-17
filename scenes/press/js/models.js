@@ -564,6 +564,18 @@ var Cards = [
     'education': true,
     'description': 'This holiday season, we partnered with Google.org to showcase how certain organizations are helping kids with special needs.',
     'resources': [
+      {
+        'title': 'Still Screenshot',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-season-of-caring.png',
+        'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC21-seasonofcaring-full.gif',
+        'type': 'GIF file',
+        'class': 'press-card-dl'
+      }
     ]
   },
   {
@@ -601,6 +613,12 @@ var Cards = [
         'title': 'Still Screenshot',
         'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santas-takeoff.png',
         'type': 'PNG file',
+        'class': 'press-card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC23-takeoff-full.gif',
+        'type': 'GIF file',
         'class': 'press-card-dl'
       }
     ]
