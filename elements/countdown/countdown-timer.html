@@ -224,7 +224,7 @@ Example
         // Ensure holders exist. Solves inconsistent asyncs.
         if (this.holders.length) {
           for (var i = 0, holder; holder = this.holders[i]; ++i) {
-            this.setValue(holder, this._oldNumbers[i], numbers[i]);
+            this.setValue(holder, this._oldNumbers[i] || '00', numbers[i]);
           }
           this._oldNumbers = numbers;
         }
