@@ -171,13 +171,10 @@ Tracker scene.
       },
 
       /**
-       * User's location.
-       * @type {Position}
+       * User's location. Transitions from undefined to either an object or
+       * null after the first update.
        */
-      userLocation:  {
-        type: Object,
-        value: null
-      },
+      userLocation: Object,
 
       /**
        * Is this page a phone size? Bound to `iron-media-query`.
@@ -353,6 +350,13 @@ Tracker scene.
       this.setupTracker();
     },
 
+    /**
+     * General handler for santaService's sync event (on info from server).
+     */
+    _syncHandler: function() {
+      this._updateUserLocation();
+    },
+
     setupTracker: function() {
       if (!this.mapReady_ || !this.shown || this.worldView_) {
         return;
@@ -363,7 +367,9 @@ Tracker scene.
       this.worldView_.show();
 
       // TODO: we don't have a removeListener in SantaService. This will add
-      // an additional listener every time someone switches back to tracker.
+      // additional listeners every time someone switches back to tracker.
+      console.warn('setupTracker called, adding listeners to santaService');
+
       this.santaApp.santaService.addListener('destinations_changed', function(dests) {
         this.destinations = dests || [];
       }.bind(this));
@@ -372,34 +378,40 @@ Tracker scene.
         this.timeline = timeline || [];
       }.bind(this));
 
+      this.santaApp.santaService.addListener('sync', this._syncHandler.bind(this));
+      this.santaApp.santaService.addListener('card', this._updateCard.bind(this));
+
       // Sync if we need to.
       this.destinations = this.santaApp.santaService.getDestinations();
       this.timeline = this.santaApp.santaService.getTimeline();
 
-      if ((!this.destinations || !this.destinations.length) ||
+      var synced = this.santaApp.santaService.isSynced();
+      if (!synced ||
+          (!this.destinations || !this.destinations.length) ||
           (!this.timeline || !this.timeline.length)) {
         this.santaApp.santaService.sync(); // dests set in event listener above.
+      } else if (synced) {
+        this._syncHandler();
       }
 
       this.$.intro.showTitle();
       this.cityFeedActive = true;
 
-      /*google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
-        this.cityFeedActive = !this.cityFeedActive;
+      google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
+        // TODO(skarEE): Make Santa say "Ho Ho Ho"?
 
-        if (this.cityFeedActive) {
-          if (this.location.stopover) {
-            this.$.feed.scrollToDest(this.location.stopover.id);
-          } else {
-            this.$.feed.scrollToIndex(0); // Scroll to top of feed if he's not at a stop.
-          }
+        if (this.location.stopover) {
+          this.cityFeedActive = true;
+          this.$.feed.setStopUrl(this.location.stopover.id);
+          this.$.feed.scrollToDest();
+        } else {
+          this.$.feed.scrollToIndex(0);  // not at a stop, scroll to top
         }
 
         var action = this.cityFeedActive ? 'show' : 'hide';
         this.fire('analytics-track-event', {category: 'cityfeed', action: action,
                                             label: 'from santa'});
-      }.bind(this));*/
-
+      }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
         this.cityFeedActive = true;
@@ -410,25 +422,15 @@ Tracker scene.
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'scenemarker_clicked', function(sceneId) {
-        this.loadTrackerScene_(sceneId);
+        this._loadTrackerScene(sceneId);
       }.bind(this));
-
-      navigator.geolocation.getCurrentPosition(this.geoLocationSuccess_.bind(this),
-        this._geoLocationError.bind(this), {
-          enableHighAccuracy: false,
-          timeout: 4000,
-          maximumAge: Infinity // We really don't care
-        });
-
-      this.santaApp.santaService.addListener('card', this.updateCard_.bind(this));
 
       this.trackSanta();
     },
 
-    loadTrackerScene_: function(sceneId) {
+    _loadTrackerScene: function(sceneId) {
       var newHref = location.href.substr(0,
             location.href.length - location.hash.length) + '#' + sceneId;
-      //this.santaApp.route = sceneId;
       window.location = newHref;
     },
 
@@ -438,7 +440,7 @@ Tracker scene.
       }
     },
 
-    updateCard_: function(card) {
+    _updateCard: function(card) {
       if (this.isPhoneSize) {
         this.trackerCard = null;
       } else {
@@ -466,37 +468,50 @@ Tracker scene.
       }
     },
 
-    geoLocationSuccess_: function(position) {
-      var latlng = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+    /**
+     * Called when we believe santaService has the user's location.
+     */
+    _updateUserLocation: function() {
+      if (this.userLocation !== undefined) {
+        return;  // already have the first location, don't update it again
+      }
+
+      var failHandler = function() {
+        this.userLocation = null;
+        this.$.intro.closeIntro();
+        this.fire('analytics-track-event', {category: 'geolocation', action: 'error'});
+      }.bind(this);
+
+      var userLocation = this.santaApp.santaService.getUserLocation();
+      if (!userLocation) {
+        failHandler();
+        return;
+      }
+
       var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({'latLng': latlng}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            var types = results[i].types;
-            if (types.indexOf('locality') != -1) {
-              this.userLocation = {
-                location: {
-                  lat: results[i].geometry.location.lat(),
-                  lng: results[i].geometry.location.lng()
-                },
-                name: results[i].formatted_address
-              };
-              return;
-            }
-          }
+      geocoder.geocode({'latLng': userLocation}, function(results, status) {
+        if (status != google.maps.GeocoderStatus.OK) {
+          failHandler();
+          return;
         }
+        console.info('got all locations', results);
+        for (var i = 0; r = results[i]; i++) {
+          if (r.types.indexOf('locality') == -1) {
+            continue;
+          }
+          this.userLocation = {
+            location: {
+              lat: r.geometry.location.lat(),
+              lng: r.geometry.location.lng()
+            },
+            name: r.formatted_address
+          };
+          return;
+        }
+        failHandler();
       }.bind(this));
 
       this.fire('analytics-track-event', {category: 'geolocation', action: 'success'});
-    },
-
-    _geoLocationError: function(error) {
-      this.userLocation = null;
-      this.$.intro.closeIntro();
-      this.fire('analytics-track-event', {category: 'geolocation', action: 'error'});
     },
 
     _destinationsChanged: function() {

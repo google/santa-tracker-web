@@ -256,7 +256,10 @@ Intro for the tracker scene.
       }.bind(this));
     },
 
-    _userLocationChanged: function() {
+    _userLocationChanged: function(newValue) {
+      if (!newValue) {
+        return;
+      }
       this.$['santa-loading'].classList.remove('final');
       if (this.layoutReady_ && !this.map_) {
         window.clearTimeout(this.continueTimeout_);

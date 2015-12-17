@@ -35,6 +35,11 @@ function SantaService(clientId, lang, version) {
   this.version_ = version;
 
   /**
+   * The user's (optional) location on the Earth, from geo-ip.
+   */
+  this.userLocation_ = null;
+
+  /**
    * All known destinations (including future ones).
    * Ordered chronologically (oldest destinations first).
    * @private {!Array.<!SantaLocation>}
@@ -310,6 +315,20 @@ SantaService.prototype.getTimeline = function() {
 };
 
 /**
+ * @return {?{lat: number, lng: number}} the user's location
+ */
+SantaService.prototype.getUserLocation = function() {
+  if (!this.userLocation_) {
+    return null;
+  }
+  var parts = this.userLocation_.split(',');
+  if (parts.length != 2) {
+    return null;
+  }
+  return {lat: +parts[0], lng: +parts[1]};
+}
+
+/**
  * Finds Santa's current SantaLocation, or the one he was most recently at.
  *
  * @param {number} timestamp
@@ -482,6 +501,7 @@ SantaService.prototype.sync = function(opt_callback) {
       var fingerprintChanged = result['fingerprint'] != this.fingerprint_;
       this.fingerprint_ = result['fingerprint'];
       this.clientSpecific_ = result['clientSpecific'];
+      this.userLocation_ = result['location'] || null;
 
       this.appendDestinations_(result['routeOffset'], result['destinations']);
       this.appendStream_(result['streamOffset'], result['stream']);
