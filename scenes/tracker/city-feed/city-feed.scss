@@ -50,6 +50,27 @@ $name: 'module-city-feed';
     height: 22px;
   }
 
+  .ico-arrow-yellow {
+    background-image: url(../img/tracker-icons_next-stop.svg);
+    height: 13px;
+    width: 16px;
+    display: inline-block;
+  }
+
+  .ico-location-yellow {
+    background-image: url(../img/tracker-icons_location.svg);
+    height: 12px;
+    width: 9px;
+    display: inline-block;
+  }
+
+  .ico-clock-yellow {
+    background-image: url(../img/clock-yellow.svg);
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+  }
+
   #items.iron-list > * {
     background: #00cd82;
   }
@@ -75,6 +96,8 @@ $name: 'module-city-feed';
 
   .card.card-santa-info {
     padding-top: 30px; // This should be removed if/when we put the filtery thing on
+    margin-bottom: 14px;
+    height: 229px;
 
     .santa-info-row {
       display: flex;
@@ -132,11 +155,17 @@ $name: 'module-city-feed';
           background-size: contain;
           background-repeat: no-repeat;
           left: -14px;
-          top: -24px;
+          top: -10px;
         }
 
         .fancy-content {
           position: relative;
+
+          .ico {
+            position: relative;
+            top: 2px;
+            margin-right: 0;
+          }
         }
       }
     }
