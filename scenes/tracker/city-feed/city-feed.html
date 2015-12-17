@@ -160,7 +160,10 @@ City feed view in Tracker
                   <div class="fancy-content">
                     <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
                     <h2>{{_formatDistance(santaDistance)}}</h2>
-                    {{_computeUserLocation(userLocation)}}
+                    <div>
+                      <i class="ico ico-location-yellow"></i>
+                      <span>{{_computeUserLocation(userLocation)}}</span>
+                    </div>
                   </div>
                 </div>
                 <div class="divider" hidden$="{{!_hasSantaDistance(santaDistance)}}"></div>
@@ -176,16 +179,16 @@ City feed view in Tracker
                 </div>
                 <div hidden$="{{!_computeIsSantaFlying(location)}}">
                   <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <h3><i class="ico ico-arrow-yellow"></i> {{_computeCurrentStop(location)}}</h3>
+                  <h3><i class="ico ico-location-yellow"></i> {{_computeCurrentStop(location)}}</h3>
                 </div>
                 <div class="divider"></div>
                 <div hidden$="{{_computeIsSantaFlying(location)}}">
                   <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <h3><i class="ico ico-arrow-yellow"></i>{{_computeArrival(arrival)}}</h3>
+                  <h3><i class="ico ico-clock-yellow"></i>{{_computeArrival(arrival)}}</h3>
                 </div>
                 <div hidden$="{{!_computeIsSantaFlying(location)}}">
                   <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                  <h3><i class="ico ico-arrow-yellow"></i>{{_computeDeparture(departure)}}</h3>
+                  <h3><i class="ico ico-clock-yellow"></i>{{_computeDeparture(departure)}}</h3>
                 </div>
               </div>
             </div>
