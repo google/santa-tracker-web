@@ -75,22 +75,33 @@ app.shared.utils = (function() {
      * is actually maps.gstatic.com/...
      */
     updateLocalSVGRef: function(node) {
-      var candidates = ['clipPath', 'stroke', 'fill'];
+      var re = /^url\((["']?)#/;  // `url("#` with optional quote in group 1
+      var pageUrl =
+          location.href.substr(0, location.href.length - location.hash.length);
+      function replacer(x) {
+        return x.replace(re, 'url($1' + pageUrl + '#');
+      }
 
-      // Work around base href, which causes all inline IDs to refer to the base
-      // href in production (which is served from maps.gstatic.com...). Refer
-      // to the local pageUrl instead, since the clippath elements are inlined.
-      var re = /^url\((["']?)#/;  // match `url("#` with optional quote in group 1
-      var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
-      var all = node.querySelectorAll('[style]');
-      for (var i = 0, el; el = all[i]; ++i) {
+      // Match url() set inside inline style.
+      var styleAll = node.querySelectorAll('[style]');
+      var candidates = ['clipPath', 'stroke', 'fill'];
+      for (var i = 0, el; el = styleAll[i]; ++i) {
         var s = el.style;
         candidates.forEach(function(c) {
           if (s[c]) {
-            s[c] = s[c].replace(re, 'url($1' + pageUrl + '#');
+            s[c] = replacer(s[c]);
           }
         });
       }
+
+      // Match url() set as an attribute, e.g. clip-path="url()".
+      var attrs = ['clip-path', 'stroke', 'fill'];
+      attrs.forEach(function(attr) {
+        var attrAll = node.querySelectorAll('[' + attr + '^=url]');
+        for (var i = 0, el; el = attrAll[i]; ++i) {
+          el.setAttribute(attr, replacer(el.getAttribute(attr)));
+        }
+      });
     },
 
     /**
