@@ -49,6 +49,13 @@ app.world.LevelObject = class {
     this.el_ = this.createTextureDOMNode_();
     this.$el_ = $(this.el_);
 
+    // Show the objects with some delay
+    // so the DOM has time to position them
+    window.setTimeout(() => {
+      this.$el_.removeClass("object--hidden");
+      this.$shadowEl_.removeClass("object--hidden");
+    }, 50);
+
     // Box2d body - implemented by subclass
     this.body_ = null;
   }
@@ -82,14 +89,16 @@ app.world.LevelObject = class {
    */
   createTextureDOMNode_() {
     const el = document.createElement("div");
-    el.className = 'object ' + this.config_.style.className;
+    el.className = 'object object--hidden ' + this.config_.style.className;
     el.innerHTML = this.config_.style.innerHTML || '';
 
     // Fix local url(#ref) refs.
     app.shared.utils.updateLocalSVGRef(el);
 
     this.setElementStyle_(el);
+
     $(this.level_.elem).append(el);
+
     return el;
   }
 
@@ -100,9 +109,12 @@ app.world.LevelObject = class {
   createShadowDOMNode_() {
     if (this.config_.style.dynamicShadow) {
       const shadowEl = document.createElement("div");
-      shadowEl.className = 'object object--shadow ' + this.config_.style.className;
+      shadowEl.className = 'object object--shadow object--hidden ' + this.config_.style.className;
+
       this.setElementStyle_(shadowEl);
+
       $(this.level_.elem).append(shadowEl);
+
       return shadowEl;
     }
   }

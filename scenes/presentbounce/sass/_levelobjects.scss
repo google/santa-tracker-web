@@ -15,6 +15,10 @@
     transform: scale(0.6);
   }
 
+  .object--hidden {
+    visibility: hidden;
+  }
+
   .object--present-rect {
     background: red;
     opacity: 0.5;
