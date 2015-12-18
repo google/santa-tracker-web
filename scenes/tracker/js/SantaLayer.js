@@ -137,7 +137,7 @@ function createSantaLayerConstructor() {
 
     next.addClass('active');
     this.animationSync_ = this.base_.async(
-        this.animate_.bind(this), true, this.ANIMATION_DURATION_);
+        this.animate_.bind(this), this.ANIMATION_DURATION_);
   };
 
   SantaLayer.prototype.stopAnimation_ = function() {
@@ -200,7 +200,7 @@ function createSantaLayerConstructor() {
       this.lastStop_ = state.prev;
 
       this.bounds_ = new google.maps.LatLngBounds();
-      
+
       // Populate the trail with the last 8 locations
       var trail = [];
       var prev = state.prev;
