@@ -237,18 +237,19 @@ $panelWidth: 515px;
         height: 69px;
         border-radius: 50%;
         margin: 0 12px;
-        transform: scale(1);
+        transform: scale(0.8);
         transition: transform 250ms ease;
         cursor: pointer;
 
         &.iron-selected {
-          transform: scale(.8);
+          transform: scale(1);
         }
       }
     }
 
     .city-photo, .city-photo-hires {
       background-size: cover;
+      background-position: center;
       position: absolute;
       top: 0;
       left: 0;
