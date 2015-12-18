@@ -64,7 +64,7 @@ app.world.Level = class {
     this.debug_ = !!location.search.match(/[?&]debug=true/);
     this.hasInteractionStarted = false;
 
-    this.hasFirstBeltDropped = false;
+    this.hasFirstBeltDropped = (this.game_.level > 0) || false;
     this.hasBeltInteractionStarted = false;
 
     // Total ammount of objects available to be dragged and dropped
@@ -279,6 +279,10 @@ app.world.Level = class {
     this.drawer.updateDrawersVisibility();
   }
 
+  /**
+   * @private
+   * Checks if we need to show the conveyor-switch tutorial once.
+   */
   toggleBeltTutorial_() {
     if (!this.hasFirstBeltDropped) {
       this.hasFirstBeltDropped = true;
