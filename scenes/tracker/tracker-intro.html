@@ -107,7 +107,7 @@ Intro for the tracker scene.
        */
       userLocation: {
         type: Object,
-        value: function() { return {}; },
+        value: null,
         observer: '_userLocationChanged'
       },
 
@@ -342,8 +342,6 @@ Intro for the tracker scene.
 
     /**
      * Plays user's location animation sequence.
-     *
-     * @method showUserLocationMap
      */
     showSanta: function() {
       var bubble = this.$.userBubble;

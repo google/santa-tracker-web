@@ -22,6 +22,8 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
 <link rel="import" href="../../../components/iron-media-query/iron-media-query.html">
 
+<link rel="import" href="../../../elements/santa-app-behavior.html">
+
 <!--
 Utility element to use response HTML returned by the Santa Tracker API.
 -->
@@ -324,6 +326,8 @@ var PANORAMIO_PATH_ORIGINAL = 'static.panoramio.com.storage.googleapis.com/photo
 Polymer({
   is: 'city-feed',
 
+  behaviors: [window.SantaAppBehavior],
+
   properties: {
 
     /**
@@ -402,15 +406,6 @@ Polymer({
     },
 
     /**
-     * A `<santa-app>` controller element.
-     * TODO(samthor): Like for scenes, find this from parent elements
-     */
-    santaApp: {
-      type: Object,
-      value: null
-    },
-
-    /**
      * Mapping of YouTube video ids to URL routes.
      */
     videoMap: {
@@ -431,17 +426,6 @@ Polymer({
      * The stop ID to load once destinations are available.
      */
     _stopToLoad: String,
-  },
-
-  /**
-   * A basename for links within Santa Tracker. The hash is removed for nicer
-   * display URLs in the status bar.
-   * @property pageUrl
-   * @type string
-   * @default
-   */
-  get pageUrl() {
-    return location.href.substr(0, location.href.length - location.hash.length);
   },
 
   /**

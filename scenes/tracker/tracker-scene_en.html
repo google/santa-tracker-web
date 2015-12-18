@@ -494,7 +494,6 @@ Tracker scene.
           failHandler();
           return;
         }
-        console.info('got all locations', results);
         for (var i = 0; r = results[i]; i++) {
           if (r.types.indexOf('locality') == -1) {
             continue;
