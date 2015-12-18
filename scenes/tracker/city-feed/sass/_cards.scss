@@ -173,7 +173,8 @@
 
   &.card-village {
     .card-header, .card-body, .card-footer {
-      background-color: #00abc0;
+      background-color: #3ddaf2;
+      background-image: linear-gradient(to bottom, #3ddaf2 0%, #8ce8f8 86%, #99eaf9 100%);
     }
 
     .card-body {
@@ -261,13 +262,16 @@
 
   &.card-update {
     .card-header, .card-body, .card-footer {
-      background-color: #e43834;
     }
 
     .card-header {
       .corner-image {
         background-image: url(../img/cards/avatars-santa.svg);
       }
+    }
+
+    .card-body p {
+      padding: 0 20px 20px 20px;
     }
 
     .card-footer {
