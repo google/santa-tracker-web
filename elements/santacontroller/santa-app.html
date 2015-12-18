@@ -758,10 +758,39 @@ Polymer({
     var castMode = this.mode === 'cast';
     var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
-    var spanglish = /^e(n|s)/.test(this.language);
+    var isSpanglish = /^e(n|s)/.test(this.language);
+    var isEnglish = /^en/.test(this.language);
+    isEnglish = false;
 
     for (var i = this._houses.length - 1; i >= 0; i--) {
       var house = this._houses[i];
+
+      // If this house is an array, it's a choice of houses based on language
+      // or other conditions.
+      if (house.length) {
+        var choice = house[0];
+        switch (choice.module) {
+        case 'callfromsanta':
+          // remove callfromsanta where not supported (leaving fallback house)
+          // or after Santa's flight has concluded.
+          if (!isSpanglish || this.postFlight) {
+            choice = house[1];
+          } else {
+            // Save the object for postFlight (when callfromsanta will be 
+            // disabled)
+            this._fallbackHouse = house[1];
+          }
+          break;
+        case 'seasonofcaring':
+          // not translated, choose backup house instead
+          if (!isEnglish) {
+            choice = house[1];
+          }
+          break;
+        }
+
+        this._houses[i] = house = choice;
+      }
 
       house.disabled = house.disabled || castMode;  // by default, all houses are disabled on cast
 
@@ -769,22 +798,6 @@ Polymer({
         case 'app':
           // Disable Google Play house on iOS devices
           house.disabled = (ios || portalMode || house.disabled);
-          break;
-        case 'callfromsanta':
-          // remove callfromsanta where not supported (leaving fallback house) or
-          // after Santa's flight has concluded.
-          if (!spanglish || this.postFlight) {
-            this._houses.splice(i, 1);
-          }
-          break;
-        default:
-          if (house.fallback) {
-            // remove fallback where callfromsanta supported (en|en-GB|es|es-419)
-            // Save the object for postFlight (when callfromsanta will be disabled)
-            if (spanglish && !this.postFlight) {
-              this._fallbackHouse = this._houses.splice(i, 1)[0];
-            }
-          }
           break;
       }
     }
