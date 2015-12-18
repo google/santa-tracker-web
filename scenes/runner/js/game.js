@@ -135,6 +135,7 @@ app.Game.prototype.restart = function() {
   this.unfreezeGame();
   window.santaApp.fire('analytics-track-game-start', {gameid: 'runner'})
   window.santaApp.fire('sound-trigger', 'runner_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
 
   this.gameStartTime = +new Date;
 
@@ -203,6 +204,7 @@ app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
   window.santaApp.fire('sound-trigger', 'runner_game_over');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'runner',
     score: this.scoreboard.score,

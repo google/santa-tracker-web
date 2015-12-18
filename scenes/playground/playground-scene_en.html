@@ -213,6 +213,7 @@ Playground scene.
 
     onShow: function() {
       this.fire('sound-ambient', 'playground_start');
+      this.fire('sound-ambient', 'music_start_scene');
       var div = this.$['module-playground'];
 
       this.scene = new scenes.playground.Scene(div);

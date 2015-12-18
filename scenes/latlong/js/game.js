@@ -92,6 +92,7 @@ app.Game.prototype.restart = function() {
   // Start game
   if (!this.debug) {
     window.santaApp.fire('sound-trigger', 'latlong_start');
+    window.santaApp.fire('sound-ambient', 'music_start_ingame');
   }
   window.santaApp.fire('analytics-track-game-start', {gameid: 'latlong'});
   this.unfreezeGame();
@@ -203,6 +204,7 @@ app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'latlong_game_over');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'latlong',
     score: this.scoreboard.score,

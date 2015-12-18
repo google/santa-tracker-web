@@ -155,7 +155,7 @@ app.Game.prototype.restart = function() {
 
   this.scoreboard.reset();
   this.player.reset();
-
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('sound-ambient', 'glider_start');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'glider'});
 
@@ -338,7 +338,6 @@ app.Game.prototype.updateLevel_ = function(delta) {
   this.level++;
   this.scoreboard.setLevel(this.level);
   this.buildingSpeed += Constants.BUILDING_SPEED_PER_LEVEL;
-  window.santaApp.fire('sound-trigger', 'glider_level_up');
 
   // Schedule next level.
   this.nextLevel = Constants.LEVEL_DURATION;
@@ -409,6 +408,7 @@ app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'glider_game_over');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'glider',
     score: this.scoreboard.score,

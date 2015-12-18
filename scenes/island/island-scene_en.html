@@ -88,12 +88,21 @@ Island scene.
     behaviors: [window.SantaSceneBehavior],
 
     onPreload: function() {
+      this.preloadSounds('island_load_sounds', 20);
       this.preloadImages([
         'img/island-base.png',
         'img/lights.png',
         'img/objects.png',
         'img/z.png'
       ]);
+    },
+    onShow: function() {
+      this.fire('sound-ambient', 'music_start_scene');
+      this.fire('sound-ambient', 'island_start');
+    },
+
+    onHide: function() {
+      this.fire('sound-ambient', 'island_end');
     }
   });
 

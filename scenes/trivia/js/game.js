@@ -134,6 +134,8 @@ app.Game.prototype.gameover = function(really) {
   if (!really && this.scoreboard.countdown === 0) {
     this.countdownActive = false;
     this.scene.fire('time-up');
+    window.santaApp.fire('sound-trigger', 'trivia_countdown_end');
+    window.santaApp.fire('sound-trigger', 'trivia_wrong');
     return;
   }
 
@@ -202,9 +204,13 @@ app.Game.prototype.dispose = function() {
  * @param isCorrect Is the answer correct?
  */
 app.Game.prototype.answer = function(isCorrect) {
+  window.santaApp.fire('sound-trigger', 'trivia_countdown_end');
   if (isCorrect) {
     var score = this.quiz.calculateScore(this.scoreboard.countdown);
     this.scoreboard.addScore(score);
+    window.santaApp.fire('sound-trigger', 'trivia_correct');
+  }else {
+    window.santaApp.fire('sound-trigger', 'trivia_wrong');
   }
   app.shared.Coordinator.after(app.Constants.PAUSE_AFTER_ANSWER, this.hideQuestion_.bind(this));
 };
@@ -242,5 +248,6 @@ app.Game.prototype.nextQuestion_ = function() {
 };
 
 app.Game.prototype.startCountdown = function() {
+  window.santaApp.fire('sound-trigger', 'trivia_countdown_start');
   this.countdownActive = true;
 };

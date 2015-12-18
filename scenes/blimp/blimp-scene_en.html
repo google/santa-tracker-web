@@ -81,6 +81,7 @@ Blimp scene.
       behaviors: [window.SantaSceneBehavior],
 
       onPreload: function() {
+        this.preloadSounds('blimp_load_sounds', 20);
         this.preloadImages([
           'img/cloud-4.png',
           'img/comet.png',
@@ -111,6 +112,14 @@ Blimp scene.
           'img/cogs.png',
           'img/sleigh.png'
         ]);
+      },
+      onShow: function() {
+        this.fire('sound-ambient', 'music_start_scene');
+        this.fire('sound-ambient', 'blimp_start');
+      },
+
+      onHide: function() {
+        this.fire('sound-ambient', 'blimp_end');
       }
     });
   })();

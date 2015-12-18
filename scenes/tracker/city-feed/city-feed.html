@@ -561,6 +561,7 @@ Polymer({
 
   showFeed: function() {
     this.activeStop = null;
+    this.fire('sound-ambient', 'tracker_hide_dest');
   },
 
   setStopUrl: function(stopId) {
@@ -571,6 +572,7 @@ Polymer({
   },
 
   showStop: function(stopId) {
+    this.fire('sound-ambient', 'tracker_show_dest');
     if (!destLookup_[stopId]) {
       // Destination information hasn't arrived yet, store stop ID for later.
       this._stopToLoad = stopId;
