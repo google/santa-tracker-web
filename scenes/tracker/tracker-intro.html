@@ -375,6 +375,7 @@ Intro for the tracker scene.
      * Hides the intro from view.
      */
     closeIntro: function(e, detail) {
+      this.fire('sound-ambient', 'music_start_ingame');
       e && e.preventDefault();
       this.style.transform = this.style.webkitTransform = 'translateY(-' + 2 * this._winCenterY + 'px)';
       Polymer.dom(this).classList.add('offscreen');
