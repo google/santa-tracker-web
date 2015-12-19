@@ -18,6 +18,7 @@ html, body {
 body {
   margin: 0;
   height: 100vh;
+  min-width: 320px;
 
   &[unresolved] {
     opacity: 1 !important;

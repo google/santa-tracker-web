@@ -1,7 +1,6 @@
 @import "../shared/sass/_mixins.scss";
 
-$tabletBreakpoint: 1024px;
-$mobileBreakpoint: 668px;
+$mobileBreakpoint: 768px;
 $trackerFeedWidth: 530px;
 
 $name: 'module-tracker';
@@ -211,6 +210,6 @@ $name: 'module-tracker';
       }
     }
   }
-}
 
-@import "sass/_responsive.scss";
+  @import "sass/_responsive.scss";
+}
