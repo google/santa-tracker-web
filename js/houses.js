@@ -149,22 +149,23 @@ window.HOUSES = [{
   launchDate: new Date('Dec 17, 2015'),
   portalLaunchDate: new Date('Dec 1, 2015'),
   category: "play"
-}, {
-  // optionally used instead of "briefing" in some regions
-  module: "callfromsanta",
-  iced: true,
-  launchDate: new Date('Dec 18, 2015'),
-  portalLaunchDate: new Date('Dec 1, 2015'),
-  category: "play"
-}, {
-  // optionally used instead of "callfromsanta" in some regions
-  module: "briefing",
-  fallback: true,
-  iced: true,
-  launchDate: new Date('Dec 18, 2015'),
-  portalLaunchDate: new Date('Dec 1, 2015'),
-  category: "play"
-}, {
+}, [
+  {
+    // optionally used instead of "briefing" in some regions
+    module: "callfromsanta",
+    iced: true,
+    launchDate: new Date('Dec 18, 2015'),
+    portalLaunchDate: new Date('Dec 1, 2015'),
+    category: "play"
+  }, {
+    // optionally used instead of "callfromsanta" in some regions
+    module: "briefing",
+    iced: true,
+    launchDate: new Date('Dec 18, 2015'),
+    portalLaunchDate: new Date('Dec 1, 2015'),
+    category: "play"
+  }
+], {
   module: "citylights",
   iced: true,
   launchDate: new Date('Dec 19, 2015'),
@@ -176,13 +177,23 @@ window.HOUSES = [{
   launchDate: new Date('Dec 20, 2015'),
   portalLaunchDate: new Date('Dec 1, 2015'),
   category: "watch"
-}, {
-  module: "seasonofcaring",
-  iced: true,
-  launchDate: new Date('Dec 21, 2015'),
-  portalLaunchDate: new Date('Dec 1, 2015'),
-  category: "learn"
-}, {
+}, [
+  {
+    // used in en only
+    module: "seasonofcaring",
+    iced: true,
+    launchDate: new Date('Dec 21, 2015'),
+    portalLaunchDate: new Date('Dec 1, 2015'),
+    category: "learn"
+  }, {
+    // fallback for "seasonofcaring"
+    module: "factory",
+    iced: true,
+    launchDate: new Date('Dec 21, 2015'),
+    portalLaunchDate: new Date('Dec 1, 2015'),
+    category: "play"
+  }
+], {
   module: "matching",
   iced: true,
   launchDate: new Date('Dec 22, 2015'),
