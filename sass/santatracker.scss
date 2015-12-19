@@ -53,6 +53,5 @@ body {
   margin-top: -104px;
 }
 
-html:not([lang|="en"]) .no-en {
-  display: none !important;
-}
+// Import common rules.
+@import "scenes/shared/sass/_frame.scss";
