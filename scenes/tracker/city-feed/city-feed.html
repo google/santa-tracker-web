@@ -22,6 +22,8 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../../components/google-streetview-pano/google-streetview-pano.html">
 <link rel="import" href="../../../components/iron-media-query/iron-media-query.html">
 
+<link rel="import" href="../../../elements/santa-app-behavior.html">
+
 <!--
 Utility element to use response HTML returned by the Santa Tracker API.
 -->
@@ -91,6 +93,17 @@ City feed view in Tracker
   .flex {
     @apply(--layout-flex);
   }
+
+  /*
+   * Give the container a drop shadow: required for mobile, since the container starts down the
+   * page from the outer iron-list.
+   */
+  iron-list {
+    --iron-list-items-container: {
+      box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.125);
+    };
+  }
+
 </style>
 
 <div id="module-city-feed" class="fit">
@@ -333,6 +346,8 @@ var PANORAMIO_PATH_ORIGINAL = 'static.panoramio.com.storage.googleapis.com/photo
 Polymer({
   is: 'city-feed',
 
+  behaviors: [window.SantaAppBehavior],
+
   properties: {
 
     /**
@@ -411,15 +426,6 @@ Polymer({
     },
 
     /**
-     * A `<santa-app>` controller element.
-     * TODO(samthor): Like for scenes, find this from parent elements
-     */
-    santaApp: {
-      type: Object,
-      value: null
-    },
-
-    /**
      * Mapping of YouTube video ids to URL routes.
      */
     videoMap: {
@@ -440,17 +446,6 @@ Polymer({
      * The stop ID to load once destinations are available.
      */
     _stopToLoad: String,
-  },
-
-  /**
-   * A basename for links within Santa Tracker. The hash is removed for nicer
-   * display URLs in the status bar.
-   * @property pageUrl
-   * @type string
-   * @default
-   */
-  get pageUrl() {
-    return location.href.substr(0, location.href.length - location.hash.length);
   },
 
   /**
@@ -570,6 +565,7 @@ Polymer({
 
   showFeed: function() {
     this.activeStop = null;
+    this.fire('sound-ambient', 'tracker_hide_dest');
   },
 
   setStopUrl: function(stopId) {
@@ -580,6 +576,7 @@ Polymer({
   },
 
   showStop: function(stopId) {
+    this.fire('sound-ambient', 'tracker_show_dest');
     if (!destLookup_[stopId]) {
       // Destination information hasn't arrived yet, store stop ID for later.
       this._stopToLoad = stopId;

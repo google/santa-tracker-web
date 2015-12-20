@@ -2574,6 +2574,7 @@ Trivia scene.
     },
 
     onPreload: function() {
+      this.preloadSounds('trivia_load_sounds', 30);
       this.preloadImages([
         'img/correct.svg',
         'img/easy.svg',
@@ -2586,11 +2587,13 @@ Trivia scene.
     },
 
     onShow: function() {
+      this.fire('sound-ambient', 'music_start_scene');
       var module = this.$['module-trivia'];
       this.game = new scenes.trivia.Game(this, module);
     },
 
     onDifficulty: function(event) {
+      this.fire('sound-trigger', 'generic_button_click');
       this.game.start(event.detail);
       this.$.menu.classList.add('menu--hidden');
     },
@@ -2612,6 +2615,7 @@ Trivia scene.
     },
 
     onNewQuestion: function() {
+      this.fire('sound-trigger', 'trivia_question');
       this.$.menu.hidden = true;
       this.$.answer.reset();
       this.questionVisible = true;

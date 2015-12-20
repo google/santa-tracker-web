@@ -125,18 +125,20 @@ app.Item.prototype.hit = function() {
   this.game.caughtItem(this.type.score * (this.game.level + 1), this.type.time);
 
   if (this.type.time > 0 && this.type.score === 0) {
+    window.santaApp.fire('sound-trigger', 'glider_clock');
     if (this.type.time >= 10) {
       display = '+00:' + this.type.time;
     } else {
       display = '+00:0' + this.type.time;
     }
   } else {
+    window.santaApp.fire('sound-trigger', 'generic_score');
     display = this.type.score;
   }
 
   this.subElem.hide();
   this.scoreElem.attr('class', 'item-score')[0].textContent = display;
-  window.santaApp.fire('sound-trigger', 'glider_clock');
+  
 };
 
 /**

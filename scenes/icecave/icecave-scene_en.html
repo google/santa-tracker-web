@@ -65,6 +65,7 @@ Icecave scene.
     behaviors: [window.SantaSceneBehavior],
 
     onPreload: function() {
+      this.preloadSounds('icecave_load_sounds', 20);
       this.preloadImages([
         'img/back-ice.png',
         'img/roof.png',
@@ -78,6 +79,14 @@ Icecave scene.
         'img/snowman-mouth.png',
         'img/steam-fade.png'
       ]);
+    },
+    onShow: function() {
+      this.fire('sound-ambient', 'music_start_scene');
+      this.fire('sound-ambient', 'icecave_start');
+    },
+
+    onHide: function() {
+      this.fire('sound-ambient', 'icecave_end');
     }
   });
 

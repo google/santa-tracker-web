@@ -278,7 +278,7 @@ Tracker scene.
         'img/santa_effects.svg',
         'img/village.svg'
       ];
-
+      this.preloadSounds('tracker_load_sounds', 30);
       for (var i = 1; i <= 9; i++) {
         images.push('img/santa_magic_' + i + '.svg');
       }
@@ -494,7 +494,6 @@ Tracker scene.
           failHandler();
           return;
         }
-        console.info('got all locations', results);
         for (var i = 0; r = results[i]; i++) {
           if (r.types.indexOf('locality') == -1) {
             continue;
@@ -557,6 +556,7 @@ Tracker scene.
         this.$.intro.layoutReady();
       } else {
         this.$.intro.destroy();
+        this.fire('sound-ambient', 'music_start_ingame');
       }
 
       // Always start with cityFeed, tracker nav, and tracker card closed.

@@ -1,6 +1,9 @@
-// Common CSS for frame-based games.
+// Common CSS for top-level frames (including the main site).
 
 html:not([lang|="en"]) .no-en {
-  display: none !important;
+  display: none !important;  // hide .no-en on non-English versions
 }
 
+[hidden] {
+  display: none !important;  // make hidden more demanding
+}

@@ -1,9 +1,18 @@
 // Drag and Drop
 @include tutorial(drag-and-drop, 'img/DragAndDropAnimation.gif', 1);
+@include tutorial(conveyor-switch, 'img/ConveyorSwitch.gif', 1);
 
 ##{$name} {
 	.tutorial {
 		&.drag-and-drop {
+			width: 300px;
+			.tutorial-inner {
+				animation: none;
+				background-size: contain;
+				width: 300px;
+			}
+		}
+		&.conveyor-switch {
 			width: 300px;
 			.tutorial-inner {
 				animation: none;

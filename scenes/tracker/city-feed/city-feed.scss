@@ -1,5 +1,4 @@
-$tabletBreakpoint: 960px;
-$mobileBreakpoint: 668px;
+$mobileBreakpoint: 768px;
 $trackerFeedWidth: 530px;
 $trackerFeedPadding: 30px;
 
@@ -422,4 +421,19 @@ $name: 'module-city-feed';
   }
 
   @import "sass/_cards.scss";
+
+  @media (max-width: ($mobileBreakpoint - 1)) {
+    transform: none;
+
+    iron-list {
+      box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.25);
+      position: absolute;
+      bottom: 0;
+      padding-left: 0;
+      padding-top: 60vh;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
 }

@@ -107,7 +107,7 @@ Intro for the tracker scene.
        */
       userLocation: {
         type: Object,
-        value: function() { return {}; },
+        value: null,
         observer: '_userLocationChanged'
       },
 
@@ -342,8 +342,6 @@ Intro for the tracker scene.
 
     /**
      * Plays user's location animation sequence.
-     *
-     * @method showUserLocationMap
      */
     showSanta: function() {
       var bubble = this.$.userBubble;
@@ -375,6 +373,7 @@ Intro for the tracker scene.
      * Hides the intro from view.
      */
     closeIntro: function(e, detail) {
+      this.fire('sound-ambient', 'music_start_ingame');
       e && e.preventDefault();
       this.style.transform = this.style.webkitTransform = 'translateY(-' + 2 * this._winCenterY + 'px)';
       Polymer.dom(this).classList.add('offscreen');
