@@ -621,7 +621,6 @@ Polymer({
       ];
       add = true;
     } else {
-      add = false;
       actions = [
         { c: 'fade-content', t: 0},
         { c: 'show-content', t: 0},
@@ -632,6 +631,7 @@ Polymer({
         { c: 'fade-list', t: 0},
         { c: 'feed-visible', t: 100 },
       ];
+      add = false;
     }
 
     var t = 0;
@@ -651,7 +651,6 @@ Polymer({
         elem.classList.remove(c);
       }
     }, time);
-
   },
 
   _timelineChanged: function() {
