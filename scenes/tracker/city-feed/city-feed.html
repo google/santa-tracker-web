@@ -449,7 +449,11 @@ Polymer({
      */
     _stopToLoad: String,
 
-    _smallScreen: Boolean,
+    _smallScreen: {
+      type: Boolean,
+      value: false,
+      observer: '_smallScreenChanged'
+    }
   },
 
   /**
@@ -596,9 +600,29 @@ Polymer({
     }.bind(this));
   },
 
-
-
   _activeStopAnimationTimers: [],
+
+  _smallScreenChanged: function() {
+    if (this.activeStop) {
+      if (this._smallScreen) {
+        this.$['module-city-feed'].classList.remove('fade-list',
+        'move-details-left', 'move-details-right');
+        this.$['module-city-feed'].classList.add('feed-visible',
+          'fade-in-details', 'show-content', 'fade-content',
+          'show-photos');
+      } else {
+        this.$['module-city-feed'].classList.add('feed-visible',
+          'fade-in-details', 'fade-list', 'move-details-left',
+          'move-details-right', 'show-photos', 'show-content',
+          'fade-content');
+      }
+    } else {
+      this.$['module-city-feed'].classList.remove('feed-visible',
+          'fade-in-details', 'fade-list', 'move-details-left',
+          'move-details-right', 'show-photos', 'show-content',
+          'fade-content');
+    }
+  },
 
   _activeStopChanged: function() {
     var actions = [];
