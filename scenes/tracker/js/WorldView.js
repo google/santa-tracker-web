@@ -26,13 +26,6 @@ function WorldView(base, componentDir) {
   this.componentDir_ = componentDir;
 
   /**
-   * @type {!Array.<!SantaLocation>}
-   * @private
-   */
-  // TODO(samthor): This is disused after being set in setDestinations.
-  this.destinations_ = [];
-
-  /**
    * @type {!Array.<!google.maps.Marker>}
    */
   this.routeMarkers_ = [];
@@ -138,6 +131,7 @@ WorldView.prototype.setupMap = function() {
     center: {lat: 0, lng: 0},
     zoom: 1,
     minZoom: 1,
+    maxZoom: 6,  // ROK has own tiles at 7+
     'noPerTile': true,
     disableDefaultUI: true,
     backgroundColor: '#f6efe2',
@@ -204,12 +198,10 @@ WorldView.prototype.onSantaLayerClick_ = function() {
 };
 
 WorldView.prototype.followSanta = function() {
-  this.base_.$['module-tracker'].querySelector('#tracker-zoom-controls').hidden = true;
   this.lockOnSanta_ = true;
 };
 
 WorldView.prototype.unfollowSanta = function() {
-  this.base_.$['module-tracker'].querySelector('#tracker-zoom-controls').hidden = false;
   this.lockOnSanta_ = false;
   this.startIdleTimeout_();
 };
@@ -305,10 +297,12 @@ WorldView.prototype.SCENES_ = [
 
 
 /**
- * @param {!Array.<!SantaLocation>} dests
+ * Sets the current destinations. This isn't persisted, and will clear previous
+ * destination markers before creating all new markers.
+ *
+ * @param {!Array<!SantaLocation>} dests
  */
 WorldView.prototype.setDestinations = function(dests) {
-  this.destinations_ = dests;
   this.clearRouteMarkers_();
 
   if (!dests || !dests.length) {
@@ -425,7 +419,6 @@ WorldView.prototype.getBoundsZoomLevel_ = function(projection, latLngBounds, vie
  */
 WorldView.prototype.onRouteMarkerClick_ = function(marker, destId) {
   this.startIdleTimeout_();
-  this.followSanta();
   google.maps.event.trigger(this, 'routemarker_clicked', destId);
 };
 

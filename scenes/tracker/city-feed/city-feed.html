@@ -559,13 +559,6 @@ Polymer({
     this.fire('sound-ambient', 'tracker_hide_dest');
   },
 
-  setStopUrl: function(stopId) {
-    var newHref = location.href.substr(0,
-          location.href.length - location.hash.length) + '#tracker?stop=' + stopId;
-    //window.history.replaceState(null, '', newHref);
-    window.location = newHref;
-  },
-
   showStop: function(stopId) {
     this.fire('sound-ambient', 'tracker_show_dest');
     if (!destLookup_[stopId]) {
