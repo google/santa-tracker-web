@@ -166,7 +166,7 @@ City feed view in Tracker
 
     <iron-list id="feed" items="[[stream]]" as="item" on-scroll="onScroll">
       <template>
-        <div class$="{{_computeCardLayout(isMobileSize)}}" data-index$="[[index]]">
+        <div class="layout horizontal justified" data-index$="[[index]]">
           <div class$="card {{_computeCardClasses(item)}}">
             <div hidden$="{{!itemIsType(item, 'santa-info')}}">
               <div class="santa-info-row">
@@ -316,6 +316,8 @@ City feed view in Tracker
       </template>
     </iron-list>
 
+    <iron-media-query query="(max-width: 767px)" query-matches="{{_smallScreen}}"></iron-media-query>
+
   </div>
 </div>
 
@@ -341,7 +343,7 @@ var destLookup_ = {};
 
 var CARD_CENTERED_THRESHOLD = 100; // Top/bottom margin of a stream card to declare it as centered on screen.
 var PANORAMIO_PATH_MEDIUM = 'mw2.google.com/mw-panoramio/photos/medium/';
-var PANORAMIO_PATH_ORIGINAL = 'static.panoramio.com.storage.googleapis.com/photos/original/';
+var PANORAMIO_PATH_ORIGINAL = 'static.panoramio.com.storage.googleapis.com/photos/large/';
 
 Polymer({
   is: 'city-feed',
@@ -446,6 +448,12 @@ Polymer({
      * The stop ID to load once destinations are available.
      */
     _stopToLoad: String,
+
+    _smallScreen: {
+      type: Boolean,
+      value: false,
+      observer: '_smallScreenChanged'
+    }
   },
 
   /**
@@ -594,36 +602,79 @@ Polymer({
 
   _activeStopAnimationTimers: [],
 
+  _smallScreenChanged: function() {
+    if (this.activeStop) {
+      if (this._smallScreen) {
+        this.$['module-city-feed'].classList.remove('fade-list',
+        'move-details-left', 'move-details-right');
+        this.$['module-city-feed'].classList.add('feed-visible',
+          'fade-in-details', 'show-content', 'fade-content',
+          'show-photos');
+      } else {
+        this.$['module-city-feed'].classList.add('feed-visible',
+          'fade-in-details', 'fade-list', 'move-details-left',
+          'move-details-right', 'show-photos', 'show-content',
+          'fade-content');
+      }
+    } else {
+      this.$['module-city-feed'].classList.remove('feed-visible',
+          'fade-in-details', 'fade-list', 'move-details-left',
+          'move-details-right', 'show-photos', 'show-content',
+          'fade-content');
+    }
+  },
+
   _activeStopChanged: function() {
-    var actions;
+    var actions = [];
     var add;
     for (var i = 0; i < this._activeStopAnimationTimers.length; i++) {
       this.cancelAsync(this._activeStopAnimationTimers[i]);
     }
+
     this._activeStopAnimationTimers = [];
     if (this.activeStop) {
-      actions = [
-        { c: 'feed-visible', t: 0 },
-        { c: 'fade-in-details', t: 200},
-        { c: 'fade-list', t: 0},
-        { c: 'move-details-left', t: 200},
-        { c: 'move-details-right', t: 200},
-        { c: 'show-photos', t: 0},
-        { c: 'show-content', t: 500},
-        { c: 'fade-content', t: 0}
-      ];
+      if (this._smallScreen) {
+        actions = [
+          { c: 'feed-visible', t: 0 },
+          { c: 'fade-in-details', t: 200},
+          { c: 'show-content', t: 0},
+          { c: 'fade-content', t: 0},
+          { c: 'show-photos', t: 0},
+        ];
+      } else {
+        actions = [
+          { c: 'feed-visible', t: 0 },
+          { c: 'fade-in-details', t: 200},
+          { c: 'fade-list', t: 0},
+          { c: 'move-details-left', t: 200},
+          { c: 'move-details-right', t: 200},
+          { c: 'show-photos', t: 0},
+          { c: 'show-content', t: 500},
+          { c: 'fade-content', t: 0}
+        ];
+      }
       add = true;
     } else {
-      actions = [
-        { c: 'fade-content', t: 0},
-        { c: 'show-content', t: 0},
-        { c: 'move-details-right', t: 0},
-        { c: 'move-details-left', t: 500},
-        { c: 'show-photos', t: 0},
-        { c: 'fade-in-details', t: 500},
-        { c: 'fade-list', t: 0},
-        { c: 'feed-visible', t: 100 },
-      ];
+      if (this._smallScreen) {
+        actions = [
+          { c: 'fade-content', t: 0},
+          { c: 'show-photos', t: 0},
+          { c: 'show-content', t: 0},
+          { c: 'fade-in-details', t: 200},
+          { c: 'feed-visible', t: 0},
+        ];
+      } else {
+        actions = [
+          { c: 'fade-content', t: 0},
+          { c: 'show-content', t: 0},
+          { c: 'move-details-right', t: 0},
+          { c: 'move-details-left', t: 500},
+          { c: 'show-photos', t: 0},
+          { c: 'fade-in-details', t: 500},
+          { c: 'fade-list', t: 0},
+          { c: 'feed-visible', t: 100 },
+        ];
+      }
       add = false;
     }
 
@@ -802,10 +853,6 @@ Polymer({
 
   _isSelectedCard: function(card, index) {
     return card === index;
-  },
-
-  _computeCardLayout: function(isMobile) {
-    return !isMobile ? 'layout horizontal justified' : '';
   },
 
   /**

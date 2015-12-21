@@ -362,3 +362,34 @@
     }
   }
 }
+
+
+@media (max-width: ($mobileBreakpoint - 1)) {
+  #city-view {
+    #city-details, #city-photos {
+      position: static;
+      height: 50%;
+    }
+    #city-details {
+      padding-bottom: 20px;
+      .details, .stats, .wikipedia {
+        padding: 0 20px;
+      }
+    }
+    #city-photos {
+      .city-photo {
+        top: 50%;
+      }
+    }
+
+    #character {
+      display: none;
+    }
+  }
+
+  &.feed-visible #city-view {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
