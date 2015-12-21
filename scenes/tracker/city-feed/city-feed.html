@@ -266,7 +266,7 @@ City feed view in Tracker
                 </div>
                 <div class="card-body">
                   <iron-image sizing="cover" preload prevent-load="{{!item.imageUrl}}"
-                              fade src="{{item.imageUrl}}"></iron-image>
+                              fade src="{{_safeUrl(item.imageUrl)}}"></iron-image>
                 </div>
               </div>
 
@@ -758,7 +758,15 @@ Polymer({
 
   _computeCardLayout: function(isMobile) {
     return !isMobile ? 'layout horizontal justified' : '';
-  }
+  },
+
+  /**
+   * Prevent undefined from flowing through to img tags. Works around an
+   * intermittent/race condition in iron-image.
+   */
+  _safeUrl: function(url) {
+    return url || '';
+  },
 
 });
 
