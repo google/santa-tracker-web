@@ -105,6 +105,8 @@
   }
 
   #city-details {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -124,6 +126,7 @@
       will-change: opacity;
       opacity: 0;
       display: none;
+      overflow: auto;
     }
 
     .ico {
@@ -157,12 +160,15 @@
     }
 
     .back-to-tracker {
-      display: block;
+      display: none;
       color: #E7E7E7;
       font-family: 'Lobster';
       font-size: 26px;
       text-decoration: none;
       padding: 10px 0 0 20px;
+      will-change: opacity;
+      opacity: 0;
+      display: none;
 
       .ico {
         margin-right: 20px;
@@ -199,7 +205,7 @@
     }
 
     .details {
-      padding-top: 60px;
+      padding-top: 20px;
 
       h4 {
         color: #FFFEAB;
@@ -334,7 +340,7 @@
 &.show-content {
   #city-view {
     #city-details {
-      .city-details-content {
+      .city-details-content, .back-to-tracker {
         display: block;
       }
     }
@@ -347,7 +353,7 @@
     #city-details {
       box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12);
 
-      .city-details-content {
+      .city-details-content, .back-to-tracker {
         opacity: 1;
       }
     }

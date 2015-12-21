@@ -140,6 +140,16 @@ $name: 'module-city-feed';
         color: #FFFEAB;
       }
 
+      h2.santa-distance {
+        color: #fff;
+      }
+
+      .santa-user-location {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
       h2 {
         font-size: 30px;
       }
@@ -412,6 +422,40 @@ $name: 'module-city-feed';
       left: 0;
       right: 0;
       width: 100%;
+
+      #feed {
+        background: #00cd82;
+      }
+    }
+
+    .card.card-santa-info {
+      height: 188px;
+
+      .santa-info-row {
+        div.santa-info-distance {
+          position: absolute;
+          top: -80px;
+
+          .fancy-content {
+            padding-top: 10px;
+          }
+        }
+
+        h4 {
+          margin-bottom: 4px;
+        }
+      }
+    }
+
+    .card.card-city {
+      .card-fab {
+        left: auto;
+        right: 24px;
+
+        &::after {
+          display: none;
+        }
+      }
     }
   }
 }
