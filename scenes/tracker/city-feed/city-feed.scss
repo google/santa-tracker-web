@@ -196,6 +196,19 @@ $name: 'module-city-feed';
 
     a {
       text-decoration: none;
+
+      &:hover {
+        //  box-shadow: 0px 12px 33px -1px rgba(0,0,0,0.2);
+        .card-city-bg {
+          iron-image {
+            transform: scale(1.1) translateZ(0);
+          }
+        }
+
+        .card-header {
+          background-color: rgba(19, 142, 96, 0.55);
+        }
+      }
     }
 
     & > div {
@@ -233,22 +246,24 @@ $name: 'module-city-feed';
       height: $cardContentHeight;
       left: 0;
       right: 0;
-      background-size: cover;
       position: absolute;
       z-index: 1;
+      overflow: hidden;
+
+      iron-image {
+        transform: scale(1) translateZ(0);
+        transition: transform 500ms cubic-bezier(0,.36,.07,1);
+      }
     }
 
     .card-header {
-      background-color: rgba(19, 142, 97, 0.7);
+      background-color: rgba(19, 142, 96, 0.75);
       padding: $padding;
       position: relative;
       z-index: 2;
       height: $cardContentHeight;
       box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.17);
 
-      &:hover {
-        box-shadow: 0px 12px 33px -1px rgba(0,0,0,0.2);
-      }
       box-sizing: border-box;
 
       .card-city-attribution {

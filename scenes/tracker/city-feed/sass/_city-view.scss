@@ -381,6 +381,10 @@
         top: 50%;
       }
     }
+
+    #character {
+      display: none;
+    }
   }
 
   &.feed-visible #city-view {
