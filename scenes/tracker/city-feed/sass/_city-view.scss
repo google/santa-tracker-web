@@ -5,14 +5,15 @@
 
   #character {
     position: absolute;
-    left: 500px;
+    left: 560px;
     bottom: 0;
     z-index: 2;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0;
-    will-change: opacity;
-    transition: opacity 250ms ease;
+    transform: translateX(-700px) translateZ(0);
+    will-change: transform;
+    transition: transform 250ms ease;
+    display: none;
 
     &.character-santa {
       width: 443px;
@@ -303,6 +304,10 @@
       transition: all 500ms cubic-bezier(0.000, 1.130, 0.295, 1.215), opacity 200ms ease;
       right: calc(100% - #{$trackerFeedWidth + $trackerFeedPadding});
     }
+
+    #character {
+      display: block;
+    }
   }
 }
 
@@ -332,6 +337,9 @@
       .city-details-content {
         opacity: 1;
       }
+    }
+    #character {
+      transform: translateX(0) translateZ(0);
     }
   }
 }
