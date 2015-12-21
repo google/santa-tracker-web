@@ -73,6 +73,10 @@ $name: 'module-city-feed';
     padding-left: $trackerFeedPadding;
     height: 100%;
     pointer-events: all;
+    right: 0;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 250ms ease;
 
     &::-webkit-scrollbar {
       width: 0 !important;
