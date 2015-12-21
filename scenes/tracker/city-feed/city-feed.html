@@ -599,20 +599,59 @@ Polymer({
     }.bind(this));
   },
 
-  _activeStopChanged: function() {
-    if (this.activeStop) {
-      this.$['module-city-feed'].classList.add('feed-visible');
-      this.async(function() {
-        this.$['module-city-feed'].classList.add('stop-active');
-      }, 10);
-      //;
-    } else {
-      this.$['module-city-feed'].classList.remove('stop-active');
+  _activeStopAnimationTimers: [],
 
-      this.async(function() {
-        this.$['module-city-feed'].classList.remove('feed-visible');
-      }, 500);
+  _activeStopChanged: function() {
+    var actions;
+    var add;
+    for (var i = 0; i < this._activeStopAnimationTimers.length; i++) {
+      this.cancelAsync(this._activeStopAnimationTimers[i]);
     }
+    this._activeStopAnimationTimers = [];
+    if (this.activeStop) {
+      actions = [
+        { c: 'feed-visible', t: 0 },
+        { c: 'fade-in-details', t: 200},
+        { c: 'fade-list', t: 0},
+        { c: 'move-details-left', t: 200},
+        { c: 'move-details-right', t: 200},
+        { c: 'show-photos', t: 0},
+        { c: 'show-content', t: 500},
+        { c: 'fade-content', t: 0}
+      ];
+      add = true;
+    } else {
+      add = false;
+      actions = [
+        { c: 'fade-content', t: 0},
+        { c: 'show-content', t: 0},
+        { c: 'move-details-right', t: 0},
+        { c: 'move-details-left', t: 500},
+        { c: 'show-photos', t: 0},
+        { c: 'fade-in-details', t: 500},
+        { c: 'fade-list', t: 0},
+        { c: 'feed-visible', t: 100 },
+      ];
+    }
+
+    var t = 0;
+    for (var i = 0, action; action = actions[i]; i++) {
+      t += action.t;
+      this._activeStopAnimationTimers.push(
+        this._toggleClassAfterTime(this.$['module-city-feed'], action.c, add, t)
+      );
+    }
+  },
+
+  _toggleClassAfterTime(elem, c, add, time) {
+    return this.async(function() {
+      if (add) {
+        elem.classList.add(c);
+      } else {
+        elem.classList.remove(c);
+      }
+    }, time);
+
   },
 
   _timelineChanged: function() {
