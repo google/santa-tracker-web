@@ -9,14 +9,7 @@ $name: 'module-city-feed';
 
 ##{$name} {
   z-index: 3;
-  overflow: auto;
   pointer-events: none;
-  transform: translateX(calc(100% - #{$trackerFeedWidth + $trackerFeedPadding})) translateZ(0);
-  transition: transform 500ms ease-out;
-
-  &.stop-active {
-    transform: translateX(0) translateZ(0);
-  }
 
   @import "sass/_city-view.scss";
 
@@ -80,9 +73,19 @@ $name: 'module-city-feed';
     padding-left: $trackerFeedPadding;
     height: 100%;
     pointer-events: all;
+    right: 0;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 250ms ease;
 
     &::-webkit-scrollbar {
       width: 0 !important;
+    }
+  }
+
+  &.fade-list {
+    iron-list {
+      opacity: 0;
     }
   }
 

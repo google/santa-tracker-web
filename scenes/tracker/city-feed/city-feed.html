@@ -110,40 +110,42 @@ City feed view in Tracker
   <div class="scene fit">
     <div id="city-view" class="fit">
       <div id="city-details">
-        <a href$="{{pageUrl}}#tracker" class="back-to-tracker"><i class="ico ico-arrow-left"></i><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
-        <div class="details">
-          <h4>{{activeStop.stop.region}}</h4>
-          <h1>{{activeStop.stop.city}}</h1>
-        </div>
-        <div class="stats">
-          <div class="horizontal">
-            <div>
-              <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
-              <div class="horizontal centered">
-                <div class="ico ico-clock"></div>
-                <h2 class="stat-large">{{formatTime(activeStop.stop.arrival)}}</h2>
+        <div class="city-details-content">
+          <a href$="{{pageUrl}}#tracker" class="back-to-tracker"><i class="ico ico-arrow-left"></i><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+          <div class="details">
+            <h4>{{activeStop.stop.region}}</h4>
+            <h1>{{activeStop.stop.city}}</h1>
+          </div>
+          <div class="stats">
+            <div class="horizontal">
+              <div>
+                <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="horizontal centered">
+                  <div class="ico ico-clock"></div>
+                  <h2 class="stat-large">{{formatTime(activeStop.stop.arrival)}}</h2>
+                </div>
               </div>
-            </div>
-            <div>
-              <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
-              <div class="horizontal centered">
-                <div class="ico ico-weatherchanel"></div>
-                <h2 class="stat-large white">
-                  <span>{{activeStop.stop.details.weather.tempC}}</span>&deg;C /
-                  <span>{{activeStop.stop.details.weather.tempF}}</span>&deg;F
-                </h2>
+              <div>
+                <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+                <div class="horizontal centered">
+                  <div class="ico ico-weatherchanel"></div>
+                  <h2 class="stat-large white">
+                    <span>{{activeStop.stop.details.weather.tempC}}</span>&deg;C /
+                    <span>{{activeStop.stop.details.weather.tempF}}</span>&deg;F
+                  </h2>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="wikipedia" hidden$="{{!activeStop.stop.details.hasWiki}}">
-          <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
+          <div class="wikipedia" hidden$="{{!activeStop.stop.details.hasWiki}}">
+            <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
 
-          <div class="attribution">
-            <span class="wiki-cc">Available under
-            <a href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
-            terms</span>
-            <a href$="{{activeStop.stop.details.wikipedia.url}}">{{activeStop.stop.details.wikipedia.url}}</a>
+            <div class="attribution">
+              <span class="wiki-cc">Available under
+              <a href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+              terms</span>
+              <a href$="{{activeStop.stop.details.wikipedia.url}}">{{activeStop.stop.details.wikipedia.url}}</a>
+            </div>
           </div>
         </div>
       </div>
@@ -208,7 +210,10 @@ City feed view in Tracker
 
             <div hidden$="{{!itemIsType(item, 'city')}}">
               <a href$="{{pageUrl}}#tracker?stop={{item.stop.id}}">
-                <div class="card-city-bg" style$="background-image:url({{item.stop.details.photos.0.url}});"></div>
+                <div class="card-city-bg">
+                  <iron-image sizing="cover" preload prevent-load="{{!item.stop.details.photos.0.url}}"
+                              fade src="{{item.stop.details.photos.0.url}}"></iron-image>
+                </div>
                 <div class="card-header">
                   <div class="card-city-attribution">
                     <html-echo html="{{item.stop.details.photos.0.attributionHtml}}"></html-echo>
@@ -248,9 +253,11 @@ City feed view in Tracker
               <div hidden$="{{!itemIsType(item, 'facts')}}">
                 <div class="card-header">
                   <div class="corner-image"></div>
-                  <h4><i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h4 class="title">
+                    <i18n-msg msgid="tracker_world_facts">PLACEHOLDER_i18n</i18n-msg>
+                    &bull; {{formatTime(item.timestamp)}}
+                  </h4>
                 </div>
-                <div class="divider">{{formatTime(item.timestamp)}}</div>
 
                 <div class="card-body">
                   <p>{{item.didyouknow}}</p>
@@ -262,7 +269,7 @@ City feed view in Tracker
 
               <div hidden$="{{!itemIsType(item, 'photos')}}" style="height: 100%">
                 <div class="card-header">
-                  <div class="corner-image"></div>
+                  <h4 class="title"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg> &bull; {{formatTime(item.timestamp)}}</h4>
                 </div>
                 <div class="card-body">
                   <iron-image sizing="cover" preload prevent-load="{{!item.imageUrl}}"
@@ -275,14 +282,17 @@ City feed view in Tracker
                   <div class="card-header">
                     <div class="corner-image"></div>
                   </div>
-                  <div class="card-body"></div>
+                  <div class="card-body">
+                    <h4 class="title"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg> &bull; {{formatTime(item.timestamp)}}</h4>
+                    <h3><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h3>
+                  </div>
                 </a>
               </div>
 
               <div hidden$="{{!itemIsType(item, 'update')}}">
                 <div class="card-header">
                   <div class="corner-image"></div>
-                  <h4><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg></h4>
+                  <h4 class="title"><i18n-msg msgid="tracker_santa_update">PLACEHOLDER_i18n</i18n-msg> &bull; {{formatTime(item.timestamp)}}</h4>
                 </div>
                 <div class="card-body">
                   <p>{{item.status}}</p>
@@ -291,12 +301,11 @@ City feed view in Tracker
 
               <div hidden$="{{!itemIsType(item, 'video')}}">
                 <a href$="{{pageUrl}}#{{_computeVideoName(item.youtubeId)}}">
-                  <div class="card-header">
+                  <div class$="card-body card-{{_computeVideoName(item.youtubeId)}}">
                     <div class="corner-image"></div>
-                    <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+                    <h4 class="title"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg> &bull; {{formatTime(item.timestamp)}}</h4>
                     <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
                   </div>
-                  <div class$="card-body card-{{_computeVideoName(item.youtubeId)}}"></div>
                 </a>
               </div>
               <!-- mini cards -->
@@ -590,12 +599,58 @@ Polymer({
     }.bind(this));
   },
 
+  _activeStopAnimationTimers: [],
+
   _activeStopChanged: function() {
-    if (this.activeStop) {
-      this.$['module-city-feed'].classList.add('stop-active');
-    } else {
-      this.$['module-city-feed'].classList.remove('stop-active');
+    var actions;
+    var add;
+    for (var i = 0; i < this._activeStopAnimationTimers.length; i++) {
+      this.cancelAsync(this._activeStopAnimationTimers[i]);
     }
+    this._activeStopAnimationTimers = [];
+    if (this.activeStop) {
+      actions = [
+        { c: 'feed-visible', t: 0 },
+        { c: 'fade-in-details', t: 200},
+        { c: 'fade-list', t: 0},
+        { c: 'move-details-left', t: 200},
+        { c: 'move-details-right', t: 200},
+        { c: 'show-photos', t: 0},
+        { c: 'show-content', t: 500},
+        { c: 'fade-content', t: 0}
+      ];
+      add = true;
+    } else {
+      actions = [
+        { c: 'fade-content', t: 0},
+        { c: 'show-content', t: 0},
+        { c: 'move-details-right', t: 0},
+        { c: 'move-details-left', t: 500},
+        { c: 'show-photos', t: 0},
+        { c: 'fade-in-details', t: 500},
+        { c: 'fade-list', t: 0},
+        { c: 'feed-visible', t: 100 },
+      ];
+      add = false;
+    }
+
+    var t = 0;
+    for (var i = 0, action; action = actions[i]; i++) {
+      t += action.t;
+      this._activeStopAnimationTimers.push(
+        this._toggleClassAfterTime(this.$['module-city-feed'], action.c, add, t)
+      );
+    }
+  },
+
+  _toggleClassAfterTime(elem, c, add, time) {
+    return this.async(function() {
+      if (add) {
+        elem.classList.add(c);
+      } else {
+        elem.classList.remove(c);
+      }
+    }, time);
   },
 
   _timelineChanged: function() {

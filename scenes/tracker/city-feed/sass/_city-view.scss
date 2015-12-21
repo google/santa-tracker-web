@@ -1,16 +1,19 @@
-$panelWidth: 515px;
-
 #city-view {
   pointer-events: all;
   display: none;
+  z-index: 10;
 
   #character {
     position: absolute;
-    left: $panelWidth;
+    left: 560px;
     bottom: 0;
     z-index: 2;
     background-repeat: no-repeat;
     background-size: contain;
+    transform: translateX(-800px) translateZ(0);
+    will-change: transform;
+    transition: transform 250ms ease;
+    display: none;
 
     &.character-santa {
       width: 443px;
@@ -105,13 +108,23 @@ $panelWidth: 515px;
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
-    width: $panelWidth;
+    // TODO(samthor): use translate and/or scale to position on left side and right side.
+    left: calc(100% - #{$trackerFeedWidth});
+    right: 0;
     background: #00cd82;
     overflow: auto;
     box-sizing: border-box;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12);
     z-index: 3;
+    opacity: 0;
+    transform: translateZ(0);
+    will-change: transform, opacity, left, right;
+    transition: all 500ms cubic-bezier(0.000, 1.130, 0.295, 1.415), opacity 200ms ease;
+
+    .city-details-content {
+      will-change: opacity;
+      opacity: 0;
+      display: none;
+    }
 
     .ico {
       display: inline-block;
@@ -149,7 +162,7 @@ $panelWidth: 515px;
       font-family: 'Lobster';
       font-size: 26px;
       text-decoration: none;
-      padding: 25px 0 0 20px;
+      padding: 10px 0 0 20px;
 
       .ico {
         margin-right: 20px;
@@ -187,12 +200,16 @@ $panelWidth: 515px;
 
     .details {
       padding-top: 60px;
+
+      h4 {
+        color: #FFFEAB;
+      }
     }
 
     .stats {
       margin-bottom: 10px;
       h4 {
-        color: #E5EBE4;
+        color: #FFFEAB;
       }
       > div > div {
         margin-right: 20px;
@@ -223,7 +240,8 @@ $panelWidth: 515px;
     top: 0;
     right: 0;
     bottom: 0;
-    left: $panelWidth;
+    left: 475px;
+    opacity: 0;
 
     #photoselector {
       position: absolute;
@@ -237,6 +255,7 @@ $panelWidth: 515px;
         margin: 0 12px;
         transform: scale(0.8);
         transition: transform 250ms ease;
+        will-change: transform;
         cursor: pointer;
 
         &.iron-selected {
@@ -257,9 +276,83 @@ $panelWidth: 515px;
   }
 }
 
-&.stop-active {
+// Below are the steps for the city view animation
+
+
+// Make the element visible
+&.feed-visible {
   #city-view {
     display: block;
-    z-index: 10;
+  }
+}
+
+// Then fade in the element, it has to be visible to fade so this is done in a RAF
+&.fade-in-details {
+  #city-view {
+    #city-details {
+      opacity: 1;
+    }
+  }
+}
+
+// The move the left side of the green block to the left side of the screen
+&.move-details-left {
+  #city-view {
+    #city-details {
+      left: 0;
+    }
+  }
+}
+
+// The move the right side of the green block to the left side of the screen + width;
+// Animation curve is changed here so the right side doesn't bounce too far.
+&.move-details-right {
+  #city-view {
+    background: #00cd82;
+    #city-details {
+      transition: all 500ms cubic-bezier(0.000, 1.130, 0.295, 1.215), opacity 200ms ease;
+      right: calc(100% - #{$trackerFeedWidth + $trackerFeedPadding});
+    }
+
+    #character {
+      display: block;
+    }
+  }
+}
+
+
+// Show the photo for the city, so when the green sqaure moves it reveals the photo
+&.show-photos {
+  #city-view {
+    #city-photos {
+      opacity: 1;
+    }
+  }
+}
+
+// Show the content in the city detail view now
+&.show-content {
+  #city-view {
+    #city-details {
+      .city-details-content {
+        display: block;
+      }
+    }
+  }
+}
+
+// Fade in the content and slide in the character image
+&.fade-content {
+  #city-view {
+    #city-details {
+      box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12);
+
+      .city-details-content {
+        opacity: 1;
+      }
+    }
+    #character {
+      transform: translateX(0) translateZ(0);
+    }
   }
 }

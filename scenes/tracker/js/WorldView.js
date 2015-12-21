@@ -140,7 +140,7 @@ WorldView.prototype.setupMap = function() {
     minZoom: 1,
     'noPerTile': true,
     disableDefaultUI: true,
-    backgroundColor: '#f6efe2',
+    backgroundColor: '#69d5d0',
     // It's important that we have map styles -- this prevents a call to
     // staticmap.
     styles: mapstyles.styles

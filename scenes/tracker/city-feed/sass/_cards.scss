@@ -3,6 +3,14 @@
   color: #fff;
   box-sizing: border-box;
 
+  .timestamp, .title {
+    color: #9AFFB4;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 16px 28px 8px 28px;
+    text-transform: uppercase;
+  }
+
   .card-header {
     position: relative;
     padding-right: 60px;
@@ -229,22 +237,22 @@
 
   &.card-glider, &.card-latlong, &.card-video, &.card-runner, &.card-seasonofgiving, &.card-gmm, &.card-app,
   &.card-village, &.card-pins, &.card-codelab, &.card-jamband, &.card-mercator, &.card-santaselfie,
-  &.card-gumball, &.card-matching {
-    .card-body {
-      height: 163px;
-      // text-align: center;
-
-      // span {
-      //   font-size: 120px;
-      //   font-weight: 600;
-      //   line-height: 130px;
-      // }
+  &.card-gumball, &.card-matching, &.card-scene {
+    a {
+      text-decoration: none;
     }
-  }
 
-  &.card-scene {
-     .card-body {
-      height: 230px;
+    .card-body {
+      height: 296px;
+
+
+      h3 {
+        color: #fff;
+        font-weight: 300;
+        margin: 0;
+        padding: 0 28px;
+        font-size: 26px;
+      }
     }
   }
 
@@ -303,6 +311,18 @@
   }
 
   &.card-video {
+    .title {
+      color: #9affb4;
+    }
+
+    h3 {
+      color: #fff;
+      font-weight: 300;
+      margin: 0;
+      padding: 0 28px;
+      font-size: 26px;
+    }
+
     a {
       text-decoration: none;
       color: #fff;
@@ -324,19 +344,25 @@
   }
 
   &.card-facts {
-    .card-header, .card-body, .card-footer {
-      background-color: #1875d1;
-    }
-
     .card-header {
       .corner-image {
         background-image: url(../img/cards/avatars-natgeo.svg);
       }
     }
+
+    .card-body {
+      margin-right: 85px;
+
+      p {
+        padding: 0 20px;
+      }
+    }
   }
 
   &.card-photos {
-    height: 301px;
+    height: 396px;
+    background: #00BE7B;
+    box-shadow: none;
 
     .card-header {
       .corner-image {
@@ -344,8 +370,14 @@
       }
     }
 
+    iron-image {
+      width: 474px;
+      height: 352px;
+    }
+
     .card-body {
       height: 100%;
+      text-align: center;
     }
 
     .card-footer {
@@ -397,5 +429,7 @@
     background-image: url(../img/cards/video-6-slacking-off.png);
   }
 }
+
+
 
 
