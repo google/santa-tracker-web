@@ -9,10 +9,10 @@ $name: 'module-city-feed';
 
 ##{$name} {
   z-index: 3;
+  overflow: auto;
   pointer-events: none;
-
-  //transform: translateX(calc(100% - #{$trackerFeedWidth + $trackerFeedPadding})) translateZ(0);
-  //transition: transform 500ms cubic-bezier(0.000, 1.130, 0.295, 1.415);
+  transform: translateX(calc(100% - #{$trackerFeedWidth + $trackerFeedPadding})) translateZ(0);
+  transition: transform 500ms ease-out;
 
   @import "sass/_city-view.scss";
 
@@ -71,29 +71,25 @@ $name: 'module-city-feed';
   }
 
   iron-list {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
     width: $trackerFeedWidth + $trackerFeedPadding;
     box-sizing: border-box;
     padding-left: $trackerFeedPadding;
     height: 100%;
     pointer-events: all;
-    opacity: 1;
-    transition: opacity 200ms ease;
-    will-change: opacity;
 
     &::-webkit-scrollbar {
       width: 0 !important;
     }
   }
+<<<<<<< Local Changes
+=======
 
   &.fade-list {
     iron-list {
       opacity: 0;
     }
   }
+>>>>>>> External Changes
 
   .card {
     width: 100%;
@@ -186,23 +182,12 @@ $name: 'module-city-feed';
     height: $cardHeight;
     $padding: 25px;
     $cardPurple: rgb(121,49,164);
-    background: #00BE7B;
 
     box-sizing: border-box;
     margin: 0 auto;
 
     a {
       text-decoration: none;
-
-      &:hover {
-        iron-image {
-          transform: scale(1.1);
-        }
-
-        .card-header {
-          background-color: rgba(19, 142, 96, 0.5);
-        }
-      }
     }
 
     & > div {
@@ -240,27 +225,22 @@ $name: 'module-city-feed';
       height: $cardContentHeight;
       left: 0;
       right: 0;
+      background-size: cover;
       position: absolute;
       z-index: 1;
-      overflow: hidden;
-
-      iron-image {
-        will-change: transform;
-        transform: scale(1);
-        transition: transform 400ms cubic-bezier(0.000, 1, 0.295, 1);
-      }
     }
 
     .card-header {
-      background-color: rgba(19, 142, 96, 0.75);
+      background-color: rgba(19, 142, 97, 0.7);
       padding: $padding;
       position: relative;
       z-index: 2;
       height: $cardContentHeight;
       box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.17);
-      will-change: background-color;
-      transition: background-color 400ms cubic-bezier(0.000, 1, 0.295, 1);
 
+      &:hover {
+        box-shadow: 0px 12px 33px -1px rgba(0,0,0,0.2);
+      }
       box-sizing: border-box;
 
       .card-city-attribution {
@@ -412,7 +392,7 @@ $name: 'module-city-feed';
   }
 
   .card {
-    box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.17), 0px -3px 7px -1px rgba(0,0,0,0.17);
+    box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.17);
 
     iron-image {
       height: 100%;

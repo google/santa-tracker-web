@@ -108,6 +108,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    // TODO(samthor): use translate and/or scale to position on left side and right side.
     left: calc(100% - #{$trackerFeedWidth});
     right: 0;
     background: #00cd82;
@@ -275,12 +276,17 @@
   }
 }
 
+// Below are the steps for the city view animation
+
+
+// Make the element visible
 &.feed-visible {
   #city-view {
     display: block;
   }
 }
 
+// Then fade in the element, it has to be visible to fade so this is done in a RAF
 &.fade-in-details {
   #city-view {
     #city-details {
@@ -289,6 +295,7 @@
   }
 }
 
+// The move the left side of the green block to the left side of the screen
 &.move-details-left {
   #city-view {
     #city-details {
@@ -297,6 +304,8 @@
   }
 }
 
+// The move the right side of the green block to the left side of the screen + width;
+// Animation curve is changed here so the right side doesn't bounce too far.
 &.move-details-right {
   #city-view {
     background: #00cd82;
@@ -311,6 +320,8 @@
   }
 }
 
+
+// Show the photo for the city, so when the green sqaure moves it reveals the photo
 &.show-photos {
   #city-view {
     #city-photos {
@@ -319,6 +330,7 @@
   }
 }
 
+// Show the content in the city detail view now
 &.show-content {
   #city-view {
     #city-details {
@@ -329,6 +341,7 @@
   }
 }
 
+// Fade in the content and slide in the character image
 &.fade-content {
   #city-view {
     #city-details {
