@@ -9,10 +9,7 @@ $name: 'module-city-feed';
 
 ##{$name} {
   z-index: 3;
-  overflow: auto;
   pointer-events: none;
-  transform: translateX(calc(100% - #{$trackerFeedWidth + $trackerFeedPadding})) translateZ(0);
-  transition: transform 500ms ease-out;
 
   @import "sass/_city-view.scss";
 
