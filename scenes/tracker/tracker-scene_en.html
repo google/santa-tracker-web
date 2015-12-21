@@ -36,11 +36,6 @@ Tracker scene.
 <dom-module id="tracker-scene">
 <template>
   <style>
-    #tracker-zoom-controls-zoomin::shadow iron-icon,
-    #tracker-zoom-controls-zoomout::shadow iron-icon {
-      -webkit-filter: drop-shadow(0px 2px 0 rgba(0,0,0,0.2));
-      filter: drop-shadow(0 2px 0 rgba(0,0,0,0.2));
-    }
     .fit {
       @apply(--layout-fit);
     }
@@ -73,13 +68,6 @@ Tracker scene.
           user-location="{{userLocation}}"
           santa-distance="{{initialSantaDistance}}"
           santa-location="{{initialSantaLocation}}"></tracker-intro>
-
-      <div id="tracker-zoom-controls" hidden>
-        <paper-fab id="tracker-zoom-controls-zoomin" icon="santa:add"
-                   alt="Zoom in" mini on-tap="trackerZoomIn"></paper-fab>
-        <paper-fab id="tracker-zoom-controls-zoomout" icon="santa:remove"
-                   alt="Zoom out" mini on-tap="trackerZoomOut"></paper-fab>
-      </div>
 
       <div id="trackermap" class="fit"></div>
 
@@ -318,18 +306,6 @@ Tracker scene.
       this._updateSanta();
     },
 
-    trackerZoomIn: function() {
-      if (this.worldView_) {
-        this.worldView_.zoomIn();
-      }
-    },
-
-    trackerZoomOut: function() {
-      if (this.worldView_) {
-        this.worldView_.zoomOut();
-      }
-    },
-
     _updateSanta: function() {
       this.santaApp.santaService.getCurrentLocation(function(location) {
         this.location = location;
@@ -371,11 +347,11 @@ Tracker scene.
       console.warn('setupTracker called, adding listeners to santaService');
 
       this.santaApp.santaService.addListener('destinations_changed', function(dests) {
-        this.destinations = dests || [];
+        this.destinations = (dests || []).slice();
       }.bind(this));
 
       this.santaApp.santaService.addListener('timeline_changed', function(timeline) {
-        this.timeline = timeline || [];
+        this.timeline = (timeline || []).slice();
       }.bind(this));
 
       this.santaApp.santaService.addListener('sync', this._syncHandler.bind(this));
@@ -398,27 +374,20 @@ Tracker scene.
       this.cityFeedActive = true;
 
       google.maps.event.addListener(this.worldView_, 'santa_clicked', function(e) {
-        // TODO(skarEE): Make Santa say "Ho Ho Ho"?
-
         if (this.location.stopover) {
-          this.cityFeedActive = true;
-          this.$.feed.setStopUrl(this.location.stopover.id);
-          this.$.feed.scrollToDest();
+          var destId = this.location.stopover.id;
+          this._loadDestId(destId);
+          this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
+                                              label: 'from santa', value: destId});
         } else {
-          this.$.feed.scrollToIndex(0);  // not at a stop, scroll to top
+          // TODO(skarEE): Santa should do something, maybe play a sound.
         }
-
-        var action = this.cityFeedActive ? 'show' : 'hide';
-        this.fire('analytics-track-event', {category: 'cityfeed', action: action,
-                                            label: 'from santa'});
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'routemarker_clicked', function(destId) {
-        this.cityFeedActive = true;
-        this.$.feed.setStopUrl(destId);
-
-        /*this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
-                                            label: 'from route marker'});*/
+        this._loadDestId(destId);
+        this.fire('analytics-track-event', {category: 'cityfeed', action: 'show',
+            label: 'from route marker', value: destId});
       }.bind(this));
 
       google.maps.event.addListener(this.worldView_, 'scenemarker_clicked', function(sceneId) {
@@ -428,6 +397,23 @@ Tracker scene.
       this.trackSanta();
     },
 
+    /**
+     * Load the specified destId, or null/none to return to tracker. This just
+     * changes the target href, and sceneParamsChanged will be called to do the
+     * rest.
+     */
+    _loadDestId: function(destId) {
+      var newHref = location.href.substr(0, location.href.length - location.hash.length) +
+          '#tracker';
+      if (destId) {
+        newHref += '?stop=' + destId;
+      }
+      window.location = newHref;
+    },
+
+    /**
+     * Load a different scene in Santa Tracker.
+     */
     _loadTrackerScene: function(sceneId) {
       var newHref = location.href.substr(0,
             location.href.length - location.hash.length) + '#' + sceneId;
