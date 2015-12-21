@@ -229,19 +229,19 @@ santa-chrome {
 
   #sound {
     position: absolute;
-    right: 0;
-    top: 64px;
+    left: 0;
+    bottom: 24px;
     background: #00c6ed;
     height: 45px;
     width: 40px;
-    border-radius: 50% 0 0 50%;
+    border-radius: 0 50% 50% 0;
     box-shadow: 0 2px 0 rgba(0,0,0,0.3);
 
     button {
       height: 45px;
       text-align: center;
       box-sizing: border-box;
-      padding: 0 0 0 7px;
+      padding: 0 0 0 3px;
       outline: 0;
       pointer-events: auto;
       border: 0;
@@ -261,20 +261,6 @@ santa-chrome {
     &.off {
       i {
         background: url(img/sound-off.svg) 50% 50% no-repeat;
-      }
-    }
-  }
-
-  @media (max-width: $width-tablet - 1) {
-    #sound {
-      right: auto;
-      left: 0;
-      top: auto;
-      bottom: 12px;
-      border-radius: 0 50% 50% 0;
-
-      button {
-        padding: 0 0 0 3px;
       }
     }
   }
