@@ -431,10 +431,9 @@
 }
 
 @media (max-width: ($mobileBreakpoint - 1)) {
-
   .card:not(.card-city) {
     .card-header h4 {
-      padding: 20px 0 0 20px;
+      padding: 20px 0 5px 20px;
     }
 
     &.card-photos {
