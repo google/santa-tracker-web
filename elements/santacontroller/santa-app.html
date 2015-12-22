@@ -882,7 +882,7 @@ Polymer({
     el.santaApp = this;
     el.loaded = true;
 
-    var retainAttr = ['route', 'mode', 'freeform', 'header-color'];
+    var retainAttr = ['route', 'mode', 'freeform', 'header-color', 'youtube-id'];
     retainAttr.forEach(function(attr) {
       if (prevSelectedScene.hasAttribute(attr)) {
         el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
