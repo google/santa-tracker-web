@@ -9,6 +9,7 @@
     font-size: 11px;
     padding: 16px 28px 8px 28px;
     text-transform: uppercase;
+    margin: 0;
   }
 
   .card-header {
@@ -360,7 +361,7 @@
   }
 
   &.card-photos {
-    height: 396px;
+    height: 410px;
     background: #00BE7B;
     box-shadow: none;
 
