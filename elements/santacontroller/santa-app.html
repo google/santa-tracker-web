@@ -327,7 +327,8 @@ var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
 var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
 var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
 
-// Routes/scenes unlocked with the tracker (including all video routes)
+// Routes/scenes unlocked with the tracker. Video routes are included, but in
+// code as part of sceneIsUnlocked.
 var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
     'latlong', 'glider', 'trivia'];
 
@@ -925,7 +926,7 @@ Polymer({
       var valid = (this.$.lazypages.isValidRoute(this.route) &&
                    this.sceneIsUnlocked(this.route)) ||
                    (this.postCountdown && this.route == TRACKER_ROUTE) ||
-                   (this.mode == 'cast' && this.route in this.videos);
+                   (this.mode == 'cast' && this.videos[this.route]);
       if (!valid) {
         if (!window.DEV) {
           return false;
@@ -1081,7 +1082,7 @@ Polymer({
       return true;
     }
 
-    var isVideo = moduleName in this.videos;
+    var isVideo = !!this.videos[moduleName];
     if (this.postCountdown && (isVideo || TRACKER_ROUTES.indexOf(moduleName) != -1)) {
       return true;
     }
