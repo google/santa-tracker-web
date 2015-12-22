@@ -126,7 +126,7 @@ santa-chrome {
     pointer-events: none;  // make sure scroll events pass through toolbar.
     background-color: transparent;
 
-    .logo-link, .toolbar-icon, .shareicons {
+    .leftside, .toolbar-icon, .shareicons {
       opacity: 1;
       transition: opacity 1s ease;
 
