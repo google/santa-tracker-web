@@ -101,6 +101,9 @@ City feed view in Tracker
   iron-list {
     --iron-list-items-container: {
       box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.125);
+      background: #00cd82;
+      min-height: 100vh;
+      box-sizing: border-box;
     };
   }
 
@@ -358,8 +361,7 @@ Polymer({
     active: {
       type: Boolean,
       value: false,
-      reflectToAttribute: true,
-      observer: '_activeChanged'
+      reflectToAttribute: true
     },
 
     /**
@@ -530,39 +532,6 @@ Polymer({
     return '';
   },
 
-  _activeChanged: function() {
-    /*
-    if (this.active) {
-      // TODO(ericbidelman): shouldn't have to call this with new iron-list. Investigate.
-      //this.$.feed.updateSize();
-      this.$.feed.notifyResize();
-
-      this.setupDone_ = true;
-
-      if (this.pendingScroll_.func) {
-        this.async(function() {
-          this.pendingScroll_.func.call(this, this.pendingScroll_.arg);
-          this.pendingScroll_ = {};
-        });
-      }
-    } else {
-      this._cardInView = null;
-
-      // Remove any deep link URL params when stream is hidden.
-      var newHref = location.href.substr(0,
-                    location.href.length - location.hash.length) + '#tracker';
-      window.history.replaceState(null, '', newHref);
-
-      // Want the list to scroll fast and streetview is a hog. Make sure no
-      // streetview cards are activated when the list is opened again.
-      if (this.stream) {
-        for (var i = 0, item; item = this.stream[i]; ++i) {
-          item.selectedCard = 0;
-        }
-      }
-    }*/
-  },
-
   showFeed: function() {
     this.activeStop = null;
     this.fire('sound-ambient', 'tracker_hide_dest');
@@ -594,13 +563,17 @@ Polymer({
     }.bind(this));
   },
 
+  _updateChromeHide: function() {
+    if (!this.santaApp) return; // Santa App isn't ready yet.
+
+    this.santaApp.$.chrome.hideLeft = Boolean(this.activeStop);
+    this.santaApp.$.chrome.hideRight = !this.activeStop;
+  },
+
   _activeStopAnimationTimers: [],
 
   _smallScreenChanged: function() {
-    if (!this.santaApp) return; // Santa App isn't ready yet.
-
     if (this.activeStop) {
-      this.santaApp.$.chrome.hideLeft = true;
       if (this._smallScreen) {
         this.$['module-city-feed'].classList.remove('fade-list',
         'move-details-left', 'move-details-right');
@@ -614,17 +587,16 @@ Polymer({
           'fade-content');
       }
     } else {
-      this.santaApp.$.chrome.hideLeft = false;
       this.$['module-city-feed'].classList.remove('feed-visible',
           'fade-in-details', 'fade-list', 'move-details-left',
           'move-details-right', 'show-photos', 'show-content',
           'fade-content');
     }
+
+    this._updateChromeHide();
   },
 
   _activeStopChanged: function() {
-    if (!this.santaApp) return; // Santa App isn't ready yet.
-
     var actions = [];
     var add;
     for (var i = 0; i < this._activeStopAnimationTimers.length; i++) {
@@ -633,7 +605,6 @@ Polymer({
 
     this._activeStopAnimationTimers = [];
     if (this.activeStop) {
-      this.santaApp.$.chrome.hideLeft = true;
       this.$.photoselector.selected = '0';  // reset to first photo
       if (this._smallScreen) {
         actions = [
@@ -657,7 +628,6 @@ Polymer({
       }
       add = true;
     } else {
-      this.santaApp.$.chrome.hideLeft = false;
       if (this._smallScreen) {
         actions = [
           { c: 'fade-content', t: 0},
@@ -688,6 +658,8 @@ Polymer({
         this._toggleClassAfterTime(this.$['module-city-feed'], action.c, add, t)
       );
     }
+
+    this._updateChromeHide();
   },
 
   _toggleClassAfterTime(elem, c, add, time) {

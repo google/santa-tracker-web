@@ -126,15 +126,15 @@ santa-chrome {
     pointer-events: none;  // make sure scroll events pass through toolbar.
     background-color: transparent;
 
-    .logo-link, .toolbar-icon {
+    .logo-link, .toolbar-icon, .shareicons {
       opacity: 1;
-      transition: opacity 250ms ease;
-    }
+      transition: opacity 1s ease;
 
-    .hidden {
-      opacity: 0;
-      pointer-events: none;
-      cursor: default;
+      &.hidden {
+        opacity: 0;
+        pointer-events: none !important;
+        cursor: default;
+      }
     }
 
     paper-icon-button[icon="santa:menu"] {
