@@ -41,10 +41,6 @@ Tracker scene.
     }
   </style>
 
-  <!-- Keyboard handler -->
-  <!-- TODO(ebidel): this doesn't work yet -->
-  <iron-a11y-keys keys="esc" on-keys-pressed="_keyHandler"></iron-a11y-keys>
-
   <div id="module-tracker">
     <div class="scene">
 
@@ -596,14 +592,6 @@ Tracker scene.
         return days + 'd ' + out;
       }
       return out;
-    },
-
-    _keyHandler: function(e, detail) {
-      switch(detail) {
-        case 'esc':
-          e.stopPropagation();
-          break;
-      }
     },
   });
 })();
