@@ -46,7 +46,7 @@ Village scene (2015).
     display: none !important;
   }
   </style>
-  <div id="module-dorf">
+  <div id="module-dorf" class$="{{_computeCountDownFinishedClass(countdownFinished)}}">
     <header>
       <div id="header-background">
         <div id="header-mobilevillage"></div>
@@ -78,6 +78,7 @@ Village scene (2015).
         </div>
         <div class="castlogo" hidden$="{{!_isCastMode(santaApp.mode)}}"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+        <a href$="{{_calculateTrackerHref(pageUrl)}}" class="village-tracker-link"><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></a>
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
     </header>
@@ -222,7 +223,7 @@ Village scene (2015).
     <template is="dom-if" if="{{!_isCastMode(santaApp.mode)}}">
       <div id="village-footer">
         <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-        <img src="{{componentDir}}img/footer-elves.svg" />
+        <img src$="{{_computeFooterElves(countdownFinished)}}" />
       </div>
       <div id="village-donate" class="no-en">
         <div id="wrapper">
@@ -376,6 +377,15 @@ Village scene (2015).
       'easteregg-snowmobile2.click': '_driveSnowmobile',
       'easteregg-snowmobile3.click': '_driveSnowmobile',
       'easteregg-snowmobile4.click': '_driveSnowmobile',
+    },
+
+    _computeCountDownFinishedClass: function(finished) {
+      return finished ? 'countdown-finished': '';
+    },
+
+    _computeFooterElves: function(finished) {
+      return this.componentDir +
+          (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
     },
 
     /**
@@ -634,6 +644,10 @@ Village scene (2015).
      */
     _calculateNewTodayHref: function(moduleId) {
       return this.pageUrl + '#' + moduleId;
+    },
+
+    _calculateTrackerHref: function(pageUrl) {
+      return pageUrl + '#tracker';
     },
 
     /**
