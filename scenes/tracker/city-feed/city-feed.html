@@ -584,6 +584,8 @@ Polymer({
       return;
     }
 
+    this.scrollToDest(stopId);
+
     this._stopToLoad = undefined;
     var activeStopIndex = destLookup_[stopId];
     var activeStop = this.stream[activeStopIndex];

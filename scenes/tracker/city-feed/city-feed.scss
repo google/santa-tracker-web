@@ -190,6 +190,7 @@ $name: 'module-city-feed';
     height: $cardHeight;
     $padding: 25px;
     $cardPurple: rgb(121,49,164);
+    background: #00BE7B;
 
     box-sizing: border-box;
     margin: 0 auto;
@@ -198,7 +199,7 @@ $name: 'module-city-feed';
       text-decoration: none;
 
       &:hover {
-        //  box-shadow: 0px 12px 33px -1px rgba(0,0,0,0.2);
+        box-shadow: 0 12px 33px -1px rgba(0,0,0,0.2);
         .card-city-bg {
           iron-image {
             transform: scale(1.1) translateZ(0);

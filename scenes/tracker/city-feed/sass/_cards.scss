@@ -4,7 +4,7 @@
   box-sizing: border-box;
 
   .timestamp, .title {
-    color: #9AFFB4;
+    color: #fff;
     font-weight: 600;
     font-size: 11px;
     padding: 16px 28px 8px 28px;
@@ -312,10 +312,6 @@
   }
 
   &.card-video {
-    .title {
-      color: #9affb4;
-    }
-
     h3 {
       color: #fff;
       font-weight: 300;
