@@ -4,11 +4,12 @@
   box-sizing: border-box;
 
   .timestamp, .title {
-    color: #9AFFB4;
+    color: #fff;
     font-weight: 600;
     font-size: 11px;
     padding: 16px 28px 8px 28px;
     text-transform: uppercase;
+    margin: 0;
   }
 
   .card-header {
@@ -311,10 +312,6 @@
   }
 
   &.card-video {
-    .title {
-      color: #9affb4;
-    }
-
     h3 {
       color: #fff;
       font-weight: 300;
@@ -360,7 +357,7 @@
   }
 
   &.card-photos {
-    height: 396px;
+    height: 410px;
     background: #00BE7B;
     box-shadow: none;
 
