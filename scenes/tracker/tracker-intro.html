@@ -40,7 +40,7 @@ Intro for the tracker scene.
   </style>
   <div id="tracker-intro-module">
 
-    <bubble-overlay id="overlay" opacity="1" color="#13AB27">
+    <bubble-overlay id="overlay" opacity="0.5" color="#13AB27">
       <canvas-bubble id="userBubble" x="{{_userBubbleCenterX}}" y="{{_winCenterY}}"></canvas-bubble>
       <canvas-bubble id="santaBubble" x="{{_santaBubbleCenterX}}" y="{{_winCenterY}}"></canvas-bubble>
     </bubble-overlay>
@@ -65,10 +65,6 @@ Intro for the tracker scene.
 
     <div id="santaSleigh">
       <img src="img/santa_sw.svg">
-    </div>
-
-    <div id="userMap">
-      <div id="userMapInner"></div>
     </div>
 
     <div class="bottom-wrapper">
@@ -184,11 +180,9 @@ Intro for the tracker scene.
 
     updateLayout_: function() {
       this.$.pinWrapper.style.left = this._userBubbleCenterX + 'px';
-      this.$.userMap.style.left = this._userBubbleCenterX + 'px';
       this.$.santaSleigh.style.left = this._santaBubbleCenterX + 'px';
       this.$.pinWrapper.style.top = this._winCenterY + 'px';
       this.$.santaSleigh.style.top = this._winCenterY + 'px';
-      this.$.userMap.style.top = this._winCenterY + 'px';
       this.$.santaPath.style.left = this._userBubbleCenterX + 30 + 'px';
       this.$.santaPath.style.top = this._winCenterY + 'px';
     },
@@ -263,7 +257,6 @@ Intro for the tracker scene.
       this.$['santa-loading'].classList.remove('final');
       if (this.layoutReady_ && !this.map_) {
         window.clearTimeout(this.continueTimeout_);
-        this._setupUserMap();
       }
     },
 
@@ -271,36 +264,10 @@ Intro for the tracker scene.
       this.layoutReady_ = true;
 
       this.continueTimeout_ = window.setTimeout(this.bypass.bind(this), GEO_WAIT_TIME);
-
-      if (this.userLocation) {
-        this._setupUserMap();
-      }
     },
 
     bypass: function() {
       this.closeIntro();
-    },
-
-    _setupUserMap: function() {
-      this.map_ = new google.maps.Map(this.$.userMapInner, {
-        center: new google.maps.LatLng(
-            this.userLocation.location.lat,
-            this.userLocation.location.lng),
-        zoom: 8,
-        disableDefaultUI: true,
-        scrollwheel: false,
-        draggable: false,
-        disableDoubleClickZoom: true,
-        backgroundColor: '#fff',
-        styles: mapstyles.styles
-      });
-
-      this.bindMapToBubble_(this.$.userMap, this.$.userBubble, this.$.pin.parentNode);
-
-      google.maps.event.addListener(
-        this.map_, 'idle', function(){
-          this.showUserLocationMap();
-        }.bind(this));
     },
 
     /**
