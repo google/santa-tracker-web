@@ -627,6 +627,10 @@ Polymer({
   },
 
   _activeStopChanged: function() {
+    if (!this.santaApp) {
+      // Santa App isn't ready yet
+      return;
+    }
     var actions = [];
     var add;
     for (var i = 0; i < this._activeStopAnimationTimers.length; i++) {
@@ -635,6 +639,7 @@ Polymer({
 
     this._activeStopAnimationTimers = [];
     if (this.activeStop) {
+      this.santaApp.$.chrome.hideLeft = true;
       if (this._smallScreen) {
         actions = [
           { c: 'feed-visible', t: 0 },
@@ -657,6 +662,7 @@ Polymer({
       }
       add = true;
     } else {
+      this.santaApp.$.chrome.hideLeft = false;
       if (this._smallScreen) {
         actions = [
           { c: 'fade-content', t: 0},

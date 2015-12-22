@@ -133,6 +133,8 @@ santa-chrome {
 
     .hidden {
       opacity: 0;
+      pointer-events: none;
+      cursor: default;
     }
 
     paper-icon-button[icon="santa:menu"] {

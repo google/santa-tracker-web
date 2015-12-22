@@ -219,9 +219,9 @@ specific language governing permissions and limitations under the License.
         class$="{{_calculateFixedClass(isFixedToolbar, disabled)}} ">
       <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}"
           hidden$="{{disabled}}">
-        <paper-icon-button icon="santa:menu" paper-drawer-toggle class$="toolbar-icon {{_computeHidden(_hideLeft)}}"></paper-icon-button>
+        <paper-icon-button icon="santa:menu" paper-drawer-toggle class$="toolbar-icon {{_computeHiddenClass(hideLeft)}}"></paper-icon-button>
         <div class="flex fixsize">
-          <a class$="linkwrap logo-link {{_computeHidden(_hideLeft)}}" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}">
+          <a class$="linkwrap logo-link {{_computeHiddenClass(hideLeft)}}" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}">
             <div id="logo" title="Google logo">
             </div>
             <h1 class="title flex">
@@ -229,7 +229,7 @@ specific language governing permissions and limitations under the License.
             </h1>
           </a>
         </div>
-        <div class$="shareicons {{_computeHidden(_hideRight)}}" on-tap="_onShare">
+        <div class$="shareicons {{_computeHiddenClass(hideRight)}}" on-tap="_onShare">
           <paper-icon-button class="share box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
           <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
           <paper-icon-button class="share box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
@@ -350,12 +350,12 @@ specific language governing permissions and limitations under the License.
 
       _smallScreen: Boolean,
 
-      _hideLeft: {
+      hideLeft: {
         type: Boolean,
         value: false,
       },
 
-      _hideRight: {
+      hideRight: {
         type: Boolean,
         value: false,
       },
@@ -391,8 +391,8 @@ specific language governing permissions and limitations under the License.
       this.mute = !this.mute;
     },
 
-    _computeHidden: function(hide) {
-      return hide ? 'hidden' : 'hidden';
+    _computeHiddenClass: function(hide) {
+      return hide ? 'hidden' : '';
     },
 
     _calculateMuteClass: function(mute) {
