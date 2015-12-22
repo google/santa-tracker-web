@@ -141,10 +141,10 @@ City feed view in Tracker
             <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
 
             <div class="attribution">
-              <span class="wiki-cc">Available under
-              <a href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+              Source: <a href$="{{activeStop.stop.details.wikipedia.url}}" target="_blank">Wikipedia</a>,
+              <span class="wiki-cc">available under
+              <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC-BY-SA</a>
               terms</span>
-              <a href$="{{activeStop.stop.details.wikipedia.url}}">{{activeStop.stop.details.wikipedia.url}}</a>
             </div>
           </div>
         </div>
@@ -605,7 +605,10 @@ Polymer({
   _activeStopAnimationTimers: [],
 
   _smallScreenChanged: function() {
+    if (!this.santaApp) return; // Santa App isn't ready yet.
+
     if (this.activeStop) {
+      this.santaApp.$.chrome.hideLeft = true;
       if (this._smallScreen) {
         this.$['module-city-feed'].classList.remove('fade-list',
         'move-details-left', 'move-details-right');
@@ -619,6 +622,7 @@ Polymer({
           'fade-content');
       }
     } else {
+      this.santaApp.$.chrome.hideLeft = false;
       this.$['module-city-feed'].classList.remove('feed-visible',
           'fade-in-details', 'fade-list', 'move-details-left',
           'move-details-right', 'show-photos', 'show-content',
@@ -627,10 +631,8 @@ Polymer({
   },
 
   _activeStopChanged: function() {
-    if (!this.santaApp) {
-      // Santa App isn't ready yet
-      return;
-    }
+    if (!this.santaApp) return; // Santa App isn't ready yet.
+
     var actions = [];
     var add;
     for (var i = 0; i < this._activeStopAnimationTimers.length; i++) {
@@ -640,6 +642,7 @@ Polymer({
     this._activeStopAnimationTimers = [];
     if (this.activeStop) {
       this.santaApp.$.chrome.hideLeft = true;
+      this.$.photoselector.selected = '0';  // reset to first photo
       if (this._smallScreen) {
         actions = [
           { c: 'feed-visible', t: 0 },

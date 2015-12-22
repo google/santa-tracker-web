@@ -129,8 +129,8 @@ WorldView.prototype.setupMap = function() {
   if (this.map_) return;
   this.map_ = new google.maps.Map(this.base_.$['module-tracker'].querySelector('#trackermap'), {
     center: {lat: 0, lng: 0},
-    zoom: 1,
-    minZoom: 1,
+    zoom: 3,
+    minZoom: 2,
     maxZoom: 6,  // ROK has own tiles at 7+
     'noPerTile': true,
     disableDefaultUI: true,
@@ -248,8 +248,7 @@ WorldView.prototype.createSceneMarkers_ = function() {
   }
 };
 
-WorldView.prototype.showSceneMarkers_ = function() {
-  var now = this.base_.santaApp.santaService.now();
+WorldView.prototype.showSceneMarkers_ = function(now) {
   for (var i = 0, marker; marker = this.sceneMarkers_[i]; i++) {
     var launchDate = marker.get('st_launchDate');
     var visible = now > launchDate;
@@ -270,28 +269,29 @@ WorldView.prototype.onSceneMarkerClick_ = function(scene) {
 
 /**
  * These are special scenes that are location on the map
+ * TODO(samthor): move to central location
  * @private
  */
 WorldView.prototype.SCENES_ = [
   {
     id: 'blimp',
     pos: {lat: 37.160317, lng: 169.879395},
-    launchDate: +new Date('Wed, 24 Dec 2014 11:20:00 GMT')
+    launchDate: +new Date('Wed, 24 Dec 2015 11:20:00 GMT')
   },
   {
     id: 'undersea',
     pos: {lat: 23.885838, lng: -39.388183},
-    launchDate: +new Date('Thu, 25 Dec 2014 04:38:00 GMT')
+    launchDate: +new Date('Thu, 25 Dec 2015 04:38:00 GMT')
   },
   {
     id: 'island',
     pos: {lat: -16.045813, lng: 84.889161},
-    launchDate: +new Date('Wed, 24 Dec 2014 18:57:00 GMT')
+    launchDate: +new Date('Wed, 24 Dec 2015 18:57:00 GMT')
   },
   {
     id: 'icecave',
     pos: {lat: -71.965388, lng: 3.678223},
-    launchDate: +new Date('Thu, 25 Dec 2014 03:30:00 GMT')
+    launchDate: +new Date('Thu, 25 Dec 2015 03:30:00 GMT')
   },
 ];
 
@@ -346,7 +346,7 @@ WorldView.prototype.filterMarkers_ = function() {
     }
   }
 
-  this.showSceneMarkers_();
+  this.showSceneMarkers_(now);
 };
 
 /**
