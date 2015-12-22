@@ -605,7 +605,10 @@ Polymer({
   _activeStopAnimationTimers: [],
 
   _smallScreenChanged: function() {
+    if (!this.santaApp) return; // Santa App isn't ready yet.
+
     if (this.activeStop) {
+      this.santaApp.$.chrome.hideLeft = true;
       if (this._smallScreen) {
         this.$['module-city-feed'].classList.remove('fade-list',
         'move-details-left', 'move-details-right');
@@ -619,6 +622,7 @@ Polymer({
           'fade-content');
       }
     } else {
+      this.santaApp.$.chrome.hideLeft = false;
       this.$['module-city-feed'].classList.remove('feed-visible',
           'fade-in-details', 'fade-list', 'move-details-left',
           'move-details-right', 'show-photos', 'show-content',
@@ -627,6 +631,8 @@ Polymer({
   },
 
   _activeStopChanged: function() {
+    if (!this.santaApp) return; // Santa App isn't ready yet.
+
     var actions = [];
     var add;
     for (var i = 0; i < this._activeStopAnimationTimers.length; i++) {
@@ -635,8 +641,8 @@ Polymer({
 
     this._activeStopAnimationTimers = [];
     if (this.activeStop) {
+      this.santaApp.$.chrome.hideLeft = true;
       this.$.photoselector.selected = '0';  // reset to first photo
-
       if (this._smallScreen) {
         actions = [
           { c: 'feed-visible', t: 0 },
@@ -659,6 +665,7 @@ Polymer({
       }
       add = true;
     } else {
+      this.santaApp.$.chrome.hideLeft = false;
       if (this._smallScreen) {
         actions = [
           { c: 'fade-content', t: 0},

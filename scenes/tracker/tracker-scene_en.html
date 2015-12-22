@@ -534,6 +534,8 @@ Tracker scene.
     },
 
     onShow: function() {
+      this.santaApp.$.chrome.hideRight = true;
+      this.santaApp.$.chrome.hideLeft = false;
       this.shown = true;
       this.setupTracker();
 
@@ -555,6 +557,8 @@ Tracker scene.
     },
 
     onHide: function() {
+      this.santaApp.$.chrome.hideLeft = false;
+      this.santaApp.$.chrome.hideRight = false;
       window.clearInterval(this.trackingInterval_);
       if (this.worldView_) {
         this.worldView_.hide();

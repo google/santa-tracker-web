@@ -126,6 +126,17 @@ santa-chrome {
     pointer-events: none;  // make sure scroll events pass through toolbar.
     background-color: transparent;
 
+    .logo-link, .toolbar-icon {
+      opacity: 1;
+      transition: opacity 250ms ease;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+      cursor: default;
+    }
+
     paper-icon-button[icon="santa:menu"] {
       margin-right: 8px !important;
     }
@@ -139,7 +150,7 @@ santa-chrome {
       z-index: -1;
 
       pointer-events: none;  // make sure scroll events pass through toolbar.
-      
+
       will-change: opacity;
       transform: translateZ(0);
       opacity: 0;
