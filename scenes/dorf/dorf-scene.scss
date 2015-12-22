@@ -20,6 +20,14 @@ $toolbar-size: 64px;
   min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
 
   &.countdown-finished {
+    #village-footer {
+      img {
+        // finished image is much taller; keep to max size
+        width: 800px;
+        max-width: 100%;
+      }
+    }
+
     header {
       #header-content {
         #count-down, p {
