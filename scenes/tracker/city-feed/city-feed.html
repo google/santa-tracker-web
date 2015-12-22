@@ -300,8 +300,8 @@ City feed view in Tracker
               </div>
 
               <div hidden$="{{!itemIsType(item, 'video')}}">
-                <a href$="{{pageUrl}}#{{_computeVideoName(item.youtubeId)}}">
-                  <div class$="card-body card-{{_computeVideoName(item.youtubeId)}}">
+                <a href$="{{pageUrl}}#{{_computeVideoName(santaApp.videos, item.youtubeId)}}">
+                  <div class$="card-body card-{{_computeVideoName(santaApp.videos, item.youtubeId)}}">
                     <div class="corner-image"></div>
                     <h4 class="title"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg> &bull; {{formatTime(item.timestamp)}}</h4>
                     <h3><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -425,14 +425,6 @@ Polymer({
       value: function() {
         return [];
       }
-    },
-
-    /**
-     * Mapping of YouTube video ids to URL routes.
-     */
-    videoMap: {
-      type: Object,
-      value: null
     },
 
     /**
@@ -878,8 +870,13 @@ Polymer({
     return this._computeCardClasses(item, true);
   },
 
-  _computeVideoName: function(youtubeId) {
-    return this.videoMap[youtubeId];
+  _computeVideoName: function(videos, youtubeId) {
+    for (var k in videos) {
+      if (videos[k] == youtubeId) {
+        return k;
+      }
+    }
+    return '';
   },
 
   _isSelectedCard: function(card, index) {

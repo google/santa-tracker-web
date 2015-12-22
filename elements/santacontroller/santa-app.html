@@ -255,8 +255,8 @@ Santa Tracker app.
       <undersea-scene route="undersea" icon="1f30a"
           path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
-      <template is="dom-repeat" items="{{videoRoutes}}">
-        <video-scene route$="{{item}}"
+      <template is="dom-repeat" items="[[_computeVideoRoutes(videos)]]">
+        <video-scene route$="{{item}}" youtube-id$="{{_computeVideoId(videos, item)}}"
             mode$="{{mode}}" mute$="{{userMute}}"
             path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
       </template>
@@ -322,12 +322,6 @@ var TRACKER_ROUTE = 'tracker';
 // These scenes are also not removed from the lazy-page switching.
 var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
-var VIDEO_ROUTES = [
-  'trailer', 'carpool', 'liftoff', 'jingle', 'satellite', 'temptation',
-  'office', 'tired', 'com-room', 'reload', 'slacking-off', 'wheressanta',
-  'santasback'
-];
-
 // Timing for playing random videos in Cast mode, in ms.
 var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
 var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
@@ -335,9 +329,8 @@ var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown
 
 // Routes/scenes unlocked with the tracker (including all video routes)
 var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
-    'latlong', 'glider', 'trivia'].concat(VIDEO_ROUTES);
+    'latlong', 'glider', 'trivia'];
 
-// TODO(bckenny): Restore Cast mixin
 Polymer({
   is: 'santa-app',
   hostAttributes: {'tabindex': '0'},
@@ -513,10 +506,9 @@ Polymer({
     /**
      * List of video routes. Used for template binding.
      */
-    videoRoutes: {
-      type: Array,
-      readOnly: true,
-      value: Object.freeze(VIDEO_ROUTES)
+    videos: {
+      type: Object,
+      readOnly: true
     },
 
     /**
@@ -626,8 +618,11 @@ Polymer({
 
   ready: function() {
     this._houses = window.HOUSES;
+    this._setVideos(Object.freeze(window.VIDEOS));
+    console.warn(this.videos);
     this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
+    delete window.VIDEOS; // cleanup
     delete window.SANTA_CONFIG; // cleanup
 
     this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
@@ -831,7 +826,7 @@ Polymer({
 
     this.cancelAsync(this._triggerRandomAsync);
     this._triggerRandomAsync = this.async(function() {
-      var opts = VIDEO_ROUTES.filter(function(scene) {
+      var opts = Object.keys(this.videos).filter(function(scene) {
         return this.sceneIsUnlocked(scene);
       }, this);
       var choice = randomChoice(opts);
@@ -931,7 +926,7 @@ Polymer({
       var valid = (this.$.lazypages.isValidRoute(this.route) &&
                    this.sceneIsUnlocked(this.route)) ||
                    (this.postCountdown && this.route == TRACKER_ROUTE) ||
-                   (this.mode == 'cast' && VIDEO_ROUTES.indexOf(this.route) != -1);
+                   (this.mode == 'cast' && this.route in this.videos);
       if (!valid) {
         if (!window.DEV) {
           return false;
@@ -1087,11 +1082,11 @@ Polymer({
       return true;
     }
 
-    if (this.postCountdown && TRACKER_ROUTES.indexOf(moduleName) != -1) {
+    var isVideo = moduleName in this.videos;
+    if (this.postCountdown && (isVideo || TRACKER_ROUTES.indexOf(moduleName) != -1)) {
       return true;
     }
-
-    if (this.mode == 'cast' && VIDEO_ROUTES.indexOf(moduleName) != -1) {
+    if (this.mode == 'cast' && isVideo) {
       return true;  // allows non-house (i.e., not part of the scchedule) video scenes on cast
     }
 
@@ -1249,7 +1244,21 @@ Polymer({
 
   onTrackerEnd: function(e, detail) {
     this._checkSchedule();
-  }
+  },
+
+  /**
+   * Converts the map of routes -> YouTube IDs to an array of routes.
+   */
+  _computeVideoRoutes: function(videos) {
+    return Object.keys(videos);
+  },
+
+  /**
+   * Converts the route to a YouTube ID.
+   */
+  _computeVideoId: function(videos, route) {
+    return videos[route];
+  },
 
 });
 

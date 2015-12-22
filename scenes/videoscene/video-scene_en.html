@@ -53,7 +53,7 @@ Video scene.
 
       <template is="dom-if" if="{{showPlayer}}">
         <google-youtube id="player"
-            video-id="[[videoId]]"
+            video-id="[[youtubeId]]"
             currenttime="{{currentTime}}"
             currenttimeformatted="{{_currentTimeFormatted}}"
             duration="{{_duration}}"
@@ -80,22 +80,6 @@ Video scene.
 </template>
 <script>
 (function() {
-  var VIDEO_IDS = {
-    'wheressanta': '0qrFL0mn3Uk',
-    'santasback': 'nXLNcfNsWAY',
-    'trailer': 'IdpQSy4IB_I',
-    'carpool': 'h83b1lWPuvQ',
-    'liftoff': 'oCAKV4Ikhec',  // 2013: BfF7vfw6Zjw
-    'jingle': 'sQnKCU_A0Yc',
-    'satellite': 'ZJPL56IPTjw',
-    'temptation': '2FtcJJ9vzVQ',
-    'office': 'IXmDOu-eSx4',
-    'tired': '2UGX3bT9u20',
-    'com-room': '_WdYujHlmHA',
-    'reload': 'vHMeXs36NTE',
-    'slacking-off': 'uEl2WIZOVdQ',
-  };
-
   var CAST_VOLUME = 30;  // of 100
 
   Polymer({
@@ -148,9 +132,8 @@ Video scene.
       /**
        * The video ID that should be displayed.
        */
-      videoId: {
+      youtubeId: {
         type: String,
-        computed: '_computeVideoId(route)'
       },
 
       /**
@@ -300,10 +283,6 @@ Video scene.
           this.togglePause();
           break;
       }
-    },
-
-    _computeVideoId: function(route) {
-      return VIDEO_IDS[route];
     },
 
     _computeScrubPixels: function(currenttime, duration) {

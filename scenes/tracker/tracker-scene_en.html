@@ -62,7 +62,7 @@ Tracker scene.
                  santa-distance="{{santaDistance}}"
                  arrival="{{arrival_}}"
                  departure="{{departure_}}"
-                 santa-app="{{santaApp}}" video-map="{{ytMapping}}"></city-feed>
+                 santa-app="{{santaApp}}"></city-feed>
 
       <tracker-intro id="intro"
           user-location="{{userLocation}}"
@@ -78,6 +78,8 @@ Tracker scene.
 </template>
 <script>
 (function() {
+  var CARD_SHOW_TIME = 7000
+
   Polymer({
     is: 'tracker-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -220,32 +222,9 @@ Tracker scene.
         value: null
       },
 
-      /**
-       * Mapping of YouTube video ids to URL routes.
-       */
-      ytMapping: {
-        type: Object,
-        value: function() {
-          return Object.freeze({
-            'h83b1lWPuvQ': 'carpool',
-            'oCAKV4Ikhec': 'liftoff',
-            'sQnKCU_A0Yc': 'jingle',
-            'ZJPL56IPTjw': 'satellite',
-            '2FtcJJ9vzVQ': 'temptation',
-            'IXmDOu-eSx4': 'office',
-            '2UGX3bT9u20': 'tired',
-            '_WdYujHlmHA': 'com-room',
-            'vHMeXs36NTE': 'reload',
-            'uEl2WIZOVdQ': 'slacking-off',
-          });
-        }
-      },
-
     },
 
     worldView_: null,
-
-    CARD_SHOW_TIME_: 7000, // 7 seconds
 
     onPreload: function() {
       // TODO(lukem): Audit images and only preload what we need
@@ -450,7 +429,7 @@ Tracker scene.
 
         this.async(function() {
           this.hideCard_();
-        }, t + this.CARD_SHOW_TIME_);
+        }, t + CARD_SHOW_TIME);
       }
     },
 
