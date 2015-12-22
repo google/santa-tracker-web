@@ -141,10 +141,10 @@ City feed view in Tracker
             <p><html-echo class="wikipedia__body" html="{{activeStop.stop.details.wikipedia.excerpt}}"></html-echo></p>
 
             <div class="attribution">
-              <span class="wiki-cc">Available under
-              <a href$="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+              Source: <a href$="{{activeStop.stop.details.wikipedia.url}}" target="_blank">Wikipedia</a>,
+              <span class="wiki-cc">available under
+              <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC-BY-SA</a>
               terms</span>
-              <a href$="{{activeStop.stop.details.wikipedia.url}}">{{activeStop.stop.details.wikipedia.url}}</a>
             </div>
           </div>
         </div>
@@ -635,6 +635,8 @@ Polymer({
 
     this._activeStopAnimationTimers = [];
     if (this.activeStop) {
+      this.$.photoselector.selected = '0';  // reset to first photo
+
       if (this._smallScreen) {
         actions = [
           { c: 'feed-visible', t: 0 },
