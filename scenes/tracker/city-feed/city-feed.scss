@@ -199,7 +199,6 @@ $name: 'module-city-feed';
       text-decoration: none;
 
       &:hover {
-        box-shadow: 0 12px 33px -1px rgba(0,0,0,0.2);
         .card-city-bg {
           iron-image {
             transform: scale(1.1) translateZ(0);
@@ -208,6 +207,7 @@ $name: 'module-city-feed';
 
         .card-header {
           background-color: rgba(19, 142, 96, 0.55);
+          box-shadow: 0 12px 33px -1px rgba(0,0,0,0.2);
         }
       }
     }
