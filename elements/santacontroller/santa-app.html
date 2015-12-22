@@ -619,7 +619,6 @@ Polymer({
   ready: function() {
     this._houses = window.HOUSES;
     this._setVideos(Object.freeze(window.VIDEOS));
-    console.warn(this.videos);
     this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
     delete window.VIDEOS; // cleanup
