@@ -220,8 +220,8 @@ specific language governing permissions and limitations under the License.
       <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}"
           hidden$="{{disabled}}">
         <paper-icon-button icon="santa:menu" paper-drawer-toggle class$="toolbar-icon {{_computeHiddenClass(hideLeft)}}"></paper-icon-button>
-        <div class="flex fixsize">
-          <a class$="linkwrap logo-link {{_computeHiddenClass(hideLeft)}}" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}">
+        <div class$="flex fixsize leftside {{_computeHiddenClass(hideLeft)}}">
+          <a class="linkwrap" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}">
             <div id="logo" title="Google logo">
             </div>
             <h1 class="title flex">

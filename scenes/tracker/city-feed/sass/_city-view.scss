@@ -133,12 +133,6 @@
       display: inline-block;
     }
 
-    .ico-arrow-left {
-      height: 15px;
-      width: 17px;
-      background-image: url(../img/arrow-left.svg);
-    }
-
     .ico-marker {
       background-image: url(../img/marker.svg);
     }
@@ -170,8 +164,13 @@
       opacity: 0;
       display: none;
 
-      .ico {
-        margin-right: 20px;
+      span {
+        vertical-align: middle;
+      }
+
+      iron-icon {
+        vertical-align: sub;
+        margin-right: 8px;
       }
     }
 

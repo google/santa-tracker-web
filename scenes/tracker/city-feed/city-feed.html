@@ -113,7 +113,10 @@ City feed view in Tracker
   <div class="scene fit">
     <div id="city-view" class="fit">
       <div id="city-details">
-        <a href$="{{pageUrl}}#tracker" class="back-to-tracker"><i class="ico ico-arrow-left"></i><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></a>
+        <a href$="{{pageUrl}}#tracker" class="back-to-tracker">
+          <iron-icon icon="santa:back"></iron-icon>
+          <span><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></span>
+        </a>
         <div class="city-details-content">
           <div class="details">
             <h4>{{activeStop.stop.region}}</h4>
