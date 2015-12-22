@@ -738,6 +738,9 @@ Polymer({
     if (this._stopToLoad) {
       this.showStop(this._stopToLoad);
     }
+    if (this.active && this._cardInView) {
+       this.scrollToTime(this._cardInView);
+    }
   },
 
   /**
@@ -807,7 +810,24 @@ Polymer({
    * Determines the most central visible card in the stream's viewport for deep linking.
    */
   updateCardInView: function() {
-    // TODO(skarEE): Do we set the timestamp anymore?
+    this.updateQueued_ = false;
+    var listHeight = this.$.feed.offsetHeight;
+    var listChildren = this.$.feed.$$('#items').children;
+    for (var i = 0, el; el = listChildren[i]; ++i) {
+      var elBounds = el.getBoundingClientRect();
+      if (0 < elBounds.top && elBounds.top < listHeight) {
+        var yMiddleOfElement = elBounds.top + (elBounds.height / 2);
+        var yUpper = (listHeight / 2) + CARD_CENTERED_THRESHOLD;
+        var yLower = (listHeight / 2) - CARD_CENTERED_THRESHOLD;
+        // If card is on center of screen, add deep link to URL.
+        if (yLower < yMiddleOfElement && yMiddleOfElement < yUpper) {
+          var idx = Number(el.getAttribute('data-index'));
+          var timestamp = this.$.feed.items[idx].timestamp;
+          this._cardInView = timestamp;
+          break;
+        }
+      }
+    }
   },
 
   onScroll: function(e, detail) {
