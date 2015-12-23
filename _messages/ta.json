@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "புறப்படும் நேரம்"
 	},
+	"tracker_distance_away_km": {
+		"message": "சான்டா %distance_away%கி.மீ. தொலைவில் உள்ளார்"
+	},
 	"tracker_distance_from_you": {
 		"message": "உங்களிடமிருந்துள்ள தூரம்"
 	},

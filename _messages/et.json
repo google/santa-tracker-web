@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Teele asumiseni jäänud aeg"
 	},
+	"tracker_distance_away_km": {
+		"message": "Jõuluvana on %distance_away% km kaugusel"
+	},
 	"tracker_distance_from_you": {
 		"message": "Kaugus teist"
 	},

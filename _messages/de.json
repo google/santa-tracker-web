@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Abfahrt in"
 	},
+	"tracker_distance_away_km": {
+		"message": "Der Weihnachtsmann ist %distance_away% km entfernt."
+	},
 	"tracker_distance_from_you": {
 		"message": "Entfernung zu Ihnen"
 	},

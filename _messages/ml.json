@@ -309,7 +309,7 @@
 		"message": "പോകുക!"
 	},
 	"codeboogie-keep-dancing": {
-		"message": "ഡാൻസിംഗ് തുടരുക"
+		"message": "ഡാൻസ് തുടരുക"
 	},
 	"codeboogie-lets-dance": {
 		"message": "ഡാൻസ് ചെയ്യാം"
@@ -1117,6 +1117,9 @@
 	},
 	"tracker_departing_in": {
 		"message": "പുറപ്പെടുന്നത്"
+	},
+	"tracker_distance_away_km": {
+		"message": "സാന്ത %distance_away% കിലോമീറ്റർ അകലെയാണ്"
 	},
 	"tracker_distance_from_you": {
 		"message": "നിങ്ങളിൽ നിന്നുള്ള ദൂരം"

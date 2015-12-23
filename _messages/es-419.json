@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Despegará en"
 	},
+	"tracker_distance_away_km": {
+		"message": "Santa se encuentra a %distance_away% km"
+	},
 	"tracker_distance_from_you": {
 		"message": "Distancia desde tu ubicación"
 	},

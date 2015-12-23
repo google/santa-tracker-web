@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Отпътуване след"
 	},
+	"tracker_distance_away_km": {
+		"message": "Дядо Коледа е на %distance_away% км"
+	},
 	"tracker_distance_from_you": {
 		"message": "Разстояние от вас"
 	},

@@ -300,7 +300,7 @@
 		"message": "เลือกโหมดเกม"
 	},
 	"codeboogie-choose-stage": {
-		"message": "เลือกระดับ"
+		"message": "เลือกเวที"
 	},
 	"codeboogie-get-dancing": {
 		"message": "ไปเต้นกันเถอะ!"
@@ -354,7 +354,7 @@
 		"message": "ดูเหมือนว่าคุณจะเต้นผิดจังหวะ ลองแบบนี้แทน:"
 	},
 	"codeboogie-share-moves": {
-		"message": "แชร์การเต้นของคุณและท้าทายเพื่อนๆ ของคุณ"
+		"message": "แชร์การเต้นและท้าทายเพื่อนๆ ของคุณ"
 	},
 	"codeboogie-success": {
 		"message": "สำเร็จแล้ว"
@@ -1117,6 +1117,9 @@
 	},
 	"tracker_departing_in": {
 		"message": "จะออกภายใน"
+	},
+	"tracker_distance_away_km": {
+		"message": "ซานต้าอยู่ห่างออกไป %distance_away% กม."
 	},
 	"tracker_distance_from_you": {
 		"message": "ระยะทางจากตำแหน่งของคุณ"

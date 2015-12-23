@@ -309,7 +309,7 @@
 		"message": "Перейти"
 	},
 	"codeboogie-keep-dancing": {
-		"message": "Танцювати ще"
+		"message": "Продовжити танцювати"
 	},
 	"codeboogie-lets-dance": {
 		"message": "Потанцюймо"
@@ -324,7 +324,7 @@
 		"message": "Танцювальна імпровізація"
 	},
 	"codeboogie-mode-freestyle-description": {
-		"message": "Придумайте власні рухи й покажіть їх друзям"
+		"message": "Придумайте власні рухи й поділіться ними з друзями"
 	},
 	"codeboogie-next-dance": {
 		"message": "Наступний танець"
@@ -1117,6 +1117,9 @@
 	},
 	"tracker_departing_in": {
 		"message": "Відправлення за"
+	},
+	"tracker_distance_away_km": {
+		"message": "Дід Мороз за %distance_away% км"
 	},
 	"tracker_distance_from_you": {
 		"message": "Відстань від вас"
@@ -4857,7 +4860,7 @@
 		"message": "Дід Мороз у Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Додати новорічне розширення для Chrome"
+		"message": "Додати розширення для Chrome \"Де Дід Мороз\""
 	},
 	"village_takesoff": {
 		"message": "Дід Мороз злітає за"

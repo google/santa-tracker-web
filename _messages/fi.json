@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Lähtöön"
 	},
+	"tracker_distance_away_km": {
+		"message": "Joulupukki on %distance_away% kilometrin päässä."
+	},
 	"tracker_distance_from_you": {
 		"message": "Etäisyys sijainnistasi"
 	},

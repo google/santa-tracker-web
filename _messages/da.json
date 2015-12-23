@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Afrejse om"
 	},
+	"tracker_distance_away_km": {
+		"message": "Julemanden er %distance_away% km væk"
+	},
 	"tracker_distance_from_you": {
 		"message": "Afstand fra dig"
 	},

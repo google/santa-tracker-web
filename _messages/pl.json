@@ -315,16 +315,16 @@
 		"message": "Do tańca"
 	},
 	"codeboogie-mode-dance-class": {
-		"message": "Klasa tańca"
+		"message": "Kurs tańca"
 	},
 	"codeboogie-mode-dance-class-description": {
-		"message": "Naśladuj ruchy nauczyciela"
+		"message": "Naśladuj ruchy"
 	},
 	"codeboogie-mode-freestyle": {
 		"message": "Taniec freestyle"
 	},
 	"codeboogie-mode-freestyle-description": {
-		"message": "Stwórz własne ruchy i podziel się nimi ze znajomymi"
+		"message": "Wymyśl własne ruchy i udostępnij je znajomym"
 	},
 	"codeboogie-next-dance": {
 		"message": "Następny taniec"
@@ -354,7 +354,7 @@
 		"message": "Ten krok nie był poprawny. Zamiast niego wypróbuj ten:"
 	},
 	"codeboogie-share-moves": {
-		"message": "Podziel się swoimi ruchami ze znajomym i wyzwij ich na pojedynek"
+		"message": "Pokaż znajomym, jak tańczysz, i wyzwij ich na pojedynek"
 	},
 	"codeboogie-success": {
 		"message": "Udało się!"
@@ -1117,6 +1117,9 @@
 	},
 	"tracker_departing_in": {
 		"message": "Wyrusza za"
+	},
+	"tracker_distance_away_km": {
+		"message": "Święty Mikołaj jest %distance_away% km stąd"
 	},
 	"tracker_distance_from_you": {
 		"message": "Odległość od Ciebie"
