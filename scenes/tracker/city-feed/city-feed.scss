@@ -67,6 +67,34 @@ $name: 'module-city-feed';
     background: #00BE7B;
   }
 
+  #feed-header {
+    background: linear-gradient(to bottom, rgba(39,193,130,1) 30%, rgba(125,185,232,0) 100%);
+    top: 0;
+    width: $trackerFeedWidth;
+    right: 0;
+    height: 42px;
+    z-index: 100;
+    position: absolute;
+    text-align: right;
+    opacity: 0;
+    pointer-events: all;
+
+    a {
+      color: #fff;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      top: 4px;
+      right: 24px;
+      position: relative;
+
+      iron-icon {
+        transform: rotate(90deg) scale(.8);
+      }
+    }
+  }
+
   iron-list {
     width: $trackerFeedWidth + $trackerFeedPadding;
     box-sizing: border-box;
@@ -97,9 +125,9 @@ $name: 'module-city-feed';
   }
 
   .card.card-santa-info {
-    padding-top: 30px; // This should be removed if/when we put the filtery thing on
+    padding-top: 10px;
     margin-bottom: 14px;
-    height: 229px;
+    height: 209px;
 
     .santa-info-row {
       display: flex;

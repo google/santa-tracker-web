@@ -171,7 +171,9 @@ City feed view in Tracker
         </iron-selector>
       </div>
     </div>
-
+    <div id="feed-header">
+      <a href="#" on-click="backToTop"><iron-icon icon="santa:back"></iron-icon> Top</a>
+    </div>
     <iron-list id="feed" items="[[stream]]" as="item" on-scroll="onScroll">
       <template>
         <div class="layout horizontal justified" data-index$="[[index]]">
@@ -793,6 +795,19 @@ Polymer({
     this.updateQueued_ = false;
     var listHeight = this.$.feed.offsetHeight;
     var listChildren = this.$.feed.$$('#items').children;
+
+    var opacity = 0;
+    var minFadeTop = 200;
+    var maxFadeTop = 245;
+    var diff = maxFadeTop - minFadeTop;
+    var st = this.$.feed.scrollTop;
+    if (st > minFadeTop) {
+      // Only fade in after the santa-info panel has gone off screen
+      var st = this.$.feed.scrollTop - minFadeTop;
+      opacity = Math.min(1, st / diff);
+    }
+    this.$['feed-header'].style.opacity = opacity;
+
     for (var i = 0, el; el = listChildren[i]; ++i) {
       var elBounds = el.getBoundingClientRect();
       if (0 < elBounds.top && elBounds.top < listHeight) {
@@ -808,6 +823,14 @@ Polymer({
         }
       }
     }
+  },
+
+  backToTop: function(e, detail) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    this._cardInView = null;
+    this.scrollToIndex(0);
   },
 
   onScroll: function(e, detail) {
