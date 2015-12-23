@@ -78,7 +78,7 @@ Village scene (2015).
         </div>
         <div class="castlogo" hidden$="{{!_isCastMode(santaApp.mode)}}"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
-        <a hidden$="[[!santaApp.duringTracker]]" href$="{{_calculateTrackerHref(pageUrl)}}" class="village-tracker-link">
+        <a hidden$="[[!duringTracker]]" href$="{{_calculateTrackerHref(pageUrl)}}" class="village-tracker-link">
           <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
         </a>
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
@@ -357,6 +357,11 @@ Village scene (2015).
         value: Object.freeze(EASTER_EGGS)
       },
       countdownFinished: Boolean,
+
+      /**
+       * Bound from `santa-app`, because we need to observe this changing.
+       */
+      duringTracker: Boolean,
 
       /**
        * URL to share. If null, shares the current href.
