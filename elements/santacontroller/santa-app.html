@@ -560,6 +560,7 @@ Polymer({
   },
 
   listeners: {
+    'title-click': 'onTitleClick',
     'scene-progress': 'onSceneProgress',
     'scene-ready': 'onSceneReady',
     'video-scene-done': 'onVideoSceneDone',
@@ -708,6 +709,17 @@ Polymer({
     this._checkSchedule();
     if (!this.route) {
       this.route = this.defaultRoute;
+    }
+  },
+
+  /**
+   * Handles the title being clicked. Redirects the event to the selected
+   * scene.
+   */
+  onTitleClick: function() {
+    var scene = this.selectedScene;
+    if (scene && scene.fire) {
+      scene.fire('title-click');
     }
   },
 

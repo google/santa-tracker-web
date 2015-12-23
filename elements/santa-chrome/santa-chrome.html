@@ -221,7 +221,7 @@ specific language governing permissions and limitations under the License.
           hidden$="{{disabled}}">
         <paper-icon-button icon="santa:menu" paper-drawer-toggle class$="toolbar-icon {{_computeHiddenClass(hideLeft)}}"></paper-icon-button>
         <div class$="flex fixsize leftside {{_computeHiddenClass(hideLeft)}}">
-          <a class="linkwrap" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}">
+          <a class="linkwrap" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}" on-click="_onTitleClick">
             <div id="logo" title="Google logo">
             </div>
             <h1 class="title flex">
@@ -476,6 +476,10 @@ specific language governing permissions and limitations under the License.
 
     _computeDefaultRoute: function(trackerUnlocked) {
       return santaApp.defaultRoute;
+    },
+
+    _onTitleClick: function() {
+      this.fire('title-click');
     },
 
   });
