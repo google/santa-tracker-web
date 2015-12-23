@@ -46,7 +46,7 @@ Village scene (2015).
     display: none !important;
   }
   </style>
-  <div id="module-dorf" class$="{{_computeCountDownFinishedClass(countdownFinished)}}">
+  <div id="module-dorf" class$="{{_computeCountdownFinishedClass(countdownFinished)}}">
     <header>
       <div id="header-background">
         <div id="header-mobilevillage"></div>
@@ -67,8 +67,8 @@ Village scene (2015).
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
                            animate="{{!_isCastMode(santaApp.mode)}}"
-                           santa-service="[[santaService]]"
-                           countdown-end-at="[[countdownEndAt]]"
+                           santa-service="[[santaApp.santaService]]"
+                           countdown-end-at="[[santaApp.countdownEndAt]]"
                            finished="{{countdownFinished}}">
             <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
             <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -78,7 +78,9 @@ Village scene (2015).
         </div>
         <div class="castlogo" hidden$="{{!_isCastMode(santaApp.mode)}}"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
-        <a href$="{{_calculateTrackerHref(pageUrl)}}" class="village-tracker-link"><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></a>
+        <a hidden$="[[!duringTracker]]" href$="{{_calculateTrackerHref(pageUrl)}}" class="village-tracker-link">
+          <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
+        </a>
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
     </header>
@@ -357,6 +359,11 @@ Village scene (2015).
       countdownFinished: Boolean,
 
       /**
+       * Bound from `santa-app`, because we need to observe this changing.
+       */
+      duringTracker: Boolean,
+
+      /**
        * URL to share. If null, shares the current href.
        */
       shareURL: {
@@ -379,7 +386,7 @@ Village scene (2015).
       'easteregg-snowmobile4.click': '_driveSnowmobile',
     },
 
-    _computeCountDownFinishedClass: function(finished) {
+    _computeCountdownFinishedClass: function(finished) {
       return finished ? 'countdown-finished': '';
     },
 
@@ -688,11 +695,6 @@ Village scene (2015).
     _calculateCard: function(id, hdpi) {
       // TODO(samthor): non-2x versions if they can be made smaller
       return this.componentDir + 'img/card-' + id + '_2x.png';
-    },
-
-    _santaAppChanged: function() {
-      this.santaService = this.santaApp.santaService;
-      this.countdownEndAt = this.santaApp.countdownEndAt;
     },
 
     /**
