@@ -220,6 +220,10 @@ Tracker scene.
 
     },
 
+    listeners: {
+      'title-click': 'onTitleClick',
+    },
+
     worldView_: null,
 
     onPreload: function() {
@@ -251,6 +255,10 @@ Tracker scene.
       }
 
       this.preloadImages(images);
+    },
+
+    onTitleClick: function() {
+      this.$.feed.scrollToIndex(0);
     },
 
     // TODO: lots to update here for Polymer 1.0.
