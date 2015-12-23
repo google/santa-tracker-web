@@ -667,7 +667,7 @@ Polymer({
     this._updateChromeHide();
   },
 
-  _toggleClassAfterTime(elem, c, add, time) {
+  _toggleClassAfterTime: function(elem, c, add, time) {
     return this.async(function() {
       if (add) {
         elem.classList.add(c);
