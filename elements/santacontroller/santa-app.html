@@ -42,7 +42,7 @@ Santa Tracker app.
       mode$="{{mode}}"
       disabled="{{isCastMode(mode)}}"
       color="{{colorForRoute(route)}}"
-      tracker-unlocked="{{postCountdown}}"
+      tracker-unlocked="{{duringTracker}}"
       today-house="{{todayHouse}}"
       mute="{{userMute}}">
 
@@ -521,13 +521,11 @@ Polymer({
     },
 
     /**
-     * True when the countdown is complete.
+     * True when the countdown is complete, and the tracker is active.
      */
-    postCountdown: {
+    duringTracker: {
       type: Boolean,
-      value: false,
-      reflectToAttribute: true,
-      observer: '_postCountdownChanged'
+      value: false
     },
 
     /**
@@ -536,7 +534,6 @@ Polymer({
     postFlight: {
       type: Boolean,
       value: false,
-      reflectToAttribute: true,
       observer: '_postFlightChanged'
     },
 
@@ -801,7 +798,7 @@ Polymer({
   },
 
   get defaultRoute() {
-    return this.postCountdown ? TRACKER_ROUTE : DEFAULT_ROUTE;
+    return this.duringTracker ? TRACKER_ROUTE : DEFAULT_ROUTE;
   },
 
   /**
@@ -925,7 +922,7 @@ Polymer({
     if (this.scheduleChecked) {
       var valid = (this.$.lazypages.isValidRoute(this.route) &&
                    this.sceneIsUnlocked(this.route)) ||
-                   (this.postCountdown && this.route == TRACKER_ROUTE) ||
+                   (this.duringTracker && this.route == TRACKER_ROUTE) ||
                    (this.mode == 'cast' && this.videos[this.route]);
       if (!valid) {
         if (!window.DEV) {
@@ -1021,14 +1018,6 @@ Polymer({
     this._checkSchedule();
   },
 
-  _postCountdownChanged: function() {
-    if (this.postCountdown) {
-      document.body.classList.add('posttakeoff');
-    } else {
-      document.body.classList.remove('posttakeoff');
-    }
-  },
-
   /**
    * @param number index
    */
@@ -1083,7 +1072,8 @@ Polymer({
     }
 
     var isVideo = !!this.videos[moduleName];
-    if (this.postCountdown && (isVideo || TRACKER_ROUTES.indexOf(moduleName) != -1)) {
+    if ((this.duringTracker || this.postFlight) &&
+        (isVideo || TRACKER_ROUTES.indexOf(moduleName) != -1)) {
       return true;
     }
     if (this.mode == 'cast' && isVideo) {
@@ -1113,7 +1103,7 @@ Polymer({
 
     // Set post countdown/post flight flags based on current time.
     this.postFlight = todayDate >= this.flightFinishedAt;
-    this.postCountdown = todayDate > this.countdownEndAt && !this.postFlight;
+    this.duringTracker = todayDate > this.countdownEndAt && !this.postFlight;
 
     switch(todayDate.getMonth()) {
       case 11: // DECEMBER
@@ -1188,9 +1178,9 @@ Polymer({
   onCountdownFinish: function(e, detail) {
     // Redirect village -> tracker when the countdown finishes. This allows
     // users to go back to the village.
-    if (!this.postCountdown) {
+    if (!this.duringTracker) {
       this._checkSchedule();
-      if (this.postCountdown && this.route === DEFAULT_ROUTE) {
+      if (this.duringTracker && this.route === DEFAULT_ROUTE) {
         // Act as if the user has clicked a link, and update the hash manually.
         this.$.router.go(TRACKER_ROUTE);
       }
