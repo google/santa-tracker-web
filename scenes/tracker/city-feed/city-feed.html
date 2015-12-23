@@ -155,12 +155,14 @@ City feed view in Tracker
           </div>
         </div>
       </div>
-      <div id="character" class$="character-{{cityCharacter}}"></div>
       <div id="city-photos">
         <div class="city-photo" style$="background-image:url({{cityPhotoLowRes}})">
           <div class="city-photo-hires" style$="background-image:url({{cityPhotoHiRes}})"></div>
         </div>
 
+        <div id="character" class$="character-{{cityCharacter}}"></div>
+
+        <!-- Photo selection goes last, on top of character image -->
         <iron-selector id="photoselector" selected="0"
               on-iron-activate="_onPhotoSelected">
           <template is="dom-repeat" items="{{activeStop.stop.details.photos}}" as="photo">
