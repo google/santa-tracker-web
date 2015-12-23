@@ -12,12 +12,7 @@ $santaSleighHeight: 204px;
   z-index: 1000;
   color: #fff;
   font-family: Roboto, sans-serif;
-
-  .top, .user-location, .santa-distance, .skip {
-    width: 100%;
-    text-align: center;
-    z-index: $bubble-overlay-z-index + 1;
-  }
+  cursor: pointer;  // the whole thing closes the intro
 
   #userMap {
     width: 300px;
@@ -66,7 +61,7 @@ $santaSleighHeight: 204px;
     position: absolute;
     margin-top: -$santaSleighHeight/2;
     margin-left: -$santaSleighHeight/2;
-    background-color: #13AB27;
+    background-color: #00a86d;
 
     img {
        height: 120px;
@@ -92,21 +87,6 @@ $santaSleighHeight: 204px;
 
   p {
     margin: 0;
-  }
-
-  .welcome,
-  .skip {
-    text-transform: uppercase;
-  }
-
-  .welcome {
-    margin: 80px 0 10px 0;
-  }
-
-  .title {
-    font-family: 'Lobster', sans-serif;
-    font-weight: normal;
-    font-size: 40px;
   }
 
   .pin {
@@ -142,53 +122,45 @@ $santaSleighHeight: 204px;
     }
   }
 
-  .bottom-wrapper {
+  .text-wrapper {
     position: absolute;
-    bottom: 60px;
-    overflow:hidden;
-    height: 60px;
+    top: 60vh;
     width: 100%;
-  }
+    text-align: center;
+    z-index: $bubble-overlay-z-index + 1;
 
-  .user-location {
-    width: 100%;
-    position: absolute;
-    transform: translateY(60px);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    h3 {
+      font-size: 2em;
+      font-family: "Roboto", Arial, Sans-Serif;
+      font-weight: 700;
+      margin: 0;
 
-    &.final {
-      transform: translateY(0px);
-      opacity: 1;
+      em {
+        font-style: normal;
+        font-size: 1.5em;
+        font-family: "Lobster";
+        font-weight: 500;
+      }
     }
 
-    em {
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 600;
+    h2 {
+      font-size: 4em;
+      font-family: "Lobster";
+      font-weight: 500;
+      margin: 8px 0;
     }
-  }
 
-  .santa-distance {
-    width: 100%;
-    position: absolute;
-    transform: translateY(60px);
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    font-size: 18px;
+    > div {
+      position: absolute;
+      width: 100%;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
-    &.final {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
-
-  .skip {
-    margin-bottom: 40px;
-    font-size: 1em;
-    position: absolute;
-    bottom: 0;
-     a {
-      color: #fff;
-      text-decoration: none;
+      transform: translateY(50vh);
+      opacity: 0;
+      &.final {
+        transform: none;
+        opacity: 1;
+      }
     }
   }
 }

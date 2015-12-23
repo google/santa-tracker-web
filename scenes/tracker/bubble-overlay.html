@@ -67,7 +67,7 @@ Canvas overlay to draw animated cut-out bubbles over the content.
      */
     draw: function() {
       this.$.canvas.width = window.innerWidth;
-      this.$.canvas.height = window.innerHeight - window.santaApp.headerSize;
+      this.$.canvas.height = window.innerHeight;
       this.ctx.fillStyle = this.color;
       this.ctx.fillRect(0, 0, this.$.canvas.width, this.$.canvas.height);
       this.refresh();
