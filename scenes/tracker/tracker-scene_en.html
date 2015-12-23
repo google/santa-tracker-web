@@ -514,7 +514,7 @@ Tracker scene.
       this.shown = true;
       this.setupTracker();
 
-      if (!this.santaApp.hasTrackerIntroShown) {
+      if (!this.santaApp.hasTrackerIntroShown && this.santaApp.mode != "cast") {
         this.santaApp.hasTrackerIntroShown = true;
         this.$.intro.layoutReady();
       } else {
