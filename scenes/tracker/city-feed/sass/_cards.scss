@@ -71,7 +71,7 @@
 }
 
 .card {
-  &.card-codelab, &.card-pins, &.card-app, &.card-mercator, &.card-gumball {
+  &.card-codelab, &.card-pins, &.card-app, &.card-mercator, &.card-gumball, &.card-santasearch, &.card-presentbounce, &.card-codeboogie {
     .card-header {
       .corner-image {
         background-image: url(../img/cards/avatars-general2.svg);
@@ -126,6 +126,16 @@
 
     .card-body {
       background-image: url(../img/cards/tracker-cards-jamband.png);
+    }
+  }
+
+  &.card-codeboogie {
+    .card-header, .card-body, .card-footer {
+      background-color: #3e4da1;
+    }
+
+    .card-body {
+      background-image: url(../img/cards/tracker-cards-codeboogie.png);
     }
   }
 
@@ -211,6 +221,12 @@
     }
   }
 
+  &.card-santasearch {
+    .card-body {
+      background-image: url(../img/cards/tracker-cards-santasearch.png);
+    }
+  }
+
   &.card-seasonofgiving {
     .card-header, .card-body, .card-footer {
       background-color: #378d3b;
@@ -218,6 +234,12 @@
 
     .card-body {
       background-image: url(../img/cards/tracker-cards-season-of-giving.png);
+    }
+  }
+
+  &.card-presentbounce {
+    .card-body {
+      background-image: url(../img/cards/tracker-cards-presentbounce.png);
     }
   }
 
