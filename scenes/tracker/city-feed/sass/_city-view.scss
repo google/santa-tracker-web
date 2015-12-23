@@ -5,9 +5,8 @@
 
   #character {
     position: absolute;
-    left: 560px;
+    left: 84px;  // TODO(skarEE): This is the overlap of the left bar with the photo
     bottom: 0;
-    z-index: 2;
     background-repeat: no-repeat;
     background-size: contain;
     transform: translateX(-800px) translateZ(0);
