@@ -250,7 +250,7 @@ City feed view in Tracker
                       </div>
                     </div>
                   </div>
-                  <paper-fab icon="add" class="card-fab"></paper-fab>
+                  <paper-fab icon="add" class="card-fab" hidden$="{{isCastMode(santaApp.mode)}}"></paper-fab>
                 </div>
               </a>
             </div>
@@ -283,7 +283,7 @@ City feed view in Tracker
                 </div>
               </div>
 
-              <div hidden$="{{!itemIsType(item, 'scene')}}" style="height: 100%">
+              <div hidden$="{{!itemIsTypeNotCast(item, 'scene', santaApp.mode)}}" style="height: 100%">
                 <a href$="{{pageUrl}}#{{item.game}}">
                   <div class="card-header">
                     <div class="corner-image"></div>
@@ -305,7 +305,7 @@ City feed view in Tracker
                 </div>
               </div>
 
-              <div hidden$="{{!itemIsType(item, 'video')}}">
+              <div hidden$="{{!itemIsTypeNotCast(item, 'video', santaApp.mode)}}">
                 <a href$="{{pageUrl}}#{{_computeVideoName(santaApp.videos, item.youtubeId)}}">
                   <div class$="card-body card-{{_computeVideoName(santaApp.videos, item.youtubeId)}}">
                     <div class="corner-image"></div>
@@ -823,8 +823,16 @@ Polymer({
     return type == item.type;
   },
 
+  itemIsTypeNotCast: function(item, type, mode) {
+    return this.itemIsType(item, type) && !this.isCastMode(mode);
+  },
+
+  isCastMode: function(mode) {
+    return mode == 'cast';
+  },
+
   _computeCardClasses: function(item, opt_isNextCard) {
-    // TODO(ebidel): unclear why item can every be undefined.
+    // TODO(ebidel): unclear why item can ever be undefined.
     if (!item) {
       return '';
     }
