@@ -174,7 +174,7 @@ WorldView.prototype.setupMap = function() {
 
   var SantaLayer = createSantaLayerConstructor();
 
-  this.santaLayer_ = new SantaLayer(this.base_, {
+  this.santaLayer_ = new SantaLayer({
     map: this.map_
   });
 
@@ -219,11 +219,8 @@ WorldView.prototype.triggerIdle_ = function() {
 
 WorldView.prototype.moveSanta = function(state) {
   if (!this.santaLayer_) return;
-  var loc = mapsLatLng(state.position);
-  this.santaLayer_.setPosition(loc);
-  this.santaLayer_.set('type', state.stopover ? 'presents' : 'sleigh');
-  this.santaLayer_.setHeading(state.heading);
-  this.santaLayer_.updateTrail(state);
+
+  this.santaLayer_.update(state);
 
   if (this.lockOnSanta_) {
     this.updateCamera_(state);
