@@ -78,6 +78,7 @@ $name: 'module-city-feed';
     text-align: right;
     opacity: 0;
     pointer-events: all;
+    transition: opacity 100ms ease;
 
     a {
       color: #fff;
