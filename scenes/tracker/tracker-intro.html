@@ -38,21 +38,13 @@ Intro for the tracker scene.
     z-index: 3; /* higher than rest of tracker */
   }
   </style>
-  <div id="tracker-intro-module">
+  <div id="tracker-intro-module" on-click="closeIntro">
 
-    <bubble-overlay id="overlay" opacity="0.5" color="#13AB27">
+    <bubble-overlay id="overlay" color="#72C369">
       <canvas-bubble id="userBubble" x="{{_userBubbleCenterX}}" y="{{_winCenterY}}"></canvas-bubble>
       <canvas-bubble id="santaBubble" x="{{_santaBubbleCenterX}}" y="{{_winCenterY}}"></canvas-bubble>
     </bubble-overlay>
 
-    <div id="top" class="top">
-      <p class="welcome">
-        <i18n-msg msgid="tracker_intro_welcome">PLACEHOLDER_i18n</i18n-msg></a>
-      </p>
-      <p class="title">
-        <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
-      </p>
-    </div>
     <div id="santa-loading"></div>
 
     <div class="pin-wrapper" id="pinWrapper">
@@ -67,22 +59,19 @@ Intro for the tracker scene.
       <img src="img/santa_sw.svg">
     </div>
 
-    <div class="bottom-wrapper">
-      <div id="userLocation" class="user-location" >
-        <p class="info">
-          <i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg>
-          <br>
-          <em>{{userLocation.name}}</em>
-        </p>
-      </div>
-
-      <div id="santaDistance" class="santa-distance" >
-        <p>Santa is <span>{{_formatDistance(santaDistance)}}</span> away</p>
-      </div>
+    <div id="userMap">
+      <div id="userMapInner"></div>
     </div>
 
-    <div class="skip">
-      <a href$="{{pageUrl}}#" on-click="closeIntro"><i18n-msg msgid="tracker_intro_skip_intro">PLACEHOLDER_i18n</i18n-msg></a>
+    <div class="text-wrapper">
+      <div id="userLocation" class="user-location">
+        <h3><i18n-msg msgid="tracker_intro_user_location">PLACEHOLDER_i18n</i18n-msg></h3>
+        <h2>{{userLocation.name}}</h2>
+      </div>
+
+      <div id="santaDistance" class="santa-distance">
+        <h3>Santa is <em>{{_formatDistance(santaDistance)}}</em> away</h3>
+      </div>
     </div>
   </div>
 
@@ -92,6 +81,8 @@ Intro for the tracker scene.
   var BUBBLE_RADIUS_BIG = 100;
   var BUBBLE_RADIUS_SMALL = 60;
   var GEO_WAIT_TIME = 10000;
+  var INTRO_CLOSE_TIME = 5000;  // if nothing was done
+  var SHOW_LOCATION_TIME = 5000;
 
   Polymer({
     is: 'tracker-intro',
@@ -157,14 +148,6 @@ Intro for the tracker scene.
       'transitionend': 'goesOffScreen'
     },
 
-    /**
-     * A basename for links within Santa Tracker. The hash is removed for nicer
-     * display URLs in the status bar.
-     */
-    get pageUrl() {
-      return location.href.substr(0, location.href.length - location.hash.length);
-    },
-
     attached: function() {
       this.calculateLayoutValues_();  // TODO: was in created:
       this.resizeHandler_ =  this.resize_.bind(this);
@@ -180,9 +163,11 @@ Intro for the tracker scene.
 
     updateLayout_: function() {
       this.$.pinWrapper.style.left = this._userBubbleCenterX + 'px';
+      this.$.userMap.style.left = this._userBubbleCenterX + 'px';
       this.$.santaSleigh.style.left = this._santaBubbleCenterX + 'px';
       this.$.pinWrapper.style.top = this._winCenterY + 'px';
       this.$.santaSleigh.style.top = this._winCenterY + 'px';
+      this.$.userMap.style.top = this._winCenterY + 'px';
       this.$.santaPath.style.left = this._userBubbleCenterX + 30 + 'px';
       this.$.santaPath.style.top = this._winCenterY + 'px';
     },
@@ -236,12 +221,6 @@ Intro for the tracker scene.
     },
 
     bindMapToBubble_: function(el, bubble, icon) {
-      // Compensate for a left and top overflow if present.
-      var rect = el.getBoundingClientRect();
-      var transformOrigin = (bubble.bubble.originX - rect.left) + 'px ' +
-                            (bubble.bubble.originY - rect.top) + 'px';
-      el.style.transformOrigin = el.style.webkitTransformOrigin =transformOrigin;
-
       bubble.addEventListener(Bubble.EventType.RESIZE, function(e) {
         this.clipMap_(el, e.target.bubble);
       }.bind(this));
@@ -257,6 +236,7 @@ Intro for the tracker scene.
       this.$['santa-loading'].classList.remove('final');
       if (this.layoutReady_ && !this.map_) {
         window.clearTimeout(this.continueTimeout_);
+        this._setupUserMap();
       }
     },
 
@@ -264,22 +244,42 @@ Intro for the tracker scene.
       this.layoutReady_ = true;
 
       this.continueTimeout_ = window.setTimeout(this.bypass.bind(this), GEO_WAIT_TIME);
+
+      if (this.userLocation) {
+        this._setupUserMap();
+      }
     },
 
     bypass: function() {
       this.closeIntro();
     },
 
+    _setupUserMap: function() {
+      this.map_ = new google.maps.Map(this.$.userMapInner, {
+        center: new google.maps.LatLng(
+            this.userLocation.location.lat,
+            this.userLocation.location.lng),
+        zoom: 8,
+        disableDefaultUI: true,
+        scrollwheel: false,
+        draggable: false,
+        disableDoubleClickZoom: true,
+        backgroundColor: '#fff',
+        styles: mapstyles.styles
+      });
+
+      this.bindMapToBubble_(this.$.userMap, this.$.userBubble, this.$.pin.parentNode);
+
+      google.maps.event.addListener(
+        this.map_, 'idle', function(){
+          this.showUserLocationMap();
+        }.bind(this));
+    },
+
     /**
-     * Plays intro title animation sequence.
-     *
-     * @method showTitle
+     * Plays intro title animation sequence. Disused in 2015.
      */
     showTitle: function() {
-      this.async(function() {
-        this.$.top.classList.add('final');
-        this.$['santa-loading'].classList.add('final');
-      }, 300);
     },
 
     /**
@@ -292,16 +292,15 @@ Intro for the tracker scene.
       var pin = this.$.pin;
       var userLocationEl = this.$.userLocation;
 
-      this.$.top.classList.add('final'); // 300ms
       this.async(function() {
         bubble.open(140, function(e) {
           bubble.open(100, function() {
             userLocationEl.classList.add('final');
-            pin.style.webkitTransform = 'rotate(0deg)';
-            pin.style.transform = 'rotate(0deg)';
+            webkitStyle(pin, 'transform', 'rotate(0deg)');
+
             this.async(function() {
               this.showSanta();
-            }, 1500);
+            }, SHOW_LOCATION_TIME);
           }.bind(this));
         }.bind(this));
       }, 300);
@@ -327,9 +326,9 @@ Intro for the tracker scene.
           this.resize_();
           santaBubble.open(100);
           this.async(function() {
-           this.closeIntro(); // Remove intro screen after 4s.
-          }, 4000);
-        }, 800);
+            this.closeIntro(); // Remove intro screen after a while.
+          }, INTRO_CLOSE_TIME);
+        }, 500);
 
       }.bind(this));
       this.$.userLocation.classList.remove('final');
