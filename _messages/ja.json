@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "出発まであと…"
 	},
+	"tracker_distance_away_km": {
+		"message": "サンタさんは %distance_away% km 離れたところにいます"
+	},
 	"tracker_distance_from_you": {
 		"message": "あなたのいる場所からの距離"
 	},
@@ -4845,7 +4848,7 @@
 		"message": "12 月はサンタさんの妖精たちと一緒に、サンタ村を探検したり、ゲームをしたり、クリスマスについて学んだりしよう"
 	},
 	"village_get_the_app": {
-		"message": "Android 向け「サンタを追いかけよう」アプリをダウンロード"
+		"message": "Android 版「サンタを追いかけよう」アプリをダウンロード"
 	},
 	"village_more": {
 		"message": "その他の情報"

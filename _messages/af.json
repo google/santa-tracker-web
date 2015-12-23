@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Vertrek oor"
 	},
+	"tracker_distance_away_km": {
+		"message": "Santa is %distance_away% km ver"
+	},
 	"tracker_distance_from_you": {
 		"message": "Afstand van jou af"
 	},
@@ -4857,7 +4860,7 @@
 		"message": "Kersvader op Google Cast"
 	},
 	"village_santa_crx": {
-		"message": "Voeg die Santa Chrome-uitbreiding by"
+		"message": "Voeg die Santa-uitbreiding by Chrome"
 	},
 	"village_takesoff": {
 		"message": "Kersvader vertrek oor"

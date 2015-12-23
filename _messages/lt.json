@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Išvyksta po"
 	},
+	"tracker_distance_away_km": {
+		"message": "Kalėdų Senelis yra už %distance_away% km"
+	},
 	"tracker_distance_from_you": {
 		"message": "Atstumas nuo jūsų"
 	},

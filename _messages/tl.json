@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Aalis sa loob ng"
 	},
+	"tracker_distance_away_km": {
+		"message": "%distance_away%km ang layo ni Santa"
+	},
 	"tracker_distance_from_you": {
 		"message": "Distansya mula sa iyo"
 	},

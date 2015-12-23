@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Dosies ceļā pēc"
 	},
+	"tracker_distance_away_km": {
+		"message": "Ziemassvētku vecītis ir %distance_away%km attālumā"
+	},
 	"tracker_distance_from_you": {
 		"message": "Attālums no jūsu atrašanās vietas"
 	},

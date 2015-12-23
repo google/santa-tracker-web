@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Départ prévu dans"
 	},
+	"tracker_distance_away_km": {
+		"message": "Le père Noël est à %distance_away% km de chez vous."
+	},
 	"tracker_distance_from_you": {
 		"message": "Distance par rapport à vous"
 	},

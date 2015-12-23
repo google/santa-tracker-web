@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Khởi hành sau"
 	},
+	"tracker_distance_away_km": {
+		"message": "Ông già Noel cách %distance_away% km"
+	},
 	"tracker_distance_from_you": {
 		"message": "Khoảng cách từ bạn"
 	},

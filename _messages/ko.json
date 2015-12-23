@@ -321,7 +321,7 @@
 		"message": "선생님의 춤 동작에 맞추기"
 	},
 	"codeboogie-mode-freestyle": {
-		"message": "나만의 춤 동작 만들기"
+		"message": "프리스타일 댄스"
 	},
 	"codeboogie-mode-freestyle-description": {
 		"message": "춤 동작을 직접 만들어 친구와 공유하기"
@@ -1117,6 +1117,9 @@
 	},
 	"tracker_departing_in": {
 		"message": "출발 시간"
+	},
+	"tracker_distance_away_km": {
+		"message": "산타가 %distance_away%km 떨어진 곳에 있습니다."
 	},
 	"tracker_distance_from_you": {
 		"message": "산타와의 거리"

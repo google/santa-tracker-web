@@ -1118,6 +1118,9 @@
 	"tracker_departing_in": {
 		"message": "Departing in"
 	},
+	"tracker_distance_away_km": {
+		"message": "Santa is %distance_away%km away"
+	},
 	"tracker_distance_from_you": {
 		"message": "Distance from you"
 	},
