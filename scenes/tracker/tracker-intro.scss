@@ -19,6 +19,16 @@ $santaSleighHeight: 204px;
     z-index: $bubble-overlay-z-index + 1;
   }
 
+  #userMap {
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+    position: absolute;
+    z-index: $bubble-overlay-z-index - 2;
+    display: block;
+  }
+
   #santa-loading {
     background: url(../village/img/santa-sign.gif) no-repeat 50% 50%;
     background-size: 144px 96px;
@@ -39,6 +49,14 @@ $santaSleighHeight: 204px;
       transform: translateY(0px);
       opacity: 1;
     }
+  }
+
+  #userMapInner {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    z-index: $bubble-overlay-z-index - 1;
+    display: block;
   }
 
   #santaSleigh {
