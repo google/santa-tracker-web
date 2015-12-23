@@ -23,11 +23,9 @@ function createSantaLayerConstructor() {
   /**
    * Class for drawing Santa, his sleigh, and his path over the Tracker map.
    * @constructor
-   * @param {PolymerElement} base used for async calls
-   * @param {Object<string>} opt_opts
+   * @param {!Object<string>} options
    */
-  function SantaLayer(base, opt_opts) {
-    this.base_ = base;
+  function SantaLayer(options) {
     this.container_ = document.createElement('div');
     this.set('type', 'sleigh');
     this.prevType_ = undefined;
@@ -45,7 +43,7 @@ function createSantaLayerConstructor() {
     });
     this.activeTrail_.bindTo('map', this);
 
-    this.setValues(opt_opts);
+    this.setValues(options);
 
     this.container_.addEventListener('click', this.onSantaClick_.bind(this));
   }
@@ -225,12 +223,12 @@ function createSantaLayerConstructor() {
     }
 
     next.classList.add('active');
-    this.animationHandle_ = this.base_.async(
+    this.animationHandle_ = window.setTimeout(
         this.animate_.bind(this), this.ANIMATION_DURATION_);
   };
 
   SantaLayer.prototype.stopAnimation_ = function() {
-    this.base_.cancelAsync(this.animationHandle_);
+    window.clearTimeout(this.animationHandle_);
   };
 
   SantaLayer.prototype.addNodesToContainer_ = function(num) {
