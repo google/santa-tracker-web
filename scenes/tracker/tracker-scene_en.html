@@ -65,9 +65,13 @@ Tracker scene.
           santa-distance="{{initialSantaDistance}}"
           santa-location="{{initialSantaLocation}}"></tracker-intro>
 
+      <div id="returnsanta">
+        <paper-fab id="followSantaButton" class="hidden" src="img/returnsanta.svg" on-click="followSanta"></paper-fab>
+      </div>
+
       <div id="trackermap" class="fit"></div>
 
-      <iron-media-query query="max-width:660px" query-matches="{{isPhoneSize}}"></iron-media-query>
+      <iron-media-query query="max-width:767px" query-matches="{{isPhoneSize}}"></iron-media-query>
     </div>
   </div>
 
@@ -167,7 +171,8 @@ Tracker scene.
        */
       isPhoneSize: {
         type: Boolean,
-        value: false
+        value: false,
+        observer: 'isPhoneSizeChanged'
       },
 
       /**
@@ -406,7 +411,18 @@ Tracker scene.
 
     isPhoneSizeChanged: function() {
       if (this.isPhoneSize) {
+        // TODO(samthor): trackerCard totally disused?
         this.trackerCard = null;
+        this.followSanta();
+      }
+    },
+
+    /**
+     * Cause the worldView to follow Santa.
+     */
+    followSanta: function() {
+      if (this.worldView_) {
+        this.worldView_.followSanta();
       }
     },
 

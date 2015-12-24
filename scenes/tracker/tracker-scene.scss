@@ -202,5 +202,23 @@ $name: 'module-tracker';
     }
   }
 
+  #returnsanta {
+    position: absolute;
+    bottom: 30px;
+    right: 550px;
+    z-index: 1;
+
+    paper-fab {
+      @include will-change(transform);
+      transition: transform 0.25s ease-in;
+      background: #87d745;
+      transform: scale(1);
+
+      &.hidden {
+        transform: scale(0);
+      }
+    }
+  }
+
   @import "sass/_responsive.scss";
 }

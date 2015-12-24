@@ -26,6 +26,16 @@ function WorldView(base, componentDir) {
   this.componentDir_ = componentDir;
 
   /**
+   * @const {number}
+   */
+  this.maxZoom_ = 6;  // ROK has own tiles at 7+
+
+  /**
+   * @const {number}
+   */
+  this.offsetZoom_ = 1;  // we want to see this many zoom levels zoomed out
+
+  /**
    * @type {!Array.<!google.maps.Marker>}
    */
   this.routeMarkers_ = [];
@@ -79,8 +89,11 @@ WorldView.prototype.hide = function() {
 };
 
 WorldView.prototype.onResize_ = function() {
-  var height = window.innerHeight - window.santaApp.headerSize;
-  this.mapSize_ = new google.maps.Size(window.innerWidth, height);
+  var div = this.map_.getDiv();
+  var rect = div.getBoundingClientRect();
+  var min = Math.min(rect.width, rect.height);
+
+  this.mapSize_ = new google.maps.Size(min, min);
 };
 
 WorldView.prototype.cycleStatus_ = function() {
@@ -111,27 +124,13 @@ WorldView.prototype.setMode = function(mode) {
   this.centerOffset_ = this.computeCenterOffset_();
 };
 
-WorldView.prototype.zoomIn = function() {
-  this.startIdleTimeout_();
-  if (!this.map_) return;
-
-  this.map_.setZoom(this.map_.getZoom() + 1);
-};
-
-WorldView.prototype.zoomOut = function() {
-  this.startIdleTimeout_();
-  if (!this.map_) return;
-
-  this.map_.setZoom(this.map_.getZoom() - 1);
-};
-
 WorldView.prototype.setupMap = function() {
   if (this.map_) return;
   this.map_ = new google.maps.Map(this.base_.$['module-tracker'].querySelector('#trackermap'), {
     center: {lat: 0, lng: 0},
     zoom: 3,
     minZoom: 2,
-    maxZoom: 6,  // ROK has own tiles at 7+
+    maxZoom: this.maxZoom_,
     'noPerTile': true,
     disableDefaultUI: true,
     backgroundColor: '#69d5d0',
@@ -140,10 +139,16 @@ WorldView.prototype.setupMap = function() {
     styles: mapstyles.styles
   });
 
+  var unfollowSanta = this.unfollowSanta.bind(this);
   var events = ['dragstart', 'dblclick', 'rightclick'];
   for (var i = 0; i < events.length; i++) {
-    google.maps.event.addListener(this.map_, events[i], this.unfollowSanta.bind(this));
+    google.maps.event.addListener(this.map_, events[i], unfollowSanta);
   }
+  google.maps.event.addListener(this.map_, 'zoom_changed', function() {
+    if (!this.settingSantaLoc_) {
+      unfollowSanta();
+    }
+  }.bind(this));
 
   this.dummyOverlayView_ = createDummyOverlayView();
   this.dummyOverlayView_.setMap(this.map_);
@@ -199,11 +204,15 @@ WorldView.prototype.onSantaLayerClick_ = function() {
 
 WorldView.prototype.followSanta = function() {
   this.lockOnSanta_ = true;
+
+  this.base_.$.followSantaButton.classList.add('hidden');
 };
 
 WorldView.prototype.unfollowSanta = function() {
   this.lockOnSanta_ = false;
   this.startIdleTimeout_();
+
+  this.base_.$.followSantaButton.classList.remove('hidden');
 };
 
 WorldView.prototype.startIdleTimeout_ = function() {
@@ -352,26 +361,31 @@ WorldView.prototype.filterMarkers_ = function() {
  * @private
  */
 WorldView.prototype.updateCamera_ = function(state) {
-  // Work around https://b/18847104
-  var bounds = this.santaLayer_.getBounds();
-  bounds.extend(mapsLatLng(state.next.location));
-  var windowSize = this.mapSize_;
+  // TODO: This used SantaLayer to show the recent track, but the code was
+  // busted: let's just compare curr/next.
+  var bounds = new google.maps.LatLngBounds(mapsLatLng(state.position));
+  bounds = bounds.extend(mapsLatLng(state.next.location));
+
+  if (state.prev && state.prev.location) {
+    bounds = bounds.extend(mapsLatLng(state.prev.location));
+  }
+
+  var viewSize = this.mapSize_;
+
   var proj = this.map_.getProjection();
   if (proj) {
-    var zoom = this.getBoundsZoomLevel_(proj, bounds, windowSize);
+    var zoom = this.getBoundsZoomLevel_(proj, bounds, viewSize) - this.offsetZoom_;
     if (this.map_.getZoom() != zoom) {
       // Viewport request triggered if setZoom called (even if not changed).
-      this.map_.setZoom(zoom);
+      try {
+        this.settingSantaLoc_ = true;
+        this.map_.setZoom(zoom);
+      } finally {
+        this.settingSantaLoc_ = false;
+      }
     }
   }
-  var center = mapsLatLng(state.position);
-  if (this.centerOffset_) {
-    center = this.getLatLngOffset_(
-          center,
-          this.centerOffset_.x,
-          this.centerOffset_.y + this.santaLayer_.getHeight() / 2);
-  }
-  this.map_.panTo(center);
+  this.map_.panTo(mapsLatLng(state.position));
 };
 
 /**

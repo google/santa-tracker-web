@@ -752,6 +752,9 @@ Polymer({
       this.showStop(this._stopToLoad);
     }
     if (this.active && this._cardInView) {
+      if (this.$.feed.scrollTop == 0) {
+        return;  // never automatically move from top
+      }
       this.scrollToTime(this._cardInView);
     }
   },
@@ -781,7 +784,7 @@ Polymer({
       last = Math.ceil(first + (window.innerHeight / 200));
     }
 
-    if (idx < first || idx >= last) {
+    if (idx < first || idx > last) {
       this.$.feed.scrollToIndex(idx);
     }
   },
