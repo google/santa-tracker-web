@@ -97,6 +97,12 @@ function SantaEventListener(o, eventName, listener) {
   Events.listeners_(o, eventName)[this.id_] = this;
 }
 
+SantaEventListener.prototype.remove = function() {
+  // TODO(samthor): Support removeListener instead of this.
+  var m = Events.listeners_(this.o_, this.eventName_);
+  delete m[this.id_];
+}
+
 SantaEventListener.prototype.invoke_ = function(args) {
   this.listener_.apply(this.o_, args);
 };
