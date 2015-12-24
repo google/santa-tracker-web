@@ -336,6 +336,7 @@ City feed view in Tracker
 (function() {
 
 var IDLE_TIMEOUT = 2 * 1000 * 60;  // 2m
+var IDLE_EVENTS = Object.freeze(['wheel', 'touchmove', 'click']);
 
 /**
  * Fired when a page in the city card is selected or a video is played.
@@ -464,7 +465,7 @@ Polymer({
 
   attached: function() {
     // After IDLE_TIMEOUT of not scrolling, move the user back to the top.
-    this._scrollHandler = function() {
+    this._scrollHandler = function(event) {
       this.cancelAsync(this._idleAsync);
       this._idleAsync = this.async(function() {
         this.scrollToIndex(0);
@@ -474,12 +475,16 @@ Polymer({
     this.async(function() {
       // Get the private _scroller from `iron-feed`, since it's not otherwise
       // exposed.
-      this.$.feed._scroller.addEventListener('scroll', this._scrollHandler);
+      IDLE_EVENTS.forEach(function(event) {
+        this.$.feed._scroller.addEventListener(event, this._scrollHandler);
+      }, this);
     });
   },
 
   detached: function() {
-    this.$.feed._scroller.removeEventListener('scroll', this._scrollHandler);
+    IDLE_EVENTS.forEach(function(event) {
+      this.$.feed._scroller.removeEventListener(event, this._scrollHandler);
+    }, this);
     this._scrollHandler = null;
   },
 
