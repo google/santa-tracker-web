@@ -335,6 +335,8 @@ City feed view in Tracker
 <script>
 (function() {
 
+var IDLE_TIMEOUT = 2 * 1000 * 60;  // 2m
+
 /**
  * Fired when a page in the city card is selected or a video is played.
  *
@@ -457,6 +459,30 @@ Polymer({
     }
   },
 
+  _scrollHandler: null,
+  _idleAsync: null,
+
+  attached: function() {
+    // After IDLE_TIMEOUT of not scrolling, move the user back to the top.
+    this._scrollHandler = function() {
+      this.cancelAsync(this._idleAsync);
+      this._idleAsync = this.async(function() {
+        this.scrollToIndex(0);
+      }, IDLE_TIMEOUT);
+    }.bind(this);
+
+    this.async(function() {
+      // Get the private _scroller from `iron-feed`, since it's not otherwise
+      // exposed.
+      this.$.feed._scroller.addEventListener('scroll', this._scrollHandler);
+    });
+  },
+
+  detached: function() {
+    this.$.feed._scroller.removeEventListener('scroll', this._scrollHandler);
+    this._scrollHandler = null;
+  },
+
   /**
    * The last scroll operation that was attempted.
    */
@@ -552,6 +578,7 @@ Polymer({
       return;
     }
 
+    console.warn('how did we get to showStop?', new Error());
     this.scrollToDest(stopId);
 
     this._stopToLoad = undefined;
@@ -683,6 +710,7 @@ Polymer({
     if (!this.timeline || !this.timeline.length) {
       return;
     }
+    console.info('timeline changed');
 
     // Make a copy so 2-way bindings don't alter original timeline data.
     var stream = this.timeline.slice();
@@ -729,7 +757,6 @@ Polymer({
    * Scrolls the stream to the given destination card. If the index doesn't exist,
    * the stream scrolls to the top.
    *
-   * @method scrollToDest
    * @param {string} destId Destination id
    */
   scrollToDest: function(destId) {
@@ -738,28 +765,33 @@ Polymer({
   },
 
   /**
-   * Scrolls the stream to the item at index.
+   * Scrolls the stream to the item at index, presuming it's not already
+   * visible.
    *
-   * @method scrollToIndex
    * @param {number} idx Index of item to scroll to.
    */
   scrollToIndex: function(idx) {
-    this.$.feed.scrollToIndex(idx);
+    var first = this.$.feed.firstVisibleIndex;
+    var last = this.$.feed.lastVisibleIndex;
+    if (last === undefined) {
+      // Take a rough guess at card size, since iron-pages isn't helping.
+      last = Math.ceil(first + (window.innerHeight / 200));
+    }
+
+    if (idx < first || idx >= last) {
+      this.$.feed.scrollToIndex(idx);
+    }
   },
 
   /**
-   * Scrolls to the stream item, unless it's near the top of the feed.
+   * Scrolls to the stream item.
    *
-   * @method scrollToTime
    * @param {number} idx Index of item to scroll to.
    */
   scrollToTime: function(timestamp) {
     var timestamp = parseInt(timestamp);
     for (var i = 0, item; item = this.stream[i]; ++i) {
       if (item.timestamp === timestamp) {
-        if (i <= 6) {
-          break;  // don't scroll below the top 6 elements, basically at top
-        }
         this.scrollToIndex(i);
         break;
       }
