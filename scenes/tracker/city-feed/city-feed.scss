@@ -486,7 +486,7 @@ $name: 'module-city-feed';
     }
 
     .card.card-santa-info {
-      height: 188px;
+      height: auto;  // mobile can work this out fine
 
       .santa-info-row {
         div.santa-info-distance {
