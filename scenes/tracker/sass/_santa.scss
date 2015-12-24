@@ -77,16 +77,6 @@
   width: $width;
   height: $height;
 
-  &:after {
-    content: "";
-    background: url(img/santa_effects.svg) 50% 0 no-repeat;
-    position: absolute;
-    width: $width;
-    height: 44px;
-    top: 57px;
-    z-index: 1;
-  }
-
   div {
     width: $width;
     height: $height;
@@ -105,6 +95,16 @@
 
   :nth-child(2) {
     animation-name: santaBounce;
+
+    &:after {
+      content: "";
+      background: url(img/santa_effects.svg) 50% 0 no-repeat;
+      position: absolute;
+      width: $width;
+      height: 44px;
+      top: 57px;
+      z-index: 1;
+    }
   }
 
   &.n {
