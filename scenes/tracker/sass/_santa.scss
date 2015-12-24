@@ -72,7 +72,7 @@
 .santa-sleigh {
   $height: 68px;
   $width: 84px;
-  margin-top: -56px;
+  margin-top: -50px;
   margin-left: -($width / 2);
   width: $width;
   height: $height;
@@ -88,94 +88,122 @@
   }
 
   div {
-    visibility: hidden;
     width: $width;
     height: $height;
     position: absolute;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     z-index: 2;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
   }
 
-  :nth-child(1) {
-    background-image: url(img/santa_n.svg);
-  }
-
-  &.n {
-    :nth-child(1) {
-      visibility: visible;
-    }
+  :nth-child(1), :nth-child(3) {
+    animation-name: sleighBounce;
   }
 
   :nth-child(2) {
-    background-image: url(img/santa_ne.svg);
-    background-size: 85% 85%;
+    animation-name: santaBounce;
+  }
+
+  &.n {
+    :nth-child(2) {
+      background-image: url(img/sleigh/sleigh-b-santa.svg);
+      background-size: 85%;
+    }
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-b-front.svg);
+      background-size: 85%;
+    }
   }
 
   &.ne {
     :nth-child(2) {
-      visibility: visible;
+      background-image: url(img/sleigh/sleigh-br-santa.svg);
+      background-size: 85%;
     }
-  }
-
-  :nth-child(3) {
-    background-image: url(img/santa_e.svg);
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-br-front.svg);
+      background-size: 85%;
+    }
   }
 
   &.e {
-    :nth-child(3) {
-      visibility: visible;
+    :nth-child(2) {
+      background-image: url(img/sleigh/sleigh-r-santa.svg);
+      background-size: 80%;
     }
-  }
-
-  :nth-child(4) {
-    background-image: url(img/santa_se.svg);
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-r-front.svg);
+      background-size: 80%;
+    }
   }
 
   &.se {
-    :nth-child(4) {
-      visibility: visible;
+    :nth-child(1) {
+      background-image: url(img/sleigh/sleigh-fr-back.svg);
+      background-size: 85%;
     }
-  }
-
-  :nth-child(5) {
-    background-image: url(img/santa_s.svg);
+    :nth-child(2) {
+      background-image: url(img/sleigh/sleigh-fr-santa.svg);
+      background-size: 85%;
+    }
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-fr-front.svg);
+      background-size: 85%;
+    }
   }
 
   &.s {
-    :nth-child(5) {
-      visibility: visible;
+    :nth-child(1) {
+      background-image: url(img/sleigh/sleigh-f-back.svg);
+      background-size: 82%;
     }
-  }
-
-  :nth-child(6) {
-    background-image: url(img/santa_sw.svg);
+    :nth-child(2) {
+      background-image: url(img/sleigh/sleigh-f-santa.svg);
+      background-size: 82%;
+    }
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-f-front.svg);
+      background-size: 82%;
+    }
   }
 
   &.sw {
-    :nth-child(6) {
-      visibility: visible;
+    :nth-child(1) {
+      background-image: url(img/sleigh/sleigh-fl-back.svg);
+      background-size: 82%;
     }
-  }
-
-  :nth-child(7) {
-    background-image: url(img/santa_w.svg);
+    :nth-child(2) {
+      background-image: url(img/sleigh/sleigh-fl-santa.svg);
+      background-size: 82%;
+    }
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-fl-front.svg);
+      background-size: 82%;
+    }
   }
 
   &.w {
-    :nth-child(7) {
-      visibility: visible;
+    :nth-child(2) {
+      background-image: url(img/sleigh/sleigh-l-santa.svg);
+      background-size: 82%;
+    }
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-l-front.svg);
+      background-size: 82%;
     }
   }
 
-  :nth-child(8) {
-    background-image: url(img/santa_nw.svg);
-    background-size: 85% 85%;
-  }
-
   &.nw {
-    :nth-child(8) {
-      visibility: visible;
+    :nth-child(2) {
+      background-image: url(img/sleigh/sleigh-bl-santa.svg);
+      background-size: 85%;
+    }
+    :nth-child(3) {
+      background-image: url(img/sleigh/sleigh-bl-front.svg);
+      background-size: 85%;
     }
   }
 }
