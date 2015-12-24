@@ -33,7 +33,7 @@ function WorldView(base, componentDir) {
   /**
    * @const {number}
    */
-  this.offsetZoom_ = 1;  // we want to see this many zoom levels zoomed out
+  this.offsetZoom_ = 2;  // we want to see this many zoom levels zoomed out
 
   /**
    * @type {!Array.<!google.maps.Marker>}
