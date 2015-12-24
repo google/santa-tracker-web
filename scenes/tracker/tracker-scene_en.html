@@ -221,8 +221,12 @@ Tracker scene.
     },
 
     listeners: {
-      'title-click': 'onTitleClick',
+      'default-action': 'onDefaultAction',
     },
+
+    // Listeners registered on santaService, to clear when the tracker is
+    // hidden.
+    _listeners: null,
 
     worldView_: null,
 
@@ -257,7 +261,13 @@ Tracker scene.
       this.preloadImages(images);
     },
 
-    onTitleClick: function() {
+    /**
+     * The user has hit esc or pressed the Santa Tracker text.
+     */
+    onDefaultAction: function() {
+      if (this.$.feed.activeStop) {
+        return;  // don't scroll to top if feed is open
+      }
       this.$.feed.scrollToIndex(0);
     },
 
@@ -325,20 +335,19 @@ Tracker scene.
       this.worldView_.setupMap();
       this.worldView_.show();
 
-      // TODO: we don't have a removeListener in SantaService. This will add
-      // additional listeners every time someone switches back to tracker.
-      console.warn('setupTracker called, adding listeners to santaService');
-
-      this.santaApp.santaService.addListener('destinations_changed', function(dests) {
+      // Store listeners so we can remove them in onHide.
+      this._listeners = [];
+      var record = function(x) {
+        this._listeners.push(x);
+      }.bind(this);
+      record(this.santaApp.santaService.addListener('destinations_changed', function(dests) {
         this.destinations = (dests || []).slice();
-      }.bind(this));
-
-      this.santaApp.santaService.addListener('timeline_changed', function(timeline) {
+      }.bind(this)));
+      record(this.santaApp.santaService.addListener('timeline_changed', function(timeline) {
         this.timeline = (timeline || []).slice();
-      }.bind(this));
-
-      this.santaApp.santaService.addListener('sync', this._syncHandler.bind(this));
-      this.santaApp.santaService.addListener('card', this._updateCard.bind(this));
+      }.bind(this)));
+      record(this.santaApp.santaService.addListener('sync', this._syncHandler.bind(this)));
+      record(this.santaApp.santaService.addListener('card', this._updateCard.bind(this)));
 
       // Sync if we need to.
       this.destinations = this.santaApp.santaService.getDestinations();
@@ -444,11 +453,26 @@ Tracker scene.
       if (this.userLocation !== undefined) {
         return;  // already have the first location, don't update it again
       }
+      if (window.santaApp.userLocation !== undefined) {
+        this.userLocation = window.santaApp.userLocation;
+        return;
+      }
 
       var failHandler = function() {
         this.userLocation = null;
         this.$.intro.closeIntro();
         this.fire('analytics-track-event', {category: 'geolocation', action: 'error'});
+      }.bind(this);
+
+      var successHandler = function(r) {
+        this.userLocation = {
+          location: {
+            lat: r.geometry.location.lat(),
+            lng: r.geometry.location.lng()
+          },
+          name: r.formatted_address
+        };
+        window.santaApp.userLocation = this.userLocation;  // save for later
       }.bind(this);
 
       var userLocation = this.santaApp.santaService.getUserLocation();
@@ -467,13 +491,7 @@ Tracker scene.
           if (r.types.indexOf('locality') == -1) {
             continue;
           }
-          this.userLocation = {
-            location: {
-              lat: r.geometry.location.lat(),
-              lng: r.geometry.location.lng()
-            },
-            name: r.formatted_address
-          };
+          successHandler(r);
           return;
         }
         failHandler();
@@ -549,6 +567,10 @@ Tracker scene.
 
       this.shown = false;
       this.mapReady_ = false;
+
+      (this._listeners || []).forEach(function(l) {
+        l.remove();
+      });
 
       this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },

@@ -560,7 +560,7 @@ Polymer({
   },
 
   listeners: {
-    'title-click': 'onTitleClick',
+    'title-click': 'onDefaultAction',
     'scene-progress': 'onSceneProgress',
     'scene-ready': 'onSceneReady',
     'video-scene-done': 'onVideoSceneDone',
@@ -713,13 +713,13 @@ Polymer({
   },
 
   /**
-   * Handles the title being clicked. Redirects the event to the selected
-   * scene.
+   * Handles the title being clicked or esc being hit. Redirects the event to
+   * the selected scene.
    */
-  onTitleClick: function() {
+  onDefaultAction: function() {
     var scene = this.selectedScene;
     if (scene && scene.fire) {
-      scene.fire('title-click');
+      scene.fire('default-action');
     }
   },
 
@@ -1183,6 +1183,7 @@ Polymer({
     switch (e.detail.key) {
       case 'esc':
         this.$.router.go(this.defaultRoute);
+        this.onDefaultAction();
         break;
     }
   },

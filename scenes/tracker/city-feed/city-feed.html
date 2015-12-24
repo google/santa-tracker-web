@@ -721,7 +721,7 @@ Polymer({
       this.showStop(this._stopToLoad);
     }
     if (this.active && this._cardInView) {
-       this.scrollToTime(this._cardInView);
+      this.scrollToTime(this._cardInView);
     }
   },
 
@@ -748,7 +748,7 @@ Polymer({
   },
 
   /**
-   * Scrolls the stream item.
+   * Scrolls to the stream item, unless it's near the top of the feed.
    *
    * @method scrollToTime
    * @param {number} idx Index of item to scroll to.
@@ -757,6 +757,9 @@ Polymer({
     var timestamp = parseInt(timestamp);
     for (var i = 0, item; item = this.stream[i]; ++i) {
       if (item.timestamp === timestamp) {
+        if (i <= 6) {
+          break;  // don't scroll below the top 6 elements, basically at top
+        }
         this.scrollToIndex(i);
         break;
       }
