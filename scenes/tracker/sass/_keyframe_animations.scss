@@ -93,3 +93,69 @@
     background-position: 0 0;
   }
 }
+
+@keyframes sleighBounce {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(0, -5px);
+  }
+  20% {
+    transform: translate(0, 5px);
+  }
+  30% {
+    transform: translate(0, -3px);
+  }
+  40% {
+    transform: translate(0, 3px);
+  }
+  55% {
+    transform: translate(0, -10px);
+  }
+  65% {
+    transform: translate(0, 10px);
+  }
+  80% {
+    transform: translate(0, -3px);
+  }
+  90% {
+    transform: translate(0, 3px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes santaBounce {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(0, -6px);
+  }
+  20% {
+    transform: translate(0, 6px);
+  }
+  30% {
+    transform: translate(0, -4px);
+  }
+  40% {
+    transform: translate(0, 4px);
+  }
+  55% {
+    transform: translate(0, -12px);
+  }
+  65% {
+    transform: translate(0, 12px);
+  }
+  80% {
+    transform: translate(0, -4px);
+  }
+  90% {
+    transform: translate(0, 4px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

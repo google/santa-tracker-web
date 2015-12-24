@@ -200,7 +200,7 @@ function createSantaLayerConstructor() {
     if (type === 'sleigh') {
       this.stopAnimation_();
       this.container_.className = 'santa-sleigh';
-      this.addNodesToContainer_(this.SLEIGH_POSITIONS_.length);
+      this.addNodesToContainer_(3);
     } else {
       var deliverTypes = ['presents', 'magic'];
       var deliverType = deliverTypes[Math.floor(Math.random() *
