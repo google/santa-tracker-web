@@ -709,7 +709,6 @@ Polymer({
     if (!this.timeline || !this.timeline.length) {
       return;
     }
-    console.info('timeline changed');
 
     // Make a copy so 2-way bindings don't alter original timeline data.
     var stream = this.timeline.slice();
