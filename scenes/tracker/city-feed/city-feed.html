@@ -724,21 +724,8 @@ Polymer({
       timestamp: -1
     });
 
-    // Add additional metadata needed by the template.
-    for (var i = 0, item; item = stream[i]; ++i) {
-      item.selectedCard = 0; // select initial page on destination card.
-    }
-
-    var adjustedStream = [];
+    // Clear and rebuild the global destLookup_ object.
     destLookup_ = {};
-
-    // iron-list uses a single template to render a linear list of items. To
-    // support side-by-side mini cards, we pair mini cards together by storing
-    // a reference to the next mini card when it is followed by a subsequent
-    // mini card. The reference to the next mini card is used in the iron-list
-    // template to determine if an additional card should be rendered in the
-    // same row. The template is wrapped in a flexbox container (<div
-    // class="layout horizontal start justified">) which handles the layout.
     for (var i = 0, item; item = stream[i]; ++i) {
       if (item.type == 'city') {
         // Cache index of stop to be able to scroll to destination.
