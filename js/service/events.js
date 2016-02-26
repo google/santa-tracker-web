@@ -36,7 +36,7 @@ Events.addListener = function(o, eventName, listener) {
  *
  * @param {Object} o
  * @param {string} eventName
- * @param {*} var_args
+ * @param {*=} var_args
  */
 Events.trigger = function(o, eventName, var_args) {
   var listeners = Events.listeners_(o, eventName);
@@ -50,7 +50,7 @@ Events.trigger = function(o, eventName, var_args) {
 /**
  * @param {Array|Arguments} arr
  * @param {number} start
- * @param {number} opt_end
+ * @param {number=} opt_end
  * @return {Array}
  */
 Events.slice_ = function(arr, start, opt_end) {

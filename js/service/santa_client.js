@@ -566,7 +566,7 @@ SantaService.prototype.rebuildTimeline_ = function(forceDirty) {
     }
     if (toPush.game && toPush.status) {
       // Trump status with game.
-      toPush.status = null;
+      toPush.status = undefined;
     }
     if (toPush.game) {
       toPush.type = 'scene';
