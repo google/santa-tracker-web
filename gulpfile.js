@@ -363,9 +363,11 @@ gulp.task('compile-scenes', function() {
     // compilerFlags since it's essentially a static library (and to work around
     // gulp-closure-compiler's love of copying files to /tmp). Remove tests
     // last, as the rules seem to be evaluated left-to-right.
-    var compilerSrc = [closureLibraryPath + '/base.js'];
-    if (config.closureLibrary === true) {
-      compilerSrc.push(closureLibraryPath + '/**.js');
+    var compilerSrc;
+    if (config.closureLibrary) {
+      compilerSrc = [closureLibraryPath + '/**.js'];  // includes base.js
+    } else {
+      compilerSrc = [closureLibraryPath + '/base.js']
     }
     compilerSrc.push('!' + closureLibraryPath + '/**_test.js');
 
