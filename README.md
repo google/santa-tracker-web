@@ -20,7 +20,7 @@ In the 2015 version of Santa Tracker, some featured changes include-
 
 ## Prerequisites
 
-You'll need `npm` and `bower` (use `npm install -g bower` if it's missing) available on your system.
+You'll need `npm`, `bower` (use `npm install -g bower` if it's missing) and Java available on your system.
 
 ## Setup
 
@@ -34,7 +34,7 @@ $ npm install
 
 Build and run with `gulp serve`.
 This will serve from the root directory and recompile JavaScript or CSS on watched changes.
-The first build might take some time, as it compiles every scene.
+The first build might take some time (~10-20m), as it compiles every scene.
 
 You can load scenes (even while locked) via their ID, e.g. at `/#codeboogie`.
 Alternatively, unlock houses (in dev) by calling `santaApp.unlockAllHouses()`.
