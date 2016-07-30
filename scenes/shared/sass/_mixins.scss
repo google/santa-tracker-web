@@ -27,7 +27,7 @@ $pixel-ratio-hdpi: 1.5 !default;
 
 // Returns the % of $value in $inside. Assumes both are px values.
 @function percent($value, $inside) {
-  @return #{(strip-unit($value) / strip-unit($inside)) * 100}%;
+  @return #{(strip-unit($value) / strip-unit($inside)) * 100%};
   // From "Operators", http://sass-lang.com/guide#topic-8.
   // @return $value / $inside * 100%;
 }
