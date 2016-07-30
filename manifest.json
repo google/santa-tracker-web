@@ -5,22 +5,22 @@
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#00c6ed",
-  "background_color": "#30B443",
+  "background_color": "#30b443",
   "icons": [{
-    "src": "images/icon-60.png",
-    "sizes": "36x36",
+    "src": "images/favicon-16.png",
+    "sizes": "16x16",
     "type": "image/png"
   }, {
-    "src": "images/icon-60.png",
-    "sizes": "48x48",
+    "src": "images/favicon-32.png",
+    "sizes": "32x32",
     "type": "image/png"
   }, {
     "src": "images/icon-76.png",
-    "sizes": "72x72",
+    "sizes": "76x76",
     "type": "image/png"
   }, {
     "src": "images/icon-120.png",
-    "sizes": "96x96",
+    "sizes": "120x120",
     "type": "image/png"
   }, {
     "src": "images/icon-152.png",
@@ -29,6 +29,10 @@
   }, {
     "src": "images/icon-192.png",
     "sizes": "192x192",
+    "type": "image/png"
+  }, {
+    "src": "images/icon-256.png",
+    "sizes": "256x256",
     "type": "image/png"
   }]
 }
