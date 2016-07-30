@@ -1,6 +1,6 @@
 {
   "name": "SantaTracker",
-  "version": "0.0.1",
+  "version": "2015.0.0",
   "private": true,
   "scripts": {
     "postinstall": "bower install; gulp"
