@@ -1084,7 +1084,7 @@ Polymer({
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
         var launchDate = house.launchDate;
-        if (santaApp.mode == 'portal') {
+        if (santaApp.mode == 'portal' && house.portalLaunchDate) {
           launchDate = house.portalLaunchDate;
         }
         return !house.disabled && (eastDateNow > launchDate);
@@ -1138,11 +1138,9 @@ Polymer({
         for (var i = 0; i < this._houses.length; i++) {
           var house = this._houses[i];
 
-          var launchDate;
-          if (santaApp.mode == 'portal') {
+          var launchDate = house.launchDate;;
+          if (santaApp.mode == 'portal' && house.portalLaunchDate) {
             launchDate = house.portalLaunchDate;
-          } else {
-            launchDate = house.launchDate;
           }
           if (launchDate > todayDate) {
             house.iced = true;

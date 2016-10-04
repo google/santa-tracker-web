@@ -65,6 +65,9 @@ Example
   (function() {
 
     var _TRANSITION_TIME = 400;
+    var _COUNTDOWN_END_DATE = window.SANTA_CONFIG ?
+        window.SANTA_CONFIG['COUNTDOWN_END_DATE'] :
+        +Date.UTC(new Date().getFullYear(), 11, 24, 10, 0, 0);
 
     Polymer({
       is: 'countdown-timer',
@@ -92,7 +95,7 @@ Example
          */
         countdownEndAt: {
           type: Number,
-          value: 1450951200000, // Dec 24, 2015,
+          value: _COUNTDOWN_END_DATE,
           observer: '_countdownEndAtChanged'
         },
 
