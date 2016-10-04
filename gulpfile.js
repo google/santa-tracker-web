@@ -263,6 +263,10 @@ var SCENE_CLOSURE_CONFIG = {
     closureLibrary: true,
     entryPoint: 'app.Game'
   },
+  smatch: {
+    typeSafe: true,
+    entryPoint: 'app.Game'
+  },
   streetview: {
     typeSafe: false,
     entryPoint: 'app.Scene'
