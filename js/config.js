@@ -14,8 +14,17 @@
  * the License.
  */
 
-window.SANTA_CONFIG = window.SANTA_CONFIG || {
-  "CLIENT_ID": location.host.match("santatracker.google.com") ? "google-santa-tracker" : null,
-  "COUNTDOWN_END_DATE": 1450951200000, // Thu Dec 24 2015 02:00:00 GMT-0800 (PST)
-  "FLIGHT_FINISHED": 1450951200000 + 25 * 60 * 60 * 1000
-};
+(function() {
+  var YEAR = 2016;
+  var COUNTDOWN_END = +Date.UTC(YEAR, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
+  var FLIGHT_HOURS = 25;
+
+  window.SANTA_CONFIG = window.SANTA_CONFIG || {
+    "YEAR": YEAR,
+    "CLIENT_ID": location.host.match("santatracker.google.com") ? "google-santa-tracker" : null,
+    "COUNTDOWN_END_DATE": COUNTDOWN_END,
+    "FLIGHT_FINISHED": COUNTDOWN_END + (FLIGHT_HOURS * 60 * 60 * 1000)
+  };
+
+}());
+
