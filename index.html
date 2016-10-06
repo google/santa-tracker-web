@@ -31,9 +31,9 @@ specific language governing permissions and limitations under the License.
   <link rel="stylesheet" href="sass/santatracker.css">
 
   <!-- app manifest-->
-  <link rel="manifest" href="manifest.json">
+  <!-- TODO(samthor): Fix in prod, uses base href="..." -->
+  <link rel="manifest" href="/manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes"> <!-- fallback -->
 
   <!-- app status bar themes -->
   <meta name="apple-mobile-web-app-status-bar-style" content="#00c6ed">
@@ -129,6 +129,11 @@ ga('set', 'transport', 'beacon');
         eventLabel: error ? error.stack : msg + '\n' + file + ' ' + line + ':' + col,
       });
     };
+
+    if ('serviceWorker' in navigator) {
+      // TODO(samthor): Fix in prod, uses base href="..."
+      window.sw = navigator.serviceWorker.register('/sw.js');
+    }
   </script>
   <script src="components/webcomponentsjs/webcomponents-lite.min.js" async></script>
   <link rel="import" href="elements/elements_en.html">
