@@ -18,46 +18,54 @@ specific language governing permissions and limitations under the License.
   <meta charset="utf-8">
   <base href="">
   <title>Google Santa Tracker Schedule</title>
-
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Lobster|Roboto&subset=all">
-  <link rel="stylesheet" href="sass/santatracker.css">
 </head>
-<body style="padding: 20px; overflow: auto">
+<body>
   <h1>Schedule</h1>
-  <ul id="schedule" style="padding: 10px; background: #fff; list-style: none;"></ul>
+  <ul id="schedule"></ul>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="js/config.js"></script>
   <script src="js/houses.js"></script>
 
   <script>
     var loc = location.href;
     var pageUrl = loc.substr(0, loc.lastIndexOf('/schedule.html'));
+    var scheduleEl = document.getElementById('schedule');
 
-    for (var i = 0; i < HOUSES.length; i++) {
-      var house = HOUSES[i];
+    // nb. houses unlock in user local time
+
+    function renderHouse(house) {
       var module = house.module;
       var date = house.launchDate;
-      var t = date.getTime() - 10 * 1000; // Minus 10 seconds so we can watch the house open
+      var t = date.getTime() - 10 * 1000;  // minus 10 seconds so we can watch the house open
       var url = pageUrl + '/?timestamp_override=' + t;
-      var dom = $('<li>' + date + ' - ' + module +
-        ': Tracker  <a href="' + url + '#village">Village</a> - <a href="' + url + '#' + module + '">Scene</a></li>');
-      $('#schedule').append(dom);
+
+      var li = document.createElement('li');
+      li.innerHTML = date.toISOString().substring(0, 10) + ': <a href="' + url + '#village">Village</a>/<a href="' + url + '#' + module + '">Scene</a>: ' + module;
+      scheduleEl.appendChild(li);
     }
+    HOUSES.forEach(function(house) {
+      house.length ? house.forEach(renderHouse) : renderHouse(house);
+    });
 
-    var t = new Date('2015/12/24 20:59:39').getTime();
-    var url = pageUrl + '/?timestamp_override=' + t;
-    var dom = $('<li">30 seconds before take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a></li></li>');
-    $('#schedule').append(dom);
+    // ... but santa takes off at a consistent UTC time
 
-    var t = new Date('2015/12/24 21:00:39').getTime();
+    var t = +new Date(window.SANTA_CONFIG['COUNTDOWN_END_DATE'] - (30 * 1000));
     var url = pageUrl + '/?timestamp_override=' + t;
-    var dom = $('<li>30 seconds after take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a></li></li>');
-    $('#schedule').append(dom);
+    var li = document.createElement('li');
+    li.innerHTML = '30 seconds before take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a>';
+    scheduleEl.appendChild(li);
 
-    var t = new Date('2015/12/24 23:30:39').getTime();
+    var t = +new Date(window.SANTA_CONFIG['COUNTDOWN_END_DATE'] + (30 * 1000));
     var url = pageUrl + '/?timestamp_override=' + t;
-    var dom = $('<li>2:30 hrs after take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a></li>');
-    $('#schedule').append(dom);
+    var li = document.createElement('li');
+    li.innerHTML = '30 seconds after take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a>';
+    scheduleEl.appendChild(li);
+
+    var t = +new Date(window.SANTA_CONFIG['COUNTDOWN_END_DATE'] + (150 * 60 * 1000));
+    var url = pageUrl + '/?timestamp_override=' + t;
+    var li = document.createElement('li');
+    li.innerHTML = '2:30 hrs after take off: <a href="' + url + '#village">Village</a> <a href="' + url + '#tracker">Tracker</a>';
+    scheduleEl.appendChild(li);
 
   </script>
 </body>
