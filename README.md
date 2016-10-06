@@ -16,6 +16,10 @@ In the 2015 version of Santa Tracker, some featured changes include-
 * Streamlined Chromecast support
 * Increased use of emojis
 
+# Supports
+
+Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 9+ and Chromium-based browsers (Opera, Samsung etc) at m44 or above.
+
 # Usage
 
 ## Prerequisites
