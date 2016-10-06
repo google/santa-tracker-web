@@ -24,6 +24,7 @@ var changedFlag = require('./gulp_scripts/changed_flag');
 var path = require('path');
 var del = require('del');
 var i18n_replace = require('./gulp_scripts/i18n_replace');
+var i18n_manifest = require('./gulp_scripts/i18n_manifest');
 var devScene = require('./gulp_scripts/dev-scene');
 var closureCompiler = require('gulp-closure-compiler');
 var closureDeps = require('gulp-closure-deps');
@@ -459,7 +460,7 @@ gulp.task('create-dev-scenes', function() {
   }, mergeStream());
 });
 
-gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() {
+gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
   // These are the 'common' elements inlined in elements_en.html. They can be
   // safely stripped (i.e., not inlined) from all scenes.
   // TODO(samthor): Automatically list inlined files from elements_en.html.
@@ -519,7 +520,7 @@ gulp.task('vulcanize-scenes', ['rm-dist', 'sass', 'compile-scenes'], function() 
 
 // Vulcanize elements separately, as we want to inline the majority common code
 // here.
-gulp.task('vulcanize-elements', ['rm-dist', 'sass', 'compile-santa-api-service'], function() {
+gulp.task('vulcanize-elements', ['sass', 'compile-santa-api-service'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe($.vulcanize({
       inlineScripts: true,
@@ -551,10 +552,15 @@ gulp.task('i18n_index', function() {
     .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
+gulp.task('i18n_manifest', function() {
+  return gulp.src(['manifest.json'])
+    .pipe(i18n_manifest({path: '_messages'}))
+    .pipe(gulp.dest(DIST_PROD_DIR));
+});
+
 // copy needed assets (images, sounds, polymer elements, etc) to dist directories
-gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
+gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function() {
   var staticStream = gulp.src([
-    'manifest.json',
     'audio/*',
     'images/*.{png,svg,jpg,gif,ico}',
     'third_party/**',
@@ -568,16 +574,17 @@ gulp.task('copy-assets', ['rm-dist', 'vulcanize', 'i18n_index'], function() {
 
   var prodStream = gulp.src([
     'images/og.png',
-    'embed.js'
+    'embed.js',
+    'sw.js',
   ], {base: './'})
   .pipe(gulp.dest(DIST_PROD_DIR));
 
   return mergeStream(staticStream, prodStream);
 });
 
-// alias to build a distribution version
-gulp.task('dist', ['copy-assets'], function() {
-  console.log('dist version:', STATIC_VERSION);
+// clean + build a distribution version
+gulp.task('dist', function(callback) {
+  require('run-sequence')('rm-dist', 'copy-assets', callback);
 });
 
 gulp.task('watch', function() {
