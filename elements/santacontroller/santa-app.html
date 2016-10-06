@@ -671,12 +671,11 @@ Polymer({
     this.santaService.sync(this._checkSchedule.bind(this));
 
     this.santaService.addListener('kill', function justKillMe() {
-      this.analyticsService.trackEvent('API', 'killed');
-      // redirect after analytics has been processed
-      this.analyticsService.executeFunction(function errorRedirect() {
+      window.ga('send', 'event', 'API', 'killed');
+      window.setTimeout(function() {
         window.location = 'https://santatracker.google.com' +
             location.pathname.replace(/[^\/]*$/, '') + 'error.html';
-      });
+      }, 1000);
     }.bind(this));
 
     var reloadTimeout;

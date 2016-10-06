@@ -20,10 +20,6 @@
  * @constructor
  */
 function Analytics() {
-  this.ga_ = window.ga_;
-
-  this._gaq = window._gaq;
-
   /**
    * A collection of timing categories, each a collection of start times.
    * @private {!Object<string, Object<string, ?number>}
@@ -34,27 +30,14 @@ function Analytics() {
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
 
 /**
- * Push a function onto the analytics queue. It will be executed along with any
- * other analytics actions, in the order pushed onto the queue.
- * @param {function()} fn
- */
-Analytics.prototype.executeFunction = function(fn) {
-  this._gaq.push(fn);
-};
-
-/**
  * Tracks a page view. Page view tracking is throttled to prevent logging
  * page redirects by the URL router.
  * @param {string} path
  */
 Analytics.prototype.trackPageView = function(path) {
-  if (this.trackTimeout_) {
-    window.clearTimeout(this.trackTimeout_);
-  }
-
-  var that = this;
+  window.clearTimeout(this.trackTimeout_);
   this.trackTimeout_ = window.setTimeout(function() {
-    that.ga_.pushCommand(['_trackPageview', path || '/']);
+    window.ga('send', 'pageview', path || '/');
   }, this.THROTTLE_TIME_);
 };
 
@@ -71,7 +54,7 @@ Analytics.prototype.trackPerf = function(category, variable, time, opt_label, op
   if (opt_maxTime != null && time > opt_maxTime) {
     variable += ' - outliers';
   }
-  this.ga_.pushCommand(['_trackTiming', category, variable, time, opt_label]);
+  window.ga('send', 'timing', category, variable, Math.round(time), opt_label);
 };
 
 /**
@@ -117,10 +100,10 @@ Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label, o
  * @param {string} category
  * @param {string} action
  * @param {string=} opt_label
- * @param {(string|number)=} opt_value
+ * @param {number=} opt_value
  */
 Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value) {
-  this.ga_.pushCommand(['_trackEvent', category, action, opt_label, opt_value]);
+  window.ga('send', 'event', category, action, opt_label, opt_value);
 };
 
 /**
