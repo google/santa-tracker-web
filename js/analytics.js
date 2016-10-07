@@ -37,24 +37,9 @@ Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
 Analytics.prototype.trackPageView = function(path) {
   window.clearTimeout(this.trackTimeout_);
   this.trackTimeout_ = window.setTimeout(function() {
-    window.ga('send', 'pageview', path || '/');
+    window.ga('set', 'page', path || '/');
+    window.ga('send', 'pageview');
   }, this.THROTTLE_TIME_);
-};
-
-/**
- * Tracks a performance timing. See
- * https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingTiming#settingUp
- * @param {string} category Category of timing (e.g. 'Polymer')
- * @param {string} variable Name of the timing (e.g. 'polymer-ready')
- * @param {number} time Time, in milliseconds.
- * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
- * @param {number=} opt_maxTime An optional max time, after which '- outliers' will be appended to variable name.
- */
-Analytics.prototype.trackPerf = function(category, variable, time, opt_label, opt_maxTime) {
-  if (opt_maxTime != null && time > opt_maxTime) {
-    variable += ' - outliers';
-  }
-  window.ga('send', 'timing', category, variable, Math.round(time), opt_label);
 };
 
 /**
@@ -80,16 +65,13 @@ Analytics.prototype.timeStart = function(category, variable, timeStart) {
  * @param {string} variable Name of the timing (e.g. 'polymer-ready')
  * @param {number} timeEnd A timestamp associated with end, in ms.
  * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
- * @param {number=} opt_maxTime An optional max time, after which '- outliers' will be appended to variable name.
  */
-Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label, opt_maxTime) {
+Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label) {
   var categoryTimes = this.startTimes_[category];
-  if (!categoryTimes) {
-    return;
-  }
+  if (!categoryTimes) { return; }
   var timeStart = categoryTimes[variable];
   if (timeStart != null) {
-    this.trackPerf(category, variable, timeEnd - timeStart, opt_label, opt_maxTime);
+    window.ga('send', 'timing', category, variable, Math.round(time), opt_label);
     categoryTimes[variable] = null;
   }
 };
@@ -103,7 +85,7 @@ Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label, o
  * @param {number=} opt_value
  */
 Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value) {
-  window.ga('send', 'event', category, action, opt_label, opt_value);
+  window.ga('send', 'event', category, action, opt_label || '(not set)', opt_value);
 };
 
 /**

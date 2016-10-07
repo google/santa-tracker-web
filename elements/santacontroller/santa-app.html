@@ -566,7 +566,6 @@ Polymer({
     'video-scene-done': 'onVideoSceneDone',
     'iframe-focus-change': 'onIframeFocusChange',
     'analytics-track-event': 'trackEvent',
-    'analytics-track-perf': 'trackPerf',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
     'analytics-track-share': 'trackShare',
@@ -966,11 +965,6 @@ Polymer({
   trackEvent: function(e, detail) {
     this.analyticsService.trackEvent(
         detail.category, detail.action, detail.label, detail.value);
-  },
-
-  trackPerf: function(e, detail) {
-    this.analyticsService.trackPerf(
-        detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
   timeStart: function(e, detail) {
