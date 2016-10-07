@@ -107,6 +107,17 @@ Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value
 };
 
 /**
+ * Tracks a social event
+ *
+ * @param {string} network
+ * @param {string} action
+ * @param {string} target
+ */
+Analytics.prototype.trackSocial = function(network, action, target) {
+  window.ga('send', 'social', network, action, target);
+};
+
+/**
  * Tracks that a game has started.
  * @param {string} gameId module id.
  */
