@@ -263,7 +263,7 @@ var SCENE_CLOSURE_CONFIG = {
     closureLibrary: true,
     entryPoint: 'app.Game'
   },
-  smatch: {
+  postcardly: {
     typeSafe: true,
     entryPoint: 'app.Game'
   },
