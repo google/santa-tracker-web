@@ -224,6 +224,10 @@ var SCENE_CLOSURE_CONFIG = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  postcardly: {
+    typeSafe: true,
+    entryPoint: 'app.Scene'
+  },
   presentbounce: {
     closureLibrary: true,
     typeSafe: false,

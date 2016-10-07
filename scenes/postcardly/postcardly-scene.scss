@@ -1,0 +1,99 @@
+$name: 'module-postcardly';
+$gameover-bg: #8fd7f7;
+$rotate-bg: $gameover-bg;
+
+@import "../shared/sass/board";
+@import "../shared/sass/gameover";
+@import "../shared/sass/startbutton";
+@import "../shared/sass/rotate";
+@import "../shared/sass/tutorial";
+
+@import "sass/environment";
+
+##{$name} {
+  .view {
+    height: 1150px;
+    left: 50%;
+    margin-left: -900px;
+    margin-top: -730px;
+    position: absolute;
+    top: 50%;
+    width: 1800px;
+    transform-origin: 50% 63%;
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+
+  @keyframes #{$name}-shimmy {
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-2em);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      transform: translateX(+2em);
+    }
+  }
+
+  @keyframes #{$name}-fall {
+    0% {
+      transform: translateY((490px * 0.00 - 32px));
+      opacity: 0;
+    }
+    5% {
+      transform: translateY((490px * 0.05 - 32px));
+      opacity: 1;
+    }
+    95% {
+      transform: translateY((490px * 0.95 - 32px));
+      opacity: 1;
+    }
+    100% {
+      transform: translateY((490px * 1.00 - 32px));
+      opacity: 0;
+    }
+  }
+
+  #snowglobe {
+    width: 850px;
+    height: 500px;
+    overflow: hidden;
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    background-color: black;
+
+    span {
+      display: inline-block;
+      position: absolute;
+    }
+
+    .shimmy {
+      animation: #{$name}-shimmy 15s infinite ease-in-out;
+    }
+    .fall {
+      opacity: 0;  // this will be overwritten by animation
+      animation: #{$name}-fall 35s infinite linear;
+    }
+    .snow {
+      position: absolute;
+      width: 16px;
+    }
+    .snow::before {
+      content: "";
+      float: left;
+      width: 100%;
+      padding-top: 100%;
+      margin-left: -50%;
+      background-image: url("img/snowflake.png");
+      background-size: contain;
+      border-radius: 10000px;
+    }
+  }
+}
