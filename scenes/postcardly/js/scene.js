@@ -51,22 +51,22 @@ app.Scene.prototype.snowflakeFactory = function(elem, delay) {
     elem.innerHTML = '<span class="shimmy"><span class="fall snow"></span></span>';
   }
 
-  var pos = Math.round(Math.random() * 100);
-  var rotate = Math.round(Math.random() * app.Constants.SNOWFLAKE_ROTATION) - (app.Constants.SNOWFLAKE_ROTATION / 2);
-  var fallSpeed = randomRange(app.Constants.SNOWFLAKE_SPEED_MIN, app.Constants.SNOWFLAKE_SPEED_MAX);
-  var shimmySpeed = randomRange(app.Constants.SNOWFLAKE_SHIMMY_MIN, app.Constants.SNOWFLAKE_SHIMMY_MAX);
-  var size = Math.round(randomRange(app.Constants.SNOWFLAKE_SIZE_MIN, app.Constants.SNOWFLAKE_SIZE_MAX));
+  const pos = Math.round(Math.random() * 100);
+  const rotate = Math.round(Math.random() * app.Constants.SNOWFLAKE_ROTATION) - (app.Constants.SNOWFLAKE_ROTATION / 2);
+  const fallSpeed = randomRange(app.Constants.SNOWFLAKE_SPEED_MIN, app.Constants.SNOWFLAKE_SPEED_MAX);
+  const shimmySpeed = randomRange(app.Constants.SNOWFLAKE_SHIMMY_MIN, app.Constants.SNOWFLAKE_SHIMMY_MAX);
+  const size = Math.round(randomRange(app.Constants.SNOWFLAKE_SIZE_MIN, app.Constants.SNOWFLAKE_SIZE_MAX));
 
   elem.style.transform = 'rotate(' + rotate + 'deg)';
   elem.style.left = pos + '%';
 
   var shimmy = elem.querySelector('.shimmy');
-  webkitStyle(shimmy, 'animationDuration', shimmySpeed + 's');
+  shimmy.style.animationDuration = shimmySpeed + 's';
   shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
 
   var fall = elem.querySelector('.fall');
-  webkitStyle(fall, 'animationDuration', fallSpeed + 's');
-  webkitStyle(fall, 'animationDelay', (+delay) + 's');
+  fall.style.animationDuration = fallSpeed + 's';
+  fall.style.animationDelay = (+delay) + 's';
 
   var snow = elem.querySelector('.snow');
   snow.style.width = size + 'px';
@@ -74,10 +74,21 @@ app.Scene.prototype.snowflakeFactory = function(elem, delay) {
 }
 
 app.Scene.prototype.drawSnowflakes = function() {
-  var ratio = 1;
-  for (var i = 0, count = Math.floor(ratio * app.Constants.SNOWFLAKE_COUNT); i < count; ++i) {
+  for (var i = 0, count = app.Constants.SNOWFLAKE_COUNT; i < count; ++i) {
     // Delay snowflakes by their count+5 sec.
     var x = this.snowflakeFactory(null, i + 5);
-    document.getElementById('snowglobe').appendChild(x);
+    this.elem.find('#snowglobe')[0].appendChild(x);
   }
+}
+
+//TODO(madCode): fix duplication.
+/**
+ * Returns a random number in the range [min,max).
+ * @param {number} min
+ * @param {number=} opt_max
+ * @return {number}
+ */
+function randomRange(min, opt_max) {
+  var max = opt_max || 0;
+  return min + Math.random() * (max - min);
 }
