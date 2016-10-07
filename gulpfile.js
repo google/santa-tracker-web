@@ -224,6 +224,10 @@ var SCENE_CLOSURE_CONFIG = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  postcardly: {
+    typeSafe: true,
+    entryPoint: 'app.Scene'
+  },
   presentbounce: {
     closureLibrary: true,
     typeSafe: false,
@@ -261,10 +265,6 @@ var SCENE_CLOSURE_CONFIG = {
   seasonofgiving: {
     typeSafe: false,
     closureLibrary: true,
-    entryPoint: 'app.Game'
-  },
-  postcardly: {
-    typeSafe: true,
     entryPoint: 'app.Game'
   },
   streetview: {
