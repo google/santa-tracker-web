@@ -71,6 +71,7 @@ Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label) {
   if (!categoryTimes) { return; }
   var timeStart = categoryTimes[variable];
   if (timeStart != null) {
+    var time = timeEnd - timeStart;
     window.ga('send', 'timing', category, variable, Math.round(time), opt_label);
     categoryTimes[variable] = null;
   }
