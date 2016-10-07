@@ -20,10 +20,6 @@
  * @constructor
  */
 function Analytics() {
-  this.ga_ = window.ga_;
-
-  this._gaq = window._gaq;
-
   /**
    * A collection of timing categories, each a collection of start times.
    * @private {!Object<string, Object<string, ?number>}
@@ -34,44 +30,16 @@ function Analytics() {
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
 
 /**
- * Push a function onto the analytics queue. It will be executed along with any
- * other analytics actions, in the order pushed onto the queue.
- * @param {function()} fn
- */
-Analytics.prototype.executeFunction = function(fn) {
-  this._gaq.push(fn);
-};
-
-/**
  * Tracks a page view. Page view tracking is throttled to prevent logging
  * page redirects by the URL router.
  * @param {string} path
  */
 Analytics.prototype.trackPageView = function(path) {
-  if (this.trackTimeout_) {
-    window.clearTimeout(this.trackTimeout_);
-  }
-
-  var that = this;
+  window.clearTimeout(this.trackTimeout_);
   this.trackTimeout_ = window.setTimeout(function() {
-    that.ga_.pushCommand(['_trackPageview', path || '/']);
+    window.ga('set', 'page', path || '/');
+    window.ga('send', 'pageview');
   }, this.THROTTLE_TIME_);
-};
-
-/**
- * Tracks a performance timing. See
- * https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingTiming#settingUp
- * @param {string} category Category of timing (e.g. 'Polymer')
- * @param {string} variable Name of the timing (e.g. 'polymer-ready')
- * @param {number} time Time, in milliseconds.
- * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
- * @param {number=} opt_maxTime An optional max time, after which '- outliers' will be appended to variable name.
- */
-Analytics.prototype.trackPerf = function(category, variable, time, opt_label, opt_maxTime) {
-  if (opt_maxTime != null && time > opt_maxTime) {
-    variable += ' - outliers';
-  }
-  this.ga_.pushCommand(['_trackTiming', category, variable, time, opt_label]);
 };
 
 /**
@@ -97,16 +65,14 @@ Analytics.prototype.timeStart = function(category, variable, timeStart) {
  * @param {string} variable Name of the timing (e.g. 'polymer-ready')
  * @param {number} timeEnd A timestamp associated with end, in ms.
  * @param {string=} opt_label An optional sublabel, for e.g. A/B test identification.
- * @param {number=} opt_maxTime An optional max time, after which '- outliers' will be appended to variable name.
  */
-Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label, opt_maxTime) {
+Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label) {
   var categoryTimes = this.startTimes_[category];
-  if (!categoryTimes) {
-    return;
-  }
+  if (!categoryTimes) { return; }
   var timeStart = categoryTimes[variable];
   if (timeStart != null) {
-    this.trackPerf(category, variable, timeEnd - timeStart, opt_label, opt_maxTime);
+    var time = timeEnd - timeStart;
+    window.ga('send', 'timing', category, variable, Math.round(time), opt_label);
     categoryTimes[variable] = null;
   }
 };
@@ -117,10 +83,21 @@ Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label, o
  * @param {string} category
  * @param {string} action
  * @param {string=} opt_label
- * @param {(string|number)=} opt_value
+ * @param {number=} opt_value
  */
 Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value) {
-  this.ga_.pushCommand(['_trackEvent', category, action, opt_label, opt_value]);
+  window.ga('send', 'event', category, action, opt_label || '(not set)', opt_value);
+};
+
+/**
+ * Tracks a social event
+ *
+ * @param {string} network
+ * @param {string} action
+ * @param {string} target
+ */
+Analytics.prototype.trackSocial = function(network, action, target) {
+  window.ga('send', 'social', network, action, target);
 };
 
 /**

@@ -241,13 +241,9 @@ specific language governing permissions and limitations under the License.
         this.onShow && this.onShow();
 
         // log that the scene has finished preloading. If this wasn't a preloaded
-        // load, the event will be discarded harmlessly
-        // Set the max analytics time at 2x MAX_PRELOAD_TIME to account for
-        // HTMLElement import and *then* assets for the scene (only the asset
-        // loading timesout after MAX_PRELOAD_TIME)
+        // load, the event will be discarded harmlessly (no start event).
         this.fire('analytics-time-end', {category: 'Scene Load Time',
-            variable: this.route, time: Date.now(),
-            maxTime: 2 * MAX_PRELOAD_TIME});
+            variable: this.route, time: Date.now()});
 
         // focus in case element needs keyboard events
         this.focus();
