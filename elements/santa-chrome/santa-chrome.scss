@@ -1,6 +1,7 @@
 $scenes: "village" "tracker"
     "airport" "traditions" "codelab" "app" "seasonofcaring" "santasback" "santaselfie" "translations" "callfromsanta" "briefing" "presentdrop" "santasearch" "windtunnel" "racer" "jamband" "gumball" "postcard" "jetpack" "boatload" "mercator" "presentbounce" "codeboogie" "carpool" "citylights" "commandcentre" "seasonofgiving" "matching" "liftoff" "factory";
 
+$toolbar-height: 44px;
 $indent-left: 24px;
 $toolbar-default-color: #00c6ed;
 $width-tablet: 768px;  // iPad in portrait
@@ -51,7 +52,7 @@ santa-chrome {
       cursor: pointer;
       display: block;
       font-family: 'Lobster';
-      font-size: 2.2em;
+      font-size: 2em;
       color: #ccc;
     }
 
@@ -183,11 +184,10 @@ santa-chrome {
     }
 
     #logo {
-      margin: 4px 0 0;
-      width: 74px;
+      width: 62px;
       top: 0;
       bottom: 0;
-      background: url(img/google_logo.svg) center no-repeat;
+      background: url(img/google_logo.svg) 0 14px no-repeat;
       background-size: contain;
     }
 
@@ -195,18 +195,18 @@ santa-chrome {
       padding-left: 8px;
       margin: 0;
       font-family: 'Lobster', sans-serif;
-      font-size: 23px;
-      line-height: 56px;
+      font-size: 19px;
+      line-height: $toolbar-height;
       font-weight: 300;
       color: white;
     }
 
     .fixsize {
-      height: 56px;
+      height: $toolbar-height;
     }
 
     .shareicons {
-      padding: 8px 0;
+      padding: ($toolbar-height - 40px)/2 0;  // icon=40px, total=$toolbar-height;
       height: 100%;
       box-sizing: border-box;
       font-size: 0;  // hide spacing between divs
