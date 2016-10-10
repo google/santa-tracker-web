@@ -1,6 +1,6 @@
 {
   "name": "Google Santa Tracker",
-  "short_name": "Santa 🎅🗺️",
+  "short_name": "Santa",
   "start_url": "./?utm_source=web_app_manifest&utm_medium=web_app_manifest",
   "display": "standalone",
   "orientation": "portrait",

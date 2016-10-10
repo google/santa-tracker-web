@@ -21,7 +21,7 @@ const path = require('path');
 const through = require('through2');
 const gutil = require('gulp-util');
 
-module.exports = function replaceStartUrl(opts) {
+module.exports = function translateManifest(opts) {
   const langPromise = getLangs(opts.path);
 
   const stream = through.obj((file, enc, cb) => {
@@ -30,15 +30,12 @@ module.exports = function replaceStartUrl(opts) {
 
     langPromise.then(function(langs) {
       const src = JSON.parse(file.contents.toString());
-      if (!src.start_url/* || !src.start_url.startsWith('/')*/) {
-        throw new Error('expected manifest start_url to start with /, was: ' +
-            (src && src.start_url));
+      if (!src.start_url) {
+        throw new Error('expected manifest to have start_url');
       }
-      const start_url = src.start_url;
 
       langs.forEach(lang => {
         if (lang == 'en') { return; }
-//        src.start_url = `/intl/${lang}${start_url}`;
 
         const i18nfile = file.clone();
         i18nfile.path = path.dirname(file.path) + `/intl/${lang}_ALL/` + path.basename(file.path);
@@ -48,18 +45,19 @@ module.exports = function replaceStartUrl(opts) {
       });
 
       stream.push(file);  // push default (en)
-      cb();
     }).catch(err => {
-      console.warn('got err', err);
-      cb(err);  // TODO(samthor): This doesn't seem to crash the build properly?
-    });
+      stream.destroy(err);  // cb doesn't expect an err, but stream.destroy does
+    }).then(cb);
   });
 
   return stream;
 };
 
 /**
- * Read names of languages from _messages/*json in a list. Returns a promise.
+ * Read names of languages from _messages/*json. Returns a Promise containing a list of languages.
+ *
+ * @param {string} msgDir
+ * @return {!Promise<!Array<string>>}
  */
 function getLangs(msgDir) {
   return new Promise((resolve, reject) => {
