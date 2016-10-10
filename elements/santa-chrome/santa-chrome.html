@@ -241,8 +241,8 @@ specific language governing permissions and limitations under the License.
       </content>
     </paper-header-panel>
   </paper-drawer-panel>
-  <div id="sound" style$="background-color: {{color}}" class$="{{_calculateMuteClass(mute)}}">
-    <button on-click="_toggleSounds"><i></i></button>
+  <div id="sound" style$="background-color: {{color}}">
+    <button on-click="_toggleSounds" class$="{{_calculateMuteClass(mute)}}"></button>
   </div>
 </template>
 <script>

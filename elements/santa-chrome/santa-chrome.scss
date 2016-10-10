@@ -250,9 +250,10 @@ santa-chrome {
 
     button {
       height: 45px;
+      width: 31px;
       text-align: center;
       box-sizing: border-box;
-      padding: 0 0 0 3px;
+      padding: 0;
       outline: 0;
       pointer-events: auto;
       border: 0;
@@ -260,18 +261,32 @@ santa-chrome {
       text-align: center;
       background: transparent;
       cursor: pointer;
-    }
 
-    i {
-      float: left;
-      width: 31px;
-      height: 30px;
-      background: url(img/sound-on.svg) 50% 50% no-repeat;
-    }
+      /** Show both images, so both are preloaded */
+      &::after, &::before {
+        content: '';
+        width: 31px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 3px;
+        background-position: center;
+        background-repeat: no-repeat;
+        visibility: hidden;
+      }
 
-    &.off {
-      i {
-        background: url(img/sound-off.svg) 50% 50% no-repeat;
+      &::after {
+        background-image: url(img/sound-on.svg);
+      }
+      &.on::after {
+        visibility: visible;
+      }
+
+      &::before {
+        background-image: url(img/sound-off.svg);
+      }
+      &.off::before {
+        visibility: visible;
       }
     }
   }
