@@ -139,7 +139,8 @@ santa-chrome {
     }
 
     paper-icon-button[icon="santa:menu"] {
-      margin-right: 8px !important;
+      margin-right: 4px;
+      min-width: 40px;
     }
 
     .middle {
@@ -192,7 +193,7 @@ santa-chrome {
     }
 
     h1 {
-      padding-left: 8px;
+      padding-left: 4px;
       margin: 0;
       font-family: 'Lobster', sans-serif;
       font-size: 19px;
@@ -203,10 +204,12 @@ santa-chrome {
 
     .fixsize {
       height: $toolbar-height;
+      width: 100px;  // nb. flexbox changes this to fit, just needs to be "a size"
     }
 
     .shareicons {
       padding: ($toolbar-height - 40px)/2 0;  // icon=40px, total=$toolbar-height;
+      padding-right: 8px;
       height: 100%;
       box-sizing: border-box;
       font-size: 0;  // hide spacing between divs
