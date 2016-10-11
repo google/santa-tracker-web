@@ -115,7 +115,7 @@ Game.prototype.destroy = function() {
 
   this.levelUp.dispose();
 
-  utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
 };
 
 /**
@@ -458,7 +458,7 @@ Game.prototype.onFrame_ = function() {
   this.scoreboard.onFrame(delta);
 
   // Request next frame.
-  this.requestId = utils.requestAnimFrame(this.onFrame_);
+  this.requestId = window.requestAnimationFrame(this.onFrame_);
 };
 
 /**
@@ -572,7 +572,7 @@ Game.prototype.unfreezeGame_ = function() {
 
     // Restart the onFrame loop
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame_);
+    this.requestId = window.requestAnimationFrame(this.onFrame_);
   }
 };
 

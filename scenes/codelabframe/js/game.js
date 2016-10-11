@@ -63,7 +63,7 @@ app.Game = function(elem) {
  * @private
  */
 app.Game.prototype.dispose_ = function() {
-  app.shared.utils.cancelAnimFrame(this.frameId);
+  window.cancelAnimationFrame(this.frameId);
   this.tutorial_.dispose();
   this.scene.dispose();
 };

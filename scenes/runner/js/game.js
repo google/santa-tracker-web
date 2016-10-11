@@ -193,7 +193,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = window.requestAnimationFrame(this.onFrame);
   }
 };
 
@@ -228,7 +228,7 @@ app.Game.prototype.dispose = function() {
   }
   this.freezeGame();
 
-  app.shared.utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.endlessrunner');
   $(document).off('.endlessrunner');
   this.context.off('.endlessrunner');
@@ -287,7 +287,7 @@ app.Game.prototype.onFrame = function() {
     this.entities.splice(deadEntity - i, 1);
   }
 
-  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
+  this.requestId = window.requestAnimationFrame(this.onFrame);
 };
 
 /**

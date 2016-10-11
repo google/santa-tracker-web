@@ -141,7 +141,7 @@ app.Game.prototype.unfreezeGame = function() {
     this.elem.removeClass('frozen');
 
     this.isPlaying = true;
-    this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
+    this.requestId = window.requestAnimationFrame(this.onFrame_);
   }
 };
 
@@ -158,7 +158,7 @@ app.Game.prototype.onFrame_ = function() {
   this.update();
 
   // Request next frame
-  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
+  this.requestId = window.requestAnimationFrame(this.onFrame_);
 };
 
 /**
@@ -194,7 +194,7 @@ app.Game.prototype.dispose = function() {
 
   // The seasonofcaring game disposes of all .seasonofcaring events on globals,
   // which gives the components a free pass re: cleanup.
-  app.shared.utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.seasonofcaring');
   $(document).off('.seasonofcaring');
   app.GameManager.dispose();
