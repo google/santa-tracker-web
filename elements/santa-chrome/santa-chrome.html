@@ -248,24 +248,6 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
 (function() {
-  var SHARING_OPTIONS = Object.freeze({
-    'gplus': {
-      width: 800,
-      height: 600,
-      prefix: 'https://plus.google.com/share?url=',
-    },
-    'twitter': {
-      width: 600,
-      height: 253,
-      prefix: 'https://twitter.com/share?hashtags=santatracker&url=',
-    },
-    'facebook': {
-      width: 600,
-      height: 229,
-      prefix: 'https://www.facebook.com/sharer.php?p[url]=',
-    },
-  });
-
   Polymer({
     is: 'santa-chrome',
 
@@ -357,21 +339,16 @@ specific language governing permissions and limitations under the License.
     },
 
     _onShare: function(ev) {
-      var target = ev.target;
-      while (target && !target.classList.contains('share')) {
-        target = target.parentNode;
-      }
-      var opt = SHARING_OPTIONS[target && target.id];
-      if (!opt) {
-        return;
-      }
       ev.preventDefault();
 
-      this.fire('analytics-track-share', target.id);
+      var target = ev.target;
+      while (target) {
+        if (target.classList.contains('shareicons')) { return; }
+        if (target.classList.contains('share')) { break; }
+        target = target.parentNode;
+      }
 
-      var urlToShare = this.shareURL || ('' + window.location.href);
-      var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=' + opt.height + ',width=' + opt.width;
-      window.open(opt.prefix +  window.encodeURIComponent(urlToShare), '', options);
+      target && this.fire('share', target.id);
     },
 
     _toggleSounds: function(ev) {

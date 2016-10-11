@@ -276,6 +276,7 @@ Santa Tracker app.
 
   <!-- Messages that must be selected dynamically -->
   <div id="msg" hidden>
+    <div msgid="santatracker"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></div>
@@ -307,6 +308,7 @@ Santa Tracker app.
     <div msgid="scene-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
+    <div msgid="scene-village"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></div>
     <div msgid="scene-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></div>
   </div>
 
@@ -576,6 +578,7 @@ Polymer({
     'tracker-action': 'onTrackerAction',
     'countdown-timer-finish': 'onCountdownFinish',
     'tracker-end': 'onTrackerEnd',
+    'share': 'onShare',
 
     // For prod, <i18n-msg> is removed and textContent will already be
     // correct. For dev, listen for i18n updates and update the string map.
@@ -1194,6 +1197,37 @@ Polymer({
         this.$.router.go(TRACKER_ROUTE);
       }
     }
+  },
+
+  /**
+   * Triggered on a request to share. Creates sharing popup for the specified service (passed as
+   * detail of event).
+   */
+  onShare: function(e, service) {
+    var url = (function(url) {
+      // TODO(samthor): Optionally use a URL shortener, if something's obviously hiding in the URL-
+      // like an encoded beard.
+      var enc = window.encodeURIComponent(url);
+
+      switch (service) {
+      case 'facebook':
+        return 'https://facebook.com/sharer.php?p[url]=' + enc;
+      case 'gplus':
+        return 'https://plus.google.com/share?hl=' + this.language + '&url=' + enc;
+      case 'twitter':
+        // For Twitter, include the name of the current scene (or fallback to 'Santa Tracker').
+        var cand = this.strings['scene-' + this.route];
+        var text = cand || this.strings['santatracker'] || 'Santa Tracker';
+        return 'https://twitter.com/intent/tweet?lang=' + this.language +
+            '&hashtags=santatracker&text=' + window.encodeURIComponent(text) + '&url=' + enc;
+      }
+
+      return null;
+    }.call(this, window.location.href));
+    if (!url) { return; }
+
+    this.fire('analytics-track-share', service);
+    window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600');
   },
 
   /**
