@@ -129,11 +129,11 @@ specific language governing permissions and limitations under the License.
             <a href$="{{pageUrl}}#{{todayHouse}}">
               <div class$="menucard menucard-{{todayHouse}}">
                 <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
-                <h3>{{_stringScene(todayHouse, santaApp.strings)}}</h3>
+                <h3>{{_computeStringScene(todayHouse, santaApp.strings)}}</h3>
               </div>
             </a>
           </template>
-          <a href$="{{_calculateTrackerUrl(pageUrl, trackerUnlocked)}}">
+          <a href$="{{_computeTrackerUrl(pageUrl, trackerUnlocked)}}">
             <div class="menucard menucard-tracker">
               <template is="dom-if" if="{{!trackerUnlocked}}">
                 <div class="lock"></div>
@@ -216,15 +216,13 @@ specific language governing permissions and limitations under the License.
     </div><!-- #drawer -->
     <paper-header-panel main id="main" mode="seamed"
         at-top="{{_atTop}}"
-        on-content-scroll="_onContentScroll"
-        class$="{{_calculateFixedClass(isFixedToolbar, disabled)}} ">
-      <paper-toolbar id="toolbar" class$="{{_calculateScrollingClass(scrolledToolbar)}}"
+        class$="{{_computeFixedClass(isFixedToolbar, disabled)}} ">
+      <paper-toolbar id="toolbar" class$="{{_computeScrollingClass(scrolledToolbar)}}"
           hidden$="{{disabled}}">
         <paper-icon-button icon="santa:menu" paper-drawer-toggle class$="toolbar-icon {{_computeHiddenClass(hideLeft)}}"></paper-icon-button>
         <div class$="flex fixsize leftside {{_computeHiddenClass(hideLeft)}}">
           <a class="linkwrap" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}" on-click="_onTitleClick">
-            <div id="logo" title="Google logo">
-            </div>
+            <div id="logo" title="Google"></div>
             <h1 class="title flex">
               <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
             </h1>
@@ -243,7 +241,7 @@ specific language governing permissions and limitations under the License.
     </paper-header-panel>
   </paper-drawer-panel>
   <div id="sound" style$="background-color: {{color}}">
-    <button on-click="_toggleSounds" class$="{{_calculateMuteClass(mute)}}"></button>
+    <button on-click="_toggleSounds" class$="{{_computeMuteClass(mute)}}"></button>
   </div>
 </template>
 <script>
@@ -257,6 +255,7 @@ specific language governing permissions and limitations under the License.
 
     properties: {
 
+      /** The localized string for "December 24th" in the local language. */
       _dec24th: {
         type: String,
         computed: '_computeDec24thString(santaApp.language)'
@@ -266,14 +265,6 @@ specific language governing permissions and limitations under the License.
        * The ID of today's released house. Used for the New Today card in the sidebar.
        */
       todayHouse: String,
-
-      /**
-       * Whether the press page is unlocked.
-       */
-      pressReady: {
-        type: Boolean,
-        value: false
-      },
 
       /**
        * Whether the tracker is unlocked.
@@ -338,9 +329,38 @@ specific language governing permissions and limitations under the License.
       },
     },
 
+    _computeHiddenClass: function(hide) { return hide ? 'hidden' : ''; },
+    _computeMuteClass: function(mute) { return mute ? 'off' : 'on'; },
+    _computeScrolledToolbar: function(isFixedToolbar, atTop) { return isFixedToolbar || !atTop; },
+    _computeScrollingClass: function(scrolling) { return scrolling ? 'scrolling' : ''; },
+    _computeDrawerWidth: function(smallScreen) { return smallScreen ? '100%' : '400px'; },
+    _computeDefaultRoute: function(trackerUnlocked) { return window.santaApp.defaultRoute; },
+    _computeStringScene: function(id, strings) { return strings['scene-' + id]; },
+
+    _computeFixedClass: function(isFixedToolbar, disabled) {
+      return isFixedToolbar && !disabled ? 'fixed' : ''; },
+
+    _computeTrackerUrl: function(pageUrl, trackerUnlocked) {
+      return trackerUnlocked ? pageUrl + '#tracker' : null;
+    },
+
+    _computeDec24thString: function(lang) {
+      var thisYear = new Date();
+      var d = new Date('December 24, ' + thisYear.getUTCFullYear());
+      return d.toLocaleDateString(lang, {month: 'long', day: 'numeric'});
+    },
+
+    /**
+     * Close the `santa-chrome` drawer.
+     */
+    closeDrawer: function() {
+      this.$.sidebar.closeDrawer();
+    },
+
     _onShare: function(ev) {
       ev.preventDefault();
 
+      // find the paper-icon-button with class="share", and use its id for the social network
       var target = ev.target;
       while (target) {
         if (target.classList.contains('shareicons')) { return; }
@@ -356,71 +376,28 @@ specific language governing permissions and limitations under the License.
       this.mute = !this.mute;
     },
 
-    _computeHiddenClass: function(hide) {
-      return hide ? 'hidden' : '';
-    },
-
-    _calculateMuteClass: function(mute) {
-      return mute ? 'off' : 'on';
-    },
-
     /**
-     * Close the `santa-chrome` drawer.
+     * Changes the site URL to set a new language. In prod, uses ?hl=lang, and in dev, uses the
+     * longer path form.
      */
-    closeDrawer: function() {
-      this.$.sidebar.closeDrawer();
-    },
-
-    _computeDec24thString: function(lang) {
-      var thisYear = new Date();
-      var d = new Date("December 24, " + thisYear.getUTCFullYear());
-      return d.toLocaleDateString(lang, {
-        month: 'long', day: 'numeric'
-      });
-    },
-
-    _stringScene: function(id, strings) {
-      return strings['scene-' + id];
-    },
-
     _onLanguageChanged: function() {
       var lang = this.$.language.value;
 
-      this.fire('analytics-track-event', {category: 'language', action: 'click',
-                                          label: 'change', value: lang});
+      // strip both options: /intl/lang from pathname, ?hl=lang from search
+      var pathname = window.location.pathname.replace(/^\/intl\/[-\w]+(_ALL)?\//, '/');
+      var search = location.search.replace(/[\?\&]hl=[-\w]*\b/g, '');
 
-      // This is done as a RAF because we want to make sure the analytics
-      // event is triggered.
-      this.async(function() {
-        var suffix = (window.location.href.indexOf('appspot') != -1 ? '_ALL/index.html' : '/');
-        window.location = window.location.origin + '/intl/' + lang + suffix + location.search + location.hash;
-      }, null, 100);
-    },
+      if (lang != 'en') {
+        if (window.location.hostname == 'santatracker.google.com') {
+          // in prod, append ?hl=... if non-en
+          search += (search.length ? '&' : '?') + 'hl=' + lang;
+        } else {
+          // in dev, use /intl/[lang]_ALL/
+          pathname = '/intl/' + lang + '_ALL' + pathname;
+        }
+      }
 
-    _onContentScroll: function() {
-      this.debounce('_onContentScroll', function() {
-        this._atTop = this.$.main.atTop;
-      });
-    },
-
-    _computeScrolledToolbar: function(isFixedToolbar, atTop) {
-      return isFixedToolbar || !atTop;
-    },
-
-    _calculateScrollingClass: function(scrolledToolbar) {
-      return scrolledToolbar ? 'scrolling' : '';
-    },
-
-    _calculateFixedClass: function(isFixedToolbar, disabled) {
-      return isFixedToolbar && !disabled ? 'fixed' : '';
-    },
-
-    _calculateTrackerUrl: function(pageUrl, trackerUnlocked) {
-      return trackerUnlocked ? pageUrl + '#tracker' : null;
-    },
-
-    _computeDrawerWidth: function(smallScreen) {
-      return smallScreen ? '100%' : '400px';
+      window.location = window.location.origin + pathname + search + window.location.hash;
     },
 
     /**
@@ -432,15 +409,7 @@ specific language governing permissions and limitations under the License.
       if (!lang || lang.substr(0, 2) == 'en') {
         return url;
       }
-      if (url.indexOf('?') == -1) {
-        return url + '?hl=' + lang;
-      } else {
-        return url + '&hl=' + lang;
-      }
-    },
-
-    _computeDefaultRoute: function(trackerUnlocked) {
-      return santaApp.defaultRoute;
+      return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'hl=' + lang;
     },
 
     _onTitleClick: function() {
