@@ -296,7 +296,7 @@ Intro for the tracker scene.
         bubble.open(140, function(e) {
           bubble.open(100, function() {
             userLocationEl.classList.add('final');
-            webkitStyle(pin, 'transform', 'rotate(0deg)');
+            pin.style.transform = 'rotate(0deg)';
 
             this.async(function() {
               this.showSanta();

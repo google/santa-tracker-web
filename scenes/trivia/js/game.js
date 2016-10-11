@@ -67,7 +67,7 @@ app.Game.prototype.onFrame = function() {
   app.shared.Coordinator.onFrame(delta);
 
   // Request next frame
-  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
+  this.requestId = window.requestAnimationFrame(this.onFrame);
 };
 
 /**
@@ -116,7 +116,7 @@ app.Game.prototype.start = function(difficulty) {
   this.nextQuestion_();
 
   this.lastFrame = +new Date() / 1000;
-  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame);
+  this.requestId = window.requestAnimationFrame(this.onFrame);
 };
 
 /**
@@ -193,7 +193,7 @@ app.Game.prototype.dispose = function() {
     level: this.level
   });
 
-  app.shared.utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.trivia');
   $(document).off('.trivia');
   this.levelUp.dispose();

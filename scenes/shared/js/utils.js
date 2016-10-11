@@ -105,27 +105,6 @@ app.shared.utils = (function() {
     },
 
     /**
-     * Call the callback in start of next frame.
-     * @deprecated
-     * @param {!Function} callback The callback function.
-     * @returns {number} The request id used for canceling.
-     */
-    requestAnimFrame: function(callback) {
-      // TODO: Remove this method and use rAF directly.
-      return window.requestAnimationFrame(callback);
-    },
-
-    /**
-     * Cancel a request for animation frame.
-     * @deprecated
-     * @param {number} requestId The id of the request.
-     */
-    cancelAnimFrame: function(requestId) {
-      // TODO: Remove this method and use cAF directly.
-      window.cancelAnimationFrame(requestId);
-    },
-
-    /**
      * Unwraps a jQuery object or confirms that an Element is non-null. Throws a
      * TypeError if there is no object available.
      * @param {Element|!jQuery} element source element or jQuery

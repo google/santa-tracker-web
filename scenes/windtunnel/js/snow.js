@@ -65,14 +65,14 @@ app.Snow = function(canvas, snowblower, fanState) {
  * Initializes the snow engine.
  */
 app.Snow.prototype.init = function() {
-  this.requestId_ = app.shared.utils.requestAnimFrame(this.onFrame_);
+  this.requestId_ = window.requestAnimationFrame(this.onFrame_);
 };
 
 /**
  * Stops the snow.
  */
 app.Snow.prototype.destroy = function() {
-  app.shared.utils.cancelAnimFrame(this.requestId_);
+  window.cancelAnimationFrame(this.requestId_);
 };
 
 /**
@@ -83,7 +83,7 @@ app.Snow.prototype.destroy = function() {
 app.Snow.prototype.onFrame_ = function() {
   this.update_();
 
-  this.requestId_ = app.shared.utils.requestAnimFrame(this.onFrame_);
+  this.requestId_ = window.requestAnimationFrame(this.onFrame_);
 };
 
 /**

@@ -341,7 +341,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date();
-    this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
+    this.requestId = window.requestAnimationFrame(this.onFrame_);
   }
 };
 
@@ -363,7 +363,7 @@ app.Game.prototype.onFrame_ = function() {
   this.update(delta);
 
   // Request next frame
-  this.requestId = app.shared.utils.requestAnimFrame(this.onFrame_);
+  this.requestId = window.requestAnimationFrame(this.onFrame_);
 };
 
 /**

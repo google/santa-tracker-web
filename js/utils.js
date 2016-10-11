@@ -107,21 +107,6 @@ function getUrlParameter(param) {
 }
 
 /**
- * Sets the prefixed CSS property safely for webkit.
- * @param {!Element} el to apply property to
- * @param {string} prop to set
- * @param {string} value to set
- */
-function webkitStyle(el, prop, value) {
-  if (!prop.length) {
-    return;
-  }
-  var prefixVersion = 'webkit' + prop.substr(0, 1).toUpperCase() + prop.substr(1);
-  el.style[prefixVersion] = value;
-  el.style[prop] = value;
-}
-
-/**
  * Throttle calls to a function
  * @param {function()} func
  * @param {number} ms at most one per this many ms

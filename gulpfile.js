@@ -574,7 +574,6 @@ gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function(
 
   var prodStream = gulp.src([
     'images/og.png',
-    'embed.js',
     'sw.js',
   ], {base: './'})
   .pipe(gulp.dest(DIST_PROD_DIR));

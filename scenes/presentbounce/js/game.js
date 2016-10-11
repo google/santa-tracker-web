@@ -150,7 +150,7 @@ app.Game.prototype.onFrame_ = function() {
   this.scoreboard.onFrame(delta);
 
   // Request next frame
-  this.requestId = utils.requestAnimFrame(this.onFrame_);
+  this.requestId = window.requestAnimationFrame(this.onFrame_);
 };
 
 /**
@@ -241,7 +241,7 @@ app.Game.prototype.unfreezeGame = function() {
     this.drawer.resume();
     this.currentLevel_.resume();
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame_);
+    this.requestId = window.requestAnimationFrame(this.onFrame_);
   }
 };
 
@@ -357,7 +357,7 @@ app.Game.prototype.dispose = function() {
     });
   }
   window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
-  utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.presentbounce');
   $(document).off('.presentbounce');
 

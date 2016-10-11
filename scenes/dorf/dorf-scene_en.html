@@ -296,12 +296,12 @@ Village scene (2015).
     elem.style.left = pos + '%';
 
     var shimmy = elem.querySelector('.shimmy');
-    webkitStyle(shimmy, 'animationDuration', shimmySpeed + 's');
+    shimmy.style.animationDuration = shimmySpeed + 's';
     shimmy.style.fontSize = fallSpeed + 'px';  // shimmy width is inverse to speed
 
     var fall = elem.querySelector('.fall');
-    webkitStyle(fall, 'animationDuration', fallSpeed + 's');
-    webkitStyle(fall, 'animationDelay', (+delay) + 's');
+    fall.style.animationDuration = fallSpeed + 's';
+    fall.style.animationDelay = (+delay) + 's';
 
     var snow = elem.querySelector('.snow');
     snow.style.width = size + 'px';
@@ -326,11 +326,11 @@ Village scene (2015).
     elem.style.transform = 'translate(0, ' + pos + 'px)';
 
     var cloud = elem.firstChild;
-    webkitStyle(cloud, 'animationDuration', randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's');
+    cloud.style.animationDuration = randomRange(CLOUD_SPEED_MIN, CLOUD_SPEED_MAX) + 's';
     if (reverse) {
-      webkitStyle(cloud, 'animationDirection', 'reverse');
+      cloud.style.animationDirection = 'reverse';
     }
-    webkitStyle(cloud, 'animationDelay', (+delay) + 's');
+    cloud.style.animationDelay = (+delay) + 's';
     cloud.className = 'cloud cloud' + Math.floor(Math.random() * CLOUD_TYPES);
 
     return elem;

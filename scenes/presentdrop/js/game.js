@@ -155,7 +155,7 @@ app.Game.prototype.onFrame_ = function() {
   }, this);
 
   // Request next frame
-  this.requestId = utils.requestAnimFrame(this.onFrame_);
+  this.requestId = window.requestAnimationFrame(this.onFrame_);
 };
 
 /**
@@ -249,7 +249,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = Date.now() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame_);
+    this.requestId = window.requestAnimationFrame(this.onFrame_);
   }
 };
 
@@ -345,7 +345,7 @@ app.Game.prototype.dispose = function() {
   }
   this.freezeGame();
 
-  utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.presentdrop');
   $(document).off('.presentdrop');
   this.elem.off('.presentdrop');

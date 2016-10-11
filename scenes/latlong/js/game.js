@@ -116,7 +116,7 @@ app.Game.prototype.onFrame = function() {
   this.belt.onFrame(delta);
 
   // Request next frame
-  this.requestId = utils.requestAnimFrame(this.onFrame);
+  this.requestId = window.requestAnimationFrame(this.onFrame);
 };
 
 
@@ -193,7 +193,7 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
-    this.requestId = utils.requestAnimFrame(this.onFrame);
+    this.requestId = window.requestAnimationFrame(this.onFrame);
   }
 };
 
