@@ -438,7 +438,7 @@ app.Game.prototype.dispose = function() {
 
   this.freezeGame();
 
-  app.shared.utils.cancelAnimFrame(this.requestId);
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.santasearch');
   $(document).off('.santasearch');
   this.elem.off('.santasearch');
