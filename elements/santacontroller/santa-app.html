@@ -474,8 +474,7 @@ Polymer({
     },
 
     /**
-     * The mode of Santa Tracker. Possible values are blank, 'cast', 'portal',
-     * or 'embed'.
+     * The mode of Santa Tracker. Possible values are blank, 'cast', or 'portal'.
      */
     mode: {
       type: String,
@@ -633,17 +632,10 @@ Polymer({
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
       apiClient = defaultApiClient;
     }
-
-    var loadSound = true;
-
     switch (apiClient) {
       case 'web_chromecast':
         this.mode = 'cast';
         this.triggerRandom = true;
-        break;
-      case 'web_embed':
-        this.mode = 'embed';
-        loadSound = false;
         break;
       case 'web_portal':
         apiClient = 'web';
@@ -653,12 +645,10 @@ Polymer({
         break;
     }
 
-    if (loadSound) {
-      var sc = new SoundController(this._soundsLoaded.bind(this));
-      this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
-      this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
-      this.addEventListener('sound-trigger', sc.playSound.bind(sc));
-    }
+    var sc = new SoundController(this._soundsLoaded.bind(this));
+    this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
+    this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
+    this.addEventListener('sound-trigger', sc.playSound.bind(sc));
 
     // NOTE: There's a race here: 'sound-ambient' is registered above, but setting the initial
     // background state here still causes audio to start on unfocused tabs. This is probably fine,
