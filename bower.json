@@ -22,7 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.3",
+    "polymer": "Polymer/polymer#^1.7.0",
     "neon-animation": "PolymerElements/neon-animation#^1.0",
     "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^1.0.9",
     "iron-image": "PolymerElements/iron-image#^1.0",
