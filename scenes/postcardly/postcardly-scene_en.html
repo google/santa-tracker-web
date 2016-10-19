@@ -32,9 +32,21 @@ Presentdrop scene.
   </style>
 
   <div id="module-postcardly">
-    <div class="view">
-      <div id="snowglobe"></div>
-    </div>
+    <iframe id="blocklyArea" src="blockly-games/web/turtle.html?lang=en" scrolling="no" width="100%" height="100%" frameBorder="0"></iframe>
+    <table id="snowglobe" style="visibility: hidden">
+      <tr>
+        <td><div id="weather"></div></td>
+        <td>
+          <div id="scenery">
+            <image id="option1" style="background-position: 0px 0px" class="postcardOption" on-tap="changePostcardBackground" data-args="0px 0px"></image>
+            <image id="option2" style="background-position: -340px 0px" class="postcardOption" on-tap="changePostcardBackground" data-args="-850px 0px"></image>
+            <image id="option3" style="background-position: -680px 0px" class="postcardOption" on-tap="changePostcardBackground" data-args="-1700px 0px"></image>
+            <image id="option4" style="background-position: -1020px 0px" class="postcardOption" on-tap="changePostcardBackground" data-args="-2550px 0px"></image>
+          </div>
+        </td>
+      </tr>
+    </table>
+    
   </div>
 
 </template>
@@ -44,6 +56,14 @@ Presentdrop scene.
     is: 'postcardly-scene',
     behaviors: [window.SantaSceneBehavior],
     game: null,
+
+    attached: function() {
+      window.addEventListener("message", this.receiveMessage.bind(this), false);
+    },
+
+    detached: function() {
+      window.removeEventListener("message", this.receiveMessage.bind(this), false);
+    },
 
     onPreload: function() {
       this.preloadSounds('pd_load_sounds', 30);
@@ -61,8 +81,42 @@ Presentdrop scene.
       this.fire('sound-ambient', 'pd_end_game');
     },
 
-  });
+    receiveMessage: function(event) {
+      var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+      var iframe = this.$.blocklyArea;
+      var expectedSource = iframe.contentWindow || iframe;
+      //TODO(madCode): change the expected origin once Santa Tracker goes live
+      if (origin != "http://localhost:3000" || event.source != expectedSource) {
+        console.log("wrong origin: " + origin + "or wrong source");
+        return;
+      } else {
+        this.snowflake = event.data;
+        //If we're receiving this message, 'Done' has been pressed.
+        this.viewSnowflake();
+      }
+    },
 
+    viewSnowflake: function() {
+      var snowflakesList = Polymer.dom(this.root).querySelectorAll('.snow');
+      for (var i=0; i<snowflakesList.length; i++) {
+        snowflakesList[i].style.backgroundImage="url("+this.snowflake+")";
+        snowflakesList[i].style.backgroundSize="contain";
+      }
+      this.$.blocklyArea.style.visibility = "hidden";
+      this.$.blocklyArea.style.width = "0px";
+      this.$.blocklyArea.style.height = "0px";  
+      this.$.snowglobe.style.visibility = "visible";
+    },
+
+    changePostcardBackground: function(event) {
+      this.$.weather.style.backgroundPosition=event.target.getAttribute('data-args');
+    },
+
+    // changePostcardBackground: function(event) {
+    //   this.$.weather.style.backgroundPosition=event.model.item;
+    // }
+  });
 })();
+
 </script>
 </dom-module>
