@@ -1,5 +1,5 @@
 // This file was automatically generated.  Do not modify.
-
+//TODO(madCode): remove all lines that aren't being used.
 'use strict';
 
 goog.provide('Blockly.Msg.en');

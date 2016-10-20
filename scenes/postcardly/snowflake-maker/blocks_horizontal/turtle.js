@@ -73,7 +73,6 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
 
 Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   // Repeat n times.
-  
   var repeats = '6';
 
   var branch = Blockly.JavaScript.statementToCode(block, 'SUBSTACK');
@@ -82,11 +81,6 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
   var endVar = repeats;
-  if (!repeats.match(/^\w+$/) && !Blockly.isNumber(repeats)) {
-    var endVar = Blockly.JavaScript.variableDB_.getDistinctName(
-        'repeat_end', Blockly.Variables.NAME_TYPE);
-    code += 'var ' + endVar + ' = ' + repeats + ';\n';
-  }
   code += 'for (var ' + loopVar + ' = 0; ' +
       loopVar + ' < ' + endVar + '; ' +
       loopVar + '++) {\n' +
