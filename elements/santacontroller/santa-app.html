@@ -575,7 +575,6 @@ Polymer({
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
-    'tracker-action': 'onTrackerAction',
     'countdown-timer-finish': 'onCountdownFinish',
     'tracker-end': 'onTrackerEnd',
     'share': 'onShare',
@@ -706,13 +705,13 @@ Polymer({
   },
 
   /**
-   * Handles the title being clicked or esc being hit. Redirects the event to
-   * the selected scene.
+   * Handles the title being clicked, or ESC being hit. Closes the drawer, or redirects to the
+   * default route.
    */
   onDefaultAction: function() {
-    var scene = this.selectedScene;
-    if (scene && scene.fire) {
-      scene.fire('default-action');
+    var wasOpen = this.$.chrome.closeDrawer();
+    if (!wasOpen) {
+      this.$.router.go(this.defaultRoute);
     }
   },
 
@@ -1168,22 +1167,8 @@ Polymer({
   _escHandler: function(e, detail) {
     switch (e.detail.key) {
       case 'esc':
-        this.$.router.go(this.defaultRoute);
         this.onDefaultAction();
         break;
-    }
-  },
-
-  onTrackerAction: function(e, detail) {
-    // Note: needs to go qS() because DOM is not guaranteed to exist if on cast.
-    var calendar = this.$.lazypages.querySelector('calendar-nav');
-    if (!calendar) {
-      return; // cast mode
-    }
-    if (detail.type == 'tracker-toggle') {
-      calendar.trackerActive = detail.active;
-    } else if (detail.type == 'city-toggle') {
-      calendar.cityFeedActive = detail.active;
     }
   },
 
@@ -1260,15 +1245,11 @@ Polymer({
   },
 
   /**
-   * Returns the (static) color for the given route. Returns the blank string
-   * if there is no color.
+   * Returns the (static) color for the given route. Returns the blank string if there is no color.
    */
   colorForRoute: function(route) {
-    var el = this.$.lazypages.querySelector('[route="' + route + '"]');
-    if (!el || !el.hasAttribute('header-color')) {
-      return '';
-    }
-    return el.getAttribute('header-color');
+    var el = this.$.lazypages.getRoute(route);
+    return (el ? el.getAttribute('header-color') : '') || '';
   },
 
   isCastMode: function(mode) {

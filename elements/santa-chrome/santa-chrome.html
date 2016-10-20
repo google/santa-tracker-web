@@ -336,6 +336,7 @@ specific language governing permissions and limitations under the License.
     _computeDrawerWidth: function(smallScreen) { return smallScreen ? '100%' : '400px'; },
     _computeDefaultRoute: function(trackerUnlocked) { return window.santaApp.defaultRoute; },
     _computeStringScene: function(id, strings) { return strings['scene-' + id]; },
+    _computeOpen: function(selected) { return selected === 'drawer'; },
 
     _computeFixedClass: function(isFixedToolbar, disabled) {
       return isFixedToolbar && !disabled ? 'fixed' : ''; },
@@ -352,9 +353,17 @@ specific language governing permissions and limitations under the License.
 
     /**
      * Close the `santa-chrome` drawer.
+     * @return {boolean} true if the drawer was closed
      */
     closeDrawer: function() {
-      this.$.sidebar.closeDrawer();
+      if (this.$.sidebar.selected === 'main') {
+        return false;
+      }
+      this.$.sidebar.selected = 'main';
+      if (this.santaApp) {
+        this.santaApp.focus();
+      }
+      return true;
     },
 
     _onShare: function(ev) {

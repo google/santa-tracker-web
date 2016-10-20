@@ -85,16 +85,6 @@ Tracker scene.
     behaviors: [window.SantaSceneBehavior],
 
     /**
-     * Fired when the tracker
-     *
-     * @event tracker-action
-     * @param {object} detail
-     *     @param {string} type The type of action that was triggered. Possible
-     *         values are 'tracker-toggle' or 'city-toggle'.
-     *     @param {boolean} active True if the item in question is being shown.
-     */
-
-    /**
      * Fired when city feed is activated.
      *
      * @event analytics-track-event
@@ -256,16 +246,6 @@ Tracker scene.
       }
 
       this.preloadImages(images);
-    },
-
-    /**
-     * The user has hit esc or pressed the Santa Tracker text.
-     */
-    onDefaultAction: function() {
-      if (this.$.feed.activeStop) {
-        return;  // don't scroll to top if feed is open
-      }
-      this.$.feed.scrollToIndex(0);
     },
 
     // TODO: lots to update here for Polymer 1.0.
@@ -561,8 +541,6 @@ Tracker scene.
       this.navOpen = false;
 
       this.sceneParamsChanged();
-
-      this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
     onHide: function() {
@@ -579,8 +557,6 @@ Tracker scene.
       (this._listeners || []).forEach(function(l) {
         l.remove();
       });
-
-      this.fire('tracker-action', {type: 'tracker-toggle', active: this.active});
     },
 
     sceneParamsChanged: function() {
