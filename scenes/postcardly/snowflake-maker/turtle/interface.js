@@ -26,16 +26,7 @@
 goog.provide('BlocklyInterface');
 
 goog.require('Blockly');
-//goog.require('BlocklyGames');
-//goog.require('BlocklyGames.Msg');
 goog.require('goog.string');
-
-/**
- * Common startup tasks for all apps.
- */
-BlocklyInterface.init = function() {
-  //BlocklyGames.init();
-};
 
 /**
  * Load blocks saved on App Engine Storage or in session/local storage.
@@ -159,6 +150,7 @@ BlocklyInterface.importInterpreter = function() {
   document.head.appendChild(script);
 };
 
+//TODO(madCode): delete if we're not showing kids the code they wrote.
 /**
  * Load the Prettify CSS and JavaScript.
  */

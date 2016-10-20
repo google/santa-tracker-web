@@ -25,15 +25,9 @@
 
 goog.provide('Turtle');
 
-//goog.require('BlocklyDialogs');
-//goog.require('BlocklyGames');
 goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
-//goog.require('Turtle.soy');
-
-//BlocklyGames = {};
-//BlocklyGames.NAME = 'turtle';
 
 Turtle.HEIGHT = 400;
 Turtle.WIDTH = 400;
@@ -172,9 +166,13 @@ Turtle.init = function() {
 
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
-  // Lazy-load the syntax-highlighting.
-  setTimeout(BlocklyInterface.importPrettify, 1);
 
+  //TODO(madCode): delete if we're not showing kids the code they wrote.
+  // Lazy-load the syntax-highlighting.
+  // setTimeout(BlocklyInterface.importPrettify, 1);
+
+
+  //TODO(madCode): delete if we're not doing a help dialog
   // Turtle.bindClick('helpButton', Turtle.showHelp);
   // setTimeout(Turtle.showHelp, 1000);
   // Turtle.workspace.addChangeListener(Turtle.watchCategories_);
@@ -199,6 +197,7 @@ Turtle.showHelp = function() {
     top: '5em'
   };
 
+  //TODO(madCode): remove if we're not showing dialogs.
   // BlocklyDialogs.showDialog(help, button, true, true, style, Turtle.hideHelp);
   // BlocklyDialogs.startDialogKeyDown();
 };
@@ -207,6 +206,7 @@ Turtle.showHelp = function() {
  * Hide the help pop-up.
  */
 Turtle.hideHelp = function() {
+  //TODO(madCode): remove if we're not showing dialogs.
   // BlocklyDialogs.stopDialogKeyDown();
   setTimeout(Turtle.showCategoryHelp, 5000);
 };
@@ -225,6 +225,7 @@ Turtle.showCategoryHelp = function() {
     top: '3.3em'
   };
   var origin = document.getElementById(':0');  // Toolbox's tree root.
+  //TODO(madCode): remove if we're not showing dialogs.
   //BlocklyDialogs.showDialog(help, origin, true, false, style, null);
 };
 
@@ -364,14 +365,7 @@ Turtle.runButtonClick = function(e) {
   resetButton.style.display = 'inline';
   document.getElementById('spinner').style.visibility = 'visible';
   Turtle.workspace.traceOn(true);
-  //TODO(madCode): make a loop
-  //Turtle.reset();
-  //debugger;
-  //for (var i=0; i<6; i++) {
-    Turtle.execute();
-    //Turtle.resetPosition();
-    //Turtle.turn(60*(i+1));
-  //}
+  Turtle.execute();
 };
 
 /**
@@ -390,7 +384,7 @@ Turtle.resetButtonClick = function(e) {
   Turtle.workspace.traceOn(false);
   Turtle.reset();
 
-  // Image cleared; prevent user from submitting to Reddit.
+  // Image cleared; prevent user from moving on to snowflake.
   Turtle.canSubmit = false;
 };
 
@@ -401,10 +395,9 @@ Turtle.resetButtonClick = function(e) {
  */
 Turtle.initInterpreter = function(interpreter, scope) {
   // API
+  /** wrap functions in the Turtle object so that they 
+  can be called from the blocks' javascript generator functions. */
   var wrapper;
-
-
-
 
 
   wrapper = function(size, id) {
@@ -423,7 +416,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
   };
   interpreter.setProperty(scope, 'moveForwardAndDraw',
       interpreter.createNativeFunction(wrapper));
-
 
 
   wrapper = function() {
@@ -755,7 +747,9 @@ Turtle.drawFont = function(font, size, style, id) {
 };
 
 Turtle.getImageAsDataURL = function() {
-  parent.postMessage(Turtle.ctxScratch.canvas.toDataURL(), "*");
+  if (Turtle.canSubmit) {
+    parent.postMessage(Turtle.ctxScratch.canvas.toDataURL(), "*");    
+  }
 };
 
 /**
