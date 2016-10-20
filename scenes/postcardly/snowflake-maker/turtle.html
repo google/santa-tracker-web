@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Snowflake Maker</title>
+
+    <script src="blockly_compressed_horizontal.js"></script>
+    <script src="javascript_compressed.js"></script>
+    <script src="msg/messages.js"></script>
+    <script src="blocks_common/math.js"></script>
+    <script src="blocks_common/colour.js"></script>
+    <script src="blocks_horizontal/control.js"></script>
+    <script src="blocks_horizontal/turtle.js"></script>
+    <script src="blocks_horizontal/default_toolbox.js"></script>
+
+    <script src="turtle/interface.js"></script>
+    <script src="turtle/slider.js"></script>
+    <script src="turtle/turtle.js"></script>
+
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        background-color: #fff;
+        font-family: sans-serif;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-weight: normal;
+        font-size: 140%;
+      }
+
+      #blocklyDiv {
+        float: right;
+        height: 95%;
+        width: 70%;
+      }
+
+      #collaborators {
+        float: right;
+        width: 30px;
+        margin-left: 10px;
+      }
+
+      #collaborators > img {
+        margin-right: 5px;
+        height: 30px;
+        padding-bottom: 5px;
+        width: 30px;
+        border-radius: 3px;
+      }
+
+      #importExport {
+        font-family: monospace;
+      }
+
+      button.primary {
+        text-align: left;
+      }
+      html[dir="RTL"] button.primary {
+        text-align: right;
+      }
+
+      #blockly {
+        position: fixed;
+        bottom: 10px;
+      }
+      #display {
+        border: 1px solid #ccc;
+      }
+
+      /* Slider. */
+      .sliderTrack {
+        stroke: #aaa;
+        stroke-width: 6px;
+        stroke-linecap: round;
+      }
+      .sliderKnob {
+        fill: #ddd;
+        stroke: #bbc;
+        stroke-width: 1px;
+        stroke-linejoin: round;
+      }
+      .sliderKnob:hover {
+        fill: #eee;
+      }
+
+      /* Sprited icons. */
+      .icon21 {
+        height: 21px;
+        width: 21px;
+        background-image: url(media/icons.png);
+      }
+      .stop {
+        background-position: -42px 0px;
+      }
+      .run {
+        background-position: -63px 0px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="collaborators"></div>
+    <div id="blocklyDiv"></div>
+
+    <!-- Sidebar -->
+    <div id="visualization">
+      <canvas id="scratch" width="400" height="400" style="display: none"></canvas>
+      <canvas id="display" width="400" height="400"></canvas>
+    </div>
+    <table style="padding-top: 1em;">
+      <tr>
+        <td style="width: 190px; text-align: center; vertical-align: top;">
+          <svg
+              id="slider"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:svg="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              width="150"
+              height="50">
+            <!-- Slow icon. -->
+            <clipPath id="slowClipPath">
+              <rect width=26 height=12 x=5 y=14 />
+            </clipPath>
+            <image xlink:href="media/icons.png" height=42 width=84 x=-21 y=-10
+                clip-path="url(#slowClipPath)" />
+            <!-- Fast icon. -->
+            <clipPath id="fastClipPath">
+              <rect width=26 height=16 x=120 y=10 />
+            </clipPath>
+            <image xlink:href="media/icons.png" height=42 width=84 x=120 y=-11
+                clip-path="url(#fastClipPath)" />
+          </svg>
+        </td>
+        <td style="width: 15px;">
+          <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15>
+        </td>
+        <td style="width: 190px; text-align: center">
+          <button id="runButton" class="primary" title="Run the program you wrote.">
+            <img src="media/1x1.gif" class="run icon21"> Run Program
+          </button>
+          <button id="resetButton" class="primary" style="display: none" title="Stop the program and reset the level.">
+            <img src="media/1x1.gif" class="stop icon21">Reset
+          </button>
+          <button id="helpButton">
+            Help
+          </button>
+          <button id="submitButton" title="Done.">
+            <img src="media/1x1.gif" class="camera icon21">Done
+          </button>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

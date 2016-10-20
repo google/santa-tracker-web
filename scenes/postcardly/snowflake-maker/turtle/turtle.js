@@ -25,15 +25,15 @@
 
 goog.provide('Turtle');
 
-goog.require('BlocklyDialogs');
-goog.require('BlocklyGames');
+//goog.require('BlocklyDialogs');
+//goog.require('BlocklyGames');
 goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
-goog.require('Turtle.soy');
+//goog.require('Turtle.soy');
 
-
-BlocklyGames.NAME = 'turtle';
+//BlocklyGames = {};
+//BlocklyGames.NAME = 'turtle';
 
 Turtle.HEIGHT = 400;
 Turtle.WIDTH = 400;
@@ -68,17 +68,30 @@ Turtle.visible = true;
  */
 Turtle.canSubmit = false;
 
+Turtle.isRTL = false;
+
 /**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
   // Render the Soy template.
-  document.body.innerHTML = Turtle.soy.start({}, null, {});
+  //document.body.innerHTML = Turtle.soy.start({}, null, {});
 
-  BlocklyInterface.init();
+  //BlocklyInterface.init();
 
-  var rtl = BlocklyGames.isRtl();
-  var blocklyDiv = document.getElementById('blockly');
+  // Restore sounds state.
+  var soundsEnabled = true;
+
+  // Setup blocks
+  // Parse the URL arguments.
+  var match = location.search.match(/dir=([^&]+)/);
+  var rtl = match && match[1] == 'rtl';
+  var toolbox = Turtle.getToolboxElement();
+  match = location.search.match(/side=([^&]+)/);
+  var side = match ? match[1] : 'start';
+
+  var rtl = Turtle.isRTL;
+  var blocklyDiv = document.getElementById('blocklyDiv');
   var visualization = document.getElementById('visualization');
   var onresize = function(e) {
     var top = visualization.offsetTop;
@@ -88,37 +101,61 @@ Turtle.init = function() {
   };
   window.addEventListener('scroll', function() {
     onresize();
-    Blockly.svgResize(BlocklyGames.workspace);
+    Blockly.svgResize(Turtle.workspace);
   });
   window.addEventListener('resize', onresize);
   onresize();
 
-  var toolbox = document.getElementById('toolbox');
-  BlocklyGames.workspace = Blockly.inject('blockly',
-      {'media': 'third-party/blockly/media/',
-       'rtl': rtl,
-       'toolbox': toolbox,
-       'trashcan': true,
-       'zoom': {'controls': true, 'wheel': true}});
+  var toolbox = Turtle.getToolboxElement();
+
+  Turtle.workspace = Blockly.inject('blocklyDiv', {
+          comments: false,
+          disable: false,
+          collapse: false,
+          media: 'media/',
+          readOnly: false,
+          rtl: rtl,
+          scrollbars: true,
+          toolbox: toolbox,
+          trashcan: true,
+          horizontalLayout: side == 'top' || side == 'bottom',
+          toolboxPosition: side == 'top' || side == 'start' ? 'start' : 'end',
+          sounds: soundsEnabled,
+          grid: {spacing: 16,
+            length: 1,
+            colour: '#2C344A',
+            snap: false
+          },
+          zoom: {
+            controls: true,
+            wheel: true,
+            startScale: 1.0,
+            maxScale: 4,
+            minScale: 0.25,
+            scaleSpeed: 1.1
+          },
+          colours: {
+            workspace: '#334771',
+            flyout: '#283856',
+            scrollbar: '#24324D',
+            scrollbarHover: '#0C111A',
+            insertionMarker: '#FFFFFF',
+            insertionMarkerOpacity: 0.3,
+            fieldShadow: 'rgba(255, 255, 255, 0.3)',
+            dragShadowOpacity: 0.6
+          }
+        });
+
+
   // Prevent collisions with user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
-      'turnRight,turnLeft,penUp,penDown,penWidth,penColour,' +
-      'hideTurtle,showTurtle,print,font');
+      'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
 
   // Initialize the slider.
   var sliderSvg = document.getElementById('slider');
   Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
 
-  var defaultXml = '<xml><block type="turtle_width" x="70" y="70"><value name="WIDTH"><shadow type="math_number"><field name="NUM">25</field></shadow></value><next><block type="variables_set"><field name="VAR">i</field><value name="VALUE"><block type="math_number"><field name="NUM">25</field></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><shadow type="math_number" id="3+`=W)Wc!2E/u%z7=wa4"><field name="NUM">10</field></shadow></value><statement name="DO"><block type="turtle_move"><field name="DIR">moveForward</field><value name="VALUE"><shadow type="math_number"><field name="NUM">10</field></shadow><block type="variables_get"><field name="VAR">i</field></block></value><next><block type="turtle_turn"><field name="DIR">turnRight</field><value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value><next><block type="turtle_colour"><value name="COLOUR"><shadow type="colour_picker"><field name="COLOUR">#ff0000</field></shadow><block type="colour_random"></block></value><next><block type="math_change"><field name="VAR">i</field><value name="DELTA"><shadow type="math_number"><field name="NUM">25</field></shadow></value></block></next></block></next></block></next></block></statement></block></next></block></next></block></xml>';
-      // '<xml>' +
-      // '  <block type="turtle_move" x="70" y="70">' +
-      // '    <value name="VALUE">' +
-      // '      <shadow type="math_number">' +
-      // '        <field name="NUM">10</field>' +
-      // '      </shadow>' +
-      // '    </value>' +
-      // '  </block>' +
-      // '</xml>';
+  var defaultXml = '<xml><block type="copy_to_make_snowflake"></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -126,10 +163,10 @@ Turtle.init = function() {
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.reset();
 
-  BlocklyGames.bindClick('runButton', Turtle.runButtonClick);
-  BlocklyGames.bindClick('resetButton', Turtle.resetButtonClick);
+  Turtle.bindClick('runButton', Turtle.runButtonClick);
+  Turtle.bindClick('resetButton', Turtle.resetButtonClick);
   if (document.getElementById('submitButton')) {
-    BlocklyGames.bindClick('submitButton', Turtle.getImageAsDataURL);
+    Turtle.bindClick('submitButton', Turtle.getImageAsDataURL);
   }
 
 
@@ -138,13 +175,17 @@ Turtle.init = function() {
   // Lazy-load the syntax-highlighting.
   setTimeout(BlocklyInterface.importPrettify, 1);
 
-  BlocklyGames.bindClick('helpButton', Turtle.showHelp);
-  setTimeout(Turtle.showHelp, 1000);
-  BlocklyGames.workspace.addChangeListener(Turtle.watchCategories_);
+  // Turtle.bindClick('helpButton', Turtle.showHelp);
+  // setTimeout(Turtle.showHelp, 1000);
+  // Turtle.workspace.addChangeListener(Turtle.watchCategories_);
 };
 
 window.addEventListener('load', Turtle.init);
 
+Turtle.getToolboxElement = function() {
+  var match = location.search.match(/toolbox=([^&]+)/);
+  return document.getElementById('toolbox-' + (match ? match[1] : 'categories'));
+}
 
 /**
  * Show the help pop-up.
@@ -158,15 +199,15 @@ Turtle.showHelp = function() {
     top: '5em'
   };
 
-  BlocklyDialogs.showDialog(help, button, true, true, style, Turtle.hideHelp);
-  BlocklyDialogs.startDialogKeyDown();
+  // BlocklyDialogs.showDialog(help, button, true, true, style, Turtle.hideHelp);
+  // BlocklyDialogs.startDialogKeyDown();
 };
 
 /**
  * Hide the help pop-up.
  */
 Turtle.hideHelp = function() {
-  BlocklyDialogs.stopDialogKeyDown();
+  // BlocklyDialogs.stopDialogKeyDown();
   setTimeout(Turtle.showCategoryHelp, 5000);
 };
 
@@ -174,7 +215,7 @@ Turtle.hideHelp = function() {
  * Show the help pop-up to encourage clicking on the toolbox categories.
  */
 Turtle.showCategoryHelp = function() {
-  if (Turtle.categoryClicked_ || BlocklyDialogs.isDialogVisible_) {
+  if (Turtle.categoryClicked_) { // || BlocklyDialogs.isDialogVisible_) {
     return;
   }
   var help = document.getElementById('helpToolbox');
@@ -184,7 +225,7 @@ Turtle.showCategoryHelp = function() {
     top: '3.3em'
   };
   var origin = document.getElementById(':0');  // Toolbox's tree root.
-  BlocklyDialogs.showDialog(help, origin, true, false, style, null);
+  //BlocklyDialogs.showDialog(help, origin, true, false, style, null);
 };
 
 
@@ -203,30 +244,39 @@ Turtle.categoryClicked_ = false;
 Turtle.watchCategories_ = function(e) {
   if (e.type == Blockly.Events.UI && e.element == 'category') {
     Turtle.categoryClicked_ = true;
-    BlocklyDialogs.hideDialog(false);
-    BlocklyGames.workspace.removeChangeListener(Turtle.watchCategories_);
+    //BlocklyDialogs.hideDialog(false);
+    Turtle.workspace.removeChangeListener(Turtle.watchCategories_);
   }
 };
 
-/**
- * Reset the turtle to the start position, clear the display, and kill any
- * pending tasks.
- */
-Turtle.reset = function() {
+Turtle.resetPosition = function() {
   // Starting location and heading of the turtle.
   Turtle.x = Turtle.HEIGHT / 2;
   Turtle.y = Turtle.WIDTH / 2;
   Turtle.heading = 0;
   Turtle.penDownValue = true;
   Turtle.visible = true;
+}
 
-  // Clear the canvas.
-  Turtle.ctxScratch.canvas.width = Turtle.ctxScratch.canvas.width;
+Turtle.resetStyle = function() {
   Turtle.ctxScratch.strokeStyle = '#ffffff';
   Turtle.ctxScratch.fillStyle = '#ffffff';
   Turtle.ctxScratch.lineWidth = 5;
   Turtle.ctxScratch.lineCap = 'round';
   Turtle.ctxScratch.font = 'normal 18pt Arial';
+}
+
+/**
+ * Reset the turtle to the start position, clear the display, and kill any
+ * pending tasks.
+ */
+Turtle.reset = function() {
+  Turtle.resetPosition();
+
+  // Clear the canvas.
+  Turtle.ctxScratch.canvas.width = Turtle.ctxScratch.canvas.width;
+  Turtle.resetStyle();
+
   Turtle.display();
 
   // Kill all tasks.
@@ -313,8 +363,15 @@ Turtle.runButtonClick = function(e) {
   runButton.style.display = 'none';
   resetButton.style.display = 'inline';
   document.getElementById('spinner').style.visibility = 'visible';
-  BlocklyGames.workspace.traceOn(true);
-  Turtle.execute();
+  Turtle.workspace.traceOn(true);
+  //TODO(madCode): make a loop
+  //Turtle.reset();
+  //debugger;
+  //for (var i=0; i<6; i++) {
+    Turtle.execute();
+    //Turtle.resetPosition();
+    //Turtle.turn(60*(i+1));
+  //}
 };
 
 /**
@@ -330,7 +387,7 @@ Turtle.resetButtonClick = function(e) {
   runButton.style.display = 'inline';
   document.getElementById('resetButton').style.display = 'none';
   document.getElementById('spinner').style.visibility = 'hidden';
-  BlocklyGames.workspace.traceOn(false);
+  Turtle.workspace.traceOn(false);
   Turtle.reset();
 
   // Image cleared; prevent user from submitting to Reddit.
@@ -345,6 +402,37 @@ Turtle.resetButtonClick = function(e) {
 Turtle.initInterpreter = function(interpreter, scope) {
   // API
   var wrapper;
+
+
+
+
+
+  wrapper = function(size, id) {
+    Turtle.strokeTriangle(size, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampTriangle',
+      interpreter.createNativeFunction(wrapper));
+
+  wrapper = function(size, id) {
+    Turtle.fillTriangle(size, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampTriangleFill',
+      interpreter.createNativeFunction(wrapper));
+  wrapper = function(distance, id) {
+    Turtle.drawAndMove(distance.valueOf(), id.toString());
+  };
+  interpreter.setProperty(scope, 'moveForwardAndDraw',
+      interpreter.createNativeFunction(wrapper));
+
+
+
+  wrapper = function() {
+    Turtle.resetPosition();
+    Turtle.resetStyle();
+  };
+  interpreter.setProperty(scope, 'reset',
+      interpreter.createNativeFunction(wrapper));
+
   wrapper = function(distance, id) {
     Turtle.move(distance.valueOf(), id.toString());
   };
@@ -426,7 +514,7 @@ Turtle.execute = function() {
   }
 
   Turtle.reset();
-  var code = Blockly.JavaScript.workspaceToCode(BlocklyGames.workspace);
+  var code = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100));
 };
@@ -458,7 +546,7 @@ Turtle.executeChunk_ = function() {
   // Wrap up if complete.
   if (!Turtle.pause) {
     document.getElementById('spinner').style.visibility = 'hidden';
-    BlocklyGames.workspace.highlightBlock(null);
+    Turtle.workspace.highlightBlock(null);
     // Image complete; allow the user to submit this image to Reddit.
     Turtle.canSubmit = true;
   }
@@ -478,13 +566,39 @@ Turtle.animate = function(id) {
   }
 };
 
-/**
- * Move the turtle forward or backward.
- * @param {number} distance Pixels to move.
- * @param {?string} id ID of block.
- */
-Turtle.move = function(distance, id) {
-  if (Turtle.penDownValue) {
+Turtle.strokeTriangle = function(size, id) {
+  Turtle.turnWithoutAnimation(-90);
+  Turtle.drawLineWithoutMoving(size/2, true /* trace */);
+  Turtle.turnWithoutAnimation(120);
+  Turtle.drawLineWithoutMoving(size, true /* trace */);
+  Turtle.turnWithoutAnimation(120);
+  Turtle.drawLineWithoutMoving(size, true /* trace */);
+  Turtle.turnWithoutAnimation(120);
+  Turtle.drawLineWithoutMoving(size/2, true /* trace */);
+  Turtle.turnWithoutAnimation(90);
+  Turtle.ctxScratch.closePath();
+  Turtle.animate(id);
+};
+
+Turtle.fillTriangle = function(size, id) {
+  Turtle.ctxScratch.beginPath();
+  Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
+  Turtle.turnWithoutAnimation(-90);
+  Turtle.drawLineWithoutMoving(size/2, false /* trace */);
+  Turtle.turnWithoutAnimation(120);
+  Turtle.drawLineWithoutMoving(size, false /* trace */);
+  Turtle.turnWithoutAnimation(120);
+  Turtle.drawLineWithoutMoving(size, false /* trace */);
+  Turtle.turnWithoutAnimation(120);
+  Turtle.drawLineWithoutMoving(size/2, false /* trace */);
+  Turtle.ctxScratch.closePath();
+  Turtle.ctxScratch.fill();
+  Turtle.turnWithoutAnimation(90);
+  Turtle.animate(id);
+};
+
+Turtle.drawLineWithoutMoving = function(distance, trace) {
+  if (Turtle.penDownValue && trace) {
     Turtle.ctxScratch.beginPath();
     Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   }
@@ -498,8 +612,64 @@ Turtle.move = function(distance, id) {
   }
   if (Turtle.penDownValue) {
     Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
-    Turtle.ctxScratch.stroke();
+    if (trace) {
+      Turtle.ctxScratch.stroke();
+    }
   }
+};
+
+Turtle.turnWithoutAnimation = function(angle) {
+  Turtle.heading += angle;
+  Turtle.heading %= 360;
+  if (Turtle.heading < 0) {
+    Turtle.heading += 360;
+  }
+};
+
+/**
+ * Move the turtle forward or backward.
+ * @param {number} distance Pixels to move.
+ * @param {?string} id ID of block.
+ */
+Turtle.drawAndMove = function(distance, id) {
+  Turtle.ctxScratch.beginPath();
+  Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
+  if (distance) {
+    Turtle.x += distance * Math.sin(2 * Math.PI * Turtle.heading / 360);
+    Turtle.y -= distance * Math.cos(2 * Math.PI * Turtle.heading / 360);
+    var bump = 0;
+  } else {
+    // WebKit (unlike Gecko) draws nothing for a zero-length line.
+    var bump = 0.1;
+  }
+  Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
+  Turtle.ctxScratch.stroke();
+  Turtle.animate(id);
+};
+
+/**
+ * Move the turtle forward or backward.
+ * @param {number} distance Pixels to move.
+ * @param {?string} id ID of block.
+ */
+Turtle.move = function(distance, id) {
+  //TODO(madCode): delete commented out parts of this function if we decide not to draw on move.
+  // if (Turtle.penDownValue) {
+  //   Turtle.ctxScratch.beginPath();
+  //   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
+  // }
+  if (distance) {
+    Turtle.x += distance * Math.sin(2 * Math.PI * Turtle.heading / 360);
+    Turtle.y -= distance * Math.cos(2 * Math.PI * Turtle.heading / 360);
+    var bump = 0;
+  } else {
+    // WebKit (unlike Gecko) draws nothing for a zero-length line.
+    var bump = 0.1;
+  }
+  // if (Turtle.penDownValue) {
+  //   Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
+  //   Turtle.ctxScratch.stroke();
+  // }
   Turtle.animate(id);
 };
 
@@ -584,11 +754,20 @@ Turtle.drawFont = function(font, size, style, id) {
   Turtle.animate(id);
 };
 
-/**
- * Get the drawing as a dataurl and send that message to the parent window.
- * An addition for Postcardly specifically.
- */
-//TODO(madCode): look into using FrameRPC.
 Turtle.getImageAsDataURL = function() {
-  window.parent.postMessage(Turtle.ctxScratch.canvas.toDataURL(), "*");
-}
+  parent.postMessage(Turtle.ctxScratch.canvas.toDataURL(), "*");
+};
+
+/**
+ * Bind a function to a button's click event.
+ * On touch-enabled browsers, ontouchend is treated as equivalent to onclick.
+ * @param {!Element|string} el Button element or ID thereof.
+ * @param {!Function} func Event handler to bind.
+ */
+Turtle.bindClick = function(el, func) {
+  if (typeof el == 'string') {
+    el = document.getElementById(el);
+  }
+  el.addEventListener('click', func, true);
+  el.addEventListener('touchend', func, true);
+};
