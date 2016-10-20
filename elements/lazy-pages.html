@@ -84,10 +84,12 @@ Lazy loads children "pages".
 
     _selectedItemChanged: function() {
       var scene = this.selectedItem;
-      var path = scene && scene.getAttribute('path');
-      if (!path || !this.selected || scene.loaded) {
-        return;
-      }
+      if (!scene || scene.loaded) { return; }
+
+      // Grab path from 'path' or 'path$'. The latter is needed as Polymer won't correctly map
+      // attributes that have no bindings (e.g. path$="foo" => path$, path$="{{foo}}" => path).
+      var path = scene.getAttribute('path') || scene.getAttribute('path$');
+      if (!path) { return; }
 
       // Start scene loading time.
       var route = scene.getAttribute('route') || scene.route;
