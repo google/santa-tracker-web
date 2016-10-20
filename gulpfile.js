@@ -16,35 +16,22 @@
 
 /* jshint node: true */
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var $ = require('gulp-load-plugins')();
-var fs = require('fs');
-var changedFlag = require('./gulp_scripts/changed_flag');
-var path = require('path');
-var del = require('del');
-var i18n_replace = require('./gulp_scripts/i18n_replace');
-var i18n_manifest = require('./gulp_scripts/i18n_manifest');
-var devScene = require('./gulp_scripts/dev-scene');
-var closureCompiler = require('gulp-closure-compiler');
-var closureDeps = require('gulp-closure-deps');
-var mergeStream = require('merge-stream');
-var browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const $ = require('gulp-load-plugins')();
+const fs = require('fs');
+const changedFlag = require('./gulp_scripts/changed_flag');
+const path = require('path');
+const del = require('del');
+const i18n_replace = require('./gulp_scripts/i18n_replace');
+const i18n_manifest = require('./gulp_scripts/i18n_manifest');
+const devScene = require('./gulp_scripts/dev-scene');
+const mergeStream = require('merge-stream');
 
-var DEFAULT_STATIC_VERSION = (function() {
-  var pad = function(x) { return x < 10 ? '0' + x : '' + x };
-  var d = new Date();
-  var parts = ['v',
-      d.getUTCFullYear(),
-      pad(d.getUTCMonth() + 1),
-      pad(d.getUTCDate()),
-      pad(d.getUTCHours()),
-      pad(d.getUTCMinutes()),
-  ];
-  return parts.join('');
-}());
+/* Default version is 'vYYYYMMDDHHMM'. */
+const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
 
-var argv = require('yargs')
+const argv = require('yargs')
     .help('help')
     .strict()
     .epilogue('https://github.com/google/santa-tracker-web')
@@ -68,7 +55,7 @@ var argv = require('yargs')
     })
     .option('build', {
       type: 'string',
-      default: '' + DEFAULT_STATIC_VERSION,
+      default: DEFAULT_STATIC_VERSION,
       describe: 'production build tag'
     })
     .option('baseurl', {
@@ -94,207 +81,56 @@ var argv = require('yargs')
     })
     .argv;
 
-var COMPILER_PATH = 'components/closure-compiler/compiler.jar';
-var SASS_FILES = '{scenes,sass,elements}/**/*.scss';
-var IGNORE_COMPILED_JS = '!**/*.min.js';
-var CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
-var SERVICE_FILES = ['js/service/*.js', IGNORE_COMPILED_JS];
+const COMPILER_PATH = 'components/closure-compiler/compiler.jar';
+const SASS_FILES = '{scenes,sass,elements}/**/*.scss';
+const IGNORE_COMPILED_JS = '!**/*.min.js';
+const CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
+const SERVICE_FILES = ['js/service/*.js', IGNORE_COMPILED_JS];
 
-var SHARED_EXTERNS = [
+const SHARED_EXTERNS = [
   'third_party/externs/jquery/*.js',
   'third_party/externs/*.js',
   'components/web-animations-utils/externs*.js'
 ];
 
-var AUTOPREFIXER_BROWSERS = ['> 2%', 'ios_saf >= 8', 'ie >= 11'];
+const AUTOPREFIXER_BROWSERS = ['> 3%', 'chrome >= 44', 'ios_saf >= 9', 'ie >= 11'];
 
-var CLOSURE_WARNINGS = [
+const CLOSURE_WARNINGS = [
   // https://github.com/google/closure-compiler/wiki/Warnings
   'accessControls',
   'const',
   'visibility'
 ];
-var CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
+const CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
   'checkTypes',
   'checkVars'
 ]);
 
-var API_BASE_URL = argv.api_base.replace(/\/*$/, '/');
-var STATIC_BASE_URL = argv.baseurl.replace(/\/*$/, '/');
-var STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + argv.build + '/');
-var STATIC_VERSION = argv.build;
+const API_BASE_URL = argv.api_base.replace(/\/*$/, '/');
+const STATIC_BASE_URL = argv.baseurl.replace(/\/*$/, '/');
+const STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + argv.build + '/');
+const STATIC_VERSION = argv.build;
 
-var PROD_DIR = 'dist_prod';
-var STATIC_DIR = 'dist_static';
-var PRETTY_DIR = 'dist_pretty';
+const PROD_DIR = 'dist_prod';
+const STATIC_DIR = 'dist_static';
+const PRETTY_DIR = 'dist_pretty';
 
 // path for files (mostly index_*.html) with short cache periods
-var DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
+const DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 
 // path for static resources
-var DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.build);
-
-// basic build tasks
-var DEFAULT_TASKS = argv.devmode ?
-    ['sass', 'build-scene-deps', 'create-dev-scenes'] :
-    ['sass', 'compile-santa-api-service', 'compile-scenes']
+const DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.build);
 
 // Broad scene config for Santa Tracker.
-// Note! New scenes must be typeSafe (which is the default, so omit typeSafe:
-// false). This will correctly typecheck Closure annotations.
-var SCENE_CLOSURE_CONFIG = {
-  airport: {
-    typeSafe: false,
-    entryPoint: 'app.Belt'
-  },
-  boatload: {
-    entryPoint: 'app.Game'
-  },
-  briefing: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  callfromsanta: {
-    entryPoint: 'app.Scene'
-  },
-  citylights: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  codeboogie: {
-    typeSafe: false,
-    entryPoint: 'app.FrameWrapper',
-    dependencies: ['codeboogieframe']
-  },
-  codeboogieframe: {
-    closureLibrary: true,
-    typeSafe: false,
-    entryPoint: 'app.Game',
-    isFrame: true,
-    libraries: ['third_party/lib/blockly/**/*.js']
-  },
-  codelab: {
-    typeSafe: false,
-    entryPoint: 'app.FrameWrapper',
-    dependencies: ['codelabframe']
-  },
-  codelabframe: {
-    closureLibrary: true,
-    typeSafe: false,
-    entryPoint: 'app.Game',
-    isFrame: true,
-    libraries: ['third_party/lib/blockly/**/*.js']
-  },
-  commandcentre: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  factory: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  glider: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  gumball: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  jamband: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  jetpack: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  latlong: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  matching: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  playground: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  postcard: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  postcardly: {
-    typeSafe: true,
-    entryPoint: 'app.Scene'
-  },
-  presentbounce: {
-    closureLibrary: true,
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  presentdrop: {
-    entryPoint: 'app.Game'
-  },
-  press: {
-    entryPoint: 'app.Scene'
-  },
-  mercator: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  racer: {
-    entryPoint: 'app.Game'
-  },
-  runner: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  santasearch: {
-    entryPoint: 'app.Game'
-  },
-  santaselfie: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  seasonofcaring: {
-    typeSafe: false,
-    closureLibrary: true,
-    entryPoint: 'app.Game'
-  },
-  seasonofgiving: {
-    typeSafe: false,
-    closureLibrary: true,
-    entryPoint: 'app.Game'
-  },
-  streetview: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  translations: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  },
-  trivia: {
-    typeSafe: false,
-    entryPoint: 'app.Game'
-  },
-  windtunnel: {
-    typeSafe: false,
-    entryPoint: 'app.Scene'
-  }
-};
+const SCENE_CLOSURE_CONFIG = require('./scenes');
 
 // List of scene names to compile.
-var SCENE_NAMES = argv.scene ?
+const SCENE_NAMES = argv.scene ?
     [argv.scene].concat((SCENE_CLOSURE_CONFIG[argv.scene] || {}).dependencies || []) :
     Object.keys(SCENE_CLOSURE_CONFIG);
 // A glob pattern matching scenes to compile.
-var SCENE_GLOB = '*';
-if (argv.scene) {
-  SCENE_GLOB = SCENE_NAMES.length > 1 ? '{' + SCENE_NAMES.join(',') + '}' : argv.scene;
-}
+const SCENE_GLOB = argv.scene ?
+    (SCENE_NAMES.length > 1 ? `{${SCENE_NAMES.join(',')}}` : argv.scene) : '*';
 
 gulp.task('clean', function() {
   return del([
@@ -309,7 +145,7 @@ gulp.task('rm-dist', function() {
 });
 
 gulp.task('sass', function() {
-  var files = argv.scene ? 'scenes/' + SCENE_GLOB + '/**/*.scss' : SASS_FILES;
+  const files = argv.scene ? 'scenes/' + SCENE_GLOB + '/**/*.scss' : SASS_FILES;
   return gulp.src(files, {base: '.'})
     .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
@@ -328,7 +164,7 @@ gulp.task('compile-santa-api-service', function() {
 
   return gulp.src(SERVICE_FILES)
     .pipe($.newer('js/service/service.min.js'))
-    .pipe(closureCompiler({
+    .pipe($.closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
       compilerFlags: addCompilerFlagOptions({
@@ -337,12 +173,12 @@ gulp.task('compile-santa-api-service', function() {
         language_in: 'ECMASCRIPT6_STRICT',
         language_out: 'ECMASCRIPT5_STRICT',
         externs: SHARED_EXTERNS.concat('js/service/externs.js'),
-        define: ['crossDomainAjax.BASE="' + API_BASE_URL + '"'],
+        define: [`crossDomainAjax.BASE="${API_BASE_URL}"`],
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
           'accessControls',
           'const',
-          'visibility'
+          'visibility',
         ],
       })
     }))
@@ -351,44 +187,36 @@ gulp.task('compile-santa-api-service', function() {
 
 gulp.task('compile-scenes', function() {
   // compile each scene, merging them into a single gulp stream as we go
-  return SCENE_NAMES.reduce(function(stream, sceneName) {
-    var config = SCENE_CLOSURE_CONFIG[sceneName];
-    var fileName = sceneName + '-scene.min.js';
-    var dest = 'scenes/' + sceneName;
-    var closureLibraryPath = path.resolve('components/closure-library/closure/goog');
+  return SCENE_NAMES.reduce((stream, sceneName) => {
+    const config = SCENE_CLOSURE_CONFIG[sceneName];
+    const fileName = `${sceneName}-scene.min.js`;
+    const dest = `scenes/${sceneName}`;
+    const closureLibraryPath = path.resolve('components/closure-library/closure/goog');
 
-    var warnings = CLOSURE_SAFE_WARNINGS;
-    var warningLevel = 'VERBOSE';
+    let warnings = CLOSURE_SAFE_WARNINGS;
+    let warningLevel = 'VERBOSE';
     if (config.typeSafe === false) {
       warnings = CLOSURE_WARNINGS;
       warningLevel = 'DEFAULT';
     }
 
-    // All scenes need Closure's base.js to get @export support. This is used in
-    // compilerFlags since it's essentially a static library (and to work around
-    // gulp-closure-compiler's love of copying files to /tmp). Remove tests
-    // last, as the rules seem to be evaluated left-to-right.
-    var compilerSrc;
-    if (config.closureLibrary) {
-      compilerSrc = [closureLibraryPath + '/**.js'];  // includes base.js
-    } else {
-      compilerSrc = [closureLibraryPath + '/base.js']
-    }
-    compilerSrc.push('!' + closureLibraryPath + '/**_test.js');
+    // All scenes need the compiler's base.js to get @export support. This is used in compilerFlags
+    // since since it's essentially a static library (and to work around gulp-closure-compiler's
+    // love of copying files to /tmp). Remove tests last, as the rules seem to be evaluated
+    // left-to-right.
+    const compilerSrc = [
+      closureLibraryPath + (config.closureLibrary ? '/**.js' : '/base.js'),
+      `!${closureLibraryPath}/**_test.js`,
+    ];
 
-    // Extra closure compiled libraries required by scene. Unfortunately
-    // closure compiler does not support standard bash glob '**/*.ext'. Only
-    // unstandard '**.ext' which bash/gulp does not support.
-    var libraries = config.libraries || [];
-    libraries = libraries.map(function(lib) { return lib.replace('**/*', '**'); });
-    compilerSrc = compilerSrc.concat(libraries);
+    // Extra closure compiled libraries required by scene. Unfortunately, Closure Compiler does not
+    // support standard bash glob '**/*.ext', only '**.ext' which bash/gulp does not support.
+    const libraries = (config.libraries || []).map(lib => lib.replace('**/*', '**'));
+    compilerSrc.push(...libraries);
 
-    return stream.add(gulp.src([
-      'scenes/' + sceneName + '/js/**/*.js',
-      'scenes/shared/js/*.js',
-    ])
-    .pipe($.newer(dest + '/' + fileName))
-    .pipe(closureCompiler({
+    return stream.add(gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
+    .pipe($.newer(`${dest}/${fileName}`))
+    .pipe($.closureCompiler({
       compilerPath: COMPILER_PATH,
       continueWithWarnings: true,
       fileName: fileName,
@@ -404,12 +232,12 @@ gulp.task('compile-scenes', function() {
         generate_exports: null,
         jscomp_warning: warnings,
         only_closure_dependencies: null,
-        // scenes namespace themselves to `app.*`. Move this namespace into
-        // the global `scenes.sceneName`. Unless it's building for a frame.
+        // scenes namespace themselves to `app.*`. Move this namespace into the global
+        // `scenes.sceneName`, unless it's building for a frame. Note that this must be ES5.
         output_wrapper: config.isFrame ? '%output%' :
-            'var scenes = scenes || {};\n' +
-            'scenes.' + sceneName + ' = scenes.' + sceneName + ' || {};\n' +
-            '(function(){%output%}).call({ app: scenes.' + sceneName + ' });'
+            `var scenes = scenes || {};\n` +
+            `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
+            `(function(){%output%}).call({ app: scenes.${sceneName}});`
       })
     }))
     .pipe(gulp.dest(dest)));
@@ -426,18 +254,18 @@ function addCompilerFlagOptions(opts) {
 
 gulp.task('build-scene-deps', function() {
   // compile each scene, merging them into a single gulp stream as we go
-  return SCENE_NAMES.reduce(function(stream, sceneName) {
-    var config = SCENE_CLOSURE_CONFIG[sceneName];
-    var fileName = sceneName + '-scene.deps.js';
-    var dest = '.devmode/scenes/' + sceneName;
-    var scripts = [
+  return SCENE_NAMES.reduce((stream, sceneName) => {
+    const config = SCENE_CLOSURE_CONFIG[sceneName];
+    const fileName = sceneName + '-scene.deps.js';
+    const dest = '.devmode/scenes/' + sceneName;
+    const scripts = [
       'scenes/' + sceneName + '/js/**/*.js',
       'scenes/shared/js/*.js'
     ].concat(config.libraries || []);
 
     return stream.add(gulp.src(scripts)
         .pipe($.newer(dest + '/' + fileName))
-        .pipe(closureDeps({
+        .pipe($.closureDeps({
           baseDir: '.',
           fileName: fileName,
           prefix: '../../../..'
@@ -449,8 +277,8 @@ gulp.task('build-scene-deps', function() {
 
 gulp.task('create-dev-scenes', function() {
   // compile each scene, merging them into a single gulp stream as we go
-  return SCENE_NAMES.reduce(function(stream, sceneName) {
-    var dest = '.devmode/scenes/' + sceneName;
+  return SCENE_NAMES.reduce((stream, sceneName) => {
+    const dest = '.devmode/scenes/' + sceneName;
     return stream.add(
         gulp.src('scenes/' + sceneName + '/' + sceneName + '-scene_en.html')
             .pipe(devScene(sceneName, SCENE_CLOSURE_CONFIG[sceneName]))
@@ -461,45 +289,30 @@ gulp.task('create-dev-scenes', function() {
 });
 
 gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
-  // These are the 'common' elements inlined in elements_en.html. They can be
-  // safely stripped (i.e., not inlined) from all scenes.
-  // TODO(samthor): Automatically list inlined files from elements_en.html.
-  var elementsImports = [
-    'js/jquery.html',
-    'js/modernizr.html',
-    'js/webanimations.html',
-    'js/utils.html',
-    'components/polymer/polymer.html',
-    'scenes/scene-behavior.html',
-    'components/google-apis/google-client-loader.html',
-    'components/google-apis/google-maps-api.html',
-    'components/google-apis/google-js-api.html',
-    'components/google-apis/google-legacy-loader.html',
-    'components/google-apis/google-plusone-api.html',
-    'components/google-apis/google-youtube-api.html',
-    'components/i18n-msg/i18n-msg.html',
-    'components/iron-jsonp-library/iron-jsonp-library.html',
-    'components/iron-a11y-keys/iron-a11y-keys.html',
-    'components/iron-icon/iron-icon.html',
-    'components/iron-iconset-svg/iron-iconset-svg.html',
-    'components/iron-media-query/iron-media-query.html',
-    'components/iron-meta/iron-meta.html',
-    'components/iron-pages/iron-pages.html',
-    'components/iron-selector/iron-selector.html',
-    'components/paper-item/paper-item.html',
-    'components/paper-fab/paper-fab.html',
-    'components/paper-ripple/paper-ripple.html',
-    'elements/santa-icons.html',
-  ];
+  // Strip all common elements, found in the standard elements import.
+  const elementsPath = 'elements/elements_en.html';
+  const elementsImports = (function() {
+    const r = /href="(.*?)"/g;
+    const el = fs.readFileSync(elementsPath, 'utf-8');
+    const all = [];
+    let out;
+    while ((out = r.exec(el))) {
+      const raw = out[1];
+      const i = path.join(path.dirname(elementsPath), raw);  // use dirname of elements/...
+      all.push(i);
+    }
+    return all;
+  }());
+
   return gulp.src([
       'scenes/*/*-scene*.html'
     ], {base: './'})
     // gulp-vulcanize doesn't currently handle multiple files in multiple
     // directories well right now, so vulcanize them one at a time
-    .pipe($.foreach(function(stream, file) {
-      var dest = path.dirname(path.relative(__dirname, file.path));
-      var sceneName = path.basename(dest);
-      var closureConfig = SCENE_CLOSURE_CONFIG[sceneName] || {};
+    .pipe($.foreach((stream, file) => {
+      const dest = path.dirname(path.relative(__dirname, file.path));
+      const sceneName = path.basename(dest);
+      const closureConfig = SCENE_CLOSURE_CONFIG[sceneName] || {};
 
       return stream.pipe($.vulcanize({
         stripExcludes: closureConfig.isFrame ? [] : elementsImports,
@@ -541,10 +354,8 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 gulp.task('i18n_index', function() {
   return gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
     .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
-    .pipe($.replace('<base href="">',
-        '<base href="' + STATIC_URL + '">'))
-    .pipe($.replace('data-version=""',
-        'data-version="' + STATIC_VERSION + '"'))
+    .pipe($.replace('<base href="">', `<base href="${STATIC_URL}">`))
+    .pipe($.replace('data-version=""', `data-version="${STATIC_VERSION}"`))
     .pipe(i18n_replace({
       strict: !!argv.strict,
       path: '_messages',
@@ -560,7 +371,7 @@ gulp.task('i18n_manifest', function() {
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directories
 gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function() {
-  var staticStream = gulp.src([
+  const staticStream = gulp.src([
     'audio/*',
     'images/*.{png,svg,jpg,gif,ico}',
     'third_party/**',
@@ -568,11 +379,11 @@ gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function(
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
     'elements/**/img/*.{png,jpg,svg,gif}',
     'components/webcomponentsjs/webcomponents-lite.min.js',
-    'js/ccsender.html'
+    'js/ccsender.html',
   ], {base: './'})
   .pipe(gulp.dest(DIST_STATIC_DIR));
 
-  var prodStream = gulp.src([
+  const prodStream = gulp.src([
     'images/og.png',
     'sw.js',
   ], {base: './'})
@@ -599,9 +410,8 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve', ['default', 'watch'], function() {
-  var livereloadFiles = [
-    '**/*.css'
-  ];
+  const livereloadFiles = ['**/*.css'];
+
   // Reload on raw js files only in dev mode.
   if (argv.devmode) {
     livereloadFiles.push('scenes/**/*.js', '.devmode/**/*.js', '.devmode/**/index.html');
@@ -609,14 +419,18 @@ gulp.task('serve', ['default', 'watch'], function() {
     livereloadFiles.push('**/*.min.js', '**/*.html');
   }
 
+  const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
     injectChanges: argv.devmode, // Can not inject css into lazy Polymer scenes.
     port: argv.port,
     server: ['.', '.devmode'],
-    startPath: argv.scene && (argv.devmode ? '/scenes/' + argv.scene + '/' : '/#' + argv.scene),
-    ui: {port: argv.port + 1}
+    startPath: argv.scene && (argv.devmode ? `/scenes/${argv.scene}/` : `/#${argv.scene}`),
+    ui: {port: argv.port + 1},
   });
 });
 
-gulp.task('default', DEFAULT_TASKS);
+
+gulp.task('default', argv.devmode ?
+    ['sass', 'build-scene-deps', 'create-dev-scenes'] :
+    ['sass', 'compile-santa-api-service', 'compile-scenes']);
