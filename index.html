@@ -132,6 +132,7 @@ ga('set', 'transport', 'beacon');
       // TODO(samthor): Load local language manifest if "?hl=de" mode (vs /intl/de/).
       var manifest = document.createElement('link');
       manifest.rel = 'manifest';
+      manifest.crossOrigin = 'use-credentials';
       manifest.href = window.location.origin + '/manifest.json';
       document.head.appendChild(manifest);
     }());
