@@ -23,6 +23,8 @@
  */
 'use strict';
 
+//TODO(madCode): rename Turtle to Snowflake
+
 goog.provide('Turtle.Blocks');
 
 goog.require('Blockly.Blocks');
