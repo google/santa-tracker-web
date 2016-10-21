@@ -90,14 +90,6 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
-    // '   <block type="turtle_pen">' +
-    // '       <value name="CHOICE">' +
-    // '           <shadow type="dropdown_turtle_pen">' +
-    // '               <field name="CHOICE">penUp</field>' +
-    // '           </shadow>' +
-    // '       </value>' +
-    // '   </block>' +
-    // '   <block type="turtle_visibility"></block>' +
         '<block type="control_repeat">' +
         '<value name="TIMES">' +
         '<shadow type="math_whole_number">' +

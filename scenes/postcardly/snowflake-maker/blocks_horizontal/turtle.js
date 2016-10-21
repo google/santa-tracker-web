@@ -28,18 +28,6 @@ goog.provide('Turtle.Blocks');
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Colours');
 
-/**
- * Left turn arrow to be appended to messages.
- */
-Turtle.Blocks.LEFT_TURN = ' \u21BA';
-
-/**
- * Left turn arrow to be appended to messages.
- */
-Turtle.Blocks.RIGHT_TURN = ' \u21BB';
-
-Turtle.isSnowflake = false;
-
 // Extensions to Blockly's language and JavaScript generator.
 
 Blockly.Blocks['copy_to_make_snowflake'] = {
@@ -72,22 +60,20 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
 };
 
 Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
-  // Repeat n times.
-  var repeats = '6';
-
+  // Repeat 6 times and rotate around in a circle to create a snowflake effect.
   var branch = Blockly.JavaScript.statementToCode(block, 'SUBSTACK');
   branch = Blockly.JavaScript.addLoopTrap(branch, block.id);
   var code = '';
   var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
-  var endVar = repeats;
   code += 'for (var ' + loopVar + ' = 0; ' +
-      loopVar + ' < ' + endVar + '; ' +
+      loopVar + ' <  6; ' +
       loopVar + '++) {\n' +
       branch + 'reset(); turnRight(60*(' + loopVar + '+1), \'no-block-id\');}\n';
   return code;
 };
 
+//TODO(madCode): convert these to json format
 Blockly.Blocks['turtle_move_forward'] = {
   /**
    * Block for moving forward or backwards.
@@ -100,7 +86,6 @@ Blockly.Blocks['turtle_move_forward'] = {
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/forward.svg", 40, 40, "move forward"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
   }
 };
 
@@ -124,7 +109,6 @@ Blockly.Blocks['turtle_move_backward'] = {
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/backward.png", 40, 40, "move backward"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
   }
 };
 
@@ -136,6 +120,7 @@ Blockly.JavaScript['turtle_move_backward'] = function(block) {
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
 
+//TODO(madCode): can we delete the internal blocks or are they used for something?
 Blockly.Blocks['turtle_move_internal'] = {
   /**
    * Block for moving forward or backwards.
@@ -179,7 +164,6 @@ Blockly.Blocks['turtle_turn_left'] = {
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_left.svg", 40, 40, "turn left"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
   }
 };
 
@@ -203,7 +187,6 @@ Blockly.Blocks['turtle_turn_right'] = {
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_right.svg", 40, 40, "turn right"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
   }
 };
 
@@ -240,7 +223,6 @@ Blockly.Blocks['turtle_turn_internal'] = {
         .appendField(new Blockly.FieldDropdown(VALUES), 'VALUE');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
   }
 };
 
@@ -251,7 +233,7 @@ Blockly.JavaScript['turtle_turn_internal'] = function(block) {
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
 
-Blockly.Blocks['shape_draw'] = {
+Blockly.Blocks['triangle_draw'] = {
   /**
    * Block for setting the width.
    * @this Blockly.Block
@@ -266,7 +248,7 @@ Blockly.Blocks['shape_draw'] = {
   }
 };
 
-Blockly.JavaScript['shape_draw'] = function(block) {
+Blockly.JavaScript['triangle_draw'] = function(block) {
   // Generate JavaScript for setting the width.
   var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
       Blockly.JavaScript.ORDER_NONE) || '1';
@@ -281,7 +263,7 @@ Blockly.Blocks.drawTriangle = function(size, id) {
   'turnRight(90,\'' + id + '\');\n';
 };
 
-Blockly.Blocks['shape_stamp'] = {
+Blockly.Blocks['triangle_stamp'] = {
   /**
    * Block for setting the width.
    * @this Blockly.Block
@@ -296,14 +278,14 @@ Blockly.Blocks['shape_stamp'] = {
   }
 };
 
-Blockly.JavaScript['shape_stamp'] = function(block) {
+Blockly.JavaScript['triangle_stamp'] = function(block) {
   // Generate JavaScript for setting the width.
   var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
       Blockly.JavaScript.ORDER_NONE) || '1';
   return 'stampTriangle(' + size + ', \'block_id_' + block.id + '\');\n';
 };
 
-Blockly.Blocks['shape_stamp_fill'] = {
+Blockly.Blocks['triangle_stamp_fill'] = {
   /**
    * Block for setting the width.
    * @this Blockly.Block
@@ -318,7 +300,7 @@ Blockly.Blocks['shape_stamp_fill'] = {
   }
 };
 
-Blockly.JavaScript['shape_stamp_fill'] = function(block) {
+Blockly.JavaScript['triangle_stamp_fill'] = function(block) {
   // Generate JavaScript for setting the width.
   var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
       Blockly.JavaScript.ORDER_NONE) || '1';
@@ -338,7 +320,6 @@ Blockly.Blocks['turtle_width'] = {
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pen.svg", 40, 40, "pen icon"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
   }
 };
 
@@ -396,7 +377,6 @@ Blockly.Blocks['turtle_pen'] = {
       "previousStatement": null,
       "nextStatement": null,
       "colour": Blockly.Colours.pen.primary,
-      "tooltip": 'SOME_MESSAGE'
     });
   }
 };
@@ -443,7 +423,6 @@ Blockly.Blocks['turtle_colour_internal'] = {
         .appendField(new Blockly.FieldColour('#ff0000'), 'COLOUR');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
   }
 };
 
