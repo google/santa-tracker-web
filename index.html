@@ -30,14 +30,11 @@ specific language governing permissions and limitations under the License.
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
   <link rel="stylesheet" href="sass/santatracker.css">
 
-  <!-- app manifest-->
-  <!-- TODO(samthor): Fix in prod, uses base href="..." -->
-  <link rel="manifest" href="/manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <!-- app status bar themes -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#00c6ed">
   <meta name="theme-color" content="#00c6ed">
+
+  <!-- non-standard meta tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#00c6ed">
   <meta name="msapplication-TileColor" content="#30B443">
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -130,9 +127,16 @@ ga('set', 'transport', 'beacon');
       });
     };
 
+    // Add manifest + sw at local origin.
+    (function() {
+      // TODO(samthor): Load local language manifest if "?hl=de" mode (vs /intl/de/).
+      var manifest = document.createElement('link');
+      manifest.rel = 'manifest';
+      manifest.href = window.location.origin + '/manifest.json';
+      document.head.appendChild(manifest);
+    }());
     if ('serviceWorker' in navigator) {
-      // TODO(samthor): Fix in prod, uses base href="..."
-      window.sw = navigator.serviceWorker.register('/sw.js');
+      window.sw = navigator.serviceWorker.register(window.location.origin + '/sw.js');
     }
   </script>
   <script src="components/webcomponentsjs/webcomponents-lite.min.js" async></script>

@@ -385,6 +385,7 @@ gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function(
 
   const prodStream = gulp.src([
     'images/og.png',
+    'images/*icon*.png',  // nb. duplicated in prod for manifest convenience
     'sw.js',
   ], {base: './'})
   .pipe(gulp.dest(DIST_PROD_DIR));
