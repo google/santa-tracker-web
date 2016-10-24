@@ -41,12 +41,7 @@ function Gameover(game, elem) {
   this.scoreElem = this.elem.querySelector('.gameover-score .gameover-number');
   this.levelElem = this.elem.querySelector('.gameover-level .gameover-number');
 
-  this.elem.querySelector('.gameover-play').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    this.hide();
-    this.game.restart();
-  }.bind(this));
+  this.elem.querySelector('.gameover-play').onclick = this._hide.bind(this);
 }
 
 /**
@@ -56,6 +51,8 @@ function Gameover(game, elem) {
  * @param {number=} opt_level The final level.
  */
 Gameover.prototype.show = function(opt_score, opt_level) {
+  window.santaApp.fire('game-stop');
+
   if (this.scoreElem) {
     this.scoreElem.textContent = opt_score || this.game.scoreboard.score;
   }
@@ -67,8 +64,11 @@ Gameover.prototype.show = function(opt_score, opt_level) {
 
 /**
  * Hides the gameover screen with an animation.
- * @param {function()=} opt_callback Runs when the animation is finished.
+ * @param {!Event} ev
  */
-Gameover.prototype.hide = function(opt_callback) {
-  this.overlay.hide(opt_callback);
+Gameover.prototype._hide = function(ev) {
+  ev.preventDefault();
+
+  window.santaApp.fire('game-start');
+  this.overlay.hide();
 };

@@ -558,6 +558,7 @@ Polymer({
     'countdown-timer-finish': 'onCountdownFinish',
     'tracker-end': 'onTrackerEnd',
     'game-start': 'onStartGame',
+    'game-stop': 'onStopGame',
     'share': 'onShare',
   },
 
@@ -905,12 +906,18 @@ Polymer({
     return true;
   },
 
-  onStartGame: function(ev) {
+  /** Handler for 'game-start' event. Shows the pause/restart buttons and starts the game. */
+  onStartGame: function() {
     var scene = this.selectedScene;
     if (scene && scene.behaviors.indexOf(window.SantaSceneGameButtonsBehavior) !== -1) {
       this.$.chrome.hasGameButtons = true;
       scene.start();
     }
+  },
+
+  /** Handler for 'game-stop' event. Fired by the gameover shared JS component. */
+  onStopGame: function() {
+    this.$.chrome.hasGameButtons = false;
   },
 
   _userPauseChanged: function(pause) {
