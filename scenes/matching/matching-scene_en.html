@@ -321,10 +321,6 @@ Matching scene.
             <!---->
           </div>
         </div>
-        <div class="actions {{ {'is-collapsed': !hasClickedStart} | tokenList }}">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="tutorial">
         <div class="shadow"></div>
@@ -360,16 +356,12 @@ Matching scene.
 (function() {
   Polymer({
     is: 'matching-scene',
-    behaviors: [window.SantaSceneBehavior],
-    animationHelper: null,
-    game: null,
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
+    animationHelper: null,
 
     onPreload: function() {
       this.preloadSounds('m_load_sounds', 20);
@@ -387,10 +379,9 @@ Matching scene.
 
     onShow: function() {
       var module = this.$['module-matching'];
-
       this.animationHelper = new CSSAnimationHelper(module);
       this.game = new scenes.matching.Game(module);
-      startButton(this, module, this.onClickStart_.bind(this));
+      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {
@@ -400,11 +391,6 @@ Matching scene.
       this.game = null;
       this.fire('sound-ambient', 'm_end_game');
     },
-
-    onClickStart_: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();

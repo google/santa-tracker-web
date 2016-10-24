@@ -116,10 +116,6 @@ Racer scene.
             <!---->
           </div>
         </div>
-        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="levelup"></div>
       <div class="levelup--number"></div>
@@ -147,15 +143,10 @@ Racer scene.
 (function() {
   Polymer({
     is: 'racer-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
-
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('rc_load_sounds', 30);
@@ -176,7 +167,7 @@ Racer scene.
       this.fire('sound-ambient', 'rc_landing_page');
 
       this.game = new scenes.racer.Game(module, this.componentDir);
-      startButton(this, module, this.onClickStart.bind(this));
+      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {
@@ -185,11 +176,6 @@ Racer scene.
       }
       this.fire('sound-ambient', 'rc_end_game');
     },
-
-    onClickStart: function() {
-      this.hasClickedStart = true;
-      this.game.initialize();
-    }
   });
 
 })();

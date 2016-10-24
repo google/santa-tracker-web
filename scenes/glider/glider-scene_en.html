@@ -74,10 +74,6 @@ Glider scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class="actions">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="levelup"></div>
       <div class="levelup--number"></div>
@@ -123,8 +119,10 @@ Glider scene.
 (function() {
   Polymer({
     is: 'glider-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('glider_load_sounds', 30);
@@ -186,19 +184,18 @@ Glider scene.
         'img/treat-candy.svg'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-glider'];
-
-      var game = this.game = new scenes.glider.Game(module);
-      startButton(this, module, function() {
-        game.start();
-      });
+      this.game = new scenes.glider.Game(module);
+      startButton(this, module, this.start.bind(this));
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'glider_end_game');
-    }
+    },
   });
 
 })();

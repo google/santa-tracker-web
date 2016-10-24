@@ -89,10 +89,6 @@ Runner scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="force-rotate landscape">
         <div class="force-rotate-graphic"></div>
@@ -135,15 +131,10 @@ Runner scene.
 (function() {
   Polymer({
     is: 'runner-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
-
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('runner_load_sounds', 20);
@@ -195,7 +186,7 @@ Runner scene.
       var module = this.$['module-runner'];
 
       var game = this.game = new scenes.runner.Game(module);
-      startButton(this, module, this.onClickStart.bind(this));
+      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {
@@ -203,11 +194,6 @@ Runner scene.
       this.game = null;
       this.fire('sound-ambient', 'runner_end');
     },
-
-    onClickStart: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();
