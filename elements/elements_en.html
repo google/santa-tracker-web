@@ -12,16 +12,18 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<!-- TODO(samthor): share with gulpfile.js (see 'vulcanize-scenes') -->
+
+<!-- These imports are all excluded from any scene's build, and instead are included in the main
+  elements bundle (see `vulcanize-scenes` in gulpfile.js). -->
+
 <!-- Shared libs -->
 <link rel="import" href="../js/jquery.html">
 <link rel="import" href="../js/modernizr.html">
 <link rel="import" href="../js/webanimations.html">
 <link rel="import" href="../js/utils.html">
 
-<!-- Shared by scenes. Separated out here so vulcanize'd bundles don't re-register elements. -->
+<!-- Polymer elements shared by scenes -->
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../scenes/scene-behavior.html">
 <link rel="import" href="../components/google-apis/google-client-loader.html">
 <link rel="import" href="../components/google-apis/google-maps-api.html">
 <link rel="import" href="../components/google-apis/google-js-api.html">
@@ -30,6 +32,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../components/iron-jsonp-library/iron-jsonp-library.html">
 <link rel="import" href="../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../components/iron-icon/iron-icon.html">
 <link rel="import" href="../components/iron-iconset-svg/iron-iconset-svg.html">
 <link rel="import" href="../components/iron-media-query/iron-media-query.html">
@@ -39,6 +42,8 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../components/paper-item/paper-item.html">
 <link rel="import" href="../components/paper-fab/paper-fab.html">
 <link rel="import" href="../components/paper-ripple/paper-ripple.html">
+<link rel="import" href="../scenes/scene-behavior.html">
+<link rel="import" href="santa-app-behavior.html">
 <link rel="import" href="santa-icons.html">
 
 <!-- Main page imports -->
