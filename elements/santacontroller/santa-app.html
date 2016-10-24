@@ -47,8 +47,14 @@ Santa Tracker app.
       disabled="[[isCastMode(mode)]]"
       color="[[colorForRoute(route, validRoutes)]]"
       tracker-unlocked="[[duringTracker]]"
+<<<<<<< HEAD
       today-house="[[todayHouse]]"
       mute="{{userMute}}">
+=======
+      today-house="{{todayHouse}}"
+      mute="{{userMute}}"
+      pause="{{userPause}}">
+>>>>>>> add pause/restart buttons to santa-chrome
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -376,7 +382,24 @@ Polymer({
     userMute: {
       type: Boolean,
       notify: true,
-      observer: '_userMuteChanged'
+    },
+
+    /**
+     * Whether the game is paused by the user. Only effects games that can actually be paused!
+     */
+    userPause: {
+      type: Boolean,
+      notify: true,
+      observer: '_userPauseChanged',
+    },
+
+    /**
+     * Computed global mute state: based on (userMute || userPause).
+     */
+    globalMute: {
+      type: Boolean,
+      computed: '_computeGlobalMute(userMute, userPause)',
+      observer: '_globalMuteChanged',
     },
 
     /**
@@ -534,6 +557,7 @@ Polymer({
     'analytics-track-game-over': 'trackGameOver',
     'countdown-timer-finish': 'onCountdownFinish',
     'tracker-end': 'onTrackerEnd',
+    'game-start': 'onStartGame',
     'share': 'onShare',
   },
 
@@ -657,8 +681,13 @@ Polymer({
     }
   },
 
+  /**
+   * Called when a scene is initially ready (and not when it's made active a 2nd time).
+   */
   onSceneReady: function(event, scene) {
     this.sceneParamsChanged(this.$.router.sceneParams);
+
+    this._prepareScene(scene);
   },
 
   sceneParamsChanged: function(newValue) {
@@ -761,9 +790,14 @@ Polymer({
     }, when);
   },
 
+  /**
+   * Reset and update various bits of global state when a new scene is made visible.
+   */
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.isFixedToolbar = newValue && !newValue.hasAttribute('freeform');
+    this.$.chrome.hasGameButtons = false;
     this.$.chrome.closeDrawer();
+    this.userPause = false;
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
@@ -773,6 +807,17 @@ Polymer({
     }
 
     this._updateWindowTitle();
+
+    if (newValue && newValue.is) {
+      this._prepareScene(newValue);
+      }
+  },
+
+  /**
+   * Called for every scene, when it becomes the foreground scene.
+   */
+  _prepareScene: function(scene) {
+    // Intentionally empty.
   },
 
   _prevSelectedRouteChanged: function() {
@@ -860,8 +905,32 @@ Polymer({
     return true;
   },
 
-  _userMuteChanged: function(userMute) {
-    this.fire('sound-ambient', userMute ? 'global_sound_off' : 'global_sound_on');
+  onStartGame: function(ev) {
+    var scene = this.selectedScene;
+    if (scene && scene.behaviors.indexOf(window.SantaSceneGameButtonsBehavior) !== -1) {
+      this.$.chrome.hasGameButtons = true;
+      scene.start();
+    }
+  },
+
+  _userPauseChanged: function(pause) {
+    var scene = this.selectedScene;
+    if (scene && scene.behaviors.indexOf(window.SantaSceneGameButtonsBehavior) !== -1) {
+      scene.pause = pause;
+    }
+  },
+
+  _computeGlobalMute: function() {
+    for (var i = 0; i < arguments.length; ++i) {
+      if (arguments[i]) {
+        return true;
+      }
+    }
+    return false;
+  },
+
+  _globalMuteChanged: function(globalMute) {
+    this.fire('sound-ambient', globalMute ? 'global_sound_off' : 'global_sound_on');
   },
 
   _soundsLoaded: function(soundsName) {
