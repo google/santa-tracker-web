@@ -15,9 +15,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../js/utils.html">
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="countdown-timer.css" />
+<link rel="import" href="countdown-timer_module.html">
 
 <!--
 Displays a countdown timer.
@@ -34,7 +32,7 @@ Example
 -->
 <dom-module id="countdown-timer">
   <template>
-    <style>
+    <style include="countdown-timer_module">
       :host {
         display: block;
         will-change: transform;

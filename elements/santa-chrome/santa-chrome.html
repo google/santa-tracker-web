@@ -23,13 +23,11 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../santa-icons.html">
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="santa-chrome.css" />
+<link rel="import" href="santa-chrome_module.html">
 
 <dom-module id="santa-chrome">
 <template>
-  <style>
+  <style include="santa-chrome_module">
   paper-toolbar {
     z-index: 1001;
     --paper-toolbar-height: 44px;

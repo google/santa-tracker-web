@@ -12,6 +12,7 @@ scenes/*/*.min.js
 js/service/*.min.js
 js/**/*.flag
 elements/*/*.css
+*_module.html
 *.min.js
 .devmode
 bin/

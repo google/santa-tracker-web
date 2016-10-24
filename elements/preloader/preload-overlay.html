@@ -15,15 +15,14 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-range-behavior/iron-range-behavior.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="preloader_module.html">
 
 <!--
 Candy cane progress bar.
 -->
 <dom-module id="preload-overlay">
-  <!-- TODO(samthor): Non-standard import, but works in Polymer 1+ -->
-  <link rel="import" type="css" href="preloader.css" />
   <template>
-    <style>
+    <style include="preloader_module">
       :host {
         background: #3ec4f0;
         z-index: 1200;

@@ -1,492 +1,488 @@
-$name: 'module-press';
+@import "sass/card";
+@import "sass/footer";
 
-@import "../shared/sass/sceneboard";
-
-##{$name} {
-  @import "sass/card";
-  @import "sass/footer";
-
+#press-content {
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
+}
 
-  .clearfix {
-    &:after {
-      content: '';
-      display: table;
-      clear: both;
-    }
+.clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
   }
+}
 
-  .square {
-    &:before {
-      content: "";
-      display: block;
-      padding-top: 100%;
-    }
-  }
-   
-  .rect {
-    &:before {
-      content: "";
-      display: block;
-      padding-top: 20%;
-    }
-  }    
-  
-  #press-banner {
+.square {
+  &:before {
+    content: "";
     display: block;
-    height: 315px;
+    padding-top: 100%;
+  }
+}
+
+.rect {
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 20%;
+  }
+}
+
+#press-banner {
+  display: block;
+  height: 315px;
+}
+
+a {
+  color: #00ACC1;
+  opacity: 1;
+  text-decoration: none;
+  transition: opacity .3s;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', sans-serif;
+  font-size: 115px;
+  font-weight: normal;
+  margin: 10px;
+  float: left;
+  color: #fff;
+
+  &::first-letter {
+    font-size: 161px;
+    vertical-align: middle;
+  }
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', sans-serif;
+  font-weight: normal;
+  font-size: 48px;
+  color: #9575CD;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 30px;
+  color: #fff;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+}
+
+p {
+  font-size: 16px;
+  font-wight: normal;
+  line-height: 28px;
+}
+
+ul {
+  font-size: 16px;
+  font-wight: normal;
+  line-height: 24px;
+}
+
+button {
+  outline: none;
+}
+
+#press-hero {
+  background: url(img/bg-press-page-hero.png) 50% 100% no-repeat;
+  background-size: cover;
+  height: 1000px;
+  padding: 20px 0 0 0;
+  width: 100%;
+
+  .press-header, .press-description  {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1010px;
+    padding: 0 30px;
   }
 
-  a {
-    color: #00ACC1;
-    opacity: 1;
-    text-decoration: none;
-    transition: opacity .3s;
+  .press-header {
+    background: url(img/title-bg-swirl_2x.png) 50% 50% no-repeat;
+    background-size: contain;
+    padding: 30px 0 50px 0;
+    text-align: center;
+    width: 100%;
 
-    &:hover {
-      opacity: 0.75;
+    .press-title {
+      @extend .clearfix;
+      display: inline-block;
+      transform: rotate(-5deg);
     }
-  }
-  
-  h1 {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lobster', sans-serif;
-		font-size: 115px;
-		font-weight: normal;
-    margin: 10px;  		
-		float: left;
-		color: #fff;
-
-		&::first-letter {
-		  font-size: 161px;
-      vertical-align: middle;
-		}	
-  }
-  
-  h2 {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lobster', sans-serif;
-    font-weight: normal;
-    font-size: 48px;
-    color: #9575CD;      
   }
 
   h3 {
-    margin: 0;
-    padding: 0;
-    font-weight: 600;
-    font-size: 30px;
+    margin-top: -10px;
     color: #fff;
   }
-  
-  h4 {
-    margin: 0;
-    padding: 0; 
-    font-size: 22px;
+
+  .press-description {
+    @extend .clearfix;
+
+    p {
+      color: rgba(38, 50, 56, 0.8);
+      font-weight: 300;
+    }
   }
-    
-  p {
-    font-size: 16px;
-    font-wight: normal;
-    line-height: 28px;
+
+  .press-description-left {
+    float: left;
+    padding: 30px 0 0 0;
+    width: 26%;
+
+    .square {
+      background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+      width: 100%;
+    }
+  }
+
+  .press-description-right {
+    float: left;
+    width: 74%;
+  }
+}
+
+#press-intro {
+  @extend .clearfix;
+  height: 600px;
+  width: 100%;
+
+  h2, {
+    color: #fff;
+  }
+
+  p, ul {
+    color: #fff;
   }
 
   ul {
-    font-size: 16px;
-    font-wight: normal;
-    line-height: 24px;
-  }
-  
-  button {
-    outline: none;
-  }
-  
-  #press-hero {
-    background: url(img/bg-press-page-hero.png) 50% 100% no-repeat;
-    background-size: cover;
-    height: 1000px;
-    padding: 20px 0 0 0;
-    width: 100%;
+    text-align: left;
 
-    .press-header, .press-description  {
-      box-sizing: border-box;
-      margin: 0 auto;
-      max-width: 1010px;
-      padding: 0 30px;
-    }
-
-    .press-header {
-      background: url(img/title-bg-swirl_2x.png) 50% 50% no-repeat;
-      background-size: contain;
-      padding: 30px 0 50px 0;
-      text-align: center;
-      width: 100%;
-
-      .press-title {
-        @extend .clearfix;
-        display: inline-block;        
-    	  transform: rotate(-5deg);  
-      }
-    }
-
-    h3 {
-      margin-top: -10px;        
-      color: #fff;
-    }
-
-    .press-description {
-      @extend .clearfix;
-
-      p {
-        color: rgba(38, 50, 56, 0.8);
-        font-weight: 300;
-      }
-    }  
-
-    .press-description-left {
-      float: left;
-      padding: 30px 0 0 0;
-      width: 26%;
-
-      .square {
-        background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
-        background-size: contain;
-        width: 100%;
-      }          
-    }
-
-    .press-description-right {
-      float: left;
-      width: 74%;
+    li {
+      margin-bottom: 10px;
     }
   }
-  
-  #press-intro {
-    @extend .clearfix;
-    height: 600px;
-    width: 100%;
 
-    h2, {
-      color: #fff;
-    }
-
-    p, ul {
-      color: #fff;
-    }
-
-    ul {
-      text-align: left;
-
-      li {
-        margin-bottom: 10px;
-      }
-    }
-
-    .press-intro-inner {
-      text-align: center;
-      width: 75%;
-    }
-
-    .press-intro-col {
-      align-items: center;
-      display: flex;
-      float: left;
-      height: 100%;
-      justify-content: center;
-      padding: 25px 0;
-      width: 50%;
-
-      .rect {
-        margin: 5% 0;   
-        width: 100%;                      
-      }
-    }
-
-    .press-intro-left {
-      background: #17CC82;
-
-      .rect {
-        background: url(img/illust-educational_2x.png) 50% 50% no-repeat;
-        background-size: contain; 
-      }
-    }
-
-    .press-intro-right {
-      background: #9575CD;
-
-      .rect {
-        background: url(img/illust-new-in2015_2x.png) 50% 50% no-repeat;
-        background-size: contain; 
-      }                  
-    }      
-  } 
-
-  #press-primary {
+  .press-intro-inner {
     text-align: center;
-    padding: 100px 0 0 0;
+    width: 75%;
+  }
 
-    h2 {
-      margin-bottom: 50px;
-    }
-
-    .press-primary-inner {
-      margin: 0 auto;
-      overflow: auto;
-      padding: 0 0 10px;
-      width: 1010px;
-    }
-
-    .press-card {
-      &:nth-child(2) {
-        .press-card-img {
-          background: url(img/tmb-santas-village.png) 50% 50% no-repeat;
-          background-size: cover;
-        }
-      }
-
-      &:nth-child(3) {
-        .press-card-img {
-          background: url(img/tmb_santa-tracker-2015.png) 50% 50% no-repeat;
-          background-size: cover;
-        }
-      }
-    }
-
-    p {
-      min-height: 144px;
-    }
-
-    .press-card-links {
-      a {
-        float: left;
-        width: 50%;
-      }
-    }   
-  } 
-  
-  #press-secondary {
-    padding: 100px 0 100px 0;
-    text-align: center;
-
-    h2 {
-      margin-bottom: 25px;
-    }
-
-    .press-card {
-      width: calc(33% - 30px);
-
-      &.clear-desktop-row {
-        clear: left;
-        width: calc(34% - 30px);
-      }
-
-      .press-card-img {
-        height: 175px;
-      }
-    }
-
-    .press-secondary-inner {
-      margin: 0 auto;
-      overflow: auto;
-      width: 1010px;
-
-      .press-card-tabs {
-        padding-bottom: 50px;
-
-        a {
-          background: none;
-          border: none;
-          color: #9575CD;
-          cursor: pointer;
-          font-size: 14px;
-          font-weight: 600;
-          padding: 20px;
-          position: relative;
-          text-transform: uppercase;
-          z-index: 1;
-
-          &:hover, &.active {
-            opacity: 1;
-
-            &:before {
-              opacity: 1;
-            }
-          }
-
-          &:before {
-            content: '';
-            height: 100%;
-            left: 0;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            transition: opacity .3s;
-            width: 100%;
-            z-index: -1;
-          }
-        }
-
-        .press-card-button-1 {
-          &:before {
-            background: url(img/tab-bg_view-all_2x.png) 50% 50% no-repeat;
-            background-size: contain;
-          }
-        }
-
-        .press-card-button-2 {
-          &:before {
-            background: url(img/tab-bg_education_2x.png) 50% 50% no-repeat;
-            background-size: contain;
-          }
-        }
-
-        .press-card-button-3 {
-          &:before {
-            background: url(img/tab-bg_new-in-2015_2x.png) 50% 50% no-repeat;
-            background-size: contain;
-          }
-        }
-      }        
-    }            
-  } 
-  
-  #press-embed {
-    background: #9575CD;
-    padding: 100px 0;
-    text-align: center;
-
-    .press-embed-inner {
-      margin: 0 auto;
-      width: 640px;
-    }
-
-    a {
-      color: #80DEEA;
-      text-decoration: none;
-    }
-
-    p {
-      color: #fff;
-      font-size: 16px;
-    }
+  .press-intro-col {
+    align-items: center;
+    display: flex;
+    float: left;
+    height: 100%;
+    justify-content: center;
+    padding: 25px 0;
+    width: 50%;
 
     .rect {
-      background: url(img/illust-embed_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      margin: 5% 0;
+      width: 100%;
     }
-  } 
-  
-  #press-device {
-    padding: 50px 0; 
-    text-align: center; 
-
-    h3, h4, p {
-      color: #607D8B;
-    }
-
-    h3 {
-      font-weight: 600;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    a {
-      font-size: 16px;
-    }
-
-    .press-device-grid {
-      @extend .clearfix;
-      font-size: 0;
-      margin: 0 auto;
-      width: 1010px;
-
-      #press-device-1 {
-        background: url(img/illust-chromecast_2x.png) 50% 50% no-repeat;
-        background-size: contain;          
-      } 
-
-      #press-device-2 {
-        background: url(img/illust-mobile-app_2x.png) 50% 50% no-repeat;
-        background-size: contain;                            
-      } 
-
-      #press-device-3 {
-        background: url(img/illust-wear_2x.png) 50% 50% no-repeat;
-        background-size: contain;                    
-      }
-
-      #press-device-4 {
-        background: url(img/illust-web-optimized_2x.png) 50% 50% no-repeat;
-        background-size: contain;                    
-      } 
-
-      #press-device-5 {
-        background: url(img/illust-google-maps_2x.png) 50% 50% no-repeat;
-        background-size: contain;                         
-      }
-
-      #press-device-6 {
-        background: url(img/illust-google-search_2x.png) 50% 50% no-repeat;
-        background-size: contain;                         
-      }
-
-      #press-device-7 {
-        background: url(img/illust-web-cardboard_2x.png) 50% 50% no-repeat;
-        background-size: contain;                         
-      }
-
-      .press-device-square {
-        box-sizing: border-box;
-        display: inline-block;
-        padding: 0 15px 30px;
-        text-align: center;
-        width: 25%;
-        vertical-align: top;
-
-        .square {
-          width: 128px;
-          margin: 25px auto;
-        }           
-      }        
-    }       
-  } 
-  
-  #press-footer { 
-    background: #17CC82;
-    text-align: center;
-    padding: 100px;
-
-    p {
-      color: #fff;
-      padding-bottom: 25px;
-      font-size: 16px;
-    } 
-
-    a {
-      background: #FFBE26;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      height: 50px;
-      opacity: 1;
-      padding: 15px 35px;
-      text-decoration: none;
-      transition: background .3s;
-      width: 250px;
-
-      &:hover {
-        background: #ffd54f;
-      }
-    }        
   }
 
-  @import "sass/responsive";
+  .press-intro-left {
+    background: #17CC82;
+
+    .rect {
+      background: url(img/illust-educational_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .press-intro-right {
+    background: #9575CD;
+
+    .rect {
+      background: url(img/illust-new-in2015_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+  }
 }
+
+#press-primary {
+  text-align: center;
+  padding: 100px 0 0 0;
+
+  h2 {
+    margin-bottom: 50px;
+  }
+
+  .press-primary-inner {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 0 10px;
+    width: 1010px;
+  }
+
+  .press-card {
+    &:nth-child(2) {
+      .press-card-img {
+        background: url(img/tmb-santas-village.png) 50% 50% no-repeat;
+        background-size: cover;
+      }
+    }
+
+    &:nth-child(3) {
+      .press-card-img {
+        background: url(img/tmb_santa-tracker-2015.png) 50% 50% no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+  p {
+    min-height: 144px;
+  }
+
+  .press-card-links {
+    a {
+      float: left;
+      width: 50%;
+    }
+  }
+}
+
+#press-secondary {
+  padding: 100px 0 100px 0;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .press-card {
+    width: calc(33% - 30px);
+
+    &.clear-desktop-row {
+      clear: left;
+      width: calc(34% - 30px);
+    }
+
+    .press-card-img {
+      height: 175px;
+    }
+  }
+
+  .press-secondary-inner {
+    margin: 0 auto;
+    overflow: auto;
+    width: 1010px;
+
+    .press-card-tabs {
+      padding-bottom: 50px;
+
+      a {
+        background: none;
+        border: none;
+        color: #9575CD;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 20px;
+        position: relative;
+        text-transform: uppercase;
+        z-index: 1;
+
+        &:hover, &.active {
+          opacity: 1;
+
+          &:before {
+            opacity: 1;
+          }
+        }
+
+        &:before {
+          content: '';
+          height: 100%;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          transition: opacity .3s;
+          width: 100%;
+          z-index: -1;
+        }
+      }
+
+      .press-card-button-1 {
+        &:before {
+          background: url(img/tab-bg_view-all_2x.png) 50% 50% no-repeat;
+          background-size: contain;
+        }
+      }
+
+      .press-card-button-2 {
+        &:before {
+          background: url(img/tab-bg_education_2x.png) 50% 50% no-repeat;
+          background-size: contain;
+        }
+      }
+
+      .press-card-button-3 {
+        &:before {
+          background: url(img/tab-bg_new-in-2015_2x.png) 50% 50% no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}
+
+#press-embed {
+  background: #9575CD;
+  padding: 100px 0;
+  text-align: center;
+
+  .press-embed-inner {
+    margin: 0 auto;
+    width: 640px;
+  }
+
+  a {
+    color: #80DEEA;
+    text-decoration: none;
+  }
+
+  p {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .rect {
+    background: url(img/illust-embed_2x.png) 50% 50% no-repeat;
+    background-size: contain;
+  }
+}
+
+#press-device {
+  padding: 50px 0;
+  text-align: center;
+
+  h3, h4, p {
+    color: #607D8B;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+
+  .press-device-grid {
+    @extend .clearfix;
+    font-size: 0;
+    margin: 0 auto;
+    width: 1010px;
+
+    #press-device-1 {
+      background: url(img/illust-chromecast_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    #press-device-2 {
+      background: url(img/illust-mobile-app_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    #press-device-3 {
+      background: url(img/illust-wear_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    #press-device-4 {
+      background: url(img/illust-web-optimized_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    #press-device-5 {
+      background: url(img/illust-google-maps_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    #press-device-6 {
+      background: url(img/illust-google-search_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    #press-device-7 {
+      background: url(img/illust-web-cardboard_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    .press-device-square {
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 0 15px 30px;
+      text-align: center;
+      width: 25%;
+      vertical-align: top;
+
+      .square {
+        width: 128px;
+        margin: 25px auto;
+      }
+    }
+  }
+}
+
+#press-footer {
+  background: #17CC82;
+  text-align: center;
+  padding: 100px;
+
+  p {
+    color: #fff;
+    padding-bottom: 25px;
+    font-size: 16px;
+  }
+
+  a {
+    background: #FFBE26;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    opacity: 1;
+    padding: 15px 35px;
+    text-decoration: none;
+    transition: background .3s;
+    width: 250px;
+
+    &:hover {
+      background: #ffd54f;
+    }
+  }
+}
+
+@import "sass/responsive";

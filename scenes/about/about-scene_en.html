@@ -13,33 +13,29 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="about-scene.css" />
+<link rel="import" href="about-scene_module.html">
 
 <!--
 About scene.
 -->
 <dom-module id="about-scene">
 <template>
-  <style>
+  <style include="about-scene_module">
     .fit {
       @apply(--layout-fit);
     }
   </style>
-  <div id="module-about">
-    <div class="scene">
-      <a href="{{pageUrl}}#village" id="about-banner"></a>
-      <div class="feature">
-        <div id="about-content">
-          <h1><i18n-msg msgid="about_title">PLACEHOLDER_i18n</i18n-msg></h1>
-          <p><i18n-msg msgid="about-content-one">PLACEHOLDER_i18n</i18n-msg></p>
-          <p><i18n-msg msgid="about-content-two">PLACEHOLDER_i18n</i18n-msg></p>
-          <p><i18n-msg msgid="about-content-three">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-      </div>
+
+  <a href="{{pageUrl}}#village" id="about-banner"></a>
+  <div class="feature">
+    <div id="about-content">
+      <h1><i18n-msg msgid="about_title">PLACEHOLDER_i18n</i18n-msg></h1>
+      <p><i18n-msg msgid="about-content-one">PLACEHOLDER_i18n</i18n-msg></p>
+      <p><i18n-msg msgid="about-content-two">PLACEHOLDER_i18n</i18n-msg></p>
+      <p><i18n-msg msgid="about-content-three">PLACEHOLDER_i18n</i18n-msg></p>
     </div>
   </div>
+
 </template>
 <script>
   Polymer({

@@ -26,6 +26,7 @@ const del = require('del');
 const i18n_replace = require('./gulp_scripts/i18n_replace');
 const i18n_manifest = require('./gulp_scripts/i18n_manifest');
 const devScene = require('./gulp_scripts/dev-scene');
+const styleModules = require('./gulp_scripts/style_modules');
 const mergeStream = require('merge-stream');
 
 /* Default version is 'vYYYYMMDDHHMM'. */
@@ -149,6 +150,7 @@ gulp.task('sass', function() {
   return gulp.src(files, {base: '.'})
     .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    .pipe(styleModules('_module'))
     .pipe($.changed('.', {hasChanged: $.changed.compareSha1Digest}))
     .pipe(gulp.dest('.'));
 });
