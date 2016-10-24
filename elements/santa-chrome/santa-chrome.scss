@@ -252,8 +252,8 @@ $width-tablet: 768px;  // iPad in portrait
   color: $toolbar-default-color;
 
   @media (max-height: 600px) {
-    // nb. we hide #reset on small vertical screens, only two buttons
-    button#reset {
+    // nb. we hide #restart on small vertical screens, only two buttons
+    button#restart {
       display: none;
     }
   }
