@@ -57,6 +57,7 @@ Santa Tracker app.
         selected-attribute="active">
 
       <dorf-scene route="village" freeform icon="1f384"
+          during-tracker="[[duringTracker]]"
           id="village"
           mode$="{{mode}}"
           path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
@@ -538,7 +539,6 @@ Polymer({
     duringTracker: {
       type: Boolean,
       value: false,
-      observer: '_duringTrackerChanged'
     },
 
     /**
@@ -740,7 +740,6 @@ Polymer({
   onSceneReady: function(event, scene) {
     if (scene == this.$.village) {
       this._notifyHouses();
-      this._duringTrackerChanged();
     }
     this.sceneParamsChanged(this.$.router.sceneParams);
   },
@@ -1025,17 +1024,6 @@ Polymer({
 
     // allowed routes may have changed, so check again
     this._checkSchedule();
-  },
-
-  /**
-   * Notify the village when `duringTracker` is changed. Needed to work around
-   * Polymer not doing late binding.
-   */
-  _duringTrackerChanged: function() {
-    if (!this.$.village.fire) {
-      return;  // called later by onSceneReady
-    }
-    this.$.village.duringTracker = this.duringTracker;
   },
 
   /**

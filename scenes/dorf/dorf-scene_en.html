@@ -78,9 +78,11 @@ Village scene (2015).
         </div>
         <div class="castlogo" hidden$="{{!_isCastMode(santaApp.mode)}}"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
-        <a hidden$="[[!duringTracker]]" href$="{{_calculateTrackerHref(pageUrl)}}" class="village-tracker-link">
-          <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
-        </a>
+        <div hidden$="[[!countdownFinished]]">
+          <a hidden$="[[!duringTracker]]" href$="[[_calculateTrackerHref(pageUrl)]]" class="village-tracker-link">
+            <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
+          </a>
+        </div>
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
     </header>

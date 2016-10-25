@@ -19,6 +19,58 @@ $toolbar-size: 64px;
   position: relative;
   min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
 
+  header {
+    .village-tracker-link {
+      display: block;
+      background: #83CE00;
+      box-shadow: 0 3px 0 #659e00;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 4px;
+      line-height: 33px;
+      padding: 0 21px;
+      position: relative;
+      top: 229px;
+      pointer-events: all;
+
+      &:active {
+        box-shadow: 0 1px 0 #659e00;
+        margin-top: 2px;
+      }
+
+      // create a big hit target around the link
+      &::after {
+        content: '';
+        position: absolute;
+        left: -80px;
+        bottom: 0;
+        right: -80px;
+        top: -200px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -135px;
+        left: 0;
+        width: 122px;
+        height: 101px;
+        background: url(img/santa-takeoff.svg) no-repeat;
+        background-size: cover;
+      }
+
+      @media (max-width: ($width-tablet - 1)) {
+        top: 149px;
+
+        &::before {
+          top: -107px;
+        }
+      }
+    }
+  }
+
   &.countdown-finished {
     #village-footer {
       img {
@@ -37,46 +89,6 @@ $toolbar-size: 64px;
         h1 {
           position: relative;
           top: 70px;
-        }
-
-        .village-tracker-link {
-          display: block;
-          background: #83CE00;
-          box-shadow: 0 3px 0 #659e00;
-          text-decoration: none;
-          color: #fff;
-          font-weight: 600;
-          font-size: 16px;
-          border-radius: 4px;
-          line-height: 33px;
-          padding: 0 21px;
-          position: relative;
-          top: 229px;
-          pointer-events: all;
-
-          &:active {
-            box-shadow: 0 1px 0 #659e00;
-            margin-top: 2px;
-          }
-
-          &::before {
-            content: '';
-            position: absolute;
-            top: -135px;
-            left: 0;
-            width: 122px;
-            height: 101px;
-            background: url(img/santa-takeoff.svg) no-repeat;
-            background-size: cover;
-          }
-
-          @media (max-width: ($width-tablet - 1)) {
-            top: 149px;
-
-            &::before {
-              top: -107px;
-            }
-          }
         }
 
         #ornament {
@@ -304,10 +316,6 @@ $toolbar-size: 64px;
 
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125) !important;
         }
-      }
-
-      .village-tracker-link {
-        display: none;
       }
 
       // NOTE: This is used for the countdown timer.
