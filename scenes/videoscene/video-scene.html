@@ -14,18 +14,15 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
-<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="video-scene.css" />
+<link rel="import" href="video-scene_module.html">
 
 <!--
 Video scene.
 -->
 <dom-module id="video-scene">
 <template>
-  <style>
+  <style include="video-scene_module">
   :host[mode="cast"] .actions {
     display: none;
   }
@@ -41,41 +38,40 @@ Video scene.
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-video" class="fit">
-    <div class="scene" class="fit">
 
-      <div id="poster" class$="{{_computeTernary(paused, '', 'faded')}}"
-          on-transitionend="hidePoster"
-          style$="background-image: url({{componentDir}}img/{{route}}-poster.jpg)">
-        <div id="start" hidden$="{{!start}}">
-          <div class="start-button" on-tap="playVideo"></div>
-        </div>
-      </div>
-
-      <template is="dom-if" if="{{showPlayer}}">
-        <google-youtube id="player"
-            video-id="[[youtubeId]]"
-            currenttime="{{currentTime}}"
-            currenttimeformatted="{{_currentTimeFormatted}}"
-            duration="{{_duration}}"
-            playsupported="false"
-            on-google-youtube-ready="youtubeReady"
-            on-google-youtube-state-change="youtubeStateChange"
-            chromeless width="100%" height="100%" class="fit">
-        </google-youtube>
-      </template>
-
-      <div id="videoboard" class="sceneboard">
-        <div id="controls" hidden$="{{!controls}}">
-          <div class="scrubber">
-            <div class="tracker" style$="transform: translateX({{_computeScrubPixels(currentTime, _duration)}}px)">{{_currentTimeFormatted}}</div>
-          </div>
-          <ul class="actions">
-            <li id="restart" class="restart" on-tap="restartVideo"></li>
-            <li id="pause" class$="pause {{_computeTernary(paused, 'paused', '')}}" on-tap="togglePause"></li>
-          </ul>
-        </div>
+    <div id="poster" class$="[[_computeTernary(paused, '', 'faded')]]"
+        on-transitionend="hidePoster"
+        style$="background-image: url([[componentDir]]img/[[route]]-poster.jpg)">
+      <div id="start" hidden$="[[!start]]">
+        <div class="start-button" on-tap="playVideo"></div>
       </div>
     </div>
+
+    <template is="dom-if" if="[[showPlayer]]">
+      <google-youtube id="player"
+          video-id="[[youtubeId]]"
+          currenttime="{{currentTime}}"
+          currenttimeformatted="{{_currentTimeFormatted}}"
+          duration="{{_duration}}"
+          playsupported="false"
+          on-google-youtube-ready="youtubeReady"
+          on-google-youtube-state-change="youtubeStateChange"
+          chromeless width="100%" height="100%" class="fit">
+      </google-youtube>
+    </template>
+
+    <div id="videoboard" class="sceneboard">
+      <div id="controls" hidden$="[[!controls]]">
+        <div class="scrubber">
+          <div class="tracker" style$="transform: translateX([[_computeScrubPixels(currentTime, _duration)]]px)">[[_currentTimeFormatted]]</div>
+        </div>
+        <ul class="actions">
+          <li id="restart" class="restart" on-tap="restartVideo"></li>
+          <li id="pause" class$="pause [[_computeTernary(paused, 'paused', '')]]" on-tap="togglePause"></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </template>
 <script>

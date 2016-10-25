@@ -41,7 +41,7 @@ Santa Tracker app.
   <santa-chrome id="chrome"
       mode$="{{mode}}"
       disabled="{{isCastMode(mode)}}"
-      color="{{colorForRoute(route)}}"
+      color="{{colorForRoute(route, validRoutes)}}"
       tracker-unlocked="[[duringTracker]]"
       today-house="{{todayHouse}}"
       mute="{{userMute}}">
@@ -49,6 +49,7 @@ Santa Tracker app.
     <!-- Scenes -->
     <lazy-pages id="lazypages"
         preloader="[[preloader]]"
+        valid-routes="{{validRoutes}}"
         selected="{{route}}"
         selected-item="{{selectedScene}}"
         selectable=":not([disabled])"
@@ -258,9 +259,12 @@ Santa Tracker app.
           path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(videos)]]">
-        <video-scene route$="{{item}}" youtube-id$="{{_computeVideoId(videos, item)}}"
-            mode$="{{mode}}" mute$="{{userMute}}"
-            path$="scenes/videoscene/video-scene_[[language]].html"></video-scene>
+        <video-scene route$="{{item}}" icon="1f4fd"
+            youtube-id$="{{_computeVideoId(videos, item)}}"
+            mode$="{{mode}}"
+            mute$="{{userMute}}"
+            header-color="#ec4582"
+            path="scenes/videoscene/video-scene.html"></video-scene>
       </template>
 
       <windtunnel-scene route="windtunnel" icon="1f38f"
@@ -460,6 +464,11 @@ Polymer({
       type: String,
       observer: '_routeChanged'
     },
+
+    /**
+     * Mirrored from lazy-pages valid-routes.
+     */
+    validRoutes: Object,
 
     /**
      * Analytics service.
@@ -926,10 +935,9 @@ Polymer({
    */
   validateRoute: function() {
     if (this.scheduleChecked) {
-      var valid = (this.$.lazypages.isValidRoute(this.route) &&
-                   this.sceneIsUnlocked(this.route)) ||
-                   (this.duringTracker && this.route == TRACKER_ROUTE) ||
-                   (this.mode == 'cast' && this.videos[this.route]);
+      var valid = this.route in this.videos ||
+          (this.$.lazypages.isValidRoute(this.route) && this.sceneIsUnlocked(this.route)) ||
+          (this.duringTracker && this.route == TRACKER_ROUTE);
       if (!valid) {
         if (!window.DEV) {
           return false;
@@ -1079,17 +1087,18 @@ Polymer({
     }
 
     // Certain scenes don't have associated houses. Whitelist them.
-    if (PERMANENT_ROUTES.indexOf(moduleName) != -1) {
+    if (PERMANENT_ROUTES.indexOf(moduleName) !== -1) {
       return true;
     }
 
-    var isVideo = !!this.videos[moduleName];
-    if ((this.duringTracker || this.postFlight) &&
-        (isVideo || TRACKER_ROUTES.indexOf(moduleName) != -1)) {
+    // Always allow videos.
+    if (moduleName in this.videos) {
       return true;
     }
-    if (this.mode == 'cast' && isVideo) {
-      return true;  // allows non-house (i.e., not part of the scchedule) video scenes on cast
+
+    // Allow tracker routes when the tracker is open, or post-open.
+    if ((this.duringTracker || this.postFlight) && TRACKER_ROUTES.indexOf(moduleName) !== -1) {
+      return true;
     }
 
     return false;
@@ -1246,8 +1255,10 @@ Polymer({
 
   /**
    * Returns the (static) color for the given route. Returns the blank string if there is no color.
+   * This accepts both route and validRoutes from lazy-pages, in order to retrigger when the routes
+   * are fully computed: any template dom-repeat routes are hidden.
    */
-  colorForRoute: function(route) {
+  colorForRoute: function(route, validRoutes) {
     var el = this.$.lazypages.getRoute(route);
     return (el ? el.getAttribute('header-color') : '') || '';
   },
