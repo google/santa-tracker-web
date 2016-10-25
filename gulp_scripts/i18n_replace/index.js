@@ -22,7 +22,14 @@ var path = require('path');
 var gutil = require('gulp-util');
 var format = require('sprintf-js').sprintf;
 
-var REGEX = /<i18n-msg msgid="([^"]*)">([^<]*)<\/i18n-msg>/gm;
+// Examples of valid matched i18n-msg elements-
+//   <i18n-msg msgid="foo">PLACEHOLDER_i18n</i18n-msg>
+//   <i18n-msg msgid="foo" other-property="bar">PLACEHOLDER_i18n</i18n-msg>
+//
+// This will _NOT_ match a msgid that is not the first attribute, e.g.-
+//   <i18n-msg something-else="foo" msgid="fail">PLACEHOLDER_i18n</i18n-msg>
+
+var REGEX = /<i18n-msg msgid="([^"]*)"[^>]*>([^<]*)<\/i18n-msg>/gm;
 
 module.exports = function replaceMessages(opts) {
   var warn = warnFunc(opts.strict);

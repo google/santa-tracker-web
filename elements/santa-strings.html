@@ -1,0 +1,178 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+
+<!--
+Strings needed by Santa Tracker at runtime. Note that the msgid of strings does not necessarily
+match their i18n-msg msgid: some strings have been misnamed.
+-->
+<div id="santa-strings-source" style="display: none !important;">
+
+<i msgid="santatracker"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></i>
+
+<i msgid="category-explore"><!-- TODO: translate explore --></i>
+<i msgid="category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></i>
+
+<i msgid="scene-about"><i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-airport"><i18n-msg msgid="scene_airport">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-boatload"><i18n-msg msgid="scene_boatload">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-briefing"><i18n-msg msgid="scene_briefing">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-carpool"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-factory"><!-- TODO: translate factory --></i>
+<i msgid="scene-glider"><!-- TODO: translate glider --></i>
+<i msgid="scene-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-jamband"><i18n-msg msgid="scene_jamband">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-jetpack"><i18n-msg msgid="scene_jetpack">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-latlong"><!-- TODO: translate latlong --></i>
+<i msgid="scene-liftoff"><i18n-msg msgid="scene_videoscene_liftoff">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-matching"><i18n-msg msgid="scene_matching">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-postcard"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-presentdrop"><i18n-msg msgid="scene_presentdrop">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-press"><i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-racer"><i18n-msg msgid="scene_racer">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-runner"><!-- TODO: translate runner --></i>
+<i msgid="scene-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-seasonofcaring"><i18n-msg msgid="scene_seasonofcaring">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-tracker"><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-trivia"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-village"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></i>
+
+</div>
+
+<!--
+Stores shared strings for Santa Tracker. Required by some elements to retrieve strings at runtime
+as opposed to at compile time.
+-->
+<dom-module id="santa-strings">
+<template>
+<style>
+:host {
+  display: none !important;
+}
+</style>
+<i18n-msg msgid="santatracker" msg="{{_msg}}">PLACEHOLDER_i18n</i18n-msg>
+</template>
+<script>
+(function() {
+'use strict';
+
+var s = document._currentScript || document.currentScript;
+var source = s.ownerDocument.getElementById('santa-strings-source');
+
+function buildTable() {
+  if (!source) {
+    throw new Error('could not found `santa-strings-source` element');
+  }
+  var table = {};
+  var all = source.children;
+  for (var x, i = 0; x = all[i]; ++i) {
+    var msgid = x.getAttribute('msgid');
+    table[msgid] = x.textContent;
+  }
+  return Object.freeze(table);
+}
+
+var instances = null;
+var table = undefined;
+
+// In prod, the strings are just physically in the page so build the table immediately. Otherwise,
+// record instances and wait until the element is ready to create the table.
+if (window.DEV) {
+  instances = new Set();
+} else {
+  table = buildTable();
+}
+
+Polymer({
+  is: 'santa-strings',
+
+  properties: {
+
+    /**
+     * Publishes the string table. This object transitions from undefined -> value in dev.
+     */
+    strings: {
+      type: Object,
+      readOnly: true,
+      value: function() { return table; },
+      notify: true,
+    },
+
+    /**
+     * Internal tracker for a message that will only fire in dev. When this changes, the string
+     * table needs to be updated. Note that we do not use the 'i18n-language-ready' event as it
+     * only fires on a random i18n-msg.
+     */
+    _msg: {
+      type: String,
+      observer: '_buildTable',
+    },
+  },
+
+  attached: function() {
+    instances && instances.add(this);
+  },
+
+  detached: function() {
+    instances && instances.delete(this);
+  },
+
+  _buildTable: function(value) {
+    if (table && table['santatracker'] === value) {
+      return;  // table exists and is up-to-date
+    }
+
+    table = buildTable();
+    instances.forEach(function(instance) {
+      instance._setStrings(table);
+    });
+  },
+
+  /**
+   * @param {string} id of string
+   * @return {string} i18n string
+   */
+  s: function(id) {
+    if (!table) {
+      return undefined;
+    }
+    var out = table[id];
+    if (out === undefined) {
+      console.debug('santa-strings missing string', id);
+    }
+    return out;
+  },
+
+})
+
+})();
+</script>
+</dom-module>

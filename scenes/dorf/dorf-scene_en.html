@@ -17,6 +17,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
+<link rel="import" href="../../elements/santa-strings.html">
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="dorf-scene.css" />
@@ -46,6 +47,9 @@ Village scene (2015).
     display: none !important;
   }
   </style>
+
+  <santa-strings strings="{{strings}}"></santa-strings>
+
   <div id="module-dorf" class$="{{_computeCountdownFinishedClass(countdownFinished)}}">
     <header>
       <div id="header-background">
@@ -98,7 +102,7 @@ Village scene (2015).
             <a href="{{_calculateNewTodayHref(todayHouse)}}">
               <div class="card">
                 <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>{{_string('scene', todayHouse, santaApp.strings)}}</h3>
+                <h3>{{_string('scene', todayHouse, strings)}}</h3>
               </div>
             </a>
           </template>
@@ -124,8 +128,8 @@ Village scene (2015).
                     <div class="color" style$="background-color: [[_colorForRoute(santaApp, item.module)]]"></div>
                     <div class="text">
                       <div class="launchdate" hidden$="{{item.hideDate}}">{{_calculateDateNo(item.launchDate)}}</div>
-                      <h4>{{_string('category', item.category, santaApp.strings)}}</h4>
-                      <h3>{{_string('scene', item.module, santaApp.strings)}}</h3>
+                      <h4>{{_string('category', item.category, strings)}}</h4>
+                      <h3>{{_string('scene', item.module, strings)}}</h3>
                       <div class="img-lock" hidden$="{{!item.iced}}"></div>
                     </div>
                     <template is="dom-if" if="{{_equals(todayHouse, item.module)}}">
@@ -135,7 +139,7 @@ Village scene (2015).
                     </template>
                   </div>
                 </a>
-                <h5 class="housez">{{_string('category', item.category, santaApp.strings)}}</h5>
+                <h5 class="housez">{{_string('category', item.category, strings)}}</h5>
               </div><!-- .action -->
             </template>
           </div><!-- .house -->
@@ -372,6 +376,9 @@ Village scene (2015).
         type: String,
         value: null
       },
+
+      /** Strings bound from santa-strings. */
+      strings: Object,
     },
 
     listeners: {

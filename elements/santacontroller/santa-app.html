@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../lazy-pages.html">
+<link rel="import" href="../santa-strings.html">
 <link rel="import" href="../../js/utils.html">
 
 <link rel="import" href="dependencies.html">
@@ -28,6 +29,9 @@ Santa Tracker app.
 -->
 <dom-module id="santa-app">
 <template>
+  <!-- Shared i18n strings -->
+  <santa-strings id="strings"></santa-strings>
+
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
 
@@ -279,44 +283,6 @@ Santa Tracker app.
 
   </santa-chrome>
 
-  <!-- Messages that must be selected dynamically -->
-  <div id="msg" hidden>
-    <div msgid="santatracker"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="category-learn"><i18n-msg msgid="learn">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="category-play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="category-watch"><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-airport"><i18n-msg msgid="scene_airport">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-app"><i18n-msg msgid="scene_app">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-boatload"><i18n-msg msgid="scene_boatload">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-briefing"><i18n-msg msgid="scene_briefing">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-carpool"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-factory"><!-- TODO: translate factory --></div>
-    <div msgid="scene-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-jamband"><i18n-msg msgid="scene_jamband">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-jetpack"><i18n-msg msgid="scene_jetpack">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-liftoff"><i18n-msg msgid="scene_videoscene_liftoff">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-matching"><i18n-msg msgid="scene_matching">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-mercator"><i18n-msg msgid="scene_mercator">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-postcard"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-presentbounce"><i18n-msg msgid="scene_presentbounce">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-presentdrop"><i18n-msg msgid="scene_presentdrop">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-racer"><i18n-msg msgid="scene_racer">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-seasonofcaring"><i18n-msg msgid="scene_seasonofcaring">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-traditions"><i18n-msg msgid="scene_traditions">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-translations"><i18n-msg msgid="scene_translations">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-village"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></div>
-    <div msgid="scene-windtunnel"><i18n-msg msgid="scene_windtunnel">PLACEHOLDER_i18n</i18n-msg></div>
-  </div>
-
 </template>
 <script>
 (function() {
@@ -551,16 +517,6 @@ Polymer({
     },
 
     /**
-     * Fixed string map stored on `santa-app`. Used for elements with strings
-     * that cannot be inferred at compile-time (e.g., i18n-msg with custom
-     * msgids, used in village and sidebar).
-     */
-    strings: {
-      type: Object,
-      notify: true
-    },
-
-    /**
      * sceneParams from `santa-tracker-router`. Can't be changed; router
      * provides this as frozen and readOnly.
      */
@@ -587,10 +543,6 @@ Polymer({
     'countdown-timer-finish': 'onCountdownFinish',
     'tracker-end': 'onTrackerEnd',
     'share': 'onShare',
-
-    // For prod, <i18n-msg> is removed and textContent will already be
-    // correct. For dev, listen for i18n updates and update the string map.
-    'i18n-language-ready': '_updateStrings',
   },
 
   created: function() {
@@ -601,30 +553,6 @@ Polymer({
 
     this.analyticsService = new Analytics();
     this.visibilityService = new VisibilityManager();
-  },
-
-  attached: function() {
-    // If we're in production mode, then update the string map immediately, as
-    // the translations have been included in source directly.
-    if (!window.DEV) {
-      this._updateStrings();
-    }
-  },
-
-  _updateStrings: function() {
-    if (this.strings) {
-      return;  // don't try again
-    }
-    var strings = {};
-    var all = this.$.msg.children;
-    for (var x, i = 0; x = all[i]; ++i) {
-      var msgid = x.getAttribute('msgid');
-      strings[msgid] = x.textContent;
-    }
-
-    // NOTE: Since santaApp isn't actually bound onto this.$.chrome (just )
-    this.$.chrome.set('santaApp.strings', strings);
-    this.strings = Object.freeze(strings);
   },
 
   ready: function() {
@@ -1198,8 +1126,8 @@ Polymer({
         return 'https://plus.google.com/share?hl=' + this.language + '&url=' + enc;
       case 'twitter':
         // For Twitter, include the name of the current scene (or fallback to 'Santa Tracker').
-        var cand = this.strings['scene-' + this.route];
-        var text = cand || this.strings['santatracker'] || 'Santa Tracker';
+        var cand = this.$.strings.s('scene-' + this.route);
+        var text = cand || this.$.strings.s('santatracker') || 'Santa Tracker';
         return 'https://twitter.com/intent/tweet?lang=' + this.language +
             '&hashtags=santatracker&text=' + window.encodeURIComponent(text) + '&url=' + enc;
       }

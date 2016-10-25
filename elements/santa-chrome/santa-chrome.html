@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../santa-icons.html">
+<link rel="import" href="../santa-strings.html">
 <link rel="import" href="santa-chrome_module.html">
 
 <dom-module id="santa-chrome">
@@ -102,6 +103,7 @@ specific language governing permissions and limitations under the License.
   }
 
   </style>
+  <santa-strings strings="{{strings}}"></santa-strings>
 
   <iron-media-query query="(max-width: 600px)"
                     query-matches="{{_smallScreen}}"></iron-media-query>
@@ -127,7 +129,7 @@ specific language governing permissions and limitations under the License.
             <a href$="{{pageUrl}}#{{todayHouse}}">
               <div class$="menucard menucard-{{todayHouse}}">
                 <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
-                <h3>{{_computeStringScene(todayHouse, santaApp.strings)}}</h3>
+                <h3>{{_computeStringScene(todayHouse, strings)}}</h3>
               </div>
             </a>
           </template>
@@ -325,6 +327,9 @@ specific language governing permissions and limitations under the License.
         type: Boolean,
         value: false,
       },
+
+      /** Strings bound from santa-strings. */
+      strings: Object,
     },
 
     _computeHiddenClass: function(hide) { return hide ? 'hidden' : ''; },
