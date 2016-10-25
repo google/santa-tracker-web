@@ -235,6 +235,7 @@ Blockly.JavaScript['turtle_turn_internal'] = function(block) {
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
 
+//TODO(madCode): delete once confirmed we won't need it.
 Blockly.Blocks['triangle_draw'] = {
   /**
    * Block for setting the width.
@@ -265,6 +266,51 @@ Blockly.Blocks.drawTriangle = function(size, id) {
   'turnRight(90,\'' + id + '\');\n';
 };
 
+Blockly.Blocks['square_stamp'] = {
+  /**
+   * Block for setting the width.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
+    this.appendValueInput('SIZE')
+        .setCheck('Number')
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/square_outline_stamp.svg", 40, 40, "outlined shape"));
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+  }
+};
+
+Blockly.JavaScript['square_stamp'] = function(block) {
+  // Generate JavaScript for setting the width.
+  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
+      Blockly.JavaScript.ORDER_NONE) || '1';
+  return 'stampSquare(' + size + ', \'block_id_' + block.id + '\');\n';
+};
+
+Blockly.Blocks['circle_stamp'] = {
+  /**
+   * Block for setting the width.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
+    this.appendValueInput('SIZE')
+        .setCheck('Number')
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/circle_outline_stamp.svg", 40, 40, "outlined shape"));
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+  }
+};
+
+Blockly.JavaScript['circle_stamp'] = function(block) {
+  // Generate JavaScript for setting the width.
+  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
+      Blockly.JavaScript.ORDER_NONE) || '1';
+  return 'stampCircle(' + size + ', \'block_id_' + block.id + '\');\n';
+};
+
+
 Blockly.Blocks['triangle_stamp'] = {
   /**
    * Block for setting the width.
@@ -285,6 +331,50 @@ Blockly.JavaScript['triangle_stamp'] = function(block) {
   var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
       Blockly.JavaScript.ORDER_NONE) || '1';
   return 'stampTriangle(' + size + ', \'block_id_' + block.id + '\');\n';
+};
+
+Blockly.Blocks['circle_stamp_fill'] = {
+  /**
+   * Block for setting the width.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
+    this.appendValueInput('SIZE')
+        .setCheck('Number')
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/circle_fill_stamp.svg", 40, 40, "filled shape"));
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+  }
+};
+
+Blockly.JavaScript['circle_stamp_fill'] = function(block) {
+  // Generate JavaScript for setting the width.
+  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
+      Blockly.JavaScript.ORDER_NONE) || '1';
+  return 'stampCircleFill(' + size + ', \'block_id_' + block.id + '\');\n';
+};
+
+Blockly.Blocks['square_stamp_fill'] = {
+  /**
+   * Block for setting the width.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
+    this.appendValueInput('SIZE')
+        .setCheck('Number')
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/square_fill_stamp.svg", 40, 40, "filled shape"));
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+  }
+};
+
+Blockly.JavaScript['square_stamp_fill'] = function(block) {
+  // Generate JavaScript for setting the width.
+  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
+      Blockly.JavaScript.ORDER_NONE) || '1';
+  return 'stampSquareFill(' + size + ', \'block_id_' + block.id + '\');\n';
 };
 
 Blockly.Blocks['triangle_stamp_fill'] = {
