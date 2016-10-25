@@ -28,6 +28,8 @@ goog.provide('BlocklyInterface');
 goog.require('Blockly');
 goog.require('goog.string');
 
+BlocklyInterface.runningBlockId = "";
+
 /**
  * Load blocks saved on App Engine Storage or in session/local storage.
  * @param {string} defaultXml Text representation of default blocks.
@@ -73,8 +75,19 @@ BlocklyInterface.highlight = function(id) {
     if (m) {
       id = m[1];
     }
+  } else {
+    if (BlocklyInterface.runningBlockId != "") {
+      Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
+    }
+    return;
   }
-  Turtle.workspace.highlightBlock(id);
+  if (id != 'no-block-id') {
+    if (BlocklyInterface.runningBlockId != "") {
+      Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
+    }
+    Turtle.workspace.glowBlock(id, true);
+    BlocklyInterface.runningBlockId = id;
+  }
 };
 
 /**

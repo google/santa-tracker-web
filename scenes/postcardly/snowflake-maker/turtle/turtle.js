@@ -562,7 +562,7 @@ Turtle.executeChunk_ = function() {
   // Wrap up if complete.
   if (!Turtle.pause) {
     document.getElementById('spinner').style.visibility = 'hidden';
-    Turtle.workspace.highlightBlock(null);
+    BlocklyInterface.highlight(null);
     // Image complete; allow the user to submit this image to Reddit.
     Turtle.canSubmit = true;
   }
@@ -579,6 +579,7 @@ Turtle.animate = function(id) {
     // Scale the speed non-linearly, to give better precision at the fast end.
     var stepSpeed = 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2);
     Turtle.pause = Math.max(1, stepSpeed);
+    //BlocklyInterface.highlight(id, false /*needsHighlight*/);
   }
 };
 
