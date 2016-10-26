@@ -27,6 +27,12 @@ app.Constants = {
   MAP_BORDER: 10, // % width of border where countries should not be placed
   TOTAL_LEVELS: 10, // Number of levels
 
+  GEODESIC_LEVELS: [10],
+  GEODESIC_TIME_PER_LEVEL: 100,
+  GEODESIC_ZOOM: 2,
+  GEODESIC_CENTER: [45, 5],
+  GEODESIC_VISIBLE_COUNTRIES: 10,
+
   HITBOX_SIZE: 20, // px border around country
 
   INITIAL_COUNTDOWN: 40, // seconds

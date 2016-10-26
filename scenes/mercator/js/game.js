@@ -211,7 +211,9 @@ app.Game.prototype.onFrame_ = function() {
 app.Game.prototype.bumpLevel_ = function(won) {
   this.level++;
   this.scoreboard.setLevel(this.level);
-  this.scoreboard.addTime(app.Constants.TIME_PER_LEVEL);
+  this.scoreboard.addTime(this.geodesic ?
+      app.Constants.GEODESIC_TIME_PER_LEVEL :
+      app.Constants.TIME_PER_LEVEL);
   this.countries.forEach(function(country) {
     country.hide();
   });
@@ -231,10 +233,11 @@ app.Game.prototype.bumpLevel_ = function(won) {
  */
 app.Game.prototype.setupLevel_ = function() {
   var data = app.levels[this.level];
+  this.geodesic = app.Constants.GEODESIC_LEVELS.indexOf(this.level + 1) !== -1;
   this.countries = [];
 
   data.features.forEach(function(feature) {
-    var country = new app.Country(this.map, feature);
+    var country = new app.Country(this.map, feature, this.geodesic);
     country.onMatched = this.countryMatched_;
     country.onDrag = this.disableTutorial_;
     this.countries.push(country);
@@ -254,10 +257,13 @@ app.Game.prototype.setupLevel_ = function() {
     });
   }
 
-  // Show the whole world
-  if (this.level === 9) {
+  // Show the whole world if geodesic puzzle.
+  if (this.geodesic) {
     this.map.setZoom(2);
-    this.map.setCenter(new google.maps.LatLng(45, 5));
+    this.map.setCenter(
+        new google.maps.LatLng(
+            app.Constants.GEODESIC_CENTER[0],
+            app.Constants.GEODESIC_CENTER[1]));
   }
 };
 
@@ -290,6 +296,11 @@ app.Game.prototype.showCountries_ = function() {
   ne.y += (app.Constants.MAP_BORDER / 100 / 2) * dY;
 
   var shown = 0;
+  var total = this.level === 0 ?
+      app.Constants.FIRST_LEVEL_VISIBLE_COUNTRIES :
+      (this.geodesic ?
+          app.Constants.GEODESIC_VISIBLE_COUNTRIES :
+          app.Constants.VISIBLE_COUNTRIES);
   var total = this.level === 0 ? app.Constants.FIRST_LEVEL_VISIBLE_COUNTRIES :
       app.Constants.VISIBLE_COUNTRIES;
   while (shown < total) {

@@ -23,9 +23,10 @@ goog.require('app.utils');
  * The country object.
  * @param {!google.maps.Map} map A Google map.
  * @param {!Object} feature The data for the country from GeoJSON.
+ * @param {boolean} geodesic Is the polygon geodesic?
  * @constructor
  */
-app.Country = function(map, feature) {
+app.Country = function(map, feature, geodesic) {
   this.map = map;
   this.paths = feature.geometry.coordinates.map(function(path) {
     if (Array.isArray(path)) {
@@ -37,6 +38,7 @@ app.Country = function(map, feature) {
   this.visible = false;
   this.matched = false;
   this.name = feature.properties.name_long;
+  this.geodesic = geodesic;
 
   this.polygon = new google.maps.Polygon({
     map: null,
@@ -45,7 +47,7 @@ app.Country = function(map, feature) {
     strokeWeight: 1,
     fillOpacity: 0.5,
     draggable: true,
-    geodesic: false,
+    geodesic: geodesic,
     zIndex: 3
   });
 
@@ -82,23 +84,14 @@ app.Country.prototype.hide = function() {
  * @param {!google.maps.Point} point A Google maps point.
  */
 app.Country.prototype.setPosition = function(point) {
-  var map = this.map;
-  var center = app.utils.latLngToPoint(map, this.bounds.getCenter());
-  var dX = point.x - center.x;
-  var dY = point.y - center.y;
-
-  var paths = [];
-  this.paths.forEach(function(path) {
-    var latLngs = [];
-    path.forEach(function(latLng) {
-      var pathPoint = app.utils.latLngToPoint(map, latLng);
-      pathPoint.x += dX;
-      pathPoint.y += dY;
-      latLngs.push(app.utils.pointToLatLng(map, pathPoint));
-    });
-    paths.push(latLngs);
-  });
-
+  var center = this.bounds.getCenter();
+  var paths;
+  if (!this.geodesic) {
+    paths = app.utils.moveToPoint(this.map, center, this.paths, point);
+  } else {
+    var latLng = app.utils.pointToLatLng(this.map, point);
+    paths = app.utils.moveToGeodesic(this.map, center, this.paths, latLng);
+  }
   this.polygon.setPaths(paths);
 };
 

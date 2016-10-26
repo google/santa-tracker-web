@@ -44,5 +44,46 @@ app.utils = {
     var point = map.getProjection().fromLatLngToPoint(latLng);
     var scale = Math.pow(2, map.getZoom());
     return new google.maps.Point(point.x * scale, point.y * scale);
-  }
+  },
+
+  /**
+   * Move a non geodesic polygon to a point location.
+   * @param {google.maps.Map} map The Google map.
+   * @param {google.maps.LatLng} center The center of the polygon.
+   * @param {!Array<!Array<!google.maps.LatLng>>} paths All the paths in the polygon.
+   * @param {{x: number, y: number}} point The point to move to.
+   */
+  moveToPoint: function(map, center, paths, point) {
+    var centerPoint = app.utils.latLngToPoint(map, center);
+    var dX = point.x - centerPoint.x;
+    var dY = point.y - centerPoint.y;
+
+    return paths.map(function(path) {
+      return path.map(function(latLng) {
+        var pathPoint = app.utils.latLngToPoint(map, latLng);
+        pathPoint.x += dX;
+        pathPoint.y += dY;
+        return app.utils.pointToLatLng(map, pathPoint);
+      });
+    });
+  },
+
+  /**
+   * Move a geodesic polygon to a latitude and longitude.
+   * @param {google.maps.Map} map The Google map.
+   * @param {google.maps.LatLng} center The center of the polygon.
+   * @param {!Array<!Array<!google.maps.LatLng>>} paths All the paths in the polygon.
+   * @param {google.maps.LatLng} latLng The latitude and longitude to move to.
+   */
+  moveToGeodesic: function(map, center, paths, latLng) {
+    return paths.map(function(path) {
+      return path.map(function(point) {
+        return google.maps.geometry.spherical.computeOffset(
+          latLng,
+          google.maps.geometry.spherical.computeDistanceBetween(center, point),
+          google.maps.geometry.spherical.computeHeading(center, point)
+        );
+      });
+    });
+  },
 };
