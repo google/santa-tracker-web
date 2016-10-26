@@ -72,7 +72,7 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   code += 'for (var ' + loopVar + ' = 0; ' +
       loopVar + ' <  6; ' +
       loopVar + '++) {\n' +
-      branch + 'reset(); turnRight(60*(' + loopVar + '+1), \'no-block-id\');}\n';
+      branch + 'reset(); turnRight(60*(' + loopVar + '+1), \'block_id_' + block.id + '\');}\n';
   return code;
 };
 
