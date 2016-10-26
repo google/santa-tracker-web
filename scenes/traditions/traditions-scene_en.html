@@ -16,27 +16,23 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../components/google-apis/google-maps-api.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="traditions-scene_module.html">
 
-<script src="js/traditions.js"></script>
+<script src="traditions-scene.min.js"></script>
 <script src="../shared/js/mapstyles.js"></script>
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="traditions-scene.css" />
-<style>
-  traditions-scene[mode="portal"] a[href*="google.com"] {
-    pointer-events: none;
-    cursor: default !important;
-  }
-</style>
 
 <!--
 Traditions scene.
 -->
 <dom-module id="traditions-scene">
 <template>
-  <style>
+  <style include="traditions-scene_module">
   :host([mode="portal"]) #lessons-popup {
     display: none;
+  }
+  :host([mode="portal"]) a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
   }
   </style>
 
@@ -44,107 +40,105 @@ Traditions scene.
                   on-keys-pressed="arrowHandler"></iron-a11y-keys>
 
   <div id="module-traditions">
-    <div class="scene">
-      <template is="dom-if" if="{{santaApp}}">
-        <!-- Conditional required to prevent double loading -->
-        <google-maps-api version="3.exp"
-                         client-id="{{santaApp.config.CLIENT_ID}}"
-                         language="{{santaApp.language}}"
-                         on-api-load="mapsAPIReady"></google-maps-api>
-      </template>
-      <div id="traditions-map"></div>
-      <div id="tradition-img"></div>
-      <div class="traditions-all">
-        <div class="traditions-tradition" data-id="us">
-          <h2><i18n-msg msgid="us_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="us_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="mx">
-          <h2><i18n-msg msgid="mx_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="mx_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="gt">
-          <h2><i18n-msg msgid="gt_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="gt_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="ca">
-          <h2><i18n-msg msgid="ca_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="ca_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="ar">
-          <h2><i18n-msg msgid="ar_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="ar_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="br">
-          <h2><i18n-msg msgid="br_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="br_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="is">
-          <h2><i18n-msg msgid="is_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="is_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="uk">
-          <h2><i18n-msg msgid="uk_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="uk_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="gh">
-          <h2><i18n-msg msgid="gh_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="gh_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="fr">
-          <h2><i18n-msg msgid="fr_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="fr_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="de">
-          <h2><i18n-msg msgid="de_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="de_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="gr">
-          <h2><i18n-msg msgid="gr_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="gr_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="kg">
-          <h2><i18n-msg msgid="kg_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="kg_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="ru">
-          <h2><i18n-msg msgid="ru_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="ru_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="ph">
-          <h2><i18n-msg msgid="ph_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="ph_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="au">
-          <h2><i18n-msg msgid="au_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="au_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
-        <div class="traditions-tradition" data-id="nz">
-          <h2><i18n-msg msgid="nz_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="nz_tradition">PLACEHOLDER_i18n</i18n-msg></p>
-        </div>
+    <template is="dom-if" if="{{santaApp}}">
+      <!-- Conditional required to prevent double loading -->
+      <google-maps-api version="3.exp"
+                       client-id="{{santaApp.config.CLIENT_ID}}"
+                       language="{{santaApp.language}}"
+                       on-api-load="mapsAPIReady"></google-maps-api>
+    </template>
+    <div id="traditions-map"></div>
+    <div id="tradition-img"></div>
+    <div class="traditions-all">
+      <div class="traditions-tradition" data-id="us">
+        <h2><i18n-msg msgid="us_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="us_tradition">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
-      <div id="lessons-popup" class="no-en">
-        <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="{{pageUrl}}#" on-click="toggleLessons">here</a></p>
+      <div class="traditions-tradition" data-id="mx">
+        <h2><i18n-msg msgid="mx_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="mx_tradition">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
-      <div id="lessons" hidden>
-        <div id="lessons-inner">
-          <a href="#" id="close-lessons" on-click="toggleLessons"></a>
-          <ul>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-k-2"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-3-5"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-6-8"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
-            <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-9-10"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
-        </div>
+      <div class="traditions-tradition" data-id="gt">
+        <h2><i18n-msg msgid="gt_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="gt_tradition">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
-      <div class="sceneboard">
-        <div class="controls">
-          <ul>
-            <li><a href="#" id="traditions-world" on-click="showWorld"><i18n-msg msgid="traditions-world">PLACEHOLDER_i18n</i18n-msg></a></li>
-            <li><a href="#" id="traditions-prev" on-click="prevCountry"><i18n-msg msgid="traditions-prev">PLACEHOLDER_i18n</i18n-msg></a></li>
-            <li><a href="#" id="traditions-next" on-click="nextCountry"><i18n-msg msgid="traditions-next">PLACEHOLDER_i18n</i18n-msg></a></li>
-          </ul>
-        </div>
+      <div class="traditions-tradition" data-id="ca">
+        <h2><i18n-msg msgid="ca_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="ca_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="ar">
+        <h2><i18n-msg msgid="ar_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="ar_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="br">
+        <h2><i18n-msg msgid="br_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="br_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="is">
+        <h2><i18n-msg msgid="is_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="is_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="uk">
+        <h2><i18n-msg msgid="uk_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="uk_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="gh">
+        <h2><i18n-msg msgid="gh_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="gh_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="fr">
+        <h2><i18n-msg msgid="fr_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="fr_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="de">
+        <h2><i18n-msg msgid="de_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="de_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="gr">
+        <h2><i18n-msg msgid="gr_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="gr_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="kg">
+        <h2><i18n-msg msgid="kg_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="kg_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="ru">
+        <h2><i18n-msg msgid="ru_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="ru_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="ph">
+        <h2><i18n-msg msgid="ph_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="ph_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="au">
+        <h2><i18n-msg msgid="au_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="au_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="nz">
+        <h2><i18n-msg msgid="nz_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="nz_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+    </div>
+    <div id="lessons-popup" class="no-en">
+      <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="{{pageUrl}}#" on-click="toggleLessons">here</a></p>
+    </div>
+    <div id="lessons" hidden>
+      <div id="lessons-inner">
+        <a href="#" id="close-lessons" on-click="toggleLessons"></a>
+        <ul>
+          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-k-2"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
+          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-3-5"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
+          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-6-8"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
+          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-9-10"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
+      </div>
+    </div>
+    <div class="sceneboard">
+      <div class="controls">
+        <ul>
+          <li><a href="#" id="traditions-world" on-click="showWorld"><i18n-msg msgid="traditions-world">PLACEHOLDER_i18n</i18n-msg></a></li>
+          <li><a href="#" id="traditions-prev" on-click="prevCountry"><i18n-msg msgid="traditions-prev">PLACEHOLDER_i18n</i18n-msg></a></li>
+          <li><a href="#" id="traditions-next" on-click="nextCountry"><i18n-msg msgid="traditions-next">PLACEHOLDER_i18n</i18n-msg></a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -173,8 +167,10 @@ Traditions scene.
     },
 
     trackLessonPlan: function(e, detail) {
-     this.fire('analytics-track-event', {category: 'lessonPlanDownload', action: 'click',
-         label: sender.getAttribute('data-grades')});
+      var sender = e.target;
+      console.info('tracking event', sender.getAttribute('data-grades'));
+      this.fire('analytics-track-event', {category: 'lessonPlanDownload', action: 'click',
+          label: sender.getAttribute('data-grades')});
     },
 
     toggleLessons: function(e) {
@@ -221,7 +217,7 @@ Traditions scene.
     },
 
     mapsAPIReady: function() {
-      this.traditions = new Traditions(
+      this.traditions = new scenes.traditions.Traditions(
           this.$['module-traditions'], this.componentDir);
       if (this.shown) {
         this.traditions.onShow();

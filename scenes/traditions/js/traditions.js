@@ -14,10 +14,15 @@
  * the License.
  */
 
+goog.provide('app.Traditions');
+
 /**
+ * @param {!Element} el
+ * @param {string} componentDir
  * @constructor
+ * @export
  */
-function Traditions(el, componentDir) {
+app.Traditions = function(el, componentDir) {
   /**
    * @private {!Element}
    */
@@ -25,9 +30,19 @@ function Traditions(el, componentDir) {
   this.componentDir = componentDir;
 
   /**
-   * @private {String}
+   * @private {!Element}
    */
-  this.currentId_ = null;
+  this.image_ = this.el_.querySelector('#tradition-img');
+
+  /**
+   * @private {string}
+   */
+  this.imageClass_ = this.image_.className;
+
+  /**
+   * @private {string}
+   */
+  this.currentId_ = '';
 
   /**
    * @private {!Object}
@@ -45,9 +60,9 @@ function Traditions(el, componentDir) {
  * @const
  * @private
  */
-Traditions.WATER_COLOR_ = '#f6efe2';
+app.Traditions.WATER_COLOR_ = '#f6efe2';
 
-Traditions.prototype.setup = function() {
+app.Traditions.prototype.setup = function() {
   /**
    * @type {google.maps.Icon}
    * @private
@@ -66,7 +81,7 @@ Traditions.prototype.setup = function() {
   this.BIG_PIN_ = {
     anchor: new google.maps.Point(24, 24),
     scaledSize: new google.maps.Size(1080, 106),
-    size: new google.maps.Size(107, 106),
+    size: new google.maps.Size(108, 106),
     url: this.componentDir + 'img/pins_large_2x.png'
   };
 
@@ -79,7 +94,7 @@ Traditions.prototype.setup = function() {
 /**
  * Show this scene. Must be paired with a later call to onHide.
  */
-Traditions.prototype.onShow = function() {
+app.Traditions.prototype.onShow = function() {
   this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
     center: new google.maps.LatLng(0, 0),
     zoom: 1,
@@ -87,7 +102,7 @@ Traditions.prototype.onShow = function() {
     scrollwheel: false,
     draggable: false,
     disableDoubleClickZoom: true,
-    backgroundColor: Traditions.WATER_COLOR_,
+    backgroundColor: app.Traditions.WATER_COLOR_,
     // It's important that we have map styles -- this prevents a call to
     // staticmap.
     styles: mapstyles.styles
@@ -103,32 +118,34 @@ Traditions.prototype.onShow = function() {
  * @type {number}
  * @private
  */
-Traditions.SMALL_PIN_OFFSET_ = 54;
+app.Traditions.SMALL_PIN_OFFSET_ = 54;
 
 /**
  * @type {number}
  * @private
  */
-Traditions.BIG_PIN_OFFSET_ = 107;
+app.Traditions.BIG_PIN_OFFSET_ = 108;
 
 /**
  * @type {number}
  * @private
  */
-Traditions.NUM_PINS_ = 10;
+app.Traditions.NUM_PINS_ = 10;
 
 /**
  * Display the previous country.
  */
-Traditions.prototype.prevCountry = function() {
+app.Traditions.prototype.prevCountry = function() {
   var active = $('.tradition-active', this.el_);
+
+  /** @type {string} */
   var id;
   if (active.length) {
-    id = active.prev().data('id');
+    id = /** @type {string} */ (active.prev().data('id'));
   }
 
   if (!id) {
-    id = $('.traditions-tradition', this.el_).last().data('id');
+    id = /** @type {string} */ ($('.traditions-tradition', this.el_).last().data('id'));
   }
 
   this.show(id);
@@ -138,15 +155,17 @@ Traditions.prototype.prevCountry = function() {
 /**
  * Display the next country.
  */
-Traditions.prototype.nextCountry = function() {
+app.Traditions.prototype.nextCountry = function() {
   var active = $('.tradition-active', this.el_);
+
+  /** @type {string} */
   var id;
   if (active.length) {
-    id = active.next().data('id');
+    id = /** @type {string} */ (active.next().data('id'));
   }
 
   if (!id) {
-    id = $('.traditions-tradition', this.el_).first().data('id');
+    id = /** @type {string} */ ($('.traditions-tradition', this.el_).first().data('id'));
   }
 
   this.show(id);
@@ -157,9 +176,9 @@ Traditions.prototype.nextCountry = function() {
  * Add each supported country's marker to the map.
  * @private
  */
-Traditions.prototype.addCountryMarkers_ = function() {
-  Traditions.COUNTRIES_.forEach(function(country, i) {
-    var offset = (i % Traditions.NUM_PINS_) * Traditions.SMALL_PIN_OFFSET_;
+app.Traditions.prototype.addCountryMarkers_ = function() {
+  app.Traditions.COUNTRIES_.forEach(function(country, i) {
+    var offset = (i % app.Traditions.NUM_PINS_) * app.Traditions.SMALL_PIN_OFFSET_;
     var smallIcon = {
       anchor: this.SMALL_PIN_.anchor,
       scaledSize: this.SMALL_PIN_.scaledSize,
@@ -176,7 +195,7 @@ Traditions.prototype.addCountryMarkers_ = function() {
 
     this.markerBounds_.extend(marker.getPosition());
 
-    offset = (i % Traditions.NUM_PINS_) * Traditions.BIG_PIN_OFFSET_;
+    offset = (i % app.Traditions.NUM_PINS_) * app.Traditions.BIG_PIN_OFFSET_;
     var bigIcon = {
       anchor: this.BIG_PIN_.anchor,
       scaledSize: this.BIG_PIN_.scaledSize,
@@ -202,7 +221,7 @@ Traditions.prototype.addCountryMarkers_ = function() {
 /**
  * @private
  */
-Traditions.prototype.handleResize_ = function() {
+app.Traditions.prototype.handleResize_ = function() {
   if (this.currentId_) {
     this.verticalAlignText_();
 
@@ -221,7 +240,7 @@ Traditions.prototype.handleResize_ = function() {
 /**
  * @private
  */
-Traditions.prototype.verticalAlignText_ = function() {
+app.Traditions.prototype.verticalAlignText_ = function() {
   var text = $('.tradition-active', this.el_);
   text.css('margin-top', -text.height() / 2);
 };
@@ -229,31 +248,31 @@ Traditions.prototype.verticalAlignText_ = function() {
 /**
  * Show the entire Earth and all countries (the default).
  */
-Traditions.prototype.showWorld = function() {
-  $('#tradition-img', this.el_).removeClass();
+app.Traditions.prototype.showWorld = function() {
+  this.image_.className = this.imageClass_;
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
     this.getCountryEl_(this.currentId_).removeClass('tradition-active');
   }
 
-  this.currentId_ = null;
+  this.currentId_ = '';
   this.map_.fitBounds(this.markerBounds_);
 };
 
 /**
  * Hides this scene.
  */
-Traditions.prototype.onHide = function() {
+app.Traditions.prototype.onHide = function() {
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
     this.getCountryEl_(this.currentId_).removeClass('tradition-active');
   }
 
-  $('#tradition-img', this.el_).removeClass();
+  this.image_.className = this.imageClass_;
 
-  this.currentId_ = null;
+  this.currentId_ = '';
 
   $(window).off('resize.traditions');
 };
@@ -262,7 +281,7 @@ Traditions.prototype.onHide = function() {
  * Switch to showing the specified country.
  * @param {string} id country code
  */
-Traditions.prototype.show = function(id) {
+app.Traditions.prototype.show = function(id) {
   if (id === this.currentId_) {
     return;
   }
@@ -283,7 +302,9 @@ Traditions.prototype.show = function(id) {
   countryEl.addClass('tradition-active');
   this.verticalAlignText_();
 
-  $('#tradition-img', this.el_).removeClass().addClass('active').addClass(id);
+  this.image_.className = this.imageClass_;
+  this.image_.classList.add('active');
+  this.image_.classList.add(id);
 
   $(this.el_).find('img.feature').show().attr('src',
       this.componentDir + '/img/' + id + '.png');
@@ -300,7 +321,7 @@ Traditions.prototype.show = function(id) {
  * @param {!google.maps.LatLngBounds} bounds to grow
  * @return {!google.maps.LatLngBounds}
  */
-Traditions.prototype.padBounds_ = function(bounds) {
+app.Traditions.prototype.padBounds_ = function(bounds) {
   var width = bounds.toSpan().lng();
   var newSW = new google.maps.LatLng(
     bounds.getSouthWest().lat(),
@@ -314,7 +335,7 @@ Traditions.prototype.padBounds_ = function(bounds) {
  * @param {string} id country to find
  * @return {!jQuery} jQuery object containing country element
  */
-Traditions.prototype.getCountryEl_ = function(id) {
+app.Traditions.prototype.getCountryEl_ = function(id) {
   return $(this.el_).find('[data-id=' + id + ']');
 };
 
@@ -322,7 +343,7 @@ Traditions.prototype.getCountryEl_ = function(id) {
  * @private
  * @type {!Array.<!Object>}
  */
-Traditions.COUNTRIES_ = [{
+app.Traditions.COUNTRIES_ = [{
     'country_key': 'us',
     'geometry': {
       'location': {

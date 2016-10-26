@@ -155,6 +155,10 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  traditions: {
+    typeSafe: false,
+    entryPoint: 'app.Traditions'
+  },
   translations: {
     typeSafe: false,
     entryPoint: 'app.Scene'
