@@ -43,11 +43,11 @@ Santa Tracker app.
 
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
-      mode$="{{mode}}"
-      disabled="{{isCastMode(mode)}}"
-      color="{{colorForRoute(route, validRoutes)}}"
+      mode$="[[mode]]"
+      disabled="[[isCastMode(mode)]]"
+      color="[[colorForRoute(route, validRoutes)]]"
       tracker-unlocked="[[duringTracker]]"
-      today-house="{{todayHouse}}"
+      today-house="[[todayHouse]]"
       mute="{{userMute}}">
 
     <!-- Scenes -->
@@ -60,10 +60,11 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <dorf-scene route="village" freeform icon="1f384"
+      <dorf-scene id="village" route="village" freeform icon="1f384"
           during-tracker="[[duringTracker]]"
-          id="village"
-          mode$="{{mode}}"
+          today-house="[[todayHouse]]"
+          houses="[[_houses]]"
+          mode$="[[mode]]"
           path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
@@ -81,7 +82,7 @@ Santa Tracker app.
 
       <boatload-scene route="boatload" icon="26f5"
           path$="scenes/boatload/boatload-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
 
@@ -94,28 +95,28 @@ Santa Tracker app.
 
       <citylights-scene route="citylights" icon="1f306"
           path$="scenes/citylights/citylights-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#182a4a"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
 
       <codeboogie-scene route="codeboogie" icon="1f4dd"
           path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codeboogie/img/loading.svg"></codeboogie-scene>
 
       <codelab-scene route="codelab" icon="1f4dd"
           path$="scenes/codelab/codelab-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
 
       <commandcentre-scene route="commandcentre" icon="1f5fc"
           path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
 
       <factory-scene route="factory" icon="1f3ed"
@@ -124,13 +125,13 @@ Santa Tracker app.
 
       <glider-scene route="glider" icon="1f343"
           path$="scenes/glider/glider-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#8d23a9"
           loading-src="scenes/glider/img/loading.svg"></glider-scene>
 
       <gumball-scene route="gumball" icon="1f36d"
           path$="scenes/gumball/gumball-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="#8d23a9"
           loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
@@ -143,33 +144,33 @@ Santa Tracker app.
 
       <jamband-scene route="jamband" icon="1f3b6"
           path$="scenes/jamband/jamband-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="#fdbe27"
           loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
 
       <jetpack-scene route="jetpack" icon="1f680"
           path$="scenes/jetpack/jetpack-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
 
       <latlong-scene route="latlong" icon="1f3af"
           path$="scenes/latlong/latlong-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#ffcc00"
           loading-src="scenes/latlong/img/loading.svg"></latlong-scene>
 
       <matching-scene route="matching" icon="1f6aa"
           path$="scenes/matching/matching-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#b27644"
           loading-src="scenes/matching/img/loading.svg"></matching-scene>
 
       <mercator-scene route="mercator" icon="1f30e"
           path$="scenes/mercator/mercator-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#fbbf2c"
           loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
 
@@ -179,7 +180,7 @@ Santa Tracker app.
 
       <postcard-scene route="postcard" icon="1f4ec"
           path$="scenes/postcard/postcard-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="rgb(244, 123, 32)"
           loading-src="scenes/postcard/img/loading.gif"></postcard-scene>
 
@@ -189,24 +190,24 @@ Santa Tracker app.
 
       <presentdrop-scene route="presentdrop" icon="1f381"
           path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentdrop/img/loading.svg"></presentdrop-scene>
 
       <presentbounce-scene route="presentbounce" icon="1f381"
           path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentbounce/img/loading.svg"></presentbounce-scene>
 
       <racer-scene route="racer" icon="1f3c1"
           path$="scenes/racer/racer-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/racer/img/loading.svg"></racer-scene>
 
       <runner-scene route="runner" icon="1f3c7"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
 
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
@@ -214,26 +215,26 @@ Santa Tracker app.
 
       <santasearch-scene route="santasearch" icon=""
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#00904a"
           loading-bg-color="#29B6F6"
           loading-src="scenes/santasearch/img/loading.svg"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#4172e8"
           loading-bg-color="#83D7F5"
           loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
 
       <seasonofcaring-scene route="seasonofcaring" icon="1f3ee"
           path$="scenes/seasonofcaring/seasonofcaring-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           loading-src="scenes/seasonofcaring/img/loading.svg"></seasonofcaring-scene>
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#9dca3b"
           loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
 
@@ -250,7 +251,7 @@ Santa Tracker app.
 
       <traditions-scene route="traditions" icon="1f4cc"
           path$="scenes/traditions/traditions-scene_[[language]].html"
-          mode$="{{mode}}"
+          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="rgb(255,224,0)"
           loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
@@ -268,10 +269,10 @@ Santa Tracker app.
           path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(videos)]]">
-        <video-scene route$="{{item}}" icon="1f4fd"
-            youtube-id$="{{_computeVideoId(videos, item)}}"
-            mode$="{{mode}}"
-            mute$="{{userMute}}"
+        <video-scene route$="[[item]]" icon="1f4fd"
+            youtube-id$="[[_computeVideoId(videos, item)]]"
+            mode$="[[mode]]"
+            mute$="[[userMute]]"
             header-color="#ec4582"
             path="scenes/videoscene/video-scene.html"></video-scene>
       </template>
@@ -370,8 +371,7 @@ Polymer({
     todayHouse: {
       type: String,
       value: '',
-      notify: true,
-      observer: '_notifyHouses'
+      notify: true
     },
 
     /**
@@ -670,9 +670,6 @@ Polymer({
   },
 
   onSceneReady: function(event, scene) {
-    if (scene == this.$.village) {
-      this._notifyHouses();
-    }
     this.sceneParamsChanged(this.$.router.sceneParams);
   },
 
@@ -739,8 +736,6 @@ Polymer({
           break;
       }
     }
-
-    this._notifyHouses();
   },
 
   get defaultRoute() {
@@ -947,7 +942,8 @@ Polymer({
       // fallbackHouse used in other regions
       if (this._houses[i].module === 'callfromsanta') {
         if (this._fallbackHouse) {
-          this._houses[i] = this._fallbackHouse;
+          // Use Polymer's splice method to cause notifications.
+          this.splice('_houses', i, 1, this._fallbackHouse);
         }
       }
 
@@ -959,7 +955,7 @@ Polymer({
   },
 
   /**
-   * @param number index
+   * @param {number} idx of house to unlock
    */
   unlockHouse: function(idx) {
     var house = this._houses[idx];
@@ -969,7 +965,7 @@ Polymer({
 
     // house is melted unless it's disabled
     house.iced = !!house.disabled;
-    this._notifyHouses();
+    this._notifyHouses(idx);
   },
 
   unlockAllHouses: function() {
@@ -980,7 +976,6 @@ Polymer({
 
   lockAllHouses: function() {
     for (var i = 0, house; house = this._houses[i]; ++i) {
-      this.set('_houses.i.')
       house.iced = true;
     }
     this._notifyHouses();
@@ -1147,29 +1142,27 @@ Polymer({
   /**
    * Notifies bound properties that the houses have changed (useful for the
    * village). Dedups with a microtask.
+   * @param {number=} opt_idx
    * @private
    */
-  _notifyHouses: function() {
+  _notifyHouses: function(opt_idx) {
     this.debounce('_notifyHouses', function() {
-      if (!this.$.village.fire) {
-        // We're not a Polymer element yet, ignore. This will be later called
-        // by onSceneReady.
+      if (!this.$.village.is) {
+        // the village isn't yet a Polymer element, so ignore.
         return;
       }
 
-      var houses = this._houses.slice();
-      this.$.village.houses = houses;
-      this.$.village.todayHouse = this.todayHouse;
+      // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
+      // there's no way to notify a whole house. Also, `this.splice` is used in _postFlightChanged.
+      var propertiesToNotify = ['iced', 'disabled', 'module', 'category'];
 
-      // TODO(samthor): This works around Polymer aggressively comparing the
-      // inner objects of the array. It decides that since the inner objects
-      // are the same (and they are by equality) that the template should not
-      // re-run. We don't use .set on _this_ element, because there's no
-      // rendering here and this isn't actually bound to village, since late-
-      // binding isn't supported in Polymer 1+.
-      for (var i = 0; i < houses.length; ++i) {
-        this.$.village.set(['houses', i, 'iced'], houses[i].iced);
-      }
+      this._houses.forEach(function(house, i) {
+        var path = ['houses', i, ''];
+        propertiesToNotify.forEach(function(property) {
+          path[2] = property;
+          this.$.village.notifyPath(path, house[property]);
+        }, this);
+      }, this);
     });
   },
 

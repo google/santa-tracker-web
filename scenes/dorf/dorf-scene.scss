@@ -388,6 +388,7 @@ $toolbar-size: 64px;
     #houses {
       position: relative;
       display: flex;
+      align-content: flex-start;
       flex-flow: wrap;
     }
   }
@@ -651,7 +652,6 @@ $toolbar-size: 64px;
       @import "sass/eastereggs";
 
       #houses {
-        align-items: flex-start;
         margin: 0 auto;
         width: $width-desktop;
         height: $height-desktop;

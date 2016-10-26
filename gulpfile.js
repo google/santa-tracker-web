@@ -129,9 +129,6 @@ const SCENE_CLOSURE_CONFIG = require('./scenes');
 const SCENE_NAMES = argv.scene ?
     [argv.scene].concat((SCENE_CLOSURE_CONFIG[argv.scene] || {}).dependencies || []) :
     Object.keys(SCENE_CLOSURE_CONFIG);
-// A glob pattern matching scenes to compile.
-const SCENE_GLOB = argv.scene ?
-    (SCENE_NAMES.length > 1 ? `{${SCENE_NAMES.join(',')}}` : argv.scene) : '*';
 
 gulp.task('clean', function() {
   return del([
@@ -146,8 +143,7 @@ gulp.task('rm-dist', function() {
 });
 
 gulp.task('sass', function() {
-  const files = argv.scene ? 'scenes/' + SCENE_GLOB + '/**/*.scss' : SASS_FILES;
-  return gulp.src(files, {base: '.'})
+  return gulp.src(SASS_FILES, {base: '.'})  // nb. compile all sass files, it's fast
     .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(styleModules('_module'))

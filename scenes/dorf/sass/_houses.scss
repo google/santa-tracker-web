@@ -78,7 +78,7 @@ $idx-zIndex: 14;
       }
     }
 
-    .house-#{$id} {
+    #house-#{$id} {
       // z-index set on child .assets, not top-level .house (don't create
       // heirarchy here)
 

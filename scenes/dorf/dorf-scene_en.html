@@ -50,7 +50,7 @@ Village scene (2015).
 
   <santa-strings strings="{{strings}}"></santa-strings>
 
-  <div id="module-dorf" class$="{{_computeCountdownFinishedClass(countdownFinished)}}">
+  <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
     <header>
       <div id="header-background">
         <div id="header-mobilevillage"></div>
@@ -59,7 +59,7 @@ Village scene (2015).
         <span class="sun"></span>
         <span class="plane"></span>
         <span id="village-pegman">
-          <a id="village-pegman-image" href="{{_calculateDiveURL(santaApp.mode)}}">Santa Dive</a>
+          <a id="village-pegman-image" href$="[[_calculateDiveURL(mode)]]">Santa Dive</a>
         </span>
         <div id="effectholder">
         </div>
@@ -67,10 +67,10 @@ Village scene (2015).
       </div>
       <div id="header-content">
         <div id="ornament"></div>
-        <div id="count-down" class$="mode-{{santaApp.mode}}">
+        <div id="count-down" class$="mode-[[mode]]">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer id="count"
-                           animate="{{!_isCastMode(santaApp.mode)}}"
+                           animate="[[!_isCastMode(mode)]]"
                            santa-service="[[santaApp.santaService]]"
                            countdown-end-at="[[santaApp.countdownEndAt]]"
                            finished="{{countdownFinished}}">
@@ -80,10 +80,10 @@ Village scene (2015).
             <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
           </countdown-timer>
         </div>
-        <div class="castlogo" hidden$="{{!_isCastMode(santaApp.mode)}}"></div>
+        <div class="castlogo" hidden$="[[!_isCastMode(mode)]]"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
         <div hidden$="[[!countdownFinished]]">
-          <a hidden$="[[!duringTracker]]" href$="[[_calculateTrackerHref(pageUrl)]]" class="village-tracker-link">
+          <a hidden$="[[!duringTracker]]" href$="[[pageUrl]]#tracker" class="village-tracker-link">
             <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
           </a>
         </div>
@@ -97,59 +97,60 @@ Village scene (2015).
       <div id="ground"></div>
       <div id="road"></div>
       <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
-        <div class$="house house-new-today new-today-{{todayHouse}}">
-          <template is="dom-if" if="{{_calculateShowTodayHouse(todayHouse, santaApp.mode)}}">
-            <a href="{{_calculateNewTodayHref(todayHouse)}}">
-              <div class="card">
-                <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>{{_string('scene', todayHouse, strings)}}</h3>
-              </div>
-            </a>
-          </template>
+        <!-- The 'New Today' house exists in the regular grid -->
+        <div class$="house house-new-today new-today-[[todayHouse]]">
+          <a href$="[[pageUrl]]#[[todayHouse]]" hidden$="[[!todayHouse]]">
+            <div class="card">
+              <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_string('scene', todayHouse, strings)]]</h3>
+            </div>
+          </a>
         </div>
-        <template id="housesloop" is="dom-repeat" items="{{houses}}" observe="iced disabled">
-          <div id$="house-{{item.module}}"
-               class$="house house-{{item.module}} {{_calculateClass(item, item.iced, todayHouse)}}"
-               disabled$="{{item.disabled}}">
+        <template is="dom-repeat" items="[[houses]]" initial-count="7">
+          <div id$="house-[[item.module]]"
+               class$="house [[_calculateHouseClass(item, item.iced, todayHouse)]]"
+               disabled$="[[item.disabled]]">
             <div class="assets housez">
               <div class="building"></div>
-              <template is="dom-if" if="{{!_isCastMode(santaApp.mode)}}">
-                <template is="dom-if" if="{{!item.hideDate}}">
-                  <div class="launchdate">{{_calculateDateNo(item.launchDate)}}</div>
-                </template>
+              <div hidden$="[[_isCastMode(mode)]]">
+                <div class="launchdate" hidden$="[[item.hideDate]]">
+                  [[_calculateDateNo(item.launchDate)]]
+                </div>
                 <div class="ice"></div>
-              </template>
+              </div>
             </div>
-            <template is="dom-if" if="{{!item.disabled}}">
+            <template is="dom-if" if="[[!item.disabled]]">
               <div class="action">
-                <a class="link" href$="{{_calculateHref(item, item.iced)}}">
-                  <div class$="card card-{{item.module}}">
+                <a class="link" href$="[[_calculateHref(item, item.iced)]]">
+                  <div class$="card card-[[item.module]]">
                     <div class="image"></div>
                     <div class="color" style$="background-color: [[_colorForRoute(santaApp, item.module)]]"></div>
                     <div class="text">
-                      <div class="launchdate" hidden$="{{item.hideDate}}">{{_calculateDateNo(item.launchDate)}}</div>
-                      <h4>{{_string('category', item.category, strings)}}</h4>
-                      <h3>{{_string('scene', item.module, strings)}}</h3>
-                      <div class="img-lock" hidden$="{{!item.iced}}"></div>
+                      <div class="launchdate" hidden$="[[item.hideDate]]">
+                        [[_calculateDateNo(item.launchDate)]]
+                      </div>
+                      <h4>[[_string('category', item.category, strings)]]</h4>
+                      <h3>[[_string('scene', item.module, strings)]]</h3>
+                      <div class="img-lock" hidden$="[[!item.iced]]"></div>
                     </div>
-                    <template is="dom-if" if="{{_equals(todayHouse, item.module)}}">
+                    <template is="dom-if" if="[[_equals(todayHouse, item.module)]]">
                       <div class="label">
                         <i18n-msg msgid="new">PLACEHOLDER_i18n</i18n-msg>
                       </div>
                     </template>
                   </div>
                 </a>
-                <h5 class="housez">{{_string('category', item.category, strings)}}</h5>
-              </div><!-- .action -->
+                <h5 class="housez">[[_string('category', item.category, strings)]]</h5>
+              </div>
             </template>
-          </div><!-- .house -->
+          </div>
         </template>
 
-        <!-- TODO(samthor): This isn't part of the flex layout, but ensures
-             that easter eggs have a shared z-index with houses -->
-        <div id="eastereggs" class$="mode-{{santaApp.mode}}">
-          <template is="dom-repeat" items="{{easterEggs}}">
-            <div id$="easteregg-{{item}}" class="easter-egg"></div>
+        <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
+          have a shared stacking context with houses -->
+        <div id="eastereggs" class$="mode-[[mode]]">
+          <template is="dom-repeat" items="[[easterEggs]]">
+            <div id$="easteregg-[[item]]" class="easter-egg"></div>
           </template>
 
           <div id="easteregg-schoolyard" class="easter-egg">
@@ -225,13 +226,13 @@ Village scene (2015).
             <div id="easteregg-tic-tac-toe-win"></div>
           </div>
         </div>
-      </div>
+      </div><!-- #houses -->
     </div>
 
-    <template is="dom-if" if="{{!_isCastMode(santaApp.mode)}}">
+    <template is="dom-if" if="[[!_isCastMode(mode)]]">
       <div id="village-footer">
-        <p hidden$="{{countdownFinished}}"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-        <img src$="{{_computeFooterElves(countdownFinished)}}" />
+        <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+        <img src$="[[_computeFooterElves(countdownFinished)]]" />
       </div>
       <div id="village-donate" class="no-en">
         <div id="wrapper">
@@ -348,25 +349,27 @@ Village scene (2015).
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
-      houses: {
-        type: Array
-      },
-      todayHouse: {
-        type: String,
-      },
-      mode: {
-        type: String
-      },
+
+      /** Bound from `santa-app`, the array of houses to show. */
+      houses: Array,
+
+      /** Bound from `santa-app`, today's unlocked house. */
+      todayHouse: String,
+
+      /** Bound from `santa-app`, the current mode. Shouldn't change at runtime. */
+      mode: String,
+
+      /** Easter eggs helper, used for template. */
       easterEggs: {
         type: Array,
         readOnly: true,
         value: Object.freeze(EASTER_EGGS)
       },
+
+      /** Bound from `countdown-timer`, whether the countdown is done. */
       countdownFinished: Boolean,
 
-      /**
-       * Set from `santa-app`, because we need to observe this changing.
-       */
+      /** Bound from `santa-app`, whether we are during the tracker. */
       duringTracker: Boolean,
 
       /**
@@ -377,7 +380,7 @@ Village scene (2015).
         value: null
       },
 
-      /** Strings bound from santa-strings. */
+      /** Strings bound from `santa-strings`. */
       strings: Object,
     },
 
@@ -402,6 +405,185 @@ Village scene (2015).
     _computeFooterElves: function(finished) {
       return this.componentDir +
           (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
+    },
+
+    _updateCountdownLabels: function() {
+      this.$.count.updateLabels();
+    },
+
+    /**
+     * Calculates the href to load for this house.
+     */
+    _calculateHref: function(house, iced) {
+      if (iced || house.disabled) {
+        return null;
+      }
+      return house.link || this.pageUrl + '#' + house.module;
+    },
+
+    /**
+     * Calculates any optional classes to apply on the `.house` div.
+     */
+    _calculateHouseClass: function(house, iced, todayHouse) {
+      var out = '';
+      if (iced) {
+        out += ' iced';
+      }
+      if (todayHouse === house.module) {
+        out += ' new-today';
+      }
+      return out;
+    },
+
+    /**
+     * Calculates the numeric (i.e., day of month) date for this Date.
+     */
+    _calculateDateNo: function(date) {
+      return date && date.getDate();
+    },
+
+    /**
+     * Returns the string from the passed Object in the form `type-id`. Used
+     * to look up dynamic strings.
+     */
+    _string: function(type, id, strings) {
+      return strings[type + '-' + id];
+    },
+
+    _computeDrawerWidth: function(smallScreen) {
+      return smallScreen ? '100%' : '400px';
+    },
+
+    _calculateDiveURL: function(mode) {
+      if (mode == 'portal') {
+        return (location.pathname + 'dive');
+      }
+      return 'https://santadive.withgoogle.com';
+    },
+
+    _onHousesOver: function(event) {
+      if (!event.target || event.target.localName != 'a' || !event.target.href) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_appear');
+    },
+
+    _onHousesOut: function(event) {
+      if (!event.target || !event.target.classList.contains('card')) {
+        return;
+      }
+      this.fire('sound-trigger', 'village_bubble_disappear');
+    },
+
+    onPreload: function() {
+      this.preloadSounds('village_load_sounds');
+      this.preloadImages([
+        'img/road.svg',
+        'img/ground.svg',
+        'img/sun.svg',
+        'img/cloud1.svg',
+        'img/cloud2.svg',
+        'img/cloud3.svg',
+        'img/header-bg.svg',
+        '../../elements/countdown/img/number-bg.svg',
+      ]);
+
+      var isMobile = (window.innerWidth < 768);
+      if (isMobile) {
+        this.preloadImages([
+          'img/mobile-header.svg',
+          'img/mobile-header-elves.svg',
+        ]);
+      }
+
+      // Preload the first ~7 houses.
+      var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];
+      for (var i = 0; i < 7 && i < houses.length; ++i) {
+        var house = houses[i];
+        var id = house.module;
+
+        var preload = [];
+
+        if (!isMobile) {
+          preload.push('img/building-' + id + '.svg');
+        }
+        if (this.mode != 'cast') {
+          preload.push('img/card-' + id + '_2x.png');
+          if (house.iced && !isMobile) {
+            preload.push('img/building-' + id + '-ice.svg')
+          }
+        }
+        this.preloadImages(preload);
+      }
+
+    },
+
+    onShow: function() {
+      this.fire('sound-ambient', 'music_start_village');
+      this.fire('sound-ambient', 'village_start');
+
+      // Start timer one tick after scene is shown.
+      this.async(function() {
+        this.$.count.start();
+      });
+
+      this._startEasterEggs();
+
+      var eh = this.$.effectholder;
+      eh.textContent = '';  // clear
+
+      var ratio = 1;
+      if (this.mode == 'cast') {
+        ratio = 0.5;
+      }
+
+      for (var i = 0, count = Math.floor(ratio * SNOWFLAKE_COUNT); i < count; ++i) {
+        // Delay snowflakes by their count+5 sec.
+        var x = snowflakeFactory(null, i + 5);
+        eh.appendChild(x);
+      }
+      for (var i = 0, count = Math.floor(ratio * CLOUD_COUNT); i < count; ++i) {
+        // Delay clouds by their count+1 sec, and every second is reverse.
+        var x = cloudFactory(null, i + 1, i % 2);
+        eh.appendChild(x);
+      }
+    },
+
+    onHide: function() {
+      this.fire('sound-ambient', 'village_end');
+      this.$.count.stop();
+      this.$.effectholder.textContent = '';
+      this._stopEasterEggs();
+    },
+
+    _isCastMode: function(mode) {
+      return mode == 'cast';
+    },
+
+    /**
+     * Wraps `santaApp.colorForRoute`.
+     */
+    _colorForRoute: function(santaApp, id) {
+      return santaApp.colorForRoute(id);
+    },
+
+    /** NOTE: easteregg code only below this point */
+
+    _pegmanStep: function() {
+      if (!this.active) {
+        return;  // give up, not active
+      }
+      var pegman = this.$['village-pegman'];
+      if (!pegman.classList.contains('active')) {
+        // fall from the sky
+        pegman.classList.add('active');
+      } else {
+        pegman.classList.add('fadeout');
+        this.async(function() {
+          pegman.classList.remove('fadeout', 'active');
+        }, 500);
+      }
+      this.async(this._pegmanStep, randomRange(PEGMAN_WAIT_MIN, PEGMAN_WAIT_MAX));
     },
 
     /**
@@ -651,217 +833,8 @@ Village scene (2015).
       }, BUS_DRIVE_ANIMATION + 1);
     },
 
-    _updateCountdownLabels: function() {
-      this.$.count.updateLabels();
-    },
-
-    /**
-     * Calculates the href to load for this house.
-     */
-    _calculateNewTodayHref: function(moduleId) {
-      return this.pageUrl + '#' + moduleId;
-    },
-
-    _calculateTrackerHref: function(pageUrl) {
-      return pageUrl + '#tracker';
-    },
-
-    /**
-     * Calculates the href to load for this house.
-     */
-    _calculateHref: function(house, iced) {
-      if (iced || house.disabled) {
-        return null;
-      }
-      return house.link || this.pageUrl + '#' + house.module;
-    },
-
-    /**
-     * Calculates any optional classes to apply on the `.house` div.
-     */
-    _calculateClass: function(house, iced, todayHouse) {
-      var out = '';
-      if (iced) { out += ' iced'; }
-      if (todayHouse == house.module) { out += ' new-today'; }
-      return out;
-    },
-
-    /**
-     * Calculates the numeric (i.e., day of month) date for this Date.
-     */
-    _calculateDateNo: function(date) {
-      return date && date.getDate ? date.getDate() : '';
-    },
-
-    _calculateIcon: function(id, house) {
-      return this.componentDir + 'img/building-' + id + '.svg';
-    },
-
-    _calculateIcedIcon: function(id, house) {
-      return this.componentDir + 'img/building-' + id + '-ice.svg';
-    },
-
-    _calculateCard: function(id, hdpi) {
-      // TODO(samthor): non-2x versions if they can be made smaller
-      return this.componentDir + 'img/card-' + id + '_2x.png';
-    },
-
-    /**
-     * Returns the string from the passed Object in the form `type-id`. Used
-     * to look up dynamic strings.
-     */
-    _string: function(type, id, strings) {
-      return strings[type + '-' + id];
-    },
-
-    _computeDrawerWidth: function(smallScreen) {
-      return smallScreen ? '100%' : '400px';
-    },
-
-    _scrollHandler: function(e) {
-      var scroller = e.detail.target;
-      this.toggleClass('scrolling', scroller.scrollTop > 0, this.$.toolbar);
-    },
-
-    _calculateShowTodayHouse: function(todayHouse, mode) {
-      if (mode == 'cast') {
-        return false;
-      }
-      return todayHouse != '';
-    },
-
-    _calculateNewTodayClass: function(todayHouse, moduleId) {
-      return todayHouse == moduleId ? 'new-today' : '';
-    },
-
-    /**
-     * Basic helper for Polymer elements.
-     */
-    _equal: function(a, b) {
-      return a == b;
-    },
-
-    _calculateDiveURL: function(mode) {
-      if (mode == 'portal') {
-        return (location.pathname + 'dive');
-      }
-      return 'https://santadive.withgoogle.com';
-    },
-
-    _onHousesOver: function(event) {
-      if (!event.target || event.target.localName != 'a' || !event.target.href) {
-        return;
-      }
-      this.fire('sound-trigger', 'village_bubble_appear');
-    },
-
-    _onHousesOut: function(event) {
-      if (!event.target || !event.target.classList.contains('card')) {
-        return;
-      }
-      this.fire('sound-trigger', 'village_bubble_disappear');
-    },
-
-    onPreload: function() {
-      this.preloadSounds('village_load_sounds');
-      this.preloadImages([
-        'img/road.svg',
-        'img/ground.svg',
-        'img/sun.svg',
-        'img/cloud1.svg',
-        'img/cloud2.svg',
-        'img/cloud3.svg',
-        'img/header-bg.svg',
-        '../../elements/countdown/img/number-bg.svg',
-      ]);
-
-      var isMobile = (window.innerWidth < 768);
-      if (isMobile) {
-        this.preloadImages([
-          'img/mobile-header.svg',
-          'img/mobile-header-elves.svg',
-        ]);
-      }
-
-      // Preload the first ~7 houses.
-      var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];
-      for (var i = 0; i < 7 && i < houses.length; ++i) {
-        var house = houses[i];
-        var id = house.module;
-
-        var preload = [];
-
-        if (!isMobile) {
-          preload.push('img/building-' + id + '.svg');
-        }
-        if (this.santaApp.mode != 'cast') {
-          preload.push('img/card-' + id + '_2x.png');
-          if (house.iced && !isMobile) {
-            preload.push('img/building-' + id + '-ice.svg')
-          }
-        }
-        this.preloadImages(preload);
-      }
-
-    },
-
-    onShow: function() {
-      this.fire('sound-ambient', 'music_start_village');
-      this.fire('sound-ambient', 'village_start');
-
-      // Start timer one tick after scene is shown.
-      this.async(function() {
-        this.$.count.start();
-      });
-
-      this._startEasterEggs();
-
-      var eh = this.$.effectholder;
-      eh.textContent = '';  // clear
-
-      var ratio = 1;
-      if (this.santaApp.mode == 'cast') {
-        ratio = 0.5;
-      }
-
-      for (var i = 0, count = Math.floor(ratio * SNOWFLAKE_COUNT); i < count; ++i) {
-        // Delay snowflakes by their count+5 sec.
-        var x = snowflakeFactory(null, i + 5);
-        eh.appendChild(x);
-      }
-      for (var i = 0, count = Math.floor(ratio * CLOUD_COUNT); i < count; ++i) {
-        // Delay clouds by their count+1 sec, and every second is reverse.
-        var x = cloudFactory(null, i + 1, i % 2);
-        eh.appendChild(x);
-      }
-    },
-
-    onHide: function() {
-      this.fire('sound-ambient', 'village_end');
-      this.$.count.stop();
-      this.$.effectholder.textContent = '';
-      this._stopEasterEggs();
-    },
-
-    _pegmanStep: function() {
-      if (!this.active) {
-        return;  // give up, not active
-      }
-      var pegman = this.$['village-pegman'];
-      if (!pegman.classList.contains('active')) {
-        // fall from the sky
-        pegman.classList.add('active');
-      } else {
-        pegman.classList.add('fadeout');
-        this.async(function() {
-          pegman.classList.remove('fadeout', 'active');
-        }, 500);
-      }
-      this.async(this._pegmanStep, randomRange(PEGMAN_WAIT_MIN, PEGMAN_WAIT_MAX));
-    },
-
     _startEasterEggs: function() {
-      if (this.santaApp.mode != 'cast') {
+      if (this.mode != 'cast') {
         this._stopEasterEggs();
         this._randomEasterEggs();  // stops self if no longer active
         this._playTicTacToe();
@@ -877,17 +850,6 @@ Village scene (2015).
       this._playTicTacToeTimers = [];
 
       this.cancelAsync(this._eggTimer);
-    },
-
-    _isCastMode: function(mode) {
-      return mode == 'cast';
-    },
-
-    /**
-     * Wraps `santaApp.colorForRoute`.
-     */
-    _colorForRoute: function(santaApp, id) {
-      return santaApp.colorForRoute(id);
     },
 
   });
