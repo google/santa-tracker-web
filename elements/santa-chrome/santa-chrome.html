@@ -29,17 +29,14 @@ specific language governing permissions and limitations under the License.
 <dom-module id="santa-chrome">
 <template>
   <style include="santa-chrome_module">
-  paper-toolbar {
-    z-index: 1001;
+  :host {
     --paper-toolbar-height: 44px;
     --paper-toolbar-sm-height: 44px;
-  }
-  paper-toolbar /deep/ .toolbar-tools {
-    padding-left: 4px;
-    padding-right: 4px;
-  }
+    --paper-toolbar-content: {
+      padding-left: 4px;
+      padding-right: 4px;
+    };
 
-  paper-drawer-panel {
     --paper-drawer-panel-scrim: {
       background: rgba(135, 212, 147, 0.33);
       z-index: 1001;
@@ -47,42 +44,44 @@ specific language governing permissions and limitations under the License.
     --paper-drawer-panel-drawer-container: {
       z-index: 1001;
     }
-  }
-  paper-icon-button {
-    --paper-icon-button-ink-color: white;
-  }
-  paper-header-panel::shadow #mainPanel {
-    @apply(--layout-fit);
-  }
 
-  paper-header-panel {
+    --paper-icon-button-ink-color: white;
+
+    --paper-header-panel-body: {
+      @apply(--layout-fit);
+    };
     --paper-header-panel-shadow: {
       display: none;
     };
     --paper-header-panel-waterfall-container: {
       will-change: transform;
     };
+    --paper-header-panel-container: {
+      will-transform: opacity;
+      transform: translateZ(0);
+    };
   }
 
-  paper-header-panel /deep/ #mainContainer {
-    will-transform: opacity;
-    transform: translateZ(0);
+  paper-toolbar {
+    z-index: 1001;
   }
 
-  paper-header-panel.fixed /deep/ #mainContainer {
-    overflow: hidden !important;
-    position: absolute;
-    top: 44px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  /*
+   * TODO(samthor): When `isFixedToolbar` changes, which causes the .fixed class to toggle, its
+   * observer calls this.updateStyles() to to ensure Polymer keeps up. This is a little ugly, and
+   * it's be nice for Polymer to work it out on its own.
+   */
+  .fixed {
+    --paper-header-panel-container: {
+      overflow: hidden !important;
+      position: absolute;
+      top: 44px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    };
   }
-  :host([mode="portal"]) .shareicons {
-    display: none !important;
-  }
-  :host([mode="cast"]) paper-header-panel /deep/ #mainContainer {
-    overflow: hidden !important;
-  }
+
   :host([mode="cast"]) #sound {
     display: none;
   }
@@ -92,8 +91,11 @@ specific language governing permissions and limitations under the License.
   :host([mode="portal"]) .lang.santa-chrome {
     display: none !important;
   }
-  :host[mode="portal"] #sound {
+  :host([mode="portal"]) #sound {
     top: 100px;
+  }
+  :host([mode="portal"]) .shareicons {
+    display: none !important;
   }
   .scroll {
     @apply(--layout-scroll);
@@ -216,7 +218,7 @@ specific language governing permissions and limitations under the License.
     </div><!-- #drawer -->
     <paper-header-panel main id="main" mode="seamed"
         at-top="{{_atTop}}"
-        class$="{{_computeFixedClass(isFixedToolbar, disabled)}} ">
+        class$="{{_computeFixedClass(isFixedToolbar, disabled)}}">
       <paper-toolbar id="toolbar" class$="{{_computeScrollingClass(scrolledToolbar)}}"
           hidden$="{{disabled}}">
         <paper-icon-button icon="santa:menu" paper-drawer-toggle class$="toolbar-icon {{_computeHiddenClass(hideLeft)}}"></paper-icon-button>
@@ -299,7 +301,8 @@ specific language governing permissions and limitations under the License.
        */
       isFixedToolbar: {
         type: Boolean,
-        value: false
+        value: false,
+        observer: 'updateStyles'
       },
 
       /**

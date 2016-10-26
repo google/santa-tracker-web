@@ -126,7 +126,7 @@ app.Tool.prototype.move = function(mouseCoords) {
 
   this.el.css({
     left: mouseCoords.x - (offsetX * mouseCoords.scale),
-    top: mouseCoords.y - (this.mouseOffset.y * mouseCoords.scale)
+    top: mouseCoords.y - (this.mouseOffset.y * mouseCoords.scale) + window.santaApp.headerSize,
   });
 
   var shouldAnimate = this.shouldAnimate_(mouseCoords);
