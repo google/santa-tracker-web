@@ -1,0 +1,227 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<!--
+Renders random snow and clouds across this element's surface. Used for the village and map scenes.
+-->
+<dom-module id="santa-weather">
+<template>
+  <style>
+
+:host {
+  position: relative;
+  display: block;
+}
+
+@keyframes santa-weather-shimmy {
+  0%, 100% { transform: translateX(+1em); }
+  50% {      transform: translateX(-1em); }
+}
+
+@keyframes santa-weather-fall {
+  0%   { opacity: 0; transform: translateY(0%);   }
+  5%   { opacity: 1; transform: translateY(5%);   }
+  95%  { opacity: 1; transform: translateY(95%);  }
+  100% { opacity: 0; transform: translateY(100%); }
+}
+@keyframes santa-weather-across {
+  0%   { opacity: 0; transform: scale(0.8) translateX(-12.5%); }
+  10%  { opacity: 1; transform: scale(0.9) translateX(0%);     }
+  50%  { opacity: 1; transform: scale(1.0) translateX(50%);    }
+  90%  { opacity: 1; transform: scale(0.9) translateX(100%);   }
+  100% { opacity: 0; transform: scale(0.8) translateX(112.5%); }
+}
+
+#holder {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: white;
+  pointer-events: none;
+}
+
+#holder span {
+  display: inline-block;
+  position: absolute;
+}
+
+/** snow */
+#holder span.sizer-h {
+  height: 100%;
+}
+#holder span.shimmy {
+  animation: santa-weather-shimmy 0s infinite ease-in-out;
+}
+#holder span.fall {
+  height: 100%;
+  opacity: 0;
+  animation: santa-weather-fall 0s infinite linear;
+}
+#holder span.snow::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  padding-top: 100%;
+  background: currentColor;
+  border-radius: 10000px;
+  margin-left: -50%;  /* align center */
+}
+
+/** clouds */
+#holder span.across {
+  width: 100%;
+  animation: santa-weather-across 0s infinite linear;
+}
+#holder span.cloud {
+  opacity: 0.5;
+  width: 113px;
+  height: 68px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+}
+.cloud1 {
+  background-image: url(img/cloud1.svg);
+}
+.cloud2 {
+  background-image: url(img/cloud2.svg);
+}
+.cloud3 {
+  background-image: url(img/cloud3.svg);
+}
+
+  </style>
+
+  <div id="holder">
+    <template is="dom-repeat" items="[[_range(snowflakes)]]" initial-count="0">
+      <span class="sizer-h" style$="[[_computePositionStyle()]]">
+        <span class="fall" style$="[[_computeFallStyle(fallDuration, item)]]">
+          <span class="shimmy snow" style$="[[_computeShimmySnowStyle()]]"></span>
+        </span>
+      </span>
+    </template>
+    <template is="dom-repeat" items="[[_range(clouds)]]" initial-count="0">
+      <span class="across" style$="[[_computeAcrossStyle(acrossDuration, cloudHeight, item)]]">
+        <span class$="cloud [[_computeCloudClass()]]"></span>
+      </span>
+    </template>
+  </div>
+
+  <slot></slot>
+
+</template>
+<script>
+(function() {
+
+/** Returns an integer number in the range [min,max] (or [0,min]). */
+function range(min, opt_max) {
+  var max = opt_max || 0;
+  return Math.round(min + Math.random() * (max - min));
+}
+
+Polymer({
+  is: 'santa-weather',
+
+  properties: {
+
+    /** Number of snowflakes to show. */
+    snowflakes: {
+      type: Number,
+      value: 12,
+    },
+
+    /** Number of clouds to show. */
+    clouds: {
+      type: Number,
+      value: 4,
+    },
+
+    /** Estimated fall duration of snowflakes, in seconds. */
+    fallDuration: {
+      type: Number,
+      value: 15,
+    },
+
+    /** Estimated speed of clouds, in seconds. */
+    acrossDuration: {
+      type: Number,
+      value: 120,
+    },
+
+    /** The minimum height up that clouds should appear at. */
+    cloudHeight: {
+      type: Number,
+      value: 50,
+    },
+
+    /** Maximum wind speed. Valid ranges are from 0-60 degrees. */
+    wind: {
+      type: Number,
+      value: 30,
+    },
+
+  },
+
+  /**
+   * Builds a helper range array containing values [0,value).
+   * @param {number} value
+   * @return {!Array<number>}
+   */
+  _range: function(value) {
+    var out = new Array(value);
+    for (var i = 0; i < value; ++i) {
+      out[i] = i;
+    }
+    return out;
+  },
+
+  _computePositionStyle: function(wind) {
+    wind = Math.floor(60, Math.abs(wind));
+    return 'transform: rotate(' + range(-wind, +wind) + 'deg);' +
+        'left: ' + range(100) + '%;';
+  },
+
+  _computeFallStyle: function(duration, opt_start) {
+    return 'animation-duration:' + range(duration * 500, duration * 2000) + 'ms;'
+        + 'animation-delay:' + (opt_start || 0) + 's;';
+  },
+
+  _computeAcrossStyle: function(duration, cloudHeight, opt_start) {
+    var direction = ((opt_start || 0) % 2) ? 'reverse' : 'normal';
+    var maxTop = Math.max(10, Math.min(90, 100 - cloudHeight));
+    return 'animation-direction:' + direction + ';'
+        + 'animation-duration:' + range(duration * 0.5, duration * 1.5) + 's;'
+        + 'top: ' + range(10, maxTop) + '%';
+  },
+
+  _computeShimmySnowStyle: function() {
+    return 'animation-duration:' + range(1600, 3200) + 'ms;'
+        + 'font-size:' + range(10, 18) + 'px;'  // shimmy width
+        + 'width:' + range(8, 16) + 'px;';  // snowflake size
+  },
+
+  _computeCloudClass: function() {
+    return 'cloud' + range(1, 3);
+  },
+
+});
+
+})();
+</script>
+</dom-module>

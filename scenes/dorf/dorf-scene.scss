@@ -152,30 +152,13 @@ $toolbar-size: 64px;
       height: 630px;
       overflow: hidden;
 
+      santa-weather {
+        height: 100%;
+      }
+
       span {
         display: inline-block;
         position: absolute;
-      }
-
-      .shimmy {
-        animation: #{$name}-shimmy 15s infinite ease-in-out;
-      }
-      .fall {
-        opacity: 0;  // this will be overwritten by animation
-        animation: #{$name}-fall 35s infinite linear;
-      }
-      .snow {
-        position: absolute;
-        width: 16px;
-      }
-      .snow::before {
-        content: "";
-        float: left;
-        width: 100%;
-        padding-top: 100%;
-        margin-left: -50%;
-        background: white;
-        border-radius: 10000px;
       }
 
       .sun {
@@ -196,27 +179,6 @@ $toolbar-size: 64px;
         background: url(img/plane.svg) center no-repeat;
         // this only animates across the screen for <10% of the time
         animation: #{$name}-plane 75s infinite linear;
-      }
-      .cloud {
-        opacity: 0.5;
-        transform: translate(-400px);  // rest off-screen
-        position: absolute;
-        width: 113px;
-        height: 68px;
-        margin-left: -(113px/2);
-        background: transparent center no-repeat;
-        background-size: contain;
-        // this only animates across the screen for <10% of the time
-        animation: #{$name}-cloud 25s infinite linear;
-      }
-      .cloud0 {
-        background-image: url(img/cloud1.svg);
-      }
-      .cloud1 {
-        background-image: url(img/cloud2.svg);
-      }
-      .cloud2 {
-        background-image: url(img/cloud3.svg);
       }
 
       #village-pegman {
