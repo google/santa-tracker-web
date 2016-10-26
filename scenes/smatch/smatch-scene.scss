@@ -1,0 +1,37 @@
+$name: 'module-smatch';
+
+@import "../shared/sass/startbutton";
+
+#view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameboard {
+  background: rgba(255, 255, 255, 0.125);
+
+  .cell {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s;
+  }
+
+  .present {
+    width: 40px;
+    height: 40px;
+    background: currentColor;
+    border-radius: 2px;
+    will-change: transform;
+    transition: transform 0.5s, opacity 0.5s;
+  }
+
+  .cell.fadeout .present {
+    transform: rotate(800deg) scale(0.125);
+    opacity: 0;
+  }
+}

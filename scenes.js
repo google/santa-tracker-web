@@ -148,6 +148,9 @@ module.exports = {
     closureLibrary: true,
     entryPoint: 'app.Game'
   },
+  smatch: {
+    entryPoint: 'app.Game'
+  },
   streetview: {
     typeSafe: false,
     entryPoint: 'app.Scene'
