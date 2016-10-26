@@ -70,7 +70,8 @@ BlocklyInterface.getCode = function() {
  * @param {?string} id ID of block that triggered this action.
  */
 BlocklyInterface.highlight = function(id) {
-  if (BlocklyInterface.runningBlockId != "") {
+  var block = Turtle.workspace.getBlockById(BlocklyInterface.runningBlockId);
+  if (block) {
     Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
   }
   if (id) {

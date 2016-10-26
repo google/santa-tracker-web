@@ -78,16 +78,35 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
 //TODO(madCode): convert these to json format
 Blockly.Blocks['turtle_move_forward'] = {
   /**
-   * Block for moving forward or backwards.
+   * Block for moving forward.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('VALUE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/forward.svg", 40, 40, "move forward"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "turtle_move_forward",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "VALUE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/forward.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "move forward",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -101,16 +120,35 @@ Blockly.JavaScript['turtle_move_forward'] = function(block) {
 
 Blockly.Blocks['turtle_move_backward'] = {
   /**
-   * Block for moving forward or backwards.
+   * Block for moving forward.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('VALUE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/backward.png", 40, 40, "move backward"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "turtle_move_backward",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "VALUE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/backward.png",
+          "width": 40,
+          "height": 40,
+          "alt": "move backward",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -156,16 +194,35 @@ Blockly.JavaScript['turtle_move_internal'] = function(block) {
 
 Blockly.Blocks['turtle_turn_left'] = {
   /**
-   * Block for turning left or right.
+   * Block for turning left.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('VALUE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_left.svg", 40, 40, "turn left"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "turtle_turn_left",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "VALUE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_left.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "turn left",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -179,16 +236,35 @@ Blockly.JavaScript['turtle_turn_left'] = function(block) {
 
 Blockly.Blocks['turtle_turn_right'] = {
   /**
-   * Block for turning left or right.
+   * Block for turning right.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('VALUE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_right.svg", 40, 40, "turn right"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "turtle_turn_right",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "VALUE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_right.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "turn right",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -268,16 +344,35 @@ Blockly.Blocks.drawTriangle = function(size, id) {
 
 Blockly.Blocks['square_stamp'] = {
   /**
-   * Block for setting the width.
+   * Block for stamping the outline of a sqare.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('SIZE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/square_outline_stamp.svg", 40, 40, "outlined shape"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "square_stamp",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "SIZE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/square_outline_stamp.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "stamp the outline of a square",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -290,16 +385,35 @@ Blockly.JavaScript['square_stamp'] = function(block) {
 
 Blockly.Blocks['circle_stamp'] = {
   /**
-   * Block for setting the width.
+   * Block for stamping the outline of a circle.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('SIZE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/circle_outline_stamp.svg", 40, 40, "outlined shape"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "circle_stamp",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "SIZE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/circle_outline_stamp.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "stamp the outline of a circle",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -313,16 +427,35 @@ Blockly.JavaScript['circle_stamp'] = function(block) {
 
 Blockly.Blocks['triangle_stamp'] = {
   /**
-   * Block for setting the width.
+   * Block for stamping the outline of a triangle.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('SIZE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/triangle_outline_stamp.svg", 40, 40, "outlined shape"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "triangle_stamp",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "SIZE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/triangle_outline_stamp.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "stamp the outline of a triangle",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -335,16 +468,35 @@ Blockly.JavaScript['triangle_stamp'] = function(block) {
 
 Blockly.Blocks['circle_stamp_fill'] = {
   /**
-   * Block for setting the width.
+   * Block for stamping a filled-in circle.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('SIZE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/circle_fill_stamp.svg", 40, 40, "filled shape"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "circle_stamp_fill",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "SIZE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/circle_fill_stamp.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "stamp a filled-in circle",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -357,16 +509,35 @@ Blockly.JavaScript['circle_stamp_fill'] = function(block) {
 
 Blockly.Blocks['square_stamp_fill'] = {
   /**
-   * Block for setting the width.
+   * Block for stamping a filled-in square.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('SIZE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/square_fill_stamp.svg", 40, 40, "filled shape"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "square_stamp_fill",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "SIZE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/square_fill_stamp.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "stamp a filled-in square",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
@@ -379,16 +550,35 @@ Blockly.JavaScript['square_stamp_fill'] = function(block) {
 
 Blockly.Blocks['triangle_stamp_fill'] = {
   /**
-   * Block for setting the width.
+   * Block for stamping a filled-in triangle.
    * @this Blockly.Block
    */
-  init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendValueInput('SIZE')
-        .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/triangle_fill_stamp.svg", 40, 40, "filled shape"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+   init: function() {
+    this.jsonInit({
+      "id": "triangle_stamp_fill",
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "check": "Number",
+          "name": "SIZE"
+        },
+        {
+          "type": "field_image",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/triangle_fill_stamp.svg",
+          "width": 40,
+          "height": 40,
+          "alt": "stamp a filled-in triangle",
+          "flip_rtl": false
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.pen.primary,
+      "colourSecondary": Blockly.Colours.pen.secondary,
+      "colourTertiary": Blockly.Colours.pen.tertiary
+    });
   }
 };
 
