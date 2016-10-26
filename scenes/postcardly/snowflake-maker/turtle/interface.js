@@ -28,6 +28,8 @@ goog.provide('BlocklyInterface');
 goog.require('Blockly');
 goog.require('goog.string');
 
+BlocklyInterface.runningBlockId = "";
+
 /**
  * Load blocks saved on App Engine Storage or in session/local storage.
  * @param {string} defaultXml Text representation of default blocks.
@@ -68,13 +70,18 @@ BlocklyInterface.getCode = function() {
  * @param {?string} id ID of block that triggered this action.
  */
 BlocklyInterface.highlight = function(id) {
+  var block = Turtle.workspace.getBlockById(BlocklyInterface.runningBlockId);
+  if (block) {
+    Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
+  }
   if (id) {
     var m = id.match(/^block_id_([^']+)$/);
     if (m) {
       id = m[1];
     }
+    Turtle.workspace.glowBlock(id, true);
+    BlocklyInterface.runningBlockId = id;
   }
-  Turtle.workspace.highlightBlock(id);
 };
 
 /**

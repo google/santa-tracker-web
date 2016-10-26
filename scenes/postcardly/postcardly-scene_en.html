@@ -32,7 +32,7 @@ Presentdrop scene.
   </style>
 
   <div id="module-postcardly">
-    <iframe id="blocklyArea" src="snowflake-maker/turtle.html?lang=en" scrolling="no" width="100%" height="100%" frameBorder="0"></iframe>
+    <iframe id="blocklyArea" src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0"></iframe>
     <table id="snowglobe" style="visibility: hidden">
       <tr>
         <td><div id="weather"></div></td>
@@ -74,6 +74,7 @@ Presentdrop scene.
     onShow: function() {
       var module = this.$['module-postcardly'];
       this.scene = new scenes.postcardly.Scene(module);
+      this.$.blocklyArea.src = this.componentDir + "snowflake-maker/turtle.html";
     },
 
     onHide: function() {

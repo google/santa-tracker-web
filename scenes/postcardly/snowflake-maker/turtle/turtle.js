@@ -149,7 +149,7 @@ Turtle.init = function() {
   var sliderSvg = document.getElementById('slider');
   Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
 
-  var defaultXml = '<xml><block type="copy_to_make_snowflake"></block></xml>';
+  var defaultXml = '<xml><block type="copy_to_make_snowflake" deletable="false"></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -399,15 +399,39 @@ Turtle.initInterpreter = function(interpreter, scope) {
   can be called from the blocks' javascript generator functions. */
   var wrapper;
 
+  wrapper = function(size, id) {
+    Turtle.stampCircle(size, false /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampCircle',
+      interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
-    Turtle.strokeTriangle(size, id.toString());
+    Turtle.stampCircle(size, true /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampCircleFill',
+      interpreter.createNativeFunction(wrapper));
+
+  wrapper = function(size, id) {
+    Turtle.stampSquare(size, false /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampSquare',
+      interpreter.createNativeFunction(wrapper));
+
+  wrapper = function(size, id) {
+    Turtle.stampSquare(size, true /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampSquareFill',
+      interpreter.createNativeFunction(wrapper));
+
+
+  wrapper = function(size, id) {
+    Turtle.stampTriangle(size, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampTriangle',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
-    Turtle.fillTriangle(size, id.toString());
+    Turtle.stampTriangle(size, true /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampTriangleFill',
       interpreter.createNativeFunction(wrapper));
@@ -538,7 +562,7 @@ Turtle.executeChunk_ = function() {
   // Wrap up if complete.
   if (!Turtle.pause) {
     document.getElementById('spinner').style.visibility = 'hidden';
-    Turtle.workspace.highlightBlock(null);
+    BlocklyInterface.highlight(null);
     // Image complete; allow the user to submit this image to Reddit.
     Turtle.canSubmit = true;
   }
@@ -555,36 +579,58 @@ Turtle.animate = function(id) {
     // Scale the speed non-linearly, to give better precision at the fast end.
     var stepSpeed = 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2);
     Turtle.pause = Math.max(1, stepSpeed);
+    //BlocklyInterface.highlight(id, false /*needsHighlight*/);
   }
 };
 
-Turtle.strokeTriangle = function(size, id) {
-  Turtle.turnWithoutAnimation(-90);
-  Turtle.drawLineWithoutMoving(size/2, true /* trace */);
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size, true /* trace */);
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size, true /* trace */);
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size/2, true /* trace */);
-  Turtle.turnWithoutAnimation(90);
+Turtle.stampCircle = function(size, fill, id) {
+  var radius = size/2;
+  //TODO(madCode): switch the - and + if it moves backwards instead of forward
+  var centerX = Turtle.x + radius * Math.sin(2 * Math.PI * Turtle.heading / 360);
+  var centerY = Turtle.y - radius * Math.cos(2 * Math.PI * Turtle.heading / 360);
+  Turtle.ctxScratch.beginPath();
+  Turtle.ctxScratch.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+  if (fill) {
+    Turtle.ctxScratch.fill();
+  }
+  Turtle.ctxScratch.stroke();
   Turtle.ctxScratch.closePath();
   Turtle.animate(id);
 };
 
-Turtle.fillTriangle = function(size, id) {
+Turtle.stampSquare = function(size, fill, id) {
+  Turtle.ctxScratch.beginPath();
+  Turtle.turnWithoutAnimation(-90);
+  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
+  for(var i=0; i<3; i++) {
+    Turtle.turnWithoutAnimation(90);
+    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  }
+  Turtle.turnWithoutAnimation(90);
+  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
+  Turtle.turnWithoutAnimation(90);
+  Turtle.ctxScratch.closePath();
+  if (fill) {
+    Turtle.ctxScratch.fill();
+  }
+  Turtle.animate(id);
+};
+
+Turtle.stampTriangle = function(size, fill, id) {
   Turtle.ctxScratch.beginPath();
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
-  Turtle.drawLineWithoutMoving(size/2, false /* trace */);
+  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
+  for(var i=0; i<2; i++) {
+    Turtle.turnWithoutAnimation(120);
+    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  }
   Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size, false /* trace */);
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size, false /* trace */);
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size/2, false /* trace */);
+  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
   Turtle.ctxScratch.closePath();
-  Turtle.ctxScratch.fill();
+  if (fill) {  
+    Turtle.ctxScratch.fill();
+  }  
   Turtle.turnWithoutAnimation(90);
   Turtle.animate(id);
 };

@@ -34,24 +34,45 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       <shadow type="colour_picker"></shadow>' +
     '     </value>' +
     '   </block>' +
-    '   <block type="shape_draw">' +
+    '   <block type="square_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="math_number">' +
-    '         <field name="NUM">200</field>' +
+    '         <field name="NUM">150</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
-    '   <block type="shape_stamp">' +
+    '   <block type="circle_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="math_number">' +
-    '         <field name="NUM">200</field>' +
+    '         <field name="NUM">150</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
-    '   <block type="shape_stamp_fill">' +
+    '   <block type="triangle_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="math_number">' +
-    '         <field name="NUM">200</field>' +
+    '         <field name="NUM">150</field>' +
+    '       </shadow>' +
+    '     </value>' +
+    '   </block>' +
+    '   <block type="square_stamp_fill">' +
+    '     <value name="SIZE">' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
+    '       </shadow>' +
+    '     </value>' +
+    '   </block>' +
+    '   <block type="circle_stamp_fill">' +
+    '     <value name="SIZE">' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
+    '       </shadow>' +
+    '     </value>' +
+    '   </block>' +
+    '   <block type="triangle_stamp_fill">' +
+    '     <value name="SIZE">' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
@@ -72,14 +93,14 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '   <block type="turtle_turn_left">' +
     '     <value name="VALUE">' +
     '       <shadow type="math_number">' +
-    '         <field name="NUM">90</field>' +
+    '         <field name="NUM">30</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="turtle_turn_right">' +
     '     <value name="VALUE">' +
     '       <shadow type="math_number">' +
-    '         <field name="NUM">90</field>' +
+    '         <field name="NUM">30</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
