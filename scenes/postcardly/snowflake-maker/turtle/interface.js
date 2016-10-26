@@ -70,20 +70,13 @@ BlocklyInterface.getCode = function() {
  * @param {?string} id ID of block that triggered this action.
  */
 BlocklyInterface.highlight = function(id) {
+  if (BlocklyInterface.runningBlockId != "") {
+    Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
+  }
   if (id) {
     var m = id.match(/^block_id_([^']+)$/);
     if (m) {
       id = m[1];
-    }
-  } else {
-    if (BlocklyInterface.runningBlockId != "") {
-      Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
-    }
-    return;
-  }
-  if (id != 'no-block-id') {
-    if (BlocklyInterface.runningBlockId != "") {
-      Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
     }
     Turtle.workspace.glowBlock(id, true);
     BlocklyInterface.runningBlockId = id;

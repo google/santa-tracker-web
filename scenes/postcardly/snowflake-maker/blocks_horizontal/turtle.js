@@ -61,7 +61,6 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
     }
 };
 
-//TODO(madCode): make highlight
 Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   // Repeat 6 times and rotate around in a circle to create a snowflake effect.
   var branch = Blockly.JavaScript.statementToCode(block, 'SUBSTACK');

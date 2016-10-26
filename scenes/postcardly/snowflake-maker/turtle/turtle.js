@@ -601,12 +601,10 @@ Turtle.stampCircle = function(size, fill, id) {
 Turtle.stampSquare = function(size, fill, id) {
   Turtle.turnWithoutAnimation(-90);
   Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  Turtle.turnWithoutAnimation(90);
-  Turtle.drawLineWithoutMoving(size, !fill /* trace */);
-  Turtle.turnWithoutAnimation(90);
-  Turtle.drawLineWithoutMoving(size, !fill /* trace */);
-  Turtle.turnWithoutAnimation(90);
-  Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  for(var i=0; i<3; i++) {
+    Turtle.turnWithoutAnimation(90);
+    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  }
   Turtle.turnWithoutAnimation(90);
   Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
   Turtle.turnWithoutAnimation(90);
@@ -622,10 +620,10 @@ Turtle.stampTriangle = function(size, fill, id) {
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
   Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size, !fill /* trace */);
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  for(var i=0; i<2; i++) {
+    Turtle.turnWithoutAnimation(120);
+    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  }
   Turtle.turnWithoutAnimation(120);
   Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
   Turtle.ctxScratch.closePath();
