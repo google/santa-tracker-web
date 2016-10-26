@@ -91,6 +91,7 @@ Santa Tracker app.
 
       <callfromsanta-scene route="callfromsanta" icon="1f4de"
           path$="scenes/callfromsanta/callfromsanta-scene.html"
+          mute="[[userMute]]"
           loading-bg-color="rgb(129,208,0)"></callfromsanta-scene>
 
       <citylights-scene route="citylights" icon="1f306"
@@ -272,7 +273,7 @@ Santa Tracker app.
         <video-scene route$="[[item]]" icon="1f4fd"
             youtube-id$="[[_computeVideoId(videos, item)]]"
             mode$="[[mode]]"
-            mute$="[[userMute]]"
+            mute="[[userMute]]"
             header-color="#ec4582"
             path="scenes/videoscene/video-scene.html"></video-scene>
       </template>

@@ -88,6 +88,13 @@ Call from Santa scene. No i18n.
     is: 'callfromsanta-scene',
     behaviors: [window.SantaSceneBehavior],
 
+    properties: {
+      mute: {
+        type: Boolean,
+        observer: '_muteChanged',
+      },
+    },
+
     onPreload: function() {
       this.preloadSounds('callfromsanta_load_sounds', 30);
       this.preloadImages([
@@ -103,6 +110,7 @@ Call from Santa scene. No i18n.
       this.animationHelper = new CSSAnimationHelper(div);
       this.scene = new scenes.callfromsanta.Scene(div);
       this.scene.init();
+      this.scene.setMute(this.mute);
     },
 
     onHide: function() {
@@ -111,7 +119,11 @@ Call from Santa scene. No i18n.
       this.animationHelper.destroy();
       this.animationHelper = null;
       this.fire('sound-ambient', 'callfromsanta_end');
-    }
+    },
+
+    _muteChanged: function(mute) {
+      this.scene.setMute(mute);
+    },
   });
 </script>
 </dom-module>

@@ -32,7 +32,6 @@ app.Scene = function(el) {
   this.$el = $(el);
   this.controlsEl = this.$el.find('.actions')[0];
   this.$pausePlay = this.$el.find('.actions .pause');
-  this.$sound = $('#sound');
   this.iframeProxy = new app.IframeProxy(this, el);
   this.sceneboard = new app.shared.Sceneboard(this, el.querySelector('.board'));
   this.isPaused = false;
@@ -44,21 +43,6 @@ app.Scene = function(el) {
  */
 app.Scene.prototype.init = function() {
   this.iframeProxy.init();
-  this.attachEvents();
-  this.$sound.hide();
-
-  // TODO: Make mute state accessible (issue #402)
-  /*if (window.hasOwnProperty('santatracker') &&
-    window.santatracker.hasOwnProperty('muteState') &&
-    !window.santatracker.muteState.isMuted()) {
-    this.mute();
-  }
-
-  if (window.hasOwnProperty('santatracker') &&
-    window.santatracker.hasOwnProperty('muteState') &&
-    window.santatracker.muteState.isMuted()) {
-    this.unMute();
-  }*/
 };
 
 /**
@@ -67,48 +51,16 @@ app.Scene.prototype.init = function() {
  */
 app.Scene.prototype.destroy = function() {
   this.iframeProxy.destroy();
-  this.detachEvents();
   this.isPaused = null;
 };
 
 /**
- * Adds the event listeners to this module.
+ * Posts to the iframe to mute or unmute.
+ * @param {boolean} mute whether to mute or unmute
  */
-app.Scene.prototype.attachEvents = function() {
-  // TODO: Make mute state accessible
-  /*if (window.hasOwnProperty('santatracker') &&
-    window.santatracker.hasOwnProperty('muteState')) {
-
-    window.santatracker.muteState.addListener(function(muted) {
-      if (muted) {
-        this.mute();
-      } else {
-        this.unMute();
-      }
-    }.bind(this));
-  }*/
-};
-
-/**
- * Removes the event listeners from this module.
- */
-app.Scene.prototype.detachEvents = function() {
-};
-
-/**
- * Posts to the iframe to mute.
- */
-app.Scene.prototype.mute = function() {
-  this.iframeProxy.postMessage('mute');
-
-};
-
-/**
- * Posts to the iframe to unmute.
- */
-app.Scene.prototype.unMute = function() {
-  this.iframeProxy.postMessage('unmute');
-};
+app.Scene.prototype.setMute = function(mute) {
+  this.iframeProxy.postMessage(mute ? 'mute' : 'unmute');
+}
 
 /**
  * Posts to the iframe to pause or unpause
@@ -138,10 +90,8 @@ app.Scene.prototype.restart = function() {
 
 /**
  * iFrame telling us the window is loaded.
- * Show the $sound control because now you can mute/unmute it.
  */
 app.Scene.prototype.onLoadedMessage = function() {
-  this.$sound.show();
 };
 
 /**
