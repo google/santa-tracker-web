@@ -599,6 +599,7 @@ Turtle.stampCircle = function(size, fill, id) {
 };
 
 Turtle.stampSquare = function(size, fill, id) {
+  Turtle.ctxScratch.beginPath();
   Turtle.turnWithoutAnimation(-90);
   Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
   for(var i=0; i<3; i++) {
