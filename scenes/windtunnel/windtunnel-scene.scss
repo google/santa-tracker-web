@@ -38,7 +38,8 @@ $name: 'module-windtunnel';
 
       top: $height - 526px;
 
-      margin: 0 auto;
+      margin-left: 50%;
+      transform: translate(-50%);
 
       width: 1195px;
       height: 526px;
