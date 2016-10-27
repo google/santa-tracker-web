@@ -44,7 +44,6 @@
     "google-map": "GoogleWebComponents/google-map#^1.0",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.0",
     "google-streetview-pano": "GoogleWebComponents/google-streetview-pano#^1.0",
-    "closure-compiler": "https://dl.google.com/closure-compiler/compiler-latest.zip",
     "closure-library": "google/closure-library",
     "promise-polyfill": "taylorhakes/promise-polyfill",
     "web-animations-js": "web-animations/web-animations-js#^2.0",

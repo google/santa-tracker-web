@@ -82,16 +82,16 @@ const argv = require('yargs')
     })
     .argv;
 
-const COMPILER_PATH = 'components/closure-compiler/compiler.jar';
+const COMPILER_PATH = 'node_modules/google-closure-compiler/compiler.jar';
 const SASS_FILES = '{scenes,sass,elements}/**/*.scss';
 const IGNORE_COMPILED_JS = '!**/*.min.js';
 const CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
 const SERVICE_FILES = ['js/service/*.js', IGNORE_COMPILED_JS];
 
 const SHARED_EXTERNS = [
-  'third_party/externs/jquery/*.js',
-  'third_party/externs/*.js',
-  'components/web-animations-utils/externs*.js'
+  'components/web-animations-utils/externs*.js',
+  'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
+  'node_modules/google-closure-compiler/contrib/externs/jquery-1.9.js',
 ];
 
 const AUTOPREFIXER_BROWSERS = ['> 3%', 'chrome >= 44', 'ios_saf >= 9', 'ie >= 11'];
