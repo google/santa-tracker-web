@@ -157,21 +157,6 @@ ga('set', 'transport', 'beacon');
 
 window.santaApp = document.querySelector('santa-app');
 
-// For Portal mode, filter out clicks that don't match the current domain.
-if (window.santaApp.mode == 'portal') {
-  document.body.addEventListener('click', function clickFilter(event) {
-    if (!event.target || event.target.localName != 'a') {
-      return;
-    }
-
-    var url_check = location.protocol + '//' + document.domain;
-    if (event.target.href.search(url_check)) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
-  });
-}
-
 // log some polymer startup performance numbers
 function perfAnalyticsEvent(eventName, categoryName) {
   document.addEventListener(eventName, function() {
@@ -209,12 +194,26 @@ if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
 })();
 </script>
 <script>
-  if (santaApp.mode == 'portal') {
-    /* add spacenav libraries and call spacenav initializer */
-    /* the weird scr + ipt is to avoid issues in html */
-    document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/eventemitter2/eventemitter2.min.js"></scr' + 'ipt>');
-    document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/roslibjs/roslib.min.js"></scr' + 'ipt>');
-    document.write('<scr' + 'ipt type="text/javascript" src="./third_party/lib/spacenav/spacenav.js"></scr' + 'ipt>');
+  if (window.santaApp.mode === 'portal') {
+    // Filter out clicks that don't match the current domain.
+    document.body.addEventListener('click', function(event) {
+      if (!event.target || event.target.localName !== 'a') {
+        return;
+      }
+      if (event.target.href.indexOf(window.location.origin + '/') !== 0) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+    });
+
+    // third_party libraries for portal input.
+    var libs =
+        ['eventemitter2/eventemitter2.min.js', 'roslibjs/roslib.min.js', 'spacenav/spacenav.js'];
+    libs.forEach(function(lib) {
+      var s = document.createElement('script');
+      s.src = window.staticPath + 'third_party/lib/' + lib;
+      document.body.appendChild(s);
+    });
   }
 </script>
 </body>
