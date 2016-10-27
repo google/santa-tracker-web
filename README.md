@@ -34,6 +34,8 @@ Clone project, then from within the repo:
 $ npm install
 ```
 
+For a list of commands, run `gulp --help`.
+
 ## Build and run
 
 Build and run with `gulp serve`.
