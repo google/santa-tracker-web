@@ -133,6 +133,7 @@ const SCENE_NAMES = argv.scene ?
 gulp.task('clean', function() {
   return del([
     '{scenes,sass,elements}/**/*.css',
+    '{scenes,sass,elements}/**/*_module.html',
     'scenes/*/*.min.js',
     'js/service/*.min.js'
   ]);
