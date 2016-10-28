@@ -17,6 +17,7 @@
     "gulp-crisper": "^1.0.0",
     "gulp-foreach": "~0.1.0",
     "gulp-if": "^2.0.0",
+    "gulp-limiter": "^1.0.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-newer": "^1.0.0",
     "gulp-replace": "~0.5.4",
