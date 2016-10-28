@@ -238,10 +238,11 @@ specific language governing permissions and limitations under the License.
         <!-- Used for background and transition effect -->
         <div class="middle" style$="background-color: {{color}}"></div>
       </paper-toolbar>
-      <slot></slot>
+      <content>
+      </content>
     </paper-header-panel>
   </paper-drawer-panel>
-  <div id="buttons" style$="color: {{color}}" class$="[[_computeGameModeClass(hasGameButtons)]]">
+  <div id="buttons" style$="color: [[color]]" class$="[[_computeGameModeClass(hasGameButtons)]]">
     <button id="sound" on-click="_toggleSounds" class$="[[_computeMuteClass(mute)]]"></button>
     <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
       <iron-icon icon="santa:restart"></iron-icon>

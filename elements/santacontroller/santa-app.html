@@ -806,7 +806,7 @@ Polymer({
 
     if (newValue && newValue.is) {
       this._prepareScene(newValue);
-      }
+    }
   },
 
   /**
@@ -922,13 +922,8 @@ Polymer({
     }
   },
 
-  _computeGlobalMute: function() {
-    for (var i = 0; i < arguments.length; ++i) {
-      if (arguments[i]) {
-        return true;
-      }
-    }
-    return false;
+  _computeGlobalMute: function(userMute, userPause) {
+    return userMute || userPause;
   },
 
   _globalMuteChanged: function(globalMute) {
