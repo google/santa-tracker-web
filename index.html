@@ -139,6 +139,12 @@ ga('set', 'transport', 'beacon');
     if ('serviceWorker' in navigator) {
       window.sw = navigator.serviceWorker.register(window.location.origin + '/sw.js');
     }
+
+    window.Polymer = window.Polymer || {
+      // dom: 'shadow',
+      lazyRegister: 'max',
+      useNativeCSSProperties: true
+    };
   </script>
   <script src="components/webcomponentsjs/webcomponents-lite.min.js" async></script>
   <link rel="import" href="elements/elements_en.html">

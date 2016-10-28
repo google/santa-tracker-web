@@ -4,9 +4,9 @@ $scenes: "village" "tracker"
 $toolbar-height: 44px;
 $indent-left: 24px;
 $toolbar-default-color: #00c6ed;
-$width-tablet: 768px;  // iPad in portrait
+// $width-tablet: 768px;  // iPad in portrait
 
-#drawer {
+app-drawer {
   .cards {
     border-bottom: 4px solid #eee;
   }
@@ -35,21 +35,8 @@ $width-tablet: 768px;  // iPad in portrait
     text-decoration: none;
   }
 
-  paper-toolbar.close-sidebar {
-    background-color: transparent;
-    padding-left: 8px;
-
-    iron-icon {
-      color: inherit;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-    a {
-      vertical-align: middle;
-    }
-
+  app-toolbar.close-sidebar {
     cursor: pointer;
-    display: block;
     font-family: 'Lobster';
     font-size: 2em;
     color: #ccc;
@@ -120,11 +107,12 @@ $width-tablet: 768px;  // iPad in portrait
   }
 }
 
+app-toolbar {
+  height: 44px;
+}
+
 #toolbar {
   min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
-  z-index: 1000;
-  pointer-events: none;  // make sure scroll events pass through toolbar.
-  background-color: transparent;
 
   .leftside, .toolbar-icon, .shareicons {
     opacity: 1;
@@ -137,31 +125,10 @@ $width-tablet: 768px;  // iPad in portrait
     }
   }
 
-  paper-icon-button[icon="santa:menu"] {
+  paper-icon-button[drawer-toggle] {
     margin-right: 4px;
     min-width: 40px;
-  }
-
-  .middle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-
-    pointer-events: none;  // make sure scroll events pass through toolbar.
-
-    will-change: opacity;
-    transform: translateZ(0);
-    opacity: 0;
-    transition: opacity 0.125s;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
-
-    background-color: $toolbar-default-color;
-  }
-  &.scrolling .middle {
-    opacity: 1;
+    color: white;
   }
 
   // Common button reset.
