@@ -12,6 +12,7 @@ html, body {
 
 body {
   min-width: 320px;
+  overflow-x: hidden;
 
   &.scrollock {
     overflow: hidden;

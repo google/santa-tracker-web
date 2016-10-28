@@ -64,6 +64,11 @@ specific language governing permissions and limitations under the License.
       };
     }
 
+    #main-content {
+      position: relative;
+      height: 100%;
+    }
+
     .flex {
       @apply(--layout-flex);
     }
@@ -172,7 +177,8 @@ specific language governing permissions and limitations under the License.
       </div>
     </app-drawer>
     <app-header-layout fullbleed>
-      <app-header fixed effects="waterfall blend-background">
+      <app-header fixed effects="waterfall blend-background"
+                  style$="background-color:[[color]]">
         <app-toolbar id="toolbar" hidden$="[[disabled]]">
           <paper-icon-button icon="santa:menu" drawer-toggle
               class$="toolbar-icon [[_computeHiddenClass(hideLeft)]]"></paper-icon-button>
@@ -194,166 +200,24 @@ specific language governing permissions and limitations under the License.
         </app-toolbar>
       </app-header>
 
-      <div>
+      <div id="main-content">
         <content></content>
       </div>
 
     </app-header-layout>
   </app-drawer-layout>
 
-
-<!--   <paper-drawer-panel id="sidebar" force-narrow
-                      disable-edge-swipe="true"
-                      disable-swipe="{{disabled}}"
-                      drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
-    <div id="drawer" drawer class="scroll">
-      <div hidden$="{{disabled}}">
-        <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
-          <iron-icon icon="santa:close"></iron-icon>
-          <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
-        </app-toolbar>
-        <div class="cards">
-          <a href$="{{pageUrl}}#village">
-            <div class="menucard menucard-village">
-              <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
-              <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
-            </div>
-          </a>
-          <template is="dom-if" if="{{todayHouse}}">
-            <a href$="{{pageUrl}}#{{todayHouse}}">
-              <div class$="menucard menucard-{{todayHouse}}">
-                <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
-                <h3>{{_computeStringScene(todayHouse, strings)}}</h3>
-              </div>
-            </a>
-          </template>
-          <a href$="{{_computeTrackerUrl(pageUrl, trackerUnlocked)}}">
-            <div class="menucard menucard-tracker">
-              <template is="dom-if" if="{{!trackerUnlocked}}">
-                <div class="lock"></div>
-              </template>
-              <h2>{{_dec24th}}</h2>
-              <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
-            </div>
-          </a>
-        </div>
-
-        <div class="links">
-          <h2>
-            <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
-          </h2>
-          <ul>
-            <li><a target="_blank" href$="[[_localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker', santaApp.language)]]">
-              <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
-            </a></li>
-            <li><a href="{{pageUrl}}#press">
-              <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
-            </a></li>
-            <li><a href="{{pageUrl}}#about">
-              <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
-            </a></li>
-            <li><a target="_blank" href$="[[_localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb', santaApp.language)]]">
-              <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
-            </a></li>
-            <li><a target="_blank" href$="[[_localizeUrl('https://www.google.com/policies/', santaApp.language)]]">
-              <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
-            </a></li>
-            <li><a target="_blank" href$="[[_localizeUrl('https://maps.google.com/maps/about/', santaApp.language)]]">
-              <i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg>
-            </a></li>
-          </ul>
-        </div>
-
-        <div class="lang">
-          <iron-icon icon="santa:language"></iron-icon>
-          <select id="language" value="[[santaApp.language]]" on-change="_onLanguageChanged">
-            <option value="af">Afrikaans</option>
-            <option value="ca">Català</option>
-            <option value="zh-CN">中文（香港）</option>
-            <option value="zh-TW">中文</option>
-            <option value="da">Dansk</option>
-            <option value="de">Deutsch</option>
-            <option value="et">Eesti</option>
-            <option value="en">English</option>
-            <option value="en-GB">English (United Kingdom)</option>
-            <option value="es">Español</option>
-            <option value="es-419">Español (América Latina)</option>
-            <option value="fr">Français</option>
-            <option value="fr-CA">Français (Canada)</option>
-            <option value="hr">Hrvatski</option>
-            <option value="id">Indonesia</option>
-            <option value="it">Italiano</option>
-            <option value="ko">한국어</option>
-            <option value="ja">日本語</option>
-            <option value="lv">Latvijas</option>
-            <option value="lt">Lietuvos</option>
-            <option value="no">Norsk</option>
-            <option value="pl">Polski</option>
-            <option value="pt-BR">Português (Brasil)</option>
-            <option value="pt-PT">Português (Portugal)</option>
-            <option value="ru">Русский</ru>
-            <option value="ro">Română</option>
-            <option value="sl">Slovenija</option>
-            <option value="sv">Svenska</option>
-            <option value="tl">Tagalog</option>
-            <option value="vi">Tiếng Việt</option>
-            <option value="fi">Viimeistely</option>
-            <option value="bg">Български</option>
-            <option value="uk">Український</option>
-            <option value="ta">தமிழ்</option>
-            <option value="ml">മലയാളം </option>
-            <option value="th">ภาษาไทย</option>
-          </select>
-        </div>
-
-      </div>
-    </div>
-    <paper-header-panel main id="main" mode="seamed"
-        at-top="{{_atTop}}"
-        class$="{{_computeFixedClass(isFixedToolbar, disabled)}}">
-      <app-toolbar id="toolbar" class$="{{_computeScrollingClass(scrolledToolbar)}}"
-          hidden$="{{disabled}}">
-        <paper-icon-button icon="santa:menu" drawer-toggle
-            class$="toolbar-icon {{_computeHiddenClass(hideLeft)}}"></paper-icon-button>
-        <div class$="flex fixsize leftside {{_computeHiddenClass(hideLeft)}}">
-          <a class="linkwrap" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}" on-click="_onTitleClick">
-            <div id="logo" title="Google"></div>
-            <h1 class="title flex">
-              <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
-            </h1>
-          </a>
-        </div>
-        <div class$="shareicons {{_computeHiddenClass(hideRight)}}" on-tap="_onShare">
-          <paper-icon-button class="share box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
-          <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
-          <paper-icon-button class="share box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
-        </div>
-        <div class="middle" style$="background-color: {{color}}"></div>
-      </app-toolbar>
-      <content></content>
-    </paper-header-panel>
-  </paper-drawer-panel>
-
-  <div id="buttons" style$="color: [[color]]" class$="[[_computeGameModeClass(hasGameButtons)]]">
-    <button id="sound" on-click="_toggleSounds" class$="[[_computeMuteClass(mute)]]"></button>
+  <div id="buttons" style$="color:[[color]]"
+       class$="[[_computeTernary(hasGameButtons, 'gamemode', '')]]">
+    <button id="sound" on-click="_toggleSounds"
+            class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
        <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
        <iron-icon icon="santa:restart"></iron-icon>
      </button>
-    <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause" class$="[[_computePauseClass(pause)]]">
+    <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
+            class$="[[_computeTernary(pause, 'paused', 'playing')]]">
       <iron-icon class="pause" icon="santa:pause"></iron-icon>
-       <iron-icon class="play" icon="santa:play"></iron-icon>
-    </button>
-  </div>
- -->
-
-  <div id="buttons" style$="color: [[color]]" class$="[[_computeGameModeClass(hasGameButtons)]]">
-    <button id="sound" on-click="_toggleSounds" class$="[[_computeMuteClass(mute)]]"></button>
-       <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
-       <iron-icon icon="santa:restart"></iron-icon>
-     </button>
-    <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause" class$="[[_computePauseClass(pause)]]">
-      <iron-icon class="pause" icon="santa:pause"></iron-icon>
-       <iron-icon class="play" icon="santa:play"></iron-icon>
+      <iron-icon class="play" icon="santa:play"></iron-icon>
     </button>
   </div>
 
@@ -402,7 +266,7 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
--      * True if sounds should be muted.
+       * True if sounds should be muted.
        */
       mute: {
         type: Boolean,
@@ -425,15 +289,6 @@ specific language governing permissions and limitations under the License.
        */
       disabled: Boolean,
 
-      /**
-       * Whether this toolbar should be fixed: always solid, with content below.
-       */
-      isFixedToolbar: {
-        type: Boolean,
-        value: false,
-        observer: 'updateStyles'
-      },
-
       hideLeft: {
         type: Boolean,
         value: false,
@@ -448,18 +303,14 @@ specific language governing permissions and limitations under the License.
       strings: Object
     },
 
-    _computePauseClass: function(pause) { return pause ? 'paused' : 'playing'; },
-    _computeGameModeClass: function(hasGameButtons) { return hasGameButtons ? 'gamemode' : ''; },
-    _computeHiddenClass: function(hide) { return hide ? 'hidden' : ''; },
-    _computeMuteClass: function(mute) { return mute ? 'off' : 'on'; },
+    _computeTernary: function(arg, yesVal, noVal) {
+      return arg ? yesVal : noVal;
+    },
 
-    _computeScrollingClass: function(scrolling) { return scrolling ? 'scrolling' : ''; },
-    // _computeDrawerWidth: function(smallScreen) { return smallScreen ? '100%' : '400px'; },
+    _computeHiddenClass: function(hide) { return hide ? 'hidden' : ''; },
+
     _computeDefaultRoute: function(trackerUnlocked) { return window.santaApp.defaultRoute; },
     _computeStringScene: function(id, strings) { return strings['scene-' + id]; },
-
-    _computeFixedClass: function(isFixedToolbar, disabled) {
-      return isFixedToolbar && !disabled ? 'fixed' : ''; },
 
     _computeTrackerUrl: function(pageUrl, trackerUnlocked) {
       return trackerUnlocked ? pageUrl + '#tracker' : null;

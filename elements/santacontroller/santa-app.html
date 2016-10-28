@@ -62,7 +62,7 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <dorf-scene id="village" route="village" freeform icon="1f384"
+      <dorf-scene id="village" route="village" icon="1f384"
           during-tracker="[[duringTracker]]"
           today-house="[[todayHouse]]"
           houses="[[_houses]]"
@@ -72,7 +72,7 @@ Santa Tracker app.
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
 
-      <about-scene route="about" freeform icon="2753"
+      <about-scene route="about" icon="2753"
           header-color="rgb(39, 186, 131)"
           path$="scenes/about/about-scene_[[language]].html"
           class="santa-scene" allow-page-scrolling></about-scene>
@@ -283,9 +283,10 @@ Santa Tracker app.
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></streetview-scene>
 
-      <tracker-scene id="tracker" route="tracker" freeform icon="1f30d"
+      <tracker-scene id="tracker" route="tracker" icon="1f30d"
           path$="scenes/tracker/tracker-scene_[[language]].html"
-          class="santa-scene"></tracker-scene>
+          class="santa-scene"
+          allow-page-scrolling></tracker-scene>
 
       <traditions-scene route="traditions" icon="1f4cc"
           path$="scenes/traditions/traditions-scene_[[language]].html"
@@ -325,9 +326,10 @@ Santa Tracker app.
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></windtunnel-scene>
 
-      <press-scene route="press" freeform icon="1f4f0"
+      <press-scene route="press" icon="1f4f0"
           path$="scenes/press/press-scene.html"
-          class="santa-scene"></press-scene>
+          class="santa-scene"
+          allow-page-scrolling></press-scene>
 
     </lazy-pages>
 
@@ -833,8 +835,6 @@ Polymer({
    * Reset and update various bits of global state when a new scene is made visible.
    */
   _selectedSceneChanged: function(newValue, oldValue) {
-    this.$.chrome.isFixedToolbar =
-        this.selectedScene && !this.selectedScene.hasAttribute('freeform');
     this.$.chrome.hasGameButtons = false;
     this.$.chrome.closeDrawer();
     this.userPause = false;
@@ -900,7 +900,9 @@ Polymer({
     el.santaApp = this;
     el.loaded = true;
 
-    var retainAttr = ['route', 'mode', 'freeform', 'header-color', 'youtube-id'];
+    var retainAttr = [
+      'route', 'mode', 'allow-page-scrolling', 'header-color', 'youtube-id'
+    ];
     retainAttr.forEach(function(attr) {
       if (prevSelectedScene.hasAttribute(attr)) {
         el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
