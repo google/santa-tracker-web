@@ -25,21 +25,21 @@ Lazy loads children "pages".
         position: static;
         display: block;
       }
-      :host > ::content > * {
+      :host ::content .santa-scene {
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
       }
-      :host > ::content > :focus {
+      :host ::content .santa-scene:focus {
         outline: none;
       }
-      :host > ::content > :not(.iron-selected) {
+      :host ::content .santa-scene:not(.iron-selected) {
         display: none !important;
       }
     </style>
-    <content></content>
+    <content select=".santa-scene"></content>
   </template>
   <script>
   Polymer({

@@ -71,7 +71,7 @@ specific language governing permissions and limitations under the License.
   <santa-strings strings="{{strings}}"></santa-strings>
 
   <app-drawer-layout fullbleed force-narrow>
-    <app-drawer id="drawer" swipe-open="[[!disabled]]" opened="{{_drawerOpen}}">
+    <app-drawer id="drawer" swipe-open="[[!disabled]]">
       <div hidden$="[[disabled]]" style="height: 100%; overflow: auto;">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
@@ -447,12 +447,7 @@ specific language governing permissions and limitations under the License.
       },
 
       /** Strings bound from santa-strings. */
-      strings: Object,
-
-      _drawerOpen: {
-        type: Boolean,
-        observer: '_drawerOpenChanged'
-      }
+      strings: Object
     },
 
     _computePauseClass: function(pause) { return pause ? 'paused' : 'playing'; },
@@ -560,17 +555,6 @@ specific language governing permissions and limitations under the License.
 
     _onTitleClick: function() {
       this.fire('title-click');
-    },
-
-    _drawerOpenChanged: function() {
-      // app-drawer applies document.body.style.overflow hidden, but we need
-      // it added to the document to prevent scrolling the page when the drawer
-      // is open.
-      if (this._drawerOpen) {
-        document.documentElement.style.overflow = 'hidden';
-      } else {
-        document.documentElement.style.overflow = '';
-      }
     }
 
   });
