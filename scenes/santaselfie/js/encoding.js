@@ -19,9 +19,13 @@ goog.provide('app.encoding');
 
 /**
  * Provides run length encoding functions
- * @return {encode: {function}, decode: {function}} Functions to encode and decode strings
  */
 app.encoding = {
+
+  /**
+   * @param {string} data
+   * @return {string}
+   */
   encode: function(data) {
     var current = data[0];
     var encoded = '';
@@ -44,6 +48,10 @@ app.encoding = {
     return encoded;
   },
 
+  /**
+   * @param {string} encoded
+   * @return {string}
+   */
   decode: function(encoded) {
     var runLengthMatcher = new RegExp('([0-9]+)', 'g');
     var charMatcher = new RegExp('([A-Za-z])', 'g');

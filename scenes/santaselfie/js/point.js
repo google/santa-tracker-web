@@ -218,6 +218,6 @@ app.Point.prototype.resolveConstraint = function(point) {
 
 
 /**
- * @typedef {{x: number, y: number, pinned: bool, rotation: number, constraints: Array<number>}}
+ * @typedef {{x: number, y: number, pinned: boolean, rotation: number, constraints: Array<number>}}
  */
 app.Point.Options;

@@ -18,12 +18,9 @@ goog.provide('app.Face');
 
 goog.require('app.utils');
 
-
-
 /**
  * Interactions for Santa's face
  * @constructor
- * @extends {app.GameObject}
  * @param {!app.Game} game
  * @param {!jQuery} $elem The container element
  */
@@ -37,7 +34,7 @@ app.Face = function(game, $elem) {
 
 
 /**
- * @extends {app.GameObject.start}
+ * Starts Santa's face.
  */
 app.Face.prototype.start = function() {
   function blink() {
@@ -55,9 +52,8 @@ app.Face.prototype.start = function() {
 
 
 /**
- * @extends {app.GameObject.mouseChanged}
  * @param {!app.Mouse} mouse
- * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
+ * @param {app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Face.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (mouse !== this.game_.mouse) {

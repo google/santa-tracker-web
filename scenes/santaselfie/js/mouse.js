@@ -101,8 +101,8 @@ app.Mouse.prototype.calculateScale_ = function() {
 
 /**
  * Subscribe to mouse and touch events
- * @param {function} callback The callback to be called
- * @param {object} context The value of this passed to the callback
+ * @param {function(!app.Mouse, app.Mouse.CoordsType)} callback The callback to be called
+ * @param {*} context The value of this passed to the callback
  **/
 app.Mouse.prototype.subscribe = function(callback, context) {
   this.subscribers.push({
@@ -138,7 +138,7 @@ app.Mouse.prototype.coordinates = function() {
  * @param {number} x The x coordinate
  * @param {number} y The y coordinate
  * @param {!ClientRect} rect A client rect to transform the coordinates relative to
- * @return {!app.Mouse.CoordsType} transformed coordinates
+ * @return {app.Mouse.CoordsType} transformed coordinates
  **/
 app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
   // TODO(samthor): We're transforming away from the clientRect, which includes the santaApp
