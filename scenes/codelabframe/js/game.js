@@ -24,6 +24,7 @@ goog.require('app.Result');
 goog.require('app.Scene');
 goog.require('app.SceneTutorial');
 goog.require('app.levels');
+goog.require('app.extraLevels');
 goog.require('app.monkeypatches');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.utils');
@@ -47,7 +48,8 @@ app.Game = function(elem) {
   this.tutorial_ = new app.SceneTutorial(elem.querySelector('.tutorial'));
 
   this.iframeChannel = new app.shared.FrameRPC(window.parent, {
-    restart: this.restart.bind(this)
+    restart: this.restart.bind(this),
+    playExtra: this.playExtra.bind(this),
   });
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
@@ -123,6 +125,17 @@ app.Game.prototype.start = function() {
   this.restart();
 
   Klang.triggerEvent('computer_start');
+};
+
+/**
+ * Adds extra levels and restarts the game at the first extra level.
+ */
+app.Game.prototype.playExtra = function() {
+  this.levelNumber = app.levels.length - 1;
+  app.levels = app.levels.concat(app.extraLevels);
+
+  this.scene.reset();
+  this.bumpLevel();
 };
 
 /**

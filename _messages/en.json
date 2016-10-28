@@ -398,6 +398,12 @@
 	"codelab-block-repeat-tooltip": {
 		"message": "Repeat some statements several times."
 	},
+	"codelab-block-jump-length": {
+		"message": "jump by"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Jump over tiles."
+	},
 	"codelab-block-whenrun": {
 		"message": "when run"
 	},
@@ -865,6 +871,9 @@
 	},
 	"playagain": {
 		"message": "Play again"
+	},
+	"playextra": {
+		"message": "Play extra levels"
 	},
 	"playdescription": {
 		"message": "Play with friends in the Santa Tracker Android App."

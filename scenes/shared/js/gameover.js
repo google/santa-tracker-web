@@ -47,6 +47,15 @@ function Gameover(game, elem) {
     this.hide();
     this.game.restart();
   }.bind(this));
+
+  var playExtraBtn = this.elem.querySelector('.gameover-play-extra');
+  playExtraBtn && playExtraBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.hide();
+
+    this.game.setLevel(6);
+    this.game.playExtra();
+  }.bind(this));
 }
 
 /**

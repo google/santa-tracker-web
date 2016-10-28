@@ -15,6 +15,7 @@
  */
 
 goog.provide('app.levels');
+goog.provide('app.extraLevels');
 
 goog.require('app.Map');
 goog.require('app.MazeLevel');
@@ -26,6 +27,12 @@ goog.require('app.blocks');
  * @type {!Array.<!app.PuzzleLevel>}
  */
 app.levels = [];
+
+/**
+ * Array of levels.
+ * @type {!Array.<!app.PuzzleLevel>}
+ */
+app.extraLevels = [];
 
 /**
  * Create levels.
@@ -146,7 +153,8 @@ app.levels.push(new app.MazeLevel({
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +
       app.blocks.miniBlockXml('maze_moveEast') +
-      app.blocks.miniBlockXml('controls_repeat')
+      app.blocks.miniBlockXml('controls_repeat') +
+      app.blocks.miniBlockXml('controls_jump')
 }));
 
 app.levels.push(new app.MazeLevel({
@@ -167,6 +175,22 @@ app.levels.push(new app.MazeLevel({
 
 app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[7],
+  idealBlockCount: 5,
+  playerX: 4,
+  playerY: 8,
+  presents: [
+    {x: 0, y: 4}
+  ],
+  requiredBlocks: ['maze_moveNorth', 'maze_moveWest', 'controls_repeat'],
+  toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
+      app.blocks.miniBlockXml('maze_moveSouth') +
+      app.blocks.miniBlockXml('maze_moveWest') +
+      app.blocks.miniBlockXml('maze_moveEast') +
+      app.blocks.miniBlockXml('controls_repeat')
+}));
+
+app.extraLevels.push(new app.MazeLevel({
+  bounds: app.Map.LEVEL_BOUNDS[8],
   idealBlockCount: 5,
   playerX: 4,
   playerY: 8,

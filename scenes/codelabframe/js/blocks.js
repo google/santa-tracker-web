@@ -239,6 +239,42 @@ app.blocks.install = function() {
     return code;
   };
 
+  Blockly.Blocks['controls_jump'] = {
+    /**
+     * @this {Blockly.Block}
+     */
+    init: function() {
+      this.contextMenu = false;
+      this.setHSV(187, 1, 0.753);
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldImage('img/block-jump.svg', 28, 32))
+          .appendField(app.I18n.getMsg('CL_jumpTitleLength'))
+          .appendField(new Blockly.FieldDropdown(optionNumberRange(1, 8)), 'LENGTH');
+      this.setPreviousStatement(true);
+      this.setNextStatement(true);
+      this.setTooltip(app.I18n.getMsg('CL_jumpTooltip'));
+    }
+  };
+
+  Blockly.Blocks['controls_jump_mini'] = {
+    /**
+     * @this {Blockly.Block}
+     */
+    init: function() {
+      this.contextMenu = false;
+      this.setHSV(187, 1, 0.753);
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldImage('img/block-jump.svg', 23, 32));
+      this.setMini(true);
+      this.setTooltip(app.I18n.getMsg('CL_jumpTooltip'));
+    }
+  };
+
+  Blockly.JavaScript['controls_jump'] = function() {
+    var length = Number(this.getFieldValue('LENGTH'));
+    return 'api.moveJump(\'block_id_' + this.id + '\', ' + length + ');\n';
+  };
+
   app.levels.forEach(function(level) {
     if (level.type !== 'puzzle') {
       return;

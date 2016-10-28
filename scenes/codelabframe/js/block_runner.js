@@ -335,13 +335,16 @@ app.BlockRunnerApi.prototype = {
     this.move_(app.Direction.EAST, id);
   }),
 
+  moveJump: app.BlockRunnerApi.createApiMethod(function(id, length) {
+    this.jump_(this.scene.player.direction, id, length);
+  }),
+
   highlightLoop: app.BlockRunnerApi.createApiMethod(function(id) {
     this.runner.injectHighlight(id);
   }),
 
-  move_: function(direction, id) {
+  queueMoveAnimations_: function(direction, id, animation) {
     var player = this.scene.player;
-    var animation = player.move(direction);
     var success = !!animation;
 
     // Terminate if we hit a tree or map boundary.
@@ -365,5 +368,13 @@ app.BlockRunnerApi.prototype = {
     if (pickedCount === this.scene.presents.length) {
       this.runner.terminateWithResult(app.ResultType.SUCCESS);
     }
+  },
+
+  move_: function(direction, id) {
+    this.queueMoveAnimations_(direction, id, this.scene.player.move(direction));
+  },
+
+  jump_: function(direction, id, jumpLength) {
+    this.queueMoveAnimations_(direction, id, this.scene.player.jump(jumpLength));
   }
 };
