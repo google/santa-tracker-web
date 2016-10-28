@@ -230,12 +230,13 @@ gulp.task('compile-scenes', function() {
         generate_exports: null,
         jscomp_warning: warnings,
         only_closure_dependencies: null,
+        rewrite_polyfills: false,
         // scenes namespace themselves to `app.*`. Move this namespace into the global
         // `scenes.sceneName`, unless it's building for a frame. Note that this must be ES5.
         output_wrapper: config.isFrame ? '%output%' :
             `var scenes = scenes || {};\n` +
             `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
-            `(function(){%output%}).call({ app: scenes.${sceneName}});`
+            `(function(){var global=window;%output%}).call({app: scenes.${sceneName}});`
       })
     }))
     .pipe(gulp.dest(dest)));
