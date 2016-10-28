@@ -30,15 +30,6 @@ Santa Tracker app.
 -->
 <dom-module id="santa-app">
 <template>
-  <style>
-    lazy-pages {
-      overflow: hidden;
-    }
-    .scroll {
-      @apply(--layout-scroll);
-    }
-  </style>
-
   <!-- Shared i18n strings -->
   <santa-strings id="strings"></santa-strings>
 
@@ -77,14 +68,14 @@ Santa Tracker app.
           houses="[[_houses]]"
           mode$="[[mode]]"
           path$="scenes/dorf/dorf-scene_[[language]].html"
-          class="santa-scene scroll"></dorf-scene>
+          class="santa-scene" allow-page-scrolling></dorf-scene>
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
 
       <about-scene route="about" freeform icon="2753"
           header-color="rgb(39, 186, 131)"
           path$="scenes/about/about-scene_[[language]].html"
-          class="santa-scene scroll"></about-scene>
+          class="santa-scene" allow-page-scrolling></about-scene>
 
       <airport-scene route="airport" icon="1f6c4"
           header-color="#fdbe27"
@@ -842,7 +833,8 @@ Polymer({
    * Reset and update various bits of global state when a new scene is made visible.
    */
   _selectedSceneChanged: function(newValue, oldValue) {
-    this.$.chrome.isFixedToolbar = newValue && !newValue.hasAttribute('freeform');
+    this.$.chrome.isFixedToolbar =
+        this.selectedScene && !this.selectedScene.hasAttribute('freeform');
     this.$.chrome.hasGameButtons = false;
     this.$.chrome.closeDrawer();
     this.userPause = false;
@@ -850,14 +842,21 @@ Polymer({
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
     }
-    if (newValue == this.$.village) {
+    if (this.selectedScene == this.$.village) {
       this._triggerRandom();
+    }
+
+    // Allow scrolling body if scene requests it.
+    if (this.selectedScene && this.selectedScene.hasAttribute('allow-page-scrolling')) {
+      document.body.classList.remove('scrollock');
+    } else {
+      document.body.classList.add('scrollock');
     }
 
     this._updateWindowTitle();
 
-    if (newValue && newValue.is) {
-      this._prepareScene(newValue);
+    if (this.selectedScene && this.selectedScene.is) {
+      this._prepareScene(this.selectedScene);
     }
   },
 

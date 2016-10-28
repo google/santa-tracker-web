@@ -3,7 +3,6 @@
 html, body {
   font-family: Roboto, sans-serif;
   font-size: 12px;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   background-color: #3ec4f0;
@@ -13,6 +12,10 @@ html, body {
 
 body {
   min-width: 320px;
+
+  &.scrollock {
+    overflow: hidden;
+  }
 
   // Override Polymer's FOUC. Control it ourselves.
   &[unresolved] {

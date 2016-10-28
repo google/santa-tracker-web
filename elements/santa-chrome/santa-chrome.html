@@ -51,7 +51,7 @@ specific language governing permissions and limitations under the License.
     }
 
     app-drawer {
-      z-index: 1;
+      z-index: 1; /* higher than sound button */
       --app-drawer-width: 400px;
       --app-drawer-scrim-background: rgba(48,203,236,0.6);
     }
@@ -191,8 +191,6 @@ specific language governing permissions and limitations under the License.
             <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
             <paper-icon-button class="share box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
           </div>
-          <!-- Used for background and transition effect -->
-          <!-- <div class="middle" style$="background-color:[[color]]"></div> -->
         </app-toolbar>
       </app-header>
 
