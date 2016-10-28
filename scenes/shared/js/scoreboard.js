@@ -45,8 +45,6 @@ function Scoreboard(game, elem, opt_levels) {
     this.elem.find('.total-levels').text('/' + opt_levels);
   }
 
-  this.attachEvents();
-
   // Initial state
   this.reset();
 }
@@ -87,30 +85,6 @@ Scoreboard.prototype.restart = function() {
   this.onFrame(0);
 };
 
-
-/**
- * Attaches events for scoreboard interactions.
- */
-Scoreboard.prototype.attachEvents = function() {
-  var self = this;  // intentionally held, so that 'this' is the element
-  this.elem.find('.pause').on('click', function(event) {
-    $(event.target).blur();
-
-    $(this).toggleClass('paused');
-    self.game.togglePause();
-
-    // TODO(bckenny): should this be firing global_pause? or handled elsewhere?
-    if ($(this).hasClass('paused')) {
-      window.santaApp.fire('sound-ambient', 'global_pause');
-    } else {
-      window.santaApp.fire('sound-ambient', 'global_unpause');
-    }
-  });
-  this.elem.find('.restart').on('click', function(event) {
-    $(event.target).blur();
-    self.game.restart();
-  });
-};
 
 /**
  * Updates the scoreboard each frame.

@@ -305,10 +305,6 @@ Lat long scene.
                 <!---->
               </div>
             </div>
-            <div class="actions">
-              <button type="button" class="restart"></button>
-              <button type="button" class="pause"></button>
-            </div>
           </div>
         </div>
         <div class="Tutorial"></div>
@@ -342,8 +338,10 @@ Lat long scene.
 (function() {
   Polymer({
     is: 'latlong-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('latlong_load_sounds', 30);
@@ -361,21 +359,21 @@ Lat long scene.
         'img/tutorial/tutorial.gif'
       ]);
     },
+
     onShow: function() {
       var module = this.$['module-latlong'];
-
       this.game = new scenes.latlong.Game(module);
-      var that = this;
       startButton(this, module, function() {
-        that.game.start();
-        that.fire('sound-ambient', 'latlong_start');
-      });
+        this.start();
+        this.fire('sound-ambient', 'latlong_start');
+      }.bind(this));
     },
+
     onHide: function() {
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'latlong_end');
-    }
+    },
   });
 
 })();

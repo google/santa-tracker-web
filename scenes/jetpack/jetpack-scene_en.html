@@ -137,10 +137,6 @@ Jetpack scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="gameover overlay">
         <div class="gameover-dialog overlay-dialog">
@@ -178,15 +174,10 @@ Jetpack scene.
 (function() {
   Polymer({
     is: 'jetpack-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
-
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('jp_load_sounds', 30);
@@ -207,9 +198,8 @@ Jetpack scene.
 
     onShow: function() {
       var module = this.$['module-jetpack'];
-
       this.game = new scenes.jetpack.Game(module);
-      startButton(this, module, this.onClickStart_.bind(this));
+      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {
@@ -217,11 +207,6 @@ Jetpack scene.
       this.game = null;
       this.fire('sound-ambient', 'jp_end_game');
     },
-
-    onClickStart_: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();

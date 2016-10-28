@@ -240,42 +240,89 @@ $width-tablet: 768px;  // iPad in portrait
   }
 }
 
-#sound {
-  position: absolute;
+#buttons {
+  $button-size: 45px;
+
+  position: fixed;
   left: 0;
-  bottom: 24px;
-  background: #00c6ed;
-  height: 45px;
-  width: 40px;
-  border-radius: 0 50% 50% 0;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+  bottom: 0;
+  padding-bottom: 24px;
+  height: $button-size;
+  display: flex;
+  color: $toolbar-default-color;
+
+  @media (max-height: 600px) {
+    // nb. we hide #restart on small vertical screens, only two buttons
+    button#restart {
+      display: none;
+    }
+  }
+
+  &.gamemode {
+    button {
+      transform: translate(0);
+    }
+  }
 
   button {
-    height: 45px;
-    width: 40px;
+    color: inherit;
+    height: $button-size;
+    width: $button-size;
     text-align: center;
     box-sizing: border-box;
     padding: 0;
     pointer-events: auto;
     border: 0;
     margin: 0;
+    margin-right: 8px;
     text-align: center;
-    background: transparent;
     cursor: pointer;
+    position: relative;
+    background: currentColor;
+    border-radius: 100px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+    transition: transform 0.25s;
+    transform: translateY(24px + 10px + $button-size);
 
-    /** Show both images, so both are preloaded */
+    &:first-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      transform: translate(0);
+    }
+
     &::after, &::before {
       content: '';
-      width: 31px;
+      width: ($button-size - 14px);
+      top: 0;
+      left: 7px;
       height: 100%;
       position: absolute;
-      top: 0;
-      left: 3px;
       background-position: center;
       background-repeat: no-repeat;
       visibility: hidden;
     }
 
+    iron-icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 2px;
+      height: ($button-size - 4px);
+      width: ($button-size - 4px);
+      fill: white;
+    }
+  }
+
+  button#pause {
+    &.paused .pause,
+    &.playing .play {
+      visibility: hidden;
+    }
+
+    transition-delay: 0.0625s;  // stagger icons
+  }
+
+  button#sound {
     &::after {
       background-image: url(img/sound-on.svg);
     }
@@ -291,3 +338,4 @@ $width-tablet: 768px;  // iPad in portrait
     }
   }
 }
+

@@ -136,10 +136,6 @@ Boatload scene.
             </div>
             <div class="status"></div>
           </div>
-          <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-            <button type="button" class="restart"></button>
-            <button type="button" class="pause"></button>
-          </div>
         </div>
         <div class="levelup"></div>
         <div class="levelup--number"></div>
@@ -170,15 +166,10 @@ Boatload scene.
   (function() {
     Polymer({
       is: 'boatload-scene',
-      behaviors: [window.SantaSceneBehavior],
-      game: null,
-
-      properties: {
-        hasClickedStart: {
-          type: Boolean,
-          value: false
-        },
-      },
+      behaviors: [
+        window.SantaSceneBehavior,
+        window.SantaSceneGameButtonsBehavior,
+      ],
 
       onPreload: function() {
         this.preloadSounds('bl_load_sounds', 40);
@@ -209,7 +200,7 @@ Boatload scene.
       onShow: function() {
         var module = this.$['module-boatload'];
         this.game = new scenes.boatload.Game(module);
-        startButton(this, module, this.onClickStart.bind(this));
+        startButton(this, module, this.start.bind(this));
       },
 
       onHide: function() {
@@ -217,11 +208,6 @@ Boatload scene.
         this.game = null;
         this.fire('sound-ambient', 'bl_end_game');
       },
-
-      onClickStart: function() {
-        this.hasClickedStart = true;
-        this.game.start();
-      }
     });
   })();
   </script>

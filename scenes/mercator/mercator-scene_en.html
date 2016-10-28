@@ -132,10 +132,6 @@ Mercator scene.
           </div>
           <div class="status"></div>
         </div>
-        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="levelup"></div>
       <div class="levelup--number"></div>
@@ -302,20 +298,14 @@ Mercator scene.
 (function() {
   Polymer({
     is: 'mercator-scene',
-    behaviors: [window.SantaSceneBehavior],
-
-    game: null,
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     showOnMapsReady: false,
 
     mapsReady: false,
-
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
 
     onPreload: function() {
       this.preloadSounds('mercator_load_sounds', 40);
@@ -333,7 +323,7 @@ Mercator scene.
         var module = this.$['module-mercator'];
 
         this.game = new scenes.mercator.Game(module);
-        startButton(this, module, this.onClickStart_.bind(this));
+        startButton(this, module, this.start.bind(this));
       }
     },
 
@@ -349,11 +339,6 @@ Mercator scene.
         this.onShow();
       }
     },
-
-    onClickStart_: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();

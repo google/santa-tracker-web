@@ -17,7 +17,6 @@ $board-border: #A52FB7;
 $board-dark-text: #9129A1;
 $board-skip-score: false !default;
 $board-level-bp: 1350px !default;
-$board-actions-height-md: 54px;
 
 
 @mixin board-color($color) {
@@ -67,7 +66,7 @@ $board-actions-height-md: 54px;
       border: none;
     }
 
-    .time, .actions {
+    .time {
       border: none;
       border-top: 1px solid board-color($color, $board-border);
     }
@@ -76,18 +75,7 @@ $board-actions-height-md: 54px;
       background: board-color($color, $board-dark-bg);
     }
 
-    .actions {
-      display: block;
-      max-height: $board-actions-height-md;
-      overflow: hidden;
-      transition: max-height 0.3s;
-
-      &.is-collapsed {
-        max-height: 0;
-      }
-    }
-
-    .score, .restart {
+    .score {
       border-right: 1px solid board-color($color, $board-border);
     }
   }
@@ -155,7 +143,7 @@ $board-actions-height-md: 54px;
       line-height: 1.4;
     }
 
-    .score, .level, .time, .actions {
+    .score, .level, .time {
       box-sizing: border-box;
       display: inline-block;
       padding: 10px 0 5px 0;
@@ -208,41 +196,8 @@ $board-actions-height-md: 54px;
       width: 19px;
     }
 
-    // Actions
-    .actions {
-      margin: 0;
-      padding: 0;
-      vertical-align: middle;
-    }
-
-    .restart, .pause, .play {
-      border: 0;
-      box-sizing: border-box;
-      cursor: pointer;
-      height: 64px;
-      outline: none;
-      padding: 10px 0 5px 0;
-      width: 60px;
-    }
-
-    .restart {
-      background: url(../shared/img/board/restart.svg) no-repeat 50% 50%;
-      background-size: contain;
-      @media (min-width: 1025px) {
-        background-size: 33px 33px;
-      }
-    }
-
-    .pause {
-      background: url(../shared/img/board/pause.svg) no-repeat 50% 50% / 22px 29px;
-    }
-
-    .paused {
-      background: url(../shared/img/board/play.svg) no-repeat 50% 50% / 28px 31px;
-    }
-
     // Not visible on small screens
-    .restart, .logo, .back, .level-dots {
+    .logo, .back, .level-dots {
       display: none;
     }
 
@@ -351,12 +306,6 @@ $board-actions-height-md: 54px;
         padding: 10px 0;
         width: 102px;
       }
-
-      .restart, .pause, .play {
-        display: inline-block;
-        height: 54px;
-        width: 100px;
-      }
     }
 
     // Large screens
@@ -414,7 +363,7 @@ $board-actions-height-md: 54px;
 
     // Other modifiers
     &.board--levelOnly {
-      .score, .time, .actions {
+      .score, .time {
         display: none;
       }
 

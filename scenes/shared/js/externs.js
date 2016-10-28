@@ -29,7 +29,7 @@ window.santaApp;
 
 /**
  * @param {string} name event name
- * @param {*} data event data
+ * @param {*=} data event data
  */
 window.santaApp.fire = function(name, data) {}
 

@@ -285,5 +285,60 @@ specific language governing permissions and limitations under the License.
   /** @polymerBehavior */
   window.SantaSceneBehavior = [window.SantaAppBehavior, SantaSceneBehaviorImpl];
 
+  /** @polymerBehavior */
+  window.SantaSceneGameButtonsBehavior = {
+    properties: {
+      game: {
+        type: Object,
+      },
+
+      pause: {
+        type: Boolean,
+        observer: '_onPauseChanged',
+      },
+
+      _firstPlay: {
+        type: Boolean,
+        value: true,
+      }
+    },
+
+    /** Plays or restarts this game. */
+    start: function() {
+      if (this.game) {
+        // TODO(samthor): Quick hack to remove the startButton and force the game to start via
+        // santaApp. Eventually, the start button will live outside the game itself.
+        var startButton = this.$$('.start');
+        if (startButton) {
+          startButton.remove();
+          this.fire('game-start');
+          return;
+        }
+
+        if (this._firstPlay) {
+          this.game.start();
+          this._firstPlay = false;
+        } else {
+          this.game.restart();
+        }
+      } else {
+        console.warn('can\'t restart game, not ready yet', this.localName);
+      }
+    },
+
+    _onPauseChanged: function(pause) {
+      if (this.game) {
+        if (pause) {
+          this.game.pause();
+        } else {
+          this.game.resume();
+        }
+      } else {
+        console.warn('can\'t pause/play game, not ready yet', this.localName, 'paused', paused);
+      }
+    },
+
+  };
+
 })();
 </script>

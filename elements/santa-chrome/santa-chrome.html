@@ -242,8 +242,15 @@ specific language governing permissions and limitations under the License.
       </content>
     </paper-header-panel>
   </paper-drawer-panel>
-  <div id="sound" style$="background-color: {{color}}">
-    <button on-click="_toggleSounds" class$="{{_computeMuteClass(mute)}}"></button>
+  <div id="buttons" style$="color: [[color]]" class$="[[_computeGameModeClass(hasGameButtons)]]">
+    <button id="sound" on-click="_toggleSounds" class$="[[_computeMuteClass(mute)]]"></button>
+    <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
+      <iron-icon icon="santa:restart"></iron-icon>
+    </button>
+    <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause" class$="[[_computePauseClass(pause)]]">
+      <iron-icon class="pause" icon="santa:pause"></iron-icon>
+      <iron-icon class="play" icon="santa:play"></iron-icon>
+    </button>
   </div>
 </template>
 <script>
@@ -282,9 +289,26 @@ specific language governing permissions and limitations under the License.
       color: String,
 
       /**
+       * Whether the current scene has 'game buttons', reset and pause.
+       */
+      hasGameButtons: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
 -      * True if sounds should be muted.
        */
       mute: {
+        type: Boolean,
+        value: false,
+        notify: true
+      },
+
+      /**
+       * True if the game should be paused.
+       */
+      pause: {
         type: Boolean,
         value: false,
         notify: true
@@ -335,6 +359,8 @@ specific language governing permissions and limitations under the License.
       strings: Object,
     },
 
+    _computePauseClass: function(pause) { return pause ? 'paused' : 'playing'; },
+    _computeGameModeClass: function(hasGameButtons) { return hasGameButtons ? 'gamemode' : ''; },
     _computeHiddenClass: function(hide) { return hide ? 'hidden' : ''; },
     _computeMuteClass: function(mute) { return mute ? 'off' : 'on'; },
     _computeScrolledToolbar: function(isFixedToolbar, atTop) { return isFixedToolbar || !atTop; },
@@ -388,6 +414,17 @@ specific language governing permissions and limitations under the License.
     _toggleSounds: function(ev) {
       ev.stopPropagation();
       this.mute = !this.mute;
+    },
+
+    _togglePause: function(ev) {
+      ev.stopPropagation();
+      this.pause = !this.pause;
+    },
+
+    _onRestartClick: function(ev) {
+      ev.stopPropagation();
+      this.fire('game-start');
+      this.pause = false;
     },
 
     /**
