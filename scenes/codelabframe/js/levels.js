@@ -192,15 +192,16 @@ app.levels.push(new app.MazeLevel({
 app.extraLevels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[8],
   idealBlockCount: 5,
-  playerX: 4,
-  playerY: 8,
+  playerX: 2,
+  playerY: 9,
   presents: [
-    {x: 0, y: 4}
+    {x: 3, y: 3}
   ],
-  requiredBlocks: ['maze_moveNorth', 'maze_moveWest', 'controls_repeat'],
+  requiredBlocks: ['maze_moveNorth', 'maze_moveEast', 'controls_jump'],
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +
       app.blocks.miniBlockXml('maze_moveEast') +
-      app.blocks.miniBlockXml('controls_repeat')
+      app.blocks.miniBlockXml('controls_repeat') +
+      app.blocks.miniBlockXml('controls_jump')
 }));
