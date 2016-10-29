@@ -52,7 +52,7 @@ specific language governing permissions and limitations under the License.
 
     app-drawer {
       z-index: 1; /* higher than sound button */
-      --app-drawer-width: 400px;
+      --app-drawer-width: 320px;
       --app-drawer-scrim-background: rgba(48,203,236,0.6);
     }
 
@@ -64,11 +64,6 @@ specific language governing permissions and limitations under the License.
       };
     }
 
-    #main-content {
-      position: relative;
-      height: 100%;
-    }
-
     .flex {
       @apply(--layout-flex);
     }
@@ -77,7 +72,7 @@ specific language governing permissions and limitations under the License.
 
   <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer" swipe-open="[[!disabled]]">
-      <div hidden$="[[disabled]]" style="height: 100%; overflow: auto;">
+      <div hidden$="[[disabled]]" class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
@@ -211,9 +206,9 @@ specific language governing permissions and limitations under the License.
        class$="[[_computeTernary(hasGameButtons, 'gamemode', '')]]">
     <button id="sound" on-click="_toggleSounds"
             class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
-       <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
-       <iron-icon icon="santa:restart"></iron-icon>
-     </button>
+    <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
+      <iron-icon icon="santa:restart"></iron-icon>
+    </button>
     <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
             class$="[[_computeTernary(pause, 'paused', 'playing')]]">
       <iron-icon class="pause" icon="santa:pause"></iron-icon>

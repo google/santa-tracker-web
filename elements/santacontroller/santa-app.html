@@ -90,7 +90,8 @@ Santa Tracker app.
           path$="scenes/boatload/boatload-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
+          loading-src="scenes/boatload/img/loading.svg"
+          class="santa-scene"></boatload-scene>
 
       <briefing-scene route="briefing" icon="1f3eb"
           path$="scenes/briefing/briefing-scene_[[language]].html"
@@ -897,6 +898,7 @@ Polymer({
     // loading-* isn't copied, since the element is already loaded.
     var el = document.createElement(prevSelectedScene.localName);
     el.route = prevSelectedScene.route;
+    el.className = prevSelectedScene.className;
     el.santaApp = this;
     el.loaded = true;
 

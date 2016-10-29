@@ -4,9 +4,18 @@ $scenes: "village" "tracker"
 $toolbar-height: 44px;
 $indent-left: 24px;
 $toolbar-default-color: #00c6ed;
-// $width-tablet: 768px;  // iPad in portrait
 
 app-drawer {
+  #main-content {
+    position: relative;
+    height: 100%;
+  }
+
+  .drawer-content {
+    height: 100%;
+    overflow: auto;
+  }
+
   .cards {
     border-bottom: 4px solid #eee;
   }
@@ -108,7 +117,7 @@ app-drawer {
 }
 
 app-toolbar {
-  height: 44px;
+  height: $toolbar-height;
 }
 
 #toolbar {
