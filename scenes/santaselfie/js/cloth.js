@@ -22,7 +22,6 @@ goog.require('app.utils');
 goog.require('app.encoding');
 
 
-
 /**
  * Cloth simulation
  * @param {!app.Game} game
@@ -32,7 +31,7 @@ goog.require('app.encoding');
 app.Cloth = function(game, canvas) {
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
-  this.hairCanvas = null;
+  this.hairCanvas = /** @type {!HTMLCanvasElement} */ (document.createElement('canvas'));
   this.game_ = game;
   this.mouse = {
     down: false,
@@ -47,7 +46,7 @@ app.Cloth = function(game, canvas) {
 
 
 /**
- * @extends {app.GameObject.start}
+ * Starts this cloth.
  */
 app.Cloth.prototype.start = function() {
   this.hairShape = this.drawHairShape_();
@@ -70,9 +69,8 @@ app.Cloth.prototype.resetCloth = function() {
 
 
 /**
- * @extends {app.GameObject.mouseChanged}
  * @param {!app.Mouse} mouse
- * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
+ * @param {app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (mouse !== this.game_.mouse) {
@@ -263,9 +261,6 @@ app.Cloth.prototype.drawInitialCloth = function() {
  * @private
  */
 app.Cloth.prototype.drawHairShape_ = function() {
-  if (!this.hairCanvas) {
-    this.hairCanvas = document.createElement('canvas');
-  }
   var ctx = this.hairCanvas.getContext('2d');
   var scale = this.game_.mouse.scaleFactor;
 

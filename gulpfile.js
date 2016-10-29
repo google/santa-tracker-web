@@ -133,6 +133,7 @@ const SCENE_NAMES = argv.scene ?
 gulp.task('clean', function() {
   return del([
     '{scenes,sass,elements}/**/*.css',
+    '{scenes,sass,elements}/**/*_module.html',
     'scenes/*/*.min.js',
     'js/service/*.min.js'
   ]);
@@ -184,12 +185,14 @@ gulp.task('compile-santa-api-service', function() {
 });
 
 gulp.task('compile-scenes', function() {
+  const closureLibraryPath = path.resolve('components/closure-library/closure/goog');
+  const limit = $.limiter(-2);
+
   // compile each scene, merging them into a single gulp stream as we go
   return SCENE_NAMES.reduce((stream, sceneName) => {
     const config = SCENE_CLOSURE_CONFIG[sceneName];
     const fileName = `${sceneName}-scene.min.js`;
     const dest = `scenes/${sceneName}`;
-    const closureLibraryPath = path.resolve('components/closure-library/closure/goog');
 
     let warnings = CLOSURE_SAFE_WARNINGS;
     let warningLevel = 'VERBOSE';
@@ -212,33 +215,39 @@ gulp.task('compile-scenes', function() {
     const libraries = (config.libraries || []).map(lib => lib.replace('**/*', '**'));
     compilerSrc.push(...libraries);
 
-    return stream.add(gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
-    .pipe($.newer(`${dest}/${fileName}`))
-    .pipe($.closureCompiler({
+    const compilerFlags = addCompilerFlagOptions({
+      js: compilerSrc,
+      externs: SHARED_EXTERNS,
+      closure_entry_point: config.entryPoint,
+      compilation_level: 'SIMPLE_OPTIMIZATIONS',
+      warning_level: warningLevel,
+      language_in: 'ECMASCRIPT6_STRICT',
+      language_out: 'ECMASCRIPT5_STRICT',
+      process_closure_primitives: null,
+      generate_exports: null,
+      jscomp_warning: warnings,
+      only_closure_dependencies: null,
+      rewrite_polyfills: false,
+      // scenes namespace themselves to `app.*`. Move this namespace into the global
+      // `scenes.sceneName`, unless it's building for a frame. Note that this must be ES5.
+      output_wrapper: config.isFrame ? '%output%' :
+          `var scenes = scenes || {};\n` +
+          `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
+          `(function(){var global=window;%output%}).call({app: scenes.${sceneName}});`
+    });
+
+    // TODO(samthor): Log the kickoff of this event.
+    const compilerStream = $.closureCompiler({
       compilerPath: COMPILER_PATH,
       continueWithWarnings: true,
-      fileName: fileName,
-      compilerFlags: addCompilerFlagOptions({
-        js: compilerSrc,
-        externs: SHARED_EXTERNS,
-        closure_entry_point: config.entryPoint,
-        compilation_level: 'SIMPLE_OPTIMIZATIONS',
-        warning_level: warningLevel,
-        language_in: 'ECMASCRIPT6_STRICT',
-        language_out: 'ECMASCRIPT5_STRICT',
-        process_closure_primitives: null,
-        generate_exports: null,
-        jscomp_warning: warnings,
-        only_closure_dependencies: null,
-        // scenes namespace themselves to `app.*`. Move this namespace into the global
-        // `scenes.sceneName`, unless it's building for a frame. Note that this must be ES5.
-        output_wrapper: config.isFrame ? '%output%' :
-            `var scenes = scenes || {};\n` +
-            `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
-            `(function(){%output%}).call({ app: scenes.${sceneName}});`
-      })
-    }))
-    .pipe(gulp.dest(dest)));
+      fileName,
+      compilerFlags,
+    });
+
+    return stream.add(gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
+        .pipe($.newer(`${dest}/${fileName}`))
+        .pipe(limit(compilerStream))
+        .pipe(gulp.dest(dest)));
   }, mergeStream());
 });
 

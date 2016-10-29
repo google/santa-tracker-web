@@ -15,6 +15,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../santa-chrome/santa-chrome.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
@@ -48,7 +49,8 @@ Santa Tracker app.
       color="[[colorForRoute(route, validRoutes)]]"
       tracker-unlocked="[[duringTracker]]"
       today-house="[[todayHouse]]"
-      mute="{{userMute}}">
+      mute="{{userMute}}"
+      pause="{{userPause}}">
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -60,214 +62,255 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <dorf-scene id="village" route="village" freeform icon="1f384"
+      <dorf-scene id="village" route="village" icon="1f384"
           during-tracker="[[duringTracker]]"
           today-house="[[todayHouse]]"
           houses="[[_houses]]"
           mode$="[[mode]]"
-          path$="scenes/dorf/dorf-scene_[[language]].html"></dorf-scene>
+          path$="scenes/dorf/dorf-scene_[[language]].html"
+          class="santa-scene" allow-page-scrolling></dorf-scene>
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
 
-      <about-scene route="about" freeform icon="2753"
+      <about-scene route="about" icon="2753"
           header-color="rgb(39, 186, 131)"
-          path$="scenes/about/about-scene_[[language]].html"></about-scene>
+          path$="scenes/about/about-scene_[[language]].html"
+          class="santa-scene" allow-page-scrolling></about-scene>
 
       <airport-scene route="airport" icon="1f6c4"
           header-color="#fdbe27"
-          path$="scenes/airport/airport-scene_[[language]].html"></airport-scene>
+          path$="scenes/airport/airport-scene_[[language]].html"
+          class="santa-scene"></airport-scene>
 
       <blimp-scene route="blimp" icon="1f6a1"
-          path$="scenes/blimp/blimp-scene_[[language]].html"></blimp-scene>
+          path$="scenes/blimp/blimp-scene_[[language]].html"
+          class="santa-scene"></blimp-scene>
 
       <boatload-scene route="boatload" icon="26f5"
           path$="scenes/boatload/boatload-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/boatload/img/loading.svg"></boatload-scene>
+          loading-src="scenes/boatload/img/loading.svg"
+          class="santa-scene"></boatload-scene>
 
       <briefing-scene route="briefing" icon="1f3eb"
-          path$="scenes/briefing/briefing-scene_[[language]].html"></briefing-scene>
+          path$="scenes/briefing/briefing-scene_[[language]].html"
+          class="santa-scene"></briefing-scene>
 
       <callfromsanta-scene route="callfromsanta" icon="1f4de"
           path$="scenes/callfromsanta/callfromsanta-scene.html"
           mute="[[userMute]]"
-          loading-bg-color="rgb(129,208,0)"></callfromsanta-scene>
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></callfromsanta-scene>
 
       <citylights-scene route="citylights" icon="1f306"
           path$="scenes/citylights/citylights-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#182a4a"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/citylights/img/loading.svg"></citylights-scene>
+          loading-src="scenes/citylights/img/loading.svg"
+          class="santa-scene"></citylights-scene>
 
       <codeboogie-scene route="codeboogie" icon="1f4dd"
           path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
-          loading-src="scenes/codeboogie/img/loading.svg"></codeboogie-scene>
+          loading-src="scenes/codeboogie/img/loading.svg"
+          class="santa-scene"></codeboogie-scene>
 
       <codelab-scene route="codelab" icon="1f4dd"
           path$="scenes/codelab/codelab-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
-          loading-src="scenes/codelab/img/loading.svg"></codelab-scene>
+          loading-src="scenes/codelab/img/loading.svg"
+          class="santa-scene"></codelab-scene>
 
       <commandcentre-scene route="commandcentre" icon="1f5fc"
           path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
           mode$="[[mode]]"
-          loading-bg-color="rgb(129,208,0)"></commandcentre-scene>
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></commandcentre-scene>
 
       <factory-scene route="factory" icon="1f3ed"
           path$="scenes/factory/factory-scene_[[language]].html"
-          loading-bg-color="rgb(129,208,0)"></factory-scene>
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></factory-scene>
 
       <glider-scene route="glider" icon="1f343"
           path$="scenes/glider/glider-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#8d23a9"
-          loading-src="scenes/glider/img/loading.svg"></glider-scene>
+          loading-src="scenes/glider/img/loading.svg"
+          class="santa-scene"></glider-scene>
 
       <gumball-scene route="gumball" icon="1f36d"
           path$="scenes/gumball/gumball-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="#8d23a9"
-          loading-src="scenes/gumball/img/loading.svg"></gumball-scene>
+          loading-src="scenes/gumball/img/loading.svg"
+          class="santa-scene"></gumball-scene>
 
       <icecave-scene route="icecave" icon="2744"
-          path$="scenes/icecave/icecave-scene_[[language]].html"></icecave-scene>
+          path$="scenes/icecave/icecave-scene_[[language]].html"
+          class="santa-scene"></icecave-scene>
 
       <island-scene route="island" icon="1f334"
-          path$="scenes/island/island-scene_[[language]].html"></island-scene>
+          path$="scenes/island/island-scene_[[language]].html"
+          class="santa-scene"></island-scene>
 
       <jamband-scene route="jamband" icon="1f3b6"
           path$="scenes/jamband/jamband-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="#fdbe27"
-          loading-src="scenes/jamband/img/loading.svg"></jamband-scene>
+          loading-src="scenes/jamband/img/loading.svg"
+          class="santa-scene"></jamband-scene>
 
       <jetpack-scene route="jetpack" icon="1f680"
           path$="scenes/jetpack/jetpack-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/jetpack/img/loading.svg"></jetpack-scene>
+          loading-src="scenes/jetpack/img/loading.svg"
+          class="santa-scene"></jetpack-scene>
 
       <latlong-scene route="latlong" icon="1f3af"
           path$="scenes/latlong/latlong-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#ffcc00"
-          loading-src="scenes/latlong/img/loading.svg"></latlong-scene>
+          loading-src="scenes/latlong/img/loading.svg"
+          class="santa-scene"></latlong-scene>
 
       <matching-scene route="matching" icon="1f6aa"
           path$="scenes/matching/matching-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#b27644"
-          loading-src="scenes/matching/img/loading.svg"></matching-scene>
+          loading-src="scenes/matching/img/loading.svg"
+          class="santa-scene"></matching-scene>
 
       <mercator-scene route="mercator" icon="1f30e"
           path$="scenes/mercator/mercator-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#fbbf2c"
-          loading-src="scenes/mercator/img/loading.svg"></mercator-scene>
+          loading-src="scenes/mercator/img/loading.svg"
+          class="santa-scene"></mercator-scene>
 
       <playground-scene route="playground" icon="1f3aa"
           path$="scenes/playground/playground-scene_[[language]].html"
-          loading-bg-color="rgb(251, 191, 44)"></playground-scene>
+          loading-bg-color="rgb(251, 191, 44)"
+          class="santa-scene"></playground-scene>
 
       <postcard-scene route="postcard" icon="1f4ec"
           path$="scenes/postcard/postcard-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="rgb(244, 123, 32)"
-          loading-src="scenes/postcard/img/loading.gif"></postcard-scene>
+          loading-src="scenes/postcard/img/loading.gif"
+          class="santa-scene"></postcard-scene>
 
       <postcardly-scene route="postcardly"
           path$="scenes/postcardly/postcardly-scene_[[language]].html"
-          loading-bg-color="rgb(129,208,0)"></postcardly-scene>
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></postcardly-scene>
 
       <presentdrop-scene route="presentdrop" icon="1f381"
           path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/presentdrop/img/loading.svg"></presentdrop-scene>
+          loading-src="scenes/presentdrop/img/loading.svg"
+          class="santa-scene"></presentdrop-scene>
 
       <presentbounce-scene route="presentbounce" icon="1f381"
           path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/presentbounce/img/loading.svg"></presentbounce-scene>
+          loading-src="scenes/presentbounce/img/loading.svg"
+          class="santa-scene"></presentbounce-scene>
 
       <racer-scene route="racer" icon="1f3c1"
           path$="scenes/racer/racer-scene_[[language]].html"
           mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/racer/img/loading.svg"></racer-scene>
+          loading-src="scenes/racer/img/loading.svg"
+          class="santa-scene"></racer-scene>
 
       <runner-scene route="runner" icon="1f3c7"
           mode$="[[mode]]"
-          path$="scenes/runner/runner-scene_[[language]].html"></runner-scene>
+          path$="scenes/runner/runner-scene_[[language]].html"
+          class="santa-scene"></runner-scene>
 
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
-          path$="scenes/rollercoaster/rollercoaster-scene.html"></rollercoaster-scene>
+          path$="scenes/rollercoaster/rollercoaster-scene.html"
+          class="santa-scene"></rollercoaster-scene>
 
       <santasearch-scene route="santasearch" icon=""
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#00904a"
           loading-bg-color="#29B6F6"
-          loading-src="scenes/santasearch/img/loading.svg"></santasearch-scene>
+          loading-src="scenes/santasearch/img/loading.svg"
+          class="santa-scene"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#4172e8"
           loading-bg-color="#83D7F5"
-          loading-src="scenes/santaselfie/img/loading.svg"></santaselfie-scene>
+          loading-src="scenes/santaselfie/img/loading.svg"
+          class="santa-scene"></santaselfie-scene>
 
       <seasonofcaring-scene route="seasonofcaring" icon="1f3ee"
           path$="scenes/seasonofcaring/seasonofcaring-scene_[[language]].html"
           mode$="[[mode]]"
-          loading-src="scenes/seasonofcaring/img/loading.svg"></seasonofcaring-scene>
+          loading-src="scenes/seasonofcaring/img/loading.svg"
+          class="santa-scene"></seasonofcaring-scene>
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#9dca3b"
-          loading-src="scenes/seasonofgiving/img/loading.svg"></seasonofgiving-scene>
+          loading-src="scenes/seasonofgiving/img/loading.svg"
+          class="santa-scene"></seasonofgiving-scene>
 
       <smatch-scene route="smatch"
           path$="scenes/smatch/smatch-scene_[[language]].html"
-          loading-bg-color="rgb(129,208,0)"></smatch-scene>
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></smatch-scene>
 
       <streetview-scene route="streetview" icon="1f3a5"
           path$="scenes/streetview/streetview-scene_[[language]].html"
-          loading-bg-color="rgb(129,208,0)"></streetview-scene>
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></streetview-scene>
 
-      <tracker-scene id="tracker" route="tracker" freeform icon="1f30d"
-          path$="scenes/tracker/tracker-scene_[[language]].html"></tracker-scene>
+      <tracker-scene id="tracker" route="tracker" icon="1f30d"
+          path$="scenes/tracker/tracker-scene_[[language]].html"
+          class="santa-scene"
+          allow-page-scrolling></tracker-scene>
 
       <traditions-scene route="traditions" icon="1f4cc"
           path$="scenes/traditions/traditions-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="rgb(255,224,0)"
-          loading-src="scenes/traditions/img/loading.gif"></traditions-scene>
+          loading-src="scenes/traditions/img/loading.gif"
+          class="santa-scene"></traditions-scene>
 
       <translations-scene route="translations" icon="1f4e2"
           path$="scenes/translations/translations-scene_[[language]].html"
           header-color="#558b2f"
           loading-bg-color="#8fd7f7"
-          loading-src="scenes/translations/img/loading.png"></translations-scene>
+          loading-src="scenes/translations/img/loading.png"
+          class="santa-scene"></translations-scene>
 
       <trivia-scene route="trivia"
-          path$="scenes/trivia/trivia-scene_[[language]].html"></trivia-scene>
+          path$="scenes/trivia/trivia-scene_[[language]].html"
+          class="santa-scene"></trivia-scene>
 
       <undersea-scene route="undersea" icon="1f30a"
-          path$="scenes/undersea/undersea-scene_[[language]].html"></undersea-scene>
+          path$="scenes/undersea/undersea-scene_[[language]].html"
+          class="santa-scene"></undersea-scene>
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(videos)]]">
         <video-scene route$="[[item]]" icon="1f4fd"
@@ -275,15 +318,19 @@ Santa Tracker app.
             mode$="[[mode]]"
             mute="[[userMute]]"
             header-color="#ec4582"
-            path="scenes/videoscene/video-scene.html"></video-scene>
+            path="scenes/videoscene/video-scene.html"
+            class="santa-scene"></video-scene>
       </template>
 
       <windtunnel-scene route="windtunnel" icon="1f38f"
           path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
-          loading-bg-color="rgb(129,208,0)"></windtunnel-scene>
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></windtunnel-scene>
 
-      <press-scene route="press" freeform icon="1f4f0"
-          path$="scenes/press/press-scene.html"></press-scene>
+      <press-scene route="press" icon="1f4f0"
+          path$="scenes/press/press-scene.html"
+          class="santa-scene"
+          allow-page-scrolling></press-scene>
 
     </lazy-pages>
 
@@ -307,11 +354,6 @@ var PERMANENT_ROUTES = ['village', 'about', 'press'];
 var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
 var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
 var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
-
-// Routes/scenes unlocked with the tracker. Video routes are included, but in
-// code as part of sceneIsUnlocked.
-var TRACKER_ROUTES = ['blimp', 'island', 'undersea', 'icecave', 'runner',
-    'latlong', 'glider', 'trivia'];
 
 Polymer({
   is: 'santa-app',
@@ -381,7 +423,24 @@ Polymer({
     userMute: {
       type: Boolean,
       notify: true,
-      observer: '_userMuteChanged'
+    },
+
+    /**
+     * Whether the game is paused by the user. Only effects games that can actually be paused!
+     */
+    userPause: {
+      type: Boolean,
+      notify: true,
+      observer: '_userPauseChanged',
+    },
+
+    /**
+     * Computed global mute state: based on (userMute || userPause).
+     */
+    globalMute: {
+      type: Boolean,
+      computed: '_computeGlobalMute(userMute, userPause)',
+      observer: '_globalMuteChanged',
     },
 
     /**
@@ -473,14 +532,6 @@ Polymer({
     },
 
     /**
-     * True when Santa's schedule has been checked for the first time.
-     */
-    scheduleChecked: {
-      type: Boolean,
-      value: false
-    },
-
-    /**
      * True when the tracker intro scene was shown. Used by `tracker-scene`.
      */
     hasTrackerIntroShown: {
@@ -547,6 +598,8 @@ Polymer({
     'analytics-track-game-over': 'trackGameOver',
     'countdown-timer-finish': 'onCountdownFinish',
     'tracker-end': 'onTrackerEnd',
+    'game-start': 'onStartGame',
+    'game-stop': 'onStopGame',
     'share': 'onShare',
   },
 
@@ -670,8 +723,13 @@ Polymer({
     }
   },
 
+  /**
+   * Called when a scene is initially ready (and not when it's made active a 2nd time).
+   */
   onSceneReady: function(event, scene) {
     this.sceneParamsChanged(this.$.router.sceneParams);
+
+    this._prepareScene(scene);
   },
 
   sceneParamsChanged: function(newValue) {
@@ -712,7 +770,7 @@ Polymer({
           if (!isSpanglish || this.postFlight) {
             choice = house[1];
           } else {
-            // Save the object for postFlight (when callfromsanta will be 
+            // Save the object for postFlight (when callfromsanta will be
             // disabled)
             this._fallbackHouse = house[1];
           }
@@ -774,18 +832,40 @@ Polymer({
     }, when);
   },
 
+  /**
+   * Reset and update various bits of global state when a new scene is made visible.
+   */
   _selectedSceneChanged: function(newValue, oldValue) {
-    this.$.chrome.isFixedToolbar = newValue && !newValue.hasAttribute('freeform');
+    this.$.chrome.hasGameButtons = false;
     this.$.chrome.closeDrawer();
+    this.userPause = false;
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
     }
-    if (newValue == this.$.village) {
+    if (this.selectedScene == this.$.village) {
       this._triggerRandom();
     }
 
+    // Allow scrolling body if scene requests it.
+    if (this.selectedScene && this.selectedScene.hasAttribute('allow-page-scrolling')) {
+      document.body.classList.remove('scrollock');
+    } else {
+      document.body.classList.add('scrollock');
+    }
+
     this._updateWindowTitle();
+
+    if (this.selectedScene && this.selectedScene.is) {
+      this._prepareScene(this.selectedScene);
+    }
+  },
+
+  /**
+   * Called for every scene, when it becomes the foreground scene.
+   */
+  _prepareScene: function(scene) {
+    // Intentionally empty.
   },
 
   _prevSelectedRouteChanged: function() {
@@ -818,10 +898,13 @@ Polymer({
     // loading-* isn't copied, since the element is already loaded.
     var el = document.createElement(prevSelectedScene.localName);
     el.route = prevSelectedScene.route;
+    el.className = prevSelectedScene.className;
     el.santaApp = this;
     el.loaded = true;
 
-    var retainAttr = ['route', 'mode', 'freeform', 'header-color', 'youtube-id'];
+    var retainAttr = [
+      'route', 'mode', 'allow-page-scrolling', 'header-color', 'youtube-id'
+    ];
     retainAttr.forEach(function(attr) {
       if (prevSelectedScene.hasAttribute(attr)) {
         el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
@@ -861,22 +944,45 @@ Polymer({
    * Returns whether the current route is valid.
    */
   validateRoute: function() {
-    if (this.scheduleChecked) {
-      var valid = this.route in this.videos ||
-          (this.$.lazypages.isValidRoute(this.route) && this.sceneIsUnlocked(this.route)) ||
-          (this.duringTracker && this.route == TRACKER_ROUTE);
-      if (!valid) {
-        if (!window.DEV) {
-          return false;
-        }
-        console.warn('prod would redirect from', this.route, 'to', this.defaultRoute);
+    if (!this.$.lazypages.isValidRoute(this.route)) {
+      return false;
+    }
+    if (!this.sceneIsUnlocked(this.route)) {
+      if (!window.DEV) {
+        return false;
       }
+      console.debug('prod would redirect from', this.route, '=>', this.defaultRoute);
     }
     return true;
   },
 
-  _userMuteChanged: function(userMute) {
-    this.fire('sound-ambient', userMute ? 'global_sound_off' : 'global_sound_on');
+  /** Handler for 'game-start' event. Shows the pause/restart buttons and starts the game. */
+  onStartGame: function() {
+    var scene = this.selectedScene;
+    if (scene && scene.behaviors.indexOf(window.SantaSceneGameButtonsBehavior) !== -1) {
+      this.$.chrome.hasGameButtons = true;
+      scene.start();
+    }
+  },
+
+  /** Handler for 'game-stop' event. Fired by the gameover shared JS component. */
+  onStopGame: function() {
+    this.$.chrome.hasGameButtons = false;
+  },
+
+  _userPauseChanged: function(pause) {
+    var scene = this.selectedScene;
+    if (scene && scene.behaviors.indexOf(window.SantaSceneGameButtonsBehavior) !== -1) {
+      scene.pause = pause;
+    }
+  },
+
+  _computeGlobalMute: function(userMute, userPause) {
+    return userMute || userPause;
+  },
+
+  _globalMuteChanged: function(globalMute) {
+    this.fire('sound-ambient', globalMute ? 'global_sound_off' : 'global_sound_on');
   },
 
   _soundsLoaded: function(soundsName) {
@@ -983,6 +1089,9 @@ Polymer({
   },
 
   sceneIsUnlocked: function(moduleName) {
+    if (!this.santaService) {
+      return true;  // fail open before santaService is ready
+    }
     var dateNow = this.santaService.dateNow();
 
     // Unlock scenes as soon as anywhere on the Earth has it unlocked: assume
@@ -1002,22 +1111,10 @@ Polymer({
       }
     }
 
-    // Certain scenes don't have associated houses. Whitelist them.
-    if (PERMANENT_ROUTES.indexOf(moduleName) !== -1) {
-      return true;
+    if (moduleName === TRACKER_ROUTE && !this.duringTracker) {
+      return false;
     }
-
-    // Always allow videos.
-    if (moduleName in this.videos) {
-      return true;
-    }
-
-    // Allow tracker routes when the tracker is open, or post-open.
-    if ((this.duringTracker || this.postFlight) && TRACKER_ROUTES.indexOf(moduleName) !== -1) {
-      return true;
-    }
-
-    return false;
+    return true;
   },
 
   /**
@@ -1079,7 +1176,6 @@ Polymer({
     }
     this._notifyHouses();
 
-    this.scheduleChecked = true;
     if (!this.validateRoute()) {
       this.route = this.defaultRoute;
     }

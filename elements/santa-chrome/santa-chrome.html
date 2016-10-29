@@ -15,11 +15,18 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 
 <link rel="import" href="../santa-app-behavior.html">
-<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
-<link rel="import" href="../../components/paper-drawer-panel/paper-drawer-panel.html">
-<link rel="import" href="../../components/paper-header-panel/paper-header-panel.html">
+
 <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
+
+<link rel="import" href="../../components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../components/app-layout/app-scroll-effects/effects/waterfall.html">
+<link rel="import" href="../../components/app-layout/app-scroll-effects/effects/blend-background.html">
+<link rel="import" href="../../components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../components/app-layout/app-toolbar/app-toolbar.html">
+
+<link rel="import" href="../../components/app-layout/app-header-layout/app-header-layout.html">
+
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../santa-icons.html">
@@ -29,118 +36,66 @@ specific language governing permissions and limitations under the License.
 <dom-module id="santa-chrome">
 <template>
   <style include="santa-chrome_module">
-  :host {
-    --paper-toolbar-height: 44px;
-    --paper-toolbar-sm-height: 44px;
-    --paper-toolbar-content: {
-      padding-left: 4px;
-      padding-right: 4px;
-    };
-
-    --paper-drawer-panel-scrim: {
-      background: rgba(135, 212, 147, 0.33);
-      z-index: 1001;
-    };
-    --paper-drawer-panel-drawer-container: {
-      z-index: 1001;
+    :host {
+      display: block;
+    }
+    :host([mode="cast"]) #sound,
+    :host([mode="portal"]) .links,
+    :host([mode="portal"]) .lang,
+    :host([mode="portal"]) .shareicons {
+      display: none !important;
     }
 
-    --paper-icon-button-ink-color: white;
+    :host([mode="portal"]) #sound {
+      top: 100px;
+    }
 
-    --paper-header-panel-body: {
-      @apply(--layout-fit);
-    };
-    --paper-header-panel-shadow: {
-      display: none;
-    };
-    --paper-header-panel-waterfall-container: {
-      will-change: transform;
-    };
-    --paper-header-panel-container: {
-      will-transform: opacity;
-      transform: translateZ(0);
-    };
-  }
+    app-drawer {
+      z-index: 1; /* higher than sound button */
+      --app-drawer-width: 320px;
+      --app-drawer-scrim-background: rgba(48,203,236,0.6);
+    }
 
-  paper-toolbar {
-    z-index: 1001;
-  }
+    app-header {
+      background-color: transparent;
 
-  /*
-   * TODO(samthor): When `isFixedToolbar` changes, which causes the .fixed class to toggle, its
-   * observer calls this.updateStyles() to to ensure Polymer keeps up. This is a little ugly, and
-   * it's be nice for Polymer to work it out on its own.
-   */
-  .fixed {
-    --paper-header-panel-container: {
-      overflow: hidden !important;
-      position: absolute;
-      top: 44px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    };
-  }
+      --app-header-background-rear-layer: {
+        background-color: rgb(48,203,236);
+      };
+    }
 
-  :host([mode="cast"]) #sound {
-    display: none;
-  }
-  :host([mode="portal"]) .links.santa-chrome {
-    display: none !important;
-  }
-  :host([mode="portal"]) .lang.santa-chrome {
-    display: none !important;
-  }
-  :host([mode="portal"]) #sound {
-    top: 100px;
-  }
-  :host([mode="portal"]) .shareicons {
-    display: none !important;
-  }
-  .scroll {
-    @apply(--layout-scroll);
-  }
-  .flex {
-    @apply(--layout-flex);
-  }
-
+    .flex {
+      @apply(--layout-flex);
+    }
   </style>
   <santa-strings strings="{{strings}}"></santa-strings>
 
-  <iron-media-query query="(max-width: 600px)"
-                    query-matches="{{_smallScreen}}"></iron-media-query>
-
-  <paper-drawer-panel id="sidebar" force-narrow
-                      disable-edge-swipe="true"
-                      disable-swipe="{{disabled}}"
-                      drawer-width="[[_computeDrawerWidth(_smallScreen)]]">
-    <div id="drawer" drawer class="scroll">
-      <div hidden$="{{disabled}}">
-        <paper-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
+  <app-drawer-layout fullbleed force-narrow>
+    <app-drawer id="drawer" swipe-open="[[!disabled]]">
+      <div hidden$="[[disabled]]" class="drawer-content">
+        <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
-        </paper-toolbar>
+        </app-toolbar>
         <div class="cards">
-          <a href$="{{pageUrl}}#village">
+          <a href$="[[pageUrl]]#village">
             <div class="menucard menucard-village">
               <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
               <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
             </div>
           </a>
-          <template is="dom-if" if="{{todayHouse}}">
-            <a href$="{{pageUrl}}#{{todayHouse}}">
-              <div class$="menucard menucard-{{todayHouse}}">
+          <template is="dom-if" if="[[todayHouse]]">
+            <a href$="[[pageUrl]]#[[todayHouse]]">
+              <div class$="menucard menucard-[[todayHouse]]">
                 <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
-                <h3>{{_computeStringScene(todayHouse, strings)}}</h3>
+                <h3>[[_computeStringScene(todayHouse, strings)]]</h3>
               </div>
             </a>
           </template>
-          <a href$="{{_computeTrackerUrl(pageUrl, trackerUnlocked)}}">
+          <a href$="[[_computeTrackerUrl(pageUrl, trackerUnlocked)]]">
             <div class="menucard menucard-tracker">
-              <template is="dom-if" if="{{!trackerUnlocked}}">
-                <div class="lock"></div>
-              </template>
-              <h2>{{_dec24th}}</h2>
+              <div class="lock" hidden$="[[trackerUnlocked]]"></div>
+              <h2>[[_dec24th]]</h2>
               <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
             </div>
           </a>
@@ -154,10 +109,10 @@ specific language governing permissions and limitations under the License.
             <li><a target="_blank" href$="[[_localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker', santaApp.language)]]">
               <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a href="{{pageUrl}}#press">
+            <li><a href="[[pageUrl]]#press">
               <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a href="{{pageUrl}}#about">
+            <li><a href="[[pageUrl]]#about">
               <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
             <li><a target="_blank" href$="[[_localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb', santaApp.language)]]">
@@ -215,36 +170,52 @@ specific language governing permissions and limitations under the License.
         </div>
 
       </div>
-    </div><!-- #drawer -->
-    <paper-header-panel main id="main" mode="seamed"
-        at-top="{{_atTop}}"
-        class$="{{_computeFixedClass(isFixedToolbar, disabled)}}">
-      <paper-toolbar id="toolbar" class$="{{_computeScrollingClass(scrolledToolbar)}}"
-          hidden$="{{disabled}}">
-        <paper-icon-button icon="santa:menu" paper-drawer-toggle class$="toolbar-icon {{_computeHiddenClass(hideLeft)}}"></paper-icon-button>
-        <div class$="flex fixsize leftside {{_computeHiddenClass(hideLeft)}}">
-          <a class="linkwrap" href$="{{pageUrl}}#{{_computeDefaultRoute(trackerUnlocked)}}" on-click="_onTitleClick">
-            <div id="logo" title="Google"></div>
-            <h1 class="title flex">
-              <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
-            </h1>
-          </a>
-        </div>
-        <div class$="shareicons {{_computeHiddenClass(hideRight)}}" on-tap="_onShare">
-          <paper-icon-button class="share box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
-          <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
-          <paper-icon-button class="share box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
-        </div>
-        <!-- Used for background and transition effect -->
-        <div class="middle" style$="background-color: {{color}}"></div>
-      </paper-toolbar>
-      <content>
-      </content>
-    </paper-header-panel>
-  </paper-drawer-panel>
-  <div id="sound" style$="background-color: {{color}}">
-    <button on-click="_toggleSounds" class$="{{_computeMuteClass(mute)}}"></button>
+    </app-drawer>
+    <app-header-layout fullbleed>
+      <app-header fixed effects="waterfall blend-background"
+                  style$="background-color:[[color]]">
+        <app-toolbar id="toolbar" hidden$="[[disabled]]">
+          <paper-icon-button icon="santa:menu" drawer-toggle
+              class$="toolbar-icon [[_computeHiddenClass(hideLeft)]]"></paper-icon-button>
+          <div class$="flex fixsize leftside [[_computeHiddenClass(hideLeft)]]">
+            <a class="linkwrap"
+               href$="[[pageUrl]]#[[_computeDefaultRoute(trackerUnlocked)]]"
+               on-click="_onTitleClick">
+              <div id="logo" title="Google"></div>
+              <h1 class="flex">
+                <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+              </h1>
+            </a>
+          </div>
+          <div class$="shareicons [[_computeHiddenClass(hideRight)]]" on-tap="_onShare">
+            <paper-icon-button class="share box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
+            <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
+            <paper-icon-button class="share box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
+          </div>
+        </app-toolbar>
+      </app-header>
+
+      <div id="main-content">
+        <content></content>
+      </div>
+
+    </app-header-layout>
+  </app-drawer-layout>
+
+  <div id="buttons" style$="color:[[color]]"
+       class$="[[_computeTernary(hasGameButtons, 'gamemode', '')]]">
+    <button id="sound" on-click="_toggleSounds"
+            class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
+    <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
+      <iron-icon icon="santa:restart"></iron-icon>
+    </button>
+    <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
+            class$="[[_computeTernary(pause, 'paused', 'playing')]]">
+      <iron-icon class="pause" icon="santa:pause"></iron-icon>
+      <iron-icon class="play" icon="santa:play"></iron-icon>
+    </button>
   </div>
+
 </template>
 <script>
 (function() {
@@ -282,9 +253,26 @@ specific language governing permissions and limitations under the License.
       color: String,
 
       /**
--      * True if sounds should be muted.
+       * Whether the current scene has 'game buttons', reset and pause.
+       */
+      hasGameButtons: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
+       * True if sounds should be muted.
        */
       mute: {
+        type: Boolean,
+        value: false,
+        notify: true
+      },
+
+      /**
+       * True if the game should be paused.
+       */
+      pause: {
         type: Boolean,
         value: false,
         notify: true
@@ -295,31 +283,6 @@ specific language governing permissions and limitations under the License.
        * its contents. Used by cast.
        */
       disabled: Boolean,
-
-      /**
-       * Whether this toolbar should be fixed: always solid, with content below.
-       */
-      isFixedToolbar: {
-        type: Boolean,
-        value: false,
-        observer: 'updateStyles'
-      },
-
-      /**
-       * Whether the toolbar is being shown in scrolled mode.
-       */
-      scrolledToolbar: {
-        type: Boolean,
-        computed: '_computeScrolledToolbar(isFixedToolbar, _atTop)'
-      },
-
-      /**
-       * Whether, in non-fixed mode, the scroll viewport is at the top. This
-       * mirrors the `atTop` property `paper-header-toolbar`.
-       */
-      _atTop: Boolean,
-
-      _smallScreen: Boolean,
 
       hideLeft: {
         type: Boolean,
@@ -332,19 +295,17 @@ specific language governing permissions and limitations under the License.
       },
 
       /** Strings bound from santa-strings. */
-      strings: Object,
+      strings: Object
+    },
+
+    _computeTernary: function(arg, yesVal, noVal) {
+      return arg ? yesVal : noVal;
     },
 
     _computeHiddenClass: function(hide) { return hide ? 'hidden' : ''; },
-    _computeMuteClass: function(mute) { return mute ? 'off' : 'on'; },
-    _computeScrolledToolbar: function(isFixedToolbar, atTop) { return isFixedToolbar || !atTop; },
-    _computeScrollingClass: function(scrolling) { return scrolling ? 'scrolling' : ''; },
-    _computeDrawerWidth: function(smallScreen) { return smallScreen ? '100%' : '400px'; },
+
     _computeDefaultRoute: function(trackerUnlocked) { return window.santaApp.defaultRoute; },
     _computeStringScene: function(id, strings) { return strings['scene-' + id]; },
-
-    _computeFixedClass: function(isFixedToolbar, disabled) {
-      return isFixedToolbar && !disabled ? 'fixed' : ''; },
 
     _computeTrackerUrl: function(pageUrl, trackerUnlocked) {
       return trackerUnlocked ? pageUrl + '#tracker' : null;
@@ -361,14 +322,13 @@ specific language governing permissions and limitations under the License.
      * @return {boolean} true if the drawer was closed
      */
     closeDrawer: function() {
-      if (this.$.sidebar.selected === 'main') {
-        return false;
-      }
-      this.$.sidebar.selected = 'main';
+      var wasClosed = this.$.drawer.opened;
+
+      this.$.drawer.close();
       if (this.santaApp) {
         this.santaApp.focus();
       }
-      return true;
+      return wasClosed;
     },
 
     _onShare: function(ev) {
@@ -388,6 +348,17 @@ specific language governing permissions and limitations under the License.
     _toggleSounds: function(ev) {
       ev.stopPropagation();
       this.mute = !this.mute;
+    },
+
+    _togglePause: function(ev) {
+      ev.stopPropagation();
+      this.pause = !this.pause;
+    },
+
+    _onRestartClick: function(ev) {
+      ev.stopPropagation();
+      this.fire('game-start');
+      this.pause = false;
     },
 
     /**
@@ -428,7 +399,7 @@ specific language governing permissions and limitations under the License.
 
     _onTitleClick: function() {
       this.fire('title-click');
-    },
+    }
 
   });
 }());

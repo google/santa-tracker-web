@@ -3,23 +3,22 @@
 html, body {
   font-family: Roboto, sans-serif;
   font-size: 12px;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
   background-color: #3ec4f0;
-  position: absolute;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-font-smoothing: antialiased;
 }
 
-// Override Polymer's FOUC. Control it ourselves.
 body {
-  margin: 0;
-  height: 100vh;
   min-width: 320px;
+  overflow-x: hidden;
 
+  &.scrollock {
+    overflow: hidden;
+  }
+
+  // Override Polymer's FOUC. Control it ourselves.
   &[unresolved] {
     opacity: 1 !important;
   }

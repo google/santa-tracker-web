@@ -205,6 +205,29 @@
       width: 120em;
     }
   }
+
+  .Tool-animation {
+    display: none;
+    position: absolute;
+  }
+
+  .Tool-hairgrow--animate {
+    background-image: url(img/sprites/hairgrow.png);
+    background-repeat: no-repeat;
+    height: 350px;
+    left: -50px;
+    top: -140px;
+    width: 350px;
+  }
+
+  .Tool-clipper--animate {
+    background-image: url(img/sprites/clipper.png);
+    background-repeat: no-repeat;
+    height: 150px;
+    left: -70px;
+    top: -80px;
+    width: 230px;
+  }
 }
 
 @media (min-width: 800px) and (min-height: 690px) {
@@ -294,35 +317,12 @@
       background-size: 39px 45px;
     }
 
-    .Tool-animation {
-      display: none;
-      position: absolute;
-    }
-
-    .Tool-hairgrow--animate {
-      background-image: url(img/sprites/hairgrow.png);
-      background-repeat: no-repeat;
-      height: 350px;
-      left: -50px;
-      top: -140px;
-      width: 350px;
-    }
-
     .Tool-hairclean--animate {
       background-image: url(img/sprites/hairclean.png);
       background-repeat: no-repeat;
       height: 150px;
       left: 20px;
       top: -60px;
-      width: 230px;
-    }
-
-    .Tool-clipper--animate {
-      background-image: url(img/sprites/clipper.png);
-      background-repeat: no-repeat;
-      height: 150px;
-      left: -70px;
-      top: -80px;
       width: 230px;
     }
 

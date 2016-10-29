@@ -23,7 +23,6 @@ goog.require('app.utils');
 /**
  * Base tool item
  * @constructor
- * @extends {!app.GameObject}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the tool.
  * Element should have class Tool-name.
@@ -39,28 +38,6 @@ app.Tool = function($elem, name, mouseOffset) {
   this.animateInfinitely = false;
   this.animationPlayer = null;
   this.isAnimating = false;
-
-  // Polyfill pointer-events: none for IE 10
-  var pointerEventsNone = function(e) {
-    var origDisplayAttribute = $(this).css('display');
-    $(this).css('display', 'none');
-
-    var underneathElem = document.elementFromPoint(e.clientX, e.clientY);
-
-    if (origDisplayAttribute) {
-      $(this).css('display', origDisplayAttribute);
-    } else {
-      $(this).css('display', '');
-    }
-
-    // fire the mouse event on the element below
-    e.target = underneathElem;
-    $(underneathElem).trigger(e);
-
-    e.stopPropagation();
-  };
-
-  this.el.on('click touchend', pointerEventsNone);
 
   this.initAnimation_();
 };
@@ -93,7 +70,7 @@ app.Tool.prototype.select = function(mouseCoords) {
 app.Tool.prototype.deselect = function() {
   this.isSelected = false;
 
-  this.el.removeClass('Tool--selected');
+  this.el.removeClass('Tool--selected Tool--left Tool--right Tool-hairdryer--center');
   this.el.css({
     top: '',
     left: ''
@@ -196,6 +173,7 @@ app.Tool.prototype.shouldAnimate_ = function(mouseCoords) {
  * @param {!jQuery} $elem toolbox elem
  * @param {!app.Cloth} cloth of Santa's hair
  * @constructor
+ * @extends {app.Tool}
  */
 app.Clipper = function($elem, cloth) {
   app.Tool.call(this, $elem, 'clipper', {x: 40, y: 0});
@@ -228,7 +206,6 @@ app.Clipper.prototype.shouldAnimate_ = function(mouseCoords) {
 };
 
 /**
- * @extends {app.Tool.select}
  */
 app.Clipper.prototype.select = function(mouseCoords) {
   app.Tool.prototype.select.call(this, mouseCoords);
@@ -236,7 +213,6 @@ app.Clipper.prototype.select = function(mouseCoords) {
 };
 
 /**
- * @extends {app.Tool.deselect}
  */
 app.Clipper.prototype.deselect = function() {
   app.Tool.prototype.deselect.call(this);
@@ -247,6 +223,7 @@ app.Clipper.prototype.deselect = function() {
  * Hairgrow tool.
  * @param {!jQuery} $elem toolbox elem
  * @constructor
+ * @extends {app.Tool}
  */
 app.Hairgrow = function($elem) {
   app.Tool.call(this, $elem, 'hairgrow', {x: 110, y: 25});
@@ -267,7 +244,6 @@ app.Hairgrow.prototype.createAnimation_ = function() {
 };
 
 /**
- * @extends {app.Tool.isLeftRightTool_}
  */
 app.Hairgrow.prototype.isLeftRightTool_ = function() {
   return true;
@@ -277,6 +253,7 @@ app.Hairgrow.prototype.isLeftRightTool_ = function() {
  * Hairclean tool.
  * @param {!jQuery} $elem toolbox elem
  * @constructor
+ * @extends {app.Tool}
  */
 app.Hairclean = function($elem) {
   app.Tool.call(this, $elem, 'hairclean', {x: 120, y: 10});
@@ -297,7 +274,6 @@ app.Hairclean.prototype.createAnimation_ = function() {
 };
 
 /**
- * @extends {app.Tool.isLeftRightTool_}
  */
 app.Hairclean.prototype.isLeftRightTool_ = function() {
   return true;
@@ -310,12 +286,11 @@ app.Hairclean.prototype.isLeftRightTool_ = function() {
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the color.
- * @param {string} color The color in css hex.
  */
-app.Spray = function($elem, name, color) {
+app.Spray = function($elem, name) {
   app.Tool.call(this, $elem, 'spray--' + name, {x: 47, y: 0});
 
-  this.color = color;
+  // This is a hidden image on the page that's used by the canvas
   this.spray = this.elem.find('#spray--' + name)[0];
 };
 app.Spray.prototype = Object.create(app.Tool.prototype);
@@ -411,7 +386,6 @@ app.Tools = function(game, $elem) {
 
 
 /**
- * @extends {app.GameObject.start}
  */
 app.Tools.prototype.start = function() {
   this.selectTool_ = this.selectTool_.bind(this);
@@ -463,9 +437,8 @@ app.Tools.prototype.start = function() {
 
 
 /**
- * @extends {app.GameObject.mouseChanged}
  * @param {!app.Mouse} mouse
- * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
+ * @param {app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (this.selectedTool) {

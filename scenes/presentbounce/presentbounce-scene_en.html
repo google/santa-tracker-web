@@ -118,10 +118,6 @@ presentbounce scene.
             <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
             <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
           </div>
-          <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-            <button type="button" class="restart"></button>
-            <button type="button" class="pause"></button>
-          </div>
         </div>
         <div class="levelup"></div>
         <div class="levelup--number"></div>
@@ -153,15 +149,10 @@ presentbounce scene.
 (function() {
   Polymer({
     is: 'presentbounce-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
-
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('pb_load_sounds', 40);
@@ -173,7 +164,7 @@ presentbounce scene.
     onShow: function() {
       var module = this.$['module-presentbounce'];
       this.game = new scenes.presentbounce.Game(module);
-      startButton(this, module, this.onClickStart_.bind(this));
+      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {
@@ -181,11 +172,6 @@ presentbounce scene.
       this.game = null;
       this.fire('sound-ambient', 'pb_end_game');
     },
-
-    onClickStart_: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();

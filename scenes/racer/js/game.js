@@ -320,10 +320,10 @@ SB.Game.prototype.checkMarkerLine_ = function() {
 
 /**
  * Callback for when all the assets have loaded and the
- * game is to be initialized.
+ * game is to be started.
  * @export
  */
-SB.Game.prototype.initialize = function() {
+SB.Game.prototype.start = function() {
   this.startGame_();
 };
 

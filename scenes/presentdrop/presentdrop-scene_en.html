@@ -108,10 +108,6 @@ Presentdrop scene.
             <!---->
           </div>
         </div>
-        <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-          <button type="button" class="restart"></button>
-          <button type="button" class="pause"></button>
-        </div>
       </div>
       <div class="gameover overlay">
         <div class="gameover-dialog overlay-dialog">
@@ -208,15 +204,10 @@ Presentdrop scene.
 (function() {
   Polymer({
     is: 'presentdrop-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
-
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('pd_load_sounds', 30);
@@ -235,7 +226,7 @@ Presentdrop scene.
     onShow: function() {
       var module = this.$['module-presentdrop'];
       this.game = new scenes.presentdrop.Game(module);
-      startButton(this, module, this.onClickStart_.bind(this));
+      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {
@@ -243,11 +234,6 @@ Presentdrop scene.
       this.game = null;
       this.fire('sound-ambient', 'pd_end_game');
     },
-
-    onClickStart_: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();

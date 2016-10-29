@@ -191,10 +191,6 @@ Gumball scene.
               <!---->
             </div>
           </div>
-          <div class$="actions {{_computeTernary(hasClickedStart, '', 'is-collapsed')}}">
-            <button type="button" class="restart"></button>
-            <button type="button" class="pause"></button>
-          </div>
         </div>
         <div class="levelup"></div>
         <div class="levelup--number"></div>
@@ -226,15 +222,10 @@ Gumball scene.
 (function() {
   Polymer({
     is: 'gumball-scene',
-    behaviors: [window.SantaSceneBehavior],
-    game: null,
-
-    properties: {
-      hasClickedStart: {
-        type: Boolean,
-        value: false
-      },
-    },
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
 
     onPreload: function() {
       this.preloadSounds('gb_load_sounds', 40);
@@ -258,7 +249,7 @@ Gumball scene.
     onShow: function() {
       var module = this.$['module-gumball'];
       this.game = new scenes.gumball.Game(module);
-      startButton(this, module, this.onClickStart_.bind(this));
+      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {
@@ -266,11 +257,6 @@ Gumball scene.
       this.game = null;
       this.fire('sound-ambient', 'gb_end_game');
     },
-
-    onClickStart_: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();
