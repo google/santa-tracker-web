@@ -23,7 +23,7 @@ goog.require('app.shared.utils');
 
 /**
  * Main class for scene
- * @param {Element} el DOM element containing the scene.
+ * @param {!Element} el DOM element containing the scene.
  * @constructor
  * @export
  */
@@ -39,17 +39,20 @@ app.Scene = function(el) {
   this.$btnShuffle = this.$el.find('.js-btn-shuffle');
   this.detectedLabel = this.$el.find('.js-detected-label').text();
 
-  this.playAnimPlayer_ = undefined;
-  this.prevAnimPlayer_ = undefined;
-  this.nextAnimPlayer_ = undefined;
-  this.paginationPlayer_ = undefined;
-  this.shufflePlayer_ = undefined;
+  /** @private {Animation} */
+  this.playAnimation_ = null;
+
+  /** @private {Animation} */
+  this.changeTextAnimation_ = null;
+
+  /** @private {Animation} */
+  this.paginationAnimation_ = null;
+
   this.phraseIndex = 0;
 
-  this.fromLang = undefined;
-  this.toLang = undefined;
+  this.fromLang = app.Constants.DEFAULT_LANGUAGE;
+  this.toLang = app.Constants.DEFAULT_LANGUAGE;
 
-  this.removePlayingClass_ = this.removePlayingClass_.bind(this);
   this.onPlayPhrase_ = this.onPlayPhrase_.bind(this);
   this.onPrevPhrase_ = this.onPrevPhrase_.bind(this);
   this.onNextPhrase_ = this.onNextPhrase_.bind(this);
@@ -65,8 +68,8 @@ app.Scene = function(el) {
 
 /**
  * @private
- * @param {HTMLElement} targetContainer Dom element to append generated phrases elements to
- * @return {JQuery} Selection of generated phrase elements
+ * @param {!jQuery} $targetContainer Dom element to append generated phrases elements to
+ * @return {!jQuery} Selection of generated phrase elements
  */
 app.Scene.prototype.buildPhrases_ = function($targetContainer) {
   var l = app.Constants.PHRASES.length,
@@ -122,14 +125,14 @@ app.Scene.prototype.setDefaultLanguages_ = function() {
 
 /**
  * @private
- * @param {String} string Text to play back
- * @param {String} lang ISO lang code to use for playback
+ * @param {string} string Text to play back
+ * @param {string} lang ISO lang code to use for playback
+ * @param {string} klangEvent to fire to Klang for Elvish
  */
 app.Scene.prototype.playAudio_ = function(string, lang, klangEvent) {
   if (this.toLang === 'elvish') {
     window.santaApp.fire('sound-trigger', klangEvent);
-  }
-  else {
+  } else {
     lang = lang || 'en';
     var url = app.Constants.TTS_DOMAIN + app.Constants.TTS_QUERY;
     url = encodeURI(url.replace('{TL}', lang).replace('{Q}', string));
@@ -143,59 +146,61 @@ app.Scene.prototype.playAudio_ = function(string, lang, klangEvent) {
 
 /**
  * @private
- * @param {SVGElement} topEl
- * @param {SVGElement} shadowEl
- * @param {Object} otps Animation options
+ * @param {!HTMLElement} topEl
+ * @param {!HTMLElement} shadowEl
+ * @param {TranslationsSceneAnimationOptions} opts Animation options
  * @return {!SequenceEffect}
  */
 app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
   var animateDown = new GroupEffect([
-                                         new KeyframeEffect(topEl, [
-                                           {transform: 'translateY(0px)'},
-                                           {transform: 'translateY(' + opts.distancePx + 'px)'}
-                                         ], {
-                                                         duration: opts.durationDown,
-                                                         easing: app.Constants[opts.easingDown]
-                                                       }),
-                                         new KeyframeEffect(shadowEl, [
-                                           {transform: 'scale(1)'},
-                                           {transform: 'scaleY(0.9) scaleX(0.8)'}
-                                         ], {
-                                                         duration: opts.durationDown,
-                                                         easing: app.Constants[opts.easingDown]
-                                                       })
-                                       ]);
+    new KeyframeEffect(topEl, [
+      {transform: 'translateY(0px)'},
+      {transform: 'translateY(' + opts.distancePx + 'px)'}
+    ], {
+      fill: 'forwards',
+      endDelay: opts.durationDelay,
+      duration: opts.durationDown,
+      easing: app.Constants[opts.easingDown]
+    }),
+    new KeyframeEffect(shadowEl, [
+      {transform: 'scale(1)'},
+      {transform: 'scaleY(0.9) scaleX(0.8)'}
+    ], {
+      fill: 'forwards',
+      endDelay: opts.durationDelay,
+      duration: opts.durationDown,
+      easing: app.Constants[opts.easingDown]
+    })
+  ], {
+    fill: 'none'
+  });
 
   var animateUp = new GroupEffect([
-                                       new KeyframeEffect(topEl, [
-                                         {transform: 'translateY(' + opts.distancePx + 'px)'},
-                                         {transform: 'translateY(0px)'}
-                                       ], {
-                                                       delay: opts.durationDelay,
-                                                       duration: opts.durationUp,
-                                                       easing: app.Constants[opts.easingUp]
-                                                     }),
-                                       new KeyframeEffect(shadowEl, [
-                                         {transform: 'scaleY(0.9) scaleX(0.8)'},
-                                         {transform: 'scale(1)'}
-                                       ], {
-                                                       delay: opts.durationDelay,
-                                                       duration: opts.durationUp,
-                                                       easing: app.Constants[opts.easingUp]
-                                                     })
-                                     ]);
+    new KeyframeEffect(topEl, [
+      {transform: 'translateY(' + opts.distancePx + 'px)'},
+      {transform: 'translateY(0px)'}
+    ], {
+      duration: opts.durationUp,
+      easing: app.Constants[opts.easingUp]
+    }),
+    new KeyframeEffect(shadowEl, [
+      {transform: 'scaleY(0.9) scaleX(0.8)'},
+      {transform: 'scale(1)'}
+    ], {
+      duration: opts.durationUp,
+      easing: app.Constants[opts.easingUp]
+    })
+  ]);
 
   return new SequenceEffect([animateDown, animateUp]);
 };
 
 /**
  * @private
- * @param {Number} newIndex Phrase index to transition to
+ * @param {number} newIndex Phrase index to transition to
  */
 app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
-  if (!app.shared.utils.playerFinished(this.paginationPlayer_)) {
-    return;
-  }
+  this.cancelAnimation_(this.paginationAnimation_);
 
   var direction = newIndex < this.phraseIndex ? -1 : 1;
   var numPhrases = app.Constants.PHRASES.length;
@@ -207,54 +212,43 @@ app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
   var $currentPhraseTo = this.$phrasesTo.eq(this.phraseIndex);
   var $newPhraseTo = this.$phrasesTo.eq(newIndex);
 
-  var animation = new GroupEffect([
-                                       new KeyframeEffect($currentPhraseFrom[0], [
-                                         {transform: 'translateX(0)', opacity: 1},
-                                         {transform: 'translateX(' + (direction * -100) + '%)', opacity: 0}
-                                       ], {
-                                                       duration: 650,
-                                                       fill: 'both',
-                                                       easing: app.Constants.EASE_IN_OUT_CIRC
-                                                     }),
-                                       new KeyframeEffect($currentPhraseTo[0], [
-                                         {transform: 'translateX(0)', opacity: 1},
-                                         {transform: 'translateX(' + (direction * -100) + '%)', opacity: 0}
-                                       ], {
-                                                       duration: 650,
-                                                       fill: 'both',
-                                                       easing: app.Constants.EASE_IN_OUT_CIRC
-                                                     }),
-                                       new KeyframeEffect($newPhraseFrom[0], [
-                                         {transform: 'translateX(' + (direction * 100) + '%)', opacity: 0},
-                                         {transform: 'translateX(0)', opacity: 1}
-                                       ], {
-                                                       duration: 650,
-                                                       fill: 'both',
-                                                       easing: app.Constants.EASE_IN_OUT_CIRC
-                                                     }),
-                                       new KeyframeEffect($newPhraseTo[0], [
-                                         {transform: 'translateX(' + (direction * 100) + '%)', opacity: 0},
-                                         {transform: 'translateX(0)', opacity: 1}
-                                       ], {
-                                                       duration: 650,
-                                                       fill: 'both',
-                                                       easing: app.Constants.EASE_IN_OUT_CIRC
-                                                     })
-                                     ]);
+  var timing = {
+    duration: 650,
+    fill: 'both',
+    easing: app.Constants.EASE_IN_OUT_CIRC
+  };
 
-  this.paginationPlayer_ = document.timeline.play(animation);
+  var animation = new GroupEffect([
+    new KeyframeEffect($currentPhraseFrom[0], [
+      {transform: 'translateX(0)', opacity: 1},
+      {transform: 'translateX(' + (direction * -100) + '%)', opacity: 0}
+    ], timing),
+    new KeyframeEffect($currentPhraseTo[0], [
+      {transform: 'translateX(0)', opacity: 1},
+      {transform: 'translateX(' + (direction * -100) + '%)', opacity: 0}
+    ], timing),
+    new KeyframeEffect($newPhraseFrom[0], [
+      {transform: 'translateX(' + (direction * 100) + '%)', opacity: 0},
+      {transform: 'translateX(0)', opacity: 1}
+    ], timing),
+    new KeyframeEffect($newPhraseTo[0], [
+      {transform: 'translateX(' + (direction * 100) + '%)', opacity: 0},
+      {transform: 'translateX(0)', opacity: 1}
+    ], timing)
+  ]);
+
+  this.paginationAnimation_ = document.timeline.play(animation);
 
   this.phraseIndex = newIndex;
 };
 
 /**
  * @private
- * @return {null}
  */
 app.Scene.prototype.selectRandomToLanguage_ = function() {
   var $languageOptions = this.$languagesTo.find('option');
   var randomId = Math.floor(Math.random() * $languageOptions.length);
-  var lang = $languageOptions.eq(randomId).val();
+  var lang = '' + $languageOptions.eq(randomId).val();
 
   if (lang === this.fromLang || lang === this.toLang) {
     return this.selectRandomToLanguage_();
@@ -266,7 +260,6 @@ app.Scene.prototype.selectRandomToLanguage_ = function() {
 
 /**
  * @private
- * @return {null}
  */
 app.Scene.prototype.selectRandomPhrase_ = function() {
   var $phrases = this.$phrasesFrom;
@@ -276,20 +269,6 @@ app.Scene.prototype.selectRandomPhrase_ = function() {
     return this.selectRandomPhrase_();
   }
   this.transitionToPhrase_(randomId);
-};
-
-/**
- * @private
- */
-app.Scene.prototype.addPlayingClass_ = function() {
-  this.$el.addClass(app.Constants.CLASS_PLAYING);
-};
-
-/**
- * @private
- */
-app.Scene.prototype.removePlayingClass_ = function() {
-  this.$el.removeClass(app.Constants.CLASS_PLAYING);
 };
 
 /**
@@ -314,15 +293,16 @@ app.Scene.prototype.onSelectToLanguage_ = function() {
  * @private
  */
 app.Scene.prototype.onPrevPhrase_ = function() {
-  if (!app.shared.utils.playerFinished(this.prevAnimPlayer_)) {
-    this.prevAnimPlayer_.currentTime = 0;
+  if (!app.shared.utils.playerFinished(this.changeTextAnimation_)) {
+    return;
   }
+  this.cancelAnimation_(this.changeTextAnimation_);
 
   var btnTopEl = this.$btnPrev.find('#btn-prev-top')[0];
   var btnShadowEl = this.$btnPrev.find('#btn-prev-shadow')[0];
   var animOpts = app.Constants.ANIMATION_BTN_PAGINATION;
   var animation = this.getButtonAnimation_(btnTopEl, btnShadowEl, animOpts);
-  this.prevAnimPlayer_ = document.timeline.play(animation);
+  this.changeTextAnimation_ = document.timeline.play(animation);
 
   this.transitionToPhrase_(this.phraseIndex - 1);
 };
@@ -331,15 +311,16 @@ app.Scene.prototype.onPrevPhrase_ = function() {
  * @private
  */
 app.Scene.prototype.onNextPhrase_ = function() {
-  if (!app.shared.utils.playerFinished(this.nextAnimPlayer_)) {
-    this.nextAnimPlayer_.currentTime = 0;
+  if (!app.shared.utils.playerFinished(this.changeTextAnimation_)) {
+    return;
   }
+  this.cancelAnimation_(this.changeTextAnimation_);
 
   var btnTopEl = this.$btnNext.find('#btn-next-top')[0];
   var btnShadowEl = this.$btnNext.find('#btn-next-shadow')[0];
   var animOpts = app.Constants.ANIMATION_BTN_PAGINATION;
   var animation = this.getButtonAnimation_(btnTopEl, btnShadowEl, animOpts);
-  this.nextAnimPlayer_ = document.timeline.play(animation);
+  this.changeTextAnimation_ = document.timeline.play(animation);
 
   this.transitionToPhrase_(this.phraseIndex + 1);
 };
@@ -348,15 +329,16 @@ app.Scene.prototype.onNextPhrase_ = function() {
  * @private
  */
 app.Scene.prototype.onShuffleLanguages_ = function() {
-  if (!app.shared.utils.playerFinished(this.shufflePlayer_)) {
-    this.shufflePlayer_.currentTime = 0;
+  if (!app.shared.utils.playerFinished(this.changeTextAnimation_)) {
+    return;
   }
+  this.cancelAnimation_(this.changeTextAnimation_);
 
   var btnTopEl = this.$btnShuffle.find('#btn-shuffle-top')[0];
   var btnShadowEl = this.$btnShuffle.find('#btn-shuffle-shadow')[0];
   var animOpts = app.Constants.ANIMATION_BTN_PAGINATION;
   var animation = this.getButtonAnimation_(btnTopEl, btnShadowEl, animOpts);
-  this.shufflePlayer_ = document.timeline.play(animation);
+  this.changeTextAnimation_ = document.timeline.play(animation);
 
   this.selectRandomToLanguage_();
   this.selectRandomPhrase_();
@@ -366,9 +348,10 @@ app.Scene.prototype.onShuffleLanguages_ = function() {
  * @private
  */
 app.Scene.prototype.onPlayPhrase_ = function() {
-  if (!app.shared.utils.playerFinished(this.playAnimPlayer_)) {
+  if (!app.shared.utils.playerFinished(this.playAnimation_)) {
     return;
   }
+  this.cancelAnimation_(this.playAnimation_);
 
   var text = app.Constants.PHRASES[this.phraseIndex][this.toLang];
   var klangEvent = app.Constants.PHRASES[this.phraseIndex][app.Constants.KLANG_EVENT_KEY];
@@ -379,10 +362,12 @@ app.Scene.prototype.onPlayPhrase_ = function() {
   var btnShadowEl = this.$btnPlay.find('#btn-play-shadow')[0];
   var animOpts = app.Constants.ANIMATION_BTN_PLAY;
   var animation = this.getButtonAnimation_(btnTopEl, btnShadowEl, animOpts);
-  this.playAnimPlayer_ = document.timeline.play(animation);
+  this.playAnimation_ = document.timeline.play(animation);
 
-  this.addPlayingClass_();
-  app.shared.utils.onWebAnimationFinished(this.playAnimPlayer_, this.removePlayingClass_);
+  this.$el.addClass(app.Constants.CLASS_PLAYING);
+  app.shared.utils.onWebAnimationFinished(this.playAnimation_, () => {
+    this.$el.removeClass(app.Constants.CLASS_PLAYING);
+  });
 };
 
 /**
@@ -444,10 +429,11 @@ app.Scene.prototype.init_ = function() {
 
 /**
  * @private
+ * @param {Animation} animation
  */
-app.Scene.prototype.destroyPlayer_ = function(player) {
-  if (player) {
-    player.cancel();
+app.Scene.prototype.cancelAnimation_ = function(animation) {
+  if (animation) {
+    animation.cancel();
   }
 };
 
@@ -458,8 +444,7 @@ app.Scene.prototype.destroy = function() {
   this.removeEventHandlers_();
   this.audio = null;
 
-  this.destroyPlayer_(this.nextAnimPlayer_);
-  this.destroyPlayer_(this.prevAnimPlayer_);
-  this.destroyPlayer_(this.paginationPlayer_);
-  this.destroyPlayer_(this.playAnimPlayer_);
+  this.cancelAnimation_(this.playAnimation_);
+  this.cancelAnimation_(this.changeTextAnimation_);
+  this.cancelAnimation_(this.paginationAnimation_);
 };

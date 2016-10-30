@@ -16,6 +16,18 @@
 
 goog.provide('app.Constants');
 
+/**
+ * @typedef {{
+ *   distancePx: number,
+ *   durationDown: number,
+ *   durationDelay: number,
+ *   durationUp: number,
+ *   easingDown: string,
+ *   easingUp: string
+ * }}
+ */
+var TranslationsSceneAnimationOptions;
+
 goog.scope(function() {
 
   /**
@@ -144,7 +156,7 @@ goog.scope(function() {
       }
     ],
 
-
+    DEFAULT_LANGUAGE: 'en',
 
     CLASS_PLAYING: 'playing-phrase',
 
@@ -154,18 +166,20 @@ goog.scope(function() {
     EASE_IN_QUINT: 'cubic-bezier(0.755, 0.050, 0.855, 0.060)',
     EASE_IN_OUT_CIRC: 'cubic-bezier(0.785, 0.135, 0.150, 0.860)',
 
+    /** @type {TranslationsSceneAnimationOptions} */
     ANIMATION_BTN_PAGINATION: {
       distancePx: 4,
-      durationDown: 150,
+      durationDown: 200,
       durationDelay: 0,
       durationUp: 300,
       easingDown: 'EASE_OUT_QUAD',
       easingUp: 'EASE_OUT_QUAD'
     },
 
+    /** @type {TranslationsSceneAnimationOptions} */
     ANIMATION_BTN_PLAY: {
       distancePx: 8,
-      durationDown: 150,
+      durationDown: 200,
       durationDelay: 1000,
       durationUp: 850,
       easingDown: 'EASE_OUT_QUAD',

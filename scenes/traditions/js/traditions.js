@@ -32,7 +32,7 @@ app.Traditions = function(el, componentDir) {
   /**
    * @private {!Element}
    */
-  this.image_ = this.el_.querySelector('#tradition-img');
+  this.image_ = /** @type {!Element} */ (this.el_.querySelector('#tradition-img'));
 
   /**
    * @private {string}
@@ -64,7 +64,6 @@ app.Traditions.WATER_COLOR_ = '#f6efe2';
 
 app.Traditions.prototype.setup = function() {
   /**
-   * @type {google.maps.Icon}
    * @private
    */
   this.SMALL_PIN_ = {
@@ -75,7 +74,6 @@ app.Traditions.prototype.setup = function() {
   };
 
   /**
-   * @type {google.maps.Icon}
    * @private
    */
   this.BIG_PIN_ = {
@@ -327,7 +325,8 @@ app.Traditions.prototype.padBounds_ = function(bounds) {
     bounds.getSouthWest().lat(),
     bounds.getSouthWest().lng() - width * .3);
 
-  return bounds.extend(newSW);
+  var extended = bounds.extend(newSW);
+  return extended ? extended : bounds;
 };
 
 /**
