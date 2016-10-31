@@ -46,6 +46,7 @@
     "web-animations-js": "web-animations/web-animations-js#^2.0",
     "web-animations-utils": "GoogleChrome/web-animations-utils#^0.1.2",
     "i18n-msg": "ebidel/i18n-msg#^1.0.3",
-    "app-layout": "PolymerElements/app-layout#^0.10.5"
+    "app-layout": "PolymerElements/app-layout#^0.10.5",
+    "iron-icons": "PolymerElements/iron-icons#^1.0.0"
   }
 }
