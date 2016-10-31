@@ -892,8 +892,8 @@
         "message": "Repeat some statements several times."
     },
     "codelab-block-jump-length": {
-        "description": "Code block label. 15char limit. Placed after a jump arrow (indicating a jump) and before an editable number, i.e. jump by 5.",
-        "message": "jump by"
+        "description": "Code block label. 15char limit. Placed after a jump arrow (indicating a jump) and before an editable number, i.e. jump over 5.",
+        "message": "jump over"
     },
     "codelab-block-jump-tooltip": {
         "description": "Tooltip for code block which tells player to jump over tiles.",

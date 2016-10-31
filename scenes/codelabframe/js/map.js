@@ -26,7 +26,7 @@ goog.provide('app.TileType');
  * @type {string[]}
  */
 app.MapData = [
-  'T     TT', //LEVEL9
+  'T     TT',
   'T     TT', //LEVEL9
   'T   TTTT',
   'T     TT',
