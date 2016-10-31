@@ -83,12 +83,10 @@ Presentdrop scene.
     },
 
     receiveMessage: function(event) {
-      var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
       var iframe = this.$.blocklyArea;
       var expectedSource = iframe.contentWindow || iframe;
-      //TODO(madCode): change the expected origin once Santa Tracker goes live
-      if (origin != "http://localhost:3000" || event.source != expectedSource) {
-        console.log("wrong origin: " + origin + "or wrong source");
+      if (event.source != expectedSource) {
+        console.log("wrong source");
         return;
       } else {
         this.snowflake = event.data;
