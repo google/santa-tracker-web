@@ -27,33 +27,29 @@ Candy cane progress bar.
         background: #3ec4f0;
         z-index: 1200;
         @apply(--layout-fit);
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        visibility: hidden;
       }
       #page-progress {
         @apply(--layout-vertical);
         @apply(--layout-center-center);
-      }
-      img {
-        width: 340px;
-        height: 340px;
-      }
-      :host {
-        visibility: hidden;
+        margin-top: -100px;
       }
       :host(.fading) {
         transition: opacity 600ms ease-in-out;
         opacity: 0;
         visibility: visible; /* hold visible during animation */
+        will-change: opacity;
       }
       :host([active]) {
         visibility: visible;
       }
     </style>
     <div id="page-progress">
-      <div class="preload">
-        <img src="{{src}}" />
-        <div class="preload-bar">
-          <div class="preload-progress" style$="width:{{value}}%"></div>
-        </div>
+      <div class="preload-image"><img src$="[[src]]"></div>
+      <div class="preload-bar">
+        <div class="preload-progress" style$="width:[[value]]%"></div>
       </div>
     </div>
   </template>
@@ -78,7 +74,6 @@ Candy cane progress bar.
       active: {
         type: Boolean,
         value: false,
-        notify: true,
         observer: '_activeChanged',
         reflectToAttribute: true
       },
@@ -88,7 +83,6 @@ Candy cane progress bar.
        */
       color: {
         value: DEFAULT_COLOR,
-        notify: true,
         observer: '_colorChanged'
       },
 
@@ -97,7 +91,6 @@ Candy cane progress bar.
        */
       src: {
         value: DEFAULT_LOADING_SRC,
-        notify: true,
         observer: '_srcChanged'
       }
     },
