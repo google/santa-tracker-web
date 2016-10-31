@@ -45,7 +45,7 @@ Santa Tracker app.
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
       mode$="[[mode]]"
-      disabled="[[isCastMode(mode)]]"
+      disabled="[[omitSantaChrome(mode)]]"
       color="[[colorForRoute(route, validRoutes)]]"
       tracker-unlocked="[[duringTracker]]"
       today-house="[[todayHouse]]"
@@ -516,7 +516,19 @@ Polymer({
     },
 
     /**
-     * The mode of Santa Tracker. Possible values are blank, 'cast', or 'portal'.
+     * The mode of Santa Tracker. Possible values are blank, 'cast', 'portal',
+     * or 'embed'.
+     *
+     * 'portal': Portal mode indicates that Santa Tracker is being run in a web
+     * kiosk or similar device.
+     *
+     * 'cast': Cast mode indicates that Santa Tracker is being run on a casted
+     * device.
+     *
+     * 'embed': embed mode indicates that a Santa Tracker scene is being called
+     * from within one of the native Santa Tracker frontends (e.g. Android/iOS
+     * app).
+     *
      */
     mode: {
       type: String,
@@ -637,6 +649,10 @@ Polymer({
       case 'web_portal':
         apiClient = 'web';
         this.mode = 'portal';
+        break;
+      case 'web_embed':
+        apiClient = 'web';
+        this.mode = 'embed'
         break;
       default:
         break;
@@ -1275,6 +1291,14 @@ Polymer({
 
   isCastMode: function(mode) {
     return mode == 'cast';
+  },
+
+  isEmbedMode: function(mode) {
+    return mode == 'embed';
+  },
+
+  omitSantaChrome: function(mode) {
+    return mode == 'cast' || mode == 'embed';
   },
 
   onTrackerEnd: function(e, detail) {
