@@ -226,6 +226,8 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
 (function() {
+  var TOOLBAR_DEFAULT_COLOR = '#00c6ed';  // also in css
+
   Polymer({
     is: 'santa-chrome',
 
@@ -257,7 +259,10 @@ specific language governing permissions and limitations under the License.
       /**
        * The color to use for the toolbar background, if set.
        */
-      color: String,
+      color: {
+        type: String,
+        observer: '_onColorChanged',
+      },
 
       /**
        * Whether the current scene has 'game buttons', reset and pause.
@@ -347,6 +352,13 @@ specific language governing permissions and limitations under the License.
         this.santaApp.focus();
       }
       return wasClosed;
+    },
+
+    _onColorChanged: function(color) {
+      var meta = document.head.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        meta.content = color || TOOLBAR_DEFAULT_COLOR;
+      }
     },
 
     _onShare: function(ev) {
