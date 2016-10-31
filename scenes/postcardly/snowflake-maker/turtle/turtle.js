@@ -400,41 +400,24 @@ Turtle.initInterpreter = function(interpreter, scope) {
   var wrapper;
 
   wrapper = function(size, id) {
-    Turtle.stampCircle(size, false /*fill*/, id.toString());
+    Turtle.stampDiamond(size, false /*fill*/, id.toString());
+    //Turtle.stampCircle(size, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampCircle',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
-    Turtle.stampCircle(size, true /*fill*/, id.toString());
-  };
-  interpreter.setProperty(scope, 'stampCircleFill',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(size, id) {
-    Turtle.stampSquare(size, false /*fill*/, id.toString());
+    Turtle.stampPolygon(size, 4, true /*animate*/, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampSquare',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
-    Turtle.stampSquare(size, true /*fill*/, id.toString());
-  };
-  interpreter.setProperty(scope, 'stampSquareFill',
-      interpreter.createNativeFunction(wrapper));
-
-
-  wrapper = function(size, id) {
-    Turtle.stampTriangle(size, false /*fill*/, id.toString());
+    Turtle.stampPolygon(size, 3, true /*animate*/, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampTriangle',
       interpreter.createNativeFunction(wrapper));
 
-  wrapper = function(size, id) {
-    Turtle.stampTriangle(size, true /*fill*/, id.toString());
-  };
-  interpreter.setProperty(scope, 'stampTriangleFill',
-      interpreter.createNativeFunction(wrapper));
   wrapper = function(distance, id) {
     Turtle.drawAndMove(distance.valueOf(), id.toString());
   };
@@ -583,55 +566,32 @@ Turtle.animate = function(id) {
   }
 };
 
-Turtle.stampCircle = function(size, fill, id) {
-  var radius = size/2;
-  //TODO(madCode): switch the - and + if it moves backwards instead of forward
-  var centerX = Turtle.x + radius * Math.sin(2 * Math.PI * Turtle.heading / 360);
-  var centerY = Turtle.y - radius * Math.cos(2 * Math.PI * Turtle.heading / 360);
-  Turtle.ctxScratch.beginPath();
-  Turtle.ctxScratch.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-  if (fill) {
-    Turtle.ctxScratch.fill();
-  }
-  Turtle.ctxScratch.stroke();
-  Turtle.ctxScratch.closePath();
-  Turtle.animate(id);
-};
-
-Turtle.stampSquare = function(size, fill, id) {
-  Turtle.ctxScratch.beginPath();
-  Turtle.turnWithoutAnimation(-90);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  for(var i=0; i<3; i++) {
-    Turtle.turnWithoutAnimation(90);
-    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
-  }
-  Turtle.turnWithoutAnimation(90);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  Turtle.turnWithoutAnimation(90);
-  Turtle.ctxScratch.closePath();
-  if (fill) {
-    Turtle.ctxScratch.fill();
-  }
-  Turtle.animate(id);
-};
-
-Turtle.stampTriangle = function(size, fill, id) {
+Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
+  var sideLen = size*Math.sin(Math.PI/numSides);
   Turtle.ctxScratch.beginPath();
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  for(var i=0; i<2; i++) {
-    Turtle.turnWithoutAnimation(120);
-    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  Turtle.drawLineWithoutMoving(sideLen/2, !fill /*trace*/);
+  for (var i=0; i < numSides-1; i++) {
+    Turtle.turnWithoutAnimation(360/numSides);
+    Turtle.drawLineWithoutMoving(sideLen, !fill);
   }
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  Turtle.ctxScratch.closePath();
-  if (fill) {  
-    Turtle.ctxScratch.fill();
-  }  
+  Turtle.turnWithoutAnimation(360/numSides);
+  Turtle.drawLineWithoutMoving(sideLen/2, !fill);
   Turtle.turnWithoutAnimation(90);
+  Turtle.ctxScratch.closePath();
+  if (fill) {
+    Turtle.ctxScratch.fill();
+  }
+  if (animate) {
+    Turtle.animate(id);
+  }
+}
+
+Turtle.stampDiamond = function(size, fill, id) {
+  Turtle.turnWithoutAnimation(45);
+  Turtle.stampPolygon(size, 4, false /*animate*/, fill, id);
+  Turtle.turnWithoutAnimation(45);
   Turtle.animate(id);
 };
 
