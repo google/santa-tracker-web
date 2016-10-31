@@ -1210,30 +1210,35 @@ Polymer({
    * detail of event).
    */
   onShare: function(e, service) {
-    var url = (function(url) {
-      // TODO(samthor): Optionally use a URL shortener, if something's obviously hiding in the URL-
-      // like an encoded beard.
-      var enc = window.encodeURIComponent(url);
+    this.fire('analytics-track-share', service);
 
+    // TODO(samthor): Use a URL shortener if something large is in the URL (e.g., encoded beard).
+    var url = window.location.href;
+    var title = this.$.strings.s('scene-' + this.route) ||
+        this.$.strings.s('santatracker') || document.title;
+
+    if (service == 'webshare' && navigator.share) {
+      navigator.share({title: title, url: url});
+      return;
+    }
+
+    var shareUrl = (function(url) {
+      var enc = window.encodeURIComponent(url);
       switch (service) {
       case 'facebook':
         return 'https://facebook.com/sharer.php?p[url]=' + enc;
       case 'gplus':
         return 'https://plus.google.com/share?hl=' + this.language + '&url=' + enc;
       case 'twitter':
-        // For Twitter, include the name of the current scene (or fallback to 'Santa Tracker').
-        var cand = this.$.strings.s('scene-' + this.route);
-        var text = cand || this.$.strings.s('santatracker') || 'Santa Tracker';
         return 'https://twitter.com/intent/tweet?lang=' + this.language +
-            '&hashtags=santatracker&text=' + window.encodeURIComponent(text) + '&url=' + enc;
+            '&hashtags=santatracker&text=' + window.encodeURIComponent(title) + '&url=' + enc;
       }
+    }.call(this, url));
 
-      return null;
-    }.call(this, window.location.href));
-    if (!url) { return; }
-
-    this.fire('analytics-track-share', service);
-    window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600');
+    if (shareUrl) {
+      var opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
+      window.open(shareUrl, '', opts);
+    }
   },
 
   /**

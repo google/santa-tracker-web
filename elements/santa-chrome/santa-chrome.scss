@@ -118,6 +118,7 @@ app-drawer {
 
 app-toolbar {
   height: $toolbar-height;
+  color: white;
 }
 
 #toolbar {
@@ -184,34 +185,24 @@ app-toolbar {
 
   .shareicons {
     padding: ($toolbar-height - 40px)/2 0;  // icon=40px, total=$toolbar-height;
-    padding-right: 8px;
     height: 100%;
     box-sizing: border-box;
-    font-size: 0;  // hide spacing between divs
+    display: flex;
     pointer-events: auto;  // set these icons to be accessible again
+    font-size: 0;  // fixes alignment issues
 
-    .box {
-      position: relative;
-      margin-left: 19px;
+    .multi {
+      display: flex;
 
-      &:before {
-        content: "";
-        position: absolute;
-        top: 6px;
-        left: -10px;
-        bottom: 6px;
-        border-left: 1px solid rgba(0,0,0,0.125);
+      @media (max-width: 600px) {
+        display: none;
       }
-      &:first-child {
-        &:before {
-          border-left: none;
-        }
+
+      .sep {
+        background: rgba(0,0,0,0.125);
+        width: 1px;
+        margin: 6px 9px;
       }
-    }
-  }
-  @media (max-width: 600px) {
-    .shareicons {
-      display: none;
     }
   }
 }

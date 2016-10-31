@@ -188,9 +188,16 @@ specific language governing permissions and limitations under the License.
             </a>
           </div>
           <div class$="shareicons [[_computeHiddenClass(hideRight)]]" on-tap="_onShare">
-            <paper-icon-button class="share box" id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
-            <paper-icon-button class="share box" id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
-            <paper-icon-button class="share box" id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
+            <paper-icon-button hidden$="[[!hasWebShare]]" id="webshare" icon="santa:share"></paper-icon-button>
+            <template is="dom-if" if="[[!hasWebShare]]">
+              <div class="multi">
+                <paper-icon-button id="gplus" style="padding: 4px" src="img/share-gplus.svg"></paper-icon-button>
+                <div class="sep"></div>
+                <paper-icon-button id="twitter" style="padding: 9px" src="img/share-twitter.svg"></paper-icon-button>
+                <div class="sep"></div>
+                <paper-icon-button id="facebook" style="padding: 10px" src="img/share-facebook.svg"></paper-icon-button>
+              </div>
+            </template>
           </div>
         </app-toolbar>
       </app-header>
@@ -295,7 +302,18 @@ specific language governing permissions and limitations under the License.
       },
 
       /** Strings bound from santa-strings. */
-      strings: Object
+      strings: Object,
+
+      /** Does this browser support Web Share? */
+      hasWebShare: {
+        type: Boolean,
+        value: function() {
+          // TODO(samthor): Also check for 'Mobile' until https://crbug.com/635741 is fixed, as
+          // share is showing up on desktop.
+          return Boolean(navigator.share && navigator.userAgent.match(/Mobile/));
+        },
+        readOnly: true,
+      },
     },
 
     _computeTernary: function(arg, yesVal, noVal) {
@@ -334,11 +352,15 @@ specific language governing permissions and limitations under the License.
     _onShare: function(ev) {
       ev.preventDefault();
 
-      // find the paper-icon-button with class="share", and use its id for the social network
+      // find the nearest paper-icon-button, and use its id for the social network
       var target = ev.target;
       while (target) {
-        if (target.classList.contains('shareicons')) { return; }
-        if (target.classList.contains('share')) { break; }
+        if (target.localName === 'paper-icon-button') {
+          break;
+        }
+        if (target.classList.contains('shareicons')) {
+          return;
+        }
         target = target.parentNode;
       }
 
