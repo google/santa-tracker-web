@@ -34,6 +34,20 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       <shadow type="colour_picker"></shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <block type="circle_stamp_fill">' +
+    '     <value name="SIZE">' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
+    '       </shadow>' +
+    '     </value>' +
+    '   </block>' +
+    '   <block type="triangle_stamp_fill">' +
+    '     <value name="SIZE">' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
+    '       </shadow>' +
+    '     </value>' +
+    '   </block>' +
     '   <block type="square_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="math_number">' +
