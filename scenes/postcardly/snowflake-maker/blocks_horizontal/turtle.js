@@ -316,7 +316,7 @@ Blockly.Blocks['square_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.svg",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a square",
@@ -399,7 +399,7 @@ Blockly.Blocks['triangle_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.svg",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a triangle",
