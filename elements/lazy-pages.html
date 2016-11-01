@@ -32,14 +32,14 @@ Lazy loads children "pages".
         bottom: 0;
         left: 0;
       }
+      :host ::content .santa-scene[allow-page-scrolling] {
+        top: 0;
+      }
       :host ::content .santa-scene:focus {
         outline: none;
       }
       :host ::content .santa-scene:not(.iron-selected) {
         display: none !important;
-      }
-      :host ::content dorf-scene.iron-selected {
-        top: -44px;
       }
     </style>
     <content select=".santa-scene"></content>
