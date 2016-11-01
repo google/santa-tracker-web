@@ -55,16 +55,16 @@ module.exports = function fileManifest(version, prefix) {
       return;  // nb. ignore ourselves
     }
 
-    let target = {};
+    let target = out['shared'];
     const match = rel.match(/scenes\/(.+?)\//);
     if (match) {
       const scene = match[1];
-      if (!(scene in out['scenes'])) {
-        out['scenes'][scene] = {};
+      if (scene !== 'shared') {  // don't match '/scene/shared'
+        if (!(scene in out['scenes'])) {
+          out['scenes'][scene] = {};
+        }
+        target = out['scenes'][scene];
       }
-      target = out['scenes'][scene];
-    } else {
-      target = out['shared'];
     }
 
     target[rel] = hash(file.contents);
