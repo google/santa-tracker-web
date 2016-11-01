@@ -169,6 +169,7 @@ function lazyLoadWCPolyfillsIfNecessary() {
   var onload = function() {
     // If the browser supports native HTML Imports, manually fire the WCR event
     // so the same code paths can be used for polyfill'd and native.
+    // window.HTMLImports only exists under the poylfill.
     if (!window.HTMLImports) {
       document.dispatchEvent(
         new CustomEvent('WebComponentsReady', {bubbles: true}));
