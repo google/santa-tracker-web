@@ -51,6 +51,7 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
             "flip_rtl": false
           }
         ],
+	"previousStatement": null,
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
