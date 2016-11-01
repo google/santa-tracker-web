@@ -23,6 +23,7 @@ const fs = require('fs');
 const changedFlag = require('./gulp_scripts/changed_flag');
 const path = require('path');
 const del = require('del');
+const file_manifest = require('./gulp_scripts/file_manifest');
 const i18n_replace = require('./gulp_scripts/i18n_replace');
 const i18n_manifest = require('./gulp_scripts/i18n_manifest');
 const devScene = require('./gulp_scripts/dev-scene');
@@ -55,6 +56,7 @@ const argv = require('yargs')
       describe: 'base URL for Santa\'s API'
     })
     .option('build', {
+      alias: 'b',
       type: 'string',
       default: DEFAULT_STATIC_VERSION,
       describe: 'production build tag'
@@ -404,9 +406,17 @@ gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function(
   return mergeStream(staticStream, prodStream);
 });
 
+// builds a JSON manifest file containing files and hashes
+gulp.task('build-manifest', ['copy-assets'], function() {
+  const stream = file_manifest(STATIC_VERSION, DIST_STATIC_DIR);
+  return gulp.src([`${DIST_STATIC_DIR}/**/*`])
+    .pipe(stream)
+    .pipe(gulp.dest(DIST_STATIC_DIR));
+});
+
 // clean + build a distribution version
 gulp.task('dist', function(callback) {
-  require('run-sequence')('rm-dist', 'copy-assets', callback);
+  require('run-sequence')('rm-dist', 'copy-assets', 'build-manifest', callback);
 });
 
 gulp.task('watch', function() {
