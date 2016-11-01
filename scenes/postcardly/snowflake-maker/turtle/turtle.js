@@ -396,20 +396,14 @@ Turtle.initInterpreter = function(interpreter, scope) {
   wrapper = function(size, id) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
   };
-  interpreter.setProperty(scope, 'stampCircleFill',
-			  interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(size, id) {
-    Turtle.stampPolygon(size, 6, true /*animate*/, false /*fill*/, id.toString());
-  };
-  interpreter.setProperty(scope, 'stampTriangleFill',
+  interpreter.setProperty(scope, 'stampPentagon',
 			  interpreter.createNativeFunction(wrapper));
   
   wrapper = function(size, id) {
     Turtle.stampDiamond(size, false /*fill*/, id.toString());
     //Turtle.stampCircle(size, false /*fill*/, id.toString());
   };
-  interpreter.setProperty(scope, 'stampCircle',
+  interpreter.setProperty(scope, 'stampDiamond',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
