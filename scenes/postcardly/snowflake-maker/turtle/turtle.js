@@ -99,7 +99,7 @@ Turtle.init = function() {
 
   Turtle.workspace = Blockly.inject('blocklyDiv', {
           comments: false,
-          disable: false,
+          disable: true,
           collapse: false,
           media: 'media/',
           readOnly: false,
@@ -135,7 +135,8 @@ Turtle.init = function() {
           }
         });
 
-
+  Blockly.getMainWorkspace().addChangeListener(Blockly.Events.disableOrphans);
+  
   // Prevent collisions with user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
@@ -144,7 +145,7 @@ Turtle.init = function() {
   var sliderSvg = document.getElementById('slider');
   Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
 
-  var defaultXml = '<xml><block type="copy_to_make_snowflake" deletable="false"></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 

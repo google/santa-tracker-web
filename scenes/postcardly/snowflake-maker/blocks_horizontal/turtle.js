@@ -31,6 +31,34 @@ goog.require('Blockly.Blocks');
 goog.require('Blockly.Colours');
 
 // Extensions to Blockly's language and JavaScript generator.
+Blockly.Blocks['snowflake_start'] = {
+  init: function() {
+    this.jsonInit({
+      "id": "snowflake_start",
+      "message0": "%1",
+      "args0": [
+	{
+	  "type": "field_image",
+	  "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_snowflake.png",
+	  "width": 40,
+	  "height": 40,
+	  "alt": "snowflake",
+          "flip_rtl": false
+        }
+      ],
+	"nextStatement": "SnowflakeLoop",
+        "inputsInline": true,
+        "category": Blockly.Categories.turtle,
+        "colour": Blockly.Colours.control.primary,
+        "colourSecondary": Blockly.Colours.control.secondary,
+        "colourTertiary": Blockly.Colours.control.tertiary
+      });
+    }
+};
+
+Blockly.JavaScript['snowflake_start'] = function(block) {
+  return '';
+};
 
 Blockly.Blocks['copy_to_make_snowflake'] = {
     init: function() {
@@ -51,7 +79,6 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
             "flip_rtl": false
           }
         ],
-	"previousStatement": null,
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
