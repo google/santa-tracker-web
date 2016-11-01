@@ -15,7 +15,6 @@
  */
 
 goog.provide('app.Constants');
-goog.provide('Constants');
 
 /**
  * Gameplay constants
@@ -36,5 +35,3 @@ app.Constants = {
 };
 
 
-// Hack to support shared scoreboard with other apps.
-Constants = app.Constants;
