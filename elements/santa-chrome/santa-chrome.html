@@ -20,7 +20,7 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../../components/app-layout/app-header/app-header.html">
 <link rel="import" href="../../components/app-layout/app-scroll-effects/effects/waterfall.html">
-<link rel="import" href="../../components/app-layout/app-scroll-effects/effects/blend-background.html">
+<link rel="import" href="../../components/app-layout/app-scroll-effects/effects/fade-background.html">
 <link rel="import" href="../../components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../../components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../../components/app-layout/app-toolbar/app-toolbar.html">
@@ -54,6 +54,9 @@ specific language governing permissions and limitations under the License.
       z-index: 1; /* higher than sound button */
       --app-drawer-width: 320px;
       --app-drawer-scrim-background: rgba(48,203,236,0.6);
+      --app-drawer-content-container: {
+        box-shadow: 2px 0 0 rgba(0,0,0,0.125);
+      };
     }
 
     app-header {
@@ -61,6 +64,10 @@ specific language governing permissions and limitations under the License.
 
       --app-header-background-rear-layer: {
         background-color: rgb(48,203,236);
+      };
+      --app-header-shadow: {
+        bottom: 0;  /** this is -5px by default */
+        box-shadow: 0 2px 0 rgba(0,0,0,0.25);
       };
     }
 
@@ -172,7 +179,7 @@ specific language governing permissions and limitations under the License.
       </div>
     </app-drawer>
     <app-header-layout fullbleed>
-      <app-header fixed effects="waterfall blend-background"
+      <app-header fixed effects="waterfall fade-background"
                   style$="background-color:[[color]]">
         <app-toolbar id="toolbar" hidden$="[[disabled]]">
           <paper-icon-button icon="santa:menu" drawer-toggle
