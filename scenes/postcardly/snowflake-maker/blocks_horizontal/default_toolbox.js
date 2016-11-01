@@ -97,13 +97,6 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
-    '   <block type="turtle_width">' +
-    '     <value name="WIDTH">' +
-    '       <shadow type="math_number">' +
-    '         <field name="NUM">6</field>' +
-    '       </shadow>' +
-    '     </value>' +
-    '   </block>' +
         '<block type="control_repeat">' +
         '<value name="TIMES">' +
         '<shadow type="math_whole_number">' +
