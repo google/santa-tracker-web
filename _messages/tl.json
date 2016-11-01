@@ -123,7 +123,7 @@
 		"message": "Côte d'Ivoire"
 	},
 	"citylights-contribute": {
-		"message": "Idagdag ang mga sarili mong larawan ng %location%"
+		"message": "Idagdag ang mga sarili mong larawan ng {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -534,7 +534,7 @@
 		"message": "Elvish"
 	},
 	"en_language_name": {
-		"message": "Ingles"
+		"message": "English"
 	},
 	"endofjourneymessage": {
 		"message": "Natapos na ni Santa ang kanyang paglalakbay para sa taon! Nagsasaya pa rin siya at ang mga elf sa North Pole bago ang kanilang taunang bakasyon."
@@ -559,6 +559,9 @@
 	},
 	"et_country_name": {
 		"message": "Ethiopia"
+	},
+	"explore": {
+		"message": "Mag-explore"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Katamtaman"
 	},
+	"meta_description": {
+		"message": "Gamitin ang Google Santa Tracker upang sundan si Santa Claus sa Google Maps habang naglalakbay siya sa buong mundo."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norwegian"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Naghahatid ng hands-on na edukasyong pang-agham ang Agastya sa mga bata sa buong rural na India. Kapwa sa kanilang mga science center at mobile science van, tinatalakay nila ang lahat mula sa solar system hanggang sa kung paano gumagana ang utak. Naabot na nila ang higit sa 5 milyong bata at 200,000 guro sa buong 14 na estado sa India; ito ang isa sa mga pinakamalalaking programa sa edukasyong pang-agham sa mundo! Ipinagmamalaki ng Google.org na maging \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etagasuporta\u003c/a\u003e ng Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Mga Guro at Mag-aaral"
+	},
+	"nonprofit-enable-description": {
+		"message": "Ayon sa CDC, 7 sa 1000 tao ang nakararanas ng magkaibang mga braso o binti at mahal ang mga artipisyal na braso't binti - umaabot sa US$10,000! Para sa mga lumalaking bata, maaaring mabilis na madagdagan ang mga gastusin. Isang pandaigdigang komunidad ng mga tao ang e-Nable na nagtutulungan upang makagawa ng mga 3D printed na kamay para sa mga batang magkaiba ang mga braso o binti. Nakikipagtulungan ang Google.org sa Enable Community Foundation sa pagsuporta sa e-NABLE Community na makapagdisenyo ng mas maraming kamay at madagdagan ang bilang ng mga bata na maaaring makakuha ng mga kamay."
+	},
+	"nonprofit-enable-type": {
+		"message": "Mga Artipisyal na Braso't Binti"
+	},
 	"nonprofit-jane-description": {
 		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
 	},
@@ -801,16 +819,46 @@
 		"message": "Para sa higit pang impormasyon bisitahin ang:"
 	},
 	"nonprofit-nature-description": {
-		"message": "Kumikilos ang The Nature Conservancy upang protektahan at muling buhayin ang mga kagubatan sa Estados Unidos at sa buong mundo. Pinapanatili ng mga natatanging kagubatang ito ang buhay sa buong planeta natin. Sinasala ng mga ito ang tubig, nililinis ang ating hangin, sinusuportahan ang mga komunidad ng mga tao at nagbibigay ng tahanan para sa mahahalagang species ng halaman at hayop. Sa kasalukuyang antas ng pagkakalbo ng kagubatan, mauubos ang ating mga kagubatan sa loob ng 100 taon. Ang programa ng The Nature Conservancy na Plant a Billion Trees ay kumikilos upang makapagtanim ng isang bilyong puno bago ang taong 2025 at muling buhayin ang mga pinakananganganib na kagubatan sa mundo."
+		"message": "Kumikilos ang The Nature Conservancy upang protektahan at muling buhayin ang mga kagubatan sa United States at sa buong mundo. Pinapanatili ng mga natatanging kagubatang ito ang buhay sa buong planeta natin. Sinasala ng mga ito ang tubig, nililinis ang ating hangin, sinusuportahan ang mga komunidad ng mga tao at nagbibigay ng tahanan para sa mahahalagang species ng halaman at hayop. Sa kasalukuyang antas ng pagkakalbo ng kagubatan, mauubos ang ating mga kagubatan sa loob ng 100 taon. Ang programa ng The Nature Conservancy na Plant a Billion Trees ay kumikilos upang makapagtanim ng isang bilyong puno bago ang taong 2025 at muling buhayin ang mga pinakananganganib na kagubatan sa mundo."
 	},
 	"nonprofit-nature-type": {
 		"message": "Kagubatan"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Maraming tao sa mundo na namumuhay na may kawalan ng paningin, ngunit may natitira pa ring paningin. Tinutulungan ng Google.org ang RNIB na makabuo ng 'smart glasses' na nakatutulong sa mga taong mahina ang paningin upang mas madaling makakita ng mga hugis at silhouette. Mas mapadadali rin ng smart glasses na makita ang mundo, na tutulong sa mga tao na maibalik ang kanilang pagkilos nang mag-isa at tiwala sa sarili."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Smart Glasses"
+	},
+	"nonprofit-solar-description": {
+		"message": "1.3 bilyong tao ang walang access sa kuryente, at marami ang kailangang gumamit ng mga lamparang de-gaas na sumusunog ng fuel at nagpapadumi ng mga tahanan. Gayunman, kumukuha ng enerhiya mula sa araw ang mga solar light habang may-araw at nakapagbibigay ng maraming oras ng liwanag sa gabi nang hindi sumusunog o nagpaparumi. Nakatutulong ang mga ito sa iyo na makabasa, makapaglaro, at ligtas na makauwi sa gabi. Nakapagbibigay ng access sa mga solar light ang SolarAid sa maraming mga nangangailangan ng mga ito. Ipinagmamalaki ng Google.org na maging \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etagasuporta\u003c/a\u003e ng SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sunlight"
+	},
+	"nonprofit-water-description": {
+		"message": "Gumagamit tayo ng tubig para sa mga shower at paliguan, para sa pagluluto, at siyempre, para sa pag-inom. Mahalagang resource ang malinis na tubig, at maraming tao ang umaasa sa mga balon na hinukay sa pamamagitan ng mga kamay upang ma-access ang mga aquifer, na kinalalagyan ng malinis na tubig sa ilalim ng lupa sa pagitan ng mga suson (layer) ng bato at lupa. nakikipagtulungan ang charity: water sa mga lokal na partner upang makagawa ng mga balon at iba pang proyektong pantubig kung saan talagang kailangan ang mga ito. Ipinagmamalaki ng Google.org na maging \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etagasuporta\u003c/a\u003e ng charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Balon"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Maaaring maging mahirap para sa mga gumagamit ng wheelchair na malaman kung aling mga lugar ang maa-access: Mga Sinehan, Restaurant at kung saan pa sila maaaring magpunta. Ipinapakita ng wheelmap ang mga lugar na maa-access ng wheelchair upang hindi na gaanong kumonsumo ng oras sa pagplano ng ruta ang mga gumagamit ng wheelchair at mas marami ang oras sa paggalugad sa mundo!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobility"
 	},
 	"nonprofit-wwf-description": {
 		"message": "Patuloy na sinisira ng pagbabago sa klima ang balanse ng marami sa mga ecosystem sa mundo, sa parehong maiinit at malalamig na lugar. Sa Arctic, nawawalan na ang mga polar bear ng mga nagyeyelong dagat na tirahan dahil sa pagtaas ng temperatura, at nahaharap sa mga karagdagang banta mula sa mga aktibidad ng tao, gaya ng development ng langis at gasolina at shipping. Kumikilos ang World Wildlife Fund upang matiyak ang kaligtasan ng species sa pamamagitan ng siyentipikong pananaliksik at pakikipagtulungan sa mga katutubong komunidad sa Arctic. Ipinagmamalaki ng Google.org na maging isang \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e tagasuporta\u003c/a\u003e sa World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Ipinahihiwatig ng pananaliksik na maaaring gamutin ng hearing aid ang 95% ng mga taong walang pandinig, subalit wala pang 1% ng mga tao sa mga bansang mababa at katamtaman ang kita na nangangailangan ng hearing aid ang nakakakuha nito. Ikinokonekta ng World Wide Hearing (WWH) ang mga bata sa kanilang mundo sa pamamagitan ng pagbibigay ng mga hearing aid at mga serbisyo. Nagdidisenyo ang WWH ng abot-kayang, pandiyagnostikong tool na gumagamit ng tablet para sa kawalan ng pandinig upang maggamit sa umuunlad na daigdig. Sa gayon ay mas maraming tao na nangangailangan ng mga hearing aid ang makatatanggap ng mga ito."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Pandinig"
 	},
 	"notification": {
 		"message": "Mga Notification"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Mission Control"
 	},
+	"scene_dash": {
+		"message": "Penguin Dash"
+	},
+	"scene_factory": {
+		"message": "Candy Factory"
+	},
 	"scene_giftmatch": {
 		"message": "Gift Matcher"
+	},
+	"scene_glider": {
+		"message": "Elf Glider"
 	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Present Delivery"
 	},
 	"scene_matching": {
 		"message": "Memory Match"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_runner": {
+		"message": "Reindeer Runner"
 	},
 	"scene_santasearch": {
 		"message": "Santa Search"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
+	},
+	"scene_wrap": {
+		"message": "Wrap Battle"
 	},
 	"score": {
 		"message": "Score"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Ngayong Araw Lamang"
 	},
-	"today_only_1": {
-		"message": "Ngayon lang"
-	},
 	"tr_country_name": {
 		"message": "Turkey"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Aalis sa loob ng"
 	},
 	"tracker_distance_away_km": {
-		"message": "%distance_away%km ang layo ni Santa"
+		"message": "{{distance_away}}km ang layo ni Santa"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distansya mula sa iyo"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Ikaw ay nasa"
 	},
-	"tracker_intro_welcome": {
-		"message": "Welcome sa"
-	},
 	"tracker_next_stop": {
 		"message": "Susunod na hinto"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Tingnan ang ruta"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Darating na si Santa sa loob ng {{hours}} (na) oras"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Darating na si Santa sa lalong madaling panahon"
 	},
 	"tracker_track": {
 		"message": "Sundan si Santa"
@@ -1806,7 +1872,7 @@
 		"message": "Tumatawid sa Canada at anong isa pang bansa ang Rocky Mountains?"
 	},
 	"trivia_beginner_053_answer0": {
-		"message": "Estados Unidos"
+		"message": "United States"
 	},
 	"trivia_beginner_053_answer1": {
 		"message": "Venezuela"
@@ -3279,7 +3345,7 @@
 		"message": "Costa Rica"
 	},
 	"trivia_hard_079": {
-		"message": "Anong bansa ang nasa hangganan ng Guatemala at ng Estados Unidos?"
+		"message": "Anong bansa ang nasa hangganan ng Guatemala at ng United States?"
 	},
 	"trivia_hard_079_answer0": {
 		"message": "Mexico"
@@ -4389,7 +4455,7 @@
 		"message": "Australia"
 	},
 	"trivia_medium_066_answer1": {
-		"message": "Estados Unidos"
+		"message": "United States"
 	},
 	"trivia_medium_066_answer2": {
 		"message": "Canada"
@@ -4551,7 +4617,7 @@
 		"message": "Bangladesh"
 	},
 	"trivia_medium_080": {
-		"message": "Anong bansa ng Greater Antilles ang gumagamit ng Ingles bilang opisyal nitong wika?"
+		"message": "Anong bansa ng Greater Antilles ang gumagamit ng English bilang opisyal nitong wika?"
 	},
 	"trivia_medium_080_answer0": {
 		"message": "Jamaica"
@@ -4824,13 +4890,13 @@
 		"message": "Sa United Kingdom, nagpapaputok ang mga nagdiriwang, anuman ang edad, ng mga Christmas cracker sa hapag sa hapunan. Ang cracker ay tube na binalot sa makukulay na papel, na may hahataking tab sa magkabilang dulo. Kapag hinatak mo ang mga tab, sasabog ang tube nang may malakas na tunog! May laman itong mga paper hat, laruan at candy na ie-enjoy sa gabi ng Pasko."
 	},
 	"upgrade-warning": {
-		"message": "Oops! Hindi sinusuportahan ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa higit pang impormasyon, bisitahin ang \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oops! Hindi suportado ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa karagdagang impormasyon, bisitahin ang \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
-		"message": "Estados Unidos"
+		"message": "United States"
 	},
 	"us_tradition": {
-		"message": "Sa Estados Unidos, nagsasabit ng mga stocking sa Bisperas ng Pasko. Ayon sa alamat, nabalitaan ni St Nicholas ang tungkol sa isang pamilyang naghihirap. Upang sorpresahin sila, bumaba siya sa kanilang tsimineya at naglagay ng mga bag ng ginto sa mga nakasabit na stocking. Mula noon, nakilala si St Nicholas bilang si Santa Claus, ang tagabigay ng regalo."
+		"message": "Sa United States, nagsasabit ng mga stocking sa Bisperas ng Pasko. Ayon sa alamat, nabalitaan ni St Nicholas ang tungkol sa isang pamilyang naghihirap. Upang sorpresahin sila, bumaba siya sa kanilang tsimineya at naglagay ng mga bag ng ginto sa mga nakasabit na stocking. Mula noon, nakilala si St Nicholas bilang si Santa Claus, ang tagabigay ng regalo."
 	},
 	"uy_country_name": {
 		"message": "Uruguay"

@@ -123,7 +123,7 @@
 		"message": "象牙海岸"
 	},
 	"citylights-contribute": {
-		"message": "新增您在%location%的相片"
+		"message": "新增您在{{location}}的相片"
 	},
 	"citylights-panorama-01-description": {
 		"message": "洛克斐勒廣場"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "衣索比亞"
 	},
+	"explore": {
+		"message": "探索"
+	},
 	"fi_country_name": {
 		"message": "芬蘭"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "普通"
 	},
+	"meta_description": {
+		"message": "使用 Google 聖誕老人追蹤器，在 Google 地圖上跟著聖誕老人一起環遊世界。"
+	},
 	"mg_country_name": {
 		"message": "馬達加斯加"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "挪威文"
 	},
+	"nonprofit-agastya-description": {
+		"message": "印度非營利組織 Agastya 將互動式的科學教育帶給偏鄉學童。Agastya 的科學中心和行動科教車將豐富的知識傳授給學童，上至天文、下至地理。在印度的 14 個邦，至今已有超過 500 萬名學童和 20 萬名教師受惠，堪稱全世界最大規模的科學教育計劃！Google.org 很榮幸能為 Agastya \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e貢獻一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-agastya-type": {
+		"message": "教師與學生"
+	},
+	"nonprofit-enable-description": {
+		"message": "CDC 指出，每 1000 人之中約有 7 人有肢體殘缺的情形，然而義肢造價不斐，最貴可能高達 $10,000 美元！發育中的兒童隨著成長必須不斷更換義肢，長期下來無疑是一筆沉重的經濟負擔。公益志工組織 e-Nable 運用 3D 列印替肢體殘缺的孩童量身訂做義腕，而 Google.org 則與 Enable Community Foundation 攜手贊助 e-NABLE 設計更多義腕，讓更多孩童能夠受惠。"
+	},
+	"nonprofit-enable-type": {
+		"message": "義肢"
+	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e認識黑猩猩的棲息環境\u003c/a\u003e。"
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "森林"
 	},
+	"nonprofit-rnib-description": {
+		"message": "許多視障者並未完全失明，仍有殘餘視力。Google.org 協助 RNIB 開發「智慧眼鏡」，讓這些視障者能更清楚看見外界物體的形狀和輪廓，以及周遭的環境，進而重拾獨立的生活能力和自信。"
+	},
+	"nonprofit-rnib-type": {
+		"message": "智慧眼鏡"
+	},
+	"nonprofit-solar-description": {
+		"message": "地球上有 13 億人無電可用，他們往往必須使用煤油燈做為主要的照明設備，但燃燒煤油會污染室內空氣。做為解決方案的太陽能燈可在白天蓄能，夜間使用，不用消耗燃料，也沒有汙染之虞。人們夜間可以閱讀、照常生活，夜歸者也能在充足的光源下安全返家。SolarAid 為有需求的人提供太陽能燈。Google.org 很榮幸能為 SolarAid \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003e貢獻一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-solar-type": {
+		"message": "日光"
+	},
+	"nonprofit-water-description": {
+		"message": "我們的生活中不能沒有水，除了基本的飲用之外，舉凡淋浴或食物烹調，都需要用到水。淨水是一項珍貴的資源，許多人都是經由人工挖掘的井，取用深處地下蓄水層中的淨水。在最需要水資源的地方，charity: water 與在地夥伴合作造井，並共同實行其他水源專案。Google.org 很榮幸能為 charity: water \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003e貢獻一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-water-type": {
+		"message": "水井"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "輪椅使用者往往難以事先得知哪些地點方便通行：電影院、餐廳，以及他們需前往的任何地方。Wheelmap (輪椅通行地圖) 為輪椅使用者指示無障礙空間，方便他們規劃出遊路徑，生活也能更多采多姿！"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "輔助行動"
+	},
 	"nonprofit-wwf-description": {
 		"message": "氣候變遷持續破壞世界各地多個生態系統的平衡，影響範圍遍及低緯度和高緯度地區。北極逐漸升高的氣溫導致冰山消融，使得北極熊的棲息地日漸縮小。此外，隨著石油及天然氣的開採和運送等人類活動趨於旺盛，北極熊須面臨更嚴峻的生存挑戰。World Wildlife Fund 在進行科學研究的同時與北極當地的社群密切合作，共同致力於北極熊的保育工作。Google.org 很榮幸能成為 World Wildlife Fund 的\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e贊助單位\u003c/a\u003e，為保育野生動物盡一份心力。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "北極熊"
+	},
+	"nonprofit-wwh-description": {
+		"message": "研究指出，95% 的聽障者可在助聽器的輔助之下重拾聽力，但中低收入國家/地區只有不到 1% 的聽障者有能力取得助聽器。World Wide Hearing (WWH) 為各地孩童提供助聽器和相關服務。目前 WWH 正全力為開發中國家/地區設計可在平板電腦上使用的平價聽障診斷工具，幫助更多聽障者取得助聽器，改善生活品質。"
+	},
+	"nonprofit-wwh-type": {
+		"message": "助聽器"
 	},
 	"notification": {
 		"message": "通知"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "任務控管中心"
 	},
+	"scene_dash": {
+		"message": "企鵝向前衝"
+	},
+	"scene_factory": {
+		"message": "糖果工廠"
+	},
 	"scene_giftmatch": {
 		"message": "禮物快遞"
+	},
+	"scene_glider": {
+		"message": "精靈宅急便"
 	},
 	"scene_gumball": {
 		"message": "彩球掉下來"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "精靈飛俠"
+	},
+	"scene_latlong": {
+		"message": "禮品快遞"
 	},
 	"scene_matching": {
 		"message": "翻牌配對"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "飆風馴鹿"
+	},
+	"scene_runner": {
+		"message": "「鹿」跑有禮"
 	},
 	"scene_santasearch": {
 		"message": "聖誕老人在哪裡？"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "風洞"
+	},
+	"scene_wrap": {
+		"message": "包裝快手"
 	},
 	"score": {
 		"message": "分數"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "僅限今天"
 	},
-	"today_only_1": {
-		"message": "僅限今天"
-	},
 	"tr_country_name": {
 		"message": "土耳其"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "距離出發時間還有"
 	},
 	"tracker_distance_away_km": {
-		"message": "聖誕老人距離你 %distance_away% 公里"
+		"message": "聖誕老人距離你 {{distance_away}} 公里"
 	},
 	"tracker_distance_from_you": {
 		"message": "與您相距多遠"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "您目前位於"
 	},
-	"tracker_intro_welcome": {
-		"message": "歡迎使用"
-	},
 	"tracker_next_stop": {
 		"message": "下一站"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "查看路線"
+	},
+	"tracker_time_from_you_many": {
+		"message": "聖誕老人預計將在 {{hours}} 小時後抵達"
+	},
+	"tracker_time_from_you_one": {
+		"message": "聖誕老人就在不遠處"
 	},
 	"tracker_track": {
 		"message": "追蹤聖誕老人"
@@ -4824,7 +4890,7 @@
 		"message": "英國人不分老少，晚餐時都會在餐桌上玩起聖誕節拉砲來製造歡樂氣氛。拉砲以色紙包成管狀，每一端都有拉環。拉開拉環時，砲管會爆出巨大聲響！裡頭的紙帽、玩具和糖果可在聖誕夜享用。"
 	},
 	"upgrade-warning": {
-		"message": "糟糕！這個版本的瀏覽器不支援聖誕老人追蹤器。如要使用聖誕老人追蹤器，請下載新版瀏覽器。詳情請見：\u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+		"message": "糟糕！這個版本的瀏覽器不支援聖誕老人追蹤器。如要使用聖誕老人追蹤器，請下載新版瀏覽器。詳情請造訪 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
 	},
 	"us_country_name": {
 		"message": "美國"

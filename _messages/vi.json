@@ -123,7 +123,7 @@
 		"message": "Bờ Biển Ngà"
 	},
 	"citylights-contribute": {
-		"message": "Thêm ảnh %location% của riêng bạn"
+		"message": "Thêm ảnh {{location}} của riêng bạn"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Trung tâm Rockefeller"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Ethiopia"
 	},
+	"explore": {
+		"message": "Khám phá"
+	},
 	"fi_country_name": {
 		"message": "Phần Lan"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Trung bình"
 	},
+	"meta_description": {
+		"message": "Sử dụng công cụ Theo chân ông già Noel của Google để theo dõi ông già Noel trên Google Maps khi ông ấy thực hiện hành trình vòng quanh thế giới."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Tiếng Na Uy"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya mang nền giáo dục khoa học thực tế đến với trẻ em trên khắp các vùng nông thôn ở Ấn Độ. Trong cả trung tâm khoa học và xe tải khoa học di động, họ cung cấp mọi thứ, từ kiến thức về hệ mặt trời cho đến cách hoạt động của não bộ. Họ đã tiếp cận hơn 5 triệu trẻ em và 200.000 giáo viên trong 14 tiểu bang ở Ấn Độ; đó là một trong các chương trình giáo dục khoa học lớn nhất trên thế giới! Google.org tự hào là \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003enhà tài trợ\u003c/a\u003e của Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Giáo viên và học sinh"
+	},
+	"nonprofit-enable-description": {
+		"message": "Theo CDC, cứ 7 người trong số 1000 người phải sử dụng chân tay giả và các bộ phận giả thì đắt đỏ - lên tới 10.000 USD! Đối với trẻ em đang lớn, chi phí có thể tăng nhanh. e-Nable là một cộng đồng toàn cầu gồm những người làm việc cùng nhau để tạo ra tay giả in 3D dành cho trẻ em bị khuyết tật chân tay. Google.org đang giúp Enable Community Foundation trong việc hỗ trợ Cộng đồng e-NABLE để thiết kế nhiều tay giả hơn và tăng số trẻ em có thể nhận được tay giả."
+	},
+	"nonprofit-enable-type": {
+		"message": "Chân tay giả"
+	},
 	"nonprofit-jane-description": {
 		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Rừng"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Có nhiều người trên thế giới bị mất thị giác nhưng vẫn còn đôi chút khả năng nhìn được. Google.org đang giúp RNIB phát triển 'mắt kính thông minh' giúp những người có thị giác yếu nhìn thấy hình dạng và bóng dễ dàng hơn. Mắt kính thông minh giúp mọi người dễ nhìn thế giới hơn và giúp họ lấy lại sự độc lập và tự tin."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Mắt kính thông minh"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 tỷ người không được tiếp cận điện và nhiều người phải sử dụng đèn dầu đốt cháy nhiên liệu để thắp sáng khiến ô nhiễm nhà cửa. Tuy nhiên, đèn năng lượng mặt trời hấp thụ năng lượng từ mặt trời và cung cấp ánh sáng trong nhiều giờ vào buổi tối. Chúng giúp bạn đọc sách, vui chơi và về nhà an toàn vào buổi đêm. SolarAid cung cấp đèn năng lượng mặt trời cho nhiều người cần chúng. Google.org tự hào là \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003enhà tài trợ\u003c/a\u003e của SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Ánh dương"
+	},
+	"nonprofit-water-description": {
+		"message": "Chúng ta sử dụng nước để tắm giặt, nấu nướng và tất nhiên là để uống nữa. Nước sạch là một tài nguyên quý giá và nhiều người dựa vào các giếng đào để lấy nước sạch ở tầng nước ngầm nằm sâu trong lòng đất giữa các tầng đá sỏi. charity: water làm việc với các đối tác tại địa phương để xây dựng giếng nước và các dự án nước sạch khác cho những vùng đang rất cần. Google.org tự hào là \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003enhà tài trợ\u003c/a\u003e của charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Giếng"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Những người dùng ngồi xe lăn khó tìm được những địa điểm mà họ có thể tiếp cận: Rạp chiếu phim, Nhà hàng và bất kỳ nơi nào khác mà họ có thể tới. Bản đồ xe lăn hiển thị những địa điểm giúp xe lăn có thể tiếp cận để người dùng ngồi xe lăn chỉ cần dành ít thời gian lên kế hoạch tìm các tuyến đường và dành nhiều thời gian để khám phá thế giới!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Khả năng di động"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Biến đổi khí hậu tiếp tục phá vỡ sự cân bằng của nhiều hệ sinh thái trên thế giới, cả những nơi ấm và lạnh. Ở Bắc cực, gấu bắc cực đang mất đi môi trường sống băng biển của chúng bởi nhiệt độ tăng và phải đối mặt với các mối đe dọa gia tăng từ các hoạt động của con người, chẳng hạn như sự phát triển và vận chuyển dầu và khí đốt. World Wildlife Fund làm việc để đảm bảo sự sống còn của các loài thông qua nghiên cứu khoa học và hợp tác với các cộng đồng bản địa ở Bắc cực. Google.org tự hào là \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003engười hỗ trợ\u003c/a\u003e với World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Gấu bắc cực"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Nghiên cứu cho thấy rằng 95% số người khiếm thính có thể được điều trị bằng máy trợ thính nhưng chưa đến 1% số người ở các quốc gia có thu nhập thấp và trung bình cần máy trợ thính nhận được chúng. World Wide Hearing (WWH) kết nối trẻ em với thế giới bằng cách cung cấp máy trợ thính và dịch vụ trợ thính. WWH đang thiết kế một công cụ chẩn đoán giá cả phải chăng dựa trên máy tính bảng để người khiếm thính sử dụng ở những nước đang phát triển. Vì vậy, ngày càng có nhiều người cần máy trợ thính nhận được chúng."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Thính giác"
 	},
 	"notification": {
 		"message": "Thông báo"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Điều khiển nhiệm vụ"
 	},
+	"scene_dash": {
+		"message": "Chim cánh cụt tấn công"
+	},
+	"scene_factory": {
+		"message": "Nhà máy kẹo"
+	},
 	"scene_giftmatch": {
 		"message": "Trò chơi khớp quà"
+	},
+	"scene_glider": {
+		"message": "Tàu lượn chú lùn"
 	},
 	"scene_gumball": {
 		"message": "Độ nghiêng Gumball"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Động cơ phản lực của chú lùn"
+	},
+	"scene_latlong": {
+		"message": "Giao quà"
 	},
 	"scene_matching": {
 		"message": "Thử tài trí nhớ"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Cuộc đua của Rudolph mũi đỏ"
+	},
+	"scene_runner": {
+		"message": "Người cưỡi tuần lộc"
 	},
 	"scene_santasearch": {
 		"message": "Tìm kiếm ông già Noel"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Hầm gió"
+	},
+	"scene_wrap": {
+		"message": "Wrap Battle"
 	},
 	"score": {
 		"message": "Điểm số"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Chỉ hôm nay"
 	},
-	"today_only_1": {
-		"message": "Chỉ hôm nay"
-	},
 	"tr_country_name": {
 		"message": "Thổ Nhĩ Kỳ"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Khởi hành sau"
 	},
 	"tracker_distance_away_km": {
-		"message": "Ông già Noel cách %distance_away% km"
+		"message": "Ông già Noel cách {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Khoảng cách từ bạn"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Bạn đang ở"
 	},
-	"tracker_intro_welcome": {
-		"message": "Chào mừng bạn đến với"
-	},
 	"tracker_next_stop": {
 		"message": "Điểm dừng tiếp theo"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Xem tuyến đường"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Ông già Noel sẽ đến sau khoảng {{hours}} giờ"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Ông già Noel sẽ đến sớm"
 	},
 	"tracker_track": {
 		"message": "Theo chân ông già Noel"

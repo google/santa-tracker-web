@@ -123,7 +123,7 @@
 		"message": "Costa do Marfim"
 	},
 	"citylights-contribute": {
-		"message": "Adicione suas próprias fotos de %location%"
+		"message": "Adicione suas próprias fotos de {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiópia"
 	},
+	"explore": {
+		"message": "Explorar"
+	},
 	"fi_country_name": {
 		"message": "Finlândia"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Médio"
 	},
+	"meta_description": {
+		"message": "Acompanhe a jornada do bom velhinho pelo mundo no Google Maps com o recurso \"Siga o Papai Noel\"."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norueguês"
 	},
+	"nonprofit-agastya-description": {
+		"message": "A Agastya oferece ensino prático de ciências para crianças da área rural da Índia. Tanto nos centros científicos quanto nas vans móveis de ciência, eles falam de tudo: desde o sistema solar até como o cérebro funciona. Eles já chegaram a mais de cinco milhões de crianças e 200 mil professores em 14 estados da Índia. É um dos maiores programas de educação científica no mundo! A Google.org tem orgulho de ser \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eparceira\u003c/a\u003e da Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Professores e estudantes"
+	},
+	"nonprofit-enable-description": {
+		"message": "De acordo com o Centro de Controle e Prevenção de Doenças (CDC, na sigla em inglês), sete em cada mil pessoas sofrem de diferenças nos membros. As próteses ortopédicas são caras: custam até US$ 10 mil. Para crianças em fase de crescimento, os custos são constantes. A e-Nable é uma comunidade global de pessoas que trabalham juntas para criar mãos impressas em 3D para crianças com diferenças nos membros. A Google.org ajuda a Enable Community Foundation a apoiar a Comunidade e-NABLE a projetar mais mãos e a aumentar o número de crianças que recebem essas mãos."
+	},
+	"nonprofit-enable-type": {
+		"message": "Próteses ortopédicas"
+	},
 	"nonprofit-jane-description": {
 		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore o habitat dos chimpanzés\u003c/a\u003e em Gombe, Tanzânia."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Florestas"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Existem muitas pessoas no mundo que vivem com perda de visão, mas ainda conseguem enxergar um pouco. A Google.org está ajudando o RNIB a desenvolver \"óculos inteligentes\" para ajudar pessoas com pouca visão a ver formas e silhuetas de maneira mais fácil. Os óculos inteligentes tornam o mundo mais fácil de ser visto, ajudando as pessoas a recuperar a independência e a confiança delas."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Óculos inteligentes"
+	},
+	"nonprofit-solar-description": {
+		"message": "Mais de 1,3 bilhão de pessoas não têm acesso a eletricidade, e muitas precisam usar lâmpadas de querosene que queimam combustível e poluem as casas. As lâmpadas solares, no entanto, absorvem energia do sol durante o dia e fornecem horas de luz à noite sem queima ou poluição. Com essas lâmpadas, as pessoas podem ler, brincar e chegar em casa com segurança à noite. A SolarAid oferece acesso às lâmpadas solares a muitos que precisam delas. A Google.org tem orgulho de ser \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eparceira\u003c/a\u003e da SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Luz do sol"
+	},
+	"nonprofit-water-description": {
+		"message": "A água é usada para tomar banho, cozinhar e, claro, beber. Água limpa é um recurso precioso, e muitas pessoas contam com poços escavados manualmente para acessar aquíferos, que contêm água limpa entre camadas de pedra e solo. A charity: water trabalha com parceiros locais para construir poços e outros projetos em locais onde a água é um item de extrema necessidade. A Google.org tem orgulho de ser \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eparceira\u003c/a\u003e da charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Poços"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Pode ser difícil para os cadeirantes descobrir quais lugares são acessíveis: cinemas, restaurantes e aonde mais eles queiram ir. O Wheelmap mostra quais locais são acessíveis para cadeiras de rodas, assim os cadeirantes gastam menos tempo planejando rotas e mais tempo explorando o mundo."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilidade"
+	},
 	"nonprofit-wwf-description": {
 		"message": "As mudanças climáticas continuam a prejudicar o equilíbrio de muitos ecossistemas do mundo, em lugares quentes e frios. No Ártico, os ursos polares estão perdendo seu habitat no mar congelado com o aumento das temperaturas e enfrentam mais ameaças de atividades humanas, como a extração e o transporte de petróleo e gás. O World Wildlife Fund trabalha para garantir a sobrevivência da espécie por meio de pesquisas científicas e com o trabalho em parceria com comunidades nativas do Ártico. O Google.org se orgulha de ser \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eparceiro\u003c/a\u003e do World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Pesquisas sugerem que 95% das pessoas com perda de audição podem ser tratadas com aparelhos de audição, mas menos de 1% das pessoas que precisam dos aparelhos em países de baixa e média renda os recebem. A World Wide Hearing (WWH) conecta crianças ao mundo delas ao fornecer aparelhos e serviços de audição. A WWH está projetando uma ferramenta de diagnóstico de perda de audição com preço acessível e baseada em tablet. Assim, mais pessoas que precisam dos aparelhos podem recebê-los."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Audição"
 	},
 	"notification": {
 		"message": "Notificações"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Central de controle"
 	},
+	"scene_dash": {
+		"message": "Corrida do pinguim"
+	},
+	"scene_factory": {
+		"message": "Fábrica de doces"
+	},
 	"scene_giftmatch": {
 		"message": "Combine presentes"
+	},
+	"scene_glider": {
+		"message": "Duende paraquedista"
 	},
 	"scene_gumball": {
 		"message": "Ladeira de bolas de chiclete"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Jetpack dos duendes"
+	},
+	"scene_latlong": {
+		"message": "Entrega de presentes"
 	},
 	"scene_matching": {
 		"message": "Jogo de memória"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Corrida do Rodolfo"
+	},
+	"scene_runner": {
+		"message": "Rena corredora"
 	},
 	"scene_santasearch": {
 		"message": "Onde está o Papai Noel?"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
+	},
+	"scene_wrap": {
+		"message": "Competição de embrulhos"
 	},
 	"score": {
 		"message": "Pontuação"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Somente hoje"
 	},
-	"today_only_1": {
-		"message": "Somente hoje"
-	},
 	"tr_country_name": {
 		"message": "Turquia"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Saída em"
 	},
 	"tracker_distance_away_km": {
-		"message": "O Papai Noel está a %distance_away% km"
+		"message": "O Papai Noel está a {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distância de onde você está"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Você está em"
 	},
-	"tracker_intro_welcome": {
-		"message": "Bem-vindo(a) a"
-	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Ver trajeto"
+	},
+	"tracker_time_from_you_many": {
+		"message": "O Papai Noel chegará em cerca de {{hours}} horas"
+	},
+	"tracker_time_from_you_one": {
+		"message": "O Papai Noel chegará em breve"
 	},
 	"tracker_track": {
 		"message": "Siga o Papai Noel"
@@ -4824,7 +4890,7 @@
 		"message": "No Reino Unido, pessoas de todas as idades se divertem com as bombas de Natal, que são tubos envoltos em papel colorido com abas nas extremidades. Ao puxá-las, o tubo estoura com um alto estampido. No interior, encontram-se chapéus de papel, brinquedos e doces, garantindo diversão na noite de Natal."
 	},
 	"upgrade-warning": {
-		"message": "Siga o Papai Noel não é compatível com essa versão do navegador. Para acessar Siga o Papai Noel, faça o download de um navegador moderno. Para mais informações, acesse \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Opa! O Siga o Papai Noel não é compatível com essa versão do navegador. Para acessar o Siga o Papai Noel, faça o download de um navegador moderno. Para mais informações, acesse \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

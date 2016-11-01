@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "An Heiligabend präsentieren wir das Weihnachtsmann-Dashboard. Mit dieser Technologie wird der Schlitten des Weihnachtsmanns auf seiner Weltreise angetrieben. Wir haben diese spezielle Vorschau von einem der vielen Entwicklerwichtel des Weihnachtsmanns erhalten, die am Nordpol emsig dabei sind, den Weihnachtsmann bei der Vorbereitung auf seinen großen Tag zu unterstützen. Das Weihnachtsmanns-Dashboard stellt die neuesten und besten Errungenschaften der Google Maps-Technologie und Schlittenkunst vor. Du kannst damit seine Weltreise verfolgen und einiges über seine Zwischenstopps erfahren."
+		"message": "An Heiligabend präsentieren wir das Weihnachtsmann-Dashboard. Mit dieser Technologie wird der Schlitten des Weihnachtsmanns auf seiner Weltreise angetrieben. Wir haben diese spezielle Vorschau von einem der vielen Entwicklerwichtel des Weihnachtsmanns erhalten, die am Nordpol emsig dabei sind, den Weihnachtsmann bei der Vorbereitung auf seinen großen Tag zu unterstützen. Das Weihnachtsmann-Dashboard stellt die neuesten und besten Errungenschaften der Google Maps-Technologie und Schlittenkunst vor. Du kannst damit seine Weltreise verfolgen und einiges über seine Zwischenstopps erfahren."
 	},
 	"about-content-three": {
 		"message": "Google hat gemeinsam mit den Wichteln des Weihnachtsmanns \"Auf den Spuren des Weihnachtsmanns\" auf Google Maps gestaltet und entwickelt. Brauchst du Hilfe oder hast du weitere Fragen? \u003ca href=\"//support.google.com/santatracker\"\u003eWeitere Informationen findest du in der Google Maps-Hilfe.\u003c/a\u003e"
@@ -90,7 +90,7 @@
 		"message": "Kanada"
 	},
 	"ca_tradition": {
-		"message": "Für kanadische Kinder bedeutet Weihnachten meist auch Schnee. Sie spielen warm eingepackt in Mützen und Schals im Schnee, gehen Eislaufen und Schlitten fahren. Am Weihnachtsabend stellen sie dem Weihnachtsmann Milch und Kekse an den Kamin. Manchmal bekommt sein Rentier auch eine Karotte."
+		"message": "Für kanadische Kinder bedeutet Weihnachten meist auch Schnee. Sie spielen warm eingepackt in Mützen und Schals im Schnee, gehen Eislaufen und fahren Schlitten. Am Weihnachtsabend stellen sie dem Weihnachtsmann Milch und Kekse an den Kamin. Manchmal bekommt sein Rentier auch eine Karotte."
 	},
 	"calendar": {
 		"message": "Der Kalender"
@@ -123,7 +123,7 @@
 		"message": "Côte d'Ivoire"
 	},
 	"citylights-contribute": {
-		"message": "Eigene Fotos von %location% hinzufügen"
+		"message": "Eigene Fotos von {{location}} hinzufügen"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Äthiopien"
 	},
+	"explore": {
+		"message": "Entdecken"
+	},
 	"fi_country_name": {
 		"message": "Finnland"
 	},
@@ -684,7 +687,7 @@
 		"message": "Kirgisistan"
 	},
 	"kg_tradition": {
-		"message": "In Kirgisistan kommt am Neujahrsabend Ayaz Ata, Väterchen Frost, und legt Geschenke unter den Neujahrsbaum. Um Mitternacht feiern Familien im ganzen Land dies mit einem Feuerwerk, das die Städte taghell erleuchtet."
+		"message": "In Kirgisistan kommt am Neujahrsabend Ayaz Ata, Väterchen Frost, und legt Geschenke unter den Neujahrsbaum. Um Mitternacht feiern das die Familien im ganzen Land mit einem Feuerwerk, das die Städte taghell erleuchtet."
 	},
 	"ko_language_name": {
 		"message": "Koreanisch"
@@ -711,7 +714,7 @@
 		"message": "Erleuchten"
 	},
 	"lightdescription": {
-		"message": "Bringe deinen Fernseher mit der App \"Auf den Spuren des Weihnachtsmanns\" für Android und mit Chromecast zum Leuchten."
+		"message": "Bring deinen Fernseher mit der Android-App \"Auf den Spuren des Weihnachtsmanns\" und mit Chromecast zum Leuchten."
 	},
 	"lk_country_name": {
 		"message": "Sri Lanka"
@@ -733,6 +736,9 @@
 	},
 	"medium_difficulty": {
 		"message": "Mittel"
+	},
+	"meta_description": {
+		"message": "Mit \"Auf den Spuren des Weihnachtsmanns\" kannst du dem Weihnachtsmann in Google Maps auf seiner Reise um die Welt folgen."
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norwegisch"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya bietet naturwissenschaftliche Bildung für Kinder in den ländlichen Gegenden Indiens. In seinen Wissenschaftszentren und den mobilen Wissenschaftsbussen wird alles vom Sonnensystem bis hin zur Funktionsweise des Gehirns behandelt. Die Organisation hat bisher mehr als 5 Millionen Kinder und 200.000 Lehrer in über 14 Bundesstaaten Indiens erreicht. Damit bietet sie eines der größten naturwissenschaftlichen Bildungsprogramme der Welt. Google.org ist stolz, zu den \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eUnterstützern\u003c/a\u003e von Agastya zu zählen."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Lehrer \u0026amp; Schüler"
+	},
+	"nonprofit-enable-description": {
+		"message": "Dem CDC zufolge weisen 7 von 1.000 Menschen Gliedmaßenabweichungen auf. Prothesen sind jedoch teuer. Sie können bis zu 10.000 € kosten. Bei heranwachsenden Kindern können da schnell große Summen zusammenkommen. e-Nable ist eine globale Gemeinschaft von Menschen, die gemeinsam daran arbeiten, per 3D-Druck gefertigte Hände für Kinder mit Gliedmaßenabweichungen bereitzustellen. Google.org hilft der Enable Community Foundation bei der Unterstützung der e-NABLE-Community, damit sie mehr Handprothesen entwickeln und diese noch mehr Kindern zur Verfügung stellen kann."
+	},
+	"nonprofit-enable-type": {
+		"message": "Prothesen"
+	},
 	"nonprofit-jane-description": {
 		"message": "Schimpansen sind die nächsten lebenden Verwandten des Menschen im Tierreich. Wegen zerstörter Lebensräume, Krankheiten und illegalen Handels gibt es heute weniger als 300.000 von ihnen. Das Jane Goodall Institute (JGI) schützt Schimpansen, indem es ihr Verhalten und ihren Lebensraum untersucht und erforscht. Außerdem fördert das JGI die Bildung einer Community, die die Tierwelt und unsere Umwelt schützen und erhalten möchte. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEntdecke die Lebensräume der Schimpansen\u003c/a\u003e in Gombe, Tansania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Wälder"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Weltweit leiden viele Menschen unter einem teilweisen Verlust des Sehvermögens. Google.org unterstützt das RNIB bei der Entwicklung \"intelligenter Brillen\", durch die Menschen mit eingeschränktem Sehvermögen leichter Formen und Silhouetten erkennen können. Intelligente Brillen können dazu beitragen, die Welt sichtbar zu machen, und Menschen dabei zu helfen, ihre Unabhängigkeit und ihr Selbstvertrauen wiederzufinden."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Intelligente Brillen"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 Milliarden Menschen haben keinen Zugang zu Elektrizität und viele müssen Petroleumlampen verwenden, die infolge der Verbrennung von Brennstoff die Häuser verschmutzen. Solarzellen absorbieren bei Tag die Energie der Sonne und spenden am Abend Licht – ohne Verbrennung und Verschmutzung. Sie sorgen dafür, dass ihr, wenn es draußen dunkel wird, lesen und spielen könnt und sicher nach Hause gelangt. SolarAid bietet auf Solarzellen basierende Lichtquellen für Menschen, die sie benötigen. Google.org ist stolz, zu den \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eUnterstützern\u003c/a\u003e von SolarAid zu zählen."
+	},
+	"nonprofit-solar-type": {
+		"message": "Tageslicht"
+	},
+	"nonprofit-water-description": {
+		"message": "Wir nutzen Wasser zum Duschen und Baden, zum Kochen und natürlich zum Trinken. Sauberes Wasser ist ein wertvoller Rohstoff. Viele Menschen müssen per Hand Brunnen graben, um die tief im Boden zwischen Fels und Erde verborgenen Grundwasserschichten zu erreichen, die sauberes Wasser enthalten. charity: water arbeitet mit Partnern vor Ort zusammen, um dort, wo dies dringend erforderlich ist, Brunnen zu graben und andere Wasserprojekte umzusetzen. Google.org ist stolz, zu den \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eUnterstützern\u003c/a\u003e von charity: water zu zählen."
+	},
+	"nonprofit-water-type": {
+		"message": "Brunnen"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Es kann für Rollstuhlfahrer schwierig sein, herauszufinden, welche Orte für sie zugänglich sind: Kinos, Restaurants oder wo auch immer sie gern hin möchten. Wheelmap zeigt, welche Orte mit dem Rollstuhl zugänglich sind, sodass Rollstuhlfahrer weniger Zeit mit der Wegplanung und mehr Zeit draußen verbringen können."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilität"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Der Klimawandel zerstört das Gleichgewicht vieler Ökosysteme der Welt immer weiter, sowohl an warmen als auch an kalten Orten. In der Arktis verlieren die Eisbären aufgrund der steigenden Temperaturen ihren Lebensraum im Meereis und sind außerdem z. B. durch die Förderung und Verschiffung von Öl und Gas bedroht. Der WWF arbeitet daran, das Überleben der Arten durch wissenschaftliche Forschung und durch die Zusammenarbeit mit arktischen indigenen Gemeinschaften zu sichern. Google ist stolz darauf, \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eden WWF zu unterstützen\u003c/a\u003e."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polarbär"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Untersuchungen zufolge kann 95 % aller Menschen mit eingeschränktem Hörvermögen durch Hörgeräte geholfen werden, aber weniger als 1 % der Menschen in Ländern mit niedrigen und mittleren Einkommen, die Hörhilfen benötigen, erhalten diese auch. World Wide Hearing (WWH) macht die Welt für Kinder durch Hören erfahrbar, indem es Hörgeräte und entsprechende Dienstleistungen anbietet. WWH entwickelt ein kostengünstiges, tablet-basiertes Tool für die Diagnose von Hörbeeinträchtigungen für den Einsatz in Entwicklungsländern. Dies trägt dazu bei, dass Menschen, die Hörhilfen benötigen, diese auch tatsächlich erhalten."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Hörhilfen"
 	},
 	"notification": {
 		"message": "Benachrichtigungen"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Kontrollzentrum"
 	},
+	"scene_dash": {
+		"message": "Pinguin gib Acht"
+	},
+	"scene_factory": {
+		"message": "Süßigkeitenfabrik"
+	},
 	"scene_giftmatch": {
 		"message": "Geschenkpaare"
+	},
+	"scene_glider": {
+		"message": "Schwebender Wichtel"
 	},
 	"scene_gumball": {
 		"message": "Lolli-Flipper"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Wichtel-Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Geschenkepost"
 	},
 	"scene_matching": {
 		"message": "Memory"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfs Rennen"
+	},
+	"scene_runner": {
+		"message": "Rasendes Rentier"
 	},
 	"scene_santasearch": {
 		"message": "Such den Weihnachtsmann"
@@ -1022,6 +1085,9 @@
 	"scene_windtunnel": {
 		"message": "Im Windkanal"
 	},
+	"scene_wrap": {
+		"message": "Verpackungskünstler"
+	},
 	"score": {
 		"message": "Bewertung"
 	},
@@ -1038,7 +1104,7 @@
 		"message": "Teile diese Nachricht mit Deinen Freunden auf Google+."
 	},
 	"share-text": {
-		"message": "Ich habe diese Postkarte in \"Auf den Spuren des Weihnachtsmanns\" bei Google für dich erstellt. Frohe Feiertage!"
+		"message": "Ich habe diese Postkarte in \"Auf den Spuren des Weihnachtsmanns\" bei Google für dich gebastelt. Frohe Feiertage!"
 	},
 	"share-this": {
 		"message": "Teilen"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Nur heute"
 	},
-	"today_only_1": {
-		"message": "Nur heute"
-	},
 	"tr_country_name": {
 		"message": "Türkei"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Abfahrt in"
 	},
 	"tracker_distance_away_km": {
-		"message": "Der Weihnachtsmann ist %distance_away% km entfernt."
+		"message": "Der Weihnachtsmann ist {{distance_away}} km entfernt."
 	},
 	"tracker_distance_from_you": {
 		"message": "Entfernung zu Ihnen"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Sie befinden sich in"
 	},
-	"tracker_intro_welcome": {
-		"message": "Willkommen in"
-	},
 	"tracker_next_stop": {
 		"message": "Nächster Halt"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Route anzeigen"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Der Weihnachtsmann kommt in circa {{hours}} Stunden an"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Der Weihnachtsmann ist im Anflug"
 	},
 	"tracker_track": {
 		"message": "Weihnachtsmann orten"

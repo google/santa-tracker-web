@@ -51,7 +51,7 @@
 		"message": "Torna a l'eina de seguiment"
 	},
 	"bd_country_name": {
-		"message": "Bangla Desh"
+		"message": "Bangladesh"
 	},
 	"be_country_name": {
 		"message": "Bèlgica"
@@ -123,7 +123,7 @@
 		"message": "Costa d'Ivori"
 	},
 	"citylights-contribute": {
-		"message": "Afegiu fotos vostres de %location%"
+		"message": "Afegiu fotos vostres de {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiòpia"
 	},
+	"explore": {
+		"message": "Explora"
+	},
 	"fi_country_name": {
 		"message": "Finlàndia"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Mitjana"
 	},
+	"meta_description": {
+		"message": "Utilitza Segueix el Pare Noel de Google per acompanyar el Pare Noel en els seus viatges arreu del món mitjançant Google Maps."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Noruec"
 	},
+	"nonprofit-agastya-description": {
+		"message": "La fundació Agastya ensenya coneixements pràctics de ciència als nens de totes les zones rurals de l'Índia. Tant als seus dos centres de ciències com a les furgonetes de ciència mòbils, tracten tot tipus de temes, des del sistema solar fins al funcionament del cervell. Han arribat a més de 5 milions de nens i 200.000 professors dels 14 estats de l'Índia. Es tracta d'un dels programes d'educació més grans de tot el món. A Google.org estem orgullosos de col·laborar amb \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eAgastya\u003c/a\u003e."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Professors i estudiants"
+	},
+	"nonprofit-enable-description": {
+		"message": "Segons l'organització Centers for Disease Control (CDC), 7 de cada 1000 persones presenten diferències en les extremitats i necessiten pròtesis que poden arribar a costar 10.000 USD. La despesa en pròtesis augmenta ràpidament quan els usuaris són nens i estan en edat de creixement. E-Nable és una comunitat de persones de tot el món que treballen per fabricar pròtesis de mans mitjançant impressió 3D destinades als nens que les necessiten. Google.org col·labora amb Enable Community Foundation i recolza la tasca de la comunitat d'e-NABLE perquè puguin dissenyar més pròtesis i arribar a més nens."
+	},
+	"nonprofit-enable-type": {
+		"message": "Pròtesis d'extremitats"
+	},
 	"nonprofit-jane-description": {
 		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Boscos"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Al món hi viuen moltes persones que pateixen una pèrdua parcial de visió, però no total. Google.org col·labora amb RNIB per desenvolupar unes “ulleres intel·ligents” que permetin a les persones amb baixa visió percebre millor les formes i les siluetes. Aquestes ulleres intel·ligents ajuden a veure el món i a recuperar la independència i confiança."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Ulleres intel·ligents"
+	},
+	"nonprofit-solar-description": {
+		"message": "Al món, hi ha 1.300 milions de persones que no tenen accés a l'electricitat, i moltes han de fer servir làmpades de querosè, un combustible que contamina les seves llars. Les làmpades solars, en canvi, absorbeixen l'energia del sol durant el dia i proporcionen hores de llum a la nit sense cremar ni contaminar. Permeten llegir, jugar i arribar a casa de manera segura quan és fosc. SolarAid proporciona làmpades solars a moltes de les persones que les necessiten. A Google.org estem orgullosos de col·laborar amb \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eSolarAid\u003c/a\u003e."
+	},
+	"nonprofit-solar-type": {
+		"message": "Llum solar"
+	},
+	"nonprofit-water-description": {
+		"message": "Utilitzem l'aigua per dutxar-nos, per cuinar, i evidentment, per beure. L'aigua neta és un recurs molt valuós, i moltes persones depenen de pous excavats manualment per accedir als aqüífers, que contenen aigua neta al fons entre capes de pedra i terra. L'organització charity: water treballa amb institucions locals per construir pous i altres projectes relacionats amb l'aigua allà on realment són necessaris. A Google.org estem orgullosos de col·laborar amb \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003echarity: water\u003c/a\u003e."
+	},
+	"nonprofit-water-type": {
+		"message": "Pous"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Als usuaris de cadires de rodes els pot resultar difícil esbrinar quins llocs són accessibles, per exemple, quan volen anar al cinema, al restaurant o a qualsevol altre lloc. Wheelmap mostra els llocs que són accessibles amb cadires de rodes perquè els usuaris que en necessiten puguin passar menys temps planejant les rutes i més temps explorant el món."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitat"
+	},
 	"nonprofit-wwf-description": {
 		"message": "El canvi climàtic continua alterant l'equilibri de molts ecosistemes del món, tant a les zones càlides com a les fredes. A l'Àrtic, els óssos polars estan perdent el seu hàbitat de la banquisa a causa de l'augment de les temperatures, i s'enfronten a més amenaces procedents de les activitats humanes, com ara les explotacions i el transport de petroli i de gas. World Wildlife Fund treballa per garantir la supervivència de les espècies mitjançant la recerca científica i treballa en cooperació amb comunitats natives de l'Àrtic. A Google.org estem orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecol·laborar\u003c/a\u003e amb World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ós polar"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Les investigacions mostren que el 95% de les persones amb pèrdua d'audició es poden tractar amb audiòfons, però en els països amb una renta mitjana o baixa, menys de l'1% de les persones que en necessiten n'aconsegueixen. L'organització World Wide Hearing (WWH) ajuda els infants a descobrir el món proporcionant-los audiòfons i serveis d'audició. Actualment està dissenyant una eina econòmica per a tauletes que servirà per diagnosticar la pèrdua d'audició en els països en vies de desenvolupament. D'aquesta manera, moltes més persones podran rebre els audiòfons que necessiten."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Audició"
 	},
 	"notification": {
 		"message": "Notificacions"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Control de la missió"
 	},
+	"scene_dash": {
+		"message": "Carrera de pingüins"
+	},
+	"scene_factory": {
+		"message": "Fàbrica de llaminadures"
+	},
 	"scene_giftmatch": {
 		"message": "Joc d'emparellar regals"
+	},
+	"scene_glider": {
+		"message": "Elf en parapent"
 	},
 	"scene_gumball": {
 		"message": "Joc de guiar els caramels"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Entrega de regals"
 	},
 	"scene_matching": {
 		"message": "El joc de les parelles"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "La cursa de trineus de Rudolph"
+	},
+	"scene_runner": {
+		"message": "Ren a la carrera"
 	},
 	"scene_santasearch": {
 		"message": "On és el Pare Noel?"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vent"
+	},
+	"scene_wrap": {
+		"message": "Batalla d'embolicar regals"
 	},
 	"score": {
 		"message": "Puntuació"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Només avui"
 	},
-	"today_only_1": {
-		"message": "Només avui"
-	},
 	"tr_country_name": {
 		"message": "Turquia"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Sortirà d'aquí a"
 	},
 	"tracker_distance_away_km": {
-		"message": "El Pare Noel és a %distance_away% km"
+		"message": "El Pare Noel és a {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distància respecte a l'usuari"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Us trobeu a"
 	},
-	"tracker_intro_welcome": {
-		"message": "Us donem la benvinguda a"
-	},
 	"tracker_next_stop": {
 		"message": "Propera parada"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Mostra la ruta"
+	},
+	"tracker_time_from_you_many": {
+		"message": "El Pare Noel arribarà en aproximadament {{hours}} hores"
+	},
+	"tracker_time_from_you_one": {
+		"message": "El Pare Noel arribarà aviat"
 	},
 	"tracker_track": {
 		"message": "Seguiu el Pare Noel"
@@ -2337,7 +2403,7 @@
 		"message": "França"
 	},
 	"trivia_beginner_097_answer1": {
-		"message": "Bangla Desh"
+		"message": "Bangladesh"
 	},
 	"trivia_beginner_097_answer2": {
 		"message": "Nicaragua"
@@ -3252,7 +3318,7 @@
 		"message": "Oman"
 	},
 	"trivia_hard_076_answer2": {
-		"message": "Bangla Desh"
+		"message": "Bangladesh"
 	},
 	"trivia_hard_077": {
 		"message": "Quin país limita amb Rússia i Geòrgia?"
@@ -4125,7 +4191,7 @@
 		"message": "Portugal"
 	},
 	"trivia_medium_044_answer1": {
-		"message": "Bangla Desh"
+		"message": "Bangladesh"
 	},
 	"trivia_medium_044_answer2": {
 		"message": "Països Baixos"
@@ -4548,7 +4614,7 @@
 		"message": "Filipines"
 	},
 	"trivia_medium_079_answer2": {
-		"message": "Bangla Desh"
+		"message": "Bangladesh"
 	},
 	"trivia_medium_080": {
 		"message": "Quin país de les Grans Antilles utilitza l'anglès com a llengua oficial?"
@@ -4824,7 +4890,7 @@
 		"message": "Al Regne Unit, els més riallers s'ho passen d'allò més bé amb els crackers mentre sopen. Són cilindres embolicats amb paper de colors que tenen llengüetes als extrems. Quan s'estiren aquestes llengüetes, el cilindre explota i fa un fort soroll. En poden sortir barrets de paper, joguines i caramels per alegrar la nit de Nadal."
 	},
 	"upgrade-warning": {
-		"message": "Segueix el Pare Noel no és compatible amb aquesta versió del vostre navegador. Per accedir a Segueix el Pare Noel, cal que baixeu un navegador més modern. Per obtenir més informació, consulteu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Segueix el Pare Noel no és compatible amb la versió del vostre navegador. Per accedir a Segueix el Pare Noel, heu de baixar un navegador més modern. Per obtenir més informació, visiteu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estats Units"

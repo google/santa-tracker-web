@@ -123,7 +123,7 @@
 		"message": "Elevandiluurannik"
 	},
 	"citylights-contribute": {
-		"message": "Lisage oma fotod asukohast %location%"
+		"message": "Lisage oma fotod asukohast {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etioopia"
 	},
+	"explore": {
+		"message": "Avastamine"
+	},
 	"fi_country_name": {
 		"message": "Soome"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Keskmine"
 	},
+	"meta_description": {
+		"message": "Kasutage Google'i rakendust Santa Tracker. Võtke appi Google Maps ja järgnege jõuluvanale tema teekonnal ümber maailma."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "norra keel"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya viib praktilise loodusteaduse lasteni kõikjal India maapiirkondades. Oma teaduskeskustes ja teadusbussides käsitlevad nad paljusid eri teemasid alates päikesesüsteemist ja lõpetades aju tööpõhimõtetega. Nad on jõudnud rohkem kui viie miljoni lapse ja 200 000 õpetajani India 14 osariigis – tegu on ühe suurima kooliteadusprogrammiga maailmas! Google.org on Agastya uhke \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etoetaja\u003c/a\u003e."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Õpetajad ja õpilased"
+	},
+	"nonprofit-enable-description": {
+		"message": "CDC andmetel on jäsemepuue seitsmel inimesel tuhandest. Samas on jäsemeproteesid kallid, makstes kuni 10 000 dollarit! Kasvavad lapsed vajavad korduvalt uusi proteese ja kulud suurenevad kiiresti. e-NABLE on ülemaailmne kogukond inimestest, kes valmistavad 3D-prinditud käeproteese jäsemepuudega lastele. Google.org aitab organisatsioonil Enable Community Foundation toetada kogukonda e-NABLE käeproteeside disainimisel, et rohkem lapsi neist kasu saaks."
+	},
+	"nonprofit-enable-type": {
+		"message": "Jäsemeproteesid"
+	},
 	"nonprofit-jane-description": {
 		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Metsad"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Maailmas on palju nägemispuudega inimesi, kellel on siiski mõningane nägemisvõime alles. Google.org aitab RNIB-il välja töötada „nutiprille”, mille abil võivad vähenenud nägemisvõimega inimesed paremini kontuure ja siluette eristada. Nutiprillid aitavad neil maailma näha ning sõltumatumaks ja enesekindlamaks saada."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Nutiprillid"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miljardil inimesel ei ole juurdepääsu elektrienergiale ning nad peavad kasutama petrooleumilampe, mis on tuleohtlikud ja saastavad kodusid. Päikeselambid seevastu salvestavad päeval päikeseenergiat ning valgustavad pikki õhtutunde ilma tuleohu ja saasteta. Need aitavad inimestel lugeda, mängida ja õhtul ohutult koju jõuda. Google.org on programmi SolarAid uhke \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etoetaja\u003c/a\u003e."
+	},
+	"nonprofit-solar-type": {
+		"message": "Päikesevalgus"
+	},
+	"nonprofit-water-description": {
+		"message": "Kasutame vett duši all ja vannis käimiseks, toidu valmistamiseks ja muidugi janu kustutamiseks. Puhas vesi on hinnaline loodusvara, aga paljud peavad seda ammutama käsitsi kaevatud kaevudest, millesse koguneb sügaval maapinnas asuv põhjavesi. Programm charity: water teeb kohalike partneritega koostööd kaevude rajamiseks ja muude veevarustusprojektide elluviimiseks seal, kus neid vajatakse. Google.org on programmi charity: water uhke \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etoetaja\u003c/a\u003e."
+	},
+	"nonprofit-water-type": {
+		"message": "Kaev"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Ratastoolis inimestel võib olla raske välja selgitada, kas konkreetne koht on ratastooliga juurdepääsetav: kinod, restoranid ja muud kohad, mis neid huvitada võivad, on tundmatu maa. Wheelmap näitab, kuhu ratastooliga pääseb, et ratastoolis inimesed kulutaksid vähem aega oma marsruudi plaanimisele ja rohkem aega maailma avastamisele!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Liikumisabivahendid"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Kliimamuutused häirivad jätkuvalt paljude maailma ökosüsteemide tasakaalu (nii soojades kui ka külmades piirkondades). Temperatuuritõusu tõttu on Arktikas hävimas jääkarude merejääl asuvad elupaigad. Lisaks ohustab jääkarusid ka inimtegevus, nt nafta ja gaasi puurimine ning tarnimine. Organisatsiooni World Wildlife Fund eesmärgiks on tagada liikide ellujäämine ning selleks viiakse läbi teadusuuringuid ja tehakse koostööd Arktika kohalike kogukondadega. Organisatsioonil Google.org on au olla organisatsiooni World Wildlife Fund \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etoetaja\u003c/a\u003e."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Jääkaru"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Uuringud näitavad, et kuulmisabivahenditest saaks abi 95% kuulmislangusega inimestest, kuid madala ja keskmise sissetulekutasemega riikides kasutab kuulmisabivahendeid vaid 1% neid vajavatest inimestest. Organisatsioon World Wide Hearing (WWH) aitab lastel ümbritseva maailmaga sidestuda, pakkudes neile kuulmisabivahendeid ja teenuseid. WWH töötab välja arengumaades kasutamiseks mõeldud taskukohast tahvelarvutipõhist vahendit kuulmislanguse diagnoosimiseks. See aitab viia kuulmisabivahendid rohkemate abivajajateni."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Kuulmine"
 	},
 	"notification": {
 		"message": "Märguanded"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Juhtimiskeskus"
 	},
+	"scene_dash": {
+		"message": "Pingviinijooks"
+	},
+	"scene_factory": {
+		"message": "Kommivabrik"
+	},
 	"scene_giftmatch": {
 		"message": "Kingiloos"
+	},
+	"scene_glider": {
+		"message": "Päkapikukommando"
 	},
 	"scene_gumball": {
 		"message": "Nätsukommid"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Päkapiku rakettranits"
+	},
+	"scene_latlong": {
+		"message": "Kingid kohale"
 	},
 	"scene_matching": {
 		"message": "Mälumäng"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfi võidusõit"
+	},
+	"scene_runner": {
+		"message": "Põhjapõdrajooks"
 	},
 	"scene_santasearch": {
 		"message": "Jõuluvana otsing"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Tuuletunnel"
+	},
+	"scene_wrap": {
+		"message": "Kiirpakkija"
 	},
 	"score": {
 		"message": "Tulemus"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Ainult täna"
 	},
-	"today_only_1": {
-		"message": "Ainult täna"
-	},
 	"tr_country_name": {
 		"message": "Türgi"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Teele asumiseni jäänud aeg"
 	},
 	"tracker_distance_away_km": {
-		"message": "Jõuluvana on %distance_away% km kaugusel"
+		"message": "Jõuluvana on {{distance_away}} km kaugusel"
 	},
 	"tracker_distance_from_you": {
 		"message": "Kaugus teist"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Olete asukohas"
 	},
-	"tracker_intro_welcome": {
-		"message": "Tere tulemast rakendusse"
-	},
 	"tracker_next_stop": {
 		"message": "Järgmine peatus"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Vaadake marsruuti"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Jõuluvana tuleb ligikaudu {{hours}} tunni pärast"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Jõuluvana tuleb varsti"
 	},
 	"tracker_track": {
 		"message": "Jälgige jõuluvana teekonda"
@@ -4824,7 +4890,7 @@
 		"message": "Ühendkuningriigis tunnevad kõik jõuluõhtusöögil osalejad suurt rõõmu paukkommidest. Need on värvilisse paberisse pakitud torud, mida saab kummastki otsast tõmmata. Otste tõmbamisel puruneb toru kõva plaksuga. Toru sees on pabermütsid, mänguasjad ja kommid, mida saab jõuluõhtul nautida."
 	},
 	"upgrade-warning": {
-		"message": "Vabandust! Teie brauseri versioon ei toeta Jõuluvana teekonna jälgimist. Juurdepääsuks Jõuluvana teekonna jälgimisele laadige alla ajakohane brauser. Lisateavet leiate saidilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oih! Teie brauseri versioon ei toeta jõuluvana teekonna jälgimise rakendust. Jõuluvana teekonna jälgimiseks laadige alla uuem brauser. Lisateavet leiate aadressilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Ameerika Ühendriigid"

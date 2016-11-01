@@ -3,7 +3,7 @@
 		"message": "크리스마스 이브가 되면 산타의 대시보드가 공개됩니다. 대시보드는 산타가 전 세계를 도는 동안 썰매를 작동시키는 기술입니다. 북국에서 열심히 산타의 크리스마스 준비를 돕는 개발자 엘프가 대시보드를 미리 볼 수 있는 특별한 기회를 Google에 제공했습니다. Google 지도 기술과 썰매 공학의 정수를 소개하는 산타의 대시보드를 통해 전 세계에서 산타를 추적할 수 있으며 산타가 방문한 곳에 대한 재미있는 일반상식도 알아볼 수 있습니다."
 	},
 	"about-content-three": {
-		"message": "산타의 엘프 친구들의 도움을 받아 Google에서 Google 지도 산타 추적기를 만들고 개발했습니다. 도움이 필요하거나 다른 궁금한 점이 있나요? \u003ca href=\"//support.google.com/santatracker\"\u003e도움말 센터\u003c/a\u003e를 방문하세요."
+		"message": "산타의 엘프 친구들의 도움을 받아 Google에서 Google 지도 산타 추적기를 만들고 개발했습니다. 도움이 필요하거나 다른 궁금한 점이 있나요? \u003ca href=\"//support.google.com/santatracker\"\u003e고객센터\u003c/a\u003e를 방문하세요."
 	},
 	"about-content-two": {
 		"message": "친절한 엘프들이 산타가 여정을 준비하는 동안 산타마을을 살펴볼 수 있도록 초대했습니다. 산타마을을 방문하여 이곳저곳 살펴보세요. 재미있는 즐길거리를 발견하거나 흥미로운 엘프 친구들을 만나 볼 수 있습니다."
@@ -123,7 +123,7 @@
 		"message": "코트디부아르"
 	},
 	"citylights-contribute": {
-		"message": "내가 찍은 %location% 사진 추가하기"
+		"message": "내가 찍은 {{location}} 사진 추가하기"
 	},
 	"citylights-panorama-01-description": {
 		"message": "록펠러 광장"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "에티오피아"
 	},
+	"explore": {
+		"message": "탐색"
+	},
 	"fi_country_name": {
 		"message": "핀란드"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "보통"
 	},
+	"meta_description": {
+		"message": "Google 산타 추적기를 사용해 Google 지도에서 전 세계를 도는 산타클로스의 여정을 지켜봐 주세요"
+	},
 	"mg_country_name": {
 		"message": "마다가스카르"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "노르웨이어"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya는 인도 전역의 시골 거주 아동에게 과학 실습 교육을 제공합니다. 과학 센터와 이동식 과학 차량에서 태양계에서부터 뇌의 작동 원리에 이르기까지 다양한 주제를 다룹니다. 인도의 14개 주에서 5백만 명의 아동과 20만 명의 교사를 교육하는 전 세계에서 가장 규모가 큰 과학 교육 프로그램입니다. Google.org는 Agastya를 \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e후원\u003c/a\u003e합니다."
+	},
+	"nonprofit-agastya-type": {
+		"message": "교사 및 학생"
+	},
+	"nonprofit-enable-description": {
+		"message": "CDC에 따르면 1,000명 중 7명이 팔다리 장애로 불편함을 겪고 있는데 의수와 의족은 10,000달러에 이를 정도로 고가입니다. 특히 성장기의 아동은 비용이 급격하게 늘어날 수 있습니다. e-NABLE은 손이 불편한 아동을 위해 3D 프린터로 의수를 만드는 글로벌 공동체입니다. Google.org는 Enable Community Foundation을 도와 e-NABLE 공동체에서 더 많은 의수를 설계하고 더 많은 아동에게 의수를 제공할 수 있도록 후원합니다."
+	},
+	"nonprofit-enable-type": {
+		"message": "의수족"
+	},
 	"nonprofit-jane-description": {
 		"message": "침팬지는 동물의 왕국에서 인간과 가장 가까운 친척입니다. 현재 서식지 감소, 질병, 불법 거래로 인해 30만 마리 이하의 침팬지만 남아 있습니다. Jane Goodall Institute(JGI, 제인 구달 협회)는 침팬지를 관찰하고 행동 양식을 파악하여 침팬지는 물론 침팬지 서식지를 보호하고 있습니다. 또한 JGI는 야생 동물을 보호하고 환경을 보전하는 공동체를 구축하기 위해 노력하고 있습니다. 탄자니아 곰베에 있는 \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e침팬지 서식지를 살펴보세요\u003c/a\u003e."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "삼림"
 	},
+	"nonprofit-rnib-description": {
+		"message": "세상에는 시력을 완전히 상실하는 경우도 있지만 시력이 일부 남아 있는 사람도 있습니다. Google.org가 후원하는 RNIB는 저시력 시각 장애인이 형체와 윤곽을 보다 쉽게 볼 수 있도록 도와주는 '스마트 안경'을 개발하고 있습니다. 스마트 안경은 저시력 시각 장애인의 시력을 보조하여 자립심과 자신감을 되찾게 해 줍니다."
+	},
+	"nonprofit-rnib-type": {
+		"message": "스마트 안경"
+	},
+	"nonprofit-solar-description": {
+		"message": "전 세계적으로 전기를 전혀 이용할 수 없는 사람이 13억 명에 이르고, 여전히 많은 사람들이 연소 과정에서 집 내부의 공기를 오염시키는 등유 램프를 사용하고 있습니다. 하지만 태양광 전구는 낮 동안 햇빛으로부터 에너지를 흡수하여 해가 진 후에 연료 연소나 공기 오염 없이 몇 시간 동안 조명을 제공하므로 집에서 저녁 시간을 즐기고 책을 읽고 방범을 강화할 수 있습니다. SolarAid는 조명이 필요한 많은 사람들에게 태양광 전구를 제공합니다. Google.org는 SolarAid를 \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003e후원\u003c/a\u003e합니다."
+	},
+	"nonprofit-solar-type": {
+		"message": "태양광 전구"
+	},
+	"nonprofit-water-description": {
+		"message": "샤워, 목욕, 요리를 하려면 물이 필요합니다. 물론 식수도 필요합니다. 깨끗한 물은 귀중한 자원이며 많은 사람들이 대수층에 접근하기 위해 손으로 판 우물에 의존하고 있습니다. 대수층은 깨끗한 담수가 저장되어 있는 암반과 토양 사이의 층으로 땅속 깊은 곳에 있습니다. charity: water는 현지 파트너와 협력하여 우물을 파고 도움이 필요한 다른 담수 관련 프로젝트를 지원합니다. Google.org는 charity: water를 \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003e후원\u003c/a\u003e합니다."
+	},
+	"nonprofit-water-type": {
+		"message": "우물"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "휠체어 사용자에게는 극장, 음식점 및 기타 이동할 만한 장소가 휠체어로 접근할 수 있는 곳인지 파악하는 것이 쉽지 않습니다. Wheelmap은 휠체어로 접근할 수 있는 위치를 보여주므로 휠체어 사용자가 이동 경로를 계획하는 데 걸리는 시간이 줄어들고 실제 목적지에서 보낼 수 있는 시간이 늘어납니다."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "이동성"
+	},
 	"nonprofit-wwf-description": {
 		"message": "기후 변화로 인해 온난 지대와 한랭 지대를 모두 포함해 전 세계 여러 곳에서 생태계의 균형이 계속해서 교란되고 있습니다. 북극에서는 북극곰이 온도 상승으로 해빙 서식지를 잃고 있으며 석유 및 가스 개발과 수송 같은 인간의 활동 때문에 추가적인 위협에 직면했습니다. World Wildlife Fund(세계 야생 생물 기금)는 과학 연구 및 북극 원주민 공동체와의 협력을 통해 위기에 처한 종의 생존을 돕기 노력하고 있습니다. Google.org는 World Wildlife Fund를 \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e후원\u003c/a\u003e합니다."
 	},
 	"nonprofit-wwf-type": {
 		"message": "북극곰"
+	},
+	"nonprofit-wwh-description": {
+		"message": "연구에 의하면 청력이 손실된 사람의 95%가 보청기로 청력을 보조할 수 있습니다. 하지만 소득 수준이 중하위권인 국가에서는 보청기를 장만할 수 있는 사람은 보청기가 필요한 사람의 1% 미만에 불과합니다. WWH(World Wide Hearing)는 아동에게 보청기 및 관련 서비스를 제공하기 위해 노력하고 있습니다. WWH는 개발도상국에서 사용할 수 있는 저렴한 태블릿 기반의 난청 분석 도구를 개발하고 있습니다. 이를 통해 보청기를 필요로 하는 보다 많은 사람들에게 보청기를 제공하고자 합니다."
+	},
+	"nonprofit-wwh-type": {
+		"message": "청력"
 	},
 	"notification": {
 		"message": "알림"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "관제 센터"
 	},
+	"scene_dash": {
+		"message": "펭귄 질주"
+	},
+	"scene_factory": {
+		"message": "사탕 공장"
+	},
 	"scene_giftmatch": {
 		"message": "선물 맞추기"
+	},
+	"scene_glider": {
+		"message": "엘프 활공"
 	},
 	"scene_gumball": {
 		"message": "풍선껌 기울이기"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "제트 추진 엘프"
+	},
+	"scene_latlong": {
+		"message": "선물 배달"
 	},
 	"scene_matching": {
 		"message": "기억력 테스트"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "루돌프 경주"
+	},
+	"scene_runner": {
+		"message": "사슴 달리기"
 	},
 	"scene_santasearch": {
 		"message": "산타 찾기"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "바람 부는 터널 통과하기"
+	},
+	"scene_wrap": {
+		"message": "선물 포장 시합"
 	},
 	"score": {
 		"message": "점수"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "오늘만"
 	},
-	"today_only_1": {
-		"message": "오늘만"
-	},
 	"tr_country_name": {
 		"message": "터키"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "출발 시간"
 	},
 	"tracker_distance_away_km": {
-		"message": "산타가 %distance_away%km 떨어진 곳에 있습니다."
+		"message": "산타가 {{distance_away}}km 떨어진 곳에 있습니다."
 	},
 	"tracker_distance_from_you": {
 		"message": "산타와의 거리"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "내 위치"
 	},
-	"tracker_intro_welcome": {
-		"message": "환영합니다."
-	},
 	"tracker_next_stop": {
 		"message": "다음 방문지"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "경로 보기"
+	},
+	"tracker_time_from_you_many": {
+		"message": "산타가 약 {{hours}}시간 후에 도착합니다."
+	},
+	"tracker_time_from_you_one": {
+		"message": "산타가 곧 도착합니다."
 	},
 	"tracker_track": {
 		"message": "산타 추적"

@@ -123,7 +123,7 @@
 		"message": "Costa de Marfil"
 	},
 	"citylights-contribute": {
-		"message": "Añadir tus fotos de %location%"
+		"message": "Añadir tus fotos de {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopía"
 	},
+	"explore": {
+		"message": "Explorar"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -654,7 +657,7 @@
 		"message": "Irlanda"
 	},
 	"improve_google_translate": {
-		"message": "Ayudar a mejorar el Traductor de Google"
+		"message": "Ayuda a mejorar el Traductor de Google"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Medio"
 	},
+	"meta_description": {
+		"message": "Utiliza Seguir a Papá Noel de Google para acompañar a Papá Noel en su viaje por todo el mundo a través de Google Maps."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Noruego"
 	},
+	"nonprofit-agastya-description": {
+		"message": "El objetivo de Agastya es acercar la educación científica práctica a los niños de entornos rurales de toda la India. Ya sea de forma estática (en centros de ciencias) o de forma móvil (en furgonetas de ciencias), explican temas que van desde la estructura del sistema solar hasta el funcionamiento del cerebro. Así, han llegado ya a más de 5 millones de niños y 200.000 profesores de 14 estados de la India. De hecho, es uno de los mayores programas educativos en materia científica de todo el mundo. Por eso, Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eapoya\u003c/a\u003e con gran orgullo la causa de Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Docencia y alumnado"
+	},
+	"nonprofit-enable-description": {
+		"message": "Según Centers for Disease Control (CDC), 7 de cada 1000 personas presentan diversidad funcional en sus extremidades y necesitan costosas prótesis de hasta 10.000 USD. El gasto en prótesis aumenta rápidamente cuando los usuarios son niños en fase de crecimiento. e-Nable es una comunidad de personas de todo el mundo que trabajan codo con codo para fabricar manos protésicas mediante impresión 3D destinadas a niños que las necesitan. Google.org colabora con Enable Community Foundation para apoyar a e-NABLE Community en su esfuerzo por diseñar más prótesis y llegar a más niños que las necesitan."
+	},
+	"nonprofit-enable-type": {
+		"message": "Prótesis de extremidades"
+	},
 	"nonprofit-jane-description": {
 		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eObserva el hábitat de los chimpancés\u003c/a\u003e de Gombe, Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Bosques"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Hay miles de personas en todo el mundo que, pese a cierta pérdida, conservan algo de visión. Google.org colabora con RNIB para desarrollar \"gafas inteligentes\" con las que las personas con escasa visión puedan percibir mejor formas y siluetas. Estas gafas inteligentes permiten ver el mundo con otros ojos, ya que ayudan a recuperar la confianza y la independencia."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Gafas inteligentes"
+	},
+	"nonprofit-solar-description": {
+		"message": "En el mundo, 1.300 millones de personas no tienen acceso a una red eléctrica y recurren a lámparas de queroseno, un combustible que contamina sus hogares. Sin embargo, los dispositivos de iluminación solares absorben la energía del sol durante el día y proporcionan horas de luz al llegar la noche sin combustión ni contaminación alguna. Así, permiten leer, jugar y llegar a casa sano y salvo por la noche. SolarAid proporciona acceso a la iluminación solar a muchas personas que la necesitan. Por eso, Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eapoya\u003c/a\u003e con gran orgullo la causa de SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Luz del sol"
+	},
+	"nonprofit-water-description": {
+		"message": "El agua potable es un valioso recurso necesario para la ducha o el baño y para cocinar o beber. Se almacena en acuíferos subterráneos a gran profundidad (entre capas de suelo y roca) a los que muchas personas tienen que acceder mediante pozos excavados a mano. charity: water colabora con partners locales para construir pozos y realizar otros proyectos relacionados con el acceso al agua para los que más lo necesitan. Por ello, Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eapoya\u003c/a\u003e con gran orgullo la causa de charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Pozo"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "A los usuarios que utilizan silla de ruedas puede resultarles difícil averiguar qué lugares son accesibles, como cines, restaurantes o cualquier destino de viaje. Wheelmap les muestra aquellos que ofrecen accesibilidad para sillas de ruedas, de forma que tarden menos en planificar la ruta y puedan dedicar más tiempo a explorar el mundo que les rodea."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Movilidad"
+	},
 	"nonprofit-wwf-description": {
 		"message": "El cambio climático sigue alterando el equilibrio de muchos ecosistemas del mundo, tanto en las zonas cálidas como en las frías. En el Ártico, los osos polares están perdiendo su hábitat de la banquisa debido al aumento de la temperatura, y se enfrentan a otras amenazas originadas por las actividades humanas, como las explotaciones y el transporte de petróleo y de gas. World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica en cooperación con comunidades nativas del Ártico. En Google.org estamos orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecooperar\u003c/a\u003e con World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Las investigaciones muestran que el 95% de las personas con pérdida de audición son aptas para utilizar audífonos, pero menos del 1% de las que necesitan estos dispositivos tiene acceso a ellos en países de ingresos bajos y medios. World Wide Hearing (WWH) proporciona audífonos y servicios relacionados para ayudar a los niños a relacionarse con el entorno. WWH está diseñando una herramienta asequible de diagnóstico de pérdida auditiva para tablets destinada a áreas en desarrollo. Así, muchas más personas podrán recibir los audífonos que necesitan."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Audición"
 	},
 	"notification": {
 		"message": "Notificaciones"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Control de la misión"
 	},
+	"scene_dash": {
+		"message": "Pingüino atraparregalos"
+	},
+	"scene_factory": {
+		"message": "Fábrica de caramelos"
+	},
 	"scene_giftmatch": {
 		"message": "Empareja los regalos"
+	},
+	"scene_glider": {
+		"message": "Elfo de altos vuelos"
 	},
 	"scene_gumball": {
 		"message": "Guía la bola"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Regalos a domicilio"
 	},
 	"scene_matching": {
 		"message": "Encuentra la pareja"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Carrera de obstáculos de Rudolph"
+	},
+	"scene_runner": {
+		"message": "Reno a la carrera"
 	},
 	"scene_santasearch": {
 		"message": "¿Dónde está Papá Noel?"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de viento"
+	},
+	"scene_wrap": {
+		"message": "Festival del envoltorio"
 	},
 	"score": {
 		"message": "Puntuación"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Solo hoy"
 	},
-	"today_only_1": {
-		"message": "Solo hoy"
-	},
 	"tr_country_name": {
 		"message": "Turquía"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Salida en"
 	},
 	"tracker_distance_away_km": {
-		"message": "Papá Noel está a %distance_away% km"
+		"message": "Papá Noel está a {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distancia de ti"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Estás en"
 	},
-	"tracker_intro_welcome": {
-		"message": "Te damos la bienvenida a"
-	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Ver la ruta"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Papá Noel llegará en unas {{hours}} horas"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Papá Noel llegará pronto"
 	},
 	"tracker_track": {
 		"message": "Sigue a Papá Noel"
@@ -4824,7 +4890,7 @@
 		"message": "En el Reino Unido, juerguistas de todas las edades disfrutan de los crackers de Navidad en la mesa durante la cena. Consisten en tubos envueltos en papel de colores, con lengüetas en cada extremo. Cuando se tira de las lengüetas, el tubo estalla con un fuerte chasquido. En su interior, hay sombreros de papel, juguetes y dulces para disfrutar de la Nochebuena."
 	},
 	"upgrade-warning": {
-		"message": "¡Vaya! Esta versión de tu navegador no admite Sigue a Papá Noel. Para acceder a Sigue a Papá Noel, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "¡Vaya! Esta versión de tu navegador no admite Seguir a Papá Noel. Para acceder a Seguir a Papá Noel, descarga un navegador más moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

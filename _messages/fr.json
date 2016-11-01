@@ -123,7 +123,7 @@
 		"message": "Côte d'Ivoire"
 	},
 	"citylights-contribute": {
-		"message": "Ajouter vos propres photos sur %location%"
+		"message": "Ajouter vos propres photos sur {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Éthiopie"
 	},
+	"explore": {
+		"message": "Découvrir"
+	},
 	"fi_country_name": {
 		"message": "Finlande"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Intermédiaire"
 	},
+	"meta_description": {
+		"message": "Utilisez l'application Sur les traces du père Noël avec Google pour suivre le père Noël sur Google Maps tout au long de sa tournée autour du monde."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norvégien"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya offre un enseignement scientifique concret aux enfants vivant dans la campagne indienne. La fondation offre des cours dans ses centres scientifiques et dans des camionnettes qui circulent à travers le pays. De nombreux thèmes sont abordés, allant du système solaire au fonctionnement du cerveau. Plus de 5 millions d'enfants et 200 000 enseignants issus de 14 États indiens ont participé à ce programme d'éducation scientifique. C'est l'un des plus importants programmes de ce type au monde ! À travers notre site Google.org, nous sommes fiers de \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esoutenir\u003c/a\u003e Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Enseignants et étudiants"
+	},
+	"nonprofit-enable-description": {
+		"message": "D'après le Centre pour le contrôle et la prévention des maladies, 7 personnes sur 1000 présentent des malformations de membres. Cependant, les prothèses sont chères et peuvent atteindre jusqu'à 10 000 US$ ! Pour les enfants en pleine croissance, les coûts peuvent vite grimper. e-Nable est une communauté mondiale de personnes qui collaborent afin de créer des mains imprimées en 3D pour ces enfants. Google.org soutient la Enable Community Foundation. Son objectif : aider la communauté e-NABLE à concevoir plus de mains, pour en faire profiter le plus d'enfants possible."
+	},
+	"nonprofit-enable-type": {
+		"message": "Prothèses"
+	},
 	"nonprofit-jane-description": {
 		"message": "Les chimpanzés sont l'espèce vivante la plus proche de l'être humain dans le monde animal. Aujourd'hui, il en reste moins de 300 000 en raison de la perte de leur habitat, des maladies et du commerce illégal. Les membres du Jane Goodall Institute (JGI) protègent des chimpanzés tels que Glitter et Gossamer en observant et en analysant leur comportement, mais également leur habitat naturel. Ils s'efforcent également de former des communautés de personnes chargées de protéger et de préserver la vie sauvage, ainsi que l'environnement que nous partageons. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eDécouvrez l'habitat des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Forêts"
 	},
+	"nonprofit-rnib-description": {
+		"message": "De nombreux individus à travers le monde vivent avec une perte visuelle importante, mais pas totale. Google.org aide RNIB à créer des \"lunettes intelligentes\" pour permettre aux personnes malvoyantes de distinguer plus facilement les formes et les silhouettes. Grâce à ces lunettes, elles peuvent mieux appréhender le monde qui les entoure, et ainsi regagner leur indépendance et leur assurance."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Lunettes intelligentes"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 milliard de personnes dans le monde n'ont pas accès à l’électricité, et beaucoup d'entre elles doivent utiliser des lampes à pétrole, qui brûlent du combustible et polluent les foyers. Les lampes solaires, quant à elles, absorbent l'énergie du soleil pendant la journée et offrent des heures de lumière sans avoir à brûler de combustible ni polluer. Grâce à ces lampes, vous pouvez lire, jouer et rentrer chez vous la nuit en toute sécurité. SolarAid fournit l'accès aux lampes solaires aux nombreuses personnes en ayant besoin. À travers notre site Google.org, nous sommes fiers de \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esoutenir\u003c/a\u003e SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Lumière du soleil"
+	},
+	"nonprofit-water-description": {
+		"message": "Nous utilisons de l'eau pour nous doucher, prendre des bains, cuisiner, et bien sûr, pour nous hydrater. L'eau potable est une ressource précieuse, et de nombreuses personnes s'en procurent dans des puits creusés à la main, qui permettent d'accéder à l'eau située dans des aquifères, entre des couches de roches et de terre. charity: water collabore avec des partenaires locaux pour construire des puits et participer à d'autres projets hydrauliques dans les zones en ayant le plus besoin. À travers notre site Google.org, nous sommes fiers de \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esoutenir\u003c/a\u003e charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Puits"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Les utilisateurs de fauteuils roulants ont parfois du mal à savoir quels endroits leur sont accessibles, qu'ils veuillent se rendre au cinéma, au restaurant ou ailleurs. Wheelmap indique à ces personnes les lieux auxquels elles peuvent accéder en fauteuil roulant, afin qu'elles passent moins de temps à planifier leur itinéraire et plus de temps à explorer le monde."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilité"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Le changement climatique continue de perturber l'équilibre de nombreux écosystèmes dans le monde (aussi bien dans les milieux chauds que froids). En Arctique, les ours polaires sont confrontés à la perte de leur habitat en raison de la hausse des températures, responsable de la fonte de la banquise. Ils sont également menacés par les activités humaines, telles que l'exploitation du pétrole et du gaz, ainsi que la navigation maritime. La mission de World Wildlife Fund (WWF) est d'assurer la survie des espèces grâce à des recherches scientifiques et à un travail en collaboration avec les communautés autochtones d'Arctique. À travers Google.org, nous sommes fiers de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003esoutenir\u003c/a\u003e le World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ours polaire"
+	},
+	"nonprofit-wwh-description": {
+		"message": "D'après des recherches, 95 % des personnes souffrant de perte auditive peuvent être traitées à l'aide d'appareils auditifs. Cependant, moins de 1 % des personnes vivant dans des pays à revenu faible et intermédiaire en bénéficient. World Wide Hearing (WWH) permet aux enfants de découvrir le monde en leur fournissant des appareils auditifs et des services. WWH met au point un outil abordable de diagnostic de perte d'audition sur tablette pouvant être utilisé dans les pays en voie de développement. Ainsi, un plus grand nombre de personnes ayant besoin d'appareils auditifs pourront en bénéficier."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Audition"
 	},
 	"notification": {
 		"message": "Notifications"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Le centre de contrôle"
 	},
+	"scene_dash": {
+		"message": "La promenade du pingouin"
+	},
+	"scene_factory": {
+		"message": "L'usine à bonbons"
+	},
 	"scene_giftmatch": {
 		"message": "L'association de cadeaux"
+	},
+	"scene_glider": {
+		"message": "L'elfe en parachute"
 	},
 	"scene_gumball": {
 		"message": "Boules de chewing-gum en balade"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "La fusée du lutin"
+	},
+	"scene_latlong": {
+		"message": "Livraison de cadeaux"
 	},
 	"scene_matching": {
 		"message": "Jeu de mémoire"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "La course de Rudolphe"
+	},
+	"scene_runner": {
+		"message": "La course du renne"
 	},
 	"scene_santasearch": {
 		"message": "Où est le père Noël"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "La soufflerie"
+	},
+	"scene_wrap": {
+		"message": "Concours d'emballage de cadeaux"
 	},
 	"score": {
 		"message": "Score"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Aujourd'hui uniquement"
 	},
-	"today_only_1": {
-		"message": "Aujourd'hui seul."
-	},
 	"tr_country_name": {
 		"message": "Turquie"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Départ prévu dans"
 	},
 	"tracker_distance_away_km": {
-		"message": "Le père Noël est à %distance_away% km de chez vous."
+		"message": "Le père Noël est à {{distance_away}} km de chez vous."
 	},
 	"tracker_distance_from_you": {
 		"message": "Distance par rapport à vous"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Vous êtes ici :"
 	},
-	"tracker_intro_welcome": {
-		"message": "Bienvenue dans"
-	},
 	"tracker_next_stop": {
 		"message": "Prochaine étape"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Voir itinéraire"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Le père Noël arrive dans environ {{hours}} heures"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Le père Noël arrive bientôt"
 	},
 	"tracker_track": {
 		"message": "Suivre le père Noël"

@@ -123,7 +123,7 @@
 		"message": "科特迪瓦"
 	},
 	"citylights-contribute": {
-		"message": "添加您自己拍摄的%location%的照片"
+		"message": "添加您自己拍摄的{{location}}的照片"
 	},
 	"citylights-panorama-01-description": {
 		"message": "洛克菲勒广场"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "埃塞俄比亚"
 	},
+	"explore": {
+		"message": "探索"
+	},
 	"fi_country_name": {
 		"message": "芬兰"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "中等"
 	},
+	"meta_description": {
+		"message": "使用 Google 的“追踪圣诞老人”，在 Google 地图上跟随圣诞老人一起环游世界。"
+	},
 	"mg_country_name": {
 		"message": "马达加斯加"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "挪威语"
 	},
+	"nonprofit-agastya-description": {
+		"message": "印度非盈利组织 Agastya 向印度各地农村的儿童提供实践科学课程。从太阳系知识到人脑工作原理，Agastya 在科学教育中心和科学教育流动车中提供的课程均有涉猎。印度已有 14 个邦的超过 500 万儿童和 20 万教师从中受惠；这已成为全球最大的科学教育项目之一！Google.org 很荣幸能够为 Agastya \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e贡献一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-agastya-type": {
+		"message": "教师和学生"
+	},
+	"nonprofit-enable-description": {
+		"message": "CDC 调查结果显示，每 1000 人中就有 7 人有肢体残疾，而安装假肢的费用往往极为高昂，最高可达 1 万美元！发育期的孩子随着身体的成长必须不断更换假肢，长期积累下来无疑是一笔沉重的经济负担。e-Nable 是一个全球性社区，社区成员专门为上肢有残疾的孩子提供 3D 打印假手。Google.org 携手 Enable Community Foundation 赞助 e-Nable 社区设计更多假手，让更多上肢有残疾的孩子能够受益。"
+	},
+	"nonprofit-enable-type": {
+		"message": "假肢"
+	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "森林"
 	},
+	"nonprofit-rnib-description": {
+		"message": "许多视力有障碍的人士并非完全失明，很多人仍有残存视力。为了帮助这些低视力人士更易看清外界物体的形状和轮廓，Google.org 正在协助 RNIB 开发“智能眼镜”，让低视力人士更容易地看清周边的环境，增强他们独立生活的能力和信心。"
+	},
+	"nonprofit-rnib-type": {
+		"message": "智能眼镜"
+	},
+	"nonprofit-solar-description": {
+		"message": "全球仍有 13 亿人没有用上电，仍有很多人还在使用煤油灯照明，但是煤油灯要燃烧燃料、而且还会污染环境。太阳能灯可以在日间蓄能，夜间提供数小时的照明，而且既不耗费燃料，也不会造成任何污染。人们可以在太阳能灯下读书、玩耍，夜归者也可以在充足的光源下安全回家。SolarAid 为众多有需要的人士提供太阳能灯。Google.org 很荣幸能够为 SolarAid \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003e贡献一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-solar-type": {
+		"message": "日光"
+	},
+	"nonprofit-water-description": {
+		"message": "我们的生活离不开水。除了基本的日常饮用，洗澡做饭也都需要用到水。清洁的水是宝贵资源，这种资源深深蕴含在地下岩石层和土壤层之间的含水层中，现在还有很多人依靠人工开挖的水井来满足用水需求。Charity: water 在急需用水的地区与当地合作伙伴合作，开挖水井以及开展其他水利项目。Google.org 很荣幸能够为 charity: water \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003e贡献一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-water-type": {
+		"message": "井"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "无论去电影院、餐厅还是其他任何地方，使用轮椅的人士都很难事先知晓目的地是否便于轮椅通行。Wheelmap 为轮椅使用者提供各地无障碍通行设施方面的信息，方便他们规划出行路线，为他们的生活添姿增彩！"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "行动能力"
+	},
 	"nonprofit-wwf-description": {
 		"message": "气候变化不断破坏着全球许多地区的生态平衡，无论是温暖的地区还是寒冷的地区都受到了影响。在北极，随着气温不断上升，北极熊正在逐渐失去赖以生存的海冰栖息地，而石油和天然气的开采和运输等人类活动更是威胁着北极熊的生存。World Wildlife Fund 大力开展科学研究，并与北极当地社区携手合作，致力于确保物种的生息繁衍。Google.org 是 World Wildlife Fund 的\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e支持者\u003c/a\u003e，为此我们感到无比骄傲。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "北极熊"
+	},
+	"nonprofit-wwh-description": {
+		"message": "研究表明，在听力有障碍的人士中，有 95% 的人能够在助听器的辅助之下重拾听力，但在中低收入国家/地区，仅有不到 1% 的听障人士能够拥有助听设备。World Wide Hearing (WWH) 向有听力障碍的儿童提供助听设备和相关服务，帮助他们重回有声世界。WWH 正在为经济落后地区的听障人士设计一款可在平板电脑上使用的平价听障诊断工具。此举将帮助更多有听力障碍的人士得到助听设备。"
+	},
+	"nonprofit-wwh-type": {
+		"message": "听力"
 	},
 	"notification": {
 		"message": "通知"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "任务控制中心"
 	},
+	"scene_dash": {
+		"message": "企鹅向前冲"
+	},
+	"scene_factory": {
+		"message": "糖果工厂"
+	},
 	"scene_giftmatch": {
 		"message": "礼物对对碰"
+	},
+	"scene_glider": {
+		"message": "精灵快递员"
 	},
 	"scene_gumball": {
 		"message": "彩球滑落"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "精灵飞侠"
+	},
+	"scene_latlong": {
+		"message": "礼物派送"
 	},
 	"scene_matching": {
 		"message": "翻牌配对"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "驯鹿狂飙"
+	},
+	"scene_runner": {
+		"message": "驯鹿快跑，礼在前方"
 	},
 	"scene_santasearch": {
 		"message": "圣诞老人搜索"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "风洞"
+	},
+	"scene_wrap": {
+		"message": "包装快手"
 	},
 	"score": {
 		"message": "得分"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "仅限今天"
 	},
-	"today_only_1": {
-		"message": "仅限今天"
-	},
 	"tr_country_name": {
 		"message": "土耳其"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "出发倒计时"
 	},
 	"tracker_distance_away_km": {
-		"message": "圣诞老人距离您 %distance_away% 公里"
+		"message": "圣诞老人距离您 {{distance_away}} 公里"
 	},
 	"tracker_distance_from_you": {
 		"message": "与您的距离"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "您目前位于"
 	},
-	"tracker_intro_welcome": {
-		"message": "欢迎使用"
-	},
 	"tracker_next_stop": {
 		"message": "下一站"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "查看路线"
+	},
+	"tracker_time_from_you_many": {
+		"message": "圣诞老人将在 {{hours}} 小时左右后到来"
+	},
+	"tracker_time_from_you_one": {
+		"message": "圣诞老人即将到来"
 	},
 	"tracker_track": {
 		"message": "追踪圣诞老人"
@@ -4824,7 +4890,7 @@
 		"message": "在英国，不同年龄的人围坐在桌旁，一起玩圣诞爆竹游戏。爆竹是一种用彩纸包裹的圆筒，筒的两端系有拉环。拉动拉环时，圆筒会“啪”地一声炸开！里面是纸帽、玩具和糖果，供人们在圣诞夜享用。"
 	},
 	"upgrade-warning": {
-		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新型浏览器。如需更多详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新版浏览器。有关详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
 	},
 	"us_country_name": {
 		"message": "美国"

@@ -123,7 +123,7 @@
 		"message": "Côte d'Ivoire"
 	},
 	"citylights-contribute": {
-		"message": "Adaugă propriile fotografii de la %location%"
+		"message": "Adaugă propriile fotografii de la {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopia"
 	},
+	"explore": {
+		"message": "Explorează"
+	},
 	"fi_country_name": {
 		"message": "Finlanda"
 	},
@@ -579,7 +582,7 @@
 		"message": "Gabon"
 	},
 	"gameover": {
-		"message": "Sfârşit!"
+		"message": "Sfârșit!"
 	},
 	"gameover_level": {
 		"message": "Ai ajuns la nivelul:"
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Medie"
 	},
+	"meta_description": {
+		"message": "Folosește aplicația Pe urmele lui Moș Crăciun pentru a urmări călătoria Moșului în jurul lumii în Google Maps."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norvegiană"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya oferă copiilor educație științifică practică în zonele rurale ale Indiei. Atât în centrele științifice, cât și în furgonetele științifice, prezintă totul: de la sistemul solar până la felul în care funcționează creierul. Au ajuns la peste 5 milioane de copii și 200.000 de profesori din 14 state ale Indiei. Este printre cele mai mari programe de educație științifică din lume. Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esprijină\u003c/a\u003e cu mândrie Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Profesori și elevi"
+	},
+	"nonprofit-enable-description": {
+		"message": "Potrivit CDC (Centrul pentru Prevenirea și Controlul Bolilor), 7 din 1.000 de oameni au diferențe la nivelul membrelor, iar protezele sunt costisitoare (până la 10.000 USD). Pentru copiii în creștere, costurile se acumulează rapid. e-Nable este o comunitate globală de oameni, care colaborează pentru a crea mâini imprimate 3D pentru copiii afectați. Google.org ajută Enable Community Foundation să sprijine comunitatea e-NABLE, pentru conceperea mai multor mâini și pentru creșterea numărului de copii care le pot primi."
+	},
+	"nonprofit-enable-type": {
+		"message": "Proteze"
+	},
 	"nonprofit-jane-description": {
 		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Păduri"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Numeroși oameni din jurul lumii și-au pierdut vederea, dar nu în întregime. Google.org ajută RNIB să dezvolte „ochelari inteligenți”, care să ajute oamenii cu probleme de vedere să vadă mai ușor forme și siluete. Ochelarii inteligenți fac lumea mai vizibilă, ajutând oamenii să-și recapete independența și încrederea."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Ochelari inteligenți"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miliarde de oameni nu au acces la electricitate. Mulți dintre ei folosesc lămpi cu gaz, care ard combustibil și poluează casele. În schimb, luminile solare absorb energia solară în timpul zilei și oferă ore întregi de lumină seara, fără ardere sau poluare. Vă ajută să citiți, să vă jucați și să ajungeți acasă în siguranță noaptea. SolarAid oferă acces la lumini solare multora dintre cei care au nevoie. Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esprijină\u003c/a\u003e cu mândrie SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Lumină solară"
+	},
+	"nonprofit-water-description": {
+		"message": "Folosim apa pentru dușuri și băi, pentru gătit și, desigur, pentru băut. Apa curată este o resursă valoroasă. Numeroși oameni se bazează pe fântâni săpate cu mâinile, pentru a avea acces la stratul acvifer, care menține apă curată sub pământ, între straturi de pietre și sol. charity: water lucrează cu parteneri locali, pentru a construi fântâni și alte proiecte similare acolo unde sunt necesare. Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esprijină\u003c/a\u003e cu mândrie charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Fântână"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Poate fi dificil pentru utilizatorii de scaune cu rotile să-și dea seama ce locuri sunt accesibile: cinematografe, restaurante sau orice alte locuri în care pot călători. Wheelmap arată locurile accesibile pentru scaune cu rotile, astfel încât utilizatorii petrec mai puțin timp să plănuiască traseele și mai mult timp să exploreze lumea."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitate"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003epartener\u003c/a\u003e al World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urși polari"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Cercetările sugerează că 95 % dintre oamenii care și-au pierdut auzul pot fi tratați cu aparate auditive, dar mai puțin de 1 % dintre oamenii din țări cu venituri mici sau medii care au nevoie de aparate auditive le primesc. World Wide Hearing (WWH) oferă copiilor aparate și servicii auditive, pentru a le deschide orizonturile. WWH concepe un instrument de diagnosticare a pierderii auzului la un preț accesibil și care funcționează pe tabletă, pentru a fi folosit în țările subdezvoltate. Prin urmare, majoritatea oamenilor care au nevoie de aparate auditive le vor primi."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Auz"
 	},
 	"notification": {
 		"message": "Notificări"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Centrul de control"
 	},
+	"scene_dash": {
+		"message": "Goana pinguinului"
+	},
+	"scene_factory": {
+		"message": "Fabrica de bomboane"
+	},
 	"scene_giftmatch": {
 		"message": "Cadourile perfecte"
+	},
+	"scene_glider": {
+		"message": "Elf zburător"
 	},
 	"scene_gumball": {
 		"message": "Direct la țintă"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Livrează cadouri"
 	},
 	"scene_matching": {
 		"message": "Potrivire din memorie"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Cursa lui Rudolph"
+	},
+	"scene_runner": {
+		"message": "Aleargă cu renii"
 	},
 	"scene_santasearch": {
 		"message": "Unde este Moș Crăciun?"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Tunel de vânt"
+	},
+	"scene_wrap": {
+		"message": "Bătălia de împachetat cadouri"
 	},
 	"score": {
 		"message": "Scor"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Numai astăzi"
 	},
-	"today_only_1": {
-		"message": "Numai astăzi"
-	},
 	"tr_country_name": {
 		"message": "Turcia"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Plecare în"
 	},
 	"tracker_distance_away_km": {
-		"message": "Moș Crăciun este la %distance_away% (de) km distanță"
+		"message": "Moș Crăciun este la {{distance_away}} (de) km distanță"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distanța față de tine"
@@ -1134,13 +1197,10 @@
 		"message": "Cadouri livrate"
 	},
 	"tracker_intro_skip_intro": {
-		"message": "Treceţi peste introducere"
+		"message": "Treceți peste introducere"
 	},
 	"tracker_intro_user_location": {
 		"message": "Sunteți la"
-	},
-	"tracker_intro_welcome": {
-		"message": "Bun venit la"
 	},
 	"tracker_next_stop": {
 		"message": "Următoarea oprire"
@@ -1154,11 +1214,17 @@
 	"tracker_see_route": {
 		"message": "Vezi traseul"
 	},
+	"tracker_time_from_you_many": {
+		"message": "Moș Crăciun va sosi peste aproximativ {{hours}} ore"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Moș Crăciun va sosi în curând"
+	},
 	"tracker_track": {
 		"message": "Urmărește-l pe Moș Crăciun"
 	},
 	"tracker_weather": {
-		"message": "Condiţiile meteo"
+		"message": "Condițiile meteo"
 	},
 	"tracker_world_facts": {
 		"message": "ȘTIAȚI CĂ"
@@ -4824,7 +4890,7 @@
 		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării și dulciuri pentru noaptea de Crăciun."
 	},
 	"upgrade-warning": {
-		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată cu această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"

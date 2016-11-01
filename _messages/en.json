@@ -123,7 +123,7 @@
 		"message": "Côte d'Ivoire"
 	},
 	"citylights-contribute": {
-		"message": "Add your own photos of %location%"
+		"message": "Add your own photos of {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Ethiopia"
 	},
+	"explore": {
+		"message": "Explore"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Medium"
 	},
+	"meta_description": {
+		"message": "Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norwegian"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya brings hands-on science education to children all over rural India. In both their science centers and mobile science vans, they cover everything from the solar system to how the brain works. They have reached over 5 million children and 200,000 teachers across 14 states in India; it’s one of the largest science education programs in the world! Google.org is proud to be a \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esupporter\u003c/a\u003e of Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Teachers \u0026amp; Students"
+	},
+	"nonprofit-enable-description": {
+		"message": "According the CDC, 7 in 1000 people experience limb differences and prosthetics are expensive - up to US$10,000! For growing children, the costs can add up quickly. e-Nable is a global community of people who work together to make 3D printed hands for children with limb differences. Google.org is helping the Enable Community Foundation in supporting the e-NABLE Community to design more hands and increase the number of kids who can get hands."
+	},
+	"nonprofit-enable-type": {
+		"message": "Prosthetic Limbs"
+	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanzees are human being's closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviors as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore the Chimpanzee habitats\u003c/a\u003e in Gombe, Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Forests"
 	},
+	"nonprofit-rnib-description": {
+		"message": "There are many people in the world who are living with sight loss, but have some remaining vision left. Google.org is helping RNIB develop 'smart glasses' that help people with low vision see shapes and silhouettes more easily. Smart glasses can make the world easier to see, helping people regain their independence and confidence."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Smart Glasses"
+	},
+	"nonprofit-solar-description": {
+		"message": "1.3 billion people have no access to electricity, and many have to use kerosene lamps that burn fuel and pollute homes. Solar lights, however, absorb power from the sun during the day and provide hours of light in the evening without burning or polluting. They help you read, play, and get home safely at night. SolarAid provides access to solar lights to many who need them. Google.org is proud to be a \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esupporter\u003c/a\u003e of SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sunlight"
+	},
+	"nonprofit-water-description": {
+		"message": "We use water for showers and baths, for cooking, and of course, for drinking. Clean water is a precious resource, and many people rely on hand-dug wells to access aquifers, which hold clean water deep in the ground between layers of rock and soil. charity: water works with local partners to build wells and other water projects where they are greatly needed. Google.org is proud to be a \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esupporter\u003c/a\u003e of charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Well"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "It can be difficult for wheelchair users to figure out which places are accessible: Cinemas, Restaurants and wherever else they might travel. Wheelmap shows which places are wheelchair accessible so that wheelchair users can spend less time planning routes and more time exploring the world!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobility"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Climate change continues to disrupt the balance of many of the world’s ecosystems, both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat with rising temperatures, and face added threats from human activities, such as oil and gas development and shipping. World Wildlife Fund works to ensure the survival of the species through scientific research and working in partnership with Arctic native communities. Google.org is proud to be a \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e supporter\u003c/a\u003e with World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Research suggests that 95% of people with hearing loss can be treated with hearing aids, but less than 1% of people in low- and middle-income countries who need hearing aids get them. World Wide Hearing (WWH) connects children to their world by providing hearing aids and services. WWH is designing an affordable, tablet-based hearing loss diagnostic tool for use in the developing world. More people who need hearing aids can therefore receive them."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Hearing"
 	},
 	"notification": {
 		"message": "Notifications"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Mission Control"
 	},
+	"scene_dash": {
+		"message": "Penguin Dash"
+	},
+	"scene_factory": {
+		"message": "Candy Factory"
+	},
 	"scene_giftmatch": {
 		"message": "Gift Matcher"
+	},
+	"scene_glider": {
+		"message": "Elf Glider"
 	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Present Delivery"
 	},
 	"scene_matching": {
 		"message": "Memory Match"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_runner": {
+		"message": "Reindeer Runner"
 	},
 	"scene_santasearch": {
 		"message": "Santa Search"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
+	},
+	"scene_wrap": {
+		"message": "Wrap Battle"
 	},
 	"score": {
 		"message": "Score"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Today Only"
 	},
-	"today_only_1": {
-		"message": "Today only"
-	},
 	"tr_country_name": {
 		"message": "Turkey"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Departing in"
 	},
 	"tracker_distance_away_km": {
-		"message": "Santa is %distance_away%km away"
+		"message": "Santa is {{distance_away}}km away"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distance from you"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "You are in"
 	},
-	"tracker_intro_welcome": {
-		"message": "Welcome to"
-	},
 	"tracker_next_stop": {
 		"message": "Next stop"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "See the route"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Santa will arrive in about {{hours}} hours"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Santa will arrive soon"
 	},
 	"tracker_track": {
 		"message": "Track Santa"

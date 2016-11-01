@@ -123,7 +123,7 @@
 		"message": "コートジボアール"
 	},
 	"citylights-contribute": {
-		"message": "あなたが持っている %location% の写真を追加してください"
+		"message": "あなたが持っている {{location}} の写真を追加してください"
 	},
 	"citylights-panorama-01-description": {
 		"message": "ロックフェラー センター前広場"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "エチオピア"
 	},
+	"explore": {
+		"message": "探す"
+	},
 	"fi_country_name": {
 		"message": "フィンランド"
 	},
@@ -579,7 +582,7 @@
 		"message": "ガボン"
 	},
 	"gameover": {
-		"message": "ゲームオーバー"
+		"message": "ゲーム\u003cbr\u003eオーバー"
 	},
 	"gameover_level": {
 		"message": "クリアしたレベル:"
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "中"
 	},
+	"meta_description": {
+		"message": "世界中を飛び回るサンタさんを Google マップで追いかけよう。"
+	},
 	"mg_country_name": {
 		"message": "マダガスカル"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "ノルウェー語"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya は、インドのすべての農村部の子ども達に向けて、実際的な科学教育を提供しています。Agastya の科学センターと移動科学教育車で、太陽系のことから脳のしくみまで、さまざまなことを教えています。これまでインドの 14 の州で、500 万人を超える子ども達と 20 万人を超える教師が彼らの提供する教育を受けており、世界最大規模の科学教育プログラムのひとつといえます。Google.org は Agastya を\u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e支援\u003c/a\u003eしています。"
+	},
+	"nonprofit-agastya-type": {
+		"message": "教師と生徒たち"
+	},
+	"nonprofit-enable-description": {
+		"message": "CDC によると、1,000 人のうち 7 人の子どもが四肢に障害を持っているということです。人工装具は高価で、10,000 ドルもするものもあります。成長期の子どもの場合は余計に費用がかさみます。e-Nable は、このような子ども達のために 3D プリンタで義手を作っている人たちのグローバル コミュニティです。Google.org は Enable Community Foundation と協力し、義手をデザインしてより多くの子ども達に提供する e-NABLE コミュニティの活動を支援しています。"
+	},
+	"nonprofit-enable-type": {
+		"message": "義肢"
+	},
 	"nonprofit-jane-description": {
 		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。The Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eチンパンジー生息域の様子\u003c/a\u003eをご覧ください。"
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "森林"
 	},
+	"nonprofit-rnib-description": {
+		"message": "世界には視力を失った人が大勢いますが、中には少しは視力が残っている人もいます。Google.org は RNIB による特殊な眼鏡の開発を支援しています。この眼鏡は、視力の弱い人がものの形や輪郭を識別しやすくするためのもので、視力の弱った人々が自信や独立心を取り戻すお手伝いをします。"
+	},
+	"nonprofit-rnib-type": {
+		"message": "特殊な眼鏡"
+	},
+	"nonprofit-solar-description": {
+		"message": "電気を利用できない人は 13 億人にも上り、多くは室内の空気を汚す灯油ランプを使わざるを得ない状況です。一方、太陽光を利用すれば、日中に太陽エネルギーを蓄積し、夜に何時間も電灯を利用できます。灯油を燃やして、室内の空気を汚すこともありません。夜に読書をしたり遊んだりできるうえ、夜道の帰宅も安全になります。SolarAid では多くの人が太陽光を利用できるように活動しています。Google.org は SolarAid を\u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003e支援\u003c/a\u003eしています。"
+	},
+	"nonprofit-solar-type": {
+		"message": "太陽光"
+	},
+	"nonprofit-water-description": {
+		"message": "私たちは水を飲み、シャワーやお風呂、調理に水を使っています。きれいな水は貴重な資源です。多くの人々が水を手に入れるために、地中深く岩と土の層の間に蓄えられた水に達するまで手掘りで井戸を作って利用しています。charity: water は現地の協力者とともに、水が絶対に必要なところに井戸を掘るなど、水にかかわるさまざまな活動を行っています。Google.org は charity: water を\u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003e支援\u003c/a\u003eしています。"
+	},
+	"nonprofit-water-type": {
+		"message": "井戸"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "車椅子の利用者にとって、映画館やレストランなどどこに行くにしても、車椅子でも出かけやすい場所を見つけるのが難しいものです。Wheelmap では車椅子で行きやすい場所を確認できるので、より簡単に外出の計画を立てて、もっと外出を楽しむことができます。"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "外出しやすさ"
+	},
 	"nonprofit-wwf-description": {
 		"message": "気候変動により、世界各地で生態系のバランスが崩れ、温暖な地域でも寒冷地でも影響が表れています。ホッキョクグマは気温上昇により海氷の上の住処を失い、石油や天然ガスの開発・輸送をはじめとする人間の活動による脅威も増しています。WWF（世界自然保護基金）は、北極圏のネイティブ コミュニティーと協力しながら科学的調査によって種の保護を進めています。Google.org は WWF の\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e支持団体\u003c/a\u003eのひとつです。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "ホッキョクグマ"
+	},
+	"nonprofit-wwh-description": {
+		"message": "調査によると、聴覚に障害を持つ人の 95% は補聴器で聞こえるようになる一方、低所得国や中所得国では、補聴器を手にすることのできるのは必要としている人の 1% に満たないということです。World Wide Hearing（WWH）は補聴器とサービスを提供し、子ども達の生活を支援しています。WWH は、開発途上国向けにタブレットを利用した安価な聴覚障害診断ツールを開発しており、もっと大勢の人々の手に補聴器を渡せるように活動しています。"
+	},
+	"nonprofit-wwh-type": {
+		"message": "聴覚"
 	},
 	"notification": {
 		"message": "お知らせ"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "管制センター"
 	},
+	"scene_dash": {
+		"message": "ペンギン ダッシュ"
+	},
+	"scene_factory": {
+		"message": "キャンディ工場"
+	},
 	"scene_giftmatch": {
 		"message": "Gift Matcher"
+	},
+	"scene_glider": {
+		"message": "妖精のグライダー"
 	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "プレゼント配り"
 	},
 	"scene_matching": {
 		"message": "Memory Match"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_runner": {
+		"message": "トナカイ ランナー"
 	},
 	"scene_santasearch": {
 		"message": "サンタさんを探す"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "風のトンネル"
+	},
+	"scene_wrap": {
+		"message": "妖精のプレゼント ラッピング"
 	},
 	"score": {
 		"message": "スコア"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "本日限り"
 	},
-	"today_only_1": {
-		"message": "本日限り"
-	},
 	"tr_country_name": {
 		"message": "トルコ"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "出発まであと…"
 	},
 	"tracker_distance_away_km": {
-		"message": "サンタさんは %distance_away% km 離れたところにいます"
+		"message": "サンタさんは {{distance_away}} km 離れたところにいます"
 	},
 	"tracker_distance_from_you": {
 		"message": "あなたのいる場所からの距離"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "現在地:"
 	},
-	"tracker_intro_welcome": {
-		"message": "ようこそ"
-	},
 	"tracker_next_stop": {
 		"message": "次の目的地"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "ルートを表示"
+	},
+	"tracker_time_from_you_many": {
+		"message": "サンタさんはあと約 {{hours}} 時間で到着します"
+	},
+	"tracker_time_from_you_one": {
+		"message": "サンタさんはもうすぐ到着します"
 	},
 	"tracker_track": {
 		"message": "サンタさんを追いかける"

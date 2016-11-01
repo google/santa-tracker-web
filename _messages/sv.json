@@ -123,7 +123,7 @@
 		"message": "Elfenbenskusten"
 	},
 	"citylights-contribute": {
-		"message": "Lägg till egna bilder från %location%"
+		"message": "Lägg till egna bilder från {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopien"
 	},
+	"explore": {
+		"message": "Utforska"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Medel"
 	},
+	"meta_description": {
+		"message": "Använd Google Följ jultomten till att följa jultomten på Google Maps medan han gör sin resa runt jorden."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "norska"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya ger barn på den indiska landsbygden tillgång till naturvetenskap. I sina vetenskapscenter och bilar går de igenom allt från solsystemet till hjärnan. De har nått ut till över fem miljoner barn och 200 000 lärare i 14 av Indiens delstater och är världens största utbildningsprogram inom vetenskap. Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003estöttar\u003c/a\u003e med glädje Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Lärare och elever"
+	},
+	"nonprofit-enable-description": {
+		"message": "Enligt Centers for Disease Control and Prevention har 7 av 1 000 personer skadat eller förlorat kroppsdelar. Proteser är dyra och kan kosta upp till 10 000 USD, och kostnaderna är särskilt stora för växande barn. e-Nable är en global gemenskap som samarbetar för att göra 3D-utskrivna händer till barn som behöver det. Google.org hjälper Enable Community Foundation att stötta e-NABLE Community, som kan designa fler händer och hjälpa fler barn."
+	},
+	"nonprofit-enable-type": {
+		"message": "Proteser"
+	},
 	"nonprofit-jane-description": {
 		"message": "Schimpanser är de närmaste nu levande släktingar mänskligheten har i djurriket! I dag finns färre än 300 000 schimpanser kvar i världen på grund av minskade utbredningsområden, sjukdomar och olaglig handel. Jane Goodall Institute (JGI) arbetar för att skydda schimpanserna genom att observera och förstå deras beteende och livsmiljö. JGI strävar efter att bygga upp ett nätverk av människor som skyddar och bevarar vilda djur och vår gemensamma miljö. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforska schimpansernas livsmiljö\u003c/a\u003e i Gombe i Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Skogar"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Det finns många med nedsatt syn i världen. Google.org hjälper RNIB utveckla ”smarta glasögon” som hjälper personer med nedsatt syn att lättare se former och siluetter. Smarta glasögon kan göra det lättare att se världen och hjälper människor att återfå sitt oberoende och självförtroende."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Smarta glasögon"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miljarder människor har ingen elektricitet, och många har bara fotogenlampor som drivs av bränsle som orsakar föroreningar i hemmet. Solcellslampor absorberar däremot solens energi och ger timtals med ljus på kvällen, utan bränslekrav och föroreningar. Med solcellslampor kan man läsa, leka och gå hem tryggt på kvällen. SolarAid ger solcellslampor till många som behöver det. Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003estöttar\u003c/a\u003e med glädje SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Solsken"
+	},
+	"nonprofit-water-description": {
+		"message": "Vi använder vatten när vi duschar, badar, lagar mat, och självklart som dryck. Rent vatten är en värdefull resurs och många använder handgrävda brunnar för att få åtkomst till grundvattnet långt nere i marken, mellan lager av sten och jord. charity: water arbetar med lokala aktörer för att bygga brunnar och andra vattenprojekt där behovet är som störst. Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003estöttar\u003c/a\u003e med glädje organisationen charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Brunn"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Rullstolsburna personer kan ha svårt att ta reda på vilka platser, till exempel biografer och restauranger, som är rullstolsanpassade. Wheelmap visar rullstolsanpassade platser så att rullstolsburna kan lägga mindre tid på att planera och mer tid på att uppleva världen."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitet"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Klimatförändringarna fortsätter att rubba balansen i många av världens ekosystem, både på varma och kalla platser. I Arktis förlorar isbjörnarna sitt ishavshem när temperaturerna stiger, och hotas dessutom av mänsklig aktivitet som utvinning av olja och gas samt sjöfart. Världsnaturfonden arbetar för att säkra att arterna överlever genom vetenskaplig forskning och samarbete med de arktiska urbefolkningarna. Google.org är stolta att \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003estödja\u003c/a\u003e Världsnaturfonden."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Isbjörn"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Forskning indikerar att 95 % av alla personer med nedsatt hörsel kan behandlas med hörapparater, men mindre än 1 % av de som befinner sig i låg- och medelinkomstländer får hörapparater. World Wide Hearing (WWH) hjälper barn med nedsatt hörsel att få tillgång till hörapparater och andra tjänster. Organisationen håller på att utveckla ett billigt diagnosverktyg för surfplattor som kan upptäcka nedsatt hörsel hos personer i utvecklingsländer, så att fler människor med hörselnedsättningar kan få den hjälp de behöver."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Hörsel"
 	},
 	"notification": {
 		"message": "Meddelanden"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Uppdraget"
 	},
+	"scene_dash": {
+		"message": "Pingvinloppet"
+	},
+	"scene_factory": {
+		"message": "Godisfabriken"
+	},
 	"scene_giftmatch": {
 		"message": "Matcha presenter"
+	},
+	"scene_glider": {
+		"message": "Flygande fläng"
 	},
 	"scene_gumball": {
 		"message": "Godisspel"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Tomtenisse-jetpack"
+	},
+	"scene_latlong": {
+		"message": "Hitta rätt"
 	},
 	"scene_matching": {
 		"message": "Memory"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfloppet"
+	},
+	"scene_runner": {
+		"message": "Renspurten"
 	},
 	"scene_santasearch": {
 		"message": "Tomtesökning"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"
+	},
+	"scene_wrap": {
+		"message": "Den stora inslagningen"
 	},
 	"score": {
 		"message": "Poäng"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Endast idag"
 	},
-	"today_only_1": {
-		"message": "Endast i dag"
-	},
 	"tr_country_name": {
 		"message": "Turkiet"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Avresa om"
 	},
 	"tracker_distance_away_km": {
-		"message": "Jultomten är %distance_away% km bort"
+		"message": "Jultomten är {{distance_away}} km bort"
 	},
 	"tracker_distance_from_you": {
 		"message": "Avstånd från dig"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Du är i"
 	},
-	"tracker_intro_welcome": {
-		"message": "Välkommen till"
-	},
 	"tracker_next_stop": {
 		"message": "Nästa plats"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Visa rutten"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Jultomten anländer om ungefär {{hours}} timmar"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Jultomten anländer snart"
 	},
 	"tracker_track": {
 		"message": "Följ jultomten"
@@ -4824,7 +4890,7 @@
 		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker och godis att njuta av under julkvällen."
 	},
 	"upgrade-warning": {
-		"message": "Hoppsan! Följ jultomten stöds inte i den här versionen av din webbläsare. Hämta en modern webbläsare för att gå till Följ jultomten. Mer information finns på \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org \u003c/a\u003e."
+		"message": "Hoppsan! Följ jultomten stöds inte i den här versionen av din webbläsare. Hämta en modern webbläsare för att använda Följ jultomten. Mer information finns på \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "USA"

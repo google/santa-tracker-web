@@ -123,7 +123,7 @@
 		"message": "Costa de Marfil"
 	},
 	"citylights-contribute": {
-		"message": "Agregar tus propias fotos de %location%"
+		"message": "Agregar tus propias fotos de {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Center"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopía"
 	},
+	"explore": {
+		"message": "Explorar"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Medio"
 	},
+	"meta_description": {
+		"message": "Usa Sigue a Santa para seguirlo en Google Maps a lo largo de su viaje por todo el mundo."
+	},
 	"mg_country_name": {
 		"message": "Madagascar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Noruego"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya facilita la educación científica a los niños en toda el área rural de la India. Tanto en sus centros científicos como en las camionetas científicas móviles, abarcan una gran cantidad de temas, desde el sistema solar hasta el funcionamiento del cerebro. La organización ha llegado a más de 5 millones de niños y 200,000 maestros en 14 estados de la India, y es uno de los programas de educación científica más grandes del mundo. Google.org se enorgullese de ser un \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003ebenefactor\u003c/a\u003e de Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Maestros y estudiantes"
+	},
+	"nonprofit-enable-description": {
+		"message": "De acuerdo con los CDC, siete de cada mil personas padecen de diferencias en sus extremidades, y las prótesis son costosas (hasta USD 10,000). En el caso de los niños en crecimiento, los costos pueden aumentar rápidamente. e-Nable es una comunidad mundial de personas que trabajan en conjunto para hacer manos impresas en 3D para niños con diferencias de extremidades. En la actualidad, Google.org ayuda a Enable Community Foundation a apoyar a e-NABLE Community para diseñar más manos y aumentar la cantidad de niños que puedan obtenerlas."
+	},
+	"nonprofit-enable-type": {
+		"message": "Prótesis de extremidades"
+	},
 	"nonprofit-jane-description": {
 		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpancés\u003c/a\u003e en Gombe, Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Bosques"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Existen muchas personas en el mundo que viven con pérdida de la visión. Sin embargo, algunas todavía poseen una capacidad visual parcial. En la actualidad, Google.org ayuda a RNIB a desarrollar \"lentes inteligentes\" que ayudan a las personas con visión limitada a ver formas y siluetas con facilidad. Los lentes inteligentes pueden hacer que el mundo sea más fácil de ver, lo que les permite a las personas ganar independencia y confianza en sí mismos de nuevo."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Lentes inteligentes"
+	},
+	"nonprofit-solar-description": {
+		"message": "Existen 1,300 millones de personas que no tienen acceso a electricidad, y muchas de ellas deben usar lámparas de querosén, que queman combustible y contaminan hogares. Sin embargo, las luces solares absorben la energía del sol durante el día y proporcionan horas de luz durante la tarde sin combustión ni contaminación. Permiten leer, jugar y llegar a salvo a casa en la noche. SolarAid les proporciona acceso a las luces solares a muchas personas que las necesitan. Google.org se enorgullece de ser un \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003ebenefactor\u003c/a\u003e de SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Luz solar"
+	},
+	"nonprofit-water-description": {
+		"message": "Solemos usar el agua para darnos duchas y baños, para cocinar y, desde luego, para beber. El agua limpia es un recurso valioso, y muchas personas dependen de pozos que se excavan manualmente para acceder a acuíferos que retienen el agua limpia en lo profundo del suelo, entre las capas de roca y tierra. charity: water trabaja con socios locales para construir pozos y otros proyectos hídricos en los lugares que más los necesitan. Google.org se enorgullece de ser un \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003ebenefactor\u003c/a\u003e de charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Pozo"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Para los usuarios que usan sillas de ruedas, puede ser difícil saber a qué lugares tienen acceso: cines, restaurantes y cualquier otro sitio al que quieran ir. Wheelmap muestra los lugares que son accesibles para los usuarios que usan sillas de ruedas para que pasen menos tiempo planificando rutas y tengan más tiempo para explorar el mundo."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Movilidad"
+	},
 	"nonprofit-wwf-description": {
 		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003edefensor\u003c/a\u003e de World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Las investigaciones indican que un 95% de las personas con pérdida de la audición pueden recibir tratamiento con prótesis auditivas, pero menos del 1% de las personas en los países de bajos y medianos ingresos que necesitan estas prótesis pueden obtenerlas. World Wide Hearing (WWH) les proporciona prótesis auditivas y servicios a los niños para conectarlos con el mundo. En la actualidad, WWH diseña una herramienta de diagnóstico de pérdida de la audición rentable y basada en tablets para su uso en países en desarrollo. Por lo tanto, una mayor cantidad de personas que necesitan las prótesis pueden recibirlas."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Audición"
 	},
 	"notification": {
 		"message": "Notificaciones"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Control de la misión"
 	},
+	"scene_dash": {
+		"message": "Pingüinos de alta velocidad"
+	},
+	"scene_factory": {
+		"message": "Fábrica de dulces"
+	},
 	"scene_giftmatch": {
 		"message": "Coincidencias de regalos"
+	},
+	"scene_glider": {
+		"message": "Duende volador"
 	},
 	"scene_gumball": {
 		"message": "Inclinación de Gumball"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Entrega de regalos"
 	},
 	"scene_matching": {
 		"message": "Juego de memoria"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Trineo de carrera de Rudolph"
+	},
+	"scene_runner": {
+		"message": "Reno corredor"
 	},
 	"scene_santasearch": {
 		"message": "Búsqueda de Santa"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de viento"
+	},
+	"scene_wrap": {
+		"message": "Revuelta de envoltorios"
 	},
 	"score": {
 		"message": "Puntuación"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Solo por hoy"
 	},
-	"today_only_1": {
-		"message": "Solo por hoy"
-	},
 	"tr_country_name": {
 		"message": "Turquía"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Despegará en"
 	},
 	"tracker_distance_away_km": {
-		"message": "Santa se encuentra a %distance_away% km"
+		"message": "Santa se encuentra a {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distancia desde tu ubicación"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Estás en"
 	},
-	"tracker_intro_welcome": {
-		"message": "Bienvenido a"
-	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Ve la ruta."
+	},
+	"tracker_time_from_you_many": {
+		"message": "Santa llegará en unas {{hours}} horas"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Falta poco para que llegue Santa"
 	},
 	"tracker_track": {
 		"message": "Sigue a Santa"
@@ -4824,7 +4890,7 @@
 		"message": "En el Reino Unido, entusiastas de todas las edades se divierten con un elemento típico llamado \"Christmas cracker\". Son tubos envueltos en papeles de colores, con tiras en cada extremo. Al tirar de ellas, el tubo estalla haciendo un fuerte sonido y salen sombreros de papel, juguetes y golosinas."
 	},
 	"upgrade-warning": {
-		"message": "Sigue a Santa no es compatible con esta versión de tu navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Sigue a Santa no es compatible con esta versión del navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

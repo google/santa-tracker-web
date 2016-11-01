@@ -123,7 +123,7 @@
 		"message": "Costa do Marfim"
 	},
 	"citylights-contribute": {
-		"message": "Adicione as suas próprias fotografias de %location%"
+		"message": "Adicione as suas próprias fotografias de {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiópia"
 	},
+	"explore": {
+		"message": "Explorar"
+	},
 	"fi_country_name": {
 		"message": "Finlândia"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Média"
 	},
+	"meta_description": {
+		"message": "Utilize A viagem do Pai Natal da Google para acompanhar o Pai Natal no Google Maps enquanto efetua a sua viagem à volta do mundo."
+	},
 	"mg_country_name": {
 		"message": "Madagáscar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norueguês"
 	},
+	"nonprofit-agastya-description": {
+		"message": "A Agastya leva a vertente prática da educação científica a crianças de toda a Índia rural. Tanto nos seus centros de ciência como nas carrinhas de ciência móveis, abordam tudo, do sistema solar ao funcionamento do cérebro. Chegaram a 5 milhões de crianças e a 200 000 professores de 14 estados da Índia; é um dos maiores programas de educação científica do mundo! A Google.org orgulha-se de ser \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eapoiante\u003c/a\u003e da Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Professores e estudantes"
+	},
+	"nonprofit-enable-description": {
+		"message": "De acordo com o CDC, 7 em cada 1000 pessoas têm deficiências físicas ao nível dos membros e as próteses são dispendiosas. Podem chegar aos 10 000 USD! Para as crianças em fase de crescimento, os custos podem aumentar rapidamente. A e-Nable é uma comunidade global de pessoas que trabalham em conjunto para fabricar mãos impressas em 3D para crianças com deficiências físicas ao nível dos membros. A Google.org está a ajudar a Enable Community Foundation ao apoiar a e-NABLE Community a conceber mais mãos e a aumentar o número de crianças que as podem receber."
+	},
+	"nonprofit-enable-type": {
+		"message": "Membros prostéticos"
+	},
 	"nonprofit-jane-description": {
 		"message": "Os chimpanzés são os parentes vivos mais próximos dos humanos no reino animal! Atualmente, existem menos de 300 000 chimpanzés devido à perda do seu habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés através da observação e compreensão dos seus comportamentos, bem como dos habitats em que vivem. O JGI também trabalha para criar uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que partilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore os habitats dos chimpanzés\u003c/a\u003e em Gombe, na Tanzânia."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Florestas"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Muitas pessoas de todo o mundo vivem com perda de visão, mas ainda têm alguma capacidade visual. A Google.org está a ajudar a RNIB a desenvolver \"óculos inteligentes\" que ajudam as pessoas com visão reduzida a verem formas e contornos mais facilmente. Os óculos inteligentes podem fazer com que seja mais fácil ver o mundo e ajudar as pessoas a recuperar a sua independência e confiança."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Óculos inteligentes"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 mil milhões de pessoas não têm acesso a eletricidade e muitas delas têm de usar lâmpadas de querosene que queimam combustível e poluem as casas. Por sua vez, as luzes solares absorvem a energia solar durante o dia e fornecem horas de iluminação à noite, sem queimar nem poluir. Permitem ler, brincar e chegar a casa em segurança durante a noite. A SolarAid proporciona o acesso a luzes solares a muitas pessoas que precisam. A Google.org orgulha-se de ser \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eapoiante\u003c/a\u003e da SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Luz solar"
+	},
+	"nonprofit-water-description": {
+		"message": "Utilizamos água para os duches e para os banhos, para cozinhar e, claro, para beber. A água limpa é um recurso valioso e muitas pessoas dependem de poços manuais para chegarem aos aquíferos que contêm água limpa na profundidade do solo, entre as camadas de pedra e terra. A charity: water trabalha em conjunto com parceiros locais para construir poços e outros projetos hídricos onde são mais necessários. A Google.org orgulha-se de ser \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eapoiante\u003c/a\u003e da charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Poços"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Pode ser complicado para os utilizadores de cadeiras de rodas descobrir os locais acessíveis: cinemas, restaurantes e qualquer outro local para onde se desloquem. A Wheelmap mostra os locais acessíveis a cadeiras de rodas para que os utilizadores de cadeiras de rodas passem menos tempo a planear trajetos e mais tempo a explorar o mundo!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilidade"
+	},
 	"nonprofit-wwf-description": {
 		"message": "As alterações climáticas continuam a afetar o equilíbrio da maior parte dos ecossistemas mundiais, tanto em locais quentes como frios. Com o aumento das temperaturas, os ursos polares no Ártico estão a perder o seu habitat composto por gelo do mar e enfrentam ainda mais ameaças com as atividades dos humanos, como a exploração e distribuição de petróleo e gás. O World Wildlife Fund pretende garantir a sobrevivência das espécies através da pesquisa científica e da colaboração com comunidades nativas do Ártico. A Google.org tem o orgulho de ser um \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eapoiante\u003c/a\u003e do World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
+	},
+	"nonprofit-wwh-description": {
+		"message": "A investigação sugere que é possível tratar 95% das pessoas com perda auditiva através de aparelhos auditivos, mas a percentagem de pessoas de países de rendimentos médios e baixos que precisam de aparelhos auditivos e que os obtêm é inferior a 1%. A World Wide Hearing (WWH) liga as crianças ao seu mundo ao fornecer aparelhos e serviços auditivos. A WWH está a conceber uma ferramenta de diagnóstico de perda auditiva acessível para tablet para utilização nos países em vias de desenvolvimento. Isto permitirá que os aparelhos auditivos cheguem a mais pessoas."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Audição"
 	},
 	"notification": {
 		"message": "Notificações"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Supervisão"
 	},
+	"scene_dash": {
+		"message": "Corrida do pinguim"
+	},
+	"scene_factory": {
+		"message": "Fábrica de doces"
+	},
 	"scene_giftmatch": {
 		"message": "Correspondência de Presentes"
+	},
+	"scene_glider": {
+		"message": "Duende em parapente"
 	},
 	"scene_gumball": {
 		"message": "Flipper dos rebuçados"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Entrega de presentes"
 	},
 	"scene_matching": {
 		"message": "Memória"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Piloto Rodolfo"
+	},
+	"scene_runner": {
+		"message": "Corrida da rena"
 	},
 	"scene_santasearch": {
 		"message": "Procura do Pai Natal"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
+	},
+	"scene_wrap": {
+		"message": "Toca a embrulhar"
 	},
 	"score": {
 		"message": "Pontuação"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Apenas hoje"
 	},
-	"today_only_1": {
-		"message": "Só hoje"
-	},
 	"tr_country_name": {
 		"message": "Turquia"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Partida em"
 	},
 	"tracker_distance_away_km": {
-		"message": "O Pai Natal está a %distance_away% km"
+		"message": "O Pai Natal está a {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Distância da sua localização"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Está em"
 	},
-	"tracker_intro_welcome": {
-		"message": "Bem-vindo ao"
-	},
 	"tracker_next_stop": {
 		"message": "Próxima paragem"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Ver o trajeto"
+	},
+	"tracker_time_from_you_many": {
+		"message": "O Pai Natal chega dentro de {{hours}} horas"
+	},
+	"tracker_time_from_you_one": {
+		"message": "O Pai Natal está a chegar"
 	},
 	"tracker_track": {
 		"message": "Localizar o Pai Natal"

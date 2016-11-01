@@ -123,7 +123,7 @@
 		"message": "Kotdivuāra"
 	},
 	"citylights-contribute": {
-		"message": "Pievienojiet savus šīs atrašanās vietas fotoattēlus: %location%"
+		"message": "Pievienojiet savus šīs atrašanās vietas fotoattēlus: {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "\"Rockefeller Plaza\" laukums"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopija"
 	},
+	"explore": {
+		"message": "Izpētīt"
+	},
 	"fi_country_name": {
 		"message": "Somija"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Vidējs"
 	},
+	"meta_description": {
+		"message": "Izmantojiet Google Ziemassvētku vecīša ceļojumu, lai pavadītu Ziemassvētku vecīti ceļojumā apkārt pasaulei pakalpojumā Google Maps."
+	},
 	"mg_country_name": {
 		"message": "Madagaskara"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norvēģu"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Organizācija Agastya piedāvā praktisku izglītību dabaszinātnēs bērniem lauku apvidos visā Indijā. Organizācija gan dabaszinātņu centros, gan arī pārvietojamos dabaszinātņu furgonos sniedz zināšanas par daudzām tēmām, sākot no Saules sistēmas līdz smadzeņu darbībai. Šajā programmā ir piedalījušies vairāk nekā 5 miljoni bērnu un 200 000 skolotāju 14 Indijas štatos. Tā ir viena no lielākajām dabaszinātņu izglītības programmām pasaulē! Google.org lepojas ar savu ciešo \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esadarbību\u003c/a\u003e ar organizāciju Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Skolotāji un skolēni"
+	},
+	"nonprofit-enable-description": {
+		"message": "Saskaņā ar organizācijas CDC datiem 7 no 1000 cilvēkiem ir locekļu deformācijas. Protēzes ir dārgas — tās var maksāt līdz pat 10 000 ASV dolāru. Augošiem bērniem izmaksas var pieaugt vēl vairāk. Organizācija e-Nable ir globāla kopiena ar cilvēkiem, kuri sadarbojas, lai, izmantojot 3D printerus, veidotu roku protēzes bērniem ar locekļu deformācijām. Google.org palīdz fondam Enable Community Foundation atbalstīt e-NABLE kopienu, lai izveidotu vairāk roku protēžu bērniem un palielinātu to bērnu skaitu, kuri var saņemt roku protēzes."
+	},
+	"nonprofit-enable-type": {
+		"message": "Locekļu protēzes"
+	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003emītošajām šimpanzēm\u003c/a\u003e."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Meži"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Pasaulē ir daudz cilvēku, kuri ir daļēji zaudējuši redzi. Google.org palīdz organizācijai RNIB izstrādāt viedās brilles, lai palīdzētu cilvēkiem ar vāju redzi vieglāk saskatīt dažādas formas un siluetus. Viedās brilles var atvieglot apkārtējās pasaules redzēšanu, palīdzot cilvēkiem atgūt neatkarību un pārliecību par sevi."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Viedās brilles"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miljardiem cilvēku nav piekļuves elektrībai, un daudziem ir jāizmanto petrolejas lampas, kuras patērē degvielu un piesārņo mājas. Apgaismojuma avoti, kas darbojas ar saules enerģiju, dienas laikā absorbē saules enerģiju un vakaros stundām ilgi nodrošina apgaismojumu, nededzinot degvielu un nepiesārņojot apkārtni. Šis apgaismojums sniedz iespēju lasīt, spēlēties un naktīs droši nokļūt mājās. Organizācija SolarAid nodrošina piekļuvi apgaismojumam, kas darbojas ar saules enerģiju, daudziem, kuriem tā nepieciešama. Google.org lepojas ar savu ciešo \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esadarbību\u003c/a\u003e ar organizāciju SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Saules gaisma"
+	},
+	"nonprofit-water-description": {
+		"message": "Mēs izmantojam ūdeni, ejot dušās, vannās, gatavojot ēdienu un, protams, dzeršanai. Tīrs ūdens ir vērtīgs resurss, un daudzi cilvēki izmanto ar rokām izraktas akas, lai piekļūtu tīra ūdens nesējslāņiem, kuri atrodas dziļi zemē starp akmeņu un augsnes slāņiem. Organizācija charity: water sadarbojas ar vietējiem partneriem, veidojot akas un citus ar ūdeni saistītus projektus vietās, kur tie ir ļoti nepieciešami. Google.org lepojas ar savu ciešo \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esadarbību\u003c/a\u003e ar organizāciju charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Akas"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Cilvēkiem ratiņkrēslos var būt sarežģīti noskaidrot, vai kinoteātri, restorāni un citas vietas ir pieejamas ar ratiņkrēsliem. Organizācija Wheelmap parāda vietas, kurām var piekļūt ar ratiņkrēsliem, lai cilvēki ratiņkrēslos varētu pavadīt vairāk laika izpētot pasauli, nevis plānojot maršrutus!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitāte"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Klimata pārmaiņas turpina negatīvi ietekmēt daudzu pasaules ekosistēmu līdzsvaru gan siltajās, gan aukstajās zemēs. Paaugstinoties gaisa temperatūrai, Arktikā polārie lāči zaudē ledu, kas ir lielu daļu viņu dzīves telpas. Tāpēc viņus ievērojami vairāk apdraud cilvēku darbības, piemēram, naftas un gāzes ieguves un transportēšanas nozares attīstība. Pasaules Dabas Fonds dara visu iespējamo, lai palīdzētu izdzīvot apdraudētajām sugām, veicot zinātnisko izpēti un sadarbojoties ar Arktikas kopienu iedzīvotājiem. Google.org lepojas ar savu ciešo sadarbību ar \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ePasaules Dabas Fondu\u003c/a\u003e."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polārlācis"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Pētījumi liecina, ka 95% cilvēku ar dzirdes traucējumiem var palīdzēt dzirdes aparāti, taču valstīs ar zemiem un vidējiem ienākumiem dzirdes aparātus saņem mazāk nekā 1% cilvēku, kuriem tie nepieciešami. Organizācija World Wide Hearing (WWH) sniedz bērniem iespēju sazināties ar apkārtējo pasauli, nodrošinot viņiem dzirdes aparātus un pakalpojumus. Organizācija WWH izstrādā pieejamu planšetdatoros lietojamu dzirdes traucējumu diagnostikas rīku, ko izmantot jaunattīstības valstīs. Līdz ar to dzirdes aparātus var saņemt vairāk cilvēku, kuriem tie nepieciešami."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Dzirde"
 	},
 	"notification": {
 		"message": "Paziņojumi"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Misijas vadība"
 	},
+	"scene_dash": {
+		"message": "Pingvīna skrējiens"
+	},
+	"scene_factory": {
+		"message": "Saldumu rūpnīca"
+	},
 	"scene_giftmatch": {
 		"message": "Dāvanu atbilstību meklētājs"
+	},
+	"scene_glider": {
+		"message": "Rūķīša planieris"
 	},
 	"scene_gumball": {
 		"message": "Spēle Gumball Tilt"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Spēle Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Dāvanu piegāde"
 	},
 	"scene_matching": {
 		"message": "Atbilstības pēc atmiņas"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Ziemeļbrieža Rūdolfa brauciens"
+	},
+	"scene_runner": {
+		"message": "Ziemeļbrieža skrējiens"
 	},
 	"scene_santasearch": {
 		"message": "Ziemassvētku vecīša meklēšana"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Vēja tunelis"
+	},
+	"scene_wrap": {
+		"message": "Dāvanu saiņošanas spēle"
 	},
 	"score": {
 		"message": "Rezultāts"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Tikai šodien"
 	},
-	"today_only_1": {
-		"message": "Tikai šodien"
-	},
 	"tr_country_name": {
 		"message": "Turcija"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Dosies ceļā pēc"
 	},
 	"tracker_distance_away_km": {
-		"message": "Ziemassvētku vecītis ir %distance_away%km attālumā"
+		"message": "Ziemassvētku vecītis ir {{distance_away}}km attālumā"
 	},
 	"tracker_distance_from_you": {
 		"message": "Attālums no jūsu atrašanās vietas"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Jūs esat vietā:"
 	},
-	"tracker_intro_welcome": {
-		"message": "Esiet sveicināts vietā:"
-	},
 	"tracker_next_stop": {
 		"message": "Nākamā apstāšanās vieta"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Skatīt maršrutu"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Ziemassvētku vecītis ieradīsies apmēram pēc {{hours}} stundām"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Drīz ieradīsies Ziemassvētku vecītis"
 	},
 	"tracker_track": {
 		"message": "Sekojiet Ziemassvētku vecītim"
@@ -4824,7 +4890,7 @@
 		"message": "Lielbritānijā svētku dalībnieki neatkarīgi no vecuma pie vakariņu galda šauj plaukšķenes. Tās ir krāsainā papīrā ietītas caurules ar aukliņām abos galos. Paraujot aukliņas, caurule ar skaļu blīkšķi pārplīst. Tajā ir papīra cepurītes, rotaļlietas un saldumi, kas tiek apēsti Ziemassvētku vakarā."
 	},
 	"upgrade-warning": {
-		"message": "Diemžēl vietne Ziemassvētku vecīša ceļojums netiek atbalstīta šajā pārlūkprogrammas versijā. Lai piekļūtu vietnei Ziemassvētku vecīša ceļojums, lejupielādējiet jaunāku pārlūkprogrammu. Plašāku informāciju skatiet vietnē \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Diemžēl lietotne Ziemassvētku vecīša ceļojums netiek atbalstīta šajā pārlūkprogrammas versijā. Lai piekļūtu lietotnei Ziemassvētku vecīša ceļojums, lejupielādējiet jaunāku pārlūkprogrammu. Plašāku informāciju skatiet vietnē \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Amerikas Savienotās Valstis"

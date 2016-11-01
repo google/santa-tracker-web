@@ -123,7 +123,7 @@
 		"message": "Elfenbenskysten"
 	},
 	"citylights-contribute": {
-		"message": "Tilføj dine egne billeder af %location%"
+		"message": "Tilføj dine egne billeder af {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopien"
 	},
+	"explore": {
+		"message": "Udforsk"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Middelsvær"
 	},
+	"meta_description": {
+		"message": "Følg julemanden i Google Maps, mens han rejser jorden rundt."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norsk"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya giver praktisk undervisning om naturvidenskab til børn i hele Indien. I både deres videnskabscentre og deres kørende videnskabsvogne dækker de alt fra solsystemet til hvordan hjernen virker. De er nået ud til mere end 5 millioner børn og 200.000 lærere i 14 indiske delstater. Det er et af verdens største programmer for undervisning om naturvidenskab! Google.org er stolt af at \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003estøtte\u003c/a\u003e Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Lærere og elever"
+	},
+	"nonprofit-enable-description": {
+		"message": "Ifølge CDC har 7 ud af 1000 mennesker misdannede eller manglende lemmer, og proteser er dyre – de kan koste op til 68.000 DKK! Udgifterne kan således hurtigt eskalere for børn i voksealderen. e-Nable er et globalt fællesskab af mennesker, som arbejder sammen om at lave 3D-printede hænder til børn med misdannede eller manglende lemmer. Google.org hjælper Enable Community Foundation med at støtte e-NABLE Community i udviklingen af hænder, så flere børn kan få hænder."
+	},
+	"nonprofit-enable-type": {
+		"message": "Proteser"
+	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanser er menneskets nærmeste nulevende slægtninge i dyreriget. I dag er der under 300.000 chimpanser tilbage på grund af mistede levesteder, sygdomme og ulovlig handel. Jane Goodall Institute (JGI) beskytter chimpanser ved at observere og lære at forstå deres adfærd samt deres levesteder. JGI arbejder også for at opbygge velfungerende lokale landsbysamfund med mennesker, som beskytter og bevarer dyrelivet og vores fælles miljø. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUdforsk chimpansernes levesteder\u003c/a\u003e i Gombe i Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Skove"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Der er mange mennesker i verden, som lever med synstab, men stadig har en del af deres syn tilbage. Google.org hjælper RNIB med at udvikle \"smart glasses\", som kan hjælpe mennesker, der har nedsat syn, med nemmere at se former og silhuetter. Smart glasses kan gøre det nemmere at se verden og dermed give mennesker deres uafhængighed og selvtillid tilbage."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Smart glasses"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 milliarder mennesker har ikke adgang til elektricitet, og mange er tvunget til at bruge petroleumslamper, som forurener luften i deres hjem. Solceller, derimod, opfanger energi fra solen om dagen og leverer timevis af lys om aftenen uden forbrænding eller forurening. De hjælper dig med at læse, spille og finde sikkert hjem om aftenen. SolarAid giver adgang til solceller for mange mennesker, som har brug for dem. Google.org er stolt af at \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003estøtte\u003c/a\u003e SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sollys"
+	},
+	"nonprofit-water-description": {
+		"message": "Vi bruger vand til at tage bade, til at lave mad og selvfølgelig også til at drikke. Rent vand er en uvurderlig ressource, og mange mennesker er afhængige af håndgravede brønde for at få adgang til grundvandsreservoirer, som indeholder rent vand dybt nede i undergrunden mellem mange lag af sten og jord. charity: water samarbejder med lokale partnere om at bygge brønde og skabe vandprojekter, hvor der er stort behov for dem. Google.org er stolt af at \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003estøtte\u003c/a\u003e charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Brønde"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Det kan være svært for kørestolsbrugere at finde ud af, hvilke steder de kan komme ind: Biografer, restauranter og alle andre steder, de måtte tage hen. Wheelmap viser, hvilke steder der har kørestolsadgang, så kørestolsbrugere kan bruge mindre tid på at planlægge ruter og mere tid på at udforske verden!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitet"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Klimaforandringer forstyrrer fortsat balancen i mange af verdens økosystemer – både på varme og kolde steder. På Arktis mister isbjørnene deres levesteder på Ishavet som resultat af de stigende temperaturer, og desuden trues de af menneskenes aktiviteter i området, f.eks. udvinding af olie og gas samt skibsfart. World Wildlife Fund (WWF) arbejder for at sikre arternes overlevelse gennem forskning og samarbejde med den indfødte befolkning i de arktiske egne. Google.org er stolt over at \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003estøtte\u003c/a\u003e World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Isbjørn"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Undersøgelser viser, at 95 % af mennesker med høretab kan behandles med høreapparater, men det er mindre end 1 % af mennesker i lande med lav eller mellemstor indkomst, som har brug for høreapparater, der faktisk får dem. World Wide Hearing (WWH) giver børn kontakt til deres omgivelser ved at levere høreapparater og tjenester relateret til hørelse. WWH er i gang med udvikle et billigt, tabletbaseret diagnoseværktøj til høretab, som skal bruges i udviklingslandene. Flere mennesker, som har brug for høreapparater, vil derved kunne få dem."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Hørelse"
 	},
 	"notification": {
 		"message": "Underretninger"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Kontrolstation"
 	},
+	"scene_dash": {
+		"message": "Pingvin med fart på"
+	},
+	"scene_factory": {
+		"message": "Slikfabrikken"
+	},
 	"scene_giftmatch": {
 		"message": "Gavematcher"
+	},
+	"scene_glider": {
+		"message": "Paraglidernissen"
 	},
 	"scene_gumball": {
 		"message": "Rullende tyggegummikugler"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Nissejetpack"
+	},
+	"scene_latlong": {
+		"message": "Levering af julegaver"
 	},
 	"scene_matching": {
 		"message": "Billedlotteri"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Racer-Rudolf"
+	},
+	"scene_runner": {
+		"message": "Få fat i gaverne med Rudolf"
 	},
 	"scene_santasearch": {
 		"message": "Find julemanden"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"
+	},
+	"scene_wrap": {
+		"message": "Gaveindpakningens mester"
 	},
 	"score": {
 		"message": "Resultat"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Kun i dag"
 	},
-	"today_only_1": {
-		"message": "Kun i dag"
-	},
 	"tr_country_name": {
 		"message": "Tyrkiet"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Afrejse om"
 	},
 	"tracker_distance_away_km": {
-		"message": "Julemanden er %distance_away% km væk"
+		"message": "Julemanden er {{distance_away}} km væk"
 	},
 	"tracker_distance_from_you": {
 		"message": "Afstand fra dig"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Du befinder dig i"
 	},
-	"tracker_intro_welcome": {
-		"message": "Velkommen til"
-	},
 	"tracker_next_stop": {
 		"message": "Næste stop"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Se ruten"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Julemanden ankommer om ca. {{hours}} timer"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Julemanden ankommer snart"
 	},
 	"tracker_track": {
 		"message": "Følg julemanden"
@@ -4824,7 +4890,7 @@
 		"message": "I Storbritannien er knallerter et stort hit ved middagsbordet for både store og små. Det er små rør, der er pakket ind i farvet papir, og med to ender, man kan trække i. Så springer røret med et højt knald! Og inden i er der papirhatte, legetøj og slik til juleaften."
 	},
 	"upgrade-warning": {
-		"message": "Ups! \"Følg julemanden\" understøttes ikke i denne version af din browser. Hvis du vil have adgang til \"Følg julemanden\", skal du downloade en moderne browser. Du kan få flere oplysninger her: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! \"Følg julemanden\" understøttes ikke i denne version af din browser. Hvis du vil have adgang til \"Følg julemanden\", skal du downloade en moderne browser. Du kan få flere oplysninger her \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "USA"

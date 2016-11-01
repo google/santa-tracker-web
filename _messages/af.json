@@ -123,7 +123,7 @@
 		"message": "Ivoorkus"
 	},
 	"citylights-contribute": {
-		"message": "Voeg jou eie foto's van %location% by"
+		"message": "Voeg jou eie foto's van {{location}} by"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefellerplaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopië"
 	},
+	"explore": {
+		"message": "Verken"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -654,7 +657,7 @@
 		"message": "Ierland"
 	},
 	"improve_google_translate": {
-		"message": "Help om Google Translate te verbeter"
+		"message": "Help om Google Vertaal te verbeter"
 	},
 	"iq_country_name": {
 		"message": "Irak"
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Medium"
 	},
+	"meta_description": {
+		"message": "Gebruik Google se Waar is Kersvader om hom op Google Maps te volg soos hy om die wêreld reis."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Noors"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya bied praktiese wetenskaponderwys aan kinders regoor die Indiese platteland. In hulle wetenskapsentrums sowel as hulle mobiele wetenskappaneelwaens dek hulle alles van die sonnestelsel tot hoe die brein werk. Hulle het al meer as 5 miljoen kinders en 200 000 onderwysers in 14 deelstate in Indië bereik; dit is een van die grootste wetenskapopvoedkundeprogramme in die wêreld! Google.org is trots om 'n \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eondersteuner\u003c/a\u003e van Agastya te wees."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Onderwysers en studente"
+	},
+	"nonprofit-enable-description": {
+		"message": "Volgens die CDC ervaar 7 uit 1 000 mense ledemaatverskille, en prosteses is duur – tot $10 000! Vir groeiende kinders kan die koste vinnig ophoop. e-NABLE is 'n wêreldwye gemeenskap mense wat saamwerk om 3D-gedrukte hande vir kinders met ledemaatverskille te maak. Google.org help die Enable-gemeenskapstigting om die e-NABLE-gemeenskap te ondersteun om meer hande te ontwerp en die aantal kinders wat hande kan kry, te verhoog."
+	},
+	"nonprofit-enable-type": {
+		"message": "Kunsledemate"
+	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eVerken die sjimpansee-habitatte\u003c/a\u003e in Gombe, Tanzanië."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Woude"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Daar is baie mense in die wêreld wat met gesigverlies saamleef, maar tog 'n bietjie visie oor het. Google.org help RNIB om 'n 'slimbril' te ontwikkel wat mense met swak visie help om vorms en silhoeëtte makliker te sien. Slimbrille kan dit makliker maak om die wêreld te sien, en mense help om hulle onafhanklikheid en selfvertroue te herwin."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Slimbrille"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miljard mense het geen toegang tot elektrisiteit nie, en baie moet keroseenlampe gebruik wat brandstof verbrand en huise besoedel. Sonkragligte absorbeer egter krag van die son tydens die dag en bied saans ure se lig sonder om te brand of te besoedel. Dit help jou lees, speel en om saans veilig tuis te kom. SolarAid bied toegang tot sonkragligte aan baie mense wat dit nodig het. Google.org is trots om 'n \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eondersteuner\u003c/a\u003e van SolarAid te wees."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sonlig"
+	},
+	"nonprofit-water-description": {
+		"message": "Ons gebruik water vir stort, bad, vir kook en natuurlik om te drink. Skoon water is 'n kosbare hulpbron, en baie mense is afhanklik van handgegrawe putte vir toegang tot waterdraerklip, wat diep in die grond skoon water tussen die lae rots en grond hou. charity: water werk saam met plaaslike vennote om putte en ander waterprojekte te bou waar dit baie benodig word. Google.org is trots om 'n \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eondersteuner\u003c/a\u003e van charity: water te wees."
+	},
+	"nonprofit-water-type": {
+		"message": "Put"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Dit kan vir rolstoelgebruikers moeilik wees om uit te vind watter plekke toeganklik is: flieks, restaurante en waar anders hulle dalk ook al reis. Wheelmap wys watter plekke rolstoel-toeganklik is, sodat rolstoelgebruikers minder tyd spandeer om roetes te beplan, en meer tyd om die wêreld te verken!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobiliteit"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Klimaatsverandering ontwrig steeds die balans van baie van die wêreld se ekosisteme, in sowel warm as koue plekke. In die Noordpool is ysbere besig om hul ysige seehabitat te verloor en word hulle ook bedreig deur menslike aktiwiteite soos olie- en gasontwikkeling en -verskeping. Die Wêreldnatuurfonds beywer homself om die oorlewing van die spesies te verseker deur wetenskaplike navorsing en deur saam met plaaslike Noordpool-gemeenskappe te werk. Google.org is trots om 'n \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e ondersteuner\u003c/a\u003e van die Wêreldnatuurfonds te wees."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ysbeer"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Navorsing dui daarop dat 95% van mense met gehoorverlies met gehoorapparate behandel kan word, maar minder as 1% van mense in lae- en middel-inkomste-lande wat gehoorapparate benodig, kry dit. World Wide Hearing (WWH) verbind kinders aan hulle wêreld deur gehoorapparate en dienste te verskaf. WWH ontwerp 'n bekostigbare, tabletgebaseerde diagnostiese hulpmiddel vir gehoorverlies vir gebruik in die ontwikkelende wêreld. Daarom kan meer mense wat gehoorapparate benodig dit dus ontvang."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Gehoor"
 	},
 	"notification": {
 		"message": "Kennisgewings"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Sendingbeheer"
 	},
+	"scene_dash": {
+		"message": "Pikkewynjaagtog"
+	},
+	"scene_factory": {
+		"message": "Lekkergoedfabriek"
+	},
 	"scene_giftmatch": {
 		"message": "Geskenkpasser"
+	},
+	"scene_glider": {
+		"message": "Elf-sweeftuig"
 	},
 	"scene_gumball": {
 		"message": "Gumball-kantel"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Elf-stralerpak"
+	},
+	"scene_latlong": {
+		"message": "Geskenkaflewering"
 	},
 	"scene_matching": {
 		"message": "Geheuepassing"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph se jaer"
+	},
+	"scene_runner": {
+		"message": "Rendier-hardloper"
 	},
 	"scene_santasearch": {
 		"message": "Kersvader-soektog"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Windtonnel"
+	},
+	"scene_wrap": {
+		"message": "Toedraaistryd"
 	},
 	"score": {
 		"message": "Telling"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Net vandag"
 	},
-	"today_only_1": {
-		"message": "Net vandag"
-	},
 	"tr_country_name": {
 		"message": "Turkye"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Vertrek oor"
 	},
 	"tracker_distance_away_km": {
-		"message": "Santa is %distance_away% km ver"
+		"message": "Santa is {{distance_away}} km ver"
 	},
 	"tracker_distance_from_you": {
 		"message": "Afstand van jou af"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Jy is in"
 	},
-	"tracker_intro_welcome": {
-		"message": "Welkom by"
-	},
 	"tracker_next_stop": {
 		"message": "Volgende stilhouplek"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Sien die roete"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Kersvader sal oor ongeveer {{hours}} uur hier wees"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Kersvader is binnekort hier"
 	},
 	"tracker_track": {
 		"message": "Volg Kersvader se spoor"
@@ -4824,7 +4890,7 @@
 		"message": "In die Verenigde Koninkryk geniet pretmakers van alle ouderdomme Kersklappers saam met aandete. Klappers is helderkleurige buise van karton en papier met punte aan elke kant wat getrek kan word. Wanneer jy die punte trek, bars die buis met 'n harde klap oop! Binne-in is papierhoede, speelgoed en lekkers om op Kersaand te geniet."
 	},
 	"upgrade-warning": {
-		"message": "Oeps! Jou blaaierweergawe steun nie Waar is Kersvader nie. Laai 'n moderne blaaier af om by Waar is Kersvader te kan ingaan. Besoek \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e vir meer inligting."
+		"message": "Oeps! Hierdie weergawe van jou blaaier steun nie Santa Tracker nie. Laai 'n moderne blaaier af om toegang tot Santa Tracker te verkry. Besoek \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e vir verdere inligting."
 	},
 	"us_country_name": {
 		"message": "Verenigde State"

@@ -123,7 +123,7 @@
 		"message": "Elfenbenskysten"
 	},
 	"citylights-contribute": {
-		"message": "Legg til dine egne bilder av %location%"
+		"message": "Legg til dine egne bilder av {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopia"
 	},
+	"explore": {
+		"message": "Utforsk"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Middels"
 	},
+	"meta_description": {
+		"message": "Følg julenissen med Google, så kan du se julenissen på Google Maps når han reiser rundt i verden."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norsk"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya gir barn i hele distrikts-India grundig opplæring innen ulike vitenskaper, enten på utdanningssentrene eller ved å ta med vitenskapen på veien. Organisasjonen gir opplæring innen alt fra solsystemet til menneskehjernen, og de 200 000 lærerne har hjulpet over 5 millioner barn i 14 stater i India. Dette er et av de største vitenskapelige utdanningsprogrammene i verden, og Google.org er stolt av å \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003estøtte\u003c/a\u003e Agastya!"
+	},
+	"nonprofit-agastya-type": {
+		"message": "Lærere og studenter"
+	},
+	"nonprofit-enable-description": {
+		"message": "Ifølge CDC har 7 av 1000 personer lemmer som mangler helt eller delvis, og proteser er dyrt. En protese kan koste opptil USD 10 000. For barn som vokser, kan dette fort bli dyrt. e-Nable er et globalt fellesskap som jobber sammen for å lage 3D-printede hender til barn med slike problemer. Google.org hjelper Enable Community Foundation ved å støtte e-NABLE, slik at de kan designe flere hender og hjelpe flere barn."
+	},
+	"nonprofit-enable-type": {
+		"message": "Proteser"
+	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforsk sjimpansenes leveområder\u003c/a\u003e i Gombe, Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Skoger"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Det er mange som lever med redusert syn uten å ha mistet synet fullstendig. Google.org hjelper RNIB med å utvikle «smartbriller», som skal gjøre det enklere for svaksynte å se former og silhuetter. Smartbriller kan gjøre det enklere å se verden og gi folk selvstendigheten og selvtilliten tilbake."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Smartbriller"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 milliarder mennesker har ikke tilgang til elektrisitet, og mange må bruke parafinlamper med brennstoff som forurenser hjemmet. Solcellebaserte lamper lades opp med sollys om dagen og lyser i flere timer om kvelden uten å bruke brennstoff eller forurense. Dermed er det bare å lese i vei, leke og gå trygt hjem når det er mørkt. SolarAid gir mange som trenger det, tilgang til solcellebaserte lamper, og Google.org er stolt over å \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003estøtte\u003c/a\u003e SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sollys"
+	},
+	"nonprofit-water-description": {
+		"message": "Vi bruker vann til å dusje, bade, lage mat og selvfølgelig slukke tørsten. Rent vann er en dyrebar ressurs, og mange er avhengige av håndgravde brønner for å få tilgang til vannførende bergarter. Disse gir tilgang til rent vann langt nedi bakken mellom lag av stein og jord. Organisasjonen charity: water samarbeider med lokale partnere for å bygge brønner og sette i gang andre vannprosjekter der det trengs. Google.org er stolt over å \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003estøtte\u003c/a\u003e charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Brønn"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Det er ikke alltid så enkelt for rullestolbrukere å finne ut hvilke steder som er rullestolvennlige – kinoer, restauranter og andre reisemål. På Wheelmap kan rullestolbrukere se hvilke steder som er rullestolvennlige, og dermed bruke mindre tid på å planlegge og mer tid på å utforske!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitet"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Klimaendringene truer balansen i mange av verdens økosystemer, både i varme og kalde strøk. I Arktis fører den stigende temperaturen til at isbjørnene mister leveområdet sitt på sjøisen, og de trues også av menneskelig aktivitet, for eksempel olje- og gassutvikling og skipsfart. World Wildlife Fund jobber for å sikre at arten overlever gjennom vitenskapelig forskning og samarbeid med arktiske lokalsamfunn. Google.org \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003estøtter\u003c/a\u003e World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Isbjørn"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Forskning viser at 95 % av folk med hørselshemming kan bruke høreapparat som hjelpemiddel, men at under 1 % av folk som bor i lav- og middelinntektsland og trenger høreapparat, får dette. World Wide Hearing (WWH) hjelper barn med hørselshemminger ved å gi dem høreapparater og tilby ulike tjenester. WWH holder på med å utvikle et rimelig, nettbrettbasert diagnoseverktøy for hørselstap som skal brukes i utviklingsland. På denne måten kan flere få høreapparatene de trenger."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Hørsel"
 	},
 	"notification": {
 		"message": "Varsler"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Kontrollsenteret"
 	},
+	"scene_dash": {
+		"message": "Pakkepingvin"
+	},
+	"scene_factory": {
+		"message": "Godterifabrikken"
+	},
 	"scene_giftmatch": {
 		"message": "Gave-matcher"
+	},
+	"scene_glider": {
+		"message": "Alveglider"
 	},
 	"scene_gumball": {
 		"message": "Gumball-vipp"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Alvejetpack"
+	},
+	"scene_latlong": {
+		"message": "Gavebud"
 	},
 	"scene_matching": {
 		"message": "Bildelotto"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolf-løpet"
+	},
+	"scene_runner": {
+		"message": "Gavegalopp"
 	},
 	"scene_santasearch": {
 		"message": "Julenissesøk"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnelen"
+	},
+	"scene_wrap": {
+		"message": "Pakkekamp"
 	},
 	"score": {
 		"message": "Poeng"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Bare i dag"
 	},
-	"today_only_1": {
-		"message": "Bare i dag"
-	},
 	"tr_country_name": {
 		"message": "Tyrkia"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Reiser om"
 	},
 	"tracker_distance_away_km": {
-		"message": "Julenissen er %distance_away% km unna."
+		"message": "Julenissen er {{distance_away}} km unna."
 	},
 	"tracker_distance_from_you": {
 		"message": "Avstand fra deg"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Du er i"
 	},
-	"tracker_intro_welcome": {
-		"message": "Velkommen til"
-	},
 	"tracker_next_stop": {
 		"message": "Neste stopp"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Se ruten"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Julenissen er her om ca. {{hours}} timer"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Julenissen kommer snart"
 	},
 	"tracker_track": {
 		"message": "Følg julenissen"
@@ -4824,7 +4890,7 @@
 		"message": "I Storbritannia morer feststemte mennesker i alle aldre seg med smellbongbonger ved middagsbordet. Dette er små rør innpakket i fargerikt papir, med papirremser i hver ende som kan trekkes ut slik at røret sprekker med et stort smell. Inni finnes det papirhatter, leker og godteri som man kan kose seg med på julekvelden."
 	},
 	"upgrade-warning": {
-		"message": "Beklager – «Følg julenissen» fungerer ikke i denne nettleserversjonen. Last ned en moderne nettleser for å få tilgang. Gå til \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e hvis du vil ha mer informasjon."
+		"message": "Beklager, men Følg julenissen fungerer ikke i denne nettleserversjonen. Last ned en moderne nettleser for å få tilgang. Gå til \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e for å få mer informasjon."
 	},
 	"us_country_name": {
 		"message": "USA"

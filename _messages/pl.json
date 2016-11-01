@@ -123,7 +123,7 @@
 		"message": "Wybrzeże Kości Słoniowej"
 	},
 	"citylights-contribute": {
-		"message": "Dodaj swoje zdjęcia – %location%"
+		"message": "Dodaj swoje zdjęcia – {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopia"
 	},
+	"explore": {
+		"message": "Odkrywaj"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Średni"
 	},
+	"meta_description": {
+		"message": "Pobierz aplikację Trasa Świętego Mikołaja, aby śledzić Świętego Mikołaja na Mapach Google podczas jego podróży dookoła świata."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "norweski"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya zapewnia praktyczną edukację matematyczno-przyrodniczą dzieciom mieszkającym na terenach wiejskich w całych Indiach. Lekcje, prowadzone zarówno w odpowiednich ośrodkach, jak i specjalnie przygotowanych samochodach, poruszają wiele zagadnień – od układu słonecznego po pracę mózgu. Do tej pory organizacji Agastya udało się dotrzeć do ponad 5 milionów dzieci i 200 000 nauczycieli w 14 stanach. To jeden z największych programów edukacji matematyczno-przyrodniczej na świecie. Google.org z dumą \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003ewspiera\u003c/a\u003e działalność tej organizacji."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Nauczyciele i uczniowie"
+	},
+	"nonprofit-enable-description": {
+		"message": "Według agencji CDC (ang. Centers for Disease Control and Prevention) 7 na 1000 osób doświadcza niepełnosprawności kończyn, a protezy są drogie – mogą kosztować nawet 10 tysięcy dolarów. W przypadku dzieci, które wciąż rosną, te koszty szybko się kumulują. e-Nable to globalna społeczność ludzi pracujących wspólnie nad tworzeniem protez rąk w technologii 3D dla dzieci z niepełnosprawnością kończyn. Google.org współpracuje z Enable Community Foundation, wspierając społeczność e-NABLE w projektowaniu większej liczby rąk. Trafią one do dzieci, które ich potrzebują."
+	},
+	"nonprofit-enable-type": {
+		"message": "Protezy kończyn"
+	},
 	"nonprofit-jane-description": {
 		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePoznaj siedliska szympansów\u003c/a\u003e w Gombe w Tanzanii."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Lasy"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Wiele osób, które cierpią na upośledzenie wzroku, nadal ma ograniczoną zdolność widzenia. Google.org współpracuje z instytutem RNIB nad stworzeniem „inteligentnych okularów”, które pomogą słabowidzącym osobom w dostrzeganiu kształtów i konturów. Te okulary pozwolą im lepiej widzieć świat, a przez to odzyskać niezależność i pewność siebie."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Inteligentne okulary"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miliarda ludzi na świecie nie ma dostępu do elektryczności i musi korzystać z lamp naftowych, które spalają paliwo i zanieczyszczają powietrze w domach. Rozwiązaniem są lampy słoneczne, które w ciągu dnia czerpią energię ze słońca, a wieczorem świecą przez długie godziny, bez dymu i zanieczyszczeń. Pomagają w nauce, zabawie i bezpiecznym dotarciu nocą do domu. Organizacja SolarAid zapewnia dostęp do lamp solarnych tym, którzy ich potrzebują. Google.org z dumą \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003ewspiera\u003c/a\u003e jej działalność."
+	},
+	"nonprofit-solar-type": {
+		"message": "Światło słoneczne"
+	},
+	"nonprofit-water-description": {
+		"message": "Woda służy nam do kąpieli, gotowania i oczywiście do picia. Czysta woda to cenny zasób, a wiele osób musi polegać na ręcznie wykopanych studniach, aby mieć dostęp do warstwy wodonośnej głęboko po ziemią, gdzie czystą wodę można znaleźć między warstwami skał i gleby. Organizacja charity: water współpracuje z lokalnymi partnerami przy budowie studni oraz innych projektach związanych z wodą tam, gdzie są najbardziej potrzebne. Google.org z dumą \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003ewspiera\u003c/a\u003e jej działalność."
+	},
+	"nonprofit-water-type": {
+		"message": "Studnia"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Gdy osoba na wózku wybiera się do kina, restauracji, czy gdziekolwiek indziej, może mieć problem ze sprawdzeniem, czy dane miejsce jest dostosowane do jej potrzeb. Wheelmap pokazuje, gdzie osoby na wózkach znajdą odpowiednie udogodnienia. Dzięki temu spędzą one mniej czasu na planowaniu tras, a więcej na odkrywaniu świata."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Sprawność"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Postępujące zmiany klimatyczne zaburzają równowagę wielu ekosystemów, zarówno w ciepłych, jak i zimnych obszarach naszego globu. W Arktyce, ze względu na rosnące temperatury, niedźwiedzie polarne tracą swoje naturalne środowisko życia. Zagraża im także działalność człowieka, na przykład wydobywanie oraz przesyłanie ropy i gazu. Organizacja World Wildlife Fund pomaga przetrwać niedźwiedziom polarnym, prowadząc badania naukowe i współpracując z rdzennymi mieszkańcami Arktyki. Google.org z dumą \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ewspiera\u003c/a\u003e jej działalność."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Niedźwiedź polarny"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Badania wskazują, że aparaty słuchowe mogą pomóc 95% osób cierpiących na upośledzenie słuchu, ale w krajach o niskich i średnich dochodach korzysta z nich mniej niż 1% potrzebujących. Organizacja World Wide Hearing (WWH) pomaga dzieciom nawiązywać kontakt ze światem, dostarczając im aparaty słuchowe i usługi w tym zakresie. WWH pracuje nad stworzeniem niedrogiego, działającego na tabletach narzędzia diagnostycznego do badania słuchu, które będzie dostępne w krajach rozwijających się. Dzięki temu więcej osób, które potrzebują aparatów słuchowych, będzie mogło je otrzymać."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Słuch"
 	},
 	"notification": {
 		"message": "Powiadomienia"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Centrum dowodzenia"
 	},
+	"scene_dash": {
+		"message": "Pingwini bieg"
+	},
+	"scene_factory": {
+		"message": "Fabryka słodyczy"
+	},
 	"scene_giftmatch": {
 		"message": "Dobieracz prezentów"
+	},
+	"scene_glider": {
+		"message": "Elfi paralotniarz"
 	},
 	"scene_gumball": {
 		"message": "Spadające kulki"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Odrzutowy plecak elfów"
+	},
+	"scene_latlong": {
+		"message": "Dostarczanie prezentów"
 	},
 	"scene_matching": {
 		"message": "Gra Memory"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Wyścigi z Rudolfem"
+	},
+	"scene_runner": {
+		"message": "Pędzący renifer"
 	},
 	"scene_santasearch": {
 		"message": "Poszukiwanie Mikołaja"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Tunel powietrzny"
+	},
+	"scene_wrap": {
+		"message": "Pojedynek na pakowanie"
 	},
 	"score": {
 		"message": "Wynik"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Tylko dzisiaj"
 	},
-	"today_only_1": {
-		"message": "Tylko dzisiaj"
-	},
 	"tr_country_name": {
 		"message": "Turcja"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Wyrusza za"
 	},
 	"tracker_distance_away_km": {
-		"message": "Święty Mikołaj jest %distance_away% km stąd"
+		"message": "Święty Mikołaj jest {{distance_away}} km stąd"
 	},
 	"tracker_distance_from_you": {
 		"message": "Odległość od Ciebie"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Jesteś tutaj:"
 	},
-	"tracker_intro_welcome": {
-		"message": "Witamy"
-	},
 	"tracker_next_stop": {
 		"message": "Następny przystanek"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Zobacz trasę"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Święty Mikołaj przybędzie za {{hours}} godz."
+	},
+	"tracker_time_from_you_one": {
+		"message": "Święty Mikołaj jest już blisko"
 	},
 	"tracker_track": {
 		"message": "Śledź trasę Mikołaja"

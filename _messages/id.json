@@ -123,7 +123,7 @@
 		"message": "Côte d'Ivoire"
 	},
 	"citylights-contribute": {
-		"message": "Tambahkan foto %location% milik Anda"
+		"message": "Tambahkan foto {{location}} milik Anda"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopia"
 	},
+	"explore": {
+		"message": "Jelajahi"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Sedang"
 	},
+	"meta_description": {
+		"message": "Gunakan Google Pelacak Sinterklas untuk mengikuti Sinterklas di Google Maps saat dia melakukan perjalanan keliling dunia."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "Norsk"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya menawarkan pendidikan sains praktis bagi anak-anak di seluruh pedesaan di India. Mereka mengajarkan semuanya, baik di pusat sains dan van sains bergerak, mulai dari sistem tata surya hingga bagaimana otak bekerja. Program ini telah menjangkau lebih dari 5 juta anak-anak dan 200.000 guru di 14 negara bagian di India, dan merupakan salah satu program pendidikan sains terbesar di dunia! Google.org dengan bangga menjadi \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003ependukung\u003c/a\u003e Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Guru \u0026amp; Pelajar"
+	},
+	"nonprofit-enable-description": {
+		"message": "Menurut CDC, 7 dari 1000 orang memiliki cacat anggota tubuh, sedangkan tangan atau kaki palsu sangat mahal harganya - hingga US$10.000! Bagi anak yang sedang tumbuh, biayanya bisa semakin mahal. e-Nable adalah komunitas global yang bekerja sama untuk membuat tangan cetak 3D bagi anak-anak dengan cacat anggota tubuh. Google.org membantu Enable Community Foundation dalam mendukung e-NABLE Community untuk merancang lebih banyak tangan palsu dan meningkatkan jumlah anak-anak yang bisa mendapatkan tangan."
+	},
+	"nonprofit-enable-type": {
+		"message": "Anggota Tubuh Palsu"
+	},
 	"nonprofit-jane-description": {
 		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Hutan"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Ada banyak orang di dunia yang hidup dengan kehilangan penglihatan, tetapi masih memiliki sedikit kemampuan untuk melihat. Google.org membantu RNIB mengembangkan 'kacamata pintar' yang dapat membantu orang dengan penglihatan buruk untuk melihat bentuk dan siluet dengan lebih mudah. Kacamata pintar dapat memudahkan orang-orang dengan penglihatan terbatas untuk melihat dunia, membantu mereka memperoleh kembali kemandirian dan kepercayaan diri mereka."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Kacamata Pintar"
+	},
+	"nonprofit-solar-description": {
+		"message": "Sebanyak 1,3 miliar orang tidak memiliki akses listrik, dan kebanyakan harus menggunakan lampu minyak tanah yang dapat menimbulkan kebakaran dan mencemari rumah. Namun, kini ada lampu surya yang menyerap energi dari matahari di siang hari dan memberikan penerangan selama beberapa jam di malam hari tanpa menimbulkan kebakaran atau polusi. Lampu surya dapat membantu membaca, bermain, dan pulang dengan selamat di malam hari. SolarAid menyediakan akses lampu surya bagi banyak orang yang membutuhkannya. Google.org dengan bangga menjadi \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003ependukung\u003c/a\u003e dari SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Cahaya matahari"
+	},
+	"nonprofit-water-description": {
+		"message": "Kita menggunakan air untuk mandi dan mencuci, untuk memasak, dan tentu saja untuk diminum. Air bersih merupakan sumber daya yang sangat penting, dan banyak orang mengandalkan sumur yang digali untuk mendapatkan sumber mata air yang menyimpan air bersih dalam tanah di antara lapisan batuan dan tanah. charity: water bekerja sama dengan mitra lokal untuk membangun sumur dan proyek air lainnya yang sangat dibutuhkan oleh mereka. Google.org dengan bangga menjadi \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003ependukung\u003c/a\u003e charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Bagus"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Bisa jadi sulit bagi para pengguna kursi roda untuk mencari tahu tempat mana saja yang bisa didatangi: Bioskop, Restoran dan tempat lain yang dapat mereka datangi. Wheelmap menunjukkan tempat mana saja yang dapat didatangi dengan menggunakan kursi roda, sehingga pengguna kursi roda bisa menghemat waktu dalam merencanakan rute dan memiliki lebih banyak waktu untuk menjelajahi dunia!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitas"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ependukung\u003c/a\u003e bersama World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Beruang Kutub"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Penelitian menunjukkan bahwa 95% orang yang mengalami gangguan pendengaran bisa dibantu dengan alat bantu dengar, tetapi kurang dari 1% orang di negara-negara dengan pendapatan rendah dan menengah yang memerlukan alat bantu dengar bisa mendapatkannya. World Wide Hearing (WWH) menghubungkan anak-anak dengan dunia mereka dengan menyediakan alat bantu dan fasilitas pendengaran. WWH tengah merancang alat diagnosis untuk gangguan pendengaran berbasis tablet yang terjangkau untuk digunakan di negara-negara berkembang. Sehingga, lebih banyak orang yang memerlukan alat bantu dengar tersebut bisa mendapatkannya."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Pendengaran"
 	},
 	"notification": {
 		"message": "Notifikasi"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Kontrol Misi"
 	},
+	"scene_dash": {
+		"message": "Penguin Dash"
+	},
+	"scene_factory": {
+		"message": "Pabrik Permen"
+	},
 	"scene_giftmatch": {
 		"message": "Pencocok Hadiah"
+	},
+	"scene_glider": {
+		"message": "Kurcaci Layang"
 	},
 	"scene_gumball": {
 		"message": "Miringkan Gumball"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Jetpack Kurcaci"
+	},
+	"scene_latlong": {
+		"message": "Kirim-Kirim Hadiah"
 	},
 	"scene_matching": {
 		"message": "Pencocokan Memori"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Pembalap Rudolph"
+	},
+	"scene_runner": {
+		"message": "Penunggang Rusa Kutub"
 	},
 	"scene_santasearch": {
 		"message": "Penelusuran Sinterklas"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Terowongan Angin"
+	},
+	"scene_wrap": {
+		"message": "Adu Bungkus"
 	},
 	"score": {
 		"message": "Skor"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Hanya Hari Ini"
 	},
-	"today_only_1": {
-		"message": "Hanya hari ini"
-	},
 	"tr_country_name": {
 		"message": "Turki"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Akan berangkat dalam"
 	},
 	"tracker_distance_away_km": {
-		"message": "Sinterklas berjarak %distance_away% km"
+		"message": "Sinterklas berjarak {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Jarak dari lokasi Anda"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Anda berada di"
 	},
-	"tracker_intro_welcome": {
-		"message": "Selamat Datang di"
-	},
 	"tracker_next_stop": {
 		"message": "Perhentian berikutnya"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Lihat rute"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Sinterklas akan tiba dalam waktu sekitar {{hours}} jam"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Sinterklas akan segera tiba"
 	},
 	"tracker_track": {
 		"message": "Lacak Sinterklas"
@@ -4824,7 +4890,7 @@
 		"message": "Di Inggris, semua orang memainkan \"Christmas Crackers\" saat makan malam. \"Crackers\" adalah tabung kertas warna-warni yang kedua ujungnya bisa ditarik. Begitu ditarik, tabung akan meletup dengan suara keras! Di dalamnya ada topi kertas, mainan, dan permen untuk dinikmati saat malam Natal."
 	},
 	"upgrade-warning": {
-		"message": "Ups! Pelacak Sinterklas tidak didukung dalam versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut kunjungi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! Pelacak Sinterklas tidak didukung di versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut, kunjungi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Amerika Serikat"

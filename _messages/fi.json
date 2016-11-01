@@ -123,7 +123,7 @@
 		"message": "Norsunluurannikko"
 	},
 	"citylights-contribute": {
-		"message": "Lisää omia valokuvia paikasta %location%"
+		"message": "Lisää omia valokuvia paikasta {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopia"
 	},
+	"explore": {
+		"message": "Tutustu"
+	},
 	"fi_country_name": {
 		"message": "Suomi"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Keskitaso"
 	},
+	"meta_description": {
+		"message": "Googlen Joulupukin jäljittimen avulla voit seurata joulupukkia Google Mapsissa hänen matkatessaan ympäri maailmaa."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "norja"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya tarjoaa käytännönläheistä tiedeopetusta Intian maaseudun lapsille. Järjestön tiedekeskuksissa ja pakettiautoissa järjestettävät kurssit kattavat kaiken aurinkokunnasta aivojen toimintaan. Agastyan toiminta on saavuttanut yli 5 miljoonaa lasta ja 200 000 opettajaa 14 Intian osavaltiossa. Se onkin yksi maailman suurimmista tiedekolutusohjelmista! Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etukee\u003c/a\u003e ylpeänä Agastyan tärkeää työtä."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Opettajat ja oppilaat"
+	},
+	"nonprofit-enable-description": {
+		"message": "Yhdysvaltain CDC-keskuksen mukaan 0,7 prosenttia ihmisistä kärsii raajojen eroavaisuuksista. Raajaproteesit ovat melko kalliita ja voivat maksaa jopa 10 000 $, joten kasvavien lasten proteesikustannukset kasvavat nopeasti hyvin korkeiksi. e-Nable on globaali yhteisö, jonka jäsenet valmistavat 3D-tulostettuja käsiproteeseja niitä tarvitseville lapsille. Google.org tukee e-NABLE Communitya yhdessä Enable Community Foundationin kanssa, jotta yhä useampi lapsi saisi uuden käden."
+	},
+	"nonprofit-enable-type": {
+		"message": "Raajaproteesit"
+	},
 	"nonprofit-jane-description": {
 		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutustu simpanssien elinympäristöihin\u003c/a\u003e Tansanian Gombessa."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Metsät"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Maailmassa on paljon näkövammaisia ihmisiä, jotka eivät kuitenkaan ole täysin sokeita. Google.org kehittää yhdessä RNIB:n kanssa älylaseja, joiden avulla heikkonäköiset ihmiset erottavat paremmin muotoja ja ääriviivoja. Älylasit antavat heikkonäköisille ihmisille lisää itsenäisyyttä ja itsevarmuutta."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Älylasit"
+	},
+	"nonprofit-solar-description": {
+		"message": "Maailmassa on 1,3 miljardia ihmistä, jotka ovat sähköverkon ulottumattomissa. Monet heistä käyttävät kerosiinilamppuja, jotka polttavat paloöljyä ja aiheuttavat hiukkaspäästöjä. Aurinkokennovalaisimet sen sijaan keräävät päivällä energiaa auringosta ja tuottavat illalla tuntien ajan puhdasta valoa ilman polttoaineita tai päästöjä. Aurinkokennovalaisimien valossa voi lukea ja leikkiä, ja ne tekevät pimeällä kulkemisesta turvallisempaa. SolarAid tarjoaa aurinkokennovalaisimia niitä tarvitseville. Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etukee\u003c/a\u003e ylpeänä SolarAidin tärkeää työtä."
+	},
+	"nonprofit-solar-type": {
+		"message": "Aurinko"
+	},
+	"nonprofit-water-description": {
+		"message": "Kaikki ihmiset tarvitsevat vettä peseytymiseen, ruoanlaittoon ja tietysti juomavedeksi. Puhdas vesi on arvokas resurssi, ja monissa paikoissa sitä saadaan vain kaivoista. Charity: water toteuttaa paikallisten yhteistyökumppaniensa tuella erilaisia vesihankkeita ja rakentaa kaivoja alueille, joilla niistä on pulaa. Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etukee\u003c/a\u003e ylpeänä charity: waterin tärkeää työtä."
+	},
+	"nonprofit-water-type": {
+		"message": "Kaivo"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Pyörätuolin käyttäjien on joskus vaikea selvittää, mitkä elokuvateatterit, ravintolat ja muut kohteet ovat esteettömiä. Wheelmap-palvelu näyttää selkeästi esteettömät paikat ja rakennukset, jotta pyörätuolin käyttäjät voivat keskittyä reitin suunnittelun sijaan uusien asioiden kokemiseen."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Liikkuminen"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Ilmastonmuutos vaikuttaa edelleen monien sekä lämpimien että kylmien paikkojen ekojärjestelmien tasapainoon. Ilmaston lämpeneminen pienentää jääkarhujen elinympäristöä arktisella merijäällä, ja ihmisten toiminta, kuten öljy- ja kaasuvarojen hyväksikäyttö sekä merenkulku, aiheuttaa niille lisää uhkia. WWF (World Wildlife Fund) toimii lajien eloonjäämisen varmistamiseksi tekemällä tieteellistä tutkimusta ja yhteistyötä arktisen alueen alkuperäisyhteisöjen kanssa. Google.org on ylpeä \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etuestaan\u003c/a\u003e WWF:lle."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Jääkarhu"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Tutkimusten mukaan 95 % kuulonalennuksesta kärsivistä ihmisistä hyötyisi kuulokojeista, mutta matala- ja keskituloisissa maissa kuulokojeen saa vain alle 1 % sitä tarvitsevista. World Wide Hearing -järjestö (WWH) tarjoaa huonokuuloisille lapsille kuulokojeita ja palveluita, joiden avulla he voivat paremmin kommunikoida ympäröivän maailman kanssa. WWH kehittää edullista tablet-tietokoneella toimivaa työkalua huonokuuloisuuden diagnosointiin kehitysmaissa. Työkalun avulla voidaan tarjota kuulokojeita useammille niitä tarvitseville ihmisille."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Kuulo"
 	},
 	"notification": {
 		"message": "Ilmoitukset"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Komentokeskus"
 	},
+	"scene_dash": {
+		"message": "Pingviinikilpa"
+	},
+	"scene_factory": {
+		"message": "Karkkitehdas"
+	},
 	"scene_giftmatch": {
 		"message": "Lahjaleikki"
+	},
+	"scene_glider": {
+		"message": "Tonttuliito"
 	},
 	"scene_gumball": {
 		"message": "Purkkapallo"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Tontturakettireppu"
+	},
+	"scene_latlong": {
+		"message": "Lahjatoimitus"
 	},
 	"scene_matching": {
 		"message": "Muistipeli"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Petterin kilpa-ajo"
+	},
+	"scene_runner": {
+		"message": "Porojuoksu"
 	},
 	"scene_santasearch": {
 		"message": "Pukkihaku"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Tuulitunneli"
+	},
+	"scene_wrap": {
+		"message": "Paketointikilpailu"
 	},
 	"score": {
 		"message": "Tulos"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Vain tänään"
 	},
-	"today_only_1": {
-		"message": "Vain tänään"
-	},
 	"tr_country_name": {
 		"message": "Turkki"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Lähtöön"
 	},
 	"tracker_distance_away_km": {
-		"message": "Joulupukki on %distance_away% kilometrin päässä."
+		"message": "Joulupukki on {{distance_away}} kilometrin päässä."
 	},
 	"tracker_distance_from_you": {
 		"message": "Etäisyys sijainnistasi"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Sijaintisi on"
 	},
-	"tracker_intro_welcome": {
-		"message": "Tervetuloa:"
-	},
 	"tracker_next_stop": {
 		"message": "Seuraava pysähdyspaikka"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Katso reitti"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Pukki saapuu noin {{hours}} tunnin kuluessa."
+	},
+	"tracker_time_from_you_one": {
+		"message": "Pukki saapuu pian."
 	},
 	"tracker_track": {
 		"message": "Seuraa pukkia"
@@ -4824,7 +4890,7 @@
 		"message": "Iso-Britanniassa kaikenikäiset joulunviettäjät pitävät illallispöydän paukkukaramelleista. Karamellit on kääritty värikkääseen paperiin, ja kun käärön päitä vedetään vastakkaisiin suuntiin, se repeää äänekkäästi. Paketin sisältä voi löytyä pahvihattu, lelu tai makeisia jouluillan iloksi."
 	},
 	"upgrade-warning": {
-		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja osoitteessa \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja on osoitteessa \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Yhdysvallat"

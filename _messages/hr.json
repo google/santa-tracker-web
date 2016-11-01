@@ -123,7 +123,7 @@
 		"message": "Bjelokosna Obala"
 	},
 	"citylights-contribute": {
-		"message": "Dodajte vlastite fotografije lokacije: %location%"
+		"message": "Dodajte vlastite fotografije lokacije: {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopija"
 	},
+	"explore": {
+		"message": "Istraživanje"
+	},
 	"fi_country_name": {
 		"message": "Finska"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Srednje"
 	},
+	"meta_description": {
+		"message": "Posjetite stranicu Slijedi Djeda Božićnjaka i pratite Djeda Božićnjaka na Google kartama dok putuje svijetom."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "norveški"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya djeci u ruralnim dijelovima Indije donosi praktičnu nastavu iz prirodnih znanosti. Njihovi znanstveni centri i mobilni znanstveni kamioneti obuhvaćaju sve, od Sunčeva sustava do načina na koji funkcionira mozak. Doprli su do više od 5 milijuna djece i 200.000 učitelja u 14 indijskih država; radi se o jednom od najvećih programa obrazovanja iz prirodnih znanosti u svijetu! Google org. s ponosom \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003epodupire\u003c/a\u003e organizaciju Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Učitelji i učenici"
+	},
+	"nonprofit-enable-description": {
+		"message": "Prema Centru za kontrolu i prevenciju bolesti (CDC), 7 od 1000 osoba živi s nedostatkom udova, a protetički su udovi skupi – cijene im se kreću do 10.000 USD! Za djecu u razvoju ti se troškovi mogu brzo povećati. e-Nable je globalna zajednica ljudi koji surađuju na izradi šaka za djecu kojoj nedostaju udovi pomoću 3D pisača. Google.org pomaže organizaciji Enable Community Foundation u pružanju podrške inicijativi e-NABLE Community u izradi više šaka i povećanju broja djece koja mogu dobiti novu šaku."
+	},
+	"nonprofit-enable-type": {
+		"message": "Protetički udovi"
+	},
 	"nonprofit-jane-description": {
 		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eIstražite staništa čimpanzi\u003c/a\u003e u Gombeu, u Tanzaniji."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Šume"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Mnogi ljudi u svijetu žive s gubitkom vida, ali još imaju preostali vid. Google.org pomaže institutu RNIB u razvoju \"pametnih naočala\" koje ljudima oslabljenog vida pomažu da lakše razaznaju oblike i siluete. Pametne naočale čine svijet vidljivijim i tako ljudima vraćaju neovisnost i samopouzdanje."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Pametne naočale"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 milijarde ljudi nema pristup električnoj energiji, a mnogi moraju koristiti kerozinske svjetiljke koje troše gorivo i zagađuju domove. S druge strane, solarne svjetiljke upijaju energiju sunca tijekom dana da bi tijekom večeri davale višesatnu svjetlost bez sagorijevanja goriva ili zagađivanja. Pružaju pomoć u čitanju, igri i sigurnom povratku kući tijekom noći. SolarAid omogućuje pristup solarnim svjetiljkama mnogima kojima su one potrebne. Google.org s ponosom \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003epodupire\u003c/a\u003e SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sunčeva svjetlost"
+	},
+	"nonprofit-water-description": {
+		"message": "Vodu koristimo za tuširanje i kupanje, za kuhanje i, naravno, za piće. Čista je voda dragocjen resurs, a mnogi se ljudi moraju oslanjati na ručno iskopane zdence za pristup vodonosnicima u kojima se nalazi čista voda, duboko u tlu između slojeva stijena i zemlje. Organizacija charity: water u suradnji s lokalnim partnerima gradi zdence i drugu vodoopskrbnu infrastrukturu tamo gdje su oni najviše potrebni. Google.org s ponosom \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003epodupire\u003c/a\u003e charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Zdenac"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Korisnicima invalidskih kolica ponekad je teško utvrditi koja su mjesta – kina, restorani ili odredišta putovanja – prilagođena za njih. Wheelmap pokazuje na kojim se mjestima mogu upotrebljavati invalidska kolica da bi korisnici invalidskih kolica trebali manje vremena provoditi planirajući svoje rute, a više istražujući svijet!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilnost"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Klimatske promjene nastavljaju ometati ravnotežu mnogih svjetskih ekosustava, kako u toplim krajevima tako i u hladnima. Polarni medvjedi na Arktiku gube svoje ledeno stanište na vodi zbog povećanih temperatura i suočavaju se s dodatnim prijetnjama koje proizlaze iz ljudskih aktivnosti, kao što su iskorištavanje nalazišta nafte i plina te njihov prijevoz. World Wildlife Fund (Svjetski fond za zaštitu divljih životinja) nastoji osigurati opstanak vrsta znanstvenim istraživanjima i suradnjom s autohtonim zajednicama Arktika. Google.org ponosno \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e podržava\u003c/a\u003e te aktivnosti zajedno s World Wildlife Fundom."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polarni medvjed"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Istraživanja pokazuju da se u 95% osoba s oštećenjem sluha stanje može poboljšati primjenom slušnih pomagala, ali u zemljama s niskom i srednjom razinom dohotka slušna pomagala dobije manje od 1% ljudi kojima su ona potrebna. World Wide Hearing (WWH) osigurava slušna pomagala i usluge za djecu koja se pomoću njih povezuju sa svojom okolinom. WWH dizajnira pristupačan alat za dijagnostiku gubitka sluha uz pomoć tableta i namijenjen zemljama u razvoju. Zahvaljujući njemu slušna pomagala dopiru do više ljudi kojima su potrebna."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Sluh"
 	},
 	"notification": {
 		"message": "Obavijesti"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Kontrolni centar"
 	},
+	"scene_dash": {
+		"message": "Utrka pingvina"
+	},
+	"scene_factory": {
+		"message": "Tvornica slatkiša"
+	},
 	"scene_giftmatch": {
 		"message": "Slaganje darova"
+	},
+	"scene_glider": {
+		"message": "Vilenjačka jedrilica"
 	},
 	"scene_gumball": {
 		"message": "Igra s kuglicama"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Vilenjačka sprava za letenje"
+	},
+	"scene_latlong": {
+		"message": "Isporuka darova"
 	},
 	"scene_matching": {
 		"message": "Igra pamćenja"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolf trkač"
+	},
+	"scene_runner": {
+		"message": "Sobovska utrka"
 	},
 	"scene_santasearch": {
 		"message": "Potraga za Djedom Božićnjakom"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Vjetrotunel"
+	},
+	"scene_wrap": {
+		"message": "Dvoboj u zamatanju darova"
 	},
 	"score": {
 		"message": "Rezultat"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Samo danas"
 	},
-	"today_only_1": {
-		"message": "Samo danas"
-	},
 	"tr_country_name": {
 		"message": "Turska"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Kreće za"
 	},
 	"tracker_distance_away_km": {
-		"message": "Djed Božićnjak nalazi se na %distance_away% km od vas"
+		"message": "Djed Božićnjak nalazi se na {{distance_away}} km od vas"
 	},
 	"tracker_distance_from_you": {
 		"message": "Udaljenost od vas"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Nalazite se na lokaciji"
 	},
-	"tracker_intro_welcome": {
-		"message": "Dobro došli u"
-	},
 	"tracker_next_stop": {
 		"message": "Sljedeća postaja"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Pregled rute"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Djed Božićnjak stiže za oko {{hours}} h"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Djed Božićnjak stiže uskoro"
 	},
 	"tracker_track": {
 		"message": "Slijedi Djeda Božićnjaka"
@@ -4824,7 +4890,7 @@
 		"message": "U Ujedinjenom Kraljevstvu veseljaci svih dobi uživaju u božićnim praskavcima uz večeru. Praskavci su valjci omotani šarenim papirom s jezičcima za povlačenje na oba kraja. Kada te jezičke povučete, valjak se raspukne uz glasan prasak! Unutar njega nalaze se papirnate kape, igračke i slatkiši za zabavu na Badnjak."
 	},
 	"upgrade-warning": {
-		"message": "Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji tvog preglednika. Da ti bude dostupna, preuzmi suvremeniji preglednik. Više informacija potraži na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji preglednika. Da biste pristupili aplikaciji Slijedi Djeda Božićnjaka, preuzmite suvremeni preglednik. Više informacija potražite na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Sjedinjene Američke Države"

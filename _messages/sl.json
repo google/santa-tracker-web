@@ -123,7 +123,7 @@
 		"message": "Slonokoščena obala"
 	},
 	"citylights-contribute": {
-		"message": "Dodajte svoje fotografije lokacije %location%"
+		"message": "Dodajte svoje fotografije lokacije {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Središče Rockefeller Plaza"
@@ -560,6 +560,9 @@
 	"et_country_name": {
 		"message": "Etiopija"
 	},
+	"explore": {
+		"message": "Raziskovanje"
+	},
 	"fi_country_name": {
 		"message": "Finska"
 	},
@@ -734,6 +737,9 @@
 	"medium_difficulty": {
 		"message": "Srednje"
 	},
+	"meta_description": {
+		"message": "Če želite v Google Zemljevidih spremljati Božička na njegovi poti okrog sveta, uporabite Božičkovo pot."
+	},
 	"mg_country_name": {
 		"message": "Madagaskar"
 	},
@@ -791,6 +797,18 @@
 	"no_language_name": {
 		"message": "norveščina"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Organizacija Agastya prinaša otrokom po vsem indijskem podeželju koristno naravoslovno izobraževanje. V svojih naravoslovnih centrih in mobilnih naravoslovnih kombijih pokrivajo teme od sončnega sistema do delovanja možganov. Z naravoslovnim izobraževalnim programom, ki je eden od največjih na svetu, so dosegli že več kot 5 milijonov otrok in 200.000 učiteljev v 14 indijskih zveznih državah. Google.org je ponosen, da \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003epomaga\u003c/a\u003e organizaciji Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Učitelji in učenci"
+	},
+	"nonprofit-enable-description": {
+		"message": "Po podatkih agencije CDC se 7 od 1000 ljudi spopada z deformacijami okončin, proteze pa so zelo drage – do 10.000 USD. Za otroke, ki še rastejo, lahko stroški hitro postanejo zelo visoki. e-Nable je globalna skupnost ljudi, ki sodelujejo pri izdelovanju natisnjenih 3D dlani za otroke, ki trpijo za deformacijami okončin. Google.org pomaga skladu Enable Community Foundation pri podpiranju skupnosti e-NABLE. Tako lahko ta ustvari več dlani za več otrok."
+	},
+	"nonprofit-enable-type": {
+		"message": "Proteze"
+	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzi so človekovi najbližji sorodniki v živalskem kraljestvu! Dandanes zaradi izgube življenjskega prostora, bolezni in nezakonite trgovine na svetu živi manj kot 300.000 šimpanzov. Na inštitutu The Jane Goodall Institute (JGI) poskušajo šimpanze zaščititi z opazovanjem in razumevanjem njihovega obnašanja in tudi življenjskih prostorov, v katerih živijo. Inštitut JGI prav tako gradi skupnost ljudi, ki ščitijo in ohranjajo prostoživeče živali in rastline ter okolje, ki si ga delimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eRaziščite življenjske prostore šimpanzov\u003c/a\u003e v narodnem parku Gombe v Tanzaniji."
 	},
@@ -806,11 +824,41 @@
 	"nonprofit-nature-type": {
 		"message": "Gozdovi"
 	},
+	"nonprofit-rnib-description": {
+		"message": "Na svetu je veliko ljudi, ki so izgubili vid, vendar ta izguba ni bila popolna. Google.org pomaga organizaciji RNIB pri razvoju »pametnih očal«, ki pomagajo slabovidnim osebam pri lažjem prepoznavanju oblik in obrisov. Pametna očala lahko izboljšajo pogled na svet, s čimer slabovidne osebe znova postanejo neodvisne in samozavestne."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Pametna očala"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 milijarde ljudi nima dostopa do elektrike in mnogi od njih morajo uporabljati svetilke na kerozin, ki porabljajo gorivo in onesnažujejo domove. V nasprotju z njimi sončne luči čez dan vsrkavajo sončno energijo in zvečer zagotavljajo več ur svetlobe brez porabljanja goriva in onesnaževanja. Pomagajo vam, da ponoči berete, se igrate in varno prispete domov. SolarAid zagotavlja dostop do sončnih luči mnogim, ki ga potrebujejo. Google.org je ponosen, da \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003epomaga\u003c/a\u003e organizaciji SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sončna svetloba"
+	},
+	"nonprofit-water-description": {
+		"message": "Vodo uporabljamo za prhanje, kopanje, kuhanje in seveda pitje. Čista voda je dragocen vir in veliko ljudi je za dostop do čiste podzemne vode, ki je globoko v zemlji med plastmi kamnov in zemlje, odvisnih od ročno skopanih vodnjakov. Organizacija charity: water skupaj z lokalnimi partnerji koplje vodnjake in se ukvarja z drugimi vodnimi projekti, kjer so močno potrebni. Google.org je ponosen, da \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003epomaga\u003c/a\u003e organizaciji charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Vodnjaki"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Uporabniki invalidskih vozičkov morda težko ugotovijo, katera mesta so jim dostopna – kinematografi, restavracije in drugi kraji, kamor se odpravijo. Na zemljevidu za invalidske vozičke so prikazana mesta, ki so dostopna z invalidskim vozičkom. Tako lahko uporabniki invalidskih vozičkov porabijo manj časa za načrtovanje poti in več za raziskovanje sveta."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilnost"
+	},
 	"nonprofit-wwf-description": {
 		"message": "Podnebne spremembe še naprej rušijo ravnotežje mnogih svetovnih ekosistemov, tako v toplih kot v hladnih delih sveta. Na Arktiki zaradi naraščajočih temperatur izginja morski led, življenjski prostor polarnih medvedov, ki so še dodatno ogroženi zaradi človeških dejavnosti, kot so pridobivanje nafte in plina ter ladijski promet. Sklad World Wildlife Fund poskuša zagotoviti preživetje vrst preko znanstvenih raziskav in sodelovanja z arktičnimi avtohtonimi skupnostmi. Google.org je ponosni \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e podpornik\u003c/a\u003e skupaj s skladom World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Severni medved"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Raziskave kažejo, da je mogoče 95 odstotkom oseb, ki izgubijo sluh, pomagati s slušnimi aparati, vendar pa v državah z nizkimi in srednje visokimi dohodki slušne aparate dobi manj kot 1 odstotek oseb, ki jih potrebuje. Organizacija World Wide Hearing (WWH) povezuje otroke z njihovim svetom, tako da jim zagotavlja slušne aparate in storitve za njih. WWH razvija cenovno dostopno orodje za diagnosticiranje izgube sluha s tabličnimi računalniki, namenjeno uporabi v državah v razvoju. Tako bo lahko slušne aparate dobilo več oseb, ki jih potrebuje."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Sluh"
 	},
 	"notification": {
 		"message": "Obvestila"
@@ -962,8 +1010,17 @@
 	"scene_commandcentre": {
 		"message": "Nadzorni center"
 	},
+	"scene_dash": {
+		"message": "Pingvinovo iskanje"
+	},
+	"scene_factory": {
+		"message": "Tovarna slaščic"
+	},
 	"scene_giftmatch": {
 		"message": "Iskanje pravega darila"
+	},
+	"scene_glider": {
+		"message": "Palček zmajar"
 	},
 	"scene_gumball": {
 		"message": "Vodenje bonbonov"
@@ -973,6 +1030,9 @@
 	},
 	"scene_jetpack": {
 		"message": "Palčkov raketni nahrbtnik"
+	},
+	"scene_latlong": {
+		"message": "Dostava daril"
 	},
 	"scene_matching": {
 		"message": "Spomin"
@@ -991,6 +1051,9 @@
 	},
 	"scene_racer": {
 		"message": "Hitri Rudolf"
+	},
+	"scene_runner": {
+		"message": "Jelenov tek"
 	},
 	"scene_santasearch": {
 		"message": "Iskanje Božička"
@@ -1021,6 +1084,9 @@
 	},
 	"scene_windtunnel": {
 		"message": "Vetrovnik"
+	},
+	"scene_wrap": {
+		"message": "Zavijalni dvoboj"
 	},
 	"score": {
 		"message": "Rezultat"
@@ -1097,9 +1163,6 @@
 	"today_only": {
 		"message": "Samo danes"
 	},
-	"today_only_1": {
-		"message": "Samo danes"
-	},
 	"tr_country_name": {
 		"message": "Turčija"
 	},
@@ -1119,7 +1182,7 @@
 		"message": "Odhod čez"
 	},
 	"tracker_distance_away_km": {
-		"message": "Božiček je oddaljen %distance_away% km"
+		"message": "Božiček je oddaljen {{distance_away}} km"
 	},
 	"tracker_distance_from_you": {
 		"message": "Oddaljenost od vas"
@@ -1139,9 +1202,6 @@
 	"tracker_intro_user_location": {
 		"message": "Ste na naslednji lokaciji:"
 	},
-	"tracker_intro_welcome": {
-		"message": "Dobrodošli v"
-	},
 	"tracker_next_stop": {
 		"message": "Naslednji postanek"
 	},
@@ -1153,6 +1213,12 @@
 	},
 	"tracker_see_route": {
 		"message": "Ogled poti"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Božiček bo prispel čez približno toliko ur: {{hours}}"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Božiček bo kmalu prispel"
 	},
 	"tracker_track": {
 		"message": "Spremljaj Božička"
