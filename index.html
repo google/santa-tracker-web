@@ -149,7 +149,6 @@ ga('set', 'transport', 'beacon');
       useNativeCSSProperties: true
     };
   </script>
-  <script src="components/webcomponentsjs/webcomponents-lite.min.js" async></script>
   <link rel="import" href="elements/elements_en.html">
   <link rel="import" href="js/ccsender.html" async>
 </head>
@@ -166,25 +165,52 @@ ga('set', 'transport', 'beacon');
 
 window.santaApp = document.querySelector('santa-app');
 
+function lazyLoadWCPolyfillsIfNecessary() {
+  var onload = function() {
+    // If the browser supports native HTML Imports, manually fire the WCR event
+    // so the same code paths can be used for polyfill'd and native.
+    if (!window.HTMLImports) {
+      document.dispatchEvent(
+        new CustomEvent('WebComponentsReady', {bubbles: true}));
+    }
+  };
+
+  var webComponentsSupported = (
+    'registerElement' in document
+    && 'import' in document.createElement('link')
+    && 'content' in document.createElement('template'));
+  if (!webComponentsSupported) {
+    var script = document.createElement('script');
+    script.src = 'components/webcomponentsjs/webcomponents-lite.min.js';
+    script.onload = onload;
+    document.head.appendChild(script);
+  } else {
+    onload();
+  }
+}
+
 // log some polymer startup performance numbers
-function perfAnalyticsEvent(eventName, categoryName) {
+function setupPerfAnalyticsEvent(eventName, categoryName) {
   document.addEventListener(eventName, function() {
     var now = window.performance.now();
     ga('send', 'timing', categoryName, eventName, Math.round(now));
   });
 }
-perfAnalyticsEvent('HTMLImportsLoaded', 'Polymer');
-perfAnalyticsEvent('WebComponentsReady', 'Polymer');
 
 if (window.DEV) {
   // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
   // Set locale for entire site (e.g. i18n-msg elements).
-  document.addEventListener('HTMLImportsLoaded', function() {
+  document.addEventListener('WebComponentsReady', function() {
     I18nMsg.lang = document.documentElement.lang || 'en';
     I18nMsg.url = '_messages';
     Platform.performMicrotaskCheckpoint();
   });
 }
+
+setupPerfAnalyticsEvent('HTMLImportsLoaded', 'Polymer');
+setupPerfAnalyticsEvent('WebComponentsReady', 'Polymer');
+
+lazyLoadWCPolyfillsIfNecessary(); // Call after all events have been set up.
 
 // Try to only do screen reader stuff on desktop.
 if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
@@ -200,30 +226,30 @@ if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
     }
   });
 }
-})();
-</script>
-<script>
-  if (window.santaApp.mode === 'portal') {
-    // Filter out clicks that don't match the current domain.
-    document.body.addEventListener('click', function(event) {
-      if (!event.target || event.target.localName !== 'a') {
-        return;
-      }
-      if (event.target.href.indexOf(window.location.origin + '/') !== 0) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
-    });
 
-    // third_party libraries for portal input.
-    var libs =
-        ['eventemitter2/eventemitter2.min.js', 'roslibjs/roslib.min.js', 'spacenav/spacenav.js'];
-    libs.forEach(function(lib) {
-      var s = document.createElement('script');
-      s.src = window.staticPath + 'third_party/lib/' + lib;
-      document.body.appendChild(s);
-    });
-  }
+if (window.santaApp.mode === 'portal') {
+  // Filter out clicks that don't match the current domain.
+  document.body.addEventListener('click', function(event) {
+    if (!event.target || event.target.localName !== 'a') {
+      return;
+    }
+    if (event.target.href.indexOf(window.location.origin + '/') !== 0) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  });
+
+  // third_party libraries for portal input.
+  var libs =
+      ['eventemitter2/eventemitter2.min.js', 'roslibjs/roslib.min.js', 'spacenav/spacenav.js'];
+  libs.forEach(function(lib) {
+    var s = document.createElement('script');
+    s.src = window.staticPath + 'third_party/lib/' + lib;
+    document.body.appendChild(s);
+  });
+}
+
+})();
 </script>
 </body>
 </html>
