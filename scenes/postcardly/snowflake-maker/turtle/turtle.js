@@ -68,11 +68,6 @@ Turtle.isRTL = false;
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
-  // Render the Soy template.
-  //document.body.innerHTML = Turtle.soy.start({}, null, {});
-
-  //BlocklyInterface.init();
-
   // Restore sounds state.
   var soundsEnabled = true;
 
@@ -398,7 +393,18 @@ Turtle.initInterpreter = function(interpreter, scope) {
   /** wrap functions in the Turtle object so that they 
   can be called from the blocks' javascript generator functions. */
   var wrapper;
+  wrapper = function(size, id) {
+    Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampCircleFill',
+			  interpreter.createNativeFunction(wrapper));
 
+  wrapper = function(size, id) {
+    Turtle.stampPolygon(size, 6, true /*animate*/, false /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampTriangleFill',
+			  interpreter.createNativeFunction(wrapper));
+  
   wrapper = function(size, id) {
     Turtle.stampDiamond(size, false /*fill*/, id.toString());
     //Turtle.stampCircle(size, false /*fill*/, id.toString());
