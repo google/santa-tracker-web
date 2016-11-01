@@ -15,10 +15,11 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 
 <script src="../shared/js/startbutton.js"></script>
-<script src="smatch-scene.min.js"></script>
-
+<!-- <script src="smatch-scene.min.js"></script> -->
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="smatch-scene.css" />
+
+<link rel="import" href="html/match3-board.html">
 
 <!--
 Smatch scene.
@@ -27,12 +28,15 @@ Smatch scene.
 <template>
   <div id="module-smatch">
     <div id="view">
-      <div class="gameboard"></div>
+      <!-- <div class="gameboard"></div> -->
+      <match3-board id="gameboard" graphics="[[gems]]"></match3-board>
     </div>
   </div>
 </template>
 <script>
 (function() {
+  const Graphic = Match3BoardElement.Graphic;
+
   Polymer({
     is: 'smatch-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -43,6 +47,19 @@ Smatch scene.
         type: Boolean,
         value: false
       },
+
+      gems: {
+        type: Array,
+        value() {
+          return [
+            new Graphic('image', this.resolveUrl('img/smatch_ornament1.svg')),
+            new Graphic('image', this.resolveUrl('img/smatch_ornament2.svg')),
+            new Graphic('image', this.resolveUrl('img/smatch_ornament3.svg')),
+            new Graphic('image', this.resolveUrl('img/smatch_ornament4.svg')),
+            new Graphic('image', this.resolveUrl('img/smatch_ornament5.svg'))
+          ];
+        }
+      }
     },
 
     onPreload: function() {
@@ -53,7 +70,6 @@ Smatch scene.
 
     onShow: function() {
       var module = this.$['module-smatch'];
-      this.game = new scenes.smatch.Game(module);
       startButton(this, module, this.onClickStart_.bind(this));
     },
 
@@ -65,7 +81,7 @@ Smatch scene.
 
     onClickStart_: function() {
       this.hasClickedStart = true;
-      this.game.start();
+      this.$.gameboard.start();
     }
   });
 
