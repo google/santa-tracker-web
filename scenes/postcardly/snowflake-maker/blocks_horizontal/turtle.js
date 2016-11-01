@@ -92,7 +92,7 @@ Blockly.Blocks['turtle_move_forward'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_forward.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_forward.png",
           "width": 40,
           "height": 40,
           "alt": "move forward",
@@ -201,7 +201,7 @@ Blockly.Blocks['turtle_turn_left'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_ccw.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_ccw.png",
           "width": 40,
           "height": 40,
           "alt": "turn left",
@@ -243,7 +243,7 @@ Blockly.Blocks['turtle_turn_right'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_cw.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_cw.png",
           "width": 40,
           "height": 40,
           "alt": "turn right",
@@ -278,7 +278,7 @@ Blockly.Blocks['triangle_draw'] = {
     this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
     this.appendValueInput('SIZE')
         .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.svg", 40, 40, "draw shape outline"));
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.png", 40, 40, "draw shape outline"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
@@ -316,7 +316,7 @@ Blockly.Blocks['square_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a square",
@@ -357,7 +357,7 @@ Blockly.Blocks['pentagon_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_pentagram.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_pentagram.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a pentagon",
@@ -399,7 +399,7 @@ Blockly.Blocks['triangle_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a triangle",
@@ -440,7 +440,7 @@ Blockly.Blocks['diamond_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_diamond.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_diamond.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a diamond",
