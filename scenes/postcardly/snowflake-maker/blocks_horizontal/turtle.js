@@ -44,7 +44,7 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
           },
           {
             "type": "field_image",
-            "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/snowflake.svg",
+            "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_snowflake.png",
             "width": 40,
             "height": 40,
             "alt": "snowflake",
@@ -92,7 +92,7 @@ Blockly.Blocks['turtle_move_forward'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/forward.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_forward.svg",
           "width": 40,
           "height": 40,
           "alt": "move forward",
@@ -134,7 +134,7 @@ Blockly.Blocks['turtle_move_backward'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/backward.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_back.png",
           "width": 40,
           "height": 40,
           "alt": "move backward",
@@ -201,7 +201,7 @@ Blockly.Blocks['turtle_turn_left'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_left.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_ccw.svg",
           "width": 40,
           "height": 40,
           "alt": "turn left",
@@ -243,7 +243,7 @@ Blockly.Blocks['turtle_turn_right'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/turn_right.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_cw.svg",
           "width": 40,
           "height": 40,
           "alt": "turn right",
@@ -278,7 +278,7 @@ Blockly.Blocks['triangle_draw'] = {
     this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
     this.appendValueInput('SIZE')
         .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/triangle_outline_draw.svg", 40, 40, "draw shape outline"));
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.svg", 40, 40, "draw shape outline"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
@@ -316,7 +316,7 @@ Blockly.Blocks['square_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/square_outline_stamp.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.svg",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a square",
@@ -357,7 +357,7 @@ Blockly.Blocks['pentagon_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pentagon_outline_stamp.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_pentagram.svg",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a pentagon",
@@ -399,7 +399,7 @@ Blockly.Blocks['triangle_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/triangle_outline_stamp.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.svg",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a triangle",
@@ -440,7 +440,7 @@ Blockly.Blocks['diamond_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/diamond_outline_stamp.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_diamond.svg",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a diamond",
