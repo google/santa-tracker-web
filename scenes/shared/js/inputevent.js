@@ -15,14 +15,12 @@
  */
 
 goog.provide('app.InputEvent');
+goog.require('app.shared.utils');
 
 goog.scope(function() {
   var eventStart, eventMove, eventCancel, eventEnd;
 
   (function() {
-    var touchEnabled = ('ontouchstart' in window) ||
-        window.DocumentTouch && document instanceof window.DocumentTouch;
-
     if (window.navigator.pointerEnabled) {
       eventStart = 'pointerdown';
       eventMove = 'pointermove';
@@ -33,7 +31,7 @@ goog.scope(function() {
       eventMove = 'MSPointerMove';
       eventCancel = 'MSPointerUp MSPointerOut MSPointerMove';
       eventEnd = 'MSPointerUp';
-    } else if (touchEnabled) {
+    } else if (app.shared.utils.touchEnabled) {
       eventStart = 'touchstart';
       eventMove = 'touchmove';
       eventCancel = 'touchend touchleave touchcancel';

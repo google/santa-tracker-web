@@ -14,9 +14,8 @@
  * the License.
  */
 
-/* globals Modernizr */
-
 goog.provide('app.Controls');
+goog.require('app.shared.utils');
 
 /**
  * Handles user input for controlling the game.
@@ -30,7 +29,7 @@ app.Controls = function(game) {
 
   // Some laptops expose accelerometers to the browser (non-retina Macbook Pros)
   // This check will have to do, unless someone can propose a better one.
-  this.isDesktopish_ = !Modernizr.touch;
+  this.isDesktopish_ = !app.shared.utils.touchEnabled;
 
   this.onKeyDown_ = this.onKeyDown_.bind(this);
   this.onKeyUp_ = this.onKeyUp_.bind(this);

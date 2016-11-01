@@ -16,6 +16,7 @@
 
 
 goog.provide('app.shared.Tutorial');
+goog.require('app.shared.utils');
 
 // We are *leaking* the Tutorial global for backwards compatibility.
 app.shared.Tutorial = Tutorial;
@@ -35,7 +36,7 @@ function Tutorial(moduleElem, touchTutorials, notouchTutorials, portalTutorials)
   // Ability to disable tutorial
   this.enabled = true;
   this.first = true;
-  this.hasTouch = Modernizr.touch;
+  this.hasTouch = app.shared.utils.touchEnabled;
 
   // Tutorial element
   this.elem = $('<div class="tutorial"><div class="tutorial-inner"></div></div>');

@@ -43,14 +43,3 @@ window.santaApp.sceneIsUnlocked = function(id) {}
  * @type {number} size of header
  */
 window.santaApp.headerSize;
-
-/**
- * @const
- */
-var Modernizr;
-
-/**
- * @type {boolean}
- */
-Modernizr.touch;
-

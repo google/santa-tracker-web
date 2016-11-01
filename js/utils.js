@@ -14,10 +14,6 @@
  * the License.
  */
 
-// Add Modernizr webaudio test since third_party version doesn't include it.
-Modernizr.addTest('webaudio',
-    !!(window.AudioContext || window.webkitAudioContext));
-
 /**
  * Converts a Santa LatLng object to a Maps API LatLng.
  *

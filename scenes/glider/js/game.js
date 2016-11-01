@@ -30,6 +30,7 @@ goog.require('app.Present');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
+goog.require('app.shared.utils');
 goog.require('app.utils');
 
 
@@ -56,7 +57,7 @@ app.Game = function(elem) {
   this.isPlaying = false;
   this.paused = false;
   this.hidden = false;
-  this.isMobile = Modernizr.touch;
+  this.isMobile = app.shared.utils.touchEnabled;
   this.scale = 1;
   this.watchSceneSize_();
   this.gameStartTime = +new Date;

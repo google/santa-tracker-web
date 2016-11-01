@@ -17,6 +17,7 @@
 goog.provide('app.Viewport');
 
 goog.require('app.Constants');
+goog.require('app.shared.utils');
 goog.require('app.utils');
 
 
@@ -80,7 +81,7 @@ app.Viewport.prototype.init = function() {
   // ready to go
   this.blocksContainerElem.css('visibility', 'visible');
 
-  if (Modernizr.touch) {
+  if (app.shared.utils.touchEnabled) {
     this.elem.addClass('no-hover');
   } else {
     this.elem.addClass('hover');

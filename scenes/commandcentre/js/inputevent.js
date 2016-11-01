@@ -15,6 +15,8 @@
  */
 
 goog.provide('app.InputEvent');
+goog.require('app.shared.utils');
+
 
 goog.scope(function() {
   var eventStart, eventMove, eventCancel, eventEnd;
@@ -30,7 +32,7 @@ goog.scope(function() {
       eventMove = 'MSPointerMove';
       eventCancel = 'MSPointerUp MSPointerOut MSPointerMove';
       eventEnd = 'MSPointerUp';
-    } else if (Modernizr.touch) {
+    } else if (app.shared.utils.touchEnabled) {
       eventStart = 'touchstart';
       eventMove = 'touchmove';
       eventCancel = 'touchend touchleave touchcancel';

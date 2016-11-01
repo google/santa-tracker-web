@@ -380,9 +380,7 @@ app.House.prototype = {
     var px = this.distanceThreshold_ * distanceMultiplier;
 
     this.$iris_.css(
-      Modernizr.prefixed('transform'),
-      'rotate(' + theta + 'deg) translateY(' + px + 'px)'
-    );
+        'transform', 'rotate(' + theta + 'deg) translateY(' + px + 'px)');
 
     this.prevTheta = theta;
   },

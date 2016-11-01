@@ -15,6 +15,8 @@
  */
 
 goog.provide('app.Controls');
+goog.require('app.shared.utils');
+
 /**
  * Handles user input for controlling the game.
  * @param {Game} game The game object.
@@ -31,7 +33,7 @@ app.Controls = function(game) {
 
   // Some laptops expose accelerometers to the browser (non-retina Macbook Pro's)
   // This check will have to do, unless someone can propose a better one.
-  this.isDesktopish = !Modernizr.touch;
+  this.isDesktopish = !app.shared.utils.touchEnabled;
 
   // Key states
   this.keys = {};

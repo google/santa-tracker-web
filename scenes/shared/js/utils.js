@@ -181,7 +181,13 @@ app.shared.utils = (function() {
         return true;
       }
       return player.playState === 'finished';
+    },
+
+    get touchEnabled() {
+      return ('ontouchstart' in window) ||
+          window.DocumentTouch && document instanceof window.DocumentTouch;
     }
+
   };
 
   /**

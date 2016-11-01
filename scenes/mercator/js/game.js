@@ -25,6 +25,7 @@ goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
+goog.require('app.shared.utils');
 goog.require('app.utils');
 
 /**
@@ -394,7 +395,7 @@ app.Game.prototype.countryMatched_ = function(country) {
 app.Game.prototype.initMap_ = function() {
   this.map = new google.maps.Map(this.mapElem[0], {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    draggable: Modernizr.touch,
+    draggable: app.shared.utils.touchEnabled,
     heading: 0,
     mapTypeControl: false,
     overviewMapControl: false,

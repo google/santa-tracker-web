@@ -15,7 +15,7 @@
  */
 
 goog.provide('app.Tools');
-
+goog.require('app.shared.utils');
 goog.require('app.utils');
 
 
@@ -53,7 +53,7 @@ app.Tool.prototype.select = function(mouseCoords) {
   this.el.addClass('Tool--selected');
   this.width = this.el.width();
 
-  if (Modernizr.touch) {
+  if (app.shared.utils.touchEnabled) {
     this.elem.css({ 'background-size': 0 }); // Hide tool on touch devices
   } else {
     this.elem.css({ cursor: 'none' });
