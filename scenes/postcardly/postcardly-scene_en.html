@@ -33,7 +33,7 @@ Presentdrop scene.
 
   <div id="module-postcardly">
     <iframe id="blocklyArea" src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0"></iframe>
-    <table id="snowglobe" style="visibility: hidden">
+    <table id="snowglobe" hidden>
       <tr>
         <td><div id="weather"></div></td>
         <td>
@@ -57,12 +57,17 @@ Presentdrop scene.
     behaviors: [window.SantaSceneBehavior],
     game: null,
 
+    property: {
+      snowflake: String,
+    },
+
     attached: function() {
-      window.addEventListener("message", this.receiveMessage.bind(this), false);
+      this._boundReceive = this.receiveMessage.bind(this);
+      window.addEventListener('message', this._boundReceive, false);
     },
 
     detached: function() {
-      window.removeEventListener("message", this.receiveMessage.bind(this), false);
+      window.removeEventListener('message', this._boundReceive, false);
     },
 
     onPreload: function() {
@@ -74,7 +79,7 @@ Presentdrop scene.
     onShow: function() {
       var module = this.$['module-postcardly'];
       this.scene = new scenes.postcardly.Scene(module);
-      this.$.blocklyArea.src = this.componentDir + "snowflake-maker/turtle.html";
+      this.$.blocklyArea.src = this.componentDir + 'snowflake-maker/turtle.html';
     },
 
     onHide: function() {
@@ -86,34 +91,28 @@ Presentdrop scene.
       var iframe = this.$.blocklyArea;
       var expectedSource = iframe.contentWindow || iframe;
       if (event.source != expectedSource) {
-        console.log("wrong source");
-        return;
+        throw new Error('unexpected source: ' + event.origin);
       } else {
         this.snowflake = event.data;
-        //If we're receiving this message, 'Done' has been pressed.
+        // If we're receiving this message, 'Done' has been pressed.
         this.viewSnowflake();
       }
     },
 
     viewSnowflake: function() {
       var snowflakesList = Polymer.dom(this.root).querySelectorAll('.snow');
-      for (var i=0; i<snowflakesList.length; i++) {
-        snowflakesList[i].style.backgroundImage="url("+this.snowflake+")";
-        snowflakesList[i].style.backgroundSize="contain";
+      for (var i = 0; i < snowflakesList.length; i++) {
+        snowflakesList[i].style.backgroundImage = 'url(' + this.snowflake + ')';
+        snowflakesList[i].style.backgroundSize = 'contain';
       }
-      this.$.blocklyArea.style.visibility = "hidden";
-      this.$.blocklyArea.style.width = "0px";
-      this.$.blocklyArea.style.height = "0px";  
-      this.$.snowglobe.style.visibility = "visible";
+      this.$.blocklyArea.hidden = true;
+      this.$.snowglobe.hidden = false;
     },
 
     changePostcardBackground: function(event) {
-      this.$.weather.style.backgroundPosition=event.target.getAttribute('data-args');
+      this.$.weather.style.backgroundPosition = event.target.getAttribute('data-args');
     },
 
-    // changePostcardBackground: function(event) {
-    //   this.$.weather.style.backgroundPosition=event.model.item;
-    // }
   });
 })();
 
