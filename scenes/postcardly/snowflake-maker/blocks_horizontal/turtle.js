@@ -46,7 +46,7 @@ Blockly.Blocks['snowflake_start'] = {
           "flip_rtl": false
         }
       ],
-	"nextStatement": "SnowflakeLoop",
+	"nextStatement": "SnowflakeStarter",
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
@@ -79,6 +79,7 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
             "flip_rtl": false
           }
         ],
+	"previousConnection": "SnowflakeStarter",
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
@@ -127,8 +128,8 @@ Blockly.Blocks['turtle_move_forward'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Draw",
+      "nextStatement": "Draw",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -344,7 +345,7 @@ Blockly.Blocks['square_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a square",
@@ -427,7 +428,7 @@ Blockly.Blocks['triangle_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a triangle",
