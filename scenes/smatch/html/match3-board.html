@@ -34,7 +34,7 @@ specific language governing permissions and limitations under the License.
   <script>
     (() => {
       const CELL_SIZE = 64;
-      const TRANSITION_TIME = 500;
+      const TRANSITION_TIME = 300;
 
       const timePasses = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -366,6 +366,10 @@ specific language governing permissions and limitations under the License.
           }
 
           const otherCell = this.neighborCell_(cell, direction);
+
+          if (otherCell == null) {
+            return false;
+          }
 
           this.swap_(cell, otherCell);
           this.tick_();

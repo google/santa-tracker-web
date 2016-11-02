@@ -1,0 +1,51 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="match3-gem.html">
+<dom-module id="smatch-tree">
+  <template>
+    <style>
+      :host {
+        position: relative;
+        background-image: url(../img/smatch_tree.svg);
+        width: 180px;
+        height: 300px;
+      }
+
+      match3-gem {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </template>
+  <script>
+    Polymer({
+      is: 'smatch-tree',
+
+      addGem(x, y, graphic) {
+        const gem = document.createElement('match3-gem');
+        const left = x + 58;
+        const top = y + 300;
+        console.log('Adding gem', left, top, graphic, x, y);
+
+        gem.graphic = graphic;
+        gem.style.transform = `translate(${left}px, ${top}px) scale(${Math.random() * 0.15 + 0.1}) `;
+
+        Polymer.dom(this.root).appendChild(gem);
+      }
+    });
+  </script>
+</dom-module>

@@ -19,23 +19,25 @@ specific language governing permissions and limitations under the License.
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="smatch-scene.css" />
 
-<link rel="import" href="html/match3-board.html">
+<link rel="import" href="html/smatch-game.html">
 
 <!--
 Smatch scene.
 -->
 <dom-module id="smatch-scene">
 <template>
+  <style>
+    #module-smatch {
+      background-color: #D3E4ED;
+      @apply --layout-horizontal;
+      @apply --layout-center-center;
+    }
+  </style>
   <div id="module-smatch">
-    <div id="view">
-      <!-- <div class="gameboard"></div> -->
-      <match3-board id="gameboard" graphics="[[gems]]"></match3-board>
-    </div>
   </div>
 </template>
 <script>
 (function() {
-  const Graphic = Match3BoardElement.Graphic;
 
   Polymer({
     is: 'smatch-scene',
@@ -46,19 +48,6 @@ Smatch scene.
       hasClickedStart: {
         type: Boolean,
         value: false
-      },
-
-      gems: {
-        type: Array,
-        value() {
-          return [
-            new Graphic('image', this.resolveUrl('img/smatch_ornament1.svg')),
-            new Graphic('image', this.resolveUrl('img/smatch_ornament2.svg')),
-            new Graphic('image', this.resolveUrl('img/smatch_ornament3.svg')),
-            new Graphic('image', this.resolveUrl('img/smatch_ornament4.svg')),
-            new Graphic('image', this.resolveUrl('img/smatch_ornament5.svg'))
-          ];
-        }
       }
     },
 
@@ -70,18 +59,20 @@ Smatch scene.
 
     onShow: function() {
       var module = this.$['module-smatch'];
+      this.game = document.createElement('smatch-game');
+      Polymer.dom(module).appendChild(this.game);
       startButton(this, module, this.onClickStart_.bind(this));
     },
 
     onHide: function() {
-      this.game.dispose();
+      Polymer.dom(this.$['module-search']).removeChild(this.game);
       this.game = null;
       this.fire('sound-ambient', 'pd_end_game');
     },
 
     onClickStart_: function() {
       this.hasClickedStart = true;
-      this.$.gameboard.start();
+      this.game.start();
     }
   });
 

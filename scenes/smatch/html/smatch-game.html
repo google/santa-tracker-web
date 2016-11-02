@@ -1,0 +1,183 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../components/iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="match3-board.html">
+<link rel="import" href="smatch-tree.html">
+<link rel="import" href="smatch-team.html">
+
+<dom-module id="smatch-game">
+  <template>
+    <style>
+      :host {
+        max-width: 384px;
+        @apply --layout-vertical;
+        @apply --layout-center-center;
+      }
+
+      match3-board {
+        border-radius: 10px;
+      }
+
+      match3-gem {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+    <smatch-tree id="tree"></smatch-tree>
+    <smatch-team id="team" team="[[team]]" gems="[[gems]]" on-decorate="onDecorate_"></smatch-team>
+    <match3-board id="board" graphics="[[gems]]"></match3-board>
+  </template>
+  <script>
+    (() => {
+
+      const Graphic = Match3BoardElement.Graphic;
+
+      class SmatchTeamMember {
+        constructor(asset) {
+          this.asset = asset;
+          this.gemCount = 0;
+        }
+      }
+
+      Polymer({
+        is: 'smatch-game',
+
+        behaviors: [Polymer.IronResizableBehavior],
+
+        properties: {
+          gems: {
+            type: Array,
+            value() {
+              return [
+                new Graphic('image',
+                    this.resolveUrl('../img/smatch_ornament1.svg')),
+                new Graphic('image',
+                    this.resolveUrl('../img/smatch_ornament2.svg')),
+                new Graphic('image',
+                    this.resolveUrl('../img/smatch_ornament3.svg')),
+                new Graphic('image',
+                    this.resolveUrl('../img/smatch_ornament4.svg')),
+                new Graphic('image',
+                    this.resolveUrl('../img/smatch_ornament5.svg'))
+              ];
+            }
+          },
+
+          team: {
+            type: Array,
+            value() {
+              return [
+                new SmatchTeamMember(
+                    this.resolveUrl('../img/characters/angry-penguin.svg')),
+                new SmatchTeamMember(
+                    this.resolveUrl('../img/characters/bear.svg')),
+                new SmatchTeamMember(
+                    this.resolveUrl('../img/characters/dinosaur.svg')),
+                new SmatchTeamMember(
+                    this.resolveUrl('../img/characters/gingerbread-man.svg')),
+                new SmatchTeamMember(
+                    this.resolveUrl('../img/characters/mrs-claus.svg'))
+              ];
+            }
+          }
+        },
+
+        listeners: {
+          'will-remove-matches': 'handleMatches_',
+          'iron-resize': 'onIronResize_'
+        },
+
+        start() {
+          this.$.board.start();
+        },
+
+        onIronResize_() {
+          this.boardRect_ = this.$.board.getBoundingClientRect();
+        },
+
+        onDecorate_(event) {
+          this.$.tree.addGem(
+              event.detail.left, event.detail.top, event.detail.graphic);
+        },
+
+        handleMatches_(event) {
+          const matches = Array.from(event.detail.matches);
+          const groups = new Map();
+
+          while (matches.length) {
+            const match = matches.pop();
+            const graphic = match.gem.graphic;
+
+            if (!groups.has(graphic)) {
+              groups.set(graphic, []);
+            }
+
+            groups.get(graphic).push(match);
+          }
+
+          groups.forEach((group, graphic) => {
+            const index = this.gems.indexOf(graphic);
+            this.animatedExit(group, index);
+            this.set(`team.${index}.gemCount`,
+                this.get(`team.${index}.gemCount`) + group.length);
+          });
+        },
+
+        animatedExit(group, teamIndex) {
+          const boardRect = this.$.board.getBoundingClientRect();
+          const selfRect = this.getBoundingClientRect();
+          const top = boardRect.top - selfRect.top;
+          const left = boardRect.left;
+
+          const targetLeft = left +
+              teamIndex * boardRect.width / 5;
+
+          const container = Polymer.dom(this.root);
+
+          group.forEach((cell, index) => {
+            // TODO(cdata): Shared gem factory?
+            let temporaryGem = this.$.board.gemFactory_.create(cell.gem.graphic);
+            let gemTop = top + cell.position.y * 64;
+            let gemLeft = left + cell.position.x * 64;
+
+            temporaryGem.style.transform = `translate(${gemLeft}px, ${gemTop}px)`;
+            temporaryGem.style.transitionDelay = `${index * 0.1}s`;
+
+            container.appendChild(temporaryGem);
+
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() => {
+                const cleanup = event => {
+                  temporaryGem.removeEventListener('transitionend', cleanup);
+                  temporaryGem.style.transitionDelay = '';
+                  container.removeChild(temporaryGem);
+                  this.$.board.gemFactory_.destroy(temporaryGem);
+                };
+                temporaryGem.addEventListener('transitionend', cleanup);
+                temporaryGem.style.transform = `translate(${targetLeft}px, ${top - 64}px) scale(0.1) rotate(800deg)`;
+              }));
+
+          });
+        }
+      });
+
+    })();
+
+
+  </script>
+</dom-module>
