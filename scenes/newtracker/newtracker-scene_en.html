@@ -1,0 +1,160 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
+<link rel="import" href="../../components/paper-fab/paper-fab.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../elements/santa-icons.html">
+<link rel="import" href="../../elements/weather/santa-weather.html">
+<link rel="import" href="newtracker-scene_module.html">
+
+<link rel="import" href="tracker-map.html">
+
+<!--
+Tracker scene.
+-->
+<dom-module id="newtracker-scene">
+<template>
+  <style include="newtracker-scene_module"></style>
+
+  <section id="main">
+    <santa-weather>
+      <tracker-map id="map"></tracker-map>
+
+      <div class="cards">
+        <article>
+          <h2>Status</h2>
+        </article>
+        <article>
+          <h2>Games</h2>
+        </article>
+        <article style="background-image: url(../../images/scenes/santasback_2x.png)">
+          <h2>Videos</h2>
+        </article>
+        <article class="big" style="background-image: url(img/feed/mintybreath.gif)">
+          <h2>Live Feed</h2>
+        </article>
+      </div>
+    </santa-weather>
+    <div class="cards">
+    </div>
+  </section>
+  <section id="stats">
+    <div class="location">
+      <div class="photos">
+        <div class="size">
+          <div class="photo" style="transform: rotate(0deg) scale(0.97)"></div>
+        </div>
+        <div class="size">
+          <div class="photo" style="transform: rotate(-4deg) scale(0.95)"></div>
+        </div>
+        <div class="size">
+          <div class="photo" style="transform: rotate(5deg)">
+            <div class="overlay" style="background-image: url(img/overlay/overlay0.svg)"></div>
+          </div>
+        </div>
+      </div>
+      <p>
+        Melbourne is the capital and most populous city of the Australian state of Victoria, and the second-most populous city in Australia. The name "Melbourne" refers to an urban agglomeration spanning 9,900 km2 (3,800 sq mi) which comprises the broader metropolitan area, as well as being the common name for its city centre. The metropolis is located on the large natural bay of Port Phillip and expands into the hinterlands towards the Dandenong and Macedon mountain ranges, Mornington Peninsula and Yarra Valley. Melbourne consists of 31 municipalities. It has a population of 4,529,500 as of 2015, and its inhabitants are called Melburnians.
+      </p>
+    </div>
+    <div class="stats">
+    </div>
+  </section>
+  <section id="games">
+    <h1>Games</h1>
+  </section>
+  <section id="videos">
+    <h1>Videos</h1>
+  </section>
+  <section id="livefeed">
+    <h1>Live Feed</h1>
+  </section>
+  <section id="thanks">
+    <h1>Happy Holidays</h1>
+  </section>
+
+</template>
+<script>
+(function() {
+  var UPDATE_MS = 1000;
+
+  Polymer({
+    is: 'newtracker-scene',
+    behaviors: [window.SantaSceneBehavior],
+
+    properties: {
+      updateSantaTimeout_: Number,
+    },
+
+    santaSync_: function(data) {
+      var wrapper = function(data) {
+        window.requestAnimationFrame(function() {
+          window.clearTimeout(this.updateSantaTimeout_);
+          this.updateSantaTimeout_ = window.setTimeout(this.santaSync_.bind(this), UPDATE_MS);
+          this.santaUpdate_(data);
+        }.bind(this));
+      }.bind(this);
+
+      if (data && data.position && data.position.lat) {
+        wrapper(data);
+      } else {
+        window.santaService.getCurrentLocation(wrapper);
+      }
+    },
+
+    /**
+     * Called to actually update Santa's state: should be called as a result of sync, or every
+     * short timeout.
+     */
+    santaUpdate_: function(data) {
+      this.$.map.santaLatLng = data.position;
+
+      var pending = data.prev;
+      var trail = [];
+      // TODO(samthor): Build this up over time, not every frame.
+      // TODO(samthor): Don't change the trail while Santa is flying, only at each stop.
+      while (trail.length < 16 && pending) {
+        trail.unshift(pending);
+        pending = pending.prev();
+      }
+      this.$.map.trail = trail;
+    },
+
+    created: function() {
+      this.santaSync_ = this.santaSync_.bind(this);
+    },
+
+    attached: function() {
+      window.santaService.addListener('sync', this.santaSync_);
+      window.santaService.getCurrentLocation(this.santaSync_);
+
+      this._updateSantaTimeout = window
+    },
+
+    detatched: function() {
+      window.santaService.removeListener('sync', this.santaSync_);
+    },
+
+    onPreload: function() {
+      this.preloadImages([]);
+    },
+  });
+
+})();
+</script>
+</dom-module>

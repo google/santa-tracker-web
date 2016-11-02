@@ -21,7 +21,7 @@
 function EventsManager() {
   /** @type {!Map<!Object, !Map<string, !Set<function(...*)>>>} */
   this.m_ = new Map();
-}
+};
 
 /**
  * Gets or creates the events table for the specified object.
@@ -35,7 +35,7 @@ EventsManager.prototype.getTable_ = function(o) {
     this.m_.set(o, eventsTable);
   }
   return eventsTable;
-}
+};
 
 /**
  * Adds a listener for an event on a target object.
@@ -51,7 +51,20 @@ EventsManager.prototype.addListener = function(o, eventName, listener) {
     eventsTable.set(eventName, listeners);
   }
   listeners.add(listener);
-}
+};
+
+/**
+ * Removes a listener for an event on a target object.
+ * @param {!Object} o
+ * @param {string} eventName
+ * @param {function(...*)} listener
+ * @return {boolean} true if removed
+ */
+EventsManager.prototype.removeListener = function(o, eventName, listener) {
+  const eventsTable = this.getTable_(o);
+  let listeners = eventsTable.get(eventName);
+  return listeners ? listeners.delete(listener) : false;
+};
 
 /**
  * Triggers a given event on a target object.
@@ -66,7 +79,7 @@ EventsManager.prototype.trigger = function(o, eventName, var_args) {
     const args = Array.prototype.slice.call(arguments, 2);  // past o, eventName
     listeners.forEach(cb => cb.apply(o, args));
   }
-}
+};
 
 /**
  * Central Events handler.

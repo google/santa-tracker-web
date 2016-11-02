@@ -202,6 +202,9 @@ module.exports = {
   tracker: {
     msgid: 'tracker_track'
   },
+  newtracker: {
+    msgid: 'tracker_track'
+  },
   traditions: {
     msgid: 'scene_traditions',
     typeSafe: false,

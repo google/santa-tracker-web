@@ -1,0 +1,72 @@
+.cards {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  article {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 8px 24px 2px rgba(0,0,0,0.5);
+    width: 250px;
+    height: 130px;
+    margin: 0 4px;
+    background: $color-green center no-repeat;
+    background-size: cover;
+
+    h2 {
+      font-size: 11px;
+      line-height: 13px;
+      color: $color-yellow;
+      margin: 0;
+      padding: 10px 18px;
+      text-transform: uppercase;
+      font-weight: 900;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
+    }
+
+    &.big {
+      height: 188px;
+      will-change: transform;
+
+      h2 {
+        color: $color-red;
+
+        &::before {
+          content: '';
+          width: 8px;
+          height: 8px;
+          margin-right: 4px;
+          border-radius: 1000px;
+          display: inline-block;
+          background: currentColor;
+        }
+      }
+    }
+  }
+
+  // iPad horizontal gets all cards
+  @media (max-width: (1024px - 1px)) {
+    article:first-of-type {
+      display: none;
+      background: none !important;
+    }
+  }
+  // iPad vertical gets three cards
+  @media (max-width: (768px - 1px)) {
+    article:last-of-type {
+      display: none;
+      background: none !important;
+    }
+  }
+  // smaller gets two cards, and then <600px, they shrink in height.
+  @media (max-width: (600px - 1px)) {
+    article {
+      height: 80px;
+    }
+  }
+}
