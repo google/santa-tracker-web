@@ -46,7 +46,7 @@ Blockly.Blocks['snowflake_start'] = {
           "flip_rtl": false
         }
       ],
-	"nextStatement": "SnowflakeStarter",
+	"nextStatement": "Start",
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
@@ -68,7 +68,8 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
         "args0": [
           {
             "type": "input_statement",
-            "name": "SUBSTACK"
+            "name": "SUBSTACK",
+	    "check": "Stamp",
           },
           {
             "type": "field_image",
@@ -79,7 +80,7 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
             "flip_rtl": false
           }
         ],
-	"previousConnection": "SnowflakeStarter",
+	"previousConnection": "Start",
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
@@ -128,8 +129,8 @@ Blockly.Blocks['turtle_move_forward'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": "Draw",
-      "nextStatement": "Draw",
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -170,8 +171,8 @@ Blockly.Blocks['turtle_move_backward'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -186,31 +187,6 @@ Blockly.JavaScript['turtle_move_backward'] = function(block) {
       Blockly.JavaScript.ORDER_NONE) || '0';
   return 'moveBackward' +
       '(' + value + ', \'block_id_' + block.id + '\');\n';
-};
-
-//TODO(madCode): can we delete the internal blocks or are they used for something?
-Blockly.Blocks['turtle_move_internal'] = {
-  /**
-   * Block for moving forward or backwards.
-   * @this Blockly.Block
-   */
-  init: function() {
-    var DIRECTIONS =
-        [['SOME_MESSAGE', 'moveForward'],
-         ['SOME_MESSAGE', 'moveBackward']];
-    var VALUES =
-        [['20', '20'],
-         ['50', '50'],
-         ['100', '100'],
-         ['150', '150']];
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown(DIRECTIONS), 'DIR')
-        .appendField(new Blockly.FieldDropdown(VALUES), 'VALUE');
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip('SOME_MESSAGE');
-  }
 };
 
 Blockly.Blocks['turtle_turn_left'] = {
@@ -237,8 +213,8 @@ Blockly.Blocks['turtle_turn_left'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -279,8 +255,8 @@ Blockly.Blocks['turtle_turn_right'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -352,8 +328,8 @@ Blockly.Blocks['square_stamp'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -393,8 +369,8 @@ Blockly.Blocks['pentagon_stamp'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -435,8 +411,8 @@ Blockly.Blocks['triangle_stamp'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -476,8 +452,8 @@ Blockly.Blocks['diamond_stamp'] = {
           "flip_rtl": false
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.pen.primary,
       "colourSecondary": Blockly.Colours.pen.secondary,
@@ -514,42 +490,6 @@ Blockly.Blocks['dropdown_turtle_pen'] = {
   }
 };
 
-Blockly.Blocks['turtle_pen'] = {
-  /**
-   * Block for pen up/down.
-   * @this Blockly.Block
-   */
-  init: function() {
-    this.jsonInit({
-      "message0": "%1 %2",
-      "args0": [
-        {
-          "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pen.svg",
-          "width": 40,
-          "height": 40,
-          "alt": "pen icon",
-          "flip_rtl": true
-        },
-        {
-          "type": "input_value",
-          "name": "CHOICE",
-        }
-      ],
-      //"inputsInline": true,
-      "previousStatement": null,
-      "nextStatement": null,
-      "colour": Blockly.Colours.pen.primary,
-    });
-  }
-};
-
-Blockly.JavaScript['turtle_pen'] = function(block) {
-  // Generate JavaScript for pen up/down.
-  return block.getInput('CHOICE').connection.targetBlock().getFieldValue('CHOICE') +
-      '(\'block_id_' + block.id + '\');\n';
-};
-
 Blockly.Blocks['turtle_colour'] = {
   /**
    * Block for setting the colour.
@@ -560,8 +500,8 @@ Blockly.Blocks['turtle_colour'] = {
     this.appendValueInput('COLOUR')
         .setCheck('Colour')
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pen.svg", 40, 40, "pen icon"));
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+    this.setPreviousStatement(true, 'Stamp');
+    this.setNextStatement(true, 'Stamp');
     this.setTooltip('SOME_MESSAGE');
   }
 };
