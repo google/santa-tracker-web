@@ -64,6 +64,8 @@ Turtle.canSubmit = false;
 
 Turtle.isRTL = false;
 
+Turtle.onRepeat = false;
+
 /**
  * Initialize Blockly and the turtle.  Called on page load.
  */
@@ -394,6 +396,17 @@ Turtle.initInterpreter = function(interpreter, scope) {
   /** wrap functions in the Turtle object so that they 
   can be called from the blocks' javascript generator functions. */
   var wrapper;
+
+  wrapper = function(time) {
+    Turtle.pause = time;
+  };
+  interpreter.setProperty(scope, 'pause', interpreter.createNativeFunction(wrapper));
+  
+  wrapper = function(bool) {
+    Turtle.setOnRepeat(bool);
+  };
+  interpreter.setProperty(scope, 'setOnRepeat', interpreter.createNativeFunction(wrapper));
+
   wrapper = function(size, id) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
   };
@@ -402,7 +415,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
   
   wrapper = function(size, id) {
     Turtle.stampDiamond(size, false /*fill*/, id.toString());
-    //Turtle.stampCircle(size, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampDiamond',
       interpreter.createNativeFunction(wrapper));
@@ -466,12 +478,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
   interpreter.setProperty(scope, 'penDown',
       interpreter.createNativeFunction(wrapper));
 
-  wrapper = function(width, id) {
-    Turtle.penWidth(width.valueOf(), id.toString());
-  };
-  interpreter.setProperty(scope, 'penWidth',
-      interpreter.createNativeFunction(wrapper));
-
   wrapper = function(colour, id) {
     Turtle.penColour(colour.toString(), id.toString());
   };
@@ -487,19 +493,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.isVisible(true, id.toString());
   };
   interpreter.setProperty(scope, 'showTurtle',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(text, id) {
-    Turtle.drawPrint(text.toString(), id.toString());
-  };
-  interpreter.setProperty(scope, 'print',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(font, size, style, id) {
-    Turtle.drawFont(font.toString(), size.valueOf(), style.toString(),
-                  id.toString());
-  };
-  interpreter.setProperty(scope, 'font',
       interpreter.createNativeFunction(wrapper));
 };
 
@@ -560,12 +553,28 @@ Turtle.animate = function(id) {
   Turtle.display();
   if (id) {
     BlocklyInterface.highlight(id);
+    var speed;
+    if (!Turtle.onRepeat) {
+      speed = Turtle.speedSlider.getValue();
+    } else {
     // Scale the speed non-linearly, to give better precision at the fast end.
-    var stepSpeed = 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2);
-    Turtle.pause = Math.max(1, stepSpeed);
-    //BlocklyInterface.highlight(id, false /*needsHighlight*/);
+      speed = 0.8;
+    }
+    Turtle.pause = Math.max(1, 1000 * Math.pow(1 - speed, 2));
   }
 };
+
+Turtle.setOnRepeat = function(bool) {
+  Turtle.onRepeat = bool.data;
+}
+
+Turtle.setStepSpeed = function(speed) {
+  if (!Turtle.onRepeat) {
+    var speed = Turtle.speedSlider.getValue();
+  }
+  // Scale the speed non-linearly, to give better precision at the fast end.
+  Turtle.stepSpeed = 1000 * Math.pow(1 - speed, 2);
+}
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
   var sideLen = size*Math.sin(Math.PI/numSides);

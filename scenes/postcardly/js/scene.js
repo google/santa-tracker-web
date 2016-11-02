@@ -75,8 +75,8 @@ app.Scene.prototype.snowflakeFactory = function(elem, delay) {
 
 app.Scene.prototype.drawSnowflakes = function() {
   for (var i = 0, count = app.Constants.SNOWFLAKE_COUNT; i < count; ++i) {
-    // Delay snowflakes by their count+5 sec.
-    var x = this.snowflakeFactory(null, i + 5);
+    // Delay snowflakes by their count sec.
+    var x = this.snowflakeFactory(null, i);
     this.elem.find('#weather')[0].appendChild(x);
   }
 }

@@ -43,7 +43,8 @@ Blockly.Blocks['control_repeat'] = {
       "args0": [
         {
           "type": "input_statement",
-          "name": "SUBSTACK"
+          "name": "SUBSTACK",
+	  "check": "Stamp",
         },
         {
           "type": "field_image",
@@ -60,8 +61,8 @@ Blockly.Blocks['control_repeat'] = {
         }
       ],
       "inputsInline": true,
-      "previousStatement": null,
-      "nextStatement": null,
+      "previousStatement": "Stamp",
+      "nextStatement": "Stamp",
       "category": Blockly.Categories.control,
       "colour": Blockly.Colours.control.primary,
       "colourSecondary": Blockly.Colours.control.secondary,

@@ -50,14 +50,14 @@ Blockly.Blocks['snowflake_start'] = {
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
-        "colourSecondary": Blockly.Colours.control.secondary,
-        "colourTertiary": Blockly.Colours.control.tertiary
+        "colourSecondary": Blockly.Colours.control.primary,
+        "colourTertiary": Blockly.Colours.control.primary
       });
     }
 };
 
 Blockly.JavaScript['snowflake_start'] = function(block) {
-  return '';
+  return 'setOnRepeat(false);';
 };
 
 Blockly.Blocks['copy_to_make_snowflake'] = {
@@ -73,14 +73,14 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
           },
           {
             "type": "field_image",
-            "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_snowflake.png",
+            "src": Blockly.mainWorkspace.options.pathToMedia + "icons/control_repeat.svg",
             "width": 40,
             "height": 40,
             "alt": "snowflake",
             "flip_rtl": false
           }
         ],
-	"previousConnection": "Start",
+	"previousStatement": "Start",
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
         "colour": Blockly.Colours.control.primary,
@@ -97,10 +97,16 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   var code = '';
   var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
+  // Pausing for 50% longer than the user wants to pause between each step.
   code += 'for (var ' + loopVar + ' = 0; ' +
       loopVar + ' <  6; ' +
       loopVar + '++) {\n' +
-      branch + 'reset(); turnRight(60*(' + loopVar + '+1), \'block_id_' + block.id + '\');}\n';
+      branch + 'if(' +
+      loopVar + ' == 0){ pause(' +
+      1.5 * 1000 * Math.pow(1- Turtle.speedSlider.getValue(), 2) +
+      '); } reset(); turnRight(60*(' +
+      loopVar + '+1), \'block_id_' +
+      block.id + '\'); setOnRepeat(true);}\n';
   return code;
 };
 
@@ -317,8 +323,10 @@ Blockly.Blocks['square_stamp'] = {
         {
           "type": "input_value",
           "check": "Number",
-          "name": "SIZE"
-        },
+          "name": "SIZE",
+	  "min": 20,
+	  "max": 250
+	},
         {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.png",
@@ -358,7 +366,9 @@ Blockly.Blocks['pentagon_stamp'] = {
         {
           "type": "input_value",
           "check": "Number",
-          "name": "SIZE"
+          "name": "SIZE",
+	  "min": 20,
+	  "max": 250,
         },
         {
           "type": "field_image",
@@ -400,7 +410,9 @@ Blockly.Blocks['triangle_stamp'] = {
         {
           "type": "input_value",
           "check": "Number",
-          "name": "SIZE"
+          "name": "SIZE",
+	  "min": 20,
+	  "max": 250,
         },
         {
           "type": "field_image",
@@ -441,7 +453,9 @@ Blockly.Blocks['diamond_stamp'] = {
         {
           "type": "input_value",
           "check": "Number",
-          "name": "SIZE"
+          "name": "SIZE",
+	  "min": 20,
+	  "max": 250,
         },
         {
           "type": "field_image",
