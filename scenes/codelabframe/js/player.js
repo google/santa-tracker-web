@@ -112,6 +112,41 @@ app.Player.prototype = {
     return this.maybeRotateAnimation_(animation, oldDirection);
   },
 
+  /**
+   * Moves the player in an absolute direction by X tiles.
+   * @param {app.Direction} direction to go in.
+   * @return {boolean} true if successful, false if blocked for any reason.
+   */
+  jump: function(length) {
+    length = length + 1;   // Jump length + landing tile.
+    var oldX = this.x;
+    var oldY = this.y;
+    var radDirection = this.direction / 180 * Math.PI;
+    var newX = this.x + Math.round(Math.sin(radDirection)) * length;
+    var newY = this.y - Math.round(Math.cos(radDirection)) * length;
+
+    var tile = this.map.getTile(newX, newY);
+    if (tile === app.TileType.TREE || this.level.isOutsideBounds(newX, newY)) {
+      return;
+    }
+    this.x = newX;
+    this.y = newY;
+
+    // Wrap the outer animation in a SequenceEffect. Without this, the actual
+    // relevant inner KeyframeEffect tends to get nuked by neighbour anims.
+    var animation = new SequenceEffect([
+      app.PlayerSound.walk(),
+      new GroupEffect([
+        this.jumpAnimation_(),
+        new KeyframeEffect(this.el, [
+          {transform: this.getTranslation_(oldX, oldY)},
+          {transform: this.getTranslation_(this.x, this.y)}
+        ], {duration: app.Player.MOVE_DURATION, fill: 'forwards'})
+      ], {duration: app.Player.MOVE_DURATION})
+    ], {duration: app.Player.MOVE_DURATION});
+    return animation;
+  },
+
   lose: function(direction) {
     var animation = new GroupEffect([
       app.PlayerSound.lost(),
@@ -179,6 +214,15 @@ app.Player.prototype = {
 
   walkAnimation_: function() {
     // Animates the sprite as if the elf is walking. Doesn't move the elf.
+    return new KeyframeEffect(this.spriteEl, [
+      {transform: 'translateZ(0) translate(0, 0em)'},
+      {transform: 'translateZ(0) translate(0, -52.8em)'}
+    ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)'});
+  },
+
+  jumpAnimation_: function() {
+    // Animates the sprite as if the elf is walking. Doesn't move the elf.
+    // TODO: Change the elf to look like he's jumping.
     return new KeyframeEffect(this.spriteEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
       {transform: 'translateZ(0) translate(0, -52.8em)'}

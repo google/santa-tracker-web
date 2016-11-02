@@ -66,6 +66,16 @@ app.FrameWrapper.prototype.restart = function() {
 };
 
 /**
+ * dds extra levels and restarts the game at the first extra level.
+ */
+app.FrameWrapper.prototype.playExtra = function() {
+  this.isPlaying = true;
+  window.santaApp.fire('sound-ambient', 'music_start_scene');
+  this.iframeChannel.call('playExtra');
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'codelab'});
+};
+
+/**
  * Destructor.
  */
 app.FrameWrapper.prototype.dispose = function() {

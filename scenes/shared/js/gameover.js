@@ -42,6 +42,13 @@ function Gameover(game, elem) {
   this.levelElem = this.elem.querySelector('.gameover-level .gameover-number');
 
   this.elem.querySelector('.gameover-play').onclick = this._hide.bind(this);
+
+  var playExtraBtn = this.elem.querySelector('.gameover-play-extra');
+  playExtraBtn && playExtraBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    this._hide(e);
+    this.game.playExtra();
+  }.bind(this));
 }
 
 /**

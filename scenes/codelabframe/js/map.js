@@ -26,7 +26,23 @@ goog.provide('app.TileType');
  * @type {string[]}
  */
 app.MapData = [
-  'T     TT', //LEVEL8
+  'T     TT',
+  'T     TT', //LEVEL9
+  'T   TTTT',
+  'T     TT',
+  'T  X  TT',
+  'T     TT',
+  'TTTTT TT',
+  'TTTT  TT',
+  'T    TTT',
+  'T X  TTT',
+  'T     TT',
+  'T     TT',
+  'T     TT',
+  'T     TT',
+  'T     TT',
+  'T     TT',
+  'T     TT',
   'T      T', //LEVEL8
   '   S   T',
   '       T',
@@ -145,6 +161,7 @@ app.Map.prototype.getTile = function(x, y) {
  */
 app.Map.LEVEL_BOUNDS = [];
 app.Map.LEVEL_BOUNDS.unshift(1);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 16);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 7);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 5);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 3);
