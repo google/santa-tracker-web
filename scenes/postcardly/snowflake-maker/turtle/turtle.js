@@ -86,8 +86,8 @@ Turtle.init = function() {
   var visualization = document.getElementById('visualization');
   var onresize = function(e) {
     var top = visualization.offsetTop;
-    blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 10 + 'px';
-    blocklyDiv.style.left = rtl ? '10px' : '420px';
+    //blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 10 + 'px';
+    //blocklyDiv.style.left = rtl ? '10px' : '420px';
     blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
   };
   window.addEventListener('scroll', function() {

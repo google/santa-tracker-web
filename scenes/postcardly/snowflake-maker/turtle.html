@@ -36,7 +36,6 @@
       }
 
       #blocklyDiv {
-        float: right;
         height: 95%;
         width: 70%;
       }
@@ -99,20 +98,22 @@
       .run {
         background-position: -63px 0px;
       }
-
+      .center {
+        margin: auto;
+      }
     </style>
   </head>
 
   <body>
     <div id="collaborators"></div>
-    <div id="blocklyDiv"></div>
+
 
     <!-- Sidebar -->
-    <div id="visualization">
+    <div id="visualization" class="center">
       <canvas id="scratch" width="400" height="400" style="display: none"></canvas>
       <canvas id="display" width="400" height="400"></canvas>
     </div>
-    <table style="padding-top: 1em;">
+    <table style="padding-top: 1em;" class="center">
       <tr>
         <td style="width: 190px; text-align: center; vertical-align: top;">
           <svg
@@ -156,5 +157,6 @@
         </td>
       </tr>
     </table>
+    <div id="blocklyDiv" class="center"></div>
   </body>
 </html>
