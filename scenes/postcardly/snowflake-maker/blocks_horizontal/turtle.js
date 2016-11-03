@@ -324,8 +324,6 @@ Blockly.Blocks['square_stamp'] = {
           "type": "input_value",
           "check": "Number",
           "name": "SIZE",
-          "min": 20,
-          "max": 250
         },
         {
           "type": "field_image",
@@ -367,8 +365,6 @@ Blockly.Blocks['pentagon_stamp'] = {
           "type": "input_value",
           "check": "Number",
           "name": "SIZE",
-          "min": 20,
-          "max": 250,
         },
         {
           "type": "field_image",
@@ -411,8 +407,6 @@ Blockly.Blocks['triangle_stamp'] = {
 	  "type": "input_value",
 	  "check": "Number",
 	  "name": "SIZE",
-	  "min": 20,
-	  "max": 250,
         },
         {
           "type": "field_image",
@@ -454,8 +448,6 @@ Blockly.Blocks['diamond_stamp'] = {
           "type": "input_value",
           "check": "Number",
           "name": "SIZE",
-	  "min": 20,
-	  "max": 250,
         },
         {
           "type": "field_image",
