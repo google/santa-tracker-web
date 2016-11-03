@@ -67,8 +67,8 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
         "message0": "%1 %2",
         "args0": [
           {
-            "type": "input_statement",
-            "name": "SUBSTACK",
+	    "type": "input_statement",
+	    "name": "SUBSTACK",
 	    "check": "Stamp",
           },
           {
@@ -408,11 +408,11 @@ Blockly.Blocks['triangle_stamp'] = {
       "message0": "%1 %2",
       "args0": [
         {
-          "type": "input_value",
-          "check": "Number",
-          "name": "SIZE",
-          "min": 20,
-          "max": 250,
+	  "type": "input_value",
+	  "check": "Number",
+	  "name": "SIZE",
+	  "min": 20,
+	  "max": 250,
         },
         {
           "type": "field_image",
