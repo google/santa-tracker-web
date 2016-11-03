@@ -21,7 +21,7 @@ const through = require('through');
 const gutil = require('gulp-util');
 const crypto = require('crypto');
 
-const OUTPUT_PATH = 'contents.js';
+const OUTPUT_NAME = 'contents';
 
 function hash(contents) {
   const md5 = crypto.createHash('md5');
@@ -49,7 +49,7 @@ module.exports = function fileManifest(version, prefix) {
     const p = path.normalize(file.path);
     const rel = path.relative(pathPrefix, p);
 
-    if (rel === OUTPUT_PATH) {
+    if (rel === `${OUTPUT_NAME}.js` || rel === `${OUTPUT_NAME}.json`) {
       // TODO(samthor): This is a bit ugly. It won't hit in real prod builds (since we build/clean)
       // but will occur over multiple test runs at the same version.
       return;  // nb. ignore ourselves
@@ -71,16 +71,25 @@ module.exports = function fileManifest(version, prefix) {
   }
 
   function buildManifest() {
-    const data = `// Generated at ${new Date().toISOString()}
-const contents = ${JSON.stringify(out)};
+    const json = JSON.stringify(out);
+    const js = `// Generated at ${new Date().toISOString()}
+const contents = ${json};
 `;
-    const outputFile = new gutil.File({
-      base: pathPrefix,
-      contents: new Buffer(data),
-      path: path.join(pathPrefix, OUTPUT_PATH),
-    });
 
-    this.emit('data', outputFile);
+    const outputJsonFile = new gutil.File({
+      base: pathPrefix,
+      contents: new Buffer(json),
+      path: path.join(pathPrefix, `${OUTPUT_NAME}.json`),
+    });
+    this.emit('data', outputJsonFile);
+
+    const outputJsFile = new gutil.File({
+      base: pathPrefix,
+      contents: new Buffer(js),
+      path: path.join(pathPrefix, `${OUTPUT_NAME}.js`),
+    });
+    this.emit('data', outputJsFile);
+
     this.emit('end');
   }
 
