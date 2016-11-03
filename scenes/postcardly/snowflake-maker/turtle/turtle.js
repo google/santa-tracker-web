@@ -581,13 +581,13 @@ Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
   Turtle.ctxScratch.beginPath();
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
-  Turtle.drawLineWithoutMoving(sideLen/2, !fill /*trace*/);
-  for (var i=0; i < numSides-1; i++) {
-    Turtle.turnWithoutAnimation(360/numSides);
+  Turtle.drawLineWithoutMoving(sideLen / 2, !fill /*trace*/);
+  for (var i = 0; i < numSides - 1; i++) {
+    Turtle.turnWithoutAnimation(360 / numSides);
     Turtle.drawLineWithoutMoving(sideLen, !fill);
   }
   Turtle.turnWithoutAnimation(360/numSides);
-  Turtle.drawLineWithoutMoving(sideLen/2, !fill);
+  Turtle.drawLineWithoutMoving(sideLen / 2, !fill);
   Turtle.turnWithoutAnimation(90);
   Turtle.ctxScratch.closePath();
   if (fill) {

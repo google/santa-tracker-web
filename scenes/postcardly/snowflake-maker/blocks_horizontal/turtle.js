@@ -46,14 +46,14 @@ Blockly.Blocks['snowflake_start'] = {
           "flip_rtl": false
         }
       ],
-        "nextStatement": "Start",
-        "inputsInline": true,
-        "category": Blockly.Categories.turtle,
-        "colour": Blockly.Colours.control.primary,
-        "colourSecondary": Blockly.Colours.control.primary,
-        "colourTertiary": Blockly.Colours.control.primary
-      });
-    }
+      "nextStatement": "Start",
+      "inputsInline": true,
+      "category": Blockly.Categories.turtle,
+      "colour": Blockly.Colours.control.primary,
+      "colourSecondary": Blockly.Colours.control.primary,
+      "colourTertiary": Blockly.Colours.control.primary
+    });
+  }
 };
 
 Blockly.JavaScript['snowflake_start'] = function(block) {
