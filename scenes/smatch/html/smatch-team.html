@@ -14,27 +14,27 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
 <link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="smatch-common.html">
 <link rel="import" href="smatch-portrait.html">
+
 <dom-module id="smatch-team">
   <template>
     <style>
       :host {
-        @apply --layout-horizontal;
+        @apply --layout-vertical;
         @apply --layout-center-center;
-        width: 100%;
-        max-height: 80px;
       }
 
       img {
         display: block;
         box-sizing: border-box;
-        width: 20%;
+        width: 64px;
         padding: 10px;
         border-radius: 100%;
       }
 
       .lateral-container {
-        width: 20%;
+        width: 64px;
         padding: 10px;
         transition: transform 0.4s cubic-bezier(.76,-0.54,.26,1.46);
         transition-delay: 0.3s;
@@ -46,13 +46,20 @@ specific language governing permissions and limitations under the License.
         height: 100%;
         transition: transform 0.4s ease-in-out;
         transition-delay: 0.3s;
+        transform-origin: bottom center;
         transform: translateY(0) scale(1);
+      }
+
+      @media (max-width: 640px) {
+        :host {
+          @apply --layout-horizontal;
+        }
       }
     </style>
     <template is="dom-repeat" items="[[team]]" as="teamMember">
       <div class="lateral-container">
         <smatch-portrait
-            on-flush-gems="onFlushGems_"
+            on-flush-gems="_onFlushGems"
             team-member="[[teamMember]]"
             gem-graphic="[[gemGraphicFor(teamMember)]]">
         </smatch-portrait>
@@ -60,52 +67,88 @@ specific language governing permissions and limitations under the License.
     </template>
   </template>
   <script>
-    Polymer({
-      is: 'smatch-team',
+    (() => {
+      const {
+        SmatchTeamMember,
+        SmatchMetrics,
+        GEM_SIZE,
+        TREE_BASE_WIDTH,
+        TREE_TRUNK_RATIO
+      } = window.scenes.smatch;
 
-      properties: {
-        team: {
-          type: Array,
-          value() {
-            return [];
+      Polymer({
+        is: 'smatch-team',
+
+        properties: {
+          team: {
+            type: Array,
+            value() {
+              return [];
+            }
+          },
+
+          gems: {
+            type: Array,
+            value() {
+              return [];
+            }
+          },
+
+          metrics: {
+            type: SmatchMetrics
           }
         },
 
-        gems: {
-          type: Array,
-          value() {
-            return [];
+        _onFlushGems(event) {
+          const portrait = event.target;
+          const container = Polymer.dom(portrait).parentNode;
+          const teamIndex = this.team.indexOf(portrait.teamMember);
+          const offset = this.metrics.teamOffsetLength;
+          const teamOffset = teamIndex * offset / 5 + offset / 10;
+          const portraitScale = this.metrics.tree.width / TREE_BASE_WIDTH;
+
+          const targetTopScale =
+              (1|Math.random() * 100 * (1 - TREE_TRUNK_RATIO)) / 100;
+          const targetLeftScale =
+              Math.random() * targetTopScale
+                  + 0.5 * (1 - targetTopScale);
+
+          let targetTop = this.metrics.teamTreeDeltaTop
+              + this.metrics.tree.height * targetTopScale;
+          let targetLeft = this.metrics.teamTreeDeltaLeft
+              + this.metrics.tree.width * targetLeftScale;
+
+          if (this.metrics.teamOffsetDimension === 'width') {
+            targetLeft -= teamOffset;
+            targetTop -= GEM_SIZE / 3;
+          } else {
+            targetLeft -= GEM_SIZE / 1.5;
+            targetTop -= teamOffset;
           }
+
+          container.style.transform = `translateX(${targetLeft}px)`;
+          portrait.style.transform = `translateY(${targetTop}px) scale(${portraitScale})`;
+
+          setTimeout(() => {
+            container.style.transform = '';
+            portrait.style.transform = '';
+
+            portrait.set('teamMember.gemCount',
+                portrait.get('teamMember.gemCount') - 2);
+
+            this.fire('decorate', {
+              x: targetLeftScale,
+              y: targetTopScale,
+              graphic: portrait.gemGraphic
+            });
+          }, 700);
+        },
+
+        gemGraphicFor(teamMember) {
+          return this.gems[this.team.indexOf(teamMember)];
         }
-      },
+      });
+    })();
 
-      onFlushGems_(event) {
-        const portrait = event.target;
-        const container = Polymer.dom(portrait).parentNode;
-        const index = this.team.indexOf(portrait.teamMember);
-        const selfRect = this.getBoundingClientRect();
-        const targetLeft = index * selfRect.width / 5 - selfRect.width / 2.5;
-        const topOffset = Math.random() * -250 - 75;
-        const leftOffset = (Math.random() * 200 - 100) * (1 - topOffset / -325);
-
-        container.style.transform = `translateX(${leftOffset - targetLeft}px)`;
-        portrait.style.transform = `translateY(${topOffset}px) scale(0.75)`;
-
-        setTimeout(() => {
-          container.style.transform = '';
-          portrait.style.transform = '';
-          portrait.set('teamMember.gemCount', portrait.get('teamMember.gemCount') - 4);
-          this.fire('decorate', {
-            top: topOffset,
-            left: leftOffset,
-            graphic: portrait.gemGraphic
-          });
-        }, 700);
-      },
-
-      gemGraphicFor(teamMember) {
-        return this.gems[this.team.indexOf(teamMember)];
-      }
-    });
   </script>
 </dom-module>

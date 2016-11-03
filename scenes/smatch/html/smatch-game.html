@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../components/iron-resizable-behavior/iron-resizable-behavior.html">
 <link rel="import" href="match3-board.html">
+<link rel="import" href="smatch-common.html">
 <link rel="import" href="smatch-tree.html">
 <link rel="import" href="smatch-team.html">
 
@@ -23,13 +24,34 @@ specific language governing permissions and limitations under the License.
   <template>
     <style>
       :host {
-        max-width: 384px;
+        @apply --layout-fit;
+        @apply --layout-horizontal;
+        @apply --layout-center-center;
+      }
+
+      section {
+        display: flex;
+        position: relative;
         @apply --layout-vertical;
         @apply --layout-center-center;
       }
 
+      #match3 {
+        padding-left: 32px;
+        flex: 1;
+        height: 100%;
+        z-index: 2;
+        flex-direction: row-reverse;
+      }
+
+      #tree-container {
+        margin: 0 10%;
+      }
+
       match3-board {
         border-radius: 10px;
+        min-width: 384px;
+        margin-right: 32px;
       }
 
       match3-gem {
@@ -37,22 +59,73 @@ specific language governing permissions and limitations under the License.
         top: 0;
         left: 0;
       }
+
+      smatch-team {
+        flex: 0 0 64px;
+      }
+
+      @media (max-width: 768px) {
+        #tree-container {
+          margin: 0 5%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :host {
+          flex-direction: column-reverse;
+        }
+
+        #match3 {
+          max-width: 384px;
+          padding: 32px 0;
+          justify-content: flex-end;
+          flex-direction: column;
+        }
+
+        #tree-container {
+          margin-left: 0;
+        }
+
+        match3-board {
+          margin-top: 16px;
+          margin-right: 0;
+        }
+
+        smatch-tree {
+          position: absolute;
+          top: 0;
+        }
+      }
     </style>
-    <smatch-tree id="tree"></smatch-tree>
-    <smatch-team id="team" team="[[team]]" gems="[[gems]]" on-decorate="onDecorate_"></smatch-team>
-    <match3-board id="board" graphics="[[gems]]"></match3-board>
+    <section id="match3">
+      <smatch-team
+          id="team"
+          team="[[team]]"
+          gems="[[gems]]"
+          metrics="[[metrics]]"
+          on-decorate="_onDecorate">
+      </smatch-team>
+      <match3-board
+          id="board"
+          graphics="[[gems]]">
+      </match3-board>
+    </section>
+    <section id="tree-container">
+      <smatch-tree
+          id="tree"
+          metrics="[[metrics]]">
+      </smatch-tree>
+    </section>
   </template>
   <script>
     (() => {
 
       const Graphic = Match3BoardElement.Graphic;
-
-      class SmatchTeamMember {
-        constructor(asset) {
-          this.asset = asset;
-          this.gemCount = 0;
-        }
-      }
+      const {
+        SmatchTeamMember,
+        SmatchMetrics,
+        GEM_SIZE
+      } = window.scenes.smatch;
 
       Polymer({
         is: 'smatch-game',
@@ -94,28 +167,40 @@ specific language governing permissions and limitations under the License.
                     this.resolveUrl('../img/characters/mrs-claus.svg'))
               ];
             }
+          },
+
+          metrics: {
+            type: SmatchMetrics
           }
         },
 
         listeners: {
-          'will-remove-matches': 'handleMatches_',
-          'iron-resize': 'onIronResize_'
+          'will-remove-matches': '_handleMatches',
+          'iron-resize': '_onIronResize'
+        },
+
+        attached() {
+          this._measure();
         },
 
         start() {
           this.$.board.start();
         },
 
-        onIronResize_() {
-          this.boardRect_ = this.$.board.getBoundingClientRect();
+        _measure() {
+          this.metrics = new SmatchMetrics(this);
         },
 
-        onDecorate_(event) {
-          this.$.tree.addGem(
-              event.detail.left, event.detail.top, event.detail.graphic);
+        _onIronResize() {
+          this.debounce('iron-resize', () => this._measure(), 100);
         },
 
-        handleMatches_(event) {
+        _onDecorate(event) {
+          this.$.tree.addDecoration(
+              event.detail.x, event.detail.y, event.detail.graphic);
+        },
+
+        _handleMatches(event) {
           const matches = Array.from(event.detail.matches);
           const groups = new Map();
 
@@ -139,24 +224,35 @@ specific language governing permissions and limitations under the License.
         },
 
         animatedExit(group, teamIndex) {
-          const boardRect = this.$.board.getBoundingClientRect();
-          const selfRect = this.getBoundingClientRect();
-          const top = boardRect.top - selfRect.top;
-          const left = boardRect.left;
+          let gemTargetTop = this.metrics.boardOriginTop
+              + this.metrics.boardTeamDeltaTop;
+          let gemTargetLeft = this.metrics.boardOriginLeft
+              + this.metrics.boardTeamDeltaLeft;
 
-          const targetLeft = left +
-              teamIndex * boardRect.width / 5;
+          // TODO(cdata): Associate gems with specific team members. Right now
+          // the gems will flow to a team position even if no team member is
+          // is there, and without regard to which team member is there.
+          if (this.metrics.teamOffsetDimension === 'width') {
+            gemTargetTop += GEM_SIZE / 2;
+            gemTargetLeft += teamIndex * this.metrics.team.width / 5;
+          } else {
+            gemTargetTop += teamIndex * this.metrics.team.height / 5;
+            gemTargetLeft -= GEM_SIZE / 2;
+          }
 
           const container = Polymer.dom(this.root);
 
           group.forEach((cell, index) => {
             // TODO(cdata): Shared gem factory?
-            let temporaryGem = this.$.board.gemFactory_.create(cell.gem.graphic);
-            let gemTop = top + cell.position.y * 64;
-            let gemLeft = left + cell.position.x * 64;
+            const temporaryGem =
+                this.$.board.gemFactory_.create(cell.gem.graphic);
+            const gemTop = this.metrics.boardOriginTop
+                + cell.position.y * GEM_SIZE;
+            const gemLeft = this.metrics.boardOriginLeft
+                + cell.position.x * GEM_SIZE;
 
             temporaryGem.style.transform = `translate(${gemLeft}px, ${gemTop}px)`;
-            temporaryGem.style.transitionDelay = `${index * 0.1}s`;
+            temporaryGem.style.transitionDelay = `${index * 0.05}s`;
 
             container.appendChild(temporaryGem);
 
@@ -169,7 +265,7 @@ specific language governing permissions and limitations under the License.
                   this.$.board.gemFactory_.destroy(temporaryGem);
                 };
                 temporaryGem.addEventListener('transitionend', cleanup);
-                temporaryGem.style.transform = `translate(${targetLeft}px, ${top - 64}px) scale(0.1) rotate(800deg)`;
+                temporaryGem.style.transform = `translate(${gemTargetLeft}px, ${gemTargetTop}px) scale(0.1) rotate(240deg)`;
               }));
 
           });

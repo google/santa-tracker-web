@@ -13,21 +13,31 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
-<link rel="import" href="match3-gem.html">
+<link rel="import" href="smatch-decoration.html">
 <dom-module id="smatch-tree">
   <template>
     <style>
       :host {
         position: relative;
         background-image: url(../img/smatch_tree.svg);
-        width: 180px;
-        height: 300px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 360px;
+        height: 640px;
       }
 
-      match3-gem {
-        position: absolute;
-        top: 0;
-        left: 0;
+      @media (max-width: 768px) {
+        :host {
+          transform: scale(0.75);
+          transform-origin: left;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :host {
+          transform-origin: top center;
+        }
       }
     </style>
   </template>
@@ -35,16 +45,17 @@ specific language governing permissions and limitations under the License.
     Polymer({
       is: 'smatch-tree',
 
-      addGem(x, y, graphic) {
-        const gem = document.createElement('match3-gem');
-        const left = x + 58;
-        const top = y + 300;
-        console.log('Adding gem', left, top, graphic, x, y);
+      addDecoration(x, y, graphic) {
+        const decoration = document.createElement('smatch-decoration');
 
-        gem.graphic = graphic;
-        gem.style.transform = `translate(${left}px, ${top}px) scale(${Math.random() * 0.15 + 0.1}) `;
+        console.log('Adding decoration', x, y, graphic.asset);
 
-        Polymer.dom(this.root).appendChild(gem);
+        decoration.graphic = graphic;
+        decoration.x = x;
+        decoration.y = y;
+        decoration.scale = Math.random() * 0.4 + 0.25;
+
+        Polymer.dom(this.root).appendChild(decoration);
       }
     });
   </script>

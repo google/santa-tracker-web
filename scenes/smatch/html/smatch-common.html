@@ -1,0 +1,48 @@
+<script>
+  (() => {
+
+    class SmatchTeamMember {
+      constructor(asset) {
+        this.asset = asset;
+        this.gemCount = 0;
+      }
+    }
+
+    class SmatchMetrics {
+      constructor(gameElement) {
+        this.game = gameElement.getBoundingClientRect();
+        this.tree = gameElement.$.tree.getBoundingClientRect();
+        this.team = gameElement.$.team.getBoundingClientRect();
+        this.board = gameElement.$.board.getBoundingClientRect();
+
+        this.teamOffsetDimension = this.team.width > this.team.height
+            ? 'width'
+            : 'height';
+
+        this.teamOffsetLength = this.team[this.teamOffsetDimension];
+
+        this.teamTreeDeltaTop = this.tree.top - this.team.top;
+        this.teamTreeDeltaLeft = this.tree.left - this.team.left;
+
+        this.boardOriginTop = this.board.top - this.game.top;
+        this.boardOriginLeft = this.board.left - this.game.left;
+
+        this.boardTeamDeltaTop = this.team.top - this.board.top;
+        this.boardTeamDeltaLeft = this.team.left - this.board.left;
+      }
+    }
+
+    const GEM_SIZE = 64;
+    const TREE_BASE_WIDTH = 300;
+    const TREE_TRUNK_RATIO = 32 / 320;
+
+    window.scenes = window.scenes || {};
+    scenes.smatch = {
+      SmatchTeamMember,
+      SmatchMetrics,
+      GEM_SIZE,
+      TREE_BASE_WIDTH,
+      TREE_TRUNK_RATIO
+    };
+  })();
+</script>

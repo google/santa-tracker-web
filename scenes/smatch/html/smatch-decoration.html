@@ -14,62 +14,60 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
 <link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="match3-board.html">
-<link rel="import" href="match3-gem.html">
 <link rel="import" href="smatch-common.html">
+<link rel="import" href="match3-gem.html">
 
-<dom-module id="smatch-portrait">
+<dom-module id="smatch-decoration">
   <template>
     <style>
       :host {
-        display: block;
-        position: relative;
-        box-sizing: border-box;
+        @apply --layout-fit;
+        overflow: visible;
+        transform-origin: center center;
       }
 
       match3-gem {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        transform-origin: bottom center;
-        transition-timing-function: cubic-bezier(.76,-0.54,.26,1.46);
-        transition-duration: 1s;
-        transform: scale(0.15);
+        position: relative;
+        transform-origin: center;
       }
     </style>
-    <img src="[[teamMember.asset]]">
-    <match3-gem id="gem" graphic="[[gemGraphic]]"></match3-gem>
+    <match3-gem
+        id="gem"
+        graphic="[[graphic]]">
+    </match3-gem>
   </template>
   <script>
     (() => {
-      const { SmatchTeamMember } = window.scenes.smatch;
+      const { GEM_SIZE } = scenes.smatch;
 
       Polymer({
-        is: 'smatch-portrait',
+        is: 'smatch-decoration',
 
         properties: {
-          teamMember: {
-            type: SmatchTeamMember
+          x: {
+            type: Number
           },
 
-          gemGraphic: {
+          y: {
+            type: Number
+          },
+
+          scale: {
+            type: Number
+          },
+
+          graphic: {
             type: Match3BoardElement.Graphic
           }
         },
 
-        observers: [
-          '__updateGemScale(teamMember.gemCount)'
-        ],
+        observers: ['_updatePosition(x, y, scale)'],
 
-        __updateGemScale(gemCount) {
-          if (gemCount > 2) {
-            this.fire('flush-gems', { gemCount });
-            return;
-          }
-
-          this.$.gem.style.transform = `scale(${0.15 + gemCount / 6})`;
+        _updatePosition(x, y, scale) {
+          this.debounce('update-position', () => {
+            this.$.gem.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            this.style.transform = `translate(${x * 100}%, ${y * 100}%)`;
+          });
         }
       });
     })();
