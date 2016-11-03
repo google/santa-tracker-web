@@ -140,7 +140,11 @@ ga('set', 'transport', 'beacon');
       document.head.appendChild(manifest);
     }());
     if ('serviceWorker' in navigator) {
-      window.sw = navigator.serviceWorker.register(window.location.origin + '/sw.js');
+      var suffix = '';
+      if (document.documentElement.lang !== 'en') {
+        suffix = '?lang=' + document.documentElement.lang;
+      }
+      window.sw = navigator.serviceWorker.register(window.location.origin + '/sw.js' + suffix);
     }
 
     window.Polymer = window.Polymer || {

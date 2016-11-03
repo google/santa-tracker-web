@@ -362,8 +362,8 @@ gulp.task('vulcanize-elements', ['sass', 'compile-santa-api-service'], function(
 
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
-gulp.task('i18n_index', function() {
-  return gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
+gulp.task('build-prod', function() {
+  const htmlStream = gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
     .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
     .pipe($.replace('<base href="">', `<base href="${STATIC_URL}">`))
     .pipe($.replace('data-version=""', `data-version="${STATIC_VERSION}"`))
@@ -372,16 +372,23 @@ gulp.task('i18n_index', function() {
       path: '_messages',
     }))
     .pipe(gulp.dest(DIST_PROD_DIR));
+
+  const jsStream = gulp.src(['sw.js'])
+    .pipe($.replace('./STATIC_PATH/', STATIC_URL))
+    .pipe($.replace(/const version ?= ?\'\';/, `const version = '${STATIC_VERSION}';`))
+    .pipe(gulp.dest(DIST_PROD_DIR));
+
+  return mergeStream(htmlStream, jsStream);
 });
 
-gulp.task('i18n_manifest', function() {
+gulp.task('build-prod-manifest', function() {
   return gulp.src(['manifest.json'])
     .pipe(i18n_manifest({path: '_messages'}))
     .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directories
-gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function() {
+gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], function() {
   const staticStream = gulp.src([
     'audio/*',
     'images/*.{png,svg,jpg,gif,ico}',
@@ -394,20 +401,19 @@ gulp.task('copy-assets', ['vulcanize', 'i18n_index', 'i18n_manifest'], function(
     // TODO(samthor): Better support for custom scenes (#1679).
     'scenes/postcardly/snowflake-maker/{media,third-party}/**',
   ], {base: './'})
-  .pipe(gulp.dest(DIST_STATIC_DIR));
+    .pipe(gulp.dest(DIST_STATIC_DIR));
 
   const prodStream = gulp.src([
     'images/og.png',
     'images/*icon*.png',  // nb. duplicated in prod for manifest convenience
-    'sw.js',
   ], {base: './'})
-  .pipe(gulp.dest(DIST_PROD_DIR));
+    .pipe(gulp.dest(DIST_PROD_DIR));
 
   return mergeStream(staticStream, prodStream);
 });
 
 // builds a JSON manifest file containing files and hashes
-gulp.task('build-manifest', ['copy-assets'], function() {
+gulp.task('build-contents', ['copy-assets'], function() {
   const stream = file_manifest(STATIC_VERSION, DIST_STATIC_DIR);
   return gulp.src([`${DIST_STATIC_DIR}/**/*`])
     .pipe(stream)
@@ -416,7 +422,7 @@ gulp.task('build-manifest', ['copy-assets'], function() {
 
 // clean + build a distribution version
 gulp.task('dist', function(callback) {
-  require('run-sequence')('rm-dist', 'copy-assets', 'build-manifest', callback);
+  require('run-sequence')('rm-dist', 'copy-assets', 'build-contents', callback);
 });
 
 gulp.task('watch', function() {

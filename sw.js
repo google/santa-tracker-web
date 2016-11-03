@@ -15,5 +15,21 @@
  */
 
 /**
- * @fileoverview Intentionally empty Service Worker.
+ * @fileoverview Service Worker for Santa Tracker.
  */
+
+const version = '';
+const contentsPath = './STATIC_PATH/contents.js';
+
+const query = new URL(self.location).searchParams;
+
+try {
+  self.importScripts(contentsPath);  // as this link changes, the SW changes
+} catch (e) {
+  console.warn('sw contents manifest unavailable');
+  throw e;
+}
+
+console.debug('manifest at', contents.version, 'loaded from', contentsPath, 'in lang', query.lang);
+
+// TODO(plegner): Service Worker code.

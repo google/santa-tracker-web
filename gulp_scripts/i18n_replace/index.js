@@ -36,12 +36,14 @@ module.exports = function replaceMessages(opts) {
   var msgPromise = getMsgs(opts.path);
 
   var stream = through.obj(function(file, enc, cb) {
-    if (file.isNull()) return stream.push(file);
-    if (file.isStream()) error('No support for streams');
-    if (!file.path.match(/\.html$/)) {
+    if (file.isStream()) {
+      error('No support for streams');
+    }
+    if (!file.path.match(/\.html$/) || file.isNull()) {
       // Don't do work if the file isn't HTML.
       warn('skipping non-html: %s', file.path);
-      return stream.push(file);
+      stream.push(file);
+      return cb();
     }
 
     msgPromise.then(function(messagesByLang) {
