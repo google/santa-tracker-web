@@ -411,8 +411,8 @@ Blockly.Blocks['triangle_stamp'] = {
           "type": "input_value",
           "check": "Number",
           "name": "SIZE",
-	  "min": 20,
-	  "max": 250,
+          "min": 20,
+          "max": 250,
         },
         {
           "type": "field_image",
