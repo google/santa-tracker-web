@@ -39,7 +39,7 @@ Blockly.Blocks['snowflake_start'] = {
       "args0": [
 	{
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_snowflake.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_snowflake.png",
           "width": 40,
           "height": 40,
           "alt": "snowflake",
@@ -73,7 +73,7 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
           },
           {
             "type": "field_image",
-            "src": Blockly.mainWorkspace.options.pathToMedia + "icons/control_repeat.svg",
+            "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_loopx6.png",
             "width": 40,
             "height": 40,
             "alt": "snowflake",
@@ -128,7 +128,7 @@ Blockly.Blocks['turtle_move_forward'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_forward.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward.png",
           "width": 40,
           "height": 40,
           "alt": "move forward",
@@ -170,7 +170,7 @@ Blockly.Blocks['turtle_move_backward'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_back.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back.png",
           "width": 40,
           "height": 40,
           "alt": "move backward",
@@ -212,7 +212,7 @@ Blockly.Blocks['turtle_turn_left'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_ccw.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw.png",
           "width": 40,
           "height": 40,
           "alt": "turn left",
@@ -254,7 +254,7 @@ Blockly.Blocks['turtle_turn_right'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_cw.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw.png",
           "width": 40,
           "height": 40,
           "alt": "turn right",
@@ -289,7 +289,7 @@ Blockly.Blocks['triangle_draw'] = {
     this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
     this.appendValueInput('SIZE')
         .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.png", 40, 40, "draw shape outline"));
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png", 40, 40, "draw shape outline"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
@@ -329,7 +329,7 @@ Blockly.Blocks['square_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_square.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a square",
@@ -372,7 +372,7 @@ Blockly.Blocks['pentagon_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_pentagram.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a pentagon",
@@ -416,7 +416,7 @@ Blockly.Blocks['triangle_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_triangle.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a triangle",
@@ -459,7 +459,7 @@ Blockly.Blocks['diamond_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/ic_block_diamond.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_diamond.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a diamond",
@@ -483,6 +483,7 @@ Blockly.JavaScript['diamond_stamp'] = function(block) {
   return 'stampDiamond(' + size + ', \'block_id_' + block.id + '\');\n';
 };
 
+//TODO(madCode): remove once we no longer need an example of dropdowns.
 Blockly.Blocks['dropdown_turtle_pen'] = {
   /**
    * Block for set color drop-down (used for shadow).
@@ -491,7 +492,7 @@ Blockly.Blocks['dropdown_turtle_pen'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pen.svg",
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_color.png",
               value: 'penUp', width: 48, height: 48, alt: 'Pen Up'},
           {src: Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pen.svg",
               value: 'penDown', width: 48, height: 48, alt: 'Pen Down'},
@@ -513,10 +514,10 @@ Blockly.Blocks['turtle_colour'] = {
     this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
     this.appendValueInput('COLOUR')
         .setCheck('Colour')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pen.svg", 40, 40, "pen icon"));
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_color.png", 40, 40, "pen icon"));
     this.setPreviousStatement(true, 'Stamp');
     this.setNextStatement(true, 'Stamp');
-    this.setTooltip('SOME_MESSAGE');
+    this.setTooltip('Change stamp color.');
   }
 };
 

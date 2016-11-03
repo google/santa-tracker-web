@@ -48,7 +48,7 @@ Blockly.Blocks['control_repeat'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/control_repeat.svg",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_loop.png",
           "width": 40,
           "height": 40,
           "alt": "*",

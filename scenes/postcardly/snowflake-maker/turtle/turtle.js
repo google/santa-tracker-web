@@ -106,9 +106,9 @@ Turtle.init = function() {
           media: 'media/',
           readOnly: false,
           rtl: rtl,
-          scrollbars: true,
+          scrollbars: false,
           toolbox: toolbox,
-          trashcan: true,
+          trashcan: false,
           horizontalLayout: true,
           toolboxPosition: 'end',
           sounds: soundsEnabled,
@@ -116,14 +116,6 @@ Turtle.init = function() {
             length: 1,
             colour: '#2C344A',
             snap: false
-          },
-          zoom: {
-            controls: true,
-            wheel: true,
-            startScale: 1.0,
-            maxScale: 4,
-            minScale: 0.25,
-            scaleSpeed: 1.1
           },
           colours: {
             workspace: '#334771',
@@ -147,7 +139,7 @@ Turtle.init = function() {
   var sliderSvg = document.getElementById('slider');
   Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
 
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" x="10" y="200"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
