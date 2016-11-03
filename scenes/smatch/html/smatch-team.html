@@ -25,29 +25,9 @@ specific language governing permissions and limitations under the License.
         @apply --layout-center-center;
       }
 
-      img {
-        display: block;
-        box-sizing: border-box;
-        width: 64px;
-        padding: 10px;
-        border-radius: 100%;
-      }
-
-      .lateral-container {
-        width: 64px;
-        padding: 10px;
-        transition: transform 0.4s cubic-bezier(.76,-0.54,.26,1.46);
-        transition-delay: 0.3s;
-        transform: translateX(0);
-      }
-
       smatch-portrait {
         width: 100%;
         height: 100%;
-        transition: transform 0.4s ease-in-out;
-        transition-delay: 0.3s;
-        transform-origin: bottom center;
-        transform: translateY(0) scale(1);
       }
 
       @media (max-width: 640px) {
@@ -57,13 +37,11 @@ specific language governing permissions and limitations under the License.
       }
     </style>
     <template is="dom-repeat" items="[[team]]" as="teamMember">
-      <div class="lateral-container">
-        <smatch-portrait
-            on-flush-gems="_onFlushGems"
-            team-member="[[teamMember]]"
-            gem-graphic="[[gemGraphicFor(teamMember)]]">
-        </smatch-portrait>
-      </div>
+      <smatch-portrait
+          on-flush-gems="_onFlushGems"
+          team-member="[[teamMember]]"
+          gem-graphic="[[gemGraphicFor(teamMember)]]">
+      </smatch-portrait>
     </template>
   </template>
   <script>
@@ -96,22 +74,31 @@ specific language governing permissions and limitations under the License.
 
           metrics: {
             type: SmatchMetrics
+          },
+
+          level: {
+            type: Number
           }
         },
 
         _onFlushGems(event) {
           const portrait = event.target;
-          const container = Polymer.dom(portrait).parentNode;
           const teamIndex = this.team.indexOf(portrait.teamMember);
           const offset = this.metrics.teamOffsetLength;
           const teamOffset = teamIndex * offset / 5 + offset / 10;
           const portraitScale = this.metrics.tree.width / TREE_BASE_WIDTH;
 
+          const upperBound = (3 - this.level) / 4;
+          const lowerBound = (1 - TREE_TRUNK_RATIO);
+          const deltaBound = lowerBound - upperBound;
+
           const targetTopScale =
-              (1|Math.random() * 100 * (1 - TREE_TRUNK_RATIO)) / 100;
+              (0|(Math.random() * deltaBound + upperBound) * lowerBound * 100)
+              / 100;
           const targetLeftScale =
               Math.random() * targetTopScale
                   + 0.5 * (1 - targetTopScale);
+
 
           let targetTop = this.metrics.teamTreeDeltaTop
               + this.metrics.tree.height * targetTopScale;
@@ -122,26 +109,19 @@ specific language governing permissions and limitations under the License.
             targetLeft -= teamOffset;
             targetTop -= GEM_SIZE / 3;
           } else {
-            targetLeft -= GEM_SIZE / 1.5;
+            targetLeft -= GEM_SIZE * 1.5;
             targetTop -= teamOffset;
           }
 
-          container.style.transform = `translateX(${targetLeft}px)`;
-          portrait.style.transform = `translateY(${targetTop}px) scale(${portraitScale})`;
-
-          setTimeout(() => {
-            container.style.transform = '';
-            portrait.style.transform = '';
-
-            portrait.set('teamMember.gemCount',
-                portrait.get('teamMember.gemCount') - 2);
+          portrait.travelTo(targetLeft, targetTop, portraitScale).then(() => {
+            portrait.resetPosition();
 
             this.fire('decorate', {
               x: targetLeftScale,
               y: targetTopScale,
               graphic: portrait.gemGraphic
             });
-          }, 700);
+          });
         },
 
         gemGraphicFor(teamMember) {

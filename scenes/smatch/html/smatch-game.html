@@ -17,6 +17,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../../components/iron-resizable-behavior/iron-resizable-behavior.html">
 <link rel="import" href="match3-board.html">
 <link rel="import" href="smatch-common.html">
+<link rel="import" href="smatch-state.html">
 <link rel="import" href="smatch-tree.html">
 <link rel="import" href="smatch-team.html">
 
@@ -97,12 +98,18 @@ specific language governing permissions and limitations under the License.
         }
       }
     </style>
+    <smatch-state
+        id="state"
+        decorations="{{decorations}}"
+        level="{{level}}">
+    </smatch-state>
     <section id="match3">
       <smatch-team
           id="team"
           team="[[team]]"
           gems="[[gems]]"
           metrics="[[metrics]]"
+          level="[[level]]"
           on-decorate="_onDecorate">
       </smatch-team>
       <match3-board
@@ -113,6 +120,8 @@ specific language governing permissions and limitations under the License.
     <section id="tree-container">
       <smatch-tree
           id="tree"
+          decorations="[[decorations]]"
+          level="[[level]]"
           metrics="[[metrics]]">
       </smatch-tree>
     </section>
@@ -124,6 +133,7 @@ specific language governing permissions and limitations under the License.
       const {
         SmatchTeamMember,
         SmatchMetrics,
+        awaitTransition,
         GEM_SIZE
       } = window.scenes.smatch;
 
@@ -133,6 +143,14 @@ specific language governing permissions and limitations under the License.
         behaviors: [Polymer.IronResizableBehavior],
 
         properties: {
+          decorations: {
+            type: Array
+          },
+
+          level: {
+            type: Number
+          },
+
           gems: {
             type: Array,
             value() {
@@ -196,6 +214,7 @@ specific language governing permissions and limitations under the License.
         },
 
         _onDecorate(event) {
+          this.push('decorations', event.detail);
           this.$.tree.addDecoration(
               event.detail.x, event.detail.y, event.detail.graphic);
         },
@@ -258,13 +277,12 @@ specific language governing permissions and limitations under the License.
 
             requestAnimationFrame(() =>
               requestAnimationFrame(() => {
-                const cleanup = event => {
-                  temporaryGem.removeEventListener('transitionend', cleanup);
+                awaitTransition(temporaryGem).then(() => {
                   temporaryGem.style.transitionDelay = '';
                   container.removeChild(temporaryGem);
                   this.$.board.gemFactory_.destroy(temporaryGem);
-                };
-                temporaryGem.addEventListener('transitionend', cleanup);
+                });
+
                 temporaryGem.style.transform = `translate(${gemTargetLeft}px, ${gemTargetTop}px) scale(0.1) rotate(240deg)`;
               }));
 

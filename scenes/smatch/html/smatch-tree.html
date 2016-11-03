@@ -19,12 +19,52 @@ specific language governing permissions and limitations under the License.
     <style>
       :host {
         position: relative;
-        background-image: url(../img/smatch_tree.svg);
+        background-image: url(../img/smatch_tree_level_0.svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
         width: 360px;
         height: 640px;
+      }
+
+      :host(.level1) #tinsel,
+      :host(.level2) #tinsel,
+      :host(.level2) #snow,
+      :host(.level3) #tinsel,
+      :host(.level3) #snow,
+      :host(.level3) #star {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #decorations {
+        @apply --layout-fit;
+      }
+
+
+      #snow, #tinsel, #star {
+        @apply --layout-fit;
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      #star {
+        background-image: url(../img/smatch_tree_level_3.svg);
+        background-size: 20%;
+        background-position: center top;
+        z-index: 2;
+      }
+
+      #snow {
+        background-image: url(../img/smatch_tree_level_2.svg);
+      }
+
+      #tinsel {
+        background-image: url(../img/smatch_tree_level_1.svg);
       }
 
       @media (max-width: 768px) {
@@ -40,10 +80,35 @@ specific language governing permissions and limitations under the License.
         }
       }
     </style>
+    <div id="star"></div>
+    <div id="snow"></div>
+    <div id="decorations"></div>
+    <div id="tinsel"></div>
   </template>
   <script>
     Polymer({
       is: 'smatch-tree',
+
+      properties: {
+        decorations: {
+          type: Array
+        },
+
+        level: {
+          type: Number,
+          observer: '_levelChanged'
+        }
+      },
+
+      _levelChanged(level, oldLevel) {
+        if (oldLevel != null) {
+          this.classList.remove(`level${oldLevel}`);
+        }
+
+        if (level != null) {
+          this.classList.add(`level${level}`);
+        }
+      },
 
       addDecoration(x, y, graphic) {
         const decoration = document.createElement('smatch-decoration');
@@ -55,7 +120,7 @@ specific language governing permissions and limitations under the License.
         decoration.y = y;
         decoration.scale = Math.random() * 0.4 + 0.25;
 
-        Polymer.dom(this.root).appendChild(decoration);
+        Polymer.dom(this.$.decorations).appendChild(decoration);
       }
     });
   </script>
