@@ -33,6 +33,102 @@ Presentdrop scene.
 
   <div id="module-postcardly">
     <iframe id="blocklyArea" src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0"></iframe>
+    <div id="snowglobe" hidden>
+          <div class="scene">
+            <div class="environment">
+              <div class="wall"></div>
+              <div class="wire-menu"></div>
+              <div class="wire-gmailbox"></div>
+              <div class="gear-yellow">
+                <div class="wheel"></div>
+              </div>
+              <div class="gear-blue">
+                <div class="wheel"></div>
+              </div>
+              <div class="gray top"></div>
+              <div class="gear-red">
+                <div class="wheel"></div>
+              </div>
+              <div class="gear-green">
+                <div class="wheel"></div>
+              </div>
+              <div class="wire">
+                <div class="box top-left"></div>
+                <div class="box top-right"></div>
+                <div class="box bottom-left"></div>
+                <div class="box bottom-right"></div>
+              </div>
+              <div class="dots"></div>
+              <div class="electricbox"></div>
+              <div class="electriccable"></div>
+              <div class="gmailbox"></div>
+            </div>
+            <div class="bgs-belt">
+              <div class="track"></div>
+              <div data-offset="141" class="bgs-left"></div>
+              <div data-offset="18" class="bgs-right"></div>
+            </div>
+            <div class="fgs-belt">
+              <div class="track"></div>
+              <div data-offset="118" class="fgs-up"></div>
+              <div data-offset="10" class="fgs-down"></div>
+            </div>
+            <div class="gray left"></div>
+            <div class="message">
+              <div class="shadow"></div>
+              <div class="frame">
+                <div class="frame-inner">
+                  <div class="bgs">
+                    <div class="bg1"></div>
+                    <div class="bg2"></div>
+                    <div class="bg3"></div>
+                    <div class="bg4"></div>
+                    <div class="bg5"></div>
+                    <div class="bg6"></div>
+                    <div class="bg7"></div>
+                    <div class="bg8"></div>
+                  </div>
+                  <div class="fgs">
+                    <div class="fg1"></div>
+                    <div class="fg2"></div>
+                    <div class="fg3"></div>
+                    <div class="fg4"></div>
+                    <div class="fg5"></div>
+                    <div class="fg6"></div>
+                    <div class="fg7"></div>
+                    <div class="fg8"></div>
+                  </div>
+                  <div class="shadow-inner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gui">
+            <div class="board board--scene">
+              <div class="logo"></div>
+            </div>
+            <div class="Buttons">
+              <button type="button" id="sharebutton" class="Button">
+                <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
+              </button>
+            </div>
+            <div class="shareOverlay overlay shareOverlay--postcard">
+              <div class="shareOverlay-dialog overlay-dialog">
+                <div class="shareOverlay-imageWrapper">
+                  <div class="shareOverlay-image"></div>
+                </div>
+                <div class="shareOverlay-buttons">
+                  <p class="shareOverlay-label">
+                    <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
+                  </p>
+                  <input type="url" readonly="readonly" class="shareOverlay-url"/>
+                  <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+                </div>
+                <button type="button" class="shareOverlay-close"></button>
+              </div>
+            </div>
+        </div>
+    </div>
     <table id="snowglobe" hidden>
       <tr>
         <td><div id="weather"></div></td>
@@ -73,13 +169,26 @@ Presentdrop scene.
     onPreload: function() {
       this.preloadSounds('pd_load_sounds', 30);
       this.preloadImages([
+        'img/bgs-small.png',
+        'img/bgs.png',
+        'img/fgs-small.png',
+        'img/fgs.png',
+        'img/logo.svg',
+        'img/sprite.png'
       ]);
+    },
+        
+    sceneParamsChanged: function() {
+      if (this.sceneParams && this.scene) {
+        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
+      }
     },
 
     onShow: function() {
       var module = this.$['module-postcardly'];
       this.scene = new scenes.postcardly.Scene(module);
       this.$.blocklyArea.src = this.componentDir + 'snowflake-maker/turtle.html';
+      this.sceneParamsChanged();
     },
 
     onHide: function() {
