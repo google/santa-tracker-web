@@ -29,13 +29,21 @@ Presentdrop scene.
     :host([mode="portal"]) .shareButtons {
       display: none !important;
     }
+    .blocklyArea {
+      background-color="transparent";
+    }
   </style>
 
   <div id="module-postcardly">
-    <iframe id="blocklyArea" src="about:blank" scrolling="no" width="100%" height="100%" frameBorder="0"></iframe>
+    <iframe id="blocklyArea" src="about:blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
     <table id="snowglobe" hidden>
       <tr>
-        <td><div id="weather"></div></td>
+        <td>
+          <div id="heroSnowflake" style="width: 400px; height: 400px;"></div>
+          <button on-tap="backToBlockly">Back</button>
+          <div id="weather"></div>
+
+        </td>
         <td>
           <div id="scenery">
             <image id="option1" style="background-position: 0px 0px" class="postcardOption" on-tap="changePostcardBackground" data-args="0px 0px"></image>
@@ -93,10 +101,17 @@ Presentdrop scene.
       if (event.source != expectedSource) {
         throw new Error('unexpected source: ' + event.origin);
       } else {
-        this.snowflake = event.data;
+this.snowflake = event.data;
+this.$.heroSnowflake.style.backgroundImage = 'url(' + this.snowflake + ')';
+this.$.heroSnowflake.style.backgroundSize = 'cover';
         // If we're receiving this message, 'Done' has been pressed.
         this.viewSnowflake();
       }
+    },
+
+    backToBlockly: function() {
+      this.$.snowglobe.hidden = true;
+      this.$.blocklyArea.hidden=false;
     },
 
     viewSnowflake: function() {

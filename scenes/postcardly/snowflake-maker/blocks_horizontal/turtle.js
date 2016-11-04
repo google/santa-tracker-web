@@ -103,7 +103,8 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
       loopVar + '++) {\n' +
       branch + 'if(' +
       loopVar + ' == 0){\n pause(' +
-      1.5 * 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2) +
+      1.5 * 1000 * Math.pow(1 - 0.3, 2) +
+  //1.5 * 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2) +
       ');\n }\n reset();\n turnRight(60*(' +
       loopVar + '+1), \'block_id_' +
       block.id + '\');\n setOnRepeat(true);\n}\n';
