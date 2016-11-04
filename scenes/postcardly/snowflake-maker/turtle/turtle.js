@@ -64,15 +64,12 @@ Turtle.canSubmit = false;
 
 Turtle.isRTL = false;
 
+Turtle.onRepeat = false;
+
 /**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
-  // Render the Soy template.
-  //document.body.innerHTML = Turtle.soy.start({}, null, {});
-
-  //BlocklyInterface.init();
-
   // Restore sounds state.
   var soundsEnabled = true;
 
@@ -104,29 +101,21 @@ Turtle.init = function() {
 
   Turtle.workspace = Blockly.inject('blocklyDiv', {
           comments: false,
-          disable: false,
+          disable: true,
           collapse: false,
           media: 'media/',
           readOnly: false,
           rtl: rtl,
-          scrollbars: true,
+          scrollbars: false,
           toolbox: toolbox,
-          trashcan: true,
-          horizontalLayout: side == 'top' || side == 'bottom',
-          toolboxPosition: side == 'top' || side == 'start' ? 'start' : 'end',
+          trashcan: false,
+          horizontalLayout: true,
+          toolboxPosition: 'end',
           sounds: soundsEnabled,
           grid: {spacing: 16,
             length: 1,
             colour: '#2C344A',
             snap: false
-          },
-          zoom: {
-            controls: true,
-            wheel: true,
-            startScale: 1.0,
-            maxScale: 4,
-            minScale: 0.25,
-            scaleSpeed: 1.1
           },
           colours: {
             workspace: '#334771',
@@ -140,7 +129,8 @@ Turtle.init = function() {
           }
         });
 
-
+  Blockly.getMainWorkspace().addChangeListener(Blockly.Events.disableOrphans);
+  
   // Prevent collisions with user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
@@ -149,7 +139,7 @@ Turtle.init = function() {
   var sliderSvg = document.getElementById('slider');
   Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
 
-  var defaultXml = '<xml><block type="copy_to_make_snowflake" deletable="false"></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" x="10" y="200"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -399,42 +389,40 @@ Turtle.initInterpreter = function(interpreter, scope) {
   can be called from the blocks' javascript generator functions. */
   var wrapper;
 
-  wrapper = function(size, id) {
-    Turtle.stampCircle(size, false /*fill*/, id.toString());
+  wrapper = function(time) {
+    Turtle.pause = time;
   };
-  interpreter.setProperty(scope, 'stampCircle',
+  interpreter.setProperty(scope, 'pause', interpreter.createNativeFunction(wrapper));
+  
+  wrapper = function(bool) {
+    Turtle.setOnRepeat(bool);
+  };
+  interpreter.setProperty(scope, 'setOnRepeat', interpreter.createNativeFunction(wrapper));
+
+  wrapper = function(size, id) {
+    Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampPentagon',
+			  interpreter.createNativeFunction(wrapper));
+  
+  wrapper = function(size, id) {
+    Turtle.stampDiamond(size, false /*fill*/, id.toString());
+  };
+  interpreter.setProperty(scope, 'stampDiamond',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
-    Turtle.stampCircle(size, true /*fill*/, id.toString());
-  };
-  interpreter.setProperty(scope, 'stampCircleFill',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(size, id) {
-    Turtle.stampSquare(size, false /*fill*/, id.toString());
+    Turtle.stampPolygon(size, 4, true /*animate*/, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampSquare',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
-    Turtle.stampSquare(size, true /*fill*/, id.toString());
-  };
-  interpreter.setProperty(scope, 'stampSquareFill',
-      interpreter.createNativeFunction(wrapper));
-
-
-  wrapper = function(size, id) {
-    Turtle.stampTriangle(size, false /*fill*/, id.toString());
+    Turtle.stampPolygon(size, 3, true /*animate*/, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampTriangle',
       interpreter.createNativeFunction(wrapper));
 
-  wrapper = function(size, id) {
-    Turtle.stampTriangle(size, true /*fill*/, id.toString());
-  };
-  interpreter.setProperty(scope, 'stampTriangleFill',
-      interpreter.createNativeFunction(wrapper));
   wrapper = function(distance, id) {
     Turtle.drawAndMove(distance.valueOf(), id.toString());
   };
@@ -482,12 +470,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
   interpreter.setProperty(scope, 'penDown',
       interpreter.createNativeFunction(wrapper));
 
-  wrapper = function(width, id) {
-    Turtle.penWidth(width.valueOf(), id.toString());
-  };
-  interpreter.setProperty(scope, 'penWidth',
-      interpreter.createNativeFunction(wrapper));
-
   wrapper = function(colour, id) {
     Turtle.penColour(colour.toString(), id.toString());
   };
@@ -503,19 +485,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.isVisible(true, id.toString());
   };
   interpreter.setProperty(scope, 'showTurtle',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(text, id) {
-    Turtle.drawPrint(text.toString(), id.toString());
-  };
-  interpreter.setProperty(scope, 'print',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(font, size, style, id) {
-    Turtle.drawFont(font.toString(), size.valueOf(), style.toString(),
-                  id.toString());
-  };
-  interpreter.setProperty(scope, 'font',
       interpreter.createNativeFunction(wrapper));
 };
 
@@ -576,62 +545,55 @@ Turtle.animate = function(id) {
   Turtle.display();
   if (id) {
     BlocklyInterface.highlight(id);
+    var speed;
+    if (!Turtle.onRepeat) {
+      speed = Turtle.speedSlider.getValue();
+    } else {
     // Scale the speed non-linearly, to give better precision at the fast end.
-    var stepSpeed = 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2);
-    Turtle.pause = Math.max(1, stepSpeed);
-    //BlocklyInterface.highlight(id, false /*needsHighlight*/);
+      speed = 0.8;
+    }
+    Turtle.pause = Math.max(1, 1000 * Math.pow(1 - speed, 2));
   }
 };
 
-Turtle.stampCircle = function(size, fill, id) {
-  var radius = size/2;
-  //TODO(madCode): switch the - and + if it moves backwards instead of forward
-  var centerX = Turtle.x + radius * Math.sin(2 * Math.PI * Turtle.heading / 360);
-  var centerY = Turtle.y - radius * Math.cos(2 * Math.PI * Turtle.heading / 360);
-  Turtle.ctxScratch.beginPath();
-  Turtle.ctxScratch.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-  if (fill) {
-    Turtle.ctxScratch.fill();
-  }
-  Turtle.ctxScratch.stroke();
-  Turtle.ctxScratch.closePath();
-  Turtle.animate(id);
-};
+Turtle.setOnRepeat = function(bool) {
+  Turtle.onRepeat = bool.data;
+}
 
-Turtle.stampSquare = function(size, fill, id) {
-  Turtle.ctxScratch.beginPath();
-  Turtle.turnWithoutAnimation(-90);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  for(var i=0; i<3; i++) {
-    Turtle.turnWithoutAnimation(90);
-    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+Turtle.setStepSpeed = function(speed) {
+  if (!Turtle.onRepeat) {
+    var speed = Turtle.speedSlider.getValue();
   }
-  Turtle.turnWithoutAnimation(90);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  Turtle.turnWithoutAnimation(90);
-  Turtle.ctxScratch.closePath();
-  if (fill) {
-    Turtle.ctxScratch.fill();
-  }
-  Turtle.animate(id);
-};
+  // Scale the speed non-linearly, to give better precision at the fast end.
+  Turtle.stepSpeed = 1000 * Math.pow(1 - speed, 2);
+}
 
-Turtle.stampTriangle = function(size, fill, id) {
+Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
+  var sideLen = size*Math.sin(Math.PI/numSides);
   Turtle.ctxScratch.beginPath();
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  for(var i=0; i<2; i++) {
-    Turtle.turnWithoutAnimation(120);
-    Turtle.drawLineWithoutMoving(size, !fill /* trace */);
+  Turtle.drawLineWithoutMoving(sideLen / 2, !fill /*trace*/);
+  for (var i = 0; i < numSides - 1; i++) {
+    Turtle.turnWithoutAnimation(360 / numSides);
+    Turtle.drawLineWithoutMoving(sideLen, !fill);
   }
-  Turtle.turnWithoutAnimation(120);
-  Turtle.drawLineWithoutMoving(size/2, !fill /* trace */);
-  Turtle.ctxScratch.closePath();
-  if (fill) {  
-    Turtle.ctxScratch.fill();
-  }  
+  Turtle.turnWithoutAnimation(360/numSides);
+  Turtle.drawLineWithoutMoving(sideLen / 2, !fill);
   Turtle.turnWithoutAnimation(90);
+  Turtle.ctxScratch.closePath();
+  if (fill) {
+    Turtle.ctxScratch.fill();
+  }
+  if (animate) {
+    Turtle.animate(id);
+  }
+}
+
+Turtle.stampDiamond = function(size, fill, id) {
+  Turtle.turnWithoutAnimation(45);
+  Turtle.stampPolygon(size, 4, false /*animate*/, fill, id);
+  Turtle.turnWithoutAnimation(45);
   Turtle.animate(id);
 };
 
