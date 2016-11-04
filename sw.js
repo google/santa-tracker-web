@@ -19,7 +19,8 @@
  */
 
 const version = '';
-const contentsPath = './STATIC_PATH/contents.js';
+const contentsPath = 'contents.js';
+const staticPath = './STATIC_PATH/';
 
 const query = new URL(self.location).searchParams;
 
