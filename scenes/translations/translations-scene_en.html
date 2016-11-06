@@ -14,17 +14,16 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="translations-scene_module.html">
 
 <script src="translations-scene.min.js"></script>
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="translations-scene.css">
 
 <!--
 Translations scene.
 -->
 <dom-module id="translations-scene">
 <template>
+  <style include="translations-scene_module"></style>
   <div id="module-translations">
     <div class="i18n-language-list">
       <div id="ar_language_name"><i18n-msg msgid="ar_language_name">PLACEHOLDER_i18n</i18n-msg></div>

@@ -79,13 +79,13 @@ app.Scene.prototype.buildPhrases_ = function($targetContainer) {
     var phrase = app.Constants.PHRASES[i];
     var $el = $('<div>', {
       'data-index': i,
-      'class': 'js-phrase'
+      'class': 'js-phrase translations-scene'
     });
 
 
     Object.keys(phrase).forEach(function(key) {
       var lang = phrase[key];
-      var $lang = $('<span>').attr('data-lang', key).html(lang);
+      var $lang = $('<span>', {'class': 'translations-scene'}).attr('data-lang', key).html(lang);
 
       if (lang.length > 12) {
         $lang.addClass('long-phrase');

@@ -160,7 +160,6 @@ module.exports = {
     entryPoint: 'app.Traditions'
   },
   translations: {
-    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   trivia: {
