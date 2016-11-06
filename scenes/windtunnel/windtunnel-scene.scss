@@ -66,6 +66,10 @@ $name: 'module-windtunnel';
             transition: opacity 0.5s $easeInQuad;
 
             background: url('img/rudolf-nose-light.png') no-repeat;
+
+            &.litup {
+              opacity: 0.6;
+            }
           }
         }
 

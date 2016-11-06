@@ -44,14 +44,14 @@ Call from Santa scene. No i18n.
       </div>
       <div class="sky">
         <div class="sun"></div>
-        <div class="cloud cloud1 js-resize-animation"><div class="cloud-inner"></div></div>
-        <div class="cloud cloud2 js-resize-animation"><div class="cloud-inner"></div></div>
-        <div class="cloud cloud3 js-resize-animation"><div class="cloud-inner"></div></div>
-        <div class="cloud cloud4 js-resize-animation"><div class="cloud-inner"></div></div>
-        <div class="cloud cloud5 js-resize-animation"><div class="cloud-inner"></div></div>
-        <div class="cloud cloud6 js-resize-animation"><div class="cloud-inner"></div></div>
-        <div class="cloud cloud7 js-resize-animation"><div class="cloud-inner"></div></div>
-        <div class="cloud cloud8 js-resize-animation"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud1"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud2"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud3"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud4"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud5"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud6"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud7"><div class="cloud-inner"></div></div>
+        <div class="cloud cloud8"><div class="cloud-inner"></div></div>
         <div class="blimp"><div class="blimp-inner"></div></div>
       </div>
 
@@ -103,7 +103,6 @@ Call from Santa scene. No i18n.
       this.fire('sound-ambient', 'callfromsanta_start');
       var div = this.$['module-callfromsanta'];
       this.fire('sound-ambient', 'music_start_scene');
-      this.animationHelper = new CSSAnimationHelper(div);
       this.scene = new scenes.callfromsanta.Scene(div);
       this.scene.init();
       this.scene.setMute(this.mute);
@@ -112,8 +111,6 @@ Call from Santa scene. No i18n.
     onHide: function() {
       this.scene.destroy();
       this.scene = null;
-      this.animationHelper.destroy();
-      this.animationHelper = null;
       this.fire('sound-ambient', 'callfromsanta_end');
     },
 

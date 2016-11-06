@@ -73,21 +73,6 @@ function isSameDay(date1, date2) {
 }
 
 /**
- * Checks if the condition evaluates to true if window.DEV is true. If
- * window.DEV is false, assert call is removed by compiler as dead code.
- * @param {*} condition The condition to check.
- * @param {string=} opt_message Error message in case of failure.
- * @throws {Error} Assertion failed, the condition evaluates to false.
- */
-function assert(condition, opt_message) {
-  // TODO(bckenny): move DEV to JSCompiler --define
-  if (window['DEV'] && !condition) {
-    throw new Error('Assertion failed' +
-        (opt_message ? ': ' + opt_message : ''));
-  }
-}
-
-/**
  * @param {string} param URL parameter to look for.
  * @return {string|undefined} undefined if the URL parameter does not exist.
  */

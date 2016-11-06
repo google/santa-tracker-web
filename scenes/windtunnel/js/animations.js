@@ -49,8 +49,7 @@ app.Animations = function() {
  * @param {number} duration The animation duration in milliseconds.
  * @return {!SequenceEffect} The animation for the given element and fan state.
  */
-app.Animations.prototype.getParachuteAnimation = function(element, fanState,
-    duration) {
+app.Animations.prototype.getParachuteAnimation = function(element, fanState, duration) {
   var transform = app.shared.utils.computedTransform(element);
   var currentAngle = transform.rotate;
   var beginAngle = this.fanStateMap_[fanState].beginAngle;

@@ -31,21 +31,10 @@ $horizon-y-offset: -350;
 
   .cloud {
     bottom: 320px;
-    display: none;
-
-    @media (min-height: 800px) {
-      display: block;
-    }
   }
 
   .bird {
     top: -150px;
-    display: none;
-
-    @media (min-height: 800px) {
-      display: block;
-    }
-
   }
 
   .anchor {

@@ -48,15 +48,13 @@ app.FanStateManager = function(context, rudolf) {
 
   this.animations_ = new app.Animations();
 
-  this.context_ = $(context);
+  const dummyAnimation = document.timeline.play(new SequenceEffect([]));
 
-  this.windBalloonElem_ = this.context_.find('.wind-balloon');
-  this.windBalloonAnimation_ = null;
-  this.windBalloonAnimationPlayer_ = null;
+  this.windBalloonElem_ = /** @type {!Element} */ (context.querySelector('.wind-balloon'));
+  this.windBalloonAnimation_ = dummyAnimation;
 
-  this.screenElem_ = this.context_.find('.screen');
-  this.screenAnimation_ = null;
-  this.screenAnimationPlayer_ = null;
+  this.screenElem_ = /** @type {!Element} */ (context.querySelector('.screen'));
+  this.screenAnimation_ = dummyAnimation;
 };
 
 /**
@@ -64,7 +62,6 @@ app.FanStateManager = function(context, rudolf) {
  */
 app.FanStateManager.prototype.init = function() {
   this.updateAnimations_();
-  this.startAnimations_();
 };
 
 /**
@@ -139,10 +136,7 @@ app.FanStateManager.prototype.getThreadsClass = function() {
  */
 app.FanStateManager.prototype.updateScene_ = function() {
   this.rudolf_.onFanStateChanged(this.getState());
-
-  this.stopAnimations_();
   this.updateAnimations_();
-  this.startAnimations_();
 };
 
 /**
@@ -151,23 +145,17 @@ app.FanStateManager.prototype.updateScene_ = function() {
  * @private
  */
 app.FanStateManager.prototype.updateAnimations_ = function() {
-  this.windBalloonAnimation_ = this.animations_.getParachuteAnimation(
-      this.windBalloonElem_.get(0), this.getState(),
+  // Grab the state before animations are killed.
+  const windBalloonEffect = this.animations_.getParachuteAnimation(
+      this.windBalloonElem_, this.getState(),
       app.Constants.WIND_BALLOON_ANIMATION_DURATION_MS);
-  this.screenAnimation_ = this.animations_.getBackgroundAnimation(
-      this.screenElem_.get(0), this.getState());
-};
+  const screenEffect = this.animations_.getBackgroundAnimation(
+      this.screenElem_, this.getState());
 
-/**
- * Starts the animations.
- *
- * @private
- */
-app.FanStateManager.prototype.startAnimations_ = function() {
-  this.windBalloonAnimationPlayer_ = document.timeline.play(
-      this.windBalloonAnimation_);
-  this.screenAnimationPlayer_ = document.timeline.play(
-      this.screenAnimation_);
+  this.stopAnimations_();
+
+  this.windBalloonAnimation = document.timeline.play(windBalloonEffect);
+  this.screenAnimation = document.timeline.play(screenEffect);
 };
 
 /**
@@ -176,11 +164,7 @@ app.FanStateManager.prototype.startAnimations_ = function() {
  * @private
  */
 app.FanStateManager.prototype.stopAnimations_ = function() {
-  if (this.windBalloonAnimationPlayer_) {
-    this.windBalloonAnimationPlayer_.pause();
-  }
-  if (this.screenAnimationPlayer_) {
-    this.screenAnimationPlayer_.pause();
-  }
+  this.windBalloonAnimation_.cancel();
+  this.screenAnimation_.cancel();
 };
 

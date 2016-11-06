@@ -38,18 +38,11 @@ app.Rudolf = function(context) {
 
   this.animations_ = new app.Animations();
 
-  /** @private {AnimationEffectReadOnly} */
-  this.parachuteAnimation_ = null;
-
-  /** @private {AnimationEffectReadOnly} */
-  this.parachuteShadowAnimation_ = null;
-
-  /** @private {Animation} */
-  this.animationPlayer_ = null;
+  this.parachuteAnimation_ = new SequenceEffect([]);
+  this.parachuteShadowAnimation_ = new SequenceEffect([]);
+  this.animationPlayer_ = document.timeline.play(this.parachuteAnimation_);
 
   this.onRudolfClicked_ = this.onRudolfClicked_.bind(this);
-
-  this.updateAnimations_();
 };
 
 /**
@@ -57,7 +50,7 @@ app.Rudolf = function(context) {
  */
 app.Rudolf.prototype.init = function() {
   this.addEventListeners_();
-  this.startParachuteAnimation_();
+  this.updateAnimations_();
 };
 
 /**
@@ -65,7 +58,7 @@ app.Rudolf.prototype.init = function() {
  */
 app.Rudolf.prototype.destroy = function() {
   this.removeEventListeners_();
-  this.stopParachuteAnimation_();
+  this.stopAnimations_();
 };
 
 /**
@@ -83,9 +76,7 @@ app.Rudolf.prototype.onFanStateChanged = function(state) {
         .addClass(app.Constants.RUDOLF_NORMAL_CLASSNAME);
   }
 
-  this.stopParachuteAnimation_();
   this.updateAnimations_();
-  this.startParachuteAnimation_();
 };
 
 /**
@@ -112,8 +103,7 @@ app.Rudolf.prototype.removeEventListeners_ = function() {
  * @private
  */
 app.Rudolf.prototype.onRudolfClicked_ = function() {
-  var currentOpacity = this.light_.css('opacity');
-  this.light_.css('opacity', currentOpacity == 0 ? 0.6 : 0);
+  this.light_.toggleClass('litup');
 };
 
 /**
@@ -122,24 +112,18 @@ app.Rudolf.prototype.onRudolfClicked_ = function() {
  * @private
  */
 app.Rudolf.prototype.updateAnimations_ = function() {
-  this.parachuteAnimation_ = this.animations_.getParachuteAnimation(
-      this.parachuteElem_.get(0), this.fanState_,
+  // Grab the state before animations are killed.
+  const parachuteEffect = this.animations_.getParachuteAnimation(
+      this.parachuteElem_[0], this.fanState_,
       app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
-  this.parachuteShadowAnimation_ = this.animations_.getParachuteAnimation(
-      this.parachuteShadowElem_.get(0), this.fanState_,
+  const parachuteShadowEffect = this.animations_.getParachuteAnimation(
+      this.parachuteShadowElem_[0], this.fanState_,
       app.Constants.PARACHUTE_ANIMATION_DURATION_MS);
-};
 
-/**
- * Starts parachute animation.
- *
- * @private
- */
-app.Rudolf.prototype.startParachuteAnimation_ = function() {
-  this.animationPlayer_ = document.timeline.play(new GroupEffect([
-      this.parachuteAnimation_,
-      this.parachuteShadowAnimation_
-  ]));
+  this.stopAnimations_();
+
+  this.animation_ = document.timeline.play(
+      new GroupEffect([parachuteEffect, parachuteShadowEffect]));
 };
 
 /**
@@ -147,8 +131,8 @@ app.Rudolf.prototype.startParachuteAnimation_ = function() {
  *
  * @private
  */
-app.Rudolf.prototype.stopParachuteAnimation_ = function() {
-  if (this.animationPlayer_) {
-    this.animationPlayer_.pause();
+app.Rudolf.prototype.stopAnimations_ = function() {
+  if (this.animation_) {
+    this.animation_.cancel();
   }
 };

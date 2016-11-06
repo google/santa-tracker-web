@@ -168,7 +168,6 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   windtunnel: {
-    typeSafe: false,
     entryPoint: 'app.Scene'
   },
 };

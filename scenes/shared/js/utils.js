@@ -50,23 +50,18 @@ app.shared.utils = (function() {
      * the animation finishes.
      * @param {!Element|!jQuery} el The jQuery element.
      * @param {string} name Class name to add.
-     * @param {function(this:Element)} cb Callback function when animation finishes.
-     * @param {boolean=} opt_nowait Call the callback without waiting.
-     * @param {string=} opt_child Child element that runs the animation or transition.
+     * @param {function(this:Element)=} opt_cb Callback function when animation finishes.
      */
-    animWithClass: function(el, name, cb, opt_nowait, opt_child) {
-      el = $(el);
-      var elem = (opt_child !== undefined) ? el.find(opt_child) : el;
+    animWithClass: function(el, name, opt_cb) {
+      var elem = $(el);
 
       elem.one(ANIMATION_END + ' ' + TRANSITION_END, function(e) {
-        el.removeClass(name);
-        if (cb && opt_nowait) {
-          cb.apply(el[0]);
-        } else if (cb) {
-          window.setTimeout(function() { cb.apply(el[0]); }, 0);
+        elem.removeClass(name);
+        if (opt_cb) {
+          opt_cb.apply(elem[0]);
         }
       });
-      el.addClass(name);
+      elem.addClass(name);
     },
 
     /**

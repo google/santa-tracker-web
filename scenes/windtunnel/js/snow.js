@@ -134,7 +134,7 @@ app.Snow.prototype.update_ = function() {
 /**
  * Draws the snowflake to canvas.
  *
- * @param {object} snowflake The snowflake object.
+ * @param {{x: number, y: number, size: number}} snowflake The snowflake object.
  * @private
  */
 app.Snow.prototype.drawSnowflake_ = function(snowflake) {

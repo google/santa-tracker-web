@@ -30,18 +30,21 @@ goog.require('app.Snowblower');
  * @export
  */
 app.Scene = function(context) {
-  this.context_ = $(context);
+  this.rudolf = new app.Rudolf(
+      /** @type {!Element} */ (context.querySelector('.rudolf-wrap')));
 
-  this.rudolf = new app.Rudolf(this.context_.find('.rudolf-wrap'));
-
-  this.snowblower = new app.Snowblower(this.context_.find('.snowblower'));
+  this.snowblower = new app.Snowblower(
+      /** @type {!Element} */ (context.querySelector('.snowblower')));
 
   this.fanStateManager = new app.FanStateManager(context, this.rudolf);
-  this.fan = new app.Fan(this.context_.find('.fan-base'),
+  this.fan = new app.Fan(
+      /** @type {!Element} */ (context.querySelector('.fan-base')),
       this.fanStateManager);
 
-  this.snow = new app.Snow(this.context_.find('.snow-canvas')[0],
-      this.snowblower, this.fanStateManager);
+  this.snow = new app.Snow(
+      /** @type {!HTMLCanvasElement} */ (context.querySelector('.snow-canvas')),
+      this.snowblower,
+      this.fanStateManager);
 
   this.init_();
 };

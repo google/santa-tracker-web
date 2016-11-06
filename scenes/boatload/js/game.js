@@ -25,7 +25,6 @@ goog.require('Iceberg');
 goog.require('Player');
 goog.require('Present');
 goog.require('app.shared.Coordinator');
-goog.require('app.shared.Effect');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.Scoreboard');
@@ -67,8 +66,7 @@ Game = function(elem) {
   this.controls = new Controls(this);
   this.levelUp = new LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.scoreElem = this.elem.find('.score-sign');
-  this.score = new Effect(this, this.elem.find('.score-sign'));
-  this.splash = new Effect(this, this.elem.find('.splash'));
+  this.splashElem = this.elem.find('.splash');
   this.gameStartTime = +new Date;
 
   // Cache a bound onFrame since we need it each frame.
@@ -330,7 +328,7 @@ Game.prototype.dropPresent = function(present) {
  */
 Game.prototype.hitBoat = function(score, time, x, y) {
   this.scoreElem.text('' + score);
-  this.score.animate(x, y);
+  this.animate_(this.scoreElem, x, y);
   this.scoreboard.addScore(score);
   this.scoreboard.addTime(time);
 };
@@ -342,7 +340,7 @@ Game.prototype.hitBoat = function(score, time, x, y) {
  * @param {number} y The Y position.
  */
 Game.prototype.missedBoat = function(present, x, y) {
-  this.splash.animate(x, y);
+  this.animate_(this.splashElem, x, y);
   this.lastMissedPresent = present;
   present.missed();
   window.santaApp.fire('sound-trigger', 'bl_hit_water');
@@ -355,6 +353,19 @@ Game.prototype.missedBoat = function(present, x, y) {
 Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.elem.addClass('frozen');
+};
+
+/**
+ * @param {!jQuery} el to animate
+ * @param {number} x The X position.
+ * @param {number} y The Y position.
+ */
+Game.prototype.animate_ = function(el, x, y) {
+  el.css({left: x, top: y});
+  el.removeClass('hidden');
+  app.shared.utils.animWithClass(el, 'animate', function() {
+    el.addClass('hidden');
+  });
 };
 
 /**
