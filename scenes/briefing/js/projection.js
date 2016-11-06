@@ -73,8 +73,8 @@ app.Projection = function(context) {
 
   this.waterDashPlayer_ = (function(el) {
     var steps = [
-      {'stroke-dashoffset': '-100px'},
-      {'stroke-dashoffset': '-200px'}
+      {'strokeDashoffset': '-100px'},
+      {'strokeDashoffset': '-200px'}
     ];
     var timing = {duration: 1000, iterations: Infinity};
     var player = el.animate(steps, timing);
@@ -99,6 +99,8 @@ app.Projection.prototype.init = function() {
 app.Projection.prototype.destroy = function() {
   this.removeEventListeners_();
   this.stopCycle_();
+  this.waterDashPlayer_.cancel();
+  this.projectionPlayer_.cancel();
 };
 
 /**
@@ -130,7 +132,7 @@ app.Projection.prototype.removeEventListeners_ = function() {
  * @private
  */
 app.Projection.prototype.onContextClick_ = function() {
-  if (this.isAnimating) return;
+  if (this.isAnimating) { return; }
   this.isAnimating = true;
 
   window.clearTimeout(this.slidingTimer_);
@@ -175,8 +177,6 @@ app.Projection.prototype.changeSlide_ = function() {
   window.santaApp.fire('sound-trigger', 'briefing_change_slide');
 
   this.$projection.css({
-    '-webkit-transform': 'translateX(' + value + 'px)',
-    '-ms-transform': 'translateX(' + value + 'px)',
     transform: 'translateX(' + value + 'px)'
   });
 };
@@ -187,7 +187,7 @@ app.Projection.prototype.changeSlide_ = function() {
  * @private
  */
 app.Projection.prototype.prevSlide_ = function() {
-  if (this.isToggled) return;
+  if (this.isToggled) { return };
 
   window.clearInterval(this.slideshowTimer_);
 
@@ -206,7 +206,7 @@ app.Projection.prototype.prevSlide_ = function() {
  * @private
  */
 app.Projection.prototype.nextSlide_ = function() {
-  if (this.isToggled) return;
+  if (this.isToggled) { return };
 
   window.clearInterval(this.slideshowTimer_);
 

@@ -18,7 +18,6 @@ goog.provide('app.Scene');
 
 goog.require('app.Clock');
 goog.require('app.Constants');
-goog.require('app.DelayPool');
 goog.require('app.Elevator');
 goog.require('app.Projection');
 goog.require('app.Sleepy');
@@ -42,10 +41,11 @@ app.Scene = function(context) {
   this.$context_ = $(context);
   this.context_ = this.$context_[0];
 
-  this.projection = new app.Projection(this.$context_.find('.js-projection'));
-  this.elevator = new app.Elevator(this.$context_.find('.js-elevator'));
+  this.projection = new app.Projection(
+      /** @type {!Element} */ (context.querySelector('.js-projection')));
+  this.elevator = new app.Elevator(
+      /** @type {!Element} */ (context.querySelector('.js-elevator')));
 
-  this.delayPool = new app.DelayPool();
   this.sleepyController = new app.SleepyController();
 
   this.spectators = [];
@@ -61,12 +61,13 @@ app.Scene = function(context) {
 
   for (i = 0; i < this.numSpectators; i++) {
     $spectator = this.$spectators.eq(i);
+    var el = /** @type {!Element} */ ($spectator.get());
 
-    this.spectators.push(new app.Spectator($spectator));
+    this.spectators.push(new app.Spectator(el));
 
     // Sleepy?
     if ($spectator.data('is-sleepy')) {
-      this.sleepers.push(new app.Sleepy($spectator, this.delayPool, this.sleepyController));
+      this.sleepers.push(new app.Sleepy(el, this.sleepyController));
       this.numSleepers++;
     }
   }
@@ -90,7 +91,6 @@ app.Scene.prototype.init_ = function() {
 
   this.projection.init();
   this.elevator.init();
-  this.delayPool.init();
   this.sleepyController.init();
 
   for (i = 0; i < this.numSpectators; i++) {
@@ -115,7 +115,6 @@ app.Scene.prototype.destroy = function() {
 
   this.projection.destroy();
   this.elevator.destroy();
-  this.delayPool.destroy();
   this.sleepyController.destroy();
 
   for (i = 0; i < this.numSpectators; i++) {

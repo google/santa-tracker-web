@@ -31,7 +31,6 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   briefing: {
-    typeSafe: false,
     entryPoint: 'app.Scene'
   },
   callfromsanta: {

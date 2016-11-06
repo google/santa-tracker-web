@@ -91,10 +91,10 @@ app.Elevator.prototype.removeEventListeners_ = function() {
  * Callback for when an elevator button is clicked.
  *
  * @private
- * @param {Event} event Event object
+ * @param {jQuery.Event} event Event object
  */
 app.Elevator.prototype.onButtonClick_ = function(event) {
-  if (this.isBusy) return;
+  if (this.isBusy) { return; }
   this.isBusy = true;
 
   this.$activeButton = $(event.currentTarget);

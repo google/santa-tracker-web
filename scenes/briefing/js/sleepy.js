@@ -24,11 +24,10 @@ goog.require('app.shared.utils');
  * Sleepy class responsible for the sleepy elements (elves).
  *
  * @param {!Element} context An DOM element which wraps the scene.
- * @param {!app.DelayPool} delayPool reference to the delayPool.
  * @param {!app.SleepyController} sleepyController reference to the sleepy controller.
  * @constructor
  */
-app.Sleepy = function(context, delayPool, sleepyController) {
+app.Sleepy = function(context, sleepyController) {
   this.$context_ = $(context);
   this.context_ = this.$context_[0];
   this.$head = this.$context_.find('.js-spectator-head');
@@ -46,7 +45,6 @@ app.Sleepy = function(context, delayPool, sleepyController) {
   this.headRotateZPlayer = null;
   this.headRotateYPlayer = null;
   this.sleepingVertically = true;
-  this.delayPool = delayPool;
   this.sleepyController = sleepyController;
 
   this.onSleepyClick_ = this.onSleepyClick_.bind(this);
@@ -66,12 +64,14 @@ app.Sleepy.prototype.init = function() {
  */
 app.Sleepy.prototype.destroy = function() {
   this.removeEventListeners_();
-  this.randomDelayPool = null;
   window.clearTimeout(this.sleepingKeyframesTimer_);
   window.clearTimeout(this.sleepingTimer_);
   window.clearTimeout(this.bouncingKeyframesTimer_);
   window.clearTimeout(this.scheduleSleepingTimer_);
   this.isSleeping = false;
+
+  this.headRotateYPlayer && this.headRotateYPlayer.cancel()
+  this.headRotateZPlayer && this.headRotateZPlayer.cancel()
 };
 
 /**
@@ -98,7 +98,7 @@ app.Sleepy.prototype.removeEventListeners_ = function() {
  * @private
  */
 app.Sleepy.prototype.scheduleSleep_ = function() {
-  var randomDelay = this.delayPool.getRandomDelay_();
+  var randomDelay = (Math.random() * 15000) + 3000;
   this.sleepingTimer_ = window.setTimeout(this.tryToSleep_.bind(this), randomDelay);
 };
 
@@ -135,20 +135,16 @@ app.Sleepy.prototype.tryToSleep_ = function() {
  * @private
  */
 app.Sleepy.prototype.wakeUp_ = function() {
-
   this.stopSleepingKeyframes_();
 
-  if (this.headRotateYPlayer !== null) {
-    this.headRotateYPlayer.playbackRate = -1.5;
-    this.headRotateYPlayer.play();
-    this.headRotateYPlayer = null;
+  var anim = this.headRotateYPlayer || this.headRotateZPlayer;
+  if (anim) {
+    anim.reverse();
+    anim.playbackRate *= 2;
+    app.shared.utils.onWebAnimationFinished(anim, () => anim.cancel());
   }
-
-  if (this.headRotateZPlayer !== null) {
-    this.headRotateZPlayer.playbackRate = -2.5;
-    this.headRotateZPlayer.play();
-    this.headRotateZPlayer = null;
-  }
+  this.headRotateYPlayer = null;
+  this.headRotateZPlayer = null;
 
   window.santaApp.fire('sound-trigger', 'briefing_wakeup');
 
@@ -206,23 +202,23 @@ app.Sleepy.prototype.stopSleepingKeyframes_ = function() {
  * @private
  */
 app.Sleepy.prototype.tweenRotateYHead_ = function() {
-  var duration = 70;
+  var duration = 200;
 
   var steps = [
-    new KeyframeEffect(this.$head.get(0), [
+    new KeyframeEffect(this.$head[0], [
       {visibility: 'visible'},
       {visibility: 'hidden'}
     ], {duration: duration, fill: 'forwards'}),
-    new KeyframeEffect(this.$headVerticalStep1.get(0), [
+    new KeyframeEffect(this.$headVerticalStep1[0], [
       {visibility: 'visible'},
-      {visibility: 'hidden'}
+      {visibility: 'visible'}
     ], {duration: duration}),
-    new KeyframeEffect(this.$headVerticalStep2.get(0), [
+    new KeyframeEffect(this.$headVerticalStep2[0], [
       {visibility: 'visible'},
-      {visibility: 'hidden'}
+      {visibility: 'visible'}
     ], {duration: duration}),
-    new KeyframeEffect(this.$headVerticalFinal.get(0), [
-      {visibility: 'visible'},
+    new KeyframeEffect(this.$headVerticalFinal[0], [
+      {visibility: 'hidden'},
       {visibility: 'visible'}
     ], {duration: duration, fill: 'forwards'}),
   ];
@@ -236,7 +232,7 @@ app.Sleepy.prototype.tweenRotateYHead_ = function() {
  * @private
  */
 app.Sleepy.prototype.tweenRotateZHead_ = function() {
-  var el = this.$head.get(0);
+  var el = this.$head[0];
 
   var steps = [
     {transform: 'rotate(0deg)', easing: 'ease-out'},

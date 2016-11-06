@@ -15,17 +15,16 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="briefing-scene_module.html">
 
 <script src="briefing-scene.min.js"></script>
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="briefing-scene.css" />
 
 <!--
 Briefing scene.
 -->
 <dom-module id="briefing-scene">
 <template>
+  <style include="briefing-scene_module"></style>
   <iron-a11y-keys keys="enter space left right down up"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 

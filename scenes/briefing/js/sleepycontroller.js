@@ -21,10 +21,9 @@ goog.require('app.Constants');
 /**
  * Sleepy controller that allows a sleepy character to sleep or not.
  *
- * @param {!Element} context An DOM element which wraps the scene.
  * @constructor
  */
-app.SleepyController = function(context) {
+app.SleepyController = function() {
   this.count = 0;
 };
 
