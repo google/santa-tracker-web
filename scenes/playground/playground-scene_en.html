@@ -14,17 +14,16 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="playground-scene_module.html">
 
 <script src="playground-scene.min.js"></script>
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="playground-scene.css" />
 
 <!--
 Playground scene.
 -->
 <dom-module id="playground-scene">
 <template>
+  <style include="playground-scene_module"></style>
   <div id="module-playground">
     <div class="scene">
       <div class="anchor">

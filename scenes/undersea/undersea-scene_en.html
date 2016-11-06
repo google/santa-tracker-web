@@ -13,16 +13,14 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="undersea-scene.css" />
+<link rel="import" href="undersea-scene_module.html">
 
 <!--
 Undersea scene.
 -->
 <dom-module id="undersea-scene">
 <template>
-  <style>
+  <style include="undersea-scene_module">
     #module-undersea {
       @apply(--layout-fit);
     }

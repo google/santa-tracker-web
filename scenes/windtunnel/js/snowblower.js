@@ -102,8 +102,9 @@ app.Snowblower.prototype.onSwitchClicked_ = function() {
   }
   this.stateIndex_ = newIndex;
 
-  this.switchElem_.removeClass().addClass('snowblower-switch ' +
-      this.stateClassMap_[this.getState()]);
+  var opts = Object.keys(this.stateClassMap_).map(key => this.stateClassMap_[key]).join(' ');
+  this.switchElem_.removeClass(opts);
+  this.switchElem_.addClass(this.stateClassMap_[this.getState()]);
 
   Klang.triggerEvent('windtunnel_lever_snow');
 };

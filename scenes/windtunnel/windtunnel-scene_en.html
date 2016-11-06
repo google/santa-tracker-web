@@ -15,17 +15,16 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="windtunnel-scene_module.html">
 
 <script src="windtunnel-scene.min.js"></script>
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="windtunnel-scene.css" />
 
 <!--
 Wind tunnel scene.
 -->
 <dom-module id="windtunnel-scene">
 <template>
+  <style include="windtunnel-scene_module"></style>
   <iron-a11y-keys keys="enter space left right down up"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 

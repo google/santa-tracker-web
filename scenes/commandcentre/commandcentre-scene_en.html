@@ -14,18 +14,16 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="commandcentre-scene_module.html">
 
 <script src="commandcentre-scene.min.js"></script>
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="commandcentre-scene.css" />
 
 <!--
 Command center scene.
 -->
 <dom-module id="commandcentre-scene">
 <template>
-  <style>
+  <style include="commandcentre-scene_module">
     :host([mode='portal']) #module-commandcentre .small-screens__playstore,
     :host([mode='portal']) #module-commandcentre .screen-overlays__tablet {
       pointer-events: none;
