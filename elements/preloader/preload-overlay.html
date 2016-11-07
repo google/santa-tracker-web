@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-range-behavior/iron-range-behavior.html">
-<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="preloader_module.html">
 
 <!--
@@ -22,47 +21,22 @@ Candy cane progress bar.
 -->
 <dom-module id="preload-overlay">
   <template>
-    <style include="preloader_module">
-      :host {
-        background: #3ec4f0;
-        z-index: 1200;
-        @apply(--layout-fit);
-        @apply(--layout-vertical);
-        @apply(--layout-center-center);
-        visibility: hidden;
-      }
-      #page-progress {
-        @apply(--layout-vertical);
-        @apply(--layout-center-center);
-        margin-top: -120px;
-      }
-      :host(.fading) {
-        transition: opacity 600ms ease-in-out;
-        opacity: 0;
-        visibility: visible; /* hold visible during animation */
-        will-change: opacity;
-      }
-      :host([active]) {
-        visibility: visible;
-      }
-    </style>
-    <div id="page-progress">
-      <div class="preload-image"><img src$="[[src]]"></div>
-      <div class="preload-bar">
-        <div class="preload-progress" style$="width:[[value]]%"></div>
+    <style include="preloader_module"></style>
+    <div id="center">
+      <img src$="[[_computedSrcDefault(src)]]" />
+      <div id="bar">
+        <div id="progress" style$="width:[[value]]%"></div>
       </div>
     </div>
   </template>
   <script>
 (function() {
-  var DEFAULT_COLOR = '#3ec4f0';
-  var DEFAULT_LOADING_SRC = 'images/village' +
-      (('devicePixelRatio' in window && devicePixelRatio > 1.5) ? '_2x.gif' : '.gif');
+  var DEFAULT_LOADING_SRC = 'images/village_2x.gif';
 
   Polymer({
     is: 'preload-overlay',
 
-    listeners: {transitionend: '_fadeDone'},
+    listeners: {transitionend: '_onFadeDone'},
 
     behaviors: [Polymer.IronRangeBehavior],
 
@@ -75,47 +49,53 @@ Candy cane progress bar.
         type: Boolean,
         value: false,
         observer: '_activeChanged',
-        reflectToAttribute: true
       },
 
       /**
        * Background color of the loading screen.
        */
       color: {
-        value: DEFAULT_COLOR,
-        observer: '_colorChanged'
+        type: String,
+        value: null,
+        observer: '_colorChanged',
       },
 
       /**
        * Loading image.
        */
       src: {
-        value: DEFAULT_LOADING_SRC,
-        observer: '_srcChanged'
-      }
+        type: String,
+        value: null,
+      },
+
     },
 
-    _activeChanged: function(newValue, oldValue) {
-      // Always ensure progress is at 0 when overlay is toggled.
-      this.value = 0;
+    _computedSrcDefault: function(src) {
+      return src || DEFAULT_LOADING_SRC;
+    },
+
+    _activeChanged: function() {
+      var dom = Polymer.dom(this);
       if (this.active) {
-        Polymer.dom(this).classList.remove('fading');
+        this.value = 0;  // ensure progress is reset to zero
+        dom.classList.remove('fading');
+        dom.classList.add('active');
       } else {
-        // This will later invoke fadeDone via the transitionend event.
-        Polymer.dom(this).classList.add('fading');
+        dom.classList.add('fading');  // later invokes _onFadeDone via transitionend
+        dom.classList.remove('active');
       }
-    },
 
-    _srcChanged: function() {
-      this.src = this.src || DEFAULT_LOADING_SRC;
+      // Force layout. This is important; otherwise the change in `display` (none => flex) isn't
+      // resolved until some time later.
+      dom.node.getBoundingClientRect();
     },
 
     _colorChanged: function() {
       var node = Polymer.dom(this).node;
-      node.style.backgroundColor = this.color || DEFAULT_COLOR;
+      node.style.backgroundColor = this.color || null;
     },
 
-    _fadeDone: function(e, detail) {
+    _onFadeDone: function(e, detail) {
       e.stopPropagation();
       Polymer.dom(this).classList.remove('fading');
     },

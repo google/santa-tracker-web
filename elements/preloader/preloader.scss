@@ -1,35 +1,71 @@
-.preload-image {
-  width: 340px;
-  height: 340px;
+$dim: 340px;  // dimension of inner loading pic
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: none;  // set to flex in .active, .fading
+  align-items: center;
+  justify-content: center;
+
+  will-change: opacity;
+  background: #3ec4f0;
+  z-index: 1200;
+}
+:host(.active) {
+  display: flex;
+}
+:host(.fading) {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  display: flex;
 }
 
-.preload-bar {
-  width: 240px;
-  margin-top: -40px;
-  background-color: rgba(255,255,255,0.2);
-  border-radius: 20px;
-  overflow: hidden;
+#center {
+  margin-top: -120px;
+  width: $dim;
+  height: $dim;
+
+  img {
+    width: $dim;
+    height: $dim;
+  }
+
+  #bar {
+    margin: 0 50px;  // $dim - (50px * 2)
+    position: absolute;
+    top: -40px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
 }
 
-img {
-  width: 100%;
-  height: 100%;
-}
-
-.preload-progress {
+#progress {
   height: 20px;
-  background-image: linear-gradient(135deg,#ea4537 25%,#fff 25%,#fff 50%,#ea4537 50%,#ea4537 75%,#fff 75%,#fff);
-  background-size: 30px 30px;
   border-radius: inherit;
-  animation: animate-stripes 3s linear infinite;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);  // webkit/blink overflow/border-radius hack
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: $dim;
+    animation: preloader-overlay_animate-stripes 4s linear infinite;
+
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAIAAAAt2Q6oAAAAAXNSR0IArs4c6QAAANFJREFUWMPV2c0NgzAUA+CXFViE7tCOzRAs0q6QXpAQKAGSvB/bd0uffHX6vmepZFpWscnv8xqppxoaVlxFI4vLaHBxAY0vPqMpxAc0i3hHE4k3NJdYRFLOmUtsiLYTT8tqgjYVmyxtLdZHO4iV0T5iTbSbWA3tKdZBO4sV0P7iUXSIeAgdJe5HB4o70bHiHnS4uBmNIG5Dg4gb0Djip2go8SM0mvgeDSi+QWOKr9Cw4ioaWVxGg4sLaHzxGU0hPqBZxDuaSLyhucRy8W7BikXkD1pw3IUB2m0ZAAAAAElFTkSuQmCC');
+    background-size: 30px 20px;
+    background-position: top left;
+    background-repeat: repeat-x;
+  }
 }
 
-@keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
+@keyframes preloader-overlay_animate-stripes {
+  0% { transform: translate(-60px); }
+  100% { transform: translate(0px); }
 }

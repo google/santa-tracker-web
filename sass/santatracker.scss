@@ -23,7 +23,7 @@ body {
     opacity: 1 !important;
   }
 
-  &:not([unresolved]) #preload_placeholder {
+  &:not([unresolved]) #unresolved_placeholder {
     display: none;
   }
 
@@ -39,18 +39,14 @@ body {
   }
 }
 
-#preload_placeholder {
-  position: absolute;
+#unresolved_placeholder {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../images/village.gif') no-repeat 50% 50%;
-  @include media-hdpi(2) {
-    background: url('../images/village_2x.gif') no-repeat 50% 50%;
-    background-size: 340px;
-  }
-  margin-top: -104px;
+  background: url('../images/village_2x.gif') center/340px no-repeat;
+  margin-top: -120px;
 }
 
 // Import common rules.
