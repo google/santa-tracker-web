@@ -418,11 +418,11 @@ Polymer({
     },
 
     /**
-     * Whether the sounds are globally muted by the user.
+     * Whether sounds are muted by the user.
      */
     userMute: {
       type: Boolean,
-      notify: true,
+      observer: '_userMuteChanged',
     },
 
     /**
@@ -430,17 +430,25 @@ Polymer({
      */
     userPause: {
       type: Boolean,
-      notify: true,
-      observer: '_userPauseChanged',
+      value: false,
     },
 
     /**
-     * Computed global mute state: based on (userMute || userPause).
+     * Whether the page is currently in the background.
      */
-    globalMute: {
+    pageInBackground: {
       type: Boolean,
-      computed: '_computeGlobalMute(userMute, userPause)',
-      observer: '_globalMuteChanged',
+      readOnly: true,
+    },
+
+    /**
+     * Whether the current game should be paused (if it can be paused), based on (userPause ||
+     * pageInBackground).
+     */
+    pause: {
+      type: Boolean,
+      computed: '_computePause(userPause, pageInBackground)',
+      observer: '_pauseChanged',
     },
 
     /**
@@ -635,6 +643,12 @@ Polymer({
     this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
     this.addEventListener('sound-trigger', sc.playSound.bind(sc));
 
+    var handler = function() {
+      this._setPageInBackground(document.hidden || false);
+    }.bind(this);
+    document.addEventListener('visibilitychange', handler);
+    handler();
+
     var version = document.body.getAttribute('data-version');
     this.santaService = new SantaService(apiClient, this.language, version);
     this.santaService.sync(this._checkSchedule.bind(this));
@@ -678,6 +692,10 @@ Polymer({
     if (!this.route) {
       this.route = this.defaultRoute;
     }
+  },
+
+  detached: function() {
+    throw new Error('santa-app was detached');
   },
 
   /**
@@ -951,19 +969,22 @@ Polymer({
     this.$.chrome.hasGameButtons = false;
   },
 
-  _userPauseChanged: function(pause) {
+  _computePause: function(userPause, pageInBackground) {
+    return userPause || pageInBackground;
+  },
+
+  _pauseChanged: function(pause) {
     var scene = this.selectedScene;
-    if (scene && scene.behaviors.indexOf(window.SantaSceneGameButtonsBehavior) !== -1) {
+    if (scene && 'pause' in scene) {  // nb. does it implement SantaSceneGameButtonsBehavior
       scene.pause = pause;
     }
   },
 
-  _computeGlobalMute: function(userMute, userPause) {
-    return userMute || userPause;
-  },
-
-  _globalMuteChanged: function(globalMute) {
-    this.fire('sound-ambient', globalMute ? 'global_sound_off' : 'global_sound_on');
+  _userMuteChanged: function(userMute) {
+    // It's possible to confuse Klang, so dedup this with a very short delay.
+    this.debounce('_userMute', function() {
+      this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
+    }, 50);
   },
 
   _soundsLoaded: function(soundsName) {

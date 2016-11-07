@@ -218,13 +218,6 @@ app-toolbar {
   display: flex;
   color: $toolbar-default-color;
 
-  @media (max-height: 600px) {
-    // nb. we hide #restart on small vertical screens, only two buttons
-    button#restart {
-      display: none;
-    }
-  }
-
   &.gamemode {
     button {
       transform: translate(0);
@@ -285,8 +278,6 @@ app-toolbar {
     &.playing .play {
       visibility: hidden;
     }
-
-    transition-delay: 0.0625s;  // stagger icons
   }
 
   button#sound {

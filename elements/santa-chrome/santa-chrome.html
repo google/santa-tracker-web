@@ -220,9 +220,6 @@ specific language governing permissions and limitations under the License.
        class$="[[_computeTernary(hasGameButtons, 'gamemode', '')]]">
     <button id="sound" on-click="_toggleSounds"
             class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
-    <button id="restart" disabled$="[[!hasGameButtons]]" on-click="_onRestartClick">
-      <iron-icon icon="santa:restart"></iron-icon>
-    </button>
     <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
             class$="[[_computeTernary(pause, 'paused', 'playing')]]">
       <iron-icon class="pause" icon="santa:pause"></iron-icon>
@@ -394,12 +391,6 @@ specific language governing permissions and limitations under the License.
     _togglePause: function(ev) {
       ev.stopPropagation();
       this.pause = !this.pause;
-    },
-
-    _onRestartClick: function(ev) {
-      ev.stopPropagation();
-      this.fire('game-start');
-      this.pause = false;
     },
 
     /**
