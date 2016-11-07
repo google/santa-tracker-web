@@ -317,6 +317,7 @@ Santa Tracker app.
             youtube-id$="[[_computeVideoId(videos, item)]]"
             mode$="[[mode]]"
             mute="[[userMute]]"
+            pause="[[userPause]]"
             header-color="#ec4582"
             path="scenes/videoscene/video-scene.html"
             class="santa-scene"></video-scene>
@@ -958,7 +959,7 @@ Polymer({
   /** Handler for 'game-start' event. Shows the pause/restart buttons and starts the game. */
   onStartGame: function() {
     var scene = this.selectedScene;
-    if (scene && scene.behaviors.indexOf(window.SantaSceneGameButtonsBehavior) !== -1) {
+    if (scene && 'pause' in scene) {
       this.$.chrome.hasGameButtons = true;
       scene.start();
     }

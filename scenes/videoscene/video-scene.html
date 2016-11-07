@@ -39,10 +39,9 @@ Video scene.
 
   <div id="module-video" class="fit">
 
-    <div id="poster" class$="[[_computeTernary(paused, '', 'faded')]]"
-        on-transitionend="hidePoster"
+    <div id="poster" hidden$="[[!showStart]]"
         style$="background-image: url([[componentDir]]img/[[route]]-poster.jpg)">
-      <div id="start" hidden$="[[!start]]">
+      <div id="start" hidden$="[[!showStart]]">
         <div class="start-button" on-tap="playVideo"></div>
       </div>
     </div>
@@ -50,27 +49,12 @@ Video scene.
     <template is="dom-if" if="[[showPlayer]]">
       <google-youtube id="player"
           video-id="[[youtubeId]]"
-          currenttime="{{currentTime}}"
-          currenttimeformatted="{{_currentTimeFormatted}}"
-          duration="{{_duration}}"
           playsupported="false"
           on-google-youtube-ready="youtubeReady"
           on-google-youtube-state-change="youtubeStateChange"
           chromeless width="100%" height="100%" class="fit">
       </google-youtube>
     </template>
-
-    <div id="videoboard" class="sceneboard">
-      <div id="controls" hidden$="[[!controls]]">
-        <div class="scrubber">
-          <div class="tracker" style$="transform: translateX([[_computeScrubPixels(currentTime, _duration)]]px)">[[_currentTimeFormatted]]</div>
-        </div>
-        <ul class="actions">
-          <li id="restart" class="restart" on-tap="restartVideo"></li>
-          <li id="pause" class$="pause [[_computeTernary(paused, 'paused', '')]]" on-tap="togglePause"></li>
-        </ul>
-      </div>
-    </div>
 
   </div>
 </template>
@@ -85,36 +69,40 @@ Video scene.
     properties: {
 
       /**
-       * True if the video is paused.
+       * True if the video is paused. Bound from `santa-app`.
        */
-      paused: {
+      pause: {
         type: Boolean,
-        value: true
+        value: true,
+        observer: '_onPauseChanged',
+      },
+
+      /** Saved expected pause state. */
+      _expectedPause: Boolean,
+
+      /**
+       * Whether to mute this video. Bound from `santa-app`.
+       */
+      mute: {
+        type: Boolean,
+        observer: '_onMuteChanged'
       },
 
       /**
        * True if the start button should show.
        */
-      start: {
+      showStart: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
-       * True if the scene board play controls should show.
-       */
-      controls: {
-        type: Boolean,
-        value: false
-      },
-
-      /**
-       * True if the `google-youtube` element should be created. Used to keep the
-       * iframe in the DOM only when the scene is visible.
+       * True if the `google-youtube` element should be created. Used to keep the iframe in the DOM
+       * only when the scene is visible.
        */
       showPlayer: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -131,33 +119,6 @@ Video scene.
       youtubeId: {
         type: String,
       },
-
-      /**
-       * Whether to mute this video. As this audio is played through an iframe,
-       * and not through Klang, this flag needs to be set on the inner
-       * `google-youtube` element.
-       */
-      mute: {
-        type: Boolean,
-        observer: '_muteChanged'
-      },
-
-      /**
-       * The currentTime of the video. Bound to the `google-youtube` element.
-       */
-      currentTime: Number,
-
-      /**
-       * The formtted currentTime of the video. Bound to `google-youtube`,
-       * where the property is readOnly.
-       */
-      _currentTimeFormatted: String,
-
-      /**
-       * The duration of the video. Bound to `google-youtube`, where the
-       * property is readOnly.
-       */
-      _duration: Number,
     },
 
     /**
@@ -171,15 +132,13 @@ Video scene.
      */
 
     youtubeReady: function() {
-      this.start = true;
-
+      this.showStart = true;
       this.player = this.$$('#player');
 
       this.player.seekTo(0);
       this.player.pause();
-      this.controls = false;
 
-      this._muteChanged(this.mute);  // run mute logic for the first time
+      this._onMuteChanged(this.mute);  // run mute logic for the first time
 
       // Autoplay on Cast mode.
       if (this.getAttribute('mode') == 'cast') {
@@ -188,61 +147,44 @@ Video scene.
       }
     },
 
-    hidePoster: function(e, detail) {
-      this.$.poster.hidden = true;
-    },
-
     youtubeStateChange: function(e, detail) {
       var state = e.detail.data;
+      var userPause;
 
       switch (state) {
-        case -1:
-          break;
         case 0: // ended
-          this.controls = false;
           this.fire('video-scene-done');
-          break;
+          return;
         case 1: // playing
-          this.paused = false;
-          this.controls = true;
-          this.fire('analytics-track-event',
-              {category: 'video', action: 'play', label: this.route});
+          userPause = false;
           break;
         case 2: // paused
-          this.paused = true;
+          userPause = true;
           break;
+        default:
+          return;
       }
+
+      // TODO(samthor): we get our own state changes back (because `pause` => true while page in
+      // background). However, we want to listen to user controls too.
+      // this.santaApp.userPause = userPause;
     },
 
     /**
-     * Restarts this video. Only called from the controls div, which is only available once the
-     * video is ready.
-     */
-    restartVideo: function() {
-      this.player.seekTo(0);
-      this.player.play();
-    },
-
-    togglePause: function() {
-      this.paused = !this.paused;
-      this.start = false;
-
-      if (this.player) {
-        if (this.paused) {
-          this.player.pause();
-        } else {
-          this.player.play();
-        }
-      }
-    },
-
-    /**
-     * Plays this video. Called from the poster/start div, only available once the video is ready.
+     * When the start button is pressed, fire 'game-start' to ask `santa-app` to kickstart us.
      */
     playVideo: function() {
-      this.start = false;
-      this.paused = false;
+      this.fire('game-start');
+    },
+
+    start: function() {
+      if (!this.player) {
+        return;
+      }
+      this.showStart = false;
       this.player.play();
+      this.fire('analytics-track-event',
+          {category: 'video', action: 'play', label: this.route});
     },
 
     onPreload: function() {
@@ -276,18 +218,24 @@ Video scene.
         case 'enter':
         case 'space':
           e.stopPropagation();
-          this.togglePause();
+          this.pause = !this.pause;
           break;
       }
     },
 
-    _computeScrubPixels: function(currenttime, duration) {
-      return (currenttime / duration) * 150;  // 150px is a magic constant
+    _onPauseChanged: function(pause) {
+      if (this.player) {
+        if (pause) {
+          this.player.pause();
+        } else {
+          this.player.play();
+        }
+      }
     },
 
-    _muteChanged: function(newValue) {
+    _onMuteChanged: function(mute) {
       if (this.player) {
-        if (newValue) {
+        if (mute) {
           this.player.mute();
         } else {
           this.player.unMute();
