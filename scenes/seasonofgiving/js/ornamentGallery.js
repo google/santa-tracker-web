@@ -27,7 +27,7 @@ goog.provide('app.OrnamentGallery');
 app.OrnamentGallery = function(el, context) {
   this.isVisible = true;
   this.el = $(el);
-  this.context = context;
+  this.context = $(context);
   this.items = this.context.find('.ornament-item');
   this.buttonInfo = this.context.find('.Button-info');
   this.ornamentTitles = this.context.find('.ornament-item-name');
@@ -109,14 +109,13 @@ app.OrnamentGallery.prototype.handleResize = function() {
  * @param {!Event} event Event for select handler
  */
 app.OrnamentGallery.prototype.handleSelectItem = function(event) {
-  // unwrap for when in the shadowdom polyfill
-  var targetClass = unwrap(event.currentTarget.classList)[1];
-  var targetIndex = targetClass.indexOf('--');
-  var endClass = targetClass.substring(targetIndex + 2);
+  var match = event.currentTarget.className.match(/\bornament-item--(\S+)\b/);
+  if (!match) { return; }
+  var name = match[1];
 
   // show ornament
   var ornament = this.context.find('.scene-ornament-wrapper')
-    .find('.scene-ornament--' + endClass)
+    .find('.scene-ornament--' + name)
     .parent();
 
   // show info button
@@ -133,7 +132,7 @@ app.OrnamentGallery.prototype.handleSelectItem = function(event) {
   app.GameManager.currentIndex = ornament.index() - 1;
   app.GameManager.ornaments[app.GameManager.currentIndex].show(600);
   app.GameManager.lastOrnamentObj = app.GameManager.ornaments[app.GameManager.currentIndex];
-  app.GameManager.currentCanvas = this.context.find('#canvas--' + endClass)[0];
+  app.GameManager.currentCanvas = this.context.find('#canvas--' + name)[0];
   window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 

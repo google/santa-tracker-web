@@ -24,7 +24,7 @@ goog.provide('app.OrnamentNavigation');
  * @param {!Element} elem The DOM element which wraps the game.
  */
 app.OrnamentNavigation = function(elem) {
-  this.elem = elem;
+  this.elem = $(elem);
   this.ornamentNavigation = $('.nav-ornament', this.elem);
   this.ornamentCopyContainer = $('.ornament-copy-container', this.elem);
   this.ornamentCopy = $('.ornament-copy', this.elem);

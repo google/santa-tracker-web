@@ -25,7 +25,7 @@ goog.provide('app.Ornament');
  * @param {!Element} elem The DOM element which wraps the game.
  */
 app.Ornament = function(selector, elem) {
-  this.elem = elem;
+  this.elem = $(elem);
   this.isActive = false;
 
   this.canvas = elem.find(selector)[0];
@@ -295,7 +295,7 @@ app.Ornament.prototype.globalMouseUp = function() {
 
 /**
  * Mouse down handler
- * @param {MouseEvent} event ...
+ * @param {jQuery.Event} event ...
  */
 app.Ornament.prototype.mouseDown = function(event) {
   if (!app.GameManager.tool || !this.isActive) {
@@ -348,7 +348,7 @@ app.Ornament.prototype.mouseDown = function(event) {
 
 /**
  * Mouse move handler
- * @param {MouseEvent} event ...
+ * @param {jQuery.Event} event ...
  */
 app.Ornament.prototype.mouseMove = function(event) {
   if (!this.isDrawing || !this.isActive) {
