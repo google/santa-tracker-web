@@ -87,7 +87,7 @@ Turtle.init = function() {
   var visualization = document.getElementById('visualization');
   var onresize = function(e) {
     var top = visualization.offsetTop;
-    blocklyDiv.style.width = '1000px';//(window.innerWidth - 440) + 'px';
+    blocklyDiv.style.width = '1020px';//(window.innerWidth - 440) + 'px';
     //calculate the size of the main workspace and figure out where to place the starter blocks
     if (Turtle.workspace) {
       var workspaceHeight = blocklyDiv.clientHeight //129 is height of flyout, 64 is the height of the block
