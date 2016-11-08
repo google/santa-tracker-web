@@ -555,30 +555,6 @@ var Cards = [
     ]
   },
   {
-    'key': 'seasonofcaring',
-    'title': 'Season of Caring',
-    'opens': '21',
-    'ordinal': 'st',
-    'type': 'Play',
-    'new': true,
-    'education': true,
-    'description': 'This holiday season, we partnered with Google.org to showcase how certain organizations are helping kids with special needs.',
-    'resources': [
-      {
-        'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-season-of-caring.png',
-        'type': 'PNG file',
-        'class': 'press-card-dl'
-      },
-      {
-        'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC21-seasonofcaring-full.gif',
-        'type': 'GIF file',
-        'class': 'press-card-dl'
-      }
-    ]
-  },
-  {
     'key': 'matching',
     'title': 'Memory Match',
     'opens': '22',
