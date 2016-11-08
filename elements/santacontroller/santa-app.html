@@ -261,12 +261,6 @@ Santa Tracker app.
           loading-src="scenes/santaselfie/img/loading.svg"
           class="santa-scene"></santaselfie-scene>
 
-      <seasonofcaring-scene route="seasonofcaring" icon="1f3ee"
-          path$="scenes/seasonofcaring/seasonofcaring-scene_[[language]].html"
-          mode$="[[mode]]"
-          loading-src="scenes/seasonofcaring/img/loading.svg"
-          class="santa-scene"></seasonofcaring-scene>
-
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
           mode$="[[mode]]"
@@ -773,12 +767,6 @@ Polymer({
             // Save the object for postFlight (when callfromsanta will be
             // disabled)
             this._fallbackHouse = house[1];
-          }
-          break;
-        case 'seasonofcaring':
-          // not translated, choose backup house instead
-          if (!isEnglish) {
-            choice = house[1];
           }
           break;
         }

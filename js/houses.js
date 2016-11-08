@@ -177,23 +177,15 @@ window.HOUSES = [{
   launchDate: new Date('Dec 20, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "watch"
-}, [
-  {
-    // used in en only
-    module: "seasonofcaring",
-    iced: true,
-    launchDate: new Date('Dec 21, 2016'),
-    portalLaunchDate: new Date('Dec 1, 2016'),
-    category: "learn"
-  }, {
-    // fallback for "seasonofcaring"
-    module: "factory",
-    iced: true,
-    launchDate: new Date('Dec 21, 2016'),
-    portalLaunchDate: new Date('Dec 1, 2016'),
-    category: "play"
-  }
-], {
+},
+{
+  module: "factory",
+  iced: true,
+  launchDate: new Date('Dec 21, 2016'),
+  portalLaunchDate: new Date('Dec 1, 2016'),
+  category: "play"
+},
+{
   module: "matching",
   iced: true,
   launchDate: new Date('Dec 22, 2016'),
