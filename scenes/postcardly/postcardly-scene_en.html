@@ -122,7 +122,9 @@ Presentdrop scene.
       if (event.source != expectedSource) {
         throw new Error('unexpected source: ' + event.origin);
       } else {
-        this.snowflake = event.data;
+this.snowflake = event.data;
+this.$.heroSnowflake.style.backgroundImage = 'url(' + this.snowflake + ')';
+this.$.heroSnowflake.style.backgroundSize = 'cover';
         // If we're receiving this message, 'Done' has been pressed.
         this.viewSnowflake();
       }

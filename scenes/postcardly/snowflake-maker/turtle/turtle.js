@@ -30,8 +30,8 @@ goog.require('Slider');
 goog.require('Turtle.Blocks');
 goog.require('Turtle.SceneTutorial');
 
-Turtle.HEIGHT = 400;
-Turtle.WIDTH = 400;
+Turtle.HEIGHT = 300;
+Turtle.WIDTH = 300;
 
 /**
  * PID of animation task currently executing.
