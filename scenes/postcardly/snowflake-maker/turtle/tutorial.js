@@ -30,7 +30,6 @@ Turtle.SceneTutorial = function(el) {
   this.hasBeenShown = false;
   this.boundOnClick_ = this.onClick_.bind(this);
   this.boundOnBlocklyChange_ = this.onBlocklyChange_.bind(this);
-
   document.addEventListener('click', this.boundOnClick_, false);
   Blockly.getMainWorkspace().addChangeListener(this.boundOnBlocklyChange_);
 };
