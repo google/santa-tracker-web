@@ -97,16 +97,15 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   var code = '';
   var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
-  // Pausing for 50% longer than the user wants to pause between each step.
   code += 'for (var ' + loopVar + ' = 0; ' +
       loopVar + ' <  6; ' +
       loopVar + '++) {\n' +
       branch + 'if(' +
-      loopVar + ' == 0){\n pause(' +
-      1.5 * 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2) +
-      ');\n }\n reset();\n turnRight(60*(' +
+      loopVar + ' == 0){\n pause(500);\n' +
+      '}\n reset();\n turnRight(60*(' +
       loopVar + '+1), \'block_id_' +
-      block.id + '\');\n setOnRepeat(true);\n}\n';
+      block.id + '\');\n setOnRepeat(true);\n' +
+      'pause(500)\n}\n';
   return code;
 };
 

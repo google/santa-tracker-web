@@ -543,16 +543,9 @@ Turtle.executeChunk_ = function() {
  */
 Turtle.animate = function(id) {
   Turtle.display();
-  if (id) {
+  if (id && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
-    var speed;
-    if (!Turtle.onRepeat) {
-      speed = Turtle.speedSlider.getValue();
-    } else {
-    // Scale the speed non-linearly, to give better precision at the fast end.
-      speed = 0.8;
-    }
-    Turtle.pause = Math.max(1, 1000 * Math.pow(1 - speed, 2));
+    Turtle.pause = Math.max(1, 1000 * Math.pow(0.7, 2));
   }
 };
 
