@@ -374,8 +374,8 @@ gulp.task('build-prod', function() {
     .pipe(gulp.dest(DIST_PROD_DIR));
 
   const jsStream = gulp.src(['sw.js'])
-    .pipe($.replace('./STATIC_PATH/', STATIC_URL))
-    .pipe($.replace(/const version ?= ?\'\';/, `const version = '${STATIC_VERSION}';`))
+    .pipe($.replace('<STATIC_VERSION>', STATIC_VERSION))
+    .pipe($.replace('<STATIC_HOST>', STATIC_BASE_URL))
     .pipe(gulp.dest(DIST_PROD_DIR));
 
   return mergeStream(htmlStream, jsStream);
