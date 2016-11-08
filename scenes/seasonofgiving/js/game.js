@@ -187,7 +187,7 @@ app.Game.prototype.dispose = function() {
       timePlayed: new Date() - this.gameStartTime,
       level: 1
     });
-    Klang.triggerEvent('spirit_end');
+    window.santaApp.fire('sound-trigger', 'spirit_end');
   }
   this.freezeGame();
 

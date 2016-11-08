@@ -288,9 +288,9 @@ app.Ornament.prototype.globalMouseUp = function() {
   }
 
   if (this.elem.find('.Tool--selected').hasClass('Tool-crayon--eraser')) {
-    Klang.triggerEvent('spirit_eraser_end');
+    window.santaApp.fire('sound-trigger', 'spirit_eraser_end');
   } else {
-    Klang.triggerEvent('spirit_crayon_end');
+    window.santaApp.fire('sound-trigger', 'spirit_crayon_end');
   }
 };
 
@@ -304,9 +304,9 @@ app.Ornament.prototype.mouseDown = function(event) {
   }
 
   if (this.elem.find('.Tool--selected').hasClass('Tool-crayon--eraser')) {
-    Klang.triggerEvent('spirit_eraser_start');
+    window.santaApp.fire('sound-trigger', 'spirit_eraser_start');
   } else {
-    Klang.triggerEvent('spirit_crayon_start');
+    window.santaApp.fire('sound-trigger', 'spirit_crayon_start');
   }
 
   this.isDrawing = true;

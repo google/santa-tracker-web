@@ -65,7 +65,7 @@ app.Sequencer = class {
   play() {
     if (!this._playScheduled) { return; }
 
-    Klang.triggerEvent('cb_fallback_start');
+    window.santaApp.fire('sound-trigger', 'cb_fallback_start');
     this.klangUtil.transition(this.getPlayingLoop(),
         this.tracks[this._track * 2 + this._variant], this._bpm, 0, 0.2);
 

@@ -110,7 +110,7 @@ app.OrnamentNavigation.prototype.handleNext = function() {
   app.GameManager.lastOrnamentObj = app.GameManager.ornaments[currentOrnamentNum];
 
   app.GameManager.gallery.hide();
-  Klang.triggerEvent('spirit_click');
+  window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 
 /**
@@ -139,7 +139,7 @@ app.OrnamentNavigation.prototype.handlePrev = function() {
   app.GameManager.lastOrnamentObj.show();
 
   app.GameManager.gallery.hide();
-  Klang.triggerEvent('spirit_click');
+  window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 
 /**
@@ -159,7 +159,7 @@ app.OrnamentNavigation.prototype.handleShowGallery = function() {
   app.GameManager.lastOrnament = null;
   app.GameManager.gallery.show();
 
-  Klang.triggerEvent('spirit_click');
+  window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 
 /**

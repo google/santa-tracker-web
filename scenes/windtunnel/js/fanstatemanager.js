@@ -87,7 +87,10 @@ app.FanStateManager.prototype.cycleState = function() {
     this.updateScene_();
   }.bind(this), app.Constants.FAN_SPEED_CHANGE_DELAY_MS);
 
-  Klang.triggerEvent('windtunnel_fan_speed', this.getConfig().soundValue);
+  window.santaApp.fire('sound-trigger', {
+    name: 'windtunnel_fan_speed',
+    args: [this.getConfig().soundValue],
+  });
 };
 
 /**

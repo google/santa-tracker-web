@@ -96,7 +96,7 @@ app.Mouse = function($elem) {
       this.touchStartedInOrnamentLink = false;
     }
 
-    Klang.triggerEvent('spirit_crayon_end');
+    window.santaApp.fire('sound-trigger', 'spirit_crayon_end');
   }.bind(this));
 };
 

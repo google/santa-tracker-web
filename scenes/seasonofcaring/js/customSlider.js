@@ -65,7 +65,7 @@ app.CustomSlider.prototype.sliderChange = function(event) {
     app.GameManager.mobileSlider.changeActiveSize(this.sizeSlider.getValue(),
         this.sizeSlider.getMaximum());
   }
-  Klang.triggerEvent('spirit_sizeselect');
+  window.santaApp.fire('sound-trigger', 'spirit_sizeselect');
 };
 
 /**

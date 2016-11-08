@@ -331,7 +331,7 @@ app.Scene = class {
           app.Constants.SCENE_TOGGLE_DURATION);
     } else {
       this.blockRunner_.execute();
-      Klang.triggerEvent('generic_button_click');
+      window.santaApp.fire('sound-trigger', 'generic_button_click');
     }
   }
 
@@ -357,10 +357,10 @@ app.Scene = class {
     }
 
     if (result.levelComplete) {
-      Klang.triggerEvent('cb_win');
+      window.santaApp.fire('sound-trigger', 'cb_win');
       this.game.successResult.show(result);
     } else {
-      Klang.triggerEvent('cb_fail');
+      window.santaApp.fire('sound-trigger', 'cb_fail');
       this.game.failureResult.show(result);
     }
   }

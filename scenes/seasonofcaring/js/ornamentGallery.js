@@ -134,7 +134,7 @@ app.OrnamentGallery.prototype.handleSelectItem = function(event) {
   app.GameManager.ornaments[app.GameManager.currentIndex].show(600);
   app.GameManager.lastOrnamentObj = app.GameManager.ornaments[app.GameManager.currentIndex];
   app.GameManager.currentCanvas = this.context.find('#canvas--' + endClass)[0];
-  Klang.triggerEvent('spirit_click');
+  window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 
 /**
