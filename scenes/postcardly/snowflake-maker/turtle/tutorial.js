@@ -55,7 +55,7 @@ Turtle.SceneTutorial.prototype.schedule = function(force) {
 
   // Blockly does some non-user initiated workspace changes on timeout, so we wait for
   // them to finish.
-  this.scheduleTimeout_ = window.setTimeout(this.toggle.bind(this, true), 4000);
+  this.scheduleTimeout_ = window.setTimeout(this.toggle.bind(this, true), 300);
 };
 
 /**

@@ -30,8 +30,8 @@ goog.require('Slider');
 goog.require('Turtle.Blocks');
 goog.require('Turtle.SceneTutorial');
 
-Turtle.HEIGHT = 400;
-Turtle.WIDTH = 400;
+Turtle.HEIGHT = 300;
+Turtle.WIDTH = 300;
 
 /**
  * PID of animation task currently executing.
@@ -137,7 +137,7 @@ Turtle.init = function() {
 
   var workspaceHeight = blocklyDiv.clientHeight; // + 129 + 64;
 
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight/2 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 

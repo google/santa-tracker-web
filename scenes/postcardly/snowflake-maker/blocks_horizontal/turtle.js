@@ -225,8 +225,7 @@ Blockly.Blocks['dropdown_move_backward'] = {
 
 Blockly.JavaScript['turtle_move_backward'] = function(block) {
   // Generate JavaScript for moving forward or backwards.
-  var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_NONE) || '0';
+  var value = block.getInput('VALUE').connection.targetBlock().getFieldValue('CHOICE');
   return 'moveBackward' +
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
@@ -291,8 +290,7 @@ Blockly.Blocks['dropdown_turn_left'] = {
 
 Blockly.JavaScript['turtle_turn_left'] = function(block) {
   // Generate JavaScript for turning left or right.
-  var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_NONE) || '0';
+  var value = block.getInput('ANGLE').connection.targetBlock().getFieldValue('CHOICE');
   return 'turnLeft' +
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
@@ -357,8 +355,7 @@ Blockly.Blocks['dropdown_turn_right'] = {
 
 Blockly.JavaScript['turtle_turn_right'] = function(block) {
   // Generate JavaScript for turning left or right.
-  var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_NONE) || '0';
+  var value = block.getInput('ANGLE').connection.targetBlock().getFieldValue('CHOICE');
   return 'turnRight' +
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
@@ -437,18 +434,18 @@ Blockly.Blocks['dropdown_square'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_025.png",
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_1.png",
               value: '25', width: 48, height: 48, alt: '25'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_055.png",
-              value: '55', width: 48, height: 48, alt: '55'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_085.png",
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_2.png",
+              value: '45', width: 48, height: 48, alt: '45'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_3.png",
+              value: '65', width: 48, height: 48, alt: '65'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_4.png",
               value: '85', width: 48, height: 48, alt: '85'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_115.png",
-              value: '115', width: 48, height: 48, alt: '115'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_145.png",
-              value: '145', width: 48, height: 48, alt: '145'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_175.png",
-              value: '175', width: 48, height: 48, alt: '175'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_5.png",
+              value: '105', width: 48, height: 48, alt: '105'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_6.png",
+              value: '125', width: 48, height: 48, alt: '125'},
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -496,18 +493,18 @@ Blockly.Blocks['dropdown_pentagon'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_025.png",
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_1.png",
               value: '25', width: 48, height: 48, alt: '25'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_055.png",
-              value: '55', width: 48, height: 48, alt: '55'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_085.png",
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_2.png",
+              value: '45', width: 48, height: 48, alt: '45'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_3.png",
+              value: '65', width: 48, height: 48, alt: '65'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_4.png",
               value: '85', width: 48, height: 48, alt: '85'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_115.png",
-              value: '115', width: 48, height: 48, alt: '115'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_145.png",
-              value: '145', width: 48, height: 48, alt: '145'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_175.png",
-              value: '175', width: 48, height: 48, alt: '175'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_5.png",
+              value: '105', width: 48, height: 48, alt: '105'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_6.png",
+              value: '125', width: 48, height: 48, alt: '125'},
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -522,7 +519,6 @@ Blockly.JavaScript['pentagon_stamp'] = function(block) {
   var size = block.getInput('SIZE').connection.targetBlock().getFieldValue('CHOICE');
   return 'stampPentagon(' + size + ', \'block_id_' + block.id + '\');\n';
 };
-
 
 Blockly.Blocks['triangle_stamp'] = {
   /**
@@ -562,18 +558,18 @@ Blockly.Blocks['dropdown_triangle'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_025.png",
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_1.png",
               value: '25', width: 48, height: 48, alt: '25'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_055.png",
-              value: '55', width: 48, height: 48, alt: '55'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_085.png",
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_2.png",
+              value: '45', width: 48, height: 48, alt: '45'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_3.png",
+              value: '65', width: 48, height: 48, alt: '65'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_4.png",
               value: '85', width: 48, height: 48, alt: '85'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_115.png",
-              value: '115', width: 48, height: 48, alt: '115'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_145.png",
-              value: '145', width: 48, height: 48, alt: '145'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_175.png",
-              value: '175', width: 48, height: 48, alt: '175'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_5.png",
+              value: '105', width: 48, height: 48, alt: '105'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_6.png",
+              value: '125', width: 48, height: 48, alt: '125'},
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,

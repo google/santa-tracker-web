@@ -37,21 +37,21 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '   <block type="pentagon_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="dropdown_pentagon">' +
-    '         <field name="CHOICE">85</field>' +
+    '         <field name="CHOICE">125</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="square_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="dropdown_square">' +
-    '         <field name="CHOICE">85</field>' +
+    '         <field name="CHOICE">125</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="triangle_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="dropdown_triangle">' +
-    '         <field name="CHOICE">85</field>' +
+    '         <field name="CHOICE">125</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
