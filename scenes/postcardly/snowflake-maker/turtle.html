@@ -16,6 +16,7 @@
     <script src="blocks_horizontal/default_toolbox.js"></script>
 
     <script src="turtle/interface.js"></script>
+    <script src="turtle/tutorial.js"></script>
     <script src="turtle/slider.js"></script>
     <script src="turtle/turtle.js"></script>
 
@@ -35,6 +36,7 @@
 
       #blocklyDiv {
         height: 40%;
+        min-height: 256px;
         width: 100%;
       }
 
@@ -103,17 +105,25 @@
       .center {
         margin: auto;
       }
+      .tutorial {
+        display:none;height:290px;left:50%;margin-left:-137px;margin-top:-130px;position:fixed;overflow:hidden;top:50%;width:275px;z-index:100
+      }
+      .tutorial__image {
+        background-image:url(img/tutorial/maze.gif);background-position:0 0;background-repeat:no-repeat;background-size:contain;height:270px;left:0;position:absolute;top:0;width:275px;z-index:2
+      }
+      .tutorial::before {
+        background:url(img/tutorial/shadow.svg) no-repeat;content:"";height:270px;left:0;opacity:0.15;position:absolute;top:20px;width:275px;z-index:1
+      }
     </style>
   </head>
 
   <body>
     <div id="collaborators"></div>
 
-
     <!-- Sidebar -->
-    <div id="visualization" class="center" style="width: 300px;">
-      <canvas id="scratch" width="300" height="300" style="display: none"></canvas>
-      <canvas id="display" width="300" height="300"></canvas>
+    <div id="visualization" class="center" style="width: 400px;">
+      <canvas id="scratch" width="400" height="400" style="display: none"></canvas>
+      <canvas id="display" width="400" height="400"></canvas>
       <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15>
           <button id="runButton" class="primary" title="Run the program you wrote.">
             <img src="media/1x1.gif" class="run icon21"> Run Program
@@ -126,5 +136,8 @@
           </button>
     </div>
     <div id="blocklyDiv" class="center"></div>
+    <div class="tutorial">
+      <div class="tutorial__image"></div>
+    </div>
   </body>
 </html>

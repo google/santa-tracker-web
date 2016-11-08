@@ -123,17 +123,16 @@ Blockly.Blocks['turtle_move_forward'] = {
       "message0": "%1 %2",
       "args0": [
         {
-          "type": "input_value",
-          "check": "Number",
-          "name": "VALUE"
-        },
-        {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward.png",
           "width": 40,
           "height": 40,
           "alt": "move forward",
           "flip_rtl": false
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE"
         }
       ],
       "previousStatement": "Stamp",
@@ -146,10 +145,28 @@ Blockly.Blocks['turtle_move_forward'] = {
   }
 };
 
+Blockly.Blocks['dropdown_move_forward'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward_sm.png",
+              value: '25', width: 48, height: 48, alt: '25'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward_med.png",
+              value: '55', width: 48, height: 48, alt: '55'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward_lg.png",
+              value: '85', width: 48, height: 48, alt: '85'},
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
+  }
+};
+
 Blockly.JavaScript['turtle_move_forward'] = function(block) {
   // Generate JavaScript for moving forward or backwards.
-  var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_NONE) || '0';
+  var value = block.getInput('VALUE').connection.targetBlock().getFieldValue('CHOICE');
   return 'moveForward' +
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
@@ -165,17 +182,16 @@ Blockly.Blocks['turtle_move_backward'] = {
       "message0": "%1 %2",
       "args0": [
         {
-          "type": "input_value",
-          "check": "Number",
-          "name": "VALUE"
-        },
-        {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back.png",
           "width": 40,
           "height": 40,
           "alt": "move backward",
           "flip_rtl": false
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE"
         }
       ],
       "previousStatement": "Stamp",
@@ -185,6 +201,25 @@ Blockly.Blocks['turtle_move_backward'] = {
       "colourSecondary": Blockly.Colours.pen.secondary,
       "colourTertiary": Blockly.Colours.pen.tertiary
     });
+  }
+};
+
+Blockly.Blocks['dropdown_move_backward'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back_sm.png",
+              value: '25', width: 48, height: 48, alt: '25'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back_med.png",
+              value: '55', width: 48, height: 48, alt: '55'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back_lg.png",
+              value: '85', width: 48, height: 48, alt: '85'},
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
   }
 };
 
@@ -207,17 +242,16 @@ Blockly.Blocks['turtle_turn_left'] = {
       "message0": "%1 %2",
       "args0": [
         {
-          "type": "input_value",
-          "check": "Number",
-          "name": "VALUE"
-        },
-        {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw.png",
           "width": 40,
           "height": 40,
           "alt": "turn left",
           "flip_rtl": false
+        },
+        {
+          "type": "input_value",
+          "name": "ANGLE"
         }
       ],
       "previousStatement": "Stamp",
@@ -227,6 +261,31 @@ Blockly.Blocks['turtle_turn_left'] = {
       "colourSecondary": Blockly.Colours.pen.secondary,
       "colourTertiary": Blockly.Colours.pen.tertiary
     });
+  }
+};
+
+Blockly.Blocks['dropdown_turn_left'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_030.png",
+              value: '30', width: 48, height: 48, alt: '30'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_060.png",
+              value: '60', width: 48, height: 48, alt: '60'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_090.png",
+              value: '90', width: 48, height: 48, alt: '90'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_120.png",
+              value: '120', width: 48, height: 48, alt: '120'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_150.png",
+              value: '150', width: 48, height: 48, alt: '150'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_180.png",
+              value: '180', width: 48, height: 48, alt: '180'},
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
   }
 };
 
@@ -249,17 +308,16 @@ Blockly.Blocks['turtle_turn_right'] = {
       "message0": "%1 %2",
       "args0": [
         {
-          "type": "input_value",
-          "check": "Number",
-          "name": "VALUE"
-        },
-        {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw.png",
           "width": 40,
           "height": 40,
           "alt": "turn right",
           "flip_rtl": false
+        },
+        {
+          "type": "input_value",
+          "name": "ANGLE"
         }
       ],
       "previousStatement": "Stamp",
@@ -269,6 +327,31 @@ Blockly.Blocks['turtle_turn_right'] = {
       "colourSecondary": Blockly.Colours.pen.secondary,
       "colourTertiary": Blockly.Colours.pen.tertiary
     });
+  }
+};
+
+Blockly.Blocks['dropdown_turn_right'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_030.png",
+              value: '30', width: 48, height: 48, alt: '30'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_060.png",
+              value: '60', width: 48, height: 48, alt: '60'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_090.png",
+              value: '90', width: 48, height: 48, alt: '90'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_120.png",
+              value: '120', width: 48, height: 48, alt: '120'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_150.png",
+              value: '150', width: 48, height: 48, alt: '150'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_180.png",
+              value: '180', width: 48, height: 48, alt: '180'},
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
   }
 };
 
@@ -298,8 +381,7 @@ Blockly.Blocks['triangle_draw'] = {
 
 Blockly.JavaScript['triangle_draw'] = function(block) {
   // Generate JavaScript for setting the width.
-  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
-      Blockly.JavaScript.ORDER_NONE) || '1';
+  var size = block.getInput('SIZE').connection.targetBlock().getFieldValue('CHOICE');
   return Blockly.Blocks.drawTriangle(size, 'block_id_' + block.id);
 };
 
@@ -322,17 +404,16 @@ Blockly.Blocks['square_stamp'] = {
       "message0": "%1 %2",
       "args0": [
         {
-          "type": "input_value",
-          "check": "Number",
-          "name": "SIZE",
-        },
-        {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a square",
           "flip_rtl": false
+        },
+        {
+          "type": "input_value",
+          "name": "SIZE"
         }
       ],
       "previousStatement": "Stamp",
@@ -347,9 +428,34 @@ Blockly.Blocks['square_stamp'] = {
 
 Blockly.JavaScript['square_stamp'] = function(block) {
   // Generate JavaScript for setting the width.
-  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
-      Blockly.JavaScript.ORDER_NONE) || '1';
+  var size = block.getInput('SIZE').connection.targetBlock().getFieldValue('CHOICE');
   return 'stampSquare(' + size + ', \'block_id_' + block.id + '\');\n';
+};
+
+//25, 55, 85, 115, 145, 175
+Blockly.Blocks['dropdown_square'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
+              value: '25', width: 48, height: 48, alt: '25'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
+              value: '55', width: 48, height: 48, alt: '55'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
+              value: '85', width: 48, height: 48, alt: '85'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
+              value: '115', width: 48, height: 48, alt: '115'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
+              value: '145', width: 48, height: 48, alt: '145'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
+              value: '175', width: 48, height: 48, alt: '175'},
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
+  }
 };
 
 Blockly.Blocks['pentagon_stamp'] = {
@@ -386,10 +492,34 @@ Blockly.Blocks['pentagon_stamp'] = {
   }
 };
 
+Blockly.Blocks['dropdown_pentagon'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
+              value: '25', width: 48, height: 48, alt: '25'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
+              value: '55', width: 48, height: 48, alt: '55'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
+              value: '85', width: 48, height: 48, alt: '85'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
+              value: '115', width: 48, height: 48, alt: '115'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
+              value: '145', width: 48, height: 48, alt: '145'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
+              value: '175', width: 48, height: 48, alt: '175'},
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
+  }
+};
+
 Blockly.JavaScript['pentagon_stamp'] = function(block) {
   // Generate JavaScript for setting the width.
-  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
-      Blockly.JavaScript.ORDER_NONE) || '1';
+  var size = block.getInput('SIZE').connection.targetBlock().getFieldValue('CHOICE');
   return 'stampPentagon(' + size + ', \'block_id_' + block.id + '\');\n';
 };
 
@@ -428,10 +558,34 @@ Blockly.Blocks['triangle_stamp'] = {
   }
 };
 
+Blockly.Blocks['dropdown_triangle'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
+              value: '25', width: 48, height: 48, alt: '25'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
+              value: '55', width: 48, height: 48, alt: '55'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
+              value: '85', width: 48, height: 48, alt: '85'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
+              value: '115', width: 48, height: 48, alt: '115'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
+              value: '145', width: 48, height: 48, alt: '145'},
+          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
+              value: '175', width: 48, height: 48, alt: '175'},
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
+  }
+};
+
 Blockly.JavaScript['triangle_stamp'] = function(block) {
   // Generate JavaScript for setting the width.
-  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
-      Blockly.JavaScript.ORDER_NONE) || '1';
+  var size = block.getInput('SIZE').connection.targetBlock().getFieldValue('CHOICE');
   return 'stampTriangle(' + size + ', \'block_id_' + block.id + '\');\n';
 };
 
@@ -471,8 +625,7 @@ Blockly.Blocks['diamond_stamp'] = {
 
 Blockly.JavaScript['diamond_stamp'] = function(block) {
   // Generate JavaScript for setting the width.
-  var size = Blockly.JavaScript.valueToCode(block, 'SIZE',
-      Blockly.JavaScript.ORDER_NONE) || '1';
+  var size = block.getInput('SIZE').connection.targetBlock().getFieldValue('CHOICE');
   return 'stampDiamond(' + size + ', \'block_id_' + block.id + '\');\n';
 };
 

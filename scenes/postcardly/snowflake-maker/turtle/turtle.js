@@ -28,9 +28,10 @@ goog.provide('Turtle');
 goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
+goog.require('Turtle.SceneTutorial');
 
-Turtle.HEIGHT = 300;
-Turtle.WIDTH = 300;
+Turtle.HEIGHT = 400;
+Turtle.WIDTH = 400;
 
 /**
  * PID of animation task currently executing.
@@ -86,9 +87,13 @@ Turtle.init = function() {
   var visualization = document.getElementById('visualization');
   var onresize = function(e) {
     var top = visualization.offsetTop;
-    //blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 10 + 'px';
-    //blocklyDiv.style.left = rtl ? '10px' : '420px';
     blocklyDiv.style.width = '1000px';//(window.innerWidth - 440) + 'px';
+    //calculate the size of the main workspace and figure out where to place the starter blocks
+    if (Turtle.workspace) {
+      var workspaceHeight = blocklyDiv.clientHeight //129 is height of flyout, 64 is the height of the block
+      Turtle.workspace.topBlocks_[0].x = 0;
+      Turtle.workspace.topBlocks_[0].y = workspaceHeight/2;
+    }
   };
   window.addEventListener('scroll', function() {
     onresize();
@@ -130,7 +135,9 @@ Turtle.init = function() {
 
   //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
 
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" x="300" y="150"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
+  var workspaceHeight = blocklyDiv.clientHeight; // + 129 + 64;
+
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight/2 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -157,9 +164,17 @@ Turtle.init = function() {
   // Turtle.bindClick('helpButton', Turtle.showHelp);
   // setTimeout(Turtle.showHelp, 1000);
   // Turtle.workspace.addChangeListener(Turtle.watchCategories_);
+
+  //Tutorial
+  this.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
+  this.tutorial.schedule();
 };
 
 window.addEventListener('load', Turtle.init);
+
+Turtle.centerStartBlock = function() {
+
+}
 
 Turtle.getToolboxElement = function() {
   var match = location.search.match(/toolbox=([^&]+)/);
@@ -552,7 +567,18 @@ Turtle.setOnRepeat = function(bool) {
 }
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
-  var sideLen = size*Math.sin(Math.PI/numSides);
+  var sideLen;
+  switch(numSides) {
+    case 4:
+      sideLen = size;
+      break;
+    case 5:
+      sideLen = 2*size*Math.sin(Math.PI/numSides)/(Math.cos(Math.PI/numSides) + 1);    
+      break;
+    default:
+      sideLen = size/Math.sin(Math.PI/numSides);
+      break;
+  }
   Turtle.ctxScratch.beginPath();
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
