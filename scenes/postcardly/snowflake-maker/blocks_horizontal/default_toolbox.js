@@ -58,14 +58,14 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '   <block type="turtle_move_forward">' +
     '     <value name="VALUE">' +
     '       <shadow type="dropdown_move_forward">' +
-    '         <field name="CHOICE">85</field>' +
+    '         <field name="CHOICE">20</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="turtle_move_backward">' +
     '     <value name="VALUE">' +
     '       <shadow type="dropdown_move_backward">' +
-    '         <field name="CHOICE">85</field>' +
+    '         <field name="CHOICE">20</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
