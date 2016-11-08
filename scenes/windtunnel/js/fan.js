@@ -113,6 +113,6 @@ app.Fan.prototype.updateIndicatorPosition_ = function() {
 app.Fan.prototype.updateThreads_ = function() {
   var threadsClass = this.fanStateManager_.getThreadsClass();
   var threads = this.threadsElem.find('.thread');
-  threads.removeClass().addClass('thread ' + threadsClass);
+  threads.removeClass('thread--low thread--med thread--high').addClass('thread ' + threadsClass);
 };
 
