@@ -261,12 +261,6 @@ Santa Tracker app.
           loading-src="scenes/santaselfie/img/loading.svg"
           class="santa-scene"></santaselfie-scene>
 
-      <seasonofcaring-scene route="seasonofcaring" icon="1f3ee"
-          path$="scenes/seasonofcaring/seasonofcaring-scene_[[language]].html"
-          mode$="[[mode]]"
-          loading-src="scenes/seasonofcaring/img/loading.svg"
-          class="santa-scene"></seasonofcaring-scene>
-
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
           mode$="[[mode]]"
@@ -662,29 +656,29 @@ Polymer({
       }, 1000);
     }.bind(this));
 
-    var reloadTimeout;
+    var requestedReload = false;
     this.santaService.addListener('reload', function() {
+      if (requestedReload) { return; }
+      requestedReload = true;
       this.analyticsService.trackEvent('API', 'reload');
 
-      if (window.DEV) {
-        console.warn('prod would trigger reload, out of date', document.body.getAttribute('data-version'));
+      var currentVersion = document.body.getAttribute('data-version');
+      if (!currentVersion || window.DEV) {
+        console.warn('dev ignoring reload request', currentVersion);
         return;
       }
-      if (reloadTimeout) {
-        return;  // already trying to reload
-      }
 
-      // Schedule a reload in the next ~2 hours, but only after the last user
-      // click.
-      var reloader = function(ev) {
-        var when = Math.random() * 1000 * 60 * 60 * 2;  // next two hours
-        window.clearTimeout(reloadTimeout);
-        reloadTimeout = window.setTimeout(function() {
+      // At 30m +/- 15m, try to reload if the page is hidden. After that, reload when the page is
+      // made hidden, or force a reload after the same duration again.
+      var duration = (Math.random() + 0.5) * 1000 * 60 * 20;
+      window.setTimeout(function reloader(force) {
+        if (force || document.hidden) {
           window.location.reload();
-        }, when);
-      };
-      document.addEventListener('click', reloader);
-      reloader();
+        } else {
+          document.addEventListener('visibilitychange', reloader);
+          window.setTimeout(reloader.bind(null, true), duration);
+        }
+      }, duration);
     }.bind(this));
 
     this._prepareHouses();
@@ -773,12 +767,6 @@ Polymer({
             // Save the object for postFlight (when callfromsanta will be
             // disabled)
             this._fallbackHouse = house[1];
-          }
-          break;
-        case 'seasonofcaring':
-          // not translated, choose backup house instead
-          if (!isEnglish) {
-            choice = house[1];
           }
           break;
         }

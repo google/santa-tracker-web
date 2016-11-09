@@ -62,7 +62,7 @@ app.PlayerSound = {
       return;
     }
     app.PlayerSound.isWalking_ = true;
-    Klang.triggerEvent('computer_walk_start');
+    window.santaApp.fire('sound-trigger', 'computer_walk_start');
   },
 
   /**
@@ -75,7 +75,7 @@ app.PlayerSound = {
       return;
     }
     app.PlayerSound.isWalking_ = false;
-    Klang.triggerEvent('computer_walk_stop');
+    window.santaApp.fire('sound-trigger', 'computer_walk_stop');
   },
 
   /**
@@ -89,6 +89,6 @@ app.PlayerSound = {
     }
     app.PlayerSound.isLost_ = true;
     app.PlayerSound.stop_();
-    Klang.triggerEvent('computer_huh');
+    window.santaApp.fire('sound-trigger', 'computer_huh');
   }
 };

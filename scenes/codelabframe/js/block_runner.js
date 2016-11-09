@@ -122,7 +122,7 @@ app.BlockRunner.prototype = {
       this.runAnimations_();
     }
 
-    Klang.triggerEvent('computer_play');
+    window.santaApp.fire('sound-trigger', 'computer_play');
   },
 
   queueAnimation: function(animation, blockId) {
@@ -216,7 +216,7 @@ app.BlockRunner.prototype = {
 
       case app.BlockRunnerState.REWINDING:
         this.scene.portraitToggleScene(false);
-        Klang.triggerEvent('computer_rewind_stop');
+        window.santaApp.fire('sound-trigger', 'computer_rewind_stop');
         break;
     }
 
@@ -253,7 +253,7 @@ app.BlockRunner.prototype = {
     this.state_ = app.BlockRunnerState.REWINDING;
 
     app.PlayerSound.disable();
-    Klang.triggerEvent('computer_rewind_start');
+    window.santaApp.fire('sound-trigger', 'computer_rewind_start');
   },
 
   resetAnimation: function() {

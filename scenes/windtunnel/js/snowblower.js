@@ -106,5 +106,5 @@ app.Snowblower.prototype.onSwitchClicked_ = function() {
   this.switchElem_.removeClass(opts);
   this.switchElem_.addClass(this.stateClassMap_[this.getState()]);
 
-  Klang.triggerEvent('windtunnel_lever_snow');
+  window.santaApp.fire('sound-trigger', 'windtunnel_lever_snow');
 };

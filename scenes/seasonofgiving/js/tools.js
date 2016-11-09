@@ -127,7 +127,7 @@ app.Tool.prototype.select = function() {
   this.elem.find('.canvas').addClass('canvas--active');
   this.bounceTo(endScale);
   this.move(this.game.mouse);
-  Klang.triggerEvent('spirit_click');
+  window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 
 /**

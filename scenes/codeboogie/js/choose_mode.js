@@ -50,7 +50,7 @@ app.ChooseMode.prototype.selectMode_ = function(event) {
   this.mode = $(event.currentTarget).data('mode');
 
   // Need to trigger a sound in a click event to allow sound on safari mobile.
-  Klang.triggerEvent('cb_ingame_win');
+  window.santaApp.fire('sound-trigger', 'cb_ingame_win');
 
 	if (this.mode === 'freestyle') {
 		return this.stageOverlay.show();
@@ -63,7 +63,7 @@ app.ChooseMode.prototype.selectMode_ = function(event) {
  * User chooses a stage.
  */
 app.ChooseMode.prototype.selectStage_ = function(event) {
-  Klang.triggerEvent('cb_ingame_win');
+  window.santaApp.fire('sound-trigger', 'cb_ingame_win');
 	this.selectedStage = $(event.currentTarget).data('stage');
 	this.continue_();
 };

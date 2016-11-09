@@ -25,7 +25,7 @@ goog.provide('app.Ornament');
  * @param {!Element} elem The DOM element which wraps the game.
  */
 app.Ornament = function(selector, elem) {
-  this.elem = elem;
+  this.elem = $(elem);
   this.isActive = false;
 
   this.canvas = elem.find(selector)[0];
@@ -287,15 +287,15 @@ app.Ornament.prototype.globalMouseUp = function() {
   }
 
   if (this.elem.find('.Tool--selected').hasClass('Tool-crayon--eraser')) {
-    Klang.triggerEvent('spirit_eraser_end');
+    window.santaApp.fire('sound-trigger', 'spirit_eraser_end');
   } else {
-    Klang.triggerEvent('spirit_crayon_end');
+    window.santaApp.fire('sound-trigger', 'spirit_crayon_end');
   }
 };
 
 /**
  * Mouse down handler
- * @param {MouseEvent} event ...
+ * @param {jQuery.Event} event ...
  */
 app.Ornament.prototype.mouseDown = function(event) {
   if (!app.GameManager.tool || !this.isActive) {
@@ -303,9 +303,9 @@ app.Ornament.prototype.mouseDown = function(event) {
   }
 
   if (this.elem.find('.Tool--selected').hasClass('Tool-crayon--eraser')) {
-    Klang.triggerEvent('spirit_eraser_start');
+    window.santaApp.fire('sound-trigger', 'spirit_eraser_start');
   } else {
-    Klang.triggerEvent('spirit_crayon_start');
+    window.santaApp.fire('sound-trigger', 'spirit_crayon_start');
   }
 
   this.isDrawing = true;
@@ -348,7 +348,7 @@ app.Ornament.prototype.mouseDown = function(event) {
 
 /**
  * Mouse move handler
- * @param {MouseEvent} event ...
+ * @param {jQuery.Event} event ...
  */
 app.Ornament.prototype.mouseMove = function(event) {
   if (!this.isDrawing || !this.isActive) {

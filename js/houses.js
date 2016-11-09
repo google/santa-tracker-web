@@ -24,7 +24,7 @@ window.HOUSES = [{
   launchDate: new Date('Dec 1, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   hideDate: true,
-  category: "play"
+  category: "explore"
 }, {
   module: "traditions",
   iced: true,
@@ -94,7 +94,7 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 8, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "play"
+  category: "explore"
 }, {
   module: "racer",
   iced: true,
@@ -118,7 +118,7 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 12, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "play"
+  category: "explore"
 }, {
   module: "jetpack",
   iced: true,
@@ -163,7 +163,7 @@ window.HOUSES = [{
     iced: true,
     launchDate: new Date('Dec 18, 2016'),
     portalLaunchDate: new Date('Dec 1, 2016'),
-    category: "play"
+    category: "explore"
   }
 ], {
   module: "citylights",
@@ -176,24 +176,14 @@ window.HOUSES = [{
   iced: true,
   launchDate: new Date('Dec 20, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "watch"
-}, [
-  {
-    // used in en only
-    module: "seasonofcaring",
-    iced: true,
-    launchDate: new Date('Dec 21, 2016'),
-    portalLaunchDate: new Date('Dec 1, 2016'),
-    category: "learn"
-  }, {
-    // fallback for "seasonofcaring"
-    module: "factory",
-    iced: true,
-    launchDate: new Date('Dec 21, 2016'),
-    portalLaunchDate: new Date('Dec 1, 2016'),
-    category: "play"
-  }
-], {
+  category: "explore"
+}, {
+  module: "factory",
+  iced: true,
+  launchDate: new Date('Dec 21, 2016'),
+  portalLaunchDate: new Date('Dec 1, 2016'),
+  category: "explore"
+}, {
   module: "matching",
   iced: true,
   launchDate: new Date('Dec 22, 2016'),
