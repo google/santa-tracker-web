@@ -16,19 +16,15 @@
 
 /* jshint node: true */
 
+const $ = require('gulp-load-plugins')();
+const del = require('del');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const $ = require('gulp-load-plugins')();
-const fs = require('fs');
-const changedFlag = require('./gulp_scripts/changed_flag');
-const path = require('path');
-const del = require('del');
-const file_manifest = require('./gulp_scripts/file_manifest');
-const i18n_replace = require('./gulp_scripts/i18n_replace');
-const i18n_manifest = require('./gulp_scripts/i18n_manifest');
-const devScene = require('./gulp_scripts/dev-scene');
-const styleModules = require('./gulp_scripts/style_modules');
 const mergeStream = require('merge-stream');
+const scripts = require('./gulp_scripts');
+
+const fs = require('fs');
+const path = require('path');
 
 /* Default version is 'vYYYYMMDDHHMM'. */
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
@@ -149,13 +145,13 @@ gulp.task('sass', function() {
   return gulp.src(SASS_FILES, {base: '.'})  // nb. compile all sass files, it's fast
     .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    .pipe(styleModules('_module'))
+    .pipe(scripts.styleModules('_module'))
     .pipe($.changed('.', {hasChanged: $.changed.compareSha1Digest}))
     .pipe(gulp.dest('.'));
 });
 
 gulp.task('compile-santa-api-service', function() {
-  changedFlag(API_BASE_URL, 'js/service/service.flag', function() {
+  scripts.changedFlag(API_BASE_URL, 'js/service/service.flag', function() {
     try {
       fs.unlinkSync('js/service/service.min.js');
     } catch (e) {
@@ -290,7 +286,7 @@ gulp.task('create-dev-scenes', function() {
     const dest = '.devmode/scenes/' + sceneName;
     return stream.add(
         gulp.src('scenes/' + sceneName + '/' + sceneName + '-scene_en.html')
-            .pipe(devScene(sceneName, SCENE_CLOSURE_CONFIG[sceneName]))
+            .pipe(scripts.devScene(sceneName, SCENE_CLOSURE_CONFIG[sceneName]))
             .pipe($.newer(dest + '/index.html'))
             .pipe(gulp.dest(dest))
     );
@@ -315,6 +311,7 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
 
   return gulp.src([
       'scenes/*/*-scene*.html',
+      '!scenes/*/*-scene_module.html',  // don't include CSS modules
       // TODO(samthor): Support vulcanizing non-scene HTML (#1679).
       'scenes/postcardly/snowflake-maker/turtle.html',
     ], {base: './'})
@@ -332,9 +329,9 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
         stripComments: true,
         dest: dest
       }))
-      .pipe($.crisper({scriptInHead: true})) // Separate HTML/JS into separate files.
+      .pipe(scripts.crisper())
       .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
-      .pipe($.if('*.html', i18n_replace({
+      .pipe($.if('*.html', scripts.i18nReplace({
         strict: !!argv.strict,
         path: '_messages',
       })))
@@ -352,8 +349,8 @@ gulp.task('vulcanize-elements', ['sass', 'compile-santa-api-service'], function(
       stripComments: true,
       dest: 'elements',
     }))
-    .pipe($.crisper({scriptInHead: true})) // Separate HTML/JS into separate files.
-    .pipe($.if('*.html', i18n_replace({
+    .pipe(scripts.crisper())
+    .pipe($.if('*.html', scripts.i18nReplace({
       strict: !!argv.strict,
       path: '_messages',
     })))
@@ -367,7 +364,7 @@ gulp.task('build-prod', function() {
     .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
     .pipe($.replace('<base href="">', `<base href="${STATIC_URL}">`))
     .pipe($.replace('data-version=""', `data-version="${STATIC_VERSION}"`))
-    .pipe(i18n_replace({
+    .pipe(scripts.i18nReplace({
       strict: !!argv.strict,
       path: '_messages',
     }))
@@ -383,7 +380,7 @@ gulp.task('build-prod', function() {
 
 gulp.task('build-prod-manifest', function() {
   return gulp.src(['manifest.json'])
-    .pipe(i18n_manifest({path: '_messages'}))
+    .pipe(scripts.i18nManifest({path: '_messages'}))
     .pipe(gulp.dest(DIST_PROD_DIR));
 });
 
@@ -414,7 +411,7 @@ gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], fun
 
 // builds a JSON manifest file containing files and hashes
 gulp.task('build-contents', ['copy-assets'], function() {
-  const stream = file_manifest(STATIC_VERSION, DIST_STATIC_DIR);
+  const stream = scripts.fileManifest(STATIC_VERSION, DIST_STATIC_DIR);
   return gulp.src([`${DIST_STATIC_DIR}/**/*`])
     .pipe(stream)
     .pipe(gulp.dest(DIST_STATIC_DIR));
