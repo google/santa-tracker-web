@@ -139,7 +139,9 @@ Turtle.init = function() {
   var sliderSvg = document.getElementById('slider');
   Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
 
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" x="10" y="200"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
+  var workspaceHeight = blocklyDiv.clientHeight; // + 129 + 64;
+
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -499,7 +501,27 @@ Turtle.execute = function() {
   }
 
   Turtle.reset();
-  var code = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
+  var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
+  var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
+      'count', Blockly.Variables.NAME_TYPE);
+  /**
+  for (var count = 0; count < 6; count++) {
+    subcode
+    pause(500);
+    setOnRepeat(true);
+    reset;
+    turnRight;
+  }
+  */
+
+  var code = 'setOnRepeat(false);\n' +
+      'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
+      subcode +
+      'if (' + loopVar + ' == 0) { pause(300); }' +
+      'pause(500);\n' +
+      'setOnRepeat(true);\n' +
+      'reset();\nturnRight(60*(' +
+      loopVar + '+1), \'no-block-id\');}';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100));
 };
@@ -543,9 +565,12 @@ Turtle.executeChunk_ = function() {
  */
 Turtle.animate = function(id) {
   Turtle.display();
-  if (id && !Turtle.onRepeat) {
+  if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
     Turtle.pause = Math.max(1, 1000 * Math.pow(0.7, 2));
+  }
+  if (Turtle.onRepeat) {
+    Turtle.pause = 0;
   }
 };
 
