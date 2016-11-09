@@ -110,7 +110,7 @@ window.DEV = true; // NOTE: replaced by string - do not change formatting.
   var url = (function() {
     // Look for ?hl=...
     var match = window.location.search.match(/\bhl=([^&]*)\b/);
-    var hl = (match ? match[1] || null);
+    var hl = (match ? match[1] : null);
 
     // Look for /intl/../ (look for _last_, in case it's in URL twice?!)
     var match = window.location.pathname.match(/.*\/intl\/([^_/]+)(?:|_ALL)\//);
