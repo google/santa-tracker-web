@@ -267,7 +267,7 @@ app.blocks.install = function() {
           .appendField(new Blockly.FieldImage('img/block-jump.svg', 28, 32))
           .appendField(app.I18n.getMsg('CL_jumpTitleLength'))
           .appendField(new Blockly.FieldDropdown(
-              optionNumberRange(1, 8)), 'LENGTH')
+              optionNumberRange(1, 3)), 'LENGTH')
           .appendField('to')
           .appendField(new Blockly.FieldDropdown(
               generateDirectionOptions()), 'DIRECTION');

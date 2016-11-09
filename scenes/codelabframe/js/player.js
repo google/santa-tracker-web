@@ -114,7 +114,7 @@ app.Player.prototype = {
 
   /**
    * Moves the player in an absolute direction by X tiles ignoring obstacles.
-   * @param {Number} length How many blocks to jump over.
+   * @param {number} length How many blocks to jump over.
    * @param {app.Direction} direction to go in.
    * @return {boolean} true if successful, false if blocked for any reason.
    */
