@@ -409,7 +409,7 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampPentagon',
-			  interpreter.createNativeFunction(wrapper));
+        interpreter.createNativeFunction(wrapper));
   
   wrapper = function(size, id) {
     Turtle.stampDiamond(size, false /*fill*/, id.toString());
@@ -530,8 +530,7 @@ Turtle.executeChunk_ = function() {
     if (go && Turtle.pause) {
       // The last executed command requested a pause.
       go = false;
-      Turtle.pidList.push(
-          setTimeout(Turtle.executeChunk_, Turtle.pause));
+      Turtle.pidList.push(setTimeout(Turtle.executeChunk_, Turtle.pause));
     }
   } while (go);
   // Wrap up if complete.
