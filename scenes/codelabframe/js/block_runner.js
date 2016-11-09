@@ -335,8 +335,8 @@ app.BlockRunnerApi.prototype = {
     this.move_(app.Direction.EAST, id);
   }),
 
-  moveJump: app.BlockRunnerApi.createApiMethod(function(id, length) {
-    this.jump_(this.scene.player.direction, id, length);
+  moveJump: app.BlockRunnerApi.createApiMethod(function(id, length, direction) {
+    this.jump_(app.Direction[direction.toUpperCase()], id, length);
   }),
 
   highlightLoop: app.BlockRunnerApi.createApiMethod(function(id) {
@@ -375,6 +375,7 @@ app.BlockRunnerApi.prototype = {
   },
 
   jump_: function(direction, id, jumpLength) {
-    this.queueMoveAnimations_(direction, id, this.scene.player.jump(jumpLength));
+    this.queueMoveAnimations_(
+        direction, id, this.scene.player.jump(jumpLength, direction));
   }
 };
