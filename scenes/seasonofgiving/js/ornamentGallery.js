@@ -21,62 +21,34 @@ goog.provide('app.OrnamentGallery');
 /**
  * Ornament Gallery selection menu
  * @constructor
- * @param {!Element} el Base for gallery
- * @param {!Element} context The DOM element which wraps the game
+ * @param {!Element|jQuery|string} el Base for gallery
+ * @param {!Element|jQuery} context The DOM element which wraps the game
  */
 app.OrnamentGallery = function(el, context) {
-  this.isVisible = true;
-  this.el = $(el);
+  this.isVisible = false;
+
+  this.el = $(el).find('.ornament-gallery');
   this.context = $(context);
   this.items = this.context.find('.ornament-item');
   this.buttonInfo = this.context.find('.Button-info');
   this.ornamentTitles = this.context.find('.ornament-item-name');
-  this.keyframesAnimIn = [
-    {transform: 'rotate(-50deg)', opacity: '0', visibility: 'visible'},
-    {transform: 'rotate(12deg)', opacity: '.5', visibility: 'visible'},
-    {transform: 'rotate(-7deg)', opacity: '1', visibility: 'visible'},
-    {transform: 'rotate(2deg)', opacity: '1', visibility: 'visible'},
-    {transform: 'rotate(0deg)', opacity: '1', visibility: 'visible'}
-  ];
-  this.keyframesAnimOut = [
-    {transform: 'translate3d(0, 0, 0)', opacity: '1', offset: 0},
-    {transform: 'translate3d(0, -40px, 0)', opacity: '1', offset: .2},
-    {transform: 'translate3d(0, -40px, 0)', opacity: '1', offset: .3},
-    {transform: 'translate3d(0, 1000px, 0)', opacity: '0', offset: 1}
-  ];
 
   this.bounceIn = [
-    {transform: this.animScale(.3, 1), opacity: '0', visibility: 'visible'},
-    {transform: this.animScale(1.2, 1), opacity: '.5', visibility: 'visible'},
-    {transform: this.animScale(.9, 1), opacity: '1', visibility: 'visible'},
-    {transform: this.animScale(1.03, 1), opacity: '1', visibility: 'visible'},
-    {transform: this.animScale(.97, 1), opacity: '1', visibility: 'visible'},
-    {transform: this.animScale(1, 1), opacity: '1', visibility: 'visible'}
+    {transform: this.animScale(.3, 1), opacity: '0'},
+    {transform: this.animScale(1.2, 1), opacity: '.5'},
+    {transform: this.animScale(.9, 1), opacity: '1'},
+    {transform: this.animScale(1.03, 1), opacity: '1'},
+    {transform: this.animScale(.97, 1), opacity: '1'},
+    {transform: this.animScale(1, 1), opacity: '1'}
   ];
 
+  // nb. hold visibility until animation is done
   this.bounceOut = [
     {transform: this.animScale(1, 1), opacity: '1', visibility: 'visible'},
     {transform: this.animScale(1.13, 1), opacity: '1', visibility: 'visible'},
     {transform: this.animScale(.3, 1), opacity: '0', visibility: 'visible'},
     {transform: this.animScale(.3, 1), opacity: '0', visibility: 'hidden'}
   ];
-
-
-  this.selectItemAnimIn = [
-    {opacity: '0', display: 'none'},
-    {opacity: '1', display: 'block'}
-  ];
-
-  this.selectItemAnimOut = [
-    {opacity: '1', display: 'block'},
-    {opacity: '0', display: 'none'}
-  ];
-
-  this.selectItemAnimProps = {
-    fill: 'forwards',
-    duration: 700,
-    ease: 'ease-out'
-  };
 
   app.GameManager.gallery = this;
 };
@@ -92,7 +64,7 @@ app.OrnamentGallery.prototype.init = function() {
 
   $(window).on('resize.seasonofgiving', this.handleResize.bind(this));
   this.handleResize();
-  window.setTimeout(this.transitionIn.bind(this), 1000);
+//  window.setTimeout(this.transitionIn.bind(this), 1000);
 };
 
 /**
@@ -109,6 +81,9 @@ app.OrnamentGallery.prototype.handleResize = function() {
  * @param {!Event} event Event for select handler
  */
 app.OrnamentGallery.prototype.handleSelectItem = function(event) {
+  if (!this.isVisible) { return; }  // don't allow clicks during transition
+
+  // TODO(samthor): Should instead use data-... args
   var match = event.currentTarget.className.match(/\bornament-item--(\S+)\b/);
   if (!match) { return; }
   var name = match[1];
@@ -130,7 +105,7 @@ app.OrnamentGallery.prototype.handleSelectItem = function(event) {
 
   app.GameManager.lastOrnament = ornament;
   app.GameManager.currentIndex = ornament.index() - 1;
-  app.GameManager.ornaments[app.GameManager.currentIndex].show(600);
+  app.GameManager.ornaments[app.GameManager.currentIndex].show(500);
   app.GameManager.lastOrnamentObj = app.GameManager.ornaments[app.GameManager.currentIndex];
   app.GameManager.currentCanvas = this.context.find('#canvas--' + name)[0];
   window.santaApp.fire('sound-trigger', 'spirit_click');
@@ -143,8 +118,6 @@ app.OrnamentGallery.prototype.hide = function() {
   if (this.isVisible) {
     this.transitionOut();
     this.context.find('.nav-ornament').addClass('nav-ornament--active');
-
-    this.items.css('pointer-events', 'none');
   }
   this.isVisible = false;
   this.el.removeClass('active');
@@ -157,8 +130,6 @@ app.OrnamentGallery.prototype.show = function() {
   if (!this.isVisible) {
     this.transitionIn();
     this.context.find('.nav-ornament').removeClass('nav-ornament--active');
-    this.items.css('pointer-events', 'auto');
-
   }
   this.isVisible = true;
   this.el.addClass('active');
@@ -172,18 +143,15 @@ app.OrnamentGallery.prototype.transitionIn = function() {
 
   for (var i = 0; i < this.items.length; i++) {
     var timing = {
-      fill: 'forwards',
+      fill: 'backwards', // hold opacity until delay starts
       delay: 65 * i,
       duration: 600,
       ease: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
     };
-
     animations.push(new KeyframeEffect(this.items[i], this.bounceIn, timing));
   }
 
-  var animationSequence = new GroupEffect(animations);
-
-  document.timeline.play(animationSequence);
+  document.timeline.play(new GroupEffect(animations));
 };
 
 /**
@@ -194,18 +162,15 @@ app.OrnamentGallery.prototype.transitionOut = function() {
 
   for (var i = this.items.length - 1; i >= 0; i--) {
     var timing = {
-      fill: 'forwards',
+      fill: 'backwards', // hold visibility until delay starts
       delay: 40 * i,
       duration: 450,
       ease: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
     };
-
     animations.push(new KeyframeEffect(this.items[i], this.bounceOut, timing));
   }
 
-  var animationSequence = new GroupEffect(animations);
-
-  document.timeline.play(animationSequence);
+  document.timeline.play(new GroupEffect(animations));
 };
 
 /**

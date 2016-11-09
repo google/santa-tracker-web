@@ -17,7 +17,7 @@
     box-sizing: border-box;
     max-height: 283px;
     min-height: 100px;
-    overflow: hidden;
+    overflow: scroll;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -126,22 +126,11 @@
   .Slider {
     height: 100%;
     outline: none;
-  }
-
-  .goog-slider-vertical,
-  .goog-slider-horizontal {
-    left: -1px;
-    overflow: hidden;
     position: relative;
     top: 10px;
     user-select: none;
     width: 177px;
     z-index: 2;
-  }
-
-  .Slider-thumb {
-    position: absolute;
-    transition: left .1s ease-out;
   }
 
   .Slider-thumb--scale {
@@ -150,21 +139,10 @@
     box-shadow: 0 2px 0 #8d23a9;
     cursor: pointer;
     height: 20px;
-    transform: scale(.4);
-    transition: transform .2s ease-out;
-    transition-delay: .01s;
-  }
-
-  .goog-slider-vertical .goog-slider-thumb {
-    left: 0;
-    height: 20px;
-    width: 100%;
-  }
-
-  .goog-slider-horizontal .goog-slider-thumb {
-    top: 0;
     width: 20px;
-    height: 100%;
+    transform: scale(.4);
+    transition: transform 0.1s;
+    will-change: transform;
   }
 
   // Custom styles for game
@@ -345,7 +323,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px), (max-height: 600px) {
   ##{$name} {
     .Tool-wrapper {
       bottom: 0;
@@ -411,19 +389,20 @@
     }
 
     .crayon-padding {
-      padding-top: 15px;
-
-      &:last-child {
-        margin-bottom: 35px;
-      }
+      padding: 8px 0;
     }
 
     .crayon-size-container {
       background-color: #7bb241;
-      bottom: -126px;
+      top: 0;
       position: absolute;
       width: 100%;
       z-index: -1;
+      transition: transform 0.2s;
+
+      &.open {
+        transform: translateY(-100%);
+      }
     }
 
     .crayon-size {
@@ -517,7 +496,7 @@
   }
 }
 
-@media (min-width: 800px) and (min-height: 690px) {
+@media (min-width: 800px) and (min-height: 601px) {
   ##{$name} {
     .Tool-wrapper {
       border-radius: 0 0 5px 5px;

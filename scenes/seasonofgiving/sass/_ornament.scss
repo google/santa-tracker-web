@@ -22,8 +22,16 @@ $santa-face-height: 375px;
       padding-top: 100%;
     }
 
-    @media (min-width: 1024px) {
-      opacity: 0;
+    opacity: 0;
+    transform: translateY(100%);
+    &.visible {
+      transition: opacity 0.5s, transform 0.25s;
+      opacity: 1;
+      transform: none;
+
+      @media (max-width: 1024px), (max-height: 600px) {
+        transform: translate3d(-50%, -100%, 0);
+      }
     }
 
     @media (max-width: 1276px) {
@@ -34,8 +42,7 @@ $santa-face-height: 375px;
       top: 35px;
     }
 
-
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       margin-left: 0;
       position: absolute;
       left: 50%;
@@ -57,32 +64,19 @@ $santa-face-height: 375px;
   .ornament-copy-container {
     background-color: transparent;
     z-index: 2;
-    transition: .3s opacity ease;
 
-    @media (max-width: 1024px) {
-      background-color: rgba(14, 195, 19, .95);
-      opacity: 0;
+    @media (max-width: 1024px), (max-height: 600px) {
+      background-color: rgba(14, 195, 19, .75);
       padding: 20px;
+      padding-top: 0;
       position: absolute;
       overflow: scroll;
-      visibility: hidden;
       z-index: 20;
-
-      &.hide {
-        visibility: hidden;
-        opacity: 0;
-      }
+      visibility: hidden;
 
       &.show {
         visibility: visible;
-        opacity: 1;
       }
-    }
-
-    &:active {
-      display: block;
-      visibility: visible;
-      opacity: 1;
     }
   }
 
@@ -92,6 +86,13 @@ $santa-face-height: 375px;
     float: left;
     margin-top: 60px;
     width: 304px;
+    z-index: 100;
+
+    opacity: 0.5;
+    &.visible {
+      transition: opacity 1s;
+      opacity: 1;
+    }
 
     h1 {
       font-size: 30px;
@@ -121,7 +122,7 @@ $santa-face-height: 375px;
       opacity: 0;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       position: relative;
       width: auto;
       margin: 70px 0;
@@ -179,7 +180,7 @@ $santa-face-height: 375px;
     position: absolute;
     top: -260px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       top: auto;
       transform: none;
     }
@@ -188,16 +189,14 @@ $santa-face-height: 375px;
   .scene-ornament-wrapper {
     display: inline-block;
     position: absolute;
-    opacity: 0;
+    visibility: hidden;
     top: 50%;
 
     &.active {
-      opacity: 1;
-      transform: translate(0,0) !important;
-      transition-delay: .5s;
+      visibility: visible;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       top: 0;
     }
 

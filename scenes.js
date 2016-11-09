@@ -138,8 +138,6 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   seasonofgiving: {
-    typeSafe: false,
-    closureLibrary: true,
     entryPoint: 'app.Game'
   },
   smatch: {

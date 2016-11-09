@@ -98,10 +98,11 @@ app.OrnamentExporter.DOWNLOAD_LAYOUT = {
 /**
  * Print a colored ornament with cutout guides.
  * Beware: Canvas layout of doom.
- * @type {!app.Ornament}
- * @param {!CanvasElement} ornament Canvas element
+ * @param {app.Ornament} ornament Canvas element
  */
 app.OrnamentExporter.prototype.print = function(ornament) {
+  if (!ornament) { return; }
+
   var l = app.OrnamentExporter.PRINT_LAYOUT;
   this.canvas.width = l.IMAGE_WIDTH;
   this.canvas.height = l.IMAGE_HEIGHT;
@@ -208,17 +209,18 @@ app.OrnamentExporter.prototype.print = function(ornament) {
   function printAndClose() {
     win.focus();
     win.print();
-    win.close();
+    // We can't close the window, since this typically hides the print dialog.
   }
 };
 
 /**
  * Make a desktop wallpaper of a colored ornament for download.
  * Beware: Canvas layout of doom.
- * @type {!app.Ornament}
- * @param {!CanvasElement} ornament Canvas element
+ * @param {app.Ornament} ornament Canvas element
  */
 app.OrnamentExporter.prototype.download = function(ornament) {
+  if (!ornament) { return; }
+
   var l = app.OrnamentExporter.DOWNLOAD_LAYOUT;
   var dpr = window.devicePixelRatio || 1;
 

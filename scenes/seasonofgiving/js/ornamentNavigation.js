@@ -21,7 +21,7 @@ goog.provide('app.OrnamentNavigation');
 /**
  * Ornament Navigation
  * @constructor
- * @param {!Element} elem The DOM element which wraps the game.
+ * @param {!Element|jQuery} elem The DOM element which wraps the game.
  */
 app.OrnamentNavigation = function(elem) {
   this.elem = $(elem);
@@ -34,27 +34,10 @@ app.OrnamentNavigation = function(elem) {
   this.buttonShowAll = $('.Button-show-all', this.elem);
   this.buttonInfo = $('.Button-info', this.elem);
   this.buttonClose = $('.Button-close', this.elem);
-  this.ornamentGallery = $('.scene-gallery', this.elem);
-  this.ornament = this.ornamentCopy.closest('.ornament', this.elem);
+  this.ornament = this.ornamentCopy.closest('.ornament', this.elem[0]);
   this.totalOrnaments = app.GameManager.ornaments.length;
   this.lastOrnamentNum = 0;
   this.lastOrnament = null;
-
-  this.selectItemAnimIn = [
-    {opacity: '0'},
-    {opacity: '1'}
-  ];
-
-  this.selectItemAnimOut = [
-    {opacity: '1'},
-    {opacity: '0'}
-  ];
-
-  this.selectItemAnimProps = {
-    fill: 'forwards',
-    duration: 700,
-    ease: 'ease-out'
-  };
 
   this.init();
 
@@ -63,7 +46,6 @@ app.OrnamentNavigation = function(elem) {
 
 /**
  * Ornament Navigation
- * @constructor
  */
 app.OrnamentNavigation.prototype.init = function() {
   this.addEventListeners();
@@ -104,7 +86,6 @@ app.OrnamentNavigation.prototype.handleNext = function() {
   }
 
   this.elem.find('.Button-info').addClass('active');
-  this.ornamentGallery.removeClass('active');
   app.GameManager.lastOrnament = this.elem.find(currentOrnament);
   app.GameManager.ornaments[currentOrnamentNum].show();
   app.GameManager.lastOrnamentObj = app.GameManager.ornaments[currentOrnamentNum];
@@ -135,7 +116,6 @@ app.OrnamentNavigation.prototype.handlePrev = function() {
   this.elem.find('.Button-info').addClass('active');
   app.GameManager.lastOrnamentObj = app.GameManager.ornaments[currentOrnamentNum];
   app.GameManager.lastOrnament = this.elem.find(currentOrnament);
-  this.ornamentGallery.removeClass('active');
   app.GameManager.lastOrnamentObj.show();
 
   app.GameManager.gallery.hide();
@@ -154,7 +134,6 @@ app.OrnamentNavigation.prototype.handleShowGallery = function() {
     app.GameManager.lastOrnamentObj.hide();
   }
 
-  this.ornamentGallery.addClass('active');
   app.GameManager.lastOrnament.removeClass('active');
   app.GameManager.lastOrnament = null;
   app.GameManager.gallery.show();
@@ -176,7 +155,7 @@ app.OrnamentNavigation.prototype.handleResize = function() {
   var width = window.innerWidth;
   var height = window.innerHeight - window.santaApp.headerSize;
 
-  if (width <= 1024) {
+  if (width <= 1024 || window.innerHeight <= 600) {
     tempElem = this.elem.find('.Tool-crayon--violet')[0];
     // note that tempElem is fixed, but we need to also offset by headerSize
     topOffset = tempElem.getBoundingClientRect().top - 84 - window.santaApp.headerSize;
@@ -206,15 +185,16 @@ app.OrnamentNavigation.prototype.handleResize = function() {
     this.buttonInfo.css('top', 'auto');
   }
   this.ornamentNavigation.css(tempCSS);
+
+  this.handleHideInfo();  // hide info if resized
 };
 
 /**
  * Show info overlay on mobile.
  */
 app.OrnamentNavigation.prototype.handleShowInfo = function() {
-  this.elem.find('.scene-container').css('z-index', 4);
-  this.elem.find('.Tool-panel').css('z-index', 2);
-  this.ornamentCopyContainer.removeClass('hide').addClass('show');
+  // Find the specific container we care about.
+  app.GameManager.lastOrnament.find('.ornament-copy-container').addClass('show');
   app.GameManager.bounce(this.buttonInfo[0]);
 };
 
@@ -222,8 +202,10 @@ app.OrnamentNavigation.prototype.handleShowInfo = function() {
  * Hide info overlay on mobile.
  */
 app.OrnamentNavigation.prototype.handleHideInfo = function() {
-  app.GameManager.bounce(this.buttonClose[0]);
-  this.elem.find('.scene-container').css('z-index', 0);
-  this.elem.find('.Tool-panel').css('z-index', 2);
-  this.ornamentCopyContainer.removeClass('show').addClass('hide');
+  // nb. `this.ornamentCopyContainer` contains every (!) container. So we show all of them at once,
+  // but only one element's copy is actually visible at once. This is ugly and should be fixed.
+  if (this.ornamentCopyContainer.hasClass('show')) {
+    app.GameManager.bounce(this.buttonClose[0]);
+    this.ornamentCopyContainer.removeClass('show');
+  }
 };

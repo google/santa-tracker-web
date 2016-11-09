@@ -102,7 +102,7 @@ app.Mouse = function($elem) {
 
 /**
  * Subscribe to mouse and touch events
- * @param {function} callback The callback to be called
+ * @param {function({x: number, y: number, relX: number, relY: number, down: boolean})} callback The callback to be called
  * @param {Object} context The value of this passed to the callback
  **/
 app.Mouse.prototype.subscribe = function(callback, context) {

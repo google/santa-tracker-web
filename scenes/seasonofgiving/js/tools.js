@@ -29,56 +29,8 @@ app.ToolWrapper = function(el) {
 };
 
 /**
- * Collapse animation
- */
-app.ToolWrapper.prototype.collapse = function() {
-  this.el[0].animate([
-    {'height': '562px'},
-    {'height': '165px'},
-    {'height': '208px'},
-    {'height': '193px'},
-    {'height': '198px'}
-  ], {
-    fill: 'forwards',
-    delay: 200,
-    duration: 400,
-    ease: 'ease'
-  });
-};
-
-/**
- * Expand animation
- */
-app.ToolWrapper.prototype.expand = function() {
-  this.el[0].animate([
-    {'height': '198px'},
-    {'height': '587px'},
-    {'height': '552px'},
-    {'height': '567px'},
-    {'height': '562px'}
-  ], {
-    fill: 'forwards',
-    duration: 450,
-    ease: 'ease'
-  });
-};
-
-/**
- * Button
- * @constructor
- * @param {string} name Name of element
- * @param {string} el Context scope
- * @return {!Element} Button element
- */
-app.Button = function(name, el) {
-  this.el = el.find('.Button-' + name);
-  return this.el;
-};
-
-/**
  * Base tool item
  * @constructor
- * @extends {app.GameObject}
  * @param {!app.Game} game The game object.
  * @param {string} name The name of the tool. Element should have class Tool-name.
  * @param {{x: number, y: number}} mouseOffset Mouse interaction offset
@@ -95,7 +47,7 @@ app.Tool = function(game, name, mouseOffset) {
 
   // Polyfill pointer-events: none for IE 10
   var pointerEventsNone = function(e) {
-    var origDisplayAttribute = $(this).css('display');
+    var origDisplayAttribute = /** @type {string} */ ($(this).css('display'));
     $(this).css('display', 'none');
 
     var underneathElem = document.elementFromPoint(e.clientX, e.clientY);
@@ -135,22 +87,24 @@ app.Tool.prototype.select = function() {
  * @param {number} value 0.1-1.0 scale to bounce to
  */
 app.Tool.prototype.bounceTo = function(value) {
-  var bounce = [
+  const final = animScale(1, value);
+  const bounce = [
     {transform: animScale(.3, value)},
     {transform: animScale(1.2, value)},
     {transform: animScale(.9, value)},
     {transform: animScale(1.03, value)},
     {transform: animScale(.97, value)},
-    {transform: animScale(1, value)}
+    {transform: final},
   ];
 
-  var animProps = {
-    fill: 'forwards',
+  const target = this.el[0];
+  const player = target.animate(bounce, {
     duration: 500,
-    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
+    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+  });
+  player.onfinish = function() {
+    target.style.transform = final;  // set final state
   };
-
-  this.el[0].animate(bounce, animProps);
 
   function animScale(to, end) {
     return 'scale3d(' + (to * end) + ',' + (to * end) + ',' + (to * end) + ')';
@@ -200,15 +154,15 @@ app.Tool.prototype.resize = function() {
  * Tool
  * @constructor
  * @param {!app.Game} game The game object.
- * @param {!Element} elem DOM Element for Tool
+ * @param {!Element|jQuery} elem DOM Element for Tool
  * @param {!Object} exporter Exported object for print and download
  */
 app.Tools = function(game, elem, exporter) {
   app.Tool.prototype.elem = elem;
   this.game = game;
   var crayonOffset = {x: 10, y: 20};
-  this.context = elem;
-  this.elem = elem.find('.Tools');
+  this.context = $(elem);
+  this.elem = this.context.find('.Tools');
   this.crayonRed = new app.Tool(this.game, 'crayon--red', crayonOffset);
   this.crayonOrange = new app.Tool(this.game, 'crayon--orange', crayonOffset);
   this.crayonYellow = new app.Tool(this.game, 'crayon--yellow', crayonOffset);
@@ -223,24 +177,25 @@ app.Tools = function(game, elem, exporter) {
   this.eraser = new app.Tool(this.game, 'crayon--eraser', {x: 50, y: 0});
 
   this.sizeSlider = new app.CustomSlider(this.context);
+  app.GameManager.sizeSlider = this.sizeSlider;
 
   this.exporter = exporter;
 
-  this.print = new app.Button('print', this.context);
+  this.print = this.context.find('.Button-print');
   // Needs click in FF for popup
   this.print.on('click', this.onClickPrint.bind(this));
 
-  this.download = new app.Button('download', this.context);
+  this.download = this.context.find('.Button-download');
   // Needs click in FF for popup
   this.download.on('click', this.onClickDownload.bind(this));
 
-  this.clearOrnament = new app.Button('reset', this.context);
+  this.clearOrnament = this.context.find('.Button-reset');
   this.clearOrnament.on('touchstart mousedown', this.onClickReset.bind(this));
 
-  this.downloadMobile = new app.Button('download--mobile', this.context);
+  this.downloadMobile = this.context.find('.Button-download--mobile');
   this.downloadMobile.parent().on('touchstart mousedown', this.onClickDownload.bind(this));
 
-  this.resetMobile = new app.Button('reset--mobile', this.context);
+  this.resetMobile = this.context.find('.Button-reset--mobile');
   this.resetMobile.parent().on('touchstart mousedown', this.onClickReset.bind(this));
 
   this.toolWrapper = new app.ToolWrapper(this.context.find('.Tool-wrapper'));
@@ -275,7 +230,7 @@ app.Tools.prototype.handleResize = function() {
   var maxToolHeight = this.elem.height();
   var cols;
 
-  if ($(window).width() > 1024) {
+  if ($(window).width() > 1024 && $(window).height() > 600) {
     this.elem.css({
       'height': wh - 198 - 204 - 70
     });
@@ -298,8 +253,6 @@ app.Tools.prototype.handleResize = function() {
     });
 
     this.elem.css('height', 'auto');
-
-    app.GameManager.mobileSlider.updateExpandOffset(toolContainerSize, cols);
   }
 
   this.buttons.css({
@@ -309,7 +262,6 @@ app.Tools.prototype.handleResize = function() {
 };
 
 /**
- * @extends {app.GameObject.start}
  */
 app.Tools.prototype.start = function() {
   this.game.mouse.subscribe(this.mouseChanged, this);
@@ -317,7 +269,6 @@ app.Tools.prototype.start = function() {
 };
 
 /**
- * @extends {app.GameObject.mouseChanged}
  * @param {!app.Mouse} mouse
  */
 app.Tools.prototype.mouseChanged = function(mouse) {

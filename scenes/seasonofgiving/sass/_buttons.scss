@@ -134,7 +134,7 @@
       transition-delay: 0;
       visibility: hidden;
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1024px), (max-height: 600px) {
         bottom: 94px;
         opacity: 1;
         visibility: visible;

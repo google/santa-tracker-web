@@ -7,7 +7,7 @@
     visibility: hidden;
     z-index: 3;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       bottom: 94px;
       z-index: 2;
     }
@@ -44,14 +44,14 @@
       margin-left: 280px;
     }
 
-    @media (max-width: 1024px) {
-      // margin-left: 225px;
-    }
-
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       margin-left: 0;
       transform: translate(-50%, -58%);
       width: 100%;
+    }
+
+    &.active .ornament-item {
+      visibility: visible;
     }
   }
 
@@ -65,11 +65,11 @@
     margin: 38px;
     max-height: 408px;
     max-width: 284px;
-    opacity: 0;
     position: relative;
     transform-origin: 50% 60;
     visibility: hidden;
     width: 100%;
+    will-change: transform, opacity;
 
     @media (max-width: 1550px) {
       height: 358px;
@@ -95,7 +95,7 @@
       height: 208px;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       height: 139px;
       margin: 0;
       max-width: 100%;
@@ -137,7 +137,7 @@
     text-align: center;
     width: 100%;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px), (max-height: 600px) {
       font-family: 'Roboto', sans-serif;
       font-size: 14px;
     }

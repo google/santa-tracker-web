@@ -22,7 +22,7 @@ goog.provide('app.Ornament');
  * Class for Ornament game
  * @constructor
  * @param {string} selector String selector for DOM element
- * @param {!Element} elem The DOM element which wraps the game.
+ * @param {!Element|jQuery} elem The DOM element which wraps the game.
  */
 app.Ornament = function(selector, elem) {
   this.elem = $(elem);
@@ -47,7 +47,7 @@ app.Ornament = function(selector, elem) {
 
   this.dpr = (window.devicePixelRatio || 1);
   this.isDrawing = false;
-  this.lastPoint = {};
+  this.lastPoint = {x: 0, y: 0};
   this.points = [];
   this.mouse = {
     down: false,
@@ -67,10 +67,9 @@ app.Ornament = function(selector, elem) {
   this.guideImg = this.ornamentScene.find('.color-guide')[0];
   this.logoImg = this.ornamentScene.find('.ornament-logo')[0];
   this.subjectCopy = this.ornamentScene.find('.ornament-copy-subject').text();
-  this.moreInfoUrl = this.ornamentScene.find('.ornament-link').attr('href');
+  this.moreInfoUrl = /** @type {string} */ (this.ornamentScene.find('.ornament-link').attr('href'));
 
   this.ornamentAnim = null;
-  this.ornamentCopyAnim = null;
 
   this.randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
 };
@@ -101,10 +100,10 @@ app.Ornament.prototype.addEventListeners = function() {
 
 /**
  * Show ornament
- * @param {number} delayTime time delay to animate ornament in
+ * @param {number=} opt_delayTime time delay to animate ornament in
  */
-app.Ornament.prototype.show = function(delayTime) {
-  var delayTime_ = delayTime || 0;
+app.Ornament.prototype.show = function(opt_delayTime) {
+  var delayTime = opt_delayTime || 0;
 
   this.isActive = true;
   window.clearTimeout(this.wrapperDelay);
@@ -113,68 +112,17 @@ app.Ornament.prototype.show = function(delayTime) {
     app.GameManager.navigation.handleResize();
   }.bind(this), delayTime * .5);
 
-  if (delayTime_ < 2) {
-    this.ornamentWrapper.css('transition-delay', '0s');
-      if (app.GameManager.lastOrnamentObj) {
-        app.GameManager.lastOrnamentObj.ornamentWrapper.css('transition-delay', '0s');
-      }
-  } else {
-    this.ornamentWrapper.css('transition-delay', '0s');
-    if (app.GameManager.lastOrnamentObj) {
-      app.GameManager.lastOrnamentObj.ornamentWrapper.css('transition-delay', '0s');
-    }
-  }
-
-  this.ornament.css('opacity', 0);
-  this.ornamentCopy.css('opacity', 0);
-
-  this.ornamentAnim && this.ornamentAnim.cancel();
-  this.ornamentCopyAnim && this.ornamentCopyAnim.cancel();
-
-  var tempAnimProps;
-  if ($(window).width() > 1024) {
-    tempAnimProps = [
-      {transform: 'translate3d(0, 1500px, 0)', opacity: 0, offset: 0},
-      {transform: 'translate3d(0, -20px, 0)', opacity: 1, offset: .6},
-      {transform: 'translate3d(0, 10px, 0)', opacity: 1, offset: .75},
-      {transform: 'translate3d(0, -5px, 0)', opacity: 1, offset: .9},
-      {transform: 'translate3d(0, 0, 0)', opacity: 1, offset: 1}
-    ];
-  } else {
-    tempAnimProps = [
-      {transform: 'translate3d(-50%, -60%, 0)', opacity: 0, offset: 0},
-      {transform: 'translate3d(-50%, -107%, 0)', opacity: 1, offset: .6},
-      {transform: 'translate3d(-50%, -95%, 0)', opacity: 1, offset: .75},
-      {transform: 'translate3d(-50%, -102%, 0)', opacity: 1, offset: .9},
-      {transform: 'translate3d(-50%, -100%, 0)', opacity: 1, offset: 1}
-    ];
-  }
-
-  this.ornamentAnim = this.ornament[0].animate(tempAnimProps, {
-    fill: 'forwards',
-    duration: $(window).width() > 1024 ? 1100 : 770,
-    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
-    delay: delayTime_
-  });
-
-  this.ornamentCopyAnim = this.ornamentCopy[0].animate([
-    {opacity: 0, offset: 0},
-    {opacity: 1, offset: .6},
-    {opacity: 1, offset: .75},
-    {opacity: 1, offset: .9},
-    {opacity: 1, offset: 1}
-  ], {
-    fill: 'forwards',
-    duration: 1000,
-    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
-    delay: delayTime_ * 1.2
-  });
+  console.info('making ornament and copy visible', this.ornamentCopy[0])
+  this.ornament.addClass('visible');
+  this.ornamentCopy.addClass('visible');
 };
 
 /**
  * Hide ornament
  */
 app.Ornament.prototype.hide = function() {
+  this.ornament.removeClass('visible');
+  this.ornamentCopy.removeClass('visible');
   this.isActive = false;
 };
 
@@ -208,13 +156,14 @@ app.Ornament.prototype.relativeValue = function(value, minA, maxA, minB, maxB) {
 
 /**
  * Resize + redraw ornament
- * @param {Event} event resize event
  */
-app.Ornament.prototype.resize = function(event) {
+app.Ornament.prototype.resize = function() {
   var rv = 0;
 
-  if ($(window).width() > 1024) {
-    rv = this.relativeValue($(window).width(), 1024, 1400, 230, 520);
+  const width = +$(window).width();
+  const height = +$(window).height();
+  if (width > 1024 && height > 600) {
+    rv = this.relativeValue(width, 1024, 1400, 230, 520);
     this.ornamentStage.css({
       'width': rv,
       'height': rv
@@ -225,7 +174,8 @@ app.Ornament.prototype.resize = function(event) {
       'max-height': rv
     });
   } else {
-    rv = this.relativeValue($(window).width(), 320, 1025, 230, 400);
+    // cheat and use min of (width, height) for scaling
+    rv = this.relativeValue(Math.min(width, height), 320, 1025, 230, 400);
     this.ornamentStage.css({
       'width': rv,
       'height': rv
@@ -295,7 +245,7 @@ app.Ornament.prototype.globalMouseUp = function() {
 
 /**
  * Mouse down handler
- * @param {jQuery.Event} event ...
+ * @param {!jQuery.Event} event
  */
 app.Ornament.prototype.mouseDown = function(event) {
   if (!app.GameManager.tool || !this.isActive) {
@@ -348,7 +298,7 @@ app.Ornament.prototype.mouseDown = function(event) {
 
 /**
  * Mouse move handler
- * @param {jQuery.Event} event ...
+ * @param {!jQuery.Event} event
  */
 app.Ornament.prototype.mouseMove = function(event) {
   if (!this.isDrawing || !this.isActive) {

@@ -17,73 +17,84 @@
 goog.provide('app.CustomSlider');
 
 goog.require('app.GameManager');
-goog.require('app.MobileSlider');
-goog.require('goog.ui.Slider');
 
 /**
  * Custom Slider for stroke size in the tools
- * @param {!Element} elem The DOM element which wraps the slider.
+ * @param {!Element|jQuery} elem The DOM element which wraps the slider.
  * @constructor
  */
 app.CustomSlider = function(elem) {
-  // Hacky, but prevents slider from being totally broken.
-  goog.global.setTimeout = window.setTimeout.bind(window);
-
+  elem = $(elem);
   this.sizeSliderThumb = elem.find('#Slider-thumb--scale')[0];
-  this.sizeMobile = new app.MobileSlider(elem.find('.crayon-size-wrapper'));
-  this.strokeSize = 6;
-  this.sizeSlider = new goog.ui.Slider();
-  this.sizeSlider.setHandleMouseWheel(false);
-  this.sizeSlider.setMoveToPointEnabled(true);
-  this.sizeSlider.setMinimum(1);
-  this.sizeSlider.setMaximum(4);
-  this.sizeSlider.setStep(1);
-  this.sizeSlider.decorate(elem.find('#Slider')[0]);
-  this.sizeSlider.addEventListener('touchmove', function(event) {
-    event.preventDefault();
+  this.crazyonSizeWrapper = elem.find('.crayon-size-wrapper');
+  this.strokeSize = 0;
+  this.currentValue = -1;
+  this.minValue = 1;
+  this.maxValue = 4;
+
+  this.mobileSizeContainer = elem.find('.crayon-size-container');
+  this.mobileSizeContainer.children().each((id, el) => {
+    const size = +el.dataset['size'];
+    $(el).on('touchstart mousedown', event => {
+      this.updateValueTo(size);
+      this.toggleMobile();
+    });
   });
-  this.addEventListeners();
-  this.sizeSlider.setValue(4);
-  app.GameManager.sizeSlider = this;
+
+  this.mobileSizeTool = elem.find('.crayon-size-indicator-container');
+  this.mobileSizeTool.on('touchstart mousedown', this.toggleMobile.bind(this));
+
+  const el = elem.find('#Slider');
+  el.on('touchmove mousemove touchdown mousedown', function(ev) {
+    const valid = (ev.originalEvent.touches && ev.originalEvent.touches.length > 0) || ev.which;
+    if (!valid) { return; }
+
+    const offset = el.offset();
+    const leftPosition = ev.pageX - el.offset().left;
+    const width = el.width();
+    const selected = Math.round(0.5 + leftPosition / width * 4);
+
+    this.updateValueTo(selected);
+  }.bind(this));
+
+  this.updateValueTo(4);
 };
 
 /**
- * Add Custom Slider listeners
+ * Toggle the mobile slider.
+ * @param {boolean=} opt_force to force on/off
  */
-app.CustomSlider.prototype.addEventListeners = function() {
-  var changeEvent = goog.ui.Component.EventType.CHANGE;
-  this.sizeSlider.addEventListener(changeEvent, this.sliderChange.bind(this), false);
-};
-
-/**
- * Slider handler
- * @param {Event} event
- */
-app.CustomSlider.prototype.sliderChange = function(event) {
-  this.updateValueTo(this.sizeSlider.getValue());
-  if (app.GameManager.mobileSlider) {
-    app.GameManager.mobileSlider.changeActiveSize(this.sizeSlider.getValue(),
-        this.sizeSlider.getMaximum());
-  }
-  window.santaApp.fire('sound-trigger', 'spirit_sizeselect');
-};
+app.CustomSlider.prototype.toggleMobile = function(opt_force) {
+  this.mobileSizeContainer.toggleClass('open', opt_force);
+}
 
 /**
  * Update slide value
  * @param {number} value stroke value
  */
 app.CustomSlider.prototype.updateValueTo = function(value) {
-  var max = this.sizeSlider.getMaximum();
-  var min = this.sizeSlider.getMinimum();
-  var buffer = .04 * (((max - value) * value) / min);
-  var scale = 'scale(' + ((value / max) + buffer) + ')';
+  const max = this.maxValue;
+  const min = this.minValue;
+  value = Math.max(min, Math.min(max, value));
 
-  this.sizeSliderThumb.style.webkitTransform = scale;
-  this.sizeSliderThumb.style.msTransform = scale;
-  this.sizeSliderThumb.style.transform = scale;
+  if (this.currentValue == value) {
+    return;
+  }
+  this.currentValue = value;
+  window.santaApp.fire('sound-trigger', 'spirit_sizeselect');
+
+  const left = (value - 1) / 3 * (179 - 20);  // minus 20px for thing itself
+  const buffer = .04 * (((max - value) * value) / min);
+  const transform = 'translate(' + left + 'px) scale(' + ((value / max) + buffer) + ')';
+
+  this.sizeSliderThumb.style.transform = transform;
   if (app.GameManager.tool) {
     app.GameManager.tool.bounceTo((value * .1) * 2 + .2);
   }
 
   this.strokeSize = value * 10;
+
+  this.crazyonSizeWrapper.find('.active').removeClass('active');
+  this.crazyonSizeWrapper.find('[data-size="' + value + '"]').addClass('active');
+  this.crazyonSizeWrapper.find('[data-size="' + value + '"] > div').addClass('active');
 };

@@ -29,13 +29,15 @@ app.GameManager = {
   ios: null,
   lastOrnament: null,
   lastOrnamentObj: null,
-  mobileSlider: null,
   ornaments: [],
   sizeSlider: null,
   tool: null,
   toolWrapper: null,
   totalOrnament: 0,
 
+  /**
+   * @this {app.GameManager}
+   */
   dispose: function() {
     this.color = null;
     this.currentCanvas = null;
@@ -46,7 +48,6 @@ app.GameManager = {
     this.ios = null;
     this.lastOrnament = null;
     this.lastOrnamentObj = null;
-    this.mobileSlider = null;
     this.ornaments = null;
     this.sizeSlider = null;
     this.tool = null;
@@ -72,10 +73,12 @@ app.GameManager = {
     ], {
       duration: duration,
       easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
-      fill: 'forwards'
     });
   },
 
+  /**
+   * @this {app.GameManager}
+   */
   extension: function() {
     return this.ie || this.ios ? '.png' : '.svg';
   }

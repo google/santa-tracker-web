@@ -85,6 +85,7 @@ app.Game.prototype.start = function() {
   }
 
   this.handleResize();
+  this.ornamentGallery.show();
 };
 
 /**
@@ -96,11 +97,7 @@ app.Game.prototype.handleResize = function() {
 
   this.elem.find('.scene-ornament').css({
     'width': width,
-    'height': width <= 1024 ? height : 'auto'
-  });
-
-  this.elem.find('.scene-ornament-wrapper').css({
-    'transform': 'translate(' + width + 'px, 0)'
+    'height': (width <= 1024 || height <= 600) ? height : 'auto'
   });
 };
 

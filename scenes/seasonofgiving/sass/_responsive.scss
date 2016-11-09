@@ -5,7 +5,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px), (max-height: 600px) {
   ##{$name} {
     .copy-container {
       display: block;
