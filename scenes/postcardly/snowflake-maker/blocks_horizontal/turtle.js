@@ -37,7 +37,7 @@ Blockly.Blocks['snowflake_start'] = {
       "id": "snowflake_start",
       "message0": "%1",
       "args0": [
-	{
+        {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_snowflake.png",
           "width": 40,
@@ -46,7 +46,7 @@ Blockly.Blocks['snowflake_start'] = {
           "flip_rtl": false
         }
       ],
-      "nextStatement": "Start",
+      "nextStatement": "Stamp",
       "inputsInline": true,
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.control.primary,
@@ -57,7 +57,7 @@ Blockly.Blocks['snowflake_start'] = {
 };
 
 Blockly.JavaScript['snowflake_start'] = function(block) {
-  return 'setOnRepeat(false);\n';
+  return '';
 };
 
 Blockly.Blocks['copy_to_make_snowflake'] = {
@@ -67,9 +67,9 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
         "message0": "%1 %2",
         "args0": [
           {
-	    "type": "input_statement",
-	    "name": "SUBSTACK",
-	    "check": "Stamp",
+      	    "type": "input_statement",
+      	    "name": "SUBSTACK",
+      	    "check": "Stamp",
           },
           {
             "type": "field_image",
