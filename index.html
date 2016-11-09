@@ -39,7 +39,6 @@ specific language governing permissions and limitations under the License.
   <meta name="msapplication-tap-highlight" content="no">
 
   <!-- icons -->
-  <link rel="apple-touch-icon" href="images/icon-60.png">
   <link rel="apple-touch-icon" sizes="76x76" href="images/icon-76.png">
   <link rel="apple-touch-icon" sizes="120x120" href="images/icon-120.png">
   <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152.png">
@@ -61,97 +60,93 @@ ga('set', 'transport', 'beacon');
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
   <script>
-    window.DEV = true; // NOTE: replaced by string - do not change formatting.
+window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
-    // Check if browser is supported by web component/Polymer polyfills.
-    // Feature detection isn't sufficient; webcomponentsjs attempts to polyfill
-    // missing features, but some browsers are known to not work under it.
-    // https://www.polymer-project.org/resources/compatibility.html
-    var ignoreCheck = window.location.search.indexOf('ignore_browser_check') != -1;
-    var supported =  ignoreCheck || (function sniff() {
-      var uaString = navigator.userAgent;
-      // no IE < 11
-      var msie = /MSIE +([\d\.]+)/.exec(uaString);
-      if (msie && msie[1]) {
-        if (msie[1] === '7.0') {
-          var tridentVersion = /Trident\/(\d.\d)/.exec(uaString);
-          if (tridentVersion && tridentVersion[1]) {
-            return parseInt(tridentVersion[1], 10) >= 7;
-          } else {
-            return false;
-          }
-        } else {
-          return parseInt(msie[1], 10) >= 11;
-        }
-      }
-      // .. but allow all Edge
-      if (uaString.indexOf('Edge/') !== -1) {
-        return true;
-      }
-      // no older Android browser
-      if (uaString.indexOf('Chrome') === -1 && uaString.indexOf('Android') !== -1) {
-        return !/^Google/.test(navigator.vendor);
-      }
-      // no older Chrome (e.g., Samsung browser fork or ancient install)
-      var chromeVersion = /Chrome\/(\d+)/.exec(uaString);
-      if (chromeVersion && chromeVersion[1]) {
-        return parseInt(chromeVersion[1], 10) >= 43;
-      }
-      // no Opera < 15
-      if (uaString.indexOf('Opera') !== -1) {
-        return false;
-      }
-      // look for some required APIs
-      if (!performance.now) {
-        return false;
-      }
-      // everyone else goes through.
-      return true;
-    })();
-
-    if (!supported) {
-      // fail over to upgrade.html, falling back to timeout in case Analytics is failing.
-      function redirect() {
-        window.location = 'https://santatracker.google.com' +
-            location.pathname.replace(/[^\/]*$/, '') + (opt_url || 'upgrade.html');
-      }
-      window.ga('send', 'pageview', '/');
-      window.ga('send', 'event', 'Polymer', 'unsupported-browser', { hitCallback: redirect });
-      navigator.sendBeacon && redirect();
-      window.setTimeout(redirect, 1000);
+(function() {
+  // Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 9+ and
+  // Chromium-based browsers at m44 or above. For other browsers, YMMV.
+  var ignoreCheck = window.location.search.indexOf('ignore_browser_check') != -1;
+  var supported = ignoreCheck || (function() {
+    // feature-detect APIs: limits to IE11+, SF9+
+    if (!window.performance || !window.performance.now || !window.Set || !history) {
+      return false;
     }
-
-    // Track and log any errors to analytics. Don't allow further exceptions.
-    window.onerror = function(msg, file, line, col, error) {
-      window.ga('send', 'event', {
-        eventCategory: 'Script',
-        eventAction: 'uncaught error',
-        eventLabel: error ? error.stack : msg + '\n' + file + ' ' + line + ':' + col,
-      });
-    };
-
-    // Add manifest + sw at local origin.
-    (function() {
-      // TODO(samthor): Load local language manifest if "?hl=de" mode (vs /intl/de/).
-      var manifest = document.createElement('link');
-      manifest.rel = 'manifest';
-      manifest.crossOrigin = 'use-credentials';
-      manifest.href = window.location.origin + '/manifest.json';
-      document.head.appendChild(manifest);
-    }());
-    if ('serviceWorker' in navigator) {
-      var suffix = '';
-      if (document.documentElement.lang !== 'en') {
-        suffix = '?lang=' + document.documentElement.lang;
-      }
-      window.sw = navigator.serviceWorker.register(window.location.origin + '/sw.js' + suffix);
+    // no older Android browser
+    var uaString = navigator.userAgent;
+    if (uaString.indexOf('Chrome') === -1 && uaString.indexOf('Android') !== -1) {
+      return !/^Google/.test(navigator.vendor);
     }
+    // no older Chromium (e.g., Samsung browser fork or ancient install)
+    var chromeVersion = /Chrome\/(\d+)/.exec(uaString);
+    if (chromeVersion && chromeVersion[1]) {
+      return parseInt(chromeVersion[1], 10) >= 44;
+    }
+    return true;
+  })();
 
-    window.Polymer = window.Polymer || {
-      // dom: 'shadow',
-      lazyRegister: 'max',
-      useNativeCSSProperties: true
-    };
+  if (!supported) {
+    // fail over to upgrade.html, falling back to timeout in case Analytics is failing.
+    function redirect() {
+      var url = new URL('upgrade.html', window.location);
+      window.location = url + window.location.query;
+    }
+    window.ga('send', 'pageview', '/');
+    window.ga('send', 'event', 'Polymer', 'unsupported-browser', { hitCallback: redirect });
+    navigator.sendBeacon && redirect();
+    window.setTimeout(redirect, 1000);
+  }
+
+  // Track and log any errors to analytics. Don't allow further exceptions.
+  window.onerror = function(msg, file, line, col, error) {
+    window.ga('send', 'event', {
+      eventCategory: 'Script',
+      eventAction: 'uncaught error',
+      eventLabel: error ? error.stack : msg + '\n' + file + ' ' + line + ':' + col,
+    });
+  };
+
+  // Look in /intl/.../ and ?hl=... for user override lang. Send the browser to the correct /intl/
+  // version via History API. e.g., a user loading "/#foo?hl=de" will get "/intl/de/#foo".
+  var url = (function() {
+    // Look for ?hl=...
+    var match = window.location.search.match(/\bhl=([^&]*)\b/);
+    var hl = (match ? match[1] || null);
+
+    // Look for /intl/../ (look for _last_, in case it's in URL twice?!)
+    var match = window.location.pathname.match(/.*\/intl\/([^_/]+)(?:|_ALL)\//);
+    var urlLang = (match ? match[1] : hl);
+    window.requestLang = urlLang;
+
+    // Generate canonical URL.
+    var url = window.location.origin + '/';
+    if (urlLang) {
+      var prod = window.location.hostname === 'santatracker.google.com';
+      url += 'intl/' + urlLang + (prod ? '' : '_ALL') + '/';
+    }
+    // TODO(samthor): Consume ?hl=... here.
+    return url + window.location.query + window.location.hash;
+  })();
+  history.replaceState(null, document.title, url);
+
+  // Append/create the manifest URL.
+  var manifest = document.createElement('link');
+  manifest.rel = 'manifest';
+  manifest.crossOrigin = 'use-credentials';
+  manifest.href = new URL('manifest.json', window.location);  // use intl version
+  document.head.appendChild(manifest);
+  if ('serviceWorker' in navigator) {
+    // Register the SW in the served language, not the request language (as this isn't available
+    // on the naked domain anyway).
+    window.sw = navigator.serviceWorker.register(
+        window.location.origin + '/sw.js?lang=' + document.documentElement.lang);
+  }
+
+  window.Polymer = window.Polymer || {
+    // dom: 'shadow',
+    lazyRegister: 'max',
+    useNativeCSSProperties: true
+  };
+}());
   </script>
   <link rel="import" href="elements/elements_en.html">
   <link rel="import" href="js/ccsender.html" async>

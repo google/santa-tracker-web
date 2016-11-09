@@ -113,7 +113,7 @@ specific language governing permissions and limitations under the License.
             <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
           </h2>
           <ul>
-            <li><a target="_blank" href$="[[_localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker', santaApp.language)]]">
+            <li><a target="_blank" href$="[[_localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
               <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
             <li><a href="[[pageUrl]]#press">
@@ -122,13 +122,13 @@ specific language governing permissions and limitations under the License.
             <li><a href="[[pageUrl]]#about">
               <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a target="_blank" href$="[[_localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb', santaApp.language)]]">
+            <li><a target="_blank" href$="[[_localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')]]">
               <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a target="_blank" href$="[[_localizeUrl('https://www.google.com/policies/', santaApp.language)]]">
+            <li><a target="_blank" href$="[[_localizeUrl('https://www.google.com/policies/')]]">
               <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
-            <li><a target="_blank" href$="[[_localizeUrl('https://maps.google.com/maps/about/', santaApp.language)]]">
+            <li><a target="_blank" href$="[[_localizeUrl('https://maps.google.com/maps/about/')]]">
               <i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg>
             </a></li>
           </ul>
@@ -394,39 +394,26 @@ specific language governing permissions and limitations under the License.
     },
 
     /**
-     * Changes the site URL to set a new language. In prod, uses ?hl=lang, and in dev, uses the
-     * longer path form.
+     * Changes the site URL to set a new language. Preference the /intl/xx/ form (xx_ALL for dev).
      */
     _onLanguageChanged: function() {
       var lang = this.$.language.value;
+      var prod = (window.location.hostname === 'santatracker.google.com');
+      var pathname = '/intl/' + lang + (prod ? '' : '_ALL') + '/';
 
-      // strip both options: /intl/lang from pathname, ?hl=lang from search
-      var pathname = window.location.pathname.replace(/^\/intl\/[-\w]+(_ALL)?\//, '/');
-      var search = location.search.replace(/[\?\&]hl=[-\w]*\b/g, '');
-
-      if (lang != 'en') {
-        if (window.location.hostname == 'santatracker.google.com') {
-          // in prod, append ?hl=... if non-en
-          search += (search.length ? '&' : '?') + 'hl=' + lang;
-        } else {
-          // in dev, use /intl/[lang]_ALL/
-          pathname = '/intl/' + lang + '_ALL' + pathname;
-        }
-      }
-
-      window.location = window.location.origin + pathname + search + window.location.hash;
+      // nb. we drop the last path component, since we expect to be at /
+      window.location = window.location.origin + pathname + window.location.hash;
     },
 
     /**
-     * Returns the localized version of a URL: with hl=<lang> appended to the
-     * query string. Ignores English languages.
+     * Returns the localized version of a URL: with hl=<lang> appended to the query.
      */
-    _localizeUrl: function(url, lang) {
-      lang = lang.toLowerCase();
-      if (!lang || lang.substr(0, 2) == 'en') {
-        return url;
+    _localizeUrl: function(url) {
+      // If a language was requested, continue to request it. Set in `index.html`.
+      if (window.requestLang) {
+        return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'hl=' + window.requestLang;
       }
-      return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'hl=' + lang;
+      return url;
     },
 
     _onTitleClick: function() {
