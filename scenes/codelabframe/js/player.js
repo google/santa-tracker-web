@@ -113,15 +113,16 @@ app.Player.prototype = {
   },
 
   /**
-   * Moves the player in an absolute direction by X tiles.
+   * Moves the player in an absolute direction by X tiles ignoring obstacles.
+   * @param {number} length How many blocks to jump over.
    * @param {app.Direction} direction to go in.
    * @return {boolean} true if successful, false if blocked for any reason.
    */
-  jump: function(length) {
+  jump: function(length, direction) {
     length = length + 1;   // Jump length + landing tile.
     var oldX = this.x;
     var oldY = this.y;
-    var radDirection = this.direction / 180 * Math.PI;
+    var radDirection = direction / 180 * Math.PI;
     var newX = this.x + Math.round(Math.sin(radDirection)) * length;
     var newY = this.y - Math.round(Math.cos(radDirection)) * length;
 
@@ -129,6 +130,7 @@ app.Player.prototype = {
     if (tile === app.TileType.TREE || this.level.isOutsideBounds(newX, newY)) {
       return;
     }
+    this.direction = direction;
     this.x = newX;
     this.y = newY;
 

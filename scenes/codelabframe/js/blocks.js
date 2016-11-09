@@ -77,33 +77,38 @@ app.blocks.blockXml = function(type, attrs, fields, children) {
  * Install our blocks into blockly when ready.
  */
 app.blocks.install = function() {
+
+  var DIRECTION_CONFIGS = {
+    West: {
+      letter: app.I18n.getMsg('CL_moveWest'),
+      image: 'img/block-west.svg',
+      tooltip: app.I18n.getMsg('CL_moveWestTooltip'),
+      symbol: '\u2190'
+    },
+    East: {
+      letter: app.I18n.getMsg('CL_moveEast'),
+      image: 'img/block-east.svg',
+      tooltip: app.I18n.getMsg('CL_moveEastTooltip'),
+      symbol: '\u2192'
+    },
+    North: {
+      letter: app.I18n.getMsg('CL_moveNorth'),
+      image: 'img/block-north.svg',
+      tooltip: app.I18n.getMsg('CL_moveNorthTooltip'),
+      symbol: '\u2191'
+    },
+    South: {
+      letter: app.I18n.getMsg('CL_moveSouth'),
+      image: 'img/block-south.svg',
+      tooltip: app.I18n.getMsg('CL_moveSouthTooltip'),
+      symbol: '\u2193'
+    }
+  };
+
   /**
    * Create simple move blocks
    */
   (function() {
-    var DIRECTION_CONFIGS = {
-      West: {
-        letter: app.I18n.getMsg('CL_moveWest'),
-        image: 'img/block-west.svg',
-        tooltip: app.I18n.getMsg('CL_moveWestTooltip')
-      },
-      East: {
-        letter: app.I18n.getMsg('CL_moveEast'),
-        image: 'img/block-east.svg',
-        tooltip: app.I18n.getMsg('CL_moveEastTooltip')
-      },
-      North: {
-        letter: app.I18n.getMsg('CL_moveNorth'),
-        image: 'img/block-north.svg',
-        tooltip: app.I18n.getMsg('CL_moveNorthTooltip')
-      },
-      South: {
-        letter: app.I18n.getMsg('CL_moveSouth'),
-        image: 'img/block-south.svg',
-        tooltip: app.I18n.getMsg('CL_moveSouthTooltip')
-      }
-    };
-
     var generateBlocksForDirection = function(direction) {
       Blockly.Blocks['maze_move' + direction] = generateMoveBlock(direction);
       Blockly.Blocks['maze_move' + direction + '_mini'] = generateMiniBlock(direction);
@@ -166,6 +171,18 @@ app.blocks.install = function() {
     var results = [];
     for (var i = min; i <= max; i++) {
       results.push([i.toString(), i]);
+    }
+    return results;
+  }
+
+  function generateDirectionOptions() {
+    var keys = Object.keys(DIRECTION_CONFIGS);
+    var results = [];
+    for (var i = 0, key; key = keys[i]; i++) {
+      results.push([
+        DIRECTION_CONFIGS[key].symbol,
+        DIRECTION_CONFIGS[key].letter
+      ]);
     }
     return results;
   }
@@ -249,7 +266,11 @@ app.blocks.install = function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-jump.svg', 28, 32))
           .appendField(app.I18n.getMsg('CL_jumpTitleLength'))
-          .appendField(new Blockly.FieldDropdown(optionNumberRange(1, 8)), 'LENGTH');
+          .appendField(new Blockly.FieldDropdown(
+              optionNumberRange(1, 3)), 'LENGTH')
+          .appendField('to')
+          .appendField(new Blockly.FieldDropdown(
+              generateDirectionOptions()), 'DIRECTION');
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(app.I18n.getMsg('CL_jumpTooltip'));
@@ -272,7 +293,9 @@ app.blocks.install = function() {
 
   Blockly.JavaScript['controls_jump'] = function() {
     var length = Number(this.getFieldValue('LENGTH'));
-    return 'api.moveJump(\'block_id_' + this.id + '\', ' + length + ');\n';
+    var direction = this.getFieldValue('DIRECTION');
+    return 'api.moveJump(\'block_id_' + this.id + '\', ' +
+        length + ', \'' + direction + '\');\n';
   };
 
   app.levels.forEach(function(level) {
