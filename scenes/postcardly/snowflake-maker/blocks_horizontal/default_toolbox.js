@@ -36,50 +36,50 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '   </block>' +
     '   <block type="pentagon_stamp">' +
     '     <value name="SIZE">' +
-    '       <shadow type="dropdown_pentagon">' +
-    '         <field name="CHOICE">125</field>' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="square_stamp">' +
     '     <value name="SIZE">' +
-    '       <shadow type="dropdown_square">' +
-    '         <field name="CHOICE">125</field>' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="triangle_stamp">' +
     '     <value name="SIZE">' +
-    '       <shadow type="dropdown_triangle">' +
-    '         <field name="CHOICE">125</field>' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">150</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="turtle_move_forward">' +
     '     <value name="VALUE">' +
-    '       <shadow type="dropdown_move_forward">' +
-    '         <field name="CHOICE">20</field>' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">100</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="turtle_move_backward">' +
     '     <value name="VALUE">' +
-    '       <shadow type="dropdown_move_backward">' +
-    '         <field name="CHOICE">20</field>' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">100</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="turtle_turn_left">' +
-    '     <value name="ANGLE">' +
-    '       <shadow type="dropdown_turn_left">' +
-    '         <field name="CHOICE">30</field>' +
+    '     <value name="VALUE">' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">30</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="turtle_turn_right">' +
-    '     <value name="ANGLE">' +
-    '       <shadow type="dropdown_turn_right">' +
-    '         <field name="CHOICE">30</field>' +
+    '     <value name="VALUE">' +
+    '       <shadow type="math_number">' +
+    '         <field name="NUM">30</field>' +
     '       </shadow>' +
     '     </value>' +
     '   </block>' +

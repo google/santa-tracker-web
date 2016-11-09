@@ -28,10 +28,9 @@ goog.provide('Turtle');
 goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
-goog.require('Turtle.SceneTutorial');
 
-Turtle.HEIGHT = 300;
-Turtle.WIDTH = 300;
+Turtle.HEIGHT = 400;
+Turtle.WIDTH = 400;
 
 /**
  * PID of animation task currently executing.
@@ -87,13 +86,9 @@ Turtle.init = function() {
   var visualization = document.getElementById('visualization');
   var onresize = function(e) {
     var top = visualization.offsetTop;
-    blocklyDiv.style.width = '1000px';//(window.innerWidth - 440) + 'px';
-    //calculate the size of the main workspace and figure out where to place the starter blocks
-    if (Turtle.workspace) {
-      var workspaceHeight = blocklyDiv.clientHeight //129 is height of flyout, 64 is the height of the block
-      Turtle.workspace.topBlocks_[0].x = 0;
-      Turtle.workspace.topBlocks_[0].y = workspaceHeight/2;
-    }
+    blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 10 + 'px';
+    blocklyDiv.style.left = rtl ? '10px' : '420px';
+    blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
   };
   window.addEventListener('scroll', function() {
     onresize();
@@ -117,11 +112,22 @@ Turtle.init = function() {
           horizontalLayout: true,
           toolboxPosition: 'end',
           sounds: soundsEnabled,
-    colours: {
-      workspace: 'rgba(255,255,0,0)',
-      flyout: 'rgba(255,255,0,0)',
-    }
-  });
+          grid: {spacing: 16,
+            length: 1,
+            colour: '#2C344A',
+            snap: false
+          },
+          colours: {
+            workspace: '#334771',
+            flyout: '#283856',
+            scrollbar: '#24324D',
+            scrollbarHover: '#0C111A',
+            insertionMarker: '#FFFFFF',
+            insertionMarkerOpacity: 0.3,
+            fieldShadow: 'rgba(255, 255, 255, 0.3)',
+            dragShadowOpacity: 0.6
+          }
+        });
 
   Blockly.getMainWorkspace().addChangeListener(Blockly.Events.disableOrphans);
   
@@ -130,14 +136,10 @@ Turtle.init = function() {
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
 
   // Initialize the slider.
-  //var sliderSvg = document.getElementById('slider');
-  //Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
+  var sliderSvg = document.getElementById('slider');
+  Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
 
-  //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
-
-  var workspaceHeight = blocklyDiv.clientHeight; // + 129 + 64;
-
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" x="10" y="200"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -164,17 +166,9 @@ Turtle.init = function() {
   // Turtle.bindClick('helpButton', Turtle.showHelp);
   // setTimeout(Turtle.showHelp, 1000);
   // Turtle.workspace.addChangeListener(Turtle.watchCategories_);
-
-  //Tutorial
-  this.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
-  this.tutorial.schedule();
 };
 
 window.addEventListener('load', Turtle.init);
-
-Turtle.centerStartBlock = function() {
-
-}
 
 Turtle.getToolboxElement = function() {
   var match = location.search.match(/toolbox=([^&]+)/);
@@ -553,7 +547,7 @@ Turtle.animate = function(id) {
     BlocklyInterface.highlight(id);
     var speed;
     if (!Turtle.onRepeat) {
-      speed = 0.3;//Turtle.speedSlider.getValue();
+      speed = Turtle.speedSlider.getValue();
     } else {
     // Scale the speed non-linearly, to give better precision at the fast end.
       speed = 0.8;
@@ -566,19 +560,16 @@ Turtle.setOnRepeat = function(bool) {
   Turtle.onRepeat = bool.data;
 }
 
-Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
-  var sideLen;
-  switch(numSides) {
-    case 4:
-      sideLen = size;
-      break;
-    case 5:
-      sideLen = 2*size*Math.sin(Math.PI/numSides)/(Math.cos(Math.PI/numSides) + 1);    
-      break;
-    default:
-      sideLen = size/Math.sin(Math.PI/numSides);
-      break;
+Turtle.setStepSpeed = function(speed) {
+  if (!Turtle.onRepeat) {
+    var speed = Turtle.speedSlider.getValue();
   }
+  // Scale the speed non-linearly, to give better precision at the fast end.
+  Turtle.stepSpeed = 1000 * Math.pow(1 - speed, 2);
+}
+
+Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
+  var sideLen = size*Math.sin(Math.PI/numSides);
   Turtle.ctxScratch.beginPath();
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
