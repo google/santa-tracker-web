@@ -16,8 +16,10 @@
 
 /**
  * @fileoverview
- * Shared JavaScript client for ST2012 API.
+ * Shared JavaScript client for the Santa Tracker API.
  */
+
+goog.provide('SantaService');
 
 /**
  * Creates a new Santa service object.
@@ -27,7 +29,7 @@
  * @param {string} version
  * @constructor
  */
-function SantaService(clientId, lang, version) {
+SantaService = function SantaService(clientId, lang, version) {
   /** @private {string} */
   this.lang_ = lang;
 
@@ -42,14 +44,14 @@ function SantaService(clientId, lang, version) {
   /**
    * All known destinations (including future ones).
    * Ordered chronologically (oldest destinations first).
-   * @private {!Array.<!SantaLocation>}
+   * @private {!Array<!SantaLocation>}
    */
   this.destinations_ = [];
 
   /**
    * Stream of cards (e.g. didyouknow, etc) but not destinations.
    * Ordered chronologically (oldest cards first).
-   * @private {!Array.<!StreamCard>}
+   * @private {!Array<!StreamCard>}
    */
   this.stream_ = [];
 
@@ -67,10 +69,8 @@ function SantaService(clientId, lang, version) {
    */
   this.futureCards_ = [];
 
-  var that = this;
-  this.boundFetchDetails_ = function(id, callback) {
-    that.fetchDetails_(id, callback);
-  };
+  /** Bound version of `fetchDetails_`. */
+  this.boundFetchDetails_ = (id, callback) => this.fetchDetails_(id, callback);
 
   /**
    * A number between 0 and 1, consistent within a user session. Sent to the
@@ -139,8 +139,7 @@ function SantaService(clientId, lang, version) {
 
 /**
  * @param {string} eventName
- * @param {!Function} handler
- * @return {!SantaEventListener}
+ * @param {function()} handler
  */
 SantaService.prototype.addListener = function(eventName, handler) {
   return Events.addListener(this, eventName, handler);
@@ -153,29 +152,16 @@ SantaService.prototype.setLang = function(lang) {
   this.lang_ = lang;
 };
 
-/**
- * @const
- * @private
- */
-SantaService.prototype.CALLBACK_FUNC_ = 'santa_api_callback';
-
-/**
- * @const
- * @private
- */
-SantaService.prototype.DETAILS_CALLBACK_FUNC_ = 'santa_api_details_callback';
 
 /**
  * @param {function(SantaState)} callback
  */
 SantaService.prototype.getCurrentLocation = function(callback) {
-  var that = this;
-
   var now = this.now();
   var dest = this.findDestination_(now);
   if (!this.isSynced()) {
-    this.sync(function() {
-      that.getCurrentLocation(callback);
+    this.sync(() => {
+      this.getCurrentLocation(callback);
     });
     return;
   }
@@ -297,7 +283,7 @@ SantaService.prototype.calculateDistanceTravelled_ = function(now, prev, next) {
 
 /**
  * List of destinations, sorted chronologically (latest destinations last).
- * @return {!Array.<!SantaLocation>|null} a list of destinations, or null if the
+ * @return {Array<!SantaLocation>} a list of destinations, or null if the
  * service isn't ready.
  */
 SantaService.prototype.getDestinations = function() {
@@ -306,7 +292,7 @@ SantaService.prototype.getDestinations = function() {
 
 /**
  * List of cards sorted reverse chronologically (lastest cards first).
- * @return {!Array.<!StreamCard>|null} a list of cards, or null if the
+ * @return {Array<!StreamCard>} a list of cards, or null if the
  * service isn't ready.
  */
 SantaService.prototype.getTimeline = function() {
@@ -357,7 +343,7 @@ SantaService.prototype.findDestination_ = function(timestamp) {
  * Appends newly fetched destinations to the current destination list.
  * @param {number} index The index that newDestinations should be spliced into
  * the destinations list.
- * @param {!Array.<!SantaLocation>} newDestinations
+ * @param {!Array<!SantaLocation>} newDestinations
  * @private
  */
 SantaService.prototype.appendDestinations_ = function(index, newDestinations) {
@@ -392,7 +378,7 @@ SantaService.prototype.appendDestinations_ = function(index, newDestinations) {
  * Appends newly fetched cards to the current card stream.
  * @param {number} index The index that newCards should be spliced into the
  * stream list.
- * @param {!Array.<!StreamCard>} newCards
+ * @param {!Array<!StreamCard>} newCards
  * @private
  */
 SantaService.prototype.appendStream_ = function(index, newCards) {
@@ -416,28 +402,23 @@ SantaService.prototype.appendStream_ = function(index, newCards) {
  * @param {function(SantaDetails)} callback
  */
 SantaService.prototype.fetchDetails_ = function(id, callback) {
-  var that = this;
+  const data = {
+    'id': id,
+    'language': this.lang_,
+    'fingerprint': this.fingerprint_,
+  };
 
-  crossDomainAjax({
-    cache: true,
-    jsonpCallback: this.DETAILS_CALLBACK_FUNC_,
-    url: 'details',
-    data: {
-      'id': id,
-      'language': this.lang_,
-      'fingerprint': this.fingerprint_
-    },
-    done: function(result) {
-      if (result['status'] != 'OK') {
-        window.console.error(result, result['status']);
-        return;
-      }
-      callback(/** @type {SantaDetails} */(result['details']));
-    },
-    fail: function() {
-      // Don't show any details.
+  function done(result) {
+    if (result['status'] != 'OK') {
+      console.error(result, result['status']);
+      return;
     }
-  });
+    callback(/** @type {SantaDetails} */ (result['details']));
+  }
+  function fail() {
+    console.error('failed fetchDetails', id);
+  }
+  santaAPIRequest('details', data, done, fail);
 };
 
 /**
@@ -446,10 +427,9 @@ SantaService.prototype.fetchDetails_ = function(id, callback) {
  * @private
  */
 SantaService.prototype.getUrlParameter_ = function(param) {
-  if (!window.location.search) return;
-  var m = new RegExp(param + '=([^&]*)').exec(
-      window.location.search.substring(1));
-  if (!m) return;
+  if (!window.location.search) { return; }
+  var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
+  if (!m) { return; }
   return decodeURIComponent(m[1]);
 };
 
@@ -466,63 +446,63 @@ SantaService.prototype.sync = function(opt_callback) {
   }
   this.syncInFlight_ = true;
 
-  crossDomainAjax({
-    url: 'info',
-    data: {
-      'rand': this.jitterRand_,
-      'client': this.clientId_,
-      'language': this.lang_,
-      // If this fingerprint doesn't match the servers, the server will replace
-      // the route and status message text.
-      'fingerprint': this.fingerprint_,
-      'routeOffset': this.destinations_.length,
-      'streamOffset': this.stream_.length
-    },
-    done: function(result) {
-      if (result['status'] != 'OK') {
-        window.console.error(result['status']);
-        this.kill_();
-      }
+  const data = {
+    'rand': this.jitterRand_,
+    'client': this.clientId_,
+    'language': this.lang_,
+    // If this fingerprint doesn't match the servers, the server will replace
+    // the route and status message text.
+    'fingerprint': this.fingerprint_,
+    'routeOffset': this.destinations_.length,
+    'streamOffset': this.stream_.length,
+  };
 
-      this.offset_ = result['now'] + result['timeOffset'] - new Date();
-      if (result['switchOff']) {
-        this.kill_();
-      } else {
-        this.resuscitate_();
-      }
-
-      if (result['upgradeToVersion'] && this.version_) {
-        if (this.version_ < result['upgradeToVersion']) {
-          console.warn('reload: this', this.version_, 'upgrade to', result['upgradeToVersion']);
-          this.scheduleReload_();
-        }
-      }
-
-      var fingerprintChanged = result['fingerprint'] != this.fingerprint_;
-      this.fingerprint_ = result['fingerprint'];
-      this.clientSpecific_ = result['clientSpecific'];
-      this.userLocation_ = result['location'] || null;
-
-      this.appendDestinations_(result['routeOffset'], result['destinations']);
-      this.appendStream_(result['streamOffset'], result['stream']);
-      this.rebuildTimeline_(fingerprintChanged);
-
-      this.synced_ = true;
-      this.syncInFlight_ = false;
-      Events.trigger(this, 'sync');
-
-      window.setTimeout(this.sync.bind(this), result['refresh']);
-
-      if (opt_callback) {
-        opt_callback();
-      }
-    }.bind(this),
-    fail: function() {
-      // TODO: perhaps trigger something other than kill, if a recovery can be
-      // made.
+  const done = result => {
+    if (result['status'] != 'OK') {
+      console.error(result['status']);
       this.kill_();
-    }.bind(this)
-  });
+    }
+
+    this.offset_ = result['now'] + result['timeOffset'] - new Date();
+    if (result['switchOff']) {
+      this.kill_();
+    } else {
+      this.resuscitate_();
+    }
+
+    if (result['upgradeToVersion'] && this.version_) {
+      if (this.version_ < result['upgradeToVersion']) {
+        console.warn('reload: this', this.version_, 'upgrade to', result['upgradeToVersion']);
+        this.scheduleReload_();
+      }
+    }
+
+    var fingerprintChanged = result['fingerprint'] != this.fingerprint_;
+    this.fingerprint_ = result['fingerprint'];
+    this.clientSpecific_ = result['clientSpecific'];
+    this.userLocation_ = result['location'] || null;
+
+    this.appendDestinations_(result['routeOffset'], result['destinations']);
+    this.appendStream_(result['streamOffset'], result['stream']);
+    this.rebuildTimeline_(fingerprintChanged);
+
+    this.synced_ = true;
+    this.syncInFlight_ = false;
+    Events.trigger(this, 'sync');
+
+    window.setTimeout(this.sync.bind(this), result['refresh']);
+
+    if (opt_callback) {
+      opt_callback();
+    }
+  };
+
+  const fail = () => {
+    // TODO: perhaps trigger something other than kill, if a recovery can be made.
+    this.kill_();
+  };
+
+  santaAPIRequest('info', data, done, fail);
 };
 
 /**
@@ -692,5 +672,3 @@ SantaService.prototype.isKilled = function() {
 SantaService.prototype.getClientSpecific = function() {
   return this.clientSpecific_ || {};
 };
-
-window['SantaService'] = SantaService;

@@ -84,7 +84,7 @@ const COMPILER_PATH = 'node_modules/google-closure-compiler/compiler.jar';
 const SASS_FILES = '{scenes,sass,elements}/**/*.scss';
 const IGNORE_COMPILED_JS = '!**/*.min.js';
 const CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
-const SERVICE_FILES = ['js/service/*.js', IGNORE_COMPILED_JS];
+const SERVICE_FILES = ['js/service/**/*.js', IGNORE_COMPILED_JS];
 
 const SHARED_EXTERNS = [
   'components/web-animations-utils/externs*.js',
@@ -166,11 +166,11 @@ gulp.task('compile-santa-api-service', function() {
       fileName: 'service.min.js',
       compilerFlags: addCompilerFlagOptions({
         compilation_level: 'SIMPLE_OPTIMIZATIONS',
-        // warning_level: 'VERBOSE',
+        warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT6_STRICT',
         language_out: 'ECMASCRIPT5_STRICT',
-        externs: SHARED_EXTERNS.concat('js/service/externs.js'),
-        define: [`crossDomainAjax.BASE="${API_BASE_URL}"`],
+        define: [`santaAPIRequest.BASE="${API_BASE_URL}"`],
+        rewrite_polyfills: false,
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
           'accessControls',

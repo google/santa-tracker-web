@@ -15,16 +15,14 @@
  */
 
 /**
- * @interface
+ * @externs
  */
-function LatLng() {}
+
 
 /**
- * @type number
+ * @typedef {{
+ *   lat: number,
+ *   lng: number
+ * }}
  */
-LatLng.prototype.lat;
-
-/**
- * @type number
- */
-LatLng.prototype.lng;
+var LatLng;

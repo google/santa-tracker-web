@@ -15,6 +15,11 @@
  */
 
 /**
+ * @externs
+ */
+
+
+/**
  * @interface
  */
 function SantaState() {}
@@ -51,7 +56,7 @@ SantaState.prototype.next;
 SantaState.prototype.presentsDelivered;
 
 /**
- * Distance in metres.
+ * Distance in meters.
  * @type {number}
  */
 SantaState.prototype.distanceTravelled;

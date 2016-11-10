@@ -16,95 +16,59 @@
 
 /**
  * Simple events system.
+ * @constructor
  */
-var Events = {};
+function EventsManager() {
+  /** @type {!Map<!Object, !Map<string, !Set<function(...*)>>>} */
+  this.m_ = new Map();
+}
 
 /**
- * Adds a listener for an event.
- *
- * @param {Object} o
+ * Gets or creates the events table for the specified object.
+ * @param {!Object} o
+ * @return {!Map<string, !Set<function(...*)>>}
+ */
+EventsManager.prototype.getTable_ = function(o) {
+  let eventsTable = this.m_.get(o);
+  if (!eventsTable) {
+    eventsTable = new Map();
+    this.m_.set(o, eventsTable);
+  }
+  return eventsTable;
+}
+
+/**
+ * Adds a listener for an event on a target object.
+ * @param {!Object} o
  * @param {string} eventName
- * @param {!Function} listener
- * @return {!SantaEventListener}
+ * @param {function(...*)} listener
  */
-Events.addListener = function(o, eventName, listener) {
-  return new SantaEventListener(o, eventName, listener);
-};
+EventsManager.prototype.addListener = function(o, eventName, listener) {
+  const eventsTable = this.getTable_(o);
+  let listeners = eventsTable.get(eventName);
+  if (!listeners) {
+    listeners = new Set();
+    eventsTable.set(eventName, listeners);
+  }
+  listeners.add(listener);
+}
 
 /**
- * Triggers a given event.
- *
- * @param {Object} o
+ * Triggers a given event on a target object.
+ * @param {!Object} o
  * @param {string} eventName
  * @param {*=} var_args
  */
-Events.trigger = function(o, eventName, var_args) {
-  var listeners = Events.listeners_(o, eventName);
-  var args = Events.slice_(arguments, 2);
-  for (var id in listeners) {
-    var listener = listeners[id];
-    listener && listener.invoke_(args);
+EventsManager.prototype.trigger = function(o, eventName, var_args) {
+  const eventsTable = this.getTable_(o);
+  const listeners = eventsTable.get(eventName);
+  if (listeners) {
+    const args = [].prototype.slice.call(arguments, 2);  // past o, eventName
+    listeners.forEach(cb => cb.apply(o, args));
   }
-};
-
-/**
- * @param {Array|Arguments} arr
- * @param {number} start
- * @param {number=} opt_end
- * @return {Array}
- */
-Events.slice_ = function(arr, start, opt_end) {
-  return /** @type Array */ (Function.prototype.call.apply(
-      Array.prototype.slice, arguments));
-};
-
-/**
- * Namespace for the event object.
- *
- * @type {string}
- */
-Events.NAMESPACE_ = '_st_ev';
-
-/**
- * @param {Object} o
- * @param {string} eventName
- * @return {Object.<SantaEventListener>}
- */
-Events.listeners_ = function(o, eventName) {
-  var all = o[Events.NAMESPACE_];
-  if (!all) all = o[Events.NAMESPACE_] = {};
-
-  var ret = all[eventName];
-  if (!ret) all[eventName] = ret = {};
-  return ret;
-};
-
-Events.count_ = 0;
-
-Events.newId_ = function() {
-  return Events.count_++;
-};
-
-/**
- * @constructor
- */
-function SantaEventListener(o, eventName, listener) {
-  this.o_ = o;
-  this.eventName_ = eventName;
-  this.listener_ = listener;
-  this.id_ = Events.newId_();
-
-  Events.listeners_(o, eventName)[this.id_] = this;
 }
 
-SantaEventListener.prototype.remove = function() {
-  // TODO(samthor): Support removeListener instead of this.
-  var m = Events.listeners_(this.o_, this.eventName_);
-  delete m[this.id_];
-}
-
-SantaEventListener.prototype.invoke_ = function(args) {
-  this.listener_.apply(this.o_, args);
-};
-
-window['Events'] = Events;
+/**
+ * Central Events handler.
+ */
+const Events = new EventsManager();

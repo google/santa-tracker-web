@@ -15,19 +15,23 @@
  */
 
 /**
+ * @externs
+ */
+
+
+/**
  * @interface
  */
 function SantaDetails() {};
 
 /**
  * Time zone offset from UTC in seconds.
- *
  * @type {number}
  */
 SantaDetails.prototype.timezone;
 
 /**
- * @type {Array.<PanoramioPhoto>}
+ * @type {Array<PanoramioPhoto>}
  */
 SantaDetails.prototype.panoramio;
 

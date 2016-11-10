@@ -15,59 +15,65 @@
  */
 
 /**
- * Performs an AJAX request, using CORS if the browser supports it, falling
- * back to JSONP.
- *
- * @param {Object} settings
+ * Performs a cross-domain AJAX request to the Santa API.
+ * @param {string} url
+ * @param {!Object} data
+ * @param {function(!Object)} done
+ * @param {function()} fail
  */
-function crossDomainAjax(settings) {
-  if (!crossDomainAjax.corsSupport_) {
-    settings['dataType'] = 'jsonp';
-  } else {
-    settings['dataType'] = 'json';
-  }
-  // NOTE: timeout may not work in FF 3.0+ if using JSONP.
-  settings['timeout'] = settings['timeout'] || 5 * 1000; // 5 second default
-  settings['url'] = crossDomainAjax.BASE + settings['url'];
-  var done = settings.done;
-  var fail = settings.fail;
-  settings.done = null; // don't pass to jQuery
-  settings.fail = null; // don't pass to jQuery
-  jQuery.ajax(settings).done(function() {
-    // HACK: until externs allow an argument in the callback.
-    var result = arguments[0];
-    if (result && result['status'] == 'ERROR') {
-      fail && fail();
-      return;
-    }
-    done.apply(null, arguments);
-  }).fail(retry);
+function santaAPIRequest(url, data, done, fail) {
+  // TODO(samthor): support a Promise as a return type.
+  let requests = 0;
 
-  var retries = 0;
-  function retry() {
-    if (retries >= crossDomainAjax.MAX_RETRIES) {
-      fail && fail();
+  const query = (function() {
+    const m = key => window.encodeURIComponent(key) + '=' + window.encodeURIComponent(data[key]);
+    const out = Object.keys(data).map(m).join('&');
+    return out ? '?' + out : '';
+  })();
+
+  /** @this {XMLHttpRequest} */
+  function onload() {
+    let out;
+    try {
+      out = JSON.parse(this.responseText);
+    } catch (e) {
+      console.debug('invalid JSON from santa-api', e);
+      fail();
       return;
     }
-    // Retry with exponential backoff.
-    // Approximately: 650ms, 1.5s, 4s (10s, 25s...)
-    window.setTimeout(function() {
-      jQuery.ajax(settings).done(done).fail(retry);
-    }, Math.pow(2.5, retries + 1) * 250);
-    retries++;
+    if (!out || typeof out !== 'object') {
+      console.warn('non-object JSON return', out);
+      out = {'status': out};
+    }
+    done(/** @type {!Object} */ (out));
   }
+
+  function request() {
+    if (requests >= santaAPIRequest.MAX_RETRIES) {
+      fail();
+      return;
+    }
+    ++requests;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', santaAPIRequest.BASE + url + query);
+    xhr.timeout = santaAPIRequest.TIMEOUT;  // IE needs this >open but <send
+    xhr.onload = onload;
+    xhr.onerror = function() {
+      // Retry with exponential backoff (625ms, ~1.5s, ~4s, ~10s, ...).
+      window.setTimeout(request, Math.pow(2.5, requests) * 250);
+    };
+    xhr.send(null);
+  }
+
+  request();
 }
 
 /** @define {string} */
-crossDomainAjax.BASE = '';
+santaAPIRequest.BASE = '';
 
-/**
- * @type {boolean}
- * @private
- */
-crossDomainAjax.corsSupport_ = 'withCredentials' in new XMLHttpRequest();
+/** @const */
+santaAPIRequest.MAX_RETRIES = 3;
 
-/**
- * @const
- */
-crossDomainAjax.MAX_RETRIES = 3;
+/** @const */
+santaAPIRequest.TIMEOUT = 5000;

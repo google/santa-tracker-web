@@ -23,13 +23,15 @@
  *
  * @constructor
  * @param {Object} destination Destination response from the server.
- * @param {!Array.<!SantaLocation>} array The route array.
+ * @param {function(string, function(SantaDetails))} fetchDetails
+ * @param {!Array<!SantaLocation>} array The route array.
  * @param {number} index Index of this location in the array.
- * @param {Function} fetchDetails
  */
 function SantaLocation(destination, fetchDetails, array, index) {
   // populate with all of the properties from the server.
-  $.extend(this, destination);
+  for (let k in destination) {
+    this[k] = destination[k];
+  }
 
   /**
    * @private
@@ -39,7 +41,7 @@ function SantaLocation(destination, fetchDetails, array, index) {
 
   /**
    * @private
-   * @type {!Array.<!Function>}
+   * @type {!Array<function(SantaDetails)>}
    */
   this.queuedCallbacks_ = [];
 
@@ -54,7 +56,7 @@ function SantaLocation(destination, fetchDetails, array, index) {
   this.details_ = null;
 
   /**
-   * @type {number|null}
+   * @type {?number}
    */
   this.distanceTravelled_ = null;
 
@@ -82,8 +84,8 @@ SantaLocation.prototype.getDistanceTravelled = function() {
     return this.distanceTravelled_ = 0;
   }
   // Recursive, yes, but even IE6 has a call stack limit of around 1000.
-  var dist = this.prev().getDistanceTravelled();
-  dist += this.prev().distanceTo(this.getLocation());
+  const prev = this.prev();
+  const dist = prev.getDistanceTravelled() + prev.distanceTo(this.getLocation());
   return this.distanceTravelled_ = dist;
 };
 
@@ -91,6 +93,9 @@ SantaLocation.prototype.getDistanceTravelled = function() {
  * @param {function(SantaDetails)} callback
  */
 SantaLocation.prototype.getDetails = function(callback) {
+  if (!callback) {
+    return;
+  }
   if (this.details_) {
     callback(this.details_);
   }
@@ -102,13 +107,12 @@ SantaLocation.prototype.getDetails = function(callback) {
   }
   this.lastFetchAttempt_ = +new Date();
 
-  var that = this;
-  this.fetchDetails_(this.id, function(details) {
-    that.details_ = details;
-    for (var i = 0; i < that.queuedCallbacks_.length; i++) {
-      that.queuedCallbacks_[i] && that.queuedCallbacks_[i](details);
+  this.fetchDetails_(this.id, details => {
+    this.details_ = details;
+    for (let i = 0, cb; cb = this.queuedCallbacks_[i]; ++i) {
+      cb(details);
     }
-    that.queuedCallbacks_ = [];
+    this.queuedCallbacks_ = [];
   });
 };
 
@@ -122,7 +126,7 @@ SantaLocation.prototype.getLocation = function() {
 /**
  * Returns the distance between this location and a given LatLng.
  * @param {LatLng} to
- * @return {number} in metres
+ * @return {number} in meters
  */
 SantaLocation.prototype.distanceTo = function(to) {
   return Spherical.computeDistanceBetween(this.getLocation(), to);
@@ -147,14 +151,14 @@ SantaLocation.prototype.next = function() {
 /**
  * Santa's arrival time.
  * Millis since unix epoch (suitable for use with Date constructor).
- * @type number
+ * @type {number}
  */
 SantaLocation.prototype.arrival;
 
 /**
  * Santa's departure time.
  * Millis since unix epoch (suitable for use with Date constructor).
- * @type number
+ * @type {number}
  */
 SantaLocation.prototype.departure;
 
