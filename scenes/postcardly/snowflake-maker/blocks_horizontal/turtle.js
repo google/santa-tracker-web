@@ -97,21 +97,19 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   var code = '';
   var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
-  // Pausing for 50% longer than the user wants to pause between each step.
+  // Pausing for 50% longer than normal to denote that this is no longer the user's code.
   code += 'for (var ' + loopVar + ' = 0; ' +
       loopVar + ' <  6; ' +
       loopVar + '++) {\n' +
       branch + 'if(' +
       loopVar + ' == 0){\n pause(' +
       1.5 * 1000 * Math.pow(1 - 0.3, 2) +
-  //1.5 * 1000 * Math.pow(1 - Turtle.speedSlider.getValue(), 2) +
       ');\n }\n reset();\n turnRight(60*(' +
       loopVar + '+1), \'block_id_' +
       block.id + '\');\n setOnRepeat(true);\n}\n';
   return code;
 };
 
-//TODO(madCode): convert these to json format
 Blockly.Blocks['turtle_move_forward'] = {
   /**
    * Block for moving forward.
@@ -623,28 +621,6 @@ Blockly.JavaScript['diamond_stamp'] = function(block) {
   // Generate JavaScript for setting the width.
   var size = block.getInput('SIZE').connection.targetBlock().getFieldValue('CHOICE');
   return 'stampDiamond(' + size + ', \'block_id_' + block.id + '\');\n';
-};
-
-//TODO(madCode): remove once we no longer need an example of dropdowns.
-Blockly.Blocks['dropdown_turtle_pen'] = {
-  /**
-   * Block for set color drop-down (used for shadow).
-   * @this Blockly.Block
-   */
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_color.png",
-              value: 'penUp', width: 48, height: 48, alt: 'Pen Up'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/turtle/pen.svg",
-              value: 'penDown', width: 48, height: 48, alt: 'Pen Down'},
-        ]), 'CHOICE');
-    this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.looks.secondary,
-      Blockly.Colours.looks.tertiary
-    );
-  }
 };
 
 Blockly.Blocks['turtle_colour'] = {

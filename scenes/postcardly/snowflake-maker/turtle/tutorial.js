@@ -30,10 +30,8 @@ Turtle.SceneTutorial = function(el) {
   this.hasBeenShown = false;
   this.boundOnClick_ = this.onClick_.bind(this);
   this.boundOnBlocklyChange_ = this.onBlocklyChange_.bind(this);
-  // this.boundOnBlocklyClickBlock_ = this.onBlocklyClickBlock_.bind(this);
 
   document.addEventListener('click', this.boundOnClick_, false);
-  //this.el.addEventListener('click', this.boundOnClick_, false);
   Blockly.getMainWorkspace().addChangeListener(this.boundOnBlocklyChange_);
 };
 
@@ -42,8 +40,6 @@ Turtle.SceneTutorial = function(el) {
  */
 Turtle.SceneTutorial.prototype.dispose = function() {
   this.el.removeEventListener('click', this.boundOnClick_, false);
-  // document.body.removeEventListener(Blockly.Events.Move,
-  //     this.boundOnBlocklyChange_, false);
 };
 
 /**
