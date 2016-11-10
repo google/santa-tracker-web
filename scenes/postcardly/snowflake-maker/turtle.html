@@ -106,13 +106,39 @@
         margin: auto;
       }
       .tutorial {
-        display:none;height:290px;left:50%;margin-left:-137px;margin-top:-130px;position:fixed;overflow:hidden;top:50%;width:275px;z-index:100
+        display: none;
+        height: 290px;
+        left: 50%;
+        margin-left: -137px;
+        margin-top: -130px;
+        position: fixed;
+        overflow: hidden;
+        top: 50%;
+        width: 275px;
+        z-index: 100;
       }
       .tutorial__image {
-        background-image:url(img/tutorial/tutorial.gif);background-position:0 0;background-repeat:no-repeat;background-size:contain;height:270px;left:0;position:absolute;top:0;width:275px;z-index:2
+        background-image: url(img/tutorial/tutorial.gif);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 270px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 275px;
+        z-index: 2;
       }
       .tutorial::before {
-        background:url(img/tutorial/shadow.svg) no-repeat;content:"";height:270px;left:0;opacity:0.15;position:absolute;top:20px;width:275px;z-index:1
+        background: url(img/tutorial/shadow.svg) no-repeat;
+        content: "";
+        height: 270px;
+        left: 0;
+        opacity: 0.15;
+        position: absolute;
+        top: 20px;
+        width: 275px;
+        z-index: 1
       }
     </style>
   </head>
@@ -123,7 +149,7 @@
     <div id="visualization" class="center" style="width: 300px;">
       <canvas id="scratch" width="300" height="300" style="display: none"></canvas>
       <canvas id="display" width="300" height="300"></canvas>
-      <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15>
+      <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height="15" width="15">
           <button id="runButton" class="primary" title="Run the program you wrote.">
             <img src="media/1x1.gif" class="run icon21"> Run Program
           </button>

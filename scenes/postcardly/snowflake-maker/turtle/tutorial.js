@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Google Inc. All rights reserved.
+ * Copyright 2016 Google Inc. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -39,7 +39,7 @@ Turtle.SceneTutorial = function(el) {
  * Dispose of this SceneTutorial.
  */
 Turtle.SceneTutorial.prototype.dispose = function() {
-  this.el.removeEventListener('click', this.boundOnClick_, false);
+  document.removeEventListener('click', this.boundOnClick_, false);
 };
 
 /**
@@ -66,7 +66,7 @@ Turtle.SceneTutorial.prototype.toggle = function(visible) {
 
   this.hasBeenShown = this.hasBeenShown || visible;
   this.visible_ = visible;
-  this.el.style.display = visible ? 'block' : 'none';
+  this.el.hidden = !visible;
 };
 
 /**

@@ -91,7 +91,7 @@ Turtle.init = function() {
     blocklyDiv.style.width = '1000px';
     //calculate the size of the main workspace and figure out where to place the starter blocks
     if (Turtle.workspace) {
-      var workspaceHeight = blocklyDiv.clientHeight
+      var workspaceHeight = blocklyDiv.clientHeight;
       Turtle.workspace.topBlocks_[0].x = 0;
       Turtle.workspace.topBlocks_[0].y = workspaceHeight/2;
     }
@@ -159,14 +159,14 @@ Turtle.init = function() {
 
 window.addEventListener('load', Turtle.init);
 
+//TODO(madCode): make this center the start block on the screen.
 Turtle.centerStartBlock = function() {
-
-}
+};
 
 Turtle.getToolboxElement = function() {
   var match = location.search.match(/toolbox=([^&]+)/);
   return document.getElementById('toolbox-' + (match ? match[1] : 'categories'));
-}
+};
 
 
 /**
