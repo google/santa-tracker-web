@@ -63,7 +63,7 @@ EventsManager.prototype.trigger = function(o, eventName, var_args) {
   const eventsTable = this.getTable_(o);
   const listeners = eventsTable.get(eventName);
   if (listeners) {
-    const args = [].prototype.slice.call(arguments, 2);  // past o, eventName
+    const args = Array.prototype.slice.call(arguments, 2);  // past o, eventName
     listeners.forEach(cb => cb.apply(o, args));
   }
 }
