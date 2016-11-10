@@ -5,7 +5,30 @@ $toolbar-height: 44px;
 $indent-left: 24px;
 $toolbar-default-color: #00c6ed;
 
+:host {
+  display: block;
+}
+
+app-header {
+  background-color: transparent;
+}
+
+#fixed-background {
+  // nb. The app-header layer can be manipulated, but somewhat unreliabily. This exists under it
+  // and is made visible only when the host is .fixed.
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+  background-color: currentColor;
+  visibility: hidden;
+}
+
 app-drawer {
+  z-index: 1;  // higher than sound button
+
   #main-content {
     position: relative;
     height: 100%;

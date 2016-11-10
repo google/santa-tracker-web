@@ -36,9 +36,6 @@ specific language governing permissions and limitations under the License.
 <dom-module id="santa-chrome">
 <template>
   <style include="santa-chrome_module">
-    :host {
-      display: block;
-    }
     :host([mode="cast"]) #sound,
     :host([mode="portal"]) .links,
     :host([mode="portal"]) .lang,
@@ -51,7 +48,6 @@ specific language governing permissions and limitations under the License.
     }
 
     app-drawer {
-      z-index: 1; /* higher than sound button */
       --app-drawer-width: 320px;
       --app-drawer-scrim-background: rgba(48,203,236,0.6);
       --app-drawer-content-container: {
@@ -60,15 +56,19 @@ specific language governing permissions and limitations under the License.
     }
 
     app-header {
-      background-color: transparent;
-
       --app-header-background-rear-layer: {
-        background-color: rgb(48,203,236);
+        background-color: var(--santa-toolbar-color, rgb(48,203,236));
       };
       --app-header-shadow: {
         bottom: 0;  /** this is -5px by default */
         box-shadow: 0 2px 0 rgba(0,0,0,0.25);
       };
+    }
+    #buttons, #fixed-background {
+      color: var(--santa-toolbar-color, rgb(48,203,236));
+    }
+    :host(.fixed) #fixed-background {
+      visibility: visible;
     }
 
     .flex {
@@ -179,8 +179,8 @@ specific language governing permissions and limitations under the License.
       </div>
     </app-drawer>
     <app-header-layout fullbleed>
-      <app-header fixed effects="waterfall fade-background"
-                  style$="background-color:[[color]]">
+      <app-header fixed effects="waterfall fade-background">
+        <div id="fixed-background"></div>
         <app-toolbar id="toolbar" hidden$="[[disabled]]">
           <paper-icon-button icon="santa:menu" drawer-toggle
               class$="toolbar-icon [[_computeHiddenClass(hideLeft)]]"></paper-icon-button>
@@ -216,8 +216,7 @@ specific language governing permissions and limitations under the License.
     </app-header-layout>
   </app-drawer-layout>
 
-  <div id="buttons" style$="color:[[color]]"
-       class$="[[_computeTernary(hasGameButtons, 'gamemode', '')]]">
+  <div id="buttons" class$="[[_computeTernary(hasGameButtons, 'gamemode', '')]]">
     <button id="sound" on-click="_toggleSounds"
             class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
     <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
@@ -230,8 +229,6 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
 (function() {
-  var TOOLBAR_DEFAULT_COLOR = '#00c6ed';  // also in css
-
   Polymer({
     is: 'santa-chrome',
 
@@ -258,14 +255,6 @@ specific language governing permissions and limitations under the License.
       trackerUnlocked: {
         type: Boolean,
         value: false,
-      },
-
-      /**
-       * The color to use for the toolbar background, if set.
-       */
-      color: {
-        type: String,
-        observer: '_onColorChanged',
       },
 
       /**
@@ -356,13 +345,6 @@ specific language governing permissions and limitations under the License.
         this.santaApp.focus();
       }
       return wasClosed;
-    },
-
-    _onColorChanged: function(color) {
-      var meta = document.head.querySelector('meta[name="theme-color"]');
-      if (meta) {
-        meta.content = color || TOOLBAR_DEFAULT_COLOR;
-      }
     },
 
     _onShare: function(ev) {

@@ -46,7 +46,6 @@ Santa Tracker app.
   <santa-chrome id="chrome"
       mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
-      color="[[colorForRoute(route, validRoutes)]]"
       tracker-unlocked="[[duringTracker]]"
       today-house="[[todayHouse]]"
       mute="{{userMute}}"
@@ -73,17 +72,18 @@ Santa Tracker app.
       <!-- Keep scenes (non-village) ordered alphabetically -->
 
       <about-scene route="about" icon="2753"
-          header-color="rgb(39, 186, 131)"
           path$="scenes/about/about-scene_[[language]].html"
+          header-color="rgb(39, 186, 131)"
           class="santa-scene" allow-page-scrolling></about-scene>
 
       <airport-scene route="airport" icon="1f6c4"
-          header-color="#fdbe27"
           path$="scenes/airport/airport-scene_[[language]].html"
+          header-color="#fdbe27"
           class="santa-scene"></airport-scene>
 
       <blimp-scene route="blimp" icon="1f6a1"
           path$="scenes/blimp/blimp-scene_[[language]].html"
+          header-color="#575769"
           class="santa-scene"></blimp-scene>
 
       <boatload-scene route="boatload" icon="26f5"
@@ -95,6 +95,7 @@ Santa Tracker app.
 
       <briefing-scene route="briefing" icon="1f3eb"
           path$="scenes/briefing/briefing-scene_[[language]].html"
+          header-color="#007ab6"
           class="santa-scene"></briefing-scene>
 
       <callfromsanta-scene route="callfromsanta" icon="1f4de"
@@ -106,7 +107,7 @@ Santa Tracker app.
       <citylights-scene route="citylights" icon="1f306"
           path$="scenes/citylights/citylights-scene_[[language]].html"
           mode$="[[mode]]"
-          header-color="#182a4a"
+          header-color="#575769"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/citylights/img/loading.svg"
           class="santa-scene"></citylights-scene>
@@ -130,6 +131,7 @@ Santa Tracker app.
       <commandcentre-scene route="commandcentre" icon="1f5fc"
           path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
           mode$="[[mode]]"
+          header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></commandcentre-scene>
 
@@ -141,6 +143,7 @@ Santa Tracker app.
       <glider-scene route="glider" icon="1f343"
           path$="scenes/glider/glider-scene_[[language]].html"
           mode$="[[mode]]"
+          header-color="#675ab9"
           loading-bg-color="#8d23a9"
           loading-src="scenes/glider/img/loading.svg"
           class="santa-scene"></glider-scene>
@@ -159,6 +162,7 @@ Santa Tracker app.
 
       <island-scene route="island" icon="1f334"
           path$="scenes/island/island-scene_[[language]].html"
+          header-color="#1da1a1"
           class="santa-scene"></island-scene>
 
       <jamband-scene route="jamband" icon="1f3b6"
@@ -180,6 +184,7 @@ Santa Tracker app.
       <latlong-scene route="latlong" icon="1f3af"
           path$="scenes/latlong/latlong-scene_[[language]].html"
           mode$="[[mode]]"
+          header-color="#76b1cc"
           loading-bg-color="#ffcc00"
           loading-src="scenes/latlong/img/loading.svg"
           class="santa-scene"></latlong-scene>
@@ -187,6 +192,7 @@ Santa Tracker app.
       <matching-scene route="matching" icon="1f6aa"
           path$="scenes/matching/matching-scene_[[language]].html"
           mode$="[[mode]]"
+          header-color="#76b1cc"
           loading-bg-color="#b27644"
           loading-src="scenes/matching/img/loading.svg"
           class="santa-scene"></matching-scene>
@@ -200,12 +206,14 @@ Santa Tracker app.
 
       <playground-scene route="playground" icon="1f3aa"
           path$="scenes/playground/playground-scene_[[language]].html"
+          header-color="#575769"
           loading-bg-color="rgb(251, 191, 44)"
           class="santa-scene"></playground-scene>
 
       <postcard-scene route="postcard" icon="1f4ec"
           path$="scenes/postcard/postcard-scene_[[language]].html"
           mode$="[[mode]]"
+          header-color="rgb(244, 123, 32)"
           loading-bg-color="rgb(244, 123, 32)"
           loading-src="scenes/postcard/img/loading.gif"
           class="santa-scene"></postcard-scene>
@@ -218,6 +226,7 @@ Santa Tracker app.
       <presentdrop-scene route="presentdrop" icon="1f381"
           path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
           mode$="[[mode]]"
+          header-color="#b4b6b9"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentdrop/img/loading.svg"
           class="santa-scene"></presentdrop-scene>
@@ -225,6 +234,7 @@ Santa Tracker app.
       <presentbounce-scene route="presentbounce" icon="1f381"
           path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
           mode$="[[mode]]"
+          header-color="#e53935"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentbounce/img/loading.svg"
           class="santa-scene"></presentbounce-scene>
@@ -237,8 +247,9 @@ Santa Tracker app.
           class="santa-scene"></racer-scene>
 
       <runner-scene route="runner" icon="1f3c7"
-          mode$="[[mode]]"
           path$="scenes/runner/runner-scene_[[language]].html"
+          mode$="[[mode]]"
+          header-color="#575769"
           class="santa-scene"></runner-scene>
 
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
@@ -264,12 +275,13 @@ Santa Tracker app.
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
           mode$="[[mode]]"
-          header-color="#9dca3b"
+          header-color="#09904a"
           loading-src="scenes/seasonofgiving/img/loading.svg"
           class="santa-scene"></seasonofgiving-scene>
 
       <smatch-scene route="smatch"
           path$="scenes/smatch/smatch-scene_[[language]].html"
+          header-color="#09904a"
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></smatch-scene>
 
@@ -304,6 +316,7 @@ Santa Tracker app.
 
       <undersea-scene route="undersea" icon="1f30a"
           path$="scenes/undersea/undersea-scene_[[language]].html"
+          header-color="#ba594e"
           class="santa-scene"></undersea-scene>
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(videos)]]">
@@ -319,6 +332,7 @@ Santa Tracker app.
 
       <windtunnel-scene route="windtunnel" icon="1f38f"
           path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
+          header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></windtunnel-scene>
 
@@ -337,6 +351,8 @@ Santa Tracker app.
 
 // Default title of Santa Tracker. Note that this is currently not localized.
 var WINDOW_TITLE = 'Google Santa Tracker';
+
+var TOOLBAR_DEFAULT_COLOR = '#00c6ed';  // also in css
 
 var DEFAULT_ROUTE = 'village';
 var TRACKER_ROUTE = 'tracker';
@@ -834,11 +850,25 @@ Polymer({
       this._triggerRandom();
     }
 
-    // Allow scrolling body if scene requests it.
-    if (this.selectedScene && this.selectedScene.hasAttribute('allow-page-scrolling')) {
+    var scene = this.selectedScene;
+    var allowPageScrolling = scene && scene.hasAttribute('allow-page-scrolling')
+
+    // Allow scrolling body if scene requests it. Update `santa-chrome` to match.
+    if (allowPageScrolling) {
       document.body.classList.remove('scrollock');
+      this.$.chrome.classList.remove('fixed');
     } else {
       document.body.classList.add('scrollock');
+      this.$.chrome.classList.add('fixed');
+    }
+    var color = this.colorForRoute(this.route);
+    this.customStyle['--santa-toolbar-color'] = color;
+    this.updateStyles();
+
+    // Update `theme-color` to match.
+    var meta = document.head.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.content = color || TOOLBAR_DEFAULT_COLOR;
     }
 
     this._updateWindowTitle();
@@ -849,7 +879,7 @@ Polymer({
   },
 
   /**
-   * Called for every scene, when it becomes the foreground scene.
+   * Called when a scene is brought to the foreground and is an upgraded Polymer element.
    */
   _prepareScene: function(scene) {
     // Intentionally empty.
