@@ -124,7 +124,7 @@ window.DEV = true; // NOTE: replaced by string - do not change formatting.
       url += 'intl/' + urlLang + (prod ? '' : '_ALL') + '/';
     }
     // TODO(samthor): Consume ?hl=... here.
-    return url + (window.location.query || '') + window.location.hash;
+    return url + (window.location.search || '') + window.location.hash;
   })();
   history.replaceState(null, document.title, url);
 
