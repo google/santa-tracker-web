@@ -392,13 +392,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
   interpreter.setProperty(scope, 'stampTriangle',
       interpreter.createNativeFunction(wrapper));
 
-  wrapper = function(distance, id) {
-    Turtle.drawAndMove(distance.valueOf(), id.toString());
-  };
-  interpreter.setProperty(scope, 'moveForwardAndDraw',
-      interpreter.createNativeFunction(wrapper));
-
-
   wrapper = function() {
     Turtle.resetPosition();
     Turtle.resetStyle();
@@ -426,17 +419,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.turn(-angle.valueOf(), id.toString());
   };
   interpreter.setProperty(scope, 'turnLeft',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(id) {
-    Turtle.penDown(false, id.toString());
-  };
-  interpreter.setProperty(scope, 'penUp',
-      interpreter.createNativeFunction(wrapper));
-  wrapper = function(id) {
-    Turtle.penDown(true, id.toString());
-  };
-  interpreter.setProperty(scope, 'penDown',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(colour, id) {
@@ -608,27 +590,6 @@ Turtle.turnWithoutAnimation = function(angle) {
  * @param {number} distance Pixels to move.
  * @param {?string} id ID of block.
  */
-Turtle.drawAndMove = function(distance, id) {
-  Turtle.ctxScratch.beginPath();
-  Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
-  if (distance) {
-    Turtle.x += distance * Math.sin(2 * Math.PI * Turtle.heading / 360);
-    Turtle.y -= distance * Math.cos(2 * Math.PI * Turtle.heading / 360);
-    var bump = 0;
-  } else {
-    // WebKit (unlike Gecko) draws nothing for a zero-length line.
-    var bump = 0.1;
-  }
-  Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
-  Turtle.ctxScratch.stroke();
-  Turtle.animate(id);
-};
-
-/**
- * Move the turtle forward or backward.
- * @param {number} distance Pixels to move.
- * @param {?string} id ID of block.
- */
 Turtle.move = function(distance, id) {
   if (distance) {
     Turtle.x += distance * Math.sin(2 * Math.PI * Turtle.heading / 360);
@@ -652,26 +613,6 @@ Turtle.turn = function(angle, id) {
   if (Turtle.heading < 0) {
     Turtle.heading += 360;
   }
-  Turtle.animate(id);
-};
-
-/**
- * Lift or lower the pen.
- * @param {boolean} down True if down, false if up.
- * @param {?string} id ID of block.
- */
-Turtle.penDown = function(down, id) {
-  Turtle.penDownValue = down;
-  Turtle.animate(id);
-};
-
-/**
- * Change the thickness of lines.
- * @param {number} width New thickness in pixels.
- * @param {?string} id ID of block.
- */
-Turtle.penWidth = function(width, id) {
-  Turtle.ctxScratch.lineWidth = width;
   Turtle.animate(id);
 };
 
