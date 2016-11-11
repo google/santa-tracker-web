@@ -96,15 +96,14 @@
 
       /* Sprited icons. */
       .icon21 {
-        height: 21px;
-        width: 21px;
-        background-image: url(media/icons.png);
+        height: 48px;
+        width: 48px;
       }
-      .stop {
+      .next {
         background-position: -42px 0px;
       }
       .run {
-        background-position: -63px 0px;
+        background-position: -42px 0px;
       }
       .center {
         margin: auto;
@@ -152,17 +151,15 @@
     <div id="visualization" class="center" style="width: 300px;">
       <canvas id="scratch" width="300" height="300" hidden></canvas>
       <canvas id="display" width="300" height="300"></canvas>
-      <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height="15" width="15">
-          <button id="runButton" class="primary" title="Run the program you wrote.">
-            <img src="media/1x1.gif" class="run icon21"> Run Program
-          </button>
-         <button id="resetButton" class="primary" hidden>
-            <img src="media/1x1.gif" class="stop icon21"> Reset
-          </button>
-          <button id="toStringButton">To String</button>
-           <button id="fromStringButton">
-            From String
-          </button>
+      <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
+      <button id="runButton" class="primary" title="Draw the snowflake">
+        <img src="media/icons/ic_play_circle_filled.png" class="run icon21">
+      </button>
+      <button id="submitButton" title="Next">
+        <img src="media/icons/ic_navigate_next.png" class="next icon21">
+      </button>
+      <button id="toStringButton">To String</button>
+      <button id="fromStringButton">From String</button>
     </div>
     <div id="blocklyDiv" class="center"></div>
     <div class="tutorial">
