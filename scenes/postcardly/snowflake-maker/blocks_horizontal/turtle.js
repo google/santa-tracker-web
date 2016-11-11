@@ -37,7 +37,7 @@ Blockly.Blocks['snowflake_start'] = {
       "id": "snowflake_start",
       "message0": "%1",
       "args0": [
-	{
+        {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_snowflake.png",
           "width": 40,
@@ -46,7 +46,7 @@ Blockly.Blocks['snowflake_start'] = {
           "flip_rtl": false
         }
       ],
-      "nextStatement": "Start",
+      "nextStatement": "Stamp",
       "inputsInline": true,
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.control.primary,
@@ -57,7 +57,7 @@ Blockly.Blocks['snowflake_start'] = {
 };
 
 Blockly.JavaScript['snowflake_start'] = function(block) {
-  return 'setOnRepeat(false);\n';
+  return '';
 };
 
 Blockly.Blocks['copy_to_make_snowflake'] = {
@@ -67,9 +67,9 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
         "message0": "%1 %2",
         "args0": [
           {
-	    "type": "input_statement",
-	    "name": "SUBSTACK",
-	    "check": "Stamp",
+      	    "type": "input_statement",
+      	    "name": "SUBSTACK",
+      	    "check": "Stamp",
           },
           {
             "type": "field_image",
@@ -97,16 +97,15 @@ Blockly.JavaScript['copy_to_make_snowflake'] = function(block) {
   var code = '';
   var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
-  // Pausing for 50% longer than normal to denote that this is no longer the user's code.
   code += 'for (var ' + loopVar + ' = 0; ' +
       loopVar + ' <  6; ' +
       loopVar + '++) {\n' +
       branch + 'if(' +
-      loopVar + ' == 0){\n pause(' +
-      1.5 * 1000 * Math.pow(1 - 0.3, 2) +
-      ');\n }\n reset();\n turnRight(60*(' +
+      loopVar + ' == 0){\n pause(500);\n' +
+      '}\n reset();\n turnRight(60*(' +
       loopVar + '+1), \'block_id_' +
-      block.id + '\');\n setOnRepeat(true);\n}\n';
+      block.id + '\');\n setOnRepeat(true);\n' +
+      'pause(500)\n}\n';
   return code;
 };
 

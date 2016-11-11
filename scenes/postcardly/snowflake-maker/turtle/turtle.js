@@ -29,6 +29,7 @@ goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
 goog.require('Turtle.SceneTutorial');
+goog.require('Sharing');
 
 Turtle.HEIGHT = 300;
 Turtle.WIDTH = 300;
@@ -88,7 +89,7 @@ Turtle.init = function() {
   var onresize = function(e) {
     var top = visualization.offsetTop;
     //TODO(madeeha): Calculating this wasn't producing desired results. Look at math again.
-    blocklyDiv.style.width = '1000px';
+    blocklyDiv.style.width = '1020px';
     //calculate the size of the main workspace and figure out where to place the starter blocks
     if (Turtle.workspace && Turtle.workspace.topBlocksList && Turtle.workspace.topBlocksList.length) {
       var starterBlock = Turtle.getStarterBlock(Turtle.workspace.topBlocksList);
@@ -134,8 +135,7 @@ Turtle.init = function() {
   //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
 
   var workspaceHeight = blocklyDiv.clientHeight;
-
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -147,6 +147,14 @@ Turtle.init = function() {
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
   Turtle.bindClick('resetButton', Turtle.resetButtonClick);
+
+  //TODO(madCode): Delete these functions later.
+  Turtle.bindClick('toStringButton', function() {
+    Turtle.urlString = Sharing.workspaceToUrl(); 
+    console.log(Turtle.urlString);
+    var starterConnection = Sharing.getStarterBlock(Turtle.workspace.getTopBlocks()).nextConnection;
+  });
+  Turtle.bindClick('fromStringButton', function() {Sharing.urlToWorkspace(Turtle.urlString);});
   if (document.getElementById('submitButton')) {
     Turtle.bindClick('submitButton', Turtle.getImageAsDataURL);
   }
@@ -301,6 +309,7 @@ Turtle.display = function() {
  * @param {!Event} e Mouse or touch event.
  */
 Turtle.runButtonClick = function(e) {
+
   // Prevent double-clicks or double-taps.
   if (BlocklyInterface.eventSpam(e)) {
     return;
@@ -363,7 +372,7 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
   };
   interpreter.setProperty(scope, 'stampPentagon',
-			  interpreter.createNativeFunction(wrapper));
+        interpreter.createNativeFunction(wrapper));
   
   wrapper = function(size, id) {
     Turtle.stampDiamond(size, false /*fill*/, id.toString());
@@ -382,13 +391,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
   };
   interpreter.setProperty(scope, 'stampTriangle',
       interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(distance, id) {
-    Turtle.drawAndMove(distance.valueOf(), id.toString());
-  };
-  interpreter.setProperty(scope, 'moveForwardAndDraw',
-      interpreter.createNativeFunction(wrapper));
-
 
   wrapper = function() {
     Turtle.resetPosition();
@@ -417,17 +419,6 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.turn(-angle.valueOf(), id.toString());
   };
   interpreter.setProperty(scope, 'turnLeft',
-      interpreter.createNativeFunction(wrapper));
-
-  wrapper = function(id) {
-    Turtle.penDown(false, id.toString());
-  };
-  interpreter.setProperty(scope, 'penUp',
-      interpreter.createNativeFunction(wrapper));
-  wrapper = function(id) {
-    Turtle.penDown(true, id.toString());
-  };
-  interpreter.setProperty(scope, 'penDown',
       interpreter.createNativeFunction(wrapper));
 
   wrapper = function(colour, id) {
@@ -459,7 +450,17 @@ Turtle.execute = function() {
   }
 
   Turtle.reset();
-  var code = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
+  var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
+  var loopVar = 'snowflakeLoopCount'
+
+  var code = 'setOnRepeat(false);\n' +
+      'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
+      subcode +
+      'if (' + loopVar + ' == 0) { pause(300); }' +
+      'pause(500);\n' +
+      'setOnRepeat(true);\n' +
+      'reset();\nturnRight(60*(' +
+      loopVar + '+1), \'no-block-id\');}';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100));
 };
@@ -484,8 +485,7 @@ Turtle.executeChunk_ = function() {
     if (go && Turtle.pause) {
       // The last executed command requested a pause.
       go = false;
-      Turtle.pidList.push(
-          setTimeout(Turtle.executeChunk_, Turtle.pause));
+      Turtle.pidList.push(setTimeout(Turtle.executeChunk_, Turtle.pause));
     }
   } while (go);
   // Wrap up if complete.
@@ -503,16 +503,12 @@ Turtle.executeChunk_ = function() {
  */
 Turtle.animate = function(id) {
   Turtle.display();
-  if (id) {
+  if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
-    var speed;
-    if (!Turtle.onRepeat) {
-      speed = 0.3;
-    } else {
-    // Scale the speed non-linearly, to give better precision at the fast end.
-      speed = 0.8;
-    }
-    Turtle.pause = Math.max(1, 1000 * Math.pow(1 - speed, 2));
+    Turtle.pause = Math.max(1, 490);
+  }
+  if (Turtle.onRepeat) {
+    Turtle.pause = 0;
   }
 };
 
@@ -594,27 +590,6 @@ Turtle.turnWithoutAnimation = function(angle) {
  * @param {number} distance Pixels to move.
  * @param {?string} id ID of block.
  */
-Turtle.drawAndMove = function(distance, id) {
-  Turtle.ctxScratch.beginPath();
-  Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
-  if (distance) {
-    Turtle.x += distance * Math.sin(2 * Math.PI * Turtle.heading / 360);
-    Turtle.y -= distance * Math.cos(2 * Math.PI * Turtle.heading / 360);
-    var bump = 0;
-  } else {
-    // WebKit (unlike Gecko) draws nothing for a zero-length line.
-    var bump = 0.1;
-  }
-  Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
-  Turtle.ctxScratch.stroke();
-  Turtle.animate(id);
-};
-
-/**
- * Move the turtle forward or backward.
- * @param {number} distance Pixels to move.
- * @param {?string} id ID of block.
- */
 Turtle.move = function(distance, id) {
   if (distance) {
     Turtle.x += distance * Math.sin(2 * Math.PI * Turtle.heading / 360);
@@ -638,26 +613,6 @@ Turtle.turn = function(angle, id) {
   if (Turtle.heading < 0) {
     Turtle.heading += 360;
   }
-  Turtle.animate(id);
-};
-
-/**
- * Lift or lower the pen.
- * @param {boolean} down True if down, false if up.
- * @param {?string} id ID of block.
- */
-Turtle.penDown = function(down, id) {
-  Turtle.penDownValue = down;
-  Turtle.animate(id);
-};
-
-/**
- * Change the thickness of lines.
- * @param {number} width New thickness in pixels.
- * @param {?string} id ID of block.
- */
-Turtle.penWidth = function(width, id) {
-  Turtle.ctxScratch.lineWidth = width;
   Turtle.animate(id);
 };
 
