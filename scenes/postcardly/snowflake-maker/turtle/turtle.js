@@ -29,6 +29,7 @@ goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
 goog.require('Turtle.SceneTutorial');
+goog.require('Sharing');
 
 Turtle.HEIGHT = 300;
 Turtle.WIDTH = 300;
@@ -133,15 +134,9 @@ Turtle.init = function() {
 
   //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
 
-<<<<<<< 408f96ee797ced281a7fb25c841e9fa5ce18bbaf
-  var workspaceHeight = blocklyDiv.clientHeight;
-
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
-=======
   var workspaceHeight = blocklyDiv.clientHeight; // + 129 + 64;
 
   var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
->>>>>>> changing the starting block to no longer be a loop.
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -307,6 +302,8 @@ Turtle.display = function() {
  * @param {!Event} e Mouse or touch event.
  */
 Turtle.runButtonClick = function(e) {
+  Sharing.urlToWorkspace("p[125]s[125]");
+  //console.log(Sharing.workspaceToUrl());
   // Prevent double-clicks or double-taps.
   if (BlocklyInterface.eventSpam(e)) {
     return;
@@ -466,17 +463,7 @@ Turtle.execute = function() {
 
   Turtle.reset();
   var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
-  var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
-      'count', Blockly.Variables.NAME_TYPE);
-  /**
-  for (var count = 0; count < 6; count++) {
-    subcode
-    pause(500);
-    setOnRepeat(true);
-    reset;
-    turnRight;
-  }
-  */
+  var loopVar = 'snowflakeLoopCount'
 
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
