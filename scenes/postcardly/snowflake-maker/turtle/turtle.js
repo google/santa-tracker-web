@@ -91,9 +91,10 @@ Turtle.init = function() {
     blocklyDiv.style.width = '1000px';
     //calculate the size of the main workspace and figure out where to place the starter blocks
     if (Turtle.workspace) {
+      var starterBlock = Turtle.getStarterBlock();
       var workspaceHeight = blocklyDiv.clientHeight;
-      Turtle.workspace.topBlocks_[0].x = 0;
-      Turtle.workspace.topBlocks_[0].y = workspaceHeight/2;
+      starterBlock.x = 0;
+      starterBlock.y = workspaceHeight/2;
     }
   };
   window.addEventListener('scroll', function() {
@@ -158,6 +159,14 @@ Turtle.init = function() {
 };
 
 window.addEventListener('load', Turtle.init);
+
+Turtle.getStarterBlock = function(topBlocksList) {
+  for (var i = 0; i < topBlocksList.length; i++) {
+    if (topBlocksList[i]. type == "snowflake_start") {
+      return topBlockList[i];
+    }
+  }
+};
 
 //TODO(madCode): make this center the start block on the screen.
 Turtle.centerStartBlock = function() {
@@ -496,7 +505,7 @@ Turtle.animate = function(id) {
     BlocklyInterface.highlight(id);
     var speed;
     if (!Turtle.onRepeat) {
-      speed = 0.3;//Turtle.speedSlider.getValue();
+      speed = 0.3;
     } else {
     // Scale the speed non-linearly, to give better precision at the fast end.
       speed = 0.8;

@@ -25,12 +25,10 @@ Presentdrop scene.
 -->
 <dom-module id="postcardly-scene">
 <template>
+<!-- TODO(madCode): move style to scss and move inline style as well. -->
   <style>
     :host([mode="portal"]) .shareButtons {
       display: none !important;
-    }
-    .blocklyArea {
-      background-color="transparent";
     }
     #postcard {
       position: relative;
@@ -60,7 +58,7 @@ Presentdrop scene.
   </style>
 
   <div id="module-postcardly">
-    <iframe id="blocklyArea" src="about:blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
+    <iframe id="blocklyArea" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
     <div id="snowglobe" hidden>
       <div id="postcard" class="center" >
           <button id="back" on-tap="backToBlockly" style="margin: 24px;">Back</button>
