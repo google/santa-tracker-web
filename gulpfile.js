@@ -128,6 +128,17 @@ const SCENE_NAMES = argv.scene ?
     [argv.scene].concat((SCENE_CLOSURE_CONFIG[argv.scene] || {}).dependencies || []) :
     Object.keys(SCENE_CLOSURE_CONFIG);
 
+// Shared options for htmlmin.
+const HTMLMIN_OPTIONS = {
+  collapseWhitespace: true,
+  minifyJS: true,
+  minifyCSS: true,
+  removeEmptyAttributes: true,
+
+  // nb: do _not_ enable the following
+  collapseBooleanAttributes: false,  // if true, htmlmin will eat e.g. disabled="[[blah]]"
+};
+
 gulp.task('clean', function() {
   return del([
     '{scenes,sass,elements}/**/*.css',
@@ -329,8 +340,9 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
         stripComments: true,
         dest: dest
       }))
-      .pipe(scripts.crisper())
       .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
+      .pipe($.htmlmin(HTMLMIN_OPTIONS))
+      .pipe(scripts.crisper())
       .pipe($.if('*.html', scripts.i18nReplace({
         strict: !!argv.strict,
         path: '_messages',
@@ -349,6 +361,7 @@ gulp.task('vulcanize-elements', ['sass', 'compile-santa-api-service'], function(
       stripComments: true,
       dest: 'elements',
     }))
+    .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(scripts.crisper())
     .pipe($.if('*.html', scripts.i18nReplace({
       strict: !!argv.strict,
@@ -364,6 +377,7 @@ gulp.task('build-prod', function() {
     .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
     .pipe($.replace('<base href="">', `<base href="${STATIC_URL}">`))
     .pipe($.replace('data-version=""', `data-version="${STATIC_VERSION}"`))
+    .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(scripts.i18nReplace({
       strict: !!argv.strict,
       path: '_messages',

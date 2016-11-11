@@ -28,9 +28,10 @@ goog.provide('Turtle');
 goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
+goog.require('Turtle.SceneTutorial');
 
-Turtle.HEIGHT = 400;
-Turtle.WIDTH = 400;
+Turtle.HEIGHT = 300;
+Turtle.WIDTH = 300;
 
 /**
  * PID of animation task currently executing.
@@ -86,9 +87,15 @@ Turtle.init = function() {
   var visualization = document.getElementById('visualization');
   var onresize = function(e) {
     var top = visualization.offsetTop;
-    blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 10 + 'px';
-    blocklyDiv.style.left = rtl ? '10px' : '420px';
-    blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+    //TODO(madeeha): Calculating this wasn't producing desired results. Look at math again.
+    blocklyDiv.style.width = '1000px';
+    //calculate the size of the main workspace and figure out where to place the starter blocks
+    if (Turtle.workspace) {
+      var starterBlock = Turtle.getStarterBlock();
+      var workspaceHeight = blocklyDiv.clientHeight;
+      starterBlock.x = 0;
+      starterBlock.y = workspaceHeight/2;
+    }
   };
   window.addEventListener('scroll', function() {
     onresize();
@@ -112,22 +119,11 @@ Turtle.init = function() {
           horizontalLayout: true,
           toolboxPosition: 'end',
           sounds: soundsEnabled,
-          grid: {spacing: 16,
-            length: 1,
-            colour: '#2C344A',
-            snap: false
-          },
           colours: {
-            workspace: '#334771',
-            flyout: '#283856',
-            scrollbar: '#24324D',
-            scrollbarHover: '#0C111A',
-            insertionMarker: '#FFFFFF',
-            insertionMarkerOpacity: 0.3,
-            fieldShadow: 'rgba(255, 255, 255, 0.3)',
-            dragShadowOpacity: 0.6
+            workspace: 'rgba(255,255,0,0)',
+            flyout: 'rgba(255,255,0,0)',
           }
-        });
+  });
 
   Blockly.getMainWorkspace().addChangeListener(Blockly.Events.disableOrphans);
   
@@ -135,11 +131,11 @@ Turtle.init = function() {
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
 
-  // Initialize the slider.
-  var sliderSvg = document.getElementById('slider');
-  Turtle.speedSlider = new Slider(10, 35, 130, sliderSvg);
+  //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
 
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" x="10" y="200"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
+  var workspaceHeight = blocklyDiv.clientHeight;
+
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
 
@@ -157,66 +153,28 @@ Turtle.init = function() {
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
 
-  //TODO(madCode): delete if we're not showing kids the code they wrote.
-  // Lazy-load the syntax-highlighting.
-  // setTimeout(BlocklyInterface.importPrettify, 1);
-
-
-  //TODO(madCode): delete if we're not doing a help dialog
-  // Turtle.bindClick('helpButton', Turtle.showHelp);
-  // setTimeout(Turtle.showHelp, 1000);
-  // Turtle.workspace.addChangeListener(Turtle.watchCategories_);
+  //Tutorial
+  this.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
+  this.tutorial.schedule();
 };
 
 window.addEventListener('load', Turtle.init);
 
+Turtle.getStarterBlock = function(topBlocksList) {
+  for (var i = 0; i < topBlocksList.length; i++) {
+    if (topBlocksList[i]. type == "snowflake_start") {
+      return topBlockList[i];
+    }
+  }
+};
+
+//TODO(madCode): make this center the start block on the screen.
+Turtle.centerStartBlock = function() {
+};
+
 Turtle.getToolboxElement = function() {
   var match = location.search.match(/toolbox=([^&]+)/);
   return document.getElementById('toolbox-' + (match ? match[1] : 'categories'));
-}
-
-/**
- * Show the help pop-up.
- */
-Turtle.showHelp = function() {
-  var help = document.getElementById('help');
-  var button = document.getElementById('helpButton');
-  var style = {
-    width: '50%',
-    left: '25%',
-    top: '5em'
-  };
-
-  //TODO(madCode): remove if we're not showing dialogs.
-  // BlocklyDialogs.showDialog(help, button, true, true, style, Turtle.hideHelp);
-  // BlocklyDialogs.startDialogKeyDown();
-};
-
-/**
- * Hide the help pop-up.
- */
-Turtle.hideHelp = function() {
-  //TODO(madCode): remove if we're not showing dialogs.
-  // BlocklyDialogs.stopDialogKeyDown();
-  setTimeout(Turtle.showCategoryHelp, 5000);
-};
-
-/**
- * Show the help pop-up to encourage clicking on the toolbox categories.
- */
-Turtle.showCategoryHelp = function() {
-  if (Turtle.categoryClicked_) { // || BlocklyDialogs.isDialogVisible_) {
-    return;
-  }
-  var help = document.getElementById('helpToolbox');
-  var style = {
-    width: '25%',
-    left: '525px',
-    top: '3.3em'
-  };
-  var origin = document.getElementById(':0');  // Toolbox's tree root.
-  //TODO(madCode): remove if we're not showing dialogs.
-  //BlocklyDialogs.showDialog(help, origin, true, false, style, null);
 };
 
 
@@ -547,7 +505,7 @@ Turtle.animate = function(id) {
     BlocklyInterface.highlight(id);
     var speed;
     if (!Turtle.onRepeat) {
-      speed = Turtle.speedSlider.getValue();
+      speed = 0.3;
     } else {
     // Scale the speed non-linearly, to give better precision at the fast end.
       speed = 0.8;
@@ -560,16 +518,19 @@ Turtle.setOnRepeat = function(bool) {
   Turtle.onRepeat = bool.data;
 }
 
-Turtle.setStepSpeed = function(speed) {
-  if (!Turtle.onRepeat) {
-    var speed = Turtle.speedSlider.getValue();
-  }
-  // Scale the speed non-linearly, to give better precision at the fast end.
-  Turtle.stepSpeed = 1000 * Math.pow(1 - speed, 2);
-}
-
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
-  var sideLen = size*Math.sin(Math.PI/numSides);
+  var sideLen;
+  switch(numSides) {
+    case 4:
+      sideLen = size;
+      break;
+    case 5:
+      sideLen = 2*size*Math.sin(Math.PI/numSides)/(Math.cos(Math.PI/numSides) + 1);    
+      break;
+    default:
+      sideLen = size * 1.1547;
+      break;
+  }
   Turtle.ctxScratch.beginPath();
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
@@ -653,11 +614,6 @@ Turtle.drawAndMove = function(distance, id) {
  * @param {?string} id ID of block.
  */
 Turtle.move = function(distance, id) {
-  //TODO(madCode): delete commented out parts of this function if we decide not to draw on move.
-  // if (Turtle.penDownValue) {
-  //   Turtle.ctxScratch.beginPath();
-  //   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
-  // }
   if (distance) {
     Turtle.x += distance * Math.sin(2 * Math.PI * Turtle.heading / 360);
     Turtle.y -= distance * Math.cos(2 * Math.PI * Turtle.heading / 360);
@@ -666,10 +622,6 @@ Turtle.move = function(distance, id) {
     // WebKit (unlike Gecko) draws nothing for a zero-length line.
     var bump = 0.1;
   }
-  // if (Turtle.penDownValue) {
-  //   Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
-  //   Turtle.ctxScratch.stroke();
-  // }
   Turtle.animate(id);
 };
 
