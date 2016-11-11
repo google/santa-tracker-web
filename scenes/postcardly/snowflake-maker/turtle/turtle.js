@@ -28,6 +28,11 @@ goog.provide('Turtle');
 goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
+<<<<<<< e05aa75050da2b05f619bf852a750dcb70b9773a
+=======
+goog.require('Turtle.SceneTutorial');
+goog.require('Sharing');
+>>>>>>> adding sharing
 
 Turtle.HEIGHT = 400;
 Turtle.WIDTH = 400;
@@ -343,6 +348,8 @@ Turtle.display = function() {
  * @param {!Event} e Mouse or touch event.
  */
 Turtle.runButtonClick = function(e) {
+  Sharing.urlToWorkspace("p[125]s[125]");
+  //console.log(Sharing.workspaceToUrl());
   // Prevent double-clicks or double-taps.
   if (BlocklyInterface.eventSpam(e)) {
     return;
@@ -502,17 +509,7 @@ Turtle.execute = function() {
 
   Turtle.reset();
   var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
-  var loopVar = Blockly.JavaScript.variableDB_.getDistinctName(
-      'count', Blockly.Variables.NAME_TYPE);
-  /**
-  for (var count = 0; count < 6; count++) {
-    subcode
-    pause(500);
-    setOnRepeat(true);
-    reset;
-    turnRight;
-  }
-  */
+  var loopVar = 'snowflakeLoopCount'
 
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
