@@ -28,11 +28,8 @@ goog.provide('Turtle');
 goog.require('BlocklyInterface');
 goog.require('Slider');
 goog.require('Turtle.Blocks');
-<<<<<<< e05aa75050da2b05f619bf852a750dcb70b9773a
-=======
 goog.require('Turtle.SceneTutorial');
 goog.require('Sharing');
->>>>>>> adding sharing
 
 Turtle.HEIGHT = 400;
 Turtle.WIDTH = 400;
