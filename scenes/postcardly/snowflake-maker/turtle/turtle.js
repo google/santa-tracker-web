@@ -528,7 +528,7 @@ Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
       sideLen = 2*size*Math.sin(Math.PI/numSides)/(Math.cos(Math.PI/numSides) + 1);    
       break;
     default:
-      sideLen = size/Math.sin(Math.PI/numSides);
+      sideLen = size * 1.1547;
       break;
   }
   Turtle.ctxScratch.beginPath();
