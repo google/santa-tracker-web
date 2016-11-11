@@ -433,7 +433,9 @@ gulp.task('build-contents', ['copy-assets'], function() {
 
 // clean + build a distribution version
 gulp.task('dist', function(callback) {
-  require('run-sequence')('rm-dist', 'copy-assets', 'build-contents', callback);
+  // nb. 'build-contents' is our leaf here, as it depends on everything else. Be careful what deps
+  // you list here, because they're not part of the normal Gulp dependency chain.
+  require('run-sequence')('rm-dist', 'build-contents', callback);
 });
 
 gulp.task('watch', function() {
