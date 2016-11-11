@@ -98,7 +98,7 @@ Santa Tracker app.
           header-color="#007ab6"
           class="santa-scene"></briefing-scene>
 
-      <callfromsanta-scene route="callfromsanta" icon="1f4de"
+      <callfromsanta-scene route="callfromsanta" icon="1f4de" disabled
           path$="scenes/callfromsanta/callfromsanta-scene.html"
           mute="[[userMute]]"
           loading-bg-color="rgb(129,208,0)"
@@ -553,14 +553,6 @@ Polymer({
     },
 
     /**
-     * A reference to the fallback house used instead of 'callfromsanta'.
-     */
-    _fallbackHouse: {
-      type: Object,
-      value: null
-    },
-
-    /**
      * True when the countdown is complete, and the tracker is active.
      */
     duringTracker: {
@@ -762,35 +754,9 @@ Polymer({
     var castMode = this.mode === 'cast';
     var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
-    var isSpanglish = /^e(n|s)/.test(this.language);
-    var isEnglish = /^en/.test(this.language);
 
-    for (var i = this._houses.length - 1; i >= 0; i--) {
-      var house = this._houses[i];
-
-      // If this house is an array, it's a choice of houses based on language
-      // or other conditions.
-      if (house.length) {
-        var choice = house[0];
-        switch (choice.module) {
-        case 'callfromsanta':
-          // remove callfromsanta where not supported (leaving fallback house)
-          // or after Santa's flight has concluded.
-          if (!isSpanglish || this.postFlight) {
-            choice = house[1];
-          } else {
-            // Save the object for postFlight (when callfromsanta will be
-            // disabled)
-            this._fallbackHouse = house[1];
-          }
-          break;
-        }
-
-        this._houses[i] = house = choice;
-      }
-
-      house.disabled = house.disabled || castMode;  // by default, all houses are disabled on cast
-
+    for (var i = 0, house; house = this._houses[i]; ++i) {
+      house.disabled = house.disabled || castMode;  // houses are disabled on cast
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
@@ -1056,20 +1022,6 @@ Polymer({
    * shutoff, kicking out of invalid routes if necessary.
    */
   _postFlightChanged: function() {
-    for (var i = 0; i < this._houses.length; i++) {
-      // In regions where callfromsanta was supported, replace it with the
-      // fallbackHouse used in other regions
-      if (this._houses[i].module === 'callfromsanta') {
-        if (this._fallbackHouse) {
-          // Use Polymer's splice method to cause notifications.
-          this.splice('_houses', i, 1, this._fallbackHouse);
-        }
-      }
-
-      // lock more houses here, if needed
-    }
-
-    // allowed routes may have changed, so check again
     this._checkSchedule();
   },
 

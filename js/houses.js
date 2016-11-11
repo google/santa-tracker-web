@@ -149,23 +149,13 @@ window.HOUSES = [{
   launchDate: new Date('Dec 17, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
-}, [
-  {
-    // optionally used instead of "briefing" in some regions
-    module: "callfromsanta",
-    iced: true,
-    launchDate: new Date('Dec 18, 2016'),
-    portalLaunchDate: new Date('Dec 1, 2016'),
-    category: "play"
-  }, {
-    // optionally used instead of "callfromsanta" in some regions
-    module: "briefing",
-    iced: true,
-    launchDate: new Date('Dec 18, 2016'),
-    portalLaunchDate: new Date('Dec 1, 2016'),
-    category: "explore"
-  }
-], {
+}, {
+  module: "briefing",
+  iced: true,
+  launchDate: new Date('Dec 18, 2016'),
+  portalLaunchDate: new Date('Dec 1, 2016'),
+  category: "explore"
+}, {
   module: "citylights",
   iced: true,
   launchDate: new Date('Dec 19, 2016'),
