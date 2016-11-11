@@ -91,10 +91,8 @@ Sharing.stringToBlocks = function(starterConnection, string) {
     } else if (char == '<') {
       if (string[i+1] == '[') {
         //if the string is <[x], it's an empty loop.
+        value.lastIndex = 0;
         var valueList = value.exec(string.substring(i+1));
-        if (!valueList) {
-          valueList = value.exec(string.substring(i+1));
-        }
         var valueContent = valueList[1];
         nextBlock = this.makeBlockFromInitial('empty-loop', valueContent);
         this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
