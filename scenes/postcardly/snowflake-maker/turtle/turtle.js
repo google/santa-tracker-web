@@ -96,6 +96,7 @@ Turtle.init = function() {
       var workspaceHeight = blocklyDiv.clientHeight;
       starterBlock.x = 0;
       starterBlock.y = workspaceHeight/2;
+      Turtle.workspace.addChangeListener(Turtle.onFirstClicked);
     }
   };
   window.addEventListener('scroll', function() {
@@ -103,7 +104,6 @@ Turtle.init = function() {
     Blockly.svgResize(Turtle.workspace);
   });
   window.addEventListener('resize', onresize);
-  onresize();
 
   var toolbox = Turtle.getToolboxElement();
 
@@ -146,7 +146,6 @@ Turtle.init = function() {
   Turtle.reset();
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
-  Turtle.bindClick('resetButton', Turtle.resetButtonClick);
 
   //TODO(madCode): Delete these functions later.
   Turtle.bindClick('toStringButton', function() {
@@ -254,7 +253,8 @@ Turtle.display = function() {
   Turtle.ctxDisplay.beginPath();
   Turtle.ctxDisplay.rect(0, 0,
       Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
-  Turtle.ctxDisplay.fillStyle = '#000000';
+  Turtle.ctxDisplay.clearRect(0, 0, Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
+  Turtle.ctxDisplay.fillStyle = "rgba(255, 255, 255, 0.2)";
   Turtle.ctxDisplay.fill();
 
   // Draw the user layer.
@@ -314,37 +314,12 @@ Turtle.runButtonClick = function(e) {
   if (BlocklyInterface.eventSpam(e)) {
     return;
   }
-  var runButton = document.getElementById('runButton');
-  var resetButton = document.getElementById('resetButton');
-  // Ensure that Reset button is at least as wide as Run button.
-  if (!resetButton.style.minWidth) {
-    resetButton.style.minWidth = runButton.offsetWidth + 'px';
-  }
-  runButton.style.display = 'none';
-  resetButton.style.display = 'inline';
   document.getElementById('spinner').style.visibility = 'visible';
-  Turtle.workspace.traceOn(true);
-  Turtle.execute();
-};
-
-/**
- * Click the reset button.  Reset the Turtle.
- * @param {!Event} e Mouse or touch event.
- */
-Turtle.resetButtonClick = function(e) {
-  // Prevent double-clicks or double-taps.
-  if (BlocklyInterface.eventSpam(e)) {
-    return;
-  }
-  var runButton = document.getElementById('runButton');
-  runButton.style.display = 'inline';
-  document.getElementById('resetButton').style.display = 'none';
-  document.getElementById('spinner').style.visibility = 'hidden';
   Turtle.workspace.traceOn(false);
   Turtle.reset();
-
-  // Image cleared; prevent user from moving on to snowflake.
   Turtle.canSubmit = false;
+  Turtle.workspace.traceOn(true);
+  Turtle.execute();
 };
 
 /**
@@ -682,3 +657,12 @@ Turtle.bindClick = function(el, func) {
   el.addEventListener('click', func, true);
   el.addEventListener('touchend', func, true);
 };
+
+Turtle.onFirstClicked = function(event) {
+  if (event.type == Blockly.Events.UI && event.element == 'click') {
+    var block = Turtle.workspace.getBlockById(event.blockId);
+    if (block && block.type == 'snowflake_start') {
+      Turtle.runButtonClick();
+    }
+  }
+}
