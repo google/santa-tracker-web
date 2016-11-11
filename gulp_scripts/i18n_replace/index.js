@@ -47,6 +47,15 @@ module.exports = function replaceMessages(opts) {
     }
 
     msgPromise.then(function(messagesByLang) {
+      var missing = {};
+      function recordMissing(msgid, lang) {
+        var langs = missing[msgid];
+        if (!langs) {
+          missing[msgid] = langs = [];
+        }
+        langs.push(lang);
+      }
+
       var src = file.contents.toString();
       var langs = Object.keys(messagesByLang);
       // Force en to be last. gulp halts execution because we push a file to the
@@ -70,12 +79,12 @@ module.exports = function replaceMessages(opts) {
           .replace(REGEX, function replacer(match, msgid, tagBody) {
             var msg = msgs[msgid];
             if (!msg) {
-              warn('[%s %6s] Could not find message %s.', file.relative, lang, msgid);
+              recordMissing(msgid, lang);
               var fallback = messagesByLang.en[msgid];
               if (lang == 'fr-CA') {
                 fallback = messagesByLang.fr[msgid] || fallback
               }
-              return fallback ? fallback.message: 'MESSAGE_NOT_FOUND';
+              return fallback ? fallback.message : 'MESSAGE_NOT_FOUND';
             }
             if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
               error('i18n-msg body must be "PLACEHOLDER_i18n" for %s in %s', msgid, file.relative);
@@ -108,6 +117,16 @@ module.exports = function replaceMessages(opts) {
 
         stream.push(i18nfile);
       }
+
+      Object.keys(missing).forEach(function(msgid) {
+        var langs = missing[msgid];
+
+        if (langs.length >= 5) {
+          warn('%s: missing \'%s\' for %d langs', file.relative, msgid, langs.length);
+        } else {
+          warn('%s: missing \'%s\' for [%s]', file.relative, msgid, langs.join(' '));
+        }
+      });
       cb();
     });
   });
