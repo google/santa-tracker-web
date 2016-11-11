@@ -92,7 +92,7 @@ app.Result.prototype = {
     this.el.classList.remove('result--show-code');
     this.el.classList.add('is-visible');
 
-    window.santaApp.fire('sound-trigger', result.levelComplete ? 'computer_success' : 'computer_fail');
+    Klang.triggerEvent(result.levelComplete ? 'computer_success' : 'computer_fail');
   },
 
   hide: function() {

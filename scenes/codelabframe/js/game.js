@@ -124,7 +124,7 @@ app.Game.prototype.restartLevel = function() {
 app.Game.prototype.start = function() {
   this.restart();
 
-  window.santaApp.fire('sound-trigger', 'computer_start');
+  Klang.triggerEvent('computer_start');
 };
 
 /**
