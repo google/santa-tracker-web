@@ -55,7 +55,9 @@ const PRECACHE = (function() {
 function fetchAndCache(url, opt_withCredentials) {
   const opts = {};
   if (opt_withCredentials) {
-    opts.credentials = 'include';
+    // TODO(plegner): This seems to not work, and actually causes the SW to prevent the site from
+    // loading at all. Left off for now, so we get credential errors but the site will load.
+//    opts.credentials = 'include';
   }
   return fetch(url, opts).then(response => {
     if (response.status === 200) {
