@@ -244,7 +244,7 @@ if (window.santaApp.mode === 'portal') {
       ['eventemitter2/eventemitter2.min.js', 'roslibjs/roslib.min.js', 'spacenav/spacenav.js'];
   libs.forEach(function(lib) {
     var s = document.createElement('script');
-    s.src = window.staticPath + 'third_party/lib/' + lib;
+    s.src = 'third_party/lib/' + lib;
     document.body.appendChild(s);
   });
 }
