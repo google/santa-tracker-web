@@ -28,106 +28,103 @@ var initialToBlock = {
 };
 
 Sharing.workspaceToUrl = function() {
-	var text = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(Turtle.workspace));
-	var textList = text.split("\n");
-	textList = textList.slice(3, -1);
-	var urlList = [];
-	var regexes = {
-		'block': /^\s*<block type="([A-z\_]+)" id=".+">$/,
-		'value': /^\s*<value/,
-		'field': /^\s*<field name="[A-z]+">(.+)<\/field>$/,
-		'endLoop': /^\s*<\/statement>$/,
-	};
-	for (var i = 0; i < textList.length; i++) {
-		var line = textList[i];
-		if (regexes['block'].test(line)) {
-			var match = regexes['block'].exec(line);
-			urlList.push(blockToInitial[match[1]]);
-		} else if (regexes['field'].test(line)) {
-			if(urlList[urlList.length - 1] == '>' || urlList[urlList.length - 1] == '<') {
-				urlList.push('['+regexes['field'].exec(line)[1]+']');
-			} else {
-				urlList.push('['+regexes['field'].exec(line)[1]+']');
-			}
-		} else if (regexes['endLoop'].test(line)) {
-			urlList.push('>');
-		}
-	}
-	return urlList.join("");
+  var text = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(Turtle.workspace));
+  var textList = text.split("\n");
+  textList = textList.slice(3, -1);
+  var urlList = [];
+  var regexes = {
+    'block': /^\s*<block type="([A-z\_]+)" id=".+">$/,
+    'value': /^\s*<value/,
+    'field': /^\s*<field name="[A-z]+">(.+)<\/field>$/,
+    'endLoop': /^\s*<\/statement>$/,
+  };
+  for (var i = 0; i < textList.length; i++) {
+    var line = textList[i];
+    if (regexes['block'].test(line)) {
+      var match = regexes['block'].exec(line);
+      urlList.push(blockToInitial[match[1]]);
+    } else if (regexes['field'].test(line)) {
+      if(urlList[urlList.length - 1] == '>' || urlList[urlList.length - 1] == '<') {
+        urlList.push('['+regexes['field'].exec(line)[1]+']');
+      } else {
+        urlList.push('['+regexes['field'].exec(line)[1]+']');
+      }
+    } else if (regexes['endLoop'].test(line)) {
+      urlList.push('>');
+    }
+  }
+  return urlList.join("");
 };
 
 Sharing.urlToWorkspace = function(string) {
-	//get the starterblock
-	//for each symbol, add a block to the thing.
-	var workspace = Turtle.workspace;
-	var starterConnection = this.getStarterBlock(workspace.getTopBlocks()).nextConnection;
+  //get the starterblock
+  //for each symbol, add a block to the thing.
+  var workspace = Turtle.workspace;
+  var starterConnection = this.getStarterBlock(workspace.getTopBlocks()).nextConnection;
   if (starterConnection.targetBlock() != null) {
     starterConnection.targetBlock().dispose();
   }
-	this.stringToBlocks(starterConnection, string);
+  this.stringToBlocks(starterConnection, string);
 };
 
 Sharing.makeLoopBlock = function(string, times) {
-	var starterBlock = this.makeBlockFromInitial('empty-loop', times);
+  var starterBlock = this.makeBlockFromInitial('empty-loop', times);
   var connection = starterBlock.inputList[0].connection;
-	this.stringToBlocks(connection, string);
-	return starterBlock;
+  this.stringToBlocks(connection, string);
+  return starterBlock;
 };
 
 Sharing.stringToBlocks = function(starterConnection, string) {
-	var letter = /[A-z]/;
-	var value = /^\[([#?A-Za-z\d]+)\]/g;
-	var outermostLoop = /^<(.+)>\[(\d+)\]/g;
-	var currentConnection = starterConnection;
-	var nextBlock;
-	for (var i=0; i < string.length; i++) {
-		var char = string[i];
-		if (letter.test(char) && value.test(string.substring(i+1))) {
-			var valueList = value.exec(string.substring(i+1));
-			if (!valueList) {
-				valueList = value.exec(string.substring(i+1));
-			}
-			var valueContent = valueList[1];
-			nextBlock = this.makeBlockFromInitial(char, valueContent);
-			this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
-			//i += value.length + 2;
-		} else if (char == '<') {
-			if (string[i+1] == '[') {
-				//if the string is <[x], it's an empty loop.
-				var valueList = value.exec(string.substring(i+1));
-				if (!valueList) {
-					valueList = value.exec(string.substring(i+1));
-				}
-				var valueContent = valueList[1];
-				nextBlock = this.makeBlockFromInitial('empty-loop', valueContent);
-				this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
-			} else {
-				var loop = outermostLoop.exec(string.substring(i));
-				nextBlock = this.makeLoopBlock(loop[1], loop[2]);
-				this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
-				i += loop[0].length - 1;
-			}
-		}
-		if (nextBlock && nextBlock.nextConnection) {
-			currentConnection = nextBlock.nextConnection;
-		}
-	}
+  var letter = /[A-z]/;
+  var value = /^\[([#?A-Za-z\d]+)\]/g;
+  var outermostLoop = /^<(.+)>\[(\d+)\]/g;
+  var currentConnection = starterConnection;
+  var nextBlock;
+  for (var i=0; i < string.length; i++) {
+    var char = string[i];
+    if (letter.test(char) && value.test(string.substring(i+1))) {
+      value.lastIndex = 0;
+      var valueList = value.exec(string.substring(i+1));
+      var valueContent = valueList[1];
+      nextBlock = this.makeBlockFromInitial(char, valueContent);
+      this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
+    } else if (char == '<') {
+      if (string[i+1] == '[') {
+        //if the string is <[x], it's an empty loop.
+        var valueList = value.exec(string.substring(i+1));
+        if (!valueList) {
+          valueList = value.exec(string.substring(i+1));
+        }
+        var valueContent = valueList[1];
+        nextBlock = this.makeBlockFromInitial('empty-loop', valueContent);
+        this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
+      } else {
+        var loop = outermostLoop.exec(string.substring(i));
+        nextBlock = this.makeLoopBlock(loop[1], loop[2]);
+        this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
+        i += loop[0].length - 1;
+      }
+    }
+    if (nextBlock && nextBlock.nextConnection) {
+      currentConnection = nextBlock.nextConnection;
+    }
+  }
 };
 
 Sharing.makeBlockFromInitial = function (initial, value) {
-	var xmlString = initialToBlock[initial].replace(/\[VALUE\]/, value);
-	var xml = Blockly.Xml.textToDom(xmlString);
-	return Blockly.Xml.domToBlock(xml, Turtle.workspace);
+  var xmlString = initialToBlock[initial].replace(/\[VALUE\]/, value);
+  var xml = Blockly.Xml.textToDom(xmlString);
+  return Blockly.Xml.domToBlock(xml, Turtle.workspace);
 };
 
 Sharing.setConnectingBlock = function(connection, nextConnection) {
-	connection.connect(nextConnection);
+  connection.connect(nextConnection);
 };
 
 Sharing.getStarterBlock = function(topBlocksList) {
-	for (var i = 0; i < topBlocksList.length; i++) {
-		if (topBlocksList[i]. type == "snowflake_start") {
-			return topBlocksList[i];
-		}
-	}
+  for (var i = 0; i < topBlocksList.length; i++) {
+    if (topBlocksList[i]. type == "snowflake_start") {
+      return topBlocksList[i];
+    }
+  }
 };

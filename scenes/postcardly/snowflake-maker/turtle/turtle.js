@@ -134,8 +134,7 @@ Turtle.init = function() {
 
   //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
 
-  var workspaceHeight = blocklyDiv.clientHeight; // + 129 + 64;
-
+  var workspaceHeight = blocklyDiv.clientHeight;
   var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
@@ -154,9 +153,7 @@ Turtle.init = function() {
     Turtle.urlString = Sharing.workspaceToUrl(); 
     console.log(Turtle.urlString);
     var starterConnection = Sharing.getStarterBlock(Turtle.workspace.getTopBlocks()).nextConnection;
-    if (starterConnection.targetBlock() != null) {
-      starterConnection.targetBlock().dispose();
-    }});
+  });
   Turtle.bindClick('fromStringButton', function() {Sharing.urlToWorkspace(Turtle.urlString);});
   if (document.getElementById('submitButton')) {
     Turtle.bindClick('submitButton', Turtle.getImageAsDataURL);
@@ -526,7 +523,7 @@ Turtle.animate = function(id) {
   Turtle.display();
   if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
-    Turtle.pause = Math.max(1, 1000 * Math.pow(0.7, 2));
+    Turtle.pause = Math.max(1, 490);
   }
   if (Turtle.onRepeat) {
     Turtle.pause = 0;
