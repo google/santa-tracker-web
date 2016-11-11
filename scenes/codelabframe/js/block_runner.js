@@ -240,22 +240,6 @@ app.BlockRunner.prototype = {
     this.state_ = app.BlockRunnerState.ANIMATING;
   },
 
-  restartLevel: function() {
-    if (!this.player.source) {
-      return;
-    }
-
-    this.beforeAnimations_();
-
-    this.player.playbackRate = -4;
-    this.player.play();
-
-    this.state_ = app.BlockRunnerState.REWINDING;
-
-    app.PlayerSound.disable();
-    window.santaApp.fire('sound-trigger', 'computer_rewind_start');
-  },
-
   resetAnimation: function() {
     this.player.cancel();
   },

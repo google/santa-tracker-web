@@ -271,7 +271,7 @@ app.Scene.prototype.setLevel = function(level) {
  */
 app.Scene.prototype.restartLevel = function() {
   this.player.restartLevel();
-  this.blockRunner_.restartLevel();
+  this.blockRunner_.resetAnimation();
 };
 
 /**
