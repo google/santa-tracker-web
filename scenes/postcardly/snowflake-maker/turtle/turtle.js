@@ -90,8 +90,8 @@ Turtle.init = function() {
     //TODO(madeeha): Calculating this wasn't producing desired results. Look at math again.
     blocklyDiv.style.width = '1000px';
     //calculate the size of the main workspace and figure out where to place the starter blocks
-    if (Turtle.workspace) {
-      var starterBlock = Turtle.getStarterBlock();
+    if (Turtle.workspace && Turtle.workspace.topBlocksList && Turtle.workspace.topBlocksList.length) {
+      var starterBlock = Turtle.getStarterBlock(Turtle.workspace.topBlocksList);
       var workspaceHeight = blocklyDiv.clientHeight;
       starterBlock.x = 0;
       starterBlock.y = workspaceHeight/2;
@@ -125,7 +125,7 @@ Turtle.init = function() {
           }
   });
 
-  Blockly.getMainWorkspace().addChangeListener(Blockly.Events.disableOrphans);
+  Turtle.workspace.addChangeListener(Blockly.Events.disableOrphans);
   
   // Prevent collisions with user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
@@ -138,6 +138,8 @@ Turtle.init = function() {
   var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"><next><block type="copy_to_make_snowflake" deletable="false" movable="false"></block></next></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
+
+  onresize();
 
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
