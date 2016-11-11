@@ -28,6 +28,7 @@ goog.provide('SantaService');
  * @param {string} lang
  * @param {string} version
  * @constructor
+ * @export
  */
 SantaService = function SantaService(clientId, lang, version) {
   /** @private {string} */
@@ -70,7 +71,7 @@ SantaService = function SantaService(clientId, lang, version) {
   this.futureCards_ = [];
 
   /** Bound version of `fetchDetails_`. */
-  this.boundFetchDetails_ = (id, callback) => this.fetchDetails_(id, callback);
+  this.boundFetchDetails_ = this.fetchDetails_.bind(this);
 
   /**
    * A number between 0 and 1, consistent within a user session. Sent to the
@@ -140,6 +141,7 @@ SantaService = function SantaService(clientId, lang, version) {
 /**
  * @param {string} eventName
  * @param {function()} handler
+ * @export
  */
 SantaService.prototype.addListener = function(eventName, handler) {
   return Events.addListener(this, eventName, handler);
@@ -147,6 +149,7 @@ SantaService.prototype.addListener = function(eventName, handler) {
 
 /**
  * @param {string} lang to set
+ * @export
  */
 SantaService.prototype.setLang = function(lang) {
   this.lang_ = lang;
@@ -155,6 +158,7 @@ SantaService.prototype.setLang = function(lang) {
 
 /**
  * @param {function(SantaState)} callback
+ * @export
  */
 SantaService.prototype.getCurrentLocation = function(callback) {
   var now = this.now();
@@ -170,6 +174,7 @@ SantaService.prototype.getCurrentLocation = function(callback) {
 
   // TODO: handle dest == null
   if (dest == null) {
+    console.warn('no destination');
     return;
   }
 
@@ -232,8 +237,7 @@ SantaService.prototype.PRESENTS_OVER_WATER_ = .3;
 /**
  * @const
  */
-SantaService.prototype.PRESENTS_IN_CITY =
-    1 - SantaService.prototype.PRESENTS_OVER_WATER_;
+SantaService.prototype.PRESENTS_IN_CITY = 1 - SantaService.prototype.PRESENTS_OVER_WATER_;
 
 /**
  * @param {number} now
@@ -285,6 +289,7 @@ SantaService.prototype.calculateDistanceTravelled_ = function(now, prev, next) {
  * List of destinations, sorted chronologically (latest destinations last).
  * @return {Array<!SantaLocation>} a list of destinations, or null if the
  * service isn't ready.
+ * @export
  */
 SantaService.prototype.getDestinations = function() {
   return this.destinations_.length ? this.destinations_ : null;
@@ -294,6 +299,7 @@ SantaService.prototype.getDestinations = function() {
  * List of cards sorted reverse chronologically (lastest cards first).
  * @return {Array<!StreamCard>} a list of cards, or null if the
  * service isn't ready.
+ * @export
  */
 SantaService.prototype.getTimeline = function() {
   this.updateTimeline_();
@@ -301,7 +307,8 @@ SantaService.prototype.getTimeline = function() {
 };
 
 /**
- * @return {?{lat: number, lng: number}} the user's location
+ * @return {?LatLng} the user's location
+ * @export
  */
 SantaService.prototype.getUserLocation = function() {
   if (!this.userLocation_) {
@@ -437,7 +444,8 @@ SantaService.prototype.getUrlParameter_ = function(param) {
  * Synchronize info with the server. This function returns immediately, the
  * synchronization is performed asynchronously.
  *
- * @param {Function} opt_callback
+ * @param {function()} opt_callback
+ * @export
  */
 SantaService.prototype.sync = function(opt_callback) {
   if (this.syncInFlight_ && opt_callback) {
@@ -638,6 +646,7 @@ SantaService.prototype.scheduleReload_ = function() {
 
 /**
  * @return {number}
+ * @export
  */
 SantaService.prototype.now = function() {
   return +new Date() + (this.debugOffset_ || this.offset_ || 0);
@@ -645,6 +654,7 @@ SantaService.prototype.now = function() {
 
 /**
  * @return {!Date}
+ * @export
  */
 SantaService.prototype.dateNow = function() {
   return new Date(this.now());
@@ -652,6 +662,7 @@ SantaService.prototype.dateNow = function() {
 
 /**
  * @return {boolean} true if time has been synchronized with the server.
+ * @export
  */
 SantaService.prototype.isSynced = function() {
   return this.synced_;
@@ -659,6 +670,7 @@ SantaService.prototype.isSynced = function() {
 
 /**
  * @return {boolean} true if the service has been killed.
+ * @export
  */
 SantaService.prototype.isKilled = function() {
   return this.killed_;
@@ -668,6 +680,7 @@ SantaService.prototype.isKilled = function() {
  * Client-specific kill switches.
  * For example, the website has a flag to disable the Google earth button.
  * @return {!Object}
+ * @export
  */
 SantaService.prototype.getClientSpecific = function() {
   return this.clientSpecific_ || {};

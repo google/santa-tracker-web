@@ -170,18 +170,23 @@ gulp.task('compile-santa-api-service', function() {
     }
   });
 
+  const closureBasePath = path.resolve('components/closure-library/closure/goog/base.js');
   return gulp.src(SERVICE_FILES)
     .pipe($.newer('js/service/service.min.js'))
     .pipe($.closureCompiler({
       compilerPath: COMPILER_PATH,
       fileName: 'service.min.js',
       compilerFlags: addCompilerFlagOptions({
-        compilation_level: 'SIMPLE_OPTIMIZATIONS',
+        js: [closureBasePath],
+        compilation_level: 'ADVANCED_OPTIMIZATIONS',
         warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT6_STRICT',
         language_out: 'ECMASCRIPT5_STRICT',
         define: [`santaAPIRequest.BASE="${API_BASE_URL}"`],
+        output_wrapper: '(function(){%output%}).call(window);',
         rewrite_polyfills: false,
+        generate_exports: true,
+        export_local_property_definitions: true,
         jscomp_warning: [
           // https://github.com/google/closure-compiler/wiki/Warnings
           'accessControls',

@@ -363,11 +363,11 @@ WorldView.prototype.filterMarkers_ = function() {
 WorldView.prototype.updateCamera_ = function(state) {
   // TODO: This used SantaLayer to show the recent track, but the code was
   // busted: let's just compare curr/next.
-  var bounds = new google.maps.LatLngBounds(mapsLatLng(state.position));
-  bounds = bounds.extend(mapsLatLng(state.next.location));
+  var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(state.position));
+  bounds = bounds.extend(new google.maps.LatLng(state.next.location));
 
   if (state.prev && state.prev.location) {
-    bounds = bounds.extend(mapsLatLng(state.prev.location));
+    bounds = bounds.extend(new google.maps.LatLng(state.prev.location));
   }
 
   var viewSize = this.mapSize_;
@@ -385,7 +385,7 @@ WorldView.prototype.updateCamera_ = function(state) {
       }
     }
   }
-  this.map_.panTo(mapsLatLng(state.position));
+  this.map_.panTo(new google.maps.LatLng(state.position));
 };
 
 /**

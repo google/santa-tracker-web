@@ -15,19 +15,10 @@
  */
 
 /**
- * Converts a Santa LatLng object to a Maps API LatLng.
- *
- * @param {LatLng} o
- * @return {google.maps.LatLng}
- */
-function mapsLatLng(o) {
-  return new google.maps.LatLng(o.lat, o.lng);
-}
-
-/**
  * Pads an integer to have two digits.
  * @param {number} n
  * @return {string}
+ * @export
  */
 function padDigits(n) {
   if (n > 9) {
@@ -41,6 +32,7 @@ function padDigits(n) {
  * @param {number} min
  * @param {number=} opt_max
  * @return {number}
+ * @export
  */
 function randomRange(min, opt_max) {
   var max = opt_max || 0;
@@ -51,6 +43,7 @@ function randomRange(min, opt_max) {
  * Returns a random choice from the given array or array-like.
  * @param {!IArrayLike} array
  * @return {*}
+ * @export
  */
 function randomChoice(array) {
   if (array.length) {
@@ -61,11 +54,12 @@ function randomChoice(array) {
 }
 
 /**
-  * Checks whether the passed dates are the same calendar day.
-  * @param {!Date} date1
-  * @param {!Date} date2
-  * @return {boolean} whether the dates are the same calendar day
-  */
+ * Checks whether the passed dates are the same calendar day.
+ * @param {!Date} date1
+ * @param {!Date} date2
+ * @return {boolean} whether the dates are the same calendar day
+ * @export
+ */
 function isSameDay(date1, date2) {
   return date1.getMonth() == date2.getMonth() &&
          date1.getDate() == date2.getDate() &&
@@ -75,6 +69,7 @@ function isSameDay(date1, date2) {
 /**
  * @param {string} param URL parameter to look for.
  * @return {string|undefined} undefined if the URL parameter does not exist.
+ * @export
  */
 function getUrlParameter(param) {
   if (!window.location.search) {
@@ -91,6 +86,7 @@ function getUrlParameter(param) {
  * Throttle calls to a function
  * @param {function()} func
  * @param {number} ms at most one per this many ms
+ * @export
  */
 function throttle(func, ms) {
   var timeout, last = 0;

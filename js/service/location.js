@@ -14,6 +14,8 @@
  * the License.
  */
 
+goog.provide('SantaLocation');
+
 /**
  * SantaLocation represents a single Santa destination (e.g. Sydney).
  *
@@ -22,59 +24,80 @@
  * within the route.
  *
  * @constructor
- * @param {Object} destination Destination response from the server.
+ * @param {!Object} destination Destination response from the server.
  * @param {function(string, function(SantaDetails))} fetchDetails
  * @param {!Array<!SantaLocation>} array The route array.
  * @param {number} index Index of this location in the array.
+ * @export
  */
-function SantaLocation(destination, fetchDetails, array, index) {
-  // populate with all of the properties from the server.
-  for (let k in destination) {
-    this[k] = destination[k];
+SantaLocation = function SantaLocation(destination, fetchDetails, array, index) {
+  // We copy fields from destination onto this object. The fields are-
+  // >> id, arrival, departure, presentsDelivered, population, city, region, location, details
+
+  /** @export {string} */
+  this.id = destination['id'];
+  if (!this.id) {
+    throw new Error('got no ID for SantaLocation');
   }
 
   /**
-   * @private
-   * @type {number}
+   * Santa's arrival time. Millis since unix epoch (suitable for use with Date constructor).
+   * @export {number}
    */
+  this.arrival = destination['arrival'];
+
+ /**
+  * Santa's departure time. Millis since unix epoch (suitable for use with Date constructor).
+  * @export {number}
+  */
+  this.departure = destination['departure'];
+
+  /** @export {number} */
+  this.presentsDelivered = destination['presentsDelivered'];
+
+  /** @export {number} */
+  this.population = destination['population'];
+
+  /** @export {string} */
+  this.city = destination['city'];
+
+  /** @export {string} */
+  this.region = destination['region'];
+
+  /** @export {LatLng} */
+  this.location = destination['location'];
+
+  /** @export {SantaDetails} */
+  this.details = destination['details'];
+
+  // Properties below are private and not from destination.
+
+  /** @private {number} */
   this.lastFetchAttempt_ = 0;
 
-  /**
-   * @private
-   * @type {!Array<function(SantaDetails)>}
-   */
+  /** @private {!Array<function(SantaDetails)>} */
   this.queuedCallbacks_ = [];
 
+  /** @private {function(string, function(SantaDetails))} */
   this.fetchDetails_ = fetchDetails;
 
+  /** @private {!Array<!SantaLocation>} */
   this.array_ = array;
+
+  /** @private {number} */
   this.index_ = index;
 
-  /**
-   * @type {SantaDetails}
-   */
+  /** @private {SantaDetails} */
   this.details_ = null;
 
-  /**
-   * @type {?number}
-   */
+  /** @private {?number} */
   this.distanceTravelled_ = null;
-
-  /**
-   * The number of presents delivered within this stop. It's 70% of the total
-   * presents delivered between this stop and the next. The remaining 30% are
-   * delivered while he's flying.
-   *
-   * @type {number}
-   */
-  this.presentsDeliveredInCity = Math.floor(
-      (this.presentsDelivered - this.prev().presentsDelivered) *
-      SantaService.prototype.PRESENTS_IN_CITY);
 }
 
 /**
  * Total distance travelled in metres.
  * @return {number}
+ * @export
  */
 SantaLocation.prototype.getDistanceTravelled = function() {
   if (this.distanceTravelled_ !== null) {
@@ -91,6 +114,7 @@ SantaLocation.prototype.getDistanceTravelled = function() {
 
 /**
  * @param {function(SantaDetails)} callback
+ * @export
  */
 SantaLocation.prototype.getDetails = function(callback) {
   if (!callback) {
@@ -118,15 +142,17 @@ SantaLocation.prototype.getDetails = function(callback) {
 
 /**
  * @return {LatLng}
+ * @export
  */
 SantaLocation.prototype.getLocation = function() {
-  return this['location'];
+  return this.location;
 };
 
 /**
  * Returns the distance between this location and a given LatLng.
  * @param {LatLng} to
  * @return {number} in meters
+ * @export
  */
 SantaLocation.prototype.distanceTo = function(to) {
   return Spherical.computeDistanceBetween(this.getLocation(), to);
@@ -135,6 +161,7 @@ SantaLocation.prototype.distanceTo = function(to) {
 /**
  * @return {!SantaLocation} Santa's previous destination, or null
  * if there is no previous destination.
+ * @export
  */
 SantaLocation.prototype.prev = function() {
   return this.array_[this.index_ - 1] || this.array_[0];
@@ -143,46 +170,8 @@ SantaLocation.prototype.prev = function() {
 /**
  * @return {!SantaLocation} Santa's next destination, or null if
  * there is no next destination.
+ * @export
  */
 SantaLocation.prototype.next = function() {
   return this.array_[this.index_ + 1] || this.array_[this.array_.length - 1];
 };
-
-/**
- * Santa's arrival time.
- * Millis since unix epoch (suitable for use with Date constructor).
- * @type {number}
- */
-SantaLocation.prototype.arrival;
-
-/**
- * Santa's departure time.
- * Millis since unix epoch (suitable for use with Date constructor).
- * @type {number}
- */
-SantaLocation.prototype.departure;
-
-/**
- * @type {number}
- */
-SantaLocation.prototype.presentsDelivered;
-
-/**
- * @type {number}
- */
-SantaLocation.prototype.population;
-
-/**
- * @type {string}
- */
-SantaLocation.prototype.city;
-
-/**
- * @type {string}
- */
-SantaLocation.prototype.region;
-
-/**
- * @type {string}
- */
-SantaLocation.prototype.id;

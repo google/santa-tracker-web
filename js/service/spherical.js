@@ -34,6 +34,7 @@ var EARTH_RADIUS = 6378137;
  * @param {LatLng} from
  * @param {LatLng} to
  * @return {number} The heading in degrees clockwise from north.
+ * @export
  */
 Spherical.computeHeading = function(from, to) {
   // http://williams.best.vwh.net/avform.htm#Crs
@@ -69,6 +70,7 @@ Spherical.wrap_ = function(value, min, max) {
  *
  * @param {number} deg Input degrees.
  * @return {number} Result in radians.
+ * @export
  */
 Spherical.degreesToRadians = function(deg) {
   // Make sure there are ( ) around PI/180 so that the JSCompiler folds that constant.
@@ -80,6 +82,7 @@ Spherical.degreesToRadians = function(deg) {
  *
  * @param {number} rad Input radians.
  * @return {number} Result in degrees.
+ * @export
  */
 Spherical.radiansToDegrees = function(rad) {
   return rad / (Math.PI / 180);
@@ -92,6 +95,7 @@ Spherical.radiansToDegrees = function(rad) {
  * @param {LatLng} to The LatLng toward which to travel.
  * @param {number} fraction A fraction of the distance to travel.
  * @return {LatLng} The interpolated LatLng.
+ * @export
  */
 Spherical.interpolate = function(from, to, fraction) {
   // http://en.wikipedia.org/wiki/Slerp
@@ -133,6 +137,7 @@ Spherical.interpolate = function(from, to, fraction) {
  * @param {LatLng} from
  * @param {LatLng} to
  * @return {number} Angle between the two locations.
+ * @export
  */
 Spherical.computeAngleBetween = function(from, to) {
   // Haversine's formula
@@ -153,10 +158,9 @@ Spherical.computeAngleBetween = function(from, to) {
  * @param {LatLng} to
  * @param {number=} opt_radius The radius to use, or Earth's estimated radius.
  * @return {number} Distance between the two LatLngs.
+ * @export
  */
 Spherical.computeDistanceBetween = function(from, to, opt_radius) {
   const radius = opt_radius || EARTH_RADIUS;
   return Spherical.computeAngleBetween(from, to) * radius;
 };
-
-window['Spherical'] = Spherical;

@@ -164,7 +164,7 @@ function createSantaLayerConstructor() {
    * @param {!SantaState} state
    */
   SantaLayer.prototype.update = function(state) {
-    var loc = mapsLatLng(state.position);
+    var loc = new google.maps.LatLng(state.position);
     this.setPosition_(loc);
 
     this.set('type', state.stopover ? 'presents' : 'sleigh');
@@ -276,7 +276,7 @@ function createSantaLayerConstructor() {
       var prev = state.prev;
       while (trail.length !== this.TRAIL_LENGTH_) {
         trail.push(prev.location);
-        this.bounds_.extend(mapsLatLng(prev.location));
+        this.bounds_.extend(new google.maps.LatLng(prev.location));
         prev = prev.prev();
         if (!prev) {
           break;
