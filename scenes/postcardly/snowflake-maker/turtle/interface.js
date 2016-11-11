@@ -149,8 +149,6 @@ BlocklyInterface.eventSpam.previousDate_ = 0;
  * Load the JavaScript interperter.
  */
 BlocklyInterface.importInterpreter = function() {
-  //<script type="text/javascript"
-  //  src="third-party/JS-Interpreter/compiled.js"></script>
   var script = document.createElement('script');
   script.setAttribute('type', 'text/javascript');
   script.setAttribute('src', 'third-party/JS-Interpreter/compiled.js');
