@@ -24,19 +24,39 @@ const STATIC_HOST = '<STATIC_HOST>';
 const MANIFEST = `${STATIC_HOST}${VERSION}/contents.json`;
 const LANGUAGE = new URL(self.location).searchParams.lang || 'en';
 
-const PRECACHE = ['/', '/error.html'];
-if (LANGUAGE != 'en') {
-  const prefix = `/intl/${LANGUAGE}_ALL/`;
-  PRECACHE.push(prefix + 'index.html', prefix + 'error.html')
-}
+const PRECACHE = (function() {
+  // Cache both the top-level files and the /intl/xx/-rooted files. If the user has chosen a lang
+  // manually, then these files will differ. Loading the top-level in future will cause a new SW
+  // to be installed.
+  // TODO(plegner): Will that experience while offline be broken? Should we instead explicitly
+  // _not_ cache the  top-level if a language has been explicitly chosen, because we won't work?
+
+  const r = ['/', '/error.html'];
+
+  // cache images from Web App Manifest
+  const sizes = [16, 32, 76, 120, 144, 192, 256];
+  r.push(...sizes.map(size => `/images/${size <= 32 ? 'fav' : ''}icon-${size}.png`);
+
+  const prod = (window.location.hostname === 'santatracker.google.com');
+  const prefix = `/intl/${LANGUAGE}${(prod ? '' : '_ALL')}/`;
+  r.push(prefix + 'index.html', prefix + 'error.html')
+  return r;
+}());
+
+
 
 /**
  * Fetches a url and adds it to the cache.
  * @param {string|Request} url
+ * @param {boolean=} opt_withCredentials
  * @returns {Promise<Response>}
  */
-function fetchAndCache(url) {
-  return fetch(url).then(response => {
+function fetchAndCache(url, opt_withCredentials) {
+  const opts = {};
+  if (opt_withCredentials) {
+    opts.credentials = 'include';
+  }
+  return fetch(url, opts).then(response => {
     if (response.status === 200) {
       console.debug(`Adding ${url} to cache.`);
       caches.open(VERSION).then(cache => cache.put(url, response));
@@ -48,12 +68,13 @@ function fetchAndCache(url) {
 /**
  * Loads a url from cache, or adds it if it wasn't previously cached.
  * @param {string|Request} url
+ * @param {boolean=} opt_withCredentials
  * @returns {Promise<Response>}
  */
-function loadFromCache(url) {
+function loadFromCache(url, opt_withCredentials) {
   return caches.open(VERSION)
     .then(cache => cache.match(url))
-    .then(response => response || fetchAndCache(url));
+    .then(response => response || fetchAndCache(url, opt_withCredentials));
 }
 
 /**
@@ -174,7 +195,8 @@ self.addEventListener('install', function(event) {
       }
     });
 
-  let precachePromise = Promise.all(PRECACHE.map(path => loadFromCache(path)));
+  // nb. We fetch PRECACHE with credentials to support Santa's staging server.
+  const precachePromise = Promise.all(PRECACHE.map(path => loadFromCache(path, true)));
 
   event.waitUntil(Promise.all([updatePromise, precachePromise]));
 });
