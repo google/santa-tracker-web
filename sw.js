@@ -35,7 +35,7 @@ const PRECACHE = (function() {
 
   // cache images from Web App Manifest
   const sizes = [16, 32, 76, 120, 144, 192, 256];
-  r.push(...sizes.map(size => `/images/${size <= 32 ? 'fav' : ''}icon-${size}.png`);
+  r.push(...sizes.map(size => `/images/${size <= 32 ? 'fav' : ''}icon-${size}.png`));
 
   const prod = (window.location.hostname === 'santatracker.google.com');
   const prefix = `/intl/${LANGUAGE}${(prod ? '' : '_ALL')}/`;
