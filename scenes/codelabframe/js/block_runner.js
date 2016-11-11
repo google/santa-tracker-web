@@ -122,7 +122,7 @@ app.BlockRunner.prototype = {
       this.runAnimations_();
     }
 
-    window.santaApp.fire('sound-trigger', 'computer_play');
+    Klang.triggerEvent('computer_play');
   },
 
   queueAnimation: function(animation, blockId) {
@@ -216,7 +216,7 @@ app.BlockRunner.prototype = {
 
       case app.BlockRunnerState.REWINDING:
         this.scene.portraitToggleScene(false);
-        window.santaApp.fire('sound-trigger', 'computer_rewind_stop');
+        Klang.triggerEvent('computer_rewind_stop');
         break;
     }
 

@@ -146,9 +146,9 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
     if (animation.teacherStep !== app.Step.IDLE) {
       if (animation.playerStep === animation.teacherStep) {
-        window.santaApp.fire('sound-trigger', 'cb_ingame_win');
+        Klang.triggerEvent('cb_ingame_win');
       } else if (animation.playerStep === app.Step.FAIL) {
-        window.santaApp.fire('sound-trigger', 'cb_ingame_fail');
+        Klang.triggerEvent('cb_ingame_fail');
       }
     }
 
@@ -188,7 +188,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
     }
 
     if (this.currentAnimation && this.currentAnimation.isCountdown) {
-      window.santaApp.fire('sound-trigger', `cb_count_in_${normalized}`);
+      Klang.triggerEvent(`cb_count_in_${normalized}`);
     }
 
     let isPlaying = this.isPlaying &&
