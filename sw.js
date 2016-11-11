@@ -37,7 +37,7 @@ const PRECACHE = (function() {
   const sizes = [16, 32, 76, 120, 144, 192, 256];
   r.push(...sizes.map(size => `/images/${size <= 32 ? 'fav' : ''}icon-${size}.png`));
 
-  const prod = (window.location.hostname === 'santatracker.google.com');
+  const prod = (self.location.hostname === 'santatracker.google.com');
   const prefix = `/intl/${LANGUAGE}${(prod ? '' : '_ALL')}/`;
   r.push(prefix + 'index.html', prefix + 'error.html')
   return r;
