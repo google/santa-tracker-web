@@ -23,6 +23,7 @@ const STATIC_HOST = '<STATIC_HOST>';
 
 const MANIFEST = `${STATIC_HOST}${VERSION}/contents.json`;
 const LANGUAGE = new URL(self.location).searchParams.lang || 'en';
+const STATIC_DOMAINS = ['maps.gstatic.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 
 const PRECACHE = (function() {
   // Cache both the top-level files and the /intl/xx/-rooted files. If the user has chosen a lang
@@ -223,9 +224,10 @@ self.addEventListener('fetch', function(event) {
   // Don't intercept POST requests.
   if (event.request.method != 'GET') { return; }
 
-  // Only intercept requests to gstatic (or the current host).
+  // Only intercept requests to permitted domains. This excludes
+  // santa-api.appspot.com and ssl.google-analytics.com, among others.
   let url = new URL(event.request.url);
-  if (url.hostname != 'localhost' && url.host != 'maps.gstatic.com') { return; }
+  if (url.hostname !== self.location.hostname && !STATIC_DOMAINS.includes(url.hostname)) { return; }
 
   // Don't cache audio resources (for now).
   if (event.request.url.match(/\/audio\//)) { return; }
