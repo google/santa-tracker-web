@@ -148,8 +148,11 @@ Turtle.init = function() {
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
   Turtle.bindClick('resetButton', Turtle.resetButtonClick);
+
+  //TODO(madCode): Delete these functions later.
   Turtle.bindClick('toStringButton', function() {
     Turtle.urlString = Sharing.workspaceToUrl(); 
+    console.log(Turtle.urlString);
     var starterConnection = Sharing.getStarterBlock(Turtle.workspace.getTopBlocks()).nextConnection;
     if (starterConnection.targetBlock() != null) {
       starterConnection.targetBlock().dispose();
