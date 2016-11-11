@@ -89,7 +89,7 @@ Turtle.init = function() {
   var onresize = function(e) {
     var top = visualization.offsetTop;
     //TODO(madeeha): Calculating this wasn't producing desired results. Look at math again.
-    blocklyDiv.style.width = '1000px';
+    blocklyDiv.style.width = '1020px';
     //calculate the size of the main workspace and figure out where to place the starter blocks
     if (Turtle.workspace && Turtle.workspace.topBlocksList && Turtle.workspace.topBlocksList.length) {
       var starterBlock = Turtle.getStarterBlock(Turtle.workspace.topBlocksList);
@@ -148,6 +148,13 @@ Turtle.init = function() {
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
   Turtle.bindClick('resetButton', Turtle.resetButtonClick);
+  Turtle.bindClick('toStringButton', function() {
+    Turtle.urlString = Sharing.workspaceToUrl(); 
+    var starterConnection = Sharing.getStarterBlock(Turtle.workspace.getTopBlocks()).nextConnection;
+    if (starterConnection.targetBlock() != null) {
+      starterConnection.targetBlock().dispose();
+    }});
+  Turtle.bindClick('fromStringButton', function() {Sharing.urlToWorkspace(Turtle.urlString);});
   if (document.getElementById('submitButton')) {
     Turtle.bindClick('submitButton', Turtle.getImageAsDataURL);
   }
@@ -302,8 +309,7 @@ Turtle.display = function() {
  * @param {!Event} e Mouse or touch event.
  */
 Turtle.runButtonClick = function(e) {
-  Sharing.urlToWorkspace("p[125]s[125]");
-  //console.log(Sharing.workspaceToUrl());
+
   // Prevent double-clicks or double-taps.
   if (BlocklyInterface.eventSpam(e)) {
     return;

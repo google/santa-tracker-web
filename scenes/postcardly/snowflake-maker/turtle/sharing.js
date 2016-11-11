@@ -24,7 +24,7 @@ var initialToBlock = {
 'b': '<block type="turtle_move_backward"><value name="VALUE"><shadow type="dropdown_move_backward"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
 'l': '<block type="turtle_turn_left"><value name="ANGLE"><shadow type="dropdown_turn_left"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
 'r': '<block type="turtle_turn_right"><value name="ANGLE"><shadow type="dropdown_turn_right"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'empty-loop': '<block type="control_repeat"></block><value name="TIMES"><shadow type="math_whole_number"><field name="NUM">[VALUE]</field></shadow></value>',
+'empty-loop': '<block type="control_repeat"><value name="TIMES"><shadow type="math_whole_number"><field name="NUM">[VALUE]</field></shadow></value></block>',
 };
 
 Sharing.workspaceToUrl = function() {
@@ -61,19 +61,23 @@ Sharing.urlToWorkspace = function(string) {
 	//for each symbol, add a block to the thing.
 	var workspace = Turtle.workspace;
 	var starterConnection = this.getStarterBlock(workspace.getTopBlocks()).nextConnection;
+  if (starterConnection.targetBlock() != null) {
+    starterConnection.targetBlock().dispose();
+  }
 	this.stringToBlocks(starterConnection, string);
 };
 
 Sharing.makeLoopBlock = function(string, times) {
 	var starterBlock = this.makeBlockFromInitial('empty-loop', times);
-	this.stringToBlocks(starterBlock, string)
+  var connection = starterBlock.inputList[0].connection;
+	this.stringToBlocks(connection, string);
 	return starterBlock;
 };
 
 Sharing.stringToBlocks = function(starterConnection, string) {
 	var letter = /[A-z]/;
 	var value = /^\[([#?A-Za-z\d]+)\]/g;
-	var outermostLoop = /^<.+>\[(\d+)\]/g;
+	var outermostLoop = /^<(.+)>\[(\d+)\]/g;
 	var currentConnection = starterConnection;
 	var nextBlock;
 	for (var i=0; i < string.length; i++) {
@@ -99,9 +103,9 @@ Sharing.stringToBlocks = function(starterConnection, string) {
 				this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
 			} else {
 				var loop = outermostLoop.exec(string.substring(i));
-				nextBlock = this.makeLoopBlock(loop[0], loop[1]);
+				nextBlock = this.makeLoopBlock(loop[1], loop[2]);
 				this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
-				i += loop[0].length;
+				i += loop[0].length - 1;
 			}
 		}
 		if (nextBlock && nextBlock.nextConnection) {
@@ -109,9 +113,6 @@ Sharing.stringToBlocks = function(starterConnection, string) {
 		}
 	}
 };
-
-// https://regex101.com/delete/G3UUWvVPrBGUqikscv6KP1Jm
-// https://regex101.com/r/S2lk09/1
 
 Sharing.makeBlockFromInitial = function (initial, value) {
 	var xmlString = initialToBlock[initial].replace(/\[VALUE\]/, value);
@@ -130,105 +131,3 @@ Sharing.getStarterBlock = function(topBlocksList) {
 		}
 	}
 };
-/**
-c[#d32ee0]*p[125]*<s[125]*t[125]*f[20]*<[4]*>[4]*l[30]*b[20]*r[30]*
-*/
-
-/**
-
-"<xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="snowflake_start" id=",K=6oHbO8^`8}8LMX8Ta" deletable="false" movable="false" x="0" y="234">
-    <next>
-      <block type="turtle_colour" id="2|U+hJDZHNjC)Vpe~lDE">
-        <value name="COLOUR">
-          <shadow type="colour_picker" id="qhJS{7.}oay^010eba.M">
-            <field name="COLOUR">#d32ee0</field>
-          </shadow>
-        </value>
-        <next>
-          <block type="pentagon_stamp" id="O-^8vf(Tf.|PQD21P}tH">
-            <value name="SIZE">
-              <shadow type="dropdown_pentagon" id="r(x:wFmG;Bsq`.Njhiv8">
-                <field name="CHOICE">125</field>
-              </shadow>
-            </value>
-            <next>
-              <block type="control_repeat" id="`;B_}d0ap7PNn8G6/PlR">
-                <statement name="SUBSTACK">
-                  <block type="square_stamp" id="=jYWQi=;:a,v8WfSgP8C">
-                    <value name="SIZE">
-                      <shadow type="dropdown_square" id="Fc1ID;r%n,R8pCQqKhGj">
-                        <field name="CHOICE">125</field>
-                      </shadow>
-                    </value>
-                    <next>
-                      <block type="triangle_stamp" id="[*SAei:Ec4VebE7Eo;p.">
-                        <value name="SIZE">
-                          <shadow type="dropdown_triangle" id="}#Btj%JX!lrq#9lJT:CQ">
-                            <field name="CHOICE">125</field>
-                          </shadow>
-                        </value>
-                        <next>
-                          <block type="turtle_move_forward" id=")?|)UKKv52A]mX9q!`)T">
-                            <value name="VALUE">
-                              <shadow type="dropdown_move_forward" id="6i-9OZ%K!^I1-zSIOgn=">
-                                <field name="CHOICE">20</field>
-                              </shadow>
-                            </value>
-                            <next>
-                              <block type="control_repeat" id=";r`|Zl(+]g2x*9u;lw@K">
-                                <value name="TIMES">
-                                  <shadow type="math_whole_number" id="OH{7z,a*Y)F@{8_|U~bw">
-                                    <field name="NUM">4</field>
-                                  </shadow>
-                                </value>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </statement>
-                <value name="TIMES">
-                  <shadow type="math_whole_number" id="_1XECXYKjWCSrjN8?@/M">
-                    <field name="NUM">4</field>
-                  </shadow>
-                </value>
-                <next>
-                  <block type="turtle_turn_left" id="/LnJP]8Nlv!W0=zA!?FP">
-                    <value name="ANGLE">
-                      <shadow type="dropdown_turn_left" id="{yR739Y,g!biu#_lq.HM">
-                        <field name="CHOICE">30</field>
-                      </shadow>
-                    </value>
-                    <next>
-                      <block type="turtle_move_backward" id="w*Y%;oxG_.wBryKgmqJy">
-                        <value name="VALUE">
-                          <shadow type="dropdown_move_backward" id="sV17jdRy*]2(yxfW@o/t">
-                            <field name="CHOICE">20</field>
-                          </shadow>
-                        </value>
-                        <next>
-                          <block type="turtle_turn_right" id="J%;~^dety%nOz,hmDb%g">
-                            <value name="ANGLE">
-                              <shadow type="dropdown_turn_right" id="y#[~^jCvx:.i@K8L|1y%">
-                                <field name="CHOICE">30</field>
-                              </shadow>
-                            </value>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>"
-
-*/
