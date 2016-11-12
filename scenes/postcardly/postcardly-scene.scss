@@ -17,7 +17,7 @@ $rotate-bg: $gameover-bg;
   bottom: 0;
   left: 0;
   background-image: url('img/img_background.png');
-  background-size: cover;
+  background-repeat: repeat;
   /**
    * Hides the element but still keeps it composed on the GPU by translating it off-screen.
    * By keeping things composed we get respectable performance on android browsers since
