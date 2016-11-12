@@ -75,25 +75,19 @@ Sharing.makeLoopBlock = function(string, times) {
 };
 
 Sharing.stringToBlocks = function(starterConnection, string) {
-  var letter = /[A-z]/;
-  var value = /^\[([#?A-Za-z\d]+)\]/g;
-  var outermostLoop = /^<(.+)>\[(\d+)\]/g;
+  var validLetters = ['f', 'b', 'l', 'r', 's', 'p', 't', 'c'];
   var currentConnection = starterConnection;
   var nextBlock;
   for (var i=0; i < string.length; i++) {
     var char = string[i];
-    if (letter.test(char) && value.test(string.substring(i+1))) {
-      value.lastIndex = 0;
-      var valueList = value.exec(string.substring(i+1));
-      var valueContent = valueList[1];
+    if (validLetters.includes(char) && string[i+1] == '[') {
+      var valueContent = Sharing.getFirstValue(string.substring(i + 1));
       nextBlock = this.makeBlockFromInitial(char, valueContent);
       this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
     } else if (char == '<') {
       if (string[i+1] == '[') {
         //if the string is <[x], it's an empty loop.
-        value.lastIndex = 0;
-        var valueList = value.exec(string.substring(i+1));
-        var valueContent = valueList[1];
+        var valueContent = Sharing.getFirstValue(string.substring(i + 1));
         nextBlock = this.makeBlockFromInitial('empty-loop', valueContent);
         this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
       } else {
@@ -123,19 +117,18 @@ Sharing.getOutermostLoop = function(string) {
     if (numLoopsOpen == 0) {
       // Remove the last >
       loop.pop(loop.length - 1);
-      value = String.getFirstValue(string.substring(i));
+      value = Sharing.getFirstValue(string.substring(i));
       return [loop.join(""), value];
     }
   }
 };
 
-String.getFirstValue = function(string) {
+Sharing.getFirstValue = function(string) {
   var value = [];
-  // Start i at 2 to avoid >[ at beginning of string
-  for (var i=2; i < string.length; i++) {
+  for (var i=0; i < string.length; i++) {
     if (string[i] == ']') {
-      return parseInt(value.join(""));
-    } else {
+      return parseInt(value.join('')) || value.join('');
+    } else if (!'<>[]'.includes(string[i])) {
       value.push(string[i]);
     }
   }
