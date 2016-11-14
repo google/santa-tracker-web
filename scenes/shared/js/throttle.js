@@ -14,9 +14,9 @@
  * the License.
  */
 
-goog.provide('app.utils');
+goog.provide('app.throttle');
 
-app.utils = {
+app.throttle = {
   /**
    * Limit how often a function is called. Based on code from Underscore.js.
    * @param {function} func The function.

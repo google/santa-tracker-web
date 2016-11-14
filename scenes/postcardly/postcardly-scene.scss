@@ -9,6 +9,10 @@ $rotate-bg: $gameover-bg;
 @import "../shared/sass/tutorial";
 
 @import "sass/environment";
+//@import "sass/backgrounds";
+//@import "sass/message";
+@import "../postcard/sass/background";
+@import "../postcard/sass/message";
 
 ##{$name} {
   position: absolute;
@@ -107,3 +111,5 @@ $rotate-bg: $gameover-bg;
     }
   }
 }
+
+@import "../shared/sass/responsive";
