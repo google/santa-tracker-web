@@ -75,30 +75,24 @@ Sharing.makeLoopBlock = function(string, times) {
 };
 
 Sharing.stringToBlocks = function(starterConnection, string) {
-  var letter = /[A-z]/;
-  var value = /^\[([#?A-Za-z\d]+)\]/g;
-  var outermostLoop = /^<(.+)>\[(\d+)\]/g;
+  var validLetters = ['f', 'b', 'l', 'r', 's', 'p', 't', 'c'];
   var currentConnection = starterConnection;
   var nextBlock;
   for (var i=0; i < string.length; i++) {
     var char = string[i];
-    if (letter.test(char) && value.test(string.substring(i+1))) {
-      value.lastIndex = 0;
-      var valueList = value.exec(string.substring(i+1));
-      var valueContent = valueList[1];
+    if (validLetters.includes(char) && string[i+1] == '[') {
+      var valueContent = Sharing.getFirstValue(string.substring(i + 1));
       nextBlock = this.makeBlockFromInitial(char, valueContent);
       this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
     } else if (char == '<') {
       if (string[i+1] == '[') {
         //if the string is <[x], it's an empty loop.
-        value.lastIndex = 0;
-        var valueList = value.exec(string.substring(i+1));
-        var valueContent = valueList[1];
+        var valueContent = Sharing.getFirstValue(string.substring(i + 1));
         nextBlock = this.makeBlockFromInitial('empty-loop', valueContent);
         this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
       } else {
-        var loop = outermostLoop.exec(string.substring(i));
-        nextBlock = this.makeLoopBlock(loop[1], loop[2]);
+        var loop = Sharing.getOutermostLoop(string.substring(i));
+        nextBlock = this.makeLoopBlock(loop[0], loop[1]);
         this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
         i += loop[0].length - 1;
       }
@@ -108,6 +102,37 @@ Sharing.stringToBlocks = function(starterConnection, string) {
     }
   }
 };
+
+Sharing.getOutermostLoop = function(string) {
+  var loop = [];
+  var numLoopsOpen = 1;
+  var value;
+  for (var i=1; i < string.length; i++) {
+    if (string[i] == '<' && string[i+1] != '[') {
+      numLoopsOpen += 1;
+    } else if (string[i] == '>') {
+      numLoopsOpen -= 1;
+    }
+    loop.push(string[i]);
+    if (numLoopsOpen == 0) {
+      // Remove the last >
+      loop.pop(loop.length - 1);
+      value = Sharing.getFirstValue(string.substring(i));
+      return [loop.join(""), value];
+    }
+  }
+};
+
+Sharing.getFirstValue = function(string) {
+  var value = [];
+  for (var i=0; i < string.length; i++) {
+    if (string[i] == ']') {
+      return parseInt(value.join('')) || value.join('');
+    } else if (!'<>[]'.includes(string[i])) {
+      value.push(string[i]);
+    }
+  }
+}
 
 Sharing.makeBlockFromInitial = function (initial, value) {
   var xmlString = initialToBlock[initial].replace(/\[VALUE\]/, value);

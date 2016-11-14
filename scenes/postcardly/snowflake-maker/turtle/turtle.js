@@ -71,7 +71,7 @@ Turtle.onRepeat = false;
 /**
  * Initialize Blockly and the turtle.  Called on page load.
  */
-Turtle.init = function() {
+Turtle.init = function() {  
   // Restore sounds state.
   var soundsEnabled = true;
 
@@ -138,6 +138,7 @@ Turtle.init = function() {
   var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
   
   BlocklyInterface.loadBlocks(defaultXml, true);
+  Turtle.loadUrlBlocks();
 
   onresize();
 
@@ -151,11 +152,10 @@ Turtle.init = function() {
   Turtle.bindClick('toStringButton', function() {
     Turtle.urlString = Sharing.workspaceToUrl(); 
     console.log(Turtle.urlString);
-    var starterConnection = Sharing.getStarterBlock(Turtle.workspace.getTopBlocks()).nextConnection;
   });
   Turtle.bindClick('fromStringButton', function() {Sharing.urlToWorkspace(Turtle.urlString);});
   if (document.getElementById('submitButton')) {
-    Turtle.bindClick('submitButton', Turtle.getImageAsDataURL);
+    Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
   }
 
 
@@ -169,16 +169,23 @@ Turtle.init = function() {
 
 window.addEventListener('load', Turtle.init);
 
+Turtle.loadUrlBlocks = function() {
+  var regex = /postcardly\?([#a-z\d\[\]\<\>]+)/;
+  var blocksString = parent.location.href;
+  var results = regex.exec(blocksString);
+  if (results) {
+    blocksString = regex.exec(blocksString)[1];
+    Sharing.urlToWorkspace(blocksString);
+  }
+};
+
+
 Turtle.getStarterBlock = function(topBlocksList) {
   for (var i = 0; i < topBlocksList.length; i++) {
     if (topBlocksList[i]. type == "snowflake_start") {
       return topBlockList[i];
     }
   }
-};
-
-//TODO(madCode): make this center the start block on the screen.
-Turtle.centerStartBlock = function() {
 };
 
 Turtle.getToolboxElement = function() {
@@ -638,9 +645,9 @@ Turtle.drawFont = function(font, size, style, id) {
   Turtle.animate(id);
 };
 
-Turtle.getImageAsDataURL = function() {
+Turtle.sendSnowflakeAndBlocks = function() {
   if (Turtle.canSubmit) {
-    parent.postMessage(Turtle.ctxScratch.canvas.toDataURL(), "*");    
+    parent.postMessage({'blocks': Sharing.workspaceToUrl(), 'snowflake': Turtle.ctxScratch.canvas.toDataURL()}, "*");    
   }
 };
 
@@ -665,4 +672,4 @@ Turtle.onFirstClicked = function(event) {
       Turtle.runButtonClick();
     }
   }
-}
+};
