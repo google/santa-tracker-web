@@ -83,6 +83,9 @@ Postcard scene.
         </div>
       </div>
       <button on-tap="hidePostcard">Back to Blockly</button>
+      <Button id="share-button" class="Button">
+        <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
+      </Button>
     </div>
     <iframe id="blocklyArea" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
     <div class="gui">
@@ -177,22 +180,11 @@ Postcard scene.
         throw new Error('unexpected source: ' + event.origin);
       } else {
         this.snowflake = event.data['snowflake'];
-        this.blocks = event.data['blocks'];
+        this.scene.blocks = event.data['blocks'];
         // If we're receiving this message, 'Done' has been pressed.
-        this.showPostcard();
+        this.viewSnowflake();
       }
     },
-
-    postMessage: function() {
-      var regex = /postcardly\?([#a-z\d\[\]\<\>]+)/;
-      var blocksString = window.location.href;
-      var results = regex.exec(blocksString);
-      if (results) {
-        blocksString = regex.exec(blocksString)[1];
-        window.frames['blocklyArea'].contentWindow.postMessage(blocksString, "*");
-      }
-    }
-
   });
 
 })();
