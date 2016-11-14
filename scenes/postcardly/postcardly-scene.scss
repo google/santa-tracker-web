@@ -2,11 +2,10 @@ $name: 'module-postcardly';
 $gameover-bg: #8fd7f7;
 $rotate-bg: $gameover-bg;
 
-@import "../shared/sass/board";
-@import "../shared/sass/gameover";
 @import "../shared/sass/startbutton";
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
+@import "../shared/sass/share-overlay";
 
 @import "sass/environment";
 
