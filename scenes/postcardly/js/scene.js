@@ -21,6 +21,7 @@ goog.require('app.Controls');
 goog.require('app.Picker');
 goog.require('app.Slider');
 goog.require('app.shared.Tutorial');
+goog.require('app.shared.ShareOverlay');
 
 /**
  * Main scene class.
@@ -50,6 +51,8 @@ app.Scene = function(elem) {
   this.picker = new app.Picker(this);
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
+  this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
+  this.elem.find('#share-button').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
 };
 
 /**
@@ -108,7 +111,7 @@ app.Scene.prototype.snowflakeFactory = function(elem, delay) {
   var snow = elem.querySelector('.snow');
   snow.style.width = size + 'px';
   return elem;
-}
+};
 
 app.Scene.prototype.drawSnowflakes = function() {
   for (var i = 0, count = app.Constants.SNOWFLAKE_COUNT; i < count; ++i) {
@@ -116,7 +119,7 @@ app.Scene.prototype.drawSnowflakes = function() {
     var x = this.snowflakeFactory(null, i);
     this.elem.find('#postcard .frame-inner')[0].appendChild(x);
   }
-}
+};
 
 //TODO(madCode): fix duplication.
 /**
@@ -128,4 +131,17 @@ app.Scene.prototype.drawSnowflakes = function() {
 function randomRange(min, opt_max) {
   var max = opt_max || 0;
   return min + Math.random() * (max - min);
-}
+};
+
+/**
+ * Show share overlay.
+ */
+app.Scene.prototype.showShareOverlay = function() {
+  var url = window.location.href;
+  var chop = url.indexOf('?');
+  if (chop != -1) {
+    url = url.substring(0,chop);
+  }
+  url += '?' + this.blocks;
+  this.shareOverlay.show(url, true);
+};
