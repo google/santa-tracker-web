@@ -34,6 +34,9 @@ goog.require('Sharing');
 Turtle.HEIGHT = 300;
 Turtle.WIDTH = 300;
 
+Turtle.DEFAULT_DELAY = 400;
+Turtle.FAST_DELAY = 20;
+
 /**
  * PID of animation task currently executing.
  * @type !Array.<number>
@@ -138,6 +141,7 @@ Turtle.init = function() {
   var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
 
   BlocklyInterface.loadBlocks(defaultXml, true);
+  Turtle.loadUrlBlocks();
 
   onresize();
 
@@ -151,11 +155,10 @@ Turtle.init = function() {
   Turtle.bindClick('toStringButton', function() {
     Turtle.urlString = Sharing.workspaceToUrl();
     console.log(Turtle.urlString);
-    var starterConnection = Sharing.getStarterBlock(Turtle.workspace.getTopBlocks()).nextConnection;
   });
   Turtle.bindClick('fromStringButton', function() {Sharing.urlToWorkspace(Turtle.urlString);});
   if (document.getElementById('submitButton')) {
-    Turtle.bindClick('submitButton', Turtle.getImageAsDataURL);
+    Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
   }
 
 
@@ -169,16 +172,23 @@ Turtle.init = function() {
 
 window.addEventListener('load', Turtle.init);
 
+Turtle.loadUrlBlocks = function() {
+  var regex = /postcardly\?([#a-z\d\[\]\<\>]+)/;
+  var blocksString = parent.location.href;
+  var results = regex.exec(blocksString);
+  if (results) {
+    blocksString = regex.exec(blocksString)[1];
+    Sharing.urlToWorkspace(blocksString);
+  }
+};
+
+
 Turtle.getStarterBlock = function(topBlocksList) {
   for (var i = 0; i < topBlocksList.length; i++) {
     if (topBlocksList[i]. type == "snowflake_start") {
       return topBlockList[i];
     }
   }
-};
-
-//TODO(madCode): make this center the start block on the screen.
-Turtle.centerStartBlock = function() {
 };
 
 Turtle.getToolboxElement = function() {
@@ -309,17 +319,21 @@ Turtle.display = function() {
  * @param {!Event} e Mouse or touch event.
  */
 Turtle.runButtonClick = function(e) {
-
   // Prevent double-clicks or double-taps.
   if (BlocklyInterface.eventSpam(e)) {
     return;
   }
+  Turtle.runCode(false);
+}
+
+Turtle.runCode = function(fast, callback) {
+  Turtle.fast = fast;
   document.getElementById('spinner').style.visibility = 'visible';
   Turtle.workspace.traceOn(false);
   Turtle.reset();
   Turtle.canSubmit = false;
   Turtle.workspace.traceOn(true);
-  Turtle.execute();
+  Turtle.execute(callback);
 };
 
 /**
@@ -417,34 +431,36 @@ Turtle.initInterpreter = function(interpreter, scope) {
 /**
  * Execute the user's code.  Heaven help us...
  */
-Turtle.execute = function() {
+Turtle.execute = function(callback) {
   if (!('Interpreter' in window)) {
     // Interpreter lazy loads and hasn't arrived yet.  Try again later.
-    setTimeout(Turtle.execute, 250);
+    setTimeout(Turtle.execute, 250, callback);
     return;
   }
 
   Turtle.reset();
   var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
   var loopVar = 'snowflakeLoopCount'
+  var subPause = Turtle.fast ? Turtle.FAST_DELAY : Turtle.DEFAULT_DELAY;
 
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
       subcode +
       'if (' + loopVar + ' == 0) { pause(300); }' +
-      'pause(500);\n' +
+      'pause(' + subPause + ');\n' +
       'setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
-      loopVar + '+1), \'no-block-id\');}';
+      loopVar + '+1), \'no-block-id\');\n' +
+      'pause(0);}';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
-  Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100));
+  Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100, callback));
 };
 
 /**
  * Execute a bite-sized chunk of the user's code.
  * @private
  */
-Turtle.executeChunk_ = function() {
+Turtle.executeChunk_ = function(callback) {
   // All tasks should be complete now.  Clean up the PID list.
   Turtle.pidList.length = 0;
   Turtle.pause = 0;
@@ -460,7 +476,7 @@ Turtle.executeChunk_ = function() {
     if (go && Turtle.pause) {
       // The last executed command requested a pause.
       go = false;
-      Turtle.pidList.push(setTimeout(Turtle.executeChunk_, Turtle.pause));
+      Turtle.pidList.push(setTimeout(Turtle.executeChunk_, Turtle.pause, callback));
     }
   } while (go);
   // Wrap up if complete.
@@ -469,6 +485,9 @@ Turtle.executeChunk_ = function() {
     BlocklyInterface.highlight(null);
     // Image complete; allow the user to submit this image to Reddit.
     Turtle.canSubmit = true;
+    if (callback) {
+      callback();
+    }
   }
 };
 
@@ -480,7 +499,7 @@ Turtle.animate = function(id) {
   Turtle.display();
   if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
-    Turtle.pause = Math.max(1, 490);
+    Turtle.pause = Turtle.fast ? Turtle.FAST_DELAY : Turtle.DEFAULT_DELAY;
   }
   if (Turtle.onRepeat) {
     Turtle.pause = 0;
@@ -638,10 +657,10 @@ Turtle.drawFont = function(font, size, style, id) {
   Turtle.animate(id);
 };
 
-Turtle.getImageAsDataURL = function() {
-  if (Turtle.canSubmit) {
-    parent.postMessage(Turtle.ctxScratch.canvas.toDataURL(), "*");
-  }
+Turtle.sendSnowflakeAndBlocks = function() {
+    Turtle.runCode(true, function() {
+        parent.postMessage({'blocks': Sharing.workspaceToUrl(), 'snowflake': Turtle.ctxScratch.canvas.toDataURL()}, "*");
+    });
 };
 
 /**
@@ -662,7 +681,7 @@ Turtle.onFirstClicked = function(event) {
   if (event.type == Blockly.Events.UI && event.element == 'click') {
     var block = Turtle.workspace.getBlockById(event.blockId);
     if (block && block.type == 'snowflake_start') {
-      Turtle.runButtonClick();
+      Turtle.runButtonClick(event);
     }
   }
-}
+};
