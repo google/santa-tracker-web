@@ -14,6 +14,9 @@
  * the License.
  */
 
+// TODO(plegner): reenable when this doesn't break staging
+throw new Error('sw disabled');
+
 /**
  * @fileoverview Service Worker for Santa Tracker.
  */
