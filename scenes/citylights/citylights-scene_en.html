@@ -14,6 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
+<link rel="import" href="../../elements/santa-maps-api.html">
 
 <script src="citylights-scene.min.js"></script>
 
@@ -63,13 +64,7 @@ City lights scene.
 
   <div id="module-citylights">
     <div class="scene">
-      <template is="dom-if" if="{{santaApp}}">
-        <!-- Conditional required to prevent double loading -->
-        <google-maps-api version="3.exp"
-                         client-id="{{santaApp.config.CLIENT_ID}}"
-                         language="{{santaApp.language}}"
-                         on-api-load="mapsAPIReady"></google-maps-api>
-      </template>
+      <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
       <div class="dashboard">
         <div class="dashboard__screens js-index-container">
           <figure data-panoid="RTKw3G42DE0AAAQZExAuvQ" data-heading="218" data-pitch="14" class="js-screen"><img/>

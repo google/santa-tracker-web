@@ -14,7 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/i18n-msg/i18n-msg.html">
-<link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../elements/santa-maps-api.html">
 
 <script src="../shared/js/startbutton.js"></script>
 <script src="mercator-scene.min.js"></script>
@@ -42,13 +42,7 @@ Mercator scene.
 
   <div id="module-mercator">
     <div class="scene">
-      <template is="dom-if" if="{{santaApp}}">
-        <!-- Conditional required to prevent double loading -->
-        <google-maps-api version="3.exp"
-                         client-id="{{santaApp.config.CLIENT_ID}}"
-                         language="{{santaApp.language}}"
-                         on-api-load="mapsAPIReady"></google-maps-api>
-      </template>
+      <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
       <div class="map">
         <div class="gmap"></div>
       </div>

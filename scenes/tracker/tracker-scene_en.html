@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="tracker-intro.html">
 <link rel="import" href="city-feed/city-feed.html">
-<link rel="import" href="../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../elements/santa-maps-api.html">
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../elements/santa-icons.html">
@@ -43,14 +43,7 @@ Tracker scene.
 
   <div id="module-tracker">
     <div class="scene">
-
-      <!-- Conditional required to prevent double loading -->
-      <template is="dom-if" if="[[santaApp]]">
-        <google-maps-api version="3.exp"
-                         client-id="{{santaApp.config.CLIENT_ID}}"
-                         language="{{santaApp.language}}"
-                         on-api-load="mapsAPIReady"></google-maps-api>
-      </template>
+      <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
 
       <city-feed id="feed" class="fit" timeline="{{timeline}}" active="{{cityFeedActive}}"
                  user-location="{{userLocation}}"

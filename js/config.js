@@ -21,7 +21,6 @@
 
   window.SANTA_CONFIG = window.SANTA_CONFIG || {
     "YEAR": YEAR,
-    "CLIENT_ID": location.host.match("santatracker.google.com") ? "google-santa-tracker" : null,
     "COUNTDOWN_END_DATE": COUNTDOWN_END,
     "FLIGHT_FINISHED": COUNTDOWN_END + (FLIGHT_HOURS * 60 * 60 * 1000)
   };
