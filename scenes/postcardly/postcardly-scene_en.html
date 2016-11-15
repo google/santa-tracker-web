@@ -133,6 +133,7 @@ Postcard scene.
 
     showPostcard: function() {
       this.$.heroSnowflake.style.backgroundImage = 'url(' + this.snowflake + ')';
+      this.$.heroSnowflake.style.backgroundSize = '100% 100%';
       var snowflakesList = Polymer.dom(this.root).querySelectorAll('.snow');
       for (var i = 0; i < snowflakesList.length; i++) {
         snowflakesList[i].style.backgroundImage = 'url(' + this.snowflake + ')';
