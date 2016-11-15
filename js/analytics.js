@@ -29,6 +29,9 @@ Analytics = function Analytics() {
    * @private {!Object<string, Object<string, ?number>>}
    */
   this.startTimes_ = {};
+
+  /** @private {number} */
+  this.trackTimeout_ = 0;
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
