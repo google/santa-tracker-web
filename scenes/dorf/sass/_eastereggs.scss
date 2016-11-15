@@ -26,7 +26,8 @@
       "snowmobile2"     40    39    995   620    ($house-z-index-front),
       "snowmobile3"     40    39    675   855    ($house-z-index-front),
       "snowmobile4"     40    39    112   1950   ($house-z-index-front),
-      "unicycle"        21    57    310   500    ($house-row-2-z-index)+40,
+      "unicycle"        21    57    310   500    ($house-row-2-z-index + 40),
+      "wrangler"        182   88    800   2300   ($house-row-7-z-index + 150)
   ;
 
   div {
@@ -138,6 +139,147 @@
       background-image: url(img/easteregg-walrus.svg);
       @include will-change();
       animation: #{$name}-walrus 3s ease infinite;
+    }
+  }
+
+  #easteregg-wrangler {
+    $w: 182;
+    $h: 88;
+
+    #easteregg-wrangler-wrangler {
+      position: absolute;
+      width: 85px;
+      height: 102px;
+      left: percent(130, $w);
+      top: percent(-24, $h);
+      z-index: 10;
+
+      & > * {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      :nth-child(1) {
+        background-image: url(img/easteregg-wrangler-wrangler1.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-wrangler-1 5s steps(5, end) infinite;
+      }
+      :nth-child(2) {
+        background-image: url(img/easteregg-wrangler-wrangler2.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-wrangler-2 5s steps(5, end) infinite;
+      }
+      :nth-child(3) {
+        background-image: url(img/easteregg-wrangler-wrangler3.svg);
+        opacity: 0;
+        animation: wrangler-wrangler-3 5s steps(5, end) infinite;
+      }
+    }
+
+    #easteregg-wrangler-reindeer1 {
+      position: absolute;
+      width: 35px;
+      height: 25px;
+      left: percent(115, $w);
+      z-index: 5;
+
+      & > * {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      :nth-child(1) {
+        background-image: url(img/easteregg-wrangler-reindeer1-shadow.svg);
+        animation: wrangler-reindeer1-shadow 5s linear infinite;
+      }
+
+      :nth-child(2) {
+        background-image: url(img/easteregg-wrangler-reindeer1-1.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-reindeer1-1 5s linear infinite;
+      }
+
+      :nth-child(3) {
+        background-image: url(img/easteregg-wrangler-reindeer1-2.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-reindeer1-2 5s linear infinite;
+      }
+
+      :nth-child(4) {
+        background-image: url(img/easteregg-wrangler-reindeer1-3.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-reindeer1-3 5s linear infinite;
+      }
+    }
+
+    #easteregg-wrangler-reindeer2 {
+      position: absolute;
+      width: 31px;
+      height: 29px;
+      top: percent(25, $h);
+      left: percent(-10, $w);
+      z-index: 5;
+
+      & > * {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      :nth-child(1) {
+        background-image: url(img/easteregg-wrangler-reindeer2-shadow.svg);
+        animation: wrangler-reindeer2-shadow 8s linear infinite;
+      }
+
+      :nth-child(2) {
+        background-image: url(img/easteregg-wrangler-reindeer2-1.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-reindeer2-1 8s linear infinite;
+      }
+
+      :nth-child(3) {
+        background-image: url(img/easteregg-wrangler-reindeer2-2.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-reindeer2-2 8s linear infinite;
+      }
+
+      :nth-child(4) {
+        background-image: url(img/easteregg-wrangler-reindeer2-3.svg);
+        @include will-change();
+        opacity: 0;
+        animation: wrangler-reindeer2-3 8s linear infinite;
+      }
+    }
+
+    @media (max-width: ($width-desktop - 1)) {
+      #easteregg-wrangler-wrangler {
+        margin-top: -9px;
+        margin-left: 1px;
+        width: 51px; //85
+        height: 61px; //102
+      }
+
+      #easteregg-wrangler-reindeer1 {
+        width: 21px; //35
+        height: 15px; //25
+      }
+
+      #easteregg-wrangler-reindeer2 {
+        width: 18px; //31
+        height: 17px; //29
+      }
     }
   }
 
@@ -1080,4 +1222,130 @@
   100% {
     transform: translateZ(0) translateX(-100vw) translateY(100%) rotateZ(0deg);
   }
+}
+
+@keyframes wrangler-reindeer1-1 {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  19% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  20%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes wrangler-reindeer1-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  19% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+
+  39% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  40%, 60% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes wrangler-reindeer1-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  39% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(-25px);
+  }
+
+  99% {
+    opacity: 1;
+    transform: translateY(-25px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes wrangler-reindeer1-shadow {
+  0% { transform: scaleX(1); }
+  80%, 100% { transform: scaleX(.5); }
+}
+
+@keyframes wrangler-wrangler-1 {
+  0%, 78% { opacity: 1; }
+  79%, 100% { opacity: 0; }
+}
+
+@keyframes wrangler-wrangler-2 {
+  0%, 78%, 81% { opacity: 0; }
+  79%, 80% { opacity: 1; }
+}
+
+@keyframes wrangler-wrangler-3 {
+  0%, 80% { opacity: 0; }
+  81%, 100% { opacity: 1; }
+}
+
+@keyframes wrangler-reindeer2-shadow {
+  0%, 20% { transform: scaleX(1); }
+  21%, 49% { transform: scaleX(.8);}
+  50%, 100% { transform: scaleX(1); }
+}
+
+@keyframes wrangler-reindeer2-1 {
+  0%, 19% { opacity: 1; }
+  20%, 54% { opacity: 0; }
+  55%, 100% { opacity: 1; }
+}
+
+@keyframes wrangler-reindeer2-2 {
+  0%, 19% { opacity: 0; }
+  20%, 29% { opacity: 1; }
+  30%, 49% { opacity: 0; }
+  50%, 54% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+@keyframes wrangler-reindeer2-3 {
+  0%, 29% { opacity: 0; }
+  30%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
