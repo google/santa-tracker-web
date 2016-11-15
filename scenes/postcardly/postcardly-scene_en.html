@@ -109,7 +109,7 @@ Postcard scene.
 </template>
 <script>
 (function() {
-  var dev = false;
+  var dev = true;
   Polymer({
     is: 'postcardly-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -181,7 +181,7 @@ Postcard scene.
         this.snowflake = event.data['snowflake'];
         this.scene.blocks = event.data['blocks'];
         // If we're receiving this message, 'Done' has been pressed.
-        this.viewSnowflake();
+        this.showPostcard();
       }
     },
   });

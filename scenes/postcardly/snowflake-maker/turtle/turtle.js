@@ -173,7 +173,7 @@ Turtle.init = function() {
 window.addEventListener('load', Turtle.init);
 
 Turtle.loadUrlBlocks = function() {
-  var regex = /postcardly\?([#a-z\d\[\]\<\>]+)/;
+  var regex = /postcardly\?bg\=\d\&fg\=\dB\=([#a-z\d\[\]\<\>]+)/;
   var blocksString = parent.location.href;
   var results = regex.exec(blocksString);
   if (results) {

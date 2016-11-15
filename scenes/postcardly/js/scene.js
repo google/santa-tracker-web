@@ -135,10 +135,10 @@ function randomRange(min, opt_max) {
 
 app.Scene.prototype.showShareOverlay = function() {
   var url = window.location.href;
-  var chop = url.indexOf('?');
+  var chop = url.indexOf('B');
   if (chop != -1) {
     url = url.substring(0,chop);
   }
-  url += '?' + this.blocks;
+  url += 'B=' + this.blocks;
   this.shareOverlay.show(url, true);
 };
