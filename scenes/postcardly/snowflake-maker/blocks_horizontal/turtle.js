@@ -30,6 +30,18 @@ goog.provide('Turtle.Blocks');
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Colours');
 
+Turtle.Blocks.ICON_SIZE = 48;
+
+Turtle.Blocks.makeMenuIcon_ = function(path, value, alt) {
+  return {
+    src: Blockly.mainWorkspace.options.pathToMedia + 'icons/ic_block_' + path + '.png',
+    value: value,
+    width: Turtle.Blocks.ICON_SIZE,
+    height: Turtle.Blocks.ICON_SIZE,
+    alt: alt
+  };
+};
+
 // Extensions to Blockly's language and JavaScript generator.
 Blockly.Blocks['snowflake_start'] = {
   init: function() {
@@ -146,12 +158,9 @@ Blockly.Blocks['dropdown_move_forward'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward_sm.png",
-              value: '10', width: 48, height: 48, alt: 'move 10'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward_med.png",
-              value: '20', width: 48, height: 48, alt: 'move 20'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward_lg.png",
-              value: '30', width: 48, height: 48, alt: 'move 30'},
+          Turtle.Blocks.makeMenuIcon_("forward_sm", '10', 'move 10'),
+          Turtle.Blocks.makeMenuIcon_("forward_med", '20', 'move 20'),
+          Turtle.Blocks.makeMenuIcon_("forward_lg", '30', 'move 30'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -205,12 +214,9 @@ Blockly.Blocks['dropdown_move_backward'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back_sm.png",
-              value: '10', width: 48, height: 48, alt: 'move 10'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back_med.png",
-              value: '20', width: 48, height: 48, alt: 'move 20'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back_lg.png",
-              value: '30', width: 48, height: 48, alt: 'move 30'},
+          Turtle.Blocks.makeMenuIcon_("back_sm", '10', 'move 10'),
+          Turtle.Blocks.makeMenuIcon_("back_med", '20', 'move 20'),
+          Turtle.Blocks.makeMenuIcon_("back_lg", '30', 'move 30'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -264,18 +270,12 @@ Blockly.Blocks['dropdown_turn_left'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_030.png",
-              value: '30', width: 48, height: 48, alt: '30'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_060.png",
-              value: '60', width: 48, height: 48, alt: '60'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_090.png",
-              value: '90', width: 48, height: 48, alt: '90'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_120.png",
-              value: '120', width: 48, height: 48, alt: '120'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_150.png",
-              value: '150', width: 48, height: 48, alt: '150'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_180.png",
-              value: '180', width: 48, height: 48, alt: '180'},
+          Turtle.Blocks.makeMenuIcon_("ccw_030", '30', '30'),
+          Turtle.Blocks.makeMenuIcon_("ccw_060", '60', '60'),
+          Turtle.Blocks.makeMenuIcon_("ccw_090", '90', '90'),
+          Turtle.Blocks.makeMenuIcon_("ccw_120", '120', '120'),
+          Turtle.Blocks.makeMenuIcon_("ccw_150", '150', '150'),
+          Turtle.Blocks.makeMenuIcon_("ccw_180", '180', '180'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -329,18 +329,12 @@ Blockly.Blocks['dropdown_turn_right'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_030.png",
-              value: '30', width: 48, height: 48, alt: '30'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_060.png",
-              value: '60', width: 48, height: 48, alt: '60'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_090.png",
-              value: '90', width: 48, height: 48, alt: '90'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_120.png",
-              value: '120', width: 48, height: 48, alt: '120'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_150.png",
-              value: '150', width: 48, height: 48, alt: '150'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_180.png",
-              value: '180', width: 48, height: 48, alt: '180'},
+          Turtle.Blocks.makeMenuIcon_("cw_030", '30', '30'),
+          Turtle.Blocks.makeMenuIcon_("cw_060", '60', '60'),
+          Turtle.Blocks.makeMenuIcon_("cw_090", '90', '90'),
+          Turtle.Blocks.makeMenuIcon_("cw_120", '120', '120'),
+          Turtle.Blocks.makeMenuIcon_("cw_150", '150', '150'),
+          Turtle.Blocks.makeMenuIcon_("cw_180", '180', '180'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -431,18 +425,12 @@ Blockly.Blocks['dropdown_square'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_1.png",
-              value: '25', width: 48, height: 48, alt: '25'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_2.png",
-              value: '45', width: 48, height: 48, alt: '45'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_3.png",
-              value: '65', width: 48, height: 48, alt: '65'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_4.png",
-              value: '85', width: 48, height: 48, alt: '85'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_5.png",
-              value: '105', width: 48, height: 48, alt: '105'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_6.png",
-              value: '125', width: 48, height: 48, alt: '125'},
+          Turtle.Blocks.makeMenuIcon_("square_1", '25', '25'),
+          Turtle.Blocks.makeMenuIcon_("square_2", '45', '45'),
+          Turtle.Blocks.makeMenuIcon_("square_3", '65', '65'),
+          Turtle.Blocks.makeMenuIcon_("square_4", '85', '85'),
+          Turtle.Blocks.makeMenuIcon_("square_5", '105', '105'),
+          Turtle.Blocks.makeMenuIcon_("square_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -490,18 +478,12 @@ Blockly.Blocks['dropdown_pentagon'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_1.png",
-              value: '25', width: 48, height: 48, alt: '25'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_2.png",
-              value: '45', width: 48, height: 48, alt: '45'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_3.png",
-              value: '65', width: 48, height: 48, alt: '65'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_4.png",
-              value: '85', width: 48, height: 48, alt: '85'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_5.png",
-              value: '105', width: 48, height: 48, alt: '105'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_6.png",
-              value: '125', width: 48, height: 48, alt: '125'},
+          Turtle.Blocks.makeMenuIcon_("pentagram_1", '25', '25'),
+          Turtle.Blocks.makeMenuIcon_("pentagram_2", '45', '45'),
+          Turtle.Blocks.makeMenuIcon_("pentagram_3", '65', '65'),
+          Turtle.Blocks.makeMenuIcon_("pentagram_4", '85', '85'),
+          Turtle.Blocks.makeMenuIcon_("pentagram_5", '105', '105'),
+          Turtle.Blocks.makeMenuIcon_("pentagram_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
@@ -555,18 +537,12 @@ Blockly.Blocks['dropdown_triangle'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_1.png",
-              value: '25', width: 48, height: 48, alt: '25'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_2.png",
-              value: '45', width: 48, height: 48, alt: '45'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_3.png",
-              value: '65', width: 48, height: 48, alt: '65'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_4.png",
-              value: '85', width: 48, height: 48, alt: '85'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_5.png",
-              value: '105', width: 48, height: 48, alt: '105'},
-          {src: Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_6.png",
-              value: '125', width: 48, height: 48, alt: '125'},
+          Turtle.Blocks.makeMenuIcon_("triangle_1", '25', '25'),
+          Turtle.Blocks.makeMenuIcon_("triangle_2", '45', '45'),
+          Turtle.Blocks.makeMenuIcon_("triangle_3", '65', '65'),
+          Turtle.Blocks.makeMenuIcon_("triangle_4", '85', '85'),
+          Turtle.Blocks.makeMenuIcon_("triangle_5", '105', '105'),
+          Turtle.Blocks.makeMenuIcon_("triangle_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Blockly.Colours.pen.primary,
