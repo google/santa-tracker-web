@@ -96,9 +96,6 @@ function randomRange(min, opt_max) {
   return min + Math.random() * (max - min);
 };
 
-/**
- * Show share overlay.
- */
 app.Scene.prototype.showShareOverlay = function() {
   var url = window.location.href;
   var chop = url.indexOf('?');
