@@ -129,8 +129,8 @@ specific language governing permissions and limitations under the License.
           },
 
           ticking_: {
-            type: Boolean,
-            value: false
+            type: Promise,
+            value: null
           },
 
           grid_: {
@@ -163,37 +163,44 @@ specific language governing permissions and limitations under the License.
         },
 
         start() {
-          this.fill_(false).then(() => this.tick_());
+          return this.fill_(false).then(() => this.tick_());
         },
 
         /**
-         * A single tick of the game logic. A tick will:
+         * Queues a single tick of the game logic. A tick will:
          *  1. Compute matches. If there are no matches, stop ticking.
          *  2. Remove matches from the board.
          *  3. Cause overhanging gems to fall to the bottom of their columns
          *  4. Fill partial columns to the top with more gems
          * After the four steps are completed, another tick will be attempted.
+         * @return {Promise} A promise that resolves when all queued ticks have
+         * completed.
          */
         tick_() {
-          // TODO(cdata): potentially defer tick based on reactions to various
-          // lifecycle events. This would allow for custom effects by the
-          // external user of the element to defer the internal tick timing.
-          this.ticking_ = true;
-
-          const matches = this.match_();
-
-          if (matches.size === 0) {
-            this.fire('will-finish-ticking');
-            this.ticking_ = false;
-            return;
+          if (this.ticking_) {
+            // This doesn't really queue 'another' tick, as the initial tick
+            // won't complete while there are still more matches available.
+            return this.ticking_;
           }
 
-          this.fire('will-remove-matches', { matches });
+          const internalTick = () => {
+            const matches = this.match_();
 
-          this.removeCells_(matches)
-              .then(() => this.fall_())
-              .then(() => this.fill_(true))
-              .then(() => this.tick_());
+            if (matches.size === 0) {
+              this.fire('will-finish-ticking');
+              this.ticking_ = null;
+              return;
+            }
+
+            this.fire('will-remove-matches', { matches });
+
+            return this.removeCells_(matches)
+                .then(() => this.fall_())
+                .then(() => this.fill_(true))
+                .then(internalTick);
+          };
+
+          return this.ticking_ = timePasses(TRANSITION_TIME).then(internalTick);
         },
 
         /**
