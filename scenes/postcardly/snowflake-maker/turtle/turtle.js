@@ -91,11 +91,7 @@ Turtle.init = function() {
   var rtl = Turtle.isRTL;
   var blocklyDiv = document.getElementById('blocklyDiv');
   var visualization = document.getElementById('visualization');
-  // var onresize = function(e) {
-  //   var top = visualization.offsetTop;
-  // };
   window.addEventListener('scroll', function() {
-    // onresize();
     Blockly.svgResize(Turtle.workspace);
   });
   window.addEventListener('resize', onresize);
@@ -138,8 +134,6 @@ Turtle.init = function() {
 
   BlocklyInterface.loadBlocks(defaultXml, true);
   Turtle.loadUrlBlocks();
-
-  // onresize();
 
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
