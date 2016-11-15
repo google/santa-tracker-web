@@ -29,6 +29,9 @@ Postcard scene.
   :host([mode="portal"]) .shareButtons {
     display: none !important;
   }
+  :host([mode="portal"]) #share-button {
+    display: none !important;
+  }
   #heroSnowflake {
     position: absolute;
     bottom: -48px;
@@ -41,6 +44,7 @@ Postcard scene.
     position: absolute;
     top: 0;
   }
+
   </style>
 
   <div id="module-postcardly">
@@ -79,14 +83,29 @@ Postcard scene.
           </div>
         </div>
       </div>
-
       <button on-tap="hidePostcard">Back to Blockly</button>
+      <Button id="share-button" class="Button">
+        <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
+      </Button>
     </div>
-
     <iframe id="blocklyArea" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
-
-
-  </div>
+    <div class="gui">
+      <div class="shareOverlay overlay shareOverlay--barber">
+        <div class="shareOverlay-dialog overlay-dialog">
+          <div class="shareOverlay-imageWrapper">
+            <div class="shareOverlay-image"></div>
+          </div>
+          <div class="shareOverlay-buttons">
+            <p class="shareOverlay-label">
+              <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
+            </p>
+            <input type="url" readonly="readonly" class="shareOverlay-url"/>
+            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
+          </div>
+          <button type="button" class="shareOverlay-close"></button>
+        </div>
+      </div>
+    </div>
 
 </template>
 <script>
@@ -162,22 +181,11 @@ Postcard scene.
         throw new Error('unexpected source: ' + event.origin);
       } else {
         this.snowflake = event.data['snowflake'];
-        this.blocks = event.data['blocks'];
+        this.scene.blocks = event.data['blocks'];
         // If we're receiving this message, 'Done' has been pressed.
         this.showPostcard();
       }
     },
-
-    postMessage: function() {
-      var regex = /postcardly\?([#a-z\d\[\]\<\>]+)/;
-      var blocksString = window.location.href;
-      var results = regex.exec(blocksString);
-      if (results) {
-        blocksString = regex.exec(blocksString)[1];
-        window.frames['blocklyArea'].contentWindow.postMessage(blocksString, "*");
-      }
-    }
-
   });
 
 })();
