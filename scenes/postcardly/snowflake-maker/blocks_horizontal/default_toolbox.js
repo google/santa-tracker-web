@@ -31,7 +31,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: none">' +
     '   <block type="turtle_colour">' +
     '     <value name="COLOUR">' +
-    '       <shadow type="colour_picker"></shadow>' +
+    '       <shadow type="dropdown_colour"></shadow>' +
     '     </value>' +
     '   </block>' +
     '   <block type="pentagon_stamp">' +
