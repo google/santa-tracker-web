@@ -360,11 +360,6 @@ var TRACKER_ROUTE = 'tracker';
 // These scenes are also not removed from the lazy-page switching.
 var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
-// Timing for playing random videos in Cast mode, in ms.
-var VIDEO_RANDOM_MIN = 5 * (60 * 1000);
-var VIDEO_RANDOM_MAX = 12 * (60 * 1000);
-var VIDEO_RANDOM_SAFE = 60 * (60 * 1000);  // don't show videos before countdown ends
-
 Polymer({
   is: 'santa-app',
   hostAttributes: {'tabindex': '0'},
@@ -528,14 +523,6 @@ Polymer({
     },
 
     /**
-     * If true, whenever the village is loaded, load some random visual experience after a time.
-     */
-    triggerRandom: {
-      type: Boolean,
-      value: false
-    },
-
-    /**
      * True when the tracker intro scene was shown. Used by `tracker-scene`.
      */
     hasTrackerIntroShown: {
@@ -583,7 +570,6 @@ Polymer({
     'title-click': 'onDefaultAction',
     'scene-progress': 'onSceneProgress',
     'scene-ready': 'onSceneReady',
-    'video-scene-done': 'onVideoSceneDone',
     'analytics-track-event': 'trackEvent',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
@@ -618,16 +604,11 @@ Polymer({
     this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
     this._setFlightFinishedAt(this.config.FLIGHT_FINISHED);
 
-    var defaultApiClient = 'cast' in window ? 'web_chromecast' : 'web';
-    var apiClient = getUrlParameter('api_client') || defaultApiClient;
+    var apiClient = getUrlParameter('api_client') || 'web';
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
       apiClient = defaultApiClient;
     }
     switch (apiClient) {
-      case 'web_chromecast':
-        this.mode = 'cast';
-        this.triggerRandom = true;
-        break;
       case 'web_portal':
         apiClient = 'web';
         this.mode = 'portal';
@@ -635,8 +616,6 @@ Polymer({
       case 'web_embed':
         apiClient = 'web';
         this.mode = 'embed'
-        break;
-      default:
         break;
     }
 
@@ -740,22 +719,15 @@ Polymer({
     }
   },
 
-  onVideoSceneDone: function(event) {
-    if (this.mode == 'cast') {
-      this.route = this.defaultRoute;
-    }
-  },
-
   /**
    * Catch-all place to do some kind of initialization of houses.
    */
   _prepareHouses: function() {
-    var castMode = this.mode === 'cast';
     var portalMode = this.mode === 'portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
 
     for (var i = 0, house; house = this._houses[i]; ++i) {
-      house.disabled = house.disabled || castMode;  // houses are disabled on cast
+      house.disabled = false;
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
@@ -770,37 +742,6 @@ Polymer({
   },
 
   /**
-   * Async holder for _triggerRandom.
-   */
-  _triggerRandomAsync: null,
-
-  /**
-   * Requests that a random visual scene be loaded. Only runs if `triggerRandom` is true.
-   */
-  _triggerRandom: function() {
-    if (!this.triggerRandom) {
-      return;
-    }
-
-    var when = randomRange(VIDEO_RANDOM_MIN, VIDEO_RANDOM_MAX);
-    var remaining = this.countdownEndAt - this.santaService.now();
-    if (remaining < VIDEO_RANDOM_SAFE) {
-      return;  // give up, no more videos this close to launch
-    }
-    console.debug('triggering random video in', when);
-
-    this.cancelAsync(this._triggerRandomAsync);
-    this._triggerRandomAsync = this.async(function() {
-      var opts = Object.keys(this.videos).filter(function(scene) {
-        return this.sceneIsUnlocked(scene);
-      }, this);
-      var choice = randomChoice(opts);
-      console.debug('chose random video', choice, 'from', opts);
-      this.route = choice;
-    }, when);
-  },
-
-  /**
    * Reset and update various bits of global state when a new scene is made visible.
    */
   _selectedSceneChanged: function(newValue, oldValue) {
@@ -810,9 +751,6 @@ Polymer({
 
     if (oldValue && oldValue.route) {
       this.prevSelectedRoute = oldValue.route;
-    }
-    if (this.selectedScene == this.$.village) {
-      this._triggerRandom();
     }
 
     var scene = this.selectedScene;
@@ -1239,10 +1177,6 @@ Polymer({
   colorForRoute: function(route, validRoutes) {
     var el = this.$.lazypages.getRoute(route);
     return (el ? el.getAttribute('header-color') : '') || '';
-  },
-
-  isCastMode: function(mode) {
-    return mode == 'cast';
   },
 
   omitSantaChrome: function(mode) {

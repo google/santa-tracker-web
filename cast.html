@@ -27,60 +27,50 @@ specific language governing permissions and limitations under the License.
   <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
   <script>
 (function() {
-  cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
   window.ga = function() {};  // no analytics in Cast
+  window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
-  var CAST_EXPIRY_MINUTES = 15;
-  var CAST_SAFETY_SECONDS = 180;
+  cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
 
-  // For safety, if no scene is available or has loaded in the first little
-  // while, then automatically close this window.
+  // For safety, if no scene is available or has loaded in the first 90 seconds, then automatically
+  // close this window.
   window.setTimeout(function() {
     var scene = window.santaApp && window.santaApp.selectedScene;
     if (!scene || !scene.loaded) {
       window.close();
     }
-  }, 1000 * CAST_SAFETY_SECONDS);
+  }, 1000 * 90);
 
-  // Start the Cast Reciever. This needs to happen early, otherwise an
-  // error may be reported to clients.
+  // Start the Cast Reciever. This needs to happen early, otherwise an error can be reported.
   var crm = cast.receiver.CastReceiverManager.getInstance();
   var messageBus = crm.getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
 
-  var expiryTime = 1000 * 60 * CAST_EXPIRY_MINUTES;
-  var timeout;
-
+  var closeTimeout;
   crm.onReady = function(event) {
     crm.setApplicationState('Google Santa Tracker');
   };
   crm.onSenderConnected = function(event) {
-    window.clearTimeout(timeout);
+    window.clearTimeout(closeTimeout);
   };
   crm.onSenderDisconnected = function(event) {
     if (!crm.getSenders().length) {
-      timeout = window.setTimeout(function() {
+      closeTimeout = window.setTimeout(function() {
         window.close();
-      }, expiryTime);
+      }, 10 * 1000);
     }
   };
+
   var config = new cast.receiver.CastReceiverManager.Config();
   config.statusText = 'Google Santa Tracker...';  // subtle loading hint
   config.maxInactivity = 60;  // seconds
   crm.start(config);
 }());
   </script>
-
-  <script>
-    window.DEV = true; // NOTE: replaced by string - do not change formatting.
-  </script>
-  <!-- NOTE: Cast doesn't include webcomponents, as a modern Chrome is assumed -->
-  <link rel="import" href="elements/elements_en.html" />
+<link rel="import" href="elements/elements_en.html" />
 </head>
 <body data-version="" unresolved>
 
-<santa-app id="santaApp"></santa-app>
-
-<div id="preload_placeholder"></div>
+<santa-app id="santaApp" mode="cast"></santa-app>
 
 <script>
 (function() {
@@ -98,14 +88,31 @@ if (window.DEV) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  if (window.performance && window.performance.timing) {
-    var t = window.performance.timing;
-    var loadTime = t.domInteractive - t.domLoading;
-    console.debug('took', loadTime, 'ms from domLoading -> domInteractive');
-  } else {
-    console.debug('no timing information');
-  }
+  var t = window.performance.timing;
+  var loadTime = t.domInteractive - t.domLoading;
+  console.debug('took', loadTime, 'ms from domLoading -> domInteractive');
 });
+
+var videoTimeout;
+function queueRandomVideo() {
+  var delay = (5 + 5 * Math.random()) * 1000 * 60;  // every 5-10m
+  window.clearTimeout(videoTimeout);
+  videoTimeout = window.setTimeout(function() {
+    var opts = Object.keys(window.santaApp.videos).filter(function(scene) {
+      return window.santaApp.sceneIsUnlocked(scene);
+    });
+
+    var choice = opts[Math.floor(Math.random() * opts.length)];
+    if (choice) {
+      console.info('choosing video', choice);
+      santaApp.route = choice;
+    }
+  }, delay);
+  console.info('video in', delay);
+}
+
+window.santaApp.addEventListener('video-scene-done', queueRandomVideo);
+queueRandomVideo();
 
 })();
 </script>
