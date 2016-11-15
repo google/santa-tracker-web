@@ -152,6 +152,12 @@ specific language governing permissions and limitations under the License.
             value() {
               return new GemFactory();
             }
+          },
+
+          /** Whether we are currently tracking a gem move. This prevents multiple moves. */
+          pendingMove_: {
+            type: Boolean,
+            value: false
           }
         },
 
@@ -160,6 +166,10 @@ specific language governing permissions and limitations under the License.
           'down': 'onDownKey_',
           'left': 'onLeftKey_',
           'right': 'onRightKey_'
+        },
+
+        listeners: {
+          'track': 'onTrack_',
         },
 
         start() {
@@ -442,6 +452,35 @@ specific language governing permissions and limitations under the License.
         onRightKey_(event) {
           const gem = event.detail.keyboardEvent.target;
           this.moveGem_(gem, 'right');
+        },
+
+        /**
+         * @param {CustomEvent} event
+         */
+        onTrack_(event) {
+          if (event.detail.state === 'start') {
+            this.pendingMove_ = true;
+          } else if (!this.pendingMove_) {
+            return;  // no pending move
+          }
+
+          const threshold = (CELL_SIZE * 0.2);
+
+          let dir;
+          if (event.detail.dx > threshold) {
+            dir = 'right';
+          } else if (event.detail.dx < -threshold) {
+            dir = 'left';
+          } else if (event.detail.dy > threshold) {
+            dir = 'down';
+          } else if (event.detail.dy < -threshold) {
+            dir = 'up';
+          } else {
+            return;
+          }
+
+          this.pendingMove_ = false;
+          this.moveGem_(event.target, dir);
         },
 
         /**
