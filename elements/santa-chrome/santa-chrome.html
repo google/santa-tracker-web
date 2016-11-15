@@ -36,7 +36,7 @@ specific language governing permissions and limitations under the License.
 <dom-module id="santa-chrome">
 <template>
   <style include="santa-chrome_module">
-    :host([mode="cast"]) #sound,
+    :host([mode="cast"]) #buttons,
     :host([mode="portal"]) .links,
     :host([mode="portal"]) .lang,
     :host([mode="portal"]) .shareicons {
@@ -79,7 +79,7 @@ specific language governing permissions and limitations under the License.
 
   <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer">
-      <div hidden$="[[disabled]]" class="drawer-content">
+      <div class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
