@@ -163,7 +163,7 @@ specific language governing permissions and limitations under the License.
         },
 
         start() {
-          this.fill_().then(() => this.tick_());
+          this.fill_(false).then(() => this.tick_());
         },
 
         /**
@@ -192,7 +192,7 @@ specific language governing permissions and limitations under the License.
 
           this.removeCells_(matches)
               .then(() => this.fall_())
-              .then(() => this.fill_())
+              .then(() => this.fill_(true))
               .then(() => this.tick_());
         },
 
@@ -212,26 +212,54 @@ specific language governing permissions and limitations under the License.
 
         /**
          * Fills partial columns top the top with more gems.
+         * @param {boolean} allowMatches Whether to allow new matches.
          * @return {Promise} A promise that resolves when transitions have
          * completed.
          */
-        fill_() {
+        fill_(allowMatches) {
           for (let x = 0; x < this.size; ++x) {
             let y0 = 0;
 
             for (let y = this.size - 1; y >= 0; --y) {
-              if (this.cellAtXy_(x, y) == null) {
-                const cell = this.createCell_(x, --y0);
-                cell.position.y = y;
-
-                // TODO: the first one ensures the first placement, second animates. But why?
-                requestAnimationFrame(() =>
-                  requestAnimationFrame(() => this.placeCell_(cell)));
+              if (this.cellAtXy_(x, y) != null) {
+                continue;
               }
+
+              let cell;
+              for (let i = 0; i < 5; ++i) {  // try at most 5 times
+                cell = this.createCell_(x, --y0);
+                cell.position.y = y;
+                if (allowMatches || !this.wouldMatch_(cell)) {
+                  break;
+                }
+              }
+              this.placeCell_(cell);
             }
           }
 
           return timePasses(TRANSITION_TIME);
+        },
+
+        /**
+         * Test whether placing the given cell at its location would cause a match.
+         * @param {Cell} cell Cell to test.
+         * @return {boolean} Whether the addition would cause a match.
+         */
+        wouldMatch_(cell) {
+          const walk = (dx, dy) => {
+            let ox = cell.position.x;
+            let oy = cell.position.y;
+
+            for (let i = 0;; ++i) {
+              ox += dx;
+              oy += dy;
+              const nextCell = this.cellAtXy_(ox, oy);
+              if (nextCell == null || !nextCell.hasSameGemAs(cell)) {
+                return i;
+              }
+            }
+          };
+          return (walk(+1, 0) + walk(-1, 0)) >= 2 || (walk(0, +1) + walk(0, -1)) >= 2;
         },
 
         /**
@@ -490,7 +518,12 @@ specific language governing permissions and limitations under the License.
           const oldCell = this.grid_[index];
 
           cell.gem.tabIndex = this.baseTabIndex + index;
-          cell.gem.style.transform = cell.position.toTransform();
+
+          // TODO: the first one ensures the first placement, second animates. But why?
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => {
+              cell.gem.style.transform = cell.position.toTransform();
+            }));
 
           this.grid_[index] = cell;
 
