@@ -84,13 +84,7 @@ const COMPILER_PATH = 'node_modules/google-closure-compiler/compiler.jar';
 const SASS_FILES = '{scenes,sass,elements}/**/*.scss';
 const IGNORE_COMPILED_JS = '!**/*.min.js';
 const CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
-const SERVICE_FILES = ['js/service/**/*.js', IGNORE_COMPILED_JS];
-
-const SHARED_EXTERNS = [
-  'components/web-animations-utils/externs*.js',
-  'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
-  'node_modules/google-closure-compiler/contrib/externs/jquery-1.9.js',
-];
+const JS_FILES = ['js/*.js', 'js/externs/*.js', IGNORE_COMPILED_JS];
 
 const AUTOPREFIXER_BROWSERS = ['> 3%', 'chrome >= 44', 'ios_saf >= 9', 'ie >= 11'];
 
@@ -161,23 +155,27 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('compile-santa-api-service', function() {
-  scripts.changedFlag(API_BASE_URL, 'js/service/service.flag', function() {
+gulp.task('compile-js', function() {
+  scripts.changedFlag(API_BASE_URL, 'js/compile-js-flag', function() {
     try {
-      fs.unlinkSync('js/service/service.min.js');
+      fs.unlinkSync('js/compile-js-flag');
     } catch (e) {
       // ignored
     }
   });
 
   const closureBasePath = path.resolve('components/closure-library/closure/goog/base.js');
-  return gulp.src(SERVICE_FILES)
-    .pipe($.newer('js/service/service.min.js'))
+  const externs = [
+    'node_modules/google-closure-compiler/contrib/externs/google_universal_analytics_api.js',
+  ];
+  return gulp.src(JS_FILES)
+    .pipe($.newer('js/santa.min.js'))
     .pipe($.closureCompiler({
       compilerPath: COMPILER_PATH,
-      fileName: 'service.min.js',
+      fileName: 'santa.min.js',
       compilerFlags: addCompilerFlagOptions({
         js: [closureBasePath],
+        externs,
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         warning_level: 'VERBOSE',
         language_in: 'ECMASCRIPT6_STRICT',
@@ -195,11 +193,16 @@ gulp.task('compile-santa-api-service', function() {
         ],
       })
     }))
-    .pipe(gulp.dest('js/service'));
+    .pipe(gulp.dest('js'));
 });
 
 gulp.task('compile-scenes', function() {
   const closureLibraryPath = path.resolve('components/closure-library/closure/goog');
+  const externs = [
+    'components/web-animations-utils/externs*.js',
+    'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
+    'node_modules/google-closure-compiler/contrib/externs/jquery-1.9.js',
+  ];
   const limit = $.limiter(-2);
 
   // compile each scene, merging them into a single gulp stream as we go
@@ -231,7 +234,7 @@ gulp.task('compile-scenes', function() {
 
     const compilerFlags = addCompilerFlagOptions({
       js: compilerSrc,
-      externs: SHARED_EXTERNS,
+      externs,
       closure_entry_point: config.entryPoint,
       compilation_level: 'SIMPLE_OPTIMIZATIONS',
       warning_level: warningLevel,
@@ -358,7 +361,7 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
 
 // Vulcanize elements separately, as we want to inline the majority common code
 // here.
-gulp.task('vulcanize-elements', ['sass', 'compile-santa-api-service'], function() {
+gulp.task('vulcanize-elements', ['sass', 'compile-js'], function() {
   return gulp.src('elements/elements_en.html', {base: './'})
     .pipe($.vulcanize({
       inlineScripts: true,
@@ -451,7 +454,7 @@ gulp.task('watch', function() {
     gulp.watch('scenes/**/*.html', ['create-dev-scenes']);
   } else {
     gulp.watch(CLOSURE_FILES, ['compile-scenes']);
-    gulp.watch(SERVICE_FILES, ['compile-santa-api-service']);
+    gulp.watch(JS_FILES, ['compile-js']);
   }
 });
 
@@ -479,4 +482,4 @@ gulp.task('serve', ['default', 'watch'], function() {
 
 gulp.task('default', argv.devmode ?
     ['sass', 'build-scene-deps', 'create-dev-scenes'] :
-    ['sass', 'compile-santa-api-service', 'compile-scenes']);
+    ['sass', 'compile-js', 'compile-scenes']);

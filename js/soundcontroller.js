@@ -14,18 +14,28 @@
  * the License.
  */
 
-/* global Klang */
+goog.provide('SoundController');
+
+/**
+ * Klang script source URL.
+ */
+const klangSrc = 'third_party/lib/klang/klang.js';
+
+/**
+ * Klang config file URL.
+ */
+const klangConfigSrc = 'third_party/lib/klang/config.js';
 
 /**
  * @constructor
  * @struct
- * @param {function(string)} loadCallback Callback to be notified when a set of
- *     sounds are loaded.
+ * @param {function(string)} loadCallback Callback to be notified when a set of sounds are loaded.
+ * @export
  */
-function SoundController(loadCallback) {
+SoundController = function SoundController(loadCallback) {
   // load Klang
-  var klangScript = document.createElement('script');
-  klangScript.src = SoundController.klangSrc_;
+  const klangScript = document.createElement('script');
+  klangScript.src = klangSrc;
 
   klangScript.addEventListener('load', this.loadKlangConfig_.bind(this));
   document.head.appendChild(klangScript);
@@ -71,56 +81,40 @@ function SoundController(loadCallback) {
 SoundController.SoundDetail;
 
 /**
- * Klang script source URL.
- * @private {string}
- */
-SoundController.klangSrc_ = 'third_party/lib/klang/klang.js';
-//SoundController.klangSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/klang.js';
-
-/**
- * Klang config file URL.
- * @private {string}
- */
-SoundController.klangConfigSrc_ = 'third_party/lib/klang/config.js';
-//SoundController.klangConfigSrc_ = 'http://klangfiles.s3.amazonaws.com/uploads/projects/QzFwI/config.js';
-
-
-/**
  * Loads the Klang config file; called onload of the Klang library.
  * @private
  */
 SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
-  Klang.init(SoundController.klangConfigSrc_, function(success) {
+  Klang.init(klangConfigSrc, success => {
     if (success) {
-      console.log('Klang loaded');
       this.klangLoaded_ = true;
 
-      document.addEventListener('touchend',function startIOS () {
+      document.addEventListener('touchend', function startIOS() {
         Klang.initIOS();
         console.log('initIOS');
         document.removeEventListener('touchend', startIOS);
-
-      })
+      });
 
       // Run any queued loads of sound sets. Usually only one set of sounds has
       // been queued, but prioritize the most recent in case of more.
-      for (var i = this.loadQueue_.length - 1; i >= 0; i--) {
+      for (let i = this.loadQueue_.length - 1; i >= 0; i--) {
         this.triggerSoundsLoad_(this.loadQueue_[i]);
       }
       this.loadQueue_ = [];
     } else {
       console.log('Klang failed to load');
     }
-  }.bind(this));
+  });
 };
 
 /**
  * Load a set of sounds based on a `sound-preload` event.
  * @param {{detail: SoundController.SoundDetail}} loadEvent
+ * @export
  */
 SoundController.prototype.loadSounds = function(loadEvent) {
-  this.loadingSounds_ = /** @type {string} */(loadEvent.detail);
+  this.loadingSounds_ = /** @type {string} */ (loadEvent.detail);
 
   // a new load has been triggered, so cancel any existing queued ambient sounds
   this.soundQueue_ = [];
@@ -148,7 +142,7 @@ SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
       // If this is also the most recently loaded set of sounds, play all queued
       // ambient sounds and clear queue.
       if (soundsName === this.loadingSounds_) {
-        for (var i = 0; i < this.soundQueue_.length; i++) {
+        for (let i = 0; i < this.soundQueue_.length; i++) {
           // Fine to play them all. Klang appears to correctly handle running
           // even scene_start and scene_end ambient sounds back to back.
           console.log('Klang: playing queued sound ' + this.soundQueue_[i]);
@@ -179,6 +173,7 @@ SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
  * Ambient sounds include the soundtrack and any environmental noises that are
  * scripted in a sequence inside of Klang's config file.
  * @param {{detail: SoundController.SoundDetail}} loadEvent
+ * @export
  */
 SoundController.prototype.playAmbientSounds = function(loadEvent) {
   // ambient sounds are important, so queue them up if the last load (or loading
@@ -195,6 +190,7 @@ SoundController.prototype.playAmbientSounds = function(loadEvent) {
  * Play a transient sound based on a `sound-trigger` event. Transient sounds are
  * sounds like an on-click sound, or a missed-objective sound in a game.
  * @param {{detail: SoundController.SoundDetail}} loadEvent
+ * @export
  */
 SoundController.prototype.playSound = function(loadEvent) {
   // transient sounds aren't important, so attempt to play if Klang itself is
@@ -213,8 +209,8 @@ SoundController.prototype.playSound = function(loadEvent) {
  * @private
  */
 SoundController.prototype.triggerSound_ = function(sound) {
-  var soundName = typeof sound === 'string' ? sound : sound.name;
-  var args = [soundName];
+  const soundName = typeof sound === 'string' ? sound : sound.name;
+  const args = [soundName];
 
   if (sound.args && Array.isArray(sound.args)) {
     [].push.apply(args, sound.args);

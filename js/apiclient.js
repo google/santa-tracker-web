@@ -128,7 +128,7 @@ SantaService = function SantaService(clientId, lang, version) {
   this.debugOffset_;
 
   if (window['DEV']) {
-    var overrideParam = this.getUrlParameter_('timestamp_override');
+    var overrideParam = getUrlParameter('timestamp_override');
     if (overrideParam) {
       if (overrideParam[overrideParam.length - 1] == '/') {
         overrideParam = overrideParam.slice(0, -1);
@@ -426,18 +426,6 @@ SantaService.prototype.fetchDetails_ = function(id, callback) {
     console.error('failed fetchDetails', id);
   }
   santaAPIRequest('details', data, done, fail);
-};
-
-/**
- * @param {string} param URL parameter to look for.
- * @return {string|undefined} undefined if the URL parameter does not exist.
- * @private
- */
-SantaService.prototype.getUrlParameter_ = function(param) {
-  if (!window.location.search) { return; }
-  var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
-  if (!m) { return; }
-  return decodeURIComponent(m[1]);
 };
 
 /**
