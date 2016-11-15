@@ -31,11 +31,15 @@ goog.require('Turtle.Blocks');
 goog.require('Turtle.SceneTutorial');
 goog.require('Sharing');
 
-Turtle.HEIGHT = 300;
-Turtle.WIDTH = 300;
+Turtle.HEIGHT = 500;
+Turtle.WIDTH = 500;
+Turtle.DISPLAY_SIZE = 300;
 
 Turtle.DEFAULT_DELAY = 400;
 Turtle.FAST_DELAY = 20;
+
+Turtle.MIN_LINE_WIDTH = 6;
+Turtle.LINE_SCALE = 10;
 
 /**
  * PID of animation task currently executing.
@@ -66,9 +70,7 @@ Turtle.visible = true;
  * @type boolean
  */
 Turtle.canSubmit = false;
-
 Turtle.isRTL = false;
-
 Turtle.onRepeat = false;
 
 /**
@@ -147,6 +149,7 @@ Turtle.init = function() {
 
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
+  Turtle.ctxOutput = document.getElementById('output').getContext('2d');
   Turtle.reset();
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
@@ -229,9 +232,9 @@ Turtle.resetPosition = function() {
 Turtle.resetStyle = function() {
   Turtle.ctxScratch.strokeStyle = '#ffffff';
   Turtle.ctxScratch.fillStyle = '#ffffff';
-  Turtle.ctxScratch.lineWidth = 5;
+  Turtle.ctxScratch.lineWidth = 6;
   Turtle.ctxScratch.lineCap = 'round';
-  Turtle.ctxScratch.font = 'normal 18pt Arial';
+  Turtle.ctxScratch.lineJoin = 'round';
 }
 
 /**
@@ -253,13 +256,30 @@ Turtle.reset = function() {
   }
   Turtle.pidList.length = 0;
   Turtle.interpreter = null;
+  Turtle.bounds = null;
 };
+
+/**
+* Updates the current bounds of the rendered snowflake. Takes in a set of bounds
+* for a drawing segment and expands the global bounds if necessary.
+*/
+Turtle.updateBounds = function(bounds) {
+  if (!Turtle.bounds) {
+    Turtle.bounds = bounds;
+  } else {
+    Turtle.bounds[0] = Math.min(Turtle.bounds[0], bounds[0]);
+    Turtle.bounds[1] = Math.min(Turtle.bounds[1], bounds[1]);
+    Turtle.bounds[2] = Math.max(Turtle.bounds[2], bounds[2]);
+    Turtle.bounds[3] = Math.max(Turtle.bounds[3], bounds[3]);
+  }
+}
 
 /**
  * Copy the scratch canvas to the display canvas. Add a turtle marker.
  */
 Turtle.display = function() {
-  // Clear the display with black.
+
+  // Clip the canvas to its rendered size (centered)
   Turtle.ctxDisplay.beginPath();
   Turtle.ctxDisplay.rect(0, 0,
       Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
@@ -268,11 +288,14 @@ Turtle.display = function() {
   Turtle.ctxDisplay.fill();
 
   // Draw the user layer.
+  var offset = (Turtle.WIDTH - Turtle.DISPLAY_SIZE) / 2;
   Turtle.ctxDisplay.globalCompositeOperation = 'source-over';
-  Turtle.ctxDisplay.drawImage(Turtle.ctxScratch.canvas, 0, 0);
+  Turtle.ctxDisplay.drawImage(Turtle.ctxScratch.canvas, -offset, -offset);
 
   // Draw the turtle.
   if (Turtle.visible) {
+    Turtle.x -= offset;
+    Turtle.y -= offset;
     // Make the turtle the colour of the pen.
     Turtle.ctxDisplay.strokeStyle = Turtle.ctxScratch.strokeStyle;
     Turtle.ctxDisplay.fillStyle = Turtle.ctxScratch.fillStyle;
@@ -311,6 +334,9 @@ Turtle.display = function() {
         rightControlX, rightControlY, rightX, rightY);
     Turtle.ctxDisplay.closePath();
     Turtle.ctxDisplay.fill();
+
+    Turtle.x += offset;
+    Turtle.y += offset;
   }
 };
 
@@ -511,15 +537,19 @@ Turtle.setOnRepeat = function(bool) {
 }
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
+  Turtle.ctxScratch.lineWidth = Math.max(size / Turtle.LINE_SCALE,
+      Turtle.MIN_LINE_WIDTH);
   var sideLen;
+  var bounds = [Turtle.x, Turtle.y, Turtle.x, Turtle.y]; // [minx, miny, maxx, maxy]
   switch(numSides) {
     case 4:
       sideLen = size;
       break;
     case 5:
-      sideLen = 2*size*Math.sin(Math.PI/numSides)/(Math.cos(Math.PI/numSides) + 1);    
+      sideLen = size * 0.64984; // ratio of side to height for a pentagon
       break;
     default:
+      // 2/sqrt(3)=1.1547 is the side of a triangle relative to its height
       sideLen = size * 1.1547;
       break;
   }
@@ -527,12 +557,18 @@ Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
   Turtle.ctxScratch.moveTo(Turtle.x, Turtle.y);
   Turtle.turnWithoutAnimation(-90);
   Turtle.drawLineWithoutMoving(sideLen / 2, !fill /*trace*/);
+  bounds = [Math.min(bounds[0], Turtle.x), Math.min(bounds[1], Turtle.y),
+            Math.max(bounds[2], Turtle.x), Math.max(bounds[3], Turtle.y)];
   for (var i = 0; i < numSides - 1; i++) {
     Turtle.turnWithoutAnimation(360 / numSides);
     Turtle.drawLineWithoutMoving(sideLen, !fill);
+    bounds = [Math.min(bounds[0], Turtle.x), Math.min(bounds[1], Turtle.y),
+              Math.max(bounds[2], Turtle.x), Math.max(bounds[3], Turtle.y)];
   }
   Turtle.turnWithoutAnimation(360/numSides);
   Turtle.drawLineWithoutMoving(sideLen / 2, !fill);
+  bounds = [Math.min(bounds[0], Turtle.x), Math.min(bounds[1], Turtle.y),
+            Math.max(bounds[2], Turtle.x), Math.max(bounds[3], Turtle.y)];
   Turtle.turnWithoutAnimation(90);
   Turtle.ctxScratch.closePath();
   if (fill) {
@@ -541,6 +577,7 @@ Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
   if (animate) {
     Turtle.animate(id);
   }
+  Turtle.updateBounds(bounds);
 }
 
 Turtle.stampDiamond = function(size, fill, id) {
@@ -631,35 +668,27 @@ Turtle.isVisible = function(visible, id) {
   Turtle.animate(id);
 };
 
-/**
- * Print some text.
- * @param {string} text Text to print.
- * @param {?string} id ID of block.
- */
-Turtle.drawPrint = function(text, id) {
-  Turtle.ctxScratch.save();
-  Turtle.ctxScratch.translate(Turtle.x, Turtle.y);
-  Turtle.ctxScratch.rotate(2 * Math.PI * (Turtle.heading - 90) / 360);
-  Turtle.ctxScratch.fillText(text, 0, 0);
-  Turtle.ctxScratch.restore();
-  Turtle.animate(id);
-};
-
-/**
- * Change the typeface of printed text.
- * @param {string} font Font name (e.g. 'Arial').
- * @param {number} size Font size (e.g. 18).
- * @param {string} style Font style (e.g. 'italic').
- * @param {?string} id ID of block.
- */
-Turtle.drawFont = function(font, size, style, id) {
-  Turtle.ctxScratch.font = style + ' ' + size + 'pt ' + font;
-  Turtle.animate(id);
-};
-
 Turtle.sendSnowflakeAndBlocks = function() {
     Turtle.runCode(true, function() {
-        parent.postMessage({'blocks': Sharing.workspaceToUrl(), 'snowflake': Turtle.ctxScratch.canvas.toDataURL()}, "*");    
+      var padding = Turtle.ctxScratch.lineWidth;
+      // We always want a square image, so use the min of x and y for both.
+      var min = Math.min(Turtle.bounds[0], Turtle.bounds[1]) - padding;
+      // Restrict the min to between 0 and 150
+      min = Math.min(150, Math.max(0, min));
+      // Similarly, max should use the max of x and y
+      var max = Math.max(Turtle.bounds[2], Turtle.bounds[3]) + padding;
+      // And restrict to between 350 and WIDTH
+      var max = Math.max(350, Math.min(Turtle.WIDTH, max));
+
+      var width = max - min;
+      var height = width;
+      Turtle.ctxOutput.canvas.width = width;
+      Turtle.ctxOutput.canvas.height = height;
+      Turtle.ctxOutput.globalCompositeOperation = 'copy';
+      Turtle.ctxOutput.drawImage(Turtle.ctxScratch.canvas, -min, -min);
+
+      parent.postMessage({'blocks': Sharing.workspaceToUrl(),
+          'snowflake': Turtle.ctxOutput.canvas.toDataURL('image/png', 1)}, "*");
     });
 };
 
