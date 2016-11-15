@@ -4,15 +4,14 @@ $rotate-bg: $gameover-bg;
 
 @import "../shared/sass/board";
 @import "../shared/sass/gameover";
-@import "../shared/sass/startbutton";
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
+@import "../shared/sass/button";
 
-@import "sass/environment";
-//@import "sass/backgrounds";
-//@import "sass/message";
 @import "../postcard/sass/background";
 @import "../postcard/sass/message";
+
+@import "sass/environment";
 
 ##{$name} {
   position: absolute;
