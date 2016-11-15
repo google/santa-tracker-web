@@ -7,7 +7,6 @@ $rotate-bg: $gameover-bg;
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
 @import "../shared/sass/button";
-@import "../shared/sass/share-overlay";
 
 @import "../postcard/sass/background";
 @import "../postcard/sass/message";
@@ -113,3 +112,4 @@ $rotate-bg: $gameover-bg;
 }
 
 @import "../shared/sass/responsive";
+@import "../shared/sass/share-overlay";
