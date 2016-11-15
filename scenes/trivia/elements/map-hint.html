@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../../../components/google-apis/google-maps-api.html">
+<link rel="import" href="../../elements/santa-maps-api.html">
 
 <dom-module id="map-hint">
 <template>
@@ -24,13 +24,7 @@ specific language governing permissions and limitations under the License.
   <!-- TODO(samthor): Non-standard import, but works in Polymer 1+ -->
   <link rel="import" type="css" href="map-hint.css" />
   <div id="map" class="fit"></div>
-  <template is="dom-if" if="{{santaApp}}">
-    <!-- Conditional required to prevent double loading -->
-    <google-maps-api version="3.exp"
-                     client-id="{{santaApp.config.CLIENT_ID}}"
-                     language="{{santaApp.language}}"
-                     on-api-load="mapsAPIReady"></google-maps-api>
-  </template>
+  <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
   <div id="globe" class="globe fit">
     <div class="globe-part globe-part--1"></div>
     <div class="globe-part globe-part--2"></div>
