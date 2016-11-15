@@ -42,13 +42,6 @@ app-drawer {
   .cards {
     border-bottom: 4px solid #eee;
   }
-  .lang {
-    padding-left: $indent-left - 4px;
-    line-height: 32px;
-    select {
-      vertical-align: middle;
-    }
-  }
   .links {
     padding: 12px 12px 4px $indent-left;
     h2 {
@@ -60,6 +53,14 @@ app-drawer {
         text-decoration: underline;
       }
     }
+  }
+  .lang {
+    padding-left: $indent-left - 4px;
+    line-height: 32px;
+    select {
+      vertical-align: middle;
+    }
+    padding-bottom: 8px;
   }
 
   a {
