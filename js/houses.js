@@ -19,7 +19,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Differences_in_assumed_time-zone
 
 window.HOUSES = [{
-  module: "airport",
+  module: "airport",  // TODO(samthor): reorder to right of scene
   iced: true,
   launchDate: new Date('Dec 1, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
@@ -33,12 +33,12 @@ window.HOUSES = [{
   hideDate: true,
   category: "learn"
 }, {
-  module: "codelab",
+  module: "codeboogie",
   iced: true,
   launchDate: new Date('Dec 1, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   hideDate: true,
-  category: "learn"
+  category: "play"
 }, {
   module: "app",
   iced: true,
@@ -48,11 +48,11 @@ window.HOUSES = [{
   category: "play",
   link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
 }, {
-  module: "seasonofgiving",
+  module: "presentbounce",
   iced: true,
   launchDate: new Date('Dec 1, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "learn"
+  category: "play"
 }, {
   module: "santasback",
   iced: true,
@@ -60,49 +60,49 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "watch"
 }, {
-  module: "santaselfie",
+  module: "translations",
   iced: true,
   launchDate: new Date('Dec 3, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "play"
+  category: "learn"
 }, {
-  module: "translations",
+  module: "postcardly",  // TODO(madCode): change route name?
   iced: true,
   launchDate: new Date('Dec 4, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"
 }, {
-  module: "carpool",
+  module: "seasonofgiving",
   iced: true,
   launchDate: new Date('Dec 5, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "watch"
+  category: "learn"
 }, {
-  module: "presentdrop",
+  module: "santaselfie",
   iced: true,
   launchDate: new Date('Dec 6, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "santasearch",
+  module: "windtunnel",  // TODO(samthor): switch to "penguindash"
   iced: true,
   launchDate: new Date('Dec 7, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "windtunnel",
+  module: "santasearch",
   iced: true,
   launchDate: new Date('Dec 8, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "explore"
+  category: "play"
 }, {
-  module: "racer",
+  module: "codelab",
   iced: true,
   launchDate: new Date('Dec 9, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "play"
+  category: "learn"
 }, {
-  module: "jamband",
+  module: "postcard",
   iced: true,
   launchDate: new Date('Dec 10, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
@@ -114,13 +114,13 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "postcard",
+  module: "jamband",
   iced: true,
   launchDate: new Date('Dec 12, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "explore"
+  category: "play"
 }, {
-  module: "jetpack",
+  module: "factory",  // TODO(samthor): switch to "wrapbattle"
   iced: true,
   launchDate: new Date('Dec 13, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
@@ -132,23 +132,23 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "codeboogie",
+  module: "runner",
   iced: true,
   launchDate: new Date('Dec 15, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "presentbounce",
+  module: "jetpack",
   iced: true,
   launchDate: new Date('Dec 16, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "mercator",
+  module: "carpool",
   iced: true,
   launchDate: new Date('Dec 17, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "play"
+  category: "watch"
 }, {
   module: "briefing",
   iced: true,
@@ -156,23 +156,23 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "explore"
 }, {
-  module: "citylights",
+  module: "presentdrop",
   iced: true,
   launchDate: new Date('Dec 19, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "learn"
+  category: "play"
 }, {
-  module: "commandcentre",
+  module: "mercator",
   iced: true,
   launchDate: new Date('Dec 20, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "explore"
+  category: "learn"
 }, {
-  module: "factory",
+  module: "racer",
   iced: true,
   launchDate: new Date('Dec 21, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
-  category: "explore"
+  category: "play"
 }, {
   module: "matching",
   iced: true,
