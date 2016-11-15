@@ -74,7 +74,7 @@ Turtle.onRepeat = false;
 /**
  * Initialize Blockly and the turtle.  Called on page load.
  */
-Turtle.init = function() {  
+Turtle.init = function() {
   // Restore sounds state.
   var soundsEnabled = true;
 
@@ -130,7 +130,7 @@ Turtle.init = function() {
   });
 
   Turtle.workspace.addChangeListener(Blockly.Events.disableOrphans);
-  
+
   // Prevent collisions with user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
@@ -139,7 +139,7 @@ Turtle.init = function() {
 
   var workspaceHeight = blocklyDiv.clientHeight;
   var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
-  
+
   BlocklyInterface.loadBlocks(defaultXml, true);
   Turtle.loadUrlBlocks();
 
@@ -153,7 +153,7 @@ Turtle.init = function() {
 
   //TODO(madCode): Delete these functions later.
   Turtle.bindClick('toStringButton', function() {
-    Turtle.urlString = Sharing.workspaceToUrl(); 
+    Turtle.urlString = Sharing.workspaceToUrl();
     console.log(Turtle.urlString);
   });
   Turtle.bindClick('fromStringButton', function() {Sharing.urlToWorkspace(Turtle.urlString);});
@@ -343,7 +343,7 @@ Turtle.runCode = function(fast, callback) {
  */
 Turtle.initInterpreter = function(interpreter, scope) {
   // API
-  /** wrap functions in the Turtle object so that they 
+  /** wrap functions in the Turtle object so that they
   can be called from the blocks' javascript generator functions. */
   var wrapper;
 
@@ -351,7 +351,7 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.pause = time;
   };
   interpreter.setProperty(scope, 'pause', interpreter.createNativeFunction(wrapper));
-  
+
   wrapper = function(bool) {
     Turtle.setOnRepeat(bool);
   };
@@ -362,7 +362,7 @@ Turtle.initInterpreter = function(interpreter, scope) {
   };
   interpreter.setProperty(scope, 'stampPentagon',
         interpreter.createNativeFunction(wrapper));
-  
+
   wrapper = function(size, id) {
     Turtle.stampDiamond(size, false /*fill*/, id.toString());
   };
@@ -517,7 +517,7 @@ Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
       sideLen = size;
       break;
     case 5:
-      sideLen = 2*size*Math.sin(Math.PI/numSides)/(Math.cos(Math.PI/numSides) + 1);    
+      sideLen = 2*size*Math.sin(Math.PI/numSides)/(Math.cos(Math.PI/numSides) + 1);
       break;
     default:
       sideLen = size * 1.1547;
@@ -659,7 +659,7 @@ Turtle.drawFont = function(font, size, style, id) {
 
 Turtle.sendSnowflakeAndBlocks = function() {
     Turtle.runCode(true, function() {
-        parent.postMessage({'blocks': Sharing.workspaceToUrl(), 'snowflake': Turtle.ctxScratch.canvas.toDataURL()}, "*");    
+        parent.postMessage({'blocks': Sharing.workspaceToUrl(), 'snowflake': Turtle.ctxScratch.canvas.toDataURL()}, "*");
     });
 };
 

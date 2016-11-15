@@ -17,6 +17,9 @@
 goog.provide('app.Scene');
 
 goog.require('app.Constants');
+goog.require('app.Controls');
+goog.require('app.Picker');
+goog.require('app.Slider');
 goog.require('app.shared.Tutorial');
 
 /**
@@ -27,7 +30,41 @@ goog.require('app.shared.Tutorial');
  */
 app.Scene = function(elem) {
   this.elem = $(elem);
+
+  this.bgsTrackElem = this.elem.find('.bgs-left, .bgs-right');
+  this.background = new app.Slider(this.elem.find('.message .bgs'), {
+    max: app.Constants.BACKGROUND_COUNT,
+    size: app.Constants.SCREEN_WIDTH,
+    horizontal: true,
+    changed: this.bgsChanged_.bind(this)
+  });
+  // Dummy slider, needed by app.Controls.
+  this.foreground = new app.Slider(this.elem.find('.message .fgs'), {
+    changed: function() {}
+  });
+
+  // Dummy tutorial, needed by app.Controls.
+  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
+      'keys-leftright', 'spacenav-leftright');
+  this.tutorial.off('keys-leftright');
+  this.picker = new app.Picker(this);
+  this.controls = new app.Controls(this);
   this.drawSnowflakes();
+};
+
+/**
+ * Is notified when background changes.
+ * @private
+ * @param {number} selected The number of the selected background.
+ * @param {number} pos The position of the selected background.
+ *                     Multiply with width to get position.
+ */
+app.Scene.prototype.bgsChanged_ = function(selected, pos) {
+  this.bgsTrackElem.each(function() {
+    var position = (app.Constants.SMALL_SCREEN_WIDTH * (pos + 1) * -1) +
+        ($(this).data('offset') || 0);
+    $(this).css('background-position', position + 'px 0');
+  });
 };
 
 /**
@@ -77,7 +114,7 @@ app.Scene.prototype.drawSnowflakes = function() {
   for (var i = 0, count = app.Constants.SNOWFLAKE_COUNT; i < count; ++i) {
     // Delay snowflakes by their count sec.
     var x = this.snowflakeFactory(null, i);
-    this.elem.find('#weather')[0].appendChild(x);
+    this.elem.find('#postcard .frame-inner')[0].appendChild(x);
   }
 }
 

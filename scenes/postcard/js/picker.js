@@ -64,9 +64,10 @@ app.Picker.prototype.navigate = function(bg, fg) {
   var bgNum = this.background.getPosition(bg),
       fgNum = this.foreground.getPosition(fg),
       url = window.location.href,
-      hash = window.location.hash;
-  
-  window.history.replaceState(null, '', url.substr(0, url.length - hash.length) + '#postcard?bg=' + bgNum + '&fg=' + fgNum);
+      hash = window.location.hash,
+      sceneName = window.location.hash.split('?')[0].substr(1);
+
+  window.history.replaceState(null, '', url.substr(0, url.length - hash.length) + '#' + sceneName + '?bg=' + bgNum + '&fg=' + fgNum);
   this.fromUrl(bgNum, fgNum);
   
   // Sound

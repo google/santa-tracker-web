@@ -106,7 +106,12 @@ module.exports = {
   },
   postcardly: {
     typeSafe: true,
-    entryPoint: 'app.Scene'
+    entryPoint: 'app.Scene',
+    libraries: [
+      'scenes/postcard/js/controls.js',
+      'scenes/postcard/js/picker.js',
+      'scenes/postcard/js/slider.js'
+    ]
   },
   presentbounce: {
     closureLibrary: true,
