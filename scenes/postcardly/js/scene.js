@@ -134,11 +134,20 @@ function randomRange(min, opt_max) {
 };
 
 app.Scene.prototype.showShareOverlay = function() {
-  var url = window.location.href;
-  var chop = url.indexOf('B');
-  if (chop != -1) {
-    url = url.substring(0,chop);
+  var bgNum = this.background.getPosition(0);
+  var fgNum = this.foreground.getPosition(0);
+  var blocks = this.blocks;
+  var params = '?bg=' + bgNum + '&fg=' + fgNum + '&B=' + blocks;
+  var url;
+  if (window.location.hostname.includes('localhost')) {
+    url = window.location.href;
+    var chop = url.indexOf('?');
+    if (chop != -1) {
+      url = url.substring(0,chop);
+    }
+    url += params;
+  } else {
+    url = 'https://' + window.location.hostname + '/#postcardly' + params;
   }
-  url += 'B=' + this.blocks;
   this.shareOverlay.show(url, true);
 };
