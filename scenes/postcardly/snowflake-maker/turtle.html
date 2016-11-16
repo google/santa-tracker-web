@@ -53,9 +53,6 @@
       button.primary {
         text-align: left;
       }
-      #display {
-        border: 1px solid #ccc;
-      }
       /* Sprited icons. */
       .icon21 {
         height: 48px;
@@ -232,12 +229,16 @@
       position: absolute;
       pointer-events: none;
     }
+      .paper {
+        background: white;
+        padding: 16px;
+      }
     </style>
   </head>
   <body>
     <div class="stacked-divs">
       <div id="visualization" class="center-horiz">
-        <div>
+        <div class="paper">
           <canvas id="scratch" width="500" height="500" hidden></canvas>
           <canvas id="output" width="10" height="10" hidden></canvas>
           <canvas id="display" width="300" height="300"></canvas>
