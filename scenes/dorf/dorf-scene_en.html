@@ -108,8 +108,7 @@ Village scene (2015).
         </div>
         <template is="dom-repeat" items="[[houses]]" initial-count="7">
           <div id$="house-[[item.module]]"
-               class$="house [[_calculateHouseClass(item, item.iced, todayHouse)]]"
-               disabled$="[[item.disabled]]">
+               class$="house [[_calculateHouseClass(item, item.locked, todayHouse)]]">
             <div class="assets housez">
               <div class="building"></div>
               <div hidden$="[[_isCastMode(mode)]]">
@@ -121,7 +120,7 @@ Village scene (2015).
             </div>
             <template is="dom-if" if="[[!item.disabled]]">
               <div class="action">
-                <a class="link" href$="[[_calculateHref(item, item.iced)]]">
+                <a class="link" href$="[[_calculateHref(item, item.locked)]]">
                   <div class$="card card-[[item.module]]">
                     <div class="image"></div>
                     <div class="color" style$="background-color: [[_colorForRoute(santaApp, item.module)]]"></div>
@@ -131,7 +130,7 @@ Village scene (2015).
                       </div>
                       <h4>[[_string('category', item.category, strings)]]</h4>
                       <h3>[[_string('scene', item.module, strings)]]</h3>
-                      <div class="img-lock" hidden$="[[!item.iced]]"></div>
+                      <div class="img-lock" hidden$="[[!item.locked]]"></div>
                     </div>
                     <template is="dom-if" if="[[_equals(todayHouse, item.module)]]">
                       <div class="label">
@@ -354,8 +353,8 @@ Village scene (2015).
     /**
      * Calculates the href to load for this house.
      */
-    _calculateHref: function(house, iced) {
-      if (iced || house.disabled) {
+    _calculateHref: function(house, locked) {
+      if (!house || locked) {
         return null;
       }
       return house.link || this.pageUrl + '#' + house.module;
@@ -364,9 +363,9 @@ Village scene (2015).
     /**
      * Calculates any optional classes to apply on the `.house` div.
      */
-    _calculateHouseClass: function(house, iced, todayHouse) {
+    _calculateHouseClass: function(house, locked, todayHouse) {
       var out = '';
-      if (iced) {
+      if (locked) {
         out += ' iced';
       }
       if (todayHouse === house.module) {
@@ -446,7 +445,7 @@ Village scene (2015).
         }
         if (this.mode != 'cast') {
           preload.push('img/card-' + id + '_2x.png');
-          if (house.iced && !isMobile) {
+          if (house.locked && !isMobile) {
             preload.push('img/building-' + id + '-ice.svg')
           }
         }

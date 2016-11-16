@@ -496,6 +496,13 @@ Polymer({
      */
     validRoutes: Object,
 
+    /** Whether the schedule is checked. If false, houses will remain unlocked. */
+    scheduleChecked: {
+      type: Boolean,
+      value: !window.DEV,
+      observer: '_scheduleCheckedChanged',
+    },
+
     /**
      * Analytics service.
      */
@@ -720,7 +727,7 @@ Polymer({
   },
 
   /**
-   * Catch-all place to do some kind of initialization of houses.
+   * Initializes all houses, setting their initial state of locked and disabled.
    */
   _prepareHouses: function() {
     var portalMode = this.mode === 'portal';
@@ -728,10 +735,11 @@ Polymer({
 
     for (var i = 0, house; house = this._houses[i]; ++i) {
       house.disabled = false;
+      house.locked = this.scheduleChecked;
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
-          house.disabled = (ios || portalMode || house.disabled);
+          house.disabled |= (ios || portalMode);
           break;
       }
     }
@@ -864,16 +872,15 @@ Polymer({
    * Returns whether the current route is valid.
    */
   validateRoute: function() {
-    if (!this.$.lazypages.isValidRoute(this.route)) {
-      return false;
-    }
-    if (!this.sceneIsUnlocked(this.route)) {
-      if (!window.DEV) {
-        return false;
+    var sceneIsOpen = this.sceneIsOpen(this.route);
+    if (typeof sceneIsOpen === 'boolean') {
+      if (!sceneIsOpen && window.DEV) {
+        console.debug('prod would redirect from', this.route, '=>', this.defaultRoute);
+        return true;
       }
-      console.debug('prod would redirect from', this.route, '=>', this.defaultRoute);
+      return sceneIsOpen;
     }
-    return true;
+    return this.$.lazypages.isValidRoute(this.route);
   },
 
   /** Handler for 'game-start' event. Shows the pause/restart buttons and starts the game. */
@@ -962,43 +969,31 @@ Polymer({
     this._checkSchedule();
   },
 
-  /**
-   * @param {number} idx of house to unlock
-   */
-  unlockHouse: function(idx) {
-    var house = this._houses[idx];
-    if (!house) {
-      return;
-    }
-
-    // house is melted unless it's disabled
-    house.iced = !!house.disabled;
-    this._notifyHouses(idx);
-  },
-
   unlockAllHouses: function() {
+    this.scheduleChecked = false;
     for (var i = 0, house; house = this._houses[i]; ++i) {
-      this.unlockHouse(i);
-    }
-  },
-
-  lockAllHouses: function() {
-    for (var i = 0, house; house = this._houses[i]; ++i) {
-      house.iced = true;
+      house.locked = false;
     }
     this._notifyHouses();
   },
 
-  sceneIsUnlocked: function(moduleName) {
+  /**
+   * Determines whether a given scene is open. This is distinct from unlocked, which is whether
+   * it's visibly unlocked in the village. Houses are open as soon as any place on the Earth
+   * matches the launch date (e.g., a scene is open for everyone as soon as someone in New Zealand
+   * has access to it).
+   *
+   * @return {boolean=} true if open, false if not, or undefined if unknown
+   */
+  sceneIsOpen: function(moduleName) {
     if (!this.santaService) {
       return true;  // fail open before santaService is ready
+    } else if (moduleName === TRACKER_ROUTE && !this.duringTracker) {
+      return false;  // special-case tracker, as it's open only when Santa is in flight
     }
-    var dateNow = this.santaService.dateNow();
 
-    // Unlock scenes as soon as anywhere on the Earth has it unlocked: assume
-    // UTC+14 is pretty much as far east as it goes. This doesn't effect houses
-    // being iced, but it means users can share links.
-    var targetOffset = -14 * (60 * 60000);  // as far east as possible
+    var targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
+    var dateNow = this.santaService.dateNow();
     var userOffset = dateNow.getTimezoneOffset() * 60000;
     var eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
 
@@ -1012,10 +1007,15 @@ Polymer({
       }
     }
 
-    if (moduleName === TRACKER_ROUTE && !this.duringTracker) {
-      return false;
+    return undefined;  // couldn't find this scene/house, defer to caller
+  },
+
+  _scheduleCheckedChanged: function() {
+    if (this.scheduleChecked) {
+      this._checkSchedule();
+    } else {
+      // nb. This doesn't immediately unlock any houses, instead it leaves the existing state.
     }
-    return true;
   },
 
   /**
@@ -1040,41 +1040,34 @@ Polymer({
     this.postFlight = todayDate >= this.flightFinishedAt;
     this.duringTracker = todayDate > this.countdownEndAt && !this.postFlight;
 
-    switch(todayDate.getMonth()) {
-      case 11: // DECEMBER
-        var todayHouse = '';
+    var todayHouse = '';
 
-        // Update house status based on today's date.
-        for (var i = 0; i < this._houses.length; i++) {
-          var house = this._houses[i];
-
-          var launchDate = house.launchDate;;
+    switch (todayDate.getMonth()) {
+      case 0:  // January
+        // fall-through to December logic
+      case 11: // December
+        for (var i = 0, house; house = this._houses[i]; ++i) {
+          var launchDate = house.launchDate;
           if (santaApp.mode == 'portal' && house.portalLaunchDate) {
             launchDate = house.portalLaunchDate;
           }
-          if (launchDate > todayDate) {
-            house.iced = true;
-            continue;
-          }
-          this.unlockHouse(i);
           if (isSameDay(launchDate, todayDate)) {
             todayHouse = house.module;
           }
+          if (this.scheduleChecked) {
+            house.locked = (launchDate > todayDate);
+          }
         }
-
-        this.todayHouse = todayHouse;
-        break;
-      case 0: // JAN
-        // All houses in Jan are unlocked. Full experience baby!
-        this.unlockAllHouses();
         break;
       default:
-        if (window.DEV) {
-          this.unlockAllHouses();
-        } else {
-          this.lockAllHouses();
+        if (this.scheduleChecked) {
+          for (var i = 0, house; house = this._houses[i]; ++i) {
+            house.locked = true;
+          }
         }
+        break;
     }
+    this.todayHouse = todayHouse;
     this._notifyHouses();
 
     if (!this.validateRoute()) {
@@ -1157,7 +1150,7 @@ Polymer({
 
       // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
       // there's no way to notify a whole house. Also, `this.splice` is used in _postFlightChanged.
-      var propertiesToNotify = ['iced', 'disabled', 'module', 'category'];
+      var propertiesToNotify = ['locked', 'disabled', 'module', 'category'];
 
       this._houses.forEach(function(house, i) {
         var path = ['houses', i, ''];
