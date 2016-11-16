@@ -92,7 +92,7 @@ Turtle.init = function() {
   var blocklyDiv = document.getElementById('blocklyDiv');
   var visualization = document.getElementById('visualization');
   window.addEventListener('scroll', function() {
-    Blockly.svgResize(Turtle.workspace);
+    Blockly.DropDownDiv.hideWithoutAnimation();
   });
 
   onresize = function() {
