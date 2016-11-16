@@ -158,7 +158,7 @@ gulp.task('sass', function() {
 gulp.task('compile-js', function() {
   scripts.changedFlag(API_BASE_URL, 'js/compile-js-flag', function() {
     try {
-      fs.unlinkSync('js/compile-js-flag');
+      fs.unlinkSync('js/santa.min.js');
     } catch (e) {
       // ignored
     }
