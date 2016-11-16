@@ -515,8 +515,7 @@ Turtle.setOnRepeat = function(bool) {
 }
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
-  Turtle.ctxScratch.lineWidth = Math.max(size / Turtle.LINE_SCALE,
-      Turtle.MIN_LINE_WIDTH);
+  Turtle.ctxScratch.lineWidth = Turtle.MIN_LINE_WIDTH;
   var sideLen;
   var bounds = [Turtle.x, Turtle.y, Turtle.x, Turtle.y]; // [minx, miny, maxx, maxy]
   switch(numSides) {
