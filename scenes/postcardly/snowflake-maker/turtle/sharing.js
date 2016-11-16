@@ -17,7 +17,7 @@ var blockToInitial = {
 
 var initialToBlock = {
 'p': '<block type="pentagon_stamp"><value name="SIZE"><shadow type="dropdown_pentagon"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'c': '<block type="turtle_colour"><value name="COLOUR"><shadow type="colour_picker"><field name="COLOUR">[VALUE]</field></shadow></value></block>',
+'c': '<block type="turtle_colour"><value name="COLOUR"><shadow type="dropdown_colour"><field name="COLOUR">[VALUE]</field></shadow></value></block>',
 's': '<block type="square_stamp"><value name="SIZE"><shadow type="dropdown_square"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
 't': '<block type="triangle_stamp"><value name="SIZE"><shadow type="dropdown_triangle"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
 'f': '<block type="turtle_move_forward"><value name="VALUE"><shadow type="dropdown_move_forward"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
