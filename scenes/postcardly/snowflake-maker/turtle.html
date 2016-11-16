@@ -131,11 +131,16 @@
           width: 100%;
       }
       #visualization {
-          flex: 1 1 auto;
-          min-height: 300px;
-          display: flex;
-          justify-content:center;
-          align-items:center;
+        flex: 1 1 auto;
+        display: flex;
+        justify-content:center;
+        width: 50%;
+        align-items:center;
+        align-self: center;
+        min-height: 352px;
+        min-width: 352px;
+        max-width: 532px;
+        padding: 64px 0;
       }
 
     .scene__play-tab {
@@ -230,18 +235,33 @@
       pointer-events: none;
     }
       .paper {
-        background: white;
+        background-image: url(img/img_canvas_snowflake.png);
+        background-size: 320px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: white;
         padding: 16px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        align-self: center;
+        max-height: 532px;
       }
+
+      #display {
+        width: 100%;
+        height: 100%;
+      }
+
     </style>
   </head>
   <body>
     <div class="stacked-divs">
-      <div id="visualization" class="center-horiz">
+      <div id="visualization">
         <div class="paper">
           <canvas id="scratch" width="500" height="500" hidden></canvas>
           <canvas id="output" width="10" height="10" hidden></canvas>
-          <canvas id="display" width="300" height="300"></canvas>
+          <canvas id="display"></canvas>
           <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
           <button id="runButton" class="primary" title="Draw the snowflake">
             <img src="media/icons/ic_play_circle_filled.png" class="run icon21"/>

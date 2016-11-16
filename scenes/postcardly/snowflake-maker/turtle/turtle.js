@@ -94,6 +94,16 @@ Turtle.init = function() {
   window.addEventListener('scroll', function() {
     Blockly.svgResize(Turtle.workspace);
   });
+
+  onresize = function() {
+    Turtle.DISPLAY_SIZE = Math.min(document.getElementById('visualization').offsetWidth - 32, document.getElementById('visualization').offsetHeight - 160);
+    document.getElementsByClassName('paper')[0].style.height = Turtle.DISPLAY_SIZE + 'px';
+    document.getElementsByClassName('paper')[0].style.width = Turtle.DISPLAY_SIZE + 'px';
+    document.getElementById('display').height = Turtle.DISPLAY_SIZE;
+    document.getElementById('display').width = Turtle.DISPLAY_SIZE;
+    Turtle.display();
+  }
+
   window.addEventListener('resize', onresize);
 
   var toolbox = Turtle.getToolboxElement();
@@ -136,6 +146,7 @@ Turtle.init = function() {
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
+  onresize();
   Turtle.reset();
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
