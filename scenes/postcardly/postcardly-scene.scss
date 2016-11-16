@@ -128,24 +128,26 @@ $rotate-bg: $gameover-bg;
     width:100px;
     position: absolute;
     right: 136px;
+    border: none;
   }
 
   .Button--back {
     float: left;
-    background-image: url('img/btn_help.png');
+    background-image: url('img/btn_back.png');
     background-size: contain;
     background-repeat: no-repeat;
     pointer-events: auto;
     width: 96px;
     height: 32px;
     padding-bottom: 12px;
+    margin-top: 7px;
 
     &:hover {
-      background-image: url('img/btn_help_over.png');
+      background-image: url('img/btn_back_over.png');
     }
 
     &:active {
-      background-image: url('img/btn_help_press.png');
+      background-image: url('img/btn_back_press.png');
     }
   }
 
@@ -364,12 +366,12 @@ $rotate-bg: $gameover-bg;
   }
 
   .share_bar {
-    min-width: 1024px;
-    max-width: 1100px;
+    width: 1024px;
     height: 120px;
     bottom: 0px;
     position: absolute;
     pointer-events: none;
+    z-index: 2,
   }
 
   .footer {
@@ -378,7 +380,6 @@ $rotate-bg: $gameover-bg;
     height: 143px;
     width: 100%;
     background-color: white;
-    z-index: -1;
   }
 
   .center-horiz {
