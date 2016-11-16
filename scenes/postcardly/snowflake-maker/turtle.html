@@ -25,21 +25,26 @@
         height: 100%;
         margin: 0px;
       }
+
       body {
         font-family: sans-serif;
       }
+
       h1 {
         font-weight: normal;
         font-size: 140%;
       }
+
       .blocklyMainBackground {
         stroke-width: 0 !important;
       }
+
       #collaborators {
         float: right;
         width: 30px;
         margin-left: 10px;
       }
+
       #collaborators > img {
         margin-right: 5px;
         height: 30px;
@@ -47,26 +52,29 @@
         width: 30px;
         border-radius: 3px;
       }
+
       #importExport {
         font-family: monospace;
       }
+
       button.primary {
         text-align: left;
       }
-      #display {
-        border: 1px solid #ccc;
-      }
+
       /* Sprited icons. */
       .icon21 {
         height: 48px;
         width: 48px;
       }
+
       .next {
         background-position: -42px 0px;
       }
+
       .run {
         background-position: -42px 0px;
       }
+
       .tutorial {
         display: none;
         height: 290px;
@@ -79,6 +87,7 @@
         width: 275px;
         z-index: 100;
       }
+
       .tutorial__image {
         background-image: url(img/tutorial/tutorial.gif);
         background-position: 0 0;
@@ -91,6 +100,7 @@
         width: 275px;
         z-index: 2;
       }
+
       .tutorial::before {
         background: url(img/tutorial/shadow.svg) no-repeat;
         content: "";
@@ -102,6 +112,7 @@
         width: 275px;
         z-index: 1
       }
+
       #footer {
         position: absolute;
         bottom: 0px;
@@ -110,12 +121,14 @@
         background-color: white;
         z-index: -1;
       }
+
       .center-horiz {
         margin-left: auto;
         margin-right: auto;
         left: 0px;
         right: 0px;
       }
+
       #blocklyDiv {
         background-image: url('img/img_codebar.png');
         background-size: contain;
@@ -127,120 +140,146 @@
         bottom: 0px;
         flex: 0 1 339px;
       }
+
       .stacked-divs {
           display: flex;
           flex-direction: column;
           height: 100%;
           width: 100%;
       }
+
       #visualization {
-          flex: 1 1 auto;
-          min-height: 300px;
-          display: flex;
-          justify-content:center;
-          align-items:center;
+        flex: 1 1 auto;
+        display: flex;
+        justify-content:center;
+        width: 50%;
+        align-items:center;
+        align-self: center;
+        min-height: 352px;
+        min-width: 352px;
+        max-width: 532px;
+        padding: 64px 0;
       }
 
-    .scene__play-tab {
-      border-radius: 50%;
-      bottom: 66px;
-      height: 100px;
-      right: 16px;
-      position: absolute;
-      width: 100px;
+      .scene__play-tab {
+        border-radius: 50%;
+        bottom: 66px;
+        height: 100px;
+        right: 16px;
+        position: absolute;
+        width: 100px;
 
-      @media (min-width: 661px) {
-        bottom: 80px;
+        @media (min-width: 661px) {
+          bottom: 80px;
+        }
+
+        @media (min-width: 1025px) {
+          bottom: 15px;
+        }
       }
 
-      @media (min-width: 1025px) {
-        bottom: 15px;
+      .scene__play-layer {
+        background-color: white;
+        border-radius: 50%;
+        height: 120px;
+        position: relative;
+        -webkit-transform: translateZ(0);
+        width: 120px;
+        z-index: 1;
       }
-    }
 
+      .scene__play {
+        background: #ab47bc;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0px 6px #7b1fa2;
+        cursor: pointer;
+        font-size: inherit;
+        height: 90px;
+        margin: 13px;
+        padding: 0;
+        position: relative;
+        width: 96px;
+        transition: box-shadow 100ms, transform 100ms;
+        z-index: 1;
+        pointer-events: auto;
+      }
 
-    .scene__play-layer {
-      background-color: white;
-      border-radius: 50%;
-      height: 120px;
-      position: relative;
-      -webkit-transform: translateZ(0);
-      width: 120px;
-      z-index: 1;
-    }
+      .scene__play:before {
+        background-image: url('img/ic_next.png');
+        background-size: cover;
+        content: '';
+        display: block;
+        height: 48px;
+        left: calc(50% - 24px);
+        position: absolute;
+        top: calc(50% - 24px);
+        width: 48px;
+      }
 
-    .scene__play {
-      background: #ab47bc;
-      border-radius: 50%;
-      border: none;
-      box-shadow: 0px 6px #7b1fa2;
-      cursor: pointer;
-      font-size: inherit;
-      height: 90px;
-      margin: 13px;
-      padding: 0;
-      position: relative;
-      width: 96px;
-      transition: box-shadow 100ms, transform 100ms;
-      z-index: 1;
-      pointer-events: auto;
-    }
+      .scene__play:after {
+        border-radius: 50%;
+        bottom: 0;
+        box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        transition: box-shadow 100ms;
+      }
 
-    .scene__play:before {
-      background-image: url('img/ic_next.png');
-      background-size: cover;
-      content: '';
-      display: block;
-      height: 48px;
-      left: calc(50% - 24px);
-      position: absolute;
-      top: calc(50% - 24px);
-      width: 48px;
-    }
+      .scene__play:focus {
+        outline: 0;
+      }
 
-    .scene__play:after {
-      border-radius: 50%;
-      bottom: 0;
-      box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
-      content: '';
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: -1;
-      transition: box-shadow 100ms;
-    }
+      .scene__play:active {
+        outline: 0;
+        transform: translate3d(0, 6px, 0);
+        box-shadow: 0px 0px #7b1fa2;
+      }
 
-    .scene__play:focus {
-      outline: 0;
-    }
+      .scene__play:active:after {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+      }
 
-    .scene__play:active {
-      outline: 0;
-      transform: translate3d(0, 6px, 0);
-      box-shadow: 0px 0px #7b1fa2;
-    }
+      .play_bar {
+        width: 1024px;
+        height: 120px;
+        bottom: 0px;
+        position: absolute;
+        pointer-events: none;
+      }
 
-    .scene__play:active:after {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
-    }
+      .paper {
+        background-image: url(img/img_canvas_snowflake.png);
+        background-size: 320px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: white;
+        padding: 16px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        align-self: center;
+        max-height: 532px;
+      }
 
-    .play_bar {
-      width: 1024px;
-      height: 120px;
-      bottom: 0px;
-      position: absolute;
-      pointer-events: none;
-    }
+      #display {
+        width: 100%;
+        height: 100%;
+      }
+
     </style>
   </head>
   <body>
     <div class="stacked-divs">
-      <div id="visualization" class="center-horiz">
-        <div>
+      <div id="visualization">
+        <div class="paper">
           <canvas id="scratch" width="500" height="500" hidden></canvas>
           <canvas id="output" width="10" height="10" hidden></canvas>
-          <canvas id="display" width="300" height="300"></canvas>
+          <canvas id="display"></canvas>
           <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
           <button id="runButton" class="primary" title="Draw the snowflake">
             <img src="media/icons/ic_play_circle_filled.png" class="run icon21"/>
