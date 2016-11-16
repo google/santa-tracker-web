@@ -140,21 +140,109 @@
           justify-content:center;
           align-items:center;
       }
+
+    .scene__play-tab {
+      border-radius: 50%;
+      bottom: 60px;
+      height: 100px;
+      right: 16px;
+      position: absolute;
+      width: 100px;
+
+      @media (min-width: 661px) {
+        bottom: 80px;
+      }
+
+      @media (min-width: 1025px) {
+        bottom: 15px;
+      }
+    }
+
+
+    .scene__play-layer {
+      background-color: white;
+      border-radius: 50%;
+      height: 120px;
+      position: relative;
+      -webkit-transform: translateZ(0);
+      width: 120px;
+      z-index: 1;
+    }
+
+    .scene__play {
+      background: #FF8B39;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0px 6px #FF7c20;
+      cursor: pointer;
+      font-size: inherit;
+      height: 82px;
+      margin: 16px;
+      padding: 0;
+      position: relative;
+      width: 88px;
+      transition: box-shadow 100ms, transform 100ms;
+      z-index: 1;
+    }
+
+    .scene__play:before {
+      border-bottom: 18px solid transparent;
+      border-left: 30px solid white;
+      border-top: 18px solid transparent;
+      content: '';
+      display: block;
+      height: 0;
+      left: calc(50% - 12px);
+      position: absolute;
+      top: calc(50% - 18px);
+      width: 0;
+    }
+
+    .scene__play:after {
+      border-radius: 50%;
+      bottom: 0;
+      box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+      transition: box-shadow 100ms;
+    }
+
+    .scene__play:focus {
+      outline: 0;
+    }
+
+    .scene__play:active {
+      outline: 0;
+      transform: translate3d(0, 6px, 0);
+      box-shadow: 0px 0px #FF7c20;
+
+      &:after {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    .play_bar {
+      width: 1024px;
+      height: 120px;
+      bottom: 0px;
+      position: absolute;
+    }
     </style>
   </head>
   <body>
     <div class="stacked-divs">
       <div id="visualization" class="center-horiz">
-        <div class="center-vert">
+        <div>
           <canvas id="scratch" width="500" height="500" hidden></canvas>
           <canvas id="output" width="10" height="10" hidden></canvas>
           <canvas id="display" width="300" height="300"></canvas>
           <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
           <button id="runButton" class="primary" title="Draw the snowflake">
             <img src="media/icons/ic_play_circle_filled.png" class="run icon21"/>
-          </button>
-          <button id="submitButton" title="Next">
-            <img src="media/icons/ic_navigate_next.png" class="next icon21"/>
           </button>
         </div>
       </div>
@@ -163,6 +251,14 @@
     <div class="tutorial">
       <div class="tutorial__image"></div>
     </div>
-    <div id="footer" class="center-horiz"></div>
+    <div class="play_bar center-horiz">
+      <div class="scene__play-tab">
+        <div class="scene__play-layer">
+          <button id="submitButton" class="scene__play"></button>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="center-horiz">
+    </div>
   </body>
 </html>
