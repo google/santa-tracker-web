@@ -32,6 +32,9 @@ goog.require('Blockly.Colours');
 
 Turtle.Blocks.ICON_SIZE = 48;
 
+Turtle.Blocks.COLOUR_CHOICES = ['#e53935','#fb8c00', '#facf00', '#7cb342',
+'#29b6f6', '#ab47bc', '#f06292', '#b3e5fc'];
+
 Turtle.Blocks.makeMenuIcon_ = function(path, value, alt) {
   return {
     src: Blockly.mainWorkspace.options.pathToMedia + 'icons/ic_block_' + path + '.png',
@@ -616,8 +619,36 @@ Blockly.Blocks['turtle_colour'] = {
 
 Blockly.JavaScript['turtle_colour'] = function(block) {
   // Generate JavaScript for setting the colour.
-  var colour = Blockly.JavaScript.valueToCode(block, 'COLOUR',
-      Blockly.JavaScript.ORDER_NONE) || '\'#000000\'';
-  return 'penColour(' + colour + ', \'block_id_' +
+
+  var colour = block.getInput('COLOUR').connection.targetBlock().
+      getFieldValue('CHOICE');
+
+  if (colour == 'random') {
+    colour = Turtle.Blocks.COLOUR_CHOICES[Math.floor(Math.random() *
+      Turtle.Blocks.COLOUR_CHOICES.length)];
+  }
+  return 'penColour("' + colour + '", \'block_id_' +
       block.id + '\');\n';
+};
+
+Blockly.Blocks['dropdown_colour'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldIconMenu([
+          Turtle.Blocks.makeMenuIcon_("color01", '#e53935', 'red'),
+          Turtle.Blocks.makeMenuIcon_("color02", '#fb8c00', 'orange'),
+          Turtle.Blocks.makeMenuIcon_("color03", '#facf00', 'yellow'),
+          Turtle.Blocks.makeMenuIcon_("color04", '#7cb342', 'green'),
+          Turtle.Blocks.makeMenuIcon_("color05", '#29b6f6', 'blue'),
+          Turtle.Blocks.makeMenuIcon_("color06", '#ab47bc', 'purple'),
+          Turtle.Blocks.makeMenuIcon_("color07", '#f06292', 'pink'),
+          Turtle.Blocks.makeMenuIcon_("color08", '#b3e5fc', 'light blue'),
+          Turtle.Blocks.makeMenuIcon_("color09", 'random', 'random'),
+        ]), 'CHOICE');
+    this.setOutput(true);
+    this.setColour(Blockly.Colours.pen.primary,
+      Blockly.Colours.pen.secondary,
+      Blockly.Colours.pen.tertiary
+    );
+  }
 };
