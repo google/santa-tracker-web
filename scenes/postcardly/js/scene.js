@@ -52,7 +52,7 @@ app.Scene = function(elem) {
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
-  this.elem.find('#share-button').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
+  this.elem.find('#shareButton').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
 };
 
 /**
