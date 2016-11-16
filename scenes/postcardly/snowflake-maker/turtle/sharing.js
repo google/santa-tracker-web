@@ -60,7 +60,7 @@ Sharing.urlToWorkspace = function(string) {
   //get the starterblock
   //for each symbol, add a block to the thing.
   var workspace = Turtle.workspace;
-  var starterConnection = this.getStarterBlock(workspace.getTopBlocks()).nextConnection;
+  var starterConnection = Turtle.getStarterBlock().nextConnection;
   if (starterConnection.targetBlock() != null) {
     starterConnection.targetBlock().dispose();
   }
@@ -142,12 +142,4 @@ Sharing.makeBlockFromInitial = function (initial, value) {
 
 Sharing.setConnectingBlock = function(connection, nextConnection) {
   connection.connect(nextConnection);
-};
-
-Sharing.getStarterBlock = function(topBlocksList) {
-  for (var i = 0; i < topBlocksList.length; i++) {
-    if (topBlocksList[i]. type == "snowflake_start") {
-      return topBlocksList[i];
-    }
-  }
 };

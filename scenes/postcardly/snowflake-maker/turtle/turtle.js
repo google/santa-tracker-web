@@ -73,6 +73,8 @@ Turtle.canSubmit = false;
 Turtle.isRTL = false;
 Turtle.onRepeat = false;
 
+Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
+
 /**
  * Initialize Blockly and the turtle.  Called on page load.
  */
@@ -138,7 +140,9 @@ Turtle.init = function() {
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
 
   var workspaceHeight = blocklyDiv.clientHeight;
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="32" y="32"></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" id="' +
+      Turtle.snowflakeStartBlockId + '" deletable="false" movable="false"' +
+      ' x="32" y="32"></block></xml>';
 
   BlocklyInterface.loadBlocks(defaultXml, true);
   Turtle.loadUrlBlocks();
@@ -150,10 +154,10 @@ Turtle.init = function() {
   onresize();
   Turtle.reset();
 
-  Turtle.bindClick('runButton', Turtle.runButtonClick);
-    if (document.getElementById('submitButton')) {
-     Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
-   }
+  Turtle.registerRunListener();
+  if (document.getElementById('submitButton')) {
+    Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
+  }
 
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
@@ -175,13 +179,27 @@ Turtle.loadUrlBlocks = function() {
   }
 };
 
-
-Turtle.getStarterBlock = function(topBlocksList) {
-  for (var i = 0; i < topBlocksList.length; i++) {
-    if (topBlocksList[i]. type == "snowflake_start") {
-      return topBlockList[i];
+/**
+ * Register a workspace listener to listen for clicks on the starter block and
+ * responds by running the user's code.
+ */
+Turtle.registerRunListener = function() {
+  function onBlockClicked(event) {
+    if (event.type == Blockly.Events.UI &&
+        event.element == 'click' &&
+        event.blockId == Turtle.snowflakeStartBlockId) {
+      Turtle.runCode(false);
     }
   }
+  Turtle.workspace.addChangeListener(onBlockClicked);
+};
+
+/**
+ * @return {Blockly.Block} The block on the workspace with the snowflake start
+ *     block's id, or null if not found.
+ */
+Turtle.getStarterBlock = function() {
+  return Turtle.workspace.getBlockById(Turtle.snowflakeStartBlockId);
 };
 
 Turtle.getToolboxElement = function() {
@@ -331,25 +349,11 @@ Turtle.display = function() {
   }
 };
 
-/**
- * Click the run button.  Start the program.
- * @param {!Event} e Mouse or touch event.
- */
-Turtle.runButtonClick = function(e) {
-  // Prevent double-clicks or double-taps.
-  if (BlocklyInterface.eventSpam(e)) {
-    return;
-  }
-  Turtle.runCode(false);
-}
-
 Turtle.runCode = function(fast, callback) {
   Turtle.fast = fast;
   document.getElementById('spinner').style.visibility = 'visible';
-  Turtle.workspace.traceOn(false);
   Turtle.reset();
   Turtle.canSubmit = false;
-  Turtle.workspace.traceOn(true);
   Turtle.execute(callback);
 };
 
