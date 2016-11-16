@@ -188,10 +188,7 @@ Turtle.registerRunListener = function() {
     if (event.type == Blockly.Events.UI &&
         event.element == 'click' &&
         event.blockId == Turtle.snowflakeStartBlockId) {
-      console.log('first block clicked');
       Turtle.runCode(false);
-    } else {
-      console.log(event);
     }
   }
   Turtle.workspace.addChangeListener(onBlockClicked);
