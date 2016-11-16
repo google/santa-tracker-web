@@ -121,9 +121,6 @@ Turtle.init = function() {
   Turtle.workspace.translate(0,0);
   Turtle.workspace.scrollY = 0;
 
-  Turtle.workspace.flyout_.MARGIN = 0;
-  Turtle.workspace.flyout_.SCROLLBAR_PADDING = 0;
-
   Turtle.workspace.addChangeListener(Blockly.Events.disableOrphans);
 
   // Prevent collisions with user-defined functions or variables.
