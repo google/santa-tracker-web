@@ -121,13 +121,14 @@ Turtle.init = function() {
   Turtle.workspace.translate(0,0);
   Turtle.workspace.scrollY = 0;
 
+  Turtle.workspace.flyout_.MARGIN = 0;
+  Turtle.workspace.flyout_.SCROLLBAR_PADDING = 0;
+
   Turtle.workspace.addChangeListener(Blockly.Events.disableOrphans);
 
   // Prevent collisions with user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
-
-  //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
 
   var workspaceHeight = blocklyDiv.clientHeight;
   var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="32" y="32"></block></xml>';
@@ -141,6 +142,9 @@ Turtle.init = function() {
   Turtle.reset();
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
+    if (document.getElementById('submitButton')) {
+     Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
+   }
 
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
