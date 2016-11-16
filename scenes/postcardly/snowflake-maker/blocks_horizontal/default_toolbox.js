@@ -34,6 +34,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       <shadow type="colour_picker"></shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="0"></sep> '+
     '   <block type="pentagon_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="dropdown_pentagon">' +
@@ -41,6 +42,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="0"></sep> '+
     '   <block type="square_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="dropdown_square">' +
@@ -48,6 +50,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="0"></sep> '+
     '   <block type="triangle_stamp">' +
     '     <value name="SIZE">' +
     '       <shadow type="dropdown_triangle">' +
@@ -55,6 +58,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="0"></sep> '+
     '   <block type="turtle_move_forward">' +
     '     <value name="VALUE">' +
     '       <shadow type="dropdown_move_forward">' +
@@ -62,6 +66,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="0"></sep> '+
     '   <block type="turtle_move_backward">' +
     '     <value name="VALUE">' +
     '       <shadow type="dropdown_move_backward">' +
@@ -69,6 +74,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="0"></sep> '+
     '   <block type="turtle_turn_left">' +
     '     <value name="ANGLE">' +
     '       <shadow type="dropdown_turn_left">' +
@@ -76,6 +82,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="0"></sep> '+
     '   <block type="turtle_turn_right">' +
     '     <value name="ANGLE">' +
     '       <shadow type="dropdown_turn_right">' +
@@ -83,6 +90,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '       </shadow>' +
     '     </value>' +
     '   </block>' +
+    '   <sep gap="8"></sep> '+
         '<block type="control_repeat">' +
         '<value name="TIMES">' +
         '<shadow type="math_whole_number">' +

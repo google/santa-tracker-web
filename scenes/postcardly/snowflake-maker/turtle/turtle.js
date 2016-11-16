@@ -91,21 +91,7 @@ Turtle.init = function() {
   var rtl = Turtle.isRTL;
   var blocklyDiv = document.getElementById('blocklyDiv');
   var visualization = document.getElementById('visualization');
-  var onresize = function(e) {
-    var top = visualization.offsetTop;
-    //TODO(madeeha): Calculating this wasn't producing desired results. Look at math again.
-    blocklyDiv.style.width = '1020px';
-    //calculate the size of the main workspace and figure out where to place the starter blocks
-    if (Turtle.workspace && Turtle.workspace.topBlocksList && Turtle.workspace.topBlocksList.length) {
-      var starterBlock = Turtle.getStarterBlock(Turtle.workspace.topBlocksList);
-      var workspaceHeight = blocklyDiv.clientHeight;
-      starterBlock.x = 0;
-      starterBlock.y = workspaceHeight/2;
-      Turtle.workspace.addChangeListener(Turtle.onFirstClicked);
-    }
-  };
   window.addEventListener('scroll', function() {
-    onresize();
     Blockly.svgResize(Turtle.workspace);
   });
   window.addEventListener('resize', onresize);
@@ -131,21 +117,21 @@ Turtle.init = function() {
           }
   });
 
+  // Scratch-blocks is accounting for the size of the flyout in a way that we don't want.
+  Turtle.workspace.translate(0,0);
+  Turtle.workspace.scrollY = 0;
+
   Turtle.workspace.addChangeListener(Blockly.Events.disableOrphans);
 
   // Prevent collisions with user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
 
-  //TODO(madCode): We could calculate the x and y coordinates here on resize? Not sure it works that way, tbh.
-
   var workspaceHeight = blocklyDiv.clientHeight;
-  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="0" y=\"' + workspaceHeight*0.6 + '\"></block></xml>';
+  var defaultXml = '<xml><block type="snowflake_start" deletable="false" movable="false" x="32" y="32"></block></xml>';
 
   BlocklyInterface.loadBlocks(defaultXml, true);
   Turtle.loadUrlBlocks();
-
-  onresize();
 
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
@@ -153,17 +139,9 @@ Turtle.init = function() {
   Turtle.reset();
 
   Turtle.bindClick('runButton', Turtle.runButtonClick);
-
-  //TODO(madCode): Delete these functions later.
-  Turtle.bindClick('toStringButton', function() {
-    Turtle.urlString = Sharing.workspaceToUrl();
-    console.log(Turtle.urlString);
-  });
-  Turtle.bindClick('fromStringButton', function() {Sharing.urlToWorkspace(Turtle.urlString);});
-  if (document.getElementById('submitButton')) {
-    Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
-  }
-
+    if (document.getElementById('submitButton')) {
+     Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
+   }
 
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
