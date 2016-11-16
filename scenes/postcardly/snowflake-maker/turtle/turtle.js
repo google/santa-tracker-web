@@ -154,11 +154,11 @@ Turtle.init = function() {
 window.addEventListener('load', Turtle.init);
 
 Turtle.loadUrlBlocks = function() {
-  var regex = /postcardly\?bg\=\d\&fg\=\dB\=([#a-z\d\[\]\<\>]+)/;
+  var regex = /\&B\=([#a-z\d\[\]\<\>]+)/;
   var blocksString = parent.location.href;
   var results = regex.exec(blocksString);
   if (results) {
-    blocksString = regex.exec(blocksString)[1];
+    blocksString = results[1];
     Sharing.urlToWorkspace(blocksString);
   }
 };
