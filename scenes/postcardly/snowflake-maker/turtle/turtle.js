@@ -97,10 +97,10 @@ Turtle.init = function() {
 
   onresize = function() {
     Turtle.DISPLAY_SIZE = Math.min(document.getElementById('visualization').offsetWidth - 32, document.getElementById('visualization').offsetHeight - 160);
-    document.getElementsByClassName('paper')[0].style.height = Turtle.DISPLAY_SIZE + 'px';
-    document.getElementsByClassName('paper')[0].style.width = Turtle.DISPLAY_SIZE + 'px';
-    document.getElementById('display').height = Turtle.DISPLAY_SIZE;
-    document.getElementById('display').width = Turtle.DISPLAY_SIZE;
+    Turtle.paper.style.height = Turtle.DISPLAY_SIZE + 'px';
+    Turtle.paper.style.width = Turtle.DISPLAY_SIZE + 'px';
+    Turtle.ctxDisplay.height = Turtle.DISPLAY_SIZE;
+    Turtle.ctxDisplay.width = Turtle.DISPLAY_SIZE;
     Turtle.display();
   }
 
@@ -146,6 +146,7 @@ Turtle.init = function() {
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
+  Turtle.paper = document.getElementsByClassName('paper')[0];
   onresize();
   Turtle.reset();
 
