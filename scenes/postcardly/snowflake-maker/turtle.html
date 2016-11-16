@@ -265,7 +265,10 @@
         align-self: center;
         max-height: 532px;
       }
-
+      
+      #blocklycontainer {
+        position: relative;
+      }
     </style>
   </head>
   <body>
@@ -281,19 +284,20 @@
           </button>
         </div>
       </div>
-      <div id="blocklyDiv" class="center-horiz"></div>
+      <div id="blocklycontainer">
+        <div id="blocklyDiv" class="center-horiz"></div>
+        <div class="play_bar center-horiz">
+          <div class="scene__play-tab">
+            <div class="scene__play-layer">
+              <button id="submitButton" class="scene__play"></button>
+            </div>
+          </div>
+        </div>
+        <div id="footer"></div>
+      </div>
     </div>
     <div class="tutorial">
       <div class="tutorial__image"></div>
-    </div>
-    <div class="play_bar center-horiz">
-      <div class="scene__play-tab">
-        <div class="scene__play-layer">
-          <button id="submitButton" class="scene__play"></button>
-        </div>
-      </div>
-    </div>
-    <div id="footer" class="center-horiz">
     </div>
   </body>
 </html>
