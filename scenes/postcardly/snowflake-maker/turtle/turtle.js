@@ -181,7 +181,7 @@ Turtle.loadUrlBlocks = function() {
 
 /**
  * Register a workspace listener to listen for clicks on the starter block and
- * responds by running the user's code.
+ * respond by running the user's code.
  */
 Turtle.registerRunListener = function() {
   function onBlockClicked(event) {
@@ -202,6 +202,7 @@ Turtle.getStarterBlock = function() {
   return Turtle.workspace.getBlockById(Turtle.snowflakeStartBlockId);
 };
 
+// TODO (fenichel): Code cleanup: Fix toolbox loading.
 Turtle.getToolboxElement = function() {
   var match = location.search.match(/toolbox=([^&]+)/);
   return document.getElementById('toolbox-' + (match ? match[1] : 'categories'));
@@ -491,8 +492,12 @@ Turtle.executeChunk_ = function(callback) {
       go = Turtle.interpreter.step();
     } catch (e) {
       // User error, terminate in shame.
-      alert(e);
-      go = false;
+      // Except if the error involved making a deleted block glow,
+      // in which case just keep going.
+      if (e != 'Tried to glow block that does not exist.') {
+        alert(e);
+        go = false;
+      }
     }
     if (go && Turtle.pause) {
       // The last executed command requested a pause.
