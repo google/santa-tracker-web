@@ -8,9 +8,6 @@ $rotate-bg: $gameover-bg;
 @import "../shared/sass/tutorial";
 @import "../shared/sass/button";
 
-@import "../postcard/sass/background";
-@import "../postcard/sass/message";
-
 @import "sass/environment";
 
 ##{$name} {
@@ -109,32 +106,286 @@ $rotate-bg: $gameover-bg;
       background-size: cover;
     }
   }
-  .buttons-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 30px 0 30px 0;
-  }
+
   .buttons {
     display: flex;
     width: 900px;
     position: relative;
-    left: 50%;
+    right: 50%;
     margin-left: -450px;
     justify-content: space-between;
   }
 
-  .Button.Button--back {
-    background-color: #ccc;
-    box-shadow: 0 7px 0 #999, 5px 12px rgba(0,0,0,0.16);
-    background-image: url('img/ic_prev.png');
-    background-size: contain;
+  .buttons-footer {
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     background-color: #fff;
+     height: 143px;
   }
 
-  .Button.Button--share {
-    background-color: #9d3;
-    box-shadow: 0 7px 0 #3b5, 5px 12px rgba(0,0,0,0.16);
+  .button-column {
+    width:100px;
+    position: absolute;
+    right: 136px;
+  }
+
+  .Button--back {
+    float: left;
+    background-image: url('img/btn_help.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: auto;
+    width: 96px;
+    height: 32px;
+    padding-bottom: 12px;
+
+    &:hover {
+      background-image: url('img/btn_help_over.png');
+    }
+
+    &:active {
+      background-image: url('img/btn_help_press.png');
+    }
+  }
+
+  .Button--help {
+    float: left;
+    background-image: url('img/btn_help.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: auto;
+    width: 96px;
+    height: 32px;
+
+    &:hover {
+      background-image: url('img/btn_help_over.png');
+    }
+
+    &:active {
+      background-image: url('img/btn_help_press.png');
+    }
+  }
+
+  .bgs-belt {
+    .bgs-left {
+      background: url(img/bgs-small.png) top right;
+      height: 140px;
+      margin-right: 450px;
+      margin-top: -70px;
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      transition: background-position 500ms ease;
+      width: 1120px;
+    }
+
+    .bgs-right {
+      background: url(img/bgs-small.png) -122px 0;
+      height: 140px;
+      left: 50%;
+      margin-left: 450px;
+      margin-top: -70px;
+      position: absolute;
+      top: 50%;
+      transition: background-position 500ms ease;
+      width: 1120px;
+    }
+  }
+
+  .message {
+    .bgs div {
+      background: url(img/bgs.png);
+      height: 500px;
+      position: absolute;
+      top: 0;
+      width: 850px;
+    }
+
+    .bgs {
+      left: 0;
+      position: relative;
+      transition: transform 500ms ease;
+
+      @mixin bg($number) {
+        background-position: -850px * $number;
+        left: $number * 850px;
+      }
+
+      .bg1 {
+        @include bg(0);
+      }
+
+      .bg2 {
+        @include bg(1);
+      }
+
+      .bg3 {
+        @include bg(2);
+      }
+
+      .bg4 {
+        @include bg(3);
+      }
+
+      .bg5 {
+        @include bg(4);
+      }
+
+      .bg6 {
+        @include bg(5);
+      }
+
+      .bg7 {
+        @include bg(6);
+      }
+
+      .bg8 {
+        @include bg(7);
+      }
+    }
+  }
+
+  .message {
+    left: 50%;
+    margin-left: -450px;
+    margin-top: -275px;
+    position: absolute;
+    top: 50%;
+
+    .frame {
+      background-color: #fff;
+      height: 550px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 900px;
+    }
+
+    .frame-inner {
+      width: 850px;
+      height: 500px;
+      overflow: hidden;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+    }
+
+    .shadow {
+      background-color: #000;
+      height: 550px;
+      left: 10px;
+      opacity: 0.15;
+      position: absolute;
+      top: 10px;
+      width: 900px;
+    }
+
+    .shadow-inner {
+      box-sizing: border-box;
+      width: 850px;
+      height: 500px;
+      position: absolute;
+      border: 10px solid black;
+      opacity: 0.1;
+    }
+  }
+
+  .share-tab {
+    border-radius: 50%;
+    bottom: 66px;
+    height: 100px;
+    right: 16px;
+    position: absolute;
+    width: 100px;
+  }
+
+  .share-layer {
+    background-color: white;
+    border-radius: 50%;
+    height: 120px;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    width: 120px;
+  }
+
+  .share {
+    background: #ab47bc;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 6px #7b1fa2;
+    cursor: pointer;
+    font-size: inherit;
+    height: 90px;
+    margin: 13px;
+    padding: 0;
+    position: relative;
+    width: 96px;
+    transition: box-shadow 100ms, transform 100ms;
+    pointer-events: auto;
+  }
+
+  .share:before {
+    background-image: url('img/ic_next.png');
+    background-size: cover;
+    content: '';
+    display: block;
+    height: 48px;
+    left: calc(50% - 24px);
+    position: absolute;
+    top: calc(50% - 24px);
+    width: 48px;
+  }
+
+  .share:after {
+    border-radius: 50%;
+    bottom: 0;
+    box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: box-shadow 100ms;
+  }
+
+  .share:focus {
+    outline: 0;
+  }
+
+  .share:active {
+    outline: 0;
+    transform: translate3d(0, 6px, 0);
+    box-shadow: 0px 0px #7b1fa2;
+  }
+
+  .share:active:after {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .share_bar {
+    min-width: 1024px;
+    max-width: 1100px;
+    height: 120px;
+    bottom: 0px;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0px;
+    height: 143px;
+    width: 100%;
+    background-color: white;
+    z-index: -1;
+  }
+
+  .center-horiz {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
   }
 }
 
