@@ -99,8 +99,8 @@ Turtle.init = function() {
     Turtle.DISPLAY_SIZE = Math.min(document.getElementById('visualization').offsetWidth - 32, document.getElementById('visualization').offsetHeight - 160);
     Turtle.paper.style.height = Turtle.DISPLAY_SIZE + 'px';
     Turtle.paper.style.width = Turtle.DISPLAY_SIZE + 'px';
-    Turtle.ctxDisplay.height = Turtle.DISPLAY_SIZE;
-    Turtle.ctxDisplay.width = Turtle.DISPLAY_SIZE;
+    document.getElementById('display').height = Turtle.DISPLAY_SIZE;
+    document.getElementById('display').width = Turtle.DISPLAY_SIZE;
     Turtle.display();
   }
 
