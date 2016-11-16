@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Вие сте на ход"
 	},
+	"codelab-block-jump-length": {
+		"message": "прескачане"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Прескачайте сектори."
+	},
 	"codelab-block-moveeast": {
 		"message": "изток"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Копирайте тази връзка, за да споделите съобщението си"
+	},
+	"copy-me-short": {
+		"message": "Копиране на връзката за споделяне"
 	},
 	"countdown_days": {
 		"message": "Дни"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "корейски"
 	},
+	"kr_country_name": {
+		"message": "Южна Корея"
+	},
 	"kz_country_name": {
 		"message": "Казахстан"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Известия"
 	},
+	"notification_newtoday": {
+		"message": "Ново днес в Къде е Дядо Коледа"
+	},
+	"notification_newtoday_stop": {
+		"message": "Спиране"
+	},
 	"notification_notice": {
 		"message": "Джуджетата на Дядо Коледа ще ви държат в течение за графика на белобрадия старец"
+	},
+	"notification_prompt": {
+		"message": "Изпращайте ми актуална информация за Дядо Коледа"
 	},
 	"np_country_name": {
 		"message": "Непал"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Тъй като Коледа в Нова Зеландия е през лятото, приятели и роднини се събират около барбекюто. Типичното коледно ястие е печено агнешко, понякога приготвено в „ханги“ – дупка в земята или глинена пещ. Любимият им десерт е „Павлова“ – целувки, покрити с пресни плодове, като ягоди или киви."
+	},
+	"offline": {
+		"message": "Офлайн"
+	},
+	"offline_available_online": {
+		"message": "Само онлайн"
+	},
+	"offline_notification": {
+		"message": "Селцето на Дядо Коледа вече е достъпно офлайн! Освен това джуджетата могат да ви предоставят ново съдържание през целия декември."
+	},
+	"offline_notification_nothanks": {
+		"message": "Не, благодаря"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Офлайн сте"
 	},
 	"om_country_name": {
 		"message": "Оман"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Играйте с приятели в приложението за Android „Къде е Дядо Коледа“."
+	},
+	"playextra": {
+		"message": "Играйте допълнителни нива"
 	},
 	"pr_country_name": {
 		"message": "Пуерто Рико"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Географска викторина"
-	},
-	"scene_postcard": {
-		"message": "Картички с Дядо Коледа"
 	},
 	"scene_presentbounce": {
 		"message": "Подскачащи подаръци"

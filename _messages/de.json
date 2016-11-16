@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Du bist dran"
 	},
+	"codelab-block-jump-length": {
+		"message": "Überspringe"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Springe über Kacheln."
+	},
 	"codelab-block-moveeast": {
 		"message": "Osten"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopiere diesen Link, um deine Nachricht zu teilen."
+	},
+	"copy-me-short": {
+		"message": "Freigabelink kopieren"
 	},
 	"countdown_days": {
 		"message": "Tagen"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Koreanisch"
 	},
+	"kr_country_name": {
+		"message": "Südkorea"
+	},
 	"kz_country_name": {
 		"message": "Kasachstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Benachrichtigungen"
 	},
+	"notification_newtoday": {
+		"message": "Heute neu bei \"Auf den Spuren des Weihnachtsmanns\""
+	},
+	"notification_newtoday_stop": {
+		"message": "Deaktivieren"
+	},
 	"notification_notice": {
 		"message": "Lass dir von den Wichteln verraten, was der Weihnachtsmann gerade tut."
+	},
+	"notification_prompt": {
+		"message": "Ich möchte über den Weihnachtsmann auf dem Laufenden gehalten werden"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Da Weihnachten in Neuseeland im Sommer stattfindet, versammeln sich Familie und Freunde bei einem Barbecue und essen traditionell Lamm, das manchmal in einer Erdgrube oder einem Erdofen, dem \"Hangi\", gegart wird. Pavlova – Baiser mit frischem Obst wie Erdbeeren und Kiwi – ist ein beliebter Nachtisch."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Nur online"
+	},
+	"offline_notification": {
+		"message": "Das Dorf des Weihnachtsmannes kann jetzt auch offline besucht werden. Die Wichtel können Ihnen auch im Dezember neue Inhalte bereitstellen."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nein danke"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Sie sind offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Hol dir die App \"Auf den Spuren des Weihnachtsmanns\" für Android."
+	},
+	"playextra": {
+		"message": "Weitere Level spielen"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Kartenquiz"
-	},
-	"scene_postcard": {
-		"message": "Weihnachtskarten"
 	},
 	"scene_presentbounce": {
 		"message": "Geschenkeautomat"

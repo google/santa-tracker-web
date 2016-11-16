@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "轮到你了"
 	},
+	"codelab-block-jump-length": {
+		"message": "跳过"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "跳过图块。"
+	},
 	"codelab-block-moveeast": {
 		"message": "东"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "复制该链接即可分享您的消息"
+	},
+	"copy-me-short": {
+		"message": "复制链接以便分享"
 	},
 	"countdown_days": {
 		"message": "天"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "韩语"
 	},
+	"kr_country_name": {
+		"message": "韩国"
+	},
 	"kz_country_name": {
 		"message": "哈萨克斯坦"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "通知"
 	},
+	"notification_newtoday": {
+		"message": "追踪圣诞老人：今日资讯"
+	},
+	"notification_newtoday_stop": {
+		"message": "拒收此类通知"
+	},
 	"notification_notice": {
 		"message": "圣诞老人的小精灵们会及时汇报圣诞老人的行程"
+	},
+	"notification_prompt": {
+		"message": "及时掌握圣诞老人的最新动态"
 	},
 	"np_country_name": {
 		"message": "尼泊尔"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "由于圣诞节来临时新西兰正值夏天，亲朋好友会聚在一起举行烧烤活动。典型的圣诞美食包括烤羊羔肉，这种美食有时会在“hangi”（一种位于地下的土坑或土灶）中烹制。最受欢迎的甜点无疑是帕芙洛娃 (pavlova)：一种表面覆盖着草莓和奇异果等新鲜水果的蛋白酥蛋糕。"
+	},
+	"offline": {
+		"message": "未联网"
+	},
+	"offline_available_online": {
+		"message": "仅供在线访问"
+	},
+	"offline_notification": {
+		"message": "您现在可以离线造访圣诞老人小镇！小精灵们还会在整个 12 月份不断为您带来新的内容。"
+	},
+	"offline_notification_nothanks": {
+		"message": "不用了"
+	},
+	"offline_notification_okay": {
+		"message": "确定"
+	},
+	"offline_user_message": {
+		"message": "您没有联网"
 	},
 	"om_country_name": {
 		"message": "阿曼"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "在“追踪圣诞老人”Android 应用中跟朋友一起畅玩。"
+	},
+	"playextra": {
+		"message": "继续冲关"
 	},
 	"pr_country_name": {
 		"message": "波多黎各"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "地图测验"
-	},
-	"scene_postcard": {
-		"message": "圣诞老人贺卡"
 	},
 	"scene_presentbounce": {
 		"message": "礼物弹球"

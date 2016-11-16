@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "내 차례"
 	},
+	"codelab-block-jump-length": {
+		"message": "점프:"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "타일 위로 점프하세요."
+	},
 	"codelab-block-moveeast": {
 		"message": "동쪽"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "링크를 복사하여 메시지 공유"
+	},
+	"copy-me-short": {
+		"message": "공유할 링크 복사"
 	},
 	"countdown_days": {
 		"message": "일"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "한국어"
 	},
+	"kr_country_name": {
+		"message": "한국"
+	},
 	"kz_country_name": {
 		"message": "카자흐스탄"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "알림"
 	},
+	"notification_newtoday": {
+		"message": "산타 추적기의 새로운 콘텐츠"
+	},
+	"notification_newtoday_stop": {
+		"message": "이 알림 중지"
+	},
 	"notification_notice": {
 		"message": "산타의 엘프 친구들이 산타의 일정을 계속 전해드립니다."
+	},
+	"notification_prompt": {
+		"message": "산타 소식 받기"
 	},
 	"np_country_name": {
 		"message": "네팔"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "뉴질랜드에서는 크리스마스가 여름이기 때문에 가족과 친구가 함께 모여 바비큐를 즐깁니다. 일반적인 크리스마스 식사에는 양고기 구이가 포함되며 종종 구덩이를 파거나 땅바닥을 이용해 굽는 '항이'라는 방식으로 요리를 합니다. 인기 있는 후식은 달걀 흰자로 만든 머랭 위에 딸기나 키위와 같은 신선한 과일을 올린 파블로바입니다."
+	},
+	"offline": {
+		"message": "오프라인"
+	},
+	"offline_available_online": {
+		"message": "온라인 전용"
+	},
+	"offline_notification": {
+		"message": "이제 오프라인으로도 산타 마을을 방문할 수 있습니다. 또한 12월 한 달 동안 엘프가 새로운 콘텐츠를 제공합니다."
+	},
+	"offline_notification_nothanks": {
+		"message": "나중에"
+	},
+	"offline_notification_okay": {
+		"message": "확인"
+	},
+	"offline_user_message": {
+		"message": "오프라인 상태입니다."
 	},
 	"om_country_name": {
 		"message": "오만"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Android 산타 추적기 앱에서 친구와 함께 게임을 즐겨 보세요."
+	},
+	"playextra": {
+		"message": "추가 레벨 플레이"
 	},
 	"pr_country_name": {
 		"message": "푸에르토리코"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "지도 퀴즈"
-	},
-	"scene_postcard": {
-		"message": "산타 카드"
 	},
 	"scene_presentbounce": {
 		"message": "선물 튕기기"

@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Ikaw naman"
 	},
+	"codelab-block-jump-length": {
+		"message": "nilundagan ang"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Lundagan ang mga tile."
+	},
 	"codelab-block-moveeast": {
 		"message": "silangan"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopyahin ang link na ito upang ibahagi ang iyong mensahe"
+	},
+	"copy-me-short": {
+		"message": "Kopyahin ang link para maibahagi"
 	},
 	"countdown_days": {
 		"message": "Araw"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Korean"
 	},
+	"kr_country_name": {
+		"message": "South Korea"
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Mga Notification"
 	},
+	"notification_newtoday": {
+		"message": "Bago Ngayong Araw sa Santa Tracker"
+	},
+	"notification_newtoday_stop": {
+		"message": "Itigil ang mga ito"
+	},
 	"notification_notice": {
 		"message": "Babalitaan ka ng Elves ni Santa tungkol sa schedule ni Santa"
+	},
+	"notification_prompt": {
+		"message": "Panatilihing up-to-date ako kay Santa"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Dahil tag-init ang Pasko sa New Zealand, nagsasalu-salo ang mga kaibigan at pamilya sa barbecue. Kabilang sa mga karaniwang pagkain sa Pasko ang inihaw na tupa, na niluluto kung minsan sa 'hangi' - isang butas sa ilalim ng lupa o lupang hurno. Isang paboritong panghimagas ang pavlova: meringue na ginayakan ng sariwang prutas tulad ng strawberry at kiwi."
+	},
+	"offline": {
+		"message": "Naka-offline"
+	},
+	"offline_available_online": {
+		"message": "Online lang"
+	},
+	"offline_notification": {
+		"message": "Available na ngayon offline ang village ni Santa! Makapaghahatid din sa iyo ng bagong content ang mga elf sa buong Disyembre."
+	},
+	"offline_notification_nothanks": {
+		"message": "Hindi, salamat na lang"
+	},
+	"offline_notification_okay": {
+		"message": "Okay"
+	},
+	"offline_user_message": {
+		"message": "Offline ka"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Makipaglaro sa mga kaibigan sa Santa Tracker Android App."
+	},
+	"playextra": {
+		"message": "Maglaro ng mga karagdagang level"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Map Quiz"
-	},
-	"scene_postcard": {
-		"message": "Mga Santa Card"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
@@ -1218,7 +1257,7 @@
 		"message": "Darating na si Santa sa loob ng {{hours}} (na) oras"
 	},
 	"tracker_time_from_you_one": {
-		"message": "Darating na si Santa sa lalong madaling panahon"
+		"message": "Malapit nang dumating si Santa"
 	},
 	"tracker_track": {
 		"message": "Sundan si Santa"

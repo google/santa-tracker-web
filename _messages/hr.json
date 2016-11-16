@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Vi ste na redu"
 	},
+	"codelab-block-jump-length": {
+		"message": "preskoči"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Preskočite pločice."
+	},
 	"codelab-block-moveeast": {
 		"message": "istočno"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopiraj vezu da podijeliš poruku"
+	},
+	"copy-me-short": {
+		"message": "Kopirajte vezu za dijeljenje"
 	},
 	"countdown_days": {
 		"message": "dan/a"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "korejski"
 	},
+	"kr_country_name": {
+		"message": "Južna Koreja"
+	},
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Obavijesti"
 	},
+	"notification_newtoday": {
+		"message": "Današnja novost u igri Slijedi Djeda Božićnjaka"
+	},
+	"notification_newtoday_stop": {
+		"message": "Isključi obavijesti"
+	},
 	"notification_notice": {
 		"message": "Djedičini vilenjaci obavještavat će vas o njegovu rasporedu"
+	},
+	"notification_prompt": {
+		"message": "Šalji mi obavijesti o Djedu Božićnjaku"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "S obzirom na to da je za Božić na Novom Zelandu ljeto, obitelj i prijatelji okupljaju se oko roštilja. Uobičajeni božićni objedi uključuju pečenu janjetinu, ponekad pečenu u \"hangi\" – podzemnoj jami ili zemljanoj pećnici. Omiljeni je desert pavlova, kolač od beze kora prekrivenih svježim voćem kao što su jagode i kivi."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Samo online"
+	},
+	"offline_notification": {
+		"message": "Selo Djeda Božićnjaka sada je dostupno i offline! A možda će vam i sobovi tijekom prosinca donijeti nove sadržaje."
+	},
+	"offline_notification_nothanks": {
+		"message": "Ne, hvala"
+	},
+	"offline_notification_okay": {
+		"message": "U redu"
+	},
+	"offline_user_message": {
+		"message": "Niste povezani s internetom"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Zaigraj s prijateljima u Android aplikaciji Slijedi Djeda Božićnjaka."
+	},
+	"playextra": {
+		"message": "Igrajte na dodatnim razinama"
 	},
 	"pr_country_name": {
 		"message": "Portoriko"
@@ -1040,9 +1082,6 @@
 	"scene_mercator": {
 		"message": "Kviz s kartom"
 	},
-	"scene_postcard": {
-		"message": "Karte Djeda Božićnjaka"
-	},
 	"scene_presentbounce": {
 		"message": "Skakutanje s darovima"
 	},
@@ -1053,7 +1092,7 @@
 		"message": "Rudolf trkač"
 	},
 	"scene_runner": {
-		"message": "Sobovska utrka"
+		"message": "Utrka sobova"
 	},
 	"scene_santasearch": {
 		"message": "Potraga za Djedom Božićnjakom"

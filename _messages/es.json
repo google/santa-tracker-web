@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Te toca"
 	},
+	"codelab-block-jump-length": {
+		"message": "saltar sobre"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Salta por encima de las baldosas."
+	},
 	"codelab-block-moveeast": {
 		"message": "este"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copia este enlace y comparte tu mensaje"
+	},
+	"copy-me-short": {
+		"message": "Copiar el enlace para compartir"
 	},
 	"countdown_days": {
 		"message": "Días"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coreano"
 	},
+	"kr_country_name": {
+		"message": "Corea del Sur"
+	},
 	"kz_country_name": {
 		"message": "Kazajistán"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notificaciones"
 	},
+	"notification_newtoday": {
+		"message": "Novedades del día en Sigue a Papá Noel"
+	},
+	"notification_newtoday_stop": {
+		"message": "No recibir más"
+	},
 	"notification_notice": {
 		"message": "Los elfos te irán contando qué planes tiene Papá Noel"
+	},
+	"notification_prompt": {
+		"message": "Cuéntame qué planes tiene Papá Noel"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Como la Navidad es en verano en Nueva Zelanda, los amigos y familiares se reúnen en torno a una barbacoa. Las comidas típicas de Navidad son el cordero asado, a veces cocinado en un hangi (un hoyo u horno bajo tierra). El postre favorito es el pavlova: merengue cubierto de fruta fresca."
+	},
+	"offline": {
+		"message": "Desconectado"
+	},
+	"offline_available_online": {
+		"message": "Solo online"
+	},
+	"offline_notification": {
+		"message": "La aldea de Papá Noel está disponible sin conexión. Los elfos traerán contenido nuevo a lo largo de diciembre."
+	},
+	"offline_notification_nothanks": {
+		"message": "No, gracias"
+	},
+	"offline_notification_okay": {
+		"message": "Vale"
+	},
+	"offline_user_message": {
+		"message": "No tienes conexión a Internet"
 	},
 	"om_country_name": {
 		"message": "Omán"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Juega con tus amigos en la aplicación de Android Sigue a Papá Noel."
+	},
+	"playextra": {
+		"message": "Juega en los niveles extra"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Concurso de los mapas"
-	},
-	"scene_postcard": {
-		"message": "Las tarjetas de Papá Noel"
 	},
 	"scene_presentbounce": {
 		"message": "¡Que no se caiga el regalo!"

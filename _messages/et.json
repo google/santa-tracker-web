@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Teie kord"
 	},
+	"codelab-block-jump-length": {
+		"message": "hüppa üle"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Hüpake üle plaatide."
+	},
 	"codelab-block-moveeast": {
 		"message": "ida"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Sõnumi jagamiseks kopeerige see link"
+	},
+	"copy-me-short": {
+		"message": "Jagamiseks kopeerige link"
 	},
 	"countdown_days": {
 		"message": "Päevi"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "korea keel"
 	},
+	"kr_country_name": {
+		"message": "Lõuna-Korea"
+	},
 	"kz_country_name": {
 		"message": "Kasahstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Märguanded"
 	},
+	"notification_newtoday": {
+		"message": "Tänane uus sisu Santa Trackeris"
+	},
+	"notification_newtoday_stop": {
+		"message": "Ära saada enam"
+	},
 	"notification_notice": {
 		"message": "Päkapikud hoiavad teid jõuluvana tegevusega kursis"
+	},
+	"notification_prompt": {
+		"message": "Hoia mind jõuluvana tegevusega kursis"
 	},
 	"np_country_name": {
 		"message": "Nepaal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Kuna jõulude ajal on Uus-Meremaal suvi, kogunevad sõbrad ja pere grillipeole. Tüüpiliste jõuluroogade hulka kuuluvad lambapraad, mõnikord küpsetatakse seda hangis – see on maa-alune auk või ahi. Lemmikmagustoiduks on pavlova – besee, mis on kaetud värskete marjadega, näiteks maasikate ja kiividega."
+	},
+	"offline": {
+		"message": "Võrguühenduseta"
+	},
+	"offline_available_online": {
+		"message": "Ainult võrguühendusega"
+	},
+	"offline_notification": {
+		"message": "Jõuluküla on nüüd saadaval võrguühenduseta! Lisaks võivad päkapikud teile kogu detsembrikuu jooksul uut sisu tuua."
+	},
+	"offline_notification_nothanks": {
+		"message": "Tänan, ei"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Võrguühendus puudub"
 	},
 	"om_country_name": {
 		"message": "Omaan"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Mängige sõpradega jõuluvana teekonna jälgimise Androidi rakenduses."
+	},
+	"playextra": {
+		"message": "Proovige veel tasemeid"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Kaardiviktoriin"
-	},
-	"scene_postcard": {
-		"message": "Jõuluvana kaardid"
 	},
 	"scene_presentbounce": {
 		"message": "Põrkavad kingid"

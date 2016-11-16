@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Đến lượt bạn"
 	},
+	"codelab-block-jump-length": {
+		"message": "nhảy sang"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Nhảy sang các ô."
+	},
 	"codelab-block-moveeast": {
 		"message": "phía đông"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
+	},
+	"copy-me-short": {
+		"message": "Sao chép liên kết để chia sẻ"
 	},
 	"countdown_days": {
 		"message": "Ngày"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Tiếng Hàn"
 	},
+	"kr_country_name": {
+		"message": "Hàn Quốc"
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Thông báo"
 	},
+	"notification_newtoday": {
+		"message": "Mới ngay hôm nay trong công cụ Theo chân ông già Noel"
+	},
+	"notification_newtoday_stop": {
+		"message": "Dừng nhận các thông báo này"
+	},
 	"notification_notice": {
 		"message": "Các chú lùn của ông già Noel sẽ cập nhật cho bạn về lịch trình của ông già Noel"
+	},
+	"notification_prompt": {
+		"message": "Giúp tôi cập nhật thông tin về ông già Noel"
 	},
 	"np_country_name": {
 		"message": "Nê-pan"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Vì Giáng sinh rơi vào mùa hè tại New Zealand, nên bạn bè và gia đình tụ tập tổ chức tiệc ngoài trời. Bữa ăn Giáng sinh thường bao gồm thịt cừu nướng, đôi khi được nấu trong 'lò' - hố đất/lò đất. Món tráng miệng ưa thích là bánh pavlova: bánh trứng đường được phủ trái cây tươi như dâu tây và kiwi."
+	},
+	"offline": {
+		"message": "Ngoại tuyến"
+	},
+	"offline_available_online": {
+		"message": "Chỉ trực tuyến"
+	},
+	"offline_notification": {
+		"message": "Ngôi làng của ông già Noel hiện có sẵn ngoại tuyến! Các chú lùn cũng có thể mang đến cho bạn nội dung mới suốt cả tháng 12."
+	},
+	"offline_notification_nothanks": {
+		"message": "Không, cảm ơn"
+	},
+	"offline_notification_okay": {
+		"message": "Ok"
+	},
+	"offline_user_message": {
+		"message": "Bạn đang ngoại tuyến"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Chơi với bạn bè trong Ứng dụng Android Theo chân ông già Noel."
+	},
+	"playextra": {
+		"message": "Chơi thêm cấp độ khác"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Câu đố trên bản đồ"
-	},
-	"scene_postcard": {
-		"message": "Thiệp ông già Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Trò chơi nảy quà"

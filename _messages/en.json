@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Your turn"
 	},
+	"codelab-block-jump-length": {
+		"message": "jump over"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Jump over tiles."
+	},
 	"codelab-block-moveeast": {
 		"message": "east"
 	},
@@ -397,12 +403,6 @@
 	},
 	"codelab-block-repeat-tooltip": {
 		"message": "Repeat some statements several times."
-	},
-	"codelab-block-jump-length": {
-		"message": "jump over"
-	},
-	"codelab-block-jump-tooltip": {
-		"message": "Jump over tiles."
 	},
 	"codelab-block-whenrun": {
 		"message": "when run"
@@ -451,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copy this link to share your message"
+	},
+	"copy-me-short": {
+		"message": "Copy link to share"
 	},
 	"countdown_days": {
 		"message": "Days"
@@ -572,6 +575,9 @@
 	"fi_country_name": {
 		"message": "Finland"
 	},
+	"fi_tradition": {
+		"message": "Finnish people believe that Father Christmas, \"Joulupukki\", lives in the northern part of the country - Korvatunturi, to be exact. If you visit, you might find his secret workshop, where gnomes are hard at work. Or you might find reindeer roaming in pine tree forests."
+	},
 	"finished-text": {
 		"message": "Happy Holidays! Santa has completed his journey around the world and is taking a much deserved break. Visit us again next year!"
 	},
@@ -641,6 +647,24 @@
 	"hn_country_name": {
 		"message": "Honduras"
 	},
+	"holiday_message_0": {
+		"message": "Happy Holidays!"
+	},
+	"holiday_message_1": {
+		"message": "Holiday wishes!"
+	},
+	"holiday_message_2": {
+		"message": "Happy everything!"
+	},
+	"holiday_message_3": {
+		"message": "Let it snow!"
+	},
+	"holiday_message_4": {
+		"message": "Happy New Year!"
+	},
+	"holiday_message_5": {
+		"message": "Season's greetings!"
+	},
 	"hours": {
 		"message": "Hours"
 	},
@@ -698,6 +722,12 @@
 	"ko_language_name": {
 		"message": "Korean"
 	},
+	"kr_country_name": {
+		"message": "South Korea"
+	},
+	"kr_tradition": {
+		"message": "In South Korea, Christmas is a national holiday. It's also known for being a romantic holiday. Many couples go on dates in the city, where streets and stores are trimmed with dazzling lights."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -730,6 +760,9 @@
 	},
 	"lt_country_name": {
 		"message": "Lithuania"
+	},
+	"lt_tradition": {
+		"message": "In Lithuania, traditional Christmas ornaments are made out of straws or hay. They're woven into geometric shapes, like stars, snowflakes, or bells. Many families also use straw to decorate the dinner table for a big meal called Kūčios."
 	},
 	"lv_country_name": {
 		"message": "Latvia"
@@ -869,8 +902,17 @@
 	"notification": {
 		"message": "Notifications"
 	},
+	"notification_newtoday": {
+		"message": "New Today in Santa Tracker"
+	},
+	"notification_newtoday_stop": {
+		"message": "Stop these"
+	},
 	"notification_notice": {
 		"message": "Santa's Elves will keep you up-to-date with Santa's schedule"
+	},
+	"notification_prompt": {
+		"message": "Keep me up-to-date with Santa"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -880,6 +922,24 @@
 	},
 	"nz_tradition": {
 		"message": "Because Christmas is in the summer in New Zealand, friends and family gather round a barbecue. Typical Christmas meals include roast lamb, sometimes cooked in a 'hangi' - an underground pit or earth oven. A favorite dessert is pavlova: meringue covered in fresh fruit like strawberries and kiwifruit."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Online only"
+	},
+	"offline_notification": {
+		"message": "Santa's village is now available offline! The elves can also bring you new content throughout December."
+	},
+	"offline_notification_nothanks": {
+		"message": "No thanks"
+	},
+	"offline_notification_okay": {
+		"message": "Okay"
+	},
+	"offline_user_message": {
+		"message": "You're offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -920,11 +980,11 @@
 	"playagain": {
 		"message": "Play again"
 	},
-	"playextra": {
-		"message": "Play extra levels"
-	},
 	"playdescription": {
 		"message": "Play with friends in the Santa Tracker Android App."
+	},
+	"playextra": {
+		"message": "Play extra levels"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1050,7 +1110,7 @@
 		"message": "Map Quiz"
 	},
 	"scene_postcard": {
-		"message": "Santa Cards"
+		"message": "Snowflake Cards"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"

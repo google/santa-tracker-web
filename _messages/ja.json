@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "あなたの番"
 	},
+	"codelab-block-jump-length": {
+		"message": "飛び越える:"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "タイルを飛び越えます。"
+	},
 	"codelab-block-moveeast": {
 		"message": "東"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "メッセージを共有するにはこのリンクをコピーしてください"
+	},
+	"copy-me-short": {
+		"message": "共有リンクをコピー"
 	},
 	"countdown_days": {
 		"message": "日"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "韓国語"
 	},
+	"kr_country_name": {
+		"message": "韓国"
+	},
 	"kz_country_name": {
 		"message": "カザフスタン"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "お知らせ"
 	},
+	"notification_newtoday": {
+		"message": "「サンタを追いかけよう」の最新情報"
+	},
+	"notification_newtoday_stop": {
+		"message": "通知を停止する"
+	},
 	"notification_notice": {
 		"message": "妖精がサンタさんの最新スケジュールをお届けします"
+	},
+	"notification_prompt": {
+		"message": "サンタさんの最新情報を受け取る"
 	},
 	"np_country_name": {
 		"message": "ネパール"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "ニュージーランドではクリスマスは夏なので、友だちや家族でバーベキューを囲みます。クリスマス料理の定番はローストラムです。「ハンギ」と呼ばれる料理方法で、地面に穴を掘り地中で蒸し焼きにすることもあります。デザートは、メレンゲ生地に苺やキウイなどの新鮮なフルーツをトッピングした「パブロワ」が人気です。"
+	},
+	"offline": {
+		"message": "オフライン"
+	},
+	"offline_available_online": {
+		"message": "オンラインのみ"
+	},
+	"offline_notification": {
+		"message": "サンタさんの村がオフラインで公開されました！12 月には、妖精が新しいコンテンツをお届けします。"
+	},
+	"offline_notification_nothanks": {
+		"message": "スキップ"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "オフラインです"
 	},
 	"om_country_name": {
 		"message": "オマーン"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Android 向けアプリ「サンタを追いかけよう」で友だちと遊ぼう。"
+	},
+	"playextra": {
+		"message": "もっと難しいレベルでプレイしましょう"
 	},
 	"pr_country_name": {
 		"message": "プエルトリコ"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "地図クイズ"
-	},
-	"scene_postcard": {
-		"message": "サンタさんのカード"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
@@ -1215,7 +1254,7 @@
 		"message": "ルートを表示"
 	},
 	"tracker_time_from_you_many": {
-		"message": "サンタさんはあと約 {{hours}} 時間で到着します"
+		"message": "サンタさんはあと {{hours}} 時間ほどで到着します"
 	},
 	"tracker_time_from_you_one": {
 		"message": "サンタさんはもうすぐ到着します"

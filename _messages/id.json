@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Giliranmu"
 	},
+	"codelab-block-jump-length": {
+		"message": "lompati"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Lompati ubin."
+	},
 	"codelab-block-moveeast": {
 		"message": "timur"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Salin tautan ini untuk membagikan pesan"
+	},
+	"copy-me-short": {
+		"message": "Salin tautan untuk berbagi"
 	},
 	"countdown_days": {
 		"message": "Hari"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Korea"
 	},
+	"kr_country_name": {
+		"message": "Korea Selatan"
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notifikasi"
 	},
+	"notification_newtoday": {
+		"message": "Baru di Pelacak Sinterklas"
+	},
+	"notification_newtoday_stop": {
+		"message": "Hentikan ini"
+	},
 	"notification_notice": {
 		"message": "Kurcaci Sinterklas akan terus menginformasikan jadwal Sinterklas kepada Anda"
+	},
+	"notification_prompt": {
+		"message": "Terus informasikan saya tentang Sinterklas"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Natal di Selandia Baru hadir di musim panas. Keluarga berkumpul untuk pesta barbekyu. Makanan khas Natal adalah daging domba panggang, yang terkadang dimasak dalam 'hangi' - panggangan bawah tanah. Makanan penutup favorit adalah pavlova: kue krim bertabur buah stroberi dan kiwi."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Hanya tersedia saat online"
+	},
+	"offline_notification": {
+		"message": "Desa Sinterklas saat ini tersedia offline! Para kurcaci juga bisa menghadirkan konten baru selama bulan Desember."
+	},
+	"offline_notification_nothanks": {
+		"message": "Lain kali"
+	},
+	"offline_notification_okay": {
+		"message": "Oke"
+	},
+	"offline_user_message": {
+		"message": "Anda sedang offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Main bersama teman di Aplikasi Pelacak Sinterklas untuk Android"
+	},
+	"playextra": {
+		"message": "Mainkan level tambahan"
 	},
 	"pr_country_name": {
 		"message": "Puerto Riko"
@@ -1014,13 +1056,13 @@
 		"message": "Penguin Dash"
 	},
 	"scene_factory": {
-		"message": "Pabrik Permen"
+		"message": "Candy Factory"
 	},
 	"scene_giftmatch": {
 		"message": "Pencocok Hadiah"
 	},
 	"scene_glider": {
-		"message": "Kurcaci Layang"
+		"message": "Elf Glider"
 	},
 	"scene_gumball": {
 		"message": "Miringkan Gumball"
@@ -1032,16 +1074,13 @@
 		"message": "Jetpack Kurcaci"
 	},
 	"scene_latlong": {
-		"message": "Kirim-Kirim Hadiah"
+		"message": "Present Delivery"
 	},
 	"scene_matching": {
 		"message": "Pencocokan Memori"
 	},
 	"scene_mercator": {
 		"message": "Kuis Peta"
-	},
-	"scene_postcard": {
-		"message": "Kartu Sinterklas"
 	},
 	"scene_presentbounce": {
 		"message": "Pantulan Hadiah"
@@ -1053,7 +1092,7 @@
 		"message": "Pembalap Rudolph"
 	},
 	"scene_runner": {
-		"message": "Penunggang Rusa Kutub"
+		"message": "Reindeer Runner"
 	},
 	"scene_santasearch": {
 		"message": "Penelusuran Sinterklas"
@@ -1086,7 +1125,7 @@
 		"message": "Terowongan Angin"
 	},
 	"scene_wrap": {
-		"message": "Adu Bungkus"
+		"message": "Wrap Battle"
 	},
 	"score": {
 		"message": "Skor"

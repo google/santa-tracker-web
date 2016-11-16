@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "നിങ്ങളുടെ ഊഴം"
 	},
+	"codelab-block-jump-length": {
+		"message": "മറികടക്കുക"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "ടൈലുകൾ മറികടക്കുക."
+	},
 	"codelab-block-moveeast": {
 		"message": "കിഴക്ക്"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "നിങ്ങളുടെ സന്ദേശം പങ്കിടാൻ ഈ ലിങ്ക് പകർത്തുക"
+	},
+	"copy-me-short": {
+		"message": "പങ്കിടാനുള്ള ലിങ്ക് പകർത്തുക"
 	},
 	"countdown_days": {
 		"message": "ദിവസം"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "കൊറിയന്‍‌"
 	},
+	"kr_country_name": {
+		"message": "ദക്ഷിണ കൊറിയ"
+	},
 	"kz_country_name": {
 		"message": "കസാക്കിസ്ഥാൻ"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "അറിയിപ്പുകൾ"
 	},
+	"notification_newtoday": {
+		"message": "സാന്ത ട്രാക്കറിൽ ഇന്നത്തെ പുതിയത്"
+	},
+	"notification_newtoday_stop": {
+		"message": "ഇവ നിർത്തുക"
+	},
 	"notification_notice": {
 		"message": "സാന്തയുടെ കുട്ടിച്ചാത്തന്മാർ സാന്തയുടെ ഷെഡ്യൂൾ നിങ്ങളെ അറിയിച്ചുകൊണ്ടിരിക്കും"
+	},
+	"notification_prompt": {
+		"message": "സാന്തയുടെ വിവരങ്ങൾ എന്നെ അറിയിച്ചുകൊണ്ടിരിക്കുക"
 	},
 	"np_country_name": {
 		"message": "നേപ്പാൾ"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "ന്യൂസിലാന്റിൽ ക്രിസ്‌മസ് എത്തുന്നത് വേനൽക്കാലത്താണ്. ക്രിസ്‌മസിന് ഒരു ബാർബിക്യൂവിന് ചുറ്റും സുഹൃത്തുക്കളും കുടുംബവും ഒത്തുകൂടും. ആട്ടിൻകുട്ടിയെ പൊരിച്ചതാണ് സ്പെഷ്യൽ ക്രിസ്‌മസ് വിഭവം. 'ഹൻഗി' എന്ന് വിളിക്കുന്ന, ഭൂമിക്കുള്ളിൽ ഉണ്ടാക്കിയ കുഴിയിലോ മണ്ണുകൊണ്ടുള്ള അടുപ്പിലോ ആണ് ആട്ടിൻകുട്ടിയെ പൊരിച്ചെടുക്കുക. പ്രിയപ്പെട്ട ഡെസ്സേർട്ടാവട്ടെ, പാവ്‌ലോവയാണ്. ഒരിനം മധുര പലഹാരത്തിന് ചുറ്റും സ്ട്രോബെറിപ്പഴങ്ങളും കിവിഫ്രൂട്ടും പൊതിഞ്ഞാണ് പാവ്‌ലോവ ഉണ്ടാക്കുന്നത്."
+	},
+	"offline": {
+		"message": "ഓഫ്‌ലൈന്‍‍"
+	},
+	"offline_available_online": {
+		"message": "ഓൺലൈനിൽ മാത്രം"
+	},
+	"offline_notification": {
+		"message": "സാന്തയുടെ ഗ്രാമം ഇപ്പോൾ ഓഫ്‌ലൈനിൽ ലഭ്യമാണ്! ഡിസംബറിൽ ഉടനീളം പുതിയ ഉള്ളടക്കം ലഭ്യമാക്കാനും കുട്ടിച്ചാത്തന്മാർക്ക് കഴിയും."
+	},
+	"offline_notification_nothanks": {
+		"message": "വേണ്ട, നന്ദി"
+	},
+	"offline_notification_okay": {
+		"message": "ശരി"
+	},
+	"offline_user_message": {
+		"message": "നിങ്ങൾ ഓഫ്‌ലൈനിലാണ്"
 	},
 	"om_country_name": {
 		"message": "ഒമാൻ"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "സാന്ത ട്രാക്കർ Android അപ്ലിക്കേഷനിൽ സുഹൃത്തുക്കളുമായി പ്ലേ ചെയ്യുക."
+	},
+	"playextra": {
+		"message": "അധിക ലെവലുകൾ പ്ലേ ചെയ്യുക"
 	},
 	"pr_country_name": {
 		"message": "പ്യൂര്‍ട്ടോ റിക്കോ"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "മാപ്പ് ക്വിസ്"
-	},
-	"scene_postcard": {
-		"message": "സാന്ത കാർഡുകൾ"
 	},
 	"scene_presentbounce": {
 		"message": "നിലവിലെ ബൗൺസ്"

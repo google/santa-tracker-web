@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Na vrsti ste"
 	},
+	"codelab-block-jump-length": {
+		"message": "skok čez"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Preskakujte ploščice."
+	},
 	"codelab-block-moveeast": {
 		"message": "vzhod"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Če želite svoje sporočilo deliti z drugimi, kopirajte to povezavo"
+	},
+	"copy-me-short": {
+		"message": "Kopir. pov. za sk. rabo"
 	},
 	"countdown_days": {
 		"message": "dni"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "korejščina"
 	},
+	"kr_country_name": {
+		"message": "Južna Koreja"
+	},
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Obvestila"
 	},
+	"notification_newtoday": {
+		"message": "Danes novo v Spremljanju Božičkove poti"
+	},
+	"notification_newtoday_stop": {
+		"message": "Ne pošiljaj več"
+	},
 	"notification_notice": {
 		"message": "Božičkovi palčki vas bodo obveščali o njegovem urniku"
+	},
+	"notification_prompt": {
+		"message": "Obveščaj me o Božičku"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Ker je božič v Novi Zelandiji poleti, se prijatelji in družinski člani zberejo na pikniku ter pečejo jedi na žaru. Tipična božična hrana je pečeno jagnje, včasih pripravljeno v neke vrste podzemni peči, imenovani »hangi«. Priljubljena sladica je pavlova: beljakova pena, prekrita s svežim sadjem, kot so jagode in kivi."
+	},
+	"offline": {
+		"message": "Brez povezave"
+	},
+	"offline_available_online": {
+		"message": "Samo s povezavo"
+	},
+	"offline_notification": {
+		"message": "Božičkova vas je na voljo brez povezave. Poleg tega vam lahko palčki celoten december prinašajo novo vsebino."
+	},
+	"offline_notification_nothanks": {
+		"message": "Ne, hvala"
+	},
+	"offline_notification_okay": {
+		"message": "V redu"
+	},
+	"offline_user_message": {
+		"message": "Nimate vzpostavljene povezave"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Igrajte s prijatelji v aplikaciji »Spremljanje Božičkove poti« za Android"
+	},
+	"playextra": {
+		"message": "Igrajte dodatne stopnje"
 	},
 	"pr_country_name": {
 		"message": "Portoriko"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Zemljevidni kviz"
-	},
-	"scene_postcard": {
-		"message": "Božičkove kartice"
 	},
 	"scene_presentbounce": {
 		"message": "Poskočna darila"

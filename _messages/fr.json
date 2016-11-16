@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "À vous de jouer"
 	},
+	"codelab-block-jump-length": {
+		"message": "sauter par-dessus"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Sautez par-dessus les tuiles."
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copiez ce lien pour partager votre message."
+	},
+	"copy-me-short": {
+		"message": "Copier le lien à partager"
 	},
 	"countdown_days": {
 		"message": "Jours"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coréen"
 	},
+	"kr_country_name": {
+		"message": "Corée du Sud"
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notifications"
 	},
+	"notification_newtoday": {
+		"message": "Sur la piste du père Noël : nouveautés"
+	},
+	"notification_newtoday_stop": {
+		"message": "Arrêt notifications"
+	},
 	"notification_notice": {
 		"message": "Les lutins vous permettront de suivre le père Noël."
+	},
+	"notification_prompt": {
+		"message": "Suivre l'actualité du père Noël"
 	},
 	"np_country_name": {
 		"message": "Népal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Noël ayant lieu en été, les familles et leurs amis organisent des barbecues. L'agneau grillé, parfois cuit dans un \"hangi\" (four creusé dans le sol), est l'un des repas traditionnels. L'un des desserts préférés est la pavlova, une meringue recouverte de fruits frais (fraises, kiwis, etc.)."
+	},
+	"offline": {
+		"message": "Hors connexion"
+	},
+	"offline_available_online": {
+		"message": "En ligne uniquement"
+	},
+	"offline_notification": {
+		"message": "Le village du père Noël est désormais disponible hors connexion ! Les elfes peuvent également vous envoyer de nouveaux contenus tout au long du mois de décembre."
+	},
+	"offline_notification_nothanks": {
+		"message": "Non merci"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Hors connexion"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Jouez entre amis avec l'application Android."
+	},
+	"playextra": {
+		"message": "Jouer aux autres niveaux"
 	},
 	"pr_country_name": {
 		"message": "Porto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz géographique"
-	},
-	"scene_postcard": {
-		"message": "Les cartes du père Noël"
 	},
 	"scene_presentbounce": {
 		"message": "Le cadeau rebondissant"

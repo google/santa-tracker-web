@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Din tur"
 	},
+	"codelab-block-jump-length": {
+		"message": "hoppa över"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Hoppa över rutor"
+	},
 	"codelab-block-moveeast": {
 		"message": "österut"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopiera den här länken om du vill dela ditt meddelande"
+	},
+	"copy-me-short": {
+		"message": "Kopiera länken om du vill dela den"
 	},
 	"countdown_days": {
 		"message": "Dagar"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "koreanska"
 	},
+	"kr_country_name": {
+		"message": "Sydkorea"
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Meddelanden"
 	},
+	"notification_newtoday": {
+		"message": "Senaste nytt i Följ jultomten"
+	},
+	"notification_newtoday_stop": {
+		"message": "Avprenumerera"
+	},
 	"notification_notice": {
 		"message": "Jultomtens nissar ser till att du har koll på hans schema"
+	},
+	"notification_prompt": {
+		"message": "Informera mig om jultomten"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Eftersom julen inträffar på sommaren i Nya Zeeland samlas vänner och familj runt en grill. Grillat lamm är vanlig julmat, och ibland tillagas det i en ”hangi”, en grop under marken eller en jordugn. Pavlova är en favoritdessert: maräng täckt av färska frukter som jordgubbar och kiwi."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Endast online"
+	},
+	"offline_notification": {
+		"message": "Nu kan du besöka jultomtens by offline! Tomtenissarna kan också skicka nytt innehåll till dig i december."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nej tack"
+	},
+	"offline_notification_okay": {
+		"message": "Ok"
+	},
+	"offline_user_message": {
+		"message": "Du är offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Spela med vänner i Android-appen Följ jultomten."
+	},
+	"playextra": {
+		"message": "Spela extranivåer"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Karttest"
-	},
-	"scene_postcard": {
-		"message": "Tomtekort"
 	},
 	"scene_presentbounce": {
 		"message": "Julklappsstuds"

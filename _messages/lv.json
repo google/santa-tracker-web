@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Jūsu kārta"
 	},
+	"codelab-block-jump-length": {
+		"message": "pārlēkt"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Pārleciet pāri kartes fragmentiem."
+	},
 	"codelab-block-moveeast": {
 		"message": "Austrumi"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopējiet šo saiti, lai kopīgotu savu ziņojumu"
+	},
+	"copy-me-short": {
+		"message": "Kopēt saiti kopīgošanai"
 	},
 	"countdown_days": {
 		"message": "Dienas"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Korejiešu"
 	},
+	"kr_country_name": {
+		"message": "Dienvidkoreja"
+	},
 	"kz_country_name": {
 		"message": "Kazahstāna"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Paziņojumi"
 	},
+	"notification_newtoday": {
+		"message": "Šodienas jaunumi Ziemassvētku vecīša ceļojumā"
+	},
+	"notification_newtoday_stop": {
+		"message": "Apturēt ziņas"
+	},
 	"notification_notice": {
 		"message": "Ziemassvētku vecīša elfi informēs jūs par Ziemassvētku vecīša darba grafiku"
+	},
+	"notification_prompt": {
+		"message": "Saņemt jaunāko informāciju par Ziemassvētku vecīti"
 	},
 	"np_country_name": {
 		"message": "Nepāla"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Jaunzēlandē Ziemassvētkus svin vasarā, tāpēc ģimenes ar draugiem kopīgi cep gaļu. Parasti Ziemassvētku galdā tiek celts jēra cepetis, kas dažkārt tiek gatavots “hangi” (zemē izraktā krāsnī). Iecienītākais deserts ir Pavlovas kūka — bezē, kas pārklāts ar svaigiem augļiem, piemēram, zemenēm un kivi."
+	},
+	"offline": {
+		"message": "Bezsaistē"
+	},
+	"offline_available_online": {
+		"message": "Tikai tiešsaistē"
+	},
+	"offline_notification": {
+		"message": "Ziemassvētku vecīša ciemats tagad ir pieejams bezsaistē. Arī rūķīši var piedāvāt jaunu saturu visu decembri."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nē, paldies"
+	},
+	"offline_notification_okay": {
+		"message": "Labi"
+	},
+	"offline_user_message": {
+		"message": "Jūs esat bezsaistē"
 	},
 	"om_country_name": {
 		"message": "Omāna"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Spēlējiet spēles kopā ar draugiem Android lietotnē “Ziemassvētku vecīša ceļojums”."
+	},
+	"playextra": {
+		"message": "Izspēlējiet papildu līmeņus"
 	},
 	"pr_country_name": {
 		"message": "Puertoriko"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Kartes viktorīna"
-	},
-	"scene_postcard": {
-		"message": "Ziemassvētku vecīša kartiņas"
 	},
 	"scene_presentbounce": {
 		"message": "Dāvanu mētāšana"

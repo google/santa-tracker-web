@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Tu turno"
 	},
+	"codelab-block-jump-length": {
+		"message": "saltar sobre"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Salta sobre los mosaicos."
+	},
 	"codelab-block-moveeast": {
 		"message": "este"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copiar este vínculo para compartir tu mensaje"
+	},
+	"copy-me-short": {
+		"message": "Copiar vínc. y compartir"
 	},
 	"countdown_days": {
 		"message": "Días"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coreano"
 	},
+	"kr_country_name": {
+		"message": "Corea del Sur"
+	},
 	"kz_country_name": {
 		"message": "Kazajistán"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notificaciones"
 	},
+	"notification_newtoday": {
+		"message": "Novedad del día de Sigue a Santa"
+	},
+	"notification_newtoday_stop": {
+		"message": "No recibir más"
+	},
 	"notification_notice": {
 		"message": "Los duendes te mantendrán al día sobre el programa de Santa"
+	},
+	"notification_prompt": {
+		"message": "Mantenerme al tanto de las novedades de Santa"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "En Nueva Zelanda, amigos y familiares hacen una parrillada para Navidad. Una de las comidas típicas es la carne de cordero, que se cocina en un \"hangi\" (un hoyo en el suelo o un horno de barro) y el postre preferido es el \"pavlova\": merengue cubierto de frutas frescas, como frutillas y kiwi."
+	},
+	"offline": {
+		"message": "Sin conexión"
+	},
+	"offline_available_online": {
+		"message": "Solo en línea"
+	},
+	"offline_notification": {
+		"message": "Ahora, la aldea de Santa está disponible sin conexión. Los duendes también te enviarán contenido nuevo durante todo diciembre."
+	},
+	"offline_notification_nothanks": {
+		"message": "No, gracias"
+	},
+	"offline_notification_okay": {
+		"message": "De acuerdo"
+	},
+	"offline_user_message": {
+		"message": "Estás sin conexión"
 	},
 	"om_country_name": {
 		"message": "Omán"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Juega con tus amigos en la aplicación Sigue a Santa para Android."
+	},
+	"playextra": {
+		"message": "Jugar niveles adicionales"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Cuestionario sobre el mapa"
-	},
-	"scene_postcard": {
-		"message": "Tarjetas de Santa"
 	},
 	"scene_presentbounce": {
 		"message": "Rebotes de regalos"

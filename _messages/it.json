@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Tocca a te"
 	},
+	"codelab-block-jump-length": {
+		"message": "salta"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Salta le mattonelle."
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copia questo link per condividere con chi vuoi"
+	},
+	"copy-me-short": {
+		"message": "Copia link e condividi"
 	},
 	"countdown_days": {
 		"message": "Giorni"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coreano"
 	},
+	"kr_country_name": {
+		"message": "Corea del Sud"
+	},
 	"kz_country_name": {
 		"message": "Kazakistan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notifiche"
 	},
+	"notification_newtoday": {
+		"message": "Le novità di oggi in Segui Babbo Natale"
+	},
+	"notification_newtoday_stop": {
+		"message": "Blocca"
+	},
 	"notification_notice": {
 		"message": "I folletti di Babbo Natale ti terranno aggiornato sui suoi programmi"
+	},
+	"notification_prompt": {
+		"message": "Tienimi aggiornato su Babbo Natale"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "In Nuova Zelanda il Natale cade in estate e familiari e amici festeggiano attorno al barbecue. Il tipico menu comprende l'agnello arrosto, talvolta cotto in un \"hangi\", una buca sottoterra, o in un forno di terra. Molto amata è la pavlova: una meringa ricoperta di frutta fresca come fragole e kiwi."
+	},
+	"offline": {
+		"message": "Modalità offline"
+	},
+	"offline_available_online": {
+		"message": "Solo online"
+	},
+	"offline_notification": {
+		"message": "Il villaggio di Babbo Natale ora è disponibile offline. Occhio! Gli elfi ti possono portare nuovi contenuti nel mese di dicembre."
+	},
+	"offline_notification_nothanks": {
+		"message": "No, grazie"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Sei offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Gioca con gli amici con l'app di Segui Babbo Natale per Android."
+	},
+	"playextra": {
+		"message": "Gioca ai livelli bonus"
 	},
 	"pr_country_name": {
 		"message": "Portorico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz sulla mappa"
-	},
-	"scene_postcard": {
-		"message": "Le cartoline di Babbo Natale"
 	},
 	"scene_presentbounce": {
 		"message": "Palleggia con il regalo"

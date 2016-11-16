@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Ваш черед"
 	},
+	"codelab-block-jump-length": {
+		"message": "прыжок через"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Перепрыгивайте через плитки."
+	},
 	"codelab-block-moveeast": {
 		"message": "вправо"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Чтобы поделиться сообщением с друзьями, отправьте им эту ссылку"
+	},
+	"copy-me-short": {
+		"message": "Скопировать и поделиться"
 	},
 	"countdown_days": {
 		"message": "дн."
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Корейский"
 	},
+	"kr_country_name": {
+		"message": "Южная Корея"
+	},
 	"kz_country_name": {
 		"message": "Казахстан"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Оповещения"
 	},
+	"notification_newtoday": {
+		"message": "Новости"
+	},
+	"notification_newtoday_stop": {
+		"message": "Отказаться"
+	},
 	"notification_notice": {
 		"message": "Мы будем регулярно сообщать вам о планах Санты."
+	},
+	"notification_prompt": {
+		"message": "Я хочу получать уведомления о планах Санты"
 	},
 	"np_country_name": {
 		"message": "Непал"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Поскольку Рождество в Новой Зеландии наступает летом, как правило, в честь этого праздника устраивают барбекю. На стол принято подавать жареного ягненка, которого иногда готовят в ханги (земляной печи), а на десерт – торт-безе \"Павлова\" со свежими фруктами."
+	},
+	"offline": {
+		"message": "Нет соединения"
+	},
+	"offline_available_online": {
+		"message": "Только онлайн"
+	},
+	"offline_notification": {
+		"message": "Теперь деревню Санта-Клауса можно посещать даже без подключения к Интернету! И это ещё не всё: в декабре вас ожидает много нового."
+	},
+	"offline_notification_nothanks": {
+		"message": "Закрыть"
+	},
+	"offline_notification_okay": {
+		"message": "ОК"
+	},
+	"offline_user_message": {
+		"message": "Нет подключения к Интернету"
 	},
 	"om_country_name": {
 		"message": "Оман"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Начать игру в приложении \"Радар Санта-Клауса\" для Android"
+	},
+	"playextra": {
+		"message": "Пройдите дополнительные уровни"
 	},
 	"pr_country_name": {
 		"message": "Пуэрто-Рико"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Географическая викторина"
-	},
-	"scene_postcard": {
-		"message": "Открытки Санты"
 	},
 	"scene_presentbounce": {
 		"message": "Попади в цель"

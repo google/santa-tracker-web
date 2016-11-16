@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "換你囉"
 	},
+	"codelab-block-jump-length": {
+		"message": "跳過"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "跳過磚塊。"
+	},
 	"codelab-block-moveeast": {
 		"message": "東"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "複製這個連結即可分享您的訊息"
+	},
+	"copy-me-short": {
+		"message": "複製連結即可分享"
 	},
 	"countdown_days": {
 		"message": "天"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "韓文"
 	},
+	"kr_country_name": {
+		"message": "南韓"
+	},
 	"kz_country_name": {
 		"message": "哈薩克"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "通知"
 	},
+	"notification_newtoday": {
+		"message": "聖誕老人追蹤器的今日新消息"
+	},
+	"notification_newtoday_stop": {
+		"message": "停止發送通知"
+	},
 	"notification_notice": {
 		"message": "聖誕老人身旁的小精靈會偷偷向你通報聖誕老人的一舉一動"
+	},
+	"notification_prompt": {
+		"message": "向我通報聖誕老人的一舉一動"
 	},
 	"np_country_name": {
 		"message": "尼泊爾"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "紐西蘭的聖誕節在夏天，親朋好友們會聚在一起烤肉。典型的聖誕大餐是烤羊肉，有時會採用「hangi」這種地洞或土灶方式來烹飪。人氣甜點是帕芙洛娃 (pavlova) 蛋糕，蛋白霜上鋪著草莓和奇異果等新鮮水果。"
+	},
+	"offline": {
+		"message": "離線"
+	},
+	"offline_available_online": {
+		"message": "需要網路連線"
+	},
+	"offline_notification": {
+		"message": "現在你可以在離線時拜訪聖誕老人村！整個 12 月，小精靈都會為你獻上精彩新內容，敬請持續鎖定。"
+	},
+	"offline_notification_nothanks": {
+		"message": "不，謝謝"
+	},
+	"offline_notification_okay": {
+		"message": "確定"
+	},
+	"offline_user_message": {
+		"message": "你已離線"
 	},
 	"om_country_name": {
 		"message": "阿曼"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "在聖誕老人追蹤器 Android 應用程式中與朋友同樂。"
+	},
+	"playextra": {
+		"message": "挑戰其他關卡"
 	},
 	"pr_country_name": {
 		"message": "波多黎各"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "地圖小測驗"
-	},
-	"scene_postcard": {
-		"message": "聖誕老人的卡片"
 	},
 	"scene_presentbounce": {
 		"message": "彈跳小禮物"

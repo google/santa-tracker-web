@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Ваша черга"
 	},
+	"codelab-block-jump-length": {
+		"message": "перестрибніть через"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Перестрибуйте фрагменти."
+	},
 	"codelab-block-moveeast": {
 		"message": "схід"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Посилання на листівку"
+	},
+	"copy-me-short": {
+		"message": "Копіювати посилання"
 	},
 	"countdown_days": {
 		"message": "Дні"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "корейська"
 	},
+	"kr_country_name": {
+		"message": "Південна Корея"
+	},
 	"kz_country_name": {
 		"message": "Казахстан"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Сповіщення"
 	},
+	"notification_newtoday": {
+		"message": "Доступно відсьогодні в Google Де Дід Мороз"
+	},
+	"notification_newtoday_stop": {
+		"message": "Вимкнути"
+	},
 	"notification_notice": {
 		"message": "Помічники Діда Мороза триматимуть вас у курсі всіх його справ"
+	},
+	"notification_prompt": {
+		"message": "Тримати мене в курсі справ Діда Мороза"
 	},
 	"np_country_name": {
 		"message": "Непал"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "У Новій Зеландії Різдво припадає на літо, тому друзі та родичі збираються на барбекю. До святкового столу зазвичай подають смажену баранину, яку іноді готують у хангі (земляній печі). Улюблений десерт новозеландців називається \"Павлова\". Це безе зі свіжими фруктами: полуницею, ківі тощо."
+	},
+	"offline": {
+		"message": "Офлайн"
+	},
+	"offline_available_online": {
+		"message": "Лише онлайн"
+	},
+	"offline_notification": {
+		"message": "Містечко Діда Мороза тепер доступне офлайн! Помічники Діда Мороза також можуть надавати вам новий вміст протягом грудня."
+	},
+	"offline_notification_nothanks": {
+		"message": "Ні, дякую"
+	},
+	"offline_notification_okay": {
+		"message": "ОК"
+	},
+	"offline_user_message": {
+		"message": "Ви в режимі офлайн"
 	},
 	"om_country_name": {
 		"message": "Оман"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Грайте з друзями в додатку Де Дід Мороз для Android."
+	},
+	"playextra": {
+		"message": "Пройдіть додаткові рівні"
 	},
 	"pr_country_name": {
 		"message": "Пуерто-Рико"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Географічна вікторина"
-	},
-	"scene_postcard": {
-		"message": "Картки Діда Мороза"
 	},
 	"scene_presentbounce": {
 		"message": "Підкидання подарунків"

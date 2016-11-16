@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Us toca"
 	},
+	"codelab-block-jump-length": {
+		"message": "salta'n"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Salta per sobre del mosaic."
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copieu aquest enllaç per compartir el missatge"
+	},
+	"copy-me-short": {
+		"message": "Copia l'enllaç per compartir-lo"
 	},
 	"countdown_days": {
 		"message": "Dies"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coreà"
 	},
+	"kr_country_name": {
+		"message": "Corea del Sud"
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notificacions"
 	},
+	"notification_newtoday": {
+		"message": "Nou d'avui a Segueix el Pare Noel"
+	},
+	"notification_newtoday_stop": {
+		"message": "No vull rebre'n"
+	},
 	"notification_notice": {
 		"message": "Els elfs us aniran informant del que fa el Pare Noel"
+	},
+	"notification_prompt": {
+		"message": "Informa'm del que fa el Pare Noel"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Com que el Nadal coincideix amb l'estiu a Nova Zelanda, els amics i la família fan una barbacoa. Un dels plats típics és el xai a la brasa, que es cou en un forn soterrat o de pedra, el hangi. Les postres més populars s'anomenen pavlova, amb merenga coberta de fruita fresca, com ara maduixes i kiwi."
+	},
+	"offline": {
+		"message": "Sense connexió"
+	},
+	"offline_available_online": {
+		"message": "Només en línia"
+	},
+	"offline_notification": {
+		"message": "Ara, l'aldea del Pare Noel està disponible sense connexió. A més, els elfs et poden portar contingut nou durant tot el mes de desembre."
+	},
+	"offline_notification_nothanks": {
+		"message": "No, gràcies"
+	},
+	"offline_notification_okay": {
+		"message": "D'acord"
+	},
+	"offline_user_message": {
+		"message": "No tens connexió"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Jugueu amb els vostres amics a l'aplicació Segueix el Pare Noel per a Android."
+	},
+	"playextra": {
+		"message": "Juga als nivells addicionals"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Joc de geografia"
-	},
-	"scene_postcard": {
-		"message": "Les targetes del Pare Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Joc de rebotar regals"

@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Sua vez"
 	},
+	"codelab-block-jump-length": {
+		"message": "pular sobre"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Pule sobre os blocos."
+	},
 	"codelab-block-moveeast": {
 		"message": "leste"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copie este link para compartilhar sua mensagem"
+	},
+	"copy-me-short": {
+		"message": "Copiar URL p/ compartilhar"
 	},
 	"countdown_days": {
 		"message": "Dias"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coreano"
 	},
+	"kr_country_name": {
+		"message": "Coreia do Sul"
+	},
 	"kz_country_name": {
 		"message": "Cazaquistão"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notificações"
 	},
+	"notification_newtoday": {
+		"message": "Novidade no Siga o Papai Noel"
+	},
+	"notification_newtoday_stop": {
+		"message": "Cancelar"
+	},
 	"notification_notice": {
 		"message": "Os duendes do Papai Noel manterão você atualizado sobre a programação dele"
+	},
+	"notification_prompt": {
+		"message": "Quero acompanhar o Papai Noel"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Como na Nova Zelândia o Natal é no verão, amigos e familiares se reúnem para um churrasco. Comidas típicas de Natal incluem cordeiro assado, às vezes cozido em um \"hangi\" (buraco no solo/escavado na terra). A sobremesa favorita é a pavlova: merengue coberto com frutas frescas, como morangos e kiwis."
+	},
+	"offline": {
+		"message": "Off-line"
+	},
+	"offline_available_online": {
+		"message": "Somente on-line"
+	},
+	"offline_notification": {
+		"message": "A vila do Papai Noel agora está disponível off-line. Os duendes também poderão trazer conteúdo novo durante dezembro."
+	},
+	"offline_notification_nothanks": {
+		"message": "Não, obrigado"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Você está off-line"
 	},
 	"om_country_name": {
 		"message": "Omã"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Jogue o \"Siga o Papai Noel\" com seus amigos no aplicativo para Android."
+	},
+	"playextra": {
+		"message": "Jogar níveis extras"
 	},
 	"pr_country_name": {
 		"message": "Porto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Teste do mapa"
-	},
-	"scene_postcard": {
-		"message": "Cartões do Papai Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Pula-pula de presentes"

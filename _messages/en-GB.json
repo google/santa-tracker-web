@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Your turn"
 	},
+	"codelab-block-jump-length": {
+		"message": "jump over"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Jump over tiles."
+	},
 	"codelab-block-moveeast": {
 		"message": "east"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copy this link to share your message"
+	},
+	"copy-me-short": {
+		"message": "Copy link to share"
 	},
 	"countdown_days": {
 		"message": "Days"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Korean"
 	},
+	"kr_country_name": {
+		"message": "South Korea"
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notifications"
 	},
+	"notification_newtoday": {
+		"message": "New Today in Santa Tracker"
+	},
+	"notification_newtoday_stop": {
+		"message": "Stop these"
+	},
 	"notification_notice": {
 		"message": "Santa's elves will keep you up to date with Santa's schedule"
+	},
+	"notification_prompt": {
+		"message": "Keep me up to date with Santa"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Because Christmas is in the summer in New Zealand, friends and family gather round a barbecue. Typical Christmas meals include roast lamb, sometimes cooked in a 'hangi' – an underground pit or earth oven. A favourite dessert is pavlova: meringue covered in fresh fruit like strawberries and kiwifruit."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Online only"
+	},
+	"offline_notification": {
+		"message": "Santa's village is now available offline! The elves can also bring you new content throughout December."
+	},
+	"offline_notification_nothanks": {
+		"message": "No thanks"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "You're offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Play with friends using the Santa Tracker Android app."
+	},
+	"playextra": {
+		"message": "Play extra levels"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Map Quiz"
-	},
-	"scene_postcard": {
-		"message": "Santa Cards"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"

@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "É a sua vez"
 	},
+	"codelab-block-jump-length": {
+		"message": "saltar"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Salte por cima dos mosaicos."
+	},
 	"codelab-block-moveeast": {
 		"message": "este"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copie este link para partilhar a sua mensagem"
+	},
+	"copy-me-short": {
+		"message": "Copiar link para partilhar"
 	},
 	"countdown_days": {
 		"message": "Dias"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coreano"
 	},
+	"kr_country_name": {
+		"message": "Coreia do Sul"
+	},
 	"kz_country_name": {
 		"message": "Cazaquistão"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notificações"
 	},
+	"notification_newtoday": {
+		"message": "Novidades de hoje em A viagem do Pai Natal"
+	},
+	"notification_newtoday_stop": {
+		"message": "Parar estas"
+	},
 	"notification_notice": {
 		"message": "Os elfos dão-lhe as informações mais recentes acerca da agenda do Pai Natal"
+	},
+	"notification_prompt": {
+		"message": "Receber informações acerca do Pai Natal"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Uma vez que o Natal ocorre durante o verão na Nova Zelândia, os amigos e a família reúnem-se para um churrasco. As refeições típicas de Natal incluem borrego assado cozinhado, por vezes, num \"hangi\", que consiste num poço subterrâneo ou num forno exterior. Uma das sobremesas favoritas é pavlova: um doce feito de merengue coberto de frutas frescas, como morangos e quivi."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Apenas online"
+	},
+	"offline_notification": {
+		"message": "A aldeia do Pai Natal já está disponível offline! Os duendes também lhe podem trazer novo conteúdo ao longo de dezembro."
+	},
+	"offline_notification_nothanks": {
+		"message": "Não, obrigado"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Está offline"
 	},
 	"om_country_name": {
 		"message": "Omã"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Jogue com os amigos na aplicação A viagem do Pai Natal para Android."
+	},
+	"playextra": {
+		"message": "Jogue níveis extra"
 	},
 	"pr_country_name": {
 		"message": "Porto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Questionário do mapa"
-	},
-	"scene_postcard": {
-		"message": "Cartões do Pai Natal"
 	},
 	"scene_presentbounce": {
 		"message": "Salto dos presentes"

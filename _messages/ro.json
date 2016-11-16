@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "E rândul tău."
 	},
+	"codelab-block-jump-length": {
+		"message": "sari peste"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Sari peste sectoare."
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copiază acest link pentru a trimite mesajul"
+	},
+	"copy-me-short": {
+		"message": "Copiază linkul și trimite-l"
 	},
 	"countdown_days": {
 		"message": "zile"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coreeană"
 	},
+	"kr_country_name": {
+		"message": "Coreea de Sud"
+	},
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Notificări"
 	},
+	"notification_newtoday": {
+		"message": "Noutăți în Pe urmele lui Moș Crăciun"
+	},
+	"notification_newtoday_stop": {
+		"message": "Oprește"
+	},
 	"notification_notice": {
 		"message": "Elfii lui Moș Crăciun vă vor ține la curent cu programul acestuia."
+	},
+	"notification_prompt": {
+		"message": "Ține-mă la curent cu Moș Crăciun"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "În Noua Zeelandă, Crăciunul este vara, așa că prietenii și familia se strâng la un grătar. Se mănâncă miel la cuptor, gătit uneori într-un „hangi”, un fel de groapă în pământ sau un cuptor de lut. Desertul preferat este Pavlova: o bezea acoperită cu fructe proaspete, de ex., cu kiwi și căpșuni."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Numai online"
+	},
+	"offline_notification": {
+		"message": "Satul lui Moș Crăciun este disponibil offline! Elfii îți pot aduce conținut nou pe parcursul lunii decembrie."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nu, mulțumesc!"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Ești offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Joacă-te cu prietenii în aplicația pentru Android, Pe urmele lui Moș Crăciun."
+	},
+	"playextra": {
+		"message": "Joacă niveluri suplimentare"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Test la geografie"
-	},
-	"scene_postcard": {
-		"message": "Vederi de la Moș Crăciun"
 	},
 	"scene_presentbounce": {
 		"message": "Cadouri săltărețe"

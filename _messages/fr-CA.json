@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Votre tour"
 	},
+	"codelab-block-jump-length": {
+		"message": "sauter"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Sauter par-dessus les tuiles."
+	},
 	"codelab-block-moveeast": {
 		"message": "est"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Copiez ce lien pour partager votre message."
+	},
+	"copy-me-short": {
+		"message": "Copier le lien à partager"
 	},
 	"countdown_days": {
 		"message": "jours"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Coréen"
 	},
+	"kr_country_name": {
+		"message": "Corée du Sud"
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Avis"
 	},
+	"notification_newtoday": {
+		"message": "Nouveau aujourd'hui dans Sur les traces du père Noël"
+	},
+	"notification_newtoday_stop": {
+		"message": "Désact. notif."
+	},
 	"notification_notice": {
 		"message": "Les lutins du père Noël te tiendront au courant de son horaire"
+	},
+	"notification_prompt": {
+		"message": "Me tenir au courant des activités du père Noël"
 	},
 	"np_country_name": {
 		"message": "Népal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Comme Noël a lieu en été en Nouvelle-Zélande, les proches se réunissent autour d'un barbecue. Les mets typiques de Noël comprennent le gigot d'agneau, parfois cuit dans un hāngi, un foyer creusé ou un four en terre cuite. L'un des desserts préférés est la pavlova, une meringue recouverte de fruits frais (fraises, kiwis, etc.)."
+	},
+	"offline": {
+		"message": "Hors ligne"
+	},
+	"offline_available_online": {
+		"message": "En ligne seulement"
+	},
+	"offline_notification": {
+		"message": "Le village du père Noël est maintenant disponible hors ligne! Les lutins peuvent également vous apporter du nouveau contenu durant tout le mois de décembre."
+	},
+	"offline_notification_nothanks": {
+		"message": "Non, merci"
+	},
+	"offline_notification_okay": {
+		"message": "D'accord"
+	},
+	"offline_user_message": {
+		"message": "Vous êtes hors ligne"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Jouez avec vos amis avec l'application Android Sur les traces du père Noël."
+	},
+	"playextra": {
+		"message": "Jouer d'autres niveaux"
 	},
 	"pr_country_name": {
 		"message": "Porto Rico"
@@ -1040,9 +1082,6 @@
 	"scene_mercator": {
 		"message": "Quiz géo"
 	},
-	"scene_postcard": {
-		"message": "Cartes postales du père Noël"
-	},
 	"scene_presentbounce": {
 		"message": "Rebond de cadeaux"
 	},
@@ -1053,7 +1092,7 @@
 		"message": "La course avec Rudolphe"
 	},
 	"scene_runner": {
-		"message": "Le renne coureur"
+		"message": "La course du renne"
 	},
 	"scene_santasearch": {
 		"message": "À la recherche du père Noël"
@@ -1086,7 +1125,7 @@
 		"message": "Soufflerie"
 	},
 	"scene_wrap": {
-		"message": "La bataille d'emballage"
+		"message": "La bataille de l'emballage"
 	},
 	"score": {
 		"message": "Pointage"

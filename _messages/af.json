@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Jou beurt"
 	},
+	"codelab-block-jump-length": {
+		"message": "spring oor"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Spring oor teëls."
+	},
 	"codelab-block-moveeast": {
 		"message": "oos"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopieer hierdie skakel om jou boodskap te deel"
+	},
+	"copy-me-short": {
+		"message": "Kopieer skakel om te deel"
 	},
 	"countdown_days": {
 		"message": "Dae"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Koreaans"
 	},
+	"kr_country_name": {
+		"message": "Suid-Korea"
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Kennisgewings"
 	},
+	"notification_newtoday": {
+		"message": "Vandag nuut in Waar is Kersvader"
+	},
+	"notification_newtoday_stop": {
+		"message": "Stop dit"
+	},
 	"notification_notice": {
 		"message": "Kersvader se elwe sal jou op hoogte hou van Kersvader se skedule"
+	},
+	"notification_prompt": {
+		"message": "Hou my op hoogte van Kersvader"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Omdat Kersfees in Nieu-Seeland in die somer is, kom vriende en familielede by 'n vleisbraai bymekaar. Kersetes sluit dikwels gebraaide lamsvleis in, soms in 'n 'hangi' – 'n ondergrondse put of grondoond – gebak. 'n Gunstelingnagereg is pavlova: 'n dis met skuimpies en vars vrugte soos aarbeie en kiwivrug."
+	},
+	"offline": {
+		"message": "Vanlyn"
+	},
+	"offline_available_online": {
+		"message": "Slegs aanlyn"
+	},
+	"offline_notification": {
+		"message": "Kersvader se dorpie is nou vanlyn beskikbaar! Die elwe kan ook in Desember deurgaans vir jou nuwe inhoud bring."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nee, dankie"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Jy is vanlyn"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Speel saam met vriende in Waar is Kersvader se Android-program."
+	},
+	"playextra": {
+		"message": "Speel ekstra vlakke"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Kaartvasvra"
-	},
-	"scene_postcard": {
-		"message": "Kersvaderkaarte"
 	},
 	"scene_presentbounce": {
 		"message": "Geskenkhop"

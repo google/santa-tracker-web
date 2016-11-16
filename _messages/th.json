@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "ถึงตาคุณแล้ว"
 	},
+	"codelab-block-jump-length": {
+		"message": "กระโดดข้าม"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "กระโดดข้ามแผ่นกระเบื้อง"
+	},
 	"codelab-block-moveeast": {
 		"message": "ตะวันออก"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "คัดลอกลิงก์นี้เพื่อแชร์ข้อความของคุณ"
+	},
+	"copy-me-short": {
+		"message": "คัดลอกลิงก์เพื่อแชร์"
 	},
 	"countdown_days": {
 		"message": "วัน"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "ภาษาเกาหลี"
 	},
+	"kr_country_name": {
+		"message": "เกาหลีใต้"
+	},
 	"kz_country_name": {
 		"message": "คาซัคสถาน"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "การแจ้งเตือน"
 	},
+	"notification_newtoday": {
+		"message": "ใหม่สำหรับวันนี้ในตามติดซานต้า"
+	},
+	"notification_newtoday_stop": {
+		"message": "หยุดการแจ้งเตือนเหล่านี้"
+	},
 	"notification_notice": {
 		"message": "เหล่าเอลฟ์ของซานต้าจะอัปเดตกำหนดการของซานต้าให้กับคุณ"
+	},
+	"notification_prompt": {
+		"message": "แจ้งให้ฉันรู้ข้อมูลล่าสุดของซานต้า"
 	},
 	"np_country_name": {
 		"message": "เนปาล"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "คริสต์มาสตรงกับฤดูร้อนของนิวซีแลนด์ ครอบครัวและเพื่อนฝูงจึงรวมตัวกันเพื่อทำบาร์บีคิว มื้ออาหารในวันคริสต์มาสมักจะประกอบด้วยแกะอบซึ่งบางครั้งปรุงใน \"hangi\" หรือเตาอบที่ขุดลงไปในพื้นดิน ของหวานยอดนิยมคือ pavlova ขนมที่ทำจากไข่ขาวตีกับน้ำตาลแล้วนำไปอบให้กรอบ วางทับด้วยผลไม้สดเช่น สตรอว์เบอร์รี่และกีวี่"
+	},
+	"offline": {
+		"message": "ออฟไลน์"
+	},
+	"offline_available_online": {
+		"message": "ออนไลน์เท่านั้น"
+	},
+	"offline_notification": {
+		"message": "ขณะนี้หมู่บ้านของซานต้าออฟไลน์อยู่ เหล่าเอลฟ์จะนำเนื้อหาใหม่ๆ มาให้คุณตลอดเดือนธันวาคม"
+	},
+	"offline_notification_nothanks": {
+		"message": "ไม่ ขอบคุณ"
+	},
+	"offline_notification_okay": {
+		"message": "ตกลง"
+	},
+	"offline_user_message": {
+		"message": "คุณออฟไลน์อยู่"
 	},
 	"om_country_name": {
 		"message": "โอมาน"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "เล่นแอปตามติดซานต้าสำหรับ Android กับเพื่อนๆ"
+	},
+	"playextra": {
+		"message": "เล่นระดับพิเศษ"
 	},
 	"pr_country_name": {
 		"message": "เปอร์โตริโก"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "คำถามเกี่ยวกับแผนที่"
-	},
-	"scene_postcard": {
-		"message": "การ์ดของซานต้า"
 	},
 	"scene_presentbounce": {
 		"message": "โยนของขวัญ"

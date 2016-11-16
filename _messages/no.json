@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Din tur"
 	},
+	"codelab-block-jump-length": {
+		"message": "hopp over"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Hopp over ruter."
+	},
 	"codelab-block-moveeast": {
 		"message": "østover"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopiér denne linken for å dele meldingen din"
+	},
+	"copy-me-short": {
+		"message": "Kopiér linken for å dele den"
 	},
 	"countdown_days": {
 		"message": "dager"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Koreansk"
 	},
+	"kr_country_name": {
+		"message": "Sør-Korea"
+	},
 	"kz_country_name": {
 		"message": "Kasakhstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Varsler"
 	},
+	"notification_newtoday": {
+		"message": "Siste nytt i Følg julenissen"
+	},
+	"notification_newtoday_stop": {
+		"message": "Stopp disse"
+	},
 	"notification_notice": {
 		"message": "Julenissens alver holder deg oppdatert om nissens ruteplan"
+	},
+	"notification_prompt": {
+		"message": "Hold meg oppdatert om julenissen"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Ettersom julen er på sommeren i New Zealand, samles venner og familie rundt en grill. Den vanligste julematen er lammestek, noen ganger stekt i en «hangi» – en underjordisk grop eller jordovn. Favorittdesserten er pavlova: marengs dekket med fersk frukt, som jordbær og kiwi."
+	},
+	"offline": {
+		"message": "Uten nett"
+	},
+	"offline_available_online": {
+		"message": "Bare med nettilgang"
+	},
+	"offline_notification": {
+		"message": "Julenissens landsby er nå tilgjengelig uten nett. Alvene kan dessuten gi deg tilgang til nytt innhold i hele desember."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nei takk"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Du er uten nett"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Spill med venner i Android-appen «Følg julenissen»."
+	},
+	"playextra": {
+		"message": "Spill ekstranivåer"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Kartquiz"
-	},
-	"scene_postcard": {
-		"message": "Julenissekort"
 	},
 	"scene_presentbounce": {
 		"message": "Gavesprett"

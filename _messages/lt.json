@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Jūsų eilė"
 	},
+	"codelab-block-jump-length": {
+		"message": "peršokti per"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Šokinėkite per plyteles."
+	},
 	"codelab-block-moveeast": {
 		"message": "rytai"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Kopijuokite šią nuorodą, jei norite bendrinti savo pranešimą"
+	},
+	"copy-me-short": {
+		"message": "Bendrinti nukopijavus URL"
 	},
 	"countdown_days": {
 		"message": "d."
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "Korėjiečių"
 	},
+	"kr_country_name": {
+		"message": "Pietų Korėja"
+	},
 	"kz_country_name": {
 		"message": "Kazachstanas"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Pranešimai"
 	},
+	"notification_newtoday": {
+		"message": "Kalėdų Senelio kelionės naujienos šiandien"
+	},
+	"notification_newtoday_stop": {
+		"message": "Neberodyti šių"
+	},
 	"notification_notice": {
 		"message": "Kalėdų Senelio elfai padės neatsilikti nuo Kalėdų Senelio tvarkaraščio"
+	},
+	"notification_prompt": {
+		"message": "Įgalinti pranešimus apie Kalėdų Senelio veiklą"
 	},
 	"np_country_name": {
 		"message": "Nepalas"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Per Kalėdas Naujojoje Zelandijoje būna vasara, todėl draugai ir šeima susirenka į barbekiu vakarėlį. Įprastas Kalėdų patiekalas – keptas ėriukas, kartais jis kepamas „hangi“ – žemėje iškastoje duobėje arba „žemės krosnyje“. Mėgstamas desertas – pavlova: morengai, padengti šviežiais vaisiais, pvz., braškėmis ir kiviais."
+	},
+	"offline": {
+		"message": "Neprisijungta"
+	},
+	"offline_available_online": {
+		"message": "Tik prisijungus"
+	},
+	"offline_notification": {
+		"message": "Kalėdų Senelio kaimas nuo šiol pasiekiamas neprisijungus! Be to, gruodžio mėnesį elfai gali atnešti naujo turinio."
+	},
+	"offline_notification_nothanks": {
+		"message": "Ne, ačiū"
+	},
+	"offline_notification_okay": {
+		"message": "Gerai"
+	},
+	"offline_user_message": {
+		"message": "Jūs neprisijungę"
 	},
 	"om_country_name": {
 		"message": "Omanas"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Žaiskite su draugais naudodami „Android“ skirtą Kalėdų Senelio kelionės programą."
+	},
+	"playextra": {
+		"message": "Sužaiskite papildomus lygius"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rikas"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Žemėlapių viktorina"
-	},
-	"scene_postcard": {
-		"message": "Kalėdų Senelio kortos"
 	},
 	"scene_presentbounce": {
 		"message": "Dovanų atmušinėjimas"

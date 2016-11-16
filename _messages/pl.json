@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Twoja kolej"
 	},
+	"codelab-block-jump-length": {
+		"message": "przeskocz"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Przeskocz nad kafelkami."
+	},
 	"codelab-block-moveeast": {
 		"message": "wschód"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Skopiuj ten link, aby udostępnić wiadomość"
+	},
+	"copy-me-short": {
+		"message": "Skopiuj link i udostępnij"
 	},
 	"countdown_days": {
 		"message": "Dni"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "koreański"
 	},
+	"kr_country_name": {
+		"message": "Korea Południowa"
+	},
 	"kz_country_name": {
 		"message": "Kazachstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Powiadomienia"
 	},
+	"notification_newtoday": {
+		"message": "Nowości w aplikacji Trasa Świętego Mikołaja"
+	},
+	"notification_newtoday_stop": {
+		"message": "Zakończ"
+	},
 	"notification_notice": {
 		"message": "Elfy będą informować Cię na bieżąco o harmonogramie podróży Mikołaja"
+	},
+	"notification_prompt": {
+		"message": "Informuj mnie, co robi Mikołaj"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "W Nowej Zelandii Boże Narodzenie wypada latem, dlatego popularne są spotkania rodzin ze znajomymi przy grillu. Do typowych dań należy baranina, czasem gotowana w „hangi” – wykopanym dole lub piecu ziemnym. Ulubionym deserem Nowozelandczyków jest pavlova: beza posypana świeżymi owocami, np. truskawkami i kiwi."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Tylko online"
+	},
+	"offline_notification": {
+		"message": "Wioska Świętego Mikołaja jest już dostępna w trybie offline. Elfy będą Cię informować o nowych treściach przez cały grudzień."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nie, dziękuję"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Jesteś offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Graj z przyjaciółmi w aplikacji Trasa Świętego Mikołaja na urządzeniach z Androidem."
+	},
+	"playextra": {
+		"message": "Zagraj w dodatkowe poziomy"
 	},
 	"pr_country_name": {
 		"message": "Portoryko"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz z mapami"
-	},
-	"scene_postcard": {
-		"message": "Kartki z Mikołajem"
 	},
 	"scene_presentbounce": {
 		"message": "Podskakujące prezenty"

@@ -365,6 +365,12 @@
 	"codeboogie-your-turn": {
 		"message": "Sinun vuorosi"
 	},
+	"codelab-block-jump-length": {
+		"message": "hyppää yli"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Hyppää laattojen yli."
+	},
 	"codelab-block-moveeast": {
 		"message": "itään"
 	},
@@ -445,6 +451,9 @@
 	},
 	"copy-me": {
 		"message": "Jaa viesti kopioimalla tämä linkki"
+	},
+	"copy-me-short": {
+		"message": "Kopioi linkki jakamista varten"
 	},
 	"countdown_days": {
 		"message": "päivää"
@@ -692,6 +701,9 @@
 	"ko_language_name": {
 		"message": "korea"
 	},
+	"kr_country_name": {
+		"message": "Etelä-Korea"
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -863,8 +875,17 @@
 	"notification": {
 		"message": "Ilmoitukset"
 	},
+	"notification_newtoday": {
+		"message": "Uutta tänään Joulupukin jäljittimessä"
+	},
+	"notification_newtoday_stop": {
+		"message": "Estä tällaiset"
+	},
 	"notification_notice": {
 		"message": "Tontut pitävät sinut ajan tasalla pukin aikataulusta."
+	},
+	"notification_prompt": {
+		"message": "Ota pukin ilmoitukset käyttöön"
 	},
 	"np_country_name": {
 		"message": "Nepal"
@@ -874,6 +895,24 @@
 	},
 	"nz_tradition": {
 		"message": "Uudessa-Seelannissa joulua vietetään kesällä, joten perheet ja ystävät kokoontuvat yhteiseen grillijuhlaan. Jouluateriaan kuuluu lampaanpaisti, joka perinteisesti kypsennetään kuopassa tai uunissa maan alla. Jälkiruokana tarjotaan marenkia ja tuoreita hedelmiä sisältävää pavlovaa."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Vain online-tilassa"
+	},
+	"offline_notification": {
+		"message": "Pukin kylä on nyt saatavilla offline-tilassa. Tontut tuovat lisäksi uutta sisältöä koko joulukuun ajan."
+	},
+	"offline_notification_nothanks": {
+		"message": "Ei kiitos"
+	},
+	"offline_notification_okay": {
+		"message": "OK"
+	},
+	"offline_user_message": {
+		"message": "Olet offline-tilassa."
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -916,6 +955,9 @@
 	},
 	"playdescription": {
 		"message": "Pelaa ystävien kanssa Joulupukin jäljittimen Android-sovelluksella."
+	},
+	"playextra": {
+		"message": "Pelaa ekstratasoja"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"
@@ -1039,9 +1081,6 @@
 	},
 	"scene_mercator": {
 		"message": "Karttavisa"
-	},
-	"scene_postcard": {
-		"message": "Pukin kortit"
 	},
 	"scene_presentbounce": {
 		"message": "Pomppivat paketit"
