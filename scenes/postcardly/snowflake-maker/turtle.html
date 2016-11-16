@@ -53,9 +53,6 @@
       button.primary {
         text-align: left;
       }
-      #display {
-        border: 1px solid #ccc;
-      }
       /* Sprited icons. */
       .icon21 {
         height: 48px;
@@ -140,22 +137,20 @@
           justify-content:center;
           align-items:center;
       }
+
+      .paper {
+        background: white;
+        padding: 16px;
+      }
     </style>
   </head>
   <body>
     <div class="stacked-divs">
       <div id="visualization" class="center-horiz">
-        <div class="center-vert">
+        <div class="paper">
           <canvas id="scratch" width="500" height="500" hidden></canvas>
           <canvas id="output" width="10" height="10" hidden></canvas>
           <canvas id="display" width="300" height="300"></canvas>
-          <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
-          <button id="runButton" class="primary" title="Draw the snowflake">
-            <img src="media/icons/ic_play_circle_filled.png" class="run icon21"/>
-          </button>
-          <button id="submitButton" title="Next">
-            <img src="media/icons/ic_navigate_next.png" class="next icon21"/>
-          </button>
         </div>
       </div>
       <div id="blocklyDiv" class="center-horiz"></div>
@@ -164,5 +159,14 @@
       <div class="tutorial__image"></div>
     </div>
     <div id="footer" class="center-horiz"></div>
+          <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
+
+            <button id="runButton" class="primary" title="Draw the snowflake">
+            <img src="media/icons/ic_play_circle_filled.png" class="run icon21"/>
+          </button>
+          <button id="submitButton" title="Next">
+            <img src="media/icons/ic_navigate_next.png" class="next icon21"/>
+          </button>
+
   </body>
 </html>

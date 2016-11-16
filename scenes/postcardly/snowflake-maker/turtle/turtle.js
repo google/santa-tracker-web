@@ -262,7 +262,7 @@ Turtle.display = function() {
   Turtle.ctxDisplay.rect(0, 0,
       Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
   Turtle.ctxDisplay.clearRect(0, 0, Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
-  Turtle.ctxDisplay.fillStyle = "rgba(255, 255, 255, 0.2)";
+  Turtle.ctxDisplay.fillStyle = "rgba(50, 50, 50, .2)";
   Turtle.ctxDisplay.fill();
 
   // Draw the user layer.
