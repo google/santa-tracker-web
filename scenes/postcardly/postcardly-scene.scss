@@ -109,6 +109,33 @@ $rotate-bg: $gameover-bg;
       background-size: cover;
     }
   }
+  .buttons-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px 0 30px 0;
+  }
+  .buttons {
+    display: flex;
+    width: 900px;
+    position: relative;
+    left: 50%;
+    margin-left: -450px;
+    justify-content: space-between;
+  }
+
+  .Button.Button--back {
+    background-color: #ccc;
+    box-shadow: 0 7px 0 #999, 5px 12px rgba(0,0,0,0.16);
+    background-image: url('img/ic_prev.png');
+    background-size: contain;
+  }
+
+  .Button.Button--share {
+    background-color: #9d3;
+    box-shadow: 0 7px 0 #3b5, 5px 12px rgba(0,0,0,0.16);
+  }
 }
 
 @import "../shared/sass/responsive";
