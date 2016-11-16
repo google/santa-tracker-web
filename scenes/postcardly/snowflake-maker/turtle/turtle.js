@@ -220,8 +220,9 @@ Turtle.resetPosition = function() {
 }
 
 Turtle.resetStyle = function() {
-  Turtle.ctxScratch.strokeStyle = '#ffffff';
-  Turtle.ctxScratch.fillStyle = '#ffffff';
+  // TODO (roboerikg): update the color to the final starting color
+  Turtle.ctxScratch.strokeStyle = '#29b6f6';
+  Turtle.ctxScratch.fillStyle = '#29b6f6';
   Turtle.ctxScratch.lineWidth = 6;
   Turtle.ctxScratch.lineCap = 'round';
   Turtle.ctxScratch.lineJoin = 'round';
