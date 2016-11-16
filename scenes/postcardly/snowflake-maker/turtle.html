@@ -23,33 +23,23 @@
     <style>
       html, body {
         height: 100%;
+        margin: 0px;
       }
-
       body {
         font-family: sans-serif;
       }
-
       h1 {
         font-weight: normal;
         font-size: 140%;
       }
-
-      #blocklyDiv {
-        height: 40%;
-        min-height: 256px;
-        width: 100%;
-      }
-
       .blocklyMainBackground {
         stroke-width: 0 !important;
       }
-      
       #collaborators {
         float: right;
         width: 30px;
         margin-left: 10px;
       }
-
       #collaborators > img {
         margin-right: 5px;
         height: 30px;
@@ -57,39 +47,15 @@
         width: 30px;
         border-radius: 3px;
       }
-
       #importExport {
         font-family: monospace;
       }
-
       button.primary {
         text-align: left;
-      }
-
-      #blockly {
-        position: fixed;
-        bottom: 10px;
       }
       #display {
         border: 1px solid #ccc;
       }
-
-      /* Slider. */
-      .sliderTrack {
-        stroke: #aaa;
-        stroke-width: 6px;
-        stroke-linecap: round;
-      }
-      .sliderKnob {
-        fill: #ddd;
-        stroke: #bbc;
-        stroke-width: 1px;
-        stroke-linejoin: round;
-      }
-      .sliderKnob:hover {
-        fill: #eee;
-      }
-
       /* Sprited icons. */
       .icon21 {
         height: 48px;
@@ -100,9 +66,6 @@
       }
       .run {
         background-position: -42px 0px;
-      }
-      .center {
-        margin: auto;
       }
       .tutorial {
         display: none;
@@ -139,27 +102,67 @@
         width: 275px;
         z-index: 1
       }
+      #footer {
+        position: absolute;
+        bottom: 0px;
+        height: 143px;
+        width: 100%;
+        background-color: white;
+        z-index: -1;
+      }
+      .center-horiz {
+        margin-left: auto;
+        margin-right: auto;
+        left: 0px;
+        right: 0px;
+      }
+      #blocklyDiv {
+        background-image: url('img/img_codebar.png');
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
+        max-width: 1020px;
+        width: 960px;
+        height: 339px;
+        bottom: 0px;
+        flex: 0 1 339px;
+      }
+      .stacked-divs {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          width: 100%;
+      }
+      #visualization {
+          flex: 1 1 auto;
+          min-height: 300px;
+          display: flex;
+          justify-content:center;
+          align-items:center;
+      }
     </style>
   </head>
   <body>
-    <div id="collaborators"></div>
-    <div id="visualization" class="center" style="width: 300px;">
-      <canvas id="scratch" width="500" height="500" hidden></canvas>
-      <canvas id="output" width="10" height="10" hidden></canvas>
-      <canvas id="display" width="300" height="300"></canvas>
-      <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
-      <button id="runButton" class="primary" title="Draw the snowflake">
-        <img src="media/icons/ic_play_circle_filled.png" class="run icon21">
-      </button>
-      <button id="submitButton" title="Next">
-        <img src="media/icons/ic_navigate_next.png" class="next icon21">
-      </button>
-      <button id="toStringButton">To String</button>
-      <button id="fromStringButton">From String</button>
+    <div class="stacked-divs">
+      <div id="visualization" class="center-horiz">
+        <div class="center-vert">
+          <canvas id="scratch" width="500" height="500" hidden></canvas>
+          <canvas id="output" width="10" height="10" hidden></canvas>
+          <canvas id="display" width="300" height="300"></canvas>
+          <img id="spinner" style="visibility: hidden;" src="media/loading.gif" height=15 width=15/>
+          <button id="runButton" class="primary" title="Draw the snowflake">
+            <img src="media/icons/ic_play_circle_filled.png" class="run icon21"/>
+          </button>
+          <button id="submitButton" title="Next">
+            <img src="media/icons/ic_navigate_next.png" class="next icon21"/>
+          </button>
+        </div>
+      </div>
+      <div id="blocklyDiv" class="center-horiz"></div>
     </div>
-    <div id="blocklyDiv" class="center"></div>
     <div class="tutorial">
       <div class="tutorial__image"></div>
     </div>
+    <div id="footer" class="center-horiz"></div>
   </body>
 </html>
