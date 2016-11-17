@@ -52,8 +52,6 @@ Santa Tracker app.
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
-        preloader="[[preloader]]"
-        valid-routes="{{validRoutes}}"
         selected="{{route}}"
         selected-item="{{selectedScene}}"
         selectable=":not([disabled])"
@@ -376,18 +374,6 @@ Polymer({
     },
 
     /**
-     * The preloader used inside this element. This is provided as a binding
-     * helper.
-     */
-    preloader: {
-      type: Element,
-      readOnly: true,
-      value: function() {
-        return this.$.preloader;
-      }
-    },
-
-    /**
      * The time at which Santa takes off, in ms.
      */
     countdownEndAt: {
@@ -490,11 +476,6 @@ Polymer({
       type: String,
       observer: '_routeChanged'
     },
-
-    /**
-     * Mirrored from lazy-pages valid-routes.
-     */
-    validRoutes: Object,
 
     /** Whether the schedule is checked. If false, houses will remain unlocked. */
     scheduleChecked: {
@@ -702,6 +683,8 @@ Polymer({
   onSceneProgress: function() {
     var scene = this.selectedScene;
     if (scene) {
+      this.$.preloader.color = scene.getAttribute('loading-bg-color');
+      this.$.preloader.src = scene.getAttribute('loading-src');
       this.$.preloader.active = !scene.loaded;
       this.$.preloader.value = scene.preloadProgress || 0;  // prevent undefined
     } else {
@@ -772,17 +755,23 @@ Polymer({
       document.body.classList.add('scrollock');
       this.$.chrome.classList.add('fixed');
     }
+
+    // Update custom colors.
     var color = this.colorForRoute(this.route);
     this.customStyle['--santa-toolbar-color'] = color;
     this.updateStyles();
-
-    // Update `theme-color` to match.
     var meta = document.head.querySelector('meta[name="theme-color"]');
     if (meta) {
       meta.content = color || TOOLBAR_DEFAULT_COLOR;
     }
 
-    this._updateWindowTitle();
+    // Optionally update the document title (with emoji/scene name).
+    var raw = scene && scene.getAttribute('icon');
+    var icon = '';
+    if (raw && String.fromCodePoint) {  // no emoji on IE11
+      icon = String.fromCodePoint(parseInt(raw, 16));
+    }
+    document.title = icon + WINDOW_TITLE;
 
     if (this.selectedScene && this.selectedScene.is) {
       this._prepareScene(this.selectedScene);
@@ -802,7 +791,7 @@ Polymer({
     }
 
     // Only remove certain elements from the DOM.
-    var isPermanentScene = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) != -1;
+    var isPermanentScene = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) !== -1;
     if (isPermanentScene) {
       return;
     }
@@ -845,7 +834,7 @@ Polymer({
   _routeChanged: function(newValue) {
     if (this.validateRoute()) {
       // Route is valid. Send to analytics and load the scene.
-      this.trackPageview('/' + newValue);
+      this.analyticsService.trackPageView('/' + newValue);
       return;
     }
 
@@ -856,16 +845,6 @@ Polymer({
     this.fire('analytics-track-event', { category: 'Routing',
         action: 'Invalid Route', label: '/' + newValue});
     this.route = this.defaultRoute;
-  },
-
-  _updateWindowTitle: function() {
-    var scene = this.selectedScene;
-    var raw = scene && scene.getAttribute('icon');
-    var icon = '';
-    if (raw && String.fromCodePoint) {  // no emoji on IE11
-      icon = String.fromCodePoint(parseInt(raw, 16));
-    }
-    document.title = icon + WINDOW_TITLE;
   },
 
   /**
@@ -923,10 +902,6 @@ Polymer({
     }
   },
 
-  trackPageview: function(path) {
-    this.analyticsService.trackPageView(path);
-  },
-
   trackEvent: function(e, detail) {
     this.analyticsService.trackEvent(
         detail.category, detail.action, detail.label, detail.value);
@@ -978,8 +953,8 @@ Polymer({
   },
 
   /**
-   * Determines whether a given scene is open. This is distinct from unlocked, which is whether
-   * it's visibly unlocked in the village. Houses are open as soon as any place on the Earth
+   * Determines whether a given scene is open. This is a superset of unlocked, which is whether
+   * the scene is visibily unlocked in the village. Scenes are open as soon as any place on Earth
    * matches the launch date (e.g., a scene is open for everyone as soon as someone in New Zealand
    * has access to it).
    *
@@ -999,11 +974,16 @@ Polymer({
 
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
+        if (house.disabled) {
+          return false;
+        } else if (!house.locked) {
+          return true;
+        }
         var launchDate = house.launchDate;
         if (santaApp.mode == 'portal' && house.portalLaunchDate) {
           launchDate = house.portalLaunchDate;
         }
-        return !house.disabled && (eastDateNow > launchDate);
+        return eastDateNow > launchDate;
       }
     }
 
@@ -1144,8 +1124,7 @@ Polymer({
   _notifyHouses: function(opt_idx) {
     this.debounce('_notifyHouses', function() {
       if (!this.$.village.is) {
-        // the village isn't yet a Polymer element, so ignore.
-        return;
+        return;  // the village isn't yet a Polymer element, so ignore.
       }
 
       // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
@@ -1164,10 +1143,8 @@ Polymer({
 
   /**
    * Returns the (static) color for the given route. Returns the blank string if there is no color.
-   * This accepts both route and validRoutes from lazy-pages, in order to retrigger when the routes
-   * are fully computed: any template dom-repeat routes are hidden.
    */
-  colorForRoute: function(route, validRoutes) {
+  colorForRoute: function(route) {
     var el = this.$.lazypages.getRoute(route);
     return (el ? el.getAttribute('header-color') : '') || '';
   },

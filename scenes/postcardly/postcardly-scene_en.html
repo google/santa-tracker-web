@@ -82,7 +82,7 @@ Postcard scene.
         </div>
         <div id="heroSnowflake"></div>
       </div>
-      <div class="share_bar big-button_bar center-horiz">
+      <div class="share-bar big-button_bar center-horiz">
         <div class="back small-button" on-tap="hidePostcard"></div>
         <div class="help small-button"></div>
         <div class="big-button-tab">
@@ -149,6 +149,7 @@ Postcard scene.
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.postcardly.Scene(module);
       this.$.blocklyArea.src = this.componentDir + 'snowflake-maker/turtle.html';
+      this.sceneParamsChanged();
       if (dev) {
         this.blocks = "p[125]s[125]c[#006600]<r[30]t[125]>[4]";
         this.snowflake = 'scenes/postcardly/img/snow-test.png';

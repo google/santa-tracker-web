@@ -104,6 +104,7 @@ Turtle.init = function() {
     document.getElementById('display').height = Turtle.DISPLAY_SIZE;
     document.getElementById('display').width = Turtle.DISPLAY_SIZE;
     Turtle.display();
+    Blockly.DropDownDiv.hideWithoutAnimation();
   }
 
   window.addEventListener('resize', onresize);
@@ -150,7 +151,7 @@ Turtle.init = function() {
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
-  Turtle.paper = document.getElementsByClassName('paper')[0];
+  Turtle.paper = document.getElementById('paperDiv');
   onresize();
   Turtle.reset();
 
