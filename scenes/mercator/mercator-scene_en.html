@@ -322,8 +322,10 @@ Mercator scene.
     },
 
     onHide: function() {
-      this.game.dispose();
-      this.game = null;
+      if (this.game) {
+        this.game.dispose();
+        this.game = null;
+      }
       this.fire('sound-ambient', 'mercator_end');
     },
 
