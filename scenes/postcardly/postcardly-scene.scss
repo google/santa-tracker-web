@@ -107,30 +107,6 @@ $rotate-bg: $gameover-bg;
     }
   }
 
-  .buttons {
-    display: flex;
-    width: 900px;
-    position: relative;
-    right: 50%;
-    margin-left: -450px;
-    justify-content: space-between;
-  }
-
-  .buttons-footer {
-     position: absolute;
-     bottom: 0;
-     width: 100%;
-     background-color: #fff;
-     height: 143px;
-  }
-
-  .button-column {
-    width:100px;
-    position: absolute;
-    right: 136px;
-    border: none;
-  }
-
   .back {
     background-image: url('img/btn_back.png');
     margin-top: 7px;
