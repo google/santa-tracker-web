@@ -104,6 +104,7 @@ Turtle.init = function() {
     document.getElementById('display').height = Turtle.DISPLAY_SIZE;
     document.getElementById('display').width = Turtle.DISPLAY_SIZE;
     Turtle.display();
+    Blockly.DropDownDiv.hideWithoutAnimation();
   }
 
   window.addEventListener('resize', onresize);
