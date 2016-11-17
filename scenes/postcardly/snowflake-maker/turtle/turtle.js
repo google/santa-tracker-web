@@ -150,7 +150,7 @@ Turtle.init = function() {
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
-  Turtle.paper = document.getElementsByClassName('paper')[0];
+  Turtle.paper = document.getElementById('paperDiv');
   onresize();
   Turtle.reset();
 

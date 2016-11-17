@@ -64,8 +64,7 @@ app.Scene = function(elem) {
  *                     Multiply with width to get position.
  */
 app.Scene.prototype.bgsChanged_ = function(selected, pos) {
-  // Start change animation with gears rotating
-  console.log('changing the background to ' + selected + ' with pos ' + pos);
+  // Start change animation
   window.clearTimeout(this.bgsTimer);
   this.bgsTimer = window.setTimeout(function() {
     this.elem.removeClass('bgs-active');
