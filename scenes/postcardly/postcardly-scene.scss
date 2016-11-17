@@ -136,113 +136,12 @@ $rotate-bg: $gameover-bg;
     }
   }
 
-  .small-button {
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    font-size: inherit;
-    position: absolute;
-    height: 32px;
-    width: 96px;
-    right: 136px;
-    pointer-events: auto;
-  }
-
-  .share-tab {
-    border-radius: 50%;
-    bottom: 66px;
-    height: 100px;
-    right: 16px;
-    position: absolute;
-    width: 100px;
-  }
-
-  .share-layer {
-    background-color: white;
-    border-radius: 50%;
-    height: 120px;
-    position: relative;
-    -webkit-transform: translateZ(0);
-    width: 120px;
-  }
-
-  .share {
-    background: #ab47bc;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0px 6px #7b1fa2;
-    cursor: pointer;
-    font-size: inherit;
-    height: 90px;
-    margin: 13px;
-    padding: 0;
-    position: relative;
-    width: 96px;
-    transition: box-shadow 100ms, transform 100ms;
-    pointer-events: auto;
-  }
-
   .share:before {
     background-image: url('img/ic_share.png');
-    background-size: cover;
-    content: '';
-    display: block;
-    height: 48px;
-    left: calc(50% - 24px);
-    position: absolute;
-    top: calc(50% - 24px);
-    width: 48px;
-  }
-
-  .share:after {
-    border-radius: 50%;
-    bottom: 0;
-    box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: box-shadow 100ms;
-  }
-
-  .share:focus {
-    outline: 0;
-  }
-
-  .share:active {
-    outline: 0;
-    transform: translate3d(0, 6px, 0);
-    box-shadow: 0px 0px #7b1fa2;
-  }
-
-  .share:active:after {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
   }
 
   .share_bar {
-    width: 1024px;
-    height: 120px;
-    bottom: 0px;
-    position: absolute;
-    pointer-events: none;
-    z-index: 2,
-  }
-
-  .footer {
-    position: absolute;
-    bottom: 0px;
-    height: 143px;
-    width: 100%;
-    background-color: white;
-  }
-
-  .center-horiz {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0px;
-    right: 0px;
+    z-index: 1,
   }
 }
 

@@ -18,6 +18,8 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="postcardly-scene.css" />
+<link rel="stylesheet" href="shared-css/tutorial.css" />
+<link rel="stylesheet" href="shared-css/footer.css" />
 
 <!--
 Postcard scene.
@@ -81,12 +83,12 @@ Postcard scene.
         </div>
         <div id="heroSnowflake"></div>
       </div>
-      <div class="share_bar center-horiz">
-          <div class="back small-button" on-tap="hidePostcard"></div>
-          <div class="help small-button"></div>
-        <div class="share-tab">
-          <div class="share-layer">
-            <button id="shareButton" class="share"></button>
+      <div class="share_bar big-button_bar center-horiz">
+        <div class="back small-button" on-tap="hidePostcard"></div>
+        <div class="help small-button"></div>
+        <div class="big-button-tab">
+          <div class="big-button-layer">
+            <button id="shareButton" class="share big-button"></button>
           </div>
         </div>
       </div>
@@ -189,6 +191,7 @@ Postcard scene.
         this.scene.blocks = event.data['blocks'];
         // If we're receiving this message, 'Done' has been pressed.
         this.showPostcard();
+        this.scene.tutorial.start();
       }
     },
 

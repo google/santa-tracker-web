@@ -45,15 +45,16 @@ app.Scene = function(elem) {
     changed: function() {}
   });
 
-  // Dummy tutorial, needed by app.Controls.
+  this.picker = new app.Picker(this);
   this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
       'keys-leftright', 'spacenav-leftright');
-  this.tutorial.off('keys-leftright');
-  this.picker = new app.Picker(this);
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
   this.elem.find('#shareButton').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
+
+  //TODO(madCode): change this tutorial to only start after the postcard selection scene has become visible?
+
 };
 
 /**
@@ -86,6 +87,7 @@ app.Scene.prototype.bgsChanged_ = function(selected, pos) {
  * @export
  */
 app.Scene.prototype.dispose = function() {
+  this.tutorial.dispose();
 };
 
 /**
