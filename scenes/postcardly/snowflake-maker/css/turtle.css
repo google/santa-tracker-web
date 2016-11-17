@@ -1,0 +1,139 @@
+.blocklyMainBackground {
+  stroke-width: 0 !important;
+}
+
+.blockly-footer {
+  z-index: -1;
+  min-width: 1080px;
+}
+
+/* Blocks being dragged disappear oustide of workspace. (like blockly)*/
+.injectionDiv {
+  overflow: hidden;
+  border-radius: 72px;
+}
+
+/* Sprited icons. */
+.icon21 {
+  height: 48px;
+  width: 48px;
+}
+
+.tutorial {
+  height: 290px;
+  left: 50%;
+  margin-left: -137px;
+  margin-top: -130px;
+  position: fixed;
+  overflow: hidden;
+  top: 50%;
+  width: 275px;
+  z-index: 100;
+}
+
+.tutorial__image {
+  background-image: url(../img/tutorial/tutorial.gif);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 270px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 275px;
+  z-index: 2;
+}
+
+.tutorial::before {
+  background: url(../img/tutorial/shadow.svg) no-repeat;
+  content: "";
+  height: 270px;
+  left: 0;
+  opacity: 0.15;
+  position: absolute;
+  top: 20px;
+  width: 275px;
+  z-index: 1
+}
+
+#blocklyDiv {
+  background-image: url('../img/img_codebar.png');
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  max-width: 1020px;
+  width: 960px;
+  height: 339px;
+  bottom: 0px;
+  flex: 0 1 339px;
+  z-index: 3;
+}
+
+.stacked-divs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#visualization {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content:center;
+  width: 50%;
+  align-items:center;
+  align-self: center;
+  min-height: 352px;
+  min-width: 352px;
+  max-width: 532px;
+  padding: 64px 0;
+}
+
+.next:before {
+  background-image: url('../img/ic_next.png');
+}
+
+.paper {
+  background-image: url(../img/img_canvas_snowflake.png);
+  background-size: 320px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  padding: 16px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  max-height: 532px;
+}
+
+#blocklycontainer {
+  position: relative;
+}
+
+.clear {
+  background-image: url('../img/btn_clear.png');
+  margin-top: 7px;
+  padding-bottom: 12px;
+}
+
+.clear:hover {
+  background-image: url('../img/btn_clear_over.png');
+}
+
+.clear:active {
+  background-image: url('../img/btn_clear_press.png');
+}
+
+.help {
+  background-image: url('../../img/btn_help.png');
+  top: 52px;
+}
+
+.help:hover {
+  background-image: url('../../img/btn_help_over.png');
+}
+
+.help:active {
+  background-image: url('../../img/btn_help_press.png');
+}
