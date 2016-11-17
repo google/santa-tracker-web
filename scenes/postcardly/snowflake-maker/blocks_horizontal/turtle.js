@@ -54,11 +54,11 @@ Blockly.Blocks['snowflake_start'] = {
       "args0": [
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_snowflake.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/btn_start.png",
           "width": 40,
           "height": 40,
           "alt": "snowflake",
-          "flip_rtl": false
+          "flip_rtl": true
         }
       ],
       "nextStatement": "Stamp",
