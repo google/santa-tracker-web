@@ -276,8 +276,6 @@ app.Game.prototype.startLevel_ = function() {
   this.setupLevel_();
   this.showCountries_();
   this.levelElapsed = 0;
-
-  this.unfreezeGame();
 };
 
 /**
