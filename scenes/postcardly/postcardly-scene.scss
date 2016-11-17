@@ -131,16 +131,10 @@ $rotate-bg: $gameover-bg;
     border: none;
   }
 
-  .Button--back {
-    float: left;
+  .back {
     background-image: url('img/btn_back.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    pointer-events: auto;
-    width: 96px;
-    height: 32px;
-    padding-bottom: 12px;
     margin-top: 7px;
+    padding-bottom: 12px;
 
     &:hover {
       background-image: url('img/btn_back_over.png');
@@ -151,14 +145,9 @@ $rotate-bg: $gameover-bg;
     }
   }
 
-  .Button--help {
-    float: left;
+  .help {
     background-image: url('img/btn_help.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    pointer-events: auto;
-    width: 96px;
-    height: 32px;
+    top: 52px;
 
     &:hover {
       background-image: url('img/btn_help_over.png');
@@ -167,6 +156,19 @@ $rotate-bg: $gameover-bg;
     &:active {
       background-image: url('img/btn_help_press.png');
     }
+  }
+
+  .small-button {
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    position: absolute;
+    height: 32px;
+    width: 96px;
+    right: 136px;
+    pointer-events: auto;
   }
 
   .bgs-belt {

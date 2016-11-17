@@ -82,10 +82,8 @@ Postcard scene.
         <div id="heroSnowflake"></div>
       </div>
       <div class="share_bar center-horiz">
-          <div class="button-column">
-            <image on-tap="hidePostcard" class="Button--back"/>
-            <image class="Button--help"/>
-          </div>
+          <div class="back small-button" on-tap="hidePostcard"></div>
+          <div class="help small-button"></div>
         <div class="share-tab">
           <div class="share-layer">
             <button id="shareButton" class="share"></button>
@@ -117,7 +115,7 @@ Postcard scene.
 </template>
 <script>
 (function() {
-  var dev = true;
+  var dev = false;
   Polymer({
     is: 'postcardly-scene',
     behaviors: [window.SantaSceneBehavior],
