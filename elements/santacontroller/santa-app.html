@@ -978,8 +978,8 @@ Polymer({
   },
 
   /**
-   * Determines whether a given scene is open. This is distinct from unlocked, which is whether
-   * it's visibly unlocked in the village. Houses are open as soon as any place on the Earth
+   * Determines whether a given scene is open. This is a superset of unlocked, which is whether
+   * the scene is visibily unlocked in the village. Scenes are open as soon as any place on Earth
    * matches the launch date (e.g., a scene is open for everyone as soon as someone in New Zealand
    * has access to it).
    *
@@ -999,11 +999,16 @@ Polymer({
 
     for (var i = 0, house; house = this._houses[i]; ++i) {
       if (house.module === moduleName) {
+        if (house.disabled) {
+          return false;
+        } else if (!house.locked) {
+          return true;
+        }
         var launchDate = house.launchDate;
         if (santaApp.mode == 'portal' && house.portalLaunchDate) {
           launchDate = house.portalLaunchDate;
         }
-        return !house.disabled && (eastDateNow > launchDate);
+        return eastDateNow > launchDate;
       }
     }
 
