@@ -49,8 +49,8 @@ Postcard scene.
     <div id="postcard" class="scene" hidden>
       <div class="bgs-belt">
         <div class="track"></div>
-        <div data-offset="141" class="bgs-left"></div>
-        <div data-offset="18" class="bgs-right"></div>
+        <div data-offset="276" class="bgs-left"></div>
+        <div data-offset="24" class="bgs-right"></div>
       </div>
       <div class="message">
         <div class="shadow"></div>
@@ -191,6 +191,12 @@ Postcard scene.
         this.showPostcard();
       }
     },
+
+    sceneParamsChanged: function() {
+      if (this.sceneParams && this.scene) {
+        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
+      }
+    }
   });
 
 })();

@@ -1,0 +1,101 @@
+##{$name} {
+  .bgs-belt {
+    .track {
+      background-color: rgba(0,0,0,0);
+      height: 194px;
+      left: 0;
+      margin-top: -97px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+
+      &:after {
+        content: "";
+        background-color: rgba(0,0,0,0);
+        height: 124px;
+        left: 0;
+        margin-top: -62px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+
+    .bgs-left {
+      background: url(img/bgs-small.png) 24px 0;
+      height: 140px;
+      margin-right: 450px;
+      margin-top: -70px;
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      transition: background-position 500ms ease;
+      width: 1984px;
+    }
+
+    .bgs-right {
+      background: url(img/bgs-small.png) -224px 0;
+      height: 140px;
+      left: 50%;
+      margin-left: 450px;
+      margin-top: -70px;
+      position: absolute;
+      top: 50%;
+      transition: background-position 500ms ease;
+      width: 1984px;
+    }
+  }
+
+  .message {
+    .bgs div {
+      background: url(img/bgs.png);
+      height: 500px;
+      position: absolute;
+      top: 0;
+      width: 850px;
+    }
+
+    .bgs {
+      left: 0;
+      position: relative;
+      transition: transform 500ms ease;
+
+      @mixin bg($number) {
+        background-position: -850px * $number;
+        left: $number * 850px;
+      }
+
+      .bg1 {
+        @include bg(0);
+      }
+
+      .bg2 {
+        @include bg(1);
+      }
+
+      .bg3 {
+        @include bg(2);
+      }
+
+      .bg4 {
+        @include bg(3);
+      }
+
+      .bg5 {
+        @include bg(4);
+      }
+
+      .bg6 {
+        @include bg(5);
+      }
+
+      .bg7 {
+        @include bg(6);
+      }
+
+      .bg8 {
+        @include bg(7);
+      }
+    }
+  }
+}
