@@ -52,9 +52,6 @@ app.Scene = function(elem) {
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
   this.elem.find('#shareButton').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
-
-  //TODO(madCode): change this tutorial to only start after the postcard selection scene has become visible?
-
 };
 
 /**
