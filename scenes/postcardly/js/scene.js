@@ -33,6 +33,7 @@ app.Scene = function(elem) {
   this.elem = $(elem);
 
   this.bgsTrackElem = this.elem.find('.bgs-left, .bgs-right');
+  this.bgsLogoElem = this.elem.find('.picker .bgs .logo');
   this.background = new app.Slider(this.elem.find('.message .bgs'), {
     max: app.Constants.BACKGROUND_COUNT,
     size: app.Constants.SCREEN_WIDTH,
@@ -63,11 +64,21 @@ app.Scene = function(elem) {
  *                     Multiply with width to get position.
  */
 app.Scene.prototype.bgsChanged_ = function(selected, pos) {
+  // Start change animation with gears rotating
+  console.log('changing the background to ' + selected + ' with pos ' + pos);
+  window.clearTimeout(this.bgsTimer);
+  this.bgsTimer = window.setTimeout(function() {
+    this.elem.removeClass('bgs-active');
+  }.bind(this), 500);
+  this.elem.addClass('bgs-active');
+
   this.bgsTrackElem.each(function() {
     var position = (app.Constants.SMALL_SCREEN_WIDTH * (pos + 1) * -1) +
         ($(this).data('offset') || 0);
     $(this).css('background-position', position + 'px 0');
   });
+  this.bgsLogoElem.css('background-position',
+      + (-1 * app.Constants.PICKER_ICON_SIZE) + 'px ' + (-1 * app.Constants.PICKER_ICON_SIZE * pos) + 'px');
 };
 
 /**
