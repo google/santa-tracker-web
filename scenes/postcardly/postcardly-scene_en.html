@@ -173,6 +173,7 @@ Postcard scene.
     hidePostcard: function() {
       this.$.postcard.hidden = true;
       this.$.blocklyArea.hidden = false;
+      this.scene.tutorial.dispose();
     },
 
     onHide: function() {
