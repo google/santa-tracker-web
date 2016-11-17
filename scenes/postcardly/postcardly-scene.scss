@@ -9,6 +9,7 @@ $rotate-bg: $gameover-bg;
 @import "../shared/sass/button";
 
 @import "sass/background";
+@import "sass/message";
 @import "sass/environment";
 
 ##{$name} {
@@ -148,130 +149,6 @@ $rotate-bg: $gameover-bg;
     pointer-events: auto;
   }
 
-  .bgs-belt {
-    .bgs-left {
-      background: url(img/bgs-small.png) top right;
-      height: 140px;
-      margin-right: 450px;
-      margin-top: -70px;
-      position: absolute;
-      right: 50%;
-      top: 50%;
-      transition: background-position 500ms ease;
-      width: 1120px;
-    }
-
-    .bgs-right {
-      background: url(img/bgs-small.png) -122px 0;
-      height: 140px;
-      left: 50%;
-      margin-left: 450px;
-      margin-top: -70px;
-      position: absolute;
-      top: 50%;
-      transition: background-position 500ms ease;
-      width: 1120px;
-    }
-  }
-
-  .message {
-    .bgs div {
-      background: url(img/bgs.png);
-      height: 500px;
-      position: absolute;
-      top: 0;
-      width: 850px;
-    }
-
-    .bgs {
-      left: 0;
-      position: relative;
-      transition: transform 500ms ease;
-
-      @mixin bg($number) {
-        background-position: -850px * $number;
-        left: $number * 850px;
-      }
-
-      .bg1 {
-        @include bg(0);
-      }
-
-      .bg2 {
-        @include bg(1);
-      }
-
-      .bg3 {
-        @include bg(2);
-      }
-
-      .bg4 {
-        @include bg(3);
-      }
-
-      .bg5 {
-        @include bg(4);
-      }
-
-      .bg6 {
-        @include bg(5);
-      }
-
-      .bg7 {
-        @include bg(6);
-      }
-
-      .bg8 {
-        @include bg(7);
-      }
-    }
-  }
-
-  .message {
-    left: 50%;
-    margin-left: -450px;
-    margin-top: -275px;
-    position: absolute;
-    top: 50%;
-
-    .frame {
-      background-color: #fff;
-      height: 550px;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 900px;
-    }
-
-    .frame-inner {
-      width: 850px;
-      height: 500px;
-      overflow: hidden;
-      position: absolute;
-      top: 25px;
-      left: 25px;
-    }
-
-    .shadow {
-      background-color: #000;
-      height: 550px;
-      left: 10px;
-      opacity: 0.15;
-      position: absolute;
-      top: 10px;
-      width: 900px;
-    }
-
-    .shadow-inner {
-      box-sizing: border-box;
-      width: 850px;
-      height: 500px;
-      position: absolute;
-      border: 10px solid black;
-      opacity: 0.1;
-    }
-  }
-
   .share-tab {
     border-radius: 50%;
     bottom: 66px;
@@ -307,7 +184,7 @@ $rotate-bg: $gameover-bg;
   }
 
   .share:before {
-    background-image: url('img/ic_next.png');
+    background-image: url('img/ic_share.png');
     background-size: cover;
     content: '';
     display: block;
