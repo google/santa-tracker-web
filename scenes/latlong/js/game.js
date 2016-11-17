@@ -18,11 +18,10 @@ goog.provide('app.Game');
 
 goog.require('app.Belt');
 goog.require('app.Constants');
-goog.require('app.Tutorial');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
-goog.require('app.shared.PauseOverlay');
 goog.require('app.shared.Scoreboard');
+goog.require('app.shared.Tutorial');
 
 /**
  * Main game class
@@ -41,8 +40,8 @@ app.Game = function(elem) {
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));
-  this.pauseOverlay = new app.shared.PauseOverlay(this.elem.find('.pauseOverlay'));
-  this.tutorial = new app.Tutorial(this.elem);
+  this.pauseOverlay = this.elem.find('.pauseOverlay');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'latlong', 'latlong', 'latlong');
 
   this.isPlaying = false;
   this.paused = false;
@@ -140,6 +139,7 @@ app.Game.prototype.onFinishLevel_ = function() {
  */
 app.Game.prototype.onMissPresent_ = function() {
   this.scoreboard.addTime(Constants.MISS_TIME);
+  this.tutorial.off('latlong');
 };
 
 
@@ -149,6 +149,7 @@ app.Game.prototype.onMissPresent_ = function() {
  */
 app.Game.prototype.onMatchPresent_ = function() {
   this.scoreboard.addTime(Constants.MATCH_TIME);
+  this.tutorial.off('latlong');
 };
 
 
@@ -242,13 +243,11 @@ app.Game.prototype.pause = function() {
  * Resume the game.
  */
 app.Game.prototype.resume = function() {
-  var el = this.elem;
   this.paused = false;
   this.unfreezeGame();
 
-  this.pauseOverlay.hide(function() {
-    el.removeClass('is-paused');
-  });
+  this.pauseOverlay.hide();
+  this.elem.removeClass('is-paused');
 };
 
 
@@ -272,6 +271,7 @@ app.Game.prototype.dispose = function() {
   $(document).off('.latlong');
 
   this.levelUp.dispose();
+  this.tutorial.dispose();
 
   app.shared.pools.empty();
 };

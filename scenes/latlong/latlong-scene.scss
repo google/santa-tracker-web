@@ -12,15 +12,14 @@ $break-tablet: 1025px;
 @import "../shared/sass/gameover";
 @import "../shared/sass/board";
 @import "../shared/sass/startbutton";
+@import "../shared/sass/tutorial";
 @import "../shared/sass/rotate";
-@import "../shared/sass/pause-overlay";
 
 @import "sass/background";
 @import "sass/grid";
 @import "sass/present";
 @import "sass/elf";
 @import "sass/sidebar";
-@import "sass/tutorial";
 
 ##{$name} {
   .fill {
@@ -60,5 +59,32 @@ $break-tablet: 1025px;
 
   .hidden {
     display: none;
+  }
+
+  .pauseOverlay {
+    background-color: #ffc41b;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+
+    .pauseOverlay-icon {
+      background: url(../shared/img/pause-overlay/pause-icon.svg) no-repeat center;
+      background-size: contain;
+      height: 320px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+    }
+  }
+
+  @include tutorial(latlong, 'img/tutorial/tutorial.gif', 1);
+  .tutorial.latlong .tutorial-inner {
+    background-size: contain;  // fix gif being too big
   }
 }
