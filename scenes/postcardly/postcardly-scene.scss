@@ -136,6 +136,7 @@ $rotate-bg: $gameover-bg;
     }
   }
 
+  //TODO(madCode): Talk to jenstad about restyling these to match shared small button css.
   .small-button {
     background-size: contain;
     background-repeat: no-repeat;
@@ -221,13 +222,17 @@ $rotate-bg: $gameover-bg;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
   }
 
-  .share_bar {
+  .share-bar {
     width: 1024px;
     height: 120px;
     bottom: 0px;
     position: absolute;
     pointer-events: none;
-    z-index: 2,
+    z-index: 2;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
   }
 
   .footer {
@@ -236,13 +241,6 @@ $rotate-bg: $gameover-bg;
     height: 143px;
     width: 100%;
     background-color: white;
-  }
-
-  .center-horiz {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0px;
-    right: 0px;
   }
 }
 
