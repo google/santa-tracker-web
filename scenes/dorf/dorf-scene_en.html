@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
+<link rel="import" href="../../elements/santa-state.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -41,6 +42,10 @@ Santa's Village.
 
   <santa-strings strings="{{strings}}"></santa-strings>
 
+  <santa-state countdown-finished="{{countdownFinished}}" 
+      during-tracker="{{duringTracker}}"
+      remaining-time="{{remainingTime}}"></santa-state>
+
   <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
     <header>
       <div id="header-background">
@@ -59,11 +64,8 @@ Santa's Village.
         <div id="ornament"></div>
         <div id="count-down" class$="mode-[[mode]]">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-          <countdown-timer id="count"
-                           animate="[[!_isCastMode(mode)]]"
-                           santa-service="[[santaApp.santaService]]"
-                           countdown-end-at="[[santaApp.countdownEndAt]]"
-                           finished="{{countdownFinished}}">
+          <countdown-timer remaining-time="[[remainingTime]]" active="[[active]]"
+              animate="{{!_isCastMode(mode)}}">
             <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
             <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
             <h3><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -293,10 +295,10 @@ Santa's Village.
         value: Object.freeze(EASTER_EGGS)
       },
 
-      /** Bound from `countdown-timer`, whether the countdown is done. */
+      /** Bound from `santa-state`, whether the countdown is done. */
       countdownFinished: Boolean,
 
-      /** Bound from `santa-app`, whether we are during the tracker. */
+      /** Bound from `santa-state`, whether we are during the tracker. */
       duringTracker: Boolean,
 
       /** Strings bound from `santa-strings`. */
@@ -304,9 +306,6 @@ Santa's Village.
     },
 
     listeners: {
-      // For prod, <i18n-msg> is removed and textContent will already be
-      // correct. For dev, listen for i18n updates and update the labels.
-      'i18n-language-ready': '_updateCountdownLabels',
       'easteregg-busstop1.click': '_triggerBus',
       'easteregg-busstop2.click': '_triggerBus',
       'easteregg-busstop3.click': '_triggerBus',
@@ -324,10 +323,6 @@ Santa's Village.
     _computeFooterElves: function(finished) {
       return this.componentDir +
           (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
-    },
-
-    _updateCountdownLabels: function() {
-      this.$.count.updateLabels();
     },
 
     /**
@@ -434,17 +429,11 @@ Santa's Village.
       this.fire('sound-ambient', 'music_start_village');
       this.fire('sound-ambient', 'village_start');
 
-      // Start timer one tick after scene is shown.
-      this.async(function() {
-        this.$.count.start();
-      });
-
       this._startEasterEggs();
     },
 
     onHide: function() {
       this.fire('sound-ambient', 'village_end');
-      this.$.count.stop();
       this._stopEasterEggs();
     },
 

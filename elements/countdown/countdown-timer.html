@@ -14,15 +14,15 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../santa-state.html">
 <link rel="import" href="countdown-timer_module.html">
 
 <!--
-Displays a countdown timer.
+Displays a timer.
 
 Example
 
-    <countdown-timer count-down-end-date="1450951200000"
-                     finished="{{isFinished}}">
+    <countdown-timer>
       <h3>Days</h3>
       <h3>Hours</h3>
       <h3>Minutues</h3>
@@ -62,22 +62,11 @@ Example
   (function() {
 
     var _TRANSITION_TIME = 400;
-    var _COUNTDOWN_END_DATE = window.SANTA_CONFIG ?
-        window.SANTA_CONFIG['COUNTDOWN_END_DATE'] :
-        +Date.UTC(new Date().getFullYear(), 11, 24, 10, 0, 0);
 
     Polymer({
       is: 'countdown-timer',
 
       properties: {
-        /**
-         * True if the countdown should be active.
-         */
-        active: {
-          type: Boolean,
-          value: false,
-          notify: true
-        },
 
         /**
          * True if the countdown should animate.
@@ -88,20 +77,12 @@ Example
         },
 
         /**
-         * The end time for this countdown, in milliseconds.
+         * True if the countdown should be active.
          */
-        countdownEndAt: {
-          type: Number,
-          value: _COUNTDOWN_END_DATE,
-          observer: '_countdownEndAtChanged'
-        },
-
-        /**
-         * Santa service.
-         */
-         santaService: {
-          type: Object,
-          value: null
+        active: {
+          type: Boolean,
+          value: false,
+          observer: '_activeChanged'
         },
 
         /**
@@ -110,25 +91,6 @@ Example
         displayDigits: {
           type: Number,
           value: 8
-        },
-
-        /**
-         * True when the countdown has reached `countdownEndAt`.
-         */
-        finished: {
-          value: false,
-          reflectToAttribute: true,
-          notify: true,
-          readOnly: true
-        },
-
-        /**
-         * The current time as dictated by the `santaService`.
-         */
-        currentTime: {
-          type: Number,
-          value: null,
-          readOnly: true
         },
 
         /**
@@ -148,28 +110,66 @@ Example
           type: Array,
           value: function() { return []; },
           readOnly: true
-        }
+        },
+
+        /**
+         * Remaining time. This will tick at a rate of 1s/s
+         */
+        remainingTime: {
+          type: Number,
+          observer: '_remainingTimeChanged'
+        },
+
+        /**
+         * The time at which remainingTime was set.
+         */
+        _remainingTimeSetAt: Number,
       },
 
       _oldNumbers: [],  // replaced in tickTock
-      _tickInterval: null,
-
-      ready: function() {
-        this._setCurrentTime(this._getCurrentTime());
-      },
+      _tickInterval: 0,
 
       attached: function() {
         this.updateLabels();
 
-        this.async(function() {
+        Polymer.RenderStatus.afterNextRender(this, function() {
           // Needs to wait one rAF so titles has populated the template repeat.
           this._setHolders(Array.prototype.slice.call(
                           this.$.counter.querySelectorAll('.counter-box')));
-          this.fire('countdown-timer-ready', this);
-
-          // Set the initial time but don't start
-          this.tickTock();
+          this._activeChanged();
         });
+      },
+
+      detatched: function() {
+        window.clearInterval(this._tickInterval);
+      },
+
+      _remainingTimeChanged: function() {
+        this._remainingTimeSetAt = Date.now();
+      },
+
+      _activeChanged: function() {
+        window.clearInterval(this._tickInterval);
+
+        if (this.active && this.isAttached && this.remainingTime >= 0) {
+          this._tickTock();
+          this._tickInterval = window.setInterval(this._tickTock.bind(this), 1000);
+        }
+      },
+
+      /**
+       * Called every second while remainingTime is greater or equal to zero, active is true, and
+       * this element is attached. Calculates the current local remainingTime and stops the ticker
+       * if that is zero or below.
+       */
+      _tickTock: function() {
+        var delta = Date.now() - this._remainingTimeSetAt;
+        var remainingTime = this.remainingTime - delta;
+
+        if (remainingTime <= 0) {
+          window.clearInterval(this._tickInterval);
+        }
+        this._render(remainingTime);
       },
 
       updateLabels: function() {
@@ -179,19 +179,11 @@ Example
         this._setTitles(titles);
       },
 
-      _countdownEndAtChanged: function() {
-        // string - number type cohesion works, but let's be explicit when
-        // we get a new countdownEndAt.
-        this.countdownEndAt = parseInt(this.countdownEndAt);
-      },
-
       /**
-       * @return {Object.<string>}
+       * @param {number} diff number of ms remaining
+       * @return {{days: number, hours: number, mins: number, seconds: number}}
        */
-      _getCurrentTime: function() {
-        var now = this.santaService ? this.santaService.now() : Date.now();
-
-        var diff = Math.max(0, this.countdownEndAt - now);
+      _splitTime: function(diff) {
         var msPerDay = 24 * 60 * 60 * 1000;
 
         var daysX = diff / msPerDay;
@@ -206,16 +198,20 @@ Example
         var secondsX = (minsX - mins) * 60;
         var seconds = Math.floor(secondsX);
 
-        return {diff: diff, days: days, hours: hours, mins: mins, seconds: seconds};
+        return {days: days, hours: hours, mins: mins, seconds: seconds};
       },
 
-      tickTock: function() {
-        this._setCurrentTime(this._getCurrentTime());
+      /**
+       * Renders the specified local remaining time. This does not use the remainingTime from this
+       * object directly.
+       */
+      _render: function(remainingTime) {
+        var parts = this._splitTime(remainingTime);
 
-        var days = this.currentTime.days;
-        var hours = this.currentTime.hours;
-        var mins = this.currentTime.mins;
-        var seconds = this.currentTime.seconds;
+        var days = parts.days;
+        var hours = parts.hours;
+        var mins = parts.mins;
+        var seconds = parts.seconds;
 
         var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
             padDigits(seconds)];
@@ -231,27 +227,22 @@ Example
 
         // TODO: this is not i18n'd.
         var msg = [];
-        if (this.currentTime.diff <= 60 * 1000) {
-          msg.push(this.currentTime.seconds);
+        if (remainingTime <= 60 * 1000) {
+          msg.push(parts.seconds);
           msg = msg.join(' ');
         } else {
-          msg.push(this.currentTime.days, this.currentTime.days == 1 ? 'day' : 'days');
-          msg.push(this.currentTime.hours, this.currentTime.hours == 1 ? 'hour' : 'hours');
-          msg.push(this.currentTime.mins, this.currentTime.mins == 1 ? 'minute' : 'minutes');
-          msg.push(this.currentTime.seconds, this.currentTime.seconds == 1 ? 'second' : 'seconds');
+          msg.push(parts.days, parts.days == 1 ? 'day' : 'days');
+          msg.push(parts.hours, parts.hours == 1 ? 'hour' : 'hours');
+          msg.push(parts.mins, parts.mins == 1 ? 'minute' : 'minutes');
+          msg.push(parts.seconds, parts.seconds == 1 ? 'second' : 'seconds');
           msg = msg.join(' ') + ' until Santa departs'
         }
 
+        // TODO(samthor): Use santa-state to do this instead.
         this.fire('countdown-timer-tick', {
-          currentTime: this.currentTime,
+          currentTime: parts,
           msg: msg
         });
-
-        if (this.currentTime.diff == 0) {
-          this.fire('countdown-timer-finish', this);
-          this._setFinished(true);
-          this.stop();
-        }
       },
 
       /**
@@ -307,34 +298,6 @@ Example
           digitTopFront.firstElementChild.textContent = val;
           digitBottomBehind.firstElementChild.textContent = val;
         }, _TRANSITION_TIME * 2);
-      },
-
-      /**
-       * Stop the countdown
-       */
-      stop: function() {
-        window.clearInterval(this._tickInterval);
-        this.active = false;
-      },
-
-      /**
-       * Start the countdown
-       */
-      start: function() {
-        if (this.active) {
-          return;
-        }
-        this.active = true;
-        this.tickTock();
-
-        this._tickInterval = window.setInterval(this.tickTock.bind(this), 1000);
-      },
-
-      /**
-       * @return boolean
-       */
-      isFinished: function() {
-        return this.currentTime.diff <= 0;
       },
 
       _computeHide: function(i, displayDigits) {

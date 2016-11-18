@@ -22,7 +22,8 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../lazy-pages.html">
 <link rel="import" href="../santa-strings.html">
 
-<link rel="import" href="config.html">
+<script src="../../js/config/houses.js"></script>
+<script src="../../js/config/videos.js"></script>
 
 <!--
 Santa Tracker app.
@@ -31,6 +32,9 @@ Santa Tracker app.
 <template>
   <!-- Shared i18n strings -->
   <santa-strings id="strings"></santa-strings>
+
+  <!-- Global singleton state -->
+  <santa-state during-tracker="{{duringTracker}}" current-time="{{currentTime}}"></santa-state>
 
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
@@ -374,22 +378,6 @@ Polymer({
     },
 
     /**
-     * The time at which Santa takes off, in ms.
-     */
-    countdownEndAt: {
-      type: Number,
-      readOnly: true
-    },
-
-    /**
-     * When Santa's flight is finished, in ms.
-     */
-    flightFinishedAt: {
-      type: Number,
-      readOnly: true
-    },
-
-    /**
      * The house metadata, including unlock information.
      */
     _houses: {
@@ -527,29 +515,29 @@ Polymer({
     },
 
     /**
-     * True when the countdown is complete, and the tracker is active.
-     */
-    duringTracker: {
-      type: Boolean,
-      value: false,
-    },
-
-    /**
-     * True when Santa's flight is complete.
-     */
-    postFlight: {
-      type: Boolean,
-      value: false,
-      observer: '_postFlightChanged'
-    },
-
-    /**
      * sceneParams from `santa-tracker-router`. Can't be changed; router
      * provides this as frozen and readOnly.
      */
     sceneParams: {
       type: Object,
       observer: 'sceneParamsChanged'
+    },
+
+    /**
+     * True when the countdown is complete, and the tracker is active. Bound from `santa-state`.
+     */
+    duringTracker: {
+      type: Boolean,
+      observer: '_duringTrackerChanged',
+    },
+
+    /**
+     * Current time as per the Santa API. Bound from `santa-state`. This is updated only every 15
+     * minutes or when a shift is specified by the server.
+     */
+    currentTime: {
+      type: Number,
+      observer: '_currentTimeChanged',
     },
 
   },
@@ -565,8 +553,6 @@ Polymer({
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
-    'countdown-timer-finish': 'onCountdownFinish',
-    'tracker-end': 'onTrackerEnd',
     'game-start': 'onStartGame',
     'game-stop': 'onStopGame',
     'share': 'onShare',
@@ -584,13 +570,8 @@ Polymer({
   ready: function() {
     this._houses = window.HOUSES;
     this._setVideos(Object.freeze(window.VIDEOS));
-    this.config = window.SANTA_CONFIG;
     delete window.HOUSES; // cleanup
     delete window.VIDEOS; // cleanup
-    delete window.SANTA_CONFIG; // cleanup
-
-    this._setCountdownEndAt(this.config.COUNTDOWN_END_DATE);
-    this._setFlightFinishedAt(this.config.FLIGHT_FINISHED);
 
     var apiClient = getUrlParameter('api_client') || 'web';
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
@@ -618,45 +599,8 @@ Polymer({
     document.addEventListener('visibilitychange', handler);
     handler();
 
-    var version = document.body.getAttribute('data-version');
-    this.santaService = new SantaService(apiClient, this.language, version);
-    this.santaService.sync(this._checkSchedule.bind(this));
-
-    this.santaService.addListener('kill', function() {
-      window.ga('send', 'event', 'API', 'killed');
-      window.setTimeout(function() {
-        window.location = new URL('error.html', window.location);
-      }, 1000);
-    });
-
-    var requestedReload = false;
-    this.santaService.addListener('reload', function() {
-      if (requestedReload) { return; }
-      requestedReload = true;
-      this.analyticsService.trackEvent('API', 'reload');
-
-      var currentVersion = document.body.getAttribute('data-version');
-      if (!currentVersion || window.DEV) {
-        console.warn('dev ignoring reload request', currentVersion);
-        return;
-      }
-
-      // At 30m +/- 15m, try to reload if the page is hidden. After that, reload when the page is
-      // made hidden, or force a reload after the same duration again.
-      var duration = (Math.random() + 0.5) * 1000 * 60 * 20;
-      window.setTimeout(function reloader(force) {
-        if (force || document.hidden) {
-          window.location.reload();
-        } else {
-          document.addEventListener('visibilitychange', reloader);
-          window.setTimeout(reloader.bind(null, true), duration);
-        }
-      }, duration);
-    }.bind(this));
-
     this._prepareHouses();
 
-    this._checkSchedule();
     if (!this.route) {
       this.route = this.defaultRoute;
     }
@@ -936,14 +880,6 @@ Polymer({
         detail.timePlayed);
   },
 
-  /**
-   * When the flight finishes, check if any houses in the village need to be
-   * shutoff, kicking out of invalid routes if necessary.
-   */
-  _postFlightChanged: function() {
-    this._checkSchedule();
-  },
-
   unlockAllHouses: function() {
     this.scheduleChecked = false;
     for (var i = 0, house; house = this._houses[i]; ++i) {
@@ -961,14 +897,14 @@ Polymer({
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
   sceneIsOpen: function(moduleName) {
-    if (!this.santaService) {
-      return true;  // fail open before santaService is ready
+    if (this.currentTime === undefined) {
+      return true;  // fail open before time ready
     } else if (moduleName === TRACKER_ROUTE && !this.duringTracker) {
       return false;  // special-case tracker, as it's open only when Santa is in flight
     }
 
     var targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
-    var dateNow = this.santaService.dateNow();
+    var dateNow = new Date(this.currentTime);
     var userOffset = dateNow.getTimezoneOffset() * 60000;
     var eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
 
@@ -999,26 +935,11 @@ Polymer({
   },
 
   /**
-   * Timeout for _checkSchedule.
-   */
-  _scheduleTimeout: null,
-
-  /**
    * Unlocks the correct houses based on the day (index).
    * @private
    */
-  _checkSchedule: function() {
-    if (!this.santaService) {
-      return;  // ignore, will be called via ready:
-    }
-
-    var todayDate = this.santaService.dateNow();
-    var tomorrowDate = new Date(todayDate);
-    tomorrowDate.setDate(todayDate.getDate() + 1);
-
-    // Set post countdown/post flight flags based on current time.
-    this.postFlight = todayDate >= this.flightFinishedAt;
-    this.duringTracker = todayDate > this.countdownEndAt && !this.postFlight;
+  _currentTimeChanged: function(currentTime) {
+    var todayDate = new Date(currentTime);
 
     var todayHouse = '';
 
@@ -1053,10 +974,6 @@ Polymer({
     if (!this.validateRoute()) {
       this.route = this.defaultRoute;
     }
-
-    // Check again at the next hour tick.
-    var timeTillHour = (60 - todayDate.getMinutes()) * 60 * 1000;
-    this._scheduleTimeout = this.async(this._checkSchedule, timeTillHour);
   },
 
   _escHandler: function(e, detail) {
@@ -1067,15 +984,9 @@ Polymer({
     }
   },
 
-  onCountdownFinish: function(e, detail) {
-    // Redirect village -> tracker when the countdown finishes. This allows
-    // users to go back to the village.
-    if (!this.duringTracker) {
-      this._checkSchedule();
-      if (this.duringTracker && this.route === DEFAULT_ROUTE) {
-        // Act as if the user has clicked a link, and update the hash manually.
-        this.$.router.go(TRACKER_ROUTE);
-      }
+  _duringTrackerChanged: function(newValue, oldValue) {
+    if (typeof oldValue === 'boolean' && typeof newValue === 'boolean') {
+      this.$.router.go(this.defaultRoute);
     }
   },
 
@@ -1128,7 +1039,7 @@ Polymer({
       }
 
       // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
-      // there's no way to notify a whole house. Also, `this.splice` is used in _postFlightChanged.
+      // there's no way to notify a whole house.
       var propertiesToNotify = ['locked', 'disabled', 'module', 'category'];
 
       this._houses.forEach(function(house, i) {
@@ -1151,10 +1062,6 @@ Polymer({
 
   omitSantaChrome: function(mode) {
     return mode == 'cast' || mode == 'embed';
-  },
-
-  onTrackerEnd: function(e, detail) {
-    this._checkSchedule();
   },
 
   /**
