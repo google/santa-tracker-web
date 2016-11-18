@@ -270,14 +270,9 @@ Tracker scene.
     },
 
     _updateSanta: function() {
-      this.santaApp.santaService.getCurrentLocation(function(location) {
+      window.santaService.getCurrentLocation(function(location) {
         this.location = location;
       }.bind(this));
-
-      // if santaApp doesn't notice, remind it that tracking is finished.
-      if (this.santaApp.santaService.now() > this.santaApp.FLIGHT_FINISHED) {
-        this.santaApp.fire('tracker-end');
-      }
 
       if (!this.trackingInterval_) {
         this.trackingInterval_ = window.setInterval(this._updateSanta.bind(this), 250);
@@ -310,24 +305,24 @@ Tracker scene.
       var record = function(x) {
         this._listeners.push(x);
       }.bind(this);
-      record(this.santaApp.santaService.addListener('destinations_changed', function(dests) {
+      record(window.santaService.addListener('destinations_changed', function(dests) {
         this.destinations = (dests || []).slice();
       }.bind(this)));
-      record(this.santaApp.santaService.addListener('timeline_changed', function(timeline) {
+      record(window.santaService.addListener('timeline_changed', function(timeline) {
         this.timeline = (timeline || []).slice();
       }.bind(this)));
-      record(this.santaApp.santaService.addListener('sync', this._syncHandler.bind(this)));
-      record(this.santaApp.santaService.addListener('card', this._updateCard.bind(this)));
+      record(window.santaService.addListener('sync', this._syncHandler.bind(this)));
+      record(window.santaService.addListener('card', this._updateCard.bind(this)));
 
       // Sync if we need to.
-      this.destinations = this.santaApp.santaService.getDestinations();
-      this.timeline = this.santaApp.santaService.getTimeline();
+      this.destinations = window.santaService.getDestinations();
+      this.timeline = window.santaService.getTimeline();
 
-      var synced = this.santaApp.santaService.isSynced();
+      var synced = window.santaService.isSynced();
       if (!synced ||
           (!this.destinations || !this.destinations.length) ||
           (!this.timeline || !this.timeline.length)) {
-        this.santaApp.santaService.sync(); // dests set in event listener above.
+        window.santaService.sync(); // dests set in event listener above.
       } else if (synced) {
         this._syncHandler();
       }
@@ -456,7 +451,7 @@ Tracker scene.
         window.santaApp.userLocation = this.userLocation;  // save for later
       }.bind(this);
 
-      var userLocation = this.santaApp.santaService.getUserLocation();
+      var userLocation = window.santaService.getUserLocation();
       if (!userLocation) {
         failHandler();
         return;
@@ -570,11 +565,11 @@ Tracker scene.
      * just be in the form HH:MM:SS or MM:SS.
      */
     _formatCountdown: function(timestamp) {
-      if (!this.santaApp || !this.santaApp.santaService || isNaN(timestamp)) {
+      if (!this.santaApp || !window.santaService || isNaN(timestamp)) {
         return '';
       }
 
-      timestamp -= this.santaApp.santaService.now();
+      timestamp -= window.santaService.now();
 
       if (isNaN(timestamp) || timestamp < 0) {
         return ''; // don't report undefined or negative timestamps

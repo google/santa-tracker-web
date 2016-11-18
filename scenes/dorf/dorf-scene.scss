@@ -14,11 +14,11 @@ $toolbar-size: 64px;
   }
 }
 
-##{$name} {
+:host {
   background: #f5f2e2;
-  position: relative;
-  min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
+}
 
+##{$name} {
   header {
     .village-tracker-link {
       display: block;
@@ -72,7 +72,7 @@ $toolbar-size: 64px;
   }
 
   &.countdown-finished {
-    #village-footer {
+    footer {
       img {
         // finished image is much taller; keep to max size
         width: 800px;
@@ -126,8 +126,6 @@ $toolbar-size: 64px;
     // so that we don't create a new z-index heirarchy. Conveniently, the
     // <header> element is always shown at 0,0, so positioning is still easy.
     height: 385px;
-    background: #47c6ee;
-    background: linear-gradient(to bottom, rgba(61,218,242,1) 0%, rgba(140,232,248,1) 86%, rgba(153,234,249,1) 100%);
     overflow: visible;
 
     // By default, there's nothing user-interactable here.
@@ -357,8 +355,6 @@ $toolbar-size: 64px;
 
   .house {
     position: relative;
-    color: #fff;
-    text-align: center;
 
     a {
       color: inherit;
@@ -367,7 +363,7 @@ $toolbar-size: 64px;
 
     h4 {
       margin: 0;
-      padding-top: 0.25em;
+      padding-top: 0.2em;
       font-family: 'Lobster', sans-serif;
       font-size: 2.875em;
       line-height: 1.5em;
@@ -455,67 +451,46 @@ $toolbar-size: 64px;
   }  // .house
   .house-new-today {
     a {
-      position: absolute;
-      top: percent(-20px, $dim-house);
-      left: percent(-5px, $dim-house);
-      height: percent(280px * $svg-ratio, $dim-house);
+      color: white;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      height: percent(315px * $svg-ratio, $dim-house);
       width:  percent(315px * $svg-ratio, $dim-house);
       z-index: $house-z-index-front;
 
-      div.card {
-        @include will-change(transform);
-        transform: translateY(0);
-        transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
-      }
       &:hover {
-        div.card {
+        .card {
           transform: translateY(-16px);
           transition: transform 0.2s;
         }
       }
     }
 
-    div.card {
-      background: center no-repeat;
-      background-size: cover;
-
-      width: 100%;
+    .card {
+      background: transparent center bottom no-repeat;
+      background-size: contain;
       height: 100%;
-      padding-right: 5%;
-      box-sizing: border-box;
-
-      display: flex;
-      flex-direction: column;
-      position: relative;
+      padding-right: 5%;  // overcome shadow
+      transform: translateY(0);
+      transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      will-change: transform;
 
       h4 {
-        margin-top: -0.8em;
-        text-align: center;
+        margin: 0 -0.5em;  // expand for i18n
         font-size: 2.275em;
         transform: rotateZ(-6deg);
-        font-weight: 400;
       }
     }
   }  // .house-new-today
 
-  &.countdown-finished {
-    #village-footer {
-      padding-bottom: 0;
-    }
-  }
-
-  #village-footer {
+  footer {
     z-index: $base-background-z-index;
     position: relative;
-    padding-bottom: 8px;
-    background: url(img/footer-snow-tile.svg) center 110% repeat-x;
-    background-size: 1000px;
+    background: url(img/footer-snow-tile.svg) center bottom repeat-x;
+    background-size: 800px;
     min-height: 200px;
     margin-top: -200px;  // nb: removed on mobile
-
-    // NOTE: Give this a layer, as it extends over its neighbour to the north,
-    // and Chrome is confused when painting.
-    @include will-change();
 
     p {
       margin: 20px auto;
@@ -531,71 +506,6 @@ $toolbar-size: 64px;
       max-width: $width-desktop + 240px;
       margin: 20px auto 0;
       display: block;
-    }
-  }
-
-  #village-donate {
-    background: #48d891;
-    color: white;
-
-    #wrapper {
-      margin: 0 auto;
-      max-width: 768px;
-      padding: 32px 16px;
-      min-height: 250px;
-      background: url(img/donate-kids.svg) bottom right no-repeat;
-
-      h3 {
-        margin: 0;
-        font-family: 'Lobster', sans-serif;
-        font-size: 2.0em;
-        line-height: 1.0em;
-        padding-bottom: 0.4em;
-        font-size: 200;
-        letter-spacing: 1px;
-      }
-
-      p {
-        margin: 0;
-        text-align: left;
-        font-size: 1.1em;
-        line-height: 1.5em;
-        font-weight: 600;
-      }
-
-      .button {
-        background: url(img/donate-ornament.svg) center no-repeat;
-        background-size: contain;
-        display: inline-block;
-        margin-top: 24px;
-        @include will-change();
-
-        a {
-          display: inline-block;
-          margin: 20px 32px 26px;
-
-          color: #fff;
-          font-family: 'Roboto', sans-serif;
-          font-size: 1em;
-          text-transform: uppercase;
-          font-weight: bold;
-          background-color: #FCC600;
-          bottom: 0px;
-          padding: 12px 24px;
-          letter-spacing: 1px;
-          font-weight: 700;
-          border-radius: 5px;
-          box-shadow: 0 6px 0 #E98D23;
-          text-decoration: none;
-          position: relative;
-          transition: transform 0.1s, box-shadow 0.1s;
-
-          &:active {
-            transform: translateY(8px);
-            box-shadow: none;
-          };
-        }
-      }
     }
   }
 
@@ -659,7 +569,6 @@ $toolbar-size: 64px;
 
           .launchdate {
             pointer-events: none;
-            user-select: none;
             position: absolute;
             background: url(img/number-bg-dark.svg) center no-repeat;
             background-size: contain;
@@ -996,7 +905,7 @@ $toolbar-size: 64px;
       }
     }
 
-    #village-footer {
+    footer {
       margin-top: 0;
       background-size: 500px;
     }
@@ -1023,3 +932,5 @@ $toolbar-size: 64px;
     }
   }
 }
+
+@import "sass/donate";

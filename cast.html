@@ -24,11 +24,11 @@ specific language governing permissions and limitations under the License.
   <link rel="stylesheet" href="sass/santatracker.css">
 
   <!-- Cast -->
+  <link id="DEV" comment="element removed in prod" />
   <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
   <script>
 (function() {
   window.ga = function() {};  // no analytics in Cast
-  window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
   cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
 

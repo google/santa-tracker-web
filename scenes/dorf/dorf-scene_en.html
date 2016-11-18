@@ -19,37 +19,32 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="dorf-scene.css" />
+<link rel="import" href="../../elements/santa-state.html">
+<link rel="import" href="dorf-scene_module.html">
 
 <!--
-Village scene (2015).
+Santa's Village.
 -->
 <dom-module id="dorf-scene">
 <template>
-  <style>
+  <style include="dorf-scene_module">
   :host[mode="cast"] #header-content p {
     display: none;
   }
-  :host[mode="cast"] #eastereggs * {
-    /* Most browsers will still load backgrounds even with display: none, so
-     * hide them */
-    background: none !important;
-    display: none !important;
-  }
-  :host[mode="cast"] .ice {
-    display: none !important;
-  }
-  :host[mode="portal"] .launchdate {
-    display: none !important;
-  }
+  :host[mode="cast"] .ice,
+  :host[mode="cast"] .launchdate,
+  :host[mode="portal"] .launchdate,
   :host[mode="portal"] .donate-button {
     display: none !important;
+    background: transparent !important;
   }
   </style>
 
   <santa-strings strings="{{strings}}"></santa-strings>
+
+  <santa-state countdown-finished="{{countdownFinished}}" 
+      during-tracker="{{duringTracker}}"
+      remaining-time="{{remainingTime}}"></santa-state>
 
   <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
     <header>
@@ -69,11 +64,8 @@ Village scene (2015).
         <div id="ornament"></div>
         <div id="count-down" class$="mode-[[mode]]">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-          <countdown-timer id="count"
-                           animate="[[!_isCastMode(mode)]]"
-                           santa-service="[[santaApp.santaService]]"
-                           countdown-end-at="[[santaApp.countdownEndAt]]"
-                           finished="{{countdownFinished}}">
+          <countdown-timer remaining-time="[[remainingTime]]" active="[[active]]"
+              animate="{{!_isCastMode(mode)}}">
             <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
             <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
             <h3><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h3>
@@ -98,9 +90,9 @@ Village scene (2015).
       <div id="road"></div>
       <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <!-- The 'New Today' house exists in the regular grid -->
-        <div class$="house house-new-today new-today-[[todayHouse]]">
+        <div class="house house-new-today">
           <a href$="[[pageUrl]]#[[todayHouse]]" hidden$="[[!todayHouse]]">
-            <div class="card">
+            <div class$="card new-today-[[todayHouse]]">
               <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_string('scene', todayHouse, strings)]]</h3>
             </div>
@@ -111,12 +103,10 @@ Village scene (2015).
                class$="house [[_calculateHouseClass(item, item.locked, todayHouse)]]">
             <div class="assets housez">
               <div class="building"></div>
-              <div hidden$="[[_isCastMode(mode)]]">
-                <div class="launchdate" hidden$="[[item.hideDate]]">
-                  [[_calculateDateNo(item.launchDate)]]
-                </div>
-                <div class="ice"></div>
+              <div class="launchdate" hidden$="[[item.hideDate]]">
+                [[_calculateDateNo(item.launchDate)]]
               </div>
+              <div class="ice"></div>
             </div>
             <template is="dom-if" if="[[!item.disabled]]">
               <div class="action">
@@ -249,11 +239,11 @@ Village scene (2015).
     </div>
 
     <template is="dom-if" if="[[!_isCastMode(mode)]]">
-      <div id="village-footer">
+      <footer>
         <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
         <img src$="[[_computeFooterElves(countdownFinished)]]" />
-      </div>
-      <div id="village-donate" class="no-en">
+      </footer>
+      <div id="donate" class="no-en">
         <div id="wrapper">
           <h3>#ForEveryKid</h3>
           <p>
@@ -305,28 +295,17 @@ Village scene (2015).
         value: Object.freeze(EASTER_EGGS)
       },
 
-      /** Bound from `countdown-timer`, whether the countdown is done. */
+      /** Bound from `santa-state`, whether the countdown is done. */
       countdownFinished: Boolean,
 
-      /** Bound from `santa-app`, whether we are during the tracker. */
+      /** Bound from `santa-state`, whether we are during the tracker. */
       duringTracker: Boolean,
-
-      /**
-       * URL to share. If null, shares the current href.
-       */
-      shareURL: {
-        type: String,
-        value: null
-      },
 
       /** Strings bound from `santa-strings`. */
       strings: Object,
     },
 
     listeners: {
-      // For prod, <i18n-msg> is removed and textContent will already be
-      // correct. For dev, listen for i18n updates and update the labels.
-      'i18n-language-ready': '_updateCountdownLabels',
       'easteregg-busstop1.click': '_triggerBus',
       'easteregg-busstop2.click': '_triggerBus',
       'easteregg-busstop3.click': '_triggerBus',
@@ -344,10 +323,6 @@ Village scene (2015).
     _computeFooterElves: function(finished) {
       return this.componentDir +
           (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
-    },
-
-    _updateCountdownLabels: function() {
-      this.$.count.updateLabels();
     },
 
     /**
@@ -387,10 +362,6 @@ Village scene (2015).
      */
     _string: function(type, id, strings) {
       return strings[type + '-' + id];
-    },
-
-    _computeDrawerWidth: function(smallScreen) {
-      return smallScreen ? '100%' : '400px';
     },
 
     _calculateDiveURL: function(mode) {
@@ -458,17 +429,11 @@ Village scene (2015).
       this.fire('sound-ambient', 'music_start_village');
       this.fire('sound-ambient', 'village_start');
 
-      // Start timer one tick after scene is shown.
-      this.async(function() {
-        this.$.count.start();
-      });
-
       this._startEasterEggs();
     },
 
     onHide: function() {
       this.fire('sound-ambient', 'village_end');
-      this.$.count.stop();
       this._stopEasterEggs();
     },
 

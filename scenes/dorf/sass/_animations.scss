@@ -64,9 +64,3 @@
   0%, 80% { transform: translate(-100vw); }
   100%    { transform: translate(+200vw); }
 }
-
-@keyframes #{$name}-cloud {
-  0%   { transform: translate(-20vw) scale(0.5); }
-  50%  { transform: translate(50vw) scale(1); }
-  100% { transform: translate(+120vw) scale(0.5); }
-}

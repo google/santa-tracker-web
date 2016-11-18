@@ -43,7 +43,7 @@ Traditions scene.
     <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
     <div id="traditions-map"></div>
     <div id="tradition-img"></div>
-    <div class="traditions-all">
+    <div class="traditions-all" id="traditions-all">
       <div class="traditions-tradition" data-id="us">
         <h2><i18n-msg msgid="us_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
         <p><i18n-msg msgid="us_tradition">PLACEHOLDER_i18n</i18n-msg></p>
@@ -67,6 +67,10 @@ Traditions scene.
       <div class="traditions-tradition" data-id="br">
         <h2><i18n-msg msgid="br_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
         <p><i18n-msg msgid="br_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="fi">
+        <h2><i18n-msg msgid="fi_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="fi_tradition">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
       <div class="traditions-tradition" data-id="is">
         <h2><i18n-msg msgid="is_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -96,9 +100,17 @@ Traditions scene.
         <h2><i18n-msg msgid="kg_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
         <p><i18n-msg msgid="kg_tradition">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
+      <div class="traditions-tradition" data-id="kr">
+        <h2><i18n-msg msgid="kr_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="kr_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
       <div class="traditions-tradition" data-id="ru">
         <h2><i18n-msg msgid="ru_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
         <p><i18n-msg msgid="ru_tradition">PLACEHOLDER_i18n</i18n-msg></p>
+      </div>
+      <div class="traditions-tradition" data-id="lt">
+        <h2><i18n-msg msgid="lt_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
+        <p><i18n-msg msgid="lt_tradition">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
       <div class="traditions-tradition" data-id="ph">
         <h2><i18n-msg msgid="ph_country_name">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -174,32 +186,18 @@ Traditions scene.
 
     onPreload: function() {
       this.preloadSounds('traditions_load_sounds', 30);
+
+      var icons = [].slice.call(this.$['traditions-all'].children).map(function(div) {
+        return 'img/' + div.dataset['id'] + '.png';
+      });
+
       this.preloadImages([
-        'img/ar.png',
-        'img/de.png',
-        'img/gt.png',
-        'img/mx.png',
         'img/pins_small.png',
         'img/traditions_icon.svg',
-        'img/au.png',
-        'img/dk.png',
-        'img/is.png',
-        'img/nz.png',
         'img/pins_small_2x.png',
-        'img/uk.png',
-        'img/br.png',
-        'img/fr.png',
-        'img/kg.png',
-        'img/ph.png',
         'img/right.svg',
-        'img/us.png',
-        'img/ca.png',
-        'img/gh.png',
         'img/left.svg',
         'img/pins_large.png',
-        'img/ru.png',
-        'img/cl.png',
-        'img/gr.png',
         'img/pins_large_2x.png',
         'img/smallglobe.svg',
         'img/close.svg',
@@ -207,7 +205,7 @@ Traditions scene.
         'img/crayon-6-8.svg',
         'img/crayon-9-10.svg',
         'img/crayon-k-2.svg'
-      ]);
+      ].concat(icons));
     },
 
     mapsAPIReady: function() {

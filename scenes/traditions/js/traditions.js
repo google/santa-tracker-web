@@ -37,11 +37,6 @@ app.Traditions = function(el, componentDir) {
   /**
    * @private {string}
    */
-  this.imageClass_ = this.image_.className;
-
-  /**
-   * @private {string}
-   */
   this.currentId_ = '';
 
   /**
@@ -224,14 +219,19 @@ app.Traditions.prototype.handleResize_ = function() {
     this.verticalAlignText_();
 
     var country = this.markers_[this.currentId_];
+    var viewport = country.info.geometry.viewport;
 
     var viewport = new google.maps.LatLngBounds(
-      new google.maps.LatLng(country.info.geometry.viewport.southwest.lat,
-                             country.info.geometry.viewport.southwest.lng),
-      new google.maps.LatLng(country.info.geometry.viewport.northeast.lat,
-                             country.info.geometry.viewport.northeast.lng)
+      new google.maps.LatLng(viewport.southwest.lat, viewport.southwest.lng),
+      new google.maps.LatLng(viewport.northeast.lat, viewport.northeast.lng)
     );
     this.map_.fitBounds(this.padBounds_(viewport));
+
+    if (country.info.zoom_limit) {
+      if (this.map_.getZoom() > country.info.zoom_limit) {
+        this.map_.setZoom(country.info.zoom_limit);
+      }
+    }
   }
 };
 
@@ -247,7 +247,9 @@ app.Traditions.prototype.verticalAlignText_ = function() {
  * Show the entire Earth and all countries (the default).
  */
 app.Traditions.prototype.showWorld = function() {
-  this.image_.className = this.imageClass_;
+  this.image_.style.backgroundImage = '';
+  this.image_.classList.remove('active');
+
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
@@ -267,8 +269,6 @@ app.Traditions.prototype.onHide = function() {
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
     this.getCountryEl_(this.currentId_).removeClass('tradition-active');
   }
-
-  this.image_.className = this.imageClass_;
 
   this.currentId_ = '';
 
@@ -300,12 +300,8 @@ app.Traditions.prototype.show = function(id) {
   countryEl.addClass('tradition-active');
   this.verticalAlignText_();
 
-  this.image_.className = this.imageClass_;
   this.image_.classList.add('active');
-  this.image_.classList.add(id);
-
-  $(this.el_).find('img.feature').show().attr('src',
-      this.componentDir + '/img/' + id + '.png');
+  this.image_.style.backgroundImage = `url(${this.componentDir}img/${id}.png)`;
 
   var country = this.markers_[id];
   country.marker.setIcon(this.markers_[this.currentId_].bigIcon);
@@ -641,11 +637,66 @@ app.Traditions.COUNTRIES_ = [{
         'northeast': {
           'lat': -34.1295577,
           'lng': 179.0625356
-       },
-       'southwest': {
+         },
+         'southwest': {
           'lat': -47.76811,
           'lng': 166.426136
-       }
+         }
+      }
     }
-  }
-}];
+  }, {
+    'country_key': 'fi',
+    'geometry': {
+      'location': {
+        'lat': 60.12,
+        'lng': 24.94
+      },
+      'viewport': {
+        'northeast': {
+          'lat': 68.89,
+          'lng': 31.12
+        },
+        'southwest': {
+          'lat': 59.38,
+          'lng': 20.62
+        }
+      }
+    }
+  }, {
+    'country_key': 'kr',
+    'zoom_limit': 6,  // korea has own tiles >6
+    'geometry': {
+      'location': {
+        'lat': 37.51,
+        'lng': 127.01
+      },
+      'viewport': {
+        'northeast': {
+          'lat': 39.15,
+          'lng': 129.84
+        },
+        'southwest': {
+          'lat': 34.02,
+          'lng': 122.10
+        }
+      }
+    }
+  }, {
+    'country_key': 'lt',
+    'geometry': {
+      'location': {
+        'lat': 54.68,
+        'lng': 25.27
+      },
+      'viewport': {
+        'northeast': {
+          'lat': 56.67,
+          'lng': 26.57
+        },
+        'southwest': {
+          'lat': 53.66,
+          'lng': 20.06
+        }
+      }
+    }
+  }];

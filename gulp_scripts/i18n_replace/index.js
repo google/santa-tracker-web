@@ -16,26 +16,19 @@
 
 /* jshint node: true */
 
-var dir = require('node-dir');
-var through = require('through2');
-var path = require('path');
-var gutil = require('gulp-util');
-var format = require('sprintf-js').sprintf;
+const fs = require('fs');
+const path = require('path');
+const through2 = require('through2');
+const gutil = require('gulp-util');
+const format = require('sprintf-js').sprintf;
 
-// Examples of valid matched i18n-msg elements-
-//   <i18n-msg msgid="foo">PLACEHOLDER_i18n</i18n-msg>
-//   <i18n-msg msgid="foo" other-property="bar">PLACEHOLDER_i18n</i18n-msg>
-//
-// This will _NOT_ match a msgid that is not the first attribute, e.g.-
-//   <i18n-msg something-else="foo" msgid="fail">PLACEHOLDER_i18n</i18n-msg>
-
-var REGEX = /<i18n-msg msgid="([^"]*)"[^>]*>([^<]*)<\/i18n-msg>/gm;
+const mutate = require('../mutate_html');
 
 module.exports = function replaceMessages(opts) {
-  var warn = warnFunc(opts.strict);
-  var msgPromise = getMsgs(opts.path);
+  const warn = warnFunc(opts.strict);
+  const msgs = getMsgs(opts.path);
 
-  var stream = through.obj(function(file, enc, cb) {
+  const stream = through2.obj(function(file, enc, cb) {
     if (file.isStream()) {
       error('No support for streams');
     }
@@ -46,80 +39,93 @@ module.exports = function replaceMessages(opts) {
       return cb();
     }
 
-    msgPromise.then(function(messagesByLang) {
-      var missing = {};
-      function recordMissing(msgid, lang) {
-        var langs = missing[msgid];
-        if (!langs) {
-          missing[msgid] = langs = [];
-        }
-        langs.push(lang);
+    const missing = {};
+    function recordMissing(msgid, lang) {
+      let langs = missing[msgid];
+      if (!langs) {
+        missing[msgid] = langs = [];
       }
+      langs.push(lang);
+    }
 
-      var src = file.contents.toString();
-      var langs = Object.keys(messagesByLang);
-      // Force en to be last. gulp halts execution because we push a file to the
-      // stream with the same path.
-      langs = langs.filter(function(l) { return l != 'en' });
-      langs.push('en');
+    const src = file.contents.toString();
 
-      for (var i = 0; i < langs.length; i++) {
-        var lang = langs[i];
-        var msgs = messagesByLang[lang];
-        if (!msgs) {
-          error('No messages for lang: %s', lang);
+    msgs.then(messagesByLang => {
+      Object.keys(messagesByLang).forEach(lang => {
+        const msgs = messagesByLang[lang] || {};
+        function lookup(msgid) {
+          let msg = msgs[msgid];
+          if (!msg) {
+            recordMissing(msgid, lang);
+            msg = messagesByLang['en'][msgid];
+            if (lang === 'fr-CA') {
+              msg = messagesByLang['fr'][msgid] || msg;
+            }
+          }
+          return msg ? msg.message : 'MESSAGE_NOT_FOUND';
         }
 
-        var ext = '_' + lang + '.html';
-        var replaced = src
-        // TODO(samthor): The following two replaces are probably too
-        // aggressive and could match e.g., specific HTML elements.
-          .replace(/lang="en"/, 'lang="' + lang + '"')
-          .replace(/_en\.html/mg, ext)
-          .replace(REGEX, function replacer(match, msgid, tagBody) {
-            var msg = msgs[msgid];
-            if (!msg) {
-              recordMissing(msgid, lang);
-              var fallback = messagesByLang.en[msgid];
-              if (lang == 'fr-CA') {
-                fallback = messagesByLang.fr[msgid] || fallback
+        const ext = `_${lang}.html`;
+        const replaced = mutate(src, function() {
+          [...this.querySelectorAll('[msgid]')].forEach(el => {
+            if (el.localName === 'i') {
+              return;  // ignore, used by santa-strings
+            }
+            const msgid = el.getAttribute('msgid');
+            const msg = lookup(msgid);
+            el.removeAttribute('msgid');
+
+            switch (el.localName) {
+            case 'i18n-msg':
+              if (el.innerHTML !== 'PLACEHOLDER_i18n') {
+                error('i18n-msg was not "PLACEHOLDER_i18n" for %s in: %s', msgid, file.relative);
               }
-              return fallback ? fallback.message : 'MESSAGE_NOT_FOUND';
+              el.outerHTML = msg;
+              break;
+            case 'meta':
+              el.setAttribute('content', msg);
+              break;
+            default:
+              error('msgid on unhandled tag: %s', el.localName)
             }
-            if (lang == 'en' && 'PLACEHOLDER_i18n' != tagBody) {
-              error('i18n-msg body must be "PLACEHOLDER_i18n" for %s in %s', msgid, file.relative);
-            }
-            return msg.message;
           });
+          [...this.querySelectorAll('i18n-msg')].forEach(el => {
+            error('i18n-msg should be replaced with msgid, found: %s', el.outerHTML);
+          });
+          [...this.querySelectorAll('[lang]')].forEach(el => el.setAttribute('lang', lang));
+          [...this.querySelectorAll('[href$="_en.html"]')].forEach(el => {
+            const href = el.getAttribute('href').replace(/_en\.html$/, ext);
+            el.setAttribute('href', href);
+          });
+        });
 
         // Note that this always writes a new HTML file, even if the content
         // is the same (perhaps a scene uses no i18n-msg elements).
 
         if (!file.path.match(/(index|cast|error|upgrade|_en)\.html$/)) {
-          if (replaced == src) {
+          if (replaced === src) {
             // ... unless the filename doesn't end with _en.html, in which case
             // someone has accepted that it won't be translated anyway.
             stream.push(file);
-            break;
+            return;
           }
           error('[%s] Translatable files should end in _en.html', file.relative);
         }
 
-        var dir = '/';
+        let dir = '/';
         // Only root pages should go in /intl/ directories.
         if (lang != 'en' && !file.path.match(/_en\.html$/)) {
-          dir = '/intl/' + lang + '_ALL/';
+          dir = `/intl/${lang}_ALL/`;
         }
-        var i18nfile = file.clone();
+        const i18nfile = file.clone();
         i18nfile.path = path.dirname(file.path) + dir +
             path.basename(file.path).replace(/_en.html$/, ext);
         i18nfile.contents = new Buffer(replaced);
-
         stream.push(i18nfile);
-      }
+      });
 
       Object.keys(missing).forEach(function(msgid) {
-        var langs = missing[msgid];
+        const langs = missing[msgid];
 
         if (langs.length >= 5) {
           warn('%s: missing \'%s\' for %d langs', file.relative, msgid, langs.length);
@@ -128,7 +134,7 @@ module.exports = function replaceMessages(opts) {
         }
       });
       cb();
-    });
+    }).catch(err => cb(null, err));
   });
 
   return stream;
@@ -137,42 +143,49 @@ module.exports = function replaceMessages(opts) {
 /**
  * Read messages from _messages/*.json into a map.
  * Returns a promise-like object.
+ *
+ * @param {string} msgDir
+ * @return {!Promise<!Object<!Object<string>>>}
  */
 function getMsgs(msgDir) {
-  // map: locale -> message ID -> message object (description/message)
-  var msgs = {};
-  var done = false;
-  var callbacks = [];
+  function load(filename) {
+    const lang = path.basename(filename, '.json');
+    return new Promise((resolve, reject) => {
+      fs.readFile(path.join(msgDir, filename), (err, data) => {
+        if (err) {
+          return reject(err);
+        }
 
-  dir.readFiles(msgDir, function(err, content, filename, next) {
-    if (err) throw err;
+        const part = {};
+        part[lang] = JSON.parse(data);
+        resolve(part);
+      });
+    });
+  }
 
-    var lang = path.basename(filename, '.json');
-    msgs[lang] = JSON.parse(content);
-    next();
-  },
-  function(err) {
-    if (err) throw err;
-    done = true;
-    while (callbacks.length) {
-      callbacks.pop()(msgs);
-    }
-  });
-
-  return {
-    then: function(callback) {
-      if (!done) {
-        callbacks.push(callback);
-      } else {
-        callback(msgs);
+  return new Promise((resolve, reject) => {
+    fs.readdir(msgDir, (err, files) => {
+      if (err) {
+        return reject(err);
       }
-    }
-  };
+
+      const all = files.filter(f => f.endsWith('.json')).map(load);
+      resolve(Promise.all(all).then(out => {
+        const msgs = {};
+        for (const part of out) {
+          for (const lang in part) {
+            msgs[lang] = part[lang];
+          }
+        }
+        return msgs;
+      }, reject));
+    });
+  });
 }
 
 function warnFunc(strict) {
   return function(var_args) {
-    var message = format.apply(this, arguments);
+    const message = format.apply(this, arguments);
     if (strict) {
       throw new gutil.PluginError('i18n_replace', message);
     } else {
@@ -182,6 +195,6 @@ function warnFunc(strict) {
 }
 
 function error(var_args) {
-  var message = format.apply(this, arguments);
+  const message = format.apply(this, arguments);
   throw new gutil.PluginError('i18n_replace', message);
 }

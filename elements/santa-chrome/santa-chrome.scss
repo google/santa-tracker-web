@@ -1,9 +1,5 @@
-$scenes: "village" "tracker"
-    "airport" "traditions" "codelab" "app" "santasback" "santaselfie" "translations" "callfromsanta" "briefing" "presentdrop" "santasearch" "windtunnel" "racer" "jamband" "gumball" "postcard" "jetpack" "boatload" "mercator" "presentbounce" "codeboogie" "carpool" "citylights" "commandcentre" "seasonofgiving" "matching" "liftoff" "factory";
-
 $toolbar-height: 44px;
-$indent-left: 24px;
-$toolbar-default-color: #00c6ed;
+$indent-left: 24px;  // indent in the sidebar
 
 :host {
   display: block;
@@ -98,10 +94,11 @@ app-drawer {
       background-size: 42px 42px;
     }
   }
-  @each $scene in $scenes {
-    .menucard-#{$scene} {
-      background-image: url(img/menu-#{$scene}.png);
-    }
+  .menucard-village {
+    background-image: url(img/menu-village.png);
+  }
+  .menucard-tracker {
+    background-image: url(img/menu-tracker.png);
   }
 
   h2 {
@@ -143,21 +140,6 @@ app-drawer {
 app-toolbar {
   height: $toolbar-height;
   color: white;
-}
-
-#toolbar {
-  min-width: 320px;  // force 320px min width, i.e., iPhone 4/5+
-
-  .leftside, .toolbar-icon, .shareicons {
-    opacity: 1;
-    transition: opacity 1s ease;
-
-    &.hidden {
-      opacity: 0;
-      pointer-events: none !important;
-      cursor: default;
-    }
-  }
 
   paper-icon-button[drawer-toggle] {
     margin-right: 4px;
@@ -186,6 +168,7 @@ app-toolbar {
 
   #logo {
     width: 62px;
+    min-width: 62px;
     top: 0;
     bottom: 0;
     background: url(img/google_logo.svg) 0 14px no-repeat;
@@ -200,11 +183,14 @@ app-toolbar {
     line-height: $toolbar-height;
     font-weight: 300;
     color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .fixsize {
-    height: $toolbar-height;
-    width: 100px;  // nb. flexbox changes this to fit, just needs to be "a size"
+    height: 100%;
+    width: 1px;  // nb. just needs to be "a size", flexbox uses as min-width
   }
 
   .shareicons {
@@ -240,7 +226,6 @@ app-toolbar {
   padding-bottom: 24px;
   height: $button-size;
   display: flex;
-  color: $toolbar-default-color;
 
   &.gamemode {
     button {

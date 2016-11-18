@@ -348,7 +348,12 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
         stripComments: true,
         dest: dest
       }))
-      .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
+      .pipe(scripts.mutateHTML.gulp(function() {
+        if (!argv.pretty) {
+          const dev = this.head.querySelector('#DEV');
+          dev && dev.remove();
+        }
+      }))
       .pipe($.htmlmin(HTMLMIN_OPTIONS))
       .pipe(scripts.crisper())
       .pipe($.if('*.html', scripts.i18nReplace({
@@ -382,9 +387,15 @@ gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('build-prod', function() {
   const htmlStream = gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
-    .pipe(argv.pretty ? gutil.noop() : $.replace(/window\.DEV ?= ?true.*/, ''))
-    .pipe($.replace('<base href="">', `<base href="${STATIC_URL}">`))
-    .pipe($.replace('data-version=""', `data-version="${STATIC_VERSION}"`))
+    .pipe(scripts.mutateHTML.gulp(function() {
+      if (!argv.pretty) {
+        const dev = this.head.querySelector('#DEV');
+        dev && dev.remove();
+      }
+      this.body.setAttribute('data-version', STATIC_VERSION);
+      const baseEl = this.head.querySelector('base[href]');
+      baseEl && baseEl.setAttribute('href', STATIC_URL);
+    }))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(scripts.i18nReplace({
       strict: !!argv.strict,

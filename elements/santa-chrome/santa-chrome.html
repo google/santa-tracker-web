@@ -93,7 +93,7 @@ specific language governing permissions and limitations under the License.
           </a>
           <template is="dom-if" if="[[todayHouse]]">
             <a href$="[[pageUrl]]#[[todayHouse]]">
-              <div class$="menucard menucard-[[todayHouse]]">
+              <div class="menucard" style$="background-image: url([[_computeTodayHouseImageUrl(todayHouse)]])">
                 <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
                 <h3>[[_computeStringScene(todayHouse, strings)]]</h3>
               </div>
@@ -181,20 +181,20 @@ specific language governing permissions and limitations under the License.
     <app-header-layout fullbleed>
       <app-header fixed effects="waterfall fade-background">
         <div id="fixed-background"></div>
-        <app-toolbar id="toolbar" hidden$="[[disabled]]">
+        <app-toolbar hidden$="[[disabled]]">
           <paper-icon-button icon="santa:menu" drawer-toggle
-              class$="toolbar-icon [[_computeHiddenClass(hideLeft)]]"></paper-icon-button>
-          <div class$="flex fixsize leftside [[_computeHiddenClass(hideLeft)]]">
+              class="toolbar-icon"></paper-icon-button>
+          <div class="flex fixsize">
             <a class="linkwrap"
                href$="[[pageUrl]]#[[_computeDefaultRoute(trackerUnlocked)]]"
                on-click="_onTitleClick">
               <div id="logo" title="Google"></div>
-              <h1 class="flex">
+              <h1>
                 <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
               </h1>
             </a>
           </div>
-          <div class$="shareicons [[_computeHiddenClass(hideRight)]]" on-tap="_onShare">
+          <div class="shareicons" on-tap="_onShare">
             <paper-icon-button hidden$="[[!hasWebShare]]" id="webshare" icon="santa:share"></paper-icon-button>
             <template is="dom-if" if="[[!hasWebShare]]">
               <div class="multi">
@@ -289,16 +289,6 @@ specific language governing permissions and limitations under the License.
        */
       disabled: Boolean,
 
-      hideLeft: {
-        type: Boolean,
-        value: false,
-      },
-
-      hideRight: {
-        type: Boolean,
-        value: false,
-      },
-
       /** Strings bound from santa-strings. */
       strings: Object,
 
@@ -331,6 +321,10 @@ specific language governing permissions and limitations under the License.
       var thisYear = new Date();
       var d = new Date('December 24, ' + thisYear.getUTCFullYear());
       return d.toLocaleDateString(lang, {month: 'long', day: 'numeric'});
+    },
+
+    _computeTodayHouseImageUrl: function(todayHouse) {
+      return this.resolveUrl('img/menu-' + todayHouse + '.png');
     },
 
     /**
