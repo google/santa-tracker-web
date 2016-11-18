@@ -73,6 +73,16 @@ $digitLineHeight: 53px;
     text-align: center;
     margin: 0 !important;
   }
+
+  h2 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #fff;
+    margin: 6px 0;
+    line-height: 12px;
+    text-transform: uppercase;
+  }
 }
 
 @keyframes counter-step-active {
