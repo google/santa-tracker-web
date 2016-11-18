@@ -82,18 +82,6 @@ Turtle.init = function() {
     Blockly.DropDownDiv.hideWithoutAnimation();
   });
 
-  onresize = function() {
-    Turtle.DISPLAY_SIZE = Math.min(document.getElementById('visualization').offsetWidth - 32, document.getElementById('visualization').offsetHeight - 160);
-    Turtle.paper.style.height = Turtle.DISPLAY_SIZE + 'px';
-    Turtle.paper.style.width = Turtle.DISPLAY_SIZE + 'px';
-    document.getElementById('display').height = Turtle.DISPLAY_SIZE;
-    document.getElementById('display').width = Turtle.DISPLAY_SIZE;
-    Turtle.display();
-    Blockly.DropDownDiv.hideWithoutAnimation();
-  }
-
-  window.addEventListener('resize', onresize);
-
   Turtle.workspace = Blockly.inject('blocklyDiv', {
           comments: false,
           disable: true,
@@ -135,6 +123,23 @@ Turtle.init = function() {
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
   Turtle.paper = document.getElementById('paperDiv');
+
+
+  // Onresize will be called as soon as we register it in IE, so we hold off
+  // on registering it until everything it references is defined.
+  onresize = function() {
+    Turtle.DISPLAY_SIZE = Math.min(
+        document.getElementById('visualization').offsetWidth - 32,
+        document.getElementById('visualization').offsetHeight - 160);
+    Turtle.paper.style.height = Turtle.DISPLAY_SIZE + 'px';
+    Turtle.paper.style.width = Turtle.DISPLAY_SIZE + 'px';
+    document.getElementById('display').height = Turtle.DISPLAY_SIZE;
+    document.getElementById('display').width = Turtle.DISPLAY_SIZE;
+    Turtle.display();
+    Blockly.DropDownDiv.hideWithoutAnimation();
+  }
+
+  window.addEventListener('resize', onresize);
   onresize();
   Turtle.reset();
 
