@@ -25,7 +25,7 @@ specific language governing permissions and limitations under the License.
   <meta property="og:url" content="https://santatracker.google.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" itemprop="image" name="thumbnail" content="https://santatracker.google.com/images/og.png">
-  <meta property="og:description" itemprop="description" name="description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world.">
+  <meta property="og:description" itemprop="description" name="description" msgid="meta_description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world.">
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
   <link rel="stylesheet" href="sass/santatracker.css">
@@ -59,9 +59,10 @@ ga('create', 'UA-37048309-' + (location.hostname == 'santatracker.google.com' ? 
 ga('set', 'transport', 'beacon');
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
-  <script>
-window.DEV = true; // NOTE: replaced by string - do not change formatting.
 
+  <!-- JS -->
+  <link id="DEV" comment="element removed in prod" />
+  <script>
 (function() {
   // Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 9+ and
   // Chromium-based browsers at m44 or above. For other browsers, YMMV.
