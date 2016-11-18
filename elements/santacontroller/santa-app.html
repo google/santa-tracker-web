@@ -928,7 +928,7 @@ Polymer({
 
   _scheduleCheckedChanged: function() {
     if (this.scheduleChecked) {
-      this._checkSchedule();
+      this._currentTimeChanged();
     } else {
       // nb. This doesn't immediately unlock any houses, instead it leaves the existing state.
     }
@@ -938,8 +938,8 @@ Polymer({
    * Unlocks the correct houses based on the day (index).
    * @private
    */
-  _currentTimeChanged: function(currentTime) {
-    var todayDate = new Date(currentTime);
+  _currentTimeChanged: function() {
+    var todayDate = new Date(this.currentTime);
 
     var todayHouse = '';
 
