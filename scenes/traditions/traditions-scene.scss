@@ -12,93 +12,18 @@ $name: 'module-traditions';
 
   #tradition-img {
     position: absolute;
-    right: -400px;
-    top: -400px;
+    right: 90px;
+    top: 0px;
     width: 300px;
     height: 300px;
     background-repeat: no-repeat;
     background-size: 300px 300px;
-    transition: all .2s ease;
+    transition: transform .2s ease;
+    transform: translate(400px, -400px);
+    will-change: transform;
 
     &.active {
-      right: 90px;
-      top: -20px;
-    }
-
-    &.ar {
-      background-image: url(img/ar.png);
-    }
-
-    &.au {
-      background-image: url(img/au.png);
-    }
-
-    &.br {
-      background-image: url(img/br.png);
-    }
-
-    &.ca {
-      background-image: url(img/ca.png);
-    }
-
-    &.cl {
-      background-image: url(img/cl.png);
-    }
-
-    &.de {
-      background-image: url(img/de.png);
-    }
-
-    &.dk {
-      background-image: url(img/dk.png);
-    }
-
-    &.fr {
-      background-image: url(img/fr.png);
-    }
-
-    &.gh {
-      background-image: url(img/gh.png);
-    }
-
-    &.gr {
-      background-image: url(img/gr.png);
-    }
-
-    &.gt {
-      background-image: url(img/gt.png);
-    }
-
-    &.is {
-      background-image: url(img/is.png);
-    }
-
-    &.kg {
-      background-image: url(img/kg.png);
-    }
-
-    &.mx {
-      background-image: url(img/mx.png);
-    }
-
-    &.nz {
-      background-image: url(img/nz.png);
-    }
-
-    &.ph {
-      background-image: url(img/ph.png);
-    }
-
-    &.ru {
-      background-image: url(img/ru.png);
-    }
-
-    &.uk {
-      background-image: url(img/uk.png);
-    }
-
-    &.us {
-      background-image: url(img/us.png);
+      transform: translate(0);
     }
   }
 
@@ -323,10 +248,8 @@ $name: 'module-traditions';
 
     #tradition-img {
       transform: scale(0.8);
-      &.active {
-        right: 70px;
-        top: -40px;
-      }
+      right: 70px;
+      top: -40px;
     }
 
     #lessons-popup {
@@ -358,10 +281,8 @@ $name: 'module-traditions';
 
     #tradition-img {
       transform: scale(0.5);
-      &.active {
-        top: -80px;
-        right: -10px;
-      }
+      top: -80px;
+      right: -10px;
     }
   }
 }

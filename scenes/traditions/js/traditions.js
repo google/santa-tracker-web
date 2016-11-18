@@ -37,11 +37,6 @@ app.Traditions = function(el, componentDir) {
   /**
    * @private {string}
    */
-  this.imageClass_ = this.image_.className;
-
-  /**
-   * @private {string}
-   */
   this.currentId_ = '';
 
   /**
@@ -252,7 +247,9 @@ app.Traditions.prototype.verticalAlignText_ = function() {
  * Show the entire Earth and all countries (the default).
  */
 app.Traditions.prototype.showWorld = function() {
-  this.image_.className = this.imageClass_;
+  this.image_.style.backgroundImage = '';
+  this.image_.classList.remove('active');
+
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
@@ -272,8 +269,6 @@ app.Traditions.prototype.onHide = function() {
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
     this.getCountryEl_(this.currentId_).removeClass('tradition-active');
   }
-
-  this.image_.className = this.imageClass_;
 
   this.currentId_ = '';
 
@@ -305,12 +300,8 @@ app.Traditions.prototype.show = function(id) {
   countryEl.addClass('tradition-active');
   this.verticalAlignText_();
 
-  this.image_.className = this.imageClass_;
   this.image_.classList.add('active');
-  this.image_.classList.add(id);
-
-  $(this.el_).find('img.feature').show().attr('src',
-      this.componentDir + '/img/' + id + '.png');
+  this.image_.style.backgroundImage = `url(${this.componentDir}img/${id}.png)`;
 
   var country = this.markers_[id];
   country.marker.setIcon(this.markers_[this.currentId_].bigIcon);
