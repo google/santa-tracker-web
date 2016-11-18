@@ -19,11 +19,11 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Differences_in_assumed_time-zone
 
 window.HOUSES = [{
-  module: "airport",  // TODO(samthor): reorder to right of scene
+  module: "codeboogie",
   launchDate: new Date('Dec 1, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   hideDate: true,
-  category: "explore"
+  category: "play"
 }, {
   module: "traditions",
   launchDate: new Date('Dec 1, 2016'),
@@ -31,11 +31,11 @@ window.HOUSES = [{
   hideDate: true,
   category: "learn"
 }, {
-  module: "codeboogie",
+  module: "airport",
   launchDate: new Date('Dec 1, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   hideDate: true,
-  category: "play"
+  category: "explore"
 }, {
   module: "app",
   launchDate: new Date('Dec 1, 2016'),
@@ -59,7 +59,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"
 }, {
-  module: "postcardly",  // TODO(madCode): change route name?
+  module: "postcardly",
   launchDate: new Date('Dec 4, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"
@@ -74,7 +74,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "windtunnel",  // TODO(samthor): switch to "penguindash"
+  module: "penguindash",
   launchDate: new Date('Dec 7, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
@@ -89,7 +89,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"
 }, {
-  module: "postcard",
+  module: "commandcentre",
   launchDate: new Date('Dec 10, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
@@ -104,7 +104,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "factory",  // TODO(samthor): switch to "wrapbattle"
+  module: "wrapbattle",
   launchDate: new Date('Dec 13, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
