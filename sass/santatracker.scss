@@ -1,18 +1,20 @@
 @import "scenes/shared/sass/_mixins.scss";
 
-html, body {
-  font-family: Roboto, sans-serif;
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
+html {
   background-color: #3ec4f0;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-font-smoothing: antialiased;
 }
 
 body {
   min-width: 320px;
+  position: relative;
   overflow-x: hidden;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 
   &.scrollock {
     overflow: hidden;

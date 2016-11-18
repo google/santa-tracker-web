@@ -473,6 +473,7 @@ $toolbar-size: 64px;
       height: 100%;
       padding-right: 5%;  // overcome shadow
       transform: translateY(0);
+      transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
       will-change: transform;
 
       h4 {
