@@ -46,12 +46,23 @@ app.Scene = function(elem) {
   });
 
   this.picker = new app.Picker(this);
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
-      'keys-leftright', 'spacenav-leftright');
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
   this.elem.find('#shareButton').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
+};
+
+app.Scene.prototype.createAndStartTutorial = function() {
+  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
+    'keys-leftright', 'spacenav-leftright');
+  this.tutorial.start();
+};
+
+app.Scene.prototype.disposeTutorial = function() {
+  this.tutorial.off('touch-leftright');
+  this.tutorial.off('keys-leftright');
+  this.tutorial.off('spacenav-leftright');
+  this.tutorial.dispose();
 };
 
 /**

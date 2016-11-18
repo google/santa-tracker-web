@@ -57,7 +57,7 @@
   pointer-events: auto;
 }
 
-.big-button:before {
+.big-button::before {
   background-size: cover;
   content: '';
   display: block;
@@ -68,7 +68,7 @@
   width: 48px;
 }
 
-.big-button:after {
+.big-button::after {
   border-radius: 50%;
   bottom: 0;
   box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
@@ -81,11 +81,11 @@
   transition: box-shadow 100ms;
 }
 
-.big-button:focus {
+.big-button::focus {
   outline: 0;
 }
 
-.big-button:active {
+.big-button::active {
   outline: 0;
   transform: translate3d(0, 6px, 0);
   box-shadow: 0px 0px #7b1fa2;
