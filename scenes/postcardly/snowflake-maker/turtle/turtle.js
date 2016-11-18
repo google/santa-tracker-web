@@ -65,12 +65,6 @@ Turtle.interpreter = null;
  */
 Turtle.visible = true;
 
-/**
- * Is the drawing ready to be submitted to Reddit?
- * @type boolean
- */
-Turtle.canSubmit = false;
-Turtle.isRTL = false;
 Turtle.onRepeat = false;
 
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
@@ -82,15 +76,6 @@ Turtle.init = function() {
   // Restore sounds state.
   var soundsEnabled = true;
 
-  // Setup blocks
-  // Parse the URL arguments.
-  var match = location.search.match(/dir=([^&]+)/);
-  var rtl = match && match[1] == 'rtl';
-  var toolbox = Turtle.getToolboxElement();
-  match = location.search.match(/side=([^&]+)/);
-  var side = match ? match[1] : 'start';
-
-  var rtl = Turtle.isRTL;
   var blocklyDiv = document.getElementById('blocklyDiv');
   var visualization = document.getElementById('visualization');
   window.addEventListener('scroll', function() {
@@ -109,17 +94,15 @@ Turtle.init = function() {
 
   window.addEventListener('resize', onresize);
 
-  var toolbox = Turtle.getToolboxElement();
-
   Turtle.workspace = Blockly.inject('blocklyDiv', {
           comments: false,
           disable: true,
           collapse: false,
           media: 'media/',
           readOnly: false,
-          rtl: rtl,
+          rtl: false,
           scrollbars: false,
-          toolbox: toolbox,
+          toolbox: Turtle.getToolboxElement(),
           trashcan: false,
           horizontalLayout: true,
           toolboxPosition: 'end',
@@ -203,31 +186,12 @@ Turtle.getStarterBlock = function() {
   return Turtle.workspace.getBlockById(Turtle.snowflakeStartBlockId);
 };
 
-// TODO (fenichel): Code cleanup: Fix toolbox loading.
+/**
+ * Find the toolbox XML in the page.
+ * return {!Element} XML document
+ */
 Turtle.getToolboxElement = function() {
-  var match = location.search.match(/toolbox=([^&]+)/);
-  return document.getElementById('toolbox-' + (match ? match[1] : 'categories'));
-};
-
-
-/**
- * Flag indicating if a toolbox categoriy has been clicked yet.
- * Level one only.
- * @private
- */
-Turtle.categoryClicked_ = false;
-
-/**
- * Monitor to see if the user finds the categories in level one.
- * @param {!Blockly.Events.Abstract} e Custom data for event.
- * @private
- */
-Turtle.watchCategories_ = function(e) {
-  if (e.type == Blockly.Events.UI && e.element == 'category') {
-    Turtle.categoryClicked_ = true;
-    //BlocklyDialogs.hideDialog(false);
-    Turtle.workspace.removeChangeListener(Turtle.watchCategories_);
-  }
+  return document.getElementById('toolbox');
 };
 
 Turtle.resetPosition = function() {
