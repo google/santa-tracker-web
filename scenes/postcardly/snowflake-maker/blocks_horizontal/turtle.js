@@ -65,8 +65,8 @@ Blockly.Blocks['snowflake_start'] = {
       "inputsInline": true,
       "category": Blockly.Categories.turtle,
       "colour": Blockly.Colours.control.primary,
-      "colourSecondary": Blockly.Colours.control.primary,
-      "colourTertiary": Blockly.Colours.control.primary
+      "colourSecondary": Blockly.Colours.control.secondary,
+      "colourTertiary": Blockly.Colours.control.tertiary
     });
   }
 };
