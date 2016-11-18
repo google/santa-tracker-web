@@ -18,251 +18,16 @@
     <script src="turtle/tutorial.js"></script>
     <script src="turtle/turtle.js"></script>
     <script src="turtle/sharing.js"></script>
+    <link rel="stylesheet" href="css/turtle.css" />
+    <link rel="stylesheet" href="../shared-css/footer.css" />
 
     <style>
       html, body {
         height: 100%;
         margin: 0px;
       }
-
-      body {
-        font-family: sans-serif;
-      }
-
-      h1 {
-        font-weight: normal;
-        font-size: 140%;
-      }
-
-      .blocklyMainBackground {
-        stroke-width: 0 !important;
-      }
-
-      #importExport {
-        font-family: monospace;
-      }
-
-      button.primary {
-        text-align: left;
-      }
-
-      /* Sprited icons. */
-      .icon21 {
-        height: 48px;
-        width: 48px;
-      }
-
-      .next {
-        background-position: -42px 0px;
-      }
-
-      .run {
-        background-position: -42px 0px;
-      }
-
-      .tutorial {
-        display: none;
-        height: 290px;
-        left: 50%;
-        margin-left: -137px;
-        margin-top: -130px;
-        position: fixed;
-        overflow: hidden;
-        top: 50%;
-        width: 275px;
-        z-index: 100;
-      }
-
-      .tutorial__image {
-        background-image: url(img/tutorial/tutorial.gif);
-        background-position: 0 0;
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 270px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 275px;
-        z-index: 2;
-      }
-
-      .tutorial::before {
-        background: url(img/tutorial/shadow.svg) no-repeat;
-        content: "";
-        height: 270px;
-        left: 0;
-        opacity: 0.15;
-        position: absolute;
-        top: 20px;
-        width: 275px;
-        z-index: 1
-      }
-
-      #footer {
-        position: absolute;
-        bottom: 0px;
-        height: 143px;
-        width: 100%;
-        background-color: white;
-        z-index: -1;
-        min-width: 1080px;
-      }
-
-      .center-horiz {
-        margin-left: auto;
-        margin-right: auto;
-        left: 0px;
-        right: 0px;
-      }
-
-      #blocklyDiv {
-        background-image: url('img/img_codebar.png');
-        background-size: contain;
-        background-position: top;
-        background-repeat: no-repeat;
-        max-width: 1020px;
-        width: 960px;
-        height: 339px;
-        bottom: 0px;
-        flex: 0 1 339px;
-        z-index: 3;
-      }
-
-      .stacked-divs {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-          width: 100%;
-      }
-
-      #visualization {
-        flex: 1 1 auto;
-        display: flex;
-        justify-content:center;
-        width: 50%;
-        align-items:center;
-        align-self: center;
-        min-height: 352px;
-        min-width: 352px;
-        max-width: 532px;
-        padding: 64px 0;
-      }
-
-      .scene__play-tab {
-        border-radius: 50%;
-        bottom: 66px;
-        height: 100px;
-        right: 16px;
-        position: absolute;
-        width: 100px;
-
-        @media (min-width: 661px) {
-          bottom: 80px;
-        }
-
-        @media (min-width: 1025px) {
-          bottom: 15px;
-        }
-      }
-
-      .scene__play-layer {
-        background-color: white;
-        border-radius: 50%;
-        height: 120px;
-        position: relative;
-        -webkit-transform: translateZ(0);
-        width: 120px;
-        z-index: 1;
-      }
-
-      .scene__play {
-        background: #ab47bc;
-        border-radius: 50%;
-        border: none;
-        box-shadow: 0px 6px #7b1fa2;
-        cursor: pointer;
-        font-size: inherit;
-        height: 90px;
-        margin: 13px;
-        padding: 0;
-        position: relative;
-        width: 96px;
-        transition: box-shadow 100ms, transform 100ms;
-        z-index: 1;
-        pointer-events: auto;
-      }
-
-      .scene__play:before {
-        background-image: url('img/ic_next.png');
-        background-size: cover;
-        content: '';
-        display: block;
-        height: 48px;
-        left: calc(50% - 24px);
-        position: absolute;
-        top: calc(50% - 24px);
-        width: 48px;
-      }
-
-      .scene__play:after {
-        border-radius: 50%;
-        bottom: 0;
-        box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
-        content: '';
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: -1;
-        transition: box-shadow 100ms;
-      }
-
-      .scene__play:focus {
-        outline: 0;
-      }
-
-      .scene__play:active {
-        outline: 0;
-        transform: translate3d(0, 6px, 0);
-        box-shadow: 0px 0px #7b1fa2;
-      }
-
-      .scene__play:active:after {
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
-      }
-
-      .play_bar {
-        width: 1024px;
-        height: 120px;
-        bottom: 0px;
-        position: absolute;
-        pointer-events: none;
-      }
-
-      .paper {
-        background-image: url(img/img_canvas_snowflake.png);
-        background-size: 320px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: white;
-        padding: 16px;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        align-self: center;
-        max-height: 532px;
-      }
-
-      #blocklycontainer {
-        position: relative;
-      }
-
-      /* Blocks being dragged disappear oustide of workspace. (like blockly)*/
-      .injectionDiv {
-        overflow: hidden;
-        border-radius: 72px;
-      }
     </style>
+
   </head>
   <body>
     <div class="stacked-divs">
@@ -347,19 +112,20 @@
           </block>
       </xml>
         <div id="blocklyDiv" class="center-horiz"></div>
-        <div class="play_bar center-horiz">
-          <div class="scene__play-tab">
-            <div class="scene__play-layer">
-              <button id="submitButton" class="scene__play"></button>
+        <div class="big-button_bar center-horiz">
+          <div class="clear small-button"></div>
+          <div class="help small-button"></div>
+          <div class="big-button-tab">
+            <div class="big-button-layer">
+              <button id="submitButton" class="next big-button"></button>
             </div>
           </div>
         </div>
-        <div id="footer"></div>
+        <div class="blockly-footer footer"></div>
       </div>
     </div>
-    <div class="tutorial">
-      <div class="tutorial__image"></div>
+    <div class="blockly-tutorial tutorial">
+      <div class="blockly-tutorial__image tutorial__image"></div>
     </div>
-
   </body>
 </html>
