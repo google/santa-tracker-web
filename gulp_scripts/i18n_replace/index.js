@@ -134,7 +134,10 @@ module.exports = function replaceMessages(opts) {
         }
       });
       cb();
-    }).catch(err => cb(null, err));
+    }).catch(err => {
+      console.info('got err', err);
+      cb(null, err);
+    });
   });
 
   return stream;

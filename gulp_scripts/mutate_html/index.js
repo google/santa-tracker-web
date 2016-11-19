@@ -65,10 +65,15 @@ mutateHTML.gulp = function(mutator) {
     if (file.isStream()) {
       throw new gutil.PluginError('mutate_html', 'No stream support');
     }
+    try {
+      const replaced = mutateHTML(file.contents.toString(), mutator);
+      file.contents = new Buffer(replaced);
+    } catch (e) {
+      // TODO(samthor): throwing errors inside through2 does nothing :|
+      this.emit('error', e);
+      return;
+    }
 
-    const replaced = mutateHTML(file.contents.toString(), mutator);
-
-    file.contents = new Buffer(replaced);
     this.push(file);
     cb();
   });

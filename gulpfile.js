@@ -350,7 +350,7 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
       }))
       .pipe(scripts.mutateHTML.gulp(function() {
         if (!argv.pretty) {
-          const dev = this.head.querySelector('#DEV');
+          const dev = this.head && this.head.querySelector('#DEV');
           dev && dev.remove();
         }
       }))
