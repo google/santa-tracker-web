@@ -48,7 +48,7 @@ Postcard scene.
 
   <div id="module-postcardly">
     <div id="postcard" class="scene" hidden>
-      <div class="bgs-belt">
+      <div class="bgs-belt selection">
         <div class="track"></div>
         <div data-offset="276" class="bgs-left"></div>
         <div data-offset="24" class="bgs-right"></div>
@@ -82,8 +82,8 @@ Postcard scene.
         </div>
         <div id="heroSnowflake"></div>
       </div>
-      <div class="share-bar big-button_bar center-horiz">
-        <div class="back small-button" on-tap="hidePostcard"></div>
+      <div class="share-bar big-button_bar center-horiz selection">
+        <div class="back small-button" on-tap="backToBlockly"></div>
         <div class="help small-button"></div>
         <div class="big-button-tab">
           <div class="big-button-layer">
@@ -91,7 +91,15 @@ Postcard scene.
           </div>
         </div>
       </div>
-      <div class="footer"></div>
+      <div class="remix-bar big-button_bar center-horiz share-landing">
+        <div class="big-button-tab">
+          <div class="big-button-layer">
+            <button id="remixButton" on-tap="backToBlockly" class="remix big-button"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer selection"></div>
     </div>
     <iframe id="blocklyArea" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
     <div class="gui">
@@ -116,7 +124,7 @@ Postcard scene.
 </template>
 <script>
 (function() {
-  var dev = false;
+  var dev = 'share';
   Polymer({
     is: 'postcardly-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -153,11 +161,27 @@ Postcard scene.
       if (dev) {
         this.blocks = "p[125]s[125]c[#006600]<r[30]t[125]>[4]";
         this.snowflake = 'scenes/postcardly/img/snow-test.png';
-        this.showPostcard();
+        if (dev == 'postcard') {
+          this.showPostcard();
+        } else {
+          this.showShareLanding();
+        }
       }
     },
 
     showPostcard: function() {
+      this.hideCodingScreen();
+      var postcardSelectionElements = Polymer.dom(this.root).querySelectorAll('.selection');
+      for (var i=0; i < postcardSelectionElements.length; i++) {
+        postcardSelectionElements[i].hidden = false;
+      }
+      var shareLandingElements = Polymer.dom(this.root).querySelectorAll('.share-landing');
+      for (var i=0; i < shareLandingElements.length; i++) {
+        shareLandingElements[i].hidden = true;
+      }
+    },
+
+    hideCodingScreen: function() {
       this.$.heroSnowflake.style.backgroundImage = 'url(' + this.snowflake + ')';
       this.$.heroSnowflake.style.backgroundSize = '100% 100%';
       var snowflakesList = Polymer.dom(this.root).querySelectorAll('.snow');
@@ -170,7 +194,20 @@ Postcard scene.
       window.focus();
     },
 
-    hidePostcard: function() {
+    showShareLanding: function() {
+      //this.loadBlocklyCode();
+      this.hideCodingScreen();
+      var postcardSelectionElements = Polymer.dom(this.root).querySelectorAll('.selection');
+      for (var i=0; i < postcardSelectionElements.length; i++) {
+        postcardSelectionElements[i].hidden = true;
+      }
+      var shareLandingElements = Polymer.dom(this.root).querySelectorAll('.share-landing');
+      for (var i=0; i < shareLandingElements.length; i++) {
+        shareLandingElements[i].hidden = false;
+      }
+    },
+
+    backToBlockly: function() {
       this.$.postcard.hidden = true;
       this.$.blocklyArea.hidden = false;
       this.scene.disposeTutorial();
