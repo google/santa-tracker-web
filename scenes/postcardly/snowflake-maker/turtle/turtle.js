@@ -160,7 +160,7 @@ window.addEventListener('load', Turtle.init);
 
 Turtle.loadUrlBlocks = function() {
   var regex = /\&B\=([#a-z\d\[\]\<\>]+)/;
-  var blocksString = parent.location.href;
+  var blocksString = window.location.href;
   var results = regex.exec(blocksString);
   if (results) {
     blocksString = results[1];
