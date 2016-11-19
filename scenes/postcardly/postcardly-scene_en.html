@@ -124,7 +124,7 @@ Postcard scene.
 </template>
 <script>
 (function() {
-  var dev = 'share';
+  var dev = false;
   Polymer({
     is: 'postcardly-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -163,9 +163,15 @@ Postcard scene.
       // Pass along everything after #postcardly.
       if (queryParams.length == 2 && queryParams[1]) {
         turtleFrameSrc += '?' + queryParams[1];
-      } 
+      }
+
+      var shareLandingRegex = /\&B\=([#a-z\d\[\]\<\>]+)/;
+      var sharing = shareLandingRegex.exec(turtleFrameSrc);
       this.$.blocklyArea.src = turtleFrameSrc;
       this.sceneParamsChanged();
+      if (sharing) {
+        this.showShareLanding();
+      }
       if (dev) {
         this.blocks = "p[125]s[125]c[#006600]<r[30]t[125]>[4]";
         this.snowflake = 'scenes/postcardly/img/snow-test.png';
@@ -236,8 +242,12 @@ Postcard scene.
         this.snowflake = event.data['snowflake'];
         this.scene.blocks = event.data['blocks'];
         // If we're receiving this message, 'Done' has been pressed.
-        this.showPostcard();
-        this.scene.createAndStartTutorial();
+        if (event.data['sharing']) {
+          this.showShareLanding();
+        } else {
+          this.showPostcard();
+          this.scene.createAndStartTutorial();
+        }
       }
     },
 

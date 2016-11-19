@@ -51,7 +51,7 @@ Turtle.pidList = [];
  * Number of milliseconds that execution should delay.
  * @type number
  */
-Turtle.pause = 0;
+Turtle.pause = Turtle.DEFAULT_DELAY;
 
 /**
  * JavaScript interpreter for executing program.
@@ -116,13 +116,13 @@ Turtle.init = function() {
       Turtle.snowflakeStartBlockId + '" deletable="false" movable="false"' +
       ' x="32" y="32"></block></xml>';
 
-  BlocklyInterface.loadBlocks(defaultXml, true);
-  Turtle.loadUrlBlocks();
-
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
   Turtle.paper = document.getElementById('paperDiv');
+
+  BlocklyInterface.loadBlocks(defaultXml, true);
+  Turtle.loadUrlBlocks();
 
 
   // Onresize will be called as soon as we register it in IE, so we hold off
@@ -165,6 +165,9 @@ Turtle.loadUrlBlocks = function() {
   if (results) {
     blocksString = results[1];
     Sharing.urlToWorkspace(blocksString);
+    Turtle.sharing = true;
+    Turtle.pause = 0;
+    Turtle.sendSnowflakeAndBlocks();
   }
 };
 
@@ -177,7 +180,7 @@ Turtle.registerRunListener = function() {
     if (event.type == Blockly.Events.UI &&
         event.element == 'click' &&
         event.blockId == Turtle.snowflakeStartBlockId) {
-      Turtle.runCode(false);
+      Turtle.runCode(Turtle.DEFAULT_DELAY);
     }
   }
   Turtle.workspace.addChangeListener(onBlockClicked);
@@ -320,9 +323,11 @@ Turtle.display = function() {
   }
 };
 
-Turtle.runCode = function(fast, callback) {
-  Turtle.fast = fast;
-  document.getElementById('spinner').style.visibility = 'visible';
+Turtle.runCode = function(delay, callback) {
+  Turtle.pause = delay;
+  if (delay > 0) {
+    document.getElementById('spinner').style.visibility = 'visible';
+  }
   Turtle.reset();
   Turtle.canSubmit = false;
   Turtle.execute(callback);
@@ -433,14 +438,14 @@ Turtle.execute = function(callback) {
   Turtle.reset();
   var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
   var loopVar = 'snowflakeLoopCount'
-  var subPause = Turtle.fast ? Turtle.FAST_DELAY : Turtle.DEFAULT_DELAY;
 
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
-      subcode +
-      'if (' + loopVar + ' == 0) { pause(300); }' +
-      'pause(' + subPause + ');\n' +
-      'setOnRepeat(true);\n' +
+      subcode;
+  if (Turtle.pause > 0) {
+    code += 'if (' + loopVar + ' == 0) { pause(300); }\n pause(' + Turtle.pause + ');\n';
+  }
+  code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
       loopVar + '+1), \'no-block-id\');\n' +
       'pause(0);}';
@@ -495,9 +500,8 @@ Turtle.animate = function(id) {
   Turtle.display();
   if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
-    Turtle.pause = Turtle.fast ? Turtle.FAST_DELAY : Turtle.DEFAULT_DELAY;
   }
-  if (Turtle.onRepeat) {
+  if (Turtle.onRepeat || Turtle.sharing) {
     Turtle.pause = 0;
   }
 };
@@ -638,7 +642,7 @@ Turtle.isVisible = function(visible, id) {
 };
 
 Turtle.sendSnowflakeAndBlocks = function() {
-    Turtle.runCode(true, function() {
+    Turtle.runCode(Turtle.FAST_DELAY, function() {
       var padding = Turtle.ctxScratch.lineWidth;
       // We always want a square image, so use the min of x and y for both.
       var min = Math.min(Turtle.bounds[0], Turtle.bounds[1]) - padding;
@@ -656,7 +660,7 @@ Turtle.sendSnowflakeAndBlocks = function() {
       Turtle.ctxOutput.globalCompositeOperation = 'copy';
       Turtle.ctxOutput.drawImage(Turtle.ctxScratch.canvas, -min, -min);
 
-      parent.postMessage({'blocks': Sharing.workspaceToUrl(),
+      parent.postMessage({'sharing': Turtle.sharing, 'blocks': Sharing.workspaceToUrl(),
           'snowflake': Turtle.ctxOutput.canvas.toDataURL('image/png', 1)}, "*");
     });
 };
