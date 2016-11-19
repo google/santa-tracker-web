@@ -148,7 +148,15 @@ Postcard scene.
       this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.postcardly.Scene(module);
-      this.$.blocklyArea.src = this.componentDir + 'snowflake-maker/turtle.html';
+      var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html';
+      // Pass the blocks from the url down to the blockly iframe so
+      // it can put them in the workspace.
+      var queryParams = window.location.hash.split('?');
+      // Pass along everything after #postcardly.
+      if (queryParams.length == 2 && queryParams[1]) {
+        turtleFrameSrc += '?' + queryParams[1];
+      } 
+      this.$.blocklyArea.src = turtleFrameSrc;
       this.sceneParamsChanged();
       if (dev) {
         this.blocks = "p[125]s[125]c[#006600]<r[30]t[125]>[4]";
