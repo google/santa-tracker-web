@@ -147,6 +147,7 @@ Turtle.init = function() {
   if (document.getElementById('submitButton')) {
     Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
   }
+  Turtle.bindClick('clearWs', BlocklyInterface.clearBlocks);
 
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);

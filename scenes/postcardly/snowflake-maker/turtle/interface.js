@@ -85,6 +85,35 @@ BlocklyInterface.highlight = function(id) {
 };
 
 /**
+ * Clears all blocks except the starter block. 
+ */
+BlocklyInterface.clearBlocks = function () {
+  // Workspace.clear clears all the blocks, but we want to keep the starter
+  // block.
+  // Start an event group if there isn't one already so that undo undoes the
+  // whole clear rather than doing it piece by piece.
+  var existingGroup = Blockly.Events.getGroup();
+  if (!existingGroup) {
+    Blockly.Events.setGroup(true);
+  }
+
+  var topBlocks = Turtle.workspace.getTopBlocks();
+  for (var i = 0, block; block = topBlocks[i]; i++) {
+     if (block.id == Turtle.snowflakeStartBlockId) {
+       var childBlock = block.getNextBlock();
+       if (childBlock) {
+         childBlock.dispose(false); // false to delete all childen.
+       }
+     } else {
+       block.dispose(false);
+     }
+  }
+  if (!existingGroup) {
+    Blockly.Events.setGroup(false);
+  }
+};
+
+/**
  * Inject readonly Blockly.  Only inserts once.
  * @param {string} id ID of div to be injected into.
  * @param {string|!Array.<string>} xml XML string(s) describing blocks.
