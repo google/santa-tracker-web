@@ -159,7 +159,7 @@ app.Scene.prototype.showShareOverlay = function() {
   var blocks = this.blocks;
   var params = '?bg=' + bgNum + '&fg=' + fgNum + '&B=' + blocks;
   var url;
-  if (window.location.hostname.includes('localhost')) {
+  if (window.location.href.includes(':', 7)) {
     url = window.location.href;
     var chop = url.indexOf('?');
     if (chop != -1) {
