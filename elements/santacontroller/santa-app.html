@@ -320,9 +320,9 @@ Santa Tracker app.
           header-color="#ba594e"
           class="santa-scene"></undersea-scene>
 
-      <template is="dom-repeat" items="[[_computeVideoRoutes(videos)]]">
+      <template is="dom-repeat" items="[[_computeVideoRoutes(_videos)]]">
         <video-scene route$="[[item]]" icon="1f4fd"
-            youtube-id$="[[_computeVideoId(videos, item)]]"
+            youtube-id$="[[_computeVideoId(_videos, item)]]"
             mode$="[[mode]]"
             mute="[[userMute]]"
             pause="[[userPause]]"
@@ -378,9 +378,8 @@ Polymer({
      */
     _houses: {
       type: Array,
-      value: function() {
-        return [];
-      }
+      readOnly: true,
+      value: window.HOUSES,
     },
 
     /**
@@ -390,6 +389,15 @@ Polymer({
       type: String,
       value: '',
       notify: true
+    },
+
+    /**
+     * List of video routes. Used for template binding.
+     */
+    _videos: {
+      type: Object,
+      readOnly: true,
+      value: window.VIDEOS,
     },
 
     /**
@@ -472,7 +480,8 @@ Polymer({
      * Analytics service.
      */
     analyticsService: {
-      type: Object
+      type: Object,
+      value: function() { return new Analytics(); },
     },
 
     /**
@@ -500,14 +509,6 @@ Polymer({
     hasTrackerIntroShown: {
       type: Boolean,
       value: false
-    },
-
-    /**
-     * List of video routes. Used for template binding.
-     */
-    videos: {
-      type: Object,
-      readOnly: true
     },
 
     /**
@@ -557,18 +558,11 @@ Polymer({
   created: function() {
     // silence the noisy things
     if (!window.DEV) {
-      console.log = function(){};
+      console.log = function() {};
     }
-
-    this.analyticsService = new Analytics();
   },
 
   ready: function() {
-    this._houses = window.HOUSES;
-    this._setVideos(Object.freeze(window.VIDEOS));
-    delete window.HOUSES; // cleanup
-    delete window.VIDEOS; // cleanup
-
     var apiClient = getUrlParameter('api_client') || 'web';
     if (!apiClient.match(/^[a-zA-Z_]*$/)) {
       apiClient = defaultApiClient;
@@ -878,6 +872,8 @@ Polymer({
   sceneIsOpen: function(moduleName) {
     if (this.currentTime === undefined) {
       return true;  // fail open before time ready
+    } else if (moduleName === DEFAULT_ROUTE) {
+      return true;  // village
     } else if (moduleName === TRACKER_ROUTE && !this.duringTracker) {
       return false;  // special-case tracker, as it's open only when Santa is in flight
     }
@@ -919,8 +915,8 @@ Polymer({
    */
   _currentTimeChanged: function() {
     var todayDate = new Date(this.currentTime);
-
     var todayHouse = '';
+    var change = false;
 
     switch (todayDate.getMonth()) {
       case 0:  // January
@@ -935,22 +931,29 @@ Polymer({
             todayHouse = house.module;
           }
           if (this.scheduleChecked) {
-            house.locked = (launchDate > todayDate);
+            var locked = (launchDate > todayDate);
+            if (house.locked !== locked) {
+              change = true;
+              house.locked = locked;
+            }
           }
         }
         break;
       default:
         if (this.scheduleChecked) {
           for (var i = 0, house; house = this._houses[i]; ++i) {
-            house.locked = true;
+            if (!house.locked) {
+              change = true;
+              house.locked = true;
+            }
           }
         }
         break;
     }
     this.todayHouse = todayHouse;
-    this._notifyHouses();
+    change && this._notifyHouses();
 
-    if (!this.validateRoute()) {
+    if (this.route !== undefined && !this.validateRoute()) {
       this.route = this.defaultRoute;
     }
   },
@@ -1008,10 +1011,9 @@ Polymer({
   /**
    * Notifies bound properties that the houses have changed (useful for the
    * village). Dedups with a microtask.
-   * @param {number=} opt_idx
    * @private
    */
-  _notifyHouses: function(opt_idx) {
+  _notifyHouses: function() {
     this.debounce('_notifyHouses', function() {
       if (!this.$.village.is) {
         return;  // the village isn't yet a Polymer element, so ignore.
@@ -1019,7 +1021,7 @@ Polymer({
 
       // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
       // there's no way to notify a whole house.
-      var propertiesToNotify = ['locked', 'disabled', 'module', 'category'];
+      var propertiesToNotify = ['locked', 'disabled'];
 
       this._houses.forEach(function(house, i) {
         var path = ['houses', i, ''];
