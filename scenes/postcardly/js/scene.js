@@ -46,6 +46,8 @@ app.Scene = function(elem) {
   });
 
   this.picker = new app.Picker(this);
+  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
+    'keys-leftright', 'spacenav-leftright');
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
@@ -53,8 +55,6 @@ app.Scene = function(elem) {
 };
 
 app.Scene.prototype.createAndStartTutorial = function() {
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
-    'keys-leftright', 'spacenav-leftright');
   this.tutorial.start();
 };
 
@@ -94,7 +94,7 @@ app.Scene.prototype.bgsChanged_ = function(selected, pos) {
  * @export
  */
 app.Scene.prototype.dispose = function() {
-  this.tutorial.dispose();
+  this.disposeTutorial();
 };
 
 /**

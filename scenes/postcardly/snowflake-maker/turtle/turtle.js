@@ -166,7 +166,6 @@ Turtle.loadUrlBlocks = function() {
     blocksString = results[1];
     Sharing.urlToWorkspace(blocksString);
     Turtle.sharing = true;
-    Turtle.pause = 0;
     Turtle.sendSnowflakeAndBlocks();
   }
 };
@@ -642,7 +641,11 @@ Turtle.isVisible = function(visible, id) {
 };
 
 Turtle.sendSnowflakeAndBlocks = function() {
-    Turtle.runCode(Turtle.FAST_DELAY, function() {
+    var delay = Turtle.FAST_DELAY;
+    if (Turtle.sharing){
+      delay = 0;
+    }
+    Turtle.runCode(delay, function() {
       var padding = Turtle.ctxScratch.lineWidth;
       // We always want a square image, so use the min of x and y for both.
       var min = Math.min(Turtle.bounds[0], Turtle.bounds[1]) - padding;
@@ -662,6 +665,8 @@ Turtle.sendSnowflakeAndBlocks = function() {
 
       parent.postMessage({'sharing': Turtle.sharing, 'blocks': Sharing.workspaceToUrl(),
           'snowflake': Turtle.ctxOutput.canvas.toDataURL('image/png', 1)}, "*");
+      //Once we've sent the shared snowflake, if the user hits the back button, we're not in the sharing state anymore.
+      if (Turtle.sharing){ Turtle.sharing = false; }
     });
 };
 
