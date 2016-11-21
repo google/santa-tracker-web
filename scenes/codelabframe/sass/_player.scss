@@ -20,6 +20,26 @@
     }
   }
 
+  .player__jump {
+    position: absolute;
+    top: 0;
+    height: 8.6em;
+    margin-left: -5.1em;
+    margin-top: -3.3em;
+    overflow: hidden;
+    width: 10.2em;
+  }
+
+  .player__jump-sprite {
+    background-image: url(img/jump.svg);
+    width: 53px;
+    height: 1446px;
+    position: absolute;
+    background-size: 53px auto;
+    left: 8px;
+    top: -2px;
+  }
+
   .player__victory {
     height: 12.2em;
     margin-left: -3.2em;

@@ -29,7 +29,9 @@ app.Player = function(el, map) {
   this.direction = 0;
   this.el = el;
   this.rotationEl = el.querySelector('.player__rotation');
+  this.elfEl = el.querySelector('.player__elf');
   this.spriteEl = el.querySelector('.player__elf-sprite');
+  this.jumpEl = el.querySelector('.player__jump-sprite');
   this.victoryEl = el.querySelector('.player__victory');
   this.lostEl = el.querySelector('.player__lost');
   this.isLost = false;
@@ -47,6 +49,12 @@ app.Player = function(el, map) {
  * @type {number}
  */
 app.Player.MOVE_DURATION = 400;
+
+/**
+ * How long should it take to make a jump in ms.
+ * @type {number}
+ */
+app.Player.JUMP_DURATION = 1000;
 
 /**
  * How long should it take to rotate in ms.
@@ -102,6 +110,7 @@ app.Player.prototype = {
     var animation = new SequenceEffect([
       app.PlayerSound.walk(),
       new GroupEffect([
+        new KeyframeEffect(this.spriteEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'}),
         this.walkAnimation_(),
         new KeyframeEffect(this.el, [
           {transform: this.getTranslation_(oldX, oldY)},
@@ -120,6 +129,7 @@ app.Player.prototype = {
    */
   jump: function(length, direction) {
     length = length + 1;   // Jump length + landing tile.
+    var oldDirection = this.direction;
     var oldX = this.x;
     var oldY = this.y;
     var radDirection = direction / 180 * Math.PI;
@@ -139,6 +149,9 @@ app.Player.prototype = {
     var animation = new SequenceEffect([
       app.PlayerSound.walk(),
       new GroupEffect([
+        new KeyframeEffect(this.spriteEl, [
+          {opacity: 1}, {opacity: 0}
+        ], {fill: 'forwards'}),
         this.jumpAnimation_(),
         new KeyframeEffect(this.el, [
           {transform: this.getTranslation_(oldX, oldY)},
@@ -146,7 +159,7 @@ app.Player.prototype = {
         ], {duration: app.Player.MOVE_DURATION, fill: 'forwards'})
       ], {duration: app.Player.MOVE_DURATION})
     ], {duration: app.Player.MOVE_DURATION});
-    return animation;
+    return this.maybeRotateAnimation_(animation, oldDirection);
   },
 
   lose: function(direction) {
@@ -223,12 +236,11 @@ app.Player.prototype = {
   },
 
   jumpAnimation_: function() {
-    // Animates the sprite as if the elf is walking. Doesn't move the elf.
-    // TODO: Change the elf to look like he's jumping.
-    return new KeyframeEffect(this.spriteEl, [
+    // Animates the sprite as if the elf is jumping. Doesn't move the elf.
+    return new KeyframeEffect(this.jumpEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
-      {transform: 'translateZ(0) translate(0, -52.8em)'}
-    ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)'});
+      {transform: 'translateZ(0) translate(0, -934px)'}
+    ], {duration: app.Player.JUMP_DURATION, easing: 'steps(15, end)'});
   },
 
   getTranslation_: function(x, y) {
