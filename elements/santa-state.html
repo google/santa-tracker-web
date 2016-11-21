@@ -31,6 +31,7 @@ var VERSION = document.body.getAttribute('data-version');
 var LANGUAGE = document.documentElement.lang || 'en';
 
 var santaService = new SantaService('web', LANGUAGE, VERSION);
+var instances = new Set();
 
 santaService.addListener('kill', function() {
   window.ga('send', 'event', 'API', 'killed');
@@ -68,8 +69,6 @@ santaService.addListener('reload', function() {
 
 santaService.sync();
 
-var instances = new Set();
-
 var currentTime = Date.now();  // TODO(samthor): could be undefined to start with?
 var notifyTimeout = window.setTimeout(notifyCurrentTime, 2500);  // trigger after 2.5s
 function notifyCurrentTime() {
@@ -88,12 +87,32 @@ function notifyCurrentTime() {
 }
 santaService.addListener('sync', notifyCurrentTime);
 
+var offline = false;
+function notifyOffline() {
+  offline = santaService.isOffline();
+  instances.forEach(function(instance) {
+    instance._setOffline(offline);
+  });
+}
+santaService.addListener('offline', notifyOffline);
+santaService.addListener('online', notifyOffline);
+
 window.santaService = santaService;
 
 Polymer({
   is: 'santa-state',
 
   properties: {
+
+    /**
+     * Whether the user is offline.
+     */
+    offline: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: function() { return offline; },
+    },
 
     /**
      * The current time in ms. This only changes every few minutes, not every second.

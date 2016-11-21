@@ -30,6 +30,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../santa-icons.html">
+<link rel="import" href="../santa-state.html">
 <link rel="import" href="../santa-strings.html">
 <link rel="import" href="santa-chrome_module.html">
 
@@ -64,7 +65,7 @@ specific language governing permissions and limitations under the License.
         box-shadow: 0 2px 0 rgba(0,0,0,0.25);
       };
     }
-    #buttons, #fixed-background {
+    .buttons.primary, #fixed-background {
       color: var(--santa-toolbar-color, rgb(48,203,236));
     }
     :host(.fixed) #fixed-background {
@@ -76,6 +77,7 @@ specific language governing permissions and limitations under the License.
     }
   </style>
   <santa-strings strings="{{strings}}"></santa-strings>
+  <santa-state offline="{{offline}}"></santa-state>
 
   <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer">
@@ -216,13 +218,18 @@ specific language governing permissions and limitations under the License.
     </app-header-layout>
   </app-drawer-layout>
 
-  <div id="buttons" class$="[[_computeTernary(hasGameButtons, 'gamemode', '')]]">
+  <div class="buttons primary">
     <button id="sound" on-click="_toggleSounds"
             class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
     <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
             class$="[[_computeTernary(pause, 'paused', 'playing')]]">
       <iron-icon class="pause" icon="santa:pause"></iron-icon>
       <iron-icon class="play" icon="santa:play"></iron-icon>
+    </button>
+  </div>
+  <div class$="buttons alternate [[_computeTernary(offline, '', 'hidden')]]">
+    <button id="offline" disabled>
+      <iron-icon icon="santa:offline"></iron-icon>
     </button>
   </div>
 

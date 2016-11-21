@@ -217,21 +217,14 @@ app-toolbar {
   }
 }
 
-#buttons {
+.buttons {
   $button-size: 45px;
 
   position: fixed;
-  left: 0;
   bottom: 0;
   padding-bottom: 24px;
   height: $button-size;
   display: flex;
-
-  &.gamemode {
-    button {
-      transform: translate(0);
-    }
-  }
 
   button {
     color: inherit;
@@ -243,7 +236,6 @@ app-toolbar {
     pointer-events: auto;
     border: 0;
     margin: 0;
-    margin-right: 8px;
     text-align: center;
     cursor: pointer;
     position: relative;
@@ -251,16 +243,13 @@ app-toolbar {
     border-radius: 100px;
     box-shadow: 0 2px 0 rgba(0,0,0,0.3);
     transition: transform 0.25s;
-    transform: translateY(24px + 10px + $button-size);
+    transform: translate(0);
 
-    &:first-child {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      transform: translate(0);
+    &[disabled] {
+      cursor: default;
     }
 
     &::after, &::before {
-      content: '';
       width: ($button-size - 14px);
       top: 0;
       left: 7px;
@@ -282,6 +271,53 @@ app-toolbar {
     }
   }
 
+  &.primary {
+    left: 0;
+
+    button {
+      margin-left: 8px;
+
+      &[disabled] {
+        transform: translateY(24px + 10px + $button-size);
+      }
+    }
+    button:first-child {
+      margin-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.alternate {
+    right: 0;
+    color: #777;
+
+    transition: transform 0.25s ease-out;
+
+    &.hidden {
+      transform: translate(100%);
+    }
+
+    button {
+      margin-right: 8px;
+    }
+    button:last-child {
+      margin-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  /** specific button overrides */
+
+  button#offline {
+    iron-icon {
+      left: 2px;
+      position: relative;
+      width: 33px;
+      height: 33px;
+    }
+  }
+
   button#pause {
     &.paused .pause,
     &.playing .play {
@@ -291,6 +327,7 @@ app-toolbar {
 
   button#sound {
     &::after {
+      content: '';
       background-image: url(img/sound-on.svg);
     }
     &.on::after {
@@ -298,6 +335,7 @@ app-toolbar {
     }
 
     &::before {
+      content: '';
       background-image: url(img/sound-off.svg);
     }
     &.off::before {

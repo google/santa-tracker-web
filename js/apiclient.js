@@ -99,6 +99,11 @@ SantaService = function SantaService(clientId, lang, version) {
   /**
    * @private {boolean}
    */
+  this.offline_ = false;
+
+  /**
+   * @private {boolean}
+   */
   this.killed_ = false;
 
   /**
@@ -454,16 +459,17 @@ SantaService.prototype.sync = function(opt_callback) {
   };
 
   const done = result => {
+    let ok = true;
     if (result['status'] != 'OK') {
       console.error(result['status']);
-      this.kill_();
+      this.disconnect_();
+      ok = false;
     }
 
     this.offset_ = result['now'] + result['timeOffset'] - new Date();
     if (result['switchOff']) {
       this.kill_();
-    } else {
-      this.resuscitate_();
+      ok = false;  // not technically offline, but let's pretend
     }
 
     if (result['upgradeToVersion'] && this.version_) {
@@ -473,7 +479,11 @@ SantaService.prototype.sync = function(opt_callback) {
       }
     }
 
-    var fingerprintChanged = result['fingerprint'] != this.fingerprint_;
+    if (ok) {
+      this.reconnect_();
+    }
+
+    const fingerprintChanged = result['fingerprint'] != this.fingerprint_;
     this.fingerprint_ = result['fingerprint'];
     this.clientSpecific_ = result['clientSpecific'];
     this.userLocation_ = result['location'] || null;
@@ -493,10 +503,7 @@ SantaService.prototype.sync = function(opt_callback) {
     }
   };
 
-  const fail = () => {
-    // TODO: perhaps trigger something other than kill, if a recovery can be made.
-    this.kill_();
-  };
+  const fail = () => this.disconnect_();
 
   santaAPIRequest('info', data, done, fail);
 };
@@ -599,27 +606,36 @@ SantaService.prototype.updateTimeline_ = function() {
 
 
 /**
- * Send the kill event.
+ * Send the kill event, if not already killed.
  * @private
  */
 SantaService.prototype.kill_ = function() {
-  if (this.killed_) {
-    return;
+  if (!this.killed_) {
+    this.killed_ = true;
+    Events.trigger(this, 'kill');
   }
-  this.killed_ = true;
-  Events.trigger(this, 'kill');
 };
 
 /**
- * Send the andwereback event.
+ * Send the offline event, if not alreay offline.
  * @private
  */
-SantaService.prototype.resuscitate_ = function() {
-  if (!this.killed_) {
-    return;
+SantaService.prototype.disconnect_ = function() {
+  if (!this.offline_) {
+    this.offline_ = true;
+    Events.trigger(this, 'offline');
   }
-  this.killed_ = false;
-  Events.trigger(this, 'andwereback');
+}
+
+/**
+ * Send the online event, if not already online.
+ * @private
+ */
+SantaService.prototype.reconnect_ = function() {
+  if (this.offline_) {
+    this.offline_ = false;
+    Events.trigger(this, 'online');
+  }
 };
 
 /**
@@ -662,6 +678,14 @@ SantaService.prototype.isSynced = function() {
  */
 SantaService.prototype.isKilled = function() {
   return this.killed_;
+};
+
+/**
+ * @return {boolean} true if the service is offline.
+ * @export
+ */
+SantaService.prototype.isOffline = function() {
+  return this.offline_;
 };
 
 /**
