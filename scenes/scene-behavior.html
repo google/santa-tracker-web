@@ -34,13 +34,6 @@ specific language governing permissions and limitations under the License.
    */
   var NUM_FRAMES_TO_SPREAD_PRELOAD = 10;
 
-  /**
-   * Expected format for 'path' attribute. Used for the componentDir. e.g., if
-   * path is 'scenes/test/test-scene_LANG.html', the componentDir will be
-   * 'scenes/test/'.
-   */
-  var PATH_MATCH = new RegExp('^scenes\/.+?\/');
-
   /** @polymerBehavior */
   window.SantaSceneBehaviorImpl = {
     hostAttributes: {tabindex: 0},
@@ -127,26 +120,14 @@ specific language governing permissions and limitations under the License.
 
       /**
        * The relative path of the scene folder from the main app root folder.
-       * (e.g 'scenes/village/').
+       * (e.g. 'scenes/village/').
        */
       componentDir: {
         type: String,
         readOnly: true,
-        value: function() {
-          // Set inside created: callback.
-          return this._componentDir;
-        }
+        value: function() { return this.resolveUrl('.'); },
       },
 
-    },
-
-    listeners: {'scene-pause': '_handlePause'},
-
-    _componentDir: null,
-
-    created: function() {
-      // TODO(samthor): This finds the whole domain, can probably just be relative URL
-      this._componentDir = this.resolveUrl('.');
     },
 
     ready: function() {
@@ -254,14 +235,6 @@ specific language governing permissions and limitations under the License.
       return loaded ? 100 : (totalAssets ? assetsLoaded / totalAssets * 100 : 0);
     },
 
-    _handlePause: function(e, paused) {
-      if (paused && this.onPause) {
-        this.onPause();
-      } else if (!paused && this.onResume) {
-        this.onResume();
-      }
-    },
-
     /**
      * Helper method. Just does equality.
      */
@@ -294,7 +267,7 @@ specific language governing permissions and limitations under the License.
 
       pause: {
         type: Boolean,
-        observer: '_onPauseChanged',
+        observer: '_pauseChanged',
       },
 
       _firstPlay: {
@@ -305,36 +278,38 @@ specific language governing permissions and limitations under the License.
 
     /** Plays or restarts this game. */
     start: function() {
-      if (this.game) {
-        // TODO(samthor): Quick hack to remove the startButton and force the game to start via
-        // santaApp. Eventually, the start button will live outside the game itself.
-        var startButton = this.$$('.start');
-        if (startButton) {
-          startButton.remove();
-          this.fire('game-start');
-          return;
-        }
-
-        if (this._firstPlay) {
-          this.game.start();
-          this._firstPlay = false;
-        } else {
-          this.game.restart();
-        }
-      } else {
-        console.warn('can\'t restart game, not ready yet', this.localName);
+      if (!this.game) {
+        return;
       }
+
+      // TODO(samthor): Quick hack to remove the startButton and force the game to start via
+      // santaApp. Eventually, the start button will live outside the game itself.
+      var startButton = this.$$('.start');
+      if (startButton) {
+        startButton.remove();
+        this.fire('game-start');
+        return;
+      }
+
+      if (this._firstPlay) {
+        this.game.start();
+        this._firstPlay = false;
+      } else {
+        this.game.restart();
+      }
+
+      this.pause && this.game.pause();  // paused before start
     },
 
-    _onPauseChanged: function(pause) {
-      if (this.game) {
-        if (pause) {
-          this.game.pause();
-        } else {
-          this.game.resume();
-        }
+    _pauseChanged: function() {
+      if (!this.game || this._firstPlay) {
+        return;
+      }
+
+      if (this.pause) {
+        this.game.pause();
       } else {
-        console.warn('can\'t pause/play game, not ready yet', this.localName, 'paused', paused);
+        this.game.resume();
       }
     },
 
