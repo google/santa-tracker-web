@@ -165,7 +165,9 @@ Postcard scene.
         turtleFrameSrc += '?' + queryParams[1];
       }
 
+      //Regex checks for &B= with any letter, number or bracket values following it
       var shareLandingRegex = /\&B\=([#a-z\d\[\]\<\>]+)/;
+
       var sharing = shareLandingRegex.exec(turtleFrameSrc);
       this.$.blocklyArea.src = turtleFrameSrc;
       this.sceneParamsChanged();
@@ -186,11 +188,11 @@ Postcard scene.
     showPostcard: function() {
       this.hideCodingScreen();
       var postcardSelectionElements = Polymer.dom(this.root).querySelectorAll('.selection');
-      for (var i=0; i < postcardSelectionElements.length; i++) {
+      for (var i = 0; i < postcardSelectionElements.length; i++) {
         postcardSelectionElements[i].hidden = false;
       }
       var shareLandingElements = Polymer.dom(this.root).querySelectorAll('.share-landing');
-      for (var i=0; i < shareLandingElements.length; i++) {
+      for (var i = 0; i < shareLandingElements.length; i++) {
         shareLandingElements[i].hidden = true;
       }
     },
@@ -212,11 +214,11 @@ Postcard scene.
       //this.loadBlocklyCode();
       this.hideCodingScreen();
       var postcardSelectionElements = Polymer.dom(this.root).querySelectorAll('.selection');
-      for (var i=0; i < postcardSelectionElements.length; i++) {
+      for (var i = 0; i < postcardSelectionElements.length; i++) {
         postcardSelectionElements[i].hidden = true;
       }
       var shareLandingElements = Polymer.dom(this.root).querySelectorAll('.share-landing');
-      for (var i=0; i < shareLandingElements.length; i++) {
+      for (var i = 0; i < shareLandingElements.length; i++) {
         shareLandingElements[i].hidden = false;
       }
     },
@@ -246,7 +248,7 @@ Postcard scene.
           this.showShareLanding();
         } else {
           this.showPostcard();
-          this.scene.createAndStartTutorial();
+          this.scene.startTutorial();
         }
       }
     },

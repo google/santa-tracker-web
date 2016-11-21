@@ -54,7 +54,7 @@ app.Scene = function(elem) {
   this.elem.find('#shareButton').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
 };
 
-app.Scene.prototype.createAndStartTutorial = function() {
+app.Scene.prototype.startTutorial = function() {
   this.tutorial.start();
 };
 
@@ -94,7 +94,7 @@ app.Scene.prototype.bgsChanged_ = function(selected, pos) {
  * @export
  */
 app.Scene.prototype.dispose = function() {
-  this.disposeTutorial();
+  this.tutorial.dispose();
 };
 
 /**
