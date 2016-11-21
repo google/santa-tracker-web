@@ -143,6 +143,14 @@ $rotate-bg: $gameover-bg;
   .share-bar {
     z-index: 1,
   }
+
+  .remix:before {
+    background-image: url('img/ic_remix.png');
+  }
+
+  .remix-bar {
+    width:80px;
+  }
 }
 
 @import "../shared/sass/responsive";

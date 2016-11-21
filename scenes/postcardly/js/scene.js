@@ -46,15 +46,15 @@ app.Scene = function(elem) {
   });
 
   this.picker = new app.Picker(this);
+  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
+    'keys-leftright', 'spacenav-leftright');
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
   this.elem.find('#shareButton').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
 };
 
-app.Scene.prototype.createAndStartTutorial = function() {
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
-    'keys-leftright', 'spacenav-leftright');
+app.Scene.prototype.startTutorial = function() {
   this.tutorial.start();
 };
 
@@ -159,7 +159,7 @@ app.Scene.prototype.showShareOverlay = function() {
   var blocks = this.blocks;
   var params = '?bg=' + bgNum + '&fg=' + fgNum + '&B=' + blocks;
   var url;
-  if (window.location.hostname.includes('localhost')) {
+  if (window.location.href.includes(':', 7)) {
     url = window.location.href;
     var chop = url.indexOf('?');
     if (chop != -1) {
