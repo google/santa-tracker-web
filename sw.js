@@ -14,9 +14,6 @@
  * the License.
  */
 
-// TODO(plegner): reenable when this doesn't break staging
-throw new Error('sw disabled');
-
 /**
  * @fileoverview Service Worker for Santa Tracker.
  */
@@ -58,9 +55,8 @@ const PRECACHE = (function() {
 function fetchAndCache(url, opt_withCredentials) {
   const opts = {};
   if (opt_withCredentials) {
-    // TODO(plegner): This seems to not work, and actually causes the SW to prevent the site from
-    // loading at all. Left off for now, so we get credential errors but the site will load.
-//    opts.credentials = 'include';
+    opts.mode = 'cors';
+    opts.credentials = 'include';
   }
   return fetch(url, opts).then(response => {
     if (response.status === 200) {
@@ -195,9 +191,9 @@ self.addEventListener('install', function(event) {
       if (oldManifest.version === newManifest.version) {
         return Promise.resolve();
       } else if (oldManifest.version) {
-        compareManifest(oldManifest, newManifest);
+        return compareManifest(oldManifest, newManifest);
       } else {
-        precacheScene(newManifest.shared);
+        return precacheScene(newManifest.shared);
       }
     });
 
@@ -231,12 +227,17 @@ self.addEventListener('fetch', function(event) {
 
   // Only intercept requests to permitted domains. This excludes
   // santa-api.appspot.com and ssl.google-analytics.com, among others.
-  let url = new URL(event.request.url);
-  if (url.hostname !== self.location.hostname && !STATIC_DOMAINS.includes(url.hostname)) { return; }
+  const prodRequest = (url.hostname === self.location.hostname);
+  const url = new URL(event.request.url);
+  const matchedUrl = event.request.url.startsWith(STATIC_HOST) ||
+      prodRequest || STATIC_DOMAINS.includes(url.hostname);
+  if (!matchedUrl) {
+    return;
+  }
 
   // Don't cache audio resources (for now).
   if (event.request.url.match(/\/audio\//)) { return; }
 
   // TODO(plegner) Add catch handlers, to provide offline fallback responses.
-  event.respondWith(loadFromCache(event.request.url));
+  event.respondWith(loadFromCache(event.request.url, prodRequest));
 });
