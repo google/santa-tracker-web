@@ -227,8 +227,8 @@ self.addEventListener('fetch', function(event) {
 
   // Only intercept requests to permitted domains. This excludes
   // santa-api.appspot.com and ssl.google-analytics.com, among others.
-  const prodRequest = (url.hostname === self.location.hostname);
   const url = new URL(event.request.url);
+  const prodRequest = (url.hostname === self.location.hostname);
   const matchedUrl = event.request.url.startsWith(STATIC_HOST) ||
       prodRequest || STATIC_DOMAINS.includes(url.hostname);
   if (!matchedUrl) {
