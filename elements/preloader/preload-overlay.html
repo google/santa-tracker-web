@@ -74,13 +74,13 @@ Candy cane progress bar.
       return src || DEFAULT_LOADING_SRC;
     },
 
-    _activeChanged: function() {
+    _activeChanged: function(newValue, oldValue) {
       var dom = Polymer.dom(this);
-      if (this.active) {
+      if (newValue) {
         this.value = 0;  // ensure progress is reset to zero
         dom.classList.remove('fading');
         dom.classList.add('active');
-      } else {
+      } else if (!newValue && oldValue) {  // don't fade on initial undefined => false transition
         dom.classList.add('fading');  // later invokes _onFadeDone via transitionend
         dom.classList.remove('active');
       }
