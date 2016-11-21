@@ -62,7 +62,7 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
-      <dorf-scene id="village" route="village" icon="1f384"
+      <dorf-scene id="village" route="village" icon="1f384" permament
           during-tracker="[[duringTracker]]"
           today-house="[[todayHouse]]"
           houses="[[_houses]]"
@@ -72,7 +72,7 @@ Santa Tracker app.
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
 
-      <about-scene route="about" icon="2753"
+      <about-scene route="about" icon="2753" permament
           path$="scenes/about/about-scene_[[language]].html"
           header-color="rgb(39, 186, 131)"
           class="santa-scene" allow-page-scrolling></about-scene>
@@ -337,7 +337,7 @@ Santa Tracker app.
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></windtunnel-scene>
 
-      <press-scene route="press" icon="1f4f0"
+      <press-scene route="press" icon="1f4f0" permament
           path$="scenes/press/press-scene.html"
           class="santa-scene"
           allow-page-scrolling></press-scene>
@@ -357,10 +357,6 @@ var TOOLBAR_DEFAULT_COLOR = '#00c6ed';  // also in css
 
 var DEFAULT_ROUTE = 'village';
 var TRACKER_ROUTE = 'tracker';
-
-// Routes/scenes which should always be accessible, no matter what the day.
-// These scenes are also not removed from the lazy-page switching.
-var PERMANENT_ROUTES = ['village', 'about', 'press'];
 
 Polymer({
   is: 'santa-app',
@@ -730,28 +726,11 @@ Polymer({
   },
 
   _prevSelectedRouteChanged: function() {
-    if (!this.prevSelectedRoute) {
+    // Find and remove the previous scene, if it exists and isn't a permanent scene.
+    var prevSelectedScene = this.$.lazypages.getRoute(this.prevSelectedRoute);
+    if (!prevSelectedScene || prevSelectedScene.hasAttribute('permament')) {
       return;
     }
-
-    // Only remove certain elements from the DOM.
-    var isPermanentScene = PERMANENT_ROUTES.indexOf(this.prevSelectedRoute) !== -1;
-    if (isPermanentScene) {
-      return;
-    }
-
-    // Find and remove the previous scene, if any.
-    var prevSelectedScene = null;
-    for (var i = 0, scene; scene = this.$.lazypages.items[i]; ++i) {
-      if (scene.route == this.prevSelectedRoute) {
-        prevSelectedScene = scene;
-        break;
-      }
-    }
-    if (!prevSelectedScene) {
-      return;
-    }
-
     var dom = Polymer.dom(this.$.lazypages);
     dom.removeChild(prevSelectedScene);
 

@@ -78,9 +78,12 @@ Lazy loads children "pages".
         // sanity, return true if this element can't yet determine which route is valid.
         return true;
       }
-      var q = '[' + this.attrForSelected + '="' + route + '"]';
-      var el = Polymer.dom(this).queryDistributedElements(q);
-      return el[0] || null;
+      if (route) {
+        var q = '[' + this.attrForSelected + '="' + route + '"]';
+        var el = Polymer.dom(this).queryDistributedElements(q);
+        return el[0] || null;
+      }
+      return null;
     },
 
     _selectedItemChanged: function() {
