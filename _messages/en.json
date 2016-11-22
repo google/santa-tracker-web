@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia and Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Back"
+	},
 	"back_to_tracker": {
 		"message": "Back to Tracker"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Clear"
 	},
 	"close": {
 		"message": "Close"
@@ -641,6 +647,9 @@
 	"hard_difficulty": {
 		"message": "Hard"
 	},
+	"help": {
+		"message": "Help"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
@@ -778,6 +787,9 @@
 	},
 	"meta_description": {
 		"message": "Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world."
+	},
+	"meta_title": {
+		"message": "Google Santa Tracker"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
