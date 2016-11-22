@@ -3,6 +3,10 @@ goog.provide('Sharing');
 goog.require('Blockly');
 goog.require('Turtle');
 
+// Constants for loop start and end.
+Sharing.LOOP_START = '(';
+Sharing.LOOP_END = ')';
+
 var blockToInitial = {
 'turtle_colour': 'c',
 'pentagon_stamp': 'p',
@@ -12,7 +16,7 @@ var blockToInitial = {
 'turtle_move_backward': 'b',
 'turtle_turn_left': 'l',
 'turtle_turn_right': 'r',
-'control_repeat': '<'
+'control_repeat': Sharing.LOOP_START
 };
 
 var initialToBlock = {
@@ -44,13 +48,9 @@ Sharing.workspaceToUrl = function() {
       var match = regexes['block'].exec(line);
       urlList.push(blockToInitial[match[1]]);
     } else if (regexes['field'].test(line)) {
-      if(urlList[urlList.length - 1] == '>' || urlList[urlList.length - 1] == '<') {
-        urlList.push('['+regexes['field'].exec(line)[1]+']');
-      } else {
-        urlList.push('['+regexes['field'].exec(line)[1]+']');
-      }
+      urlList.push('['+regexes['field'].exec(line)[1]+']');
     } else if (regexes['endLoop'].test(line)) {
-      urlList.push('>');
+      urlList.push(Sharing.LOOP_END);
     }
   }
   return urlList.join("");
@@ -84,7 +84,7 @@ Sharing.stringToBlocks = function(starterConnection, string) {
       var valueContent = Sharing.getFirstValue(string.substring(i + 1));
       nextBlock = this.makeBlockFromInitial(char, valueContent);
       this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
-    } else if (char == '<') {
+    } else if (char == Sharing.LOOP_START) {
       if (string[i+1] == '[') {
         //if the string is <[x], it's an empty loop.
         var valueContent = Sharing.getFirstValue(string.substring(i + 1));
@@ -108,14 +108,14 @@ Sharing.getOutermostLoop = function(string) {
   var numLoopsOpen = 1;
   var value;
   for (var i=1; i < string.length; i++) {
-    if (string[i] == '<' && string[i+1] != '[') {
+    if (string[i] == Sharing.LOOP_START && string[i+1] != '[') {
       numLoopsOpen += 1;
-    } else if (string[i] == '>') {
+    } else if (string[i] == Sharing.LOOP_END) {
       numLoopsOpen -= 1;
     }
     loop.push(string[i]);
     if (numLoopsOpen == 0) {
-      // Remove the last >
+      // Remove the last end loop.
       loop.pop(loop.length - 1);
       value = Sharing.getFirstValue(string.substring(i));
       return [loop.join(""), value];
@@ -124,11 +124,13 @@ Sharing.getOutermostLoop = function(string) {
 };
 
 Sharing.getFirstValue = function(string) {
+  var bracesCharString = Sharing.LOOP_START + Sharing.LOOP_END + '[]';
   var value = [];
   for (var i=0; i < string.length; i++) {
     if (string[i] == ']') {
       return parseInt(value.join('')) || value.join('');
-    } else if (!'<>[]'.includes(string[i])) {
+    } else if (!bracesCharString.includes(string[i])) {
+      // We haven't reached the start or end of this block's values.
       value.push(string[i]);
     }
   }

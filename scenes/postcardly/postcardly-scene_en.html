@@ -165,8 +165,8 @@ Postcard scene.
         turtleFrameSrc += '?' + queryParams[1];
       }
 
-      //Regex checks for &B= with any letter, number or bracket values following it
-      var shareLandingRegex = /\&B\=([#a-z\d\[\]\<\>]+)/;
+      // Regex checks for &B= with any letter, number or (),[] values following it
+      var shareLandingRegex = /\&B\=([#a-z\d\[\]\(\)]+)/;
 
       var sharing = shareLandingRegex.exec(turtleFrameSrc);
       this.$.blocklyArea.src = turtleFrameSrc;
