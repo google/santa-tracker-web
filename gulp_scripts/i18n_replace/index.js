@@ -79,6 +79,9 @@ module.exports = function replaceMessages(opts) {
             el.removeAttribute('msgid');
 
             switch (el.localName) {
+            case 'title':
+              el.textContent = msg;
+              break;
             case 'i18n-msg':
               if (el.innerHTML !== 'PLACEHOLDER_i18n') {
                 error('i18n-msg was not "PLACEHOLDER_i18n" for %s in: %s', msgid, file.relative);

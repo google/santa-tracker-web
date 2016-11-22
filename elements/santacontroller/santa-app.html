@@ -350,9 +350,6 @@ Santa Tracker app.
 <script>
 (function() {
 
-// Default title of Santa Tracker. Note that this is currently not localized.
-var WINDOW_TITLE = 'Google Santa Tracker';
-
 var TOOLBAR_DEFAULT_COLOR = '#00c6ed';  // also in css
 
 var DEFAULT_ROUTE = 'village';
@@ -705,7 +702,7 @@ Polymer({
     if (raw && String.fromCodePoint) {  // no emoji on IE11
       icon = String.fromCodePoint(parseInt(raw, 16));
     }
-    document.title = icon + WINDOW_TITLE;
+    document.title = icon + this.$.strings.s('meta_title');
 
     if (this.selectedScene && this.selectedScene.is) {
       this._prepareScene(this.selectedScene);
@@ -981,8 +978,7 @@ Polymer({
 
     // TODO(samthor): Use a URL shortener if something large is in the URL (e.g., encoded beard).
     var url = window.location.href;
-    var title = this.$.strings.s('scene-' + this.route) ||
-        this.$.strings.s('santatracker') || document.title;
+    var title = this.$.strings.s('scene-' + this.route) || this.$.strings.s('santatracker') || '';
 
     if (service == 'webshare' && navigator.share) {
       navigator.share({title: title, url: url});
