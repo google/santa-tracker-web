@@ -30,7 +30,11 @@ goog.require('Blockly.Blocks');
 
 goog.require('Blockly.Colours');
 
-var controlColors = {primary:"#ffb300",secondary:"#ef9300",tertiary:"#bf8800"};
+Blockly.Blocks.control.controlColors = {
+  primary:"#ffb300",
+  secondary:"#ef9300",
+  tertiary:"#bf8800"
+};
 
 Blockly.Blocks['control_repeat'] = {
   /**
@@ -66,9 +70,9 @@ Blockly.Blocks['control_repeat'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.control,
-      "colour": controlColors.primary,
-      "colourSecondary": controlColors.secondary,
-      "colourTertiary": controlColors.tertiary
+      "colour": Blockly.Blocks.control.controlColors.primary,
+      "colourSecondary": Blockly.Blocks.control.controlColors.secondary,
+      "colourTertiary": Blockly.Blocks.control.controlColors.tertiary
     });
   }
 };
