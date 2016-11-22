@@ -28,7 +28,6 @@
 goog.provide('Turtle.Blocks');
 
 goog.require('Blockly.Blocks');
-goog.require('Blockly.Colours');
 
 Turtle.Blocks.ICON_SIZE = 48;
 
