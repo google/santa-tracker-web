@@ -61,8 +61,9 @@ module.exports = function replaceMessages(opts) {
 
             // Check e.g., fr for fr-CA, or es for es-419.
             const parts = lang.split('-');
-            if (parts[0] && parts[0] !== lang) {
-              msg = messagesByLang[parts[0]][msgid] || msg;
+            const base = parts[0];
+            if (base && base !== lang && base in messagesByLang) {
+              msg = messagesByLang[base][msgid] || msg;
             }
           }
           return msg ? msg.message : 'MESSAGE_NOT_FOUND';
