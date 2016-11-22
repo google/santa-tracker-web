@@ -14,16 +14,16 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="postcardly-scene.min.js"></script>
+<script src="snowflake-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="postcardly-scene.css" />
+<link rel="stylesheet" href="snowflake-scene.css" />
 <link rel="stylesheet" href="shared-css/footer.css" />
 
 <!--
 Postcard scene.
 -->
-<dom-module id="postcardly-scene">
+<dom-module id="snowflake-scene">
 <template>
   <!-- TODO(madCode): move style to scss and move inline style as well. -->
   <style>
@@ -46,7 +46,7 @@ Postcard scene.
   }
   </style>
 
-  <div id="module-postcardly">
+  <div id="module-snowflake">
     <div id="postcard" class="scene" hidden>
       <div class="bgs-belt selection">
         <div class="track"></div>
@@ -126,7 +126,7 @@ Postcard scene.
 (function() {
   var dev = false;
   Polymer({
-    is: 'postcardly-scene',
+    is: 'snowflake-scene',
     behaviors: [window.SantaSceneBehavior],
     game: null,
 
@@ -152,15 +152,15 @@ Postcard scene.
     },
 
     onShow: function() {
-      var module = this.$['module-postcardly'];
+      var module = this.$['module-snowflake'];
       this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
-      this.scene = new scenes.postcardly.Scene(module);
+      this.scene = new scenes.snowflake.Scene(module);
       var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html';
       // Pass the blocks from the url down to the blockly iframe so
       // it can put them in the workspace.
       var queryParams = window.location.hash.split('?');
-      // Pass along everything after #postcardly.
+      // Pass along everything after #snowflake.
       if (queryParams.length == 2 && queryParams[1]) {
         turtleFrameSrc += '?' + queryParams[1];
       }
@@ -176,7 +176,7 @@ Postcard scene.
       }
       if (dev) {
         this.blocks = "p[125]s[125]c[#006600]<r[30]t[125]>[4]";
-        this.snowflake = 'scenes/postcardly/img/snow-test.png';
+        this.snowflake = 'scenes/snowflake/img/snow-test.png';
         if (dev == 'postcard') {
           this.showPostcard();
         } else {

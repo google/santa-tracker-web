@@ -51,7 +51,7 @@ app.Scene = function(elem) {
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
-  this.elem.find('#shareButton').on('click.postcardly touchend.postcardly', this.showShareOverlay.bind(this));
+  this.elem.find('#shareButton').on('click.snowflake touchend.snowflake', this.showShareOverlay.bind(this));
 };
 
 app.Scene.prototype.startTutorial = function() {
@@ -167,7 +167,7 @@ app.Scene.prototype.showShareOverlay = function() {
     }
     url += params;
   } else {
-    url = 'https://' + window.location.hostname + '/#postcardly' + params;
+    url = 'https://' + window.location.hostname + '/#snowflake' + params;
   }
   this.shareOverlay.show(url, true);
 };

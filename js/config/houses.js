@@ -59,7 +59,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"
 }, {
-  module: "postcardly",
+  module: "snowflake",
   launchDate: new Date('Dec 4, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"

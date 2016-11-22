@@ -104,7 +104,7 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
-  postcardly: {
+  snowflake: {
     typeSafe: true,
     entryPoint: 'app.Scene',
     libraries: [
