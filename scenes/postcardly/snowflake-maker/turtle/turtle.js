@@ -51,7 +51,7 @@ Turtle.pidList = [];
  * Number of milliseconds that execution should delay.
  * @type number
  */
-Turtle.pause = Turtle.DEFAULT_DELAY;
+Turtle.pause = 0;
 
 /**
  * JavaScript interpreter for executing program.
@@ -68,6 +68,8 @@ Turtle.visible = true;
 Turtle.onRepeat = false;
 
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
+
+Turtle.runDelay = Turtle.DEFAULT_DELAY;
 
 /**
  * Initialize Blockly and the turtle.  Called on page load.
@@ -361,7 +363,7 @@ Turtle.display = function() {
 };
 
 Turtle.runCode = function(delay, callback) {
-  Turtle.pause = delay;
+  Turtle.runDelay = delay;
   if (delay > 0) {
     document.getElementById('spinner').style.visibility = 'visible';
   }
@@ -479,8 +481,8 @@ Turtle.execute = function(callback) {
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
       subcode;
-  if (Turtle.pause > 0) {
-    code += 'if (' + loopVar + ' == 0) { pause(300); }\n pause(' + Turtle.pause + ');\n';
+  if (Turtle.runDelay > 0) {
+    code += 'if (' + loopVar + ' == 0) { pause(300); }\n pause(' + Turtle.runDelay + ');\n';
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
@@ -496,6 +498,7 @@ Turtle.execute = function(callback) {
 Turtle.executeChunk_ = function(callback) {
   // All tasks should be complete now.  Clean up the PID list.
   Turtle.pidList.length = 0;
+  Turtle.pause = 0;
   var go;
   do {
     try {
@@ -535,6 +538,7 @@ Turtle.animate = function(id) {
   Turtle.display();
   if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
+    Turtle.pause = Turtle.runDelay;
   }
   if (Turtle.onRepeat || Turtle.sharing) {
     Turtle.pause = 0;
