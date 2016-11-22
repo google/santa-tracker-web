@@ -207,7 +207,8 @@ Postcard scene.
       }
       this.$.blocklyArea.hidden = true;
       this.$.postcard.hidden = false;
-      window.focus();
+      // Remove focus from the blockly iframe (only an issue in Firefox).
+      document.activeElement.blur();
     },
 
     showShareLanding: function() {
