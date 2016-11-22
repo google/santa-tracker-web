@@ -49,9 +49,20 @@ Turtle.pidList = [];
 
 /**
  * Number of milliseconds that execution should delay.
+ * This variable is set by executeChunk to signal when code
+ * is done running and should not be used as signal for when the code is
+ * being run instantaneously vs at normal speed vs at fast speed. For that, use runDelay.
  * @type number
  */
-Turtle.pause = Turtle.DEFAULT_DELAY;
+Turtle.pause = 0;
+
+/**
+ * Number of milliseconds that execution should delay between steps.
+ * This variable is used to signal whether the code is being run instantaneously,
+ * at normal speed, or at a fast speed.
+ * @type number
+ */
+Turtle.runDelay = Turtle.DEFAULT_DELAY;
 
 /**
  * JavaScript interpreter for executing program.
@@ -65,6 +76,11 @@ Turtle.interpreter = null;
  */
 Turtle.visible = true;
 
+/**
+ * Are we making the first part of the
+ * snowflake or one of the 6 stamped repetitions?
+ * @type boolean
+ */
 Turtle.onRepeat = false;
 
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
@@ -361,7 +377,7 @@ Turtle.display = function() {
 };
 
 Turtle.runCode = function(delay, callback) {
-  Turtle.pause = delay;
+  Turtle.runDelay = delay;
   if (delay > 0) {
     document.getElementById('spinner').style.visibility = 'visible';
   }
@@ -479,13 +495,12 @@ Turtle.execute = function(callback) {
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
       subcode;
-  if (Turtle.pause > 0) {
-    code += 'if (' + loopVar + ' == 0) { pause(300); }\n pause(' + Turtle.pause + ');\n';
+  if (Turtle.runDelay > 0) {
+    code += 'if (' + loopVar + ' == 0) { pause(300); }\n pause(' + Turtle.runDelay + ');\n';
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
-      loopVar + '+1), \'no-block-id\');\n' +
-      'pause(0);}';
+      loopVar + '+1), \'no-block-id\');\n}';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100, callback));
 };
@@ -537,6 +552,7 @@ Turtle.animate = function(id) {
   Turtle.display();
   if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
+    Turtle.pause = Turtle.runDelay;
   }
   if (Turtle.onRepeat || Turtle.sharing) {
     Turtle.pause = 0;
