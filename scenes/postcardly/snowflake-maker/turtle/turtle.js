@@ -111,17 +111,12 @@ Turtle.init = function() {
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,penUp,penDown,penWidth,penColour');
 
-  var workspaceHeight = blocklyDiv.clientHeight;
-  var defaultXml = '<xml><block type="snowflake_start" id="' +
-      Turtle.snowflakeStartBlockId + '" deletable="false" movable="false"' +
-      ' x="32" y="32"></block></xml>';
-
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
   Turtle.paper = document.getElementById('paperDiv');
 
-  BlocklyInterface.loadBlocks(defaultXml, true);
+  BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
   Turtle.loadUrlBlocks();
 
 
@@ -158,6 +153,44 @@ Turtle.init = function() {
 };
 
 window.addEventListener('load', Turtle.init);
+
+/**
+ * @return {string} XML representation of the default workspace contents, if
+ *     not set from the URL.
+ */
+Turtle.getDefaultXml = function() {
+  return '<xml>' +
+      '  <block type="snowflake_start" id="SnowflakeStartBlock" deletable="false" movable="false" x="32" y="32">' +
+      '    <next>' +
+      '      <block type="pentagon_stamp">' +
+      '        <value name="SIZE">' +
+      '          <shadow type="dropdown_pentagon">' +
+      '            <field name="CHOICE">125</field>' +
+      '          </shadow>' +
+      '        </value>' +
+      '        <next>' +
+      '          <block type="turtle_colour">' +
+      '            <value name="COLOUR">' +
+      '              <shadow type="dropdown_colour">' +
+      '                <field name="CHOICE">#b3e5fc</field>' +
+      '              </shadow>' +
+      '            </value>' +
+      '            <next>' +
+      '              <block type="triangle_stamp">' +
+      '                <value name="SIZE">' +
+      '                  <shadow type="dropdown_triangle">' +
+      '                    <field name="CHOICE">125</field>' +
+      '                  </shadow>' +
+      '                </value>' +
+      '              </block>' +
+      '            </next>' +
+      '          </block>' +
+      '        </next>' +
+      '      </block>' +
+      '    </next>' +
+      '  </block>' +
+      '</xml>';
+};
 
 Turtle.loadUrlBlocks = function() {
   var regex = /\&B\=([#a-z\d\[\]\(\)]+)/;
