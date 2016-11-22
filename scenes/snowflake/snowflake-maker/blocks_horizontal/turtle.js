@@ -28,7 +28,6 @@
 goog.provide('Turtle.Blocks');
 
 goog.require('Blockly.Blocks');
-goog.require('Blockly.Colours');
 
 Turtle.Blocks.ICON_SIZE = 48;
 
@@ -44,6 +43,14 @@ Turtle.Blocks.makeMenuIcon_ = function(path, value, alt) {
     alt: alt
   };
 };
+
+Turtle.Blocks.categoryColours =
+  {
+    starter: {primary:"#ffeb3b",secondary:"#fdd835",tertiary:"#f9a825"},
+    pen: {primary:"#3f51b5",secondary:"#3949ab",tertiary:"#303f9f"},
+    shapes: {primary:"#0fBD8C",secondary:"#00aa75",tertiary:"#0B8E69"},
+    movement: {primary:"#2196f3",secondary:"#1e88e5",tertiary:"#1976d2"},
+  };
 
 // Extensions to Blockly's language and JavaScript generator.
 Blockly.Blocks['snowflake_start'] = {
@@ -64,9 +71,9 @@ Blockly.Blocks['snowflake_start'] = {
       "nextStatement": "Stamp",
       "inputsInline": true,
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.starter.primary,
-      "colourSecondary": Blockly.Colours.starter.secondary,
-      "colourTertiary": Blockly.Colours.starter.tertiary
+      "colour": Turtle.Blocks.categoryColours['starter'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['starter'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['starter'].tertiary
     });
   }
 };
@@ -98,9 +105,9 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
         "previousStatement": "Start",
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
-        "colour": Blockly.Colours.starter.primary,
-        "colourSecondary": Blockly.Colours.starter.secondary,
-        "colourTertiary": Blockly.Colours.starter.tertiary
+        "colour": Turtle.Blocks.categoryColours['starter'].primary,
+        "colourSecondary": Turtle.Blocks.categoryColours['starter'].secondary,
+        "colourTertiary": Turtle.Blocks.categoryColours['starter'].tertiary
       });
     }
 };
@@ -150,9 +157,9 @@ Blockly.Blocks['turtle_move_forward'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.movement.primary,
-      "colourSecondary": Blockly.Colours.movement.secondary,
-      "colourTertiary": Blockly.Colours.movement.tertiary
+      "colour": Turtle.Blocks.categoryColours['movement'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['movement'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['movement'].tertiary
     });
   }
 };
@@ -166,9 +173,9 @@ Blockly.Blocks['dropdown_move_forward'] = {
           Turtle.Blocks.makeMenuIcon_("forward_lg", '30', 'move 30'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.movement.primary,
-      Blockly.Colours.movement.secondary,
-      Blockly.Colours.movement.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['movement'].primary,
+      Turtle.Blocks.categoryColours['movement'].secondary,
+      Turtle.Blocks.categoryColours['movement'].tertiary
     );
   }
 };
@@ -206,9 +213,9 @@ Blockly.Blocks['turtle_move_backward'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.movement.primary,
-      "colourSecondary": Blockly.Colours.movement.secondary,
-      "colourTertiary": Blockly.Colours.movement.tertiary
+      "colour": Turtle.Blocks.categoryColours['movement'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['movement'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['movement'].tertiary
     });
   }
 };
@@ -222,9 +229,9 @@ Blockly.Blocks['dropdown_move_backward'] = {
           Turtle.Blocks.makeMenuIcon_("back_lg", '30', 'move 30'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.movement.primary,
-      Blockly.Colours.movement.secondary,
-      Blockly.Colours.movement.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['movement'].primary,
+      Turtle.Blocks.categoryColours['movement'].secondary,
+      Turtle.Blocks.categoryColours['movement'].tertiary
     );
   }
 };
@@ -262,9 +269,9 @@ Blockly.Blocks['turtle_turn_left'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.movement.primary,
-      "colourSecondary": Blockly.Colours.movement.secondary,
-      "colourTertiary": Blockly.Colours.movement.tertiary
+      "colour": Turtle.Blocks.categoryColours['movement'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['movement'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['movement'].tertiary
     });
   }
 };
@@ -281,9 +288,9 @@ Blockly.Blocks['dropdown_turn_left'] = {
           Turtle.Blocks.makeMenuIcon_("ccw_180", '180', '180'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.movement.primary,
-      Blockly.Colours.movement.secondary,
-      Blockly.Colours.movement.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['movement'].primary,
+      Turtle.Blocks.categoryColours['movement'].secondary,
+      Turtle.Blocks.categoryColours['movement'].tertiary
     );
   }
 };
@@ -321,9 +328,9 @@ Blockly.Blocks['turtle_turn_right'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.movement.primary,
-      "colourSecondary": Blockly.Colours.movement.secondary,
-      "colourTertiary": Blockly.Colours.movement.tertiary
+      "colour": Turtle.Blocks.categoryColours['movement'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['movement'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['movement'].tertiary
     });
   }
 };
@@ -340,9 +347,9 @@ Blockly.Blocks['dropdown_turn_right'] = {
           Turtle.Blocks.makeMenuIcon_("cw_180", '180', '180'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.movement.primary,
-      Blockly.Colours.movement.secondary,
-      Blockly.Colours.movement.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['movement'].primary,
+      Turtle.Blocks.categoryColours['movement'].secondary,
+      Turtle.Blocks.categoryColours['movement'].tertiary
     );
   }
 };
@@ -361,7 +368,7 @@ Blockly.Blocks['triangle_draw'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Colours.shapes.primary, Blockly.Colours.shapes.secondary, Blockly.Colours.shapes.tertiary);
+    this.setColour(Turtle.Blocks.categoryColours['shapes'].primary, Turtle.Blocks.categoryColours['shapes'].secondary, Turtle.Blocks.categoryColours['shapes'].tertiary);
     this.appendValueInput('SIZE')
         .setCheck('Number')
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png", 40, 40, "draw shape outline"));
@@ -410,9 +417,9 @@ Blockly.Blocks['square_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.shapes.primary,
-      "colourSecondary": Blockly.Colours.shapes.secondary,
-      "colourTertiary": Blockly.Colours.shapes.tertiary
+      "colour": Turtle.Blocks.categoryColours['shapes'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['shapes'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['shapes'].tertiary
     });
   }
 };
@@ -436,9 +443,9 @@ Blockly.Blocks['dropdown_square'] = {
           Turtle.Blocks.makeMenuIcon_("square_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.shapes.primary,
-      Blockly.Colours.shapes.secondary,
-      Blockly.Colours.shapes.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['shapes'].primary,
+      Turtle.Blocks.categoryColours['shapes'].secondary,
+      Turtle.Blocks.categoryColours['shapes'].tertiary
     );
   }
 };
@@ -470,9 +477,9 @@ Blockly.Blocks['pentagon_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.shapes.primary,
-      "colourSecondary": Blockly.Colours.shapes.secondary,
-      "colourTertiary": Blockly.Colours.shapes.tertiary
+      "colour": Turtle.Blocks.categoryColours['shapes'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['shapes'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['shapes'].tertiary
     });
   }
 };
@@ -489,9 +496,9 @@ Blockly.Blocks['dropdown_pentagon'] = {
           Turtle.Blocks.makeMenuIcon_("pentagram_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.shapes.primary,
-      Blockly.Colours.shapes.secondary,
-      Blockly.Colours.shapes.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['shapes'].primary,
+      Turtle.Blocks.categoryColours['shapes'].secondary,
+      Turtle.Blocks.categoryColours['shapes'].tertiary
     );
   }
 };
@@ -529,9 +536,9 @@ Blockly.Blocks['triangle_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.shapes.primary,
-      "colourSecondary": Blockly.Colours.shapes.secondary,
-      "colourTertiary": Blockly.Colours.shapes.tertiary
+      "colour": Turtle.Blocks.categoryColours['shapes'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['shapes'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['shapes'].tertiary
     });
   }
 };
@@ -548,9 +555,9 @@ Blockly.Blocks['dropdown_triangle'] = {
           Turtle.Blocks.makeMenuIcon_("triangle_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.shapes.primary,
-      Blockly.Colours.shapes.secondary,
-      Blockly.Colours.shapes.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['shapes'].primary,
+      Turtle.Blocks.categoryColours['shapes'].secondary,
+      Turtle.Blocks.categoryColours['shapes'].tertiary
     );
   }
 };
@@ -588,9 +595,9 @@ Blockly.Blocks['diamond_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.shapes.primary,
-      "colourSecondary": Blockly.Colours.shapes.secondary,
-      "colourTertiary": Blockly.Colours.shapes.tertiary
+      "colour": Turtle.Blocks.categoryColours['shapes'].primary,
+      "colourSecondary": Turtle.Blocks.categoryColours['shapes'].secondary,
+      "colourTertiary": Turtle.Blocks.categoryColours['shapes'].tertiary
     });
   }
 };
@@ -607,7 +614,7 @@ Blockly.Blocks['turtle_colour'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
+    this.setColour(Turtle.Blocks.categoryColours['pen'].primary, Turtle.Blocks.categoryColours['pen'].secondary, Turtle.Blocks.categoryColours['pen'].tertiary);
     this.appendValueInput('COLOUR')
         .setCheck('Colour')
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_color09.png", 40, 40, "pen icon"));
@@ -646,9 +653,9 @@ Blockly.Blocks['dropdown_colour'] = {
           Turtle.Blocks.makeMenuIcon_("color09", 'random', 'random'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Turtle.Blocks.categoryColours['pen'].primary,
+      Turtle.Blocks.categoryColours['pen'].secondary,
+      Turtle.Blocks.categoryColours['pen'].tertiary
     );
   }
 };

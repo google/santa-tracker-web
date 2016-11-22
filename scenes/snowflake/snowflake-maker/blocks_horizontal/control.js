@@ -30,6 +30,12 @@ goog.require('Blockly.Blocks');
 
 goog.require('Blockly.Colours');
 
+Blockly.Blocks.control.controlColors = {
+  primary:"#ffb300",
+  secondary:"#ef9300",
+  tertiary:"#bf8800"
+};
+
 Blockly.Blocks['control_repeat'] = {
   /**
    * Block for repeat n times (external number).
@@ -64,9 +70,9 @@ Blockly.Blocks['control_repeat'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.control,
-      "colour": Blockly.Colours.control.primary,
-      "colourSecondary": Blockly.Colours.control.secondary,
-      "colourTertiary": Blockly.Colours.control.tertiary
+      "colour": Blockly.Blocks.control.controlColors.primary,
+      "colourSecondary": Blockly.Blocks.control.controlColors.secondary,
+      "colourTertiary": Blockly.Blocks.control.controlColors.tertiary
     });
   }
 };
