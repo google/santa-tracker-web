@@ -484,8 +484,7 @@ Turtle.execute = function(callback) {
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
-      loopVar + '+1), \'no-block-id\');\n' +
-      'pause(0);}';
+      loopVar + '+1), \'no-block-id\');\n}';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100, callback));
 };
@@ -497,7 +496,6 @@ Turtle.execute = function(callback) {
 Turtle.executeChunk_ = function(callback) {
   // All tasks should be complete now.  Clean up the PID list.
   Turtle.pidList.length = 0;
-  Turtle.pause = 0;
   var go;
   do {
     try {
