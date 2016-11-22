@@ -49,10 +49,12 @@
 
     .Instrument-rap {
       margin-left: 40em;
+      overflow: visible;  // arm goes outside frame
     }
 
     .Instrument-sax {
       margin-left: 64em;
+      overflow: visible;  // sax rotates outside frame
     }
 
     .Instrument-synth {

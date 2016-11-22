@@ -26,8 +26,6 @@ app.Audio = function(name, beat) {
   this.beat = beat;
   this.audiosources = Klang.$(name);
 
-  Klang.getCoreInstance();
-
   this.beatSync16th = 4;
   this.beatduration = 60 / Klang.$('jamband_sequencer')._bpm;
   this.beatsPerSecond = 1 / this.beatduration;
@@ -39,15 +37,13 @@ app.Audio = function(name, beat) {
  *
  * @param {number} pattern number, either 0 or 1
  * @param {number} volume gain, in range [0,1]
- * @param {function} callback to invoke once audio is done
+ * @param {function()} callback to invoke once audio is done
  */
 app.Audio.prototype.play = function(pattern, volume, callback) {
   if (!(pattern === 0 || pattern === 1)) {
     console.warn('There are only two patterns. You should pass 0 or 1');
     pattern = 0;
   }
-
-  //this.audiosources.output.gain.value = volume;
 
   var audiosource = this.audiosources.content[pattern];
   audiosource.loop = true;
@@ -81,7 +77,7 @@ app.Audio.prototype.stop = function() {
  * Start playing the provided audiosource at the start of the next bar
  *
  * @param {!AudioSource} audiosource to play
- * @param {function} callback to run then
+ * @param {function()} callback to run then
  */
 app.Audio.prototype.playNext = function(audiosource, callback) {
   var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);

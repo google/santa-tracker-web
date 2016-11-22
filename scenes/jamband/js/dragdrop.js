@@ -17,13 +17,13 @@
 goog.provide('app.DragDrop');
 
 /**
- * @param {!Element} elem that can be dragged
- * @param {!Element} root to use to find droppable targets
+ * @param {!Element|!jQuery} elem that can be dragged
+ * @param {!Element|!jQuery} root to use to find droppable targets
  * @constructor
  */
 app.Draggable = function(elem, root) {
   this.el = $(elem);
-  this.rootEl = root;
+  this.rootEl = $(root);
   this.container = $(elem).parent();
   this.el.data('container', this.container);
 
@@ -83,7 +83,9 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
         currentDraggable.appendTo(this.el.parent());
         currentDraggable.trigger('dropped', this.el.parent().data());
       } else {
-        currentDraggable.appendTo(currentDraggable.data('container'));
+        var container = /** @type {!Element} */ (currentDraggable.data('container'));
+        console.info('container type is', container);
+        currentDraggable.appendTo(container);
         currentDraggable.trigger('dragging');
         currentDraggable.trigger('returned');
       }
@@ -105,7 +107,7 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
 };
 
 /**
- * @param {!Element} e to find left offset
+ * @param {!jQuery.Event} e to find left offset
  * @return {number} combined scrollLeft
  * @private
  */
@@ -120,7 +122,7 @@ app.Draggable.prototype.getScrollOffsetLeft_ = function(e) {
 };
 
 /**
- * @param {!Event} e mouse event
+ * @param {!jQuery.Event} e mouse event
  * @private
  */
 app.Draggable.prototype.mousedown_ = function(e) {
@@ -136,7 +138,7 @@ app.Draggable.prototype.mousedown_ = function(e) {
 };
 
 /**
- * @param {!Event} e touch event
+ * @param {!jQuery.Event} e touch event
  * @private
  */
 app.Draggable.prototype.touchstart_ = function(e) {
@@ -152,7 +154,7 @@ app.Draggable.prototype.touchstart_ = function(e) {
 };
 
 /**
- * @param {!Event} e mouse event
+ * @param {!jQuery.Event} e mouse event
  * @private
  */
 app.Draggable.prototype.mousemove_ = function(e) {
@@ -164,7 +166,7 @@ app.Draggable.prototype.mousemove_ = function(e) {
 };
 
 /**
- * @param {!Event} e touch event
+ * @param {!jQuery.Event} e touch event
  * @private
  */
 app.Draggable.prototype.touchmove_ = function(e) {
@@ -180,7 +182,7 @@ app.Draggable.prototype.touchmove_ = function(e) {
 };
 
 /**
- * @param {!Event} e mouse event
+ * @param {!jQuery.Event} e mouse event
  * @private
  */
 app.Draggable.prototype.mouseup_ = function(e) {
@@ -191,7 +193,7 @@ app.Draggable.prototype.mouseup_ = function(e) {
 };
 
 /**
- * @param {!Event} e touch event
+ * @param {!jQuery.Event} e touch event
  * @private
  */
 app.Draggable.prototype.touchend_ = function(e) {
@@ -204,11 +206,12 @@ app.Draggable.prototype.touchend_ = function(e) {
 /**
  * Creates app.Draggable instances for all valid elements under the root, but
  * only if Web Audio is supported.
- * @param {!Element} root element to search under
+ * @param {!Element|!jQuery} root element to search under
  * @constructor
  */
 app.DragDrop = function(root) {
   if (app.Audio.isSupported()) {
+    root = $(root);
     root.find('.draggable').each(function(index, elem) {
       new app.Draggable($(elem), root);
     });

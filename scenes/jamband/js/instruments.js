@@ -40,9 +40,9 @@ app.Instrument = function(name, options) {
     this.audio = new app.Fallback(name);
   }
 
-  this.el.on('dropped', (function(e, data) {
+  this.el.on('dropped', (e, data) => {
     this.drop(data);
-  }).bind(this));
+  });
 
   this.el.on('returned', this.reset.bind(this));
   this.el.on('dragging', this.drag.bind(this));
@@ -61,7 +61,7 @@ app.Instrument.prototype.preview = function() {
 
 /**
  * Start this instrument playing.
- * @param {object} data
+ * @param {{pattern: number, volume: number}} data
  */
 app.Instrument.prototype.play = function(data) {
   var onPlaying = (function() {
@@ -87,6 +87,7 @@ app.Instrument.prototype.drag = function() {
 
 /**
  * Called when this Instrument is dropped.
+ * @param {{pattern: number, volume: number}} data
  */
 app.Instrument.prototype.drop = function(data) {
   this.play(data);
@@ -111,7 +112,13 @@ app.Instrument.prototype.reset = function() {
 app.Instrument.prototype.putOnStage = function(stage) {
   this.el.trigger('dragging');
   this.el.appendTo(stage);
-  this.el.trigger('dropped', stage.data());
+
+  const raw = stage.data();
+  const data = {
+    pattern: +raw['pattern'],
+    volume: +raw['volume'],
+  };
+  this.el.trigger('dropped', data);
 };
 
 /**
@@ -135,11 +142,11 @@ app.Instrument.prototype.countOnStage = function() {
 /**
  * Game instruments
  *
- * @param {!Element} elem A DOM element.
+ * @param {!Element|!jQuery} elem A DOM element.
  * @constructor
  */
 app.Instruments = function(elem) {
-  this.elem = elem;
+  this.elem = $(elem);
   app.Instrument.prototype.elem = elem;
   this.stages = elem.find('.Stage');
 
@@ -230,7 +237,7 @@ app.Instruments.prototype.reset = function() {
  */
 app.Instruments.prototype.save = function() {
   if (!app.Audio.isSupported()) {
-    return false;
+    return '';
   }
 
   var instruments = [];
@@ -249,7 +256,7 @@ app.Instruments.prototype.save = function() {
   });
 
   if (noInstrumentsOnStage) {
-    return false;
+    return '';
   }
 
   return instruments.join(',');

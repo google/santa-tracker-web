@@ -35,6 +35,7 @@ app.Game = function(elem) {
   this.scene = this.elem.find('.scene');
   this.gui = this.elem.find('.gui');
   this.shareOverlay = null;
+  this.gameStartTime = +new Date;
 
   this.drawer = new app.Drawer(this.elem);
   this.lights = new app.Lights(this.elem);

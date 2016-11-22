@@ -19,10 +19,11 @@ goog.provide('app.Drawer');
 /**
  * A drawer to store the instruments in
  *
- * @param {!Element} elem A DOM element which wraps the game.
+ * @param {!Element|!jQuery} elem A DOM element which wraps the game.
  * @constructor
  */
 app.Drawer = function(elem) {
+  elem = $(elem);
   this.drawer = elem.find('.Drawer');
   var tab = elem.find('#drawer-tab');
   var scrollable = elem.find('#drawer-scrollable');
@@ -41,6 +42,10 @@ app.Drawer = function(elem) {
 
   elem.find('#drawer-arrow--right').on('click.jamband touchend.jamband', function() {
     scrollToOffset(1);
+  });
+
+  scrollable.on('scroll', function() {
+    // TODO(samthor): Hide/show buttons on l/r.
   });
 };
 

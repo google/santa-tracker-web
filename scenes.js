@@ -81,7 +81,6 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   jamband: {
-    typeSafe: false,
     entryPoint: 'app.Game'
   },
   jetpack: {

@@ -19,10 +19,11 @@ goog.provide('app.Lights');
 /**
  * Lighting interactions
  *
- * @param {!Element} elem A DOM element which wraps the game.
+ * @param {!Element|!jQuery} elem A DOM element which wraps the game.
  * @constructor
  */
 app.Lights = function(elem) {
+  elem = $(elem);
   var lights = elem.find('.Lights');
   this.floorLights = lights.find('.Light-floor');
   this.ceilingLights = lights.find('.Light-ceiling');
