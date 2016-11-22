@@ -20,14 +20,6 @@
   right: 16px;
   position: absolute;
   width: 100px;
-
-  @media (min-width: 661px) {
-    bottom: 80px;
-  }
-
-  @media (min-width: 1025px) {
-    bottom: 15px;
-  }
 }
 
 .big-button-layer {

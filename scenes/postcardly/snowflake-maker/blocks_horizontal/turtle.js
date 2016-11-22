@@ -64,9 +64,9 @@ Blockly.Blocks['snowflake_start'] = {
       "nextStatement": "Stamp",
       "inputsInline": true,
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.control.primary,
-      "colourSecondary": Blockly.Colours.control.secondary,
-      "colourTertiary": Blockly.Colours.control.tertiary
+      "colour": Blockly.Colours.starter.primary,
+      "colourSecondary": Blockly.Colours.starter.secondary,
+      "colourTertiary": Blockly.Colours.starter.tertiary
     });
   }
 };
@@ -98,9 +98,9 @@ Blockly.Blocks['copy_to_make_snowflake'] = {
         "previousStatement": "Start",
         "inputsInline": true,
         "category": Blockly.Categories.turtle,
-        "colour": Blockly.Colours.control.primary,
-        "colourSecondary": Blockly.Colours.control.secondary,
-        "colourTertiary": Blockly.Colours.control.tertiary
+        "colour": Blockly.Colours.starter.primary,
+        "colourSecondary": Blockly.Colours.starter.secondary,
+        "colourTertiary": Blockly.Colours.starter.tertiary
       });
     }
 };
@@ -150,9 +150,9 @@ Blockly.Blocks['turtle_move_forward'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.movement.primary,
+      "colourSecondary": Blockly.Colours.movement.secondary,
+      "colourTertiary": Blockly.Colours.movement.tertiary
     });
   }
 };
@@ -166,9 +166,9 @@ Blockly.Blocks['dropdown_move_forward'] = {
           Turtle.Blocks.makeMenuIcon_("forward_lg", '30', 'move 30'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Blockly.Colours.movement.primary,
+      Blockly.Colours.movement.secondary,
+      Blockly.Colours.movement.tertiary
     );
   }
 };
@@ -206,9 +206,9 @@ Blockly.Blocks['turtle_move_backward'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.movement.primary,
+      "colourSecondary": Blockly.Colours.movement.secondary,
+      "colourTertiary": Blockly.Colours.movement.tertiary
     });
   }
 };
@@ -222,9 +222,9 @@ Blockly.Blocks['dropdown_move_backward'] = {
           Turtle.Blocks.makeMenuIcon_("back_lg", '30', 'move 30'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Blockly.Colours.movement.primary,
+      Blockly.Colours.movement.secondary,
+      Blockly.Colours.movement.tertiary
     );
   }
 };
@@ -262,9 +262,9 @@ Blockly.Blocks['turtle_turn_left'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.movement.primary,
+      "colourSecondary": Blockly.Colours.movement.secondary,
+      "colourTertiary": Blockly.Colours.movement.tertiary
     });
   }
 };
@@ -281,9 +281,9 @@ Blockly.Blocks['dropdown_turn_left'] = {
           Turtle.Blocks.makeMenuIcon_("ccw_180", '180', '180'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Blockly.Colours.movement.primary,
+      Blockly.Colours.movement.secondary,
+      Blockly.Colours.movement.tertiary
     );
   }
 };
@@ -321,9 +321,9 @@ Blockly.Blocks['turtle_turn_right'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.movement.primary,
+      "colourSecondary": Blockly.Colours.movement.secondary,
+      "colourTertiary": Blockly.Colours.movement.tertiary
     });
   }
 };
@@ -340,9 +340,9 @@ Blockly.Blocks['dropdown_turn_right'] = {
           Turtle.Blocks.makeMenuIcon_("cw_180", '180', '180'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Blockly.Colours.movement.primary,
+      Blockly.Colours.movement.secondary,
+      Blockly.Colours.movement.tertiary
     );
   }
 };
@@ -361,7 +361,7 @@ Blockly.Blocks['triangle_draw'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
+    this.setColour(Blockly.Colours.shapes.primary, Blockly.Colours.shapes.secondary, Blockly.Colours.shapes.tertiary);
     this.appendValueInput('SIZE')
         .setCheck('Number')
         .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png", 40, 40, "draw shape outline"));
@@ -410,9 +410,9 @@ Blockly.Blocks['square_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.shapes.primary,
+      "colourSecondary": Blockly.Colours.shapes.secondary,
+      "colourTertiary": Blockly.Colours.shapes.tertiary
     });
   }
 };
@@ -436,9 +436,9 @@ Blockly.Blocks['dropdown_square'] = {
           Turtle.Blocks.makeMenuIcon_("square_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Blockly.Colours.shapes.primary,
+      Blockly.Colours.shapes.secondary,
+      Blockly.Colours.shapes.tertiary
     );
   }
 };
@@ -470,9 +470,9 @@ Blockly.Blocks['pentagon_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.shapes.primary,
+      "colourSecondary": Blockly.Colours.shapes.secondary,
+      "colourTertiary": Blockly.Colours.shapes.tertiary
     });
   }
 };
@@ -489,9 +489,9 @@ Blockly.Blocks['dropdown_pentagon'] = {
           Turtle.Blocks.makeMenuIcon_("pentagram_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Blockly.Colours.shapes.primary,
+      Blockly.Colours.shapes.secondary,
+      Blockly.Colours.shapes.tertiary
     );
   }
 };
@@ -529,9 +529,9 @@ Blockly.Blocks['triangle_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.shapes.primary,
+      "colourSecondary": Blockly.Colours.shapes.secondary,
+      "colourTertiary": Blockly.Colours.shapes.tertiary
     });
   }
 };
@@ -548,9 +548,9 @@ Blockly.Blocks['dropdown_triangle'] = {
           Turtle.Blocks.makeMenuIcon_("triangle_6", '125', '125'),
         ]), 'CHOICE');
     this.setOutput(true);
-    this.setColour(Blockly.Colours.pen.primary,
-      Blockly.Colours.pen.secondary,
-      Blockly.Colours.pen.tertiary
+    this.setColour(Blockly.Colours.shapes.primary,
+      Blockly.Colours.shapes.secondary,
+      Blockly.Colours.shapes.tertiary
     );
   }
 };
@@ -588,9 +588,9 @@ Blockly.Blocks['diamond_stamp'] = {
       "previousStatement": "Stamp",
       "nextStatement": "Stamp",
       "category": Blockly.Categories.turtle,
-      "colour": Blockly.Colours.pen.primary,
-      "colourSecondary": Blockly.Colours.pen.secondary,
-      "colourTertiary": Blockly.Colours.pen.tertiary
+      "colour": Blockly.Colours.shapes.primary,
+      "colourSecondary": Blockly.Colours.shapes.secondary,
+      "colourTertiary": Blockly.Colours.shapes.tertiary
     });
   }
 };

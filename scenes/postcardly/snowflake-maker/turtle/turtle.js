@@ -123,9 +123,13 @@ Turtle.init = function() {
   // Onresize will be called as soon as we register it in IE, so we hold off
   // on registering it until everything it references is defined.
   onresize = function() {
+    var totalHeight = document.getElementById('visualization').offsetHeight;
+    var totalWidth = document.getElementById('visualization').offsetWidth;
+    var paddingHeight = window.innerHeight > 700 ? 80: 40;
+    var paddingWidth = 32;
     Turtle.DISPLAY_SIZE = Math.min(
-        document.getElementById('visualization').offsetWidth - 32,
-        document.getElementById('visualization').offsetHeight - 160);
+        totalWidth - paddingWidth,
+        totalHeight - paddingHeight);
     Turtle.paper.style.height = Turtle.DISPLAY_SIZE + 'px';
     Turtle.paper.style.width = Turtle.DISPLAY_SIZE + 'px';
     document.getElementById('display').height = Turtle.DISPLAY_SIZE;
