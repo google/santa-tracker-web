@@ -17,33 +17,7 @@
 goog.provide('app.shared.utils');
 
 app.shared.utils = (function() {
-  // Feature detection
-  var ANIMATION, ANIMATION_END, TRANSITION_END, name;
-  var el = document.createElement('div'),
-    animationNames = {
-      'WebkitAnimation': 'webkitAnimationEnd',
-      'MozAnimation': 'animationend',
-      'OAnimation': 'oAnimationEnd oanimationend',
-      'animation': 'animationend'
-    },
-    transitionNames = {
-      'WebkitAnimation': 'webkitTransitionEnd',
-      'MozAnimation': 'transitionend',
-      'OAnimation': 'oTransitionEnd otransitionend',
-      'animation': 'transitionend'
-    };
-
-  for (name in animationNames) {
-    if (el.style[name] !== undefined) {
-      ANIMATION = name;
-      ANIMATION_END = animationNames[name];
-      TRANSITION_END = transitionNames[name];
-    }
-  }
-
   var utils = {
-    ANIMATION_END: ANIMATION_END,
-    TRANSITION_END: TRANSITION_END,
 
     /**
      * Assigns an animation class to the selected elements, removing it when
@@ -55,7 +29,7 @@ app.shared.utils = (function() {
     animWithClass: function(el, name, opt_cb) {
       var elem = $(el);
 
-      elem.one(ANIMATION_END + ' ' + TRANSITION_END, function(e) {
+      elem.one('animationend transitionend', function(e) {
         elem.removeClass(name);
         if (opt_cb) {
           opt_cb.apply(elem[0]);

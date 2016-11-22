@@ -35,9 +35,9 @@ window.santaApp.fire = function(name, data) {}
 
 /**
  * @param {string} id of scene/module
- * @return {boolean} whether scene is unlocked (unknown is always locked)
+ * @return {boolean|undefined} whether scene is open (undefined is unknown/not part of village)
  */
-window.santaApp.sceneIsUnlocked = function(id) {}
+window.santaApp.sceneIsOpen = function(id) {}
 
 /**
  * @type {number} size of header

@@ -456,7 +456,7 @@ Game.prototype.watchSceneSize_ = function() {
  * @private
  */
 Game.prototype.reuseBubbles_ = function() {
-  this.bubblesElem.on(utils.TRANSITION_END, function(event) {
+  this.bubblesElem.on('transitionend', function(event) {
     Bubble.push(event.target.bubble);
   });
 };

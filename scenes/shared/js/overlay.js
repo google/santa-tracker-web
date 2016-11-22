@@ -41,11 +41,11 @@ app.shared.Overlay.prototype.show = function() {
 app.shared.Overlay.prototype.hide = function(opt_callback) {
   var elem = this.elem;
   var handler = function() {
-    elem.removeEventListener(app.shared.utils.ANIMATION_END, handler);
+    elem.removeEventListener('animationend', handler);
     elem.classList.remove('is-visible');
     elem.classList.remove('is-closed');
     opt_callback && opt_callback();
   };
-  elem.addEventListener(app.shared.utils.ANIMATION_END, handler);
+  elem.addEventListener('animationend', handler);
   elem.classList.add('is-closed');
 };

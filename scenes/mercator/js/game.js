@@ -53,7 +53,7 @@ app.Game = function(elem) {
   this.startOnReady = false;
 
   // Remove success messages on hide
-  this.elem.on(utils.ANIMATION_END, '.country-match', function(event) {
+  this.elem.on('animationend', '.country-match', function(event) {
     $(event.target).remove();
   });
 

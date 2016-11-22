@@ -99,7 +99,7 @@ function queueRandomVideo() {
   window.clearTimeout(videoTimeout);
   videoTimeout = window.setTimeout(function() {
     var opts = Object.keys(window.santaApp.videos).filter(function(scene) {
-      return window.santaApp.sceneIsUnlocked(scene);
+      return window.santaApp.sceneIsOpen(scene) !== false;
     });
 
     var choice = opts[Math.floor(Math.random() * opts.length)];

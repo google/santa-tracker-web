@@ -78,7 +78,7 @@ LevelUp.prototype.numberHidden_ = function() {
  * @private
  */
 LevelUp.prototype.numberShown_ = function() {
-  timeoutOneEvent(this.numberElem, app.shared.utils.TRANSITION_END, 0.5, this.numberHidden_.bind(this));
+  timeoutOneEvent(this.numberElem, 'transitionend', 0.5, this.numberHidden_.bind(this));
   this.numberElem.addClass('hide');
   this.bgElem.css('border-width', 0);
 
@@ -92,10 +92,10 @@ LevelUp.prototype.numberShown_ = function() {
  */
 LevelUp.prototype.show = function(level, opt_callback) {
   this.bgElem.addClass('is-visible');
-  timeoutOneEvent(this.bgElem, app.shared.utils.TRANSITION_END, 1.0, opt_callback);
+  timeoutOneEvent(this.bgElem, 'transitionend', 1.0, opt_callback);
   this.bgElem.css('border-width', this.bgBorderWidth);
 
-  timeoutOneEvent(this.numberElem, app.shared.utils.ANIMATION_END, 1.5, this.numberShown_.bind(this));
+  timeoutOneEvent(this.numberElem, 'animationend', 1.5, this.numberShown_.bind(this));
   this.numberElem.text('' + level).addClass('show');
 
   window.santaApp.fire('sound-trigger', 'level_transition_close');

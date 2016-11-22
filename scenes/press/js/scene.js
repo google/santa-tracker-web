@@ -80,7 +80,7 @@ app.Scene.prototype.init_ = function() {
 app.Scene.prototype.unlockCards_ = function() {
   this.cards.forEach(function(element, index) {
     var moduleName = element.key;
-    if (!window.santaApp.sceneIsUnlocked(moduleName)) {
+    if (window.santaApp.sceneIsOpen(moduleName) === false) {
       element.locked = true;
     }
   });

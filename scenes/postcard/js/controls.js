@@ -17,7 +17,6 @@
 goog.provide('app.Controls');
 
 goog.require('app.Constants');
-goog.require('app.throttle');
 
 /**
  * Handles user input for controlling the postcard share scene.
@@ -34,10 +33,10 @@ app.Controls = function(scene) {
   this.keys = {};
   this.start = { x: 0, y: 0 };
 
-  this.onKeyDown_ = app.throttle.throttle(this.onKeyDown_.bind(this), 500);
+  this.limitOnKeyDown_ = throttle(this.onKeyDown_.bind(this), 500);
 
   // Let's bind our events.
-  $(window).on('keydown.sendamessage', this.onKeyDown_);
+  $(window).on('keydown.sendamessage', this.limitOnKeyDown_);
   this.scene.elem.on('touchstart.sendamessage', this.handleTouchStart_.bind(this));
   this.scene.elem.on('touchend.sendamessage', this.handleTouchEnd_.bind(this));
 };

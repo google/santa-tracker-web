@@ -17,12 +17,10 @@
 goog.provide('app.Game');
 
 goog.require('Constants');
-goog.require('app.shared.utils');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
-goog.require('app.utils');
 goog.require('Door');
 goog.require('Cards');
 goog.require('LevelModel');
@@ -492,7 +490,7 @@ Game.prototype.finishLevel = function() {
 
   this.levelUp
     .bgElem
-    .one(utils.TRANSITION_END, prepareNextLevel.bind(this));
+    .one('transitionend', prepareNextLevel.bind(this));
 
   function prepareNextLevel() {
     // Update our time for this level

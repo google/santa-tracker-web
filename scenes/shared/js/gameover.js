@@ -47,7 +47,10 @@ function Gameover(game, elem) {
   playExtraBtn && playExtraBtn.addEventListener('click', function(e) {
     e.preventDefault();
     this._hide(e);
-    this.game.playExtra();
+
+    if ('playExtra' in this.game) {
+      this.game['playExtra']();
+    }
   }.bind(this));
 }
 
