@@ -54,6 +54,8 @@ Santa Tracker app.
       mute="{{userMute}}"
       pause="{{userPause}}">
 
+    <santa-overlay id="overlay" hidden$="[[!userPause]]"></santa-overlay>
+
     <!-- Scenes -->
     <lazy-pages id="lazypages"
         selected="{{route}}"
@@ -119,6 +121,7 @@ Santa Tracker app.
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codeboogie/img/loading.svg"
+          hero-src="scenes/codeboogie/img/share.svg"
           class="santa-scene"></codeboogie-scene>
 
       <codelab-scene route="codelab" icon="1f4dd"
@@ -172,6 +175,7 @@ Santa Tracker app.
           header-color="#fdbe27"
           loading-bg-color="#fdbe27"
           loading-src="scenes/jamband/img/loading.svg"
+          hero-src="scenes/jamband/img/share.svg"
           class="santa-scene"></jamband-scene>
 
       <jetpack-scene route="jetpack" icon="1f680"
@@ -263,6 +267,7 @@ Santa Tracker app.
           header-color="#00904a"
           loading-bg-color="#29B6F6"
           loading-src="scenes/santasearch/img/loading.svg"
+          hero-src="scenes/santasearch/img/gameover.svg"
           class="santa-scene"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
@@ -271,6 +276,7 @@ Santa Tracker app.
           header-color="#4172e8"
           loading-bg-color="#83D7F5"
           loading-src="scenes/santaselfie/img/loading.svg"
+          hero-src="scenes/santaselfie/img/share.svg"
           class="santa-scene"></santaselfie-scene>
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
@@ -548,6 +554,7 @@ Polymer({
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
     'game-start': 'onStartGame',
+    'game-resume': 'onResumeGame',
     'game-stop': 'onStopGame',
     'share': 'onShare',
   },
@@ -696,6 +703,10 @@ Polymer({
       meta.content = color || TOOLBAR_DEFAULT_COLOR;
     }
 
+    // Reset the overlay.
+    this.$.overlay.reset();
+    this.$.overlay.hero = scene && scene.getAttribute('hero-src');
+
     // Optionally update the document title (with emoji/scene name).
     var raw = scene && scene.getAttribute('icon');
     var icon = '';
@@ -734,7 +745,7 @@ Polymer({
     el.loaded = true;
 
     var retainAttr = [
-      'route', 'mode', 'allow-page-scrolling', 'header-color', 'youtube-id'
+      'route', 'mode', 'allow-page-scrolling', 'header-color', 'youtube-id', 'hero-src'
     ];
     retainAttr.forEach(function(attr) {
       if (prevSelectedScene.hasAttribute(attr)) {
@@ -776,8 +787,14 @@ Polymer({
     return this.$.lazypages.isValidRoute(this.route);
   },
 
-  /** Handler for 'game-start' event. Shows the pause/restart buttons and starts the game. */
+  /**
+   * Handler for 'game-start' event. Resests overlay state, and if the game supports pausing,
+   * shows those buttons and starts the scene.
+   */
   onStartGame: function() {
+    this.userPause = false;
+    this.$.overlay.reset();
+
     var scene = this.selectedScene;
     if (scene && 'pause' in scene) {
       this.$.chrome.hasGameButtons = true;
@@ -785,9 +802,22 @@ Polymer({
     }
   },
 
+  /** Handler for 'game-resume' event. Just unpauses. */
+  onResumeGame: function() {
+    this.userPause = false;
+  },
+
   /** Handler for 'game-stop' event. Fired by the gameover shared JS component. */
-  onStopGame: function() {
+  onStopGame: function(event) {
     this.$.chrome.hasGameButtons = false;
+
+    var o = this.$.overlay;
+    var detail = event.detail || {};
+    o.score = detail.score || null;
+    o.playExtra = detail.hasPlayExtra || false;
+    o.shareUrl = detail.url || null;
+
+    this.userPause = true;
   },
 
   _computePause: function(userPause, pageInBackground) {
@@ -798,6 +828,9 @@ Polymer({
     var scene = this.selectedScene;
     if (scene && 'pause' in scene) {  // nb. does it implement SantaSceneGameButtonsBehavior
       scene.pause = pause;
+    }
+    if (!pause) {
+      this.selectedScene && this.selectedScene.focus();
     }
   },
 

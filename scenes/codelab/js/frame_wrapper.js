@@ -107,7 +107,7 @@ app.FrameWrapper.prototype.triggerSound = function(event) {
 app.FrameWrapper.prototype.gameover = function() {
   this.isPlaying = false;
 
-  this.gameoverView.show(1000, 10);
+  this.gameoverView.show(0, 10);
 
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'codelab',

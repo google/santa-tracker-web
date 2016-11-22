@@ -1,0 +1,88 @@
+@mixin ButtonConfig($bg, $offset: 0, $height: 4px) {
+  background-color: $bg;
+  box-shadow: $offset $height 0 darken($bg, 12%), 2px ($height + 3px) 0 rgba(0, 0, 0, 0.16);
+
+  &:active {
+    transform: translate($offset, $height) translateZ(0);
+  }
+}
+
+.Button {
+  border: none;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.1s, box-shadow 0.1s;
+  transform: translateZ(0);
+  will-change: transform;
+  padding: 0;
+
+  // instead of outline, use pseudo-before element to create shadow
+  outline: none;
+  &::before {
+    content: '';
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+  }
+  &:focus::before {
+    visibility: visible;
+  }
+
+  &:active {
+    box-shadow: none !important;
+  }
+
+  border-radius: 4px;
+  @include ButtonConfig(#99529f, 0, 4px);
+
+  &.Button--share {
+    border-radius: 1000px;
+    @include ButtonConfig(#ffc101, 1px, 4px);
+
+    width: 42px;
+    height: 42px;
+    font-size: 0;
+
+    &#gplus {
+      iron-icon {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+@media (min-height: 660px) {
+  .Button {
+    font-size: 24px;
+    line-height: 42px;
+
+    &.Button--share {
+      width: 80px;
+      height: 80px;
+
+      iron-icon {
+        width: 48px;
+        height: 48px;
+      }
+      &#gplus iron-icon {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+}

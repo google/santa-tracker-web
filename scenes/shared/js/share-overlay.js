@@ -16,92 +16,19 @@
 
 goog.provide('app.shared.ShareOverlay');
 
-goog.require('app.shared.Overlay');
-goog.require('app.shared.ShareButtons');
-goog.require('app.shared.utils');
-
 /**
  * Gameover screen.
- * @param {!Element|!jQuery} elem The gameover element.
+ * @param {*} elem Ignored.
  * @constructor
  * @struct
  */
-app.shared.ShareOverlay = function(elem) {
-  this.elem = app.shared.utils.unwrapElement(elem);
-
-  this.overlay = new app.shared.Overlay(this.elem);
-  this.shareButtons = new app.shared.ShareButtons(this.elem.querySelector('.shareButtons'));
-
-  this.closeElem = this.elem.querySelector('.shareOverlay-close');
-  this.urlElem = this.elem.querySelector('.shareOverlay-url');
-
-  this.closeElem.addEventListener('click', this.hide.bind(this, null));
-  this.urlElem.addEventListener('click', this.selectUrl.bind(this));
-};
-
-/**
- * Select the input box's entire contents.
- */
-app.shared.ShareOverlay.prototype.selectUrl = function() {
-  this.urlElem.select();
-};
+app.shared.ShareOverlay = function(elem) {};
 
 /**
  * Shows the share screen with an animation.
  * @param {string} url The url to share.
- * @param {boolean} shorten Should the url be shortened?
+ * @param {*} shorten Ignored
  */
 app.shared.ShareOverlay.prototype.show = function(url, shorten) {
-  if (!url) {
-    throw new Error('No url to share.');
-  }
-
-  // Shorten url
-  if (shorten) {
-    this.shorten_(url, function(shortened) {
-      this.show(shortened, false);
-    }.bind(this));
-    return;
-  }
-
-  this.urlElem.value = url;
-  this.shareButtons.setUrl(url);
-  this.overlay.show();
-
-  window.santaApp.fire('analytics-track-share', null);
-
-  // delay until after the overlay is visible
-  window.setTimeout(function() {
-    this.selectUrl();
-  }.bind(this), 0);
-};
-
-/**
- * Shorten a url with Google shortener.
- * @param {string} url The long url.
- * @param {function(string)} callback Call this function with the shortened url.
- * @private
- */
-app.shared.ShareOverlay.prototype.shorten_ = function(url, callback) {
-  var x = new XMLHttpRequest();
-  x.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyA4LaOn5d1YRsJIOTlhrm7ONbuJ4fn7AuE')
-  x.onload = function() {
-    var shortUrl = null;
-    try {
-      // force HTTPS on goo.gl links
-      var json = JSON.parse(x.responseText);
-      shortUrl = json['id'].replace('http://goo.gl', 'https://goo.gl');
-    } catch (e) {}
-    callback(shortUrl || url);
-  };
-  x.setRequestHeader('Content-Type', 'application/json');
-  x.send(JSON.stringify({longUrl: url}));
-};
-
-/**
- * Hides the share screen with an animation.
- * @param {function()=} opt_callback Runs when the animation is finished.
- */
-app.shared.ShareOverlay.prototype.hide = function(opt_callback) {
-  this.overlay.hide(opt_callback);
+  window.santaApp.fire('game-stop', {url});
 };

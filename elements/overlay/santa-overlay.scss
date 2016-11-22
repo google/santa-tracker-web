@@ -1,0 +1,213 @@
+$color-purple: #99529f;
+$height-lr: 440px;   // at this height or below, use side-by-side mode
+$width-base: 240px;  // min width of overlay
+$header-size: 44px;
+
+@import "sass/_button.scss";
+
+h2 {
+  color: #fff;
+  opacity: 0.95;
+  margin: 0;
+  font-size: 2.875em;
+  line-height: 1.25em;
+  font-family: 'Lobster';
+}
+h4 {
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;  // TODO(samthor): Workaround for scenes, which have UI/buttons in 1xx.
+}
+.fit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#background {
+  background-color: var(--santa-toolbar-color, #00c6ed);
+  opacity: 0.9;
+  transition: opacity 0.1s;
+
+  &.fadeout {
+    opacity: 0;
+  }
+}
+
+#start {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: url(img/startbutton.svg) no-repeat;
+  height: 210px;
+  width: 177px;
+  margin-bottom: 11px;
+
+  @media (max-height: $height-lr) {
+    margin-bottom: 0;
+    margin-right: 11px;
+  }
+
+  &:active {
+    background-position: -177px 0;
+  }
+}
+
+// Normally, display the hero above the controls.
+#main {
+  flex-direction: column;
+  top: $header-size;
+
+  // But below a certain height, display the feature/controls side-by-side. The hero image will be
+  // flat to the bottom of the page (nb: an iPhone 6+ is 414px high).
+  @media (max-height: $height-lr) {
+    flex-direction: row;
+
+    #hero {
+      align-self: flex-end;
+    }
+  }
+
+  transition: transform 0.1s;
+
+  &.fadeout {
+    transform: transformY(100%);
+  }
+}
+
+#controls {
+  background: rgba(255, 255, 255, 0.25);
+  width: $width-base;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  position: relative;
+
+  .Button {
+    margin-bottom: 12px;
+  }
+
+  .Button--share {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  #shareButtons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  section {
+    padding: 4px 8px;
+
+    &:first-child {
+      padding-bottom: 0;
+    }
+    &.background {
+      border-radius: 8px;
+      background: $color-purple;
+      order: -1;
+    }
+    &#controlArea {
+      .Button {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  #url {
+    margin-top: 4px;
+    background: #fff;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: inset 2px 3px 0 rgba(0, 0, 0, 0.16);
+    box-sizing: border-box;
+    color: #6a1B9a;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    height: 34px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    outline: none;
+    padding: 0;
+    padding-top: 3px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+#hero {
+  background: url(img/gameover.svg) no-repeat bottom center;
+  background-size: contain;
+  width: $width-base;
+  padding-bottom: 136px;  // nb. should be enough to contain images
+  text-align: center;
+
+  &.share {
+    background-image: url(img/share.svg);
+  }
+
+  .score {
+    color: #fff;
+    line-height: 42px;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0;
+    text-shadow: 1px 2px 0 rgba(0,0,0,0.13);  /* TODO: grow with font-size */
+  }
+}
+
+@media (min-height: 660px) {
+  #hero {
+    width: 320px;
+    padding-bottom: 218px;
+  }
+  #controls {
+    width: 320px;
+
+    #url {
+      height: 48px;
+      font-size: 24px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    #controls {
+      width: 500px;
+
+      #url {
+        height: 64px;
+        font-size: 32px;
+      }
+    }
+  }
+
+  #main {
+    font-size: 18px;
+  }
+}
