@@ -58,8 +58,11 @@ module.exports = function replaceMessages(opts) {
           if (!msg) {
             recordMissing(msgid, lang);
             msg = messagesByLang['en'][msgid];
-            if (lang === 'fr-CA') {
-              msg = messagesByLang['fr'][msgid] || msg;
+
+            // Check e.g., fr for fr-CA, or es for es-419.
+            const parts = lang.split('-');
+            if (parts[0] && parts[0] !== lang) {
+              msg = messagesByLang[parts[0]][msgid] || msg;
             }
           }
           return msg ? msg.message : 'MESSAGE_NOT_FOUND';
