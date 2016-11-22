@@ -136,7 +136,7 @@ Blockly.Blocks['turtle_move_forward'] = {
       "args0": [
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_forward_sm.png",
           "width": 40,
           "height": 40,
           "alt": "move forward",
@@ -192,7 +192,7 @@ Blockly.Blocks['turtle_move_backward'] = {
       "args0": [
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_back_sm.png",
           "width": 40,
           "height": 40,
           "alt": "move backward",
@@ -248,7 +248,7 @@ Blockly.Blocks['turtle_turn_left'] = {
       "args0": [
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_ccw_030.png",
           "width": 40,
           "height": 40,
           "alt": "turn left",
@@ -307,7 +307,7 @@ Blockly.Blocks['turtle_turn_right'] = {
       "args0": [
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw030.png",
           "width": 40,
           "height": 40,
           "alt": "turn right",
@@ -460,7 +460,7 @@ Blockly.Blocks['pentagon_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_1.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a pentagon",
@@ -610,7 +610,7 @@ Blockly.Blocks['turtle_colour'] = {
     this.setColour(Blockly.Colours.pen.primary, Blockly.Colours.pen.secondary, Blockly.Colours.pen.tertiary);
     this.appendValueInput('COLOUR')
         .setCheck('Colour')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_color.png", 40, 40, "pen icon"));
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_color09.png", 40, 40, "pen icon"));
     this.setPreviousStatement(true, 'Stamp');
     this.setNextStatement(true, 'Stamp');
     this.setTooltip('Change stamp color.');
