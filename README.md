@@ -69,6 +69,22 @@ Use `gulp dist --pretty` to build.
 This performs additional steps, such as vulcanizing code and internationalization.
 Serve from `./dist_pretty`.
 
+## Portal Docker deployment
+
+* Checkout / update any dependent repos
+
+* Build the image: `docker build -t santa .`
+
+* Create the container: `docker create --restart always -p 8080:8080 --name santa santa`
+
+* Run the container: `docker start -d santa`
+
+* Verify that the container is running: `docker ps`
+
+* Verify that the container is listening: `curl -I http://lg-head:8080`
+
+To rebuild, run `docker rm -f santa` and start over from building the image.
+
 # License
 
 All image and audio files (including *.png, *.jpg, *.svg, *.mp3, *.wav 
