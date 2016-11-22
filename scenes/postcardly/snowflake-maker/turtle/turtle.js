@@ -49,9 +49,20 @@ Turtle.pidList = [];
 
 /**
  * Number of milliseconds that execution should delay.
+ * This variable is set by executeChunk to signal when code
+ * is done running and should not be used as signal for when the code is
+ * being run instantaneously vs at normal speed vs at fast speed. For that, use runDelay.
  * @type number
  */
 Turtle.pause = 0;
+
+/**
+ * Number of milliseconds that execution should delay between steps.
+ * This variable is used to signal whether the code is being run instantaneously,
+ * at normal speed, or at a fast speed.
+ * @type number
+ */
+Turtle.runDelay = Turtle.DEFAULT_DELAY;
 
 /**
  * JavaScript interpreter for executing program.
@@ -65,11 +76,14 @@ Turtle.interpreter = null;
  */
 Turtle.visible = true;
 
+/**
+ * Are we making the first part of the
+ * snowflake or one of the 6 stamped repetitions?
+ * @type boolean
+ */
 Turtle.onRepeat = false;
 
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
-
-Turtle.runDelay = Turtle.DEFAULT_DELAY;
 
 /**
  * Initialize Blockly and the turtle.  Called on page load.
