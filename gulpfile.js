@@ -332,7 +332,7 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
       'scenes/*/*-scene*.html',
       '!scenes/*/*-scene_module.html',  // don't include CSS modules
       // TODO(samthor): Support vulcanizing non-scene HTML (#1679).
-      'scenes/postcardly/snowflake-maker/turtle.html',
+      'scenes/snowflake/snowflake-maker/turtle.html',
     ], {base: './'})
     // gulp-vulcanize doesn't currently handle multiple files in multiple
     // directories well right now, so vulcanize them one at a time
@@ -429,7 +429,7 @@ gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], fun
     'components/webcomponentsjs/webcomponents-lite.min.js',
     'js/ccsender.html',
     // TODO(samthor): Better support for custom scenes (#1679).
-    'scenes/postcardly/snowflake-maker/{media,third-party}/**',
+    'scenes/snowflake/snowflake-maker/{media,third-party}/**',
   ], {base: './'})
     .pipe(gulp.dest(DIST_STATIC_DIR));
 
