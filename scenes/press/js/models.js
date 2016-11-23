@@ -93,7 +93,7 @@ app.Models = [
     'opens': '1',
     'type': 'Learn',
     'filter': 'education socialstudies',
-    'description': 'Google\'s Santa Tracker partnered with Google.org to connect kids of all ages with charities around the world. Decorate an ornament to print out and hang on your tree to show your support for SolarAid, the Jane Goodall Foundation, WWF, and many more.',
+    'description': 'Google\'s Santa Tracker partnered with Google.org to connect kids of all ages with charities around the world. Decorate an ornament to print out and hang on your tree to show your support for Libraries Without Borders, Khan Academy, Code.org, and many more.',
     'resources': [
       {
         'title': 'Still Screenshot',
@@ -291,7 +291,7 @@ app.Models = [
     'opens': '10',
     'type': 'Play',
     'filter': '',
-    'description': 'Drag and drop musical elfs on stage to create your own unique holiday jam.',
+    'description': 'Drag and drop musical elves on stage to create your own unique holiday jam.',
     'resources': [
       {
         'title': 'Still Screenshot',
@@ -313,7 +313,7 @@ app.Models = [
     'opens': '11',
     'type': 'Play',
     'filter': '',
-    'description': 'Need your holidays to be a bit sweeter? Tilt the candycanes to make the gumballs fall into the machine.',
+    'description': 'Need your holidays to be a bit sweeter? Tilt the candy canes to make the gumballs fall into the machine.',
     'resources': [
       {
         'title': 'Still Screenshot',
@@ -357,7 +357,7 @@ app.Models = [
     'opens': '13',
     'type': 'Play',
     'filter': '',
-    'description': 'Fly the elf through the air to collect fallling presents - who knows, it might be yours.',
+    'description': 'Fly the elf through the air to collect falling presents - who knows, it might be yours.',
     'resources': [
       {
         'title': 'Still Screenshot',
