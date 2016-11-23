@@ -68,9 +68,6 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
-  educators: {
-    entryPoint: 'app.Scene'
-  },
   factory: {
     typeSafe: false,
     entryPoint: 'app.Scene'
