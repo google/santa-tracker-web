@@ -22,7 +22,7 @@ const VERSION = '<STATIC_VERSION>';
 const STATIC_HOST = '<STATIC_HOST>';
 const IS_STAGING = location.hostname !== 'santatracker.google.com';
 
-if (VERSION === '<STATIC_VERSION>') {
+if (VERSION.startsWith('<STATIC')) {  // don't use whole, prevent replacing
   // Don't enable the SW on environments without versions.
   throw new Error('sw disabled without build');
 }
