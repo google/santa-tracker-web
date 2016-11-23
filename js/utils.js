@@ -101,10 +101,10 @@ function throttle(func, ms) {
 
 /**
  * Returns an array of all scene IDs (e.g., dorf, boatload) which are cached.
- * @returns {Promise<Array<string>>}
+ * @returns {!Promise<!Array<string>>}
  */
 function getCachedScenes() {
-  if (typeof caches == 'undefined') { return Promise.resolve([]); }
+  if (typeof caches === 'undefined') { return Promise.resolve([]); }
 
   return caches.open('persistent')
     .then(cache => cache.match('/manifest.json'))
