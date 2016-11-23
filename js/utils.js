@@ -104,6 +104,7 @@ function throttle(func, ms) {
  * @returns {!Promise<!Array<string>>}
  */
 function getCachedScenes() {
+  const caches = window.caches; 
   if (typeof caches === 'undefined') { return Promise.resolve([]); }
 
   return caches.open('persistent')
