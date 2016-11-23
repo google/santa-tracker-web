@@ -1,5 +1,9 @@
 @import "sass/card";
 
+:host {
+  user-select: auto;
+}
+
 #press-content {
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
