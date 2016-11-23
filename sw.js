@@ -20,7 +20,7 @@
 
 const VERSION = '<STATIC_VERSION>';
 const STATIC_HOST = '<STATIC_HOST>';
-const IS_STAGING = location.hostname === 'santatracker.google.com';
+const IS_STAGING = location.hostname !== 'santatracker.google.com';
 
 const MANIFEST = `${STATIC_HOST}${VERSION}/contents.json`;
 const LANGUAGE = new URL(self.location).searchParams.lang || 'en';
@@ -230,7 +230,7 @@ self.addEventListener('activate', function(event) {
   // clients. The main thread listens to this event and refreshes the page.
   // Updating and clearing the caches will still happen in the background.
   if (IS_STAGING) {
-    event.waitUntil(self.clients.claim());
+    event.waitUntil(activatePromise.then(_ => self.clients.claim()));
   } else {
     event.waitUntil(activatePromise);
   }
