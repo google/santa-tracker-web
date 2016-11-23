@@ -157,6 +157,7 @@ h4 {
     text-align: center;
     width: 100%;
     cursor: pointer;
+    user-select: all;  // Firefox needs 'all', not 'auto'
   }
 }
 
