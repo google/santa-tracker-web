@@ -202,15 +202,31 @@ Postcard scene.
     },
 
     hideCodingScreen: function() {
-      this.$.heroSnowflake.style.backgroundImage = 'url(' + this.snowflake + ')';
-      this.$.heroSnowflake.style.backgroundSize = '100% 100%';
-      var snowflakesList = Polymer.dom(this.root).querySelectorAll('.snow');
-      for (var i = 0; i < snowflakesList.length; i++) {
-        snowflakesList[i].style.backgroundImage = 'url(' + this.snowflake + ')';
-        snowflakesList[i].style.backgroundSize = 'contain';
+      // This function is called twice when loading the page, once before
+      // blockly has rendered the hero snowflake and once after.
+      // If the snowflake doesn't exist yet, let these things sit in the page
+      // while the browser does all the size calculations it needs for blockly
+      // with the div in a "visible" state.  This is
+      // especially important for firefox which does not do layout well when
+      // elements (especially iframes) are display:none.
+      if (!this.snowflake) {
+        this.$.blocklyArea.style.opacity = 0;
+        this.$.postcard.style.opacity = 1;
+      } else {
+        // Once the snowflake is ready to render, set the opacity to 1,
+        // go back to using display:none, and set the snowflake to show.
+        this.$.heroSnowflake.style.backgroundImage = 'url(' + this.snowflake + ')';
+        this.$.heroSnowflake.style.backgroundSize = '100% 100%';
+        var snowflakesList = Polymer.dom(this.root).querySelectorAll('.snow');
+        for (var i = 0; i < snowflakesList.length; i++) {
+          snowflakesList[i].style.backgroundImage = 'url(' + this.snowflake + ')';
+          snowflakesList[i].style.backgroundSize = 'contain';
+        }
+        this.$.blocklyArea.style.opacity = 1;
+        this.$.postcard.style.opacity = 1;
+        this.$.blocklyArea.hidden = true;
+        this.$.postcard.hidden = false;
       }
-      this.$.blocklyArea.hidden = true;
-      this.$.postcard.hidden = false;
       // Remove focus from the blockly iframe (only an issue in Firefox).
       document.activeElement.blur();
     },
