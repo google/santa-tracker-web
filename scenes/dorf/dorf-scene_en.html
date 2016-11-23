@@ -42,7 +42,7 @@ Santa's Village.
 
   <santa-strings strings="{{strings}}"></santa-strings>
 
-  <santa-state countdown-finished="{{countdownFinished}}" 
+  <santa-state countdown-finished="{{countdownFinished}}"
       during-tracker="{{duringTracker}}"
       remaining-time="{{remainingTime}}"></santa-state>
 
@@ -57,7 +57,7 @@ Santa's Village.
         <span id="village-pegman">
           <a id="village-pegman-image" href$="[[_calculateDiveURL(mode)]]">Santa Dive</a>
         </span>
-        <santa-weather></santa-weather>
+        <santa-weather active="[[active]]"></santa-weather>
         <div id="header-mobileelves"></div>
       </div>
       <div id="header-content">

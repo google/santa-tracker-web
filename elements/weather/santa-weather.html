@@ -20,107 +20,14 @@ Renders random snow and clouds across this element's surface. Used for the villa
 <dom-module id="santa-weather">
 <template>
   <style>
-
-:host {
-  position: relative;
-  display: block;
-}
-
-@keyframes santa-weather-shimmy {
-  0%, 100% { transform: translateX(+1em); }
-  50% {      transform: translateX(-1em); }
-}
-
-@keyframes santa-weather-fall {
-  0%   { opacity: 0; transform: translateY(0%);   }
-  5%   { opacity: 1; transform: translateY(5%);   }
-  95%  { opacity: 1; transform: translateY(95%);  }
-  100% { opacity: 0; transform: translateY(100%); }
-}
-@keyframes santa-weather-across {
-  0%   { opacity: 0; transform: scale(0.8) translateX(-12.5%); }
-  10%  { opacity: 1; transform: scale(0.9) translateX(0%);     }
-  50%  { opacity: 1; transform: scale(1.0) translateX(50%);    }
-  90%  { opacity: 1; transform: scale(0.9) translateX(100%);   }
-  100% { opacity: 0; transform: scale(0.8) translateX(112.5%); }
-}
-
-#holder {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: block;
-  color: white;
-  pointer-events: none;
-}
-
-#holder span {
-  display: inline-block;
-  position: absolute;
-}
-
-/** snow */
-#holder span.sizer-h {
-  height: 100%;
-}
-#holder span.shimmy {
-  animation: santa-weather-shimmy 0s infinite ease-in-out;
-}
-#holder span.fall {
-  height: 100%;
-  opacity: 0;
-  animation: santa-weather-fall 0s infinite linear;
-}
-#holder span.snow::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  padding-top: 100%;
-  background: currentColor;
-  border-radius: 10000px;
-  margin-left: -50%;  /* align center */
-}
-
-/** clouds */
-#holder span.across {
-  width: 100%;
-  animation: santa-weather-across 0s infinite linear;
-}
-#holder span.cloud {
-  opacity: 0.5;
-  width: 113px;
-  height: 68px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transform: translate(-50%, -50%);
-}
-.cloud1 {
-  background-image: url(img/cloud1.svg);
-}
-.cloud2 {
-  background-image: url(img/cloud2.svg);
-}
-.cloud3 {
-  background-image: url(img/cloud3.svg);
-}
-
+    :host {
+      position: relative;
+      display: block;
+    }
   </style>
 
   <div id="holder">
-    <template is="dom-repeat" items="[[_range(snowflakes)]]" initial-count="0">
-      <span class="sizer-h" style$="[[_computePositionStyle()]]">
-        <span class="fall" style$="[[_computeFallStyle(fallDuration, item)]]">
-          <span class="shimmy snow" style$="[[_computeShimmySnowStyle()]]"></span>
-        </span>
-      </span>
-    </template>
-    <template is="dom-repeat" items="[[_range(clouds)]]" initial-count="0">
-      <span class="across" style$="[[_computeAcrossStyle(acrossDuration, cloudHeight, item)]]">
-        <span class$="cloud [[_computeCloudClass()]]"></span>
-      </span>
-    </template>
+    <canvas id="snowcanvas"></canvas>
   </div>
 
   <slot></slot>
@@ -140,86 +47,289 @@ Polymer({
 
   properties: {
 
-    /** Number of snowflakes to show. */
+    active: {
+      type: Boolean,
+      observer: '_activeChanged'
+    },
+
+    /** Number of snowflakes to show. Not expected to change after init. */
     snowflakes: {
       type: Number,
-      value: 12,
+      value: 40,
     },
 
-    /** Number of clouds to show. */
+    /** Number of clouds to show. Not expected to change after init. */
     clouds: {
       type: Number,
-      value: 4,
+      value: 6,
     },
 
-    /** Estimated fall duration of snowflakes, in seconds. */
-    fallDuration: {
-      type: Number,
-      value: 15,
-    },
-
-    /** Estimated speed of clouds, in seconds. */
-    acrossDuration: {
-      type: Number,
-      value: 120,
-    },
-
-    /** The minimum height up that clouds should appear at. */
-    cloudHeight: {
-      type: Number,
-      value: 50,
-    },
-
-    /** Maximum wind speed. Valid ranges are from 0-60 degrees. */
+    /** Maximum wind speed. */
     wind: {
       type: Number,
-      value: 30,
-    },
+      value: 0,
+    }
 
+  },
+
+  created: function () {
+    // Bind a local copy of the function so that when called from window-based
+    // events, like 'resize', the references to this are still for the instance
+    // of the weather, and not window.
+    this._onResize = this._onResize.bind(this);
+    this._update = this._update.bind(this);
+    this._updateClouds = this._updateClouds.bind(this);
+    this._drawClouds = this._drawClouds.bind(this);
+
+    this._cloudImages = [
+      'elements/weather/img/cloud1.svg',
+      'elements/weather/img/cloud2.svg',
+      'elements/weather/img/cloud3.svg',
+    ];
+
+    this._cloudsLoaded = this._loadClouds(this._cloudImages);
+  },
+
+  ready: function () {
+    this._ctx = this.$.snowcanvas.getContext('2d');
+    this._snowflakes = [];
+    this._clouds = [];
+    this._currentWind = 0;
+    this._startTime;
+  },
+
+  attached: function () {
+    this._onResize();
+    this._createSnowflakes();
+    this._createClouds();
+    this._setWind();
+    window.addEventListener('resize', this._onResize);
+  },
+
+  detached: function () {
+    window.removeEventListener('resize', this._onResize);
+  },
+
+  _loadClouds: function (_cloudImages) {
+    return Promise.all(_cloudImages.map(function(imgSrc) {
+      return new Promise(function (resolve, reject) {
+        var img = new Image();
+        img.src = imgSrc;
+        img.onload = function() {
+          resolve(img);
+        }
+      });
+    }));
+  },
+
+  _activeChanged: function () {
+    if (!this.active) {
+      return;
+    }
+
+    requestAnimationFrame(this._update);
+  },
+
+  _setWind: function () {
+    this.wind = 0.25 - Math.random() * 0.5;
+
+    // Wait a random amount of time (up to 15 seconds) before changing the wind
+    // direction for the snow.
+    this.async(this._setWind, Math.random() * 15000);
   },
 
   /**
-   * Builds a helper range array containing values [0,value).
-   * @param {number} value
-   * @return {!Array<number>}
+   * Handles the window resizing. Temporarily hides the canvas so that the
+   * container can scale to its natural size. After that's completed the
+   * canvas sizes set, and its visibility restored.
    */
-  _range: function(value) {
-    var out = new Array(value);
-    for (var i = 0; i < value; ++i) {
-      out[i] = i;
+  _onResize: function () {
+    this.$.snowcanvas.hidden = true;
+
+    var bounds = this.getBoundingClientRect();
+
+    this._width = bounds.width;
+    this._height = bounds.height;
+
+    this.$.snowcanvas.width = this._width;
+    this.$.snowcanvas.height = this._height;
+    this.$.snowcanvas.hidden = false;
+
+    // Go into a poll to wait if the element is zero by zero. Ideally this would
+    // be solved with ResizeObservers in the future.
+    if (this._width === 0 && this._height === 0) {
+      return this.async(function () {
+        this._onResize();
+      }, 1000);
     }
-    return out;
+
+    // Track the start time to do a fade-in of the overall scene.
+    this._startTime = window.performance.now();
   },
 
-  _computePositionStyle: function(wind) {
-    wind = Math.floor(60, Math.abs(wind));
-    return 'transform: rotate(' + range(-wind, +wind) + 'deg);' +
-        'left: ' + range(100) + '%;';
+  _createSnowflakes: function () {
+    var count = this._snowflakes.length;
+    this._snowflakes.length = this.snowflakes;
+
+    if (count >= this.snowflakes) {
+      return;
+    }
+
+    // Fill up any remaining gaps.
+    for (var i = count; i < this.snowflakes; i++) {
+      this._resetSnowflake(i);
+    }
   },
 
-  _computeFallStyle: function(duration, opt_start) {
-    return 'animation-duration:' + range(duration * 500, duration * 2000) + 'ms;'
-        + 'animation-delay:' + (opt_start || 0) + 's;';
+  _createClouds: function () {
+    var count = this._clouds.length;
+    this._clouds.length = this.clouds;
+
+    if (count >= this.clouds) {
+      return;
+    }
+
+    // Fill up any remaining gaps.
+    for (var i = count; i < this.clouds; i++) {
+      this._resetCloud(i, true);
+    }
   },
 
-  _computeAcrossStyle: function(duration, cloudHeight, opt_start) {
-    var direction = ((opt_start || 0) % 2) ? 'reverse' : 'normal';
-    var maxTop = Math.max(10, Math.min(90, 100 - cloudHeight));
-    return 'animation-direction:' + direction + ';'
-        + 'animation-duration:' + range(duration * 0.5, duration * 1.5) + 's;'
-        + 'top: ' + range(10, maxTop) + '%';
+  _resetCloud: function (index, initialView) {
+    this._clouds[index] = this._createCloud(initialView);
   },
 
-  _computeShimmySnowStyle: function() {
-    return 'animation-duration:' + range(1600, 3200) + 'ms;'
-        + 'font-size:' + range(10, 18) + 'px;'  // shimmy width
-        + 'width:' + range(8, 16) + 'px;';  // snowflake size
+  _resetSnowflake: function (index) {
+    this._snowflakes[index] = this._createSnowflake();
   },
 
-  _computeCloudClass: function() {
-    return 'cloud' + range(1, 3);
+  _createCloud: function (initialView) {
+    var width = 50 + Math.random() * 100;
+    var height = width * 0.6;
+    var x = this.wind > 0 ? -Math.random() * 0.5 : 1 + Math.random() * 0.5;
+
+    if (initialView) {
+      x = Math.random();
+    }
+
+    return {
+      img: Math.floor(Math.random() * this._cloudImages.length),
+      w: width,
+      h: height,
+      m: 4 - (width / 50),
+
+      // Adjust the start position based on the wind value. Positive wind dir
+      // should imply that the cloud starts screen left, and vice-versa.
+      x: x,
+      y: Math.random() * 0.4,
+      o: 0.2 + Math.random() * 0.7
+    }
   },
 
+  _createSnowflake: function () {
+    return {
+      x: Math.random(),
+      y: -Math.random(),
+      ry: 0.5 + Math.random(),
+      d: 2 + Math.random() * 2,
+      o: 0.6 + Math.random() * 0.4
+    }
+  },
+
+  _update: function() {
+    if (!this.active) {
+      return;
+    }
+
+    var snowflake;
+    for (var i = 0; i < this._snowflakes.length; i++) {
+      snowflake = this._snowflakes[i];
+
+      snowflake.x += 0.01 * this._currentWind * (1 / snowflake.d);
+      snowflake.y += 0.0002 * snowflake.d * snowflake.ry;
+
+      if (snowflake.y * this._height > this._height ||
+          snowflake.x < -0.1 ||
+          snowflake.x > 1.1) {
+        this._resetSnowflake(i);
+      }
+    }
+
+    this._cloudsLoaded.then(this._updateClouds);
+
+    // Ease the actual wind value to the new wind value.
+    this._currentWind += (this.wind - this._currentWind) / 200;
+    this._draw();
+
+    requestAnimationFrame(this._update);
+  },
+
+  _updateClouds: function () {
+    var cloud;
+    for (var c = 0; c < this._clouds.length; c++) {
+      cloud = this._clouds[c];
+      cloud.x += 0.001 * this._currentWind * cloud.m;
+
+      if (this.wind > 0 && cloud.x * this._width > this._width ||
+          this.wind < 0 && cloud.x * this._width < -cloud.w) {
+          this._resetCloud(c);
+      }
+    }
+  },
+
+  _draw: function () {
+    if (!this._startTime) {
+      return;
+    }
+
+    var alpha;
+    var snowflake;
+    var TAU = Math.PI * 2;
+    this._ctx.fillStyle = '#FFF';
+    this._ctx.clearRect(0, 0, this._width, this._height);
+
+    for (var i = 0; i < this._snowflakes.length; i++) {
+      snowflake = this._snowflakes[i];
+      alpha = 1;
+
+      if (snowflake.y > 0.9) {
+        // Fade out the snowflake at the end.
+        alpha = 1 - ((snowflake.y - 0.9) / 0.1);
+      }
+
+      this._ctx.globalAlpha = snowflake.o * alpha;
+      this._ctx.beginPath();
+      this._ctx.arc(
+          snowflake.x * this._width,
+          snowflake.y * this._height,
+          snowflake.d,
+          0,
+          TAU
+      );
+
+      this._ctx.closePath();
+      this._ctx.fill();
+    }
+
+    // Ensure all cloud images have loaded first before drawing any, because we
+    // don't want any magically-appearing clouds. That's not how clouds work.
+    this._cloudsLoaded.then(this._drawClouds);
+  },
+
+  _drawClouds: function(cloudImages) {
+    var cloud;
+    for (var c = 0; c < this._clouds.length; c++) {
+      cloud = this._clouds[c];
+      this._ctx.globalAlpha = cloud.o;
+      this._ctx.drawImage(
+          cloudImages[cloud.img],
+          cloud.x * this._width,
+          cloud.y * this._height,
+          cloud.w,
+          cloud.h
+      );
+    }
+  }
 });
 
 })();
