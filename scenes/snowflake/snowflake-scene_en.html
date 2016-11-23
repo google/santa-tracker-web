@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="snowflake-scene.css" />
 <link rel="stylesheet" href="shared-css/footer.css" />
+<link rel="stylesheet" href="shared-css/centering.css" />
 
 <!--
 Postcard scene.
@@ -47,61 +48,64 @@ Postcard scene.
   </style>
 
   <div id="module-snowflake">
-    <div id="postcard" class="scene" hidden>
-      <div class="bgs-belt selection">
-        <div class="track"></div>
-        <div data-offset="276" class="bgs-left"></div>
-        <div data-offset="24" class="bgs-right"></div>
-      </div>
-      <div class="message">
-        <div class="shadow"></div>
-        <div class="frame">
-          <div id="weather" class="frame-inner">
-            <div class="bgs">
-              <div class="bg1"></div>
-              <div class="bg2"></div>
-              <div class="bg3"></div>
-              <div class="bg4"></div>
-              <div class="bg5"></div>
-              <div class="bg6"></div>
-              <div class="bg7"></div>
-              <div class="bg8"></div>
+    <div id="postcard" class="stacked-divs scene" hidden>
+      <div class="visualization">
+        <div class="bgs-belt selection">
+          <div class="track"></div>
+          <div data-offset="276" class="bgs-left"></div>
+          <div data-offset="24" class="bgs-right"></div>
+        </div>
+        <div class="message">
+          <div class="shadow"></div>
+          <div class="frame">
+            <div id="weather" class="frame-inner">
+              <div class="bgs">
+                <div class="bg1"></div>
+                <div class="bg2"></div>
+                <div class="bg3"></div>
+                <div class="bg4"></div>
+                <div class="bg5"></div>
+                <div class="bg6"></div>
+                <div class="bg7"></div>
+                <div class="bg8"></div>
+              </div>
+              <div class="fgs">
+                <div class="fg1"></div>
+                <div class="fg2"></div>
+                <div class="fg3"></div>
+                <div class="fg4"></div>
+                <div class="fg5"></div>
+                <div class="fg6"></div>
+                <div class="fg7"></div>
+                <div class="fg8"></div>
+              </div>
+              <div class="shadow-inner"></div>
             </div>
-            <div class="fgs">
-              <div class="fg1"></div>
-              <div class="fg2"></div>
-              <div class="fg3"></div>
-              <div class="fg4"></div>
-              <div class="fg5"></div>
-              <div class="fg6"></div>
-              <div class="fg7"></div>
-              <div class="fg8"></div>
+          </div>
+          <div id="heroSnowflake"></div>
+        </div>
+      </div>
+      <div class="bottom-footer">
+        <div class="share-bar big-button_bar center-horiz selection">
+          <div class="back small-button" on-tap="backToBlockly"></div>
+          <div class="help small-button"></div>
+          <div class="big-button-tab">
+            <div class="big-button-layer">
+              <button id="shareButton" class="share big-button"></button>
             </div>
-            <div class="shadow-inner"></div>
           </div>
         </div>
-        <div id="heroSnowflake"></div>
-      </div>
-      <div class="share-bar big-button_bar center-horiz selection">
-        <div class="back small-button" on-tap="backToBlockly"></div>
-        <div class="help small-button"></div>
-        <div class="big-button-tab">
-          <div class="big-button-layer">
-            <button id="shareButton" class="share big-button"></button>
+        <div class="remix-bar big-button_bar center-horiz share-landing">
+          <div class="big-button-tab">
+            <div class="big-button-layer">
+              <button id="remixButton" on-tap="backToBlockly" class="remix big-button"></button>
+            </div>
           </div>
         </div>
+        <div class="footer selection"></div>
       </div>
-      <div class="remix-bar big-button_bar center-horiz share-landing">
-        <div class="big-button-tab">
-          <div class="big-button-layer">
-            <button id="remixButton" on-tap="backToBlockly" class="remix big-button"></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer selection"></div>
     </div>
-    <iframe id="blocklyArea" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
+    <iframe id="blocklyArea" class="scene" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
     <div class="gui">
       <div class="shareOverlay overlay shareOverlay--barber">
         <div class="shareOverlay-dialog overlay-dialog">
