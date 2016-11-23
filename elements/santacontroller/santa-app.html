@@ -72,12 +72,22 @@ Santa Tracker app.
           path$="scenes/dorf/dorf-scene_[[language]].html"
           class="santa-scene" allow-page-scrolling></dorf-scene>
 
-      <!-- Keep scenes (non-village) ordered alphabetically -->
-
       <about-scene route="about" icon="2753" permament
           path$="scenes/about/about-scene_[[language]].html"
           header-color="rgb(39, 186, 131)"
           class="santa-scene" allow-page-scrolling></about-scene>
+
+      <educators-scene route="educators" icon="1f3eb" permament
+          path$="scenes/educators/educators-scene.html"
+          class="santa-scene"
+          allow-page-scrolling></educators-scene>
+
+      <press-scene route="press" icon="1f4f0" permament
+          path$="scenes/press/press-scene.html"
+          class="santa-scene"
+          allow-page-scrolling></press-scene>
+
+      <!-- Keep scenes (non-village) ordered alphabetically -->
 
       <airport-scene route="airport" icon="1f6c4"
           path$="scenes/airport/airport-scene_[[language]].html"
@@ -96,7 +106,7 @@ Santa Tracker app.
           loading-src="scenes/boatload/img/loading.svg"
           class="santa-scene"></boatload-scene>
 
-      <briefing-scene route="briefing" icon="1f3eb"
+      <briefing-scene route="briefing" icon="1f634"
           path$="scenes/briefing/briefing-scene_[[language]].html"
           header-color="#007ab6"
           class="santa-scene"></briefing-scene>
@@ -223,10 +233,13 @@ Santa Tracker app.
           loading-src="scenes/postcard/img/loading.gif"
           class="santa-scene"></postcard-scene>
 
-      <snowflake-scene route="snowflake"
-          path$="scenes/snowflake/snowflake-scene_[[language]].html"
-          loading-bg-color="rgb(129,208,0)"
-          class="santa-scene"></snowflake-scene>
+      <presentbounce-scene route="presentbounce" icon="1f381"
+          path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
+          mode$="[[mode]]"
+          header-color="#e53935"
+          loading-bg-color="#8fd7f7"
+          loading-src="scenes/presentbounce/img/loading.svg"
+          class="santa-scene"></presentbounce-scene>
 
       <presentdrop-scene route="presentdrop" icon="1f381"
           path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
@@ -236,14 +249,6 @@ Santa Tracker app.
           loading-src="scenes/presentdrop/img/loading.svg"
           class="santa-scene"></presentdrop-scene>
 
-      <presentbounce-scene route="presentbounce" icon="1f381"
-          path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
-          mode$="[[mode]]"
-          header-color="#e53935"
-          loading-bg-color="#8fd7f7"
-          loading-src="scenes/presentbounce/img/loading.svg"
-          class="santa-scene"></presentbounce-scene>
-
       <racer-scene route="racer" icon="1f3c1"
           path$="scenes/racer/racer-scene_[[language]].html"
           mode$="[[mode]]"
@@ -251,15 +256,15 @@ Santa Tracker app.
           loading-src="scenes/racer/img/loading.svg"
           class="santa-scene"></racer-scene>
 
+      <rollercoaster-scene route="rollercoaster" icon="1f3a2"
+          path$="scenes/rollercoaster/rollercoaster-scene.html"
+          class="santa-scene"></rollercoaster-scene>
+
       <runner-scene route="runner" icon="1f3c7"
           path$="scenes/runner/runner-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#575769"
           class="santa-scene"></runner-scene>
-
-      <rollercoaster-scene route="rollercoaster" icon="1f3a2"
-          path$="scenes/rollercoaster/rollercoaster-scene.html"
-          class="santa-scene"></rollercoaster-scene>
 
       <santasearch-scene route="santasearch" icon=""
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
@@ -291,6 +296,11 @@ Santa Tracker app.
           header-color="#09904a"
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></smatch-scene>
+
+      <snowflake-scene route="snowflake"
+          path$="scenes/snowflake/snowflake-scene_[[language]].html"
+          loading-bg-color="rgb(129,208,0)"
+          class="santa-scene"></snowflake-scene>
 
       <streetview-scene route="streetview" icon="1f3a5"
           path$="scenes/streetview/streetview-scene_[[language]].html"
@@ -342,11 +352,6 @@ Santa Tracker app.
           header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
           class="santa-scene"></windtunnel-scene>
-
-      <press-scene route="press" icon="1f4f0" permament
-          path$="scenes/press/press-scene.html"
-          class="santa-scene"
-          allow-page-scrolling></press-scene>
 
     </lazy-pages>
 

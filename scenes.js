@@ -68,6 +68,9 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  educators: {
+    entryPoint: 'app.Scene'
+  },
   factory: {
     typeSafe: false,
     entryPoint: 'app.Scene'
@@ -103,15 +106,6 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
-  snowflake: {
-    typeSafe: true,
-    entryPoint: 'app.Scene',
-    libraries: [
-      'scenes/postcard/js/controls.js',
-      'scenes/postcard/js/picker.js',
-      'scenes/postcard/js/slider.js'
-    ]
-  },
   presentbounce: {
     closureLibrary: true,
     typeSafe: false,
@@ -146,6 +140,14 @@ module.exports = {
   },
   smatch: {
     entryPoint: 'app.Game'
+  },
+  snowflake: {
+    entryPoint: 'app.Scene',
+    libraries: [
+      'scenes/postcard/js/controls.js',
+      'scenes/postcard/js/picker.js',
+      'scenes/postcard/js/slider.js'
+    ]
   },
   streetview: {
     typeSafe: false,

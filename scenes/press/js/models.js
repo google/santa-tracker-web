@@ -20,14 +20,13 @@ goog.provide('app.Models');
  * List of scenes and the associated data the press might need.
  */
 
-var Cards = [
+app.Models = [
   {
     'key': 'traditions',
     'title': 'Holiday Traditions',
     'opens': '1',
-    'ordinal': 'st',
     'type': 'Learn',
-    'education': true,
+    'filter': 'education socialstudies geography',
     'description': 'From wearing a toque in Canada to sporting swim trunks in Australia, click the map pins to learn about holiday traditions around the globe',
     'resources': [
       {
@@ -48,9 +47,8 @@ var Cards = [
     'key': 'codelab',
     'title': 'Code Lab',
     'opens': '1',
-    'ordinal': 'st',
     'type': 'Learn',
-    'education': true,
+    'filter': 'education computerscience',
     'description': 'Use coding fundamentals to navigate the elf through the forest to find dropped presents.',
     'resources': [
       {
@@ -71,8 +69,8 @@ var Cards = [
     'key': 'airport',
     'title': 'North Pole Airport',
     'opens': '1',
-    'ordinal': 'st',
     'type': 'Play',
+    'filter': '',
     'description': 'It\'s arrival time! Elves land at the North Pole Airport (ELV) - check out the conveyor belt for surprises.',
     'resources': [
       {
@@ -93,9 +91,8 @@ var Cards = [
     'key': 'seasonofgiving',
     'title': 'Season of Giving',
     'opens': '1',
-    'ordinal': 'st',
     'type': 'Learn',
-    'education': true,
+    'filter': 'education socialstudies',
     'description': 'Google\'s Santa Tracker partnered with Google.org to connect kids of all ages with charities around the world. Decorate an ornament to print out and hang on your tree to show your support for SolarAid, the Jane Goodall Foundation, WWF, and many more.',
     'resources': [
       {
@@ -116,9 +113,8 @@ var Cards = [
     'key': 'santasback',
     'title': 'Santa\'s Back',
     'opens': '2',
-    'ordinal': 'nd',
     'type': 'Watch',
-    'new': true,
+    'filter': '',
     'description': 'Rudolph\'s ready and the elves are hard at work. One problem - where\'s Santa? ',
     'resources': [
       {
@@ -139,8 +135,8 @@ var Cards = [
     'key': 'santaselfie',
     'title': 'Santa Selfie',
     'opens': '3',
-    'ordinal': 'rd',
     'type': 'Play',
+    'filter': '',
     'description': 'Give Santa a makeover by trimming, coloring, and decorating Santa\'s beard. Don\'t forget to take a selfie and share with friends when you\'re done!',
     'resources': [
       {
@@ -161,9 +157,8 @@ var Cards = [
     'key': 'translations',
     'title': 'Translations',
     'opens': '4',
-    'ordinal': 'th',
     'type': 'Learn',
-    'education': true,
+    'filter': 'education language',
     'description': 'From Happy New Year in Elvish to Дед Мороз, learn the Santa lingo from around the world.',
     'resources': [
       {
@@ -181,27 +176,11 @@ var Cards = [
     ]
   },
   {
-    'key': 'callfromsanta',
-    'title': 'Call from Santa',
-    'opens': '5',
-    'ordinal': 'th',
-    'type': 'Play',
-    'description': 'Santa\'s spreading the holiday cheer - pick from a variety of options to send a call to a friend from Santa.',
-    'resources': [
-      {
-        'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-call-from-santa_US-only.png',
-        'type': 'PNG file',
-        'class': 'press-card-dl'
-      }
-    ]
-  },
-  {
     'key': 'briefing',
     'title': 'Mrs. Claus\' Briefing',
     'opens': '5',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'Mrs. Claus briefs Santa and the team as they prepare for the big day.',
     'resources': [
       {
@@ -222,8 +201,8 @@ var Cards = [
     'key': 'presentdrop',
     'title': 'Present Drop',
     'opens': '6',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'It\'s target practice time! Position the elf to hit presents so they make it down the chimney.',
     'resources': [
       {
@@ -244,9 +223,8 @@ var Cards = [
     'key': 'santasearch',
     'title': 'Santa Search',
     'opens': '7',
-    'ordinal': 'th',
     'type': 'Play',
-    'new': true,
+    'filter': '',
     'description': 'Santa\'s wandering about, but the elves need him back in the North Pole. Can you help find him?',
     'resources': [
       {
@@ -265,10 +243,10 @@ var Cards = [
   },
   {
     'key': 'windtunnel',
-    'title': 'Windtunnel',
+    'title': 'Wind Tunnel',
     'opens': '8',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'You never know what the weather conditions will be. Rudolph and the elves simulate what the team will face on the big day.',
     'resources': [
       {
@@ -289,8 +267,8 @@ var Cards = [
     'key': 'racer',
     'title': 'Rudolph Racer',
     'opens': '9',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'On your marks, get set, go! Race with Rudolph through the forest to collect presents the elves have dropped.',
     'resources': [
       {
@@ -311,8 +289,8 @@ var Cards = [
     'key': 'jamband',
     'title': 'Elf Jamband',
     'opens': '10',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'Drag and drop musical elfs on stage to create your own unique holiday jam.',
     'resources': [
       {
@@ -333,8 +311,8 @@ var Cards = [
     'key': 'gumball',
     'title': 'Gumball Tilt',
     'opens': '11',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'Need your holidays to be a bit sweeter? Tilt the candycanes to make the gumballs fall into the machine.',
     'resources': [
       {
@@ -355,8 +333,8 @@ var Cards = [
     'key': 'postcard',
     'title': 'Santa Cards',
     'opens': '12',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'Nothing says "Happy Holidays" like Rudolph on the beach. Create your own holiday card by selecting one of many backgrounds and characters to send to friends.',
     'resources': [
       {
@@ -377,8 +355,8 @@ var Cards = [
     'key': 'jetpack',
     'title': 'Elf Jetpack',
     'opens': '13',
-    'ordinal': 'th',
-    'type': 'PLay',
+    'type': 'Play',
+    'filter': '',
     'description': 'Fly the elf through the air to collect fallling presents - who knows, it might be yours.',
     'resources': [
       {
@@ -399,8 +377,8 @@ var Cards = [
     'key': 'boatload',
     'title': 'Gift Slingshot',
     'opens': '14',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'Slingshot presents into boats as the elves transport the gifts through the North Pole.',
     'resources': [
       {
@@ -421,11 +399,9 @@ var Cards = [
     'key': 'codeboogie',
     'title': 'Code Boogie',
     'opens': '15',
-    'ordinal': 'th',
     'type': 'Play',
-    'new': true,
-    'education': true,
-    'description': 'The elves are back to coding practice, but mixing in their dancing skills. Use code to choreograph the elves dances - but watch out, as you get better, the dances get harder!',
+    'filter': 'education computerscience',
+    'description': 'The elves are back to coding practice, while mixing in their dancing skills. Use code to choreograph the elves dances\' - but watch out, as you get better, the dances get harder!',
     'resources': [
       {
         'title': 'Still Screenshot',
@@ -445,9 +421,8 @@ var Cards = [
     'key': 'presentbounce',
     'title': 'Present Bounce',
     'opens': '16',
-    'ordinal': 'th',
     'type': 'Play',
-    'new': true,
+    'filter': '',
     'description': 'Get presents from A to B using springs, conveyer belts, and the laws of motion and energy.',
     'resources': [
       {
@@ -468,9 +443,8 @@ var Cards = [
     'key': 'mercator',
     'title': 'Map Quiz',
     'opens': '17',
-    'ordinal': 'th',
     'type': 'Learn',
-    'education': true,
+    'filter': 'education geography',
     'description': 'Santa\'s got a lot of places to go. Match the outline of a country to the map in this geography game.',
     'resources': [
       {
@@ -491,8 +465,8 @@ var Cards = [
     'key': 'carpool',
     'title': 'Elf Car',
     'opens': '18',
-    'ordinal': 'th',
     'type': 'Watch',
+    'filter': '',
     'description': 'A small car zooms through the village, arriving at the factory. One elf gets out, then another, then another...',
     'resources': [
       {
@@ -513,9 +487,8 @@ var Cards = [
     'key': 'citylights',
     'title': 'City Lights',
     'opens': '19',
-    'ordinal': 'th',
     'type': 'Learn',
-    'education': true,
+    'filter': 'education',
     'description': 'Cycle through Street View from around the world to witness how other cities celebrate the holidays.',
     'resources': [
       {
@@ -536,8 +509,8 @@ var Cards = [
     'key': 'commandcentre',
     'title': 'Mission Control',
     'opens': '20',
-    'ordinal': 'th',
     'type': 'Play',
+    'filter': '',
     'description': 'It\'s almost go time. The elves are hard at work preparing the every team is ready for the big day.',
     'resources': [
       {
@@ -558,8 +531,8 @@ var Cards = [
     'key': 'matching',
     'title': 'Memory Match',
     'opens': '22',
-    'ordinal': 'nd',
     'type': 'Play',
+    'filter': '',
     'description': 'Where\'d that tree go? Test your memory skills in this holiday game.',
     'resources': [
       {
@@ -580,9 +553,8 @@ var Cards = [
     'key': 'liftoff',
     'title': 'Santa\'s Takeoff',
     'opens': '23',
-    'ordinal': 'rd',
     'type': 'Watch',
-    'new': true,
+    'filter': '',
     'description': 'It\'s almost C-day! Santa and team make the final preparations for the big night - but something always goes wrong at the last minute.',
     'resources': [
       {

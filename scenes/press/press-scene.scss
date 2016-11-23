@@ -1,5 +1,4 @@
 @import "sass/card";
-@import "sass/footer";
 
 #press-content {
   background: #F7FCFB;
@@ -97,10 +96,6 @@ ul {
   line-height: 24px;
 }
 
-button {
-  outline: none;
-}
-
 #press-hero {
   background: url(img/bg-press-page-hero.png) 50% 100% no-repeat;
   background-size: cover;
@@ -116,8 +111,7 @@ button {
   }
 
   .press-header {
-    background: url(img/title-bg-swirl_2x.png) 50% 50% no-repeat;
-    background-size: contain;
+    background: url(img/title-bg-swirl_2x.png) center/contain no-repeat;
     padding: 30px 0 50px 0;
     text-align: center;
     width: 100%;
@@ -234,22 +228,9 @@ button {
     overflow: auto;
     padding: 0 0 10px;
     width: 1010px;
-  }
-
-  .press-card {
-    &:nth-child(2) {
-      .press-card-img {
-        background: url(img/tmb-santas-village.png) 50% 50% no-repeat;
-        background-size: cover;
-      }
-    }
-
-    &:nth-child(3) {
-      .press-card-img {
-        background: url(img/tmb_santa-tracker-2015.png) 50% 50% no-repeat;
-        background-size: cover;
-      }
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   p {
@@ -272,13 +253,15 @@ button {
     margin-bottom: 25px;
   }
 
+  .press-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
   .press-card {
     width: calc(33% - 30px);
-
-    &.clear-desktop-row {
-      clear: left;
-      width: calc(34% - 30px);
-    }
 
     .press-card-img {
       height: 175px;
@@ -293,10 +276,9 @@ button {
     .press-card-tabs {
       padding-bottom: 50px;
 
-      a {
-        background: none;
+      button {
+        font: inherit;
         border: none;
-        color: #9575CD;
         cursor: pointer;
         font-size: 14px;
         font-weight: 600;
@@ -304,46 +286,14 @@ button {
         position: relative;
         text-transform: uppercase;
         z-index: 1;
+        display: inline-block;
+        border-radius: 8px;
+        background: transparent;
+        color: #9575CD;
 
-        &:hover, &.active {
-          opacity: 1;
-
-          &:before {
-            opacity: 1;
-          }
-        }
-
-        &:before {
-          content: '';
-          height: 100%;
-          left: 0;
-          opacity: 0;
-          position: absolute;
-          top: 0;
-          transition: opacity .3s;
-          width: 100%;
-          z-index: -1;
-        }
-      }
-
-      .press-card-button-1 {
-        &:before {
-          background: url(img/tab-bg_view-all_2x.png) 50% 50% no-repeat;
-          background-size: contain;
-        }
-      }
-
-      .press-card-button-2 {
-        &:before {
-          background: url(img/tab-bg_education_2x.png) 50% 50% no-repeat;
-          background-size: contain;
-        }
-      }
-
-      .press-card-button-3 {
-        &:before {
-          background: url(img/tab-bg_new-in-2015_2x.png) 50% 50% no-repeat;
-          background-size: contain;
+        &.active {
+          background: #9575CD;
+          color: white;
         }
       }
     }
@@ -367,7 +317,6 @@ button {
 
   p {
     color: #fff;
-    font-size: 16px;
   }
 
   .rect {
@@ -398,55 +347,50 @@ button {
   }
 
   .press-device-grid {
-    @extend .clearfix;
-    font-size: 0;
     margin: 0 auto;
-    width: 1010px;
+    max-width: 1010px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
 
     #press-device-1 {
-      background: url(img/illust-chromecast_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      background-image: url(img/illust-chromecast_2x.png);
     }
 
     #press-device-2 {
-      background: url(img/illust-mobile-app_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      background-image: url(img/illust-mobile-app_2x.png);
     }
 
     #press-device-3 {
-      background: url(img/illust-wear_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      background-image: url(img/illust-wear_2x.png)
     }
 
     #press-device-4 {
-      background: url(img/illust-web-optimized_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      background-image: url(img/illust-web-optimized_2x.png);
     }
 
     #press-device-5 {
-      background: url(img/illust-google-maps_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      background-image: url(img/illust-google-maps_2x.png);
     }
 
     #press-device-6 {
-      background: url(img/illust-google-search_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      background-image: url(img/illust-google-search_2x.png);
     }
 
     #press-device-7 {
-      background: url(img/illust-web-cardboard_2x.png) 50% 50% no-repeat;
-      background-size: contain;
+      background-image: url(img/illust-web-cardboard_2x.png);
     }
 
     .press-device-square {
-      box-sizing: border-box;
-      display: inline-block;
       padding: 0 15px 30px;
       text-align: center;
+      box-sizing: border-box;
       width: 25%;
-      vertical-align: top;
+      min-width: 240px;
 
       .square {
+        background: transparent center/contain no-repeat;
         width: 128px;
         margin: 25px auto;
       }

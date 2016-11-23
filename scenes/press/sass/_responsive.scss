@@ -40,20 +40,6 @@ $mobilePortraitBreakpoint: 400px;
       }
     }
   }
-
-  #press-device {
-    .press-device-grid {
-      max-width: 600px;
-      width: 100%;
-    }
-
-    .press-device-square {
-      display: inline-block;
-      float: none !important;
-      min-width: 180px;
-      vertical-align: top;
-    }
-  }
 }
 
 @media (min-width: 1px) and (max-width: $mobileBreakpoint) {

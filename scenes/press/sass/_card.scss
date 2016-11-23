@@ -2,18 +2,12 @@
   border-radius: 5px;
   background: #fff;
   box-shadow: 0 3px 5px #ddd;
-  float: left;
   margin: 0 15px 30px;
-  opacity: 1;
   overflow: hidden;
   text-align: left;
+  will-change: transform;
   transform: translate3d(0, 0, 0);
-  transition: opacity .3s;
   width: calc(50% - 30px);
-
-  &.fading-out {
-    opacity: 0;
-  }
 
   &[press-locked] {
     .press-card-img .press-card-lock {
@@ -28,22 +22,12 @@
   }
 
   .press-card-img {
-    background: url(img/tmb-santas-village.png) 50% 50% no-repeat;
-    background-size: cover;
+    background: transparent center/cover no-repeat;
     border-radius: 5px 5px 0 0;
     color: #fff;
     height: 265px;
     overflow: hidden;
     position: relative;
-
-    img {
-      left: 0;
-      position: absolute;
-      top: 50%;
-      transform: translate3d(0, -50%, 0);
-      width: 100%;
-      z-index: 0;
-    }
 
     .press-card-lock {
       background: rgba(0, 172, 193, .8) url(img/ic-lock-32px_2x.png) 50% 55% no-repeat;
