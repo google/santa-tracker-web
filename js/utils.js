@@ -98,3 +98,25 @@ function throttle(func, ms) {
     (now >= last + ms) ? fn() : timeout = window.setTimeout(fn, ms);
   }
 }
+
+/**
+ * Returns an array of all scene IDs (e.g., dorf, boatload) which are cached.
+ * @returns {Promise<Array<string>>}
+ */
+function getCachedScenes() {
+  if (typeof caches == 'undefined') { return Promise.resolve([]); }
+
+  return caches.open('persistent')
+    .then(cache => cache.match('/manifest.json'))
+    .then(response => response.json().version)
+    .then(version => caches.open(version))
+    .then(cache => cache.keys())
+    .then(requests => {
+      const matches = requests.map(r => r.url.match(/\/scenes\/(\w+)\//));
+      return [...new Set(matches.filter(m => m).map(m => m[1]))];
+    })
+    .catch(error => {
+      console.error('Couldn\'t retrieve cached scenes.', error);
+      return [];
+    });
+}
