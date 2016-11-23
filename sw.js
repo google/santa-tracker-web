@@ -20,6 +20,7 @@
 
 const VERSION = '<STATIC_VERSION>';
 const STATIC_HOST = '<STATIC_HOST>';
+const IS_STAGING = location.hostname === 'santatracker.google.com';
 
 const MANIFEST = `${STATIC_HOST}${VERSION}/contents.json`;
 const LANGUAGE = new URL(self.location).searchParams.lang || 'en';
@@ -200,12 +201,17 @@ self.addEventListener('install', function(event) {
   // nb. We fetch PRECACHE with credentials to support Santa's staging server.
   const precachePromise = Promise.all(PRECACHE.map(path => loadFromCache(path, true)));
 
-  event.waitUntil(Promise.all([updatePromise, precachePromise]));
+  if (IS_STAGING) {
+    event.waitUntil(self.skipWaiting());
+  } else {
+    event.waitUntil(Promise.all([updatePromise, precachePromise]));
+  }
 });
 
 self.addEventListener('activate', function(event) {
   console.debug(`Activating new service worker (${VERSION}).`);
-  event.waitUntil(getOldManifest().then(oldManifest => {
+  
+  const activatePromise = getOldManifest().then(oldManifest => {
     // If necessary, remove the old cache (can be asynchronous).
     if (oldManifest.version) {
       console.debug(`Deleting old cache (${oldManifest.version})`);
@@ -218,7 +224,16 @@ self.addEventListener('activate', function(event) {
         return persistentCache.put('/manifest.json', response);
       });
     });
-  }));
+  });
+
+  // In staging, we activate the service worker immediately and claim all curent
+  // clients. The main thread listens to this event and refreshes the page.
+  // Updating and clearing the caches will still happen in the background.
+  if (IS_STAGING) {
+    event.waitUntil(self.clients.claim());
+  } else {
+    event.waitUntil(activatePromise);
+  }
 });
 
 self.addEventListener('fetch', function(event) {
