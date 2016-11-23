@@ -79,7 +79,7 @@ $idx-zIndex: 14;
     $id: nth($house, $idx-id);
 
     .card.new-today-#{$id} {
-      background-image: url(img/card-new-today-#{$id}_2x.png);
+      background-image: url(img/new-today/#{$id}_2x.png);
     }
 
     #house-#{$id} {
