@@ -1,0 +1,22 @@
+.center-horiz {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 0px;
+}
+
+.stacked-divs {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+.visualization {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content:center;
+	width: 100%;
+	align-items:center;
+	align-self: center;
+}

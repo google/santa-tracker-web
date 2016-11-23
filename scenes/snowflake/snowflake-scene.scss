@@ -87,7 +87,8 @@ $rotate-bg: $gameover-bg;
       animation: #{$name}-fall 35s infinite linear;
     }
     .snow {
-      position: absolute;
+      position: relative;
+      top: -550px;
       width: 16px;
     }
     .snow::before {
@@ -151,6 +152,11 @@ $rotate-bg: $gameover-bg;
 
   .remix-bar {
     width:80px;
+  }
+
+  .bottom-footer {
+    position: relative;
+    height: 150px;
   }
 }
 

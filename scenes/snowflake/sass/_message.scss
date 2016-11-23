@@ -1,17 +1,15 @@
 ##{$name} {
   .message {
-    left: 50%;
-    margin-left: -450px;
-    margin-top: -275px;
-    position: absolute;
-    top: 50%;
+    width: 900px;
+    height: 550px;
+    position: relative;
 
     .frame {
       background-color: #fff;
       height: 550px;
       left: 0;
-      position: absolute;
-      top: 0;
+      position: relative;
+      top: -550px;
       width: 900px;
     }
 
@@ -19,7 +17,7 @@
       width: 850px;
       height: 500px;
       overflow: hidden;
-      position: absolute;
+      position: relative;
       top: 25px;
       left: 25px;
     }
@@ -29,7 +27,7 @@
       height: 550px;
       left: 10px;
       opacity: 0.15;
-      position: absolute;
+      position: relative;
       top: 10px;
       width: 900px;
     }
@@ -38,7 +36,7 @@
       box-sizing: border-box;
       width: 850px;
       height: 500px;
-      position: absolute;
+      position: relative;
       border: 10px solid black;
       opacity: 0.1;
     }
