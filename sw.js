@@ -22,6 +22,11 @@ const VERSION = '<STATIC_VERSION>';
 const STATIC_HOST = '<STATIC_HOST>';
 const IS_STAGING = location.hostname !== 'santatracker.google.com';
 
+if (VERSION === '<STATIC_VERSION>') {
+  // Don't enable the SW on environments without versions.
+  throw new Error('sw disabled without build');
+}
+
 const MANIFEST = `${STATIC_HOST}${VERSION}/contents.json`;
 const LANGUAGE = new URL(self.location).searchParams.lang || 'en';
 const STATIC_DOMAINS = ['maps.gstatic.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
