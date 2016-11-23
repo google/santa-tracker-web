@@ -140,6 +140,11 @@ ga('set', 'transport', 'beacon');
     // on the naked domain anyway).
     window.sw = navigator.serviceWorker.register(
         window.location.origin + '/sw.js?lang=' + document.documentElement.lang);
+
+    // Reload the page when a new SW takes over. This should only happen in staging.
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+      location.reload();
+    });
   }
 
   window.Polymer = window.Polymer || {
