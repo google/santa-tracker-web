@@ -117,6 +117,8 @@ Turtle.init = function() {
           }
   });
 
+  Blockly.Colours.insertionMarker = "#795548";
+
   // Scratch-blocks is accounting for the size of the flyout in a way that we don't want.
   Turtle.workspace.translate(0,0);
   Turtle.workspace.scrollY = 0;
