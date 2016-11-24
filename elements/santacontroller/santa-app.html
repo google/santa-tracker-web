@@ -835,7 +835,7 @@ Polymer({
 
     var o = this.$.overlay;
     var detail = event.detail || {};
-    o.score = detail.score || null;
+    o.score = 'score' in detail ? detail.score : null;  // allow zero
     o.playExtra = detail.hasPlayExtra || false;
     o.shareUrl = detail.url || null;
 

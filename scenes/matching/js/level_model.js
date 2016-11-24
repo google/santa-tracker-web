@@ -23,7 +23,7 @@ goog.require('app.utils');
  * @param {!jQuery} elem
  */
 var LevelModel = function(elem) {
-  this.level = null;
+  this.level = 0;
   this.elem = elem;
   this.lastPattern = null;
 
