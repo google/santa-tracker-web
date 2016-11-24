@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Löschen"
+	},
 	"close": {
 		"message": "Schließen"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finnland"
 	},
+	"fi_tradition": {
+		"message": "In Finnland glauben die Menschen, dass der Weihnachtsmann \"Joulupukki\" im nördlichen Teil des Landes in Korvatunturi lebt. Wer durch Zufall seine geheime Werkstatt ausfindig macht, kann fleißigen Zwergen bei ihrer Arbeit zusehen und in den Kiefernwäldern nach Rentieren Ausschau halten."
+	},
 	"finished-text": {
 		"message": "Schöne Feiertage! Der Weihnachtsmann ist um die ganze Welt geflogen und ruht sich nun von der anstrengenden Reise aus. Besuche uns im nächsten Jahr wieder!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Schwer"
 	},
+	"help": {
+		"message": "Hilfe"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Schöne Feiertage!"
+	},
+	"holiday_message_1": {
+		"message": "Frohe Weihnachten!"
+	},
+	"holiday_message_2": {
+		"message": "Alles Liebe!"
+	},
+	"holiday_message_3": {
+		"message": "Weiße Weihnachten!"
+	},
+	"holiday_message_4": {
+		"message": "Frohes neues Jahr!"
+	},
+	"holiday_message_5": {
+		"message": "Frohes Fest!"
 	},
 	"hours": {
 		"message": "Stunden"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Südkorea"
 	},
+	"kr_tradition": {
+		"message": "Weihnachten ist in Südkorea ein Feiertag, der als besonders romantisch gilt und die Herzen höherschlagen lässt. Viele Liebespaare besuchen die Stadt mit ihren festlich erleuchteten Straßen und Geschäften."
+	},
 	"kz_country_name": {
 		"message": "Kasachstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Litauen"
 	},
+	"lt_tradition": {
+		"message": "In Litauen wird Weihnachtsschmuck häufig aus Stroh gebastelt. Zu den beliebtesten Formen zählen Sterne, Schneeflocken und Weihnachtsglocken. Auch beim traditionellen Weihnachtsschmaus Kūčios wird meist Stroh für die Tischdekoration verwendet."
+	},
 	"lv_country_name": {
 		"message": "Lettland"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Mit \"Auf den Spuren des Weihnachtsmanns\" kannst du dem Weihnachtsmann in Google Maps auf seiner Reise um die Welt folgen."
+	},
+	"meta_title": {
+		"message": "Auf den Spuren des Weihnachtsmanns"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kartenquiz"
+	},
+	"scene_postcard": {
+		"message": "Weiße Weihnachtsgrüße"
 	},
 	"scene_presentbounce": {
 		"message": "Geschenkeautomat"

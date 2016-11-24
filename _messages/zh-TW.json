@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "智利"
 	},
+	"clear": {
+		"message": "清除"
+	},
 	"close": {
 		"message": "關閉"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "芬蘭"
 	},
+	"fi_tradition": {
+		"message": "芬蘭人相信聖誕老人 (Joulupukki) 住在國境之北，也就是 Korvatunturi 這個地方。如果你到那兒走一遭，或許能探訪他的神祕工作室，一窺地精辛勤工作的有趣景象。在松樹林間，你也可能看見輕快奔馳的馴鹿。"
+	},
 	"finished-text": {
 		"message": "佳節愉快！聖誕老人完成環遊世界之旅，現在該好好休息一下。明年再來找我們喔！"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "困難"
 	},
+	"help": {
+		"message": "說明"
+	},
 	"hi_language_name": {
 		"message": "北印度文"
 	},
 	"hn_country_name": {
 		"message": "宏都拉斯"
+	},
+	"holiday_message_0": {
+		"message": "佳節愉快！"
+	},
+	"holiday_message_1": {
+		"message": "佳節願望！"
+	},
+	"holiday_message_2": {
+		"message": "事事順心！"
+	},
+	"holiday_message_3": {
+		"message": "下雪吧！"
+	},
+	"holiday_message_4": {
+		"message": "新年快樂！"
+	},
+	"holiday_message_5": {
+		"message": "佳節平安！"
 	},
 	"hours": {
 		"message": "小時"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "南韓"
 	},
+	"kr_tradition": {
+		"message": "在南韓，聖誕節不僅是國定假日，更是眾所皆知的浪漫佳節。市區街頭的絢麗燈光搭襯著商圈店家掛上的聖誕飾品，吸引許多情侶在此相聚約會。"
+	},
 	"kz_country_name": {
 		"message": "哈薩克"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "立陶宛"
 	},
+	"lt_tradition": {
+		"message": "在立陶宛，人們用稻草製作傳統聖誕節裝飾，他們會把稻草編織成星星、雪花或是鈴鐺等幾何形狀。許多家庭也會用稻草裝飾餐桌，並齊聚一堂享用聖誕夜大餐。"
+	},
 	"lv_country_name": {
 		"message": "拉脫維亞"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "使用 Google 聖誕老人追蹤器，在 Google 地圖上跟著聖誕老人一起環遊世界。"
+	},
+	"meta_title": {
+		"message": "Google 聖誕老人追蹤器"
 	},
 	"mg_country_name": {
 		"message": "馬達加斯加"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "地圖小測驗"
+	},
+	"scene_postcard": {
+		"message": "雪花卡片"
 	},
 	"scene_presentbounce": {
 		"message": "彈跳小禮物"

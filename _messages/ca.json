@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Xile"
 	},
+	"clear": {
+		"message": "Esborra"
+	},
 	"close": {
 		"message": "Tanca"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlàndia"
 	},
+	"fi_tradition": {
+		"message": "Els finlandesos creuen que el Pare Noel, \"Joulupukki\", viu al nord del país, a Korvatunturi, per ser exactes. Si hi vas de visita, és possible que trobis el seu taller secret, on els gnoms treballen de valent. O també és possible que hi trobis rens deambulant pels boscos de pins."
+	},
 	"finished-text": {
 		"message": "Bon Nadal! El Pare Noel ha completat el seu viatge per tot el món i s'ha agafat un merescut descans. Torneu a visitar-nos l'any vinent!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Difícil"
 	},
+	"help": {
+		"message": "Ajuda"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Hondures"
+	},
+	"holiday_message_0": {
+		"message": "Bones festes!"
+	},
+	"holiday_message_1": {
+		"message": "Els millors desitjos!"
+	},
+	"holiday_message_2": {
+		"message": "Els millors desitjos!"
+	},
+	"holiday_message_3": {
+		"message": "Que nevi!"
+	},
+	"holiday_message_4": {
+		"message": "Feliç any nou!"
+	},
+	"holiday_message_5": {
+		"message": "Felicitacions de Nadal!"
 	},
 	"hours": {
 		"message": "Hores"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Corea del Sud"
 	},
+	"kr_tradition": {
+		"message": "A Corea del Sud, el Nadal és una festa nacional. També es considera una festa romàntica. Moltes parelles passegen per la ciutat i contemplen els llums enlluernadors dels carrers i de les botigues."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lituània"
 	},
+	"lt_tradition": {
+		"message": "A Lituània, els guarniments tradicionals de Nadal es fan amb palla o fenc. Es teixeixen en forma de figures geomètriques, com ara estrelles, flocs de neu o campanes. Moltes famílies també utilitzen la palla per decorar la taula del menjador per a l'àpat anomenat Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letònia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Utilitza Segueix el Pare Noel de Google per acompanyar el Pare Noel en els seus viatges arreu del món mitjançant Google Maps."
+	},
+	"meta_title": {
+		"message": "Segueix el Pare Noel de Google"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Joc de geografia"
+	},
+	"scene_postcard": {
+		"message": "Targetes de flocs de neu"
 	},
 	"scene_presentbounce": {
 		"message": "Joc de rebotar regals"

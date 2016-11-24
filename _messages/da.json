@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Ryd"
+	},
 	"close": {
 		"message": "Luk"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finland"
 	},
+	"fi_tradition": {
+		"message": "Finner tror, at julemanden, \"Joulupukki\", bor i den nordlige del af landet – Korvatunturi for at være helt præcis. Hvis du besøger stedet, finder du muligvis hans hemmelige værksted, hvor nisser arbejder hårdt, eller måske støder du på rensdyr, der render rundt i fyrretræsskove."
+	},
 	"finished-text": {
 		"message": "Glædelig jul! Julemanden har fuldført sin rejse rundt i verden og tager sig et velfortjent hvil. Besøg os igen til næste jul!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Svær"
 	},
+	"help": {
+		"message": "Hjælp"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Glædelig højtid!"
+	},
+	"holiday_message_1": {
+		"message": "De bedste juleønsker!"
+	},
+	"holiday_message_2": {
+		"message": "De bedste ønsker!"
+	},
+	"holiday_message_3": {
+		"message": "Lad sneen falde!"
+	},
+	"holiday_message_4": {
+		"message": "Godt nytår!"
+	},
+	"holiday_message_5": {
+		"message": "Hjertelige hilsner!"
 	},
 	"hours": {
 		"message": "Timer"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Sydkorea"
 	},
+	"kr_tradition": {
+		"message": "I Sydkorea er julen en helligdag, som også er kendt for at være en romantisk helligdag. Mange par går på date i byen, hvor gaderne og butikkerne bugner med funklende lys."
+	},
 	"kz_country_name": {
 		"message": "Kasakhstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Litauen"
 	},
+	"lt_tradition": {
+		"message": "I Litauen er traditionel julepynt lavet af halm eller hø. Det væves til geometriske former, f.eks. stjerner, snefnug eller klokker. Mange familier bruger også halm til at udsmykke spisebordet til et stort måltid kaldet Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letland"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Følg julemanden i Google Maps, mens han rejser jorden rundt."
+	},
+	"meta_title": {
+		"message": "Følg julemanden med Google"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kortquiz"
+	},
+	"scene_postcard": {
+		"message": "Snefnugkort"
 	},
 	"scene_presentbounce": {
 		"message": "Gaveregn"

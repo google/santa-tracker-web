@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "チリ"
 	},
+	"clear": {
+		"message": "クリア"
+	},
 	"close": {
 		"message": "閉じる"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "フィンランド"
 	},
+	"fi_tradition": {
+		"message": "フィンランドの人々は、ヨウルプッキ（サンタクロース）は国の北方のコルバトゥントゥリという場所に住んでいると信じています。そこを訪れると、サンタクロースの秘密の作業場があってノームが一生懸命働いていたり、松林の中をトナカイが歩いていたりするのです。"
+	},
 	"finished-text": {
 		"message": "サンタさんは世界中の旅を終えたので、これから長いお休みを取ります。来年もまたお楽しみに！"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "高"
 	},
+	"help": {
+		"message": "ヘルプ"
+	},
 	"hi_language_name": {
 		"message": "ヒンディー語"
 	},
 	"hn_country_name": {
 		"message": "ホンジュラス"
+	},
+	"holiday_message_0": {
+		"message": "ハッピー ホリデー"
+	},
+	"holiday_message_1": {
+		"message": "楽しい休日を"
+	},
+	"holiday_message_2": {
+		"message": "おめでとう"
+	},
+	"holiday_message_3": {
+		"message": "雪よ降れ"
+	},
+	"holiday_message_4": {
+		"message": "明けましておめでとうございます。"
+	},
+	"holiday_message_5": {
+		"message": "メリー クリスマス"
 	},
 	"hours": {
 		"message": "時間"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "韓国"
 	},
+	"kr_tradition": {
+		"message": "韓国では、クリスマスは国民の休日であり、ロマンチックな祝日でもあります。多くのカップルが街でデートし、街路にも店にもまばゆいばかりの明かりが灯されます。"
+	},
 	"kz_country_name": {
 		"message": "カザフスタン"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "リトアニア"
 	},
+	"lt_tradition": {
+		"message": "リトアニアでは、藁や干し草を幾何学的な形状に織って、星や雪の結晶やベルなどの形の伝統的なクリスマス オーナメントを作ります。藁を使って、クーチョスと呼ばれる豪華な夕食のテーブルを飾る家族もたくさんあります。"
+	},
 	"lv_country_name": {
 		"message": "ラトビア"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "世界中を飛び回るサンタさんを Google マップで追いかけよう。"
+	},
+	"meta_title": {
+		"message": "Google サンタを追いかけよう"
 	},
 	"mg_country_name": {
 		"message": "マダガスカル"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "地図クイズ"
+	},
+	"scene_postcard": {
+		"message": "スノーフレーク カード"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"

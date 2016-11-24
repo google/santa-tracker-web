@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Limpar"
+	},
 	"close": {
 		"message": "Fechar"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlândia"
 	},
+	"fi_tradition": {
+		"message": "Os finlandeses acreditam que o Pai Natal, \"Joulupukki\", vive na região norte do país – Korvatunturi, mais precisamente. Se visitar esta região, poderá encontrar a sua oficina secreta, onde os gnomos trabalham incessantemente. Também poderá ver renas nos pinhais."
+	},
 	"finished-text": {
 		"message": "Boas Festas! O Pai Natal terminou a sua viagem à volta do mundo e aproveita agora um descanso merecido. Visite-nos novamente no próximo ano!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Difícil"
 	},
+	"help": {
+		"message": "Ajuda"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Boas Festas!"
+	},
+	"holiday_message_1": {
+		"message": "Votos de boas festas!"
+	},
+	"holiday_message_2": {
+		"message": "Felicitações!"
+	},
+	"holiday_message_3": {
+		"message": "Feliz Natal!"
+	},
+	"holiday_message_4": {
+		"message": "Feliz Ano Novo!"
+	},
+	"holiday_message_5": {
+		"message": "Festas felizes!"
 	},
 	"hours": {
 		"message": "Horas"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Coreia do Sul"
 	},
+	"kr_tradition": {
+		"message": "Na Coreia do Sul, o Natal é um feriado nacional. Também é conhecido por ser um feriado romântico. Muitos casais encontram-se na cidade, onde as ruas e as lojas estão decoradas com luzes deslumbrantes."
+	},
 	"kz_country_name": {
 		"message": "Cazaquistão"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lituânia"
 	},
+	"lt_tradition": {
+		"message": "Na Lituânia, os enfeites tradicionais de Natal são feitos de palha ou feno. São combinados de modo a obter formas geométricas, como estrelas, flocos de neve ou sinos. Muitas famílias também utilizam a palha para decorar a mesa de jantar por ocasião de uma refeição importante denominada Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letónia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Utilize A viagem do Pai Natal da Google para acompanhar o Pai Natal no Google Maps enquanto efetua a sua viagem à volta do mundo."
+	},
+	"meta_title": {
+		"message": "Viagem do Pai Natal da Google"
 	},
 	"mg_country_name": {
 		"message": "Madagáscar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Questionário do mapa"
+	},
+	"scene_postcard": {
+		"message": "Postais com flocos de neve"
 	},
 	"scene_presentbounce": {
 		"message": "Salto dos presentes"

@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "칠레"
 	},
+	"clear": {
+		"message": "지우기"
+	},
 	"close": {
 		"message": "닫기"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "핀란드"
 	},
+	"fi_tradition": {
+		"message": "핀란드 사람들은 '줄루푸키'라는 산타클로스가 핀란드 북부의 코르바툰트리에 산다고 믿습니다. 코르바툰트리를 방문하면 땅속 요정이 열심히 일하고 있는 산타의 비밀 작업공방을 발견할지도 모릅니다. 또는 소나무 숲을 돌아다니는 순록과 마주칠 수도 있습니다."
+	},
 	"finished-text": {
 		"message": "즐거운 명절 보내세요! 산타가 전 세계를 도는 여정을 마치고 휴식을 취하는 중입니다. 내년에 다시 방문해 주세요."
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "어려움"
 	},
+	"help": {
+		"message": "도움말"
+	},
 	"hi_language_name": {
 		"message": "힌디어"
 	},
 	"hn_country_name": {
 		"message": "온두라스"
+	},
+	"holiday_message_0": {
+		"message": "즐거운 연말연시를 보내세요."
+	},
+	"holiday_message_1": {
+		"message": "행복한 연말 보내세요."
+	},
+	"holiday_message_2": {
+		"message": "즐거운 연말 보내세요."
+	},
+	"holiday_message_3": {
+		"message": "화이트 크리스마스!"
+	},
+	"holiday_message_4": {
+		"message": "새해 복 많이 받으세요."
+	},
+	"holiday_message_5": {
+		"message": "새해 복 많이 받으세요."
 	},
 	"hours": {
 		"message": "시간"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "한국"
 	},
+	"kr_tradition": {
+		"message": "대한민국에서는 크리스마스가 공휴일이며 연인을 위한 휴일로도 알려져 있습니다. 많은 연인이 크리스마스 조명이 반짝이는 거리와 상점이 즐비한 도시에서 데이트합니다."
+	},
 	"kz_country_name": {
 		"message": "카자흐스탄"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "리투아니아"
 	},
+	"lt_tradition": {
+		"message": "리투아니아에서는 밀짚이나 건초로 별, 눈송이, 종과 같은 기하학적인 모양의 전통적인 크리스마스 장식을 짭니다. 또한 많은 가정에서 쿠쵸스라는 이름의 만찬을 위해 밀짚으로 식탁을 장식합니다."
+	},
 	"lv_country_name": {
 		"message": "라트비아"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Google 산타 추적기를 사용해 Google 지도에서 전 세계를 도는 산타클로스의 여정을 지켜봐 주세요"
+	},
+	"meta_title": {
+		"message": "Google 산타 추적기"
 	},
 	"mg_country_name": {
 		"message": "마다가스카르"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "지도 퀴즈"
+	},
+	"scene_postcard": {
+		"message": "눈송이 카드"
 	},
 	"scene_presentbounce": {
 		"message": "선물 튕기기"
