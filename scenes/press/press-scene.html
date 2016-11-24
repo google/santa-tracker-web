@@ -67,29 +67,29 @@ specific language governing permissions and limitations under the License.
     <div id="press-primary">
       <div class="press-primary-inner">
         <h2>Santa’s Village and The Tracker</h2>
-        <div class="press-card">
-          <div class="press-card-img" style="background-image: url(img/tmb-santas-village.png)"></div>
-          <div class="press-card-info">
+        <div class="card">
+          <div class="card-img" style="background-image: url(img/tmb-santas-village.png)"></div>
+          <div class="card-info">
             <h4>Santa's Village</h4>
             <span>Open all December • Website</span>
             <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they’ve realized it's time to study up on geography and coding to ensure Santa’s sleigh goes on the most efficient path around the world using the most advanced algorithms. It’s his biggest night of the year! </p>
-            <div class="press-card-links">
-              <span class="press-card-title">Press resources:</span>
-              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-village-with-santa.png" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
+            <div class="card-links">
+              <span class="card-title">Press resources:</span>
+              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-village-with-santa.png" class="card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
             </div>
           </div>
         </div>
 
-        <div class="press-card">
-          <div class="press-card-img" style="background-image: url(img/tmb-santa-tracker.png)"></div>
-          <div class="press-card-info">
+        <div class="card">
+          <div class="card-img" style="background-image: url(img/tmb-santa-tracker.png)"></div>
+          <div class="card-info">
             <h4>The Tracker</h4>
             <span>Opens December 24 • Experience</span>
             <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city. Follow him each step of the way by searching for Santa directly in <a href="https://maps.google.com">Google Maps</a> and <a href="https://google.com">google.com</a>. Or, head over to <a href="https://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he’ll visit that night.  </p>
-            <div class="press-card-links">
-              <span class="press-card-title">Press resources:</span>
-              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tracker-map.png" class="press-card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
-              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/DEC24-tracker-full.gif" class="press-card-dl" target="_blank">Animation <span>(GIF file)</span></a>
+            <div class="card-links">
+              <span class="card-title">Press resources:</span>
+              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tracker-map.png" class="card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
+              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/DEC24-tracker-full.gif" class="card-dl" target="_blank">Animation <span>(GIF file)</span></a>
             </div>
           </div>
         </div>
@@ -107,20 +107,20 @@ specific language governing permissions and limitations under the License.
 
         <div class="press-card-container">
           <template is="dom-repeat" items="[[cards]]" as="card">
-            <div class="press-card" press-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
-              <div class="press-card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)">
-                <div class="press-card-lock">
-                  <span class="press-card-unlock">Unlocks December</span>
-                  <span class="press-card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
+            <div class="card" press-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
+              <div class="card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)">
+                <div class="card-lock">
+                  <span class="card-unlock">Unlocks December</span>
+                  <span class="card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
                 </div>
               </div>
-              <div class="press-card-info">
+              <div class="card-info">
                 <h4>[[card.title]]</h4>
                 <span>Opens December [[card.opens]] • [[card.type]]</span>
                 <p>[[card.description]]</p>
-                <div class="press-card-links">
-                  <span class="press-card-title">Press resources:</span>
-                  <div class="press-card-links-full">
+                <div class="card-links">
+                  <span class="card-title">Press resources:</span>
+                  <div class="card-links-full">
                     <div hidden$="[[card.locked]]">
                       <template is="dom-repeat" items="[[card.resources]]">
                         <a href="[[item.url]]" class$="[[item.class]]" target="_blank">
@@ -129,7 +129,7 @@ specific language governing permissions and limitations under the License.
                       </template>
                     </div>
                     <div hidden$="[[!card.locked]]">
-                      <a class="press-card-dl press-card-locked">
+                      <a class="card-dl card-locked">
                         <span>Assets available soon</span>
                       </a>
                     </div>
