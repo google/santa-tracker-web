@@ -399,18 +399,6 @@ Game.prototype.gameover = function() {
 };
 
 /**
- * Pauses/unpauses the game.
- */
-Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  } else if (this.isPlaying) {
-    // Only allow pausing if the game is playing (not game over).
-    this.pause();
-  }
-};
-
-/**
  * Pause the game.
  */
 Game.prototype.pause = function() {

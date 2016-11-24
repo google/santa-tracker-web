@@ -215,18 +215,6 @@ app.Game.prototype.gameover = function() {
 };
 
 /**
- * Pauses/unpauses the game.
- */
-app.Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  // Only allow pausing if the game is playing (not game over).
-  } else if (this.isPlaying) {
-    this.pause();
-  }
-};
-
-/**
  * Pause the game.
  */
 app.Game.prototype.pause = function() {

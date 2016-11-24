@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <!-- <script src="smatch-scene.min.js"></script> -->
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="smatch-scene.css" />
@@ -62,7 +61,6 @@ Smatch scene.
       var module = this.$['module-smatch'];
       this.game = document.createElement('smatch-game');
       Polymer.dom(module).appendChild(this.game);
-      startButton(this, module, this.onClickStart_.bind(this));
     },
 
     onHide: function() {

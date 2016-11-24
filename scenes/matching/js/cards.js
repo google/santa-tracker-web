@@ -16,6 +16,8 @@
 
 goog.provide('Cards');
 
+goog.require('app.utils');
+
 /**
  * @param {string} id
  * @param {string} selector

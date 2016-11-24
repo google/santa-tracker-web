@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="racer-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -149,9 +148,7 @@ Racer scene.
     onShow: function() {
       var module = this.$['module-racer'];
       this.fire('sound-ambient', 'rc_landing_page');
-
       this.game = new scenes.racer.Game(module, this.componentDir);
-      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {

@@ -35,8 +35,6 @@ app.Scoreboard = function(game, elem, totalLevels) {
   this.secondsElem = this.elem.find('.time .seconds');
   this.levelItemElems = this.elem.find('.level .level-item');
 
-  this.attachEvents();
-
   // Initial state
   this.reset();
 }
@@ -72,32 +70,6 @@ app.Scoreboard.prototype.restart = function() {
   this.countdown = -1;
   this.lastSeconds = null;
   this.onFrame(0);
-};
-
-/**
- * Attaches events for scoreboard interactions.
- */
-app.Scoreboard.prototype.attachEvents = function() {
-  var self = this;  // intentionally held, so that 'this' is the element
-  this.elem.find('.pause').on('click', function(event) {
-    self.game.onInteraction();
-    $(event.target).blur();
-
-    $(this).toggleClass('paused');
-    self.game.togglePause();
-
-    // TODO(bckenny): should this be firing global_pause? or handled elsewhere?
-    if ($(this).hasClass('paused')) {
-      window.santaApp.fire('sound-ambient', 'global_pause');
-    } else {
-      window.santaApp.fire('sound-ambient', 'global_unpause');
-    }
-  });
-  this.elem.find('.restart').on('click', function(event) {
-    $(event.target).blur();
-    self.game.onInteraction();
-    self.game.restartLevel();
-  });
 };
 
 /**

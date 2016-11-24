@@ -17,8 +17,6 @@
 goog.provide('app.Scene');
 
 goog.require('app.IframeProxy');
-goog.require('app.shared.SharedScene');
-goog.require('app.shared.Sceneboard');
 
 /**
  * Main game class.
@@ -26,15 +24,11 @@ goog.require('app.shared.Sceneboard');
  * @constructor
  * @struct
  * @export
- * @implements {SharedScene}
  */
 app.Scene = function(el) {
   this.$el = $(el);
   this.controlsEl = this.$el.find('.actions')[0];
-  this.$pausePlay = this.$el.find('.actions .pause');
   this.iframeProxy = new app.IframeProxy(this, el);
-  this.sceneboard = new app.shared.Sceneboard(this, el.querySelector('.board'));
-  this.isPaused = false;
 };
 
 /**
@@ -51,7 +45,6 @@ app.Scene.prototype.init = function() {
  */
 app.Scene.prototype.destroy = function() {
   this.iframeProxy.destroy();
-  this.isPaused = null;
 };
 
 /**
@@ -61,20 +54,6 @@ app.Scene.prototype.destroy = function() {
 app.Scene.prototype.setMute = function(mute) {
   this.iframeProxy.postMessage(mute ? 'mute' : 'unmute');
 }
-
-/**
- * Posts to the iframe to pause or unpause
- * depending on the current state.
- */
-app.Scene.prototype.togglePause = function() {
-  if (this.isPaused) {
-    this.iframeProxy.postMessage('play');
-    this.isPaused = false;
-  } else {
-    this.iframeProxy.postMessage('pause');
-    this.isPaused = true;
-  }
-};
 
 /**
  * Posts to the iframe to restart the scene.
@@ -126,14 +105,12 @@ app.Scene.prototype.onHidePlayMessage = function() {
  * iFrame telling us to show the pause button.
  */
 app.Scene.prototype.onShowPauseMessage = function() {
-  this.$pausePlay.removeClass(Constants.CLASS_PAUSED);
 };
 
 /**
  * iFrame telling us to hide the pause button.
  */
 app.Scene.prototype.onHidePauseMessage = function() {
-  this.$pausePlay.addClass(Constants.CLASS_PAUSED);
 };
 
 /**

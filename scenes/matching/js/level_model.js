@@ -16,6 +16,8 @@
 
 goog.provide('LevelModel');
 
+goog.require('app.utils');
+
 /**
  * @constructor
  * @param {!jQuery} elem

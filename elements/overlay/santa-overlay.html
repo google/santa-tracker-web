@@ -25,11 +25,12 @@ Shared overlay for Santa Tracker games.
   <style include="santa-overlay_module"></style>
 
   <div id="background" class="fit"></div>
-  <div id="main" class="fit">
+  <div id="main" class="fit" on-click="_onMainClick">
     <div id="bigbutton" hidden$="[[_computeButtonHidden(pregame, _hasValidScore, shareUrl)]]">
       <button id="start" on-mousedown="_onStartDown" on-touchstart="_onStartDown" on-click="_onStartClick"></button>
     </div>
     <div id="hero"
+        style$="[[_computeBackgroundStyle(hero)]]"
         class$="[[_computeHeroClass(_hasValidScore, shareUrl)]]"
         hidden$="[[!_computeButtonHidden(pregame, _hasValidScore, shareUrl)]]">
       <div hidden$="[[!_hasValidScore]]">
@@ -162,7 +163,6 @@ Polymer({
     hero: {
       type: String,
       value: null,
-      observer: '_heroChanged',
     },
 
   },
@@ -201,13 +201,11 @@ Polymer({
     }
   },
 
-  _heroChanged: function(hero) {
-    var node = this.$.hero;
-    if (hero) {
-      node.style.backgroundImage = 'url(' + hero + ')';
-    } else {
-      node.style.backgroundImage = null;
+  _computeBackgroundStyle: function(heroUrl) {
+    if (heroUrl) {
+      return 'background-image: url(' + heroUrl + ')';
     }
+    return null;
   },
 
   _onStartDown: function() {
@@ -217,10 +215,15 @@ Polymer({
   _onStartClick: function() {
     // If this is the initial startButton click, hide ourselves and trigger the 'play again' flow.
     if (this.pregame) {
-      this.pregame = false;
-      return this._onReplayClick();
+      return this._onPlayAgainClick();
     }
     this.fire('game-resume');
+  },
+
+  _onMainClick: function() {
+    if (this.pregame) {
+      this._onPlayAgainClick();
+    }
   },
 
   _onPlayAgainClick: function() {

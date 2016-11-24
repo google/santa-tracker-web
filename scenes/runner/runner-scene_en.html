@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="runner-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -157,9 +156,7 @@ Runner scene.
 
     onShow: function() {
       var module = this.$['module-runner'];
-
-      var game = this.game = new scenes.runner.Game(module);
-      startButton(this, module, this.start.bind(this));
+      this.game = new scenes.runner.Game(module);
     },
 
     onHide: function() {

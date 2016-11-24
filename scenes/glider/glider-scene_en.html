@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="glider-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -153,7 +152,6 @@ Glider scene.
         'img/present-07.svg',
         'img/present-08.svg',
         'img/stars-tile.svg',
-        'img/startbutton/button.svg',
         'img/treat-candy.svg'
       ]);
     },
@@ -161,7 +159,6 @@ Glider scene.
     onShow: function() {
       var module = this.$['module-glider'];
       this.game = new scenes.glider.Game(module);
-      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {

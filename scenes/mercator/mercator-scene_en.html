@@ -16,7 +16,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../elements/santa-maps-api.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="mercator-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -287,9 +286,7 @@ Mercator scene.
         this.showOnMapsReady = true;
       } else {
         var module = this.$['module-mercator'];
-
         this.game = new scenes.mercator.Game(module);
-        startButton(this, module, this.start.bind(this));
       }
     },
 

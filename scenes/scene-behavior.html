@@ -282,15 +282,6 @@ specific language governing permissions and limitations under the License.
         return;
       }
 
-      // TODO(samthor): Quick hack to remove the startButton and force the game to start via
-      // santaApp. Eventually, the start button will live outside the game itself.
-      var startButton = this.$$('.start');
-      if (startButton) {
-        startButton.remove();
-        this.fire('game-start');
-        return;
-      }
-
       if (this._firstPlay) {
         this.game.start();
         this._firstPlay = false;

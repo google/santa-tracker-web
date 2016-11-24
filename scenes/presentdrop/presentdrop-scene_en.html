@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="presentdrop-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -210,7 +209,6 @@ Presentdrop scene.
     onShow: function() {
       var module = this.$['module-presentdrop'];
       this.game = new scenes.presentdrop.Game(module);
-      startButton(this, module, this.start.bind(this));
     },
 
     onHide: function() {

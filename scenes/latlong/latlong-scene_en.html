@@ -15,7 +15,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="latlong-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -346,11 +345,8 @@ Lat long scene.
 
     onShow: function() {
       var module = this.$['module-latlong'];
+      this.fire('sound-ambient', 'latlong_start');
       this.game = new scenes.latlong.Game(module);
-      startButton(this, module, function() {
-        this.start();
-        this.fire('sound-ambient', 'latlong_start');
-      }.bind(this));
     },
 
     onHide: function() {

@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="boatload-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -184,7 +183,6 @@ Boatload scene.
       onShow: function() {
         var module = this.$['module-boatload'];
         this.game = new scenes.boatload.Game(module);
-        startButton(this, module, this.start.bind(this));
       },
 
       onHide: function() {

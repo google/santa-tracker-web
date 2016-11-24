@@ -405,10 +405,6 @@ Game.prototype.restart = function() {
 Game.prototype.startLevel_ = function() {
   this.restartDoors_();  // closes and recreates doors
 
-  if (this.paused) {
-    this.togglePause();
-  }
-
   this.unfreezeGame_();
   window.santaApp.fire('sound-trigger', 'm_game_start');
 };
@@ -467,8 +463,6 @@ Game.prototype.finishLevel = function() {
     this.gameover();
     return;
   }
-
-  this.togglePause();
 
   // Add bonus score before bumping level and adding time as those
   // are variables in the level score.
@@ -571,18 +565,6 @@ Game.prototype.unfreezeGame_ = function() {
     // Restart the onFrame loop
     this.lastFrame = +new Date() / 1000;
     this.requestId = window.requestAnimationFrame(this.onFrame_);
-  }
-};
-
-/**
- * Pauses/unpauses the game.
- */
-Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  // Only allow pausing if the game is playing (not game over).
-  } else if (this.isPlaying) {
-    this.pause();
   }
 };
 

@@ -37,7 +37,7 @@ Santa Tracker app.
   <santa-state during-tracker="{{duringTracker}}" current-time="{{currentTime}}"></santa-state>
 
   <!-- Keyboard handler -->
-  <iron-a11y-keys keys="esc" on-keys-pressed="_escHandler"></iron-a11y-keys>
+  <iron-a11y-keys keys="esc enter" on-keys-pressed="_onKeysPressed"></iron-a11y-keys>
 
   <!-- Preloading scene overlay -->
   <preload-overlay id="preloader"></preload-overlay>
@@ -730,6 +730,11 @@ Polymer({
    */
   _prepareScene: function(scene) {
     // Intentionally empty.
+
+    if (scene && 'pause' in scene) {
+      this.$.overlay.pregame = true;
+      this.userPause = true;
+    }
   },
 
   _prevSelectedRouteChanged: function() {
@@ -790,6 +795,18 @@ Polymer({
       return sceneIsOpen;
     }
     return this.$.lazypages.isValidRoute(this.route);
+  },
+
+  /**
+   * Starts the current game, if it can be started, and it has not already been started.
+   * Checks that the overlay is in pregame state.
+   * TODO(samthor): This state machine is ugly. Clean it up.
+   */
+  maybeStartGame: function() {
+    var scene = this.selectedScene;
+    if (scene && 'pause' in scene && !this.$.chrome.hasGameButtons && this.$.overlay.pregame) {
+      this.onStartGame();
+    }
   },
 
   /**
@@ -993,10 +1010,13 @@ Polymer({
     }
   },
 
-  _escHandler: function(e, detail) {
+  _onKeysPressed: function(e, detail) {
     switch (e.detail.key) {
       case 'esc':
         this.onDefaultAction();
+        break;
+      case 'enter':
+        this.maybeStartGame();
         break;
     }
   },
