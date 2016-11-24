@@ -40,5 +40,19 @@
       border: 10px solid black;
       opacity: 0.1;
     }
+
+    .message-text {
+      font-family: 'Lobster';
+      font-size: 80px;
+      line-height: 88px;
+      width: 350px;
+      color: white;
+      top: 0;
+      padding-top: 30px;
+      padding-left: 49px;
+      -ms-transform: skewY(-6deg); /* IE 9 */
+      -webkit-transform: skewY(-6deg); /* Safari */
+      transform: skewY(-6deg); /* Standard syntax */
+    }
   }
 }

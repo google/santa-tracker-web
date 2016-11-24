@@ -79,7 +79,11 @@ Postcard scene.
                 <div class="fg7"></div>
                 <div class="fg8"></div>
               </div>
-              <div class="shadow-inner"></div>
+              <div class="shadow-inner">
+              </div>
+              <span class="message-text">
+                Happy Holidays!
+              </span>
             </div>
           </div>
           <div id="heroSnowflake"></div>
@@ -128,7 +132,7 @@ Postcard scene.
 </template>
 <script>
 (function() {
-  var dev = false;
+  var dev = 'postcard';
   Polymer({
     is: 'snowflake-scene',
     behaviors: [window.SantaSceneBehavior],
