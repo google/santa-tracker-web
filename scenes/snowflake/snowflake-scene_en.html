@@ -80,6 +80,9 @@ Postcard scene.
                 <div class="fg8"></div>
               </div>
               <div class="shadow-inner"></div>
+              <span class="message-text">
+                <i18n-msg id="i18ntext" msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg>
+              </span>
             </div>
           </div>
           <div id="heroSnowflake"></div>
@@ -277,6 +280,7 @@ Postcard scene.
     sceneParamsChanged: function() {
       if (this.sceneParams && this.scene) {
         this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
+        this.$.i18ntext.msgid = "holiday_message_" + (this.sceneParams.bg || 0);
       }
     }
   });
