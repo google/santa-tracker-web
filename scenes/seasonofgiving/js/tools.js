@@ -231,10 +231,6 @@ app.Tools.prototype.handleResize = function() {
   var cols;
 
   if ($(window).width() > 1024 && $(window).height() > 600) {
-    this.elem.css({
-      'height': wh - 198 - 204 - 70
-    });
-
     this.elem.find('.Tool-container').css({
       'height': '70px',
       'width': '33.3%'
@@ -251,8 +247,6 @@ app.Tools.prototype.handleResize = function() {
       'height': toolContainerSize,
       'width': toolContainerSize
     });
-
-    this.elem.css('height', 'auto');
   }
 
   this.buttons.css({

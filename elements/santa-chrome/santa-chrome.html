@@ -24,11 +24,9 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../../components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../../components/app-layout/app-toolbar/app-toolbar.html">
-
 <link rel="import" href="../../components/app-layout/app-header-layout/app-header-layout.html">
 
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
-<link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html" />
 <link rel="import" href="../santa-icons.html">
 <link rel="import" href="../santa-state.html">
 <link rel="import" href="../santa-strings.html">
@@ -59,7 +57,7 @@ specific language governing permissions and limitations under the License.
 
     app-header {
       --app-header-background-rear-layer: {
-        background-color: var(--santa-toolbar-color, rgb(48,203,236));
+        background-color: var(--santa-header-color, rgb(48,203,236));
       };
       --app-header-shadow: {
         bottom: 0;  /** this is -5px by default */
@@ -67,14 +65,10 @@ specific language governing permissions and limitations under the License.
       };
     }
     .buttons.primary, #fixed-background {
-      color: var(--santa-toolbar-color, rgb(48,203,236));
+      color: var(--santa-header-color, rgb(48,203,236));
     }
     :host(.fixed) #fixed-background {
       visibility: visible;
-    }
-
-    .flex {
-      @apply(--layout-flex);
     }
   </style>
   <santa-strings strings="{{strings}}"></santa-strings>
@@ -187,7 +181,7 @@ specific language governing permissions and limitations under the License.
         <app-toolbar hidden$="[[disabled]]">
           <paper-icon-button icon="santa:menu" drawer-toggle
               class="toolbar-icon"></paper-icon-button>
-          <div class="flex fixsize">
+          <div class="title">
             <a class="linkwrap"
                href$="[[pageUrl]]#[[_computeDefaultRoute(trackerUnlocked)]]"
                on-click="_onTitleClick">
@@ -197,7 +191,12 @@ specific language governing permissions and limitations under the License.
               </h1>
             </a>
           </div>
-          <div class="shareicons" on-tap="_onShare">
+          <div class="feature" hidden$="[[!logoUrl]]">
+            <div class="board">
+              <div id="icon" style$="[[_computeBackgroundStyle(logoUrl)]]"></div>
+            </div>
+          </div>
+          <div class="share" on-tap="_onShare">
             <paper-icon-button hidden$="[[!hasWebShare]]" id="webshare" icon="santa:share"></paper-icon-button>
             <template is="dom-if" if="[[!hasWebShare]]">
               <div class="multi">
@@ -266,6 +265,13 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
+       * The current logo to display at the top center.
+       */
+      logoUrl: {
+        type: String,
+      },
+
+      /**
        * Whether the current scene has 'game buttons', reset and pause.
        */
       hasGameButtons: {
@@ -323,6 +329,13 @@ specific language governing permissions and limitations under the License.
 
     _computeTrackerUrl: function(pageUrl, trackerUnlocked) {
       return trackerUnlocked ? pageUrl + '#tracker' : null;
+    },
+
+    _computeBackgroundStyle: function(logoUrl) {
+      if (logoUrl) {
+        return 'background-image: url(' + logoUrl + ')';
+      }
+      return null;
     },
 
     _computeDec24thString: function(lang) {

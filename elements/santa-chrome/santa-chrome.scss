@@ -1,6 +1,10 @@
 $toolbar-height: 44px;
 $indent-left: 24px;  // indent in the sidebar
 
+// nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
+// using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
+$feature-width: 198px;
+
 :host {
   display: block;
 }
@@ -149,7 +153,6 @@ app-toolbar {
 
   // Common button reset.
   button {
-    pointer-events: auto;
     border: 0;
     margin: 0;
     padding: 0;
@@ -161,16 +164,12 @@ app-toolbar {
   a.linkwrap {
     display: inline-flex;
     max-width: 100%;
-    min-width: 25%;
-    pointer-events: auto;
     text-decoration: none;
   }
 
   #logo {
     width: 62px;
     min-width: 62px;
-    top: 0;
-    bottom: 0;
     background: url(img/google_logo.svg) 0 14px no-repeat;
     background-size: contain;
   }
@@ -188,30 +187,87 @@ app-toolbar {
     white-space: nowrap;
   }
 
-  .fixsize {
+  .title {
     height: 100%;
-    width: 1px;  // nb. just needs to be "a size", flexbox uses as min-width
+    min-width: 1px;  // nb. without any min-width, title can't be clipped to size
+    flex-grow: 1;
   }
 
-  .shareicons {
+  .feature {
+    z-index: 10;
+    height: 100%;
+    text-align: center;
+    position: relative;
+
+    /** santa-board demo */
+    .board {
+      position: relative;
+      background: var(--santa-feature-color, #b757c5);
+      top: -4px;
+      height: 55px;
+      width: 55px;
+      padding-top: 4px;
+      box-shadow: 0 1px 0 1px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      #icon {
+        width: 100%;
+        height: 80%;
+        background: transparent center/contain no-repeat;
+      }
+    }
+  }
+
+  .share {
     padding: ($toolbar-height - 40px)/2 0;  // icon=40px, total=$toolbar-height;
     height: 100%;
     box-sizing: border-box;
     display: flex;
-    pointer-events: auto;  // set these icons to be accessible again
+    justify-content: flex-end;
     font-size: 0;  // fixes alignment issues
 
     .multi {
-      display: flex;
-
-      @media (max-width: 600px) {
-        display: none;
-      }
+      display: none;  // set to `display: flex` in full mode
 
       .sep {
         background: rgba(0,0,0,0.125);
         width: 1px;
-        margin: 6px 9px;
+        margin: 6px;
+      }
+    }
+  }
+
+  .feature[hidden] + .share {
+    flex-grow: 0;
+  }
+
+  /**
+   * In the full village experience, make the left/right (.title/.share respectively) grow to the
+   * same center point.
+   */
+  @media (min-width: 768px) {
+    .title {
+      width: 69px - 44px;
+    }
+    .share {
+      width: 69px;
+      flex-grow: 1;
+
+      .multi {
+        display: flex;
+      }
+    }
+    .feature {
+      // .. and the feature has a min-width set, for future scores/times etc
+      min-width: $feature-width;
+      .board {
+        width: 88px;
+        height: 88px;
       }
     }
   }
@@ -235,7 +291,6 @@ app-toolbar {
     text-align: center;
     box-sizing: border-box;
     padding: 0;
-    pointer-events: auto;
     border: 0;
     margin: 0;
     text-align: center;

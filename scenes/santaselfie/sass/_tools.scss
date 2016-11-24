@@ -410,24 +410,7 @@
 @media (min-width: 800px) and (min-height: 840px) {
   ##{$name} {
     .Tools {
-      height: 153px + 2 * 156px + 3 * 78px;
-    }
-
-    .Tool-poleContainer {
-      background-color: #BD57C2;
-      height: 153px;
-      position: relative;
-    }
-
-    .Tool-pole {
-      background-size: contain;
-      background: url('img/pole.svg') no-repeat;
-      height: 125px;
-      left: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 54px;
+      height: 2 * 156px + 3 * 78px;
     }
   }
 }
