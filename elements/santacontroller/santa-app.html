@@ -605,19 +605,8 @@ Polymer({
   },
 
   ready: function() {
-    var apiClient = getUrlParameter('api_client') || 'web';
-    if (!apiClient.match(/^[a-zA-Z_]*$/)) {
-      apiClient = defaultApiClient;
-    }
-    switch (apiClient) {
-      case 'web_portal':
-        apiClient = 'web';
-        this.mode = 'portal';
-        break;
-      case 'web_embed':
-        apiClient = 'web';
-        this.mode = 'embed'
-        break;
+    if (getUrlParameter('api_client') === 'web_portal') {
+      this.mode = 'portal';
     }
 
     var sc = new SoundController(this._soundsLoaded.bind(this));

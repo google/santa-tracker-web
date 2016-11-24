@@ -29,8 +29,15 @@ var FLIGHT_FINISHED = COUNTDOWN_END + (FLIGHT_HOURS * 60 * 60 * 1000);
 
 var VERSION = document.body.getAttribute('data-version');
 var LANGUAGE = document.documentElement.lang || 'en';
+var API_CLIENT = (function() {
+  var apiClient = getUrlParameter('api_client');
+  if (!apiClient || !apiClient.match(/^[a-zA-Z_]*$/) || apiClient === 'web_portal') {
+    apiClient = 'web';
+  }
+  return apiClient;
+}());
 
-var santaService = new SantaService('web', LANGUAGE, VERSION);
+var santaService = new SantaService(API_CLIENT, LANGUAGE, VERSION);
 var instances = new Set();
 
 santaService.addListener('kill', function() {
@@ -112,6 +119,15 @@ Polymer({
       readOnly: true,
       notify: true,
       value: function() { return offline; },
+    },
+
+    /**
+     * The language loaded into Santa Tracker.
+     */
+    language: {
+      type: String,
+      readOnly: true,
+      value: LANGUAGE,
     },
 
     /**

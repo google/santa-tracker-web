@@ -461,8 +461,8 @@ SantaService.prototype.sync = function(opt_callback) {
   const done = result => {
     let ok = true;
     if (result['status'] != 'OK') {
-      console.error(result['status']);
-      this.disconnect_();
+      console.error('api', result['status']);
+      this.kill_();
       ok = false;
     }
 
