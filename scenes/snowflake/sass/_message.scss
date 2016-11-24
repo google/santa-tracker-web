@@ -53,6 +53,7 @@
       -ms-transform: skewY(-6deg); /* IE 9 */
       -webkit-transform: skewY(-6deg); /* Safari */
       transform: skewY(-6deg); /* Standard syntax */
+      transition: transform 500ms ease;
     }
   }
 }
