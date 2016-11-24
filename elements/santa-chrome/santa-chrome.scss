@@ -219,6 +219,7 @@ app-toolbar {
 
 .buttons {
   $button-size: 45px;
+  pointer-events: none;
 
   position: fixed;
   bottom: 0;
@@ -227,6 +228,7 @@ app-toolbar {
   display: flex;
 
   button {
+    pointer-events: auto;
     color: inherit;
     height: $button-size;
     width: $button-size;
