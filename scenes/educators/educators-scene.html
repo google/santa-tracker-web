@@ -1,0 +1,209 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="educators-scene_module.html">
+
+<script src="../press/press-scene.min.js"></script>
+
+<dom-module id="educators-scene">
+<template>
+  <style include="educators-scene_module"></style>
+  <div id="content">
+
+    <div id="hero">
+      <div class="header">
+        <div class="title">
+          <h1>For</h1>
+          <h1>Educators</h1>
+        </div>
+        <h3>Learning with Santa Tracker</h3>
+      </div>
+      <div class="description">
+        <div class="left">
+          <div class="square"></div>
+        </div>
+        <div class="right">
+          <p>We know Santa's elves aren't the only ones busy this December. For busy teachers making lessons plans and checking them twice, we've got you covered. Our free educational games are great for K-12 classroom warm-ups, extension activities, and writing prompts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="educators-secondary">
+      <div class="educators-secondary-inner">
+        <h2>Games for the classroom</h2>
+        <div class="educators-card-tabs" on-click="_onFilterClick">
+          <button class$="[[_computeActive(filter, 'education')]]" data-filter="education">View All</button>
+          <button class$="[[_computeActive(filter, 'geography')]]" data-filter="geography">Geography</button>
+          <button class$="[[_computeActive(filter, 'computerscience')]]" data-filter="computerscience">Computer Science</button>
+          <button class$="[[_computeActive(filter, 'language')]]" data-filter="language">Language</button>
+          <button class$="[[_computeActive(filter, 'socialstudies')]]" data-filter="socialstudies">Social Studies</button>
+        </div>
+
+        <div class="educators-card-container">
+          <template is="dom-repeat" items="[[cards]]" as="card">
+            <div class="card" hidden$="[[_computeHidden(filter, card.filter)]]">
+              <div class="card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)"></div>
+              <div class="card-info">
+                <h4>[[card.title]]</h4>
+                <span>Opens December [[card.opens]] • [[card.type]]</span>
+                <p>[[card.description]]</p>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <div id="educators-primary">
+      <h2>Lesson Plans</h2>
+      <p class="educators-primary-intro">Download lesson plans aligned with Common Core &amp; ISTE standards</p>
+      <div class="educators-primary-inner">
+        <div class="card">
+          <div class="card-img" style="background-image: url(img/lesson-plan-traditions.png)"></div>
+          <div class="card-info">
+            <h4>Comparing Christmas Traditions Across Cultures</h4>
+            <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they’ve realized it's time to study up on geography and coding to ensure Santa’s sleigh goes on the most efficient path around the world using the most advanced algorithms. It’s his biggest night of the year! </p>
+            <div class="card-links">
+              <span class="card-title">Resources:</span>
+              <a href="#" class="card-dl" target="_blank">Grades K-2 <span>(PDF file)</span></a>
+              <a href="#" class="card-dl" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
+              <a href="#" class="card-dl" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image: url(img/lesson-plan-code.png)"></div>
+          <div class="card-info">
+            <h4>Learn and Practice the Basics of Coding</h4>
+            <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city. Follow him each step of the way by searching for Santa directly in <a href="https://maps.google.com">Google Maps</a> and <a href="https://google.com">google.com</a>. Or, head over to <a href="https://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he’ll visit that night.  </p>
+            <div class="card-links">
+              <span class="card-title">Resources:</span>
+              <a href="#" class="card-dl" target="_blank">Grades K-2 <span>(PDF file)</span></a>
+              <a href="#" class="card-dl" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
+              <a href="#" class="card-dl" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="educators-nonprofit">
+      <h2>Educational Non-Profit Organizations</h2>
+      <p class="educators-nonprofit-intro">We've partnered with <a href="https://google.org">Google.org</a> to showcase educational non-profits that celebrate the season of giving all year long.</p>
+
+      <div class="grid">
+        <div class="tile">
+          <div class="image" style="background-image: url(img/logo-code.png)"></div>
+          <h4>Code.org</h4>
+          <p>Code.org® is a non-profit dedicated to expanding access to computer science, and increasing participation by women and underrepresented students of color. Code.org®'s vision is that every student in every school should have the opportunity to learn computer science.</p>
+          <a href="https://code.org">Learn More</a>
+        </div>
+        <div class="tile">
+          <div class="image" style="background-image: url(img/logo-donors-choose.png)"></div>
+          <h4>DonorsChoose.org</h4>
+          <p>Founded in 2000 by a Bronx history teacher, DonorsChoose.org has raised over US$480m for America's classrooms. Teachers come to DonorsChoose.org to request the materials and experiences they need for their classrooms.</p>
+          <a href="https://donorschoose.org">Learn More</a>
+        </div>
+        <div class="tile">
+          <div class="image" style="background-image: url(img/logo-storyweaver.png)"></div>
+          <h4>Pratham Books</h4>
+          <p>Close to 40% of the global population does not have access to education in a language they speak or understand. StoryWeaver hopes to change that by helping educators, writers and translators create joyful, supplementary reading resources for children.</p>
+          <a href="https://storyweaver.org.in/prathambooks">Learn More</a>
+        </div>
+        <div class="tile">
+          <div class="image" style="background-image: url(img/logo-khan.png)"></div>
+          <h4>Khan Academy</h4>
+          <p>Khan Academy is a nonprofit with a mission to provide a free, world-class education for anyone, anywhere. Khan Academy believes learners of all ages should have unlimited access to free educational content they can master at their own pace.</p>
+          <a href="https://khanacademy.org">Learn More</a>
+        </div>
+        <div class="tile">
+          <div class="image" style="background-image: url(img/logo-lwb.png)"></div>
+          <h4>Libraries Without Borders</h4>
+          <p>Libraries Without Borders (LWB) is a leading international NGO in culture-based development founded in 2007, headquartered in Paris. They have built more than 300 libraries around the world.</p>
+          <a href="https://librarieswithoutborders.org/">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="educators-footer">
+      <h3>Need something?</h3>
+      <p>Elves and Googlers are here to help.</p>
+      <a href="mailto:education@google.com">education@google.com</a>
+    </div>
+
+  </div>
+</template>
+<script>
+// Note! The educators page is a copy of the press page, made in late 2016. It shares various
+// resources, including the JS itself (to provide the model). Future engineers may want to merge
+// its logic/display code with the press page.
+
+  Polymer({
+    is: 'educators-scene',
+    behaviors: [window.SantaSceneBehavior],
+
+    properties: {
+      scene: Object,
+      cards: Array,
+      filter: {
+        type: String,
+        value: 'education',
+      },
+    },
+
+    onPreload: function() {
+      this.preloadImages([
+        'img/bg-hero.png',
+        'img/illust-teacher_2x.png',
+        'img/lesson-plan-bg-full.png',
+        'img/lesson-plan-code.png',
+        'img/lesson-plan-traditions.png',
+        'img/logo-code.png',
+        'img/logo-donors-choose.png',
+        'img/logo-khan.png',
+        'img/logo-lwb.png',
+        'img/logo-storyweaver.png',
+      ]);
+    },
+
+    ready: function() {
+      this.scene = new scenes.press.Scene();
+      this.cards = this.scene.getModels();  // education cards are never locked
+    },
+
+    _computeHidden: function(filter, card) {
+      if (!filter) {
+        return false;
+      }
+      var parts = card.split(' ');
+      return parts.indexOf(filter) === -1;
+    },
+
+    _onFilterClick: function(ev) {
+      var filter = ev.target.dataset['filter'];
+      if (filter !== undefined) {
+        this.filter = filter;
+      }
+    },
+
+    _computeActive: function(a, b) {
+      return a === b ? 'active' : '';
+    },
+
+  });
+</script>
+</dom-module>

@@ -3,16 +3,16 @@ $mobileBreakpoint: 668px;
 $mobilePortraitBreakpoint: 400px;
 
 @media (min-width: 1px) and (max-width: $tabletBreakpoint) {
-  #press-intro {
+  #educators-intro {
     height: auto;
 
-    .press-intro-col {
+    .educators-intro-col {
       width: 100%;
     }
   }
 
-  #press-primary {
-    .press-primary-inner {
+  #educators-primary {
+    .educators-primary-inner {
       width: 100%;
     }   
 
@@ -23,8 +23,8 @@ $mobilePortraitBreakpoint: 400px;
     }
   }
 
-  #press-secondary {
-    .press-secondary-inner {
+  #educators-secondary {
+    .educators-secondary-inner {
       width: 100%;
     }
 
@@ -43,20 +43,21 @@ $mobilePortraitBreakpoint: 400px;
 }
 
 @media (min-width: 1px) and (max-width: $mobileBreakpoint) {
-  #press-hero {
-    background-position: 78% 50%;
+  #hero {
     height: 100%;
-    padding: 20px 0 275px;
+    padding: 20px 0 175px;
 
-    .press-header {
+    .header {
       padding: 30px 0;
     }
 
     h1 {
-      font-size: 60px;
-      
+      font-size: 50px;
+      margin-left: 0;
+      margin-right: 0;
+
       &::first-letter {
-        font-size: 80px;
+        font-size: 70px;
         vertical-align: middle;
       } 
     }
@@ -65,19 +66,17 @@ $mobilePortraitBreakpoint: 400px;
       font-size: 22px;
     }
 
-    .press-description-left {
-      float: none;
-      margin: 0 auto;
-      width: 50%;
+    .description {
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .press-description-right {
-      clear: both;
-      width: 100%;
+    .left {
+      width: 50%;
     }
   }
 
-  #press-primary {
+  #educators-primary {
     h2 {
       padding: 0 10px;
     }
@@ -94,15 +93,15 @@ $mobilePortraitBreakpoint: 400px;
     }   
   }
 
-  #press-secondary {
+  #educators-secondary {
     .card {
       clear: both;
       width: calc(100% - 30px) !important;
     }
   }
 
-  #press-embed {
-    .press-embed-inner {
+  #educators-embed {
+    .educators-embed-inner {
       width: 90%;
     }
 
@@ -111,14 +110,14 @@ $mobilePortraitBreakpoint: 400px;
     }
   }
 
-  #press-device {
-    .press-device-intro {
+  #educators-nonprofit {
+    .educators-nonprofit-intro {
       margin: 1em auto;
       width: 90%;
     }
   }
 
-  #press-footer {
+  #educators-footer {
     padding: 100px 0;
     width: 100%;
   }
