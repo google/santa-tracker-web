@@ -36,11 +36,11 @@ Renders random snow and clouds across this element's surface. Used for the villa
 <script>
 (function() {
 
-/** Returns an integer number in the range [min,max] (or [0,min]). */
-function range(min, opt_max) {
-  var max = opt_max || 0;
-  return Math.round(min + Math.random() * (max - min));
-}
+var cloudImageSrc = [
+  'elements/weather/img/cloud1.svg',
+  'elements/weather/img/cloud2.svg',
+  'elements/weather/img/cloud3.svg',
+];
 
 Polymer({
   is: 'santa-weather',
@@ -72,7 +72,7 @@ Polymer({
 
   },
 
-  created: function () {
+  created: function() {
     // Bind a local copy of the function so that when called from window-based
     // events, like 'resize', the references to this are still for the instance
     // of the weather, and not window.
@@ -81,16 +81,18 @@ Polymer({
     this._updateClouds = this._updateClouds.bind(this);
     this._drawClouds = this._drawClouds.bind(this);
 
-    this._cloudImages = [
-      'elements/weather/img/cloud1.svg',
-      'elements/weather/img/cloud2.svg',
-      'elements/weather/img/cloud3.svg',
-    ];
-
-    this._cloudsLoaded = this._loadClouds(this._cloudImages);
+    this._cloudImagesPending = cloudImageSrc.length;
+    this._cloudImages = cloudImageSrc.map(function(src) {
+      var img = new Image();
+      img.src = src;
+      img.onload = function() {
+        --this._cloudImagesPending;
+      }.bind(this);
+      return img;
+    }, this);
   },
 
-  ready: function () {
+  ready: function() {
     this._ctx = this.$.snowcanvas.getContext('2d');
     this._snowflakes = [];
     this._clouds = [];
@@ -98,7 +100,7 @@ Polymer({
     this._startTime;
   },
 
-  attached: function () {
+  attached: function() {
     this._onResize();
     this._createSnowflakes();
     this._createClouds();
@@ -106,31 +108,19 @@ Polymer({
     window.addEventListener('resize', this._onResize);
   },
 
-  detached: function () {
+  detached: function() {
     window.removeEventListener('resize', this._onResize);
   },
 
-  _loadClouds: function (_cloudImages) {
-    return Promise.all(_cloudImages.map(function(imgSrc) {
-      return new Promise(function (resolve, reject) {
-        var img = new Image();
-        img.src = imgSrc;
-        img.onload = function() {
-          resolve(img);
-        }
-      });
-    }));
-  },
-
-  _activeChanged: function () {
+  _activeChanged: function() {
     if (!this.active) {
       return;
     }
 
-    requestAnimationFrame(this._update);
+    window.requestAnimationFrame(this._update);
   },
 
-  _setWind: function () {
+  _setWind: function() {
     this.wind = 0.25 - Math.random() * 0.5;
 
     // Wait a random amount of time (up to 15 seconds) before changing the wind
@@ -143,7 +133,7 @@ Polymer({
    * container can scale to its natural size. After that's completed the
    * canvas sizes set, and its visibility restored.
    */
-  _onResize: function () {
+  _onResize: function() {
     this.$.snowcanvas.hidden = true;
 
     var bounds = this.getBoundingClientRect();
@@ -158,7 +148,7 @@ Polymer({
     // Go into a poll to wait if the element is zero by zero. Ideally this would
     // be solved with ResizeObservers in the future.
     if (this._width === 0 && this._height === 0) {
-      return this.async(function () {
+      return this.async(function() {
         this._onResize();
       }, 1000);
     }
@@ -167,7 +157,7 @@ Polymer({
     this._startTime = window.performance.now();
   },
 
-  _createSnowflakes: function () {
+  _createSnowflakes: function() {
     var count = this._snowflakes.length;
     this._snowflakes.length = this.snowflakes;
 
@@ -176,12 +166,12 @@ Polymer({
     }
 
     // Fill up any remaining gaps.
-    for (var i = count; i < this.snowflakes; i++) {
+    for (var i = count; i < this.snowflakes; ++i) {
       this._resetSnowflake(i);
     }
   },
 
-  _createClouds: function () {
+  _createClouds: function() {
     var count = this._clouds.length;
     this._clouds.length = this.clouds;
 
@@ -190,30 +180,30 @@ Polymer({
     }
 
     // Fill up any remaining gaps.
-    for (var i = count; i < this.clouds; i++) {
+    for (var i = count; i < this.clouds; ++i) {
       this._resetCloud(i, true);
     }
   },
 
-  _resetCloud: function (index, initialView) {
-    this._clouds[index] = this._createCloud(initialView);
+  _resetCloud: function(index, opt_initialView) {
+    this._clouds[index] = this._createCloud(opt_initialView);
   },
 
-  _resetSnowflake: function (index) {
+  _resetSnowflake: function(index) {
     this._snowflakes[index] = this._createSnowflake();
   },
 
-  _createCloud: function (initialView) {
+  _createCloud: function(opt_initialView) {
     var width = 50 + Math.random() * 100;
     var height = width * 0.6;
     var x = this.wind > 0 ? -Math.random() * 0.5 : 1 + Math.random() * 0.5;
 
-    if (initialView) {
+    if (opt_initialView) {
       x = Math.random();
     }
 
     return {
-      img: Math.floor(Math.random() * this._cloudImages.length),
+      img: Math.floor(Math.random() * cloudImageSrc.length),
       w: width,
       h: height,
       m: 4 - (width / 50),
@@ -226,7 +216,7 @@ Polymer({
     }
   },
 
-  _createSnowflake: function () {
+  _createSnowflake: function() {
     return {
       x: Math.random(),
       y: -Math.random(),
@@ -241,10 +231,7 @@ Polymer({
       return;
     }
 
-    var snowflake;
-    for (var i = 0; i < this._snowflakes.length; i++) {
-      snowflake = this._snowflakes[i];
-
+    for (var i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
       snowflake.x += 0.01 * this._currentWind * (1 / snowflake.d);
       snowflake.y += 0.0002 * snowflake.d * snowflake.ry;
 
@@ -255,42 +242,37 @@ Polymer({
       }
     }
 
-    this._cloudsLoaded.then(this._updateClouds);
+    this._updateClouds();
 
     // Ease the actual wind value to the new wind value.
     this._currentWind += (this.wind - this._currentWind) / 200;
     this._draw();
 
-    requestAnimationFrame(this._update);
+    window.requestAnimationFrame(this._update);
   },
 
-  _updateClouds: function () {
-    var cloud;
-    for (var c = 0; c < this._clouds.length; c++) {
-      cloud = this._clouds[c];
+  _updateClouds: function() {
+    for (var c = 0, cloud; cloud = this._clouds[c]; ++c) {
       cloud.x += 0.001 * this._currentWind * cloud.m;
 
       if (this.wind > 0 && cloud.x * this._width > this._width ||
           this.wind < 0 && cloud.x * this._width < -cloud.w) {
-          this._resetCloud(c);
+        this._resetCloud(c);
       }
     }
   },
 
-  _draw: function () {
+  _draw: function() {
     if (!this._startTime) {
       return;
     }
 
-    var alpha;
-    var snowflake;
     var TAU = Math.PI * 2;
     this._ctx.fillStyle = '#FFF';
     this._ctx.clearRect(0, 0, this._width, this._height);
 
-    for (var i = 0; i < this._snowflakes.length; i++) {
-      snowflake = this._snowflakes[i];
-      alpha = 1;
+    for (var i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
+      var alpha = 1;
 
       if (snowflake.y > 0.9) {
         // Fade out the snowflake at the end.
@@ -313,16 +295,16 @@ Polymer({
 
     // Ensure all cloud images have loaded first before drawing any, because we
     // don't want any magically-appearing clouds. That's not how clouds work.
-    this._cloudsLoaded.then(this._drawClouds);
+    if (!this._cloudImagesPending) {
+      this._drawClouds();
+    }
   },
 
-  _drawClouds: function(cloudImages) {
-    var cloud;
-    for (var c = 0; c < this._clouds.length; c++) {
-      cloud = this._clouds[c];
+  _drawClouds: function() {
+    for (var c = 0, cloud; cloud = this._clouds[c]; ++c) {
       this._ctx.globalAlpha = cloud.o;
       this._ctx.drawImage(
-          cloudImages[cloud.img],
+          this._cloudImages[cloud.img],
           cloud.x * this._width,
           cloud.y * this._height,
           cloud.w,
