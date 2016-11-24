@@ -1,0 +1,346 @@
+@import "../press/sass/card";
+
+:host {
+  user-select: auto;
+}
+
+#content {
+  background: #F7FCFB;
+  -webkit-font-smoothing: antialiased;
+}
+
+.clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.square {
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.rect {
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 20%;
+  }
+}
+
+a {
+  color: #00acc1;
+  opacity: 1;
+  text-decoration: none;
+  transition: opacity .3s;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', sans-serif;
+  font-size: 115px;
+  font-weight: normal;
+  margin: 10px;
+  float: left;
+  color: #fff;
+
+  &::first-letter {
+    font-size: 161px;
+    vertical-align: middle;
+  }
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', sans-serif;
+  font-weight: normal;
+  font-size: 48px;
+  color: #9575CD;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 30px;
+  color: #fff;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+}
+
+p {
+  font-size: 16px;
+  font-wight: normal;
+  line-height: 28px;
+}
+
+ul {
+  font-size: 16px;
+  font-wight: normal;
+  line-height: 24px;
+}
+
+#hero {
+  background: url(img/bg-hero.png) center bottom/cover no-repeat;
+  height: 800px;
+  padding: 20px 0 0 0;
+  width: 100%;
+  border-bottom: 5px solid #e8eff0;
+
+  .header, .description  {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1010px;
+    padding: 0 30px;
+  }
+
+  .header {
+    padding: 30px 0 50px 0;
+    text-align: center;
+
+    .title {
+      display: inline-block;
+      transform: rotate(-5deg);
+    }
+  }
+
+  h3 {
+    margin-top: -10px;
+    color: #fff;
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+
+    p {
+      color: rgba(38, 50, 56, 0.8);
+      font-weight: 300;
+    }
+  }
+
+  .left {
+    width: 20%;
+    .square {
+      background: url(img/illust-teacher_2x.png) center/contain no-repeat;
+      width: 100%;
+    }
+  }
+
+  .right {
+    width: 80%;
+  }
+}
+
+#educators-primary {
+  text-align: center;
+  padding: 100px 0 80px 0;
+  background: url(img/lesson-plan-bg-full.png) center bottom/cover no-repeat;
+
+  h2 {
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .educators-primary-intro {
+    color: white;
+    min-height: 96px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  .educators-primary-inner {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 0 10px;
+    width: 1010px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+#educators-secondary {
+  padding: 100px 0 100px 0;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .educators-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .educators-card {
+    width: calc(33% - 30px);
+
+    .educators-card-img {
+      height: 175px;
+    }
+  }
+
+  .educators-secondary-inner {
+    margin: 0 auto;
+    overflow: auto;
+    width: 1010px;
+
+    .educators-card-tabs {
+      padding-bottom: 50px;
+
+      button {
+        font: inherit;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 20px;
+        position: relative;
+        text-transform: uppercase;
+        z-index: 1;
+        display: inline-block;
+        border-radius: 8px;
+        background: transparent;
+        color: #9575CD;
+
+        &.active {
+          background: #9575CD;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+#educators-embed {
+  background: #9575CD;
+  padding: 100px 0;
+  text-align: center;
+
+  .educators-embed-inner {
+    margin: 0 auto;
+    width: 640px;
+  }
+
+  a {
+    color: #80DEEA;
+    text-decoration: none;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  .rect {
+    background: url(img/illust-embed_2x.png) 50% 50% no-repeat;
+    background-size: contain;
+  }
+}
+
+#educators-nonprofit {
+  padding: 100px 0;
+  text-align: center;
+
+  h3, h4, p {
+    color: #607D8B;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+
+  .educators-nonprofit-intro {
+    margin: 1em;
+  }
+
+  .grid {
+    margin: 0 auto;
+    max-width: 1010px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+
+    .tile {
+      padding: 0 15px 30px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 25%;
+      min-width: 320px;
+      text-align: left;
+
+      .image {
+        background: #e8eff0 center/contain no-repeat;
+        margin-bottom: 24px;
+        border-radius: 4px;
+        height: 200px;
+        border: 35px solid transparent;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+#educators-footer {
+  background: #17CC82;
+  text-align: center;
+  padding: 100px;
+
+  p {
+    color: #fff;
+    padding-bottom: 25px;
+    font-size: 16px;
+  }
+
+  a {
+    background: #FFBE26;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    opacity: 1;
+    padding: 15px 35px;
+    text-decoration: none;
+    transition: background .3s;
+    width: 250px;
+
+    &:hover {
+      background: #ffd54f;
+    }
+  }
+}
+
+@import "sass/responsive";

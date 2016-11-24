@@ -1,0 +1,124 @@
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 668px;
+$mobilePortraitBreakpoint: 400px;
+
+@media (min-width: 1px) and (max-width: $tabletBreakpoint) {
+  #educators-intro {
+    height: auto;
+
+    .educators-intro-col {
+      width: 100%;
+    }
+  }
+
+  #educators-primary {
+    .educators-primary-inner {
+      width: 100%;
+    }   
+
+    .card {
+      float: none;
+      margin: 0 auto 30px;
+      width: calc(70% - 30px);
+    }
+  }
+
+  #educators-secondary {
+    .educators-secondary-inner {
+      width: 100%;
+    }
+
+    .card {
+      width: calc(50% - 30px) !important;
+
+      &.clear-desktop-row {
+        clear: none;
+      }
+      
+      &.clear-tablet-row {
+        clear: left;
+      }
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+  #hero {
+    height: 100%;
+    padding: 20px 0 175px;
+
+    .header {
+      padding: 30px 0;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-left: 0;
+      margin-right: 0;
+
+      &::first-letter {
+        font-size: 70px;
+        vertical-align: middle;
+      } 
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    .description {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left {
+      width: 50%;
+    }
+  }
+
+  #educators-primary {
+    h2 {
+      padding: 0 10px;
+    }
+
+    .card {
+      width: calc(100% - 30px);
+    }
+
+    .card-links {
+      a {
+        float: left;
+        width: 100%;
+      }
+    }   
+  }
+
+  #educators-secondary {
+    .card {
+      clear: both;
+      width: calc(100% - 30px) !important;
+    }
+  }
+
+  #educators-embed {
+    .educators-embed-inner {
+      width: 90%;
+    }
+
+    .rect:before {
+      padding-top: 40%;
+    }
+  }
+
+  #educators-nonprofit {
+    .educators-nonprofit-intro {
+      margin: 1em auto;
+      width: 90%;
+    }
+  }
+
+  #educators-footer {
+    padding: 100px 0;
+    width: 100%;
+  }
+}
