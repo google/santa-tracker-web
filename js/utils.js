@@ -101,19 +101,22 @@ function throttle(func, ms) {
 
 /**
  * Returns an array of all scene IDs (e.g., dorf, boatload) which are cached.
- * @returns {!Promise<!Array<string>>}
+ * @export
+ * @return {!Promise<!Array<string>>}
  */
 function getCachedScenes() {
   const caches = window.caches; 
   if (typeof caches === 'undefined') { return Promise.resolve([]); }
 
   return caches.open('persistent')
-    .then(cache => cache.match('/manifest.json'))
-    .then(response => response.json().version)
+    .then(cache => cache.match(window.location.origin + '/manifest.json'))
+    .then(response => response.json())
+    .then(json => json.version)
     .then(version => caches.open(version))
     .then(cache => cache.keys())
     .then(requests => {
-      const matches = requests.map(r => r.url.match(/\/scenes\/(\w+)\//));
+      const urls = requests.map(r => r.url);
+      const matches = urls.map(url => url.match(/\/scenes\/(\w+)\//));
       return [...new Set(matches.filter(m => m).map(m => m[1]))];
     })
     .catch(error => {
