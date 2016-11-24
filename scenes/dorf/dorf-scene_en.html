@@ -75,7 +75,7 @@ Santa's Village.
         <div class="castlogo" hidden$="[[!_isCastMode(mode)]]"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
         <div hidden$="[[!countdownFinished]]">
-          <a hidden$="[[!duringTracker]]" href$="[[pageUrl]]#tracker" class="village-tracker-link">
+          <a hidden$="[[!duringTracker]]" href$="[[urlFor('tracker')]]" class="village-tracker-link">
             <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
           </a>
         </div>
@@ -91,7 +91,7 @@ Santa's Village.
       <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <!-- The 'New Today' house exists in the regular grid -->
         <div class="house house-new-today">
-          <a href$="[[pageUrl]]#[[todayHouse]]" hidden$="[[!todayHouse]]">
+          <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]">
             <div class$="card new-today-[[todayHouse]]">
               <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_string('scene', todayHouse, strings)]]</h3>
@@ -319,7 +319,7 @@ Santa's Village.
       if (!house || locked) {
         return null;
       }
-      return house.link || this.pageUrl + '#' + house.module;
+      return house.link || this.urlFor(house.module);
     },
 
     /**

@@ -13,59 +13,40 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html" />
-<link rel="import" href="../components/i18n-msg/i18n-msg.html">
+
 <script>
 (function() {
-  function closest(el, name) {
-    while (el && el.localName != name) {
-      el = el.parentNode;
-    }
-    return el;
-  }
+  var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
 
   /** @polymerBehavior */
   window.SantaAppBehavior = {
     properties: {
 
-      /**
-       * Basename for links in Santa Tracker. Needed for production version so
-       * internal links use the production site.
-       *
-       * TODO(ebidel): This should be computed, but there's a timing issue and
-       * it ends up undefined.
-       */
-      pageUrl: {
-        type: String,
-        readOnly: true,
-        value: function() {
-          return location.href.substr(0, location.href.length - location.hash.length);
-        }
-      },
-
-      /**
-       * The master santaApp. Set and cleared in attached/detached.
-       */
+      /** The master santaApp. */
       santaApp: {
         type: Object,
         readOnly: true,
-        value: function() {
-          return closest(this, 'santa-app');
-        },
-        // Noop. Subclass scenes can define this to know when santaApp changes.
-        observer: '_santaAppChanged'
+        value: function() { return window.santaApp; },
       },
+
     },
 
-    attached: function() {
-      this._setSantaApp(closest(this, 'santa-app'));
+    /**
+     * Returns the localized version of a URL: with hl=<lang> appended to the query, if needed.
+     */
+    localizeUrl: function(url) {
+      // If a language was requested, continue to request it. Set in `index.html`.
+      if (window.requestLang) {
+        return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'hl=' + window.requestLang;
+      }
+      return url;
     },
 
-    detached: function() {
-      this._setSantaApp(null);
-    },
-
-    _santaAppChanged: function() {
-      // Noop. Subclasses can define this observer to know about changes.
+    /**
+     * Returns the URL for the given route.
+     */
+    urlFor: function(route) {
+      return pageUrl + '#' + route;
     },
 
   };

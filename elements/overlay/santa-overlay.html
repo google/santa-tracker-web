@@ -14,6 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../santa-app-behavior.html">
 <link rel="import" href="../santa-icons.html">
 <link rel="import" href="santa-overlay_module.html">
 
@@ -47,7 +48,7 @@ Shared overlay for Santa Tracker games.
         <button class="Button" hidden$="[[!playExtra]]" on-click="_onPlayExtraClick">
           <i18n-msg msgid="playextra">PLACEHOLDER_i18n</i18n-msg>
         </button>
-        <a class="Button" href="#village"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <a class="Button" href$="[[urlFor('village')]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
       </section>
       <section class$="[[_computeShareAreaClass(shareUrl)]]">
         <div hidden$="[[!shareUrl]]">
@@ -100,6 +101,7 @@ Polymer({
   is: 'santa-overlay',
 
   properties: {
+    behaviors: [window.SantaAppBehavior],
 
     /** If true, shows a replay button. */
     replay: {
