@@ -49,6 +49,7 @@ module.exports = function replaceMessages(opts) {
     }
 
     const src = file.contents.toString();
+    const rootPage = (path.dirname(file.relative) === '.');
 
     msgs.then(messagesByLang => {
       Object.keys(messagesByLang).forEach(lang => {
@@ -109,21 +110,17 @@ module.exports = function replaceMessages(opts) {
         // Note that this always writes a new HTML file, even if the content
         // is the same (perhaps a scene uses no i18n-msg elements).
 
-        if (!file.path.match(/(index|cast|error|upgrade|_en)\.html$/)) {
+        if (!rootPage && !file.path.match(/(_en)\.html$/)) {
           if (replaced === src) {
-            // ... unless the filename doesn't end with _en.html, in which case
-            // someone has accepted that it won't be translated anyway.
+            // ... this is a scene we've decided won't be translated anyway.
             stream.push(file);
             return;
           }
           error('[%s] Translatable files should end in _en.html', file.relative);
         }
 
-        let dir = '/';
-        // Only root pages should go in /intl/ directories.
-        if (lang != 'en' && !file.path.match(/_en\.html$/)) {
-          dir = `/intl/${lang}_ALL/`;
-        }
+        // Only non-en root pages should go in /intl/ directories.
+        const dir = (rootPage && lang != 'en') ? `/intl/${lang}_ALL/` : '/';
         const i18nfile = file.clone();
         i18nfile.path = path.dirname(file.path) + dir +
             path.basename(file.path).replace(/_en.html$/, ext);
