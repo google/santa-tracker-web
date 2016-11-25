@@ -154,7 +154,7 @@ module.exports = {
     entryPoint: 'app.Scene'
   },
   racer: {
-    msgid: 'racer',
+    msgid: 'scene_racer',
     entryPoint: 'app.Game'
   },
   rollercoaster: {
