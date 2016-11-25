@@ -14,14 +14,27 @@
  * the License.
  */
 
-module.exports = {
-  changedFlag: require('./changed_flag'),
-  crisper: require('./crisper'),
-  devScene: require('./dev-scene'),
-  fanout: require('./fanout'),
-  fileManifest: require('./file_manifest'),
-  i18nManifest: require('./i18n_manifest'),
-  i18nReplace: require('./i18n_replace'),
-  mutateHTML: require('./mutate_html'),
-  styleModules: require('./style_modules'),
-};
+/**
+ * @fileoverview Polyfills for Santa Tracker.
+ */
+
+if (!('closest' in window.Element.prototype)) {
+  // IE11
+
+  if ('matches' in window.Element.prototype) {
+    window.Element.prototype.matches = window.Element.prototype.msMatchesSelector || window.Element.prototype.webkitMatchesSelector;
+  }
+
+  window.Element.prototype.closest = function closest(selector) {
+    let el = this;
+
+    while (el && el.nodeType === 1) {
+      if (el.matches(selector)) {
+        return el;
+      }
+      el = el.parentNode;
+    }
+
+    return null;
+  };
+}

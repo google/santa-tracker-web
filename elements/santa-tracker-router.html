@@ -13,13 +13,9 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html">
-<script src="../components/flatiron-director/director/director.min.js"></script>
-<script>
-  ; // nb: prevents the above code from being invoked on the next statement
-</script>
 
 <!--
-Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director.
+Router for Santa Tracker.
 -->
 <dom-module id="santa-tracker-router">
 <script>
@@ -54,17 +50,13 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
   }
 
   /**
-   * Serializes an object of key/value URL params into a string.
+   * Gets the current route based on the pathname.
    *
-   * @param {Object} urlParams The key/value URL params.
-   * @return {string} serialized URL params.
+   * @return {string|undefined} current route, or undefined for unknown
    */
-  function serializeParams(urlParams) {
-    var url = [];
-    for (var key in urlParams) {
-      url.push(key + '=' + urlParams[key]);
-    }
-    return url.join('&');
+  function currentRoute() {
+    var m = /\/(\w+)\.html$/.exec(window.location.pathname);
+    return m ? m[1] : undefined;
   }
 
   var privateRouter;
@@ -83,7 +75,8 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
       route: {
         type: String,
         observer: '_routeChanged',
-        notify: true
+        value: function() { return currentRoute(); },
+        notify: true,
       },
 
       /**
@@ -98,66 +91,32 @@ Router for Santa Tracker. Modified from github.com/PolymerLabs/flatiron-director
         notify: true
       },
 
-      /**
-       * Used to record the route seen by the private router. Prevents calls
-       * to window.history.replaceState caused by a route change. This is set
-       * before route is changed, and consumed when `_routeChanged` sees a new
-       * value matching this.
-       */
-      _internalRoute: {
-        type: String
-      },
-
-    },
-
-    /**
-     * The Flatiron Route object.
-     */
-    get router() {
-      if (!privateRouter) {
-        privateRouter = new Router();
-        privateRouter.init();
-      }
-      return privateRouter;
     },
 
     ready: function() {
-      var handler = function() {
-        var route = this.router.getRoute() ? this.router.getRoute().join(this.router.delimiter) : '';
-        var pieces = routeToParts(route);
+      window.addEventListener('popstate', function() {
+        this.route = currentRoute();
+      }.bind(this));
 
-        this._internalRoute = pieces.route;
-        try {
-          this.route = pieces.route;
-          this._setSceneParams(Object.freeze(pieces.params));
-        } finally {
-          this._internalRoute = null;
-        }
-      }.bind(this);
-
-      // Catch all URLs.
-      this.router.on(/(.*)/, handler);
-      handler();
+      // TODO: routeToParts?
     },
 
     detached: function() {
-      throw new Error('santa-tracker-router should never be detatched')
+      throw new Error('santa-tracker-router should never be detached')
     },
 
-    go: function(route) {
-      window.location.hash = '#' + route;
+    replace: function(route) {
+      var url = new URL(route + '.html', window.location);
+      history.replaceState(null, '', url);
+      this.route = route;
     },
 
-    _routeChanged: function(newValue) {
-      if (this._internalRoute == newValue) {
-        this._internalRoute = null;
+    _routeChanged: function(newValue, oldValue) {
+      if (oldValue === undefined || newValue === currentRoute()) {
         return;
       }
-
-      var url = window.location.href;
-      var hash = window.location.hash;
-      window.history.replaceState(null, '', url.substr(0, url.length - hash.length) + '#' + newValue);
-      this._setSceneParams({});
+      var url = new URL(newValue + '.html', window.location);
+      history.pushState(null, '', url);
     },
 
   });

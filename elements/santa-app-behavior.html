@@ -46,7 +46,7 @@ specific language governing permissions and limitations under the License.
      * Returns the URL for the given route.
      */
     urlFor: function(route) {
-      return pageUrl + '#' + route;
+      return new URL(route ? route + '.html' : './', window.location).toString();
     },
 
   };

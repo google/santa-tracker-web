@@ -116,6 +116,8 @@ const DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.buil
 
 // Broad scene config for Santa Tracker.
 const SCENE_CLOSURE_CONFIG = require('./scenes');
+// TODO(samthor): This list isn't exhaustive. It should be expanded.
+const SCENE_FANOUT = ['village', 'tracker', 'boatload', 'matching', 'press', 'about'];
 
 // List of scene names to compile.
 const SCENE_NAMES = argv.scene ?
@@ -401,6 +403,7 @@ gulp.task('build-prod', function() {
       strict: !!argv.strict,
       path: '_messages',
     }))
+    .pipe(scripts.fanout(SCENE_FANOUT))
     .pipe(gulp.dest(DIST_PROD_DIR));
 
   const jsStream = gulp.src(['sw.js'])
@@ -479,10 +482,21 @@ gulp.task('serve', ['default', 'watch'], function() {
     livereloadFiles.push('**/*.min.js', '**/*.html');
   }
 
+  const simplePath = new RegExp(/^\/(\w+)\.html(|\?.*)$/);
+  const fanoutHelper = function(req, res, next) {
+    // If we match a file which would be a fanout of index.html in prod, serve index.html instead.
+    const match = simplePath.exec(req.originalUrl);
+    if (match && SCENE_FANOUT.includes(match[1])) {
+      req.url = '/index.html';
+    }
+    return next();
+  };
+
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
     injectChanges: argv.devmode, // Can not inject css into lazy Polymer scenes.
+    middleware: [fanoutHelper],
     port: argv.port,
     server: ['.', '.devmode'],
     startPath: argv.scene && (argv.devmode ? `/scenes/${argv.scene}/` : `/#${argv.scene}`),

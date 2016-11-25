@@ -58,7 +58,6 @@ Santa Tracker app.
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
-        selected="{{route}}"
         selected-item="{{selectedScene}}"
         selectable=":not([disabled])"
         attr-for-selected="route"
@@ -581,6 +580,7 @@ Polymer({
   },
 
   listeners: {
+    'click': 'onClick',
     'scene-progress': 'onSceneProgress',
     'scene-ready': 'onSceneReady',
     'analytics-track-event': 'trackEvent',
@@ -622,12 +622,44 @@ Polymer({
     this._prepareHouses();
 
     if (!this.route) {
-      this.route = this.defaultRoute;
+      var route = this.defaultRoute;
+      if (window.location.hash) {
+        route = window.location.hash.substr(1);
+      }
+      this.$.router.replace(route);
     }
   },
 
   detached: function() {
     throw new Error('santa-app was detached');
+  },
+
+  onClick: function(ev) {
+    var link = ev.target.closest('a[href]');
+    if (!link) { return; }
+
+    // Ignore if some weird meta keys are hit, this is probably 'open in new tab'.
+    if (ev.ctrlKey || ev.metaKey || ev.which > 1) { return; }
+
+    // Check domain/origin/etc.
+    var targetUrl = new URL(link.href);
+    if (targetUrl.origin !== window.location.origin) { return; }
+
+    // Check the URLs have the same dirname (e.g. "/foo/bar/" vs "/foo/bar/zing.html").
+    var lastSlash = window.location.pathname.lastIndexOf('/');
+    if (targetUrl.pathname.lastIndexOf('/') !== lastSlash) { return; }
+
+    // Pull out either the flat "/", or "/foo.html" at this path.
+    var m = /\/(?:(\w+)\.html|)$/.exec(targetUrl.pathname.substr(lastSlash));
+    if (!m) { return; }
+
+    // Good job! You found a route. But throw it out if it's invalid for some reason.
+    var route = m[1] || this.defaultRoute;
+    if (!this.$.lazypages.isValidRoute(route)) { return; }
+
+    // Set the route. Hooray! \o/
+    this.route = route;
+    ev.preventDefault();
   },
 
   /**
@@ -779,6 +811,7 @@ Polymer({
     if (this.validateRoute()) {
       // Route is valid. Send to analytics and load the scene.
       this.analyticsService.trackPageView('/' + newValue);
+      this.$.lazypages.selected = newValue;
       return;
     }
 
@@ -1013,10 +1046,6 @@ Polymer({
     }
     this.todayHouse = todayHouse;
     change && this._notifyHouses();
-
-    if (this.route !== undefined && !this.validateRoute()) {
-      this.route = this.defaultRoute;
-    }
   },
 
   _onKeysPressed: function(e, detail) {
@@ -1024,7 +1053,7 @@ Polymer({
       case 'esc':
         var wasOpen = this.$.chrome.closeDrawer();
         if (!wasOpen) {
-          this.$.router.go(this.defaultRoute);
+          this.route = this.defaultRoute;
         }
         break;
       case 'enter':
@@ -1035,7 +1064,7 @@ Polymer({
 
   _duringTrackerChanged: function(newValue, oldValue) {
     if (typeof oldValue === 'boolean' && typeof newValue === 'boolean') {
-      this.$.router.go(this.defaultRoute);
+      this.route = this.defaultRoute;
     }
   },
 
