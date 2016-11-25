@@ -99,9 +99,9 @@ function shortenUrl(url, cb) {
 
 Polymer({
   is: 'santa-overlay',
+  behaviors: [window.SantaAppBehavior],
 
   properties: {
-    behaviors: [window.SantaAppBehavior],
 
     /** If true, shows a replay button. */
     replay: {

@@ -298,8 +298,11 @@ specific language governing permissions and limitations under the License.
        */
       disabled: Boolean,
 
-      /** Strings bound from santa-strings. */
+      /** Strings bound from `santa-strings`. */
       strings: Object,
+
+      /** Language from `santa-state`. */
+      language: String,
 
       /** Does this browser support Web Share? */
       hasWebShare: {
@@ -323,7 +326,7 @@ specific language governing permissions and limitations under the License.
     _computeStringScene: function(id, strings) { return strings['scene-' + id]; },
 
     _computeTrackerUrl: function(trackerUnlocked) {
-      return trackerUnlocked ? urlFor('tracker') : null;
+      return trackerUnlocked ? this.urlFor('tracker') : null;
     },
 
     _computeBackgroundStyle: function(logoUrl) {
