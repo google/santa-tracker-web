@@ -581,7 +581,6 @@ Polymer({
   },
 
   listeners: {
-    'title-click': 'onDefaultAction',
     'scene-progress': 'onSceneProgress',
     'scene-ready': 'onSceneReady',
     'analytics-track-event': 'trackEvent',
@@ -629,17 +628,6 @@ Polymer({
 
   detached: function() {
     throw new Error('santa-app was detached');
-  },
-
-  /**
-   * Handles the title being clicked, or ESC being hit. Closes the drawer, or redirects to the
-   * default route.
-   */
-  onDefaultAction: function() {
-    var wasOpen = this.$.chrome.closeDrawer();
-    if (!wasOpen) {
-      this.$.router.go(this.defaultRoute);
-    }
   },
 
   /**
@@ -1034,7 +1022,10 @@ Polymer({
   _onKeysPressed: function(e, detail) {
     switch (e.detail.key) {
       case 'esc':
-        this.onDefaultAction();
+        var wasOpen = this.$.chrome.closeDrawer();
+        if (!wasOpen) {
+          this.$.router.go(this.defaultRoute);
+        }
         break;
       case 'enter':
         this.maybeStartGame();

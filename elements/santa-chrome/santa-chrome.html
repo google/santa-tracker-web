@@ -185,9 +185,7 @@ specific language governing permissions and limitations under the License.
           <paper-icon-button icon="santa:menu" drawer-toggle
               class="toolbar-icon"></paper-icon-button>
           <div class="title">
-            <a class="linkwrap"
-               href$="[[pageUrl]]#[[_computeDefaultRoute(trackerUnlocked)]]"
-               on-click="_onTitleClick">
+            <a class="linkwrap" href$="[[urlFor('')]]">
               <div id="logo" title="Google"></div>
               <h1>
                 <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
@@ -399,10 +397,6 @@ specific language governing permissions and limitations under the License.
       // nb. we drop the last path component, since we expect to be at /
       window.location = window.location.origin + pathname + window.location.hash;
     },
-
-    _onTitleClick: function() {
-      this.fire('title-click');
-    }
 
   });
 }());
