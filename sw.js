@@ -255,9 +255,6 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
-  // Don't cache audio resources (for now).
-  if (event.request.url.match(/\/audio\//)) { return; }
-
   // TODO(plegner) Add catch handlers, to provide offline fallback responses.
   event.respondWith(loadFromCache(event.request.url, prodRequest));
 });
