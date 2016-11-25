@@ -228,7 +228,6 @@ Santaselfie scene.
       this.game.start();
       this.fire('sound-ambient', 'selfie_start');
       this.fire('sound-ambient', 'music_start_ingame');
-      this.sceneParamsChanged();
     },
 
     onHide: function() {
@@ -236,12 +235,6 @@ Santaselfie scene.
       this.game = null;
       this.fire('sound-ambient', 'selfie_end');
     },
-
-    sceneParamsChanged: function() {
-      if (this.game && this.sceneParams && this.sceneParams.beard) {
-        this.game.restoreBeard(this.sceneParams.beard);
-      }
-    }
   });
 
 })();

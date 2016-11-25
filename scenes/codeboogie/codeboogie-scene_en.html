@@ -358,7 +358,7 @@ Codeboogie scene.
 
     gatedStart: function() {
       if (this.frame && soundsLoaded && !this.started) {
-        this.frame.start(this.sceneParams);
+        this.frame.start(getUrlParameters());
         this.started = true;
       }
     }

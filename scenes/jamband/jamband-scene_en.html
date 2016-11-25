@@ -301,13 +301,6 @@ Jamband scene.
       if (this.game && soundsLoaded && !this.bandStarted) {
         this.game.start();
         this.bandStarted = true;
-        this.sceneParamsChanged();
-      }
-    },
-
-    sceneParamsChanged: function() {
-      if (this.sceneParams && this.sceneParams.band && this.bandStarted) {
-        this.game.restoreBand(this.sceneParams.band);
       }
     },
 

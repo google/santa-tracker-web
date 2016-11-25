@@ -44,6 +44,15 @@ app.Game = function(elem) {
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
   this.elem.find('#drawer-button--share').
       on('click.jamband touchend.jamband', this.showShareOverlay.bind(this));
+
+  this.elem.on('stagechanged.jamband', (e, data) => {
+    if (this.instruments) {
+      const url = new URL(window.location.toString());
+      const s = this.instruments.save();
+      url.search = s ? '?band=' + s : '';
+      window.history.replaceState(null, '', url.toString());
+    }
+  });
 };
 
 /**
@@ -52,6 +61,9 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.instruments = new app.Instruments(this.elem);
+
+  const band = getUrlParameter('band');
+  band && this.instruments.restore(band);
 
   new app.DragDrop(this.elem);
 
@@ -72,25 +84,7 @@ app.Game.prototype.start = function() {
  * Show share overlay.
  */
 app.Game.prototype.showShareOverlay = function() {
-  var s = this.instruments.save();
-
-  if (s) {
-    var newHref = location.href.substr(0,
-        location.href.length - location.hash.length) + '#jamband?band=' + s;
-    window.history.pushState(null, '', newHref);
-  }
-
-  this.shareOverlay.show('https://santatracker.google.com/#jamband?band=' + s, true);
-};
-
-/**
- * Loads up a url-serialized band on the stage.
- *
- * @param {string} band
- * @export
- */
-app.Game.prototype.restoreBand = function(band) {
-  this.instruments.restore(band);
+  this.shareOverlay.show(window.location.toString(), true);
 };
 
 /**

@@ -117,7 +117,7 @@ const DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.buil
 // Broad scene config for Santa Tracker.
 const SCENE_CLOSURE_CONFIG = require('./scenes');
 // TODO(samthor): This list isn't exhaustive. It should be expanded.
-const SCENE_FANOUT = ['village', 'tracker', 'boatload', 'matching', 'press', 'about'];
+const SCENE_FANOUT = ['village', 'tracker', 'boatload', 'matching', 'santaselfie', 'postcard', 'jamband', 'codeboogie', 'snowflake', 'press', 'about'];
 
 // List of scene names to compile.
 const SCENE_NAMES = argv.scene ?

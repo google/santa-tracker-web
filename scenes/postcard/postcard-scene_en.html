@@ -138,7 +138,6 @@ Postcard scene.
       this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.postcard.Scene(module);
-      this.sceneParamsChanged();
     },
 
     onHide: function() {
@@ -146,12 +145,6 @@ Postcard scene.
       this.scene = null;
       this.fire('sound-ambient', 'sm_end');
     },
-
-    sceneParamsChanged: function() {
-      if (this.sceneParams && this.scene) {
-        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
-      }
-    }
   });
 
 })();

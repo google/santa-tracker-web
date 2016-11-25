@@ -108,17 +108,6 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
-       * URL params specific to the scene. Scenes can use this property to
-       * deeplink into sections of their app.
-       *
-       * Example: /#jamband?band=2,8,-1,1,7,-1 -> {"band": "2,8,-1,1,7,-1"}.
-       */
-      sceneParams: {
-        type: Object,
-        observer: 'sceneParamsChanged'
-      },
-
-      /**
        * The relative path of the scene folder from the main app root folder.
        * (e.g. 'scenes/village/').
        */
@@ -247,10 +236,6 @@ specific language governing permissions and limitations under the License.
      */
     _computeTernary: function(arg, pve, nve) {
       return arg ? pve : nve;
-    },
-
-    sceneParamsChanged: function() {
-      // Noop. Subclasses can define this observer to know about changes.
     },
 
   };

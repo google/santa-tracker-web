@@ -21,35 +21,6 @@ Router for Santa Tracker.
 <script>
 (function() {
   /**
-   * Example: /#village?param1=value1&param2=value2,value3 ->
-   *          {route: "village", param: {param1: "value1", param2: "value2,value3"}
-   *
-   * @param {string} route Full url route, everything after the hash.
-   * @return {object}
-   */
-  function routeToParts(route) {
-    if (!route) {
-      return {
-        route: route,
-        params: {}
-      };
-    }
-    var params = {};
-    var extraParams = route.split('?');
-    if (extraParams) {
-      var pairs = extraParams[1] ? extraParams[1].split('&') : [];
-      for (var i = 0, pair; pair = pairs[i]; ++i) {
-        var parts = pair.split('=');
-        params[parts[0]] = parts[1];
-      }
-    }
-    return {
-      route: extraParams[0],
-      params: params
-    };
-  }
-
-  /**
    * Gets the current route based on the pathname.
    *
    * @return {string|undefined} current route, or undefined for unknown
@@ -58,8 +29,6 @@ Router for Santa Tracker.
     var m = /\/(\w+)\.html$/.exec(window.location.pathname);
     return m ? m[1] : undefined;
   }
-
-  var privateRouter;
 
   Polymer({
     is: 'santa-tracker-router',
@@ -79,26 +48,12 @@ Router for Santa Tracker.
         notify: true,
       },
 
-      /**
-       * URL params specific to the scene. Scenes can use this property to
-       * deeplink into sections of their app.
-       *
-       * Example: /#jamband?band=2,8,-1,1,7,-1
-       */
-      sceneParams: {
-        type: Object,
-        readOnly: true,
-        notify: true
-      },
-
     },
 
     ready: function() {
       window.addEventListener('popstate', function() {
         this.route = currentRoute();
       }.bind(this));
-
-      // TODO: routeToParts?
     },
 
     detached: function() {

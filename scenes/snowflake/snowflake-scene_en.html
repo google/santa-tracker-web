@@ -146,21 +146,31 @@ Postcard scene.
       this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.snowflake.Scene(module);
-      var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html';
-      // Pass the blocks from the url down to the blockly iframe so
-      // it can put them in the workspace.
-      var queryParams = window.location.hash.split('?');
-      // Pass along everything after #snowflake.
-      if (queryParams.length == 2 && queryParams[1]) {
-        turtleFrameSrc += '?' + queryParams[1];
+
+      // Pass the entire query string down to the blockly iframe so it can put the blocks in the
+      // workspace. Decode the base64-encoded blocks, and pass to the frame.
+      var encodedScript = getUrlParameter('B');
+      var script = '';
+      try {
+        script = window.atob(encodedScript);
+      } catch (e) {
+        // ignore
       }
+      var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html?B=' + script;
+
+      // Set the local i18n message.
+      // TODO(madCode): This doesn't work in prod, because i18ntext is compiled out.
+      if (this.$.i18ntext) {
+        var params = getUrlParameters();
+        this.$.i18ntext.msgid = 'holiday_message_' + (params.bg || 0);
+      }
+      // nb. Note that the picker grabs bg/fg from the URL, so it doesn't need to be set here.
 
       // Regex checks for &B= with any letter, number or (),[] values following it
       var shareLandingRegex = /\&B\=([#a-z\d\[\]\(\)]+)/;
 
       var sharing = shareLandingRegex.exec(turtleFrameSrc);
-      this.$.blocklyArea.src = turtleFrameSrc;
-      this.sceneParamsChanged();
+      this.$.blocklyArea.contentWindow.location.replace(turtleFrameSrc);  // don't trigger nav
       if (sharing) {
         this.showShareLanding();
       }
@@ -259,13 +269,6 @@ Postcard scene.
         }
       }
     },
-
-    sceneParamsChanged: function() {
-      if (this.sceneParams && this.scene) {
-        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
-        this.$.i18ntext.msgid = "holiday_message_" + (this.sceneParams.bg || 0);
-      }
-    }
   });
 
 })();

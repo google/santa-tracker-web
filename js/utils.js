@@ -72,14 +72,31 @@ function isSameDay(date1, date2) {
  * @export
  */
 function getUrlParameter(param) {
-  if (!window.location.search) {
-    return;
-  }
-  var m = new RegExp(param + '=([^&]*)').exec(window.location.search.substring(1));
-  if (!m) {
-    return;
-  }
-  return decodeURIComponent(m[1]);
+  return getUrlParameters()[param];
+}
+
+/**
+ * @return {!Object<string>} params from the current URL
+ * @export
+ */
+function getUrlParameters() {
+  const out = {};
+  const search = window.location.search || '?';
+
+  search.substr(1).split('&').forEach(part => {
+    if (!part) {
+      return;
+    }
+
+    const p = part.split('=');
+    const key = window.decodeURIComponent(p[0]);
+    if (!(key in out)) {
+      // match URLSearchParams.get(), return the 1st param only.
+      out[key] = window.decodeURIComponent(p[1] || '');
+    }
+  });
+
+  return out;
 }
 
 /**
