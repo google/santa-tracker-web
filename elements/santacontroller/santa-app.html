@@ -398,6 +398,8 @@ var META_THEME_DEFAULT = META_THEME.content;
 var DEFAULT_ROUTE = 'village';
 var TRACKER_ROUTE = 'tracker';
 
+var ANALYTICS = new Analytics();
+
 Polymer({
   is: 'santa-app',
   hostAttributes: {'tabindex': '0'},
@@ -514,14 +516,6 @@ Polymer({
       type: Boolean,
       value: !window.DEV,
       observer: '_scheduleCheckedChanged',
-    },
-
-    /**
-     * Analytics service.
-     */
-    analyticsService: {
-      type: Object,
-      value: function() { return new Analytics(); },
     },
 
     /**
@@ -791,7 +785,7 @@ Polymer({
   _routeChanged: function(newValue) {
     if (this.validateRoute()) {
       // Route is valid. Send to analytics and load the scene.
-      this.analyticsService.trackPageView('/' + newValue);
+      ANALYTICS.trackPageView('/' + newValue);
       this.$.lazypages.selected = newValue;
       return;
     }
@@ -895,35 +889,35 @@ Polymer({
   },
 
   trackEvent: function(e, detail) {
-    this.analyticsService.trackEvent(
+    ANALYTICS.trackEvent(
         detail.category, detail.action, detail.label, detail.value);
   },
 
   timeStart: function(e, detail) {
-    this.analyticsService.timeStart(
+    ANALYTICS.timeStart(
         detail.category, detail.variable, detail.time);
   },
 
   timeEnd: function(e, detail) {
-    this.analyticsService.timeEnd(
+    ANALYTICS.timeEnd(
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
   trackShare: function(e, detail) {
-    this.analyticsService.trackSocial('share', detail || '', '/' + this.route);
+    ANALYTICS.trackSocial('share', detail || '', '/' + this.route);
   },
 
   trackGameStart: function(e, detail) {
-    this.analyticsService.trackGameStart(detail.gameId || detail.gameid);
+    ANALYTICS.trackGameStart(detail.gameId || detail.gameid);
   },
 
   trackGameQuit: function(e, detail) {
-    this.analyticsService.trackGameQuit(detail.gameId || detail.gameid,
+    ANALYTICS.trackGameQuit(detail.gameId || detail.gameid,
         detail.level, detail.timePlayed);
   },
 
   trackGameOver: function(e, detail) {
-    this.analyticsService.trackGameOver(
+    ANALYTICS.trackGameOver(
         detail.gameId || detail.gameid, detail.score, detail.level,
         detail.timePlayed);
   },
