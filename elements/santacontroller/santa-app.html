@@ -609,7 +609,9 @@ Polymer({
     if (!this.route) {
       var route = this.defaultRoute;
       if (window.location.hash) {
-        route = window.location.hash.substr(1);
+        // drop old query #foo?blah=1...
+        var parts = window.location.hash.substr(1).split('?');
+        route = parts[0] || route;
       }
       this.$.router.replace(route);
     }
@@ -640,7 +642,9 @@ Polymer({
 
     // Good job! You found a route. But throw it out if it's invalid for some reason.
     var route = m[1] || this.defaultRoute;
-    if (!this.$.lazypages.isValidRoute(route)) { return; }
+    if (!this.$.lazypages.isValidRoute(route) && typeof this.sceneIsOpen(route) !== 'boolean') {
+      return;
+    }
 
     // Set the route. Hooray! \o/
     this.route = route;
@@ -782,36 +786,39 @@ Polymer({
     dom.appendChild(el);
   },
 
-  _routeChanged: function(newValue) {
-    if (this.validateRoute()) {
-      // Route is valid. Send to analytics and load the scene.
-      ANALYTICS.trackPageView('/' + newValue);
-      this.$.lazypages.selected = newValue;
-      return;
-    }
-
-    // The requested route was changed.
-    var currentRoute = this.selectedScene ? this.selectedScene.route : '';
-    this.fire('analytics-track-event', { category: 'Routing',
-        action: 'Invalid Route Source', label: '/' + currentRoute});
-    this.fire('analytics-track-event', { category: 'Routing',
-        action: 'Invalid Route', label: '/' + newValue});
-    this.route = this.defaultRoute;
-  },
-
   /**
-   * Returns whether the current route is valid.
+   * The local route was changed. If valid, then trigger lazypages to load it. This is also invoked
+   * by _currentTimeChanged, in order to lock/unlock scenes that are loaded but currently invalid.
    */
-  validateRoute: function() {
-    var sceneIsOpen = this.sceneIsOpen(this.route);
+  _routeChanged: function() {
+    var route = this.route || this.defaultRoute;
+    var valid = this.$.lazypages.isValidRoute(route);
+    var sceneIsOpen = this.sceneIsOpen(route);
+
     if (typeof sceneIsOpen === 'boolean') {
-      if (!sceneIsOpen && window.DEV) {
-        console.debug('prod would redirect from', this.route, '=>', this.defaultRoute);
-        return true;
-      }
-      return sceneIsOpen;
+      valid = sceneIsOpen;
     }
-    return this.$.lazypages.isValidRoute(this.route);
+    if (!valid && window.DEV) {
+      console.debug('prod would disable', route);
+      valid = true;
+    }
+
+    ANALYTICS.trackPageView('/' + route);
+    this.$.lazypages.selected = valid ? route : '';
+
+    if (!valid) {
+      // TODO(samthor): We'll call this every time _currentTimeChanged.
+      // The requested route was invalid. Log.
+      var previousRoute = this.selectedScene ? this.selectedScene.route : '';
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route Source', label: '/' + previousRoute});
+      this.fire('analytics-track-event', { category: 'Routing',
+          action: 'Invalid Route', label: '/' + route});
+    }
+
+    // TODO(samthor): If the route is invalid, display feedback-
+    //   a) it's locked, so show a locked symbol
+    //   b) it's invalid, so ???
   },
 
   /**
@@ -904,7 +911,7 @@ Polymer({
   },
 
   trackShare: function(e, detail) {
-    ANALYTICS.trackSocial('share', detail || '', '/' + this.route);
+    ANALYTICS.trackSocial('share', detail || '', '/' + this.route || this.defaultRoute);
   },
 
   trackGameStart: function(e, detail) {
@@ -1021,6 +1028,8 @@ Polymer({
     }
     this.todayHouse = todayHouse;
     change && this._notifyHouses();
+
+    this._routeChanged();  // hint to load/unload route
   },
 
   _onKeysPressed: function(e, detail) {
@@ -1052,7 +1061,8 @@ Polymer({
 
     // TODO(samthor): Use a URL shortener if something large is in the URL (e.g., encoded beard).
     var url = window.location.href;
-    var title = this.$.strings.s('scene-' + this.route) || this.$.strings.s('santatracker') || '';
+    var title = this.$.strings.s('scene-' + this.route || this.defaultRoute) ||
+       this.$.strings.s('santatracker') || '';
 
     if (service == 'webshare' && navigator.share) {
       navigator.share({title: title, url: url});

@@ -16,10 +16,16 @@ specific language governing permissions and limitations under the License.
 
 <!--
 Router for Santa Tracker.
+
+Note that index.html is somewhat special-cased: this router won't see it, and it will be reported
+as the undefined route. However, it can still be explicitly set (but so can any route). The router
+doesn't attempt to 'fix' a route value which is bad (but it won't set a bad/invalid HTML pathname
+either).
 -->
 <dom-module id="santa-tracker-router">
 <script>
 (function() {
+
   /**
    * Gets the current route based on the pathname.
    *
@@ -27,7 +33,10 @@ Router for Santa Tracker.
    */
   function currentRoute() {
     var m = /\/(\w+)\.html$/.exec(window.location.pathname);
-    return m ? m[1] : undefined;
+    if (m && m[1] !== 'index') {
+      return m[1];
+    }
+    return undefined;
   }
 
   Polymer({
@@ -61,17 +70,32 @@ Router for Santa Tracker.
     },
 
     replace: function(route) {
-      var url = new URL(route + '.html', window.location);
-      history.replaceState(null, '', url);
+      history.replaceState(null, '', this._makeUrl(route));
       this.route = route;
     },
 
     _routeChanged: function(newValue, oldValue) {
-      if (oldValue === undefined || newValue === currentRoute()) {
+      if (oldValue === undefined) {
         return;
       }
-      var url = new URL(newValue + '.html', window.location);
-      history.pushState(null, '', url);
+
+      // If the derived URLs are equal, then just replace state: the routes are effectively equal.
+      // Otherwise, push a new state.
+      var newUrl = this._makeUrl(newValue);
+      if (newUrl === this._makeUrl(currentRoute())) {
+        // iff the URLs are equal, this should do nothing
+        history.replaceState(null, '', newUrl);
+      } else {
+        history.pushState(null, '', newUrl);
+      }
+    },
+
+    _makeUrl: function(route) {
+      var path = './';
+      if (route && route !== 'index') {
+        path = route.replace(/[^\w]/, '') + '.html';
+      }
+      return new URL(path, window.location).toString();
     },
 
   });
