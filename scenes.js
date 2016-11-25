@@ -103,6 +103,10 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Game'
   },
+  icecave: {
+  },
+  island: {
+  },
   jamband: {
     msgid: 'scene_jamband',
     entryPoint: 'app.Game'
