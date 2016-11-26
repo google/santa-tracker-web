@@ -607,6 +607,7 @@ Polymer({
     this._prepareHouses();
 
     if (!this.route) {
+      console.debug('no initial route, jumping to', this.defaultRoute, 'was', this.route);
       var route = this.defaultRoute;
       if (window.location.hash) {
         // drop old query #foo?blah=1...
