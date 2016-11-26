@@ -980,9 +980,12 @@ Polymer({
 
   _scheduleCheckedChanged: function() {
     if (this.scheduleChecked) {
+      // This calls _routeChanged internally.
       this._currentTimeChanged();
     } else {
       // nb. This doesn't immediately unlock any houses, instead it leaves the existing state.
+      // However, in dev this is useful to suddenly enable houses, so hint that the route is new.
+      this._routeChanged();
     }
   },
 
