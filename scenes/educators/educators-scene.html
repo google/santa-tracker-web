@@ -66,7 +66,7 @@ specific language governing permissions and limitations under the License.
       </div>
     </div>
 
-    <div id="educators-primary">
+    <div id="educators-primary" on-click="_trackLessonPlan">
       <h2>Lesson Plans</h2>
       <p class="educators-primary-intro">Download lesson plans aligned with Common Core &amp; ISTE standards</p>
       <div class="educators-primary-inner">
@@ -74,26 +74,28 @@ specific language governing permissions and limitations under the License.
           <div class="card-img" style="background-image: url(img/lesson-plan-traditions.png)"></div>
           <div class="card-info">
             <h4>Comparing Christmas Traditions Across Cultures</h4>
-            <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they’ve realized it's time to study up on geography and coding to ensure Santa’s sleigh goes on the most efficient path around the world using the most advanced algorithms. It’s his biggest night of the year! </p>
+            <p></p>
             <div class="card-links">
               <span class="card-title">Resources:</span>
-              <a href="#" class="card-dl" target="_blank">Grades K-2 <span>(PDF file)</span></a>
-              <a href="#" class="card-dl" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
-              <a href="#" class="card-dl" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
+              <a data-id="traditions_k-2" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" class="card-dl" target="_blank">Grades K-2 <span>(PDF file)</span></a>
+              <a data-id="traditions_3-5" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" class="card-dl" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
+              <a data-id="traditions_6-8" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" class="card-dl" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
+              <a data-id="traditions_9-10" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" class="card-dl" target="_blank">Grades 9-10 <span>(PDF file)</span></a>
             </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-img" style="background-image: url(img/lesson-plan-code.png)"></div>
           <div class="card-info">
             <h4>Learn and Practice the Basics of Coding</h4>
-            <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city. Follow him each step of the way by searching for Santa directly in <a href="https://maps.google.com">Google Maps</a> and <a href="https://google.com">google.com</a>. Or, head over to <a href="https://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he’ll visit that night.  </p>
+            <p></p>
             <div class="card-links">
               <span class="card-title">Resources:</span>
-              <a href="#" class="card-dl" target="_blank">Grades K-2 <span>(PDF file)</span></a>
-              <a href="#" class="card-dl" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
-              <a href="#" class="card-dl" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
+              <!-- TODO(samthor): These are the traditions lessons plans -->
+              <a data-id="coding_k-2" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" class="card-dl" target="_blank">Grades K-2 <span>(PDF file)</span></a>
+              <a data-id="coding_3-5" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" class="card-dl" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
+              <a data-id="coding_6-8" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" class="card-dl" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
+              <a data-id="coding_9-10" href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" class="card-dl" target="_blank">Grades 9-10 <span>(PDF file)</span></a>
             </div>
           </div>
         </div>
@@ -202,6 +204,12 @@ specific language governing permissions and limitations under the License.
 
     _computeActive: function(a, b) {
       return a === b ? 'active' : '';
+    },
+
+    _trackLessonPlan: function(e, detail) {
+      var a = e.target.closest('a[href]');
+      var label = a.getAttribute('data-id');
+      window.ga('send', 'event', 'lessonPlanDownload', 'click', label);
     },
 
   });
