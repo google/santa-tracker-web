@@ -4,7 +4,7 @@ $mobilePortraitBreakpoint: 400px;
 
 @media (min-width: 1px) and (max-width: $tabletBreakpoint) {
   #press-intro {
-    height: auto;
+    flex-flow: column;
 
     .press-intro-col {
       width: 100%;
@@ -14,7 +14,7 @@ $mobilePortraitBreakpoint: 400px;
   #press-primary {
     .press-primary-inner {
       width: 100%;
-    }   
+    }
 
     .card {
       float: none;
