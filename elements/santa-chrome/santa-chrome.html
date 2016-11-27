@@ -72,10 +72,12 @@ specific language governing permissions and limitations under the License.
     }
   </style>
   <santa-strings strings="{{strings}}"></santa-strings>
-  <santa-state offline="{{offline}}" language="{{language}}"></santa-state>
+  <santa-state offline="{{offline}}"
+      language="{{language}}"
+      during-tracker="{{duringTracker}}"></santa-state>
 
   <app-drawer-layout fullbleed force-narrow>
-    <app-drawer id="drawer">
+    <app-drawer id="drawer" opened="{{_drawerOpened}}">
       <div class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
@@ -88,18 +90,16 @@ specific language governing permissions and limitations under the License.
               <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
             </div>
           </a>
-          <template is="dom-if" if="[[todayHouse]]">
-            <a href$="[[urlFor(todayHouse)]]">
-              <div class="menucard" style$="background-image: url([[_computeTodayHouseImageUrl(todayHouse)]])">
-                <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
-                <h3>[[_computeStringScene(todayHouse, strings)]]</h3>
-              </div>
-            </a>
-          </template>
-          <a href$="[[_computeTrackerUrl(trackerUnlocked)]]">
+          <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]">
+            <div class="menucard" style$="_computeTodayHouseBackgroundStyle(todayHouse)">
+              <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
+              <h3>[[_computeStringScene(todayHouse, strings)]]</h3>
+            </div>
+          </a>
+          <a href$="[[_computeTrackerUrl(duringTracker)]]">
             <div class="menucard menucard-tracker">
-              <div class="lock" hidden$="[[trackerUnlocked]]"></div>
-              <h2>[[_computeDec24th()]]</h2>
+              <div class="lock" hidden$="[[duringTracker]]"></div>
+              <h2>[[_computeDec24th(language)]]</h2>
               <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
             </div>
           </a>
@@ -252,14 +252,6 @@ specific language governing permissions and limitations under the License.
       todayHouse: String,
 
       /**
-       * Whether the tracker is unlocked.
-       */
-      trackerUnlocked: {
-        type: Boolean,
-        value: false,
-      },
-
-      /**
        * The current logo to display at the top center.
        */
       logoUrl: {
@@ -293,6 +285,14 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
+       * True if the drawer is opened. Used for Analytics.
+       */
+      _drawerOpened: {
+        type: Boolean,
+        observer: '_drawerOpenedChanged'
+      },
+
+      /**
        * Whether to disable this `santa-chrome` completely, effectively hiding
        * its contents. Used by cast.
        */
@@ -303,6 +303,9 @@ specific language governing permissions and limitations under the License.
 
       /** Language from `santa-state`. */
       language: String,
+
+      /** Whether the tracker is unlocked. Bound from `santa-state`. */
+      duringTracker: Boolean,
 
       /** Does this browser support Web Share? */
       hasWebShare: {
@@ -320,13 +323,10 @@ specific language governing permissions and limitations under the License.
       return arg ? yesVal : noVal;
     },
 
-    _computeHiddenClass: function(hide) { return hide ? 'hidden' : ''; },
-
-    _computeDefaultRoute: function(trackerUnlocked) { return window.santaApp.defaultRoute; },
     _computeStringScene: function(id, strings) { return strings['scene-' + id]; },
 
-    _computeTrackerUrl: function(trackerUnlocked) {
-      return trackerUnlocked ? this.urlFor('tracker') : null;
+    _computeTrackerUrl: function(duringTracker) {
+      return duringTracker ? this.urlFor('tracker') : null;
     },
 
     _computeBackgroundStyle: function(logoUrl) {
@@ -336,15 +336,18 @@ specific language governing permissions and limitations under the License.
       return null;
     },
 
-    /** Computes "December 24" in the local language. */
-    _computeDec24th: function() {
-      var lang = document.documentElement.lang || 'en';
-      var d = new Date('December 24, ' + (new Date).getUTCFullYear());
-      return d.toLocaleDateString(lang, {month: 'long', day: 'numeric'});
+    _computeTodayHouseBackgroundStyle: function(todayHouse) {
+      if (todayHouse) {
+        var url = this.resolveUrl('../../images/scenes/' + todayHouse + '_2x.png');
+        return 'background-image: url(' + url + ')';
+      }
+      return null;
     },
 
-    _computeTodayHouseImageUrl: function(todayHouse) {
-      return this.resolveUrl('../../images/scenes/' + todayHouse + '_2x.png');
+    /** Computes "December 24" in the local language. */
+    _computeDec24th: function(language) {
+      var d = new Date('December 24, ' + (new Date).getUTCFullYear());
+      return d.toLocaleDateString(language, {month: 'long', day: 'numeric'});
     },
 
     /**
@@ -361,22 +364,18 @@ specific language governing permissions and limitations under the License.
       return wasClosed;
     },
 
-    _onShare: function(ev) {
-      ev.preventDefault();
-
-      // find the nearest paper-icon-button, and use its id for the social network
-      var target = ev.target;
-      while (target) {
-        if (target.localName === 'paper-icon-button') {
-          break;
-        }
-        if (target.classList.contains('shareicons')) {
-          return;
-        }
-        target = target.parentNode;
+    _drawerOpenedChanged: function() {
+      if (this._drawerOpened) {
+        window.ga('send', 'event', 'nav', 'drawer-opened');
       }
+    },
 
-      target && this.fire('share', target.id);
+    _onShare: function(ev) {
+      var p = ev.target.closest('paper-icon-button');
+      if (p) {
+        ev.preventDefault();
+        this.fire('share', p.id);
+      }
     },
 
     _toggleSounds: function(ev) {

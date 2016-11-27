@@ -49,7 +49,6 @@ Santa Tracker app.
   <santa-chrome id="chrome"
       mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
-      tracker-unlocked="[[duringTracker]]"
       today-house="[[todayHouse]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
@@ -64,7 +63,6 @@ Santa Tracker app.
         selected-attribute="active">
 
       <dorf-scene id="village" route="village" icon="1f384" permament
-          during-tracker="[[duringTracker]]"
           today-house="[[todayHouse]]"
           houses="[[_houses]]"
           mode$="[[mode]]"
@@ -554,8 +552,8 @@ Polymer({
     },
 
     /**
-     * Current time as per the Santa API. Bound from `santa-state`. This is updated only every 15
-     * minutes or when a shift is specified by the server.
+     * Current time as per the Santa API. Bound from `santa-state`. This is updated only every few
+     * minutes.
      */
     currentTime: {
       type: Number,
@@ -1051,7 +1049,9 @@ Polymer({
   },
 
   _duringTrackerChanged: function(newValue, oldValue) {
-    if (typeof oldValue === 'boolean' && typeof newValue === 'boolean') {
+    if (oldValue === undefined) {
+      // initial value, ignore
+    } else if (newValue === true && this.route == TRACKER_ROUTE) {
       this.route = this.defaultRoute;
     }
   },
