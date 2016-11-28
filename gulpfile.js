@@ -437,7 +437,7 @@ gulp.task('build-prod-manifest', function() {
 gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], function() {
   const staticStream = gulp.src([
     'audio/*',
-    'images/**/*.{png,svg,jpg,gif,ico}',
+    'images/*',
     'third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
@@ -451,6 +451,7 @@ gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], fun
 
   const prodStream = gulp.src([
     'images/og.png',
+    'images/scenes/*.png',
     'images/*icon*.png',  // nb. duplicated in prod for manifest convenience
   ], {base: './'})
     .pipe(gulp.dest(DIST_PROD_DIR));
