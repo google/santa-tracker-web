@@ -17,21 +17,28 @@
 goog.provide('app.Scene');
 
 goog.require('app.Models');
+goog.require('app.AndroidModels');
 
 /**
- * Press Scene class
- * Main class responsible for kicking off the scene's additional functionality
+ * Press Scene class. Provides access to models.
  *
+ * @struct
  * @constructor
  * @export
  */
 app.Scene = function() {
-  this.models = app.Models;
 };
 
 /**
  * @return {!Array<!Object>} model objects
  */
 app.Scene.prototype.getModels = function() {
-  return this.models;
+  return app.Models;
+};
+
+/**
+ * @return {!Array<!Object>} model objects
+ */
+app.Scene.prototype.getAndroidModels = function() {
+  return app.AndroidModels;
 };

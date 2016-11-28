@@ -15,6 +15,7 @@
  */
 
 goog.provide('app.Models');
+goog.provide('app.AndroidModels');
 
 /**
  * List of scenes and the associated data the press might need.
@@ -27,7 +28,7 @@ app.Models = [
     'opens': '1',
     'type': 'Play',
     'filter': 'education computerscience',
-    'description': 'The elves are back to coding practice, while mixing in their dancing skills. Use code to choreograph the elves dances\' - but watch out, as you get better, the dances get harder!',
+    'description': 'The elves are back to coding practice, while mixing in their dancing skills. Use code to choreograph the elves\' dances - but watch out, as you get better, the dances get harder!',
     'resources': [
       {
         'title': 'Still Screenshot',
@@ -560,5 +561,40 @@ app.Models = [
         'class': 'card-dl'
       }
     ]
-  }
+  },
+];
+
+app.AndroidModels = [
+  {
+    'key': 'presentquest',
+    'title': 'Present Quest',
+    'type': 'Play',
+    'filter': 'android',
+    'description': 'Help Santa recover misplaced presents in the real world!',
+    'screenshotUrl': null,
+  },
+  {
+    'key': 'cityquiz',
+    'title': 'City Quiz',
+    'type': 'Play',
+    'filter': 'android',
+    'description': 'Help the elves with their route planning by choosing the right city!',
+    'screenshotUrl': null,
+  },
+  {
+    'key': 'penguinswim',
+    'title': 'Penguin Swim',
+    'type': 'Play',
+    'filter': 'android',
+    'description': 'Navigate the ice-filled channels of the North Pole.',
+    'screenshotUrl': null,
+  },
+  {
+    'key': 'snowball',
+    'title': 'Snowball Run',
+    'type': 'Play',
+    'filter': 'android',
+    'description': 'Outpace Santa\'s other helpers - all while avoiding a giant snowball!',
+    'screenshotUrl': null,
+  },
 ];

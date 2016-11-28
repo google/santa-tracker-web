@@ -103,6 +103,7 @@ specific language governing permissions and limitations under the License.
         <div class="press-card-tabs" on-click="_onFilterClick">
           <button class$="[[_computeActive(filter, '')]]" data-filter="">View All</button>
           <button class$="[[_computeActive(filter, 'education')]]" data-filter="education">Education Focused</button>
+          <button class$="[[_computeActive(filter, 'android')]]" data-filter="android">Android</button>
           <button class$="[[_computeActive(filter, 'new')]]" data-filter="new">New this year</button>
         </div>
 
@@ -134,6 +135,24 @@ specific language governing permissions and limitations under the License.
                         <span>Assets available soon</span>
                       </a>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template is="dom-repeat" items="[[androidCards]]" as="card">
+            <div class="card" hidden$="[[_computeHidden(filter, 'android')]]">
+              <div class="card-img" style$="[[_computeAndroidCardStyle(card.key)]]"></div>
+              <div class="card-info">
+                <h4>[[card.title]]</h4>
+                <span>Santa Tracker App for Android • [[card.type]]</span>
+                <p>[[card.description]]</p>
+                <div class="card-links" hidden$="[[!card.screenshotUrl]]">
+                  <span class="card-title">Press resources:</span>
+                  <div class="card-links-full">
+                    <a href="[[card.screenshotUrl]]" class$="card-dl" target="_blank">
+                      Still Screenshot <span>(PNG file)</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -174,7 +193,7 @@ specific language governing permissions and limitations under the License.
         <div class="press-device-square">
           <div class="square" id="press-device-5"></div>
           <h4>Google Maps</h4>
-          <p>Coming this month, try searching for the North Pole or Santa in Google Maps (iOS or Android) for real time updates on Santa’s location.</p>
+          <p>Coming this month, try searching for the North Pole or Santa in Google Maps (Android and iOS) for Santa's current stop.</p>
         </div>
         <div class="press-device-square">
           <div class="square" id="press-device-6"></div>
@@ -207,14 +226,19 @@ specific language governing permissions and limitations under the License.
     properties: {
       scene: Object,
       cards: Array,
+      androidCards: Array,
       filter: {
         type: String,
         value: 'education',
       },
     },
 
+    attached: function() {
+      console.info('attached');
+    },
+
     onPreload: function() {
-      this.preloadImages([
+      var images = [
         'img/tmb-santa-tracker.png',
         'img/tmb-santas-village.png',
         'img/bg-press-page-hero.png',
@@ -228,11 +252,22 @@ specific language governing permissions and limitations under the License.
         'img/illust-web-cardboard_2x.png',
         'img/illust-web-optimized_2x.png',
         'img/title-bg-swirl_2x.png',
-      ]);
+      ];
+
+      if (this.androidCards) {
+        images.concat(this.androidCards.map(function(card) {
+          return 'img/app_' + card.key + '.png';
+        }));
+      } else {
+        console.warn('no androidCards');
+      }
+
+      this.preloadImages(images);
     },
 
     ready: function() {
       this.scene = new scenes.press.Scene();
+      this.androidCards = this.scene.getAndroidModels();
       var models = this.scene.getModels();
 
       models.forEach(function(model) {
@@ -253,6 +288,11 @@ specific language governing permissions and limitations under the License.
       }
       var parts = card.split(' ');
       return parts.indexOf(filter) === -1;
+    },
+
+    _computeAndroidCardStyle: function(key) {
+      var url = this.resolveUrl('img/app_' + key + '.png');
+      return 'background-image: url(' + url + ')';
     },
 
     _onFilterClick: function(ev) {
