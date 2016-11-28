@@ -43,7 +43,9 @@ Santa Tracker app.
   <preload-overlay id="preloader"></preload-overlay>
 
   <!-- Route controller -->
-  <santa-tracker-router id="router" route="{{route}}"></santa-tracker-router>
+  <template is="dom-if" if="[[routing]]">
+    <santa-tracker-router id="router" route="{{route}}"></santa-tracker-router>
+  </template>
 
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
@@ -413,6 +415,15 @@ Polymer({
       type: Number,
       readOnly: true,
       value: 44
+    },
+
+    /**
+     * Whether to use the History API for routing.
+     */
+    routing: {
+      type: Boolean,
+      reflectToAttribute: true,
+      value: false,
     },
 
     /**

@@ -213,7 +213,7 @@ specific language governing permissions and limitations under the License.
     </app-header-layout>
   </app-drawer-layout>
 
-  <div class="buttons primary">
+  <div class="buttons primary" hidden$="[[disabled]]">
     <button id="sound" on-click="_toggleSounds"
             class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
     <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
