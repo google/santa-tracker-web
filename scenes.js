@@ -140,11 +140,6 @@ module.exports = {
   },
   snowflake: {
     entryPoint: 'app.Scene',
-    libraries: [
-      'scenes/postcard/js/controls.js',
-      'scenes/postcard/js/picker.js',
-      'scenes/postcard/js/slider.js'
-    ]
   },
   streetview: {
     typeSafe: false,
