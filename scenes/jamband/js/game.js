@@ -61,11 +61,10 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.instruments = new app.Instruments(this.elem);
+  new app.DragDrop(this.elem);
 
   const band = getUrlParameter('band');
   band && this.instruments.restore(band);
-
-  new app.DragDrop(this.elem);
 
   var scaleToWindow = (function() {
     var scale = Math.min(1, $(window).width() / 1800);

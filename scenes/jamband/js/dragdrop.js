@@ -84,7 +84,6 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
         currentDraggable.trigger('dropped', this.el.parent().data());
       } else {
         var container = /** @type {!Element} */ (currentDraggable.data('container'));
-        console.info('container type is', container);
         currentDraggable.appendTo(container);
         currentDraggable.trigger('dragging');
         currentDraggable.trigger('returned');
