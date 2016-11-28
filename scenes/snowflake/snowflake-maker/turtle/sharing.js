@@ -10,49 +10,68 @@ Sharing.HEX_COLOR_REGEX = /^#([0-9a-f]{3}){1,2}$/i;
 Sharing.LOOP_START = '(';
 Sharing.LOOP_END = ')';
 
-var blockToInitial = {
-'turtle_colour': 'c',
-'pentagon_stamp': 'p',
-'square_stamp': 's',
-'triangle_stamp': 't',
-'turtle_move_forward': 'f',
-'turtle_move_backward': 'b',
-'turtle_turn_left': 'l',
-'turtle_turn_right': 'r',
-'control_repeat': Sharing.LOOP_START
+Sharing.FIELD_START = '[';
+Sharing.FIELD_END = ']';
+
+/**
+ * Mapping from block names to their single-letter encodings.
+ */
+Sharing.blockToInitial = {
+  'turtle_colour': 'c',
+  'pentagon_stamp': 'p',
+  'square_stamp': 's',
+  'triangle_stamp': 't',
+  'turtle_move_forward': 'f',
+  'turtle_move_backward': 'b',
+  'turtle_turn_left': 'l',
+  'turtle_turn_right': 'r',
+  'control_repeat': Sharing.LOOP_START
 };
 
-var initialToBlock = {
-'p': '<block type="pentagon_stamp"><value name="SIZE"><shadow type="dropdown_pentagon"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'c': '<block type="turtle_colour"><value name="COLOUR"><shadow type="dropdown_colour"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'s': '<block type="square_stamp"><value name="SIZE"><shadow type="dropdown_square"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'t': '<block type="triangle_stamp"><value name="SIZE"><shadow type="dropdown_triangle"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'f': '<block type="turtle_move_forward"><value name="VALUE"><shadow type="dropdown_move_forward"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'b': '<block type="turtle_move_backward"><value name="VALUE"><shadow type="dropdown_move_backward"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'l': '<block type="turtle_turn_left"><value name="ANGLE"><shadow type="dropdown_turn_left"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'r': '<block type="turtle_turn_right"><value name="ANGLE"><shadow type="dropdown_turn_right"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
-'empty-loop': '<block type="control_repeat"><value name="TIMES"><shadow type="math_whole_number"><field name="NUM">[VALUE]</field></shadow></value></block>',
+Sharing.BLOCK_REGEX = /^\s*<block type="([A-z\_]+)" id=".+">$/;
+
+Sharing.VALUE_REGEX = /^\s*<value/;
+
+Sharing.FIELD_REGEX = /^\s*<field name="[A-z]+">(.+)<\/field>$/;
+
+Sharing.LOOP_END_REGEX = /^\s*<\/statement>$/;
+
+/**
+ * Mapping from single-letter block encodings to XML for blocks on the workspace.
+ */
+Sharing.initialToBlock = {
+  'p': '<block type="pentagon_stamp"><value name="SIZE"><shadow type="dropdown_pentagon"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  'c': '<block type="turtle_colour"><value name="COLOUR"><shadow type="dropdown_colour"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  's': '<block type="square_stamp"><value name="SIZE"><shadow type="dropdown_square"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  't': '<block type="triangle_stamp"><value name="SIZE"><shadow type="dropdown_triangle"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  'f': '<block type="turtle_move_forward"><value name="VALUE"><shadow type="dropdown_move_forward"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  'b': '<block type="turtle_move_backward"><value name="VALUE"><shadow type="dropdown_move_backward"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  'l': '<block type="turtle_turn_left"><value name="ANGLE"><shadow type="dropdown_turn_left"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  'r': '<block type="turtle_turn_right"><value name="ANGLE"><shadow type="dropdown_turn_right"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
+  'empty-loop': '<block type="control_repeat"><value name="TIMES"><shadow type="math_whole_number"><field name="NUM">[VALUE]</field></shadow></value></block>',
 };
 
+/**
+ * Encode the contents of the workspace as a string.
+ * @return {string} URL-safe representation of the workspace.
+ */
 Sharing.workspaceToUrl = function() {
   var text = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(Turtle.workspace));
   var textList = text.split("\n");
   textList = textList.slice(3, -1);
+
   var urlList = [];
-  var regexes = {
-    'block': /^\s*<block type="([A-z\_]+)" id=".+">$/,
-    'value': /^\s*<value/,
-    'field': /^\s*<field name="[A-z]+">(.+)<\/field>$/,
-    'endLoop': /^\s*<\/statement>$/,
-  };
   for (var i = 0; i < textList.length; i++) {
     var line = textList[i];
-    if (regexes['block'].test(line)) {
-      var match = regexes['block'].exec(line);
-      urlList.push(blockToInitial[match[1]]);
-    } else if (regexes['field'].test(line)) {
-      urlList.push('['+regexes['field'].exec(line)[1]+']');
-    } else if (regexes['endLoop'].test(line)) {
+    if (Sharing.BLOCK_REGEX.test(line)) {
+      var match = Sharing.BLOCK_REGEX.exec(line);
+      urlList.push(Sharing.blockToInitial[match[1]]);
+    } else if (Sharing.FIELD_REGEX.test(line)) {
+      urlList.push(
+          Sharing.FIELD_START +
+          Sharing.FIELD_REGEX.exec(line)[1] +
+          Sharing.FIELD_END);
+    } else if (Sharing.LOOP_END_REGEX.test(line)) {
       urlList.push(Sharing.LOOP_END);
     }
   }
@@ -70,33 +89,38 @@ Sharing.urlToWorkspace = function(string) {
   this.stringToBlocks(starterConnection, string);
 };
 
-Sharing.makeLoopBlock = function(string, times) {
-  var starterBlock = this.makeBlockFromInitial('empty-loop', times);
-  var connection = starterBlock.inputList[0].connection;
-  this.stringToBlocks(connection, string);
-  return starterBlock;
-};
-
+/**
+ * Convert the URL-encoded workspace into blocks and attach them to the starter
+ * block.
+ * @param {!Blockly.Connection} starterConnection The connection to eventually
+ *     attach blocks to.
+ * @param {string} string The URL-encoded workspace as a string.
+ */
 Sharing.stringToBlocks = function(starterConnection, string) {
   var validLetters = ['f', 'b', 'l', 'r', 's', 'p', 't', 'c'];
   var currentConnection = starterConnection;
+
   var nextBlock;
-  for (var i=0; i < string.length; i++) {
+  for (var i = 0; i < string.length; i++) {
     var char = string[i];
-    if (validLetters.includes(char) && string[i+1] == '[') {
+    var nextChar = string[i + 1] || '';
+    if (validLetters.includes(char) && nextChar == Sharing.FIELD_START) {
       var valueContent = Sharing.getFirstValue(string.substring(i + 1));
       nextBlock = this.makeBlockFromInitial(char, valueContent);
-      this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
+      currentConnection.connect(nextBlock.previousConnection);
     } else if (char == Sharing.LOOP_START) {
-      if (string[i+1] == '[') {
-        //if the string is <[x], it's an empty loop.
+      // A loop start character immediately followed by a field value is
+      // an empty loop.
+      if (nextChar == Sharing.FIELD_START) {
         var valueContent = Sharing.getFirstValue(string.substring(i + 1));
         nextBlock = this.makeBlockFromInitial('empty-loop', valueContent);
-        this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
+        currentConnection.connect(nextBlock.previousConnection);
       } else {
+        // Parse the loop's contents.
         var loop = Sharing.getOutermostLoop(string.substring(i));
         nextBlock = this.makeLoopBlock(loop[0], loop[1]);
-        this.setConnectingBlock(currentConnection, nextBlock.previousConnection);
+        currentConnection.connect(nextBlock.previousConnection);
+        // Skip forward past the loop's contents.
         i += loop[0].length - 1;
       }
     }
@@ -110,8 +134,8 @@ Sharing.getOutermostLoop = function(string) {
   var loop = [];
   var numLoopsOpen = 1;
   var value;
-  for (var i=1; i < string.length; i++) {
-    if (string[i] == Sharing.LOOP_START && string[i+1] != '[') {
+  for (var i = 1; i < string.length; i++) {
+    if (string[i] == Sharing.LOOP_START && string[i + 1] != Sharing.FIELD_START) {
       numLoopsOpen += 1;
     } else if (string[i] == Sharing.LOOP_END) {
       numLoopsOpen -= 1;
@@ -129,8 +153,8 @@ Sharing.getOutermostLoop = function(string) {
 Sharing.getFirstValue = function(string) {
   var bracesCharString = Sharing.LOOP_START + Sharing.LOOP_END + '[]';
   var value = [];
-  for (var i=0; i < string.length; i++) {
-    if (string[i] == ']') {
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] == Sharing.FIELD_END) {
       return parseInt(value.join('')) || value.join('');
     } else if (!bracesCharString.includes(string[i])) {
       // We haven't reached the start or end of this block's values.
@@ -139,9 +163,19 @@ Sharing.getFirstValue = function(string) {
   }
 }
 
+/**
+ * Translate a single-character block name into a blockly block and set the
+ * value.
+ * @param {string} initial The single-character encoding of a block name, which
+ *     must be in the key set of Sharing.initialToBlock.
+ * @param {string} value The value to set on the block, which may be a number,
+ *     a color, or a key for selecting from a dropdown.
+ * @return {Blockly.Block} The block represented by the initial + value
+ *     combination.
+ */
 Sharing.makeBlockFromInitial = function (initial, value) {
   var validatedValue = Sharing.validateBlockValue(initial, value);
-  var xmlString = initialToBlock[initial].replace(/\[VALUE\]/, validatedValue);
+  var xmlString = Sharing.initialToBlock[initial].replace(/\[VALUE\]/, validatedValue);
   var xml = Blockly.Xml.textToDom(xmlString);
   return Blockly.Xml.domToBlock(xml, Turtle.workspace);
 };
@@ -190,7 +224,7 @@ Sharing.validateBlockValue = function(initial, value) {
     case 'c':
       var match = Sharing.HEX_COLOR_REGEX.exec(value);
       if (match && match[0]) {
-        validValue = match[0]; 
+        validValue = match[0];
       } else {
         validValue = 'random';
       }
@@ -210,6 +244,16 @@ Sharing.validateBlockValue = function(initial, value) {
   return validValue;
 };
 
-Sharing.setConnectingBlock = function(connection, nextConnection) {
-  connection.connect(nextConnection);
+/**
+ * Make a loop block and populate its contents from a URL-encoded block string.
+ * @param {string} blockString The string with the single-character encoding
+ *     of the block's contents.
+ * @param {string} times The value to set for the repeat field of the loop
+ *     block, as a string.
+ */
+Sharing.makeLoopBlock = function(blockString, times) {
+  var loopBlock = this.makeBlockFromInitial('empty-loop', times);
+  var innerConnection = loopBlock.inputList[0].connection;
+  this.stringToBlocks(innerConnection, blockString);
+  return loopBlock;
 };
