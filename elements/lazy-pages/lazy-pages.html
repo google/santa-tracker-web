@@ -45,7 +45,63 @@ Lazy loads children "pages".
       :host ::content .santa-scene:not(.iron-selected) {
         display: none !important;
       }
+
+      #error {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 100vh;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        background: url(img/error.svg) bottom center no-repeat;
+        background-size: cover;
+      }
+      .icon {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        border-radius: 10000px;
+        box-shadow: 4px 14px 0 rgba(0,0,0,.125);
+        background: #7ec6e5 url(img/snowman.png) center no-repeat;
+        background-size: 179px 214px;
+      }
+      .lock {
+        width: 100%;
+        height: 100%;
+        border-radius: 10000px;
+        background: rgba(0, 0, 0, 0.125) url(img/lock.svg) center no-repeat;
+      }
+      @media (max-height: 400px) {
+        #error {
+          padding-top: 40px;
+        }
+        .icon {
+          width: 192px;
+          height: 192px;
+        }
+      }
+      #error p {
+        margin: 2em auto;
+        max-width: 90%;
+        color: white;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+      }
     </style>
+    <div id="error" hidden$="[[!_showError]]">
+      <div class="icon" style$="[[_computeLockedHouseStyle(lockedHouse)]]">
+        <div class="lock" hidden$="[[!lockedHouse]]"></div>
+      </div>
+      <p hidden$="[[lockedHouse]]">
+        <i18n-msg msgid="error">PLACEHOLDER_i18n</i18n-msg>
+      </p>
+    </div>
     <content select=".santa-scene"></content>
   </template>
   <script>
@@ -66,9 +122,27 @@ Lazy loads children "pages".
         computed: '_computeValidRoutes(items, attrForSelected)'
       },
 
+      /** The house, if any, to show as locked. */
+      lockedHouse: {
+        type: String,
+        value: null,
+      },
+
+      /** Whether an import has recently failed. */
+      _importFailed: {
+        type: Boolean,
+        value: false,
+      },
+
+      /** Whether to show an error. */
+      _showError: {
+        type: Boolean,
+        computed: '_computeShowError(selected, _importFailed, lockedHouse)',
+      },
+
     },
 
-    listeners: {'iron-select': '_selectedItemChanged'},
+    listeners: {'iron-select': '_onIronSelect'},
 
     isValidRoute: function(route) {
       return this.getRoute(route) !== null;
@@ -88,7 +162,8 @@ Lazy loads children "pages".
       return null;
     },
 
-    _selectedItemChanged: function() {
+    _onIronSelect: function() {
+      this._importFailed = false;
       var scene = this.selectedItem;
       if (!scene || scene.loaded) { return; }
 
@@ -109,8 +184,22 @@ Lazy loads children "pages".
         // Great! Nothing else to do here. Load timing ends in SantaSceneBehavior, as it includes
         // all resource preloading.
       }, function(e) {
-        throw new Error('unable to load path: ' + path);
-      });
+        this._importFailed = true;
+        console.warn('unable to load path', path);
+        this.fire('scene-failure');
+      }.bind(this));
+    },
+
+    _computeShowError: function(selected, importFailed, lockedHouse) {
+      return !selected || importFailed || lockedHouse;
+    },
+
+    _computeLockedHouseStyle: function(lockedHouse) {
+      if (!lockedHouse) {
+        return null;
+      }
+      var url = 'images/scenes/' + lockedHouse + '_2x.png';
+      return 'background-image: url(' + url + '); background-size: cover;';
     },
 
     _computeValidRoutes: function(items, attrForSelected) {
@@ -120,7 +209,7 @@ Lazy loads children "pages".
       return els.map(function(el) {
         return el.getAttribute(attrForSelected) || el[attrForSelected];
       });
-    }
+    },
 
   });
   </script>
