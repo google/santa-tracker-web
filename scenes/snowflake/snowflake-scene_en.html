@@ -87,8 +87,13 @@ Postcard scene.
       </div>
       <div class="bottom-footer">
         <div class="share-bar big-button_bar center-horiz selection">
-          <div class="back small-button" on-tap="backToBlockly"></div>
-          <div class="help small-button"></div>
+          <div class="small-button-container" on-tap="backToBlockly">
+            <span class="small-button-image"></span>
+            <span class="small-button-text">
+            <i18n-msg msgid="back_to_previous_page">PLACEHOLDER_i18n</i18n-msg>
+            </span>
+          </div>
+
           <div class="big-button-tab">
             <div class="big-button-layer">
               <button id="shareButton" class="share big-button"></button>
