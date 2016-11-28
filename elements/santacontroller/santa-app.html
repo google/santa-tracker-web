@@ -882,11 +882,11 @@ Polymer({
   },
 
   /** Handler for 'game-stop' event. Fired by the gameover shared JS component. */
-  onStopGame: function(event) {
+  onStopGame: function(event, detail) {
     this.$.chrome.hasGameButtons = false;
 
     var o = this.$.overlay;
-    var detail = event.detail || {};
+    detail = detail || {};
     o.score = 'score' in detail ? detail.score : null;  // allow zero
     o.playExtra = detail.hasPlayExtra || false;
     o.shareUrl = detail.url || null;
@@ -1066,7 +1066,7 @@ Polymer({
   },
 
   _onKeysPressed: function(e, detail) {
-    switch (e.detail.key) {
+    switch (detail.key) {
       case 'esc':
         var wasOpen = this.$.chrome.closeDrawer();
         if (!wasOpen) {
@@ -1082,7 +1082,7 @@ Polymer({
   _duringTrackerChanged: function(newValue, oldValue) {
     if (oldValue === undefined) {
       // initial value, ignore
-    } else if (newValue === true && this.route == TRACKER_ROUTE) {
+    } else if (newValue === false && this.route == TRACKER_ROUTE) {
       this.route = this.defaultRoute;
     }
   },
