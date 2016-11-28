@@ -315,6 +315,7 @@ ul {
 }
 
 #educators-footer {
+  will-change: transform;  // avoid chrome hiding this layer
   background: #17CC82;
   text-align: center;
   padding: 100px;

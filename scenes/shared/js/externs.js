@@ -45,6 +45,13 @@ window.santaApp.sceneIsOpen = function(id) {}
 window.santaApp.headerSize;
 
 /**
+ * @param {string} methodName
+ * @param {...?} var_args
+ * @return {?}
+ */
+function ga(methodName, var_args) {}
+
+/**
  * @param {string} param
  * @return {string|undefined}
  */
