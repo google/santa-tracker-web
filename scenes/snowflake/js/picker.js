@@ -17,7 +17,7 @@
 goog.provide('app.Picker');
 
 /**
- * Manages the background and foreground picker.
+ * Manages the background picker.
  * @constructor
  * @param {!Scene} scene The scene object.
  */
@@ -44,7 +44,7 @@ app.Picker.prototype.attachEvents_ = function() {
 };
 
 /**
- * Create event handler to change background and foreground
+ * Create event handler to change background
  * @private
  * @param {number} bg This number is added to the selected background.
  * @return {function} event handler
@@ -58,7 +58,7 @@ app.Picker.prototype.handleChange_ = function(bg) {
 };
 
 /**
- * Go to a different foreground or background
+ * Go to a different background
  * @param {number} bgDelta This number is added to the selected background.
  */
 app.Picker.prototype.navigate = function(bgDelta) {
