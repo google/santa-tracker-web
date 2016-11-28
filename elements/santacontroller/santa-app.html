@@ -44,7 +44,7 @@ Santa Tracker app.
 
   <!-- Route controller -->
   <template is="dom-if" if="[[routing]]">
-    <santa-tracker-router id="router" route="{{route}}"></santa-tracker-router>
+    <santa-tracker-router route="{{route}}"></santa-tracker-router>
   </template>
 
   <!-- Chrome, including toolbar and sidebar -->
@@ -630,16 +630,17 @@ Polymer({
     handler();
 
     this._prepareHouses();
+  },
 
-    if (!this.route) {
-      console.debug('no initial route, jumping to', this.defaultRoute, 'was', this.route);
+  attached: function() {
+    if (this.route === undefined) {
       var route = this.defaultRoute;
       if (window.location.hash) {
         // drop old query #foo?blah=1...
         var parts = window.location.hash.substr(1).split('?');
         route = parts[0] || route;
       }
-      this.$.router.replace(route);
+      this.route = route;
     }
   },
 
@@ -668,9 +669,7 @@ Polymer({
 
     // Good job! You found a route. But throw it out if it's invalid for some reason.
     var route = m[1] || this.defaultRoute;
-    if (!this.$.lazypages.isValidRoute(route) && typeof this.sceneIsOpen(route) !== 'boolean') {
-      return;
-    }
+    if (!this.sceneIsValid(route)) { return; }
 
     // Set the route. Hooray! \o/
     this.route = route;
@@ -775,8 +774,6 @@ Polymer({
    * Called when a scene is brought to the foreground and is an upgraded Polymer element.
    */
   _prepareScene: function(scene) {
-    // Intentionally empty.
-
     if (scene && 'pause' in scene) {
       this.$.overlay.pregame = true;
       this.userPause = true;
@@ -816,31 +813,36 @@ Polymer({
    * The local route was changed. If valid, then trigger lazypages to load it. This is also invoked
    * by _currentTimeChanged, in order to lock/unlock scenes that are loaded but currently invalid.
    */
-  _routeChanged: function() {
-    var route = this.route || this.defaultRoute;
-    var valid = this.$.lazypages.isValidRoute(route);
+  _routeChanged: function(newValue) {
+    var route = this.route;
+    var ok = this.sceneIsValid(route);
     var sceneIsOpen = this.sceneIsOpen(route);
 
-    if (typeof sceneIsOpen === 'boolean') {
-      valid = sceneIsOpen;
-    }
-    if (!valid && window.DEV) {
-      console.debug('prod would disable', route);
-      valid = true;
+    if (sceneIsOpen === false && ok) {
+      if (window.DEV) {
+        console.debug('prod would lock', route);
+      } else {
+        ok = false;
+      }
     }
 
-    ANALYTICS.trackPageView('/' + route);
-    this.$.lazypages.selected = valid ? route : '';
-
-    if (!valid) {
-      // TODO(samthor): We'll call this every time _currentTimeChanged.
-      // The requested route was invalid. Log.
-      var previousRoute = this.selectedScene ? this.selectedScene.route : '';
-      this.fire('analytics-track-event', { category: 'Routing',
-          action: 'Invalid Route Source', label: '/' + previousRoute});
-      this.fire('analytics-track-event', { category: 'Routing',
-          action: 'Invalid Route', label: '/' + route});
+    // check newValue: if called from _currentTimeChanged, it will be undefined, so ignore.
+    if (route !== undefined && newValue !== undefined) {
+      if (ok) {
+        this.debounce('_routeChanged', function() {
+          window.ga('set', 'page', '/' + this.route);
+          window.ga('send', 'pageview');
+        }, 10);
+      } else if (sceneIsOpen === undefined) {
+        var previousRoute = this.selectedScene ? this.selectedScene.route : '';
+        window.ga('send', 'event', 'Routing', 'Invalid Route Source', '/' + previousRoute);
+        window.ga('send', 'event', 'Routing', 'Invalid Route', '/' + route);
+      } else {
+        window.ga('send', 'event', 'Routing', 'Locked Route', '/' + route);
+      }
     }
+
+    this.$.lazypages.selected = ok ? route : '';
 
     // TODO(samthor): If the route is invalid, display feedback-
     //   a) it's locked, so show a locked symbol
@@ -967,12 +969,12 @@ Polymer({
    *
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
-  sceneIsOpen: function(moduleName) {
+  sceneIsOpen: function(sceneName) {
     if (this.currentTime === undefined) {
       return true;  // fail open before time ready
-    } else if (moduleName === DEFAULT_ROUTE) {
+    } else if (sceneName === DEFAULT_ROUTE) {
       return true;  // village
-    } else if (moduleName === TRACKER_ROUTE && !this.duringTracker) {
+    } else if (sceneName === TRACKER_ROUTE && !this.duringTracker) {
       return false;  // special-case tracker, as it's open only when Santa is in flight
     }
 
@@ -982,7 +984,7 @@ Polymer({
     var eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
 
     for (var i = 0, house; house = this._houses[i]; ++i) {
-      if (house.module === moduleName) {
+      if (house.module === sceneName) {
         if (house.disabled) {
           return false;
         } else if (!house.locked) {
@@ -999,15 +1001,21 @@ Polymer({
     return undefined;  // couldn't find this scene/house, defer to caller
   },
 
-  _scheduleCheckedChanged: function() {
-    if (this.scheduleChecked) {
-      // This calls _routeChanged internally.
-      this._currentTimeChanged();
-    } else {
-      // nb. This doesn't immediately unlock any houses, instead it leaves the existing state.
-      // However, in dev this is useful to suddenly enable houses, so hint that the route is new.
-      this._routeChanged();
+  sceneIsValid: function(sceneName) {
+    if (this.$.lazypages.isValidRoute(sceneName)) {
+      return true;
     }
+    for (var i = 0, house; house = this._houses[i]; ++i) {
+      if (house.module === sceneName) {
+        return true;
+      }
+    }
+    return false;
+  },
+
+  _scheduleCheckedChanged: function() {
+    // This calls _routeChanged internally.
+    this._currentTimeChanged();
   },
 
   /**
@@ -1086,7 +1094,7 @@ Polymer({
   onShare: function(e, detail) {
     var network = detail.network;
     var url = detail.url || window.location.href;
-    var route = this.route || this.defaultRoute;
+    var route = this.route || '';
     var title = this.$.strings.s('scene-' + route) || this.$.strings.s('santatracker') || '';
 
     window.ga('send', 'social', network, 'share', '/' + route);

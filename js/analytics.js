@@ -29,26 +29,9 @@ Analytics = function Analytics() {
    * @private {!Object<string, Object<string, ?number>>}
    */
   this.startTimes_ = {};
-
-  /** @private {number} */
-  this.trackTimeout_ = 0;
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
-
-/**
- * Tracks a page view. Page view tracking is throttled to prevent logging
- * page redirects by the URL router.
- * @param {string} path
- * @export
- */
-Analytics.prototype.trackPageView = function(path) {
-  window.clearTimeout(this.trackTimeout_);
-  this.trackTimeout_ = window.setTimeout(function() {
-    window.ga('set', 'page', path || '/');
-    window.ga('send', 'pageview');
-  }, this.THROTTLE_TIME_);
-};
 
 /**
  * Stores a start time associated with a category and variable name. When an

@@ -69,23 +69,15 @@ either).
       throw new Error('santa-tracker-router should never be detached')
     },
 
-    replace: function(route) {
-      history.replaceState(null, '', this._makeUrl(route));
-      this.route = route;
-    },
-
     _routeChanged: function(newValue, oldValue) {
-      if (oldValue === undefined) {
-        return;
-      }
-
-      // If the derived URLs are equal, then just replace state: the routes are effectively equal.
-      // Otherwise, push a new state.
       var newUrl = this._makeUrl(newValue);
       if (newUrl === this._makeUrl(currentRoute())) {
-        // iff the URLs are equal, this should do nothing
+        // if the URLs are effectively equal, this should do nothing
+      } else if (oldValue === undefined) {
+        // this is setting an initial route
         history.replaceState(null, '', newUrl);
       } else {
+        // this is a normal nav
         history.pushState(null, '', newUrl);
       }
     },
