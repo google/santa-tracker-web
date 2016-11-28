@@ -856,7 +856,7 @@ Polymer({
         window.ga('send', 'event', 'Routing', 'Locked Route', '/' + route);
       }
     }
-    
+
     this.$.lazypages.selected = ok ? route : '';
     this.$.lazypages.lockedHouse = (!ok && sceneIsOpen === false ? route : null);
 
@@ -969,9 +969,13 @@ Polymer({
 
   unlockAllHouses: function() {
     window.ga('send', 'event', 'Routing', 'unlockAllHouses');
-    this.scheduleChecked = false;
     for (var i = 0, house; house = this._houses[i]; ++i) {
       house.locked = false;
+    }
+    if (this.scheduleChecked) {
+      this.scheduleChecked = false;
+    } else {
+      this._routeChanged();  // scheduleChecked was already false, force update
     }
     this._notifyHouses();
   },
