@@ -36,15 +36,16 @@ specific language governing permissions and limitations under the License.
 <dom-module id="santa-chrome">
 <template>
   <style include="santa-chrome_module">
-    :host([mode="cast"]) #buttons,
     :host([mode="portal"]) .links,
-    :host([mode="portal"]) .lang,
-    :host([mode="portal"]) .shareicons {
+    :host([mode="portal"]) .lang {
       display: none !important;
     }
 
-    :host([mode="portal"]) #sound {
+    :host([mode="portal"]) .buttons.primary {
       top: 100px;
+    }
+    :host([mode="portal"]) button[disabled] {
+      transform: translateX(-100px) !important;
     }
 
     app-drawer {

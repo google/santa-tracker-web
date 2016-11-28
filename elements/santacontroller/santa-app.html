@@ -615,6 +615,7 @@ Polymer({
   ready: function() {
     if (getUrlParameter('api_client') === 'web_portal') {
       this.mode = 'portal';
+      this._setShareOptions([]);
     }
 
     var sc = new SoundController(this._soundsLoaded.bind(this));

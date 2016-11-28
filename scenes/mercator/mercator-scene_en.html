@@ -20,25 +20,12 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="mercator-scene.css" />
-<style>
-  mercator-scene[mode="portal"] a[href*="google.com"] {
-    pointer-events: none;
-    cursor: default !important;
-  }
-</style>
-
 
 <!--
 Mercator scene.
 -->
 <dom-module id="mercator-scene">
 <template>
-  <style>
-    :host([mode="portal"]) .shareButtons {
-      display: none !important;
-    }
-  </style>
-
   <div id="module-mercator">
     <div class="scene">
       <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
