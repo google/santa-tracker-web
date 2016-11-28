@@ -601,7 +601,7 @@ Santa's Village.
 
       if (this._ticTacToeCells.length == 0) {
         // Draw
-        this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: 'draw'});
+        window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
       }
 
       this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
@@ -613,7 +613,7 @@ Santa's Village.
       this._isPlayingTicTacToe = false;
       var c = 'pos-' + w;
 
-      this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: player});
+      window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
       this._playTicTacToeTimers[0] = this.async(function() {
         this.$['easteregg-tic-tac-toe-win'].classList.add(player, c);
       }, WIN_LINE_TIME);
@@ -635,7 +635,7 @@ Santa's Village.
 
     _driveSnowmobile: function(e) {
       if (!e.fakeEvent) {
-        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowmobile'});
+        window.ga('send', 'event', 'village', 'click', 'snowmobile');
       }
       var DRIVE_TIME = 10000;
       var snowmobile = e.currentTarget;
@@ -649,7 +649,7 @@ Santa's Village.
 
     _flyBalloon: function(e) {
       if (!e.fakeEvent) {
-        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
+        window.ga('send', 'event', 'village', 'click', 'balloon');
       }
 
       var FLIGHT_TIME = 30000;
@@ -672,7 +672,7 @@ Santa's Village.
 
     _triggerBus: function(e) {
       if (!e.fakeEvent) {
-        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'bus'});
+        window.ga('send', 'event', 'village', 'click', 'bus');
       }
 
       var BUS_DRIVE_ANIMATION = 10000;

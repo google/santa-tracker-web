@@ -146,16 +146,19 @@ Traditions scene.
 
     nextCountry: function(e) {
       e.preventDefault();
+      e.stopPropagation();
       this.traditions.nextCountry();
     },
 
     prevCountry: function(e) {
       e.preventDefault();
+      e.stopPropagation();
       this.traditions.prevCountry();
     },
 
     showWorld: function(e) {
       e.preventDefault();
+      e.stopPropagation();
       this.traditions.showWorld();
     },
 

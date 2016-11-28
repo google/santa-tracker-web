@@ -209,6 +209,7 @@ Polymer({
   },
 
   _onPlayAgainClick: function() {
+    window.ga('send', 'event', 'nav', 'click', 'play-again');
     this.reset();
     this.fire('game-start');
   },
@@ -218,6 +219,7 @@ Polymer({
   },
 
   _onShare: function(ev) {
+    window.ga('send', 'event', 'nav', 'click', 'share');
     var p = ev.target.closest('button');
     if (p) {
       ev.preventDefault();

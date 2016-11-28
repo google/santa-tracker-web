@@ -331,6 +331,7 @@ Game.prototype.hitBoat = function(score, time, x, y) {
   this.animate_(this.scoreElem, x, y);
   this.scoreboard.addScore(score);
   this.scoreboard.addTime(time);
+  window.ga('send', 'event', 'game', 'hit', 'boatload');
 };
 
 /**
@@ -344,6 +345,7 @@ Game.prototype.missedBoat = function(present, x, y) {
   this.lastMissedPresent = present;
   present.missed();
   window.santaApp.fire('sound-trigger', 'bl_hit_water');
+  window.ga('send', 'event', 'game', 'miss', 'boatload');
 };
 
 /**

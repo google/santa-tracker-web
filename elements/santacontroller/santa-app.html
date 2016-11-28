@@ -652,6 +652,9 @@ Polymer({
     var link = ev.target.closest('a[href]');
     if (!link) { return; }
 
+    // Ignore hash links.
+    if (link.getAttribute('href').substr(0, 1) === '#') { return; }
+
     // Ignore if some weird meta keys are hit, this is probably 'open in new tab'.
     if (ev.ctrlKey || ev.metaKey || ev.which > 1) { return; }
 
@@ -954,6 +957,7 @@ Polymer({
   },
 
   unlockAllHouses: function() {
+    window.ga('send', 'event', 'Routing', 'unlockAllHouses');
     this.scheduleChecked = false;
     for (var i = 0, house; house = this._houses[i]; ++i) {
       house.locked = false;

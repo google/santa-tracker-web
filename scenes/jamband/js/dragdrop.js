@@ -92,6 +92,8 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
 
     this.el.appendTo(droppable);
     this.el.trigger('dropped', droppable.data());
+
+    window.ga('send', 'event', 'game', 'dropped', 'jamband');
   } else {
     this.el.appendTo(this.container);
     this.el.trigger('returned');

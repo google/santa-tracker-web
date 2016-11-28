@@ -137,7 +137,7 @@ specific language governing permissions and limitations under the License.
 
         <div class="lang">
           <iron-icon icon="santa:language"></iron-icon>
-          <select id="language" value="[[language]]" on-change="_onLanguageChanged">
+          <select id="language" value="[[language]]" on-change="_onLanguageChanged" on-click="_onLanguageClick">
             <option value="af">Afrikaans</option>
             <option value="ca">Català</option>
             <option value="zh-CN">中文（香港）</option>
@@ -186,7 +186,7 @@ specific language governing permissions and limitations under the License.
           <paper-icon-button icon="santa:menu" drawer-toggle
               class="toolbar-icon"></paper-icon-button>
           <div class="title">
-            <a class="linkwrap" href$="[[urlFor('')]]">
+            <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
               <div id="logo" title="Google"></div>
               <h1>
                 <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
@@ -354,11 +354,12 @@ specific language governing permissions and limitations under the License.
 
     _drawerOpenedChanged: function() {
       if (this._drawerOpened) {
-        window.ga('send', 'event', 'nav', 'drawer-opened');
+        window.ga('send', 'event', 'nav', 'click', 'drawer');
       }
     },
 
     _onShare: function(ev) {
+      window.ga('send', 'event', 'nav', 'click', 'share');
       var p = ev.target.closest('paper-icon-button');
       if (p) {
         ev.preventDefault();
@@ -369,11 +370,21 @@ specific language governing permissions and limitations under the License.
     _toggleSounds: function(ev) {
       ev.stopPropagation();
       this.mute = !this.mute;
+      window.ga('send', 'event', 'nav', 'click', this.mute ? 'mute' : 'unmute');
     },
 
     _togglePause: function(ev) {
       ev.stopPropagation();
       this.pause = !this.pause;
+      window.ga('send', 'event', 'nav', 'click', this.pause ? 'pause' : 'play');
+    },
+
+    _onTitleClick: function() {
+      window.ga('send', 'event', 'nav', 'click', 'title');
+    },
+
+    _onLanguageClick: function() {
+      window.ga('send', 'event', 'nav', 'click', 'language');
     },
 
     /**
