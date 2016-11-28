@@ -9,7 +9,7 @@
   transform: translate3d(0, 0, 0);
   width: calc(50% - 30px);
 
-  &[press-locked] {
+  &[data-locked] {
     .card-img .card-lock {
       opacity: 1;
     }

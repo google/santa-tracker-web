@@ -53,8 +53,15 @@ specific language governing permissions and limitations under the License.
 
         <div class="educators-card-container">
           <template is="dom-repeat" items="[[cards]]" as="card">
-            <div class="card" hidden$="[[_computeHidden(filter, card.filter)]]">
-              <div class="card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)"></div>
+            <div class="card" data-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
+              <a href$="[[_computeUnlockedUrlFor(card.key, card.locked)]]">
+                <div class="card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)">
+                  <div class="card-lock">
+                    <span class="card-unlock">Unlocks December</span>
+                    <span class="card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
+                  </div>
+                </div>
+              </a>
               <div class="card-info">
                 <h4>[[card.title]]</h4>
                 <span>Opens December [[card.opens]] • [[card.type]]</span>
@@ -187,7 +194,13 @@ specific language governing permissions and limitations under the License.
 
     ready: function() {
       this.scene = new scenes.press.Scene();
-      this.cards = this.scene.getModels();  // education cards are never locked
+      this.cards = this.scene.getModels(function(key) {
+        var locked = santaApp.sceneIsOpen(key) === false;
+        if (window.DEV && Math.random() > 0.5) {
+          locked = true;
+        }
+        return locked;
+      });
     },
 
     _computeHidden: function(filter, card) {
@@ -207,6 +220,26 @@ specific language governing permissions and limitations under the License.
 
     _computeActive: function(a, b) {
       return a === b ? 'active' : '';
+    },
+
+    _computeOrd: function(n) {
+      var off = +n % 10;
+      if (off === 1) {
+        return 'st';
+      } else if (off === 2) {
+        return 'nd';
+      } else if (off === 3) {
+        return 'rd';
+      } else {
+        return 'th';
+      }
+    },
+
+    _computeUnlockedUrlFor: function(scene, locked) {
+      if (locked) {
+        return null;
+      }
+      return this.urlFor(scene);
     },
 
     _trackLessonPlan: function(e, detail) {

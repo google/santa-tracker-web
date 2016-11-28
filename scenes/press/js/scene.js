@@ -30,10 +30,15 @@ app.Scene = function() {
 };
 
 /**
+ * @param {function(string): boolean|undefined} opt_locked
  * @return {!Array<!Object>} model objects
  */
-app.Scene.prototype.getModels = function() {
-  return app.Models;
+app.Scene.prototype.getModels = function(opt_locked) {
+  const out = app.Models;
+  if (opt_locked) {
+    out.forEach(model => model.locked = opt_locked(model.key));
+  }
+  return out;
 };
 
 /**

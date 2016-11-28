@@ -109,13 +109,15 @@ specific language governing permissions and limitations under the License.
 
         <div class="press-card-container">
           <template is="dom-repeat" items="[[cards]]" as="card">
-            <div class="card" press-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
-              <div class="card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)">
-                <div class="card-lock">
-                  <span class="card-unlock">Unlocks December</span>
-                  <span class="card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
+            <div class="card" data-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
+              <a href$="[[_computeUnlockedUrlFor(card.key, card.locked)]]">
+                <div class="card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)">
+                  <div class="card-lock">
+                    <span class="card-unlock">Unlocks December</span>
+                    <span class="card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
+                  </div>
                 </div>
-              </div>
+              </a>
               <div class="card-info">
                 <h4>[[card.title]]</h4>
                 <span>Opens December [[card.opens]] • [[card.type]]</span>
@@ -254,13 +256,14 @@ specific language governing permissions and limitations under the License.
         'img/title-bg-swirl_2x.png',
       ];
 
-      if (this.androidCards) {
-        images.concat(this.androidCards.map(function(card) {
-          return 'img/app_' + card.key + '.png';
-        }));
-      } else {
-        console.warn('no androidCards');
-      }
+      // TODO(samthor): This should happen in ready:, but we get onPreload first, so androidCards
+      // aren't yet available.
+      images.concat([
+        'img/app_cityquiz.png',
+        'img/app_penguinswim.png',
+        'img/app_presentquest.png',
+        'img/app_snowball.png',
+      ]);
 
       this.preloadImages(images);
     },
@@ -268,18 +271,13 @@ specific language governing permissions and limitations under the License.
     ready: function() {
       this.scene = new scenes.press.Scene();
       this.androidCards = this.scene.getAndroidModels();
-      var models = this.scene.getModels();
-
-      models.forEach(function(model) {
-        var sceneIsOpen = santaApp.sceneIsOpen(model.key);
-        model.locked = (sceneIsOpen === false);
-
+      this.cards = this.scene.getModels(function(key) {
+        var locked = santaApp.sceneIsOpen(key) === false;
         if (window.DEV && Math.random() > 0.5) {
-          model.locked = true;
+          locked = true;
         }
+        return locked;
       });
-
-      this.cards = models;
     },
 
     _computeHidden: function(filter, card) {
@@ -317,7 +315,14 @@ specific language governing permissions and limitations under the License.
       } else {
         return 'th';
       }
-    }
+    },
+
+    _computeUnlockedUrlFor: function(scene, locked) {
+      if (locked) {
+        return null;
+      }
+      return this.urlFor(scene);
+    },
 
   });
 </script>
