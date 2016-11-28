@@ -178,22 +178,22 @@ app.Models = [
     ]
   },
   {
-    'key': 'seasonofgiving',
-    'title': 'Season of Giving',
+    'key': 'codelab',
+    'title': 'Code Lab',
     'opens': '5',
     'type': 'Learn',
-    'filter': 'education socialstudies',
-    'description': 'Google\'s Santa Tracker partnered with Google.org to connect kids of all ages with charities around the world. Decorate an ornament to print out and hang on your tree to show your support for Libraries Without Borders, Khan Academy, Code.org, and more.',
+    'filter': 'education computerscience',
+    'description': 'Use coding fundamentals to navigate the elf through the forest to find dropped presents.',
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-season-of-giving.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-codelab.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-seasonofgiving-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-codelab-full.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -255,22 +255,22 @@ app.Models = [
     ]
   },
   {
-    'key': 'codelab',
-    'title': 'Code Lab',
+    'key': 'seasonofgiving',
+    'title': 'Season of Giving',
     'opens': '9',
     'type': 'Learn',
-    'filter': 'education computerscience',
-    'description': 'Use coding fundamentals to navigate the elf through the forest to find dropped presents.',
+    'filter': 'education socialstudies',
+    'description': 'Google\'s Santa Tracker partnered with Google.org to connect kids of all ages with charities around the world. Decorate an ornament to print out and hang on your tree to show your support for Libraries Without Borders, Khan Academy, Code.org, and more.',
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-codelab.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-season-of-giving.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-codelab-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-seasonofgiving-full.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
