@@ -59,12 +59,24 @@ app.Controls.prototype.onKeyDown_ = function(e) {
     case 'right':
       this.picker.navigate(1, 0);
       break;
+    case 'up':
+      this.picker.navigate(0, -1);
+      break;
+    case 'down':
+      this.picker.navigate(0, 1);
+      break;
   }
 
   if (!this.leftRightPressed && (key === 'left' || key === 'right')) {
     this.tutorial.off('keys-leftright');
     this.tutorial.off('spacenav-leftright');
     this.leftRightPressed = true;
+  }
+
+  if (!this.upDownPressed && (key === 'up' || key === 'down')) {
+    this.tutorial.off('keys-updown');
+    this.tutorial.off('spacenav-updown');
+    this.upDownPressed = true;
   }
 };
 

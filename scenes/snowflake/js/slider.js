@@ -52,15 +52,17 @@ app.Slider = function(elem, options) {
  * @return {number} The position.
  */
 app.Slider.prototype.getPosition = function(change) {
+  if (isNaN(this.selected)) {
+    this.selected = 1;
+  }
   var number = this.selected + change;
 
   // Check boundaries
   if (number < 1) {
-    return this.max + number;
+    number = this.max + (number % this.max);
   } else if (number > this.max) {
-    return number - this.max;
+    number = number % this.max;
   }
-
   return number;
 };
 
@@ -137,8 +139,13 @@ app.Slider.prototype.draw = function(change) {
  */
 app.Slider.prototype.set = function(number) {
   // Check if we need to change
-  if (this.selected === number) {
+  if (isNaN(number) || this.selected === number) {
     return;
+  }
+  if (number < 1) {
+    number = this.max + (number % this.max);
+  } else if (number > this.max) {
+    number = number % this.max;
   }
 
   // Find out how the distance between slides

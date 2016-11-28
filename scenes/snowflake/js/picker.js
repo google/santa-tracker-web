@@ -27,6 +27,13 @@ app.Picker = function(scene) {
   this.background = scene.background;
 
   this.attachEvents_();
+
+  const params = getUrlParameters();
+  if ('bg' in params && 'fg' in params) {
+    this.background.set(+params.bg);
+    this.foreground.set(+params.fg);
+    this.updateMessage(params.bg);
+  }
 };
 
 /**
@@ -57,42 +64,40 @@ app.Picker.prototype.handleChange_ = function(bg, fg) {
 
 /**
  * Go to a different foreground or background
- * @param {number} bg This number is added to the selected background.
- * @param {number} fg This number is added to the selected foreground.
+ * @param {number} bgDelta This number is added to the selected background.
+ * @param {number} fgDelta This number is added to the selected foreground.
  */
-app.Picker.prototype.navigate = function(bg, fg) {
-  var bgNum = this.background.getPosition(bg),
-      fgNum = this.foreground.getPosition(fg),
-      url = window.location.href,
-      hash = window.location.hash,
-      sceneName = window.location.hash.split('?')[0].substr(1);
+app.Picker.prototype.navigate = function(bgDelta, fgDelta) {
+  const bg = this.background.getPosition(bgDelta);
+  const fg = this.foreground.getPosition(fgDelta);
 
-  window.history.replaceState(null, '', url.substr(0, url.length - hash.length) + '#' + sceneName + '?bg=' + bgNum + '&fg=' + fgNum);
-  this.fromUrl(bgNum, fgNum);
+  const url = new URL(window.location.toString());
+  url.search = `?bg=${bg}&fg=${fg}`;
+  window.history.replaceState(null, '', url.toString());
+
+  this.background.set(bg);
+  this.foreground.set(fg);
+  this.updateMessage(bg);
 
   // Sound
-  if (bg !== 0) {
+  if (bgDelta !== 0) {
     window.santaApp.fire('sound-trigger', {
       name: 'sm_change_bg',
-      args: [bgNum]
+      args: [bg]
     });
-  } else if (fg !== 0) {
+  } else if (fgDelta !== 0) {
     window.santaApp.fire('sound-trigger', {
       name: 'sm_change_fg',
-      args: [fgNum]
+      args: [fg]
     });
   }
 };
 
 /**
- * Get parameters from the url.
- * @param {string} bg The background parameter.
- * @param {string} fg The foreground parameter.
+ * Change message to match background
+ * @param {number} bg This number is added to the selected background.
  */
-app.Picker.prototype.fromUrl = function(bg, fg) {
-  this.background.set(parseInt(bg, 10));
-  this.foreground.set(parseInt(fg, 10));
-
+app.Picker.prototype.updateMessage = function(bg) {
   var selectedMessages = ["holiday_message_0", "holiday_message_3", "holiday_message_4", "holiday_message_5"];
   var colors = ['white', 'white', 'white', 'black', 'white', 'white', 'white', 'white', 'white', 'white'];
   var messageId = (bg - 1)%4;
@@ -101,4 +106,4 @@ app.Picker.prototype.fromUrl = function(bg, fg) {
   for (var i = 0; i < elements.length; i++) {
     elements[i].style.color = colors[bg - 1];
   }
-};
+}
