@@ -231,19 +231,30 @@ app-toolbar {
     justify-content: flex-end;
     font-size: 0;  // fixes alignment issues
 
-    .multi {
-      display: none;  // set to `display: flex` in full mode
+    paper-icon-button#gplus {
+      padding: 4px;
+    }
 
-      .sep {
-        background: rgba(0,0,0,0.125);
-        width: 1px;
-        margin: 6px;
+    .multi {
+      display: flex;
+    }
+
+    .sep {
+      background: rgba(0,0,0,0.125);
+      width: 1px;
+      margin: 6px;
+
+      &:first-child {
+        visibility: hidden;
       }
     }
   }
-
-  .feature[hidden] + .share {
-    flex-grow: 0;
+  @media (max-width: 768px - 1px) {
+    .share {
+      *:not(.share-webshare) {
+        display: none;
+      }
+    }
   }
 
   /**
@@ -254,13 +265,10 @@ app-toolbar {
     .title {
       width: 69px - 44px;
     }
-    .share {
+    .feature:not([hidden]) + .share {
+      // where there's a feature, grow the right-hand side (sharer)
       width: 69px;
       flex-grow: 1;
-
-      .multi {
-        display: flex;
-      }
     }
     .feature {
       // .. and the feature has a min-width set, for future scores/times etc

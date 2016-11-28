@@ -198,15 +198,9 @@ specific language governing permissions and limitations under the License.
             </div>
           </div>
           <div class="share" on-tap="_onShare">
-            <paper-icon-button hidden$="[[!hasWebShare]]" id="webshare" icon="santa:share"></paper-icon-button>
-            <template is="dom-if" if="[[!hasWebShare]]">
-              <div class="multi">
-                <paper-icon-button id="gplus" icon="santa:share-gplus" style="padding: 4px"></paper-icon-button>
-                <div class="sep"></div>
-                <paper-icon-button id="twitter" icon="santa:share-twitter"></paper-icon-button>
-                <div class="sep"></div>
-                <paper-icon-button id="facebook" icon="santa:share-facebook"></paper-icon-button>
-              </div>
+            <template is="dom-repeat" items="[[shareOptions]]">
+              <div class$="sep share-[[item]]"></div>
+              <paper-icon-button id$="[[item]]" icon$="santa:share-[[item]]" class$="share-[[item]]"></paper-icon-button>
             </template>
           </div>
         </app-toolbar>
@@ -307,16 +301,9 @@ specific language governing permissions and limitations under the License.
       /** Whether the tracker is unlocked. Bound from `santa-state`. */
       duringTracker: Boolean,
 
-      /** Does this browser support Web Share? */
-      hasWebShare: {
-        type: Boolean,
-        value: function() {
-          // TODO(samthor): Also check for 'Mobile' until https://crbug.com/635741 is fixed, as
-          // share is showing up on desktop.
-          return Boolean(navigator.share && navigator.userAgent.match(/Mobile/));
-        },
-        readOnly: true,
-      },
+      /** Sharing options available. */
+      shareOptions: Array,
+
     },
 
     _computeTernary: function(arg, yesVal, noVal) {
@@ -374,7 +361,7 @@ specific language governing permissions and limitations under the License.
       var p = ev.target.closest('paper-icon-button');
       if (p) {
         ev.preventDefault();
-        this.fire('share', p.id);
+        this.fire('share', {network: p.id});
       }
     },
 

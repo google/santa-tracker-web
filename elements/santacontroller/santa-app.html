@@ -50,10 +50,12 @@ Santa Tracker app.
       mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
       today-house="[[todayHouse]]"
+      share-options="[[shareOptions]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
 
-    <santa-overlay id="overlay" hidden$="[[!userPause]]"></santa-overlay>
+    <santa-overlay id="overlay" hidden$="[[!userPause]]"
+        share-options="[[shareOptions]]"></santa-overlay>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -560,6 +562,20 @@ Polymer({
       observer: '_currentTimeChanged',
     },
 
+    /**
+     * The networks that Santa can share to.
+     */
+    shareOptions: {
+      type: Array,
+      value: function() {
+        // TODO(samthor): Also check for 'Mobile' until https://crbug.com/635741 is fixed, as
+        // share is showing up on desktop.
+        var hasWebShare = Boolean(navigator.share && navigator.userAgent.match(/Mobile/));
+        return Object.freeze(hasWebShare ? ['webshare'] : ['gplus', 'twitter', 'facebook']);
+      },
+      readOnly: true,
+    },
+
   },
 
   listeners: {
@@ -569,7 +585,6 @@ Polymer({
     'analytics-track-event': 'trackEvent',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
-    'analytics-track-share': 'trackShare',
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
@@ -909,10 +924,6 @@ Polymer({
         detail.category, detail.variable, detail.time, detail.label, detail.maxTime);
   },
 
-  trackShare: function(e, detail) {
-    ANALYTICS.trackSocial('share', detail || '', '/' + this.route || this.defaultRoute);
-  },
-
   trackGameStart: function(e, detail) {
     ANALYTICS.trackGameStart(detail.gameId || detail.gameid);
   },
@@ -1060,35 +1071,45 @@ Polymer({
    * Triggered on a request to share. Creates sharing popup for the specified service (passed as
    * detail of event).
    */
-  onShare: function(e, service) {
-    this.fire('analytics-track-share', service);
+  onShare: function(e, detail) {
+    var network = detail.network;
+    var url = detail.url || window.location.href;
+    var route = this.route || this.defaultRoute;
+    var title = this.$.strings.s('scene-' + route) || this.$.strings.s('santatracker') || '';
 
-    // TODO(samthor): Use a URL shortener if something large is in the URL (e.g., encoded beard).
-    var url = window.location.href;
-    var title = this.$.strings.s('scene-' + this.route || this.defaultRoute) ||
-       this.$.strings.s('santatracker') || '';
+    window.ga('send', 'social', network, 'share', '/' + route);
 
-    if (service == 'webshare' && navigator.share) {
+    var shareUrl = this._findShareUrl(network, url, title);
+    if (network === 'webshare' && navigator.share) {
       navigator.share({title: title, url: url});
-      return;
-    }
-
-    var shareUrl = (function(url) {
-      var enc = window.encodeURIComponent(url);
-      switch (service) {
-      case 'facebook':
-        return 'https://facebook.com/sharer.php?p[url]=' + enc;
-      case 'gplus':
-        return 'https://plus.google.com/share?hl=' + this.language + '&url=' + enc;
-      case 'twitter':
-        return 'https://twitter.com/intent/tweet?lang=' + this.language +
-            '&hashtags=santatracker&text=' + window.encodeURIComponent(title) + '&url=' + enc;
-      }
-    }.call(this, url));
-
-    if (shareUrl) {
+    } else if (shareUrl) {
       var opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
       window.open(shareUrl, '', opts);
+    }
+  },
+
+  /**
+   * Returns the URL to popup open in response to a sharing action.
+   */
+  _findShareUrl: function(network, url, title) {
+    var enc = window.encodeURIComponent(url);
+
+    switch (network) {
+    case 'gplus':
+      var out = 'https://plus.google.com/share?url=' + enc;
+      if (window.requestLang) {
+        out += '&hl=' + window.requestLang;
+      }
+      return out;
+    case 'twitter':
+      var out = 'https://twitter.com/intent/tweet?hashtags=santatracker&text=' +
+          window.encodeURIComponent(title) + '&url=' + enc;
+      if (window.requestLang) {
+        out += '&lang=' + window.requestLang;
+      }
+      return out;
+    case 'facebook':
+      return 'https://facebook.com/sharer.php?p[url]=' + enc;
     }
   },
 

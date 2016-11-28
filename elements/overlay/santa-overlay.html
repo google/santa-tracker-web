@@ -55,23 +55,12 @@ Shared overlay for Santa Tracker games.
           <h4><i18n-msg msgid="copy-me-short">PLACEHOLDER_i18n</i18n-msg></h4>
           <input id="url" type="url" readonly value="[[shortShareUrl]]" on-click="_selectUrl" />
         </div>
-        <div id="shareButtons">
-          <button class="Button Button--share" id="webshare" hidden="[[!hasWebShare]]">
-            <iron-icon icon="santa:share"></iron-icon>
-            Share
-          </button>
-          <button class="Button Button--share" id="gplus" hidden="[[hasWebShare]]">
-            <iron-icon icon="santa:share-gplus"></iron-icon>
-            Google+
-          </button>
-          <button class="Button Button--share" id="twitter" hidden="[[hasWebShare]]">
-            <iron-icon icon="santa:share-twitter"></iron-icon>
-            Twitter
-          </button>
-          <button class="Button Button--share" id="facebook" hidden="[[hasWebShare]]">
-            <iron-icon icon="santa:share-facebook"></iron-icon>
-            Facebook
-          </button>
+        <div id="shareButtons" on-tap="_onShare">
+          <template is="dom-repeat" items="[[shareOptions]]">
+            <button class="Button Button--share" id$="[[item]]">
+              <iron-icon icon$="santa:share-[[item]]"></iron-icon>
+            </button>
+          </template>
         </div>
       </section>
 
@@ -149,23 +138,14 @@ Polymer({
       value: false,
     },
 
-    /** Does this browser support Web Share? */
-    // TODO(samthor): Merge with `santa-chrome`.
-    hasWebShare: {
-      type: Boolean,
-      value: function() {
-        // TODO(samthor): Also check for 'Mobile' until https://crbug.com/635741 is fixed, as
-        // share is showing up on desktop.
-        return Boolean(navigator.share && navigator.userAgent.match(/Mobile/));
-      },
-      readOnly: true,
-    },
-
     /** Custom hero image to use for a share/gameover screen. */
     hero: {
       type: String,
       value: null,
     },
+
+    /** Sharing options available. */
+    shareOptions: Array,
 
   },
 
@@ -235,6 +215,14 @@ Polymer({
 
   _onPlayExtraClick: function() {
     // TODO(devnook): Wire this up to playExtra on games.
+  },
+
+  _onShare: function(ev) {
+    var p = ev.target.closest('button');
+    if (p) {
+      ev.preventDefault();
+      this.fire('share', {network: p.id, url: this.shortShareUrl || this.shareUrl});
+    }
   },
 
   /**
