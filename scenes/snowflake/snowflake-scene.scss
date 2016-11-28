@@ -3,7 +3,6 @@ $gameover-bg: #8fd7f7;
 $rotate-bg: $gameover-bg;
 
 @import "../shared/sass/board";
-@import "../shared/sass/gameover";
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
 @import "../shared/sass/button";
@@ -111,19 +110,21 @@ $rotate-bg: $gameover-bg;
     }
   }
 
-  .back {
-    background-image: url('img/btn_back.png');
-    margin-top: 7px;
-    padding-bottom: 12px;
+  
+  .small-button-image {
+    vertical-align: middle;
+    font-size: 40px;
+    background-image: url('img/btn_back_ar.png');
+    background-position: center;
+    padding: 6px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    border: none;
+    width: 20px;
+    height:20px;
+    display:inline-block;
+}
 
-    &:hover {
-      background-image: url('img/btn_back_over.png');
-    }
-
-    &:active {
-      background-image: url('img/btn_back_press.png');
-    }
-  }
 
   .help {
     background-image: url('img/btn_help.png');
@@ -161,4 +162,3 @@ $rotate-bg: $gameover-bg;
 }
 
 @import "../shared/sass/responsive";
-@import "../shared/sass/share-overlay";

@@ -115,12 +115,23 @@ const DIST_PROD_DIR = argv.pretty ? PRETTY_DIR : PROD_DIR;
 const DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.build);
 
 // Broad scene config for Santa Tracker.
-const SCENE_CLOSURE_CONFIG = require('./scenes');
+const SCENE_CONFIG = require('./scenes');
+const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter(key => SCENE_CONFIG[key].fanout !== false);
 
 // List of scene names to compile.
-const SCENE_NAMES = argv.scene ?
-    [argv.scene].concat((SCENE_CLOSURE_CONFIG[argv.scene] || {}).dependencies || []) :
-    Object.keys(SCENE_CLOSURE_CONFIG);
+const COMPILE_SCENES = (function() {
+  if (argv.scene) {
+    const config = SCENE_CONFIG[argv.scene];
+    if (!config) {
+      throw new Error(`unknown scene: ${argv.scene}`);
+    }
+    const out = [];
+    config.entryPoint && out.push(argv.scene);
+    out.push(...(config.dependencies || []));
+    return out;
+  }
+  return Object.keys(SCENE_CONFIG).filter(key => SCENE_CONFIG[key].entryPoint);
+}());
 
 // Shared options for htmlmin.
 const HTMLMIN_OPTIONS = {
@@ -197,6 +208,10 @@ gulp.task('compile-js', function() {
 });
 
 gulp.task('compile-scenes', function() {
+  if (!COMPILE_SCENES.length) {
+    return;
+  }
+
   const closureLibraryPath = path.resolve('components/closure-library/closure/goog');
   const externs = [
     'components/web-animations-utils/externs*.js',
@@ -206,8 +221,8 @@ gulp.task('compile-scenes', function() {
   const limit = $.limiter(-2);
 
   // compile each scene, merging them into a single gulp stream as we go
-  return SCENE_NAMES.reduce((stream, sceneName) => {
-    const config = SCENE_CLOSURE_CONFIG[sceneName];
+  return COMPILE_SCENES.reduce((stream, sceneName) => {
+    const config = SCENE_CONFIG[sceneName];
     const fileName = `${sceneName}-scene.min.js`;
     const dest = `scenes/${sceneName}`;
 
@@ -278,8 +293,8 @@ function addCompilerFlagOptions(opts) {
 
 gulp.task('build-scene-deps', function() {
   // compile each scene, merging them into a single gulp stream as we go
-  return SCENE_NAMES.reduce((stream, sceneName) => {
-    const config = SCENE_CLOSURE_CONFIG[sceneName];
+  return COMPILE_SCENES.reduce((stream, sceneName) => {
+    const config = SCENE_CONFIG[sceneName];
     const fileName = sceneName + '-scene.deps.js';
     const dest = '.devmode/scenes/' + sceneName;
     const scripts = [
@@ -305,7 +320,7 @@ gulp.task('create-dev-scenes', function() {
     const dest = '.devmode/scenes/' + sceneName;
     return stream.add(
         gulp.src('scenes/' + sceneName + '/' + sceneName + '-scene_en.html')
-            .pipe(scripts.devScene(sceneName, SCENE_CLOSURE_CONFIG[sceneName]))
+            .pipe(scripts.devScene(sceneName, SCENE_CONFIG[sceneName]))
             .pipe($.newer(dest + '/index.html'))
             .pipe(gulp.dest(dest))
     );
@@ -339,7 +354,7 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
     .pipe($.foreach((stream, file) => {
       const dest = path.dirname(path.relative(__dirname, file.path));
       const sceneName = path.basename(dest);
-      const closureConfig = SCENE_CLOSURE_CONFIG[sceneName] || {};
+      const closureConfig = SCENE_CONFIG[sceneName] || {};
 
       return stream.pipe($.vulcanize({
         stripExcludes: closureConfig.isFrame ? [] : elementsImports,
@@ -397,6 +412,7 @@ gulp.task('build-prod', function() {
       baseEl && baseEl.setAttribute('href', STATIC_URL);
     }))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
+    .pipe(scripts.fanout(SCENE_CONFIG))
     .pipe(scripts.i18nReplace({
       strict: !!argv.strict,
       path: '_messages',
@@ -421,7 +437,7 @@ gulp.task('build-prod-manifest', function() {
 gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], function() {
   const staticStream = gulp.src([
     'audio/*',
-    'images/**/*.{png,svg,jpg,gif,ico}',
+    'images/**/*',
     'third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
@@ -434,8 +450,7 @@ gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], fun
     .pipe(gulp.dest(DIST_STATIC_DIR));
 
   const prodStream = gulp.src([
-    'images/og.png',
-    'images/*icon*.png',  // nb. duplicated in prod for manifest convenience
+    'images/**/*',  // nb. duplicated from static
   ], {base: './'})
     .pipe(gulp.dest(DIST_PROD_DIR));
 
@@ -479,10 +494,21 @@ gulp.task('serve', ['default', 'watch'], function() {
     livereloadFiles.push('**/*.min.js', '**/*.html');
   }
 
+  const simplePath = new RegExp(/^\/(\w+)\.html(|\?.*)$/);
+  const fanoutHelper = function(req, res, next) {
+    // If we match a file which would be a fanout of index.html in prod, serve index.html instead.
+    const match = simplePath.exec(req.originalUrl);
+    if (match && SCENE_FANOUT.includes(match[1])) {
+      req.url = '/index.html';
+    }
+    return next();
+  };
+
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
     injectChanges: argv.devmode, // Can not inject css into lazy Polymer scenes.
+    middleware: [fanoutHelper],
     port: argv.port,
     server: ['.', '.devmode'],
     startPath: argv.scene && (argv.devmode ? `/scenes/${argv.scene}/` : `/#${argv.scene}`),

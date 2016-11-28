@@ -58,7 +58,7 @@ window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-37048309-' + (location.hostname == 'santatracker.google.com' ? 1 : 2), 'auto');
 ga('set', 'transport', 'beacon');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
 
   <!-- JS -->
   <link id="DEV" comment="element removed in prod" />
@@ -109,23 +109,33 @@ ga('set', 'transport', 'beacon');
   // Look in /intl/.../ and ?hl=... for user override lang. Send the browser to the correct /intl/
   // version via History API. e.g., a user loading "/#foo?hl=de" will get "/intl/de/#foo".
   var url = (function() {
-    // Look for ?hl=...
-    var match = window.location.search.match(/\bhl=([^&]*)\b/);
-    var hl = (match ? match[1] : null);
-
-    // Look for /intl/../ (look for _last_, in case it's in URL twice?!)
+    // Look for /intl/../ (look for _last_). This wins over ?hl=...
     var match = window.location.pathname.match(/.*\/intl\/([^_/]+)(?:|_ALL)\//);
-    var urlLang = (match ? match[1] : hl);
-    window.requestLang = urlLang;
+    var lang = match && match[1];
+
+    // Otherwise, look for ?hl=..., and remove it from the URL regardless.
+    var search = window.location.search || '';
+    var matchLang = /(?:\?|&)hl=([^&]*)\b/;
+    if (!lang) {
+      match = matchLang.exec(search);
+      lang = match && match[1];
+    }
+    search = search.replace(matchLang, '').replace(/^&/, '?');
+
+    // Save requestLang on window. This is a bit ugly, but lets us persist this param.
+    window.requestLang = lang;
+
+    // Grab the final URL component. This is 'us', the fanned out HTML file.
+    match = window.location.pathname.match(/(\/(?:\w+\.html|))$/)
+    var path = match ? match[1] : '/';
 
     // Generate canonical URL.
-    var url = window.location.origin + '/';
-    if (urlLang) {
+    var url = window.location.origin;
+    if (lang) {
       var prod = window.location.hostname === 'santatracker.google.com';
-      url += 'intl/' + urlLang + (prod ? '' : '_ALL') + '/';
+      url += '/intl/' + lang + (prod ? '' : '_ALL');
     }
-    // TODO(samthor): Consume ?hl=... here.
-    return url + (window.location.search || '') + window.location.hash;
+    return url + path + search + window.location.hash;
   })();
   history.replaceState(null, document.title, url);
 
@@ -159,7 +169,7 @@ ga('set', 'transport', 'beacon');
 </head>
 <body data-version="" unresolved class="scrollock">
 
-<santa-app id="santaApp"></santa-app>
+<santa-app id="santaApp" routing></santa-app>
 
 <div id="timer" role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions" hidden></div>
 

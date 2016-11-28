@@ -157,17 +157,11 @@ app.Scene.prototype.showShareOverlay = function() {
   var bgNum = this.background.getPosition(0);
   var fgNum = this.foreground.getPosition(0);
   var blocks = this.blocks;
-  var params = '?bg=' + bgNum + '&fg=' + fgNum + '&B=' + blocks;
-  var url;
-  if (window.location.href.includes(':', 7)) {
-    url = window.location.href;
-    var chop = url.indexOf('?');
-    if (chop != -1) {
-      url = url.substring(0,chop);
-    }
-    url += params;
-  } else {
-    url = 'https://' + window.location.hostname + '/#snowflake' + params;
-  }
-  this.shareOverlay.show(url, true);
+
+  // nb. encode blocks in base64 as it may contain unsafe characters
+  const url = new URL(window.location);
+  url.search = '?bg=' + bgNum + '&fg=' + fgNum + '&B=' + window.btoa(blocks);
+  const urlString = url.toString();
+  window.history.replaceState(null, '', urlString);
+  this.shareOverlay.show(urlString, true);
 };

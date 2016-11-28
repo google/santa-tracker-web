@@ -412,13 +412,6 @@ SB.Game.prototype.gameover = function() {
 };
 
 /**
- * Pauses the game.
- */
-SB.Game.prototype.togglePause = function() {
-  this.paused = !this.paused;
-};
-
-/**
  * Pause the game.
  */
 SB.Game.prototype.pause = function() {

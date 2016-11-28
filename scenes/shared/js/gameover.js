@@ -40,7 +40,7 @@ function Gameover(game, elem) {
  */
 Gameover.prototype.show = function(opt_score, opt_level) {
   const detail = {
-    score: opt_score || this.game.scoreboard.score,
+    score: opt_score || this.game.scoreboard.score || 0,
     hasPlayExtra: this._hasPlayExtra,
   };
   window.santaApp.fire('game-stop', detail);

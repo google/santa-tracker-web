@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "智利"
 	},
+	"clear": {
+		"message": "清除"
+	},
 	"close": {
 		"message": "关闭"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "芬兰"
 	},
+	"fi_tradition": {
+		"message": "芬兰人认为圣诞老人“Joulupukki”生活在这个国家的北部，准确地说是在“耳朵山”。如果你到那里去，说不定会发现他的秘密礼物工厂以及正在里面努力工作的小矮人们。又或者，你可能还会遇到正在松林里悠然散步的驯鹿。"
+	},
 	"finished-text": {
 		"message": "节日快乐！圣诞老人已结束环球之旅，现在需要好好休整了。欢迎明年再来！"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "困难"
 	},
+	"help": {
+		"message": "帮助"
+	},
 	"hi_language_name": {
 		"message": "印地语"
 	},
 	"hn_country_name": {
 		"message": "洪都拉斯"
+	},
+	"holiday_message_0": {
+		"message": "节日快乐！"
+	},
+	"holiday_message_1": {
+		"message": "节日祝福！"
+	},
+	"holiday_message_2": {
+		"message": "万事如意！"
+	},
+	"holiday_message_3": {
+		"message": "下雪吧！"
+	},
+	"holiday_message_4": {
+		"message": "新年快乐！"
+	},
+	"holiday_message_5": {
+		"message": "节日的问候！"
 	},
 	"hours": {
 		"message": "小时"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "韩国"
 	},
+	"kr_tradition": {
+		"message": "圣诞节是韩国的法定节日，同时也是一个众所周知的浪漫节日。这一天城市里的很多情侣会出门约会，而街道和商店都将被绚丽的彩灯装饰一新。"
+	},
 	"kz_country_name": {
 		"message": "哈萨克斯坦"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "立陶宛"
 	},
+	"lt_tradition": {
+		"message": "在立陶宛，传统的圣诞装饰物品是用稻草或干草制作的。人们将稻草或干草编织成为几何形状，例如星星、雪花或铃铛等。在准备当地人称作 Kūčios 的圣诞大餐时，很多家庭还会用稻草装饰餐桌。"
+	},
 	"lv_country_name": {
 		"message": "拉脱维亚"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "使用 Google 的“追踪圣诞老人”，在 Google 地图上跟随圣诞老人一起环游世界。"
+	},
+	"meta_title": {
+		"message": "Google 追踪圣诞老人"
 	},
 	"mg_country_name": {
 		"message": "马达加斯加"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "地图测验"
+	},
+	"scene_postcard": {
+		"message": "雪花卡片"
 	},
 	"scene_presentbounce": {
 		"message": "礼物弹球"

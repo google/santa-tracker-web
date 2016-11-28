@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chili"
 	},
+	"clear": {
+		"message": "Effacer"
+	},
 	"close": {
 		"message": "Fermer"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlande"
 	},
+	"fi_tradition": {
+		"message": "Les Finlandais croient que le père Noël, « Joulupukki », vit dans le nord du pays - Korvatunturi, pour être exact. Si vous visitez la région, vous pourriez tomber sur son atelier secret, où des gnomes travaillent fort. Ou vous pourriez voir des rennes se promener entre les arbres dans la forêt."
+	},
 	"finished-text": {
 		"message": "Joyeuses fêtes! Le père Noël a terminé sa grande tournée internationale et profite maintenant d'un repos bien mérité. À l'année prochaine!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Difficile"
 	},
+	"help": {
+		"message": "Aide"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Joyeuses Fêtes!"
+	},
+	"holiday_message_1": {
+		"message": "Souhaits des Fêtes!"
+	},
+	"holiday_message_2": {
+		"message": "Joyeux tout ce que vous voudrez!"
+	},
+	"holiday_message_3": {
+		"message": "Vive la neige!"
+	},
+	"holiday_message_4": {
+		"message": "Bonne année!"
+	},
+	"holiday_message_5": {
+		"message": "Vœux des Fêtes!"
 	},
 	"hours": {
 		"message": "Heures"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Corée du Sud"
 	},
+	"kr_tradition": {
+		"message": "En Corée du Sud, Noël est une fête nationale, également reconnue comme une fête romantique. Plusieurs couples sortent en ville, où les rues et les magasins sont décorés de lumières éblouissantes."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lituanie"
 	},
+	"lt_tradition": {
+		"message": "En Lituanie, les décorations traditionnelles de Noël sont fabriquées de paille ou de foin. Elles sont tressées dans des formes géométriques telles que des étoiles, des flocons de neige ou des cloches. Plusieurs familles utilisent également de la paille pour décorer la table lors d'un gros repas appelé Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Lettonie"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Utilisez le service « Sur les traces du père Noël » de Google pour suivre le père Noël sur Google Maps tout au long de sa tournée autour du monde."
+	},
+	"meta_title": {
+		"message": "Sur les traces du père Noël avec Google"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz géo"
+	},
+	"scene_postcard": {
+		"message": "Cartes avec flocons de neige"
 	},
 	"scene_presentbounce": {
 		"message": "Rebond de cadeaux"

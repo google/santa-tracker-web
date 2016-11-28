@@ -125,19 +125,6 @@ Traditions scene.
         <p><i18n-msg msgid="nz_tradition">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
     </div>
-    <div id="lessons-popup" class="no-en">
-      <p>K-12 teachers: <span id="teacher-elf"></span> Download lesson plans aligned with the Common Core <a href="{{pageUrl}}#" on-click="toggleLessons">here</a></p>
-    </div>
-    <div id="lessons" hidden>
-      <div id="lessons-inner">
-        <a href="#" id="close-lessons" on-click="toggleLessons"></a>
-        <ul>
-          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-k-2"><span class="crayon crayon-k-2"></span> Grades K-2</a></li>
-          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-3-5"><span class="crayon crayon-3-5"></span> Grades 3-5</a></li>
-          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-6-8"><span class="crayon crayon-6-8"></span> Grades 6-8</a></li>
-          <li><a href="https://santatracker.google.com/lesson_plans/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank" on-click="trackLessonPlan" data-grades="grades-9-10"><span class="crayon crayon-9-10"></span> Grades 9-10</a></li>
-      </div>
-    </div>
     <div class="sceneboard">
       <div class="controls">
         <ul>
@@ -147,7 +134,10 @@ Traditions scene.
         </ul>
       </div>
     </div>
-  </div>
+    <div id="lessons-popup" class="no-en">
+      <p>K-12 teachers <span id="teacher-elf"></span> <a href$="[[urlFor('educators')]]">Download lesson plans</a> aligned with the Common Core</p>
+      </div>
+    </div>
 </template>
 <script>
 (function() {
@@ -159,29 +149,20 @@ Traditions scene.
 
     nextCountry: function(e) {
       e.preventDefault();
+      e.stopPropagation();
       this.traditions.nextCountry();
     },
 
     prevCountry: function(e) {
       e.preventDefault();
+      e.stopPropagation();
       this.traditions.prevCountry();
     },
 
     showWorld: function(e) {
       e.preventDefault();
+      e.stopPropagation();
       this.traditions.showWorld();
-    },
-
-    trackLessonPlan: function(e, detail) {
-      var sender = e.target;
-      console.info('tracking event', sender.getAttribute('data-grades'));
-      this.fire('analytics-track-event', {category: 'lessonPlanDownload', action: 'click',
-          label: sender.getAttribute('data-grades')});
-    },
-
-    toggleLessons: function(e) {
-      e.preventDefault();
-      this.$['lessons'].hidden = !this.$['lessons'].hidden;
     },
 
     onPreload: function() {

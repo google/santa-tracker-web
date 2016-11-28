@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chili"
 	},
+	"clear": {
+		"message": "Vee uit"
+	},
 	"close": {
 		"message": "Maak toe"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finland"
 	},
+	"fi_tradition": {
+		"message": "Finse mense glo dat Kersvader, \"Joulupukki\", in die noordelike deel van die land woon – Korvatunturi, om presies te wees. Indien jy daar gaan kuier, sal jy dalk sy geheime werkswinkel vind waar kabouters hard aan die werk is. Of jy kan dalk rendiere in denneboomwoude vind."
+	},
 	"finished-text": {
 		"message": "Voorspoed vir die feestyd! Kersvader het sy reis om die wêreld voltooi en vat nou 'n welverdiende ruskans. Besoek ons weer volgende jaar!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Moeilik"
 	},
+	"help": {
+		"message": "Hulp"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Voorspoed vir die feestyd!"
+	},
+	"holiday_message_1": {
+		"message": "Vakansiewense!"
+	},
+	"holiday_message_2": {
+		"message": "Gelukkige alles!"
+	},
+	"holiday_message_3": {
+		"message": "Laat dit sneeu!"
+	},
+	"holiday_message_4": {
+		"message": "Voorspoedige Nuwe Jaar!"
+	},
+	"holiday_message_5": {
+		"message": "Geseënde Kersfees!"
 	},
 	"hours": {
 		"message": "Ure"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Suid-Korea"
 	},
+	"kr_tradition": {
+		"message": "In Suid-Korea is Kersfees 'n nasionale vakansiedag. Dit is ook bekend as 'n romantiese vakansiedag. Baie paartjies gaan uit in die stad, waar strate en winkels met skitterende ligte versier word."
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Litaue"
 	},
+	"lt_tradition": {
+		"message": "In Litaue word tradisionele Kersversierings uit strooi of hooi gemaak. Dit word in geometriese vorms gevleg, soos sterre, sneeuvlokkies of klokkies. Baie gesinne gebruik ook strooi om die etenstafel vir 'n groot ete, genaamd Kūčios, te versier."
+	},
 	"lv_country_name": {
 		"message": "Letland"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Gebruik Google se Waar is Kersvader om hom op Google Maps te volg soos hy om die wêreld reis."
+	},
+	"meta_title": {
+		"message": "Google se Waar is Kersvader"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kaartvasvra"
+	},
+	"scene_postcard": {
+		"message": "Sneeuvlokkiekaarte"
 	},
 	"scene_presentbounce": {
 		"message": "Geskenkhop"

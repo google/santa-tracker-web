@@ -15,7 +15,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="latlong-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -26,12 +25,6 @@ Lat long scene.
 -->
 <dom-module id="latlong-scene">
 <template>
-  <style>
-    :host([mode="portal"]) .shareButtons {
-      display: none !important;
-    }
-  </style>
-
   <div id="module-latlong">
     <div class="latlong">
       <div class="scene">
@@ -254,9 +247,6 @@ Lat long scene.
             <div class="pauseOverlay-icon"></div>
           </div>
           <div class="board board--game">
-            <div class="logo">
-              <!---->
-            </div>
             <div class="score">
               <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
               <div class="value">0</div>
@@ -309,21 +299,6 @@ Lat long scene.
         </div>
         <div class="levelup"></div>
         <div class="levelup--number"></div>
-        <div class="gameover overlay">
-          <div class="gameover-dialog overlay-dialog">
-            <h2 class="gameover-title"><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h2>
-            <div class="gameover-winner">
-              <div class="gameover-score">
-                <p class="gameover-label"><i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg></p>
-                <p class="gameover-number">0</p>
-              </div>
-            </div>
-            <div class="gameover-buttons">
-              <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
-              <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
-            </div>
-          </div>
-        </div>
         <div class="force-rotate portrait">
           <div class="force-rotate-graphic"></div>
           <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
@@ -361,11 +336,8 @@ Lat long scene.
 
     onShow: function() {
       var module = this.$['module-latlong'];
+      this.fire('sound-ambient', 'latlong_start');
       this.game = new scenes.latlong.Game(module);
-      startButton(this, module, function() {
-        this.start();
-        this.fire('sound-ambient', 'latlong_start');
-      }.bind(this));
     },
 
     onHide: function() {

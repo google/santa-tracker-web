@@ -18,6 +18,7 @@ module.exports = {
   changedFlag: require('./changed_flag'),
   crisper: require('./crisper'),
   devScene: require('./dev-scene'),
+  fanout: require('./fanout'),
   fileManifest: require('./file_manifest'),
   i18nManifest: require('./i18n_manifest'),
   i18nReplace: require('./i18n_replace'),

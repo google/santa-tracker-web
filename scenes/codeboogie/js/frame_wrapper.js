@@ -143,10 +143,11 @@ app.FrameWrapper.prototype.dispose = function() {
  * @param {string} query string to share.
  */
 app.FrameWrapper.prototype.share = function(query) {
-  var newHref = location.href.substr(0,
-      location.href.length - location.hash.length) + '#codeboogie' + query;
-  window.history.pushState(null, '', newHref);
-  this.shareOverlay.show(newHref, true);
+  const url = new URL(window.location.toString());
+  url.search = query;
+  const urlString = url.toString();
+  window.history.replaceState(null, '', urlString);
+  this.shareOverlay.show(urlString, true);
 };
 
 /**

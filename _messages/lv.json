@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Čīle"
 	},
+	"clear": {
+		"message": "Notīrīt"
+	},
 	"close": {
 		"message": "Aizvērt"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Somija"
 	},
+	"fi_tradition": {
+		"message": "Somijā cilvēki tic, ka Ziemassvētku vecītis, “Joulupukki”, dzīvo valsts ziemeļos, precīzāk — Korvatunturi. Ja turp dodas, var atrast tā slepeno darbnīcu, kurā cītīgi strādā rūķi. Var arī ieraudzīt ziemeļbriežus, klejojot pa priežu mežiem."
+	},
 	"finished-text": {
 		"message": "Priecīgus svētkus! Ziemassvētku vecītis ir pabeidzis savu ceļojumu apkārt pasaulei un tagad dodas pelnītā atpūtā. Apmeklējiet mūsu vietni atkal nākamgad!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Grūts"
 	},
+	"help": {
+		"message": "Palīdzība"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Hondurasa"
+	},
+	"holiday_message_0": {
+		"message": "Priecīgus svētkus!"
+	},
+	"holiday_message_1": {
+		"message": "Patīkamus svētkus!"
+	},
+	"holiday_message_2": {
+		"message": "Veiksmi it visā!"
+	},
+	"holiday_message_3": {
+		"message": "Lai snieg!"
+	},
+	"holiday_message_4": {
+		"message": "Laimīgu Jauno gadu!"
+	},
+	"holiday_message_5": {
+		"message": "Apsveicam svētkos!"
 	},
 	"hours": {
 		"message": "Stunda(-s)"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Dienvidkoreja"
 	},
+	"kr_tradition": {
+		"message": "Dienvidkorejā Ziemassvētki ir valsts svētki. Tie tiek uzskatīti par romantiskiem svētkiem. Daudzi pārīši satiekas pilsētā, kur ielas un veikali ir izrotāti ar žilbinošām lampiņām."
+	},
 	"kz_country_name": {
 		"message": "Kazahstāna"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lietuva"
 	},
+	"lt_tradition": {
+		"message": "Lietuvā tradicionālie Ziemassvētku rotājumi tiek izgatavoti no salmiem vai siena. No tiem tiek izveidotas ģeometriskas figūras, piemēram, zvaigznes, sniegpārsliņas vai zvani. Daudzās ģimenēs ar salmiem dekorē arī vakariņu galdu par godu lielajam mielastam, ko dēvē par Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvija"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Izmantojiet Google Ziemassvētku vecīša ceļojumu, lai pavadītu Ziemassvētku vecīti ceļojumā apkārt pasaulei pakalpojumā Google Maps."
+	},
+	"meta_title": {
+		"message": "Google Ziemassvētku vecīša ceļojums"
 	},
 	"mg_country_name": {
 		"message": "Madagaskara"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kartes viktorīna"
+	},
+	"scene_postcard": {
+		"message": "Sniegpārsliņu kartiņas"
 	},
 	"scene_presentbounce": {
 		"message": "Dāvanu mētāšana"

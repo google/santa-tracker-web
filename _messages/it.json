@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Cile"
 	},
+	"clear": {
+		"message": "Cancella"
+	},
 	"close": {
 		"message": "Chiudi"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
+	"fi_tradition": {
+		"message": "I finlandesi credono che Babbo Natale, \"Joulupukki\", viva nella parte settentrionale del paese, precisamente nella regione del Korvatunturi. Visitando la Finlandia, potresti scoprire il suo laboratorio segreto, dove gli elfi si danno un gran da fare, o scoprire le foreste di conifere, dove le renne scorrazzano in libertà."
+	},
 	"finished-text": {
 		"message": "Buone feste! Babbo Natale ha terminato il suo viaggio intorno al mondo e ora si sta godendo una meritata vacanza. Torna a trovarci il prossimo anno!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Difficile"
 	},
+	"help": {
+		"message": "Guida"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Buone feste!"
+	},
+	"holiday_message_1": {
+		"message": "Auguri!"
+	},
+	"holiday_message_2": {
+		"message": "Tanti auguri!"
+	},
+	"holiday_message_3": {
+		"message": "Buon Natale!"
+	},
+	"holiday_message_4": {
+		"message": "Buon Anno!"
+	},
+	"holiday_message_5": {
+		"message": "Auguri di buone feste!"
 	},
 	"hours": {
 		"message": "Ore"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Corea del Sud"
 	},
+	"kr_tradition": {
+		"message": "In Corea del Sud il Natale è una festività nazionale, ma è anche considerato una festa romantica. Le coppie si danno appuntamento in città, dove le strade e i negozi sono decorati con luci sfavillanti."
+	},
 	"kz_country_name": {
 		"message": "Kazakistan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lituania"
 	},
+	"lt_tradition": {
+		"message": "In Lituania, le decorazioni natalizie tradizionali sono realizzate in paglia o fieno, che vengono intrecciati in forme geometriche come stelle, fiocchi di neve o campane. Molte famiglie usano la paglia per decorare la tavola per la cena della vigilia di Natale (Kūčios)."
+	},
 	"lv_country_name": {
 		"message": "Lettonia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Usa Segui Babbo Natale per seguire Babbo Natale su Google Maps nel suo viaggio intorno al mondo."
+	},
+	"meta_title": {
+		"message": "Segui Babbo Natale"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz sulla mappa"
+	},
+	"scene_postcard": {
+		"message": "Bigliettini natalizi"
 	},
 	"scene_presentbounce": {
 		"message": "Palleggia con il regalo"

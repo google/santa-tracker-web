@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Tšiili"
 	},
+	"clear": {
+		"message": "Kustuta"
+	},
 	"close": {
 		"message": "Sulge"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Soome"
 	},
+	"fi_tradition": {
+		"message": "Soomlased usuvad, et jõuluvana ehk Joulupukki elab Lapimaal Korvatunturis. Seal saab külastada tema salajast töökoda, kus päkapikud kingitusi valmistavad, või männimetsas põhjapõtru silmata."
+	},
 	"finished-text": {
 		"message": "Häid pühi! Jõuluvana ümbermaailmareis on lõppenud ja nüüd jäi ta igati väljateenitud puhkusele. Külastage meid järgmisel aastal uuesti."
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Raske"
 	},
+	"help": {
+		"message": "Abi"
+	},
 	"hi_language_name": {
 		"message": "hindi keel"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Häid pühi!"
+	},
+	"holiday_message_1": {
+		"message": "Pühadesoovid!"
+	},
+	"holiday_message_2": {
+		"message": "Pühadesoojust!"
+	},
+	"holiday_message_3": {
+		"message": "Valgeid jõule!"
+	},
+	"holiday_message_4": {
+		"message": "Head uut aastat!"
+	},
+	"holiday_message_5": {
+		"message": "Rõõmsaid pühi!"
 	},
 	"hours": {
 		"message": "Tunde"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Lõuna-Korea"
 	},
+	"kr_tradition": {
+		"message": "Lõuna-Koreas on jõulud riigipüha. Seda peetakse ka romantiliseks pühaks. Paljud paarid lähevad koos välja ning jalutavad tänavalampide ja poeakende säras."
+	},
 	"kz_country_name": {
 		"message": "Kasahstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Leedu"
 	},
+	"lt_tradition": {
+		"message": "Leedus valmistatakse jõuluehteid õlgedest või kuivast heinast. See punutakse geomeetrilisteks kujunditeks, näiteks tähtedeks, lumehelvesteks või kellukesteks. Paljud perekonnad kaunistavad õlgedega ka pühadelaua nimega Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Läti"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Kasutage Google'i rakendust Santa Tracker. Võtke appi Google Maps ja järgnege jõuluvanale tema teekonnal ümber maailma."
+	},
+	"meta_title": {
+		"message": "Jõuluvana teekonna jälgimine Google'is"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kaardiviktoriin"
+	},
+	"scene_postcard": {
+		"message": "Lumehelbekaardid"
 	},
 	"scene_presentbounce": {
 		"message": "Põrkavad kingid"

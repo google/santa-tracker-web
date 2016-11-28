@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Wyczyść"
+	},
 	"close": {
 		"message": "Zamknij"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
+	"fi_tradition": {
+		"message": "Finowie wierzą, że Święty Mikołaj, „Joulupukki”, mieszka na północy kraju, a dokładniej na wzgórzu Korvatunturi. Jeśli tam pojedziesz, może uda Ci się znaleźć jego sekretną pracownię, w której ciężko pracują krasnale, lub renifera, który włóczy się po sosnowym lesie."
+	},
 	"finished-text": {
 		"message": "Wesołych Świąt! Święty Mikołaj zakończył podróż dookoła świata i udał się na zasłużone wakacje. Zapraszamy ponownie w przyszłym roku!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Trudny"
 	},
+	"help": {
+		"message": "Pomoc"
+	},
 	"hi_language_name": {
 		"message": "hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Wesołych Świąt!"
+	},
+	"holiday_message_1": {
+		"message": "Świąteczne życzenia!"
+	},
+	"holiday_message_2": {
+		"message": "Wszystkiego najlepszego!"
+	},
+	"holiday_message_3": {
+		"message": "Niech spadnie dużo śniegu!"
+	},
+	"holiday_message_4": {
+		"message": "Szczęśliwego Nowego Roku!"
+	},
+	"holiday_message_5": {
+		"message": "Wesołych Świąt!"
 	},
 	"hours": {
 		"message": "Godziny"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Korea Południowa"
 	},
+	"kr_tradition": {
+		"message": "W Korei Południowej Święta Bożego Narodzenia to święto państwowe. Uznawane są przy tym za bardzo romantyczny czas. Wiele par umawia się wtedy na randki na mieście, a ulice i sklepy są przystrojone błyszczącymi światełkami."
+	},
 	"kz_country_name": {
 		"message": "Kazachstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Litwa"
 	},
+	"lt_tradition": {
+		"message": "Na Litwie tradycyjne ozdoby świąteczne są robione ze słomy lub siana. Splata się je w geometryczne kształty, takie jak gwiazdy, płatki śniegu lub dzwonki. Wiele rodzin używa słomy także po to, aby udekorować stół na czas najważniejszego posiłku zwanego Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Łotwa"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Pobierz aplikację Trasa Świętego Mikołaja, aby śledzić Świętego Mikołaja na Mapach Google podczas jego podróży dookoła świata."
+	},
+	"meta_title": {
+		"message": "Trasa Świętego Mikołaja w Google"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz z mapami"
+	},
+	"scene_postcard": {
+		"message": "Śnieżynkowe karty"
 	},
 	"scene_presentbounce": {
 		"message": "Podskakujące prezenty"
@@ -4953,7 +4992,7 @@
 		"message": "Odkrywaj świat, baw się i ucz z elfami przez cały grudzień"
 	},
 	"village_get_the_app": {
-		"message": "Pobierz aplikację Trasa Świętego Mikołaja na Androida."
+		"message": "Pobierz aplikację Trasa Świętego Mikołaja na Androida"
 	},
 	"village_more": {
 		"message": "Więcej zabawy z Mikołajem"

@@ -539,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Santa Tracker for Educators"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -1201,6 +1204,30 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Pick a backdrop"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Use the arrow keys to pick a postcard"
+	},
+	"snowflake_code": {
+		"message": "Code your snowflake"
+	},
+	"snowflake_code_instructions": {
+		"message": "Snap blocks together to design your own snowflake"
+	},
+	"snowflake_create_message": {
+		"message": "Design your own snowflake"
+	},
+	"snowflake_make_your_own": {
+		"message": "This was made with code. Try it yourself!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Choose a postcard and share your snowflake with friends"
+	},
+	"snowflake_shared_message": {
+		"message": "Someone sent you a snowflake!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

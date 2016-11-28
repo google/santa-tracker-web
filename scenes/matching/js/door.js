@@ -20,7 +20,7 @@ goog.provide('Door');
  * Holds a reference to a Door and its state (completed, matched, opened etc).
  * @param {string} id
  * @param {!jQuery} $el
- * @param {function} clickHandler
+ * @param {function(!Door)} clickHandler
  * @param {string} cardClass
  * @constructor
  */

@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Clear"
+	},
 	"close": {
 		"message": "Close"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finland"
 	},
+	"fi_tradition": {
+		"message": "Finnish people believe that Father Christmas, 'Joulupukki', lives in the northern part of the country – Korvatunturi, to be exact. If you visit, you might find his secret workshop, where gnomes are hard at work. Or you might find reindeer roaming in pine tree forests."
+	},
 	"finished-text": {
 		"message": "Merry Christmas! Santa has completed his journey around the world and is taking a much deserved break. Visit us again next year!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Hard"
 	},
+	"help": {
+		"message": "Help"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Happy Christmas!"
+	},
+	"holiday_message_1": {
+		"message": "Christmas wishes!"
+	},
+	"holiday_message_2": {
+		"message": "Happy everything!"
+	},
+	"holiday_message_3": {
+		"message": "Let it snow!"
+	},
+	"holiday_message_4": {
+		"message": "Happy New Year!"
+	},
+	"holiday_message_5": {
+		"message": "Season's greetings!"
 	},
 	"hours": {
 		"message": "Hours"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "South Korea"
 	},
+	"kr_tradition": {
+		"message": "In South Korea, Christmas is a national holiday. It's also known for being a romantic holiday. Many couples go on dates in the city, where streets and shops are trimmed with dazzling lights."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lithuania"
 	},
+	"lt_tradition": {
+		"message": "In Lithuania, traditional Christmas ornaments are made out of straws or hay. They're woven into geometric shapes, like stars, snowflakes or bells. Many families also use straw to decorate the dinner table for a big meal called Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world."
+	},
+	"meta_title": {
+		"message": "Google Santa Tracker"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Map Quiz"
+	},
+	"scene_postcard": {
+		"message": "Snowflake Cards"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"

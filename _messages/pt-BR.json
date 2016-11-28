@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Limpar"
+	},
 	"close": {
 		"message": "Fechar"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlândia"
 	},
+	"fi_tradition": {
+		"message": "Os finlandeses acreditam que o Papai Noel, \"Joulupukki\", vive na parte norte do país, mais precisamente em Korvatunturi. Ao visitar essa região, você pode encontrar sua oficina secreta, onde os duendes trabalham duro. Ou, então, você pode encontrar as renas passeando nas florestas de pinheiros."
+	},
 	"finished-text": {
 		"message": "Boas Festas! O Papai Noel completou sua jornada ao redor do mundo e está descansando merecidamente. Visite-nos novamente no próximo ano!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Difícil"
 	},
+	"help": {
+		"message": "Ajuda"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Boas festas!"
+	},
+	"holiday_message_1": {
+		"message": "Feliz natal!"
+	},
+	"holiday_message_2": {
+		"message": "Boas festas!"
+	},
+	"holiday_message_3": {
+		"message": "Papai Noel está chegando!"
+	},
+	"holiday_message_4": {
+		"message": "Feliz ano-novo!"
+	},
+	"holiday_message_5": {
+		"message": "Boas festas!"
 	},
 	"hours": {
 		"message": "Horas"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Coreia do Sul"
 	},
+	"kr_tradition": {
+		"message": "Na Coreia do Sul, o Natal é um feriado nacional. Ele também é conhecido como um feriado romântico. Muitos casais marcam encontros pela cidade para aproveitar as ruas e lojas iluminadas com luzes deslumbrantes."
+	},
 	"kz_country_name": {
 		"message": "Cazaquistão"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lituânia"
 	},
+	"lt_tradition": {
+		"message": "Na Lituânia, os tradicionais enfeites de Natal são feitos de palha ou feno. Eles são tecidos em formas geométricas, como estrelas, flocos de neve ou sinos. Muitas famílias também usam palha para decorar a mesa da ceia de Natal, chamada Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letônia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Acompanhe a jornada do bom velhinho pelo mundo no Google Maps com o recurso \"Siga o Papai Noel\"."
+	},
+	"meta_title": {
+		"message": "Siga o Papai Noel no Google"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Teste do mapa"
+	},
+	"scene_postcard": {
+		"message": "Cartões com flocos de neve"
 	},
 	"scene_presentbounce": {
 		"message": "Pula-pula de presentes"

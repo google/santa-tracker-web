@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Fjern"
+	},
 	"close": {
 		"message": "Lukk"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finland"
 	},
+	"fi_tradition": {
+		"message": "I Finland tror de at julenissen, «Joulupukki», bor helt nord i landet på fjellet Korvatunturi. Hvis du drar dit, finner du kanskje julenissens hemmelige verksted, der alvene jobber hardt. Eller kanskje du ser reinsdyr som vandrer rundt i skogen."
+	},
 	"finished-text": {
 		"message": "God jul! Nissen har fullført sin reise verden rundt, og tar en velfortjent pause. Besøk oss igjen neste år!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Vanskelig"
 	},
+	"help": {
+		"message": "Hjelp"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "God jul!"
+	},
+	"holiday_message_1": {
+		"message": "Med ønsker om en god jul!"
+	},
+	"holiday_message_2": {
+		"message": "God jul og godt nyttår!"
+	},
+	"holiday_message_3": {
+		"message": "Det snør, det snør!"
+	},
+	"holiday_message_4": {
+		"message": "Godt nyttår!"
+	},
+	"holiday_message_5": {
+		"message": "Gledelig jul!"
 	},
 	"hours": {
 		"message": "timer"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Sør-Korea"
 	},
+	"kr_tradition": {
+		"message": "I Sør-Korea er julen en nasjonal høytid. Den blir sett på som ganske romantisk. Mange kjærestepar drar til byen for å hygge seg, der gatene og butikkene er opplyst med vakre lys."
+	},
 	"kz_country_name": {
 		"message": "Kasakhstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Litauen"
 	},
+	"lt_tradition": {
+		"message": "I Litauen lages det tradisjonell julepynt av halm eller høy, som flettes sammen til geometriske former, for eksempel stjerner, snøfnugg eller bjeller. Mange familier bruker dessuten halm som dekorasjon på bordet til et storslagent måltid som kalles Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Følg julenissen med Google, så kan du se julenissen på Google Maps når han reiser rundt i verden."
+	},
+	"meta_title": {
+		"message": "Følg julenissen med Google"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kartquiz"
+	},
+	"scene_postcard": {
+		"message": "Snøfnuggkort"
 	},
 	"scene_presentbounce": {
 		"message": "Gavesprett"

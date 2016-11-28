@@ -3,10 +3,8 @@ $gameover-bg: #fbbf2c;
 $rotate-bg: $gameover-bg;
 
 @import "../shared/sass/levelup";
-@import "../shared/sass/gameover";
 @import "../shared/sass/rotate";
 @import "../shared/sass/board";
-@import "../shared/sass/startbutton";
 @import "../shared/sass/tutorial";
 
 @import "sass/country";

@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Čilė"
 	},
+	"clear": {
+		"message": "Išvalyti"
+	},
 	"close": {
 		"message": "Uždaryti"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Suomija"
 	},
+	"fi_tradition": {
+		"message": "Suomiai tiki, kad Kalėdų Senelis, Joulupukis, gyvena šiaurinėje šalies dalyje, tiksliau, Korvatunturyje. Jei ten apsilankysite, galite aptikti slaptas jo dirbtuves, kuriose pluša nykštukai. Be to, galite susidurti su po pušynus klaidžiojančiu šiaurės elniu."
+	},
 	"finished-text": {
 		"message": "Linksmų švenčių! Kalėdų Senelis baigė savo kelionę aplink pasaulį ir nusipelnė poilsio. Aplankykite mus vėl kitais metais!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Sunkus"
 	},
+	"help": {
+		"message": "Pagalba"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Hondūras"
+	},
+	"holiday_message_0": {
+		"message": "Linksmų švenčių!"
+	},
+	"holiday_message_1": {
+		"message": "Su šventėmis!"
+	},
+	"holiday_message_2": {
+		"message": "Būkite laimingi!"
+	},
+	"holiday_message_3": {
+		"message": "Tegu sninga!"
+	},
+	"holiday_message_4": {
+		"message": "Laimingų Naujųjų metų!"
+	},
+	"holiday_message_5": {
+		"message": "Kalėdiniai sveikinimai!"
 	},
 	"hours": {
 		"message": "val."
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Pietų Korėja"
 	},
+	"kr_tradition": {
+		"message": "Pietų Korėjoje Kalėdos yra valstybinė šventė. Jos taip pat laikomos romantiška švente. Daugelis porų susitinka mieste, kur gatvės ir parduotuvės papuoštos akinančiomis šviesomis."
+	},
 	"kz_country_name": {
 		"message": "Kazachstanas"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lietuva"
 	},
+	"lt_tradition": {
+		"message": "Lietuvoje tradiciniai kalėdiniai papuošalai gaminami iš šiaudų ar šieno. Juos jungiant gaunamos geometrinės figūros, pavyzdžiui, žvaigždės, snaigės ar varpai. Be to, daugelis šeimų šiaudais puošia ir didžiosios šventinės vakarienės, vadinamos Kūčiomis, stalą."
+	},
 	"lv_country_name": {
 		"message": "Latvija"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Naudokite „Google“ Kalėdų Senelio kelionės programą, kad galėtumėte „Google“ žemėlapiuose stebėti Kalėdų Senelio kelionę aplink pasaulį."
+	},
+	"meta_title": {
+		"message": "„Google“ Kalėdų Senelio kelionė"
 	},
 	"mg_country_name": {
 		"message": "Madagaskaras"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Žemėlapių viktorina"
+	},
+	"scene_postcard": {
+		"message": "Snaigių atvirukai"
 	},
 	"scene_presentbounce": {
 		"message": "Dovanų atmušinėjimas"

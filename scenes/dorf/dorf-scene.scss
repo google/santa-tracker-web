@@ -909,11 +909,6 @@ $toolbar-size: 64px;
       margin-top: 0;
       background-size: 500px;
     }
-    #village-donate {
-      #wrapper {
-        min-height: 350px;
-      }
-    }
   }
 
   /** Mobile village (one col) */
@@ -925,12 +920,5 @@ $toolbar-size: 64px;
         }
       }
     }
-    #village-donate {
-      #wrapper {
-        min-height: 400px;
-      }
-    }
   }
 }
-
-@import "sass/donate";

@@ -1,9 +1,7 @@
 $name: 'module-racer';
 $gameover-bg: #8fd7f7;
 
-@import "../shared/sass/gameover";
 @import "../shared/sass/board";
-@import "../shared/sass/startbutton";
 @import "../shared/sass/tutorial";
 
 @import "sass/game";

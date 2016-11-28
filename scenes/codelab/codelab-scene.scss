@@ -3,7 +3,6 @@ $gameover-bg: #3F4EA1;
 $rotate-bg: $gameover-bg;
 $board-level-bp: 1025px;
 
-@import "../shared/sass/gameover";
 @import "../shared/sass/rotate";
 @import "../shared/sass/board";
 @import "sass/promo";

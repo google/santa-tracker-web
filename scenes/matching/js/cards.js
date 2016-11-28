@@ -16,14 +16,12 @@
 
 goog.provide('Cards');
 
+goog.require('app.utils');
+
 /**
- * @param {string} id
- * @param {string} selector
  * @constructor
  */
-var Cards = function(id, selector) {
-  this.selector = selector;
-  this.id = id;
+var Cards = function() {
   this.allCards = [];
 };
 

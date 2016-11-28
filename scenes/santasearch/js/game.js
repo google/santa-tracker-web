@@ -383,18 +383,6 @@ app.Game.prototype.resume = function() {
 };
 
 /**
- * Pauses/unpauses the game.
- */
-app.Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  } else if (this.isPlaying) {
-    // Only allow pausing if the game is playing (not game over).
-    this.pause();
-  }
-};
-
-/**
  * Makes sure the map will never be smaller than the window.
  * @private
  */

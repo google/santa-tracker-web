@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Tyhjennä"
+	},
 	"close": {
 		"message": "Sulje"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Suomi"
 	},
+	"fi_tradition": {
+		"message": "Suomalaiset uskovat, että Joulupukki asuu Lapin Korvatunturissa. Siellä tontut uurastavat pukin salatussa pajassa ja porot kulkevat vapaasti mäntymetsissä."
+	},
 	"finished-text": {
 		"message": "Hyvää joulua! Joulupukki on saanut päätökseen retkensä maailman ympäri ja nauttii nyt hyvin ansaitusta lomasta. Liity seuraamme taas ensi vuonna!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Vaikea"
 	},
+	"help": {
+		"message": "Ohje"
+	},
 	"hi_language_name": {
 		"message": "hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Hyvää joulua!"
+	},
+	"holiday_message_1": {
+		"message": "Lomatervehdys!"
+	},
+	"holiday_message_2": {
+		"message": "Riemastuttavaa juhla-aikaa!"
+	},
+	"holiday_message_3": {
+		"message": "Rauhallista joulua!"
+	},
+	"holiday_message_4": {
+		"message": "Hyvää uutta vuotta!"
+	},
+	"holiday_message_5": {
+		"message": "Joulutervehdys!"
 	},
 	"hours": {
 		"message": "tuntia"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Etelä-Korea"
 	},
+	"kr_tradition": {
+		"message": "Etelä-Koreassa joulu on kansallinen vapaapäivä. Joulu on romanttinen juhla, ja pariskunnat suuntaavat silloin treffeille keskelle kaupungin katujen ja myymälöiden väriloistoa."
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Liettua"
 	},
+	"lt_tradition": {
+		"message": "Liettuassa joulukoristeet valmistetaan perinteisesti oljista, jotka kudotaan tähdiksi, lumihiutaleiksi, kelloiksi tai muiksi geometrisiksi kuvioiksi. Perheet myös koristelevat usein ruokapöydän oljilla Kūčios-illallista varten."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Googlen Joulupukin jäljittimen avulla voit seurata joulupukkia Google Mapsissa hänen matkatessaan ympäri maailmaa."
+	},
+	"meta_title": {
+		"message": "Googlen Joulupukin jäljitin"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Karttavisa"
+	},
+	"scene_postcard": {
+		"message": "Lumihiutalekortit"
 	},
 	"scene_presentbounce": {
 		"message": "Pomppivat paketit"

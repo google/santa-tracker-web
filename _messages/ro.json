@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Șterge"
+	},
 	"close": {
 		"message": "Închide"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlanda"
 	},
+	"fi_tradition": {
+		"message": "Finlandezii cred că Moș Crăciun, „Joulupukki”, locuiește în nordul țării; mai exact, Korvatunturi. Dacă vizitezi, s-ar putea să găsești atelierul secret al Moșului, în care piticii muncesc din greu. Sau s-ar putea să găsești un ren, plimbându-se printre brazi."
+	},
 	"finished-text": {
 		"message": "Sărbători Fericite! Moșul a ajuns la sfârșitul călătoriei sale în jurul lumii și ia o pauză binemeritată. Te așteptăm anul viitor!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Mare"
 	},
+	"help": {
+		"message": "Ajutor"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Sărbători fericite!"
+	},
+	"holiday_message_1": {
+		"message": "Sărbători împlinite!"
+	},
+	"holiday_message_2": {
+		"message": "Toate cele bune!"
+	},
+	"holiday_message_3": {
+		"message": "Să ningă!"
+	},
+	"holiday_message_4": {
+		"message": "Un An Nou fericit!"
+	},
+	"holiday_message_5": {
+		"message": "Sărbători cu bucurie!"
 	},
 	"hours": {
 		"message": "ore"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Coreea de Sud"
 	},
+	"kr_tradition": {
+		"message": "În Coreea de Sud, Crăciunul este o sărbătoare națională, dar și una romantică. Multe cupluri ies la întâlniri în oraș, unde străzile și magazinele sunt decorate cu luminițe strălucitoare."
+	},
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lituania"
 	},
+	"lt_tradition": {
+		"message": "În Lituania, ornamentele tradiționale de Crăciun sunt făcute din paie și fân, care se împletesc în forme geometrice, cum ar fi stele, fulgi de zăpadă sau clopoței. Multe familii folosesc paiele ca să decoreze masa de Crăciun pentru o cină denumită Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letonia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Folosește aplicația Pe urmele lui Moș Crăciun pentru a urmări călătoria Moșului în jurul lumii în Google Maps."
+	},
+	"meta_title": {
+		"message": "Pe urmele lui Moș Crăciun"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Test la geografie"
+	},
+	"scene_postcard": {
+		"message": "Felicitări cu fulgi de zăpadă"
 	},
 	"scene_presentbounce": {
 		"message": "Cadouri săltărețe"

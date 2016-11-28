@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Cile"
 	},
+	"clear": {
+		"message": "Hapus"
+	},
 	"close": {
 		"message": "Tutup"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
+	"fi_tradition": {
+		"message": "Orang Finlandia percaya bahwa Santaklaus, \"Joulupukki\", tinggal di bagian utara desa - tepatnya di Korvatunturi. Jika berkunjung, Anda mungkin akan menemukan workshop rahasia miliknya, tempat para kurcaci pekerja keras. Atau Anda mungkin menemukan rusa kutub yang menjelajahi hutan pohon pinus."
+	},
 	"finished-text": {
 		"message": "Selamat Berlibur! Sinterklas telah menyelesaikan perjalanannya keliling dunia dan saat ini sedang beristirahat penuh. Kunjungi kami lagi tahun depan!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Sulit"
 	},
+	"help": {
+		"message": "Bantuan"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Selamat Berlibur!"
+	},
+	"holiday_message_1": {
+		"message": "Ucapan selamat liburan!"
+	},
+	"holiday_message_2": {
+		"message": "Selamat bersenang-senang!"
+	},
+	"holiday_message_3": {
+		"message": "Berhias salju!"
+	},
+	"holiday_message_4": {
+		"message": "Selamat Tahun Baru!"
+	},
+	"holiday_message_5": {
+		"message": "Ucapan selamat akhir tahun!"
 	},
 	"hours": {
 		"message": "Jam"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Korea Selatan"
 	},
+	"kr_tradition": {
+		"message": "Di Korea Selatan, hari Natal adalah hari libur nasional. Hari ini juga dikenal sebagai hari libur yang romantis. Banyak pasangan pergi kencan ke kota, yang jalanan serta berbagai tokonya dihiasi dengan lampu yang semarak."
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lituania"
 	},
+	"lt_tradition": {
+		"message": "Di Lithuania, ornamen Natal tradisional terbuat dari jerami atau rumput kering. Bahan-bahan tersebut dianyam membentuk bintang, bunga salju, atau lonceng. Banyak keluarga menggunakan jerami sebagai dekorasi meja pada acara makan malam besar yang disebut Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Gunakan Google Pelacak Sinterklas untuk mengikuti Sinterklas di Google Maps saat dia melakukan perjalanan keliling dunia."
+	},
+	"meta_title": {
+		"message": "Google Pelacak Sinterklas"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kuis Peta"
+	},
+	"scene_postcard": {
+		"message": "Kartu Bergambar Bunga Salju"
 	},
 	"scene_presentbounce": {
 		"message": "Pantulan Hadiah"

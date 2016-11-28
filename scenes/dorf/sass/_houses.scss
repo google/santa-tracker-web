@@ -2,9 +2,9 @@
 
 // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop dateLeft dateTop labelX labelY zIndex
 $houses:
-    "codeboogie"      274   224   403   280   29     2    -41    16    102 56  -34 -18 $house-row-1-z-index,
+    "codeboogie"      274   224   443   250   20     2     -72    2    102 56  -34 -18 $house-row-1-z-index,
     "traditions"      210   222   424   236   35     21    -100   10    0   0   -16 -16  $house-row-1-z-index,
-    "airport"         812   179   627   240   -80    102   -175   0     0   0  -180 -15 $house-row-1-z-index,
+    "airport"         812   179   627   240   -96    122   -105   70     0   0  -180 -15 $house-row-1-z-index,
 
     "app"             280   366   443   351   -29    -11   -81    -3    0   0   24  -18 $house-row-2-z-index + 50,
     "presentbounce"   310   256   521   248   12     -44  -110    -33    75  169 -12 -24 $house-row-2-z-index + 20,
@@ -14,19 +14,19 @@ $houses:
     "snowflake"      333   233   373   282   -20    60    -30    30    90  90  -40 -10 $house-row-3-z-index,
     "seasonofgiving"  333   233   373   282   2      59    -60    20   51  90  -40 -10 $house-row-3-z-index,
     "santaselfie"     209   262   397   348   73     21    -50    10    87  122 8   4   $house-row-3-z-index + 50,
-    "penguindash"     240   203   440   222   30     65    -30    70    301 124 0   -8  $house-row-3-z-index - 50,
+    "penguindash"     280   223   440   222   20     65    -30    70    221 124 -15 -28 $house-row-3-z-index - 50,
 
     "santasearch"     287   174   484   246   30     75    -50    20    70  155 -24 -13 $house-row-4-z-index,
-    "codelab"         277   209   364   284   35     74    -45    55    257 158 -21 -3  $house-row-4-z-index,
-    "postcard"        286   224   364   248   20     32    -42    12    70  67  -6  -10 $house-row-4-z-index,
+    "codelab"         277   209   364   284   48     60    -30   30    267 158 -21 -3  $house-row-4-z-index,
+    "commandcentre"   197   215   380   271   80     38    0     30    253 159 -2  4   $house-row-4-z-index,
     "gumball"         245   308   374   359   59     -6    0    -50    220 135 -25 -2  $house-row-4-z-index,
 
-    "jamband"         360   230   606   267   -33    -19   -140   36    253 70  10  10  $house-row-5-z-index,
-    "wrapbattle"      350   200   320   290   -4     50    -12    -12   230 52  16  0   $house-row-5-z-index,
+    "jamband"         360   230   580   267   -33    -19   -160   30    253 70  10  10  $house-row-5-z-index,
+    "wrapbattle"      350   200   360   300   -20    50    -22    -10   55  174  0  -30 $house-row-5-z-index,
     "boatload"        220   169   472   250   6      76   -105    41    28  137 -13 7   $house-row-5-z-index,
-    "runner"          336   203   440   222   16     30    -30    70    301 124 0   -8  $house-row-5-z-index,
+    "runner"          336   203   440   222   16     30    -30    50    267 113 -24 -21  $house-row-5-z-index,
 
-    "jetpack"         287   258   367   333   20     53    -45    0     93  53  -23 -5  $house-row-6-z-index + 40,
+    "jetpack"         287   258   367   333   20     33    -45    -20    93  53  -23 -5  $house-row-6-z-index + 40,
     "carpool"         307   337   437   354   25     -56   -70    -57   74  91  -30 4   $house-row-6-z-index,
     "briefing"        315   246   355   287   -10    20    -20      0   92  90  35 -7   $house-row-6-z-index,
     "presentdrop"     198   278   300   333   85     8     18     -19   232 170 -15 4   $house-row-6-z-index,
@@ -40,7 +40,7 @@ $houses:
 
     "callfromsanta"   271   298   537   321   11     -20   -120   -20   27  90  -22 7   $house-row-7-z-index,
     "citylights"      360   311   467   332   -10    0     -34    -10   74  180 19  -19 $house-row-7-z-index,
-    "commandcentre"   197   215   380   271   90     48    10     40    273 159 -2  4   $house-row-7-z-index,
+    "postcard"        286   224   364   248   20     32    -42    12    70  67  -6  -10 $house-row-4-z-index,
     ;
 
 

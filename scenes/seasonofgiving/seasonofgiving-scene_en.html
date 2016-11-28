@@ -19,35 +19,24 @@ specific language governing permissions and limitations under the License.
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
 <link rel="stylesheet" href="seasonofgiving-scene.css" />
-<style>
-  seasonofgiving-scene[mode="portal"] #module-seasonofgiving .scene-ornament-wrapper .ornament-copy a:not(.Button) {
-    color:white;
-    pointer-events:none;
-    cursor: default;
-  }
-</style>
+
 <!--
 Season of giving scene.
 -->
 <dom-module id="seasonofgiving-scene">
 <template>
   <style>
-    :host([mode="portal"]) .Button--copy {
+    :host([mode="portal"]) .Button--copy,
+    :host([mode="portal"]) .Button-download,
+    :host([mode="portal"]) .Button-print
+    :host([mode="portal"]) .Tool-bottomContainer {
       display: none !important;
     }
-    :host([mode="portal"]) .Button-download {
-      display: none !important;
+    :host[mode="portal"] .ornament-copy a:not(.Button) {
+      color: white;
+      pointer-events:none;
+      cursor: default;
     }
-    :host([mode="portal"]) .Button-print {
-      display: none !important;
-    }
-    :host([mode="portal"]) .shareButtons {
-      display: none !important;
-    }
-    :host([mode="portal"]) #module-seasonofgiving .Tool-bottomContainer {
-      display: none !important;
-    }
-
   </style>
 
   <div id="module-seasonofgiving">
@@ -247,8 +236,12 @@ Season of giving scene.
         </div>
         <div class="Tool-panel">
           <div class="Tool-wrapper">
-            <div class="Tool-header-container">
-              <div class="Tool-header"></div>
+            <div class="Tool-bottomContainer">
+              <div class="Tool-sliderContainer">
+                <div id="Slider" class="Slider">
+                  <div id="Slider-thumb--scale" class="Slider-thumb--scale"></div>
+                </div>
+              </div>
             </div>
             <div class="Tools">
               <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
@@ -311,13 +304,6 @@ Season of giving scene.
               </div>
               <div class="Tool-container Tool-container--third download--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-download--mobile"></a></div>
               <div class="Tool-container Tool-container--third trash--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-reset--mobile"></a></div>
-            </div>
-            <div class="Tool-bottomContainer">
-              <div class="Tool-sliderContainer">
-                <div id="Slider" class="Slider">
-                  <div id="Slider-thumb--scale" class="Slider-thumb--scale"></div>
-                </div>
-              </div>
             </div>
           </div>
           <div class="Buttons">

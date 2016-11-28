@@ -215,7 +215,7 @@ Turtle.getDefaultXml = function() {
 };
 
 Turtle.loadUrlBlocks = function() {
-  var regex = /\&B\=([#a-z\d\[\]\(\)]+)/;
+  var regex = /\bB\=([#a-z\d\[\]\(\)]+)/;
   var blocksString = window.location.href;
   var results = regex.exec(blocksString);
   if (results) {

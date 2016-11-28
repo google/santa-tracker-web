@@ -236,6 +236,9 @@
 	"cl_country_name": {
 		"message": "Chile"
 	},
+	"clear": {
+		"message": "Xóa"
+	},
 	"close": {
 		"message": "Đóng"
 	},
@@ -575,6 +578,9 @@
 	"fi_country_name": {
 		"message": "Phần Lan"
 	},
+	"fi_tradition": {
+		"message": "Người Phần Lan tin rằng ông già Noel \"Joulupukki\" sống ở phía bắc của đất nước, chính xác là Korvatunturi. Nếu bạn đến đây, bạn có thể tìm thấy xưởng sản xuất đồ chơi bí mật của ông già Noel với các chú lùn đang chăm chỉ làm việc. Hoặc bạn có thể bắt gặp những chú tuần lộc lang thang trong rừng thông."
+	},
 	"finished-text": {
 		"message": "Chúc ngày lễ vui vẻ! Ông già Noel đã hoàn thành cuộc hành trình vòng quanh thế giới của mình và xứng đáng được nghỉ ngơi. Hãy ghé thăm chúng tôi lại vào năm sau!"
 	},
@@ -638,11 +644,32 @@
 	"hard_difficulty": {
 		"message": "Khó"
 	},
+	"help": {
+		"message": "Trợ giúp"
+	},
 	"hi_language_name": {
 		"message": "Tiếng Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Nghỉ lễ vui vẻ!"
+	},
+	"holiday_message_1": {
+		"message": "Lời chúc ngày lễ!"
+	},
+	"holiday_message_2": {
+		"message": "Chúc mọi điều tốt lành!"
+	},
+	"holiday_message_3": {
+		"message": "Hãy để tuyết rơi!"
+	},
+	"holiday_message_4": {
+		"message": "Chúc mừng năm mới!"
+	},
+	"holiday_message_5": {
+		"message": "Lời chào mùa lễ!"
 	},
 	"hours": {
 		"message": "Giờ"
@@ -704,6 +731,9 @@
 	"kr_country_name": {
 		"message": "Hàn Quốc"
 	},
+	"kr_tradition": {
+		"message": "Ở Hàn Quốc, Giáng Sinh là một ngày lễ quốc gia. Ngày lễ này cũng được coi là một ngày lễ lãng mạn. Nhiều cặp đôi hẹn hò trong thành phố giữa những con phố và cửa hàng được trang trí đèn rực rỡ."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -737,6 +767,9 @@
 	"lt_country_name": {
 		"message": "Lithuania"
 	},
+	"lt_tradition": {
+		"message": "Ở Lithuania, các đồ trang trí Giáng Sinh truyền thống được làm từ rơm hoặc cỏ khô. Chúng được kết thành các dạng hình học như ngôi sao, hoa tuyết hoặc chuông. Nhiều gia đình cũng sử dụng rơm để trang trí bàn ăn tối cho một bữa ăn lớn có tên là Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +784,9 @@
 	},
 	"meta_description": {
 		"message": "Sử dụng công cụ Theo chân ông già Noel của Google để theo dõi ông già Noel trên Google Maps khi ông ấy thực hiện hành trình vòng quanh thế giới."
+	},
+	"meta_title": {
+		"message": "Google Theo chân ông già Noel"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1081,6 +1117,9 @@
 	},
 	"scene_mercator": {
 		"message": "Câu đố trên bản đồ"
+	},
+	"scene_postcard": {
+		"message": "Thiệp hoa tuyết"
 	},
 	"scene_presentbounce": {
 		"message": "Trò chơi nảy quà"

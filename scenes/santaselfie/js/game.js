@@ -71,6 +71,9 @@ app.Game.prototype.start = function() {
     on('click.santaselfie touchend.santaselfie', this.resetBeard_.bind(this));
 
   this.restart();
+
+  var beard = getUrlParameter('beard');
+  beard && this.cloth.restore(beard);
 };
 
 
@@ -121,11 +124,14 @@ app.Game.prototype.update = function(delta) {
 app.Game.prototype.showShareOverlay = function() {
   var s = this.cloth.save();
 
-  var newHref = location.href.substr(0,
-      location.href.length - location.hash.length) + '#santaselfie?beard=' + s;
-  window.history.pushState(null, '', newHref);
+  var url = new URL(window.location.toString());
+  url.search = '?beard=' + window.encodeURIComponent(s);
+  var urlString = url.toString();
 
-  this.shareOverlay.show('https://santatracker.google.com/#santaselfie?beard=' + s, true);
+  // TODO(samthor): Set this as the beard changes over time.
+  window.history.replaceState(null, '', urlString);
+
+  this.shareOverlay.show(urlString, true);
 };
 
 
@@ -191,15 +197,6 @@ app.Game.prototype.pause = function() {
 app.Game.prototype.resume = function() {
   this.paused = false;
   this.unfreezeGame();
-};
-
-
-/**
- * Restore a beard from string.
- * @param {string} beard serialized in string.
- */
-app.Game.prototype.restoreBeard = function(beard) {
-  this.cloth.restore(beard);
 };
 
 
