@@ -40,10 +40,6 @@ app.Scene = function(elem) {
     horizontal: true,
     changed: this.bgsChanged_.bind(this)
   });
-  // Dummy slider, needed by app.Controls.
-  this.foreground = new app.Slider(this.elem.find('.message .fgs'), {
-    changed: function() {}
-  });
 
   this.picker = new app.Picker(this);
   this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
@@ -160,7 +156,7 @@ app.Scene.prototype.showShareOverlay = function() {
 
   // nb. encode blocks in base64 as it may contain unsafe characters
   const url = new URL(window.location);
-  url.search = '?bg=' + bgNum + '&fg=' + fgNum + '&B=' + window.btoa(blocks);
+  url.search = '?bg=' + bgNum + '&B=' + window.btoa(blocks);
   const urlString = url.toString();
   window.history.replaceState(null, '', urlString);
   this.shareOverlay.show(urlString, true);

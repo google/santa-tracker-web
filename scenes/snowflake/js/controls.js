@@ -59,24 +59,12 @@ app.Controls.prototype.onKeyDown_ = function(e) {
     case 'right':
       this.picker.navigate(1, 0);
       break;
-    case 'up':
-      this.picker.navigate(0, -1);
-      break;
-    case 'down':
-      this.picker.navigate(0, 1);
-      break;
   }
 
   if (!this.leftRightPressed && (key === 'left' || key === 'right')) {
     this.tutorial.off('keys-leftright');
     this.tutorial.off('spacenav-leftright');
     this.leftRightPressed = true;
-  }
-
-  if (!this.upDownPressed && (key === 'up' || key === 'down')) {
-    this.tutorial.off('keys-updown');
-    this.tutorial.off('spacenav-updown');
-    this.upDownPressed = true;
   }
 };
 
@@ -88,9 +76,7 @@ app.Controls.prototype.onKeyDown_ = function(e) {
  */
 app.Controls.KEY_CODES_ = {
   '37': 'left',
-  '38': 'up',
   '39': 'right',
-  '40': 'down'
 };
 
 /**
@@ -129,14 +115,9 @@ app.Controls.prototype.getChange_ = function(movement) {
 app.Controls.prototype.handleTouchEnd_ = function() {
   var touch = event.changedTouches[0];
   var x = this.getChange_(touch.pageX - this.start.x);
-  var y = this.getChange_(touch.pageY - this.start.y);
   if (!this.leftRightSwiped && x !== 0) {
     this.tutorial.off('touch-leftright');
     this.leftRightSwiped = true;
   }
-  if (!this.upDownSwiped && y !== 0) {
-    this.tutorial.off('touch-updown');
-    this.upDownSwiped = true;
-  }
-  this.picker.navigate(x, y);
+  this.picker.navigate(x);
 };

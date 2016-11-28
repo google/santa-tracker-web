@@ -23,15 +23,13 @@ goog.provide('app.Picker');
  */
 app.Picker = function(scene) {
   this.elem = scene.elem;
-  this.foreground = scene.foreground;
   this.background = scene.background;
 
   this.attachEvents_();
 
   const params = getUrlParameters();
-  if ('bg' in params && 'fg' in params) {
+  if ('bg' in params) {
     this.background.set(+params.bg);
-    this.foreground.set(+params.fg);
     this.updateMessage(params.bg);
   }
 };
@@ -41,42 +39,36 @@ app.Picker = function(scene) {
  * @private
  */
 app.Picker.prototype.attachEvents_ = function() {
-  this.elem.find('.fgs-up').on('click', this.handleChange_(0, -1));
-  this.elem.find('.fgs-down').on('click', this.handleChange_(0, 1));
-  this.elem.find('.bgs-left').on('click', this.handleChange_(-1, 0));
-  this.elem.find('.bgs-right').on('click', this.handleChange_(1, 0));
+  this.elem.find('.bgs-left').on('click', this.handleChange_(-1));
+  this.elem.find('.bgs-right').on('click', this.handleChange_(1));
 };
 
 /**
  * Create event handler to change background and foreground
  * @private
  * @param {number} bg This number is added to the selected background.
- * @param {number} fg This number is added to the selected foreground.
  * @return {function} event handler
  */
-app.Picker.prototype.handleChange_ = function(bg, fg) {
+app.Picker.prototype.handleChange_ = function(bg) {
   return function(e) {
     e.preventDefault();
 
-    this.navigate(bg, fg);
+    this.navigate(bg);
   }.bind(this);
 };
 
 /**
  * Go to a different foreground or background
  * @param {number} bgDelta This number is added to the selected background.
- * @param {number} fgDelta This number is added to the selected foreground.
  */
-app.Picker.prototype.navigate = function(bgDelta, fgDelta) {
+app.Picker.prototype.navigate = function(bgDelta) {
   const bg = this.background.getPosition(bgDelta);
-  const fg = this.foreground.getPosition(fgDelta);
 
   const url = new URL(window.location.toString());
-  url.search = `?bg=${bg}&fg=${fg}`;
+  url.search = `?bg=${bg}`;
   window.history.replaceState(null, '', url.toString());
 
   this.background.set(bg);
-  this.foreground.set(fg);
   this.updateMessage(bg);
 
   // Sound
@@ -84,11 +76,6 @@ app.Picker.prototype.navigate = function(bgDelta, fgDelta) {
     window.santaApp.fire('sound-trigger', {
       name: 'sm_change_bg',
       args: [bg]
-    });
-  } else if (fgDelta !== 0) {
-    window.santaApp.fire('sound-trigger', {
-      name: 'sm_change_fg',
-      args: [fg]
     });
   }
 };
