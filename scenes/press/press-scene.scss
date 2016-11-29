@@ -359,35 +359,8 @@ ul {
     align-items: flex-start;
     justify-content: center;
 
-    #press-device-1 {
-      background-image: url(img/illust-chromecast_2x.png);
-    }
-
-    #press-device-2 {
-      background-image: url(img/illust-mobile-app_2x.png);
-    }
-
-    #press-device-3 {
-      background-image: url(img/illust-wear_2x.png)
-    }
-
-    #press-device-4 {
-      background-image: url(img/illust-web-optimized_2x.png);
-    }
-
-    #press-device-5 {
-      background-image: url(img/illust-google-maps_2x.png);
-    }
-
-    #press-device-6 {
-      background-image: url(img/illust-google-search_2x.png);
-    }
-
-    #press-device-7 {
-      background-image: url(img/illust-web-cardboard_2x.png);
-    }
-
     .press-device-square {
+      will-change: transform;  // avoid chrome hiding this layer
       padding: 0 15px 30px;
       text-align: center;
       box-sizing: border-box;
