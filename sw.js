@@ -47,7 +47,7 @@ const PRECACHE = (function() {
 
   // Cache the "intl" files as top-level files. While the user keeps making requests to this
   // language, we'll keep serving them. Otherwise, they'll get real files anyway.
-  out['/'] = `${prefix}/index.html`;
+  out['/'] = `${prefix}/somebodypleasethinkofthechildren.html`;
   out['/error.html'] = `${prefix}/error.html`;
   out['/manifest.json'] = `${prefix}/manifest.json`;
 
