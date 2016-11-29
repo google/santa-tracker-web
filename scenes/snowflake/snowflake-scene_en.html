@@ -126,6 +126,10 @@ Postcard scene.
     behaviors: [window.SantaSceneBehavior],
     game: null,
 
+    start: function() {
+      this.backToBlockly();
+    },
+
     property: {
       snowflake: String,
     },
