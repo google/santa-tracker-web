@@ -56,26 +56,104 @@ Sharing.initialToBlock = {
  * @return {string} URL-safe representation of the workspace.
  */
 Sharing.workspaceToUrl = function() {
-  var text = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(Turtle.workspace));
-  var textList = text.split("\n");
-  textList = textList.slice(3, -1);
+  var topBlock = Turtle.getStarterBlock();
+  var codeString = Sharing.textEncodeBlocks_(topBlock.getNextBlock());
+  return codeString;
+};
 
-  var urlList = [];
-  for (var i = 0; i < textList.length; i++) {
-    var line = textList[i];
-    if (Sharing.BLOCK_REGEX.test(line)) {
-      var match = Sharing.BLOCK_REGEX.exec(line);
-      urlList.push(Sharing.blockToInitial[match[1]]);
-    } else if (Sharing.FIELD_REGEX.test(line)) {
-      urlList.push(
-          Sharing.FIELD_START +
-          Sharing.FIELD_REGEX.exec(line)[1] +
-          Sharing.FIELD_END);
-    } else if (Sharing.LOOP_END_REGEX.test(line)) {
-      urlList.push(Sharing.LOOP_END);
-    }
+/**
+* Encode a set of blocks as a string beginning with the block passed in.
+* @param {Blockly.Block} block The block to start encoding from.
+* @return {string} URL-safe representation of the blocks.
+* @private
+*/
+Sharing.textEncodeBlocks_ = function(block) {
+  if (!block) {
+    return '';
   }
-  return urlList.join("");
+  var blockString = '';
+  while (block) {
+    switch(block.type) {
+      case 'turtle_colour':
+        blockString += Sharing.textEncodeColor_(block);
+        break;
+      case 'turtle_turn_left':
+      case 'turtle_turn_right':
+      case 'turtle_move_forward':
+      case 'turtle_move_backward':
+      case 'pentagon_stamp':
+      case 'square_stamp':
+      case 'triangle_stamp':
+        blockString += Sharing.textEncodeValue_(block);
+        break;
+      case 'control_repeat':
+        blockString += Sharing.textEncodeLoop_(block);
+        break;
+    }
+    block = block.getNextBlock();
+  }
+  return blockString;
+};
+
+/**
+* Encode a single block and its value as a string.
+* @param {!Blockly.Block} block The block to encode.
+* @return {string} URL-safe representation of the block.
+* @private
+*/
+Sharing.textEncodeValue_ = function(block) {
+  var value = block.inputList[0].connection.targetBlock().getFieldValue('CHOICE');
+  var result = Sharing.blockToInitial[block.type] || '';
+  if (result != '') {
+    result = result + value + '-';
+  }
+  return result;
+};
+
+/**
+* Encode a single loop block and any children connected to its statement input.
+* @param {!Blockly.Block} block The block to encode, which must be of type control_repeat
+* @return {string} URL-safe representation of the block.
+* @private
+*/
+Sharing.textEncodeLoop_ = function(block) {
+  var text = '(';
+  text += Sharing.textEncodeBlocks_(block.inputList[0].connection.targetBlock());
+  text += ')';
+  var repeatCount = 0;
+  try {
+    repeatCount = parseInt(block.inputList[1].connection.targetBlock().getFieldValue('NUM'));
+  } catch (e) {
+    console.log('invalid value for block ' + block);
+  }
+  if (isNaN(repeatCount) || repeatCount < 0) {
+    repeatCount = 0;
+  } else if (repeatCount > 99) {
+    repeatCount = 99;
+  }
+  text += repeatCount + '-';
+  return text;
+};
+
+/**
+* Encode a single color block as a string.
+* @param {!Blockly.Block} block The block to encode, which must be of type turtle_colour.
+* @return {string} URL-safe representation of the block.
+* @private
+*/
+Sharing.textEncodeColor_ = function(block) {
+  var color = block.inputList[0].connection.targetBlock().getFieldValue('CHOICE');
+  if (color == 'random') {
+    return 'cz-';
+  } else if (color && color.length == 7) {
+    // Removes any non-hexidecimal characters, ignoring case
+    color = color.replace(/[^0-9a-f]/gi,'');
+    if (color.length != 6) {
+      console.log('Invalid color ' + color);
+      return 'cz-';
+    }
+    return 'c' + color + '-';
+  }
 };
 
 Sharing.urlToWorkspace = function(string) {
@@ -86,7 +164,7 @@ Sharing.urlToWorkspace = function(string) {
   if (starterConnection.targetBlock() != null) {
     starterConnection.targetBlock().dispose();
   }
-  this.stringToBlocks(starterConnection, string);
+  this.stringToBlocks_(starterConnection, string);
 };
 
 /**
@@ -95,73 +173,72 @@ Sharing.urlToWorkspace = function(string) {
  * @param {!Blockly.Connection} starterConnection The connection to eventually
  *     attach blocks to.
  * @param {string} string The URL-encoded workspace as a string.
+ * @private
  */
-Sharing.stringToBlocks = function(starterConnection, string) {
-  var validLetters = ['f', 'b', 'l', 'r', 's', 'p', 't', 'c'];
+Sharing.stringToBlocks_ = function(starterConnection, string) {
+  var simpleBlocks = ['f', 'b', 'l', 'r', 's', 'p', 't', 'c'];
   var currentConnection = starterConnection;
+  var loopStack = [];
 
   var nextBlock;
-  for (var i = 0; i < string.length; i++) {
+  for (var i = 0; i < string.length;) {
     var char = string[i];
     var nextChar = string[i + 1] || '';
-    if (validLetters.includes(char) && nextChar == Sharing.FIELD_START) {
-      var valueContent = Sharing.getFirstValue(string.substring(i + 1));
+    // If it's a simple block we can build it as is.
+    if (simpleBlocks.includes(char)) {
+      var nextDash = string.indexOf('-', i);
+      if (nextDash == -1) {
+        console.log('invalid string, no end for block value at ' + i);
+        return;
+      }
+      var valueContent = string.substring(i + 1, nextDash);
+      // Colors need a little extra work to decode
+      if (char == 'c') {
+        if (valueContent == 'z') {
+          valueContent = 'random';
+        } else {
+          valueContent = '#' + valueContent;
+        }
+      }
+      // Build the block with its value
       nextBlock = this.makeBlockFromInitial(char, valueContent);
       currentConnection.connect(nextBlock.previousConnection);
-    } else if (char == Sharing.LOOP_START) {
-      // A loop start character immediately followed by a field value is
-      // an empty loop.
-      if (nextChar == Sharing.FIELD_START) {
-        var valueContent = Sharing.getFirstValue(string.substring(i + 1));
-        nextBlock = this.makeBlockFromInitial('empty-loop', valueContent);
-        currentConnection.connect(nextBlock.previousConnection);
-      } else {
-        // Parse the loop's contents.
-        var loop = Sharing.getOutermostLoop(string.substring(i));
-        nextBlock = this.makeLoopBlock(loop[0], loop[1]);
-        currentConnection.connect(nextBlock.previousConnection);
-        // Skip forward past the loop's contents.
-        i += loop[0].length - 1;
-      }
-    }
-    if (nextBlock && nextBlock.nextConnection) {
+      // Move on to the next block
       currentConnection = nextBlock.nextConnection;
+      i = nextDash + 1;
+    } else if (char == Sharing.LOOP_START) {
+      // Create an empty loop and set the next connection to its statement
+      nextBlock = this.makeBlockFromInitial('empty-loop', 1);
+      // And add it to the stack of loops
+      loopStack.push(nextBlock);
+      currentConnection.connect(nextBlock.previousConnection);
+      // Move on to the blocks in its statement
+      currentConnection = nextBlock.inputList[0].connection;
+      i++;
+    } else if (char == Sharing.LOOP_END) {
+      // Pop the most recent loop off the stack and set its value
+      if (loopStack.length == 0) {
+        console.log('invalid string, uneven loop characters');
+        return;
+      }
+      nextBlock = loopStack.pop();
+      var nextDash = string.indexOf('-', i);
+      if (nextDash == -1) {
+        console.log('invalid string, no end for loop value at ' + i);
+        return;
+      }
+      var valueContent = string.substring(i + 1, nextDash);
+      var validatedValue = Sharing.validateBlockValue('empty-loop', valueContent);
+      nextBlock.inputList[1].connection.targetBlock().setFieldValue(validatedValue, 'NUM');
+      // Move on to the next block
+      currentConnection = nextBlock.nextConnection;
+      i = nextDash + 1;
+    } else {
+      // Invalid character, skip it
+      i++
     }
   }
 };
-
-Sharing.getOutermostLoop = function(string) {
-  var loop = [];
-  var numLoopsOpen = 1;
-  var value;
-  for (var i = 1; i < string.length; i++) {
-    if (string[i] == Sharing.LOOP_START && string[i + 1] != Sharing.FIELD_START) {
-      numLoopsOpen += 1;
-    } else if (string[i] == Sharing.LOOP_END) {
-      numLoopsOpen -= 1;
-    }
-    loop.push(string[i]);
-    if (numLoopsOpen == 0) {
-      // Remove the last end loop.
-      loop.pop(loop.length - 1);
-      value = Sharing.getFirstValue(string.substring(i));
-      return [loop.join(""), value];
-    }
-  }
-};
-
-Sharing.getFirstValue = function(string) {
-  var bracesCharString = Sharing.LOOP_START + Sharing.LOOP_END + '[]';
-  var value = [];
-  for (var i = 0; i < string.length; i++) {
-    if (string[i] == Sharing.FIELD_END) {
-      return parseInt(value.join('')) || value.join('');
-    } else if (!bracesCharString.includes(string[i])) {
-      // We haven't reached the start or end of this block's values.
-      value.push(string[i]);
-    }
-  }
-}
 
 /**
  * Translate a single-character block name into a blockly block and set the
@@ -242,18 +319,4 @@ Sharing.validateBlockValue = function(initial, value) {
       break;
   }
   return validValue;
-};
-
-/**
- * Make a loop block and populate its contents from a URL-encoded block string.
- * @param {string} blockString The string with the single-character encoding
- *     of the block's contents.
- * @param {string} times The value to set for the repeat field of the loop
- *     block, as a string.
- */
-Sharing.makeLoopBlock = function(blockString, times) {
-  var loopBlock = this.makeBlockFromInitial('empty-loop', times);
-  var innerConnection = loopBlock.inputList[0].connection;
-  this.stringToBlocks(innerConnection, blockString);
-  return loopBlock;
 };

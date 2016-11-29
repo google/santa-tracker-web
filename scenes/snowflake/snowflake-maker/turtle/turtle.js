@@ -215,11 +215,10 @@ Turtle.getDefaultXml = function() {
 };
 
 Turtle.loadUrlBlocks = function() {
-  var regex = /\bB\=([#a-z\d\[\]\(\)]+)/;
-  var blocksString = window.location.href;
-  var results = regex.exec(blocksString);
-  if (results) {
-    blocksString = results[1];
+  var blocksString = window.location.search;
+  var index = blocksString.indexOf('B=');
+  if (index != -1) {
+    blocksString = blocksString.substring(index + 2);
     Sharing.urlToWorkspace(blocksString);
     Turtle.sharing = true;
     Turtle.sendSnowflakeAndBlocks();

@@ -155,13 +155,8 @@ Postcard scene.
 
       // Pass the entire query string down to the blockly iframe so it can put the blocks in the
       // workspace. Decode the base64-encoded blocks, and pass to the frame.
-      var encodedScript = getUrlParameter('B');
-      var script = '';
-      try {
-        script = window.atob(encodedScript);
-      } catch (e) {
-        // ignore
-      }
+      var script = getUrlParameter('B');
+
       var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html?B=' + script;
 
       // Set the local i18n message.
@@ -181,7 +176,7 @@ Postcard scene.
         this.showShareLanding();
       }
       if (dev) {
-        this.blocks = "p[125]s[125]c[#006600]<r[30]t[125]>[4]";
+        this.blocks = "p125-s125-c006600-(r30-t125-)4-";
         this.snowflake = 'scenes/snowflake/img/snow-test.png';
         if (dev == 'postcard') {
           this.showPostcard();
