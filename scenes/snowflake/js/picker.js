@@ -88,7 +88,8 @@ app.Picker.prototype.navigate = function(bgDelta) {
  */
 app.Picker.prototype.updateMessage = function(bg) {
   var colors = ['white', 'white', 'white', 'black', 'white', 'white', 'white', 'white', 'white', 'white'];
-  var messageId = (bg - 1)%4;
+  var messages = [0, 1, 2, 3, 0, 1, 2, 3]
+  var messageId = messages[bg - 1];
   document.getElementById("text-span").innerHTML = app.I18n.getMsg('S_message' + messageId);
   document.getElementById("text-span").style.color = colors[bg - 1];
 }
