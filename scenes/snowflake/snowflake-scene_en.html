@@ -153,12 +153,6 @@ Postcard scene.
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.snowflake.Scene(module);
 
-      // Pass the entire query string down to the blockly iframe so it can put the blocks in the
-      // workspace. Decode the base64-encoded blocks, and pass to the frame.
-      var script = getUrlParameter('B');
-
-      var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html?B=' + script;
-
       // Set the local i18n message.
       // TODO(madCode): This doesn't work in prod, because i18ntext is compiled out.
       if (this.$.i18ntext) {
@@ -166,6 +160,14 @@ Postcard scene.
         this.$.i18ntext.msgid = 'holiday_message_' + (params.bg || 0);
       }
       // nb. Note that the picker grabs bg/fg from the URL, so it doesn't need to be set here.
+      // Pass the entire query string down to the blockly iframe so it can put the blocks in the
+      // workspace. Decode the base64-encoded blocks, and pass to the frame.
+      var script = getUrlParameter('B') || '';
+      if (script) {
+        script = "?B=" + script;
+      }
+
+      var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html' + script;
 
       // Regex checks for &B= with any letter, number or (),[] values following it
       var shareLandingRegex = /\&B\=([#a-z\d\[\]\(\)]+)/;
