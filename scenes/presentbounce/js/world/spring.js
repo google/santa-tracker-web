@@ -59,6 +59,7 @@ app.world.Spring = class extends app.world.UserObject {
     ) {
       utils.animWithClass(this.$el_, 'animate');
       window.santaApp.fire('sound-trigger', 'pb_boing');
+      window.ga('send', 'event', 'game', 'bounce', 'presentbounce')
     }
   }
 
