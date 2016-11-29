@@ -34,6 +34,7 @@ goog.require('Sharing');
 Turtle.HEIGHT = 500;
 Turtle.WIDTH = 500;
 Turtle.DISPLAY_SIZE = 300;
+Turtle.SHADOW_OFFSET = 6;
 
 Turtle.DEFAULT_DELAY = 400;
 Turtle.FAST_DELAY = 20;
@@ -716,14 +717,14 @@ Turtle.sendSnowflakeAndBlocks = function() {
       // And restrict to between 350 and WIDTH
       var max = Math.max(350, Math.min(Turtle.WIDTH, max));
 
-      var width = max - min;
+      var width = (max - min) + Turtle.SHADOW_OFFSET;
       var height = width;
       Turtle.ctxOutput.canvas.width = width;
       Turtle.ctxOutput.canvas.height = height;
       Turtle.ctxOutput.globalCompositeOperation = 'source-over';
       Turtle.ctxOutput.shadowBlur = 0;
-      Turtle.ctxOutput.shadowOffsetX = 6;
-      Turtle.ctxOutput.shadowOffsetY = 6;
+      Turtle.ctxOutput.shadowOffsetX = Turtle.SHADOW_OFFSET;
+      Turtle.ctxOutput.shadowOffsetY = Turtle.SHADOW_OFFSET;
       Turtle.ctxOutput.shadowColor = "rgba(0,0,0,0.06)";
       Turtle.ctxOutput.drawImage(Turtle.ctxScratch.canvas, -min, -min);
 
