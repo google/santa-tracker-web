@@ -132,7 +132,6 @@ Turtle.init = function() {
   Turtle.ctxDisplay = document.getElementById('display').getContext('2d');
   Turtle.ctxScratch = document.getElementById('scratch').getContext('2d');
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
-  Turtle.ctxShadow = document.getElementById('shadow').getContext('2d');
   Turtle.paper = document.getElementById('paperDiv');
 
   BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
@@ -721,35 +720,19 @@ Turtle.sendSnowflakeAndBlocks = function() {
       var height = width;
       Turtle.ctxOutput.canvas.width = width;
       Turtle.ctxOutput.canvas.height = height;
-      Turtle.ctxOutput.globalCompositeOperation = 'copy';
+      Turtle.ctxOutput.globalCompositeOperation = 'source-over';
+      Turtle.ctxOutput.shadowBlur = 0;
+      Turtle.ctxOutput.shadowOffsetX = 6;
+      Turtle.ctxOutput.shadowOffsetY = 6;
+      Turtle.ctxOutput.shadowColor = "rgba(0,0,0,0.06)";
       Turtle.ctxOutput.drawImage(Turtle.ctxScratch.canvas, -min, -min);
-      Turtle.createShadow(width, height);
 
       parent.postMessage({'sharing': Turtle.sharing, 'blocks': Sharing.workspaceToUrl(),
-          'snowflake': Turtle.ctxOutput.canvas.toDataURL('image/png', 1), 'shadow': Turtle.ctxShadow.canvas.toDataURL()}, "*");
+          'snowflake': Turtle.ctxOutput.canvas.toDataURL('image/png', 1)}, "*");
       //Once we've sent the shared snowflake, if the user hits the back button, we're not in the sharing state anymore.
       if (Turtle.sharing){ Turtle.sharing = false; }
     });
 };
-
-/**
- * Create a black outline version of the snowflake.
- * @param {int} width of shadow
- * @param {int} height of shadow
- */
-Turtle.createShadow = function(width, height) {
-  Turtle.ctxShadow.canvas.width = width;
-  Turtle.ctxShadow.canvas.height = height;
-  var imgd = Turtle.ctxOutput.getImageData(0, 0, width, height);
-  var pix = imgd.data;
-  for (var i = 0; i < pix.length; i += 4) {
-    var grayscale = ((pix[i] + pix[i+1] + pix[i+2]) > 0) ? 0 : 255;
-    pix[i] = grayscale; // red
-    pix[i+1] = grayscale; // green
-    pix[i+2] = grayscale; // blue
-  }
-  Turtle.ctxShadow.putImageData(imgd, 0, 0);
-}
 
 /**
  * Bind a function to a button's click event.

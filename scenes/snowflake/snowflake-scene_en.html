@@ -31,19 +31,12 @@ Postcard scene.
   :host([mode="portal"]) #shareButton {
     display: none !important;
   }
-  .hero {
+  #heroSnowflake {
     position: absolute;
     width: 300px;
     height: 300px;
-  }
-  .hero-snowflake {
     left: 552px;
     top: 290px;
-  }
-  .hero-shadow {
-    left: 558px;
-    top: 296px;
-    opacity: 0.06;
   }
   #blocklyArea {
     position: absolute;
@@ -87,8 +80,7 @@ Postcard scene.
               <span id="text-span" class="message-text"></span>
             </div>
           </div>
-          <div id="heroShadow" class="hero hero-shadow"></div>
-          <div id="heroSnowflake" class="hero hero-snowflake"></div>
+          <div id="heroSnowflake"></div>
         </div>
       </div>
       <div class="bottom-footer">
@@ -227,8 +219,6 @@ Postcard scene.
         // go back to using display:none, and set the snowflake to show.
         this.$.heroSnowflake.style.backgroundImage = 'url(' + this.snowflake + ')';
         this.$.heroSnowflake.style.backgroundSize = '100% 100%';
-        this.$.heroShadow.style.backgroundImage = 'url(' + this.shadow + ')';
-        this.$.heroShadow.style.backgroundSize = '100% 100%';
         var snowflakesList = Polymer.dom(this.root).querySelectorAll('.snow');
         for (var i = 0; i < snowflakesList.length; i++) {
           snowflakesList[i].style.backgroundImage = 'url(' + this.snowflake + ')';
@@ -275,7 +265,6 @@ Postcard scene.
         throw new Error('unexpected source: ' + event.origin);
       } else {
         this.snowflake = event.data['snowflake'];
-        this.shadow = event.data['shadow'];
         this.scene.blocks = event.data['blocks'];
         // If we're receiving this message, 'Done' has been pressed.
         if (event.data['sharing']) {
