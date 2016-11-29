@@ -516,7 +516,7 @@ SantaService.prototype.sync = function() {
       window.requestAnimationFrame(this.sync.bind(this));
     }, 60 * 1000);
     this.disconnect_();
-  });
+  };
 
   santaAPIRequest('info', data, done, fail);
 };
