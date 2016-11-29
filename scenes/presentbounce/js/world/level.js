@@ -458,7 +458,7 @@ app.world.Level = class {
       this.tutorial.off('device-tilt');
       this.tutorial.off('drag-and-drop');
     }
-    if (this.hasFirstBeltDropped && !this.hasBeltInteractionStarted) {
+    if (this.hasFirstBeltDropped /* && !this.hasBeltInteractionStarted */) {
       this.hasBeltInteractionStarted = true;
       this.tutorial.hide_();
       this.tutorial.off('conveyor-switch');
