@@ -217,12 +217,14 @@ Turtle.getDefaultXml = function() {
 
 Turtle.loadUrlBlocks = function() {
   var blocksString = window.location.search;
-  var index = blocksString.indexOf('B=');
-  if (index != -1) {
-    blocksString = blocksString.substring(index + 2);
-    Sharing.urlToWorkspace(blocksString);
-    Turtle.sharing = true;
-    Turtle.sendSnowflakeAndBlocks();
+  if (blocksString) {
+    var index = blocksString.indexOf('B=');
+    if (index != -1) {
+      blocksString = blocksString.substring(index + 2);
+      Sharing.urlToWorkspace(blocksString);
+      Turtle.sharing = true;
+      Turtle.sendSnowflakeAndBlocks();
+    }
   }
 };
 
