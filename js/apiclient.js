@@ -175,9 +175,14 @@ SantaService.prototype.getCurrentLocation = function(callback) {
   var now = this.now();
   var dest = this.findDestination_(now);
   if (!this.isSynced()) {
-    this.sync(() => {
+    // TODO(samthor): Allow once-off handlers for sync.
+    let invoked = false;
+    const handler = () => {
+      if (invoked) { return; }
+      invoked = true;
       this.getCurrentLocation(callback);
-    });
+    };
+    Events.addListener(this, 'sync', handler);
     return;
   }
 
@@ -502,10 +507,6 @@ SantaService.prototype.sync = function() {
 
     window.clearTimeout(this.syncTimeout_);
     this.syncTimeout_ = window.setTimeout(this.sync.bind(this), result['refresh']);
-
-    if (opt_callback) {
-      opt_callback();
-    }
   };
 
   const fail = () => {
