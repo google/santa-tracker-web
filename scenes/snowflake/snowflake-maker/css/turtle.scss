@@ -94,17 +94,29 @@
 
 .paper {
   background-image: url(../img/img_grid.png);
+  background-color: white;
   background-position: center;
   background-size: 25px;
   position: relative;
   width: 100%;
   height: 100%;
   align-self: center;
-  border: 16px solid white;
+  border: 2px solid #e0f7fa;
 
   @media (max-height: 700px) {
     background-size: 180px;
   }
+}
+
+.paper:after {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  right: -18px;
+  bottom: -18px;
+  background: white;
+  z-index: -1;
 }
 
 #blocklycontainer {
