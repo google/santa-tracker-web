@@ -408,6 +408,11 @@ Turtle.initInterpreter = function(interpreter, scope) {
   };
   interpreter.setProperty(scope, 'setOnRepeat', interpreter.createNativeFunction(wrapper));
 
+  wrapper = function(bool) {
+    Turtle.showRepeatMessage(bool);
+  };
+  interpreter.setProperty(scope, 'showRepeatMessage', interpreter.createNativeFunction(wrapper));
+
   wrapper = function(size, id) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
   };
@@ -496,13 +501,15 @@ Turtle.execute = function(callback) {
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
       'pause(' + Turtle.runDelay + ');\n' +
-      subcode;
+      subcode +
+      'if (' + loopVar + ' == 1) { showRepeatMessage(true);\n }\n';
   if (Turtle.runDelay > 0) {
-    code += 'if (' + loopVar + ' == 0) { pause(300); }\n';
+    code += 'if (' + loopVar + ' == 0) { pause(500); }\n';
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
-      loopVar + '+1), \'no-block-id\');\n}';
+      loopVar + '+1), \'no-block-id\');\n}\n' +
+      'showRepeatMessage(false)\n';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100, callback));
 };
@@ -563,6 +570,14 @@ Turtle.animate = function(id) {
 Turtle.setOnRepeat = function(bool) {
   Turtle.onRepeat = bool.data;
 }
+
+/**
+ * Set the visibility of the "now repeat" message.
+ */
+Turtle.showRepeatMessage = function(bool) {
+  document.getElementById('now_repeat_message').style.display = bool.data ?
+      'block' : 'none';
+};
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
   Turtle.ctxScratch.lineWidth = Turtle.MIN_LINE_WIDTH;
