@@ -76,15 +76,6 @@ Lazy loads children "pages".
         border-radius: 10000px;
         background: rgba(0, 0, 0, 0.125) url(img/lock.svg) center no-repeat;
       }
-      @media (max-height: 400px) {
-        #error {
-          padding-top: 40px;
-        }
-        .icon {
-          width: 192px;
-          height: 192px;
-        }
-      }
       #error p {
         margin: 2em auto;
         max-width: 90%;
@@ -92,6 +83,20 @@ Lazy loads children "pages".
         font-size: 16px;
         line-height: 28px;
         text-align: center;
+      }
+      @media (max-height: 400px) {
+        #error {
+          flex-flow: row;
+        }
+        #error p {
+          margin: 0 2em;
+        }
+        .icon {
+          width: 192px;
+          height: 192px;
+          min-width: 192px;
+          margin: 0 1em;
+        }
       }
     </style>
     <div id="error" hidden$="[[!_showError]]">
