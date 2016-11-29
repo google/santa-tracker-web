@@ -19,7 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../santa-chrome/santa-chrome.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
-<link rel="import" href="../lazy-pages.html">
+<link rel="import" href="../lazy-pages/lazy-pages.html">
 <link rel="import" href="../santa-strings.html">
 
 <script src="../../js/config/houses.js"></script>
@@ -592,6 +592,7 @@ Polymer({
   listeners: {
     'click': 'onClick',
     'scene-progress': 'onSceneProgress',
+    'scene-failure': 'onSceneFailure',
     'scene-ready': 'onSceneReady',
     'analytics-track-event': 'trackEvent',
     'analytics-time-start': 'timeStart',
@@ -695,6 +696,14 @@ Polymer({
   },
 
   /**
+   * Handles a preloader failure.
+   */
+  onSceneFailure: function() {
+    this.$.preloader.active = false;
+    this._updateStylingForScene(null);
+  },
+
+  /**
    * Called when a scene is initially ready (and not when it's made active a 2nd time).
    */
   onSceneReady: function(event, scene) {
@@ -736,8 +745,15 @@ Polymer({
       this.prevSelectedRoute = oldValue.route;
     }
 
-    var scene = this.selectedScene;
-    var allowPageScrolling = scene && scene.hasAttribute('allow-page-scrolling')
+    this._updateStylingForScene(this.selectedScene);
+
+    if (this.selectedScene && this.selectedScene.is) {
+      this._prepareScene(this.selectedScene);
+    }
+  },
+
+  _updateStylingForScene: function(scene) {
+    var allowPageScrolling = scene ? scene.hasAttribute('allow-page-scrolling') : true;
 
     // Allow scrolling body if scene requests it. Update `santa-chrome` to match.
     if (allowPageScrolling) {
@@ -767,10 +783,6 @@ Polymer({
       icon = String.fromCodePoint(parseInt(raw, 16));
     }
     document.title = icon + this.$.strings.s('meta_title');
-
-    if (this.selectedScene && this.selectedScene.is) {
-      this._prepareScene(this.selectedScene);
-    }
   },
 
   /**
@@ -846,10 +858,9 @@ Polymer({
     }
 
     this.$.lazypages.selected = ok ? route : '';
+    this.$.lazypages.lockedHouse = (!ok && sceneIsOpen === false ? route : null);
 
-    // TODO(samthor): If the route is invalid, display feedback-
-    //   a) it's locked, so show a locked symbol
-    //   b) it's invalid, so ???
+    // TODO(samthor): Unkown routes will show a generic error message.
   },
 
   /**
@@ -958,9 +969,13 @@ Polymer({
 
   unlockAllHouses: function() {
     window.ga('send', 'event', 'Routing', 'unlockAllHouses');
-    this.scheduleChecked = false;
     for (var i = 0, house; house = this._houses[i]; ++i) {
       house.locked = false;
+    }
+    if (this.scheduleChecked) {
+      this.scheduleChecked = false;
+    } else {
+      this._routeChanged();  // scheduleChecked was already false, force update
     }
     this._notifyHouses();
   },

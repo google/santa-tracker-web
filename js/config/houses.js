@@ -64,7 +64,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"
 }, {
-  module: "seasonofgiving",
+  module: "codelab",
   launchDate: new Date('Dec 5, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"
@@ -84,7 +84,7 @@ window.HOUSES = [{
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "play"
 }, {
-  module: "codelab",
+  module: "seasonofgiving",
   launchDate: new Date('Dec 9, 2016'),
   portalLaunchDate: new Date('Dec 1, 2016'),
   category: "learn"

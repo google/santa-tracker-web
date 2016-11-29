@@ -35,7 +35,7 @@ app.Slider = function(elem, options) {
   this.children = [].slice.call(this.elem.children());
   this.children = this.children.map(function(x) { return $(x); });
 
-  // Keep track of what fg and bg is selected
+  // Keep track of what bg is selected
   this.center = Math.ceil(this.max / 2) - 1;
   this.selected = 1;
   this.position = 0;
