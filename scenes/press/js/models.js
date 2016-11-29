@@ -570,7 +570,7 @@ app.AndroidModels = [
     'title': 'Present Quest',
     'type': 'Play',
     'filter': 'android',
-    'description': 'Help Santa recover misplaced presents in the real world!',
+    'description': 'Oh no! Presents have fallen off the sleighs on their way to the North Pole. Santa needs your help to recover presents with your phone out in the real world.',
     'screenshotUrl': null,
   },
   {
@@ -578,7 +578,7 @@ app.AndroidModels = [
     'title': 'City Quiz',
     'type': 'Play',
     'filter': 'android',
-    'description': 'Help the elves with their route planning by choosing the right city!',
+    'description': 'Show off your globe trotting status by recognizing cities around the world by using scenic photos.',
     'screenshotUrl': null,
   },
   {
@@ -586,7 +586,7 @@ app.AndroidModels = [
     'title': 'Penguin Swim',
     'type': 'Play',
     'filter': 'android',
-    'description': 'Navigate the ice-filled channels of the North Pole.',
+    'description': 'Penguins are some of the best swimmers in the north pole! Help Santa\'s favorite penguin swim through the ice filled waters and see how far you can get.',
     'screenshotUrl': null,
   },
   {
@@ -594,7 +594,7 @@ app.AndroidModels = [
     'title': 'Snowball Run',
     'type': 'Play',
     'filter': 'android',
-    'description': 'Outpace Santa\'s other helpers - all while avoiding a giant snowball!',
+    'description': 'Did you know elves have to train to get in shape for the big day? See if you can outpace Santa\'s helpers while also avoiding a rolling snowball.',
     'screenshotUrl': null,
   },
 ];
