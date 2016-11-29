@@ -697,11 +697,14 @@ Turtle.isVisible = function(visible, id) {
 };
 
 Turtle.sendSnowflakeAndBlocks = function() {
-    var delay = Turtle.FAST_DELAY;
-    if (Turtle.sharing){
-      delay = 0;
-    }
+    var delay = Turtle.sharing ? 0 : Turtle.FAST_DELAY;
     Turtle.runCode(delay, function() {
+      var blocksUrl = Sharing.workspaceToUrl();
+      if (!blocksUrl || blocksUrl == "") {
+        console.log('Workspace has no code.');
+        Turtle.sharing = false;
+        return;
+      }
       var padding = Turtle.ctxScratch.lineWidth;
       // We always want a square image, so use the min of x and y for both.
       var min = Math.min(Turtle.bounds[0], Turtle.bounds[1]) - padding;
