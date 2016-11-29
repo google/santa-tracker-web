@@ -121,15 +121,3 @@ small {
     transform: translateX(100%);
   }
 }
-@media (min-width: 768px) {
-  .feature {
-    width: 88px;
-    height: 88px;
-  }
-  .feature {
-    .value {
-      font-size: 31px;
-      line-height: 35px;
-    }
-  }
-}
