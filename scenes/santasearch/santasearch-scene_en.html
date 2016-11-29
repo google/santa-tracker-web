@@ -198,7 +198,14 @@ Santasearch scene.
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'santasearch_end');
-    }
+    },
+
+    start: function() {
+      // Emulates the SantaSceneGameButtonsBehavior so that `santa-overlay` can restart us to play
+      // again.
+      this.game.start();
+    },
+
   });
 
 })();

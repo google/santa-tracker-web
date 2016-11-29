@@ -29,7 +29,7 @@ app.shared.Gameover = Gameover;
  */
 function Gameover(game, elem) {
   this.game = game;
-  this._hasPlayExtra = 'playExtra' in this.game;
+  this._hasPlayExtra = game && 'playExtra' in this.game;
 }
 
 /**
@@ -40,7 +40,7 @@ function Gameover(game, elem) {
  */
 Gameover.prototype.show = function(opt_score, opt_level) {
   const detail = {
-    score: opt_score || this.game.scoreboard.score || 0,
+    score: opt_score || (this.game && this.game.scoreboard && this.game.scoreboard.score) || 0,
     hasPlayExtra: this._hasPlayExtra,
   };
   window.santaApp.fire('game-stop', detail);

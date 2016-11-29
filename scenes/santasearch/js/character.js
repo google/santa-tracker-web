@@ -147,6 +147,7 @@ app.Character.prototype.onFound_ = function() {
   if (this.isFound) {
     return;
   }
+  window.ga('send', 'event', 'game', 'found', 'santasearch')
 
   window.santaApp.fire('sound-trigger', `ss_character_${this.name}`);
   let wasFocused = this.drawerItemElem.hasClass('drawer__item--focused');
@@ -156,7 +157,6 @@ app.Character.prototype.onFound_ = function() {
   this.colliderElem.addClass('character-collider--found');
 
   this.layerElem[0].classList.add('map__character--found');
-  console.log(this.layerElem);
 
   if (wasFocused && this.onLostFocus) {
     this.onLostFocus();

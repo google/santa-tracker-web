@@ -894,9 +894,11 @@ Polymer({
     this.$.overlay.reset();
 
     var scene = this.selectedScene;
-    if (scene && 'pause' in scene) {
-      this.$.chrome.hasGameButtons = true;
-      scene.start();
+    if (scene) {
+      if ('pause' in scene) {
+        this.$.chrome.hasGameButtons = true;
+      }
+      scene.start && scene.start();
     }
   },
 
