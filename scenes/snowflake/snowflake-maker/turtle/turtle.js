@@ -740,9 +740,9 @@ Turtle.sendSnowflakeAndBlocks = function() {
 Turtle.createShadow = function(width, height) {
   Turtle.ctxShadow.canvas.width = width;
   Turtle.ctxShadow.canvas.height = height;
-  var imgd = Turtle.ctxOutput.getImageData(0, 0, 500, 500);
+  var imgd = Turtle.ctxOutput.getImageData(0, 0, width, height);
   var pix = imgd.data;
-  for (var i = 0, n = pix.length; i < n; i += 4) {
+  for (var i = 0; i < pix.length; i += 4) {
     var grayscale = ((pix[i] + pix[i+1] + pix[i+2]) > 0) ? 0 : 255;
     pix[i] = grayscale; // red
     pix[i+1] = grayscale; // green
