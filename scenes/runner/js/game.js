@@ -117,6 +117,7 @@ app.Game.prototype.restart = function() {
   this.entities = [];
 
   this.scoreboard.reset();
+  this.scoreboard.setLevel(-1);  // no levels in runner
   this.hurryUpPlayed = false;
 
   // Number of pixels to advance entities per second.

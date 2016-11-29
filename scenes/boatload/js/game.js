@@ -60,7 +60,7 @@ Game = function(elem) {
   this.watchSceneSize_();
 
   this.player = new Player(this, this.elem.find('.player'));
-  this.scoreboard = new Scoreboard(this, this.elem.find('.board'));
+  this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
   this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-space keys-updown', 'spacenav-space spacenav-updown');
   this.controls = new Controls(this);

@@ -26,114 +26,75 @@ app.shared.Scoreboard = Scoreboard;
 /**
  * Manages the scoreboard and game countdown.
  * @constructor
+ * @struct
  * @param {!SharedGameOver} game The object which can be made gameover.
- * @param {Element|!jQuery} elem The scoreboard element.
+ * @param {*} elem Ignored scoreboard element.
  * @param {number=} opt_levels The total number of levels.
  */
 function Scoreboard(game, elem, opt_levels) {
   this.game = game;
-  this.elem = $(elem);
-  this.scoreElem = this.elem.find('.score .value');
-  this.levelElem = this.elem.find('.current-level');
-  this.minutesElem = this.elem.find('.time .minutes');
-  this.secondsElem = this.elem.find('.time .seconds');
-  this.remainingElem = this.elem.find('.time .remaining');
-  this.statusElem = this.elem.find('.time .status');
-  this.levelItemElems = this.elem.find('.level .level-item');
 
-  if (opt_levels !== undefined) {
-    this.elem.find('.total-levels').text('/' + opt_levels);
-  }
+  this.levels = opt_levels || 0;
+  this.level = 0;
+  this.score = 0;
+  this.countdown = Constants.INITIAL_COUNTDOWN || 60;
+  this.losing = false;
+  this.lastSeconds = NaN;
 
-  // Initial state
-  this.reset();
+  /** @private {number} */
+  this.announceTimeout_ = 0;
 }
 
 /**
  * Resets the scoreboard for a new game.
  */
 Scoreboard.prototype.reset = function() {
+  this.restart();
+  this.level = 0;
   this.score = 0;
-  this.countdown = Constants.INITIAL_COUNTDOWN;
-  this.lastSeconds = null;
-  this.losing = false;
-
-  this.setLevel(0);
-
-  if (this.remainingElem.length > 0) {
-    this.remainingElem.removeClass('losing');
-  }
-
-  this.elem.find('.pause').removeClass('paused');
-  this.onFrame(0);
-  this.addScore(0);
 };
-
 
 /**
- * Restart the timer
+ * Restart the timer without resetting the level or score.
  */
 Scoreboard.prototype.restart = function() {
+  this.lastSeconds = NaN;
   this.countdown = Constants.INITIAL_COUNTDOWN;
-  this.lastSeconds = null;
   this.losing = false;
-
-  if (this.remainingElem.length > 0) {
-    this.remainingElem.removeClass('losing');
-  }
-
-  this.onFrame(0);
 };
-
 
 /**
  * Updates the scoreboard each frame.
  * @param {number} delta Time since last frame.
  */
 Scoreboard.prototype.onFrame = function(delta) {
-  // Are we game over?
   this.countdown -= delta;
-  if (this.countdown < 0) {
-    this.countdown = 0;
-    this.game.gameover();
-  }
+  const seconds = Math.ceil(this.countdown);
 
-  // Update track position
-  var trackX = 1 - (this.countdown / Constants.COUNTDOWN_TRACK_LENGTH);
-  trackX = (trackX < 0 ? 0 : trackX) * -this.remainingElem.width();
-
-  if (this.remainingElem.length > 0) {
-    this.remainingElem.css('transform', 'translate3d(' + trackX + 'px, 0, 0)');
-    this.statusElem.css('transform', 'translate3d(' + trackX + 'px, 0, 0)');
-  }
-
-  // Cache track text changes.
-  var seconds = Math.ceil(this.countdown);
   if (seconds === this.lastSeconds) {
     return;
   }
   this.lastSeconds = seconds;
 
-  if (this.minutesElem.length > 0) {
-    this.minutesElem[0].textContent = Scoreboard.pad_(Math.floor(seconds / 60));
-  }
-
-  if (this.secondsElem.length > 0) {
-    this.secondsElem[0].textContent = Scoreboard.pad_(seconds % 60);
-  }
-
-  // Are we losing (But not yet gameover).
-  var losing = seconds <= Constants.COUNTDOWN_FLASH && seconds !== 0;
-  if (this.losing !== losing) {
-    this.losing = losing;
-    if (this.remainingElem.length > 0) {
-      this.remainingElem.toggleClass('losing', losing);
+  // If the delta is +ve, we are decrementing the countdown. Enact losing/etc behavior if so.
+  if (delta > 0) {
+    // Are we game over?
+    if (this.countdown < 0) {
+      this.countdown = 0;
+      this.game.gameover();
     }
-    if (seconds > 0) {
-      window.santaApp.fire('sound-trigger',
-          losing ? 'game_hurry_up' : 'game_hurry_up_end');
+
+    // Are we losing (But not yet gameover).
+    const losing = seconds <= Constants.COUNTDOWN_FLASH && seconds !== 0;
+    if (this.losing !== losing) {
+      this.losing = losing;
+      if (seconds > 0) {
+        window.santaApp.fire('sound-trigger', losing ? 'game_hurry_up' : 'game_hurry_up_end');
+      }
     }
   }
+
+  this.announce_();
 };
 
 /**
@@ -141,10 +102,9 @@ Scoreboard.prototype.onFrame = function(delta) {
  * @param {number} score The amount of score to add.
  */
 Scoreboard.prototype.addScore = function(score) {
-  this.score += score;
-
-  if (this.scoreElem.length > 0) {
-    this.scoreElem.text(this.score);
+  if (score) {
+    this.score += score;
+    this.announce_();
   }
 };
 
@@ -153,32 +113,35 @@ Scoreboard.prototype.addScore = function(score) {
  * @param {number} level The current level, 0-based.
  */
 Scoreboard.prototype.setLevel = function(level) {
-  if (this.levelElem.length > 0 && level >= -1) {
-    this.levelElem.text('' + (level + 1));
-  }
-
-  if (this.levelItemElems.length > 0 && level >= -1) {
-    this.levelItemElems.removeClass('is-active');
-    if (level >= 0) {
-      this.levelItemElems.eq(level).addClass('is-active');
-    }
+  if (this.level !== level) {
+    this.level = level;
+    this.announce_();
   }
 };
 
 /**
- * Bumps the time ball drop.
+ * Give the user more time.
  * @param {number} time Time to add in seconds.
  */
 Scoreboard.prototype.addTime = function(time) {
-  this.countdown += time;
+  if (time) {
+    this.countdown += time;
+    this.announce_();
+  }
 };
 
 /**
- * A helper that zero-pads a number to 2 digits. F.ex. 5 becomes "05".
- * @param {number} num The number to pad.
- * @return {string} Zero padded number.
- * @private
+ * Announces the state to the common `santa-app`.
  */
-Scoreboard.pad_ = function(num) {
-  return (num < 10 ? '0' : '') + num;
-};
+Scoreboard.prototype.announce_ = function() {
+  window.clearTimeout(this.announceTimeout_);
+  this.announceTimeout_ = window.setTimeout(() => {
+    const detail = {
+      score: this.score,
+      level: this.level + 1,  // games are zero-indexed
+      levels: this.levels,
+      time: this.lastSeconds || this.countdown,
+    };
+    window.santaApp.fire('game-score', detail);
+  }, 1);
+}

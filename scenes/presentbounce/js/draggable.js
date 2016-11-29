@@ -148,10 +148,12 @@ app.Draggable.prototype.onInputStart_ = function(e) {
   var startX = null;
   var startY = null;
 
+  if (this.drawer.isPaused()) {
+    return;
+  }
 
+  e.preventDefault();
   e = app.InputEvent.normalize(e);
-
-  if (this.drawer.isPaused()) return;
 
   if (e.hasOwnProperty('touches')) {
     startX = e.touches[0].clientX;
@@ -166,7 +168,6 @@ app.Draggable.prototype.onInputStart_ = function(e) {
   this.$document.on(app.InputEvent.MOVE, this.onInputMove_);
   this.$document.on(app.InputEvent.END, this.onInputEnd_);
 
-  e.preventDefault();
 };
 
 /**
@@ -177,6 +178,7 @@ app.Draggable.prototype.onInputMove_ = function(e) {
   var left = null;
   var top = null;
 
+  e.preventDefault();
   e = app.InputEvent.normalize(e);
 
   if (e.hasOwnProperty('touches')) {
@@ -199,7 +201,6 @@ app.Draggable.prototype.onInputMove_ = function(e) {
   }
 
   this.dragMove_(left, top, this.x, this.y);
-  e.preventDefault();
 
 };
 

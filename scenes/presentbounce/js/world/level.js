@@ -114,7 +114,7 @@ app.world.Level = class {
    */
   onLevelCompleted() {
     let score = 0;
-    let currentTime = this.scoreboard.getCountdown();
+    let currentTime = this.scoreboard.countdown;
     const BASE_POINTS = 50;
     const TIME_MODIFIDER = 30;
 

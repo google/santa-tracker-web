@@ -2,8 +2,6 @@ $name: 'module-callfromsanta';
 $duration-santa-call: 3s;
 $delay-santa-call: 1s; // to help keep them in synch
 
-@import "../shared/sass/board";
-
 @import "sass/penner-easing";
 @import "sass/sky";
 @import "sass/environment";

@@ -47,7 +47,7 @@ app.Game = function(elem) {
   this.spawner = new app.Spawner(this, this.elem.find('.ceiling-pipe'));
   this.ballsRemaining = this.elem.find('.js-balls-remaining');
   this.ballsAvailable = this.elem.find('.js-balls-available');
-  this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'));
+  this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), app.Constants.LEVELS.length);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));

@@ -4,7 +4,6 @@ $rotate-bg: $gameover-bg;
 $board-level-bp: 1025px;
 
 @import "../shared/sass/rotate";
-@import "../shared/sass/board";
 @import "sass/promo";
 
 ##{$name} {

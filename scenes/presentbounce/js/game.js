@@ -20,10 +20,10 @@ goog.require('app.shared.Coordinator');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.pools');
+goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
 
 goog.require('app.Constants');
-goog.require('app.Scoreboard');
 goog.require('app.config.Levels');
 goog.require('app.world.Level');
 goog.require('app.Drawer');
@@ -42,7 +42,7 @@ app.Game = function(elem) {
   this.levelElem = this.elem.find('.levelboard');
   this.backgroundElem = this.elem.find('.bg');
 
-  this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
+  this.scoreboard = new app.shared.Scoreboard(this, null, app.Constants.TOTAL_LEVELS);
   this.drawer = new app.Drawer(this.elem, this);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
@@ -146,8 +146,8 @@ app.Game.prototype.onFrame_ = function() {
   // Update game state with physics simulations.
   this.currentLevel_.onFrame(delta);
 
-  // Render game state.
-  this.scoreboard.onFrame(delta);
+  // Render game state. Use -ve time, to increment scoreboard.
+  this.scoreboard.onFrame(-delta);
 
   // Request next frame
   this.requestId = window.requestAnimationFrame(this.onFrame_);
@@ -344,6 +344,8 @@ app.Game.prototype.dispose = function() {
       gameid: 'presentbounce', timePlayed: new Date - this.gameStartTime, level: this.level
     });
   }
+  this.isPlaying = false;
+
   window.santaApp.fire('sound-trigger', 'pb_conveyorbelt_stop');
   window.cancelAnimationFrame(this.requestId);
   $(window).off('.presentbounce');

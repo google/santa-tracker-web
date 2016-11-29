@@ -36,7 +36,7 @@ app.Game = function(elem) {
   this.scene = this.elem.find('.scene');
   this.gui = this.elem.find('.gui');
 
-  this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'));
+  this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), app.Constants.LEVEL_COUNT);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));

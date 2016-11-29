@@ -198,29 +198,6 @@ app-toolbar {
     height: 100%;
     text-align: center;
     position: relative;
-
-    /** santa-board demo */
-    .board {
-      position: relative;
-      background: var(--santa-feature-color, #b757c5);
-      top: -4px;
-      height: 55px;
-      width: 55px;
-      padding-top: 4px;
-      box-shadow: 0 1px 0 1px rgba(0,0,0,0.15);
-      border-radius: 6px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      #icon {
-        width: 100%;
-        height: 80%;
-        background: transparent center/contain no-repeat;
-      }
-    }
   }
 
   .share {
@@ -273,10 +250,6 @@ app-toolbar {
     .feature {
       // .. and the feature has a min-width set, for future scores/times etc
       min-width: $feature-width;
-      .board {
-        width: 88px;
-        height: 88px;
-      }
     }
   }
 }

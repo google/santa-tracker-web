@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../santa-badge/santa-badge.html">
 <link rel="import" href="../santa-chrome/santa-chrome.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
@@ -55,6 +56,8 @@ Santa Tracker app.
       share-options="[[shareOptions]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
+
+    <santa-badge id="badge" slot="feature"></santa-badge>
 
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
         share-options="[[shareOptions]]"></santa-overlay>
@@ -603,6 +606,7 @@ Polymer({
     'game-start': 'onStartGame',
     'game-resume': 'onResumeGame',
     'game-stop': 'onStopGame',
+    'game-score': 'onScoreGame',
     'share': 'onShare',
   },
 
@@ -770,7 +774,13 @@ Polymer({
     this.customStyle['--santa-feature-color'] = scene && scene.getAttribute('feature-color');
     this.updateStyles();
     META_THEME.content = headerColor || META_THEME_DEFAULT;
-    this.$.chrome.logoUrl = scene ? scene.getAttribute('logo') : null;
+
+    this.$.badge.reset();
+    this.$.badge.logoUrl = scene ? scene.getAttribute('logo') : null;
+
+    // TODO(samthor): This isn't quite right: the badge should be visible if there's a logo or a
+    // score. But for now, just hide it when there's no logo.
+    this.$.badge.hidden = !this.$.badge.logoUrl;
 
     // Reset the overlay.
     this.$.overlay.reset();
@@ -906,6 +916,13 @@ Polymer({
     o.shareUrl = detail.url || null;
 
     this.userPause = true;
+  },
+
+  onScoreGame: function(event, detail) {
+    this.$.badge.score = detail.score || 0;
+    this.$.badge.level = detail.level || null;
+    this.$.badge.levels = detail.levels || null;
+    this.$.badge.time = detail.time || null;
   },
 
   _computePause: function(userPause, pageInBackground) {
