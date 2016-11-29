@@ -322,7 +322,7 @@ Turtle.display = function() {
   Turtle.ctxDisplay.rect(0, 0,
       Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
   Turtle.ctxDisplay.clearRect(0, 0, Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
-  Turtle.ctxDisplay.fillStyle = "rgba(50, 50, 50, .2)";
+  Turtle.ctxDisplay.fillStyle = "rgba(0, 0, 255, 0)";
   Turtle.ctxDisplay.fill();
 
   // Draw the user layer.
@@ -380,9 +380,6 @@ Turtle.display = function() {
 
 Turtle.runCode = function(delay, callback) {
   Turtle.runDelay = delay;
-  if (delay > 0) {
-    document.getElementById('spinner').style.visibility = 'visible';
-  }
   Turtle.reset();
   Turtle.canSubmit = false;
   Turtle.execute(callback);
@@ -537,7 +534,6 @@ Turtle.executeChunk_ = function(callback) {
   } while (go);
   // Wrap up if complete.
   if (!Turtle.pause) {
-    document.getElementById('spinner').style.visibility = 'hidden';
     BlocklyInterface.highlight(null);
     // Image complete; allow the user to submit this image to Reddit.
     Turtle.canSubmit = true;

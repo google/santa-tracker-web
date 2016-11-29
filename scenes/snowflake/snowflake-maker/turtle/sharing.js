@@ -195,12 +195,12 @@ Sharing.makeBlockFromInitial = function (initial, value) {
 Sharing.validateBlockValue = function(initial, value) {
   var validValue = null;
   switch(initial) {
-    // Shape blocks. Dropdown values: 25, 45, 65, 85, 105, 125.
+    // Shape blocks. Dropdown values: 25, 50, 75, 100, 125, 150.
     case 'p':
     case 's':
     case 't':
       validValue = parseInt(value);
-      if (!validValue || validValue < 25 || validValue > 125) {
+      if (!validValue || validValue < 25 || validValue > 150) {
         validValue = 125;
       }
       break;

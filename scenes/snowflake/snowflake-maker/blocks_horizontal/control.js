@@ -32,7 +32,7 @@ goog.require('Blockly.Colours');
 
 Blockly.Blocks.control.controlColors = {
   primary:"#ffb300",
-  secondary:"#ef9300",
+  secondary:"#bf8800",
   tertiary:"#bf8800"
 };
 
