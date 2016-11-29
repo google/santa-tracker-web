@@ -496,9 +496,10 @@ Turtle.execute = function(callback) {
 
   var code = 'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
+      'pause(' + Turtle.runDelay + ');\n' +
       subcode;
   if (Turtle.runDelay > 0) {
-    code += 'if (' + loopVar + ' == 0) { pause(300); }\n pause(' + Turtle.runDelay + ');\n';
+    code += 'if (' + loopVar + ' == 0) { pause(300); }\n';
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
