@@ -314,7 +314,7 @@ Blockly.Blocks['turtle_turn_right'] = {
       "args0": [
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw030.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_cw_030.png",
           "width": 40,
           "height": 40,
           "alt": "turn right",
@@ -371,7 +371,7 @@ Blockly.Blocks['triangle_draw'] = {
     this.setColour(Turtle.Blocks.categoryColours['shapes'].primary, Turtle.Blocks.categoryColours['shapes'].secondary, Turtle.Blocks.categoryColours['shapes'].tertiary);
     this.appendValueInput('SIZE')
         .setCheck('Number')
-        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png", 40, 40, "draw shape outline"));
+        .appendField(new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_5.png", 40, 40, "draw shape outline"));
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
@@ -403,7 +403,7 @@ Blockly.Blocks['square_stamp'] = {
       "args0": [
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_square_5.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a square",
@@ -467,7 +467,7 @@ Blockly.Blocks['pentagon_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_1.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_5.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a pentagon",
@@ -526,7 +526,7 @@ Blockly.Blocks['triangle_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_triangle_5.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a triangle",
@@ -585,7 +585,7 @@ Blockly.Blocks['diamond_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_diamond.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_5.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a diamond",
