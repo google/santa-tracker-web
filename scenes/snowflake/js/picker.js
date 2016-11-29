@@ -16,6 +16,8 @@
 
 goog.provide('app.Picker');
 
+goog.require('app.I18n');
+
 /**
  * Manages the background picker.
  * @constructor
@@ -85,12 +87,8 @@ app.Picker.prototype.navigate = function(bgDelta) {
  * @param {number} bg This number is added to the selected background.
  */
 app.Picker.prototype.updateMessage = function(bg) {
-  var selectedMessages = ["holiday_message_0", "holiday_message_3", "holiday_message_4", "holiday_message_5"];
   var colors = ['white', 'white', 'white', 'black', 'white', 'white', 'white', 'white', 'white', 'white'];
   var messageId = (bg - 1)%4;
-  document.getElementById("i18ntext").msgid = selectedMessages[messageId];
-  var elements = document.querySelectorAll(".message-text");
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].style.color = colors[bg - 1];
-  }
+  document.getElementById("text-span").innerHTML = app.I18n.getMsg('S_message' + messageId);
+  document.getElementById("text-span").style.color = colors[bg - 1];
 }

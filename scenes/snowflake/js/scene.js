@@ -151,7 +151,6 @@ function randomRange(min, opt_max) {
 
 app.Scene.prototype.showShareOverlay = function() {
   var bgNum = this.background.getPosition(0);
-  var fgNum = this.foreground.getPosition(0);
   var blocks = this.blocks;
 
   // nb. encode blocks in base64 as it may contain unsafe characters
