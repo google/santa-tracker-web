@@ -102,10 +102,6 @@
   height: 100%;
   align-self: center;
   border: 2px solid #e0f7fa;
-
-  @media (max-height: 700px) {
-    background-size: 180px;
-  }
 }
 
 .paper:after {
