@@ -498,7 +498,7 @@ gulp.task('serve', ['default', 'watch'], function() {
   const fanoutHelper = function(req, res, next) {
     // If we match a file which would be a fanout of index.html in prod, serve index.html instead.
     const match = simplePath.exec(req.originalUrl);
-    if (match && SCENE_FANOUT.includes(match[1])) {
+    if (match && SCENE_FANOUT.includes(match[1]) || 'unknown' === match[1]) {
       req.url = '/index.html';
     }
     return next();
@@ -511,7 +511,7 @@ gulp.task('serve', ['default', 'watch'], function() {
     middleware: [fanoutHelper],
     port: argv.port,
     server: ['.', '.devmode'],
-    startPath: argv.scene && (argv.devmode ? `/scenes/${argv.scene}/` : `/#${argv.scene}`),
+    startPath: argv.scene && (argv.devmode ? `/scenes/${argv.scene}/` : `/${argv.scene}.html`),
     ui: {port: argv.port + 1},
   });
 });
