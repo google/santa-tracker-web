@@ -46,6 +46,8 @@ module.exports = function fanout(sceneConfig) {
         if (fs.existsSync(ogImagePath)) {
           const ogImage = this.head.querySelector('[property="og:image"]');
           ogImage.content = `https://santatracker.google.com/images/og/${sceneName}.png`;
+          const twitterImage = this.head.querySelector('[name="twitter:image"]');
+          twitterImage.content = `https://santatracker.google.com/images/og/${sceneName}.png`;
         } else {
           missingOgImages.push(sceneName);
         }
@@ -55,6 +57,8 @@ module.exports = function fanout(sceneConfig) {
           title.setAttribute('msgid', `${config.msgid} ` + title.getAttribute('msgid'));
           const ogTitle = this.head.querySelector('[property="og:title"]');
           ogTitle.setAttribute('msgid', `${config.msgid} ` + ogTitle.getAttribute('msgid'));
+          const twitterTitle = this.head.querySelector('[name="twitter:title"]');
+          ogTitle.setAttribute('msgid', `${config.msgid} ` + twitterTitle.getAttribute('msgid'));
         }
       });
 
