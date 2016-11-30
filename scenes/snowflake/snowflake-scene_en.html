@@ -180,14 +180,11 @@ Postcard scene.
       var turtleFrameSrc =
           this.componentDir + 'snowflake-maker/turtle_' + this.language + '.html' + script;
 
-      // Regex checks for &B= with any letter, number or (),[] values following it
-      var shareLandingRegex = /\&B\=([#a-z\d\[\]\(\)]+)/;
-
-      var sharing = shareLandingRegex.exec(turtleFrameSrc);
-      this.$.blocklyArea.contentWindow.location.replace(turtleFrameSrc);  // don't trigger nav
-      if (sharing) {
+      // If script exists, there's stuff to share in the url so show share page.
+      if (script) {
         this.showShareLanding();
       }
+      this.$.blocklyArea.contentWindow.location.replace(turtleFrameSrc);  // don't trigger nav
       if (dev) {
         this.blocks = "p125-s125-c006600-(r30-t125-)4-";
         this.snowflake = 'scenes/snowflake/img/snow-test.png';
