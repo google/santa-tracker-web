@@ -146,14 +146,7 @@ $rotate-bg: $gameover-bg;
     z-index: 1,
   }
 
-  .remix:before {
-    background-image: url('img/ic_remix.png');
-  }
-
-  .remix-bar {
-    width:80px;
-  }
-
+  
   .bottom-footer {
     position: relative;
     height: 150px;
@@ -162,6 +155,28 @@ $rotate-bg: $gameover-bg;
   .postcard-stacked-divs {
     background-image: url('img/img_deskitems_02.png');
   }
+}
+
+.remix {
+  min-width: 60px;
+  margin-left: 40px;
+  pointer-events: auto;
+  font-size: 26pt !important;
+}
+
+.remix-text {
+   color: white;
+   font-family: 'Lobster';
+   font-size: 36pt;
+   position: absolute;
+   text-align: center;
+   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+   bottom: 40px;
+   width: 100%;
+   z-index: 1;
+} 
+.button-share-snow {
+  pointer-events: auto;
 }
 
 @import "../shared/sass/responsive";

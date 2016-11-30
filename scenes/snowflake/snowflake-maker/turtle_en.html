@@ -31,7 +31,7 @@
 
   </head>
   <body>
-    <div class="stacked-divs turtle-stacked-divs">
+    <div id="module-turtle" class="stacked-divs turtle-stacked-divs">
       <div id="visualization" class="visualization turtle-visualization">
         <div id="paperDiv" class="paper">
           <canvas id="scratch" width="500" height="500" hidden></canvas>
@@ -117,12 +117,17 @@
       </xml>
         <div id="blocklyDiv" class="center-horiz"></div>
         <div class="big-button_bar center-horiz">
-          <div id="clearWs" class="clear small-button"></div>
-          <div class="help small-button"></div>
-          <div class="big-button-tab">
-            <div class="big-button-layer">
-              <button id="submitButton" class="next big-button"></button>
-            </div>
+          <div class="buttonContainer">
+            <div class='next-container'>
+              <button id="submitButton" class="Button next-button">
+                  FIXME
+              </button>
+             </div>
+            <div class="circle-button-tab">
+              <div class="circle-button-layer">
+                <Button id="playButton" class="circle-button play-button"></Button>
+              </div>
+             </div>
           </div>
         </div>
         <div class="blockly-footer footer"></div>
