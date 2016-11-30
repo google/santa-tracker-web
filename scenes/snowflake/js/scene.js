@@ -154,7 +154,7 @@ app.Scene.prototype.showShareOverlay = function() {
   var blocks = this.blocks;
 
   // nb. encode blocks in base64 as it may contain unsafe characters
-  const url = new URL(window.location);
+  const url = new URL(window.location.toString());
   url.search = '?bg=' + bgNum + '&B=' + blocks;
   const urlString = url.toString();
   window.history.replaceState(null, '', urlString);
