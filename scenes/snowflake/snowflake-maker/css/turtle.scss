@@ -185,6 +185,7 @@ $name: 'module-turtle';
   transition: box-shadow 100ms, transform 100ms;
   z-index: 1;
   pointer-events: auto;
+  outline: none;
 }
 
 .turtle-stacked-divs {
