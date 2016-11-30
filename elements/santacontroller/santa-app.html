@@ -612,6 +612,7 @@ Polymer({
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
     'game-start': 'onStartGame',
+    'game-extra': 'onGameExtra',
     'game-resume': 'onResumeGame',
     'game-stop': 'onStopGame',
     'game-score': 'onScoreGame',
@@ -910,6 +911,20 @@ Polymer({
         this.$.chrome.hasGameButtons = true;
       }
       scene.start && scene.start();
+    }
+  },
+
+  /**
+   * Handler for 'game-extra' event. Resests overlay state, and if the game
+   * has extra levels, starts the game at extra level.
+   */
+  onGameExtra: function() {
+    this.userPause = false;
+    this.$.overlay.reset();
+
+    var scene = this.selectedScene;
+    if (scene) {
+      scene.playExtra && scene.playExtra();
     }
   },
 

@@ -215,7 +215,9 @@ Polymer({
   },
 
   _onPlayExtraClick: function() {
-    // TODO(devnook): Wire this up to playExtra on games.
+    window.ga('send', 'event', 'nav', 'click', 'play-extra');
+    this.reset();
+    this.fire('game-extra');
   },
 
   _onShare: function(ev) {

@@ -83,6 +83,13 @@ Codelab scene.
       this.frame.dispose();
       this.frame = null;
       this.fire('sound-ambient', 'computer_end');
+    },
+    start: function() {
+      this.frame.setLevel(1);
+      this.frame.restart();
+    },
+    playExtra: function() {
+      this.frame.playExtra();
     }
   });
 
