@@ -185,7 +185,7 @@ Sharing.stringToBlocks_ = function(starterConnection, string) {
     var char = string[i];
     var nextChar = string[i + 1] || '';
     // If it's a simple block we can build it as is.
-    if (simpleBlocks.includes(char)) {
+    if (simpleBlocks.indexOf(char) != -1) {
       var nextDash = string.indexOf('-', i);
       if (nextDash == -1) {
         console.log('invalid string, no end for block value at ' + i);
