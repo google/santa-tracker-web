@@ -347,7 +347,7 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
       'scenes/*/*-scene*.html',
       '!scenes/*/*-scene_module.html',  // don't include CSS modules
       // TODO(samthor): Support vulcanizing non-scene HTML (#1679).
-      'scenes/snowflake/snowflake-maker/turtle.html',
+      'scenes/snowflake/snowflake-maker/turtle*.html',
     ], {base: './'})
     // gulp-vulcanize doesn't currently handle multiple files in multiple
     // directories well right now, so vulcanize them one at a time
