@@ -931,7 +931,7 @@ Polymer({
   },
 
   onScoreGame: function(event, detail) {
-    this.$.badge.score = detail.score || 0;
+    this.$.badge.score = detail.score !== undefined ? details.score : null;
     this.$.badge.level = detail.level || null;
     this.$.badge.levels = detail.levels || null;
     this.$.badge.time = detail.time || null;
