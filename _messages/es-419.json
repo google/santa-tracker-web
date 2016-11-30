@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia-Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Atrás"
+	},
 	"back_to_tracker": {
 		"message": "Volver a la vista de seguimiento de Santa"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Sigue a Santa para educadores"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Recientemente disponible"
 	},
+	"next": {
+		"message": "Siguiente"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No, gracias"
-	},
-	"offline_notification_okay": {
-		"message": "De acuerdo"
 	},
 	"offline_user_message": {
 		"message": "Estás sin conexión"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Cuestionario sobre el mapa"
 	},
-	"scene_postcard": {
-		"message": "Tarjetas de copos de nieve"
-	},
 	"scene_presentbounce": {
 		"message": "Rebotes de regalos"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Elige un fondo"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Usa las teclas de flecha para elegir una postal"
+	},
+	"snowflake_code": {
+		"message": "Codifica tu copo de nieve"
+	},
+	"snowflake_code_instructions": {
+		"message": "Junta bloques para diseñar tu propio copo de nieve"
+	},
+	"snowflake_create_message": {
+		"message": "Diseña tu propio copo de nieve"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "¡Repite!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Repitiendo"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Gira y repite"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Girando y repitiendo"
+	},
+	"snowflake_make_your_own": {
+		"message": "Este copo de nieve se creó con código. ¡Intenta crear uno!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Selecciona una postal y comparte tu copo de nieve con tus amigos"
+	},
+	"snowflake_shared_message": {
+		"message": "Alguien te envió un copo de nieve"
 	},
 	"so_country_name": {
 		"message": "Somalía"

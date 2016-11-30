@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnien und Herzegowina"
 	},
+	"back_to_previous_page": {
+		"message": "Zurück"
+	},
 	"back_to_tracker": {
 		"message": "Zurück zur Übersicht"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "\"Auf den Spuren des Weihnachtsmanns\" für Lehrer"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Heute neu"
 	},
+	"next": {
+		"message": "Weiter"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nein danke"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Sie sind offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Kartenquiz"
 	},
-	"scene_postcard": {
-		"message": "Weiße Weihnachtsgrüße"
-	},
 	"scene_presentbounce": {
 		"message": "Geschenkeautomat"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Such einen Hintergrund aus"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Mit den Pfeiltasten kannst du eine Postkarte auswählen"
+	},
+	"snowflake_code": {
+		"message": "Codier deine Schneeflocke"
+	},
+	"snowflake_code_instructions": {
+		"message": "Verbinde Blöcke miteinander und gestalte deine eigene Schneeflocke"
+	},
+	"snowflake_create_message": {
+		"message": "Gestalte deine eigene Schneeflocke"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Jetzt wiederholen."
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Wiederholen"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Drehen und wiederholen."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Drehen und wiederholen"
+	},
+	"snowflake_make_your_own": {
+		"message": "Die wurde mit Code gemacht. Probier es selbst aus."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Wähl eine Postkarte aus und teil deine Schneeflocke mit deinen Freunden"
+	},
+	"snowflake_shared_message": {
+		"message": "Jemand hat dir eine Schneeflocke geschickt."
 	},
 	"so_country_name": {
 		"message": "Somalia"

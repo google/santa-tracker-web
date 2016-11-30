@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosna i Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Natrag"
+	},
 	"back_to_tracker": {
 		"message": "Natrag na alat za praćenje"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekvador"
 	},
+	"educators": {
+		"message": "Slijedi Djeda Božićnjaka za učitelje"
+	},
 	"ee_country_name": {
 		"message": "Estonija"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Novo danas"
 	},
+	"next": {
+		"message": "Sljedeće"
+	},
 	"ng_country_name": {
 		"message": "Nigerija"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ne, hvala"
-	},
-	"offline_notification_okay": {
-		"message": "U redu"
 	},
 	"offline_user_message": {
 		"message": "Niste povezani s internetom"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Kviz s kartom"
 	},
-	"scene_postcard": {
-		"message": "Čestitke s pahuljicama"
-	},
 	"scene_presentbounce": {
 		"message": "Skakutanje s darovima"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Odaberite pozadinu"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Odaberite razglednicu pomoću tipki sa strelicama"
+	},
+	"snowflake_code": {
+		"message": "Izradite svoju pahulju pomoću koda"
+	},
+	"snowflake_code_instructions": {
+		"message": "Spajanjem blokova dizajnirajte vlastitu pahulju"
+	},
+	"snowflake_create_message": {
+		"message": "Dizajnirajte vlastitu pahulju"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "A sada ponovite!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Ponavljanje"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Zakrenite i ponovite!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Zakretanje i ponavljanje"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ovo je izrađeno pomoću koda. Pokušajte i vi!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Odaberite razglednicu i podijelite pahulju s prijateljima"
+	},
+	"snowflake_shared_message": {
+		"message": "Netko vam je poslao pahulju!"
 	},
 	"so_country_name": {
 		"message": "Somalija"

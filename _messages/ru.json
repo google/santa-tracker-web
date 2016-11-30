@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Босния и Герцеговина"
 	},
+	"back_to_previous_page": {
+		"message": "Назад"
+	},
 	"back_to_tracker": {
 		"message": "Назад к Радару"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Эквадор"
 	},
+	"educators": {
+		"message": "Ресурсы для преподавателей"
+	},
 	"ee_country_name": {
 		"message": "Эстония"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Добро пожаловать"
 	},
+	"next": {
+		"message": "Далее"
+	},
 	"ng_country_name": {
 		"message": "Нигерия"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Закрыть"
-	},
-	"offline_notification_okay": {
-		"message": "ОК"
 	},
 	"offline_user_message": {
 		"message": "Нет подключения к Интернету"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Географическая викторина"
 	},
-	"scene_postcard": {
-		"message": "Новогодние открытки"
-	},
 	"scene_presentbounce": {
 		"message": "Попади в цель"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowflake_choose_background": {
+		"message": "Выберите фон"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Выберите открытку. Для перехода между вариантами пользуйтесь клавишами со стрелками."
+	},
+	"snowflake_code": {
+		"message": "Создайте снежинку из кода"
+	},
+	"snowflake_code_instructions": {
+		"message": "Чтобы создать снежинку, соедините несколько фрагментов кода."
+	},
+	"snowflake_create_message": {
+		"message": "Создайте свою снежинку"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "А теперь следующий луч!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Создание луча…"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Следующий луч!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Создание следующего луча…"
+	},
+	"snowflake_make_your_own": {
+		"message": "Вот какая снежинка из кода. Создай и ты свою!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Выберите открытку, добавьте на нее снежинку и отправьте друзьям."
+	},
+	"snowflake_shared_message": {
+		"message": "Вам пришла открытка!"
 	},
 	"so_country_name": {
 		"message": "Сомали"

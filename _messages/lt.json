@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnija ir Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Atgal"
+	},
 	"back_to_tracker": {
 		"message": "Grįžti į sekimo ekraną"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekvadoras"
 	},
+	"educators": {
+		"message": "Kalėdų Senelio kelionė mokytojams"
+	},
 	"ee_country_name": {
 		"message": "Estija"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Šiandien nauja"
 	},
+	"next": {
+		"message": "Kitas"
+	},
 	"ng_country_name": {
 		"message": "Nigerija"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ne, ačiū"
-	},
-	"offline_notification_okay": {
-		"message": "Gerai"
 	},
 	"offline_user_message": {
 		"message": "Jūs neprisijungę"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Žemėlapių viktorina"
 	},
-	"scene_postcard": {
-		"message": "Snaigių atvirukai"
-	},
 	"scene_presentbounce": {
 		"message": "Dovanų atmušinėjimas"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegalas"
+	},
+	"snowflake_choose_background": {
+		"message": "Pasirinkite foną"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Rodyklių mygtukais pasirinkite atviruką"
+	},
+	"snowflake_code": {
+		"message": "Suprogramuokite savo snaigę"
+	},
+	"snowflake_code_instructions": {
+		"message": "Sukurkite savo snaigę sujungdami blokus"
+	},
+	"snowflake_create_message": {
+		"message": "Sukurkite savo snaigę"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Dabar kartokite!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Kartojama"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Sukite ir kartokite!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Sukama ir kartojama"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ši snaigė sukurta naudojant kodą. Pabandykite patys!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Pasirinkite atviruką ir bendrinkite savo snaigę su draugais"
+	},
+	"snowflake_shared_message": {
+		"message": "Kažkas atsiuntė jums snaigę!"
 	},
 	"so_country_name": {
 		"message": "Somalis"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "ボスニア ヘルツェゴビナ"
 	},
+	"back_to_previous_page": {
+		"message": "戻る"
+	},
 	"back_to_tracker": {
 		"message": "追跡画面に戻る"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "エクアドル"
 	},
+	"educators": {
+		"message": "教育者向け「サンタを追いかけよう」"
+	},
 	"ee_country_name": {
 		"message": "エストニア"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "本日公開"
 	},
+	"next": {
+		"message": "次へ"
+	},
 	"ng_country_name": {
 		"message": "ナイジェリア"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "閉じる"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "オフラインです"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "地図クイズ"
 	},
-	"scene_postcard": {
-		"message": "スノーフレーク カード"
-	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "セネガル"
+	},
+	"snowflake_choose_background": {
+		"message": "背景を選択します"
+	},
+	"snowflake_choose_postcard": {
+		"message": "矢印キーを使用して、ポストカードを選択します"
+	},
+	"snowflake_code": {
+		"message": "コードでスノーフレークを作りましょう"
+	},
+	"snowflake_code_instructions": {
+		"message": "ブロックをまとめて、あなたのスノーフレークをデザインしましょう"
+	},
+	"snowflake_create_message": {
+		"message": "あなたのスノーフレークをデザインしましょう"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "繰り返しましょう！"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "繰り返し"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "回して、繰り返します！"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "回して、繰り返しています"
+	},
+	"snowflake_make_your_own": {
+		"message": "これはコードで作られています。あなたも作ってみましょう！"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "ポストカードを選んで、スノーフレークを友だちと共有しましょう"
+	},
+	"snowflake_shared_message": {
+		"message": "他の人からスノーフレークが届きました！"
 	},
 	"so_country_name": {
 		"message": "ソマリア"

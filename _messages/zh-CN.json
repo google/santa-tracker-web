@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "波斯尼亚和黑塞哥维那"
 	},
+	"back_to_previous_page": {
+		"message": "返回"
+	},
 	"back_to_tracker": {
 		"message": "返回至跟踪圣诞老人应用"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "厄瓜多尔"
 	},
+	"educators": {
+		"message": "面向教育工作者的“追踪圣诞老人”应用"
+	},
 	"ee_country_name": {
 		"message": "爱沙尼亚"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "今日更新"
 	},
+	"next": {
+		"message": "下一步"
+	},
 	"ng_country_name": {
 		"message": "尼日利亚"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "不用了"
-	},
-	"offline_notification_okay": {
-		"message": "确定"
 	},
 	"offline_user_message": {
 		"message": "您没有联网"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "地图测验"
 	},
-	"scene_postcard": {
-		"message": "雪花卡片"
-	},
 	"scene_presentbounce": {
 		"message": "礼物弹球"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "塞内加尔"
+	},
+	"snowflake_choose_background": {
+		"message": "选择背景"
+	},
+	"snowflake_choose_postcard": {
+		"message": "使用箭头键选择一张明信片"
+	},
+	"snowflake_code": {
+		"message": "用代码制作您自己的雪花"
+	},
+	"snowflake_code_instructions": {
+		"message": "将代码连在一起即可设计出您自己的雪花"
+	},
+	"snowflake_create_message": {
+		"message": "设计您自己的雪花"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "现在重复！"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "正在重复"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "旋转并重复！"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "正在旋转和重复"
+	},
+	"snowflake_make_your_own": {
+		"message": "雪花是通过代码制作成的，亲自试一试吧！"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "选择一张明信片并与朋友分享您的雪花"
+	},
+	"snowflake_shared_message": {
+		"message": "有人送您一片雪花！"
 	},
 	"so_country_name": {
 		"message": "索马里"

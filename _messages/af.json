@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnië en Herzegowina"
 	},
+	"back_to_previous_page": {
+		"message": "Terug"
+	},
 	"back_to_tracker": {
 		"message": "Trug na spoorder"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Waar is Kersvader vir Opvoeders"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Nuut vandag"
 	},
+	"next": {
+		"message": "Volgende"
+	},
 	"ng_country_name": {
 		"message": "Nigerië"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nee, dankie"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Jy is vanlyn"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Kaartvasvra"
 	},
-	"scene_postcard": {
-		"message": "Sneeuvlokkiekaarte"
-	},
 	"scene_presentbounce": {
 		"message": "Geskenkhop"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Kies 'n agtergrond"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Gebruik die pylsleutels om 'n poskaart te kies"
+	},
+	"snowflake_code": {
+		"message": "Kodeer jou sneeuvlokkie"
+	},
+	"snowflake_code_instructions": {
+		"message": "Plak blokke saam om jou eie sneeuvlokkie te ontwerp"
+	},
+	"snowflake_create_message": {
+		"message": "Ontwerp jou eie sneeuvlokkie"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Herhaal nou!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Herhaling"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Draai en herhaal!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Draaiing en herhaling"
+	},
+	"snowflake_make_your_own": {
+		"message": "Hierdie is met kode gemaak. Probeer dit self!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Kies 'n poskaart en deel jou sneeuvlokkie met vriende"
+	},
+	"snowflake_shared_message": {
+		"message": "Iemand het vir jou 'n sneeuvlokkie gestuur!"
 	},
 	"so_country_name": {
 		"message": "Somalië"

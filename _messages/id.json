@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia dan Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Kembali"
+	},
 	"back_to_tracker": {
 		"message": "Kembali ke Pelacak Sinterklas"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekuador"
 	},
+	"educators": {
+		"message": "Pelacak Sinterklas untuk Pengajar"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Baru"
 	},
+	"next": {
+		"message": "Berikutnya"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Lain kali"
-	},
-	"offline_notification_okay": {
-		"message": "Oke"
 	},
 	"offline_user_message": {
 		"message": "Anda sedang offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Kuis Peta"
 	},
-	"scene_postcard": {
-		"message": "Kartu Bergambar Bunga Salju"
-	},
 	"scene_presentbounce": {
 		"message": "Pantulan Hadiah"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Pilih tampilan latar"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Gunakan tombol panah untuk memilih kartu pos"
+	},
+	"snowflake_code": {
+		"message": "Buat bunga salju dengan coding"
+	},
+	"snowflake_code_instructions": {
+		"message": "Susun berbagai blok untuk mendesain bunga salju kamu sendiri"
+	},
+	"snowflake_create_message": {
+		"message": "Desain bunga salju kamu sendiri"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Sekarang ulangi!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Mengulangi"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Putar dan ulangi!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Memutar dan mengulangi"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ini dibuat dengan coding. Coba buat sendiri!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Pilih kartu pos dan berikan kartu dengan bunga salju buatanmu kepada teman"
+	},
+	"snowflake_shared_message": {
+		"message": "Ada yang mengirim bunga salju untukmu!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

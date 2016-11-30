@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosna in Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Nazaj"
+	},
 	"back_to_tracker": {
 		"message": "Nazaj na spremljanje Božičkove poti"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekvador"
 	},
+	"educators": {
+		"message": "Spremljanje Božičkove poti za učitelje"
+	},
 	"ee_country_name": {
 		"message": "Estonija"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Novo danes"
 	},
+	"next": {
+		"message": "Naprej"
+	},
 	"ng_country_name": {
 		"message": "Nigerija"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ne, hvala"
-	},
-	"offline_notification_okay": {
-		"message": "V redu"
 	},
 	"offline_user_message": {
 		"message": "Nimate vzpostavljene povezave"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Zemljevidni kviz"
 	},
-	"scene_postcard": {
-		"message": "Kartice s snežinkami"
-	},
 	"scene_presentbounce": {
 		"message": "Poskočna darila"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Izberite ozadje"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Razglednico izberite s puščičnimi tipkami"
+	},
+	"snowflake_code": {
+		"message": "Kodirajte svojo snežinko"
+	},
+	"snowflake_code_instructions": {
+		"message": "Spnite bloke in oblikujte svojo snežinko"
+	},
+	"snowflake_create_message": {
+		"message": "Oblikujte svojo snežinko"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Ponovite postopek."
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Ponavljanje"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Zavrtite in ponovite."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Vrtenje in ponavljanje"
+	},
+	"snowflake_make_your_own": {
+		"message": "To je bilo narejeno s kodo. Preskusite sami."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Izberite razglednico in delite snežinko s prijatelji"
+	},
+	"snowflake_shared_message": {
+		"message": "Nekdo vam je poslal snežinko."
 	},
 	"so_country_name": {
 		"message": "Somalija"

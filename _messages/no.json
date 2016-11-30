@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia-Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Tilbake"
+	},
 	"back_to_tracker": {
 		"message": "Tilbake til «Følg julenissen»"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Følg julenissen for lærere"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Ny i dag"
 	},
+	"next": {
+		"message": "Neste"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nei takk"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Du er uten nett"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Kartquiz"
 	},
-	"scene_postcard": {
-		"message": "Snøfnuggkort"
-	},
 	"scene_presentbounce": {
 		"message": "Gavesprett"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Velg en bakgrunn"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Bruk piltastene til å velge et postkort"
+	},
+	"snowflake_code": {
+		"message": "Lag et snøfnugg med kode"
+	},
+	"snowflake_code_instructions": {
+		"message": "Sett sammen blokker for å designe ditt eget snøfnugg"
+	},
+	"snowflake_create_message": {
+		"message": "Design ditt eget snøfnugg"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Gjenta!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Gjentar"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rotér og gjenta!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Roterer og gjentar"
+	},
+	"snowflake_make_your_own": {
+		"message": "Dette ble laget med kode. Prøv selv!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Velg et postkort, og del snøfnugget ditt med venner"
+	},
+	"snowflake_shared_message": {
+		"message": "Noen har sendt deg et snøfnugg!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

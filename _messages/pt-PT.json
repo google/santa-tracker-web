@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bósnia e Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Anterior"
+	},
 	"back_to_tracker": {
 		"message": "Voltar para A viagem do Pai Natal"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Equador"
 	},
+	"educators": {
+		"message": "A viagem do Pai Natal para Educadores"
+	},
 	"ee_country_name": {
 		"message": "Estónia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Novo"
 	},
+	"next": {
+		"message": "Seguinte"
+	},
 	"ng_country_name": {
 		"message": "Nigéria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Não, obrigado"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Está offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Questionário do mapa"
 	},
-	"scene_postcard": {
-		"message": "Postais com flocos de neve"
-	},
 	"scene_presentbounce": {
 		"message": "Salto dos presentes"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Escolha um fundo"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Utilize as teclas de seta para para escolher um postal"
+	},
+	"snowflake_code": {
+		"message": "Codifique o seu floco de neve"
+	},
+	"snowflake_code_instructions": {
+		"message": "Reúna blocos para criar o seu floco de neve"
+	},
+	"snowflake_create_message": {
+		"message": "Crie o seu floco de neve"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Agora repetir!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "A repetir"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rodar e repetir!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "A rodar e repetir"
+	},
+	"snowflake_make_your_own": {
+		"message": "Isto foi criado com código. Experimente e crie um também!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Escolha um postal e partilhe o seu floco de neve com amigos"
+	},
+	"snowflake_shared_message": {
+		"message": "Alguém lhe enviou um floco de neve!"
 	},
 	"so_country_name": {
 		"message": "Somália"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Боснія і Герцеговина"
 	},
+	"back_to_previous_page": {
+		"message": "Назад"
+	},
 	"back_to_tracker": {
 		"message": "Назад до маршруту"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Еквадор"
 	},
+	"educators": {
+		"message": "Додаток Де Дід Мороз для викладачів"
+	},
 	"ee_country_name": {
 		"message": "Естонія"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Доступно відсьогодні"
 	},
+	"next": {
+		"message": "Далі"
+	},
 	"ng_country_name": {
 		"message": "Нігерія"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ні, дякую"
-	},
-	"offline_notification_okay": {
-		"message": "ОК"
 	},
 	"offline_user_message": {
 		"message": "Ви в режимі офлайн"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Географічна вікторина"
 	},
-	"scene_postcard": {
-		"message": "Картки зі сніжинками"
-	},
 	"scene_presentbounce": {
 		"message": "Підкидання подарунків"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowflake_choose_background": {
+		"message": "Виберіть фон"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Виберіть листівку за допомогою клавіш зі стрілками"
+	},
+	"snowflake_code": {
+		"message": "Створіть код сніжинки"
+	},
+	"snowflake_code_instructions": {
+		"message": "З’єднайте частини, щоб створити власну сніжинку"
+	},
+	"snowflake_create_message": {
+		"message": "Створіть власну сніжинку"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Повторіть ще раз!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Повторення"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Оберніть і повторіть ще раз!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Обертання та повторення"
+	},
+	"snowflake_make_your_own": {
+		"message": "Цю сніжинку створено за допомогою коду. Спробуйте самі!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Виберіть листівку та поділіться сніжинкою з друзями"
+	},
+	"snowflake_shared_message": {
+		"message": "Хтось надіслав вам сніжинку!"
 	},
 	"so_country_name": {
 		"message": "Сомалі"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnien-Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Tillbaka"
+	},
 	"back_to_tracker": {
 		"message": "Tillbaka till Följ jultomten"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Följ jultomten för lärare"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Nytt i dag"
 	},
+	"next": {
+		"message": "Nästa"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nej tack"
-	},
-	"offline_notification_okay": {
-		"message": "Ok"
 	},
 	"offline_user_message": {
 		"message": "Du är offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Karttest"
 	},
-	"scene_postcard": {
-		"message": "Snöflingekort"
-	},
 	"scene_presentbounce": {
 		"message": "Julklappsstuds"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Välj en bakgrund"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Välj ett vykort med piltangenterna"
+	},
+	"snowflake_code": {
+		"message": "Gör en snöflinga med kod"
+	},
+	"snowflake_code_instructions": {
+		"message": "Gör en egen snöflinga genom att sammanfoga block"
+	},
+	"snowflake_create_message": {
+		"message": "Forma din egen snöflinga"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Gör om det!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Gör om"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rotera och gör om det!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Rotera och gör om"
+	},
+	"snowflake_make_your_own": {
+		"message": "Det här skapades med kod. Testa själv!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Välj ett vykort och dela snöflingan med vänner"
+	},
+	"snowflake_shared_message": {
+		"message": "Någon skickade en snöflinga till dig!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

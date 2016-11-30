@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia và Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Quay lại"
+	},
 	"back_to_tracker": {
 		"message": "Quay lại Công cụ theo dõi"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Theo chân ông già Noel cho Nhà giáo dục"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Mới hôm nay"
 	},
+	"next": {
+		"message": "Tiếp"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Không, cảm ơn"
-	},
-	"offline_notification_okay": {
-		"message": "Ok"
 	},
 	"offline_user_message": {
 		"message": "Bạn đang ngoại tuyến"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Câu đố trên bản đồ"
 	},
-	"scene_postcard": {
-		"message": "Thiệp hoa tuyết"
-	},
 	"scene_presentbounce": {
 		"message": "Trò chơi nảy quà"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Chọn phông nền"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Sử dụng các phím mũi tên để chọn bưu thiếp"
+	},
+	"snowflake_code": {
+		"message": "Viết mã cho bông tuyết của bạn"
+	},
+	"snowflake_code_instructions": {
+		"message": "Ghép các khối với nhau để thiết kế bông tuyết của riêng bạn"
+	},
+	"snowflake_create_message": {
+		"message": "Thiết kế bông tuyết của riêng bạn"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Giờ hãy lặp lại!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Lặp lại"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Xoay và lặp lại!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Xoay và lặp lại"
+	},
+	"snowflake_make_your_own": {
+		"message": "Màn hình này có mã. Hãy thử lại!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Chọn một bưu thiếp và chia sẻ bông tuyết với bạn bè"
+	},
+	"snowflake_shared_message": {
+		"message": "Ai đó đã gửi cho bạn một bông tuyết!"
 	},
 	"so_country_name": {
 		"message": "Somali"

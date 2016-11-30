@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "보스니아 헤르체고비나"
 	},
+	"back_to_previous_page": {
+		"message": "뒤로"
+	},
 	"back_to_tracker": {
 		"message": "추적기로 돌아가기"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "에콰도르"
 	},
+	"educators": {
+		"message": "교육기관용 산타 추적기"
+	},
 	"ee_country_name": {
 		"message": "에스토니아"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "오늘의 새로운 장면"
 	},
+	"next": {
+		"message": "다음"
+	},
 	"ng_country_name": {
 		"message": "나이지리아"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "나중에"
-	},
-	"offline_notification_okay": {
-		"message": "확인"
 	},
 	"offline_user_message": {
 		"message": "오프라인 상태입니다."
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "지도 퀴즈"
 	},
-	"scene_postcard": {
-		"message": "눈송이 카드"
-	},
 	"scene_presentbounce": {
 		"message": "선물 튕기기"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "세네갈"
+	},
+	"snowflake_choose_background": {
+		"message": "배경을 선택하세요."
+	},
+	"snowflake_choose_postcard": {
+		"message": "화살표 키를 사용하여 엽서를 선택하세요."
+	},
+	"snowflake_code": {
+		"message": "눈송이 코드를 작성해 보세요."
+	},
+	"snowflake_code_instructions": {
+		"message": "블록을 연결하여 나만의 눈송이를 디자인해 보세요."
+	},
+	"snowflake_create_message": {
+		"message": "나만의 눈송이를 디자인해 보세요."
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "이제 반복하세요."
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "반복"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "회전 후 반복하세요."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "회전 후 반복"
+	},
+	"snowflake_make_your_own": {
+		"message": "코드로 만든 눈송이입니다. 직접 눈송이를 만들어 보세요."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "엽서를 선택하고 친구와 눈송이를 공유해 보세요."
+	},
+	"snowflake_shared_message": {
+		"message": "다른 사용자가 눈송이를 보냈습니다."
 	},
 	"so_country_name": {
 		"message": "소말리아"

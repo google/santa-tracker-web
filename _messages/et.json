@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia ja Hertsegoviina"
 	},
+	"back_to_previous_page": {
+		"message": "Tagasi"
+	},
 	"back_to_tracker": {
 		"message": "Tagasi teekonna jälgimise juurde"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Santa Tracker õpetajatele"
+	},
 	"ee_country_name": {
 		"message": "Eesti"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Täna uus"
 	},
+	"next": {
+		"message": "Järgmine"
+	},
 	"ng_country_name": {
 		"message": "Nigeeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Tänan, ei"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Võrguühendus puudub"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Kaardiviktoriin"
 	},
-	"scene_postcard": {
-		"message": "Lumehelbekaardid"
-	},
 	"scene_presentbounce": {
 		"message": "Põrkavad kingid"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Valige taust"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Valige postkaart nooleklahvidega"
+	},
+	"snowflake_code": {
+		"message": "Kodeerige oma lumehelves"
+	},
+	"snowflake_code_instructions": {
+		"message": "Lumehelbe kujundamiseks järjestage koodiplokid"
+	},
+	"snowflake_create_message": {
+		"message": "Kujundage oma lumehelves"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Nüüd korrake!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Kordamine"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Pöörake ja korrake!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Pööramine ja kordamine"
+	},
+	"snowflake_make_your_own": {
+		"message": "See loodi koodi kasutades. Proovige ise!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Valige postkaart ja jagage oma lumehelvest sõpradega"
+	},
+	"snowflake_shared_message": {
+		"message": "Keegi saatis teile lumehelbe!"
 	},
 	"so_country_name": {
 		"message": "Somaalia"

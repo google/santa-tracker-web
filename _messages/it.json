@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia-Erzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Indietro"
+	},
 	"back_to_tracker": {
 		"message": "Torna al tracker"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Segui Babbo Natale per insegnanti"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Novità di oggi"
 	},
+	"next": {
+		"message": "Avanti"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No, grazie"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Sei offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Quiz sulla mappa"
 	},
-	"scene_postcard": {
-		"message": "Bigliettini natalizi"
-	},
 	"scene_presentbounce": {
 		"message": "Palleggia con il regalo"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Scegli uno sfondo"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Utilizza le frecce per scegliere una cartolina"
+	},
+	"snowflake_code": {
+		"message": "Codifica il tuo bigliettino natalizio"
+	},
+	"snowflake_code_instructions": {
+		"message": "Raggruppa i blocchi per creare il tuo bigliettino natalizio"
+	},
+	"snowflake_create_message": {
+		"message": "Crea il tuo bigliettino natalizio"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Adesso ripeti!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Ripetizione"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Ruota e ripeti!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Rotazione e ripetizione"
+	},
+	"snowflake_make_your_own": {
+		"message": "Questo bigliettino è stato creato utilizzando del codice. Prova anche tu."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Scegli una cartolina e condividi il tuo bigliettino natalizio con gli amici"
+	},
+	"snowflake_shared_message": {
+		"message": "Qualcuno ti ha inviato un bigliettino natalizio!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

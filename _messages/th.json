@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "บอสเนียและเฮอร์เซโกวีนา"
 	},
+	"back_to_previous_page": {
+		"message": "ย้อนกลับ"
+	},
 	"back_to_tracker": {
 		"message": "กลับไปที่เครื่องมือติดตาม"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "เอกวาดอร์"
 	},
+	"educators": {
+		"message": "ตามติดซานต้าสำหรับนักการศึกษา"
+	},
 	"ee_country_name": {
 		"message": "เอสโตเนีย"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "ใหม่สำหรับวันนี้"
 	},
+	"next": {
+		"message": "ถัดไป"
+	},
 	"ng_country_name": {
 		"message": "ไนจีเรีย"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "ไม่ ขอบคุณ"
-	},
-	"offline_notification_okay": {
-		"message": "ตกลง"
 	},
 	"offline_user_message": {
 		"message": "คุณออฟไลน์อยู่"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "คำถามเกี่ยวกับแผนที่"
 	},
-	"scene_postcard": {
-		"message": "การ์ดเกล็ดหิมะ"
-	},
 	"scene_presentbounce": {
 		"message": "โยนของขวัญ"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "เซเนกัล"
+	},
+	"snowflake_choose_background": {
+		"message": "เลือกฉากหลัง"
+	},
+	"snowflake_choose_postcard": {
+		"message": "ใช้ปุ่มลูกศรเพื่อเลือกโปสการ์ด"
+	},
+	"snowflake_code": {
+		"message": "สร้างเกล็ดหิมะของคุณ"
+	},
+	"snowflake_code_instructions": {
+		"message": "นำบล็อกมาติดเข้าด้วยกันเพื่อออกแบบเกล็ดหิมะของคุณเอง"
+	},
+	"snowflake_create_message": {
+		"message": "ออกแบบเกล็ดหิมะของคุณเอง"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "ตอนนี้หมุนซ้ำ"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "การหมุนซ้ำ"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "หมุนซ้ำเป็นวงกลม"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "การหมุนซ้ำเป็นวงกลม"
+	},
+	"snowflake_make_your_own": {
+		"message": "เกล็ดหิมะนี้สร้างขึ้นโดยใช้โค้ด ลองทำด้วยตัวคุณเองเลย!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "เลือกโปสการ์ด แล้วแชร์เกล็ดหิมะของคุณกับเพื่อนๆ"
+	},
+	"snowflake_shared_message": {
+		"message": "มีคนส่งเกล็ดหิมะให้คุณ!"
 	},
 	"so_country_name": {
 		"message": "โซมาเลีย"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bośnia i Hercegowina"
 	},
+	"back_to_previous_page": {
+		"message": "Wstecz"
+	},
 	"back_to_tracker": {
 		"message": "Powrót do Trasy Świętego Mikołaja"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekwador"
 	},
+	"educators": {
+		"message": "Trasa Świętego Mikołaja dla nauczycieli"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Nowość"
 	},
+	"next": {
+		"message": "Dalej"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nie, dziękuję"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Jesteś offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Quiz z mapami"
 	},
-	"scene_postcard": {
-		"message": "Śnieżynkowe karty"
-	},
 	"scene_presentbounce": {
 		"message": "Podskakujące prezenty"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Wybierz tło"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Użyj klawiszy strzałek, aby wybrać pocztówkę"
+	},
+	"snowflake_code": {
+		"message": "Zakoduj własną śnieżynkę"
+	},
+	"snowflake_code_instructions": {
+		"message": "Połącz bloki, aby zaprojektować własną śnieżynkę"
+	},
+	"snowflake_create_message": {
+		"message": "Zaprojektuj własną śnieżynkę"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Teraz powtórz"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Powtarzam"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Obróć i powtórz"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Obracam i powtarzam"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ta śnieżynka została stworzona za pomocą kodu. Spróbuj!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Wybierz pocztówkę i udostępnij swoją śnieżynkę znajomym"
+	},
+	"snowflake_shared_message": {
+		"message": "Ktoś przysłał Ci śnieżynkę!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

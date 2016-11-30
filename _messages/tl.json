@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia and Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Bumalik"
+	},
 	"back_to_tracker": {
 		"message": "Bumalik sa Tracker"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Santa Tracker para sa mga Nagtuturo"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Bago Ngayon"
 	},
+	"next": {
+		"message": "Susunod"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Hindi, salamat na lang"
-	},
-	"offline_notification_okay": {
-		"message": "Okay"
 	},
 	"offline_user_message": {
 		"message": "Offline ka"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Map Quiz"
 	},
-	"scene_postcard": {
-		"message": "Snowflake Cards"
-	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Pumili ng backdrop"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Gamitin ang mga arrow key upang makakuha ng postcard"
+	},
+	"snowflake_code": {
+		"message": "I-code ang iyong snowflake"
+	},
+	"snowflake_code_instructions": {
+		"message": "Pagdikit-dikitin ang mga block upang makapagdisenyo ng sarili mong snowflake"
+	},
+	"snowflake_create_message": {
+		"message": "Magdisenyo ng sarili mong snowflake"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Ulitin mo ngayon!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Inuulit"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Iikot at ulitin!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Pinaiikot at inuulit"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ginawa ito gamit ang code. Subukan mo!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Pumili ng postcard at ibahagi ang iyong snowflake sa mga kaibigan"
+	},
+	"snowflake_shared_message": {
+		"message": "May nagpadala sa iyo ng snowflake!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

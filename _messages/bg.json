@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Босна и Херцеговина"
 	},
+	"back_to_previous_page": {
+		"message": "Назад"
+	},
 	"back_to_tracker": {
 		"message": "Назад към програмата за проследяване"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Еквадор"
 	},
+	"educators": {
+		"message": "Къде е Дядо Коледа за преподаватели"
+	},
 	"ee_country_name": {
 		"message": "Естония"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Ново днес"
 	},
+	"next": {
+		"message": "Напред"
+	},
 	"ng_country_name": {
 		"message": "Нигерия"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Не, благодаря"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Офлайн сте"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Географска викторина"
 	},
-	"scene_postcard": {
-		"message": "Картички със снежинки"
-	},
 	"scene_presentbounce": {
 		"message": "Подскачащи подаръци"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowflake_choose_background": {
+		"message": "Изберете фон"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Използвайте клавишите със стрелки, за да изберете пощенска картичка"
+	},
+	"snowflake_code": {
+		"message": "Кодирайте снежинка"
+	},
+	"snowflake_code_instructions": {
+		"message": "Свържете блокчетата, за да създадете своя собствена снежинка"
+	},
+	"snowflake_create_message": {
+		"message": "Създайте своя собствена снежинка"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "А сега повторение!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Повтаряне"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Завъртане и повтаряне!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Завъртане и повтаряне"
+	},
+	"snowflake_make_your_own": {
+		"message": "Тази снежинка е създадена с код. Изпробвайте сами!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Изберете картичка и споделете снежинката си с приятели"
+	},
+	"snowflake_shared_message": {
+		"message": "Някой ви изпрати снежинка!"
 	},
 	"so_country_name": {
 		"message": "Сомалия"

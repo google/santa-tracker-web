@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia și Herțegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Înapoi"
+	},
 	"back_to_tracker": {
 		"message": "Înapoi la traseu"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Pe urmele lui Moș Crăciun pentru învățători"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Nou azi"
 	},
+	"next": {
+		"message": "Înainte"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nu, mulțumesc!"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Ești offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Test la geografie"
 	},
-	"scene_postcard": {
-		"message": "Felicitări cu fulgi de zăpadă"
-	},
 	"scene_presentbounce": {
 		"message": "Cadouri săltărețe"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Alege un fundal"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Folosește săgețile pentru a alege o felicitare"
+	},
+	"snowflake_code": {
+		"message": "Scrie codul propriului fulg de zăpadă"
+	},
+	"snowflake_code_instructions": {
+		"message": "Unește blocurile pentru a-ți crea propriul fulg de zăpadă"
+	},
+	"snowflake_create_message": {
+		"message": "Creează-ți propriul fulg de zăpadă"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Repetă acum!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Se repetă"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rotește și repetă!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Se rotește și se repetă"
+	},
+	"snowflake_make_your_own": {
+		"message": "A fost creat folosind cod. Încearcă!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Alege o felicitare și trimite prietenilor fulgul tău de zăpadă"
+	},
+	"snowflake_shared_message": {
+		"message": "Ai primit un fulg de zăpadă!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

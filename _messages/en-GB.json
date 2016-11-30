@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia and Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Back"
+	},
 	"back_to_tracker": {
 		"message": "Back to Tracker"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Santa Tracker for Educators"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "New Today"
 	},
+	"next": {
+		"message": "Next"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No thanks"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "You're offline"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Map Quiz"
 	},
-	"scene_postcard": {
-		"message": "Snowflake Cards"
-	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Pick a backdrop"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Use the arrow keys to pick a postcard"
+	},
+	"snowflake_code": {
+		"message": "Code your snowflake"
+	},
+	"snowflake_code_instructions": {
+		"message": "Snap blocks together to design your own snowflake"
+	},
+	"snowflake_create_message": {
+		"message": "Design your own snowflake"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Now repeat!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Repeating"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rotate and repeat!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Rotating and repeating"
+	},
+	"snowflake_make_your_own": {
+		"message": "This was made with code. Try it yourself!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Choose a postcard and share your snowflake with friends"
+	},
+	"snowflake_shared_message": {
+		"message": "Someone has sent you a snowflake!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

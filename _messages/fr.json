@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnie-Herzégovine"
 	},
+	"back_to_previous_page": {
+		"message": "Retour"
+	},
 	"back_to_tracker": {
 		"message": "Retour à l'interface Sur la piste du père Noël"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Équateur"
 	},
+	"educators": {
+		"message": "Sur la piste du père Noël pour les enseignants"
+	},
 	"ee_country_name": {
 		"message": "Estonie"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Nouveau !"
 	},
+	"next": {
+		"message": "Suivant"
+	},
 	"ng_country_name": {
 		"message": "Nigéria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Non merci"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Hors connexion"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Quiz géographique"
 	},
-	"scene_postcard": {
-		"message": "Cartes flocons de neige"
-	},
 	"scene_presentbounce": {
 		"message": "Le cadeau rebondissant"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Sénégal"
+	},
+	"snowflake_choose_background": {
+		"message": "Choisissez un fond"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Utilisez les flèches pour sélectionner une carte postale"
+	},
+	"snowflake_code": {
+		"message": "Codez votre flocon de neige"
+	},
+	"snowflake_code_instructions": {
+		"message": "Assemblez des blocs pour créer votre propre flocon de neige"
+	},
+	"snowflake_create_message": {
+		"message": "Créez votre propre flocon de neige"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Maintenant, répétez l'opération !"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Répétition"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Faites-le tourner et répétez l'opération !"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Rotation et répétition de l'opération"
+	},
+	"snowflake_make_your_own": {
+		"message": "Il a été créé en code. À votre tour d'essayer !"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Choisissez une carte postale, et partagez votre flocon de neige avec vos amis"
+	},
+	"snowflake_shared_message": {
+		"message": "Vous avez reçu un flocon de neige !"
 	},
 	"so_country_name": {
 		"message": "Somalie"

@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "போஸ்னியா மற்றும் ஹெர்ஸெகோவினா"
 	},
+	"back_to_previous_page": {
+		"message": "முந்தையது"
+	},
 	"back_to_tracker": {
 		"message": "ட்ராக்கருக்கு திரும்புக"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "ஈக்வடோர்"
 	},
+	"educators": {
+		"message": "கற்பிப்பவர்களுக்கான சான்டா ட்ராக்கர்"
+	},
 	"ee_country_name": {
 		"message": "எஸ்டோனியா"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "இன்றைய காட்சி"
 	},
+	"next": {
+		"message": "அடுத்து"
+	},
 	"ng_country_name": {
 		"message": "நைஜீரியா"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "வேண்டாம்"
-	},
-	"offline_notification_okay": {
-		"message": "சரி"
 	},
 	"offline_user_message": {
 		"message": "ஆஃப்லைனில் உள்ளீர்கள்"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "வரைபட வினாடி வினா"
 	},
-	"scene_postcard": {
-		"message": "ஸ்னோஃப்ளேக் கார்டுகள்"
-	},
 	"scene_presentbounce": {
 		"message": "பிரசென்ட் பவுன்ஸ்"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "செனகல்"
+	},
+	"snowflake_choose_background": {
+		"message": "பின்னணியைத் தேர்வுசெய்யவும்"
+	},
+	"snowflake_choose_postcard": {
+		"message": "அஞ்சலட்டையைத் தேர்ந்தெடுக்க, அம்புக்குறி விசைகளைப் பயன்படுத்தவும்"
+	},
+	"snowflake_code": {
+		"message": "உங்கள் ஸ்னோஃப்ளேக்கிற்குக் குறியிடவும்"
+	},
+	"snowflake_code_instructions": {
+		"message": "உங்கள் சொந்த ஸ்னோஃப்ளேக்கை வடிவமைக்க, தொகுதிகளை ஒன்றாக ஸ்னாப் செய்யவும்"
+	},
+	"snowflake_create_message": {
+		"message": "உங்கள் சொந்த ஸ்னோஃப்ளேக்கை வடிவமைக்கவும்"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "இப்போது மீண்டும் செய்யவும்!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "மீண்டும் செய்கிறது"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "சுழற்று, மீண்டும் செய்!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "சுழற்றுகிறது, மீண்டும் செய்கிறது"
+	},
+	"snowflake_make_your_own": {
+		"message": "இது குறியீட்டைப் பயன்படுத்திச் செய்யப்பட்டது. நீங்களாகவே முயற்சி செய்யவும்!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "ஒரு அஞ்சலட்டையைத் தேர்வுசெய்து, உங்கள் ஸ்னோஃப்ளேக்கை நண்பர்களுடன் பகிர்ந்து கொள்ளவும்"
+	},
+	"snowflake_shared_message": {
+		"message": "யாரோ ஒருவர் உங்களுக்கு ஒரு ஸ்னோஃப்ளேக்கை அனுப்பியுள்ளார்!"
 	},
 	"so_country_name": {
 		"message": "சோமாலியா"

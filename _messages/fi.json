@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia ja Hertsegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Edellinen"
+	},
 	"back_to_tracker": {
 		"message": "Takaisin jäljittimeen"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Julupukin jäljitin opettajille"
+	},
 	"ee_country_name": {
 		"message": "Viro"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Avattu tänään"
 	},
+	"next": {
+		"message": "Seuraava"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ei kiitos"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Olet offline-tilassa."
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Karttavisa"
 	},
-	"scene_postcard": {
-		"message": "Lumihiutalekortit"
-	},
 	"scene_presentbounce": {
 		"message": "Pomppivat paketit"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Valitse taustaväri."
+	},
+	"snowflake_choose_postcard": {
+		"message": "Valitse postikortti nuolinäppäimillä."
+	},
+	"snowflake_code": {
+		"message": "Koodaa oma lumihiutaleesi"
+	},
+	"snowflake_code_instructions": {
+		"message": "Suunnittele oma lumihiutaleesi kiinnittämällä palaset toisiinsa."
+	},
+	"snowflake_create_message": {
+		"message": "Suunnittele oma lumihiutaleesi"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Nyt toista kuvio!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Toistaa kuvion"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Kierrä ja toista kuvio."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Kiertää ja toistaa kuvion"
+	},
+	"snowflake_make_your_own": {
+		"message": "Tämä lumihiutale tehtiin koodin avulla. Tee oma lumihiutaleesi."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Valitse postikortti ja jaa lumihiutaleesi ystävillesi."
+	},
+	"snowflake_shared_message": {
+		"message": "Olet saanut lumihiutaleen!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

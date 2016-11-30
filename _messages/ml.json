@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "ബോസ്‌നിയയും ഹെർസേഗോവിനയും"
 	},
+	"back_to_previous_page": {
+		"message": "മടങ്ങുക"
+	},
 	"back_to_tracker": {
 		"message": "ട്രാക്കറിലേക്ക് തിരികെ"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "ഇക്വഡോർ"
 	},
+	"educators": {
+		"message": "എജ്യുക്കേറ്റർമാർക്കുള്ള സാന്ത ട്രാക്കർ"
+	},
 	"ee_country_name": {
 		"message": "എസ്‌റ്റോണിയ"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "ഇന്നത്തെ പുതിയത്"
 	},
+	"next": {
+		"message": "അടുത്തത്"
+	},
 	"ng_country_name": {
 		"message": "നൈജീരിയ"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "വേണ്ട, നന്ദി"
-	},
-	"offline_notification_okay": {
-		"message": "ശരി"
 	},
 	"offline_user_message": {
 		"message": "നിങ്ങൾ ഓഫ്‌ലൈനിലാണ്"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "മാപ്പ് ക്വിസ്"
 	},
-	"scene_postcard": {
-		"message": "സ്നോഫ്ലേക്ക് കാർഡുകൾ"
-	},
 	"scene_presentbounce": {
 		"message": "നിലവിലെ ബൗൺസ്"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "സെനഗൽ"
+	},
+	"snowflake_choose_background": {
+		"message": "ഒരു ബാക്ക്‌ഡ്രോപ്പ് തിരഞ്ഞെടുക്കുക"
+	},
+	"snowflake_choose_postcard": {
+		"message": "ഒരു പോസ്റ്റ്‌കാർഡ് എടുക്കാൻ അമ്പടയാള കീകൾ ഉപയോഗിക്കുക"
+	},
+	"snowflake_code": {
+		"message": "നിങ്ങളുടെ സ്നോഫ്ലേക്ക് കോഡുചെയ്യുക"
+	},
+	"snowflake_code_instructions": {
+		"message": "നിങ്ങളുടെ സ്വന്തം സ്നോഫ്ലേക്ക് ഡിസൈൻ ചെയ്യാൻ ബ്ലോക്കുകൾ ഒന്നിച്ച് സ്നാപ്പ് ചെയ്യുക"
+	},
+	"snowflake_create_message": {
+		"message": "നിങ്ങളുടെ സ്വന്തം സ്നോ‌ഫ്ലേക്ക് ഡിസൈൻ ചെയ്യുക"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "ഇപ്പോൾ ആവർത്തിക്കുക!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "ആവർത്തിക്കുന്നു"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "റൊട്ടേറ്റുചെയ്ത് ആവർത്തിക്കുക!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "റൊട്ടേറ്റുചെയ്ത് ആവർത്തിക്കുന്നു"
+	},
+	"snowflake_make_your_own": {
+		"message": "ഇത് കോഡ് ഉപയോഗിച്ച് ചെയ്തു. സ്വയം പരീക്ഷിക്കൂ!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "ഒരു പോസ്റ്റ്‌കാർഡ് തിരഞ്ഞെടുത്ത് നിങ്ങളുടെ സ്നോഫ്ലേക്ക് സുഹൃത്തുക്കളുമായി പങ്കിടുക"
+	},
+	"snowflake_shared_message": {
+		"message": "ആരോ ഒരാൾ നിങ്ങൾക്ക് ഒരു സ്നോഫ്ലേക്ക് അയച്ചു!"
 	},
 	"so_country_name": {
 		"message": "സോമാലിയ"

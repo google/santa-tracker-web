@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bòsnia i Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Enrere"
+	},
 	"back_to_tracker": {
 		"message": "Torna a l'eina de seguiment"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Equador"
 	},
+	"educators": {
+		"message": "Segueix el Pare Noel per a educadors"
+	},
 	"ee_country_name": {
 		"message": "Estònia"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Nou avui!"
 	},
+	"next": {
+		"message": "Següent"
+	},
 	"ng_country_name": {
 		"message": "Nigèria"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No, gràcies"
-	},
-	"offline_notification_okay": {
-		"message": "D'acord"
 	},
 	"offline_user_message": {
 		"message": "No tens connexió"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Joc de geografia"
 	},
-	"scene_postcard": {
-		"message": "Targetes de flocs de neu"
-	},
 	"scene_presentbounce": {
 		"message": "Joc de rebotar regals"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Tria un fons de pantalla"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Fes servir les tecles de fletxa per triar una postal"
+	},
+	"snowflake_code": {
+		"message": "Codifica el teu floc de neu"
+	},
+	"snowflake_code_instructions": {
+		"message": "Per crear el teu propi floc de neu, fes encaixar les peces"
+	},
+	"snowflake_create_message": {
+		"message": "Dissenya el teu propi floc de neu"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Repeteix-ho!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "S'està repetint"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Gira i repeteix!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "S'està girant i repetint"
+	},
+	"snowflake_make_your_own": {
+		"message": "Aquest floc de neu s'ha creat amb codi. Prova de crear-ne un."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Selecciona una postal i comparteix el teu floc de neu amb els amics"
+	},
+	"snowflake_shared_message": {
+		"message": "Algú t'ha enviat un floc de neu."
 	},
 	"so_country_name": {
 		"message": "Somàlia"

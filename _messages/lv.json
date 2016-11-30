@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnija un Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Atpakaļ"
+	},
 	"back_to_tracker": {
 		"message": "Atgriezties lietotnē “Ziemassvētku vecīša ceļojums”"
 	},
@@ -536,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekvadora"
 	},
+	"educators": {
+		"message": "Ziemassvētku vecīša ceļojums pedagogiem"
+	},
 	"ee_country_name": {
 		"message": "Igaunija"
 	},
@@ -830,6 +836,9 @@
 	"newtoday": {
 		"message": "Šodienas jaunums"
 	},
+	"next": {
+		"message": "Tālāk"
+	},
 	"ng_country_name": {
 		"message": "Nigērija"
 	},
@@ -943,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nē, paldies"
-	},
-	"offline_notification_okay": {
-		"message": "Labi"
 	},
 	"offline_user_message": {
 		"message": "Jūs esat bezsaistē"
@@ -1118,9 +1124,6 @@
 	"scene_mercator": {
 		"message": "Kartes viktorīna"
 	},
-	"scene_postcard": {
-		"message": "Sniegpārsliņu kartiņas"
-	},
 	"scene_presentbounce": {
 		"message": "Dāvanu mētāšana"
 	},
@@ -1198,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegāla"
+	},
+	"snowflake_choose_background": {
+		"message": "Izvēlieties fonu"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Lai izvēlētos pastkarti, izmantojiet bulttaustiņus"
+	},
+	"snowflake_code": {
+		"message": "Izveidojiet sniegpārsliņu, izmantojot kodu"
+	},
+	"snowflake_code_instructions": {
+		"message": "Lai izveidotu sniegpārsliņu, savienojiet kopā klucīšus"
+	},
+	"snowflake_create_message": {
+		"message": "Izveidojiet savu sniegpārsliņu"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Tagad atkārtojiet!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Atkārtošana"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Pagrieziet un atkārtojiet."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Pagriešana un atkārtošana"
+	},
+	"snowflake_make_your_own": {
+		"message": "Sniegpārsliņa tika izveidota ar kodu. Izmēģiniet pats!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Izvēlieties pastkarti un kopīgojiet savu sniegpārsliņu ar draugiem"
+	},
+	"snowflake_shared_message": {
+		"message": "Kāds nosūtīja jums sniegpārsliņu."
 	},
 	"so_country_name": {
 		"message": "Somālija"
