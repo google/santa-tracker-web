@@ -93,7 +93,7 @@ ga('set', 'transport', 'beacon');
     // fail over to upgrade.html, falling back to timeout in case Analytics is failing.
     function redirect() {
       var url = new URL('upgrade.html', window.location);
-      window.location = url + window.location.query;
+      window.location = url + (window.location.query || '');
     }
     window.ga('send', 'pageview', '/');
     window.ga('send', 'event', 'Polymer', 'unsupported-browser', { hitCallback: redirect });
