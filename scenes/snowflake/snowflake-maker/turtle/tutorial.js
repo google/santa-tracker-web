@@ -36,7 +36,7 @@ Turtle.SceneTutorial = function(el) {
  * Dispose of this SceneTutorial.
  */
 Turtle.SceneTutorial.prototype.dispose = function() {
-  document.removeEventListener('click', this.boundOnClick_, false);
+  Blockly.getMainWorkspace().removeChangeListener(this.onBlocklyChange_);
 };
 
 /**

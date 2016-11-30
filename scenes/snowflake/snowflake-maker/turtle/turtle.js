@@ -87,6 +87,13 @@ Turtle.onRepeat = false;
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
 
 /**
+ * Is this the first time the user has run their code?  If so, we will show the
+ * "Now repeat!" message.
+ * @type boolean
+ */
+Turtle.isFirstRun = true;
+
+/**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
@@ -167,7 +174,9 @@ Turtle.init = function() {
   }
   if (document.getElementById('playButton')) {
     Turtle.bindClick('playButton',
-      function() { Turtle.runCode(Turtle.DEFAULT_DELAY);});
+      function() {
+        Turtle.runCode(Turtle.DEFAULT_DELAY);
+      });
   }
 
   // Lazy-load the JavaScript interpreter.
@@ -411,10 +420,17 @@ Turtle.initInterpreter = function(interpreter, scope) {
   };
   interpreter.setProperty(scope, 'setOnRepeat', interpreter.createNativeFunction(wrapper));
 
-  wrapper = function(bool) {
-    Turtle.showRepeatMessage(bool);
+  wrapper = function() {
+    Turtle.showRepeatMessage();
   };
-  interpreter.setProperty(scope, 'showRepeatMessage', interpreter.createNativeFunction(wrapper));
+  interpreter.setProperty(scope, 'showRepeatMessage',
+      interpreter.createNativeFunction(wrapper));
+
+  wrapper = function() {
+    Turtle.hideRepeatMessage();
+  };
+  interpreter.setProperty(scope, 'hideRepeatMessage',
+      interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
@@ -501,18 +517,19 @@ Turtle.execute = function(callback) {
   var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
   var loopVar = 'snowflakeLoopCount'
 
-  var code = 'setOnRepeat(false);\n' +
+  var code = 'hideRepeatMessage();\n' +
+      'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
       'pause(' + Turtle.runDelay + ');\n' +
       subcode +
-      'if (' + loopVar + ' == 1) { showRepeatMessage(true);\n }\n';
+      'if (' + loopVar + ' == 1) { showRepeatMessage();\n }\n';
   if (Turtle.runDelay > 0) {
     code += 'if (' + loopVar + ' == 0) { pause(500); }\n';
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
       loopVar + '+1), \'no-block-id\');\n}\n' +
-      'showRepeatMessage(false)\n';
+      'hideRepeatMessage()\n';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100, callback));
 };
@@ -577,11 +594,20 @@ Turtle.setOnRepeat = function(bool) {
 }
 
 /**
- * Set the visibility of the "now repeat" message.
+ * Show the "now repeat" message if it has never been shown before.
  */
-Turtle.showRepeatMessage = function(bool) {
-  document.getElementById('now_repeat_message').style.display = bool.data ?
-      'block' : 'none';
+Turtle.showRepeatMessage = function() {
+  if (Turtle.isFirstRun) {
+    Turtle.isFirstRun = false;
+    document.getElementById('now_repeat_message').style.display = 'block';
+  }
+};
+
+/**
+ * Hide the "now repeat" message.
+ */
+Turtle.hideRepeatMessage = function() {
+  document.getElementById('now_repeat_message').style.display = 'none';
 };
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
