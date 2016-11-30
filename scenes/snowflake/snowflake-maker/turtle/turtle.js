@@ -87,6 +87,20 @@ Turtle.onRepeat = false;
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
 
 /**
+ * The number of times the user has run their code.  This is used to turn off
+ * helper messages when they have run their code a set number of times.
+ * This starts at -1 so we can avoid showing it when we run the starter code.
+ * @type number
+ */
+Turtle.runCount = -1;
+
+/**
+ * How many times the "now repeat" message should show up.
+ * @type number
+ */
+Turtle.RUN_COUNT_THRESHOLD = 3;
+
+/**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
@@ -136,7 +150,10 @@ Turtle.init = function() {
   Turtle.paper = document.getElementById('paperDiv');
 
   BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
-  Turtle.loadUrlBlocks();
+  if(!Turtle.loadUrlBlocks()) {
+    // Run the code once, to give them an idea of what they're doing.
+    Turtle.runCode(Turtle.DEFAULT_DELAY);
+  }
 
 
   // Onresize will be called as soon as we register it in IE, so we hold off
@@ -163,11 +180,17 @@ Turtle.init = function() {
 
   Turtle.registerRunListener();
   if (document.getElementById('submitButton')) {
-    Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
+    Turtle.bindClick('submitButton', function() {
+      // Don't show the repeat message on this fast run, or on following runs.
+      Turtle.runCount = Turtle.RUN_COUNT_THRESHOLD;
+      Turtle.sendSnowflakeAndBlocks();
+    });
   }
   if (document.getElementById('playButton')) {
     Turtle.bindClick('playButton',
-      function() { Turtle.runCode(Turtle.DEFAULT_DELAY);});
+      function() {
+        Turtle.runCode(Turtle.DEFAULT_DELAY);
+      });
   }
 
   // Lazy-load the JavaScript interpreter.
@@ -218,6 +241,10 @@ Turtle.getDefaultXml = function() {
       '</xml>';
 };
 
+/**
+ * Try to load blocks from the URL.
+ * @return {boolean} whether blocks were successfully loaded.
+ */
 Turtle.loadUrlBlocks = function() {
   var blocksString = window.location.search;
   if (blocksString) {
@@ -227,8 +254,10 @@ Turtle.loadUrlBlocks = function() {
       Sharing.urlToWorkspace(blocksString);
       Turtle.sharing = true;
       Turtle.sendSnowflakeAndBlocks();
+      return true;
     }
   }
+  return false;
 };
 
 /**
@@ -411,10 +440,17 @@ Turtle.initInterpreter = function(interpreter, scope) {
   };
   interpreter.setProperty(scope, 'setOnRepeat', interpreter.createNativeFunction(wrapper));
 
-  wrapper = function(bool) {
-    Turtle.showRepeatMessage(bool);
+  wrapper = function() {
+    Turtle.showRepeatMessage();
   };
-  interpreter.setProperty(scope, 'showRepeatMessage', interpreter.createNativeFunction(wrapper));
+  interpreter.setProperty(scope, 'showRepeatMessage',
+      interpreter.createNativeFunction(wrapper));
+
+  wrapper = function() {
+    Turtle.hideRepeatMessage();
+  };
+  interpreter.setProperty(scope, 'hideRepeatMessage',
+      interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
@@ -501,18 +537,19 @@ Turtle.execute = function(callback) {
   var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
   var loopVar = 'snowflakeLoopCount'
 
-  var code = 'setOnRepeat(false);\n' +
+  var code = 'hideRepeatMessage();\n' +
+      'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
       'pause(' + Turtle.runDelay + ');\n' +
       subcode +
-      'if (' + loopVar + ' == 1) { showRepeatMessage(true);\n }\n';
+      'if (' + loopVar + ' == 0) { showRepeatMessage();\n }\n';
   if (Turtle.runDelay > 0) {
     code += 'if (' + loopVar + ' == 0) { pause(500); }\n';
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
       loopVar + '+1), \'no-block-id\');\n}\n' +
-      'showRepeatMessage(false)\n';
+      'hideRepeatMessage()\n';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100, callback));
 };
@@ -577,11 +614,23 @@ Turtle.setOnRepeat = function(bool) {
 }
 
 /**
- * Set the visibility of the "now repeat" message.
+ * Show the "now repeat" message if it has never been shown before.
  */
-Turtle.showRepeatMessage = function(bool) {
-  document.getElementById('now_repeat_message').style.display = bool.data ?
-      'block' : 'none';
+Turtle.showRepeatMessage = function() {
+  if (Turtle.runCount < Turtle.RUN_COUNT_THRESHOLD) {
+    // Don't show the first time, when we're auto-playing the starter code.
+    if (Turtle.runCount != -1) {
+      document.getElementById('now_repeat_message').style.display = 'block';
+    }
+    Turtle.runCount++;
+  }
+};
+
+/**
+ * Hide the "now repeat" message.
+ */
+Turtle.hideRepeatMessage = function() {
+  document.getElementById('now_repeat_message').style.display = 'none';
 };
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
