@@ -188,28 +188,19 @@ Turtle.getDefaultXml = function() {
   return '<xml>' +
       '  <block type="snowflake_start" id="SnowflakeStartBlock" deletable="false" movable="false" x="32" y="32">' +
       '    <next>' +
-      '      <block type="pentagon_stamp">' +
-      '        <value name="SIZE">' +
-      '          <shadow type="dropdown_pentagon">' +
-      '            <field name="CHOICE">125</field>' +
+      '      <block type="turtle_colour">' +
+      '        <value name="COLOUR">' +
+      '          <shadow type="dropdown_colour">' +
+      '            <field name="CHOICE">#b3e5fc</field>' +
       '          </shadow>' +
       '        </value>' +
       '        <next>' +
-      '          <block type="turtle_colour">' +
-      '            <value name="COLOUR">' +
-      '              <shadow type="dropdown_colour">' +
-      '                <field name="CHOICE">#b3e5fc</field>' +
+      '          <block type="pentagon_stamp">' +
+      '            <value name="SIZE">' +
+      '              <shadow type="dropdown_pentagon">' +
+      '                <field name="CHOICE">125</field>' +
       '              </shadow>' +
       '            </value>' +
-      '            <next>' +
-      '              <block type="triangle_stamp">' +
-      '                <value name="SIZE">' +
-      '                  <shadow type="dropdown_triangle">' +
-      '                    <field name="CHOICE">125</field>' +
-      '                  </shadow>' +
-      '                </value>' +
-      '              </block>' +
-      '            </next>' +
       '          </block>' +
       '        </next>' +
       '      </block>' +
