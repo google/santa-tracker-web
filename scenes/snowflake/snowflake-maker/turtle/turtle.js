@@ -561,6 +561,8 @@ Turtle.animate = function(id) {
   if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
     Turtle.pause = Turtle.runDelay;
+  } else if (Turtle.onRepeat) {
+    BlocklyInterface.highlight(null);
   }
   if (Turtle.onRepeat || Turtle.sharing) {
     Turtle.pause = 0;
