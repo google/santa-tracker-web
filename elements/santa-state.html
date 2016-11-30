@@ -59,7 +59,7 @@ santaService.addListener('reload', function() {
 
   if (window.sw) {
     window.ga('send', 'event', 'API', 'sw-update', version);
-    window.sw.update();  // request SW update, void return
+    window.sw.then(function(sw) { return sw.update(); });  // request SW update, void return
   }
 
   if (!VERSION || window.DEV) {
