@@ -91,7 +91,7 @@ Santa's Village.
       <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <!-- The 'New Today' house exists in the regular grid -->
         <div class="house house-new-today">
-          <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]">
+          <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]" on-click="_onClickNewTodayHouse">
             <div class$="card new-today-[[todayHouse]]">
               <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_string('scene', todayHouse, strings)]]</h3>
@@ -433,6 +433,10 @@ Santa's Village.
      */
     _colorForRoute: function(santaApp, id) {
       return santaApp.colorForRoute(id);
+    },
+
+    _onClickNewTodayHouse: function() {
+      window.ga('send', 'event', 'village', 'click', 'newtoday');
     },
 
     /** NOTE: easteregg code only below this point */
