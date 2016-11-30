@@ -257,14 +257,17 @@ Turtle.loadUrlBlocks = function() {
  * respond by running the user's code.
  */
 Turtle.registerRunListener = function() {
-  function onBlockClicked(event) {
+  function onBlockSelected(event) {
     if (event.type == Blockly.Events.UI &&
-        event.element == 'click' &&
-        event.blockId == Turtle.snowflakeStartBlockId) {
+        event.element == 'selected' &&
+        event.newValue == Turtle.snowflakeStartBlockId) {
+      // Deselect the start block--otherwise it won't register the next tap.
+      // This is a workaround because immovable blocks don't fire click events.
+      Turtle.workspace.getBlockById(Turtle.snowflakeStartBlockId).unselect();
       Turtle.runCode(Turtle.DEFAULT_DELAY);
     }
   }
-  Turtle.workspace.addChangeListener(onBlockClicked);
+  Turtle.workspace.addChangeListener(onBlockSelected);
 };
 
 /**
