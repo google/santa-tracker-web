@@ -51,9 +51,10 @@ module.exports = function fanout(sceneConfig) {
         }
 
         if (config.msgid) {
-          // TODO(samthor): Include site name?
+          const title = this.head.querySelector('title');
+          title.setAttribute('msgid', `${config.msgid} ` + title.getAttribute('msgid'));
           const ogTitle = this.head.querySelector('[property="og:title"]');
-          ogTitle.msgid = config.msgid;
+          ogTitle.setAttribute('msgid', `${config.msgid} ` + ogTitle.getAttribute('msgid'));
         }
       });
 

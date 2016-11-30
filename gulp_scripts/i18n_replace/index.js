@@ -24,6 +24,16 @@ const format = require('sprintf-js').sprintf;
 
 const mutate = require('../mutate_html');
 
+/**
+ * Formats the passed msgid. Splits on space.
+ * @param {string} msgid
+ * @param {function(string): string}
+ * @return {string}
+ */
+function i18nFormat(msgid, lookup) {
+  return msgid.split(' ').filter(x => x).map(lookup).join(' \u2014 ');  // mdash
+}
+
 module.exports = function replaceMessages(opts) {
   const warn = warnFunc(opts.strict);
   const msgs = getMsgs(opts.path);
@@ -77,7 +87,7 @@ module.exports = function replaceMessages(opts) {
               return;  // ignore, used by santa-strings
             }
             const msgid = el.getAttribute('msgid');
-            const msg = lookup(msgid);
+            const msg = i18nFormat(msgid, lookup);
             el.removeAttribute('msgid');
 
             switch (el.localName) {
