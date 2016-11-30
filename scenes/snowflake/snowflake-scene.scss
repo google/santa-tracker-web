@@ -161,13 +161,14 @@ $rotate-bg: $gameover-bg;
   min-width: 60px;
   margin-left: 40px;
   pointer-events: auto;
+  padding: 0 8px;
   font-size: 26pt !important;
 }
 
 .remix-text {
    color: white;
    font-family: 'Lobster';
-   font-size: 36pt;
+   font-size: 27pt;
    position: absolute;
    text-align: center;
    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
@@ -176,6 +177,7 @@ $rotate-bg: $gameover-bg;
    z-index: 1;
 } 
 .button-share-snow {
+  padding: 0 8px;
   pointer-events: auto;
 }
 
