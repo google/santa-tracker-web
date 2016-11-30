@@ -21,7 +21,7 @@
 if (!('closest' in window.Element.prototype)) {
   // IE11
 
-  if ('matches' in window.Element.prototype) {
+  if (!('matches' in window.Element.prototype)) {
     window.Element.prototype.matches = window.Element.prototype.msMatchesSelector || window.Element.prototype.webkitMatchesSelector;
   }
 
