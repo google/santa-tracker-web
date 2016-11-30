@@ -467,7 +467,7 @@ Blockly.Blocks['pentagon_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_5.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagon_5.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a pentagon",
@@ -488,12 +488,12 @@ Blockly.Blocks['dropdown_pentagon'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          Turtle.Blocks.makeMenuIcon_("pentagram_1", '25', '25'),
-          Turtle.Blocks.makeMenuIcon_("pentagram_2", '50', '50'),
-          Turtle.Blocks.makeMenuIcon_("pentagram_3", '75', '75'),
-          Turtle.Blocks.makeMenuIcon_("pentagram_4", '100', '100'),
-          Turtle.Blocks.makeMenuIcon_("pentagram_5", '125', '125'),
-          Turtle.Blocks.makeMenuIcon_("pentagram_6", '150', '150'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_1", '25', '25'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_2", '50', '50'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_3", '75', '75'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_4", '100', '100'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_5", '125', '125'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_6", '150', '150'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Turtle.Blocks.categoryColours['shapes'].primary,
@@ -585,7 +585,7 @@ Blockly.Blocks['diamond_stamp'] = {
         },
         {
           "type": "field_image",
-          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagram_5.png",
+          "src": Blockly.mainWorkspace.options.pathToMedia + "icons/ic_block_pentagon_5.png",
           "width": 40,
           "height": 40,
           "alt": "stamp the outline of a diamond",
