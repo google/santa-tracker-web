@@ -87,11 +87,18 @@ Turtle.onRepeat = false;
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
 
 /**
- * Is this the first time the user has run their code?  If so, we will show the
- * "Now repeat!" message.
- * @type boolean
+ * The number of times the user has run their code.  This is used to turn off
+ * helper messages when they have run their code a set number of times.
+ * This starts at -1 so we can avoid showing it when we run the starter code.
+ * @type number
  */
-Turtle.isFirstRun = true;
+Turtle.runCount = -1;
+
+/**
+ * How many times the "now repeat" message should show up.
+ * @type number
+ */
+Turtle.RUN_COUNT_THRESHOLD = 3;
 
 /**
  * Initialize Blockly and the turtle.  Called on page load.
@@ -143,7 +150,10 @@ Turtle.init = function() {
   Turtle.paper = document.getElementById('paperDiv');
 
   BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
-  Turtle.loadUrlBlocks();
+  if(!Turtle.loadUrlBlocks()) {
+    // Run the code once, to give them an idea of what they're doing.
+    Turtle.runCode(Turtle.DEFAULT_DELAY);
+  }
 
 
   // Onresize will be called as soon as we register it in IE, so we hold off
@@ -227,6 +237,10 @@ Turtle.getDefaultXml = function() {
       '</xml>';
 };
 
+/**
+ * Try to load blocks from the URL.
+ * @return {boolean} whether blocks were successfully loaded.
+ */
 Turtle.loadUrlBlocks = function() {
   var blocksString = window.location.search;
   if (blocksString) {
@@ -236,8 +250,10 @@ Turtle.loadUrlBlocks = function() {
       Sharing.urlToWorkspace(blocksString);
       Turtle.sharing = true;
       Turtle.sendSnowflakeAndBlocks();
+      return true;
     }
   }
+  return false;
 };
 
 /**
@@ -597,9 +613,12 @@ Turtle.setOnRepeat = function(bool) {
  * Show the "now repeat" message if it has never been shown before.
  */
 Turtle.showRepeatMessage = function() {
-  if (Turtle.isFirstRun) {
-    Turtle.isFirstRun = false;
-    document.getElementById('now_repeat_message').style.display = 'block';
+  if (Turtle.runCount < Turtle.RUN_COUNT_THRESHOLD) {
+    // Don't show the first time, when we're auto-playing the starter code.
+    if (Turtle.runCount != -1) {
+      document.getElementById('now_repeat_message').style.display = 'block';
+    }
+    Turtle.runCount++;
   }
 };
 
