@@ -109,7 +109,7 @@ $rotate-bg: $gameover-bg;
     }
   }
 
-  
+
   .small-button-image {
     vertical-align: middle;
     font-size: 40px;
@@ -157,6 +157,10 @@ $rotate-bg: $gameover-bg;
   .bottom-footer {
     position: relative;
     height: 150px;
+  }
+
+  .postcard-stacked-divs {
+    background-image: url('img/img_deskitems_02.png');
   }
 }
 
