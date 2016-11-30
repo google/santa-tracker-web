@@ -104,8 +104,9 @@ Turtle.RUN_COUNT_THRESHOLD = 3;
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
-  // Restore sounds state.
-  var soundsEnabled = true;
+  // The Blockly iframe does not know about the status of mute on the main page.
+  // Rather than play sounds when the page is muted, we'll just disable them.
+  var soundsEnabled = false;
 
   var blocklyDiv = document.getElementById('blocklyDiv');
   var visualization = document.getElementById('visualization');
