@@ -120,13 +120,29 @@ $idx-zIndex: 14;
         top: percent($t, $dim-house);
       }
 
-      .link {
-        .card {
-          .image {
-            background-image: url(../../images/scenes/#{$id}_2x.png);
-          }
+      .image {
+        background-image: url(../../images/scenes/#{$id}_2x.png);
+      }
+    }
+  }
+}
+
+// 1x house images
+
+// TODO(samthor): Restore when preloading logic makes more sense.
+/*
+@media (max-resolution: 1dppx) {
+  #houses {
+    @for $i from 1 through length($houses) {
+      $house: nth($houses, $i);
+      $id: nth($house, $idx-id);
+
+      #house-#{$id} {
+        .image {
+          background-image: url(../../images/scenes/#{$id}.png);
         }
       }
     }
   }
 }
+*/

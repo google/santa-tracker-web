@@ -45,7 +45,7 @@ module.exports = function fanout(sceneConfig) {
         const ogImagePath = `images/scenes/${sceneName}_2x.png`;
         if (fs.existsSync(ogImagePath)) {
           const ogImage = this.head.querySelector('[property="og:image"]');
-          ogImage.content = `https://santatracker.google.com/images/scenes/${sceneName}_2x.png`;
+          ogImage.content = `https://santatracker.google.com/images/og/${sceneName}.png`;
         } else {
           missingOgImages.push(sceneName);
         }
