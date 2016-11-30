@@ -22,6 +22,7 @@ goog.provide('app.Constants');
  */
 app.Constants = {
 	BACKGROUND_COUNT: 8,
+	DEFAULT_BACKGROUND: 6,
 	INITIAL_COUNTDOWN: 60,
 	COUNTDOWN_TRACK_LENGTH: 60,
 	COUNTDOWN_FLASH: 10,
