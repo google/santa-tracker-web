@@ -17,6 +17,7 @@
 goog.provide('app.Picker');
 
 goog.require('app.I18n');
+goog.require('app.Constants');
 
 /**
  * Manages the background picker.
@@ -33,6 +34,9 @@ app.Picker = function(scene) {
   if ('bg' in params) {
     this.background.set(+params.bg);
     this.updateMessage(params.bg);
+  } else {
+    this.background.set(app.Constants.DEFAULT_BACKGROUND);
+    this.updateMessage(app.Constants.DEFAULT_BACKGROUND);
   }
 };
 
