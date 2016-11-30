@@ -53,12 +53,20 @@ santaService.addListener('reload', function() {
     return;
   }
   requestedReload = true;
+  instances.forEach(function(instance) {
+    instance._setRequestedReload(true);
+  });
+
+  if (window.sw) {
+    window.ga('send', 'event', 'API', 'sw-update', version);
+    window.sw.then(function(sw) { return sw.update(); });  // request SW update, void return
+  }
 
   if (!VERSION || window.DEV) {
     console.warn('dev ignoring reload request', version);
     return;
   }
-  window.ga('send', 'event', 'API', 'reload');
+  window.ga('send', 'event', 'API', 'reload', version);
 
   // At 30m +/- 15m, try to reload if the page is hidden. After that, reload when the page is
   // made hidden, or force a reload after the same duration again.
@@ -75,6 +83,9 @@ santaService.addListener('reload', function() {
 });
 
 santaService.sync();
+window.addEventListener('online', function() {
+  santaService.sync();
+});
 
 var currentTime = Date.now();  // TODO(samthor): could be undefined to start with?
 var notifyTimeout = window.setTimeout(notifyCurrentTime, 2500);  // trigger after 2.5s
@@ -119,6 +130,16 @@ Polymer({
       readOnly: true,
       notify: true,
       value: function() { return offline; },
+    },
+
+    /**
+     * Whether a reload of the site has been requested.
+     */
+    requestedReload: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: function() { return requestedReload; },
     },
 
     /**

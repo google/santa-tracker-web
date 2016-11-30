@@ -148,4 +148,29 @@
 
 .turtle-stacked-divs {
   background-image: url(../../img/img_deskitems_01.png);
+
+@keyframes cb_title_appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.title {
+  color: white;
+  font-family: 'Lobster';
+  font-size: 8em;
+  height: 1em;
+  position: absolute;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  top: 3rem;
+  width: 100%;
+  z-index: 1;
+  animation: .15s cb_title_appear backwards;
 }

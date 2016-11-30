@@ -35,7 +35,9 @@ Santa Tracker app.
   <santa-strings id="strings"></santa-strings>
 
   <!-- Global singleton state -->
-  <santa-state during-tracker="{{duringTracker}}" current-time="{{currentTime}}"></santa-state>
+  <santa-state during-tracker="{{duringTracker}}"
+      current-time="{{currentTime}}"
+      requested-reload="{{requestedReload}}"></santa-state>
 
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc enter" on-keys-pressed="_onKeysPressed"></iron-a11y-keys>
@@ -577,6 +579,11 @@ Polymer({
     },
 
     /**
+     * Whether a reload has been requested. Bound from `santa-state`.
+     */
+    requestedReload: Boolean,
+
+    /**
      * The networks that Santa can share to.
      */
     shareOptions: {
@@ -656,6 +663,9 @@ Polymer({
   onClick: function(ev) {
     var link = ev.target.closest('a[href]');
     if (!link) { return; }
+
+    // Ignore if a reload was requested. Allow the new page to load naturally!
+    if (this.requestedReload) { return; }
 
     // Ignore hash links.
     if (link.getAttribute('href').substr(0, 1) === '#') { return; }

@@ -126,6 +126,12 @@ SantaService = function SantaService(clientId, lang, version) {
   this.nextStop_ = null;
 
   /**
+   * The next sync timeout.
+   * @private {number}
+   */
+  this.syncTimeout_ = 0;
+
+  /**
    * An extra offset determined by a URL parameter ("timestamp_override")
    *
    * @private {number|undefined}
@@ -169,9 +175,14 @@ SantaService.prototype.getCurrentLocation = function(callback) {
   var now = this.now();
   var dest = this.findDestination_(now);
   if (!this.isSynced()) {
-    this.sync(() => {
+    // TODO(samthor): Allow once-off handlers for sync.
+    let invoked = false;
+    const handler = () => {
+      if (invoked) { return; }
+      invoked = true;
       this.getCurrentLocation(callback);
-    });
+    };
+    Events.addListener(this, 'sync', handler);
     return;
   }
 
@@ -437,12 +448,10 @@ SantaService.prototype.fetchDetails_ = function(id, callback) {
  * Synchronize info with the server. This function returns immediately, the
  * synchronization is performed asynchronously.
  *
- * @param {function()} opt_callback
  * @export
  */
-SantaService.prototype.sync = function(opt_callback) {
-  if (this.syncInFlight_ && opt_callback) {
-    this.addListener('sync', opt_callback);
+SantaService.prototype.sync = function() {
+  if (this.syncInFlight_) {
     return;
   }
   this.syncInFlight_ = true;
@@ -496,14 +505,19 @@ SantaService.prototype.sync = function(opt_callback) {
     this.syncInFlight_ = false;
     Events.trigger(this, 'sync');
 
-    window.setTimeout(this.sync.bind(this), result['refresh']);
-
-    if (opt_callback) {
-      opt_callback();
-    }
+    window.clearTimeout(this.syncTimeout_);
+    this.syncTimeout_ = window.setTimeout(this.sync.bind(this), result['refresh']);
   };
 
-  const fail = () => this.disconnect_();
+  const fail = () => {
+    this.syncInFlight_ = false;
+    window.clearTimeout(this.syncTimeout_);
+    this.syncTimeout_ = window.setTimeout(() => {
+      // Sync after 60s, but only if the page is in the foreground.
+      window.requestAnimationFrame(this.sync.bind(this));
+    }, 60 * 1000);
+    this.disconnect_();
+  };
 
   santaAPIRequest('info', data, done, fail);
 };

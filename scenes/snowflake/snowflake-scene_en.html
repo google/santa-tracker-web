@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../elements/santa-state.html">
 
 <script src="snowflake-scene.min.js"></script>
 
@@ -26,6 +27,8 @@ Postcard scene.
 -->
 <dom-module id="snowflake-scene">
 <template>
+  <santa-state language="{{language}}"></santa-state>
+
   <!-- TODO(madCode): move style to scss and move inline style as well. -->
   <style>
   :host([mode="portal"]) #shareButton {
@@ -129,8 +132,11 @@ Postcard scene.
       this.backToBlockly();
     },
 
-    property: {
+    properties: {
       snowflake: String,
+
+      /** Language. Bound from `santa-state`. */
+      language: String,
     },
 
     attached: function() {
@@ -170,7 +176,8 @@ Postcard scene.
         script = "?B=" + script;
       }
 
-      var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html' + script;
+      var turtleFrameSrc =
+          this.componentDir + 'snowflake-maker/turtle_' + this.language + '.html' + script;
 
       // Regex checks for &B= with any letter, number or (),[] values following it
       var shareLandingRegex = /\&B\=([#a-z\d\[\]\(\)]+)/;
