@@ -104,7 +104,13 @@ Turtle.runCount = -1;
  * How many times the "now repeat" message should show up.
  * @type number
  */
-Turtle.RUN_COUNT_THRESHOLD = 3;
+Turtle.RUN_COUNT_THRESHOLD = 100;
+
+/**
+ * Tutorial to show the user how to drag blocks.
+ * @type Turtle.SceneTutorial
+ */
+Turtle.Tutorial = null;
 
 /**
  * Initialize Blockly and the turtle.  Called on page load.
@@ -156,13 +162,6 @@ Turtle.init = function() {
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
   Turtle.paper = document.getElementById('paperDiv');
 
-  BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
-  if(!Turtle.loadUrlBlocks()) {
-    // Run the code once, to give them an idea of what they're doing.
-    Turtle.runCode(Turtle.DEFAULT_DELAY);
-  }
-
-
   // Onresize will be called as soon as we register it in IE, so we hold off
   // on registering it until everything it references is defined.
   onresize = function() {
@@ -203,9 +202,19 @@ Turtle.init = function() {
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
 
-  //Tutorial
-  this.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
-  this.tutorial.schedule();
+  Turtle.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
+
+  // Try to load blocks from the URL.  If that fails, assume it's their first
+  // time here.  Load the default blocks, run them, and then show the tutorial.
+  if (!Turtle.loadUrlBlocks()) {
+    document.getElementById('code_your_snowflake_message').style.display = 'block';
+
+    BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
+    Turtle.runCode(Turtle.DEFAULT_DELAY, function() {
+      Turtle.tutorial.schedule();
+      document.getElementById('code_your_snowflake_message').style.display = 'none';
+    });
+  }
 };
 
 window.addEventListener('load', Turtle.init);

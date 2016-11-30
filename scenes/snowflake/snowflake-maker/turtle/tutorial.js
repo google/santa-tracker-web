@@ -25,6 +25,7 @@ Turtle.SceneTutorial = function(el) {
   this.el = el;
 
   this.visible_ = false;
+  this.el.hidden = !this.visible;
   this.scheduleTimeout_ = null;
 
   this.hasBeenShown = false;
