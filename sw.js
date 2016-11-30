@@ -312,14 +312,21 @@ self.addEventListener('fetch', function(event) {
 
   const url = new URL(event.request.url);
 
-  // Look for static requests, and only intercept requests to permitted domains. This excludes
-  // santa-api.appspot.com and ssl.google-analytics.com, among others.
-  // STATIC_HOST should not match the prod domain (it should be longer). STATIC_DOMAINS will never
-  // include STATIC_HOST.
-  const urlIsMatched = event.request.url.startsWith(STATIC_HOST) ||
-      STATIC_DOMAINS.includes(url.hostname);
+  // Look for static requests. This can be the same as the prod domain (in staging only), but can
+  // be longer (STATIC_DOMAINS, used below, can never contain STATIC_HOST).
+  const staticRequest = event.request.url.startsWith(STATIC_HOST);
+  if (staticRequest) {
+    // Strip "?foo" from purely static requests. This compliments a workaround inside `lazy-pages`
+    // for Polymer: https://github.com/Polymer/polymer/issues/3908
+    url.search = '';
+  }
+
+  // Intercept static requests. This includes STATIC_DOMAINS, for external resources like fonts,
+  // maps and etc; but which exludes e.g., santa-api.appspot.com and ssl.google-analytics.com.
+  const urlIsMatched = staticRequest || STATIC_DOMAINS.includes(url.hostname);
   if (urlIsMatched) {
-    event.respondWith(loadFromCache(event.request.url));
+    const urlString = url.toString();
+    event.respondWith(loadFromCache(urlString));
     return;
   }
 

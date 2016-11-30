@@ -112,6 +112,9 @@ Lazy loads children "pages".
     <content select=".santa-scene"></content>
   </template>
   <script>
+(function() {
+  var failedToLoad = {};
+
   Polymer({
     is: 'lazy-pages',
     behaviors: [Polymer.IronSelectableBehavior],
@@ -187,10 +190,16 @@ Lazy loads children "pages".
       // (Re)set the preload bg color and loading image before scene is loaded.
       this.fire('scene-progress');
 
-      this.importHref(path, function() {
+      // Work around Polymer's failure to reload failed imports:
+      //   https://github.com/Polymer/polymer/issues/3908
+      // Append a numbered suffix if this is a 2nd failed load. This is stripped in the SW.
+      var attempt = failedToLoad[path] || 0;
+      var attemptSuffix = attempt ? '?' + attempt : '';
+      this.importHref(path + attemptSuffix, function() {
         // Great! Nothing else to do here. Load timing ends in SantaSceneBehavior, as it includes
         // all resource preloading.
       }, function(e) {
+        failedToLoad[path] = attempt + 1;
         this._importFailed = true;
         console.warn('unable to load path', path);
         this.fire('scene-failure');
@@ -219,5 +228,7 @@ Lazy loads children "pages".
     },
 
   });
+
+}());
   </script>
 </dom-module>
