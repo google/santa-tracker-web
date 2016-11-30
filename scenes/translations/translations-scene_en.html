@@ -23,7 +23,11 @@ Translations scene.
 -->
 <dom-module id="translations-scene">
 <template>
-  <style include="translations-scene_module"></style>
+  <style include="translations-scene_module">
+    :host([mode="portal"]) #improve_google_translate {
+      display: none !important;
+    }
+  </style>
   <div id="module-translations">
     <div class="i18n-language-list">
       <div id="ar_language_name"><i18n-msg msgid="ar_language_name">PLACEHOLDER_i18n</i18n-msg></div>
@@ -147,7 +151,7 @@ Translations scene.
               </div>
               <div class="desk-content__button js-btn-next"><svg xmlns="http://www.w3.org/2000/svg" width="66.3" height="66.1" viewBox="0 0 66.3 66.1"><ellipse id="btn-next-shadow" opacity=".35" fill="#6B450E" cx="33.1" cy="36.9" rx="33.1" ry="29.2"/><circle id="btn-next-bottom" fill="#6A1B9A" cx="30" cy="33.4" r="27.4"/><g id="btn-next-top"><circle fill="#8E24AA" cx="30" cy="27.4" r="27.4"/><path fill="#6A1B9A" d="M15.3 33.2V17.1l16 8.8-1.4 1.5zM33.4 33.2V17.1l15.9 8.8-1.4 1.5z"/><path fill="#fff" d="M15.3 35.5V19.4l14.6 8zM33.4 35.5V19.4l14.5 8z"/></g></svg>
               </div>
-            </div><a href="https://translate.google.com/community" class="desk-content__link"><i18n-msg msgid="improve_google_translate">PLACEHOLDER_i18n</i18n-msg></a>
+            </div><a href="https://translate.google.com/community" id="improve_google_translate" class="desk-content__link"><i18n-msg msgid="improve_google_translate">PLACEHOLDER_i18n</i18n-msg></a>
           </div>
         </div>
       </div>
