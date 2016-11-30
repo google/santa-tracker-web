@@ -176,7 +176,7 @@ app.Blockly.prototype = {
    */
   arrangeBlockPosition_: function(xml) {
     var numberOfPlacedBlocks = 0;
-    var cursorY = (window.innerWidth > 1024 ? 213 : app.Constants.BLOCK_Y_COORDINATE);
+    var cursorY = app.Constants.BLOCK_Y_COORDINATE;
     for (var x = 0, xmlChild; xml.childNodes && x < xml.childNodes.length; x++) {
       xmlChild = xml.childNodes[x];
 
