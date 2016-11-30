@@ -180,7 +180,11 @@ Turtle.init = function() {
 
   Turtle.registerRunListener();
   if (document.getElementById('submitButton')) {
-    Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
+    Turtle.bindClick('submitButton', function() {
+      // Don't show the repeat message on this fast run, or on following runs.
+      Turtle.runCount = Turtle.RUN_COUNT_THRESHOLD;
+      Turtle.sendSnowflakeAndBlocks();
+    });
   }
   if (document.getElementById('playButton')) {
     Turtle.bindClick('playButton',
