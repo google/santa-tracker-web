@@ -542,7 +542,7 @@ Turtle.execute = function(callback) {
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
       'pause(' + Turtle.runDelay + ');\n' +
       subcode +
-      'if (' + loopVar + ' == 1) { showRepeatMessage();\n }\n';
+      'if (' + loopVar + ' == 0) { showRepeatMessage();\n }\n';
   if (Turtle.runDelay > 0) {
     code += 'if (' + loopVar + ' == 0) { pause(500); }\n';
   }
