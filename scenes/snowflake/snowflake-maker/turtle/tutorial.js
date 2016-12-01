@@ -25,12 +25,11 @@ Turtle.SceneTutorial = function(el) {
   this.el = el;
 
   this.visible_ = false;
+  this.el.hidden = !this.visible;
   this.scheduleTimeout_ = null;
 
   this.hasBeenShown = false;
-  this.boundOnClick_ = this.onClick_.bind(this);
   this.boundOnBlocklyChange_ = this.onBlocklyChange_.bind(this);
-  document.addEventListener('click', this.boundOnClick_, false);
   Blockly.getMainWorkspace().addChangeListener(this.boundOnBlocklyChange_);
 };
 
@@ -38,7 +37,7 @@ Turtle.SceneTutorial = function(el) {
  * Dispose of this SceneTutorial.
  */
 Turtle.SceneTutorial.prototype.dispose = function() {
-  document.removeEventListener('click', this.boundOnClick_, false);
+  Blockly.getMainWorkspace().removeChangeListener(this.onBlocklyChange_);
 };
 
 /**
@@ -69,30 +68,20 @@ Turtle.SceneTutorial.prototype.toggle = function(visible) {
 };
 
 /**
- * Hide the tutorial on tap/click.
- * @private
- */
-Turtle.SceneTutorial.prototype.onClick_ = function() {
-  this.toggle(false);
-};
-
-/**
  * Hide the tutorial on edit blockly workspace.
  * @private
  */
 Turtle.SceneTutorial.prototype.onBlocklyChange_ = function(event) {
-  if (event.type == Blockly.Events.MOVE && event.blockId != Blockly.getMainWorkspace().topBlocks_[0].id) {
+  var mainWorkspace = Blockly.getMainWorkspace();
+  if (event.type == Blockly.Events.MOVE &&
+      // There is a move event when we first place the blocks on the workspace.
+      event.blockId != mainWorkspace.topBlocks_[0].id &&
+      // The block has to be connected to another block for us to pay attention.
+      mainWorkspace.getBlockById(event.blockId) &&
+      mainWorkspace.getBlockById(event.blockId).getRootBlock().id == "SnowflakeStartBlock") {
     if (this.visible_ || this.scheduleTimeout_) {
       this.toggle(false);
     }
-    Blockly.getMainWorkspace().removeChangeListener(this.onBlocklyChange_);
+    mainWorkspace.removeChangeListener(this.onBlocklyChange_);
   }
-};
-
-/**
- * Show the tutorial on click toolbar block.
- * @private
- */
-Turtle.SceneTutorial.prototype.onBlocklyClickBlock_ = function() {
-  this.toggle(true);
 };

@@ -15,17 +15,17 @@
  */
 
 window.VIDEOS = {
-  'wheressanta': '0qrFL0mn3Uk',
-  'santasback': 'nXLNcfNsWAY',
-  'trailer': 'IdpQSy4IB_I',
   'carpool': 'h83b1lWPuvQ',
-  'liftoff': 'YNpwm08ZRD0',  // 2013: BfF7vfw6Zjw, 2014: oCAKV4Ikhec
+  'comroom': '_WdYujHlmHA',  // was com-room
   'jingle': 'sQnKCU_A0Yc',
-  'satellite': 'ZJPL56IPTjw',
-  'temptation': '2FtcJJ9vzVQ',
+  'liftoff': 'YNpwm08ZRD0',  // 2013: BfF7vfw6Zjw, 2014: oCAKV4Ikhec
   'office': 'IXmDOu-eSx4',
-  'tired': '2UGX3bT9u20',
-  'com-room': '_WdYujHlmHA',
   'reload': 'vHMeXs36NTE',
-  'slacking-off': 'uEl2WIZOVdQ',
+  'santasback': 'zE_D9Vd69aw',  // 2015: nXLNcfNsWAY
+  'satellite': 'ZJPL56IPTjw',
+  'slackingoff': 'uEl2WIZOVdQ',  // was slacking-off
+  'temptation': '2FtcJJ9vzVQ',
+  'tired': '2UGX3bT9u20',
+  'trailer': 'IdpQSy4IB_I',
+  'wheressanta': '0qrFL0mn3Uk',
 };

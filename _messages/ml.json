@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "ബോസ്‌നിയയും ഹെർസേഗോവിനയും"
 	},
+	"back_to_previous_page": {
+		"message": "മടങ്ങുക"
+	},
 	"back_to_tracker": {
 		"message": "ട്രാക്കറിലേക്ക് തിരികെ"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "ചിലി"
+	},
+	"clear": {
+		"message": "മായ്‌ക്കുക"
 	},
 	"close": {
 		"message": "അടയ്ക്കുക"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "ഇക്വഡോർ"
 	},
+	"educators": {
+		"message": "എജ്യുക്കേറ്റർമാർക്കുള്ള സാന്ത ട്രാക്കർ"
+	},
 	"ee_country_name": {
 		"message": "എസ്‌റ്റോണിയ"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "ഫിന്‍‌ലാന്റ്"
+	},
+	"fi_tradition": {
+		"message": "ഫിന്നിഷ് ജനത വിശ്വസിക്കുന്നത് ക്രിസ്മസ് പാപ്പ, \"ജോലുപുക്കി\", താമസിക്കുന്നത് രാജ്യത്തിന്റെ വടക്കൻ ഭാഗമായ കൊർവതുന്തുരിയിലാണെന്നാണ്. അവിടെയെത്തിയാൽ ഭൂതങ്ങൾ കഠിനാധ്വാനത്തിൽ ഏർപ്പെട്ടിട്ടുള്ള അദ്ദേഹത്തിന്റെ രഹസ്യ വർക്ക്‌ഷോപ്പ് നിങ്ങൾക്ക് കാണാനായേക്കാം. അല്ലെങ്കിൽ കലമാനുകൾ മൈൻ മരങ്ങൾക്കിടയിൽ മേഞ്ഞുനടക്കുന്നത് കാണാനായേക്കാം."
 	},
 	"finished-text": {
 		"message": "സന്തോഷകരമായ അവധിക്കാലം ആശംസിക്കുന്നു! ലോകം ചുറ്റൽ പൂർത്തിയാക്കിയ സാന്ത, അർഹിക്കുന്ന വിശ്രമം ആസ്വദിക്കുകയാണ്. അടുത്ത വർഷം വീണ്ടും സന്ദർശിക്കുക!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "കഠിനം"
 	},
+	"help": {
+		"message": "സഹായം"
+	},
 	"hi_language_name": {
 		"message": "ഹിന്ദി"
 	},
 	"hn_country_name": {
 		"message": "ഹോണ്ടുറാസ്"
+	},
+	"holiday_message_0": {
+		"message": "ആഘോഷകമായ അവധിദിനങ്ങൾ നേരുന്നു!"
+	},
+	"holiday_message_1": {
+		"message": "അവധിദിന ആശംസകൾ!"
+	},
+	"holiday_message_2": {
+		"message": "എല്ലാം ശുഭകരമാകട്ടെ!"
+	},
+	"holiday_message_3": {
+		"message": "മഞ്ഞ് പെയ്തിറങ്ങട്ടെ!"
+	},
+	"holiday_message_4": {
+		"message": "പുതുവത്സരാശംസകൾ!"
+	},
+	"holiday_message_5": {
+		"message": "സീസൺ ആശംസകൾ!"
 	},
 	"hours": {
 		"message": "മണിക്കൂർ"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "ദക്ഷിണ കൊറിയ"
 	},
+	"kr_tradition": {
+		"message": "ദക്ഷിണ കൊറിയയിൽ, ക്രിസ്മസ് പൊതു അവധി ദിനമാണ്. റൊമാന്റിക് ഹോളിഡേയായും ഇത് അറിയപ്പെടുന്നു. കണ്ണഞ്ചിക്കുന്ന ദീപക്കാഴ്ചകളാൽ അലങ്കൃതമായ നഗരത്തിലെ നിരത്തുകളിലും കടകളിലും പ്രണയ ജോഡികൾ ഒത്തുചേരുന്നു."
+	},
 	"kz_country_name": {
 		"message": "കസാക്കിസ്ഥാൻ"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "ലിത്വാനിയ"
 	},
+	"lt_tradition": {
+		"message": "ലിത്വാനിയയിൽ, കച്ചിയോ വൈക്കോലോ ഉപയോഗിച്ച് പരമ്പരാഗത ക്രിസ്മസ് അലങ്കാരങ്ങൾ നിർമ്മിക്കുന്നു. നക്ഷത്രങ്ങളുടെയോ ഹിമപാളികളുടെയോ ബെല്ലുകളുടെയോ ജ്യാമിതീയ രൂപങ്ങളിൽ അവ നെയ്‌തെടുക്കുന്നു. കുസിയോസ് എന്നുവിളിക്കുന്ന ഭക്ഷണത്തിനായി തീൻമേശ അലങ്കരിക്കാനും നിരവധി ആളുകൾ കച്ചികൾ ഉപയോഗിക്കുന്നു."
+	},
 	"lv_country_name": {
 		"message": "ലാത്വിയ"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "സാന്താ ക്ലോസ് ലോകം ചുറ്റാനിറങ്ങുമ്പോൾ അദ്ദേഹത്തെ Google മാപ്‌സിൽ പിന്തുടരാൻ Google സാന്താ ട്രാക്കർ ഉപയോഗിക്കുക."
+	},
+	"meta_title": {
+		"message": "Google സാന്താ ട്രാക്കർ"
 	},
 	"mg_country_name": {
 		"message": "മഡഗാസ്‌കർ"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "ഇന്നത്തെ പുതിയത്"
+	},
+	"next": {
+		"message": "അടുത്തത്"
 	},
 	"ng_country_name": {
 		"message": "നൈജീരിയ"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "വേണ്ട, നന്ദി"
-	},
-	"offline_notification_okay": {
-		"message": "ശരി"
 	},
 	"offline_user_message": {
 		"message": "നിങ്ങൾ ഓഫ്‌ലൈനിലാണ്"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "സെനഗൽ"
+	},
+	"snowflake_choose_background": {
+		"message": "ഒരു ബാക്ക്‌ഡ്രോപ്പ് തിരഞ്ഞെടുക്കുക"
+	},
+	"snowflake_choose_postcard": {
+		"message": "ഒരു പോസ്റ്റ്‌കാർഡ് എടുക്കാൻ അമ്പടയാള കീകൾ ഉപയോഗിക്കുക"
+	},
+	"snowflake_code": {
+		"message": "നിങ്ങളുടെ സ്നോഫ്ലേക്ക് കോഡുചെയ്യുക"
+	},
+	"snowflake_code_instructions": {
+		"message": "നിങ്ങളുടെ സ്വന്തം സ്നോഫ്ലേക്ക് ഡിസൈൻ ചെയ്യാൻ ബ്ലോക്കുകൾ ഒന്നിച്ച് സ്നാപ്പ് ചെയ്യുക"
+	},
+	"snowflake_create_message": {
+		"message": "നിങ്ങളുടെ സ്വന്തം സ്നോ‌ഫ്ലേക്ക് ഡിസൈൻ ചെയ്യുക"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "ഇപ്പോൾ ആവർത്തിക്കുക!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "ആവർത്തിക്കുന്നു"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "റൊട്ടേറ്റുചെയ്ത് ആവർത്തിക്കുക!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "റൊട്ടേറ്റുചെയ്ത് ആവർത്തിക്കുന്നു"
+	},
+	"snowflake_make_your_own": {
+		"message": "ഇത് കോഡ് ഉപയോഗിച്ച് ചെയ്തു. സ്വയം പരീക്ഷിക്കൂ!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "ഒരു പോസ്റ്റ്‌കാർഡ് തിരഞ്ഞെടുത്ത് നിങ്ങളുടെ സ്നോഫ്ലേക്ക് സുഹൃത്തുക്കളുമായി പങ്കിടുക"
+	},
+	"snowflake_shared_message": {
+		"message": "ആരോ ഒരാൾ നിങ്ങൾക്ക് ഒരു സ്നോഫ്ലേക്ക് അയച്ചു!"
 	},
 	"so_country_name": {
 		"message": "സോമാലിയ"

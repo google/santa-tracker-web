@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "บอสเนียและเฮอร์เซโกวีนา"
 	},
+	"back_to_previous_page": {
+		"message": "ย้อนกลับ"
+	},
 	"back_to_tracker": {
 		"message": "กลับไปที่เครื่องมือติดตาม"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "ชิลี"
+	},
+	"clear": {
+		"message": "ล้าง"
 	},
 	"close": {
 		"message": "ปิด"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "เอกวาดอร์"
 	},
+	"educators": {
+		"message": "ตามติดซานต้าสำหรับนักการศึกษา"
+	},
 	"ee_country_name": {
 		"message": "เอสโตเนีย"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "ฟินแลนด์"
+	},
+	"fi_tradition": {
+		"message": "ชาวฟินแลนด์เชื่อกันว่าจริงๆ แล้ว \"Joulupukki\" หรือซานตาคลอสนั้นอาศัยอยู่ในพื้นที่ทางตอนเหนือของประเทศบริเวณเทือกเขา Korvatunturi หากคุณไปแถวๆ นั้น คุณอาจพบโรงงานลับของเขาซึ่งภูติโนมกำลังทำงานอย่างหนัก หรือคุณอาจพบกวางเรนเดียร์เดินท่องไปในป่าสน"
 	},
 	"finished-text": {
 		"message": "สุขสันต์วันหยุด! ซานต้าเพิ่งกลับจากการเดินทางรอบโลกและกำลังพักผ่อนหลังจากเหนื่อยมานาน พบกันใหม่ปีหน้า!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "ยาก"
 	},
+	"help": {
+		"message": "ความช่วยเหลือ"
+	},
 	"hi_language_name": {
 		"message": "ภาษาฮินดี"
 	},
 	"hn_country_name": {
 		"message": "ฮอนดูรัส"
+	},
+	"holiday_message_0": {
+		"message": "สุขสันต์วันหยุด!"
+	},
+	"holiday_message_1": {
+		"message": "สุขสันต์วันหยุด!"
+	},
+	"holiday_message_2": {
+		"message": "ขอให้สุขสมหวังในทุกๆ เรื่อง!"
+	},
+	"holiday_message_3": {
+		"message": "ขอให้หิมะโปรยปราย"
+	},
+	"holiday_message_4": {
+		"message": "สุขสันต์วันปีใหม่!"
+	},
+	"holiday_message_5": {
+		"message": "ขอให้มีความสุขในทุกเทศกาล!"
 	},
 	"hours": {
 		"message": "ชั่วโมง"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "เกาหลีใต้"
 	},
+	"kr_tradition": {
+		"message": "ในเกาหลีใต้ คริสต์มาสถือเป็นวันหยุดประจำชาติ และยังมีชื่อเสียงโด่งดังว่าเป็นวันหยุดอันแสนโรแมนติก คู่รักหลายคู่ต่างพากันออกเดทในเมืองที่ท้องถนนและร้านค้าต่างตกแต่งด้วยไฟสว่างสดใส"
+	},
 	"kz_country_name": {
 		"message": "คาซัคสถาน"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "ลิทัวเนีย"
 	},
+	"lt_tradition": {
+		"message": "ในลิทัวเนีย ของตกแต่งวันคริสต์มาสแบบดั้งเดิมทำมาจากฟางหรือหญ้าแห้ง ซึ่งจะถักสานให้เป็นรูปทรงเรขาคณิต เช่น ดาว เกล็ดหิมะ หรือกระดิ่ง นอกจากนี้หลายๆ ครอบครัวยังนำฟางมาตกแต่งโต๊ะอาหารค่ำสำหรับมื้ออาหารสุดพิเศษที่เรียกว่า Kūčios อีกด้วย"
+	},
 	"lv_country_name": {
 		"message": "ลัตเวีย"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "ใช้ Google ตามติดซานต้าเพื่อติดตามซานตาคลอสบน Google Maps ในขณะที่เขากำลังเดินทางไปรอบโลก"
+	},
+	"meta_title": {
+		"message": "Google ตามติดซานต้า"
 	},
 	"mg_country_name": {
 		"message": "มาดากัสการ์"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "ใหม่สำหรับวันนี้"
+	},
+	"next": {
+		"message": "ถัดไป"
 	},
 	"ng_country_name": {
 		"message": "ไนจีเรีย"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "ไม่ ขอบคุณ"
-	},
-	"offline_notification_okay": {
-		"message": "ตกลง"
 	},
 	"offline_user_message": {
 		"message": "คุณออฟไลน์อยู่"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "เซเนกัล"
+	},
+	"snowflake_choose_background": {
+		"message": "เลือกฉากหลัง"
+	},
+	"snowflake_choose_postcard": {
+		"message": "ใช้ปุ่มลูกศรเพื่อเลือกโปสการ์ด"
+	},
+	"snowflake_code": {
+		"message": "สร้างเกล็ดหิมะของคุณ"
+	},
+	"snowflake_code_instructions": {
+		"message": "นำบล็อกมาติดเข้าด้วยกันเพื่อออกแบบเกล็ดหิมะของคุณเอง"
+	},
+	"snowflake_create_message": {
+		"message": "ออกแบบเกล็ดหิมะของคุณเอง"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "ตอนนี้หมุนซ้ำ"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "การหมุนซ้ำ"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "หมุนซ้ำเป็นวงกลม"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "การหมุนซ้ำเป็นวงกลม"
+	},
+	"snowflake_make_your_own": {
+		"message": "เกล็ดหิมะนี้สร้างขึ้นโดยใช้โค้ด ลองทำด้วยตัวคุณเองเลย!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "เลือกโปสการ์ด แล้วแชร์เกล็ดหิมะของคุณกับเพื่อนๆ"
+	},
+	"snowflake_shared_message": {
+		"message": "มีคนส่งเกล็ดหิมะให้คุณ!"
 	},
 	"so_country_name": {
 		"message": "โซมาเลีย"

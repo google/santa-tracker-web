@@ -1,5 +1,9 @@
 @import "sass/card";
 
+:host {
+  user-select: auto;
+}
+
 #press-content {
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
@@ -156,9 +160,13 @@ ul {
 }
 
 #press-intro {
-  @extend .clearfix;
-  height: 600px;
-  width: 100%;
+  display: flex;
+  align-items: stretch;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
 
   h2, {
     color: #fff;
@@ -182,10 +190,7 @@ ul {
   }
 
   .press-intro-col {
-    align-items: center;
     display: flex;
-    float: left;
-    height: 100%;
     justify-content: center;
     padding: 25px 0;
     width: 50%;
@@ -354,35 +359,8 @@ ul {
     align-items: flex-start;
     justify-content: center;
 
-    #press-device-1 {
-      background-image: url(img/illust-chromecast_2x.png);
-    }
-
-    #press-device-2 {
-      background-image: url(img/illust-mobile-app_2x.png);
-    }
-
-    #press-device-3 {
-      background-image: url(img/illust-wear_2x.png)
-    }
-
-    #press-device-4 {
-      background-image: url(img/illust-web-optimized_2x.png);
-    }
-
-    #press-device-5 {
-      background-image: url(img/illust-google-maps_2x.png);
-    }
-
-    #press-device-6 {
-      background-image: url(img/illust-google-search_2x.png);
-    }
-
-    #press-device-7 {
-      background-image: url(img/illust-web-cardboard_2x.png);
-    }
-
     .press-device-square {
+      will-change: transform;  // avoid chrome hiding this layer
       padding: 0 15px 30px;
       text-align: center;
       box-sizing: border-box;
@@ -399,6 +377,7 @@ ul {
 }
 
 #press-footer {
+  will-change: transform;  // avoid chrome hiding this layer
   background: #17CC82;
   text-align: center;
   padding: 100px;

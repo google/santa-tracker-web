@@ -2,8 +2,8 @@ $name: 'module-santasearch';
 $scene-bg: #44B3E6;
 $gameover-bg: $scene-bg;
 
+@import "../shared/sass/overlay";
 @import "../shared/sass/button";
-@import "../shared/sass/gameover";
 
 @import 'scss/choose-map';
 @import 'scss/map';

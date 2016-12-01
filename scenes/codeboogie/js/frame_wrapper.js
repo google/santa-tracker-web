@@ -34,9 +34,10 @@ goog.require('app.ChooseMode');
 app.FrameWrapper = function(el, staticDir) {
   this.staticDir = staticDir;
   this.el = $(el);
+  this.mode_ = '';
   this.chooseMode = new app.ChooseMode(this.el.find('.choose-mode'), this.el.find('.choose-stage'));
   this.gameoverView = new app.shared.Gameover(this, this.el.find('.gameover'));
-  this.scoreboardView = new app.Scoreboard(this.el.find('.board'), 10);
+  this.scoreboardView = new app.Scoreboard(this.el.find('.board'), 9);
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-codeboogie-frame]');
   this.isPlaying = false;
@@ -119,6 +120,10 @@ app.FrameWrapper.prototype.setLevelClass = function(mode) {
  * @param {?string} customLevel serialized.
  */
 app.FrameWrapper.prototype.startMode = function(mode, customLevel) {
+  this.mode_ = mode;
+  if (mode !== 'teacher') {
+    this.scoreboardView.setLevel(-1);
+  }
   this.iframeChannel.call('restart', mode, customLevel);
   window.santaApp.fire('analytics-track-game-start', {gameid: 'codeboogie'});
 };
@@ -143,10 +148,11 @@ app.FrameWrapper.prototype.dispose = function() {
  * @param {string} query string to share.
  */
 app.FrameWrapper.prototype.share = function(query) {
-  var newHref = location.href.substr(0,
-      location.href.length - location.hash.length) + '#codeboogie' + query;
-  window.history.pushState(null, '', newHref);
-  this.shareOverlay.show(newHref, true);
+  const url = new URL(window.location.toString());
+  url.search = query;
+  const urlString = url.toString();
+  window.history.replaceState(null, '', urlString);
+  this.shareOverlay.show(urlString, true);
 };
 
 /**
@@ -195,7 +201,11 @@ app.FrameWrapper.prototype.iframeFocusChange = function(state) {
  */
 app.FrameWrapper.prototype.setLevel = function(level, track, bpm) {
   this.level_ = level;
-  this.scoreboardView.setLevel(level);
+
+  if (this.mode_ === 'teacher') {
+    this.scoreboardView.setLevel(level);
+  }
+
   this.sequencer.setTrack(track, bpm);
 };
 

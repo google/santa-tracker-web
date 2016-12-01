@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia ja Hertsegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Edellinen"
+	},
 	"back_to_tracker": {
 		"message": "Takaisin jäljittimeen"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Tyhjennä"
 	},
 	"close": {
 		"message": "Sulje"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Julupukin jäljitin opettajille"
+	},
 	"ee_country_name": {
 		"message": "Viro"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Suomi"
+	},
+	"fi_tradition": {
+		"message": "Suomalaiset uskovat, että Joulupukki asuu Lapin Korvatunturissa. Siellä tontut uurastavat pukin salatussa pajassa ja porot kulkevat vapaasti mäntymetsissä."
 	},
 	"finished-text": {
 		"message": "Hyvää joulua! Joulupukki on saanut päätökseen retkensä maailman ympäri ja nauttii nyt hyvin ansaitusta lomasta. Liity seuraamme taas ensi vuonna!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Vaikea"
 	},
+	"help": {
+		"message": "Ohje"
+	},
 	"hi_language_name": {
 		"message": "hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Hyvää joulua!"
+	},
+	"holiday_message_1": {
+		"message": "Lomatervehdys!"
+	},
+	"holiday_message_2": {
+		"message": "Riemastuttavaa juhla-aikaa!"
+	},
+	"holiday_message_3": {
+		"message": "Rauhallista joulua!"
+	},
+	"holiday_message_4": {
+		"message": "Hyvää uutta vuotta!"
+	},
+	"holiday_message_5": {
+		"message": "Joulutervehdys!"
 	},
 	"hours": {
 		"message": "tuntia"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Etelä-Korea"
 	},
+	"kr_tradition": {
+		"message": "Etelä-Koreassa joulu on kansallinen vapaapäivä. Joulu on romanttinen juhla, ja pariskunnat suuntaavat silloin treffeille keskelle kaupungin katujen ja myymälöiden väriloistoa."
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Liettua"
 	},
+	"lt_tradition": {
+		"message": "Liettuassa joulukoristeet valmistetaan perinteisesti oljista, jotka kudotaan tähdiksi, lumihiutaleiksi, kelloiksi tai muiksi geometrisiksi kuvioiksi. Perheet myös koristelevat usein ruokapöydän oljilla Kūčios-illallista varten."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Googlen Joulupukin jäljittimen avulla voit seurata joulupukkia Google Mapsissa hänen matkatessaan ympäri maailmaa."
+	},
+	"meta_title": {
+		"message": "Googlen Joulupukin jäljitin"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Avattu tänään"
+	},
+	"next": {
+		"message": "Seuraava"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ei kiitos"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Olet offline-tilassa."
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Valitse taustaväri."
+	},
+	"snowflake_choose_postcard": {
+		"message": "Valitse postikortti nuolinäppäimillä."
+	},
+	"snowflake_code": {
+		"message": "Koodaa oma lumihiutaleesi"
+	},
+	"snowflake_code_instructions": {
+		"message": "Suunnittele oma lumihiutaleesi kiinnittämällä palaset toisiinsa."
+	},
+	"snowflake_create_message": {
+		"message": "Suunnittele oma lumihiutaleesi"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Nyt toista kuvio!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Toistaa kuvion"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Kierrä ja toista kuvio."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Kiertää ja toistaa kuvion"
+	},
+	"snowflake_make_your_own": {
+		"message": "Tämä lumihiutale tehtiin koodin avulla. Tee oma lumihiutaleesi."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Valitse postikortti ja jaa lumihiutaleesi ystävillesi."
+	},
+	"snowflake_shared_message": {
+		"message": "Olet saanut lumihiutaleen!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

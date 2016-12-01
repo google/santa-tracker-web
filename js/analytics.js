@@ -29,26 +29,9 @@ Analytics = function Analytics() {
    * @private {!Object<string, Object<string, ?number>>}
    */
   this.startTimes_ = {};
-
-  /** @private {number} */
-  this.trackTimeout_ = 0;
 }
 
 Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
-
-/**
- * Tracks a page view. Page view tracking is throttled to prevent logging
- * page redirects by the URL router.
- * @param {string} path
- * @export
- */
-Analytics.prototype.trackPageView = function(path) {
-  window.clearTimeout(this.trackTimeout_);
-  this.trackTimeout_ = window.setTimeout(function() {
-    window.ga('set', 'page', path || '/');
-    window.ga('send', 'pageview');
-  }, this.THROTTLE_TIME_);
-};
 
 /**
  * Stores a start time associated with a category and variable name. When an
@@ -100,18 +83,6 @@ Analytics.prototype.timeEnd = function(category, variable, timeEnd, opt_label) {
  */
 Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value) {
   window.ga('send', 'event', category, action, opt_label || '(not set)', opt_value);
-};
-
-/**
- * Tracks a social event
- *
- * @param {string} network
- * @param {string} action
- * @param {string} target
- * @export
- */
-Analytics.prototype.trackSocial = function(network, action, target) {
-  window.ga('send', 'social', network, action, target);
 };
 
 /**

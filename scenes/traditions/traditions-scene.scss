@@ -3,8 +3,6 @@ $mobileBreakpoint: 668px;
 
 $name: 'module-traditions';
 
-@import "../shared/sass/sceneboard";
-
 ##{$name} {
   width: 100%;
   height: 100%;
@@ -164,55 +162,53 @@ $name: 'module-traditions';
     display: block;
   }
 
-  .sceneboard {
-    background: #fed83c url(img/traditions_icon.svg) no-repeat center top;
-    height: 200px;
+  .controls {
+    background: #22b129;
+    border-radius: 0 0 4px 4px;
+    position: absolute;
+    left: 20px;
+    width: 200px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.23);
 
-    .controls {
-      background: #22b129;
-      border-radius: 0 0 4px 4px;
-      position: absolute;
-      bottom: 0;
-      width: 204px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: stretch;
 
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+      li {
+        box-sizing: border-box;
+        flex-grow: 1;
+        width: 40px;
 
-        li {
-          box-sizing: border-box;
-          width: 33%;
-          float: left;
+        &:nth-child(2) {
+          border-left: 1px solid #19991f;
+          border-right: 1px solid #19991f;
+        }
 
-          &:nth-child(2) {
-            border-left: 1px solid #19991f;
-            border-right: 1px solid #19991f;
-          }
+        a {
+          display: block;
+          height: 52px;
+          text-indent: -3000em;
+        }
 
-          a {
-            display: block;
-            height: 52px;
-            text-indent: -3000em;
-          }
+        #traditions-world {
+          background-image: url(img/smallglobe.svg);
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
 
-          #traditions-world {
-            background-image: url(img/smallglobe.svg);
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-          }
+        #traditions-prev {
+          background-image: url(img/left.svg);
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
 
-          #traditions-prev {
-            background-image: url(img/left.svg);
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-          }
-
-          #traditions-next {
-            background-image: url(img/right.svg);
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-          }
+        #traditions-next {
+          background-image: url(img/right.svg);
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
         }
       }
     }
@@ -229,26 +225,10 @@ $name: 'module-traditions';
       }
     }
 
-    .sceneboard {
-      height: auto;
-      right: 0;
-      bottom: 14px;
-      width: 204px;
-      left: auto;
-
-      .controls {
-        border-radius: 20px 0 0 20px;
-        bottom: 0;
-
-        ul li a {
-          height: 45px;
-        }
-      }
-    }
-
     #tradition-img {
       transform: scale(0.8);
-      right: 70px;
+      right: auto;
+      left: 20px;
       top: -40px;
     }
 
@@ -256,6 +236,18 @@ $name: 'module-traditions';
       left: 50px;
       margin-left: 0;
       color: #615c4c;
+    }
+
+    .controls {
+      left: auto;
+      bottom: 20px;
+      border-radius: 12px 0 0 12px;
+      right: 0;
+      box-shadow: none;
+
+      ul li a {
+        height: 45px;
+      }
     }
   }
 }
@@ -267,7 +259,7 @@ $name: 'module-traditions';
       right: 20px;
       margin-top: 0 !important;
       max-width: 100%;
-      bottom: 50px;
+      bottom: 80px;
       top: auto;
 
       h2 {

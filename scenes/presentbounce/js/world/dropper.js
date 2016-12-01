@@ -38,7 +38,7 @@ app.world.Dropper = class extends app.world.LevelObject {
     this.body_ = this.buildBody_();
     this.$button_ = this.$el_.find('.js-dropper__button');
 
-    this.onDropClick = this.onDropClick.bind(this);
+    this.onDropClick = throttle(this.onDropClick.bind(this), 250);
     this.addEventListeners_();
   }
 

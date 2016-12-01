@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bósnia e Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Voltar"
+	},
 	"back_to_tracker": {
 		"message": "Voltar para Siga o Papai Noel"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Limpar"
 	},
 	"close": {
 		"message": "Fechar"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Equador"
 	},
+	"educators": {
+		"message": "Siga o Papai Noel para educadores"
+	},
 	"ee_country_name": {
 		"message": "Estônia"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
+	},
+	"fi_tradition": {
+		"message": "Os finlandeses acreditam que o Papai Noel, \"Joulupukki\", vive na parte norte do país, mais precisamente em Korvatunturi. Ao visitar essa região, você pode encontrar sua oficina secreta, onde os duendes trabalham duro. Ou, então, você pode encontrar as renas passeando nas florestas de pinheiros."
 	},
 	"finished-text": {
 		"message": "Boas Festas! O Papai Noel completou sua jornada ao redor do mundo e está descansando merecidamente. Visite-nos novamente no próximo ano!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Difícil"
 	},
+	"help": {
+		"message": "Ajuda"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Boas festas!"
+	},
+	"holiday_message_1": {
+		"message": "Feliz natal!"
+	},
+	"holiday_message_2": {
+		"message": "Boas festas!"
+	},
+	"holiday_message_3": {
+		"message": "Papai Noel está chegando!"
+	},
+	"holiday_message_4": {
+		"message": "Feliz ano-novo!"
+	},
+	"holiday_message_5": {
+		"message": "Boas festas!"
 	},
 	"hours": {
 		"message": "Horas"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Coreia do Sul"
 	},
+	"kr_tradition": {
+		"message": "Na Coreia do Sul, o Natal é um feriado nacional. Ele também é conhecido como um feriado romântico. Muitos casais marcam encontros pela cidade para aproveitar as ruas e lojas iluminadas com luzes deslumbrantes."
+	},
 	"kz_country_name": {
 		"message": "Cazaquistão"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Lituânia"
 	},
+	"lt_tradition": {
+		"message": "Na Lituânia, os tradicionais enfeites de Natal são feitos de palha ou feno. Eles são tecidos em formas geométricas, como estrelas, flocos de neve ou sinos. Muitas famílias também usam palha para decorar a mesa da ceia de Natal, chamada Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letônia"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Acompanhe a jornada do bom velhinho pelo mundo no Google Maps com o recurso \"Siga o Papai Noel\"."
+	},
+	"meta_title": {
+		"message": "Siga o Papai Noel no Google"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Novo"
+	},
+	"next": {
+		"message": "Próxima"
 	},
 	"ng_country_name": {
 		"message": "Nigéria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Não, obrigado"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Você está off-line"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Escolha um cenário"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Use as teclas de seta para escolher um cartão"
+	},
+	"snowflake_code": {
+		"message": "Crie seu floco de neve"
+	},
+	"snowflake_code_instructions": {
+		"message": "Junte os blocos para desenhar seu floco de neve"
+	},
+	"snowflake_create_message": {
+		"message": "Desenhe seu próprio floco de neve"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Agora repita!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Repetir"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Gire e repita!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Girar e repetir"
+	},
+	"snowflake_make_your_own": {
+		"message": "Isto foi feito com código. Tente você também!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Escolha um cartão e compartilhe seu floco de neve com os amigos"
+	},
+	"snowflake_shared_message": {
+		"message": "Alguém enviou um floco de neve para você!"
 	},
 	"so_country_name": {
 		"message": "Somália"

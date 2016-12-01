@@ -60,7 +60,7 @@ Game = function(elem) {
   this.watchSceneSize_();
 
   this.player = new Player(this, this.elem.find('.player'));
-  this.scoreboard = new Scoreboard(this, this.elem.find('.board'));
+  this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
   this.tutorial = new Tutorial(this.elem, 'touch-updown', 'keys-space keys-updown', 'spacenav-space spacenav-updown');
   this.controls = new Controls(this);
@@ -331,6 +331,7 @@ Game.prototype.hitBoat = function(score, time, x, y) {
   this.animate_(this.scoreElem, x, y);
   this.scoreboard.addScore(score);
   this.scoreboard.addTime(time);
+  window.ga('send', 'event', 'game', 'hit', 'boatload');
 };
 
 /**
@@ -344,6 +345,7 @@ Game.prototype.missedBoat = function(present, x, y) {
   this.lastMissedPresent = present;
   present.missed();
   window.santaApp.fire('sound-trigger', 'bl_hit_water');
+  window.ga('send', 'event', 'game', 'miss', 'boatload');
 };
 
 /**
@@ -396,18 +398,6 @@ Game.prototype.gameover = function() {
     level: this.level,
     timePlayed: new Date - this.gameStartTime
   });
-};
-
-/**
- * Pauses/unpauses the game.
- */
-Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  } else if (this.isPlaying) {
-    // Only allow pausing if the game is playing (not game over).
-    this.pause();
-  }
 };
 
 /**

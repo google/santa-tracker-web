@@ -117,6 +117,7 @@ app.Game.prototype.restart = function() {
   this.entities = [];
 
   this.scoreboard.reset();
+  this.scoreboard.setLevel(-1);  // no levels in runner
   this.hurryUpPlayed = false;
 
   // Number of pixels to advance entities per second.
@@ -142,18 +143,6 @@ app.Game.prototype.restart = function() {
   this.finishLinePos = Constants.INITIAL_COUNTDOWN * this.speed;
   this.finish.place(this.finishLinePos);
   this.entities.push(this.finish);
-};
-
-/**
- * Pauses/unpauses the game.
- */
-app.Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  // Only allow pausing if the game is playing (not game over).
-  } else if (this.isPlaying) {
-    this.pause();
-  }
 };
 
 /**

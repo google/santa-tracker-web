@@ -25,12 +25,6 @@ Santasearch scene.
 -->
 <dom-module id="santasearch-scene">
 <template>
-  <style>
-    :host([mode="portal"]) .shareButtons {
-      display: none !important;
-    }
-  </style>
-
   <div id="module-santasearch">
     <div class="scene">
       <div class="viewport viewport--scrollable">
@@ -152,21 +146,6 @@ Santasearch scene.
           </div>
         </div>
       </div>
-      <div class="gameover overlay">
-        <div class="gameover-dialog overlay-dialog">
-          <h2 class="gameover-title">
-            <i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg>
-          </h2>
-          <div class="gameover-winner"></div>
-          <div class="gameover-buttons">
-            <button type="button" class="Button Button--large gameover-play">
-              <i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg>
-            </button>
-            <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -219,7 +198,14 @@ Santasearch scene.
       this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'santasearch_end');
-    }
+    },
+
+    start: function() {
+      // Emulates the SantaSceneGameButtonsBehavior so that `santa-overlay` can restart us to play
+      // again.
+      this.game.start();
+    },
+
   });
 
 })();

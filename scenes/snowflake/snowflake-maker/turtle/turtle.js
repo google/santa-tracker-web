@@ -34,12 +34,19 @@ goog.require('Sharing');
 Turtle.HEIGHT = 500;
 Turtle.WIDTH = 500;
 Turtle.DISPLAY_SIZE = 300;
+Turtle.SHADOW_OFFSET = 6;
 
 Turtle.DEFAULT_DELAY = 400;
 Turtle.FAST_DELAY = 20;
 
 Turtle.MIN_LINE_WIDTH = 6;
 Turtle.LINE_SCALE = 10;
+
+// The desired padding on the coding page affects the height of the paper.
+Turtle.BIG_PADDING = 128;
+Turtle.SMALL_PADDING = 80;
+// The window height at which we use smaller padding instead of big padding.
+Turtle.MAX_HEIGHT = 700;
 
 /**
  * PID of animation task currently executing.
@@ -86,11 +93,38 @@ Turtle.onRepeat = false;
 Turtle.snowflakeStartBlockId = "SnowflakeStartBlock";
 
 /**
+ * The number of times the user has run their code.  This is used to turn off
+ * helper messages when they have run their code a set number of times.
+ * This starts at -1 so we can avoid showing it when we run the starter code.
+ * @type number
+ */
+Turtle.runCount = -1;
+
+/**
+ * How many times the "now repeat" message should show up.
+ * @type number
+ */
+Turtle.RUN_COUNT_THRESHOLD = 3;
+
+/**
+ * Tutorial to show the user how to drag blocks.
+ * @type Turtle.SceneTutorial
+ */
+Turtle.Tutorial = null;
+
+/**
+ * Whether to show the "Code your snowflake" message on page load.
+ * @type boolean
+ */
+Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE = false;
+
+/**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
-  // Restore sounds state.
-  var soundsEnabled = true;
+  // The Blockly iframe does not know about the status of mute on the main page.
+  // Rather than play sounds when the page is muted, we'll just disable them.
+  var soundsEnabled = false;
 
   var blocklyDiv = document.getElementById('blocklyDiv');
   var visualization = document.getElementById('visualization');
@@ -117,6 +151,8 @@ Turtle.init = function() {
           }
   });
 
+  Blockly.Colours.insertionMarker = "#795548";
+
   // Scratch-blocks is accounting for the size of the flyout in a way that we don't want.
   Turtle.workspace.translate(0,0);
   Turtle.workspace.scrollY = 0;
@@ -132,16 +168,12 @@ Turtle.init = function() {
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
   Turtle.paper = document.getElementById('paperDiv');
 
-  BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
-  Turtle.loadUrlBlocks();
-
-
   // Onresize will be called as soon as we register it in IE, so we hold off
   // on registering it until everything it references is defined.
   onresize = function() {
     var totalHeight = document.getElementById('visualization').offsetHeight;
     var totalWidth = document.getElementById('visualization').offsetWidth;
-    var paddingHeight = window.innerHeight > 700 ? 80: 40;
+    var paddingHeight = window.innerHeight > Turtle.MAX_HEIGHT ? Turtle.BIG_PADDING: Turtle.SMALL_PADDING;
     var paddingWidth = 32;
     Turtle.DISPLAY_SIZE = Math.min(
         totalWidth - paddingWidth,
@@ -160,16 +192,44 @@ Turtle.init = function() {
 
   Turtle.registerRunListener();
   if (document.getElementById('submitButton')) {
-    Turtle.bindClick('submitButton', Turtle.sendSnowflakeAndBlocks);
+    Turtle.bindClick('submitButton', function() {
+      // Don't show the repeat message on this fast run, or on following runs.
+      Turtle.runCount = Turtle.RUN_COUNT_THRESHOLD;
+      Turtle.sendSnowflakeAndBlocks();
+    });
   }
-  Turtle.bindClick('clearWs', BlocklyInterface.clearBlocks);
+  if (document.getElementById('playButton')) {
+    Turtle.bindClick('playButton',
+      function() {
+        Turtle.runCode(Turtle.DEFAULT_DELAY);
+      });
+  }
 
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
 
-  //Tutorial
-  this.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
-  this.tutorial.schedule();
+  Turtle.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
+  Blockly.Events.disable();
+  BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
+  Blockly.Events.enable();
+  // Try to load blocks from the URL.  If that fails, assume it's their first
+  // time here.  Show and run the default blocks, then show the tutorial.
+  if (!Turtle.loadUrlBlocks()) {
+    if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
+      document.getElementById('snowflake_code_message').style.display = 'block';
+    }
+
+    Turtle.runCode(Turtle.DEFAULT_DELAY, function() {
+      Turtle.tutorial.schedule();
+      if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
+        document.getElementById('snowflake_code_message').style.display = 'none';
+      }
+    });
+  } else {
+    // Turn on the tutorial, so that it will be visible when the users gets here
+    // from the sharing landing page.
+    Turtle.tutorial.schedule();
+  }
 };
 
 window.addEventListener('load', Turtle.init);
@@ -182,28 +242,19 @@ Turtle.getDefaultXml = function() {
   return '<xml>' +
       '  <block type="snowflake_start" id="SnowflakeStartBlock" deletable="false" movable="false" x="32" y="32">' +
       '    <next>' +
-      '      <block type="pentagon_stamp">' +
-      '        <value name="SIZE">' +
-      '          <shadow type="dropdown_pentagon">' +
-      '            <field name="CHOICE">125</field>' +
+      '      <block type="turtle_colour">' +
+      '        <value name="COLOUR">' +
+      '          <shadow type="dropdown_colour">' +
+      '            <field name="CHOICE">#b3e5fc</field>' +
       '          </shadow>' +
       '        </value>' +
       '        <next>' +
-      '          <block type="turtle_colour">' +
-      '            <value name="COLOUR">' +
-      '              <shadow type="dropdown_colour">' +
-      '                <field name="CHOICE">#b3e5fc</field>' +
+      '          <block type="pentagon_stamp">' +
+      '            <value name="SIZE">' +
+      '              <shadow type="dropdown_pentagon">' +
+      '                <field name="CHOICE">125</field>' +
       '              </shadow>' +
       '            </value>' +
-      '            <next>' +
-      '              <block type="triangle_stamp">' +
-      '                <value name="SIZE">' +
-      '                  <shadow type="dropdown_triangle">' +
-      '                    <field name="CHOICE">125</field>' +
-      '                  </shadow>' +
-      '                </value>' +
-      '              </block>' +
-      '            </next>' +
       '          </block>' +
       '        </next>' +
       '      </block>' +
@@ -212,16 +263,25 @@ Turtle.getDefaultXml = function() {
       '</xml>';
 };
 
+/**
+ * Try to load blocks from the URL.
+ * @return {boolean} whether blocks were successfully loaded.
+ */
 Turtle.loadUrlBlocks = function() {
-  var regex = /\&B\=([#a-z\d\[\]\(\)]+)/;
-  var blocksString = window.location.href;
-  var results = regex.exec(blocksString);
-  if (results) {
-    blocksString = results[1];
-    Sharing.urlToWorkspace(blocksString);
-    Turtle.sharing = true;
-    Turtle.sendSnowflakeAndBlocks();
+  var blocksString = window.location.search;
+  if (blocksString) {
+    var index = blocksString.indexOf('B=');
+    if (index != -1) {
+      blocksString = blocksString.substring(index + 2);
+      Blockly.Events.disable();
+      Sharing.urlToWorkspace(blocksString);
+      Blockly.Events.enable();
+      Turtle.sharing = true;
+      Turtle.sendSnowflakeAndBlocks();
+      return true;
+    }
   }
+  return false;
 };
 
 /**
@@ -229,14 +289,17 @@ Turtle.loadUrlBlocks = function() {
  * respond by running the user's code.
  */
 Turtle.registerRunListener = function() {
-  function onBlockClicked(event) {
+  function onBlockSelected(event) {
     if (event.type == Blockly.Events.UI &&
-        event.element == 'click' &&
-        event.blockId == Turtle.snowflakeStartBlockId) {
+        event.element == 'selected' &&
+        event.newValue == Turtle.snowflakeStartBlockId) {
+      // Deselect the start block--otherwise it won't register the next tap.
+      // This is a workaround because immovable blocks don't fire click events.
+      Turtle.workspace.getBlockById(Turtle.snowflakeStartBlockId).unselect();
       Turtle.runCode(Turtle.DEFAULT_DELAY);
     }
   }
-  Turtle.workspace.addChangeListener(onBlockClicked);
+  Turtle.workspace.addChangeListener(onBlockSelected);
 };
 
 /**
@@ -320,7 +383,7 @@ Turtle.display = function() {
   Turtle.ctxDisplay.rect(0, 0,
       Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
   Turtle.ctxDisplay.clearRect(0, 0, Turtle.ctxDisplay.canvas.width, Turtle.ctxDisplay.canvas.height);
-  Turtle.ctxDisplay.fillStyle = "rgba(50, 50, 50, .2)";
+  Turtle.ctxDisplay.fillStyle = "rgba(0, 0, 255, 0)";
   Turtle.ctxDisplay.fill();
 
   // Draw the user layer.
@@ -378,9 +441,6 @@ Turtle.display = function() {
 
 Turtle.runCode = function(delay, callback) {
   Turtle.runDelay = delay;
-  if (delay > 0) {
-    document.getElementById('spinner').style.visibility = 'visible';
-  }
   Turtle.reset();
   Turtle.canSubmit = false;
   Turtle.execute(callback);
@@ -406,6 +466,18 @@ Turtle.initInterpreter = function(interpreter, scope) {
     Turtle.setOnRepeat(bool);
   };
   interpreter.setProperty(scope, 'setOnRepeat', interpreter.createNativeFunction(wrapper));
+
+  wrapper = function() {
+    Turtle.showRepeatMessage();
+  };
+  interpreter.setProperty(scope, 'showRepeatMessage',
+      interpreter.createNativeFunction(wrapper));
+
+  wrapper = function() {
+    Turtle.hideRepeatMessage();
+  };
+  interpreter.setProperty(scope, 'hideRepeatMessage',
+      interpreter.createNativeFunction(wrapper));
 
   wrapper = function(size, id) {
     Turtle.stampPolygon(size, 5, true /*animate*/, false /*fill*/, id.toString());
@@ -492,15 +564,19 @@ Turtle.execute = function(callback) {
   var subcode = Blockly.JavaScript.workspaceToCode(Turtle.workspace);
   var loopVar = 'snowflakeLoopCount'
 
-  var code = 'setOnRepeat(false);\n' +
+  var code = 'hideRepeatMessage();\n' +
+      'setOnRepeat(false);\n' +
       'for (var ' + loopVar + ' = 0; ' + loopVar + ' <  6; ' + loopVar + '++) {\n' +
-      subcode;
+      'pause(' + Turtle.runDelay + ');\n' +
+      subcode +
+      'if (' + loopVar + ' == 0) { showRepeatMessage();\n }\n';
   if (Turtle.runDelay > 0) {
-    code += 'if (' + loopVar + ' == 0) { pause(300); }\n pause(' + Turtle.runDelay + ');\n';
+    code += 'if (' + loopVar + ' == 0) { pause(500); }\n';
   }
   code +='setOnRepeat(true);\n' +
       'reset();\nturnRight(60*(' +
-      loopVar + '+1), \'no-block-id\');\n}';
+      loopVar + '+1), \'no-block-id\');\n}\n' +
+      'hideRepeatMessage()\n';
   Turtle.interpreter = new Interpreter(code, Turtle.initInterpreter);
   Turtle.pidList.push(setTimeout(Turtle.executeChunk_, 100, callback));
 };
@@ -534,7 +610,6 @@ Turtle.executeChunk_ = function(callback) {
   } while (go);
   // Wrap up if complete.
   if (!Turtle.pause) {
-    document.getElementById('spinner').style.visibility = 'hidden';
     BlocklyInterface.highlight(null);
     // Image complete; allow the user to submit this image to Reddit.
     Turtle.canSubmit = true;
@@ -553,6 +628,8 @@ Turtle.animate = function(id) {
   if (id != 'no-block-id' && !Turtle.onRepeat) {
     BlocklyInterface.highlight(id);
     Turtle.pause = Turtle.runDelay;
+  } else if (Turtle.onRepeat) {
+    BlocklyInterface.highlight(null);
   }
   if (Turtle.onRepeat || Turtle.sharing) {
     Turtle.pause = 0;
@@ -562,6 +639,26 @@ Turtle.animate = function(id) {
 Turtle.setOnRepeat = function(bool) {
   Turtle.onRepeat = bool.data;
 }
+
+/**
+ * Show the "now repeat" message if it has never been shown before.
+ */
+Turtle.showRepeatMessage = function() {
+  if (Turtle.runCount < Turtle.RUN_COUNT_THRESHOLD) {
+    // Don't show the first time, when we're auto-playing the starter code.
+    if (Turtle.runCount != -1) {
+      document.getElementById('now_repeat_message').style.display = 'block';
+    }
+    Turtle.runCount++;
+  }
+};
+
+/**
+ * Hide the "now repeat" message.
+ */
+Turtle.hideRepeatMessage = function() {
+  document.getElementById('now_repeat_message').style.display = 'none';
+};
 
 Turtle.stampPolygon = function(size, numSides, animate, fill, id) {
   Turtle.ctxScratch.lineWidth = Turtle.MIN_LINE_WIDTH;
@@ -695,11 +792,14 @@ Turtle.isVisible = function(visible, id) {
 };
 
 Turtle.sendSnowflakeAndBlocks = function() {
-    var delay = Turtle.FAST_DELAY;
-    if (Turtle.sharing){
-      delay = 0;
-    }
+    var delay = Turtle.sharing ? 0 : Turtle.FAST_DELAY;
     Turtle.runCode(delay, function() {
+      var blocksUrl = Sharing.workspaceToUrl();
+      if (!blocksUrl || blocksUrl == "") {
+        console.log('Workspace has no code.');
+        Turtle.sharing = false;
+        return;
+      }
       var padding = Turtle.ctxScratch.lineWidth;
       // We always want a square image, so use the min of x and y for both.
       var min = Math.min(Turtle.bounds[0], Turtle.bounds[1]) - padding;
@@ -710,11 +810,15 @@ Turtle.sendSnowflakeAndBlocks = function() {
       // And restrict to between 350 and WIDTH
       var max = Math.max(350, Math.min(Turtle.WIDTH, max));
 
-      var width = max - min;
+      var width = (max - min) + Turtle.SHADOW_OFFSET;
       var height = width;
       Turtle.ctxOutput.canvas.width = width;
       Turtle.ctxOutput.canvas.height = height;
-      Turtle.ctxOutput.globalCompositeOperation = 'copy';
+      Turtle.ctxOutput.globalCompositeOperation = 'source-over';
+      Turtle.ctxOutput.shadowBlur = 0;
+      Turtle.ctxOutput.shadowOffsetX = Turtle.SHADOW_OFFSET;
+      Turtle.ctxOutput.shadowOffsetY = Turtle.SHADOW_OFFSET;
+      Turtle.ctxOutput.shadowColor = "rgba(0,0,0,0.06)";
       Turtle.ctxOutput.drawImage(Turtle.ctxScratch.canvas, -min, -min);
 
       parent.postMessage({'sharing': Turtle.sharing, 'blocks': Sharing.workspaceToUrl(),

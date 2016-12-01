@@ -39,7 +39,7 @@ window.HOUSES = [{
 }, {
   module: "app",
   launchDate: new Date('Dec 1, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 1, 2019'),
   hideDate: true,
   category: "play",
   link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
@@ -51,111 +51,111 @@ window.HOUSES = [{
 }, {
   module: "santasback",
   launchDate: new Date('Dec 2, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 2, 2018'),
   category: "watch"
 }, {
   module: "translations",
   launchDate: new Date('Dec 3, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 3, 2018'),
   category: "learn"
 }, {
   module: "snowflake",
   launchDate: new Date('Dec 4, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 4, 2016'),
   category: "learn"
 }, {
-  module: "seasonofgiving",
+  module: "codelab",
   launchDate: new Date('Dec 5, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 5, 2016'),
   category: "learn"
 }, {
   module: "santaselfie",
   launchDate: new Date('Dec 6, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 6, 2016'),
   category: "play"
 }, {
   module: "penguindash",
   launchDate: new Date('Dec 7, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 7, 2016'),
   category: "play"
 }, {
   module: "santasearch",
   launchDate: new Date('Dec 8, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 8, 2016'),
   category: "play"
 }, {
-  module: "codelab",
+  module: "seasonofgiving",
   launchDate: new Date('Dec 9, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 9, 2016'),
   category: "learn"
 }, {
   module: "commandcentre",
   launchDate: new Date('Dec 10, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 10, 2016'),
   category: "play"
 }, {
   module: "gumball",
   launchDate: new Date('Dec 11, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 12, 2016'),
   category: "play"
 }, {
   module: "jamband",
   launchDate: new Date('Dec 12, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 12, 2016'),
   category: "play"
 }, {
   module: "wrapbattle",
   launchDate: new Date('Dec 13, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 13, 2016'),
   category: "play"
 }, {
   module: "boatload",
   launchDate: new Date('Dec 14, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 14, 2016'),
   category: "play"
 }, {
   module: "runner",
   launchDate: new Date('Dec 15, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 15, 2016'),
   category: "play"
 }, {
   module: "jetpack",
   launchDate: new Date('Dec 16, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 16, 2016'),
   category: "play"
 }, {
   module: "carpool",
   launchDate: new Date('Dec 17, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 17, 2018'),
   category: "watch"
 }, {
   module: "briefing",
   launchDate: new Date('Dec 18, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 18, 2016'),
   category: "explore"
 }, {
   module: "presentdrop",
   launchDate: new Date('Dec 19, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 19, 2016'),
   category: "play"
 }, {
   module: "mercator",
   launchDate: new Date('Dec 20, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 20, 2016'),
   category: "learn"
 }, {
   module: "racer",
   launchDate: new Date('Dec 21, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 21, 2016'),
   category: "play"
 }, {
   module: "matching",
   launchDate: new Date('Dec 22, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 22, 2016'),
   category: "play"
 }, {
   module: "liftoff",
   launchDate: new Date('Dec 23, 2016'),
-  portalLaunchDate: new Date('Dec 1, 2016'),
+  portalLaunchDate: new Date('Dec 23, 2018'),
   category: "watch"
 }];

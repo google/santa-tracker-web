@@ -1,7 +1,5 @@
 $name: 'module-postcard';
 
-@import "../shared/sass/board";
-@import "../shared/sass/share-overlay";
 @import "../shared/sass/tutorial";
 
 @import "sass/environment";
@@ -19,10 +17,6 @@ $name: 'module-postcard';
   position: absolute;
   right: 0;
   top: 0;
-
-  .board.board--scene.board--scene .back {
-    border-radius: none;
-  }
 
   .plusInfo {
     display: none;

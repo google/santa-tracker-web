@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "波士尼亞與赫塞哥維納"
 	},
+	"back_to_previous_page": {
+		"message": "返回"
+	},
 	"back_to_tracker": {
 		"message": "返回追蹤器"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "智利"
+	},
+	"clear": {
+		"message": "清除"
 	},
 	"close": {
 		"message": "關閉"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "厄瓜多"
 	},
+	"educators": {
+		"message": "聖誕老人追蹤器教職人員版"
+	},
 	"ee_country_name": {
 		"message": "愛沙尼亞"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "芬蘭"
+	},
+	"fi_tradition": {
+		"message": "芬蘭人相信聖誕老人 (Joulupukki) 住在國境之北，也就是 Korvatunturi 這個地方。如果你到那兒走一遭，或許能探訪他的神祕工作室，一窺地精辛勤工作的有趣景象。在松樹林間，你也可能看見輕快奔馳的馴鹿。"
 	},
 	"finished-text": {
 		"message": "佳節愉快！聖誕老人完成環遊世界之旅，現在該好好休息一下。明年再來找我們喔！"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "困難"
 	},
+	"help": {
+		"message": "說明"
+	},
 	"hi_language_name": {
 		"message": "北印度文"
 	},
 	"hn_country_name": {
 		"message": "宏都拉斯"
+	},
+	"holiday_message_0": {
+		"message": "佳節愉快！"
+	},
+	"holiday_message_1": {
+		"message": "佳節願望！"
+	},
+	"holiday_message_2": {
+		"message": "事事順心！"
+	},
+	"holiday_message_3": {
+		"message": "下雪吧！"
+	},
+	"holiday_message_4": {
+		"message": "新年快樂！"
+	},
+	"holiday_message_5": {
+		"message": "佳節平安！"
 	},
 	"hours": {
 		"message": "小時"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "南韓"
 	},
+	"kr_tradition": {
+		"message": "在南韓，聖誕節不僅是國定假日，更是眾所皆知的浪漫佳節。市區街頭的絢麗燈光搭襯著商圈店家掛上的聖誕飾品，吸引許多情侶在此相聚約會。"
+	},
 	"kz_country_name": {
 		"message": "哈薩克"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "立陶宛"
 	},
+	"lt_tradition": {
+		"message": "在立陶宛，人們用稻草製作傳統聖誕節裝飾，他們會把稻草編織成星星、雪花或是鈴鐺等幾何形狀。許多家庭也會用稻草裝飾餐桌，並齊聚一堂享用聖誕夜大餐。"
+	},
 	"lv_country_name": {
 		"message": "拉脫維亞"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "使用 Google 聖誕老人追蹤器，在 Google 地圖上跟著聖誕老人一起環遊世界。"
+	},
+	"meta_title": {
+		"message": "Google 聖誕老人追蹤器"
 	},
 	"mg_country_name": {
 		"message": "馬達加斯加"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "今日新登場"
+	},
+	"next": {
+		"message": "繼續"
 	},
 	"ng_country_name": {
 		"message": "奈及利亞"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "不，謝謝"
-	},
-	"offline_notification_okay": {
-		"message": "確定"
 	},
 	"offline_user_message": {
 		"message": "你已離線"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "塞內加爾"
+	},
+	"snowflake_choose_background": {
+		"message": "選擇背景圖片"
+	},
+	"snowflake_choose_postcard": {
+		"message": "使用方向鍵來挑選明信片"
+	},
+	"snowflake_code": {
+		"message": "使用程式碼設計雪花"
+	},
+	"snowflake_code_instructions": {
+		"message": "將方塊堆在一起，設計獨一無二的雪花"
+	},
+	"snowflake_create_message": {
+		"message": "設計獨一無二的雪花"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "現在再重複一次！"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "重複"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "旋轉並重複！"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "旋轉並重複"
+	},
+	"snowflake_make_your_own": {
+		"message": "雪花是由程式碼編寫而成，快來試試看！"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "挑選一張明信片，與親友分享你的雪花"
+	},
+	"snowflake_shared_message": {
+		"message": "你收到了一片雪花！"
 	},
 	"so_country_name": {
 		"message": "索馬利亞"

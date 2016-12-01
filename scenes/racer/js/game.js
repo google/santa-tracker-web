@@ -55,7 +55,7 @@ SB.Game = function(elem, componentDir) {
   this.controls = new Controls(this, this.tutorial);
   this.renderer = new SB.Renderer(
       /** @type {!HTMLCanvasElement} */ (elem.querySelector('canvas.game')));
-  this.scoreboard = new Scoreboard(this, elem.querySelector('.board'));
+  this.scoreboard = new Scoreboard(this, elem.querySelector('.board'), Constants.TOTAL_LEVELS);
   this.scoreboard.reset();
   this.scoreboard.setLevel(this.level - 1);
   this.gameoverView = new Gameover(this, elem.querySelector('.gameover'));
@@ -409,13 +409,6 @@ SB.Game.prototype.gameover = function() {
 
     this.gameoverView.show(this.scoreboard.score, this.level);
   }
-};
-
-/**
- * Pauses the game.
- */
-SB.Game.prototype.togglePause = function() {
-  this.paused = !this.paused;
 };
 
 /**

@@ -22,38 +22,54 @@ const VERSION = '<STATIC_VERSION>';
 const STATIC_HOST = '<STATIC_HOST>';
 const IS_STAGING = location.hostname !== 'santatracker.google.com';
 
+if (VERSION.startsWith('<STATIC')) {  // don't use whole, prevent replacing
+  // Don't enable the SW on environments without versions.
+  throw new Error('sw disabled without build');
+}
+
 const MANIFEST = `${STATIC_HOST}${VERSION}/contents.json`;
 const LANGUAGE = new URL(self.location).searchParams.lang || 'en';
 const STATIC_DOMAINS = ['maps.gstatic.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 
+const MATCH_INTL_PATH = new RegExp(/^\/intl\/([^/]+)(?:\/(.*)|)$/);
+
 const PRECACHE = (function() {
-  // Cache both the top-level files and the /intl/xx/-rooted files. If the user has chosen a lang
-  // manually, then these files will differ. Loading the top-level in future will cause a new SW
-  // to be installed.
-  // TODO(plegner): Will that experience while offline be broken? Should we instead explicitly
-  // _not_ cache the  top-level if a language has been explicitly chosen, because we won't work?
-
-  const r = ['/', '/error.html'];
-
-  // cache images from Web App Manifest
-  const sizes = [16, 32, 76, 120, 152, 192, 256];
-  r.push(...sizes.map(size => `/images/${size <= 32 ? 'fav' : ''}icon-${size}.png`));
-
   const prod = (self.location.hostname === 'santatracker.google.com');
-  const prefix = `/intl/${LANGUAGE}${(prod ? '' : '_ALL')}/`;
-  r.push(prefix + 'index.html', prefix + 'error.html')
-  return r;
+  const prefix = (function() {
+    if (!prod && LANGUAGE == 'en') {
+      // In staging, /intl/en_ALL/ won't return anything. Just use top-level.
+      return '/';
+    }
+    return '/intl/' + LANGUAGE + (prod ? '_ALL' : '');
+  }());
+
+  const out = {};
+
+  // Cache the "intl" files as top-level files. While the user keeps making requests to this
+  // language, we'll keep serving them. Otherwise, they'll get real files anyway.
+  out['/'] = `${prefix}/somebodypleasethinkofthechildren.html`;
+  out['/error.html'] = `${prefix}/error.html`;
+  out['/manifest.json'] = `${prefix}/manifest.json`;
+
+  // cache images from Web App Manifest, top-level is fine
+  const sizes = [16, 32, 76, 120, 152, 192, 256];
+  sizes.forEach(size => {
+    const url = `/images/${size <= 32 ? 'fav' : ''}icon-${size}.png`;
+    out[url] = url;
+  });
+
+  return out;
 }());
-
-
 
 /**
  * Fetches a url and adds it to the cache.
  * @param {string|Request} url
+ * @param {string=} opt_cacheUrl the optional target cache URL
  * @param {boolean=} opt_withCredentials
  * @returns {Promise<Response>}
  */
-function fetchAndCache(url, opt_withCredentials) {
+function fetchAndCache(url, opt_cacheUrl, opt_withCredentials) {
+  const cacheUrl = opt_cacheUrl || url;
   const opts = {};
   if (opt_withCredentials) {
     opts.mode = 'cors';
@@ -61,8 +77,12 @@ function fetchAndCache(url, opt_withCredentials) {
   }
   return fetch(url, opts).then(response => {
     if (response.status === 200) {
-      console.debug(`Adding ${url} to cache.`);
-      caches.open(VERSION).then(cache => cache.put(url, response));
+      if (cacheUrl !== url) {
+        // console.debug(`Adding ${url} to cache, as ${cacheUrl}`);
+      } else {
+        // console.debug(`Adding ${url} to cache.`);
+      }
+      caches.open(VERSION).then(cache => cache.put(new Request(cacheUrl), response));
     }
     return response.clone();
   });
@@ -71,13 +91,14 @@ function fetchAndCache(url, opt_withCredentials) {
 /**
  * Loads a url from cache, or adds it if it wasn't previously cached.
  * @param {string|Request} url
+ * @param {string=} opt_cacheUrl the optional target cache URL
  * @param {boolean=} opt_withCredentials
  * @returns {Promise<Response>}
  */
-function loadFromCache(url, opt_withCredentials) {
+function loadFromCache(url, opt_cacheUrl, opt_withCredentials) {
   return caches.open(VERSION)
-    .then(cache => cache.match(url))
-    .then(response => response || fetchAndCache(url, opt_withCredentials));
+    .then(cache => cache.match(opt_cacheUrl || url))
+    .then(response => response || fetchAndCache(url, opt_cacheUrl, opt_withCredentials));
 }
 
 /**
@@ -156,7 +177,7 @@ function compareManifest(oldManifest, newManifest) {
   return Promise.all([caches.open(oldManifest.version), caches.open(VERSION)])
     .then(([oldCache, newCache]) => {
       return getScenes(oldCache).then(scenes => {
-        console.debug('Updating cache for: ' + scenes.join(', '));
+        console.debug('Updating cache for', scenes);
 
         const sharedPromise = compareScene(oldManifest.shared,
           newManifest.shared, oldCache, newCache, oldManifest.version);
@@ -184,47 +205,52 @@ function precacheScene(scene) {
 }
 
 self.addEventListener('install', function(event) {
-  console.debug(`Installing new service worker (${VERSION}).`);
+  console.debug('sw install', VERSION, LANGUAGE);
 
   const updatePromise = Promise.all([getOldManifest(), getNewManifest()])
     .then(function([oldManifest, newManifest]) {
-      // TODO(plegner) This check doesn't work if the language changes.
-      if (oldManifest.version === newManifest.version) {
-        return Promise.resolve();
-      } else if (oldManifest.version) {
+      // This is an install event, so always compare manifests, even if they may be the same.
+      if (oldManifest.version) {
         return compareManifest(oldManifest, newManifest);
-      } else {
-        return precacheScene(newManifest.shared);
       }
+      // TODO(samthor): This should cache village (aka dorf).
+      return precacheScene(newManifest.shared);
     });
 
   // nb. We fetch PRECACHE with credentials to support Santa's staging server.
-  const precachePromise = Promise.all(PRECACHE.map(path => loadFromCache(path, true)));
 
-  if (IS_STAGING) {
-    event.waitUntil(self.skipWaiting());
-  } else {
-    event.waitUntil(Promise.all([updatePromise, precachePromise]));
-  }
+  const precacheRequests = Object.keys(PRECACHE).map(cacheUrl => {
+    const url = PRECACHE[cacheUrl];  // actually fetched URL
+    return loadFromCache(url, cacheUrl, true);
+  });
+  const precachePromise = Promise.all(precacheRequests);
+
+  // TODO(samthor): Why skip in staging?
+  // if (IS_STAGING) {
+  //   event.waitUntil(self.skipWaiting());
+  //   return;
+  // }
+  event.waitUntil(Promise.all([updatePromise, precachePromise]));
 });
 
 self.addEventListener('activate', function(event) {
-  console.debug(`Activating new service worker (${VERSION}).`);
+  console.debug('sw activate', VERSION, LANGUAGE);
   
-  const activatePromise = getOldManifest().then(oldManifest => {
-    // If necessary, remove the old cache (can be asynchronous).
-    if (oldManifest.version) {
-      console.debug(`Deleting old cache (${oldManifest.version})`);
-      caches.delete(oldManifest.version);
-    }
+  const activatePromise = Promise.all([getOldManifest(), getNewManifest()])
+    .then(function([oldManifest, newManifest]) {
+      // If necessary, remove the old cache (can be asynchronous).
+      if (oldManifest.version && oldManifest.version !== newManifest.version) {
+        console.debug('sw deleting cache', oldManifest.version);
+        caches.delete(oldManifest.version);
+      }
 
-    // Move the current manifest into the persistent cache
-    return caches.open('persistent').then(persistentCache => {
-      return loadFromCache(MANIFEST).then(response => {
-        return persistentCache.put('/manifest.json', response);
+      // Move the current manifest into the persistent cache
+      return caches.open('persistent').then(persistentCache => {
+        return loadFromCache(MANIFEST).then(response => {
+          return persistentCache.put('/manifest.json', response);
+        });
       });
     });
-  });
 
   // In staging, we activate the service worker immediately and claim all curent
   // clients. The main thread listens to this event and refreshes the page.
@@ -236,23 +262,89 @@ self.addEventListener('activate', function(event) {
   }
 });
 
-self.addEventListener('fetch', function(event) {
-  // Don't intercept POST requests.
-  if (event.request.method != 'GET') { return; }
+/**
+ * Returns the cache URL for the specified prod request. Returns undefined if this should not be
+ * handled.
+ * @param {string} pathname
+ * @param {string} lang
+ * @return {string|undefined}
+ */
+function urlForProd(pathname, lang) {
+  const intl = MATCH_INTL_PATH.exec(pathname);
+  if (intl) {
+    lang = intl[1];
+    pathname = intl[2] || '/';  // can be undefined if "/intl/de"
+  }
 
-  // Only intercept requests to permitted domains. This excludes
-  // santa-api.appspot.com and ssl.google-analytics.com, among others.
-  const url = new URL(event.request.url);
-  const prodRequest = (url.hostname === self.location.hostname);
-  const matchedUrl = event.request.url.startsWith(STATIC_HOST) ||
-      prodRequest || STATIC_DOMAINS.includes(url.hostname);
-  if (!matchedUrl) {
+  if (lang && lang !== LANGUAGE) {
+    // If the language doesn't match, then defer to the network. We don't care ¯\_(ツ)_/¯
+    // But don't worry if there's no language: serve whatever is in cache.
+    console.debug('ignoring request for lang', lang, 'sw registered for', LANGUAGE);
     return;
   }
 
-  // Don't cache audio resources (for now).
-  if (event.request.url.match(/\/audio\//)) { return; }
+  if (pathname === '/' || pathname.endsWith('.html')) {
+    if (pathname.lastIndexOf('/') > 0) {
+      return;  // could be e.g. "/foo/bar.html", ignore
+    }
+    // TODO(samthor): We could limit to actual fanned out routes here.
+    switch (pathname) {
+    case '/upgrade.html':
+    case '/cast.html':
+      return;  // don't cache cast or upgrade
+    case '/error.html':
+      return pathname;  // serve error properly (used for kill switch)
+    }
+    return '/';  // this is a route, return generic index page
+  }
+
+  // Allow other top-level files, or anything under /images.
+  if (pathname.lastIndexOf('/') === 0 || pathname.startsWith('/images/')) {
+    return pathname;
+  }
+
+  // Everything else goes through to the network.
+}
+
+self.addEventListener('fetch', function(event) {
+  // Only handle GET requests.
+  if (event.request.method != 'GET') { return; }
+
+  const url = new URL(event.request.url);
+
+  // Look for static requests. This can be the same as the prod domain (in staging only), but can
+  // be longer (STATIC_DOMAINS, used below, can never contain STATIC_HOST).
+  const staticRequest = event.request.url.startsWith(STATIC_HOST);
+  if (staticRequest) {
+    // Strip "?foo" from purely static requests. This compliments a workaround inside `lazy-pages`
+    // for Polymer: https://github.com/Polymer/polymer/issues/3908
+    url.search = '';
+  }
+
+  // Intercept static requests. This includes STATIC_DOMAINS, for external resources like fonts,
+  // maps and etc; but which exludes e.g., santa-api.appspot.com and ssl.google-analytics.com.
+  const urlIsMatched = staticRequest || STATIC_DOMAINS.includes(url.hostname);
+  if (urlIsMatched) {
+    const urlString = url.toString();
+    event.respondWith(loadFromCache(urlString));
+    return;
+  }
+
+  // Otherwise, this is probably a prod request: to the domain of the SW itself.
+  if (url.hostname === self.location.hostname) {
+    let hlLang = null;
+    if (url.search) {
+      const match = /\bhl=([^&]*)\b/;
+      if (match) {
+        hlLang = match[1];
+      }
+    }
+    const cacheUrl = urlForProd(url.pathname, hlLang);
+    if (cacheUrl) {
+      event.respondWith(loadFromCache(url.pathname, cacheUrl, true));
+    }
+    return;
+  }
 
   // TODO(plegner) Add catch handlers, to provide offline fallback responses.
-  event.respondWith(loadFromCache(event.request.url, prodRequest));
 });

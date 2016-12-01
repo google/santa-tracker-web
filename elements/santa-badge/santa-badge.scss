@@ -1,0 +1,123 @@
+$size-inset: 8px;
+
+:host {
+  height: 100%;
+  will-change: transform;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+
+  > div {
+    min-width: 66px;
+  }
+}
+
+.cell {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+  font-weight: 900;
+}
+
+.value {
+  font-size: 19px;
+  line-height: 25px;
+  will-change: transform;
+}
+
+.feature {
+  align-self: flex-start;
+  position: relative;
+  background: var(--santa-feature-color, #b757c5);
+  top: -4px;
+  height: 55px;
+  width: 55px;
+  padding-top: 4px;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  .value {
+    font-size: 21px;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    top: 10%;
+    background: transparent center/contain no-repeat;
+    will-change: transform;
+    transition: transform 0.4s;
+    transform: translateY(-150%);
+  }
+  .cell {
+    transition: transform 0.4s;
+    will-change: transform;
+    transform: translateY(0);
+  }
+  &.icon .icon {
+    transform: translateY(0);
+  }
+  &.icon .cell {
+    transform: translateY(-100%);
+  }
+}
+
+.label {
+  font-size: 9px;
+  line-height: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.dim {
+  opacity: 0.66;
+}
+
+small {
+  font-family: 'Lobster', Roboto, Arial, Sans-Serif;
+  font-size: inherit;
+  display: inline-block;
+  transform: scale(0.6);
+  margin: 0 -5px;
+  font-weight: normal;
+}
+
+@media (max-width: 768px - 1px) {
+  #level {
+    // This is a bit ugly: we're still in the flexbox, but move us to the left, where the #score
+    // exists. We then translate ourselves up to hide.
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateY(-100%);
+    will-change: transform;
+    transition: transform 0.4s;
+  }
+
+  #score {
+    transform: translateY(0);
+    will-change: transform;
+    transition: transform 0.4s;
+  }
+
+  .level-active #level {
+    transform: translateY(0);
+  }
+  .level-active #score {
+    transform: translateX(100%);
+  }
+}

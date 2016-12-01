@@ -28,11 +28,7 @@ Postcard scene.
     :host([mode="portal"]) #sharebutton {
         display: none !important;
     }
-    :host([mode="portal"]) .shareButtons {
-      display: none !important;
-    }
   </style>
-
   <div id="module-postcard">
     <div class="scene">
       <div class="environment">
@@ -104,28 +100,10 @@ Postcard scene.
       </div>
     </div>
     <div class="gui">
-      <div class="board board--scene">
-        <div class="logo"></div>
-      </div>
       <div class="Buttons">
         <button type="button" id="sharebutton" class="Button">
           <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
         </button>
-      </div>
-      <div class="shareOverlay overlay shareOverlay--postcard">
-        <div class="shareOverlay-dialog overlay-dialog">
-          <div class="shareOverlay-imageWrapper">
-            <div class="shareOverlay-image"></div>
-          </div>
-          <div class="shareOverlay-buttons">
-            <p class="shareOverlay-label">
-              <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
-            </p>
-            <input type="url" readonly="readonly" class="shareOverlay-url"/>
-            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
-          </div>
-          <button type="button" class="shareOverlay-close"></button>
-        </div>
       </div>
     </div>
     
@@ -156,7 +134,6 @@ Postcard scene.
       this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.postcard.Scene(module);
-      this.sceneParamsChanged();
     },
 
     onHide: function() {
@@ -164,12 +141,6 @@ Postcard scene.
       this.scene = null;
       this.fire('sound-ambient', 'sm_end');
     },
-
-    sceneParamsChanged: function() {
-      if (this.sceneParams && this.scene) {
-        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
-      }
-    }
   });
 
 })();

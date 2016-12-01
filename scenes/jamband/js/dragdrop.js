@@ -84,7 +84,6 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
         currentDraggable.trigger('dropped', this.el.parent().data());
       } else {
         var container = /** @type {!Element} */ (currentDraggable.data('container'));
-        console.info('container type is', container);
         currentDraggable.appendTo(container);
         currentDraggable.trigger('dragging');
         currentDraggable.trigger('returned');
@@ -93,6 +92,8 @@ app.Draggable.prototype.dragEnd_ = function(x, y) {
 
     this.el.appendTo(droppable);
     this.el.trigger('dropped', droppable.data());
+
+    window.ga('send', 'event', 'game', 'dropped', 'jamband');
   } else {
     this.el.appendTo(this.container);
     this.el.trigger('returned');

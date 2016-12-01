@@ -1,3 +1,8 @@
+$name: 'module-turtle';
+
+@import "../../../shared/sass/button";
+
+
 .blocklyMainBackground {
   stroke-width: 0 !important;
 }
@@ -78,13 +83,13 @@
 
 .turtle-visualization {
   width: 60%;
-  padding: 40px 0;
+  padding: 64px 0;
   min-height: 180px;
   min-width: 180px;
   max-width: 532px;
 
   @media (max-height: 700px) {
-    padding: 20px 0;
+    padding: 40px 0;
   }
 }
 
@@ -93,49 +98,162 @@
 }
 
 .paper {
-  background-image: url(../img/img_canvas_snowflake.png);
-  background-size: 320px;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url(../img/img_grid.png);
   background-color: white;
-  padding: 16px;
+  background-position: center;
+  background-size: 25px;
   position: relative;
   width: 100%;
   height: 100%;
   align-self: center;
+  border: 2px solid #e0f7fa;
+}
 
-  @media (max-height: 700px) {
-    background-size: 180px;
-  }
+.paper:after {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  right: -18px;
+  bottom: -18px;
+  background: white;
+  z-index: -1;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.06);
 }
 
 #blocklycontainer {
   position: relative;
 }
 
-.clear {
-  background-image: url('../img/btn_clear.png');
-  margin-top: 7px;
-  padding-bottom: 12px;
+.buttonContainer {
+  position:relative;
+  right: 32px;
+  bottom: 0;
+  height: inherit;
+  width: inherit;
 }
 
-.clear:hover {
-  background-image: url('../img/btn_clear_over.png');
+.next-container {
+  float: right;
 }
 
-.clear:active {
-  background-image: url('../img/btn_clear_press.png');
+.next-button {
+  padding: 0 8px;
+  pointer-events: auto;
 }
 
-.help {
-  background-image: url('../../img/btn_help.png');
-  top: 52px;
+.play-button::before {
+  border-radius: 50%;
+  background-image: url('../img/play.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
 }
 
-.help:hover {
-  background-image: url('../../img/btn_help_over.png');
+.circle-button-tab {
+  border-radius: 50%;
+  bottom: 46px;
+  height: 100px;
+  right: 16px;
+  width: 80px;
+  float:right;
+  position:relative;
+  float:right;
 }
 
-.help:active {
-  background-image: url('../../img/btn_help_press.png');
+.circle-button-layer {
+  background-color: white;
+  border-radius: 50%;
+  height: 80px;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  width: 80px;
+  z-index: 1;
 }
+
+.circle-button {
+  background: #93d629;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 6px #2aaf4b;
+  cursor: pointer;
+  font-size: inherit;
+  height: 56px;
+  margin: 10px;
+  padding: 0;
+  position: relative;
+  width: 62px;
+  transition: box-shadow 100ms, transform 100ms;
+  z-index: 1;
+  pointer-events: auto;
+  outline: none;
+}
+
+.turtle-stacked-divs {
+  background-image: url(../../img/img_deskitems_01.png);
+}
+
+.circle-button::before {
+  background-size: cover;
+  content: '';
+  display: block;
+  height: 48px;
+  left: calc(50% - 24px);
+  position: absolute;
+  top: calc(50% - 24px);
+  width: 48px;
+}
+
+.circle-button::after {
+  border-radius: 50%;
+  bottom: 0;
+  box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transition: box-shadow 100ms;
+}
+
+.circle-button::focus {
+  outline: 0;
+}
+
+.circle-button::active {
+  outline: 0;
+  transform: translate3d(0, 6px, 0);
+  box-shadow: 0px 0px #7b1fa2;
+}
+
+.circle-button:active:after {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+}
+
+@keyframes cb_title_appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.title {
+  color: white;
+  font-family: 'Lobster';
+  font-size: 8em;
+  height: 1em;
+  position: absolute;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  top: 3rem;
+  width: 100%;
+  z-index: 1;
+  animation: .15s cb_title_appear backwards;
+}
+

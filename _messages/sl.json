@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosna in Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Nazaj"
+	},
 	"back_to_tracker": {
 		"message": "Nazaj na spremljanje Božičkove poti"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Čile"
+	},
+	"clear": {
+		"message": "Izbriši"
 	},
 	"close": {
 		"message": "Zapri"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekvador"
 	},
+	"educators": {
+		"message": "Spremljanje Božičkove poti za učitelje"
+	},
 	"ee_country_name": {
 		"message": "Estonija"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finska"
+	},
+	"fi_tradition": {
+		"message": "Finci verjamejo, da Božiček, »Joulupukki«, živi v severnem delu države, v Korvatunturiju, če smo bolj natančni. Če ta kraj obiščete, boste morda našli njegovo skrivno delavnico, kjer pridno delajo palčki, ali severne jelene, ki se sprehajajo po borovih gozdovih."
 	},
 	"finished-text": {
 		"message": "Vesele praznike! Božiček je zaključil svoje potovanje okoli sveta in zdaj odhaja na zaslužen počitek. Obiščite nas tudi naslednje leto."
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Težko"
 	},
+	"help": {
+		"message": "Pomoč"
+	},
 	"hi_language_name": {
 		"message": "hindijščina"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Vesele praznike!"
+	},
+	"holiday_message_1": {
+		"message": "Lepe praznične želje!"
+	},
+	"holiday_message_2": {
+		"message": "Vse najlepše!"
+	},
+	"holiday_message_3": {
+		"message": "Naj sneži!"
+	},
+	"holiday_message_4": {
+		"message": "Srečno novo leto!"
+	},
+	"holiday_message_5": {
+		"message": "Praznični pozdravi!"
 	},
 	"hours": {
 		"message": "h"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Južna Koreja"
 	},
+	"kr_tradition": {
+		"message": "V Južni Koreji je božič državni praznik in slovi tudi kot romantični praznik. Veliko parov se odpravi na zmenek v mesto, kjer so ulice in trgovine okrašene s čudovitimi lučkami."
+	},
 	"kz_country_name": {
 		"message": "Kazahstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Litva"
 	},
+	"lt_tradition": {
+		"message": "V Litvi so tradicionalni božični okraski narejeni iz slame ali sena. Stkani so v geometrijske oblike, na primer zvezdice, snežinke ali zvončke. Veliko družin s slamo okrasi tudi jedilno mizo za praznično pojedino, ki se imenuje Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvija"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Če želite v Google Zemljevidih spremljati Božička na njegovi poti okrog sveta, uporabite Božičkovo pot."
+	},
+	"meta_title": {
+		"message": "Google Spremljanje Božičkove poti"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Novo danes"
+	},
+	"next": {
+		"message": "Naprej"
 	},
 	"ng_country_name": {
 		"message": "Nigerija"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ne, hvala"
-	},
-	"offline_notification_okay": {
-		"message": "V redu"
 	},
 	"offline_user_message": {
 		"message": "Nimate vzpostavljene povezave"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Izberite ozadje"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Razglednico izberite s puščičnimi tipkami"
+	},
+	"snowflake_code": {
+		"message": "Kodirajte svojo snežinko"
+	},
+	"snowflake_code_instructions": {
+		"message": "Spnite bloke in oblikujte svojo snežinko"
+	},
+	"snowflake_create_message": {
+		"message": "Oblikujte svojo snežinko"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Ponovite postopek."
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Ponavljanje"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Zavrtite in ponovite."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Vrtenje in ponavljanje"
+	},
+	"snowflake_make_your_own": {
+		"message": "To je bilo narejeno s kodo. Preskusite sami."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Izberite razglednico in delite snežinko s prijatelji"
+	},
+	"snowflake_shared_message": {
+		"message": "Nekdo vam je poslal snežinko."
 	},
 	"so_country_name": {
 		"message": "Somalija"

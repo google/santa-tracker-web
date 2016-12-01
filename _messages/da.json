@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnien-Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Tilbage"
+	},
 	"back_to_tracker": {
 		"message": "Tilbage til \"Følg julemanden\""
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Ryd"
 	},
 	"close": {
 		"message": "Luk"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Følg julemanden for undervisere"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finland"
+	},
+	"fi_tradition": {
+		"message": "Finner tror, at julemanden, \"Joulupukki\", bor i den nordlige del af landet – Korvatunturi for at være helt præcis. Hvis du besøger stedet, finder du muligvis hans hemmelige værksted, hvor nisser arbejder hårdt, eller måske støder du på rensdyr, der render rundt i fyrretræsskove."
 	},
 	"finished-text": {
 		"message": "Glædelig jul! Julemanden har fuldført sin rejse rundt i verden og tager sig et velfortjent hvil. Besøg os igen til næste jul!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Svær"
 	},
+	"help": {
+		"message": "Hjælp"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Glædelig højtid!"
+	},
+	"holiday_message_1": {
+		"message": "De bedste juleønsker!"
+	},
+	"holiday_message_2": {
+		"message": "De bedste ønsker!"
+	},
+	"holiday_message_3": {
+		"message": "Lad sneen falde!"
+	},
+	"holiday_message_4": {
+		"message": "Godt nytår!"
+	},
+	"holiday_message_5": {
+		"message": "Hjertelige hilsner!"
 	},
 	"hours": {
 		"message": "Timer"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Sydkorea"
 	},
+	"kr_tradition": {
+		"message": "I Sydkorea er julen en helligdag, som også er kendt for at være en romantisk helligdag. Mange par går på date i byen, hvor gaderne og butikkerne bugner med funklende lys."
+	},
 	"kz_country_name": {
 		"message": "Kasakhstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Litauen"
 	},
+	"lt_tradition": {
+		"message": "I Litauen er traditionel julepynt lavet af halm eller hø. Det væves til geometriske former, f.eks. stjerner, snefnug eller klokker. Mange familier bruger også halm til at udsmykke spisebordet til et stort måltid kaldet Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letland"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Følg julemanden i Google Maps, mens han rejser jorden rundt."
+	},
+	"meta_title": {
+		"message": "Følg julemanden med Google"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Ny i dag"
+	},
+	"next": {
+		"message": "Næste"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nej, tak"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Du er offline"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Vælg en baggrund"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Brug piletasterne til at vælge et postkort"
+	},
+	"snowflake_code": {
+		"message": "Giv dit snefnug kode"
+	},
+	"snowflake_code_instructions": {
+		"message": "Sæt blokke sammen for at designe dit eget snefnug"
+	},
+	"snowflake_create_message": {
+		"message": "Design dit eget snefnug"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Gør det nu igen!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Gentager"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Drej og gentag!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Drejer og gentager"
+	},
+	"snowflake_make_your_own": {
+		"message": "Dette blev lavet med kode. Prøv det selv!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Vælg et postkort, og del dit snefnug med venner"
+	},
+	"snowflake_shared_message": {
+		"message": "En person har sendt dig et snefnug!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

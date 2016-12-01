@@ -2,8 +2,6 @@ $name: 'module-snowflake';
 $gameover-bg: #8fd7f7;
 $rotate-bg: $gameover-bg;
 
-@import "../shared/sass/board";
-@import "../shared/sass/gameover";
 @import "../shared/sass/rotate";
 @import "../shared/sass/tutorial";
 @import "../shared/sass/button";
@@ -59,6 +57,20 @@ $rotate-bg: $gameover-bg;
     }
   }
 
+  #heroSnowflake {
+    left: 552px;
+    top: 290px;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    animation: swing 5s infinite ease-in-out;
+  }
+
+  @keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+
   #snowglobe {
     width: 100%;
     height: 100%;
@@ -70,7 +82,6 @@ $rotate-bg: $gameover-bg;
     height: 500px;
     overflow: hidden;
     position: relative;
-    background-image: url('img/img_postcard_01.png');
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -111,18 +122,19 @@ $rotate-bg: $gameover-bg;
     }
   }
 
-  .back {
-    background-image: url('img/btn_back.png');
-    margin-top: 7px;
-    padding-bottom: 12px;
 
-    &:hover {
-      background-image: url('img/btn_back_over.png');
-    }
-
-    &:active {
-      background-image: url('img/btn_back_press.png');
-    }
+  .small-button-image {
+    vertical-align: middle;
+    font-size: 40px;
+    background-image: url('img/btn_back_ar.png');
+    background-position: center;
+    padding: 6px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    border: none;
+    width: 20px;
+    height:20px;
+    display:inline-block;
   }
 
   .help {
@@ -146,19 +158,39 @@ $rotate-bg: $gameover-bg;
     z-index: 1,
   }
 
-  .remix:before {
-    background-image: url('img/ic_remix.png');
-  }
-
-  .remix-bar {
-    width:80px;
-  }
 
   .bottom-footer {
     position: relative;
     height: 150px;
   }
+
+  .postcard-stacked-divs {
+    background-image: url('img/img_deskitems_02.png');
+  }
+}
+
+.remix {
+  min-width: 60px;
+  margin-left: 40px;
+  pointer-events: auto;
+  padding: 0 8px;
+  font-size: 26pt !important;
+}
+
+.remix-text {
+   color: white;
+   font-family: 'Lobster';
+   font-size: 27pt;
+   position: absolute;
+   text-align: center;
+   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+   bottom: 40px;
+   width: 100%;
+   z-index: 1;
+}
+.button-share-snow {
+  padding: 0 8px;
+  pointer-events: auto;
 }
 
 @import "../shared/sass/responsive";
-@import "../shared/sass/share-overlay";

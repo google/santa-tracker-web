@@ -85,6 +85,28 @@ Serve from `./dist_pretty`.
 
 To rebuild, run `docker rm -f santa` and start over from building the image.
 
+# Scenes
+
+Santa Tracker is comprised shared code along with many individual scenes: e.g., `village`, `tracker` etc.
+
+## Relevant Paths
+
+Scenes are referenced in a few locations-
+
+* `scenes.js`: The definition for each scene is contained here.
+  If an `entryPoint` is specified, then the scene is compiled with the Closure Compiler.
+  This is also used as the reference for the HTML fanout, creating a HTML file per scene, per language.
+* `images/og`: The OG image (for sharing) in the form `images/og/sceneName.png`, and have a resolution of 1333x1000.
+* `images/scenes`: Each scene should have two images, the centered and resized version of the OG image-
+  1. a 950x564 2x image: `images/scenes/sceneName_2x.png`
+  1. a 475x282 1x image: `images/scenes/sceneName.png`
+* `elements/santa-strings.html`: Due to inconsistent scene i18n message IDs, each scene needs to have its name declared here for dynamic string loading at runtime.
+
+There are two optional locations-
+
+* `scenes/dorf/sass/_houses.scss`: If the scene is also a _house_ that lives in the village.
+* `scenes/press/js/models.js`: To be included in the Press and Educators scenes.
+
 # License
 
 All image and audio files (including *.png, *.jpg, *.svg, *.mp3, *.wav 

@@ -94,7 +94,9 @@ if (navigator.userAgent.indexOf('MSIE') != -1) {
         var tmpContext  = new AudioContext();
 
         // rename createGainNode
-        if ( !acProto.hasOwnProperty('createGain')) acProto.createGain = acProto.createGainNode;
+        if ( !acProto.hasOwnProperty('createGain') && !acProto.createGain) {
+          acProto.createGain = acProto.createGainNode;
+        }
 
         if ( ! acProto.hasOwnProperty( 'internal_createBiquadFilter' ) ){
             acProto.internal_createBiquadFilter = acProto.createBiquadFilter;

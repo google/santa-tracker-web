@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia-Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Atrás"
+	},
 	"back_to_tracker": {
 		"message": "Volver a la vista de seguimiento de Santa"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Borrar"
 	},
 	"close": {
 		"message": "Cerrar"
@@ -453,7 +459,7 @@
 		"message": "Copiar este vínculo para compartir tu mensaje"
 	},
 	"copy-me-short": {
-		"message": "Copiar vínc. y compartir"
+		"message": "Copiar y compartir"
 	},
 	"countdown_days": {
 		"message": "Días"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Sigue a Santa para educadores"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
+	},
+	"fi_tradition": {
+		"message": "Los finlandeses creen que Santa Claus (\"Joulupukki\") vive en la zona norte del país. En Korvatunturi, para ser precisos. Si lo visitas, podrías descubrir su taller secreto donde los duendes trabajan arduamente o podrías encontrar renos paseando por los bosques de pinos."
 	},
 	"finished-text": {
 		"message": "¡Felices fiestas! Santa ha terminado su viaje por todo el mundo y se está tomando su tan merecido descanso. Visítanos el próximo año."
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Difícil"
 	},
+	"help": {
+		"message": "Ayuda"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "¡Felices vacaciones!"
+	},
+	"holiday_message_1": {
+		"message": "¡Felices fiestas!"
+	},
+	"holiday_message_2": {
+		"message": "¡Felicidades!"
+	},
+	"holiday_message_3": {
+		"message": "¡Deja que nieve!"
+	},
+	"holiday_message_4": {
+		"message": "¡Feliz año nuevo!"
+	},
+	"holiday_message_5": {
+		"message": "¡Felices fiestas!"
 	},
 	"hours": {
 		"message": "Horas"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Corea del Sur"
 	},
+	"kr_tradition": {
+		"message": "En Corea del Sur, la Navidad es un feriado nacional. También se considera un feriado romántico, ya que muchas parejas tienen citas en la ciudad, donde las calles y tiendas están adornadas con luces resplandecientes."
+	},
 	"kz_country_name": {
 		"message": "Kazajistán"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Lituania"
 	},
+	"lt_tradition": {
+		"message": "En Lituania, los adornos navideños tradicionales están hechos de paja o heno. Se tejen en formas geométricas, como estrellas, copos de nieve o campanas. Muchas familias también usan paja con el fin de decorar la mesa del comedor para una gran cena denominada Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letonia"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Usa Sigue a Santa para seguirlo en Google Maps a lo largo de su viaje por todo el mundo."
+	},
+	"meta_title": {
+		"message": "Sigue a Santa en Google"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Recientemente disponible"
+	},
+	"next": {
+		"message": "Siguiente"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No, gracias"
-	},
-	"offline_notification_okay": {
-		"message": "De acuerdo"
 	},
 	"offline_user_message": {
 		"message": "Estás sin conexión"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Elige un fondo"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Usa las teclas de flecha para elegir una postal"
+	},
+	"snowflake_code": {
+		"message": "Codifica tu copo de nieve"
+	},
+	"snowflake_code_instructions": {
+		"message": "Junta bloques para diseñar tu propio copo de nieve"
+	},
+	"snowflake_create_message": {
+		"message": "Diseña tu propio copo de nieve"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "¡Repite!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Repitiendo"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Gira y repite"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Girando y repitiendo"
+	},
+	"snowflake_make_your_own": {
+		"message": "Este copo de nieve se creó con código. ¡Intenta crear uno!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Selecciona una postal y comparte tu copo de nieve con tus amigos"
+	},
+	"snowflake_shared_message": {
+		"message": "Alguien te envió un copo de nieve"
 	},
 	"so_country_name": {
 		"message": "Somalía"

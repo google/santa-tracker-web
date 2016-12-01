@@ -82,6 +82,8 @@ app.Scene.prototype = {
     if (name === 'map') {
       window.santaApp.fire('sound-trigger', 'command_map');
     }
+
+    window.ga('send', 'event', 'game', 'interact', 'commandcentre');
   },
 
   /**

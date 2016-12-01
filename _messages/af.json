@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnië en Herzegowina"
 	},
+	"back_to_previous_page": {
+		"message": "Terug"
+	},
 	"back_to_tracker": {
 		"message": "Trug na spoorder"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chili"
+	},
+	"clear": {
+		"message": "Vee uit"
 	},
 	"close": {
 		"message": "Maak toe"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Waar is Kersvader vir Opvoeders"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finland"
+	},
+	"fi_tradition": {
+		"message": "Finse mense glo dat Kersvader, \"Joulupukki\", in die noordelike deel van die land woon – Korvatunturi, om presies te wees. Indien jy daar gaan kuier, sal jy dalk sy geheime werkswinkel vind waar kabouters hard aan die werk is. Of jy kan dalk rendiere in denneboomwoude vind."
 	},
 	"finished-text": {
 		"message": "Voorspoed vir die feestyd! Kersvader het sy reis om die wêreld voltooi en vat nou 'n welverdiende ruskans. Besoek ons weer volgende jaar!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Moeilik"
 	},
+	"help": {
+		"message": "Hulp"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Voorspoed vir die feestyd!"
+	},
+	"holiday_message_1": {
+		"message": "Vakansiewense!"
+	},
+	"holiday_message_2": {
+		"message": "Gelukkige alles!"
+	},
+	"holiday_message_3": {
+		"message": "Laat dit sneeu!"
+	},
+	"holiday_message_4": {
+		"message": "Voorspoedige Nuwe Jaar!"
+	},
+	"holiday_message_5": {
+		"message": "Geseënde Kersfees!"
 	},
 	"hours": {
 		"message": "Ure"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Suid-Korea"
 	},
+	"kr_tradition": {
+		"message": "In Suid-Korea is Kersfees 'n nasionale vakansiedag. Dit is ook bekend as 'n romantiese vakansiedag. Baie paartjies gaan uit in die stad, waar strate en winkels met skitterende ligte versier word."
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Litaue"
 	},
+	"lt_tradition": {
+		"message": "In Litaue word tradisionele Kersversierings uit strooi of hooi gemaak. Dit word in geometriese vorms gevleg, soos sterre, sneeuvlokkies of klokkies. Baie gesinne gebruik ook strooi om die etenstafel vir 'n groot ete, genaamd Kūčios, te versier."
+	},
 	"lv_country_name": {
 		"message": "Letland"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Gebruik Google se Waar is Kersvader om hom op Google Maps te volg soos hy om die wêreld reis."
+	},
+	"meta_title": {
+		"message": "Google se Waar is Kersvader"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Nuut vandag"
+	},
+	"next": {
+		"message": "Volgende"
 	},
 	"ng_country_name": {
 		"message": "Nigerië"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nee, dankie"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Jy is vanlyn"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Kies 'n agtergrond"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Gebruik die pylsleutels om 'n poskaart te kies"
+	},
+	"snowflake_code": {
+		"message": "Kodeer jou sneeuvlokkie"
+	},
+	"snowflake_code_instructions": {
+		"message": "Plak blokke saam om jou eie sneeuvlokkie te ontwerp"
+	},
+	"snowflake_create_message": {
+		"message": "Ontwerp jou eie sneeuvlokkie"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Herhaal nou!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Herhaling"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Draai en herhaal!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Draaiing en herhaling"
+	},
+	"snowflake_make_your_own": {
+		"message": "Hierdie is met kode gemaak. Probeer dit self!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Kies 'n poskaart en deel jou sneeuvlokkie met vriende"
+	},
+	"snowflake_shared_message": {
+		"message": "Iemand het vir jou 'n sneeuvlokkie gestuur!"
 	},
 	"so_country_name": {
 		"message": "Somalië"

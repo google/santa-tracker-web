@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../elements/santa-state.html">
 
 <script src="snowflake-scene.min.js"></script>
 
@@ -26,20 +27,12 @@ Postcard scene.
 -->
 <dom-module id="snowflake-scene">
 <template>
+  <santa-state language="{{language}}"></santa-state>
+
   <!-- TODO(madCode): move style to scss and move inline style as well. -->
   <style>
-  :host([mode="portal"]) .shareButtons {
-    display: none !important;
-  }
   :host([mode="portal"]) #shareButton {
     display: none !important;
-  }
-  #heroSnowflake {
-    left: 552px;
-    top: 290px;
-    position: absolute;
-    width: 300px;
-    height: 300px;
   }
   #blocklyArea {
     position: absolute;
@@ -48,7 +41,7 @@ Postcard scene.
   </style>
 
   <div id="module-snowflake">
-    <div id="postcard" class="stacked-divs scene" hidden>
+    <div id="postcard" class="stacked-divs postcard-stacked-divs scene" hidden>
       <div class="visualization">
         <div class="bgs-belt selection">
           <div class="track"></div>
@@ -80,6 +73,7 @@ Postcard scene.
                 <div class="fg8"></div>
               </div>
               <div class="shadow-inner"></div>
+              <span id="text-span" class="message-text"></span>
             </div>
           </div>
           <div id="heroSnowflake"></div>
@@ -87,40 +81,40 @@ Postcard scene.
       </div>
       <div class="bottom-footer">
         <div class="share-bar big-button_bar center-horiz selection">
-          <div class="back small-button" on-tap="backToBlockly"></div>
-          <div class="help small-button"></div>
-          <div class="big-button-tab">
-            <div class="big-button-layer">
-              <button id="shareButton" class="share big-button"></button>
-            </div>
+          <div class="small-button-container" on-tap="backToBlockly">
+            <span class="small-button-image"></span>
+            <span class="small-button-text">
+            <i18n-msg msgid="back_to_previous_page">PLACEHOLDER_i18n</i18n-msg>
+            </span>
+          </div>
+          <div class='snow-share-div'>
+            <button id="shareButton" class="Button button-share-snow">
+              <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
+            </button>
           </div>
         </div>
-        <div class="remix-bar big-button_bar center-horiz share-landing">
-          <div class="big-button-tab">
-            <div class="big-button-layer">
-              <button id="remixButton" on-tap="backToBlockly" class="remix big-button"></button>
-            </div>
+        <div class="big-button_bar center-horiz share-landing">
+          <div class="remix-button-div remix-text remix-bar">
+            <i18n-msg msgid="snowflake_make_your_own">PLACEHOLDER_i18n</i18n-msg>
+            <button id="remixButton" on-tap="backToBlockly" class="Button remix">
+                <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+            </button>
           </div>
         </div>
         <div class="footer selection"></div>
       </div>
     </div>
     <iframe id="blocklyArea" class="scene" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
+    <div style="display: none;">
+      <div id="S_message0"><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></div>
+      <div id="S_message1"><i18n-msg msgid="holiday_message_3">PLACEHOLDER_i18n</i18n-msg></div>
+      <div id="S_message2"><i18n-msg msgid="holiday_message_4">PLACEHOLDER_i18n</i18n-msg></div>
+      <div id="S_message3"><i18n-msg msgid="holiday_message_5">PLACEHOLDER_i18n</i18n-msg></div>
+    </div>
     <div class="gui">
-      <div class="shareOverlay overlay shareOverlay--barber">
-        <div class="shareOverlay-dialog overlay-dialog">
-          <div class="shareOverlay-imageWrapper">
-            <div class="shareOverlay-image"></div>
-          </div>
-          <div class="shareOverlay-buttons">
-            <p class="shareOverlay-label">
-              <i18n-msg msgid="copy-me">PLACEHOLDER_i18n</i18n-msg>
-            </p>
-            <input type="url" readonly="readonly" class="shareOverlay-url"/>
-            <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
-          </div>
-          <button type="button" class="shareOverlay-close"></button>
-        </div>
+      <div class="force-rotate landscape">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
       </div>
     </div>
   </div>
@@ -134,8 +128,15 @@ Postcard scene.
     behaviors: [window.SantaSceneBehavior],
     game: null,
 
-    property: {
+    start: function() {
+      this.backToBlockly();
+    },
+
+    properties: {
       snowflake: String,
+
+      /** Language. Bound from `santa-state`. */
+      language: String,
     },
 
     attached: function() {
@@ -160,26 +161,31 @@ Postcard scene.
       this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.snowflake.Scene(module);
-      var turtleFrameSrc = this.componentDir + 'snowflake-maker/turtle.html';
-      // Pass the blocks from the url down to the blockly iframe so
-      // it can put them in the workspace.
-      var queryParams = window.location.hash.split('?');
-      // Pass along everything after #snowflake.
-      if (queryParams.length == 2 && queryParams[1]) {
-        turtleFrameSrc += '?' + queryParams[1];
+
+      // Set the local i18n message.
+      // TODO(madCode): This doesn't work in prod, because i18ntext is compiled out.
+      if (this.$.i18ntext) {
+        var params = getUrlParameters();
+        this.$.i18ntext.msgid = 'holiday_message_' + (params.bg || 0);
+      }
+      // nb. Note that the picker grabs bg/fg from the URL, so it doesn't need to be set here.
+      // Pass the entire query string down to the blockly iframe so it can put the blocks in the
+      // workspace. Decode the base64-encoded blocks, and pass to the frame.
+      var script = getUrlParameter('B') || '';
+      if (script) {
+        script = "?B=" + script;
       }
 
-      // Regex checks for &B= with any letter, number or (),[] values following it
-      var shareLandingRegex = /\&B\=([#a-z\d\[\]\(\)]+)/;
+      var turtleFrameSrc =
+          this.componentDir + 'snowflake-maker/turtle_' + this.language + '.html' + script;
 
-      var sharing = shareLandingRegex.exec(turtleFrameSrc);
-      this.$.blocklyArea.src = turtleFrameSrc;
-      this.sceneParamsChanged();
-      if (sharing) {
+      // If script exists, there's stuff to share in the url so show share page.
+      if (script) {
         this.showShareLanding();
       }
+      this.$.blocklyArea.contentWindow.location.replace(turtleFrameSrc);  // don't trigger nav
       if (dev) {
-        this.blocks = "p[125]s[125]c[#006600]<r[30]t[125]>[4]";
+        this.blocks = "p125-s125-c006600-(r30-t125-)4-";
         this.snowflake = 'scenes/snowflake/img/snow-test.png';
         if (dev == 'postcard') {
           this.showPostcard();
@@ -273,12 +279,6 @@ Postcard scene.
         }
       }
     },
-
-    sceneParamsChanged: function() {
-      if (this.sceneParams && this.scene) {
-        this.scene.picker.fromUrl(this.sceneParams.bg || 0, this.sceneParams.fg || 0);
-      }
-    }
   });
 
 })();

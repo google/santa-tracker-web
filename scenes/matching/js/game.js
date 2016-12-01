@@ -50,7 +50,7 @@ var Game = function(elem) {
 
   this.$doors = this.elem.find(Constants.SELECTOR_DOOR);
   this.$targets = this.elem.find(Constants.SELECTOR_DOOR_TARGET);
-  this.mismatchTimeout = null;
+  this.mismatchTimeout = 0;
 
   this.levelModel = new LevelModel(this.elem);
   this.levelUp = new LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
@@ -103,9 +103,7 @@ Game.prototype.destroy = function() {
     };
     window.santaApp.fire('analytics-track-game-quit', opts);
   }
-  if (this.mismatchTimeout != null) {
-    window.clearTimeout(this.mismatchTimeout);
-  }
+  window.clearTimeout(this.mismatchTimeout);
 
   this.doors.forEach(function(door) {
     door.destroy();
@@ -239,8 +237,8 @@ Game.prototype.checkDoorMatch_ = function(door) {
 };
 
 /**
- * Do we have two open doors with the same id (same number)?
- * @param {number} doorId number.
+ * Do we have two open doors with the same id?
+ * @param {string} doorId to check
  * @return {boolean} whether there is a match
  * @private
  */
@@ -274,10 +272,10 @@ Game.prototype.openDoor_ = function(door) {
 /**
  * Removes a door from the doorsOpen model and calls the door to be closed.
  * @param {Door} door instance
- * @param {boolean} mute whether to mute the sound
+ * @param {boolean=} opt_mute whether to mute the sound
  * @private
  */
-Game.prototype.closeDoor_ = function(door, mute) {
+Game.prototype.closeDoor_ = function(door, opt_mute) {
   if (!door) {
     throw new Error('Door is missing.');
   }
@@ -289,7 +287,7 @@ Game.prototype.closeDoor_ = function(door, mute) {
   this.numberOfMismatchedDoors--;
   this.numberOfMismatchedDoors = Math.max(this.numberOfMismatchedDoors, 0);
 
-  if (!mute) {
+  if (!opt_mute) {
     window.santaApp.fire('sound-trigger', 'm_door_close');
   }
 };
@@ -328,9 +326,9 @@ Game.prototype.closeMismatchedDoors_ = function() {
  * @private
  */
 Game.prototype.closeAllDoors_ = function() {
-  for (var i in this.doors) {
-    this.closeDoor_(this.doors[i], true);
-  }
+  this.doors.forEach(door => {
+    this.closeDoor_(door, true);
+  })
 };
 
 /**
@@ -405,10 +403,6 @@ Game.prototype.restart = function() {
 Game.prototype.startLevel_ = function() {
   this.restartDoors_();  // closes and recreates doors
 
-  if (this.paused) {
-    this.togglePause();
-  }
-
   this.unfreezeGame_();
   window.santaApp.fire('sound-trigger', 'm_game_start');
 };
@@ -467,8 +461,6 @@ Game.prototype.finishLevel = function() {
     this.gameover();
     return;
   }
-
-  this.togglePause();
 
   // Add bonus score before bumping level and adding time as those
   // are variables in the level score.
@@ -571,18 +563,6 @@ Game.prototype.unfreezeGame_ = function() {
     // Restart the onFrame loop
     this.lastFrame = +new Date() / 1000;
     this.requestId = window.requestAnimationFrame(this.onFrame_);
-  }
-};
-
-/**
- * Pauses/unpauses the game.
- */
-Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  // Only allow pausing if the game is playing (not game over).
-  } else if (this.isPlaying) {
-    this.pause();
   }
 };
 

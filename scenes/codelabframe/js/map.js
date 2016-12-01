@@ -25,68 +25,69 @@ goog.provide('app.TileType');
  * points of interest.
  * @type {string[]}
  */
+
 app.MapData = [
-  'T     TT',
-  'T     TT', //LEVEL9
-  'T   TTTT',
-  'T     TT',
-  'T  X  TT',
-  'T     TT',
-  'TTTTT TT',
-  'TTTT  TT',
-  'T    TTT',
-  'T X  TTT',
-  'T     TT',
-  'T     TT',
-  'T     TT',
-  'T     TT',
-  'T     TT',
-  'T     TT',
-  'T     TT',
-  'T      T', //LEVEL8
-  '   S   T',
-  '       T',
-  ' T    TT',
-  'X TT   T',
-  'T  TT  T',
-  'TT  TTTT',
-  '      TT', //LEVEL7
-  ' TTTX  T',
-  ' TT    T',
-  ' TT    T',
-  ' T     T',
-  ' T  TTTT', //LEVEL6
-  'X   TY T',
-  '    T  T',
-  '   TTTTT',
-  ' TTTX  T', //LEVEL5
-  '       T',
-  'T    T T',
-  'TTT  T T',
-  '       T',
-  ' TTT   T', //LEVEL4
-  ' T X   T',
-  '       T',
-  '     TTT',
-  'TT  T  T', //LEVEL3
-  ' TT    T',
-  ' TTX   T',
-  ' TT T  T', //LEVEL2
-  'TT  TTTT',
-  '  XTTT T',
-  '  TTT  T', //LEVEL1
-  'TXTT   T',
-  '  ATTTTT',
-  ' X  TT T',
-  '       T',
-  '       T',
-  '   T   T',
-  'T TTTTTT',
-  '   TT  T',
-  'T T    T',
-  'TTT T TT',
-  ' T     T',
-  '   T   T'
+ 'T     TT',
+ 'T     TT', //LEVEL9
+ 'T   TTTT',
+ 'T     TT',
+ 'T  X  TT',
+ 'T     TT',
+ 'TTTTT TT',
+ 'TTTT  TT',
+ 'T    TTT',
+ 'T X  TTT',
+ 'T     TT',
+ 'T     TT',
+ 'T     TT',
+ 'T     TT',
+ 'T     TT',
+ 'T     TT',
+ 'T     TT',
+ 'T      T', //LEVEL8
+ '   S   T',
+ '       T',
+ ' T    TT',
+ 'X TT   T',
+ 'T  TT  T',
+ 'TT  TTTT',
+ '      TT', //LEVEL7
+ '    X TT',
+ '  TTTT T',
+ '       T',
+ '   T   T',
+ 'TTTT   T', //LEVEL6
+ 'TY T X T',
+ 'T  T   T',
+ 'TTTTT  T',
+ '  XTT  T', //LEVEL5
+ '       T',
+ 'T    T T',
+ 'T  TTT T',
+ '       T',
+ '   TTT T', //LEVEL4
+ '   X T T',
+ '       T', //
+ 'T    TTT', //
+ 'TT  T  T', //LEVEL3
+ ' TT    T',
+ ' TTX   T',
+ ' TT    T', //LEVEL2
+ 'TT  TTTT',
+ 'T   XT T',
+ '  T T  T', //LEVEL1
+ 'TT X   T',
+ '    A TT',
+ 'TT X T T',
+ '       T',
+ '  T    T',
+ '   T   T',
+ 'T TTTTTT',
+ '   TT  T',
+ 'T T    T',
+ 'TTT T TT',
+ ' T     T',
+ '   T   T'
 ];
 
 /**

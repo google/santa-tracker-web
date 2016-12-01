@@ -113,7 +113,7 @@ City feed view in Tracker
   <div class="scene fit">
     <div id="city-view" class="fit">
       <div id="city-details">
-        <a href$="{{pageUrl}}#tracker" class="back-to-tracker">
+        <a href$="[[urlFor('tracker')]]" class="back-to-tracker">
           <iron-icon icon="santa:back"></iron-icon>
           <span><i18n-msg msgid="back_to_tracker">PLACEHOLDER_i18n</i18n-msg></span>
         </a>
@@ -219,7 +219,7 @@ City feed view in Tracker
             </div>
 
             <div hidden$="{{!itemIsType(item, 'city')}}">
-              <a href$="{{pageUrl}}#tracker?stop={{item.stop.id}}">
+              <a href$="[[urlFor('tracker')]]?stop=[[item.stop.id]]" class="back-to-tracker">
                 <div class="card-city-bg">
                   <iron-image sizing="cover" preload prevent-load="{{!item.stop.details.photos.0.url}}"
                               fade src="{{item.stop.details.photos.0.url}}"></iron-image>
@@ -288,7 +288,7 @@ City feed view in Tracker
               </div>
 
               <div hidden$="{{!itemIsTypeNotCast(item, 'scene', santaApp.mode)}}" style="height: 100%">
-                <a href$="{{pageUrl}}#{{item.game}}">
+                <a href$="[[urlFor(item.game)]]">
                   <div class="card-header">
                     <div class="corner-image"></div>
                   </div>
@@ -310,7 +310,7 @@ City feed view in Tracker
               </div>
 
               <div hidden$="{{!itemIsTypeNotCast(item, 'video', santaApp.mode)}}">
-                <a href$="{{pageUrl}}#{{_computeVideoName(santaApp.videos, item.youtubeId)}}">
+                <a href$="[[urlFor(_computeVideoName(santaApp.videos, item.youtubeId))}}">
                   <div class$="card-body card-{{_computeVideoName(santaApp.videos, item.youtubeId)}}">
                     <div class="corner-image"></div>
                     <h4 class="title"><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg> &bull; {{formatTime(item.timestamp)}}</h4>

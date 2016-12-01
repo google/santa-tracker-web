@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia and Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Back"
+	},
 	"back_to_tracker": {
 		"message": "Back to Tracker"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Clear"
 	},
 	"close": {
 		"message": "Close"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Santa Tracker for Educators"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finland"
+	},
+	"fi_tradition": {
+		"message": "Finnish people believe that Father Christmas, 'Joulupukki', lives in the northern part of the country – Korvatunturi, to be exact. If you visit, you might find his secret workshop, where gnomes are hard at work. Or you might find reindeer roaming in pine tree forests."
 	},
 	"finished-text": {
 		"message": "Merry Christmas! Santa has completed his journey around the world and is taking a much deserved break. Visit us again next year!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Hard"
 	},
+	"help": {
+		"message": "Help"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Happy Christmas!"
+	},
+	"holiday_message_1": {
+		"message": "Christmas wishes!"
+	},
+	"holiday_message_2": {
+		"message": "Happy everything!"
+	},
+	"holiday_message_3": {
+		"message": "Let it snow!"
+	},
+	"holiday_message_4": {
+		"message": "Happy New Year!"
+	},
+	"holiday_message_5": {
+		"message": "Season's greetings!"
 	},
 	"hours": {
 		"message": "Hours"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "South Korea"
 	},
+	"kr_tradition": {
+		"message": "In South Korea, Christmas is a national holiday. It's also known for being a romantic holiday. Many couples go on dates in the city, where streets and shops are trimmed with dazzling lights."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Lithuania"
 	},
+	"lt_tradition": {
+		"message": "In Lithuania, traditional Christmas ornaments are made out of straws or hay. They're woven into geometric shapes, like stars, snowflakes or bells. Many families also use straw to decorate the dinner table for a big meal called Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world."
+	},
+	"meta_title": {
+		"message": "Google Santa Tracker"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "New Today"
+	},
+	"next": {
+		"message": "Next"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No thanks"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "You're offline"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Pick a backdrop"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Use the arrow keys to pick a postcard"
+	},
+	"snowflake_code": {
+		"message": "Code your snowflake"
+	},
+	"snowflake_code_instructions": {
+		"message": "Snap blocks together to design your own snowflake"
+	},
+	"snowflake_create_message": {
+		"message": "Design your own snowflake"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Now repeat!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Repeating"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rotate and repeat!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Rotating and repeating"
+	},
+	"snowflake_make_your_own": {
+		"message": "This was made with code. Try it yourself!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Choose a postcard and share your snowflake with friends"
+	},
+	"snowflake_shared_message": {
+		"message": "Someone has sent you a snowflake!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

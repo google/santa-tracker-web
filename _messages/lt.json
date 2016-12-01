@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnija ir Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Atgal"
+	},
 	"back_to_tracker": {
 		"message": "Grįžti į sekimo ekraną"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Čilė"
+	},
+	"clear": {
+		"message": "Išvalyti"
 	},
 	"close": {
 		"message": "Uždaryti"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekvadoras"
 	},
+	"educators": {
+		"message": "Kalėdų Senelio kelionė mokytojams"
+	},
 	"ee_country_name": {
 		"message": "Estija"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Suomija"
+	},
+	"fi_tradition": {
+		"message": "Suomiai tiki, kad Kalėdų Senelis, Joulupukis, gyvena šiaurinėje šalies dalyje, tiksliau, Korvatunturyje. Jei ten apsilankysite, galite aptikti slaptas jo dirbtuves, kuriose pluša nykštukai. Be to, galite susidurti su po pušynus klaidžiojančiu šiaurės elniu."
 	},
 	"finished-text": {
 		"message": "Linksmų švenčių! Kalėdų Senelis baigė savo kelionę aplink pasaulį ir nusipelnė poilsio. Aplankykite mus vėl kitais metais!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Sunkus"
 	},
+	"help": {
+		"message": "Pagalba"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Hondūras"
+	},
+	"holiday_message_0": {
+		"message": "Linksmų švenčių!"
+	},
+	"holiday_message_1": {
+		"message": "Su šventėmis!"
+	},
+	"holiday_message_2": {
+		"message": "Būkite laimingi!"
+	},
+	"holiday_message_3": {
+		"message": "Tegu sninga!"
+	},
+	"holiday_message_4": {
+		"message": "Laimingų Naujųjų metų!"
+	},
+	"holiday_message_5": {
+		"message": "Kalėdiniai sveikinimai!"
 	},
 	"hours": {
 		"message": "val."
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Pietų Korėja"
 	},
+	"kr_tradition": {
+		"message": "Pietų Korėjoje Kalėdos yra valstybinė šventė. Jos taip pat laikomos romantiška švente. Daugelis porų susitinka mieste, kur gatvės ir parduotuvės papuoštos akinančiomis šviesomis."
+	},
 	"kz_country_name": {
 		"message": "Kazachstanas"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Lietuva"
 	},
+	"lt_tradition": {
+		"message": "Lietuvoje tradiciniai kalėdiniai papuošalai gaminami iš šiaudų ar šieno. Juos jungiant gaunamos geometrinės figūros, pavyzdžiui, žvaigždės, snaigės ar varpai. Be to, daugelis šeimų šiaudais puošia ir didžiosios šventinės vakarienės, vadinamos Kūčiomis, stalą."
+	},
 	"lv_country_name": {
 		"message": "Latvija"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Naudokite „Google“ Kalėdų Senelio kelionės programą, kad galėtumėte „Google“ žemėlapiuose stebėti Kalėdų Senelio kelionę aplink pasaulį."
+	},
+	"meta_title": {
+		"message": "„Google“ Kalėdų Senelio kelionė"
 	},
 	"mg_country_name": {
 		"message": "Madagaskaras"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Šiandien nauja"
+	},
+	"next": {
+		"message": "Kitas"
 	},
 	"ng_country_name": {
 		"message": "Nigerija"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Ne, ačiū"
-	},
-	"offline_notification_okay": {
-		"message": "Gerai"
 	},
 	"offline_user_message": {
 		"message": "Jūs neprisijungę"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegalas"
+	},
+	"snowflake_choose_background": {
+		"message": "Pasirinkite foną"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Rodyklių mygtukais pasirinkite atviruką"
+	},
+	"snowflake_code": {
+		"message": "Suprogramuokite savo snaigę"
+	},
+	"snowflake_code_instructions": {
+		"message": "Sukurkite savo snaigę sujungdami blokus"
+	},
+	"snowflake_create_message": {
+		"message": "Sukurkite savo snaigę"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Dabar kartokite!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Kartojama"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Sukite ir kartokite!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Sukama ir kartojama"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ši snaigė sukurta naudojant kodą. Pabandykite patys!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Pasirinkite atviruką ir bendrinkite savo snaigę su draugais"
+	},
+	"snowflake_shared_message": {
+		"message": "Kažkas atsiuntė jums snaigę!"
 	},
 	"so_country_name": {
 		"message": "Somalis"

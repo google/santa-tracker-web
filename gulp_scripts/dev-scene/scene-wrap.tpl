@@ -37,31 +37,12 @@
         // Allow scenes to know that they're running in devmode. iframe-based scenes in particular.
         window.DEVMODE = true;
 
-        /**
-         * Example: /#village?param1=value1&param2=value2,value3 ->
-         *          {param1: "value1", param2: "value2,value3"}
-         *
-         * @param {string} url Full url route, everything after the hash.
-         * @return {object}
-         */
-        function sceneParams(url) {
-            var params = {};
-            var extraParams = url.split('?');
-            var pairs = extraParams[1] ? extraParams[1].split('&') : [];
-            for (var i = 0, pair; pair = pairs[i]; ++i) {
-                var parts = pair.split('=');
-                params[parts[0]] = parts[1];
-            }
-            return params;
-        }
-
         // Define a super simple dev-santa-app element which runs its contained scene directly.
         Polymer({
             is: 'dev-santa-app',
             ready: function() {
                 var scene = this.children[0];
                 setTimeout(function() {
-                    scene.sceneParams = sceneParams(location.href);
                     scene.active = true;
                 }, 0);
 

@@ -13,7 +13,7 @@
       width: 35px;
       height: 35px;
     }
-    opacity: 0;
+    opacity: 1;
     transition: opacity 150ms;
     transform: scale(1.5);
 
@@ -26,11 +26,15 @@
     right: -50%;
   }
 
-  .object:not(.is-inactive):hover {
+  @media (hover: hover) {
     .object__rotate-handle {
-      opacity: 1;
+      opacity: 0;
+    }
+    .object:not(.is-inactive):hover {
+      .object__rotate-handle {
+        opacity: 1;
+      }
     }
   }
-
 
 }

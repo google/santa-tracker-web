@@ -18,14 +18,20 @@ specific language governing permissions and limitations under the License.
   <meta charset="utf-8">
   <base href="/">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <title msgid="meta_title">Google Santa Tracker</title>
   <meta property="og:title" itemprop="name" msgid="meta_title" content="Google Santa Tracker">
-  <meta property="og:url" content="https://santatracker.google.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" itemprop="image" name="thumbnail" content="https://santatracker.google.com/images/og.png">
+  <meta property="og:image:width" content="1333">
+  <meta property="og:image:height" content="1000">
   <meta property="og:description" itemprop="description" name="description" msgid="meta_description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@googlemaps">
+  <meta name="twitter:title" msgid="meta_title" content="Google Santa Tracker">
+  <meta name="twitter:description" msgid="meta_description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world.">
+  <meta name="twitter:image" content="https://santatracker.google.com/images/og.png">
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
   <link rel="stylesheet" href="sass/santatracker.css">
@@ -58,7 +64,7 @@ window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-37048309-' + (location.hostname == 'santatracker.google.com' ? 1 : 2), 'auto');
 ga('set', 'transport', 'beacon');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
 
   <!-- JS -->
   <link id="DEV" comment="element removed in prod" />
@@ -89,7 +95,7 @@ ga('set', 'transport', 'beacon');
     // fail over to upgrade.html, falling back to timeout in case Analytics is failing.
     function redirect() {
       var url = new URL('upgrade.html', window.location);
-      window.location = url + window.location.query;
+      window.location = url + (window.location.query || '');
     }
     window.ga('send', 'pageview', '/');
     window.ga('send', 'event', 'Polymer', 'unsupported-browser', { hitCallback: redirect });
@@ -109,23 +115,33 @@ ga('set', 'transport', 'beacon');
   // Look in /intl/.../ and ?hl=... for user override lang. Send the browser to the correct /intl/
   // version via History API. e.g., a user loading "/#foo?hl=de" will get "/intl/de/#foo".
   var url = (function() {
-    // Look for ?hl=...
-    var match = window.location.search.match(/\bhl=([^&]*)\b/);
-    var hl = (match ? match[1] : null);
-
-    // Look for /intl/../ (look for _last_, in case it's in URL twice?!)
+    // Look for /intl/../ (look for _last_). This wins over ?hl=...
     var match = window.location.pathname.match(/.*\/intl\/([^_/]+)(?:|_ALL)\//);
-    var urlLang = (match ? match[1] : hl);
-    window.requestLang = urlLang;
+    var lang = match && match[1];
+
+    // Otherwise, look for ?hl=..., and remove it from the URL regardless.
+    var search = window.location.search || '';
+    var matchLang = /(?:\?|&)hl=([^&]*)\b/;
+    if (!lang) {
+      match = matchLang.exec(search);
+      lang = match && match[1];
+    }
+    search = search.replace(matchLang, '').replace(/^&/, '?');
+
+    // Save requestLang on window. This is a bit ugly, but lets us persist this param.
+    window.requestLang = lang;
+
+    // Grab the final URL component. This is 'us', the fanned out HTML file.
+    match = window.location.pathname.match(/(\/(?:\w+\.html|))$/)
+    var path = match ? match[1] : '/';
 
     // Generate canonical URL.
-    var url = window.location.origin + '/';
-    if (urlLang) {
+    var url = window.location.origin;
+    if (lang) {
       var prod = window.location.hostname === 'santatracker.google.com';
-      url += 'intl/' + urlLang + (prod ? '' : '_ALL') + '/';
+      url += '/intl/' + lang + (prod ? '' : '_ALL');
     }
-    // TODO(samthor): Consume ?hl=... here.
-    return url + (window.location.search || '') + window.location.hash;
+    return url + path + search + window.location.hash;
   })();
   history.replaceState(null, document.title, url);
 
@@ -159,7 +175,7 @@ ga('set', 'transport', 'beacon');
 </head>
 <body data-version="" unresolved class="scrollock">
 
-<santa-app id="santaApp"></santa-app>
+<santa-app id="santaApp" routing></santa-app>
 
 <div id="timer" role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions" hidden></div>
 

@@ -239,7 +239,7 @@ app.Player.prototype = {
     // Animates the sprite as if the elf is jumping. Doesn't move the elf.
     return new KeyframeEffect(this.jumpEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
-      {transform: 'translateZ(0) translate(0, -934px)'}
+      {transform: 'translateZ(0) translate(0, -130.4em)'}
     ], {duration: app.Player.JUMP_DURATION, easing: 'steps(15, end)'});
   },
 

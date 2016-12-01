@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnien-Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Tillbaka"
+	},
 	"back_to_tracker": {
 		"message": "Tillbaka till Följ jultomten"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Rensa"
 	},
 	"close": {
 		"message": "Stäng"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Följ jultomten för lärare"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finland"
+	},
+	"fi_tradition": {
+		"message": "Finländarna tror att jultomten, ”Joulupukki”, bor i landets norra del, i Korvatunturi. Om du gör ett besök kan du hitta hans hemliga verkstad där tomtenissarna jobbar hårt, eller se renar i tallskogarna."
 	},
 	"finished-text": {
 		"message": "God jul! Jultomten har kommit hem från sin färd runt världen och vilar välförtjänt upp sig. Besök oss igen nästa år!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Svårt"
 	},
+	"help": {
+		"message": "Hjälp"
+	},
 	"hi_language_name": {
 		"message": "hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "God jul!"
+	},
+	"holiday_message_1": {
+		"message": "Julhälsningar!"
+	},
+	"holiday_message_2": {
+		"message": "God alltihop!"
+	},
+	"holiday_message_3": {
+		"message": "Jag ser det snöar!"
+	},
+	"holiday_message_4": {
+		"message": "Gott nytt år!"
+	},
+	"holiday_message_5": {
+		"message": "God jul och gott nytt år!"
 	},
 	"hours": {
 		"message": "Timmar"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Sydkorea"
 	},
+	"kr_tradition": {
+		"message": "Julen är en nationell helgdag i Sydkorea. Det ses också som en romantisk helgdag, så många par går på dejt i staden, där gatorna och butikerna är dekorerade med gnistrande ljus."
+	},
 	"kz_country_name": {
 		"message": "Kazakstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Litauen"
 	},
+	"lt_tradition": {
+		"message": "I Litauen gör man traditionella juldekorationer av halm eller hö. Man väver det till geometriska former som stjärnor, snöflingor eller klockor. Många familjer dekorerar också matbordet inför en stor måltid som kallas Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Lettland"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Använd Google Följ jultomten till att följa jultomten på Google Maps medan han gör sin resa runt jorden."
+	},
+	"meta_title": {
+		"message": "Google Följ jultomten"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Nytt i dag"
+	},
+	"next": {
+		"message": "Nästa"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nej tack"
-	},
-	"offline_notification_okay": {
-		"message": "Ok"
 	},
 	"offline_user_message": {
 		"message": "Du är offline"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Välj en bakgrund"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Välj ett vykort med piltangenterna"
+	},
+	"snowflake_code": {
+		"message": "Gör en snöflinga med kod"
+	},
+	"snowflake_code_instructions": {
+		"message": "Gör en egen snöflinga genom att sammanfoga block"
+	},
+	"snowflake_create_message": {
+		"message": "Forma din egen snöflinga"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Gör om det!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Gör om"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rotera och gör om det!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Rotera och gör om"
+	},
+	"snowflake_make_your_own": {
+		"message": "Det här skapades med kod. Testa själv!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Välj ett vykort och dela snöflingan med vänner"
+	},
+	"snowflake_shared_message": {
+		"message": "Någon skickade en snöflinga till dig!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

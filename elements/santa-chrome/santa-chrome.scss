@@ -1,6 +1,10 @@
 $toolbar-height: 44px;
 $indent-left: 24px;  // indent in the sidebar
 
+// nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
+// using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
+$feature-width: 198px;
+
 :host {
   display: block;
 }
@@ -149,7 +153,6 @@ app-toolbar {
 
   // Common button reset.
   button {
-    pointer-events: auto;
     border: 0;
     margin: 0;
     padding: 0;
@@ -161,16 +164,12 @@ app-toolbar {
   a.linkwrap {
     display: inline-flex;
     max-width: 100%;
-    min-width: 25%;
-    pointer-events: auto;
     text-decoration: none;
   }
 
   #logo {
     width: 62px;
     min-width: 62px;
-    top: 0;
-    bottom: 0;
     background: url(img/google_logo.svg) 0 14px no-repeat;
     background-size: contain;
   }
@@ -188,37 +187,76 @@ app-toolbar {
     white-space: nowrap;
   }
 
-  .fixsize {
+  .title {
     height: 100%;
-    width: 1px;  // nb. just needs to be "a size", flexbox uses as min-width
+    min-width: 1px;  // nb. without any min-width, title can't be clipped to size
+    flex-grow: 1;
   }
 
-  .shareicons {
+  .feature {
+    z-index: 10;
+    height: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  .share {
     padding: ($toolbar-height - 40px)/2 0;  // icon=40px, total=$toolbar-height;
     height: 100%;
     box-sizing: border-box;
     display: flex;
-    pointer-events: auto;  // set these icons to be accessible again
+    justify-content: flex-end;
     font-size: 0;  // fixes alignment issues
+
+    paper-icon-button#gplus {
+      padding: 4px;
+    }
 
     .multi {
       display: flex;
+    }
 
-      @media (max-width: 600px) {
+    .sep {
+      background: rgba(0,0,0,0.125);
+      width: 1px;
+      margin: 6px;
+
+      &:first-child {
+        visibility: hidden;
+      }
+    }
+  }
+  @media (max-width: 768px - 1px) {
+    .share {
+      *:not(.share-webshare) {
         display: none;
       }
+    }
+  }
 
-      .sep {
-        background: rgba(0,0,0,0.125);
-        width: 1px;
-        margin: 6px 9px;
-      }
+  /**
+   * In the full village experience, make the left/right (.title/.share respectively) grow to the
+   * same center point.
+   */
+  @media (min-width: 768px) {
+    .title {
+      width: 69px - 44px;
+    }
+    .feature:not([hidden]) + .share {
+      // where there's a feature, grow the right-hand side (sharer)
+      width: 69px;
+      flex-grow: 1;
+    }
+    .feature {
+      // .. and the feature has a min-width set, for future scores/times etc
+      min-width: $feature-width;
     }
   }
 }
 
 .buttons {
   $button-size: 45px;
+  pointer-events: none;
 
   position: fixed;
   bottom: 0;
@@ -227,13 +265,13 @@ app-toolbar {
   display: flex;
 
   button {
+    pointer-events: auto;
     color: inherit;
     height: $button-size;
     width: $button-size;
     text-align: center;
     box-sizing: border-box;
     padding: 0;
-    pointer-events: auto;
     border: 0;
     margin: 0;
     text-align: center;

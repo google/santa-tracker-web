@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bośnia i Hercegowina"
 	},
+	"back_to_previous_page": {
+		"message": "Wstecz"
+	},
 	"back_to_tracker": {
 		"message": "Powrót do Trasy Świętego Mikołaja"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Wyczyść"
 	},
 	"close": {
 		"message": "Zamknij"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ekwador"
 	},
+	"educators": {
+		"message": "Trasa Świętego Mikołaja dla nauczycieli"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
+	},
+	"fi_tradition": {
+		"message": "Finowie wierzą, że Święty Mikołaj, „Joulupukki”, mieszka na północy kraju, a dokładniej na wzgórzu Korvatunturi. Jeśli tam pojedziesz, może uda Ci się znaleźć jego sekretną pracownię, w której ciężko pracują krasnale, lub renifera, który włóczy się po sosnowym lesie."
 	},
 	"finished-text": {
 		"message": "Wesołych Świąt! Święty Mikołaj zakończył podróż dookoła świata i udał się na zasłużone wakacje. Zapraszamy ponownie w przyszłym roku!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Trudny"
 	},
+	"help": {
+		"message": "Pomoc"
+	},
 	"hi_language_name": {
 		"message": "hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Wesołych Świąt!"
+	},
+	"holiday_message_1": {
+		"message": "Świąteczne życzenia!"
+	},
+	"holiday_message_2": {
+		"message": "Wszystkiego najlepszego!"
+	},
+	"holiday_message_3": {
+		"message": "Niech spadnie dużo śniegu!"
+	},
+	"holiday_message_4": {
+		"message": "Szczęśliwego Nowego Roku!"
+	},
+	"holiday_message_5": {
+		"message": "Wesołych Świąt!"
 	},
 	"hours": {
 		"message": "Godziny"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Korea Południowa"
 	},
+	"kr_tradition": {
+		"message": "W Korei Południowej Święta Bożego Narodzenia to święto państwowe. Uznawane są przy tym za bardzo romantyczny czas. Wiele par umawia się wtedy na randki na mieście, a ulice i sklepy są przystrojone błyszczącymi światełkami."
+	},
 	"kz_country_name": {
 		"message": "Kazachstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Litwa"
 	},
+	"lt_tradition": {
+		"message": "Na Litwie tradycyjne ozdoby świąteczne są robione ze słomy lub siana. Splata się je w geometryczne kształty, takie jak gwiazdy, płatki śniegu lub dzwonki. Wiele rodzin używa słomy także po to, aby udekorować stół na czas najważniejszego posiłku zwanego Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Łotwa"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Pobierz aplikację Trasa Świętego Mikołaja, aby śledzić Świętego Mikołaja na Mapach Google podczas jego podróży dookoła świata."
+	},
+	"meta_title": {
+		"message": "Trasa Świętego Mikołaja w Google"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Nowość"
+	},
+	"next": {
+		"message": "Dalej"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nie, dziękuję"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Jesteś offline"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Wybierz tło"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Użyj klawiszy strzałek, aby wybrać pocztówkę"
+	},
+	"snowflake_code": {
+		"message": "Zakoduj własną śnieżynkę"
+	},
+	"snowflake_code_instructions": {
+		"message": "Połącz bloki, aby zaprojektować własną śnieżynkę"
+	},
+	"snowflake_create_message": {
+		"message": "Zaprojektuj własną śnieżynkę"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Teraz powtórz"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Powtarzam"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Obróć i powtórz"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Obracam i powtarzam"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ta śnieżynka została stworzona za pomocą kodu. Spróbuj!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Wybierz pocztówkę i udostępnij swoją śnieżynkę znajomym"
+	},
+	"snowflake_shared_message": {
+		"message": "Ktoś przysłał Ci śnieżynkę!"
 	},
 	"so_country_name": {
 		"message": "Somalia"
@@ -4953,7 +5031,7 @@
 		"message": "Odkrywaj świat, baw się i ucz z elfami przez cały grudzień"
 	},
 	"village_get_the_app": {
-		"message": "Pobierz aplikację Trasa Świętego Mikołaja na Androida."
+		"message": "Pobierz aplikację Trasa Świętego Mikołaja na Androida"
 	},
 	"village_more": {
 		"message": "Więcej zabawy z Mikołajem"

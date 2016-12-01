@@ -24,6 +24,16 @@ const format = require('sprintf-js').sprintf;
 
 const mutate = require('../mutate_html');
 
+/**
+ * Formats the passed msgid. Splits on space.
+ * @param {string} msgid
+ * @param {function(string): string}
+ * @return {string}
+ */
+function i18nFormat(msgid, lookup) {
+  return msgid.split(' ').filter(x => x).map(lookup).join(' \u2014 ');  // mdash
+}
+
 module.exports = function replaceMessages(opts) {
   const warn = warnFunc(opts.strict);
   const msgs = getMsgs(opts.path);
@@ -43,12 +53,13 @@ module.exports = function replaceMessages(opts) {
     function recordMissing(msgid, lang) {
       let langs = missing[msgid];
       if (!langs) {
-        missing[msgid] = langs = [];
+        missing[msgid] = langs = new Set();
       }
-      langs.push(lang);
+      langs.add(lang);
     }
 
     const src = file.contents.toString();
+    const rootPage = (path.dirname(file.relative) === '.');
 
     msgs.then(messagesByLang => {
       Object.keys(messagesByLang).forEach(lang => {
@@ -76,7 +87,7 @@ module.exports = function replaceMessages(opts) {
               return;  // ignore, used by santa-strings
             }
             const msgid = el.getAttribute('msgid');
-            const msg = lookup(msgid);
+            const msg = i18nFormat(msgid, lookup);
             el.removeAttribute('msgid');
 
             switch (el.localName) {
@@ -109,21 +120,17 @@ module.exports = function replaceMessages(opts) {
         // Note that this always writes a new HTML file, even if the content
         // is the same (perhaps a scene uses no i18n-msg elements).
 
-        if (!file.path.match(/(index|cast|error|upgrade|_en)\.html$/)) {
+        if (!rootPage && !file.path.match(/(_en)\.html$/)) {
           if (replaced === src) {
-            // ... unless the filename doesn't end with _en.html, in which case
-            // someone has accepted that it won't be translated anyway.
+            // ... this is a scene we've decided won't be translated anyway.
             stream.push(file);
             return;
           }
           error('[%s] Translatable files should end in _en.html', file.relative);
         }
 
-        let dir = '/';
-        // Only root pages should go in /intl/ directories.
-        if (lang != 'en' && !file.path.match(/_en\.html$/)) {
-          dir = `/intl/${lang}_ALL/`;
-        }
+        // Only non-en root pages should go in /intl/ directories.
+        const dir = (rootPage && lang != 'en') ? `/intl/${lang}_ALL/` : '/';
         const i18nfile = file.clone();
         i18nfile.path = path.dirname(file.path) + dir +
             path.basename(file.path).replace(/_en.html$/, ext);
@@ -135,9 +142,9 @@ module.exports = function replaceMessages(opts) {
         const langs = missing[msgid];
 
         if (langs.length >= 5) {
-          warn('%s: missing \'%s\' for %d langs', file.relative, msgid, langs.length);
+          warn('%s: missing \'%s\' for %d langs', file.relative, msgid, langs.size);
         } else {
-          warn('%s: missing \'%s\' for [%s]', file.relative, msgid, langs.join(' '));
+          warn('%s: missing \'%s\' for [%s]', file.relative, msgid, [...langs].join(' '));
         }
       });
       cb();

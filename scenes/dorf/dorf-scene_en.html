@@ -75,7 +75,7 @@ Santa's Village.
         <div class="castlogo" hidden$="[[!_isCastMode(mode)]]"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
         <div hidden$="[[!countdownFinished]]">
-          <a hidden$="[[!duringTracker]]" href$="[[pageUrl]]#tracker" class="village-tracker-link">
+          <a hidden$="[[!duringTracker]]" href$="[[urlFor('tracker')]]" class="village-tracker-link">
             <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
           </a>
         </div>
@@ -91,7 +91,7 @@ Santa's Village.
       <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
         <!-- The 'New Today' house exists in the regular grid -->
         <div class="house house-new-today">
-          <a href$="[[pageUrl]]#[[todayHouse]]" hidden$="[[!todayHouse]]">
+          <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]" on-click="_onClickNewTodayHouse">
             <div class$="card new-today-[[todayHouse]]">
               <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_string('scene', todayHouse, strings)]]</h3>
@@ -243,19 +243,6 @@ Santa's Village.
         <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
         <img src$="[[_computeFooterElves(countdownFinished)]]" />
       </footer>
-      <div id="donate" class="no-en">
-        <div id="wrapper">
-          <h3>#ForEveryKid</h3>
-          <p>
-            Help fund a special needs project on DonorsChoose.org.
-            This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1,000,000.
-            Together, we can make classrooms more inclusive #ForEveryKid
-          </p>
-          <div class="button donate-button">
-            <a target="_blank" href="https://google.org/impactchallenge/disabilities/donors-choose.html">Donate</a>
-          </div>
-        </div>
-      </div>
     </template>
   </div><!-- #module-dorf -->
 </template>
@@ -332,7 +319,7 @@ Santa's Village.
       if (!house || locked) {
         return null;
       }
-      return house.link || this.pageUrl + '#' + house.module;
+      return house.link || this.urlFor(house.module);
     },
 
     /**
@@ -446,6 +433,10 @@ Santa's Village.
      */
     _colorForRoute: function(santaApp, id) {
       return santaApp.colorForRoute(id);
+    },
+
+    _onClickNewTodayHouse: function() {
+      window.ga('send', 'event', 'village', 'click', 'newtoday');
     },
 
     /** NOTE: easteregg code only below this point */
@@ -614,7 +605,7 @@ Santa's Village.
 
       if (this._ticTacToeCells.length == 0) {
         // Draw
-        this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: 'draw'});
+        window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
       }
 
       this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
@@ -626,7 +617,7 @@ Santa's Village.
       this._isPlayingTicTacToe = false;
       var c = 'pos-' + w;
 
-      this.fire('analytics-track-event', {category: 'village', action: 'tic-tac', label: player});
+      window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
       this._playTicTacToeTimers[0] = this.async(function() {
         this.$['easteregg-tic-tac-toe-win'].classList.add(player, c);
       }, WIN_LINE_TIME);
@@ -648,7 +639,7 @@ Santa's Village.
 
     _driveSnowmobile: function(e) {
       if (!e.fakeEvent) {
-        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'snowmobile'});
+        window.ga('send', 'event', 'village', 'click', 'snowmobile');
       }
       var DRIVE_TIME = 10000;
       var snowmobile = e.currentTarget;
@@ -662,7 +653,7 @@ Santa's Village.
 
     _flyBalloon: function(e) {
       if (!e.fakeEvent) {
-        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'balloon'});
+        window.ga('send', 'event', 'village', 'click', 'balloon');
       }
 
       var FLIGHT_TIME = 30000;
@@ -685,7 +676,7 @@ Santa's Village.
 
     _triggerBus: function(e) {
       if (!e.fakeEvent) {
-        this.fire('analytics-track-event', {category: 'village', action: 'click', label: 'bus'});
+        window.ga('send', 'event', 'village', 'click', 'bus');
       }
 
       var BUS_DRIVE_ANIMATION = 10000;

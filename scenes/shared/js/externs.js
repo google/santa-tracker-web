@@ -43,3 +43,28 @@ window.santaApp.sceneIsOpen = function(id) {}
  * @type {number} size of header
  */
 window.santaApp.headerSize;
+
+/**
+ * @param {string} methodName
+ * @param {...?} var_args
+ * @return {?}
+ */
+function ga(methodName, var_args) {}
+
+/**
+ * @param {string} param
+ * @return {string|undefined}
+ */
+function getUrlParameter(param) {}
+
+/**
+ * @return {!Object<string>} params from the current URL
+ */
+function getUrlParameters() {}
+
+/**
+ * @param {function(...*)} func
+ * @param {number} ms at most one per this many ms
+ * @return {function(...*)}
+ */
+function throttle(func, ms) {}

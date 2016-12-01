@@ -104,6 +104,7 @@ app.Game.prototype.getRandomHintDistanceOffset_ = function() {
  */
 app.Game.prototype.hintLocation_ = function(character) {
   window.santaApp.fire('sound-trigger', 'ss_button_hint');
+  window.ga('send', 'event', 'game', 'hint', 'santasearch')
 
   // The location of the character is a top/left percentage of the map
   let characterLocation = character.location;
@@ -380,18 +381,6 @@ app.Game.prototype.pause = function() {
 app.Game.prototype.resume = function() {
   this.paused = false;
   this.unfreezeGame();
-};
-
-/**
- * Pauses/unpauses the game.
- */
-app.Game.prototype.togglePause = function() {
-  if (this.paused) {
-    this.resume();
-  } else if (this.isPlaying) {
-    // Only allow pausing if the game is playing (not game over).
-    this.pause();
-  }
 };
 
 /**

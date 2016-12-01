@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia-Erzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Indietro"
+	},
 	"back_to_tracker": {
 		"message": "Torna al tracker"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Cile"
+	},
+	"clear": {
+		"message": "Cancella"
 	},
 	"close": {
 		"message": "Chiudi"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Segui Babbo Natale per insegnanti"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
+	},
+	"fi_tradition": {
+		"message": "I finlandesi credono che Babbo Natale, \"Joulupukki\", viva nella parte settentrionale del paese, precisamente nella regione del Korvatunturi. Visitando la Finlandia, potresti scoprire il suo laboratorio segreto, dove gli elfi si danno un gran da fare, o scoprire le foreste di conifere, dove le renne scorrazzano in libertà."
 	},
 	"finished-text": {
 		"message": "Buone feste! Babbo Natale ha terminato il suo viaggio intorno al mondo e ora si sta godendo una meritata vacanza. Torna a trovarci il prossimo anno!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Difficile"
 	},
+	"help": {
+		"message": "Guida"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Buone feste!"
+	},
+	"holiday_message_1": {
+		"message": "Auguri!"
+	},
+	"holiday_message_2": {
+		"message": "Tanti auguri!"
+	},
+	"holiday_message_3": {
+		"message": "Buon Natale!"
+	},
+	"holiday_message_4": {
+		"message": "Buon Anno!"
+	},
+	"holiday_message_5": {
+		"message": "Auguri di buone feste!"
 	},
 	"hours": {
 		"message": "Ore"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Corea del Sud"
 	},
+	"kr_tradition": {
+		"message": "In Corea del Sud il Natale è una festività nazionale, ma è anche considerato una festa romantica. Le coppie si danno appuntamento in città, dove le strade e i negozi sono decorati con luci sfavillanti."
+	},
 	"kz_country_name": {
 		"message": "Kazakistan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Lituania"
 	},
+	"lt_tradition": {
+		"message": "In Lituania, le decorazioni natalizie tradizionali sono realizzate in paglia o fieno, che vengono intrecciati in forme geometriche come stelle, fiocchi di neve o campane. Molte famiglie usano la paglia per decorare la tavola per la cena della vigilia di Natale (Kūčios)."
+	},
 	"lv_country_name": {
 		"message": "Lettonia"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Usa Segui Babbo Natale per seguire Babbo Natale su Google Maps nel suo viaggio intorno al mondo."
+	},
+	"meta_title": {
+		"message": "Segui Babbo Natale"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Novità di oggi"
+	},
+	"next": {
+		"message": "Avanti"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No, grazie"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Sei offline"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Scegli uno sfondo"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Utilizza le frecce per scegliere una cartolina"
+	},
+	"snowflake_code": {
+		"message": "Codifica il tuo bigliettino natalizio"
+	},
+	"snowflake_code_instructions": {
+		"message": "Raggruppa i blocchi per creare il tuo bigliettino natalizio"
+	},
+	"snowflake_create_message": {
+		"message": "Crea il tuo bigliettino natalizio"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Adesso ripeti!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Ripetizione"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Ruota e ripeti!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Rotazione e ripetizione"
+	},
+	"snowflake_make_your_own": {
+		"message": "Questo bigliettino è stato creato utilizzando del codice. Prova anche tu."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Scegli una cartolina e condividi il tuo bigliettino natalizio con gli amici"
+	},
+	"snowflake_shared_message": {
+		"message": "Qualcuno ti ha inviato un bigliettino natalizio!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

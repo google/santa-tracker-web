@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnia and Herzegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Bumalik"
+	},
 	"back_to_tracker": {
 		"message": "Bumalik sa Tracker"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "I-clear"
 	},
 	"close": {
 		"message": "Isara"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "Santa Tracker para sa mga Nagtuturo"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finland"
+	},
+	"fi_tradition": {
+		"message": "Naniniwala ang mga Finnish na nakatira si Father Christmas, \"Joulupukki,\" sa hilagang bahagi ng bansa - Korvatunturi, upang maging eksakto. Kung bibisita ka, maaari mong matagpuan ang kanyang lihim na workshop, kung saan tutok sa paggawa ang mga gnome. O maaari kang makahanap ng reindeer na gumagala sa mga kagubatan ng pine tree."
 	},
 	"finished-text": {
 		"message": "Maligayang Pasko! Natapos na ni Santa ang kanyang pag-ikot sa buong mundo at kasalukuyan nang nagpapahinga. Bisitahin muli kami sa susunod na taon!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Mahirap"
 	},
+	"help": {
+		"message": "Tulong"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Maligayang Pasko!"
+	},
+	"holiday_message_1": {
+		"message": "Pamaskong pagbati!"
+	},
+	"holiday_message_2": {
+		"message": "Masayang lahat-lahat!"
+	},
+	"holiday_message_3": {
+		"message": "Hayaang mag-snow!"
+	},
+	"holiday_message_4": {
+		"message": "Manigong Bagong Taon!"
+	},
+	"holiday_message_5": {
+		"message": "Pagbati ngayong Pasko!"
 	},
 	"hours": {
 		"message": "Oras"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "South Korea"
 	},
+	"kr_tradition": {
+		"message": "Sa South Korea, pambansang holiday ang Pasko. Kilala rin ito sa pagiging isang romantikong holiday. Maraming magkasintahan/mag-asawa ang nagde-date sa lungsod, kung saan ang mga kalye at tindahan ay napapalamutian ng mga nakasisilaw na ilaw."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Lithuania"
 	},
+	"lt_tradition": {
+		"message": "Sa Lithuania, yari sa dayami ang mga tradisyonal na Pamaskong palamuti. Hinahabi ang mga ito sa mga geometric na hugis, tulad ng mga bituin, snowflake o bell. Marami ring pamilya ang gumagamit ng dayami upang lagyan ng dekorasyon ang hapag kainan para sa malaking hapunan na tinatawag na Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Latvia"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Gamitin ang Google Santa Tracker upang sundan si Santa Claus sa Google Maps habang naglalakbay siya sa buong mundo."
+	},
+	"meta_title": {
+		"message": "Google Santa Tracker"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Bago Ngayon"
+	},
+	"next": {
+		"message": "Susunod"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Hindi, salamat na lang"
-	},
-	"offline_notification_okay": {
-		"message": "Okay"
 	},
 	"offline_user_message": {
 		"message": "Offline ka"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Pumili ng backdrop"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Gamitin ang mga arrow key upang makakuha ng postcard"
+	},
+	"snowflake_code": {
+		"message": "I-code ang iyong snowflake"
+	},
+	"snowflake_code_instructions": {
+		"message": "Pagdikit-dikitin ang mga block upang makapagdisenyo ng sarili mong snowflake"
+	},
+	"snowflake_create_message": {
+		"message": "Magdisenyo ng sarili mong snowflake"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Ulitin mo ngayon!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Inuulit"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Iikot at ulitin!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Pinaiikot at inuulit"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ginawa ito gamit ang code. Subukan mo!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Pumili ng postcard at ibahagi ang iyong snowflake sa mga kaibigan"
+	},
+	"snowflake_shared_message": {
+		"message": "May nagpadala sa iyo ng snowflake!"
 	},
 	"so_country_name": {
 		"message": "Somalia"

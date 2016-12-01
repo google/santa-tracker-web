@@ -29,8 +29,15 @@ var FLIGHT_FINISHED = COUNTDOWN_END + (FLIGHT_HOURS * 60 * 60 * 1000);
 
 var VERSION = document.body.getAttribute('data-version');
 var LANGUAGE = document.documentElement.lang || 'en';
+var API_CLIENT = (function() {
+  var apiClient = getUrlParameter('api_client');
+  if (!apiClient || !apiClient.match(/^[a-zA-Z_]*$/) || apiClient === 'web_portal') {
+    apiClient = 'web';
+  }
+  return apiClient;
+}());
 
-var santaService = new SantaService('web', LANGUAGE, VERSION);
+var santaService = new SantaService(API_CLIENT, LANGUAGE, VERSION);
 var instances = new Set();
 
 santaService.addListener('kill', function() {
@@ -46,12 +53,20 @@ santaService.addListener('reload', function() {
     return;
   }
   requestedReload = true;
+  instances.forEach(function(instance) {
+    instance._setRequestedReload(true);
+  });
+
+  if (window.sw) {
+    window.ga('send', 'event', 'API', 'sw-update', version);
+    window.sw.then(function(sw) { return sw.update(); });  // request SW update, void return
+  }
 
   if (!VERSION || window.DEV) {
     console.warn('dev ignoring reload request', version);
     return;
   }
-  window.ga('send', 'event', 'API', 'reload');
+  window.ga('send', 'event', 'API', 'reload', version);
 
   // At 30m +/- 15m, try to reload if the page is hidden. After that, reload when the page is
   // made hidden, or force a reload after the same duration again.
@@ -68,6 +83,9 @@ santaService.addListener('reload', function() {
 });
 
 santaService.sync();
+window.addEventListener('online', function() {
+  santaService.sync();
+});
 
 var currentTime = Date.now();  // TODO(samthor): could be undefined to start with?
 var notifyTimeout = window.setTimeout(notifyCurrentTime, 2500);  // trigger after 2.5s
@@ -112,6 +130,26 @@ Polymer({
       readOnly: true,
       notify: true,
       value: function() { return offline; },
+    },
+
+    /**
+     * Whether a reload of the site has been requested.
+     */
+    requestedReload: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: function() { return requestedReload; },
+    },
+
+    /**
+     * The language of the site.
+     */
+    language: {
+      type: String,
+      readOnly: true,
+      notify: true,
+      value: LANGUAGE,
     },
 
     /**
@@ -175,6 +213,10 @@ Polymer({
   },
   _computePostFlight: function(currentTime) {
     return currentTime >= FLIGHT_FINISHED;
+  },
+
+  created: function() {
+    instances.add(this);  // aggressively add to instances, to catch all updates
   },
 
   attached: function() {

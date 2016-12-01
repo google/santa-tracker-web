@@ -14,7 +14,6 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
-<script src="../shared/js/startbutton.js"></script>
 <script src="boatload-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -25,13 +24,6 @@ Boatload scene.
 -->
 <dom-module id="boatload-scene">
   <template>
-
-    <style>
-      :host([mode="portal"]) .shareButtons {
-        display: none !important;
-      }
-    </style>
-
     <div id="module-boatload">
       <div class="bg">
         <div class="river"></div>
@@ -63,101 +55,11 @@ Boatload scene.
         <div class="score-sign hidden"></div>
       </div>
       <div class="gui">
-        <div class="board board--game">
-          <div class="logo">
-            <!---->
-          </div>
-          <div class="score">
-            <div class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></div>
-            <div class="value">0</div>
-          </div>
-          <div class="level has-count">
-            <div class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></div>
-            <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
-            </div>
-            <div class="level-dots">
-              <div class="level-item is-active">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">1</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">2</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">3</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">4</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">5</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">6</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">7</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">8</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">9</div>
-              </div>
-              <div class="level-item">
-                <div class="level-dot"></div>
-                <div class="level-shadow"></div>
-                <div class="level-number">10</div>
-              </div>
-            </div>
-          </div>
-          <div class="time">
-            <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
-            <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
-            <div class="tracker">
-              <div class="remaining"></div>
-            </div>
-            <div class="status"></div>
-          </div>
-        </div>
         <div class="levelup"></div>
         <div class="levelup--number"></div>
         <div class="force-rotate landscape">
           <div class="force-rotate-graphic"></div>
           <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
-        </div>
-        <div class="gameover overlay">
-          <div class="gameover-dialog overlay-dialog">
-            <h2 class="gameover-title"><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h2>
-            <div class="gameover-winner">
-              <div class="gameover-score">
-                <p class="gameover-label"><i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg></p>
-                <p class="gameover-number">0</p>
-              </div>
-            </div>
-            <div class="gameover-buttons">
-              <button type="button" class="Button Button--large gameover-play"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
-              <a href="{{pageUrl}}#village" class="Button Button--large"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-              <div class="shareButtons"><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-google">Google+</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-facebook">Facebook</a><a href="javascript:;" target="_blank" class="Button Button--small Button--noText shareButtons-twitter">Twitter</a></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -200,7 +102,6 @@ Boatload scene.
       onShow: function() {
         var module = this.$['module-boatload'];
         this.game = new scenes.boatload.Game(module);
-        startButton(this, module, this.start.bind(this));
       },
 
       onHide: function() {

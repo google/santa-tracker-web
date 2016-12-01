@@ -17,14 +17,16 @@ $grid-color-xs-width: $grid-number-xs-height;
   .Grid {
     background-image: url(img/map.jpg);
     background-size: cover;
-    box-shadow: inset 0 ($shadow-height / 2) 0 rgba(0, 0, 0, .16);
     display: flex;
-    height: calc(100% - 150px);
-    margin-top: $shadow-height / 2;
+    height: calc(100% - 144px);
     position: absolute;
     right: 0;
     top: 0;
     width: 100%;
+
+    @media (max-height: 768px - 1px) {
+      height: calc(100% - 72px);
+    }
   }
 
   // Border of game
@@ -237,17 +239,17 @@ $grid-color-xs-width: $grid-number-xs-height;
   }
 }
 
-@media (min-width: $break-tablet) {
-  ##{$name} .Grid {
-    width: calc(100% - 244px);
-  }
-}
-
+//@media (min-width: $break-tablet) {
+//  ##{$name} .Grid {
+//    width: calc(100% - 244px);
+//  }
+//}
+//
 @media (min-width: $break-tablet) and (min-height: 600px) {
   ##{$name} {
     .Grid {
-      box-shadow: inset $shadow-width $shadow-height 0 rgba(0, 0, 0, .16);
-      margin-top: $shadow-height;
+//      box-shadow: inset $shadow-width $shadow-height 0 rgba(0, 0, 0, .16);
+//      margin-top: $shadow-height;
     }
 
     .Grid::after {

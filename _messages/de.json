@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bosnien und Herzegowina"
 	},
+	"back_to_previous_page": {
+		"message": "Zurück"
+	},
 	"back_to_tracker": {
 		"message": "Zurück zur Übersicht"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Chile"
+	},
+	"clear": {
+		"message": "Löschen"
 	},
 	"close": {
 		"message": "Schließen"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Ecuador"
 	},
+	"educators": {
+		"message": "\"Auf den Spuren des Weihnachtsmanns\" für Lehrer"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finnland"
+	},
+	"fi_tradition": {
+		"message": "In Finnland glauben die Menschen, dass der Weihnachtsmann \"Joulupukki\" im nördlichen Teil des Landes in Korvatunturi lebt. Wer durch Zufall seine geheime Werkstatt ausfindig macht, kann fleißigen Zwergen bei ihrer Arbeit zusehen und in den Kiefernwäldern nach Rentieren Ausschau halten."
 	},
 	"finished-text": {
 		"message": "Schöne Feiertage! Der Weihnachtsmann ist um die ganze Welt geflogen und ruht sich nun von der anstrengenden Reise aus. Besuche uns im nächsten Jahr wieder!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Schwer"
 	},
+	"help": {
+		"message": "Hilfe"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Schöne Feiertage!"
+	},
+	"holiday_message_1": {
+		"message": "Frohe Weihnachten!"
+	},
+	"holiday_message_2": {
+		"message": "Alles Liebe!"
+	},
+	"holiday_message_3": {
+		"message": "Weiße Weihnachten!"
+	},
+	"holiday_message_4": {
+		"message": "Frohes neues Jahr!"
+	},
+	"holiday_message_5": {
+		"message": "Frohes Fest!"
 	},
 	"hours": {
 		"message": "Stunden"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Südkorea"
 	},
+	"kr_tradition": {
+		"message": "Weihnachten ist in Südkorea ein Feiertag, der als besonders romantisch gilt und die Herzen höherschlagen lässt. Viele Liebespaare besuchen die Stadt mit ihren festlich erleuchteten Straßen und Geschäften."
+	},
 	"kz_country_name": {
 		"message": "Kasachstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Litauen"
 	},
+	"lt_tradition": {
+		"message": "In Litauen wird Weihnachtsschmuck häufig aus Stroh gebastelt. Zu den beliebtesten Formen zählen Sterne, Schneeflocken und Weihnachtsglocken. Auch beim traditionellen Weihnachtsschmaus Kūčios wird meist Stroh für die Tischdekoration verwendet."
+	},
 	"lv_country_name": {
 		"message": "Lettland"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Mit \"Auf den Spuren des Weihnachtsmanns\" kannst du dem Weihnachtsmann in Google Maps auf seiner Reise um die Welt folgen."
+	},
+	"meta_title": {
+		"message": "Auf den Spuren des Weihnachtsmanns"
 	},
 	"mg_country_name": {
 		"message": "Madagaskar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Heute neu"
+	},
+	"next": {
+		"message": "Weiter"
 	},
 	"ng_country_name": {
 		"message": "Nigeria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Nein danke"
-	},
-	"offline_notification_okay": {
-		"message": "OK"
 	},
 	"offline_user_message": {
 		"message": "Sie sind offline"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Such einen Hintergrund aus"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Mit den Pfeiltasten kannst du eine Postkarte auswählen"
+	},
+	"snowflake_code": {
+		"message": "Codier deine Schneeflocke"
+	},
+	"snowflake_code_instructions": {
+		"message": "Verbinde Blöcke miteinander und gestalte deine eigene Schneeflocke"
+	},
+	"snowflake_create_message": {
+		"message": "Gestalte deine eigene Schneeflocke"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Jetzt wiederholen."
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Wiederholen"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Drehen und wiederholen."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Drehen und wiederholen"
+	},
+	"snowflake_make_your_own": {
+		"message": "Die wurde mit Code gemacht. Probier es selbst aus."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Wähl eine Postkarte aus und teil deine Schneeflocke mit deinen Freunden"
+	},
+	"snowflake_shared_message": {
+		"message": "Jemand hat dir eine Schneeflocke geschickt."
 	},
 	"so_country_name": {
 		"message": "Somalia"

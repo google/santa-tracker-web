@@ -23,6 +23,8 @@ goog.provide('Constants');
  */
 app.Constants = {
   TOTAL_LEVELS: 10,
+  INITIAL_COUNTDOWN: 0,
+  COUNTDOWN_FLASH: -1,
 
   // initial size of levelboard wrapper
   CANVAS_WIDTH: 1600,

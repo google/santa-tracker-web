@@ -119,6 +119,8 @@ app.Result = class {
   }
 
   onShare() {
+    this.hide();
+
     this.game.share(this.shareUrl);
   }
 

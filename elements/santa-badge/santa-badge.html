@@ -1,0 +1,184 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="santa-badge_module.html">
+
+<dom-module id="santa-badge">
+<template>
+  <style include="santa-badge_module"></style>
+  <div class$="items [[_computeLevelActiveClass(level, _levelActive, score)]]">
+    <div id="score">
+      <div class="cell" hidden$="[[_computeScoreHidden(score)]]">
+        <span class="value">
+          [[score]]
+        </span>
+        <span class="label"><i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg></span>
+      </div>
+    </div>
+    <div id="time" class$="feature [[_computeFeatureClass(time)]]">
+      <div class="icon" style$="[[_computeBackgroundStyle(logoUrl)]]"></div>
+      <div class="cell">
+        <span class="value">
+          <span class$="[[_computeMinutesDimClass(time)]]">
+            [[_computeMinutes(time)]] <small>:</small>
+          </span> [[_computeSeconds(time)]]
+        </span>
+        <span class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></span>
+      </div>
+    </div>
+    <div id="level">
+      <div class="cell" hidden$="[[_computeLevelHidden(level)]]">
+        <span class="value">
+          [[level]] <span class="dim" hidden$="[[_computeLevelHidden(levels)]]"><small>&middot;</small> [[levels]]</span>
+        </span>
+        <span class="label"><i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg></span>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+
+(function() {
+  Polymer({
+    is: 'santa-badge',
+
+    properties: {
+
+      /** The current logo to display at the top center. */
+      logoUrl: {
+        type: String,
+        value: null,
+      },
+
+      /** The current level, if any. */
+      level: {
+        type: Number,
+        value: null,
+        observer: '_levelChanged',
+      },
+
+      /** The number of available levels, if any. */
+      levels: {
+        type: Number,
+        value: null,
+      },
+
+      /** The player's score, if any. */
+      score: {
+        type: Number,
+        value: null,
+      },
+
+      /** The number of seconds remaining. Floating-point, and only +ve values are shown. */
+      time: {
+        type: Number,
+        value: null,
+      },
+
+      /** The logo to show in the feature if there is no time. */
+      logoUrl: {
+        type: String,
+        value: null,
+      },
+
+      /** Whether to show the level indicator (for mobile). Set by _levelChanged. */
+      _levelActive: {
+        type: Boolean,
+        value: false,
+      },
+
+    },
+
+    _computeBackgroundStyle: function(logoUrl) {
+      if (logoUrl) {
+        return 'background-image: url(' + logoUrl + ')';
+      }
+      return null;
+    },
+
+    _computeLevelActiveClass: function(level, levelActive, score) {
+      if (level && (levelActive || score == null)) {
+        return 'level-active';  // if explicitly set, or there's no score anyway
+      }
+      return '';
+    },
+
+    /** If there are no whole minutes left, dim the display. */
+    _computeMinutesDimClass: function(time) {
+      return Math.floor(time / 60) <= 0 ? 'dim' : '';
+    },
+
+    /** If there's no time set, then show the icon. */
+    _computeFeatureClass: function(time) {
+      return time != null ? '' : 'icon';
+    },
+
+    /** Computes the number of whole minutes. */
+    _computeMinutes: function(time) {
+      if (time == null) {
+        return '';
+      } else if (time >= 600) {
+        return '9';
+      } else if (time < 0) {
+        return '0';
+      }
+      return Math.floor(time / 60);
+    },
+
+    /** Computes the number of whole seconds. */
+    _computeSeconds: function(time) {
+      if (time == null) {
+        return '';
+      } else if (time >= 600) {
+        return '59';
+      } else if (time < 0) {
+        return '00';
+      }
+      var out = Math.floor(time % 60);
+      return (out < 10 ? '0' : '') + out;
+    },
+
+    /** Levels are visible if they are +ve. */
+    _computeLevelHidden: function(value) {
+      return !(value > 0);
+    },
+
+    /** The score is hidden if value is null (zero is fine). */
+    _computeScoreHidden: function(value) {
+      return value == null;
+    },
+
+    _levelChanged: function() {
+      this._levelActive = true;
+
+      this.debounce('_levelChanged', function() {
+        this._levelActive = false;
+      }, 1000);
+    },
+
+    reset: function() {
+      this.logoUrl = null;
+      this.icon = null;
+      this.level = null;
+      this.levels = null;
+      this.score = null;
+      this.time = null;
+    },
+
+  });
+}());
+
+</script>
+</dom-module>

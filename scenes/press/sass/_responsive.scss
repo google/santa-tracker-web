@@ -4,7 +4,7 @@ $mobilePortraitBreakpoint: 400px;
 
 @media (min-width: 1px) and (max-width: $tabletBreakpoint) {
   #press-intro {
-    height: auto;
+    flex-flow: column;
 
     .press-intro-col {
       width: 100%;
@@ -14,9 +14,9 @@ $mobilePortraitBreakpoint: 400px;
   #press-primary {
     .press-primary-inner {
       width: 100%;
-    }   
+    }
 
-    .press-card {
+    .card {
       float: none;
       margin: 0 auto 30px;
       width: calc(70% - 30px);
@@ -28,7 +28,7 @@ $mobilePortraitBreakpoint: 400px;
       width: 100%;
     }
 
-    .press-card {
+    .card {
       width: calc(50% - 30px) !important;
 
       &.clear-desktop-row {
@@ -82,11 +82,11 @@ $mobilePortraitBreakpoint: 400px;
       padding: 0 10px;
     }
 
-    .press-card {
+    .card {
       width: calc(100% - 30px);
     }
 
-    .press-card-links {
+    .card-links {
       a {
         float: left;
         width: 100%;
@@ -95,7 +95,7 @@ $mobilePortraitBreakpoint: 400px;
   }
 
   #press-secondary {
-    .press-card {
+    .card {
       clear: both;
       width: calc(100% - 30px) !important;
     }

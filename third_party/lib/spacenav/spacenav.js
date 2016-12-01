@@ -25,7 +25,7 @@
   this.gutters['SPACE'] = this.gutters['SPACE'] || GUTTER;
 
   var portalRos = new ROSLIB.Ros({
-    url: 'wss://42-b:9090'
+    url: 'wss://localhost:9090'
   });
 
   var navigatorListener = new ROSLIB.Topic({

@@ -154,19 +154,6 @@ app.Game = class Game {
   }
 
   /**
-   * Pauses/unpauses the game.
-   */
- togglePause() {
-   // TODO: pause/resume is totally broken in all games (it nukes freeze state)
-    if (this.paused) {
-      this.resume();
-    // Only allow pausing if the game is playing (not game over).
-    } else if (this.isPlaying) {
-      this.pause();
-    }
-  }
-
-  /**
    * Pause the game.
    */
   pause() {

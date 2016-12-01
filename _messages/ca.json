@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Bòsnia i Hercegovina"
 	},
+	"back_to_previous_page": {
+		"message": "Enrere"
+	},
 	"back_to_tracker": {
 		"message": "Torna a l'eina de seguiment"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Xile"
+	},
+	"clear": {
+		"message": "Esborra"
 	},
 	"close": {
 		"message": "Tanca"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Equador"
 	},
+	"educators": {
+		"message": "Segueix el Pare Noel per a educadors"
+	},
 	"ee_country_name": {
 		"message": "Estònia"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Finlàndia"
+	},
+	"fi_tradition": {
+		"message": "Els finlandesos creuen que el Pare Noel, \"Joulupukki\", viu al nord del país, a Korvatunturi, per ser exactes. Si hi vas de visita, és possible que trobis el seu taller secret, on els gnoms treballen de valent. O també és possible que hi trobis rens deambulant pels boscos de pins."
 	},
 	"finished-text": {
 		"message": "Bon Nadal! El Pare Noel ha completat el seu viatge per tot el món i s'ha agafat un merescut descans. Torneu a visitar-nos l'any vinent!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Difícil"
 	},
+	"help": {
+		"message": "Ajuda"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
 	"hn_country_name": {
 		"message": "Hondures"
+	},
+	"holiday_message_0": {
+		"message": "Bones festes!"
+	},
+	"holiday_message_1": {
+		"message": "Els millors desitjos!"
+	},
+	"holiday_message_2": {
+		"message": "Els millors desitjos!"
+	},
+	"holiday_message_3": {
+		"message": "Que nevi!"
+	},
+	"holiday_message_4": {
+		"message": "Feliç any nou!"
+	},
+	"holiday_message_5": {
+		"message": "Felicitacions de Nadal!"
 	},
 	"hours": {
 		"message": "Hores"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Corea del Sud"
 	},
+	"kr_tradition": {
+		"message": "A Corea del Sud, el Nadal és una festa nacional. També es considera una festa romàntica. Moltes parelles passegen per la ciutat i contemplen els llums enlluernadors dels carrers i de les botigues."
+	},
 	"kz_country_name": {
 		"message": "Kazakhstan"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Lituània"
 	},
+	"lt_tradition": {
+		"message": "A Lituània, els guarniments tradicionals de Nadal es fan amb palla o fenc. Es teixeixen en forma de figures geomètriques, com ara estrelles, flocs de neu o campanes. Moltes famílies també utilitzen la palla per decorar la taula del menjador per a l'àpat anomenat Kūčios."
+	},
 	"lv_country_name": {
 		"message": "Letònia"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Utilitza Segueix el Pare Noel de Google per acompanyar el Pare Noel en els seus viatges arreu del món mitjançant Google Maps."
+	},
+	"meta_title": {
+		"message": "Segueix el Pare Noel de Google"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Nou avui!"
+	},
+	"next": {
+		"message": "Següent"
 	},
 	"ng_country_name": {
 		"message": "Nigèria"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "No, gràcies"
-	},
-	"offline_notification_okay": {
-		"message": "D'acord"
 	},
 	"offline_user_message": {
 		"message": "No tens connexió"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowflake_choose_background": {
+		"message": "Tria un fons de pantalla"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Fes servir les tecles de fletxa per triar una postal"
+	},
+	"snowflake_code": {
+		"message": "Codifica el teu floc de neu"
+	},
+	"snowflake_code_instructions": {
+		"message": "Per crear el teu propi floc de neu, fes encaixar les peces"
+	},
+	"snowflake_create_message": {
+		"message": "Dissenya el teu propi floc de neu"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Repeteix-ho!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "S'està repetint"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Gira i repeteix!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "S'està girant i repetint"
+	},
+	"snowflake_make_your_own": {
+		"message": "Aquest floc de neu s'ha creat amb codi. Prova de crear-ne un."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Selecciona una postal i comparteix el teu floc de neu amb els amics"
+	},
+	"snowflake_shared_message": {
+		"message": "Algú t'ha enviat un floc de neu."
 	},
 	"so_country_name": {
 		"message": "Somàlia"

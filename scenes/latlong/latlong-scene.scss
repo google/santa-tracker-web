@@ -9,9 +9,6 @@ $shadow-width: 4px;
 $break-tablet: 1025px;
 
 @import "../shared/sass/levelup";
-@import "../shared/sass/gameover";
-@import "../shared/sass/board";
-@import "../shared/sass/startbutton";
 @import "../shared/sass/tutorial";
 @import "../shared/sass/rotate";
 
@@ -19,7 +16,6 @@ $break-tablet: 1025px;
 @import "sass/grid";
 @import "sass/present";
 @import "sass/elf";
-@import "sass/sidebar";
 
 ##{$name} {
   .fill {
@@ -45,16 +41,6 @@ $break-tablet: 1025px;
 
   .pauseOverlay {
     z-index: 2 !important;
-  }
-
-  .board {
-    .level-item.is-active .level-number, .remaining {
-      background-color: #AC46BC;
-    }
-
-    .status {
-      background: url(img/status.svg) no-repeat;
-    }
   }
 
   .hidden {

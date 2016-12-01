@@ -20,10 +20,10 @@ specific language governing permissions and limitations under the License.
   var namespace = 'urn:x-cast:com.google.cast.santatracker';
 
   function sessionListener(session) {
-    window.santaApp.analyticsService.trackEvent('cast', 'connect');
+    window.ga('send', 'event', 'cast', 'connect');
     session.addUpdateListener(function() {
       if (session.status != chrome.cast.SessionStatus.CONNECTED) {
-        window.santaApp.analyticsService.trackEvent('cast', 'disconnect');
+        window.ga('send', 'event', 'cast', 'disconnect');
         session = null;
       }
     });

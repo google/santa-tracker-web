@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "Босния и Герцеговина"
 	},
+	"back_to_previous_page": {
+		"message": "Назад"
+	},
 	"back_to_tracker": {
 		"message": "Назад к Радару"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "Чили"
+	},
+	"clear": {
+		"message": "Удалить"
 	},
 	"close": {
 		"message": "Закрыть"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "Эквадор"
 	},
+	"educators": {
+		"message": "Ресурсы для преподавателей"
+	},
 	"ee_country_name": {
 		"message": "Эстония"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "Финляндия"
+	},
+	"fi_tradition": {
+		"message": "У жителей Финляндии свой Санта-Клаус, которого зовут Йоулупукки. Он живет на севере страны – на горе Корватунтури. Там находится его мастерская, в которой трудятся гномы, а по сосновым лесам поблизости бродят северные олени."
 	},
 	"finished-text": {
 		"message": "Вот и подошло к концу путешествие Санты. Он славно потрудился и теперь отправляется в долгий отпуск. До встречи в следующем году!"
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "Высокий"
 	},
+	"help": {
+		"message": "Подсказка"
+	},
 	"hi_language_name": {
 		"message": "хинди"
 	},
 	"hn_country_name": {
 		"message": "Гондурас"
+	},
+	"holiday_message_0": {
+		"message": "Веселых праздников!"
+	},
+	"holiday_message_1": {
+		"message": "Прекрасных праздников!"
+	},
+	"holiday_message_2": {
+		"message": "С наилучшими пожеланиями!"
+	},
+	"holiday_message_3": {
+		"message": "Веселой зимы!"
+	},
+	"holiday_message_4": {
+		"message": "С Новым годом!"
+	},
+	"holiday_message_5": {
+		"message": "С праздниками!"
 	},
 	"hours": {
 		"message": "ч."
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "Южная Корея"
 	},
+	"kr_tradition": {
+		"message": "В Южной Корее Рождество носит статус государственного праздника, но его атмосфера немного отличается от привычной нам. На украшенных яркими огнями улицах можно встретить множество влюбленных пар. Дело в том, что для корейцев Рождество – скорее романтический, а не семейный праздник."
+	},
 	"kz_country_name": {
 		"message": "Казахстан"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "Литва"
 	},
+	"lt_tradition": {
+		"message": "В Литве на Рождество принято плести украшения из соломы и сена. Обычно они имеют форму звезд, снежинок и колокольчиков. Во многих семьях соломенными изделиями украшают праздничный стол на сочельник."
+	},
 	"lv_country_name": {
 		"message": "Латвия"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Скачайте приложение \"Радар Санта-Клауса\" и следите за путешествием Санты."
+	},
+	"meta_title": {
+		"message": "Радар Санта-Клауса"
 	},
 	"mg_country_name": {
 		"message": "Мадагаскар"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "Добро пожаловать"
+	},
+	"next": {
+		"message": "Далее"
 	},
 	"ng_country_name": {
 		"message": "Нигерия"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "Закрыть"
-	},
-	"offline_notification_okay": {
-		"message": "ОК"
 	},
 	"offline_user_message": {
 		"message": "Нет подключения к Интернету"
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowflake_choose_background": {
+		"message": "Выберите фон"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Выберите открытку. Для перехода между вариантами пользуйтесь клавишами со стрелками."
+	},
+	"snowflake_code": {
+		"message": "Создайте снежинку из кода"
+	},
+	"snowflake_code_instructions": {
+		"message": "Чтобы создать снежинку, соедините несколько фрагментов кода."
+	},
+	"snowflake_create_message": {
+		"message": "Создайте свою снежинку"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "А теперь следующий луч!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Создание луча…"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Следующий луч!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Создание следующего луча…"
+	},
+	"snowflake_make_your_own": {
+		"message": "Вот какая снежинка из кода. Создай и ты свою!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Выберите открытку, добавьте на нее снежинку и отправьте друзьям."
+	},
+	"snowflake_shared_message": {
+		"message": "Вам пришла открытка!"
 	},
 	"so_country_name": {
 		"message": "Сомали"

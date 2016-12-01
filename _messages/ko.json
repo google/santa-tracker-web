@@ -47,6 +47,9 @@
 	"ba_country_name": {
 		"message": "보스니아 헤르체고비나"
 	},
+	"back_to_previous_page": {
+		"message": "뒤로"
+	},
 	"back_to_tracker": {
 		"message": "추적기로 돌아가기"
 	},
@@ -235,6 +238,9 @@
 	},
 	"cl_country_name": {
 		"message": "칠레"
+	},
+	"clear": {
+		"message": "지우기"
 	},
 	"close": {
 		"message": "닫기"
@@ -533,6 +539,9 @@
 	"ec_country_name": {
 		"message": "에콰도르"
 	},
+	"educators": {
+		"message": "교육기관용 산타 추적기"
+	},
 	"ee_country_name": {
 		"message": "에스토니아"
 	},
@@ -574,6 +583,9 @@
 	},
 	"fi_country_name": {
 		"message": "핀란드"
+	},
+	"fi_tradition": {
+		"message": "핀란드 사람들은 '줄루푸키'라는 산타클로스가 핀란드 북부의 코르바툰트리에 산다고 믿습니다. 코르바툰트리를 방문하면 땅속 요정이 열심히 일하고 있는 산타의 비밀 작업공방을 발견할지도 모릅니다. 또는 소나무 숲을 돌아다니는 순록과 마주칠 수도 있습니다."
 	},
 	"finished-text": {
 		"message": "즐거운 명절 보내세요! 산타가 전 세계를 도는 여정을 마치고 휴식을 취하는 중입니다. 내년에 다시 방문해 주세요."
@@ -638,11 +650,32 @@
 	"hard_difficulty": {
 		"message": "어려움"
 	},
+	"help": {
+		"message": "도움말"
+	},
 	"hi_language_name": {
 		"message": "힌디어"
 	},
 	"hn_country_name": {
 		"message": "온두라스"
+	},
+	"holiday_message_0": {
+		"message": "즐거운 연말연시를 보내세요."
+	},
+	"holiday_message_1": {
+		"message": "행복한 연말 보내세요."
+	},
+	"holiday_message_2": {
+		"message": "즐거운 연말 보내세요."
+	},
+	"holiday_message_3": {
+		"message": "화이트 크리스마스!"
+	},
+	"holiday_message_4": {
+		"message": "새해 복 많이 받으세요."
+	},
+	"holiday_message_5": {
+		"message": "새해 복 많이 받으세요."
 	},
 	"hours": {
 		"message": "시간"
@@ -704,6 +737,9 @@
 	"kr_country_name": {
 		"message": "한국"
 	},
+	"kr_tradition": {
+		"message": "대한민국에서는 크리스마스가 공휴일이며 연인을 위한 휴일로도 알려져 있습니다. 많은 연인이 크리스마스 조명이 반짝이는 거리와 상점이 즐비한 도시에서 데이트합니다."
+	},
 	"kz_country_name": {
 		"message": "카자흐스탄"
 	},
@@ -737,6 +773,9 @@
 	"lt_country_name": {
 		"message": "리투아니아"
 	},
+	"lt_tradition": {
+		"message": "리투아니아에서는 밀짚이나 건초로 별, 눈송이, 종과 같은 기하학적인 모양의 전통적인 크리스마스 장식을 짭니다. 또한 많은 가정에서 쿠쵸스라는 이름의 만찬을 위해 밀짚으로 식탁을 장식합니다."
+	},
 	"lv_country_name": {
 		"message": "라트비아"
 	},
@@ -751,6 +790,9 @@
 	},
 	"meta_description": {
 		"message": "Google 산타 추적기를 사용해 Google 지도에서 전 세계를 도는 산타클로스의 여정을 지켜봐 주세요"
+	},
+	"meta_title": {
+		"message": "Google 산타 추적기"
 	},
 	"mg_country_name": {
 		"message": "마다가스카르"
@@ -793,6 +835,9 @@
 	},
 	"newtoday": {
 		"message": "오늘의 새로운 장면"
+	},
+	"next": {
+		"message": "다음"
 	},
 	"ng_country_name": {
 		"message": "나이지리아"
@@ -907,9 +952,6 @@
 	},
 	"offline_notification_nothanks": {
 		"message": "나중에"
-	},
-	"offline_notification_okay": {
-		"message": "확인"
 	},
 	"offline_user_message": {
 		"message": "오프라인 상태입니다."
@@ -1159,6 +1201,42 @@
 	},
 	"sn_country_name": {
 		"message": "세네갈"
+	},
+	"snowflake_choose_background": {
+		"message": "배경을 선택하세요."
+	},
+	"snowflake_choose_postcard": {
+		"message": "화살표 키를 사용하여 엽서를 선택하세요."
+	},
+	"snowflake_code": {
+		"message": "눈송이 코드를 작성해 보세요."
+	},
+	"snowflake_code_instructions": {
+		"message": "블록을 연결하여 나만의 눈송이를 디자인해 보세요."
+	},
+	"snowflake_create_message": {
+		"message": "나만의 눈송이를 디자인해 보세요."
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "이제 반복하세요."
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "반복"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "회전 후 반복하세요."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "회전 후 반복"
+	},
+	"snowflake_make_your_own": {
+		"message": "코드로 만든 눈송이입니다. 직접 눈송이를 만들어 보세요."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "엽서를 선택하고 친구와 눈송이를 공유해 보세요."
+	},
+	"snowflake_shared_message": {
+		"message": "다른 사용자가 눈송이를 보냈습니다."
 	},
 	"so_country_name": {
 		"message": "소말리아"

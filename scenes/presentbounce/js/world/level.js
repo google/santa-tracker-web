@@ -70,6 +70,8 @@ app.world.Level = class {
     // Total ammount of objects available to be dragged and dropped
     this.numObjectsAvailable = 0;
 
+    this.attempt_ = 0;
+
     this.elem.css('visibility', 'hidden');
     this.buildWorld_();
 
@@ -113,8 +115,12 @@ app.world.Level = class {
    * Figures out the score and calls the game that this level is completed.
    */
   onLevelCompleted() {
+    if (this.attempt_ === 1) {
+      window.ga('send', 'event', 'game', 'firsttry', 'presentbounce')
+    }
+
     let score = 0;
-    let currentTime = this.scoreboard.getCountdown();
+    let currentTime = this.scoreboard.countdown;
     const BASE_POINTS = 50;
     const TIME_MODIFIDER = 30;
 
@@ -355,6 +361,7 @@ app.world.Level = class {
    * @public
    */
   dropBall() {
+    ++this.attempt_;
     const randomInt = this.randomIntFromInterval(0, 3);
 
     this.destroyBall();
@@ -451,7 +458,7 @@ app.world.Level = class {
       this.tutorial.off('device-tilt');
       this.tutorial.off('drag-and-drop');
     }
-    if (this.hasFirstBeltDropped && !this.hasBeltInteractionStarted) {
+    if (this.hasFirstBeltDropped /* && !this.hasBeltInteractionStarted */) {
       this.hasBeltInteractionStarted = true;
       this.tutorial.hide_();
       this.tutorial.off('conveyor-switch');
