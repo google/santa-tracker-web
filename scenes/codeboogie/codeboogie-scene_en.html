@@ -278,6 +278,10 @@ Codeboogie scene.
       this.fire('sound-ambient', 'cb_end');
     },
 
+    start: function() {
+      this.frame.restart();
+    },
+
     onSoundsLoaded: function(e, soundsName) {
       if (soundsName === 'codeboogie_load_sounds') {
         soundsLoaded = true;
