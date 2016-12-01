@@ -691,6 +691,11 @@ Polymer({
     var route = m[1] || this.defaultRoute;
     if (!this.sceneIsValid(route)) { return; }
 
+    // If this is the same route, then close the drawer. It was probably a sidebar click.
+    if (this.route === route) {
+      this.$.chrome.closeDrawer();
+    }
+
     // Set the route. Hooray! \o/
     this.route = route;
     ev.preventDefault();
