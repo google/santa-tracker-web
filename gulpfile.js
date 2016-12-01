@@ -471,7 +471,10 @@ gulp.task('build-contents', ['copy-assets'], function() {
 gulp.task('dist', function(callback) {
   // nb. 'build-contents' is our leaf here, as it depends on everything else. Be careful what deps
   // you list here, because they're not part of the normal Gulp dependency chain.
-  require('run-sequence')('rm-dist', 'build-contents', callback);
+  require('run-sequence')('rm-dist', 'build-contents', function() {
+    gutil.log('Built dist version', STATIC_VERSION);
+    callback();
+  });
 });
 
 gulp.task('watch', function() {
