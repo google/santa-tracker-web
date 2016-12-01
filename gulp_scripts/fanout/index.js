@@ -58,7 +58,7 @@ module.exports = function fanout(sceneConfig) {
           const ogTitle = this.head.querySelector('[property="og:title"]');
           ogTitle.setAttribute('msgid', `${config.msgid} ` + ogTitle.getAttribute('msgid'));
           const twitterTitle = this.head.querySelector('[name="twitter:title"]');
-          ogTitle.setAttribute('msgid', `${config.msgid} ` + twitterTitle.getAttribute('msgid'));
+          twitterTitle.setAttribute('msgid', `${config.msgid} ` + twitterTitle.getAttribute('msgid'));
         }
       });
 
