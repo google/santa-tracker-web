@@ -36,6 +36,7 @@ goog.scope(function() {
     eventEnd = 'mouseup';
 
     // If touch is enabled, _add_ touch events. There might still be a mouse connected too.
+    // TODO(samthor): Should we always also allow touch events?
     if (app.shared.utils.touchEnabled) {
       eventStart += ' touchstart';
       eventMove += ' touchmove';
@@ -62,7 +63,4 @@ goog.scope(function() {
     END: eventEnd,
     normalize: getNormalizedEvent
   };
-
-  console.debug('setup app.InputEvent', app.InputEvent);
-
 });
