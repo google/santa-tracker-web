@@ -57,6 +57,20 @@ $rotate-bg: $gameover-bg;
     }
   }
 
+  #heroSnowflake {
+    left: 552px;
+    top: 290px;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    animation: swing 5s infinite ease-in-out;
+  }
+
+  @keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+
   #snowglobe {
     width: 100%;
     height: 100%;
@@ -121,8 +135,7 @@ $rotate-bg: $gameover-bg;
     width: 20px;
     height:20px;
     display:inline-block;
-}
-
+  }
 
   .help {
     background-image: url('img/btn_help.png');
@@ -145,7 +158,7 @@ $rotate-bg: $gameover-bg;
     z-index: 1,
   }
 
-  
+
   .bottom-footer {
     position: relative;
     height: 150px;
@@ -174,7 +187,7 @@ $rotate-bg: $gameover-bg;
    bottom: 40px;
    width: 100%;
    z-index: 1;
-} 
+}
 .button-share-snow {
   padding: 0 8px;
   pointer-events: auto;
