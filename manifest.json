@@ -3,7 +3,7 @@
   "short_name": "Santa",
   "start_url": "./?utm_source=web_app_manifest&utm_medium=web_app_manifest",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "any",
   "theme_color": "#00c6ed",
   "background_color": "#3ec4f0",
   "icons": [
