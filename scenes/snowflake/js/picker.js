@@ -91,9 +91,17 @@ app.Picker.prototype.navigate = function(bgDelta) {
  * @param {number} bg This number is added to the selected background.
  */
 app.Picker.prototype.updateMessage = function(bg) {
-  var colors = ['white', 'white', 'white', 'black', 'white', 'white', 'white', 'white', 'white', 'white'];
-  var messages = [0, 1, 2, 3, 0, 1, 2, 3]
-  var messageId = messages[bg - 1];
-  document.getElementById("text-span").innerHTML = app.I18n.getMsg('S_message' + messageId);
-  document.getElementById("text-span").style.color = colors[bg - 1];
+  var text = document.getElementById("text-span");
+  // Fade out
+  text.style.opacity = 0;
+
+  // Fade in
+  setTimeout(function(){
+      var colors = ['white', 'white', 'white', 'black', 'white', 'white', '#f44262', 'white', 'white', 'white'];
+      var messages = [0, 1, 2, 3, 0, 1, 2, 3]
+      var messageId = messages[bg - 1];
+      text.innerHTML = app.I18n.getMsg('S_message' + messageId);
+      text.style.color = colors[bg - 1];
+      text.style.opacity = 1;
+  },150);
 }
