@@ -18,38 +18,38 @@ goog.provide('app.InputEvent');
 goog.require('app.shared.utils');
 
 goog.scope(function() {
-  var eventStart, eventMove, eventCancel, eventEnd;
+  let eventStart, eventMove, eventCancel, eventEnd;
 
   (function() {
+    // Hooray, it's the future!
     if (window.navigator.pointerEnabled) {
       eventStart = 'pointerdown';
       eventMove = 'pointermove';
       eventCancel = 'pointerup pointerout pointermove';
       eventEnd = 'pointerup';
-    } else if (window.navigator.msPointerEnabled) {
-      eventStart = 'MSPointerDown';
-      eventMove = 'MSPointerMove';
-      eventCancel = 'MSPointerUp MSPointerOut MSPointerMove';
-      eventEnd = 'MSPointerUp';
-    } else if (app.shared.utils.touchEnabled) {
-      eventStart = 'touchstart';
-      eventMove = 'touchmove';
-      eventCancel = 'touchend touchleave touchcancel';
-      eventEnd = 'touchend';
-    } else {
-      eventStart = 'mousedown';
-      eventMove = 'mousemove';
-      eventCancel = 'mouseup mouseout';
-      eventEnd = 'mouseup';
+      return;
+    }
+
+    eventStart = 'mousedown';
+    eventMove = 'mousemove';
+    eventCancel = 'mouseup mouseout';
+    eventEnd = 'mouseup';
+
+    // If touch is enabled, _add_ touch events. There might still be a mouse connected too.
+    if (app.shared.utils.touchEnabled) {
+      eventStart += ' touchstart';
+      eventMove += ' touchmove';
+      eventCancel += ' touchend touchleave touchcancel';
+      eventEnd += ' touchend';
     }
   })();
 
-  var getNormalizedEvent = function(e) {
+  function getNormalizedEvent(e) {
     // jquery / touch normalization
     e = e.originalEvent ? e.originalEvent : e;
     e = e.touches ? e.touches[0] : e;
     return e;
-  };
+  }
 
   /**
    * Input events name constants - depending on device support
@@ -62,4 +62,7 @@ goog.scope(function() {
     END: eventEnd,
     normalize: getNormalizedEvent
   };
+
+  console.debug('setup app.InputEvent', app.InputEvent);
+
 });
