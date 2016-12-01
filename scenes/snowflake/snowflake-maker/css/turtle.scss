@@ -83,13 +83,13 @@ $name: 'module-turtle';
 
 .turtle-visualization {
   width: 60%;
-  padding: 40px 0;
+  padding: 64px 0;
   min-height: 180px;
   min-width: 180px;
   max-width: 532px;
 
   @media (max-height: 700px) {
-    padding: 20px 0;
+    padding: 40px 0;
   }
 }
 
@@ -118,6 +118,7 @@ $name: 'module-turtle';
   bottom: -18px;
   background: white;
   z-index: -1;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.06);
 }
 
 #blocklycontainer {

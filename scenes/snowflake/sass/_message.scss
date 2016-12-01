@@ -54,6 +54,7 @@
       -webkit-transform: skewY(-6deg); /* Safari */
       transform: skewY(-6deg); /* Standard syntax */
       transition: transform 500ms ease;
+      text-shadow: 6px 6px rgba(0, 0, 0, 0.06);
     }
   }
 }

@@ -42,6 +42,12 @@ Turtle.FAST_DELAY = 20;
 Turtle.MIN_LINE_WIDTH = 6;
 Turtle.LINE_SCALE = 10;
 
+// The desired padding on the coding page affects the height of the paper.
+Turtle.BIG_PADDING = 128;
+Turtle.SMALL_PADDING = 80;
+// The window height at which we use smaller padding instead of big padding.
+Turtle.MAX_HEIGHT = 700;
+
 /**
  * PID of animation task currently executing.
  * @type !Array.<number>
@@ -162,7 +168,7 @@ Turtle.init = function() {
   onresize = function() {
     var totalHeight = document.getElementById('visualization').offsetHeight;
     var totalWidth = document.getElementById('visualization').offsetWidth;
-    var paddingHeight = window.innerHeight > 700 ? 80: 40;
+    var paddingHeight = window.innerHeight > Turtle.MAX_HEIGHT ? Turtle.BIG_PADDING: Turtle.SMALL_PADDING;
     var paddingWidth = 32;
     Turtle.DISPLAY_SIZE = Math.min(
         totalWidth - paddingWidth,
