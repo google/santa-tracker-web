@@ -53,9 +53,9 @@ module.exports = function replaceMessages(opts) {
     function recordMissing(msgid, lang) {
       let langs = missing[msgid];
       if (!langs) {
-        missing[msgid] = langs = [];
+        missing[msgid] = langs = new Set();
       }
-      langs.push(lang);
+      langs.add(lang);
     }
 
     const src = file.contents.toString();
@@ -142,9 +142,9 @@ module.exports = function replaceMessages(opts) {
         const langs = missing[msgid];
 
         if (langs.length >= 5) {
-          warn('%s: missing \'%s\' for %d langs', file.relative, msgid, langs.length);
+          warn('%s: missing \'%s\' for %d langs', file.relative, msgid, langs.size);
         } else {
-          warn('%s: missing \'%s\' for [%s]', file.relative, msgid, langs.join(' '));
+          warn('%s: missing \'%s\' for [%s]', file.relative, msgid, [...langs].join(' '));
         }
       });
       cb();
