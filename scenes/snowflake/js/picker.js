@@ -97,8 +97,8 @@ app.Picker.prototype.updateMessage = function(bg) {
 
   // Fade in
   setTimeout(function(){
-      var colors = ['white', 'white', 'white', 'black', 'white', 'white', '#f44262', 'white', 'white', 'white'];
-      var messages = [0, 1, 2, 3, 0, 1, 2, 3]
+      var colors = ['#0a459b', 'white', 'white', '#0a459b', 'white', 'white', '#0a459b', 'white'];
+      var messages = [0, 1, 2, 3, 0, 1, 2, 3];
       var messageId = messages[bg - 1];
       text.innerHTML = app.I18n.getMsg('S_message' + messageId);
       text.style.color = colors[bg - 1];
