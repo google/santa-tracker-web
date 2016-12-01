@@ -113,6 +113,12 @@ Turtle.RUN_COUNT_THRESHOLD = 100;
 Turtle.Tutorial = null;
 
 /**
+ * Whether to show the "Code your snowflake" message on page load.
+ * @type boolean
+ */
+Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE = false;
+
+/**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
@@ -204,15 +210,19 @@ Turtle.init = function() {
 
   Turtle.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
 
+  BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
   // Try to load blocks from the URL.  If that fails, assume it's their first
-  // time here.  Load the default blocks, run them, and then show the tutorial.
+  // time here.  Show and run the default blocks, then show the tutorial.
   if (!Turtle.loadUrlBlocks()) {
-    document.getElementById('code_your_snowflake_message').style.display = 'block';
+    if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
+      document.getElementById('snowflake_code_message').style.display = 'block';
+    }
 
-    BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
     Turtle.runCode(Turtle.DEFAULT_DELAY, function() {
       Turtle.tutorial.schedule();
-      document.getElementById('code_your_snowflake_message').style.display = 'none';
+      if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
+        document.getElementById('snowflake_code_message').style.display = 'none';
+      }
     });
   }
 };
