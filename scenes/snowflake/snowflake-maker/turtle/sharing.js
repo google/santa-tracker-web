@@ -285,7 +285,7 @@ Sharing.validateBlockValue = function(initial, value) {
     case 'f':
     case 'b':
       validValue = parseInt(value);
-      if (!validValue || validValue < 10 || validValue > 30) {
+      if (!validValue || validValue < 10 || validValue > 99) {
         validValue = 20;
       }
       break;
