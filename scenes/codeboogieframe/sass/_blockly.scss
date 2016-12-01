@@ -28,54 +28,6 @@
     }
   }
 
-  // Promote madewithcode.com on top of the blockly workspace responsively.
-  // VERY tricky to position w.r.t. GUI elements, toolbar, maze scene and
-  // play button.
-  .blockly__promo {
-    bottom: 17px;
-    color: white;
-    font-family: Roboto, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    left: 20px;
-    right: 90px;
-    position: absolute;
-
-    @media (min-width: 661px) {
-      bottom: 20px;
-      font-size: 14px;
-      right: 130px;
-    }
-
-    @media (min-width: 1025px) {
-      left: 276px;
-      right: 60px;
-    }
-
-    a {
-      color: #FDBD26;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .blockly__promo {
-    left: 80px;
-    right: 60px;
-
-    @media (min-width: 661px) {
-      left: 120px;
-    }
-
-    @media (min-width: 1025px) {
-      left: 276px;
-      bottom: 30px;
-    }
-  }
-
   // Tweak blockly styles.
   .blocklySvg {
     background-color: transparent;
