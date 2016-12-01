@@ -159,7 +159,7 @@ app.Models = [
     'title': 'Snowflake Cards',
     'opens': '4',
     'type': 'Play',
-    'filter': 'new',
+    'filter': 'education new',
     'description': 'Nothing says "Happy Holidays" like Rudolph on the beach. Create your own holiday card by programming your own snowflake, selecting one of many backgrounds, and share with your friends.',
     'resources': [
       // TODO(samthor): Update resources for 2016.
