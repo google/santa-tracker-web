@@ -107,6 +107,18 @@ Turtle.runCount = -1;
 Turtle.RUN_COUNT_THRESHOLD = 3;
 
 /**
+ * Tutorial to show the user how to drag blocks.
+ * @type Turtle.SceneTutorial
+ */
+Turtle.Tutorial = null;
+
+/**
+ * Whether to show the "Code your snowflake" message on page load.
+ * @type boolean
+ */
+Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE = false;
+
+/**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
@@ -156,13 +168,6 @@ Turtle.init = function() {
   Turtle.ctxOutput = document.getElementById('output').getContext('2d');
   Turtle.paper = document.getElementById('paperDiv');
 
-  BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
-  if(!Turtle.loadUrlBlocks()) {
-    // Run the code once, to give them an idea of what they're doing.
-    Turtle.runCode(Turtle.DEFAULT_DELAY);
-  }
-
-
   // Onresize will be called as soon as we register it in IE, so we hold off
   // on registering it until everything it references is defined.
   onresize = function() {
@@ -203,9 +208,28 @@ Turtle.init = function() {
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
 
-  //Tutorial
-  this.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
-  this.tutorial.schedule();
+  Turtle.tutorial = new Turtle.SceneTutorial(document.getElementsByClassName('tutorial')[0]);
+  Blockly.Events.disable();
+  BlocklyInterface.loadBlocks(Turtle.getDefaultXml(), true);
+  Blockly.Events.enable();
+  // Try to load blocks from the URL.  If that fails, assume it's their first
+  // time here.  Show and run the default blocks, then show the tutorial.
+  if (!Turtle.loadUrlBlocks()) {
+    if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
+      document.getElementById('snowflake_code_message').style.display = 'block';
+    }
+
+    Turtle.runCode(Turtle.DEFAULT_DELAY, function() {
+      Turtle.tutorial.schedule();
+      if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
+        document.getElementById('snowflake_code_message').style.display = 'none';
+      }
+    });
+  } else {
+    // Turn on the tutorial, so that it will be visible when the users gets here
+    // from the sharing landing page.
+    Turtle.tutorial.schedule();
+  }
 };
 
 window.addEventListener('load', Turtle.init);
@@ -249,7 +273,9 @@ Turtle.loadUrlBlocks = function() {
     var index = blocksString.indexOf('B=');
     if (index != -1) {
       blocksString = blocksString.substring(index + 2);
+      Blockly.Events.disable();
       Sharing.urlToWorkspace(blocksString);
+      Blockly.Events.enable();
       Turtle.sharing = true;
       Turtle.sendSnowflakeAndBlocks();
       return true;
