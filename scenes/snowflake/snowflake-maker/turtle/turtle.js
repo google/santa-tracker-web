@@ -104,7 +104,7 @@ Turtle.runCount = -1;
  * How many times the "now repeat" message should show up.
  * @type number
  */
-Turtle.RUN_COUNT_THRESHOLD = 100;
+Turtle.RUN_COUNT_THRESHOLD = 3;
 
 /**
  * Tutorial to show the user how to drag blocks.
