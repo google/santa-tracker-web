@@ -215,6 +215,10 @@ Polymer({
     return currentTime >= FLIGHT_FINISHED;
   },
 
+  created: function() {
+    instances.add(this);  // aggressively add to instances, to catch all updates
+  },
+
   attached: function() {
     instances.add(this);
   },

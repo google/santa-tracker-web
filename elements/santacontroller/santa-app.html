@@ -624,6 +624,24 @@ Polymer({
     if (!window.DEV) {
       console.log = function() {};
     }
+
+    // prepareHouses code: before anything else. This needs to happen here because otw
+    // _currentTimeChanged can actually be invoked before ready: is called.
+    // TODO(samthor): This could be moved outside `santa-app`, it doesn't use any state.
+
+    var portalMode = getUrlParameter('api_client') === 'web_portal';
+    var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
+
+    for (var i = 0, house; house = window.HOUSES[i]; ++i) {
+      house.disabled = false;
+      house.locked = !window.DEV;  // initial state
+      switch (house.module) {
+        case 'app':
+          // Disable Google Play house on iOS devices
+          house.disabled |= (ios || portalMode);
+          break;
+      }
+    }
   },
 
   ready: function() {
@@ -642,8 +660,6 @@ Polymer({
     }.bind(this);
     document.addEventListener('visibilitychange', handler);
     handler();
-
-    this._prepareHouses();
   },
 
   attached: function() {
@@ -729,25 +745,6 @@ Polymer({
    */
   onSceneReady: function(event, scene) {
     this._prepareScene(scene);
-  },
-
-  /**
-   * Initializes all houses, setting their initial state of locked and disabled.
-   */
-  _prepareHouses: function() {
-    var portalMode = this.mode === 'portal';
-    var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
-
-    for (var i = 0, house; house = this._houses[i]; ++i) {
-      house.disabled = false;
-      house.locked = this.scheduleChecked;
-      switch (house.module) {
-        case 'app':
-          // Disable Google Play house on iOS devices
-          house.disabled |= (ios || portalMode);
-          break;
-      }
-    }
   },
 
   get defaultRoute() {
@@ -1092,7 +1089,7 @@ Polymer({
    * @private
    */
   _currentTimeChanged: function() {
-    var todayDate = new Date(this.currentTime);
+    var todayDate = new Date(this.currentTime || Date.now());
     var todayHouse = '';
     var change = false;
 
