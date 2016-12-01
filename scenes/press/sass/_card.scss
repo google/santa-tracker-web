@@ -88,7 +88,7 @@
         display: block;
         font-size: 14px;
         opacity: 1;
-        padding: 10px 0 8px 35px;
+        padding: 10px 0 10px 35px;
         position: relative;
         transition: opacity .3s;
         width: 100%;
@@ -112,6 +112,19 @@
           position: absolute;
           top: 50%;
           transform: translate3d(0, -50%, 0);
+          width: 20px;
+        }
+      }
+      .card-link {
+        &:before {
+          background: transparent center/contain no-repeat;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHJJREFUWMPt1skJwDAQQ9Hpv4nfSMpIP8nZJASvYxEk0Hke3nBEa47zauryGGSQQQYZZNBjIM1D+4sSCqWVQmn7UDpTzLpZ6GDmoFj1BqGD6UMRKalDJWHqUMmYb9QmzDtqM6ZEiWAcZ/SLOlqD/gdyytz43Z4LtbbRXQAAAABJRU5ErkJggg==');
+          content: '';
+          height: 20px;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translate3d(0, -50%, 0) rotate(-90deg);
           width: 20px;
         }
       }

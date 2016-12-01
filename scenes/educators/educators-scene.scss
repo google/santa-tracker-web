@@ -185,8 +185,13 @@ ul {
   padding: 100px 0 100px 0;
   text-align: center;
 
-  h2 {
-    margin-bottom: 25px;
+  h3, h4, p {
+    color: #607D8B;
+  }
+
+  p.educators-secondary-intro {
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .educators-card-container {
@@ -194,6 +199,10 @@ ul {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
+
+    &.center {
+      justify-content: center;
+    }
   }
 
   .educators-card {
@@ -262,7 +271,7 @@ ul {
 }
 
 #educators-nonprofit {
-  padding: 100px 0;
+  padding: 0 0 100px;
   text-align: center;
 
   h3, h4, p {
