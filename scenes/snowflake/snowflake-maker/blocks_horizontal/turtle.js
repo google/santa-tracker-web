@@ -170,7 +170,7 @@ Blockly.Blocks['dropdown_move_forward'] = {
         .appendField(new Blockly.FieldIconMenu([
           Turtle.Blocks.makeMenuIcon_("forward_sm", '10', 'move 10'),
           Turtle.Blocks.makeMenuIcon_("forward_med", '20', 'move 20'),
-          Turtle.Blocks.makeMenuIcon_("forward_lg", '30', 'move 30'),
+          Turtle.Blocks.makeMenuIcon_("forward_lg", '40', 'move 40'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Turtle.Blocks.categoryColours['movement'].primary,
@@ -226,7 +226,7 @@ Blockly.Blocks['dropdown_move_backward'] = {
         .appendField(new Blockly.FieldIconMenu([
           Turtle.Blocks.makeMenuIcon_("back_sm", '10', 'move 10'),
           Turtle.Blocks.makeMenuIcon_("back_med", '20', 'move 20'),
-          Turtle.Blocks.makeMenuIcon_("back_lg", '30', 'move 30'),
+          Turtle.Blocks.makeMenuIcon_("back_lg", '40', 'move 40'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Turtle.Blocks.categoryColours['movement'].primary,
@@ -435,12 +435,12 @@ Blockly.Blocks['dropdown_square'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          Turtle.Blocks.makeMenuIcon_("square_1", '25', '25'),
-          Turtle.Blocks.makeMenuIcon_("square_2", '50', '50'),
-          Turtle.Blocks.makeMenuIcon_("square_3", '75', '75'),
-          Turtle.Blocks.makeMenuIcon_("square_4", '100', '100'),
-          Turtle.Blocks.makeMenuIcon_("square_5", '125', '125'),
-          Turtle.Blocks.makeMenuIcon_("square_6", '150', '150'),
+          Turtle.Blocks.makeMenuIcon_("square_1", '20', '20'),
+          Turtle.Blocks.makeMenuIcon_("square_2", '40', '40'),
+          Turtle.Blocks.makeMenuIcon_("square_3", '60', '60'),
+          Turtle.Blocks.makeMenuIcon_("square_4", '80', '80'),
+          Turtle.Blocks.makeMenuIcon_("square_5", '100', '100'),
+          Turtle.Blocks.makeMenuIcon_("square_6", '120', '120'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Turtle.Blocks.categoryColours['shapes'].primary,
@@ -488,12 +488,12 @@ Blockly.Blocks['dropdown_pentagon'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          Turtle.Blocks.makeMenuIcon_("pentagon_1", '25', '25'),
-          Turtle.Blocks.makeMenuIcon_("pentagon_2", '50', '50'),
-          Turtle.Blocks.makeMenuIcon_("pentagon_3", '75', '75'),
-          Turtle.Blocks.makeMenuIcon_("pentagon_4", '100', '100'),
-          Turtle.Blocks.makeMenuIcon_("pentagon_5", '125', '125'),
-          Turtle.Blocks.makeMenuIcon_("pentagon_6", '150', '150'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_1", '20', '20'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_2", '40', '40'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_3", '60', '60'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_4", '80', '80'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_5", '100', '100'),
+          Turtle.Blocks.makeMenuIcon_("pentagon_6", '120', '120'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Turtle.Blocks.categoryColours['shapes'].primary,
@@ -547,12 +547,12 @@ Blockly.Blocks['dropdown_triangle'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldIconMenu([
-          Turtle.Blocks.makeMenuIcon_("triangle_1", '25', '25'),
-          Turtle.Blocks.makeMenuIcon_("triangle_2", '50', '50'),
-          Turtle.Blocks.makeMenuIcon_("triangle_3", '75', '75'),
-          Turtle.Blocks.makeMenuIcon_("triangle_4", '100', '100'),
-          Turtle.Blocks.makeMenuIcon_("triangle_5", '125', '125'),
-          Turtle.Blocks.makeMenuIcon_("triangle_6", '150', '150'),
+          Turtle.Blocks.makeMenuIcon_("triangle_1", '20', '20'),
+          Turtle.Blocks.makeMenuIcon_("triangle_2", '40', '40'),
+          Turtle.Blocks.makeMenuIcon_("triangle_3", '60', '60'),
+          Turtle.Blocks.makeMenuIcon_("triangle_4", '80', '80'),
+          Turtle.Blocks.makeMenuIcon_("triangle_5", '100', '100'),
+          Turtle.Blocks.makeMenuIcon_("triangle_6", '120', '120'),
         ]), 'CHOICE');
     this.setOutput(true);
     this.setColour(Turtle.Blocks.categoryColours['shapes'].primary,
