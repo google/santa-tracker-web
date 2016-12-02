@@ -119,6 +119,12 @@ Turtle.Tutorial = null;
 Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE = false;
 
 /**
+ * Whether the tutorial has already been shown.
+ * @type boolean
+ */
+Turtle.hasShownTutorial = false;
+
+/**
  * Initialize Blockly and the turtle.  Called on page load.
  */
 Turtle.init = function() {
@@ -201,7 +207,7 @@ Turtle.init = function() {
   if (document.getElementById('playButton')) {
     Turtle.bindClick('playButton',
       function() {
-        Turtle.runCode(Turtle.DEFAULT_DELAY);
+        Turtle.runCode(Turtle.DEFAULT_DELAY, Turtle.maybeShowTutorial);
       });
   }
 
@@ -219,16 +225,26 @@ Turtle.init = function() {
       document.getElementById('snowflake_code_message').style.display = 'block';
     }
 
-    Turtle.runCode(Turtle.DEFAULT_DELAY, function() {
-      Turtle.tutorial.schedule();
-      if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
-        document.getElementById('snowflake_code_message').style.display = 'none';
-      }
-    });
+    Turtle.runCode(Turtle.DEFAULT_DELAY, Turtle.maybeShowTutorial);
   } else {
     // Turn on the tutorial, so that it will be visible when the users gets here
     // from the sharing landing page.
     Turtle.tutorial.schedule();
+    Turtle.hasShownTutorial = true;
+  }
+};
+
+/**
+ * Show the tutorial if it hasn't been shown before, and hide the
+ * "code your snowflake" message.
+ */
+Turtle.maybeShowTutorial = function() {
+  if (!Turtle.hasShownTutorial) {
+    Turtle.tutorial.schedule();
+    Turtle.hasShownTutorial = true;
+    if (Turtle.ENABLE_CODE_SNOWFLAKE_MESSAGE) {
+      document.getElementById('snowflake_code_message').style.display = 'none';
+    }
   }
 };
 
@@ -296,7 +312,7 @@ Turtle.registerRunListener = function() {
       // Deselect the start block--otherwise it won't register the next tap.
       // This is a workaround because immovable blocks don't fire click events.
       Turtle.workspace.getBlockById(Turtle.snowflakeStartBlockId).unselect();
-      Turtle.runCode(Turtle.DEFAULT_DELAY);
+      Turtle.runCode(Turtle.DEFAULT_DELAY, Turtle.maybeShowTutorial);
     }
   }
   Turtle.workspace.addChangeListener(onBlockSelected);
