@@ -488,14 +488,14 @@ $toolbar-size: 64px;
     z-index: $base-background-z-index;
     position: relative;
     background: url(img/footer-snow-tile.svg) repeat-x;
-    background-size: 100% 100%;
-    background-position: 0 100px;
+    background-size: contain;
+    background-position: center bottom;
     min-height: 200px;
     margin-top: -200px;  // nb: removed on mobile
 
     p {
-      margin: 20px auto;
-      padding: 0 12px;
+      margin: 0 auto;
+      padding: 20px 12px;
       color: #3474ba;
       font-weight: 500;
       font-size: 22px;
@@ -504,6 +504,7 @@ $toolbar-size: 64px;
     }
 
     img {
+      width: 100%;
       max-width: $width-desktop + 240px;
       margin: 20px auto 0;
       display: block;
