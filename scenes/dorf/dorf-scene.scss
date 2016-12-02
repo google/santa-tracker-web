@@ -487,8 +487,9 @@ $toolbar-size: 64px;
   footer {
     z-index: $base-background-z-index;
     position: relative;
-    background: url(img/footer-snow-tile.svg) center bottom repeat-x;
+    background: url(img/footer-snow-tile.svg) repeat-x;
     background-size: 100% 100%;
+    background-position: 0 100px;
     min-height: 200px;
     margin-top: -200px;  // nb: removed on mobile
 
