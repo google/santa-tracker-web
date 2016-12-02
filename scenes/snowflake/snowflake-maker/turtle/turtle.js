@@ -268,7 +268,7 @@ Turtle.getDefaultXml = function() {
       '          <block type="pentagon_stamp">' +
       '            <value name="SIZE">' +
       '              <shadow type="dropdown_pentagon">' +
-      '                <field name="CHOICE">125</field>' +
+      '                <field name="CHOICE">100</field>' +
       '              </shadow>' +
       '            </value>' +
       '          </block>' +

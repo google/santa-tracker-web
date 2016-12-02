@@ -272,13 +272,13 @@ Sharing.makeBlockFromInitial = function (initial, value) {
 Sharing.validateBlockValue = function(initial, value) {
   var validValue = null;
   switch(initial) {
-    // Shape blocks. Dropdown values: 25, 50, 75, 100, 125, 150.
+    // Shape blocks. Dropdown values: 20, 40, 60, 80, 100, 120.
     case 'p':
     case 's':
     case 't':
       validValue = parseInt(value);
-      if (!validValue || validValue < 25 || validValue > 150) {
-        validValue = 125;
+      if (!validValue || validValue < 20 || validValue > 150) {
+        validValue = 100;
       }
       break;
     // Forward/backward blocks. Dropdown values 10, 20, 30.
@@ -293,7 +293,7 @@ Sharing.validateBlockValue = function(initial, value) {
     case 'l':
     case 'r':
       validValue = parseInt(value);
-      if (!validValue || validValue < 30 || validValue > 180) {
+      if (!validValue || validValue < 10 || validValue > 180) {
         validValue = 30;
       }
       break;
@@ -309,7 +309,7 @@ Sharing.validateBlockValue = function(initial, value) {
     // 'empty-loop' appears to be the initial for all loops.
     case 'empty-loop':
       validValue = parseInt(value);
-      if (!validValue || validValue < 0 || validValue > 100) {
+      if (!validValue || validValue < 0 || validValue > 99) {
         validValue = 4; //set back to default.
       }
       break;
