@@ -86,6 +86,22 @@ app.Slider.prototype.update_ = function(change) {
 app.Slider.prototype.balance_ = function(change) {
   var elems, alignment = this.horizontal ? 'left' : 'top';
 
+  // If the css hasn't loaded yet this won't work, so repost and wait until
+  // the css is ready.
+  for (var i = 0; i < this.children.length; i++) {
+    var child = this.children[i];
+    var childCss = child.css(alignment);
+    if (childCss == 'auto') {
+      console.log('css not loaded yet, delaying balance');
+      var that = this;
+      var f = function() {
+        that.balance_.call(that, change);
+      }
+      setTimeout(f, 50);
+      return;
+    }
+  }
+
   // Move elements to the back
   if (change > 0) {
     elems = this.children.splice(0, change);
@@ -100,7 +116,8 @@ app.Slider.prototype.balance_ = function(change) {
     elems = this.children.splice(change);
 
     for (var i = 0, elem; elem = elems[i]; i++) {
-      elem.css(alignment, '-=' + this.totalSize + 'px');
+      var css = '-=' + this.totalSize + 'px';
+      elem.css(alignment, css);
     }
 
     this.children.unshift.apply(this.children, elems);
