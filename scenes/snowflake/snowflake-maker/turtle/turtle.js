@@ -808,7 +808,7 @@ Turtle.isVisible = function(visible, id) {
 };
 
 Turtle.sendSnowflakeAndBlocks = function() {
-    var delay = Turtle.sharing ? 10 : Turtle.FAST_DELAY;
+    var delay = Turtle.sharing ? 0 : Turtle.FAST_DELAY;
     Turtle.runCode(delay, function() {
       var blocksUrl = Sharing.workspaceToUrl();
       if (!blocksUrl || blocksUrl == "") {
