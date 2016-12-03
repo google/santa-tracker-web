@@ -1162,10 +1162,20 @@ Polymer({
     var url = detail.url || window.location.href;
     var route = this.route || '';
     var title = this.$.strings.s('scene-' + route) || this.$.strings.s('santatracker') || '';
+    var hashtags = ['santatracker'];
+
+    switch (route) {
+    case 'snowflake':
+      hashtags.push('codeasnowflake');
+      if (url.indexOf('?') !== -1) {
+        title = this.$.strings.s('snowflake_make_your_own');
+      }
+      break;
+    }
 
     window.ga('send', 'social', network, 'share', '/' + route);
 
-    var shareUrl = this._findShareUrl(network, url, title);
+    var shareUrl = this._findShareUrl(network, url, hashtags, title);
     if (network === 'webshare' && navigator.share) {
       navigator.share({title: title, url: url});
     } else if (shareUrl) {
@@ -1177,7 +1187,7 @@ Polymer({
   /**
    * Returns the URL to popup open in response to a sharing action.
    */
-  _findShareUrl: function(network, url, title) {
+  _findShareUrl: function(network, url, hashtags, title) {
     var enc = window.encodeURIComponent(url);
 
     switch (network) {
@@ -1188,7 +1198,7 @@ Polymer({
       }
       return out;
     case 'twitter':
-      var out = 'https://twitter.com/intent/tweet?hashtags=santatracker&text=' +
+      var out = 'https://twitter.com/intent/tweet?hashtags=' + hashtags.join(',') + '&text=' +
           window.encodeURIComponent(title) + '&url=' + enc;
       if (window.requestLang) {
         out += '&lang=' + window.requestLang;
