@@ -265,7 +265,6 @@ app-toolbar {
   display: flex;
 
   button {
-    pointer-events: auto;
     color: inherit;
     height: $button-size;
     width: $button-size;
@@ -282,6 +281,10 @@ app-toolbar {
     box-shadow: 0 2px 0 rgba(0,0,0,0.3);
     transition: transform 0.25s;
     transform: translate(0);
+
+    &:not([disabled]) {
+      pointer-events: auto;
+    }
 
     &[disabled] {
       cursor: default;
