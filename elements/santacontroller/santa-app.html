@@ -1167,7 +1167,8 @@ Polymer({
     switch (route) {
     case 'snowflake':
       hashtags.push('codeasnowflake');
-      if (url.indexOf('?') !== -1) {
+      if (detail.overlay) {
+        // If this was from the overlay / share button prompt, use the longer messaage.
         title = this.$.strings.s('snowflake_make_your_own');
       }
       break;

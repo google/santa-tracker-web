@@ -225,7 +225,7 @@ Polymer({
     var p = ev.target.closest('button');
     if (p) {
       ev.preventDefault();
-      this.fire('share', {network: p.id, url: this.shortShareUrl || this.shareUrl});
+      this.fire('share', {network: p.id, url: this.shortShareUrl || this.shareUrl, overlay: true});
     }
   },
 
