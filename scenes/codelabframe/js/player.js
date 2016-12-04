@@ -147,8 +147,8 @@ app.Player.prototype = {
     // Wrap the outer animation in a SequenceEffect. Without this, the actual
     // relevant inner KeyframeEffect tends to get nuked by neighbour anims.
     var animation = new SequenceEffect([
-      app.PlayerSound.walk(),
       new GroupEffect([
+        app.PlayerSound.jump(),
         new KeyframeEffect(this.spriteEl, [
           {opacity: 1}, {opacity: 0}
         ], {fill: 'forwards'}),

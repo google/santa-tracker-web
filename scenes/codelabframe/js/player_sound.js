@@ -22,10 +22,12 @@ goog.provide('app.PlayerSound');
 app.PlayerSound = {
   isWalking_: false,
   isLost_: false,
+  isJumping_: false,
   disabled_: false,
 
   reset: function() {
     app.PlayerSound.isLost_ = false;
+    app.PlayerSound.isJumping_ = false;
     app.PlayerSound.disabled_ = false;
     app.PlayerSound.stop_();
   },
@@ -33,6 +35,12 @@ app.PlayerSound = {
   walk: function() {
     var e = new KeyframeEffect(null, [], 100);
     e.onsample = app.PlayerSound.walk_;
+    return e;
+  },
+
+  jump: function() {
+    var e = new KeyframeEffect(null, [], 100);
+    e.onsample = app.PlayerSound.jump_;
     return e;
   },
 
@@ -63,6 +71,20 @@ app.PlayerSound = {
     }
     app.PlayerSound.isWalking_ = true;
     Klang.triggerEvent('computer_walk_start');
+  },
+
+  /**
+   * @param {number} timeFraction
+   * @param {!KeyframeEffect} effect
+   * @param {!Animation} animation
+   */
+  jump_: function(timeFraction, effect, animation) {
+    if (app.PlayerSound.disabled_ || app.PlayerSound.isJumping_) {
+      return;
+    }
+    app.PlayerSound.isJumping_ = true;
+    app.PlayerSound.stop_();
+    Klang.triggerEvent('computer_success');
   },
 
   /**
