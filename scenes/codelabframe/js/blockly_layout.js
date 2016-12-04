@@ -211,6 +211,8 @@ app.BlocklyLayout.prototype.layoutToolboxCardinal_ = function(blocks) {
   // Repeat
   if (blocks.length > 4) {
     blocks[4].moveTo(centerX, cursorY);
+    cursorY += blockSize.height + gap;
+    blocks[5] && blocks[5].moveTo(centerX, cursorY);
   }
 
   return toolboxWidth;

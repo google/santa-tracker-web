@@ -247,9 +247,11 @@ app.Blockly.prototype = {
    */
   getUserCode: function() {
     var code = this.getCode();
+
+    console.log(code);
     code = code
         // Hide block id highlight arguments
-        .replace(/(,\s*)?'block_id_\d+'/g, '').
+        .replace(/(,\s*)?'block_id_\d+'(,\s*)?/g, '').
 
         // Hide loop highlight statement.
         replace(/\s*api\.highlightLoop\('\d+'\);/gm, '').

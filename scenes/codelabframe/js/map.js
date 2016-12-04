@@ -27,19 +27,27 @@ goog.provide('app.TileType');
  */
 
 app.MapData = [
- 'T     TT',
- 'T     TT', //LEVEL9
- 'T   TTTT',
- 'T     TT',
- 'T  X  TT',
- 'T     TT',
- 'TTTTT TT',
- 'TTTT  TT',
- 'T    TTT',
- 'T X  TTT',
- 'T     TT',
- 'T     TT',
- 'T     TT',
+ 'T     TT', //MAP START
+ '       T', //LEVEL12
+ '  TTTT T',
+ '  TX T  ',
+ '  TTTT T',
+ 'T T  T  ',
+ ' TTTTT Y',
+ '  T  T  ', //LEVEL11
+ 'T TTTT  ',
+ '  TX T T',
+ '  TTTT  ', //LEVEL10
+ 'T      T',
+ 'T TX  TT', //LEVEL9
+ 'TTTT  T ',
+ 'T  TTT T',
+ 'T X   T ',
+ 'TTTT TT ',
+ 'T X  T T',
+ 'T   T TT',
+ ' T    TT',
+ 'T     T ',
  'T     TT',
  'T     TT',
  'T     TT',
@@ -162,7 +170,10 @@ app.Map.prototype.getTile = function(x, y) {
  */
 app.Map.LEVEL_BOUNDS = [];
 app.Map.LEVEL_BOUNDS.unshift(1);
-app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 16);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 6);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 3);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 2);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 13);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 7);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 5);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 3);
