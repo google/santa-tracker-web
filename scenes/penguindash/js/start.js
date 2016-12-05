@@ -611,7 +611,7 @@ app.Start.prototype.dieAndRestart_ = function() {
     window.setTimeout(() => {
       this.dead = false;
       this.restartLevel_();
-      this.game.st_parent.scoreboard.onFrame(-20);
+      this.game.st_parent.scoreboard.onFrame(-app.Constants.TIME_LOSE);
     }, 2500);
   }
 
