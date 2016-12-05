@@ -24,6 +24,7 @@ goog.provide('Constants');
  */
 app.Constants = {
   TOTAL_LEVELS: 10, // number of levels
+  INITIAL_COUNTDOWN: 0, // count up, so start count at zero
 
   MOVEMENT_FORCE: 10, // velocity
 

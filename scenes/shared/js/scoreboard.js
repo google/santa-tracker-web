@@ -59,7 +59,7 @@ Scoreboard.prototype.reset = function() {
  */
 Scoreboard.prototype.restart = function() {
   this.lastSeconds = NaN;
-  this.countdown = Constants.INITIAL_COUNTDOWN;
+  this.countdown = Constants.INITIAL_COUNTDOWN || 60;
   this.losing = false;
 };
 

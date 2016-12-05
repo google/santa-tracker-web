@@ -534,7 +534,7 @@ app.Start.prototype.showLevel_ = function(level) {
  */
 app.Start.prototype.updateCounter_ = function() {
   this.timer++;
-  this.game.st_parent.scoreboard.onFrame(1);
+  this.game.st_parent.scoreboard.onFrame(-1);
 };
 
 
@@ -608,11 +608,11 @@ app.Start.prototype.dieAndRestart_ = function() {
     this.penguin.die();
     this.dead = true;
 
-    setTimeout(function() {
+    window.setTimeout(() => {
       this.dead = false;
       this.restartLevel_();
-      this.game.st_parent.scoreboard.onFrame(20);
-    }.bind(this), 2500);
+      this.game.st_parent.scoreboard.onFrame(-20);
+    }, 2500);
   }
 
   this.penguin.multiplyVelocity(app.Constants.SPEED_DECAY_FAST);
