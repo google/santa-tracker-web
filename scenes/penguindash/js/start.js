@@ -147,6 +147,11 @@ app.Start.prototype.update = function() {
     this.accelerating = true;
   }
 
+  if (this.accelerating) {
+    // If the penguin is moving, the user probably worked out how to play.
+    this.game.st_parent.tutorial.off();
+  }
+
   if(this.accelerating) {
     this.penguin.boost();
   } else {
@@ -499,7 +504,7 @@ app.Start.prototype.additionalGroupHandling_ = function(config, group) {
  * @private
  */
 app.Start.prototype.showLevel_ = function(level) {
-  var lvl = level | this.level;
+  var lvl = level || this.level;
 
   // Hide previous level
   if (this.levels[lvl-2]) {

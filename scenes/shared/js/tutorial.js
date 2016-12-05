@@ -72,12 +72,16 @@ Tutorial.prototype.start = function() {
 
 /**
  * Turn off a tutorial because user has already used the controls.
- * @param {string} name The name of the tutorial.
+ * @param {string|undefined} opt_name The name of the tutorial, undefined for all
  */
-Tutorial.prototype.off = function(name) {
-  this.tutorials = this.tutorials.filter(function(tut) {
-    return tut != name;
-  });
+Tutorial.prototype.off = function(opt_name) {
+  if (opt_name === undefined) {
+    this.tutorials = [];
+  } else {
+    this.tutorials = this.tutorials.filter(function(tut) {
+      return tut != opt_name;
+    });
+  }
 
   // Stop timer if no tutorials are left
   if (!this.tutorials.length) {
@@ -85,7 +89,7 @@ Tutorial.prototype.off = function(name) {
   }
 
   // Hide tutorial if the current one is turned off
-  if (this.current === name) {
+  if (opt_name === this.current || opt_name === undefined) {
     this.hide_();
     this.start();
   }

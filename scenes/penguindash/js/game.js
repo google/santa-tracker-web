@@ -74,7 +74,7 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.restart();
-  //this.tutorial.start();
+  this.tutorial.start();
 
   this.scoreboard.reset();
   this.scoreboard.restart();
