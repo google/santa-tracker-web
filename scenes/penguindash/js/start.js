@@ -147,6 +147,11 @@ app.Start.prototype.update = function() {
     this.accelerating = true;
   }
 
+  if (this.accelerating) {
+    // If the penguin is moving, the user probably worked out how to play.
+    this.game.st_parent.tutorial.off();
+  }
+
   if(this.accelerating) {
     this.penguin.boost();
   } else {
@@ -499,7 +504,7 @@ app.Start.prototype.additionalGroupHandling_ = function(config, group) {
  * @private
  */
 app.Start.prototype.showLevel_ = function(level) {
-  var lvl = level | this.level;
+  var lvl = level || this.level;
 
   // Hide previous level
   if (this.levels[lvl-2]) {
@@ -534,7 +539,7 @@ app.Start.prototype.showLevel_ = function(level) {
  */
 app.Start.prototype.updateCounter_ = function() {
   this.timer++;
-  this.game.st_parent.scoreboard.onFrame(1);
+  this.game.st_parent.scoreboard.onFrame(-1);
 };
 
 
@@ -608,11 +613,11 @@ app.Start.prototype.dieAndRestart_ = function() {
     this.penguin.die();
     this.dead = true;
 
-    setTimeout(function() {
+    window.setTimeout(() => {
       this.dead = false;
       this.restartLevel_();
-      this.game.st_parent.scoreboard.onFrame(20);
-    }.bind(this), 2500);
+      this.game.st_parent.scoreboard.onFrame(-app.Constants.TIME_LOSE);
+    }, 2500);
   }
 
   this.penguin.multiplyVelocity(app.Constants.SPEED_DECAY_FAST);

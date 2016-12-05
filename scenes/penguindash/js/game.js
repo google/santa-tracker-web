@@ -18,10 +18,10 @@ goog.provide('app.Game');
 
 goog.require('app.Constants');
 goog.require('app.Preloader');
-goog.require('app.Scoreboard');
 goog.require('app.Start');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.Gameover');
+goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
 
 
@@ -48,7 +48,7 @@ app.Game = function(elem) {
   this.watchSceneSize_();
   this.watchOrientation_();
 
-  this.scoreboard = new app.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
+  this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.tutorial = new app.shared.Tutorial(this.elem, 'touch-updown', 'keys-leftright keys-updown', 'spacenav-leftright spacenav-updown');
@@ -74,7 +74,7 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.restart();
-  //this.tutorial.start();
+  this.tutorial.start();
 
   this.scoreboard.reset();
   this.scoreboard.restart();

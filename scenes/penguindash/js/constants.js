@@ -24,11 +24,13 @@ goog.provide('Constants');
  */
 app.Constants = {
   TOTAL_LEVELS: 10, // number of levels
+  INITIAL_COUNTDOWN: 0, // count up, so start count at zero
+  TIME_LOSE: 20, // number of seconds to lose when you die/restart
 
   MOVEMENT_FORCE: 10, // velocity
 
-  POINTS_LEVEL_COMPLETE: 500, // pts for completing a level
-  POINTS_GIFT_BASIC: 100, // pts for hitting a gift
+  POINTS_LEVEL_COMPLETE: 50, // pts for completing a level
+  POINTS_GIFT_BASIC: 10, // pts for hitting a gift
 
   TUTORIAL_LEFTRIGHT_TIMEOUT: 5000,
   TUTORIAL_UPDOWN_TIMEOUT: 3000,
