@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Слух"
 	},
+	"notice_cookies": {
+		"message": "Google використовує файли cookie, щоб аналізувати трафік на цей сайт і оптимізувати вашу взаємодію з ним. Для цього в Google надсилається інформація про ваше користування сайтом."
+	},
+	"notice_cookies_details": {
+		"message": "Докладніше"
+	},
 	"notification": {
 		"message": "Сповіщення"
 	},

@@ -462,7 +462,7 @@
 		"message": "Freigabelink kopieren"
 	},
 	"countdown_days": {
-		"message": "Tagen"
+		"message": "Tage"
 	},
 	"countdown_hours": {
 		"message": "Std."
@@ -495,7 +495,7 @@
 		"message": "Dänisch"
 	},
 	"days": {
-		"message": "Tagen"
+		"message": "Tage"
 	},
 	"de_country_name": {
 		"message": "Deutschland"
@@ -528,7 +528,7 @@
 		"message": "Spenden"
 	},
 	"donate_text": {
-		"message": "Helfen Sie mit bei der Finanzierung eines Förderprogramms auf DonorsChoose.org. Diesen Dezember ergänzen wir jede eingegangene Spende um 50 %, bis wir unser Ziel von 1 Million $ erreicht haben. Lassen Sie uns gemeinsam dafür sorgen, dass Klassenzimmer tatsächlich #ForEveryKid, also für alle Kinder, zugänglich sind."
+		"message": "Hilf mit bei der Finanzierung eines Förderprogramms auf DonorsChoose.org. Diesen Dezember ergänzen wir jede eingegangene Spende um 50 %, bis wir unser Ziel von 1 Million $ erreicht haben. Lass uns gemeinsam dafür sorgen, dass Klassenzimmer tatsächlich #ForEveryKid, also für alle Kinder, zugänglich sind."
 	},
 	"dz_country_name": {
 		"message": "Algerien"
@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Hörhilfen"
 	},
+	"notice_cookies": {
+		"message": "Google setzt Cookies ein, um die Zugriffe auf diese Website zu analysieren und Ihre Nutzererfahrung zu optimieren. Zu diesem Zweck werden Informationen über Ihre Verwendung unserer Website an Google weitergeleitet."
+	},
+	"notice_cookies_details": {
+		"message": "Siehe Details"
+	},
 	"notification": {
 		"message": "Benachrichtigungen"
 	},
@@ -954,7 +960,7 @@
 		"message": "Nein danke"
 	},
 	"offline_user_message": {
-		"message": "Sie sind offline"
+		"message": "Du bist offline"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1317,7 +1323,7 @@
 		"message": "Intro überspringen"
 	},
 	"tracker_intro_user_location": {
-		"message": "Sie befinden sich in"
+		"message": "Du befindest dich in"
 	},
 	"tracker_next_stop": {
 		"message": "Nächster Halt"

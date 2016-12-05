@@ -764,9 +764,6 @@
 	"lightdescription": {
 		"message": "Light up your TV with the Santa Tracker Android app and Chromecast."
 	},
-	"lock_orientation": {
-        "message": "Lock rotation for best experience."
-    },
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
@@ -919,6 +916,12 @@
 	},
 	"nonprofit-wwh-type": {
 		"message": "Hearing"
+	},
+	"notice_cookies": {
+		"message": "Google serves cookies to analyse traffic to this site, and to optimise your experience. Information about your use of our site is shared with Google for that purpose."
+	},
+	"notice_cookies_details": {
+		"message": "See details"
 	},
 	"notification": {
 		"message": "Notifications"

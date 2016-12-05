@@ -126,7 +126,7 @@
 		"message": "Bjelokosna Obala"
 	},
 	"citylights-contribute": {
-		"message": "Dodajte vlastite fotografije lokacije: {{location}}"
+		"message": "Dodaj svoje fotografije lokacije: {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -258,7 +258,7 @@
 		"message": "Pljeskanje"
 	},
 	"codeboogie-block-clap-tooltip": {
-		"message": "Pljesnite dlanom o dlan."
+		"message": "Pljesni dlanom o dlan."
 	},
 	"codeboogie-block-jump": {
 		"message": "Skok"
@@ -270,43 +270,43 @@
 		"message": "Rukom ulijevo"
 	},
 	"codeboogie-block-leftarm-tooltip": {
-		"message": "Usmjerite ruku ulijevo."
+		"message": "Usmjeri ruku ulijevo."
 	},
 	"codeboogie-block-leftfoot": {
 		"message": "Korak ulijevo"
 	},
 	"codeboogie-block-leftfoot-tooltip": {
-		"message": "Zakoračite ulijevo."
+		"message": "Zakorači ulijevo."
 	},
 	"codeboogie-block-rightarm": {
 		"message": "Rukom udesno"
 	},
 	"codeboogie-block-rightarm-tooltip": {
-		"message": "Usmjerite ruku udesno."
+		"message": "Usmjeri ruku udesno."
 	},
 	"codeboogie-block-rightfoot": {
 		"message": "Korak udesno"
 	},
 	"codeboogie-block-rightfoot-tooltip": {
-		"message": "Zakoračite udesno."
+		"message": "Zakorači udesno."
 	},
 	"codeboogie-block-shake": {
 		"message": "Njihanje bokova"
 	},
 	"codeboogie-block-shake-tooltip": {
-		"message": "Zanjišite bokove."
+		"message": "Zanjiši bokove."
 	},
 	"codeboogie-block-split": {
 		"message": "Špaga"
 	},
 	"codeboogie-block-split-tooltip": {
-		"message": "Napravite špagu."
+		"message": "Napravi špagu."
 	},
 	"codeboogie-choose-game-mode": {
-		"message": "Odaberite način igre"
+		"message": "Odaberi način igre"
 	},
 	"codeboogie-choose-stage": {
-		"message": "Odaberite pozornicu"
+		"message": "Odaberi pozornicu"
 	},
 	"codeboogie-get-dancing": {
 		"message": "Zaplešite!"
@@ -324,13 +324,13 @@
 		"message": "Tečaj plesa"
 	},
 	"codeboogie-mode-dance-class-description": {
-		"message": "Ponovite učiteljeve pokrete"
+		"message": "Ponovi učiteljeve pokrete"
 	},
 	"codeboogie-mode-freestyle": {
 		"message": "Ples slobodnim stilom"
 	},
 	"codeboogie-mode-freestyle-description": {
-		"message": "Osmislite vlastite pokrete i podijelite ih s prijateljima"
+		"message": "Osmisli vlastite pokrete i podijeli ih s prijateljima"
 	},
 	"codeboogie-next-dance": {
 		"message": "Sljedeći ples"
@@ -339,43 +339,43 @@
 		"message": "Odlični pokreti!"
 	},
 	"codeboogie-result-missing-block-fail": {
-		"message": "Pokušajte upotrijebiti blok ispod da biste pravilno otplesali."
+		"message": "Pokušaj upotrijebiti blok ispod za ispravan korak."
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "Jeste li znali da broj blokova za dovršenje ovog plesa ne treba biti veći od {{ideal}}? Pokušajte s blokom ispod."
+		"message": "Znaš li da trebaš svega nekoliko blokova da završiš ples? Pokušaj s blokom ispod."
 	},
 	"codeboogie-result-perfect-success": {
-		"message": "Odlični pokreti! Savršeno ste otplesali."
+		"message": "Odlični pokreti! Savršeno otplesano."
 	},
 	"codeboogie-result-too-few-blocks-fail": {
-		"message": "Upotrebljavate prave blokove, ali pokušajte ih upotrijebiti više da biste dovršili ples."
+		"message": "Koristiš dobre blokove, ali pokušaj ih upotrijebiti više za dovršetak plesa."
 	},
 	"codeboogie-result-too-many-blocks-success": {
-		"message": "Jeste li znali da broj blokova za dovršenje ovog plesa ne treba biti veći od {{ideal}}?"
+		"message": "Znaš li da ti je potrebno manje blokova za završetak?"
 	},
 	"codeboogie-result-too-many-steps": {
-		"message": "Napravili ste previše koraka."
+		"message": "To je previše koraka."
 	},
 	"codeboogie-result-wrong-move": {
-		"message": "Čini se da ste napravili pogrešan pokret. Pokušajte s ovim:"
+		"message": "Čini se da je to pogrešan pokret. Pokušaj s ovim:"
 	},
 	"codeboogie-share-moves": {
-		"message": "Podijelite pokrete s prijateljima i izazovite ih"
+		"message": "Podijeli pokrete s prijateljima i izazovi ih"
 	},
 	"codeboogie-success": {
-		"message": "Uspjeli ste!"
+		"message": "Uspjeh!"
 	},
 	"codeboogie-watch-closely": {
-		"message": "Dobro gledajte!"
+		"message": "Dobro gledaj!"
 	},
 	"codeboogie-your-turn": {
-		"message": "Vi ste na redu"
+		"message": "Tvoj je red"
 	},
 	"codelab-block-jump-length": {
 		"message": "preskoči"
 	},
 	"codelab-block-jump-tooltip": {
-		"message": "Preskočite pločice."
+		"message": "Preskoči pločice."
 	},
 	"codelab-block-moveeast": {
 		"message": "istočno"
@@ -459,7 +459,7 @@
 		"message": "Kopiraj vezu da podijeliš poruku"
 	},
 	"copy-me-short": {
-		"message": "Kopirajte vezu za dijeljenje"
+		"message": "Kopiraj vezu za dijeljenje"
 	},
 	"countdown_days": {
 		"message": "dan/a"
@@ -525,10 +525,10 @@
 		"message": "Dominikanska Republika"
 	},
 	"donate_button": {
-		"message": "Donirajte"
+		"message": "Doniraj"
 	},
 	"donate_text": {
-		"message": "Pomozite u financiranju projekta za osobe s posebnim potrebama na adresi DonorsChoose.org. Ovog prosinca udvostručujemo učinak uplatom dodatnih 50% na svaku donaciju, sve dok naše donacije ne dosegnu ciljani iznos od 1 milijun USD. Zajedno možemo učionice učiniti prilagođenijima svoj djeci, #ForEveryKid"
+		"message": "Pomozi u financiranju projekta za osobe s posebnim potrebama na adresi DonorsChoose.org. Ovog prosinca udvostručujemo učinak uplatom dodatnih 50% na svaku donaciju, sve dok naše donacije ne dosegnu ciljani iznos od 1 milijun USD. Zajedno možemo učionice učiniti prilagođenijima svoj djeci, #ForEveryKid"
 	},
 	"dz_country_name": {
 		"message": "Alžir"
@@ -585,7 +585,7 @@
 		"message": "Finska"
 	},
 	"fi_tradition": {
-		"message": "Finci vjeruju da Djed Božićnjak, \"Joulupukki\", živi u sjevernom dijelu zemlje koji se naziva Korvatunturi. Ako ga posjetite, možda pronađete njegovu tajnu radionicu u kojoj marljivo rade patuljci. Ili naiđete na sobove u skitnji borovim šumama."
+		"message": "Finci vjeruju da Djed Božićnjak, \"Joulupukki\", živi u sjevernom dijelu zemlje koji se naziva Korvatunturi. Ako ga posjetiš, možda pronađeš njegovu tajnu radionicu u kojoj marljivo rade patuljci. Ili naiđeš na sobove u skitnji borovim šumama."
 	},
 	"finished-text": {
 		"message": "Sretni blagdani! Djed Božićnjak obišao je čitav svijet i sada se zasluženo odmara. Posjeti nas opet sljedeće godine!"
@@ -606,7 +606,7 @@
 		"message": "Igra je gotova!"
 	},
 	"gameover_level": {
-		"message": "Dosegli ste sljedeću razinu:"
+		"message": "Dosegnuta sljedeća razina:"
 	},
 	"gameover_score": {
 		"message": "Tvoj rezultat:"
@@ -699,7 +699,7 @@
 		"message": "Irska"
 	},
 	"improve_google_translate": {
-		"message": "Pomozite nam poboljšati Google prevoditelj"
+		"message": "Pomozi nam poboljšati Google prevoditelj"
 	},
 	"iq_country_name": {
 		"message": "Irak"
@@ -789,7 +789,7 @@
 		"message": "Srednje"
 	},
 	"meta_description": {
-		"message": "Posjetite stranicu Slijedi Djeda Božićnjaka i pratite Djeda Božićnjaka na Google kartama dok putuje svijetom."
+		"message": "Posjeti stranicu Slijedi Djeda Božićnjaka i prati Djeda Božićnjaka na Google kartama dok putuje svijetom."
 	},
 	"meta_title": {
 		"message": "Slijedi Djeda Božićnjaka na Googleu"
@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Sluh"
 	},
+	"notice_cookies": {
+		"message": "Google upotrebljava kolačiće za analizu prometa na ovoj web-lokaciji i za optimiziranje vašeg iskustva. Informacije o vašoj upotrebi web-lokacije dijele se s Googleom za tu namjenu."
+	},
+	"notice_cookies_details": {
+		"message": "Pregled pojedinosti"
+	},
 	"notification": {
 		"message": "Obavijesti"
 	},
@@ -954,7 +960,7 @@
 		"message": "Ne, hvala"
 	},
 	"offline_user_message": {
-		"message": "Niste povezani s internetom"
+		"message": "Nisi na internetu"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -966,7 +972,7 @@
 		"message": "Veliko otvorenje sutra"
 	},
 	"ornament-print-instructions": {
-		"message": "Ovdje preklopite i zalijepite rubove"
+		"message": "Ovdje preklopi i zalijepi rubove"
 	},
 	"pa_country_name": {
 		"message": "Panama"
@@ -999,7 +1005,7 @@
 		"message": "Zaigraj s prijateljima u Android aplikaciji Slijedi Djeda Božićnjaka."
 	},
 	"playextra": {
-		"message": "Igrajte na dodatnim razinama"
+		"message": "Igraj na dodatnim razinama"
 	},
 	"pr_country_name": {
 		"message": "Portoriko"
@@ -1059,7 +1065,7 @@
 		"message": "Krenimo!"
 	},
 	"santasearch_search_for_santa": {
-		"message": "Potražite Djeda Božićnjaka!"
+		"message": "Potraži Djeda Božićnjaka!"
 	},
 	"santasvillage": {
 		"message": "Selo Djeda Božićnjaka"
@@ -1203,40 +1209,40 @@
 		"message": "Senegal"
 	},
 	"snowflake_choose_background": {
-		"message": "Odaberite pozadinu"
+		"message": "Odaberi pozadinu"
 	},
 	"snowflake_choose_postcard": {
-		"message": "Odaberite razglednicu pomoću tipki sa strelicama"
+		"message": "Odaberi razglednicu pomoću tipki sa strelicama"
 	},
 	"snowflake_code": {
-		"message": "Izradite svoju pahulju pomoću koda"
+		"message": "Izradi svoju pahulju pomoću koda"
 	},
 	"snowflake_code_instructions": {
-		"message": "Spajanjem blokova dizajnirajte vlastitu pahulju"
+		"message": "Spajanjem blokova dizajniraj vlastitu pahulju"
 	},
 	"snowflake_create_message": {
-		"message": "Dizajnirajte vlastitu pahulju"
+		"message": "Dizajniraj vlastitu pahulju"
 	},
 	"snowflake_draw_now_repeat_message": {
-		"message": "A sada ponovite!"
+		"message": "A sada ponovi!"
 	},
 	"snowflake_draw_repeat_message": {
 		"message": "Ponavljanje"
 	},
 	"snowflake_draw_rotate_and_repeat_message": {
-		"message": "Zakrenite i ponovite!"
+		"message": "Zakreni i ponovi!"
 	},
 	"snowflake_draw_rotating_and_repeating_message": {
 		"message": "Zakretanje i ponavljanje"
 	},
 	"snowflake_make_your_own": {
-		"message": "Ovo je izrađeno pomoću koda. Pokušajte i vi!"
+		"message": "Ovo je izrađeno pomoću koda. Pokušaj i ti!"
 	},
 	"snowflake_share_postcard_message": {
-		"message": "Odaberite razglednicu i podijelite pahulju s prijateljima"
+		"message": "Odaberi razglednicu i podijeli pahulju s prijateljima"
 	},
 	"snowflake_shared_message": {
-		"message": "Netko vam je poslao pahulju!"
+		"message": "Netko ti je poslao pahulju!"
 	},
 	"so_country_name": {
 		"message": "Somalija"
@@ -1305,10 +1311,10 @@
 		"message": "Udaljenost od vas"
 	},
 	"tracker_flight_nearby": {
-		"message": "Djed Božićnjak je blizu, saznajte gdje"
+		"message": "Djed Božićnjak je blizu, saznaj gdje"
 	},
 	"tracker_flight_start": {
-		"message": "Djed Božićnjak krenuo je sa Sjevernog pola i sada ga možete slijediti na njegovu putu"
+		"message": "Djed Božićnjak krenuo je sa Sjevernog pola i sada ga možeš slijediti na njegovu putu"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Dostavljeni darovi"
@@ -1317,7 +1323,7 @@
 		"message": "Preskoči uvod"
 	},
 	"tracker_intro_user_location": {
-		"message": "Nalazite se na lokaciji"
+		"message": "Nalaziš se na lokaciji"
 	},
 	"tracker_next_stop": {
 		"message": "Sljedeća postaja"
@@ -5025,13 +5031,13 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Vratite se 24. i pomozite nam u cjelonoćnom praćenju Djeda Božićnjaka!"
+		"message": "Vrati se 24. i pomozi nam u cjelonoćnom praćenju Djeda Božićnjaka!"
 	},
 	"village_explore": {
 		"message": "Istražuj, igraj se i uči uz Djedove vilenjake tijekom cijelog prosinca"
 	},
 	"village_get_the_app": {
-		"message": "Preuzmite aplikaciju Slijedi Djeda Božićnjaka za Android"
+		"message": "Preuzmi aplikaciju Slijedi Djeda Božićnjaka za Android"
 	},
 	"village_more": {
 		"message": "Više načina istraživanja"

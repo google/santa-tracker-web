@@ -540,7 +540,7 @@
 		"message": "ஈக்வடோர்"
 	},
 	"educators": {
-		"message": "கற்பிப்பவர்களுக்கான சான்டா ட்ராக்கர்"
+		"message": "கற்பிப்பவர்களுக்கான சான்டா டிராக்கர்"
 	},
 	"ee_country_name": {
 		"message": "எஸ்டோனியா"
@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "ஹியரிங்"
 	},
+	"notice_cookies": {
+		"message": "இந்தத் தளத்தின் நெட்வொர்க் டிராஃபிக்கைப் பகுப்பாய்வு செய்யவும், உங்கள் அனுபவத்தை மேம்படுத்தவும் குக்கீகளை Google வழங்குகிறது. அதற்காகவே எங்கள் தளம் தொடர்பான உங்கள் பயன்பாடு பற்றிய தகவல் Google உடன் பகிரப்படுகிறது."
+	},
+	"notice_cookies_details": {
+		"message": "விவரங்களைக் காட்டு"
+	},
 	"notification": {
 		"message": "அறிவிப்புகள்"
 	},
@@ -1224,7 +1230,7 @@
 		"message": "மீண்டும் செய்கிறது"
 	},
 	"snowflake_draw_rotate_and_repeat_message": {
-		"message": "சுழற்று, மீண்டும் செய்!"
+		"message": "சுழற்றி, மீண்டும் செய்க!"
 	},
 	"snowflake_draw_rotating_and_repeating_message": {
 		"message": "சுழற்றுகிறது, மீண்டும் செய்கிறது"

@@ -603,7 +603,7 @@
 		"message": "Gabon"
 	},
 	"gameover": {
-		"message": "Spillet er slutt!"
+		"message": "Spillet er over!"
 	},
 	"gameover_level": {
 		"message": "Du kom til nivå"
@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Hørsel"
 	},
+	"notice_cookies": {
+		"message": "Google bruker informasjonskapsler (cookies) for å analysere trafikken til dette nettstedet og for å gjøre opplevelsen din så bra som mulig. Informasjon om bruken din av nettstedet vårt deles med Google for nettopp dette formålet."
+	},
+	"notice_cookies_details": {
+		"message": "Se mer informasjon"
+	},
 	"notification": {
 		"message": "Varsler"
 	},
@@ -1107,7 +1113,7 @@
 		"message": "Alveglider"
 	},
 	"scene_gumball": {
-		"message": "Gumball-vipp"
+		"message": "Rulledrops"
 	},
 	"scene_jamband": {
 		"message": "Alvemusikkband"

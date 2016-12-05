@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "청력"
 	},
+	"notice_cookies": {
+		"message": "Google은 이 사이트에 트래픽을 분석하고 사용자 환경을 최적화하기 위해 쿠키를 제공합니다. 사이트 사용에 대한 정보는 해당 목적으로만 Google과 공유됩니다."
+	},
+	"notice_cookies_details": {
+		"message": "세부정보 보기"
+	},
 	"notification": {
 		"message": "알림"
 	},

@@ -42,16 +42,16 @@
 		"message": "Australia"
 	},
 	"au_tradition": {
-		"message": "Di Belahan Selatan Australia, musim panas datang pada bulan Desember. Alih-alih bermain kereta luncur dan minum cokelat hangat, banyak orang Australia pergi ke pantai untuk merayakan liburan dengan makan udang di siang hari dan bermain kriket."
+		"message": "Di Belahan Selatan Australia, musim panas datang pada bulan Desember. Bukannya bermain kereta luncur dan minum cokelat hangat, tapi banyak orang Australia pergi ke pantai untuk merayakan liburan dengan makan udang di siang hari dan bermain kriket."
 	},
 	"ba_country_name": {
 		"message": "Bosnia dan Herzegovina"
 	},
 	"back_to_previous_page": {
-		"message": "Kembali"
+		"message": "Balik"
 	},
 	"back_to_tracker": {
-		"message": "Kembali ke Pelacak Sinterklas"
+		"message": "Balik ke Pelacak Sinterklas"
 	},
 	"bd_country_name": {
 		"message": "Bangladesh"
@@ -252,7 +252,7 @@
 		"message": "Kolombia"
 	},
 	"codeboogie-back-to-start": {
-		"message": "Kembali ke awal"
+		"message": "Balik ke awal"
 	},
 	"codeboogie-block-clap": {
 		"message": "Tepuk tangan"
@@ -483,13 +483,13 @@
 		"message": "Kosta Rika"
 	},
 	"cs_language_name": {
-		"message": "Cheska"
+		"message": "Ceko"
 	},
 	"cu_country_name": {
 		"message": "Kuba"
 	},
 	"cz_country_name": {
-		"message": "Republik Cheska"
+		"message": "Republik Ceko"
 	},
 	"da_language_name": {
 		"message": "Dansk"
@@ -916,6 +916,12 @@
 	},
 	"nonprofit-wwh-type": {
 		"message": "Pendengaran"
+	},
+	"notice_cookies": {
+		"message": "Google menggunakan cookie untuk menganalisis lalu lintas ke situs ini serta untuk mengoptimalkan pengalaman Anda. Informasi tentang penggunaan situs kami oleh Anda dibagikan kepada Google untuk tujuan tersebut."
+	},
+	"notice_cookies_details": {
+		"message": "Lihat detail"
 	},
 	"notification": {
 		"message": "Notifikasi"
@@ -2166,7 +2172,7 @@
 		"message": "Samudra Hindia"
 	},
 	"trivia_beginner_068": {
-		"message": "Sungai Donau mengalir melalui Wina dan kota-kota lain di benua apa?"
+		"message": "Sungai Danube mengalir melalui Wina dan kota-kota lain di benua apa?"
 	},
 	"trivia_beginner_068_answer0": {
 		"message": "Eropa"
@@ -2340,7 +2346,7 @@
 		"message": "Brasil"
 	},
 	"trivia_beginner_082_answer1": {
-		"message": "Inggris Raya"
+		"message": "Inggris"
 	},
 	"trivia_beginner_082_answer2": {
 		"message": "Vietnam"
@@ -2661,7 +2667,7 @@
 		"message": "Negara manakah yang tidak terletak di Semenanjung Balkan?"
 	},
 	"trivia_hard_012_answer0": {
-		"message": "Republik Cheska"
+		"message": "Republik Ceko"
 	},
 	"trivia_hard_012_answer1": {
 		"message": "Bulgaria"
@@ -2679,7 +2685,7 @@
 		"message": "Denmark"
 	},
 	"trivia_hard_013_answer2": {
-		"message": "Inggris Raya"
+		"message": "Inggris"
 	},
 	"trivia_hard_014": {
 		"message": "Negara manakah yang tidak berbatasan dengan Laut Hitam?"
@@ -2943,7 +2949,7 @@
 		"message": "Turki"
 	},
 	"trivia_hard_035_answer2": {
-		"message": "Inggris Raya"
+		"message": "Inggris"
 	},
 	"trivia_hard_036": {
 		"message": "Apa nama gurun pasir yang menutupi hampir sebagian besar wilayah di antara Beijing dan Ulan Bator?"
@@ -4074,7 +4080,7 @@
 		"message": "Kinshasa"
 	},
 	"trivia_medium_025": {
-		"message": "Apa nama ibu kota yang terletak di Sungai Vltava dan merupakan kota\nterbesar di Republik Cheska?"
+		"message": "Apa nama ibu kota yang terletak di Sungai Vltava dan merupakan kota\nterbesar di Republik Ceko?"
 	},
 	"trivia_medium_025_answer0": {
 		"message": "Praha"
@@ -4164,7 +4170,7 @@
 		"message": "Norwegia"
 	},
 	"trivia_medium_032_answer1": {
-		"message": "Inggris Raya"
+		"message": "Inggris"
 	},
 	"trivia_medium_032_answer2": {
 		"message": "Sri Lanka"
@@ -4428,7 +4434,7 @@
 		"message": "Islandia"
 	},
 	"trivia_medium_054_answer1": {
-		"message": "Inggris Raya"
+		"message": "Inggris"
 	},
 	"trivia_medium_054_answer2": {
 		"message": "Polandia"
@@ -4893,7 +4899,7 @@
 		"message": "Sungai apa yang membentuk sebagian besar perbatasan di sebelah utara Bulgaria?"
 	},
 	"trivia_medium_093_answer0": {
-		"message": "Sungai Donau"
+		"message": "Sungai Danube"
 	},
 	"trivia_medium_093_answer1": {
 		"message": "Sungai Ob"
@@ -5001,7 +5007,7 @@
 		"message": "Uganda"
 	},
 	"uk_country_name": {
-		"message": "Inggris Raya"
+		"message": "Inggris"
 	},
 	"uk_tradition": {
 		"message": "Di Inggris, semua orang memainkan \"Christmas Crackers\" saat makan malam. \"Crackers\" adalah tabung kertas warna-warni yang kedua ujungnya bisa ditarik. Begitu ditarik, tabung akan meletup dengan suara keras! Di dalamnya ada topi kertas, mainan, dan permen untuk dinikmati saat malam Natal."
@@ -5025,7 +5031,7 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Kembali pada tanggal 24 dan bantu kami melacak Sinterklas sepanjang malam!"
+		"message": "Balik tanggal 24 dan bantu kami lacak Sinterklas sepanjang malam!"
 	},
 	"village_explore": {
 		"message": "Menjelajah, bermain, dan belajar dengan para Kurcaci Sinterklas selama bulan Desember"

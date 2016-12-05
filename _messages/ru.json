@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Слух"
 	},
+	"notice_cookies": {
+		"message": "На этом сайте есть файлы cookie. Они помогают нам анализировать действия пользователей и делать сайт лучше. Мы не используем их в других целях."
+	},
+	"notice_cookies_details": {
+		"message": "Подробнее"
+	},
 	"notification": {
 		"message": "Оповещения"
 	},

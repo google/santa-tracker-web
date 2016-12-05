@@ -603,7 +603,7 @@
 		"message": "Gabon"
 	},
 	"gameover": {
-		"message": "Partie terminée !"
+		"message": "Jeu terminé !"
 	},
 	"gameover_level": {
 		"message": "Vous avez atteint le niveau :"
@@ -916,6 +916,12 @@
 	},
 	"nonprofit-wwh-type": {
 		"message": "Audition"
+	},
+	"notice_cookies": {
+		"message": "Google utilise des cookies pour analyser le trafic sur ce site et optimiser votre expérience. Les informations relatives à votre utilisation du site sont partagées avec Google dans ce but."
+	},
+	"notice_cookies_details": {
+		"message": "Afficher les détails"
 	},
 	"notification": {
 		"message": "Notifications"

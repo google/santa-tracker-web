@@ -585,7 +585,7 @@
 		"message": "芬蘭"
 	},
 	"fi_tradition": {
-		"message": "芬蘭人相信聖誕老人 (Joulupukki) 住在國境之北，也就是 Korvatunturi 這個地方。如果你到那兒走一遭，或許能探訪他的神祕工作室，一窺地精辛勤工作的有趣景象。在松樹林間，你也可能看見輕快奔馳的馴鹿。"
+		"message": "芬蘭人相信聖誕老人 (Joulupukki) 住在國境之北，也就是 Korvatunturi 這個地方。如果你到那兒走一遭，或許能探訪他的神祕工作坊，一窺地精辛勤工作的有趣景象。在松樹林間，你也可能看見輕快奔馳的馴鹿。"
 	},
 	"finished-text": {
 		"message": "佳節愉快！聖誕老人完成環遊世界之旅，現在該好好休息一下。明年再來找我們喔！"
@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "助聽器"
 	},
+	"notice_cookies": {
+		"message": "Google 利用 Cookie 來分析這個網站的流量，同時為您帶來更好的使用體驗。爲了達到上述目的，我們會將您使用本網站的相關資訊提供給 Google。"
+	},
+	"notice_cookies_details": {
+		"message": "查看詳細說明"
+	},
 	"notification": {
 		"message": "通知"
 	},
@@ -1107,7 +1113,7 @@
 		"message": "精靈宅急便"
 	},
 	"scene_gumball": {
-		"message": "彩球掉下來"
+		"message": "口香糖球掉下來"
 	},
 	"scene_jamband": {
 		"message": "搖滾精靈樂"

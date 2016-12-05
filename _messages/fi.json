@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Kuulo"
 	},
+	"notice_cookies": {
+		"message": "Google käyttää evästeitä tämän sivuston liikenteen analysoimiseen ja toimintojen optimointiin. Sivuston käyttötiedot jaetaan Googlelle näitä tarkoituksia varten."
+	},
+	"notice_cookies_details": {
+		"message": "Katso tiedot"
+	},
 	"notification": {
 		"message": "Ilmoitukset"
 	},
@@ -999,7 +1005,7 @@
 		"message": "Pelaa ystävien kanssa Joulupukin jäljittimen Android-sovelluksella."
 	},
 	"playextra": {
-		"message": "Pelaa ekstratasoja"
+		"message": "Pelaa lisätasoilla"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"

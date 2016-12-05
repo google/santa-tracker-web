@@ -456,7 +456,7 @@
 		"message": "Försök igen"
 	},
 	"copy-me": {
-		"message": "Kopiera den här länken om du vill dela ditt meddelande"
+		"message": "Kopiera den här länken för att dela ditt meddelande"
 	},
 	"copy-me-short": {
 		"message": "Kopiera länken om du vill dela den"
@@ -729,7 +729,7 @@
 		"message": "Kirgizistan"
 	},
 	"kg_tradition": {
-		"message": "I Kirgizistan kommer Ayaz Ata (farfar Frost) vid midnatt på nyårsafton och lämnar klappar under nyårsträdet. När klockan slår midnatt tänder familjer i hela landet fyrverkerier för att fira denna underbara tilldragelse. Städerna blir ljusa som på dagen."
+		"message": "I Kirgizistan kommer Ayaz Ata (farfar Frost) vid midnatt på nyårsafton och lämnar klappar under nyårsträdet. När klockan slår midnatt tänder familjer i hela landet fyrverkerier för att fira det högtidliga tillfället. Städerna blir ljusa som på dagen."
 	},
 	"ko_language_name": {
 		"message": "koreanska"
@@ -916,6 +916,12 @@
 	},
 	"nonprofit-wwh-type": {
 		"message": "Hörsel"
+	},
+	"notice_cookies": {
+		"message": "Google använder cookies för att analysera trafiken på den här webbplatsen och förbättra din upplevelse. Information om din användning av vår webbplats delas med Google för det ändamålet."
+	},
+	"notice_cookies_details": {
+		"message": "Se information"
 	},
 	"notification": {
 		"message": "Meddelanden"
@@ -1881,7 +1887,7 @@
 		"message": "Den Förbjudna staden är ett före detta kejserligt palats beläget i mitten av vilken kinesisk stad?"
 	},
 	"trivia_beginner_044_answer0": {
-		"message": "Beijing"
+		"message": "Peking"
 	},
 	"trivia_beginner_044_answer1": {
 		"message": "Santiago"
@@ -3108,7 +3114,7 @@
 		"message": "Bangkok"
 	},
 	"trivia_hard_049_answer1": {
-		"message": "Beijing"
+		"message": "Peking"
 	},
 	"trivia_hard_049_answer2": {
 		"message": "Amman"
@@ -5013,7 +5019,7 @@
 		"message": "USA"
 	},
 	"us_tradition": {
-		"message": "I USA hängs strumporna upp på julaftons kväll. Enligt legenden hörde Sankt Nikolaus talas om en familj i nöd. För att överraska dem klättrade han ner i deras skorsten och lade påsar med guld i strumporna som hängde där. Därefter kallades Sankt Nikolaus Sankt Claus, gåvogivaren."
+		"message": "I USA hängs strumporna upp på julaftons kväll. Enligt legenden hörde Sankt Nikolaus talas om en familj i nöd. För att överraska dem klättrade han ner i deras skorsten och lade påsar med guld i strumporna som hängde där. Därefter blev Sankt Nikolaus kallad Sankt Claus, gåvogivaren."
 	},
 	"uy_country_name": {
 		"message": "Uruguay"

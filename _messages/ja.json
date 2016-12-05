@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "聴覚"
 	},
+	"notice_cookies": {
+		"message": "Google は Cookie を使用してこのサイトのトラフィックを分析し、ユーザー エクスペリエンスを最適化しています。ユーザーによるサイトの使用状況に関する情報は、この目的のために Google と共有されます。"
+	},
+	"notice_cookies_details": {
+		"message": "詳細を表示"
+	},
 	"notification": {
 		"message": "お知らせ"
 	},

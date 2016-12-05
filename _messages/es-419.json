@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Audición"
 	},
+	"notice_cookies": {
+		"message": "Google usa cookies para analizar el tráfico de este sitio y optimizar tu experiencia. Por lo tanto, la información sobre el uso que hagas del sitio se compartirá con Google."
+	},
+	"notice_cookies_details": {
+		"message": "Ver detalles"
+	},
 	"notification": {
 		"message": "Notificaciones"
 	},

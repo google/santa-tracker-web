@@ -441,7 +441,7 @@
 		"message": "Prøv en eller flere af blokkene nedenfor for at færdiggøre dette puslespil."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Er du klar over, at du kan fuldføre dette niveau med kun {{ideal}} blokke? Prøv at bruge blokken nedenfor."
+		"message": "Er du klar over, at du kan gennemføre denne bane med kun {{ideal}} blokke? Prøv at bruge blokken nedenfor."
 	},
 	"codelab-result-perfect-success": {
 		"message": "Tillykke! Du er færdig med puslespillet."
@@ -450,7 +450,7 @@
 		"message": "Du bruger de rigtige blokke, men du skal bruge flere af dem for at færdiggøre dette puslespil."
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "Er du klar over, at du kan fuldføre dette niveau med kun {{ideal}} blokke?"
+		"message": "Er du klar over, at du kan gennemføre denne bane med kun {{ideal}} blokke?"
 	},
 	"codelab-try-again": {
 		"message": "Prøv igen"
@@ -606,7 +606,7 @@
 		"message": "Spillet er slut!"
 	},
 	"gameover_level": {
-		"message": "Du nåede dette niveau:"
+		"message": "Du er nået til denne bane:"
 	},
 	"gameover_score": {
 		"message": "Dit pointtal:"
@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Hørelse"
 	},
+	"notice_cookies": {
+		"message": "Google bruger cookies til at analysere trafik til dette website samt til at optimere din oplevelse. Oplysninger om din brug af dette website deles med Google til dette formål."
+	},
+	"notice_cookies_details": {
+		"message": "Se detaljer"
+	},
 	"notification": {
 		"message": "Underretninger"
 	},
@@ -999,7 +1005,7 @@
 		"message": "Spil med dine venner i Android-appen Følg julemanden"
 	},
 	"playextra": {
-		"message": "Spil ekstra niveauer"
+		"message": "Spil ekstra baner"
 	},
 	"pr_country_name": {
 		"message": "Puerto Rico"

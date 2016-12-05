@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "Audició"
 	},
+	"notice_cookies": {
+		"message": "Google utilitza galetes per analitzar el trànsit en aquest lloc i per optimitzar la teva experiència. La informació sobre com utilitzes el lloc es comparteix amb Google amb aquesta finalitat."
+	},
+	"notice_cookies_details": {
+		"message": "Més informació"
+	},
 	"notification": {
 		"message": "Notificacions"
 	},
@@ -1203,13 +1209,13 @@
 		"message": "Senegal"
 	},
 	"snowflake_choose_background": {
-		"message": "Tria un fons de pantalla"
+		"message": "Tria un fons"
 	},
 	"snowflake_choose_postcard": {
 		"message": "Fes servir les tecles de fletxa per triar una postal"
 	},
 	"snowflake_code": {
-		"message": "Codifica el teu floc de neu"
+		"message": "Crea el teu floc de neu amb codi"
 	},
 	"snowflake_code_instructions": {
 		"message": "Per crear el teu propi floc de neu, fes encaixar les peces"
@@ -1230,7 +1236,7 @@
 		"message": "S'està girant i repetint"
 	},
 	"snowflake_make_your_own": {
-		"message": "Aquest floc de neu s'ha creat amb codi. Prova de crear-ne un."
+		"message": "Aquest floc de neu s'ha creat amb codi. Prova de fer-ne un!"
 	},
 	"snowflake_share_postcard_message": {
 		"message": "Selecciona una postal i comparteix el teu floc de neu amb els amics"

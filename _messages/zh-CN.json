@@ -917,6 +917,12 @@
 	"nonprofit-wwh-type": {
 		"message": "听力"
 	},
+	"notice_cookies": {
+		"message": "Google 利用 Cookie 来分析此网站的流量并优化您的使用体验。为实现这一目的，我们会将您对本网站的使用情况信息提供给 Google。"
+	},
+	"notice_cookies_details": {
+		"message": "参见详情"
+	},
 	"notification": {
 		"message": "通知"
 	},
@@ -1209,7 +1215,7 @@
 		"message": "使用箭头键选择一张明信片"
 	},
 	"snowflake_code": {
-		"message": "用代码制作您自己的雪花"
+		"message": "用代码设计雪花"
 	},
 	"snowflake_code_instructions": {
 		"message": "将代码连在一起即可设计出您自己的雪花"
