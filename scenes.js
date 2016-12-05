@@ -132,7 +132,10 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   penguindash: {
-    msgid: 'scene_dash'
+    msgid: 'scene_dash',
+    typeSafe: false,
+    entryPoint: 'app.Game',
+    libraries: ['third_party/lib/phaser/phaser-arcade-physics.js']
   },
   playground: {
     typeSafe: false,

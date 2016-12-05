@@ -287,6 +287,10 @@
         "description": "Describes what happens when you click the 'light up' link",
         "message": "Light up your TV with the Santa Tracker Android app and Chromecast."
     },
+    "lock_orientation": {
+        "description": "Game play instructions. Lock your phone's orientation.",
+        "message": "Lock rotation for best experience."
+    },
     "medium_difficulty": {
         "description": "Difficulty setting for a game.",
         "message": "Medium"

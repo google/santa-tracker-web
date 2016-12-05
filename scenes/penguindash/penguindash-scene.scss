@@ -1,0 +1,49 @@
+$name: 'module-penguindash';
+$gameover-bg: #46e9ff;
+
+@import "../shared/sass/levelup";
+@import "../shared/sass/board";
+@import "../shared/sass/tutorial";
+
+@import "sass/environment";
+@import "sass/lockscreen";
+
+##{$name} {
+  background: $gameover-bg;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .scene {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .gui {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 3;
+  }
+
+  // Pausing the game pauses all important animations.
+  &.frozen {
+
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}

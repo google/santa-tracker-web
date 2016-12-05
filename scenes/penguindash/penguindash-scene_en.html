@@ -1,0 +1,195 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+
+<script src="../../third_party/lib/phaser/phaser-arcade-physics.js"></script>
+<script src="penguindash-scene.min.js"></script>
+
+<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
+<link rel="stylesheet" href="penguindash-scene.css" />
+
+<!--
+Jetpack scene.
+-->
+<dom-module id="penguindash-scene">
+<template>
+  <div id="module-penguindash">
+    <div class="scene">
+      <div id="penguindash-game"></div>
+    </div>
+    <div class="gui">
+      <div class="board board--game">
+        <div class="score">
+          <div class="label">
+            <i18n-msg msgid="score">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value">0</div>
+        </div>
+        <div class="level has-count">
+          <div class="label">
+            <i18n-msg msgid="level">PLACEHOLDER_i18n</i18n-msg>
+          </div>
+          <div class="value"><span class="current-level">1</span><span class="dark-text">/10</span>
+          </div>
+          <div class="level-dots">
+            <div class="level-item is-active">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">1</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">2</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">3</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">4</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">5</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">6</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">7</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">8</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">9</div>
+            </div>
+            <div class="level-item">
+              <div class="level-dot"></div>
+              <div class="level-shadow"></div>
+              <div class="level-number">10</div>
+            </div>
+          </div>
+        </div>
+        <div class="time">
+          <div class="label"><i18n-msg msgid="time">PLACEHOLDER_i18n</i18n-msg></div>
+          <div class="value"><span class="minutes dark-text">00</span><span class="dark-text"> : </span><span class="seconds">00</span></div>
+        </div>
+      </div>
+      <div class="levelup"></div>
+      <div class="levelup--number"></div>
+    </div>
+    <div class="lockscreen hidden">
+      <div class="lockscreen-graphic"></div>
+      <div class="lockscreen-explanation">
+        <i18n-msg msgid="lock_orientation">PLACEHOLDER_i18n</i18n-msg>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    is: 'penguindash-scene',
+    behaviors: [
+      window.SantaSceneBehavior,
+      window.SantaSceneGameButtonsBehavior,
+    ],
+
+    onPreload: function() {
+      this.preloadSounds('pnd_load_sounds', 30);
+      this.preloadImages([
+        'img/element-celebrate.png',
+        'img/element-coal1.png',
+        'img/element-coal2.png',
+        'img/element-coal3.png',
+        'img/element-finish.png',
+        'img/element-ice1-fat-shadow.png',
+        'img/element-ice1-fat.png',
+        'img/element-ice1-shadow.png',
+        'img/element-ice1.png',
+        'img/element-ice2-shadow.png',
+        'img/element-ice2.png',
+        'img/element-ice3-shadow.png',
+        'img/element-ice3.png',
+        'img/element-ice4-shadow.png',
+        'img/element-ice4.png',
+        'img/element-ice5-shadow.png',
+        'img/element-ice5.png',
+        'img/element-pole.png',
+        'img/element-present1.png',
+        'img/element-present2.png',
+        'img/element-present3.png',
+        'img/element-present4.png',
+        'img/element-present5.png',
+        'img/element-present6.png',
+        'img/element-presentStacked.png',
+        'img/element-snow1-fat.png',
+        'img/element-snow1-shadow.png',
+        'img/element-snow1.png',
+        'img/element-snow2-shadow.png',
+        'img/element-snow2.png',
+        'img/element-snow3-shadow.png',
+        'img/element-snow3.png',
+        'img/element-snow4-shadow.png',
+        'img/element-snow4.png',
+        'img/element-snow5-shadow.png',
+        'img/element-snow5.png',
+        'img/element-start.png',
+        'img/element-tree1.png',
+        'img/element-tree2.png',
+        'img/penguin-shadow.png',
+        'img/sprite-angels.png',
+        'img/sprite-duck.png',
+        'img/sprite-dust.png',
+        'img/sprite-green_elf.png',
+        'img/sprite-iceberg.png',
+        'img/sprite-orange_elf.png',
+        'img/sprite-penguin.png',
+        'img/sprite-sm_iceberg.png',
+        'img/sprite-snowman.png',
+        'img/sprite-walrus.png',
+        'img/wave-bg-slow-big-no-waves.mp4'
+      ]);
+    },
+
+    onShow: function() {
+      var module = this.$['module-penguindash'];
+      this.game = new scenes.penguindash.Game(module);
+    },
+
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+    },
+  });
+
+})();
+</script>
+</dom-module>

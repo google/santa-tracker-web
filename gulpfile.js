@@ -441,7 +441,7 @@ gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], fun
     '!images/og/*',  // don't include OG images, too large
     'third_party/**',
     'sass/*.css',
-    'scenes/**/img/**/*.{png,jpg,svg,gif,cur}',
+    'scenes/**/img/**/*.{png,jpg,svg,gif,cur,mp4}',
     'elements/**/img/*.{png,jpg,svg,gif}',
     'components/webcomponentsjs/webcomponents-lite.min.js',
     'js/ccsender.html',

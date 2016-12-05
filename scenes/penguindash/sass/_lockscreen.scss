@@ -1,0 +1,43 @@
+$rotate-bg: $gameover-bg !default;
+
+##{$name} {
+  .lockscreen {
+    background: $rotate-bg;
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2000; // Sorry guys.
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .lockscreen-graphic {
+    background: url(img/lock-screen.svg) 50% top / contain no-repeat;
+    height: 200px;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -105px;
+    position: absolute;
+    top: 50%;
+    width: 200px;
+  }
+
+  .lockscreen-explanation {
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: 900;
+    font-weight: 900;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: 105px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 200px;
+  }
+}
