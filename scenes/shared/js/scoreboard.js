@@ -34,10 +34,13 @@ app.shared.Scoreboard = Scoreboard;
 function Scoreboard(game, elem, opt_levels) {
   this.game = game;
 
+  /** @private {number} */
+  this.initialCountdown_ = isFinite(Constants.INITIAL_COUNTDOWN) ? Constants.INITIAL_COUNTDOWN : 60;
+
   this.levels = opt_levels || 0;
   this.level = 0;
   this.score = 0;
-  this.countdown = Constants.INITIAL_COUNTDOWN || 60;
+  this.countdown = this.initialCountdown_;
   this.losing = false;
   this.lastSeconds = NaN;
 
@@ -59,7 +62,7 @@ Scoreboard.prototype.reset = function() {
  */
 Scoreboard.prototype.restart = function() {
   this.lastSeconds = NaN;
-  this.countdown = Constants.INITIAL_COUNTDOWN || 60;
+  this.countdown = this.initialCountdown_;
   this.losing = false;
 };
 
