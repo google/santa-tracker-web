@@ -51,7 +51,7 @@ app.Game = function(elem) {
   this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-updown', 'keys-leftright keys-updown', 'spacenav-leftright spacenav-updown');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-arrow', 'spacenav-arrows');
 
   this.gyroPresent = false;
   var detectGyro = function(event){
@@ -74,6 +74,7 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.restart();
+
   this.tutorial.start();
 
   this.scoreboard.reset();
@@ -148,7 +149,6 @@ app.Game.prototype.unfreezeGame = function() {
 app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverView.show();
-  window.santaApp.fire('sound-trigger', 'jp_game_over');
   window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'penguindash',

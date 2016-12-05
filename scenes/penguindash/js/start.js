@@ -102,7 +102,7 @@ app.Start.prototype.update = function() {
     this.wave.sendBack();
     this.world.sendToBack(this.vidsprite);
   }
-  
+
   //this.game.debug.bodyInfo(this.penguin, 32, 32);
   // this.game.debug.body(this.penguin.elem);
 
@@ -417,7 +417,7 @@ app.Start.prototype.additionalGroupInit_ = function(groups, level) {
         for (var i = 0; i < presentsCount; i++) {
           let presentType = Math.floor(Math.random() * 6) + 1;
 
-          // choose an ice/snow to put the present on, avoiding start and end lines 
+          // choose an ice/snow to put the present on, avoiding start and end lines
           let iceNum = Math.floor(Math.random() * (ice.length - 1)) + 1;
           while(iceNum==snowLen-1) {
             iceNum = Math.floor(Math.random() * (ice.length - 1)) + 1;
@@ -504,6 +504,7 @@ app.Start.prototype.additionalGroupHandling_ = function(config, group) {
  * @private
  */
 app.Start.prototype.showLevel_ = function(level) {
+
   var lvl = level || this.level;
 
   // Hide previous level
@@ -539,6 +540,7 @@ app.Start.prototype.showLevel_ = function(level) {
  */
 app.Start.prototype.updateCounter_ = function() {
   this.timer++;
+
   this.game.st_parent.scoreboard.onFrame(-1);
 };
 
@@ -657,6 +659,7 @@ app.Start.prototype.restartLevel_ = function() {
   this.penguin.reset();
   this.showLevel_();
   this.unpause();
+  window.santaApp.fire('sound-trigger', 'pnd_restart');
 };
 
 
@@ -667,7 +670,7 @@ app.Start.prototype.gameover_ = function() {
   this.game.st_parent.freezeGame();
   this.game.st_parent.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
-
+  window.santaApp.fire('sound-trigger', 'pnd_game_over');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'penguindash',
     score: this.scoreboard.score,
@@ -690,5 +693,8 @@ app.Start.prototype.handleOrientation_ = function(event) {
     var z = e.alpha; // range [0,360], up-down
     this.penguin.elem.body.velocity.x += x * 0.5;
     this.penguin.elem.body.velocity.y += y * 0.25;
+    if(Math.abs(x) > 10 || Math.abs(y) > 5) {
+      this.game.st_parent.tutorial.off();
+    }
   }
 };
