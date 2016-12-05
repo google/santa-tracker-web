@@ -29,8 +29,8 @@ app.Constants = {
 
   MOVEMENT_FORCE: 10, // velocity
 
-  POINTS_LEVEL_COMPLETE: 500, // pts for completing a level
-  POINTS_GIFT_BASIC: 100, // pts for hitting a gift
+  POINTS_LEVEL_COMPLETE: 50, // pts for completing a level
+  POINTS_GIFT_BASIC: 10, // pts for hitting a gift
 
   TUTORIAL_LEFTRIGHT_TIMEOUT: 5000,
   TUTORIAL_UPDOWN_TIMEOUT: 3000,
