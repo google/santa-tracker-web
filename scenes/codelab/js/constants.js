@@ -22,6 +22,7 @@ goog.provide('app.Constants');
  * @const
  */
 app.Constants = {
+  TOTAL_LEVELS: 14,
 };
 
 // Hack to support shared scoreboard with other apps.

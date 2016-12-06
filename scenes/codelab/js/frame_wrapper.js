@@ -16,6 +16,7 @@
 
 goog.provide('app.FrameWrapper');
 
+goog.require('app.Constants');
 goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.Gameover');
@@ -32,7 +33,7 @@ app.FrameWrapper = function(el, staticDir) {
   this.staticDir = staticDir;
   this.el = $(el);
   this.gameoverView = new app.shared.Gameover(this, this.el.find('.gameover'));
-  this.scoreboardView = new app.Scoreboard(this.el.find('.board'), 10);
+  this.scoreboardView = new app.Scoreboard(this.el.find('.board'), app.Constants.TOTAL_LEVELS);
   this.gameStartTime = +new Date;
   this.iframeEl = this.el.find('iframe[data-computer-love]');
   this.isPlaying = false;

@@ -35,7 +35,8 @@ app.levels = [];
 app.extraLevels = [];
 
 /**
- * Create levels.
+ * Create levels. If you add or remove levels, be sure to adjust the total number of levels
+ * specified inside `codelab/js/constants.js` (i.e., the non-frame page).
  */
 app.levels.push(new app.PuzzleLevel({
   notchedEnds: false,
