@@ -24,7 +24,8 @@ app.Preloader.prototype.preload = function() {
   this.load.crossOrigin = 'anonymous';
   this.load.baseURL = 'scenes/penguindash/';  // nb. intentionally relative
 
-  this.load.video('background', 'img/wave-bg-slow-big-no-waves.mp4');
+  // nb. set asBlob to true for CORS
+  this.load.video('background', 'img/wave-bg-slow-big-no-waves.mp4', 'canplaythrough', true);
 
   this.load.spritesheet('sprite-penguin', 'img/sprite-penguin.png', 153, 108, 32);
   this.load.image('shadow-penguin', 'img/penguin-shadow.png');
