@@ -18,6 +18,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../santa-badge/santa-badge.html">
 <link rel="import" href="../santa-chrome/santa-chrome.html">
+<link rel="import" href="../santa-notice/santa-notice.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../lazy-pages/lazy-pages.html">
@@ -49,6 +50,9 @@ Santa Tracker app.
   <template is="dom-if" if="[[routing]]">
     <santa-tracker-router route="{{route}}"></santa-tracker-router>
   </template>
+
+  <!-- EU notice -->
+  <santa-notice></santa-notice>
 
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
