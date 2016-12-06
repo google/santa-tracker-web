@@ -61,6 +61,8 @@ Smatch scene.
       var module = this.$['module-smatch'];
       this.game = document.createElement('smatch-game');
       Polymer.dom(module).appendChild(this.game);
+
+      this.game.start();  // don't wait for anything
     },
 
     onHide: function() {
@@ -69,10 +71,6 @@ Smatch scene.
       this.fire('sound-ambient', 'pd_end_game');
     },
 
-    onClickStart_: function() {
-      this.hasClickedStart = true;
-      this.game.start();
-    }
   });
 
 })();
