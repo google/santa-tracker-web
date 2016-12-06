@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "I-lock ang pag-ikot para sa pinakamagandang karanasan."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Mga Guro at Mag-aaral"
 	},
+	"nonprofit-code-description": {
+		"message": "Ang Code.org® ay isang non-profit na nakatuon sa pagpapalawak ng access sa computer science, at pagpaparami ng pagsali ng kababaihan at mga mag-aaral na hindi lahing puti na walang gaanong kinatawan. Layunin ng Code.org® na magkaroon ng pagkakataon ang bawat mag-aaral sa sa bawat paaralan na matuto ng computer science."
+	},
+	"nonprofit-code-type": {
+		"message": "Computer Science"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Itinatag noong 2000 ng isang taga-Bronx na guro ng kasaysayan, nakalikom ang DonorsChoose.org ng higit sa US$480 milyon para sa mga silid-aralan ng America. Lumalapit ang mga guro sa DonorsChoose.org upang humiling ng materyales at mga karanasan na kailangan nila para sa kanilang mga silid-aralan."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Mga silid-aralan"
+	},
 	"nonprofit-enable-description": {
 		"message": "Ayon sa CDC, 7 sa 1000 tao ang nakararanas ng magkaibang mga braso o binti at mahal ang mga artipisyal na braso't binti - umaabot sa US$10,000! Para sa mga lumalaking bata, maaaring mabilis na madagdagan ang mga gastusin. Isang pandaigdigang komunidad ng mga tao ang e-Nable na nagtutulungan upang makagawa ng mga 3D printed na kamay para sa mga batang magkaiba ang mga braso o binti. Nakikipagtulungan ang Google.org sa Enable Community Foundation sa pagsuporta sa e-NABLE Community na makapagdisenyo ng mas maraming kamay at madagdagan ang bilang ng mga bata na maaaring makakuha ng mga kamay."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
 	},
+	"nonprofit-khan-description": {
+		"message": "Ang Khan Academy ay isang nonprofit na ang misyon ay makapagbigay ng libreng, world-class na edukasyon para sa sino man, saan man. Naniniwala ang Khan Academy na lahat ng mag-aaral sa lahat ng edad ay dapat magkaroon ng walang limit na access sa free libreng content na pang-edukasyon na maaari nilang matutunan nang husto ayon sa oras nila."
+	},
+	"nonprofit-khan-type": {
+		"message": "Edukasyon"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Anbg Libraries Without Borders ay isang nangungunang internasyonal na NGO sa pag-develop na nakabatay sa kultura na naitatag noong 2007, na may punong-tanggapan sa Paris. Nakapagtayo na sila ng higit sa 300 library sa buong mundo."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Mga Library"
+	},
 	"nonprofit-more-information": {
 		"message": "Para sa higit pang impormasyon bisitahin ang:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Kagubatan"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Halos 40% ng populasyon ng mundo ang walang access sa edukasyon sa isang wikang sinasalita o naiintindihan nila. Umaasa ang StoryWeaver na mabago iyon sa pamamagitan ng pagtulong sa ating mga tagapagturo, mga manunulat at mga tagasalinwika na makagawa ng masasayang, karagdagang babasahin para sa mga bata."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Nagbabasa"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Maraming tao sa mundo na namumuhay na may kawalan ng paningin, ngunit may natitira pa ring paningin. Tinutulungan ng Google.org ang RNIB na makabuo ng 'smart glasses' na nakatutulong sa mga taong mahina ang paningin upang mas madaling makakita ng mga hugis at silhouette. Mas mapadadali rin ng smart glasses na makita ang mundo, na tutulong sa mga tao na maibalik ang kanilang pagkilos nang mag-isa at tiwala sa sarili."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Offline ka"
+	},
+	"okay": {
+		"message": "Ok"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android App"
 	},
+	"scene_blimp": {
+		"message": "Present Reload"
+	},
 	"scene_boatload": {
 		"message": "Gift Slingshot"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Map Quiz"
 	},
+	"scene_playground": {
+		"message": "North Pole Playground"
+	},
+	"scene_postcard": {
+		"message": "Code a Snowflake"
+	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_rollercoaster": {
+		"message": "Elf Rollercoaster"
 	},
 	"scene_runner": {
 		"message": "Reindeer Runner"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Panahon ng Bigayan"
 	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
 	"scene_traditions": {
 		"message": "Holiday Traditions"
 	},
 	"scene_translations": {
 		"message": "Mga Pagsasalin"
 	},
+	"scene_trivia": {
+		"message": "Trivia"
+	},
+	"scene_undersea": {
+		"message": "Undersea"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Elf Car"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Command Room"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Jingle Elves"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Paglipad ni Santa"
 	},
+	"scene_videoscene_office": {
+		"message": "Office Prank"
+	},
+	"scene_videoscene_reload": {
+		"message": "Present Reload"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Bumalik na si Santa"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellite"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Temptation"
+	},
+	"scene_videoscene_tired": {
+		"message": "Tired Reindeer"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Still on Vacation"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Where's Santa?"
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"

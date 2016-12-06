@@ -764,11 +764,11 @@
 	"lightdescription": {
 		"message": "Light up your TV with the Santa Tracker Android app and Chromecast."
 	},
-	"lock_orientation": {
-        "message": "Lock rotation for best experience."
-    },
 	"lk_country_name": {
 		"message": "Sri Lanka"
+	},
+	"lock_orientation": {
+		"message": "Lock rotation for best experience."
 	},
 	"lr_country_name": {
 		"message": "Liberia"
@@ -863,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Teachers \u0026amp; Students"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® is a non-profit organisation dedicated to expanding access to computer science, and increasing participation by women and underrepresented students of colour. Code.org®'s vision is that every student in every school should have the opportunity to learn computer science."
+	},
+	"nonprofit-code-type": {
+		"message": "Computer Science"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Founded in 2000 by a Bronx history teacher, DonorsChoose.org has raised over US$480 million for America's classrooms. Teachers come to DonorsChoose.org to request the materials and experiences that they need for their classrooms."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Classrooms"
+	},
 	"nonprofit-enable-description": {
 		"message": "According the CDC, 7 in 1,000 people experience limb differences and prosthetics are expensive – up to £7,000! For growing children, the costs can add up quickly. e-NABLE is a global community of people who work together to make 3D printed hands for children with limb differences. Google.org is helping the Enable Community Foundation in supporting the e-NABLE Community to design more hands and increase the number of kids who can get hands."
 	},
@@ -875,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy is a non-profit organisation with a mission to provide a free, world-class education for anyone, anywhere. Khan Academy believes learners of all ages should have unlimited access to free educational content that they can master at their own pace."
+	},
+	"nonprofit-khan-type": {
+		"message": "Education"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders is a leading international NGO in culture-based development founded in 2007, headquartered in Paris. It has built more than 300 libraries around the world."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Libraries"
+	},
 	"nonprofit-more-information": {
 		"message": "For more information visit:"
 	},
@@ -883,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Forests"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Close to 40% of the global population does not have access to education in a language that they speak or understand. StoryWeaver hopes to change that by helping educators, writers and translators create joyful, supplementary reading resources for children."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Reading"
 	},
 	"nonprofit-rnib-description": {
 		"message": "There are many people in the world who are living with sight loss, but have some remaining vision left. Google.org is helping RNIB develop 'smart glasses' that help people with low vision see shapes and silhouettes more easily. Smart glasses can make the world easier to see, helping people regain their independence and confidence."
@@ -964,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "You're offline"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1082,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android App"
 	},
+	"scene_blimp": {
+		"message": "Present Reload"
+	},
 	"scene_boatload": {
 		"message": "Gift Slingshot"
 	},
@@ -1133,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Map Quiz"
 	},
+	"scene_playground": {
+		"message": "North Pole Playground"
+	},
+	"scene_postcard": {
+		"message": "Code a Snowflake"
+	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
 	},
@@ -1141,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_rollercoaster": {
+		"message": "Elf Rollercoaster"
 	},
 	"scene_runner": {
 		"message": "Reindeer Runner"
@@ -1157,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Season of Giving"
 	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
 	"scene_traditions": {
 		"message": "Christmas Traditions"
 	},
 	"scene_translations": {
 		"message": "Translations"
 	},
+	"scene_trivia": {
+		"message": "Trivia"
+	},
+	"scene_undersea": {
+		"message": "Undersea"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Elf Car"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Command Room"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Jingle Elves"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Santa's Takeoff"
 	},
+	"scene_videoscene_office": {
+		"message": "Office Prank"
+	},
+	"scene_videoscene_reload": {
+		"message": "Present Reload"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Santa's Back"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellite"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Temptation"
+	},
+	"scene_videoscene_tired": {
+		"message": "Tired Reindeer"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Still on Holiday"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Where's Santa?"
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"

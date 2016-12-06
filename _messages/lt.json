@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Šri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Jei norite, kad žaidimas būtų sklandesnis, išjunkite pasukimą."
+	},
 	"lr_country_name": {
 		"message": "Liberija"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Mokytojai ir mokiniai"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® yra ne pelno organizacija, siekianti plėsti prieigą prie kompiuterijos ir didinti moterų bei nepakankamai atstovaujamų etninių mažumų mokinių dalyvavimą. Code.org® vizija – kad kiekvienas mokinys kiekvienoje mokykloje turėtų galimybę mokytis apie kompiuterius."
+	},
+	"nonprofit-code-type": {
+		"message": "Kompiuterija"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "2000 m. Bronkso istorijos mokytojo įkurta organizacija DonorsChoose.org JAV klasių patalpoms surinko daugiau kaip 480 mln. JAV dolerių. Mokytojai į DonorsChoose.org kreipiasi prašydami suteikti priemonių jų klasių patalpoms ir vykdyti atitinkamus mokymus."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klasių patalpos"
+	},
 	"nonprofit-enable-description": {
 		"message": "CDC duomenimis, 7 iš 1 000 žmonių galūnės skiriasi, o protezavimas yra brangus – iki 10 000 USD! Kalbant apie augančius vaikus, išlaidos gali greitai didėti. „e-Nable“ yra pasaulinė žmonių, kurie bendradarbiaudami 3D spausdintuvais gamina rankų protezus vaikams su galūnių skirtumais, bendruomenė. Google.org padeda „Enable Community Foundation“, remdama bendruomenę „e-Nable“, kad ši galėtų kurti daugiau rankų protezų ir padidinti galinčių juos gauti vaikų skaičių."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Šimpanzė"
 	},
+	"nonprofit-khan-description": {
+		"message": "„Khan Academy“ yra ne pelno organizacija, kurios misija – bet kam ir bet kur teikti nemokamą pasaulinio lygio mokymą. „Khan Academy“ mano, kad bet kokio amžiaus mokiniai turi turėti neribotą prieigą prie nemokamo mokymo turinio, kurį jie galėtų išmokti per jiems tinkamą laiką."
+	},
+	"nonprofit-khan-type": {
+		"message": "Švietimas"
+	},
+	"nonprofit-lwb-description": {
+		"message": "„Bibliotekos be sienų“ yra kultūros plėtros srityje daug pasiekusi tarptautinė NVO, įkurta 2007 m. Jos pagrindinė būstinė yra Paryžiuje. Ši organizacija visame pasaulyje pastatė daugiau kaip 300 bibliotekų."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotekos"
+	},
 	"nonprofit-more-information": {
 		"message": "Daugiau informacijos rasite apsilankę:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Miškai"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Beveik 40 proc. pasaulio gyventojų negali mokytis kalba, kuria jie kalba ar kurią supranta. „StoryWeaver“ tikisi šią padėtį pakeisti padėdama švietėjams, rašytojams ir vertėjams kurti vaikams skirtus linksmus skaitinius."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Skaitymas"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Pasaulyje daug žmonių, gyvenančių su regėjimo negalia, bet nevisiškai apakusių. Google.org padeda RNIB kurti išmaniuosius akinius, kuriuos naudodami silpnaregiai gali matyti formas ir siluetus lengviau. Su išmaniaisiais akiniais pasaulis gali būti lengviau matomas, o žmonės – atgauti nepriklausomybę ir pasitikėjimą savimi."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Jūs neprisijungę"
+	},
+	"okay": {
+		"message": "Gerai"
 	},
 	"om_country_name": {
 		"message": "Omanas"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "„Android“ programa"
 	},
+	"scene_blimp": {
+		"message": "Dovanų papildymas"
+	},
 	"scene_boatload": {
 		"message": "Dovanų laidynė"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Žemėlapių viktorina"
 	},
+	"scene_playground": {
+		"message": "Šiaurės ašigalio žaidimų aikštelė"
+	},
+	"scene_postcard": {
+		"message": "Sugeneruokite snaigės kodą"
+	},
 	"scene_presentbounce": {
 		"message": "Dovanų atmušinėjimas"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfas lenktynininkas"
+	},
+	"scene_rollercoaster": {
+		"message": "Elfų atrakcionas"
 	},
 	"scene_runner": {
 		"message": "Bėgimas su šiaurės elniu"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Dovanų laikas"
 	},
+	"scene_streetview": {
+		"message": "Gatvės vaizdas"
+	},
 	"scene_traditions": {
 		"message": "Švenčių tradicijos"
 	},
 	"scene_translations": {
 		"message": "Vertimai"
 	},
+	"scene_trivia": {
+		"message": "Žinių žaidimas"
+	},
+	"scene_undersea": {
+		"message": "Po vandeniu"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Elfų automobilis"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Valdymo centras"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Skambantys elfai"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Kalėdų Senelio išvykimas"
 	},
+	"scene_videoscene_office": {
+		"message": "Biuro juokelis"
+	},
+	"scene_videoscene_reload": {
+		"message": "Dovanų papildymas"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Kalėdų Senelis grįžo"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Palydovas"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Pagunda"
+	},
+	"scene_videoscene_tired": {
+		"message": "Pavargęs šiaurės elnias"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Dar atostogauja"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Kur Kalėdų Senelis?"
 	},
 	"scene_windtunnel": {
 		"message": "Vėjo tunelis"

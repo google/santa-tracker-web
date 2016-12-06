@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Šrilanka"
 	},
+	"lock_orientation": {
+		"message": "Za najboljšo izkušnjo zaklenite vrtenje zaslona."
+	},
 	"lr_country_name": {
 		"message": "Liberija"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Učitelji in učenci"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® je neprofitna organizacija, ki si prizadeva razširiti dostop do računalništva in povečati število žensk ter učencev nezadostno zastopanih ras v računalništvu. Vizija organizacije Code.org® je, da bi moral imeti vsak učenec vsake šole priložnost, da bi se učil računalništva."
+	},
+	"nonprofit-code-type": {
+		"message": "Računalništvo"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Organizacijo DonorsChoose.org je leta 2000 ustanovil učitelj zgodovine iz Bronxa. V tem času je zbrala več kot 480 milijonov ameriških dolarjev za učilnice v Ameriki. Učitelji se na DonorsChoose.org obrnejo s prošnjami za gradiva in izkušnje, ki jih potrebujejo v svojih učilnicah."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Učilnice"
+	},
 	"nonprofit-enable-description": {
 		"message": "Po podatkih agencije CDC se 7 od 1000 ljudi spopada z deformacijami okončin, proteze pa so zelo drage – do 10.000 USD. Za otroke, ki še rastejo, lahko stroški hitro postanejo zelo visoki. e-Nable je globalna skupnost ljudi, ki sodelujejo pri izdelovanju natisnjenih 3D dlani za otroke, ki trpijo za deformacijami okončin. Google.org pomaga skladu Enable Community Foundation pri podpiranju skupnosti e-NABLE. Tako lahko ta ustvari več dlani za več otrok."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Šimpanz"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy je neprofitna organizacija s poslanstvom vsem in povsod omogočiti brezplačno vrhunsko izobraževanje. Khan Academy verjame, da bi morali imeti učenci vseh starosti neomejen dostop do brezplačne izobraževalne vsebine, ki bi jo predelovali v svojem tempu."
+	},
+	"nonprofit-khan-type": {
+		"message": "Izobraževanje"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders je vodilna nevladna organizacija na področju kulturnega razvoja. Ustanovljena je bila 2007 in ima sedež v Parizu. Zgradila je več kot 300 knjižnic po vsem svetu."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Knjižnice"
+	},
 	"nonprofit-more-information": {
 		"message": "Za več informacij obiščite:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Gozdovi"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Skoraj 40 % svetovnega prebivalstva nima dostopa do izobraževanja v jeziku, ki ga govori ali razume. StoryWeaver želi to spremeniti, tako da učiteljem, piscem in prevajalcem pomaga ustvarjati zabavne nadomestne bralne vire za otroke."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Branje"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Na svetu je veliko ljudi, ki so izgubili vid, vendar ta izguba ni bila popolna. Google.org pomaga organizaciji RNIB pri razvoju »pametnih očal«, ki pomagajo slabovidnim osebam pri lažjem prepoznavanju oblik in obrisov. Pametna očala lahko izboljšajo pogled na svet, s čimer slabovidne osebe znova postanejo neodvisne in samozavestne."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Nimate vzpostavljene povezave"
+	},
+	"okay": {
+		"message": "V redu"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Aplikacija za Android"
 	},
+	"scene_blimp": {
+		"message": "Ponovno nalaganje daril"
+	},
 	"scene_boatload": {
 		"message": "Frača z darili"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Zemljevidni kviz"
 	},
+	"scene_playground": {
+		"message": "Igrišče Severni pol"
+	},
+	"scene_postcard": {
+		"message": "Kodiranje snežinke"
+	},
 	"scene_presentbounce": {
 		"message": "Poskočna darila"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Hitri Rudolf"
+	},
+	"scene_rollercoaster": {
+		"message": "Palčji vlakec smrti"
 	},
 	"scene_runner": {
 		"message": "Jelenov tek"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Čas podarjanja"
 	},
+	"scene_streetview": {
+		"message": "Pogled ulic"
+	},
 	"scene_traditions": {
 		"message": "Praznični običaji"
 	},
 	"scene_translations": {
 		"message": "Prevodi"
 	},
+	"scene_trivia": {
+		"message": "Kviz"
+	},
+	"scene_undersea": {
+		"message": "Pod morsko gladino"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Palčkov avtomobil"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Nadzorna soba"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Palčki pojejo"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Božičkovo vzletišče"
 	},
+	"scene_videoscene_office": {
+		"message": "Pisarniška potegavščina"
+	},
+	"scene_videoscene_reload": {
+		"message": "Ponovno nalaganje daril"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Božiček se je vrnil"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Skušnjava"
+	},
+	"scene_videoscene_tired": {
+		"message": "Utrujeni jelen"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Še vedno na počitnicah"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Kje je Božiček?"
 	},
 	"scene_windtunnel": {
 		"message": "Vetrovnik"

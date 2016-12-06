@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Deaktiviere die Drehung für eine optimale Spielerfahrung."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Lehrer \u0026amp; Schüler"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® ist eine gemeinnützige Organisation, die sich dafür einsetzt, dass mehr Menschen Zugang zur Informatik erhalten. Dies gilt insbesondere für Frauen und Personen, die aufgrund ihrer Hautfarbe benachteiligt werden. Code.org® möchte, dass allen Schülern die Möglichkeit gegeben wird, Informatik zu lernen."
+	},
+	"nonprofit-code-type": {
+		"message": "Informatik"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org wurde im Jahr 2000 in New York im Stadtteil Bronx von einem Geschichtslehrer gegründet und hat bislang 480 Millionen $ an Spenden für Schulen in den USA gesammelt. Lehrer können von DonorsChoose.org die Lehrmaterialien erhalten, die sie für ihren Unterricht benötigen."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klassenzimmer"
+	},
 	"nonprofit-enable-description": {
 		"message": "Dem CDC zufolge weisen 7 von 1.000 Menschen Gliedmaßenabweichungen auf. Prothesen sind jedoch teuer. Sie können bis zu 10.000 € kosten. Bei heranwachsenden Kindern können da schnell große Summen zusammenkommen. e-Nable ist eine globale Gemeinschaft von Menschen, die gemeinsam daran arbeiten, per 3D-Druck gefertigte Hände für Kinder mit Gliedmaßenabweichungen bereitzustellen. Google.org hilft der Enable Community Foundation bei der Unterstützung der e-NABLE-Community, damit sie mehr Handprothesen entwickeln und diese noch mehr Kindern zur Verfügung stellen kann."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Schimpanse"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy ist eine gemeinnützige Organisation, deren Ziel darin besteht, allen Menschen auf der Welt kostenlosen Zugang zu hochwertiger Bildung zu bieten. Khan Academy ist davon überzeugt, dass Lernende aller Altersstufen die Möglichkeit haben sollten, kostenlos Bildungsinhalte zu nutzen und in ihrem eigenen Tempo zu bewältigen."
+	},
+	"nonprofit-khan-type": {
+		"message": "Bildung"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders ist eine führende internationale Nichtregierungsorganisation für kulturelle Entwicklung, die 2007 gegründet wurde. Der Hauptsitz befindet sich in Paris. Sie zeichnet für den Bau von über 300 Bibliotheken in der ganzen Welt verantwortlich."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotheken"
+	},
 	"nonprofit-more-information": {
 		"message": "Weitere Informationen auf:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Wälder"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Fast 40 % der Weltbevölkerung haben keinen Zugang zu Bildung in einer Sprache, die sie sprechen oder verstehen. StoryWeaver hat sich dem Kampf gegen dieses Problem verschrieben und unterstützt Lehrer, Autoren und Übersetzer bei der Erstellung unterhaltsamer Ergänzungsliteratur für Kinder."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lesen"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Weltweit leiden viele Menschen unter einem teilweisen Verlust des Sehvermögens. Google.org unterstützt das RNIB bei der Entwicklung \"intelligenter Brillen\", durch die Menschen mit eingeschränktem Sehvermögen leichter Formen und Silhouetten erkennen können. Intelligente Brillen können dazu beitragen, die Welt sichtbar zu machen, und Menschen dabei zu helfen, ihre Unabhängigkeit und ihr Selbstvertrauen wiederzufinden."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Du bist offline"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android-App"
 	},
+	"scene_blimp": {
+		"message": "Geschenkenachschub"
+	},
 	"scene_boatload": {
 		"message": "Geschenkeschleuder"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kartenquiz"
 	},
+	"scene_playground": {
+		"message": "Spielplatz am Nordpol"
+	},
+	"scene_postcard": {
+		"message": "Schneeflockencode"
+	},
 	"scene_presentbounce": {
 		"message": "Geschenkeautomat"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfs Rennen"
+	},
+	"scene_rollercoaster": {
+		"message": "Achterbahn für Wichtel"
 	},
 	"scene_runner": {
 		"message": "Rasendes Rentier"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Zeit des Gebens"
 	},
+	"scene_streetview": {
+		"message": "Straßenperspektive"
+	},
 	"scene_traditions": {
 		"message": "Weihnachtstraditionen aus aller Welt"
 	},
 	"scene_translations": {
 		"message": "Übersetzungen"
 	},
+	"scene_trivia": {
+		"message": "Quiz"
+	},
+	"scene_undersea": {
+		"message": "Unter Wasser"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Der Wichtelwagen"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Kommandozentrale"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Singende und tanzende Wichtel"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Abflug des Weihnachtsmanns"
 	},
+	"scene_videoscene_office": {
+		"message": "Bürostreich"
+	},
+	"scene_videoscene_reload": {
+		"message": "Geschenkenachschub"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Der Weihnachtsmann ist wieder da"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Versuchung"
+	},
+	"scene_videoscene_tired": {
+		"message": "Das erschöpfte Rentier"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Noch im Urlaub"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Wo ist der Weihnachtsmann?"
 	},
 	"scene_windtunnel": {
 		"message": "Im Windkanal"

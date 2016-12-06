@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Stäng av skärmrotation för den bästa upplevelsen."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Lärare och elever"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® är en ideell organisation som arbetar för att förbättra barns tillgång till datorvetenskap och öka deltagandet bland kvinnor och studenter som tillhör underrepresenterade minoriteter. Code.org®s vision är att alla studenter i alla skolor ska få möjlighet att lära sig datorvetenskap."
+	},
+	"nonprofit-code-type": {
+		"message": "Datorvetenskap"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org grundades år 2000 av en historielärare i Bronx och har samlat in över 480 miljoner USD till amerikanska klassrum. Lärare använder DonorsChoose.org för att be om material och annat de behöver till sina lektioner."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klassrum"
+	},
 	"nonprofit-enable-description": {
 		"message": "Enligt Centers for Disease Control and Prevention har 7 av 1 000 personer skadat eller förlorat kroppsdelar. Proteser är dyra och kan kosta upp till 10 000 USD, och kostnaderna är särskilt stora för växande barn. e-Nable är en global gemenskap som samarbetar för att göra 3D-utskrivna händer till barn som behöver det. Google.org hjälper Enable Community Foundation att stötta e-NABLE Community, som kan designa fler händer och hjälpa fler barn."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Schimpans"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy är en ideell organisation vars mål är att erbjuda kostnadsfria lektioner i världsklass till alla. Khan Academys filosofi är att elever i alla åldrar ska ha obegränsad åtkomst till kostnadsfritt utbildningsmaterial som de kan lära sig i sin egen takt."
+	},
+	"nonprofit-khan-type": {
+		"message": "Utbildning"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders är en ledande internationell icke-statlig organisation som grundades 2007. Organisationen har sitt huvudkontor i Paris och har byggt fler än 300 bibliotek världen över."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotek"
+	},
 	"nonprofit-more-information": {
 		"message": "För mer information, besök:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Skogar"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Nästan 40 % av världens befolkning har inte tillgång till utbildning på ett språk de talar eller förstår. StoryWeaver är ett verktyg som kan bidra till förändring, genom att lärare, skribenter och författare kan skapa stimulerande extra läsmaterial för barn."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Läsning"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Det finns många med nedsatt syn i världen. Google.org hjälper RNIB utveckla ”smarta glasögon” som hjälper personer med nedsatt syn att lättare se former och siluetter. Smarta glasögon kan göra det lättare att se världen och hjälper människor att återfå sitt oberoende och självförtroende."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Du är offline"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android-app"
 	},
+	"scene_blimp": {
+		"message": "Presenter laddas"
+	},
 	"scene_boatload": {
 		"message": "Julklappskastning"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Karttest"
 	},
+	"scene_playground": {
+		"message": "Nordpolens lekpark"
+	},
+	"scene_postcard": {
+		"message": "Koda en snöflinga"
+	},
 	"scene_presentbounce": {
 		"message": "Julklappsstuds"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfloppet"
+	},
+	"scene_rollercoaster": {
+		"message": "Berg-och-dalbanenissar"
 	},
 	"scene_runner": {
 		"message": "Renspurten"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Gåvornas säsong"
 	},
+	"scene_streetview": {
+		"message": "Gatuvy"
+	},
 	"scene_traditions": {
 		"message": "Jultraditioner"
 	},
 	"scene_translations": {
 		"message": "Översättningar"
 	},
+	"scene_trivia": {
+		"message": "Frågesport"
+	},
+	"scene_undersea": {
+		"message": "Under vattnet"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Tomtenissens bil"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Kontrollrum"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Nissedans"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Jultomten lyfter"
 	},
+	"scene_videoscene_office": {
+		"message": "Kontorsspratt"
+	},
+	"scene_videoscene_reload": {
+		"message": "Presenter laddas"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Jultomten är tillbaka"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Frestelsen"
+	},
+	"scene_videoscene_tired": {
+		"message": "Trött ren"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Fortfarande på semester"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Var är jultomten?"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"

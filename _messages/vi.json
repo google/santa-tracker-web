@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Khóa chế độ xoay để có trải nghiệm tốt nhất."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Giáo viên và học sinh"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® là một tổ chức phi lợi nhuận giúp mở rộng việc tiếp cận khoa học máy tính và tăng khả năng tham gia của phụ nữ và học sinh da màu ít được tiếp cận giáo dục. Tầm nhìn của Code.org® chính là mỗi học sinh trong mỗi trường học phải có cơ hội tìm hiểu khoa học máy tính."
+	},
+	"nonprofit-code-type": {
+		"message": "Khoa học máy tính"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Được thành lập vào năm 2000 bởi một giáo viên lịch sử ở Bronx, DonorsChoose.org đã gây quỹ được hơn 480 triệu USD cho các lớp học của Mỹ. Các giáo viên đến với DonorsChoose.org để tìm tài liệu và trải nghiệm mà họ cần cho lớp học của mình."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Lớp học"
+	},
 	"nonprofit-enable-description": {
 		"message": "Theo CDC, cứ 7 người trong số 1000 người phải sử dụng chân tay giả và các bộ phận giả thì đắt đỏ - lên tới 10.000 USD! Đối với trẻ em đang lớn, chi phí có thể tăng nhanh. e-Nable là một cộng đồng toàn cầu gồm những người làm việc cùng nhau để tạo ra tay giả in 3D dành cho trẻ em bị khuyết tật chân tay. Google.org đang giúp Enable Community Foundation trong việc hỗ trợ Cộng đồng e-NABLE để thiết kế nhiều tay giả hơn và tăng số trẻ em có thể nhận được tay giả."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Tinh tinh"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy là một tổ chức phi lợi nhuận có sứ mệnh cung cấp giáo dục miễn phí, đẳng cấp cho mọi người, mọi nơi. Khan Academy tin rằng người học ở mọi lứa tuổi phải có quyền tiếp cận không giới hạn đối với nội dung giáo dục miễn phí để họ có thể làm chủ tốc độ học của riêng mình."
+	},
+	"nonprofit-khan-type": {
+		"message": "Giáo dục"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders là một tổ chức phi chính phủ quốc tế dẫn đầu thế giới về phát triển văn hóa được thành lập vào năm 2007, trụ sở đặt tại Paris. Họ đã xây dựng được hơn 300 thư viện trên khắp thế giới."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Thư viện"
+	},
 	"nonprofit-more-information": {
 		"message": "Để biết thêm thông tin, hãy truy cập vào:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Rừng"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Gần 40% dân số toàn cầu không được tiếp cận giáo dục bằng ngôn ngữ nói hoặc hiểu của họ. StoryWeaver hy vọng thay đổi điều đó bằng cách giúp các nhà giáo dục, nhà văn và dịch giả tạo ra tài nguyên đọc sách vui vẻ, bổ sung cho trẻ em."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Đọc"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Có nhiều người trên thế giới bị mất thị giác nhưng vẫn còn đôi chút khả năng nhìn được. Google.org đang giúp RNIB phát triển 'mắt kính thông minh' giúp những người có thị giác yếu nhìn thấy hình dạng và bóng dễ dàng hơn. Mắt kính thông minh giúp mọi người dễ nhìn thế giới hơn và giúp họ lấy lại sự độc lập và tự tin."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Bạn đang ngoại tuyến"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Ứng dụng Android"
 	},
+	"scene_blimp": {
+		"message": "Nạp lại quà"
+	},
 	"scene_boatload": {
 		"message": "Súng bắn quà"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Câu đố trên bản đồ"
 	},
+	"scene_playground": {
+		"message": "Sân chơi ở Bắc Cực"
+	},
+	"scene_postcard": {
+		"message": "Viết mã cho bông tuyết"
+	},
 	"scene_presentbounce": {
 		"message": "Trò chơi nảy quà"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Cuộc đua của Rudolph mũi đỏ"
+	},
+	"scene_rollercoaster": {
+		"message": "Chú lùn đi tàu lượn siêu tốc"
 	},
 	"scene_runner": {
 		"message": "Người cưỡi tuần lộc"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Mùa trao tặng"
 	},
+	"scene_streetview": {
+		"message": "Chế độ xem phố"
+	},
 	"scene_traditions": {
 		"message": "Truyền thống trong ngày lễ"
 	},
 	"scene_translations": {
 		"message": "Dịch thuật"
 	},
+	"scene_trivia": {
+		"message": "Trắc nghiệm kiến thức"
+	},
+	"scene_undersea": {
+		"message": "Dưới mặt biển"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Xe của chú lùn"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Phòng chỉ huy"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Các chú lùn nhảy múa hát ca"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Ông già Noel đang khởi hành"
 	},
+	"scene_videoscene_office": {
+		"message": "Ô làm việc phủ giấy"
+	},
+	"scene_videoscene_reload": {
+		"message": "Nạp lại quà"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Ông già Noel đã trở lại"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Vệ tinh"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Sự cám dỗ"
+	},
+	"scene_videoscene_tired": {
+		"message": "Chú tuần lộc mệt mỏi"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Vẫn đi nghỉ"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Ông già Noel ở đâu?"
 	},
 	"scene_windtunnel": {
 		"message": "Hầm gió"

@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Kunci rotasi untuk pengalaman terbaik."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Guru \u0026amp; Pelajar"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® adalah lembaga non-profit yang didedikasikan untuk mengembangkan akses ke ilmu komputer, serta meningkatkan peran serta wanita dan murid ras minoritas. Code.org® memiliki visi yaitu semua murid di setiap sekolah harus memiliki kesempatan untuk mempelajari ilmu komputer."
+	},
+	"nonprofit-code-type": {
+		"message": "Ilmu Komputer"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org yang didirikan pada tahun 2000 oleh seorang guru sejarah Bronx telah mengumpulkan dana lebih dari US$480 juta untuk ruang kelas Amerika. Para guru mengunjungi DonorsChoose.org untuk meminta materi dan pengalaman yang diperlukan untuk pengajaran di ruang kelas."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Ruang Kelas"
+	},
 	"nonprofit-enable-description": {
 		"message": "Menurut CDC, 7 dari 1000 orang memiliki cacat anggota tubuh, sedangkan tangan atau kaki palsu sangat mahal harganya - hingga US$10.000! Bagi anak yang sedang tumbuh, biayanya bisa semakin mahal. e-Nable adalah komunitas global yang bekerja sama untuk membuat tangan cetak 3D bagi anak-anak dengan cacat anggota tubuh. Google.org membantu Enable Community Foundation dalam mendukung e-NABLE Community untuk merancang lebih banyak tangan palsu dan meningkatkan jumlah anak-anak yang bisa mendapatkan tangan."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Simpanse"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy adalah lembaga nonprofit dengan misi menyediakan pendidikan kelas dunia secara gratis bagi siapa saja, di mana saja. Khan Academy meyakini bahwa semua pelajar dari segala usia harus memiliki akses gratis ke konten pendidikan yang tidak terbatas, sehingga mereka dapat menguasainya sesuai dengan kecepatan belajar masing-masing."
+	},
+	"nonprofit-khan-type": {
+		"message": "Pendidikan"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders, didirikan pada tahun 2007 dengan kantor pusat di Paris, adalah organisasi non-pemerintah yang berfokus pada pengembangan berbasis budaya. Mereka telah membangun lebih dari 300 perpustakaan di seluruh dunia."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Pustaka"
+	},
 	"nonprofit-more-information": {
 		"message": "Untuk informasi selengkapnya, kunjungi:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Hutan"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Hampir 40% dari populasi global tidak memiliki akses pendidikan dalam bahasa yang mereka gunakan atau pahami. StoryWeaver berusaha untuk mengubah hal tersebut dengan mendorong para pendidik, penulis, dan penerjemah membuat sumber bacaan tambahan yang menarik bagi anak-anak."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Membaca"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Ada banyak orang di dunia yang hidup dengan kehilangan penglihatan, tetapi masih memiliki sedikit kemampuan untuk melihat. Google.org membantu RNIB mengembangkan 'kacamata pintar' yang dapat membantu orang dengan penglihatan buruk untuk melihat bentuk dan siluet dengan lebih mudah. Kacamata pintar dapat memudahkan orang-orang dengan penglihatan terbatas untuk melihat dunia, membantu mereka memperoleh kembali kemandirian dan kepercayaan diri mereka."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Anda sedang offline"
+	},
+	"okay": {
+		"message": "Oke"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Aplikasi Android"
 	},
+	"scene_blimp": {
+		"message": "Isi Ulang Hadiah"
+	},
 	"scene_boatload": {
 		"message": "Ketapel Hadiah"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kuis Peta"
 	},
+	"scene_playground": {
+		"message": "Taman Bermain Kutub Utara"
+	},
+	"scene_postcard": {
+		"message": "Buat Kode Snowflake"
+	},
 	"scene_presentbounce": {
 		"message": "Pantulan Hadiah"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Pembalap Rudolph"
+	},
+	"scene_rollercoaster": {
+		"message": "Rollercoaster Elf"
 	},
 	"scene_runner": {
 		"message": "Reindeer Runner"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Musim Berbagi"
 	},
+	"scene_streetview": {
+		"message": "Tampilan Jalan"
+	},
 	"scene_traditions": {
 		"message": "Tradisi Liburan"
 	},
 	"scene_translations": {
 		"message": "Terjemahan"
 	},
+	"scene_trivia": {
+		"message": "Trivia"
+	},
+	"scene_undersea": {
+		"message": "Bawah Laut"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Mobil Kurcaci"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Ruang Komando"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Elf Bernyanyi"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Keberangkatan Sinterklas"
 	},
+	"scene_videoscene_office": {
+		"message": "Gurauan Kantor"
+	},
+	"scene_videoscene_reload": {
+		"message": "Isi Ulang Hadiah"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Sinterklas Sudah Pulang"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Cobaan"
+	},
+	"scene_videoscene_tired": {
+		"message": "Rusa Lelah"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Masih Liburan"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Di Mana Santa?"
 	},
 	"scene_windtunnel": {
 		"message": "Terowongan Angin"

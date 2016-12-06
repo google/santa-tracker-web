@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Шри-Ланка"
 	},
+	"lock_orientation": {
+		"message": "Заблокуйте обертання для комфортної гри."
+	},
 	"lr_country_name": {
 		"message": "Ліберія"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Учителі та студенти"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® – це некомерційна організація, яка має на меті розширення доступу до інформатики та збільшення серед студентів кількості жінок і представників неєвропеоїдної раси. Учасники Code.org® переконані, що можливість вивчати інформатику має бути в кожного учня та в будь-якій школі."
+	},
+	"nonprofit-code-type": {
+		"message": "Інформатика"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Некомерційна організація DonorsChoose.org, яку у 2000 році заснував учитель історії з Бронксу, зібрала понад 480 мільйонів доларів США для обладнання класних кімнат в Америці. Учителі звертаються в цю організацію із запитами про матеріали та ідеї для своїх класних кімнат."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Класи"
+	},
 	"nonprofit-enable-description": {
 		"message": "За даними CDC, у 7 з 1000 людей кінцівки непропорційні, а вартість протезів сягає 10 000 дол. США. Ця цифра швидко збільшується, коли йдеться про дітей, які ростуть. e-Nable – це всесвітня спільнота людей, які за допомогою 3D-принтера виготовляють протези рук для малюків із непропорційними кінцівками. Організація Google.org разом із фондом Enable Community Foundation допомагає спільноті e-NABLE розробляти макети рук, щоб якнайбільше дітей отримали протези."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Шимпанзе"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy – це некомерційна організація, яка прагне надати всім людям можливість безкоштовно отримати високоякісну освіту. Її співробітники впевнені, що учні будь-якого віку повинні мати доступ до безкоштовних навчальних матеріалів і можливість вивчати їх за власним графіком."
+	},
+	"nonprofit-khan-type": {
+		"message": "Освіта"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders – це провідна міжнародна некомерційна організація з культурного розвитку, заснована в Парижі у 2007 році. Завдяки зусиллям її співробітників збудовано понад 300 бібліотек у різних країнах світу."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Бібліотеки"
+	},
 	"nonprofit-more-information": {
 		"message": "Дізнайтеся більше тут:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Ліси"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Близько 40% людей у світі не мають змоги отримати освіту тією мовою, якою вони спілкуються або яку розуміють. Організація StoryWeaver сподівається змінити цю ситуацію, допомагаючи викладачам, письменникам і перекладачам створювати веселі додаткові матеріали для дитячого читання."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Читання"
 	},
 	"nonprofit-rnib-description": {
 		"message": "У світі чимало людей, які майже повністю втратили зір. Організація Google.org допомагає Королівському національному інституту сліпих (RNIB) розробляти \"розумні окуляри\", завдяки яким люди з поганим зором зможуть краще бачити форми й силуети. Цей винахід полегшить їм візуальне сприйняття світу та допоможе відновити самостійність і впевненість у власних силах."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Ви в режимі офлайн"
+	},
+	"okay": {
+		"message": "OК"
 	},
 	"om_country_name": {
 		"message": "Оман"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Додаток Android"
 	},
+	"scene_blimp": {
+		"message": "Дозавантаження подарунків"
+	},
 	"scene_boatload": {
 		"message": "Подарункова рогатка"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Географічна вікторина"
 	},
+	"scene_playground": {
+		"message": "Ігровий майданчик на Північному полюсі"
+	},
+	"scene_postcard": {
+		"message": "Створи сніжинку"
+	},
 	"scene_presentbounce": {
 		"message": "Підкидання подарунків"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Гонщик Рудольф"
+	},
+	"scene_rollercoaster": {
+		"message": "Ельф на американських гірках"
 	},
 	"scene_runner": {
 		"message": "Олень-бігун"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Сезон подарунків"
 	},
+	"scene_streetview": {
+		"message": "Перегляд вулиць"
+	},
 	"scene_traditions": {
 		"message": "Різдвяні традиції"
 	},
 	"scene_translations": {
 		"message": "Переклади"
 	},
+	"scene_trivia": {
+		"message": "Вікторина"
+	},
+	"scene_undersea": {
+		"message": "Під водою"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Візок помічників Діда Мороза"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Командний пункт"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Співучі ельфи"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Злет Діда Мороза"
 	},
+	"scene_videoscene_office": {
+		"message": "Офісна витівка"
+	},
+	"scene_videoscene_reload": {
+		"message": "Дозавантаження подарунків"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Дід Мороз повертається"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Супутник"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Спокуса"
+	},
+	"scene_videoscene_tired": {
+		"message": "Утомлений олень"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Ще у відпустці"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Де Санта?"
 	},
 	"scene_windtunnel": {
 		"message": "Потік вітру"

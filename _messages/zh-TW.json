@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "斯里蘭卡"
 	},
+	"lock_orientation": {
+		"message": "鎖定螢幕旋轉功能，就能享有最佳遊戲體驗。"
+	},
 	"lr_country_name": {
 		"message": "賴比瑞亞"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "教師與學生"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® 是一個非營利組織，其成立宗旨是讓電腦科學更加普及，並鼓勵更多女性和各膚色弱勢學生投身電腦科學。Code.org® 期望所有學生都有機會接觸和學習電腦科學相關知識。"
+	},
+	"nonprofit-code-type": {
+		"message": "電腦科學"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org 是由紐約市布朗克斯區的一名歷史教師於 2000 年所成立，目前已為全美學校募得超過 $4.8 億美元的教育經費。需要相關教材和教學經驗分享的教師都會造訪 DonorsChoose.org 尋求協助。"
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "教室"
+	},
 	"nonprofit-enable-description": {
 		"message": "CDC 指出，每 1000 人之中約有 7 人有肢體殘缺的情形，然而義肢造價不斐，最貴可能高達 $10,000 美元！發育中的兒童隨著成長必須不斷更換義肢，長期下來無疑是一筆沉重的經濟負擔。公益志工組織 e-Nable 運用 3D 列印替肢體殘缺的孩童量身訂做義腕，而 Google.org 則與 Enable Community Foundation 攜手贊助 e-NABLE 設計更多義腕，讓更多孩童能夠受惠。"
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "黑猩猩"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy 是一個非營利組織，其成立宗旨是為世人免費提供一流的教育資源。Khan Academy 深信各年齡層的學習者都應能按照自己的步調，自由使用免費教育內容進行學習。"
+	},
+	"nonprofit-khan-type": {
+		"message": "教育"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders 於 2007 年成立，總部設在巴黎，是一個大型國際性非營利組織，致力於推廣閱讀文化。截至目前為止，該機構已於全球成立超過 300 座圖書館。"
+	},
+	"nonprofit-lwb-type": {
+		"message": "圖書館"
+	},
 	"nonprofit-more-information": {
 		"message": "如需詳細資訊，請前往："
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "森林"
+	},
+	"nonprofit-pratham-description": {
+		"message": "全球有近 40% 的人口無法以自己慣用或熟悉的語言接受教育。因此，StoryWeaver 特別協助教育人員、作家和翻譯人員為孩童製作有趣的課外讀物，希望能藉此改變現況。"
+	},
+	"nonprofit-pratham-type": {
+		"message": "閱讀"
 	},
 	"nonprofit-rnib-description": {
 		"message": "許多視障者並未完全失明，仍有殘餘視力。Google.org 協助 RNIB 開發「智慧眼鏡」，讓這些視障者能更清楚看見外界物體的形狀和輪廓，以及周遭的環境，進而重拾獨立的生活能力和自信。"
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "你已離線"
+	},
+	"okay": {
+		"message": "確定"
 	},
 	"om_country_name": {
 		"message": "阿曼"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android 應用程式"
 	},
+	"scene_blimp": {
+		"message": "禮物補充"
+	},
 	"scene_boatload": {
 		"message": "禮物彈弓"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "地圖小測驗"
 	},
+	"scene_playground": {
+		"message": "北極遊樂場"
+	},
+	"scene_postcard": {
+		"message": "使用程式碼設計雪花"
+	},
 	"scene_presentbounce": {
 		"message": "彈跳小禮物"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "飆風馴鹿"
+	},
+	"scene_rollercoaster": {
+		"message": "精靈雲霄飛車"
 	},
 	"scene_runner": {
 		"message": "「鹿」跑有禮"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "溫馨分享季"
 	},
+	"scene_streetview": {
+		"message": "街景模式"
+	},
 	"scene_traditions": {
 		"message": "各地節日習俗"
 	},
 	"scene_translations": {
 		"message": "翻譯"
 	},
+	"scene_trivia": {
+		"message": "益智遊戲"
+	},
+	"scene_undersea": {
+		"message": "海底"
+	},
 	"scene_videoscene_carpool": {
 		"message": "精靈尬車"
+	},
+	"scene_videoscene_comroom": {
+		"message": "指揮室"
+	},
+	"scene_videoscene_jingle": {
+		"message": "手舞足蹈的精靈"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "聖誕老人出發了"
 	},
+	"scene_videoscene_office": {
+		"message": "辦公室惡作劇"
+	},
+	"scene_videoscene_reload": {
+		"message": "禮物補充"
+	},
 	"scene_videoscene_santasback": {
 		"message": "聖誕老人回來了"
+	},
+	"scene_videoscene_satellite": {
+		"message": "衛星"
+	},
+	"scene_videoscene_temptation": {
+		"message": "擋不住的誘惑"
+	},
+	"scene_videoscene_tired": {
+		"message": "疲憊的馴鹿"
+	},
+	"scene_videoscene_trailer": {
+		"message": "休假中"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "聖誕老人在哪裡？"
 	},
 	"scene_windtunnel": {
 		"message": "風洞"

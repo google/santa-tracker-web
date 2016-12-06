@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Шри Ланка"
 	},
+	"lock_orientation": {
+		"message": "За най-добра практическа работа заключете завъртането."
+	},
 	"lr_country_name": {
 		"message": "Либерия"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Учители и ученици"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® e организация с нетърговска цел, която се стреми да разшири достъпа и да насърчи участието от страна на жени и на слабо представени малцинства в информатиката. Според Code.org® всеки, който посещава учебно заведение, трябва да има възможност да учи информатика."
+	},
+	"nonprofit-code-type": {
+		"message": "Информатика"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Организацията DonorsChoose.org е основана през 2000 г. от учител по история в Бронкс и досега е събрала над 480 милиона щатски долара за училища в САЩ. Учителите идват на сайта на DonorsChoose.org, за да заявят материали и насоки, от които се нуждаят за класната си стая."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Класни стаи"
+	},
 	"nonprofit-enable-description": {
 		"message": "Според Центровете за контрол и превенция на заболяванията (CDC) 7 от 1000 души имат разлика в дължината на крайниците, а протезите са скъпи – цените стигат до 10 000 щ.д.! При подрастващите тези разходи са значително по-високи. e-NABLE е глобална общност от хора, които работят заедно за създаването с 3D принтер на ръце за деца с разлики в крайниците. Google.org и Enable Community Foundation съдействат на общността на e-NABLE да създаде повече ръце, които да достигнат до повече деца."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Шимпанзе"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy е организация с нетърговска цел, чиято мисия е да осигури безплатно образование от световна класа за всички и навсякъде. Khan Academy вярва, че учащите от всички възрасти трябва да имат неограничен достъп до безплатно образователно съдържание, което могат да изучават според собственото си темпо."
+	},
+	"nonprofit-khan-type": {
+		"message": "Образование"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders е водеща международна организация с нетърговска цел, посветена на културното развитие. Тя е основана през 2007 г. със седалище в Париж. Организацията е построила над 300 библиотеки в цял свят."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Библиотеки"
+	},
 	"nonprofit-more-information": {
 		"message": "За повече информация посетете:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Гори"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Близо 40% от населението в света нямат достъп до образование на език, който говорят или разбират. StoryWeaver се надява да промени това, като помага на преподаватели, писатели и преводачи да създават забавни допълнителни ресурси за четене специално за деца."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Четене"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Много хора по света страдат от загуба на зрението, но някои от тях имат остатъчно зрение. Google.org съдейства на RNIB за разработването на „интелигентни очила“, които помагат на хората със слабо зрение да виждат форми и силуети по-лесно. Интелигентните очила правят света по-осезаем и позволяват на хората с намалено зрение да си възвърнат независимостта и увереността."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Офлайн сте"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Оман"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Приложение за Android"
 	},
+	"scene_blimp": {
+		"message": "Презареждане с подаръци"
+	},
 	"scene_boatload": {
 		"message": "Стреляне с подаръци"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Географска викторина"
 	},
+	"scene_playground": {
+		"message": "Площадка за игра на Северния полюс"
+	},
+	"scene_postcard": {
+		"message": "Кодиране на снежинка"
+	},
 	"scene_presentbounce": {
 		"message": "Подскачащи подаръци"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Надпревара с Рудолф"
+	},
+	"scene_rollercoaster": {
+		"message": "Влакчето на джуджетата"
 	},
 	"scene_runner": {
 		"message": "Препускане с елен"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Сезонът на щедростта"
 	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
 	"scene_traditions": {
 		"message": "Празнични традиции"
 	},
 	"scene_translations": {
 		"message": "Преводи"
 	},
+	"scene_trivia": {
+		"message": "Любопитни факти"
+	},
+	"scene_undersea": {
+		"message": "Под водата"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Джуджешка кола"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Командна зала"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Пеещи джуджета"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Потегляне на Дядо Коледа"
 	},
+	"scene_videoscene_office": {
+		"message": "Офис шега"
+	},
+	"scene_videoscene_reload": {
+		"message": "Презареждане с подаръци"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Дядо Коледа се върна"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Сателит"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Изкушение"
+	},
+	"scene_videoscene_tired": {
+		"message": "Уморен елен"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Все още във ваканция"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Къде е Дядо Коледа?"
 	},
 	"scene_windtunnel": {
 		"message": "Аеродинамичен тунел"

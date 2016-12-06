@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Bloqueja la rotació per millorar l'experiència."
+	},
 	"lr_country_name": {
 		"message": "Libèria"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Professors i estudiants"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® és una organització sense ànim de lucre que es dedica a estendre l'accés a la informàtica i a augmentar la participació de les dones i dels estudiants de color en aquest àmbit, ja que no hi estan gaire representats. Segons Code.org®, tots els estudiants de totes les escoles han de tenir l'oportunitat d'aprendre informàtica."
+	},
+	"nonprofit-code-type": {
+		"message": "Informàtica"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Fundada l'any 2000 per un professor d'història del Bronx, DonorsChoose.org ha recaptat més de 480 milions de dòlars per a les aules dels Estats Units. Els professors acudeixen a DonorsChoose.org per sol·licitar els materials i les experiències que necessiten per a les seves classes."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Classes"
+	},
 	"nonprofit-enable-description": {
 		"message": "Segons l'organització Centers for Disease Control (CDC), 7 de cada 1000 persones presenten diferències en les extremitats i necessiten pròtesis que poden arribar a costar 10.000 USD. La despesa en pròtesis augmenta ràpidament quan els usuaris són nens i estan en edat de creixement. E-Nable és una comunitat de persones de tot el món que treballen per fabricar pròtesis de mans mitjançant impressió 3D destinades als nens que les necessiten. Google.org col·labora amb Enable Community Foundation i recolza la tasca de la comunitat d'e-NABLE perquè puguin dissenyar més pròtesis i arribar a més nens."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Ximpanzé"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy és una organització sense ànim de lucre que té la missió de proporcionar una educació gratuïta i de qualitat a qualsevol persona, en qualsevol lloc. Segons Khan Academy, els estudiants de totes les edats han de tenir accés il·limitat a continguts educatius gratuïts que puguin aprendre al seu propi ritme."
+	},
+	"nonprofit-khan-type": {
+		"message": "Educació"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders, fundada el 2007 i amb seu a París, és una de les ONG internacionals més importants pel que fa al desenvolupament basat en la cultura. Gràcies a aquesta organització, s'han construït més de 300 biblioteques a tot el món."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Biblioteques"
+	},
 	"nonprofit-more-information": {
 		"message": "Per obtenir més informació, visiteu:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Boscos"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Gairebé el 40% de la població mundial no té accés a l'educació en un idioma que parli o entengui. StoryWeaver vol canviar aquesta situació ajudant els educadors, els escriptors i els traductors a crear divertits recursos de lectura complementaris per a nens."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lectura"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Al món hi viuen moltes persones que pateixen una pèrdua parcial de visió, però no total. Google.org col·labora amb RNIB per desenvolupar unes “ulleres intel·ligents” que permetin a les persones amb baixa visió percebre millor les formes i les siluetes. Aquestes ulleres intel·ligents ajuden a veure el món i a recuperar la independència i confiança."
@@ -921,7 +954,7 @@
 		"message": "Google utilitza galetes per analitzar el trànsit en aquest lloc i per optimitzar la teva experiència. La informació sobre com utilitzes el lloc es comparteix amb Google amb aquesta finalitat."
 	},
 	"notice_cookies_details": {
-		"message": "Més informació"
+		"message": "Mostra els detalls"
 	},
 	"notification": {
 		"message": "Notificacions"
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "No tens connexió"
+	},
+	"okay": {
+		"message": "D'acord"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Aplicació per a Android"
 	},
+	"scene_blimp": {
+		"message": "Recàrrega de regals"
+	},
 	"scene_boatload": {
 		"message": "Joc de tirar regals"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Joc de geografia"
 	},
+	"scene_playground": {
+		"message": "Parc infantil del Pol Nord"
+	},
+	"scene_postcard": {
+		"message": "Programa un floc de neu"
+	},
 	"scene_presentbounce": {
 		"message": "Joc de rebotar regals"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "La cursa de trineus de Rudolph"
+	},
+	"scene_rollercoaster": {
+		"message": "La muntanya russa dels elfs"
 	},
 	"scene_runner": {
 		"message": "Ren a la carrera"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Temps de regals"
 	},
+	"scene_streetview": {
+		"message": "Street view"
+	},
 	"scene_traditions": {
 		"message": "Tradicions nadalenques"
 	},
 	"scene_translations": {
 		"message": "Traduccions"
 	},
+	"scene_trivia": {
+		"message": "Joc de preguntes i respostes"
+	},
+	"scene_undersea": {
+		"message": "Submarí"
+	},
 	"scene_videoscene_carpool": {
 		"message": "El cotxe dels elfs"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Sala de comandament"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Elfs cantaires"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "L'enlairament del Pare Noel"
 	},
+	"scene_videoscene_office": {
+		"message": "Broma d'oficina"
+	},
+	"scene_videoscene_reload": {
+		"message": "Recàrrega de regals"
+	},
 	"scene_videoscene_santasback": {
 		"message": "El Pare Noel ha tornat"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satèl·lit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Temptació"
+	},
+	"scene_videoscene_tired": {
+		"message": "Ren cansat"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Encara de vacances"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "On és el Pare Noel?"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vent"

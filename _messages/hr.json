@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Šri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Za najbolje iskustvo zaključajte funkciju zakretanja."
+	},
 	"lr_country_name": {
 		"message": "Liberija"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Učitelji i učenici"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® neprofitna je organizacija koja nastoji poboljšati pristup računalnoj znanosti te povećati zastupljenost žena i učenika drugih boja kože iz slabo zastupljenih skupina. Vizija organizacije Code.org® je da bi svaki učenik u svakoj školi trebao dobiti priliku da uči o računalnoj znanosti."
+	},
+	"nonprofit-code-type": {
+		"message": "Računalna znanost"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org organizacija je koju je 2000. godine osnovao učitelj povijesti iz Bronxa, a prikupila je više od 480 milijuna USD za američke učionice. Učitelji se mogu obratiti u DonorsChoose.org radi nabavke materijala i stjecanja iskustava koja su im potrebna u njihovim učionicama."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Učionice"
+	},
 	"nonprofit-enable-description": {
 		"message": "Prema Centru za kontrolu i prevenciju bolesti (CDC), 7 od 1000 osoba živi s nedostatkom udova, a protetički su udovi skupi – cijene im se kreću do 10.000 USD! Za djecu u razvoju ti se troškovi mogu brzo povećati. e-Nable je globalna zajednica ljudi koji surađuju na izradi šaka za djecu kojoj nedostaju udovi pomoću 3D pisača. Google.org pomaže organizaciji Enable Community Foundation u pružanju podrške inicijativi e-NABLE Community u izradi više šaka i povećanju broja djece koja mogu dobiti novu šaku."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Čimpanza"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy neprofitna je organizacija čija je misija pružiti besplatno i kvalitetno obrazovanje svakoj osobi, bez obzira gdje se ona nalazi. Khan Academy vjeruje da bi učenici svih dobnih skupina trebali imati neograničen pristup besplatnim obrazovnim sadržajima koje mogu svladavati vlastitim tempom."
+	},
+	"nonprofit-khan-type": {
+		"message": "Obrazovanje"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders vodeća je međunarodna neprofitna organizacija posvećena kulturnom razvoju. Osnovana je 2007., a sjedište joj je u Parizu. Sagradili su više od 300 knjižnica širom svijeta."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Knjižnice"
+	},
 	"nonprofit-more-information": {
 		"message": "Za više informacija posjetite:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Šume"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Gotovo 40% svjetske populacije nema pristup obrazovanju na jeziku kojim govori ili koji razumije. StoryWeaver nastoji to promijeniti pomaganjem učiteljima, autorima i prevoditeljima da stvaraju zabavne dodatne resurse za čitanje namijenjene djeci."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Čitanje"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Mnogi ljudi u svijetu žive s gubitkom vida, ali još imaju preostali vid. Google.org pomaže institutu RNIB u razvoju \"pametnih naočala\" koje ljudima oslabljenog vida pomažu da lakše razaznaju oblike i siluete. Pametne naočale čine svijet vidljivijim i tako ljudima vraćaju neovisnost i samopouzdanje."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Nisi na internetu"
+	},
+	"okay": {
+		"message": "U redu"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Aplikacija za Android"
 	},
+	"scene_blimp": {
+		"message": "Učitavanje dodatnih poklona"
+	},
 	"scene_boatload": {
 		"message": "Praćka za darove"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kviz s kartom"
 	},
+	"scene_playground": {
+		"message": "Igralište na Sjevernom polu"
+	},
+	"scene_postcard": {
+		"message": "Izrada pahuljice pomoću koda"
+	},
 	"scene_presentbounce": {
 		"message": "Skakutanje s darovima"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolf trkač"
+	},
+	"scene_rollercoaster": {
+		"message": "Vilenjački vlak smrti"
 	},
 	"scene_runner": {
 		"message": "Utrka sobova"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Vrijeme darivanja"
 	},
+	"scene_streetview": {
+		"message": "Prikaz ulice"
+	},
 	"scene_traditions": {
 		"message": "Blagdanski običaji"
 	},
 	"scene_translations": {
 		"message": "Prijevodi"
 	},
+	"scene_trivia": {
+		"message": "Zanimljivosti"
+	},
+	"scene_undersea": {
+		"message": "Podmorje"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Vilenjačka jurilica"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Komandna soba"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Raspjevani vilenjaci"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Polazak Djeda Božićnjaka"
 	},
+	"scene_videoscene_office": {
+		"message": "Uredska podvala"
+	},
+	"scene_videoscene_reload": {
+		"message": "Učitavanje dodatnih poklona"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Djedica se vratio"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Iskušenje"
+	},
+	"scene_videoscene_tired": {
+		"message": "Umorni sob"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Još uvijek na odmoru"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Gdje je Djed Božićnjak?"
 	},
 	"scene_windtunnel": {
 		"message": "Vjetrotunel"

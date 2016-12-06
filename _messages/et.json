@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Soovitame ekraanivaate pöördumise keelata."
+	},
 	"lr_country_name": {
 		"message": "Libeeria"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Õpetajad ja õpilased"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® on mittetulundusorganisatsioon eesmärgiga pakkuda naissoost ja tavapärasest väiksema osalusmääraga rassidest õpilastele paremat juurdepääsu informaatikaõppele ja suurendada nende osalust selles. Organisatsiooni Code.org® visioon on, et kõigi koolide kõigil õpilastel oleks võimalus informaatikat õppida."
+	},
+	"nonprofit-code-type": {
+		"message": "Informaatika"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "2000. aastal Bronxi ajalooõpetaja poolt asutatud DonorsChoose.org on kogunud USA klassiruumide täiustamiseks 480 miljonit dollarit. Õpetajad saavad veebisaidil DonorsChoose.org taotleda oma klassiruumis vajalikke õppematerjale ja inventari."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klassiruumid"
+	},
 	"nonprofit-enable-description": {
 		"message": "CDC andmetel on jäsemepuue seitsmel inimesel tuhandest. Samas on jäsemeproteesid kallid, makstes kuni 10 000 dollarit! Kasvavad lapsed vajavad korduvalt uusi proteese ja kulud suurenevad kiiresti. e-NABLE on ülemaailmne kogukond inimestest, kes valmistavad 3D-prinditud käeproteese jäsemepuudega lastele. Google.org aitab organisatsioonil Enable Community Foundation toetada kogukonda e-NABLE käeproteeside disainimisel, et rohkem lapsi neist kasu saaks."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Šimpansid"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy on mittetulundusorganisatsioon eesmärgiga pakkuda kõikjal kõigile tasuta tipptasemel haridust. Khan Academy usub, et igas vanuses õppijatel peaks olema piiramatu juurdepääs tasuta õppesisule, mida nad saaksid omandada endale sobivas tempos."
+	},
+	"nonprofit-khan-type": {
+		"message": "Haridus"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders on 2007. aastal asutatud juhtiv rahvusvaheline mittetulundusorganisatsioon peakorteriga Pariisis. Organisatsioon keskendub kultuuripõhisele arengule ja on tänaseks rajanud üle 300 raamatukogu üle maailma."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Raamatukogud"
+	},
 	"nonprofit-more-information": {
 		"message": "Lisateavet leiate veebisaidilt:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Metsad"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Peaaegu 40% maailma elanikkonnast ei ole juurdepääsu haridusele keeles, mida nad oskaksid või mõistaksid. StoryWeaver loodab seda muuta, aidates pedagoogidel, kirjanikel ja tõlkijatel luua lastele lõbusaid lisalugemismaterjale."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lugemine"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Maailmas on palju nägemispuudega inimesi, kellel on siiski mõningane nägemisvõime alles. Google.org aitab RNIB-il välja töötada „nutiprille”, mille abil võivad vähenenud nägemisvõimega inimesed paremini kontuure ja siluette eristada. Nutiprillid aitavad neil maailma näha ning sõltumatumaks ja enesekindlamaks saada."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Võrguühendus puudub"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Omaan"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Androidi rakendus"
 	},
+	"scene_blimp": {
+		"message": "Kingituste laadimine"
+	},
 	"scene_boatload": {
 		"message": "Kingikatapult"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kaardiviktoriin"
 	},
+	"scene_playground": {
+		"message": "Põhjapooluse mänguväljak"
+	},
+	"scene_postcard": {
+		"message": "Lumehelbe kodeerimine"
+	},
 	"scene_presentbounce": {
 		"message": "Põrkavad kingid"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfi võidusõit"
+	},
+	"scene_rollercoaster": {
+		"message": "Päkapikutivoli"
 	},
 	"scene_runner": {
 		"message": "Põhjapõdrajooks"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Pühadelahkus"
 	},
+	"scene_streetview": {
+		"message": "Tänavavaade"
+	},
 	"scene_traditions": {
 		"message": "Pühadekombed"
 	},
 	"scene_translations": {
 		"message": "Tõlked"
 	},
+	"scene_trivia": {
+		"message": "Viktoriin"
+	},
+	"scene_undersea": {
+		"message": "Vee all"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Päkapikuauto"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Juhtimiskeskus"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Päkapikubänd"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Jõuluvana asub teele"
 	},
+	"scene_videoscene_office": {
+		"message": "Vingerpuss kontoris"
+	},
+	"scene_videoscene_reload": {
+		"message": "Kingituste laadimine"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Jõuluvana on tagasi"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelliit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Kiusatus"
+	},
+	"scene_videoscene_tired": {
+		"message": "Väsinud põhjapõder"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Ikka veel puhkusel"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Kus on jõuluvana?"
 	},
 	"scene_windtunnel": {
 		"message": "Tuuletunnel"

@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "スリランカ"
 	},
+	"lock_orientation": {
+		"message": "画面の向きをロックすると、快適にご利用いただけます。"
+	},
 	"lr_country_name": {
 		"message": "リベリア"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "教師と生徒たち"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org®は、コンピュータ サイエンスに接する機会を広げ、女性や有色人種の学生の参加を増やすことを目的とした非営利団体です。Code.org® のビジョンは、すべての学校のすべての生徒がコンピュータ サイエンスを学ぶ機会を提供することです。"
+	},
+	"nonprofit-code-type": {
+		"message": "コンピュータ サイエンス"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org はブロンクス在住の歴史の先生によって 2000 年に設立され、これまでにアメリカの教室のために 4 億 8,000 万ドル以上の資金を集めました。先生たちは DonorsChoose.org を利用して、教室での授業に必要な用具や経験をリクエストすることができます。"
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "教室"
+	},
 	"nonprofit-enable-description": {
 		"message": "CDC によると、1,000 人のうち 7 人の子どもが四肢に障害を持っているということです。人工装具は高価で、10,000 ドルもするものもあります。成長期の子どもの場合は余計に費用がかさみます。e-Nable は、このような子ども達のために 3D プリンタで義手を作っている人たちのグローバル コミュニティです。Google.org は Enable Community Foundation と協力し、義手をデザインしてより多くの子ども達に提供する e-NABLE コミュニティの活動を支援しています。"
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "チンパンジー"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy は、あらゆる地域のすべての人に世界水準の教育を無料で提供することを目的とした非営利団体です。Khan Academy は、「あらゆる年齢の学習者が無料の教育コンテンツを利用して、自分のペースで学習できるようにする」という信念を持っています。"
+	},
+	"nonprofit-khan-type": {
+		"message": "教育"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders は本拠地をパリに置く、有数の国際的非政府組織で、文化をベースとした発展を促すことを目的として 2007 年に設立されました。これまでに 300 館以上の図書館を世界中に設立してきました。"
+	},
+	"nonprofit-lwb-type": {
+		"message": "図書館"
+	},
 	"nonprofit-more-information": {
 		"message": "詳細については次の URL をご覧ください。"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "森林"
+	},
+	"nonprofit-pratham-description": {
+		"message": "全世界の約 40% の人は、自分が話したり理解したりできる言語で教育を受けることができません。StoryWeaver は、子どもの教育を補完する楽しい読み物を教育者や執筆者、翻訳者が制作できるよう支援して、この状況を変えたいと願っています。"
+	},
+	"nonprofit-pratham-type": {
+		"message": "読書"
 	},
 	"nonprofit-rnib-description": {
 		"message": "世界には視力を失った人が大勢いますが、中には少しは視力が残っている人もいます。Google.org は RNIB による特殊な眼鏡の開発を支援しています。この眼鏡は、視力の弱い人がものの形や輪郭を識別しやすくするためのもので、視力の弱った人々が自信や独立心を取り戻すお手伝いをします。"
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "オフラインです"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "オマーン"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android アプリ"
 	},
+	"scene_blimp": {
+		"message": "プレゼント補充"
+	},
 	"scene_boatload": {
 		"message": "Gift Slingshot"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "地図クイズ"
 	},
+	"scene_playground": {
+		"message": "北極の遊び場"
+	},
+	"scene_postcard": {
+		"message": "雪の結晶を描こう"
+	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_rollercoaster": {
+		"message": "妖精のローラーコースター"
 	},
 	"scene_runner": {
 		"message": "トナカイ ランナー"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "プレゼントの季節"
 	},
+	"scene_streetview": {
+		"message": "ストリートビュー"
+	},
 	"scene_traditions": {
 		"message": "クリスマスの伝統"
 	},
 	"scene_translations": {
 		"message": "翻訳"
 	},
+	"scene_trivia": {
+		"message": "Trivia"
+	},
+	"scene_undersea": {
+		"message": "海底"
+	},
 	"scene_videoscene_carpool": {
 		"message": "妖精の乗り物"
+	},
+	"scene_videoscene_comroom": {
+		"message": "司令室"
+	},
+	"scene_videoscene_jingle": {
+		"message": "妖精のジングルベル"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "サンタさんの出発"
 	},
+	"scene_videoscene_office": {
+		"message": "オフィスでのいたずら"
+	},
+	"scene_videoscene_reload": {
+		"message": "プレゼント補充"
+	},
 	"scene_videoscene_santasback": {
 		"message": "サンタさんが帰ってきた"
+	},
+	"scene_videoscene_satellite": {
+		"message": "衛星"
+	},
+	"scene_videoscene_temptation": {
+		"message": "誘惑"
+	},
+	"scene_videoscene_tired": {
+		"message": "疲れたトナカイ"
+	},
+	"scene_videoscene_trailer": {
+		"message": "まだ休暇中"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "サンタはどこ？"
 	},
 	"scene_windtunnel": {
 		"message": "風のトンネル"

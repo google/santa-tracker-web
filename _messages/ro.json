@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Pentru o experiență optimă, blochează rotirea."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Profesori și elevi"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® este o organizație nonprofit dedicată extinderii accesului la informatică și creșterii nivelului de participare a femeilor și a studenților de culoare prost reprezentați. Viziunea Code.org® este ca fiecare elev, din fiecare școală, să aibă oportunitatea de a învăța informatică."
+	},
+	"nonprofit-code-type": {
+		"message": "Informatică"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Fondată în 2000 de un profesor de istorie din Bronx, organizația DonorsChoose.org a strâns peste 480 de milioane USD pentru sălile de curs din America. Profesorii apelează la DonorsChoose.org pentru a solicita materialele și experiențele necesare pentru elevii lor."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Săli de curs"
+	},
 	"nonprofit-enable-description": {
 		"message": "Potrivit CDC (Centrul pentru Prevenirea și Controlul Bolilor), 7 din 1.000 de oameni au diferențe la nivelul membrelor, iar protezele sunt costisitoare (până la 10.000 USD). Pentru copiii în creștere, costurile se acumulează rapid. e-Nable este o comunitate globală de oameni, care colaborează pentru a crea mâini imprimate 3D pentru copiii afectați. Google.org ajută Enable Community Foundation să sprijine comunitatea e-NABLE, pentru conceperea mai multor mâini și pentru creșterea numărului de copii care le pot primi."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Cimpanzei"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy este o organizație nonprofit cu misiunea de a oferi educație gratuită și de nivel înalt tuturor, pretutindeni în lume. Cei de la Khan Academy cred că studenții de orice vârstă ar trebui să aibă acces nelimitat la conținut educațional gratuit, pe care-l pot învăța în propriul ritm."
+	},
+	"nonprofit-khan-type": {
+		"message": "Educație"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Fondat în 2007, cu sediul central la Paris, Libraries Without Borders este un ONG internațional, lider în dezvoltarea bazată pe cultură. A construit peste 300 de biblioteci în jurul lumii."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Biblioteci"
+	},
 	"nonprofit-more-information": {
 		"message": "Pentru mai multe informații, accesează:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Păduri"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Aproape 40 % din membrii populației mondiale nu au acces la educație într-o limbă pe care o vorbesc sau o înțeleg. StoryWeaver speră să aducă o schimbare, ajutând cadrele didactice, scriitorii și traducătorii să creeze resurse de lectură voioase pentru copii."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lectură"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Numeroși oameni din jurul lumii și-au pierdut vederea, dar nu în întregime. Google.org ajută RNIB să dezvolte „ochelari inteligenți”, care să ajute oamenii cu probleme de vedere să vadă mai ușor forme și siluete. Ochelarii inteligenți fac lumea mai vizibilă, ajutând oamenii să-și recapete independența și încrederea."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Ești offline"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Aplicație Android"
 	},
+	"scene_blimp": {
+		"message": "Reîncărcarea cadourilor"
+	},
 	"scene_boatload": {
 		"message": "Praștia pentru cadouri"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Test la geografie"
 	},
+	"scene_playground": {
+		"message": "Teren de joacă în Polul Nord"
+	},
+	"scene_postcard": {
+		"message": "Scrie codul unui fulg de zăpadă"
+	},
 	"scene_presentbounce": {
 		"message": "Cadouri săltărețe"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Cursa lui Rudolph"
+	},
+	"scene_rollercoaster": {
+		"message": "Elfi în parcul de distracții"
 	},
 	"scene_runner": {
 		"message": "Aleargă cu renii"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Anotimpul cadourilor"
 	},
+	"scene_streetview": {
+		"message": "Vedere în stradă"
+	},
 	"scene_traditions": {
 		"message": "Tradiții de sărbători"
 	},
 	"scene_translations": {
 		"message": "Traduceri"
 	},
+	"scene_trivia": {
+		"message": "Cultură generală"
+	},
+	"scene_undersea": {
+		"message": "Sub nivelul mării"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Câți elfi încap într-o mașină?"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Camera de control"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Elfi petrecăreți"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Plecarea lui Moș Crăciun"
 	},
+	"scene_videoscene_office": {
+		"message": "Farsă în birou"
+	},
+	"scene_videoscene_reload": {
+		"message": "Reîncărcarea cadourilor"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Moș Crăciun s-a întors"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Tentație"
+	},
+	"scene_videoscene_tired": {
+		"message": "Ren obosit"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Încă în vacanță"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Unde este Moș Crăciun?"
 	},
 	"scene_windtunnel": {
 		"message": "Tunel de vânt"

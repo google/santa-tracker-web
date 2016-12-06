@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Käyttö on helpointa, kun estät näytön kääntymisen."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Opettajat ja oppilaat"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® on voittoa tavoittelematon järjestö, joka edistää naisten ja aliedustettujen värillisten oppilaiden osallistumista tietojenkäsittelytieteen opintoihin. Code.orgin® tavoite on, että jokaisella oppilaalla, kaikissa kouluissa, on mahdollisuus opetella tietojenkäsittelyä."
+	},
+	"nonprofit-code-type": {
+		"message": "Tietojenkäsittelytiede"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Bronxilaisen historianopettajan vuonna 2000 perustama DonorsChoose.org on kerännyt jo yli 480 miljoonaa dollaria varoja luokkaopetuksen kehittämiseksi Yhdysvalloissa. Opettajat voivat pyytää DonorsChoose.orgilta materiaaleja ja vinkkejä luokkaopetuksen tueksi."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Luokkaopetus"
+	},
 	"nonprofit-enable-description": {
 		"message": "Yhdysvaltain CDC-keskuksen mukaan 0,7 prosenttia ihmisistä kärsii raajojen eroavaisuuksista. Raajaproteesit ovat melko kalliita ja voivat maksaa jopa 10 000 $, joten kasvavien lasten proteesikustannukset kasvavat nopeasti hyvin korkeiksi. e-Nable on globaali yhteisö, jonka jäsenet valmistavat 3D-tulostettuja käsiproteeseja niitä tarvitseville lapsille. Google.org tukee e-NABLE Communitya yhdessä Enable Community Foundationin kanssa, jotta yhä useampi lapsi saisi uuden käden."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Simpanssi"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy on voittoa tavoittelematon järjestö, joka pyrkii tarjoamaan ensiluokkaista maksutonta koulutusta kaikille sijainnista riippumatta. Khan Academyn mielestä kaikenikäisillä opiskelijoilla tulisi olla rajoittamattomasti käytössä koulutussisältöä, johon he voivat perehtyä omaan tahtiin."
+	},
+	"nonprofit-khan-type": {
+		"message": "Koulutus"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders on johtava kansainvälinen kansalaisjärjestö. Pariisissa päämajaansa pitävän järjestön kulttuurityö sai alkunsa vuonna 2007, ja tähän mennessä se on rakennuttanut ympäri maailmaa jo yli 300 kirjastoa."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Kirjastot"
+	},
 	"nonprofit-more-information": {
 		"message": "Lisätietoja:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Metsät"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Lähes 40 % maailman väestöstä ei voi saada koulutusta äidinkielellään tai muulla ymmärtämällään kielellä. StoryWeaver ajaa muutosta auttamalla kouluttajia, kirjoittajia ja kääntäjiä luomaan hauskaa opetuksen tukisisältöä lapsille."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lukeminen"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Maailmassa on paljon näkövammaisia ihmisiä, jotka eivät kuitenkaan ole täysin sokeita. Google.org kehittää yhdessä RNIB:n kanssa älylaseja, joiden avulla heikkonäköiset ihmiset erottavat paremmin muotoja ja ääriviivoja. Älylasit antavat heikkonäköisille ihmisille lisää itsenäisyyttä ja itsevarmuutta."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Olet offline-tilassa."
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android-sovellus"
 	},
+	"scene_blimp": {
+		"message": "Lahjalataus"
+	},
 	"scene_boatload": {
 		"message": "Lahjalinko"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Karttavisa"
 	},
+	"scene_playground": {
+		"message": "Korvatunturin leikkikenttä"
+	},
+	"scene_postcard": {
+		"message": "Koodaa lumihiutale"
+	},
 	"scene_presentbounce": {
 		"message": "Pomppivat paketit"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Petterin kilpa-ajo"
+	},
+	"scene_rollercoaster": {
+		"message": "Tonttuvuoristorata"
 	},
 	"scene_runner": {
 		"message": "Porojuoksu"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Antamisen aika"
 	},
+	"scene_streetview": {
+		"message": "Katunäkymä"
+	},
 	"scene_traditions": {
 		"message": "Lomaperinteet"
 	},
 	"scene_translations": {
 		"message": "Käännökset"
 	},
+	"scene_trivia": {
+		"message": "Tietovisa"
+	},
+	"scene_undersea": {
+		"message": "Merenalainen"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Tonttuvaunu"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Komentokeskus"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Tonttubileet"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Pukin lähtö"
 	},
+	"scene_videoscene_office": {
+		"message": "Toimistojekku"
+	},
+	"scene_videoscene_reload": {
+		"message": "Lahjalataus"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Pukki on palannut"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelliitti"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Houkutus"
+	},
+	"scene_videoscene_tired": {
+		"message": "Väsynyt poro"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Lomaileva pukki"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Missä pukki luuraa?"
 	},
 	"scene_windtunnel": {
 		"message": "Tuulitunneli"

@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Lås rotasjonen for å gjøre opplevelsen best mulig."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Lærere og studenter"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® er en veldedig organisasjon som jobber for å utvide informatikkfeltet og øke deltakelsen av kvinner og studenter fra underrepresenterte minoriteter. Visjonen til Code.org® er at alle studenter på alle skoler skal ha muligheten til å lære om informatikk."
+	},
+	"nonprofit-code-type": {
+		"message": "Informatikk"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org ble opprettet i år 2000 av en historielærer fra Bronx og har samlet inn over 480 millioner dollar til skoleprosjekter i USA. Lærere bruker DonorsChoose.org til å samle inn penger til undervisningsmateriell og utstyr."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klasserom"
+	},
 	"nonprofit-enable-description": {
 		"message": "Ifølge CDC har 7 av 1000 personer lemmer som mangler helt eller delvis, og proteser er dyrt. En protese kan koste opptil USD 10 000. For barn som vokser, kan dette fort bli dyrt. e-Nable er et globalt fellesskap som jobber sammen for å lage 3D-printede hender til barn med slike problemer. Google.org hjelper Enable Community Foundation ved å støtte e-NABLE, slik at de kan designe flere hender og hjelpe flere barn."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Sjimpanse"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy er en veldedig organisasjon som jobber for å kunne tilby gratis utdannelse av høyeste kvalitet til alle i hele verden. Khan Academy mener at alle personer i alle aldre skal ha ubegrenset tilgang til gratis opplæringsmateriell, som man kan jobbe med i sitt eget tempo."
+	},
+	"nonprofit-khan-type": {
+		"message": "Utdanning"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders er en ledende, internasjonal ikke-statlig organisasjon innen kulturbasert utvikling. Organisasjonen ble opprettet i 2007 og har hovedkontor i Paris. Libraries Without Borders har bygget mer enn 300 biblioteker over hele verden."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Biblioteker"
+	},
 	"nonprofit-more-information": {
 		"message": "Hvis du vil ha mer informasjon, gå til:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Skoger"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Nærmere 40 % av verdens befolkning har ikke tilgang til opplæringsmateriell på et språk de snakker eller forstår. Målet med StoryWeaver er å endre dette ved å hjelpe lærere, skribenter og oversettere med å lage gode, supplerende leseressurser for barn."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lesing"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Det er mange som lever med redusert syn uten å ha mistet synet fullstendig. Google.org hjelper RNIB med å utvikle «smartbriller», som skal gjøre det enklere for svaksynte å se former og silhuetter. Smartbriller kan gjøre det enklere å se verden og gi folk selvstendigheten og selvtilliten tilbake."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Du er uten nett"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android-app"
 	},
+	"scene_blimp": {
+		"message": "Gavepåfyll"
+	},
 	"scene_boatload": {
 		"message": "Gavesprettert"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kartquiz"
 	},
+	"scene_playground": {
+		"message": "Nordpolens lekeplass"
+	},
+	"scene_postcard": {
+		"message": "Snøfnuggkoding"
+	},
 	"scene_presentbounce": {
 		"message": "Gavesprett"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolf-løpet"
+	},
+	"scene_rollercoaster": {
+		"message": "Alv-og-dal-bane"
 	},
 	"scene_runner": {
 		"message": "Gavegalopp"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "En tid for å gi"
 	},
+	"scene_streetview": {
+		"message": "Gatevisning"
+	},
 	"scene_traditions": {
 		"message": "Juletradisjoner"
 	},
 	"scene_translations": {
 		"message": "Oversettelser"
 	},
+	"scene_trivia": {
+		"message": "Quiz"
+	},
+	"scene_undersea": {
+		"message": "Under vann"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Alvebil"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Kontrollrom"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Alvesang"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Julenissens avgang"
 	},
+	"scene_videoscene_office": {
+		"message": "Alvestreker"
+	},
+	"scene_videoscene_reload": {
+		"message": "Gavepåfyll"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Julenissen er tilbake"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellitt"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Fartsfristelser"
+	},
+	"scene_videoscene_tired": {
+		"message": "Slitent reinsdyr"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Ferien fortsetter"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Finn julenissen"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnelen"

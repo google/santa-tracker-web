@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "ศรีลังกา"
 	},
+	"lock_orientation": {
+		"message": "ล็อกการวางแนวหน้าจอเพื่อให้ได้รับประสบการณ์ที่ดีที่สุด"
+	},
 	"lr_country_name": {
 		"message": "ไลบีเรีย"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "ครูและนักเรียน"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® คือองค์กรการกุศลที่มุ่งมั่นในการขยายการเข้าถึงวิทยาศาสตร์คอมพิวเตอร์และเพิ่มการมีส่วนร่วมของผู้หญิงและนักเรียนที่ด้อยโอกาส วิสัยทัศน์ของ Code.org® มีอยู่ว่านักเรียนในทุกๆ โรงเรียนควรมีโอกาสในการเรียนรู้วิทยาศาสตร์คอมพิวเตอร์"
+	},
+	"nonprofit-code-type": {
+		"message": "วิทยาศาสตร์คอมพิวเตอร์"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org ก่อตั้งขึ้นในปี 2000 โดยครูสอนประวัติศาสตร์ในย่านบรอนซ์ ซึ่งสามารถระดมทุนได้กว่า 480 ล้านดอลลาร์สหรัฐฯ สำหรับห้องเรียนในอเมริกา ครูหลายๆ คนจะมาที่ DonorsChoose.org เพื่อขอรับสื่อการสอนและประสบการณ์ที่ต้องการใช้ในห้องเรียนของตนเอง"
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "ห้องเรียน"
+	},
 	"nonprofit-enable-description": {
 		"message": "ข้อมูลจาก CDC พบว่าในประชากร 1000 คนจะมีผู้ประสบปัญหาแขนขาพิการถึง 7 คน แต่แขนขาเทียมนั้นมีราคาสูงถึง 10,000 เหรียญสหรัฐ! สำหรับเด็กๆ ที่กำลังโต ค่าใช้จ่ายด้านแขนขาเทียมก็จะโตตามอย่างรวดเร็วด้วย e-Nable คือชุมชนของผู้คนจากทั่วโลกที่มาทำงานร่วมกันในการสร้างมือเทียมแบบพิมพ์ 3D สำหรับเด็กๆ ที่มีมือและแขนผิดปกติ Google.org กำลังให้ความช่วยเหลือ Enable Community Foundation ในการสนับสนุนชุมชน e-NABLE เรื่องการออกแบบมือเทียมเพิ่มขึ้นและช่วยให้มีเด็กๆ ที่ได้รับมือเทียมเพิ่มมากขึ้น"
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "ชิมแพนซี"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy คือองค์กรการกุศลซึ่งมีพันธกิจในการให้การศึกษาระดับโลกฟรีสำหรับทุกคนและจากทุกที่ Khan Academy เชื่อมั่นว่าผู้เรียนในทุกช่วงอายุควรมีสิทธิ์เข้าถึงเนื้อหาด้านการศึกษาฟรีที่ตนเองสามารถเรียนรู้ได้ตามเวลาที่สะดวก"
+	},
+	"nonprofit-khan-type": {
+		"message": "การศึกษา"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders คือองค์กรพัฒนาเอกชนชั้นนำระดับนานาชาติซึ่งก่อตั้งขึ้นในปี 2007 เพื่อการพัฒนาจากรากฐานวัฒนธรรม โดยมีสำนักงานใหญ่อยู่ที่ปารีส Libraries Without Borders ได้สร้างห้องสมุดมาแล้วกว่า 300 แห่งทั่วโลก"
+	},
+	"nonprofit-lwb-type": {
+		"message": "ห้องสมุด"
+	},
 	"nonprofit-more-information": {
 		"message": "สำหรับข้อมูลเพิ่มเติม โปรดไปที่"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "ป่าไม้"
+	},
+	"nonprofit-pratham-description": {
+		"message": "ประชากรทั่วโลกเกือบ 40% ไม่สามารถเข้าถึงการศึกษาในภาษาท้องถิ่นหรือภาษาที่ตนเองเข้าใจ StoryWeaver จึงมุ่งมั่นที่จะเปลี่ยนแปลงสถานการณ์เหล่านั้นโดยการให้ความช่วยเหลือแก่นักการศึกษา นักเขียน และนักแปลในการสร้างทรัพยากรที่สนุกสนานเพลิดเพลินและช่วยส่งเสริมการอ่าน"
+	},
+	"nonprofit-pratham-type": {
+		"message": "การอ่าน"
 	},
 	"nonprofit-rnib-description": {
 		"message": "ผู้คนจำนวนมากบนโลกดำเนินชีวิตไปพร้อมกับการสูญเสียการมองเห็นบางส่วน Google.org กำลงร่วมมือกับ RNIB ในการพัฒนา 'smart glasses' ที่จะช่วยให้ผู้มีอาการสายตาเลือนราง (low vision) มองเห็นรูปร่างและโครงร่างได้ง่ายขึ้น Smart glasses ช่วยให้มองเห็นโลกได้ง่ายขึ้นซึ่งจะช่วยฟื้นฟูความมั่นใจและความสามารถในการพึ่งตนเองให้กับผู้ประสบปัญหาด้านการมองเห็นได้"
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "คุณออฟไลน์อยู่"
+	},
+	"okay": {
+		"message": "ตกลง"
 	},
 	"om_country_name": {
 		"message": "โอมาน"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "แอป Android"
 	},
+	"scene_blimp": {
+		"message": "โหลดของขวัญอีกครั้ง"
+	},
 	"scene_boatload": {
 		"message": "โยนของขวัญด้วยหนังสติ๊ก"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "คำถามเกี่ยวกับแผนที่"
 	},
+	"scene_playground": {
+		"message": "สนามเด็กเล่นขั้วโลกเหนือ"
+	},
+	"scene_postcard": {
+		"message": "สร้างเกล็ดหิมะ"
+	},
 	"scene_presentbounce": {
 		"message": "โยนของขวัญ"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "รูดอล์ฟนักวิ่งแข่ง"
+	},
+	"scene_rollercoaster": {
+		"message": "รถไฟเหาะเอลฟ์"
 	},
 	"scene_runner": {
 		"message": "นักวิ่งเรนเดียร์"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "เทศกาลแห่งการให้"
 	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
 	"scene_traditions": {
 		"message": "ประเพณีวันหยุด"
 	},
 	"scene_translations": {
 		"message": "การแปล"
 	},
+	"scene_trivia": {
+		"message": "เบ็ดเตล็ด"
+	},
+	"scene_undersea": {
+		"message": "ใต้ทะเล"
+	},
 	"scene_videoscene_carpool": {
 		"message": "รถของเอลฟ์"
+	},
+	"scene_videoscene_comroom": {
+		"message": "ห้องควบคุม"
+	},
+	"scene_videoscene_jingle": {
+		"message": "จิงเกิ้ลเอลฟ์"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "ซานต้าจะออกเดินทางแล้ว"
 	},
+	"scene_videoscene_office": {
+		"message": "Office Prank"
+	},
+	"scene_videoscene_reload": {
+		"message": "โหลดของขวัญอีกครั้ง"
+	},
 	"scene_videoscene_santasback": {
 		"message": "ซานต้ากลับมาแล้ว"
+	},
+	"scene_videoscene_satellite": {
+		"message": "ดาวเทียม"
+	},
+	"scene_videoscene_temptation": {
+		"message": "สิ่งล่อใจ"
+	},
+	"scene_videoscene_tired": {
+		"message": "กวางเรนเดียร์เหนื่อยแล้ว"
+	},
+	"scene_videoscene_trailer": {
+		"message": "ยังคงลาพักร้อนอยู่"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "ซานต้าอยู่ที่ไหน"
 	},
 	"scene_windtunnel": {
 		"message": "อุโมงค์ลม"

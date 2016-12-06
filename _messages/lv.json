@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Šrilanka"
 	},
+	"lock_orientation": {
+		"message": "Bloķējiet ekrāna rotāciju, lai gūtu vislabāko pieredzi."
+	},
 	"lr_country_name": {
 		"message": "Libērija"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Skolotāji un skolēni"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® ir bezpeļņas organizācija, kas vēlas paplašināt piekļuvi datorzinātnei un palielināt sieviešu un mazāk pārstāvēto etnisko minoritāšu skolnieku dalību tajā. Atbilstoši organizācijas Code.org® vīzijai katram skolniekam katrā skolā ir jābūt iespējai apgūt datorzinātni."
+	},
+	"nonprofit-code-type": {
+		"message": "Datorzinātne"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Organizācija DonorsChoose.org, kuru 2000. gadā dibināja vēstures skolotājs no Bronksas, ir ziedojumos savākusi vairāk nekā 480 miljonus ASV dolāru, kas paredzēti mācību klasēm Amerikas Savienotajās Valstīs. Skolotāji apmeklē organizāciju DonorsChoose.org, lai pieprasītu materiālus un apmācību, kas viņiem nepieciešami darbam mācību klasēs."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Mācību klases"
+	},
 	"nonprofit-enable-description": {
 		"message": "Saskaņā ar organizācijas CDC datiem 7 no 1000 cilvēkiem ir locekļu deformācijas. Protēzes ir dārgas — tās var maksāt līdz pat 10 000 ASV dolāru. Augošiem bērniem izmaksas var pieaugt vēl vairāk. Organizācija e-Nable ir globāla kopiena ar cilvēkiem, kuri sadarbojas, lai, izmantojot 3D printerus, veidotu roku protēzes bērniem ar locekļu deformācijām. Google.org palīdz fondam Enable Community Foundation atbalstīt e-NABLE kopienu, lai izveidotu vairāk roku protēžu bērniem un palielinātu to bērnu skaitu, kuri var saņemt roku protēzes."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Šimpanze"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy ir bezpeļņas organizācija, kuras misija ir nodrošināt bezmaksas, pasaules līmeņa izglītību ikvienam cilvēkam jebkurā vietā. Organizācijā Khan Academy uzskata, ka visu vecumu skolēniem ir jābūt neierobežotai piekļuvei bezmaksas mācību saturam, ko viņi var apgūt sev piemērotā tempā."
+	},
+	"nonprofit-khan-type": {
+		"message": "Izglītība"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders ir vadošā starptautiskā bezpeļņas organizācija, kas darbojas uz kultūras vērtībām balstītas attīstības jomā; tā tika dibināta 2007. gadā, un tās galvenais birojs atrodas Parīzē. Šī organizācija ir izveidojusi vairāk nekā 300 bibliotēku visā pasaulē."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotēkas"
+	},
 	"nonprofit-more-information": {
 		"message": "Papildinformācija atrodama šajā vietnē:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Meži"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Gandrīz 40% pasaules iedzīvotāju nav piekļuves izglītībai valodā, kurā viņi runā vai kuru saprot. Organizācija StoryWeaver vēlas to mainīt, palīdzot pedagogiem, autoriem un tulkotājiem veidot jautrus papildu lasīšanas resursus bērniem."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lasīšana"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Pasaulē ir daudz cilvēku, kuri ir daļēji zaudējuši redzi. Google.org palīdz organizācijai RNIB izstrādāt viedās brilles, lai palīdzētu cilvēkiem ar vāju redzi vieglāk saskatīt dažādas formas un siluetus. Viedās brilles var atvieglot apkārtējās pasaules redzēšanu, palīdzot cilvēkiem atgūt neatkarību un pārliecību par sevi."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Jūs esat bezsaistē"
+	},
+	"okay": {
+		"message": "Labi"
 	},
 	"om_country_name": {
 		"message": "Omāna"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android lietotne"
 	},
+	"scene_blimp": {
+		"message": "Dāvanu iekraušana"
+	},
 	"scene_boatload": {
 		"message": "Dāvanu katapulta"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kartes viktorīna"
 	},
+	"scene_playground": {
+		"message": "Ziemeļpola rotaļlaukums"
+	},
+	"scene_postcard": {
+		"message": "Sniegpārsliņas izveide ar kodu"
+	},
 	"scene_presentbounce": {
 		"message": "Dāvanu mētāšana"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Ziemeļbrieža Rūdolfa brauciens"
+	},
+	"scene_rollercoaster": {
+		"message": "Rūķīšu amerikāņu kalniņi"
 	},
 	"scene_runner": {
 		"message": "Ziemeļbrieža skrējiens"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Dāvināšanas sezona"
 	},
+	"scene_streetview": {
+		"message": "Ielas attēls"
+	},
 	"scene_traditions": {
 		"message": "Svētku tradīcijas"
 	},
 	"scene_translations": {
 		"message": "Tulkojumi"
 	},
+	"scene_trivia": {
+		"message": "Viktorīnas"
+	},
+	"scene_undersea": {
+		"message": "Zem ūdens"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Elfu vagoniņš"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Vadības telpa"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Rūķīšu ballīte"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Ziemassvētku vecīša pacelšanās"
 	},
+	"scene_videoscene_office": {
+		"message": "Izjokošana birojā"
+	},
+	"scene_videoscene_reload": {
+		"message": "Dāvanu iekraušana"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Ziemassvētku vecītis ir atgriezies"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelīts"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Kārdinājums"
+	},
+	"scene_videoscene_tired": {
+		"message": "Nogurušais ziemeļbriedis"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Joprojām atvaļinājumā"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Kur ir Ziemassvētku vecītis?"
 	},
 	"scene_windtunnel": {
 		"message": "Vēja tunelis"

@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "斯里兰卡"
 	},
+	"lock_orientation": {
+		"message": "请锁定屏幕方向，获享最理想的体验。"
+	},
 	"lr_country_name": {
 		"message": "利比里亚"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "教师和学生"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® 是一家公益组织，一直致力于普及计算机科学，希望让更多女性以及有色人种中的弱势群体学生接受计算机科学教育。Code.org® 的愿景是让每一所学校的每一位学生都有机会学习计算机科学。"
+	},
+	"nonprofit-code-type": {
+		"message": "计算机科学"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org 是布朗克斯的一位历史老师在 2000 年建立的，已经募集了超过 4.8 亿美元的资金用于美国学校的课堂教育。教师们可根据课堂教学上需要的材料和要为学生提供的体验，在 DonorsChoose.org 上发出捐助请求。"
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "课堂"
+	},
 	"nonprofit-enable-description": {
 		"message": "CDC 调查结果显示，每 1000 人中就有 7 人有肢体残疾，而安装假肢的费用往往极为高昂，最高可达 1 万美元！发育期的孩子随着身体的成长必须不断更换假肢，长期积累下来无疑是一笔沉重的经济负担。e-Nable 是一个全球性社区，社区成员专门为上肢有残疾的孩子提供 3D 打印假手。Google.org 携手 Enable Community Foundation 赞助 e-Nable 社区设计更多假手，让更多上肢有残疾的孩子能够受益。"
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "黑猩猩"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy 是一家公益组织，致力于向全球所有人免费提供一流的教育。Khan Academy 认为学习者不分年龄大小，都应有权利获得免费教育，并能按照自己的节奏进行学习。"
+	},
+	"nonprofit-khan-type": {
+		"message": "教育"
+	},
+	"nonprofit-lwb-description": {
+		"message": "成立于 2007 年的 Libraries Without Borders 是一家国际上非常有影响力的公益组织，致力于以文化带动发展，总部位于巴黎。该组织已经在全球建设了 300 多所图书馆。"
+	},
+	"nonprofit-lwb-type": {
+		"message": "图书馆"
+	},
 	"nonprofit-more-information": {
 		"message": "如需更多信息，请访问："
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "森林"
+	},
+	"nonprofit-pratham-description": {
+		"message": "全世界有将近 40% 的人口无法以母语或能理解的语言接受教育。StoryWeaver 希望通过帮助教育工作者、作家和翻译工作者为儿童创作有趣的课外阅读材料，改变这一现状。"
+	},
+	"nonprofit-pratham-type": {
+		"message": "阅读"
 	},
 	"nonprofit-rnib-description": {
 		"message": "许多视力有障碍的人士并非完全失明，很多人仍有残存视力。为了帮助这些低视力人士更易看清外界物体的形状和轮廓，Google.org 正在协助 RNIB 开发“智能眼镜”，让低视力人士更容易地看清周边的环境，增强他们独立生活的能力和信心。"
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "您没有联网"
+	},
+	"okay": {
+		"message": "确定"
 	},
 	"om_country_name": {
 		"message": "阿曼"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android 应用"
 	},
+	"scene_blimp": {
+		"message": "礼物补给"
+	},
 	"scene_boatload": {
 		"message": "礼物弹珠"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "地图测验"
 	},
+	"scene_playground": {
+		"message": "北极游乐场"
+	},
+	"scene_postcard": {
+		"message": "用代码设计雪花"
+	},
 	"scene_presentbounce": {
 		"message": "礼物弹球"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "驯鹿狂飙"
+	},
+	"scene_rollercoaster": {
+		"message": "精灵过山车"
 	},
 	"scene_runner": {
 		"message": "驯鹿快跑，礼在前方"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "礼物漫天飞"
 	},
+	"scene_streetview": {
+		"message": "街景"
+	},
 	"scene_traditions": {
 		"message": "节日传统"
 	},
 	"scene_translations": {
 		"message": "翻译"
 	},
+	"scene_trivia": {
+		"message": "益智问答"
+	},
+	"scene_undersea": {
+		"message": "海底礼物派送"
+	},
 	"scene_videoscene_carpool": {
 		"message": "精灵车"
+	},
+	"scene_videoscene_comroom": {
+		"message": "控制室"
+	},
+	"scene_videoscene_jingle": {
+		"message": "叮当小精灵"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "圣诞老人出发"
 	},
+	"scene_videoscene_office": {
+		"message": "办公室恶作剧"
+	},
+	"scene_videoscene_reload": {
+		"message": "礼物补给"
+	},
 	"scene_videoscene_santasback": {
 		"message": "圣诞老人回归"
+	},
+	"scene_videoscene_satellite": {
+		"message": "卫星"
+	},
+	"scene_videoscene_temptation": {
+		"message": "诱惑"
+	},
+	"scene_videoscene_tired": {
+		"message": "驯鹿累了"
+	},
+	"scene_videoscene_trailer": {
+		"message": "圣诞老人还在度假中"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "圣诞老人在哪里？"
 	},
 	"scene_windtunnel": {
 		"message": "风洞"

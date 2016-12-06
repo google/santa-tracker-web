@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Blocca la rotazione per un'esperienza ottimale."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Insegnanti e studenti"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® è un'organizzazione non profit che ha lo scopo di ampliare la divulgazione dell'informatica e aumentare la partecipazione delle donne e delle minoranze meno rappresentate. Secondo la filosofia di Code.org®, tutti gli studenti di tutte le scuole dovrebbero avere l'opportunità di studiare informatica."
+	},
+	"nonprofit-code-type": {
+		"message": "Informatica"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Fondata nel 2000 da un'insegnante di storia del Bronx, DonorsChoose.org ha raccolto più di 480 milioni di dollari USA destinati alle aule dell'intero territorio nazionale. Gli insegnanti si rivolgono a DonorsChoose.org per richiedere i materiali e le competenze necessari per le loro aule."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Aule"
+	},
 	"nonprofit-enable-description": {
 		"message": "Secondo il CDC, 7 persone su 1000 soffrono di malformazioni agli arti e le protesi costano molto, fino a $ 10.000. Per i bambini nell'età della crescita, i costi possono aumentare rapidamente. e-Nable è un'organizzazione globale composta da persone che collaborano alla progettazione di mani artificiali tramite la stampa 3D per i bambini affetti da malformazioni agli arti. Google.org è al fianco della Enable Community Foundation per sostenere la e-NABLE Community nella progettazione di mani artificiali per il maggior numero possibile di bambini."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Scimpanzé"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy è un'organizzazione non profit che mira a fornire istruzione gratuita a livello mondiale a chiunque. Khan Academy ritiene che gli studenti di tutte le età dovrebbero avere accesso a contenuti educativi alla loro portata, ognuno con i propri ritmi."
+	},
+	"nonprofit-khan-type": {
+		"message": "Educazione"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders è una ONG leader a livello mondiale per lo sviluppo culturale fondata nel 2007. L'organizzazione, con sede a Parigi, ha costruito più di 300 biblioteche in tutto il mondo."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Librerie"
+	},
 	"nonprofit-more-information": {
 		"message": "Per ulteriori informazioni visita:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Foreste"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Quasi il 40% della popolazione globale non ha accesso all'istruzione in una lingua che parla o che comprende. StoryWeaver spera di cambiare questa situazione aiutando gli educatori, gli scrittori e i traduttori a creare testi aggiuntivi che i bambini possano leggere con piacere."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lettura"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Gli ipovedenti sono molto numerosi in tutto il mondo. Google.org collabora con RNIB allo sviluppo degli \"occhiali intelligenti\" per aiutare le persone affette da ipovisione a distinguere più facilmente le forme e le sagome. Gli occhiali intelligenti, oltre a migliorare la vista, permettono alle persone di guadagnare di nuovo la propria indipendenza e la fiducia in sé stessi."
@@ -918,7 +951,7 @@
 		"message": "Apparecchi acustici"
 	},
 	"notice_cookies": {
-		"message": "Google si serve dei cookie per analizzare il traffico verso questo sito e per ottimizzare la tua esperienza. I dati relativi al tuo utilizzo del nostro sito vengono condivisi con Google a tale scopo."
+		"message": "Google si serve dei cookie per analizzare il traffico verso questo sito e per ottimizzare la tua esperienza d'uso. I dati relativi al tuo utilizzo del nostro sito vengono condivisi con Google a tale scopo."
 	},
 	"notice_cookies_details": {
 		"message": "Vedi dettagli"
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Sei offline"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "App Android"
 	},
+	"scene_blimp": {
+		"message": "Ricarica i regali"
+	},
 	"scene_boatload": {
 		"message": "Fionda dei regali"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Quiz sulla mappa"
 	},
+	"scene_playground": {
+		"message": "Parco giochi al Polo Nord"
+	},
+	"scene_postcard": {
+		"message": "Codifica un bigliettino natalizio"
+	},
 	"scene_presentbounce": {
 		"message": "Palleggia con il regalo"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "La corsa di Rudolph"
+	},
+	"scene_rollercoaster": {
+		"message": "Le montagne russe dei folletti"
 	},
 	"scene_runner": {
 		"message": "La corsa delle renne"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "La stagione dei regali"
 	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
 	"scene_traditions": {
 		"message": "Tradizioni natalizie"
 	},
 	"scene_translations": {
 		"message": "Traduzioni"
 	},
+	"scene_trivia": {
+		"message": "Cultura generale"
+	},
+	"scene_undersea": {
+		"message": "Subacqueo"
+	},
 	"scene_videoscene_carpool": {
 		"message": "L'auto del folletto"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Sala comandi"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Jingle elfi"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Il decollo di Babbo Natale"
 	},
+	"scene_videoscene_office": {
+		"message": "Scherzo in ufficio"
+	},
+	"scene_videoscene_reload": {
+		"message": "Ricarica i regali"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Babbo Natale è tornato"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellite"
+	},
+	"scene_videoscene_temptation": {
+		"message": "La tentazione"
+	},
+	"scene_videoscene_tired": {
+		"message": "La renna stanca"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Ancora in vacanza"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Dov'è Babbo Natale?"
 	},
 	"scene_windtunnel": {
 		"message": "Galleria del vento"

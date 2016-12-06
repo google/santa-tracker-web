@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Få den bedste oplevelse ved at låse rotationen."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Lærere og elever"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® er en nonprofitorganisation, der arbejder på at udvide adgangen til computervidenskab og øge andelen af kvinder og underrepræsenterede farvede elever inden for dette område. Code.org® har en vision om, at alle elever i alle skoler skal have mulighed for at blive undervist i computervidenskab."
+	},
+	"nonprofit-code-type": {
+		"message": "Computervidenskab"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org blev grundlagt af en historielærer fra Bronx og har indsamlet mere end 480 millioner dollars til undervisning i USA. Lærerne henvender sig til DonorsChoose.org for at anmode om de materialer og oplevelser, som de skal bruge i deres undervisning."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klasseværelser"
+	},
 	"nonprofit-enable-description": {
 		"message": "Ifølge CDC har 7 ud af 1000 mennesker misdannede eller manglende lemmer, og proteser er dyre – de kan koste op til 68.000 DKK! Udgifterne kan således hurtigt eskalere for børn i voksealderen. e-Nable er et globalt fællesskab af mennesker, som arbejder sammen om at lave 3D-printede hænder til børn med misdannede eller manglende lemmer. Google.org hjælper Enable Community Foundation med at støtte e-NABLE Community i udviklingen af hænder, så flere børn kan få hænder."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Chimpanse"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy er en nonprofitorganisation, hvis mission er at give alle mulighed for at få gratis undervisning i verdensklasse, uanset hvor de befinder sig. Khan Academy mener, at alle elever uanset alder skal have ubegrænset adgang til gratis undervisningsmateriale, som de kan arbejde med i deres eget tempo."
+	},
+	"nonprofit-khan-type": {
+		"message": "Uddannelse"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders, der blev grundlagt i 2007 og har sit hovedkvarter i Paris, er en førende international NGO inden for kulturbaseret udvikling. De har bygget mere end 300 biblioteker over hele verden."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Biblioteker"
+	},
 	"nonprofit-more-information": {
 		"message": "Du kan få flere oplysninger her:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Skove"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Næsten 40 % af verdens befolkning har ikke adgang til uddannelse på et sprog, som de taler eller forstår. StoryWeaver vil gerne ændre dette ved at hjælpe undervisere, forfattere og oversættere med at skabe supplerende læsemateriale for børn, som er sjovt at bruge."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Bøger"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Der er mange mennesker i verden, som lever med synstab, men stadig har en del af deres syn tilbage. Google.org hjælper RNIB med at udvikle \"smart glasses\", som kan hjælpe mennesker, der har nedsat syn, med nemmere at se former og silhuetter. Smart glasses kan gøre det nemmere at se verden og dermed give mennesker deres uafhængighed og selvtillid tilbage."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Du er offline"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android-app"
 	},
+	"scene_blimp": {
+		"message": "Et nyt læs gaver"
+	},
 	"scene_boatload": {
 		"message": "Slangebøsse med gaver"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kortquiz"
 	},
+	"scene_playground": {
+		"message": "Legeplads på Nordpolen"
+	},
+	"scene_postcard": {
+		"message": "Lav et snefnug med kode"
+	},
 	"scene_presentbounce": {
 		"message": "Gaveregn"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Racer-Rudolf"
+	},
+	"scene_rollercoaster": {
+		"message": "Nissernes rutsjebane"
 	},
 	"scene_runner": {
 		"message": "Få fat i gaverne med Rudolf"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Årstiden for gaver"
 	},
+	"scene_streetview": {
+		"message": "Gadevisning"
+	},
 	"scene_traditions": {
 		"message": "Juletraditioner"
 	},
 	"scene_translations": {
 		"message": "Oversættelser"
 	},
+	"scene_trivia": {
+		"message": "Quiz"
+	},
+	"scene_undersea": {
+		"message": "Undersøisk"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Nissebil"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Kommandorum"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Til julebal i Nisseland"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Julemandens afgang"
 	},
+	"scene_videoscene_office": {
+		"message": "Spøg på kontoret"
+	},
+	"scene_videoscene_reload": {
+		"message": "Et nyt læs gaver"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Julemanden er tilbage"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellit"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Det er svært at modstå fristelsen"
+	},
+	"scene_videoscene_tired": {
+		"message": "Et træt rensdyr"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Han er stadig på ferie"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Hvor er julemanden?"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"

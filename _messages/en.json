@@ -764,9 +764,6 @@
 	"lightdescription": {
 		"message": "Light up your TV with the Santa Tracker Android app and Chromecast."
 	},
-	"lock_orientation": {
-        "message": "Lock rotation for best experience."
-    },
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
@@ -883,6 +880,15 @@
 	},
 	"nonprofit-enable-type": {
 		"message": "Prosthetic Limbs"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Pick an ornament with your favorite charity and start coloring!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Share your art with your family and friends!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Support the charity organizations that help keep our world beautiful and resourceful by coloring this collection of ornaments. Then show your interest in these causes by hanging them on your Christmas tree or gifting them to your loved ones!"
 	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanzees are human being's closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviors as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore the Chimpanzee habitats\u003c/a\u003e in Gombe, Tanzania."
@@ -5146,6 +5152,21 @@
 	},
 	"watch": {
 		"message": "Watch"
+	},
+	"wrapbattle_combo": {
+		"message": "Sweet Combo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Good"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Miss"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "Okay"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfect"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

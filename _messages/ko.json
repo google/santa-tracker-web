@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "스리랑카"
 	},
+	"lock_orientation": {
+		"message": "원활하게 즐기시려면 회전을 잠그세요."
+	},
 	"lr_country_name": {
 		"message": "라이베리아"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "교사 및 학생"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org®는 컴퓨터 과학을 널리 보급하고 여성 및 소외된 유색인종 학생들의 참여를 넓히고자 조직된 비영리단체입니다. 모든 학교의 모든 학생에게 컴퓨터 과학을 배울 기회를 선사하는 것이 Code.org®의 비전입니다."
+	},
+	"nonprofit-code-type": {
+		"message": "컴퓨터 과학"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "브롱크스에서 학생들을 가르치는 역사 선생님이 2000년에 창립한 DonorsChoose.org는 미국의 교육 현장을 위해 4억8천만 달러 이상을 모금했습니다. 교사들은 DonorsChoose.org에서 교실에 필요한 각종 자료와 기자재를 신청할 수 있습니다."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "학습 현장"
+	},
 	"nonprofit-enable-description": {
 		"message": "CDC에 따르면 1,000명 중 7명이 팔다리 장애로 불편함을 겪고 있는데 의수와 의족은 10,000달러에 이를 정도로 고가입니다. 특히 성장기의 아동은 비용이 급격하게 늘어날 수 있습니다. e-NABLE은 손이 불편한 아동을 위해 3D 프린터로 의수를 만드는 글로벌 공동체입니다. Google.org는 Enable Community Foundation을 도와 e-NABLE 공동체에서 더 많은 의수를 설계하고 더 많은 아동에게 의수를 제공할 수 있도록 후원합니다."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "침팬지"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy는 어느 지역이든 누구에게나 세계적 수준의 교육을 무상으로 제공함을 사명으로 하는 비영리단체입니다. 배움을 목표로 하는 사람이라면 연령과 무관하게 스스로 진도를 맞출 수 있는 무료 교육 자료를 어떠한 제약도 없이 마음껏 이용할 수 있어야 한다는 것이 Khan Academy의 신념입니다."
+	},
+	"nonprofit-khan-type": {
+		"message": "교육"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders는 전 세계의 문화 발전을 위해 2007년에 창립된 국제 NGO로서 파리에 본부를 두고 있으며 지금까지 지구촌 곳곳에 300개 이상의 도서관을 세웠습니다."
+	},
+	"nonprofit-lwb-type": {
+		"message": "라이브러리"
+	},
 	"nonprofit-more-information": {
 		"message": "자세한 내용은 다음 페이지를 방문하세요."
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "삼림"
+	},
+	"nonprofit-pratham-description": {
+		"message": "세계 인구 중 40% 가까이가 모국어 또는 자신이 이해 가능한 언어로 교육을 받지 못하고 있습니다. StoryWeaver는 아이들이 즐겁게 읽을 수 있는 읽기 보충 교재를 교육자, 작가, 번역사들이 만들 수 있도록 지원하여 이러한 상황에 변화를 가져오고자 합니다."
+	},
+	"nonprofit-pratham-type": {
+		"message": "독서"
 	},
 	"nonprofit-rnib-description": {
 		"message": "세상에는 시력을 완전히 상실하는 경우도 있지만 시력이 일부 남아 있는 사람도 있습니다. Google.org가 후원하는 RNIB는 저시력 시각 장애인이 형체와 윤곽을 보다 쉽게 볼 수 있도록 도와주는 '스마트 안경'을 개발하고 있습니다. 스마트 안경은 저시력 시각 장애인의 시력을 보조하여 자립심과 자신감을 되찾게 해 줍니다."
@@ -918,7 +951,7 @@
 		"message": "청력"
 	},
 	"notice_cookies": {
-		"message": "Google은 이 사이트에 트래픽을 분석하고 사용자 환경을 최적화하기 위해 쿠키를 제공합니다. 사이트 사용에 대한 정보는 해당 목적으로만 Google과 공유됩니다."
+		"message": "Google은 이 사이트의 트래픽을 분석하고 사용자 환경을 최적화하기 위해 쿠키를 제공합니다. 사이트 사용에 대한 정보는 이 목적으로만 Google에 공유됩니다."
 	},
 	"notice_cookies_details": {
 		"message": "세부정보 보기"
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "오프라인 상태입니다."
+	},
+	"okay": {
+		"message": "확인"
 	},
 	"om_country_name": {
 		"message": "오만"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android 앱"
 	},
+	"scene_blimp": {
+		"message": "선물 다시 로드"
+	},
 	"scene_boatload": {
 		"message": "새총으로 선물 날리기"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "지도 퀴즈"
 	},
+	"scene_playground": {
+		"message": "북극 놀이터"
+	},
+	"scene_postcard": {
+		"message": "눈송이 코드"
+	},
 	"scene_presentbounce": {
 		"message": "선물 튕기기"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "루돌프 경주"
+	},
+	"scene_rollercoaster": {
+		"message": "엘프 롤러코스터"
 	},
 	"scene_runner": {
 		"message": "사슴 달리기"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "나눔의 계절"
 	},
+	"scene_streetview": {
+		"message": "스트리트 뷰"
+	},
 	"scene_traditions": {
 		"message": "크라스마스 전통"
 	},
 	"scene_translations": {
 		"message": "번역"
 	},
+	"scene_trivia": {
+		"message": "퀴즈"
+	},
+	"scene_undersea": {
+		"message": "해저"
+	},
 	"scene_videoscene_carpool": {
 		"message": "엘프 자동차"
+	},
+	"scene_videoscene_comroom": {
+		"message": "명령 센터"
+	},
+	"scene_videoscene_jingle": {
+		"message": "신난 엘프들"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "산타 이륙"
 	},
+	"scene_videoscene_office": {
+		"message": "장난 사무실"
+	},
+	"scene_videoscene_reload": {
+		"message": "선물 다시 로드"
+	},
 	"scene_videoscene_santasback": {
 		"message": "산타의 귀환"
+	},
+	"scene_videoscene_satellite": {
+		"message": "위성"
+	},
+	"scene_videoscene_temptation": {
+		"message": "템테이션"
+	},
+	"scene_videoscene_tired": {
+		"message": "피곤한 순록"
+	},
+	"scene_videoscene_trailer": {
+		"message": "휴가 중"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "산타가 어디 있을까요?"
 	},
 	"scene_windtunnel": {
 		"message": "바람 부는 터널 통과하기"

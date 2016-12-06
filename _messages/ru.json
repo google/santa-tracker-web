@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Шри-Ланка"
 	},
+	"lock_orientation": {
+		"message": "Советуем отключить поворот экрана."
+	},
 	"lr_country_name": {
 		"message": "Либерия"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Образование"
 	},
+	"nonprofit-code-description": {
+		"message": "Некоммерческая организация Code.org® стремится сделать так, чтобы возможность заниматься компьютерными науками была у каждого, вне зависимости от пола, расовой и этнической принадлежности."
+	},
+	"nonprofit-code-type": {
+		"message": "Компьютерные науки"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Организация DonorsChoose.org была создана в 2000 году учителем из Бронкса. С тех пор она собрала более 480 млн долларов на нужды американских учителей. Сегодня в DonorsChoose.org часто обращаются с просьбами собрать средства на нужное оборудование или помочь с финансированием проекта."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Помощь школьным учителям"
+	},
 	"nonprofit-enable-description": {
 		"message": "По данным Центров по контролю и профилактике заболеваний (США), 0,7% жителей Земли, в том числе дети, нуждаются в протезах конечностей. Стоят они до 10 тысяч долларов, и если ребенок маленький, их требуется несколько: ведь по мере роста костей протез нужно менять. Детям, нуждающимся в протезах, помогает благотворительная организация e-NABLE. Ее активисты печатают искусственные конечности для детей на 3D-принтере. Компания Google поддерживает деятельность этой организации."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Шимпанзе"
 	},
+	"nonprofit-khan-description": {
+		"message": "Некоммерческая организация Khan Academy помогает жителям всего мира получать качественное образование. Ее основатель Салман Хан считает, что возможность учиться бесплатно и в своем темпе должна быть у каждого, независимо от возраста и страны проживания."
+	},
+	"nonprofit-khan-type": {
+		"message": "Образование"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Международная негосударственная организация Libraries Without Borders была основана в 2007 году. Она занимается вопросами культурного развития и входит в число ведущих в своей сфере. В частности, с ее помощью в мире было построено больше 300 библиотек."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Библиотеки"
+	},
 	"nonprofit-more-information": {
 		"message": "Подробнее об организации читайте здесь:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Леса"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Почти 40% жителей планеты не имеют возможности получить образование на своем родном языке. Создатели платформы StoryWeaver вносят вклад в решение этой проблемы: на их сайте преподаватели, писатели и переводчики публикуют познавательные материалы для детей."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Книги"
 	},
 	"nonprofit-rnib-description": {
 		"message": "В мире очень много людей, страдающих частичной потерей зрения. Чтобы помочь им ориентироваться в пространстве, британская благотворительная организация RNIB и компания Google разработали специальные умные очки. Благодаря им люди со слабым зрением смогут получать больше информации об окружающей их обстановке и самостоятельно передвигаться, что позволит им чувствовать себя более независимо и уверенно."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Нет подключения к Интернету"
+	},
+	"okay": {
+		"message": "ОК"
 	},
 	"om_country_name": {
 		"message": "Оман"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Приложение для Android"
 	},
+	"scene_blimp": {
+		"message": "Дозаправка"
+	},
 	"scene_boatload": {
 		"message": "Стреляй подарками"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Географическая викторина"
 	},
+	"scene_playground": {
+		"message": "Игровая площадка Санты"
+	},
+	"scene_postcard": {
+		"message": "Создай снежинку из кода"
+	},
 	"scene_presentbounce": {
 		"message": "Попади в цель"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Гонки с Рудольфом"
+	},
+	"scene_rollercoaster": {
+		"message": "Эльфийские горки"
 	},
 	"scene_runner": {
 		"message": "Охота за подарками"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Раскрась елочную игрушку"
 	},
+	"scene_streetview": {
+		"message": "Просмотр улиц"
+	},
 	"scene_traditions": {
 		"message": "Праздничные традиции"
 	},
 	"scene_translations": {
 		"message": "Переводчик"
 	},
+	"scene_trivia": {
+		"message": "Викторина"
+	},
+	"scene_undersea": {
+		"message": "Морское дно"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Эльфы в машине"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Центр управления"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Вечеринка эльфов"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Взлет Санты"
 	},
+	"scene_videoscene_office": {
+		"message": "Офисный розыгрыш"
+	},
+	"scene_videoscene_reload": {
+		"message": "Дозаправка"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Санта вернулся"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Спутник"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Искушение"
+	},
+	"scene_videoscene_tired": {
+		"message": "Уставший олень"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Отпуск"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Где Санта?"
 	},
 	"scene_windtunnel": {
 		"message": "Аэродинамическая труба"

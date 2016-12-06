@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Desactiva la rotación del teléfono para disfrutar de una mejor experiencia."
+	},
 	"lr_country_name": {
 		"message": "Liberia"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Docencia y alumnado"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® es una ONG dedicada a facilitar el acceso a la informática y a fomentar la participación de las mujeres y alumnos de minorías étnicas. Según la visión de esta organización, todos los alumnos de cualquier colegio deberían tener la oportunidad de adquirir conocimientos informáticos."
+	},
+	"nonprofit-code-type": {
+		"message": "Informática"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Un profesor de historia del Bronx fundó DonorsChoose.org en el año 2000. Desde entonces, han recaudado más de 480 millones de dólares, que se han destinado a las aulas de Estados Unidos. Los profesores acuden a la organización para conseguir los materiales y la experiencia que necesitan para sus clases."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Clases"
+	},
 	"nonprofit-enable-description": {
 		"message": "Según Centers for Disease Control (CDC), 7 de cada 1000 personas presentan diversidad funcional en sus extremidades y necesitan costosas prótesis de hasta 10.000 USD. El gasto en prótesis aumenta rápidamente cuando los usuarios son niños en fase de crecimiento. e-Nable es una comunidad de personas de todo el mundo que trabajan codo con codo para fabricar manos protésicas mediante impresión 3D destinadas a niños que las necesitan. Google.org colabora con Enable Community Foundation para apoyar a e-NABLE Community en su esfuerzo por diseñar más prótesis y llegar a más niños que las necesitan."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Chimpancé"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy es una ONG cuyo objetivo es brindar una educación gratuita y de calidad a cualquier persona, independientemente de dónde se encuentre. Creen firmemente que todos los alumnos, tengan la edad que tengan, deberían disfrutar de acceso ilimitado a contenido educativo gratuito para que puedan asimilarlo a su propio ritmo."
+	},
+	"nonprofit-khan-type": {
+		"message": "Educación"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders es una conocida ONG a nivel mundial. Se fundó en 2007, tiene su sede en París y en ella se fomenta el desarrollo a partir de la cultura. Gracias a esta organización, se han construido más de 300 bibliotecas en todo el mundo."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotecas"
+	},
 	"nonprofit-more-information": {
 		"message": "Para obtener más información, visita:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Bosques"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Alrededor del 40% de la población mundial no tiene acceso a la enseñanza en su propio idioma. Con la intención de cambiar esta situación, StoryWeaver se encarga de ayudar a profesores, escritores y traductores a crear recursos de lectura adicionales muy divertidos y orientados a los niños."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lectura"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Hay miles de personas en todo el mundo que, pese a cierta pérdida, conservan algo de visión. Google.org colabora con RNIB para desarrollar \"gafas inteligentes\" con las que las personas con escasa visión puedan percibir mejor formas y siluetas. Estas gafas inteligentes permiten ver el mundo con otros ojos, ya que ayudan a recuperar la confianza y la independencia."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "No tienes conexión a Internet"
+	},
+	"okay": {
+		"message": "Aceptar"
 	},
 	"om_country_name": {
 		"message": "Omán"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Aplicación para Android"
 	},
+	"scene_blimp": {
+		"message": "A la caza del regalo"
+	},
 	"scene_boatload": {
 		"message": "Tirachinas de regalos"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Concurso de los mapas"
 	},
+	"scene_playground": {
+		"message": "El parque del Polo Norte"
+	},
+	"scene_postcard": {
+		"message": "Postales de nieve"
+	},
 	"scene_presentbounce": {
 		"message": "¡Que no se caiga el regalo!"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Carrera de obstáculos de Rudolph"
+	},
+	"scene_rollercoaster": {
+		"message": "La montaña élfica"
 	},
 	"scene_runner": {
 		"message": "Reno a la carrera"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Tiempo de regalos"
 	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
 	"scene_traditions": {
 		"message": "Tradiciones navideñas"
 	},
 	"scene_translations": {
 		"message": "Traducciones"
 	},
+	"scene_trivia": {
+		"message": "Juego de preguntas y respuestas"
+	},
+	"scene_undersea": {
+		"message": "Regalos submarinos"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Coche de los elfos"
+	},
+	"scene_videoscene_comroom": {
+		"message": "La sala de mando de Papá Noel"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Ya vienen los elfos"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "El despegue de Papá Noel"
 	},
+	"scene_videoscene_office": {
+		"message": "Bromas en la oficina"
+	},
+	"scene_videoscene_reload": {
+		"message": "A la caza del regalo"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Papá Noel ha vuelto"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satélite"
+	},
+	"scene_videoscene_temptation": {
+		"message": "La tentación del elfo"
+	},
+	"scene_videoscene_tired": {
+		"message": "El reno cansado"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Las vacaciones de Papá Noel"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "¿Dónde está Papá Noel?"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de viento"

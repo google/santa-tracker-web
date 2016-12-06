@@ -767,6 +767,9 @@
 	"lk_country_name": {
 		"message": "Sri Lanka"
 	},
+	"lock_orientation": {
+		"message": "Sluit rotasie vir die beste ervaring."
+	},
 	"lr_country_name": {
 		"message": "Liberië"
 	},
@@ -860,6 +863,18 @@
 	"nonprofit-agastya-type": {
 		"message": "Onderwysers en studente"
 	},
+	"nonprofit-code-description": {
+		"message": "Code.org® is 'n niewinsorganisasie wat daartoe verbind is om toegang tot rekenaarwetenskap uit te brei, en deelname deur vroue en onderverteenwoordigde studente van kleur te vermeerder. Code.org® se visie is dat elke student in elke skool die geleentheid moet kry om rekenaarwetenskap aan te leer."
+	},
+	"nonprofit-code-type": {
+		"message": "Rekenaarwetenskap"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org, wat in 2000 deur 'n Bronx-geskiedenisonderwyser gestig is, het meer as VS$480 miljoen vir Amerika se klaskamers ingesamel. Onderwysers nader DonorsChoose.org om die materiaal en ervaring te versoek wat hulle vir hul klaskamers benodig."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klaskamers"
+	},
 	"nonprofit-enable-description": {
 		"message": "Volgens die CDC ervaar 7 uit 1 000 mense ledemaatverskille, en prosteses is duur – tot $10 000! Vir groeiende kinders kan die koste vinnig ophoop. e-NABLE is 'n wêreldwye gemeenskap mense wat saamwerk om 3D-gedrukte hande vir kinders met ledemaatverskille te maak. Google.org help die Enable-gemeenskapstigting om die e-NABLE-gemeenskap te ondersteun om meer hande te ontwerp en die aantal kinders wat hande kan kry, te verhoog."
 	},
@@ -872,6 +887,18 @@
 	"nonprofit-jane-type": {
 		"message": "Sjimpansee"
 	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy is 'n niewinsorganisasie met 'n missie om gratis wêreldklasonderrig vir enigeen, enige plek te voorsien. Khan Academy glo dat leerders van alle ouderdomme onbeperkte toegang behoort te hê tot gratis onderriginhoud wat hulle teen hulle eie tempo kan bemeester."
+	},
+	"nonprofit-khan-type": {
+		"message": "Onderrig"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders is 'n toonaangewende, internasionale niewinsorganisasie in kultuurgebaseerde ontwikkeling wat in 2007 gestig is, met hulle hoofkantoor in Parys. Hulle het meer as 300 biblioteke wêreldwyd gebou."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Biblioteke"
+	},
 	"nonprofit-more-information": {
 		"message": "Vir meer inligting besoek:"
 	},
@@ -880,6 +907,12 @@
 	},
 	"nonprofit-nature-type": {
 		"message": "Woude"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Bykans 40% van die wêreldbevolking het nie toegang tot onderrig in 'n taal wat hulle praat of verstaan nie. StoryWeaver hoop om dit te verander deur opvoeders, skrywers en vertalers te help om genotvolle aanvullingsleesbronne vir kinders te skep."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lees"
 	},
 	"nonprofit-rnib-description": {
 		"message": "Daar is baie mense in die wêreld wat met gesigverlies saamleef, maar tog 'n bietjie visie oor het. Google.org help RNIB om 'n 'slimbril' te ontwikkel wat mense met swak visie help om vorms en silhoeëtte makliker te sien. Slimbrille kan dit makliker maak om die wêreld te sien, en mense help om hulle onafhanklikheid en selfvertroue te herwin."
@@ -961,6 +994,9 @@
 	},
 	"offline_user_message": {
 		"message": "Jy is vanlyn"
+	},
+	"okay": {
+		"message": "OK"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1079,6 +1115,9 @@
 	"scene_app": {
 		"message": "Android-program"
 	},
+	"scene_blimp": {
+		"message": "Herlaai presente"
+	},
 	"scene_boatload": {
 		"message": "Geskenkkettie"
 	},
@@ -1130,6 +1169,12 @@
 	"scene_mercator": {
 		"message": "Kaartvasvra"
 	},
+	"scene_playground": {
+		"message": "Noordpool-speelterrein"
+	},
+	"scene_postcard": {
+		"message": "Kodeer 'n sneeuvlokkie"
+	},
 	"scene_presentbounce": {
 		"message": "Geskenkhop"
 	},
@@ -1138,6 +1183,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph se jaer"
+	},
+	"scene_rollercoaster": {
+		"message": "Elf-wipwaentjie"
 	},
 	"scene_runner": {
 		"message": "Rendier-hardloper"
@@ -1154,20 +1202,56 @@
 	"scene_seasonofgiving": {
 		"message": "Seisoen van geskenke"
 	},
+	"scene_streetview": {
+		"message": "Straataansig"
+	},
 	"scene_traditions": {
 		"message": "Vakansietradisies"
 	},
 	"scene_translations": {
 		"message": "Vertalings"
 	},
+	"scene_trivia": {
+		"message": "Trivia"
+	},
+	"scene_undersea": {
+		"message": "Ondersee"
+	},
 	"scene_videoscene_carpool": {
 		"message": "Elfkar"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Beheerkamer"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Klingel-elwe"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Kersvader se opstyg"
 	},
+	"scene_videoscene_office": {
+		"message": "Kantoorpoets"
+	},
+	"scene_videoscene_reload": {
+		"message": "Herlaai presente"
+	},
 	"scene_videoscene_santasback": {
 		"message": "Kersvader is terug"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelliet"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Versoeking"
+	},
+	"scene_videoscene_tired": {
+		"message": "Moeë rendier"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Steeds met vakansie"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Waar's Kersvader?"
 	},
 	"scene_windtunnel": {
 		"message": "Windtonnel"
