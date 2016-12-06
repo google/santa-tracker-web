@@ -171,6 +171,7 @@ Polymer({
 
   _shareUrlChanged: function(newValue) {
     this._setShortShareUrl(null);
+    window.ga('send', 'event', 'nav', 'open', 'overlay');
 
     if (this.shareUrl) {
       shortenUrl(this.shareUrl, function(shortUrl) {
