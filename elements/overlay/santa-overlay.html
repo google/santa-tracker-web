@@ -171,9 +171,9 @@ Polymer({
 
   _shareUrlChanged: function(newValue) {
     this._setShortShareUrl(null);
-    window.ga('send', 'event', 'nav', 'open', 'overlay');
 
     if (this.shareUrl) {
+      window.ga('send', 'event', 'nav', 'share', 'overlay');
       shortenUrl(this.shareUrl, function(shortUrl) {
         if (shortUrl && this.shareUrl === newValue) {
           // if valid, and URL hasn't changed...
