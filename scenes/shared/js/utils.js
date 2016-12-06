@@ -44,33 +44,7 @@ app.shared.utils = (function() {
      * is actually maps.gstatic.com/...
      */
     updateLocalSVGRef: function(node) {
-      var re = /^url\((["']?)#/;  // `url("#` with optional quote in group 1
-      var pageUrl =
-          location.href.substr(0, location.href.length - location.hash.length);
-      function replacer(x) {
-        return x.replace(re, 'url($1' + pageUrl + '#');
-      }
-
-      // Match url() set inside inline style.
-      var styleAll = node.querySelectorAll('[style]');
-      var candidates = ['clipPath', 'stroke', 'fill'];
-      for (var i = 0, el; el = styleAll[i]; ++i) {
-        var s = el.style;
-        candidates.forEach(function(c) {
-          if (s[c]) {
-            s[c] = replacer(s[c]);
-          }
-        });
-      }
-
-      // Match url() set as an attribute, e.g. clip-path="url()".
-      var attrs = ['clip-path', 'stroke', 'fill'];
-      attrs.forEach(function(attr) {
-        var attrAll = node.querySelectorAll('[' + attr + '^=url]');
-        for (var i = 0, el; el = attrAll[i]; ++i) {
-          el.setAttribute(attr, replacer(el.getAttribute(attr)));
-        }
-      });
+      // Chrome handles this correctly, as does Firefox 51+. Just ignore it.
     },
 
     /**

@@ -107,7 +107,7 @@ app.Map.prototype.loadMap_ = function(mapName, mapDimensions) {
   }
 
   let mapPath = `${this.componentDir}img/maps/${mapName}.svg`;
-  return $.ajax(mapPath).then((svgMap) => {
+  return $.ajax({url: mapPath, dataType: 'xml'}).then((svgMap) => {
     // Remove existing maps
     this.mapElem.find('.map__svg').remove();
 
@@ -115,7 +115,10 @@ app.Map.prototype.loadMap_ = function(mapName, mapDimensions) {
     app.shared.utils.updateLocalSVGRef(svgMap);
 
     // Add the new map into the dom
-    this.mapElem.prepend(svgMap.children[0]);
+
+    const first = svgMap.children ? svgMap.children[0] : svgMap.querySelector('*');
+
+    this.mapElem.prepend(first);
     this.mapName = mapName;
 
     this.resetCharacters_(mapDimensions);
