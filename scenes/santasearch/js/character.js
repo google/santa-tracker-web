@@ -71,6 +71,8 @@ app.Character.prototype.reset = function(mapDimensions) {
   }
 
   this.layerElem[0].classList.add('map__character');
+  this.layerElem[0].classList.remove('map__character--found');
+  
   let characterBoundaries = this.layerElem[0].getBoundingClientRect();
   let characterOffset = this.layerElem.offset();
 
