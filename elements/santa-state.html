@@ -43,7 +43,7 @@ var instances = new Set();
 santaService.addListener('kill', function() {
   window.ga('send', 'event', 'API', 'killed');
   window.setTimeout(function() {
-    window.location = new URL('error.html', window.location);
+    window.location = 'error.html';
   }, 1000);
 });
 

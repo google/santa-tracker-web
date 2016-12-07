@@ -216,7 +216,7 @@ Santasearch scene.
     onShow: function() {
       var module = this.$['module-santasearch'];
 
-      this.game = new scenes.santasearch.Game(module, this.componentDir);
+      this.game = new scenes.santasearch.Game(module, this.resolveUrl('.'));
       this.game.start();
       this.fire('sound-ambient', 'santasearch_start');
     },

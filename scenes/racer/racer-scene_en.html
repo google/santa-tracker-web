@@ -64,7 +64,7 @@ Racer scene.
     onShow: function() {
       var module = this.$['module-racer'];
       this.fire('sound-ambient', 'rc_landing_page');
-      this.game = new scenes.racer.Game(module, this.componentDir);
+      this.game = new scenes.racer.Game(module, this.resolveUrl('.'));
     },
 
     onHide: function() {

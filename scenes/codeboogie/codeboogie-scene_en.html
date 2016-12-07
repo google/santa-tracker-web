@@ -267,7 +267,7 @@ Codeboogie scene.
 
     onShow: function() {
       var module = this.$['module-codeboogie'];
-      this.frame = new scenes.codeboogie.FrameWrapper(module, this.componentDir);
+      this.frame = new scenes.codeboogie.FrameWrapper(module, this.resolveUrl('.'));
       this.fire('sound-ambient', 'cb_start');
       this.gatedStart();
     },

@@ -84,7 +84,7 @@ Polymer({
     this._cloudImagesPending = cloudImageSrc.length;
     this._cloudImages = cloudImageSrc.map(function(src) {
       var img = new Image();
-      img.src = src;
+      img.src = this.resolveUrl(src);
       img.onload = function() {
         --this._cloudImagesPending;
       }.bind(this);

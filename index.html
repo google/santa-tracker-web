@@ -44,15 +44,15 @@ specific language governing permissions and limitations under the License.
   <meta name="msapplication-tap-highlight" content="no">
 
   <!-- icons -->
-  <link rel="apple-touch-icon" sizes="76x76" href="images/icon-76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="images/icon-120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="images/icon-167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
-  <link id="favicon" rel="shortcut icon" href="images/favicon-16.png" sizes="16x16">
-  <link id="favicon" rel="shortcut icon" href="images/favicon-32.png" sizes="32x32">
-  <link id="favicon" rel="shortcut icon" href="images/favicon-64.png" sizes="64x64">
-  <link id="favicon" rel="shortcut icon" href="images/favicon-96.png" sizes="96x96">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/icon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/icon-120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/icon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/images/icon-167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
+  <link id="favicon" rel="shortcut icon" href="/images/favicon-16.png" sizes="16x16">
+  <link id="favicon" rel="shortcut icon" href="/images/favicon-32.png" sizes="32x32">
+  <link id="favicon" rel="shortcut icon" href="/images/favicon-64.png" sizes="64x64">
+  <link id="favicon" rel="shortcut icon" href="/images/favicon-96.png" sizes="96x96">
 
   <!-- Origin Trials -->
   <meta http-equiv="origin-trial" data-feature="Web Share" data-expires="2017-01-16" content="AkR6/XKVao3KkNVMqFbhtBtnHYdMNwqJRcKvsd/X+5g9e6Gd8Go2nCTBnvZxlL5B74/W7l31vSkq64mIphygKAIAAABeeyJvcmlnaW4iOiAiaHR0cHM6Ly9zYW50YXRyYWNrZXIuZ29vZ2xlLmNvbTo0NDMiLCAiZmVhdHVyZSI6ICJXZWJTaGFyZSIsICJleHBpcnkiOiAxNDg0NTgyMTYxfQ==">
@@ -93,8 +93,7 @@ ga('set', 'transport', 'beacon');
   if (!supported) {
     // fail over to upgrade.html, falling back to timeout in case Analytics is failing.
     function redirect() {
-      var url = new URL('upgrade.html', window.location);
-      window.location = url + (window.location.query || '');
+      window.location = 'upgrade.html' + (window.location.query || '');
     }
     window.ga('send', 'pageview', '/');
     window.ga('send', 'event', 'Polymer', 'unsupported-browser', { hitCallback: redirect });
@@ -148,13 +147,12 @@ ga('set', 'transport', 'beacon');
   var manifest = document.createElement('link');
   manifest.rel = 'manifest';
   manifest.crossOrigin = 'use-credentials';
-  manifest.href = new URL('manifest.json', window.location);  // use intl version
+  manifest.href = 'manifest.json';  // avoid href rewriting from gulpfile
   document.head.appendChild(manifest);
   if ('serviceWorker' in navigator) {
     // Register the SW in the served language, not the request language (as this isn't available
     // on the naked domain anyway).
-    window.sw = navigator.serviceWorker.register(
-        window.location.origin + '/sw.js?lang=' + document.documentElement.lang);
+    window.sw = navigator.serviceWorker.register('/sw.js?lang=' + document.documentElement.lang);
 
     // Reload the page when a new SW takes over. This should only happen in staging.
     navigator.serviceWorker.addEventListener('controllerchange', function() {

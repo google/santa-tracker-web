@@ -296,7 +296,7 @@ Tracker scene.
         return;
       }
 
-      this.worldView_ = new WorldView(this, this.componentDir);
+      this.worldView_ = new WorldView(this, this.resolveUrl('.'));
       this.worldView_.setupMap();
       this.worldView_.show();
 

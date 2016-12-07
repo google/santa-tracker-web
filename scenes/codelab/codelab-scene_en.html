@@ -77,7 +77,7 @@ Codelab scene.
     onShow: function() {
       var module = this.$['module-codelab'];
       this.fire('sound-ambient', 'music_start_scene');
-      this.frame = new scenes.codelab.FrameWrapper(module, this.componentDir);
+      this.frame = new scenes.codelab.FrameWrapper(module, this.resolveUrl('.'));
     },
     onHide: function() {
       this.frame.dispose();

@@ -191,7 +191,7 @@ Traditions scene.
 
     mapsAPIReady: function() {
       this.traditions = new scenes.traditions.Traditions(
-          this.$['module-traditions'], this.componentDir);
+          this.$['module-traditions'], this.resolveUrl('.'));
       if (this.shown) {
         this.traditions.onShow();
       }

@@ -308,8 +308,8 @@ Santa's Village.
     },
 
     _computeFooterElves: function(finished) {
-      return this.componentDir +
-          (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
+      var url = (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
+      return this.resolveUrl(url);
     },
 
     /**

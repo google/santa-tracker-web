@@ -107,16 +107,6 @@ specific language governing permissions and limitations under the License.
         computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
       },
 
-      /**
-       * The relative path of the scene folder from the main app root folder.
-       * (e.g. 'scenes/village/').
-       */
-      componentDir: {
-        type: String,
-        readOnly: true,
-        value: function() { return this.resolveUrl('.'); },
-      },
-
     },
 
     ready: function() {

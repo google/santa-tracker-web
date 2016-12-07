@@ -177,7 +177,7 @@ Postcard scene.
       }
 
       var turtleFrameSrc =
-          this.componentDir + 'snowflake-maker/turtle_' + this.language + '.html' + script;
+          this.resolveUrl('snowflake-maker/turtle_' + this.language + '.html' + script);
 
       // If script exists, there's stuff to share in the url so show share page.
       if (script) {

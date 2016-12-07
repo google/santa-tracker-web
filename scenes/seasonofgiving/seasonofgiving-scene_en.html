@@ -398,7 +398,7 @@ Season of giving scene.
       this.fire('sound-ambient', 'music_start_scene');
       var module = this.$['module-seasonofgiving'];
 
-      this.game = new scenes.seasonofgiving.Game(module, this.componentDir);
+      this.game = new scenes.seasonofgiving.Game(module, this.resolveUrl('.'));
       if (this.santaApp.mode == 'portal') {
         this.game.tools.sizeSlider.updateValueTo(3);
        }

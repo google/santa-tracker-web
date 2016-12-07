@@ -16,8 +16,6 @@ specific language governing permissions and limitations under the License.
 
 <script>
 (function() {
-  var pageUrl = location.href.substr(0, location.href.length - location.hash.length);
-
   /** @polymerBehavior */
   window.SantaAppBehavior = {
     properties: {
@@ -46,7 +44,10 @@ specific language governing permissions and limitations under the License.
      * Returns the URL for the given route.
      */
     urlFor: function(route) {
-      return new URL(route ? route + '.html' : './', window.location).toString();
+      // nb. When Santa used base href, this used to calculate an origin-relative link. Now, it's
+      // still needed. Real URLs in Polymer elements are automagically resolved, but we don't want
+      // this, so a simple attribute helper avoids that.
+      return route ? route + '.html' : './';
     },
 
   };
