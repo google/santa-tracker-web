@@ -41,4 +41,4 @@ Klang.initIOS = function() {};
 Klang.triggerEvent = function(eventName, var_args) {};
 
 /** @type {string} */
-Klang.version;
+Klang.engineVersion;

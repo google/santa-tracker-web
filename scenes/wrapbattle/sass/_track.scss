@@ -1,0 +1,182 @@
+##{$name} {
+  .track {
+    background-color: black;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: background-color .3s;
+    width: 40%;
+    z-index: 5;
+
+    @media screen and (max-width: 800px) {
+      background-color: rgba(0, 0, 0, 0.5);
+      right: 0;
+      width: auto;
+    }
+
+    .message {
+      bottom: 10%;
+      color: white;
+      font-family: 'Lobster', sans-serif;
+      font-size: 75px;
+      left: 50%;
+      opacity: 0;;
+      position: absolute;
+      text-shadow: 0 7px 0 rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, 0);
+      transition: transform 0.3s, opacity 0.3s, color 0.3s;
+
+      &.is-active {
+        opacity: 1;
+        transform: translate(-50%, -50px);
+      }
+
+      @media screen and (max-width: 800px) {
+        bottom: 20px;
+        font-size: 30px;
+        text-shadow: 0 3px 0 rgba(255, 255, 255, 0.3);
+
+        &.is-active {
+          opacity: 1;
+          transform: translate(-50%, -20px);
+        }
+      }
+    }
+
+    .points {
+      color: white;
+      font-family: 'Lobster', sans-serif;
+      font-size: 100px;
+      left: 50%;
+      letter-spacing: 0.05em;
+      position: absolute;
+      text-shadow: 0 7px 0 rgba(255, 255, 255, 0.3);
+      top: 125px;
+      transform: translate(-50%, 0);
+      transition: color 0.3s;
+
+      @media screen and (max-width: 800px) {
+        font-size: 35px;
+        text-shadow: 0 3px 0 rgba(255, 255, 255, 0.3);
+        top: 30px;
+      }
+    }
+
+    .combo-message {
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      text-transform: uppercase;
+      top: 100px;
+      transform: translate(-50%, 0);
+      transition: opacity 0.2s, color 0.3s;
+
+      &.is-active {
+        opacity: 1;
+      }
+
+      @media screen and (max-width: 800px) {
+        font-size: 10px;
+        top: 20px;
+      }
+    }
+
+    .mobile-controls {
+      background: linear-gradient(to top, black, black 60%, transparent);
+      bottom: 0;
+      display: none;
+      left: 0;
+      padding: 80px 0 80px;
+      position: absolute;
+      right: 0;
+      text-align: center;
+
+      .mobile-button {
+        background: white;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: 50%;
+        box-shadow: 0 6px #bebebe, 0 2px 4px rgba(0, 0, 0, 0.6);
+        height: 80px;
+        display: inline-block;
+        margin: 0 5px;
+        width: 80px;
+
+        @media screen and (max-width: 350px) {
+          margin: 0 10px;
+          height: 50px;
+          width: 50px;
+        }
+
+        &--left {
+          background-image: url(img/arrow-left.png);
+        }
+
+        &--up {
+          background-image: url(img/arrow-up.png);
+        }
+
+        &--down {
+          background-image: url(img/arrow-down.png);
+        }
+
+        &--right {
+          background-image: url(img/arrow-right.png);
+        }
+      }
+
+      @media screen and (max-width: 800px) {
+        display: block;
+      }
+    }
+  }
+
+  .canvas, .arrow-track {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .arrow-track {
+    height: auto;
+
+    canvas {
+      line-height: 0;
+      font-size: 0;
+      vertical-align: top;
+    }
+  }
+
+  &.megamode {
+    .track {
+      background-color: white;
+
+      @media screen and (max-width: 800px) {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .combo-message, .points, .message {
+      color: #33ace0;
+    }
+
+    .points, .message {
+      text-shadow: 0 7px 0 rgba(0, 0, 0, 0.3);
+
+      @media screen and (max-width: 800px) {
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .mobile-controls {
+      background: linear-gradient(to top, white, white 60%, transparent);
+    }
+  }
+}

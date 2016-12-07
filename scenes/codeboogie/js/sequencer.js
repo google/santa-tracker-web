@@ -55,7 +55,7 @@ app.Sequencer = class {
 
   start() {
     this.klangUtil = Klang.getUtil();
-    this.tracks = Klang.version === 'webaudio' ?
+    this.tracks = Klang.engineVersion === 'webaudio' ?
         Klang.$('codeboogie_tracks')._content : [];
 
     this.update(0);
@@ -78,7 +78,7 @@ app.Sequencer = class {
 
   update() {
     let currPos;
-    if (Klang.version === 'webaudio') {
+    if (Klang.engineVersion === 'webaudio') {
       let loop = this.getPlayingLoop();
       currPos = loop ? loop.position : 0;
     } else {

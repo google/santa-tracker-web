@@ -1,0 +1,41 @@
+$name: 'module-wrapbattle';
+
+@import '../shared/sass/board';
+@import '../shared/sass/levelup';
+
+@import 'sass/_game.scss';
+@import 'sass/_scene.scss';
+@import 'sass/_track.scss';
+
+##{$name} {
+  &.frozen {
+    .speaker-top,
+    .speaker-bottom,
+    .laser-beam,
+    .audience-row {
+      animation-play-state: paused !important;
+    }
+  }
+
+  .board {
+    left: auto;
+    right: 20px;
+  }
+
+  .levelup, .levelup--number {
+    z-index: 150;
+  }
+
+  .board .time {
+    display: none;
+  }
+
+  .gui {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

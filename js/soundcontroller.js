@@ -25,7 +25,7 @@ const klangSrc = 'third_party/lib/klang/klang.js';
  * Klang config file URL.
  */
 const klangConfigSrc = 'third_party/lib/klang/config.js';
-//const klangConfigSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/bNsac/config.json'
+//const klangConfigSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/bNsac/config.js';
 
 /**
  * @constructor
@@ -216,6 +216,7 @@ SoundController.prototype.playSound = function(loadEvent) {
 SoundController.prototype.triggerSound_ = function(sound) {
   const soundName = typeof sound === 'string' ? sound : sound.name;
   let args = [soundName];
+
   if (sound['args'] && Array.isArray(sound['args'])) {
     [].push.apply(args, sound['args']);
   }

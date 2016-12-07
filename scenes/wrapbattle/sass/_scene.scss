@@ -1,0 +1,469 @@
+@keyframes speakersBoom {
+  0% {
+    transform: scale(0.7);
+  }
+
+  5% {
+    transform: scale(0.9);
+  }
+
+  35% {
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(0.7);
+  }
+
+  55% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(0.7);
+  }
+
+  100% {
+    transform: scale(0.7);
+  }
+}
+
+@keyframes audienceBounce {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  25% {
+    transform: translate(-50%, -3%);
+  }
+
+  50% {
+    transform: translate(-50%, 0);
+  }
+
+  75% {
+    transform: translate(-50%, -5%);
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes laser {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-75deg);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: rotateZ(75deg);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateZ(-75deg);
+  }
+}
+
+
+##{$name} {
+  .scene {
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    // transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    width: 60%;
+
+    @media screen and (max-width: 800px) {
+      background: url(img/wrap-battle-mobile.gif) center/cover;
+      left: 0;
+      width: auto;
+
+      * {
+        display: none;
+      }
+    }
+
+    .background, .speaker-wall {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .background-wall {
+      background: linear-gradient(to top, #000000, #2957bf);
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: background 0.3s;
+    }
+
+    .speaker-wall {
+      font-size: 0;
+
+      .side {
+        position: absolute;
+        top: -50px;
+
+        &--left {
+          left: 20px;
+
+          .speaker {
+            background: url(img/scene/speaker-left-corner-foam.png) center/cover;
+
+            &.animated {
+              background: url(img/scene/speaker-left-corner.svg) center/cover;
+            }
+          }
+        }
+
+        &--right {
+          right: 0;
+
+          .speaker {
+            background: url(img/scene/speaker-right-corner-foam.png) center/cover;
+
+            &.animated {
+              background: url(img/scene/speaker-right-corner.svg) center/cover;
+            }
+
+            .speaker-top, .speaker-bottom {
+              left: 35px;
+            }
+          }
+
+          .speaker-col:nth-child(1) {
+            z-index: 2;
+          }
+
+          .speaker-col:nth-child(2) {
+            z-index: 1;
+          }
+
+          .speaker-col:nth-child(3) {
+            z-index: 0;
+          }
+        }
+      }
+
+      .speaker-col {
+        display: inline-block;
+        position: relative;
+
+        @media screen and (max-width: 800px) {
+          display: none;
+        }
+      }
+
+      .speaker {
+        height: 237.6px;
+        margin-bottom: -7px;
+        margin-left: -20px;
+        position: relative;
+        width: 143px;
+
+        &.animated {
+          .speaker-top, .speaker-bottom {
+            display: block;
+          }
+        }
+
+        .speaker-top, .speaker-bottom {
+          animation: 1s speakersBoom infinite ease-out;
+          animation-play-state: running;
+          background: url(img/scene/speaker-boom.svg) center/cover;
+          display: none;
+          height: 91px;
+          left: 15px;
+          position: absolute;
+          width: 91px;
+
+          @media screen and (max-width: 800px) {
+            animation-play-state: paused;
+          }
+        }
+
+        .speaker-top {
+          top: 10px;
+        }
+
+        .speaker-bottom {
+          bottom: 15px;
+        }
+      }
+    }
+
+    .lasers {
+      bottom: 300px;
+      height: 50%;
+      left: 0;
+      position: absolute;
+      right: 0;
+
+      @media screen and (max-height: 800px) {
+        bottom: 0;
+      }
+    }
+
+    .laser-beam {
+      bottom: 0;
+      height: 500%;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      transform-origin: 0 100%;
+      width: 3px;
+      z-index: 2;
+
+      &--blue {
+        animation: laser 7s infinite;
+        background: rgba(0, 255, 198, 0.6);
+        box-shadow: 0 0 15px 0 rgba(0, 255, 198, 1);
+      }
+
+      &--red {
+        animation: laser 6.5s 1s infinite reverse;
+        background: rgba(255, 255, 0, 0.6);
+        box-shadow: 0 0 15px 0 rgba(255, 255, 0, 1);
+      }
+
+      &--green {
+        animation: laser 6s 2s infinite;
+        background: rgba(255, 156, 0, 0.6);
+        box-shadow: 0 0 15px 0 rgba(255, 255, 0, 1);
+      }
+
+      &--purple {
+        animation: laser 5.5s 3s infinite reverse;
+        background: rgba(255, 0, 255, 0.6);
+        box-shadow: 0 0 15px 0 rgba(255, 0, 255, 1);
+      }
+    }
+
+    .djs {
+      left: 50%;
+      position: absolute;
+      top: -300px;
+      transform: translate(-50%, 0);
+      width: 100%;
+    }
+
+    .dj {
+      position: absolute;
+      top: 50px;
+
+      &--left {
+        left: -350px;
+      }
+
+      &--right {
+        left: -100px;
+      }
+
+      left: 0 !important;
+      width: 100%;
+
+      canvas {
+        width: 100%;
+      }
+    }
+
+    .present {
+      bottom: 25px;
+      height: 110px;
+      position: absolute;
+      width: 150px;
+
+      .present-toy, .present-box {
+        background: blue;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .present-toy {
+        &.is-active {
+          transition: opacity 0.2s;
+          opacity: 1;
+        }
+      }
+
+      @for $i from 1 through 8 {
+        .present-toy--#{$i} {
+          background: url(img/toys/toys-0#{$i}.svg) center bottom/contain no-repeat;
+        }
+      }
+
+      .present-box {
+        transition: opacity 0.2s;
+
+        &.is-active {
+          opacity: 1;
+        }
+      }
+
+      @each $color in blue, green, red {
+        @each $success in true, false {
+          .present-box--#{$color}-#{$success} {
+            background: url(img/presents/gift_#{$color}_#{$success}.png) center bottom/contain no-repeat;
+          }
+        }
+      }
+    }
+
+    .table {
+      background: url(img/scene/table.svg) repeat-x;
+      bottom: 100px;
+      height: 393.6px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+
+      @media screen and (max-height: 800px) {
+        bottom: -150px;
+      }
+    }
+
+    .turntable {
+      background: url(img/scene/turn-tables.svg);
+      height: 20px;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 0);
+      top: -15px;
+      width: 375px;
+    }
+
+    .wrapping-papers {
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 33px;
+      transform: translate(-50%, 0);
+      white-space: nowrap;
+      width: auto;
+    }
+
+    .wrapping-paper {
+      display: inline-block;
+      height: 60px;
+      margin: 0 10px;
+      width: 323px;
+
+      &:nth-child(1) {
+        background: url(img/scene/wrap-left.png) center/cover;
+      }
+
+      &:nth-child(2) {
+        background: url(img/scene/wrap-center.png) center/cover;
+      }
+
+      &:nth-child(3) {
+        background: url(img/scene/wrap-right.png) center/cover;
+      }
+    }
+
+    .audience {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+
+      @media screen and (max-width: 800px) {
+        display: none;
+      }
+
+      @media screen and (max-height: 800px) {
+        bottom: -300px;
+      }
+    }
+
+    .audience-row {
+      height: 536px;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 0);
+      width: 1625px;
+
+      // &:nth-child(1) {
+      //   animation: 1s audienceBounce infinite ease-out;
+      //   animation-play-state: running;
+      //   background: url(img/scene/crowd-foreground.png) center/cover;
+      //   bottom: -50px;
+      // }
+
+      &:nth-child(2) {
+        animation: 1s .2s audienceBounce infinite ease-out;
+        animation-play-state: running;
+        background: url(img/scene/crowd-background.png) center/cover;
+        bottom: -100px;
+      }
+    }
+  }
+
+  &.megamode {
+    .scene {
+      transform: scale(1.5);
+      transform-origin: 50% 20%;
+
+      @media screen and (max-width: 800px) {
+        transform: none;
+      }
+
+      @media screen and (max-height: 800px) {
+        transform-origin: 50% 50%;
+      }
+    }
+
+    // .background-wall {
+    //   background: linear-gradient(to top, #000000, white);
+    // }
+
+    .laser-beam {
+      &--blue {
+        animation-duration: 3.5s;
+      }
+
+      &--red {
+        animation-duration: 3.25s;
+      }
+
+      &--green {
+        animation-duration: 3s;
+      }
+
+      &--purple {
+        animation-duration: 2.75s;
+      }
+    }
+  }
+}

@@ -221,7 +221,8 @@ module.exports = {
     entryPoint: 'app.Scene'
   },
   wrapbattle: {
-    msgid: 'scene_wrap'
+    msgid: 'scene_wrap',
+    entryPoint: 'app.Game'
   },
 
 // videos
