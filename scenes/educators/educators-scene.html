@@ -55,7 +55,7 @@ specific language governing permissions and limitations under the License.
           <template is="dom-repeat" items="[[cards]]" as="card">
             <div class="card" data-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
               <a href$="[[_computeUnlockedUrlFor(card.key, card.locked)]]">
-                <div class="card-img" style$="background-image: url(images/scenes/[[card.key]]_2x.png)">
+                <div class="card-img" style$="[[_computeCardBackgroundStyle(card.key)]]">
                   <div class="card-lock">
                     <span class="card-unlock">Unlocks December</span>
                     <span class="card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
@@ -271,6 +271,14 @@ specific language governing permissions and limitations under the License.
         return null;
       }
       return this.urlFor(scene);
+    },
+
+    _computeCardBackgroundStyle: function(sceneName) {
+      if (sceneName) {
+        var url = this.resolveUrl('../../images/scenes/' + sceneName + '_2x.png');
+        return 'background-image: url(' + url + ')';
+      }
+      return null;
     },
 
     _trackLessonPlan: function(e, detail) {
