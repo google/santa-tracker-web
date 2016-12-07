@@ -262,11 +262,12 @@ if (window.santaApp.mode === 'portal') {
   });
 
   // third_party libraries for portal input.
+  var baseUrl = document.body.getAttribute('data-static');
   var libs =
       ['eventemitter2/eventemitter2.min.js', 'roslibjs/roslib.min.js', 'spacenav/spacenav.js'];
   libs.forEach(function(lib) {
     var s = document.createElement('script');
-    s.src = 'third_party/lib/' + lib;
+    s.src = baseUrl + 'third_party/lib/' + lib;
     document.body.appendChild(s);
   });
 }
