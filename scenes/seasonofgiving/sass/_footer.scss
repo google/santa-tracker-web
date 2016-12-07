@@ -1,0 +1,26 @@
+##{$name} {
+  .scene-footer {
+    background: url(img/footer-elf.svg) bottom -100px center no-repeat;
+    color: #fff;
+    margin: -100px auto 0 auto;
+    min-height: 700px;
+    padding: 20px;
+    position: relative;
+
+    @media (max-width: 640px) {
+      background-position: bottom -60px center;
+      background-size: cover;
+      min-height: 450px;
+    }
+
+    &::after {
+      bottom: 0;
+      content: url(img/footer-bg.svg);
+      display: block;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}

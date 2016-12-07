@@ -132,11 +132,11 @@ app.Tool.prototype.deselect = function() {
  * @param {!app.Mouse} mouse
  */
 app.Tool.prototype.move = function(mouse) {
-  var offsetX = this.mouseOffset.x;
+  var offset = this.mouseOffset;
 
-   this.el.css({
-    left: mouse.x - offsetX,
-    top: mouse.y - this.height - 100
+  this.el.css({
+    left: mouse.x - offset.x,
+    top: mouse.y - this.height - offset.y
   });
 };
 
@@ -160,7 +160,7 @@ app.Tool.prototype.resize = function() {
 app.Tools = function(game, elem, exporter) {
   app.Tool.prototype.elem = elem;
   this.game = game;
-  var crayonOffset = {x: 10, y: 20};
+  var crayonOffset = {x: 5, y: 48};
   this.context = $(elem);
   this.elem = this.context.find('.Tools');
   this.crayonRed = new app.Tool(this.game, 'crayon--red', crayonOffset);
@@ -174,7 +174,7 @@ app.Tools = function(game, elem, exporter) {
   this.crayonPurple = new app.Tool(this.game, 'crayon--purple', crayonOffset);
   this.crayonRainbow = new app.Tool(this.game, 'crayon--rainbow', crayonOffset);
   this.crayonBrown = new app.Tool(this.game, 'crayon--brown', crayonOffset);
-  this.eraser = new app.Tool(this.game, 'crayon--eraser', {x: 50, y: 0});
+  this.eraser = new app.Tool(this.game, 'crayon--eraser', {x: 40, y: 58});
 
   this.sizeSlider = new app.CustomSlider(this.context);
   app.GameManager.sizeSlider = this.sizeSlider;

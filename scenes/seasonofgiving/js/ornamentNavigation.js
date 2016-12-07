@@ -160,13 +160,12 @@ app.OrnamentNavigation.prototype.handleResize = function() {
     // note that tempElem is fixed, but we need to also offset by headerSize
     topOffset = tempElem.getBoundingClientRect().top - 84 - window.santaApp.headerSize;
     tempCSS = {
-      'left': '50%',
       'top': topOffset,
-      'width': '180px',
-      'transform': 'translate(-50%, 0px) scale(0.9)'
+      'transform': 'scale(0.7)'
     };
     this.ornamentCopyContainer.css('height', height);
     this.buttonInfo.css('top', topOffset - 5);
+    this.ornamentNavigation.css(tempCSS);
   } else {
     currentOrnamentNum = app.GameManager.currentIndex;
     currentOrnament = this.elem.find('.scene-ornament-wrapper').eq(currentOrnamentNum);
@@ -183,8 +182,8 @@ app.OrnamentNavigation.prototype.handleResize = function() {
     };
     this.ornamentCopyContainer.css('height', 'auto');
     this.buttonInfo.css('top', 'auto');
+    this.ornamentNavigation.css('top', 'auto');
   }
-  this.ornamentNavigation.css(tempCSS);
 
   this.handleHideInfo();  // hide info if resized
 };
@@ -193,6 +192,9 @@ app.OrnamentNavigation.prototype.handleResize = function() {
  * Show info overlay on mobile.
  */
 app.OrnamentNavigation.prototype.handleShowInfo = function() {
+  this.elem.find('.scene-container').css('z-index', 4);
+  this.elem.find('.Tool-panel').css('z-index', 2);
+
   // Find the specific container we care about.
   app.GameManager.lastOrnament.find('.ornament-copy-container').addClass('show');
   app.GameManager.bounce(this.buttonInfo[0]);
@@ -206,6 +208,8 @@ app.OrnamentNavigation.prototype.handleHideInfo = function() {
   // but only one element's copy is actually visible at once. This is ugly and should be fixed.
   if (this.ornamentCopyContainer.hasClass('show')) {
     app.GameManager.bounce(this.buttonClose[0]);
+    this.elem.find('.scene-container').css('z-index', 0);
+    this.elem.find('.Tool-panel').css('z-index', 4);
     this.ornamentCopyContainer.removeClass('show');
   }
 };

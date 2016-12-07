@@ -251,7 +251,7 @@ app.OrnamentExporter.prototype.download = function(ornament) {
 
   // Green background
   ctx.rect(0, 0, width, height);
-  ctx.fillStyle = '#7bb241';
+  ctx.fillStyle = '#388E3C';
   ctx.globalCompositeOperation = 'destination-over';
   ctx.fill();
   ctx.globalCompositeOperation = 'source-over';

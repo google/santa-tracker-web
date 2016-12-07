@@ -9,6 +9,9 @@ $name: 'module-seasonofgiving';
 @import "sass/ornament-gallery";
 @import "sass/print-ornament";
 @import "sass/responsive";
+@import "sass/intro";
+@import "sass/footer";
+@import "sass/panel";
 
 ##{$name} {
   position: absolute;
@@ -17,26 +20,29 @@ $name: 'module-seasonofgiving';
   bottom: 0;
   left: 0;
 
-  .seasonofgiving {
-    background: url(img/season-of-giving-bg.svg) no-repeat;
-    background-position: center;
-    background-size: cover;
-  	width: 100%;
-  	height: 100%;
-  }
-
-  #download-bg {
-    background: url(img/header-icon.svg) no-repeat;
-    width: 200px;
-    height: 200px;
-  }
-
-  .scene-container {
-    bottom: 0px;
-    left: 0px;
+  .seasonofgiving::before {
+    background: url(img/season-of-giving-bg.svg) no-repeat center / cover;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  .scene {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   .hidden {

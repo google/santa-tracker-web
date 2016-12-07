@@ -59,264 +59,278 @@ Season of giving scene.
           <div class="Button-info"></div>
         </div>
         <div class="scene-container">
+          <div class="scene-intro">
+            <div class="intro">
+              <div class="intro-content">
+                <div class="intro-title"></div>
+                <p class="intro-copy">
+                  We’ve partnered with Google.org to showcase five education non-profits that celebrate the season of giving all year long. Scroll down and learn more about how each organization gives back. Show your support by coloring this collection of ornaments and then hanging them on your tree of gifting them to your loved ones.
+                </p>
+                <div class="intro-elf intro-elf--left"></div>
+                <div class="intro-elf intro-elf--right"></div>
+              </div>
+            </div>
+          </div>
           <div class="scene-gallery">
             <div class="ornament-gallery">
+              <div class="panel panel--header">
+                <p class="panel-text">Pick an ornament and start coloring.</p>
+              </div>
               <div class="ornament-item-row">
-                <div class="ornament-item ornament-item--goodall-institution">
-                  <div class="ornament-item-name">Jane Goodall Institute</div>
+                <div class="ornament-item ornament-item--khan-academy" data-org="khan-academy">
+                  <div class="ornament-item-container">
+                    <div class="ornament-hook"></div>
+                    <div class="ornament-item-hover"></div>
+                    <img src="img/color-guide--khan-academy.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas id="ornament-item-canvas--khan-academy" class="ornament-item-canvas">
+                  </div>
+                  <div class="ornament-item-shadow"></div>
+                  <div class="ornament-item-logo"></div>
                 </div>
-                <div class="ornament-item ornament-item--nature-conservancy">
-                  <div class="ornament-item-name">Nature Conservancy</div>
-                </div>
-                <div class="ornament-item ornament-item--wwf">
-                  <div class="ornament-item-name">WWF</div>
+                <div class="ornament-item ornament-item--libraries-without-borders" data-org="libraries-without-borders">
+                  <div class="ornament-item-container">
+                    <div class="ornament-hook"></div>
+                    <div class="ornament-item-hover"></div>
+                    <img src="img/color-guide--libraries-without-borders.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas id="ornament-item-canvas--libraries-without-borders" class="ornament-item-canvas">
+                  </div>
+                  <div class="ornament-item-shadow"></div>
+                  <div class="ornament-item-logo"></div>
                 </div>
               </div>
-              <div class="ornament-item-row no-en">
-                <div class="ornament-item ornament-item--agastya">
-                  <div class="ornament-item-name">Agastya</div>
+              <div class="ornament-item-row">
+                <div class="ornament-item ornament-item--code" data-org="code">
+                  <div class="ornament-item-container">
+                    <div class="ornament-hook"></div>
+                    <div class="ornament-item-hover"></div>
+                    <img src="img/color-guide--code.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas id="ornament-item-canvas--code" class="ornament-item-canvas">
+                  </div>
+                  <div class="ornament-item-shadow"></div>
+                  <div class="ornament-item-logo"></div>
                 </div>
-                <div class="ornament-item ornament-item--solar-aid">
-                  <div class="ornament-item-name">SolarAid</div>
+                <div class="ornament-item ornament-item--donors-choose" data-org="donors-choose">
+                  <div class="ornament-item-container">
+                    <div class="ornament-hook"></div>
+                    <div class="ornament-item-hover"></div>
+                    <img src="img/color-guide--donors-choose.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas id="ornament-item-canvas--donors-choose" class="ornament-item-canvas">
+                  </div>
+                  <div class="ornament-item-shadow"></div>
+                  <div class="ornament-item-logo"></div>
                 </div>
-                <div class="ornament-item ornament-item--charity-water">
-                  <div class="ornament-item-name">charity: water</div>
+                <div class="ornament-item ornament-item--pratham-books" data-org="pratham-books">
+                  <div class="ornament-item-container">
+                    <div class="ornament-hook"></div>
+                    <div class="ornament-item-hover"></div>
+                    <img src="img/color-guide--pratham-books.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas id="ornament-item-canvas--pratham-books" class="ornament-item-canvas">
+                  </div>
+                  <div class="ornament-item-shadow"></div>
+                  <div class="ornament-item-logo"></div>
+                </div>
+              </div>
+              <div class="ornament-gallery-crayon"></div>
+            </div>
+          </div>
+          <div class="scene-ornament-wrapper">
+            <div class="scene-ornament" data-org="khan-academy">
+              <div class="ornament">
+                <div class="ornament-wrapper">
+                  <div class="ornament-stage-container ornament-outline ornament-outline--khan-academy">
+                    <div class="ornament-hook"></div><img src="img/color-guide--khan-academy.svg" crossorigin="anonymous" class="color-guide"/>
+                    <canvas class="canvas temp-canvas"></canvas>
+                    <canvas id="canvas--khan-academy" class="canvas"></canvas>
+                  </div>
+                </div>
+                <div class="ornament-shadow"></div>
+              </div>
+              <div class="ornament-copy-container">
+                <div class="ornament-copy">
+                  <div class="Button-close"></div><img src="img/icons/khan-academy.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-khan-type">PLACEHOLDER_i18n</i18n-msg></h1>
+                  <p class="ornament-copy-description">
+                    <i18n-msg msgid="nonprofit-khan-description">PLACEHOLDER_i18n</i18n-msg>
+                  </p><a target="_blank" href="https://www.khanacademy.org/" class="ornament-link"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
                 </div>
               </div>
             </div>
           </div>
           <div class="scene-ornament-wrapper">
-            <div class="scene-ornament scene-ornament--goodall-institution">
+            <div class="scene-ornament" data-org="libraries-without-borders">
               <div class="ornament">
                 <div class="ornament-wrapper">
-                  <div class="ornament-stage-container ornament-outline ornament-outline--goodall-institution">
-                    <div class="ornament-hook"></div><img src="img/color-guide--goodall.png" crossorigin="anonymous" class="color-guide"/>
+                  <div class="ornament-stage-container ornament-outline ornament-outline--libraries-without-borders">
+                    <div class="ornament-hook"></div><img src="img/color-guide--libraries-without-borders.svg" crossorigin="anonymous" class="color-guide"/>
                     <canvas class="canvas temp-canvas"></canvas>
-                    <canvas id="canvas--goodall-institution" class="canvas"></canvas>
+                    <canvas id="canvas--libraries-without-borders" class="canvas"></canvas>
                   </div>
                 </div>
                 <div class="ornament-shadow"></div>
               </div>
               <div class="ornament-copy-container">
                 <div class="ornament-copy">
-                  <div class="Button-close"></div><img src="img/icons/goodall.svg" crossorigin="anonymous" class="ornament-logo"/>
-                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-jane-type">PLACEHOLDER_i18n</i18n-msg></h1>
+                  <div class="Button-close"></div><img src="img/icons/libraries-without-borders.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-lwb-type">PLACEHOLDER_i18n</i18n-msg></h1>
                   <p class="ornament-copy-description">
-                    <i18n-msg msgid="nonprofit-jane-description">PLACEHOLDER_i18n</i18n-msg>
-                  </p><a target="_blank" href="http://www.janegoodall.org/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                    <i18n-msg msgid="nonprofit-lwb-description">PLACEHOLDER_i18n</i18n-msg>
+                  </p><a target="_blank" href="http://www.librarieswithoutborders.org/" class="ornament-link"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
                 </div>
               </div>
             </div>
           </div>
           <div class="scene-ornament-wrapper">
-            <div class="scene-ornament scene-ornament--nature-conservancy">
+            <div class="scene-ornament" data-org="code">
               <div class="ornament">
                 <div class="ornament-wrapper">
-                  <div class="ornament-stage-container ornament-outline ornament-outline--nature-conservancy">
-                    <div class="ornament-hook"></div><img src="img/color-guide--nature.svg" crossorigin="anonymous" class="color-guide"/>
+                  <div class="ornament-stage-container ornament-outline ornament-outline--code">
+                    <div class="ornament-hook"></div><img src="img/color-guide--code.svg" crossorigin="anonymous" class="color-guide"/>
                     <canvas class="canvas temp-canvas"></canvas>
-                    <canvas id="canvas--nature-conservancy" class="canvas"></canvas>
+                    <canvas id="canvas--code" class="canvas"></canvas>
                   </div>
                 </div>
                 <div class="ornament-shadow"></div>
               </div>
               <div class="ornament-copy-container">
                 <div class="ornament-copy">
-                  <div class="Button-close"></div><img src="img/icons/the-nature-conservancy.svg" crossorigin="anonymous" class="ornament-logo"/>
-                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-nature-type">PLACEHOLDER_i18n</i18n-msg></h1>
+                  <div class="Button-close"></div><img src="img/icons/code.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-code-type">PLACEHOLDER_i18n</i18n-msg></h1>
                   <p class="ornament-copy-description">
-                    <i18n-msg msgid="nonprofit-nature-description">PLACEHOLDER_i18n</i18n-msg>
-                  </p><a target="_blank" href="http://www.plantabillion.org/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                    <i18n-msg msgid="nonprofit-code-description">PLACEHOLDER_i18n</i18n-msg>
+                  </p><a target="_blank" href="http://www.code.org/" class="ornament-link"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
                 </div>
               </div>
             </div>
           </div>
           <div class="scene-ornament-wrapper">
-            <div class="scene-ornament scene-ornament--wwf">
+            <div class="scene-ornament" data-org="donors-choose">
               <div class="ornament">
                 <div class="ornament-wrapper">
-                  <div class="ornament-stage-container ornament-outline ornament-outline--wwf">
-                    <div class="ornament-hook"></div><img src="img/color-guide--wwf.svg" crossorigin="anonymous" class="color-guide"/>
+                  <div class="ornament-stage-container ornament-outline ornament-outline--donors-choose">
+                    <div class="ornament-hook"></div><img src="img/color-guide--donors-choose.svg" crossorigin="anonymous" class="color-guide"/>
                     <canvas class="canvas temp-canvas"></canvas>
-                    <canvas id="canvas--wwf" class="canvas"></canvas>
+                    <canvas id="canvas--donors-choose" class="canvas"></canvas>
                   </div>
                 </div>
                 <div class="ornament-shadow"></div>
               </div>
               <div class="ornament-copy-container">
                 <div class="ornament-copy">
-                  <div class="Button-close"></div><img src="img/icons/wwf.svg" crossorigin="anonymous" class="ornament-logo"/>
-                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-wwf-type">PLACEHOLDER_i18n</i18n-msg></h1>
+                  <div class="Button-close"></div><img src="img/icons/donors-choose.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-donorschoose-type">PLACEHOLDER_i18n</i18n-msg></h1>
                   <p class="ornament-copy-description">
-                    <i18n-msg msgid="nonprofit-wwf-description">PLACEHOLDER_i18n</i18n-msg>
-                  </p><a target="_blank" href="http://wwf.org/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                    <i18n-msg msgid="nonprofit-donorschoose-description">PLACEHOLDER_i18n</i18n-msg>
+                  </p><a target="_blank" href="http://www.donorschoose.org/" class="ornament-link"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="scene-ornament-wrapper no-en">
-            <div class="scene-ornament scene-ornament--agastya">
+          <div class="scene-ornament-wrapper">
+            <div class="scene-ornament" data-org="pratham-books">
               <div class="ornament">
                 <div class="ornament-wrapper">
-                  <div class="ornament-stage-container ornament-outline ornament-outline--agastya">
-                    <div class="ornament-hook"></div><img src="img/color-guide--agastya.svg" crossorigin="anonymous" class="color-guide"/>
+                  <div class="ornament-stage-container ornament-outline ornament-outline--pratham-books">
+                    <div class="ornament-hook"></div><img src="img/color-guide--pratham-books.svg" crossorigin="anonymous" class="color-guide"/>
                     <canvas class="canvas temp-canvas"></canvas>
-                    <canvas id="canvas--agastya" class="canvas"></canvas>
+                    <canvas id="canvas--pratham-books" class="canvas"></canvas>
                   </div>
                 </div>
                 <div class="ornament-shadow"></div>
               </div>
               <div class="ornament-copy-container">
                 <div class="ornament-copy">
-                  <div class="Button-close"></div><img src="img/icons/agastya.svg" crossorigin="anonymous" class="ornament-logo"/>
-                  <h1 class="ornament-copy-subject">Teachers &amp; Students</h1>
+                  <div class="Button-close"></div><img src="img/icons/pratham-books.svg" crossorigin="anonymous" class="ornament-logo"/>
+                  <h1 class="ornament-copy-subject"><i18n-msg msgid="nonprofit-pratham-type">PLACEHOLDER_i18n</i18n-msg></h1>
                   <p class="ornament-copy-description">
-                    Agastya brings hands-on science education to children all over rural India. In
-                    both their science centers and mobile science vans, they cover everything from
-                    the solar system to how the brain works. They have reached over 5 million children
-                    and 200,000 teachers across 14 states in India; it’s one of the largest science
-                    education programs in the world! Google.org is proud to be a
-                    <a class="copy-link" target="_blank" href="http://www.google.org/impact-challenge/agastya/">supporter</a>
-                    of Agastya.
-                  </p><a target="_blank" href="http://www.agastya.org/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+                    <i18n-msg msgid="nonprofit-pratham-description">PLACEHOLDER_i18n</i18n-msg>
+                  </p><a target="_blank" href="https://storyweaver.org.in/" class="ornament-link"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="scene-ornament-wrapper no-en">
-            <div class="scene-ornament scene-ornament--solar-aid">
-              <div class="ornament">
-                <div class="ornament-wrapper">
-                  <div class="ornament-stage-container ornament-outline ornament-outline--solar-aid">
-                    <div class="ornament-hook"></div><img src="img/color-guide--solar-aid.svg" crossorigin="anonymous" class="color-guide"/>
-                    <canvas class="canvas temp-canvas"></canvas>
-                    <canvas id="canvas--solar-aid" class="canvas"></canvas>
-                  </div>
-                </div>
-                <div class="ornament-shadow"></div>
-              </div>
-              <div class="ornament-copy-container">
-                <div class="ornament-copy">
-                  <div class="Button-close"></div><img src="img/icons/solar-aid.svg" crossorigin="anonymous" class="ornament-logo"/>
-                  <h1 class="ornament-copy-subject">Sunlight</h1>
-                  <p class="ornament-copy-description">
-                    1.3 billion people have no access to electricity, and many have to use kerosene
-                    lamps that burn fuel and pollute homes. Solar lights, however, absorb power from
-                    the sun during the day and provide hours of light in the evening without burning
-                    or polluting. They help you read, play, and get home safely at night. SolarAid
-                    provides access to solar lights to many who need them. Google.org is proud to be a
-                    <a class="copy-link" target="_blank" href="http://www.google.org/impact-challenge/solaraid/">supporter</a>
-                    of SolarAid.
-                  </p><a target="_blank" href="http://www.solar-aid.org" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="scene-ornament-wrapper no-en">
-            <div class="scene-ornament scene-ornament--charity-water">
-              <div class="ornament">
-                <div class="ornament-wrapper">
-                  <div class="ornament-stage-container ornament-outline ornament-outline--charity-water">
-                    <div class="ornament-hook"></div><img src="img/color-guide--charity-water.svg" crossorigin="anonymous" class="color-guide"/>
-                    <canvas class="canvas temp-canvas"></canvas>
-                    <canvas id="canvas--charity-water" class="canvas"></canvas>
-                  </div>
-                </div>
-                <div class="ornament-shadow"></div>
-              </div>
-              <div class="ornament-copy-container">
-                <div class="ornament-copy">
-                  <div class="Button-close"></div><img src="img/icons/charity-water.svg" crossorigin="anonymous" class="ornament-logo"/>
-                  <h1 class="ornament-copy-subject">Well</h1>
-                  <p class="ornament-copy-description">
-                    We use water for showers and baths, for cooking, and of course, for drinking.
-                    Clean water is a precious resource, and many people rely on hand-dug wells to
-                    access aquifers, which hold clean water deep in the ground between layers of
-                    rock and soil. charity: water works with local partners to build wells and
-                    other water projects where they are greatly needed. Google.org is proud to be a
-                    <a class="copy-link" target="_blank" href="http://www.google.org/global-impact-awards/charity-water/">supporter</a>
-                    of charity: water.
-                  </p><a target="_blank" href="http://www.charitywater.org/" class="ornament-link Button Button--copy"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
-                </div>
-              </div>
+          <div class="scene-footer">
+            <div class="panel panel--footer">
+              <p class="panel-text">Share your art with your family and friends so they can learn too.</p>
             </div>
           </div>
         </div>
         <div class="Tool-panel">
           <div class="Tool-wrapper">
-            <div class="Tool-bottomContainer">
-              <div class="Tool-sliderContainer">
-                <div id="Slider" class="Slider">
-                  <div id="Slider-thumb--scale" class="Slider-thumb--scale"></div>
+            <div class="Tool-border-wrapper">
+              <div class="Tools">
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#e53935" class="Tool Tool-crayon--red"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#fb8c00" class="Tool Tool-crayon--orange"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#f9ce1d" class="Tool Tool-crayon--yellow"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#7cb342" class="Tool Tool-crayon--light-green"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#388e3c" class="Tool Tool-crayon--green"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#039be5" class="Tool Tool-crayon--light-blue"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#1976d2" class="Tool Tool-crayon--blue"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#5e35b1" class="Tool Tool-crayon--violet"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon">
+                  <div data-color="#8e24aa" class="Tool Tool-crayon--purple"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="#5d4037" class="Tool Tool-crayon--brown"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
+                  <div data-color="rainbow" class="Tool Tool-crayon--rainbow"></div>
+                </div>
+                <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--eraser Tool--mobile">
+                  <div data-color="#fff" class="Tool Tool-crayon--eraser"></div>
+                </div>
+                <div class="Tool-container Tool-container--third crayon-size-wrapper Tool--mobileOnly">
+                  <div class="crayon-size-indicator-container">
+                    <div class="crayon-size-indicator crayon-size-indicator--xs" data-size="1"></div>
+                    <div class="crayon-size-indicator crayon-size-indicator--sm" data-size="2"></div>
+                    <div class="crayon-size-indicator crayon-size-indicator--md" data-size="3"></div>
+                    <div class="crayon-size-indicator crayon-size-indicator--lg" data-size="4"></div>
+                  </div>
+                  <div class="crayon-size-container">
+                    <div class="crayon-padding" data-size="4">
+                      <div class="crayon-size crayon-size--lg"></div>
+                    </div>
+                    <div class="crayon-padding" data-size="3">
+                      <div class="crayon-size crayon-size--md"></div>
+                    </div>
+                    <div class="crayon-padding" data-size="2">
+                      <div class="crayon-size crayon-size--sm"></div>
+                    </div>
+                    <div class="crayon-padding" data-size="1">
+                      <div class="crayon-size crayon-size--xs"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Tool-container Tool-container--third download--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-download--mobile"></a></div>
+                <div class="Tool-container Tool-container--third trash--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-reset--mobile"></a></div>
+              </div>
+              <div class="Tool-bottomContainer">
+                <div class="Tool-sliderContainer">
+                  <div id="Slider" class="Slider">
+                    <div id="Slider-thumb--scale" class="Slider-thumb--scale"></div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="Tools">
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#e53935" class="Tool Tool-crayon--red"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#fb8c00" class="Tool Tool-crayon--orange"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#f9ce1d" class="Tool Tool-crayon--yellow"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#7cb342" class="Tool Tool-crayon--light-green"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#388e3c" class="Tool Tool-crayon--green"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#039be5" class="Tool Tool-crayon--light-blue"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#1976d2" class="Tool Tool-crayon--blue"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#5e35b1" class="Tool Tool-crayon--violet"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon">
-                <div data-color="#8e24aa" class="Tool Tool-crayon--purple"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="#5d4037" class="Tool Tool-crayon--brown"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--crayon Tool--mobile">
-                <div data-color="rainbow" class="Tool Tool-crayon--rainbow"></div>
-              </div>
-              <div class="Tool-container Tool-container--third Tool-shadow Tool-shadow--eraser Tool--mobile">
-                <div data-color="#fff" class="Tool Tool-crayon--eraser"></div>
-              </div>
-              <div class="Tool-container Tool-container--third crayon-size-wrapper Tool--mobileOnly">
-                <div class="crayon-size-indicator-container">
-                  <div class="crayon-size-indicator crayon-size-indicator--xs" data-size="1"></div>
-                  <div class="crayon-size-indicator crayon-size-indicator--sm" data-size="2"></div>
-                  <div class="crayon-size-indicator crayon-size-indicator--md" data-size="3"></div>
-                  <div class="crayon-size-indicator crayon-size-indicator--lg" data-size="4"></div>
-                </div>
-                <div class="crayon-size-container">
-                  <div class="crayon-padding" data-size="4">
-                    <div class="crayon-size crayon-size--lg"></div>
-                  </div>
-                  <div class="crayon-padding" data-size="3">
-                    <div class="crayon-size crayon-size--md"></div>
-                  </div>
-                  <div class="crayon-padding" data-size="2">
-                    <div class="crayon-size crayon-size--sm"></div>
-                  </div>
-                  <div class="crayon-padding" data-size="1">
-                    <div class="crayon-size crayon-size--xs"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="Tool-container Tool-container--third download--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-download--mobile"></a></div>
-              <div class="Tool-container Tool-container--third trash--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-reset--mobile"></a></div>
+            <div class="Buttons">
+              <Button id="print" class="Button Button-print"></Button><a id="download" download="test.png" class="Button Button-download"></a>
+              <Button id="reset" class="Button Button-reset"></Button>
             </div>
-          </div>
-          <div class="Buttons">
-            <Button id="print" class="Button Button-print"></Button><a id="download" download="test.png" class="Button Button-download"></a>
-            <Button id="reset" class="Button Button-reset"></Button>
           </div>
         </div>
         <div class="hidden">
@@ -325,7 +339,6 @@ Season of giving scene.
           <p class="print-instructions-copy"><i18n-msg msgid="ornament-print-instructions">PLACEHOLDER_i18n</i18n-msg></p>
           <p class="more-information-copy">
             <i18n-msg msgid="nonprofit-more-information">PLACEHOLDER_i18n</i18n-msg>
-            
           </p>
         </div>
       </div>
@@ -350,32 +363,36 @@ Season of giving scene.
     onPreload: function() {
       this.preloadSounds('spirit_load_sounds', 20);
       this.preloadImages([
-        'img/color-guide--agastya.svg',
-        'img/color-guide--charity-water.svg',
-        'img/color-guide--goodall.svg',
-        'img/color-guide--nature.svg',
-        'img/color-guide--solar-aid.svg',
-        'img/color-guide--wwf.svg',
+        'img/color-guide--khan-academy.svg',
+        'img/color-guide--libraries-without-borders.svg',
+        'img/color-guide--code.svg',
+        'img/color-guide--donors-choose.svg',
+        'img/color-guide--pratham-books.svg',
+        'img/footer-elf.svg',
         'img/header-icon.svg',
-        'img/icons/agastya.svg',
-        'img/icons/charity-water.svg',
+        'img/icons/code.svg',
+        'img/icons/donors-choose.svg',
         'img/icons/download.svg',
-        'img/icons/goodall.svg',
         'img/icons/info.svg',
+        'img/icons/khan-academy.svg',
+        'img/icons/libraries-without-borders.svg',
+        'img/icons/pratham-books.svg',
         'img/icons/prev.svg',
         'img/icons/print.svg',
         'img/icons/reset.svg',
         'img/icons/show-all.svg',
-        'img/icons/solar-aid.svg',
-        'img/icons/the-nature-conservancy.svg',
-        'img/icons/wwf.svg',
+        'img/intro-elf-left.svg',
+        'img/intro-elf-right.svg',
+        'img/intro-ornament.svg',
+        'img/intro-title-text.svg',
         'img/ornament-hook.svg',
-        'img/ornament/agastya.png',
-        'img/ornament/charity-water.png',
-        'img/ornament/jane-goodall-institute.png',
-        'img/ornament/solar-aid.png',
-        'img/ornament/the-nature-conservancy.png',
-        'img/ornament/wwf.png',
+        'img/ornament/donors-choose-hover.svg',
+        'img/ornament/code-hover.svg',
+        'img/ornament/khan-academy-hover.svg',
+        'img/ornament/libraries-without-borders-hover.svg',
+        'img/ornament/pratham-books-hover.svg',
+        'img/panel-arrow.svg',
+        'img/panel-ornament.svg',
         'img/season-of-giving-bg.svg',
         'img/tools/crayon-blue.svg',
         'img/tools/crayon-brown.svg',

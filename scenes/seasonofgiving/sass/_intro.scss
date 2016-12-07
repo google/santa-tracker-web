@@ -1,0 +1,105 @@
+##{$name} {
+  .intro {
+
+    &::after {
+      display: block;
+      content: url(img/intro-bg.svg);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &-content {
+      background: url(img/intro-ornament.svg) top 30% center no-repeat transparent;
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 100px 20px 0 20px;
+      position: relative;
+      text-align: center;
+    }
+
+    &-title {
+      background: url(img/intro-title-text.svg) center / contain no-repeat transparent;
+      height: 150px;
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+    &-copy {
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.6;
+      margin: 1em auto;
+      max-width: 430px;
+      position: relative;
+      z-index: 2;
+    }
+
+    &-elf {
+      background: bottom / 100% no-repeat transparent;
+      height: 500px;
+      position: absolute;
+      top: 120px;
+
+      &--left {
+        background-image: url(img/intro-elf-left.svg);
+        left: -250px;
+        width: 500px;
+      }
+
+      &--right {
+        background-image: url(img/intro-elf-right.svg);
+        right: -150px;
+        width: 250px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      &-elf {
+        top: 90px;
+
+        &--left {
+          left: -90px;
+          width: 400px;
+        }
+
+        &--right {
+          right: -30px;
+          width: 200px;
+        }
+      }
+    }
+
+    @media (max-width: 640px) {
+      &-content {
+        background-position: top center;
+        padding-bottom: 110px;
+        padding-top: 30px;
+      }
+
+      &-title {
+        height: 100px;
+      }
+
+      &-copy {
+        max-width: 330px;
+      }
+
+      &-elf {
+        top: 30px;
+
+        &--left {
+          left: -20px;
+          width: 230px;
+        }
+
+        &--right {
+          right: 0;
+          width: 120px;
+        }
+      }
+    }
+  }
+}

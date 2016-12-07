@@ -7,11 +7,11 @@ $santa-face-height: 375px;
 ##{$name} {
   .ornament {
     float: left;
-    margin-right: 114px;
+    left: 50%;
     max-width: 520px;
-    margin-left: 30%;
     position: relative;
-    top: -160px;
+    top: -230px;
+    transform: translate(-50%, 100%);
     user-select: none;
     width: 100%;
     z-index: 2;
@@ -23,11 +23,11 @@ $santa-face-height: 375px;
     }
 
     opacity: 0;
-    transform: translateY(100%);
+
     &.visible {
       transition: opacity 0.5s, transform 0.25s;
       opacity: 1;
-      transform: none;
+      transform: translate(-50%, 0);
 
       @media (max-width: 1024px), (max-height: 600px) {
         transform: translate3d(-50%, -100%, 0);
@@ -35,11 +35,11 @@ $santa-face-height: 375px;
     }
 
     @media (max-width: 1276px) {
-      top: -17px;
+      top: -200px;
     }
 
     @media (max-width: 1150px) {
-      top: 35px;
+      top: -160px;
     }
 
     @media (max-width: 1024px), (max-height: 600px) {
@@ -56,36 +56,48 @@ $santa-face-height: 375px;
   }
 
   .ornament-logo {
-    @media (max-width: 400px) {
-      max-width: 70%;
-    }
+    height: 50px;
+    width: auto;
   }
 
   .ornament-copy-container {
     background-color: transparent;
-    z-index: 2;
+    z-index: 4;
 
     @media (max-width: 1024px), (max-height: 600px) {
-      background-color: rgba(14, 195, 19, .75);
-      padding: 20px;
-      padding-top: 0;
-      position: absolute;
       overflow: scroll;
-      z-index: 20;
+      position: fixed;
       visibility: hidden;
+      width: 100%;
+      z-index: 20;
 
       &.show {
         visibility: visible;
+      }
+
+      &::before {
+        background: url(img/season-of-giving-bg.svg) no-repeat center / cover #388E3C;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: .9;
+        position: absolute;
+        top: 0;
+        width: 100%;
       }
     }
   }
 
   .ornament-copy {
     color: #fff;
-    display: inline-block;
-    float: left;
-    margin-top: 60px;
-    width: 304px;
+    display: block;
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(calc(-50% - 22px));
+    width: 275px;
     z-index: 100;
 
     opacity: 0.5;
@@ -102,7 +114,7 @@ $santa-face-height: 375px;
     p {
       font-size: 14px;
       line-height: 1.7em;
-      margin: 0 0 30px;
+      margin: 0 0 10px;
     }
 
     .copy-link {
@@ -118,19 +130,32 @@ $santa-face-height: 375px;
       display: none;
     }
 
+    @media (max-width: 1150px) {
+      width: 250px;
+    }
+
     @media (min-width: 1024px) {
       opacity: 0;
     }
 
     @media (max-width: 1024px), (max-height: 600px) {
+      display: block;
+      float: none;
       position: relative;
       width: auto;
-      margin: 70px 0;
+      margin: 20px;
+      top: 0;
+      transform: none;
 
       .Button-close {
         display: block;
       }
     }
+  }
+
+  .ornament-link {
+    font-size: 16px;
+    text-transform: uppercase;
   }
 
   .ornament-hook {
@@ -176,9 +201,9 @@ $santa-face-height: 375px;
   }
 
   .scene-ornament {
+    flex: 0 1 auto;
+    min-height: 60%;
     width: 100%;
-    position: absolute;
-    top: -260px;
 
     @media (max-width: 1024px), (max-height: 600px) {
       top: auto;
@@ -187,17 +212,18 @@ $santa-face-height: 375px;
   }
 
   .scene-ornament-wrapper {
-    display: inline-block;
+    align-items: center;
+    display: flex;
+    height: 100%;
     position: absolute;
     visibility: hidden;
-    top: 50%;
+    overflow: hidden;
+    top: 0;
+    z-index: 2;
 
     &.active {
       visibility: visible;
-    }
-
-    @media (max-width: 1024px), (max-height: 600px) {
-      top: 0;
+      overflow: visible;
     }
 
     a:not(.Button) {
@@ -207,42 +233,6 @@ $santa-face-height: 375px;
 
   .icon {
     background-repeat: no-repeat;
-  }
-
-  .icon--goodall-institution {
-    background-image: url(img/icons/goodall.svg);
-    height: 65px;
-    width: 274px;
-  }
-
-  .icon--nature-conservancy {
-    background-image: url(img/icons/the-nature-conservancy.svg);
-    height: 56px;
-    width: 187px;
-  }
-
-  .icon--wwf {
-    background-image: url(img/icons/wwf.svg);
-    height: 81px;
-    width: 54px;
-  }
-
-  .icon--agastya {
-    background-image: url(img/icons/agastya.svg);
-    height: 65px;
-    width: 274px;
-  }
-
-  .icon--solar-aid {
-    background-image: url(img/icons/solar-aid.svg);
-    height: 74px;
-    width: 92px;
-  }
-
-  .icon--charity-water {
-    background-image: url(img/icons/charity-water.svg);
-    height: 32px;
-    width: 282px;
   }
 
   .ornament-stage-container {
@@ -274,30 +264,6 @@ $santa-face-height: 375px;
 
   .temp-canvas--active {
     visibility: visible;
-  }
-
-  .ornament-outline--wwf {
-    border-color: #f3a72f;
-  }
-
-  .ornament-outline--nature-conservancy {
-    border-color: #c0c842;
-  }
-
-  .ornament-outline--solar-aid {
-    border-color: #d62261;
-  }
-
-  .ornament-outline--agastya {
-    border-color: #f37c22;
-  }
-
-  .ornament-outline--charity-water {
-    border-color: #f37c22;
-  }
-
-  .ornament-outline--goodall-institution {
-    border-color: #2278cf;
   }
 
   #ornament-stage {

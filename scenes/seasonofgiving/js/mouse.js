@@ -34,6 +34,7 @@ app.Mouse = function($elem) {
 
   this.subscribers = [];
 
+  this.touchStartedInCanvas = false;
   this.touchStartedInOrnamentLink = false;
 
   var calculateScale = function() {
@@ -71,9 +72,9 @@ app.Mouse = function($elem) {
     this.x = e.originalEvent.touches[0].clientX;
     this.y = e.originalEvent.touches[0].clientY;
 
-    this.touchStartedInOrnamentLink =
-        !!$(e.target).closest('.ornament-copy').length;
-    if (!this.touchStartedInOrnamentLink) {
+    this.touchStartedInCanvas =
+        !!$(e.target).closest('.canvas').length;
+    if (this.touchStartedInCanvas) {
       e.preventDefault();
     }
   }.bind(this));
@@ -83,7 +84,10 @@ app.Mouse = function($elem) {
 
     this.touchStartedInOrnamentLink =
         !!$(e.target).closest('.ornament-copy').length;
-    if (!this.touchStartedInOrnamentLink) {
+
+    this.touchStartedInCanvas =
+        !!$(e.target).closest('.canvas').length;
+    if (this.touchStartedInCanvas) {
       e.preventDefault();
     }
   }.bind(this));
@@ -91,8 +95,9 @@ app.Mouse = function($elem) {
   $elem.on('mouseup mouseleave touchend touchleave', function(e) {
     this.down = false;
 
-    if (e.cancelable && !this.touchStartedInOrnamentLink) {
+    if (e.cancelable && (this.touchStartedInCanvas || !this.touchStartedInOrnamentLink)) {
       e.preventDefault();
+      this.touchStartedInCanvas = false;
       this.touchStartedInOrnamentLink = false;
     }
 

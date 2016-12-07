@@ -72,6 +72,11 @@ app.Ornament = function(selector, elem) {
   this.ornamentAnim = null;
 
   this.randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+  this.organization = $(this.ornamentScene).attr('data-org');
+  this.ornamentItemCanvas = $('#ornament-item-canvas--' + this.organization)[0];
+  this.ornamentInGallery = this.ornamentItemCanvas.closest('.ornament-item');
+  this.isDrawn = false;
 };
 
 /**
@@ -121,9 +126,28 @@ app.Ornament.prototype.show = function(opt_delayTime) {
  * Hide ornament
  */
 app.Ornament.prototype.hide = function() {
+  this.cloneCanvas();
   this.ornament.removeClass('visible');
   this.ornamentCopy.removeClass('visible');
+  this.ornamentWrapper.removeClass('active');
   this.isActive = false;
+};
+
+/**
+ * Clone ornament canvas to ornament-item in gallery
+ */
+app.Ornament.prototype.cloneCanvas = function() {
+  if (this.isDrawn) {
+    $(this.ornamentInGallery).addClass('ornament-item--drawn');
+
+    var newCtx = this.ornamentItemCanvas.getContext('2d');
+    this.ornamentItemCanvas.width = this.canvas.width;
+    this.ornamentItemCanvas.height = this.canvas.height;
+
+    newCtx.drawImage(this.canvas, 0, 0);
+  }
+
+  return newCtx;
 };
 
 /**
@@ -163,7 +187,7 @@ app.Ornament.prototype.resize = function() {
   const width = +$(window).width();
   const height = +$(window).height();
   if (width > 1024 && height > 600) {
-    rv = this.relativeValue(width, 1024, 1400, 230, 520);
+    rv = this.relativeValue(width, 1024, 1400, 400, 520);
     this.ornamentStage.css({
       'width': rv,
       'height': rv
@@ -175,7 +199,7 @@ app.Ornament.prototype.resize = function() {
     });
   } else {
     // cheat and use min of (width, height) for scaling
-    rv = this.relativeValue(Math.min(width, height), 320, 1025, 230, 400);
+    rv = this.relativeValue(Math.min(width, height), 320, 1025, 280, 400);
     this.ornamentStage.css({
       'width': rv,
       'height': rv
@@ -248,7 +272,9 @@ app.Ornament.prototype.globalMouseUp = function() {
  * @param {!jQuery.Event} event
  */
 app.Ornament.prototype.mouseDown = function(event) {
-  if (!app.GameManager.tool || !this.isActive) {
+  var isCanvas = $(event.target).closest('.canvas').length;
+
+  if (!app.GameManager.tool || !this.isActive || !isCanvas) {
     return;
   }
 
@@ -259,6 +285,7 @@ app.Ornament.prototype.mouseDown = function(event) {
   }
 
   this.isDrawing = true;
+  this.isDrawn = true;
 
   var e = {};
   if (event.type === 'mousedown') {

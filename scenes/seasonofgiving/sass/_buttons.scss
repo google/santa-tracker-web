@@ -1,8 +1,13 @@
 ##{$name} {
   .Buttons {
     display: flex;
-    position: absolute;
+    margin-top: 15px;
+    transform: scale(0.8);
     z-index: 2;
+
+    @media (max-width: 1024px), (max-height: 600px) {
+      display: none;
+    }
   }
 
   .Button {
@@ -103,16 +108,31 @@
   }
 
   .Button-nav-ornament {
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: 50% 50% / contain no-repeat #8DC449;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 #78A341;
     cursor: pointer;
     float: left;
-    height: 48px;
-    width: 48px;
+    height: 60px;
+    position: relative;
+    width: 60px;
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &::after {
+      border-radius: 50%;
+      bottom: 0;
+      box-shadow: 6px 6px rgba(0, 0, 0, .1);
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: box-shadow 0.1s;
+      z-index: -1;
     }
   }
 
@@ -154,17 +174,17 @@
 
   .Button-prev-ornament {
     background-image: url(img/icons/prev.svg);
-    background-repeat: no-repeat;
   }
 
   .Button-next-ornament {
     background-image: url(img/icons/next.svg);
-    background-repeat: no-repeat;
   }
 
   .Button-show-all {
     background-image: url(img/icons/show-all.svg);
-    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 80px;
+    width: 80px;
   }
 
   .Button-close {

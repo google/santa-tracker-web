@@ -1,19 +1,43 @@
 ##{$name} {
   .Tool-wrapper {
-    background: #9EC847;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    box-shadow: 5px 5px 20px -7px rgba(0, 0, 0, .23);
+    align-items: center;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
     left: 20px;
     min-height: 300px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
+    overflow: visible;
+    position: fixed;
     width: 208px;
+    z-index: 4;
+  }
+
+  .Tool-border-wrapper {
+    width: 100%;
+
+    &::before {
+      background: url(img/tools-border.svg) no-repeat bottom -1px center / contain transparent;
+      content: '';
+      display: block;
+      height: 32px;
+      width: 100%;
+    }
+
+    &::after {
+      background: url(img/tools-border.svg) no-repeat bottom -1px center / contain transparent;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 32px;
+      transform: rotate(180deg);
+      width: 100%;
+    }
   }
 
   .Tools {
+    background-color: #8EC549;
     box-sizing: border-box;
     max-height: 283px;
     min-height: 100px;
@@ -22,7 +46,7 @@
   }
 
   .Tool-container {
-    background-color: #96BE43;
+    background-color: #8EC549;
     box-sizing: border-box;
     cursor: pointer;
     display: block;
@@ -31,9 +55,6 @@
     margin: 0 auto;
     position: relative;
     width: 102px;
-
-    border-right: 1px solid #7db249;
-    border-bottom: 1px solid #7db249;
 
     &:nth-child(3n) {
       border-right: 0;
@@ -53,17 +74,6 @@
       clear: both;
       content: "";
       display: block;
-    }
-
-    .Tool-container--third {
-      &:not(:last-child) {
-        border-bottom: 1px solid #7DB249;
-        border-right: 1px solid #7DB249;
-      }
-
-      &:last-child {
-        border-bottom: 1px solid #7DB249;
-      }
     }
 
     &:last-child {
@@ -108,21 +118,6 @@
     width: 100%;
   }
 
-  .Tool-header-container {
-    height: 153px;
-
-    position: relative;
-  }
-
-  .Tool-header {
-    background: url('img/header-icon.svg') no-repeat;
-    background-size: contain;
-    height: 111px;
-    width: 109px;
-
-    @include center();
-  }
-
   .Slider {
     height: 100%;
     outline: none;
@@ -147,7 +142,8 @@
 
   // Custom styles for game
   .Tool-bottomContainer {
-    height: 80px;
+    background-color: #8EC549;
+    height: 60px;
     position: relative;
   }
 
@@ -182,7 +178,7 @@
     background-size: contain !important;
     position: fixed;
     z-index: 6;
-    transform-origin: 4% 100% 0;
+    transform-origin: 4% 92% 0;
   }
 
   .Tool-bounce--activate {
@@ -311,6 +307,7 @@
     &.Tool--selected {
       width: 176px;
       height: 176px;
+      transform-origin: 22% 96% 0;
     }
   }
 
@@ -327,14 +324,23 @@
   ##{$name} {
     .Tool-wrapper {
       bottom: 0;
+      height: auto;
       min-height: 0;
       right: 20px;
+    }
+
+    .Tool-border-wrapper {
+      &::after,
+      &::before {
+        content: none;
+      }
     }
 
     .Tool-panel {
       position: absolute;
       bottom: 0;
       right: 0;
+      z-index: 4;
     }
 
     .Tools {
@@ -500,7 +506,6 @@
   ##{$name} {
     .Tool-wrapper {
       border-radius: 0 0 5px 5px;
-      box-shadow: 1.53px 1.53px 3px rgba(0, 0, 0, 0.16);
       left: 20px;
       top: 0;
       width: 208px;
