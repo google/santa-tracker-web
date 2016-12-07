@@ -400,7 +400,7 @@ gulp.task('vulcanize-elements', ['sass', 'compile-js'], function() {
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('build-prod', function() {
-  const staticBaseUrl = argv.pretty ? '/' : (STATIC_BASE_URL + argv.build + '/');
+  const staticUrl = argv.pretty ? '/' : (STATIC_BASE_URL + argv.build + '/');
 
   const htmlStream = gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
     .pipe(scripts.mutateHTML.gulp(function() {
@@ -412,9 +412,10 @@ gulp.task('build-prod', function() {
       // Fix top-level HTML/CSS imports to include static base.
       const relativeLinks = Array.from(this.head.querySelectorAll('link:not([href^="/"])'));
       relativeLinks.forEach(link => {
-        link.href = staticBaseUrl + link.href;
+        link.href = staticUrl + link.href;
       });
 
+      this.body.setAttribute('data-static', staticUrl);
       this.body.setAttribute('data-version', STATIC_VERSION);
     }))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))

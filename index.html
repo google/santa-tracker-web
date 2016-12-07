@@ -172,7 +172,7 @@ ga('set', 'transport', 'beacon');
   <link rel="import" href="elements/elements_en.html">
   <link rel="import" href="js/ccsender.html" async>
 </head>
-<body data-version="" unresolved class="scrollock">
+<body data-version="" data-static="" unresolved class="scrollock">
 
 <santa-app id="santaApp" routing></santa-app>
 
@@ -202,7 +202,8 @@ function lazyLoadWCPolyfillsIfNecessary() {
     && 'content' in document.createElement('template'));
   if (!webComponentsSupported) {
     var script = document.createElement('script');
-    script.src = 'components/webcomponentsjs/webcomponents-lite.min.js';
+    var baseUrl = document.body.getAttribute('data-static');
+    script.src = baseUrl + 'components/webcomponentsjs/webcomponents-lite.min.js';
     script.onload = onload;
     document.head.appendChild(script);
   } else {
