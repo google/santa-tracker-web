@@ -110,7 +110,7 @@ Jetpack scene.
 
     onShow: function() {
       var module = this.$['module-penguindash'];
-      this.game = new scenes.penguindash.Game(module);
+      this.game = new scenes.penguindash.Game(module, this.resolveUrl('.'));
     },
 
     onHide: function() {

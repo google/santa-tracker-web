@@ -32,8 +32,9 @@ goog.require('app.shared.Tutorial');
  * @constructor
  * @export
  */
-app.Game = function(elem) {
+app.Game = function(elem, componentDir) {
   this.elem = $(elem);
+  this.componentDir = componentDir;
 
   this.sceneElem = this.elem.find('#penguindash-game');
 
