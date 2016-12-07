@@ -104,11 +104,12 @@ app.FrameWrapper.prototype.triggerSound = function(event) {
 
 /**
  * Triggers the shared game over view.
+ * @param {boolean=} playExtra Whether to show play extra option.
  */
-app.FrameWrapper.prototype.gameover = function() {
+app.FrameWrapper.prototype.gameover = function(playExtra) {
   this.isPlaying = false;
 
-  this.gameoverView.show(0, 10);
+  this.gameoverView.show(0, 10, playExtra);
 
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'codelab',

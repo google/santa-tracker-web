@@ -37,11 +37,12 @@ function Gameover(game, elem) {
  * from the game.
  * @param {number=} opt_score The final score.
  * @param {number=} opt_level The final level, ignored.
+ * @param {boolean=} opt_playExtra Whether to show play extra option.
  */
-Gameover.prototype.show = function(opt_score, opt_level) {
+Gameover.prototype.show = function(opt_score, opt_level, opt_playExtra) {
   const detail = {
     score: opt_score || (this.game && this.game.scoreboard && this.game.scoreboard.score) || 0,
-    hasPlayExtra: this._hasPlayExtra,
+    hasPlayExtra: this._hasPlayExtra && opt_playExtra,
   };
   window.santaApp.fire('game-stop', detail);
 };

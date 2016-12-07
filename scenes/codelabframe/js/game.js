@@ -79,7 +79,7 @@ app.Game.prototype.bumpLevel = function() {
 
   this.level = app.levels[this.levelNumber];
   if (!this.level) {
-    this.iframeChannel.call('gameover');
+    this.iframeChannel.call('gameover', this.levelNumber < 11);
     return;
   }
 
