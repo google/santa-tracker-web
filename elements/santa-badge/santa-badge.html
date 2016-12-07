@@ -103,7 +103,7 @@ specific language governing permissions and limitations under the License.
 
     _computeBackgroundStyle: function(logoUrl) {
       if (logoUrl) {
-        return 'background-image: url(' + logoUrl + ')';
+        return 'background-image: url(' + this.resolveUrl('../../' + logoUrl) + ')';
       }
       return null;
     },

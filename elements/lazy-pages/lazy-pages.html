@@ -195,7 +195,8 @@ Lazy loads children "pages".
       // Append a numbered suffix if this is a 2nd failed load. This is stripped in the SW.
       var attempt = failedToLoad[path] || 0;
       var attemptSuffix = attempt ? '?' + attempt : '';
-      this.importHref(path + attemptSuffix, function() {
+      var resolvedPath = this.resolveUrl('../../' + path);
+      this.importHref(resolvedPath + attemptSuffix, function() {
         // Great! Nothing else to do here. Load timing ends in SantaSceneBehavior, as it includes
         // all resource preloading.
       }, function(e) {
@@ -214,7 +215,7 @@ Lazy loads children "pages".
       if (!lockedHouse) {
         return null;
       }
-      var url = 'images/scenes/' + lockedHouse + '_2x.png';
+      var url = this.resolveUrl('../../images/scenes/' + lockedHouse + '_2x.png');
       return 'background-image: url(' + url + '); background-size: cover;';
     },
 

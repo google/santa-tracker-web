@@ -101,7 +101,6 @@ const CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
 
 const API_BASE_URL = argv.api_base.replace(/\/*$/, '/');
 const STATIC_BASE_URL = argv.baseurl.replace(/\/*$/, '/');
-const STATIC_URL = argv.pretty ? '' : (STATIC_BASE_URL + argv.build + '/');
 const STATIC_VERSION = argv.build;
 
 const PROD_DIR = 'dist_prod';
@@ -401,15 +400,22 @@ gulp.task('vulcanize-elements', ['sass', 'compile-js'], function() {
 gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
 
 gulp.task('build-prod', function() {
+  const staticBaseUrl = argv.pretty ? '/' : (STATIC_BASE_URL + argv.build + '/');
+
   const htmlStream = gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
     .pipe(scripts.mutateHTML.gulp(function() {
       if (!argv.pretty) {
         const dev = this.head.querySelector('#DEV');
         dev && dev.remove();
       }
+
+      // Fix top-level HTML/CSS imports to include static base.
+      const relativeLinks = Array.from(this.head.querySelectorAll('link:not([href^="/"])'));
+      relativeLinks.forEach(link => {
+        link.href = staticBaseUrl + link.href;
+      });
+
       this.body.setAttribute('data-version', STATIC_VERSION);
-      const baseEl = this.head.querySelector('base[href]');
-      baseEl && baseEl.setAttribute('href', STATIC_URL);
     }))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(scripts.fanout(SCENE_CONFIG))

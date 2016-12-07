@@ -663,7 +663,8 @@ Polymer({
       this._setShareOptions([]);
     }
 
-    var sc = new SoundController(this._soundsLoaded.bind(this));
+    var staticUrl = this.resolveUrl('../../');
+    var sc = new SoundController(staticUrl, this._soundsLoaded.bind(this));
     this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
     this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
     this.addEventListener('sound-trigger', sc.playSound.bind(sc));

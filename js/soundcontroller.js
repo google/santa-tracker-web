@@ -30,16 +30,20 @@ const klangConfigSrc = 'third_party/lib/klang/config.js';
 /**
  * @constructor
  * @struct
+ * @param {string} baseUrl to load resources under
  * @param {function(string)} loadCallback Callback to be notified when a set of sounds are loaded.
  * @export
  */
-SoundController = function SoundController(loadCallback) {
+SoundController = function SoundController(baseUrl, loadCallback) {
   // load Klang
   const klangScript = document.createElement('script');
-  klangScript.src = klangSrc;
+  klangScript.src = baseUrl + klangSrc;
 
   klangScript.addEventListener('load', this.loadKlangConfig_.bind(this));
   document.head.appendChild(klangScript);
+
+  /** @private {string} */
+  this.baseUrl_ = baseUrl;
 
   /**
    * A queue of the sounds to load as soon as Klang is ready to go.
@@ -87,7 +91,7 @@ SoundController.SoundDetail;
  */
 SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
-  Klang.init(klangConfigSrc, success => {
+  Klang.init(this.baseUrl_ + klangConfigSrc, success => {
     if (success) {
       this.klangLoaded_ = true;
 

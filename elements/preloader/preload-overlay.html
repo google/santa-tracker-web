@@ -23,7 +23,7 @@ Candy cane progress bar.
   <template>
     <style include="preloader_module"></style>
     <div id="center">
-      <img src$="[[_computedSrcDefault(src)]]" />
+      <img src$="[[_computeLoadingSrc(src)]]" />
       <div id="bar">
         <div id="progress" style$="width:[[value]]%"></div>
       </div>
@@ -70,8 +70,9 @@ Candy cane progress bar.
 
     },
 
-    _computedSrcDefault: function(src) {
-      return src || DEFAULT_LOADING_SRC;
+    _computeLoadingSrc: function(src) {
+      src = src || DEFAULT_LOADING_SRC;
+      return this.resolveUrl('../../' + src);
     },
 
     _activeChanged: function(newValue, oldValue) {
