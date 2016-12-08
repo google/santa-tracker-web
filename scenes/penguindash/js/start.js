@@ -75,7 +75,6 @@ app.Start.prototype.create = function() {
   if(!this.isMobileOrIE) {
     this.video = this.game.add.video('background');
     this.vidsprite = this.video.addToWorld(0, 0, 0, 0, 2.2, 3);
-    this.video.play(true);
     this.wave = new app.Wave(this);
   }
 
@@ -91,8 +90,14 @@ app.Start.prototype.create = function() {
   // Start game
   this.initLevels_();
   this.showLevel_(1);
-};
 
+  if(this.game.penguinPauseOnStart) {
+    this.game.paused = true;
+  }
+  if(!this.isMobileOrIE) {
+    this.video.play(true);
+  }
+};
 
 /**
  * Update canvas with game play. Called by Phaser.

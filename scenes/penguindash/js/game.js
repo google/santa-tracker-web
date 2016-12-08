@@ -67,6 +67,9 @@ app.Game = function(elem, componentDir) {
   $(window).on('deviceorientation.penguindash', function(event){
     detectGyro(event);
   });
+
+  this.initGame = this.initGame.bind(this);
+  this.initGame(true);
 };
 
 
@@ -74,9 +77,11 @@ app.Game = function(elem, componentDir) {
  * Starts the game. Should only be called once.
  */
 app.Game.prototype.start = function() {
-  this.restart();
-
   this.tutorial.start();
+
+  //in case the game hasn't been fully loaded
+  this.game.penguinPauseOnStart = false;
+  this.game.paused = false;
 
   this.scoreboard.reset();
   this.scoreboard.restart();
@@ -87,21 +92,32 @@ app.Game.prototype.start = function() {
  * Restarts the game. Can be called at any time.
  */
 app.Game.prototype.restart = function() {
+  this.initGame(false);
+
+  this.scoreboard.reset();
+  this.scoreboard.restart();
+};
+
+/**
+ * Initialize the game to speed up start time.
+ @param {boolean} pause Indicate if the game should pause after initialization.
+ */
+app.Game.prototype.initGame = function(pause) {
   window.PhaserGlobal = {};
   window.PhaserGlobal.disableAudio = true;
+
   if(this.game) {
     this.game.destroy();
   }
-  this.game = new Phaser.Game('100%', '100%', Phaser.AUTO, this.sceneElem[0], null, true);
 
+  this.game = new Phaser.Game('100%', '100%', Phaser.AUTO, this.sceneElem[0], null, true);
   this.game.st_parent = this;
+
+  this.game.penguinPauseOnStart = pause;
 
   this.game.state.add('Preloader', app.Preloader);
   this.game.state.add('Game', app.Start);
   this.game.state.start('Preloader');
-
-  this.scoreboard.reset();
-  this.scoreboard.restart();
 };
 
 
