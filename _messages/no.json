@@ -864,13 +864,13 @@
 		"message": "Lærere og studenter"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® er en veldedig organisasjon som jobber for å utvide informatikkfeltet og øke deltakelsen av kvinner og studenter fra underrepresenterte minoriteter. Visjonen til Code.org® er at alle studenter på alle skoler skal ha muligheten til å lære om informatikk."
+		"message": "Code.org® er en veldedig organisasjon som jobber for å gjøre informatikkfaget mer tilgjengelig og øke deltakelsen i faget av kvinner og studenter fra underrepresenterte minoriteter. Visjonen til Code.org® er at alle elever på alle skoler skal ha muligheten til å lære om informatikk."
 	},
 	"nonprofit-code-type": {
 		"message": "Informatikk"
 	},
 	"nonprofit-donorschoose-description": {
-		"message": "DonorsChoose.org ble opprettet i år 2000 av en historielærer fra Bronx og har samlet inn over 480 millioner dollar til skoleprosjekter i USA. Lærere bruker DonorsChoose.org til å samle inn penger til undervisningsmateriell og utstyr."
+		"message": "DonorsChoose.org ble opprettet i år 2000 av en historielærer fra Bronx og har samlet inn over 480 millioner dollar til skoleprosjekter i USA. Lærere bruker DonorsChoose.org til å samle inn penger til undervisningsmateriell og opplevelser."
 	},
 	"nonprofit-donorschoose-type": {
 		"message": "Klasserom"
@@ -909,7 +909,7 @@
 		"message": "Skoger"
 	},
 	"nonprofit-pratham-description": {
-		"message": "Nærmere 40 % av verdens befolkning har ikke tilgang til opplæringsmateriell på et språk de snakker eller forstår. Målet med StoryWeaver er å endre dette ved å hjelpe lærere, skribenter og oversettere med å lage gode, supplerende leseressurser for barn."
+		"message": "Nærmere 40 % av verdens befolkning har ikke tilgang til opplæringsmateriell på et språk de snakker eller forstår. Målet med StoryWeaver er å endre dette ved å hjelpe lærere, skribenter og oversettere med å lage godt lesemateriell for barn."
 	},
 	"nonprofit-pratham-type": {
 		"message": "Lesing"
@@ -1170,10 +1170,10 @@
 		"message": "Kartquiz"
 	},
 	"scene_playground": {
-		"message": "Nordpolens lekeplass"
+		"message": "Lekeplass på Nordpolen"
 	},
 	"scene_postcard": {
-		"message": "Snøfnuggkoding"
+		"message": "Koding av et snøfnugg"
 	},
 	"scene_presentbounce": {
 		"message": "Gavesprett"
@@ -1203,7 +1203,7 @@
 		"message": "En tid for å gi"
 	},
 	"scene_streetview": {
-		"message": "Gatevisning"
+		"message": "«Street View»"
 	},
 	"scene_traditions": {
 		"message": "Juletradisjoner"
@@ -5143,6 +5143,9 @@
 	},
 	"watch": {
 		"message": "Se"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

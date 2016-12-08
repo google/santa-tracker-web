@@ -1091,12 +1091,6 @@
 	"santasearch_hint": {
 		"message": "Hint"
 	},
-	"santasearch_level_beach": {
-      "message": "At the beach"
-    },
-    "santasearch_level_mountains": {
-      "message": "In the mountains"
-    },
 	"santasearch_level_lab": {
 		"message": "In the lab"
 	},
@@ -5149,6 +5143,9 @@
 	},
 	"watch": {
 		"message": "Watch"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
 	},
 	"ye_country_name": {
 		"message": "Yemen"
