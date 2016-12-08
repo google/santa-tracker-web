@@ -20,7 +20,11 @@
     }
 
     &-title {
-      background: url(img/intro-title-text.svg) center / contain no-repeat transparent;
+      font-size: 42px;
+      color: white;
+      text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+      transform: rotate(-3deg);
+      font-family: 'Lobster';
       height: 150px;
       margin: 0 auto;
       max-width: 700px;
@@ -35,6 +39,7 @@
       max-width: 430px;
       position: relative;
       z-index: 2;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
     }
 
     &-elf {
@@ -81,6 +86,7 @@
 
       &-title {
         height: 100px;
+        font-size: 24px;
       }
 
       &-copy {
