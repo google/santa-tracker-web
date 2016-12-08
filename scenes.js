@@ -33,6 +33,7 @@ module.exports = {
     entryPoint: 'app.Belt'
   },
   blimp: {
+    msgid: 'scene_blimp',
   },
   boatload: {
     msgid: 'scene_boatload',
@@ -138,6 +139,7 @@ module.exports = {
     libraries: ['third_party/lib/phaser/phaser-arcade-physics.js']
   },
   playground: {
+    msgid: 'scene_playground',
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
@@ -165,6 +167,7 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   rollercoaster: {
+    msgid: 'scene_rollercoaster',
   },
   runner: {
     msgid: 'scene_runner',
@@ -192,6 +195,7 @@ module.exports = {
     entryPoint: 'app.Scene',
   },
   streetview: {
+    msgid: 'scene_streetview',
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
@@ -208,10 +212,12 @@ module.exports = {
     entryPoint: 'app.Scene'
   },
   trivia: {
+    msgid: 'scene_trivia',
     typeSafe: false,
     entryPoint: 'app.Game'
   },
   undersea: {
+    msgid: 'scene_undersea'
   },
   village: {
     msgid: 'santasvillage'
@@ -228,18 +234,18 @@ module.exports = {
 // videos
 
   carpool: {msgid: 'scene_videoscene_carpool'},
-  comroom: {},
-  jingle: {},
+  comroom: {msgid: 'scene_videoscene_comroom'},
+  jingle: {msgid: 'scene_videoscene_jingle'},
   liftoff: {msgid: 'scene_videoscene_liftoff'},
-  office: {},
-  reload: {},
+  office: {msgid: 'scene_videoscene_office'},
+  reload: {msgid: 'scene_videoscene_reload'},
   santasback: {msgid: 'scene_videoscene_santasback'},
-  satellite: {},
+  satellite: {msgid: 'scene_videoscene_satellite'},
   slackingoff: {},
-  temptation: {},
-  tired: {},
-  trailer: {},
-  wheressanta: {},
+  temptation: {msgid: 'scene_videoscene_temptation'},
+  tired: {msgid: 'scene_videoscene_tired'},
+  trailer: {msgid: 'scene_videoscene_trailer'},
+  wheressanta: {msgid: 'scene_videoscene_wheressanta'},
 
 // dummy: used for prod demos
   
