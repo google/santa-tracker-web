@@ -909,7 +909,7 @@
 		"message": "Bosques"
 	},
 	"nonprofit-pratham-description": {
-		"message": "Alrededor del 40% de la población mundial no tiene acceso a la enseñanza en su propio idioma. Con la intención de cambiar esta situación, StoryWeaver se encarga de ayudar a profesores, escritores y traductores a crear recursos de lectura adicionales muy divertidos y orientados a los niños."
+		"message": "Alrededor del 40% de la población mundial no tiene acceso a la enseñanza en un idioma que hable o entienda. Con la intención de cambiar esta situación, StoryWeaver se encarga de ayudar a profesores, escritores y traductores a crear recursos de lectura adicionales muy divertidos y orientados a los niños."
 	},
 	"nonprofit-pratham-type": {
 		"message": "Lectura"
@@ -1116,7 +1116,7 @@
 		"message": "Aplicación para Android"
 	},
 	"scene_blimp": {
-		"message": "A la caza del regalo"
+		"message": "Repostando regalos"
 	},
 	"scene_boatload": {
 		"message": "Tirachinas de regalos"
@@ -1173,7 +1173,7 @@
 		"message": "El parque del Polo Norte"
 	},
 	"scene_postcard": {
-		"message": "Postales de nieve"
+		"message": "Crea un copo de nieve con código"
 	},
 	"scene_presentbounce": {
 		"message": "¡Que no se caiga el regalo!"
@@ -1185,7 +1185,7 @@
 		"message": "Carrera de obstáculos de Rudolph"
 	},
 	"scene_rollercoaster": {
-		"message": "La montaña élfica"
+		"message": "La montaña rusa élfica"
 	},
 	"scene_runner": {
 		"message": "Reno a la carrera"
@@ -1221,10 +1221,10 @@
 		"message": "Coche de los elfos"
 	},
 	"scene_videoscene_comroom": {
-		"message": "La sala de mando de Papá Noel"
+		"message": "Sala de mando"
 	},
 	"scene_videoscene_jingle": {
-		"message": "Ya vienen los elfos"
+		"message": "Elfos cantando y bailando"
 	},
 	"scene_videoscene_liftoff": {
 		"message": "El despegue de Papá Noel"
@@ -1233,7 +1233,7 @@
 		"message": "Bromas en la oficina"
 	},
 	"scene_videoscene_reload": {
-		"message": "A la caza del regalo"
+		"message": "Repostando regalos"
 	},
 	"scene_videoscene_santasback": {
 		"message": "Papá Noel ha vuelto"
@@ -1242,13 +1242,13 @@
 		"message": "Satélite"
 	},
 	"scene_videoscene_temptation": {
-		"message": "La tentación del elfo"
+		"message": "Tentación"
 	},
 	"scene_videoscene_tired": {
 		"message": "El reno cansado"
 	},
 	"scene_videoscene_trailer": {
-		"message": "Las vacaciones de Papá Noel"
+		"message": "Aún está de vacaciones"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "¿Dónde está Papá Noel?"
@@ -5143,6 +5143,9 @@
 	},
 	"watch": {
 		"message": "Ver"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "Vale"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

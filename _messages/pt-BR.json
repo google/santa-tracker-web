@@ -864,7 +864,7 @@
 		"message": "Professores e estudantes"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® é uma organização sem fins lucrativos dedicada a expandir o acesso à ciência da computação e aumentar a participação feminina e de alunos negros com pouca representatividade. A visão da Code.org® é a de que todos os estudantes em todas as escolas deveriam ter a oportunidade de aprender ciência da computação."
+		"message": "Code.org® é uma organização sem fins lucrativos dedicada a expandir o acesso à ciência da computação e aumentar a participação feminina e de alunos cuja raça tenha pouca representatividade. A visão da Code.org® é a de que todos os estudantes em todas as escolas deveriam ter a oportunidade de aprender ciência da computação."
 	},
 	"nonprofit-code-type": {
 		"message": "Ciência da computação"
@@ -894,7 +894,7 @@
 		"message": "Ensino"
 	},
 	"nonprofit-lwb-description": {
-		"message": "Libraries Without Borders é uma ONG internacional focada no desenvolvimento baseado em cultura. Foi fundada em 2007 e tem sede em Paris. Até o momento, a ONG já construiu mais de 300 bibliotecas em todo o mundo."
+		"message": "Libraries Without Borders é uma ONG internacional que tem como foco o desenvolvimento baseado em cultura. Foi fundada em 2007 e tem sede em Paris. Até o momento, a ONG já construiu mais de 300 bibliotecas em todo o mundo."
 	},
 	"nonprofit-lwb-type": {
 		"message": "Bibliotecas"
@@ -1203,7 +1203,7 @@
 		"message": "Tempo de generosidade"
 	},
 	"scene_streetview": {
-		"message": "Vista da rua"
+		"message": "Street View"
 	},
 	"scene_traditions": {
 		"message": "Tradições de fim de ano"
@@ -5143,6 +5143,9 @@
 	},
 	"watch": {
 		"message": "Assistir"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
 	},
 	"ye_country_name": {
 		"message": "Iêmen"
