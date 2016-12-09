@@ -610,10 +610,8 @@ Polymer({
     shareOptions: {
       type: Array,
       value: function() {
-        // TODO(samthor): Also check for 'Mobile' until https://crbug.com/635741 is fixed, as
-        // share is showing up on desktop.
-        var hasWebShare = Boolean(navigator.share && navigator.userAgent.match(/Mobile/));
-        return Object.freeze(hasWebShare ? ['webshare'] : ['gplus', 'twitter', 'facebook']);
+        var options = navigator.share ? ['webshare'] : ['gplus', 'twitter', 'facebook'];
+        return Object.freeze(options);
       },
       readOnly: true,
     },
