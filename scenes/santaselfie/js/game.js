@@ -48,6 +48,9 @@ app.Game = function(elem) {
 
   this.onFrame_ = this.onFrame_.bind(this);
   this.accumulator = 0;
+
+  this.interactionDoneTimeout_ = 0;
+  this.initialBeard_ = '';
 };
 
 
@@ -72,6 +75,8 @@ app.Game.prototype.start = function() {
 
   this.restart();
 
+  this.initialBeard_ = this.cloth.save();
+
   var beard = getUrlParameter('beard');
   beard && this.cloth.restore(beard);
 };
@@ -83,6 +88,7 @@ app.Game.prototype.start = function() {
  */
 app.Game.prototype.resetBeard_ = function() {
   this.cloth.resetCloth();
+  this.updateUrlState_();
 };
 
 
@@ -122,16 +128,35 @@ app.Game.prototype.update = function(delta) {
  * Show share overlay.
  */
 app.Game.prototype.showShareOverlay = function() {
-  var s = this.cloth.save();
-
-  var url = new URL(window.location.toString());
-  url.search = '?beard=' + window.encodeURIComponent(s);
-  var urlString = url.toString();
-
-  // TODO(samthor): Set this as the beard changes over time.
-  window.history.replaceState(null, '', urlString);
-
+  window.clearTimeout(this.interactionDoneTimeout_);
+  this.updateUrlState_();
   this.shareOverlay.show(urlString, true);
+};
+
+
+/**
+ * Called when interaction is done. Defers setting beard state for a time.
+ */
+app.Game.prototype.interactionDone = function() {
+  window.clearTimeout(this.interactionDoneTimeout_);
+  this.interactionDoneTimeout_ =
+      window.setTimeout(() => this.updateUrlState_(), app.Constants.INTERACTION_URL_DELAY);
+};
+
+
+/**
+ * Replaces the current URL state with Santa's beard contents.
+ */
+app.Game.prototype.updateUrlState_ = function() {
+  const s = this.cloth.save();
+  const url = new URL(window.location.toString());
+
+  if (s === this.initialBeard_) {
+    url.search = '';
+  } else {
+    url.search = '?beard=' + window.encodeURIComponent(s);
+  }
+  window.history.replaceState(null, '', url.toString());
 };
 
 

@@ -65,6 +65,7 @@ app.Cloth.prototype.start = function() {
  */
 app.Cloth.prototype.resetCloth = function() {
   this.points = this.drawInitialCloth();
+  this.game_.interactionDone();
 };
 
 
@@ -76,6 +77,7 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
   if (mouse !== this.game_.mouse) {
     throw new Error('unexpected mouse callback');
   }
+  var hasChanged = false;
 
   var tools = this.game_.tools;
 
@@ -118,17 +120,20 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
 
         if (tools.selectedTool.spray) {
           this.points[i].spray = tools.selectedTool.spray;
+          hasChanged = true;
         }
 
         if (tools.hairclean.isSelected) {
           this.points[i].spray = null;
           this.points[i].decoration = null;
+          hasChanged = true;
         }
 
         if (tools.selectedTool.decoration && this.canPlaceDecoration) {
           this.points[i].decoration = tools.selectedTool.decoration;
           window.santaApp.fire('sound-trigger', 'selfie_item');
           this.canPlaceDecoration = false;
+          hasChanged = true;
           break;
         }
       }
@@ -149,6 +154,10 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
     app.utils.triggerStart('selfie_shave_cutting');
   } else if (!this.nearBeard || !mouseCoords.down) {
     app.utils.triggerStop('selfie_shave_cutting');
+  }
+
+  if (hasChanged) {
+    this.game_.interactionDone();
   }
 };
 
@@ -355,6 +364,7 @@ app.Cloth.prototype.addHair_ = function() {
 
   var scale = this.game_.mouse.scaleFactor;
   var i = this.points.length;
+  var hasChanged = false;
 
   while (i--) {
     var differenceX = this.points[i].options.x * scale - this.mouse.x;
@@ -363,7 +373,12 @@ app.Cloth.prototype.addHair_ = function() {
 
     if (dist < app.Constants.ADD_DISTANCE) {
       this.points[i] = this.points[i].reset();
+      hasChanged = true;
     }
+  }
+
+  if (hasChanged) {
+    this.game_.interactionDone();
   }
 };
 
@@ -380,7 +395,7 @@ app.Cloth.prototype.save = function() {
   var data = points.map(function(point) {
     var index = 0;
 
-    if (point.draw) {
+    if (point.draw && point.constrain) {  // don't save currently falling hair
       index += 1;
     }
 

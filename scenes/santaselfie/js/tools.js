@@ -163,7 +163,10 @@ app.Tool.prototype.createAnimation_ = function() {
  * @private
  */
 app.Tool.prototype.shouldAnimate_ = function(mouseCoords) {
-  return this.animationPlayer && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM;
+  if (this.animationPlayer) {
+    return mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM;
+  }
+  return false;
 };
 
 

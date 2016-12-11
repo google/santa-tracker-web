@@ -79,6 +79,7 @@ app.Point.prototype.update = function(mouse) {
 
   if (mouse.down) {
     if (this.game_.tools.clipper.isSelected && dist < MOUSE_CUT) {
+      this.game_.interactionDone();
       this.removeConstraint();
     }
 
