@@ -164,7 +164,7 @@ app.Start.prototype.update = function() {
   }
 
   var vol = ((Math.abs(this.penguin.elem.body.velocity.y) + Math.abs(this.penguin.elem.body.velocity.x))/1000);
-  window.santaApp.fire('sound-trigger', {name: 'pnd_slide', args: [vol]});
+  window.santaApp.fire('sound-trigger', {name: 'pnd_slide', args: [vol || 0]});
   this.penguin.dustAlpha(vol*2 - 0.2);
 
   // Point toward direction of movement
