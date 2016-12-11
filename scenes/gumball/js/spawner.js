@@ -29,6 +29,10 @@ app.Spawner = function(game, elem) {
   this.elem = elem;
   this.performSpawn_ = this.performSpawn_.bind(this);
   this.goToNextSpawn_ = this.goToNextSpawn_.bind(this);
+
+  /** @type {!Array<app.Sphere>} */
+  this.queue = [];
+
   this.reset();
 };
 
@@ -37,7 +41,6 @@ app.Spawner = function(game, elem) {
  */
 app.Spawner.prototype.reset = function() {
   this.x = 600;
-  /** @type {app.Sphere[]} */
   this.queue = [];
   this.render();
 };
@@ -78,13 +81,20 @@ app.Spawner.prototype.goToNextSpawn_ = function() {
  * @private
  */
 app.Spawner.prototype.performSpawn_ = function() {
-  this.queue[0].spawn();
+  const next = this.queue.shift();
+  next.spawn();
 
   window.santaApp.fire('sound-trigger', 'gb_new_ball');
-  utils.animWithClass(this.elem, 'toggle-lever', function() {
-    this.queue.shift();
-    this.goToNextSpawn_();
-  }.bind(this));
+
+  // nb. Delay by 100ms, this seems to resolve #1838.
+  this.elem.removeClass('toggle-lever');  // for safety
+  window.setTimeout(() => {
+    this.elem.one('animationend', () => {
+      this.elem.removeClass('toggle-lever');
+      this.goToNextSpawn_();
+    });
+    this.elem.addClass('toggle-lever');
+  }, 100);
 };
 
 /**
