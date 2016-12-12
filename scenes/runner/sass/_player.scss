@@ -22,7 +22,29 @@
 
       background: url(img/hero.svg) no-repeat;
       animation: #{$name}-reindeerRun infinite step-start;
-      animation-duration: 0.75s;
+      animation-duration: 0.75s/$level-0-speed;
+    }
+  }
+
+  .game {
+    @mixin player-speed($speed) {
+      .reindeer--run {
+        .reindeer__inner {
+          animation-duration: 0.75s / $speed;
+        }
+      }
+    }
+
+    &.level-1 {
+      @include player-speed($level-1-speed);
+    }
+
+    &.level-2 {
+      @include player-speed($level-2-speed);
+    }
+    
+    &.level-3 {
+      @include player-speed($level-3-speed);
     }
   }
 

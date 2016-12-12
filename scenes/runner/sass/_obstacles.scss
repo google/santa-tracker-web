@@ -1,7 +1,7 @@
 ##{$name} {
   .obstacle {
     position: absolute;
-    bottom: $bottom-offset;
+    bottom: -2px;
     left: 0;
   }
 
@@ -9,6 +9,34 @@
     width: $house-width;
     height: $house-height;
     background: url('img/' + $image-file) no-repeat;
+  }
+
+  @mixin roller-short($tree-height, $tree-width, $image-file) {
+    width: $tree-width;
+    height: $tree-height;
+    
+    &:before {
+      position: absolute;
+      content: '';
+      width: $roller-short-width - 90px;
+      left: ($tree-width - $roller-short-width - 50px + 81px) / 2;
+      top: $tree-height + $background-rail-height - $stage-top - $stage-height - 1px;
+      bottom: 140px;
+      border-left: 5px solid $roller-wire-color;
+      border-right: 5px solid $roller-wire-color;
+      opacity: 0.7;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      right: 0;
+      left: 0;
+      bottom: 0;
+      top: $tree-height + $background-rail-height - $stage-top - $stage-height - 9px;
+      background: url(img/ceiling-roller-short.svg) #{($tree-width - $roller-short-width - 50px)/2} 0/#{$roller-short-width} $roller-height no-repeat,
+        url('img/' + $image-file) left bottom/$tree-width $tree-height no-repeat;
+    }
   }
 
   .house--1 {
@@ -27,28 +55,44 @@
     @include house('hit-house-04.svg');
   }
 
+  .house--5 {
+    @include house('hit-house-05.svg');
+  }
+
+  .house--6 {
+    @include house('hit-house-06.svg');
+  }
+
+  .house--7 {
+    @include house('hit-house-07.svg');
+  }
+
+  .house--8 {
+    @include house('hit-house-08.svg');
+  }
+
+  .house--9 {
+    @include house('hit-house-09.svg');
+  }
+
+  .house--10 {
+    @include house('hit-house-10.svg');
+  }
+
   .tree-short--1 {
-    width: $tree-short-width;
-    height: $tree-short-height;
-    background: url(img/hit-tree-short-1.svg) no-repeat;
+    @include roller-short($tree-short-height, $tree-short-width, 'hit-tree-short-1.svg');
   }
 
   .tree-short--2 {
-    width: $tree-short-width;
-    height: $tree-short-height;
-    background: url(img/hit-tree-short-2.svg) no-repeat;
+    @include roller-short($tree-short-height, $tree-short-width, 'hit-tree-short-2.svg');
   }
 
   .tree-tall--1 {
-    width: $tree-tall1-width;
-    height: $tree-tall-height;
-    background: url(img/hit-tree-tall-1.svg) no-repeat;
+    @include roller-short($tree-tall-height, $tree-tall1-width, 'hit-tree-tall-1.svg');
   }
 
   .tree-tall--2 {
-    width: $tree-tall2-width;
-    height: $tree-tall-height;
-    background: url(img/hit-tree-tall-2.svg) no-repeat;
+    @include roller-short($tree-tall-height, $tree-tall2-width, 'hit-tree-tall-2.svg');
   }
 
   .antenna {

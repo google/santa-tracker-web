@@ -27,12 +27,13 @@ Constants = {
   COUNTDOWN_FLASH: 10,
 
   GAME_BASE_SIZE: {
-    width: 4000,
-    height: 900
+    width: 1410,
+    height: 670
   },
 
   GAME_MAX_SCALE: 1,
-  GAME_SPEED: 350,
+  GAME_BASE_SPEED: 350,
+  GAME_LEVEL_SPEED: [1, 1.3, 1.6, 1.9],
   GAME_ENTITY_SPACING: 500,
   FINISH_LINE_BUFFER: 1500,
 
@@ -40,24 +41,27 @@ Constants = {
   REINDEER_STATE_SLIDING: 1,
   REINDEER_STATE_JUMPING: 2,
   REINDEER_STATE_COLLISION: 3,
+  REINDEER_STATE_JUMP_START: 4,
 
   REINDEER_COLLISION_DURATION_SEC: 2,
   REINDEER_HIT_CLOUD_DURATION_SEC: .5,
 
   REINDEER_HIT_CLOUD_SIZE: 120,
 
-  REINDEER_X_POS: 300,
+  REINDEER_X_POS: 450,
 
   REINDEER_STATES: [
     {css: 'reindeer--run', xOffset: 95, yOffset: 0, width: 175, height: 170},
     {css: 'reindeer--slide', xOffset: 63, yOffset: 0, width: 200, height: 95},
     {css: 'reindeer--jump', xOffset: 70, yOffset: 30, width: 195, height: 115},
-    {css: 'reindeer--collision', xOffset: 110, yOffset: 10, width: 120, height: 165}
+    {css: 'reindeer--collision', xOffset: 110, yOffset: 10, width: 120, height: 165},
+    {css: 'reindeer--jump', xOffset: 70, yOffset: 30, width: 195, height: 115}
   ],
 
   REINDEER_FALL_SPEED: 200,
-  REINDEER_JUMP_SPEED: -1000,
-  REINDEER_GRAVITY: 1500,
+  REINDEER_JUMP_SPEED: -1100,
+  REINDEER_JUMP_ACCELERATION_STEP: -28,
+  REINDEER_GRAVITY: 2400,
   REINDEER_COLLISION_X_SPEED: -200,
   REINDEER_COLLISION_Y_SPEED: -500,
   REINDEER_COLLISION_X_FRICTION: 250,
@@ -77,6 +81,17 @@ Constants = {
     {css: 'house--2', width: 400, height: 150},
     {css: 'house--3', width: 400, height: 165},
     {css: 'house--4', width: 400, height: 180},
+    {css: 'house--5', width: 400, height: 160},
+    {css: 'house--6', width: 400, height: 150},
+    {css: 'house--7', width: 400, height: 160},
+    {css: 'house--8', width: 400, height: 165},
+    {css: 'house--9', width: 400, height: 160},
+    {css: 'house--10', width: 400, height: 165},
+    {css: 'tree-short--1', width: 140, height: 140, hitBottom: 0},
+    {css: 'tree-short--2', width: 140, height: 160, hitBottom: 0},
+    {css: 'tree-tall--1', width: 230, height: 350, hitBottom: 100, presentsHeight: 50},
+    {css: 'tree-tall--1', width: 186, height: 350, hitBottom: 100, presentsHeight: 50},
+    // TODO: a temperary fix to increase chance of trees
     {css: 'tree-short--1', width: 140, height: 140, hitBottom: 0},
     {css: 'tree-short--2', width: 140, height: 160, hitBottom: 0},
     {css: 'tree-tall--1', width: 230, height: 350, hitBottom: 100, presentsHeight: 50},

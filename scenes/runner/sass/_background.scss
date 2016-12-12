@@ -1,0 +1,46 @@
+##{$name} {
+  .ceiling-on-top {
+    position: relative;
+    height: 0;
+    background: #845a62 url(img/building-brick.svg) bottom/598px 152px repeat-x;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: #5f4c54;
+    }
+  }
+  .game {
+    .background {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $background-floor-color;
+      
+      .wall {
+        height: $stage-top + $stage-height;
+        overflow: hidden;
+        position: relative;
+
+        .windows {
+          height: $background-windows-height;
+          background: url(img/bg-windows-repeating.png) top/contain repeat-x;
+        }
+
+        .wall-shadow {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: url(img/bg-wall-shadow.svg) center/cover;
+        }
+      }
+    }
+  }
+}

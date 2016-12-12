@@ -1,0 +1,402 @@
+##{$name} {
+  .game {
+    .scenery {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform-origin: center top;
+
+      .spotlight {
+        position: absolute;
+        left: calc((100vw - #{$stage-width})/2 - 70px);
+        top: 0;
+        width: 553px;
+        height: 849px;
+        background: url(img/spotlight.svg) no-repeat;
+      }
+
+      .rails {
+        position: absolute;
+        left: -$stage-width;
+        right: -$stage-width;
+        top: 0;
+        height: $rails-base-height;
+        background: url(img/ceiling-repeating.png) center/contain repeat-x;
+      }
+
+      .treadmill {
+        position: absolute;
+        top: $stage-top + $stage-height;
+        left: calc((100vw - #{$stage-width})/2 - 100px);
+        width: $treadmill-width;
+        height: $treadmill-height;
+        background: url(img/treadmill-base.svg) top/$treadmill-width auto no-repeat;
+        
+        .treadmill-belts {
+          position: absolute;
+          left: 39px;
+          width: 431px;
+          top: 1px;
+          height: 40px;
+
+          .treadmill-belt {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: url(img/treadmill-belt.svg) center/22px 3px repeat-x;
+          }
+
+          .treadmill-belt:nth-child(1) {
+            animation: 1s/($treadmill-speed * $level-0-speed) #{$name}-belt infinite linear;
+            top: 0;
+          }
+
+          .treadmill-belt:nth-child(2) {
+            animation: 1s/($treadmill-speed * $level-0-speed) #{$name}-belt-reverse infinite linear;
+            bottom: 0;
+          }
+        }
+
+        .treadmill-gears {
+          position: absolute;
+          left: 84px;
+          width: $treadmill-gear-distance * 5 + $treadmill-gear-size * 6;
+          top: 4px;
+          height: $treadmill-gear-size;
+
+          .treadmill-gear {
+            float: left;
+            margin-right: $treadmill-gear-distance;
+            height: $treadmill-gear-size;
+            width: $treadmill-gear-size;
+            background: url(img/treadmill-gears.svg) no-repeat;
+            animation: 4.712s/($treadmill-speed * $level-0-speed) #{$name}-spinCounterClockwise infinite linear;
+          }
+
+          .treadmill-gear:nth-child(1) {
+            animation-delay: -500ms;
+          }
+
+          .treadmill-gear:nth-child(2) {
+            animation-delay: -900ms;
+          }
+
+          .treadmill-gear:nth-child(3) {
+            animation-delay: -300ms;
+          }
+
+          .treadmill-gear:nth-child(4) {
+            animation-delay: -700ms;
+          }
+
+          .treadmill-gear:nth-child(5) {
+            animation-delay: -200ms;
+          }
+
+          .treadmill-gear:nth-child(6) {
+            margin-right: 0;
+          }
+        }
+
+        .treadmill-shadow {
+          position: absolute;
+          width: $treadmill-width;
+          height: $treadmill-height;
+          background: url(img/treadmill-shadow.svg) top/$treadmill-width auto no-repeat;
+        }
+
+        .treadmill-corners {
+          position: absolute;
+          width: $treadmill-width;
+          height: $treadmill-height;
+          background: url(img/treadmill-corners.svg) top/$treadmill-width auto no-repeat;
+        }
+      }
+
+      .monitors {
+        position: absolute;
+        top: $stage-height + $stage-top - 110px;
+        left: calc((100vw - #{$stage-width})/2 - 230px);
+        height: 207px;
+        width: 361px;
+        background: url(img/foreground-machines.svg) no-repeat;
+      }
+
+      .operator {
+        position: absolute;
+        top: 8px;
+        right: 120px;
+        height: 195px;
+        width: 85px;
+        z-index: 3;
+        background: url(img/foreground-operator.svg) no-repeat;
+      }
+
+      .monitors-cog {
+        position: absolute;
+        top: 12px;
+        height: 39px;
+        width: 39px;
+        background: url(img/foreground-machines-cog.svg) no-repeat;
+        animation: 2s #{$name}-spinClockwise infinite linear;
+
+        &:nth-of-type(1) {
+          left: 20px;
+        }
+
+        &:nth-of-type(2) {
+          left: 67px;
+          animation-delay: -200ms;
+        }
+      }
+
+      .speed {
+        position: absolute;
+        width: 91px;
+        height: 58px;
+        top: 5px;
+        right: 116px;
+        font-size: 40px;
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+        overflow: hidden;
+        line-height: 1;
+
+        &:before {
+          content: '0';
+          position: absolute;
+          left: 10px;
+          top: 14px;
+          text-shadow: -2px 0px 0px rgba(255, 255, 255, 0.75);
+          opacity: 0.8;
+        }
+
+        &:after {
+          content: '3';
+          position: absolute;
+          right: 10px;
+          top: 14px;
+          text-shadow: -2px 0px 0px rgba(255, 255, 255, 0.75);
+          opacity: 0.8;
+        }
+
+        .speed-up {
+          display: none;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          animation: 0.334s #{$name}-speedup infinite step-end;
+          z-index: 2;
+
+          .speed-up-mark {
+            color: #0AA6A3;
+            position: absolute;
+            font-size: 35px;
+            font-weight: bold;
+            left: 50%;
+            top: 10%;
+            transform: translateX(-50%);
+          }
+
+          .triangle {
+            background-color: white;
+            text-align: left;
+            width:  25px;
+            height: 25px;
+            border-top-right-radius: 30%;
+            transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+            opacity: 0.8;
+
+            &:before, &:after {
+              content: '';
+              position: absolute;
+              background-color: inherit;
+              width:  25px;
+              height: 25px;
+              border-top-right-radius: 30%;
+            }
+
+            &:before {
+              transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+            }
+
+            &:after {
+              transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+            }
+          }
+        }
+
+        .stripes {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 140%;
+          z-index: 1;
+
+          .stripe {
+            position: relative;
+            height: 150px;
+            width: 16.666%;
+            float: left;
+            animation: 1.9s #{$name}-speedup-stripe 1 cubic-bezier(0,.77,1,.21);
+            
+            &:nth-child(1) {
+              background-color: #22D0BD;
+            }
+
+            &:nth-child(2) {
+              animation-delay: 130ms;
+              background-color: #03D32B;
+            }
+
+            &:nth-child(3) {
+              animation-delay: 260ms;
+              background-color: #3CC800;
+            }
+
+            &:nth-child(4) {
+              animation-delay: 390ms;
+              background-color: #99D400;
+            }
+
+            &:nth-child(5) {
+              animation-delay: 520ms;
+              background-color: #E8C000;
+            }
+
+            &:nth-child(6) {
+              animation-delay: 650ms;
+              background-color: #EB6201;
+            }
+          }
+        }
+      }
+
+      .cooling-off {
+        position: absolute;
+        top: $stage-height + $stage-top - 140px;
+        right: calc((100vw - #{$stage-width})/2 - 115px);
+        height: 241px;
+        width: 321px;
+        background: url(img/foreground-cooling-off.svg) no-repeat;
+      }
+
+      @mixin scenery-speed($speed) {
+        .treadmill {
+          .treadmill-belts {
+            .treadmill-belt:nth-child(1), .treadmill-belt:nth-child(2) {
+              animation-duration: 1s / ($treadmill-speed * $speed);
+            }
+          }
+
+          .treadmill-gears .treadmill-gear {
+            animation-duration: 4.712s / ($treadmill-speed * $speed);
+          }
+        }
+      }
+
+      &.level-1 {
+        @include scenery-speed($level-1-speed);
+      }
+
+      &.level-2 {
+        @include scenery-speed($level-2-speed);
+      }
+
+      &.level-3 {
+        @include scenery-speed($level-3-speed);
+      }
+    }
+
+    &.level-stop {
+      .scenery {
+        .speed {
+          text-align: center;
+
+          &:before {
+            content: '0';
+            left: 0;
+            position: relative;
+          }
+
+          &:after {
+            content: '';
+          }
+        }
+      }
+    }
+    &.level-0 {
+      .scenery {
+        .speed {
+          &:before {
+            content: '2';
+          }
+
+          &:after {
+            animation: 3s #{$name}-speedmeter infinite step-end;
+          }
+        }
+      }
+    }
+    &.level-1 {
+      .scenery {
+        .speed {
+          &:before {
+            content: '3';
+          }
+
+          &:after {
+            animation: 3s #{$name}-speedmeter-2 infinite step-start;
+          }
+        }
+      }
+    }
+    &.level-2 {
+      .scenery {
+        .speed {
+          &:before {
+            content: '5';
+          }
+
+          &:after {
+            animation: 2.5s #{$name}-speedmeter-2 infinite step-end;
+          }
+        }
+      }
+    }
+    &.level-3 {
+      .scenery {
+        .speed {
+          &:before {
+            content: '6';
+          }
+
+          &:after {
+            animation: 2.5s #{$name}-speedmeter infinite step-start;
+          }
+        }
+      }
+    }
+    &.changing-level {
+      .scenery {
+        .speed {
+          &:before {
+            display: none;
+          }
+
+          &:after {
+            display: none;
+          }
+          
+          .speed-up {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

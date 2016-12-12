@@ -10,13 +10,41 @@
 
     width: $platform-width;
     height: $platform-short-height;
-    background: url('img/' + $image-file) no-repeat;
+
+    @include roller($platform-short-height, $image-file);
   }
 
   @mixin platform-tall($image-file) {
     width: $platform-width;
     height: $platform-tall-height;
     background: url('img/' + $image-file) no-repeat;
+
+    @include roller($platform-tall-height, $image-file);
+  }
+
+  @mixin roller($platform-height, $image-file) {
+    &:before {
+      position: absolute;
+      content: '';
+      width: $roller-long-width - 90px;
+      left: ($platform-width - $roller-long-width - 50px + 81px) / 2;
+      top: $platform-height + $background-rail-height - $stage-top - $stage-height - 1px;
+      bottom: 40px;
+      border-left: 5px solid $roller-wire-color;
+      border-right: 5px solid $roller-wire-color;
+      opacity: 0.7;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      right: 0;
+      left: 0;
+      bottom: 0;
+      top: $platform-height + $background-rail-height - $stage-top - $stage-height - 9px;
+      background: url(img/ceiling-roller-long.svg) #{($platform-width - $roller-long-width - 50px)/2} 0/#{$roller-long-width} $roller-height no-repeat,
+        url('img/' + $image-file) left bottom/$platform-width $platform-height no-repeat;
+    }
   }
 
   .platform-short--1 {

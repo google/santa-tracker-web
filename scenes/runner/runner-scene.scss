@@ -7,12 +7,17 @@ $rotate-bg: $gameover-bg;
 
 @import "sass/variables";
 @import "sass/animations";
+@import "sass/background";
+@import "sass/boosts";
 @import "sass/environment";
 @import "sass/obstacles";
 @import "sass/platforms";
 @import "sass/player";
 @import "sass/presents";
-@import "sass/boosts";
+@import "sass/responsive";
+@import "sass/scenery";
+@import "sass/stage";
+@import "sass/stage-machine";
 
 ##{$name} {
   .game {
@@ -27,8 +32,18 @@ $rotate-bg: $gameover-bg;
       .present__inner,
       .layer,
       .boost__inner-bg,
-      .boost-text--collected {
-        animation-play-state: paused;
+      .boost-text--collected,
+      .treadmill-gear,
+      .treadmill-belt,
+      .cog-big,
+      .cog-small,
+      .monitors-cog,
+      .foreground-gear-small,
+      .foreground-gear-big,
+      .speed:after,
+      .speed-up,
+      .stripe {
+        animation-play-state: paused !important;
       }
     }
   }

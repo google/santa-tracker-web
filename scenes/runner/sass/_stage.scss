@@ -1,0 +1,12 @@
+##{$name} {
+  .game {
+    .stage {
+      transform-origin: center #{-$stage-top};
+      position: absolute;
+      left: calc((100vw - #{$stage-width})/2);
+      top: $stage-top;
+      width: $stage-width;
+      height: $stage-height;
+    }
+  }
+}

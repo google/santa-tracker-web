@@ -1,11 +1,11 @@
-$layer-width: 4000px;
-$mountain-layer-width: 2000px;
+$mountain-layer-width: 1490px;
+$tree-layer-width: 2980px;
 
-$bottom-offset: 80px;
+$bottom-offset: 0;
 
 $reindeer-width: 275px;
 $reindeer-height: 170px;
-$reindeer-offset: 300px;
+$reindeer-offset: 450px;
 
 $present1-width: 30px;
 $present1-height: 34px;
@@ -18,22 +18,22 @@ $candy-height: 34px;
 
 $boost-size: 60px;
 
-$house-width: 400px;
+$house-width: 450px;
 $house-height: 270px;
-$tree-short-width: 140px;
+$tree-short-width: 190px;
 $tree-short-height: 268px;
-$tree-tall1-width: 230px;
-$tree-tall2-width: 186px;
+$tree-tall1-width: 280px;
+$tree-tall2-width: 236px;
 $tree-tall-height: 466px;
 $trashcan-width: 206px;
 $trashcan-height: 128px;
 $roof-obstacle-height: 112px;
-$antenna-width: 88px;
-$chimney1-width: 72px;
-$chimney2-width: 56px;
-$watertower-width: 65px;
+$antenna-width: 138px;
+$chimney1-width: 122px;
+$chimney2-width: 106px;
+$watertower-width: 115px;
 
-$platform-width: 392px;
+$platform-width: 442px;
 $platform-short-height: 270px;
 $platform-tall-height: 538px;
 
@@ -45,3 +45,38 @@ $presents-z-index: 5;
 $reindeer-z-index: 4;
 $finish-z-index: 3;
 $platform-short-z-index: 2;
+
+$treadmill-width: 522px;
+$treadmill-height: 66px;
+$treadmill-gear-size: 33px;
+$treadmill-gear-distance: 29px;
+$treadmill-speed: 15.7;
+
+$background-windows-height: 1080px;
+$background-floor-color: #878384;
+$background-rail-height: 30px;
+
+$pillar-height: 725px;
+$pillar-width: 135px;
+$pillar-top: -55px;
+$pillar-side: -102px;
+
+$cog-big-size: 86px;
+$cog-small-size: 52px;
+
+$stage-width: 1410px;
+$stage-height: 670px;
+$stage-top: 140px;
+
+$roller-long-width: 350px;
+$roller-short-width: 150px;
+$roller-height: 15px;
+$roller-wire-color: #406C82;
+
+$rails-base-height: 30px;
+$rails-base-width: 40px;
+
+$level-0-speed: 1;
+$level-1-speed: 1.3;
+$level-2-speed: 1.6;
+$level-3-speed: 1.9;

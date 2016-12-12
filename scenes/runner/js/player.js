@@ -45,6 +45,7 @@ app.Player.prototype.reset = function() {
   this.angle = 0;
   this.xSpeed = 0;
   this.ySpeed = 0;
+  this.yAcceleration = 0;
   this.jumpsRequested = 0;
   this.jumpEndRequested = false;
   this.hasHitCloud = false;
@@ -78,13 +79,13 @@ app.Player.prototype.newState = function(state, opt_finishCollision,
       prevState !== Constants.REINDEER_STATE_RUNNING) {
     this.jumpsRequested = 0;
     this.jumpEndRequested = false;
-  } else if (state == Constants.REINDEER_STATE_JUMPING && !opt_falling) {
+  } else if (state == Constants.REINDEER_STATE_JUMP_START && !opt_falling) {
     if (this.jumpsRequested == 0) {
       window.santaApp.fire('sound-trigger', 'runner_jump_1');
     } else {
       window.santaApp.fire('sound-trigger', 'runner_jump_2');
     }
-    this.ySpeed = Constants.REINDEER_JUMP_SPEED;
+    this.yAcceleration = 0;
   } else if (state == Constants.REINDEER_STATE_COLLISION) {
     this.xSpeed = Constants.REINDEER_COLLISION_X_SPEED;
     this.ySpeed = Constants.REINDEER_COLLISION_Y_SPEED;
@@ -111,7 +112,7 @@ app.Player.prototype.newState = function(state, opt_finishCollision,
  */
 app.Player.prototype.onUp = function() {
   if (this.jumpsRequested < 2) {
-    this.newState(Constants.REINDEER_STATE_JUMPING);
+    this.newState(Constants.REINDEER_STATE_JUMP_START);
     this.jumpsRequested++;
     this.jumpEndRequested = false;
   }
@@ -131,6 +132,11 @@ app.Player.prototype.onDown = function(opt_duration) {
     }
   } else if (this.state == Constants.REINDEER_STATE_JUMPING &&
       !this.jumpEndRequested) {
+    this.ySpeed += 500;
+    this.jumpEndRequested = true;
+  } else if (this.state == Constants.REINDEER_STATE_JUMP_START &&
+      !this.jumpEndRequested) {
+    this.newState(Constants.REINDEER_STATE_JUMPING);
     this.ySpeed += 500;
     this.jumpEndRequested = true;
   }
@@ -156,7 +162,18 @@ app.Player.prototype.onFrame = function(delta) {
   this.angle = Math.min(1,
       this.ySpeed / Math.abs(Constants.REINDEER_JUMP_SPEED)) * 15;
 
-  if (this.ySpeed || this.state == Constants.REINDEER_STATE_JUMPING) {
+  if (this.state == Constants.REINDEER_STATE_JUMP_START) {
+    this.yAcceleration += Constants.REINDEER_JUMP_ACCELERATION_STEP;
+    this.ySpeed += this.yAcceleration;
+    this.y += this.ySpeed * delta;
+    endY = this.y;
+    if (this.ySpeed <= Constants.REINDEER_JUMP_SPEED) {
+      this.newState(Constants.REINDEER_STATE_JUMPING);
+    }
+  }
+
+  if ((this.ySpeed || this.state == Constants.REINDEER_STATE_JUMPING) &&
+      this.state != Constants.REINDEER_STATE_JUMP_START) {
     this.y += this.ySpeed * delta;
     this.ySpeed += Constants.REINDEER_GRAVITY * delta;
 

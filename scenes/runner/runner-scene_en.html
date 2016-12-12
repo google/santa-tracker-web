@@ -14,6 +14,8 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
 <script src="runner-scene.min.js"></script>
 
 <!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
@@ -25,35 +27,90 @@ Runner scene.
 <dom-module id="runner-scene">
 <template>
   <div id="module-runner">
-    <div class="game frozen">
-      <div class="layers-wrap">
-        <div class="layer layer--mountains"></div>
-        <div class="layer layer--trees"></div>
-        <div class="entities-layer">
-          <div class="platforms"></div>
-          <div class="obstacles"></div>
-          <div class="boosts"></div>
-          <div class="finish hidden">
-            <div class="finish__inner"></div>
+    <div class="ceiling-on-top"></div>
+    <div class="game frozen level-stop">
+      <div class="background">
+        <div class="wall">
+          <div class="windows"></div>
+          <div class="wall-shadow"></div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-machine">
+          <div class="cogs">
+            <div class="cog-big"></div>
+            <div class="cog-big"></div>
+            <div class="cog-big"></div>
+            <div class="cog-small"></div>
           </div>
-          <div class="presents"></div>
-          <div class="ground"></div>
+          <div class="left-pillar"></div>
+          <div class="right-pillar"></div>
         </div>
-        <div class="reindeer reindeer--run">
-          <div class="reindeer__inner"></div>
-        </div>
-        <div class="hit-cloud hidden">
-          <div class="hit-cloud__inner"></div>
-        </div>
-        <div class="magnet">
-          <div class="boost-wrap boost--magnet">
-            <div class="boost">
-              <div class="boost__inner-bg"></div>
-              <div class="boost__inner"></div>
+        <div class="layers-wrap">
+          <canvas id="stage-canvas" width="2115" height="670"></canvas>
+          <div class="foreground-gears">
+            <div class="foreground-gear-big"></div>
+            <div class="foreground-gear-small"></div>
+          </div>
+          <div class="entities-layer">
+            <div class="platforms"></div>
+            <div class="obstacles"></div>
+            <div class="boosts"></div>
+            <div class="finish hidden">
+              <div class="finish__inner"></div>
+            </div>
+            <div class="presents"></div>
+          </div>
+          <div class="layer layer--tracks"></div>
+          <div class="reindeer reindeer--run">
+            <div class="reindeer__inner"></div>
+          </div>
+          <div class="hit-cloud hidden">
+            <div class="hit-cloud__inner"></div>
+          </div>
+          <div class="magnet">
+            <div class="boost-wrap boost--magnet">
+              <div class="boost">
+                <div class="boost__inner-bg"></div>
+                <div class="boost__inner"></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="layer layer--ground"></div>
+      </div>
+      <div class="scenery">
+        <div class="spotlight"></div>
+        <div class="rails"></div>
+        <div class="treadmill">
+          <div class="treadmill-belts">
+            <div class="treadmill-belt"></div>
+            <div class="treadmill-belt"></div>
+          </div>
+          <div class="treadmill-gears">
+            <div class="treadmill-gear"></div>
+            <div class="treadmill-gear"></div>
+            <div class="treadmill-gear"></div>
+            <div class="treadmill-gear"></div>
+            <div class="treadmill-gear"></div>
+            <div class="treadmill-gear"></div>
+          </div>
+          <div class="treadmill-shadow"></div>
+          <div class="treadmill-corners"></div>
+        </div>
+        <div class="monitors">
+          <div class="monitors-cog"></div>
+          <div class="monitors-cog"></div>
+          <div class="speed">
+            <span class="speed-up">
+              <div class="triangle"></div>
+              <span class="speed-up-mark">!</span>
+            </span>
+            <div class="stripes">
+            </div>
+          </div>
+          <div class="operator"></div>
+        </div>
+        <div class="cooling-off"></div>
       </div>
     </div>
     <div class="gui">
@@ -81,8 +138,20 @@ Runner scene.
       this.preloadImages([
         'img/bg-tile-layer1.png',
         'img/bg-tile-layer2.png',
-        'img/bg-tile-layer4.png',
+        'img/bg-tile-track.svg',
+        'img/bg-wall-shadow.svg',
+        'img/bg-windows-repeating.png',
+        'img/ceiling-roller-long.svg',
+        'img/ceiling-roller-short.svg',
+        'img/ceiling-repeating.png',
         'img/finish.svg',
+        'img/foreground-cooling-off.svg',
+        'img/foreground-gear-base.svg',
+        'img/foreground-gear-big.svg',
+        'img/foreground-gear-small.svg',
+        'img/foreground-machines-cog.svg',
+        'img/foreground-machines.svg',
+        'img/foreground-operator.svg',
         'img/hero-crash.svg',
         'img/hero-jump-01.svg',
         'img/hero-slide.svg',
@@ -92,6 +161,12 @@ Runner scene.
         'img/hit-house-02.svg',
         'img/hit-house-03.svg',
         'img/hit-house-04.svg',
+        'img/hit-house-05.svg',
+        'img/hit-house-06.svg',
+        'img/hit-house-07.svg',
+        'img/hit-house-08.svg',
+        'img/hit-house-09.svg',
+        'img/hit-house-10.svg',
         'img/hit-roof-antenna.svg',
         'img/hit-roof-chimney-1.svg',
         'img/hit-roof-chimney-2.svg',
@@ -105,6 +180,10 @@ Runner scene.
         'img/orb-magnet-front.svg',
         'img/orb-time-back.svg',
         'img/orb-time-front.svg',
+        'img/paper-stage-gear-big.svg',
+        'img/paper-stage-gear-small.svg',
+        'img/paper-stage-left.svg',
+        'img/paper-stage-right.svg',
         'img/plat-short-1.svg',
         'img/plat-short-2.svg',
         'img/plat-short-3.svg',
@@ -116,7 +195,13 @@ Runner scene.
         'img/plat-tall-4.svg',
         'img/present1.svg',
         'img/present2.svg',
+        'img/spotlight.svg',
         'img/trashcan.svg',
+        'img/treadmill-base.svg',
+        'img/treadmill-belt.svg',
+        'img/treadmill-corners.svg',
+        'img/treadmill-gears.svg',
+        'img/treadmill-shadow.svg',
         'img/treat-candy.svg',
         'img/treat-carrot.svg'
       ]);

@@ -1,20 +1,10 @@
-@keyframes #{$name}-background {
+@keyframes #{$name}-background-tracks {
   0% {
     transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translate3d(-$layer-width, 0, 0);
-  }
-}
-
-@keyframes #{$name}-background-mountain {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-$mountain-layer-width, 0, 0);
+    transform: translate3d(-25px, 0, 0);
   }
 }
 
@@ -158,13 +148,23 @@
   }
 }
 
-@keyframes #{$name}-boostRotate {
+@keyframes #{$name}-spinClockwise {
   0% {
     transform: rotate(0deg);
   }
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes #{$name}-spinCounterClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
   }
 }
 
@@ -175,5 +175,115 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes #{$name}-belt {
+  0% {
+    background-position: 0 center;
+  }
+
+  100% {
+    background-position: -22px center;
+  }
+}
+
+@keyframes #{$name}-belt-reverse {
+  0% {
+    background-position: 0 center;
+  }
+
+  100% {
+    background-position: 22px center;
+  }
+}
+
+@keyframes #{$name}-speedmeter {
+  0% {
+    content: '3'
+  }
+  25% {
+    content: '4'
+  }
+  27% {
+    content: '3'
+  }
+  28% {
+    content: '4'
+  }
+  30% {
+    content: '3'
+  }
+  74% {
+    content: '4'
+  }
+  93% {
+    content: '3'
+  }
+  95% {
+    content: '4'
+  }
+  97% {
+    content: '3'
+  }
+  98% {
+    content: '4'
+  }
+  100% {
+    content: '3'
+  }
+}
+
+@keyframes #{$name}-speedmeter-2 {
+  0% {
+    content: '7'
+  }
+  3% {
+    content: '8'
+  }
+  27% {
+    content: '7'
+  }
+  28% {
+    content: '8'
+  }
+  30% {
+    content: '7'
+  }
+  74% {
+    content: '8'
+  }
+  78% {
+    content: '7'
+  }
+  95% {
+    content: '8'
+  }
+  97% {
+    content: '7'
+  }
+  98% {
+    content: '8'
+  }
+  100% {
+    content: '7'
+  }
+}
+
+@keyframes #{$name}-speedup {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-speedup-stripe {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -250px, 0);
   }
 }

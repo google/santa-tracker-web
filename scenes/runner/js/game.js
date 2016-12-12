@@ -19,11 +19,14 @@ goog.provide('app.Game');
 goog.require('Constants');
 goog.require('app.Boost');
 goog.require('app.Controls');
+goog.require('app.Canvas');
+goog.require('app.Ceiling');
 goog.require('app.Finish');
 goog.require('app.Obstacle');
 goog.require('app.Platform');
 goog.require('app.Player');
 goog.require('app.Present');
+goog.require('app.Timer');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
@@ -44,6 +47,8 @@ app.Game = function(context) {
   this.layersContainerElem_ = this.context.find('.layers-wrap');
   this.entitiesLayerElem_ = this.context.find('.entities-layer');
   this.groundElem_ = this.context.find('.ground');
+  this.stripesElem_ = this.context.find('.stripes');
+  this.stripes_ = '<div class="stripe"></div>';
 
   this.entities = [];
   this.isPlaying = false;
@@ -56,6 +61,8 @@ app.Game = function(context) {
   this.gameoverDialog = new Gameover(this, this.context.find('.gameover'));
   this.tutorial = new Tutorial(this.context, 'touch-updown', 'keys-updown', 'spacenav-updown');
   this.controls = new app.Controls(this);
+  this.canvas = new app.Canvas(this);
+  this.ceiling = new app.Ceiling();
 
   this.gameSize = Constants.GAME_BASE_SIZE;
   this.scale = 1;
@@ -63,6 +70,8 @@ app.Game = function(context) {
 
   // Cache a bound onFrame since we need it each frame.
   this.onFrame = this.onFrame.bind(this);
+
+  // this.updateLevel_ = this.updateLevel_.bind(this);
 
   this.preloadPools_();
 };
@@ -121,13 +130,17 @@ app.Game.prototype.restart = function() {
   this.hurryUpPlayed = false;
 
   // Number of pixels to advance entities per second.
-  this.speed = Constants.GAME_SPEED;
+  this.speed = Constants.GAME_BASE_SPEED * Constants.GAME_LEVEL_SPEED[0];
   // Total number of pixels the game layer has advanced.
   this.distanceTraveled = 0;
+  this.timePassed = 0;
   this.lastObstaclePos = 0;
   this.lastBoostPos = 0;
   this.lastEntityPos = 1000;
   this.magnetMode = false;
+  this.level = 0;
+  this.setLevelClass(0);
+  this.updatingLevel = false;
 
   Coordinator.reset();
   this.paused = false;
@@ -140,7 +153,12 @@ app.Game.prototype.restart = function() {
 
   this.gameStartTime = +new Date;
 
-  this.finishLinePos = Constants.INITIAL_COUNTDOWN * this.speed;
+  var sum = 0;
+  for (var i = 0; i < Constants.GAME_LEVEL_SPEED.length; i++) {
+    sum += Constants.GAME_LEVEL_SPEED[i];
+  }
+  var avgSpeed = sum / Constants.GAME_LEVEL_SPEED.length;
+  this.finishLinePos = Constants.INITIAL_COUNTDOWN * Constants.GAME_BASE_SPEED * avgSpeed;
   this.finish.place(this.finishLinePos);
   this.entities.push(this.finish);
 };
@@ -170,6 +188,10 @@ app.Game.prototype.resume = function() {
 app.Game.prototype.freezeGame = function() {
   this.isPlaying = false;
   this.gameElem_.addClass('frozen');
+  if (this.updatingLevel) {
+    this.levelTimer.pause();
+    this.stripeTimer.pause();
+  }
 };
 
 /**
@@ -179,6 +201,10 @@ app.Game.prototype.freezeGame = function() {
 app.Game.prototype.unfreezeGame = function() {
   if (!this.isPlaying) {
     this.gameElem_.removeClass('frozen');
+    if (this.updatingLevel) {
+      this.levelTimer.resume();
+      this.stripeTimer.resume();
+    }
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
@@ -239,6 +265,15 @@ app.Game.prototype.onFrame = function() {
   var now = +new Date() / 1000,
     delta = now - this.lastFrame;
   this.lastFrame = now;
+  this.timePassed += delta;
+  var second = Math.floor(this.timePassed);
+  if (this.level == 0 && second >= 28 && !this.updatingLevel) {
+    this.updateLevel_(1);
+  } else if (this.level == 1 && second >= 58 && !this.updatingLevel) {
+    this.updateLevel_(2);
+  } else if (this.level == 2 && second >= 88 && !this.updatingLevel) {
+    this.updateLevel_(3);
+  }
 
   Coordinator.onFrame(delta);
 
@@ -257,9 +292,6 @@ app.Game.prototype.onFrame = function() {
 
   var groundWidth = parseInt(this.groundElem_.css('width'));
   var groundWidthScaled = groundWidth * this.scale;
-  if (this.distanceTraveled + this.visibleWidth > groundWidth) {
-    this.groundElem_.css('width', (groundWidth * 2) + 'px');
-  }
 
   // Update entities and track which are dead.
   var deadEntities = [];
@@ -280,6 +312,30 @@ app.Game.prototype.onFrame = function() {
 };
 
 /**
+ * Go to a new level.
+ * @param {number} level Level number.
+ * @private
+ */
+app.Game.prototype.updateLevel_ = function(level) {
+  this.updatingLevel = true;
+  var game = this;
+  this.stripesElem_.empty();
+  for (var i=0; i<6; i++) {
+    game.stripesElem_.append(game.stripes_);
+  }
+  this.stripeTimer = new app.Timer(function() {
+    game.gameElem_.addClass('changing-level');
+  }, 200);
+  this.levelTimer = new app.Timer(function() {
+    game.gameElem_.removeClass('changing-level');
+    game.level = level;
+    game.setLevelClass(level);
+    game.speed = Constants.GAME_BASE_SPEED * Constants.GAME_LEVEL_SPEED[level];
+    game.updatingLevel = false;
+  }, 2000);
+};
+
+/**
  * Updates on window resize.
  * @private
  */
@@ -290,32 +346,12 @@ app.Game.prototype.watchSceneSize_ = function() {
       game = this;
 
   var updateSize = function() {
-    var height = gameElem.height();
-    var scale = Math.min(Constants.GAME_MAX_SCALE, height / size.height);
-    game.setScale(scale, gameElem.width());
+    game.scale = 1;
+    game.visibleWidth = gameElem.width() * 1.5;
   };
 
   updateSize();
   $(window).on('resize.endlessrunner', updateSize);
-};
-
-/**
- * Scale game to fit viewport.
- * @param {number} scale Amount to scale.
- * @param {number} width Width of the viewport.
- */
-app.Game.prototype.setScale = function(scale, width) {
-  var newWidth = Math.max(width, Constants.GAME_BASE_SIZE.width) +
-      Constants.GAME_BASE_SIZE.width;
-  if (scale < 1) {
-    newWidth *= (1 / scale);
-  }
-
-  this.layersContainerElem_.css('transform', 'scale(' + scale + ')');
-  this.layersElem_.css('width', newWidth + 'px');
-
-  this.scale = scale;
-  this.visibleWidth = width * (1 / scale);
 };
 
 /**
@@ -432,7 +468,7 @@ app.Game.prototype.addObstacle = function(pos, level) {
  */
 app.Game.prototype.addPresents = function(pos, opt_entity, opt_height) {
   var height = opt_height || Math.floor(Math.random() * 500 + 75);
-
+  
   if (opt_entity) {
     var presentSpacing = 75;
     var totalPresentsWidth = 0;
@@ -518,6 +554,19 @@ app.Game.prototype.addTime = function(time) {
     this.hurryUpPlayed = false;
   }
   this.scoreboard.addTime(time);
-  this.finishLinePos += time * this.speed;
+  this.finishLinePos += time * Constants.GAME_BASE_SPEED * Constants.GAME_LEVEL_SPEED[Constants.GAME_LEVEL_SPEED.length - 1];
   this.finish.place(this.finishLinePos);
+};
+
+/**
+ * Update level classname for CSS animation.
+ * @param {number} level Level number.
+ */
+app.Game.prototype.setLevelClass = function(level) {
+  this.gameElem_.removeClass('level-stop')
+    .removeClass('level-0')
+    .removeClass('level-1')
+    .removeClass('level-2')
+    .removeClass('level-3')
+    .addClass('level-' + level);
 };
