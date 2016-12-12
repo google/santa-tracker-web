@@ -50,7 +50,7 @@ app.Game = function(elem, componentDir) {
   this.viewportDimensions = { width: 0, height: 0, left: 0, top: 0 };
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
-  this.controls = new app.Controls(this.elem, this.mapElem, this.viewportDimensions);
+  this.controls = new app.Controls(this.elem, this.sceneElem, this.viewportDimensions);
 
   this.gameAspectRatio = 1600 / 900;
   this.paused = false;

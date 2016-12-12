@@ -22,18 +22,19 @@ goog.require('app.Constants');
 /**
  * Handles user input for controlling the game.
  * @param {!jQuery} elem The game element.
- * @param {!jQuery} mapElem The map element.
+ * @param {!jQuery} sceneElem The scene element (i.e., not the GUI).
  * @param {{width: number, height: number, left: number, top: number}}
  *     viewportDimensions The dimensions of the viewport.
  * @constructor
  */
-app.Controls = function(elem, mapElem, viewportDimensions) {
+app.Controls = function(elem, sceneElem, viewportDimensions) {
   this.elem = elem;
-  this.mapElem = mapElem;
+  this.sceneElem = sceneElem;
   this.scrollableElem = this.elem.find('.viewport--scrollable');
   this.viewportDimensions = viewportDimensions;
 
   this.enabled = false;
+  this.interactionType = '';
 
   this.syncingScroll = false;
   this.selecting = false;
@@ -128,14 +129,30 @@ app.Controls.prototype.syncScroll = function() {
 };
 
 /**
+ * Sets the interaction type. If it's already set to another type (e.g. touch vs mouse), then
+ * ignores it.
+ */
+app.Controls.prototype.claimInteraction = function(newType) {
+  if (this.interactionType && this.interactionType !== newType) {
+    return false;
+  }
+  this.interactionType = newType;
+  return true;
+};
+
+/**
  * Handles the touchstart event.
  * @param {jQuery.Event} event The event object.
  * @private
  */
 app.Controls.prototype.onTouchstart_ = function(event) {
+  if (!this.claimInteraction('touch')) {
+    return;
+  }
   let touchCount = event.originalEvent.touches.length;
 
-  if (event.target === this.mapElem[0]) {
+  if (this.sceneElem[0].contains(event.target)) {
+    console.info('preventing default, this.elem[0] contains thing...', this.elem[0], 'thing', event.target);
     event.preventDefault();
   }
 
@@ -156,16 +173,21 @@ app.Controls.prototype.onTouchstart_ = function(event) {
  * @private
  */
 app.Controls.prototype.onTouchmove_ = function(event) {
-  let touchCount = event.originalEvent.touches.length;
+  if (!this.claimInteraction('touch')) {
+    return;
+  }
+  const touchCount = event.originalEvent.touches.length;
+  const touchX = event.originalEvent.changedTouches[0].pageX;
+  const touchY = event.originalEvent.changedTouches[0].pageY;
 
-  if (event.target === this.mapElem[0]) {
+  if (touchCount === 1 && this.hasLastLocation && touchY < this.lastLocation.y) {
+    // do nothing, this _might_ allow iOS/etc to scroll up and hide the toolbar
+  } else {
+    // iOS uses pinch/zoom gesture to control Safari
     event.preventDefault();
   }
 
   if (this.selecting && touchCount === 1) {
-    var touchX = event.originalEvent.changedTouches[0].pageX;
-    var touchY = event.originalEvent.changedTouches[0].pageY;
-
     this.updateLocation_(touchX, touchY);
   } else if (this.pinching) {
     this.pinchMove_(event);
@@ -178,18 +200,20 @@ app.Controls.prototype.onTouchmove_ = function(event) {
  * @private
  */
 app.Controls.prototype.onTouchend_ = function(event) {
+  if (!this.claimInteraction('touch')) {
+    return;
+  }
   let touchCount = event.originalEvent.changedTouches.length;
 
   var touchX = event.originalEvent.changedTouches[0].pageX;
   var touchY = event.originalEvent.changedTouches[0].pageY;
 
-  if (event.target === this.mapElem[0]) {
-    event.preventDefault();
-  }
+  // nb. don't preventDefault here, as it'll prevent click from firing on UI
 
   if (touchCount === 1) {
     this.updateLocation_(touchX, touchY);
     this.selecting = false;
+    this.interactionType = '';
   } else {
     this.pinchEnd_();
   }
@@ -257,6 +281,9 @@ app.Controls.prototype.pinchEnd_ = function() {
  * @private
  */
 app.Controls.prototype.onMousedown_ = function(event) {
+  if (!this.claimInteraction('mouse')) {
+    return;
+  }
   this.updateLocation_(event.pageX, event.pageY);
 
   this.selecting = true;
@@ -268,6 +295,9 @@ app.Controls.prototype.onMousedown_ = function(event) {
  * @private
  */
 app.Controls.prototype.onMousemove_ = function(event) {
+  if (!this.claimInteraction('mouse')) {
+    return;
+  }
   if (this.selecting) {
     this.updateLocation_(event.pageX, event.pageY);
   }
@@ -279,11 +309,15 @@ app.Controls.prototype.onMousemove_ = function(event) {
  * @private
  */
 app.Controls.prototype.onMouseup_ = function(event) {
+  if (!this.claimInteraction('mouse')) {
+    return;
+  }
   this.updateLocation_(event.pageX, event.pageY);
 
   this.hasLastLocation = false;
 
   this.selecting = false;
+  this.interactionType = '';
 };
 
 /**
