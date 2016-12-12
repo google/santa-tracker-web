@@ -25,9 +25,8 @@ goog.require('app.I18n');
  * Please tweak them to improve gameplay and game balance.
  */
 app.Constants = {
-  INITIAL_COUNTDOWN: 100000,
-  COUNTDOWN_TRACK_LENGTH: 90,
-  COUNTDOWN_FLASH: 10,
+  INITIAL_COUNTDOWN: 0,
+  COUNTDOWN_FLASH: 0,
 
   CANVAS_MAX_HEIGHT: 8000,
 

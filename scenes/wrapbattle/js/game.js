@@ -539,8 +539,6 @@ app.Game = class {
 
     this.lastFrame = now;
 
-    this.scoreboard.onFrame(delta / 1000);
-
     // Update game state
     this.update(delta);
     this.animationPlayer.update(now / 1000);

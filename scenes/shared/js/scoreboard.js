@@ -64,6 +64,7 @@ Scoreboard.prototype.restart = function() {
   this.lastSeconds = NaN;
   this.countdown = this.initialCountdown_;
   this.losing = false;
+  this.announce_();
 };
 
 /**

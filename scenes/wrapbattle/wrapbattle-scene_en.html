@@ -177,9 +177,7 @@ Wrap Battle scene.
         'img/arrow-up.png',
         'img/arrow-left.png',
         'img/arrow-right.png',
-        'img/wrap-battle-mobile.gif',
         'img/scene/crowd-background.png',
-        'img/scene/crowd-foreground.png',
         'img/scene/speaker-boom.svg',
         'img/scene/speaker-left-corner.svg',
         'img/scene/speaker-left-corner-foam.png',
@@ -223,6 +221,12 @@ Wrap Battle scene.
         'img/toys/toys-07.svg',
         'img/toys/toys-08.svg',
       ]);
+
+      if (window.innerWidth <= 800) {
+        // Only load a 3.2mb gif if we're on mobile.
+        // TODO: Don't load a 3.2mb gif :|
+        this.preloadImages(['img/wrap-battle-mobile.gif']);
+      }
     },
 
     onShow: function() {

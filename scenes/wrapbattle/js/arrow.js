@@ -44,6 +44,9 @@ app.Arrow = class {
    * @export
    */
   render(trackPosition, responsiveKey, canvas, canvasOffset) {
+    // TODO(leeee): Sometimes the canvas is not passed correctly, when restarting the game.
+    if (!canvas || !canvas[0]) { return; }
+
     let context = canvas[0].getContext('2d');
     let width = canvas[0].width;
     let arrowSize = app.Constants.ARROW_SIZE[responsiveKey];
