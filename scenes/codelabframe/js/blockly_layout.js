@@ -73,7 +73,7 @@ app.BlocklyLayout.TOOLBOX_SM_TOP = 24;
  * Whitespace to top on desktop.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_MD_TOP = 210;
+app.BlocklyLayout.TOOLBOX_MD_TOP = 32;
 
 /**
  * Top position of when run block on mobile.
