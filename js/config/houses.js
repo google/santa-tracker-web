@@ -92,7 +92,7 @@ window.HOUSES = [{
   module: "commandcentre",
   launchDate: new Date('Dec 10, 2016'),
   portalLaunchDate: new Date('Dec 10, 2016'),
-  category: "play"
+  category: "explore"
 }, {
   module: "gumball",
   launchDate: new Date('Dec 11, 2016'),
