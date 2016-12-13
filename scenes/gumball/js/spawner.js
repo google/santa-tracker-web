@@ -82,6 +82,10 @@ app.Spawner.prototype.goToNextSpawn_ = function() {
  */
 app.Spawner.prototype.performSpawn_ = function() {
   const next = this.queue.shift();
+  if (!next) {
+    console.debug('performSpawn_ without queue');
+    return;
+  }
   next.spawn();
 
   window.santaApp.fire('sound-trigger', 'gb_new_ball');
