@@ -25,80 +25,6 @@ $name: 'module-traditions';
     }
   }
 
-  #lessons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(254, 216, 60, 0.8);
-
-    #lessons-inner {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 350px;
-      height: 505px;
-      margin-left: -175px;
-      margin-top: -252px;
-
-      #close-lessons {
-        width: 79px;
-        height: 79px;
-        background: url(img/close.svg) no-repeat;
-        position: absolute;
-        right: -79px;
-        top: 0;
-      }
-
-      ul {
-        list-style: none;
-        li {
-          border-bottom: 3px solid #fadc72;
-
-          &:last-child {
-            border-bottom: 0;
-          }
-
-          a {
-            text-decoration: none;
-            display: block;
-            line-height: 115px;
-            font-size: 40px;
-            font-weight: bold;
-            color: #fff;
-          }
-
-          .crayon {
-            width: 75px;
-            height: 75px;
-            display: inline-block;
-            position: relative;
-            top: 20px;
-            background-repeat: no-repeat;
-            background-size: contain;
-          }
-
-          .crayon-k-2 {
-            background-image: url(img/crayon-k-2.svg);
-          }
-
-          .crayon-3-5 {
-            background-image: url(img/crayon-3-5.svg);
-          }
-
-          .crayon-6-8 {
-            background-image: url(img/crayon-6-8.svg);
-          }
-
-          .crayon-9-10 {
-            background-image: url(img/crayon-9-10.svg);
-          }
-        }
-      }
-    }
-  }
-
   #lessons-popup {
     position: absolute;
     bottom: 0;
@@ -137,7 +63,12 @@ $name: 'module-traditions';
 
   .traditions-tradition {
     display: none;
-    //background: rgba(246, 239, 226, .8);
+    background: rgba(255, 255, 255, 0.75);
+    box-sizing: border-box;
+    padding: 8px 24px;
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
 
     position: absolute;
     max-width: 390px;
@@ -146,14 +77,14 @@ $name: 'module-traditions';
 
     h2 {
       font-family: 'Lobster', sans-serif;
-      font-size: 55px;
+      font-size: 51px;
       color: #424242;
       white-space: nowrap;
       margin: 0;
     }
 
     p {
-      color: #504f4a;
+      color: #424242;
       font-size: 1.2em;
     }
   }
