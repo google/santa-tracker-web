@@ -159,6 +159,16 @@ SantaService.prototype.addListener = function(eventName, handler) {
 };
 
 /**
+ * @param {string} eventName
+ * @param {function()} handler
+ * @return {boolean} whether removed successfully
+ * @export
+ */
+SantaService.prototype.removeListener = function(eventName, handler) {
+  return Events.removeListener(this, eventName, handler);
+};
+
+/**
  * @param {string} lang to set
  * @export
  */
@@ -175,11 +185,8 @@ SantaService.prototype.getCurrentLocation = function(callback) {
   var now = this.now();
   var dest = this.findDestination_(now);
   if (!this.isSynced()) {
-    // TODO(samthor): Allow once-off handlers for sync.
-    let invoked = false;
     const handler = () => {
-      if (invoked) { return; }
-      invoked = true;
+      Events.removeListener(this, 'sync', handler);
       this.getCurrentLocation(callback);
     };
     Events.addListener(this, 'sync', handler);

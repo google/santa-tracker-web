@@ -1,0 +1,60 @@
+$color-green: #00cc81;
+$color-yellow: #eefda5;
+$color-red: #ff002b;
+
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/** "full page" section - except on large screens */
+section {
+  min-height: 100vh;
+  background: $color-green;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &:not(:first-of-type) {
+    border-top: 2px solid rgba(0, 0, 0, 0.25);
+  }
+
+  &#stats {
+    @import "sass/stats";
+  }
+  &#main {
+    @import "sass/main";
+  }
+  &#games {
+    background: #585fe8;
+  }
+  &#videos {
+    background: #00ccb9;
+  }
+
+  // TODO: expected padding for top bar / internal nav bar
+
+  // On an iPad height or above, clamp the sections to a maximum size. Cards will thus be in the
+  // size range [320px,1023px].
+  @media (min-height: 1024px) {
+    min-height: 768px;
+  }
+}
+
+h1 {
+  font-family: 'Lobster';
+  font-size: 55px;
+  position: absolute;
+  left: 100px;
+  top: 30px;
+  transform: rotate(-5deg);
+  color: white;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.125);
+}
+
+santa-weather {
+  @apply(--layout-fit);
+}
+tracker-map {
+  @apply(--layout-fit);
+}
