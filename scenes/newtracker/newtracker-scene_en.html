@@ -40,10 +40,10 @@ Tracker scene.
           <h2>Status</h2>
         </article>
         <article>
-          <h2>Games</h2>
+          <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
         </article>
         <article style="background-image: url(../../images/scenes/santasback_2x.png)">
-          <h2>Videos</h2>
+          <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
         </article>
         <article class="big" style="background-image: url(img/feed/mintybreath.gif)">
           <h2>Live Feed</h2>
@@ -76,16 +76,16 @@ Tracker scene.
     </div>
   </section>
   <section id="games">
-    <h1>Games</h1>
+    <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
   </section>
   <section id="videos">
-    <h1>Videos</h1>
+    <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
   </section>
   <section id="livefeed">
     <h1>Live Feed</h1>
   </section>
   <section id="thanks">
-    <h1>Happy Holidays</h1>
+    <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
   </section>
 
 </template>
@@ -142,8 +142,6 @@ Tracker scene.
     attached: function() {
       window.santaService.addListener('sync', this.santaSync_);
       window.santaService.getCurrentLocation(this.santaSync_);
-
-      this._updateSantaTimeout = window
     },
 
     detatched: function() {
