@@ -62,7 +62,7 @@ EventsManager.prototype.addListener = function(o, eventName, listener) {
  */
 EventsManager.prototype.removeListener = function(o, eventName, listener) {
   const eventsTable = this.getTable_(o);
-  let listeners = eventsTable.get(eventName);
+  const listeners = eventsTable.get(eventName);
   return listeners ? listeners.delete(listener) : false;
 };
 
