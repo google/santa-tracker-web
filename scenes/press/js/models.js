@@ -116,17 +116,17 @@ app.Models = [
     'opens': '2',
     'type': 'Watch',
     'filter': '',
-    'description': 'Rudolph\'s ready and the elves are hard at work. One problem - where\'s Santa? ',
+    'description': 'Santa needs to get ready to deliver presents again this year!',
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santa-is-back.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santasback-screenshot.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC2-santasback-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santasback-animation.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -142,13 +142,13 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-translations.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/translations-screenshot.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC4-translation-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/translations-animation.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -162,16 +162,15 @@ app.Models = [
     'filter': 'education computerscience new',
     'description': 'Nothing says "Happy Holidays" like Rudolph on the beach. Create your own holiday card by programming your own snowflake, selecting one of many backgrounds, and share with your friends.',
     'resources': [
-      // TODO(samthor): Update resources for 2016.
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santa-cards.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/snowflake-screenshot.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC12-santacards-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/snowflake-animation.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -229,7 +228,18 @@ app.Models = [
     'filter': 'new',
     'description': 'Help a penguin 🐧 slide, jump and navigate icebergs to collect presents. But watch out and don\'t fall in the icy water!',
     'resources': [
-      // TODO(samthor): Resources.
+      {
+        'title': 'Still Screenshot',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/penguindash-screenshot.png',
+        'type': 'PNG file',
+        'class': 'card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/penguindash-animation.gif',
+        'type': 'GIF file',
+        'class': 'card-dl'
+      }
     ]
   },
   {
@@ -242,13 +252,13 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-santa-search.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santasearch-screenshot.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC7-santasearch-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santasearch-animation.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -264,13 +274,13 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-season-of-giving.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/seasonofgiving-screenshot.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-seasonofgiving-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/seasonofgiving-animation.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -330,13 +340,13 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-elf-jamband.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/jamband-screenshot.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC10-elfjamband-full.gif',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/jamband-animation.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -350,7 +360,18 @@ app.Models = [
     'filter': 'new',
     'description': 'Use your phone or computer with rhythm to keep Santa\'s elves\' \"wrapping\"!',
     'resources': [
-      // TODO(samthor): Resources.
+      {
+        'title': 'Still Screenshot',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/wrapbattle-screenshot.png',
+        'type': 'PNG file',
+        'class': 'card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/wrapbattle-animation.gif',
+        'type': 'GIF file',
+        'class': 'card-dl'
+      }
     ]
   },
   {
@@ -363,7 +384,7 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-gift-slingshot.png',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/boatload-screenshot.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
@@ -383,7 +404,12 @@ app.Models = [
     'filter': 'new',
     'description': 'Help an elf and their trusty companion collect lost presents around the village.',
     'resources': [
-      // TODO(samthor): Resources.
+      {
+        'title': 'Still Screenshot',
+        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/runner-screenshot.png',
+        'type': 'PNG file',
+        'class': 'card-dl'
+      }
     ]
   },
   {
