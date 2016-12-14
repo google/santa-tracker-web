@@ -203,6 +203,14 @@ specific language governing permissions and limitations under the License.
 
         start() {
           this.$.board.start();
+          this.$.state.deserialize(window.location.search.slice(1));
+        },
+
+        end() {
+          window.location.search = this.$.state.serialize();
+          window.santaApp.fire('game-stop', {
+            url: window.location.toString()
+          });
         },
 
         _measure() {
@@ -215,8 +223,6 @@ specific language governing permissions and limitations under the License.
 
         _onDecorate(event) {
           this.push('decorations', event.detail);
-          this.$.tree.addDecoration(
-              event.detail.x, event.detail.y, event.detail.graphic);
         },
 
         _handleMatches(event) {

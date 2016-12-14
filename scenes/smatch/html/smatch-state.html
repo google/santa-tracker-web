@@ -14,41 +14,81 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
 <link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="match3-board.html">
 
 <dom-module id="smatch-state">
   <script>
-    Polymer({
-      is: 'smatch-state',
+    (() => {
+      const Graphic = Match3BoardElement.Graphic;
 
-      properties: {
-        decorations: {
-          type: Array,
-          notify: true,
-          value() {
-            return [];
+      Polymer({
+        is: 'smatch-state',
+
+        properties: {
+
+          decorations: {
+            type: Array,
+            notify: true,
+            value() {
+              return [];
+            }
+          },
+
+          level: {
+            type: Number,
+            notify: true,
+            computed: '_computeLevel(decorations.length)'
+          },
+
+          status: {
+            type: String,
+            notify: true,
+            value: 'started',
+            readOnly: true
           }
         },
 
-        level: {
-          type: Number,
-          notify: true,
-          computed: '_computeLevel(decorations.length)'
+        deserialize(queryString) {
+          const decorationsParameter = window.getUrlParameter('d');
+
+          if (decorationsParameter != null) {
+            this.decorations = decorationsParameter.split(';')
+                .slice(1)
+                .map(decorationString =>
+                    this._deserializeDecoration(decorationString));
+          }
+        },
+
+        serialize() {
+          return 'd=' + this.decorations.map(decoration =>
+              this._serializeDecoration(decoration)).join(';');
+        },
+
+        _deserializeDecoration(decorationString) {
+          const parts = decorationString.split(',');
+
+          return {
+            x: parseFloat(parts[0]),
+            y: parseFloat(parts[1]),
+            graphic: new Graphic('image',
+                this.resolveUrl(`../img/smatch_ornament${parts[2]}.svg`))
+          };
+        },
+
+        _serializeDecoration(decoration) {
+          return [
+            decoration.x.toFixed(2).replace('0.', '.'),
+            decoration.y.toFixed(2).replace('0.', '.'),
+            decoration.graphic.asset.match(/([0-9]+)\.svg/)[1]
+          ].join(',')
+        },
+
+        _computeLevel() {
+          return this.decorations
+              ? 0|this.decorations.length / 10
+              : 0;
         }
-      },
-
-      deserialize(state) {
-        this.decorations = [];
-      },
-
-      serialize() {
-        return '';
-      },
-
-      _computeLevel() {
-        return this.decorations
-            ? 0|this.decorations.length / 10
-            : 0;
-      }
-    });
+      });
+    })();
   </script>
 </dom-module>

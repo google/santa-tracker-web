@@ -100,6 +100,10 @@ specific language governing permissions and limitations under the License.
         }
       },
 
+      observers: [
+        '_decorationsChanged(decorations.*)'
+      ],
+
       _levelChanged(level, oldLevel) {
         if (oldLevel != null) {
           this.classList.remove(`level${oldLevel}`);
@@ -110,17 +114,33 @@ specific language governing permissions and limitations under the License.
         }
       },
 
-      addDecoration(x, y, graphic) {
-        const decoration = document.createElement('smatch-decoration');
+      _decorationsChanged(change) {
+        if (change.path === 'decorations') {
+          const decorationContainer = Polymer.dom(this.$.decorations);
 
-        console.log('Adding decoration', x, y, graphic.asset);
+          Array.from(decorationContainer.querySelectorAll('smatch-decoration'))
+              .forEach(decorationElement =>
+                    decorationContainer.removeChild(decorationElement));
 
-        decoration.graphic = graphic;
-        decoration.x = x;
-        decoration.y = y;
-        decoration.scale = Math.random() * 0.4 + 0.25;
+          this.decorations.forEach(decoration => this.addDecoration(decoration));
+        } else if (change.path === 'decorations.splices') {
+          change.value.indexSplices.forEach(splice => {
+            for (let i = 0; i < splice.addedCount; ++i) {
+              this.addDecoration(this.decorations[splice.index + i]);
+            }
+          });
+        }
+      },
 
-        Polymer.dom(this.$.decorations).appendChild(decoration);
+      addDecoration(decoration) {
+        const decorationElement = document.createElement('smatch-decoration');
+
+        decorationElement.graphic = decoration.graphic;
+        decorationElement.x = decoration.x;
+        decorationElement.y = decoration.y;
+        decorationElement.scale = Math.random() * 0.4 + 0.25;
+
+        Polymer.dom(this.$.decorations).appendChild(decorationElement);
       }
     });
   </script>
