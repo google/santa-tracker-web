@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "의수족"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "좋아하는 자선단체의 장식을 선택하여 색을 칠해 보세요."
+	},
+	"nonprofit-instruction-share": {
+		"message": "가족과 친구에게 내가 만든 장식을 공유해 보세요."
+	},
+	"nonprofit-intro-type": {
+		"message": "이 세상을 아름답게 만들어 나가고 자원을 보호하는 자선단체를 지지하는 의미에서 이 장식에 색을 칠해 보세요. 그런 다음 크리스마스 트리에 장식을 달거나 가족이나 친구에게 선물로 보내 이러한 자선단체의 사명에 대한 관심을 표해 보세요."
+	},
 	"nonprofit-jane-description": {
 		"message": "침팬지는 동물의 왕국에서 인간과 가장 가까운 친척입니다. 현재 서식지 감소, 질병, 불법 거래로 인해 30만 마리 이하의 침팬지만 남아 있습니다. Jane Goodall Institute(JGI, 제인 구달 협회)는 침팬지를 관찰하고 행동 양식을 파악하여 침팬지는 물론 침팬지 서식지를 보호하고 있습니다. 또한 JGI는 야생 동물을 보호하고 환경을 보전하는 공동체를 구축하기 위해 노력하고 있습니다. 탄자니아 곰베에 있는 \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e침팬지 서식지를 살펴보세요\u003c/a\u003e."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "힌트"
 	},
+	"santasearch_level_beach": {
+		"message": "해변 레벨"
+	},
 	"santasearch_level_lab": {
 		"message": "실험실"
+	},
+	"santasearch_level_mountains": {
+		"message": "산악 레벨"
 	},
 	"santasearch_level_museum": {
 		"message": "박물관"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "보기"
 	},
+	"wrapbattle_combo": {
+		"message": "콤보 완료"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "잘하셨어요."
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "놓쳤습니다."
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "확인"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "완벽합니다."
 	},
 	"ye_country_name": {
 		"message": "예멘"

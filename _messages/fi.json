@@ -540,7 +540,7 @@
 		"message": "Ecuador"
 	},
 	"educators": {
-		"message": "Julupukin jäljitin opettajille"
+		"message": "Joulupukin jäljitin opettajille"
 	},
 	"ee_country_name": {
 		"message": "Viro"
@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Raajaproteesit"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Valitse koriste ja hyväntekeväisyysjärjestö ja tartu värikyniin!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Jaa taideteoksesi ystävillesi ja perheellesi."
+	},
+	"nonprofit-intro-type": {
+		"message": "Voit tukea hyväntekeväisyysjärjestöjä, jotka auttavat tekemään maailmasta paremman paikan kaikille. Väritä vain joulukoristeet ja osoita sitten tukesi ripustamalle ne joulukuuseen tai antamalla ne ystävillesi."
+	},
 	"nonprofit-jane-description": {
 		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutustu simpanssien elinympäristöihin\u003c/a\u003e Tansanian Gombessa."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Vinkki"
 	},
+	"santasearch_level_beach": {
+		"message": "Rannalla"
+	},
 	"santasearch_level_lab": {
 		"message": "Pelipajassa"
+	},
+	"santasearch_level_mountains": {
+		"message": "Vuoristossa"
 	},
 	"santasearch_level_museum": {
 		"message": "Museossa"
@@ -5121,7 +5136,7 @@
 		"message": "Tutki, pelaa ja opi tonttujen kanssa koko joulukuun ajan."
 	},
 	"village_get_the_app": {
-		"message": "Hanki Joulupukin jäljitin -Android-sovellus"
+		"message": "Asenna Joulupukin jäljitin -sovellus Androidille"
 	},
 	"village_more": {
 		"message": "Lisää hauskoja pelejä"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Katso"
 	},
+	"wrapbattle_combo": {
+		"message": "Mahtikombo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Hyvä"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Ohi"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Huippua"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

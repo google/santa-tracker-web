@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Jäsemeproteesid"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Valige endale südamelähedase heategevusliku organisatsiooniga kaunistus ja hakake värvima!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Jagage oma loomingut pere ja sõpradega!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Toetage kaunima ja mitmekülgsema maailma nimel töötavaid heategevuslikke organisatsioone, värvides need kaunistused. Seejärel näidake oma poolehoidu, riputades kaunistused oma jõulupuule või kinkides lähedastele!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Vihje"
 	},
+	"santasearch_level_beach": {
+		"message": "Rannal"
+	},
 	"santasearch_level_lab": {
 		"message": "Laboris"
+	},
+	"santasearch_level_mountains": {
+		"message": "Mägedes"
 	},
 	"santasearch_level_museum": {
 		"message": "Muuseumis"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Vaadake"
 	},
+	"wrapbattle_combo": {
+		"message": "Kõva kombo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Hea"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Mööda"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Veatu"
 	},
 	"ye_country_name": {
 		"message": "Jeemen"

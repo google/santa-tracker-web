@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Протезирование"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Шаг первый: выберите игрушку с логотипом благотворительной организации, цели которой вам близки. Шаг второй: раскрасьте игрушку."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Отправьте игрушку друзьям и близким."
+	},
+	"nonprofit-intro-type": {
+		"message": "Хотите поддержать благотворительную организацию, цели которой вам близки? Выберите игрушку, раскрасьте ее, а затем повесьте на елку или подарите друзьям."
+	},
 	"nonprofit-jane-description": {
 		"message": "Шимпанзе считаются самыми близкими родственниками человека. Из-за потери среды обитания, в результате браконьерства и эпидемий их осталось уже меньше 300 000. Защитой шимпанзе и мест их обитания, а также другими проблемами дикой природы и окружающей среды занимается организация The Jane Goodall Institute (JGI). Посмотрите, как заботятся о шимпанзе \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eв заповеднике Гомбе\u003c/a\u003e в Танзании."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Подсказка"
 	},
+	"santasearch_level_beach": {
+		"message": "На пляже"
+	},
 	"santasearch_level_lab": {
 		"message": "В лаборатории"
+	},
+	"santasearch_level_mountains": {
+		"message": "В горах"
 	},
 	"santasearch_level_museum": {
 		"message": "В музее"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Смотреть"
 	},
+	"wrapbattle_combo": {
+		"message": "Отличное сочетание!"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Хорошо"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Плохо"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "ОК"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Отлично"
 	},
 	"ye_country_name": {
 		"message": "Йемен"

@@ -864,10 +864,10 @@
 		"message": "Učitelji i učenici"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® neprofitna je organizacija koja nastoji poboljšati pristup računalnoj znanosti te povećati zastupljenost žena i učenika drugih boja kože iz slabo zastupljenih skupina. Vizija organizacije Code.org® je da bi svaki učenik u svakoj školi trebao dobiti priliku da uči o računalnoj znanosti."
+		"message": "Code.org® neprofitna je organizacija koja nastoji poboljšati pristup računalstvu te povećati zastupljenost žena i slabo zastupljenih manjinskih skupina u toj znanosti. Vizija organizacije Code.org® je da bi svaki učenik u svakoj školi trebao imati priliku baviti se računalstvom."
 	},
 	"nonprofit-code-type": {
-		"message": "Računalna znanost"
+		"message": "Računalstvo"
 	},
 	"nonprofit-donorschoose-description": {
 		"message": "DonorsChoose.org organizacija je koju je 2000. godine osnovao učitelj povijesti iz Bronxa, a prikupila je više od 480 milijuna USD za američke učionice. Učitelji se mogu obratiti u DonorsChoose.org radi nabavke materijala i stjecanja iskustava koja su im potrebna u njihovim učionicama."
@@ -880,6 +880,15 @@
 	},
 	"nonprofit-enable-type": {
 		"message": "Protetički udovi"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Odaberi ukras sa svojom omiljenom dobrotvornom organizacijom i oboji ga!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Podijeli svoje umjetničko djelo s obitelji i prijateljima!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Oboji ovu zbirku ukrasa i tako podrži dobrotvorne organizacije koje naš svijet čine lijepim i pravednim. Zatim pokaži svoj interes za te inicijative na način da ih objesiš na božićno drvce ili pokloniš dragim osobama!"
 	},
 	"nonprofit-jane-description": {
 		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eIstražite staništa čimpanzi\u003c/a\u003e u Gombeu, u Tanzaniji."
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Savjet"
 	},
+	"santasearch_level_beach": {
+		"message": "Na plaži"
+	},
 	"santasearch_level_lab": {
 		"message": "U laboratoriju"
+	},
+	"santasearch_level_mountains": {
+		"message": "U planinama"
 	},
 	"santasearch_level_museum": {
 		"message": "U muzeju"
@@ -1203,7 +1218,7 @@
 		"message": "Vrijeme darivanja"
 	},
 	"scene_streetview": {
-		"message": "Prikaz ulice"
+		"message": "Street View"
 	},
 	"scene_traditions": {
 		"message": "Blagdanski običaji"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Pogledaj"
 	},
+	"wrapbattle_combo": {
+		"message": "Odlična kombinacija"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Dobar pokušaj"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Promašaj"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "U redu"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Savršeno"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

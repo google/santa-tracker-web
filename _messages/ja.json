@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "義肢"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "お気に入りの慈善団体のオーナメントを選んで、好きな色をつけよう！"
+	},
+	"nonprofit-instruction-share": {
+		"message": "オーナメントを家族や友だちと共有しよう！"
+	},
+	"nonprofit-intro-type": {
+		"message": "オーナメントに色をつけることで、地球環境と資源を守るために活動する慈善団体を支援することができます。オーナメントに色をつけたら、クリスマス ツリーに飾ったり、親愛なる人に贈ったりして、この慈善活動に関心があることを示しましょう。"
+	},
 	"nonprofit-jane-description": {
 		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。The Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eチンパンジー生息域の様子\u003c/a\u003eをご覧ください。"
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "ヒント"
 	},
+	"santasearch_level_beach": {
+		"message": "ビーチ"
+	},
 	"santasearch_level_lab": {
 		"message": "実験室"
+	},
+	"santasearch_level_mountains": {
+		"message": "山"
 	},
 	"santasearch_level_museum": {
 		"message": "美術館"
@@ -1251,7 +1266,7 @@
 		"message": "まだ休暇中"
 	},
 	"scene_videoscene_wheressanta": {
-		"message": "サンタはどこ？"
+		"message": "サンタさんは今どこ？"
 	},
 	"scene_windtunnel": {
 		"message": "風のトンネル"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "見る"
 	},
+	"wrapbattle_combo": {
+		"message": "スイートコンボ"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "成功"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "失敗"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "パーフェクト"
 	},
 	"ye_country_name": {
 		"message": "イエメン"

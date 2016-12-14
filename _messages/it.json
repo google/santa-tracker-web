@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Protesi di arti"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Scegli una decorazione con il tuo ente di beneficenza preferito e inizia a colorare."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Condividi le tue decorazioni con familiari e amici."
+	},
+	"nonprofit-intro-type": {
+		"message": "Sostieni gli enti di beneficenza che contribuiscono a preservare la bellezza e la ricchezza nel mondo colorando questa serie di decorazioni, quindi mostra il tuo interesse nelle varie cause appendendo le decorazioni al tuo albero di Natale o regalandole alle persone che ami."
+	},
 	"nonprofit-jane-description": {
 		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEsplora gli habitat degli scimpanzé\u003c/a\u003e nel parco di Gombe, Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Suggerimento"
 	},
+	"santasearch_level_beach": {
+		"message": "In spiaggia"
+	},
 	"santasearch_level_lab": {
 		"message": "Nel laboratorio"
+	},
+	"santasearch_level_mountains": {
+		"message": "In montagna"
 	},
 	"santasearch_level_museum": {
 		"message": "Al museo"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Guarda"
 	},
+	"wrapbattle_combo": {
+		"message": "Ottima combo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bel colpo"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Colpo mancato"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Centro"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Galūnių protezai"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Pasirinkite mėgstamos labdaros organizacijos papuošalą ir pradėkite dažyti!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Bendrinkite savo meną su šeima ir draugais!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Paremkite labdaros organizacijas, padedančias mūsų pasauliui likti gražiam ir turtingam, nudažydami šią papuošalų kolekciją. Tada parodykite savo susidomėjimą šiais tikslais, pakabindami juos ant savo Kalėdų eglutės ar dovanodami artimiesiems!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzės yra žmonėms artimiausia gyvūnų rūšis! Šiandien dėl gyvenamosios aplinkos sumažėjimo, ligų ir nelegalios prekybos pasaulyje liko tik 300 000 šimpanzių. Ne pelno organizacijos „Jane Goodall Institute“ (JGI) tikslas – išsaugoti šimpanzes, stebint ir stengiantis suprasti jų elgseną bei gyvenamąją aplinką. JGI taip pat siekia suburti žmonių, kurie nori išsaugoti laukinius gyvūnus ir mus supančią aplinką, bendruomenę. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePatyrinėkite šimpanzių gyvenamąsias vietoves\u003c/a\u003e Gombėje, Tanzanijoje."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Užuomina"
 	},
+	"santasearch_level_beach": {
+		"message": "Paplūdimyje"
+	},
 	"santasearch_level_lab": {
 		"message": "Laboratorijoje"
+	},
+	"santasearch_level_mountains": {
+		"message": "Kalnuose"
 	},
 	"santasearch_level_museum": {
 		"message": "Muziejuje"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Žiūrėkite"
 	},
+	"wrapbattle_combo": {
+		"message": "Tai bent derinys!"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Gerai"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Nepataikėte"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "Gerai"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Puiku"
 	},
 	"ye_country_name": {
 		"message": "Jemenas"

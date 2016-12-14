@@ -768,7 +768,7 @@
 		"message": "Sri Lanca"
 	},
 	"lock_orientation": {
-		"message": "Para usufruir da melhor experiência possível, bloqueie a rotação."
+		"message": "Bloqueie a rotação para usufruir da melhor experiência possível."
 	},
 	"lr_country_name": {
 		"message": "Libéria"
@@ -870,7 +870,7 @@
 		"message": "Informática"
 	},
 	"nonprofit-donorschoose-description": {
-		"message": "Fundada em 2000 por um professor de História do Bronx, em Nova Iorque, a DonorsChoose.org já angariou mais de 480 milhões de dólares para salas de aula nos Estados Unidos. Os professores entram em contacto com a DonorsChoose.org para solicitar os materiais e experiências de que necessitam para as respetivas aulas."
+		"message": "Fundada em 2000 por um professor de História do Bronx, em Nova Iorque, a DonorsChoose.org já angariou mais de 480 milhões de dólares para salas de aula nos Estados Unidos. Os professores entram em contacto com a DonorsChoose.org para solicitar os materiais e as experiências de que necessitam para as respetivas aulas."
 	},
 	"nonprofit-donorschoose-type": {
 		"message": "Salas de aula"
@@ -880,6 +880,15 @@
 	},
 	"nonprofit-enable-type": {
 		"message": "Membros prostéticos"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Escolha um enfeite com a sua instituição de beneficência e comece a colorir!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Partilhe a sua arte com familiares e amigos!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Apoie as organizações de beneficência que ajudam a manter o nosso mundo bonito e com recursos ao colorir esta coleção de enfeites. Depois, mostre o seu interesse nestas causas: pendure-os na sua árvore de Natal ou ofereça-os aos seus entes queridos!"
 	},
 	"nonprofit-jane-description": {
 		"message": "Os chimpanzés são os parentes vivos mais próximos dos humanos no reino animal! Atualmente, existem menos de 300 000 chimpanzés devido à perda do seu habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés através da observação e compreensão dos seus comportamentos, bem como dos habitats em que vivem. O JGI também trabalha para criar uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que partilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore os habitats dos chimpanzés\u003c/a\u003e em Gombe, na Tanzânia."
@@ -909,7 +918,7 @@
 		"message": "Florestas"
 	},
 	"nonprofit-pratham-description": {
-		"message": "Quase 40% da população mundial não tem acesso à educação num idioma que fale ou compreenda. A StoryWeaver espera alterar esta situação, através de ajuda aos educadores, escritores e tradutores na criação de recursos de leitura adicionais divertidos para crianças."
+		"message": "Quase 40% da população mundial não tem acesso à educação num idioma que fale ou compreenda. A StoryWeaver espera alterar esta situação através de ajuda aos educadores, escritores e tradutores na criação de recursos de leitura adicionais divertidos para crianças."
 	},
 	"nonprofit-pratham-type": {
 		"message": "Leitura"
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Sugestão"
 	},
+	"santasearch_level_beach": {
+		"message": "Na praia"
+	},
 	"santasearch_level_lab": {
 		"message": "No laboratório"
+	},
+	"santasearch_level_mountains": {
+		"message": "Nas montanhas"
 	},
 	"santasearch_level_museum": {
 		"message": "No museu"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Ver"
 	},
+	"wrapbattle_combo": {
+		"message": "Excelente combinação"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Muito bem"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Falhou"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfeito"
 	},
 	"ye_country_name": {
 		"message": "Iémen"

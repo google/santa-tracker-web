@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Proteser"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Velg julekulen for favorittorganisasjonen din, og farg i vei!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Del kunsten din med familie og venner!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Støtt de veldedige organisasjonene som bidrar til å gjøre verden til et bedre sted, ved å fargelegge denne samlingen med julekuler. Vis deretter at du engasjerer deg i disse gode sakene, ved å henge pynten på juletreet ditt eller gi den bort til familie og venner."
+	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforsk sjimpansenes leveområder\u003c/a\u003e i Gombe, Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Hint"
 	},
+	"santasearch_level_beach": {
+		"message": "På stranden"
+	},
 	"santasearch_level_lab": {
 		"message": "På laboratoriet"
+	},
+	"santasearch_level_mountains": {
+		"message": "På fjellet"
 	},
 	"santasearch_level_museum": {
 		"message": "På museet"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Se"
 	},
+	"wrapbattle_combo": {
+		"message": "Bra kombinasjon"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bra"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Bom"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfekt"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

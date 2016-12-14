@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Prótesis de extremidades"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Elige un adorno que tenga el nombre de tu organización benéfica favorita y comienza a pintar."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Comparte tu arte con tus familiares y amigos."
+	},
+	"nonprofit-intro-type": {
+		"message": "Pinta esta colección de adornos para apoyar a las organizaciones benéficas que ayudan a que nuestro mundo sea hermoso y emprendedor. Después, cuélgalos en tu árbol de Navidad o regálaselos a tus seres queridos para demostrar tu interés en estas causas."
+	},
 	"nonprofit-jane-description": {
 		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpancés\u003c/a\u003e en Gombe, Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Pista"
 	},
+	"santasearch_level_beach": {
+		"message": "En la playa"
+	},
 	"santasearch_level_lab": {
 		"message": "En el laboratorio"
+	},
+	"santasearch_level_mountains": {
+		"message": "En las montañas"
 	},
 	"santasearch_level_museum": {
 		"message": "En el museo"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Mirar"
 	},
+	"wrapbattle_combo": {
+		"message": "Combo dulce"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bien"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Mal"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "De acuerdo"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfecto"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

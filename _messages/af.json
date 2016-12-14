@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Kunsledemate"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Kies 'n ornament met jou gunsteling-liefdadigheid en begin inkleur!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Deel jou kuns met jou familie en vriende!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Ondersteun die liefdadigheid-organisasies wat ons wêreld pragtig en vol hulpbronne help hou, deur hierdie versameling ornamente in te kleur. Wys dan jou belangstelling in hierdie goeie sake deur dit aan jou Kersboom te hang of dit vir jou geliefdes te gee!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eVerken die sjimpansee-habitatte\u003c/a\u003e in Gombe, Tanzanië."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Wenk"
 	},
+	"santasearch_level_beach": {
+		"message": "Op die strand"
+	},
 	"santasearch_level_lab": {
 		"message": "In die laboratorium"
+	},
+	"santasearch_level_mountains": {
+		"message": "In die berge"
 	},
 	"santasearch_level_museum": {
 		"message": "By die museum"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Kyk"
 	},
+	"wrapbattle_combo": {
+		"message": "Goeie kombinasie"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Goed"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Mis"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfek"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

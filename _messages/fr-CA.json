@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Membres artificiels"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Choisissez un ornement représentant votre organisme de charité favori et commencez à colorier!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Partagez votre art avec la famille et les amis!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Soutenez les organismes de charité qui contribuent à enrichir notre monde en colorant cette collection d'ornements. Montrez ensuite votre intérêt pour ces causes en accrochant les ornements à votre sapin de Noël ou en les offrant à vos êtres chers!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Les chimpanzés sont les plus proches parents vivants de l'être humain au sein du règne animal! De nos jours, il reste moins de 300 000 chimpanzés dans le monde en raison de la perte de leur habitat, de maladies et du commerce illégal. La Jane Goodall Institute (JGI) protège ces animaux en les observant et en s'efforçant de comprendre leurs comportements ainsi que leurs habitats. La JGI déploie également des efforts pour créer une communauté de personnes qui veillent à protéger et à conserver la faune et la flore et leur environnement. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorez les habitats des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Indice"
 	},
+	"santasearch_level_beach": {
+		"message": "À la plage"
+	},
 	"santasearch_level_lab": {
 		"message": "Dans le labo"
+	},
+	"santasearch_level_mountains": {
+		"message": "Dans les montagnes"
 	},
 	"santasearch_level_museum": {
 		"message": "Au musée"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Regarder"
 	},
+	"wrapbattle_combo": {
+		"message": "Joli combo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bien"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Manquée"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "D'accord"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Parfait"
 	},
 	"ye_country_name": {
 		"message": "Yémen"

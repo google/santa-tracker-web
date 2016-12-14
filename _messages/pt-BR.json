@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Próteses ortopédicas"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Escolha um enfeite com sua caridade favorita e comece a colorir."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Compartilhe sua arte com a família e os amigos!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Apoie as organizações de caridade que ajudam a deixar o mundo melhor e mais bonito colorindo esta coleção de enfeites. Depois, pendure os enfeites na árvore de Natal ou presenteie alguém e mostre que você também apoia essas causas!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore o habitat dos chimpanzés\u003c/a\u003e em Gombe, Tanzânia."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Dica"
 	},
+	"santasearch_level_beach": {
+		"message": "Na praia"
+	},
 	"santasearch_level_lab": {
 		"message": "No laboratório"
+	},
+	"santasearch_level_mountains": {
+		"message": "Nas montanhas"
 	},
 	"santasearch_level_museum": {
 		"message": "No museu"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Assistir"
 	},
+	"wrapbattle_combo": {
+		"message": "Combo doce"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bom"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Faltou uma"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfeito"
 	},
 	"ye_country_name": {
 		"message": "Iêmen"

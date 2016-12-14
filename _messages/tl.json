@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Mga Artipisyal na Braso't Binti"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Pumili ng ornamento na may paborito mong kawanggawa at simulan ang pagkulay!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Ibahagi ang iyong sining sa iyong pamilya at mga kaibigan!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Suportahan ang mga organisasyong pangkawanggawa na tumutulong na panatilihing maganda at maparaan ang ating mundo sa pamamagitan ng pagkulay sa koleksyong ito ng mga ornamento. Pagkatapos ay ipakita ang iyong interes sa mga layuning ito sa pamamagitan ng pagsabit ng mga ito sa iyong Christmas tree o sa pagregalo ng mga ito sa iyong mga mahal sa buhay!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Pahiwatig"
 	},
+	"santasearch_level_beach": {
+		"message": "Sa beach"
+	},
 	"santasearch_level_lab": {
 		"message": "Sa lab"
+	},
+	"santasearch_level_mountains": {
+		"message": "Sa kabundukan"
 	},
 	"santasearch_level_museum": {
 		"message": "Sa museo"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Panoorin"
 	},
+	"wrapbattle_combo": {
+		"message": "Sweet Combo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Mabuti"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Sablay"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "Okay"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Tamang-tama"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Proteser"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Välj en dekoration med en välgörenhetsorganisation du gillar och börja måla!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Dela dina mästerverk med vänner och familj!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Stötta välgörenhetsorganisationerna som arbetar för att göra världen bättre genom att färglägga de här dekorationerna. Sedan kan du visa vilka organisationer du gillar genom att hänga dem i julgranen eller ge bort dem till dina nära och kära!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Schimpanser är de närmaste nu levande släktingar mänskligheten har i djurriket! I dag finns färre än 300 000 schimpanser kvar i världen på grund av minskade utbredningsområden, sjukdomar och olaglig handel. Jane Goodall Institute (JGI) arbetar för att skydda schimpanserna genom att observera och förstå deras beteende och livsmiljö. JGI strävar efter att bygga upp ett nätverk av människor som skyddar och bevarar vilda djur och vår gemensamma miljö. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforska schimpansernas livsmiljö\u003c/a\u003e i Gombe i Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Ledtråd"
 	},
+	"santasearch_level_beach": {
+		"message": "På stranden"
+	},
 	"santasearch_level_lab": {
 		"message": "I labbet"
+	},
+	"santasearch_level_mountains": {
+		"message": "I bergen"
 	},
 	"santasearch_level_museum": {
 		"message": "På museet"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Titta"
 	},
+	"wrapbattle_combo": {
+		"message": "Skön kombo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bra"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Miss"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "Ok"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfekt"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

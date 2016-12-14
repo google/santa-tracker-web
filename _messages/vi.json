@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Chân tay giả"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Chọn một vật trang trí đi kèm với tổ chức từ thiện yêu thích của bạn và bắt đầu tô màu!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Chia sẻ nghệ thuật của bạn với gia đình và bạn bè!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Hỗ trợ tổ chức từ thiện để giúp giữ cho thế giới của chúng ta tươi đẹp và giàu sức sống bằng cách tô màu bộ sưu tập đồ trang trí này. Sau đó, hãy thể hiện sự quan tâm của bạn đối với những cộng đồng này bằng cách treo đồ trang trí lên cây thông Noel hoặc tặng chúng cho những người thân yêu của bạn!"
+	},
 	"nonprofit-jane-description": {
 		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Gợi ý"
 	},
+	"santasearch_level_beach": {
+		"message": "Tại bãi biển"
+	},
 	"santasearch_level_lab": {
 		"message": "Ở phòng thí nghiệm"
+	},
+	"santasearch_level_mountains": {
+		"message": "Trong vùng núi"
 	},
 	"santasearch_level_museum": {
 		"message": "Tại bảo tàng"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Xem"
 	},
+	"wrapbattle_combo": {
+		"message": "Bộ đôi ngọt ngào"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Tốt"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Bỏ lỡ"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "Ok"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Hoàn hảo"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

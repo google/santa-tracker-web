@@ -768,7 +768,7 @@
 		"message": "Sri Lanka"
 	},
 	"lock_orientation": {
-		"message": "Kunci rotasi untuk pengalaman terbaik."
+		"message": "Kunci rotasi layar untuk pengalaman terbaik."
 	},
 	"lr_country_name": {
 		"message": "Liberia"
@@ -864,13 +864,13 @@
 		"message": "Guru \u0026amp; Pelajar"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® adalah lembaga non-profit yang didedikasikan untuk mengembangkan akses ke ilmu komputer, serta meningkatkan peran serta wanita dan murid ras minoritas. Code.org® memiliki visi yaitu semua murid di setiap sekolah harus memiliki kesempatan untuk mempelajari ilmu komputer."
+		"message": "Code.org® adalah lembaga nonprofit yang berdedikasi untuk mengembangkan akses ke ilmu komputer, serta meningkatkan peran serta wanita dan pelajar dari ras minoritas. Code.org® memiliki visi yaitu semua pelajar di setiap sekolah harus memiliki kesempatan untuk mempelajari ilmu komputer."
 	},
 	"nonprofit-code-type": {
 		"message": "Ilmu Komputer"
 	},
 	"nonprofit-donorschoose-description": {
-		"message": "DonorsChoose.org yang didirikan pada tahun 2000 oleh seorang guru sejarah Bronx telah mengumpulkan dana lebih dari US$480 juta untuk ruang kelas Amerika. Para guru mengunjungi DonorsChoose.org untuk meminta materi dan pengalaman yang diperlukan untuk pengajaran di ruang kelas."
+		"message": "DonorsChoose.org yang didirikan pada tahun 2000 oleh seorang guru sejarah di Bronx telah mengumpulkan dana lebih dari US$480 juta untuk ruang kelas Amerika. Para guru mengunjungi DonorsChoose.org untuk meminta materi dan pengalaman yang diperlukan untuk pengajaran di ruang kelas."
 	},
 	"nonprofit-donorschoose-type": {
 		"message": "Ruang Kelas"
@@ -880,6 +880,15 @@
 	},
 	"nonprofit-enable-type": {
 		"message": "Anggota Tubuh Palsu"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Pilih hiasan dengan organisasi amal favorit Anda dan mulailah mewarnai!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Bagikan hiasan Anda dengan keluarga dan teman!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Dukung organisasi amal yang membantu menjaga dunia tetap indah dan penuh sumber daya dengan mewarnai kumpulan hiasan ini. Lalu, tunjukkan minat Anda pada hal ini dengan menggantungkan hiasan tersebut pada pohon Natal atau memberikannya kepada orang yang Anda sayangi!"
 	},
 	"nonprofit-jane-description": {
 		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
@@ -894,7 +903,7 @@
 		"message": "Pendidikan"
 	},
 	"nonprofit-lwb-description": {
-		"message": "Libraries Without Borders, didirikan pada tahun 2007 dengan kantor pusat di Paris, adalah organisasi non-pemerintah yang berfokus pada pengembangan berbasis budaya. Mereka telah membangun lebih dari 300 perpustakaan di seluruh dunia."
+		"message": "Libraries Without Borders, didirikan pada tahun 2007 dengan kantor pusat di Paris, adalah organisasi nonpemerintah yang berfokus pada pengembangan berbasis budaya. Mereka telah membangun lebih dari 300 perpustakaan di seluruh dunia."
 	},
 	"nonprofit-lwb-type": {
 		"message": "Pustaka"
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Petunjuk"
 	},
+	"santasearch_level_beach": {
+		"message": "Di pantai"
+	},
 	"santasearch_level_lab": {
 		"message": "Di laboratorium"
+	},
+	"santasearch_level_mountains": {
+		"message": "Di gunung"
 	},
 	"santasearch_level_museum": {
 		"message": "Di museum"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Tonton"
 	},
+	"wrapbattle_combo": {
+		"message": "Kombo hebat"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bagus"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Luput"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "Oke"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Sempurna"
 	},
 	"ye_country_name": {
 		"message": "Yaman"

@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Proteze"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Izberite okrasek z najljubšo dobrodelno organizacijo in ga začnite barvati."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Delite svoje izdelke z družino in prijatelji."
+	},
+	"nonprofit-intro-type": {
+		"message": "Z barvanjem te zbirke okraskov podprite dobrodelne organizacije, ki ohranjajo naš svet čudovit in prijazen. Nato okraske obesite na božično drevesce ali jih podarite svojim bližnjim in tako pokažite, da vam za ta prizadevanja ni vseeno."
+	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzi so človekovi najbližji sorodniki v živalskem kraljestvu! Dandanes zaradi izgube življenjskega prostora, bolezni in nezakonite trgovine na svetu živi manj kot 300.000 šimpanzov. Na inštitutu The Jane Goodall Institute (JGI) poskušajo šimpanze zaščititi z opazovanjem in razumevanjem njihovega obnašanja in tudi življenjskih prostorov, v katerih živijo. Inštitut JGI prav tako gradi skupnost ljudi, ki ščitijo in ohranjajo prostoživeče živali in rastline ter okolje, ki si ga delimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eRaziščite življenjske prostore šimpanzov\u003c/a\u003e v narodnem parku Gombe v Tanzaniji."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Namig"
 	},
+	"santasearch_level_beach": {
+		"message": "Na plaži"
+	},
 	"santasearch_level_lab": {
 		"message": "V laboratoriju"
+	},
+	"santasearch_level_mountains": {
+		"message": "V gorah"
 	},
 	"santasearch_level_museum": {
 		"message": "V muzeju"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Oglejte si"
 	},
+	"wrapbattle_combo": {
+		"message": "Odlična kombinacija"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Dobro"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Zgrešeno"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "V redu"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Odlično"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

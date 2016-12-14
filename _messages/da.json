@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Proteser"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Vælg et stykke julepynt med din foretrukne velgørenhedsorganisation, og begynd at farve."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Del din kunst med familie og venner"
+	},
+	"nonprofit-intro-type": {
+		"message": "Støt velgørenhedsorganisationerne, som bidrager til at holde vores verden smuk og rig på ressourcer, ved at farvelægge denne samling af julepynt. Derefter kan du vise din interesse i disse sager ved at hænge dem op på dit juletræ eller give dem som gave til de personer, du holder af."
+	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanser er menneskets nærmeste nulevende slægtninge i dyreriget. I dag er der under 300.000 chimpanser tilbage på grund af mistede levesteder, sygdomme og ulovlig handel. Jane Goodall Institute (JGI) beskytter chimpanser ved at observere og lære at forstå deres adfærd samt deres levesteder. JGI arbejder også for at opbygge velfungerende lokale landsbysamfund med mennesker, som beskytter og bevarer dyrelivet og vores fælles miljø. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUdforsk chimpansernes levesteder\u003c/a\u003e i Gombe i Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Tip"
 	},
+	"santasearch_level_beach": {
+		"message": "På stranden"
+	},
 	"santasearch_level_lab": {
 		"message": "I laboratoriet"
+	},
+	"santasearch_level_mountains": {
+		"message": "I bjergene"
 	},
 	"santasearch_level_museum": {
 		"message": "På museet"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Se"
 	},
+	"wrapbattle_combo": {
+		"message": "Lækker kombination"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Godt"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Forbier"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfekt"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

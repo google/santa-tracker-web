@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "義肢"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "請選擇你最喜愛的慈善機構的裝飾品，並開始著色！"
+	},
+	"nonprofit-instruction-share": {
+		"message": "與親友分享你的傑作！"
+	},
+	"nonprofit-intro-type": {
+		"message": "請為這些裝飾品塗上繽紛的色彩，和我們一起支持致力維護地球環境和資源的慈善機構。著色完成後，請把你的作品掛在聖誕樹上或贈送給親友，表達你對慈善理念的支持與肯定！"
+	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e認識黑猩猩的棲息環境\u003c/a\u003e。"
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "提示"
 	},
+	"santasearch_level_beach": {
+		"message": "沙灘上"
+	},
 	"santasearch_level_lab": {
 		"message": "實驗室"
+	},
+	"santasearch_level_mountains": {
+		"message": "徜徉山林間"
 	},
 	"santasearch_level_museum": {
 		"message": "博物館"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "觀看影片"
 	},
+	"wrapbattle_combo": {
+		"message": "強力連發"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "很好"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "錯了"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "確定"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "正確！"
 	},
 	"ye_country_name": {
 		"message": "葉門"

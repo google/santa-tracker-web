@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Протези кінцівок"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Виберіть і розмалюйте прикрасу від улюбленої благодійної організації!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Поділіться своєю прикрасою з рідними та друзями!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Підтримайте благодійні організації, які роблять наш світ ще красивішим, розмалювавши прикраси з цієї колекції. Також продемонструйте свою небайдужість до вибраних ініціатив, повісивши прикраси на новорічну ялинку або подарувавши їх своїм близьким."
+	},
 	"nonprofit-jane-description": {
 		"message": "Найближчі живі родичі людини зі світу тварин – це шимпанзе. На жаль, на сьогоднішній день їх залишилося менше 300 000. Причина цьому – зникнення природного середовища, хвороби та незаконна торгівля. Дослідники Інституту Джейн Гудолл (The Jane Goodall Institute) захищають цих мавп, вивчаючи їх поведінку та середовище проживання, а також організовують спільноту небайдужих людей, які піклуються про безпеку дикої природи. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eВідкрийте для себе домівку шимпанзе\u003c/a\u003e в Гомбе, Танзанія."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Підказка"
 	},
+	"santasearch_level_beach": {
+		"message": "На пляжі"
+	},
 	"santasearch_level_lab": {
 		"message": "У лабораторії"
+	},
+	"santasearch_level_mountains": {
+		"message": "У горах"
 	},
 	"santasearch_level_museum": {
 		"message": "У музеї"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Святкове відео"
 	},
+	"wrapbattle_combo": {
+		"message": "Солодке комбо"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Добре"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Мимо"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "ОК"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Чудово"
 	},
 	"ye_country_name": {
 		"message": "Ємен"

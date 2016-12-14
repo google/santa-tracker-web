@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Prótesis de extremidades"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Escoge un adorno con la organización benéfica que prefieras y empieza a colorearlo."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Comparte tu talento con amigos y familiares."
+	},
+	"nonprofit-intro-type": {
+		"message": "Colorea este conjunto de adornos para apoyar a las organizaciones benéficas que se esfuerzan por hacer que nuestro mundo siga siendo un lugar precioso y lleno de posibilidades. Si quieres mostrar tu interés por sus causas, puedes colgarlos en tu árbol de Navidad o regalárselos a tus seres queridos."
+	},
 	"nonprofit-jane-description": {
 		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eObserva el hábitat de los chimpancés\u003c/a\u003e de Gombe, Tanzania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Pista"
 	},
+	"santasearch_level_beach": {
+		"message": "En la playa"
+	},
 	"santasearch_level_lab": {
 		"message": "En el laboratorio"
+	},
+	"santasearch_level_mountains": {
+		"message": "En las montañas"
 	},
 	"santasearch_level_museum": {
 		"message": "En el museo"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Ver"
 	},
+	"wrapbattle_combo": {
+		"message": "¡Buen combo!"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bien"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Has fallado"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "Vale"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfecto"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

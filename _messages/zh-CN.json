@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "假肢"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "选择与您喜爱的慈善组织对应的装饰品，然后开始涂色吧！"
+	},
+	"nonprofit-instruction-share": {
+		"message": "与家人和朋友分享自己的作品吧！"
+	},
+	"nonprofit-intro-type": {
+		"message": "为下面的装饰品涂色，向这些装饰品代表的慈善组织表达支持 - 他们在努力让我们的世界更加美好、让更多人享受到丰富的信息资源。然后，您可以将这些装饰品挂在家中的圣诞树上，或者把它们作为礼物送给所爱之人，以此表示自己对相关慈善事业的关注！"
+	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "提示"
 	},
+	"santasearch_level_beach": {
+		"message": "奇趣海滩"
+	},
 	"santasearch_level_lab": {
 		"message": "实验室"
+	},
+	"santasearch_level_mountains": {
+		"message": "探秘山峰"
 	},
 	"santasearch_level_museum": {
 		"message": "博物馆"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "看视频"
 	},
+	"wrapbattle_combo": {
+		"message": "漂亮的组合指法"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "真棒"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "漏啦"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "确定"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "完美"
 	},
 	"ye_country_name": {
 		"message": "也门"

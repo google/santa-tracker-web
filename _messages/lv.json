@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Locekļu protēzes"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Izvēlieties rotājumu ar savas iecienītākās labdarības organizācijas logotipu un sāciet to krāsot."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Kopīgojiet savu rotājumu ar ģimeni un draugiem."
+	},
+	"nonprofit-intro-type": {
+		"message": "Izkrāsojot šo rotājumu kolekciju, atbalstiet labdarības organizācijas, kas palīdz uzturēt pasaulē labestību un nodrošināt resursu pieejamību. Pēc tam izrādiet interesi par šiem labdarības mērķiem, iekarinot rotājumus savā Ziemassvētku eglītē vai dāvinot tos sev mīļiem cilvēkiem."
+	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003emītošajām šimpanzēm\u003c/a\u003e."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Padoms"
 	},
+	"santasearch_level_beach": {
+		"message": "Pludmalē"
+	},
 	"santasearch_level_lab": {
 		"message": "Laboratorijā"
+	},
+	"santasearch_level_mountains": {
+		"message": "Kalnos"
 	},
 	"santasearch_level_museum": {
 		"message": "Muzejā"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Skatīties"
 	},
+	"wrapbattle_combo": {
+		"message": "Veiksmīga kombinācija"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Labi"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Neveiksme"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "Labi"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Ideāli"
 	},
 	"ye_country_name": {
 		"message": "Jemena"

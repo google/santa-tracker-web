@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Protezy kończyn"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Wybierz ozdobę z Twoją ulubioną organizacją dobroczynną i pokoloruj ją."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Udostępnij swoje dzieło rodzinie i znajomym."
+	},
+	"nonprofit-intro-type": {
+		"message": "Pokoloruj te ozdoby, by wesprzeć organizacje charytatywne, które sprawiają, że świat staje się lepszym i piękniejszym miejscem. Wyraź poparcie dla ich misji, wieszając ozdoby na choince lub dając je w prezencie bliskim osobom."
+	},
 	"nonprofit-jane-description": {
 		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePoznaj siedliska szympansów\u003c/a\u003e w Gombe w Tanzanii."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Podpowiedź"
 	},
+	"santasearch_level_beach": {
+		"message": "Na plaży"
+	},
 	"santasearch_level_lab": {
 		"message": "W laboratorium"
+	},
+	"santasearch_level_mountains": {
+		"message": "W górach"
 	},
 	"santasearch_level_museum": {
 		"message": "W muzeum"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Filmy"
 	},
+	"wrapbattle_combo": {
+		"message": "Ale kombinacja!"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Dobrze"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Pudło"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Świetnie"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

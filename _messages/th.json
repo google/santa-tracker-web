@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "แขนขาเทียม"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "เลือกของตกแต่งจากองค์กรการกุศลที่คุณชื่นชอบแล้วเริ่มระบายสีได้เลย!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "แชร์ของตกแต่งกับครอบครัวและเพื่อนๆ ของคุณ"
+	},
+	"nonprofit-intro-type": {
+		"message": "สนับสนุนองค์กรการกุศลที่ช่วยให้โลกของเราสวยงามและอุดมสมบูรณ์ด้วยการระบายสีคอลเล็กชันของตกแต่งนี้ จากนั้นแสดงการสนับสนุนของคุณด้วยการแขวนไว้บนต้นคริสต์มาสหรือมอบเป็นของขวัญให้กับคนที่คุณรัก"
+	},
 	"nonprofit-jane-description": {
 		"message": "ชิมแปนซีเป็นญาติสนิทที่สุดของมนุษย์ที่ยังมีชีวิตอยู่ในอาณาจักรสัตว์! ทุกวันนี้มีลิงชิมแปนซีเหลืออยู่ไม่ถึง 300,000 ตัวเนื่องจากการสูญเสียแหล่งที่อยู่ โรคระบาด และการค้าสัตว์ผิดกฎหมาย Jane Goodall Institute (JGI) ปกป้องชิมแปนซีด้วยการเฝ้าสังเกตและทำความเข้าใจกับพฤติกรรม รวมถึงแหล่งที่อยู่ของพวกมัน นอกจากนี้ JGI ยังได้ต่อตั้งชุมชนของผู้ปกป้องและอนุรักษ์สัตว์ป่าและสิ่งแวดล้อมที่เราอาศัยอยู่ร่วมกัน \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eสำรวจแหล่งที่อยู่ของลิงชิมแปนซี\u003c/a\u003eในกอมเบ แทนซาเนีย"
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "คำใบ้"
 	},
+	"santasearch_level_beach": {
+		"message": "ที่ชายหาด"
+	},
 	"santasearch_level_lab": {
 		"message": "ในห้องทดลอง"
+	},
+	"santasearch_level_mountains": {
+		"message": "บนภูเขา"
 	},
 	"santasearch_level_museum": {
 		"message": "ในพิพิธภัณฑ์"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "ดู"
 	},
+	"wrapbattle_combo": {
+		"message": "สวีทคอมโบ"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "ดี"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "พลาด"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "ตกลง"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "ยอดเยี่ยม"
 	},
 	"ye_country_name": {
 		"message": "เยเมน"

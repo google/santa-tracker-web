@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Prothesen"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Wähl ein Schmuckstück mit deiner gemeinnützigen Lieblingsorganisation und mal es aus."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Teil deinen Schmuck mit Freunden und Familienmitgliedern."
+	},
+	"nonprofit-intro-type": {
+		"message": "Zeig dein Interesse an gemeinnützigen Organisationen, die unsere Welt lebenswerter machen, indem du diese Schmuckstücke ausmalst. Unterstütz die Organisationen, indem du den Schmuck an deinen Baum hängst oder an Freunde oder Familienmitglieder verschenkst."
+	},
 	"nonprofit-jane-description": {
 		"message": "Schimpansen sind die nächsten lebenden Verwandten des Menschen im Tierreich. Wegen zerstörter Lebensräume, Krankheiten und illegalen Handels gibt es heute weniger als 300.000 von ihnen. Das Jane Goodall Institute (JGI) schützt Schimpansen, indem es ihr Verhalten und ihren Lebensraum untersucht und erforscht. Außerdem fördert das JGI die Bildung einer Community, die die Tierwelt und unsere Umwelt schützen und erhalten möchte. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEntdecke die Lebensräume der Schimpansen\u003c/a\u003e in Gombe, Tansania."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Hinweis"
 	},
+	"santasearch_level_beach": {
+		"message": "Am Strand"
+	},
 	"santasearch_level_lab": {
 		"message": "Im Labor"
+	},
+	"santasearch_level_mountains": {
+		"message": "In den Bergen"
 	},
 	"santasearch_level_museum": {
 		"message": "Im Museum"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Ansehen"
 	},
+	"wrapbattle_combo": {
+		"message": "Coole Kombi"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Gut"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Daneben"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfekt"
 	},
 	"ye_country_name": {
 		"message": "Jemen"

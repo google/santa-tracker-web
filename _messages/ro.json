@@ -864,7 +864,7 @@
 		"message": "Profesori și elevi"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® este o organizație nonprofit dedicată extinderii accesului la informatică și creșterii nivelului de participare a femeilor și a studenților de culoare prost reprezentați. Viziunea Code.org® este ca fiecare elev, din fiecare școală, să aibă oportunitatea de a învăța informatică."
+		"message": "Code.org® este o organizație nonprofit dedicată extinderii accesului la informatică și creșterii nivelului de participare a femeilor și a studenților de culoare slab reprezentați. Viziunea Code.org® este ca fiecare elev, din fiecare școală, să aibă oportunitatea de a învăța informatică."
 	},
 	"nonprofit-code-type": {
 		"message": "Informatică"
@@ -880,6 +880,15 @@
 	},
 	"nonprofit-enable-type": {
 		"message": "Proteze"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Alege un ornament cu organizația caritabilă preferată și începe să colorezi!"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Trimite arta creată familiei și prietenilor!"
+	},
+	"nonprofit-intro-type": {
+		"message": "Colorează această colecție de ornamente pentru a susține organizațiile caritabile care ne mențin lumea frumoasă și plină de resurse. Apoi, arată-ți interesul față de cauzele organizațiilor atârnând ornamentele în bradul de Crăciun sau dăruindu-le persoanelor dragi."
 	},
 	"nonprofit-jane-description": {
 		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
@@ -909,7 +918,7 @@
 		"message": "Păduri"
 	},
 	"nonprofit-pratham-description": {
-		"message": "Aproape 40 % din membrii populației mondiale nu au acces la educație într-o limbă pe care o vorbesc sau o înțeleg. StoryWeaver speră să aducă o schimbare, ajutând cadrele didactice, scriitorii și traducătorii să creeze resurse de lectură voioase pentru copii."
+		"message": "Aproape 40 % din membrii populației mondiale nu au acces la educație într-o limbă pe care o vorbesc sau o înțeleg. StoryWeaver speră să aducă o schimbare, ajutând cadrele didactice, scriitorii și traducătorii să creeze resurse de lecturi suplimentare plăcute pentru copii."
 	},
 	"nonprofit-pratham-type": {
 		"message": "Lectură"
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Indiciu"
 	},
+	"santasearch_level_beach": {
+		"message": "La plajă"
+	},
 	"santasearch_level_lab": {
 		"message": "În laborator"
+	},
+	"santasearch_level_mountains": {
+		"message": "La munte"
 	},
 	"santasearch_level_museum": {
 		"message": "La muzeu"
@@ -1203,7 +1218,7 @@
 		"message": "Anotimpul cadourilor"
 	},
 	"scene_streetview": {
-		"message": "Vedere în stradă"
+		"message": "Vedere din stradă"
 	},
 	"scene_traditions": {
 		"message": "Tradiții de sărbători"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Vizionează"
 	},
+	"wrapbattle_combo": {
+		"message": "Grozavă combinație!"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bine"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Ai ratat"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfect"
 	},
 	"ye_country_name": {
 		"message": "Yemen"

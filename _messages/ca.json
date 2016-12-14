@@ -768,7 +768,7 @@
 		"message": "Sri Lanka"
 	},
 	"lock_orientation": {
-		"message": "Bloqueja la rotació per millorar l'experiència."
+		"message": "Desactiva la rotació del telèfon per millorar l'experiència."
 	},
 	"lr_country_name": {
 		"message": "Libèria"
@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Pròtesis d'extremitats"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Tria un guarniment amb la teva organització benèfica preferida i comença a pintar."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Comparteix la teva obra d'art amb la família i els amics."
+	},
+	"nonprofit-intro-type": {
+		"message": "Pinta aquesta col·lecció de guarniments per donar suport a organitzacions benèfiques que treballen perquè el món continuï sent un lloc preciós i ple de possibilitats. Un cop fet, penja'ls a l'arbre de Nadal o regala'ls a les persones que més estimes per demostrar el teu interès per aquestes causes."
+	},
 	"nonprofit-jane-description": {
 		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
 	},
@@ -909,7 +918,7 @@
 		"message": "Boscos"
 	},
 	"nonprofit-pratham-description": {
-		"message": "Gairebé el 40% de la població mundial no té accés a l'educació en un idioma que parli o entengui. StoryWeaver vol canviar aquesta situació ajudant els educadors, els escriptors i els traductors a crear divertits recursos de lectura complementaris per a nens."
+		"message": "Gairebé el 40% de la població mundial no té accés a l'educació en un idioma que parli o entengui. StoryWeaver vol canviar aquesta situació ajudant els educadors, els escriptors i els traductors a crear recursos de lectura complementaris i divertits per a nens."
 	},
 	"nonprofit-pratham-type": {
 		"message": "Lectura"
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Pista"
 	},
+	"santasearch_level_beach": {
+		"message": "A la platja"
+	},
 	"santasearch_level_lab": {
 		"message": "Al laboratori"
+	},
+	"santasearch_level_mountains": {
+		"message": "A les muntanyes"
 	},
 	"santasearch_level_museum": {
 		"message": "Al museu"
@@ -1170,10 +1185,10 @@
 		"message": "Joc de geografia"
 	},
 	"scene_playground": {
-		"message": "Parc infantil del Pol Nord"
+		"message": "Parc infantil del pol nord"
 	},
 	"scene_postcard": {
-		"message": "Programa un floc de neu"
+		"message": "Crea un floc de neu amb codi"
 	},
 	"scene_presentbounce": {
 		"message": "Joc de rebotar regals"
@@ -1230,7 +1245,7 @@
 		"message": "L'enlairament del Pare Noel"
 	},
 	"scene_videoscene_office": {
-		"message": "Broma d'oficina"
+		"message": "Broma a l'oficina"
 	},
 	"scene_videoscene_reload": {
 		"message": "Recàrrega de regals"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Vídeos"
 	},
+	"wrapbattle_combo": {
+		"message": "Bona combinació"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Molt bé"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Has fallat"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "D'acord"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfecte"
 	},
 	"ye_country_name": {
 		"message": "Iemen"

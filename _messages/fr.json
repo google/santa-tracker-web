@@ -881,6 +881,15 @@
 	"nonprofit-enable-type": {
 		"message": "Prothèses"
 	},
+	"nonprofit-instruction-coloring": {
+		"message": "Choisissez une décoration pour soutenir votre association caritative préférée et commencez à colorier !"
+	},
+	"nonprofit-instruction-share": {
+		"message": "Partagez vos créations avec votre famille et vos amis !"
+	},
+	"nonprofit-intro-type": {
+		"message": "Soutenez les associations caritatives qui luttent pour préserver notre planète et ses ressources en coloriant ces décorations. Accrochez-les ensuite à votre sapin de Noël ou offrez-les à vos proches !"
+	},
 	"nonprofit-jane-description": {
 		"message": "Les chimpanzés sont l'espèce vivante la plus proche de l'être humain dans le monde animal. Aujourd'hui, il en reste moins de 300 000 en raison de la perte de leur habitat, des maladies et du commerce illégal. Les membres du Jane Goodall Institute (JGI) protègent des chimpanzés tels que Glitter et Gossamer en observant et en analysant leur comportement, mais également leur habitat naturel. Ils s'efforcent également de former des communautés de personnes chargées de protéger et de préserver la vie sauvage, ainsi que l'environnement que nous partageons. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eDécouvrez l'habitat des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."
 	},
@@ -1091,8 +1100,14 @@
 	"santasearch_hint": {
 		"message": "Indice"
 	},
+	"santasearch_level_beach": {
+		"message": "À la plage"
+	},
 	"santasearch_level_lab": {
 		"message": "Au laboratoire"
+	},
+	"santasearch_level_mountains": {
+		"message": "À la montagne"
 	},
 	"santasearch_level_museum": {
 		"message": "Au musée"
@@ -5144,8 +5159,20 @@
 	"watch": {
 		"message": "Regarder"
 	},
+	"wrapbattle_combo": {
+		"message": "Super combo"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Pas mal"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Raté"
+	},
 	"wrapbattle_feedback_okay": {
 		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Parfait"
 	},
 	"ye_country_name": {
 		"message": "Yémen"
