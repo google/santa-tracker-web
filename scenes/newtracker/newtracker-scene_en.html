@@ -101,6 +101,30 @@ Tracker scene.
       </p>
     </div>
     <div class="stats">
+
+      <div class="split">
+        <div class="data left">
+          <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+          <big>[[_computeDistance(_distance)]]</big>
+        </div>
+        <div class="data left">
+          <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+          <big>[[_computeNumber(presentsDelivered)]]</big>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="split">
+        <div class="data left">
+          <h4>Distance Traveled</h4>
+          <h3>[[_computeDistance(distanceTravelled)]]</h3>
+        </div>
+        <div class="data right">
+          <!-- TODO(samthor): This is provided in stop details -->
+          <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+          <h3>[[_computeWeather(_details)]]</h3>
+        </div>
+      </div>
+
     </div>
   </section>
   <section id="games">
@@ -134,6 +158,15 @@ Tracker scene.
       _current: {
         type: Object,
         value: null,
+        observer: '_onCurrentChanged',
+      },
+
+      /**
+       * The details for the current stop.
+       */
+      _details: {
+        type: Object,
+        value: null,
       },
 
       /**
@@ -156,6 +189,24 @@ Tracker scene.
        * The countdown until Santa next leaves his current location, or arrives in a new one.
        */
       countdown: {
+        type: Number,
+        value: -1,
+        readOnly: true,
+      },
+
+      /**
+       * The distance Santa has travelled sofar, in meters.
+       */
+      distanceTravelled: {
+        type: Number,
+        value: -1,
+        readOnly: true,
+      },
+
+      /**
+       * The total number of presents delivered sofar.
+       */
+      presentsDelivered: {
         type: Number,
         value: -1,
         readOnly: true,
@@ -210,6 +261,9 @@ Tracker scene.
         this.$.map.trail = trail;
       }
 
+      this._setDistanceTravelled(data.distanceTravelled);
+      this._setPresentsDelivered(data.presentsDelivered);
+
       this._upcoming = data.stopover ? null : data.next;
       this._current = (data.stopover || data.prev);
 
@@ -223,6 +277,14 @@ Tracker scene.
         ms = data.next.arrival - now;
       }
       this._setCountdown(Math.floor(ms / 1000));
+    },
+
+    _onCurrentChanged: function() {
+      if (!this._current) {
+        this._details = null;
+        return;
+      }
+      // TODO: fetch details
     },
 
     /**
@@ -258,6 +320,25 @@ Tracker scene.
       return new Number(km).toLocaleString() + 'km';
     },
 
+    _computeNumber: function(m) {
+      if (!(m >= 0)) {
+        return '';
+      }
+      return new Number(m).toLocaleString();
+    },
+
+    _computeWeather: function(details) {
+      if (!details || !details.weather) {
+        return 'Ho Ho Ho';
+      }
+
+      var out = details.weather.tempC + '°C';
+      if (window.navigator.language === 'en-US') {
+        out += ' / ' + details.weather.tempF + '°F';
+      }
+      return out;
+    },
+
     created: function() {
       this._santaSync = this._santaSync.bind(this);
     },
@@ -274,6 +355,7 @@ Tracker scene.
     onPreload: function() {
       this.preloadImages([]);
     },
+
   });
 
 })();
