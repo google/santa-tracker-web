@@ -123,6 +123,7 @@ Tracker scene.
      */
     santaUpdate_: function(data) {
       this.$.map.santaLatLng = data.position;
+      this.$.map.santaHeading = data.stopover ? null : data.heading;
 
       var pending = data.prev;
       var trail = [];

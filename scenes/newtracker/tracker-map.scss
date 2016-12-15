@@ -1,0 +1,80 @@
+:host {
+  position: relative;
+}
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#santa {
+  width: 0;
+  height: 0;
+}
+#santa:hover {
+  cursor: pointer;
+}
+
+@import "sass/animations";
+
+.presents {
+  width: 68px;
+  height: 84px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  // TODO(samthor): whole delivery animation
+  background: url(img/presents.svg) center no-repeat;
+  background-size: contain;
+}
+
+.sleigh {
+  width: 68px;
+  height: 84px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: transparent center no-repeat;
+    background-size: 85%;
+
+    animation: tracker-sleigh-bounce 6s infinite ease-in-out;
+    &.front, &.back {
+      animation-name: tracker-santa-bounce;
+    }
+  }
+
+  // presents falling from the sleigh
+  div.santa:after {
+    content: '';
+    background: url(img/sleigh/effects.svg) 50% 0 no-repeat;
+    position: absolute;
+    width: 100%;
+    top: 66%;
+    height: 44px;
+    z-index: 1;
+  }
+
+  $dirs: n ne e se s sw w nw;
+  @for $i from 1 through length($dirs) {
+    $dir: nth($dirs, $i);
+
+    &[data-dir="#{$dir}"] {
+      .front {
+        background-image: url(img/sleigh/sleigh-#{$dir}-front.svg);
+      }
+      .santa {
+        background-image: url(img/sleigh/sleigh-#{$dir}-santa.svg);
+      }
+      .back {
+        background-image: url(img/sleigh/sleigh-#{$dir}-back.svg);
+      }
+    }
+  }
+}
+

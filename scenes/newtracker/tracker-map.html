@@ -15,6 +15,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../elements/santa-maps-api.html">
+<link rel="import" href="tracker-map_module.html">
 
 <script src="../shared/js/mapstyles.js"></script>
 
@@ -23,48 +24,18 @@ Tracker map.
 -->
 <dom-module id="tracker-map">
 <template>
-  <style>
-  :host {
-    position: relative;
-  }
-  #map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  @keyframes newtracker-scene-bounce {
-    0%, 100% { transform: translateY(+1em); }
-    50% {      transform: translateY(-1em); }
-  }
-  #santa {
-    width: 0;
-    height: 0;
-  }
-  #santa:hover {
-    cursor: pointer;
-  }
-  .bounce {
-    animation: newtracker-scene-bounce 8s infinite;
-  }
-  #sleigh {
-    width: 77px;
-    height: 68px;
-    background: url(../tracker/img/santa_sprite_2x.png) center top;
-    background-size: 77px;
-    display: block;
-    transform: translate(-50%, -50%);
-  }
-  </style>
+  <style include="tracker-map_module"></style>
 
   <santa-maps-api on-api-load="_mapsAPIReady"></santa-maps-api>
 
   <iron-media-query query="(pointer: fine)" query-matches="{{_hasPointer}}"></iron-media-query>
 
   <div id="santa" tabindex="0" hidden>
-    <div class="bounce">
-      <div id="sleigh"></div>
+    <div class="presents"></div>
+    <div class="sleigh" data-dir="se">
+      <div class="back"></div>
+      <div class="santa"></div>
+      <div class="front"></div>
     </div>
   </div>
 
@@ -75,6 +46,14 @@ Tracker map.
 (function() {
   var POLYLINE_COLOR = '#22a528';
   var POLYLINE_WEIGHT = 2;
+  var DIR_NAMES = 'n ne e se s sw w nw'.split(' ');
+
+  function dirForHeading(heading) {
+    var offset = 360 / (DIR_NAMES.length * 2);  // 27.5 deg
+    var normalized = (((heading + offset) % 360) + 360) % 360;
+    var index = Math.floor(normalized / 360 * DIR_NAMES.length);
+    return DIR_NAMES[index];
+  }
 
   function createSantaLayer(santaDiv) {
     function SantaLayer(options, clickHandler) {
@@ -82,6 +61,9 @@ Tracker map.
       this._container = santaDiv.cloneNode(true);
       this._container.addEventListener('click', clickHandler);
       this.setValues(options);
+
+      this._sleigh = this._container.querySelector('.sleigh');
+      this._presents = this._container.querySelector('.presents');
 
       this._lines = [];
 
@@ -107,14 +89,25 @@ Tracker map.
      */
     SantaLayer.prototype.onRemove = function() {
       // NOTE: never called since SantaLayer's map is never nulled.
-      this.container_.parentNode.removeChild(this._container);
+      this._container.parentNode.removeChild(this._container);
     };
 
     /**
      * Set the position and force a redraw.
+     * @param {!google.maps.LatLng} latLng
+     * @param {number} heading in range [0,360)
      */
-    SantaLayer.prototype.setPosition = function(latLng) {
+    SantaLayer.prototype.setPosition = function(latLng, heading) {
       this.set('position', latLng);
+
+      var presents = (heading == null);  // null or undefined are fine
+      this._sleigh.hidden = presents;
+      this._presents.hidden = !presents;
+
+      if (!presents) {
+        this._sleigh.setAttribute('data-dir', dirForHeading(heading));
+      }
+
       this.draw();
     };
 
@@ -215,6 +208,14 @@ Tracker map.
       },
 
       /**
+       * Santa's heading, in degrees. If this is NaN, Santa is stopped.
+       */
+      santaHeading: {
+        type: Number,
+        value: 0,
+      },
+
+      /**
        * Santa's trail, all previously shown stops. The first stop is always index zero.
        */
       trail: {
@@ -232,7 +233,7 @@ Tracker map.
     },
 
     observers: [
-      '_updateMapState(_map, focusOnSanta, santaLatLng)',
+      '_updateMapState(_map, focusOnSanta, santaLatLng, santaHeading)',
       '_updateTrail(_map, trail, trailLength, santaLatLng)',
     ],
 
@@ -244,7 +245,7 @@ Tracker map.
         }
 
         var santaLatLng = new google.maps.LatLng(this.santaLatLng);
-        this._santaLayer.setPosition(santaLatLng);
+        this._santaLayer.setPosition(santaLatLng, this.santaHeading);
 
         if (!this.focusOnSanta) {
           return;  // nothing else to do
