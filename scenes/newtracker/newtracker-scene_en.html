@@ -36,8 +36,36 @@ Tracker scene.
       <tracker-map id="map"></tracker-map>
 
       <div class="cards">
-        <article>
-          <h2>Status</h2>
+        <article class="stats">
+          <!-- TODO: hide data/divider in <600px -->
+          <div class="data">
+            <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeDistance(_distance)]]</big>
+          </div>
+          <div class="divider"></div>
+
+          <div class="split" hidden$="[[!_upcoming]]">
+            <div class="data left">
+              <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_upcoming.city]], [[_upcoming.region]]</h3>
+            </div>
+            <div class="data right">
+              <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_computeDuration(countdown)]]</h3>
+            </div>
+          </div>
+
+          <div class="split" hidden$="[[_upcoming]]">
+            <div class="data left">
+              <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_current.city]], [[_current.region]]</h3>
+            </div>
+            <div class="data right">
+              <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_computeDuration(countdown)]]</h3>
+            </div>
+          </div>
+
         </article>
         <article>
           <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -91,22 +119,56 @@ Tracker scene.
 </template>
 <script>
 (function() {
-  var UPDATE_MS = 1000;
+  var UPDATE_MS = 250;
 
   Polymer({
     is: 'newtracker-scene',
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
-      updateSantaTimeout_: Number,
+      _updateSantaTimeout: Number,
+
+      /**
+       * Santa's current stop.
+       */
+      _current: {
+        type: Object,
+        value: null,
+      },
+
+      /**
+       * Santa's upcoming stop, if moving.
+       */
+      _upcoming: {
+        type: Object,
+        value: null,
+      },
+
+      /**
+       * The distance, in meters, to the user.
+       */
+      _distance: {
+        type: Number,
+        value: -1,
+      },
+
+      /**
+       * The countdown until Santa next leaves his current location, or arrives in a new one.
+       */
+      countdown: {
+        type: Number,
+        value: -1,
+        readOnly: true,
+      },
+
     },
 
-    santaSync_: function(data) {
+    _santaSync: function(data) {
       var wrapper = function(data) {
         window.requestAnimationFrame(function() {
-          window.clearTimeout(this.updateSantaTimeout_);
-          this.updateSantaTimeout_ = window.setTimeout(this.santaSync_.bind(this), UPDATE_MS);
-          this.santaUpdate_(data);
+          window.clearTimeout(this._updateSantaTimeout);
+          this._updateSantaTimeout = window.setTimeout(this._santaSync.bind(this), UPDATE_MS);
+          this._santaUpdate(data);
         }.bind(this));
       }.bind(this);
 
@@ -121,32 +183,92 @@ Tracker scene.
      * Called to actually update Santa's state: should be called as a result of sync, or every
      * short timeout.
      */
-    santaUpdate_: function(data) {
-      this.$.map.santaLatLng = data.position;
-      this.$.map.santaHeading = data.stopover ? null : data.heading;
+    _santaUpdate: function(data) {
+      var p = this.$.map.santaLatLng;
+      var move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 
-      var pending = data.prev;
-      var trail = [];
-      // TODO(samthor): Build this up over time, not every frame.
-      // TODO(samthor): Don't change the trail while Santa is flying, only at each stop.
-      while (trail.length < 16 && pending) {
-        trail.unshift(pending);
-        pending = pending.prev();
+      // Don't do a bunch of calculations while Santa is at a fixed location.
+      if (move) {
+        this.$.map.santaLatLng = data.position;
+        this.$.map.santaHeading = data.stopover ? null : data.heading;
+
+        var userLocation = window.santaService.getUserLocation();
+        if (userLocation) {
+          this._distance = Spherical.computeDistanceBetween(data.position, userLocation);
+        } else {
+          this._distance = -1;
+        }
+
+        var pending = data.prev;
+        var trail = [];
+        // TODO(samthor): Build this up over time, not every frame.
+        // TODO(samthor): Don't change the trail while Santa is flying, only at each stop.
+        while (trail.length < 16 && pending) {
+          trail.unshift(pending);
+          pending = pending.prev();
+        }
+        this.$.map.trail = trail;
       }
-      this.$.map.trail = trail;
+
+      this._upcoming = data.stopover ? null : data.next;
+      this._current = (data.stopover || data.prev);
+
+      // TODO(samthor): Set a timeout at the next whole second, rather than relying on a rapid rate
+      // of UPDATE_MS.
+      var now = window.santaService.now();
+      var ms = -1;
+      if (data.stopover) {
+        ms = data.stopover.departure - now;
+      } else if (data.next) {
+        ms = data.next.arrival - now;
+      }
+      this._setCountdown(Math.floor(ms / 1000));
+    },
+
+    /**
+     * Converts a value in seconds, to a formatted string in the form 'hh:mm:ss', or some suffix of
+     * that.
+     */
+    _computeDuration: function(s) {
+      if (!(s >= 0)) {
+        return '';
+      }
+
+      var seconds = Math.floor(s) % 60;
+      s /= 60;
+      var mins = Math.floor(s) % 60;
+      s /= 60;
+      var hours = Math.floor(s) % 24;
+      var days = Math.floor(s / 24);
+
+      var parts = [padDigits(seconds)];
+      if (hours) {
+        parts.unshift(padDigits(mins), hours);
+      } else {
+        parts.unshift(mins);
+      }
+      return (days > 0 ? days + 'd ' : '') + parts.join(':');
+    },
+
+    _computeDistance: function(m) {
+      if (!(m >= 0)) {
+        return '';
+      }
+      var km = Math.round(m / 1000);
+      return new Number(km).toLocaleString() + 'km';
     },
 
     created: function() {
-      this.santaSync_ = this.santaSync_.bind(this);
+      this._santaSync = this._santaSync.bind(this);
     },
 
     attached: function() {
-      window.santaService.addListener('sync', this.santaSync_);
-      window.santaService.getCurrentLocation(this.santaSync_);
+      window.santaService.addListener('sync', this._santaSync);
+      window.santaService.getCurrentLocation(this._santaSync);
     },
 
     detatched: function() {
-      window.santaService.removeListener('sync', this.santaSync_);
+      window.santaService.removeListener('sync', this._santaSync);
     },
 
     onPreload: function() {

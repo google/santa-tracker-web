@@ -58,3 +58,63 @@ santa-weather {
 tracker-map {
   @apply(--layout-fit);
 }
+
+.stats {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  align-items: stretch;
+  justify-content: space-around;
+
+  big {
+    display: block;
+    font-size: 29px;
+    line-height: 33px;
+    font-weight: 600;
+    color: $color-yellow;
+  }
+
+  .data {
+    padding: 8px;
+  }
+
+  .divider {
+    min-width: 1px;
+    min-height: 1px;
+    background: rgba(0, 0, 0, 0.125);
+    align-self: stretch;
+  }
+
+  .split {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+
+    .left {
+      width: 60%;
+    }
+    .right {
+      width: 30%;
+      text-align: right;
+    }
+  }
+
+  h3 {
+    font-size: 11px;
+    line-height: 13px;
+    color: $color-yellow;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+  h4 {
+    font-size: 9px;
+    line-height: 15px;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.066);
+  }
+}
