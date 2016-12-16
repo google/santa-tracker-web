@@ -1,10 +1,12 @@
 & {
   display: flex;
   flex-flow: column;
+  align-items: stretch;
 
-  @media (min-width: (600px)) {
+  @media (min-width: 1024px) {
     flex-flow: row nowrap;
     justify-content: space-around;
+    align-items: stretch;
   }
 }
 
@@ -13,16 +15,18 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-
-  width: 600px;
   max-width: 100%;
+
+  @media (min-width: 1024px) {
+    max-width: 60%;
+  }
 }
 
 .photos {
   position: relative;
   margin-top: 5%;
   width: 100%;
-  max-width: 100vh;  // don't take up too much space on landscape displays
+  max-width: 600px;
 
   &:before {
     content: '';
@@ -72,12 +76,58 @@ p {
   color: white;
   font-size: 17px;
   line-height: 23px;
-  margin: 12px 24px 36px;
+  margin: 8px 20px;
   font-weight: 400;
 
   @media (max-width: (768px - 1px)) {
     font-size: 15px;
     line-height: 21px;
-    margin: 8px 12px 18px;
+  }
+}
+
+.stats {
+  min-width: 320px;
+  margin: 12px;
+
+  .split {
+    flex-flow: row wrap;
+
+    &.top .data {
+      min-width: 200px;
+    }
+  }
+
+  .divider {
+    margin: 8px 0 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .stats {
+    font-size: 15px;
+    line-height: 19px;
+    big {
+      font-size: 41px;
+      line-height: 47px;
+    }
+
+    // when we are >=768px, the top data is quite large, so force its width...
+    .top .data {
+      min-width: 300px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats {
+    width: 40%;
+    justify-content: center;
+    height: 50vw;
+    max-height: 500px;
+
+    // top distance/delivered should be in column
+    .split.top {
+      flex-flow: column nowrap;
+    }
   }
 }

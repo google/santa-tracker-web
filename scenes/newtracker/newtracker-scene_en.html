@@ -102,7 +102,7 @@ Tracker scene.
     </div>
     <div class="stats">
 
-      <div class="split">
+      <div class="split top">
         <div class="data left">
           <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
           <big>[[_computeDistance(_distance)]]</big>
@@ -118,8 +118,7 @@ Tracker scene.
           <h4>Distance Traveled</h4>
           <h3>[[_computeDistance(distanceTravelled)]]</h3>
         </div>
-        <div class="data right">
-          <!-- TODO(samthor): This is provided in stop details -->
+        <div class="data left">
           <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
           <h3>[[_computeWeather(_details)]]</h3>
         </div>
@@ -279,12 +278,18 @@ Tracker scene.
       this._setCountdown(Math.floor(ms / 1000));
     },
 
-    _onCurrentChanged: function() {
+    _onCurrentChanged: function(current) {
       if (!this._current) {
         this._details = null;
         return;
       }
-      // TODO: fetch details
+      this._current.getDetails(function(details) {
+        // TODO(samthor): What about a HTTP failure case?
+        if (current !== this._current) {
+          return;  // stop changed from under us
+        }
+        this._details = details;
+      }.bind(this));
     },
 
     /**
@@ -329,12 +334,18 @@ Tracker scene.
 
     _computeWeather: function(details) {
       if (!details || !details.weather) {
-        return 'Ho Ho Ho';
+        return '—';  // em dash
       }
 
-      var out = details.weather.tempC + '°C';
+      // prevent floats gone wild, only show one digit
+      var opts = {minimumFractionDigits: 1, maximumFractionDigits: 1};
+      function format(v) {
+        return new Number(v).toLocaleString(undefined, opts);
+      }
+
+      var out = format(details.weather.tempC) + '°C';
       if (window.navigator.language === 'en-US') {
-        out += ' / ' + details.weather.tempF + '°F';
+        out += ' / ' + format(details.weather.tempF) + '°F';
       }
       return out;
     },
