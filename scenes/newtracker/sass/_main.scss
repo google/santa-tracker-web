@@ -9,9 +9,12 @@
   box-sizing: border-box;
 
   article {
+    will-change: transform;
+    transform: translateZ(0);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    box-shadow: 0 8px 24px 2px rgba(0,0,0,0.5);
+    // TODO(samthor): perf, remove from top layer
+//    box-shadow: 0 8px 24px 2px rgba(0,0,0,0.5);
     width: 250px;
     height: 130px;
     margin: 0 4px;

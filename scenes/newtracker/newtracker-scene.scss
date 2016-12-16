@@ -64,7 +64,9 @@ tracker-map {
   flex-flow: column nowrap;
   height: 100%;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content: space-between;
+  font-size: 11px;
+  line-height: 13px;
 
   big {
     display: block;
@@ -91,28 +93,33 @@ tracker-map {
     justify-content: flex-start;
 
     .left {
-      width: 60%;
+      width: 40%;
+      flex-grow: 1;
     }
     .right {
-      width: 30%;
+      margin-left: 0;
       text-align: right;
     }
   }
 
+  .top {
+    flex-flow: column nowrap;
+  }
+
   h3 {
-    font-size: 11px;
-    line-height: 13px;
+    font: inherit;
     color: $color-yellow;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     margin: 0;
+    font-weight: bold;
   }
   h4 {
-    font-size: 9px;
-    line-height: 15px;
+    font: inherit;
     color: white;
     margin: 0;
+    margin-bottom: 4px;
     text-transform: uppercase;
     font-weight: 900;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.066);
