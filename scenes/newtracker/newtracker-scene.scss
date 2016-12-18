@@ -7,6 +7,15 @@ $color-red: #ff002b;
   flex-flow: column nowrap;
 }
 
+google-youtube {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
 /** "full page" section - except on large screens */
 section {
   min-height: 100vh;
@@ -38,6 +47,10 @@ section {
   // size range [320px,1023px].
   @media (min-height: 1024px) {
     min-height: 768px;
+  }
+
+  &:only-of-type {
+    min-height: 100vh !important;
   }
 }
 

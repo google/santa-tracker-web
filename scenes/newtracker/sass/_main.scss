@@ -1,7 +1,8 @@
 .cards {
   position: absolute;
+  left: 0;
+  right: 0;
   bottom: 0;
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -71,6 +72,19 @@
   @media (max-width: (600px - 1px)) {
     article {
       height: 80px;
+    }
+  }
+
+  // chromecast mode
+  &.minimal-ui {
+    justify-content: space-between;
+    bottom: 8%;
+    left: 5%;
+    right: 5%;
+    width: auto;
+
+    article {
+      border-radius: 8px;
     }
   }
 }

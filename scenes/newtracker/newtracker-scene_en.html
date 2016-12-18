@@ -13,13 +13,12 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/google-youtube/google-youtube.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/i18n-msg/i18n-msg.html">
 <link rel="import" href="../../components/paper-fab/paper-fab.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
-<link rel="import" href="../../elements/santa-icons.html">
-<link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="newtracker-scene_module.html">
 
 <link rel="import" href="tracker-map.html">
@@ -31,11 +30,21 @@ Tracker scene.
 <template>
   <style include="newtracker-scene_module"></style>
 
+  <google-youtube id="player" hidden="[[!_videoActive]]"
+      video-id="[[_youtubeId]]"
+      playsupported="true"
+      width="100%"
+      height="100%"
+      on-google-youtube-state-change="_youtubeEvent"
+      on-google-youtube-error="_youtubeEvent"
+      chromeless autoplay="1">
+  </google-youtube>
+
   <section id="main">
     <santa-weather>
       <tracker-map id="map"></tracker-map>
 
-      <div class="cards">
+      <div class$="cards [[_computeMinimalUiClass(minimalUi)]]">
         <article class="stats">
           <!-- TODO: hide data/divider in <600px -->
           <div class="data">
@@ -67,12 +76,16 @@ Tracker scene.
           </div>
 
         </article>
-        <article>
-          <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
-        </article>
-        <article style="background-image: url(../../images/scenes/santasback_2x.png)">
-          <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
-        </article>
+
+        <template is="dom-if" if="[[!minimalUi]]">
+          <article>
+            <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+          </article>
+          <article style="background-image: url(../../images/scenes/santasback_2x.png)">
+            <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
+          </article>
+        </template>
+
         <article class="big" style="background-image: url(img/feed/mintybreath.gif)">
           <h2>Live Feed</h2>
         </article>
@@ -81,64 +94,66 @@ Tracker scene.
     <div class="cards">
     </div>
   </section>
-  <section id="stats">
-    <div class="location">
-      <div class="photos">
-        <div class="size">
-          <div class="photo" style="transform: rotate(0deg) scale(0.97)"></div>
-        </div>
-        <div class="size">
-          <div class="photo" style="transform: rotate(-4deg) scale(0.95)"></div>
-        </div>
-        <div class="size">
-          <div class="photo" style="transform: rotate(5deg)">
-            <div class="overlay" style="background-image: url(img/overlay/overlay0.svg)"></div>
+  <template is="dom-if" if="[[!minimalUi]]">
+    <section id="stats">
+      <div class="location">
+        <div class="photos">
+          <div class="size">
+            <div class="photo" style="transform: rotate(0deg) scale(0.97)"></div>
+          </div>
+          <div class="size">
+            <div class="photo" style="transform: rotate(-4deg) scale(0.95)"></div>
+          </div>
+          <div class="size">
+            <div class="photo" style="transform: rotate(5deg)">
+              <div class="overlay" style="background-image: url(img/overlay/overlay0.svg)"></div>
+            </div>
           </div>
         </div>
+        <p>
+          Melbourne is the capital and most populous city of the Australian state of Victoria, and the second-most populous city in Australia. The name "Melbourne" refers to an urban agglomeration spanning 9,900 km2 (3,800 sq mi) which comprises the broader metropolitan area, as well as being the common name for its city centre. The metropolis is located on the large natural bay of Port Phillip and expands into the hinterlands towards the Dandenong and Macedon mountain ranges, Mornington Peninsula and Yarra Valley. Melbourne consists of 31 municipalities. It has a population of 4,529,500 as of 2015, and its inhabitants are called Melburnians.
+        </p>
       </div>
-      <p>
-        Melbourne is the capital and most populous city of the Australian state of Victoria, and the second-most populous city in Australia. The name "Melbourne" refers to an urban agglomeration spanning 9,900 km2 (3,800 sq mi) which comprises the broader metropolitan area, as well as being the common name for its city centre. The metropolis is located on the large natural bay of Port Phillip and expands into the hinterlands towards the Dandenong and Macedon mountain ranges, Mornington Peninsula and Yarra Valley. Melbourne consists of 31 municipalities. It has a population of 4,529,500 as of 2015, and its inhabitants are called Melburnians.
-      </p>
-    </div>
-    <div class="stats">
+      <div class="stats">
 
-      <div class="split top">
-        <div class="data left">
-          <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-          <big>[[_computeDistance(_distance)]]</big>
+        <div class="split top">
+          <div class="data left">
+            <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeDistance(_distance)]]</big>
+          </div>
+          <div class="data left">
+            <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeNumber(presentsDelivered)]]</big>
+          </div>
         </div>
-        <div class="data left">
-          <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-          <big>[[_computeNumber(presentsDelivered)]]</big>
+        <div class="divider"></div>
+        <div class="split">
+          <div class="data left">
+            <!-- TODO(samthor): Should be "Distance Traveled", string is "Santa On The Go" -->
+            <h4><i18n-msg msgid="onthego">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h3>[[_computeDistance(distanceTravelled)]]</h3>
+          </div>
+          <div class="data left">
+            <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h3>[[_computeWeather(_details)]]</h3>
+          </div>
         </div>
-      </div>
-      <div class="divider"></div>
-      <div class="split">
-        <div class="data left">
-          <!-- TODO(samthor): Should be "Distance Traveled", string is "Santa On The Go" -->
-          <h4><i18n-msg msgid="onthego">PLACEHOLDER_i18n</i18n-msg></h4>
-          <h3>[[_computeDistance(distanceTravelled)]]</h3>
-        </div>
-        <div class="data left">
-          <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
-          <h3>[[_computeWeather(_details)]]</h3>
-        </div>
-      </div>
 
-    </div>
-  </section>
-  <section id="games">
-    <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
-  </section>
-  <section id="videos">
-    <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
-  </section>
-  <section id="livefeed">
-    <h1>Live Feed</h1>
-  </section>
-  <section id="thanks">
-    <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
-  </section>
+      </div>
+    </section>
+    <section id="games">
+      <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
+    </section>
+    <section id="videos">
+      <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
+    </section>
+    <section id="livefeed">
+      <h1>Live Feed</h1>
+    </section>
+    <section id="thanks">
+      <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
+    </section>
+  </template>
 
 </template>
 <script>
@@ -151,6 +166,23 @@ Tracker scene.
 
     properties: {
       _updateSantaTimeout: Number,
+      _videoActive: {type: Boolean, value: false},
+
+      /**
+       * Whether to display in minimal UI mode.
+       */
+      minimalUi: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
+       * The current video to play, if any.
+       */
+      _youtubeId: {
+        type: String,
+        value: null,
+      },
 
       /**
        * Santa's current stop.
@@ -175,6 +207,7 @@ Tracker scene.
       _upcoming: {
         type: Object,
         value: null,
+        observer: '_onUpcomingChanged',
       },
 
       /**
@@ -349,6 +382,54 @@ Tracker scene.
         out += ' / ' + format(details.weather.tempF) + '°F';
       }
       return out;
+    },
+
+    _computeMinimalUiClass: function(minimalUi) {
+      return minimalUi ? 'minimal-ui' : null;
+    },
+
+    _youtubeEvent: function(event, detail) {
+      if (event.type !== "google-youtube-state-change" || !detail.data) {
+        this._videoActive = false;
+        this._youtubeId = false;
+      }
+    },
+
+    _onUpcomingChanged: function(newValue, oldValue) {
+      if (oldValue != null || newValue == null) {
+        return;  // do nothing
+      }
+      this.async(function() {
+        console.info('upcoming changed', newValue, oldValue, 'countdown is', this.countdown);
+        if (this.countdown < 120) {
+          return;
+        }
+
+        // TODO(samthor): don't always play video
+        // TODO(samthor): don't play duplicates
+        // TODO(samthor): play randomly in middle of travel
+        this.async(function() {
+          var video = randomChoice(Object.keys(window.VIDEOS));
+          this.playVideo(window.VIDEOS[video]);
+        }, 5000);
+      });
+    },
+
+    /**
+     * Plays a full-screen YouTube video. This should only be used in non-interactive environments,
+     * e.g., Google Cast.
+     */
+    playVideo: function(youtubeId) {
+      this._youtubeId = youtubeId;
+      this._videoActive = true;
+
+      var triggerPlay = function() {
+        this.$.player.play();
+        if (!this.$.player.playbackstarted) {
+          window.setTimeout(triggerPlay, 500);
+        }
+      }.bind(this);
+      triggerPlay();
     },
 
     created: function() {

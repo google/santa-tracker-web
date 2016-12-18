@@ -55,10 +55,10 @@ $toolbar-size: 64px;
         position: absolute;
         top: -135px;
         left: 0;
-        width: 122px;
+        width: 100%;
         height: 101px;
-        background: url(img/santa-takeoff.svg) no-repeat;
-        background-size: cover;
+        background: url(img/santa-takeoff.svg) center no-repeat;
+        background-size: contain;
       }
 
       @media (max-width: ($width-tablet - 1)) {

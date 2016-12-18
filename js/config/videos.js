@@ -23,6 +23,7 @@ window.VIDEOS = {
   'reload': 'vHMeXs36NTE',
   'santasback': 'zE_D9Vd69aw',  // 2015: nXLNcfNsWAY
   'satellite': 'ZJPL56IPTjw',
+  'selfies': 'JA8Jn5DGt64',
   'slackingoff': 'uEl2WIZOVdQ',  // was slacking-off
   'temptation': '2FtcJJ9vzVQ',
   'tired': '2UGX3bT9u20',

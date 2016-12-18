@@ -257,7 +257,7 @@ Tracker map.
           if (!this._userZoom) {
             // If focused, the zoom is roughly inverse with screen size. Smaller devices see more
             // of the Earth, because they have less context around Santa.
-            var zoom = Math.round(window.innerWidth / 160);
+            var zoom = Math.round(window.innerWidth / 240);
             zoom = Math.max(2, Math.min(6, zoom));
             this._map.setZoom(zoom);
           }

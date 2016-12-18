@@ -244,6 +244,7 @@ module.exports = {
   reload: {msgid: 'scene_videoscene_reload'},
   santasback: {msgid: 'scene_videoscene_santasback'},
   satellite: {msgid: 'scene_videoscene_satellite'},
+  selfies: {},
   slackingoff: {},
   temptation: {msgid: 'scene_videoscene_temptation'},
   tired: {msgid: 'scene_videoscene_tired'},
