@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Distanza da te"
 	},
+	"tracker_feed": {
+		"message": "Feed in tempo reale"
+	},
 	"tracker_flight_nearby": {
 		"message": "Babbo Natale si sta avvicinando, scopri dove si trova"
 	},
 	"tracker_flight_start": {
 		"message": "Babbo Natale è partito dal Polo Nord e ora puoi seguire i suoi spostamenti"
+	},
+	"tracker_from_google": {
+		"message": "Da tutti noi di Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Regali consegnati"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Ti trovi in"
+	},
+	"tracker_just_in": {
+		"message": "Ultime notizie"
 	},
 	"tracker_next_stop": {
 		"message": "Prossima fermata"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Guarda il percorso"
+	},
+	"tracker_stats": {
+		"message": "Posizione di Babbo Natale"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Babbo Natale arriverà tra circa {{hours}} ore"

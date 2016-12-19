@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "산타와의 거리"
 	},
+	"tracker_feed": {
+		"message": "실시간 피드"
+	},
 	"tracker_flight_nearby": {
 		"message": "산타가 근처에 있습니다. 어디에 있는지 찾아보세요."
 	},
 	"tracker_flight_start": {
 		"message": "산타가 북극에서 출발했으므로 이제 산타의 여정에 동참할 수 있습니다."
+	},
+	"tracker_from_google": {
+		"message": "Google 임직원 일동"
 	},
 	"tracker_gifts_delivered": {
 		"message": "배달된 선물"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "내 위치"
+	},
+	"tracker_just_in": {
+		"message": "방금 들어온 소식"
 	},
 	"tracker_next_stop": {
 		"message": "다음 방문지"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "경로 보기"
+	},
+	"tracker_stats": {
+		"message": "산타클로스 통계"
 	},
 	"tracker_time_from_you_many": {
 		"message": "산타가 약 {{hours}}시간 후에 도착합니다."

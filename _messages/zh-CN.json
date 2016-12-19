@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "与您的距离"
 	},
+	"tracker_feed": {
+		"message": "实时 Feed"
+	},
 	"tracker_flight_nearby": {
 		"message": "圣诞老人就在附近，快来找找看"
 	},
 	"tracker_flight_start": {
 		"message": "圣诞老人已从北极出发，您现在可以跟着他环游世界啦"
+	},
+	"tracker_from_google": {
+		"message": "Google 全体员工齐祝"
 	},
 	"tracker_gifts_delivered": {
 		"message": "已送出的礼物数"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "您目前位于"
+	},
+	"tracker_just_in": {
+		"message": "最新资讯"
 	},
 	"tracker_next_stop": {
 		"message": "下一站"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "查看路线"
+	},
+	"tracker_stats": {
+		"message": "圣诞老人位置汇总"
 	},
 	"tracker_time_from_you_many": {
 		"message": "圣诞老人将在 {{hours}} 小时左右后到来"

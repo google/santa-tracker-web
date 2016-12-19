@@ -1878,6 +1878,26 @@
     "description": "Heading above a number that displays how far Santa is from your location",
     "message": "Distance from you"
   },
+  "tracker_distance_travelled": {
+    "description": "Heading above a number that displays how far Santa has travelled sofar on his journey.",
+    "message": "Distance Travelled"
+  },
+  "tracker_feed": {
+    "description": "Heading describing a live feed, e.g. a social media stream or 'real time updates', about Santa's journey.",
+    "message": "Live Feed"
+  },
+  "tracker_just_in": {
+    "description": "Heading describing up-to-date information from a news source.",
+    "message": "This Just In"
+  },
+  "tracker_stats": {
+    "description": "Heading describing general information about Santa's location. In English, 'stats' is short for Statistics. Keep short, <25 chars.",
+    "message": "Santa Stats"
+  },
+  "tracker_from_google": {
+    "description": "Brief signoff/end message from Google. This is displayed under a large 'Happy Holidays' message.",
+    "message": "From all of us at Google"
+  },
   "tracker_time_from_you_many": {
     "description": "Describes how far Santa is from your location in hours (for >=2 hours)",
     "raw": "Santa will arrive in about <ph name=\"HOURS\"><ex>5</ex>{{hours}}</ph> hours"
@@ -1923,6 +1943,10 @@
   "tracker_track": {
     "description": "Menu item, an imperative action for a user to use the Tracker part of Santa Tracker.",
     "message": "Track Santa"
+  },
+  "tracker_travelogue": {
+    "description": "Heading above a list of cities that Santa has recently visited. Like a log book or history of Santa's visits.",
+    "message": "Travelogue"
   },
   "tracker_weather": {
     "message": "Weather"

@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Distance from you"
 	},
+	"tracker_feed": {
+		"message": "Live Feed"
+	},
 	"tracker_flight_nearby": {
 		"message": "Santa is nearby, find out where"
 	},
 	"tracker_flight_start": {
 		"message": "Santa has departed from the North Pole, and you can now follow his route"
+	},
+	"tracker_from_google": {
+		"message": "From all of us at Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Gifts delivered"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "You are in"
+	},
+	"tracker_just_in": {
+		"message": "This Just In"
 	},
 	"tracker_next_stop": {
 		"message": "Next stop"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "See the route"
+	},
+	"tracker_stats": {
+		"message": "Santa Stats"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Santa will arrive in about {{hours}} hours"

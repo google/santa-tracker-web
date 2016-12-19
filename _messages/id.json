@@ -888,7 +888,7 @@
 		"message": "Bagikan hiasan Anda dengan keluarga dan teman!"
 	},
 	"nonprofit-intro-type": {
-		"message": "Dukung organisasi amal yang membantu menjaga dunia tetap indah dan penuh sumber daya dengan mewarnai kumpulan hiasan ini. Lalu, tunjukkan minat Anda pada hal ini dengan menggantungkan hiasan tersebut pada pohon Natal atau memberikannya kepada orang yang Anda sayangi!"
+		"message": "Dukung organisasi amal yang membantu menjaga dunia tetap indah dan penuh sumber daya dengan mewarnai koleksi hiasan ini. Lalu, tunjukkan minat Anda pada hal ini dengan menggantungkan hiasan tersebut pada pohon Natal atau memberikannya kepada orang yang Anda sayangi!"
 	},
 	"nonprofit-jane-description": {
 		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Jarak dari lokasi Anda"
 	},
+	"tracker_feed": {
+		"message": "Live Feed"
+	},
 	"tracker_flight_nearby": {
 		"message": "Sinterklas ada di sekitar ini, cari tahu lokasinya"
 	},
 	"tracker_flight_start": {
 		"message": "Sinterklas sudah berangkat dari Kutub Utara, dan sekarang Anda bisa mengikuti rutenya"
+	},
+	"tracker_from_google": {
+		"message": "Dari kami semua di Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Hadiah terkirim"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Anda berada di"
+	},
+	"tracker_just_in": {
+		"message": "Kabar Terbaru"
 	},
 	"tracker_next_stop": {
 		"message": "Perhentian berikutnya"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Lihat rute"
+	},
+	"tracker_stats": {
+		"message": "Statistik Sinterklas"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Sinterklas akan tiba dalam waktu sekitar {{hours}} jam"

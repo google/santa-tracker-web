@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "നിങ്ങളിൽ നിന്നുള്ള ദൂരം"
 	},
+	"tracker_feed": {
+		"message": "തത്സമയ ഫീഡ്"
+	},
 	"tracker_flight_nearby": {
 		"message": "സാന്ത സമീപത്തുണ്ട്, എവിടെയെന്ന് കണ്ടെത്തൂ"
 	},
 	"tracker_flight_start": {
 		"message": "സാന്ത ഉത്തരദ്രുവത്തിൽ നിന്നും പുറപ്പെട്ടു, നിങ്ങൾക്ക് ഇപ്പോൾ അദ്ദേഹത്തിന്റെ വഴി പിന്തുടരാം"
+	},
+	"tracker_from_google": {
+		"message": "Google-ലെ ഞങ്ങൾ സകലരുടെയും ആശംസ"
 	},
 	"tracker_gifts_delivered": {
 		"message": "വിതരണം ചെയ്ത സമ്മാനങ്ങൾ"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "നിങ്ങളുള്ളത്:"
+	},
+	"tracker_just_in": {
+		"message": "ഇപ്പോൾ കിട്ടിയത്"
 	},
 	"tracker_next_stop": {
 		"message": "അടുത്ത സ്റ്റോപ്പ്"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "റൂട്ട് കാണുക"
+	},
+	"tracker_stats": {
+		"message": "സാന്തയുടെ സ്ഥാനം"
 	},
 	"tracker_time_from_you_many": {
 		"message": "സാന്ത ഏകദേശം {{hours}} മണിക്കൂറിന് ശേഷം എത്തിച്ചേരും"

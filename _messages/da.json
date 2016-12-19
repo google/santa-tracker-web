@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Afstand fra dig"
 	},
+	"tracker_feed": {
+		"message": "Livefeed"
+	},
 	"tracker_flight_nearby": {
 		"message": "Julemanden er i nærheden, find ud af hvor"
 	},
 	"tracker_flight_start": {
 		"message": "Julemanden har forladt Nordpolen, og du kan nu følge hans rute"
+	},
+	"tracker_from_google": {
+		"message": "Fra alle os hos Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Antal leverede gaver"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Du befinder dig i"
+	},
+	"tracker_just_in": {
+		"message": "Seneste nyt"
 	},
 	"tracker_next_stop": {
 		"message": "Næste stop"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Se ruten"
+	},
+	"tracker_stats": {
+		"message": "Statistik om julemanden"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Julemanden ankommer om ca. {{hours}} timer"

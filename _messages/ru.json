@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Расстояние от Санты до вас"
 	},
+	"tracker_feed": {
+		"message": "Новости в режиме реального времени"
+	},
 	"tracker_flight_nearby": {
 		"message": "Санта находится рядом с вами. Узнайте, где именно!"
 	},
 	"tracker_flight_start": {
 		"message": "Санта отправился в путь. Проследите за его маршрутом!"
+	},
+	"tracker_from_google": {
+		"message": "Команда Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Доставлено подарков"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Вы сейчас здесь:"
+	},
+	"tracker_just_in": {
+		"message": "Свежие новости"
 	},
 	"tracker_next_stop": {
 		"message": "Следующее место"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Посмотреть маршрут"
+	},
+	"tracker_stats": {
+		"message": "Статистика"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Санта будет здесь примерно через {{hours}} ч."

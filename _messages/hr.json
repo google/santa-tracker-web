@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Udaljenost od vas"
 	},
+	"tracker_feed": {
+		"message": "Feed uživo"
+	},
 	"tracker_flight_nearby": {
 		"message": "Djed Božićnjak je blizu, saznaj gdje"
 	},
 	"tracker_flight_start": {
 		"message": "Djed Božićnjak krenuo je sa Sjevernog pola i sada ga možeš slijediti na njegovu putu"
+	},
+	"tracker_from_google": {
+		"message": "od svih nas u Googleu"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Dostavljeni darovi"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Nalaziš se na lokaciji"
+	},
+	"tracker_just_in": {
+		"message": "Najnovije vijesti"
 	},
 	"tracker_next_stop": {
 		"message": "Sljedeća postaja"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Pregled rute"
+	},
+	"tracker_stats": {
+		"message": "Djedini podaci"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Djed Božićnjak stiže za oko {{hours}} h"
