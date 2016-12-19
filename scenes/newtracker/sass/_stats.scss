@@ -1,7 +1,7 @@
 & {
   display: flex;
   flex-flow: column;
-  align-items: stretch;
+  align-items: center;
   user-select: auto;
 
   @media (min-width: 1024px) {
@@ -21,8 +21,16 @@
 }
 
 .stats {
-  min-width: 320px;
-  margin: 12px;
+  $padding: 12px;
+  width: 640px - ($padding * 2);  // subtract padding
+  // TODO(samthor): flexbox eats padding, ignoring it in alignment. We can probably do more nicely.
+  max-width: calc(100% - (#{$padding} * 2));
+  padding: $padding;
+
+  @media (min-width: 1024px) {
+    width: auto;
+    min-width: 320px;
+  }
 
   .split {
     flex-flow: row wrap;

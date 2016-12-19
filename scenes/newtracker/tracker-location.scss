@@ -1,3 +1,5 @@
+$photo-maxwidth: 600px;
+
 :host {
   display: block;
 }
@@ -11,7 +13,7 @@
 .photos {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: $photo-maxwidth;
 
   &:before {
     content: '';
@@ -114,6 +116,7 @@
 }
 
 #wiki {
+  max-width: $photo-maxwidth;
   margin-bottom: 12px;
   color: white;
   font-size: 17px;

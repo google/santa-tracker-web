@@ -15,8 +15,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="tracker-location_module.html">
 
-<!-- TODO(samthor): _en import? do they work? -->
-
 <!--
 Tracker location information, including photos.
 -->
@@ -55,8 +53,45 @@ Tracker location information, including photos.
 </template>
 <script>
 (function() {
+  var CHAR_LIMIT = 1200;
   var PANORAMIO_PATH_MEDIUM = '//mw2.google.com/mw-panoramio/photos/medium/';
   var PANORAMIO_PATH_ORIGINAL = '//static.panoramio.com.storage.googleapis.com/photos/large/';
+
+  function limitHtml(html) {
+    var out = document.createDocumentFragment();
+    if (!html) {
+      return out;
+    }
+
+    var charCount = 0;
+    var dom = document.createElement('div');
+    dom.innerHTML = html;
+    Array.prototype.slice.call(dom.children).forEach(function(node) {
+      if (charCount > CHAR_LIMIT) {
+        return;
+      }
+
+      var name = node.localName.toLowerCase();
+      switch (name) {
+      case 'script':
+        return;
+      case 'p':
+        var prevCharCount = charCount;
+        charCount += node.textContent.length;
+
+        if (charCount > CHAR_LIMIT) {
+          node.textContent = node.textContent.substr(0, CHAR_LIMIT - prevCharCount) + '...';
+        }
+        if (!node.textContent) {
+          return;
+        }
+      }
+
+      out.appendChild(node);
+    });
+
+    return out;
+  }
 
   Polymer({
     is: 'tracker-location',
@@ -150,35 +185,9 @@ Tracker location information, including photos.
     },
 
     _onWikiHtmlChanged: function() {
-      if (!this._wikiHtml) {
-        this.$.wiki.textContent = '';
-        return;
-      }
-
-      this.$.wiki.innerHTML = this._wikiHtml;
+      this.$.wiki.textContent = '';
+      this.$.wiki.appendChild(limitHtml(this._wikiHtml));
       this.scopeSubtree(this.$.wiki);
-
-      var contents = Array.prototype.slice.call(this.$.wiki.childNodes).reverse();
-      while (contents.length) {
-        // TODO: trim content!
-
-        var c = contents[0];
-
-        var text = c.textContent.trim();
-        if (text) {
-          // TODO: CSS class
-          // var link = document.createElement('a');
-          // link.style.float = 'right';
-          // link.href = details.wikipedia.url;
-          // link.textContent = 'Wikipedia';
-          // c.appendChild(document.createTextNode(' '));
-          // c.appendChild(link);
-          break;
-        }
-
-        c.parentNode.removeChild(c);
-        contents.shift();
-      }
     },
 
     /**
@@ -189,6 +198,14 @@ Tracker location information, including photos.
       var overlay = Math.floor(Math.random() * 17);
       var url = this.resolveUrl('img/overlay/overlay' + overlay + '.svg');
       return 'background-image: url(' + url + ')';
+    },
+
+    _computeWikiHref: function(details) {
+      if (this.details && this.details.hasWiki && this.details.wikipedia) {
+        return (this.details.wikipedia.url || '').replace(/^http\b/, 'https');
+      } else {
+        return null;
+      }
     },
 
   });

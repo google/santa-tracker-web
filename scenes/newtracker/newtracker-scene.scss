@@ -16,6 +16,18 @@ google-youtube {
   z-index: 100;
 }
 
+a {
+  color: white;
+  &:hover {
+    color: $color-yellow;
+    text-decoration: none;
+  }
+}
+
+.contain {
+  overflow: hidden;
+}
+
 /** "full page" section - except on large screens */
 section {
   min-height: 90vh;  // always hint that there's more content

@@ -41,109 +41,115 @@ Tracker scene.
       chromeless autoplay="1">
   </google-youtube>
 
-  <section id="main">
-    <santa-weather>
-      <tracker-map id="map"></tracker-map>
+  <div class="contain">
+    <section id="main">
+      <santa-weather>
+        <tracker-map id="map"></tracker-map>
 
-      <div class$="cards [[_computeMinimalUiClass(minimalUi)]]">
-        <article class="stats">
-          <!-- TODO: hide data/divider in <600px -->
-          <div class="data">
-            <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-            <big>[[_computeDistance(_distance)]]</big>
+        <div class$="cards [[_computeMinimalUiClass(minimalUi)]]">
+          <article class="stats">
+            <!-- TODO: hide data/divider in <600px -->
+            <div class="data">
+              <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+              <big>[[_computeDistance(_distance)]]</big>
+            </div>
+            <div class="divider"></div>
+
+            <div class="split" hidden$="[[!_upcoming]]">
+              <div class="data left">
+                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>[[_upcoming.city]], [[_upcoming.region]]</h3>
+              </div>
+              <div class="data right">
+                <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>[[_computeDuration(countdown)]]</h3>
+              </div>
+            </div>
+
+            <div class="split" hidden$="[[_upcoming]]">
+              <div class="data left">
+                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>[[_current.city]], [[_current.region]]</h3>
+              </div>
+              <div class="data right">
+                <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>[[_computeDuration(countdown)]]</h3>
+              </div>
+            </div>
+
+          </article>
+
+          <template is="dom-if" if="[[!minimalUi]]">
+            <article>
+              <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+            </article>
+            <article>
+              <div class="bg" id="feedbg" style="background-image: url(../../images/scenes/santasback_2x.png)"></div>
+              <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
+            </article>
+          </template>
+
+          <article class="big">
+            <div class="bg" id="feedbg"></div>
+            <h2>Live Feed</h2>
+          </article>
+        </div>
+      </santa-weather>
+      <div class="cards">
+      </div>
+    </section>
+    <template is="dom-if" if="[[!minimalUi]]">
+      <section id="stats">
+        <div class="location">
+          <tracker-location details="[[_details]]"></tracker-location>
+        </div>
+        <div class="stats">
+
+          <div class="split top">
+            <div class="data left">
+              <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+              <big>[[_computeDistance(_distance)]]</big>
+            </div>
+            <div class="data left">
+              <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+              <big>[[_computeNumber(presentsDelivered)]]</big>
+            </div>
           </div>
           <div class="divider"></div>
-
-          <div class="split" hidden$="[[!_upcoming]]">
+          <div class="split">
             <div class="data left">
-              <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_upcoming.city]], [[_upcoming.region]]</h3>
+              <!-- TODO(samthor): Should be "Distance Traveled", string is "Santa On The Go" -->
+              <h4><i18n-msg msgid="onthego">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_computeDistance(distanceTravelled)]]</h3>
             </div>
-            <div class="data right">
-              <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_computeDuration(countdown)]]</h3>
+            <div class="data left">
+              <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_computeWeather(_details)]]</h3>
             </div>
           </div>
-
-          <div class="split" hidden$="[[_upcoming]]">
-            <div class="data left">
-              <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_current.city]], [[_current.region]]</h3>
-            </div>
-            <div class="data right">
-              <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_computeDuration(countdown)]]</h3>
-            </div>
+          <div class="divider"></div>
+          <div class="data">
+            <h4 id="attribution"></h4>
           </div>
 
-        </article>
-
-        <template is="dom-if" if="[[!minimalUi]]">
-          <article>
-            <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
-          </article>
-          <article>
-            <div class="bg" id="feedbg" style="background-image: url(../../images/scenes/santasback_2x.png)"></div>
-            <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
-          </article>
+        </div>
+      </section>
+      <section id="games">
+        <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
+      </section>
+      <section id="videos">
+        <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
+      </section>
+      <section id="livefeed">
+        <template is="dom-repeat" items="[[_feedImages]]">
+          <div class="image" style$="background-image: url([[item]])"></div>
         </template>
-
-        <article class="big">
-          <div class="bg" id="feedbg"></div>
-          <h2>Live Feed</h2>
-        </article>
-      </div>
-    </santa-weather>
-    <div class="cards">
-    </div>
-  </section>
-  <template is="dom-if" if="[[!minimalUi]]">
-    <section id="stats">
-      <div class="location">
-        <tracker-location details="[[_details]]"></tracker-location>
-      </div>
-      <div class="stats">
-
-        <div class="split top">
-          <div class="data left">
-            <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-            <big>[[_computeDistance(_distance)]]</big>
-          </div>
-          <div class="data left">
-            <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-            <big>[[_computeNumber(presentsDelivered)]]</big>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="split">
-          <div class="data left">
-            <!-- TODO(samthor): Should be "Distance Traveled", string is "Santa On The Go" -->
-            <h4><i18n-msg msgid="onthego">PLACEHOLDER_i18n</i18n-msg></h4>
-            <h3>[[_computeDistance(distanceTravelled)]]</h3>
-          </div>
-          <div class="data left">
-            <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
-            <h3>[[_computeWeather(_details)]]</h3>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <section id="games">
-      <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
-    </section>
-    <section id="videos">
-      <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
-    </section>
-    <section id="livefeed">
-      <template is="dom-repeat" items="[[_feedImages]]">
-        <div class="image" style$="background-image: url([[item]])"></div>
-      </template>
-    </section>
-    <section id="thanks">
-      <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
-    </section>
-  </template>
+      </section>
+      <section id="thanks">
+        <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
+      </section>
+    </template>
+  </div>
 
 </template>
 <script>
@@ -197,6 +203,7 @@ Tracker scene.
       _details: {
         type: Object,
         value: null,
+        observer: '_onDetailsChanged',
       },
 
       /**
@@ -320,7 +327,7 @@ Tracker scene.
     },
 
     _onCurrentChanged: function(current) {
-      if (!this._current) {
+      if (!this._current || this.minimalUi) {
         this._details = null;
         return;
       }
@@ -331,6 +338,30 @@ Tracker scene.
         }
         this._details = details;
       }.bind(this));
+    },
+
+    _onDetailsChanged: function() {
+      var node = this.$$('#attribution');
+      if (!node) {
+        return;
+      }
+      if (!this._details) {
+        node.textContent = '';
+        return;
+      }
+
+      // Create photo and Wikipedia attribution HTML.
+      var parts = (this._details.photos || []).map(function(photo) {
+        return photo.attributionHtml;
+      });
+      if (this._details.hasWiki) {
+        var a = document.createElement('a');
+        a.href = (this._details.wikipedia.url || '').replace(/^http\b/, 'https');
+        a.textContent = 'Wikipedia';
+        parts.unshift(a.outerHTML);
+      }
+      node.innerHTML = parts.join(' &bull; ');
+      this.scopeSubtree(node);
     },
 
     _refreshCards: function(current, upcoming) {
