@@ -49,6 +49,9 @@ Tracker map.
   var DIR_NAMES = 'n ne e se s sw w nw'.split(' ');
 
   function dirForHeading(heading) {
+    if (isNaN(heading)) {
+      return '';
+    }
     var offset = 360 / (DIR_NAMES.length * 2);  // 27.5 deg
     var normalized = (((heading + offset) % 360) + 360) % 360;
     var index = Math.floor(normalized / 360 * DIR_NAMES.length);
@@ -105,7 +108,9 @@ Tracker map.
       this._presents.hidden = !presents;
 
       if (!presents) {
-        this._sleigh.setAttribute('data-dir', dirForHeading(heading));
+        var dir = dirForHeading(heading);
+        dir && this._sleigh.setAttribute('data-dir', dir);
+        this._sleigh.hidden = !dir;
       }
 
       this.draw();
@@ -177,7 +182,7 @@ Tracker map.
        */
       _hasPointer: {
         type: Boolean,
-        value: true,
+        value: false,
         observer: '_hasPointerChanged',
       },
 
@@ -208,11 +213,12 @@ Tracker map.
       },
 
       /**
-       * Santa's heading, in degrees. If this is NaN, Santa is stopped.
+       * Santa's heading, in degrees. If `null`, then Santa is at a city. If this is NaN, don't
+       * show Santa at all.
        */
       santaHeading: {
         type: Number,
-        value: 0,
+        value: NaN,
       },
 
       /**

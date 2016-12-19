@@ -59,12 +59,6 @@ specific language governing permissions and limitations under the License.
     }
   };
 
-  messageBus.onMessage = function(event) {
-    if (event.data === 'tracker') {
-      santaApp.route = 'tracker';
-    }
-  };
-
   var config = new cast.receiver.CastReceiverManager.Config();
   config.statusText = title + '...';  // subtle loading hint
   config.maxInactivity = 60;  // seconds

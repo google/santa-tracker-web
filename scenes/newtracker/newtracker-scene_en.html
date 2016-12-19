@@ -271,6 +271,7 @@ Tracker scene.
      */
     _santaUpdate: function(data) {
       if (this._videoActive) {
+        this.$.map.santaHeading = NaN;
         return;
       }
 
@@ -333,6 +334,9 @@ Tracker scene.
     },
 
     _refreshCards: function(current, upcoming) {
+      if (this.minimalUi) {
+        return;
+      }
       this.debounce('_refreshCards', function() {
         // Wraps a callback, and doesn't call it unless the current/upcoming locations match
         // (as they are used for the signal to refresh our cards).
@@ -438,7 +442,7 @@ Tracker scene.
     },
 
     _youtubeEvent: function(event, detail) {
-      if (event.type !== "google-youtube-state-change" || !detail.data) {
+      if (event.type !== 'google-youtube-state-change' || !detail.data) {
         this._videoActive = false;
         this._youtubeId = false;
         this._santaSync();
@@ -451,7 +455,7 @@ Tracker scene.
       }
       this.async(function() {
         console.info('upcoming changed', newValue, oldValue, 'countdown is', this.countdown);
-        if (this.countdown < 120) {
+        if (this.countdown < 100) {
           return;
         }
 

@@ -27,11 +27,12 @@ section {
     border-top: 2px solid rgba(0, 0, 0, 0.25);
   }
 
-  &#stats {
-    @import "sass/stats";
-  }
   &#main {
     @import "sass/main";
+    background: transparent;
+  }
+  &#stats {
+    @import "sass/stats";
   }
   &#games {
     background: #585fe8;
