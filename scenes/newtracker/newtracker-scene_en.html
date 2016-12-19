@@ -336,6 +336,8 @@ Tracker scene.
         if (current !== this._current) {
           return;  // stop changed from under us
         }
+        // nb. Clone stop information onto details, for use by clients.
+        details.stop = this._current;
         this._details = details;
       }.bind(this));
     },
