@@ -52,7 +52,9 @@ Santa Tracker app.
   </template>
 
   <!-- EU notice -->
-  <santa-notice></santa-notice>
+  <template is="dom-if" if="[[!omitSantaChrome(mode)]]">
+    <santa-notice></santa-notice>
+  </template>
 
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
@@ -674,10 +676,14 @@ Polymer({
     }
 
     var staticUrl = this.resolveUrl('../../');
-    var sc = new SoundController(staticUrl, this._soundsLoaded.bind(this));
-    this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
-    this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
-    this.addEventListener('sound-trigger', sc.playSound.bind(sc));
+
+    // Don't load sounds in Cast mode.
+    if (!this.omitSantaChrome(this.mode)) {
+      var sc = new SoundController(staticUrl, this._soundsLoaded.bind(this));
+      this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
+      this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
+      this.addEventListener('sound-trigger', sc.playSound.bind(sc));
+    }
 
     var handler = function() {
       this._setPageInBackground(document.hidden || false);

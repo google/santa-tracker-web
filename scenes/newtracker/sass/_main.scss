@@ -14,8 +14,7 @@
     transform: translateZ(0);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    // TODO(samthor): perf, remove from top layer
-//    box-shadow: 0 8px 24px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.33);
     width: 250px;
     height: 130px;
     margin: 0 4px;
@@ -65,24 +64,27 @@
     }
   }
 
-  // iPad horizontal gets all cards
-  @media (max-width: (1024px - 1px)) {
-    article:first-of-type {
-      display: none;
-      background: none !important;
+  // regular mode
+  &:not(.minimal-ui) {
+    // iPad horizontal gets all cards
+    @media (max-width: (1024px - 1px)) {
+      article:first-of-type {
+        display: none;
+        background: none !important;
+      }
     }
-  }
-  // iPad vertical gets three cards
-  @media (max-width: (768px - 1px)) {
-    article:last-of-type {
-      display: none;
-      background: none !important;
+    // iPad vertical gets three cards
+    @media (max-width: (768px - 1px)) {
+      article:last-of-type {
+        display: none;
+        background: none !important;
+      }
     }
-  }
-  // smaller gets two cards, and then <600px, they shrink in height.
-  @media (max-width: (600px - 1px)) {
-    article {
-      height: 80px;
+    // smaller gets two cards, and then <600px, they shrink in height.
+    @media (max-width: (600px - 1px)) {
+      article {
+        height: 80px;
+      }
     }
   }
 
