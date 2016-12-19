@@ -19,8 +19,7 @@
     width: 250px;
     height: 130px;
     margin: 0 4px;
-    background: $color-green center no-repeat;
-    background-size: cover;
+    background: $color-green;
     padding: 2px 10px;
     box-sizing: border-box;
 
@@ -32,6 +31,18 @@
       text-transform: uppercase;
       font-weight: 900;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
+    }
+
+    .bg {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: inherit;
+      background: transparent center no-repeat;
+      background-size: cover;
     }
 
     &.big {
