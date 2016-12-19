@@ -236,6 +236,14 @@ Tracker map.
         type: Number,
         value: 12,
       },
+
+      /**
+       * Whether to display in minimal UI mode.
+       */
+      minimalUi: {
+        type: Boolean,
+        value: false,
+      },
     },
 
     observers: [
@@ -325,7 +333,7 @@ Tracker map.
     _hasPointerChanged: function() {
       if (this._map) {
         // If the browser has a pointer (i.e., a mouse on desktop), show zoom controls.
-        this._map.setOptions({zoomControl: this._hasPointer});
+        this._map.setOptions({zoomControl: this._hasPointer && !this.minimalUi});
       }
     },
 
@@ -341,7 +349,7 @@ Tracker map.
         maxZoom: 6,  // ROK has own tiles at 7+
         // 'noPerTile': true,  // ???
         disableDefaultUI: true,
-        zoomControl: this._hasPointer,
+        zoomControl: this._hasPointer && !this.minimalUi,
         zoomControlOptions: {
           position: google.maps.ControlPosition.RIGHT_CENTER,
         },

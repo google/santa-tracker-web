@@ -44,15 +44,21 @@ Tracker scene.
   <div class="contain">
     <section id="main">
       <santa-weather>
-        <tracker-map id="map"></tracker-map>
+        <tracker-map id="map" minimal-ui="[[minimalUi]]"></tracker-map>
 
         <div class$="cards [[_computeMinimalUiClass(minimalUi)]]">
           <article class="stats">
-            <!-- TODO: hide data/divider in <600px -->
             <div class="data">
               <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
               <big>[[_computeDistance(_distance)]]</big>
             </div>
+            <template is="dom-if" if="[[minimalUi]]">
+              <div class="data">
+                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+                <big>[[_computeNumber(presentsDelivered)]]</big>
+              </div>
+            </template>
+
             <div class="divider"></div>
 
             <div class="split" hidden$="[[!_upcoming]]">
@@ -367,9 +373,6 @@ Tracker scene.
     },
 
     _refreshCards: function(current, upcoming) {
-      if (this.minimalUi) {
-        return;
-      }
       this.debounce('_refreshCards', function() {
         // Wraps a callback, and doesn't call it unless the current/upcoming locations match
         // (as they are used for the signal to refresh our cards).
