@@ -429,7 +429,6 @@ var META_THEME = document.head.querySelector('meta[name="theme-color"]')
     || document.createElement('meta');
 var META_THEME_DEFAULT = META_THEME.content;
 
-var DEFAULT_ROUTE = 'village';
 var TRACKER_ROUTE = 'newtracker';
 
 var ANALYTICS = new Analytics();
@@ -773,7 +772,13 @@ Polymer({
   },
 
   get defaultRoute() {
-    return this.duringTracker ? TRACKER_ROUTE : DEFAULT_ROUTE;
+    if (this.duringTracker) {
+      return TRACKER_ROUTE;
+    } else if (this.mode === 'cast') {
+      return 'cast';
+    } else {
+      return 'village';
+    }
   },
 
   /**
@@ -826,12 +831,14 @@ Polymer({
     this.$.overlay.hero = scene && scene.getAttribute('hero-src');
 
     // Optionally update the document title (with emoji/scene name).
-    var raw = scene && scene.getAttribute('icon');
-    var icon = '';
-    if (raw && String.fromCodePoint) {  // no emoji on IE11
-      icon = String.fromCodePoint(parseInt(raw, 16));
+    if (this.routing) {
+      var raw = scene && scene.getAttribute('icon');
+      var icon = '';
+      if (raw && String.fromCodePoint) {  // no emoji on IE11
+        icon = String.fromCodePoint(parseInt(raw, 16));
+      }
+      document.title = icon + this.$.strings.s('meta_title');
     }
-    document.title = icon + this.$.strings.s('meta_title');
   },
 
   /**
@@ -1063,7 +1070,7 @@ Polymer({
   sceneIsOpen: function(sceneName) {
     if (this.currentTime === undefined) {
       return true;  // fail open before time ready
-    } else if (sceneName === DEFAULT_ROUTE) {
+    } else if (sceneName === 'village' || sceneName === 'cast') {
       return true;  // village
     } else if (sceneName === TRACKER_ROUTE && !this.duringTracker) {
       return false;  // special-case tracker, as it's open only when Santa is in flight
@@ -1172,9 +1179,11 @@ Polymer({
 
   _duringTrackerChanged: function(newValue, oldValue) {
     if (newValue === true) {
-      if (this.route === DEFAULT_ROUTE) {
-        this.route = TRACKER_ROUTE;
-      }
+      this.debounce('_duringTrackerChanged', function() {
+        if (this.duringTracker) {
+          this.route = TRACKER_ROUTE;
+        }
+      }, 2000);
     } else if (oldValue === undefined) {
       // other initial value, ignore
     } else if (newValue === false && this.route === TRACKER_ROUTE) {
