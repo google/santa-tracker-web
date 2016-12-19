@@ -19,3 +19,50 @@
     max-width: 60%;
   }
 }
+
+.stats {
+  min-width: 320px;
+  margin: 12px;
+
+  .split {
+    flex-flow: row wrap;
+
+    &.top .data {
+      min-width: 200px;
+    }
+  }
+
+  .divider {
+    margin: 8px 0 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .stats {
+    font-size: 15px;
+    line-height: 19px;
+    big {
+      font-size: 41px;
+      line-height: 47px;
+    }
+
+    // when we are >=768px, the top data is quite large, so force its width...
+    .top .data {
+      min-width: 300px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats {
+    width: 40%;
+    justify-content: center;
+    height: 50vw;
+    max-height: 500px;
+
+    // top distance/delivered should be in column
+    .split.top {
+      flex-flow: column nowrap;
+    }
+  }
+}

@@ -382,7 +382,7 @@ Tracker scene.
     },
 
     _onUpcomingChanged: function(newValue, oldValue) {
-      if (oldValue != null || newValue == null) {
+      if (!this.minimalUi || oldValue != null || newValue == null) {
         return;  // do nothing
       }
       this.async(function() {

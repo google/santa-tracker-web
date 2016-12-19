@@ -5,15 +5,13 @@
 #main {
   display: flex;
   flex-flow: column nowrap;
-  align-items: stretch;
+  align-items: center;
 }
 
 .photos {
-  align-self: center;
   position: relative;
   width: 100%;
-  max-width: 100vh;  // don't take up too much space on landscape displays
-  margin-bottom: 8px;
+  max-width: 600px;
 
   &:before {
     content: '';
