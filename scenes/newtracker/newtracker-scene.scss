@@ -18,11 +18,10 @@ google-youtube {
 
 /** "full page" section - except on large screens */
 section {
-  min-height: 100vh;
+  min-height: 90vh;  // always hint that there's more content
   background: $color-green;
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
 
   &:not(:first-of-type) {
     border-top: 2px solid rgba(0, 0, 0, 0.25);

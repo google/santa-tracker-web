@@ -1,0 +1,198 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="tracker-location_module.html">
+
+<!-- TODO(samthor): _en import? do they work? -->
+
+<!--
+Tracker location information, including photos.
+-->
+<dom-module id="tracker-location">
+<template>
+  <style include="tracker-location_module"></style>
+
+  <div id="main">
+    <div class="photos">
+      <div class="size">
+        <div class="photo" style="transform: rotate(0deg) scale(0.97)"></div>
+      </div>
+      <div class="size">
+        <div class="move move-photo1 offscreen" id="move1">
+          <div class="photo">
+            <div class="overlay" style$="[[_computeOverlayStyle(_overlayBit)]]"></div>
+          </div>
+        </div>
+      </div>
+      <div class="size">
+        <div class="move move-photo0 offscreen" id="move0">
+          <div class="photo">
+            <div class="overlay" style$="[[_computeOverlayStyle(_overlayBit)]]"></div>
+          </div>
+        </div>
+      </div>
+      <div class="size">
+        <div class="info">
+          <h1>[[details.stop.city]]</h1>
+          <h2>[[details.stop.region]]</h2>
+        </div>
+      </div>
+    </div>
+    <div id="wiki"></div>
+  </div>
+</template>
+<script>
+(function() {
+  var PANORAMIO_PATH_MEDIUM = '//mw2.google.com/mw-panoramio/photos/medium/';
+  var PANORAMIO_PATH_ORIGINAL = '//static.panoramio.com.storage.googleapis.com/photos/large/';
+
+  Polymer({
+    is: 'tracker-location',
+
+    properties: {
+
+      /**
+       * The details of the stop to display. From the Santa API.
+       */
+      details: {
+        type: Object,
+        value: null,
+        observer: '_onDetailsChanged',
+      },
+
+      /**
+       * The wiki HTML to display. Set through `_onDetailsChanged`.
+       */
+      _wikiHtml: {
+        type: String,
+        value: null,
+        observer: '_onWikiHtmlChanged'
+      },
+
+      _overlayBit: {
+        type: Boolean,
+        value: false,
+      },
+
+    },
+
+    _onDetailsChanged: function(details) {
+      if (this.details && this.details.hasWiki) {
+        this._wikiHtml = this.details.wikipedia.excerpt;
+      } else {
+        this._wikiHtml = null;
+      }
+
+      // Hide previous photos. If any were hid, then flip the overlay bit so new overlay characters
+      // appear.
+      var move = [this.$.move0, this.$.move1];
+      var hiding = false;
+      move.reverse().forEach(function(move) {
+        if (!move.classList.contains('offscreen')) {
+          move.classList.add('offscreen');
+          hiding = true;
+        }
+      });
+      if (hiding) {
+        this.async(function() {
+          this._overlayBit = !this._overlayBit;
+        }, 1500);
+      }
+
+      if (!this.details) {
+        return;
+      }
+
+      // Queue function for the below onload handler.
+      var rotate = -((Math.random() * 2) + 3);
+      function queue(i, src) {
+        if (this.details !== details) {
+          return;  // abort
+        }
+
+        var div = move[i];
+        div.classList.remove('offscreen');
+
+        var photo = div.querySelector('.photo');
+        var scale = 100 - i * (Math.random() * 5);
+        photo.style.transform = 'rotate(' + rotate + 'deg) scale(' + scale/100 + ')';
+        photo.style.backgroundImage = 'url(' + src + ')';
+        rotate *= -0.90;
+      }
+
+      // Load photos for this location. On onload, slide in the new images.
+      var delay = 0;
+      this.details.panoramio.forEach(function(photo, i) {
+        if (i >= move.length) {
+          return;  // should never be more than 2 photos, but just in case
+        }
+        var image = new Image();
+        image.src = PANORAMIO_PATH_ORIGINAL + photo.id + '.jpg';
+        image.onload = function() {
+          this.async(queue.bind(this, i, image.src), delay);
+          delay += 1000;
+        }.bind(this);
+        // If there was an error loading the photo (e.g. 404), that's fine. We can just ignore it
+        // and that photo div will never move onscreen.
+      }, this);
+    },
+
+    _onWikiHtmlChanged: function() {
+      if (!this._wikiHtml) {
+        this.$.wiki.textContent = '';
+        return;
+      }
+
+      this.$.wiki.innerHTML = this._wikiHtml;
+      this.scopeSubtree(this.$.wiki);
+
+      var contents = Array.prototype.slice.call(this.$.wiki.childNodes).reverse();
+      while (contents.length) {
+        // TODO: trim content!
+
+        var c = contents[0];
+
+        var text = c.textContent.trim();
+        if (text) {
+          // TODO: CSS class
+          // var link = document.createElement('a');
+          // link.style.float = 'right';
+          // link.href = details.wikipedia.url;
+          // link.textContent = 'Wikipedia';
+          // c.appendChild(document.createTextNode(' '));
+          // c.appendChild(link);
+          break;
+        }
+
+        c.parentNode.removeChild(c);
+        contents.shift();
+      }
+    },
+
+    /**
+     * Specifies a random overlay as a `background-image`.
+     */
+    _computeOverlayStyle: function() {
+      // TODO(samthor): Prevent duplicates.
+      var overlay = Math.floor(Math.random() * 17);
+      var url = this.resolveUrl('img/overlay/overlay' + overlay + '.svg');
+      return 'background-image: url(' + url + ')';
+    },
+
+  });
+
+}());
+</script>
+</dom-module>

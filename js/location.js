@@ -122,6 +122,7 @@ SantaLocation.prototype.getDetails = function(callback) {
   }
   if (this.details_) {
     callback(this.details_);
+    return;
   }
   this.queuedCallbacks_.push(callback);
   // Only fetch once every 10 seconds.

@@ -22,6 +22,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="newtracker-scene_module.html">
 
 <link rel="import" href="tracker-map.html">
+<link rel="import" href="tracker-location.html">
 
 <!--
 Tracker scene.
@@ -97,22 +98,7 @@ Tracker scene.
   <template is="dom-if" if="[[!minimalUi]]">
     <section id="stats">
       <div class="location">
-        <div class="photos">
-          <div class="size">
-            <div class="photo" style="transform: rotate(0deg) scale(0.97)"></div>
-          </div>
-          <div class="size">
-            <div class="photo" style="transform: rotate(-4deg) scale(0.95)"></div>
-          </div>
-          <div class="size">
-            <div class="photo" style="transform: rotate(5deg)">
-              <div class="overlay" style="background-image: url(img/overlay/overlay0.svg)"></div>
-            </div>
-          </div>
-        </div>
-        <p>
-          Melbourne is the capital and most populous city of the Australian state of Victoria, and the second-most populous city in Australia. The name "Melbourne" refers to an urban agglomeration spanning 9,900 km2 (3,800 sq mi) which comprises the broader metropolitan area, as well as being the common name for its city centre. The metropolis is located on the large natural bay of Port Phillip and expands into the hinterlands towards the Dandenong and Macedon mountain ranges, Mornington Peninsula and Yarra Valley. Melbourne consists of 31 municipalities. It has a population of 4,529,500 as of 2015, and its inhabitants are called Melburnians.
-        </p>
+        <tracker-location details="[[_details]]"></tracker-location>
       </div>
       <div class="stats">
 
@@ -251,7 +237,7 @@ Tracker scene.
       var wrapper = function(data) {
         window.requestAnimationFrame(function() {
           window.clearTimeout(this._updateSantaTimeout);
-          this._updateSantaTimeout = window.setTimeout(this._santaSync.bind(this), UPDATE_MS);
+          this._updateSantaTimeout = window.setTimeout(this._santaSync, UPDATE_MS);
           this._santaUpdate(data);
         }.bind(this));
       }.bind(this);

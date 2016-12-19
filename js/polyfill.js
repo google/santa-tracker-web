@@ -38,3 +38,13 @@ if (!('closest' in window.Element.prototype)) {
     return null;
   };
 }
+
+if (!('sign' in Math)) {
+  Math.sign = function(x) {
+    x = +x;
+    if (x === 0 || isNaN(x)) {
+      return Number(x);
+    }
+    return x > 0 ? +1 : -1;
+  }
+}

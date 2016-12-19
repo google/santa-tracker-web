@@ -1,0 +1,175 @@
+:host {
+  display: block;
+}
+
+#main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
+.photos {
+  align-self: center;
+  position: relative;
+  width: 100%;
+  max-width: 100vh;  // don't take up too much space on landscape displays
+  margin-bottom: 8px;
+
+  &:before {
+    content: '';
+    display: block;
+    margin-bottom: (75% + 3%);  // 75% is 4:3, but add margin: slightly more than .size:before
+  }
+
+  .size {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+    &:before {
+      content: '';
+      display: block;
+      margin-bottom: 75%;  // 4:3
+    }
+
+    .info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 4% 7%;
+      will-change: opacity;
+      transition: opacity 0.25s;
+    }
+  }
+
+  .photo {
+    border: 8px solid #f6f6f6;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.25);
+    background: #333 center no-repeat;
+    background-size: cover;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: transform 0.25s;
+    will-change: transform;
+
+    .overlay {
+      position: absolute;
+      width: 50%;
+      height: 75%;
+      bottom: 0;
+      background: transparent bottom left no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .move {
+    pointer-events: none;  // prevent shifted photos from effecting hover state
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: transform 1s, opacity 1s;
+    transform: translate(0);
+
+    &.offscreen {
+      opacity: 0;
+      transform: translate(-1000px) !important;
+
+      &.move-photo1 {
+        transition-delay: 500ms;  // delay fadeout for 2nd photo
+      }
+    }
+  }
+
+  // On hover, shift move-marked photos to l/r. Allows our users to see more photos.
+  &:hover {
+    .info {
+      opacity: 0;
+    }
+
+    .move.move-photo0 {
+      transform: translate(-25%, +2%) rotate(-5deg);
+    }
+    .move.move-photo1 {
+      transform: translate(+68%, -2%) rotate(+10deg);
+    }
+
+    @media (max-width: (768px - 1px)) {
+      .move.move-photo0 {
+        transform: translate(+2%, -40%) rotate(+2deg);
+      }
+      .move.move-photo1 {
+        transform: translateY(+55%) rotate(-8deg);
+      }
+    }
+  }
+}
+
+#wiki {
+  margin-bottom: 12px;
+  color: white;
+  font-size: 17px;
+  line-height: 23px;
+  margin: 8px 20px;
+  font-weight: 400;
+
+  @media (max-width: (768px - 1px)) {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+
+p, ul, ol {
+  margin: 0;
+  margin-top: 8px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  font: inherit;
+  b, strong {
+    font-weight: 500;
+  }
+}
+
+h1 {
+  margin: 0;
+  font-family: 'Lobster';
+  font-size: 57px;
+  color: white;
+  text-shadow: 0 1px 6px rgba(66, 66, 66, 0.5);
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0;
+  letter-spacing: 1px;
+  font-weight: 900;
+  font-size: 21px;
+  color: white;
+  text-shadow: 0 1px 4px rgba(66, 66, 66, 0.5);
+  color: #eefda5;
+  text-transform: uppercase;
+}
+
+
+@media (max-width: (768px - 1px)) {
+  h1 {
+    margin-top: 5px;
+    font-size: 41px;
+  }
+  h2 {
+    font-size: 15px;
+  }
+}

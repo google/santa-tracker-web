@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: column;
   align-items: stretch;
+  user-select: auto;
 
   @media (min-width: 1024px) {
     flex-flow: row nowrap;
@@ -12,122 +13,9 @@
 
 // left-hand side
 .location {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
   max-width: 100%;
 
   @media (min-width: 1024px) {
     max-width: 60%;
-  }
-}
-
-.photos {
-  position: relative;
-  margin-top: 5%;
-  width: 100%;
-  max-width: 600px;
-
-  &:before {
-    content: '';
-    display: block;
-    margin-bottom: calc(75% + 10%);  // 4:3, slightly more than .size:before
-  }
-
-  .size {
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-
-    &:before {
-      content: '';
-      display: block;
-      margin-bottom: 75%;  // 4:3
-    }
-  }
-
-  .photo {
-    border: 8px solid #f6f6f6;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.125);
-    background: black;
-    display: inline-block;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    transition: transform 1s, opacity 1s;
-    will-change: transform;
-
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: transparent bottom left no-repeat;
-      background-size: 25%;
-    }
-  }
-}
-
-p {
-  color: white;
-  font-size: 17px;
-  line-height: 23px;
-  margin: 8px 20px;
-  font-weight: 400;
-
-  @media (max-width: (768px - 1px)) {
-    font-size: 15px;
-    line-height: 21px;
-  }
-}
-
-.stats {
-  min-width: 320px;
-  margin: 12px;
-
-  .split {
-    flex-flow: row wrap;
-
-    &.top .data {
-      min-width: 200px;
-    }
-  }
-
-  .divider {
-    margin: 8px 0 12px;
-  }
-}
-
-@media (min-width: 768px) {
-  .stats {
-    font-size: 15px;
-    line-height: 19px;
-    big {
-      font-size: 41px;
-      line-height: 47px;
-    }
-
-    // when we are >=768px, the top data is quite large, so force its width...
-    .top .data {
-      min-width: 300px;
-    }
-  }
-}
-
-@media (min-width: 1024px) {
-  .stats {
-    width: 40%;
-    justify-content: center;
-    height: 50vw;
-    max-height: 500px;
-
-    // top distance/delivered should be in column
-    .split.top {
-      flex-flow: column nowrap;
-    }
   }
 }
