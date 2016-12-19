@@ -1,0 +1,13 @@
+& {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+
+.image {
+  flex-grow: 1;
+  background: transparent center no-repeat;
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+}

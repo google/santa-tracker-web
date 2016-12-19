@@ -39,6 +39,9 @@ section {
   &#videos {
     background: #00ccb9;
   }
+  &#livefeed {
+    @import "sass/livefeed";
+  }
 
   // TODO: expected padding for top bar / internal nav bar
 

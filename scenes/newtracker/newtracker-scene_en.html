@@ -136,7 +136,9 @@ Tracker scene.
       <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
     </section>
     <section id="livefeed">
-      <h1>Live Feed</h1>
+      <template is="dom-repeat" items="[[_feedImages]]">
+        <div class="image" style$="background-image: url([[item]])"></div>
+      </template>
     </section>
     <section id="thanks">
       <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
@@ -158,6 +160,11 @@ Tracker scene.
     properties: {
       _updateSantaTimeout: Number,
       _videoActive: {type: Boolean, value: false},
+
+      _feedImages: {
+        type: Array,
+        value: function() { return []; },
+      },
 
       /**
        * Whether to display in minimal UI mode.
@@ -340,6 +347,13 @@ Tracker scene.
         var image = new Image();
         image.src = this._randomFeedImage();
         image.onload = wrap(function() {
+
+          // TODO(samthor): 10 is probably not the right number
+          this.unshift('_feedImages', image.src);
+          if (this._feedImages.length > 10) {
+            this.pop('_feedImages');
+          }
+
           this.$.feedbg.style.backgroundImage = 'url(' + image.src + ')';
         });
       }, 100);
