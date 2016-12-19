@@ -28,11 +28,22 @@ a {
   overflow: hidden;
 }
 
+#topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
 /** "full page" section - except on large screens */
 section {
   min-height: 90vh;  // always hint that there's more content
   background: $color-green;
   position: relative;
+  z-index: 0;
   box-sizing: border-box;
 
   &:not(:first-of-type) {
@@ -55,8 +66,9 @@ section {
   &#livefeed {
     @import "sass/livefeed";
   }
-
-  // TODO: expected padding for top bar / internal nav bar
+  &#thanks {
+    @import "sass/thanks";
+  }
 
   // On an iPad height or above, clamp the sections to a maximum size. Cards will thus be in the
   // size range [320px,1023px].
@@ -71,13 +83,29 @@ section {
 
 h1 {
   font-family: 'Lobster';
+  margin: 0;
   font-size: 55px;
-  position: absolute;
-  left: 100px;
-  top: 30px;
   transform: rotate(-5deg);
   color: white;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.125);
+}
+h3 {
+  font: inherit;
+  color: $color-yellow;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+  font-weight: bold;
+}
+h4 {
+  font: inherit;
+  color: white;
+  margin: 0;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.066);
 }
 
 santa-weather {
@@ -86,6 +114,7 @@ santa-weather {
 tracker-map {
   @apply(--layout-fit);
 }
+
 
 .stats {
   display: flex;
@@ -132,24 +161,5 @@ tracker-map {
 
   .top {
     flex-flow: column nowrap;
-  }
-
-  h3 {
-    font: inherit;
-    color: $color-yellow;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    margin: 0;
-    font-weight: bold;
-  }
-  h4 {
-    font: inherit;
-    color: white;
-    margin: 0;
-    margin-bottom: 4px;
-    text-transform: uppercase;
-    font-weight: 900;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.066);
   }
 }

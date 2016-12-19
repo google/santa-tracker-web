@@ -44,6 +44,7 @@ Tracker scene.
   <div class="contain">
     <section id="main">
       <santa-weather>
+        <div id="topbar" hidden="[[minimalUi]]"></div>
         <tracker-map id="map" minimal-ui="[[minimalUi]]"></tracker-map>
 
         <div class$="cards [[_computeMinimalUiClass(minimalUi)]]">
@@ -152,7 +153,10 @@ Tracker scene.
         </template>
       </section>
       <section id="thanks">
+        <div class="ornament"></div>
         <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
+        <h4><i18n-msg msgid="tracker_from_google">PLACEHOLDER_i18n</i18n-msg></h4>
+        <div class="feature"></div>
       </section>
     </template>
   </div>

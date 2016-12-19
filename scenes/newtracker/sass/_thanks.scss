@@ -1,0 +1,45 @@
+& {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &::before {
+    content: '';
+    top: 0;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: 80vw;
+    max-width: 480px;
+    height: 80%;
+    background: url(img/ornament.svg) center no-repeat;
+    background-size: contain;
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+
+h1 {
+  transform: none;
+  margin: 12px 24px;
+  font-size: 77px;
+
+  @media (max-width: (768px - 1px)) {
+    font-size: 44px;
+  }
+}
+
+.feature {
+  width: 80vw;
+  max-width: 400px;
+  background: url(img/thanks.svg) center no-repeat;
+  background-size: contain;
+
+  &::before {
+    content: '';
+    display: block;
+    margin-top: 65%;
+  }
+}
