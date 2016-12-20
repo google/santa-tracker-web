@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="tracker-map.html">
 <link rel="import" href="tracker-location.html">
+<link rel="import" href="tracker-attribution.html">
 
 <!--
 Tracker scene.
@@ -136,7 +137,7 @@ Tracker scene.
           </div>
           <div class="divider"></div>
           <div class="data">
-            <h4 id="attribution"></h4>
+            <h4><tracker-attribution details="[[_details]]"></tracker-attribution></h4>
           </div>
 
         </div>
@@ -213,7 +214,6 @@ Tracker scene.
       _details: {
         type: Object,
         value: null,
-        observer: '_onDetailsChanged',
       },
 
       /**
@@ -350,30 +350,6 @@ Tracker scene.
         details.stop = this._current;
         this._details = details;
       }.bind(this));
-    },
-
-    _onDetailsChanged: function() {
-      var node = this.$$('#attribution');
-      if (!node) {
-        return;
-      }
-      if (!this._details) {
-        node.textContent = '';
-        return;
-      }
-
-      // Create photo and Wikipedia attribution HTML.
-      var parts = (this._details.photos || []).map(function(photo) {
-        return photo.attributionHtml;
-      });
-      if (this._details.hasWiki) {
-        var a = document.createElement('a');
-        a.href = (this._details.wikipedia.url || '').replace(/^http\b/, 'https');
-        a.textContent = 'Wikipedia';
-        parts.unshift(a.outerHTML);
-      }
-      node.innerHTML = parts.join(' &bull; ');
-      this.scopeSubtree(node);
     },
 
     _refreshCards: function(current, upcoming) {
