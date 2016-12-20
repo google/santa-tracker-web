@@ -13,105 +13,105 @@
 }
 
 #games-list {
-    overflow: auto;
-    display: flex;
-    height: 80vh;
-    padding-left: 230px;
-    align-items: center;
-    justify-content: flex-start;
+  overflow: auto;
+  display: flex;
+  height: 80vh;
+  padding-left: 230px;
+  align-items: center;
+  justify-content: flex-start;
 
-    .card {
-        width: 308px;
-        height: 282px;
-        flex-shrink: 0;
-        position: relative;
-        margin: 0 6px;
+  .card {
+    width: 308px;
+    height: 282px;
+    flex-shrink: 0;
+    position: relative;
+    margin: 0 6px;
 
-        .card--inner {
-          height: 100%;
-          background-repeat: no-repeat;
-          background-position: 50% 50%;
-          background-size: cover;
-          clip-path: url(#cardMask1);
-          position: relative;
-          z-index: 5;
-          border-radius: 25px;
+    .card--inner {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      clip-path: url(#cardMask1);
+      position: relative;
+      z-index: 5;
+      border-radius: 25px;
 
-          a {
-            text-decoration: none;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-direction: column;
-            padding-top: 40px;
+      a {
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding-top: 40px;
 
-            h3 {
-              font-family: Roboto;
-              font-weight: 300;
-              font-size: 30px;
-              color: #fff;
-            }
-          }
+        h3 {
+          font-family: Roboto;
+          font-weight: 300;
+          font-size: 30px;
+          color: #fff;
         }
-
-        &::before {
-          content: '';
-          height: 204px;
-          width: 276px;
-          position: absolute;
-          bottom: 6px;
-          left: 38px;
-          background: url(img/shape1-shadow.svg) center no-repeat;
-          z-index: 1;
-        }
-
-        &::after {
-          content: '';
-          height: 24px;
-          width: 243px;
-          position: absolute;
-          bottom: 3px;
-          left: 32px;
-          background: url(img/shape1-base.svg) center no-repeat;
-          z-index: 10;
-        }
-
-        &:nth-child(even) {
-          width: 282px;
-          top: 10px;
-
-          .card--inner {
-            clip-path: url(#cardMask2);
-
-            a {
-              padding-top: 30px;
-            }
-          }
-
-          &::before {
-            height: 189px;
-            width: 299px;
-            background: url(img/shape2-shadow.svg) center no-repeat;
-            left: 5px;
-            bottom: 13px;
-          }
-
-          &::after {
-            height: 13px;
-            width: 305px;
-            bottom: 18px;
-            left: -14px;
-            background: url(img/shape2-base.svg) center no-repeat;
-          }
-        }
-    }
-
-    .game-gumball {
-      .card--inner {
-        background-image: url(/images/scenes/gumball_2x.png);
       }
     }
+
+    &::before {
+      content: '';
+      height: 204px;
+      width: 276px;
+      position: absolute;
+      bottom: 6px;
+      left: 38px;
+      background: url(img/shape1-shadow.svg) center no-repeat;
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      height: 24px;
+      width: 243px;
+      position: absolute;
+      bottom: 3px;
+      left: 32px;
+      background: url(img/shape1-base.svg) center no-repeat;
+      z-index: 10;
+    }
+
+    &:nth-child(even) {
+      width: 282px;
+      top: 10px;
+
+      .card--inner {
+        clip-path: url(#cardMask2);
+
+        a {
+          padding-top: 30px;
+        }
+      }
+
+      &::before {
+        height: 189px;
+        width: 299px;
+        background: url(img/shape2-shadow.svg) center no-repeat;
+        left: 5px;
+        bottom: 13px;
+      }
+
+      &::after {
+        height: 13px;
+        width: 305px;
+        bottom: 18px;
+        left: -14px;
+        background: url(img/shape2-base.svg) center no-repeat;
+      }
+    }
+  }
+
+  .game-gumball {
+    .card--inner {
+      background-image: url(/images/scenes/gumball_2x.png);
+    }
+  }
 }
