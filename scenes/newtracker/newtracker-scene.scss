@@ -61,7 +61,7 @@ section {
     @import "sass/games";
   }
   &#videos {
-    background: #00ccb9;
+    @import "sass/videos";
   }
   &#livefeed {
     min-height: 0 !important;
