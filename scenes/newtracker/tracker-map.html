@@ -31,7 +31,11 @@ Tracker map.
   <iron-media-query query="(pointer: fine)" query-matches="{{_hasPointer}}"></iron-media-query>
 
   <div id="santa" tabindex="0" hidden>
-    <div class="presents"></div>
+    <div class="presents" hidden>
+      <div class="deliver0"></div>
+      <div class="deliver1"></div>
+      <div class="deliver2"></div>
+    </div>
     <div class="sleigh" data-dir="se">
       <div class="back"></div>
       <div class="santa"></div>
@@ -105,7 +109,14 @@ Tracker map.
 
       var presents = (heading == null);  // null or undefined are fine
       this._sleigh.hidden = presents;
-      this._presents.hidden = !presents;
+
+      if (this._presents.hidden !== !presents) {
+        this._presents.hidden = !presents;
+        var previous = this._presents.querySelector('.active');
+        previous && previous.classList.remove('active');
+        var choice = randomChoice(this._presents.children);
+        choice && choice.classList.add('active');
+      }
 
       if (!presents) {
         var dir = dirForHeading(heading);
