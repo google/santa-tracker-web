@@ -2,12 +2,75 @@
   display: flex;
   flex-flow: row wrap;
   align-items: stretch;
+  justify-content: center;
+  padding: 1px;
 }
 
-.image {
+div.image, span.title {
   flex-grow: 1;
   background: transparent center no-repeat;
   background-size: cover;
-  height: 200px;
-  width: 200px;
+  width: 20vw;
+  margin: 1px;
+  border-radius: 2px;
+  max-height: 30vmin;
+
+  &::before {
+    content: '';
+    display: block;
+    margin-top: 75%;
+  }
+}
+
+div.image:first-of-type {
+  order: -2;
+}
+
+// explicitly use a span, so it is of a different type than images.
+span.title {
+  order: -1;
+  position: relative;
+  pointer-events: none;
+  background: #585fe8;
+
+  svg {
+    position: absolute;
+    left: -38px;
+    width: calc(100% + 38px + 38px);
+    height: 800px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #81e4bf;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+  }
+
+  h1 {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    line-height: 41px;
+    font-size: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: (768px - 1px)) {
+  div.image, span.title {
+    width: 30vw;
+    max-height: 40vh;
+  }
+}
+
+@media (max-width: (600px - 1px)) {
+  div.image:first-of-type {
+    width: 80vw;
+  }
+  div.image, span.title {
+    width: 40vw;
+  }
 }

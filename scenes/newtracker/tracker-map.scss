@@ -19,15 +19,70 @@
 
 @import "sass/animations";
 
+@keyframes deliver-step {
+  0% {
+    transform: translateY(0);
+  }
+  12.5% {
+    transform: translateY(-12.5%);
+  }
+  25.0% {
+    transform: translateY(-25.0%);
+  }
+  37.5% {
+    transform: translateY(-37.5%);
+  }
+  50.0% {
+    transform: translateY(-50.0%);
+  }
+  62.5% {
+    transform: translateY(-62.5%);
+  }
+  75.0% {
+    transform: translateY(-75.0%);
+  }
+  87.5% {
+    transform: translateY(-87.5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .presents {
-  width: 68px;
-  height: 84px;
+  width: 75px;
+  height: 80px;  // should be 75px, for drop shadow
   position: absolute;
   transform: translate(-50%, -50%);
+  overflow: hidden;
 
-  // TODO(samthor): whole delivery animation
-  background: url(img/presents.svg) center no-repeat;
-  background-size: contain;
+  > div {
+    // note: backgrounds are 1206 x 149, but should be 1216 x 149
+    background: transparent center no-repeat;
+    position: absolute;
+    background-size: contain;
+    width: 75px;
+    top: -1px;
+    height: 608px;
+    will-change: transform;
+    display: none;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+
+    &.active {
+      display: block;
+      animation: deliver-step 2s steps(1) infinite;
+    }
+  }
+
+  .deliver0 {
+    background-image: url(img/presents/magic.png);
+  }
+  .deliver1 {
+    background-image: url(img/presents/roof.png);
+  }
+  .deliver2 {
+    background-image: url(img/presents/tree.png);
+  }
 }
 
 .sleigh {

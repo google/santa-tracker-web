@@ -1,0 +1,79 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<!--
+Tracker attribution.
+-->
+<dom-module id="tracker-attribution">
+<template>
+  <style>
+  a {
+    color: inherit;
+  }
+  a:hover {
+    color: #eefda5;
+    text-decoration: none;
+  }
+  </style>
+  <span id="content"></span>
+</template>
+<script>
+Polymer({
+  is: 'tracker-attribution',
+
+  properties: {
+    details: {
+      type: Object,
+      value: null,
+      observer: '_onDetailsChanged',
+    },
+  },
+
+  _onDetailsChanged: function(details) {
+    var node = this.$.content;
+
+    if (!details) {
+      node.innerHTML = '&mdash;';
+      return;
+    }
+
+    // Create photo and Wikipedia attribution HTML.
+    var parts = (details.photos || []).map(function(photo) {
+      return photo.attributionHtml;
+    });
+    if (details.hasWiki) {
+      var link = document.createElement('a');
+      link.textContent = 'Wikipedia';
+      link.href = details.wikipedia.url;
+      parts.unshift(link.outerHTML);
+    }
+
+    node.innerHTML = parts.join(' &bull; ');
+    Array.from(node.querySelectorAll('a')).forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.href = link.href.replace(/^http\b/, 'https');
+
+      // nb. Panoramio only has a valid cert for www.
+      link.href = link.href.replace(/\bpanoramio\.com\b/, 'www.panoramio.com');
+    });
+
+    this.scopeSubtree(node);
+  },
+
+});
+
+</script>
+</dom-module>

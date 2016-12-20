@@ -64,6 +64,7 @@ section {
     background: #00ccb9;
   }
   &#livefeed {
+    min-height: 0 !important;
     @import "sass/livefeed";
   }
   &#thanks {
@@ -114,7 +115,6 @@ santa-weather {
 tracker-map {
   @apply(--layout-fit);
 }
-
 
 .stats {
   display: flex;
