@@ -98,7 +98,7 @@ Tracker scene.
           </template>
 
           <article class="big">
-            <div class="bg" id="feedbg"></div>
+            <div class="bg" style$="[[_computeBackgroundImageStyle(_cardFeedImage)]]"></div>
             <h2>Live Feed</h2>
           </article>
         </div>
@@ -154,7 +154,7 @@ Tracker scene.
           <h1>This Just In</h1>
         </span>
         <template is="dom-repeat" items="[[_feedImages]]">
-          <div class="image" style$="background-image: url([[item]])"></div>
+          <div class="image" style$="[[_computeBackgroundImageStyle(item)]]"></div>
         </template>
       </section>
       <section id="thanks">
@@ -183,17 +183,30 @@ Tracker scene.
       _updateSantaTimeout: Number,
       _videoActive: {type: Boolean, value: false},
 
-      _feedImages: {
-        type: Array,
-        value: function() { return []; },
-      },
-
       /**
        * Whether to display in minimal UI mode.
        */
       minimalUi: {
         type: Boolean,
         value: false,
+      },
+
+      /**
+       * The images currently being displayed in the social feed.
+       */
+      _feedImages: {
+        type: Array,
+        value: function() {
+          return new Array(SOCIALFEED_COUNT);
+        },
+      },
+
+      /**
+       * The main social card background.
+       */
+      _cardFeedImage: {
+        type: String,
+        value: null,
       },
 
       /**
@@ -364,35 +377,41 @@ Tracker scene.
         var wrap = function(fn) {
           return function() {
             if (current === this._current && upcoming === this._upcoming) {
-              fn.call(this);
+              fn.apply(this, arguments);
             }
           }.bind(this);
         }.bind(this);
 
         this._pushSocialImage(wrap(function(src) {
-          this.$.feedbg.style.backgroundImage = 'url(' + src + ')';
+          this._cardFeedImage = src;
         }));
       }, 100);
     },
 
     _pushSocialImage: function(opt_callback) {
-      var path;
-      if (!this.minimalUi && Math.random() < 0.2) {
-        path = randomChoice(FEED_ANIMATION) + '.gif';
-      } else {
-        path = randomChoice(FEED_STATIC) + '.png';
+      var chooseImage = function() {
+        if (!this.minimalUi && Math.random() < 0.2) {
+          return randomChoice(FEED_ANIMATION) + '.gif';
+        } else {
+          return randomChoice(FEED_STATIC) + '.png';
+        }
+      }.bind(this);
+
+      var src;
+      var count = 10;
+      while (--count && (!src || this._feedImages.indexOf(src) !== -1)) {
+        src = 'img/feed/' + chooseImage();
       }
 
       var image = new Image();
-      image.src = this.resolveUrl('img/feed/' + path);
+      image.src = this.resolveUrl(src);
       image.onload = function() {
-        opt_callback && opt_callback.call(this, image.src);
+        opt_callback && opt_callback.call(this, src);
 
         // If the image isn't already in the feed, add it here.
-        if (this._feedImages.indexOf(image.src) === -1) {
-          this.unshift('_feedImages', image.src);
-
-          if (this._feedImages.length > SOCIALFEED_COUNT) {
+        if (this._feedImages.indexOf(src) === -1) {
+          this.unshift('_feedImages', src);
+          while (this._feedImages.length > SOCIALFEED_COUNT) {
             this.pop('_feedImages');
           }
         } else {
@@ -461,6 +480,14 @@ Tracker scene.
 
     _computeMinimalUiClass: function(minimalUi) {
       return minimalUi ? 'minimal-ui' : null;
+    },
+
+    _computeBackgroundImageStyle: function(path) {
+      if (path) {
+        var url = this.resolveUrl(path);
+        return 'background-image: url(' + url + ')';
+      }
+      return null;
     },
 
     _youtubeEvent: function(event, detail) {
