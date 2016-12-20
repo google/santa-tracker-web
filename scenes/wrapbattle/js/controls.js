@@ -28,6 +28,8 @@ app.Controls = class {
   constructor(game) {
     this.game = game;
     this.keysDown = [];
+
+    this.debounce_ = {};
   }
 
   /**
@@ -38,28 +40,37 @@ app.Controls = class {
     $(document).on('keydown.wrapbattle', this.onKeyDown.bind(this));
     $(document).on('keyup.wrapbattle', this.onKeyUp.bind(this));
     $('.mobile-button', this.game.elem).on(app.InputEvent.START,
-        this.onTouchEvent.bind(this, true))
+        this.onTouchEvent.bind(this, true));
     $('.mobile-button', this.game.elem).on(app.InputEvent.END + ' ' +
-        app.InputEvent.CANCEL, this.onTouchEvent.bind(this, false))
+        app.InputEvent.CANCEL, this.onTouchEvent.bind(this, false));
   }
 
   /**
    * Touch start handler
-   * @param  {boolean} shouldAdd Whether the key should be added
-   * @param  {Event} e The event
+   * @param {boolean} shouldAdd Whether the key should be added
+   * @param {!jQuery.Event} e The event
    */
   onTouchEvent(shouldAdd, e) {
     e = e.originalEvent || e;
-    var target = $(e.target);
-    var updateFn = shouldAdd ? this.addKey.bind(this) : this.removeKey.bind(this);
+    const target = $(e.target);
+    let dir = undefined;
+
     if (target.hasClass('mobile-button--up')) {
-        updateFn(app.Constants.DIRECTIONS.UP);
+      dir = app.Constants.DIRECTIONS.UP;
     } else if (target.hasClass('mobile-button--down')) {
-        updateFn(app.Constants.DIRECTIONS.DOWN);
+      dir = app.Constants.DIRECTIONS.DOWN;
     } else if (target.hasClass('mobile-button--left')) {
-        updateFn(app.Constants.DIRECTIONS.LEFT);
+      dir = app.Constants.DIRECTIONS.LEFT;
     } else if (target.hasClass('mobile-button--right')) {
-        updateFn(app.Constants.DIRECTIONS.RIGHT);
+      dir = app.Constants.DIRECTIONS.RIGHT;
+    } else {
+      return;
+    }
+
+    if (shouldAdd) {
+      this.addKey(dir)
+    } else {
+      this.removeKey(dir);
     }
   }
 
@@ -100,11 +111,18 @@ app.Controls = class {
    * @param {number} keyCode The key code of the key
    */
   removeKey(keyCode) {
-    for (var i = 0; i < this.keysDown.length; i++) {
-      if (this.keysDown[i] == keyCode) {
-        this.keysDown.splice(i, 1);
-        break;
+    window.clearTimeout(this.debounce_[keyCode] || 0);
+
+    // Debounce key releases, so that touch/mouse events always have a minium duration.
+    this.debounce_[keyCode] = window.setTimeout(() => {
+      delete this.debounce_[keyCode];
+
+      for (var i = 0; i < this.keysDown.length; i++) {
+        if (this.keysDown[i] == keyCode) {
+          this.keysDown.splice(i, 1);
+          break;
+        }
       }
-    }
+    }, app.Constants.KEY_DELAY);
   }
 }
