@@ -32,6 +32,24 @@ Tracker scene.
 <template>
   <style include="newtracker-scene_module"></style>
 
+  <svg height="0" width="0">
+      <defs>
+          <clipPath id="cardMask1" transform="scale(.7, .7)">
+              <path d="M0,199.1c14,2.8,22.9,23,23.1,42.8l0,91.9c0,22.6,18.3,40.8,40.9,40.8c43.3-0.1,105.9,0.2,111.5,0.4
+    c19.8,0.3,40,9.1,42.8,23.1h0c2.8-14.1,23-22.9,42.8-23.1c5.5-0.2,68.2-0.5,111.5-0.4c22.6,0,40.9-18.2,40.9-40.8v-91.9
+    c0.3-19.8,9.1-40,23.1-42.8v-0.1c-14-2.8-22.9-23-23.1-42.8V64.4c0-22.6-18.3-40.8-40.9-40.8c-43.3,0.1-105.9-0.2-111.5-0.4
+    c-19.8-0.3-40-9.1-42.8-23.1l0,0c-2.8,14.1-23,22.9-42.8,23.1c-5.5,0.2-68.2,0.5-111.5,0.4c-22.6,0-40.9,18.2-40.9,40.8l0,91.9
+    C22.9,176,14,196.2,0,199.1L0,199.1z"/>
+          </clipPath>
+          <clipPath id="cardMask2"  transform="scale(.7, .7)">
+            <path d="M16.8,188.4c0,18.7-12,85.1-13.6,93.8c-17,89.8,38.6,98.8,77.2,90.1c9.8-2.2,104.3-21,118.2,4.6h0.2
+	c13.9-25.5,108.4-6.8,118.2-4.6c38.5,8.7,94.1-0.2,77.2-90.1c-1.6-8.7-13.6-75.1-13.6-93.8s12-85.1,13.6-93.8
+	c17-89.8-38.6-98.8-77.2-90.1c-9.8,2.2-104.3,21-118.2-4.6l-0.2,0C184.6,25.5,90.1,6.8,80.3,4.6C41.8-4.2-13.8,4.8,3.1,94.6
+	C4.8,103.3,16.8,169.7,16.8,188.4z"/>
+          </clipPath>
+      </defs>
+  </svg>
+
   <google-youtube id="player" hidden="[[!_videoActive]]"
       video-id="[[_youtubeId]]"
       playsupported="true"
@@ -144,6 +162,41 @@ Tracker scene.
       </section>
       <section id="games">
         <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
+        <div id="games-asset"></div>
+        <div id="games-list">
+          <div class="card game game-gumball">
+            <div class="card--inner">
+              <a href="#">
+                <h3>Code Boogie</h3>
+                <h4>Play Now</h4>
+              </a>
+            </div>
+          </div>
+          <div class="card game game-gumball">
+            <div class="card--inner">
+              <a href="#">
+                <h3>Code Boogie</h3>
+                <h4>Play Now</h4>
+              </a>
+            </div>
+          </div>
+          <div class="card game game-gumball">
+            <div class="card--inner">
+              <a href="#">
+                <h3>Code Boogie</h3>
+                <h4>Play Now</h4>
+              </a>
+            </div>
+          </div>
+          <div class="card game game-gumball">
+            <div class="card--inner">
+              <a href="#">
+                <h3>Code Boogie</h3>
+                <h4>Play Now</h4>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
       <section id="videos">
         <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
