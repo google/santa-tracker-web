@@ -149,6 +149,10 @@ Tracker scene.
         <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
       </section>
       <section id="livefeed">
+        <span class="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 440"><g><path d="M68.08,215.52c0,18.69-12,85.1-13.62,93.76-17,89.83,38.64,98.79,77.15,90.05,9.77-2.22,104.29-21,118.17,4.57H250c13.88-25.54,108.4-6.79,118.17-4.57,38.51,8.74,94.12-.22,77.15-90.05-1.64-8.67-13.62-75.07-13.62-93.76s12-85.1,13.62-93.76c17-89.83-38.64-98.79-77.15-90.05-9.77,2.22-104.29,21-118.17-4.57h-.22c-13.88,25.54-108.4,6.79-118.17,4.57C93.1,23,37.49,31.92,54.46,121.76,56.1,130.43,68.08,196.83,68.08,215.52Z"/></g></svg>
+          <h1>This Just In</h1>
+        </span>
         <template is="dom-repeat" items="[[_feedImages]]">
           <div class="image" style$="background-image: url([[item]])"></div>
         </template>
@@ -166,6 +170,7 @@ Tracker scene.
 <script>
 (function() {
   var UPDATE_MS = 250;
+  var SOCIALFEED_COUNT = 11;
 
   var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree'];
   var FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
@@ -364,35 +369,36 @@ Tracker scene.
           }.bind(this);
         }.bind(this);
 
-        var image = new Image();
-        image.src = this._randomFeedImage();
-        image.onload = wrap(function() {
-
-          // TODO(samthor): 10 is probably not the right number
-          this.unshift('_feedImages', image.src);
-          if (this._feedImages.length > 10) {
-            this.pop('_feedImages');
-          }
-
-          this.$.feedbg.style.backgroundImage = 'url(' + image.src + ')';
-        });
+        this._pushSocialImage(wrap(function(src) {
+          this.$.feedbg.style.backgroundImage = 'url(' + src + ')';
+        }));
       }, 100);
     },
 
-    /**
-     * Returns a random image to use for the social feed.
-     */
-    _randomFeedImage: function() {
+    _pushSocialImage: function(opt_callback) {
       var path;
-      var animated = (!this.minimalUi && Math.random() < 0.2);
-
-      if (animated) {
+      if (!this.minimalUi && Math.random() < 0.2) {
         path = randomChoice(FEED_ANIMATION) + '.gif';
       } else {
         path = randomChoice(FEED_STATIC) + '.png';
       }
 
-      return this.resolveUrl('img/feed/' + path);
+      var image = new Image();
+      image.src = this.resolveUrl('img/feed/' + path);
+      image.onload = function() {
+        opt_callback && opt_callback.call(this, image.src);
+
+        // If the image isn't already in the feed, add it here.
+        if (this._feedImages.indexOf(image.src) === -1) {
+          this.unshift('_feedImages', image.src);
+
+          if (this._feedImages.length > SOCIALFEED_COUNT) {
+            this.pop('_feedImages');
+          }
+        } else {
+          this._pushSocialImage();
+        }
+      }.bind(this);
     },
 
     /**
@@ -509,6 +515,15 @@ Tracker scene.
     attached: function() {
       window.santaService.addListener('sync', this._santaSync);
       window.santaService.getCurrentLocation(this._santaSync);
+
+      if (!this.minimalUi) {
+        // TODO(samthor): There's no cache/list of images currently being loaded, so this might
+        // load duplicates and then the feed will have fewer than SOCIALFEED_COUNT entries: until
+        // we randomly load enough from Santa's flight, that is.
+        for (var i = 0; i < SOCIALFEED_COUNT; ++i) {
+          this._pushSocialImage();
+        }
+      }
     },
 
     detatched: function() {
