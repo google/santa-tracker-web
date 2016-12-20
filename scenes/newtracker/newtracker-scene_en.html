@@ -516,7 +516,24 @@ Tracker scene.
     },
 
     onPreload: function() {
-      this.preloadImages([]);
+      var images = [
+        'img/sleigh/effects.svg',
+      ];
+      'n ne e se s sw w nw'.split(' ').forEach(function(dir) {
+        images.push('img/sleigh/sleigh-' + dir + '-back.svg');
+        images.push('img/sleigh/sleigh-' + dir + '-front.svg');
+        images.push('img/sleigh/sleigh-' + dir + '-santa.svg');
+      });
+
+      if (!this.minimalUi) {
+        images = images.concat([
+          'img/ornament.svg',
+          'img/presents.svg',
+          'img/thanks.svg',
+        ]);
+      }
+
+      this.preloadImages(images);
     },
 
   });
