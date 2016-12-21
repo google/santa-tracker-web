@@ -30,6 +30,8 @@ Tracker map.
 
   <iron-media-query query="(pointer: fine)" query-matches="{{_hasPointer}}"></iron-media-query>
 
+  <div id="marker" class="marker" hidden></div>
+
   <div id="santa" tabindex="0" hidden>
     <div class="presents" hidden>
       <div class="deliver0"></div>
@@ -44,7 +46,7 @@ Tracker map.
   </div>
 
   <div id="map"></div>
-  
+
 </template>
 <script>
 (function() {
@@ -73,6 +75,7 @@ Tracker map.
       this._presents = this._container.querySelector('.presents');
 
       this._lines = [];
+      this._trailEndLatLng = null;
 
       this._activeTrail = new google.maps.Polyline({
         geodesic: true,
@@ -125,6 +128,7 @@ Tracker map.
       }
 
       this.draw();
+      this._updateActiveTrail();
     };
 
     /**
@@ -151,6 +155,22 @@ Tracker map.
       this._lines.forEach(function(line, i) {
         line.setPath(trail.slice(i, i + 2));
       });
+      this._trailEndLatLng = trail[0] || null;
+      this._updateActiveTrail();
+    };
+
+    /**
+     * Updates the active trail (the segment from trail => Santa), based on the latLngTrail and
+     * Santa's location.
+     */
+    SantaLayer.prototype._updateActiveTrail = function() {
+      var latLng = /** @type {google.maps.LatLng} */ (this.get('position'));
+
+      if (latLng && this._trailEndLatLng) {
+        this._activeTrail.setPath([latLng, this._trailEndLatLng]);
+      } else {
+        this._activeTrail.setPath([]);
+      }
     };
 
     /**
@@ -332,9 +352,6 @@ Tracker map.
       var slice = this.trail.slice(this.trail.length - this.trailLength).map(function(data) {
         return data.location;
       });
-      if (this.santaLatLng) {
-        slice.push(this.santaLatLng);
-      }
       slice.reverse();
 
       this._santaLayer.setLatLngTrail(slice);

@@ -232,6 +232,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 (function() {
   var UPDATE_MS = 250;
   var SOCIALFEED_COUNT = 11;
+  var TRAIL_LENGTH = 16;
 
   var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree'];
   var FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
@@ -298,6 +299,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
        */
       _youtubeId: {
         type: String,
+        value: null,
+      },
+
+      /**
+       * Santa's previous stop.
+       */
+      _prev: {
+        type: Object,
         value: null,
       },
 
@@ -397,11 +406,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       var p = this.$.map.santaLatLng;
       var move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 
-      // Don't do a bunch of calculations while Santa is at a fixed location.
+      // Only perform some updates and calculations while Santa is moving (and not if stopped).
       if (move) {
         this.$.map.santaLatLng = data.position;
         this.$.map.santaHeading = data.stopover ? null : data.heading;
 
+        // Work out the distance from the user to Santa.
         var userLocation = window.santaService.getUserLocation();
         if (userLocation) {
           this._distance = Spherical.computeDistanceBetween(data.position, userLocation);
@@ -409,15 +419,17 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           this._distance = -1;
         }
 
-        var pending = data.prev;
-        var trail = [];
-        // TODO(samthor): Build this up over time, not every frame.
-        // TODO(samthor): Don't change the trail while Santa is flying, only at each stop.
-        while (trail.length < 16 && pending) {
-          trail.unshift(pending);
-          pending = pending.prev();
+        // If the previous stop has changed, then rebuild Santa's trail.
+        if (this._prev !== data.prev) {
+          this._prev = data.prev;
+          var pending = data.prev;
+          var trail = [];
+          while (trail.length < TRAIL_LENGTH && pending) {
+            trail.unshift(pending);
+            pending = pending.prev();
+          }
+          this.$.map.trail = trail;
         }
-        this.$.map.trail = trail;
       }
 
       this._setDistanceTravelled(data.distanceTravelled);
