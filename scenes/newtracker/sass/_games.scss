@@ -27,7 +27,6 @@ h1 {
   overflow: auto;
   overflow-y: hidden;
   display: flex;
->>>>>>> master
   padding-left: 230px;
   align-items: center;
   justify-content: flex-start;
@@ -90,18 +89,7 @@ h1 {
       left: 38px;
       background: url(img/shape1-shadow.svg) center no-repeat;
       z-index: 1;
->>>>>>> master
-    }
-  }
 
-<<<<<<< HEAD
-  .game-gumball {
-    .card--inner {
-      background-image: url(/images/scenes/gumball_2x.png);
-    }
-  }
-}
-=======
     &::after {
       content: '';
       height: 24px;
@@ -150,5 +138,3 @@ h1 {
     padding-left: 50vw;
   }
 }
-
->>>>>>> master
