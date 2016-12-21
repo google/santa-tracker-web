@@ -14,6 +14,39 @@
 }
 
 .horizontal-list {
+  a {
+    &:nth-child(even) {
+      .card {
+        width: 282px;
+        top: 10px;
+
+        .card--inner {
+          clip-path: url(#cardMask2);
+
+          a {
+            padding-top: 30px;
+          }
+        }
+
+        &::before {
+          height: 189px;
+          width: 299px;
+          background: url(img/shape2-shadow.svg) center no-repeat;
+          left: 5px;
+          bottom: 13px;
+        }
+
+        &::after {
+          height: 13px;
+          width: 305px;
+          bottom: 18px;
+          left: -14px;
+          background: url(img/shape2-base.svg) center no-repeat;
+        }
+      }
+    }
+  }
+  
   .card {
     width: 308px;
     height: 282px;
@@ -40,35 +73,6 @@
       bottom: 3px;
       left: 32px;
       background: url(img/shape1-base.svg) center no-repeat;
-    }
-
-    &:nth-child(even) {
-      width: 282px;
-      top: 10px;
-
-      .card--inner {
-        clip-path: url(#cardMask2);
-
-        a {
-          padding-top: 30px;
-        }
-      }
-
-      &::before {
-        height: 189px;
-        width: 299px;
-        background: url(img/shape2-shadow.svg) center no-repeat;
-        left: 5px;
-        bottom: 13px;
-      }
-
-      &::after {
-        height: 13px;
-        width: 305px;
-        bottom: 18px;
-        left: -14px;
-        background: url(img/shape2-base.svg) center no-repeat;
-      }
     }
   }
 }
