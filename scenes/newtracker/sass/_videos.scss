@@ -14,6 +14,32 @@
 }
 
 .horizontal-list {
+  a {
+    &:nth-child(even) {
+      .card {
+        width: 380px;
+        .card--inner {
+          clip-path: url(#cardMask4);
+        }
+
+        &::before {
+          height: 191px;
+          width: 392px;
+          background: url(img/shape4-shadow.svg) center no-repeat;
+          left: 2px;
+          bottom: -10px;
+        }
+
+        &::after {
+          height: 11px;
+          width: 348px;
+          bottom: -1px;
+          left: 15px;
+          background: url(img/shape4-base.svg) center no-repeat;
+        }
+      }
+    }
+  }
   .card {
     width: 370px;
     height: 205px;
@@ -36,29 +62,6 @@
       bottom: 0;
       left: 0;
       background: url(img/shape3-base.svg) center no-repeat;
-    }
-
-    &:nth-child(even) {
-      width: 380px;
-      .card--inner {
-        clip-path: url(#cardMask4);
-      }
-
-      &::before {
-        height: 191px;
-        width: 392px;
-        background: url(img/shape4-shadow.svg) center no-repeat;
-        left: 2px;
-        bottom: -10px;
-      }
-
-      &::after {
-        height: 11px;
-        width: 348px;
-        bottom: -1px;
-        left: 15px;
-        background: url(img/shape4-base.svg) center no-repeat;
-      }
     }
   }
 }
