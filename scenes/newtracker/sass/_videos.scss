@@ -1,5 +1,5 @@
 & {
-    background: #00ccb9;
+  background: #00ccb9;
 }
 
 #videos-asset {
@@ -10,61 +10,32 @@
   top: 50%;
   z-index: 1000;
   left: 48px;
+  pointer-events: none;  // allow scroll events through this
 }
 
-#videos-list {
-  overflow: auto;
-  display: flex;
-  height: 80vh;
-  padding-left: 230px;
-  align-items: center;
-  justify-content: flex-start;
-
+.horizontal-list {
   .card {
     width: 370px;
     height: 205px;
-    flex-shrink: 0;
-    position: relative;
-    margin: 0 6px;
 
     .card--inner {
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-size: cover;
       clip-path: url(#cardMask3);
-      position: relative;
-      z-index: 5;
-      border-radius: 25px;
-
-      a {
-        text-decoration: none;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }
     }
 
     &::before {
-      content: '';
       height: 180px;
       width: 380px;
-      position: absolute;
       bottom: -10px;
       left: 5px;
       background: url(img/shape3-shadow.svg) center no-repeat;
-      z-index: 1;
     }
 
     &::after {
-      content: '';
       height: 14px;
       width: 368px;
-      position: absolute;
       bottom: 0;
       left: 0;
       background: url(img/shape3-base.svg) center no-repeat;
-      z-index: 10;
     }
 
     &:nth-child(even) {
@@ -88,12 +59,6 @@
         left: 15px;
         background: url(img/shape4-base.svg) center no-repeat;
       }
-    }
-  }
-
-  .video-carpool {
-    .card--inner {
-      background-image: url(/images/scenes/carpool_2x.png);
     }
   }
 }

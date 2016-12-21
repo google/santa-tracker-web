@@ -180,9 +180,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       <section id="games">
         <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="games-asset"></div>
-        <div id="games-list">
+        <div class="horizontal-list">
           <template is="dom-repeat" items="[[_gamesList]]">
-            <div class="card game">
+            <div class="card">
               <div class="card--inner" style$="[[_computeCardStyle(item)]]">
                 <a href="[[urlFor(item)]]">
                   <h3>[[_computeCardTitle(item, strings)]]</h3>
@@ -195,7 +195,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       <section id="videos">
         <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="videos-asset"></div>
-        <div id="videos-list">
+        <div class="horizontal-list">
           <template is="dom-repeat" items="[[_videosList]]">
             <div class="card">
               <div class="card--inner" style$="[[_computeCardStyle(item)]]">
