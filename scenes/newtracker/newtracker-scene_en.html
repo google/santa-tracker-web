@@ -183,28 +183,28 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       <section id="games" class="listview">
         <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="games-asset"></div>
-        <div class="horizontal-list">
+        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut">
           <template is="dom-repeat" items="[[_gamesList]]">
-            <div class="card">
-              <div class="card--inner" style$="[[_computeCardStyle(item)]]">
-                <a href="[[urlFor(item)]]">
+            <a href="[[urlFor(item)]]" class="over">
+              <div class="card">
+                <div class="card--inner" style$="[[_computeCardStyle(item)]]">
                   <h3>[[_computeCardTitle(item, strings)]]</h3>
-                </a>
+                </div>
               </div>
-            </div>
+            </a>
           </template>
         </div>
       </section>
       <section id="videos" class="listview">
         <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="videos-asset"></div>
-        <div class="horizontal-list">
+        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut">
           <template is="dom-repeat" items="[[_videosList]]">
-            <div class="card">
-              <div class="card--inner" style$="[[_computeCardStyle(item)]]">
-                <a href="[[urlFor(item)]]"></a>
+            <a href="[[urlFor(item)]]" class="over">
+              <div class="card">
+                <div class="card--inner" style$="[[_computeCardStyle(item)]]"></div>
               </div>
-            </div>
+            </a>
           </template>
         </div>
       </section>
@@ -749,6 +749,26 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }
 
       this.preloadImages(images);
+      this.preloadSounds('village_load_sounds');
+    },
+
+    onShow: function() {
+      this.fire('sound-ambient', 'music_start_village');
+    },
+
+    onHide: function() {
+    },
+
+    _onCardOver: function(event) {
+      if (event.target.classList.contains('over')) {
+        this.fire('sound-trigger', 'village_bubble_appear');
+      }
+    },
+
+    _onCardOut: function(event) {
+      if (event.target.classList.contains('over')) {
+        this.fire('sound-trigger', 'village_bubble_disappear');
+      }
     },
 
   });
