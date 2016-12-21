@@ -124,11 +124,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
           <template is="dom-if" if="[[!minimalUi]]">
             <article class="rotate rotate-games">
+              <div class="bg" id="feedbg" style$="[[_computeCardStyle(_gamesList.0)]]"></div>
               <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
               <a class="bg" href="#games"></a>
             </article>
             <article class="rotate rotate-videos">
-              <div class="bg" id="feedbg" style="background-image: url(../../images/scenes/santasback_2x.png)"></div>
+              <div class="bg" id="feedbg" style$="[[_computeCardStyle(_videosList.0)]]"></div>
               <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
               <a class="bg" href="#videos"></a>
             </article>
