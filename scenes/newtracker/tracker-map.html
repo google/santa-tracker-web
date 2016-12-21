@@ -262,6 +262,21 @@ Tracker map.
       '_updateTrail(_map, trail, trailLength, santaLatLng)',
     ],
 
+    _calculateMapOffset: function() {
+      var out = {x: 0, y: 0};
+      if (!this.minimalUi) {
+        // TODO(samthor): This could happen outside `tracker-map`, as this element shouldn't care
+        // about cards laid on top of here.
+        if (window.innerHeight < 450) {
+          out.x = -window.innerWidth / 4;
+          out.y = -30;
+        } else {
+          out.y = -60;  // roughly 1/2 the size of cards
+        }
+      }
+      return out;
+    },
+
     _updateMapState: function() {
       // nb. we need a delay here, to let window resizes etc settle
       this.debounce('_updateMapState', function() {
@@ -272,12 +287,28 @@ Tracker map.
         var santaLatLng = new google.maps.LatLng(this.santaLatLng);
         this._santaLayer.setPosition(santaLatLng, this.santaHeading);
 
+
         if (!this.focusOnSanta) {
           return;  // nothing else to do
         }
+
+        var offsetSantaLatLng;
+        var offset = this._calculateMapOffset();
+        var projection = this._map.getProjection();
+        if ((offset.x || offset.y) && projection) {
+          // TODO(samthor): This code doesn't always run while Santa is delivering presents.
+          var point = projection.fromLatLngToPoint(santaLatLng);
+          var pow = Math.pow(2, this._map.getZoom());
+          point.x -= offset.x / pow;
+          point.y -= offset.y / pow;
+          offsetSantaLatLng = projection.fromPointToLatLng(point);
+        } else {
+          offsetSantaLatLng = santaLatLng;
+        }
+
         try {
           this._duringMapChange = true;
-          this._map.setCenter(santaLatLng);
+          this._map.setCenter(offsetSantaLatLng);
 
           if (!this._userZoom) {
             // If focused, the zoom is roughly inverse with screen size. Smaller devices see more

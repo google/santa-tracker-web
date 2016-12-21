@@ -21,6 +21,11 @@
     background: $color-green;
     padding: 2px 10px;
     box-sizing: border-box;
+    z-index: 2;
+
+    &.rotate {
+      z-index: 1;  // rotate cards, on right, stay behind main cards
+    }
 
     h2 {
       font-size: 11px;
@@ -33,6 +38,7 @@
     }
 
     .bg {
+      display: block;
       z-index: -1;
       position: absolute;
       top: 0;
@@ -42,6 +48,26 @@
       border-radius: inherit;
       background: transparent center no-repeat;
       background-size: cover;
+    }
+    a.bg {
+      z-index: 100;
+
+      &::before {
+        border-radius: inherit;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity 0.2s;
+      }
+      &:hover::before {
+        opacity: 0.25;
+      }
     }
 
     &.big {
@@ -66,24 +92,33 @@
 
   // regular mode
   &:not(.minimal-ui) {
-    // iPad horizontal gets all cards
-    @media (max-width: (1024px - 1px)) {
-      article:first-of-type {
-        display: none;
-        background: none !important;
-      }
-    }
+    // iPad horizontal gets all cards (normal)
     // iPad vertical gets three cards
-    @media (max-width: (768px - 1px)) {
-      article:last-of-type {
+    @media (max-width: (1024px - 1px)) {
+      article.rotate-videos {
         display: none;
         background: none !important;
       }
     }
-    // smaller gets two cards, and then <600px, they shrink in height.
-    @media (max-width: (600px - 1px)) {
+    // any smaller gets two cards, and shrunk to the right
+    @media (max-width: (768px - 1px)) and (min-height: (320px + 1px)) {
+      article.rotate-games {
+        display: none;
+        background: none !important;
+      }
+
+      min-width: 110vw;
+      padding-right: 0;
+
       article {
-        height: 80px;
+        max-width: 60vw;
+      }
+    }
+
+    // smaller than 320px gets massively reduced UI
+    @media (max-height: 320px) {
+      article.rotate {
+        display: none !important;
       }
     }
   }

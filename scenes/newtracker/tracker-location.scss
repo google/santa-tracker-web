@@ -116,13 +116,20 @@ $photo-maxwidth: 600px;
 }
 
 #wiki {
+  $margin-width: 20px;
   max-width: $photo-maxwidth;
-  margin-bottom: 12px;
   color: white;
   font-size: 17px;
   line-height: 23px;
-  margin: 16px 20px;
+  margin: 16px $margin-width 0;
   font-weight: 400;
+
+  // Force minimum width to be at least $photo-maxwidth (+margin, since this is not box-sizing:
+  // border-box): unless we're smaller than that, in which case use vw.
+  width: $photo-maxwidth;
+  @media (max-width: ($photo-maxwidth + $margin-width * 2)) {
+    width: calc(100vw - (#{$margin-width} * 2));
+  }
 
   @media (max-width: (768px - 1px)) {
     font-size: 15px;

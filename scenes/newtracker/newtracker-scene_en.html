@@ -76,13 +76,13 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       chromeless autoplay="1">
   </google-youtube>
 
-  <div class="contain">
+  <div class="contain" id="sections">
     <section id="main">
       <santa-weather>
         <div id="topbar" hidden="[[minimalUi]]"></div>
         <tracker-map id="map" minimal-ui="[[minimalUi]]"></tracker-map>
 
-        <div class$="cards [[_computeMinimalUiClass(minimalUi)]]">
+        <div class$="cards [[_computeMinimalUiClass(minimalUi)]]" on-click="_onCardClick">
           <article class="stats">
             <div class="data">
               <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -119,21 +119,25 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
               </div>
             </div>
 
+            <a class="bg" href="#stats"></a>
           </article>
 
           <template is="dom-if" if="[[!minimalUi]]">
-            <article>
+            <article class="rotate rotate-games">
               <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+              <a class="bg" href="#games"></a>
             </article>
-            <article>
+            <article class="rotate rotate-videos">
               <div class="bg" id="feedbg" style="background-image: url(../../images/scenes/santasback_2x.png)"></div>
               <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
+              <a class="bg" href="#videos"></a>
             </article>
           </template>
 
-          <article class="big">
+          <article class="big rotate rotate-livefeed">
             <div class="bg" style$="[[_computeBackgroundImageStyle(_cardFeedImage)]]"></div>
             <h2><i18n-msg msgid="tracker_feed">PLACEHOLDER_i18n</i18n-msg></h2>
+            <a class="bg" href="#livefeed"></a>
           </article>
         </div>
       </santa-weather>
@@ -176,7 +180,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
         </div>
       </section>
-      <section id="games">
+      <section id="games" class="listview">
         <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="games-asset"></div>
         <div class="horizontal-list">
@@ -191,7 +195,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           </template>
         </div>
       </section>
-      <section id="videos">
+      <section id="videos" class="listview">
         <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="videos-asset"></div>
         <div class="horizontal-list">
@@ -606,6 +610,81 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       });
     },
 
+    _onCardClick: function(event) {
+      var link = event.target;
+      var href = link.getAttribute('href');
+      var target = href && this.$$(href);  // needs $$ as template means these aren't on $
+      if (!target) {
+        return;
+      }
+      event.preventDefault();
+
+      // Place this in the center of the screen. This works because our sections are contained by
+      // a full-height div, so they are relative to y=0. Also, scroll to slightly before the top
+      // of the section, if it's actually too big for the viewport.
+      var y = target.offsetTop + target.offsetHeight / 2 - window.innerHeight / 2;
+      this._scrollTo(Math.min(target.offsetTop - 44 - 12, y));
+    },
+
+    /**
+     * Smooth scrolls to the given y-position. This stops if something else moves the document's
+     * scroll position (like the user, or another smooth scroll request).
+     */
+    _scrollTo: function(to) {
+      if (!window.KeyframeEffect) {
+        window.scrollTo(0, to);
+        return;
+      }
+
+      var start = document.body.scrollTop;
+      var duration = Math.abs(to - start) / 2;
+      var prev = start;
+
+      var div = document.createElement('div');
+      var effect = new KeyframeEffect(div, [], {duration: duration, easing: 'ease-out'});
+      effect.onsample = function(frac) {
+        if (document.body.scrollTop !== prev) {
+          prev = NaN;
+          anim.cancel();  // give up, we're done, something moved
+        } else {
+          prev = Math.round(start + (frac == null ? 1.0 : frac) * (to - start));
+          window.scrollTo(0, prev);
+        }
+      };
+      anim = document.timeline.play(effect);
+    },
+
+    /**
+     * Deduped scroll handler. Sets the current search based on the section visible in the center
+     * of the page.
+     */
+    _onScroll: function() {
+      this.debounce('_onScroll', function() {
+        if (!this.active) {
+          return;
+        }
+
+        var cand;
+        var y = document.body.scrollTop + window.innerHeight * 0.5;
+        var s = this.$.sections;
+        for (var i = 0, opt; opt = s.children[i]; ++i) {
+          if (opt.localName !== 'section') {
+            continue;
+          }
+          if (y < opt.offsetTop) {
+            if (i === 1) {
+              cand = null;  // don't use 0th section
+            }
+            break;
+          }
+          cand = opt;
+        }
+
+        var search = cand ? '#' + cand.id : '';
+        window.history.replaceState(null, null, window.location.pathname + search);
+      }, 100);
+    },
+
     /**
      * Plays a full-screen YouTube video. This should only be used in non-interactive environments,
      * e.g., Google Cast.
@@ -625,6 +704,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     created: function() {
       this._santaSync = this._santaSync.bind(this);
+      this._onScroll = this._onScroll.bind(this);
     },
 
     attached: function() {
@@ -639,10 +719,13 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           this._pushSocialImage();
         }
       }
+
+      window.addEventListener('scroll', this._onScroll, {passive: true});
     },
 
     detatched: function() {
       window.santaService.removeListener('sync', this._santaSync);
+      window.removeEventListener('scroll', this._onScroll, {passive: true});
     },
 
     onPreload: function() {
@@ -661,7 +744,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       if (!this.minimalUi) {
         images = images.concat([
           'img/ornament.svg',
-          'img/presents.svg',
           'img/thanks.svg',
         ]);
       }
