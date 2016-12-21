@@ -69,6 +69,10 @@ $photo-maxwidth: 600px;
       background: transparent bottom left no-repeat;
       background-size: contain;
     }
+
+    &.easteregg {
+      background-image: url(img/photo-easteregg.jpeg);
+    }
   }
 
   .move {
