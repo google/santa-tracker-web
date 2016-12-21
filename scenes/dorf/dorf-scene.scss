@@ -509,6 +509,11 @@ $toolbar-size: 64px;
       margin: 20px auto 0;
       display: block;
     }
+
+    img[locked] {
+      animation: #{$name}-bounce 2s infinite;
+      cursor: pointer;
+    }
   }
 
   /** Tablet/desktop specific styles. */

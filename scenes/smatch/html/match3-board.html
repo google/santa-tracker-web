@@ -14,6 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
 <link rel="import" href="../../../components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
+<link rel="import" href="../../../components/iron-resizable-behavior/iron-resizable-behavior.html">
 <link rel="import" href="match3-gem.html">
 
 <dom-module id="match3-board">
@@ -33,8 +34,8 @@ specific language governing permissions and limitations under the License.
   </template>
   <script>
     (() => {
-      const CELL_SIZE = 64;
       const TRANSITION_TIME = 300;
+      const DEFAULT_CELL_SIZE = window.Match3GemElement.DEFAULT_SIZE;
 
       const timePasses = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -61,8 +62,8 @@ specific language governing permissions and limitations under the License.
           this.y = point.y;
         }
 
-        toTransform() {
-          return `translate(${this.x * CELL_SIZE}px, ${this.y * CELL_SIZE}px)`;
+        toTransform(cellSize=DEFAULT_CELL_SIZE) {
+          return `translate(${this.x * cellSize}px, ${this.y * cellSize}px)`;
         }
       }
 
@@ -78,7 +79,7 @@ specific language governing permissions and limitations under the License.
           this.free_ = [];
         }
 
-        create(graphic) {
+        create(graphic, size=DEFAULT_CELL_SIZE) {
           let gem;
 
           if (this.free_.length) {
@@ -88,6 +89,8 @@ specific language governing permissions and limitations under the License.
           }
 
           gem.graphic = graphic;
+          gem.size = size;
+
           return gem;
         }
 
@@ -101,10 +104,16 @@ specific language governing permissions and limitations under the License.
         is: 'match3-board',
 
         behaviors: [
-          Polymer.IronA11yKeysBehavior
+          Polymer.IronA11yKeysBehavior,
+          Polymer.IronResizableBehavior
         ],
 
         properties: {
+          cellSize: {
+            type: Number,
+            value: DEFAULT_CELL_SIZE
+          },
+
           graphics: {
             type: Array,
             value() {
@@ -119,8 +128,7 @@ specific language governing permissions and limitations under the License.
 
           size: {
             type: Number,
-            value: 6,
-            observer: 'sizeChanged_'
+            value: 6
           },
 
           baseTabIndex: {
@@ -135,7 +143,7 @@ specific language governing permissions and limitations under the License.
 
           grid_: {
             type: Array,
-            computed: 'computeGrid_(size, gemCells_, gemFactory_, graphics)',
+            computed: 'computeGrid_(size, cellSize, gemCells_, gemFactory_, graphics)',
             observer: 'gridChanged_'
           },
 
@@ -171,6 +179,10 @@ specific language governing permissions and limitations under the License.
         listeners: {
           'track': 'onTrack_',
         },
+
+        observers: [
+          '_updateBoardSize(size, cellSize)'
+        ],
 
         start() {
           return this.fill_(false).then(() => this.tick_());
@@ -248,6 +260,8 @@ specific language governing permissions and limitations under the License.
                 cell.position.y = y;
                 if (allowMatches || !this.wouldMatch_(cell)) {
                   break;
+                } else {
+                  this.destroyCell_(cell);
                 }
               }
               this.placeCell_(cell);
@@ -464,7 +478,7 @@ specific language governing permissions and limitations under the License.
             return;  // no pending move
           }
 
-          const threshold = (CELL_SIZE * 0.2);
+          const threshold = (this.cellSize * 0.2);
 
           let dir;
           if (event.detail.dx > threshold) {
@@ -568,7 +582,7 @@ specific language governing permissions and limitations under the License.
           // TODO: the first one ensures the first placement, second animates. But why?
           requestAnimationFrame(() =>
             requestAnimationFrame(() => {
-              cell.gem.style.transform = cell.position.toTransform();
+              cell.gem.style.transform = cell.position.toTransform(this.cellSize);
             }));
 
           this.grid_[index] = cell;
@@ -631,17 +645,15 @@ specific language governing permissions and limitations under the License.
          * @return {Cell} A new Cell instance.
          */
         createCell_(x=0, y=0) {
-          const gem = this.gemFactory_.create(this.randomGraphic_());
+          const gem = this.gemFactory_.create(
+              this.randomGraphic_(), this.cellSize);
           const cell = new Cell(new Point(x, y), gem);
 
           this.gemCells_.set(gem, cell);
 
-          gem.style.transform = cell.position.toTransform();
+          gem.style.transform = cell.position.toTransform(this.cellSize);
 
-          if (gem.parentNode == null) {
-            Polymer.dom(this.root).appendChild(gem);
-          }
-
+          Polymer.dom(this.root).appendChild(gem);
 
           return cell;
         },
@@ -684,12 +696,15 @@ specific language governing permissions and limitations under the License.
             for (let i = 0; i < oldGrid.length; ++i) {
               this.destroyCell_(oldGrid[i]);
             }
+
+            this.fill_();
           }
         },
 
-        sizeChanged_() {
-          const length = `${this.size * CELL_SIZE}px`;
+        _updateBoardSize() {
+          const length = `${this.size * this.cellSize}px`;
           this.style.width = this.style.height = length;
+          this.notifyResize();
         }
       });
 

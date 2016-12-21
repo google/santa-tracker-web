@@ -19,11 +19,12 @@ specific language governing permissions and limitations under the License.
     <style>
       :host {
         display: flex;
-        width: 64px;
-        height: 64px;
+        width: 74px;
+        height: 74px;
         box-sizing: border-box;
         transition: transform 0.3s;
-        background-size: 80%;
+        transform-origin: 0 0;
+        background-size: 100%;
         background-repeat: no-repeat;
         background-position: center center;
       }
@@ -34,42 +35,62 @@ specific language governing permissions and limitations under the License.
     </style>
   </template>
   <script>
-    Polymer({
-      is: 'match3-gem',
+    (() => {
+      const DEFAULT_SIZE = 74;
 
-      properties: {
-        graphic: {
-          type: Object,
-          value: null,
-          observer: 'updateDisplay_'
-        }
-      },
+      window.Match3GemElement = Polymer({
+        is: 'match3-gem',
 
-      reset() {
-        this.graphic = null;
-      },
+        properties: {
+          graphic: {
+            type: Object,
+            value: null,
+            observer: 'updateDisplay_'
+          },
 
-      updateDisplay_() {
-        this.debounce('updateDisplay_', () => {
-          this.style.backgroundColor = '';
-          this.style.backgroundImage = '';
-
-          if (this.graphic != null) {
-            this.classList.remove('no-model');
-
-            switch (this.graphic.type) {
-              case 'color':
-                this.style.backgroundColor = this.graphic.asset;
-                break;
-              case 'image':
-                this.style.backgroundImage = `url(${this.graphic.asset})`;
-                break;
-            }
-          } else {
-            this.classList.add('no-model');
+          size: {
+            type: Number,
+            value: DEFAULT_SIZE,
+            observer: 'updateDisplay_'
           }
-        });
-      }
-    });
+        },
+
+        reset() {
+          this.graphic = null;
+          this.size = DEFAULT_SIZE;
+          this.style.transform = '';
+        },
+
+        updateDisplay_() {
+          this.debounce('updateDisplay_', () => {
+            this.style.backgroundColor = '';
+            this.style.backgroundImage = '';
+
+            if (this.graphic != null) {
+              this.classList.remove('no-model');
+
+              switch (this.graphic.type) {
+                case 'color':
+                  this.style.backgroundColor = this.graphic.asset;
+                  break;
+                case 'image':
+                  this.style.backgroundImage = `url(${this.graphic.asset})`;
+                  break;
+              }
+            } else {
+              this.classList.add('no-model');
+            }
+
+            if (this.size != null) {
+              this.style.width = `${this.size}px`;
+              this.style.height = `${this.size}px`;
+            }
+          });
+        }
+      });
+
+      window.Match3GemElement.DEFAULT_SIZE = DEFAULT_SIZE;
+    })();
+
   </script>
 </dom-module>

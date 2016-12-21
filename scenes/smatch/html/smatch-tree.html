@@ -14,15 +14,17 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../../components/polymer/polymer.html">
 <link rel="import" href="smatch-decoration.html">
+<link rel="import" href="smatch-character.html">
 <dom-module id="smatch-tree">
   <template>
     <style>
       :host {
         position: relative;
-        background-image: url(../img/smatch_tree_level_0.svg);
+        background-image: url(../img/tree/tree-plain.svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
+        transform-origin: bottom center;
         width: 360px;
         height: 640px;
       }
@@ -53,30 +55,27 @@ specific language governing permissions and limitations under the License.
       }
 
       #star {
-        background-image: url(../img/smatch_tree_level_3.svg);
-        background-size: 20%;
-        background-position: center top;
+        background-image: url(../img/tree/star.svg);
         z-index: 2;
       }
 
       #snow {
-        background-image: url(../img/smatch_tree_level_2.svg);
+        background-image: url(../img/tree/snow.svg);
       }
 
       #tinsel {
-        background-image: url(../img/smatch_tree_level_1.svg);
+        background-image: url(../img/tree/tinsel.svg);
       }
 
-      @media (max-width: 768px) {
-        :host {
-          transform: scale(0.75);
-          transform-origin: left;
-        }
+      smatch-character {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
       }
 
-      @media (max-width: 640px) {
+      @media (min-height: 1024px) {
         :host {
-          transform-origin: top center;
+          transform: scale(1.5);
         }
       }
     </style>
@@ -84,6 +83,10 @@ specific language governing permissions and limitations under the License.
     <div id="snow"></div>
     <div id="decorations"></div>
     <div id="tinsel"></div>
+    <template is="dom-repeat" items="[[team]]" as="teamMember">
+      <smatch-character id$="[[teamMember.id]]" team-member="[[teamMember]]">
+      </smatch-character>
+    </template>
   </template>
   <script>
     Polymer({
@@ -92,6 +95,10 @@ specific language governing permissions and limitations under the License.
       properties: {
         decorations: {
           type: Array
+        },
+
+        team: {
+          type: Array,
         },
 
         level: {
@@ -126,21 +133,36 @@ specific language governing permissions and limitations under the License.
         } else if (change.path === 'decorations.splices') {
           change.value.indexSplices.forEach(splice => {
             for (let i = 0; i < splice.addedCount; ++i) {
-              this.addDecoration(this.decorations[splice.index + i]);
+              const details = this.decorations[splice.index + i];
+              console.log(details);
+              this.addDecoration(
+                  details.x, details.y, details.graphic, details.teamMember);
             }
           });
         }
       },
 
-      addDecoration(decoration) {
+      addDecoration(x, y, graphic, teamMember) {
         const decorationElement = document.createElement('smatch-decoration');
 
-        decorationElement.graphic = decoration.graphic;
-        decorationElement.x = decoration.x;
-        decorationElement.y = decoration.y;
-        decorationElement.scale = Math.random() * 0.4 + 0.25;
+        decorationElement.graphic = graphic;
+        decorationElement.x = x;
+        decorationElement.y = y;
+        decorationElement.scale = 0.5;
 
-        Polymer.dom(this.$.decorations).appendChild(decorationElement);
+        if (teamMember == null) {
+          Polymer.dom(this.$.decorations).appendChild(decorationElement);
+        } else {
+          const character =
+              Polymer.dom(this.root).querySelector(`#${teamMember.id}`);
+
+          if (character != null) {
+            character.enter().then(() => {
+              Polymer.dom(this.$.decorations).appendChild(decorationElement);
+              return character.exit();
+            });
+          }
+        }
       }
     });
   </script>

@@ -27,41 +27,61 @@ specific language governing permissions and limitations under the License.
         box-sizing: border-box;
 
         padding: 10px;
-        transition: transform 0.4s ease-in-out;
-        transition-delay: 0.3s;
-        transform-origin: bottom center;
-        transform: translateY(0) scale(1);
       }
 
-      match3-gem {
+      img {
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        transform-origin: bottom center;
-        transition-timing-function: cubic-bezier(.76,-0.54,.26,1.46);
-        transition-duration: 1s;
-        transform: scale(0.15);
       }
 
-      #lateral {
-        width: 64px;
-        transition: transform 0.4s cubic-bezier(.76,-0.54,.26,1.46);
-        transition-delay: 0.3s;
-        transform: translateX(0);
+      circle {
+        fill: transparent;
+      }
+
+      #base {
+        fill: #444;
+      }
+
+      #progress {
+        transform-origin: center center;
+        transform:  rotate(-90deg);
+        stroke-dasharray: 360;
+        stroke-dashoffset: 360;
+        stroke-linecap: butt;
+        fill: transparent;
+        stroke-width: 12px;
+        transition: stroke-dashoffset 0.3s;
+        stroke: #FED200;
       }
     </style>
-    <div id="lateral">
-    <img src="[[teamMember.asset]]">
-    <match3-gem id="gem" graphic="[[gemGraphic]]"></match3-gem>
-    </div>
+    <img src="[[teamMember.portrait]]">
+    <svg id="svg"
+        width="72"
+        height="72"
+        viewPort="0 0 100 100"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+      <circle
+          id="base"
+          r="36"
+          cx="36"
+          cy="36">
+      </circle>
+
+      <circle
+          id="progress"
+          r="30"
+          cx="36"
+          cy="36">
+      </circle>
+
+    </svg>
   </template>
   <script>
     (() => {
       const {
         SmatchTeamMember,
-        awaitTransition
+        awaitTransition,
+        GEMS_NEEDED_TO_DECORATE,
       } = window.scenes.smatch;
 
       Polymer({
@@ -75,18 +95,6 @@ specific language governing permissions and limitations under the License.
 
           gemGraphic: {
             type: Match3BoardElement.Graphic
-          },
-
-          traveling: {
-            type: Boolean,
-            value: false
-          },
-
-          _travelQueue: {
-            type: Promise,
-            value() {
-              return Promise.resolve();
-            }
           }
         },
 
@@ -94,36 +102,14 @@ specific language governing permissions and limitations under the License.
           '_updateGemScale(teamMember.gemCount)'
         ],
 
-        travelTo(x, y, scale) {
-          return this._travelQueue = this._travelQueue.then(() => {
-            this.traveling = true;
-            this.style.transform = `translateY(${y}px) scale(${scale})`;
-            this.$.lateral.style.transform = `translateX(${x}px)`;
-
-            return Promise.all([
-              awaitTransition(this),
-              awaitTransition(this.$.lateral)
-            ]);
-          }).then(() => this.traveling = false);
-        },
-
-        resetPosition() {
-          if (this.traveling) {
-            return;
-          }
-
-          this.style.transform = '';
-          this.$.lateral.style.transform = '';
-        },
-
         _updateGemScale(gemCount) {
-          if (gemCount > 2) {
+          if (gemCount >= GEMS_NEEDED_TO_DECORATE) {
             this.fire('flush-gems', { gemCount });
-            this.set('teamMember.gemCount', gemCount - 3);
+            this.set('teamMember.gemCount', gemCount - GEMS_NEEDED_TO_DECORATE);
             return;
           }
 
-          this.$.gem.style.transform = `scale(${0.15 + gemCount / 4})`;
+          this.$.progress.style.strokeDashoffset = 360 - (gemCount / GEMS_NEEDED_TO_DECORATE) * 180;
         }
       });
     })();

@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
   <template>
     <style>
       :host {
-        @apply --layout-vertical;
+        @apply --layout-horizontal;
         @apply --layout-center-center;
       }
 
@@ -113,14 +113,11 @@ specific language governing permissions and limitations under the License.
             targetTop -= teamOffset;
           }
 
-          portrait.travelTo(targetLeft, targetTop, portraitScale).then(() => {
-            portrait.resetPosition();
-
-            this.fire('decorate', {
-              x: targetLeftScale,
-              y: targetTopScale,
-              graphic: portrait.gemGraphic
-            });
+          this.fire('decorate', {
+            x: targetLeftScale,
+            y: targetTopScale,
+            teamMember: portrait.teamMember,
+            graphic: portrait.gemGraphic
           });
         },
 

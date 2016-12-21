@@ -38,12 +38,17 @@ specific language governing permissions and limitations under the License.
   </template>
   <script>
     (() => {
-      const { GEM_SIZE } = scenes.smatch;
+      const { DEFAULT_GEM_SIZE } = scenes.smatch;
 
       Polymer({
         is: 'smatch-decoration',
 
         properties: {
+          gemSize: {
+            type: Number,
+            value: DEFAULT_GEM_SIZE
+          },
+
           x: {
             type: Number
           },

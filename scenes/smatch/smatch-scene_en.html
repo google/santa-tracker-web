@@ -29,8 +29,6 @@ Smatch scene.
     #module-smatch {
       background-color: #D3E4ED;
       @apply --layout-fit;
-      /*@apply --layout-horizontal;*/
-      /*@apply --layout-center-center;*/
     }
   </style>
   <div id="module-smatch">
@@ -49,6 +47,10 @@ Smatch scene.
         type: Boolean,
         value: false
       }
+    },
+
+    hostAttributes: {
+      'header-color': '#f00'
     },
 
     onPreload: function() {
@@ -70,7 +72,6 @@ Smatch scene.
       this.game = null;
       this.fire('sound-ambient', 'pd_end_game');
     },
-
   });
 
 })();

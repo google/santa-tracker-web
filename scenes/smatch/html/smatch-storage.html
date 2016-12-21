@@ -1,0 +1,65 @@
+<link rel="import" href="../../../components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="../../../components/polymer/polymer.html">
+<dom-module id="smatch-storage">
+  <template>
+    <app-localstorage-document
+        id="firstPlay"
+        key="smatch.firstPlay"
+        data="{{firstPlay}}">
+    </app-localstorage-document>
+    <app-localstorage-document
+        id="teamIds"
+        key="smatch.teamIds"
+        data="{{teamIds}}">
+    </app-localstorage-document>
+    <app-localstorage-document
+        id="unlocks"
+        key="smatch.unlocks"
+        data="{{unlocks}}">
+    </app-localstorage-document>
+  </template>
+  <script>
+    Polymer({
+      is: 'smatch-storage',
+
+      properties: {
+        firstPlay: {
+          type: Boolean,
+          notify: true,
+          readOnly: true,
+          value: true,
+        },
+
+        teamIds: {
+          type: Array,
+          notify: true,
+          value: () => [
+            "elf1",
+            "elf2",
+            "bear",
+            "gingerbreadman",
+            "penguin",
+          ],
+        },
+
+        unlocks: {
+          type: Object,
+          notify: true,
+          value() {
+            const unlocks = {};
+            for (let i = 1; i < 11; ++i) {
+              unlocks[i] = false;
+            }
+            return unlocks;
+          },
+        }
+      },
+
+      recordFirstPlay() {
+        return this.$.firstPlay.transactionsComplete.then(() => {
+          this._setFirstPlay(false);
+        });
+      },
+    });
+  </script>
+</dom-module>

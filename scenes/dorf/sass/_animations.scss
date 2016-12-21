@@ -64,3 +64,37 @@
   0%, 80% { transform: translate(-100vw); }
   100%    { transform: translate(+200vw); }
 }
+
+@keyframes #{$name}-bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  63% {
+    transform: translateY(-7px);
+  }
+
+  67% {
+    transform: translateY(0px);
+  }
+
+  70% {
+    transform: translateY(0);
+  }
+
+  83% {
+    transform: translateY(-7px);
+  }
+
+  87% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

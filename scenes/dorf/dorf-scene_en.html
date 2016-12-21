@@ -20,6 +20,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
+<link rel="import" href="../../scenes/smatch/html/smatch-storage.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -241,9 +242,16 @@ Santa's Village.
     <template is="dom-if" if="[[!_isCastMode(mode)]]">
       <footer>
         <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-        <img src$="[[_computeFooterElves(countdownFinished)]]" />
+        <img src$="[[_computeFooterElves(countdownFinished)]]"
+            locked$="[[!smatchUnlocks.8]]"
+            on-tap="_onFooterElvesTap">
+        <div class="smatch-unlock rudolf"></div>
       </footer>
     </template>
+
+    <smatch-storage
+        unlocks="{{smatchUnlocks}}">
+    </smatch-storage>
   </div><!-- #module-dorf -->
 </template>
 <script>
@@ -290,6 +298,10 @@ Santa's Village.
 
       /** Strings bound from `santa-strings`. */
       strings: Object,
+
+      /** Bound from `app-localstorage-document`, to maintain state related to
+          the smatch scene **/
+      smatchSettings: Object,
     },
 
     listeners: {
@@ -724,6 +736,9 @@ Santa's Village.
       this.cancelAsync(this._eggTimer);
     },
 
+    _onFooterElvesTap: function() {
+      this.set('smatchUnlocks.8', true);
+    },
   });
 })();
 </script>

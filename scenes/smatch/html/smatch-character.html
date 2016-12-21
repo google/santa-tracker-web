@@ -1,0 +1,146 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="smatch-common.html">
+
+<dom-module id="smatch-character">
+  <template>
+    <style>
+      :host {
+        position: absolute;
+        will-change: transform;
+      }
+
+      #character {
+        position: absolute;
+        animation: decorate
+        transition: transform, opacity;
+        transition-duration: 0.75s;
+        transition-timing-function: ease-in-out;
+        right: 0;
+        bottom: 0;
+        width: 480px;
+        height: 480px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        will-change: transform, opacity;
+        transform: translateX(-10px);
+        opacity: 0;
+      }
+
+      :host(.visible) #character {
+        transform: translateX(30px);
+        opacity: 1;
+      }
+
+      #direction {
+        position: absolute;
+        transform: scaleX(1);
+      }
+
+      #direction.flipped {
+        transform: scaleX(-1);
+      }
+
+      #jump {
+        transform: translateY(16px);
+        transition: transform;
+        transition-duration: 0.375s;
+        transition-delay: 0s;
+        transition-timing-function: ease-out;
+      }
+
+      :host(.visible) #jump {
+        transform: translateY(32px);
+        transition-delay: 0.375s;
+        transition-timing-function: ease-in;
+      }
+
+      #drop {
+        transform: translateY(0);
+        transition: transform;
+        transition-duration: 0.375s;
+        transition-delay: 0.375s;
+        transition-timing-function: ease-in;
+      }
+
+      :host(.visible) #drop {
+        transform: translateY(-32px);
+        transition-delay: 0s;
+        transition-timing-function: ease-out;
+      }
+
+    </style>
+    <div id="direction">
+      <div id="jump">
+        <div id="drop">
+          <div id="character"></div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+    (() => {
+      const {
+        awaitTransition,
+        SmatchTeamMember
+      } = window.scenes.smatch;
+
+      Polymer({
+        is: 'smatch-character',
+
+        properties: {
+          teamMember: {
+            type: SmatchTeamMember,
+            observer: '_teamMemberChanged'
+          },
+
+          _travelQueue: {
+            type: Promise,
+            value() {
+              return Promise.resolve();
+            }
+          }
+        },
+
+        _teamMemberChanged() {
+          if (this.teamMember) {
+            this.$.character.style.backgroundImage =
+                `url(${this.teamMember.character})`;
+          }
+        },
+
+        enter() {
+          return this._travelQueue = this._travelQueue.then(() => {
+            if (this.classList.contains('visible')) {
+              return;
+            }
+
+            if (Math.random() > 0.5) {
+              if (this.$.direction.classList.contains('flipped')) {
+                this.$.direction.classList.remove('flipped');
+              } else {
+                this.$.direction.classList.add('flipped');
+              }
+            }
+
+            this.classList.add('visible');
+
+            return awaitTransition(this.$.character);
+          });
+        },
+
+        exit() {
+          return this._travelQueue = this._travelQueue.then(() => {
+            if (!this.classList.contains('visible')) {
+              return;
+            }
+
+            this.classList.remove('visible');
+
+            return awaitTransition(this.$.character);
+          });
+        },
+      });
+    })();
+
+  </script>
+</dom-module>
