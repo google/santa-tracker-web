@@ -34,7 +34,7 @@ app.Country = function(map, feature, geodesic) {
     }
     return google.maps.geometry.encoding.decodePath(path);
   });
-  this.correctPaths = this.paths;
+
   this.visible = false;
   this.matched = false;
   this.name = feature.properties.name_long;
@@ -89,8 +89,7 @@ app.Country.prototype.setPosition = function(point) {
   if (!this.geodesic) {
     paths = app.utils.moveToPoint(this.map, center, this.paths, point);
   } else {
-    var latLng = app.utils.pointToLatLng(this.map, point);
-    paths = app.utils.moveToGeodesic(this.map, center, this.paths, latLng);
+    paths = app.utils.moveToGeodesic(this.map, center, this.paths, point);
   }
   this.polygon.setPaths(paths);
 };
@@ -166,13 +165,30 @@ app.Country.prototype.onDragStart_ = function() {
  * @private
  */
 app.Country.prototype.onDragEnd_ = function() {
+  // On drag end, reposition the country. This is because our geodesic projection code doesn't
+  // exactly match the code used by the Google Maps API internally to do dragging. This way, as
+  // the country gets closer to its final location, it'll "straighten up".
+  if (this.geodesic) {
+    var paths = this.polygon.getPaths().getArray();
+    var bounds = new google.maps.LatLngBounds();
+    paths.forEach(path => path.getArray().forEach(latlng => bounds.extend(latlng)));
+    var center = bounds.getCenter();
+
+    var valid = !isNaN(center.lat()) && !isNaN(center.lng());
+    if (valid) {
+      var point = app.utils.latLngToPoint(this.map, center);
+      this.setPosition(point);
+    }
+  }
+
   if (this.isMatching()) {
     this.polygon.setOptions({
       draggable: false,
       fillOpacity: 0.75,
       zIndex: 2
     });
-    this.polygon.setPaths(this.correctPaths);
+    this.polygon.setOptions({geodesic: false});
+    this.polygon.setPaths(this.paths);
 
     this.matched = true;
     this.onMatched && this.onMatched(this);

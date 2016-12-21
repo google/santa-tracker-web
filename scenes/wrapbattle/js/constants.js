@@ -135,7 +135,9 @@ app.Constants = {
   TOY_WRAP_OFFSET: 140,
   PRESENT_HEIGHT: 110,
   PRESENT_WIDTH: 150,
-  PRESENT_VERTICAL_OFFSET: 150
+  PRESENT_VERTICAL_OFFSET: 150,
+
+  KEY_DELAY: 50,  // debounce key/touch events by this ms, should be > frame length
 };
 
 /**

@@ -2,20 +2,32 @@
   background: #585fe8;
 }
 
+h1 {
+  margin-top: 48px;
+  margin-left: 32px;
+}
+
 #games-asset {
   width: 248px;
-  height: 266px;
-  background: url(img/games/games-asset.svg) center no-repeat;
+  height: 45%;
+  background: url(img/games/games-asset.svg) left center no-repeat;
   position: absolute;
   top: 50%;
   z-index: 1000;
   left: 48px;
+  pointer-events: none;  // allow scroll events through this
 }
 
 #games-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow: auto;
+  overflow-y: hidden;
   display: flex;
-  height: 80vh;
+>>>>>>> master
   padding-left: 230px;
   align-items: center;
   justify-content: flex-start;
@@ -27,15 +39,34 @@
     position: relative;
     margin: 0 6px;
 
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
+
+    // TODO(samthor): When hovered, the target div moves. It should move only its children.
+    &:hover {
+      transform: translateY(-16px);
+      transition: transform 0.2s;
+    }
+
     .card--inner {
       height: 100%;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
+      background: transparent center no-repeat;
       background-size: cover;
       clip-path: url(#cardMask1);
       position: relative;
       z-index: 5;
       border-radius: 25px;
+
+      h3 {
+        font-family: Roboto;
+        font-weight: 300;
+        font-size: 30px;
+        color: #fff;
+      }
+
+      h4 {
+
+      }
 
       a {
         text-decoration: none;
@@ -47,13 +78,6 @@
         justify-content: flex-start;
         flex-direction: column;
         padding-top: 40px;
-
-        h3 {
-          font-family: Roboto;
-          font-weight: 300;
-          font-size: 30px;
-          color: #fff;
-        }
       }
     }
 
@@ -66,8 +90,18 @@
       left: 38px;
       background: url(img/shape1-shadow.svg) center no-repeat;
       z-index: 1;
+>>>>>>> master
     }
+  }
 
+<<<<<<< HEAD
+  .game-gumball {
+    .card--inner {
+      background-image: url(/images/scenes/gumball_2x.png);
+    }
+  }
+}
+=======
     &::after {
       content: '';
       height: 24px;
@@ -108,10 +142,13 @@
       }
     }
   }
+}
 
-  .game-gumball {
-    .card--inner {
-      background-image: url(/images/scenes/gumball_2x.png);
-    }
+
+@media (max-width: (600px - 1px)) {
+  #games-list {
+    padding-left: 50vw;
   }
 }
+
+>>>>>>> master

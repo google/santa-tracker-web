@@ -22,7 +22,7 @@ goog.scope(function() {
 
   (function() {
     // Hooray, it's the future!
-    if (window.navigator.pointerEnabled) {
+    if (window.PointerEvent) {
       eventStart = 'pointerdown';
       eventMove = 'pointermove';
       eventCancel = 'pointerup pointerout pointermove';

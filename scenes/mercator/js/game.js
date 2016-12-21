@@ -133,11 +133,11 @@ app.Game.prototype.restart = function() {
 /**
  * Freezes the game. Stops the onFrame loop and stops any CSS3 animations.
  * Used both for game over and pausing.
- * @param {boolean} gameEnded Is the game over?
+ * @param {boolean} hideMap
  */
-app.Game.prototype.freezeGame = function(gameEnded) {
+app.Game.prototype.freezeGame = function(hideMap) {
   this.isPlaying = false;
-  if (!gameEnded) {
+  if (hideMap) {
     this.elem.addClass('frozen');
   }
 };
@@ -160,7 +160,7 @@ app.Game.prototype.unfreezeGame = function() {
  */
 app.Game.prototype.pause = function() {
   this.paused = true;
-  this.freezeGame();
+  this.freezeGame(true);
 };
 
 /**
@@ -198,11 +198,6 @@ app.Game.prototype.onFrame_ = function() {
  * @private
  */
 app.Game.prototype.bumpLevel_ = function(won) {
-  this.level++;
-  this.scoreboard.setLevel(this.level);
-  this.scoreboard.addTime(this.geodesic ?
-      app.Constants.GEODESIC_TIME_PER_LEVEL :
-      app.Constants.TIME_PER_LEVEL);
   this.countries.forEach(function(country) {
     country.hide();
   });
@@ -211,6 +206,11 @@ app.Game.prototype.bumpLevel_ = function(won) {
     window.santaApp.fire('sound-trigger', 'mercator_game_over');
     window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   } else {
+    this.level++;
+    this.scoreboard.setLevel(this.level);
+    this.scoreboard.addTime(this.geodesic ?
+        app.Constants.GEODESIC_TIME_PER_LEVEL :
+        app.Constants.TIME_PER_LEVEL);
     this.startLevel_();
     window.santaApp.fire('sound-trigger', 'mercator_nextLevel');
   }
@@ -264,6 +264,10 @@ app.Game.prototype.startLevel_ = function() {
   this.setupLevel_();
   this.showCountries_();
   this.levelElapsed = 0;
+
+  if (!this.paused) {
+    this.unfreezeGame();
+  }
 };
 
 /**
@@ -299,6 +303,7 @@ app.Game.prototype.showCountries_ = function() {
 
     var x = (Math.random() * dX) + ne.x;
     var y = (Math.random() * dY) + ne.y;
+
     var color = app.Constants.COUNTRY_COLORS[shown % app.Constants.COUNTRY_COLORS.length];
     country.setPosition(new google.maps.Point(x, y));
     country.show(color);
@@ -362,12 +367,14 @@ app.Game.prototype.countryMatched_ = function(country) {
   var levelOver = this.countries.every(function(country) {
     return country.matched || !country.visible;
   });
-  if (!levelOver) return;
+  if (!levelOver) {
+    return;
+  }
 
   if (this.level === app.Constants.TOTAL_LEVELS - 1) {
     this.bumpLevel_(true);
   } else {
-    this.isPlaying = false;
+    this.freezeGame(false);
     window.setTimeout(function() {
       this.levelUp.show(this.level + 2, this.bumpLevel_.bind(this));
     }.bind(this), 1000);
@@ -442,7 +449,7 @@ app.Game.prototype.updateSize_ = function() {
  * Stops the game as game over. Displays the game over screen as well.
  */
 app.Game.prototype.gameover = function() {
-  this.freezeGame(true);
+  this.freezeGame(false);
   this.gameoverView.show();
   window.santaApp.fire('sound-trigger', 'mercator_game_over');
   window.santaApp.fire('analytics-track-game-over', {
@@ -465,7 +472,7 @@ app.Game.prototype.dispose = function() {
       level: this.level
     });
   }
-  this.freezeGame();
+  this.freezeGame(false);
 
   window.cancelAnimationFrame(this.requestId);
   $(window).off('.mercator');

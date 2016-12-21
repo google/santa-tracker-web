@@ -54,13 +54,13 @@ app.utils = {
    * @param {{x: number, y: number}} point The point to move to.
    */
   moveToPoint: function(map, center, paths, point) {
-    var centerPoint = app.utils.latLngToPoint(map, center);
-    var dX = point.x - centerPoint.x;
-    var dY = point.y - centerPoint.y;
+    const centerPoint = app.utils.latLngToPoint(map, center);
+    const dX = point.x - centerPoint.x;
+    const dY = point.y - centerPoint.y;
 
     return paths.map(function(path) {
       return path.map(function(latLng) {
-        var pathPoint = app.utils.latLngToPoint(map, latLng);
+        const pathPoint = app.utils.latLngToPoint(map, latLng);
         pathPoint.x += dX;
         pathPoint.y += dY;
         return app.utils.pointToLatLng(map, pathPoint);
@@ -73,15 +73,17 @@ app.utils = {
    * @param {google.maps.Map} map The Google map.
    * @param {google.maps.LatLng} center The center of the polygon.
    * @param {!Array<!Array<!google.maps.LatLng>>} paths All the paths in the polygon.
-   * @param {google.maps.LatLng} latLng The latitude and longitude to move to.
+   * @param {{x: number, y: number}} point The point to move to.
    */
-  moveToGeodesic: function(map, center, paths, latLng) {
+  moveToGeodesic: function(map, center, paths, point) {
+    const targetLatLng = app.utils.pointToLatLng(map, point);
+
     return paths.map(function(path) {
-      return path.map(function(point) {
+      return path.map(function(latLng) {
         return google.maps.geometry.spherical.computeOffset(
-          latLng,
-          google.maps.geometry.spherical.computeDistanceBetween(center, point),
-          google.maps.geometry.spherical.computeHeading(center, point)
+          targetLatLng,
+          google.maps.geometry.spherical.computeDistanceBetween(center, latLng),
+          google.maps.geometry.spherical.computeHeading(center, latLng)
         );
       });
     });
