@@ -65,9 +65,8 @@
 @media (min-width: 1024px) {
   .stats {
     width: 40%;
-    justify-content: center;
-    height: 50vw;
-    max-height: 500px;
+    justify-content: flex-start;
+    margin-top: 32px;
 
     // top distance/delivered should be in column
     .split.top {
