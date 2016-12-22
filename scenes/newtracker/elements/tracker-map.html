@@ -30,7 +30,7 @@ Tracker map.
 
   <iron-media-query query="(pointer: fine)" query-matches="{{_hasPointer}}"></iron-media-query>
 
-  <img src="img/marker.png" id="marker" hidden />
+  <img src="../img/marker.png" id="marker" hidden />
 
   <div id="santa" tabindex="0" hidden>
     <div class="presents" hidden>
@@ -364,7 +364,7 @@ Tracker map.
 
     observers: [
       '_updateMapState(_map, focusOnSanta, santaLatLng, santaHeading)',
-      '_updateTrail(_map, trail, trailLength, santaLatLng)',
+      '_updateTrail(_map, trail, trailLength)',
     ],
 
     _calculateMapOffset: function() {
@@ -431,11 +431,10 @@ Tracker map.
       if (!this._map) {
         return;
       }
-
       this._santaLayer.setPreviousDestinations(this.trail, this.minimalUi ? this.trailLength : -1);
 
       // Grab last `trailLength` entries, push Santa's location, reverse for the display.
-      var slice = this.trail.slice(this.trail.length - this.trailLength).map(function(data) {
+      var slice = this.trail.slice(-this.trailLength).map(function(data) {
         return data.location;
       });
       slice.reverse();
