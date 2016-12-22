@@ -389,7 +389,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     observers: [
-      '_refreshCards(_current, _upcoming)',
+      '_refreshCards(_current, _upcoming, _videoActive)',
     ],
 
     _santaSync: function(data) {
@@ -481,7 +481,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }.bind(this));
     },
 
-    _refreshCards: function(current, upcoming) {
+    _refreshCards: function(current, upcoming, videoActive) {
       this.debounce('_refreshCards', function() {
         // Wraps a callback, and doesn't call it unless the current/upcoming locations match
         // (as they are used for the signal to refresh our cards).
