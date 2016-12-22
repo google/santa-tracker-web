@@ -58,6 +58,10 @@ section {
     @import "sass/stats";
   }
 
+  #travelogue {
+    @import "sass/travelogue";
+  }
+
   &.listview {
     @import "sass/listview";
   }
