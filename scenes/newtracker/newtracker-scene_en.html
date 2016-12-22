@@ -176,26 +176,13 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           <div class="divider"></div>
           <div class="data">
             <div id="travelogue">
-              <div class="prev-location">
-                <div class="marker"></div>
-                <h4>Prev stop</h4>
-                <h3>Location Name</h3>
-              </div>
-              <div class="prev-location">
-                <div class="marker"></div>
-                <h4>9:43pm</h4>
-                <h3>Location Name</h3>
-              </div>
-              <div class="prev-location">
-                <div class="marker"></div>
-                <h4>9:43pm</h4>
-                <h3>Location Name</h3>
-              </div>
-              <div class="prev-location">
-                <div class="marker"></div>
-                <h4>9:43pm</h4>
-                <h3>Location Name</h3>
-              </div>
+              <template is="dom-repeat" items="[[_limitDestinations]]">
+                <div class="prev-location">
+                  <div class="marker"></div>
+                  <h4>[[_computeStopTime(item.departure)]]</h4>
+                  <h3>[[item.city]], [[item.region]]</h3>
+                </div>
+              </template>
             </div>
           </div>
         </div>
@@ -251,6 +238,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 (function() {
   var UPDATE_MS = 250;
   var SOCIALFEED_COUNT = 11;
+  var TRAVELOGUE_COUNT = 4;
 
   var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
   var FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
@@ -355,6 +343,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       },
 
       /**
+       * The limited set of destinations (currently four) previously seen.
+       */
+      _limitDestinations: {
+        type: Array,
+        value: function() { return []; },
+      },
+
+      /**
        * The distance, in meters, to the user.
        */
       _distance: {
@@ -446,6 +442,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
             dests.pop();
           }
           this.$.map.trail = dests;
+          this._limitDestinations = dests.slice(-TRAVELOGUE_COUNT).reverse();
         }
       }
 
@@ -614,6 +611,11 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     _computeTrackerCountdown: function(countdown, upcoming) {
       return upcoming ? countdown : 0;
+    },
+
+    _computeStopTime: function(departure) {
+      var x = new Date(departure);
+      return x.toLocaleTimeString(undefined, {hour: 'numeric', minute: 'numeric'});
     },
 
     _onCardClick: function(event) {

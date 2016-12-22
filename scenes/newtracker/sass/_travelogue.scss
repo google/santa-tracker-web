@@ -26,6 +26,8 @@ $line-left: 15px;
   z-index: 2;
   position: relative;
   width: 150px;
+  padding-right: 8px;
+  box-sizing: border-box;
 
   h3, h4 {
     // from newtracker-scene, the base size
