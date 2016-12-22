@@ -25,7 +25,7 @@
         &::before {
           height: 191px;
           width: 392px;
-          background: url(img/shape4-shadow.svg) center no-repeat;
+          background: url(img/listview/shape4-shadow.svg) center no-repeat;
           left: 2px;
           bottom: -10px;
         }
@@ -35,7 +35,7 @@
           width: 348px;
           bottom: -1px;
           left: 15px;
-          background: url(img/shape4-base.svg) center no-repeat;
+          background: url(img/listview/shape4-base.svg) center no-repeat;
         }
       }
     }
@@ -53,7 +53,7 @@
       width: 380px;
       bottom: -10px;
       left: 5px;
-      background: url(img/shape3-shadow.svg) center no-repeat;
+      background: url(img/listview/shape3-shadow.svg) center no-repeat;
     }
 
     &::after {
@@ -61,7 +61,7 @@
       width: 368px;
       bottom: 0;
       left: 0;
-      background: url(img/shape3-base.svg) center no-repeat;
+      background: url(img/listview/shape3-base.svg) center no-repeat;
     }
   }
 }
