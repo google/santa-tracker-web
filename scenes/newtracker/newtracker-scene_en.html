@@ -449,6 +449,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _onCurrentChanged: function(current) {
+      this._videoActive = false;  // reset video in case it's stuck
+      this._youtubeId = null;
+
       if (!this._current || this.minimalUi) {
         this._details = null;
         return;
@@ -596,7 +599,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     _youtubeEvent: function(event, detail) {
       if (event.type !== 'google-youtube-state-change' || !detail.data) {
         this._videoActive = false;
-        this._youtubeId = false;
+        this._youtubeId = null;
         this._santaSync();
       }
     },
@@ -642,7 +645,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      * scroll position (like the user, or another smooth scroll request).
      */
     _scrollTo: function(to) {
-      if (!window.KeyframeEffect) {
+      if (this.minimalUi || !window.KeyframeEffect) {
         window.scrollTo(0, to);
         return;
       }
@@ -671,10 +674,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      */
     _onScroll: function() {
       this.debounce('_onScroll', function() {
-        if (!this.active) {
+        if (!this.active || this.minimalUi) {
           return;
         }
-
         var cand;
         var y = document.body.scrollTop + window.innerHeight * 0.5;
         var s = this.$.sections;
