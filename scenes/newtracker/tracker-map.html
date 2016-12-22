@@ -137,11 +137,12 @@ Tracker map.
         });
         this._lines = [];
         for (var i = 1; i < trail.length; ++i) {
+          var frac = (1 / trail.length) * i;
           var line = new google.maps.Polyline({
             geodesic: true,
             strokeColor: POLYLINE_COLOR,
             strokeWeight: POLYLINE_WEIGHT,
-            strokeOpacity: 1.0 - (i / trail.length),
+            strokeOpacity: 1 - (frac * frac),
           });
           line.bindTo('map', this);
           this._lines.push(line);
@@ -245,7 +246,7 @@ Tracker map.
        */
       trailLength: {
         type: Number,
-        value: 12,
+        value: 20,
       },
 
       /**
