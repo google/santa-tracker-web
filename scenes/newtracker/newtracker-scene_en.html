@@ -76,6 +76,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       chromeless autoplay="1">
   </google-youtube>
 
+  <audio id="audioplayer" autoplay loop muted="[[_videoActive]]"></audio>
+
   <div class="contain" id="sections">
     <section id="main">
       <santa-weather>
@@ -236,13 +238,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
   var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
   var FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
 
+  var AUDIO_TRACKS = ['7853_62276019f9c87f2dcfe08641ce912452_village_music_lounge.ogg', '8138_4b63c7c7cbe8b32c4d429f4cddc74182_village_music_gameover_lounge_r2_36571.ogg', '8133_8706368a154a316f379990965e717192_villagemusiclounger339917ie.ogg', '8096_0b8b8a6e86b2859a78ebe14b1e7ccd8d_Santasearch_music_1.ogg'];
+
   Polymer({
     is: 'newtracker-scene',
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
       _updateSantaTimeout: Number,
-      _videoActive: {type: Boolean, value: false},
       _strings: Object,
 
       /**
@@ -299,6 +302,15 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       _youtubeId: {
         type: String,
         value: null,
+      },
+
+      /**
+       * Whether the video element is currently active and visible.
+       */
+      _videoActive: {
+        type: Boolean,
+        value: false,
+        observer: '_videoActiveChanged',
       },
 
       /**
@@ -622,6 +634,16 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           this.playVideo(window.VIDEOS[video]);
         }, 5000);
       });
+    },
+
+    _videoActiveChanged: function() {
+      if (!this.minimalUi) {
+        this.$.audioplayer.src = null;
+      } else if (this._videoActive || !player.src) {
+        // If there's a video active, preload new audio. If there's no src, then choose one (this
+        // will trigger initially, when _videoActive => false).
+        this.$.audioplayer.src = this.resolveUrl('../../audio/' + randomChoice(AUDIO_TRACKS));
+      }
     },
 
     _onCardClick: function(event) {
