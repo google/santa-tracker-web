@@ -231,7 +231,7 @@ Santa Tracker app.
           logo="scenes/latlong/img/logo.svg"
           class="santa-scene"></latlong-scene>
 
-      <newtracker-scene route="newtracker" icon="1f30d" permanent
+      <newtracker-scene route="tracker" icon="1f30d" permanent
           path$="scenes/newtracker/newtracker-scene_[[language]].html"
           minimal-ui="[[omitSantaChrome(mode)]]"
           header-color="#00cc81"
@@ -361,7 +361,7 @@ Santa Tracker app.
           logo="scenes/streetview/img/logo.svg"
           class="santa-scene"></streetview-scene>
 
-      <tracker-scene route="tracker" icon="1f30d"
+      <tracker-scene route="tracker2015" icon="1f30d"
           path$="scenes/tracker/tracker-scene_[[language]].html"
           class="santa-scene"
           allow-page-scrolling></tracker-scene>
@@ -431,7 +431,7 @@ var META_THEME = document.head.querySelector('meta[name="theme-color"]')
     || document.createElement('meta');
 var META_THEME_DEFAULT = META_THEME.content;
 
-var TRACKER_ROUTE = 'newtracker';
+var TRACKER_ROUTE = 'tracker';
 
 var ANALYTICS = new Analytics();
 
@@ -780,8 +780,6 @@ Polymer({
   get defaultRoute() {
     if (this.duringTracker) {
       return TRACKER_ROUTE;
-    } else if (this.mode === 'cast') {
-      return 'village';
     } else {
       return 'village';
     }
