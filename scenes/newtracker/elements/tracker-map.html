@@ -149,8 +149,9 @@ Tracker map.
      */
     SantaLayer.prototype.setLatLngTrail = function(trail) {
       if (trail.length !== this._lines.length + 1) {
+        var map = this.getMap();
         this._lines.forEach(function(line) {
-          line.bindTo('map', null);
+          line.setMap(null);
         });
         this._lines = [];
         for (var i = 1; i < trail.length; ++i) {
@@ -160,8 +161,8 @@ Tracker map.
             strokeColor: POLYLINE_COLOR,
             strokeWeight: POLYLINE_WEIGHT,
             strokeOpacity: 1 - (frac * frac),
+            map: map,
           });
-          line.bindTo('map', this);
           this._lines.push(line);
         }
       }
