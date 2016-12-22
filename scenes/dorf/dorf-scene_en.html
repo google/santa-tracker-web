@@ -58,7 +58,7 @@ Santa's Village.
         <span id="village-pegman">
           <a id="village-pegman-image" href$="[[_calculateDiveURL(mode)]]">Santa Dive</a>
         </span>
-        <santa-weather active="[[active]]"></santa-weather>
+        <santa-weather active="[[_computeWeatherActive(active, mode)]]"></santa-weather>
         <div id="header-mobileelves"></div>
       </div>
       <div id="header-content">
@@ -93,7 +93,7 @@ Santa's Village.
         <!-- The 'New Today' house exists in the regular grid -->
         <div class="house house-new-today">
           <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]" on-click="_onClickNewTodayHouse">
-            <div class$="card new-today-[[todayHouse]]">
+            <div class$="card new-today-[[todayHouse]]" hidden$="[[_isCastMode(mode)]]">
               <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_string('scene', todayHouse, strings)]]</h3>
             </div>
@@ -138,7 +138,7 @@ Santa's Village.
 
         <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
           have a shared stacking context with houses -->
-        <div id="eastereggs" class$="mode-[[mode]]">
+        <div id="eastereggs" class$="mode-[[mode]]" hidden="[[]]">
           <template is="dom-repeat" items="[[easterEggs]]">
             <div id$="easteregg-[[item]]" class="easter-egg"></div>
           </template>
@@ -428,16 +428,25 @@ Santa's Village.
       this.fire('sound-ambient', 'music_start_village');
       this.fire('sound-ambient', 'village_start');
 
-      this._startEasterEggs();
+      if (this.mode !== 'cast') {
+        this._startEasterEggs();
+      }
     },
 
     onHide: function() {
       this.fire('sound-ambient', 'village_end');
-      this._stopEasterEggs();
+
+      if (this.mode !== 'cast') {
+        this._stopEasterEggs();
+      }
     },
 
     _isCastMode: function(mode) {
       return mode == 'cast';
+    },
+
+    _computeWeatherActive: function(active, mode) {
+      return active && mode !== 'cast';
     },
 
     /**
@@ -718,11 +727,9 @@ Santa's Village.
     },
 
     _startEasterEggs: function() {
-      if (this.mode != 'cast') {
-        this._stopEasterEggs();
-        this._randomEasterEggs();  // stops self if no longer active
-        this._playTicTacToe();
-      }
+      this._stopEasterEggs();
+      this._randomEasterEggs();  // stops self if no longer active
+      this._playTicTacToe();
 
       this._pegmanStep();  // stops self if not active
     },

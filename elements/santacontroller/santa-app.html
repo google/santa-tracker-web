@@ -78,8 +78,8 @@ Santa Tracker app.
         selected-attribute="active">
 
       <dorf-scene id="village" route="village" icon="1f384" permanent
-          today-house="[[todayHouse]]"
-          houses="[[_houses]]"
+          today-house="[[_limitTodayHouseForCast(todayHouse, mode)]]"
+          houses="[[_limitHousesForCast(_houses, mode)]]"
           mode$="[[mode]]"
           path$="scenes/dorf/dorf-scene_[[language]].html"
           class="santa-scene" allow-page-scrolling></dorf-scene>
@@ -781,7 +781,7 @@ Polymer({
     if (this.duringTracker) {
       return TRACKER_ROUTE;
     } else if (this.mode === 'cast') {
-      return 'cast';
+      return 'village';
     } else {
       return 'village';
     }
@@ -1289,6 +1289,18 @@ Polymer({
 
   omitSantaChrome: function(mode) {
     return mode == 'cast' || mode == 'embed';
+  },
+
+  _limitTodayHouseForCast: function(todayHouse, mode) {
+    return mode === 'cast' ? null : todayHouse;
+  },
+
+  _limitHousesForCast: function(houses, mode) {
+    if (mode === 'cast') {
+      return houses.slice(0, 3);
+    } else {
+      return houses;
+    }
   },
 
   /**
