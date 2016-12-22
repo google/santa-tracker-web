@@ -42,6 +42,13 @@ Polymer({
     },
   },
 
+  _createLink: function(text, href) {
+    var link = document.createElement('a');
+    link.textContent = text;
+    link.href = href;
+    return link.outerHTML;
+  },
+
   _onDetailsChanged: function(details) {
     var node = this.$.content;
 
@@ -54,11 +61,13 @@ Polymer({
     var parts = (details.photos || []).map(function(photo) {
       return photo.attributionHtml;
     });
+
+    var query = details.stop.city + ', ' + details.stop.region;
+    var mapsLink = 'https://maps.google.com/?q=' + window.encodeURIComponent(query);
+    parts.unshift(this._createLink('Google Maps', mapsLink));
+
     if (details.hasWiki) {
-      var link = document.createElement('a');
-      link.textContent = 'Wikipedia';
-      link.href = details.wikipedia.url;
-      parts.unshift(link.outerHTML);
+      parts.unshift(this._createLink('Wikipedia', details.wikipedia.url));
     }
 
     node.innerHTML = parts.join(' &bull; ');

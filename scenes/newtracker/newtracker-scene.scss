@@ -113,6 +113,10 @@ h3, h4 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  &.wrap {
+    white-space: normal
+  }
 }
 
 santa-weather {
