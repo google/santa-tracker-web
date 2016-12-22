@@ -144,8 +144,8 @@ Tracker media, for playing audio/videos in minimal UI mode.
         this._resetVideo();
       } else if (event.type === 'google-youtube-state-change') {
         // YouTube tells us the video is "something", so set it active so it actually takes up the
-        // whole screen.
-        this._setVideoActive(detail.data !== 0);
+        // whole screen (5 is 'cued', so ignore that).
+        this._setVideoActive(detail.data && detail.data <= 3);
       }
     },
 
