@@ -302,6 +302,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       },
 
       /**
+       * Santa's previous stop.
+       */
+      _prev: {
+        type: Object,
+        value: null,
+      },
+
+      /**
        * Santa's current stop.
        */
       _current: {
@@ -397,11 +405,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       var p = this.$.map.santaLatLng;
       var move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 
-      // Don't do a bunch of calculations while Santa is at a fixed location.
+      // Only perform some updates and calculations while Santa is moving (and not if stopped).
       if (move) {
         this.$.map.santaLatLng = data.position;
         this.$.map.santaHeading = data.stopover ? null : data.heading;
 
+        // Work out the distance from the user to Santa.
         var userLocation = window.santaService.getUserLocation();
         if (userLocation) {
           this._distance = Spherical.computeDistanceBetween(data.position, userLocation);
@@ -409,15 +418,16 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           this._distance = -1;
         }
 
-        var pending = data.prev;
-        var trail = [];
-        // TODO(samthor): Build this up over time, not every frame.
-        // TODO(samthor): Don't change the trail while Santa is flying, only at each stop.
-        while (trail.length < 16 && pending) {
-          trail.unshift(pending);
-          pending = pending.prev();
+        // If the previous stop has changed, then rebuild Santa's trail.
+        if (this._prev !== data.prev) {
+          // The trail can have current/future stops included, strip them until we find the
+          // previous stop.
+          var dests = window.santaService.getDestinations().slice();
+          while (data.prev && dests.length && dests[dests.length - 1] !== data.prev) {
+            dests.pop();
+          }
+          this.$.map.trail = dests;
         }
-        this.$.map.trail = trail;
       }
 
       this._setDistanceTravelled(data.distanceTravelled);

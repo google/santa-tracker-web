@@ -30,6 +30,8 @@ Tracker map.
 
   <iron-media-query query="(pointer: fine)" query-matches="{{_hasPointer}}"></iron-media-query>
 
+  <img src="img/marker.png" id="marker" hidden />
+
   <div id="santa" tabindex="0" hidden>
     <div class="presents" hidden>
       <div class="deliver0"></div>
@@ -44,7 +46,7 @@ Tracker map.
   </div>
 
   <div id="map"></div>
-  
+
 </template>
 <script>
 (function() {
@@ -63,17 +65,24 @@ Tracker map.
     return DIR_NAMES[index];
   }
 
-  function createSantaLayer(santaDiv) {
-    function SantaLayer(options, clickHandler) {
+  function createSantaLayer(santaDiv, marker) {
+    function SantaLayer(options, clickHandler, routeClickHandler) {
       // TODO(samthor): Use real template.
       this._container = santaDiv.cloneNode(true);
-      this._container.addEventListener('click', clickHandler);
+      this._container.addEventListener('click', function(event) {
+        event.stopPropagation();  // prevents marker clicks when Santa was intended
+        clickHandler();
+      });
       this.setValues(options);
 
       this._sleigh = this._container.querySelector('.sleigh');
       this._presents = this._container.querySelector('.presents');
 
+      this._routeClickHandler = routeClickHandler;
+      this._markerPool = [];
+      this._markers = [];
       this._lines = [];
+      this._trailEndLatLng = null;
 
       this._activeTrail = new google.maps.Polyline({
         geodesic: true,
@@ -81,6 +90,12 @@ Tracker map.
         strokeWeight: POLYLINE_WEIGHT,
       });
       this._activeTrail.bindTo('map', this);
+
+      this._locationIcon = /** @type {google.maps.Icon} */({
+        url: marker.src,
+        size: new google.maps.Size(15, 18),
+        scaledSize: new google.maps.Size(15, 18),
+      });
     }
     SantaLayer.prototype = new google.maps.OverlayView;
 
@@ -126,6 +141,7 @@ Tracker map.
       }
 
       this.draw();
+      this._updateActiveTrail();
     };
 
     /**
@@ -153,6 +169,92 @@ Tracker map.
       this._lines.forEach(function(line, i) {
         line.setPath(trail.slice(i, i + 2));
       });
+      this._trailEndLatLng = trail[0] || null;
+      this._updateActiveTrail();
+    };
+
+    /**
+     * Builds or reuses a marker for the tracker.
+     */
+    SantaLayer.prototype._fetchMarker = function(position, data) {
+      var next = this._markerPool.pop();
+      if (next) {
+        next.setPosition(position);
+        next.setMap(this.getMap());
+      } else {
+        next = new google.maps.Marker({
+          position: position,
+          icon: this._locationIcon,
+          map: this.getMap(),
+        });
+        next.addListener('click', this._onRouteMarkerClick.bind(this, next));
+      }
+      next.set('st_dest', data);
+      return next;
+    };
+
+    /**
+     * Releases a marker to the pool of unused markers.
+     */
+    SantaLayer.prototype._releaseMarker = function(marker) {
+      if (marker) {
+        marker.setMap(null);
+        marker.set('st_dest', null);
+        this._markerPool.push(marker);
+      }
+    };
+
+    SantaLayer.prototype._onRouteMarkerClick = function(marker) {
+      var dest = marker.get('st_dest');
+      dest && this._routeClickHandler(dest);
+    };
+
+    /**
+     * Specifiy the list of previous destinations, and an optional tail limit to show.
+     */
+    SantaLayer.prototype.setPreviousDestinations = function(destinations, limit) {
+      // Clear head markers if the route gets smaller (offset change).
+      while (this._markers.length > destinations.length) {
+        this._releaseMarker(this._markers.pop());
+      }
+
+      // Add new markers when the route gets larger (normal operation).
+      var map = this.getMap();
+      while (destinations.length > this._markers.length) {
+        // If there's a limit, don't actually make markers after the limit.
+        if (limit > 0 && this._markers.length < destinations.length - limit) {
+          this._markers.push(null);
+          continue;
+        }
+        var dest = destinations[this._markers.length];
+        this._markers.push(this._fetchMarker(dest.location, dest));
+      }
+
+      // If a limit was specified, then hide previous markers.
+      if (limit > 0) {
+        for (var i = this._markers.length - limit; i >= 0; --i) {
+          var hide = this._markers[i];
+          if (!hide) {
+            break;  // already hidden all these markers
+          }
+          this._markers[i] = null;
+          this._releaseMarker(hide);
+        }
+      }
+    };
+
+    /**
+     * Updates the active trail (the segment from trail => Santa), based on the latLngTrail and
+     * Santa's location.
+     */
+    SantaLayer.prototype._updateActiveTrail = function() {
+      var latLng = /** @type {google.maps.LatLng} */ (this.get('position'));
+
+      if (latLng && this._trailEndLatLng) {
+        this._activeTrail.setPath([latLng, this._trailEndLatLng]);
+      } else {
+        this._activeTrail.setPath([]);
+      }
     };
 
     /**
@@ -330,13 +432,12 @@ Tracker map.
         return;
       }
 
+      this._santaLayer.setPreviousDestinations(this.trail, this.minimalUi ? this.trailLength : -1);
+
       // Grab last `trailLength` entries, push Santa's location, reverse for the display.
       var slice = this.trail.slice(this.trail.length - this.trailLength).map(function(data) {
         return data.location;
       });
-      if (this.santaLatLng) {
-        slice.push(this.santaLatLng);
-      }
       slice.reverse();
 
       this._santaLayer.setLatLngTrail(slice);
@@ -362,9 +463,14 @@ Tracker map.
       window.removeEventListener('resize', this._onWindowResize);
     },
 
-    onFollowSantaClick: function() {
+    _onFollowSantaClick: function() {
       this._userZoom = false;
       this.focusOnSanta = true;
+    },
+
+    _onRouteMarkerClick: function(dest) {
+      // TODO(samthor): do something.
+      console.info('dest clicked', dest.id);
     },
 
     _userZoomChanged: function() {
@@ -427,8 +533,9 @@ Tracker map.
         }
       }.bind(this));
 
-      var SantaLayer = createSantaLayer(this.$.santa);
-      this._santaLayer = new SantaLayer({map: map}, this.onFollowSantaClick.bind(this));
+      var SantaLayer = createSantaLayer(this.$.santa, this.$.marker);
+      this._santaLayer = new SantaLayer(
+          {map: map}, this._onFollowSantaClick.bind(this), this._onRouteMarkerClick.bind(this));
       this._map = map;
     }
 
