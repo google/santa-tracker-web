@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Distance par rapport à vous"
 	},
+	"tracker_feed": {
+		"message": "Flux en direct"
+	},
 	"tracker_flight_nearby": {
 		"message": "Le père Noël est près de chez vous ! Découvrez où il se trouve."
 	},
 	"tracker_flight_start": {
 		"message": "Le père Noël a quitté le pôle Nord. Vous pouvez désormais suivre son itinéraire."
+	},
+	"tracker_from_google": {
+		"message": "De la part de toute l'équipe Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Cadeaux distribués"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Vous êtes ici :"
+	},
+	"tracker_just_in": {
+		"message": "Dernières actualités"
 	},
 	"tracker_next_stop": {
 		"message": "Prochaine étape"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Voir itinéraire"
+	},
+	"tracker_stats": {
+		"message": "Statistiques du père Noël"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Le père Noël arrive dans environ {{hours}} heures"

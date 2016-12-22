@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Разстояние от вас"
 	},
+	"tracker_feed": {
+		"message": "Емисия на живо"
+	},
 	"tracker_flight_nearby": {
 		"message": "Дядо Коледа е наблизо. Разберете къде."
 	},
 	"tracker_flight_start": {
 		"message": "Дядо Коледа потегли от Северния полюс и вече можете да следите маршрута му"
+	},
+	"tracker_from_google": {
+		"message": "От всички нас в Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Доставени подаръци"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Вие сте в"
+	},
+	"tracker_just_in": {
+		"message": "Последни новини"
 	},
 	"tracker_next_stop": {
 		"message": "Следваща спирка"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Вижте маршрута"
+	},
+	"tracker_stats": {
+		"message": "Статистика за Дядо Коледа"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Дядо Коледа ще пристигне след около {{hours}} часа"

@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Attālums no jūsu atrašanās vietas"
 	},
+	"tracker_feed": {
+		"message": "Reāllaika plūsma"
+	},
 	"tracker_flight_nearby": {
 		"message": "Ziemassvētku vecītis ir netālu — noskaidrojiet kur"
 	},
 	"tracker_flight_start": {
 		"message": "Ziemassvētku vecītis ir pametis Ziemeļpolu, un tagad varat sekot viņa ceļojumam"
+	},
+	"tracker_from_google": {
+		"message": "No uzņēmuma Google komandas"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Piegādātās dāvanas"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Jūs esat vietā:"
+	},
+	"tracker_just_in": {
+		"message": "Jaunākās ziņas"
 	},
 	"tracker_next_stop": {
 		"message": "Nākamā apstāšanās vieta"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Skatīt maršrutu"
+	},
+	"tracker_stats": {
+		"message": "Vecīša statistika"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Ziemassvētku vecītis ieradīsies apmēram pēc {{hours}} stundām"

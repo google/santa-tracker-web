@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Oddaljenost od vas"
 	},
+	"tracker_feed": {
+		"message": "Vir v živo"
+	},
 	"tracker_flight_nearby": {
 		"message": "Božiček je v bližini, ugotovite, kje."
 	},
 	"tracker_flight_start": {
 		"message": "Božiček je zapustil Severni pol in zdaj lahko sledite njegovi poti."
+	},
+	"tracker_from_google": {
+		"message": "Od vseh pri Googlu"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Dostavljena darila"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Ste na naslednji lokaciji:"
+	},
+	"tracker_just_in": {
+		"message": "Zadnje novice"
 	},
 	"tracker_next_stop": {
 		"message": "Naslednji postanek"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Ogled poti"
+	},
+	"tracker_stats": {
+		"message": "Božičkova statistika"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Božiček bo prispel čez približno toliko ur: {{hours}}"

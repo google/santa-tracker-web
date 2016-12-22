@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Distància respecte a l'usuari"
 	},
+	"tracker_feed": {
+		"message": "Feed en temps real"
+	},
 	"tracker_flight_nearby": {
 		"message": "El Pare Noel és a prop; esbrineu on"
 	},
 	"tracker_flight_start": {
 		"message": "El Pare Noel ha sortit del Pol Nord i ara ja podeu seguir la seva ruta"
+	},
+	"tracker_from_google": {
+		"message": "De part de tot Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Regals entregats"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Us trobeu a"
+	},
+	"tracker_just_in": {
+		"message": "Notícies d'última hora"
 	},
 	"tracker_next_stop": {
 		"message": "Propera parada"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Mostra la ruta"
+	},
+	"tracker_stats": {
+		"message": "Estadístiques del Pare Noel"
 	},
 	"tracker_time_from_you_many": {
 		"message": "El Pare Noel arribarà en aproximadament {{hours}} hores"

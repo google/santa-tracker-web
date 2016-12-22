@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Distanța față de tine"
 	},
+	"tracker_feed": {
+		"message": "Feed live"
+	},
 	"tracker_flight_nearby": {
 		"message": "Moș Crăciun este în apropiere. Află unde."
 	},
 	"tracker_flight_start": {
 		"message": "Moș Crăciun a plecat de la Polul Nord. Acum îi poți urmări traseul."
+	},
+	"tracker_from_google": {
+		"message": "De la toți cei de la Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Cadouri livrate"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Sunteți la"
+	},
+	"tracker_just_in": {
+		"message": "Noutăți"
 	},
 	"tracker_next_stop": {
 		"message": "Următoarea oprire"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Vezi traseul"
+	},
+	"tracker_stats": {
+		"message": "Unde este Moș Crăciun?"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Moș Crăciun va sosi peste aproximativ {{hours}} ore"

@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Distância de onde você está"
 	},
+	"tracker_feed": {
+		"message": "Feed em tempo real"
+	},
 	"tracker_flight_nearby": {
 		"message": "O Papai Noel está perto, descubra onde"
 	},
 	"tracker_flight_start": {
 		"message": "O Papai Noel partiu do Polo Norte, e você pode seguir a rota dele"
+	},
+	"tracker_from_google": {
+		"message": "De todos nós aqui no Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Presentes entregues"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Você está em"
+	},
+	"tracker_just_in": {
+		"message": "Últimas notícias"
 	},
 	"tracker_next_stop": {
 		"message": "Próxima parada"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Ver trajeto"
+	},
+	"tracker_stats": {
+		"message": "Estatísticas do Papai Noel"
 	},
 	"tracker_time_from_you_many": {
 		"message": "O Papai Noel chegará em cerca de {{hours}} horas"

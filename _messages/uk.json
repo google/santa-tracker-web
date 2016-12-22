@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Відстань від вас"
 	},
+	"tracker_feed": {
+		"message": "Стрічка оновлень"
+	},
 	"tracker_flight_nearby": {
 		"message": "Дід Мороз поблизу – дізнайтеся, де саме"
 	},
 	"tracker_flight_start": {
 		"message": "Дід Мороз уже вирушив із Північного полюса, і ви можете стежити за його подорожжю"
+	},
+	"tracker_from_google": {
+		"message": "Команда Google"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Доставлено подарунків"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Ви зараз тут:"
+	},
+	"tracker_just_in": {
+		"message": "Свіжі новини"
 	},
 	"tracker_next_stop": {
 		"message": "Наступна зупинка"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Маршрут"
+	},
+	"tracker_stats": {
+		"message": "Статистика Діда Мороза"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Дід Мороз прийде приблизно за {{hours}} год"

@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "உங்களிடமிருந்துள்ள தூரம்"
 	},
+	"tracker_feed": {
+		"message": "நேரலை அறிவிப்புகள்"
+	},
 	"tracker_flight_nearby": {
 		"message": "சான்டா அருகில் இருக்கிறார், எங்கே என்று கண்டறியுங்கள்"
 	},
 	"tracker_flight_start": {
 		"message": "வட துருவத்தில் இருந்து சான்டா புறப்பட்டுவிட்டார், இப்போது நீங்கள் அவரின் வழியைப் பின்தொடரலாம்"
+	},
+	"tracker_from_google": {
+		"message": "Google இல் உள்ள அனைவரின் சார்பாகவும்"
 	},
 	"tracker_gifts_delivered": {
 		"message": "பரிசுகள் வழங்கப்பட்டன"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "இங்கே இருக்கிறீர்கள்"
+	},
+	"tracker_just_in": {
+		"message": "சற்று முன் கிடைத்த செய்தி"
 	},
 	"tracker_next_stop": {
 		"message": "அடுத்த நிறுத்தம்"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "வழியைக் காட்டு"
+	},
+	"tracker_stats": {
+		"message": "சான்டா பற்றிய விவரங்கள்"
 	},
 	"tracker_time_from_you_many": {
 		"message": "சான்டா சுமார் {{hours}} மணிநேரத்தில் வருவார்"

@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Kaugus teist"
 	},
+	"tracker_feed": {
+		"message": "Otseülekanne"
+	},
 	"tracker_flight_nearby": {
 		"message": "Jõuluvana on lähedal – vaadake, kus"
 	},
 	"tracker_flight_start": {
 		"message": "Jõuluvana asus põhjapooluselt teele ja nüüd saate tema teekonda jälgida"
+	},
+	"tracker_from_google": {
+		"message": "Google'i perelt"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Kohale toimetatud kingitusi"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Olete asukohas"
+	},
+	"tracker_just_in": {
+		"message": "Uudis"
 	},
 	"tracker_next_stop": {
 		"message": "Järgmine peatus"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Vaadake marsruuti"
+	},
+	"tracker_stats": {
+		"message": "Jõuluvana statistika"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Jõuluvana tuleb ligikaudu {{hours}} tunni pärast"

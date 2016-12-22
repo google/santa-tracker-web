@@ -1409,11 +1409,17 @@
 	"tracker_distance_from_you": {
 		"message": "Atstumas nuo jūsų"
 	},
+	"tracker_feed": {
+		"message": "Tiesioginis sklaidos kanalas"
+	},
 	"tracker_flight_nearby": {
 		"message": "Kalėdų Senelis kažkur netoli; sužinokite, kur"
 	},
 	"tracker_flight_start": {
 		"message": "Kalėdų Senelis išskrido iš Šiaurės ašigalio ir dabar galite stebėti jo maršrutą"
+	},
+	"tracker_from_google": {
+		"message": "Visų „Google“ darbuotojų vardu"
 	},
 	"tracker_gifts_delivered": {
 		"message": "Pristatytos dovanos"
@@ -1423,6 +1429,9 @@
 	},
 	"tracker_intro_user_location": {
 		"message": "Jūs esate"
+	},
+	"tracker_just_in": {
+		"message": "Naujausios žinios"
 	},
 	"tracker_next_stop": {
 		"message": "Kitas sustojimas"
@@ -1435,6 +1444,9 @@
 	},
 	"tracker_see_route": {
 		"message": "Žiūrėkite maršrutą"
+	},
+	"tracker_stats": {
+		"message": "Kalėdų Senelio statistika"
 	},
 	"tracker_time_from_you_many": {
 		"message": "Kalėdų senelis atvyks po maždaug {{hours}} val."
