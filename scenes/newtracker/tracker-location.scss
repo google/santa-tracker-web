@@ -14,6 +14,7 @@ $photo-maxwidth: 600px;
   position: relative;
   width: 100%;
   max-width: $photo-maxwidth;
+  z-index: 10;
 
   &:before {
     content: '';
