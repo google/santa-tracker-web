@@ -1,3 +1,20 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<!-- This file is explicitly ES5, as it's included by other scenes -->
+
 <link rel="import" href="../../../components/app-storage/app-localstorage/app-localstorage-document.html">
 <link rel="import" href="../../../components/polymer/polymer.html">
 <dom-module id="smatch-storage">
@@ -19,7 +36,7 @@
     </app-localstorage-document>
   </template>
   <script>
-    (() => {
+    (function() {
       const DEFAULT_UNLOCK_IDS = [
         "elf1",
         "elf2",
@@ -39,7 +56,7 @@
         "rudolph",
         "elf1",
         "elf2",
-      ].reduce((unlocks, key) => {
+      ].reduce(function(unlocks, key) {
         unlocks[key] = DEFAULT_UNLOCK_IDS.indexOf(key) !== -1;
         return unlocks;
       }, {});
@@ -74,36 +91,39 @@
           '_migrateStorage(storageVersion, version)'
         ],
 
-        recordFirstPlay() {
+        recordFirstPlay: function() {
           return this.$.firstPlay.transactionsComplete.then(() => {
             this._setFirstPlay(false);
           });
         },
 
-        _migrateStorage(storageVersion) {
+        _migrateStorage: function(storageVersion) {
           if (storageVersion != null && storageVersion !== STORAGE_VERSION) {
-            console.log(`Smatch storage version (${storageVersion}) is out of date...`);
+            console.log('Smatch storage version (' + storageVersion + ') is out of date...');
             let storageMigrates = Promise.resolve();
             for (let i = storageVersion; i < STORAGE_VERSION;) {
-              let migration = `_migrateTo${++i}`;
+              let migration = '_migrateTo' + i;
               if (this[migration] == null) {
                 continue;
               }
-              console.log(`Migrating smatch storage to version ${i}`);
+              console.log('Migrating smatch storage to version', i);
               storageMigrates =
-                  storageMigrates.then(() => this[migration]());
+                  storageMigrates.then(function() { this[migration](); }.bind(this));
             }
-            storageMigrates.then(() => this.storageVersion = STORAGE_VERSION);
+            storageMigrates.then(function() { this.storageVersion = STORAGE_VERSION; }.bind(this));
           }
         },
 
-        _migrateTo1() {
-          return this.$.unlocks.transactionsComplete.then(() => {
-            this.unlocks = Object.assign({}, DEFAULT_UNLOCKS);
-          });
+        _migrateTo1: function() {
+          return this.$.unlocks.transactionsComplete.then(function() {
+            this.unlocks = {};
+            for (let k in DEFAULT_UNLOCKS) {
+              this.unlocks[k] = DEFAULT_UNLOCKS[k];
+            }
+          }.bind(this));
         }
       });
-    })();
+    }());
 
   </script>
 </dom-module>
