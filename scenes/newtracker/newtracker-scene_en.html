@@ -23,8 +23,8 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="newtracker-scene_module.html">
 
 <!-- nb: intentionally in subfolder, to deal with Vulcanize issue in same dir -->
+<link rel="import" href="../../elements/santa-media.html">
 <link rel="import" href="./elements/tracker-map.html">
-<link rel="import" href="./elements/tracker-media.html">
 <link rel="import" href="./elements/tracker-location.html">
 <link rel="import" href="./elements/tracker-attribution.html">
 
@@ -69,7 +69,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
   </svg>
 
   <template is="dom-if" if="[[minimalUi]]">
-    <tracker-media countdown="[[_computeTrackerCountdown(countdown, _upcoming)]]" video-active="{{_videoActive}}"></tracker-media>
+    <santa-media active="[[active]]"
+        countdown="[[_computeTrackerCountdown(countdown, _upcoming)]]"
+        video-active="{{_videoActive}}"></tracker-media>
   </template>
 
   <div class="contain" id="sections">

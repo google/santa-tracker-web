@@ -12,12 +12,12 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../components/polymer/polymer.html">
 
 <!--
-Tracker media, for playing audio/videos in minimal UI mode.
+Media element, for playing audio/videos in minimal UI mode.
 -->
-<dom-module id="tracker-media">
+<dom-module id="santa-media">
 <template>
   <style>
   :host {
@@ -49,7 +49,7 @@ Tracker media, for playing audio/videos in minimal UI mode.
       chromeless>
   </google-youtube>
 
-  <audio id="audioplayer" autoplay loop muted="[[videoActive]]" src="[[_audioSrc]]"></audio>
+  <audio id="audioplayer" autoplay loop muted="[[_computeMuted(videoActive, active)]]" src="[[_audioSrc]]"></audio>
 
 </template>
 <script>
@@ -88,13 +88,22 @@ Tracker media, for playing audio/videos in minimal UI mode.
   }
 
   Polymer({
-    is: 'tracker-media',
+    is: 'santa-media',
     
     properties: {
       _asyncPlay: Number,
 
       /**
-       * The number of seconds this `tracker-media` element has to do something.
+       * Whether this element is active.
+       */
+      active: {
+        type: Number,
+        value: false,
+        observer: '_activeChanged',
+      },
+
+      /**
+       * The number of seconds this `santa-media` element has to do something.
        */
       countdown: {
         type: Number,
@@ -153,20 +162,30 @@ Tracker media, for playing audio/videos in minimal UI mode.
       if (this.videoActive || !this._audioSrc) {
         // If there's a video active, preload new audio. If there's no src, then choose one (this
         // will trigger initially, when _videoActive => false).
-        this._audioSrc = this.resolveUrl('../../../audio/' + randomChoice(AUDIO_TRACKS));
+        this._audioSrc = this.resolveUrl('../audio/' + randomChoice(AUDIO_TRACKS));
       } else if (!this.videoActive) {
         this._youtubeId = null;
       }
     },
 
     _countdownChanged: function(countdown) {
-      if (countdown >= VIDEO_MIN && !this._youtubeId && Math.random() < VIDEO_CHANCE) {
-        this._youtubeId = randomVideo();
+      if (!this.active || countdown < VIDEO_MIN || !this._youtubeId) {
+        return;  // already playing, can't play etc
+      } else if (Math.random() > VIDEO_CHANCE) {
+        return;  // not random enough
+      }
 
-        // nb. Should be / 2 to fit perfectly, but move closer to start of travels.
-        var startAfter = (Math.min(SEGMENT, countdown) - VIDEO_DURATION) / 4;
-        this._asyncPlay = this.async(this._triggerPlay, startAfter * 1000);
-        console.debug('playing video in', startAfter, 'sec', this._youtubeId);
+      this._youtubeId = randomVideo();
+
+      // nb. Should be / 2 to fit perfectly, but move closer to start of travels.
+      var startAfter = (Math.min(SEGMENT, countdown) - VIDEO_DURATION) / 4;
+      this._asyncPlay = this.async(this._triggerPlay, startAfter * 1000);
+      console.debug('playing video in', startAfter, 'sec', this._youtubeId);
+    },
+
+    _activeChanged: function() {
+      if (!this.active) {
+        this._resetVideo();
       }
     },
 
@@ -200,6 +219,10 @@ Tracker media, for playing audio/videos in minimal UI mode.
       } else {
         return 'hidden';
       }
+    },
+
+    _computeMuted: function(videoActive, active) {
+      return !active || videoActive;
     },
 
   });
