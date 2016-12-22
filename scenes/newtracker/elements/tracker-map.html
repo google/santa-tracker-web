@@ -45,6 +45,7 @@ Tracker map.
     </div>
   </div>
 
+  <div id="legalnotices"></div>
   <div id="map"></div>
 
 </template>
@@ -516,6 +517,7 @@ Tracker map.
         backgroundColor: '#69d5d0',  // TODO: bottom color
         styles: mapstyles.styles,
         scrollwheel: false,
+        hideLegalNotices: !this.minimalUi,
       });
 
       map.addListener('center_changed', function() {
@@ -532,6 +534,15 @@ Tracker map.
           this._userZoom = true;
         }
       }.bind(this));
+
+      if (!this.minimalUi) {
+        map.addListener('mapdataproviders_changed', function() {
+          var providers = /** @type {string} */ (map.get('mapDataProviders'));
+          if (providers) {
+            this.$.legalnotices.textContent = providers;
+          }
+        }.bind(this));
+      }
 
       var SantaLayer = createSantaLayer(this.$.santa, this.$.marker);
       this._santaLayer = new SantaLayer(

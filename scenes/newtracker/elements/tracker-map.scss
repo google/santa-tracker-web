@@ -9,6 +9,19 @@
   bottom: 0;
 }
 
+#legalnotices {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  z-index: 10;
+  background: rgba(245, 245, 245, 1.0);
+  padding: 0 6px;
+  font-size: 10px;
+  line-height: 14px;
+  margin: 0 1px;
+  opacity: 0.7;
+}
+
 #santa {
   width: 0;
   height: 0;
