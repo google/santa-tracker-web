@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="newtracker-scene_module.html">
 
 <link rel="import" href="tracker-map.html">
+<link rel="import" href="tracker-media.html">
 <link rel="import" href="tracker-location.html">
 <link rel="import" href="tracker-attribution.html">
 
@@ -66,17 +67,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     </defs>
   </svg>
 
-  <google-youtube id="player" hidden="[[!_videoActive]]"
-      video-id="[[_youtubeId]]"
-      playsupported="true"
-      width="100%"
-      height="100%"
-      on-google-youtube-state-change="_youtubeEvent"
-      on-google-youtube-error="_youtubeEvent"
-      chromeless autoplay="1">
-  </google-youtube>
-
-  <audio id="audioplayer" autoplay loop muted="[[_videoActive]]"></audio>
+  <template is="dom-if" if="[[minimalUi]]">
+    <tracker-media countdown="[[_computeTrackerCountdown(countdown, _upcoming)]]" video-active="{{_videoActive}}"></tracker-media>
+  </template>
 
   <div class="contain" id="sections">
     <section id="main">
@@ -285,6 +278,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       },
 
       /**
+       * Whether a full-screen video is active. Bound from `tracker-media` in minimal UI mode.
+       */
+      _videoActive: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
        * The images currently being displayed in the social feed.
        */
       _feedImages: {
@@ -325,23 +326,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       },
 
       /**
-       * The current video to play, if any.
-       */
-      _youtubeId: {
-        type: String,
-        value: null,
-      },
-
-      /**
-       * Whether the video element is currently active and visible.
-       */
-      _videoActive: {
-        type: Boolean,
-        value: false,
-        observer: '_videoActiveChanged',
-      },
-
-      /**
        * Santa's previous stop.
        */
       _prev: {
@@ -372,7 +356,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       _upcoming: {
         type: Object,
         value: null,
-        observer: '_onUpcomingChanged',
       },
 
       /**
@@ -489,9 +472,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _onCurrentChanged: function(current) {
-      this._videoActive = false;  // reset video in case it's stuck
-      this._youtubeId = null;
-
       if (!this._current || this.minimalUi) {
         this._details = null;
         return;
@@ -636,42 +616,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       return 'background-image: url(' + url + ')';
     },
 
-    _youtubeEvent: function(event, detail) {
-      if (event.type !== 'google-youtube-state-change' || !detail.data) {
-        this._videoActive = false;
-        this._youtubeId = null;
-        this._santaSync();
-      }
-    },
-
-    _onUpcomingChanged: function(newValue, oldValue) {
-      if (!this.minimalUi || oldValue != null || newValue == null) {
-        return;  // do nothing
-      }
-      this.async(function() {
-        console.info('upcoming changed', newValue, oldValue, 'countdown is', this.countdown);
-        if (this.countdown < 100) {
-          return;
-        }
-
-        // TODO(samthor): don't always play video
-        // TODO(samthor): don't play duplicates
-        // TODO(samthor): play randomly in middle of travel
-        this.async(function() {
-          var video = randomChoice(Object.keys(window.VIDEOS));
-          this.playVideo(window.VIDEOS[video]);
-        }, 5000);
-      });
-    },
-
-    _videoActiveChanged: function() {
-      if (!this.minimalUi) {
-        this.$.audioplayer.src = null;
-      } else if (this._videoActive || !player.src) {
-        // If there's a video active, preload new audio. If there's no src, then choose one (this
-        // will trigger initially, when _videoActive => false).
-        this.$.audioplayer.src = this.resolveUrl('../../audio/' + randomChoice(AUDIO_TRACKS));
-      }
+    _computeTrackerCountdown: function(countdown, upcoming) {
+      return upcoming ? countdown : 0;
     },
 
     _onCardClick: function(event) {
@@ -746,23 +692,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         var search = cand ? '#' + cand.id : '';
         window.history.replaceState(null, null, window.location.pathname + search);
       }, 100);
-    },
-
-    /**
-     * Plays a full-screen YouTube video. This should only be used in non-interactive environments,
-     * e.g., Google Cast.
-     */
-    playVideo: function(youtubeId) {
-      this._youtubeId = youtubeId;
-      this._videoActive = true;
-
-      var triggerPlay = function() {
-        this.$.player.play();
-        if (!this.$.player.playbackstarted) {
-          window.setTimeout(triggerPlay, 500);
-        }
-      }.bind(this);
-      triggerPlay();
     },
 
     created: function() {

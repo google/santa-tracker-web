@@ -7,15 +7,6 @@ $color-red: #ff002b;
   flex-flow: column nowrap;
 }
 
-google-youtube {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-}
-
 a {
   color: white;
   &:hover {
