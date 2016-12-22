@@ -24,13 +24,14 @@
     "gulp-replace": "~0.5.4",
     "gulp-sass": "^2.1.0",
     "gulp-util": "^3.0.7",
-    "gulp-vulcanize": "^6.0.1",
+    "gulp-vulcanize": "^6.1.0",
     "jsdom": "^9.8.3",
     "merge-stream": "^1.0.0",
     "run-sequence": "^1.2.2",
     "sprintf-js": "^1.0.3",
     "through": "^2.3.8",
     "through2": "^2.0.0",
+    "vulcanize": "^1.15.2",
     "yargs": "^3.29.0"
   }
 }
