@@ -1,0 +1,327 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../../components/iron-media-query/iron-media-query.html">
+<link rel="import" href="smatch-common.html">
+<link rel="import" href="smatch-unlockable.html">
+<dom-module id="smatch-character-select">
+  <template>
+    <style>
+      :host {
+        @apply --layout-fit;
+        background-color: #5E34B0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: transform 0.5s, opacity 0.5s;
+        min-height: 500px;
+      }
+
+      :host(:not(.active)) {
+        pointer-events: none;
+      }
+
+      :host(.active) {
+        opacity: 1;
+        transform: translateY(0);
+        transition: none;
+      }
+
+      header {
+        font-family: Lobster;
+        text-align: center;
+        font-size: 2.5em;
+        color: #fff;
+        margin: 1em 0;
+      }
+
+      header button {
+        display: none;
+        margin: 1em 0;
+      }
+
+      header.ready h1,
+      header.ready span {
+        display: none;
+      }
+
+      header.ready button {
+        display: inline-block;
+      }
+
+      header h1, header h2 {
+        margin: 0;
+      }
+
+      smatch-unlockable {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -240px;
+      }
+
+      #elf1 {
+        transform: translate(-220px, 100px);
+      }
+
+      #elf2 {
+        transform: translate(220px, 100px);
+      }
+
+      #bear {
+        transform: translate(30px, -10px);
+      }
+
+      #santa {
+        transform: translate(-130px, 10px);
+      }
+
+      #rudolph {
+        transform: translate(-320px, 70px);
+      }
+
+      #penguin {
+        transform: translate(300px, 50px);
+      }
+
+      #trex {
+        transform: translate(260px, -10px);
+      }
+
+      #mrsclaus {
+        transform: translate(130px, 90px);
+      }
+
+      #snowman {
+        transform: translate(-240px, -50px)
+      }
+
+      #gingerbreadman {
+        transform: translate(-70px, 110px);
+      }
+
+      button {
+        margin: 0 15px;
+        min-width: 200px;
+        padding: 15px;
+        background: #2EBD5A;
+        border: none;
+        border-radius: 10px;
+        box-sizing: border-box;
+        color: white;
+        font: 900 20px 'Roboto', sans-serif;
+        cursor: pointer;
+      }
+
+      @media (max-width: 640px) {
+
+        header {
+          font-size: 1.65em;
+          margin: 10.5em 0 0;
+        }
+
+        smatch-unlockable {
+          margin-left: -45px;
+        }
+
+        #mrsclaus {
+          transform: translate(-42px, 100px);
+        }
+
+        #rudolph {
+          transform: translate(42px, 100px);
+        }
+
+        #snowman {
+          transform: translate(-110px, 160px);
+        }
+
+        #trex {
+          transform: translate(110px, 160px);
+        }
+
+        #elf2 {
+          transform: translate(-120px, 250px);
+        }
+
+        #elf1 {
+          transform: translate(120px, 250px);
+        }
+
+        #penguin {
+          transform: translate(-90px, 340px);
+        }
+
+        #gingerbreadman {
+          transform: translate(90px, 340px);
+        }
+
+        #bear {
+          transform: translate(0px, 400px);
+        }
+
+        #santa {
+          transform: translate(0px, 300px);
+        }
+
+        button {
+          min-width: 150px;
+        }
+      }
+    </style>
+    <iron-media-query
+        query="(max-width: 640px)"
+        query-matches="{{mini}}">
+    </iron-media-query>
+    <header class$="[[_computeHeaderClassname(teamIds.length)]]">
+      <h1>Choose 5</h1>
+      <span>to start</span>
+      <button on-tap="_onStartTap">Start</button>
+    </header>
+    <template is="dom-repeat" items="[[characters]]" as="character">
+      <smatch-unlockable id$="[[character]]"
+          active="[[active]]"
+          mini="[[mini]]"
+          character-id="[[character]]"
+          hit-area="[[_computeHitArea(character)]]"
+          unlocked="[[_computeIsUnlocked(character, unlocks.*)]]"
+          selected="[[_computeIsSelected(character, teamIds.length)]]">
+      </smatch-unlockable>
+    </template>
+  </template>
+  <script>
+    (() => {
+      const HIT_AREAS = {
+        elf1: {
+          width: 80,
+          height: 140
+        },
+
+        elf2: {
+          width: 75,
+          height: 140
+        },
+
+        gingerbreadman: {
+          width: 140,
+          height: 190
+        },
+
+        mrsclaus: {
+          width: 110,
+          height: 200
+        },
+
+        snowman: {
+          width: 160,
+          height: 270
+        },
+
+        santa: {
+          width: 130,
+          height: 220
+        },
+
+        bear: {
+          width: 130,
+          height: 220
+        },
+
+        trex: {
+          width: 300,
+          height: 300
+        },
+
+        penguin: {
+          width: 80,
+          height: 90
+        },
+
+        rudolph: {
+          width: 70,
+          height: 220
+        }
+      };
+
+      Polymer({
+        is: 'smatch-character-select',
+
+        properties: {
+          active: {
+            type: Boolean,
+            observer: '_activeChanged',
+            value: true
+          },
+
+          teamIds: {
+            type: Array,
+            notify: true
+          },
+
+          unlocks: {
+            type: Object,
+            notify: true
+          },
+
+          characters: {
+            type: Array,
+            computed: '_computeCharacters(unlocks)'
+          }
+        },
+
+        listeners: {
+          'unlockable-selected': '_onUnlockableSelected'
+        },
+
+        _computeIsUnlocked(id) {
+          return this.unlocks[id];
+        },
+
+        _computeIsSelected(id) {
+          return this.teamIds.indexOf(id) !== -1;
+        },
+
+        _computeHitArea(id) {
+          return HIT_AREAS[id];
+        },
+
+        _computeCharacters(unlocks) {
+          return Object.keys(unlocks);
+        },
+
+        _computeUnlockableClassname(active) {
+          return active
+              ? 'active'
+              : '';
+        },
+
+        _onUnlockableSelected(event) {
+          const selectedId = event.detail.id;
+          const teamIndex = this.teamIds.indexOf(selectedId);
+
+          if (teamIndex !== -1) {
+            this.splice('teamIds', teamIndex, 1);
+          } else {
+            this.push('teamIds', selectedId);
+          }
+        },
+
+        _computeHeaderClassname(teamLength) {
+          return teamLength === 5
+              ? 'ready'
+              : '';
+        },
+
+        _onStartTap() {
+          this.fire('smatch-start');
+        },
+
+        _activeChanged() {
+          if (this.active) {
+            this.classList.add('active');
+          } else {
+            this.classList.remove('active');
+          }
+        }
+      });
+    })();
+  </script>
+</dom-module>

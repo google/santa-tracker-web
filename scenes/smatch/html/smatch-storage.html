@@ -8,58 +8,102 @@
         data="{{firstPlay}}">
     </app-localstorage-document>
     <app-localstorage-document
-        id="teamIds"
-        key="smatch.teamIds"
-        data="{{teamIds}}">
-    </app-localstorage-document>
-    <app-localstorage-document
         id="unlocks"
         key="smatch.unlocks"
         data="{{unlocks}}">
     </app-localstorage-document>
+    <app-localstorage-document
+        id="version"
+        key="smatch.storageVersion"
+        data="{{storageVersion}}">
+    </app-localstorage-document>
   </template>
   <script>
-    Polymer({
-      is: 'smatch-storage',
+    (() => {
+      const DEFAULT_UNLOCK_IDS = [
+        "elf1",
+        "elf2",
+        "penguin",
+        "gingerbreadman",
+        "rudolph",
+      ];
 
-      properties: {
-        firstPlay: {
-          type: Boolean,
-          notify: true,
-          readOnly: true,
-          value: true,
-        },
+      const DEFAULT_UNLOCKS = [
+        "snowman",
+        "trex",
+        "bear",
+        "santa",
+        "gingerbreadman",
+        "mrsclaus",
+        "penguin",
+        "rudolph",
+        "elf1",
+        "elf2",
+      ].reduce((unlocks, key) => {
+        unlocks[key] = DEFAULT_UNLOCK_IDS.indexOf(key) !== -1;
+        return unlocks;
+      }, {});
 
-        teamIds: {
-          type: Array,
-          notify: true,
-          value: () => [
-            "elf1",
-            "elf2",
-            "bear",
-            "gingerbreadman",
-            "penguin",
-          ],
-        },
+      const STORAGE_VERSION = 1;
 
-        unlocks: {
-          type: Object,
-          notify: true,
-          value() {
-            const unlocks = {};
-            for (let i = 1; i < 11; ++i) {
-              unlocks[i] = false;
-            }
-            return unlocks;
+      Polymer({
+        is: 'smatch-storage',
+
+        properties: {
+          storageVersion: {
+            type: Number,
+            value: STORAGE_VERSION,
+            observer: '_migrateStorage'
           },
-        }
-      },
 
-      recordFirstPlay() {
-        return this.$.firstPlay.transactionsComplete.then(() => {
-          this._setFirstPlay(false);
-        });
-      },
-    });
+          firstPlay: {
+            type: Boolean,
+            notify: true,
+            readOnly: true,
+            value: true,
+          },
+
+          unlocks: {
+            type: Object,
+            notify: true,
+            value: () => Object.assign({}, DEFAULT_UNLOCKS)
+          }
+        },
+
+        observers: [
+          '_migrateStorage(storageVersion, version)'
+        ],
+
+        recordFirstPlay() {
+          return this.$.firstPlay.transactionsComplete.then(() => {
+            this._setFirstPlay(false);
+          });
+        },
+
+        _migrateStorage(storageVersion) {
+          if (storageVersion != null && storageVersion !== STORAGE_VERSION) {
+            console.log(`Smatch storage version (${storageVersion}) is out of date...`);
+            let storageMigrates = Promise.resolve();
+            for (let i = storageVersion; i < STORAGE_VERSION;) {
+              let migration = `_migrateTo${++i}`;
+              if (this[migration] == null) {
+                continue;
+              }
+              console.log(`Migrating smatch storage to version ${i}`);
+              storageMigrates =
+                  storageMigrates.then(() => this[migration]());
+            }
+            storageMigrates.then(() => this.storageVersion = STORAGE_VERSION);
+          }
+        },
+
+        _migrateTo1() {
+          return this.$.unlocks.transactionsComplete.then(() => {
+            this.unlocks = Object.assign({}, DEFAULT_UNLOCKS);
+          });
+        }
+      });
+    })();
+
   </script>
 </dom-module>

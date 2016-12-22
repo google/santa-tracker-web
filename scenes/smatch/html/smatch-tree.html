@@ -134,7 +134,6 @@ specific language governing permissions and limitations under the License.
           change.value.indexSplices.forEach(splice => {
             for (let i = 0; i < splice.addedCount; ++i) {
               const details = this.decorations[splice.index + i];
-              console.log(details);
               this.addDecoration(
                   details.x, details.y, details.graphic, details.teamMember);
             }

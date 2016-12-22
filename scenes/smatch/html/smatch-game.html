@@ -18,6 +18,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="match3-board.html">
 <link rel="import" href="smatch-common.html">
+<link rel="import" href="smatch-character-select.html">
 <link rel="import" href="smatch-storage.html">
 <link rel="import" href="smatch-state.html">
 <link rel="import" href="smatch-tree.html">
@@ -81,6 +82,10 @@ specific language governing permissions and limitations under the License.
 
       smatch-team {
         flex: 0 0 100px;
+      }
+
+      smatch-character-select {
+        z-index: 2;
       }
 
       @media (max-width: 1024px) {
@@ -155,7 +160,6 @@ specific language governing permissions and limitations under the License.
     <smatch-storage
         id="storage"
         first-play="{{firstPlay}}"
-        team-ids="{{teamIds}}"
         unlocks="{{unlocks}}">
     </smatch-storage>
     <smatch-state
@@ -163,6 +167,7 @@ specific language governing permissions and limitations under the License.
         decorations="{{decorations}}"
         level="{{level}}">
     </smatch-state>
+
     <section id="match3">
       <match3-board
           id="board"
@@ -187,6 +192,12 @@ specific language governing permissions and limitations under the License.
           on-decorate="_onDecorate">
       </smatch-team>
     </section>
+
+    <smatch-character-select
+        id="characterSelect"
+        unlocks="[[unlocks]]"
+        team-ids="{{teamIds}}">
+    </smatch-character-select>
   </template>
   <script>
     (() => {
@@ -228,6 +239,8 @@ specific language governing permissions and limitations under the License.
 
           teamIds: {
             type: Array,
+            notify: true,
+            value: () => []
           },
 
           unlocks: {
@@ -236,12 +249,12 @@ specific language governing permissions and limitations under the License.
 
           gems: {
             type: Array,
-            computed: '_computeGems(teamIds)',
+            computed: '_computeGems(teamIds.length)',
           },
 
           team: {
             type: Array,
-            computed: '_computeTeam(teamIds)',
+            computed: '_computeTeam(teamIds.length)',
           },
 
           metrics: {
@@ -251,7 +264,8 @@ specific language governing permissions and limitations under the License.
 
         listeners: {
           'will-remove-matches': '_handleMatches',
-          'iron-resize': '_onIronResize'
+          'iron-resize': '_onIronResize',
+          'smatch-start': '_onSmatchStart'
         },
 
         _computeGemSize(isSmallerThanDesktop, isSmallerThanTablet) {
@@ -264,22 +278,26 @@ specific language governing permissions and limitations under the License.
           return DEFAULT_GEM_SIZE;
         },
 
-        _computeTeam(teamIds) {
-          if (teamIds != null) {
+        _computeTeam() {
+          if (this.teamIds != null) {
             const urlBase = this.resolveUrl('../img');
-            return teamIds.map(id => new SmatchTeamMember(id, urlBase));
+            return this.teamIds.map(id => new SmatchTeamMember(id, urlBase));
           }
         },
 
-        _computeGems(teamIds) {
-          if (teamIds != null) {
-            return teamIds.map(id => new Graphic('image',
+        _computeGems() {
+          if (this.teamIds != null) {
+            return this.teamIds.map(id => new Graphic('image',
                 this.resolveUrl(`../img/ornaments/${id}.svg`)));
           }
         },
 
         attached() {
           this._measure();
+        },
+
+        showCharacterSelect() {
+          this.$.characterSelect.active = true;
         },
 
         start() {
@@ -306,6 +324,13 @@ specific language governing permissions and limitations under the License.
 
         _onDecorate(event) {
           this.push('decorations', event.detail);
+        },
+
+        _onSmatchStart() {
+          if (this.teamIds.length === 5) {
+            this.$.characterSelect.active = false;
+            this.start();
+          }
         },
 
         _handleMatches(event) {

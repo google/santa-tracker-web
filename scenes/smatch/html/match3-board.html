@@ -109,6 +109,12 @@ specific language governing permissions and limitations under the License.
         ],
 
         properties: {
+          started: {
+            type: Boolean,
+            readOnly: true,
+            value: false
+          },
+
           cellSize: {
             type: Number,
             value: DEFAULT_CELL_SIZE
@@ -185,6 +191,7 @@ specific language governing permissions and limitations under the License.
         ],
 
         start() {
+          this._setStarted(true);
           return this.fill_(false).then(() => this.tick_());
         },
 
@@ -697,7 +704,9 @@ specific language governing permissions and limitations under the License.
               this.destroyCell_(oldGrid[i]);
             }
 
-            this.fill_();
+            if (this.started) {
+              this.fill_();
+            }
           }
         },
 

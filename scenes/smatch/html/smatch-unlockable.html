@@ -1,0 +1,225 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="smatch-unlockable">
+  <template>
+    <style>
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(0);
+        }
+
+        51% {
+          transform: translateY(-1%);
+        }
+
+        52% {
+          transform: translateY(0%);
+        }
+
+        53% {
+          transform: translateY(0%);
+        }
+
+        54% {
+          transform: translateY(-1%);
+        }
+
+        55% {
+          transform: translateY(0%);
+        }
+
+        100% {
+          transform: translateY(0%);
+        }
+      }
+
+      :host {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 500px;
+        height: 500px;
+        pointer-events: none;
+      }
+
+      :host(:not(.active)) #hit {
+        pointer-events: none;
+      }
+
+      :host(.mini) {
+        width: 90px;
+        height: 90px;
+      }
+
+      :host(.mini) #hit {
+        margin-bottom: 0;
+        align-items: flex-start;
+      }
+
+      :host(.mini.selected) #character:after,
+      :host(.mini:not(.unlocked)) #character:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 72px;
+        height: 72px;
+        border-radius: 72px;
+        top: 9px;
+        left: 9px;
+      }
+
+      :host(.mini:not(.unlocked)) #character:after {
+        font-family: Lobster;
+        content: '?';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #444;
+        font-weight: bold;
+        font-size: 3em;
+        background-color: #111;
+      }
+
+      :host(.mini.selected) #character:after {
+        background-color: rgba(255, 180, 0, 0.75);
+      }
+
+      :host(.selected) #hit:after {
+        content: url('../img/checkmark.svg');
+        display: block;
+        width: 32px;
+        height: 32px;
+      }
+
+      :host(.mini.selected) #hit:after {
+        width: 48px;
+        height: 48px;
+        margin-top: -8px;
+      }
+
+      #character {
+        @apply --layout-fit;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      #hit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        pointer-events: auto;
+        cursor: pointer;
+        margin-bottom: 90px;
+        z-index: 1;
+      }
+    </style>
+    <div id="character"></div>
+    <div id="hit" on-tap="_onHitTap"></div>
+  </template>
+  <script>
+    (() => {
+      Polymer({
+        is: 'smatch-unlockable',
+
+        properties: {
+          active: {
+            type: Boolean,
+            value: false
+          },
+
+          hitArea: {
+            type: Object
+          },
+
+          unlocked: {
+            type: Boolean,
+            value: false
+          },
+
+          selected: {
+            type: Boolean,
+            value: false
+          },
+
+          characterId: {
+            type: String
+          },
+
+          mini: {
+            type: Boolean,
+            value: false
+          }
+        },
+
+        observers: [
+          '_updateAppearance(characterId, unlocked, selected, mini, hitArea)',
+          '_reflectToClass(selected, "selected")',
+          '_reflectToClass(mini, "mini")',
+          '_reflectToClass(unlocked, "unlocked")',
+          '_reflectToClass(active, "active")'
+        ],
+
+        _reflectToClass(value, className) {
+          if (value) {
+            Polymer.dom(this).classList.add(className);
+          } else {
+            Polymer.dom(this).classList.remove(className);
+          }
+        },
+
+        _updateAppearance(characterId, unlocked, selected, mini, hitArea) {
+          this.debounce('_updateAppearance', () => {
+            let hitWidth = '';
+            let hitHeight = '';
+            let animationName = '';
+            let backgroundUrl = '';
+
+            if (mini) {
+              backgroundUrl =
+                  this.resolveUrl(`../img/portraits/${characterId}.svg`);
+            } else {
+              backgroundUrl = this.resolveUrl(`../img/selection-screen`) +
+                  (unlocked
+                      ? (selected
+                          ? '/selected'
+                          : '')
+                      : '/unavailable') +
+                  `/${characterId}.svg`;
+
+              if (unlocked) {
+                animationName = 'bounce';
+              } else {
+                animationName = '';
+              }
+
+              hitWidth = `${hitArea.width}px`;
+              hitHeight = `${hitArea.height}px`;
+            }
+
+            this.$.character.style.animationName = animationName;
+            this.$.character.style.animationDelay = `${Math.random() * -10}s`
+            this.$.character.style.backgroundImage = `url(${backgroundUrl})`;
+
+            this.$.hit.style.width = hitWidth;
+            this.$.hit.style.height = hitHeight;
+          });
+        },
+
+        _onHitTap() {
+          if (this.unlocked) {
+            this.fire('unlockable-selected', { id: this.characterId });
+          }
+        }
+      })
+    })();
+  </script>
+</dom-module>
