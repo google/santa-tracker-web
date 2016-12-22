@@ -51,6 +51,7 @@ Tracker map.
   var POLYLINE_COLOR = '#22a528';
   var POLYLINE_WEIGHT = 2;
   var DIR_NAMES = 'n ne e se s sw w nw'.split(' ');
+  var FOCUS_TIMEOUT = 30 * 1000;  // after this much inactivity, refocus
 
   function dirForHeading(heading) {
     if (isNaN(heading)) {
@@ -214,6 +215,7 @@ Tracker map.
         type: Boolean,
         value: true,
         notify: true,
+        observer: '_delaySantaFocus',
       },
 
       /**
@@ -287,7 +289,6 @@ Tracker map.
 
         var santaLatLng = new google.maps.LatLng(this.santaLatLng);
         this._santaLayer.setPosition(santaLatLng, this.santaHeading);
-
 
         if (!this.focusOnSanta) {
           return;  // nothing else to do
@@ -380,6 +381,16 @@ Tracker map.
       }
     },
 
+    _delaySantaFocus: function() {
+      if (!this.focusOnSanta) {
+        this.debounce('_focusOnSantaChanged', function() {
+          this.focusOnSanta = true;
+        }, FOCUS_TIMEOUT);
+      } else {
+        this.cancelDebouncer('_focusOnSantaChanged');
+      }
+    },
+
     _mapsAPIReady: function() {
       if (this._map) {
         throw new Error('can\'t mapsAPIReady more than once');
@@ -405,6 +416,7 @@ Tracker map.
         // If it's not a map change or resize, reset focusOnSanta.
         if (!this._duringMapChange && !this._duringResize) {
           this.focusOnSanta = false;
+          this._delaySantaFocus();
         }
       }.bind(this));
 
