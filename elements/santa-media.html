@@ -169,7 +169,7 @@ Media element, for playing audio/videos in minimal UI mode.
     },
 
     _countdownChanged: function(countdown) {
-      if (!this.active || countdown < VIDEO_MIN || !this._youtubeId) {
+      if (!this.active || countdown < VIDEO_MIN || this._youtubeId) {
         return;  // already playing, can't play etc
       } else if (Math.random() > VIDEO_CHANCE) {
         return;  // not random enough
