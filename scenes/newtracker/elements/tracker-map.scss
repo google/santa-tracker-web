@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-@import "sass/animations";
+@import "../sass/animations";
 
 @keyframes deliver-step {
   0% {
@@ -75,13 +75,13 @@
   }
 
   .deliver0 {
-    background-image: url(img/presents/magic.png);
+    background-image: url(../img/presents/magic.png);
   }
   .deliver1 {
-    background-image: url(img/presents/roof.png);
+    background-image: url(../img/presents/roof.png);
   }
   .deliver2 {
-    background-image: url(img/presents/tree.png);
+    background-image: url(../img/presents/tree.png);
   }
 }
 
@@ -107,7 +107,7 @@
   // presents falling from the sleigh
   div.santa:after {
     content: '';
-    background: url(img/sleigh/effects.svg) 50% 0 no-repeat;
+    background: url(../img/sleigh/effects.svg) 50% 0 no-repeat;
     position: absolute;
     width: 100%;
     top: 66%;
@@ -121,13 +121,13 @@
 
     &[data-dir="#{$dir}"] {
       .front {
-        background-image: url(img/sleigh/sleigh-#{$dir}-front.svg);
+        background-image: url(../img/sleigh/sleigh-#{$dir}-front.svg);
       }
       .santa {
-        background-image: url(img/sleigh/sleigh-#{$dir}-santa.svg);
+        background-image: url(../img/sleigh/sleigh-#{$dir}-santa.svg);
       }
       .back {
-        background-image: url(img/sleigh/sleigh-#{$dir}-back.svg);
+        background-image: url(../img/sleigh/sleigh-#{$dir}-back.svg);
       }
     }
   }

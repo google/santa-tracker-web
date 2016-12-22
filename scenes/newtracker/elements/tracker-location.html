@@ -12,7 +12,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
-<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/polymer/polymer.html">
 <link rel="import" href="tracker-location_module.html">
 
 <!--
@@ -196,11 +196,8 @@ Tracker location information, including photos.
     _computeOverlayStyle: function() {
       // TODO(samthor): Prevent duplicates.
       var overlay = Math.floor(Math.random() * 17);
-
-      // TODO(samthor): For some reason, resolveUrl doesn't work for `tracker-location`. Just use
-      // the parent for now, as it has the same path structure.
       var closest = this.closest('newtracker-scene') || this;
-      var url = closest.resolveUrl('img/overlay/overlay' + overlay + '.svg');
+      var url = this.resolveUrl('../img/overlay/overlay' + overlay + '.svg');
       return 'background-image: url(' + url + ')';
     },
 
