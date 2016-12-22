@@ -17,6 +17,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
+<link rel="import" href="../../elements/santa-media.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
@@ -46,6 +47,11 @@ Santa's Village.
   <santa-state countdown-finished="{{countdownFinished}}"
       during-tracker="{{duringTracker}}"
       remaining-time="{{remainingTime}}"></santa-state>
+
+  <template is="dom-if" if="[[_isCastMode(mode)]]">
+    <santa-media active="[[active]]"
+        countdown="[[_computeCountdown(remainingTime)]]"></tracker-media>
+  </template>
 
   <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
     <header>
@@ -447,6 +453,10 @@ Santa's Village.
 
     _computeWeatherActive: function(active, mode) {
       return active && mode !== 'cast';
+    },
+
+    _computeCountdown: function(remainingTime) {
+      return Math.max(0, Math.round(remainingTime / 1000));
     },
 
     /**
