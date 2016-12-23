@@ -21,7 +21,11 @@ specific language governing permissions and limitations under the License.
     (() => {
       const Graphic = Match3BoardElement.Graphic;
 
-      Polymer({
+      const SHARE_STATUS = 'share';
+      const STARTED_STATUS = 'started';
+      const FINISHED_STATUS = 'finished';
+
+      const SmatchStateElement = Polymer({
         is: 'smatch-state',
 
         properties: {
@@ -34,34 +38,62 @@ specific language governing permissions and limitations under the License.
             }
           },
 
+          teamIds: {
+            type: Array,
+            notify: true
+          },
+
           level: {
             type: Number,
             notify: true,
-            computed: '_computeLevel(decorations.length)'
+            computed: '_computeLevel(decorations.length)',
+            observer: '_levelChanged'
           },
 
           status: {
             type: String,
             notify: true,
-            value: 'started',
+            value: STARTED_STATUS, // finished, share
             readOnly: true
           }
         },
 
-        deserialize(queryString) {
-          const decorationsParameter = window.getUrlParameter('d');
+        ready() {
+          const state = this.deserialize();
 
-          if (decorationsParameter != null) {
-            this.decorations = decorationsParameter.split(';')
-                .slice(1)
-                .map(decorationString =>
-                    this._deserializeDecoration(decorationString));
+          if (state.decorations.length && state.teamIds.length) {
+            this.decorations = state.decorations;
+            this.teamIds = state.teamIds;
+            this._setStatus(SHARE_STATUS);
           }
         },
 
+        deserialize() {
+          const decorationsParameter = window.getUrlParameter('d');
+          const teamParameter = window.getUrlParameter('t');
+
+          const decorations = decorationsParameter
+              ? atob(decorationsParameter).split(';')
+                  .map(decorationString =>
+                      this._deserializeDecoration(decorationString))
+              : [];
+
+          const teamIds = teamParameter
+              ? atob(teamParameter).split(',')
+              : [];
+
+          return {
+            decorations,
+            teamIds
+          };
+        },
+
         serialize() {
-          return 'd=' + this.decorations.map(decoration =>
-              this._serializeDecoration(decoration)).join(';');
+          const decorationParam = 'd=' + btoa(this.decorations.map(decoration =>
+              this._serializeDecoration(decoration)).join(';'));
+          const teamParam = 't=' + btoa(this.teamIds.join(','));
+
+          return [decorationParam, teamParam].join('&');
         },
 
         _deserializeDecoration(decorationString) {
@@ -71,7 +103,7 @@ specific language governing permissions and limitations under the License.
             x: parseFloat(parts[0]),
             y: parseFloat(parts[1]),
             graphic: new Graphic('image',
-                this.resolveUrl(`../img/ornaments/ornament${parts[2]}.svg`))
+                this.resolveUrl(`../img/ornaments/${parts[2]}.svg`))
           };
         },
 
@@ -79,7 +111,7 @@ specific language governing permissions and limitations under the License.
           return [
             decoration.x.toFixed(2).replace('0.', '.'),
             decoration.y.toFixed(2).replace('0.', '.'),
-            decoration.graphic.asset.match(/([0-9]+)\.svg/)[1]
+            decoration.graphic.asset.match(/([a-z0-9]+)\.svg/)[1]
           ].join(',')
         },
 
@@ -87,8 +119,20 @@ specific language governing permissions and limitations under the License.
           return this.decorations
               ? 0|this.decorations.length / 10
               : 0;
+        },
+
+        _levelChanged(level) {
+          if (level === 3) {
+            this._setStatus(FINISHED_STATUS);
+          }
         }
       });
+
+      SmatchStateElement.SHARE_STATUS = SHARE_STATUS;
+      SmatchStateElement.STARTED_STATUS = STARTED_STATUS;
+      SmatchStateElement.FINISHED_STATUS = FINISHED_STATUS;
+
+      window.SmatchStateElement = SmatchStateElement;
     })();
   </script>
 </dom-module>

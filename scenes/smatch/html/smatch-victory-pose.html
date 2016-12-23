@@ -1,0 +1,123 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="./smatch-unlockable.html">
+<dom-module id="smatch-victory-pose">
+  <template>
+    <style>
+      :host {
+        @apply --layout-fit;
+        transform-origin: center bottom;
+      }
+
+      smatch-unlockable {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 640px;
+        height: 640px;
+        margin-left: -320px;
+      }
+
+      #elf1 {
+        transform: translate(360px, 55px) scaleX(-1);
+        z-index: 4;
+      }
+
+      #elf2 {
+        transform: translate(-200px, 50px) scaleX(-1);
+        z-index: 3;
+      }
+
+      #santa {
+        transform: translate(-200px, 0);
+      }
+
+      #trex {
+        transform: translate(350px, 0);
+      }
+
+      #rudolph {
+        transform: translate(-360px, 65px);
+        z-index: 4;
+      }
+
+      #penguin {
+        transform: translate(-270px, 75px) scaleX(-1);
+        z-index: 5;
+      }
+
+      #gingerbreadman {
+        transform: translate(200px, 80px);
+        z-index: 5;
+      }
+
+      #mrsclaus {
+        transform: translate(260px, 50px);
+        z-index: 3;
+      }
+
+      #snowman {
+        transform: translate(200px, 30px) scaleX(-1);
+      }
+
+      #bear {
+        transform: translate(-300px, 30px);
+      }
+
+      @media (orientation: landscape) and (max-width: 768px) {
+        :host {
+          transform: translateY(100px) scale(0.85);
+        }
+      }
+
+      @media (orientation: landscape) and (max-width: 640px) {
+        :host {
+          transform: translateY(50px) scale(0.7);
+        }
+      }
+
+      @media (orientation: portrait) and (max-width: 500px) {
+        :host{
+          display: none;
+        }
+      }
+    </style>
+    <template is="dom-repeat" items="[[characters]]" as="character">
+      <smatch-unlockable
+          id$="[[character]]"
+          character-id="[[character]]"
+          hit-area='{"width":0,"height":0}'
+          unlocked>
+      </smatch-unlockable>
+    </template>
+  </template>
+  <script>
+    (() => {
+      Polymer({
+        is: 'smatch-victory-pose',
+
+        properties: {
+          characters: {
+            type: Array,
+            value: () => []
+          }
+        }
+      });
+    })();
+
+  </script>
+</dom-module>

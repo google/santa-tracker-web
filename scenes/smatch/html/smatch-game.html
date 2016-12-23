@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="match3-board.html">
 <link rel="import" href="smatch-common.html">
 <link rel="import" href="smatch-character-select.html">
+<link rel="import" href="smatch-victory-pose.html">
 <link rel="import" href="smatch-storage.html">
 <link rel="import" href="smatch-state.html">
 <link rel="import" href="smatch-tree.html">
@@ -31,6 +32,28 @@ specific language governing permissions and limitations under the License.
         @apply --layout-fit;
         @apply --layout-horizontal;
         @apply --layout-center-center;
+      }
+
+      :host(.finished) #match3,
+      :host(.share) #match3,
+      :host(.finished) smatch-team,
+      :host(.share) smatch-team,
+      :host(.finished) smatch-character-select,
+      :host(.share) smatch-character-select {
+        display: none;
+      }
+
+      :host(.started) smatch-victory-pose {
+        display: none;
+      }
+
+      :host(.share) #tree-container {
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      :host(.share) smatch-tree {
+        transform-origin: center bottom;
       }
 
       section {
@@ -56,14 +79,11 @@ specific language governing permissions and limitations under the License.
         width: 100%;
         height: 100%;
         background-image: url(../img/background.svg);
+        background-color: #9368ec;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         pointer-events: none;
-      }
-
-      smatch-tree {
-        top: 2.5%;
       }
 
       match3-board {
@@ -88,16 +108,19 @@ specific language governing permissions and limitations under the License.
         z-index: 2;
       }
 
-      @media (max-width: 1024px) {
+      @media (orientation: landscape) and (max-width: 1024px) {
         smatch-team {
           position: absolute;
           top: 0;
           right: 0;
           flex-direction: column;
         }
+      }
 
+      @media (min-height: 1024px) {
         smatch-tree {
-          top: -2.5%;
+          transform-origin: center bottom;
+          transform: scale(1.5);
         }
       }
 
@@ -117,6 +140,8 @@ specific language governing permissions and limitations under the License.
 
         #tree-container {
           margin: 0;
+          flex-direction: column-reverse;
+          justify-content: space-between;
         }
 
         match3-board {
@@ -132,8 +157,12 @@ specific language governing permissions and limitations under the License.
         smatch-team {
           position: relative;
           transform-origin: center center;
-          transform: scale(0.7);
+          transform: scale(0.7) translateY(100%);
           flex-direction: row;
+        }
+
+        smatch-tree {
+          transform: scale(0.66);
         }
       }
 
@@ -157,15 +186,19 @@ specific language governing permissions and limitations under the License.
         query="(max-width: 640px)"
         query-matches="{{isSmallerThanTablet}}">
     </iron-media-query>
+
     <smatch-storage
         id="storage"
         first-play="{{firstPlay}}"
         unlocks="{{unlocks}}">
     </smatch-storage>
+
     <smatch-state
         id="state"
         decorations="{{decorations}}"
-        level="{{level}}">
+        level="{{level}}"
+        team-ids="{{teamIds}}"
+        status="{{status}}">
     </smatch-state>
 
     <section id="match3">
@@ -198,6 +231,10 @@ specific language governing permissions and limitations under the License.
         unlocks="[[unlocks]]"
         team-ids="{{teamIds}}">
     </smatch-character-select>
+
+    <smatch-victory-pose
+        characters="[[teamIds]]">
+    </smatch-victory-pose>
   </template>
   <script>
     (() => {
@@ -237,10 +274,14 @@ specific language governing permissions and limitations under the License.
             type: Boolean,
           },
 
+          status: {
+            type: String,
+            observer: '_statusChanged'
+          },
+
           teamIds: {
             type: Array,
-            notify: true,
-            value: () => []
+            notify: true
           },
 
           unlocks: {
@@ -296,19 +337,15 @@ specific language governing permissions and limitations under the License.
           this._measure();
         },
 
-        showCharacterSelect() {
-          this.$.characterSelect.active = true;
-        },
-
         start() {
           this.$.storage.recordFirstPlay().then(() => {
             this.$.board.start();
-            this.$.state.deserialize(window.location.search.slice(1));
           });
         },
 
         end() {
-          window.location.search = this.$.state.serialize();
+          window.history.replaceState(null, null,
+              window.location.pathname + '?' + this.$.state.serialize());
           window.santaApp.fire('game-stop', {
             url: window.location.toString()
           });
@@ -334,6 +371,12 @@ specific language governing permissions and limitations under the License.
         },
 
         _handleMatches(event) {
+          // It's possible for there to be additional matches after the game has
+          // technically been completed (by reaching level 4). If we get a match
+          // event after this point, just ignore it.
+          if (this.status === SmatchStateElement.SHARE_STATUS) {
+            return;
+          }
           const matches = Array.from(event.detail.matches);
           const groups = new Map();
 
@@ -347,6 +390,7 @@ specific language governing permissions and limitations under the License.
 
             groups.get(graphic).push(match);
           }
+
 
           groups.forEach((group, graphic) => {
             const index = this.gems.indexOf(graphic);
@@ -403,6 +447,20 @@ specific language governing permissions and limitations under the License.
               }));
 
           });
+        },
+
+        _statusChanged(status, oldStatus) {
+          if (oldStatus != null) {
+            this.classList.remove(oldStatus);
+          }
+
+          if (status != null) {
+            this.classList.add(status);
+          }
+
+          if (status === SmatchStateElement.FINISHED_STATUS) {
+            this.end();
+          }
         }
       });
 
