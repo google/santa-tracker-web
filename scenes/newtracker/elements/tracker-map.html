@@ -31,6 +31,7 @@ Tracker map.
   <iron-media-query query="(pointer: fine)" query-matches="{{_hasPointer}}"></iron-media-query>
 
   <img src="../img/marker.png" id="marker" hidden />
+  <img src="../img/northpole.png" id="northpoleMarker" hidden />
 
   <div id="santa" tabindex="0" hidden>
     <div class="presents" hidden>
@@ -66,7 +67,7 @@ Tracker map.
     return DIR_NAMES[index];
   }
 
-  function createSantaLayer(santaDiv, marker) {
+  function createSantaLayer(santaDiv, marker, northpoleMarker) {
     function SantaLayer(options, clickHandler, routeClickHandler) {
       // TODO(samthor): Use real template.
       this._container = santaDiv.cloneNode(true);
@@ -97,6 +98,14 @@ Tracker map.
         size: new google.maps.Size(15, 18),
         scaledSize: new google.maps.Size(15, 18),
       });
+
+      this._northpoleIcon = /** @type {google.maps.Icon} */({
+        url: northpoleMarker.src,
+        size: new google.maps.Size(132, 100),
+        scaledSize: new google.maps.Size(132, 100),
+        anchor: new google.maps.Point(66, 50),
+      });
+
     }
     SantaLayer.prototype = new google.maps.OverlayView;
 
@@ -186,11 +195,15 @@ Tracker map.
       } else {
         next = new google.maps.Marker({
           position: position,
-          icon: this._locationIcon,
           map: this.getMap(),
         });
         next.addListener('click', this._onRouteMarkerClick.bind(this, next));
       }
+
+      // TODO(samthor): This is a bit ugly just for one location.
+      var northpole = (data && data.id === 'takeoff');
+      next.setIcon(northpole ? this._northpoleIcon : this._locationIcon);
+
       next.set('st_dest', data);
       return next;
     };
@@ -544,7 +557,7 @@ Tracker map.
         }.bind(this));
       }
 
-      var SantaLayer = createSantaLayer(this.$.santa, this.$.marker);
+      var SantaLayer = createSantaLayer(this.$.santa, this.$.marker, this.$.northpoleMarker);
       this._santaLayer = new SantaLayer(
           {map: map}, this._onFollowSantaClick.bind(this), this._onRouteMarkerClick.bind(this));
       this._map = map;
