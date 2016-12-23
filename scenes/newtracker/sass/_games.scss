@@ -14,65 +14,67 @@
 }
 
 .horizontal-list {
-  a {
-    &:nth-child(even) {
-      .card {
-        width: 282px;
-        top: 10px;
+  $width: 306px;
 
-        .card--inner {
-          clip-path: url(#cardMask2);
+  .card {
+    width: $width;
+    height: 282px;
+    margin: 0;
+  }
 
-          a {
-            padding-top: 30px;
-          }
+  :nth-last-child(even) {
+    .card {
+      width: 278px;
+      $v: ($width - 278px) / 2;
+      margin: 10px $v 0;
+
+      .card--inner {
+        clip-path: url(#cardMask2);
+        a {
+          padding-top: 30px;
         }
-
-        &::before {
-          height: 189px;
-          width: 299px;
-          background: url(img/listview/shape2-shadow.svg) center no-repeat;
-          left: 5px;
-          bottom: 13px;
-        }
-
-        &::after {
-          height: 13px;
-          width: 305px;
-          bottom: 18px;
-          left: -14px;
-          background: url(img/listview/shape2-base.svg) center no-repeat;
-        }
+      }
+      &::before {
+        height: 189px;
+        width: 299px;
+        background: url(img/listview/shape2-shadow.svg) center no-repeat;
+        left: 5px;
+        bottom: 13px;
+      }
+      &::after {
+        height: 13px;
+        width: 305px;
+        bottom: 18px;
+        left: -14px;
+        background: url(img/listview/shape2-base.svg) center no-repeat;
       }
     }
   }
-  
-  .card {
-    width: 308px;
-    height: 282px;
 
-    .card--inner {
-      clip-path: url(#cardMask1);
+  :nth-last-child(odd) {
+    .card {
+      width: 306px;
 
-      a {
-        padding-top: 40px;
+      .card--inner {
+        clip-path: url(#cardMask1);
+        a {
+          padding-top: 40px;
+        }
       }
-    }
-
-    &::before {
-      height: 204px;
-      width: 276px;
-      bottom: 6px;
-      left: 38px;
-      background: url(img/listview/shape1-shadow.svg) center no-repeat;
-    }
-
-    &::after {
-      height: 24px;
-      width: 243px;
-      bottom: 3px;
-      left: 32px;
-      background: url(img/listview/shape1-base.svg) center no-repeat;
+      &::before {
+        height: 204px;
+        width: 276px;
+        bottom: 6px;
+        left: 38px;
+        background: url(img/listview/shape1-shadow.svg) center no-repeat;
+      }
+      &::after {
+        height: 24px;
+        width: 243px;
+        bottom: 3px;
+        left: 32px;
+        background: url(img/listview/shape1-base.svg) center no-repeat;
+      }
     }
   }
 }

@@ -124,11 +124,13 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
             <article class="rotate rotate-games">
               <div class="bg" id="feedbg" style$="[[_computeCardStyle(_gamesList.0)]]"></div>
               <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+              <h3 class="title">[[_computeCardTitle(_gamesList.0, strings)]]</h3>
               <a class="bg" href="#games"></a>
             </article>
             <article class="rotate rotate-videos">
               <div class="bg" id="feedbg" style$="[[_computeCardStyle(_videosList.0)]]"></div>
               <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
+              <h3 class="title">[[_computeCardTitle(_videosList.0, strings)]]</h3>
               <a class="bg" href="#videos"></a>
             </article>
           </template>
@@ -193,7 +195,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       <section id="games" class="listview">
         <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="games-asset"></div>
-        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut">
+        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="gamesList">
           <template is="dom-repeat" items="[[_gamesList]]">
             <a href="[[urlFor(item)]]" class="over">
               <div class="card">
@@ -208,7 +210,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       <section id="videos" class="listview">
         <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
         <div id="videos-asset"></div>
-        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut">
+        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="videosList">
           <template is="dom-repeat" items="[[_videosList]]">
             <a href="[[urlFor(item)]]" class="over">
               <div class="card">
@@ -242,11 +244,31 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
   var UPDATE_MS = 250;
   var SOCIALFEED_COUNT = 11;
   var TRAVELOGUE_COUNT = 4;
+  var LISTVIEW_COUNT = 7;
 
   var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
   var FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
 
   var AUDIO_TRACKS = ['7853_62276019f9c87f2dcfe08641ce912452_village_music_lounge.ogg', '8138_4b63c7c7cbe8b32c4d429f4cddc74182_village_music_gameover_lounge_r2_36571.ogg', '8133_8706368a154a316f379990965e717192_villagemusiclounger339917ie.ogg', '8096_0b8b8a6e86b2859a78ebe14b1e7ccd8d_Santasearch_music_1.ogg'];
+
+  var FALLBACK_CARDS = ['comroom', 'glider', 'jingle', 'latlng', 'office', 'reload', 'satellite', 'selfies', 'slackingoff', 'temptation', 'tired', 'trailer', 'trivia'];
+
+  var INITIAL_GAMES = ['codeboogie', 'codelab', 'penguindash', 'santaselfie', 'wrapbattle', 'presentbounce', 'snowflake'];
+  var ALL_GAMES = INITIAL_GAMES.concat([
+    'traditions', 'translations', 'santasearch', 'seasonofgiving', 'gumball', 'jamband', 'boatload', 'runner', 'jetpack', 'presentdrop', 'mercator', 'racer', 'matching',  // 2016
+    'trivia', 'glider', 'latlong', 'postcard',  // older games
+  ]);
+
+  function shuffleArray(opts, opt_limit) {
+    opts = opts.slice();
+    opts.sort(function(a, b) {
+      return Math.random() - 0.5;
+    });
+    if (opt_limit) {
+      return opts.slice(0, Math.floor(opt_limit));
+    }
+    return opts;
+  }
 
   Polymer({
     is: 'newtracker-scene',
@@ -254,6 +276,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     properties: {
       _updateSantaTimeout: Number,
+      _listviewInterval: Number,
       _strings: Object,
 
       /**
@@ -296,8 +319,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       _gamesList: {
         type: Array,
         value: function() {
-          // TODO(samthor): Real updated list of games.
-          return ['codeboogie', 'codelab', 'penguindash', 'racer', 'gumball'];
+          return shuffleArray(INITIAL_GAMES, LISTVIEW_COUNT / 2);
         },
       },
 
@@ -307,8 +329,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       _videosList: {
         type: Array,
         value: function() {
-          // TODO(samthor): Real updated list of videos.
-          return ['carpool', 'liftoff', 'santasback'];
+          return shuffleArray(Object.keys(window.VIDEOS), LISTVIEW_COUNT / 2);
         },
       },
 
@@ -533,6 +554,43 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }.bind(this);
     },
 
+    _pushListViewImage: function(path, choice) {
+      // TODO(samthor): This allows duplicates.
+      var image = new Image();
+      image.src = this._urlForCardImage(choice);
+      image.onload = function() {
+        var base = path + 'List';
+        var node = this.$$('#' + base);
+        if (!node) {
+          return;
+        }
+
+        // nb. unshift doesn't notify path.0, needed for top cards
+        var array = this.get('_' + base).slice();
+        array.unshift(choice);
+        if (array.length > LISTVIEW_COUNT) {
+          // push 2x, so our :last-of-type selector doesn't muck up.
+          array.pop();
+          array.pop();
+        }
+
+        this.set('_' + base, array);
+
+        node.classList.add('appear');
+        this.async(function() {
+          node.offsetLeft;  // force layout
+          node.classList.remove('appear');
+        });
+      }.bind(this);
+    },
+
+    _urlForCardImage: function(module) {
+      if (FALLBACK_CARDS.indexOf(module) !== -1) {
+        return this.resolveUrl('img/fallback-cards/' + module + '.png');
+      }
+      return this.resolveUrl('../../images/scenes/' + module + '_2x.png');
+    },
+
     /**
      * Converts a value in seconds, to a formatted string in the form 'hh:mm:ss', or some suffix of
      * that.
@@ -551,7 +609,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
       var parts = [padDigits(seconds)];
       if (hours) {
-        parts.unshift(padDigits(mins), hours);
+        parts.unshift(padDigits(mins), padDigits(hours));
       } else {
         parts.unshift(mins);
       }
@@ -608,7 +666,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _computeCardStyle: function(module) {
-      var url = this.resolveUrl('../../images/scenes/' + module + '_2x.png');
+      var url = this._urlForCardImage(module);
       return 'background-image: url(' + url + ')';
     },
 
@@ -747,9 +805,20 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     onShow: function() {
       this.fire('sound-ambient', 'music_start_village');
+
+      // Every 20s, push a random game or video.
+      // TODO(samthor): Let the server control this again.
+      this._listviewInterval = window.setInterval(function() {
+        if (Math.random() < 0.5) {
+          this._pushListViewImage('videos', randomChoice(Object.keys(window.VIDEOS)));
+        } else {
+          this._pushListViewImage('games', randomChoice(ALL_GAMES));
+        }
+      }.bind(this), 30 * 1000);
     },
 
     onHide: function() {
+      window.clearInterval(this._listviewInterval);
     },
 
     _onCardOver: function(event) {

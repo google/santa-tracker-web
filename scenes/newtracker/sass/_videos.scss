@@ -14,54 +14,53 @@
 }
 
 .horizontal-list {
-  a {
-    &:nth-child(even) {
-      .card {
-        width: 380px;
-        .card--inner {
-          clip-path: url(#cardMask4);
-        }
+  .card {
+    width: 380px;
+    height: 205px;
+  }
 
-        &::before {
-          height: 191px;
-          width: 392px;
-          background: url(img/listview/shape4-shadow.svg) center no-repeat;
-          left: 2px;
-          bottom: -10px;
-        }
+  :nth-last-child(even) {
+    .card {
+      .card--inner {
+        clip-path: url(#cardMask4);
+      }
+      &::before {
+        height: 191px;
+        width: 392px;
+        background: url(img/listview/shape4-shadow.svg) center no-repeat;
+        left: 2px;
+        bottom: -10px;
+      }
 
-        &::after {
-          height: 11px;
-          width: 348px;
-          bottom: -1px;
-          left: 15px;
-          background: url(img/listview/shape4-base.svg) center no-repeat;
-        }
+      &::after {
+        height: 11px;
+        width: 348px;
+        bottom: -1px;
+        left: 15px;
+        background: url(img/listview/shape4-base.svg) center no-repeat;
       }
     }
   }
-  .card {
-    width: 370px;
-    height: 205px;
-
-    .card--inner {
-      clip-path: url(#cardMask3);
-    }
-
-    &::before {
-      height: 180px;
-      width: 380px;
-      bottom: -10px;
-      left: 5px;
-      background: url(img/listview/shape3-shadow.svg) center no-repeat;
-    }
-
-    &::after {
-      height: 14px;
-      width: 368px;
-      bottom: 0;
-      left: 0;
-      background: url(img/listview/shape3-base.svg) center no-repeat;
+  :nth-last-child(odd) {
+    .card {
+      .card--inner {
+        margin-left: 5px;
+        clip-path: url(#cardMask3);
+      }
+      &::before {
+        height: 180px;
+        width: 380px;
+        bottom: -10px;
+        left: 10px;
+        background: url(img/listview/shape3-shadow.svg) center no-repeat;
+      }
+      &::after {
+        height: 14px;
+        width: 366px;
+        bottom: 0;
+        left: 8px;
+        background: url(img/listview/shape3-base.svg) center no-repeat;
+      }
     }
   }
 }

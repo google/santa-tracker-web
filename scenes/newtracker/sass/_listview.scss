@@ -19,6 +19,7 @@ h1 {
   a.over {
     text-decoration: none;
     flex-shrink: 0;
+    transition: transform 1s ease-in-out;
 
     .card {
       pointer-events: none;  // prevent hover/click "inside" link
@@ -28,6 +29,15 @@ h1 {
     &:hover .card {
       transform: translateY(-16px);
       transition: transform 0.2s;
+    }
+  }
+  &.appear {
+    a.over {
+      transform: translate(-100%);
+      transition: none;
+      &:first-of-type {
+        transform: translate(-700px);
+      }
     }
   }
 

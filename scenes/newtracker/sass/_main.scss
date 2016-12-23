@@ -32,9 +32,13 @@
       line-height: 13px;
       color: white;
       margin: 8px;
+      margin-bottom: 4px;
       text-transform: uppercase;
       font-weight: 900;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
+    }
+    h3.title {
+      margin: 0 8px;
     }
 
     .bg {
