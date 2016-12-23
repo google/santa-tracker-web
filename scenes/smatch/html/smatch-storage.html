@@ -37,7 +37,7 @@ specific language governing permissions and limitations under the License.
   </template>
   <script>
     (function() {
-      const DEFAULT_UNLOCK_IDS = [
+      var DEFAULT_UNLOCK_IDS = [
         "elf1",
         "elf2",
         "penguin",
@@ -45,7 +45,7 @@ specific language governing permissions and limitations under the License.
         "rudolph",
       ];
 
-      const DEFAULT_UNLOCKS = [
+      var DEFAULT_UNLOCKS = [
         "snowman",
         "trex",
         "bear",
@@ -61,7 +61,7 @@ specific language governing permissions and limitations under the License.
         return unlocks;
       }, {});
 
-      const STORAGE_VERSION = 1;
+      var STORAGE_VERSION = 1;
 
       Polymer({
         is: 'smatch-storage',
@@ -84,11 +84,7 @@ specific language governing permissions and limitations under the License.
             type: Object,
             notify: true,
             value: function() {
-              const out = {};
-              for (let k in DEFAULT_UNLOCKS) {
-                out[k] = DEFAULT_UNLOCKS[k];
-              }
-              return out;
+              return Object.assign({}, DEFAULT_UNLOCKS);
             },
           },
         },
@@ -106,9 +102,9 @@ specific language governing permissions and limitations under the License.
         _migrateStorage: function(storageVersion) {
           if (storageVersion != null && storageVersion !== STORAGE_VERSION) {
             console.log('Smatch storage version (' + storageVersion + ') is out of date...');
-            let storageMigrates = Promise.resolve();
-            for (let i = storageVersion; i < STORAGE_VERSION;) {
-              let migration = '_migrateTo' + i;
+            var storageMigrates = Promise.resolve();
+            for (var i = storageVersion; i < STORAGE_VERSION;) {
+              var migration = '_migrateTo' + i;
               if (this[migration] == null) {
                 continue;
               }
@@ -122,10 +118,7 @@ specific language governing permissions and limitations under the License.
 
         _migrateTo1: function() {
           return this.$.unlocks.transactionsComplete.then(function() {
-            this.unlocks = {};
-            for (let k in DEFAULT_UNLOCKS) {
-              this.unlocks[k] = DEFAULT_UNLOCKS[k];
-            }
+            this.unlocks = Object.assign({}, DEFAULT_UNLOCKS);
           }.bind(this));
         }
       });

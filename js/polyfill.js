@@ -39,6 +39,27 @@ if (!('closest' in window.Element.prototype)) {
   };
 }
 
+if (!('assign' in Object)) {
+  Object.assign = function(target, var_args) {
+    if (target == null) {
+      throw new TypeError('Cannot convert undefined or null to object');
+    }
+    var to = Object(target);
+    for (var index = 1; index < arguments.length; ++index) {
+      var source = arguments[index];
+      if (source == null) {
+        continue;
+      }
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          to[key] = source[key];
+        }
+      }
+    }
+    return to;
+  };
+}
+
 if (!('sign' in Math)) {
   Math.sign = function(x) {
     x = +x;
