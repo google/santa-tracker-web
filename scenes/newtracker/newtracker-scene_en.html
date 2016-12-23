@@ -805,6 +805,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     onShow: function() {
       this.fire('sound-ambient', 'music_start_village');
+      if (this.minimalUi) {
+        return;
+      }
 
       // Every 20s, push a random game or video.
       // TODO(samthor): Let the server control this again.
