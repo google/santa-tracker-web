@@ -225,12 +225,9 @@ self.addEventListener('install', function(event) {
   });
   const precachePromise = Promise.all(precacheRequests);
 
-  // TODO(samthor): Why skip in staging?
-  // if (IS_STAGING) {
-  //   event.waitUntil(self.skipWaiting());
-  //   return;
-  // }
-  event.waitUntil(Promise.all([updatePromise, precachePromise]));
+  // Wait for an update, and then always skip waiting. Santa Tracker is fairly stateless and
+  // time-sensitive, so ensure clients get a new version ASAP.
+  event.waitUntil(Promise.all([updatePromise, precachePromise]).then(self.skipWaiting());
 });
 
 self.addEventListener('activate', function(event) {
