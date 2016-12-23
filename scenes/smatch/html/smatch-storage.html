@@ -86,7 +86,7 @@ specific language governing permissions and limitations under the License.
             value: function() {
               const out = {};
               for (let k in DEFAULT_UNLOCKS) {
-                this.unlocks[k] = DEFAULT_UNLOCKS[k];
+                out[k] = DEFAULT_UNLOCKS[k];
               }
               return out;
             },
@@ -98,9 +98,9 @@ specific language governing permissions and limitations under the License.
         ],
 
         recordFirstPlay: function() {
-          return this.$.firstPlay.transactionsComplete.then(() => {
+          return this.$.firstPlay.transactionsComplete.then(function() {
             this._setFirstPlay(false);
-          });
+          }.bind(this));
         },
 
         _migrateStorage: function(storageVersion) {
