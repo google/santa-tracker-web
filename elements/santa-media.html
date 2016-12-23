@@ -49,7 +49,7 @@ Media element, for playing audio/videos in minimal UI mode.
       chromeless>
   </google-youtube>
 
-  <audio id="audioplayer" autoplay loop muted="[[_computeMuted(videoActive, active)]]" src="[[_audioSrc]]"></audio>
+  <audio id="audioplayer" autoplay loop src="[[_computeAudioSrc(videoActive, active)]]"></audio>
 
 </template>
 <script>
@@ -144,6 +144,7 @@ Media element, for playing audio/videos in minimal UI mode.
       _audioSrc: {
         type: String,
         value: null,
+        computed: '_computeAudioSrc(videoActive, active)',
       },
 
     },
@@ -159,13 +160,16 @@ Media element, for playing audio/videos in minimal UI mode.
     },
 
     _videoActiveChanged: function() {
-      if (this.videoActive || !this._audioSrc) {
-        // If there's a video active, preload new audio. If there's no src, then choose one (this
-        // will trigger initially, when _videoActive => false).
-        this._audioSrc = this.resolveUrl('../audio/' + randomChoice(AUDIO_TRACKS));
-      } else if (!this.videoActive) {
+      if (!this.videoActive) {
         this._youtubeId = null;
       }
+    },
+
+    _computeAudioSrc: function(videoActive, active) {
+      if (!active || videoActive) {
+        return null;
+      }
+      return this.resolveUrl('../audio/' + randomChoice(AUDIO_TRACKS));
     },
 
     _countdownChanged: function(countdown) {
@@ -219,10 +223,6 @@ Media element, for playing audio/videos in minimal UI mode.
       } else {
         return 'hidden';
       }
-    },
-
-    _computeMuted: function(videoActive, active) {
-      return !active || videoActive;
     },
 
   });
