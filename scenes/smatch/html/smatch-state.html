@@ -76,7 +76,7 @@ specific language governing permissions and limitations under the License.
               ? atob(decorationsParameter).split(';')
                   .map(function(decorationString) {
                     return this._deserializeDecoration(decorationString);
-                  })
+                  }, this)
               : [];
 
           const teamIds = teamParameter
