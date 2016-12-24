@@ -136,6 +136,18 @@ tracker-map {
     line-height: 33px;
     font-weight: 600;
     color: $color-yellow;
+
+    &.lessbig {
+      word-spacing: -1px;
+      font-size: 15px;
+      line-height: 17px;
+      hyphens: auto;
+
+      @media (max-width: 400px) {
+        letter-spacing: -1px;
+        line-height: 15px;
+      }
+    }
   }
 
   .data {

@@ -478,11 +478,13 @@ Tracker map.
     },
 
     _onFollowSantaClick: function() {
+      window.ga('send', 'event', 'tracker', 'santa', 'click');
       this._userZoom = false;
       this.focusOnSanta = true;
     },
 
     _onRouteMarkerClick: function(dest) {
+      window.ga('send', 'event', 'tracker', 'marker', 'click');
       // TODO(samthor): do something.
       console.info('dest clicked', dest.id);
     },
@@ -538,6 +540,7 @@ Tracker map.
         if (!this._duringMapChange && !this._duringResize) {
           this.focusOnSanta = false;
           this._delaySantaFocus();
+          window.ga('send', 'event', 'tracker', 'map', 'move');
         }
       }.bind(this));
 
@@ -545,6 +548,7 @@ Tracker map.
         // If it's not a map change, this is a user changing the zoom level.
         if (!this._duringMapChange) {
           this._userZoom = true;
+          window.ga('send', 'event', 'tracker', 'map', 'zoom');
         }
       }.bind(this));
 

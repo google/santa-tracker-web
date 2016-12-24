@@ -82,9 +82,13 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
         <div class$="cards [[_computeMinimalUiClass(minimalUi)]]" on-click="_onCardClick">
           <article class="stats">
-            <div class="data">
+            <div class="data" hidden$="[[_hasArrivalHours]]">
               <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
               <big>[[_computeDistance(_distance)]]</big>
+            </div>
+            <div class="data" hidden$="[[!_hasArrivalHours]]">
+              <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+              <big class="lessbig">[[_computeArrivalTime(_arrivalHours, strings)]]</big>
             </div>
             <template is="dom-if" if="[[minimalUi]]">
               <div class="data">
@@ -153,6 +157,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         <div class="stats">
 
           <div class="split top">
+            <div class="data" hidden$="[[!_hasArrivalHours]]">
+              <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+              <big>[[_computeArrivalTime(_arrivalHours, strings)]]</big>
+            </div>
             <div class="data left">
               <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
               <big>[[_computeDistance(_distance)]]</big>
@@ -383,6 +391,22 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       },
 
       /**
+       * Whether to show the number of arrival hours.
+       */
+      _hasArrivalHours: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
+       * The formatted number of arrival hours.
+       */
+      _arrivalHours: {
+        type: String,
+        value: null,
+      },
+
+      /**
        * The countdown until Santa next leaves his current location, or arrives in a new one.
        */
       countdown: {
@@ -456,6 +480,19 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         } else {
           this._distance = -1;
         }
+
+        // Calculate the rough numbers of hours until Santa arrives.
+        // This is gated by whether Santa is moving, but each stop is only at most 1m.
+        var hasArrivalHours = false;
+        var arrivalTime = window.santaService.getArrivalTime();
+        if (arrivalTime) {
+          var hours = (arrivalTime - window.santaService.now()) / (60 * 60 * 1000);
+          if (hours > 0.08) {  // don't show anything when he's within 5m
+            this._arrivalHours = this._computeNumberFraction(hours, 1);
+            hasArrivalHours = true;
+          }
+        }
+        this._hasArrivalHours = hasArrivalHours;
 
         // If the previous stop has changed, then rebuild Santa's trail.
         if (this._prev !== data.prev) {
@@ -624,6 +661,36 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       return new Number(km).toLocaleString() + 'km';
     },
 
+    _computeArrivalTime: function(hours, strings) {
+      if (!hours) {
+        return strings['tracker_time_from_you_one'];
+      }
+      var s = strings['tracker_time_from_you_many'] || '';
+      return s.replace('{{hours}}', hours);
+    },
+
+    _computeNumberFraction: function(num, opt_min) {
+      opt_min = opt_min || 0;
+
+      var floor = Math.floor(num);
+      if (floor < opt_min) {
+        return null;
+      }
+
+      var frac = num % 1;
+      var suffix = '';
+      if (frac > 0.75) {
+        ++floor;
+      } else if (frac > 0.25) {
+        suffix = '½';
+      }
+
+      if (floor === opt_min && !suffix) {
+        return null;
+      }
+      return floor + suffix;
+    },
+
     _computeNumber: function(m) {
       if (!(m >= 0)) {
         return '';
@@ -687,6 +754,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         return;
       }
       event.preventDefault();
+      window.ga('send', 'event', 'tracker', 'click', 'card');
 
       // Place this in the center of the screen. This works because our sections are contained by
       // a full-height div, so they are relative to y=0. Also, scroll to slightly before the top
@@ -750,6 +818,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
         var search = cand ? '#' + cand.id : '';
         window.history.replaceState(null, null, window.location.pathname + search);
+        window.ga('send', 'event', 'tracker', 'scroll', cand ? cand.id : '');
       }, 100);
     },
 

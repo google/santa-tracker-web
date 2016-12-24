@@ -39,8 +39,21 @@ SantaService = function SantaService(clientId, lang, version) {
 
   /**
    * The user's (optional) location on the Earth, from geo-ip.
+   * @private {?string}
    */
   this.userLocation_ = null;
+
+  /**
+   * The user's (optional) stop ID.
+   * @private {string}
+   */
+  this.userStop_ = '';
+
+  /**
+   * The arrival time at userStop_. Optional.
+   * @private {number}
+   */
+  this.arrivalTime_ = 0;
 
   /**
    * All known destinations (including future ones).
@@ -342,7 +355,24 @@ SantaService.prototype.getUserLocation = function() {
     return null;
   }
   return {lat: +parts[0], lng: +parts[1]};
-}
+};
+
+/**
+ * @return {string} the user's stop, or the empty string
+ * @export
+ */
+SantaService.prototype.getUserStop = function() {
+  return this.userStop_;
+};
+
+/**
+ * Returns the expected arrival time of Santa. This is not transformed by any offset.
+ * @return {number} the expected arrival time of Santa, or zero if unknown
+ * @export
+ */
+SantaService.prototype.getArrivalTime = function() {
+  return this.arrivalTime_;
+};
 
 /**
  * Finds Santa's current SantaLocation, or the one he was most recently at.
@@ -503,6 +533,14 @@ SantaService.prototype.sync = function() {
     this.fingerprint_ = result['fingerprint'];
     this.clientSpecific_ = result['clientSpecific'];
     this.userLocation_ = result['location'] || null;
+
+    // userStop and arrivalTime are only sent when they need to be recomputed.
+    if ('userStop' in result) {
+      this.userStop_ = result['userStop'] || '';
+    }
+    if ('arrivalTime' in result) {
+      this.arrivalTime_ = result['arrivalTime'] || 0;
+    }
 
     this.appendDestinations_(result['routeOffset'], result['destinations']);
     this.appendStream_(result['streamOffset'], result['stream']);
