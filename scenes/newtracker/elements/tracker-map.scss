@@ -64,7 +64,7 @@
 
 .presents {
   width: 75px;
-  height: 80px;  // should be 75px, for drop shadow
+  height: 76px;  // real height is 76px
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -75,11 +75,11 @@
     position: absolute;
     background-size: contain;
     width: 75px;
-    top: -1px;
+    top: -3px;  // shift santa frame by this much up
     height: 608px;
     will-change: transform;
     display: none;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
 
     &.active {
       display: block;
