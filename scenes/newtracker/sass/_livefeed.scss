@@ -42,10 +42,6 @@ span.factoid {
 
   &.didyouknow {
     background-image: url(img/factoid/didyouknow.svg);
-    .content {
-      top: 20%;
-      right: 20%;
-    }
   }
   &.status {
     background-image: url(img/factoid/status.svg);
@@ -55,7 +51,7 @@ span.factoid {
   }
 
   p {
-    margin: 18px 24px;
+    margin: 12px 18px;
     font-size: 31px;
     line-height: 35px;
     color: white;
@@ -68,6 +64,7 @@ span.factoid {
     }
 
     @media (max-width: (600px - 1px)) {
+      margin: 8px 12px;
       font-size: 21px;
       line-height: 25px;
 
