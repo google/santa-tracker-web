@@ -42,6 +42,9 @@ span.factoid {
 
   &.didyouknow {
     background-image: url(img/factoid/didyouknow.svg);
+    .content {
+      right: 30%;
+    }
   }
   &.status {
     background-image: url(img/factoid/status.svg);
@@ -86,7 +89,6 @@ span.title {
   order: -2;
   position: relative;
   pointer-events: none;
-  background: #585fe8;
 
   svg {
     position: absolute;
@@ -97,6 +99,7 @@ span.title {
     transform: translateY(-50%);
     fill: #81e4bf;
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+    opacity: 0.95;
   }
 
   h1 {
