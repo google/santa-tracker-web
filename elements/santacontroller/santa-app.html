@@ -1188,7 +1188,7 @@ Polymer({
       this.route = this.defaultRoute;
     } else if (oldValue === undefined && newValue === true) {
       this.debounce('_duringTrackerChanged', function() {
-        if (this.duringTracker && this.route === 'village') {
+        if (this.duringTracker && (this.route === 'village' || !this.route)) {
           this.route = TRACKER_ROUTE;
         }
       }, 2000);
