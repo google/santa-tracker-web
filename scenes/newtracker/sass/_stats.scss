@@ -1,10 +1,11 @@
 & {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+  // At <1024, it's just top to bottom. This fixes a Safari bug where everything lays on top of each other.
   user-select: auto;
 
   @media (min-width: 1024px) {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: stretch;
@@ -37,6 +38,7 @@
 }
 
 .stats {
+  margin: 0 auto;  // center for non-flex
   $padding: 12px;
   width: 640px - ($padding * 2);  // subtract padding
   // TODO(samthor): flexbox eats padding, ignoring it in alignment. We can probably do more nicely.
