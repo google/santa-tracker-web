@@ -240,7 +240,7 @@ specific language governing permissions and limitations under the License.
               return;
             }
 
-            this.fire('will-remove-matches', { matches });
+            this.fire('will-remove-matches', { matches: matches });
             this.fire('sound-trigger', 'pd_player_present_pickup');
             window.ga('send', 'event', 'game', 'match', 'smatch');
 
