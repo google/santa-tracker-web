@@ -61,8 +61,36 @@ Smatch scene.
       this.preloadSounds('pd_load_sounds', 30);
       this.preloadSounds('village_load_sounds', 30);
       this.preloadSounds('santasearch_load_sounds', 30);
-      this.preloadImages([
-      ]);
+
+      var images = [
+        'img/tree/snow.svg',
+        'img/tree/star.svg',
+        'img/tree/tinsel.svg',
+        'img/tree/tree-plain.svg',
+        'img/background.jpg',
+        'img/checkmark.svg',
+      ];
+
+      var characters = [
+        'snowman',
+        'trex',
+        'bear',
+        'santa',
+        'gingerbreadman',
+        'mrsclaus',
+        'penguin',
+        'rudolph',
+        'elf1',
+        'elf2',
+      ];
+      var locations = ['characters', 'ornaments', 'portraits', 'selection-screen', 'selection-screen/selected', 'selection-screen/unavailable'];
+      locations.forEach(function(l) {
+        characters.forEach(function(c) {
+          images.push('img/' + l + '/' + c + '.svg');
+        });
+      });
+
+      this.preloadImages(images);
     },
 
     onShow: function() {
