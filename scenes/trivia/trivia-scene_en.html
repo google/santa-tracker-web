@@ -2584,6 +2584,13 @@ Trivia scene.
       this.$.answer.hide();
     },
 
+    start: function() {
+      // TODO(samthor): This won't kill a running game, but will restart a finished game.
+      this.game.pause();
+      this.fire('game-score', {});
+      this.onRestart();
+    },
+
     onRestart: function() {
       this.$.menu.hidden = false;
       this.$.menu.classList.remove('menu--hidden');
