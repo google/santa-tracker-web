@@ -4,6 +4,12 @@ $name: 'module-briefing';
 
 @import "sass/animations";
 
+smatch-secret {
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+}
+
 ##{$name} {
   position: absolute;
 
