@@ -77,77 +77,73 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
   <div class="contain" id="sections">
     <section id="main">
-      <santa-weather>
-        <div id="topbar" hidden="[[minimalUi]]"></div>
-        <tracker-map id="map" minimal-ui="[[minimalUi]]"></tracker-map>
+      <div id="topbar" hidden="[[minimalUi]]"></div>
+      <tracker-map id="map" minimal-ui="[[minimalUi]]"></tracker-map>
 
-        <div class$="cards [[_computeMinimalUiClass(minimalUi)]]" on-click="_onCardClick">
-          <article class="stats">
-            <div class="data" hidden$="[[_hasArrivalHours]]">
-              <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-              <big>[[_computeDistance(_distance)]]</big>
+      <div class$="cards [[_computeMinimalUiClass(minimalUi)]]" on-click="_onCardClick">
+        <article class="stats">
+          <div class="data" hidden$="[[_hasArrivalHours]]">
+            <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeDistance(_distance)]]</big>
+          </div>
+          <div class="data" hidden$="[[!_hasArrivalHours]]">
+            <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big class="lessbig">[[_computeArrivalTime(_arrivalHours, strings)]]</big>
+          </div>
+          <template is="dom-if" if="[[minimalUi]]">
+            <div class="data">
+              <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+              <big>[[_computeNumber(presentsDelivered)]]</big>
             </div>
-            <div class="data" hidden$="[[!_hasArrivalHours]]">
-              <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
-              <big class="lessbig">[[_computeArrivalTime(_arrivalHours, strings)]]</big>
-            </div>
-            <template is="dom-if" if="[[minimalUi]]">
-              <div class="data">
-                <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-                <big>[[_computeNumber(presentsDelivered)]]</big>
-              </div>
-            </template>
-
-            <div class="divider"></div>
-
-            <div class="split" hidden$="[[!_upcoming]]">
-              <div class="data left">
-                <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>[[_upcoming.city]], [[_upcoming.region]]</h3>
-              </div>
-              <div class="data right">
-                <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>[[_computeDuration(countdown)]]</h3>
-              </div>
-            </div>
-
-            <div class="split" hidden$="[[_upcoming]]">
-              <div class="data left">
-                <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>[[_current.city]], [[_current.region]]</h3>
-              </div>
-              <div class="data right">
-                <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>[[_computeDuration(countdown)]]</h3>
-              </div>
-            </div>
-
-            <a class="bg" href="#stats"></a>
-          </article>
-
-          <template is="dom-if" if="[[!minimalUi]]">
-            <article class="rotate rotate-games">
-              <div class="bg" id="feedbg" style$="[[_computeCardStyle(_gamesList.0)]]"></div>
-              <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
-              <h3 class="title">[[_computeCardTitle(_gamesList.0, strings)]]</h3>
-              <a class="bg" href="#games"></a>
-            </article>
-            <article class="rotate rotate-videos">
-              <div class="bg" id="feedbg" style$="[[_computeCardStyle(_videosList.0)]]"></div>
-              <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
-              <h3 class="title">[[_computeCardTitle(_videosList.0, strings)]]</h3>
-              <a class="bg" href="#videos"></a>
-            </article>
           </template>
 
-          <article class="big rotate rotate-livefeed">
-            <div class="bg" style$="[[_computeBackgroundImageStyle(_cardFeedImage)]]"></div>
-            <h2><i18n-msg msgid="tracker_feed">PLACEHOLDER_i18n</i18n-msg></h2>
-            <a class="bg" href="#livefeed"></a>
+          <div class="divider"></div>
+
+          <div class="split" hidden$="[[!_upcoming]]">
+            <div class="data left">
+              <h4><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_upcoming.city]], [[_upcoming.region]]</h3>
+            </div>
+            <div class="data right">
+              <h4><i18n-msg msgid="tracker_arriving_in">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_computeDuration(countdown)]]</h3>
+            </div>
+          </div>
+
+          <div class="split" hidden$="[[_upcoming]]">
+            <div class="data left">
+              <h4><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_current.city]], [[_current.region]]</h3>
+            </div>
+            <div class="data right">
+              <h4><i18n-msg msgid="tracker_departing_in">PLACEHOLDER_i18n</i18n-msg></h4>
+              <h3>[[_computeDuration(countdown)]]</h3>
+            </div>
+          </div>
+
+          <a class="bg" href="#stats"></a>
+        </article>
+
+        <template is="dom-if" if="[[!minimalUi]]">
+          <article class="rotate rotate-games">
+            <div class="bg" id="feedbg" style$="[[_computeCardStyle(_gamesList.0)]]"></div>
+            <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h3 class="title">[[_computeCardTitle(_gamesList.0, strings)]]</h3>
+            <a class="bg" href="#games"></a>
           </article>
-        </div>
-      </santa-weather>
-      <div class="cards">
+          <article class="rotate rotate-videos">
+            <div class="bg" id="feedbg" style$="[[_computeCardStyle(_videosList.0)]]"></div>
+            <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h3 class="title">[[_computeCardTitle(_videosList.0, strings)]]</h3>
+            <a class="bg" href="#videos"></a>
+          </article>
+        </template>
+
+        <article class="big rotate rotate-livefeed">
+          <div class="bg" style$="[[_computeBackgroundImageStyle(_cardFeedImage)]]"></div>
+          <h2><i18n-msg msgid="tracker_feed">PLACEHOLDER_i18n</i18n-msg></h2>
+          <a class="bg" href="#livefeed"></a>
+        </article>
       </div>
     </section>
     <template is="dom-if" if="[[!minimalUi]]">
@@ -179,6 +175,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
               <h3>[[_computeDistance(distanceTravelled)]]</h3>
             </div>
             <div class="data left">
+              <a href="https://weather.com" target="_blank" class="weather-attribution"></a>
               <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_computeWeather(_details)]]</h3>
             </div>
@@ -234,6 +231,11 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 440"><g><path d="M68.08,215.52c0,18.69-12,85.1-13.62,93.76-17,89.83,38.64,98.79,77.15,90.05,9.77-2.22,104.29-21,118.17,4.57H250c13.88-25.54,108.4-6.79,118.17-4.57,38.51,8.74,94.12-.22,77.15-90.05-1.64-8.67-13.62-75.07-13.62-93.76s12-85.1,13.62-93.76c17-89.83-38.64-98.79-77.15-90.05-9.77,2.22-104.29,21-118.17-4.57h-.22c-13.88,25.54-108.4,6.79-118.17,4.57C93.1,23,37.49,31.92,54.46,121.76,56.1,130.43,68.08,196.83,68.08,215.52Z"/></g></svg>
           <h1><i18n-msg msgid="tracker_just_in">PLACEHOLDER_i18n</i18n-msg></h1>
         </span>
+        <span class$="factoid [[_factoidClass]]">
+          <div class="content">
+            <p class$="[[_computeFactoidTextClass(_factoidText)]]">[[_factoidText]]</p>
+          </div>
+        </span>
         <template is="dom-repeat" items="[[_feedImages]]">
           <div class="image" style$="[[_computeBackgroundImageStyle(item)]]"></div>
         </template>
@@ -243,6 +245,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
         <h4><i18n-msg msgid="tracker_from_google">PLACEHOLDER_i18n</i18n-msg></h4>
         <div class="feature"></div>
+        <a class="village-link" href="[[urlFor('village')]]"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
         <smatch-secret character-id="snowman"></smatch-secret>
       </section>
     </template>
@@ -268,17 +271,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     'traditions', 'translations', 'santasearch', 'seasonofgiving', 'gumball', 'jamband', 'boatload', 'runner', 'jetpack', 'presentdrop', 'mercator', 'racer', 'matching',  // 2016
     'trivia', 'glider', 'latlong', 'postcard',  // older games
   ]);
-
-  function shuffleArray(opts, opt_limit) {
-    opts = opts.slice();
-    opts.sort(function(a, b) {
-      return Math.random() - 0.5;
-    });
-    if (opt_limit) {
-      return opts.slice(0, Math.floor(opt_limit));
-    }
-    return opts;
-  }
 
   Polymer({
     is: 'newtracker-scene',
@@ -341,6 +333,22 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         value: function() {
           return shuffleArray(Object.keys(window.VIDEOS), LISTVIEW_COUNT / 2);
         },
+      },
+
+      /**
+       * The class to use for the factoid.
+       */
+      _factoidClass: {
+        type: String,
+        value: null,
+      },
+
+      /**
+       * The text to show for the factoid.
+       */
+      _factoidText: {
+        type: String,
+        value: null,
       },
 
       /**
@@ -525,6 +533,11 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         ms = data.next.arrival - now;
       }
       this._setCountdown(Math.floor(ms / 1000));
+
+      // Kick the stream listener.
+      if (!this._factoidText) {
+        this._streamChanged(santaService.getStream());
+      }
     },
 
     _onCurrentChanged: function(current) {
@@ -765,6 +778,32 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       this._scrollTo(Math.min(target.offsetTop - 44 - 12, y));
     },
 
+    _streamChanged: function(stream) {
+      // Find the most recent stream update.
+      var cand = null;
+      for (var i = stream.length - 1; cand = stream[i]; --i) {
+        if (cand.didyouknow || cand.status || cand.update) {
+          break;
+        }
+      }
+      if (!cand) {
+        return;
+      }
+
+      this._factoidText = cand.didyouknow || cand.status || cand.update;
+      var opts = ['didyouknow', 'status', 'update'];
+      for (var i = 0; i < opts.length; ++i) {
+        if (opts[i] in cand) {
+          this._factoidClass = opts[i];
+          break;
+        }
+      }
+    },
+
+    _computeFactoidTextClass: function(text) {
+      return text && text.length > 30 ? 'long' : null;
+    },
+
     /**
      * Smooth scrolls to the given y-position. This stops if something else moves the document's
      * scroll position (like the user, or another smooth scroll request).
@@ -826,11 +865,13 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     created: function() {
       this._santaSync = this._santaSync.bind(this);
+      this._streamChanged = this._streamChanged.bind(this);
       this._onScroll = this._onScroll.bind(this);
     },
 
     attached: function() {
       window.santaService.addListener('sync', this._santaSync);
+      window.santaService.addListener('stream_changed', this._streamChanged);
       window.santaService.getCurrentLocation(this._santaSync);
 
       if (!this.minimalUi) {
@@ -847,6 +888,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     detatched: function() {
       window.santaService.removeListener('sync', this._santaSync);
+      window.santaService.removeListener('stream_changed', this._streamChanged);
       window.removeEventListener('scroll', this._onScroll, {passive: true});
     },
 
@@ -868,6 +910,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         images = images.concat([
           'img/ornament.svg',
           'img/thanks.svg',
+          'img/factoid/didyouknow.svg',
+          'img/factoid/status.svg',
+          'img/factoid/update.svg',
         ]);
       }
 
@@ -887,7 +932,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         if (Math.random() < 0.5) {
           this._pushListViewImage('videos', randomChoice(Object.keys(window.VIDEOS)));
         } else {
-          this._pushListViewImage('games', randomChoice(ALL_GAMES));
+          var choice = randomChoice(ALL_GAMES);
+          if (Math.random() < 0.25) {
+            // higher chance of more awesome initial games
+            choice = randomChoice(INITIAL_GAMES);
+          }
+          this._pushListViewImage('games', choice);
         }
       }.bind(this), 30 * 1000);
     },

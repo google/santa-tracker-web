@@ -12,6 +12,21 @@
   }
 }
 
+.weather-attribution {
+  width: 30px;
+  height: 30px;
+  background: url(img/twc.png) center no-repeat;
+  background-size: contain;
+  margin-top: 3px;
+  display: inline-block;
+  float: right;
+
+  @media (max-width: (768px - 1px)) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 // left-hand side
 .location {
   max-width: 100%;

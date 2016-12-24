@@ -6,7 +6,7 @@
   padding: 1px;
 }
 
-div.image, span.title {
+div.image, span.title, span.factoid {
   flex-grow: 1;
   background: transparent center no-repeat;
   background-size: cover;
@@ -22,13 +22,71 @@ div.image, span.title {
   }
 }
 
+span.factoid {
+  width: 45vw;
+  order: -1;
+  position: relative;
+  background: transparent top right no-repeat;
+  background-size: 30%;
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 20%;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  &.didyouknow {
+    background-image: url(img/factoid/didyouknow.svg);
+    .content {
+      top: 20%;
+      right: 20%;
+    }
+  }
+  &.status {
+    background-image: url(img/factoid/status.svg);
+  }
+  &.update {
+    background-image: url(img/factoid/update.svg);
+  }
+
+  p {
+    margin: 18px 24px;
+    font-size: 31px;
+    line-height: 35px;
+    color: white;
+    hyphens: auto;
+    user-select: auto;
+
+    &.long {
+      font-size: 25px;
+      line-height: 27px;
+    }
+
+    @media (max-width: (600px - 1px)) {
+      font-size: 21px;
+      line-height: 25px;
+
+      &.long {
+        font-size: 13px;
+        line-height: 15px;
+      }
+    }
+  }
+}
+
 div.image:first-of-type {
-  order: -2;
+  order: -10;
 }
 
 // explicitly use a span, so it is of a different type than images.
 span.title {
-  order: -1;
+  z-index: 10;
+  order: -2;
   position: relative;
   pointer-events: none;
   background: #585fe8;
@@ -64,9 +122,15 @@ span.title {
     width: 30vw;
     max-height: 40vh;
   }
+  span.factoid {
+    width: 90vw;
+  }
 }
 
 @media (max-width: (600px - 1px)) {
+  span.factoid {
+    order: -15;
+  }
   div.image:first-of-type {
     width: 80vw;
   }

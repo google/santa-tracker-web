@@ -71,7 +71,7 @@ Polymer({
     }
 
     node.innerHTML = parts.join(' &bull; ');
-    Array.from(node.querySelectorAll('a')).forEach(function(link) {
+    Array.prototype.slice.call(node.querySelectorAll('a')).forEach(function(link) {
       link.setAttribute('target', '_blank');
       link.href = link.href.replace(/^http\b/, 'https');
 

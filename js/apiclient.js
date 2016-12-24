@@ -511,6 +511,14 @@ SantaService.prototype.appendStream_ = function(index, newCards) {
 };
 
 /**
+ * @return {!Array<!StreamCard>}
+ * @export
+ */
+SantaService.prototype.getStream = function() {
+  return this.stream_;
+};
+
+/**
  * @param {string} id
  * @param {function(SantaDetails)} callback
  */

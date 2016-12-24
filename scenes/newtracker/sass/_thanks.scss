@@ -44,6 +44,26 @@ h1 {
   }
 }
 
+a.village-link {
+  display: inline-block;
+  margin: 12px;
+
+  background: #83CE00;
+  box-shadow: 0 3px 0 #659e00;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 4px;
+  line-height: 33px;
+  padding: 0 21px;
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #659e00;
+  }
+}
+
 smatch-secret {
   position: absolute;
   bottom: 20px;

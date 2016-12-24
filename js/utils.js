@@ -54,6 +54,25 @@ function randomChoice(array) {
 }
 
 /**
+ * Shuffles an array.
+ * @param {!IArrayLike<T>} opts to shuffle
+ * @param {number=} opt_limit return only this many elements
+ * @return {!Array<T>}
+ * @template T
+ * @export
+ */
+function shuffleArray(opts, opt_limit) {
+  opts = Array.prototype.slice.call(opts);
+  opts.sort(function(a, b) {
+    return Math.random() - 0.5;
+  });
+  if (opt_limit !== undefined) {
+    return opts.slice(0, Math.floor(opt_limit));
+  }
+  return opts;
+}
+
+/**
  * Checks whether the passed dates are the same calendar day.
  * @param {!Date} date1
  * @param {!Date} date2
