@@ -33,54 +33,68 @@ specific language governing permissions and limitations under the License.
     </style>
   </template>
   <script>
-    (() => {
+    (function() {
       const TRANSITION_TIME = 300;
       const DEFAULT_CELL_SIZE = window.Match3GemElement.DEFAULT_SIZE;
 
-      const timePasses = ms => new Promise(resolve => setTimeout(resolve, ms));
+      const timePasses = function(ms) {
+        return new Promise(function(resolve) {
+          setTimeout(resolve, ms);
+        });
+      };
 
-      class Cell {
-        constructor(position, gem) {
-          this.position = position;
-          this.gem = gem;
-        }
+      function Cell(position, gem) {
+        this.position = position;
+        this.gem = gem;
+      }
 
-        hasSameGemAs(otherCell) {
+      Cell.prototype = {
+        hasSameGemAs: function(otherCell) {
           return otherCell != null &&
               this.gem.graphic === otherCell.gem.graphic;
         }
+      };
+
+
+      function Point(x, y) {
+        this.x = x == null ? 0 : x;
+        this.y = y == null ? 0 : y;
       }
 
-      class Point {
-        constructor(x=0, y=0) {
-          this.x = x;
-          this.y = y;
-        }
-
-        copy(point) {
+      Point.prototype = {
+        copy: function(point) {
           this.x = point.x;
           this.y = point.y;
-        }
+        },
 
-        toTransform(cellSize=DEFAULT_CELL_SIZE) {
-          return `translate(${this.x * cellSize}px, ${this.y * cellSize}px)`;
+        toTransform: function(cellSize) {
+          if (cellSize == null) {
+            cellSize = DEFAULT_CELL_SIZE;
+          }
+
+          return 'translate(' +
+              (this.x * cellSize) + 'px, ' + (this.y * cellSize) + 'px)';
         }
+      };
+
+
+      function Graphic(type, asset) {
+        this.type = type;
+        this.asset = asset;
       }
 
-      class Graphic {
-        constructor(type, asset) {
-          this.type = type;
-          this.asset = asset;
-        }
+
+      function GemFactory() {
+        this.free_ = [];
       }
 
-      class GemFactory {
-        constructor() {
-          this.free_ = [];
-        }
-
-        create(graphic, size=DEFAULT_CELL_SIZE) {
+      GemFactory.prototype = {
+        create: function(graphic, size) {
           let gem;
+
+          if (size == null) {
+            size = DEFAULT_CELL_SIZE;
+          }
 
           if (this.free_.length) {
             gem = this.free_.pop();
@@ -92,13 +106,14 @@ specific language governing permissions and limitations under the License.
           gem.size = size;
 
           return gem;
-        }
+        },
 
-        destroy(gem) {
+        destroy: function(gem) {
           gem.reset();
           this.free_.push(gem);
         }
-      }
+      };
+
 
       window.Match3BoardElement = Polymer({
         is: 'match3-board',
@@ -122,7 +137,7 @@ specific language governing permissions and limitations under the License.
 
           graphics: {
             type: Array,
-            value() {
+            value: function() {
               return [
                 new Graphic('color', 'red'),
                 new Graphic('color', 'green'),
@@ -156,14 +171,15 @@ specific language governing permissions and limitations under the License.
           gemCells_: {
             type: WeakMap,
             readOnly: true,
-            value() {
+            value: function() {
+              // IE11 has basic support for WeakMap
               return new WeakMap();
             }
           },
 
           gemFactory_: {
             type: GemFactory,
-            value() {
+            value: function() {
               return new GemFactory();
             }
           },
@@ -190,9 +206,11 @@ specific language governing permissions and limitations under the License.
           '_updateBoardSize(size, cellSize)'
         ],
 
-        start() {
+        start: function() {
           this._setStarted(true);
-          return this.fill_(false).then(() => this.tick_());
+          return this.fill_(false).then(function() {
+            return this.tick_();
+          }.bind(this));
         },
 
         /**
@@ -205,15 +223,16 @@ specific language governing permissions and limitations under the License.
          * @return {Promise} A promise that resolves when all queued ticks have
          * completed.
          */
-        tick_() {
+        tick_: function() {
           if (this.ticking_) {
             // This doesn't really queue 'another' tick, as the initial tick
             // won't complete while there are still more matches available.
             return this.ticking_;
           }
 
-          const internalTick = () => {
+          const internalTick = function() {
             const matches = this.match_();
+            const self = this;
 
             if (matches.size === 0) {
               this.fire('will-finish-ticking');
@@ -226,10 +245,10 @@ specific language governing permissions and limitations under the License.
             window.ga('send', 'event', 'game', 'match', 'smatch');
 
             return this.removeCells_(matches)
-                .then(() => this.fall_())
-                .then(() => this.fill_(true))
+                .then(function() { return self.fall_() })
+                .then(function() { return self.fill_(true) })
                 .then(internalTick);
-          };
+          }.bind(this);
 
           return this.ticking_ = timePasses(TRANSITION_TIME).then(internalTick);
         },
@@ -239,11 +258,11 @@ specific language governing permissions and limitations under the License.
          * @return {Promise} A promise that resolves after the cells have
          * finished transitioning away and are fully removed.
          */
-        removeCells_(cells) {
-          cells.forEach(cell => {
+        removeCells_: function(cells) {
+          cells.forEach(function(cell) {
             this.clearCellAtPosition_(cell.position);
             this.destroyCell_(cell);
-          });
+          }, this);
 
           return timePasses(TRANSITION_TIME);
         },
@@ -254,7 +273,7 @@ specific language governing permissions and limitations under the License.
          * @return {Promise} A promise that resolves when transitions have
          * completed.
          */
-        fill_(allowMatches) {
+        fill_: function(allowMatches) {
           for (let x = 0; x < this.size; ++x) {
             let y0 = 0;
 
@@ -285,8 +304,8 @@ specific language governing permissions and limitations under the License.
          * @param {Cell} cell Cell to test.
          * @return {boolean} Whether the addition would cause a match.
          */
-        wouldMatch_(cell) {
-          const walk = (dx, dy) => {
+        wouldMatch_: function(cell) {
+          const walk = function(dx, dy) {
             let ox = cell.position.x;
             let oy = cell.position.y;
 
@@ -298,7 +317,7 @@ specific language governing permissions and limitations under the License.
                 return i;
               }
             }
-          };
+          }.bind(this);
           return (walk(+1, 0) + walk(-1, 0)) >= 2 || (walk(0, +1) + walk(0, -1)) >= 2;
         },
 
@@ -306,7 +325,7 @@ specific language governing permissions and limitations under the License.
          * @return {Set<Cell>} A set of cells that are members of at least one
          * contiguous row or column of three.
          */
-        match_() {
+        match_: function() {
           const matched = new Set();
 
           for (let x = 0; x < this.size; ++x) {
@@ -350,7 +369,7 @@ specific language governing permissions and limitations under the License.
          * @return {Promise} A promise that resolves when overhanging gems have
          * finished transitioning to the bottom of their respective columns.
          */
-        fall_() {
+        fall_: function() {
           for (let x = 0; x < this.size; ++x) {
             const column = [];
 
@@ -392,8 +411,9 @@ specific language governing permissions and limitations under the License.
          * relative to the cell.
          * @return {?Cell} The neighboring cell if any in the grid.
          */
-        neighborCell_(cell, direction) {
-          let { x, y } = cell.position;
+        neighborCell_: function(cell, direction) {
+          let x = cell.position.x;
+          let y = cell.position.y;
 
           switch (direction) {
             case 'up':
@@ -421,7 +441,7 @@ specific language governing permissions and limitations under the License.
          * @return {boolean} True if the gem was successfully moved, otherwise
          * false.
          */
-        moveGem_(gem, direction) {
+        moveGem_: function(gem, direction) {
           // Disable moves when ticking...
           if (this.ticking_) {
             return false;
@@ -448,7 +468,7 @@ specific language governing permissions and limitations under the License.
         /**
          * @param {CustomEvent} event
          */
-        onUpKey_(event) {
+        onUpKey_: function(event) {
           const gem = event.detail.keyboardEvent.target;
           this.moveGem_(gem, 'up');
         },
@@ -456,7 +476,7 @@ specific language governing permissions and limitations under the License.
         /**
          * @param {CustomEvent} event
          */
-        onDownKey_(event) {
+        onDownKey_: function(event) {
           const gem = event.detail.keyboardEvent.target;
           this.moveGem_(gem, 'down');
         },
@@ -464,7 +484,7 @@ specific language governing permissions and limitations under the License.
         /**
          * @param {CustomEvent} event
          */
-        onLeftKey_(event) {
+        onLeftKey_: function(event) {
           const gem = event.detail.keyboardEvent.target;
           this.moveGem_(gem, 'left');
         },
@@ -472,7 +492,7 @@ specific language governing permissions and limitations under the License.
         /**
          * @param {CustomEvent} event
          */
-        onRightKey_(event) {
+        onRightKey_: function(event) {
           const gem = event.detail.keyboardEvent.target;
           this.moveGem_(gem, 'right');
         },
@@ -480,7 +500,7 @@ specific language governing permissions and limitations under the License.
         /**
          * @param {CustomEvent} event
          */
-        onTrack_(event) {
+        onTrack_: function(event) {
           if (event.detail.state === 'start') {
             this.pendingMove_ = true;
           } else if (!this.pendingMove_) {
@@ -511,7 +531,7 @@ specific language governing permissions and limitations under the License.
          * @param {number} y The y coordinate of the grid cell.
          * @return {number} The index of the coordinates in the grid array.
          */
-        gridIndexForXy_(x, y) {
+        gridIndexForXy_: function(x, y) {
           return this.size * y + x;
         },
 
@@ -519,7 +539,7 @@ specific language governing permissions and limitations under the License.
          * @param {Point} position A coordinate in the grid.
          * @return {number} The index of the coordinates in the grid array.
          */
-        gridIndexForPosition_(position) {
+        gridIndexForPosition_: function(position) {
           return this.gridIndexForXy_(position.x, position.y);
         },
 
@@ -529,7 +549,7 @@ specific language governing permissions and limitations under the License.
          * @return {?Cell} The cell at the requested (x, y) coordinates in the
          * grid.
          */
-        cellAtXy_(x, y) {
+        cellAtXy_: function(x, y) {
           if (!this.xyInGrid_(x, y)) {
             return null;
           }
@@ -541,7 +561,7 @@ specific language governing permissions and limitations under the License.
          * @param {Point} position A coordinate in the grid.
          * @return {?Cell} The cell that exists at the given position in the grid.
          */
-        cellAtPosition_(position) {
+        cellAtPosition_: function(position) {
           return this.cellAtXy_(position.x, position.y);
         },
 
@@ -551,7 +571,7 @@ specific language governing permissions and limitations under the License.
          * @return {boolean} True if the coordinates are within the bounds of the
          * current grid.
          */
-        xyInGrid_(x, y) {
+        xyInGrid_: function(x, y) {
           if (x < 0
               || x >= this.size
               || y < 0
@@ -568,7 +588,7 @@ specific language governing permissions and limitations under the License.
          * @return {boolean} True if the position is within the bounds of the
          * current grid.
          */
-        positionInGrid_(position) {
+        positionInGrid_: function(position) {
           return this.xyInGrid_(position.x, position.y);
         },
 
@@ -578,21 +598,23 @@ specific language governing permissions and limitations under the License.
          * @return {?Cell} The cell that previously occupied the position of the
          * newly set cell, if any.
          */
-        placeCell_(cell) {
+        placeCell_: function(cell) {
           if (!this.positionInGrid_(cell.position)) {
             return null;
           }
 
           const index = this.gridIndexForPosition_(cell.position);
           const oldCell = this.grid_[index];
+          const cellSize = this.cellSize;
 
           cell.gem.tabIndex = this.baseTabIndex + index;
 
           // TODO: the first one ensures the first placement, second animates. But why?
-          requestAnimationFrame(() =>
-            requestAnimationFrame(() => {
-              cell.gem.style.transform = cell.position.toTransform(this.cellSize);
-            }));
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              cell.gem.style.transform = cell.position.toTransform(cellSize);
+            })
+          });
 
           this.grid_[index] = cell;
 
@@ -606,7 +628,7 @@ specific language governing permissions and limitations under the License.
          * @return {?Cell} The cell that previously existed at the given
          * coordinates, if any.
          */
-        clearCellAtXy_(x, y) {
+        clearCellAtXy_: function(x, y) {
           if (!this.xyInGrid_(x, y)) {
             return null;
           }
@@ -626,7 +648,7 @@ specific language governing permissions and limitations under the License.
          * @return {?Cell} The cell that previously existed at the given
          * coordinates, if any.
          */
-        clearCellAtPosition_(position) {
+        clearCellAtPosition_: function(position) {
           return this.clearCellAtXy_(position.x, position.y);
         },
 
@@ -635,8 +657,9 @@ specific language governing permissions and limitations under the License.
          * @param {Cell} cell The first cell to swap.
          * @param {Cell} otherCell The second cell to swap.
          */
-        swap_(cell, otherCell) {
-          const {x, y} = cell.position;
+        swap_: function(cell, otherCell) {
+          const x = cell.position.x;
+          const y = cell.position.y;
 
           cell.position.x = otherCell.position.x;
           cell.position.y = otherCell.position.y;
@@ -653,7 +676,15 @@ specific language governing permissions and limitations under the License.
          * @param {number} [y=0] The initial y coordinate of the cell.
          * @return {Cell} A new Cell instance.
          */
-        createCell_(x=0, y=0) {
+        createCell_: function(x, y) {
+          if (x == null) {
+            x = 0;
+          }
+
+          if (y == null) {
+            y = 0;
+          }
+
           const gem = this.gemFactory_.create(
               this.randomGraphic_(), this.cellSize);
           const cell = new Cell(new Point(x, y), gem);
@@ -671,7 +702,7 @@ specific language governing permissions and limitations under the License.
          * Deallocates the gem and position associated with a cell.
          * @param {Cell} cell The cell to deallocate.
          */
-        destroyCell_(cell) {
+        destroyCell_: function(cell) {
           this.gemCells_.delete(cell.gem);
           this.gemFactory_.destroy(cell.gem);
         },
@@ -680,7 +711,7 @@ specific language governing permissions and limitations under the License.
          * @return {?Graphic} A randomly selected graphic from the configured
          * set of gem graphics.
          */
-        randomGraphic_() {
+        randomGraphic_: function() {
           if (this.graphics == null) {
             return null;
           }
@@ -692,7 +723,7 @@ specific language governing permissions and limitations under the License.
         /**
          * @return {Array} An empty grid.
          */
-        computeGrid_() {
+        computeGrid_: function() {
           return [];
         },
 
@@ -700,7 +731,7 @@ specific language governing permissions and limitations under the License.
          * @param {Array} grid The new grid.
          * @param {Array=} oldGrid The old grid, if any.
          */
-        gridChanged_(grid, oldGrid) {
+        gridChanged_: function(grid, oldGrid) {
           if (oldGrid != null) {
             for (let i = 0; i < oldGrid.length; ++i) {
               this.destroyCell_(oldGrid[i]);
@@ -712,8 +743,8 @@ specific language governing permissions and limitations under the License.
           }
         },
 
-        _updateBoardSize() {
-          const length = `${this.size * this.cellSize}px`;
+        _updateBoardSize: function() {
+          const length = this.size * this.cellSize + 'px';
           this.style.width = this.style.height = length;
           this.notifyResize();
         }

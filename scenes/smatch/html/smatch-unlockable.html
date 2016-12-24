@@ -1,5 +1,6 @@
 <link rel="import" href="../../../components/polymer/polymer.html">
 <link rel="import" href="../../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="smatch-common.html">
 
 <dom-module id="smatch-unlockable">
   <template>
@@ -89,6 +90,10 @@
         background-color: rgba(255, 180, 0, 0.75);
       }
 
+      :host(:not(.mini).unlocked) #character {
+        animation-name: bounce;
+      }
+
       :host(.selected) #hit:after {
         content: url('../img/checkmark.svg');
         display: block;
@@ -126,7 +131,61 @@
     <div id="hit" on-tap="_onHitTap"></div>
   </template>
   <script>
-    (() => {
+    (function() {
+      const CHARACTER_SOUNDS = window.scenes.smatch.CHARACTER_SOUNDS;
+
+      const HIT_AREAS = {
+        elf1: {
+          width: 80,
+          height: 140
+        },
+
+        elf2: {
+          width: 75,
+          height: 140
+        },
+
+        gingerbreadman: {
+          width: 140,
+          height: 190
+        },
+
+        mrsclaus: {
+          width: 110,
+          height: 200
+        },
+
+        snowman: {
+          width: 160,
+          height: 270
+        },
+
+        santa: {
+          width: 130,
+          height: 220
+        },
+
+        bear: {
+          width: 130,
+          height: 220
+        },
+
+        trex: {
+          width: 300,
+          height: 300
+        },
+
+        penguin: {
+          width: 80,
+          height: 90
+        },
+
+        rudolph: {
+          width: 70,
+          height: 220
+        }
+      };
+
       Polymer({
         is: 'smatch-unlockable',
 
@@ -137,7 +196,8 @@
           },
 
           hitArea: {
-            type: Object
+            type: Object,
+            computed: '_computeHitArea(characterId)'
           },
 
           unlocked: {
@@ -168,7 +228,7 @@
           '_reflectToClass(active, "active")'
         ],
 
-        _reflectToClass(value, className) {
+        _reflectToClass: function(value, className) {
           if (value) {
             Polymer.dom(this).classList.add(className);
           } else {
@@ -176,8 +236,8 @@
           }
         },
 
-        _updateAppearance(characterId, unlocked, selected, mini, hitArea) {
-          this.debounce('_updateAppearance', () => {
+        _updateAppearance: function(characterId, unlocked, selected, mini, hitArea) {
+          this.debounce('_updateAppearance', function() {
             let hitWidth = '';
             let hitHeight = '';
             let animationName = '';
@@ -185,39 +245,40 @@
 
             if (mini) {
               backgroundUrl =
-                  this.resolveUrl(`../img/portraits/${characterId}.svg`);
+                  this.resolveUrl('../img/portraits/' + characterId + '.svg');
             } else {
-              backgroundUrl = this.resolveUrl(`../img/selection-screen`) +
+              backgroundUrl = this.resolveUrl('../img/selection-screen') +
                   (unlocked
                       ? (selected
                           ? '/selected'
                           : '')
                       : '/unavailable') +
-                  `/${characterId}.svg`;
+                  '/' + characterId + '.svg';
 
-              if (unlocked) {
-                animationName = 'bounce';
-              } else {
-                animationName = '';
-              }
-
-              hitWidth = `${hitArea.width}px`;
-              hitHeight = `${hitArea.height}px`;
+              hitWidth = hitArea.width + 'px';
+              hitHeight = hitArea.height + 'px';
             }
 
-            this.$.character.style.animationName = animationName;
-            this.$.character.style.animationDelay = `${Math.random() * -10}s`
-            this.$.character.style.backgroundImage = `url(${backgroundUrl})`;
+            this.$.character.style.animationDelay = Math.random() * -10 + 's';
+            this.$.character.style.backgroundImage = 'url(' + backgroundUrl + ')';
 
             this.$.hit.style.width = hitWidth;
             this.$.hit.style.height = hitHeight;
-          });
+          }.bind(this));
         },
 
-        _onHitTap() {
+        _onHitTap: function() {
           if (this.unlocked) {
+            const sound = CHARACTER_SOUNDS[this.characterId];
             this.fire('unlockable-selected', { id: this.characterId });
+            if (this.selected && sound) {
+              window.santaApp.fire('sound-trigger', sound);
+            }
           }
+        },
+
+        _computeHitArea: function(characterId) {
+          return HIT_AREAS[characterId];
         }
       })
     })();

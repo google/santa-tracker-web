@@ -181,65 +181,13 @@
           active="[[active]]"
           mini="[[mini]]"
           character-id="[[character]]"
-          hit-area="[[_computeHitArea(character)]]"
           unlocked="[[_computeIsUnlocked(character, unlocks.*)]]"
           selected="[[_computeIsSelected(character, teamIds.length)]]">
       </smatch-unlockable>
     </template>
   </template>
   <script>
-    (() => {
-      const HIT_AREAS = {
-        elf1: {
-          width: 80,
-          height: 140
-        },
-
-        elf2: {
-          width: 75,
-          height: 140
-        },
-
-        gingerbreadman: {
-          width: 140,
-          height: 190
-        },
-
-        mrsclaus: {
-          width: 110,
-          height: 200
-        },
-
-        snowman: {
-          width: 160,
-          height: 270
-        },
-
-        santa: {
-          width: 130,
-          height: 220
-        },
-
-        bear: {
-          width: 130,
-          height: 220
-        },
-
-        trex: {
-          width: 300,
-          height: 300
-        },
-
-        penguin: {
-          width: 80,
-          height: 90
-        },
-
-        rudolph: {
-          width: 70,
-          height: 220
-        }
-      };
+    (function() {
 
       Polymer({
         is: 'smatch-character-select',
@@ -254,7 +202,9 @@
           teamIds: {
             type: Array,
             notify: true,
-            value: () => []
+            value: function() {
+              return [];
+            }
           },
 
           unlocks: {
@@ -272,29 +222,25 @@
           'unlockable-selected': '_onUnlockableSelected'
         },
 
-        _computeIsUnlocked(id) {
+        _computeIsUnlocked: function(id) {
           return this.unlocks[id];
         },
 
-        _computeIsSelected(id) {
+        _computeIsSelected: function(id) {
           return this.teamIds.indexOf(id) !== -1;
         },
 
-        _computeHitArea(id) {
-          return HIT_AREAS[id];
-        },
-
-        _computeCharacters(unlocks) {
+        _computeCharacters: function(unlocks) {
           return Object.keys(unlocks);
         },
 
-        _computeUnlockableClassname(active) {
+        _computeUnlockableClassname: function(active) {
           return active
               ? 'active'
               : '';
         },
 
-        _onUnlockableSelected(event) {
+        _onUnlockableSelected: function(event) {
           const selectedId = event.detail.id;
           const teamIndex = this.teamIds.indexOf(selectedId);
 
@@ -305,17 +251,17 @@
           }
         },
 
-        _computeHeaderClassname(teamLength) {
+        _computeHeaderClassname: function(teamLength) {
           return teamLength === 5
               ? 'ready'
               : '';
         },
 
-        _onStartTap() {
+        _onStartTap: function() {
           this.fire('smatch-start');
         },
 
-        _activeChanged() {
+        _activeChanged: function() {
           if (this.active) {
             this.classList.add('active');
           } else {

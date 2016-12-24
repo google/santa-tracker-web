@@ -14,50 +14,56 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="match3-gem.html">
 <script>
-  (() => {
+  (function() {
 
-    class SmatchTeamMember {
-      constructor(id, urlBase) {
-        this.id = id;
-        this.portrait = `${urlBase}/portraits/${id}.svg`;
-        this.character = `${urlBase}/characters/${id}.svg`;
-        this.gemCount = 0;
-      }
+    function SmatchTeamMember(id, urlBase) {
+      this.id = id;
+      this.portrait = urlBase + '/portraits/' + id + '.svg';
+      this.character = urlBase + '/characters/' + id + '.svg';
+      this.gemCount = 0;
     }
 
-    class SmatchMetrics {
-      constructor(gameElement) {
-        this.game = gameElement.getBoundingClientRect();
-        this.tree = gameElement.$.tree.getBoundingClientRect();
-        this.team = gameElement.$.team.getBoundingClientRect();
-        this.board = gameElement.$.board.getBoundingClientRect();
+    function SmatchMetrics(gameElement) {
+      this.game = gameElement.getBoundingClientRect();
+      this.tree = gameElement.$.tree.getBoundingClientRect();
+      this.team = gameElement.$.team.getBoundingClientRect();
+      this.board = gameElement.$.board.getBoundingClientRect();
 
-        this.teamOffsetDimension = this.team.width > this.team.height
-            ? 'width'
-            : 'height';
+      this.teamOffsetDimension = this.team.width > this.team.height
+          ? 'width'
+          : 'height';
 
-        this.teamOffsetLength = this.team[this.teamOffsetDimension];
+      this.teamOffsetLength = this.team[this.teamOffsetDimension];
 
-        this.teamTreeDeltaTop = this.tree.top - this.team.top;
-        this.teamTreeDeltaLeft = this.tree.left - this.team.left;
+      this.teamTreeDeltaTop = this.tree.top - this.team.top;
+      this.teamTreeDeltaLeft = this.tree.left - this.team.left;
 
-        this.boardOriginTop = this.board.top - this.game.top;
-        this.boardOriginLeft = this.board.left - this.game.left;
+      this.boardOriginTop = this.board.top - this.game.top;
+      this.boardOriginLeft = this.board.left - this.game.left;
 
-        this.boardTeamDeltaTop = this.team.top - this.board.top;
-        this.boardTeamDeltaLeft = this.team.left - this.board.left;
-      }
+      this.boardTeamDeltaTop = this.team.top - this.board.top;
+      this.boardTeamDeltaLeft = this.team.left - this.board.left;
     }
 
-    const awaitTransition = element => {
-      return new Promise(resolve => {
-        const cleanup = event => {
+    const awaitTransition = function(element) {
+      return new Promise(function(resolve) {
+        const cleanup = function(event) {
           element.removeEventListener('transitionend', cleanup);
           resolve();
         };
 
         element.addEventListener('transitionend', cleanup);
       });
+    };
+
+    const CHARACTER_SOUNDS = {
+      rudolph: 'ss_character_rudolph',
+      gingerbreadman: 'ss_character_gingerbread-man',
+      mrsclaus: 'ss_character_mrs-claus',
+      penguin: 'ss_character_penguin',
+      elf1: 'ss_character_pegman',
+      elf2: 'ss_character_pegman',
+      santa: 'ss_character_santa'
     };
 
     const DEFAULT_GEM_SIZE = window.Match3GemElement.DEFAULT_SIZE;
@@ -67,13 +73,14 @@ specific language governing permissions and limitations under the License.
 
     window.scenes = window.scenes || {};
     scenes.smatch = {
-      SmatchTeamMember,
-      SmatchMetrics,
-      awaitTransition,
-      DEFAULT_GEM_SIZE,
-      GEMS_NEEDED_TO_DECORATE,
-      TREE_BASE_WIDTH,
-      TREE_TRUNK_RATIO
+      SmatchTeamMember: SmatchTeamMember,
+      SmatchMetrics: SmatchMetrics,
+      awaitTransition: awaitTransition,
+      DEFAULT_GEM_SIZE: DEFAULT_GEM_SIZE,
+      GEMS_NEEDED_TO_DECORATE: GEMS_NEEDED_TO_DECORATE,
+      TREE_BASE_WIDTH: TREE_BASE_WIDTH,
+      TREE_TRUNK_RATIO: TREE_TRUNK_RATIO,
+      CHARACTER_SOUNDS: CHARACTER_SOUNDS
     };
   })();
 </script>

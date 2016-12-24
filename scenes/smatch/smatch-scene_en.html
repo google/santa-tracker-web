@@ -59,6 +59,8 @@ Smatch scene.
 
     onPreload: function() {
       this.preloadSounds('pd_load_sounds', 30);
+      this.preloadSounds('village_load_sounds', 30);
+      this.preloadSounds('santasearch_load_sounds', 30);
       this.preloadImages([
       ]);
     },
@@ -72,7 +74,8 @@ Smatch scene.
     },
 
     onHide: function() {
-      Polymer.dom(this.$['module-search']).removeChild(this.game);
+      Polymer.dom(this.$['module-smatch']).removeChild(this.game);
+
       this.game = null;
       this.fire('sound-ambient', 'pd_end_game');
     },

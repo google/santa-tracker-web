@@ -38,8 +38,8 @@ specific language governing permissions and limitations under the License.
     </match3-gem>
   </template>
   <script>
-    (() => {
-      const { DEFAULT_GEM_SIZE } = scenes.smatch;
+    (function() {
+      const DEFAULT_GEM_SIZE = scenes.smatch.DEFAULT_GEM_SIZE;
 
       Polymer({
         is: 'smatch-decoration',
@@ -69,10 +69,10 @@ specific language governing permissions and limitations under the License.
 
         observers: ['_updatePosition(x, y, scale)'],
 
-        _updatePosition(x, y, scale) {
-          this.debounce('update-position', () => {
-            this.$.gem.style.transform = `translate(-50%, -50%) scale(${scale})`;
-            this.style.transform = `translate(${x * 100}%, ${y * 100}%)`;
+        _updatePosition: function(x, y, scale) {
+          this.debounce('update-position', function() {
+            this.$.gem.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+            this.style.transform = 'translate(' + (x * 100) + '%, ' + (y * 100) + '%)';
           });
         }
       });

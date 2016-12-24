@@ -106,14 +106,14 @@ specific language governing permissions and limitations under the License.
     </template>
   </template>
   <script>
-    (() => {
+    (function() {
       Polymer({
         is: 'smatch-victory-pose',
 
         properties: {
           characters: {
             type: Array,
-            value: () => []
+            value: function() { return []; }
           }
         }
       });

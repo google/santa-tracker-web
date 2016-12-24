@@ -108,38 +108,41 @@ specific language governing permissions and limitations under the License.
         '_decorationsChanged(decorations.*)'
       ],
 
-      _levelChanged(level, oldLevel) {
+      _levelChanged: function(level, oldLevel) {
         if (oldLevel != null) {
-          this.classList.remove(`level${oldLevel}`);
+          this.classList.remove('level' + oldLevel);
         }
 
         if (level != null) {
-          this.classList.add(`level${level}`);
+          this.classList.add('level' + level);
         }
       },
 
-      _decorationsChanged(change) {
+      _decorationsChanged: function(change) {
         if (change.path === 'decorations') {
           const decorationContainer = Polymer.dom(this.$.decorations);
 
-          Array.from(decorationContainer.querySelectorAll('smatch-decoration'))
-              .forEach(decorationElement =>
-                    decorationContainer.removeChild(decorationElement));
+          Array.prototype.slice.call(
+              decorationContainer.querySelectorAll('smatch-decoration'))
+                  .forEach(function(decorationElement) {
+                    decorationContainer.removeChild(decorationElement);
+                  });
 
-          this.decorations.forEach(decoration =>
-              this.addDecoration(decoration.x, decoration.y, decoration.graphic));
+          this.decorations.forEach(function(decoration) {
+            this.addDecoration(decoration.x, decoration.y, decoration.graphic);
+          }, this);
         } else if (change.path === 'decorations.splices') {
-          change.value.indexSplices.forEach(splice => {
+          change.value.indexSplices.forEach(function(splice) {
             for (let i = 0; i < splice.addedCount; ++i) {
               const details = this.decorations[splice.index + i];
               this.addDecoration(
                   details.x, details.y, details.graphic, details.teamMember);
             }
-          });
+          }, this);
         }
       },
 
-      addDecoration(x, y, graphic, teamMember) {
+      addDecoration: function(x, y, graphic, teamMember) {
         const decorationElement = document.createElement('smatch-decoration');
 
         decorationElement.graphic = graphic;
@@ -151,13 +154,13 @@ specific language governing permissions and limitations under the License.
           Polymer.dom(this.$.decorations).appendChild(decorationElement);
         } else {
           const character =
-              Polymer.dom(this.root).querySelector(`#${teamMember.id}`);
+              Polymer.dom(this.root).querySelector('#' + teamMember.id);
 
           if (character != null) {
-            character.enter().then(() => {
+            character.enter().then(function() {
               Polymer.dom(this.$.decorations).appendChild(decorationElement);
               return character.exit();
-            });
+            }.bind(this));
           }
         }
       }

@@ -31,6 +31,9 @@ specific language governing permissions and limitations under the License.
 
       img {
         position: absolute;
+        z-index: 1;
+        width: 72px;
+        height: 72px;
       }
 
       circle {
@@ -77,12 +80,10 @@ specific language governing permissions and limitations under the License.
     </svg>
   </template>
   <script>
-    (() => {
-      const {
-        SmatchTeamMember,
-        awaitTransition,
-        GEMS_NEEDED_TO_DECORATE,
-      } = window.scenes.smatch;
+    (function() {
+      const SmatchTeamMember = scenes.smatch.SmatchTeamMember;
+      const awaitTransition = scenes.smatch.awaitTransition;
+      const GEMS_NEEDED_TO_DECORATE = scenes.smatch.GEMS_NEEDED_TO_DECORATE;
 
       Polymer({
         is: 'smatch-portrait',
@@ -102,9 +103,9 @@ specific language governing permissions and limitations under the License.
           '_updateGemScale(teamMember.gemCount)'
         ],
 
-        _updateGemScale(gemCount) {
+        _updateGemScale: function(gemCount) {
           if (gemCount >= GEMS_NEEDED_TO_DECORATE) {
-            this.fire('flush-gems', { gemCount });
+            this.fire('flush-gems', { gemCount: gemCount });
             this.set('teamMember.gemCount', gemCount - GEMS_NEEDED_TO_DECORATE);
             return;
           }

@@ -35,7 +35,7 @@ specific language governing permissions and limitations under the License.
     </style>
   </template>
   <script>
-    (() => {
+    (function() {
       const DEFAULT_SIZE = 74;
 
       window.Match3GemElement = Polymer({
@@ -55,14 +55,14 @@ specific language governing permissions and limitations under the License.
           }
         },
 
-        reset() {
+        reset: function() {
           this.graphic = null;
           this.size = DEFAULT_SIZE;
           this.style.transform = '';
         },
 
-        updateDisplay_() {
-          this.debounce('updateDisplay_', () => {
+        updateDisplay_: function() {
+          this.debounce('updateDisplay_', function() {
             this.style.backgroundColor = '';
             this.style.backgroundImage = '';
 
@@ -74,7 +74,7 @@ specific language governing permissions and limitations under the License.
                   this.style.backgroundColor = this.graphic.asset;
                   break;
                 case 'image':
-                  this.style.backgroundImage = `url(${this.graphic.asset})`;
+                  this.style.backgroundImage = 'url(' + this.graphic.asset + ')';
                   break;
               }
             } else {
@@ -82,8 +82,8 @@ specific language governing permissions and limitations under the License.
             }
 
             if (this.size != null) {
-              this.style.width = `${this.size}px`;
-              this.style.height = `${this.size}px`;
+              this.style.width = this.size + 'px';
+              this.style.height = this.size + 'px';
             }
           });
         }

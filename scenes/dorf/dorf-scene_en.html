@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
-<link rel="import" href="../../scenes/smatch/html/smatch-storage.html">
+<link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -54,6 +54,7 @@ Santa's Village.
   </template>
 
   <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
+    <smatch-secret character-id="santa"></smatch-secret>
     <header>
       <div id="header-background">
         <div id="header-mobilevillage"></div>
@@ -248,10 +249,7 @@ Santa's Village.
     <template is="dom-if" if="[[!_isCastMode(mode)]]">
       <footer>
         <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-        <img src$="[[_computeFooterElves(countdownFinished)]]"
-            locked$="[[!smatchUnlocks.8]]"
-            on-tap="_onFooterElvesTap">
-        <div class="smatch-unlock rudolf"></div>
+        <img src$="[[_computeFooterElves(countdownFinished)]]">
       </footer>
     </template>
 
@@ -751,10 +749,6 @@ Santa's Village.
       this._playTicTacToeTimers = [];
 
       this.cancelAsync(this._eggTimer);
-    },
-
-    _onFooterElvesTap: function() {
-      this.set('smatchUnlocks.8', true);
     },
   });
 })();

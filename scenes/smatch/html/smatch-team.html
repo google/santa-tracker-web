@@ -45,14 +45,12 @@ specific language governing permissions and limitations under the License.
     </template>
   </template>
   <script>
-    (() => {
-      const {
-        SmatchTeamMember,
-        SmatchMetrics,
-        GEM_SIZE,
-        TREE_BASE_WIDTH,
-        TREE_TRUNK_RATIO
-      } = window.scenes.smatch;
+    (function() {
+      const SmatchTeamMember = scenes.smatch.SmatchTeamMember;
+      const SmatchMetrics = scenes.smatch.SmatchMetrics;
+      const GEM_SIZE = scenes.smatch.GEM_SIZE;
+      const TREE_BASE_WIDTH = scenes.smatch.TREE_BASE_WIDTH;
+      const TREE_TRUNK_RATIO = scenes.smatch.TREE_TRUNK_RATIO;
 
       Polymer({
         is: 'smatch-team',
@@ -60,14 +58,14 @@ specific language governing permissions and limitations under the License.
         properties: {
           team: {
             type: Array,
-            value() {
+            value: function() {
               return [];
             }
           },
 
           gems: {
             type: Array,
-            value() {
+            value: function() {
               return [];
             }
           },
@@ -81,7 +79,7 @@ specific language governing permissions and limitations under the License.
           }
         },
 
-        _onFlushGems(event) {
+        _onFlushGems: function(event) {
           const portrait = event.target;
           const teamIndex = this.team.indexOf(portrait.teamMember);
           const offset = this.metrics.teamOffsetLength;
@@ -98,7 +96,6 @@ specific language governing permissions and limitations under the License.
           const targetLeftScale =
               Math.random() * targetTopScale
                   + 0.5 * (1 - targetTopScale);
-
 
           let targetTop = this.metrics.teamTreeDeltaTop
               + this.metrics.tree.height * targetTopScale;
@@ -121,7 +118,7 @@ specific language governing permissions and limitations under the License.
           });
         },
 
-        gemGraphicFor(teamMember) {
+        gemGraphicFor: function(teamMember) {
           return this.gems[this.team.indexOf(teamMember)];
         }
       });

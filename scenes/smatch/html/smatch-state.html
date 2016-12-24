@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 
 <dom-module id="smatch-state">
   <script>
-    (() => {
+    (function() {
       const Graphic = Match3BoardElement.Graphic;
 
       const SHARE_STATUS = 'share';
@@ -33,7 +33,7 @@ specific language governing permissions and limitations under the License.
           decorations: {
             type: Array,
             notify: true,
-            value() {
+            value: function() {
               return [];
             }
           },
@@ -58,7 +58,7 @@ specific language governing permissions and limitations under the License.
           }
         },
 
-        ready() {
+        ready: function() {
           const state = this.deserialize();
 
           if (state.decorations.length && state.teamIds.length) {
@@ -68,14 +68,15 @@ specific language governing permissions and limitations under the License.
           }
         },
 
-        deserialize() {
+        deserialize: function() {
           const decorationsParameter = window.getUrlParameter('d');
           const teamParameter = window.getUrlParameter('t');
 
           const decorations = decorationsParameter
               ? atob(decorationsParameter).split(';')
-                  .map(decorationString =>
-                      this._deserializeDecoration(decorationString))
+                  .map(function(decorationString) {
+                    return this._deserializeDecoration(decorationString);
+                  })
               : [];
 
           const teamIds = teamParameter
@@ -83,31 +84,33 @@ specific language governing permissions and limitations under the License.
               : [];
 
           return {
-            decorations,
-            teamIds
+            decorations: decorations,
+            teamIds: teamIds
           };
         },
 
-        serialize() {
-          const decorationParam = 'd=' + btoa(this.decorations.map(decoration =>
-              this._serializeDecoration(decoration)).join(';'));
+        serialize: function() {
+          const decorationParam = 'd=' +
+              btoa(this.decorations.map(function(decoration) {
+                return this._serializeDecoration(decoration)
+              }, this).join(';'));
           const teamParam = 't=' + btoa(this.teamIds.join(','));
 
           return [decorationParam, teamParam].join('&');
         },
 
-        _deserializeDecoration(decorationString) {
+        _deserializeDecoration: function(decorationString) {
           const parts = decorationString.split(',');
 
           return {
             x: parseFloat(parts[0]),
             y: parseFloat(parts[1]),
             graphic: new Graphic('image',
-                this.resolveUrl(`../img/ornaments/${parts[2]}.svg`))
+                this.resolveUrl('../img/ornaments/' + parts[2] + '.svg'))
           };
         },
 
-        _serializeDecoration(decoration) {
+        _serializeDecoration: function(decoration) {
           return [
             decoration.x.toFixed(2).replace('0.', '.'),
             decoration.y.toFixed(2).replace('0.', '.'),
@@ -115,13 +118,13 @@ specific language governing permissions and limitations under the License.
           ].join(',')
         },
 
-        _computeLevel() {
+        _computeLevel: function() {
           return this.decorations
               ? 0|this.decorations.length / 10
               : 0;
         },
 
-        _levelChanged(level) {
+        _levelChanged: function(level) {
           if (level === 3) {
             this._setStatus(FINISHED_STATUS);
           }

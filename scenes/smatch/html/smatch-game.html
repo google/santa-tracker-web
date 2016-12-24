@@ -66,7 +66,7 @@ specific language governing permissions and limitations under the License.
 
       #match3 {
         padding-left: 32px;
-        flex: 0;
+        flex: 0 1 auto;
         z-index: 2;
         flex-direction: row-reverse;
         background-color: #92E1FF;
@@ -78,7 +78,7 @@ specific language governing permissions and limitations under the License.
         justify-content: flex-end;
         width: 100%;
         height: 100%;
-        background-image: url(../img/background.svg);
+        background-image: url(../img/background.jpg);
         background-color: #5C33AE;
         background-repeat: no-repeat;
         background-size: cover;
@@ -134,6 +134,8 @@ specific language governing permissions and limitations under the License.
           align-items: flex-end;
           justify-content: center;
           background-color: transparent;
+          padding-left: 0;
+          left: 0;
           bottom: 32px;
           width: 100%;
         }
@@ -146,6 +148,7 @@ specific language governing permissions and limitations under the License.
 
         match3-board {
           background-color: rgba(255, 255, 255, 0.5);
+          margin-right: 0;
         }
       }
 
@@ -270,16 +273,14 @@ specific language governing permissions and limitations under the License.
     </div>
   </template>
   <script>
-    (() => {
+    (function() {
 
       const Graphic = Match3BoardElement.Graphic;
       const BOARD_PADDING = 8;
-      const {
-        SmatchTeamMember,
-        SmatchMetrics,
-        awaitTransition,
-        DEFAULT_GEM_SIZE,
-      } = window.scenes.smatch;
+      const SmatchTeamMember = scenes.smatch.SmatchTeamMember;
+      const SmatchMetrics = scenes.smatch.SmatchMetrics;
+      const awaitTransition = scenes.smatch.awaitTransition;
+      const DEFAULT_GEM_SIZE = scenes.smatch.DEFAULT_GEM_SIZE;
 
       const TABLET_GEM_SIZE = 60;
       const PHONE_GEM_SIZE = 50;
@@ -342,7 +343,7 @@ specific language governing permissions and limitations under the License.
           'smatch-start': '_onSmatchStart'
         },
 
-        _computeGemSize(isSmallerThanDesktop, isSmallerThanTablet) {
+        _computeGemSize: function(isSmallerThanDesktop, isSmallerThanTablet) {
           if (isSmallerThanTablet) {
             return PHONE_GEM_SIZE;
           } else if (isSmallerThanDesktop) {
@@ -352,31 +353,35 @@ specific language governing permissions and limitations under the License.
           return DEFAULT_GEM_SIZE;
         },
 
-        _computeTeam() {
+        _computeTeam: function() {
           if (this.teamIds != null) {
             const urlBase = this.resolveUrl('../img');
-            return this.teamIds.map(id => new SmatchTeamMember(id, urlBase));
+            return this.teamIds.map(function(id) {
+              return new SmatchTeamMember(id, urlBase)
+            });
           }
         },
 
-        _computeGems() {
+        _computeGems: function() {
           if (this.teamIds != null) {
-            return this.teamIds.map(id => new Graphic('image',
-                this.resolveUrl(`../img/ornaments/${id}.svg`)));
+            return this.teamIds.map(function(id) {
+              return new Graphic('image',
+                this.resolveUrl('../img/ornaments/' + id + '.svg'));
+            }, this);
           }
         },
 
-        attached() {
+        attached: function() {
           this._measure();
         },
 
-        start() {
-          this.$.storage.recordFirstPlay().then(() => {
+        start: function() {
+          this.$.storage.recordFirstPlay().then(function() {
             this.$.board.start();
-          });
+          }.bind(this));
         },
 
-        end() {
+        end: function() {
           window.history.replaceState(null, null,
               window.location.pathname + '?' + this.$.state.serialize());
           window.santaApp.fire('game-stop', {
@@ -384,33 +389,38 @@ specific language governing permissions and limitations under the License.
           });
         },
 
-        _measure() {
+        _measure: function() {
           this.metrics = new SmatchMetrics(this);
         },
 
-        _onIronResize() {
-          this.debounce('iron-resize', () => this._measure(), 100);
+        _onIronResize: function() {
+          this.debounce('iron-resize', function() { this._measure() }, 100);
         },
 
-        _onDecorate(event) {
+        _onDecorate: function(event) {
           this.push('decorations', event.detail);
         },
 
-        _onSmatchStart() {
+        _onSmatchStart: function() {
           if (this.teamIds.length === 5) {
             this.$.characterSelect.active = false;
             this.start();
           }
         },
 
-        _handleMatches(event) {
+        _handleMatches: function(event) {
           // It's possible for there to be additional matches after the game has
           // technically been completed (by reaching level 4). If we get a match
           // event after this point, just ignore it.
           if (this.status === SmatchStateElement.SHARE_STATUS) {
             return;
           }
-          const matches = Array.from(event.detail.matches);
+          const matches = [];
+
+          event.detail.matches.forEach(function(match) {
+            matches.push(match);
+          });
+
           const groups = new Map();
 
           while (matches.length) {
@@ -425,15 +435,15 @@ specific language governing permissions and limitations under the License.
           }
 
 
-          groups.forEach((group, graphic) => {
+          groups.forEach(function(group, graphic) {
             const index = this.gems.indexOf(graphic);
             this._animatedExit(group, index);
-            this.set(`team.${index}.gemCount`,
-                this.get(`team.${index}.gemCount`) + group.length);
-          });
+            this.set('team.' + index + '.gemCount',
+                this.get('team.' + index + '.gemCount') + group.length);
+          }, this);
         },
 
-        _animatedExit(group, teamIndex) {
+        _animatedExit: function(group, teamIndex) {
           let gemTargetTop = this.metrics.boardOriginTop
               + this.metrics.boardTeamDeltaTop;
           let gemTargetLeft = this.metrics.boardOriginLeft
@@ -452,7 +462,7 @@ specific language governing permissions and limitations under the License.
 
           const container = Polymer.dom(this.root);
 
-          group.forEach((cell, index) => {
+          group.forEach(function(cell, index) {
             // TODO(cdata): Shared gem factory?
             const temporaryGem =
                 this.$.board.gemFactory_.create(cell.gem.graphic, this.gemSize);
@@ -460,29 +470,31 @@ specific language governing permissions and limitations under the License.
                 + cell.position.y * this.gemSize + BOARD_PADDING;
             const gemLeft = this.metrics.boardOriginLeft
                 + cell.position.x * this.gemSize + BOARD_PADDING;
+            const self = this;
 
             temporaryGem.style.transform =
-                `translate(${gemLeft}px, ${gemTop}px)`;
-            temporaryGem.style.transitionDelay = `${index * 0.05}s`;
+                'translate(' + gemLeft + 'px, ' + gemTop + 'px)';
+            temporaryGem.style.transitionDelay = (index * 0.05) + 's';
 
             container.appendChild(temporaryGem);
 
-            requestAnimationFrame(() =>
-              requestAnimationFrame(() => {
-                awaitTransition(temporaryGem).then(() => {
+            requestAnimationFrame(function() {
+              requestAnimationFrame(function() {
+                awaitTransition(temporaryGem).then(function() {
                   temporaryGem.style.transitionDelay = '';
                   container.removeChild(temporaryGem);
-                  this.$.board.gemFactory_.destroy(temporaryGem);
+                  self.$.board.gemFactory_.destroy(temporaryGem);
                 });
 
                 temporaryGem.style.transform =
-                    `translate(${gemTargetLeft}px, ${gemTargetTop}px) scale(0.1) rotate(240deg)`;
-              }));
-
-          });
+                    'translate(' + gemTargetLeft + 'px, ' + gemTargetTop +
+                        'px) scale(0.1) rotate(240deg)';
+              })
+            });
+          }, this);
         },
 
-        _statusChanged(status, oldStatus) {
+        _statusChanged: function(status, oldStatus) {
           if (oldStatus != null) {
             this.classList.remove(oldStatus);
           }

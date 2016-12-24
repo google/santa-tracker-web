@@ -18,7 +18,16 @@ $toolbar-size: 64px;
   background: #f5f2e2;
 }
 
+
 ##{$name} {
+
+  smatch-secret {
+    bottom: 0px;
+    left: 50%;
+    margin-left: -250px;
+    z-index: 1000;
+  }
+
   header {
     .village-tracker-link {
       display: block;
@@ -482,6 +491,7 @@ $toolbar-size: 64px;
     }
   }  // .house-new-today
 
+
   footer {
     z-index: $base-background-z-index;
     position: relative;
@@ -766,6 +776,11 @@ $toolbar-size: 64px;
   /** All mobile villages (two cols) */
   @media (max-width: $width-tablet - 1) {
     font-size: 14px;
+
+    smatch-secret {
+      transform: scale(0.5);
+      transform-origin: center bottom;
+    }
 
     header {
       margin-bottom: -80px;
