@@ -188,6 +188,7 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   smatch: {
+    msgid: 'scene_giftmatch',
     entryPoint: 'app.Game'
   },
   snowflake: {

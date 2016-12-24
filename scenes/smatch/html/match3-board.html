@@ -222,6 +222,8 @@ specific language governing permissions and limitations under the License.
             }
 
             this.fire('will-remove-matches', { matches });
+            this.fire('sound-trigger', 'pd_player_present_pickup');
+            window.ga('send', 'event', 'game', 'match', 'smatch');
 
             return this.removeCells_(matches)
                 .then(() => this.fall_())
