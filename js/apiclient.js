@@ -50,6 +50,12 @@ SantaService = function SantaService(clientId, lang, version) {
   this.userStop_ = '';
 
   /**
+   * The stop the user is actually after. May be the stop before `userStop_`.
+   * @private {string}
+   */
+  this.userStopAfter_ = '';
+
+  /**
    * The arrival time at userStop_. Optional.
    * @private {number}
    */
@@ -236,11 +242,32 @@ SantaService.prototype.getCurrentLocation = function(callback) {
   var travelTime = next.arrival - dest.departure;
   var elapsed = Math.max(now - dest.departure, 0);
 
-  // TODO: handle post-xmas case.
-  var currentLocation = Spherical.interpolate(
-      dest.getLocation(),
-      next.getLocation(),
-      elapsed / travelTime);
+  var userLocation = this.getUserLocation();
+  var currentLocation;
+  var ratio = elapsed / travelTime;
+
+  if (dest.id === this.userStopAfter_ && userLocation != null) {
+    // If this is the segment where the user is, interpolate to them.
+    var firstDistance = Spherical.computeDistanceBetween(dest.getLocation(), userLocation);
+    var secondDistance = Spherical.computeDistanceBetween(userLocation, next.getLocation());
+    var along = (firstDistance + secondDistance) * ratio;
+    if (along < firstDistance) {
+      var firstRatio = firstDistance ? (along / firstDistance) : 0;
+      currentLocation = Spherical.interpolate(dest.getLocation(), userLocation, firstRatio);
+    } else {
+      var secondRatio = secondDistance ? ((along - firstDistance) / secondDistance) : 0;
+      currentLocation = Spherical.interpolate(userLocation, next.getLocation(), secondRatio);
+    }
+  } else if (next) {
+    // Otherwise, interpolate between stops normally.
+    currentLocation = Spherical.interpolate(
+        dest.getLocation(),
+        next.getLocation(),
+        elapsed / travelTime);
+  } else {
+    // Or... just use location. For landing case.
+    currentLocation = dest.getLocation();
+  }
 
   var state = /** @type {SantaState} */({
     position: currentLocation,
@@ -429,6 +456,32 @@ SantaService.prototype.appendDestinations_ = function(index, newDestinations) {
                                               this.boundFetchDetails_,
                                               this.destinations_,
                                               i);
+  }
+
+  // if not already found, find "our" stop in the next set of stops
+  if (this.userStop_ && !this.userStopAfter_) {
+    let candidate = null;
+    let previous = this.destinations_[index - 1];
+    for (let i = index, destination; destination = this.destinations_[i]; i++) {
+      if (destination.id === this.userStop_) {
+        candidate = destination;
+        break;
+      }
+      previous = destination;
+    }
+    const userLocation = this.getUserLocation();
+    if (previous && candidate && userLocation) {
+      // Find the destination which the user's location is explicitly after. They might be closer
+      // to an upcoming stop, but the route line should be tweaked _before_ that.
+      const previousLocation = previous.getLocation();
+      const normal = Spherical.computeDistanceBetween(previousLocation, candidate.getLocation());
+      const user = Spherical.computeDistanceBetween(previousLocation, userLocation);
+      if (user < normal) {
+        this.userStopAfter_ = previous.id;
+      } else {
+        this.userStopAfter_ = candidate.id;
+      }
+    }
   }
 
   Events.trigger(this, 'destinations_changed', this.destinations_);
