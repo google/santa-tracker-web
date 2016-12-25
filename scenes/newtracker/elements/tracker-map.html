@@ -548,6 +548,7 @@ Tracker map.
         // If it's not a map change, this is a user changing the zoom level.
         if (!this._duringMapChange) {
           this._userZoom = true;
+          this._updateMapState();  // need to reposition Santa, due to offsets
           window.ga('send', 'event', 'tracker', 'map', 'zoom');
         }
       }.bind(this));
