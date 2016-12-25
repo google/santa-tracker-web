@@ -446,7 +446,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     observers: [
-      '_refreshCards(_current, _upcoming, _videoActive)',
+      '_refreshCards(_current, _videoActive)',
     ],
 
     _santaSync: function(data) {
@@ -556,7 +556,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }.bind(this));
     },
 
-    _refreshCards: function(current, upcoming, videoActive) {
+    _refreshCards: function(current, videoActive) {
+      if (videoActive) {
+        return;  // only refresh when videoActive goes true => false (don't load behind the video)
+      }
       this.debounce('_refreshCards', function() {
         // Wraps a callback, and doesn't call it unless the current/upcoming locations match
         // (as they are used for the signal to refresh our cards).
@@ -593,6 +596,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       image.src = this.resolveUrl(src);
       image.onload = function() {
         opt_callback && opt_callback.call(this, src);
+        if (this.minimalUi) {
+          return;  // minimalUi doesn't have feedImages
+        }
 
         // If the image isn't already in the feed, add it here.
         if (this._feedImages.indexOf(src) === -1) {
