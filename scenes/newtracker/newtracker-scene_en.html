@@ -561,19 +561,9 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         return;  // only refresh when videoActive goes true => false (don't load behind the video)
       }
       this.debounce('_refreshCards', function() {
-        // Wraps a callback, and doesn't call it unless the current/upcoming locations match
-        // (as they are used for the signal to refresh our cards).
-        var wrap = function(fn) {
-          return function() {
-            if (current === this._current && upcoming === this._upcoming) {
-              fn.apply(this, arguments);
-            }
-          }.bind(this);
-        }.bind(this);
-
-        this._pushSocialImage(wrap(function(src) {
+        this._pushSocialImage(function(src) {
           this._cardFeedImage = src;
-        }));
+        }.bind(this));
       }, 100);
     },
 
