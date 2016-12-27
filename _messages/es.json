@@ -795,7 +795,7 @@
 		"message": "Utiliza Seguir a Papá Noel de Google para acompañar a Papá Noel en su viaje por todo el mundo a través de Google Maps."
 	},
 	"meta_title": {
-		"message": "Sigue a Papá Noel"
+		"message": "Sigue a Papá Noel de Google"
 	},
 	"mg_country_name": {
 		"message": "Madagascar"
@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distancia de ti"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distancia recorrida"
+	},
 	"tracker_feed": {
 		"message": "Feed en directo"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Sigue a Papá Noel"
+	},
+	"tracker_travelogue": {
+		"message": "Trayecto"
 	},
 	"tracker_weather": {
 		"message": "Tiempo"

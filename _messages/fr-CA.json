@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distance depuis votre emplacement"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distance parcourue"
+	},
 	"tracker_feed": {
 		"message": "Flux en direct"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Suivez le père Noël"
+	},
+	"tracker_travelogue": {
+		"message": "Carnet de route"
 	},
 	"tracker_weather": {
 		"message": "Météo"

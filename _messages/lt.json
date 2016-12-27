@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Atstumas nuo jūsų"
 	},
+	"tracker_distance_travelled": {
+		"message": "Nukeliautas atstumas"
+	},
 	"tracker_feed": {
 		"message": "Tiesioginis sklaidos kanalas"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Sekti Kalėdų Senelį"
+	},
+	"tracker_travelogue": {
+		"message": "Kelionės žurnalas"
 	},
 	"tracker_weather": {
 		"message": "Oras"

@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "あなたのいる場所からの距離"
 	},
+	"tracker_distance_travelled": {
+		"message": "飛び回った距離"
+	},
 	"tracker_feed": {
 		"message": "ライブフィード"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "サンタさんを追いかける"
+	},
+	"tracker_travelogue": {
+		"message": "これまでに行った場所"
 	},
 	"tracker_weather": {
 		"message": "天気情報"

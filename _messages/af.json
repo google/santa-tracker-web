@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Afstand van jou af"
 	},
+	"tracker_distance_travelled": {
+		"message": "Afstand gereis"
+	},
 	"tracker_feed": {
 		"message": "Regstreekse stroom"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Volg Kersvader se spoor"
+	},
+	"tracker_travelogue": {
+		"message": "Reisverslag"
 	},
 	"tracker_weather": {
 		"message": "Weer"

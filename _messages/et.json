@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Kaugus teist"
 	},
+	"tracker_distance_travelled": {
+		"message": "Läbitud vahemaa"
+	},
 	"tracker_feed": {
 		"message": "Otseülekanne"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Jälgige jõuluvana teekonda"
+	},
+	"tracker_travelogue": {
+		"message": "Reisipäevik"
 	},
 	"tracker_weather": {
 		"message": "Ilm"

@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distansya mula sa iyo"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distansyang Nilakbay"
+	},
 	"tracker_feed": {
 		"message": "Live Feed"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Sundan si Santa"
+	},
+	"tracker_travelogue": {
+		"message": "Travelogue"
 	},
 	"tracker_weather": {
 		"message": "Panahon"

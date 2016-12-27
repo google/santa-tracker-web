@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Расстояние от Санты до вас"
 	},
+	"tracker_distance_travelled": {
+		"message": "Преодоленное расстояние"
+	},
 	"tracker_feed": {
 		"message": "Новости в режиме реального времени"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Посмотреть, где находится Санта"
+	},
+	"tracker_travelogue": {
+		"message": "Путевой журнал"
 	},
 	"tracker_weather": {
 		"message": "Погода"

@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "与您的距离"
 	},
+	"tracker_distance_travelled": {
+		"message": "走过的距离"
+	},
 	"tracker_feed": {
 		"message": "实时 Feed"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "追踪圣诞老人"
+	},
+	"tracker_travelogue": {
+		"message": "行踪日志"
 	},
 	"tracker_weather": {
 		"message": "天气"

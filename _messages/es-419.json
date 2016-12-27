@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distancia desde tu ubicación"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distancia recorrida"
+	},
 	"tracker_feed": {
 		"message": "Feed en vivo"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Sigue a Santa"
+	},
+	"tracker_travelogue": {
+		"message": "Bitácora de visitas"
 	},
 	"tracker_weather": {
 		"message": "Clima"

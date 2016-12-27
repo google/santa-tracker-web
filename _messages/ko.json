@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "산타와의 거리"
 	},
+	"tracker_distance_travelled": {
+		"message": "이동한 거리"
+	},
 	"tracker_feed": {
 		"message": "실시간 피드"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "산타 추적"
+	},
+	"tracker_travelogue": {
+		"message": "산타의 여행기"
 	},
 	"tracker_weather": {
 		"message": "날씨"

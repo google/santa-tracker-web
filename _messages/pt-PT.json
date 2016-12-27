@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distância da sua localização"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distância percorrida"
+	},
 	"tracker_feed": {
 		"message": "Feed em direto"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Localizar o Pai Natal"
+	},
+	"tracker_travelogue": {
+		"message": "Registo de viagem"
 	},
 	"tracker_weather": {
 		"message": "Meteorologia"

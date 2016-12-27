@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distância de onde você está"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distância percorrida"
+	},
 	"tracker_feed": {
 		"message": "Feed em tempo real"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Siga o Papai Noel"
+	},
+	"tracker_travelogue": {
+		"message": "Diário de viagem"
 	},
 	"tracker_weather": {
 		"message": "Clima"

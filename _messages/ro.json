@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distanța față de tine"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distanța parcursă"
+	},
 	"tracker_feed": {
 		"message": "Feed live"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Urmărește-l pe Moș Crăciun"
+	},
+	"tracker_travelogue": {
+		"message": "Jurnal de călătorii"
 	},
 	"tracker_weather": {
 		"message": "Condițiile meteo"

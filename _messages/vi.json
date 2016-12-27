@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Khoảng cách từ bạn"
 	},
+	"tracker_distance_travelled": {
+		"message": "Khoảng cách đã đi"
+	},
 	"tracker_feed": {
 		"message": "Nguồn cấp dữ liệu trực tiếp"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Theo chân ông già Noel"
+	},
+	"tracker_travelogue": {
+		"message": "Nhật ký hành trình"
 	},
 	"tracker_weather": {
 		"message": "Thời tiết"

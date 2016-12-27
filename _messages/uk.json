@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Відстань від вас"
 	},
+	"tracker_distance_travelled": {
+		"message": "Подолана відстань"
+	},
 	"tracker_feed": {
 		"message": "Стрічка оновлень"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Знайти Діда Мороза"
+	},
+	"tracker_travelogue": {
+		"message": "Відвідані місця"
 	},
 	"tracker_weather": {
 		"message": "Погода"

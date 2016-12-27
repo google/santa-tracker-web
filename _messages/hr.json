@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Udaljenost od vas"
 	},
+	"tracker_distance_travelled": {
+		"message": "Prijeđena udaljenost"
+	},
 	"tracker_feed": {
 		"message": "Feed uživo"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Slijedi Djeda Božićnjaka"
+	},
+	"tracker_travelogue": {
+		"message": "Dnevnik putovanja"
 	},
 	"tracker_weather": {
 		"message": "Vrijeme"

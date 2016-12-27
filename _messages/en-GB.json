@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Distance from you"
 	},
+	"tracker_distance_travelled": {
+		"message": "Distance travelled"
+	},
 	"tracker_feed": {
 		"message": "Live Feed"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Track Santa"
+	},
+	"tracker_travelogue": {
+		"message": "Travelogue"
 	},
 	"tracker_weather": {
 		"message": "Weather"

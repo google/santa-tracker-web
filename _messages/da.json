@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Afstand fra dig"
 	},
+	"tracker_distance_travelled": {
+		"message": "Tilbagelagt distance"
+	},
 	"tracker_feed": {
 		"message": "Livefeed"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Følg julemanden"
+	},
+	"tracker_travelogue": {
+		"message": "Rejsebeskrivelse"
 	},
 	"tracker_weather": {
 		"message": "Vejret"

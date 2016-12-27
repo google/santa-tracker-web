@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Odległość od Ciebie"
 	},
+	"tracker_distance_travelled": {
+		"message": "Przebyta trasa"
+	},
 	"tracker_feed": {
 		"message": "Relacja na żywo"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Śledź trasę Mikołaja"
+	},
+	"tracker_travelogue": {
+		"message": "Dziennik podróży"
 	},
 	"tracker_weather": {
 		"message": "Pogoda"

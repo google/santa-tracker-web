@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "ระยะทางจากตำแหน่งของคุณ"
 	},
+	"tracker_distance_travelled": {
+		"message": "ระยะที่เดินทาง"
+	},
 	"tracker_feed": {
 		"message": "ฟีดการถ่ายทอดสด"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "ตามติดซานต้า"
+	},
+	"tracker_travelogue": {
+		"message": "บันทึกการเดินทาง"
 	},
 	"tracker_weather": {
 		"message": "สภาพอากาศ"

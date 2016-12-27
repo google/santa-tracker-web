@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "உங்களிடமிருந்துள்ள தூரம்"
 	},
+	"tracker_distance_travelled": {
+		"message": "பயணித்த தூரம்"
+	},
 	"tracker_feed": {
 		"message": "நேரலை அறிவிப்புகள்"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "சான்டாவின் இடமறிக"
+	},
+	"tracker_travelogue": {
+		"message": "பயண விவரம்"
 	},
 	"tracker_weather": {
 		"message": "வானிலை"

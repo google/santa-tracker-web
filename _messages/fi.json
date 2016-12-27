@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Etäisyys sijainnistasi"
 	},
+	"tracker_distance_travelled": {
+		"message": "Kuljettu etäisyys"
+	},
 	"tracker_feed": {
 		"message": "Suora lähetys"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Seuraa pukkia"
+	},
+	"tracker_travelogue": {
+		"message": "Matkakertomus"
 	},
 	"tracker_weather": {
 		"message": "Sää"

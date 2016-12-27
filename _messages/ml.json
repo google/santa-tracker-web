@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "നിങ്ങളിൽ നിന്നുള്ള ദൂരം"
 	},
+	"tracker_distance_travelled": {
+		"message": "യാത്ര ചെയ്‌ത ദൂരം"
+	},
 	"tracker_feed": {
 		"message": "തത്സമയ ഫീഡ്"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "സാന്തയെ ട്രാക്കുചെയ്യുക"
+	},
+	"tracker_travelogue": {
+		"message": "യാത്രാവിവരണം"
 	},
 	"tracker_weather": {
 		"message": "കാലാവസ്ഥ"

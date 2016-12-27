@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Oddaljenost od vas"
 	},
+	"tracker_distance_travelled": {
+		"message": "Prepotovana pot"
+	},
 	"tracker_feed": {
 		"message": "Vir v živo"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Spremljaj Božička"
+	},
+	"tracker_travelogue": {
+		"message": "Dnevnik potovanj"
 	},
 	"tracker_weather": {
 		"message": "Vreme"

@@ -1409,6 +1409,9 @@
 	"tracker_distance_from_you": {
 		"message": "Jarak dari lokasi Anda"
 	},
+	"tracker_distance_travelled": {
+		"message": "Jarak yang Ditempuh"
+	},
 	"tracker_feed": {
 		"message": "Live Feed"
 	},
@@ -1456,6 +1459,9 @@
 	},
 	"tracker_track": {
 		"message": "Lacak Sinterklas"
+	},
+	"tracker_travelogue": {
+		"message": "Buku Perjalanan"
 	},
 	"tracker_weather": {
 		"message": "Cuaca"
