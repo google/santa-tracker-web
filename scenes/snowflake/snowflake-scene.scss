@@ -173,23 +173,22 @@ $rotate-bg: $gameover-bg;
   min-width: 60px;
   margin-left: 40px;
   pointer-events: auto;
-  padding: 0 8px;
+  padding: 0 16px;
   font-size: 26pt !important;
 }
 
 .remix-text {
    color: white;
    font-family: 'Lobster';
-   font-size: 27pt;
+   font-size: 32pt;
    position: absolute;
    text-align: center;
    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-   bottom: 40px;
+   bottom: -120px;
    width: 100%;
-   z-index: 1;
 }
 .button-share-snow {
-  padding: 0 8px;
+  padding: 0 16px;
   pointer-events: auto;
 }
 

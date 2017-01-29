@@ -29,6 +29,7 @@ goog.require('Blockly');
 goog.require('goog.string');
 
 BlocklyInterface.runningBlockId = "";
+BlocklyInterface.snowflakeStartBlockId = "SnowflakeStartBlock";
 
 /**
  * Load blocks saved on App Engine Storage or in session/local storage.
@@ -49,9 +50,9 @@ BlocklyInterface.setCode = function(code) {
   // Blockly editor.
   var xml = Blockly.Xml.textToDom(code);
   // Clear the workspace to avoid merge.
-  Turtle.workspace.clear();
-  Blockly.Xml.domToWorkspace(xml, Turtle.workspace);
-  Turtle.workspace.clearUndo();
+  Snowflake.workspace.clear();
+  Blockly.Xml.domToWorkspace(xml, Snowflake.workspace);
+  Snowflake.workspace.clearUndo();
 };
 
 /**
@@ -60,7 +61,7 @@ BlocklyInterface.setCode = function(code) {
  */
 BlocklyInterface.getCode = function() {
   // Blockly editor.
-  var xml = Blockly.Xml.workspaceToDom(Turtle.workspace);
+  var xml = Blockly.Xml.workspaceToDom(Snowflake.workspace);
   var text = Blockly.Xml.domToText(xml);
   return text;
 };
@@ -70,22 +71,22 @@ BlocklyInterface.getCode = function() {
  * @param {?string} id ID of block that triggered this action.
  */
 BlocklyInterface.highlight = function(id) {
-  var block = Turtle.workspace.getBlockById(BlocklyInterface.runningBlockId);
+  var block = Snowflake.workspace.getBlockById(BlocklyInterface.runningBlockId);
   if (block) {
-    Turtle.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
+    Snowflake.workspace.glowBlock(BlocklyInterface.runningBlockId, false);
   }
   if (id) {
     var m = id.match(/^block_id_([^']+)$/);
     if (m) {
       id = m[1];
     }
-    Turtle.workspace.glowBlock(id, true);
+    Snowflake.workspace.glowBlock(id, true);
     BlocklyInterface.runningBlockId = id;
   }
 };
 
 /**
- * Clears all blocks except the starter block. 
+ * Clears all blocks except the starter block.
  */
 BlocklyInterface.clearBlocks = function () {
   // Workspace.clear clears all the blocks, but we want to keep the starter
@@ -97,9 +98,9 @@ BlocklyInterface.clearBlocks = function () {
     Blockly.Events.setGroup(true);
   }
 
-  var topBlocks = Turtle.workspace.getTopBlocks();
+  var topBlocks = Snowflake.workspace.getTopBlocks();
   for (var i = 0, block; block = topBlocks[i]; i++) {
-     if (block.id == Turtle.snowflakeStartBlockId) {
+     if (block.id == Snowflake.snowflakeStartBlockId) {
        var childBlock = block.getNextBlock();
        if (childBlock) {
          childBlock.dispose(false); // false to delete all childen.
@@ -121,7 +122,7 @@ BlocklyInterface.clearBlocks = function () {
 BlocklyInterface.injectReadonly = function(id, xml) {
   var div = document.getElementById(id);
   if (!div.firstChild) {
-    var rtl = Turtle.isRtl;
+    var rtl = Snowflake.isRtl;
     var workspace = Blockly.inject(div, {'rtl': rtl, 'readOnly': true});
     if (typeof xml != 'string') {
       xml = xml.join('');
@@ -184,22 +185,12 @@ BlocklyInterface.importInterpreter = function() {
   document.head.appendChild(script);
 };
 
-//TODO(madCode): delete if we're not showing kids the code they wrote.
 /**
- * Load the Prettify CSS and JavaScript.
+ * @return {Blockly.Block} The block on the workspace with the snowflake start
+ *     block's id, or null if not found.
  */
-BlocklyInterface.importPrettify = function() {
-  //<link rel="stylesheet" type="text/css" href="common/prettify.css">
-  //<script type="text/javascript" src="common/prettify.js"></script>
-  // var link = document.createElement('link');
-  // link.setAttribute('rel', 'stylesheet');
-  // link.setAttribute('type', 'text/css');
-  // link.setAttribute('href', 'common/prettify.css');
-  // document.head.appendChild(link);
-  // var script = document.createElement('script');
-  // script.setAttribute('type', 'text/javascript');
-  // script.setAttribute('src', 'common/prettify.js');
-  // document.head.appendChild(script);
+BlocklyInterface.getStarterBlock = function() {
+  return Snowflake.workspace.getBlockById(BlocklyInterface.snowflakeStartBlockId);
 };
 
 // Export symbols that would otherwise be renamed by Closure compiler.

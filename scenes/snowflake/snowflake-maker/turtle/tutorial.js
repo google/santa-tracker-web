@@ -14,14 +14,14 @@
  * the License.
  */
 
-goog.provide('Turtle.SceneTutorial');
+goog.provide('Snowflake.Tutorial');
 
 /**
  * Manages the display of a tutorial animation for the game.
  * @param {Element} el the .tutorial element.
  * @constructor
  */
-Turtle.SceneTutorial = function(el) {
+Snowflake.Tutorial = function(el) {
   this.el = el;
 
   this.visible_ = false;
@@ -34,9 +34,9 @@ Turtle.SceneTutorial = function(el) {
 };
 
 /**
- * Dispose of this SceneTutorial.
+ * Dispose of this Tutorial.
  */
-Turtle.SceneTutorial.prototype.dispose = function() {
+Snowflake.Tutorial.prototype.dispose = function() {
   Blockly.getMainWorkspace().removeChangeListener(this.onBlocklyChange_);
 };
 
@@ -44,7 +44,7 @@ Turtle.SceneTutorial.prototype.dispose = function() {
  * Schedules displaying the tutorial. Only happens max once, some time after the
  * first time requested.
  */
-Turtle.SceneTutorial.prototype.schedule = function(force) {
+Snowflake.Tutorial.prototype.schedule = function(force) {
   if (this.hasBeenShown && !force) { return; }
 
   // Blockly does some non-user initiated workspace changes on timeout, so we wait for
@@ -56,7 +56,7 @@ Turtle.SceneTutorial.prototype.schedule = function(force) {
  * Shows or hides the tutorial.
  * @param {boolean} visible is true to show the tutorial, otherwise false.
  */
-Turtle.SceneTutorial.prototype.toggle = function(visible) {
+Snowflake.Tutorial.prototype.toggle = function(visible) {
   if (this.scheduleTimeout_) {
     window.clearTimeout(this.scheduleTimeout_);
     this.scheduleTimeout_ = null;
@@ -71,7 +71,7 @@ Turtle.SceneTutorial.prototype.toggle = function(visible) {
  * Hide the tutorial on edit blockly workspace.
  * @private
  */
-Turtle.SceneTutorial.prototype.onBlocklyChange_ = function(event) {
+Snowflake.Tutorial.prototype.onBlocklyChange_ = function(event) {
   var mainWorkspace = Blockly.getMainWorkspace();
   if (event.type == Blockly.Events.MOVE &&
       // There is a move event when we first place the blocks on the workspace.

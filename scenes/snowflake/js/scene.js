@@ -137,7 +137,6 @@ app.Scene.prototype.drawSnowflakes = function() {
   }
 };
 
-//TODO(madCode): fix duplication.
 /**
  * Returns a random number in the range [min,max).
  * @param {number} min
@@ -149,14 +148,18 @@ function randomRange(min, opt_max) {
   return min + Math.random() * (max - min);
 };
 
-app.Scene.prototype.showShareOverlay = function() {
+app.Scene.prototype.updateUrl = function() {
   var bgNum = this.background.getPosition(0);
   var blocks = this.blocks;
 
-  // nb. encode blocks in base64 as it may contain unsafe characters
   const url = new URL(window.location.toString());
   url.search = '?bg=' + bgNum + '&B=' + blocks;
   const urlString = url.toString();
   window.history.replaceState(null, '', urlString);
+  return urlString;
+};
+
+app.Scene.prototype.showShareOverlay = function() {
+  var urlString = this.updateUrl();
   this.shareOverlay.show(urlString, true);
 };

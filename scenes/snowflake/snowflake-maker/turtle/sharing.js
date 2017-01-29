@@ -1,22 +1,45 @@
-goog.provide('Sharing');
+/**
+ * Blockly Games: Snowflake
+ *
+ * Copyright 2016 Google Inc.
+ * https://github.com/google/blockly-games
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @fileoverview Handles encoding and decoding the workspace to a url-friendly string.
+ * @author madeeha@google.com (Madeeha Ghori)
+ */
+
+goog.provide('Snowflake.Sharing');
 
 goog.require('Blockly');
-goog.require('Turtle');
 
 
-Sharing.HEX_COLOR_REGEX = /^#([0-9a-f]{3}){1,2}$/i;
+Snowflake.Sharing.HEX_COLOR_REGEX = /^#([0-9a-f]{3}){1,2}$/i;
 
 // Constants for loop start and end.
-Sharing.LOOP_START = '(';
-Sharing.LOOP_END = ')';
+Snowflake.Sharing.LOOP_START = '(';
+Snowflake.Sharing.LOOP_END = ')';
 
-Sharing.FIELD_START = '[';
-Sharing.FIELD_END = ']';
+Snowflake.Sharing.FIELD_START = '[';
+Snowflake.Sharing.FIELD_END = ']';
 
 /**
  * Mapping from block names to their single-letter encodings.
  */
-Sharing.blockToInitial = {
+Snowflake.Sharing.blockToInitial = {
   'turtle_colour': 'c',
   'pentagon_stamp': 'p',
   'square_stamp': 's',
@@ -25,21 +48,21 @@ Sharing.blockToInitial = {
   'turtle_move_backward': 'b',
   'turtle_turn_left': 'l',
   'turtle_turn_right': 'r',
-  'control_repeat': Sharing.LOOP_START
+  'control_repeat': Snowflake.Sharing.LOOP_START
 };
 
-Sharing.BLOCK_REGEX = /^\s*<block type="([A-z\_]+)" id=".+">$/;
+Snowflake.Sharing.BLOCK_REGEX = /^\s*<block type="([A-z\_]+)" id=".+">$/;
 
-Sharing.VALUE_REGEX = /^\s*<value/;
+Snowflake.Sharing.VALUE_REGEX = /^\s*<value/;
 
-Sharing.FIELD_REGEX = /^\s*<field name="[A-z]+">(.+)<\/field>$/;
+Snowflake.Sharing.FIELD_REGEX = /^\s*<field name="[A-z]+">(.+)<\/field>$/;
 
-Sharing.LOOP_END_REGEX = /^\s*<\/statement>$/;
+Snowflake.Sharing.LOOP_END_REGEX = /^\s*<\/statement>$/;
 
 /**
  * Mapping from single-letter block encodings to XML for blocks on the workspace.
  */
-Sharing.initialToBlock = {
+Snowflake.Sharing.initialToBlock = {
   'p': '<block type="pentagon_stamp"><value name="SIZE"><shadow type="dropdown_pentagon"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
   'c': '<block type="turtle_colour"><value name="COLOUR"><shadow type="dropdown_colour"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
   's': '<block type="square_stamp"><value name="SIZE"><shadow type="dropdown_square"><field name="CHOICE">[VALUE]</field></shadow></value></block>',
@@ -55,9 +78,9 @@ Sharing.initialToBlock = {
  * Encode the contents of the workspace as a string.
  * @return {string} URL-safe representation of the workspace.
  */
-Sharing.workspaceToUrl = function() {
-  var topBlock = Turtle.getStarterBlock();
-  var codeString = Sharing.textEncodeBlocks_(topBlock.getNextBlock());
+Snowflake.Sharing.workspaceToUrl = function() {
+  var topBlock = BlocklyInterface.getStarterBlock();
+  var codeString = Snowflake.Sharing.textEncodeBlocks_(topBlock.getNextBlock());
   return codeString;
 };
 
@@ -67,7 +90,7 @@ Sharing.workspaceToUrl = function() {
 * @return {string} URL-safe representation of the blocks.
 * @private
 */
-Sharing.textEncodeBlocks_ = function(block) {
+Snowflake.Sharing.textEncodeBlocks_ = function(block) {
   if (!block) {
     return '';
   }
@@ -75,7 +98,7 @@ Sharing.textEncodeBlocks_ = function(block) {
   while (block) {
     switch(block.type) {
       case 'turtle_colour':
-        blockString += Sharing.textEncodeColor_(block);
+        blockString += Snowflake.Sharing.textEncodeColor_(block);
         break;
       case 'turtle_turn_left':
       case 'turtle_turn_right':
@@ -84,10 +107,10 @@ Sharing.textEncodeBlocks_ = function(block) {
       case 'pentagon_stamp':
       case 'square_stamp':
       case 'triangle_stamp':
-        blockString += Sharing.textEncodeValue_(block);
+        blockString += Snowflake.Sharing.textEncodeValue_(block);
         break;
       case 'control_repeat':
-        blockString += Sharing.textEncodeLoop_(block);
+        blockString += Snowflake.Sharing.textEncodeLoop_(block);
         break;
     }
     block = block.getNextBlock();
@@ -101,9 +124,9 @@ Sharing.textEncodeBlocks_ = function(block) {
 * @return {string} URL-safe representation of the block.
 * @private
 */
-Sharing.textEncodeValue_ = function(block) {
+Snowflake.Sharing.textEncodeValue_ = function(block) {
   var value = block.inputList[0].connection.targetBlock().getFieldValue('CHOICE');
-  var result = Sharing.blockToInitial[block.type] || '';
+  var result = Snowflake.Sharing.blockToInitial[block.type] || '';
   if (result != '') {
     result = result + value + '-';
   }
@@ -116,9 +139,9 @@ Sharing.textEncodeValue_ = function(block) {
 * @return {string} URL-safe representation of the block.
 * @private
 */
-Sharing.textEncodeLoop_ = function(block) {
+Snowflake.Sharing.textEncodeLoop_ = function(block) {
   var text = '(';
-  text += Sharing.textEncodeBlocks_(block.inputList[0].connection.targetBlock());
+  text += Snowflake.Sharing.textEncodeBlocks_(block.inputList[0].connection.targetBlock());
   text += ')';
   var repeatCount = 0;
   try {
@@ -141,7 +164,7 @@ Sharing.textEncodeLoop_ = function(block) {
 * @return {string} URL-safe representation of the block.
 * @private
 */
-Sharing.textEncodeColor_ = function(block) {
+Snowflake.Sharing.textEncodeColor_ = function(block) {
   var color = block.inputList[0].connection.targetBlock().getFieldValue('CHOICE');
   if (color == 'random') {
     return 'cz-';
@@ -156,11 +179,13 @@ Sharing.textEncodeColor_ = function(block) {
   }
 };
 
-Sharing.urlToWorkspace = function(string) {
-  //get the starterblock
-  //for each symbol, add a block to the thing.
-  var workspace = Turtle.workspace;
-  var starterConnection = Turtle.getStarterBlock().nextConnection;
+/**
+ * Decode a string to a workspace.
+ * @param {string} string The URL representation of the workspace.
+ */
+Snowflake.Sharing.urlToWorkspace = function(string) {
+  var workspace = Snowflake.workspace;
+  var starterConnection = BlocklyInterface.getStarterBlock().nextConnection;
   if (starterConnection.targetBlock() != null) {
     starterConnection.targetBlock().dispose();
   }
@@ -175,7 +200,7 @@ Sharing.urlToWorkspace = function(string) {
  * @param {string} string The URL-encoded workspace as a string.
  * @private
  */
-Sharing.stringToBlocks_ = function(starterConnection, string) {
+Snowflake.Sharing.stringToBlocks_ = function(starterConnection, string) {
   var simpleBlocks = ['f', 'b', 'l', 'r', 's', 'p', 't', 'c'];
   var currentConnection = starterConnection;
   var loopStack = [];
@@ -206,7 +231,7 @@ Sharing.stringToBlocks_ = function(starterConnection, string) {
       // Move on to the next block
       currentConnection = nextBlock.nextConnection;
       i = nextDash + 1;
-    } else if (char == Sharing.LOOP_START) {
+    } else if (char == Snowflake.Sharing.LOOP_START) {
       // Create an empty loop and set the next connection to its statement
       nextBlock = this.makeBlockFromInitial('empty-loop', 1);
       // And add it to the stack of loops
@@ -215,7 +240,7 @@ Sharing.stringToBlocks_ = function(starterConnection, string) {
       // Move on to the blocks in its statement
       currentConnection = nextBlock.inputList[0].connection;
       i++;
-    } else if (char == Sharing.LOOP_END) {
+    } else if (char == Snowflake.Sharing.LOOP_END) {
       // Pop the most recent loop off the stack and set its value
       if (loopStack.length == 0) {
         console.log('invalid string, uneven loop characters');
@@ -228,7 +253,7 @@ Sharing.stringToBlocks_ = function(starterConnection, string) {
         return;
       }
       var valueContent = string.substring(i + 1, nextDash);
-      var validatedValue = Sharing.validateBlockValue('empty-loop', valueContent);
+      var validatedValue = Snowflake.Sharing.validateBlockValue('empty-loop', valueContent);
       nextBlock.inputList[1].connection.targetBlock().setFieldValue(validatedValue, 'NUM');
       // Move on to the next block
       currentConnection = nextBlock.nextConnection;
@@ -244,17 +269,17 @@ Sharing.stringToBlocks_ = function(starterConnection, string) {
  * Translate a single-character block name into a blockly block and set the
  * value.
  * @param {string} initial The single-character encoding of a block name, which
- *     must be in the key set of Sharing.initialToBlock.
+ *     must be in the key set of Snowflake.Sharing.initialToBlock.
  * @param {string} value The value to set on the block, which may be a number,
  *     a color, or a key for selecting from a dropdown.
  * @return {Blockly.Block} The block represented by the initial + value
  *     combination.
  */
-Sharing.makeBlockFromInitial = function (initial, value) {
-  var validatedValue = Sharing.validateBlockValue(initial, value);
-  var xmlString = Sharing.initialToBlock[initial].replace(/\[VALUE\]/, validatedValue);
+Snowflake.Sharing.makeBlockFromInitial = function (initial, value) {
+  var validatedValue = Snowflake.Sharing.validateBlockValue(initial, value);
+  var xmlString = Snowflake.Sharing.initialToBlock[initial].replace(/\[VALUE\]/, validatedValue);
   var xml = Blockly.Xml.textToDom(xmlString);
-  return Blockly.Xml.domToBlock(xml, Turtle.workspace);
+  return Blockly.Xml.domToBlock(xml, Snowflake.workspace);
 };
 
 /**
@@ -269,7 +294,7 @@ Sharing.makeBlockFromInitial = function (initial, value) {
  * blocks this will be a hex string or 'random'; for shape, turn, and repeat
  * blocks this will be a number in the valid range.
  */
-Sharing.validateBlockValue = function(initial, value) {
+Snowflake.Sharing.validateBlockValue = function(initial, value) {
   var validValue = null;
   switch(initial) {
     // Shape blocks. Dropdown values: 20, 40, 60, 80, 100, 120.
@@ -299,7 +324,7 @@ Sharing.validateBlockValue = function(initial, value) {
       break;
     // Color block. Accept any hex color and set to random if not valid.
     case 'c':
-      var match = Sharing.HEX_COLOR_REGEX.exec(value);
+      var match = Snowflake.Sharing.HEX_COLOR_REGEX.exec(value);
       if (match && match[0]) {
         validValue = match[0];
       } else {

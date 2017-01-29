@@ -30,7 +30,6 @@ Postcard scene.
 <template>
   <santa-state language="{{language}}"></santa-state>
 
-  <!-- TODO(madCode): move style to scss and move inline style as well. -->
   <style>
   :host([mode="portal"]) #shareButton {
     display: none !important;
@@ -79,10 +78,16 @@ Postcard scene.
             </div>
           </div>
           <div id="heroSnowflake"></div>
+          <div class="remix-button-div remix-text remix-bar share-landing">
+            <i18n-msg msgid="snowflake_make_your_own">PLACEHOLDER_i18n</i18n-msg>
+            <button id="remixButton" on-tap="backToBlockly" class="Button remix">
+                <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+            </button>
+          </div>
         </div>
       </div>
-      <div class="bottom-footer">
-        <div class="share-bar big-button_bar center-horiz selection">
+      <div class="bottom-footer selection">
+        <div class="share-bar big-button_bar center-horiz">
           <div class="small-button-container" on-tap="backToBlockly">
             <span class="small-button-image"></span>
             <span class="small-button-text">
@@ -92,14 +97,6 @@ Postcard scene.
           <div class='snow-share-div'>
             <button id="shareButton" class="Button button-share-snow">
               <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
-            </button>
-          </div>
-        </div>
-        <div class="big-button_bar center-horiz share-landing">
-          <div class="remix-button-div remix-text remix-bar">
-            <i18n-msg msgid="snowflake_make_your_own">PLACEHOLDER_i18n</i18n-msg>
-            <button id="remixButton" on-tap="backToBlockly" class="Button remix">
-                <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
             </button>
           </div>
         </div>
@@ -113,7 +110,7 @@ Postcard scene.
       <div id="S_message2"><i18n-msg msgid="holiday_message_4">PLACEHOLDER_i18n</i18n-msg></div>
       <div id="S_message3"><i18n-msg msgid="holiday_message_5">PLACEHOLDER_i18n</i18n-msg></div>
     </div>
-    <div class="gui">
+    <div id="landscapeMsg" class="gui">
       <div class="force-rotate landscape">
         <div class="force-rotate-graphic"></div>
         <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
@@ -219,6 +216,7 @@ Postcard scene.
       // elements (especially iframes) are display:none.
       if (!this.snowflake) {
         this.$.blocklyArea.style.opacity = 0;
+        this.$.landscapeMsg.style.opacity = 0;
         this.$.postcard.style.opacity = 1;
       } else {
         // Once the snowflake is ready to render, set the opacity to 1,
@@ -231,8 +229,10 @@ Postcard scene.
           snowflakesList[i].style.backgroundSize = 'contain';
         }
         this.$.blocklyArea.style.opacity = 1;
+        this.$.landscapeMsg.style.opacity = 1;
         this.$.postcard.style.opacity = 1;
         this.$.blocklyArea.hidden = true;
+        this.$.landscapeMsg.hidden = true;
         this.$.postcard.hidden = false;
       }
       // Remove focus from the blockly iframe (only an issue in Firefox).
@@ -255,6 +255,7 @@ Postcard scene.
     backToBlockly: function() {
       this.$.postcard.hidden = true;
       this.$.blocklyArea.hidden = false;
+      this.$.landscapeMsg.hidden = false;
       this.scene.disposeTutorial();
     },
 
@@ -270,14 +271,20 @@ Postcard scene.
       if (event.source != expectedSource) {
         throw new Error('unexpected source: ' + event.origin);
       } else {
-        this.snowflake = event.data['snowflake'];
         this.scene.blocks = event.data['blocks'];
-        // If we're receiving this message, 'Done' has been pressed.
-        if (event.data['sharing']) {
-          this.showShareLanding();
-        } else {
-          this.showPostcard();
-          this.scene.startTutorial();
+        switch (event.data['msg-type']) {
+          case ('updatePage'):
+            this.snowflake = event.data['snowflake'];
+            if (event.data['sharing']) {
+              this.showShareLanding();
+            } else {
+              this.showPostcard();
+              this.scene.startTutorial();
+            }
+            break;
+          case ('updateURL'):
+            this.scene.updateUrl();
+            break;
         }
       }
     },

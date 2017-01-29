@@ -118,7 +118,7 @@ $name: 'module-turtle';
   bottom: -18px;
   background: white;
   z-index: -1;
-  box-shadow: 8px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 12px 12px rgba(0, 0, 0, 0.1);
 }
 
 #blocklycontainer {
@@ -138,7 +138,7 @@ $name: 'module-turtle';
 }
 
 .next-button {
-  padding: 0 8px;
+  padding: 0 16px;
   pointer-events: auto;
 }
 
