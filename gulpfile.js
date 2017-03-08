@@ -247,10 +247,11 @@ gulp.task('compile-scenes', function() {
     compilerSrc.push(...libraries);
 
     // Configure prefix. In some cases (no libraries, not dist), we can skip scene compilation for
-    // more rapid development.
+    // more rapid development. TODO(samthor): Increase the number of skippable compiles.
     let prefixCode = 'var global=window;';
     let compilationLevel = 'SIMPLE_OPTIMIZATIONS';
-    const mustCompile = (argv.compile || libraries.length || config.closureLibrary || argv.dist);
+    const mustCompile =
+        (argv.compile || libraries.length || config.closureLibrary || config.isFrame || argv.dist);
     if (!mustCompile) {
       // This (ab)uses Closure. Uncompiled Closure attempts to run `goog.provide` on an object
       // namespace ("this" in our compile). However, as we're in a JS closure, we want the vars to
