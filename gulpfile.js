@@ -78,11 +78,6 @@ const argv = require('yargs')
       default: 3000,
       describe: 'port to serve on'
     })
-    .option('devmode', {
-      type: 'boolean',
-      default: false,
-      describe: 'run scenes directly with raw source files and livereload'
-    })
     .argv;
 
 const COMPILER_PATH = 'node_modules/google-closure-compiler/compiler.jar';
@@ -308,43 +303,6 @@ function addCompilerFlagOptions(opts) {
   }
   return opts;
 }
-
-gulp.task('build-scene-deps', function() {
-  // compile each scene, merging them into a single gulp stream as we go
-  return COMPILE_SCENES.reduce((stream, sceneName) => {
-    const config = SCENE_CONFIG[sceneName];
-    const fileName = sceneName + '-scene.deps.js';
-    const dest = '.devmode/scenes/' + sceneName;
-    const scripts = [
-      'scenes/' + sceneName + '/js/**/*.js',
-      'scenes/shared/js/*.js'
-    ].concat(config.libraries || []);
-
-    return stream.add(gulp.src(scripts)
-        .pipe($.newer(dest + '/' + fileName))
-        .pipe($.closureDeps({
-          baseDir: '.',
-          fileName: fileName,
-          prefix: '../../../..'
-        }))
-        .pipe($.changed(dest, {hasChanged: $.changed.compareSha1Digest}))
-        .pipe(gulp.dest(dest)));
-  }, mergeStream());
-});
-
-gulp.task('create-dev-scenes', function() {
-  // compile each scene, merging them into a single gulp stream as we go
-  return SCENE_NAMES.reduce((stream, sceneName) => {
-    const dest = '.devmode/scenes/' + sceneName;
-    return stream.add(
-        gulp.src('scenes/' + sceneName + '/' + sceneName + '-scene_en.html')
-            .pipe(scripts.devScene(sceneName, SCENE_CONFIG[sceneName]))
-            .pipe($.newer(dest + '/index.html'))
-            .pipe(gulp.dest(dest))
-    );
-  }, mergeStream());
-});
-
 gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
   // Strip all common elements, found in the standard elements import.
   const elementsPath = 'elements/elements_en.html';
@@ -505,25 +463,12 @@ gulp.task('dist', function(callback) {
 
 gulp.task('watch', function() {
   gulp.watch(SASS_FILES, ['sass']);
-
-  if (argv.devmode) {
-    gulp.watch(CLOSURE_FILES, ['build-scene-deps']);
-    gulp.watch('scenes/**/*.html', ['create-dev-scenes']);
-  } else {
-    gulp.watch(CLOSURE_FILES, ['compile-scenes']);
-    gulp.watch(JS_FILES, ['compile-js']);
-  }
+  gulp.watch(CLOSURE_FILES, ['compile-scenes']);
+  gulp.watch(JS_FILES, ['compile-js']);
 });
 
 gulp.task('serve', ['default', 'watch'], function() {
-  const livereloadFiles = ['**/*.css'];
-
-  // Reload on raw js files only in dev mode.
-  if (argv.devmode) {
-    livereloadFiles.push('scenes/**/*.js', '.devmode/**/*.js', '.devmode/**/index.html');
-  } else {
-    livereloadFiles.push('**/*.min.js', '**/*.html');
-  }
+  const livereloadFiles = ['**/*.css', '**/*.min.js', '**/*.html'];
 
   const simplePath = new RegExp(/^\/(\w+)\.html(|\?.*)$/);
   const fanoutHelper = function(req, res, next) {
@@ -538,16 +483,14 @@ gulp.task('serve', ['default', 'watch'], function() {
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
-    injectChanges: argv.devmode, // Can not inject css into lazy Polymer scenes.
+    injectChanges: false,
     middleware: [fanoutHelper],
     port: argv.port,
-    server: ['.', '.devmode'],
-    startPath: argv.scene && (argv.devmode ? `/scenes/${argv.scene}/` : `/${argv.scene}.html`),
+    server: ['.'],
+    startPath: argv.scene ? `/${argv.scene}.html` : '/',
     ui: {port: argv.port + 1},
   });
 });
 
 
-gulp.task('default', argv.devmode ?
-    ['sass', 'build-scene-deps', 'create-dev-scenes'] :
-    ['sass', 'compile-js', 'compile-scenes']);
+gulp.task('default', ['sass', 'compile-js', 'compile-scenes']);
