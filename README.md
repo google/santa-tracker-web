@@ -8,13 +8,13 @@ It is a companion to the [Android](https://github.com/google/santa-tracker-andro
 
 ## Changes
 
-In the 2015 version of Santa Tracker, some featured changes include-
+In the 2016 version of Santa Tracker, some featured changes include-
 
-* Upgrade to use Polymer 1.0+
-* Revamped Santa's Village including mobile-friendly responsive design
-* Added several new games, including Present Bounce and Code Boogie, written in ES6
-* Streamlined Chromecast support
-* Increased use of emojis
+* Upgrade to use Polymer 1.7
+* Santa is a Progressive Web App supporting Add to Home Screen and offline through Service Worker
+* Further streamlined Chromecast support
+* Support the [Web Share API](https://developers.google.com/web/updates/2016/10/navigator-share) where available
+* Added several new games, including Gift Matcher, Code a Snowflake and Wrap Battle
 
 # Supports
 
@@ -72,15 +72,10 @@ Serve from `./dist_pretty`.
 ## Portal Docker deployment
 
 * Checkout / update any dependent repos
-
 * Build the image: `docker build -t santa .`
-
 * Create the container: `docker create --restart always -p 8080:8080 --name santa santa`
-
 * Run the container: `docker start -d santa`
-
 * Verify that the container is running: `docker ps`
-
 * Verify that the container is listening: `curl -I http://lg-head:8080`
 
 To rebuild, run `docker rm -f santa` and start over from building the image.
