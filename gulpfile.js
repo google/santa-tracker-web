@@ -67,6 +67,11 @@ const argv = require('yargs')
       default: null,
       describe: 'only build assets for this scene'
     })
+    .option('compile', {
+      type: 'boolean',
+      default: false,
+      describe: 'force all scenes to compile with Closure in dev'
+    })
     .option('port', {
       alias: 'p',
       type: 'number',
@@ -246,11 +251,25 @@ gulp.task('compile-scenes', function() {
     const libraries = (config.libraries || []).map(lib => lib.replace('**/*', '**'));
     compilerSrc.push(...libraries);
 
+    // Configure prefix. In some cases (no libraries, not dist), we can skip scene compilation for
+    // more rapid development.
+    let prefixCode = 'var global=window;';
+    let compilationLevel = 'SIMPLE_OPTIMIZATIONS';
+    const mustCompile = (argv.compile || libraries.length || config.closureLibrary || argv.dist);
+    if (!mustCompile) {
+      // This (ab)uses Closure. Uncompiled Closure attempts to run `goog.provide` on an object
+      // namespace ("this" in our compile). However, as we're in a JS closure, we want the vars to
+      // exist as "var foo". Precreate known vars, then place it on the object namespace.
+      prefixCode += 'var app=this.app;';
+      ['SB', 'Blockly', 'Box2D'].forEach(v => prefixCode += `var ${v}={};this.${v}=${v};`);
+      compilationLevel = 'WHITESPACE_ONLY';
+    }
+
     const compilerFlags = addCompilerFlagOptions({
       js: compilerSrc,
       externs,
       closure_entry_point: config.entryPoint,
-      compilation_level: 'SIMPLE_OPTIMIZATIONS',
+      compilation_level: compilationLevel,
       warning_level: warningLevel,
       language_in: 'ECMASCRIPT6_STRICT',
       language_out: 'ECMASCRIPT5_STRICT',
@@ -264,7 +283,7 @@ gulp.task('compile-scenes', function() {
       output_wrapper: config.isFrame ? '%output%' :
           `var scenes = scenes || {};\n` +
           `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
-          `(function(){var global=window;%output%}).call({app: scenes.${sceneName}});`
+          `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`
     });
 
     // TODO(samthor): Log the kickoff of this event.
