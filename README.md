@@ -4,6 +4,8 @@ Google Santa Tracker for Web
 This repository contains the code to [Google Santa Tracker](https://santatracker.google.com), an educational and entertaining tradition for the December holiday period.
 It is a companion to the [Android](https://github.com/google/santa-tracker-android) app.
 
+If you'd like to learn more about the engineering that goes into Santa Tracker, and how Santa Tracker works offline as a Progressive Web App, please check out [Santa Tracker as a PWA](https://developers.google.com/web/showcase/2017/santa).
+
 <img src="https://storage.googleapis.com/santa/santa-preview.jpeg" width="384" align="center" />
 
 ## Changes
