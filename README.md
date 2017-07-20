@@ -10,7 +10,7 @@ If you'd like to learn more about the engineering that goes into Santa Tracker, 
 
 ## Changes
 
-In the 2016 version of Santa Tracker, some featured changes include-
+In the 2017 version of Santa Tracker, some featured changes include-
 
 * Upgrade to use Polymer 1.7
 * Santa is a Progressive Web App supporting Add to Home Screen and offline through Service Worker
