@@ -18,15 +18,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="../shared/js/mapstyles.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="tracker-intro.css">
+<!-- TODO(keanulee): Test this scene -->
+<link rel="import" href="tracker-intro_module.html">
 
 <!--
 Intro for the tracker scene.
 -->
 <dom-module id="tracker-intro">
 <template>
-  <style>
+  <style include="tracker-intro_module">
   /* Outside of tracker-intro.scss because it requires shimming. */
   :host {
     width: 100%;

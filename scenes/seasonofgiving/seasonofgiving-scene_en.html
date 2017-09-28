@@ -17,15 +17,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="seasonofgiving-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="seasonofgiving-scene.css" />
+<!-- TODO(keanulee): Fix this scene -->
+<link rel="import" href="seasonofgiving-scene_module.html">
 
 <!--
 Season of giving scene.
 -->
 <dom-module id="seasonofgiving-scene">
 <template>
-  <style>
+  <style include="seasonofgiving-scene_module">
     :host([mode="portal"]) .Button--copy,
     :host([mode="portal"]) .Button-download,
     :host([mode="portal"]) .Button-print,

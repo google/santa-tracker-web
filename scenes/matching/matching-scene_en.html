@@ -16,14 +16,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="matching-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="matching-scene.css" />
+<link rel="import" href="matching-scene_module.html">
 
 <!--
 Matching scene.
 -->
 <dom-module id="matching-scene">
 <template>
+  <style include="matching-scene_module"></style>
+
   <div id="module-matching">
     <div class="scene">
       <div class="sky">

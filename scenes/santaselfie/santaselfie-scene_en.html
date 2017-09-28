@@ -17,15 +17,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="santaselfie-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="santaselfie-scene.css" />
+<link rel="import" href="santaselfie-scene_module.html">
 
 <!--
 Santaselfie scene.
 -->
 <dom-module id="santaselfie-scene">
 <template>
-  <style>
+  <style include="santaselfie-scene_module">
     :host([mode="portal"]) #share-button,
     :host([mode="portal"]) #share-button-toolbox {
       display: none !important;

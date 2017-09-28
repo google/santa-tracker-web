@@ -20,15 +20,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="trivia-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="trivia-scene.css" />
+<link rel="import" href="trivia-scene_module.html">
 
 <!--
 Trivia scene.
 -->
 <dom-module id="trivia-scene">
 <template>
-  <style>
+  <style include="trivia-scene_module">
     .scene {
       @apply --layout-vertical;
       @apply --layout-fit;

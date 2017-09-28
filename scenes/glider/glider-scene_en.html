@@ -16,14 +16,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="glider-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="glider-scene.css" />
+<link rel="import" href="glider-scene_module.html">
 
 <!--
 Glider scene.
 -->
 <dom-module id="glider-scene">
 <template>
+  <style include="glider-scene_module"></style>
+
   <div id="module-glider">
     <div class="bg">
       <div class="sky"></div>

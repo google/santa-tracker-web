@@ -17,14 +17,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="racer-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="racer-scene.css" />
+<link rel="import" href="racer-scene_module.html">
 
 <!--
 Racer scene.
 -->
 <dom-module id="racer-scene">
 <template>
+  <style include="racer-scene_module"></style>
+
   <div id="module-racer">
     <smatch-secret character-id="bear"></smatch-secret>
     <div class="view">

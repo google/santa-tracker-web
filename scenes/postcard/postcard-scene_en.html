@@ -16,15 +16,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="postcard-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="postcard-scene.css" />
+<link rel="import" href="postcard-scene_module.html">
 
 <!--
 Postcard scene.
 -->
 <dom-module id="postcard-scene">
 <template>
-  <style>
+  <style include="postcard-scene_module">
     :host([mode="portal"]) #sharebutton {
         display: none !important;
     }

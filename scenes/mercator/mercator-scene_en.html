@@ -18,14 +18,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="mercator-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="mercator-scene.css" />
+<link rel="import" href="mercator-scene_module.html">
 
 <!--
 Mercator scene.
 -->
 <dom-module id="mercator-scene">
 <template>
+  <style include="mercator-scene_module"></style>
+
   <div id="module-mercator">
     <div class="scene">
       <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>

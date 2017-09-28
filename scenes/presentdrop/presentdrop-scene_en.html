@@ -16,14 +16,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="presentdrop-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="presentdrop-scene.css" />
+<link rel="import" href="presentdrop-scene_module.html">
 
 <!--
 Presentdrop scene.
 -->
 <dom-module id="presentdrop-scene">
 <template>
+  <style include="presentdrop-scene_module"></style>
+
   <div id="module-presentdrop">
     <div class="gui">
       <div class="force-rotate landscape">

@@ -18,13 +18,16 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/google-apis/google-legacy-loader.html">
 <script src="wrapbattle-scene.min.js"></script>
 
-<link rel="stylesheet" href="wrapbattle-scene.css" />
+<!-- TODO(keanulee): Fix this scene -->
+<link rel="import" href="wrapbattle-scene_module.html">
 
 <!--
 Wrap Battle scene.
 -->
 <dom-module id="wrapbattle-scene">
 <template>
+  <style include="wrapbattle-scene_module"></style>
+
   <div id="module-wrapbattle" class="frozen">
     <div class="game">
       <div class="track">

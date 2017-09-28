@@ -16,14 +16,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="presentbounce-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="presentbounce-scene.css" />
+<link rel="import" href="presentbounce-scene_module.html">
 
 <!--
 presentbounce scene.
 -->
 <dom-module id="presentbounce-scene">
 <template>
+  <style include="presentbounce-scene_module"></style>
+
   <div id="module-presentbounce">
     <div class="presentbounce">
       <div class="bg">
