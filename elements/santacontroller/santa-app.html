@@ -717,7 +717,9 @@ Polymer({
   },
 
   onClick: function(ev) {
-    var link = ev.target.closest('a[href]');
+    var link = ev.composedPath().filter(function(el) {
+      return el.localName === 'a' && el.href;
+    })[0];
     if (!link) { return; }
 
     // Ignore if a reload was requested. Allow the new page to load naturally!

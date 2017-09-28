@@ -250,10 +250,13 @@ if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
 if (window.santaApp.mode === 'portal') {
   // Filter out clicks that don't match the current domain.
   document.body.addEventListener('click', function(event) {
-    if (!event.target || event.target.localName !== 'a') {
+    var link = event.composedPath().filter(function(el) {
+      return el.localName === 'a' && el.href;
+    })[0];
+    if (!link) {
       return;
     }
-    if (event.target.href.indexOf(window.location.origin + '/') !== 0) {
+    if (link.href.indexOf(window.location.origin + '/') !== 0) {
       event.stopPropagation();
       event.preventDefault();
     }
