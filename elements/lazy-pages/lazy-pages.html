@@ -25,7 +25,7 @@ Lazy loads children "pages".
         position: static;
         display: block;
       }
-      :host ::content .santa-scene {
+      :host ::slotted(*) {
         position: absolute;
         top: 44px;
         right: 0;
@@ -33,18 +33,18 @@ Lazy loads children "pages".
         left: 0;
         overflow: hidden;  /* explicitly only needed for iOS */
       }
-      :host ::content .santa-scene[mode="cast"] {
+      :host ::slotted([mode="cast"]) {
         top: 0;
       }
-      :host ::content .santa-scene[allow-page-scrolling] {
+      :host ::slotted([allow-page-scrolling]) {
         top: 0;
         bottom: auto;
         overflow: auto;
       }
-      :host ::content .santa-scene:focus {
+      :host ::slotted(*:focus) {
         outline: none;
       }
-      :host ::content .santa-scene:not(.iron-selected) {
+      :host ::slotted(*:not(.iron-selected)) {
         display: none !important;
       }
 
@@ -109,7 +109,7 @@ Lazy loads children "pages".
         <i18n-msg msgid="error">PLACEHOLDER_i18n</i18n-msg>
       </p>
     </div>
-    <content select=".santa-scene"></content>
+    <slot name="santa-scene"></slot>
   </template>
   <script>
 (function() {

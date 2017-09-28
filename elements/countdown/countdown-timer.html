@@ -39,12 +39,12 @@ Example
       }
 
       #counter {
-        @apply(--layout-horizontal);
+        @apply --layout-horizontal;
       }
     </style>
 
     <div hidden>
-      <content id="content" select="*"></content>
+      <slot id="content"></slot>
     </div>
 
     <div id="counter">
