@@ -4,6 +4,9 @@ $digitWidth: 38px;
 $digitHeight: 27px;
 $digitLineHeight: 53px;
 
+[hidden] {
+  display: none !important;
+}
 #counter {
   user-select: none;
 

@@ -5,6 +5,9 @@ $size-inset: 8px;
   will-change: transform;
 }
 
+[hidden] {
+  display: none !important;
+}
 .items {
   display: flex;
   justify-content: center;
