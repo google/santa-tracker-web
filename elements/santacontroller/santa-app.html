@@ -845,9 +845,10 @@ Polymer({
 
     // Update custom colors and themes.
     var headerColor = scene && scene.getAttribute('header-color');
-    this.customStyle['--santa-header-color'] = headerColor;
-    this.customStyle['--santa-feature-color'] = scene && scene.getAttribute('feature-color');
-    this.updateStyles();
+    this.updateStyles({
+      '--santa-header-color': headerColor,
+      '--santa-feature-color': scene && scene.getAttribute('feature-color')
+    });
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
     this.$.badge.reset();

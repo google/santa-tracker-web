@@ -428,7 +428,7 @@ gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], fun
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur,mp4}',
     'elements/**/img/*.{png,jpg,svg,gif}',
-    'components/webcomponentsjs/webcomponents-lite.min.js',
+    'components/webcomponentsjs/*.js',
     'js/ccsender.html',
     // TODO(samthor): Better support for custom scenes (#1679).
     'scenes/snowflake/snowflake-maker/{media,third-party}/**',

@@ -328,7 +328,9 @@ specific language governing permissions and limitations under the License.
       return arg ? yesVal : noVal;
     },
 
-    _computeStringScene: function(id, strings) { return strings['scene-' + id]; },
+    _computeStringScene: function(id, strings) {
+      return strings ? strings['scene-' + id]: null;
+    },
 
     _computeTrackerUrl: function(duringTracker) {
       return duringTracker ? this.urlFor('tracker') : null;

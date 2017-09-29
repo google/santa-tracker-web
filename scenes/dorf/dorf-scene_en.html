@@ -364,7 +364,7 @@ Santa's Village.
      * to look up dynamic strings.
      */
     _string: function(type, id, strings) {
-      return strings[type + '-' + id];
+      return strings ? strings[type + '-' + id] : null;
     },
 
     _calculateDiveURL: function(mode) {
