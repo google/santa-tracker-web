@@ -22,7 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.10.0",
+    "polymer": "Polymer/polymer#2",
     "iron-a11y-keys": "PolymerElements/iron-a11y-keys#2",
     "iron-a11y-keys-behavior": "PolymerElements/iron-a11y-keys-behavior#2",
     "iron-iconset-svg": "PolymerElements/iron-iconset-svg#2",
@@ -50,6 +50,7 @@
   },
   "resolutions": {
     "google-apis": "2",
-    "webcomponentsjs": "^0.7.24"
+    "polymer": "2",
+    "webcomponentsjs": "^v1.0.2"
   }
 }
