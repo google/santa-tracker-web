@@ -18,47 +18,46 @@ specific language governing permissions and limitations under the License.
 
 <script src="citylights-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="citylights-scene.css" />
-<style>
-  citylights-scene[mode="portal"] a[href*="google.com"] {
-    pointer-events: none;
-    cursor: default !important;
-  }
-
-  citylights-scene[mode="portal"] a[href*="googleapis.com"] {
-    pointer-events: none;
-    cursor: default !important;
-  }
-
-  citylights-scene[mode="portal"] #module-citylights div.gmnoprint.gm-style-cc[style*="line-height: 14px"] {
-    display:none;
-  }
-
-  citylights-scene[mode="portal"] #module-citylights div.gm-style-cc[style*="right: 0px"] {
-    display:none;
-  }
-
-  citylights-scene[mode="portal"] #module-citylights img[src*="sv4.png"] {
-    display:none;
-  }
-
-  citylights-scene[mode="portal"] #module-citylights a.photosphere-overlay__link {
-    display:none;
-  }
-
-  citylights-scene[mode="portal"] #module-citylights div[style*="width: 25px"] {
-    display:none !important;
-  }
-
-</style>
-
+<link rel="import" href="citylights-scene_module.html">
 
 <!--
 City lights scene.
 -->
 <dom-module id="citylights-scene">
 <template>
+  <style include="citylights-scene_module">
+  :host([mode="portal"]) a[href*="google.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+
+  :host([mode="portal"]) a[href*="googleapis.com"] {
+    pointer-events: none;
+    cursor: default !important;
+  }
+
+  :host([mode="portal"]) #module-citylights div.gmnoprint.gm-style-cc[style*="line-height: 14px"] {
+    display:none;
+  }
+
+  :host([mode="portal"]) #module-citylights div.gm-style-cc[style*="right: 0px"] {
+    display:none;
+  }
+
+  :host([mode="portal"]) #module-citylights img[src*="sv4.png"] {
+    display:none;
+  }
+
+  :host([mode="portal"]) #module-citylights a.photosphere-overlay__link {
+    display:none;
+  }
+
+  :host([mode="portal"]) #module-citylights div[style*="width: 25px"] {
+    display:none !important;
+  }
+
+  </style>
+
   <iron-a11y-keys keys="left right"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 

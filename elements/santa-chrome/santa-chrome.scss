@@ -9,6 +9,10 @@ $feature-width: 198px;
   display: block;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 app-header {
   background-color: transparent;
 }

@@ -16,16 +16,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="codeboogie-scene.min.js"></script>
 <link rel="import" href="../../js/webanimations.html">
-
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="codeboogie-scene.css" />
+<link rel="import" href="codeboogie-scene_module.html">
 
 <!--
 Codeboogie scene.
 -->
 <dom-module id="codeboogie-scene">
 <template>
-  <style>
+  <style include="codeboogie-scene_module">
     :host([mode="portal"]) .footer-promo {
       display: none !important;
     }

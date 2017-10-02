@@ -5,6 +5,9 @@ $header-size: 44px;
 
 @import "sass/_button.scss";
 
+[hidden] {
+  display: none !important;
+}
 h2 {
   color: #fff;
   opacity: 0.95;

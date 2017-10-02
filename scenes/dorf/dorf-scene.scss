@@ -18,6 +18,9 @@ $toolbar-size: 64px;
   background: #f5f2e2;
 }
 
+[hidden] {
+  display: none !important;
+}
 
 ##{$name} {
 

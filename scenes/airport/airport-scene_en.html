@@ -18,15 +18,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="airport-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="airport-scene.css" />
+<link rel="import" href="airport-scene_module.html">
 
 <!--
 Airport scene.
 -->
 <dom-module id="airport-scene">
 <template>
-  <style>
+  <style include="airport-scene_module">
   :host([mode="cast"]) .clouds,
   :host([mode="cast"]) .big-plane,
   :host([mode="cast"]) .plane--departing,

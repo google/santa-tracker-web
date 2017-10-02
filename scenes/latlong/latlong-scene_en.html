@@ -17,14 +17,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="latlong-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="latlong-scene.css" />
+<link rel="import" href="latlong-scene_module.html">
 
 <!--
 Lat long scene.
 -->
 <dom-module id="latlong-scene">
 <template>
+  <style include="latlong-scene_module"></style>
+
   <div id="module-latlong">
     <div class="latlong">
       <div class="scene">

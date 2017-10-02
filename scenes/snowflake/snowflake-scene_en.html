@@ -18,10 +18,10 @@ specific language governing permissions and limitations under the License.
 
 <script src="snowflake-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="snowflake-scene.css" />
-<link rel="stylesheet" href="shared-css/footer.css" />
-<link rel="stylesheet" href="shared-css/centering.css" />
+<!-- TODO(keanulee): Fix this scene -->
+<link rel="import" href="snowflake-scene_module.html">
+<link rel="import" href="shared-css/footer_module.html">
+<link rel="import" href="shared-css/centering_module.html">
 
 <!--
 Postcard scene.
@@ -30,7 +30,7 @@ Postcard scene.
 <template>
   <santa-state language="{{language}}"></santa-state>
 
-  <style>
+  <style include="snowflake-scene_module footer_module centering_module">
   :host([mode="portal"]) #shareButton {
     display: none !important;
   }

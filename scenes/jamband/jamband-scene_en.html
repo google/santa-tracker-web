@@ -16,15 +16,14 @@ specific language governing permissions and limitations under the License.
 
 <script src="jamband-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="jamband-scene.css" />
+<link rel="import" href="jamband-scene_module.html">
 
 <!--
 Jamband scene.
 -->
 <dom-module id="jamband-scene">
 <template>
-  <style>
+  <style include="jamband-scene_module">  
     :host([mode="portal"]) .Button-share {
       display: none !important;
     }

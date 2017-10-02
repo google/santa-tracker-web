@@ -16,14 +16,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="streetview-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="streetview-scene.css" no-shim>
+<link rel="import" href="streetview-scene_module.html">
 
 <!--
 Streetview scene.
 -->
 <dom-module id="streetview-scene">
 <template>
+  <style include="streetview-scene_module"></style>
+
   <iron-a11y-keys keys="left right"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 

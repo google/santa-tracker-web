@@ -18,14 +18,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="runner-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="runner-scene.css" />
+<link rel="import" href="runner-scene_module.html">
 
 <!--
 Runner scene.
 -->
 <dom-module id="runner-scene">
 <template>
+  <style include="runner-scene_module"></style>
+
   <div id="module-runner">
     <div class="ceiling-on-top"></div>
     <div class="game frozen level-stop">

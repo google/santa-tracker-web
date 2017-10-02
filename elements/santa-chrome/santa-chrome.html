@@ -79,7 +79,7 @@ specific language governing permissions and limitations under the License.
       during-tracker="{{duringTracker}}"></santa-state>
 
   <app-drawer-layout fullbleed force-narrow>
-    <app-drawer id="drawer" opened="{{_drawerOpened}}">
+    <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
       <div class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
           <iron-icon icon="santa:close"></iron-icon>
@@ -181,7 +181,7 @@ specific language governing permissions and limitations under the License.
       </div>
     </app-drawer>
     <app-header-layout fullbleed>
-      <app-header fixed effects="waterfall fade-background">
+      <app-header fixed effects="waterfall fade-background" slot="header">
         <div id="fixed-background"></div>
         <app-toolbar hidden$="[[disabled]]">
           <paper-icon-button icon="santa:menu" drawer-toggle

@@ -16,14 +16,16 @@ specific language governing permissions and limitations under the License.
 
 <script src="gumball-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="gumball-scene.css" />
+<!-- TODO(keanulee): Fix this scene -->
+<link rel="import" href="gumball-scene_module.html">
 
 <!--
 Gumball scene.
 -->
 <dom-module id="gumball-scene">
 <template>
+  <style include="gumball-scene_module"></style>
+  
   <div id="module-gumball">
     <div class="gumball">
       <div class="scene">

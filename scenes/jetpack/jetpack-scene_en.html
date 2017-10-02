@@ -16,14 +16,15 @@ specific language governing permissions and limitations under the License.
 
 <script src="jetpack-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="jetpack-scene.css" />
+<link rel="import" href="jetpack-scene_module.html">
 
 <!--
 Jetpack scene.
 -->
 <dom-module id="jetpack-scene">
 <template>
+  <style include="jetpack-scene_module"></style>
+
   <div id="module-jetpack">
     <div class="background background--0"></div>
     <div class="background background--1"></div>

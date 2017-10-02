@@ -17,14 +17,15 @@ specific language governing permissions and limitations under the License.
 <script src="../../third_party/lib/phaser/phaser-arcade-physics.js"></script>
 <script src="penguindash-scene.min.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="penguindash-scene.css" />
+<link rel="import" href="penguindash-scene_module.html">
 
 <!--
 Jetpack scene.
 -->
 <dom-module id="penguindash-scene">
 <template>
+  <style include="penguindash-scene_module"></style>
+
   <div id="module-penguindash">
     <div class="scene">
       <div id="penguindash-game"></div>

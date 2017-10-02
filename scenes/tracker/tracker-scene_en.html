@@ -27,17 +27,17 @@ specific language governing permissions and limitations under the License.
 
 <script src="../shared/js/mapstyles.js"></script>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="tracker-scene.css" />
+<!-- TODO(keanulee): Test this scene -->
+<link rel="import" href="tracker-scene_module.html">
 
 <!--
 Tracker scene.
 -->
 <dom-module id="tracker-scene">
 <template>
-  <style>
+  <style include="tracker-scene_module">
     .fit {
-      @apply(--layout-fit);
+      @apply --layout-fit;
     }
   </style>
 

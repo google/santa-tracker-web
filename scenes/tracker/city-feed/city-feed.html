@@ -49,15 +49,15 @@ Polymer({
 </script>
 </dom-module>
 
-<!-- TODO(samthor): Upgrade styling for Polymer 1+ (#1165) -->
-<link rel="stylesheet" href="city-feed.css">
+<!-- TODO(keanulee): Test this scene -->
+<link rel="import" href="city-feed_module.html">
 
 <!--
 City feed view in Tracker
 -->
 <dom-module id="city-feed">
 <template>
-<style>
+<style include="city-feed_module">
   :host {
     display: none;
   }
@@ -66,32 +66,32 @@ City feed view in Tracker
   }
 
   .divider {
-    @apply(--layout-horizontal);
-    @apply(--layout-end);
+    @apply --layout-horizontal;
+    @apply --layout-end;
   }
 
   .horizontal {
-    @apply(--layout-horizontal);
+    @apply --layout-horizontal;
   }
 
   .centered {
-    @apply(--layout-center);
+    @apply --layout-center;
   }
 
   .start-justified {
-    @apply(--layout-start-justified);
+    @apply --layout-start-justified;
   }
 
   .justified {
-    @apply(--layout-justified);
+    @apply --layout-justified;
   }
 
   .fit {
-    @apply(--layout-fit);
+    @apply --layout-fit;
   }
 
   .flex {
-    @apply(--layout-flex);
+    @apply --layout-flex;
   }
 
   /*
