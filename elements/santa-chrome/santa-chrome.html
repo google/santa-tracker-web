@@ -66,7 +66,7 @@ specific language governing permissions and limitations under the License.
         box-shadow: 0 2px 0 rgba(0,0,0,0.25);
       };
     }
-    .buttons.primary, #fixed-background {
+    .button-set:not(.alternate), #fixed-background {
       color: var(--santa-header-color, rgb(48,203,236));
     }
     :host(.fixed) #fixed-background {
@@ -213,20 +213,27 @@ specific language governing permissions and limitations under the License.
     </app-header-layout>
   </app-drawer-layout>
 
-  <div class="buttons primary" hidden$="[[disabled]]">
-    <button id="sound" on-click="_toggleSounds"
-            class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
-    <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
-            class$="[[_computeTernary(pause, 'paused', 'playing')]]">
-      <iron-icon class="pause" icon="santa:pause"></iron-icon>
-      <iron-icon class="play" icon="santa:play"></iron-icon>
-    </button>
-  </div>
-  <div class$="buttons alternate [[_computeTernary(offline, '', 'hidden')]]">
-    <button id="offline" disabled>
-      <iron-icon icon="santa:offline"></iron-icon>
-    </button>
-  </div>
+  <section id="buttons">
+    <div class="button-set primary" hidden$="[[disabled]]">
+      <button id="sound" on-click="_toggleSounds"
+              class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
+      <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
+              class$="[[_computeTernary(pause, 'paused', 'playing')]]">
+        <iron-icon class="pause" icon="santa:pause"></iron-icon>
+        <iron-icon class="play" icon="santa:play"></iron-icon>
+      </button>
+    </div>
+
+    <div class="button-set">
+      <button id="add-player"></button>
+    </div>
+
+    <div class$="button-set alternate [[_computeTernary(offline, '', 'hidden')]]">
+      <button id="offline" disabled>
+        <iron-icon icon="santa:offline"></iron-icon>
+      </button>
+    </div>
+  </section>
 
 </template>
 <script>

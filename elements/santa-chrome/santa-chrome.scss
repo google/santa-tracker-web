@@ -258,15 +258,25 @@ app-toolbar {
   }
 }
 
-.buttons {
-  $button-size: 45px;
-  pointer-events: none;
 
+$button-size: 45px;
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  pointer-events: none;
   position: fixed;
   bottom: 0;
   padding-bottom: 24px;
   height: $button-size;
+  width: 100%;
+}
+
+.button-set {
+
   display: flex;
+  flex-direction: row;
 
   button {
     color: inherit;
@@ -283,7 +293,7 @@ app-toolbar {
     background: currentColor;
     border-radius: 100px;
     box-shadow: 0 2px 0 rgba(0,0,0,0.3);
-    transition: transform 0.25s;
+    transition: transform 0.25s, visibility 0.25s;
     transform: translate(0);
 
     &:not([disabled]) {
@@ -323,6 +333,7 @@ app-toolbar {
       margin-left: 8px;
 
       &[disabled] {
+        visibility: hidden;
         transform: translateY(24px + 10px + $button-size);
       }
     }
@@ -332,14 +343,17 @@ app-toolbar {
       border-bottom-left-radius: 0;
     }
   }
+
   &.alternate {
     right: 0;
+    padding-left: $button-size;
     color: #777;
 
-    transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out, visibility 0.25s;
 
     &.hidden {
       transform: translate(100%);
+      visibility: hidden;
     }
 
     button {
@@ -385,6 +399,20 @@ app-toolbar {
     }
     &.off::before {
       visibility: visible;
+    }
+  }
+
+  @media (max-width: 768px - 1px) {
+    button#add-player {
+      display: none;
+    }
+  }
+
+  button#add-player {
+    &::after {
+      content: '';
+      visibility: visible;
+      background-image: url(img/add-player.svg);
     }
   }
 }
