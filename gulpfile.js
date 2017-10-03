@@ -39,44 +39,44 @@ const argv = require('yargs')
     .option('pretty', {
       type: 'boolean',
       default: false,
-      describe: 'production output to dist_pretty'
+      describe: 'production output to dist_pretty',
     })
     .option('strict', {
       type: 'boolean',
       default: false,
-      describe: 'perform strict i18n checks'
+      describe: 'perform strict i18n checks',
     })
     .option('api_base', {
       type: 'string',
       default: 'https://santa-api.appspot.com/',
-      describe: 'base URL for Santa\'s API'
+      describe: 'base URL for Santa\'s API',
     })
     .option('build', {
       alias: 'b',
       type: 'string',
       default: DEFAULT_STATIC_VERSION,
-      describe: 'production build tag'
+      describe: 'production build tag',
     })
     .option('baseurl', {
       type: 'string',
       default: '',
-      describe: 'production base href'
+      describe: 'production base href',
     })
     .option('scene', {
       type: 'string',
       default: null,
-      describe: 'only build assets for this scene'
+      describe: 'only build assets for this scene',
     })
     .option('compile', {
       type: 'boolean',
       default: false,
-      describe: 'force all scenes to compile with Closure in dev'
+      describe: 'force all scenes to compile with Closure in dev',
     })
     .option('port', {
       alias: 'p',
       type: 'number',
       default: 3000,
-      describe: 'port to serve on'
+      describe: 'port to serve on',
     })
     .argv;
 
@@ -92,11 +92,11 @@ const CLOSURE_WARNINGS = [
   // https://github.com/google/closure-compiler/wiki/Warnings
   'accessControls',
   'const',
-  'visibility'
+  'visibility',
 ];
 const CLOSURE_SAFE_WARNINGS = CLOSURE_WARNINGS.concat([
   'checkTypes',
-  'checkVars'
+  'checkVars',
 ]);
 
 const API_BASE_URL = argv.api_base.replace(/\/*$/, '/');
@@ -148,7 +148,7 @@ gulp.task('clean', function() {
     '{scenes,sass,elements}/**/*.css',
     '{scenes,sass,elements}/**/*_module.html',
     'scenes/**/*.min.js',
-    'js/*.min.js'
+    'js/*.min.js',
   ]);
 });
 
@@ -338,7 +338,7 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
         inlineScripts: true,
         inlineCss: true,
         stripComments: true,
-        dest: dest
+        dest: dest,
       }))
       .pipe(scripts.mutateHTML.gulp(function() {
         if (!argv.pretty) {
@@ -492,6 +492,5 @@ gulp.task('serve', ['default', 'watch'], function() {
     ui: {port: argv.port + 1},
   });
 });
-
 
 gulp.task('default', ['sass', 'compile-js', 'compile-scenes']);
