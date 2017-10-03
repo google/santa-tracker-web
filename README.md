@@ -26,14 +26,14 @@ Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 
 
 ## Prerequisites
 
-You'll need `npm`, `bower` (use `npm install -g bower` if it's missing) and Java available on your system.
+You'll need `yarn`, `bower` (use `yarn global add bower` if it's missing) and Java available on your system.
 
 ## Setup
 
 Clone project, then from within the repo:
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 For a list of commands, run `gulp --help`.
