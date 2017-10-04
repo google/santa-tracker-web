@@ -1282,7 +1282,11 @@ Polymer({
   },
 
   onRequestHost: function() {
-    this.$.socket.mode = 'host';
+    if (!this.$.socket.mode) {
+      this.$.socket.mode = 'host';
+    } else {
+      console.debug('cowardly refusing to steal socket', this.$.socket.mode);
+    }
   },
 
   /**
