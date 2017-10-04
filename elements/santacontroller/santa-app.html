@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../lazy-pages/lazy-pages.html">
 <link rel="import" href="../santa-strings.html">
+<link rel="import" href="../santa-socket.html">
 
 <script src="../../js/config/houses.js"></script>
 <script src="../../js/config/videos.js"></script>
@@ -45,6 +46,9 @@ Santa Tracker app.
   <santa-state during-tracker="{{duringTracker}}"
       current-time="{{currentTime}}"
       requested-reload="{{requestedReload}}"></santa-state>
+
+  <!-- Network state -->
+  <santa-socket id="socket"></santa-socket>
 
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc enter" on-keys-pressed="_onKeysPressed"></iron-a11y-keys>
