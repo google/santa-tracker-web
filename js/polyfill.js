@@ -18,39 +18,49 @@
  * @fileoverview Polyfills for Santa Tracker.
  */
 
-if (!('closest' in window.Element.prototype)) {
-  // IE11
-
-  if (!('matches' in window.Element.prototype)) {
-    window.Element.prototype.matches = window.Element.prototype.msMatchesSelector || window.Element.prototype.webkitMatchesSelector;
+// IE11, Edge <15
+const wep = window.Element.protoype;
+if (!('closest' in wep)) {
+  if (!('matches' in wep)) {
+    wep.matches = wep.msMatchesSelector || wep.webkitMatchesSelector;
   }
-
-  window.Element.prototype.closest = function closest(selector) {
+  wep.closest = function closest(selector) {
     let el = this;
-
     while (el && el.nodeType === 1) {
       if (el.matches(selector)) {
         return el;
       }
       el = el.parentNode;
     }
-
     return null;
   };
 }
 
+// IE11
+function remove() {
+  if (this.parentNode !== null) {
+    this.parentNode.removeChild(this);
+  }
+}
+[Element, CharacterData, DocumentType].forEach((fix) => {
+  if (!('remove' in fix.prototype)) {
+    fix.prototype.remove = remove;
+  }
+});
+
+// IE11, Chrome <45
 if (!('assign' in Object)) {
   Object.assign = function(target, var_args) {
     if (target == null) {
       throw new TypeError('Cannot convert undefined or null to object');
     }
-    var to = Object(target);
-    for (var index = 1; index < arguments.length; ++index) {
-      var source = arguments[index];
+    const to = Object(target);
+    for (let index = 1; index < arguments.length; ++index) {
+      const source = arguments[index];
       if (source == null) {
         continue;
       }
-      for (var key in source) {
+      for (let key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           to[key] = source[key];
         }
@@ -60,6 +70,7 @@ if (!('assign' in Object)) {
   };
 }
 
+// IE11
 if (!('sign' in Math)) {
   Math.sign = function(x) {
     x = +x;
