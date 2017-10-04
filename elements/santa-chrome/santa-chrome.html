@@ -225,7 +225,11 @@ specific language governing permissions and limitations under the License.
     </div>
 
     <div class="button-set">
-      <button id="add-player"></button>
+      <div class="overlay" id="add-player-overlay" hidden$="[[_addPlayerOverlayHidden]]">
+        <h1>[[socketId]]</h1>
+        <h2>[[clients]]<h2>
+      </div>
+      <button id="add-player" on-click="_onAddPlayerClick"></button>
     </div>
 
     <div class$="button-set alternate [[_computeTernary(offline, '', 'hidden')]]">
@@ -287,6 +291,14 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
+       * Whether the add player overlay is hidden.
+       */
+      _addPlayerOverlayHidden: {
+        type: Boolean,
+        value: true,
+      },
+
+      /**
        * Whether to disable this `santa-chrome` completely, effectively hiding
        * its contents. Used by cast.
        */
@@ -303,6 +315,12 @@ specific language governing permissions and limitations under the License.
 
       /** Sharing options available. */
       shareOptions: Array,
+
+      /** The optional socketId to show as part of the Add Player UI. */
+      socketId: Number,
+
+      /** The client IDs to show as part of the Add Player UI. */
+      clients: Object,
 
     },
 
@@ -389,6 +407,14 @@ specific language governing permissions and limitations under the License.
 
       // nb. we drop the last path component, since we expect to be at /
       window.location = window.location.origin + pathname + window.location.hash;
+    },
+
+    _onAddPlayerClick: function(ev) {
+      this._addPlayerOverlayHidden = !this._addPlayerOverlayHidden;
+      if (this._addPlayerOverlayHidden) {
+        return;
+      }
+      this.fire('request-host');
     },
 
   });

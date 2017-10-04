@@ -274,7 +274,7 @@ $button-size: 45px;
 }
 
 .button-set {
-
+  position: relative;
   display: flex;
   flex-direction: row;
 
@@ -414,6 +414,23 @@ $button-size: 45px;
       visibility: visible;
       background-image: url(img/add-player.svg);
     }
+  }
+
+  .overlay {
+    pointer-events: auto;
+    $dim: 100px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    color: black;
+    width: $dim;
+    height: $dim;
+    border-radius: 8px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+    bottom: 75px;
+    background: #eee;
   }
 }
 

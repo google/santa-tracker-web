@@ -21,6 +21,8 @@ Provides network access for Santa Tracker.
 <script>
 (function() {
 
+var globalRetryCount = 0;
+
 Polymer({
   is: 'santa-socket',
 
@@ -73,7 +75,7 @@ Polymer({
     /**
      * The current unique ID, if any. This is set for clients and servers.
      */
-    id: {
+    socketId: {
       value: null,
       type: Number,
       readOnly: true,
@@ -108,7 +110,7 @@ Polymer({
     this._setConnected(false);
     this._socket && this._socket.close();
     this._socket = null;
-    this._setId(null);
+    this._setSocketId(null);
     this._setClients(null);
     this._readyPromise = null;
   },
@@ -144,7 +146,7 @@ Polymer({
         switch (data.action) {
         case 'host':
           // for host: informing of its unique host ID, to e.g. share with clients
-          this._setId(data.id);
+          this._setSocketId(data.id);
           console.info('got hostId', data.id);
           resolve(data.id);
           resolved = true;
@@ -153,7 +155,7 @@ Polymer({
         case 'client':
           // for client: informing of its unique client ID
           // This isn't really required for client operation, but could be useful.
-          this._setId(data.id);
+          this._setSocketId(data.id);
           console.info('got clientId', data.id);
           resolve(data.id);
           resolved = true;
@@ -161,14 +163,20 @@ Polymer({
 
         case 'join':
           // for host: a new client has joined, with specified ID
-          data.id && clients.add(data.id);
-          this._setClients(Object.freeze(Array.from(clients)));
+          if (data.id && !clients.has(data.id)) {
+            clients.add(data.id);
+            this._setClients(Object.freeze(Array.from(clients)));
+            this.fire('join', data.id);
+          }
           break;
 
         case 'part':
           // for host: a new client has parted/disconnected, with specified ID
-          clients.delete(data.id);
-          this._setClients(Object.freeze(Array.from(clients)));
+          if (clients.has(data.id)) {
+            clients.delete(data.id);
+            this._setClients(Object.freeze(Array.from(clients)));
+            this.fire('part', data.id);
+          }
           break;
 
         case 'data':
@@ -196,6 +204,7 @@ Polymer({
     }.bind(this));
 
     this._readyPromise.then(safe(function() {
+      globalRetryCount = 0;
       this._setConnected(true);
     }));
 
@@ -207,6 +216,17 @@ Polymer({
       }
       ws.send(JSON.stringify(payload));
     }));
+
+    // retry handler
+    ws.addEventListener('close', safe(function() {
+      if (this.endpoint !== endpoint || this.mode !== mode || this.clientHostId !== clientHostId) {
+        return;  // different observed params, let new handler deal with it
+      }
+      ++globalRetryCount;
+      // TODO(samthor): Do something sensible
+      console.warn('WebSocket closed and we want to retry', globalRetryCount);
+    }));
+
   },
 
   /**
