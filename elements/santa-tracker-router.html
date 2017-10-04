@@ -47,17 +47,27 @@ either).
     properties: {
 
       /**
+       * Whether to use the History API for routing.
+       */
+      enabled: {
+        type: Boolean,
+      },
+
+      /**
        * URL route. Can be changed by users of this element, and will cause
        * the current state to be replaced. Use `.go` to emulate a user action.
        */
       route: {
         type: String,
-        observer: '_routeChanged',
         value: function() { return currentRoute(); },
         notify: true,
       },
 
     },
+
+    observers: [
+      '_updateRoute(enabled, route)'
+    ],
 
     ready: function() {
       window.addEventListener('popstate', function() {
@@ -69,16 +79,19 @@ either).
       throw new Error('santa-tracker-router should never be detached')
     },
 
-    _routeChanged: function(newValue, oldValue) {
-      var newUrl = this._makeUrl(newValue);
-      if (newUrl === this._makeUrl(currentRoute())) {
-        // if the URLs are effectively equal, this should do nothing
-      } else if (oldValue === undefined) {
-        // this is setting an initial route
-        history.replaceState(null, '', newUrl);
-      } else {
-        // this is a normal nav
-        history.pushState(null, '', newUrl);
+    _updateRoute: function(enabled, route) {
+      if (enabled) {
+        var newUrl = this._makeUrl(route);
+        var current = currentRoute();
+        if (!current) {
+          // this is setting an initial route
+          history.replaceState(null, '', newUrl);
+        } else if (newUrl === this._makeUrl(current)) {
+          // if the URLs are effectively equal, this should do nothing
+        } else {
+          // this is a normal nav
+          history.pushState(null, '', newUrl);
+        }
       }
     },
 

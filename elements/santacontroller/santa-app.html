@@ -57,7 +57,7 @@ Santa Tracker app.
   <preload-overlay id="preloader"></preload-overlay>
 
   <!-- Route controller -->
-  <santa-tracker-router route="{{route}}"></santa-tracker-router>
+  <santa-tracker-router enabled="[[routing]]" route="{{route}}"></santa-tracker-router>
 
   <!-- EU notice -->
   <template is="dom-if" if="[[!omitSantaChrome(mode)]]">
@@ -462,6 +462,15 @@ Polymer({
     },
 
     /**
+     * Whether to use the History API for routing.
+     */
+    routing: {
+      type: Boolean,
+      reflectToAttribute: true,
+      value: false,
+    },
+
+    /**
      * The house metadata, including unlock information.
      */
     _houses: {
@@ -851,13 +860,15 @@ Polymer({
     this.$.overlay.reset();
     this.$.overlay.hero = scene && scene.getAttribute('hero-src');
 
-    // Update the document title (with emoji/scene name).
-    var raw = scene && scene.getAttribute('icon');
-    var icon = '';
-    if (raw && String.fromCodePoint) {  // no emoji on IE11
-      icon = String.fromCodePoint(parseInt(raw, 16));
+    // Optionally update the document title (with emoji/scene name).
+    if (this.routing) {
+      var raw = scene && scene.getAttribute('icon');
+      var icon = '';
+      if (raw && String.fromCodePoint) {  // no emoji on IE11
+        icon = String.fromCodePoint(parseInt(raw, 16));
+      }
+      document.title = icon + this.$.strings.s('meta_title');
     }
-    document.title = icon + this.$.strings.s('meta_title');
   },
 
   /**
