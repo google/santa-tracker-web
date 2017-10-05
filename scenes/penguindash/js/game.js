@@ -199,7 +199,7 @@ app.Game.prototype.resume = function() {
 app.Game.prototype.showLockscreenMessage = function () {
   if(this.gyroPresent){
     var paused = this.paused;
-    var lockElem = $('.lockscreen');
+    var lockElem = this.elem.find('.lockscreen');
     if (!paused) {
       this.pause();
     }

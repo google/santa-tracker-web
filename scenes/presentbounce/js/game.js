@@ -327,7 +327,7 @@ app.Game.prototype.watchSceneSize_ = function() {
         scale;
 
     game.setScale(scale, width, height);
-    game.sceneOffset = viewportElem.offset();
+    game.sceneOffset = viewportElem[0].getBoundingClientRect();
   };
 
   updateSize();

@@ -215,7 +215,7 @@ app.Game.prototype.setScale = function(scale) {
   this.pixelMultiplier = 1 / em;
   this.elem.css('font-size', em + 'px');
 
-  app.utils.restartAnimation();
+  app.utils.restartAnimation(this.elem);
 };
 
 /**

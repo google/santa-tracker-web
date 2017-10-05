@@ -49,8 +49,8 @@ app.CustomSlider = function(elem) {
     const valid = (ev.originalEvent.touches && ev.originalEvent.touches.length > 0) || ev.which;
     if (!valid) { return; }
 
-    const offset = el.offset();
-    const leftPosition = ev.pageX - el.offset().left;
+    const elRect = el[0].getBoundingClientRect();
+    const leftPosition = ev.pageX - elRect.left;
     const width = el.width();
     const selected = Math.round(0.5 + leftPosition / width * 4);
 

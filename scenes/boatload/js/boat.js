@@ -54,7 +54,7 @@ Boat.prototype.onInit = function(type) {
   this.bubbleVariance = Constants.BUBBLE_SPAWN_VARIANCE;
   this.bubbleInterval = Constants.BUBBLE_SPAWN_INTERVAL - this.bubbleVariance / 2;
 
-  var viewOffset = this.game.viewElem.offset().top * (1 / this.game.scale);
+  var viewOffset = this.game.viewElem[0].getBoundingClientRect().top * (1 / this.game.scale);
   this.y = this.game.sceneSize.height - viewOffset;
   this.elem.css({
     top: -this.height,

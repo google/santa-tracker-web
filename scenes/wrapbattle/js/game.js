@@ -99,7 +99,7 @@ app.Game = class {
     this.animationPlayer = new app.AnimationPlayer(this.leftElf, this.rightElf,
         this.sequencer);
     // this.sequencer.onBeat = (beat, bpm) => console.log('beat',bpm);
-    this.bpmBasedElements = $('.audience-row, .speaker-top, .speaker-bottom');
+    this.bpmBasedElements = this.elem.find('.audience-row, .speaker-top, .speaker-bottom');
   }
 
   /**
@@ -180,7 +180,7 @@ app.Game = class {
 
     this.track.update(this.controls.keysDown);
     this.render(delta);
-    $('.points').text(this.points);
+    this.elem.find('.points').text(this.points);
 
     if (this.responsiveKey === 'desktop') {
       this.leftElf.update(delta);

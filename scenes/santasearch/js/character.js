@@ -74,14 +74,15 @@ app.Character.prototype.reset = function(mapDimensions) {
   this.layerElem[0].classList.remove('map__character--found');
   
   let characterBoundaries = this.layerElem[0].getBoundingClientRect();
-  let characterOffset = this.layerElem.offset();
+  let characterOffset = this.layerElem[0].getBoundingClientRect();
 
   let leftOffset = (mapDimensions.width - this.mapElem.width()) / 2;
   let topOffset = (mapDimensions.height - this.mapElem.height()) / 2;
 
   // Start offset
-  leftOffset -= this.mapElem.offset().left;
-  topOffset -= this.mapElem.offset().top;
+  let mapOffset = this.mapElem[0].getBoundingClientRect();
+  leftOffset -= mapOffset.left;
+  topOffset -= mapOffset.top;
 
   this.location = {
     left: (characterOffset.left + leftOffset) / mapDimensions.width,

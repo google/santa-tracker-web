@@ -118,7 +118,7 @@ app.OrnamentGallery.prototype.onTouchend = function(event) {
  * @param {Event} event The event object
  */
 app.OrnamentGallery.prototype.onMouseover = function(event) {
-  this.scrollOffset = /** @type {number} */ ($('.scene').scrollTop());
+  this.scrollOffset = /** @type {number} */ (this.context.find('.scene').scrollTop());
 
   this.currentOrnament = $(event.target).closest('.ornament-item-container');
   this.showHoverImage();

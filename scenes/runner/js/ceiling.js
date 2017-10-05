@@ -18,12 +18,14 @@ goog.provide('app.Ceiling');
 
 /**
  * A ceiling object that handles ceiling size on portrait desktops.
+ * @param {Element} context Dom element wrapping the game.
+ * 
  * @constructor
  */
-app.Ceiling = function() {
-  this.ceiling = $('.ceiling-on-top');
-  this.wall = $('.wall');
-  this.game = $('.game');
+app.Ceiling = function(context) {
+  this.ceiling = context.find('.ceiling-on-top');
+  this.wall = context.find('.wall');
+  this.game = context.find('.game');
 
   this.resizeHandler_ = this.resizeHandler_.bind(this);
 

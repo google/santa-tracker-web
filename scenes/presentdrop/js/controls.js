@@ -151,7 +151,7 @@ app.Controls.prototype.onTouchStart_ = function(e) {
     return;
   }
 
-  var stagePos = this.stage.offset();
+  var stagePos = this.stage[0].getBoundingClientRect();
   var touch = e.originalEvent.changedTouches[0];
 
   // Correct position if game is scaled
@@ -179,7 +179,7 @@ app.Controls.prototype.onTouchMove_ = function(e) {
 
   var touch = this.getCurrentTouch_(e);
   if (touch) {
-    var stagePos = this.stage.offset();
+    var stagePos = this.stage[0].getBoundingClientRect();
 
     // Correct position if game is scaled
     var touchX = touch.pageX / this.game.scale;

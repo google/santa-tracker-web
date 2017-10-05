@@ -56,7 +56,7 @@ app.Player.prototype.reset = function() {
   this.velocity.y.value = 0;
   this.shake = 0;
 
-  app.utils.restartAnimation();
+  app.utils.restartAnimation(this.elem.parent());
   this.onFrame(0);
 };
 

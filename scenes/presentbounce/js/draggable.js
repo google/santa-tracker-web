@@ -74,8 +74,9 @@ app.Draggable.prototype.dragStart_ = function(startX, startY) {
   this.startY = startY;
 
   // Calculate mouse offset from center of element
-  const offsetX = this.el.offset().left - (startX - width/2);
-  const offsetY = this.el.offset().top - (startY - height/2);
+  const elRect = this.el[0].getBoundingClientRect();
+  const offsetX = elRect.left - (startX - width/2);
+  const offsetY = elRect.top - (startY - height/2);
   this.startOffsetX = offsetX;
   this.startOffsetY = offsetY;
 

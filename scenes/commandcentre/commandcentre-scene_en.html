@@ -560,7 +560,7 @@ Command center scene.
       var div = this.$['module-commandcentre'];
 
       if (this.santaApp.mode == 'portal') {
-        $('#santa_dive').attr('href', location.pathname + 'dive').attr('target', '');
+        this.$.santa_dive.target = '';
       }
 
       this.scene = new scenes.commandcentre.Scene(div);

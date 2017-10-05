@@ -18,10 +18,11 @@ goog.provide('app.utils');
 
 /**
  * Restart animation by removing then adding it again.
+ * @param {!Element|jQuery} context The DOM element which wraps the game
  */
-app.utils.restartAnimation = function() {
-  $('.animated').addClass('resizing');
+app.utils.restartAnimation = function(context) {
+  context.find('.animated').addClass('resizing');
   setTimeout(function() {
-    $('.animated').removeClass('resizing');
+    context.find('.animated').removeClass('resizing');
   }, 100);
 };

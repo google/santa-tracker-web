@@ -54,14 +54,14 @@ app.Character = class {
 
     // Create canvas
     this.backCanvas = document.createElement('canvas');
-    this.backCanvas.width = $('.dj--left canvas').width();
+    this.backCanvas.width = backEl.offsetWidth;
     this.backCanvas.height = canvasHeight;
     backEl.appendChild(this.backCanvas);
 
     this.backContext = this.backCanvas.getContext('2d');
 
     this.frontCanvas = document.createElement('canvas');
-    this.frontCanvas.width = $('.dj--left canvas').width();
+    this.frontCanvas.width = frontEl.offsetWidth;
     this.frontCanvas.height = canvasHeight;
     frontEl.appendChild(this.frontCanvas);
 
@@ -83,8 +83,8 @@ app.Character = class {
    * @export
    */
   onResize() {
-    this.backCanvas.width = $('.dj--left canvas').width();
-    this.frontCanvas.width = $('.dj--left canvas').width();
+    this.backCanvas.width = this.backEl.offsetWidth;
+    this.frontCanvas.width = this.frontEl.offsetWidth;
   }
 
   /**
