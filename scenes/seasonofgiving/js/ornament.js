@@ -74,7 +74,7 @@ app.Ornament = function(selector, elem) {
   this.randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
 
   this.organization = $(this.ornamentScene).attr('data-org');
-  this.ornamentItemCanvas = $('#ornament-item-canvas--' + this.organization)[0];
+  this.ornamentItemCanvas = this.elem.find('#ornament-item-canvas--' + this.organization)[0];
   this.ornamentInGallery = this.ornamentItemCanvas.closest('.ornament-item');
   this.isDrawn = false;
 };
@@ -272,7 +272,8 @@ app.Ornament.prototype.globalMouseUp = function() {
  * @param {!jQuery.Event} event
  */
 app.Ornament.prototype.mouseDown = function(event) {
-  var isCanvas = $(event.target).closest('.canvas').length;
+  var target = event.originalEvent.composedPath()[0];
+  var isCanvas = target && target.localName === 'canvas';
 
   if (!app.GameManager.tool || !this.isActive || !isCanvas) {
     return;
@@ -296,9 +297,10 @@ app.Ornament.prototype.mouseDown = function(event) {
     e.y = event.originalEvent.touches[0].pageY;
   }
 
+  var rect = this.canvas.getBoundingClientRect();
   this.lastPoint = {
-    x: e.x - $(this.canvas).offset().left,
-    y: e.y - $(this.canvas).offset().top
+    x: e.x - rect.left,
+    y: e.y - rect.top
   };
 
   this.randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -332,7 +334,7 @@ app.Ornament.prototype.mouseMove = function(event) {
     return;
   }
 
-  var rect = $(this.canvas).offset();
+  var rect = this.canvas.getBoundingClientRect();
   var e = {};
   if (event.type === 'mousemove') {
     e.x = event.pageX;

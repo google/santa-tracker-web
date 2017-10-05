@@ -64,7 +64,7 @@ app.Game = function(elem, componentDir) {
 
   app.GameManager.ornaments = this.ornaments;
 
-  this.ornamentGallery = new app.OrnamentGallery('.scene-gallery', this.elem);
+  this.ornamentGallery = new app.OrnamentGallery(this.elem.find('.scene-gallery'), this.elem);
   this.ornamentNavigation = new app.OrnamentNavigation(this.elem);
   this.onFrame_ = this.onFrame_.bind(this);
 };

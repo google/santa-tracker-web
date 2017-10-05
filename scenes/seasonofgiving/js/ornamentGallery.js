@@ -187,7 +187,8 @@ app.OrnamentGallery.prototype.hide = function() {
     this.transitionOut();
     this.context.find('.nav-ornament').addClass('nav-ornament--active');
 
-    this.context.find('.scene-intro, .scene-gallery, .scene-footer, .Tool-panel').toggle();
+    this.context.find('.scene-intro, .scene-gallery, .scene-footer').hide();
+    this.context.find('.Tool-panel').show();
   }
   this.isVisible = false;
   this.el.removeClass('active');
