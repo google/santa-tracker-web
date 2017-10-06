@@ -141,10 +141,9 @@ app.Arrow = class {
     context.restore();
   }
 
-  clearAndDraw(context, ...drawImageArgs) {
-    context.clearRect(drawImageArgs[5], drawImageArgs[6], drawImageArgs[7],
-        drawImageArgs[8]);
-    context.drawImage(...drawImageArgs);
+  clearAndDraw(context, image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
+    context.clearRect(dx, dy, dWidth, dHeight);
+    context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
   }
 }
 

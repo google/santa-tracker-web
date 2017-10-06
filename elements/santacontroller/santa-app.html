@@ -895,12 +895,11 @@ Polymer({
     // loading-* isn't copied, since the element is already loaded.
     var el = document.createElement(prevSelectedScene.localName);
     el.route = prevSelectedScene.route;
-    el.className = prevSelectedScene.className;
     el.santaApp = this;
     el.loaded = true;
 
     var retainAttr = [
-      'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo'
+      'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo', 'slot'
     ];
     retainAttr.forEach(function(attr) {
       if (prevSelectedScene.hasAttribute(attr)) {

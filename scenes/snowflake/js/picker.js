@@ -91,7 +91,7 @@ app.Picker.prototype.navigate = function(bgDelta) {
  * @param {number} bg This number is added to the selected background.
  */
 app.Picker.prototype.updateMessage = function(bg) {
-  var text = document.getElementById("text-span");
+  var text = this.elem[0].querySelector('#text-span');
   // Fade out
   text.style.opacity = 0;
 
