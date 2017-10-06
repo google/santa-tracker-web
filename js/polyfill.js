@@ -19,7 +19,7 @@
  */
 
 // IE11, Edge <15
-const wep = window.Element.protoype;
+const wep = Element.prototype;
 if (!('closest' in wep)) {
   if (!('matches' in wep)) {
     wep.matches = wep.msMatchesSelector || wep.webkitMatchesSelector;
@@ -30,13 +30,16 @@ if (!('closest' in wep)) {
       if (el.matches(selector)) {
         return el;
       }
-      el = el.parentNode;
+      el = el.parentElement;
     }
     return null;
   };
 }
 
 // IE11
+/**
+ * @this {Element}
+ */
 function remove() {
   if (this.parentNode !== null) {
     this.parentNode.removeChild(this);
