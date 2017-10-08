@@ -14,6 +14,10 @@
  * the License.
  */
 
+/**
+ * @fileoverview Gulp plugin which wraps Crisper, a tool to pull out JS from HTML files for CSP.
+ */
+
 /* jshint node: true */
 
 const path = require('path');
@@ -30,6 +34,7 @@ module.exports = function plugin(opts) {
 
     // Match paths in the form 'foo_en.html', and change their vulcanized JS filename to 'foo.js'.
     // The JS is language agnostic. Do nothing if a language isn't matched.
+    // nb. This will create duplicate JS files if e.g. 'foo_en.html', 'foo_jp.html' are passed.
     const match = basename.match(/^(.+)_(\w+(|-\w+))$/);
     let jsFileName = basename;
     if (match) {
@@ -42,7 +47,8 @@ module.exports = function plugin(opts) {
       const contents = out[ext];
       if (!contents) { continue; }
 
-      const n = (ext === 'js' ? jsFileName : `${basename}.${ext}`);
+      const isJS = (ext === 'js');
+      const n = (isJS ? jsFileName : `${basename}.${ext}`);
       const f = file.clone();
       f.path = path.join(path.dirname(file.path), n)
       f.contents = new Buffer(contents);

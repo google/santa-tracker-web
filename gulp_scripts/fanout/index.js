@@ -14,6 +14,10 @@
  * the License.
  */
 
+/**
+ * @fileoverview Gulp plugin that fans out Santa Tracker's landing page (index.html) for all.
+ */
+
 /* jshint node: true */
 
 const fs = require('fs');
@@ -36,8 +40,8 @@ module.exports = function fanout(sceneConfig) {
     const missingOgImages = [];
 
     const sceneNames =
-        Object.keys(sceneConfig).filter(sceneName => sceneConfig[sceneName].fanout !== false);
-    sceneNames.forEach(sceneName => {
+        Object.keys(sceneConfig).filter((sceneName) => sceneConfig[sceneName].fanout !== false);
+    sceneNames.forEach((sceneName) => {
       const clone = file.clone();
       const config = sceneConfig[sceneName];
 

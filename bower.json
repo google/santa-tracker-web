@@ -35,7 +35,7 @@
     "paper-item": "PolymerElements/paper-item#2",
     "paper-icon-button": "PolymerElements/paper-icon-button#2",
     "app-storage": "PolymerElements/app-storage#2",
-    "jquery": "2.1.1",
+    "jquery": "3",
     "google-apis": "GoogleWebComponents/google-apis#2",
     "google-map": "GoogleWebComponents/google-map#2",
     "google-youtube": "GoogleWebComponents/google-youtube#2",
@@ -51,6 +51,9 @@
   "resolutions": {
     "google-apis": "2",
     "polymer": "2",
+    "iron-a11y-keys-behavior": "2",
+    "iron-media-query": "2",
+    "iron-iconset-svg": "2",
     "webcomponentsjs": "^v1.0.2"
   }
 }
