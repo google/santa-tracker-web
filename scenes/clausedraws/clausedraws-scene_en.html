@@ -1,0 +1,239 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../js/webanimations.html">
+
+<script src="clausedraws-scene.min.js"></script>
+
+<link rel="import" href="clausedraws-scene_module.html">
+
+<!--
+Santaselfie scene.
+-->
+<dom-module id="clausedraws-scene">
+<template>
+  <style include="clausedraws-scene_module">
+    :host([mode="portal"]) #share-button,
+    :host([mode="portal"]) #share-button-toolbox {
+      display: none !important;
+    }
+  </style>
+
+  <div id="module-clausedraws">
+    <div class="clausedraws">
+      <div class="scene">
+        <div class="Background-mirror">
+          <div class="Background-pole">
+            <div class="Background-pole--background"></div>
+            <div class="Background-pole--stripesContainer">
+              <div class="Background-pole--stripes"></div>
+            </div>
+            <div class="Background-pole--foreground"></div>
+          </div>
+          <div class="Background-photos"></div>
+        </div>
+        <div class="Background-chair"></div>
+        <div class="Buttons">
+          <Button id="reset-button" class="Button Button--small Button--reset"></Button>
+          <Button id="share-button" class="Button">
+            <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
+          </Button>
+        </div>
+        <div class="Santa">
+          <div class="Body"></div>
+          <div class="Face Face--happy">
+            <div class="eye eye--left"></div>
+            <div class="eye eye--right"></div>
+            <div class="eyebrow eyebrow--left"></div>
+            <div class="eyebrow eyebrow--right"></div>
+            <div class="cheek cheek--left"></div>
+            <div class="cheek cheek--right"></div>
+            <canvas id="beard" class="beard"></canvas>
+            <div class="nose"></div>
+            <div class="mouth"></div>
+          </div>
+        </div>
+        <div class="Tools board">
+          <div class="Tools--scrollable">
+            <div class="Tool-container Tool-shadow Tool-shadow--clipper Tool--mobile">
+              <div class="Tool Tool-clipper">
+                <div class="Tool-animation Tool-clipper--animate"></div>
+              </div>
+            </div>
+            <div class="Tool-container Tool-shadow Tool-shadow--hairgrow Tool--mobile">
+              <div class="Tool Tool-hairgrow">
+                <div class="Tool-animation Tool-hairgrow--animate"></div>
+              </div>
+            </div>
+            <div class="Tool-container Tool-shadow Tool-shadow--hairclean">
+              <div class="Tool Tool-hairclean">
+                <div class="Tool-animation Tool-hairclean--animate"></div>
+              </div>
+            </div>
+            <div class="Tool-container Tool-shadow Tool-shadow--hairdryer Tool--mobile">
+              <div class="Tool Tool-hairdryer"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+              <div class="Tool Tool-spray Tool-spray--red"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+              <div class="Tool Tool-spray Tool-spray--orange"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+              <div class="Tool Tool-spray Tool-spray--yellow"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+              <div class="Tool Tool-spray Tool-spray--green"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+              <div class="Tool Tool-spray Tool-spray--cyan"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+              <div class="Tool Tool-spray Tool-spray--purple"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+              <div class="Tool Tool-spray Tool-spray--pink"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+              <div class="Tool Tool-spray Tool-spray--blue"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--snowman">
+              <div class="Tool Tool-decoration Tool-decoration--snowman"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--bauble">
+              <div class="Tool Tool-decoration Tool-decoration--bauble"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--bow">
+              <div class="Tool Tool-decoration Tool-decoration--bow"></div>
+            </div>
+            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--holly">
+              <div class="Tool Tool-decoration Tool-decoration--holly"></div>
+            </div>
+            <div class="Tool-buttons">
+              <div id="reset-button-toolbox" class="Tool-container Tool--mobile Tool--mobileOnly Button--reset"></div>
+              <div id="share-button-toolbox" class="Tool-container Tool--mobile Tool--mobileOnly Tool-button">
+                <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- These images are use by canvases-->
+        <div class="hidden">
+          <img id="spray--red" src="/scenes/clausedraws/img/tools/sprays/red.png" width="128" height="128"/>
+          <img id="spray--orange" src="/scenes/clausedraws/img/tools/sprays/orange.png" width="128" height="128"/>
+          <img id="spray--yellow" src="/scenes/clausedraws/img/tools/sprays/yellow.png" width="128" height="128"/>
+          <img id="spray--green" src="/scenes/clausedraws/img/tools/sprays/green.png" width="128" height="128"/>
+          <img id="spray--cyan" src="/scenes/clausedraws/img/tools/sprays/cyan.png" width="128" height="128"/>
+          <img id="spray--purple" src="/scenes/clausedraws/img/tools/sprays/purple.png" width="128" height="128"/>
+          <img id="spray--pink" src="/scenes/clausedraws/img/tools/sprays/pink.png" width="128" height="128"/>
+          <img id="spray--blue" src="/scenes/clausedraws/img/tools/sprays/blue.png" width="128" height="128"/>
+          <img id="snowman" src="/scenes/clausedraws/img/tools/decorations/snowman.svg" width="84" height="138"/>
+          <img id="bauble" src="/scenes/clausedraws/img/tools/decorations/bauble.svg" width="75" height="128"/>
+          <img id="bow" src="/scenes/clausedraws/img/tools/decorations/bow.svg" width="127" height="94"/>
+          <img id="holly" src="/scenes/clausedraws/img/tools/decorations/holly.svg" width="120" height="138"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    is: 'clausedraws-scene',
+    behaviors: [window.SantaSceneBehavior],
+    game: null,
+
+    onPreload: function() {
+      this.preloadSounds('selfie_load_sounds', 30);
+      this.preloadImages([
+        'img/background/chair.svg',
+        'img/background/mirror.svg',
+        'img/background/photos.svg',
+        'img/background/pole--background.svg',
+        'img/background/pole--foreground.svg',
+        'img/background/pole--stripes.svg',
+        'img/face/eye--blink.svg',
+        'img/face/eye--closed.svg',
+        'img/face/eye.svg',
+        'img/face/mouth--breath.svg',
+        'img/face/mouth--smile.svg',
+        'img/face/nose.svg',
+        'img/icons/reset.svg',
+        'img/loading.svg',
+        'img/pole.svg',
+        'img/santa/body.svg',
+        'img/santa/face.svg',
+        'img/share.svg',
+        'img/sprites/clipper.png',
+        'img/sprites/hairclean.png',
+        'img/sprites/hairgrow.png',
+        'img/tools/clipper.svg',
+        'img/tools/decorations/bauble.svg',
+        'img/tools/decorations/bow.svg',
+        'img/tools/decorations/holly.svg',
+        'img/tools/decorations/snowman.svg',
+        'img/tools/hairclean.svg',
+        'img/tools/hairdryer--center.svg',
+        'img/tools/hairdryer--left.svg',
+        'img/tools/hairdryer--right.svg',
+        'img/tools/hairgrow.svg',
+        'img/tools/shadows/bauble.svg',
+        'img/tools/shadows/bow.svg',
+        'img/tools/shadows/clipper.svg',
+        'img/tools/shadows/hairclean.svg',
+        'img/tools/shadows/hairdryer.svg',
+        'img/tools/shadows/hairgrow.svg',
+        'img/tools/shadows/holly.svg',
+        'img/tools/shadows/snowman.svg',
+        'img/tools/shadows/spray.svg',
+        'img/tools/spray--blue.svg',
+        'img/tools/spray--cyan.svg',
+        'img/tools/spray--green.svg',
+        'img/tools/spray--orange.svg',
+        'img/tools/spray--pink.svg',
+        'img/tools/spray--purple.svg',
+        'img/tools/spray--red.svg',
+        'img/tools/spray--yellow.svg',
+        'img/tools/sprays/blue.png',
+        'img/tools/sprays/cyan.png',
+        'img/tools/sprays/green.png',
+        'img/tools/sprays/orange.png',
+        'img/tools/sprays/pink.png',
+        'img/tools/sprays/purple.png',
+        'img/tools/sprays/red.png',
+        'img/tools/sprays/yellow.png'
+      ]);
+    },
+
+    onShow: function() {
+      var module = this.$['module-clausedraws'];
+
+      this.game = new scenes.clausedraws.Game(module);
+      this.game.start();
+      this.fire('sound-ambient', 'selfie_start');
+      this.fire('sound-ambient', 'music_start_ingame');
+    },
+
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'selfie_end');
+    },
+  });
+
+})();
+</script>
+</dom-module>

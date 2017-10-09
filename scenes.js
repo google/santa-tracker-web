@@ -52,6 +52,11 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  clausedraws: {
+    msgid: 'scene_clausedraws',
+    // typeSafe: false,
+    entryPoint: 'app.Game'
+  },
   codeboogie: {
     msgid: 'scene_codeboogie',
     typeSafe: false,
@@ -250,7 +255,7 @@ module.exports = {
   wheressanta: {msgid: 'scene_videoscene_wheressanta'},
 
 // dummy: used for prod demos
-  
+
   somebodypleasethinkofthechildren: {},
 
 };

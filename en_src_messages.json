@@ -1523,6 +1523,10 @@
     "description": "Title of a scene/game. This lets Santa call your phone number and give a greeting.",
     "message": "Call from Santa"
   },
+  "scene_clausedraws": {
+    "description": "Title of a scene/game. Create your own santa themed art.",
+    "message": "Clause Draws"
+  },
   "scene_citylights": {
     "description": "Title of a scene/game. Showcases different Street View scenes, containing holiday lights and decorations, from around the world.",
     "message": "City Lights"
