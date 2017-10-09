@@ -54,7 +54,6 @@ module.exports = {
   },
   clausedraws: {
     msgid: 'scene_clausedraws',
-    // typeSafe: false,
     entryPoint: 'app.Game'
   },
   codeboogie: {

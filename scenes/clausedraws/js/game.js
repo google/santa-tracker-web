@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Google Inc. All rights reserved.
+ * Copyright 2017 Google Inc. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -16,8 +16,7 @@
 
 goog.provide('app.Game');
 
-goog.require('app.Face');
-goog.require('app.Cloth');
+goog.require('app.Canvas');
 goog.require('app.Mouse');
 goog.require('app.Tools');
 goog.require('app.shared.ShareOverlay');
@@ -35,13 +34,12 @@ app.Game = function(elem) {
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
 
-  var clothCanvas = this.sceneElem.find('#beard')[0];
+  var canvas = this.sceneElem.find('#draw-canvas')[0];
 
   this.mouse = new app.Mouse(this.sceneElem);
-  this.cloth = new app.Cloth(this, clothCanvas);
-  this.face = new app.Face(this, this.sceneElem);
+  this.canvas = new app.Canvas(this, canvas);
 
-  // Construct app.Tools last, as it needs mouse/cloth/face.
+  // Construct app.Tools last, as it needs mouse/canvas.
   this.tools = new app.Tools(this, this.sceneElem);
 
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
@@ -50,7 +48,7 @@ app.Game = function(elem) {
   this.accumulator = 0;
 
   this.interactionDoneTimeout_ = 0;
-  this.initialBeard_ = '';
+  this.initialCanvas_ = '';
 };
 
 
@@ -60,34 +58,32 @@ app.Game = function(elem) {
  */
 app.Game.prototype.start = function() {
   this.tools.start();
-  this.cloth.start();
-  this.face.start();
+  this.canvas.start();
 
   this.mouse.subscribe(this.tools.mouseChanged, this.tools);
-  this.mouse.subscribe(this.cloth.mouseChanged, this.cloth);
-  this.mouse.subscribe(this.face.mouseChanged, this.face);
+  this.mouse.subscribe(this.canvas.mouseChanged, this.canvas);
 
   this.elem.find('#share-button, #share-button-toolbox').
     on('click.clausedraws touchend.clausedraws', this.showShareOverlay.bind(this));
 
   this.elem.find('#reset-button, #reset-button-toolbox').
-    on('click.clausedraws touchend.clausedraws', this.resetBeard_.bind(this));
+    on('click.clausedraws touchend.clausedraws', this.resetCanvas_.bind(this));
 
   this.restart();
 
-  this.initialBeard_ = this.cloth.save();
+  this.initialCanvas_ = this.canvas.save();
 
-  var beard = getUrlParameter('beard');
-  beard && this.cloth.restore(beard);
+  var canvas = getUrlParameter('canvas');
+  canvas && this.canvas.restore(canvas);
 };
 
 
 /**
- * Resets the beard to original state.
+ * Resets the canvas to original state.
  * @private
  */
-app.Game.prototype.resetBeard_ = function() {
-  this.cloth.resetCloth();
+app.Game.prototype.resetCanvas_ = function() {
+  this.canvas.resetCanvas();
   this.updateUrlState_();
 };
 
@@ -118,7 +114,7 @@ app.Game.prototype.update = function(delta) {
   this.accumulator += delta;
 
   while (this.accumulator > app.Constants.TIME_STEP) {
-    this.cloth.update();
+    this.canvas.update();
     this.accumulator -= app.Constants.TIME_STEP;
   }
 };
@@ -128,6 +124,7 @@ app.Game.prototype.update = function(delta) {
  * Show share overlay.
  */
 app.Game.prototype.showShareOverlay = function() {
+  var urlString = '';
   window.clearTimeout(this.interactionDoneTimeout_);
   this.updateUrlState_();
   this.shareOverlay.show(urlString, true);
@@ -135,7 +132,7 @@ app.Game.prototype.showShareOverlay = function() {
 
 
 /**
- * Called when interaction is done. Defers setting beard state for a time.
+ * Called when interaction is done. Defers setting canvas state for a time.
  */
 app.Game.prototype.interactionDone = function() {
   window.clearTimeout(this.interactionDoneTimeout_);
@@ -145,16 +142,16 @@ app.Game.prototype.interactionDone = function() {
 
 
 /**
- * Replaces the current URL state with Santa's beard contents.
+ * Replaces the current URL state with Santa's canvas contents.
  */
 app.Game.prototype.updateUrlState_ = function() {
-  const s = this.cloth.save();
+  const s = this.canvas.save();
   const url = new URL(window.location.toString());
 
-  if (s === this.initialBeard_) {
+  if (s === this.initialCanvas_) {
     url.search = '';
   } else {
-    url.search = '?beard=' + window.encodeURIComponent(s);
+    url.search = '?canvas=' + window.encodeURIComponent(s);
   }
   window.history.replaceState(null, '', url.toString());
 };
@@ -200,7 +197,7 @@ app.Game.prototype.onFrame_ = function() {
 
   // Update game state with physics simulations.
   this.update(delta);
-  this.cloth.draw();
+  this.canvas.draw();
 
   // Request next frame
   this.requestId = window.requestAnimationFrame(this.onFrame_);

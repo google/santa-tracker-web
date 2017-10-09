@@ -3,10 +3,9 @@ $name: 'module-clausedraws';
 @import "../shared/sass/button";
 
 @import "sass/responsive";
-@import "sass/background";
 @import "sass/buttons";
+@import "sass/canvas";
 @import "sass/tools";
-@import "sass/santa";
 
 ##{$name} {
   position: absolute;
