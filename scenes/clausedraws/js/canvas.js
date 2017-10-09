@@ -101,13 +101,20 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   this.mouse.x = canvasCoords.x;
   this.mouse.y = canvasCoords.y;
   this.mouse.down = canvasCoords.down;
+  this.scale = this.game_.mouse.scaleFactor;
 
-  if (this.mouse.down && tools.selectedTool &&
-      (tools.selectedTool.spray)) {
-    // draw to canvas
-    this.ctx.beginPath();
-    this.ctx.arc(this.mouse.x, this.mouse.y, 50, 0, 2 * Math.PI);
-    this.ctx.fill();
+  if (this.mouse.down && tools.selectedTool) {
+    if (tools.selectedTool.spray) {
+      // draw to canvas
+      this.ctx.beginPath();
+      this.ctx.arc(this.mouse.x, this.mouse.y, 50, 0, 2 * Math.PI);
+      this.ctx.fill();
+    } else if (tools.selectedTool.decoration) {
+      this.ctx.drawImage(tools.selectedTool.decoration,
+        this.mouse.x, this.mouse.y,
+        tools.selectedTool.decoration.width * this.scale,
+        tools.selectedTool.decoration.height * this.scale);
+    }
   }
 
   // if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
