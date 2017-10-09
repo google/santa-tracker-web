@@ -169,7 +169,12 @@ app.Tool.prototype.shouldAnimate_ = function(mouseCoords) {
   return false;
 };
 
-
+/**
+ *
+ */
+app.Tool.prototype.draw = function(context, mouseCoords, scale) {
+  return null;
+}
 
 /**
  * Clipper tool.
@@ -298,6 +303,18 @@ app.Spray = function($elem, name) {
 };
 app.Spray.prototype = Object.create(app.Tool.prototype);
 
+/**
+ * [draw description]
+ * @param  {[type]} context     [description]
+ * @param  {[type]} mouseCoords [description]
+ * @param  {[type]} scale       [description]
+ * @return {[type]}             [description]
+ */
+app.Spray.prototype.draw = function(context, mouseCoords, scale) {
+  context.beginPath();
+  context.arc(mouseCoords.x, mouseCoords.y, 50, 0, 2 * Math.PI);
+  context.fill();
+};
 
 
 /**
@@ -316,6 +333,20 @@ app.Decoration = function($elem, name, offset, decoration) {
 };
 app.Decoration.prototype = Object.create(app.Tool.prototype);
 
+/**
+ * [draw description]
+ * @param  {[type]} context     [description]
+ * @param  {[type]} mouseCoords [description]
+ * @param  {[type]} scale       [description]
+ * @return {[type]}             [description]
+ */
+app.Decoration.prototype.draw = function(context, mouseCoords, scale) {
+  var drawWidth = this.decoration.width * scale;
+  var drawHeight = this.decoration.height * scale;
+  context.drawImage(this.decoration,
+    mouseCoords.x - drawWidth / 2, mouseCoords.y - drawHeight / 2,
+    drawWidth, drawHeight);
+};
 
 
 /**
