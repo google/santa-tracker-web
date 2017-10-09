@@ -78,7 +78,7 @@ Santa Tracker app.
     <santa-badge id="badge" slot="feature"></santa-badge>
 
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
-        share-options="[[shareOptions]]"></santa-overlay>
+        share-options="[[shareOptions]]" mode$="[[mode]]"></santa-overlay>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -446,6 +446,8 @@ var TRACKER_ROUTE = 'tracker';
 
 var ANALYTICS = new Analytics();
 
+var messagePort;
+
 Polymer({
   is: 'santa-app',
   hostAttributes: {'tabindex': '0'},
@@ -649,6 +651,7 @@ Polymer({
 
   listeners: {
     'click': 'onClick',
+    'embed-gotovillage': 'onEmbedGoToVillage',
     'scene-progress': 'onSceneProgress',
     'scene-failure': 'onSceneFailure',
     'scene-ready': 'onSceneReady',
@@ -677,7 +680,7 @@ Polymer({
     // _currentTimeChanged can actually be invoked before ready: is called.
     // TODO(samthor): This could be moved outside `santa-app`, it doesn't use any state.
 
-    var portalMode = getUrlParameter('api_client') === 'web_portal';
+    var portalMode = getUrlParameter('mode') === 'web_portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
 
     for (var i = 0, house; house = window.HOUSES[i]; ++i) {
@@ -693,10 +696,25 @@ Polymer({
   },
 
   ready: function() {
-    if (getUrlParameter('api_client') === 'web_portal') {
+    if (getUrlParameter('mode') === 'web_portal') {
       this.mode = 'portal';
       this._setShareOptions([]);
-    }
+    } else if(getUrlParameter('mode') === 'embed' ){
+        this.mode = 'embed';
+		// Don't mute in embed mode, let the app handle it.
+		this.userMute = false;
+		console.log("embed mode enabled");
+		var self = this;
+		// In embed mode, set up message ports for communication to app
+		onmessage = function (e) {
+		        messagePort = e.ports[0];
+		        messagePort.onmessage = function(f) {
+					self.onEmbedMessage(f.data);
+		         }
+		         // Notify app to establish communication
+		         self.sendEmbedMessage("onready")
+		       }
+		   }
 
     var staticUrl = this.resolveUrl('../../');
 
@@ -713,6 +731,30 @@ Polymer({
     }.bind(this);
     document.addEventListener('visibilitychange', handler);
     handler();
+  },
+
+  sendEmbedMessage: function(message){
+	  if(messagePort == null){
+		  return ;
+	  }
+      var msg = new Object();
+      msg.type = message;
+      messagePort.postMessage(JSON.stringify(msg));
+  },
+
+  onEmbedMessage: function(message){
+      console.log("received embed message: "+message);
+      switch(message){
+        case 'restart':
+          santaApp.onStartGame()
+        break;
+        case 'pauseGame':
+          santaApp.userPause = true;
+        break;
+        case 'resume':
+          santaApp.onResumeGame();
+        break;
+      }
   },
 
   attached: function() {
@@ -773,6 +815,13 @@ Polymer({
   },
 
   /**
+   * Notifies to return to the village in embed mode.
+   */
+  onEmbedGoToVillage: function() {
+	console.log("ongotovillage");
+	this.sendEmbedMessage("ongotovillage");
+  },
+  /**
    * Handles a loading progress hint, hiding or displaying the preloader.
    */
   onSceneProgress: function() {
@@ -793,6 +842,7 @@ Polymer({
   onSceneFailure: function() {
     this.$.preloader.active = false;
     this._updateStylingForScene(null);
+	this.sendEmbedMessage("onfailure");
   },
 
   /**
@@ -974,6 +1024,8 @@ Polymer({
         this.$.chrome.hasGameButtons = true;
       }
       scene.start && scene.start();
+
+	  this.sendEmbedMessage("onstart");
     }
   },
 
@@ -1025,7 +1077,10 @@ Polymer({
     if (scene && 'pause' in scene) {  // nb. does it implement SantaSceneGameButtonsBehavior
       scene.pause = pause;
     }
-    if (!pause) {
+	if (pause) {
+      this.sendEmbedMessage("onpause");
+	} else {
+      this.sendEmbedMessage("onresume");
       this.selectedScene && this.selectedScene.focus();
     }
   },
@@ -1062,6 +1117,7 @@ Polymer({
 
   trackGameStart: function(e, detail) {
     ANALYTICS.trackGameStart(detail.gameId || detail.gameid);
+    var msg = new Object();
   },
 
   trackGameQuit: function(e, detail) {
@@ -1321,7 +1377,7 @@ Polymer({
   },
 
   omitSantaChrome: function(mode) {
-    return mode == 'cast' || mode == 'embed';
+    return mode == 'cast';
   },
 
   _limitTodayHouseForCast: function(todayHouse, mode) {

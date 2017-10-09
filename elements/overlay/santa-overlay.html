@@ -48,14 +48,15 @@ Shared overlay for Santa Tracker games.
         <button class="Button" hidden$="[[!playExtra]]" on-click="_onPlayExtraClick">
           <i18n-msg msgid="playextra">PLACEHOLDER_i18n</i18n-msg>
         </button>
-        <a class="Button" href$="[[urlFor('village')]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <a class="Button" href$="[[urlFor('village')]]" hidden$="[[_isEmbedMode(mode)]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
+		<a class="Button" on-click="_onEmbedVillageClick" hidden$="[[!_isEmbedMode(mode)]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
       </section>
       <section class$="[[_computeShareAreaClass(shareUrl)]]">
         <div hidden$="[[!shareUrl]]">
           <h4><i18n-msg msgid="copy-me-short">PLACEHOLDER_i18n</i18n-msg></h4>
           <input id="url" type="url" readonly value="[[shortShareUrl]]" on-click="_selectUrl" />
         </div>
-        <div id="shareButtons" on-tap="_onShare">
+        <div id="shareButtons" on-tap="_onShare" hidden$="[[_isEmbedMode(mode)]]">
           <template is="dom-repeat" items="[[shareOptions]]">
             <button class="Button Button--share" id$="[[item]]">
               <iron-icon icon$="santa:share-[[item]]"></iron-icon>
@@ -161,6 +162,10 @@ Polymer({
     return shareUrl ? 'background' : '';
   },
 
+  _isEmbedMode : function(mode) {
+	  return mode == "embed";
+  },
+
   _computeButtonHidden: function(pregame, hasValidScore, shareUrl) {
     return hasValidScore || shareUrl;
   },
@@ -228,6 +233,10 @@ Polymer({
       ev.preventDefault();
       this.fire('share', {network: p.id, url: this.shortShareUrl || this.shareUrl, overlay: true});
     }
+  },
+
+  _onEmbedVillageClick: function() {
+    this.fire('embed-gotovillage');
   },
 
   /**
