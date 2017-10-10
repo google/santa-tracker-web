@@ -1,10 +1,11 @@
 {
-  "name": "SantaTracker",
-  "version": "2015.0.0",
+  "name": "santatracker",
+  "version": "2017.0.0",
   "private": true,
   "scripts": {
     "postinstall": "bower install; gulp"
   },
+  "license": "Apache-2",
   "devDependencies": {
     "browser-sync": "^2.9.12",
     "crisper": "^2.0.2",
