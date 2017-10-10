@@ -17,7 +17,9 @@
 /* jshint node: true */
 
 const $ = require('gulp-load-plugins')();
+const bundler = require('polymer-bundler');
 const del = require('del');
+const glob = require('glob');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const uglifyES = require('uglify-es');
@@ -144,6 +146,7 @@ const HTMLMIN_OPTIONS = {
         bare_returns: inline,
       },
     };
+    // HTML minifier uses old uglify by default, force it to use uglifyES (ES6+ support)
     const result = uglifyES.minify(code, opts);
     if (result.error) {
       throw new Error('got error: ' + result.error);
@@ -327,78 +330,51 @@ gulp.task('compile-scenes', function() {
   return merged;
 });
 
-gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
-  // Strip all common elements, found in the standard elements import.
-  const elementsPath = 'elements/elements_en.html';
-  const elementsImports = (function() {
-    const r = /href="(.*?)"/g;
-    const el = fs.readFileSync(elementsPath, 'utf-8');
-    const all = [];
-    let out;
-    while ((out = r.exec(el))) {
-      const raw = out[1];
-      const i = path.join(path.dirname(elementsPath), raw);  // use dirname of elements/...
-      all.push(i);
-    }
-    return all;
-  }());
+gulp.task('bundle', ['sass', 'compile-js'], async function() {
+  const primaryModuleName = 'elements/elements_en.html';
+  const paths = await new Promise((resolve, reject) => {
+    glob('scenes/*/*-scene{,_en}.html', (err, files) => err ? reject(err) : resolve(files));
+  });
+  const entrypoints = paths.concat(primaryModuleName);
 
-  return gulp.src([
-      'scenes/*/*-scene*.html',
-      '!scenes/*/*-scene_module.html',  // don't include CSS modules
-      // TODO(samthor): Support vulcanizing non-scene HTML (#1679).
-      'scenes/snowflake/snowflake-maker/turtle*.html',
-    ], {base: './'})
-    // gulp-vulcanize doesn't currently handle multiple files in multiple
-    // directories well right now, so vulcanize them one at a time
-    .pipe($.foreach((stream, file) => {
-      const dest = path.dirname(path.relative(__dirname, file.path));
-      const sceneName = path.basename(dest);
-      const closureConfig = SCENE_CONFIG[sceneName] || {};
+  // TODO(samthor): Better support for custom scenes (#1679).
+  entrypoints.push('scenes/snowflake/snowflake-maker/turtle_en.html');
 
-      return stream.pipe($.vulcanize({
-        stripExcludes: closureConfig.isFrame ? [] : elementsImports,
-        inlineScripts: true,
-        inlineCss: true,
-        stripComments: true,
-        dest: dest,
-      }))
-      .pipe(scripts.mutateHTML.gulp(function() {
-        if (!argv.pretty) {
-          const dev = this.head && this.head.querySelector('#DEV');
-          dev && dev.remove();
-        }
-      }))
-      .pipe($.htmlmin(HTMLMIN_OPTIONS))
-      .pipe(scripts.crisper())
-      .pipe(scripts.i18nReplace({
-        strict: !!argv.strict,
-        path: '_messages',
-      }))
-      .pipe(gulp.dest(DIST_STATIC_DIR));
-    }));
-});
+  const b = new bundler.Bundler({
+    strategy: bundler.generateEagerMergeStrategy(primaryModuleName),
+    urlMapper: bundler.generateCountingSharedBundleUrlMapper('elements/shared'),
+    stripComments: true,
+  });
+  const manifest = await b.generateManifest(entrypoints);
+  const result = await b.bundle(manifest);
 
-// Vulcanize elements separately, as we want to inline the majority common code
-// here.
-gulp.task('vulcanize-elements', ['sass', 'compile-js'], function() {
-  return gulp.src('elements/elements_en.html', {base: './'})
-    .pipe($.vulcanize({
-      inlineScripts: true,
-      inlineCss: true,
-      stripComments: true,
-      dest: 'elements',
-    }))
+  // log module size + generated count
+  const extra = Array.from(result.documents.keys())
+      .filter((module) => !entrypoints.includes(module));
+  gutil.log('Found', gutil.colors.yellow(result.documents.size), 'modules,',
+      gutil.colors.yellow(extra.length), 'generated');
+
+  const limit = $.limiter(-2);
+  const stream = scripts.generateModules(result, [primaryModuleName])
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
-    .pipe(scripts.crisper())
+    .pipe(limit(scripts.crisper()))
+    .on('data', (file) => {
+      if (file && file.path.endsWith('.html')) {
+        gutil.log('Bundled', `'${gutil.colors.green(file.path)}'`)
+      }
+    })
     .pipe(scripts.i18nReplace({
       strict: !!argv.strict,
       path: '_messages',
     }))
-    .pipe(gulp.dest(DIST_STATIC_DIR));
-});
+    stream.pipe(gulp.dest(DIST_STATIC_DIR));
 
-gulp.task('vulcanize', ['vulcanize-scenes', 'vulcanize-elements']);
+  // promisify this stream, so the async promise waits until completion
+  await new Promise((resolve, reject) => {
+    stream.once('finish', resolve);
+    stream.once('error', reject);
+  });
+});
 
 gulp.task('build-prod', function() {
   const staticUrl = argv.pretty ? '/' : (STATIC_BASE_URL + argv.build + '/');
@@ -442,7 +418,7 @@ gulp.task('build-prod-manifest', function() {
 });
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directories
-gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], function() {
+gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], function() {
   const staticStream = gulp.src([
     'audio/*',
     'images/**/*',
