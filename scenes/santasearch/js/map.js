@@ -73,7 +73,7 @@ app.Map.prototype.setMap = function(mapName, mapDimensions) {
 
   this.loadMap_(mapName, mapDimensions);
 
-  this.drawerElem.on('click.santasearch', '.hint', this.setHintTarget_).show();
+  this.drawerElem.on('click.santasearch', '.hint', this.setHintTarget_);
   this.mapName = mapName;
 };
 
