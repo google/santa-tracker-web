@@ -130,7 +130,7 @@ app.Game.prototype.update = function(delta) {
 app.Game.prototype.showShareOverlay = function() {
   window.clearTimeout(this.interactionDoneTimeout_);
   this.updateUrlState_();
-  this.shareOverlay.show(urlString, true);
+  this.shareOverlay.show(window.location.toString(), true);
 };
 
 
