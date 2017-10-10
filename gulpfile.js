@@ -371,10 +371,10 @@ gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
       }))
       .pipe($.htmlmin(HTMLMIN_OPTIONS))
       .pipe(scripts.crisper())
-      .pipe($.if('*.html', scripts.i18nReplace({
+      .pipe(scripts.i18nReplace({
         strict: !!argv.strict,
         path: '_messages',
-      })))
+      }))
       .pipe(gulp.dest(DIST_STATIC_DIR));
     }));
 });
@@ -391,10 +391,10 @@ gulp.task('vulcanize-elements', ['sass', 'compile-js'], function() {
     }))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(scripts.crisper())
-    .pipe($.if('*.html', scripts.i18nReplace({
+    .pipe(scripts.i18nReplace({
       strict: !!argv.strict,
       path: '_messages',
-    })))
+    }))
     .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 

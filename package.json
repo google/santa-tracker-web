@@ -16,7 +16,6 @@
     "gulp-closure-compiler": "^0.3.1",
     "gulp-foreach": "~0.1.0",
     "gulp-htmlmin": "^3.0.0",
-    "gulp-if": "^2.0.0",
     "gulp-limiter": "^1.0.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-newer": "^1.0.0",
@@ -26,7 +25,6 @@
     "gulp-vulcanize": "^6.1.0",
     "jsdom": "^9.8.3",
     "run-sequence": "^1.2.2",
-    "sprintf-js": "^1.0.3",
     "through2": "^2.0.0",
     "vulcanize": "^1.15.2",
     "yargs": "^3.29.0"
