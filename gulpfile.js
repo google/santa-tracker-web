@@ -379,7 +379,8 @@ gulp.task('bundle', ['sass', 'compile-js'], async function() {
 gulp.task('build-prod', function() {
   const staticUrl = argv.pretty ? '/' : (STATIC_BASE_URL + argv.build + '/');
 
-  const htmlStream = gulp.src(['index.html', 'error.html', 'upgrade.html', 'cast.html'])
+  const entrypoints = ['index.html', 'error.html', 'upgrade.html', 'cast.html', 'embed.html'];
+  const htmlStream = gulp.src(entrypoints)
     .pipe(scripts.mutateHTML.gulp(function() {
       if (!argv.pretty) {
         const dev = this.head.querySelector('#DEV');

@@ -699,23 +699,26 @@ Polymer({
     if (getUrlParameter('mode') === 'web_portal') {
       this.mode = 'portal';
       this._setShareOptions([]);
-    } else if(getUrlParameter('mode') === 'embed' ){
-        this.mode = 'embed';
-        // Don't mute in embed mode, let the app handle it.
-        this.userMute = false;
-        console.log("embed mode enabled");
-        // In embed mode, set up message ports for communication to app
-        window.onmessage = function (e) {
-            messagePort = e.ports[0];
-            messagePort.onmessage = function(f) {
-                this.onEmbedMessage(f.data);
-            }.bind(this)
-            // Notify app to establish communication
-            this.sendEmbedMessage("onready")
-        }.bind(this)
     }
 
     var staticUrl = this.resolveUrl('../../');
+
+    // Setup for Embed mode.
+    if (this.mode === 'embed') {
+      // Don't mute in embed mode, let the app handle it.
+      this.userMute = false;
+      console.log('embed mode enabled');
+
+      // In embed mode, set up message ports for communication to app.
+      window.onmessage = function(e) {
+        messagePort = e.ports[0];
+        messagePort.onmessage = function(f) {
+          this.onEmbedMessage(f.data);
+        }.bind(this);
+        // Notify app to establish communication
+        this.sendEmbedMessage('onready');
+      }.bind(this);
+    }
 
     // Don't load sounds in Cast mode.
     if (!this.omitSantaChrome(this.mode)) {

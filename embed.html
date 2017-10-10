@@ -1,0 +1,60 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title msgid="meta_title">Google Santa Tracker</title>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
+  <link rel="stylesheet" href="sass/santatracker.css">
+
+  <script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37048309-' + (location.hostname == 'santatracker.google.com' ? 1 : 2), 'auto');
+ga('set', 'transport', 'beacon');
+  </script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+  <link id="DEV" comment="element removed in prod" />
+  <link rel="import" href="elements/elements_en.html" />
+</head>
+<body unresolved class="scrollock">
+
+<santa-app id="santaApp" mode="embed"></santa-app>
+
+<div id="unresolved_placeholder"></div>
+
+<script>
+(function() {
+
+if (window.DEV) {
+  // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
+  // Set locale for entire site (e.g. i18n-msg elements).
+  window.addEventListener('load', function() {
+    I18nMsg.lang = document.documentElement.lang || 'en';
+    I18nMsg.url = '_messages';
+  });
+}
+
+window.addEventListener('load', function() {
+  // initial route is always /embed.html#route
+  santaApp.route = window.location.hash.substr(1);
+});
+
+})();
+</script>
+</body>
+</html>
