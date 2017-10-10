@@ -46,6 +46,7 @@ app.Mouse = function($elem) {
     this.x = e.clientX;
     this.y = e.clientY;
 
+    this.update();
     e.preventDefault();
   }.bind(this));
 
@@ -53,18 +54,21 @@ app.Mouse = function($elem) {
     this.x = e.originalEvent.touches[0].clientX;
     this.y = e.originalEvent.touches[0].clientY;
 
+    this.update();
     e.preventDefault();
   }.bind(this));
 
   $elem.on('mousedown touchstart', function(e) {
     this.down = true;
 
+    this.update();
     e.preventDefault();
   }.bind(this));
 
   $elem.on('mouseup mouseleave touchend touchleave', function(e) {
     this.down = false;
 
+    this.update();
     if (e.cancelable) {
       e.preventDefault();
     }
