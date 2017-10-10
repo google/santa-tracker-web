@@ -21,6 +21,7 @@ module.exports = {
   fileManifest: require('./file_manifest'),
   i18nManifest: require('./i18n_manifest'),
   i18nReplace: require('./i18n_replace'),
+  merge: require('./merge'),
   mutateHTML: require('./mutate_html'),
   styleModules: require('./style_modules'),
 };

@@ -25,7 +25,6 @@
     "gulp-util": "^3.0.7",
     "gulp-vulcanize": "^6.1.0",
     "jsdom": "^9.8.3",
-    "merge-stream": "^1.0.0",
     "run-sequence": "^1.2.2",
     "sprintf-js": "^1.0.3",
     "through2": "^2.0.0",

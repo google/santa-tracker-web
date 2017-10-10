@@ -20,7 +20,6 @@ const $ = require('gulp-load-plugins')();
 const del = require('del');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const mergeStream = require('merge-stream');
 const uglifyES = require('uglify-es');
 const scripts = require('./gulp_scripts');
 
@@ -227,10 +226,6 @@ gulp.task('compile-js', function() {
 });
 
 gulp.task('compile-scenes', function() {
-  if (!COMPILE_SCENES.length) {
-    return;
-  }
-
   const closureLibraryPath = path.resolve('components/closure-library/closure/goog');
   const externs = [
     'components/web-animations-utils/externs*.js',
@@ -238,9 +233,10 @@ gulp.task('compile-scenes', function() {
     'node_modules/google-closure-compiler/contrib/externs/jquery-1.9.js',
   ];
   const limit = $.limiter(-2);
+  const merged = scripts.merge();
 
-  // compile each scene, merging them into a single gulp stream as we go
-  return COMPILE_SCENES.reduce((stream, sceneName) => {
+  // compile each scene
+  COMPILE_SCENES.map((sceneName) => {
     const config = SCENE_CONFIG[sceneName];
     const fileName = `${sceneName}-scene.min.js`;
     const dest = `scenes/${sceneName}`;
@@ -310,11 +306,13 @@ gulp.task('compile-scenes', function() {
       compilerFlags,
     });
 
-    return stream.add(gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
+    return gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
         .pipe($.newer(`${dest}/${fileName}`))
         .pipe(limit(compilerStream))
-        .pipe(gulp.dest(dest)));
-  }, mergeStream());
+        .pipe(gulp.dest(dest));
+  }).forEach((stream) => merged.add(stream));
+
+  return merged;
 });
 
 function addCompilerFlagOptions(opts) {
@@ -429,7 +427,7 @@ gulp.task('build-prod', function() {
     .pipe($.replace('<STATIC_HOST>', STATIC_BASE_URL))
     .pipe(gulp.dest(DIST_PROD_DIR));
 
-  return mergeStream(htmlStream, jsStream);
+  return scripts.merge(htmlStream, jsStream);
 });
 
 gulp.task('build-prod-manifest', function() {
@@ -461,7 +459,7 @@ gulp.task('copy-assets', ['vulcanize', 'build-prod', 'build-prod-manifest'], fun
   ], {base: './'})
     .pipe(gulp.dest(DIST_PROD_DIR));
 
-  return mergeStream(staticStream, prodStream);
+  return scripts.merge(staticStream, prodStream);
 });
 
 // builds a JSON manifest file containing files and hashes
