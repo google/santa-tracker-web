@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../preloader/preload-overlay.html">
 <link rel="import" href="../lazy-pages/lazy-pages.html">
 <link rel="import" href="../santa-strings.html">
+<link rel="import" href="../santa-socket.html">
 
 <script src="../../js/config/houses.js"></script>
 <script src="../../js/config/videos.js"></script>
@@ -32,6 +33,12 @@ Santa Tracker app.
 -->
 <dom-module id="santa-app">
 <template>
+  <style>
+  [hidden] {
+    display: none !important;
+  }
+  </style>
+
   <!-- Shared i18n strings -->
   <santa-strings id="strings"></santa-strings>
 
@@ -40,6 +47,9 @@ Santa Tracker app.
       current-time="{{currentTime}}"
       requested-reload="{{requestedReload}}"></santa-state>
 
+  <!-- Network state -->
+  <santa-socket id="socket" socket-id="{{socketId}}" clients="{{clients}}"></santa-socket>
+
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc enter" on-keys-pressed="_onKeysPressed"></iron-a11y-keys>
 
@@ -47,9 +57,7 @@ Santa Tracker app.
   <preload-overlay id="preloader"></preload-overlay>
 
   <!-- Route controller -->
-  <template is="dom-if" if="[[routing]]">
-    <santa-tracker-router route="{{route}}"></santa-tracker-router>
-  </template>
+  <santa-tracker-router enabled="[[routing]]" route="{{route}}"></santa-tracker-router>
 
   <!-- EU notice -->
   <template is="dom-if" if="[[!omitSantaChrome(mode)]]">
@@ -62,13 +70,15 @@ Santa Tracker app.
       disabled="[[omitSantaChrome(mode)]]"
       today-house="[[todayHouse]]"
       share-options="[[shareOptions]]"
+      socket-id="[[socketId]]"
+      clients="[[clients]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
 
     <santa-badge id="badge" slot="feature"></santa-badge>
 
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
-        share-options="[[shareOptions]]" mode$="[[mode]]"></santa-overlay>
+        share-options="[[shareOptions]]"></santa-overlay>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -82,21 +92,21 @@ Santa Tracker app.
           houses="[[_limitHousesForCast(_houses, mode)]]"
           mode$="[[mode]]"
           path$="scenes/dorf/dorf-scene_[[language]].html"
-          class="santa-scene" allow-page-scrolling></dorf-scene>
+          slot="santa-scene" allow-page-scrolling></dorf-scene>
 
       <about-scene route="about" icon="2753" permanent
           path$="scenes/about/about-scene_[[language]].html"
           header-color="rgb(39, 186, 131)"
-          class="santa-scene" allow-page-scrolling></about-scene>
+          slot="santa-scene" allow-page-scrolling></about-scene>
 
       <educators-scene route="educators" icon="1f3eb" permanent
           path$="scenes/educators/educators-scene.html"
-          class="santa-scene"
+          slot="santa-scene"
           allow-page-scrolling></educators-scene>
 
       <press-scene route="press" icon="1f4f0" permanent
           path$="scenes/press/press-scene.html"
-          class="santa-scene"
+          slot="santa-scene"
           allow-page-scrolling></press-scene>
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
@@ -106,12 +116,12 @@ Santa Tracker app.
           header-color="#fdbe27"
           feature-color="#83ce00"
           logo="scenes/airport/img/logo.svg"
-          class="santa-scene"></airport-scene>
+          slot="santa-scene"></airport-scene>
 
       <blimp-scene route="blimp" icon="1f6a1"
           path$="scenes/blimp/blimp-scene_[[language]].html"
           header-color="#575769"
-          class="santa-scene"></blimp-scene>
+          slot="santa-scene"></blimp-scene>
 
       <boatload-scene route="boatload" icon="26f5"
           path$="scenes/boatload/boatload-scene_[[language]].html"
@@ -119,20 +129,20 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/boatload/img/loading.svg"
           logo="scenes/boatload/img/logo.svg"
-          class="santa-scene"></boatload-scene>
+          slot="santa-scene"></boatload-scene>
 
       <briefing-scene route="briefing" icon="1f634"
           path$="scenes/briefing/briefing-scene_[[language]].html"
           header-color="#007ab6"
           logo="scenes/briefing/img/logo.svg"
-          class="santa-scene"></briefing-scene>
+          slot="santa-scene"></briefing-scene>
 
       <callfromsanta-scene route="callfromsanta" icon="1f4de" disabled
           path$="scenes/callfromsanta/callfromsanta-scene.html"
           mute="[[userMute]]"
           loading-bg-color="rgb(129,208,0)"
           logo="scenes/callfromsanta/img/logo.svg"
-          class="santa-scene"></callfromsanta-scene>
+          slot="santa-scene"></callfromsanta-scene>
 
       <citylights-scene route="citylights" icon="1f306"
           path$="scenes/citylights/citylights-scene_[[language]].html"
@@ -141,7 +151,7 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/citylights/img/loading.svg"
           logo="scenes/citylights/img/logo.svg"
-          class="santa-scene"></citylights-scene>
+          slot="santa-scene"></citylights-scene>
 
       <codeboogie-scene route="codeboogie" icon="1f4dd"
           path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
@@ -151,7 +161,7 @@ Santa Tracker app.
           loading-src="scenes/codeboogie/img/loading.svg"
           hero-src="scenes/codeboogie/img/share.svg"
           logo="scenes/codeboogie/img/logo.svg"
-          class="santa-scene"></codeboogie-scene>
+          slot="santa-scene"></codeboogie-scene>
 
       <codelab-scene route="codelab" icon="1f4dd"
           path$="scenes/codelab/codelab-scene_[[language]].html"
@@ -160,7 +170,7 @@ Santa Tracker app.
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codelab/img/loading.svg"
           logo="scenes/codelab/img/logo.svg"
-          class="santa-scene"></codelab-scene>
+          slot="santa-scene"></codelab-scene>
 
       <commandcentre-scene route="commandcentre" icon="1f5fc"
           path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
@@ -168,13 +178,13 @@ Santa Tracker app.
           header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
           logo="scenes/commandcentre/img/logo.svg"
-          class="santa-scene"></commandcentre-scene>
+          slot="santa-scene"></commandcentre-scene>
 
       <factory-scene route="factory" icon="1f3ed"
           path$="scenes/factory/factory-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"
           logo="scenes/factory/img/logo.svg"
-          class="santa-scene"></factory-scene>
+          slot="santa-scene"></factory-scene>
 
       <glider-scene route="glider" icon="1f343"
           path$="scenes/glider/glider-scene_[[language]].html"
@@ -183,7 +193,7 @@ Santa Tracker app.
           loading-bg-color="#8d23a9"
           loading-src="scenes/glider/img/loading.svg"
           logo="scenes/glider/img/logo.svg"
-          class="santa-scene"></glider-scene>
+          slot="santa-scene"></glider-scene>
 
       <gumball-scene route="gumball" icon="1f36d"
           path$="scenes/gumball/gumball-scene_[[language]].html"
@@ -192,16 +202,16 @@ Santa Tracker app.
           loading-bg-color="#8d23a9"
           loading-src="scenes/gumball/img/loading.svg"
           logo="scenes/gumball/img/logo.svg"
-          class="santa-scene"></gumball-scene>
+          slot="santa-scene"></gumball-scene>
 
       <icecave-scene route="icecave" icon="2744"
           path$="scenes/icecave/icecave-scene_[[language]].html"
-          class="santa-scene"></icecave-scene>
+          slot="santa-scene"></icecave-scene>
 
       <island-scene route="island" icon="1f334"
           path$="scenes/island/island-scene_[[language]].html"
           header-color="#1da1a1"
-          class="santa-scene"></island-scene>
+          slot="santa-scene"></island-scene>
 
       <jamband-scene route="jamband" icon="1f3b6"
           path$="scenes/jamband/jamband-scene_[[language]].html"
@@ -211,7 +221,7 @@ Santa Tracker app.
           loading-src="scenes/jamband/img/loading.svg"
           hero-src="scenes/jamband/img/share.svg"
           logo="scenes/jamband/img/logo.svg"
-          class="santa-scene"></jamband-scene>
+          slot="santa-scene"></jamband-scene>
 
       <jetpack-scene route="jetpack" icon="1f680"
           path$="scenes/jetpack/jetpack-scene_[[language]].html"
@@ -220,7 +230,7 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/jetpack/img/loading.svg"
           logo="scenes/jetpack/img/logo.svg"
-          class="santa-scene"></jetpack-scene>
+          slot="santa-scene"></jetpack-scene>
 
       <latlong-scene route="latlong" icon="1f3af"
           path$="scenes/latlong/latlong-scene_[[language]].html"
@@ -229,13 +239,13 @@ Santa Tracker app.
           loading-bg-color="#ffcc00"
           loading-src="scenes/latlong/img/loading.svg"
           logo="scenes/latlong/img/logo.svg"
-          class="santa-scene"></latlong-scene>
+          slot="santa-scene"></latlong-scene>
 
       <newtracker-scene route="tracker" icon="1f30d" permanent
           path$="scenes/newtracker/newtracker-scene_[[language]].html"
           minimal-ui="[[omitSantaChrome(mode)]]"
           header-color="#00cc81"
-          class="santa-scene" allow-page-scrolling></newtracker-scene>
+          slot="santa-scene" allow-page-scrolling></newtracker-scene>
 
       <matching-scene route="matching" icon="1f6aa"
           path$="scenes/matching/matching-scene_[[language]].html"
@@ -244,7 +254,7 @@ Santa Tracker app.
           loading-bg-color="#b27644"
           loading-src="scenes/matching/img/loading.svg"
           logo="scenes/matching/img/logo.svg"
-          class="santa-scene"></matching-scene>
+          slot="santa-scene"></matching-scene>
 
       <mercator-scene route="mercator" icon="1f30e"
           path$="scenes/mercator/mercator-scene_[[language]].html"
@@ -252,7 +262,7 @@ Santa Tracker app.
           loading-bg-color="#fbbf2c"
           loading-src="scenes/mercator/img/loading.svg"
           logo="scenes/mercator/img/logo.svg"
-          class="santa-scene"></mercator-scene>
+          slot="santa-scene"></mercator-scene>
 
       <penguindash-scene route="penguindash" icon="1f680"
           path$="scenes/penguindash/penguindash-scene_[[language]].html"
@@ -261,14 +271,14 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/penguindash/img/loading.svg"
           logo="scenes/penguindash/img/logo.svg"
-          class="santa-scene"></penguindash-scene>
+          slot="santa-scene"></penguindash-scene>
 
       <playground-scene route="playground" icon="1f3aa"
           path$="scenes/playground/playground-scene_[[language]].html"
           header-color="#575769"
           loading-bg-color="rgb(251, 191, 44)"
           logo="scenes/playground/img/logo.svg"
-          class="santa-scene"></playground-scene>
+          slot="santa-scene"></playground-scene>
 
       <postcard-scene route="postcard" icon="1f4ec"
           path$="scenes/postcard/postcard-scene_[[language]].html"
@@ -277,7 +287,7 @@ Santa Tracker app.
           loading-bg-color="rgb(244, 123, 32)"
           loading-src="scenes/postcard/img/loading.gif"
           logo="scenes/postcard/img/logo.svg"
-          class="santa-scene"></postcard-scene>
+          slot="santa-scene"></postcard-scene>
 
       <presentbounce-scene route="presentbounce" icon="1f381"
           path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
@@ -286,7 +296,7 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentbounce/img/loading.svg"
           logo="scenes/presentbounce/img/logo.svg"
-          class="santa-scene"></presentbounce-scene>
+          slot="santa-scene"></presentbounce-scene>
 
       <presentdrop-scene route="presentdrop" icon="1f381"
           path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
@@ -295,7 +305,7 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentdrop/img/loading.svg"
           logo="scenes/presentdrop/img/logo.svg"
-          class="santa-scene"></presentdrop-scene>
+          slot="santa-scene"></presentdrop-scene>
 
       <racer-scene route="racer" icon="1f3c1"
           path$="scenes/racer/racer-scene_[[language]].html"
@@ -303,19 +313,19 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/racer/img/loading.svg"
           logo="scenes/racer/img/logo.svg"
-          class="santa-scene"></racer-scene>
+          slot="santa-scene"></racer-scene>
 
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
           path$="scenes/rollercoaster/rollercoaster-scene.html"
           logo="scenes/rollercoaster/img/logo.svg"
-          class="santa-scene"></rollercoaster-scene>
+          slot="santa-scene"></rollercoaster-scene>
 
       <runner-scene route="runner" icon="1f3c7"
           path$="scenes/runner/runner-scene_[[language]].html"
           mode$="[[mode]]"
           header-color="#575769"
           logo="scenes/runner/img/logo.svg"
-          class="santa-scene"></runner-scene>
+          slot="santa-scene"></runner-scene>
 
       <santasearch-scene route="santasearch"
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
@@ -324,7 +334,7 @@ Santa Tracker app.
           loading-bg-color="#29B6F6"
           loading-src="scenes/santasearch/img/loading.svg"
           hero-src="scenes/santasearch/img/gameover.svg"
-          class="santa-scene"></santasearch-scene>
+          slot="santa-scene"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
@@ -334,7 +344,7 @@ Santa Tracker app.
           loading-src="scenes/santaselfie/img/loading.svg"
           hero-src="scenes/santaselfie/img/share.svg"
           logo="scenes/santaselfie/img/pole.svg"
-          class="santa-scene"></santaselfie-scene>
+          slot="santa-scene"></santaselfie-scene>
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
@@ -342,28 +352,28 @@ Santa Tracker app.
           header-color="#09904a"
           loading-src="scenes/seasonofgiving/img/loading.svg"
           logo="scenes/seasonofgiving/img/header-icon.svg"
-          class="santa-scene"></seasonofgiving-scene>
+          slot="santa-scene"></seasonofgiving-scene>
 
       <smatch-scene route="smatch"
           path$="scenes/smatch/smatch-scene_[[language]].html"
           header-color="#00C6ED"
           loading-bg-color="rgb(129,208,0)"
-          class="santa-scene"></smatch-scene>
+          slot="santa-scene"></smatch-scene>
 
       <snowflake-scene route="snowflake"
           path$="scenes/snowflake/snowflake-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"
-          class="santa-scene"></snowflake-scene>
+          slot="santa-scene"></snowflake-scene>
 
       <streetview-scene route="streetview" icon="1f3a5"
           path$="scenes/streetview/streetview-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"
           logo="scenes/streetview/img/logo.svg"
-          class="santa-scene"></streetview-scene>
+          slot="santa-scene"></streetview-scene>
 
       <tracker-scene route="tracker2015" icon="1f30d"
           path$="scenes/tracker/tracker-scene_[[language]].html"
-          class="santa-scene"
+          slot="santa-scene"
           allow-page-scrolling></tracker-scene>
 
       <traditions-scene route="traditions" icon="1f4cc"
@@ -373,7 +383,7 @@ Santa Tracker app.
           loading-bg-color="rgb(255,224,0)"
           loading-src="scenes/traditions/img/loading.gif"
           logo="scenes/traditions/img/traditions_icon.svg"
-          class="santa-scene"></traditions-scene>
+          slot="santa-scene"></traditions-scene>
 
       <translations-scene route="translations" icon="1f4e2"
           path$="scenes/translations/translations-scene_[[language]].html"
@@ -383,17 +393,17 @@ Santa Tracker app.
           loading-bg-color="#8fd7f7"
           loading-src="scenes/translations/img/loading.png"
           logo="scenes/translations/img/logo.svg"
-          class="santa-scene"></translations-scene>
+          slot="santa-scene"></translations-scene>
 
       <trivia-scene route="trivia"
           path$="scenes/trivia/trivia-scene_[[language]].html"
           logo="scenes/traditions/img/traditions_icon.svg"
-          class="santa-scene"></trivia-scene>
+          slot="santa-scene"></trivia-scene>
 
       <undersea-scene route="undersea" icon="1f30a"
           path$="scenes/undersea/undersea-scene_[[language]].html"
           header-color="#ba594e"
-          class="santa-scene"></undersea-scene>
+          slot="santa-scene"></undersea-scene>
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(_videos)]]">
         <video-scene route$="[[item]]" icon="1f4fd"
@@ -403,7 +413,7 @@ Santa Tracker app.
             pause="[[userPause]]"
             header-color="#ec4582"
             path="scenes/videoscene/video-scene.html"
-            class="santa-scene"></video-scene>
+            slot="santa-scene"></video-scene>
       </template>
 
       <windtunnel-scene route="windtunnel" icon="1f38f"
@@ -411,7 +421,7 @@ Santa Tracker app.
           header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
           logo="scenes/windtunnel/img/logo.svg"
-          class="santa-scene"></windtunnel-scene>
+          slot="santa-scene"></windtunnel-scene>
 
       <wrapbattle-scene route="wrapbattle" icon="1f4fb"
           path$="scenes/wrapbattle/wrapbattle-scene_[[language]].html"
@@ -419,7 +429,7 @@ Santa Tracker app.
           feature-color="#003799"
           loading-bg-color="#1866be"
           logo="scenes/wrapbattle/img/logo.svg"
-            class="santa-scene"></wrapbattle-scene>
+          slot="santa-scene"></wrapbattle-scene>
     </lazy-pages>
 
   </santa-chrome>
@@ -627,6 +637,16 @@ Polymer({
       readOnly: true,
     },
 
+    /**
+     * The socket ID provided by `santa-socket`. Could be the client or host ID.
+     */
+    socketId: Number,
+
+    /**
+     * The list of clients provided by `santa-socket`.
+     */
+    clients: Object,
+
   },
 
   listeners: {
@@ -647,6 +667,7 @@ Polymer({
     'game-stop': 'onStopGame',
     'game-score': 'onScoreGame',
     'share': 'onShare',
+    'request-host': 'onRequestHost',
   },
 
   created: function() {
@@ -751,7 +772,9 @@ Polymer({
   },
 
   onClick: function(ev) {
-    var link = ev.target.closest('a[href]');
+    var link = ev.composedPath().filter(function(el) {
+      return el.localName === 'a' && el.href;
+    })[0];
     if (!link) { return; }
 
     // Ignore if a reload was requested. Allow the new page to load naturally!
@@ -868,9 +891,10 @@ Polymer({
 
     // Update custom colors and themes.
     var headerColor = scene && scene.getAttribute('header-color');
-    this.customStyle['--santa-header-color'] = headerColor;
-    this.customStyle['--santa-feature-color'] = scene && scene.getAttribute('feature-color');
-    this.updateStyles();
+    this.updateStyles({
+      '--santa-header-color': headerColor,
+      '--santa-feature-color': scene && scene.getAttribute('feature-color')
+    });
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
     this.$.badge.reset();
@@ -918,12 +942,11 @@ Polymer({
     // loading-* isn't copied, since the element is already loaded.
     var el = document.createElement(prevSelectedScene.localName);
     el.route = prevSelectedScene.route;
-    el.className = prevSelectedScene.className;
     el.santaApp = this;
     el.loaded = true;
 
     var retainAttr = [
-      'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo'
+      'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo', 'slot'
     ];
     retainAttr.forEach(function(attr) {
       if (prevSelectedScene.hasAttribute(attr)) {
@@ -1306,6 +1329,14 @@ Polymer({
       return out;
     case 'facebook':
       return 'https://facebook.com/sharer.php?p[url]=' + enc;
+    }
+  },
+
+  onRequestHost: function() {
+    if (!this.$.socket.mode) {
+      this.$.socket.mode = 'host';
+    } else {
+      console.debug('cowardly refusing to steal socket', this.$.socket.mode);
     }
   },
 
