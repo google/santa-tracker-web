@@ -49,7 +49,7 @@ Shared overlay for Santa Tracker games.
           <i18n-msg msgid="playextra">PLACEHOLDER_i18n</i18n-msg>
         </button>
         <a class="Button" href$="[[urlFor('village')]]" hidden$="[[_isEmbedMode(mode)]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
-		<a class="Button" on-click="_onEmbedVillageClick" hidden$="[[!_isEmbedMode(mode)]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
+        <a class="Button" on-click="_onEmbedVillageClick" hidden$="[[!_isEmbedMode(mode)]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
       </section>
       <section class$="[[_computeShareAreaClass(shareUrl)]]">
         <div hidden$="[[!shareUrl]]">
@@ -163,7 +163,7 @@ Polymer({
   },
 
   _isEmbedMode : function(mode) {
-	  return mode == "embed";
+    return mode == 'embed';
   },
 
   _computeButtonHidden: function(pregame, hasValidScore, shareUrl) {
@@ -235,6 +235,7 @@ Polymer({
     }
   },
 
+  // TODO(samthor): Handle all village navigation in embed mode.
   _onEmbedVillageClick: function() {
     this.fire('embed-gotovillage');
   },
