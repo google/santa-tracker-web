@@ -65,7 +65,7 @@ const argv = require('yargs')
     .option('scene', {
       type: 'string',
       default: null,
-      describe: 'only build assets for this scene',
+      describe: 'only compile JS for these scenes (e.g. scene1,scene2,scene3)',
     })
     .option('compile', {
       type: 'boolean',
@@ -115,31 +115,29 @@ const DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.buil
 
 // Broad scene config for Santa Tracker.
 const SCENE_CONFIG = require('./scenes');
-const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter(key => SCENE_CONFIG[key].fanout !== false);
+const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].fanout !== false);
 
 // List of scene names to compile.
 const COMPILE_SCENES = (function() {
-  if (argv.scene) {
-    const config = SCENE_CONFIG[argv.scene];
-    if (!config) {
-      throw new Error(`unknown scene: ${argv.scene}`);
-    }
-    const out = [];
-    config.entryPoint && out.push(argv.scene);
-    out.push(...(config.dependencies || []));
-    return out;
+  if (!argv.scene) {
+    return Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].entryPoint);
   }
-  return Object.keys(SCENE_CONFIG).filter(key => SCENE_CONFIG[key].entryPoint);
+  const out = [];
+  const scenes = argv.scene.split(',').filter((sceneName) => sceneName);
+  scenes.forEach((scene) => {
+    const config = SCENE_CONFIG[scene];
+    if (!config) {
+      throw new Error(`unknown scene: ${scene}`);
+    }
+    config.entryPoint && out.push(scene);
+    out.push(...(config.dependencies || []));
+  });
+  return out;
 }());
 
 // Shared options for htmlmin.
 const HTMLMIN_OPTIONS = {
   collapseWhitespace: true,
-  // minifyJS: {
-  //   output: {
-  //     preamble: ';/*UGLIFYJS*/;',
-  //   },
-  // },
   minifyJS: (code, inline) => {
     const opts = {
       parse: {
@@ -161,6 +159,14 @@ const HTMLMIN_OPTIONS = {
   sortClassName: true,
   collapseBooleanAttributes: false,  // if true, htmlmin will eat e.g. disabled="[[blah]]"
 };
+
+// Shared compiler helper for command line flags.
+function addCompilerFlagOptions(opts) {
+  if (argv.pretty) {
+    opts.formatting = 'PRETTY_PRINT';
+  }
+  return opts;
+}
 
 gulp.task('clean', function() {
   return del([
@@ -309,19 +315,18 @@ gulp.task('compile-scenes', function() {
     return gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
         .pipe($.newer(`${dest}/${fileName}`))
         .pipe(limit(compilerStream))
+        .on('data', (file) => {
+          if (file) {
+            // if truthy, this is the minified output from Closure
+            gutil.log('Compiled scene', `'${gutil.colors.green(sceneName)}'`)
+          }
+        })
         .pipe(gulp.dest(dest));
   }).forEach((stream) => merged.add(stream));
 
   return merged;
 });
 
-function addCompilerFlagOptions(opts) {
-  // Add any compiler options specified by command line flags.
-  if (argv.pretty) {
-    opts.formatting = 'PRETTY_PRINT';
-  }
-  return opts;
-}
 gulp.task('vulcanize-scenes', ['sass', 'compile-scenes'], function() {
   // Strip all common elements, found in the standard elements import.
   const elementsPath = 'elements/elements_en.html';
@@ -507,7 +512,7 @@ gulp.task('serve', ['default', 'watch'], function() {
     middleware: [fanoutHelper],
     port: argv.port,
     server: ['.'],
-    startPath: argv.scene ? `/${argv.scene}.html` : '/',
+    startPath: argv.scene ? `/${COMPILE_SCENES[0]}.html` : '/',
     ui: {port: argv.port + 1},
   });
 });
