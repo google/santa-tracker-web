@@ -96,49 +96,6 @@ app.Tools = function(game, $elem) {
 app.Tools.prototype.start = function() {
   this.selectTool_ = this.selectTool_.bind(this);
   this.elem.on('click touchend', this.selectTool_);
-
-  var hairdryerFaceInward = faceInward = function(mouse, mouseCoords) {
-    if (!this.isSelected) {
-      return;
-    }
-
-    if (Math.abs(mouseCoords.relX) <= 0.3) {
-      this.el.addClass('Tool-hairdryer--center');
-    } else {
-      this.el.removeClass('Tool-hairdryer--center');
-    }
-
-    if(mouseCoords.relX < -0.3) {
-      this.el.addClass('Tool--left');
-    } else {
-      this.el.removeClass('Tool--left');
-    }
-
-    if (mouseCoords.relX > 0.3) {
-      this.el.addClass('Tool--right');
-    } else {
-      this.el.removeClass('Tool--right');
-    }
-  };
-
-  var faceInward = function(mouse, mouseCoords) {
-    if (!this.isSelected) {
-      return;
-    }
-
-    if (mouseCoords.relX > 0) {
-      this.el.addClass('Tool--right');
-      this.el.removeClass('Tool--left');
-    } else {
-      this.el.addClass('Tool--left');
-      this.el.removeClass('Tool--right');
-    }
-  };
-
-  var mouse = this.game_.mouse;
-  mouse.subscribe(hairdryerFaceInward, this.hairdryer);
-  mouse.subscribe(faceInward, this.hairclean);
-  mouse.subscribe(faceInward, this.hairgrow);
 };
 
 

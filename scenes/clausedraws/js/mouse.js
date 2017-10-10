@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Google Inc. All rights reserved.
+ * Copyright 2017 Google Inc. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -30,14 +30,12 @@ app.Mouse = function($elem) {
   this.down = false;
   this.x = 0;
   this.y = 0;
-  this.relX = 0;
-  this.relY = 0;
 
   this.subscribers = [];
 
   $(window).on('resize.clausedraws orientationchange.clausedraws', function() {
     this.calculateScale_();
-    this.update();
+    this.updateSubscribers();
   }.bind(this));
 
   this.calculateScale_();
@@ -46,7 +44,7 @@ app.Mouse = function($elem) {
     this.x = e.clientX;
     this.y = e.clientY;
 
-    this.update();
+    this.updateSubscribers();
     e.preventDefault();
   }.bind(this));
 
@@ -54,21 +52,21 @@ app.Mouse = function($elem) {
     this.x = e.originalEvent.touches[0].clientX;
     this.y = e.originalEvent.touches[0].clientY;
 
-    this.update();
+    this.updateSubscribers();
     e.preventDefault();
   }.bind(this));
 
   $elem.on('mousedown touchstart', function(e) {
     this.down = true;
 
-    this.update();
+    this.updateSubscribers();
     e.preventDefault();
   }.bind(this));
 
   $elem.on('mouseup mouseleave touchend touchleave', function(e) {
     this.down = false;
 
-    this.update();
+    this.updateSubscribers();
     if (e.cancelable) {
       e.preventDefault();
     }
@@ -81,25 +79,8 @@ app.Mouse = function($elem) {
  * @private
  */
 app.Mouse.prototype.calculateScale_ = function() {
-  var originalWidth = 1920;
-  var originalHeight = 985;
-
-  // The game should get bigger as the width decreases.
-  var widthReductionFactor = 1420;
-
-  var width = $(window).width();
-  var height = $(window).height() - window.santaApp.headerSize;
-
-  var scaleWidth = (width + widthReductionFactor) / (originalWidth + widthReductionFactor);
-  var scaleHeight = height / originalHeight;
-  var scaleFactor = Math.min(scaleWidth, scaleHeight);
-
-  this.$elem.css({
-    'font-size': scaleFactor
-  });
-
   this.rect = this.elem.getBoundingClientRect();
-  this.scaleFactor = scaleFactor;
+  this.scaleFactor = 1;
 };
 
 
@@ -117,9 +98,9 @@ app.Mouse.prototype.subscribe = function(callback, context) {
 
 
 /**
- * Notify subscribers of mouse updates. Called on animation frame.
+ * Notify subscribers of mouse updates.
  **/
-app.Mouse.prototype.update = function() {
+app.Mouse.prototype.updateSubscribers = function() {
   var coordinates = this.coordinates();
 
   this.subscribers.forEach(function(subscriber) {
@@ -150,8 +131,6 @@ app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
   return {
     x: x - rect.left,
     y: y - rect.top,
-    relX: 2 * x / rect.width - 1,
-    relY: 2 * y / rect.height - 1,
     down: this.down,
     scale: this.scaleFactor
   };
@@ -159,7 +138,7 @@ app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
 
 
 /**
- * @typedef {{x: number, y: number, relX: number, relY: number, down: boolean, scale: number}}
+ * @typedef {{x: number, y: number, down: boolean, scale: number}}
  */
 app.Mouse.CoordsType;
 

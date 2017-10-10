@@ -95,10 +95,6 @@ app.Tool.prototype.isLeftRightTool_ = function() {
 app.Tool.prototype.move = function(mouseCoords) {
   var offsetX = this.mouseOffset.x;
 
-  if (mouseCoords.relX > 0 && this.isLeftRightTool_()) {
-    offsetX = this.width - this.mouseOffset.x;
-  }
-
   this.el.css({
     left: mouseCoords.x - (offsetX * mouseCoords.scale),
     top: mouseCoords.y - (this.mouseOffset.y * mouseCoords.scale) + window.santaApp.headerSize,
