@@ -19,7 +19,6 @@ goog.provide('app.Canvas');
 goog.require('app.Constants');
 goog.require('app.Point');
 goog.require('app.utils');
-goog.require('app.encoding');
 
 
 /**
@@ -69,8 +68,8 @@ app.Canvas.prototype.onResize = function() {
 /**
  * Draws this canvas.
  */
-app.Canvas.prototype.draw = function() {
-};
+// app.Canvas.prototype.draw = function() {
+// };
 
 /**
  * Resets the canvas to original state.
@@ -85,8 +84,6 @@ app.Canvas.prototype.resetCanvas = function() {
  * @param {app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
-  console.log('mouse changed');
-
   if (mouse !== this.game_.mouse) {
     throw new Error('unexpected mouse callback');
   }
@@ -107,11 +104,11 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
     tools.selectedTool.draw(this.ctx, this.mouse, this.scale);
   }
 
-  // if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
-  //   app.utils.triggerStart('selfie_color');
-  // } else if (!mouseCoords.down) {
-  //   app.utils.triggerStop('selfie_color');
-  // }
+  if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down) {
+    app.utils.triggerStart('selfie_color');
+  } else if (!mouseCoords.down) {
+    app.utils.triggerStop('selfie_color');
+  }
 };
 
 /**
@@ -119,30 +116,6 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @return {string} encoded
  */
 app.Canvas.prototype.save = function() {
-  // var points = this.points;
-  // var encoder = app.Constants.ENCODER;
-  // var sprays = this.game_.tools.sprays;
-  // var decorations = this.game_.tools.decorations;
-
-  // var data = points.map(function(point) {
-  //   var index = 0;
-
-  //   if (point.draw && point.constrain) {  // don't save currently falling hair
-  //     index += 1;
-  //   }
-
-  //   if (point.draw && point.spray) {
-  //     index += (sprays.indexOf(point.spray) + 1) * 5; // color + color with decoration * 5
-  //   }
-
-  //   if (point.draw && point.decoration) {
-  //     index += decorations.indexOf(point.decoration) + 1;
-  //   }
-
-  //   return encoder[index];
-  // });
-
-  // return app.encoding.encode(data.join(''));
 };
 
 
@@ -151,25 +124,4 @@ app.Canvas.prototype.save = function() {
  * @param {string} encoded string representing canvas state.
  */
 app.Canvas.prototype.restore = function(encoded) {
-  // var encoder = app.Constants.ENCODER;
-  // var sprays = this.game_.tools.sprays;
-  // var decorations = this.game_.tools.decorations;
-
-  // var decoded = app.encoding.decode(encoded);
-
-  // var data = decoded.split('').map(function(char) {
-  //   return encoder.indexOf(char);
-  // });
-
-  // for (var i = 0; i < beardPoints.length; i++) {
-  //   beardPoints[i].draw = beardPoints[i].constrain = data[i] > 0;
-
-  //   var spray = Math.floor((data[i] - 1) / 5);
-  //   beardPoints[i].spray = spray > 0 ? sprays[spray - 1] : undefined;
-
-  //   var decoration = (data[i] - 1) % 5;
-  //   beardPoints[i].decoration = decoration > 0 ? decorations[decoration - 1] : undefined;
-  // }
-
-  // this.points = beardPoints;
 };

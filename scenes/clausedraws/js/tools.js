@@ -151,25 +151,25 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.selectedTool.move(mouseCoords);
   }
 
-  if (this.hairdryer.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
+  if (this.hairdryer.isSelected && mouseCoords.down) {
     app.utils.triggerStart('selfie_dryer');
   } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_dryer');
   }
 
-  if (this.clipper.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
+  if (this.clipper.isSelected && mouseCoords.down) {
     app.utils.triggerStart('selfie_shave');
   } else if (!mouseCoords.down) {
     app.utils.triggerStop('selfie_shave');
   }
 
-  if (this.hairgrow.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
+  if (this.hairgrow.isSelected && mouseCoords.down) {
     app.utils.triggerOnce('selfie_spray_small');
   } else if (!mouseCoords.down) {
     app.utils.triggerReset('selfie_spray_small');
   }
 
-  if (this.hairclean.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
+  if (this.hairclean.isSelected && mouseCoords.down) {
     app.utils.triggerOnce('selfie_spray_big');
   } else if (!mouseCoords.down) {
     app.utils.triggerReset('selfie_spray_big');
