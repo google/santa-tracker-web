@@ -14,7 +14,7 @@
  * the License.
  */
 
-goog.provide('app.Spray');
+goog.provide('app.Pen');
 goog.require('app.Tool');
 
 
@@ -25,14 +25,15 @@ goog.require('app.Tool');
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the color.
  */
-app.Spray = function($elem, name) {
+app.Pen = function($elem, name, color) {
   app.Tool.call(this, $elem, 'spray--' + name, {x: 47, y: 0});
 
   // This is a hidden image on the page that's used by the canvas
   this.spray = this.elem.find('#spray--' + name)[0];
   this.soundKey = 'selfie_color';
+  this.color = color || name;
 };
-app.Spray.prototype = Object.create(app.Tool.prototype);
+app.Pen.prototype = Object.create(app.Tool.prototype);
 
 /**
  * [draw description]
@@ -41,7 +42,8 @@ app.Spray.prototype = Object.create(app.Tool.prototype);
  * @param  {[type]} scale       [description]
  * @return {[type]}             [description]
  */
-app.Spray.prototype.draw = function(context, mouseCoords) {
+app.Pen.prototype.draw = function(context, mouseCoords) {
+  context.fillStyle = this.color;
   context.beginPath();
   context.arc(mouseCoords.x, mouseCoords.y, 50, 0, 2 * Math.PI);
   context.fill();

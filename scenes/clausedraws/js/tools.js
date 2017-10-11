@@ -15,8 +15,8 @@
  */
 
 goog.provide('app.Tools');
-goog.require('app.Decoration');
-goog.require('app.Spray');
+goog.require('app.Stamp');
+goog.require('app.Pen');
 goog.require('app.Tool');
 goog.require('app.utils');
 
@@ -36,19 +36,19 @@ app.Tools = function(game, $elem) {
   this.hairclean = new app.Tool($elem, 'hairclean', {x: 120, y: 10});
   this.hairgrow = new app.Tool($elem, 'hairgrow', {x: 110, y: 25});
 
-  this.sprayRed = new app.Spray($elem, 'red');
-  this.sprayOrange = new app.Spray($elem, 'orange');
-  this.sprayYellow = new app.Spray($elem, 'yellow');
-  this.sprayGreen = new app.Spray($elem, 'green');
-  this.sprayCyan = new app.Spray($elem, 'cyan');
-  this.sprayPurple = new app.Spray($elem, 'purple');
-  this.sprayPink = new app.Spray($elem, 'pink');
-  this.sprayBlue = new app.Spray($elem, 'blue');
+  this.sprayRed = new app.Pen($elem, 'red');
+  this.sprayOrange = new app.Pen($elem, 'orange');
+  this.sprayYellow = new app.Pen($elem, 'yellow');
+  this.sprayGreen = new app.Pen($elem, 'green');
+  this.sprayCyan = new app.Pen($elem, 'cyan');
+  this.sprayPurple = new app.Pen($elem, 'purple');
+  this.sprayPink = new app.Pen($elem, 'pink');
+  this.sprayBlue = new app.Pen($elem, 'blue');
 
-  this.decorationSnowman = new app.Decoration($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
-  this.decorationBauble = new app.Decoration($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
-  this.decorationBow = new app.Decoration($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
-  this.decorationHolly = new app.Decoration($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
+  this.decorationSnowman = new app.Stamp($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
+  this.decorationBauble = new app.Stamp($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
+  this.decorationBow = new app.Stamp($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
+  this.decorationHolly = new app.Stamp($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
 
   this.tools = [
     this.clipper,

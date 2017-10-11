@@ -14,7 +14,7 @@
  * the License.
  */
 
-goog.provide('app.Decoration');
+goog.provide('app.Stamp');
 goog.require('app.Tool');
 
 
@@ -27,13 +27,14 @@ goog.require('app.Tool');
  * @param {{x: number, y: number}} offset Tool offset relative to the mouse
  * @param {!Image} decoration image.
  */
-app.Decoration = function($elem, name, offset, decoration) {
+app.Stamp = function($elem, name, offset, decoration) {
   app.Tool.call(this, $elem, 'decoration--' + name, offset);
 
   this.decoration = decoration;
   this.soundKey = 'selfie_spray_small';
+  this.stamped = false;
 };
-app.Decoration.prototype = Object.create(app.Tool.prototype);
+app.Stamp.prototype = Object.create(app.Tool.prototype);
 
 /**
  * [draw description]
@@ -42,23 +43,31 @@ app.Decoration.prototype = Object.create(app.Tool.prototype);
  * @param  {[type]} scale       [description]
  * @return {[type]}             [description]
  */
-app.Decoration.prototype.draw = function(context, mouseCoords) {
+app.Stamp.prototype.draw = function(context, mouseCoords) {
+  if (this.stamped) {
+    return;
+  }
+
   var drawWidth = this.decoration.width * mouseCoords.scale;
   var drawHeight = this.decoration.height * mouseCoords.scale;
   context.drawImage(this.decoration,
     mouseCoords.x - drawWidth / 2, mouseCoords.y - drawHeight / 2,
     drawWidth, drawHeight);
+  this.stamped = true;
 };
 
-app.Decoration.prototype.startSound = function() {
+app.Stamp.prototype.startSound = function() {
   app.utils.triggerOnce(this.soundKey);
 }
 
 /**
  *
  */
-app.Decoration.prototype.stopSound = function() {
+app.Stamp.prototype.stopSound = function() {
   app.utils.triggerReset(this.soundKey);
 }
 
+app.Stamp.prototype.reset = function() {
+  this.stamped = false;
+};
 

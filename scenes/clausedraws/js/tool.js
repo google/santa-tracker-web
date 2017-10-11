@@ -74,6 +74,7 @@ app.Tool.prototype.deselect = function() {
   });
 
   this.stopSound();
+  this.reset();
 };
 
 
@@ -89,6 +90,14 @@ app.Tool.prototype.move = function(mouseCoords) {
     top: mouseCoords.y - (this.mouseOffset.y * mouseCoords.scale) + window.santaApp.headerSize,
   });
 };
+
+
+/**
+ * Reset on mouse up
+ */
+app.Tool.prototype.reset = function() {
+  return null;
+}
 
 
 /**

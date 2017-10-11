@@ -102,6 +102,8 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   //TODO: check if inside canvas
   if (this.mouse.down && tools.selectedTool) {
     tools.selectedTool.draw(this.ctx, this.mouse);
+  } else if (!this.mouse.down && tools.selectedTool) {
+    tools.selectedTool.reset();
   }
 };
 
