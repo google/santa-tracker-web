@@ -35,7 +35,7 @@ app.Mouse = function($elem) {
 
   $(window).on('resize.clausedraws orientationchange.clausedraws', function() {
     this.calculateScale_();
-    this.updateSubscribers();
+    this.update();
   }.bind(this));
 
   this.calculateScale_();
@@ -44,7 +44,6 @@ app.Mouse = function($elem) {
     this.x = e.clientX;
     this.y = e.clientY;
 
-    this.updateSubscribers();
     e.preventDefault();
   }.bind(this));
 
@@ -52,21 +51,18 @@ app.Mouse = function($elem) {
     this.x = e.originalEvent.touches[0].clientX;
     this.y = e.originalEvent.touches[0].clientY;
 
-    this.updateSubscribers();
     e.preventDefault();
   }.bind(this));
 
   $elem.on('mousedown touchstart', function(e) {
     this.down = true;
 
-    this.updateSubscribers();
     e.preventDefault();
   }.bind(this));
 
   $elem.on('mouseup mouseleave touchend touchleave', function(e) {
     this.down = false;
 
-    this.updateSubscribers();
     if (e.cancelable) {
       e.preventDefault();
     }
@@ -100,7 +96,7 @@ app.Mouse.prototype.subscribe = function(callback, context) {
 /**
  * Notify subscribers of mouse updates.
  **/
-app.Mouse.prototype.updateSubscribers = function() {
+app.Mouse.prototype.update = function() {
   var coordinates = this.coordinates();
 
   this.subscribers.forEach(function(subscriber) {

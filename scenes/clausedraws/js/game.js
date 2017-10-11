@@ -44,6 +44,9 @@ app.Game = function(elem) {
 
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
+  this.onFrame_ = this.onFrame_.bind(this);
+  this.accumulator = 0;
+
   this.interactionDoneTimeout_ = 0;
   this.initialCanvas_ = '';
 };
@@ -94,6 +97,26 @@ app.Game.prototype.restart = function() {
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'clausedraws'});
   this.gameStartTime = +new Date;
+};
+
+
+/**
+ * Updates game state since last frame.
+ * @param {number} delta Time elapsed since last update in milliseconds
+ */
+app.Game.prototype.update = function(delta) {
+  if (!this.isPlaying) {
+    return;
+  }
+
+  this.mouse.update();
+
+  this.accumulator += delta;
+
+  while (this.accumulator > app.Constants.TIME_STEP) {
+    this.canvas.update();
+    this.accumulator -= app.Constants.TIME_STEP;
+  }
 };
 
 
@@ -153,7 +176,31 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date();
+    this.requestId = window.requestAnimationFrame(this.onFrame_);
   }
+};
+
+
+/**
+ * Game loop. Runs every frame using requestAnimationFrame.
+ * @private
+ */
+app.Game.prototype.onFrame_ = function() {
+  if (!this.isPlaying) {
+    return;
+  }
+
+  // Calculate delta since last frame.
+  var now = +new Date();
+  var delta = Math.min(1000, now - this.lastFrame);
+  this.lastFrame = now;
+
+  // Update game state with physics simulations.
+  this.update(delta);
+  // this.canvas.draw();
+
+  // Request next frame
+  this.requestId = window.requestAnimationFrame(this.onFrame_);
 };
 
 
@@ -190,6 +237,7 @@ app.Game.prototype.dispose = function() {
   }
   this.freezeGame();
 
+  window.cancelAnimationFrame(this.requestId);
   $(window).off('.clausedraws');
   $(document).off('.clausedraws');
 };
