@@ -13,8 +13,8 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 
-<!-- These imports are all excluded from any scene's build, and instead are included in the main
-  elements bundle (see `vulcanize-scenes` in gulpfile.js). -->
+<!-- This is the main "entry point" for the application itself, and scenes presume the existence
+     of these files and all their transitive dependencies (see Gulp task 'bundle') -->
 
 <!-- Shared libs -->
 <link rel="import" href="../js/jquery.html">
