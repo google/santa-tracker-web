@@ -32,12 +32,6 @@ app.Tool = function($elem, name, mouseOffset) {
   this.container = this.el.closest('.Tool-container');
   this.isSelected = false;
   this.mouseOffset = mouseOffset || {x: 0, y: 0};
-  this.animationEl = null;
-  this.animateInfinitely = false;
-  this.animationPlayer = null;
-  this.isAnimating = false;
-
-  this.initAnimation_();
 };
 
 
@@ -80,15 +74,6 @@ app.Tool.prototype.deselect = function() {
 
 
 /**
- * @private
- * @return {boolean} whether this tool orients both left and right
- */
-app.Tool.prototype.isLeftRightTool_ = function() {
-  return false;
-};
-
-
-/**
  * Move the tool to the specified mouse position
  * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
@@ -99,73 +84,15 @@ app.Tool.prototype.move = function(mouseCoords) {
     left: mouseCoords.x - (offsetX * mouseCoords.scale),
     top: mouseCoords.y - (this.mouseOffset.y * mouseCoords.scale) + window.santaApp.headerSize,
   });
-
-  var shouldAnimate = this.shouldAnimate_(mouseCoords);
-  if (shouldAnimate === this.isAnimating) {
-    return;
-  }
-  this.isAnimating = shouldAnimate;
-  if (this.isAnimating) {
-    this.animationEl.show();
-
-    this.animationPlayer.currentTime = 0;
-    this.animationPlayer.play();
-  } else {
-    if (this.animateInfinitely) {
-      this.animationEl.hide();
-      this.animationPlayer.pause();
-    }
-  }
 };
 
 
 /**
- * Initializes the optional animation for when the tool is used.
- * @private
+ * Draws to the canvas using this tool
+ * @param  {[type]} context     [description]
+ * @param  {[type]} mouseCoords [description]
+ * @return {[type]}             [description]
  */
-app.Tool.prototype.initAnimation_ = function() {
-  if (this.el.find('.Tool-animation').length) {
-    this.animationEl = this.el.find('.Tool-animation');
-  }
-
-  var animation = this.createAnimation_();
-  if (!animation) {
-    return;
-  }
-
-  this.animateInfinitely = animation.timing.iterations === Infinity;
-  this.animationPlayer = document.timeline.play(animation);
-  this.animationPlayer.pause();
-};
-
-
-/**
- * Should be subclassed to create a web Animation instance for the tool effect.
- * @return {AnimationEffectReadOnly}
- * @private
- */
-app.Tool.prototype.createAnimation_ = function() {
-  return null;
-};
-
-
-/**
- * Evaluate if the tool should play its animation. Should be overwritten if
- * relevant.
- * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
- * @return {boolean}
- * @private
- */
-app.Tool.prototype.shouldAnimate_ = function(mouseCoords) {
-  if (this.animationPlayer) {
-    return mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM;
-  }
-  return false;
-};
-
-/**
- *
- */
-app.Tool.prototype.draw = function(context, mouseCoords, scale) {
+app.Tool.prototype.draw = function(context, mouseCoords) {
   return null;
 }

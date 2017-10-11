@@ -36,8 +36,9 @@ app.Canvas = function(game, canvas) {
     down: false,
     x: 0,
     y: 0,
-    px: 0,
-    py: 0
+    prevX: 0,
+    prevY: 0,
+    scale: 1
   };
 };
 
@@ -47,10 +48,6 @@ app.Canvas = function(game, canvas) {
  */
 app.Canvas.prototype.start = function() {
   this.onResize();
-  $(this.canvas).on('click.clausedraws touchend.clausedraws', function() {
-    // click handler
-  });
-
   $(window).on('resize.clausedraws', this.onResize.bind(this));
 };
 
@@ -63,6 +60,8 @@ app.Canvas.prototype.onResize = function() {
       this.container.width() / app.Constants.CANVAS_WIDTH);
   this.canvas.height = app.Constants.CANVAS_HEIGHT * this.canvasRatio;
   this.canvas.width = app.Constants.CANVAS_WIDTH * this.canvasRatio;
+
+  // TODO: copy old canvas contents over
 }
 
 /**
@@ -92,22 +91,17 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   var rect = this.canvas.getBoundingClientRect();
   var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
 
-  this.mouse.px = this.mouse.x;
-  this.mouse.py = this.mouse.y;
+  this.mouse.prevX = this.mouse.x;
+  this.mouse.prevY = this.mouse.y;
 
   this.mouse.x = canvasCoords.x;
   this.mouse.y = canvasCoords.y;
   this.mouse.down = canvasCoords.down;
-  this.scale = this.game_.mouse.scaleFactor;
+  this.mouse.scale = canvasCoords.scaleFactor;
 
+  //TODO: check if inside canvas
   if (this.mouse.down && tools.selectedTool) {
-    tools.selectedTool.draw(this.ctx, this.mouse, this.scale);
-  }
-
-  if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down) {
-    app.utils.triggerStart('selfie_color');
-  } else if (!mouseCoords.down) {
-    app.utils.triggerStop('selfie_color');
+    tools.selectedTool.draw(this.ctx, this.mouse);
   }
 };
 

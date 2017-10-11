@@ -70,24 +70,6 @@ app.Tools = function(game, $elem) {
     this.decorationBow,
     this.decorationHolly
   ];
-
-  this.sprays = [
-    this.sprayRed.spray,
-    this.sprayOrange.spray,
-    this.sprayYellow.spray,
-    this.sprayGreen.spray,
-    this.sprayCyan.spray,
-    this.sprayPurple.spray,
-    this.sprayPink.spray,
-    this.sprayBlue.spray
-  ];
-
-  this.decorations = [
-    this.decorationSnowman.decoration,
-    this.decorationBauble.decoration,
-    this.decorationBow.decoration,
-    this.decorationHolly.decoration
-  ];
 };
 
 
@@ -130,6 +112,12 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     app.utils.triggerOnce('selfie_spray_big');
   } else if (!mouseCoords.down) {
     app.utils.triggerReset('selfie_spray_big');
+  }
+
+  if (this.selectedTool && this.selectedTool.spray && mouseCoords.down) {
+    app.utils.triggerStart('selfie_color');
+  } else if (!mouseCoords.down) {
+    app.utils.triggerStop('selfie_color');
   }
 };
 

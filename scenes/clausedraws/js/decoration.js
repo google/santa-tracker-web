@@ -41,9 +41,9 @@ app.Decoration.prototype = Object.create(app.Tool.prototype);
  * @param  {[type]} scale       [description]
  * @return {[type]}             [description]
  */
-app.Decoration.prototype.draw = function(context, mouseCoords, scale) {
-  var drawWidth = this.decoration.width * scale;
-  var drawHeight = this.decoration.height * scale;
+app.Decoration.prototype.draw = function(context, mouseCoords) {
+  var drawWidth = this.decoration.width * mouseCoords.scale;
+  var drawHeight = this.decoration.height * mouseCoords.scale;
   context.drawImage(this.decoration,
     mouseCoords.x - drawWidth / 2, mouseCoords.y - drawHeight / 2,
     drawWidth, drawHeight);

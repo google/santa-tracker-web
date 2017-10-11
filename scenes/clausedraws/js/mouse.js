@@ -77,6 +77,8 @@ app.Mouse = function($elem) {
 app.Mouse.prototype.calculateScale_ = function() {
   this.rect = this.elem.getBoundingClientRect();
   this.scaleFactor = 1;
+
+  // TODO: move scalefactor to canvas?
 };
 
 

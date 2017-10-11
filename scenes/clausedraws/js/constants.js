@@ -22,7 +22,5 @@ goog.provide('app.Constants');
  */
 app.Constants = {
   CANVAS_WIDTH: 1600,
-  CANVAS_HEIGHT: 900,
-  START_Y: 670,
-  SPACING: 20
+  CANVAS_HEIGHT: 900
 };

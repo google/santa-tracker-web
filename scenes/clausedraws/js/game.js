@@ -45,7 +45,6 @@ app.Game = function(elem) {
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
   this.onFrame_ = this.onFrame_.bind(this);
-  this.accumulator = 0;
 
   this.interactionDoneTimeout_ = 0;
   this.initialCanvas_ = '';
@@ -110,13 +109,6 @@ app.Game.prototype.update = function(delta) {
   }
 
   this.mouse.update();
-
-  this.accumulator += delta;
-
-  while (this.accumulator > app.Constants.TIME_STEP) {
-    this.canvas.update();
-    this.accumulator -= app.Constants.TIME_STEP;
-  }
 };
 
 

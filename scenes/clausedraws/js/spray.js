@@ -40,7 +40,7 @@ app.Spray.prototype = Object.create(app.Tool.prototype);
  * @param  {[type]} scale       [description]
  * @return {[type]}             [description]
  */
-app.Spray.prototype.draw = function(context, mouseCoords, scale) {
+app.Spray.prototype.draw = function(context, mouseCoords) {
   context.beginPath();
   context.arc(mouseCoords.x, mouseCoords.y, 50, 0, 2 * Math.PI);
   context.fill();
