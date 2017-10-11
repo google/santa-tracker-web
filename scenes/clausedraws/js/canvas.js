@@ -97,7 +97,7 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   this.mouse.x = canvasCoords.x;
   this.mouse.y = canvasCoords.y;
   this.mouse.down = canvasCoords.down;
-  this.mouse.scale = canvasCoords.scaleFactor;
+  this.mouse.scale = canvasCoords.scale;
 
   //TODO: check if inside canvas
   if (this.mouse.down && tools.selectedTool) {

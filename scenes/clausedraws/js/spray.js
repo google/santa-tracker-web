@@ -30,6 +30,7 @@ app.Spray = function($elem, name) {
 
   // This is a hidden image on the page that's used by the canvas
   this.spray = this.elem.find('#spray--' + name)[0];
+  this.soundKey = 'selfie_color';
 };
 app.Spray.prototype = Object.create(app.Tool.prototype);
 
@@ -45,3 +46,5 @@ app.Spray.prototype.draw = function(context, mouseCoords) {
   context.arc(mouseCoords.x, mouseCoords.y, 50, 0, 2 * Math.PI);
   context.fill();
 };
+
+

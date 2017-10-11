@@ -31,6 +31,7 @@ app.Decoration = function($elem, name, offset, decoration) {
   app.Tool.call(this, $elem, 'decoration--' + name, offset);
 
   this.decoration = decoration;
+  this.soundKey = 'selfie_spray_small';
 };
 app.Decoration.prototype = Object.create(app.Tool.prototype);
 
@@ -48,3 +49,16 @@ app.Decoration.prototype.draw = function(context, mouseCoords) {
     mouseCoords.x - drawWidth / 2, mouseCoords.y - drawHeight / 2,
     drawWidth, drawHeight);
 };
+
+app.Decoration.prototype.startSound = function() {
+  app.utils.triggerOnce(this.soundKey);
+}
+
+/**
+ *
+ */
+app.Decoration.prototype.stopSound = function() {
+  app.utils.triggerReset(this.soundKey);
+}
+
+

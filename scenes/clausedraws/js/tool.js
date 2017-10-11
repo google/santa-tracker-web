@@ -16,6 +16,7 @@
 
 goog.provide('app.Tool');
 goog.require('app.shared.utils');
+goog.require('app.utils');
 
 
 /**
@@ -32,6 +33,7 @@ app.Tool = function($elem, name, mouseOffset) {
   this.container = this.el.closest('.Tool-container');
   this.isSelected = false;
   this.mouseOffset = mouseOffset || {x: 0, y: 0};
+  this.soundKey = '';
 };
 
 
@@ -70,6 +72,8 @@ app.Tool.prototype.deselect = function() {
   this.elem.css({
     cursor: ''
   });
+
+  this.stopSound();
 };
 
 
@@ -96,3 +100,18 @@ app.Tool.prototype.move = function(mouseCoords) {
 app.Tool.prototype.draw = function(context, mouseCoords) {
   return null;
 }
+
+/**
+ *
+ */
+app.Tool.prototype.startSound = function() {
+  app.utils.triggerStart(this.soundKey);
+}
+
+/**
+ *
+ */
+app.Tool.prototype.stopSound = function() {
+  app.utils.triggerStop(this.soundKey);
+}
+
