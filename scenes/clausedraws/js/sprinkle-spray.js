@@ -39,7 +39,7 @@ app.SprinkleSpray = function($elem, name, offset) {
   this.sprinkleIndex = 0;
   this.height = 100;
   this.width = 100;
-  this.sprinkleOffset = {x: 50, y: 50};
+  this.sprinkleOffset = {x: 50 - offset.x, y: 50 - offset.y};
 
   console.log('sprinkle', this);
 };
@@ -58,9 +58,9 @@ app.SprinkleSpray.prototype.draw = function(context, mouseCoords) {
   var offsetX = this.sprinkleOffset.x * mouseCoords.scale;
   var offsetY = this.sprinkleOffset.y * mouseCoords.scale;
   context.save();
-  context.translate(mouseCoords.x - offsetX, mouseCoords.y - offsetY);
+  context.translate(mouseCoords.x + offsetX, mouseCoords.y + offsetY);
   context.rotate(Math.random() * 2 * Math.PI);
-  context.drawImage(this.sprinkles[this.sprinkleIndex], 0, 0, drawWidth, drawHeight);
+  context.drawImage(this.sprinkles[this.sprinkleIndex], -offsetX, -offsetY, drawWidth, drawHeight);
   context.restore();
 
   this.sprinkleIndex = (this.sprinkleIndex + 1) % this.sprinkles.length;
