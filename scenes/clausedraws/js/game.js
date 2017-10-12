@@ -34,10 +34,8 @@ app.Game = function(elem) {
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
 
-  var canvas = this.sceneElem.find('#draw-canvas')[0];
-
   this.mouse = new app.Mouse(this.sceneElem);
-  this.canvas = new app.Canvas(this, canvas);
+  this.canvas = new app.Canvas(this, this.sceneElem);
 
   // Construct app.Tools last, as it needs mouse/canvas.
   this.tools = new app.Tools(this, this.sceneElem);
@@ -45,9 +43,6 @@ app.Game = function(elem) {
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
   this.onFrame_ = this.onFrame_.bind(this);
-
-  this.interactionDoneTimeout_ = 0;
-  this.initialCanvas_ = '';
 };
 
 
@@ -69,11 +64,6 @@ app.Game.prototype.start = function() {
     on('click.clausedraws touchend.clausedraws', this.resetCanvas_.bind(this));
 
   this.restart();
-
-  this.initialCanvas_ = this.canvas.save();
-
-  var canvas = getUrlParameter('canvas');
-  canvas && this.canvas.restore(canvas);
 };
 
 
@@ -120,32 +110,6 @@ app.Game.prototype.showShareOverlay = function() {
   window.clearTimeout(this.interactionDoneTimeout_);
   this.updateUrlState_();
   this.shareOverlay.show(urlString, true);
-};
-
-
-/**
- * Called when interaction is done. Defers setting canvas state for a time.
- */
-app.Game.prototype.interactionDone = function() {
-  window.clearTimeout(this.interactionDoneTimeout_);
-  this.interactionDoneTimeout_ =
-      window.setTimeout(() => this.updateUrlState_(), app.Constants.INTERACTION_URL_DELAY);
-};
-
-
-/**
- * Replaces the current URL state with Santa's canvas contents.
- */
-app.Game.prototype.updateUrlState_ = function() {
-  const s = this.canvas.save();
-  const url = new URL(window.location.toString());
-
-  if (s === this.initialCanvas_) {
-    url.search = '';
-  } else {
-    url.search = '?canvas=' + window.encodeURIComponent(s);
-  }
-  window.history.replaceState(null, '', url.toString());
 };
 
 

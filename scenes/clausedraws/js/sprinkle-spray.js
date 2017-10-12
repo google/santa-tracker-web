@@ -40,8 +40,6 @@ app.SprinkleSpray = function($elem, name, offset) {
   this.height = 100;
   this.width = 100;
   this.sprinkleOffset = {x: 50 - offset.x, y: 50 - offset.y};
-
-  console.log('sprinkle', this);
 };
 app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
 

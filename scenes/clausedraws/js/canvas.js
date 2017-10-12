@@ -24,13 +24,26 @@ goog.require('app.utils');
 /**
  * Canvas manager
  * @param {!app.Game} game
- * @param {!HTMLCanvasElement} canvas A canvas to render the cloth to.
+ * @param {!jQuery} $elem The element
  * @constructor
  */
-app.Canvas = function(game, canvas) {
-  this.canvas = canvas;
-  this.container = $(this.canvas).closest('.Canvas');
-  this.ctx = this.canvas.getContext('2d');
+app.Canvas = function(game, $elem) {
+  this.displayCanvas = $elem.find('#draw-canvas')[0];
+  this.backupCanvases = [];
+
+  for (var i = 0; i < 5; i++) {
+    var backup = $elem.find('#draw-backup' + i)[0];
+    this.backupCanvases.push(backup);
+  }
+
+  // index of latest backup, increments with each save
+  this.latestIndex = 0;
+  // index of currently visible state, may be
+  // different than latestIndex if undo was called
+  this.currentIndex = 0;
+
+  this.container = $(this.displayCanvas).closest('.Canvas');
+  this.ctx = this.displayCanvas.getContext('2d');
   this.game_ = game;
   this.mouse = {
     down: false,
@@ -58,8 +71,8 @@ app.Canvas.prototype.onResize = function() {
   this.canvasRatio = Math.min(
       this.container.height() / app.Constants.CANVAS_HEIGHT,
       this.container.width() / app.Constants.CANVAS_WIDTH);
-  this.canvas.height = app.Constants.CANVAS_HEIGHT * this.canvasRatio;
-  this.canvas.width = app.Constants.CANVAS_WIDTH * this.canvasRatio;
+  this.displayCanvas.height = app.Constants.CANVAS_HEIGHT * this.canvasRatio;
+  this.displayCanvas.width = app.Constants.CANVAS_WIDTH * this.canvasRatio;
 
   // TODO: copy old canvas contents over
 }
@@ -74,7 +87,7 @@ app.Canvas.prototype.onResize = function() {
  * Resets the canvas to original state.
  */
 app.Canvas.prototype.resetCanvas = function() {
-  this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  this.ctx.clearRect(0, 0, this.displayCanvas.width, this.displayCanvas.height);
 };
 
 
@@ -88,7 +101,7 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   }
   var tools = this.game_.tools;
 
-  var rect = this.canvas.getBoundingClientRect();
+  var rect = this.displayCanvas.getBoundingClientRect();
   var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
 
   this.mouse.prevX = this.mouse.x;
@@ -107,17 +120,37 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   }
 };
 
+
 /**
- * Serialize the current state of the canvas.
- * @return {string} encoded
+ * Perform actions on canvas
+ * @param  {[type]} actionFn [description]
+ * @return {[type]}          [description]
  */
-app.Canvas.prototype.save = function() {
+app.Canvas.updateCanvas = function(actionFn) {
+
 };
 
 
 /**
- * Replace the current canvas with a saved state.
- * @param {string} encoded string representing canvas state.
+ * Save state and move to next backup
+ * @return {[type]}          [description]
  */
-app.Canvas.prototype.restore = function(encoded) {
+app.Canvas.pushState = function() {
 };
+
+
+/**
+ * Undo - go back to prev state
+ * @return {[type]}          [description]
+ */
+app.Canvas.undo = function() {
+};
+
+
+/**
+ * Redo - go to next state
+ * @return {[type]}          [description]
+ */
+app.Canvas.redo = function() {
+};
+
