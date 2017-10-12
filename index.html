@@ -68,7 +68,9 @@ ga('set', 'transport', 'beacon');
 (function() {
   // Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 9+ and
   // Chromium-based browsers at m44 or above. For other browsers, YMMV.
-  var ignoreCheck = window.location.search.indexOf('ignore_browser_check') != -1;
+  var ignoreCheck =
+      window.location.search.indexOf('ignore_browser_check') !== -1 ||
+      navigator.userAgent.indexOf('Googlebot') !== -1;
   var supported = ignoreCheck || (function() {
     // feature-detect APIs: limits to IE11+, SF9+
     if (!window.performance || !window.performance.now || !window.Set || !history) {
