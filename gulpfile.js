@@ -436,6 +436,7 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     .pipe(gulp.dest(DIST_STATIC_DIR));
 
   const prodStream = gulp.src([
+    'robots.txt',
     'images/*',
     'images/og/*',
   ], {base: './'})
