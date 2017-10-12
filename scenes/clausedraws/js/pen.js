@@ -32,6 +32,7 @@ app.Pen = function($elem, name, color) {
   this.spray = this.elem.find('#spray--' + name)[0];
   this.soundKey = 'selfie_color';
   this.color = color || name;
+  this.lastCoord = null;
 };
 app.Pen.prototype = Object.create(app.Tool.prototype);
 
@@ -43,10 +44,25 @@ app.Pen.prototype = Object.create(app.Tool.prototype);
  * @return {[type]}             [description]
  */
 app.Pen.prototype.draw = function(context, mouseCoords) {
-  context.fillStyle = this.color;
-  context.beginPath();
-  context.arc(mouseCoords.x, mouseCoords.y, 50, 0, 2 * Math.PI);
-  context.fill();
+  context.strokeStyle = this.color;
+
+  if (this.lastCoord) {
+    context.lineCap = "round";
+    context.lineWidth = 5;
+    context.beginPath();
+    context.moveTo(this.lastCoord.x, this.lastCoord.y);
+    context.lineTo(mouseCoords.x, mouseCoords.y);
+    context.stroke();
+
+    // TODO: add bezier smoothing
+  }
+
+  this.lastCoord = {x: mouseCoords.x, y: mouseCoords.y};
 };
+
+
+app.Pen.prototype.reset = function() {
+  this.lastCoord = null;
+}
 
 

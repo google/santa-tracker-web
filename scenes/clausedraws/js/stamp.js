@@ -50,8 +50,10 @@ app.Stamp.prototype.draw = function(context, mouseCoords) {
 
   var drawWidth = this.decoration.width * mouseCoords.scale;
   var drawHeight = this.decoration.height * mouseCoords.scale;
+  var offsetX = this.mouseOffset.x * mouseCoords.scale;
+  var offsetY = this.mouseOffset.y * mouseCoords.scale;
   context.drawImage(this.decoration,
-    mouseCoords.x - drawWidth / 2, mouseCoords.y - drawHeight / 2,
+    mouseCoords.x - offsetX, mouseCoords.y - offsetY,
     drawWidth, drawHeight);
   this.stamped = true;
 };
