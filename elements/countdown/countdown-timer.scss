@@ -68,23 +68,13 @@ $digitLineHeight: 53px;
     }
   }
 
-  h2 {
+  .bottom {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     text-align: center;
     margin: 0 !important;
-  }
-
-  h2 {
-    font-size: 12px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    color: #fff;
-    margin: 6px 0;
-    line-height: 12px;
-    text-transform: uppercase;
   }
 }
 

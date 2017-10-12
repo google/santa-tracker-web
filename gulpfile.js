@@ -331,7 +331,8 @@ gulp.task('compile-scenes', function() {
 });
 
 gulp.task('bundle', ['sass', 'compile-js'], async function() {
-  const primaryModuleName = 'elements/elements_en.html';
+  const primaryModuleName = 'elements/elements_en.html';   // index.html loads this import
+  const excludes = ['elements/i18n-msg.html'];  // never include in output
   const paths = await new Promise((resolve, reject) => {
     glob('scenes/*/*-scene{,_en}.html', (err, files) => err ? reject(err) : resolve(files));
   });
@@ -340,10 +341,12 @@ gulp.task('bundle', ['sass', 'compile-js'], async function() {
   // TODO(samthor): Better support for custom scenes (#1679).
   entrypoints.push('scenes/snowflake/snowflake-maker/turtle_en.html');
 
+  // find all module entry points (elements, scenes, + any shared deps of scenes)
   const b = new bundler.Bundler({
     strategy: bundler.generateEagerMergeStrategy(primaryModuleName),
     urlMapper: bundler.generateCountingSharedBundleUrlMapper('elements/shared'),
     stripComments: true,
+    excludes,
   });
   const manifest = await b.generateManifest(entrypoints);
   const result = await b.bundle(manifest);
@@ -354,8 +357,9 @@ gulp.task('bundle', ['sass', 'compile-js'], async function() {
   gutil.log('Found', gutil.colors.yellow(result.documents.size), 'modules,',
       gutil.colors.yellow(extra.length), 'generated');
 
+  // bundle, CSP, and do language fanout
   const limit = $.limiter(-2);
-  const stream = scripts.generateModules(result, [primaryModuleName])
+  const stream = scripts.generateModules(result, [primaryModuleName].concat(excludes))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(limit(scripts.crisper()))
     .on('data', (file) => {

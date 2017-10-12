@@ -70,14 +70,14 @@ Santa's Village.
       </div>
       <div id="header-content">
         <div id="ornament"></div>
-        <div id="count-down" class$="mode-[[mode]]">
+        <div id="countdown" class$="mode-[[mode]]">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
           <countdown-timer remaining-time="[[remainingTime]]" active="[[active]]"
               animate="{{!_isCastMode(mode)}}">
-            <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
-            <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
-            <h3><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h3>
-            <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
+            <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
           </countdown-timer>
         </div>
         <div class="castlogo" hidden$="[[!_isCastMode(mode)]]"></div>

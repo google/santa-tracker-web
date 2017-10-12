@@ -278,7 +278,7 @@ $toolbar-size: 64px;
         }
       }
 
-      #count-down {
+      #countdown {
         padding: 60px 0 30px 0;
 
         &.mode-cast {
@@ -297,6 +297,9 @@ $toolbar-size: 64px;
         margin: 6px 0;
         line-height: 12px;
         text-transform: uppercase;
+      }
+      countdown-timer h2 {
+        margin: 0;
       }
 
       h1 {

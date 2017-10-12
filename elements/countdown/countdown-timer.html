@@ -23,10 +23,10 @@ Displays a timer.
 Example
 
     <countdown-timer>
-      <h3>Days</h3>
-      <h3>Hours</h3>
-      <h3>Minutues</h3>
-      <h3>Seconds</h3>
+      <h3 slot="days">Days</h3>
+      <h3 slot="hours">Hours</h3>
+      <h3 slot="minutes">Minutues</h3>
+      <h3 slot="seconds">Seconds</h3>
     </countdown-timer>
 -->
 <dom-module id="countdown-timer">
@@ -43,18 +43,35 @@ Example
       }
     </style>
 
-    <div hidden>
-      <slot id="content"></slot>
-    </div>
-
     <div id="counter">
-      <template is="dom-repeat" items="{{titles}}">
-        <div class="counter-box" hidden$="{{_computeHide(index, displayDigits)}}">
-          <div class="holder active"></div>
-          <div class="holder prev"></div>
-          <h2>{{item}}</h2>
+      <div class="counter-box" hidden$="{{_computeHiddenDays(displayDigits)}}">
+        <div class="holder active"></div>
+        <div class="holder prev"></div>
+        <div class="bottom">
+          <slot name="days"></slot>
         </div>
-      </template>
+      </div>
+      <div class="counter-box">
+        <div class="holder active"></div>
+        <div class="holder prev"></div>
+        <div class="bottom">
+          <slot name="hours"></slot>
+        </div>
+      </div>
+      <div class="counter-box">
+        <div class="holder active"></div>
+        <div class="holder prev"></div>
+        <div class="bottom">
+          <slot name="minutes"></slot>
+        </div>
+      </div>
+      <div class="counter-box">
+        <div class="holder active"></div>
+        <div class="holder prev"></div>
+        <div class="bottom">
+          <slot name="seconds"></slot>
+        </div>
+      </div>
     </div>
 
   </template>
@@ -73,7 +90,7 @@ Example
          */
         animate: {
           type: Boolean,
-          value: true
+          value: true,
         },
 
         /**
@@ -82,7 +99,7 @@ Example
         active: {
           type: Boolean,
           value: false,
-          observer: '_activeChanged'
+          observer: '_activeChanged',
         },
 
         /**
@@ -90,17 +107,7 @@ Example
          */
         displayDigits: {
           type: Number,
-          value: 8
-        },
-
-        /**
-         * The DOM nodes containing countdown titles, such as Days, Hours,
-         * Minutes, Seconds etc.
-         */
-        titles: {
-          type: Array,
-          value: function() { return []; },
-          readOnly: true
+          value: 8,
         },
 
         /**
@@ -109,7 +116,7 @@ Example
         holders: {
           type: Array,
           value: function() { return []; },
-          readOnly: true
+          readOnly: true,
         },
 
         /**
@@ -117,7 +124,7 @@ Example
          */
         remainingTime: {
           type: Number,
-          observer: '_remainingTimeChanged'
+          observer: '_remainingTimeChanged',
         },
 
         /**
@@ -130,12 +137,9 @@ Example
       _tickInterval: 0,
 
       attached: function() {
-        this.updateLabels();
-
         Polymer.RenderStatus.afterNextRender(this, function() {
           // Needs to wait one rAF so titles has populated the template repeat.
-          this._setHolders(Array.prototype.slice.call(
-                          this.$.counter.querySelectorAll('.counter-box')));
+          this._setHolders(Array.prototype.slice.call(this.$.counter.children));
           this._activeChanged();
         });
       },
@@ -168,15 +172,9 @@ Example
 
         if (remainingTime <= 0) {
           window.clearInterval(this._tickInterval);
+          remainingTime = 0;
         }
         this._render(remainingTime);
-      },
-
-      updateLabels: function() {
-        var titles = this.getContentChildNodes().map(function(node) {
-          return node.textContent;
-        });
-        this._setTitles(titles);
       },
 
       /**
@@ -213,9 +211,8 @@ Example
         var mins = parts.mins;
         var seconds = parts.seconds;
 
-        var numbers = [padDigits(days), padDigits(hours), padDigits(mins),
-            padDigits(seconds)];
-        this.displayDigits = (days == 0) ? 6 : 8
+        var numbers = [padDigits(days), padDigits(hours), padDigits(mins), padDigits(seconds)];
+        this.displayDigits = (days <= 0) ? 6 : 8
 
         // Ensure holders exist. Solves inconsistent asyncs.
         if (this.holders.length) {
@@ -241,7 +238,7 @@ Example
         // TODO(samthor): Use santa-state to do this instead.
         this.fire('countdown-timer-tick', {
           currentTime: parts,
-          msg: msg
+          msg: msg,
         });
       },
 
@@ -274,7 +271,7 @@ Example
        * @param {string} val
        */
       setDigit: function(digit, oldVal, val) {
-        if (oldVal == val) {
+        if (oldVal === val) {
           return;
         }
         var digitTopFront = digit.querySelector('.digit-top.digit-front');
@@ -300,9 +297,9 @@ Example
         }, _TRANSITION_TIME * 2);
       },
 
-      _computeHide: function(i, displayDigits) {
-        return i == 0 && displayDigits < 8;
-      }
+      _computeHiddenDays: function(displayDigits) {
+        return displayDigits < 8;
+      },
 
     });
 
