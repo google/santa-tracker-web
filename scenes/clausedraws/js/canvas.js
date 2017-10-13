@@ -42,13 +42,14 @@ app.Canvas = function(game, $elem) {
   this.latestIndex = 0;
   // index of currently visible state, may be
   // different than latestIndex if undo was called
-  this.currentIndex = 0;
+  this.currentIndex = this.latestIndex;
   // scale of visible canvas to original
   this.canvasRatio = 1;
 
   this.container = $(this.displayCanvas).closest('.Canvas');
-  this.ctx = this.displayCanvas.getContext('2d');
+  this.displayCtx = this.displayCanvas.getContext('2d');
   this.game_ = game;
+  this.needSave = false;
   this.mouse = {
     down: false,
     x: 0,
@@ -57,6 +58,14 @@ app.Canvas = function(game, $elem) {
     prevY: 0,
     scale: 1
   };
+
+  console.log($elem.find('.Tool-hairclean'),
+      $elem.find('.Tool-hairdryer'));
+
+  $elem.find('button.undo').click(this.undo.bind(this));
+
+  $elem.find('button.redo').click(this.redo.bind(this));
+
 };
 
 
@@ -68,6 +77,7 @@ app.Canvas.prototype.start = function() {
   $(window).on('resize.clausedraws', this.onResize.bind(this));
 };
 
+
 /**
  * Resize handler
  */
@@ -78,20 +88,15 @@ app.Canvas.prototype.onResize = function() {
   this.displayCanvas.height = app.Constants.CANVAS_HEIGHT * this.canvasRatio;
   this.displayCanvas.width = app.Constants.CANVAS_WIDTH * this.canvasRatio;
 
-  // TODO: copy old canvas contents over
+  this.updateCanvas();
 }
 
-/**
- * Draws this canvas.
- */
-// app.Canvas.prototype.draw = function() {
-// };
 
 /**
  * Resets the canvas to original state.
  */
 app.Canvas.prototype.resetCanvas = function() {
-  this.ctx.clearRect(0, 0, this.displayCanvas.width, this.displayCanvas.height);
+  this.displayCtx.clearRect(0, 0, this.displayCanvas.width, this.displayCanvas.height);
 };
 
 
@@ -117,10 +122,16 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
 
   //TODO: check if inside canvas
   if (this.mouse.down && tools.selectedTool) {
-    // tools.selectedTool.draw(this.ctx, this.mouse);
+    // tools.selectedTool.draw(this.displayCtx, this.mouse);
     this.updateCanvas(tools.selectedTool, tools.selectedTool.draw);
+    this.needSave = true;
   } else if (!this.mouse.down && tools.selectedTool) {
     tools.selectedTool.reset();
+
+    if (this.needSave) {
+      this.save();
+      this.needSave = false;
+    }
   }
 };
 
@@ -131,15 +142,15 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
-  if (!actionFn) {
-    return;
+  var drawCanvas = this.backupCanvases[this.currentIndex];
+  if (actionFn && actionFnContext) {
+    // actionFn(canvas, mouse)
+    console.log('updating', this.currentIndex);
+    actionFn.call(actionFnContext, drawCanvas, this.mouse);
   }
 
-  // actionFn(canvas, mouse)
-  var drawCanvas = this.backupCanvases[this.latestIndex];
-  actionFn.call(actionFnContext, drawCanvas, this.mouse);
-  this.ctx.clearRect(0, 0, this.displayCanvas.width, this.displayCanvas.height);
-  this.ctx.drawImage(drawCanvas, 0, 0, this.displayCanvas.width,
+  this.clearCanvas();
+  this.displayCtx.drawImage(drawCanvas, 0, 0, this.displayCanvas.width,
       this.displayCanvas.height);
 };
 
@@ -149,6 +160,27 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.save = function() {
+  var nextIndex = (this.currentIndex + 1) % this.backupCanvases.length;
+  var nextCanvas = this.backupCanvases[nextIndex];
+  var nextCtx = nextCanvas.getContext('2d');
+  nextCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
+  nextCtx.drawImage(this.backupCanvases[this.currentIndex], 0, 0, nextCanvas.width,
+      nextCanvas.height);
+
+  // if (this.currentIndex != this.latestIndex) {
+  //   var cleared = false;
+  //   var clearIndex = (this.currentIndex + 1) % this.backupCanvases.length;
+  //   while (!cleared) {
+  //     this.clearCanvas(clearIndex);
+  //     if (clearIndex == this.latestIndex) {
+  //       cleared = true;
+  //     }
+  //     clearIndex = this.nextIndex(clearIndex);
+  //   }
+  // }
+
+  this.latestIndex = nextIndex;
+  this.currentIndex = this.latestIndex;
 };
 
 
@@ -157,6 +189,13 @@ app.Canvas.prototype.save = function() {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.undo = function() {
+  var previous = this.currentIndex > 0 ?
+      (this.currentIndex - 1) : this.backupCanvases.length - 1;
+  console.log('undo to', previous);
+  if (previous != this.latestIndex) {
+    this.currentIndex = previous;
+    this.updateCanvas();
+  }
 };
 
 
@@ -165,5 +204,43 @@ app.Canvas.prototype.undo = function() {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.redo = function() {
+  if (this.currentIndex != this.latestIndex) {
+    console.log('redo to', (this.currentIndex + 1) % this.backupCanvases.length);
+    this.currentIndex = (this.currentIndex + 1) % this.backupCanvases.length;
+    this.updateCanvas();
+  }
 };
+
+
+app.Canvas.prototype.prevIndex = function(index) {
+  return index > 0 ? (index - 1) : this.backupCanvases.length - 1;
+};
+
+
+app.Canvas.prototype.nextIndex = function(index) {
+  return (index + 1) % this.backupCanvases.length;
+};
+
+
+app.Canvas.prototype.clearCanvas = function(isBackup, index) {
+  if (isBackup) {
+    var canvas = this.backupCanvases[index];
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  } else {
+    this.displayCtx.clearRect(0, 0, this.displayCanvas.width,
+        this.displayCanvas.height);
+  }
+};
+
+
+app.Canvas.prototype.copyCanvas = function(fromIndex, toIndex) {
+  var toCanvas = toIndex ?
+      this.backupCanvases[toIndex] : this.displayCanvas;
+  var toCtx = toCanvas.getContext('2d');
+  toCtx.clearRect(0, 0, toCanvas.width, toCanvas.height);
+  toCtx.drawImage(this.backupCanvases[fromIndex], 0, 0, toCanvas.width,
+      toCanvas.height);
+}
+
 
