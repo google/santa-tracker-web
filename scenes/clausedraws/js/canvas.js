@@ -33,6 +33,8 @@ app.Canvas = function(game, $elem) {
 
   for (var i = 0; i < 5; i++) {
     var backup = $elem.find('#draw-backup' + i)[0];
+    backup.height = app.Constants.CANVAS_HEIGHT;
+    backup.width = app.Constants.CANVAS_WIDTH;
     this.backupCanvases.push(backup);
   }
 
@@ -104,17 +106,17 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   var rect = this.displayCanvas.getBoundingClientRect();
   var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
 
-  this.mouse.prevX = this.mouse.x;
-  this.mouse.prevY = this.mouse.y;
-
   this.mouse.x = canvasCoords.x;
   this.mouse.y = canvasCoords.y;
   this.mouse.down = canvasCoords.down;
   this.mouse.scale = canvasCoords.scale;
+  this.mouse.normX = canvasCoords.normX;
+  this.mouse.normY = canvasCoords.normY;
 
   //TODO: check if inside canvas
   if (this.mouse.down && tools.selectedTool) {
-    tools.selectedTool.draw(this.ctx, this.mouse);
+    // tools.selectedTool.draw(this.ctx, this.mouse);
+    this.updateCanvas(tools.selectedTool, tools.selectedTool.draw);
   } else if (!this.mouse.down && tools.selectedTool) {
     tools.selectedTool.reset();
   }
@@ -126,8 +128,17 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @param  {[type]} actionFn [description]
  * @return {[type]}          [description]
  */
-app.Canvas.updateCanvas = function(actionFn) {
+app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
+  if (!actionFn) {
+    return;
+  }
 
+  // actionFn(canvas, mouse)
+  var drawCanvas = this.backupCanvases[this.latestIndex];
+  actionFn.call(actionFnContext, drawCanvas, this.mouse);
+  this.ctx.clearRect(0, 0, this.displayCanvas.width, this.displayCanvas.height);
+  this.ctx.drawImage(drawCanvas, 0, 0, this.displayCanvas.width,
+      this.displayCanvas.height);
 };
 
 
@@ -135,7 +146,7 @@ app.Canvas.updateCanvas = function(actionFn) {
  * Save state and move to next backup
  * @return {[type]}          [description]
  */
-app.Canvas.pushState = function() {
+app.Canvas.prototype.save = function() {
 };
 
 
@@ -143,7 +154,7 @@ app.Canvas.pushState = function() {
  * Undo - go back to prev state
  * @return {[type]}          [description]
  */
-app.Canvas.undo = function() {
+app.Canvas.prototype.undo = function() {
 };
 
 
@@ -151,6 +162,6 @@ app.Canvas.undo = function() {
  * Redo - go to next state
  * @return {[type]}          [description]
  */
-app.Canvas.redo = function() {
+app.Canvas.prototype.redo = function() {
 };
 

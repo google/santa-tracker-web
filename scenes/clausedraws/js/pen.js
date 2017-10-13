@@ -43,7 +43,11 @@ app.Pen.prototype = Object.create(app.Tool.prototype);
  * @param  {[type]} scale       [description]
  * @return {[type]}             [description]
  */
-app.Pen.prototype.draw = function(context, mouseCoords) {
+app.Pen.prototype.draw = function(canvas, mouseCoords) {
+  var context = canvas.getContext('2d');
+  var drawX = mouseCoords.normX * canvas.width;
+  var drawY = mouseCoords.normY * canvas.height;
+
   context.strokeStyle = this.color;
 
   if (this.lastCoord) {
@@ -51,13 +55,13 @@ app.Pen.prototype.draw = function(context, mouseCoords) {
     context.lineWidth = 5;
     context.beginPath();
     context.moveTo(this.lastCoord.x, this.lastCoord.y);
-    context.lineTo(mouseCoords.x, mouseCoords.y);
+    context.lineTo(drawX, drawY);
     context.stroke();
 
     // TODO: add bezier smoothing
   }
 
-  this.lastCoord = {x: mouseCoords.x, y: mouseCoords.y};
+  this.lastCoord = {x: drawX, y: drawY};
 };
 
 

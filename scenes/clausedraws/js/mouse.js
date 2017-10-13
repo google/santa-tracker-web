@@ -124,11 +124,13 @@ app.Mouse.prototype.coordinates = function() {
  * @return {app.Mouse.CoordsType} transformed coordinates
  **/
 app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
-  // TODO(samthor): We're transforming away from the clientRect, which includes the santaApp
-  // header. But in tools and other places, we re-add it.
+  var relX = x - rect.left;
+  var relY = y - rect.top;
   return {
-    x: x - rect.left,
-    y: y - rect.top,
+    x: relX,
+    y: relY,
+    normX: relX / rect.width,
+    normY: relY / rect.height,
     down: this.down,
     scale: this.scaleFactor
   };

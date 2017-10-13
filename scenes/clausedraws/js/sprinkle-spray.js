@@ -50,13 +50,16 @@ app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
  * @param  {[type]} scale       [description]
  * @return {[type]}             [description]
  */
-app.SprinkleSpray.prototype.draw = function(context, mouseCoords) {
+app.SprinkleSpray.prototype.draw = function(canvas, mouseCoords) {
+  var context = canvas.getContext('2d');
+  var drawX = mouseCoords.normX * canvas.width;
+  var drawY = mouseCoords.normY * canvas.height;
   var drawWidth = this.width * mouseCoords.scale;
   var drawHeight = this.height * mouseCoords.scale;
   var offsetX = this.sprinkleOffset.x * mouseCoords.scale;
   var offsetY = this.sprinkleOffset.y * mouseCoords.scale;
   context.save();
-  context.translate(mouseCoords.x + offsetX, mouseCoords.y + offsetY);
+  context.translate(drawX + offsetX, drawY + offsetY);
   context.rotate(Math.random() * 2 * Math.PI);
   context.drawImage(this.sprinkles[this.sprinkleIndex], -offsetX, -offsetY, drawWidth, drawHeight);
   context.restore();

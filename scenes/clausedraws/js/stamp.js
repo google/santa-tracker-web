@@ -36,27 +36,25 @@ app.Stamp = function($elem, name, offset, decoration) {
 };
 app.Stamp.prototype = Object.create(app.Tool.prototype);
 
-/**
- * [draw description]
- * @param  {[type]} context     [description]
- * @param  {[type]} mouseCoords [description]
- * @param  {[type]} scale       [description]
- * @return {[type]}             [description]
- */
-app.Stamp.prototype.draw = function(context, mouseCoords) {
+app.Stamp.prototype.draw = function(canvas, mouseCoords) {
   if (this.stamped) {
     return;
   }
 
+  var context = canvas.getContext('2d');
+
   var drawWidth = this.decoration.width * mouseCoords.scale;
   var drawHeight = this.decoration.height * mouseCoords.scale;
+  var drawX = mouseCoords.normX * canvas.width;
+  var drawY = mouseCoords.normY * canvas.height;
   var offsetX = this.mouseOffset.x * mouseCoords.scale;
   var offsetY = this.mouseOffset.y * mouseCoords.scale;
   context.drawImage(this.decoration,
-    mouseCoords.x - offsetX, mouseCoords.y - offsetY,
+    drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);
   this.stamped = true;
 };
+
 
 app.Stamp.prototype.startSound = function() {
   app.utils.triggerOnce(this.soundKey);
