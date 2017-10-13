@@ -52,7 +52,7 @@ app.Pen.prototype.draw = function(canvas, mouseCoords) {
 
   if (this.lastCoord) {
     context.lineCap = "round";
-    context.lineWidth = 5;
+    context.lineWidth = 5 / mouseCoords.scale;
     context.beginPath();
     context.moveTo(this.lastCoord.x, this.lastCoord.y);
     context.lineTo(drawX, drawY);

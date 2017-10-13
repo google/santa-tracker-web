@@ -84,8 +84,8 @@ app.Tool.prototype.deselect = function() {
  */
 app.Tool.prototype.move = function(mouseCoords) {
   this.el.css({
-    left: mouseCoords.x - (this.mouseOffset.x * mouseCoords.scale),
-    top: mouseCoords.y - (this.mouseOffset.y * mouseCoords.scale) + window.santaApp.headerSize,
+    left: mouseCoords.x - (this.mouseOffset.x),
+    top: mouseCoords.y - (this.mouseOffset.y) + window.santaApp.headerSize,
   });
 };
 

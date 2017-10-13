@@ -43,12 +43,12 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords) {
 
   var context = canvas.getContext('2d');
 
-  var drawWidth = this.decoration.width * mouseCoords.scale;
-  var drawHeight = this.decoration.height * mouseCoords.scale;
+  var drawWidth = this.decoration.width / mouseCoords.scale;
+  var drawHeight = this.decoration.height / mouseCoords.scale;
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
-  var offsetX = this.mouseOffset.x * mouseCoords.scale;
-  var offsetY = this.mouseOffset.y * mouseCoords.scale;
+  var offsetX = this.mouseOffset.x / mouseCoords.scale;
+  var offsetY = this.mouseOffset.y / mouseCoords.scale;
   context.drawImage(this.decoration,
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);

@@ -43,6 +43,8 @@ app.Canvas = function(game, $elem) {
   // index of currently visible state, may be
   // different than latestIndex if undo was called
   this.currentIndex = 0;
+  // scale of visible canvas to original
+  this.canvasRatio = 1;
 
   this.container = $(this.displayCanvas).closest('.Canvas');
   this.ctx = this.displayCanvas.getContext('2d');
@@ -109,7 +111,7 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   this.mouse.x = canvasCoords.x;
   this.mouse.y = canvasCoords.y;
   this.mouse.down = canvasCoords.down;
-  this.mouse.scale = canvasCoords.scale;
+  this.mouse.scale = this.canvasRatio;
   this.mouse.normX = canvasCoords.normX;
   this.mouse.normY = canvasCoords.normY;
 

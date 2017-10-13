@@ -34,11 +34,8 @@ app.Mouse = function($elem) {
   this.subscribers = [];
 
   $(window).on('resize.clausedraws orientationchange.clausedraws', function() {
-    this.calculateScale_();
     this.update();
   }.bind(this));
-
-  this.calculateScale_();
 
   $elem.on('mousemove', function(e) {
     this.x = e.clientX;
@@ -67,18 +64,6 @@ app.Mouse = function($elem) {
       e.preventDefault();
     }
   }.bind(this));
-};
-
-
-/**
- * Calculate scale based on the window's width and height. Called on resize.
- * @private
- */
-app.Mouse.prototype.calculateScale_ = function() {
-  this.rect = this.elem.getBoundingClientRect();
-  this.scaleFactor = 1;
-
-  // TODO: move scalefactor to canvas?
 };
 
 
@@ -131,14 +116,13 @@ app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
     y: relY,
     normX: relX / rect.width,
     normY: relY / rect.height,
-    down: this.down,
-    scale: this.scaleFactor
+    down: this.down
   };
 };
 
 
 /**
- * @typedef {{x: number, y: number, down: boolean, scale: number}}
+ * @typedef {{x: number, y: number, down: boolean}}
  */
 app.Mouse.CoordsType;
 
