@@ -1,0 +1,10 @@
+{
+  "name": "legend-of-wilderness",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.87.1",
+    "three.ar.js": "google-ar/three.ar.js"
+  }
+}
