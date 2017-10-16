@@ -43,6 +43,16 @@ specific language governing permissions and limitations under the License.
         });
       };
 
+      function gemForEvent(event) {
+        var candidates = [event.target, event.composedPath()[0]];
+        for (var i = 0; i < candidates.length; ++i) {
+          if (candidates[i] instanceof window.Match3GemElement) {
+            return candidates[i];
+          }
+        }
+        return null;
+      }
+
       function Cell(position, gem) {
         this.position = position;
         this.gem = gem;
@@ -469,7 +479,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onUpKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'up');
         },
 
@@ -477,7 +487,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onDownKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'down');
         },
 
@@ -485,7 +495,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onLeftKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'left');
         },
 
@@ -493,7 +503,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onRightKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'right');
         },
 
@@ -523,7 +533,7 @@ specific language governing permissions and limitations under the License.
           }
 
           this.pendingMove_ = false;
-          this.moveGem_(event.target, dir);
+          this.moveGem_(gemForEvent(event), dir);
         },
 
         /**
