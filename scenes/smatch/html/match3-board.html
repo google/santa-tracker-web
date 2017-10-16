@@ -44,11 +44,9 @@ specific language governing permissions and limitations under the License.
       };
 
       function gemForEvent(event) {
-        var candidates = [event.target, event.composedPath()[0]];
-        for (var i = 0; i < candidates.length; ++i) {
-          if (candidates[i] instanceof window.Match3GemElement) {
-            return candidates[i];
-          }
+        const candidate = event.composedPath()[0];
+        if (candidate instanceof window.Match3GemElement) {
+          return candidate;
         }
         return null;
       }
