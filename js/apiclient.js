@@ -195,7 +195,6 @@ SantaService.prototype.setLang = function(lang) {
   this.lang_ = lang;
 };
 
-
 /**
  * @param {function(SantaState)} callback
  * @export
@@ -350,6 +349,7 @@ SantaService.prototype.calculateDistanceTravelled_ = function(now, prev, next) {
 
 /**
  * List of destinations, sorted chronologically (latest destinations last).
+ *
  * @return {Array<!SantaLocation>} a list of destinations, or null if the
  * service isn't ready.
  * @export
@@ -360,6 +360,7 @@ SantaService.prototype.getDestinations = function() {
 
 /**
  * List of cards sorted reverse chronologically (lastest cards first).
+ *
  * @return {Array<!StreamCard>} a list of cards, or null if the
  * service isn't ready.
  * @export
@@ -428,6 +429,7 @@ SantaService.prototype.findDestination_ = function(timestamp) {
 
 /**
  * Appends newly fetched destinations to the current destination list.
+ *
  * @param {number} index The index that newDestinations should be spliced into
  * the destinations list.
  * @param {!Array<!SantaLocation>} newDestinations
@@ -489,6 +491,7 @@ SantaService.prototype.appendDestinations_ = function(index, newDestinations) {
 
 /**
  * Appends newly fetched cards to the current card stream.
+ *
  * @param {number} index The index that newCards should be spliced into the
  * stream list.
  * @param {!Array<!StreamCard>} newCards
@@ -727,6 +730,7 @@ SantaService.prototype.updateTimeline_ = function() {
 
 /**
  * Send the kill event, if not already killed.
+ *
  * @private
  */
 SantaService.prototype.kill_ = function() {
@@ -738,6 +742,7 @@ SantaService.prototype.kill_ = function() {
 
 /**
  * Send the offline event, if not alreay offline.
+ *
  * @private
  */
 SantaService.prototype.disconnect_ = function() {
@@ -749,6 +754,7 @@ SantaService.prototype.disconnect_ = function() {
 
 /**
  * Send the online event, if not already online.
+ *
  * @private
  */
 SantaService.prototype.reconnect_ = function() {
@@ -759,8 +765,8 @@ SantaService.prototype.reconnect_ = function() {
 };
 
 /**
- * Register to reload the page in a while, after the user has stopped clicking
- * on it.
+ * Register to reload the page in a while, after the user has stopped clicking on it.
+ *
  * @private
  */
 SantaService.prototype.scheduleReload_ = function() {
@@ -810,7 +816,7 @@ SantaService.prototype.isOffline = function() {
 
 /**
  * Client-specific kill switches.
- * For example, the website has a flag to disable the Google earth button.
+ *
  * @return {!Object}
  * @export
  */

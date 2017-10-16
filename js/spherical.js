@@ -22,15 +22,28 @@
 goog.provide('Spherical');
 
 /**
- * Earth's radius in metres.
+ * Mod helper.
+ *
+ * @param {number} x
+ * @param {number} m
+ * @return {number}
+ */
+function mod(x, m) {
+  return ((x % m) + m) % m;
+}
+
+/**
+ * Earth's radius in meters.
+ *
  * @const
  * @type {number}
  */
-var EARTH_RADIUS = 6378137;
+const EARTH_RADIUS = 6378137;
 
 /**
- * Returns the heading from one LatLng to another LatLng. Headings are
- * expressed in degrees clockwise from North within the range [-180,180).
+ * Returns the heading from one LatLng to another LatLng. Headings are expressed in degrees
+ * clockwise from North within the range [-180,180).
+ *
  * @param {LatLng} from
  * @param {LatLng} to
  * @return {number} The heading in degrees clockwise from north.
@@ -51,17 +64,14 @@ Spherical.computeHeading = function(from, to) {
 };
 
 /**
- * Wraps the given value into the inclusive-exclusive interval between
- * min and max.
+ * Wraps the given value into the inclusive-exclusive interval between min and max.
+ *
  * @param {number} value The value to wrap.
  * @param {number} min The minimum.
  * @param {number} max The maximum.
  * @return {number} The result.
  */
 Spherical.wrap_ = function(value, min, max) {
-  function mod(x, m) {
-    return ((x % m) + m) % m;
-  }
   return mod(value - min, max - min) + min;
 };
 
@@ -91,6 +101,7 @@ Spherical.radiansToDegrees = function(rad) {
 /**
  * Returns the LatLng which lies the given fraction of the way between the
  * origin LatLng and the destination LatLng.
+ *
  * @param {LatLng} from The LatLng from which to start.
  * @param {LatLng} to The LatLng toward which to travel.
  * @param {number} fraction A fraction of the distance to travel.
@@ -134,9 +145,10 @@ Spherical.interpolate = function(from, to, fraction) {
 
 /**
  * Returns the angle between two LatLngs.
+ *
  * @param {LatLng} from
  * @param {LatLng} to
- * @return {number} Angle between the two locations.
+ * @return {number} Angle between the two locations, in degrees.
  * @export
  */
 Spherical.computeAngleBetween = function(from, to) {
@@ -154,13 +166,13 @@ Spherical.computeAngleBetween = function(from, to) {
 
 /**
  * Returns the distance between two LatLngs.
+ *
  * @param {LatLng} from
  * @param {LatLng} to
- * @param {number=} opt_radius The radius to use, or Earth's estimated radius.
+ * @param {number=} radius The radius to use (in meters), or Earth's estimated radius.
  * @return {number} Distance between the two LatLngs.
  * @export
  */
-Spherical.computeDistanceBetween = function(from, to, opt_radius) {
-  const radius = opt_radius || EARTH_RADIUS;
+Spherical.computeDistanceBetween = function(from, to, radius = EARTH_RADIUS) {
   return Spherical.computeAngleBetween(from, to) * radius;
 };

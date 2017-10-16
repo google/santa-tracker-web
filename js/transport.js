@@ -16,6 +16,7 @@
 
 /**
  * Performs a cross-domain AJAX request to the Santa API.
+ *
  * @param {string} url
  * @param {!Object} data
  * @param {function(!Object)} done
