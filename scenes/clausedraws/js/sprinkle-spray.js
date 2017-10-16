@@ -65,5 +65,6 @@ app.SprinkleSpray.prototype.draw = function(canvas, mouseCoords) {
   context.restore();
 
   this.sprinkleIndex = (this.sprinkleIndex + 1) % this.sprinkles.length;
+  return true;
 };
 

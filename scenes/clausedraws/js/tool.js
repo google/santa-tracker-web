@@ -105,7 +105,7 @@ app.Tool.prototype.reset = function() {
  * @return {[type]}             [description]
  */
 app.Tool.prototype.draw = function(context, mouseCoords) {
-  return null;
+  return false;
 }
 
 /**

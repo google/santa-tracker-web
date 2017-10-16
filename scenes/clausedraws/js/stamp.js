@@ -38,7 +38,7 @@ app.Stamp.prototype = Object.create(app.Tool.prototype);
 
 app.Stamp.prototype.draw = function(canvas, mouseCoords) {
   if (this.stamped) {
-    return;
+    return false;
   }
 
   var context = canvas.getContext('2d');

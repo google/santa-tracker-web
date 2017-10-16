@@ -62,6 +62,7 @@ app.Pen.prototype.draw = function(canvas, mouseCoords) {
   }
 
   this.lastCoord = {x: drawX, y: drawY};
+  return true;
 };
 
 

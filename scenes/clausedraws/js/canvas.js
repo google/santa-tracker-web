@@ -61,6 +61,7 @@ app.Canvas = function(game, $elem) {
     prevY: 0,
     scale: 1
   };
+  this.undoing = false;
 
   console.log($elem.find('.Tool-hairclean'),
       $elem.find('.Tool-hairdryer'));
@@ -122,13 +123,12 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   this.mouse.scale = this.canvasRatio;
   this.mouse.normX = canvasCoords.normX;
   this.mouse.normY = canvasCoords.normY;
+  var insideCanvas = this.mouse.normX >= 0 && this.mouse.normX <= 1 &&
+    this.mouse.normX >= 0 && this.mouse.normX <= 1;
 
-  //TODO: check if inside canvas
-  if (this.mouse.down && tools.selectedTool) {
-    // tools.selectedTool.draw(this.displayCtx, this.mouse);
+  if (insideCanvas && this.mouse.down && tools.selectedTool) {
     this.updateCanvas(tools.selectedTool, tools.selectedTool.draw);
-    this.needSave = true;
-  } else if (!this.mouse.down && tools.selectedTool) {
+  } else if ((!insideCanvas || !this.mouse.down) && tools.selectedTool) {
     tools.selectedTool.reset();
 
     if (this.needSave) {
@@ -140,16 +140,22 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
 
 
 /**
- * Perform actions on canvas
+ * Perform actions on canvas. If no action function,
+ * just recopy latest updates to display canvas
  * @param  {[type]} actionFn [description]
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
   var drawCanvas = this.backupCanvases[this.currentIndex].canvas;
+
+  // note: actionFn(canvas, mouse)
   if (actionFn && actionFnContext) {
-    // actionFn(canvas, mouse)
     console.log('updating', this.currentIndex);
-    actionFn.call(actionFnContext, drawCanvas, this.mouse);
+    var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse);
+    console.log('didDraw', didDraw);
+    if (didDraw) {
+      this.needSave = true;
+    }
   }
 
   this.clearCanvas();
@@ -184,6 +190,7 @@ app.Canvas.prototype.save = function() {
     }
   }
 
+  this.undoing = false;
   this.latestIndex = nextIndex;
   this.currentIndex = this.latestIndex;
 };
@@ -195,6 +202,12 @@ app.Canvas.prototype.save = function() {
  */
 app.Canvas.prototype.undo = function() {
   var previous = this.prevIndex(this.currentIndex);
+
+  if (!this.undoing) {
+    previous = this.prevIndex(previous);
+    this.undoing = true;
+  }
+
   if (previous != this.latestIndex && !this.backupCanvases[previous].empty) {
     console.log('undo to', previous, 'latest', this.latestIndex);
     this.currentIndex = previous;
