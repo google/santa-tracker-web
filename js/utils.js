@@ -152,7 +152,7 @@ function getCachedScenes() {
     .then((requests) => {
       const urls = requests.map((r) => r.url);
       const matchesRe = urls.map((url) => url.match(/\/scenes\/(\w+)\//));
-      const matches = matches.filter((m) => m).map((m) => m[1]);
+      const matches = matchesRe.filter((m) => m).map((m) => m[1]);
       return Array.from(new Set(matches));
     })
     .catch((error) => {
