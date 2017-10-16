@@ -53,6 +53,8 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords) {
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);
   this.stamped = true;
+
+  return true;
 };
 
 

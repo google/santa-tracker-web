@@ -32,7 +32,9 @@ app.Pen = function($elem, name, color) {
   this.spray = this.elem.find('#spray--' + name)[0];
   this.soundKey = 'selfie_color';
   this.color = color || name;
-  this.lastCoord = null;
+  // this.lastCoord = null;
+  this.points = [];
+  this.dpr = 1;
 };
 app.Pen.prototype = Object.create(app.Tool.prototype);
 
@@ -48,26 +50,46 @@ app.Pen.prototype.draw = function(canvas, mouseCoords) {
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
 
-  context.strokeStyle = this.color;
+  this.points.push({
+      x: drawX,
+      y: drawY
+    });
 
-  if (this.lastCoord) {
-    context.lineCap = "round";
-    context.lineWidth = 5 / mouseCoords.scale;
+  if (this.points.length > 1) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.lineJoin = 'round';
+    context.lineCap = 'round';
+    context.lineWidth = 5;
+    context.strokeStyle = this.color;
+    var p1 = this.points[0];
+    var p2 = this.points[1];
     context.beginPath();
-    context.moveTo(this.lastCoord.x, this.lastCoord.y);
-    context.lineTo(drawX, drawY);
+    context.moveTo(p1.x * this.dpr, p1.y * this.dpr);
+
+    for (var i = 0; i < this.points.length - 1; i++) {
+      p1 = this.points[i];
+      p2 = this.points[i + 1];
+      var midpoint = {
+        x: p1.x + (p2.x - p1.x) / 2,
+        y: p1.y + (p2.y - p1.y) / 2
+      };
+
+      context.quadraticCurveTo(
+        p1.x * this.dpr,
+        p1.y * this.dpr,
+        midpoint.x * this.dpr,
+        midpoint.y * this.dpr
+      );
+    }
+
     context.stroke();
-
-    // TODO: add bezier smoothing
   }
-
-  this.lastCoord = {x: drawX, y: drawY};
   return true;
 };
 
 
 app.Pen.prototype.reset = function() {
-  this.lastCoord = null;
+  this.points = [];
 }
 
 

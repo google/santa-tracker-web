@@ -100,7 +100,23 @@ app.Canvas.prototype.onResize = function() {
  * Resets the canvas to original state.
  */
 app.Canvas.prototype.resetCanvas = function() {
-  this.displayCtx.clearRect(0, 0, this.displayCanvas.width, this.displayCanvas.height);
+  this.clearCanvas();
+  this.backupCanvases.forEach(function(canvas, index) {
+    this.clearCanvas(index, true);
+  }, this);
+
+  this.latestIndex = 0;
+  this.currentIndex = 0;
+  this.needSave = false;
+  this.mouse = {
+    down: false,
+    x: 0,
+    y: 0,
+    prevX: 0,
+    prevY: 0,
+    scale: 1
+  };
+  this.undoing = false;
 };
 
 
@@ -246,7 +262,7 @@ app.Canvas.prototype.clearCanvas = function(index, isBackup) {
   if (isBackup) {
     var backup = this.backupCanvases[index];
     var ctx = backup.canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, backup.canvas.width, backup.canvas.height);
     backup.empty = true;
   } else {
     this.displayCtx.clearRect(0, 0, this.displayCanvas.width,

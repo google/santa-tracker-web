@@ -73,7 +73,6 @@ app.Game.prototype.start = function() {
  */
 app.Game.prototype.resetCanvas_ = function() {
   this.canvas.resetCanvas();
-  this.updateUrlState_();
 };
 
 
