@@ -878,7 +878,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       window.addEventListener('scroll', this._onScroll, {passive: true});
     },
 
-    detatched: function() {
+    detached: function() {
       window.santaService.removeListener('sync', this._santaSync);
       window.santaService.removeListener('stream_changed', this._streamChanged);
       window.removeEventListener('scroll', this._onScroll, {passive: true});
