@@ -179,8 +179,6 @@ ga('set', 'transport', 'beacon');
 <script>
 (function() {
 
-window.santaApp = document.querySelector('santa-app');
-
 function lazyLoadWCPolyfillsIfNecessary() {
   var onload = function() {
     // If the browser supports native HTML Imports, manually fire the WCR event
@@ -192,9 +190,9 @@ function lazyLoadWCPolyfillsIfNecessary() {
   };
 
   var webComponentsSupported =
-    'registerElement' in document
-    && 'import' in document.createElement('link')
-    && 'content' in document.createElement('template');
+      'registerElement' in document
+      && 'import' in document.createElement('link')
+      && 'content' in document.createElement('template');
   if (!webComponentsSupported) {
     var script = document.createElement('script');
     var baseUrl = document.body.getAttribute('data-static');

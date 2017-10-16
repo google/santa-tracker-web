@@ -35,14 +35,12 @@ ga('set', 'transport', 'beacon');
 
 <santa-app id="santaApp" mode="embed"></santa-app>
 
-<div id="unresolved_placeholder"></div>
-
 <script>
 (function() {
 
 window.addEventListener('load', function() {
   // initial route is always /embed.html#route
-  santaApp.route = window.location.hash.substr(1);
+  window.santaApp.route = window.location.hash.substr(1);
 });
 
 })();
