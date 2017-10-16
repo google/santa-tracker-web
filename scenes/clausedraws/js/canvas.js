@@ -35,7 +35,10 @@ app.Canvas = function(game, $elem) {
     var backup = $elem.find('#draw-backup' + i)[0];
     backup.height = app.Constants.CANVAS_HEIGHT;
     backup.width = app.Constants.CANVAS_WIDTH;
-    this.backupCanvases.push(backup);
+    this.backupCanvases.push({
+        canvas: backup,
+        empty: true
+      });
   }
 
   // index of latest backup, increments with each save
@@ -142,7 +145,7 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
-  var drawCanvas = this.backupCanvases[this.currentIndex];
+  var drawCanvas = this.backupCanvases[this.currentIndex].canvas;
   if (actionFn && actionFnContext) {
     // actionFn(canvas, mouse)
     console.log('updating', this.currentIndex);
@@ -160,24 +163,26 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.save = function() {
-  var nextIndex = (this.currentIndex + 1) % this.backupCanvases.length;
-  var nextCanvas = this.backupCanvases[nextIndex];
+  var backup = this.backupCanvases[this.currentIndex];
+  var nextIndex = this.nextIndex(this.currentIndex);
+  var nextCanvas = this.backupCanvases[nextIndex].canvas;
   var nextCtx = nextCanvas.getContext('2d');
   nextCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
-  nextCtx.drawImage(this.backupCanvases[this.currentIndex], 0, 0, nextCanvas.width,
+  nextCtx.drawImage(backup.canvas, 0, 0, nextCanvas.width,
       nextCanvas.height);
+  backup.empty = false;
 
-  // if (this.currentIndex != this.latestIndex) {
-  //   var cleared = false;
-  //   var clearIndex = (this.currentIndex + 1) % this.backupCanvases.length;
-  //   while (!cleared) {
-  //     this.clearCanvas(clearIndex);
-  //     if (clearIndex == this.latestIndex) {
-  //       cleared = true;
-  //     }
-  //     clearIndex = this.nextIndex(clearIndex);
-  //   }
-  // }
+  if (this.currentIndex != this.latestIndex) {
+    var cleared = false;
+    var clearIndex = this.nextIndex(this.currentIndex);
+    while (!cleared) {
+      this.clearCanvas(clearIndex, true);
+      if (clearIndex == this.latestIndex) {
+        cleared = true;
+      }
+      clearIndex = this.nextIndex(clearIndex);
+    }
+  }
 
   this.latestIndex = nextIndex;
   this.currentIndex = this.latestIndex;
@@ -189,10 +194,9 @@ app.Canvas.prototype.save = function() {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.undo = function() {
-  var previous = this.currentIndex > 0 ?
-      (this.currentIndex - 1) : this.backupCanvases.length - 1;
-  console.log('undo to', previous);
-  if (previous != this.latestIndex) {
+  var previous = this.prevIndex(this.currentIndex);
+  if (previous != this.latestIndex && !this.backupCanvases[previous].empty) {
+    console.log('undo to', previous, 'latest', this.latestIndex);
     this.currentIndex = previous;
     this.updateCanvas();
   }
@@ -204,9 +208,12 @@ app.Canvas.prototype.undo = function() {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.redo = function() {
-  if (this.currentIndex != this.latestIndex) {
-    console.log('redo to', (this.currentIndex + 1) % this.backupCanvases.length);
-    this.currentIndex = (this.currentIndex + 1) % this.backupCanvases.length;
+  var next = this.nextIndex(this.currentIndex);
+  if (this.currentIndex != this.latestIndex &&
+      !this.backupCanvases[next].empty) {
+    console.log('redo to', this.nextIndex(this.currentIndex),
+      'latest', this.latestIndex);
+    this.currentIndex = next;
     this.updateCanvas();
   }
 };
@@ -222,11 +229,12 @@ app.Canvas.prototype.nextIndex = function(index) {
 };
 
 
-app.Canvas.prototype.clearCanvas = function(isBackup, index) {
+app.Canvas.prototype.clearCanvas = function(index, isBackup) {
   if (isBackup) {
-    var canvas = this.backupCanvases[index];
-    var ctx = canvas.getContext('2d');
+    var backup = this.backupCanvases[index];
+    var ctx = backup.canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    backup.empty = true;
   } else {
     this.displayCtx.clearRect(0, 0, this.displayCanvas.width,
         this.displayCanvas.height);
@@ -236,10 +244,10 @@ app.Canvas.prototype.clearCanvas = function(isBackup, index) {
 
 app.Canvas.prototype.copyCanvas = function(fromIndex, toIndex) {
   var toCanvas = toIndex ?
-      this.backupCanvases[toIndex] : this.displayCanvas;
+      this.backupCanvases[toIndex].canvas : this.displayCanvas;
   var toCtx = toCanvas.getContext('2d');
   toCtx.clearRect(0, 0, toCanvas.width, toCanvas.height);
-  toCtx.drawImage(this.backupCanvases[fromIndex], 0, 0, toCanvas.width,
+  toCtx.drawImage(this.backupCanvases[fromIndex].canvas, 0, 0, toCanvas.width,
       toCanvas.height);
 }
 
