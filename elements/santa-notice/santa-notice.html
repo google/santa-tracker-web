@@ -73,23 +73,18 @@ specific language governing permissions and limitations under the License.
   <div id="holder" hidden$="[[_hidden]]">
     <p><i18n-msg msgid="notice_cookies">PLACEHOLDER_i18n</i18n-msg></p>
     <div class="buttons">
-      <button class="button" on-click="_close" tabindex="1"><i18n-msg msgid="okay">PLACEHOLDER_i18n</i18n-msg></button>
-      <a class="button" href="https://www.google.com/intl/en/policies/technologies/cookies/" target="_blank" tabindex="1"><i18n-msg msgid="notice_cookies_details">PLACEHOLDER_i18n</i18n-msg></a>
+      <button class="button" on-click="_close"><i18n-msg msgid="okay">PLACEHOLDER_i18n</i18n-msg></button>
+      <a class="button" href="https://www.google.com/intl/en/policies/technologies/cookies/" target="_blank"><i18n-msg msgid="notice_cookies_details">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
   </div>
 </template>
 <script>
-(function() {
-  var KEY = 'cookie-ok';
+window.santaService.addListener('sync', function cb(loc) {
+  window.santaService.removeListener('sync', cb);
 
-  function isEU(loc) {
-    if (!loc) {
-      return true;  // no data, assume EU :(
-    } else if (loc.lng > 39.869 || loc.lng < -31.266 || loc.lat > 81.008 || loc.lat < 27.636) {
-      return false;  // not in the EU
-    } else {
-      return true;
-    }
+  var KEY = 'cookie-ok';
+  if (!window.santaService.getUserInEurope() || window.localStorage.getItem(KEY)) {
+    return;  // never declare Polymer element
   }
 
   Polymer({
@@ -98,29 +93,15 @@ specific language governing permissions and limitations under the License.
     properties: {
       _hidden: {
         type: Boolean,
-        value: true,
+        value: false,
       },
-    },
-
-    created: function() {
-      if (window.localStorage.getItem(KEY)) {
-        return;  // great, accepted already
-      }
-
-      var fn = function() {
-        if (isEU(window.santaService.getUserLocation())) {
-          this._hidden = false;
-        }
-        window.santaService.removeListener('sync', fn);
-      }.bind(this);
-      window.santaService.addListener('sync', fn);
     },
 
     _close: function() {
       window.localStorage.setItem(KEY, 'yes');
       this._hidden = true;
     },
-  });
-}());
+  }); 
+});
 </script>
 </dom-module>

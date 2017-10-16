@@ -386,6 +386,18 @@ SantaService.prototype.getUserLocation = function() {
 };
 
 /**
+ * @return {boolean} whether we're likely inside the EU
+ * @export
+ */
+SantaService.prototype.getUserInEurope = function() {
+  const loc = this.getUserLocation();
+  if (!loc) {
+    return true;  // can't be too sure
+  }
+  return !(loc.lng > 39.869 || loc.lng < -31.266 || loc.lat > 81.008 || loc.lat < 27.636);
+};
+
+/**
  * @return {string} the user's stop, or the empty string
  * @export
  */
