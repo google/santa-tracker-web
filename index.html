@@ -73,7 +73,7 @@ ga('set', 'transport', 'beacon');
       navigator.userAgent.indexOf('Googlebot') !== -1;
   var supported = ignoreCheck || (function() {
     // feature-detect APIs: limits to IE11+, SF9+
-    if (!window.performance || !window.performance.now || !window.Set || !history) {
+    if (!window.performance || !window.performance.now || !window.WeakMap || !window.history) {
       return false;
     }
     // no older Android browser
@@ -95,8 +95,7 @@ ga('set', 'transport', 'beacon');
       window.location = 'upgrade.html' + (window.location.query || '');
     }
     window.ga('send', 'pageview', '/');
-    window.ga('send', 'event', 'Polymer', 'unsupported-browser', { hitCallback: redirect });
-    navigator.sendBeacon && redirect();
+    window.ga('send', 'event', 'Polymer', 'unsupported-browser', {hitCallback: redirect});
     window.setTimeout(redirect, 1000);
   }
 
@@ -155,14 +154,14 @@ ga('set', 'transport', 'beacon');
 
     // Reload the page when a new SW takes over. This should only happen in staging.
     navigator.serviceWorker.addEventListener('controllerchange', function() {
-      location.reload();
+      window.location.reload();
     });
   }
 
   window.Polymer = window.Polymer || {
     dom: 'shadow',
     lazyRegister: 'max',
-    useNativeCSSProperties: true
+    useNativeCSSProperties: true,
   };
 }());
   </script>
@@ -188,15 +187,14 @@ function lazyLoadWCPolyfillsIfNecessary() {
     // so the same code paths can be used for polyfill'd and native.
     // window.HTMLImports only exists under the poylfill.
     if (!window.HTMLImports) {
-      document.dispatchEvent(
-        new CustomEvent('WebComponentsReady', {bubbles: true}));
+      document.dispatchEvent(new CustomEvent('WebComponentsReady', {bubbles: true}));
     }
   };
 
-  var webComponentsSupported = (
+  var webComponentsSupported =
     'registerElement' in document
     && 'import' in document.createElement('link')
-    && 'content' in document.createElement('template'));
+    && 'content' in document.createElement('template');
   if (!webComponentsSupported) {
     var script = document.createElement('script');
     var baseUrl = document.body.getAttribute('data-static');
