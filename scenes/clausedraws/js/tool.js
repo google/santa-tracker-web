@@ -104,7 +104,7 @@ app.Tool.prototype.reset = function() {
  * @param  {[type]} mouseCoords [description]
  * @return {[type]}             [description]
  */
-app.Tool.prototype.draw = function(context, mouseCoords) {
+app.Tool.prototype.draw = function(context, mouseCoords, prevCanvas) {
   return false;
 }
 

@@ -167,7 +167,10 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
   // note: actionFn(canvas, mouse)
   if (actionFn && actionFnContext) {
     console.log('updating', this.currentIndex);
-    var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse);
+    var prevCanvas =
+        this.backupCanvases[this.prevIndex(this.currentIndex)].canvas;
+    var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse,
+        prevCanvas);
     console.log('didDraw', didDraw);
     if (didDraw) {
       this.needSave = true;

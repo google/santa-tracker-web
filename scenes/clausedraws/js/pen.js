@@ -45,7 +45,7 @@ app.Pen.prototype = Object.create(app.Tool.prototype);
  * @param  {[type]} scale       [description]
  * @return {[type]}             [description]
  */
-app.Pen.prototype.draw = function(canvas, mouseCoords) {
+app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
@@ -57,6 +57,7 @@ app.Pen.prototype.draw = function(canvas, mouseCoords) {
 
   if (this.points.length > 1) {
     context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
     context.lineJoin = 'round';
     context.lineCap = 'round';
     context.lineWidth = 5;
