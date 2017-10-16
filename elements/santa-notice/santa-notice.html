@@ -79,7 +79,7 @@ specific language governing permissions and limitations under the License.
   </div>
 </template>
 <script>
-window.santaService.addListener('sync', function cb(loc) {
+window.santaService.addListener('sync', function cb() {
   window.santaService.removeListener('sync', cb);
 
   var KEY = 'cookie-ok';
