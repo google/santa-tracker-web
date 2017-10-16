@@ -33,7 +33,7 @@ function padDigits(n) {
  * Returns a random number in the range [min,max). This number will likely not be an integer.
  *
  * @param {number} min
- * @param {number=} opt_max
+ * @param {number=} max 
  * @return {number}
  * @export
  */
@@ -63,16 +63,16 @@ function randomChoice(array) {
  * Shuffles an array.
  *
  * @param {!IArrayLike<T>} opts to shuffle
- * @param {number=} opt_limit return only this many elements
+ * @param {number=} limit return only this many elements
  * @return {!Array<T>}
  * @template T
  * @export
  */
-function shuffleArray(opts, opt_limit) {
+function shuffleArray(opts, limit = undefined) {
   opts = Array.prototype.slice.call(opts);
   opts.sort((a, b) => Math.random() - 0.5);
-  if (opt_limit !== undefined) {
-    return opts.slice(0, Math.floor(opt_limit));
+  if (limit !== undefined) {
+    return opts.slice(0, Math.floor(limit));
   }
   return opts;
 }
