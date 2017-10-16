@@ -37,15 +37,16 @@ app.Canvas = function(game, $elem) {
     backup.width = app.Constants.CANVAS_WIDTH;
     this.backupCanvases.push({
         canvas: backup,
-        empty: true
+        saved: i ? false : true
       });
   }
 
-  // index of latest backup, increments with each save
-  this.latestIndex = 0;
-  // index of currently visible state, may be
-  // different than latestIndex if undo was called
-  this.currentIndex = this.latestIndex;
+  // Base state we're drawing on top of
+  this.baseIndex = 0;
+  // Canvas that we're drawing to
+  this.drawIndex = 1;
+  this.undoing = false;
+
   // scale of visible canvas to original
   this.canvasRatio = 1;
 
@@ -61,7 +62,6 @@ app.Canvas = function(game, $elem) {
     prevY: 0,
     scale: 1
   };
-  this.undoing = false;
 
   console.log($elem.find('.Tool-hairclean'),
       $elem.find('.Tool-hairdryer'));
@@ -105,8 +105,10 @@ app.Canvas.prototype.resetCanvas = function() {
     this.clearCanvas(index, true);
   }, this);
 
-  this.latestIndex = 0;
-  this.currentIndex = 0;
+
+  this.backupCanvases[0].saved = true;
+  this.baseIndex = 0;
+  this.drawIndex = 1;
   this.needSave = false;
   this.mouse = {
     down: false,
@@ -162,24 +164,37 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
-  var drawCanvas = this.backupCanvases[this.currentIndex].canvas;
-
-  // note: actionFn(canvas, mouse)
   if (actionFn && actionFnContext) {
-    console.log('updating', this.currentIndex);
-    var prevCanvas =
-        this.backupCanvases[this.prevIndex(this.currentIndex)].canvas;
+    console.log('updating', this.baseIndex, this.drawIndex, this.undoing);
+
+    if (this.undoing) {
+      var cleared = false;
+      var clearIndex = this.drawIndex;
+      while (!cleared) {
+        if (clearIndex == this.baseIndex) {
+          cleared = true;
+        } else {
+          this.clearCanvas(clearIndex, true);
+          clearIndex = this.prevIndex(clearIndex);
+        }
+      }
+
+      this.drawIndex = this.nextIndex(this.baseIndex);
+      this.copyCanvas(this.baseIndex, this.drawImage);
+      this.undoing = false;
+    }
+
+    var drawCanvas = this.backupCanvases[this.drawIndex].canvas;
+    var baseCanvas = this.backupCanvases[this.baseIndex].canvas;
     var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse,
-        prevCanvas);
-    console.log('didDraw', didDraw);
+        baseCanvas);
     if (didDraw) {
+      console.log('did draw!');
       this.needSave = true;
     }
   }
 
-  this.clearCanvas();
-  this.displayCtx.drawImage(drawCanvas, 0, 0, this.displayCanvas.width,
-      this.displayCanvas.height);
+  this.copyCanvas(this.drawIndex);
 };
 
 
@@ -188,30 +203,13 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.save = function() {
-  var backup = this.backupCanvases[this.currentIndex];
-  var nextIndex = this.nextIndex(this.currentIndex);
-  var nextCanvas = this.backupCanvases[nextIndex].canvas;
-  var nextCtx = nextCanvas.getContext('2d');
-  nextCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
-  nextCtx.drawImage(backup.canvas, 0, 0, nextCanvas.width,
-      nextCanvas.height);
-  backup.empty = false;
-
-  if (this.currentIndex != this.latestIndex) {
-    var cleared = false;
-    var clearIndex = this.nextIndex(this.currentIndex);
-    while (!cleared) {
-      this.clearCanvas(clearIndex, true);
-      if (clearIndex == this.latestIndex) {
-        cleared = true;
-      }
-      clearIndex = this.nextIndex(clearIndex);
-    }
-  }
-
-  this.undoing = false;
-  this.latestIndex = nextIndex;
-  this.currentIndex = this.latestIndex;
+  console.log('saving', this.baseIndex, this.drawIndex, this.undoing);
+  this.backupCanvases[this.drawIndex].saved = true;
+  this.baseIndex = this.drawIndex;
+  this.drawIndex = this.nextIndex(this.baseIndex);
+  this.copyCanvas(this.baseIndex, this.drawIndex);
+  this.backupCanvases[this.drawIndex].saved = false;
+  console.log('saved', this.baseIndex, this.drawIndex, this.undoing);
 };
 
 
@@ -220,18 +218,20 @@ app.Canvas.prototype.save = function() {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.undo = function() {
-  var previous = this.prevIndex(this.currentIndex);
+  console.log('undoing', this.baseIndex, this.drawIndex, this.undoing);
+  // if (!this.undoing) {
+  //   this.copyCanvas(this.baseIndex, this.drawIndex);
+  //   this.undoing = true;
+  // } else {
+    var previous = this.prevIndex(this.baseIndex);
 
-  if (!this.undoing) {
-    previous = this.prevIndex(previous);
+    if (previous != this.drawIndex && this.backupCanvases[previous].saved) {
+      this.baseIndex = previous;
+      this.copyCanvas(this.baseIndex);
+    }
     this.undoing = true;
-  }
-
-  if (previous != this.latestIndex && !this.backupCanvases[previous].empty) {
-    console.log('undo to', previous, 'latest', this.latestIndex);
-    this.currentIndex = previous;
-    this.updateCanvas();
-  }
+  // }
+  console.log('undone', this.baseIndex, this.drawIndex, this.undoing);
 };
 
 
@@ -240,13 +240,14 @@ app.Canvas.prototype.undo = function() {
  * @return {[type]}          [description]
  */
 app.Canvas.prototype.redo = function() {
-  var next = this.nextIndex(this.currentIndex);
-  if (this.currentIndex != this.latestIndex &&
-      !this.backupCanvases[next].empty) {
-    console.log('redo to', this.nextIndex(this.currentIndex),
-      'latest', this.latestIndex);
-    this.currentIndex = next;
-    this.updateCanvas();
+  if (this.undoing) {
+    console.log('redoing', this.baseIndex, this.drawIndex, this.undoing);
+    var next = this.nextIndex(this.baseIndex);
+    if (next != this.drawIndex) {
+      this.baseIndex = next;
+      this.copyCanvas(this.baseIndex);
+    }
+    console.log('redone', this.baseIndex, this.drawIndex, this.undoing);
   }
 };
 
@@ -266,7 +267,7 @@ app.Canvas.prototype.clearCanvas = function(index, isBackup) {
     var backup = this.backupCanvases[index];
     var ctx = backup.canvas.getContext('2d');
     ctx.clearRect(0, 0, backup.canvas.width, backup.canvas.height);
-    backup.empty = true;
+    backup.saved = false;
   } else {
     this.displayCtx.clearRect(0, 0, this.displayCanvas.width,
         this.displayCanvas.height);
