@@ -25,38 +25,7 @@ City lights scene.
 -->
 <dom-module id="citylights-scene">
 <template>
-  <style include="citylights-scene_module">
-  :host([mode="portal"]) a[href*="google.com"] {
-    pointer-events: none;
-    cursor: default !important;
-  }
-
-  :host([mode="portal"]) a[href*="googleapis.com"] {
-    pointer-events: none;
-    cursor: default !important;
-  }
-
-  :host([mode="portal"]) #module-citylights div.gmnoprint.gm-style-cc[style*="line-height: 14px"] {
-    display:none;
-  }
-
-  :host([mode="portal"]) #module-citylights div.gm-style-cc[style*="right: 0px"] {
-    display:none;
-  }
-
-  :host([mode="portal"]) #module-citylights img[src*="sv4.png"] {
-    display:none;
-  }
-
-  :host([mode="portal"]) #module-citylights a.photosphere-overlay__link {
-    display:none;
-  }
-
-  :host([mode="portal"]) #module-citylights div[style*="width: 25px"] {
-    display:none !important;
-  }
-
-  </style>
+  <style include="citylights-scene_module"></style>
 
   <iron-a11y-keys keys="left right"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>

@@ -23,12 +23,6 @@ Video scene.
 <dom-module id="video-scene">
 <template>
   <style include="video-scene_module">
-  :host[mode="cast"] .actions {
-    display: none;
-  }
-  :host[mode="cast"] #poster {
-    display: none;
-  }
   .fit {
     @apply --layout-fit;
   }
@@ -136,12 +130,6 @@ Video scene.
       this.player.pause();
 
       this._onMuteChanged(this.mute);  // run mute logic for the first time
-
-      // Autoplay on Cast mode.
-      if (this.getAttribute('mode') == 'cast') {
-        this.playVideo();
-        this.player.setVolume(CAST_VOLUME);
-      }
     },
 
     youtubeStateChange: function(e, detail) {

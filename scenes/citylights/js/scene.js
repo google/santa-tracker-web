@@ -21,8 +21,6 @@ goog.require('app.Dashboard');
 goog.require('app.InputEvent');
 goog.require('app.shared.Tutorial');
 
-
-
 /**
  * Main class for scene
  * @param {!Element} div DOM element containing the scene.
