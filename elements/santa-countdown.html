@@ -1,0 +1,69 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../elements/santa-state.html">
+
+<!--
+Countdown element. Updates its light DOM with the current countdown timer.
+-->
+<dom-module id="santa-countdown">
+<template>
+  <santa-state remaining-time="{{_remainingTime}}"></santa-state>
+  <slot></slot>
+</template>
+<script>
+Polymer({
+  is: 'santa-countdown',
+
+  properties: {
+
+    /**
+     * Remaining time bound from `santa-state`. Changes every few minutes or on sync.
+     */
+    _remainingTime: {
+      type: Number,
+      observer: '_remainingTimeChanged',
+    },
+
+  },
+
+  detached: function() {
+    this.textContent = '';
+  },
+
+  _remainingTimeChanged: function(value) {
+    var parts = countdownSplit(value);
+
+    // TODO: this is not i18n'd.
+    var msg = [];
+    var text;
+    if (value <= 60 * 1000) {
+      msg.push(parts.seconds);
+      text = msg.join(' ');
+    } else {
+      msg.push(parts.days, parts.days === 1 ? 'day' : 'days');
+      msg.push(parts.hours, parts.hours === 1 ? 'hour' : 'hours');
+      msg.push(parts.minutes, parts.minutes === 1 ? 'minute' : 'minutes');
+      msg.push(parts.seconds, parts.seconds === 1 ? 'second' : 'seconds');
+      text = msg.join(' ') + ' until Santa departs';
+    }
+
+    // overwrite our light DOM
+    this.textContent = text;
+  },
+
+});
+</script>
+</dom-module>

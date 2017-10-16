@@ -44,7 +44,7 @@ Example
     </style>
 
     <div id="counter">
-      <div class="counter-box" hidden$="{{_computeHiddenDays(displayDigits)}}">
+      <div class="counter-box" hidden$="[[_daysHidden]]">
         <div class="holder active"></div>
         <div class="holder prev"></div>
         <div class="bottom">
@@ -103,9 +103,9 @@ Example
         },
 
         /**
-         * The number of digits to display.
+         * Whether the "Days" counter is hidden.
          */
-        displayDigits: {
+        _daysHidden: {
           type: Number,
           value: 8,
         },
@@ -178,41 +178,19 @@ Example
       },
 
       /**
-       * @param {number} diff number of ms remaining
-       * @return {{days: number, hours: number, mins: number, seconds: number}}
-       */
-      _splitTime: function(diff) {
-        var msPerDay = 24 * 60 * 60 * 1000;
-
-        var daysX = diff / msPerDay;
-        var days = Math.floor(daysX);
-
-        var hoursX = (daysX - days) * 24;
-        var hours = Math.floor(hoursX);
-
-        var minsX = (hoursX - hours) * 60;
-        var mins = Math.floor(minsX);
-
-        var secondsX = (minsX - mins) * 60;
-        var seconds = Math.floor(secondsX);
-
-        return {days: days, hours: hours, mins: mins, seconds: seconds};
-      },
-
-      /**
        * Renders the specified local remaining time. This does not use the remainingTime from this
        * object directly.
        */
       _render: function(remainingTime) {
-        var parts = this._splitTime(remainingTime);
+        var parts = countdownSplit(remainingTime);
 
         var days = parts.days;
         var hours = parts.hours;
-        var mins = parts.mins;
+        var minutes = parts.minutes;
         var seconds = parts.seconds;
 
-        var numbers = [padDigits(days), padDigits(hours), padDigits(mins), padDigits(seconds)];
-        this.displayDigits = (days <= 0) ? 6 : 8
+        var numbers = [padDigits(days), padDigits(hours), padDigits(minutes), padDigits(seconds)];
+        this._daysHidden = (days <= 0);
 
         // Ensure holders exist. Solves inconsistent asyncs.
         if (this.holders.length) {
@@ -221,25 +199,6 @@ Example
           }
           this._oldNumbers = numbers;
         }
-
-        // TODO: this is not i18n'd.
-        var msg = [];
-        if (remainingTime <= 60 * 1000) {
-          msg.push(parts.seconds);
-          msg = msg.join(' ');
-        } else {
-          msg.push(parts.days, parts.days == 1 ? 'day' : 'days');
-          msg.push(parts.hours, parts.hours == 1 ? 'hour' : 'hours');
-          msg.push(parts.mins, parts.mins == 1 ? 'minute' : 'minutes');
-          msg.push(parts.seconds, parts.seconds == 1 ? 'second' : 'seconds');
-          msg = msg.join(' ') + ' until Santa departs'
-        }
-
-        // TODO(samthor): Use santa-state to do this instead.
-        this.fire('countdown-timer-tick', {
-          currentTime: parts,
-          msg: msg,
-        });
       },
 
       /**
@@ -261,10 +220,6 @@ Example
             node.classList.remove('anim');
           }, _TRANSITION_TIME * 2);
         }
-      },
-
-      _computeHiddenDays: function(displayDigits) {
-        return displayDigits < 8;
       },
 
     });

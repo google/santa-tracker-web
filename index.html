@@ -180,7 +180,7 @@ ga('set', 'transport', 'beacon');
 
 <santa-app id="santaApp" routing></santa-app>
 
-<div id="timer" role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions" hidden></div>
+<santa-countdown role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions" hidden></santa-countdown>
 
 <div id="unresolved_placeholder"></div>
 
@@ -224,21 +224,6 @@ setupPerfAnalyticsEvent('HTMLImportsLoaded', 'Polymer');
 setupPerfAnalyticsEvent('WebComponentsReady', 'Polymer');
 
 lazyLoadWCPolyfillsIfNecessary(); // Call after all events have been set up.
-
-// Try to only do screen reader stuff on desktop.
-if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
-  var timer = document.querySelector('#timer');
-
-  document.addEventListener('countdown-timer-tick', function(e) {
-    var currentTime = e.detail.currentTime;
-
-    if (currentTime.diff <= 60 * 1000) {
-      timer.textContent = e.detail.msg;
-    } else if (currentTime.seconds % 10 == 0) { // Only update DOM (and therefore speak text) every 10 seconds.
-      timer.textContent = e.detail.msg;
-    }
-  });
-}
 
 if (window.santaApp.mode === 'portal') {
   // Filter out clicks that don't match the current domain.
