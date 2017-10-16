@@ -26,6 +26,13 @@ specific language governing permissions and limitations under the License.
   <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
   <script>
 (function() {
+  window.Polymer = {
+    noUrlSettings: true,
+    dom: 'shadow',
+    lazyRegister: 'max',
+    useNativeCSSProperties: true,
+  };
+
   window.ga = function() {};  // no analytics in Cast
   var title = document.title;
 
@@ -67,20 +74,9 @@ specific language governing permissions and limitations under the License.
   </script>
   <link rel="import" href="elements/elements_en.html" />
 </head>
-<body data-version="" unresolved>
+<body unresolved>
 
 <santa-app id="santaApp" mode="cast"></santa-app>
 
-<script>
-(function() {
-
-document.addEventListener('DOMContentLoaded', function() {
-  var t = window.performance.timing;
-  var loadTime = t.domInteractive - t.domLoading;
-  console.debug('took', loadTime, 'ms from domLoading -> domInteractive');
-});
-
-})();
-</script>
 </body>
 </html>

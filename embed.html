@@ -29,21 +29,23 @@ ga('set', 'transport', 'beacon');
   <script async src="https://www.google-analytics.com/analytics.js"></script>
 
   <link id="DEV" comment="element removed in prod" />
+  <script>
+window.Polymer = {
+  noUrlSettings: true,
+  dom: 'shadow',
+  lazyRegister: 'max',
+  useNativeCSSProperties: true,
+};
+window.addEventListener('load', function() {
+  // initial route is always /embed.html#route
+  window.santaApp.route = window.location.hash.substr(1);
+});
+  </script>
   <link rel="import" href="elements/elements_en.html" />
 </head>
 <body unresolved class="scrollock">
 
 <santa-app id="santaApp" mode="embed"></santa-app>
 
-<script>
-(function() {
-
-window.addEventListener('load', function() {
-  // initial route is always /embed.html#route
-  window.santaApp.route = window.location.hash.substr(1);
-});
-
-})();
-</script>
 </body>
 </html>

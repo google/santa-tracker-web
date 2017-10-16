@@ -158,7 +158,8 @@ ga('set', 'transport', 'beacon');
     });
   }
 
-  window.Polymer = window.Polymer || {
+  window.Polymer = {
+    noUrlSettings: true,
     dom: 'shadow',
     lazyRegister: 'max',
     useNativeCSSProperties: true,
@@ -169,6 +170,13 @@ ga('set', 'transport', 'beacon');
   <link rel="import" href="js/ccsender.html" async>
 </head>
 <body data-version="" data-static="" unresolved class="scrollock">
+
+<script>
+  // nb. this can't be configured via window.Polymer and seemingly must be done before elements
+  // are stamped (https://github.com/Polymer/polymer/issues/4847)
+  // TODO(samthor): include on other entrypoints
+  Polymer.setPassiveTouchGestures(true);
+</script>
 
 <santa-app id="santaApp" routing></santa-app>
 
