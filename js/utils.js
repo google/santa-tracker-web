@@ -80,9 +80,9 @@ function shuffleArray(opts, opt_limit) {
  * @export
  */
 function isSameDay(date1, date2) {
-  return date1.getMonth() == date2.getMonth() &&
-         date1.getDate() == date2.getDate() &&
-         date1.getYear() == date2.getYear();
+  return date1.getMonth() === date2.getMonth() &&
+         date1.getDate() === date2.getDate() &&
+         date1.getYear() === date2.getYear();
 }
 
 /**
@@ -102,7 +102,7 @@ function getUrlParameters() {
   const out = {};
   const search = window.location.search || '?';
 
-  search.substr(1).split('&').forEach(part => {
+  search.substr(1).split('&').forEach((part) => {
     if (!part) {
       return;
     }
@@ -137,25 +137,25 @@ function throttle(func, ms) {
 
 /**
  * Returns an array of all scene IDs (e.g., dorf, boatload) which are cached.
- * @export
  * @return {!Promise<!Array<string>>}
+ * @export
  */
 function getCachedScenes() {
   const caches = window.caches; 
   if (typeof caches === 'undefined') { return Promise.resolve([]); }
 
   return caches.open('persistent')
-    .then(cache => cache.match(window.location.origin + '/manifest.json'))
-    .then(response => response.json())
-    .then(json => json.version)
-    .then(version => caches.open(version))
-    .then(cache => cache.keys())
-    .then(requests => {
-      const urls = requests.map(r => r.url);
-      const matches = urls.map(url => url.match(/\/scenes\/(\w+)\//));
-      return [...new Set(matches.filter(m => m).map(m => m[1]))];
+    .then((cache) => cache.match(window.location.origin + '/manifest.json'))
+    .then((response) => response.json())
+    .then((json) => caches.open(json['version']))
+    .then((cache) => cache.keys())
+    .then((requests) => {
+      const urls = requests.map((r) => r.url);
+      const matchesRe = urls.map((url) => url.match(/\/scenes\/(\w+)\//));
+      const matches = matches.filter((m) => m).map((m) => m[1]);
+      return Array.from(new Set(matches));
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('Couldn\'t retrieve cached scenes.', error);
       return [];
     });

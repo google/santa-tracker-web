@@ -595,14 +595,6 @@ Polymer({
     },
 
     /**
-     * True when the tracker intro scene was shown. Used by `tracker-scene`.
-     */
-    hasTrackerIntroShown: {
-      type: Boolean,
-      value: false
-    },
-
-    /**
      * True when the countdown is complete, and the tracker is active. Bound from `santa-state`.
      */
     duringTracker: {
@@ -736,26 +728,26 @@ Polymer({
   },
 
   sendEmbedMessage: function(message){
-      if(!messagePort){
-          return ;
-      }
-      var msg = {type: message};
-      messagePort.postMessage(JSON.stringify(msg));
+    if (!messagePort) {
+      return;
+    }
+    var msg = {type: message};
+    messagePort.postMessage(JSON.stringify(msg));
   },
 
-  onEmbedMessage: function(message){
-      console.log("received embed message: "+message);
-      switch(message){
-        case 'restart':
-          santaApp.onStartGame()
+  onEmbedMessage: function(message) {
+    console.log('received embed message', message);
+    switch (message){
+      case 'restart':
+        santaApp.onStartGame()
         break;
-        case 'pauseGame':
-          santaApp.userPause = true;
+      case 'pauseGame':
+        santaApp.userPause = true;
         break;
-        case 'resume':
-          santaApp.onResumeGame();
+      case 'resume':
+        santaApp.onResumeGame();
         break;
-      }
+    }
   },
 
   attached: function() {
@@ -819,9 +811,9 @@ Polymer({
    * Notifies to return to the village in embed mode.
    */
   onEmbedGoToVillage: function() {
-      console.log("ongotovillage");
-      this.sendEmbedMessage("ongotovillage");
+    this.sendEmbedMessage('ongotovillage');
   },
+
   /**
    * Handles a loading progress hint, hiding or displaying the preloader.
    */
