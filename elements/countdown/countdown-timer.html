@@ -263,40 +263,6 @@ Example
         }
       },
 
-      /**
-       * Sets a value for the digit node.
-       *
-       * @param {Element} el
-       * @param {string|undefined} oldVal
-       * @param {string} val
-       */
-      setDigit: function(digit, oldVal, val) {
-        if (oldVal === val) {
-          return;
-        }
-        var digitTopFront = digit.querySelector('.digit-top.digit-front');
-        var digitBottomBehind = digit.querySelector('.digit-bottom.digit-behind');
-        var digitTopBehind = digit.querySelector('.digit-top.digit-behind');
-        var digitBottomFront = digit.querySelector('.digit-bottom.digit-front');
-        digitTopBehind.firstElementChild.textContent = val;
-        digitBottomFront.firstElementChild.textContent = val;
-
-        if (oldVal === undefined) {
-          digitTopFront.firstElementChild.textContent = val;
-          digitBottomBehind.firstElementChild.textContent = val;
-          // No animation for the first instance.
-          return;
-        }
-
-        digit.classList.add('digit-anim');
-
-        this.async(function() {
-          digit.classList.remove('digit-anim');
-          digitTopFront.firstElementChild.textContent = val;
-          digitBottomBehind.firstElementChild.textContent = val;
-        }, _TRANSITION_TIME * 2);
-      },
-
       _computeHiddenDays: function(displayDigits) {
         return displayDigits < 8;
       },
