@@ -15,6 +15,7 @@
  */
 
 goog.provide('app.Tools');
+goog.require('app.Eraser');
 goog.require('app.Stamp');
 goog.require('app.Pen');
 goog.require('app.SprinkleSpray');
@@ -34,7 +35,7 @@ app.Tools = function(game, $elem) {
   this.elem = $elem.find('.Tools');
   this.clipper = new app.SprinkleSpray($elem, 'clipper', {x: 40, y: 0});
   // this.hairdryer = new app.Tool($elem, 'hairdryer', {x: 100, y: 0});
-  // this.hairclean = new app.Tool($elem, 'hairclean', {x: 120, y: 10});
+  this.hairclean = new app.Eraser($elem, 'hairclean', {x: 120, y: 10});
   this.hairgrow = new app.Tool($elem, 'hairgrow', {x: 110, y: 25});
 
   this.sprayRed = new app.Pen($elem, 'red');
@@ -55,7 +56,7 @@ app.Tools = function(game, $elem) {
     this.clipper,
     // this.hairdryer,
     this.hairgrow,
-    // this.hairclean,
+    this.hairclean,
 
     this.sprayRed,
     this.sprayOrange,
