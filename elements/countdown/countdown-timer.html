@@ -43,7 +43,7 @@ Example
       }
     </style>
 
-    <div id="counter">
+    <div id="counter" on-animationend="_counterAnimationEnd">
       <div class="counter-box" hidden$="[[_daysHidden]]">
         <div class="holder active"></div>
         <div class="holder prev"></div>
@@ -86,11 +86,11 @@ Example
       properties: {
 
         /**
-         * True if the countdown should animate.
+         * True if animations should be disabled.
          */
-        animate: {
+        fast: {
           type: Boolean,
-          value: true,
+          value: false,
         },
 
         /**
@@ -120,7 +120,7 @@ Example
         },
 
         /**
-         * Remaining time. This will tick at a rate of 1s/s
+         * Remaining time. Once set, remains fixed, but the internal countdown will tick down.
          */
         remainingTime: {
           type: Number,
@@ -128,9 +128,11 @@ Example
         },
 
         /**
-         * The time at which remainingTime was set.
+         * The time at which remainingTime was set (from Date.now()).
          */
-        _remainingTimeSetAt: Number,
+        _remainingTimeSetAt: {
+          type: Number,
+        }
       },
 
       _oldNumbers: [],  // replaced in tickTock
@@ -141,6 +143,10 @@ Example
           // Needs to wait one rAF so titles has populated the template repeat.
           this._setHolders(Array.prototype.slice.call(this.$.counter.children));
           this._activeChanged();
+        });
+
+        this.addEventListener('animationend', () => {
+          console.info('anim done??');
         });
       },
 
@@ -211,15 +217,15 @@ Example
 
         // NOTE: Assumes child layout.
         node.children[0].textContent = val || '';
-
-        if (this.animate) {
+        if (!this.fast) {
           node.children[1].textContent = oldVal || '';
-
           node.classList.add('anim');
-          this.async(function() {
-            node.classList.remove('anim');
-          }, _TRANSITION_TIME * 2);
         }
+      },
+
+      _counterAnimationEnd: function(ev) {
+        const node = ev.target.closest('.anim');
+        node && node.classList.remove('anim');
       },
 
     });
