@@ -265,7 +265,7 @@ app.Canvas.prototype.clearCanvas = function(index, isBackup) {
 
 app.Canvas.prototype.copyCanvas = function(fromIndex, toIndex) {
   console.log('copying', fromIndex, 'to', toIndex, 'base', this.baseIndex, 'draw', this.drawIndex);
-  var toCanvas = toIndex ?
+  var toCanvas = typeof toIndex != 'undefined' ?
       this.backupCanvases[toIndex].canvas : this.displayCanvas;
   var toCtx = toCanvas.getContext('2d');
   toCtx.clearRect(0, 0, toCanvas.width, toCanvas.height);
