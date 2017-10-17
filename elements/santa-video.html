@@ -1,0 +1,299 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/google-apis/google-youtube-api.html">
+<link rel="import" href="../components/iron-icon/iron-icon.html">
+<link rel="import" href="santa-icons.html">
+
+<!--
+Video element that wraps up the YouTube API. This is more lightweight than the <google-youtube>
+element, and does not support e.g. queuing or other mechanics. It hides/disables the default
+YouTube API as much as possible.
+-->
+<dom-module id="santa-video">
+<template>
+  <style>
+    :host {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    #holder, #player {
+      width: 100%;
+      height: 100%;
+    }
+    #holder {
+      overflow: hidden;
+      pointer-events: none;
+      background: black;
+    }
+    #holder.hidden {
+      visibility: hidden;
+    }
+    #overlay {
+      z-index: 10;
+      background: rgba(33, 33, 33, 0.125);
+      opacity: 0;
+      will-change: opacity;
+      transition: opacity 0.25s;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #overlay.hidden {
+      visibility: hidden;
+      opacity: 0;  /* prevents transitions */
+    }
+    #overlay:hover {
+      opacity: 1;
+    }
+    #overlay button {
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    /* TODO(samthor): Better focus handler for buttons */
+
+    #overlay {
+      --iron-icon-fill-color: white;
+      --iron-icon-width: 52px;
+      --iron-icon-height: 52px;
+    }
+    #overlay:not(.playing) {
+      opacity: 1;
+    }
+    #overlay:not(.playing) iron-icon#pause {
+      display: none;
+    }
+    #overlay.playing iron-icon#play {
+      display: none;
+    }
+
+  </style>
+
+  <google-youtube-api on-api-load="_apiLoad" id="loader"></google-youtube-api>
+
+  <!-- <iron-a11y-keys keys="enter space"
+                  on-keys-pressed="keyHandler"></iron-a11y-keys> -->
+
+  <div id="holder" class$="[[_computeHolderClass(active)]]">
+    <div id="player" tabindex="-1"></div>
+  </div>
+  <div id="overlay" class$="[[_computeOverlayClass(controls, videoId, playing, preload)]]">
+    <button on-click="_clickVideo">
+      <iron-icon id="pause" icon="santa:pause"></iron-icon>
+      <iron-icon id="play" icon="santa:play"></iron-icon>
+    </button>
+  </div>
+
+</template>
+<script>
+(function() {
+
+function isPlayingState(state) {
+  return state === 1 || state === 3;
+}
+
+Polymer({
+  is: 'santa-video',
+
+  properties: {
+
+    /**
+     * The optional YouTube video ID to play. Blank clears/stops the video.
+     */
+    videoId: {
+      type: String,
+      value: '',
+    },
+
+    /**
+     * Whether this video is currently playing. This is true if playing forward normally, or
+     * buffering. It will be false if the video is finished (and setting to true will restart).
+     */
+    playing: {
+      type: Boolean,
+      value: false,
+      notify: true,
+    },
+
+    /**
+     * Whether the player itself is active (playing, paused, caching which is visible).
+     */
+    active: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: false,
+    },
+
+    /**
+     * Whether to show the play/pause controls and allow click input.
+     */
+    controls: {
+      type: Boolean,
+      value: true,
+    },
+
+    /**
+     * Whether this player is preloading.
+     */
+    preload: {
+      type: Boolean,
+      readOnly: true,
+      value: true,
+    },
+
+    /**
+     * Holds the global YouTube API object.
+     */
+    _api: {
+      type: Object,
+      readOnly: true,
+      observer: '_preparePlayer',
+    },
+
+    /**
+     * Holds the YT.Player instance.
+     */
+    _player: {
+      type: Object,
+      readOnly: true,
+    },
+
+  },
+
+  observers: [
+    '_changeVideo(_player, videoId)',
+    '_updatePlaying(_player, playing)',
+  ],
+
+  _apiLoad: function() {
+    this._set_api(this.$.loader.api);
+  },
+
+  _youtubeStateChange: function(state) {
+    if (state >= 5) {
+      return;  // ignore cued
+    }
+    if (state === 3 && this.preload) {
+      // don't clear preload, this is the immediate buffer
+    } else {
+      this._setPreload(state === -1);
+    }
+
+    this.playing = isPlayingState(state);
+
+    if (state === 0 || !this.videoId) {
+      this._setActive(false);  // if done or no video, hide
+    } else if (state >= 1 && !this.preload) {
+      this._setActive(true);  // if playing/buffering/etc, show
+    }
+  },
+
+  _preparePlayer: function() {
+    const vars = {
+      playsinline: 1,
+      cc_load_policy: 1,
+      disablekb: 1,
+      fs: 0,
+      hl: document.documentElement.lang || 'en',
+      controls: 0,
+      modestbranding: 1,
+      showinfo: 0,
+      iv_load_policy: 3,
+      rel: 0,
+    };
+
+    const player = new this._api.Player(this.$.player, {
+      width: '100%',
+      height: '100%',
+      playerVars: vars,
+      events: {
+        onReady: function(ev) {
+          this._set_player(player);
+        }.bind(this),
+        onStateChange: function(ev) {
+          this._youtubeStateChange(ev.data);
+        }.bind(this),
+        onError: function(ev) {
+          if (!this.videoId) {
+            return;  // not an error
+          }
+          this.fire('youtube-error', ev);
+        }.bind(this),
+      },
+    });
+    // don't save player: wait for onReady to be called
+  },
+
+  _changeVideo: function(player, videoId) {
+    if (!player) { return; }
+
+    if (videoId) {
+      player.loadVideoById(videoId);
+    } else {
+      // Aggressively hide, as YouTube goes into an error state for a blank videoId.
+      this._setActive(false);
+      player.nextVideo();
+      player.loadVideoById();
+    }
+  },
+
+  _updatePlaying: function(player, playing) {
+    if (!player) { return; }
+
+    const playerIsPlaying = isPlayingState(player.getPlayerState());
+    if (playing === playerIsPlaying) {
+      // do nothing
+    } else if (playing) {
+      player.playVideo();
+    } else {
+      player.pauseVideo();
+    }
+  },
+
+  _computeHolderClass: function(active) {
+    return active ? '' : 'hidden';
+  },
+
+  _computeOverlayClass: function(controls, videoId, playing, preload) {
+    if (!controls || !videoId || preload) {
+      return 'hidden';
+    } else if (playing) {
+      return 'playing';
+    } else {
+      return '';
+    }
+  },
+
+  _clickVideo: function() {
+    this.playing = !this.playing;
+  },
+});
+
+})();
+</script>
+</dom-module>
