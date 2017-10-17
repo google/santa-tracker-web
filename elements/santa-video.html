@@ -95,13 +95,10 @@ YouTube API as much as possible.
 
   <google-youtube-api on-api-load="_apiLoad" id="loader"></google-youtube-api>
 
-  <!-- <iron-a11y-keys keys="enter space"
-                  on-keys-pressed="keyHandler"></iron-a11y-keys> -->
-
   <div id="holder" class$="[[_computeHolderClass(active)]]">
     <div id="player" tabindex="-1"></div>
   </div>
-  <div id="overlay" class$="[[_computeOverlayClass(controls, videoId, playing, preload)]]">
+  <div id="overlay" class$="[[_computeOverlayClass(controls, videoId, preload, playing)]]">
     <button on-click="_clickVideo">
       <iron-icon id="pause" icon="santa:pause"></iron-icon>
       <iron-icon id="play" icon="santa:play"></iron-icon>
@@ -111,6 +108,9 @@ YouTube API as much as possible.
 </template>
 <script>
 (function() {
+
+// nb. YouTube player states are documented here:
+//   https://developers.google.com/youtube/iframe_api_reference#Playback_status
 
 function isPlayingState(state) {
   return state === 1 || state === 3;
@@ -279,8 +279,9 @@ Polymer({
     return active ? '' : 'hidden';
   },
 
-  _computeOverlayClass: function(controls, videoId, playing, preload) {
-    if (!controls || !videoId || preload) {
+  _computeOverlayClass: function(controls, videoId, preload, playing) {
+    const showControls = controls && videoId && !preload;
+    if (!showControls) {
       return 'hidden';
     } else if (playing) {
       return 'playing';
