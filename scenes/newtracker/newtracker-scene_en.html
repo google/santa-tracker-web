@@ -23,7 +23,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="newtracker-scene_module.html">
 
 <!-- nb: intentionally in subfolder, to deal with Vulcanize issue in same dir -->
-<link rel="import" href="../../elements/santa-media.html">
 <link rel="import" href="./elements/tracker-map.html">
 <link rel="import" href="./elements/tracker-location.html">
 <link rel="import" href="./elements/tracker-attribution.html">
@@ -67,12 +66,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       </clipPath>
     </defs>
   </svg>
-
-  <template is="dom-if" if="[[minimalUi]]">
-    <santa-media active="[[active]]"
-        countdown="[[_computeTrackerCountdown(countdown, _upcoming)]]"
-        video-active="{{_videoActive}}"></tracker-media>
-  </template>
 
   <div class="contain" id="sections">
     <section id="main">
@@ -286,14 +279,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       },
 
       /**
-       * Whether a full-screen video is active. Bound from `tracker-media` in minimal UI mode.
-       */
-      _videoActive: {
-        type: Boolean,
-        value: false,
-      },
-
-      /**
        * The images currently being displayed in the social feed.
        */
       _feedImages: {
@@ -442,7 +427,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     observers: [
-      '_refreshCards(_current, _upcoming, _videoActive)',
+      '_refreshCards(_current, _upcoming)',
     ],
 
     _santaSync: function(data) {
@@ -466,11 +451,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      * short timeout.
      */
     _santaUpdate: function(data) {
-      if (this._videoActive) {
-        this.$.map.santaHeading = NaN;
-        return;
-      }
-
       var p = this.$.map.santaLatLng;
       var move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 
@@ -552,10 +532,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }.bind(this));
     },
 
-    _refreshCards: function(current, upcoming, videoActive) {
-      if (videoActive) {
-        return;  // only refresh when videoActive goes true => false (don't load behind the video)
-      }
+    _refreshCards: function(current, upcoming) {
       this.debounce('_refreshCards', function() {
         this._pushSocialImage(function(src) {
           this._cardFeedImage = src;

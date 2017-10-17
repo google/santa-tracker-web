@@ -15,68 +15,36 @@ specific language governing permissions and limitations under the License.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title msgid="meta_title">Google Santa Tracker</title>
-
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
-  <link rel="stylesheet" href="sass/santatracker.css">
-
-  <!-- Cast -->
   <link id="DEV" comment="element removed in prod" />
-  <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+  <title msgid="meta_title">Google Santa Tracker</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:800|Lobster" />
+  <link rel="stylesheet" href="sass/santatracker.css" />
+  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js" defer></script>
   <script>
-(function() {
-  window.Polymer = {
-    noUrlSettings: true,
-    dom: 'shadow',
-    lazyRegister: 'max',
-    useNativeCSSProperties: true,
-  };
 
-  window.ga = function() {};  // no analytics in Cast
-  var title = document.title;
+window.Polymer = {
+  noUrlSettings: true,
+  dom: 'shadow',
+  lazyRegister: 'max',
+  useNativeCSSProperties: true,
+};
 
-  cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
+window.ga = () => {};  // no analytics in Cast
 
-  // For safety, if no scene is available or has loaded in the first 90 seconds, then automatically
-  // close this window.
-  window.setTimeout(function() {
-    var scene = window.santaApp && window.santaApp.selectedScene;
-    if (!scene || !scene.loaded) {
-      window.close();
-    }
-  }, 1000 * 90);
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.DEV) {
+    const context = cast.framework.CastReceiverContext.getInstance();
+    context.setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
+  }
+});
 
-  // Start the Cast Reciever. This needs to happen early, otherwise an error can be reported.
-  var crm = cast.receiver.CastReceiverManager.getInstance();
-  var messageBus = crm.getCastMessageBus('urn:x-cast:com.google.cast.santatracker');
-
-  var closeTimeout;
-  crm.onReady = function(event) {
-    crm.setApplicationState(title);
-  };
-  crm.onSenderConnected = function(event) {
-    window.clearTimeout(closeTimeout);
-  };
-  crm.onSenderDisconnected = function(event) {
-    if (!crm.getSenders().length) {
-      closeTimeout = window.setTimeout(function() {
-        window.close();
-      }, 10 * 1000);
-    }
-  };
-
-  var config = new cast.receiver.CastReceiverManager.Config();
-  config.statusText = title + '...';  // subtle loading hint
-  config.maxInactivity = 60;  // seconds
-  crm.start(config);
-}());
   </script>
   <link rel="import" href="elements/elements_en.html" />
 </head>
 <body unresolved>
 
-<santa-app id="santaApp" mode="cast"></santa-app>
+<santa-app id="santaApp" mode="cast" route="cast"></santa-app>
 
 </body>
 </html>

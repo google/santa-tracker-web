@@ -280,12 +280,6 @@ $toolbar-size: 64px;
 
       #countdown {
         padding: 60px 0 30px 0;
-
-        &.mode-cast {
-          padding-top: 70px;
-          padding-bottom: 55px;
-          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125) !important;
-        }
       }
 
       // NOTE: This is used for the countdown timer.
@@ -317,14 +311,6 @@ $toolbar-size: 64px;
         font-weight: 500;
         margin-top: 35px;
         letter-spacing: -1px;
-      }
-
-      .castlogo {
-        width: 120px;
-        height: 30px;
-        background: url(img/google_logo.svg) no-repeat center;
-        background-size: contain;
-        margin-bottom: 14px;
       }
     }
 

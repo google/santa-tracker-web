@@ -75,10 +75,13 @@ Santa Tracker app.
         attr-for-selected="route"
         selected-attribute="active">
 
+      <cast-scene route="cast"
+          path$="scenes/cast/cast-scene_[[language]].html"
+          slot="santa-scene" allow-page-scrolling></cast-scene>
+
       <dorf-scene id="village" route="village" icon="1f384" permanent
-          today-house="[[_limitTodayHouseForCast(todayHouse, mode)]]"
-          houses="[[_limitHousesForCast(_houses, mode)]]"
-          mode$="[[mode]]"
+          today-house="[[todayHouse]]"
+          houses="[[_houses]]"
           path$="scenes/dorf/dorf-scene_[[language]].html"
           slot="santa-scene" allow-page-scrolling></dorf-scene>
 
@@ -1219,17 +1222,8 @@ Polymer({
   },
 
   _duringTrackerChanged: function(newValue, oldValue) {
-    if (this.mode === 'cast') {
-      this.route = this.defaultRoute;
-    } else if (oldValue === undefined && newValue === true) {
-      this.debounce('_duringTrackerChanged', function() {
-        if (this.duringTracker && (this.route === 'village' || !this.route)) {
-          this.route = TRACKER_ROUTE;
-        }
-      }, 2000);
-    } else if (oldValue === undefined) {
-      // other initial value, ignore
-    } else if (newValue === false && this.route === TRACKER_ROUTE) {
+    // If the tracker was open, it's now locked: send the user back to the Village.
+    if (newValue === false && this.route === TRACKER_ROUTE) {
       this.route = this.defaultRoute;
     }
   },
@@ -1333,19 +1327,7 @@ Polymer({
   },
 
   omitSantaChrome: function(mode) {
-    return mode == 'cast';
-  },
-
-  _limitTodayHouseForCast: function(todayHouse, mode) {
-    return mode === 'cast' ? null : todayHouse;
-  },
-
-  _limitHousesForCast: function(houses, mode) {
-    if (mode === 'cast') {
-      return houses.slice(0, 3);
-    } else {
-      return houses;
-    }
+    return mode === 'cast';
   },
 
   /**
