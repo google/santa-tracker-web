@@ -277,7 +277,7 @@ specific language governing permissions and limitations under the License.
        */
       mute: {
         type: Boolean,
-        value: false,
+        value: function() { return !!window.DEV; },
         notify: true
       },
 
