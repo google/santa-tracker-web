@@ -135,6 +135,8 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
 
   var rect = this.displayCanvas.getBoundingClientRect();
   var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
+  var toolsRect = tools.elem[0].getBoundingClientRect();
+  var toolsCoords = mouse.transformCoordinates(mouse.x, mouse.y, toolsRect);
 
   this.mouse.x = canvasCoords.x;
   this.mouse.y = canvasCoords.y;
@@ -142,8 +144,10 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   this.mouse.scale = this.canvasRatio;
   this.mouse.normX = canvasCoords.normX;
   this.mouse.normY = canvasCoords.normY;
+  var insideTools = toolsCoords.normX >= 0 && toolsCoords.normX <= 1 &&
+    toolsCoords.normY >= 0 && toolsCoords.normY <= 1;
   var insideCanvas = this.mouse.normX >= 0 && this.mouse.normX <= 1 &&
-    this.mouse.normY >= 0 && this.mouse.normY <= 1;
+    this.mouse.normY >= 0 && this.mouse.normY <= 1 && !insideTools;
 
   // console.log(this.mouse.normX, this.mouse.normY);
   if (insideCanvas && this.mouse.down && tools.selectedTool) {
