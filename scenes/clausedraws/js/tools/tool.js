@@ -42,6 +42,7 @@ app.Tool = function($elem, name, mouseOffset) {
  * @param {!app.Mouse.CoordsType} mouseCoords at selection time
  */
 app.Tool.prototype.select = function(mouseCoords) {
+  console.log('selected', this.el);
   this.isSelected = true;
 
   this.el.addClass('Tool--selected');

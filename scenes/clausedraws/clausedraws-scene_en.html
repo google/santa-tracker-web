@@ -41,7 +41,9 @@ Santaselfie scene.
           </Button>
         </div>
         <div class="Canvas">
+          <canvas id="back-canvas"></canvas>
           <canvas id="draw-canvas"></canvas>
+          <canvas id="fore-canvas"></canvas>
         </div>
         <div class="Tools board">
           <button class="undo">Undo</button>
@@ -127,6 +129,8 @@ Santaselfie scene.
           <img id="sprinkle3" src="/scenes/clausedraws/img/sprinkles/sprinkle3.svg" width="100" height="100"/>
           <img id="sprinkle4" src="/scenes/clausedraws/img/sprinkles/sprinkle4.svg" width="100" height="100"/>
           <img id="sprinkle5" src="/scenes/clausedraws/img/sprinkles/sprinkle5.svg" width="100" height="100"/>
+          <img id="snowbg" src="/scenes/clausedraws/img/background/snow_bg.png" width="2380" height="1341"/>
+          <img id="snowfg" src="/scenes/clausedraws/img/background/snow_fg.png" width="2380" height="1341"/>
           <canvas id="draw-backup0"></canvas>
           <canvas id="draw-backup1"></canvas>
           <canvas id="draw-backup2"></canvas>
@@ -175,12 +179,8 @@ Santaselfie scene.
     onPreload: function() {
       this.preloadSounds('selfie_load_sounds', 30);
       this.preloadImages([
-        'img/background/chair.svg',
-        'img/background/mirror.svg',
-        'img/background/photos.svg',
-        'img/background/pole--background.svg',
-        'img/background/pole--foreground.svg',
-        'img/background/pole--stripes.svg',
+        'img/background/snow_bg.png',
+        'img/background/snow_fg.png',
         'img/face/eye--blink.svg',
         'img/face/eye--closed.svg',
         'img/face/eye.svg',

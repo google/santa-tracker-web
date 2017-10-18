@@ -5,8 +5,11 @@
   right: 100px;
   top: 50px;
 
-  canvas {
+  #back-canvas {
     background: white;
+  }
+
+  canvas {
     left: 50%;
     position: absolute;
     top: 50%;

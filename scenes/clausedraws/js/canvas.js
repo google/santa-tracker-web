@@ -29,6 +29,8 @@ goog.require('app.utils');
  */
 app.Canvas = function(game, $elem) {
   this.displayCanvas = $elem.find('#draw-canvas')[0];
+  this.backgroundCanvas = $elem.find('#back-canvas')[0];
+  this.foregroundCanvas = $elem.find('#fore-canvas')[0];
   this.backupCanvases = [];
 
   for (var i = 0; i < app.Constants.NUM_BACKUPS; i++) {
@@ -86,8 +88,12 @@ app.Canvas.prototype.onResize = function() {
   this.canvasRatio = Math.min(
       this.container.height() / app.Constants.CANVAS_HEIGHT,
       this.container.width() / app.Constants.CANVAS_WIDTH);
-  this.displayCanvas.height = app.Constants.CANVAS_HEIGHT * this.canvasRatio;
-  this.displayCanvas.width = app.Constants.CANVAS_WIDTH * this.canvasRatio;
+  var height = app.Constants.CANVAS_HEIGHT * this.canvasRatio;
+  var width = app.Constants.CANVAS_WIDTH * this.canvasRatio;
+  this.displayCanvas.height = this.backgroundCanvas.height =
+      this.foregroundCanvas.height = height;
+  this.displayCanvas.width = this.backgroundCanvas.width =
+      this.foregroundCanvas.width = width;
 
   if (this.needSave) {
     this.save();
@@ -263,7 +269,7 @@ app.Canvas.prototype.nextIndex = function(index) {
  */
 app.Canvas.prototype.clearCanvas = function(index) {
   if (typeof index != 'undefined') {
-    console.log('clearing', index);
+    // console.log('clearing', index);
     var backup = this.backupCanvases[index];
     var ctx = backup.canvas.getContext('2d');
     ctx.clearRect(0, 0, backup.canvas.width, backup.canvas.height);
@@ -280,7 +286,7 @@ app.Canvas.prototype.clearCanvas = function(index) {
  * copies the backup at fromIndex into the display canvas.
  */
 app.Canvas.prototype.copyCanvas = function(fromIndex, toIndex) {
-  console.log('copying', fromIndex, 'to', toIndex, 'base', this.baseIndex, 'draw', this.drawIndex);
+  // console.log('copying', fromIndex, 'to', toIndex, 'base', this.baseIndex, 'draw', this.drawIndex);
   var toCanvas = typeof toIndex != 'undefined' ?
       this.backupCanvases[toIndex].canvas : this.displayCanvas;
   var toCtx = toCanvas.getContext('2d');
