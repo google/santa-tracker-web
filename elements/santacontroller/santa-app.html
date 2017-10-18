@@ -1045,10 +1045,10 @@ Polymer({
   },
 
   _userMuteChanged: function(userMute) {
-    // It's possible to confuse Klang, so dedup this with a very short delay.
+    // nb. sound-ambient is bound inside ready:, so dedup this for initial set
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
-    }, 50);
+    });
   },
 
   _soundsLoaded: function(soundsName) {
