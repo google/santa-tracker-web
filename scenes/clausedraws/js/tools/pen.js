@@ -19,31 +19,30 @@ goog.require('app.Tool');
 
 
 /**
- * Coloured spray tool
+ * Pen tool
  * @constructor
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the color.
+ * @param {string} color The color of the pen
  */
 app.Pen = function($elem, name, color) {
   app.Tool.call(this, $elem, 'spray--' + name, {x: 47, y: 0});
 
-  // This is a hidden image on the page that's used by the canvas
-  this.spray = this.elem.find('#spray--' + name)[0];
   this.soundKey = 'selfie_color';
   this.color = color || name;
-  // this.lastCoord = null;
   this.points = [];
   this.dpr = 1;
 };
 app.Pen.prototype = Object.create(app.Tool.prototype);
 
+
 /**
- * [draw description]
- * @param  {[type]} context     [description]
- * @param  {[type]} mouseCoords [description]
- * @param  {[type]} scale       [description]
- * @return {[type]}             [description]
+ * Draws this tool to the canvas.
+ * @param  {!HTMLCanvasElement} canvas The canvas to draw to
+ * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
+ * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
+ * @return {boolean} Whether the canvas was changed
  */
 app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var context = canvas.getContext('2d');
@@ -89,6 +88,9 @@ app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
 };
 
 
+/**
+ * Resets the pen path
+ */
 app.Pen.prototype.reset = function() {
   this.points = [];
 }

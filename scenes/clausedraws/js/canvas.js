@@ -102,7 +102,7 @@ app.Canvas.prototype.onResize = function() {
 app.Canvas.prototype.resetCanvas = function() {
   this.clearCanvas();
   this.backupCanvases.forEach(function(canvas, index) {
-    this.clearCanvas(index, true);
+    this.clearCanvas(index);
   }, this);
 
 
@@ -123,6 +123,7 @@ app.Canvas.prototype.resetCanvas = function() {
 
 
 /**
+ * Mouse changed handler
  * @param {!app.Mouse} mouse
  * @param {app.Mouse.CoordsType} mouseCoords transformed coords
  */
@@ -161,8 +162,6 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
 /**
  * Perform actions on canvas. If no action function,
  * just recopy latest updates to display canvas
- * @param  {[type]} actionFn [description]
- * @return {[type]}          [description]
  */
 app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
   if (actionFn && actionFnContext) {
@@ -173,7 +172,7 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
         if (clearIndex == this.baseIndex) {
           cleared = true;
         } else {
-          this.clearCanvas(clearIndex, true);
+          this.clearCanvas(clearIndex);
           clearIndex = this.prevIndex(clearIndex);
         }
       }
@@ -198,7 +197,6 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
 
 /**
  * Save state and move to next backup
- * @return {[type]}          [description]
  */
 app.Canvas.prototype.save = function() {
   this.backupCanvases[this.drawIndex].saved = true;
@@ -211,7 +209,6 @@ app.Canvas.prototype.save = function() {
 
 /**
  * Undo - go back to prev state
- * @return {[type]}          [description]
  */
 app.Canvas.prototype.undo = function() {
   var previous = this.prevIndex(this.baseIndex);
@@ -226,7 +223,6 @@ app.Canvas.prototype.undo = function() {
 
 /**
  * Redo - go to next state
- * @return {[type]}          [description]
  */
 app.Canvas.prototype.redo = function() {
   if (this.undoing) {
@@ -239,18 +235,30 @@ app.Canvas.prototype.redo = function() {
 };
 
 
+/**
+ * Get the backup index after the given index
+ * @return {number} The next index
+ */
+
 app.Canvas.prototype.prevIndex = function(index) {
   return index > 0 ? (index - 1) : this.backupCanvases.length - 1;
 };
 
 
+/**
+ * Get the backup index before the given index
+ * @return {number} The previous index
+ */
 app.Canvas.prototype.nextIndex = function(index) {
   return (index + 1) % this.backupCanvases.length;
 };
 
 
-app.Canvas.prototype.clearCanvas = function(index, isBackup) {
-  if (isBackup) {
+/**
+ * Clear the canvas. If no backup index is given, clears the display canvas.
+ */
+app.Canvas.prototype.clearCanvas = function(index) {
+  if (typeof index != 'undefined') {
     console.log('clearing', index);
     var backup = this.backupCanvases[index];
     var ctx = backup.canvas.getContext('2d');
@@ -263,6 +271,10 @@ app.Canvas.prototype.clearCanvas = function(index, isBackup) {
 };
 
 
+/**
+ * Copy canvas contents into another canvas. If no toIndex is defined,
+ * copies the backup at fromIndex into the display canvas.
+ */
 app.Canvas.prototype.copyCanvas = function(fromIndex, toIndex) {
   console.log('copying', fromIndex, 'to', toIndex, 'base', this.baseIndex, 'draw', this.drawIndex);
   var toCanvas = typeof toIndex != 'undefined' ?
@@ -272,5 +284,12 @@ app.Canvas.prototype.copyCanvas = function(fromIndex, toIndex) {
   toCtx.drawImage(this.backupCanvases[fromIndex].canvas, 0, 0, toCanvas.width,
       toCanvas.height);
 }
+
+
+/**
+ * @typedef {{x: number, y: number, down: boolean, scale: number, normX: number,
+ *          normY: number}}
+ */
+app.Canvas.CoordsType;
 
 

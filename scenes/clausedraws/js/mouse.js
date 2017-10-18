@@ -37,27 +37,27 @@ app.Mouse = function($elem) {
     this.update();
   }.bind(this));
 
-  $elem.on('mousemove', function(e) {
+  $elem.on('mousemove.clausedraws', function(e) {
     this.x = e.clientX;
     this.y = e.clientY;
 
     e.preventDefault();
   }.bind(this));
 
-  $elem.on('touchstart touchmove', function(e) {
+  $elem.on('touchstart.clausedraws touchmove.clausedraws', function(e) {
     this.x = e.originalEvent.touches[0].clientX;
     this.y = e.originalEvent.touches[0].clientY;
 
     e.preventDefault();
   }.bind(this));
 
-  $elem.on('mousedown touchstart', function(e) {
+  $elem.on('mousedown.clausedraws touchstart.clausedraws', function(e) {
     this.down = true;
 
     e.preventDefault();
   }.bind(this));
 
-  $elem.on('mouseup mouseleave touchend touchleave', function(e) {
+  $elem.on('mouseup.clausedraws mouseleave.clausedraws touchend.clausedraws touchleave.clausedraws', function(e) {
     this.down = false;
 
     if (e.cancelable) {

@@ -19,12 +19,12 @@ goog.require('app.Tool');
 
 
 /**
- * Decorations that stick on the beard
+ * Spray can that sprays sprinkles
  * @constructor
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
+ * @param {!string} name The name of the tool.
  * @param {{x: number, y: number}} offset Tool offset relative to the mouse
- * @param {!Image} decoration image.
  */
 app.SprinkleSpray = function($elem, name, offset) {
   app.Tool.call(this, $elem, name, offset);
@@ -43,12 +43,11 @@ app.SprinkleSpray = function($elem, name, offset) {
 };
 app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
 
+
 /**
- * [draw description]
- * @param  {[type]} context     [description]
- * @param  {[type]} mouseCoords [description]
- * @param  {[type]} scale       [description]
- * @return {[type]}             [description]
+ * Draws this tool to the canvas.
+ * @param  {!HTMLCanvasElement} canvas The canvas to draw to
+ * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
  */
 app.SprinkleSpray.prototype.draw = function(canvas, mouseCoords) {
   var context = canvas.getContext('2d');

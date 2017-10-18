@@ -78,9 +78,11 @@ app.Game.prototype.resetCanvas_ = function() {
 
 /**
  * Resets all game entities and restarts the game. Can be called at any time.
+ * TODO: make sure this works
  */
 app.Game.prototype.restart = function() {
   this.paused = false;
+  this.resetCanvas_();
   this.unfreezeGame();
 
   window.santaApp.fire('analytics-track-game-start', {gameid: 'clausedraws'});
@@ -103,11 +105,10 @@ app.Game.prototype.update = function(delta) {
 
 /**
  * Show share overlay.
+ * TODO: delete?
  */
 app.Game.prototype.showShareOverlay = function() {
   var urlString = '';
-  window.clearTimeout(this.interactionDoneTimeout_);
-  this.updateUrlState_();
   this.shareOverlay.show(urlString, true);
 };
 
@@ -152,7 +153,6 @@ app.Game.prototype.onFrame_ = function() {
 
   // Update game state with physics simulations.
   this.update(delta);
-  // this.canvas.draw();
 
   // Request next frame
   this.requestId = window.requestAnimationFrame(this.onFrame_);

@@ -19,28 +19,30 @@ goog.require('app.Tool');
 
 
 /**
- * Coloured spray tool
+ * Eraser tool
  * @constructor
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the color.
+ * @param {!string} name The name of the tool.
+ * Element should have class Tool-name.
+ * @param {{x: number, y: number}} mouseOffset Tool offset relative to the mouse
  */
-app.Eraser = function($elem, name, offset) {
-  app.Tool.call(this, $elem, name, offset);
+app.Eraser = function($elem, name, mouseOffset) {
+  app.Tool.call(this, $elem, name, mouseOffset);
 
-  // This is a hidden image on the page that's used by the canvas
   this.soundKey = 'selfie_spray_small';
   this.points = [];
   this.dpr = 1;
 };
 app.Eraser.prototype = Object.create(app.Tool.prototype);
 
+
 /**
- * [draw description]
- * @param  {[type]} context     [description]
- * @param  {[type]} mouseCoords [description]
- * @param  {[type]} scale       [description]
- * @return {[type]}             [description]
+ * Draws this tool to the canvas.
+ * @param  {!HTMLCanvasElement} canvas The canvas to draw to
+ * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
+ * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
+ * @return {boolean} Whether the canvas was changed
  */
 app.Eraser.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var context = canvas.getContext('2d');
@@ -89,6 +91,9 @@ app.Eraser.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
 };
 
 
+/**
+ * Resets the eraser path
+ */
 app.Eraser.prototype.reset = function() {
   this.points = [];
 }

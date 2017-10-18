@@ -19,23 +19,29 @@ goog.require('app.Tool');
 
 
 /**
- * Decorations that stick on the beard
+ * Stamp tool
  * @constructor
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the decoration
+ * @param {string} name The name of the stamp
  * @param {{x: number, y: number}} offset Tool offset relative to the mouse
- * @param {!Image} decoration image.
+ * @param {!Image} Stamp image.
  */
-app.Stamp = function($elem, name, offset, decoration) {
+app.Stamp = function($elem, name, offset, stamp) {
   app.Tool.call(this, $elem, 'decoration--' + name, offset);
 
-  this.decoration = decoration;
+  this.stamp = stamp;
   this.soundKey = 'selfie_spray_small';
   this.stamped = false;
 };
 app.Stamp.prototype = Object.create(app.Tool.prototype);
 
+
+/**
+ * Draws this tool to the canvas.
+ * @param  {!HTMLCanvasElement} canvas The canvas to draw to
+ * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
+ */
 app.Stamp.prototype.draw = function(canvas, mouseCoords) {
   if (this.stamped) {
     return false;
@@ -43,13 +49,13 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords) {
 
   var context = canvas.getContext('2d');
 
-  var drawWidth = this.decoration.width / mouseCoords.scale;
-  var drawHeight = this.decoration.height / mouseCoords.scale;
+  var drawWidth = this.stamp.width / mouseCoords.scale;
+  var drawHeight = this.stamp.height / mouseCoords.scale;
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
   var offsetX = this.mouseOffset.x / mouseCoords.scale;
   var offsetY = this.mouseOffset.y / mouseCoords.scale;
-  context.drawImage(this.decoration,
+  context.drawImage(this.stamp,
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);
   this.stamped = true;
@@ -58,17 +64,25 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords) {
 };
 
 
+/**
+ * Start playing the tool's sound
+ */
 app.Stamp.prototype.startSound = function() {
   app.utils.triggerOnce(this.soundKey);
 }
 
+
 /**
- *
+ * Stop playing the tool's sound
  */
 app.Stamp.prototype.stopSound = function() {
   app.utils.triggerReset(this.soundKey);
 }
 
+
+/**
+ * Reset the stamp tool
+ */
 app.Stamp.prototype.reset = function() {
   this.stamped = false;
 };

@@ -100,23 +100,26 @@ app.Tool.prototype.reset = function() {
 
 /**
  * Draws to the canvas using this tool
- * @param  {[type]} context     [description]
- * @param  {[type]} mouseCoords [description]
- * @return {[type]}             [description]
+ * @param  {!HTMLCanvasElement} canvas The canvas to draw to
+ * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
+ * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
+ * @return {boolean} Whether the canvas was changed
  */
 app.Tool.prototype.draw = function(context, mouseCoords, prevCanvas) {
   return false;
 }
 
+
 /**
- *
+ * Start playing the tool's sound
  */
 app.Tool.prototype.startSound = function() {
   app.utils.triggerStart(this.soundKey);
 }
 
+
 /**
- *
+ * Stop playing the tool's sound
  */
 app.Tool.prototype.stopSound = function() {
   app.utils.triggerStop(this.soundKey);

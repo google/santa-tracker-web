@@ -76,6 +76,7 @@ app.Tools = function(game, $elem) {
 
 
 /**
+ * Starts the tools
  */
 app.Tools.prototype.start = function() {
   this.selectTool_ = this.selectTool_.bind(this);
@@ -84,6 +85,7 @@ app.Tools.prototype.start = function() {
 
 
 /**
+ * Mouse changed handler
  * @param {!app.Mouse} mouse
  * @param {app.Mouse.CoordsType} mouseCoords transformed coords
  */
