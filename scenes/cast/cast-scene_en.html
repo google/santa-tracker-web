@@ -36,7 +36,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
   <header>
     <div class="ornament"></div>
     <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-    <countdown-timer remaining-time="[[_remainingTime]]" active animate="[[_false]]">
+    <countdown-timer remaining-time="[[_remainingTime]]" active fast>
       <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
       <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
       <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -80,12 +80,6 @@ TODO(samthor): Bring in the Tracker with shared elements.
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
-
-      // TODO(cdata): How can we pass `false` to a property inside the template?
-      _false: {
-        type: Boolean,
-        value: false,
-      },
 
       /**
        * The iteration of this display: the number of times the cards have changed.
