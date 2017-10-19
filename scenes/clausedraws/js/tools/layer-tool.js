@@ -35,11 +35,14 @@ app.LayerTool = function($elem, name, layer, image) {
 
   if (layer == app.LayerTool.Layer.BACKGROUND) {
     this.canvas = $elem.find('#back-canvas')[0];
+    this.backup = $elem.find('#back-backup')[0];
   } else if (layer == app.LayerTool.Layer.FOREGROUND) {
     this.canvas = $elem.find('#fore-canvas')[0];
+    this.backup = $elem.find('#fore-backup')[0];
   }
-
+  console.log('layers', this.canvas);
   this.context = this.canvas.getContext('2d');
+  this.backupContext = this.backup.getContext('2d');
 };
 app.LayerTool.prototype = Object.create(app.Tool.prototype);
 
@@ -60,5 +63,7 @@ app.LayerTool.Layer = {
 app.LayerTool.prototype.draw = function() {
   this.context.drawImage(this.image, 0, 0, this.canvas.width,
       this.canvas.height);
+  this.backupContext.drawImage(this.image, 0, 0, this.backup.width,
+      this.backup.height);
   return true;
 };

@@ -31,6 +31,14 @@ app.Canvas = function(game, $elem) {
   this.displayCanvas = $elem.find('#draw-canvas')[0];
   this.backgroundCanvas = $elem.find('#back-canvas')[0];
   this.foregroundCanvas = $elem.find('#fore-canvas')[0];
+  this.backgroundBackup = $elem.find('#back-backup')[0];
+  this.foregroundBackup = $elem.find('#fore-backup')[0];
+
+  this.backgroundBackup.height = app.Constants.CANVAS_HEIGHT;
+  this.backgroundBackup.width = app.Constants.CANVAS_WIDTH;
+  this.foregroundBackup.height = app.Constants.CANVAS_HEIGHT;
+  this.foregroundBackup.width = app.Constants.CANVAS_WIDTH;
+
   this.backupCanvases = [];
 
   for (var i = 0; i < app.Constants.NUM_BACKUPS; i++) {
@@ -98,7 +106,10 @@ app.Canvas.prototype.onResize = function() {
   if (this.needSave) {
     this.save();
   }
-  this.copyCanvas(this.baseIndex);
+
+  this.copyCanvasIndex(this.baseIndex);
+  this.copyCanvas(this.foregroundBackup, this.foregroundCanvas);
+  this.copyCanvas(this.backgroundBackup, this.backgroundCanvas);
 }
 
 
@@ -188,7 +199,7 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
       }
 
       this.drawIndex = this.nextIndex(this.baseIndex);
-      this.copyCanvas(this.baseIndex, this.drawIndex);
+      this.copyCanvasIndex(this.baseIndex, this.drawIndex);
       this.undoing = false;
     }
 
@@ -201,7 +212,8 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
     }
   }
 
-  this.copyCanvas(this.drawIndex);
+  // TODO check if we need to copy back and fore
+  this.copyCanvasIndex(this.drawIndex);
 };
 
 
@@ -212,7 +224,7 @@ app.Canvas.prototype.save = function() {
   this.backupCanvases[this.drawIndex].saved = true;
   this.baseIndex = this.drawIndex;
   this.drawIndex = this.nextIndex(this.baseIndex);
-  this.copyCanvas(this.baseIndex, this.drawIndex);
+  this.copyCanvasIndex(this.baseIndex, this.drawIndex);
   this.backupCanvases[this.drawIndex].saved = false;
 };
 
@@ -225,7 +237,7 @@ app.Canvas.prototype.undo = function() {
 
   if (previous != this.drawIndex && this.backupCanvases[previous].saved) {
     this.baseIndex = previous;
-    this.copyCanvas(this.baseIndex);
+    this.copyCanvasIndex(this.baseIndex);
   }
   this.undoing = true;
 };
@@ -239,7 +251,7 @@ app.Canvas.prototype.redo = function() {
     var next = this.nextIndex(this.baseIndex);
     if (next != this.drawIndex) {
       this.baseIndex = next;
-      this.copyCanvas(this.baseIndex);
+      this.copyCanvasIndex(this.baseIndex);
     }
   }
 };
@@ -282,18 +294,25 @@ app.Canvas.prototype.clearCanvas = function(index) {
 
 
 /**
- * Copy canvas contents into another canvas. If no toIndex is defined,
+ * Copy canvas contents into another canvas, by index. If no toIndex is defined,
  * copies the backup at fromIndex into the display canvas.
  */
-app.Canvas.prototype.copyCanvas = function(fromIndex, toIndex) {
+app.Canvas.prototype.copyCanvasIndex = function(fromIndex, toIndex) {
   // console.log('copying', fromIndex, 'to', toIndex, 'base', this.baseIndex, 'draw', this.drawIndex);
   var toCanvas = typeof toIndex != 'undefined' ?
       this.backupCanvases[toIndex].canvas : this.displayCanvas;
+  this.copyCanvas(this.backupCanvases[fromIndex].canvas, toCanvas);
+};
+
+
+/**
+ * Copy canvas contents into another canvas.
+ */
+app.Canvas.prototype.copyCanvas = function(fromCanvas, toCanvas) {
   var toCtx = toCanvas.getContext('2d');
   toCtx.clearRect(0, 0, toCanvas.width, toCanvas.height);
-  toCtx.drawImage(this.backupCanvases[fromIndex].canvas, 0, 0, toCanvas.width,
-      toCanvas.height);
-}
+  toCtx.drawImage(fromCanvas, 0, 0, toCanvas.width, toCanvas.height);
+};
 
 
 /**
