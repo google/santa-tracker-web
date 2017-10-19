@@ -16,104 +16,6 @@ const {
   DoubleSide
 } = self.THREE;
 
-const vertexShader = `
-attribute float visibility;
-
-varying vec2 vUv;
-varying vec3 vPosition;
-varying float vVisibility;
-
-void main() {
-  vUv = uv;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  vPosition = position;
-  vVisibility = visibility;
-}
-`;
-
-const fragmentShader = `
-vec2 rotate2d(float angle, vec2 v){
-    return mat2(cos(angle),-sin(angle),
-                sin(angle),cos(angle)) * v;
-}
-
-// Hexagon created by inigo quilez - iq/2014
-// @see https://www.shadertoy.com/view/Xd2GR3
-// @returns vec4( 2d cell id, distance to border, distance to center )
-vec4 hexagon(vec2 p)
-{
-  p = rotate2d(3.14 / 6.0, p);
-  vec2 q = vec2(p.x * 2.0 * 0.5773503, p.y + p.x * 0.5773503);
-
-  vec2 pi = floor(q);
-  vec2 pf = fract(q);
-
-  float v = mod(pi.x + pi.y, 3.0);
-
-  float ca = step(1.0, v);
-  float cb = step(2.0, v);
-  vec2  ma = step(pf.xy, pf.yx);
-
-    // distance to borders
-  float e = dot(ma,
-      1.0 - pf.yx +
-      ca * (pf.x + pf.y - 1.0) +
-      cb * (pf.yx - 2.0 * pf.xy));
-
-  // distance to center
-  p = vec2(q.x + floor(0.5 + p.y / 1.5), 4.0 * p.y / 3.0) * 0.5 + 0.5;
-
-  float f = length((fract(p) - 0.5) * vec2(1.0, 0.85));
-
-  return vec4(pi + ca - cb * ma, e, f);
-}
-
-vec2 resolution = vec2(300, 300);
-
-varying vec2 vUv;
-varying vec3 vPosition;
-varying float vVisibility;
-
-void main()
-{
-  vec2 pos = vUv * resolution / 32.0 * vec2(1.0, 1.25);
-  //vec4 hex = hexagon(pos);
-  vec4 hex = hexagon(vPosition.xy / 10.0);
-
-  vec2 coord = vUv * 2.0 - 1.0;
-
-  vec2 normalId = normalize(hex.xy);
-
-  float show = smoothstep(13.0, 13.01, length(hex.xy));
-
-  gl_FragColor = vec4(0.0) + smoothstep(0.05, 0.08, hex.z) * step(0.5, vVisibility);
-
-
-  /*
-  vec2 uv = gl_FragCoord.xy;
-  vec2 pos = (-resolution.xy + 2.0 * gl_FragCoord.xy) / resolution.y;
-
-  float verticalScale = 1.25;
-  float mapScale = 10.0;
-
-  vec2 hexPos = pos * vec2(mapScale, mapScale + verticalScale);
-  vec4 hex = hexagon(hexPos);
-
-  float borderDistance = hex.z;
-  //float centerDistance = h.w;
-
-  vec3 col = vec3(smoothstep(0.05, 0.08, borderDistance)) + vec3(0.25);
-
-  //float islandDistance = length(abs(pos + hex.z));
-
-  col *= 1.0 - step(10.0, length(hex.y));
-
-  vec4 blue = vec4(0.44, 0.65, 0.86, 1.0);
-
-  gl_FragColor = blue + vec4( col, 1.0 );
-  */
-}`;
-
 const vert = `
 precision highp float;
 
@@ -121,6 +23,7 @@ uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
 uniform float scale;
 uniform vec2 size;
+uniform float time;
 
 attribute vec3 position;
 attribute vec3 offset;
@@ -137,7 +40,26 @@ void main() {
 
   vUv = uv;
   vState = state;
-  vShouldHighlight = step(step(1.0, vState), 3.0);
+
+  vShouldHighlight = step(2.0, vState) * step(vState, 3.0);
+
+  float shakeTime = step(3.0, vState);
+
+  if (state > 3.0) {
+    float elapsed = (time - state) / 1000.0;
+    float e3 = elapsed * elapsed * elapsed;
+
+    float xOffset = sin((elapsed * 15.0)) *
+        cos(elapsed * 25.0) *
+        (3.0 + 3.0 * e3 - 5.0 * elapsed);
+
+    float yOffset = max(e3 - 0.25, 0.0) * 15.0;
+
+    if (elapsed <= 1.75) {
+      scaledPosition.x += xOffset;
+      scaledPosition.y -= yOffset;
+    }
+  }
 
   gl_Position = projectionMatrix * modelViewMatrix * scaledPosition;
 }
@@ -149,6 +71,7 @@ precision highp float;
 uniform sampler2D map;
 uniform float scale;
 uniform vec2 highlight;
+uniform float time;
 
 varying vec2 vUv;
 varying float vState;
@@ -158,12 +81,28 @@ void main() {
   vec4 color = texture2D(map, vUv);
   float alpha = smoothstep(0.75, 0.8, color.a);
 
-  if (alpha < 0.01 || vState < 1.0) {
+  float aScale = 1.0;
+
+  float toneScale = 0.15 + abs(sin(time / 300.0)) * 0.15;
+  float rScale = 0.45 * toneScale;
+  float gScale = 0.75 * toneScale;
+
+  vec3 colorTone = vec3(
+      1.0 - vShouldHighlight * rScale,
+      1.0 - vShouldHighlight * gScale,
+      1.0);
+
+  if (vState >= 3.0) {
+    float elapsed = (time - vState) / 1000.0;
+    float e3 = elapsed * elapsed * elapsed;
+    aScale = min(1.35 - e3, 1.0);
+  }
+
+  if (alpha < 0.01 || vState < 1.0 || aScale < 0.0) {
     discard;
   }
 
-  gl_FragColor = vShouldHighlight * vec4(1.0, 0.0, 0.0, 0.0) + vec4(0.0, 0.0, 0.0, 1.0);
-  //gl_FragColor = color;
+  gl_FragColor = vec4(colorTone * color.rgb, color.a * aScale);
 }
 `;
 
@@ -211,12 +150,15 @@ export class FastMap extends Entity(Mesh) {
     const state = new InstancedBufferAttribute(
         new Float32Array(hexCount), 1, 1).setDynamic(true);
 
+    const rings = [];
+
     for (let q = 0; q < width; ++q) {
       for (let r = 0; r < height; ++r) {
         const x = q;
         const y = (-q - r);
         const z = r;
         const i = q * width + r;
+
 
         cell.set(x, y, z);
         HexGrid.toPixel(cell);
@@ -230,6 +172,14 @@ export class FastMap extends Entity(Mesh) {
         if (mag < width2 && mag < height2) {
           const value = mag > width2 / 2.5 ?
               Math.random() * (width2 - mag) < width2 / 6 ? 0 : 1 : 1;
+
+          if (value === 1) {
+            const ringIndex = Math.floor(mag);
+
+            rings[ringIndex] = rings[ringIndex] || [];
+            rings[ringIndex].push(i)
+          }
+
           state.setX(i, value);
         }
 
@@ -242,6 +192,9 @@ export class FastMap extends Entity(Mesh) {
 
     const texture = new TextureLoader().load('/subg-terrain/hex_land.png');
     const uniforms = {
+      time: {
+        value: performance.now()
+      },
       map: {
         value: texture
       },
@@ -286,6 +239,7 @@ export class FastMap extends Entity(Mesh) {
         new PlaneBufferGeometry(this.width, this.height),
         new MeshBasicMaterial({ color: 0x000000, transparent: true, wireframe: true }));
 
+    this.rings = rings;
     this.surface.rotation.x = Math.PI;
     this.surface.position.set(this.width / 2, -this.height / 2, 0);
     this.add(this.surface);
@@ -300,7 +254,16 @@ export class FastMap extends Entity(Mesh) {
   }
 
   onPick(event) {
-    console.log('Pick!', event.detail.intersections);
+    const hit = event.detail.hits.get(this.surface)[0];
+    const state = this.geometry.attributes.state;
+    const index = this.uvToTileIndex(hit.uv);
+
+    console.log('Pick!', index);
+
+    if (state.getX(index) < 3) {
+      state.setX(index, performance.now());
+      state.needsUpdate = true;
+    }
   }
 
   onMove(event) {
@@ -308,16 +271,47 @@ export class FastMap extends Entity(Mesh) {
     const state = this.geometry.attributes.state;
     const index = this.uvToTileIndex(hit.uv);
 
-    console.log('Move!', hit);
-    if (this.lastHighlightIndex != null) {
+    if (this.lastHighlightIndex != null && state.getX(this.lastHighlightIndex) < 3) {
       state.setX(this.lastHighlightIndex, 1);
+      state.needsUpdate = true;
     }
 
-    console.log(index);
     if (state.getX(index) === 1) {
+      this.lastHighlightIndex = index;
       state.setX(index, 2);
+      state.needsUpdate = true;
     }
-    //this.uniforms.highlight.value.copy(hit.uv);
+  }
+
+  update(game) {
+    const time = performance.now();
+    this.uniforms.time.value = time;
+
+    const tick = Math.floor(time / 16.0);
+
+    if (tick % 16 === 0) {
+      for (let i = 0; i < 5; i++) {
+        if (this.rings.length === 0) {
+          break;
+        }
+
+        const state = this.geometry.attributes.state;
+
+        const ring = this.rings[this.rings.length - 1];
+
+        const ringIndex = Math.floor(Math.random() * ring.length);
+        const index = ring[ringIndex];
+
+        ring.splice(ringIndex, 1);
+
+        state.setX(index, performance.now());
+        state.needsUpdate = true;
+
+        if (ring.length === 0) {
+          this.rings.pop();
+        }
+      }
+    }
   }
 
   teardown(game) {
@@ -325,8 +319,12 @@ export class FastMap extends Entity(Mesh) {
   }
 
   uvToTileIndex(uv) {
-    const q = Math.floor(uv.x * this.unitWidth);
-    const r = Math.floor(uv.y * this.unitHeight);
+    const x = uv.x;
+    const y = uv.y;
+
+    const q = Math.round(x * this.unitWidth);
+    const offset = q % 2;
+    const r = Math.round((y - q % 2 / this.unitWidth * 0.375) * this.unitHeight);
 
     return this.axialToTileIndex(q, r);
   }

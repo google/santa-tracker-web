@@ -7,7 +7,7 @@ export class MainLevel extends Level {
   setup(game) {
     console.log('Setup!');
 
-    const fastMap = this.fastMap = new FastMap();
+    const fastMap = this.fastMap = new FastMap(32, 32);
     this.fastMap.setup(game);
     this.add(this.fastMap);
   }
