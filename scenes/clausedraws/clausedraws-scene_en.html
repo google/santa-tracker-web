@@ -34,83 +34,60 @@ Santaselfie scene.
   <div id="module-clausedraws">
     <div class="clausedraws">
       <div class="scene">
-        <div class="Buttons">
+<!--         <div class="Buttons">
           <Button id="reset-button" class="Button Button--small Button--reset"></Button>
           <Button id="share-button" class="Button">
             <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
           </Button>
         </div>
+ -->
         <div class="Canvas">
           <canvas id="back-canvas"></canvas>
           <canvas id="draw-canvas"></canvas>
           <canvas id="fore-canvas"></canvas>
         </div>
-        <div class="Tools board">
-          <button class="undo">Undo</button>
-          <button class="redo">Redo</button>
-          <div class="Tools--scrollable">
-            <div class="Tool-container Tool-shadow Tool-shadow--clipper Tool--mobile">
-              <div class="Tool Tool-clipper">
-                <div class="Tool-animation Tool-clipper--animate"></div>
-              </div>
-            </div>
-            <div class="Tool-container Tool-shadow Tool-shadow--hairgrow Tool--mobile">
-              <div class="Tool Tool-hairgrow">
-                <div class="Tool-animation Tool-hairgrow--animate"></div>
-              </div>
-            </div>
-            <div class="Tool-container Tool-shadow Tool-shadow--hairclean">
-              <div class="Tool Tool-hairclean">
-                <div class="Tool-animation Tool-hairclean--animate"></div>
-              </div>
-            </div>
-            <div class="Tool-container Tool-shadow Tool-shadow--hairdryer Tool--mobile">
-              <div class="Tool Tool-hairdryer"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
-              <div class="Tool Tool-spray Tool-spray--red"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-              <div class="Tool Tool-spray Tool-spray--orange"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-              <div class="Tool Tool-spray Tool-spray--yellow"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
-              <div class="Tool Tool-spray Tool-spray--green"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
-              <div class="Tool Tool-spray Tool-spray--cyan"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-              <div class="Tool Tool-spray Tool-spray--purple"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-              <div class="Tool Tool-spray Tool-spray--pink"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-              <div class="Tool Tool-spray Tool-spray--blue"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--snowman">
-              <div class="Tool Tool-decoration Tool-decoration--snowman"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--bauble">
-              <div class="Tool Tool-decoration Tool-decoration--bauble"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--bow">
-              <div class="Tool Tool-decoration Tool-decoration--bow"></div>
-            </div>
-            <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--holly">
-              <div class="Tool Tool-decoration Tool-decoration--holly"></div>
-            </div>
-            <div class="Tool-buttons">
-              <div id="reset-button-toolbox" class="Tool-container Tool--mobile Tool--mobileOnly Button--reset"></div>
-              <div id="share-button-toolbox" class="Tool-container Tool--mobile Tool--mobileOnly Tool-button">
-                <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
-              </div>
-            </div>
+
+        <div class="Tools Tools--primary">
+          <div class="Tools--robot">
+            <div class="Robot-image"></div>
+            <button class="undo" data-tool-undo>Undo</button>
+            <button class="redo" data-tool-redo>Redo</button>
+          </div>
+
+          <div class="Tools-categories">
+            <div class="Category" data-tool-category-picker data-tool-category="drawing">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="stamp">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="spray">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="wand">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="shapes">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="bucket">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="scene">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="sticker">Category</div>
+            <div class="Category" data-tool-category-picker data-tool-category="eraser">Category</div>
+          </div>
+
+          <div class="Tools-clear">
+            <div class="Tool Tool--snowglobe"></div>
+          </div>
+
+          <div class="Tools-setting">
+            <div class="Tools-sizepicker"></div>
+            <div class="Tools-colorpicker"></div>
           </div>
         </div>
+
+        <div class="Tools Tools--secondary">
+          CONTEXT MENU
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="drawing">
+            <div class="Tool" data-tool="pen">PEN</div>
+            <div class="Tool">CRAYON</div>
+            <div class="Tool">MARKER</div>
+            <div class="Tool">etc</div>
+            <div class="Tool">etc</div>
+            <div class="Tool">etc</div>
+          </div>
+        </div>
+
         <!-- These images are use by canvases-->
         <div class="hidden">
           <img id="spray--red" src="/scenes/clausedraws/img/tools/sprays/red.png" width="128" height="128"/>

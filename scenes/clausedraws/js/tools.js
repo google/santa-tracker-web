@@ -33,46 +33,53 @@ goog.require('app.utils');
 app.Tools = function(game, $elem) {
   this.game_ = game;
 
-  this.elem = $elem.find('.Tools');
-  this.clipper = new app.SprinkleSpray($elem, 'clipper', {x: 40, y: 0});
-  this.hairdryer = new app.LayerTool($elem, 'hairdryer', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
-  this.hairclean = new app.Eraser($elem, 'hairclean', {x: 120, y: 10});
-  this.hairgrow = new app.LayerTool($elem, 'hairgrow', app.LayerTool.Layer.FOREGROUND, $elem.find('#snowfg')[0]);
+  this.primaryMenu = $elem.find('.Tools--primary');
+  this.categoryPickers = this.primaryMenu.find('[data-tool-category-picker]');
 
-  this.sprayRed = new app.Pen($elem, 'red');
-  this.sprayOrange = new app.Pen($elem, 'orange');
-  this.sprayYellow = new app.Pen($elem, 'yellow');
-  this.sprayGreen = new app.Pen($elem, 'green');
-  this.sprayCyan = new app.Pen($elem, 'cyan');
-  this.sprayPurple = new app.Pen($elem, 'purple');
-  this.sprayPink = new app.Pen($elem, 'pink');
-  this.sprayBlue = new app.Pen($elem, 'blue');
+  this.secondaryMenu = $elem.find('.Tools--secondary');
+  this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menus]');
 
-  this.decorationSnowman = new app.Stamp($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
-  this.decorationBauble = new app.Stamp($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
-  this.decorationBow = new app.Stamp($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
-  this.decorationHolly = new app.Stamp($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
+  this.categoryPickers.on('click.clausedraws', this.onCategoryClick_.bind(this));
 
-  this.tools = [
-    this.clipper,
-    this.hairdryer,
-    this.hairgrow,
-    this.hairclean,
+  // this.clipper = new app.SprinkleSpray($elem, 'clipper', {x: 40, y: 0});
+  // this.hairdryer = new app.LayerTool($elem, 'hairdryer', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
+  // this.hairclean = new app.Eraser($elem, 'hairclean', {x: 120, y: 10});
+  // this.hairgrow = new app.LayerTool($elem, 'hairgrow', app.LayerTool.Layer.FOREGROUND, $elem.find('#snowfg')[0]);
 
-    this.sprayRed,
-    this.sprayOrange,
-    this.sprayYellow,
-    this.sprayGreen,
-    this.sprayCyan,
-    this.sprayPurple,
-    this.sprayPink,
-    this.sprayBlue,
+  // this.sprayRed = new app.Pen($elem, 'red');
+  // this.sprayOrange = new app.Pen($elem, 'orange');
+  // this.sprayYellow = new app.Pen($elem, 'yellow');
+  // this.sprayGreen = new app.Pen($elem, 'green');
+  // this.sprayCyan = new app.Pen($elem, 'cyan');
+  // this.sprayPurple = new app.Pen($elem, 'purple');
+  // this.sprayPink = new app.Pen($elem, 'pink');
+  // this.sprayBlue = new app.Pen($elem, 'blue');
 
-    this.decorationSnowman,
-    this.decorationBauble,
-    this.decorationBow,
-    this.decorationHolly
-  ];
+  // this.decorationSnowman = new app.Stamp($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
+  // this.decorationBauble = new app.Stamp($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
+  // this.decorationBow = new app.Stamp($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
+  // this.decorationHolly = new app.Stamp($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
+
+  // this.tools = [
+  //   this.clipper,
+  //   this.hairdryer,
+  //   this.hairgrow,
+  //   this.hairclean,
+
+  //   this.sprayRed,
+  //   this.sprayOrange,
+  //   this.sprayYellow,
+  //   this.sprayGreen,
+  //   this.sprayCyan,
+  //   this.sprayPurple,
+  //   this.sprayPink,
+  //   this.sprayBlue,
+
+  //   this.decorationSnowman,
+  //   this.decorationBauble,
+  //   this.decorationBow,
+  //   this.decorationHolly
+  // ];
 };
 
 
@@ -81,7 +88,8 @@ app.Tools = function(game, $elem) {
  */
 app.Tools.prototype.start = function() {
   this.selectTool_ = this.selectTool_.bind(this);
-  this.elem.on('click touchend', this.selectTool_);
+  this.secondaryMenu.on('click.clausedraws touchend.clausedraws',
+      this.selectTool_);
 };
 
 
@@ -131,3 +139,13 @@ app.Tools.prototype.selectTool_ = function(e) {
     previousTool.deselect();
   }
 };
+
+
+app.Tools.prototype.onCategoryClick_ = function(e) {
+  var category = $(e.target).closest('[data-tool-category-picker]')
+      .attr('data-tool-category');
+  console.log(category);
+  this.categoryMenus.removeClass('is-active');
+  this.secondaryMenu.find('[data-tool-category="' + category + '"]')
+      .addClass('is-active');
+}

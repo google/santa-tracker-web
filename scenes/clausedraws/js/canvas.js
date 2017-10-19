@@ -150,9 +150,10 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   }
   var tools = this.game_.tools;
 
+  // TODO check secondary menu bounds
   var rect = this.displayCanvas.getBoundingClientRect();
   var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
-  var toolsRect = tools.elem[0].getBoundingClientRect();
+  var toolsRect = tools.primaryMenu[0].getBoundingClientRect();
   var toolsCoords = mouse.transformCoordinates(mouse.x, mouse.y, toolsRect);
 
   this.mouse.x = canvasCoords.x;
