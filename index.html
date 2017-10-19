@@ -233,10 +233,7 @@ if (window.santaApp.mode === 'portal') {
     var link = event.composedPath().filter(function(el) {
       return el.localName === 'a' && el.href;
     })[0];
-    if (!link) {
-      return;
-    }
-    if (link.href.indexOf(window.location.origin + '/') !== 0) {
+    if (link && link.href.indexOf(window.location.origin + '/') !== 0) {
       event.stopPropagation();
       event.preventDefault();
     }
