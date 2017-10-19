@@ -175,7 +175,7 @@ ga('set', 'transport', 'beacon');
   // nb. this can't be configured via window.Polymer and seemingly must be done before elements
   // are stamped (https://github.com/Polymer/polymer/issues/4847)
   // TODO(samthor): include on other entrypoints
-  Polymer.setPassiveTouchGestures(true);
+  Polymer.setPassiveTouchGestures && Polymer.setPassiveTouchGestures(true);
 </script>
 
 <santa-app id="santaApp" routing></santa-app>
