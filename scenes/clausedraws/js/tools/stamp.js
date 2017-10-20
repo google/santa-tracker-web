@@ -28,7 +28,7 @@ goog.require('app.Tool');
  * @param {!Image} Stamp image.
  */
 app.Stamp = function($elem, name, offset, stamp) {
-  app.Tool.call(this, $elem, 'decoration--' + name, offset);
+  app.Tool.call(this, $elem, 'stamp-' + name, offset);
 
   this.stamp = stamp;
   this.soundKey = 'selfie_spray_small';

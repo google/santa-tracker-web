@@ -27,7 +27,6 @@ goog.require('app.Tool');
  * @param {app.LayerTool.Layer} layer The layer this tool changes
  */
 app.LayerTool = function($elem, name, layer, image) {
-  console.log('hey');
   app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_color';

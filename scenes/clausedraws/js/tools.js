@@ -38,55 +38,31 @@ app.Tools = function(game, $elem) {
   this.categoryPickers = this.primaryMenu.find('[data-tool-category-picker]');
 
   this.secondaryMenu = $elem.find('.Tools--secondary');
-  this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menus]');
+  this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
 
   this.categoryPickers.on('click.clausedraws', this.onCategoryClick_.bind(this));
 
   this.pen = new app.Pen($elem, 'pen');
+  this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles', {x: 40, y: 0});
+  this.snowbg = new app.LayerTool($elem, 'scene-snowbg', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
+  this.snowfg = new app.LayerTool($elem, 'scene-snowfg', app.LayerTool.Layer.FOREGROUND, $elem.find('#snowfg')[0]);
+  this.eraser = new app.Eraser($elem, 'eraser', {x: 120, y: 10});
+  this.stampSnowman = new app.Stamp($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
+  this.stampBauble = new app.Stamp($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
+  this.stampBow = new app.Stamp($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
+  this.stampHolly = new app.Stamp($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
 
   this.tools = [
-    this.pen
+    this.pen,
+    this.sprinkles,
+    this.snowbg,
+    this.snowfg,
+    this.eraser,
+    this.stampSnowman,
+    this.stampBauble,
+    this.stampBow,
+    this.stampHolly
   ];
-
-  // this.clipper = new app.SprinkleSpray($elem, 'clipper', {x: 40, y: 0});
-  // this.hairdryer = new app.LayerTool($elem, 'hairdryer', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
-  // this.hairclean = new app.Eraser($elem, 'hairclean', {x: 120, y: 10});
-  // this.hairgrow = new app.LayerTool($elem, 'hairgrow', app.LayerTool.Layer.FOREGROUND, $elem.find('#snowfg')[0]);
-
-  // this.sprayRed = new app.Pen($elem, 'red');
-  // this.sprayOrange = new app.Pen($elem, 'orange');
-  // this.sprayYellow = new app.Pen($elem, 'yellow');
-  // this.sprayGreen = new app.Pen($elem, 'green');
-  // this.sprayCyan = new app.Pen($elem, 'cyan');
-  // this.sprayPurple = new app.Pen($elem, 'purple');
-  // this.sprayPink = new app.Pen($elem, 'pink');
-  // this.sprayBlue = new app.Pen($elem, 'blue');
-
-  // this.decorationSnowman = new app.Stamp($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
-  // this.decorationBauble = new app.Stamp($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
-  // this.decorationBow = new app.Stamp($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
-  // this.decorationHolly = new app.Stamp($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
-
-  // this.tools = [
-  //   this.clipper,
-  //   this.hairdryer,
-  //   this.hairgrow,
-  //   this.hairclean,
-
-  //   this.sprayRed,
-  //   this.sprayOrange,
-  //   this.sprayYellow,
-  //   this.sprayGreen,
-  //   this.sprayCyan,
-  //   this.sprayPurple,
-  //   this.sprayPink,
-  //   this.sprayBlue,
-
-  //   this.decorationSnowman,
-  //   this.decorationBauble,
-  //   this.decorationBow,
-  //   this.decorationHolly
-  // ];
 };
 
 

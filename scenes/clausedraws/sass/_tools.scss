@@ -35,6 +35,14 @@
     }
   }
 
+  .Category {
+    cursor: pointer;
+  }
+
+  .Tool {
+    cursor: pointer;
+  }
+
   .Tool--selected {
     position: fixed;
   }
