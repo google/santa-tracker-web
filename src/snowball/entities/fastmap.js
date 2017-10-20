@@ -29,17 +29,23 @@ attribute vec3 position;
 attribute vec3 offset;
 attribute vec2 uv;
 attribute float state;
+attribute float tile;
 
 varying vec2 vUv;
 varying float vState;
 varying float vShouldHighlight;
+varying float vTile;
 
 void main() {
   mat4 scaleMatrix = mat4(mat3(scale));
-  vec4 scaledPosition = scaleMatrix * vec4(offset + position, 1.0);
+  vec4 scaledPosition = scaleMatrix * vec4(offset + (position * 2.0), 1.0);
 
-  vUv = uv;
+  vec2 tileOffset = vec2(mod(tile, 4.0), 4.0 - ceil(tile / 4.0)) / 4.0;
+  //vec2 tileOffset = vec2(0.0);
+  vUv = tileOffset + uv / 4.0;
+
   vState = state;
+  vTile = tile;
 
   vShouldHighlight = step(2.0, vState) * step(vState, 3.0);
 
@@ -76,6 +82,7 @@ uniform float time;
 varying vec2 vUv;
 varying float vState;
 varying float vShouldHighlight;
+varying float vTile;
 
 void main() {
   vec4 color = texture2D(map, vUv);
@@ -98,7 +105,7 @@ void main() {
     aScale = min(1.35 - e3, 1.0);
   }
 
-  if (alpha < 0.01 || vState < 1.0 || aScale < 0.0) {
+  if (alpha < 0.001 || vState < 1.0 || aScale < 0.0) {
     discard;
   }
 
@@ -150,6 +157,9 @@ export class FastMap extends Entity(Mesh) {
     const state = new InstancedBufferAttribute(
         new Float32Array(hexCount), 1, 1).setDynamic(true);
 
+    const tile = new InstancedBufferAttribute(
+        new Float32Array(hexCount), 1, 1);
+
     const rings = [];
 
     for (let q = 0; q < width; ++q) {
@@ -181,6 +191,7 @@ export class FastMap extends Entity(Mesh) {
           }
 
           state.setX(i, value);
+          tile.setX(i, Math.floor(Math.random() * 16));
         }
 
         offsets.setXYZ(i, cell.x, cell.y, cell.y / 10.0);
@@ -189,8 +200,10 @@ export class FastMap extends Entity(Mesh) {
 
     geometry.addAttribute('offset', offsets);
     geometry.addAttribute('state', state);
+    geometry.addAttribute('tile', tile);
 
-    const texture = new TextureLoader().load('/subg-terrain/hex_land.png');
+    //const texture = new TextureLoader().load('/subg-terrain/hex_land.png');
+    const texture = new TextureLoader().load('/src/images/tiles.png');
     const uniforms = {
       time: {
         value: performance.now()

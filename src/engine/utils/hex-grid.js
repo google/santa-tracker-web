@@ -21,7 +21,7 @@ export class HexGrid {
     const r = position.z;
 
     position.x = q * 0.75;
-    position.y = -0.75 * r + (q % 2) * 0.375;
+    position.y = -0.74 * r + (q % 2) * 0.375;
     position.z = 0;
   }
 
