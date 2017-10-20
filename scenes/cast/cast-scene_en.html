@@ -110,6 +110,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
       _videoActive: {
         type: Boolean,
         observer: '_videoActiveChanged',
+        value: false,
       },
 
       /**
@@ -125,10 +126,13 @@ TODO(samthor): Bring in the Tracker with shared elements.
       this._updateInterval = window.setInterval(() => {
         ++this._iteration;
       }, 5000);
+      this._videoActiveChanged(this._videoActive);  // trigger video play
     },
 
     detached: function() {
       window.clearInterval(this._updateInterval);
+      this._videoId = '';
+      this.debounce('video', () => {});  // no longer play a video
     },
 
     /**

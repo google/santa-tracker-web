@@ -37,6 +37,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const context = cast.framework.CastReceiverContext.getInstance();
     context.setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
   }
+  window.santaApp.addEventListener('beforeload', (ev) => {
+    if (ev.detail !== 'cast') {
+      ev.preventDefault();
+    }
+  });
 });
 
   </script>

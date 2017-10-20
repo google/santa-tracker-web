@@ -124,6 +124,13 @@ window.addEventListener('DOMContentLoaded', function() {
   });
   s.addEventListener('embed', (e) => send(e.detail));
 
+  // Disable the tracker and village scenes.
+  s.addEventListener('beforeload', (ev) => {
+    if (ev.detail === 'village' || ev.detail === 'tracker') {
+      ev.preventDefault();
+    }
+  });
+
 }());
 </script>
 

@@ -69,11 +69,7 @@ Santa Tracker app.
         share-options="[[shareOptions]]" mode$="[[mode]]"></santa-overlay>
 
     <!-- Scenes -->
-    <lazy-pages id="lazypages"
-        selected-item="{{selectedScene}}"
-        selectable=":not([disabled])"
-        attr-for-selected="route"
-        selected-attribute="active">
+    <lazy-pages id="lazypages" route="{{route}}" selected-item="{{selectedScene}}">
 
       <cast-scene route="cast"
           path$="scenes/cast/cast-scene_[[language]].html"
@@ -522,27 +518,16 @@ Polymer({
     },
 
     /**
-     * The previously selected scene route.
-     */
-    prevSelectedRoute: {
-      type: String,
-      observer: '_prevSelectedRouteChanged',
-      value: null
-    },
-
-    /**
      * Current URL route.
      */
     route: {
       type: String,
-      observer: '_routeChanged'
     },
 
     /** Whether the schedule is checked. If false, houses will remain unlocked. */
     scheduleChecked: {
       type: Boolean,
       value: !window.DEV,
-      observer: '_scheduleCheckedChanged',
     },
 
     /**
@@ -561,7 +546,7 @@ Polymer({
      */
     mode: {
       type: String,
-      value: ""
+      value: '',
     },
 
     /**
@@ -579,13 +564,14 @@ Polymer({
      */
     currentTime: {
       type: Number,
-      observer: '_currentTimeChanged',
     },
 
     /**
      * Whether a reload has been requested. Bound from `santa-state`.
      */
-    requestedReload: Boolean,
+    requestedReload: {
+      type: Boolean,
+    },
 
     /**
      * The networks that Santa can share to.
@@ -611,8 +597,13 @@ Polymer({
 
   },
 
+  observers: [
+    '_updateLock(currentTime, scheduleChecked)',
+  ],
+
   listeners: {
     'click': 'onClick',
+    'beforeload': 'onBeforeLoad',
     'scene-progress': 'onSceneProgress',
     'scene-failure': 'onSceneFailure',
     'scene-ready': 'onSceneReady',
@@ -721,16 +712,12 @@ Polymer({
     var m = /\/(?:(\w+)\.html|)$/.exec(targetUrl.pathname.substr(lastSlash));
     if (!m) { return; }
 
-    // Good job! You found a route. But throw it out if it's invalid for some reason.
+    // Set the route. Hooray! \o/
     var route = m[1] || this.defaultRoute;
-    if (!this.sceneIsValid(route)) { return; }
-
-    // If this is the same route, then close the drawer. It was probably a sidebar click.
     if (this.route === route) {
+      // If this is the same route, then close the drawer. It was probably a sidebar click.
       this.$.chrome.closeDrawer();
     }
-
-    // Set the route. Hooray! \o/
     this.route = route;
     ev.preventDefault();
   },
@@ -777,44 +764,40 @@ Polymer({
   /**
    * Reset and update various bits of global state when a new scene is made visible.
    */
-  _selectedSceneChanged: function(newValue, oldValue) {
+  _selectedSceneChanged: function() {
     this.$.chrome.hasGameButtons = false;
     this.$.chrome.closeDrawer();
     this.userPause = false;
 
-    if (oldValue && oldValue.route) {
-      this.prevSelectedRoute = oldValue.route;
-    }
-
     this._updateStylingForScene(this.selectedScene);
 
     if (this.selectedScene && this.selectedScene.is) {
+      // This path runs when selectedScene is already created (Polymer defines its 'is' property).
       this._prepareScene(this.selectedScene);
     }
   },
 
   _updateStylingForScene: function(scene) {
-    var allowPageScrolling = scene ? scene.hasAttribute('allow-page-scrolling') : true;
-
     // Allow scrolling body if scene requests it. Update `santa-chrome` to match.
-    if (allowPageScrolling) {
+    if (!scene || scene.hasAttribute('allow-page-scrolling')) {
       document.body.classList.remove('scrollock');
       this.$.chrome.classList.remove('fixed');
     } else {
       document.body.classList.add('scrollock');
       this.$.chrome.classList.add('fixed');
     }
+    scene = scene || document.createElement('empty-scene');
 
     // Update custom colors and themes.
-    var headerColor = scene && scene.getAttribute('header-color');
+    var headerColor = scene.getAttribute('header-color');
     this.updateStyles({
       '--santa-header-color': headerColor,
-      '--santa-feature-color': scene && scene.getAttribute('feature-color')
+      '--santa-feature-color': scene.getAttribute('feature-color'),
     });
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
     this.$.badge.reset();
-    this.$.badge.logoUrl = scene ? scene.getAttribute('logo') : null;
+    this.$.badge.logoUrl = scene.getAttribute('logo');
 
     // TODO(samthor): This isn't quite right: the badge should be visible if there's a logo or a
     // score. But for now, just hide it when there's no logo.
@@ -822,11 +805,11 @@ Polymer({
 
     // Reset the overlay.
     this.$.overlay.reset();
-    this.$.overlay.hero = scene && scene.getAttribute('hero-src');
+    this.$.overlay.hero = scene.getAttribute('hero-src');
 
     // Optionally update the document title (with emoji/scene name).
     if (this.routing) {
-      var raw = scene && scene.getAttribute('icon');
+      var raw = scene.getAttribute('icon');
       var icon = '';
       if (raw && String.fromCodePoint) {  // no emoji on IE11
         icon = String.fromCodePoint(parseInt(raw, 16));
@@ -845,71 +828,18 @@ Polymer({
     }
   },
 
-  _prevSelectedRouteChanged: function() {
-    // Find and remove the previous scene, if it exists and isn't a permanent scene.
-    var prevSelectedScene = this.$.lazypages.getRoute(this.prevSelectedRoute);
-    if (!prevSelectedScene || prevSelectedScene.hasAttribute('permanent')) {
-      return;
-    }
-    var dom = Polymer.dom(this.$.lazypages);
-    dom.removeChild(prevSelectedScene);
+  onBeforeLoad: function(ev) {
+    var route = ev.detail;
 
-    // Re-construct removed scene and add it back to lazy-pages. Note that
-    // loading-* isn't copied, since the element is already loaded.
-    var el = document.createElement(prevSelectedScene.localName);
-    el.route = prevSelectedScene.route;
-    el.santaApp = this;
-    el.loaded = true;
-
-    var retainAttr = [
-      'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo', 'slot'
-    ];
-    retainAttr.forEach(function(attr) {
-      if (prevSelectedScene.hasAttribute(attr)) {
-        el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
+    if (this.sceneIsOpen(route) === false) {
+      if (!window.DEV) {
+        window.ga('send', 'event', 'Routing', 'locked', '/' + route);
+        return ev.preventDefault();
       }
-    });
-
-    dom.appendChild(el);
-  },
-
-  /**
-   * The local route was changed. If valid, then trigger lazypages to load it. This is also invoked
-   * by _currentTimeChanged, in order to lock/unlock scenes that are loaded but currently invalid.
-   */
-  _routeChanged: function(newValue) {
-    var route = this.route;
-    var ok = this.sceneIsValid(route);
-    var sceneIsOpen = this.sceneIsOpen(route);
-
-    if (sceneIsOpen === false && ok) {
-      if (window.DEV) {
-        console.debug('prod would lock', route);
-      } else {
-        ok = false;
-      }
+      console.debug('prod would lock', route);
     }
-
-    // check newValue: if called from _currentTimeChanged, it will be undefined, so ignore.
-    if (route !== undefined && newValue !== undefined) {
-      if (ok) {
-        this.debounce('_routeChanged', function() {
-          window.ga('set', 'page', '/' + this.route);
-          window.ga('send', 'pageview');
-        }, 10);
-      } else if (sceneIsOpen === undefined) {
-        var previousRoute = this.selectedScene ? this.selectedScene.route : '';
-        window.ga('send', 'event', 'Routing', 'Invalid Route Source', '/' + previousRoute);
-        window.ga('send', 'event', 'Routing', 'Invalid Route', '/' + route);
-      } else {
-        window.ga('send', 'event', 'Routing', 'Locked Route', '/' + route);
-      }
-    }
-
-    this.$.lazypages.selected = ok ? route : '';
-    this.$.lazypages.lockedHouse = (!ok && sceneIsOpen === false ? route : null);
-
-    // TODO(samthor): Unkown routes will show a generic error message.
+    window.ga('set', 'page', '/' + this.route);  // TODO: not quite right, if scene doesn't load
+    window.ga('send', 'pageview');
   },
 
   /**
@@ -998,7 +928,7 @@ Polymer({
     }
   },
 
-  _userMuteChanged: function(userMute) {
+  _userMuteChanged: function() {
     // nb. sound-ambient is bound inside ready:, so dedup this for initial set
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
@@ -1051,7 +981,7 @@ Polymer({
     if (this.scheduleChecked) {
       this.scheduleChecked = false;
     } else {
-      this._routeChanged();  // scheduleChecked was already false, force update
+      this.$.lazypages.revalidate();
     }
     this._notifyHouses();
   },
@@ -1062,6 +992,7 @@ Polymer({
    * matches the launch date (e.g., a scene is open for everyone as soon as someone in New Zealand
    * has access to it).
    *
+   * @param {string} sceneName to check
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
   sceneIsOpen: function(sceneName) {
@@ -1096,28 +1027,11 @@ Polymer({
     return undefined;  // couldn't find this scene/house, defer to caller
   },
 
-  sceneIsValid: function(sceneName) {
-    if (this.$.lazypages.isValidRoute(sceneName)) {
-      return true;
-    }
-    for (var i = 0, house; house = this._houses[i]; ++i) {
-      if (house.module === sceneName) {
-        return true;
-      }
-    }
-    return false;
-  },
-
-  _scheduleCheckedChanged: function() {
-    // This calls _routeChanged internally.
-    this._currentTimeChanged();
-  },
-
   /**
    * Unlocks the correct houses based on the day (index).
    * @private
    */
-  _currentTimeChanged: function() {
+  _updateLock: function(currentTime, scheduleChecked) {
     var todayDate = new Date(this.currentTime || Date.now());
     var todayHouse = '';
     var change = false;
@@ -1157,7 +1071,7 @@ Polymer({
     this.todayHouse = todayHouse;
     change && this._notifyHouses();
 
-    this._routeChanged();  // hint to load/unload route
+    this.$.lazypages.revalidate();  // hint to maybe reload
   },
 
   _onKeysPressed: function(e, detail) {
@@ -1174,9 +1088,9 @@ Polymer({
     }
   },
 
-  _duringTrackerChanged: function(newValue, oldValue) {
+  _duringTrackerChanged: function() {
     // If the tracker was open, it's now locked: send the user back to the Village.
-    if (newValue === false && this.route === TRACKER_ROUTE) {
+    if (this.duringTracker === false && this.route === TRACKER_ROUTE) {
       this.route = this.defaultRoute;
     }
   },
