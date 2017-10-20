@@ -53,6 +53,23 @@ window.addEventListener('DOMContentLoaded', function() {
   let messagePort = null;
 
   /**
+   * @param {!TypedArray} buffer to encode
+   * @return {string} base64 encoded version of uint8
+   */
+  function encodeArrayBuffer(buffer) {
+    const u = new Uint8Array(buffer);
+    const CHUNK_SIZE = 256 * 256;
+
+    // nb. doing this at once for large buffers causes "Maximum call stack size exceeded" in Chrome
+    let s = '';
+    for (let i = 0; i < u.length; i += CHUNK_SIZE) {
+      const sub = u.subarray(i, i + CHUNK_SIZE);
+      s += String.fromCharCode.apply(null, sub);
+    }
+    return window.btoa(s);
+  }
+
+  /**
    * Send a message to the controlling interface.
    *
    * @param {string|!ImageData} message
@@ -64,10 +81,9 @@ window.addEventListener('DOMContentLoaded', function() {
       msg.type = message;
     } else if (message instanceof window.ImageData) {
       msg.type = 'image';
-      const buffer = String.fromCharCode.apply(null, message.data);
-      msg.payload = window.btoa(buffer);  // base64 encode
       msg.width = message.width;
       msg.height = message.height;
+      msg.payload = encodeArrayBuffer(message.data);  // base64 encode
     } else {
       console.warn('unhandled embed message', message);
       return;
