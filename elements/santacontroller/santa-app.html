@@ -609,7 +609,6 @@ Polymer({
 
   listeners: {
     'click': 'onClick',
-    'embed-gotovillage': 'onEmbedGoToVillage',
     'scene-progress': 'onSceneProgress',
     'scene-failure': 'onSceneFailure',
     'scene-ready': 'onSceneReady',
@@ -659,27 +658,9 @@ Polymer({
       this._setShareOptions([]);
     }
 
-    var staticUrl = this.resolveUrl('../../');
-
-    // Setup for Embed mode.
-    if (this.mode === 'embed') {
-      // Don't mute in embed mode, let the app handle it.
-      this.userMute = false;
-      console.log('embed mode enabled');
-
-      // In embed mode, set up message ports for communication to app.
-      window.onmessage = function(e) {
-        messagePort = e.ports[0];
-        messagePort.onmessage = function(f) {
-          this.onEmbedMessage(f.data);
-        }.bind(this);
-        // Notify app to establish communication
-        this.sendEmbedMessage('onready');
-      }.bind(this);
-    }
-
     // Don't load sounds in Cast mode.
     if (!this.omitSantaChrome(this.mode)) {
+      var staticUrl = this.resolveUrl('../../');
       var sc = new SoundController(staticUrl, this._soundsLoaded.bind(this));
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
@@ -691,29 +672,6 @@ Polymer({
     }.bind(this);
     document.addEventListener('visibilitychange', handler);
     handler();
-  },
-
-  sendEmbedMessage: function(message){
-    if (!messagePort) {
-      return;
-    }
-    var msg = {type: message};
-    messagePort.postMessage(JSON.stringify(msg));
-  },
-
-  onEmbedMessage: function(message) {
-    console.log('received embed message', message);
-    switch (message){
-      case 'restart':
-        santaApp.onStartGame()
-        break;
-      case 'pauseGame':
-        santaApp.userPause = true;
-        break;
-      case 'resume':
-        santaApp.onResumeGame();
-        break;
-    }
   },
 
   attached: function() {
@@ -774,13 +732,6 @@ Polymer({
   },
 
   /**
-   * Notifies to return to the village in embed mode.
-   */
-  onEmbedGoToVillage: function() {
-    this.sendEmbedMessage('ongotovillage');
-  },
-
-  /**
    * Handles a loading progress hint, hiding or displaying the preloader.
    */
   onSceneProgress: function() {
@@ -801,7 +752,7 @@ Polymer({
   onSceneFailure: function() {
     this.$.preloader.active = false;
     this._updateStylingForScene(null);
-    this.sendEmbedMessage("onfailure");
+    this.fire('embed', 'onfailure');
   },
 
   /**
@@ -983,8 +934,7 @@ Polymer({
         this.$.chrome.hasGameButtons = true;
       }
       scene.start && scene.start();
-
-      this.sendEmbedMessage("onstart");
+      this.fire('embed', 'onstart');
     }
   },
 
@@ -1037,9 +987,9 @@ Polymer({
       scene.pause = pause;
     }
     if (pause) {
-      this.sendEmbedMessage("onpause");
+      this.fire('embed', 'onpause');
     } else {
-      this.sendEmbedMessage("onresume");
+      this.fire('embed', 'onresume');
       this.selectedScene && this.selectedScene.focus();
     }
   },

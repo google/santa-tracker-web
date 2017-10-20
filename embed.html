@@ -36,7 +36,7 @@ window.Polymer = {
   lazyRegister: 'max',
   useNativeCSSProperties: true,
 };
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
   // initial route is always /embed.html#route
   window.santaApp.route = window.location.hash.substr(1);
 });
@@ -46,6 +46,70 @@ window.addEventListener('load', function() {
 <body unresolved class="scrollock">
 
 <santa-app id="santaApp" mode="embed"></santa-app>
+
+<script>
+(function() {
+  const s = window.santaApp;
+  let messagePort = null;
+
+  /**
+   * Send a message to the controlling interface.
+   *
+   * @param {string|!ImageData} message
+   */
+  function send(message) {
+    const msg = {};
+
+    if (typeof message === 'string') {
+      msg.type = message;
+    } else if (message instanceof window.ImageData) {
+      msg.type = 'image';
+      const buffer = String.fromCharCode.apply(null, message.data);
+      msg.payload = window.btoa(buffer);  // base64 encode
+      msg.width = message.width;
+      msg.height = message.height;
+    } else {
+      console.warn('unhandled embed message', message);
+      return;
+    }
+
+    console.debug('sending', msg);
+    if (!messagePort) {
+      return;
+    }
+    messagePort.postMessage(JSON.stringify(msg));
+  }
+
+  /**
+   * Handles recieving a message from the controller.
+   *
+   * @param {string} message
+   */
+  function recv(message) {
+    switch (message) {
+      case 'restart':
+        s.onStartGame();
+        break;
+      case 'pauseGame':
+        s.userPause = true;
+        break;
+      case 'resume':
+        s.onResumeGame();
+        break;
+      default:
+        console.warn('unhandled from messagePort', message);
+    }
+  }
+
+  window.addEventListener('message', (e) => {
+    messagePort = e.ports[0];
+    messagePort.onmessage = (e) => recv(e.data);
+    send('onready');  // notify app to establish communication
+  });
+  s.addEventListener('embed', (e) => send(e.detail));
+
+}());
+</script>
 
 </body>
 </html>
