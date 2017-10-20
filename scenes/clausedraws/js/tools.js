@@ -124,7 +124,6 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
-  console.log('selecting');
   var previousTool = this.selectedTool;
 
   this.selectedTool = this.tools.filter(function(tool) {
@@ -133,7 +132,6 @@ app.Tools.prototype.selectTool_ = function(e) {
     }
   })[0];
 
-  console.log(this.selectedTool);
   if (this.selectedTool) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();

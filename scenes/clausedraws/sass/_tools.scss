@@ -8,6 +8,7 @@
     position: absolute;
   }
 
+
   .Tools--primary {
     left: 20px;
     top: 0;
@@ -32,5 +33,9 @@
     &.is-active {
       display: block;
     }
+  }
+
+  .Tool--selected {
+    position: fixed;
   }
 }
