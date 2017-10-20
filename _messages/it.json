@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Abbiamo perso i contatti con il Polo Nord. Gli elfi di Babbo Natale si stanno dando un gran daffare per risolvere il problema. Resta sintonizzato."
+		"message": "Si è verificato un problema, ma i folletti di Babbo Natale stanno cercando una soluzione."
 	},
 	"error-lost-connection": {
 		"message": "Abbiamo perso i contatti con il Polo Nord. Gli elfi di Babbo Natale si stanno dando un gran daffare per risolvere il problema. Resta sintonizzato."
+	},
+	"error-not-found": {
+		"message": "Purtroppo i folletti di Babbo Natale non riescono a trovare questa pagina. Potresti avere più fortuna se tornassi al \u003ca href=\"./village.html\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Riprova"
@@ -882,13 +885,13 @@
 		"message": "Protesi di arti"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Scegli una decorazione con il tuo ente di beneficenza preferito e inizia a colorare."
+		"message": "Scegli una decorazione e inizia a colorare."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Condividi le tue decorazioni con familiari e amici."
+		"message": "Condividi le tue decorazioni con familiari e amici in modo che anche loro possano imparare."
 	},
 	"nonprofit-intro-type": {
-		"message": "Sostieni gli enti di beneficenza che contribuiscono a preservare la bellezza e la ricchezza nel mondo colorando questa serie di decorazioni, quindi mostra il tuo interesse nelle varie cause appendendo le decorazioni al tuo albero di Natale o regalandole alle persone che ami."
+		"message": "Abbiamo collaborato con Google.org per presentare cinque organizzazioni non profit nel campo dell'istruzione che abbracciano lo spirito natalizio tutto l'anno. Fai scorrere la pagina verso il basso per saperne di più sul contributo offerto da ogni organizzazione. Mostra il tuo sostegno colorando questa serie di decorazioni e appendendole al tuo albero o regalandole ai tuoi cari."
 	},
 	"nonprofit-jane-description": {
 		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEsplora gli habitat degli scimpanzé\u003c/a\u003e nel parco di Gombe, Tanzania."

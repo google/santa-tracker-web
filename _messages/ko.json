@@ -561,10 +561,13 @@
 		"message": "에리트레아"
 	},
 	"error": {
-		"message": "방금 북극과의 연결이 끊어진 것 같습니다. 산타의 엘프 친구들이 열심히 고치는 중이니 기다려 주세요."
+		"message": "문제가 발생했지만 산타의 엘프 친구들이 문제를 확인하는 중입니다."
 	},
 	"error-lost-connection": {
 		"message": "방금 북극과의 연결이 끊어진 것 같습니다. 산타의 엘프 친구들이 열심히 고치는 중이니 기다려 주세요."
+	},
+	"error-not-found": {
+		"message": "산타의 엘프 친구들이 페이지를 찾을 수 없습니다. \u003ca href=\"./village.html\"\u003e산타마을\u003c/a\u003e로 돌아가세요."
 	},
 	"error-try-again": {
 		"message": "다시 시도"
@@ -882,13 +885,13 @@
 		"message": "의수족"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "좋아하는 자선단체의 장식을 선택하여 색을 칠해 보세요."
+		"message": "장식을 선택하여 색을 칠해 보세요."
 	},
 	"nonprofit-instruction-share": {
-		"message": "가족과 친구에게 내가 만든 장식을 공유해 보세요."
+		"message": "가족과 친구도 장식을 만들 수 있도록 장식을 공유해 보세요."
 	},
 	"nonprofit-intro-type": {
-		"message": "이 세상을 아름답게 만들어 나가고 자원을 보호하는 자선단체를 지지하는 의미에서 이 장식에 색을 칠해 보세요. 그런 다음 크리스마스 트리에 장식을 달거나 가족이나 친구에게 선물로 보내 이러한 자선단체의 사명에 대한 관심을 표해 보세요."
+		"message": "Google.org와 제휴하여 나눔의 계절을 일 년 내내 기념할 수 있는 비영리 교육 단체 다섯 곳을 소개합니다. 아래로 스크롤하면 각 단체가 받은 사랑을 어떻게 돌려주는지 확인할 수 있습니다. 이 장식에 색을 칠하고 트리에 매달거나 가족과 친구에게 선물로 보내 후원하는 단체를 알려보세요."
 	},
 	"nonprofit-jane-description": {
 		"message": "침팬지는 동물의 왕국에서 인간과 가장 가까운 친척입니다. 현재 서식지 감소, 질병, 불법 거래로 인해 30만 마리 이하의 침팬지만 남아 있습니다. Jane Goodall Institute(JGI, 제인 구달 협회)는 침팬지를 관찰하고 행동 양식을 파악하여 침팬지는 물론 침팬지 서식지를 보호하고 있습니다. 또한 JGI는 야생 동물을 보호하고 환경을 보전하는 공동체를 구축하기 위해 노력하고 있습니다. 탄자니아 곰베에 있는 \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e침팬지 서식지를 살펴보세요\u003c/a\u003e."
@@ -5151,7 +5154,7 @@
 		"message": "12월 24일에 다시 방문해 밤새 산타를 추적해 보세요."
 	},
 	"village_explore": {
-		"message": "12월 한달 동안 산타의 엘프 친구들과 함께 즐거운 시간을 보내세요."
+		"message": "12월 내내 산타의 엘프 친구들에 대해 알아보고 함께 어울리며 배워 보세요."
 	},
 	"village_get_the_app": {
 		"message": "Android용 산타 추적기 앱 다운로드"

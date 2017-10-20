@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Sepertinya sambungan kami dengan Kutub Utara terputus. Para kurcaci Sinterklas sedang bekerja keras untuk memperbaikinya - jangan ke mana-mana!"
+		"message": "Ada masalah, tetapi Kurcaci Sinterklas sedang memeriksanya."
 	},
 	"error-lost-connection": {
 		"message": "Sepertinya sambungan kami dengan Kutub Utara terputus. Para kurcaci Sinterklas sedang bekerja keras untuk memperbaikinya - jangan ke mana-mana!"
+	},
+	"error-not-found": {
+		"message": "Oh tidak, Kurcaci Sinterklas tidak dapat menemukan halaman ini! Semoga peruntungan Anda lebih baik jika kembali ke \u003ca href=\"./village.html\"\u003eDesa Sinterklas\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Coba lagi"
@@ -882,13 +885,13 @@
 		"message": "Anggota Tubuh Palsu"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Pilih hiasan dengan organisasi amal favorit Anda dan mulailah mewarnai!"
+		"message": "Pilih hiasan dan mulailah mewarnai."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Bagikan hiasan Anda dengan keluarga dan teman!"
+		"message": "Bagikan hiasan Anda dengan keluarga dan teman agar mereka bisa mempelajari cara mewarnainya juga."
 	},
 	"nonprofit-intro-type": {
-		"message": "Dukung organisasi amal yang membantu menjaga dunia tetap indah dan penuh sumber daya dengan mewarnai koleksi hiasan ini. Lalu, tunjukkan minat Anda pada hal ini dengan menggantungkan hiasan tersebut pada pohon Natal atau memberikannya kepada orang yang Anda sayangi!"
+		"message": "Kami telah berpartner dengan Google.org untuk menampilkan lima lembaga pendidikan nonprofit yang merayakan musim berbagi sepanjang tahun. Scroll ke bawah dan pelajari lebih lanjut cara setiap organisasi menunjukkan apresiasi mereka. Tunjukkan dukungan Anda dengan mewarnai koleksi hiasan ini, lalu menggantungnya di pohon atau memberikannya kepada orang terkasih."
 	},
 	"nonprofit-jane-description": {
 		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
@@ -975,7 +978,7 @@
 		"message": "Hentikan ini"
 	},
 	"notification_notice": {
-		"message": "Kurcaci Sinterklas akan terus menginformasikan jadwal Sinterklas kepada Anda"
+		"message": "Para kurcaci Sinterklas akan terus menyampaikan update jadwal Sinterklas kepadamu"
 	},
 	"notification_prompt": {
 		"message": "Terus informasikan saya tentang Sinterklas"
@@ -1209,7 +1212,7 @@
 		"message": "Penelusuran Sinterklas"
 	},
 	"scene_santaselfie": {
-		"message": "Sinterklas Narsis"
+		"message": "Santa Selfie"
 	},
 	"scene_seasonofcaring": {
 		"message": "Musim Peduli"
@@ -5151,7 +5154,7 @@
 		"message": "Datang kembali tanggal 24 dan bantu kami lacak Sinterklas sepanjang malam!"
 	},
 	"village_explore": {
-		"message": "Menjelajah, bermain, dan belajar dengan para Kurcaci Sinterklas selama bulan Desember"
+		"message": "Menjelajah, bermain, dan belajar bersama para kurcaci Sinterklas selama bulan Desember"
 	},
 	"village_get_the_app": {
 		"message": "Dapatkan Aplikasi Pelacak Sinterklas untuk Android"

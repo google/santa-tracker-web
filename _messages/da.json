@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Det ser ud til, at vi har mistet forbindelsen til Nordpolen. Julemandens nisser arbejder hårdt på at løse problemet – vent et øjeblik."
+		"message": "Der opstod et problem, men julemandens hjælpere ser på det."
 	},
 	"error-lost-connection": {
 		"message": "Det ser ud til, at vi har mistet forbindelsen til Nordpolen. Julemandens nisser arbejder hårdt på at løse problemet – vent et øjeblik."
+	},
+	"error-not-found": {
+		"message": "Åh nej, julemandens hjælpere kan ikke finde denne side! Du har måske mere held, hvis du går tilbage til \u003ca href=\"./village.html\"\u003eJulemandens landsby\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Prøv igen"
@@ -882,13 +885,13 @@
 		"message": "Proteser"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Vælg et stykke julepynt med din foretrukne velgørenhedsorganisation, og begynd at farve."
+		"message": "Vælg et stykke julepynt, og begynd at farve."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Del din kunst med familie og venner"
+		"message": "Del din kunst med familie og venner, så de også kan lære."
 	},
 	"nonprofit-intro-type": {
-		"message": "Støt velgørenhedsorganisationerne, som bidrager til at holde vores verden smuk og rig på ressourcer, ved at farvelægge denne samling af julepynt. Derefter kan du vise din interesse i disse sager ved at hænge dem op på dit juletræ eller give dem som gave til de personer, du holder af."
+		"message": "Vi er gået sammen med Google.org om at fremhæve fem nonprofitorganisationer for uddannelse, der fejrer gavernes årstid hele året rundt. Rul ned, og få flere oplysninger om, hvordan hver enkelt organisation hjælper andre. Vis din støtte ved at farvelægge denne samling af julepynt og bagefter hænge dem på dit træ eller give dem til de personer, du holder af."
 	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanser er menneskets nærmeste nulevende slægtninge i dyreriget. I dag er der under 300.000 chimpanser tilbage på grund af mistede levesteder, sygdomme og ulovlig handel. Jane Goodall Institute (JGI) beskytter chimpanser ved at observere og lære at forstå deres adfærd samt deres levesteder. JGI arbejder også for at opbygge velfungerende lokale landsbysamfund med mennesker, som beskytter og bevarer dyrelivet og vores fælles miljø. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUdforsk chimpansernes levesteder\u003c/a\u003e i Gombe i Tanzania."
@@ -975,7 +978,7 @@
 		"message": "Stop disse"
 	},
 	"notification_notice": {
-		"message": "Julemandens nisser holder dig opdateret omkring julemandens tidsplan"
+		"message": "Julemandens nisser holder dig opdateret om julemandens tidsplan"
 	},
 	"notification_prompt": {
 		"message": "Hold mig informeret om julemanden"
@@ -2463,7 +2466,7 @@
 		"message": "Brasilien"
 	},
 	"trivia_beginner_082_answer1": {
-		"message": "Storbritannien"
+		"message": "Storbritannien og Nordirland"
 	},
 	"trivia_beginner_082_answer2": {
 		"message": "Vietnam"
@@ -2802,7 +2805,7 @@
 		"message": "Danmark"
 	},
 	"trivia_hard_013_answer2": {
-		"message": "Storbritannien"
+		"message": "Storbritannien og Nordirland"
 	},
 	"trivia_hard_014": {
 		"message": "Hvilket land grænser ikke op til Sortehavet?"
@@ -3066,7 +3069,7 @@
 		"message": "Tyrkiet"
 	},
 	"trivia_hard_035_answer2": {
-		"message": "Storbritannien"
+		"message": "Storbritannien og Nordirland"
 	},
 	"trivia_hard_036": {
 		"message": "Hvilken ørken dækker det mest af området mellem Beijing og Ulaanbaatar?"
@@ -4287,7 +4290,7 @@
 		"message": "Norge"
 	},
 	"trivia_medium_032_answer1": {
-		"message": "Storbritannien"
+		"message": "Storbritannien og Nordirland"
 	},
 	"trivia_medium_032_answer2": {
 		"message": "Sri Lanka"
@@ -4551,7 +4554,7 @@
 		"message": "Island"
 	},
 	"trivia_medium_054_answer1": {
-		"message": "Storbritannien"
+		"message": "Storbritannien og Nordirland"
 	},
 	"trivia_medium_054_answer2": {
 		"message": "Polen"
@@ -5124,7 +5127,7 @@
 		"message": "Uganda"
 	},
 	"uk_country_name": {
-		"message": "Storbritannien"
+		"message": "Storbritannien og Nordirland"
 	},
 	"uk_tradition": {
 		"message": "I Storbritannien er knallerter et stort hit ved middagsbordet for både store og små. Det er små rør, der er pakket ind i farvet papir, og med to ender, man kan trække i. Så springer røret med et højt knald! Og inden i er der papirhatte, legetøj og slik til juleaften."

@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Parece que perdimos la conexión con el Polo Norte. Los duendes de Santa están trabajando con empeño para restaurarla. Mantente al tanto."
+		"message": "Ocurrió un problema. Los duendes de Santa están tratando de resolverlo."
 	},
 	"error-lost-connection": {
 		"message": "Parece que perdimos la conexión con el Polo Norte. Los duendes de Santa están trabajando con empeño para restaurarla. Mantente al tanto."
+	},
+	"error-not-found": {
+		"message": "Los duendes de Santa no pudieron encontrar la página. Vuelve a la \u003ca href=\"./village.html\"\u003ealdea de Santa\u003c/a\u003e para buscarla."
 	},
 	"error-try-again": {
 		"message": "Volver a intentarlo"
@@ -882,13 +885,13 @@
 		"message": "Prótesis de extremidades"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Elige un adorno que tenga el nombre de tu organización benéfica favorita y comienza a pintar."
+		"message": "Elige un adorno y comienza a pintar."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Comparte tu arte con tus familiares y amigos."
+		"message": "Comparte tu arte con tus familiares y amigos para que también puedan aprender cómo hacerlo."
 	},
 	"nonprofit-intro-type": {
-		"message": "Pinta esta colección de adornos para apoyar a las organizaciones benéficas que ayudan a que nuestro mundo sea hermoso y emprendedor. Después, cuélgalos en tu árbol de Navidad o regálaselos a tus seres queridos para demostrar tu interés en estas causas."
+		"message": "Nos asociamos con Google.org para presentar cinco organizaciones educativas sin fines de lucro que celebran la temporada de dar durante todo el año. Desplázate hacia abajo para descubrir lo que proporciona cada organización. Si quieres apoyarlas, pinta este conjunto de adornos y cuélgalos en tu arbolito o regálaselos a tus seres queridos."
 	},
 	"nonprofit-jane-description": {
 		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpancés\u003c/a\u003e en Gombe, Tanzania."

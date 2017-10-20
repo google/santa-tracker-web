@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
+		"message": "A apărut o problemă, dar elfii lui Moș Crăciun vor afla mai multe."
 	},
 	"error-lost-connection": {
 		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
+	},
+	"error-not-found": {
+		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./village.html\"\u003esatul Moșului\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Încearcă din nou"
@@ -882,13 +885,13 @@
 		"message": "Proteze"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Alege un ornament cu organizația caritabilă preferată și începe să colorezi!"
+		"message": "Alege un ornament și începe să colorezi."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Trimite arta creată familiei și prietenilor!"
+		"message": "Trimite arta creată familiei și prietenilor pentru ca și ei să învețe."
 	},
 	"nonprofit-intro-type": {
-		"message": "Colorează această colecție de ornamente pentru a susține organizațiile caritabile care ne mențin lumea frumoasă și plină de resurse. Apoi, arată-ți interesul față de cauzele organizațiilor atârnând ornamentele în bradul de Crăciun sau dăruindu-le persoanelor dragi."
+		"message": "Colaborăm cu Google.org pentru a scoate în evidență cinci organizații nonprofit educaționale, care sărbătoresc anotimpul cadourilor de-a lungul anului. Derulează în jos și află mai multe despre modul în care fiecare organizație dăruiește. Arată-ți aprecierea colorând această colecție de ornamente, iar apoi atârnându-le în brad sau dăruindu-le celor dragi."
 	},
 	"nonprofit-jane-description": {
 		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
@@ -975,7 +978,7 @@
 		"message": "Oprește"
 	},
 	"notification_notice": {
-		"message": "Elfii lui Moș Crăciun vă vor ține la curent cu programul acestuia."
+		"message": "Elfii lui Moș Crăciun te vor ține la curent cu programul acestuia."
 	},
 	"notification_prompt": {
 		"message": "Ține-mă la curent cu Moș Crăciun"

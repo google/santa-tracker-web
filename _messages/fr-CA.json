@@ -561,10 +561,13 @@
 		"message": "Érythrée"
 	},
 	"error": {
-		"message": "Il semble que nous ayons perdu notre connexion avec le pôle Nord. Les elfes du père Noël tentent de la rétablir, alors réessayez plus tard!"
+		"message": "Un problème s'est produit, mais les lutins du père Noël s'en occupent."
 	},
 	"error-lost-connection": {
 		"message": "Il semble que nous ayons perdu notre connexion avec le pôle Nord. Les elfes du père Noël tentent de la rétablir, alors réessayez plus tard!"
+	},
+	"error-not-found": {
+		"message": "Oh non, les lutins du père Noël ne peuvent trouver cette page! Tu auras peut-être plus de chance si tu retournes au \u003ca href=\"./village.html\"\u003evillage du père Noël\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Réessayer"
@@ -882,13 +885,13 @@
 		"message": "Membres artificiels"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Choisissez un ornement représentant votre organisme de charité favori et commencez à colorier!"
+		"message": "Sélectionnez un ornement et commencez à colorier."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Partagez votre art avec la famille et les amis!"
+		"message": "Partagez votre art avec votre famille et vos amis afin qu'ils puissent apprendre aussi."
 	},
 	"nonprofit-intro-type": {
-		"message": "Soutenez les organismes de charité qui contribuent à enrichir notre monde en colorant cette collection d'ornements. Montrez ensuite votre intérêt pour ces causes en accrochant les ornements à votre sapin de Noël ou en les offrant à vos êtres chers!"
+		"message": "Nous nous sommes associés à Google.org pour présenter cinq organismes à but non lucratif du domaine de l'éducation qui célèbrent la saison du don à longueur d'année. Faites défiler vers le bas et découvrez comment chaque organisme donne en retour. Affichez votre soutien en coloriant cette collection d'ornements et en les accrochant à votre arbre ou en les offrant à vos proches."
 	},
 	"nonprofit-jane-description": {
 		"message": "Les chimpanzés sont les plus proches parents vivants de l'être humain au sein du règne animal! De nos jours, il reste moins de 300 000 chimpanzés dans le monde en raison de la perte de leur habitat, de maladies et du commerce illégal. La Jane Goodall Institute (JGI) protège ces animaux en les observant et en s'efforçant de comprendre leurs comportements ainsi que leurs habitats. La JGI déploie également des efforts pour créer une communauté de personnes qui veillent à protéger et à conserver la faune et la flore et leur environnement. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorez les habitats des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."

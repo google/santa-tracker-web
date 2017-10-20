@@ -561,10 +561,13 @@
 		"message": "Eritrėja"
 	},
 	"error": {
-		"message": "Panašu, kad ką tik praradome ryšį su Šiaurės ašigaliu. Kalėdų Senelio elfai stengiasi išspręsti šią problemą – stebėkite naujienas!"
+		"message": "Iškilo problema, bet Kalėdų Senelio elfai sprendžia ją."
 	},
 	"error-lost-connection": {
 		"message": "Panašu, kad ką tik praradome ryšį su Šiaurės ašigaliu. Kalėdų Senelio elfai stengiasi išspręsti šią problemą – stebėkite naujienas!"
+	},
+	"error-not-found": {
+		"message": "Apgailestaujame, Kalėdų Senelio elfams nepavyko rasti šio puslapio. Galbūt labiau pasisektų, jei grįžtumėte į \u003ca href=\"./village.html\"\u003eKalėdų Senelio kaimą\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Bandykite dar kartą"
@@ -882,13 +885,13 @@
 		"message": "Galūnių protezai"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Pasirinkite mėgstamos labdaros organizacijos papuošalą ir pradėkite dažyti!"
+		"message": "Pasirinkite papuošalą ir pradėkite spalvinti."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Bendrinkite savo meną su šeima ir draugais!"
+		"message": "Bendrinkite savo meną su šeima ir draugais, kad jie taip pat galėtų to išmokti."
 	},
 	"nonprofit-intro-type": {
-		"message": "Paremkite labdaros organizacijas, padedančias mūsų pasauliui likti gražiam ir turtingam, nudažydami šią papuošalų kolekciją. Tada parodykite savo susidomėjimą šiais tikslais, pakabindami juos ant savo Kalėdų eglutės ar dovanodami artimiesiems!"
+		"message": "Bendradarbiaudami su Google.org pristatome penkias švietimo srityje dirbančias ne pelno organizacijas, kurios visus metus užsiima veikla kitų žmonių labui. Slinkdami žemyn sužinokite, ką dėl kitų padarė kiekviena organizacija. Parodykite savo paramą nuspalvindami papuošalų rinkinį ir šiuos papuošalus pakabindami ant eglutės ar padovanodami juos mylimiems žmonėms."
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzės yra žmonėms artimiausia gyvūnų rūšis! Šiandien dėl gyvenamosios aplinkos sumažėjimo, ligų ir nelegalios prekybos pasaulyje liko tik 300 000 šimpanzių. Ne pelno organizacijos „Jane Goodall Institute“ (JGI) tikslas – išsaugoti šimpanzes, stebint ir stengiantis suprasti jų elgseną bei gyvenamąją aplinką. JGI taip pat siekia suburti žmonių, kurie nori išsaugoti laukinius gyvūnus ir mus supančią aplinką, bendruomenę. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePatyrinėkite šimpanzių gyvenamąsias vietoves\u003c/a\u003e Gombėje, Tanzanijoje."

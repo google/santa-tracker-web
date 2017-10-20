@@ -561,10 +561,13 @@
 		"message": "Eritreia"
 	},
 	"error": {
-		"message": "Parece que perdemos a ligação ao Polo Norte. Os duendes do Pai Natal estão a trabalhar para restabelecê-la, fique atento."
+		"message": "Ocorreu um problema, mas os Elfos do Pai Natal estão a tentar resolvê-lo."
 	},
 	"error-lost-connection": {
 		"message": "Parece que perdemos a ligação ao Polo Norte. Os duendes do Pai Natal estão a trabalhar para restabelecê-la, fique atento."
+	},
+	"error-not-found": {
+		"message": "Oh, não! Os Elfos do Pai Natal não conseguem encontrar esta página! Talvez tenha mais sorte se regressar à \u003ca href=\"./village.html\"\u003eAldeia do Pai Natal\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Tente novamente"
@@ -882,13 +885,13 @@
 		"message": "Membros prostéticos"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Escolha um enfeite com a sua instituição de beneficência e comece a colorir!"
+		"message": "Escolha um enfeite e comece a colorir."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Partilhe a sua arte com familiares e amigos!"
+		"message": "Partilhe a sua arte com familiares e amigos, para que também possam aprender."
 	},
 	"nonprofit-intro-type": {
-		"message": "Apoie as organizações de beneficência que ajudam a manter o nosso mundo bonito e com recursos ao colorir esta coleção de enfeites. Depois, mostre o seu interesse nestas causas: pendure-os na sua árvore de Natal ou ofereça-os aos seus entes queridos!"
+		"message": "Estabelecemos uma parceria com a Google.org para apresentar cinco organizações educativas sem fins lucrativos que celebram o tempo de dar ao longo de todo o ano. Navegue para baixo e saiba mais sobre como cada organização retribui o apoio que recebe. Mostre o seu apoio ao colorir esta coleção de enfeites; depois, pendure-os na sua árvore ou ofereça-os aos seus entes queridos."
 	},
 	"nonprofit-jane-description": {
 		"message": "Os chimpanzés são os parentes vivos mais próximos dos humanos no reino animal! Atualmente, existem menos de 300 000 chimpanzés devido à perda do seu habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés através da observação e compreensão dos seus comportamentos, bem como dos habitats em que vivem. O JGI também trabalha para criar uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que partilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore os habitats dos chimpanzés\u003c/a\u003e em Gombe, na Tanzânia."
@@ -5151,7 +5154,7 @@
 		"message": "Volte no dia 24 e ajude-nos a seguir o Pai Natal durante toda a noite!"
 	},
 	"village_explore": {
-		"message": "Explore, jogue e aprenda com os gnomos do Pai Natal durante todo o mês de dezembro"
+		"message": "Explore, jogue e aprenda com os elfos do Pai Natal durante todo o mês de dezembro"
 	},
 	"village_get_the_app": {
 		"message": "Obter a aplicação A viagem do Pai Natal para Android"

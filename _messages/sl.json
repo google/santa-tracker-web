@@ -561,10 +561,13 @@
 		"message": "Eritreja"
 	},
 	"error": {
-		"message": "Kaže, da smo izgubili povezavo s Severnim tečajem. Božičkovi škratje si na vso moč prizadevajo odpraviti težavo, zato ostanite na zvezi!"
+		"message": "Prišlo je do težav, vendar jih poskušajo Božičkovi palčki odpraviti."
 	},
 	"error-lost-connection": {
 		"message": "Kaže, da smo izgubili povezavo s Severnim tečajem. Božičkovi škratje si na vso moč prizadevajo odpraviti težavo, zato ostanite na zvezi!"
+	},
+	"error-not-found": {
+		"message": "Božičkovi palčki ne morejo najti te strani. Morda boste imeli več sreče, če se vrnete v \u003ca href=\"./village.html\"\u003eBožičkovo vas\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Poskusi znova"
@@ -882,13 +885,13 @@
 		"message": "Proteze"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Izberite okrasek z najljubšo dobrodelno organizacijo in ga začnite barvati."
+		"message": "Izberite okrasek in ga začnite barvati."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Delite svoje izdelke z družino in prijatelji."
+		"message": "Delite svoje izdelke z družino in prijatelji, da se lahko naučijo tudi oni."
 	},
 	"nonprofit-intro-type": {
-		"message": "Z barvanjem te zbirke okraskov podprite dobrodelne organizacije, ki ohranjajo naš svet čudovit in prijazen. Nato okraske obesite na božično drevesce ali jih podarite svojim bližnjim in tako pokažite, da vam za ta prizadevanja ni vseeno."
+		"message": "Skupaj z organizacijo Google.org predstavljamo pet izobraževalnih neprofitnih organizacij, ki so čas za obdarjanje raztegnile na vse leto. Pomaknite se navzdol in preberite, kako prispeva posamezna organizacija. Izkažite podporo, tako da pobarvate te okraske in jih obesite na drevo ali podarite svojim bližnjim."
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzi so človekovi najbližji sorodniki v živalskem kraljestvu! Dandanes zaradi izgube življenjskega prostora, bolezni in nezakonite trgovine na svetu živi manj kot 300.000 šimpanzov. Na inštitutu The Jane Goodall Institute (JGI) poskušajo šimpanze zaščititi z opazovanjem in razumevanjem njihovega obnašanja in tudi življenjskih prostorov, v katerih živijo. Inštitut JGI prav tako gradi skupnost ljudi, ki ščitijo in ohranjajo prostoživeče živali in rastline ter okolje, ki si ga delimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eRaziščite življenjske prostore šimpanzov\u003c/a\u003e v narodnem parku Gombe v Tanzaniji."

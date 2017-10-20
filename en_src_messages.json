@@ -748,12 +748,16 @@
     "message": "Eritrea"
   },
   "error": {
-    "description": "Shown on the error page (if anything went wron)",
-    "message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it - stay tuned!"
+    "description": "Shown on the error page, if anything went wrong. Short and non-specific.",
+    "message": "There was a problem, but Santa's Elves are looking into it."
   },
   "error-lost-connection": {
-    "description": "Paragraph text that appears on our error page. The error page might appear in the event of a 404, or other similar problems. Text should be non-specific and light hearted.",
+    "description": "Paragraph text that appears on our error page. The error might appear if the user is offline or there is a problem with Google's servers. Text should be non-specific and light hearted.",
     "message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it - stay tuned!"
+  },
+  "error-not-found": {
+    "description": "Paragraph text that appears on an error page if something can't be found, with a link back to Santa's Village. Text should be non-specific and light hearted.",
+    "raw": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./village.html\"&gt;</ph>Santa's Village<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
   },
   "error-try-again": {
     "description": "Link text. Please keep this short. Link appears on an error page. Clicking the link will reload the application.",
@@ -1145,15 +1149,15 @@
   },
   "nonprofit-instruction-coloring": {
     "description": "The instruction to color ornaments.",
-    "message": "Pick an ornament with your favorite charity and start coloring!"
+    "message": "Pick an ornament and start coloring."
   },
   "nonprofit-instruction-share": {
     "description": "The instruction to share ornaments.",
-    "message": "Share your art with your family and friends!"
+    "message": "Share your art with your family and friends so they can learn too."
   },
   "nonprofit-intro-type": {
     "description": "The introduction to the Season of Giving game. Describes purpose and brief instructions.",
-    "message": "Support the charity organizations that help keep our world beautiful and resourceful by coloring this collection of ornaments. Then show your interest in these causes by hanging them on your Christmas tree or gifting them to your loved ones!"
+    "message": "We've partnered with Google.org to showcase five education non-profits that celebrate the season of giving all year long. Scroll down and learn more about how each organization gives back. Show your support by coloring this collection of ornaments and then hanging them on your tree or gifting them to your loved ones."
   },
   "nonprofit-agastya-description": {
     "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
@@ -1293,7 +1297,7 @@
   },
   "notification_notice": {
     "description": "Describing what will happen if notifications are enabled",
-    "message": "Santa's Elves will keep you up-to-date with Santa's schedule"
+    "message": "Santa's elves will keep you up-to-date with Santa's schedule"
   },
   "notification_prompt": {
     "description": "Text used on a button that allows users to enable notifications",
@@ -1559,6 +1563,14 @@
     "description": "Title of a scene/game. Drop gumballs (round lollies) through a scene, tilting to ensure they reach their destination.",
     "message": "Gumball Tilt"
   },
+  "scene_icecave": {
+    "description": "Title of a scene/game. See Santa deliver presents to a giant snowman who lives in a cave.",
+    "message": "Ice Cave"
+  },
+  "scene_island": {
+    "description": "Title of a scene/game. See Santa deliver presents to a tropical island.",
+    "message": "Island"
+  },
   "scene_jamband": {
     "description": "Title of a scene/game. Create your own custom band arrangement with Santa's Elves.",
     "message": "Elf Jamband"
@@ -1674,6 +1686,14 @@
   "scene_videoscene_satellite": {
     "description": "Title of a video scene. Santa encounters a satellite on his journey.",
     "message": "Satellite"
+  },
+  "scene_videoscene_selfies": {
+    "description": "Title of a video scene. Elves are looking through camera 'selfies' taken by Santa.",
+    "message": "Santa Selfies"
+  },
+  "scene_videoscene_slackingoff": {
+    "description": "Title of a video scene. An elf is caught playing video games instead of working.",
+    "message": "Slacking Off"
   },
   "scene_videoscene_temptation": {
     "description": "Title of a video scene. An elf is tempted by a giant red button that rapidly accelerates Santa's sleigh",
@@ -6863,7 +6883,7 @@
   },
   "village_explore": {
     "description": "The intro blurb for Santa's Village, can be medium-sized",
-    "message": "Explore, play and learn with Santa's Elves all December long"
+    "message": "Explore, play and learn with Santa's elves all December long"
   },
   "village_get_the_app": {
     "description": "Menu item indicating that a user should get the Santa Android app from the Google Play Store.",

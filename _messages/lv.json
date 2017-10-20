@@ -561,10 +561,13 @@
 		"message": "Eritreja"
 	},
 	"error": {
-		"message": "Tā... nupat pazuda savienojums ar Ziemeļpolu. Ziemassvētku vecīša rūķīši dara visu iespējamo, lai to atjaunotu. Paliec tepat!"
+		"message": "Radās problēma, bet Ziemassvētku vecīša rūķīši to mēģina risināt."
 	},
 	"error-lost-connection": {
 		"message": "Tā... nupat pazuda savienojums ar Ziemeļpolu. Ziemassvētku vecīša rūķīši dara visu iespējamo, lai to atjaunotu. Paliec tepat!"
+	},
+	"error-not-found": {
+		"message": "Ziemassvētku vecīša rūķīši nevar atrast šo lapu. Iespējams, jums veiksies labāk, ja atgriezīsities \u003ca href=\"./village.html\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Mēģiniet vēlreiz"
@@ -882,13 +885,13 @@
 		"message": "Locekļu protēzes"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Izvēlieties rotājumu ar savas iecienītākās labdarības organizācijas logotipu un sāciet to krāsot."
+		"message": "Izvēlieties rotājumu un sāciet to krāsot."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Kopīgojiet savu rotājumu ar ģimeni un draugiem."
+		"message": "Kopīgojiet savu rotājumu ar ģimeni un draugiem, lai arī viņi par to uzzina."
 	},
 	"nonprofit-intro-type": {
-		"message": "Izkrāsojot šo rotājumu kolekciju, atbalstiet labdarības organizācijas, kas palīdz uzturēt pasaulē labestību un nodrošināt resursu pieejamību. Pēc tam izrādiet interesi par šiem labdarības mērķiem, iekarinot rotājumus savā Ziemassvētku eglītē vai dāvinot tos sev mīļiem cilvēkiem."
+		"message": "Mēs sadarbojamies ar Google.org, lai popularizētu piecas izglītības bezpeļņas organizācijas, kas īsteno dāvināšanas prieku visu gadu. Ritiniet lejup un uzziniet vairāk par katras organizācijas labdarības aktivitātēm. Izrādiet savu atbalstu, izkrāsojot šo rotājumu kolekciju un iekarinot rotājumus savā Ziemassvētku eglītē vai dāvinot tos sev mīļiem cilvēkiem."
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003emītošajām šimpanzēm\u003c/a\u003e."
@@ -975,7 +978,7 @@
 		"message": "Apturēt ziņas"
 	},
 	"notification_notice": {
-		"message": "Ziemassvētku vecīša elfi informēs jūs par Ziemassvētku vecīša darba grafiku"
+		"message": "Ziemassvētku vecīša rūķīši informēs jūs par Ziemassvētku vecīša darba grafiku"
 	},
 	"notification_prompt": {
 		"message": "Saņemt jaunāko informāciju par Ziemassvētku vecīti"
@@ -5151,7 +5154,7 @@
 		"message": "Atgriezieties 24. datumā un palīdziet mums sekot Ziemassvētku vecītim visu nakti!"
 	},
 	"village_explore": {
-		"message": "Visu decembri pētiet, spēlējieties un mācieties kopā ar Ziemassvētku vecīša elfiem"
+		"message": "Visu decembri pētiet, spēlējieties un mācieties kopā ar Ziemassvētku vecīša rūķīšiem"
 	},
 	"village_get_the_app": {
 		"message": "Iegūstiet lietotni Ziemassvētku vecīša ceļojums Android ierīcēm"

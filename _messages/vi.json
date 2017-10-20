@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
+		"message": "Đã xảy ra sự cố nhưng phụ tá của ông già Noel đang kiểm tra."
 	},
 	"error-lost-connection": {
 		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
+	},
+	"error-not-found": {
+		"message": "Rất tiếc, phụ tá của ông già Noel không thể tìm thấy trang này! Hãy quay lại \u003ca href=\"./village.html\"\u003eLàng của ông già Noel\u003c/a\u003e vì biết đâu bạn sẽ gặp may."
 	},
 	"error-try-again": {
 		"message": "Thử lại"
@@ -882,13 +885,13 @@
 		"message": "Chân tay giả"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Chọn một vật trang trí đi kèm với tổ chức từ thiện yêu thích của bạn và bắt đầu tô màu!"
+		"message": "Chọn một vật trang trí và bắt đầu tô màu."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Chia sẻ nghệ thuật của bạn với gia đình và bạn bè!"
+		"message": "Chia sẻ tác phẩm nghệ thuật của bạn với gia đình và bạn bè để họ cũng có thể học hỏi."
 	},
 	"nonprofit-intro-type": {
-		"message": "Hỗ trợ tổ chức từ thiện để giúp giữ cho thế giới của chúng ta tươi đẹp và giàu sức sống bằng cách tô màu bộ sưu tập đồ trang trí này. Sau đó, hãy thể hiện sự quan tâm của bạn đối với những cộng đồng này bằng cách treo đồ trang trí lên cây thông Noel hoặc tặng chúng cho những người thân yêu của bạn!"
+		"message": "Chúng tôi đã hợp tác với Google.org để giới thiệu năm tổ chức phi lợi nhuận về giáo dục sẽ mừng mùa lễ trao yêu thương trong suốt cả năm. Cuộn xuống và tìm hiểu thêm xem mỗi tổ chức đền đáp ra sao. Thể hiện sự hỗ trợ của bạn bằng cách tô màu cho bộ sưu tập các vật trang trí này và sau đó treo chúng lên cây hoặc tặng cho những người thân yêu của bạn."
 	},
 	"nonprofit-jane-description": {
 		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."

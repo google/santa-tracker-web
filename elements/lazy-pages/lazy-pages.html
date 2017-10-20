@@ -110,6 +110,9 @@ Lazy loads children "pages".
         line-height: 28px;
         text-align: center;
       }
+      a {
+        color: inherit;
+      }
       @media (max-height: 400px) {
         #error {
           flex-flow: row;
@@ -139,8 +142,7 @@ Lazy loads children "pages".
         <i18n-msg msgid="error">PLACEHOLDER_i18n</i18n-msg>
       </p>
       <p class="missing">
-        <!-- TODO: stuff -->
-        Can't find this page!
+        <i18n-msg msgid="error-not-found">PLACEHOLDER_i18n</i18n-msg>
       </p>
     </div>
     <slot name="santa-scene"></slot>

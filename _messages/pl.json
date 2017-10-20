@@ -561,10 +561,13 @@
 		"message": "Erytrea"
 	},
 	"error": {
-		"message": "Wygląda na to, że właśnie straciliśmy połączenie z biegunem północnym. Elfy Świętego Mikołaja dwoją się i troją nad rozwiązaniem problemu – cierpliwości!"
+		"message": "Wystąpił problem, ale elfy już się tym zajmują."
 	},
 	"error-lost-connection": {
 		"message": "Wygląda na to, że właśnie straciliśmy połączenie z biegunem północnym. Elfy Świętego Mikołaja dwoją się i troją nad rozwiązaniem problemu – cierpliwości!"
+	},
+	"error-not-found": {
+		"message": "Elfy nie mogą znaleźć tej strony. Może będziesz mieć więcej szczęścia, gdy wrócisz do \u003ca href=\"./village.html\"\u003ewioski Mikołaja\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Spróbuj jeszcze raz"
@@ -882,13 +885,13 @@
 		"message": "Protezy kończyn"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Wybierz ozdobę z Twoją ulubioną organizacją dobroczynną i pokoloruj ją."
+		"message": "Wybierz ozdobę i pokoloruj ją."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Udostępnij swoje dzieło rodzinie i znajomym."
+		"message": "Udostępnij swoje dzieło rodzinie i znajomym, aby też mogli się uczyć."
 	},
 	"nonprofit-intro-type": {
-		"message": "Pokoloruj te ozdoby, by wesprzeć organizacje charytatywne, które sprawiają, że świat staje się lepszym i piękniejszym miejscem. Wyraź poparcie dla ich misji, wieszając ozdoby na choince lub dając je w prezencie bliskim osobom."
+		"message": "Rozpoczęliśmy współpracę z Google.org, aby zaprezentować pięć organizacji non-profit zajmujących się edukacją. Dla nich sezon obdarowywania innych trwa cały rok. Przewiń ekran w dół, aby dowiedzieć się więcej o każdej z tych organizacji. Wyraź poparcie dla ich misji, wieszając ozdoby na choince lub dając je w prezencie bliskim osobom."
 	},
 	"nonprofit-jane-description": {
 		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePoznaj siedliska szympansów\u003c/a\u003e w Gombe w Tanzanii."

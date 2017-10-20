@@ -561,10 +561,13 @@
 		"message": "Eritreia"
 	},
 	"error": {
-		"message": "Perdemos nossa conexão com o Polo Norte. Os duendes do Papai Noel estão trabalhando duro para corrigir o problema. Fique ligado!"
+		"message": "Houve um problema, mas fique tranquilo. Os duendes do Papai Noel estão investigando."
 	},
 	"error-lost-connection": {
 		"message": "Perdemos nossa conexão com o Polo Norte. Os duendes do Papai Noel estão trabalhando duro para corrigir o problema. Fique ligado!"
+	},
+	"error-not-found": {
+		"message": "Ah não, os duendes não encontraram esta página! Tente voltar para a \u003ca href=\"./village.html\"\u003eVila do Papai Noel\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Tente novamente"
@@ -882,13 +885,13 @@
 		"message": "Próteses ortopédicas"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Escolha um enfeite com sua organização de caridade favorita e comece a colorir."
+		"message": "Escolha um enfeite e comece a colorir."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Compartilhe sua arte com a família e os amigos!"
+		"message": "Compartilhe sua arte com a família e os amigos para que eles também participem."
 	},
 	"nonprofit-intro-type": {
-		"message": "Apoie as organizações de caridade que ajudam a deixar o mundo melhor e mais bonito colorindo esta coleção de enfeites. Depois, pendure os enfeites na árvore de Natal ou presenteie alguém e mostre que você também apoia essas causas!"
+		"message": "Fizemos uma parceria com o Google.org para apresentar cinco organizações educacionais sem fins lucrativos, que celebram a alegria de presentear o ano todo. Role para baixo e saiba mais sobre o trabalho de cada uma delas. Você também pode apoiá-las: basta colorir esta coleção de enfeites para pendurar na árvore ou dar de presente."
 	},
 	"nonprofit-jane-description": {
 		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore o habitat dos chimpanzés\u003c/a\u003e em Gombe, Tanzânia."
@@ -975,7 +978,7 @@
 		"message": "Cancelar"
 	},
 	"notification_notice": {
-		"message": "Os duendes do Papai Noel manterão você atualizado sobre a programação dele"
+		"message": "Os duendes do Papai Noel manterão você informado sobre a programação do bom velhinho."
 	},
 	"notification_prompt": {
 		"message": "Quero acompanhar o Papai Noel"
@@ -5151,7 +5154,7 @@
 		"message": "Volte no dia 24 e ajude a acompanhar o Papai Noel a noite toda."
 	},
 	"village_explore": {
-		"message": "Explore, brinque e aprenda com os Duendes do Papai Noel durante todo o mês de dezembro"
+		"message": "Explore, brinque e aprenda com os duendes do Papai Noel durante todo o mês de dezembro."
 	},
 	"village_get_the_app": {
 		"message": "Faça o download do app Siga o Papai Noel para Android"
