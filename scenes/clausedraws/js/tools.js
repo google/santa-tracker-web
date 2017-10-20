@@ -19,6 +19,7 @@ goog.require('app.Eraser');
 goog.require('app.LayerTool');
 goog.require('app.Stamp');
 goog.require('app.Pen');
+goog.require('app.Slider');
 goog.require('app.SprinkleSpray');
 goog.require('app.Tool');
 goog.require('app.utils');
@@ -40,6 +41,12 @@ app.Tools = function(game, $elem) {
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menus]');
 
   this.categoryPickers.on('click.clausedraws', this.onCategoryClick_.bind(this));
+
+  this.pen = new app.Pen($elem, 'pen');
+
+  this.tools = [
+    this.pen
+  ];
 
   // this.clipper = new app.SprinkleSpray($elem, 'clipper', {x: 40, y: 0});
   // this.hairdryer = new app.LayerTool($elem, 'hairdryer', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
@@ -117,14 +124,16 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
+  console.log('selecting');
   var previousTool = this.selectedTool;
 
   this.selectedTool = this.tools.filter(function(tool) {
-    if (tool.container[0] === e.target && !tool.isSelected) {
+    if (tool.el[0] === e.target && !tool.isSelected) {
       return tool;
     }
   })[0];
 
+  console.log(this.selectedTool);
   if (this.selectedTool) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();

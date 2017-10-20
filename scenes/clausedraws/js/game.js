@@ -39,6 +39,7 @@ app.Game = function(elem) {
 
   // Construct app.Tools last, as it needs mouse/canvas.
   this.tools = new app.Tools(this, this.sceneElem);
+  this.slider = new app.Slider(this.elem, this.mouse);
 
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
@@ -56,6 +57,7 @@ app.Game.prototype.start = function() {
 
   this.mouse.subscribe(this.tools.mouseChanged, this.tools);
   this.mouse.subscribe(this.canvas.mouseChanged, this.canvas);
+  this.mouse.subscribe(this.slider.mouseChanged, this.slider);
 
   this.elem.find('#share-button, #share-button-toolbox').
     on('click.clausedraws touchend.clausedraws', this.showShareOverlay.bind(this));

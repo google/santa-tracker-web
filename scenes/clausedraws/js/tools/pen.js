@@ -27,7 +27,7 @@ goog.require('app.Tool');
  * @param {string} color The color of the pen
  */
 app.Pen = function($elem, name, color) {
-  app.Tool.call(this, $elem, 'spray--' + name, {x: 47, y: 0});
+  app.Tool.call(this, $elem, name, {x: 47, y: 0});
 
   this.soundKey = 'selfie_color';
   this.color = color || name;

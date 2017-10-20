@@ -29,8 +29,7 @@ goog.require('app.utils');
  */
 app.Tool = function($elem, name, mouseOffset) {
   this.elem = $elem;
-  this.el = this.elem.find('.Tool-' + name);
-  this.container = this.el.closest('.Tool-container');
+  this.el = this.elem.find('[data-tool="' + name + '"]');
   this.isSelected = false;
   this.mouseOffset = mouseOffset || {x: 0, y: 0};
   this.soundKey = '';

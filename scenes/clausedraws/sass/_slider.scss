@@ -1,0 +1,36 @@
+##{$name} {
+  .Slider {
+    height: 167px * 0.105;
+    margin: 50px 0;
+    padding: 30px 15px;
+    position: relative;
+    width: 167px;
+  }
+
+  .Slider-inner {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  .Slider-base {
+    background: url(img/slider-base.svg) center/contain no-repeat;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .Slider-dot {
+    background: url(img/slider-dot.svg) center/contain no-repeat;
+    bottom: -90%;
+    cursor: pointer;
+    height: 17px;
+    left: 10px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 17px;
+  }
+}
