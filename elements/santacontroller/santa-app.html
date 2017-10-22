@@ -522,6 +522,7 @@ Polymer({
      */
     route: {
       type: String,
+      observer: '_routeChanged',
     },
 
     /** Whether the schedule is checked. If false, houses will remain unlocked. */
@@ -677,7 +678,7 @@ Polymer({
         var parts = window.location.hash.substr(1).split('?');
         route = parts[0] || route;
       }
-      this.route = route;
+      this.$.lazypages.load(route);
     }
   },
 
@@ -718,7 +719,7 @@ Polymer({
       // If this is the same route, then close the drawer. It was probably a sidebar click.
       this.$.chrome.closeDrawer();
     }
-    this.route = route;
+    this.$.lazypages.load(route);
     ev.preventDefault();
   },
 
@@ -838,8 +839,13 @@ Polymer({
       }
       console.debug('prod would lock', route);
     }
-    window.ga('set', 'page', '/' + this.route);  // TODO: not quite right, if scene doesn't load
-    window.ga('send', 'pageview');
+  },
+
+  _routeChanged: function() {
+    if (typeof this.route === 'string') {
+      window.ga('set', 'page', '/' + this.route);
+      window.ga('send', 'pageview');
+    }
   },
 
   /**
@@ -1079,7 +1085,7 @@ Polymer({
       case 'esc':
         var wasOpen = this.$.chrome.closeDrawer();
         if (!wasOpen) {
-          this.route = this.defaultRoute;
+          this.$.lazypages.load(this.defaultRoute);
         }
         break;
       case 'enter':
@@ -1091,7 +1097,7 @@ Polymer({
   _duringTrackerChanged: function() {
     // If the tracker was open, it's now locked: send the user back to the Village.
     if (this.duringTracker === false && this.route === TRACKER_ROUTE) {
-      this.route = this.defaultRoute;
+      this.$.lazypages.load(this.defaultRoute);
     }
   },
 
