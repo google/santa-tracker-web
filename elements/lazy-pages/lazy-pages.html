@@ -207,11 +207,10 @@ Lazy loads children "pages".
       },
 
       /**
-       * Whether a route is being loaded via hard URL change, not .load.
+       * The scene that's being loaded via hard URL change.
        */
       bootstrap: {
-        type: Boolean,
-        value: true,
+        type: Object,
         notify: true,
         readOnly: true,
       },
@@ -278,7 +277,7 @@ Lazy loads children "pages".
       // TODO(samthor): Move into common Promise below.
       if (!this._routeIsOpen(route)) {
         this.route = route;
-        this._setBootstrap(false);
+        this._setBootstrap(null);
         this._setSelectedItem(null);
         this._setError('locked');
         this.fire('embed', 'onfailure');
@@ -291,7 +290,7 @@ Lazy loads children "pages".
       if (!scene) {
         console.debug('got null scene for', route);
         this.route = route;
-        this._setBootstrap(false);
+        this._setBootstrap(null);
         this._setSelectedItem(null);
         this._setError(null);
         this._loadingPromise = Promise.resolve(null);
@@ -342,7 +341,7 @@ Lazy loads children "pages".
       loader.then(safe(function() {
         this.cancelDebouncer('resetProgress');
         this._setProgress(null);  // regardless of outcome, clear progress bar on completion
-        this._setBootstrap(false);  // and we're no longer bootstrapping
+        this._setBootstrap(null);  // and we're no longer bootstrapping
       }));
     },
 
@@ -387,7 +386,7 @@ Lazy loads children "pages".
       const scene = this.getRoute(route);
       if (scene !== this.selectedItem) {
         this.fire('bootstrap', scene)
-        this._setBootstrap(true);
+        this._setBootstrap(scene);
         this._setSelectedItem(null);
         this.load(route);
       }

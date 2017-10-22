@@ -1,14 +1,16 @@
 @import "scenes/shared/sass/_mixins.scss";
 
+$background: #3ec4f0;
+
 html {
-  background-color: #3ec4f0;
+  background-color: $background;
 }
 
 body {
   min-width: 320px;
   position: relative;
   overflow-x: hidden;
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', 'Arial', Sans-Serif;
   font-size: 12px;
   margin: 0;
   padding: 0;
@@ -29,16 +31,7 @@ body {
     display: none;
   }
 
-  &.posttakeoff {
-    #timer {
-      display: none;
-    }
-  }
-
   user-select: none;
-  input {
-    user-select: all;
-  }
 }
 
 #unresolved_placeholder {
@@ -47,8 +40,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../images/village_2x.gif') center/340px no-repeat;
-  margin-top: -120px;
+  background: url('../images/village_2x.gif') center/340px $background no-repeat;
 }
 
 // Import common rules.

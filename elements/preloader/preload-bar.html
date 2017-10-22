@@ -20,6 +20,9 @@ Loader bar.
 <dom-module id="preload-bar">
   <template>
     <style>
+[hidden] {
+  display: none !important;
+}
 #under {
   pointer-events: none;
   position: fixed;
@@ -51,11 +54,18 @@ Loader bar.
   left: 0;
   right: 0;
   bottom: 0;
-  background: #3ec4f0;
+  background: var(--preloader-background-color, #3ec4f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#fullscreen img {
+  width: 340px;
+  height: 340px;
 }
     </style>
     <div id="fullscreen" hidden$="[[!bootstrap]]">
-      <!-- TODO(samthor): Restore Santa waving etc -->
+      <img src$="[[_computeLoadingSrc(defaultLoadingSrc, _loadingSrc)]]" />
     </div>
     <div id="under">
       <div id="bar"></div>
@@ -84,13 +94,27 @@ Polymer({
     },
 
     /**
-     * Whether this loader is in bootstrap mode, aka fullscreen overlay. This is intended to be
-     * bound, but starts at `true` anyway.
+     * The scene to use as a fullscreen overlay while loading, if any.
      */
     bootstrap: {
-      type: Boolean,
+      type: Object,
       observer: '_bootstrapChanged',
-      value: true,
+    },
+
+    /**
+     * The default loading image to use in bootstrap mode.
+     */
+    defaultLoadingSrc: {
+      type: String,
+      value: 'images/village_2x.gif',
+    },
+
+    /**
+     * The custom scene-only loading source.
+     */
+    _loadingSrc: {
+      type: String,
+      value: null,
     },
 
   },
@@ -99,9 +123,34 @@ Polymer({
     '_update(progress, inset)',
   ],
 
-  _bootstrapChanged: function() {
-    // Force layout, this works around a Chrome bug: the header won't be hidden.
-    this.$.fullscreen.getBoundingClientRect();
+  _bootstrapChanged: function(bootstrap) {
+    bootstrap = bootstrap || document.createElement('empty-scene');
+    const src = bootstrap.getAttribute('loading-src');
+    const done = function() {
+      this._loadingSrc = src;
+      this.updateStyles({
+        '--preloader-background-color': bootstrap.getAttribute('loading-bg-color'),
+      });
+    }.bind(this);
+
+    this.$.fullscreen.getBoundingClientRect();  // force appear, work around Chrome bug
+    if (!src) {
+      return done();  // update styles immediately, no loading image
+    }
+
+    const i = new Image();
+    i.src = src;
+    i.onload = function() {
+      // The loading image is ready, so update the src and backgroundColor if we're still at
+      // an early part of the loading process (<0.5).
+      if (this.bootstrap === bootstrap && this.progress < 0.5) {
+        done();
+      }
+    }.bind(this);
+  },
+
+  _computeLoadingSrc: function(defaultLoadingSrc, loadingSrc) {
+    return loadingSrc || defaultLoadingSrc || '';
   },
 
   _update: function(progress, inset) {
@@ -118,8 +167,7 @@ Polymer({
       bar.style.transform = 'translate(0%)';  // always end at 'full'
     }
 
-    // Force layout, working around a Chrome bug.
-    bar.getBoundingClientRect();
+    this.$.bar.getBoundingClientRect();  // force appear, work around Chrome bug
   },
 
 });
