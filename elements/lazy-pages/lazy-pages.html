@@ -14,120 +14,14 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
 
+<link rel="import" href="lazy-pages_module.html">
+
 <!--
 Lazy loads children "pages".
 -->
 <dom-module id="lazy-pages">
   <template>
-    <style>
-      :host {
-        position: static;
-        display: block;
-      }
-      :host ::slotted(*) {
-        position: absolute;
-        top: 44px;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: hidden;  /* explicitly only needed for iOS */
-      }
-      :host ::slotted([allow-page-scrolling]) {
-        top: 0;
-        bottom: auto;
-        overflow: auto;
-      }
-      :host ::slotted(*:focus) {
-        outline: none;
-      }
-      :host ::slotted(*:not([active])) {
-        display: none !important;
-      }
-
-      [hidden] {
-        display: none !important;
-      }
-      #error {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        min-height: 100vh;
-        box-sizing: border-box;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-        background: url(img/error.svg) bottom center no-repeat;
-        background-size: cover;
-      }
-      #error:not([class]) {
-        display: none;
-      }
-      .icon {
-        position: relative;
-        width: 250px;
-        height: 250px;
-        border-radius: 10000px;
-        box-shadow: 4px 14px 0 rgba(0,0,0,.125);
-        background: #7ec6e5 url(img/snowman.png) center no-repeat;
-        background-size: 179px 214px;
-        overflow: hidden;
-      }
-      .icon .bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: transparent center no-repeat;
-        background-size: cover;
-      }
-      .icon::before {
-        content: '';
-        z-index: 1000;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 10000px;
-        background: rgba(0, 0, 0, 0.125) url(img/lock.svg) center no-repeat;
-      }
-      #error:not(.error-locked) .icon::before {
-        display: none;
-      }
-      #error:not(.error-network) p.error {
-        display: none;
-      }
-      #error:not(.missing) p.missing {
-        display: none;
-      }
-      p {
-        margin: 2em auto;
-        max-width: 90%;
-        color: white;
-        font-size: 16px;
-        line-height: 28px;
-        text-align: center;
-      }
-      a {
-        color: inherit;
-      }
-      @media (max-height: 400px) {
-        #error {
-          flex-flow: row;
-        }
-        #error p {
-          margin: 0 2em;
-        }
-        .icon {
-          width: 192px;
-          height: 192px;
-          min-width: 192px;
-          margin: 0 1em;
-        }
-      }
-    </style>
+    <style include="lazy-pages_module"></style>
     <div hidden>
       <!-- low-key preloading -->
       <img src$="[[importPath]]img/snowman.png" />
@@ -138,6 +32,7 @@ Lazy loads children "pages".
         <div class="bg" style$="[[_computeLockStyle(route, error)]]"></div>
         <div class="lock"></div>
       </div>
+      <!-- TODO(samthor): Restore 'network' error msgid="error-lost" -->
       <p class="error">
         <i18n-msg msgid="error">PLACEHOLDER_i18n</i18n-msg>
       </p>
