@@ -145,19 +145,19 @@ specific language governing permissions and limitations under the License.
     preloadImages: function(imageUrls) {
       this._totalAssets += imageUrls.length;
 
-      var onload = function() {
+      const onload = function() {
         ++this._assetsLoaded;
         if (this._assetsLoaded === this._totalAssets) {
           this.fire('preload', null, {bubbles: false});
         }
       }.bind(this);
 
-      var imagesPerRaf = Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD);
+      let imagesPerRaf = Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD);
       imagesPerRaf = Math.max(1, imagesPerRaf);
-      var imageIndex = 0;
-      var rafCallback = function() {
-        for (var i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; i++) {
-          var img = new Image();
+      let imageIndex = 0;
+      const rafCallback = function() {
+        for (let i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; ++i) {
+          const img = new Image();
           img.onerror = img.onload = onload;
           img.src = this.resolveUrl(imageUrls[imageIndex++]);
         }
