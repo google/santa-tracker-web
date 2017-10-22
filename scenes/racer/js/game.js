@@ -56,8 +56,6 @@ SB.Game = function(elem, componentDir) {
   this.renderer = new SB.Renderer(
       /** @type {!HTMLCanvasElement} */ (elem.querySelector('canvas.game')));
   this.scoreboard = new Scoreboard(this, elem.querySelector('.board'), Constants.TOTAL_LEVELS);
-  this.scoreboard.reset();
-  this.scoreboard.setLevel(this.level - 1);
   this.gameoverView = new Gameover(this, elem.querySelector('.gameover'));
   this.watchSceneSize_();
 
