@@ -44,21 +44,19 @@ specific language governing permissions and limitations under the License.
        */
       route: {
         type: String,
-        value: null
+        value: null,
       },
 
       /**
-       * If `true`, the scene is active. In Santa Tracker, this is set by the
-       * specific configuration of the lazy-scenes element (aka,
-       * selected-attribute="active").
+       * If `true`, the scene is active. In Santa Tracker, this is set by `lazy-pages.
        *
-       * Note that this intentionally starts undefined so that its observer is
-       * only called after the object is ready.
+       * Note that this intentionally starts undefined so that its observer is only called after
+       * the object is ready.
        */
       active: {
         type: Boolean,
         reflectToAttribute: true,
-        observer: '_activeChanged'
+        observer: '_activeChanged',
       },
 
       /**
@@ -68,7 +66,7 @@ specific language governing permissions and limitations under the License.
       loaded: {
         type: Boolean,
         notify: true,
-        value: false
+        value: false,
       },
 
       /**
@@ -120,7 +118,6 @@ specific language governing permissions and limitations under the License.
         }
         this.async(resolve, MAX_PRELOAD_TIME);  // resolve on timeout anyway
         this.addEventListener('preload', resolve);
-
       }.bind(this));
 
       p.then(function() {
@@ -148,12 +145,11 @@ specific language governing permissions and limitations under the License.
       const onload = function() {
         ++this._assetsLoaded;
         if (this._assetsLoaded === this._totalAssets) {
-          this.fire('preload', null, {bubbles: false});
+          this.fire('preload', null, {bubbles: false});  // nb. resolves Promise in ready:
         }
       }.bind(this);
 
-      let imagesPerRaf = Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD);
-      imagesPerRaf = Math.max(1, imagesPerRaf);
+      const imagesPerRaf = Math.max(1, Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD));
       let imageIndex = 0;
       const rafCallback = function() {
         for (let i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; ++i) {
