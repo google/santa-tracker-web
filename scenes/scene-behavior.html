@@ -175,10 +175,7 @@ specific language governing permissions and limitations under the License.
      * @param {string} soundSetName
      */
     preloadSounds: function(soundSetName) {
-      // TODO(samthor): Currently, Klang uses `sound-preload` to nuke all previous ambient sounds.
-      // We now preload scenes before the old one has had its onHide method called. Restore this.
-      console.debug('ignoring sound-preload', soundSetName);
-//      this.fire('sound-preload', soundSetName);
+      this.fire('sound-preload', soundSetName);
     },
 
     _progress: function(assetsLoaded, totalAssets) {

@@ -121,12 +121,9 @@ SoundController.prototype.loadKlangConfig_ = function() {
 SoundController.prototype.loadSounds = function(loadEvent) {
   this.loadingSounds_ = /** @type {string} */ (loadEvent.detail);
 
-  // a new load has been triggered, so cancel any existing queued ambient sounds
-  // (except global_ events, such as mute/unmute)
-  this.soundQueue_ = this.soundQueue_.filter((sound) => {
-    const n = (typeof sound === 'string') ? sound : sound.name;
-    return n.startsWith('global_');
-  });
+  // nb. Historically, we removed the soundQueue_ (except for 'global_'-prefixed sounds) on
+  // loadSounds. This doesn't seem to be required, and we now want to preload while the previous
+  // scene is loading.
 
   if (!this.klangLoaded_) {
     // Sound loads predominantly only happen in onPreload, so will only be
