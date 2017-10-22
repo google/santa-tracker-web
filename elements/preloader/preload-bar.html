@@ -45,7 +45,18 @@ Loader bar.
   transition: opacity 0.5s;
   will-change: opacity;
 }
+#fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #3ec4f0;
+}
     </style>
+    <div id="fullscreen" hidden$="[[!bootstrap]]">
+      <!-- TODO(samthor): Restore Santa waving etc -->
+    </div>
     <div id="under">
       <div id="bar"></div>
     </div>
@@ -72,23 +83,43 @@ Polymer({
       value: 10,
     },
 
+    /**
+     * Whether this loader is in bootstrap mode, aka fullscreen overlay. This is intended to be
+     * bound, but starts at `true` anyway.
+     */
+    bootstrap: {
+      type: Boolean,
+      observer: '_bootstrapChanged',
+      value: true,
+    },
+
   },
 
   observers: [
     '_update(progress, inset)',
   ],
 
+  _bootstrapChanged: function() {
+    // Force layout, this works around a Chrome bug: the header won't be hidden.
+    this.$.fullscreen.getBoundingClientRect();
+  },
+
   _update: function(progress, inset) {
+    const bar = this.$.bar;
+
     if (+progress === progress) {
       progress = Math.min(1, Math.max(0, progress));
       progress = ((inset / 2) + progress * (100 - inset));
 
       this.$.under.classList.add('show');
-      this.$.bar.style.transform = 'translate(' + (progress - 100) + '%)';
+      bar.style.transform = 'translate(' + (progress - 100) + '%)';
     } else {
       this.$.under.classList.remove('show');
-      this.$.bar.style.transform = 'translate(0%)';  // always end at 'full'
+      bar.style.transform = 'translate(0%)';  // always end at 'full'
     }
+
+    // Force layout, working around a Chrome bug.
+    bar.getBoundingClientRect();
   },
 
 });

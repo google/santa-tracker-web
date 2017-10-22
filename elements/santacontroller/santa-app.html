@@ -69,7 +69,8 @@ Santa Tracker app.
     <lazy-pages id="lazypages"
         route="{{route}}"
         progress="{{_progress}}"
-        selected-item="{{selectedScene}}">
+        selected-item="{{selectedScene}}"
+        bootstrap="{{_bootstrap}}">
 
       <cast-scene route="cast"
           path$="scenes/cast/cast-scene_[[language]].html"
@@ -400,7 +401,7 @@ Santa Tracker app.
 
   </santa-chrome>
 
-  <preload-bar progress="[[_progress]]"></preload-bar>
+  <preload-bar progress="[[_progress]]" bootstrap="[[_bootstrap]]"></preload-bar>
 
 </template>
 <script>
@@ -532,6 +533,13 @@ Polymer({
      */
     _progress: {
       type: Number,
+    },
+
+    /**
+     * The bootstrap value bound from `lazy-pages.
+     */
+    _bootstrap: {
+      type: Boolean,
     },
 
     /** Whether the schedule is checked. If false, houses will remain unlocked. */

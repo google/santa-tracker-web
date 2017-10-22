@@ -207,6 +207,16 @@ Lazy loads children "pages".
       },
 
       /**
+       * Whether a route is being loaded via hard URL change, not .load.
+       */
+      bootstrap: {
+        type: Boolean,
+        value: true,
+        notify: true,
+        readOnly: true,
+      },
+
+      /**
        * The current loading progress, from zero to 100, or null for none.
        */
       progress: {
@@ -268,6 +278,7 @@ Lazy loads children "pages".
       // TODO(samthor): Move into common Promise below.
       if (!this._routeIsOpen(route)) {
         this.route = route;
+        this._setBootstrap(false);
         this._setSelectedItem(null);
         this._setError('locked');
         this.fire('embed', 'onfailure');
@@ -277,6 +288,17 @@ Lazy loads children "pages".
       }
 
       const scene = this.getRoute(route);
+      if (!scene) {
+        console.debug('got null scene for', route);
+        this.route = route;
+        this._setBootstrap(false);
+        this._setSelectedItem(null);
+        this._setError(null);
+        this._loadingPromise = Promise.resolve(null);
+        this._setProgress(null);
+        return;
+      }
+
       const p = this._loadingPromise = this._loadScene(scene);
       const safe = function(fn) {
         return function() {
@@ -301,9 +323,13 @@ Lazy loads children "pages".
 
       })).catch(safe(function(reason) {
         console.warn('lazy-pages', scene && scene.localName, 'failure', reason);
-        this._setSelectedItem(null);
-        this._setError(reason);
         this.fire('embed', 'onfailure');
+        this._setSelectedItem(null);
+        if (typeof reason !== 'string') {
+          this._setError('error');
+          throw reason;
+        }
+        this._setError(reason);
       }));
 
       // If noone sets the progress (resetProgress is cleared inside _progressChanged) in a short
@@ -316,6 +342,7 @@ Lazy loads children "pages".
       loader.then(safe(function() {
         this.cancelDebouncer('resetProgress');
         this._setProgress(null);  // regardless of outcome, clear progress bar on completion
+        this._setBootstrap(false);  // and we're no longer bootstrapping
       }));
     },
 
@@ -351,7 +378,19 @@ Lazy loads children "pages".
     },
 
     _routeChanged: function(route) {
-      this.load(route);
+      if (route === undefined) {
+        return;  // literally do nothing
+      }
+
+      // TODO(samthor): If this is a revalidation and the route is *correct* but the scene isn't
+      // loaded, then it still triggers bootstrap mode (e.g. network error).
+      const scene = this.getRoute(route);
+      if (scene !== this.selectedItem) {
+        this.fire('bootstrap', scene)
+        this._setBootstrap(true);
+        this._setSelectedItem(null);
+        this.load(route);
+      }
     },
 
     _selectedItemChanged: function(newValue, oldValue) {
