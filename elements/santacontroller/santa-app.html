@@ -19,7 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../santa-badge/santa-badge.html">
 <link rel="import" href="../santa-chrome/santa-chrome.html">
 <link rel="import" href="../santa-tracker-router.html">
-<link rel="import" href="../preloader/preload-overlay.html">
+<link rel="import" href="../preloader/preload-bar.html">
 <link rel="import" href="../lazy-pages/lazy-pages.html">
 <link rel="import" href="../santa-strings.html">
 <link rel="import" href="../santa-socket.html">
@@ -46,9 +46,6 @@ Santa Tracker app.
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc enter" on-keys-pressed="_onKeysPressed"></iron-a11y-keys>
 
-  <!-- Preloading scene overlay -->
-  <preload-overlay id="preloader"></preload-overlay>
-
   <!-- Route controller -->
   <santa-tracker-router enabled="[[routing]]" route="{{route}}"></santa-tracker-router>
 
@@ -69,7 +66,10 @@ Santa Tracker app.
         share-options="[[shareOptions]]" mode$="[[mode]]"></santa-overlay>
 
     <!-- Scenes -->
-    <lazy-pages id="lazypages" route="{{route}}" selected-item="{{selectedScene}}">
+    <lazy-pages id="lazypages"
+        route="{{route}}"
+        progress="{{_progress}}"
+        selected-item="{{selectedScene}}">
 
       <cast-scene route="cast"
           path$="scenes/cast/cast-scene_[[language]].html"
@@ -400,6 +400,8 @@ Santa Tracker app.
 
   </santa-chrome>
 
+  <preload-bar progress="[[_progress]]"></preload-bar>
+
 </template>
 <script>
 (function() {
@@ -525,6 +527,13 @@ Polymer({
       observer: '_routeChanged',
     },
 
+    /**
+     * The progress value bound from `lazy-pages`.
+     */
+    _progress: {
+      type: Number,
+    },
+
     /** Whether the schedule is checked. If false, houses will remain unlocked. */
     scheduleChecked: {
       type: Boolean,
@@ -605,9 +614,6 @@ Polymer({
   listeners: {
     'click': 'onClick',
     'beforeload': 'onBeforeLoad',
-    'scene-progress': 'onSceneProgress',
-    'scene-failure': 'onSceneFailure',
-    'scene-ready': 'onSceneReady',
     'analytics-track-event': 'trackEvent',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
@@ -721,37 +727,6 @@ Polymer({
     }
     this.$.lazypages.load(route);
     ev.preventDefault();
-  },
-
-  /**
-   * Handles a loading progress hint, hiding or displaying the preloader.
-   */
-  onSceneProgress: function() {
-    var scene = this.selectedScene;
-    if (scene) {
-      this.$.preloader.color = scene.getAttribute('loading-bg-color');
-      this.$.preloader.src = scene.getAttribute('loading-src');
-      this.$.preloader.active = !scene.loaded;
-      this.$.preloader.value = scene.preloadProgress || 0;  // prevent undefined
-    } else {
-      this.$.preloader.active = false;
-    }
-  },
-
-  /**
-   * Handles a preloader failure.
-   */
-  onSceneFailure: function() {
-    this.$.preloader.active = false;
-    this._updateStylingForScene(null);
-    this.fire('embed', 'onfailure');
-  },
-
-  /**
-   * Called when a scene is initially ready (and not when it's made active a 2nd time).
-   */
-  onSceneReady: function(event, scene) {
-    this._prepareScene(scene);
   },
 
   get defaultRoute() {

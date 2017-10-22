@@ -207,6 +207,15 @@ Lazy loads children "pages".
       },
 
       /**
+       * The current loading progress, from zero to 100, or null for none.
+       */
+      progress: {
+        type: Number,
+        notify: true,
+        readOnly: true,
+      },
+
+      /**
        * The computed selectedItem.
        */
       selectedItem: {
@@ -228,7 +237,6 @@ Lazy loads children "pages".
 
     listeners: {
       'scene-progress': 'onSceneProgress',
-      'scene-ready': 'onSceneReady',
     },
 
     attached: function() {
@@ -243,22 +251,30 @@ Lazy loads children "pages".
     },
 
     onSceneProgress: function(ev) {
-      // TODO(samthor): Do something with progress event from scene.
-      ev.stopPropagation();
-    },
+      var scene = ev.target;
+      console.info('got progress', ev.detail, scene && scene.localName);
 
-    onSceneReady: function(ev) {
-      // TODO(samthor): Do something with ready event from scene.
+      if (scene) {
+        if (scene.loaded) {
+          this._setProgress(null);
+        } else {
+          this._setProgress(scene.preloadProgress);
+        }
+      }
+
+      // TODO(samthor): Do something with progress event from scene.
       ev.stopPropagation();
     },
 
     load: function(route) {
       this._loadingPromise = null;  // clear previous load
 
+      // TODO(samthor): Move into common Promise below.
       if (!this._routeIsOpen(route)) {
         this.route = route;
         this._setSelectedItem(null);
         this._setError('locked');
+        this.fire('embed', 'onfailure');
         return;
       }
 
@@ -273,6 +289,8 @@ Lazy loads children "pages".
       }.bind(this);
 
       p.then(safe(function(scene) { 
+        // At this point, scene is a real HTML element ready to be used.
+        // TODO(samthor): But its internal preloader hasn't run yet.
         this._setSelectedItem(scene);
         this._setError(null);
         this.route = route;  // finally update route in case this was a proper .load()
@@ -280,6 +298,7 @@ Lazy loads children "pages".
         console.warn('lazy-pages', scene && scene.localName, 'failure', reason);
         this._setSelectedItem(null);
         this._setError(reason);
+        this.fire('embed', 'onfailure');
       }));
     },
 
@@ -339,7 +358,9 @@ Lazy loads children "pages".
       // Grab path from 'path' or 'path$'. The latter is needed as Polymer won't correctly map
       // attributes that have no bindings (e.g. path$="foo" => path$, path$="{{foo}}" => path).
       const path = scene.getAttribute('path') || scene.getAttribute('path$');
-      if (!path) { return Promise.resolve(scene); }
+      if (!path) {
+        return Promise.resolve(scene);
+      }
 
       // Start scene loading time.
       var route = scene.getAttribute('route') || scene.route;
@@ -363,7 +384,6 @@ Lazy loads children "pages".
             reject('element');
           }
         }, function(e) {
-          console.warn('unable to load path', path);
           failedToLoad[path] = attempt + 1;
           reject('network');
         });
