@@ -231,6 +231,7 @@ Lazy loads children "pages".
        */
       _loadingPromise: {
         type: Object,
+        value: Promise.resolve(null),
       },
 
     },
@@ -251,19 +252,14 @@ Lazy loads children "pages".
     },
 
     onSceneProgress: function(ev) {
-      var scene = ev.target;
-      console.info('got progress', ev.detail, scene && scene.localName);
-
-      if (scene) {
-        if (scene.loaded) {
-          this._setProgress(null);
-        } else {
-          this._setProgress(scene.preloadProgress);
+      this._loadingPromise.then(function(scene) {
+        // Update progress bar only if the correct scene is dispatching events.
+        const target = ev.path[0] || null;
+        if (scene === target) {
+          this.cancelDebouncer('resetProgress');
+          this._setProgress(ev.detail);
         }
-      }
-
-      // TODO(samthor): Do something with progress event from scene.
-      ev.stopPropagation();
+      }.bind(this));
     },
 
     load: function(route) {
@@ -275,6 +271,8 @@ Lazy loads children "pages".
         this._setSelectedItem(null);
         this._setError('locked');
         this.fire('embed', 'onfailure');
+        this._loadingPromise = Promise.reject('locked');
+        this._setProgress(null);
         return;
       }
 
@@ -288,17 +286,36 @@ Lazy loads children "pages".
         }.bind(this);
       }.bind(this);
 
-      p.then(safe(function(scene) { 
+      const loader = p.then(safe(function(scene) {
         // At this point, scene is a real HTML element ready to be used.
-        // TODO(samthor): But its internal preloader hasn't run yet.
-        this._setSelectedItem(scene);
-        this._setError(null);
-        this.route = route;  // finally update route in case this was a proper .load()
+        return scene.preload.then(safe(function() {
+          this._setSelectedItem(scene);  // actually preloaded, so set item
+          this._setError(null);
+          this.route = route;  // finally update route in case this was a proper .load()
+
+          // log that the scene has finished preloading. If this wasn't a preloaded
+          // load, the event will be discarded harmlessly (no start event).
+          this.fire('analytics-time-end', {category: 'Scene Load Time',
+              variable: this.route, time: Date.now()});
+        }));
+
       })).catch(safe(function(reason) {
         console.warn('lazy-pages', scene && scene.localName, 'failure', reason);
         this._setSelectedItem(null);
         this._setError(reason);
         this.fire('embed', 'onfailure');
+      }));
+
+      // If noone sets the progress (resetProgress is cleared inside _progressChanged) in a short
+      // time, then set it to zero to show the kickoff. This prevents a 'flash' for already loaded
+      // changes.
+      this.debounce('resetProgress', function() {
+        this._setProgress(0);
+      }, 20);
+
+      loader.then(safe(function() {
+        this.cancelDebouncer('resetProgress');
+        this._setProgress(null);  // regardless of outcome, clear progress bar on completion
       }));
     },
 

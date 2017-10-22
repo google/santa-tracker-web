@@ -57,7 +57,7 @@ Polymer({
   properties: {
 
     /**
-     * The progress from zero to 100. Null/undefined hides the bar.
+     * The progress in the range [0,1]. Null/undefined hides the bar.
      */
     progress: {
       type: Number,
@@ -80,8 +80,8 @@ Polymer({
 
   _update: function(progress, inset) {
     if (+progress === progress) {
-      progress = Math.min(100, Math.max(0, progress));
-      progress = ((inset / 2) + (progress / 100) * (100 - inset));
+      progress = Math.min(1, Math.max(0, progress));
+      progress = ((inset / 2) + progress * (100 - inset));
 
       this.$.under.classList.add('show');
       this.$.bar.style.transform = 'translate(' + (progress - 100) + '%)';

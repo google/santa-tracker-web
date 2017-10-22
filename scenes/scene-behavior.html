@@ -19,15 +19,19 @@ specific language governing permissions and limitations under the License.
 (function() {
 
   /**
-   * Max number of milliseconds to wait before timing out and abandoning
-   * preload.
+   * Max number of milliseconds to wait before timing out and abandoning preload.
    */
-  var MAX_PRELOAD_TIME = 30 * 1000;
+  const MAX_PRELOAD_TIME = 30 * 1000;
 
   /**
    * Number of frames to spread image preload over.
    */
-  var NUM_FRAMES_TO_SPREAD_PRELOAD = 10;
+  const NUM_FRAMES_TO_SPREAD_PRELOAD = 10;
+
+  /**
+   * Number of fake assets to assume we've loaded.
+   */
+  const FAKE_ASSETS = 1;
 
   /** @polymerBehavior */
   window.SantaSceneBehaviorImpl = {
@@ -72,15 +76,7 @@ specific language governing permissions and limitations under the License.
        */
       _assetsLoaded: {
         type: Number,
-        value: 0
-      },
-
-      /**
-       * Max preload async handler.
-       */
-      _maxPreloadAsync: {
-        type: Object,
-        value: null
+        value: 0,
       },
 
       /**
@@ -89,58 +85,56 @@ specific language governing permissions and limitations under the License.
        */
       _totalAssets: {
         type: Number,
-        value: 0
+        value: 0,
       },
 
       /**
-       * Preloading progress (percentage) of the loaded scene.
+       * Contains the Promise which will resolve when this scene loads its resources. This will
+       * always eventually resolve (possibly via timeout).
        */
-      preloadProgress: {
-        type: Number,
-        value: 0,
-        observer: '_preloadProgressChanged',
-        computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
+      preload: {
+        type: Object,
+        readOnly: true,
       },
 
     },
 
-    _activeChanged: function() {
-      if (!this.active) {
-        if (this.loaded) {  // don't call onHide if not yet loaded
-          this.onHide && this.onHide();
-        }
+    observers: [
+      '_progress(_assetsLoaded, _totalAssets)',
+    ],
+
+    ready: function() {
+      if (this.loaded) {
+        // we are a clone: pretend to already be loaded
+        this._setPreload(Promise.resolve());
         return;
       }
 
-      // If subclass defines preloading, call it. If not, or nothing needs to
-      // be preloaded, signal ready.
-      if (!this.loaded && this.onPreload) {
-        // Note that this is called before _totalAssets/_assetsLoaded are given
-        // sensible defaults.
-        if (isNaN(this._totalAssets)) {
-          throw new Error('active set on ' + this.localName + ' before ready');
+      // Setup preload Promise. This resolves when all assets are ready, or when the timeout
+      // expires. It should never reject.
+      const p = new Promise(function(resolve) {
+        this.onPreload && this.onPreload();
+
+        if (this._totalAssets === 0) {
+          return resolve();
         }
+        this.async(resolve, MAX_PRELOAD_TIME);  // resolve on timeout anyway
+        this.addEventListener('preload', resolve);
 
-        this.onPreload();
+      }.bind(this));
 
-        // If assets are queued to preload, schedule showScene on timeout in
-        // case preloading fails.
-        if (this._totalAssets > 0) {
-          this._maxPreloadAsync = this.async(this.showScene, MAX_PRELOAD_TIME);
-          return;
-        }
-      }
+      p.then(function() {
+        this.loaded = true;
+      }.bind(this));
 
-      this.showScene();
+      this._setPreload(p);
     },
 
-    _preloadProgressChanged: function() {
-      // Only show scene if the preload reaches 100% and we haven't loaded the
-      // scene before.
-      if (this.preloadProgress === 100 && !this.loaded) {
-        this.showScene();
+    _activeChanged: function() {
+      if (this.active) {
+        this.onShow && this.onShow();
       } else {
-        this.fire('scene-progress');
+        this.onHide && this.onHide();
       }
     },
 
@@ -152,7 +146,10 @@ specific language governing permissions and limitations under the License.
       this._totalAssets += imageUrls.length;
 
       var onload = function() {
-        this._assetsLoaded++;
+        ++this._assetsLoaded;
+        if (this._assetsLoaded === this._totalAssets) {
+          this.fire('preload', null, {bubbles: false});
+        }
       }.bind(this);
 
       var imagesPerRaf = Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD);
@@ -178,31 +175,17 @@ specific language governing permissions and limitations under the License.
      * @param {string} soundSetName
      */
     preloadSounds: function(soundSetName) {
-      this.fire('sound-preload', soundSetName);
+      // TODO(samthor): Currently, Klang uses `sound-preload` to nuke all previous ambient sounds.
+      // We now preload scenes before the old one has had its onHide method called. Restore this.
+      console.debug('ignoring sound-preload', soundSetName);
+//      this.fire('sound-preload', soundSetName);
     },
 
-    showScene: function() {
-      this.loaded = true;
-      this.fire('scene-progress');
-      // Cancel the max preload async
-      this.cancelAsync(this._maxPreloadAsync);
-      this._maxPreloadAsync = null;
-
-      if (this.active) {
-        this.onShow && this.onShow();
-
-        // log that the scene has finished preloading. If this wasn't a preloaded
-        // load, the event will be discarded harmlessly (no start event).
-        this.fire('analytics-time-end', {category: 'Scene Load Time',
-            variable: this.route, time: Date.now()});
-
-        // focus in case element needs keyboard events
-        this.focus();
+    _progress: function(assetsLoaded, totalAssets) {
+      if (totalAssets) {
+        const ratio = (assetsLoaded + FAKE_ASSETS) / (totalAssets + FAKE_ASSETS);
+        this.fire('scene-progress', ratio);
       }
-    },
-
-    _computePreloadProgress: function(assetsLoaded, loaded, totalAssets) {
-      return loaded ? 100 : (totalAssets ? assetsLoaded / totalAssets * 100 : 0);
     },
 
     /**
