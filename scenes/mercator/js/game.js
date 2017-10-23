@@ -386,55 +386,44 @@ app.Game.prototype.countryMatched_ = function(country) {
  * @private
  */
 app.Game.prototype.initMap_ = function() {
+  const styles = [
+    {
+      stylers: [{visibility: 'off'}],
+    },
+    {
+      featureType: 'administrative.country',
+      elementType: 'geometry.stroke',
+      stylers: [{visibility: 'on'}, {weight: 1}, {color: '#F6EFE2'}],
+    },
+    {
+      featureType: 'water',
+      elementType: 'geometry.fill',
+      stylers: [{visibility: 'on'}, {color: '#F6EFE2'}],
+    },
+    {
+      featureType: 'landscape',
+      elementType: 'geometry.fill',
+      stylers: [{visibility: 'on'}, {color: '#DFD7C5'}],
+    },
+  ];
+
   this.map = new google.maps.Map(this.mapElem[0], {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    draggable: app.shared.utils.touchEnabled,
-    heading: 0,
-    mapTypeControl: false,
-    overviewMapControl: false,
-    panControl: false,
-    rotateControl: false,
-    scaleControl: false,
-    scrollwheel: false,
-    streetViewControl: false,
+    gestureHandling: 'none',
     tilt: 1,
-    zoomControl: false,
     disableDoubleClickZoom: true,
-    styles: [{
-        stylers: [{visibility: 'off'}]
-      }, {
-        featureType: 'administrative.country',
-        elementType: 'geometry.stroke',
-        stylers: [{visibility: 'on'}, {weight: 1}, {color: '#F6EFE2'}]
-      }, {
-        featureType: 'water',
-        elementType: 'geometry.fill',
-        stylers: [{visibility: 'on'}, {color: '#F6EFE2'}]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry.fill',
-        stylers: [{visibility: 'on'}, {color: '#DFD7C5'}]
-      }
-    ]
+    disableDefaultUI: true,
+    draggable: false,
+    styles: styles,
   });
 
-  google.maps.event.addListener(this.map, 'zoom_changed', function() {
-    this.countries.forEach(function(country) {
-      country.visible && country.updateHitbox();
-
-      if (this.debug) {
-        country.showBounds();
-      }
-    }, this);
-  }.bind(this));
-
-  google.maps.event.addListenerOnce(this.map, 'idle', function() {
+  google.maps.event.addListenerOnce(this.map, 'idle', () => {
     this.setupLevel_();
     this.mapReady = true;
     if (this.startOnReady) {
       this.start();
     }
-  }.bind(this));
+  });
 };
 
 /**
