@@ -144,10 +144,6 @@ Example
           this._setHolders(Array.prototype.slice.call(this.$.counter.children));
           this._activeChanged();
         });
-
-        this.addEventListener('animationend', () => {
-          console.info('anim done??');
-        });
       },
 
       detached: function() {
