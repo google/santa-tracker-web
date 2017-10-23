@@ -496,6 +496,9 @@ gulp.task('serve', ['default', 'watch'], function() {
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
+    watchOptions: {
+      ignored: ['dist_static/', 'dist_prod/'],
+    },
     injectChanges: false,
     middleware: [fanoutHelper],
     port: argv.port,
