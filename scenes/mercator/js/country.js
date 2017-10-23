@@ -144,18 +144,20 @@ app.Country.prototype.onDragEnd_ = function() {
   paths.forEach((path) => path.getArray().forEach((latlng) => bounds.extend(latlng)));
   const center = bounds.getCenter();
 
-  console.info('got bounds', this.map.getBounds());
-
   let point = null;
-  const valid = !isNaN(center.lat()) && !isNaN(center.lng());
-  if (!valid || !this.map.getBounds().contains(center)) {
-    // reset to start point
+  if (isNaN(center.lat()) || isNaN(center.lng())) {
     point = this.startPoint_;
-  } else if (this.geodesic) {
+  }
+
+  if (this.geodesic) {
     // On drag end, reposition the country. This is because our geodesic projection code doesn't
     // exactly match the code used by the Google Maps API internally to do dragging. This way, as
     // the country gets closer to its final location, it'll "straighten up".
     point = app.utils.latLngToPoint(this.map, center);
+  } else if (!this.map.getBounds().contains(center)) {
+    // If we're out of bounds, reset to start point. This doesn't happen in geodesic mode, as that
+    // is showing the whole Earth.
+    point = this.startPoint_;
   }
 
   point && this.setPosition(point);

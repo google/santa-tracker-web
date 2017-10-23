@@ -248,11 +248,13 @@ app.Game.prototype.setupLevel_ = function() {
 
   // Show the whole world if geodesic puzzle.
   if (this.geodesic) {
-    this.map.setZoom(2);
-    this.map.setCenter(
-        new google.maps.LatLng(
-            app.Constants.GEODESIC_CENTER[0],
-            app.Constants.GEODESIC_CENTER[1]));
+    // FIXME(samthor): This is a hack to get slippy to show our tiles. Just accept it and remove
+    // it in 2018 if all tiles load for geodesic.
+    this.map.setZoom(0);
+    window.setTimeout(() => {
+      this.map.setZoom(3);
+      window.requestAnimationFrame(() => this.updateSize_());
+    }, 10);
   }
 };
 
@@ -346,15 +348,18 @@ app.Game.prototype.countryMatched_ = function(country) {
   var ne = app.utils.latLngToPoint(this.map, this.map.getBounds().getNorthEast());
   var sw = app.utils.latLngToPoint(this.map, this.map.getBounds().getSouthWest());
 
-  // Show country name
-  var offset = {
-    left: (this.elem.width() - this.mapElem.width()) / 2,
-    top: (this.elem.height() - this.mapElem.height()) / 2
-  };
-  var message = $(app.Constants.COUNTRY_MATCH_TEMPLATE).css({
-    left: offset.left + point.x - sw.x,
-    top: offset.top + point.y - ne.y
-  });
+  var offset = {};
+  if (country.geodesic) {
+    // show in center
+    offset.left = this.elem.width() / 2;
+    offset.top = this.elem.height() / 2;
+  } else {
+    // only position on country in normal mode
+    offset.left = (this.elem.width() - this.mapElem.width()) / 2 + point.x - sw.x;
+    offset.top = (this.elem.height() - this.mapElem.height()) / 2 + point.y - ne.y;
+  }
+
+  var message = $(app.Constants.COUNTRY_MATCH_TEMPLATE).css(offset);
   var name = this.countriesElem.find('[data-country="' + country.name + '"]').first().text();
   message.find('.country-match-text').text(name);
   message.find('.country-match-bg').css('background', country.color);
