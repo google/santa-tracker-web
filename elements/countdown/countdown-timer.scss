@@ -4,6 +4,8 @@ $tick-time: 0.6s;  // time for number to tick over
 
 :host {
   display: block;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 #counter {

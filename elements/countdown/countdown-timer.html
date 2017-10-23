@@ -31,17 +31,7 @@ Example
 -->
 <dom-module id="countdown-timer">
   <template>
-    <style include="countdown-timer_module">
-      :host {
-        display: block;
-        will-change: transform;
-        transform: translateZ(0);
-      }
-
-      #counter {
-        @apply --layout-horizontal;
-      }
-    </style>
+    <style include="countdown-timer_module"></style>
 
     <div id="counter" on-animationend="_counterAnimationEnd">
       <div class="counter-box" hidden$="[[_daysHidden]]">
