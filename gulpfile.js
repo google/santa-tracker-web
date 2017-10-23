@@ -351,7 +351,7 @@ gulp.task('bundle', ['sass', 'compile-js'], async function() {
   const manifest = await b.generateManifest(entrypoints);
   const result = await b.bundle(manifest);
 
-  // log module size + generated count
+  // log module size + generated count + contents of shared bundles
   const extra = Array.from(result.documents.keys())
       .filter((module) => !entrypoints.includes(module));
   gutil.log('Found', gutil.colors.yellow(result.documents.size), 'modules,',
@@ -359,8 +359,8 @@ gulp.task('bundle', ['sass', 'compile-js'], async function() {
   extra.forEach((module) => {
     const bundle = result.manifest.bundles.get(module);
     gutil.log('Generated bundle', `'${gutil.colors.green(module)}'`,
-        '\n · used: ', Array.from(bundle.entrypoints).join(', '),
-        '\n · deps: ', Array.from(bundle.files).join(', '));
+        '\n· used by: ', Array.from(bundle.entrypoints).join(', '),
+        '\n· includes:', Array.from(bundle.files).join(', '));
   });
 
   // bundle, CSP, and do language fanout
