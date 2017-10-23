@@ -7,6 +7,14 @@ $trivia-bp: 661px;
 
 @import "sass/question";
 
+.scene {
+  @apply --layout-vertical;
+  @apply --layout-fit;
+}
+.fit {
+  @apply --layout-fit;
+}
+
 ##{$name} {
   background: #00C55D;
 

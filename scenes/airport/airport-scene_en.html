@@ -25,17 +25,7 @@ Airport scene.
 -->
 <dom-module id="airport-scene">
 <template>
-  <style include="airport-scene_module">
-  :host([mode="cast"]) .clouds,
-  :host([mode="cast"]) .big-plane,
-  :host([mode="cast"]) .plane--departing,
-  :host([mode="cast"]) .plane--flying {
-    display: none !important;
-  }
-  :host([mode="cast"]) .crazy {
-    animation: none !important;
-  }
-  </style>
+  <style include="airport-scene_module"></style>
 
   <iron-a11y-keys keys="enter space up down left right"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
