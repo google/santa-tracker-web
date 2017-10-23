@@ -730,8 +730,7 @@ Polymer({
     // Set the route. Hooray! \o/
     var route = m[1] || this.defaultRoute;
     if (this.route === route) {
-      // If this is the same route, then close the drawer. It was probably a sidebar click.
-      this.$.chrome.closeDrawer();
+      this._defaultAction();
     }
     this.$.lazypages.load(route);
     ev.preventDefault();
@@ -1066,8 +1065,7 @@ Polymer({
   _onKeysPressed: function(e, detail) {
     switch (detail.key) {
       case 'esc':
-        var wasOpen = this.$.chrome.closeDrawer();
-        if (!wasOpen) {
+        if (this._defaultAction()) {
           this.$.lazypages.load(this.defaultRoute);
         }
         break;
@@ -1075,6 +1073,25 @@ Polymer({
         this.maybeStartGame();
         break;
     }
+  },
+
+  /**
+   * Perform the 'default action': when the title is clicked, esc is hit etc.
+   *
+   * @return {boolean} whether no action was performed
+   */
+  _defaultAction: function() {
+    var action = false;
+
+    if (this.$.chrome.closeDrawer()) {
+      action = true;
+    }
+    if (window.scrollY > 0) {
+      window.scrollTo(0, 0);
+      action = true;
+    }
+
+    return !action;
   },
 
   _duringTrackerChanged: function() {

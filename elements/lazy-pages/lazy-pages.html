@@ -138,6 +138,14 @@ Lazy loads children "pages".
         value: Promise.resolve(null),
       },
 
+      /**
+       * Stores scroll locations (from top), to restore on reload.
+       */
+      _scrollFromTop: {
+        type: Object,
+        value: function() { return new WeakMap(); },
+      },
+
     },
 
     listeners: {
@@ -289,6 +297,12 @@ Lazy loads children "pages".
 
     _selectedItemChanged: function(newValue, oldValue) {
       if (oldValue) {
+        const scrollTop = window.scrollY;
+        if (scrollTop > 0) {
+          // Save the scroll position (midpoint of the page) if it was >0.
+          this._scrollFromTop.set(oldValue, scrollTop + (window.innerHeight / 2));
+        }
+
         oldValue.removeAttribute('active');
 
         const scene = maybeCloneScene(oldValue);
@@ -297,6 +311,16 @@ Lazy loads children "pages".
 
       if (newValue) {
         newValue.setAttribute('active', '');
+
+        const scrollTopMid = this._scrollFromTop.get(newValue);
+        this._scrollFromTop.delete(newValue);
+        if (scrollTopMid !== undefined) {
+          const scrollTop = scrollTopMid - (window.innerHeight / 2);
+          window.requestAnimationFrame(function() {
+            // this needs to happen in rAF, otherwise the browser might take over.
+            window.scrollTo(0, scrollTop);
+          });
+        }
       }
     },
 
