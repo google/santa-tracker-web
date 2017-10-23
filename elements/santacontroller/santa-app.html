@@ -18,9 +18,11 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../santa-badge/santa-badge.html">
 <link rel="import" href="../santa-chrome/santa-chrome.html">
+<link rel="import" href="../santa-sidebar/santa-sidebar.html">
 <link rel="import" href="../santa-tracker-router.html">
 <link rel="import" href="../preloader/preload-bar.html">
 <link rel="import" href="../lazy-pages/lazy-pages.html">
+<link rel="import" href="../overlay/santa-overlay.html">
 <link rel="import" href="../santa-strings.html">
 <link rel="import" href="../santa-socket.html">
 
@@ -62,7 +64,6 @@ Santa Tracker app.
   <santa-chrome id="chrome"
       mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
-      today-house="[[todayHouse]]"
       share-options="[[shareOptions]]"
       socket-id="[[socketId]]"
       clients="[[clients]]"
@@ -70,6 +71,8 @@ Santa Tracker app.
       pause="{{userPause}}">
 
     <santa-badge id="badge" slot="feature"></santa-badge>
+
+    <santa-sidebar slot="drawer" today-house="[[todayHouse]]"></santa-sidebar>
 
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
         share-options="[[shareOptions]]"></santa-overlay>
@@ -670,7 +673,7 @@ Polymer({
     if (getUrlParameter('mode') === 'web_portal') {
       this.mode = 'portal';
     }
-    if (!this.getAttribute('routing')) {
+    if (!this.hasAttribute('routing')) {
       this._setShareOptions([]);
     }
 

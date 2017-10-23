@@ -1,5 +1,4 @@
 $toolbar-height: 44px;
-$indent-left: 24px;  // indent in the sidebar
 
 // nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
 // using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
@@ -43,111 +42,11 @@ app-drawer {
     overflow: auto;
   }
 
-  .cards {
-    border-bottom: 4px solid #eee;
-  }
-  .links {
-    padding: 12px 12px 4px $indent-left;
-
-    &.external {
-      visibility: var(--link-visibility);
-    }
-
-    h2 {
-      color: #7bc7e5;
-    }
-    a {
-      color: #64ae69;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-  .lang {
-    padding-left: $indent-left - 4px;
-    line-height: 32px;
-    select {
-      vertical-align: middle;
-    }
-    padding-bottom: 8px;
-    visibility: var(--link-visibility);  // this is sort of an external link
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
   app-toolbar.close-sidebar {
     cursor: pointer;
     font-family: 'Lobster';
     font-size: 2em;
     color: #ccc;
-  }
-
-  .menucard {
-    box-sizing: border-box;
-    height: 150px;
-    background: transparent center right no-repeat;
-    background-size: cover;
-    padding: 12px 12px 12px $indent-left;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-
-    .lock {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url(img/lock.svg) 90% 50% no-repeat;
-      background-color: rgba(87, 214, 147, 0.5);
-      background-size: 42px 42px;
-    }
-  }
-  .menucard-village {
-    background-image: url(img/menu-village.png);
-  }
-  .menucard-tracker {
-    background-image: url(img/menu-tracker.png);
-  }
-
-  h2 {
-    font-size: 1em;
-    letter-spacing: 1px;
-    font-weight: 600;
-    margin: 6px 0;
-    line-height: 1em;
-    text-transform: uppercase;
-  }
-  h3 {
-    margin: 0;
-    font-size: 2.875em;
-    line-height: 1.25em;
-    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-    font-family: 'Lobster';
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    padding-top: 6px;
-    line-height: 1.2em;
-    font-size: 1.2em;
-    font-weight: 500;
-
-    li {
-      margin: 0;
-      padding: 0.4em 0;
-
-      a {
-        display: block;
-      }
-    }
   }
 }
 
