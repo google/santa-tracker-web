@@ -36,10 +36,11 @@ Santa Tracker app.
 <template>
   <style>
     :host {
-      --link-visibility: hidden;
-    }
-    :host([routing]) {
       --link-visibility: visible;  /* piggyback [routing] from index to enable external links */
+    }
+    :host(:not([routing])) {
+      --link-visibility: hidden;
+      --link-display: none !important;
     }
   </style>
 
@@ -763,9 +764,17 @@ Polymer({
 
     this._updateStylingForScene(this.selectedScene);
 
-    if (this.selectedScene && this.selectedScene.is) {
-      // This path runs when selectedScene is already created (Polymer defines its 'is' property).
-      this._prepareScene(this.selectedScene);
+    if (!this.selectedScene) {
+      return;
+    } else if (!this.selectedScene.is) {
+      console.warn('got nonupgraded scene', this.selectedScene);
+      return;
+    }
+
+    // nb. Effectively checking for SantaSceneGameButtonsBehavior.
+    if ('pause' in this.selectedScene) {
+      this.$.overlay.pregame = true;
+      this.userPause = true;
     }
   },
 
@@ -807,16 +816,6 @@ Polymer({
         icon = String.fromCodePoint(parseInt(raw, 16));
       }
       document.title = icon + this.$.strings.s('meta_title');
-    }
-  },
-
-  /**
-   * Called when a scene is brought to the foreground and is an upgraded Polymer element.
-   */
-  _prepareScene: function(scene) {
-    if (scene && 'pause' in scene) {
-      this.$.overlay.pregame = true;
-      this.userPause = true;
     }
   },
 

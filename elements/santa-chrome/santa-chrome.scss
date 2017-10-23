@@ -113,7 +113,7 @@ app-toolbar {
     padding: ($toolbar-height - 40px)/2 0;  // icon=40px, total=$toolbar-height;
     height: 100%;
     box-sizing: border-box;
-    display: flex;
+    display: var(--link-display, flex);
     justify-content: flex-end;
     font-size: 0;  // fixes alignment issues
 
