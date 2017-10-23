@@ -356,6 +356,12 @@ gulp.task('bundle', ['sass', 'compile-js'], async function() {
       .filter((module) => !entrypoints.includes(module));
   gutil.log('Found', gutil.colors.yellow(result.documents.size), 'modules,',
       gutil.colors.yellow(extra.length), 'generated');
+  extra.forEach((module) => {
+    const bundle = result.manifest.bundles.get(module);
+    gutil.log('Generated bundle', `'${gutil.colors.green(module)}'`,
+        '\n · used: ', Array.from(bundle.entrypoints).join(', '),
+        '\n · deps: ', Array.from(bundle.files).join(', '));
+  });
 
   // bundle, CSP, and do language fanout
   const limit = $.limiter(-2);
