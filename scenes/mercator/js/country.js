@@ -39,6 +39,7 @@ app.Country = function(map, feature, geodesic) {
   this.matched = false;
   this.name = feature.properties.name_long;
   this.geodesic = geodesic;
+  this.startPoint_ = null;
 
   this.polygon = new google.maps.Polygon({
     map: null,
@@ -51,7 +52,14 @@ app.Country = function(map, feature, geodesic) {
     zIndex: 3
   });
 
-  this.getBounds_();
+  var bounds = new google.maps.LatLngBounds();
+  this.paths.forEach(function(path) {
+    if (!Array.isArray(path)) {
+      path = [path];
+    }
+    path.forEach(bounds.extend.bind(bounds));
+  });
+  this.bounds = bounds;
 
   google.maps.event.addListener(this.polygon, 'dragstart', this.onDragStart_.bind(this));
   google.maps.event.addListener(this.polygon, 'dragend', this.onDragEnd_.bind(this));
@@ -92,6 +100,7 @@ app.Country.prototype.setPosition = function(point) {
     paths = app.utils.moveToGeodesic(this.map, center, this.paths, point);
   }
   this.polygon.setPaths(paths);
+  this.startPoint_ = point;
 };
 
 /**
@@ -105,48 +114,13 @@ app.Country.prototype.onMatched = function() {};
 app.Country.prototype.onDrag = function() {};
 
 /**
- * Calculate the bounds of the country.
- * @private
- */
-app.Country.prototype.getBounds_ = function() {
-  var bounds = new google.maps.LatLngBounds();
-  this.paths.forEach(function(path) {
-    if (!Array.isArray(path)) {
-      path = [path];
-    }
-    path.forEach(bounds.extend.bind(bounds));
-  });
-  this.bounds = bounds;
-  this.updateHitbox();
-};
-
-/**
- * Create hitbox from country bounds.
- */
-app.Country.prototype.updateHitbox = function() {
-  var ne = app.utils.latLngToPoint(this.map, this.bounds.getNorthEast());
-  var sw = app.utils.latLngToPoint(this.map, this.bounds.getSouthWest());
-
-  var hitboxSize = app.Constants.HITBOX_SIZE;
-  ne.x += hitboxSize;
-  ne.y -= hitboxSize;
-  sw.x -= hitboxSize;
-  sw.y += hitboxSize;
-
-  var hitbox = new google.maps.LatLngBounds();
-  hitbox.extend(app.utils.pointToLatLng(this.map, ne));
-  hitbox.extend(app.utils.pointToLatLng(this.map, sw));
-  this.hitbox = hitbox;
-};
-
-/**
  * Draw the bounds of the country. Used for debugging.
  */
 app.Country.prototype.showBounds = function() {
   this.debugBounds && this.debugBounds.setMap(null);
   this.debugBounds = new google.maps.Rectangle({
     map: this.map,
-    bounds: this.hitbox,
+    bounds: this.bounds,
     zIndex: 1
   });
 };
@@ -165,38 +139,64 @@ app.Country.prototype.onDragStart_ = function() {
  * @private
  */
 app.Country.prototype.onDragEnd_ = function() {
-  // On drag end, reposition the country. This is because our geodesic projection code doesn't
-  // exactly match the code used by the Google Maps API internally to do dragging. This way, as
-  // the country gets closer to its final location, it'll "straighten up".
-  if (this.geodesic) {
-    var paths = this.polygon.getPaths().getArray();
-    var bounds = new google.maps.LatLngBounds();
-    paths.forEach(path => path.getArray().forEach(latlng => bounds.extend(latlng)));
-    var center = bounds.getCenter();
+  const paths = this.polygon.getPaths().getArray();
+  const bounds = new google.maps.LatLngBounds();
+  paths.forEach((path) => path.getArray().forEach((latlng) => bounds.extend(latlng)));
+  const center = bounds.getCenter();
 
-    var valid = !isNaN(center.lat()) && !isNaN(center.lng());
-    if (valid) {
-      var point = app.utils.latLngToPoint(this.map, center);
-      this.setPosition(point);
-    }
+  console.info('got bounds', this.map.getBounds());
+
+  let point = null;
+  const valid = !isNaN(center.lat()) && !isNaN(center.lng());
+  if (!valid || !this.map.getBounds().contains(center)) {
+    // reset to start point
+    point = this.startPoint_;
+  } else if (this.geodesic) {
+    // On drag end, reposition the country. This is because our geodesic projection code doesn't
+    // exactly match the code used by the Google Maps API internally to do dragging. This way, as
+    // the country gets closer to its final location, it'll "straighten up".
+    point = app.utils.latLngToPoint(this.map, center);
   }
 
-  if (this.isMatching()) {
-    this.polygon.setOptions({
-      draggable: false,
-      fillOpacity: 0.75,
-      zIndex: 2
-    });
-    this.polygon.setOptions({geodesic: false});
-    this.polygon.setPaths(this.paths);
+  point && this.setPosition(point);
 
-    this.matched = true;
-    this.onMatched && this.onMatched(this);
-    window.santaApp.fire('sound-trigger', 'mercator_success');
-  } else {
+  if (!this.isMatching()) {
     window.santaApp.fire('sound-trigger', 'mercator_place');
+    return;
   }
+
+  this.polygon.setOptions({
+    draggable: false,
+    fillOpacity: 0.75,
+    zIndex: 2,
+  });
+  this.polygon.setOptions({geodesic: false});
+  this.polygon.setPaths(this.paths);
+
+  this.matched = true;
+  this.onMatched && this.onMatched(this);
+  window.santaApp.fire('sound-trigger', 'mercator_success');
 };
+
+/**
+ * Builds a hitbox. This changes size based on the screen size, so can be generated dynamically.
+ * @param {number=} pixels to grow by
+ * @return {google.maps.LatLngBounds}
+ */
+app.Country.prototype.buildHitbox_ = function(pixels = app.Constants.HITBOX_SIZE) {
+  var ne = app.utils.latLngToPoint(this.map, this.bounds.getNorthEast());
+  var sw = app.utils.latLngToPoint(this.map, this.bounds.getSouthWest());
+
+  ne.x += pixels;
+  ne.y -= pixels;
+  sw.x -= pixels;
+  sw.y += pixels;
+
+  var hitbox = new google.maps.LatLngBounds();
+  hitbox.extend(app.utils.pointToLatLng(this.map, ne));
+  hitbox.extend(app.utils.pointToLatLng(this.map, sw));
+  return hitbox;
+},
 
 /**
  * Check if the country is in the correct position.
@@ -204,11 +204,12 @@ app.Country.prototype.onDragEnd_ = function() {
  */
 app.Country.prototype.isMatching = function() {
   var paths = this.polygon.getPaths().getArray();
+  var hitbox = this.buildHitbox_();
 
   for (var i = 0; i < paths.length; i++) {
     var path = paths[i].getArray();
     for (var j = 0; j < path.length; j++) {
-      if (!this.hitbox.contains(path[j])) {
+      if (!hitbox.contains(path[j])) {
         return false;
       }
     }
