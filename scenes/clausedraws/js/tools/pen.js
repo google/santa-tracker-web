@@ -15,7 +15,9 @@
  */
 
 goog.provide('app.Pen');
+goog.require('app.Constants');
 goog.require('app.Tool');
+goog.require('app.utils');
 
 
 /**
@@ -42,9 +44,10 @@ app.Pen.prototype = Object.create(app.Tool.prototype);
  * @param  {!HTMLCanvasElement} canvas The canvas to draw to
  * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
  * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
+ * @param  {!number} size  The current size setting
  * @return {boolean} Whether the canvas was changed
  */
-app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
+app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
@@ -59,7 +62,8 @@ app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
     context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
     context.lineJoin = 'round';
     context.lineCap = 'round';
-    context.lineWidth = 5;
+    context.lineWidth = app.utils.map(size, app.Constants.PEN_MIN,
+        app.Constants.PEN_MAX);
     context.strokeStyle = this.color;
     var p1 = this.points[0];
     var p2 = this.points[1];

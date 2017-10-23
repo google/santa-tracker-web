@@ -39,7 +39,6 @@ app.LayerTool = function($elem, name, layer, image) {
     this.canvas = $elem.find('#fore-canvas')[0];
     this.backup = $elem.find('#fore-backup')[0];
   }
-  console.log('layers', this.canvas);
   this.context = this.canvas.getContext('2d');
   this.backupContext = this.backup.getContext('2d');
 };

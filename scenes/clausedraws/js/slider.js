@@ -81,7 +81,5 @@ app.Slider.prototype.setSize = function(relativeSize, xPos) {
   this.dot.css('left', dotOffset);
   this.dot.css('transform',
       'scale(' + (1 + relativeSize * 1) + ') translate(-50%, -50%)');
-  // this.size = (app.Constants.MAX_TOOL_SIZE - app.Constants.MIN_TOOL_SIZE) *
-  //     relativeSize + app.Constants.MIN_TOOL_SIZE;
   this.size = relativeSize;
 };

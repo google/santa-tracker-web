@@ -26,6 +26,10 @@ app.utils = function() {
       return Math.sqrt(x * x + y * y);
     },
 
+    map: function(value, min, max) {
+      return min + (max - min) * value;
+    },
+
     randomLoop: function(fn, minInterval, maxInterval) {
       var random = Math.max(minInterval, Math.random() * maxInterval);
 

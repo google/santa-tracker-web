@@ -204,10 +204,11 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
       this.undoing = false;
     }
 
+    var slider = this.game_.slider;
     var drawCanvas = this.backupCanvases[this.drawIndex].canvas;
     var baseCanvas = this.backupCanvases[this.baseIndex].canvas;
     var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse,
-        baseCanvas);
+        baseCanvas, slider.size);
     if (didDraw) {
       this.needSave = true;
     }
