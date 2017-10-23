@@ -108,9 +108,6 @@ app.Game.prototype.init_ = function() {
   var match = location.search.match(/[?&]level=(\d+)/) || [];
   this.level = (+match[1] || 1) - 1;
 
-  this.scoreboard.reset();
-  this.scoreboard.setLevel(this.level);
-
   this.countries && this.countries.forEach(function(country) {
     country.hide();
   });
@@ -121,6 +118,9 @@ app.Game.prototype.init_ = function() {
  */
 app.Game.prototype.restart = function() {
   this.init_();
+  this.scoreboard.reset();
+  this.scoreboard.setLevel(this.level);
+
   this.startLevel_();
   this.unfreezeGame();
 
