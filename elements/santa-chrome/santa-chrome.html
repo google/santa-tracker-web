@@ -36,25 +36,12 @@ specific language governing permissions and limitations under the License.
 <dom-module id="santa-chrome">
 <template>
   <style include="santa-chrome_module">
-    :host([mode="portal"]) .links,
-    :host([mode="portal"]) #offline,
-    :host([mode="portal"]) .lang {
-      display: none !important;
-    }
-
     :host([mode="embed"]) #drawer,
     :host([mode="embed"]) .share,
     :host([mode="embed"]) .toolbar-icon,
     :host([mode="embed"]) .title,
-	:host([mode="embed"]) #sound  {
+    :host([mode="embed"]) #sound  {
       display: none !important;
-    }
-
-    :host([mode="portal"]) .buttons.primary {
-      top: 100px;
-    }
-    :host([mode="portal"]) button[disabled] {
-      transform: translateX(-100px) !important;
     }
 
     app-drawer {
@@ -171,7 +158,7 @@ specific language governing permissions and limitations under the License.
           </select>
         </div>
 
-        <div class="links">
+        <div class="links external">
           <h2>
             <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
           </h2>

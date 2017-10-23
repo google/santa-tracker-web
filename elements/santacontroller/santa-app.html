@@ -32,6 +32,15 @@ Santa Tracker app.
 -->
 <dom-module id="santa-app">
 <template>
+  <style>
+    :host {
+      --link-visibility: hidden;
+    }
+    :host([routing]) {
+      --link-visibility: visible;  /* piggyback [routing] from index to enable external links */
+    }
+  </style>
+
   <!-- Shared i18n strings -->
   <santa-strings id="strings"></santa-strings>
 
@@ -200,7 +209,6 @@ Santa Tracker app.
 
       <jamband-scene route="jamband" icon="1f3b6"
           path$="scenes/jamband/jamband-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="#fdbe27"
           loading-src="scenes/jamband/img/loading.svg"
@@ -261,7 +269,6 @@ Santa Tracker app.
 
       <postcard-scene route="postcard" icon="1f4ec"
           path$="scenes/postcard/postcard-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="rgb(244, 123, 32)"
           loading-bg-color="rgb(244, 123, 32)"
           loading-src="scenes/postcard/img/loading.gif"
@@ -312,7 +319,6 @@ Santa Tracker app.
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#4172e8"
           loading-bg-color="#83D7F5"
           loading-src="scenes/santaselfie/img/loading.svg"
@@ -322,7 +328,6 @@ Santa Tracker app.
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#09904a"
           loading-src="scenes/seasonofgiving/img/loading.svg"
           logo="scenes/seasonofgiving/img/header-icon.svg"
@@ -347,7 +352,6 @@ Santa Tracker app.
 
       <traditions-scene route="traditions" icon="1f4cc"
           path$="scenes/traditions/traditions-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="rgb(255,224,0)"
           loading-src="scenes/traditions/img/loading.gif"

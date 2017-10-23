@@ -17,4 +17,8 @@
   .Button {
     margin-right: 15px;
   }
+
+  #sharebutton {
+    visibility: var(--link-visibility);
+  }
 }

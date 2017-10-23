@@ -26,6 +26,7 @@ $name: 'module-traditions';
   }
 
   #lessons-popup {
+    visibility: var(--link-visibility);
     position: absolute;
     bottom: 0;
     left: 50%;

@@ -25,15 +25,7 @@ Traditions scene.
 -->
 <dom-module id="traditions-scene">
 <template>
-  <style include="traditions-scene_module">
-  :host([mode="portal"]) #lessons-popup {
-    display: none;
-  }
-  :host([mode="portal"]) a[href*="google.com"] {
-    pointer-events: none;
-    cursor: default !important;
-  }
-  </style>
+  <style include="traditions-scene_module"></style>
 
   <iron-a11y-keys keys="up down left right space enter"
                   on-keys-pressed="arrowHandler"></iron-a11y-keys>
@@ -133,7 +125,7 @@ Traditions scene.
         </ul>
       </div>
     </div>
-    <div id="lessons-popup" class="no-en">
+    <div id="lessons-popup">
       <p>K-12 teachers <span id="teacher-elf"></span> <a href$="[[urlFor('educators')]]">Download lesson plans</a> aligned with the Common Core</p>
       </div>
     </div>

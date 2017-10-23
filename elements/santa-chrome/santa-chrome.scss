@@ -48,6 +48,11 @@ app-drawer {
   }
   .links {
     padding: 12px 12px 4px $indent-left;
+
+    &.external {
+      visibility: var(--link-visibility);
+    }
+
     h2 {
       color: #7bc7e5;
     }
@@ -65,6 +70,7 @@ app-drawer {
       vertical-align: middle;
     }
     padding-bottom: 8px;
+    visibility: var(--link-visibility);  // this is sort of an external link
   }
 
   a {
