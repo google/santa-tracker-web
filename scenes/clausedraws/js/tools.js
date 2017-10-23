@@ -127,7 +127,6 @@ app.Tools.prototype.selectTool_ = function(e) {
 app.Tools.prototype.onCategoryClick_ = function(e) {
   var category = $(e.target).closest('[data-tool-category-picker]')
       .attr('data-tool-category');
-  console.log(category);
   this.categoryMenus.removeClass('is-active');
   this.secondaryMenu.find('[data-tool-category="' + category + '"]')
       .addClass('is-active');

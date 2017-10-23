@@ -31,9 +31,10 @@ app.Slider = function($elem, mouse) {
 
 app.Slider.prototype.mouseChanged = function(mouse) {
   if (!this.sliding) {
-    if (mouse.down) {
+    var bounds = this.checkBounds(mouse);
+    if (mouse.down && bounds.inX && bounds.inY) {
       this.sliding = true;
-      this.updatePosition(mouse);
+      this.setSize(bounds.coords.normX, bounds.coords.x);
     }
   } else {
     if (!mouse.down) {
@@ -41,17 +42,32 @@ app.Slider.prototype.mouseChanged = function(mouse) {
       return;
     }
 
-    this.updatePosition(mouse);
+    var bounds = this.checkBounds(mouse);
+    if (bounds.inX) {
+      this.setSize(bounds.coords.normX, bounds.coords.x);
+    }
   }
 };
 
 
-app.Slider.prototype.updatePosition = function(mouse) {
+app.Slider.prototype.checkBounds = function(mouse) {
   var rect = this.base[0].getBoundingClientRect();
   var baseCoords = this.mouse.transformCoordinates(mouse.x, mouse.y, rect);
+  var horizontal = false;
+  var vertical = false;
   if (baseCoords.normX >= 0 && baseCoords.normX <= 1) {
-    this.setSize(baseCoords.normX, baseCoords.x);
+    horizontal = true;
   }
+
+  if (baseCoords.normY >= 0 && baseCoords.normY <= 1) {
+    vertical = true;
+  }
+
+  return {
+    coords: baseCoords,
+    inX: horizontal,
+    inY: vertical
+  };
 };
 
 
