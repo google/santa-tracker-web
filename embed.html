@@ -36,10 +36,22 @@ window.Polymer = {
   lazyRegister: 'max',
   useNativeCSSProperties: true,
 };
+
 window.addEventListener('DOMContentLoaded', function() {
   // initial route is always /embed.html#route
   window.santaApp.route = window.location.hash.substr(1);
 });
+
+// Disable some default scenes, but allow everything else. This must be added above `santaApp`
+// (both in execution and DOM) so `capture: true` is respected.
+document.addEventListener('beforeload', (ev) => {
+  const disallowed = ['village', 'tracker', 'cast'];
+  if (disallowed.indexOf(ev.detail) !== -1) {
+    ev.preventDefault();
+  }
+  ev.stopPropagation();  // otherwise, allow everything
+}, {capture: true});
+
   </script>
   <link rel="import" href="elements/elements_en.html" />
 </head>
@@ -123,14 +135,6 @@ window.addEventListener('DOMContentLoaded', function() {
     send('onready');  // notify app to establish communication
   });
   s.addEventListener('embed', (e) => send(e.detail));
-
-  // Disable the tracker and village scenes.
-  s.addEventListener('beforeload', (ev) => {
-    if (ev.detail === 'village' || ev.detail === 'tracker') {
-      ev.preventDefault();
-    }
-  });
-
 }());
 </script>
 
