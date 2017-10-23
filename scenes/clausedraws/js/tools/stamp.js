@@ -15,7 +15,9 @@
  */
 
 goog.provide('app.Stamp');
+goog.require('app.Constants');
 goog.require('app.Tool');
+goog.require('app.utils');
 
 
 /**
@@ -41,16 +43,20 @@ app.Stamp.prototype = Object.create(app.Tool.prototype);
  * Draws this tool to the canvas.
  * @param  {!HTMLCanvasElement} canvas The canvas to draw to
  * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
+ * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
+ * @param  {!number} size  The current size setting
  */
-app.Stamp.prototype.draw = function(canvas, mouseCoords) {
+app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
   if (this.stamped) {
     return false;
   }
 
   var context = canvas.getContext('2d');
+  var size = app.utils.map(size, app.Constants.STAMP_MIN,
+      app.Constants.STAMP_MAX);
 
-  var drawWidth = this.stamp.width / mouseCoords.scale;
-  var drawHeight = this.stamp.height / mouseCoords.scale;
+  var drawWidth = this.stamp.width / mouseCoords.scale * size;
+  var drawHeight = this.stamp.height / mouseCoords.scale * size;
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
   var offsetX = this.mouseOffset.x / mouseCoords.scale;

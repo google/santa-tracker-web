@@ -25,6 +25,8 @@ app.Constants = {
   CANVAS_HEIGHT: 900,
   NUM_BACKUPS: 32,
 
+  PEN_MIN: 5,
   PEN_MAX: 50,
-  PEN_MIN: 5
+  STAMP_MIN: 0.5,
+  STAMP_MAX: 2.5
 };
