@@ -45,10 +45,13 @@ window.addEventListener('DOMContentLoaded', function() {
 // Disable some default scenes, but allow everything else. This must be added above `santaApp`
 // (both in execution and DOM) so `capture: true` is respected.
 document.addEventListener('beforeload', (ev) => {
-  const disallowed = ['village', 'tracker', 'cast'];
-  if (disallowed.indexOf(ev.detail) !== -1) {
+  const route = ev.detail;
+
+  if (route === 'village' || route === 'tracker') {
     ev.preventDefault();
+    window.santaApp.fire('embed', 'ongotovillage');  // user requested to go 'home'
   }
+
   ev.stopPropagation();  // otherwise, allow everything
 }, {capture: true});
 

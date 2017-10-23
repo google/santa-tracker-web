@@ -72,7 +72,7 @@ Santa Tracker app.
     <santa-badge id="badge" slot="feature"></santa-badge>
 
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
-        share-options="[[shareOptions]]" mode$="[[mode]]"></santa-overlay>
+        share-options="[[shareOptions]]"></santa-overlay>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -669,6 +669,8 @@ Polymer({
   ready: function() {
     if (getUrlParameter('mode') === 'web_portal') {
       this.mode = 'portal';
+    }
+    if (!this.getAttribute('routing')) {
       this._setShareOptions([]);
     }
 
