@@ -43,7 +43,13 @@
     cursor: pointer;
   }
 
+  .Tool-inner {
+    pointer-events: none;
+  }
+
   .Tool--selected {
-    position: fixed;
+    .Tool-inner {
+      position: fixed;
+    }
   }
 }

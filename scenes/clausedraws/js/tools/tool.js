@@ -30,6 +30,7 @@ goog.require('app.utils');
 app.Tool = function($elem, name, mouseOffset) {
   this.elem = $elem;
   this.el = this.elem.find('[data-tool="' + name + '"]');
+  this.innerEl = this.el.find('.Tool-inner');
   this.isSelected = false;
   this.mouseOffset = mouseOffset || {x: 0, y: 0};
   this.soundKey = '';
@@ -65,7 +66,7 @@ app.Tool.prototype.deselect = function() {
   this.isSelected = false;
 
   this.el.removeClass('Tool--selected Tool--left Tool--right Tool-hairdryer--center');
-  this.el.css({
+  this.innerEl.css({
     top: '',
     left: ''
   });
@@ -83,7 +84,7 @@ app.Tool.prototype.deselect = function() {
  * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Tool.prototype.move = function(mouseCoords) {
-  this.el.css({
+  this.innerEl.css({
     left: mouseCoords.x - (this.mouseOffset.x),
     top: mouseCoords.y - (this.mouseOffset.y) + window.santaApp.headerSize,
   });
