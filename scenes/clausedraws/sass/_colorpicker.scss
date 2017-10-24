@@ -56,14 +56,26 @@
     cursor: pointer;
     display: inline-block;
     height: 20px;
+    position: relative;
     width: 20px;
+
+    &::after {
+      background: url(img/icons/check.svg) center/contain no-repeat;
+      bottom: 2px;
+      content: '';
+      display: none;
+      left: 2px;
+      position: absolute;
+      right: 2px;
+      top: 2px;
+    }
 
     &.is-selected {
       border: 3px solid #47a4ef;
-    }
 
-    &::after {
-      content: '';
+      &::after {
+        display: block;
+      }
     }
   }
 }
