@@ -25,6 +25,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../overlay/santa-overlay.html">
 <link rel="import" href="../santa-strings.html">
 <link rel="import" href="../santa-socket.html">
+<link rel="import" href="../santa-video.html">
 
 <script src="../../js/config/houses.js"></script>
 <script src="../../js/config/videos.js"></script>
@@ -42,7 +43,19 @@ Santa Tracker app.
       --link-visibility: hidden;
       --link-display: none !important;
     }
+
+    santa-video {
+      position: fixed;
+      bottom: 20px;
+      height: 200px;
+      width: 300px;
+      right: 20px;
+      background: red;
+      z-index: 1000;
+    }
   </style>
+
+  <santa-video id="video"></santa-video>
 
   <!-- Shared i18n strings -->
   <santa-strings id="strings"></santa-strings>
@@ -698,6 +711,8 @@ Polymer({
     }.bind(this);
     document.addEventListener('visibilitychange', handler);
     handler();
+
+    this.$.video.cue(window.VIDEOS.carpool);
   },
 
   attached: function() {

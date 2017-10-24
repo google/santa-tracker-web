@@ -29,7 +29,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
 <template>
   <style include="cast-scene_module"></style>
 
-  <audio autoplay loop src="[[_srcForAudio(_videoId)]]"></audio>
+  <audio autoplay loop src="[[_srcForAudio(_videoActive)]]"></audio>
 
   <santa-state remaining-time="{{_remainingTime}}"></santa-state>
 
@@ -55,8 +55,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
     <div class="card" style$="[[_computeCardStyle(_iteration)]]"></div>
   </div>
 
-  <santa-video class$="[[_computeVideoClass(_videoActive)]]"
-      video-id="[[_videoId]]"
+  <santa-video id="video" class$="[[_computeVideoClass(_videoActive)]]"
       active="{{_videoActive}}"></santa-video>
 
 </template>
@@ -97,14 +96,6 @@ TODO(samthor): Bring in the Tracker with shared elements.
       },
 
       /**
-       * The current YouTube video being played. Bound into `santa-video`.
-       */
-      _videoId: {
-        type: String,
-        value: '',
-      },
-
-      /**
        * Whether the video is active. Bound from `santa-video`.
        */
       _videoActive: {
@@ -131,16 +122,16 @@ TODO(samthor): Bring in the Tracker with shared elements.
 
     detached: function() {
       window.clearInterval(this._updateInterval);
-      this._videoId = '';
+      this.$.video.stop();
       this.debounce('video', () => {});  // no longer play a video
     },
 
     /**
-     * Calculates the audio track to play, or none. Uses the _change_ in the current YouTube video
+     * Calculates the audio track to play, or none. Uses the _change_ in the video active property
      * to choose a new audio track.
      */
-    _srcForAudio: function(videoId) {
-      if (videoId) {
+    _srcForAudio: function(videoActive) {
+      if (videoActive) {
         return '';  // video playing, do nothing
       }
       return this.resolveUrl(`../../audio/${randomChoice(AUDIO_TRACKS)}`);
@@ -149,11 +140,11 @@ TODO(samthor): Bring in the Tracker with shared elements.
     _videoActiveChanged: function(videoActive) {
       if (videoActive) { return; }
 
-      this._videoId = '';
       this.debounce('video', () => {
         // TODO(samthor): avoid previous selection.
         // TODO(samthor): Limit to unlocked videos.
-        this._videoId = randomChoice(Object.values(VIDEOS));
+        const videoId = randomChoice(Object.values(VIDEOS));
+        this.$.video.play(videoId);
       }, randomRange(20, 60) * 1000)
     },
 
