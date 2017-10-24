@@ -122,6 +122,19 @@ app.Mouse.prototype.transformCoordinates = function(x, y, rect) {
 
 
 /**
+ * @param {number} x The x coordinate
+ * @param {number} y The y coordinate
+ * @param {!Element} element The element to check
+ * @return {boolean} true is coordinates are inside rect
+ **/
+app.Mouse.prototype.isInsideEl = function(x, y, element) {
+  var rect = element.getBoundingClientRect();
+  var coords = this.transformCoordinates(x, y, rect);
+  return coords.normX >= 0 && coords.normX <= 1 && coords.normY >= 0 &&
+      coords.normY <= 1;
+};
+
+/**
  * @typedef {{x: number, y: number, down: boolean}}
  */
 app.Mouse.CoordsType;

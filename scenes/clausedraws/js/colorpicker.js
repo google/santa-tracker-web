@@ -50,9 +50,13 @@ app.Colorpicker.prototype.onColorClick = function(event) {
 
 
 app.Colorpicker.prototype.setColor = function(color) {
-  console.log('set color', color);
   this.selectedColor = color;
   this.colors.removeClass('is-selected');
   this.elem.find('[data-colorpicker-color="' + color + '"]').addClass('is-selected');
   this.selector.css('background', color);
-}
+};
+
+
+app.Colorpicker.prototype.isPopupOpen = function() {
+  return this.popup.hasClass('is-visible');
+};

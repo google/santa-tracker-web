@@ -149,12 +149,11 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
     throw new Error('unexpected mouse callback');
   }
   var tools = this.game_.tools;
+  var colorpicker = this.game_.colorpicker;
 
   // TODO check secondary menu bounds
   var rect = this.displayCanvas.getBoundingClientRect();
   var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
-  var toolsRect = tools.primaryMenu[0].getBoundingClientRect();
-  var toolsCoords = mouse.transformCoordinates(mouse.x, mouse.y, toolsRect);
 
   this.mouse.x = canvasCoords.x;
   this.mouse.y = canvasCoords.y;
@@ -162,12 +161,12 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   this.mouse.scale = this.canvasRatio;
   this.mouse.normX = canvasCoords.normX;
   this.mouse.normY = canvasCoords.normY;
-  var insideTools = toolsCoords.normX >= 0 && toolsCoords.normX <= 1 &&
-    toolsCoords.normY >= 0 && toolsCoords.normY <= 1;
   var insideCanvas = this.mouse.normX >= 0 && this.mouse.normX <= 1 &&
-    this.mouse.normY >= 0 && this.mouse.normY <= 1 && !insideTools;
+    this.mouse.normY >= 0 && this.mouse.normY <= 1 &&
+    !mouse.isInsideEl(mouse.x, mouse.y, tools.primaryMenu[0]) &&
+    !(colorpicker.isPopupOpen() &&
+        mouse.isInsideEl(mouse.x, mouse.y, colorpicker.popup[0]));
 
-  // console.log(this.mouse.normX, this.mouse.normY);
   if (insideCanvas && this.mouse.down && tools.selectedTool) {
     this.updateCanvas(tools.selectedTool, tools.selectedTool.draw);
   } else if ((!insideCanvas || !this.mouse.down) && tools.selectedTool) {
