@@ -15,7 +15,9 @@
  */
 
 goog.provide('app.Eraser');
+goog.require('app.Constants');
 goog.require('app.Tool');
+goog.require('app.utils');
 
 
 /**
@@ -42,9 +44,10 @@ app.Eraser.prototype = Object.create(app.Tool.prototype);
  * @param  {!HTMLCanvasElement} canvas The canvas to draw to
  * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
  * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
+ * @param  {!number} size  The current size setting
  * @return {boolean} Whether the canvas was changed
  */
-app.Eraser.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
+app.Eraser.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
@@ -60,7 +63,8 @@ app.Eraser.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
     context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
     context.lineJoin = 'round';
     context.lineCap = 'round';
-    context.lineWidth = 20;
+    context.lineWidth = app.utils.map(size, app.Constants.ERASER_MIN,
+        app.Constants.ERASER_MAX);
     context.globalCompositeOperation = 'destination-out';
     context.strokeStyle = 'rgba(255, 255, 255, 255)';
     var p1 = this.points[0];
