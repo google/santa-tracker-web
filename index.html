@@ -68,10 +68,12 @@ ga('set', 'transport', 'beacon');
 (function() {
   // Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 9+ and
   // Chromium-based browsers at m44 or above. For other browsers, YMMV.
-  var ignoreCheck = window.location.search.indexOf('ignore_browser_check') != -1;
+  var ignoreCheck =
+      window.location.search.indexOf('ignore_browser_check') !== -1 ||
+      navigator.userAgent.indexOf('Googlebot') !== -1;
   var supported = ignoreCheck || (function() {
     // feature-detect APIs: limits to IE11+, SF9+
-    if (!window.performance || !window.performance.now || !window.Set || !history) {
+    if (!window.performance || !window.performance.now || !window.WeakMap || !window.history) {
       return false;
     }
     // no older Android browser
@@ -93,8 +95,7 @@ ga('set', 'transport', 'beacon');
       window.location = 'upgrade.html' + (window.location.query || '');
     }
     window.ga('send', 'pageview', '/');
-    window.ga('send', 'event', 'Polymer', 'unsupported-browser', { hitCallback: redirect });
-    navigator.sendBeacon && redirect();
+    window.ga('send', 'event', 'Polymer', 'unsupported-browser', {hitCallback: redirect});
     window.setTimeout(redirect, 1000);
   }
 
@@ -153,14 +154,15 @@ ga('set', 'transport', 'beacon');
 
     // Reload the page when a new SW takes over. This should only happen in staging.
     navigator.serviceWorker.addEventListener('controllerchange', function() {
-      location.reload();
+      window.location.reload();
     });
   }
 
-  window.Polymer = window.Polymer || {
+  window.Polymer = {
+    noUrlSettings: true,
     dom: 'shadow',
     lazyRegister: 'max',
-    useNativeCSSProperties: true
+    useNativeCSSProperties: true,
   };
 }());
   </script>
@@ -169,16 +171,23 @@ ga('set', 'transport', 'beacon');
 </head>
 <body data-version="" data-static="" unresolved class="scrollock">
 
+<script>
+  // nb. this can't be configured via window.Polymer and seemingly must be done before elements
+  // are stamped (https://github.com/Polymer/polymer/issues/4847)
+  // TODO(samthor): include on other entrypoints
+  Polymer.setPassiveTouchGestures && Polymer.setPassiveTouchGestures(true);
+</script>
+
 <santa-app id="santaApp" routing></santa-app>
 
-<div id="timer" role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions" hidden></div>
+<santa-countdown role="timer" aria-live="assertive" aria-atomic="false" aria-relevant="additions" hidden></santa-countdown>
+
+<santa-notice></santa-notice>
 
 <div id="unresolved_placeholder"></div>
 
 <script>
 (function() {
-
-window.santaApp = document.querySelector('santa-app');
 
 function lazyLoadWCPolyfillsIfNecessary() {
   var onload = function() {
@@ -186,15 +195,14 @@ function lazyLoadWCPolyfillsIfNecessary() {
     // so the same code paths can be used for polyfill'd and native.
     // window.HTMLImports only exists under the poylfill.
     if (!window.HTMLImports) {
-      document.dispatchEvent(
-        new CustomEvent('WebComponentsReady', {bubbles: true}));
+      document.dispatchEvent(new CustomEvent('WebComponentsReady', {bubbles: true}));
     }
   };
 
-  var webComponentsSupported = (
-    'registerElement' in document
-    && 'import' in document.createElement('link')
-    && 'content' in document.createElement('template'));
+  var webComponentsSupported =
+      'registerElement' in document
+      && 'import' in document.createElement('link')
+      && 'content' in document.createElement('template');
   if (!webComponentsSupported) {
     var script = document.createElement('script');
     var baseUrl = document.body.getAttribute('data-static');
@@ -214,35 +222,10 @@ function setupPerfAnalyticsEvent(eventName, categoryName) {
   });
 }
 
-if (window.DEV) {
-  // Polyfill needs I18nMsg to exist before setting the lang. Timing is fine for native :(
-  // Set locale for entire site (e.g. i18n-msg elements).
-  document.addEventListener('WebComponentsReady', function() {
-    I18nMsg.lang = document.documentElement.lang || 'en';
-    I18nMsg.url = '_messages';
-    Platform.performMicrotaskCheckpoint();
-  });
-}
-
 setupPerfAnalyticsEvent('HTMLImportsLoaded', 'Polymer');
 setupPerfAnalyticsEvent('WebComponentsReady', 'Polymer');
 
 lazyLoadWCPolyfillsIfNecessary(); // Call after all events have been set up.
-
-// Try to only do screen reader stuff on desktop.
-if (window.matchMedia && window.matchMedia('(min-width: 1000px)').matches) {
-  var timer = document.querySelector('#timer');
-
-  document.addEventListener('countdown-timer-tick', function(e) {
-    var currentTime = e.detail.currentTime;
-
-    if (currentTime.diff <= 60 * 1000) {
-      timer.textContent = e.detail.msg;
-    } else if (currentTime.seconds % 10 == 0) { // Only update DOM (and therefore speak text) every 10 seconds.
-      timer.textContent = e.detail.msg;
-    }
-  });
-}
 
 if (window.santaApp.mode === 'portal') {
   // Filter out clicks that don't match the current domain.
@@ -250,10 +233,7 @@ if (window.santaApp.mode === 'portal') {
     var link = event.composedPath().filter(function(el) {
       return el.localName === 'a' && el.href;
     })[0];
-    if (!link) {
-      return;
-    }
-    if (link.href.indexOf(window.location.origin + '/') !== 0) {
+    if (link && link.href.indexOf(window.location.origin + '/') !== 0) {
       event.stopPropagation();
       event.preventDefault();
     }

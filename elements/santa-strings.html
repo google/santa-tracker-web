@@ -152,9 +152,8 @@ Polymer({
     },
 
     /**
-     * Internal tracker for a message that will only fire in dev. When this changes, the string
-     * table needs to be updated. Note that we do not use the 'i18n-language-ready' event as it
-     * only fires on a random i18n-msg.
+     * Internal tracker for a message being ready, that will only fire in dev. When this changes,
+     * the string table needs to be updated.
      */
     _msg: {
       type: String,

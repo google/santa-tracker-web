@@ -408,7 +408,7 @@
 		"message": "kertaa"
 	},
 	"codelab-block-repeat-tooltip": {
-		"message": "Toista joitakin ilmauksia useita kertoja."
+		"message": "Toista joitakin lausekkeita useita kertoja."
 	},
 	"codelab-block-whenrun": {
 		"message": "suoritettaessa"
@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Menetimme juuri yhteyden Korvatunturille. Joulupukin tontut yrittävät kovasti korjata yhteyttä – pysy linjoilla!"
+		"message": "Ilmeni ongelma, mutta tontut selvittävät asiaa."
 	},
 	"error-lost-connection": {
 		"message": "Menetimme juuri yhteyden Korvatunturille. Joulupukin tontut yrittävät kovasti korjata yhteyttä – pysy linjoilla!"
+	},
+	"error-not-found": {
+		"message": "Voi ei, tontut eivät löytäneet sivua! Palaa \u003ca href=\"./village.html\"\u003eKorvatunturille\u003c/a\u003e ja yritä uudelleen."
 	},
 	"error-try-again": {
 		"message": "Yritä uudelleen"
@@ -882,13 +885,13 @@
 		"message": "Raajaproteesit"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Valitse koriste ja hyväntekeväisyysjärjestö ja tartu värikyniin!"
+		"message": "Valitse koriste ja ala värittää."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Jaa taideteoksesi ystävillesi ja perheellesi."
+		"message": "Jaa taideteoksesi ystävillesi ja perheellesi, niin hekin kuulevat näistä järjestöistä."
 	},
 	"nonprofit-intro-type": {
-		"message": "Voit tukea hyväntekeväisyysjärjestöjä, jotka auttavat tekemään maailmasta paremman paikan kaikille. Väritä vain joulukoristeet ja osoita sitten tukesi ripustamalle ne joulukuuseen tai antamalla ne ystävillesi."
+		"message": "Esittelemme yhdessä Google.org-sivuston kanssa viisi koulutusta edistävää hyväntekeväisyysjärjestöä, jotka jakavat iloa muille ympäri vuoden. Selaa alaspäin ja katso, miten kukin organisaatio tukee vähäosaisia. Osoita tukesi järjestöille värittämällä näitä koristeita ja ripusta niitä kuuseen tai anna lahjaksi läheisillesi."
 	},
 	"nonprofit-jane-description": {
 		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutustu simpanssien elinympäristöihin\u003c/a\u003e Tansanian Gombessa."

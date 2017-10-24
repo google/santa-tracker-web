@@ -561,10 +561,13 @@
 		"message": "厄立特里亚"
 	},
 	"error": {
-		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
+		"message": "出了点问题，但圣诞老人的小精灵们正在处理。"
 	},
 	"error-lost-connection": {
 		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
+	},
+	"error-not-found": {
+		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./village.html\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
 	},
 	"error-try-again": {
 		"message": "请重试"
@@ -858,7 +861,7 @@
 		"message": "挪威语"
 	},
 	"nonprofit-agastya-description": {
-		"message": "印度非盈利组织 Agastya 向印度各地农村的儿童提供实践科学课程。从太阳系知识到人脑工作原理，Agastya 在科学教育中心和科学教育流动车中提供的课程均有涉猎。印度已有 14 个邦的超过 500 万儿童和 20 万教师从中受惠；这已成为全球最大的科学教育项目之一！Google.org 很荣幸能够为 Agastya \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e贡献一己之力\u003c/a\u003e。"
+		"message": "印度非营利组织 Agastya 向印度各地农村的儿童提供实践科学课程。从太阳系知识到人脑工作原理，Agastya 在科学教育中心和科学教育流动车中提供的课程均有涉猎。印度已有 14 个邦的超过 500 万儿童和 20 万教师从中受惠；这已成为全球最大的科学教育项目之一！Google.org 很荣幸能够为 Agastya \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e贡献一己之力\u003c/a\u003e。"
 	},
 	"nonprofit-agastya-type": {
 		"message": "教师和学生"
@@ -882,13 +885,13 @@
 		"message": "假肢"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "选择与您喜爱的慈善组织对应的装饰品，然后开始涂色吧！"
+		"message": "选择一件装饰品，然后开始涂色。"
 	},
 	"nonprofit-instruction-share": {
-		"message": "与家人和朋友分享自己的作品吧！"
+		"message": "与家人和朋友分享自己的作品，让他们也能够了解相关活动。"
 	},
 	"nonprofit-intro-type": {
-		"message": "为下面的装饰品涂色，向这些装饰品代表的慈善组织表达支持 - 他们在努力让我们的世界更加美好、让更多人享受到丰富的信息资源。然后，您可以将这些装饰品挂在家中的圣诞树上，或者把它们作为礼物送给所爱之人，以此表示自己对相关慈善事业的关注！"
+		"message": "我们与 Google.org 携手，向您介绍五家这一年来参加“礼物漫天飞”活动的非盈利教育组织。向下滚动可详细了解每家组织如何回馈社会。您可以为这一系列的装饰品涂色，将涂好的装饰品挂在圣诞树上或赠送给亲朋好友，以此表达自己对这些组织的支持。"
 	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
@@ -1410,7 +1413,7 @@
 		"message": "与您的距离"
 	},
 	"tracker_distance_travelled": {
-		"message": "走过的距离"
+		"message": "累积里程数"
 	},
 	"tracker_feed": {
 		"message": "实时 Feed"

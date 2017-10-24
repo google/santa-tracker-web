@@ -19,8 +19,10 @@ module.exports = {
   crisper: require('./crisper'),
   fanout: require('./fanout'),
   fileManifest: require('./file_manifest'),
+  generateModules: require('./generate_modules'),
   i18nManifest: require('./i18n_manifest'),
   i18nReplace: require('./i18n_replace'),
+  merge: require('./merge'),
   mutateHTML: require('./mutate_html'),
   styleModules: require('./style_modules'),
 };

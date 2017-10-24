@@ -18,12 +18,14 @@ goog.provide('app.Canvas');
 
 /**
  * Canvas for two moving background layers
- * @param {Game} game The game object.
+ * @param {!Game} game The game object.
+ * @param {!HTMLCanvasElement} canvas
  *
  * @constructor
  */
-app.Canvas = function(game) {
+app.Canvas = function(game, canvas) {
   this.game_ = game;
+  this.ready_ = false;
 
   this.canvasWidth = 2115;
   this.canvasHeight = 670;
@@ -31,7 +33,7 @@ app.Canvas = function(game) {
   this.clipWidth = 1410;
   this.interval = 16.67;
 
-  this.mountain = new Object();
+  this.mountain = {};
   this.mountain.img = new Image();
   this.mountain.img.src = 'scenes/runner/img/bg-tile-layer1.png';
   this.mountain.width = 1490;
@@ -39,7 +41,7 @@ app.Canvas = function(game) {
   this.mountain.speed = 0.25;
   this.mountain.x = 0;
 
-  this.trees = new Object();
+  this.trees = {};
   this.trees.img = new Image();
   this.trees.img.src = 'scenes/runner/img/bg-tile-layer2.png';
   this.trees.width = 2980;
@@ -48,28 +50,25 @@ app.Canvas = function(game) {
   this.trees.speed = 0.5;
   this.trees.x = 0;
 
-  this.imgLoad = 0;
+  /** @type {!CanvasRenderingContext2D} */
+  this.ctx = canvas.getContext('2d');
 
-  this.mountain.img.onload = this.handle.bind(this);
-  this.trees.img.onload = this.handle.bind(this);
-};
+  // once both images are loaded, call this.handle()
+  const pending = new Set([this.mountain.img, this.trees.img]);
+  const load = (img) => {
+    pending.delete(img);
+    if (pending.size) { return; }
 
-/**
- * Images onload handler
- */
-app.Canvas.prototype.handle = function() {
-  this.imgLoad += 1;
-  if (this.imgLoad == 2) {
-    this.ctx = document.getElementById('stage-canvas').getContext('2d');
-    this.drawInit();
-    return setInterval(this.draw.bind(this), this.speed);
-  }
+    this.ready_ = true;
+    this.drawDefaultImage_();
+  };
+  pending.forEach((img) => img.addEventListener('load', () => load(img)));
 };
 
 /**
  * Draw initial frame on canvas
  */
-app.Canvas.prototype.drawInit = function() {
+app.Canvas.prototype.drawDefaultImage_ = function() {
   this.ctx.save();
   this.ctx.beginPath();
   this.ctx.rect(this.clipPositionX,0,this.clipWidth,this.canvasHeight);
@@ -90,43 +89,47 @@ app.Canvas.prototype.drawInit = function() {
 };
 
 /**
- * Draw function, get called every frame
+ * Draw function, gets called every frame by Game.
+ *
+ * @param {number} delta
  */
-app.Canvas.prototype.draw = function() {
-  if (this.game_.isPlaying) {
-    //Clear Canvas
-    this.ctx.clearRect(0, this.trees.offsetY, this.canvasWidth, this.trees.height);
-
-    this.ctx.save();
-    this.ctx.beginPath();
-    this.ctx.rect(this.clipPositionX,0,this.clipWidth,this.canvasHeight);
-    this.ctx.clip();
-
-    // Draw mountain layer
-    if (this.mountain.x < (this.clipPositionX - this.mountain.width)) {
-      this.mountain.x = this.clipPositionX;
-    }
-    this.ctx.drawImage(this.mountain.img, this.mountain.x,
-      0, this.mountain.width,this.mountain.height);
-    if (this.mountain.x < (this.clipPositionX + this.clipWidth - this.mountain.width)) {
-      this.ctx.drawImage(this.mountain.img, this.mountain.x+this.mountain.width,
-        0, this.mountain.width,this.mountain.height);
-    }    
-
-    this.ctx.restore();
-
-    // Draw trees layer
-    if (this.trees.x < (- this.trees.width)) {
-      this.trees.x = 0;
-    }
-    this.ctx.drawImage(this.trees.img, this.trees.x,
-      this.trees.offsetY, this.trees.width,this.trees.height);
-    if (this.trees.x < (this.canvasWidth - this.trees.width)) {
-      this.ctx.drawImage(this.trees.img, this.trees.x+this.trees.width,
-        this.trees.offsetY, this.trees.width,this.trees.height);
-    }
-
-    this.mountain.x -= this.mountain.speed;
-    this.trees.x -= this.trees.speed;
+app.Canvas.prototype.onFrame = function(delta) {
+  if (!this.ready_) {
+    return;
   }
+
+  // Clear Canvas
+  this.ctx.clearRect(0, this.trees.offsetY, this.canvasWidth, this.trees.height);
+
+  this.ctx.save();
+  this.ctx.beginPath();
+  this.ctx.rect(this.clipPositionX, 0, this.clipWidth,this.canvasHeight);
+  this.ctx.clip();
+
+  // Draw mountain layer
+  if (this.mountain.x < (this.clipPositionX - this.mountain.width)) {
+    this.mountain.x = this.clipPositionX;
+  }
+  this.ctx.drawImage(this.mountain.img, this.mountain.x,
+      0, this.mountain.width,this.mountain.height);
+  if (this.mountain.x < (this.clipPositionX + this.clipWidth - this.mountain.width)) {
+    this.ctx.drawImage(this.mountain.img, this.mountain.x+this.mountain.width,
+      0, this.mountain.width,this.mountain.height);
+  } 
+
+  this.ctx.restore();
+
+  // Draw trees layer
+  if (this.trees.x < -this.trees.width) {
+    this.trees.x = 0;
+  }
+  this.ctx.drawImage(this.trees.img, this.trees.x,
+    this.trees.offsetY, this.trees.width,this.trees.height);
+  if (this.trees.x < (this.canvasWidth - this.trees.width)) {
+    this.ctx.drawImage(this.trees.img, this.trees.x+this.trees.width,
+      this.trees.offsetY, this.trees.width,this.trees.height);
+  }
+
+  this.mountain.x -= this.mountain.speed;
+  this.trees.x -= this.trees.speed;
 }

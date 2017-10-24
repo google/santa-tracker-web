@@ -29,8 +29,6 @@ app.Constants = {
 
   GEODESIC_LEVELS: [10],
   GEODESIC_TIME_PER_LEVEL: 100,
-  GEODESIC_ZOOM: 2,
-  GEODESIC_CENTER: [45, 5],
   GEODESIC_VISIBLE_COUNTRIES: 10,
 
   HITBOX_SIZE: 20, // px border around country

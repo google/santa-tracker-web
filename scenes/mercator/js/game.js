@@ -108,9 +108,6 @@ app.Game.prototype.init_ = function() {
   var match = location.search.match(/[?&]level=(\d+)/) || [];
   this.level = (+match[1] || 1) - 1;
 
-  this.scoreboard.reset();
-  this.scoreboard.setLevel(this.level);
-
   this.countries && this.countries.forEach(function(country) {
     country.hide();
   });
@@ -121,6 +118,9 @@ app.Game.prototype.init_ = function() {
  */
 app.Game.prototype.restart = function() {
   this.init_();
+  this.scoreboard.reset();
+  this.scoreboard.setLevel(this.level);
+
   this.startLevel_();
   this.unfreezeGame();
 
@@ -248,11 +248,13 @@ app.Game.prototype.setupLevel_ = function() {
 
   // Show the whole world if geodesic puzzle.
   if (this.geodesic) {
-    this.map.setZoom(2);
-    this.map.setCenter(
-        new google.maps.LatLng(
-            app.Constants.GEODESIC_CENTER[0],
-            app.Constants.GEODESIC_CENTER[1]));
+    // FIXME(samthor): This is a hack to get slippy to show our tiles. Just accept it and remove
+    // it in 2018 if all tiles load for geodesic.
+    this.map.setZoom(0);
+    window.setTimeout(() => {
+      this.map.setZoom(3);
+      window.requestAnimationFrame(() => this.updateSize_());
+    }, 10);
   }
 };
 
@@ -346,15 +348,18 @@ app.Game.prototype.countryMatched_ = function(country) {
   var ne = app.utils.latLngToPoint(this.map, this.map.getBounds().getNorthEast());
   var sw = app.utils.latLngToPoint(this.map, this.map.getBounds().getSouthWest());
 
-  // Show country name
-  var offset = {
-    left: (this.elem.width() - this.mapElem.width()) / 2,
-    top: (this.elem.height() - this.mapElem.height()) / 2
-  };
-  var message = $(app.Constants.COUNTRY_MATCH_TEMPLATE).css({
-    left: offset.left + point.x - sw.x,
-    top: offset.top + point.y - ne.y
-  });
+  var offset = {};
+  if (country.geodesic) {
+    // show in center
+    offset.left = this.elem.width() / 2;
+    offset.top = this.elem.height() / 2;
+  } else {
+    // only position on country in normal mode
+    offset.left = (this.elem.width() - this.mapElem.width()) / 2 + point.x - sw.x;
+    offset.top = (this.elem.height() - this.mapElem.height()) / 2 + point.y - ne.y;
+  }
+
+  var message = $(app.Constants.COUNTRY_MATCH_TEMPLATE).css(offset);
   var name = this.countriesElem.find('[data-country="' + country.name + '"]').first().text();
   message.find('.country-match-text').text(name);
   message.find('.country-match-bg').css('background', country.color);
@@ -386,55 +391,44 @@ app.Game.prototype.countryMatched_ = function(country) {
  * @private
  */
 app.Game.prototype.initMap_ = function() {
+  const styles = [
+    {
+      stylers: [{visibility: 'off'}],
+    },
+    {
+      featureType: 'administrative.country',
+      elementType: 'geometry.stroke',
+      stylers: [{visibility: 'on'}, {weight: 1}, {color: '#F6EFE2'}],
+    },
+    {
+      featureType: 'water',
+      elementType: 'geometry.fill',
+      stylers: [{visibility: 'on'}, {color: '#F6EFE2'}],
+    },
+    {
+      featureType: 'landscape',
+      elementType: 'geometry.fill',
+      stylers: [{visibility: 'on'}, {color: '#DFD7C5'}],
+    },
+  ];
+
   this.map = new google.maps.Map(this.mapElem[0], {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    draggable: app.shared.utils.touchEnabled,
-    heading: 0,
-    mapTypeControl: false,
-    overviewMapControl: false,
-    panControl: false,
-    rotateControl: false,
-    scaleControl: false,
-    scrollwheel: false,
-    streetViewControl: false,
+    gestureHandling: 'none',
     tilt: 1,
-    zoomControl: false,
     disableDoubleClickZoom: true,
-    styles: [{
-        stylers: [{visibility: 'off'}]
-      }, {
-        featureType: 'administrative.country',
-        elementType: 'geometry.stroke',
-        stylers: [{visibility: 'on'}, {weight: 1}, {color: '#F6EFE2'}]
-      }, {
-        featureType: 'water',
-        elementType: 'geometry.fill',
-        stylers: [{visibility: 'on'}, {color: '#F6EFE2'}]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry.fill',
-        stylers: [{visibility: 'on'}, {color: '#DFD7C5'}]
-      }
-    ]
+    disableDefaultUI: true,
+    draggable: false,
+    styles: styles,
   });
 
-  google.maps.event.addListener(this.map, 'zoom_changed', function() {
-    this.countries.forEach(function(country) {
-      country.visible && country.updateHitbox();
-
-      if (this.debug) {
-        country.showBounds();
-      }
-    }, this);
-  }.bind(this));
-
-  google.maps.event.addListenerOnce(this.map, 'idle', function() {
+  google.maps.event.addListenerOnce(this.map, 'idle', () => {
     this.setupLevel_();
     this.mapReady = true;
     if (this.startOnReady) {
       this.start();
     }
-  }.bind(this));
+  });
 };
 
 /**

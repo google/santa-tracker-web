@@ -489,7 +489,7 @@
 		"message": "Cuba"
 	},
 	"cz_country_name": {
-		"message": "República Checa"
+		"message": "Chequia"
 	},
 	"da_language_name": {
 		"message": "Danés"
@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Parece que acabamos de perder la conexión con el Polo Norte. Los elfos de Papá Noel están trabajando duro para arreglar el problema. No te vayas muy lejos."
+		"message": "Ha habido un problema, pero los elfos de Papá Noel están investigándolo."
 	},
 	"error-lost-connection": {
 		"message": "Parece que acabamos de perder la conexión con el Polo Norte. Los elfos de Papá Noel están trabajando duro para arreglar el problema. No te vayas muy lejos."
+	},
+	"error-not-found": {
+		"message": "¡Vaya, los elfos de Papá Noel no han encontrado la página! Puede que tengas más suerte si vuelves a su \u003ca href=\"./village.html\"\u003ealdea\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Inténtalo de nuevo"
@@ -849,7 +852,7 @@
 		"message": "Países Bajos"
 	},
 	"nl_language_name": {
-		"message": "Holandés"
+		"message": "neerlandés"
 	},
 	"no_country_name": {
 		"message": "Noruega"
@@ -882,13 +885,13 @@
 		"message": "Prótesis de extremidades"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Escoge un adorno con la organización benéfica que prefieras y empieza a colorearlo."
+		"message": "Escoge un adorno y coloréalo."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Comparte tu talento artístico con amigos y familiares."
+		"message": "Comparte tu talento artístico con amigos y familiares para que ellos también puedan aprender."
 	},
 	"nonprofit-intro-type": {
-		"message": "Colorea este conjunto de adornos para apoyar a las organizaciones benéficas que se esfuerzan por hacer que nuestro mundo siga siendo un lugar precioso y lleno de posibilidades. Si quieres mostrar tu interés por sus causas, puedes colgarlos en tu árbol de Navidad o regalárselos a tus seres queridos."
+		"message": "Nos hemos asociado con Google.org para patrocinar a cinco organizaciones educativas sin ánimo de lucro para las que la Navidad dura todo el año. Desplázate hacia abajo y descubre qué aporta cada una de las organizaciones. Para demostrar tu apoyo, colorea esta colección de adornos y cuélgalos en el árbol de Navidad o regálaselos a tus seres queridos."
 	},
 	"nonprofit-jane-description": {
 		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eObserva el hábitat de los chimpancés\u003c/a\u003e de Gombe, Tanzania."
@@ -1461,7 +1464,7 @@
 		"message": "Sigue a Papá Noel"
 	},
 	"tracker_travelogue": {
-		"message": "Trayecto"
+		"message": "Cuaderno de viaje"
 	},
 	"tracker_weather": {
 		"message": "Tiempo"
@@ -2784,7 +2787,7 @@
 		"message": "¿Qué país no se encuentra en la península de los Balcanes?"
 	},
 	"trivia_hard_012_answer0": {
-		"message": "República Checa"
+		"message": "Chequia"
 	},
 	"trivia_hard_012_answer1": {
 		"message": "Bulgaria"
@@ -4197,7 +4200,7 @@
 		"message": "Kinshasa"
 	},
 	"trivia_medium_025": {
-		"message": "Situada a orillas del río Moldava, ¿qué capital es la ciudad más grande de la República Checa?"
+		"message": "Situada a orillas del río Moldava, ¿qué capital es la ciudad más grande de Chequia?"
 	},
 	"trivia_medium_025_answer0": {
 		"message": "Praga"
@@ -4653,7 +4656,7 @@
 		"message": "Vietnam"
 	},
 	"trivia_medium_063": {
-		"message": "Mumbai es una importante ciudad portuaria. ¿En qué país se encuentra?"
+		"message": "Bombay es una importante ciudad portuaria. ¿En qué país se encuentra?"
 	},
 	"trivia_medium_063_answer0": {
 		"message": "India"

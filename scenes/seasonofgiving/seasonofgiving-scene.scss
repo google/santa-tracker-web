@@ -49,3 +49,7 @@ $name: 'module-seasonofgiving';
     display: none;
   }
 }
+
+.external {
+  visibility: var(--link-visibility);
+}

@@ -24,27 +24,7 @@ Season of giving scene.
 -->
 <dom-module id="seasonofgiving-scene">
 <template>
-  <style include="seasonofgiving-scene_module">
-    :host([mode="portal"]) .Button--copy,
-    :host([mode="portal"]) .Button-download,
-    :host([mode="portal"]) .Button-print,
-    :host([mode="portal"]) #print,
-    :host([mode="portal"]) .Tool-sliderContainer,
-    :host([mode="portal"]) .Tool-bottomContainer {
-      display: none !important;
-    }
-    :host[mode="portal"] .ornament-copy a:not(.Button) {
-      color: white;
-      pointer-events:none;
-      cursor: default;
-    }
-    :host([mode="portal"]) .force-rotate.portrait {
-      display: none !important;
-    }
-    :host([mode="portal"]) .force-rotate.landscape {
-      display: none !important;
-    }
-  </style>
+  <style include="seasonofgiving-scene_module"></style>
 
   <div id="module-seasonofgiving">
     <div class="seasonofgiving">
@@ -321,7 +301,7 @@ Season of giving scene.
                     </div>
                   </div>
                 </div>
-                <div class="Tool-container Tool-container--third download--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-download--mobile"></a></div>
+                <div class="Tool-container Tool-container--third download--mobile Tool--mobileOnly external"><a id="download" download="test.png" class="Tool Button-download--mobile"></a></div>
                 <div class="Tool-container Tool-container--third trash--mobile Tool--mobileOnly"><a id="download" download="test.png" class="Tool Button-reset--mobile"></a></div>
               </div>
               <div class="Tool-bottomContainer">
@@ -333,7 +313,7 @@ Season of giving scene.
               </div>
             </div>
             <div class="Buttons">
-              <Button id="print" class="Button Button-print"></Button><a id="download" download="test.png" class="Button Button-download"></a>
+              <Button id="print" class="Button Button-print external"></Button><a id="download" download="test.png" class="Button Button-download external"></a>
               <Button id="reset" class="Button Button-reset"></Button>
             </div>
           </div>

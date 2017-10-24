@@ -1,0 +1,185 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../elements/countdown/countdown-timer.html">
+<link rel="import" href="../../elements/weather/santa-weather.html">
+<link rel="import" href="../../elements/santa-state.html">
+<link rel="import" href="../../elements/santa-video.html">
+<link rel="import" href="cast-scene_module.html">
+
+<!--
+Minimal code for the Cast scene. This contains a cutback view of the Village, Tracker, and plays
+videos and other audio.
+TODO(samthor): Bring in the Tracker with shared elements.
+-->
+<dom-module id="cast-scene">
+<template>
+  <style include="cast-scene_module"></style>
+
+  <audio autoplay loop src="[[_srcForAudio(_videoId)]]"></audio>
+
+  <santa-state remaining-time="{{_remainingTime}}"></santa-state>
+
+  <header>
+    <div class="ornament"></div>
+    <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
+    <countdown-timer remaining-time="[[_remainingTime]]" active fast>
+      <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
+      <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
+      <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
+      <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
+    </countdown-timer>
+    <div class="spacer"></div>
+    <div class="google-logo"></div>
+    <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+  </header>
+
+  <main></main>
+
+  <div class="cards">
+    <div class="card" style$="[[_computeCardStyle(_iteration)]]"></div>
+    <div class="card" style$="[[_computeCardStyle(_iteration)]]"></div>
+    <div class="card" style$="[[_computeCardStyle(_iteration)]]"></div>
+  </div>
+
+  <santa-video class$="[[_computeVideoClass(_videoActive)]]"
+      video-id="[[_videoId]]"
+      active="{{_videoActive}}"></santa-video>
+
+</template>
+<script>
+(function() {
+
+  var AUDIO_TRACKS = [
+    '7853_62276019f9c87f2dcfe08641ce912452_village_music_lounge.ogg',
+    '8138_4b63c7c7cbe8b32c4d429f4cddc74182_village_music_gameover_lounge_r2_36571.ogg',
+    '8133_8706368a154a316f379990965e717192_villagemusiclounger339917ie.ogg',
+    '8096_0b8b8a6e86b2859a78ebe14b1e7ccd8d_Santasearch_music_1.ogg',
+    '8038_938d698bc5c2e57e75b153c6e5514e2b_Codeboogie_130bpm_idle.ogg',
+  ];
+
+  // TODO: centralize outside dorf/newtracker, break out "during flight" vs preflight cards
+  var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
+
+  Polymer({
+    is: 'cast-scene',
+
+    behaviors: [window.SantaSceneBehavior],
+
+    properties: {
+
+      /**
+       * The iteration of this display: the number of times the cards have changed.
+       */
+      _iteration: {
+        type: Number,
+        value: 0,
+      },
+
+      /**
+       * The remaining time until Santa takes off. Bound from `santa-state`.
+       */
+      _remainingTime: {
+        type: Number,
+      },
+
+      /**
+       * The current YouTube video being played. Bound into `santa-video`.
+       */
+      _videoId: {
+        type: String,
+        value: '',
+      },
+
+      /**
+       * Whether the video is active. Bound from `santa-video`.
+       */
+      _videoActive: {
+        type: Boolean,
+        observer: '_videoActiveChanged',
+        value: false,
+      },
+
+      /**
+       * setInterval() handle.
+       */
+      _updateInterval: {
+        type: Number,
+      }
+
+    },
+
+    attached: function() {
+      this._updateInterval = window.setInterval(() => {
+        ++this._iteration;
+      }, 5000);
+      this._videoActiveChanged(this._videoActive);  // trigger video play
+    },
+
+    detached: function() {
+      window.clearInterval(this._updateInterval);
+      this._videoId = '';
+      this.debounce('video', () => {});  // no longer play a video
+    },
+
+    /**
+     * Calculates the audio track to play, or none. Uses the _change_ in the current YouTube video
+     * to choose a new audio track.
+     */
+    _srcForAudio: function(videoId) {
+      if (videoId) {
+        return '';  // video playing, do nothing
+      }
+      return this.resolveUrl(`../../audio/${randomChoice(AUDIO_TRACKS)}`);
+    },
+
+    _videoActiveChanged: function(videoActive) {
+      if (videoActive) { return; }
+
+      this._videoId = '';
+      this.debounce('video', () => {
+        // TODO(samthor): avoid previous selection.
+        // TODO(samthor): Limit to unlocked videos.
+        this._videoId = randomChoice(Object.values(VIDEOS));
+      }, randomRange(20, 60) * 1000)
+    },
+
+    _computeCardStyle: function() {
+      // TODO(samthor): Fade in new card images
+      const choice = randomChoice(FEED_STATIC);
+      const url = this.resolveUrl(`../newtracker/img/feed/${choice}.png`);
+      return `background-image: url(${url})`;
+    },
+
+    _computeVideoClass: function(videoActive) {
+      return videoActive ? 'active' : '';
+    },
+
+    onPreload: function() {
+      this.preloadImages([
+        '../dorf/img/header-bg.svg',
+        '../dorf/img/ornament.svg',
+        '../dorf/img/google_logo.svg',
+        '../dorf/img/mobile-header.svg',  // TODO(samthor): this svg is unoptimized
+        '../../elements/countdown/img/number-bg.svg',
+      ]);
+    },
+
+  });
+})();
+</script>
+</template>
+</dom-module>

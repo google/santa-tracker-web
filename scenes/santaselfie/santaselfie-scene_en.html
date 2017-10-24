@@ -24,12 +24,7 @@ Santaselfie scene.
 -->
 <dom-module id="santaselfie-scene">
 <template>
-  <style include="santaselfie-scene_module">
-    :host([mode="portal"]) #share-button,
-    :host([mode="portal"]) #share-button-toolbox {
-      display: none !important;
-    }
-  </style>
+  <style include="santaselfie-scene_module"></style>
 
   <div id="module-santaselfie">
     <div class="santaselfie">
@@ -131,18 +126,18 @@ Santaselfie scene.
         </div>
         <!-- These images are use by canvases-->
         <div class="hidden">
-          <img id="spray--red" src="img/tools/sprays/red.png" width="128" height="128"/>
-          <img id="spray--orange" src="img/tools/sprays/orange.png" width="128" height="128"/>
-          <img id="spray--yellow" src="img/tools/sprays/yellow.png" width="128" height="128"/>
-          <img id="spray--green" src="img/tools/sprays/green.png" width="128" height="128"/>
-          <img id="spray--cyan" src="img/tools/sprays/cyan.png" width="128" height="128"/>
-          <img id="spray--purple" src="img/tools/sprays/purple.png" width="128" height="128"/>
-          <img id="spray--pink" src="img/tools/sprays/pink.png" width="128" height="128"/>
-          <img id="spray--blue" src="img/tools/sprays/blue.png" width="128" height="128"/>
-          <img id="snowman" src="img/tools/decorations/snowman.svg" width="84" height="138"/>
-          <img id="bauble" src="img/tools/decorations/bauble.svg" width="75" height="128"/>
-          <img id="bow" src="img/tools/decorations/bow.svg" width="127" height="94"/>
-          <img id="holly" src="img/tools/decorations/holly.svg" width="120" height="138"/>
+          <img id="spray--red" src$="[[importPath]]img/tools/sprays/red.png" width="128" height="128"/>
+          <img id="spray--orange" src$="[[importPath]]img/tools/sprays/orange.png" width="128" height="128"/>
+          <img id="spray--yellow" src$="[[importPath]]img/tools/sprays/yellow.png" width="128" height="128"/>
+          <img id="spray--green" src$="[[importPath]]img/tools/sprays/green.png" width="128" height="128"/>
+          <img id="spray--cyan" src$="[[importPath]]img/tools/sprays/cyan.png" width="128" height="128"/>
+          <img id="spray--purple" src$="[[importPath]]img/tools/sprays/purple.png" width="128" height="128"/>
+          <img id="spray--pink" src$="[[importPath]]img/tools/sprays/pink.png" width="128" height="128"/>
+          <img id="spray--blue" src$="[[importPath]]img/tools/sprays/blue.png" width="128" height="128"/>
+          <img id="snowman" src$="[[importPath]]img/tools/decorations/snowman.svg" width="84" height="138"/>
+          <img id="bauble" src$="[[importPath]]img/tools/decorations/bauble.svg" width="75" height="128"/>
+          <img id="bow" src$="[[importPath]]img/tools/decorations/bow.svg" width="127" height="94"/>
+          <img id="holly" src$="[[importPath]]img/tools/decorations/holly.svg" width="120" height="138"/>
         </div>
       </div>
     </div>

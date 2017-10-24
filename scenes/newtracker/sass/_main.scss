@@ -96,50 +96,33 @@
     }
   }
 
-  // regular mode
-  &:not(.minimal-ui) {
-    // iPad horizontal gets all cards (normal)
-    // iPad vertical gets three cards
-    @media (max-width: (1024px - 1px)) {
-      article.rotate-videos {
-        display: none;
-        background: none !important;
-      }
+  // iPad horizontal gets all cards (normal)
+  // iPad vertical gets three cards
+  @media (max-width: (1024px - 1px)) {
+    article.rotate-videos {
+      display: none;
+      background: none !important;
     }
-    // any smaller gets two cards, and shrunk to the right
-    @media (max-width: (768px - 1px)) and (min-height: (320px + 1px)) {
-      article.rotate-games {
-        display: none;
-        background: none !important;
-      }
-
-      min-width: 110vw;
-      padding-right: 0;
-
-      article {
-        max-width: 60vw;
-      }
+  }
+  // any smaller gets two cards, and shrunk to the right
+  @media (max-width: (768px - 1px)) and (min-height: (320px + 1px)) {
+    article.rotate-games {
+      display: none;
+      background: none !important;
     }
 
-    // smaller than 320px gets massively reduced UI
-    @media (max-height: 320px) {
-      article.rotate {
-        display: none !important;
-      }
+    min-width: 110vw;
+    padding-right: 0;
+
+    article {
+      max-width: 60vw;
     }
   }
 
-  // chromecast mode
-  &.minimal-ui {
-    justify-content: space-between;
-    bottom: 8%;
-    left: 5%;
-    right: 5%;
-    width: auto;
-
-    article {
-      border-radius: 8px;
-      height: 188px;
+  // smaller than 320px gets massively reduced UI
+  @media (max-height: 320px) {
+    article.rotate {
+      display: none !important;
     }
   }
 }

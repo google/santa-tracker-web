@@ -1,0 +1,113 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../components/polymer/polymer.html" />
+
+<!--
+An i18n-msg element for internationalization during Santa Tracker development. This is explicitly
+excluded from the prod build, and <i18n-msg> should never appear there. Inspired by ebidel@'s
+i18n-msg, but is a total rewrite.
+-->
+<dom-module id="i18n-msg">
+<script>
+(function() {
+
+const baseUrl = '/_messages/';  // TODO(samthor): make configurable
+const _instances = new Set();
+let _futureMessages = fetchMessages();
+
+function fetchMessages() {
+  const lang = document.documentElement.lang || 'en';
+  const out = window.fetch(baseUrl + lang + '.json').then(function(out) {
+    return out.json();
+  });
+  out.then(function(data) {
+    // data changed, notify all instances of new data
+    _instances.forEach(function(instance) {
+      instance._updateMessages(data);
+    });
+  });
+  return out;
+}
+
+const observer = new MutationObserver(function() {
+  _futureMessages = fetchMessages();  // refetch if lang changes
+});
+observer.observe(document.documentElement, {attributes: true, attributeFilter: ['lang']});
+
+Polymer({
+  is: 'i18n-msg',
+
+  properties: {
+    /**
+     * The message id (key) for this message.
+     */
+    msgid: {
+      type: String,
+      value: null,
+      observer: '_idChanged',
+    },
+
+    /**
+     * The message in the current locale.
+     */
+    msg: {
+      type: String,
+      readOnly: true,
+      notify: true,
+      observer: '_msgChanged',
+    },
+
+  },
+
+  _idChanged: function(msgid) {
+    if (!msgid) {
+      return;  // only bother if msgid is truthy
+    }
+
+    const p = _futureMessages;
+    p.then(function(data) {
+      if (p !== _futureMessages || msgid !== this.msgid) {
+        return;  // something changed
+      }
+      this._updateMessages(data);
+    }.bind(this));
+  },
+
+  _msgChanged: function(msg) {
+    this.innerHTML = msg || '';
+  },
+
+  _updateMessages: function(data) {
+    const value = data[this.msgid];
+    if (value !== undefined && 'message' in value) {
+      this._setMsg(value.message || '');
+    } else {
+      console.warn(this.msgid, 'not found');
+    }
+  },
+
+  attached: function() {
+    _instances.add(this);
+  },
+
+  detached: function() {
+    _instances.delete(this);
+  },
+
+});
+
+}());
+</script>
+</dom-module>

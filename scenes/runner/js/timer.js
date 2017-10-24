@@ -18,7 +18,7 @@ goog.provide('app.Timer');
 
 /**
  * A timer object that wraps setTimeout and allows pause and resume.
- * @param {function} callback
+ * @param {function()} callback
  * @param {number} delay
  * @constructor
  */

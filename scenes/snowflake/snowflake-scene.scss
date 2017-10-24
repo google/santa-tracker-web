@@ -10,6 +10,11 @@ $rotate-bg: $gameover-bg;
 @import "sass/message";
 @import "sass/environment";
 
+#blocklyArea {
+  position: absolute;
+  top: 0;
+}
+
 ##{$name} {
   position: absolute;
   top: 0;
@@ -192,6 +197,7 @@ $rotate-bg: $gameover-bg;
    width: 100%;
 }
 .button-share-snow {
+  visibility: var(--link-visibility);
   padding: 0 16px;
   pointer-events: auto;
 }

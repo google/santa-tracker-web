@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Dit lyk asof ons ons verbinding met die Noordpool verloor het. Kersvader se elfies werk hard om dit reg te maak – hou net vas!"
+		"message": "Daar was 'n probleem, maar Kersvader se elwe is besig om dit te ondersoek."
 	},
 	"error-lost-connection": {
 		"message": "Dit lyk asof ons ons verbinding met die Noordpool verloor het. Kersvader se elfies werk hard om dit reg te maak – hou net vas!"
+	},
+	"error-not-found": {
+		"message": "Agge nee, Kersvader se elwe kan nie hierdie bladsy vind nie! Dit sal dalk beter wees as jy teruggaan na \u003ca href=\"./village.html\"\u003eKersvader se dorpie\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Probeer weer"
@@ -882,13 +885,13 @@
 		"message": "Kunsledemate"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Kies 'n ornament met jou gunsteling-liefdadigheid en begin inkleur!"
+		"message": "Kies 'n ornament en begin inkleur."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Deel jou kuns met jou familie en vriende!"
+		"message": "Deel jou kuns met jou familie en vriende sodat hulle ook kan leer."
 	},
 	"nonprofit-intro-type": {
-		"message": "Ondersteun die liefdadigheid-organisasies wat ons wêreld pragtig en vol hulpbronne help hou, deur hierdie versameling ornamente in te kleur. Wys dan jou belangstelling in hierdie goeie sake deur dit aan jou Kersboom te hang of dit vir jou geliefdes te gee!"
+		"message": "Ons het 'n vennootskap met Google.org aangegaan om vyf opvoedkundige niewinsorganisasies ten toon te stel wat reg deur die jaar die seisoen van welwillendheid vier. Rollees af om meer te wete te kom oor hoe elke organisasie teruggee. Wys jou ondersteuning deur hierdie versameling ornamente in te kleur en hulle dan aan jou boom te hang of vir jou geliefdes te gee."
 	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eVerken die sjimpansee-habitatte\u003c/a\u003e in Gombe, Tanzanië."
@@ -1977,7 +1980,7 @@
 		"message": "Lima"
 	},
 	"trivia_beginner_042": {
-		"message": "Die Eiffel-toring staan naby die Seine en kyk uit oor die middestad van watter Franse stad?"
+		"message": "Die Eiffeltoring staan naby die Seine en kyk uit oor die middestad van watter Franse stad?"
 	},
 	"trivia_beginner_042_answer0": {
 		"message": "Parys"

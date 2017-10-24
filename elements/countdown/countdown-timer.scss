@@ -1,98 +1,112 @@
-$counterMargin: 7px;
+$normal-size: 77px;
+$small-size: 65px;
+$tick-time: 0.6s;  // time for number to tick over
 
-$digitWidth: 38px;
-$digitHeight: 27px;
-$digitLineHeight: 53px;
-
-[hidden] {
-  display: none !important;
+:host {
+  display: block;
+  will-change: transform;
+  transform: translateZ(0);
 }
+
 #counter {
+  @apply --layout-horizontal;
   user-select: none;
 
-  .counter-box {
-    width: 77px;
-    height: 77px;
-    position: relative;
-    margin: 0 2px;
+  // nb: we expand #counter up/down so that its layer can include the animation, otherwise the
+  // outer element (or at worst, the page) needs rerendering.
+  $overflow: ceil($normal-size / 2);
+  margin: -($overflow) 0;
+  padding: $overflow 0;
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+}
 
-    &::before {
-      content: "";
-      background: url(img/number-bg.svg);
-      background-size: contain;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0.8;
-    }
+.counter-box {
+  width: $normal-size;
+  height: $normal-size;
+  position: relative;
+  margin: 0 2px;
 
-    .holder {
-      font-size: 34px;
-      color: white;
-      font-weight: 700;
-      line-height: 77px;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      box-sizing: border-box;
-      transform: translateZ(0);
-      will-change: transform;
-      text-shadow: none;
-    }
-    .holder.prev {
+  &::before {
+    content: '';
+    background: url(img/number-bg.svg);
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+  }
+
+  .holder {
+    font-size: 34px;
+    color: white;
+    font-weight: 800;
+    line-height: $normal-size;
+    text-shadow: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateY(0);
+    will-change: transform;
+    z-index: 100;
+    animation-duration: $tick-time;
+
+    &.prev {
       transform: translateY(100%);
       opacity: 0;
     }
+  }
 
-    &.anim {
-      .holder.active {
-        animation: counter-step-active 0.4s;
-      }
-      .holder.prev {
-        animation: counter-step-prev 0.4s;
-      }
+  &.anim {
+    .holder.active {
+      animation-name: counter-step-active;
+    }
+    .holder.prev {
+      animation-name: counter-step-prev;
     }
   }
+}
 
-  // NOTE: This is $width-twocol from village
-  @media (max-width: 600px) {
-    .counter-box {
-      width: 65px;
-      height: 65px;
-      .holder {
-        line-height: 65px;
-        font-size: 28px;
-      }
+// NOTE: This is $width-twocol from village
+@media (max-width: 600px) {
+  .counter-box {
+    width: $small-size;
+    height: $small-size;
+    .holder {
+      line-height: $small-size;
+      font-size: 28px;
     }
   }
+}
 
-  h2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    margin: 0 !important;
-  }
-
-  h2 {
-    font-size: 12px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    color: #fff;
-    margin: 6px 0;
-    line-height: 12px;
-    text-transform: uppercase;
-  }
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 @keyframes counter-step-active {
-  0% { transform: translateY(50%); opacity: 0; }
-  100% { transform: translateY(0%); opacity: 1; }
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 @keyframes counter-step-prev {
-  0% { transform: translateY(0%); opacity: 1; }
-  100% { transform: translateY(-50%); opacity: 0; }
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
 }

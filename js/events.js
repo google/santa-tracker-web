@@ -16,6 +16,7 @@
 
 /**
  * Simple events system.
+ *
  * @constructor
  */
 function EventsManager() {
@@ -25,6 +26,7 @@ function EventsManager() {
 
 /**
  * Gets or creates the events table for the specified object.
+ *
  * @param {!Object} o
  * @return {!Map<string, !Set<function(...*)>>}
  */
@@ -39,6 +41,7 @@ EventsManager.prototype.getTable_ = function(o) {
 
 /**
  * Adds a listener for an event on a target object.
+ *
  * @param {!Object} o
  * @param {string} eventName
  * @param {function(...*)} listener
@@ -55,6 +58,7 @@ EventsManager.prototype.addListener = function(o, eventName, listener) {
 
 /**
  * Removes a listener for an event on a target object.
+ *
  * @param {!Object} o
  * @param {string} eventName
  * @param {function(...*)} listener
@@ -68,6 +72,7 @@ EventsManager.prototype.removeListener = function(o, eventName, listener) {
 
 /**
  * Triggers a given event on a target object.
+ *
  * @param {!Object} o
  * @param {string} eventName
  * @param {*=} var_args

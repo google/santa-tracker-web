@@ -16,8 +16,6 @@
 
 goog.provide('LevelModel');
 
-goog.require('app.utils');
-
 /**
  * @constructor
  * @param {!jQuery} elem
@@ -182,7 +180,7 @@ LevelModel.prototype.shuffleCards = function(cards) {
  */
 LevelModel.prototype.shuffle_ = function(cards, pattern, level) {
   if (pattern === 'random') {
-    return app.utils.shuffleArray(cards);
+    return shuffleArray(cards);
   } else {
     return this.patternShuffle_(cards, pattern, level);
   }

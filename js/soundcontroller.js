@@ -91,25 +91,25 @@ SoundController.SoundDetail;
  */
 SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
-  Klang.init(this.baseUrl_ + klangConfigSrc, success => {
-    if (success) {
-      this.klangLoaded_ = true;
-
-      document.addEventListener('touchend', function startIOS() {
-        Klang.initIOS();
-        console.log('initIOS');
-        document.removeEventListener('touchend', startIOS);
-      });
-
-      // Run any queued loads of sound sets. Usually only one set of sounds has
-      // been queued, but prioritize the most recent in case of more.
-      for (let i = this.loadQueue_.length - 1; i >= 0; i--) {
-        this.triggerSoundsLoad_(this.loadQueue_[i]);
-      }
-      this.loadQueue_ = [];
-    } else {
-      console.log('Klang failed to load');
+  Klang.init(this.baseUrl_ + klangConfigSrc, (success) => {
+    if (!success) {
+      return console.warn('Klang failed to load');
     }
+
+    this.klangLoaded_ = true;
+
+    document.addEventListener('touchend', function startIOS() {
+      Klang.initIOS();
+      console.debug('initIOS');
+      document.removeEventListener('touchend', startIOS);
+    });
+
+    // Run any queued loads of sound sets. Usually only one set of sounds has
+    // been queued, but prioritize the most recent in case of more.
+    for (let i = this.loadQueue_.length - 1; i >= 0; i--) {
+      this.triggerSoundsLoad_(this.loadQueue_[i]);
+    }
+    this.loadQueue_ = [];
   });
 };
 
@@ -121,8 +121,9 @@ SoundController.prototype.loadKlangConfig_ = function() {
 SoundController.prototype.loadSounds = function(loadEvent) {
   this.loadingSounds_ = /** @type {string} */ (loadEvent.detail);
 
-  // a new load has been triggered, so cancel any existing queued ambient sounds
-  this.soundQueue_ = [];
+  // nb. Historically, we removed the soundQueue_ (except for 'global_'-prefixed sounds) on
+  // loadSounds. This doesn't seem to be required, and we now want to preload while the previous
+  // scene is loading.
 
   if (!this.klangLoaded_) {
     // Sound loads predominantly only happen in onPreload, so will only be
@@ -142,35 +143,37 @@ SoundController.prototype.loadSounds = function(loadEvent) {
  */
 SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
   // Klang is already loaded, so attempt to load sound files
-  Klang.triggerEvent(soundsName,
-    function success() {
-      // If this is also the most recently loaded set of sounds, play all queued
-      // ambient sounds and clear queue.
-      if (soundsName === this.loadingSounds_) {
-        for (let i = 0; i < this.soundQueue_.length; i++) {
-          // Fine to play them all. Klang appears to correctly handle running
-          // even scene_start and scene_end ambient sounds back to back.
-          console.log('Klang: playing queued sound ' + this.soundQueue_[i]);
-          this.triggerSound_(this.soundQueue_[i]);
-        }
-        this.loadingSounds_ = null;
-        this.soundQueue_ = [];
-      }
 
-      // Signal that sounds have loaded (after any queued sounds have begun).
-      this.loadCallback_(soundsName);
-      console.log('Klang: loaded sound ' + soundsName);
-    }.bind(this),
-    function progress() {
-      // for now, we don't care about this
-    },
-    function failure() {
-      console.warn('Klang failed to load ' + soundsName);
-      if (soundsName === this.loadingSounds_) {
-        this.loadingSounds_ = null;
-        this.soundQueue_ = [];
+  const success = () => {
+    // If this is also the most recently loaded set of sounds, play all queued
+    // ambient sounds and clear queue.
+    if (soundsName === this.loadingSounds_) {
+      for (let i = 0; i < this.soundQueue_.length; ++i) {
+        // Fine to play them all. Klang appears to correctly handle running
+        // even scene_start and scene_end ambient sounds back to back.
+        console.log('Klang: playing queued sound', this.soundQueue_[i]);
+        this.triggerSound_(this.soundQueue_[i]);
       }
-    }.bind(this));
+      this.loadingSounds_ = null;
+      this.soundQueue_ = [];
+    }
+
+    // Signal that sounds have loaded (after any queued sounds have begun).
+    this.loadCallback_(soundsName);
+    console.log('Klang: loaded sound', soundsName);
+  };
+
+  const progress = () => {};  // for now, we don't care about this
+
+  const failure = () => {
+    console.warn('Klang: failed to load', soundsName);
+    if (soundsName === this.loadingSounds_) {
+      this.loadingSounds_ = null;
+      this.soundQueue_ = [];
+    }
+  };
+
+  Klang.triggerEvent(soundsName, success, progress, failure);
 };
 
 /**
@@ -214,8 +217,8 @@ SoundController.prototype.playSound = function(loadEvent) {
  * @private
  */
 SoundController.prototype.triggerSound_ = function(sound) {
-  const soundName = typeof sound === 'string' ? sound : sound.name;
-  let args = [soundName];
+  const soundName = (typeof sound === 'string') ? sound : sound.name;
+  const args = [soundName];
 
   if (sound['args'] && Array.isArray(sound['args'])) {
     [].push.apply(args, sound['args']);

@@ -161,15 +161,15 @@
         right: 116px;
         font-size: 40px;
         color: white;
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Lobster', sans-serif;
         overflow: hidden;
         line-height: 1;
 
         &:before {
           content: '0';
           position: absolute;
-          left: 10px;
-          top: 14px;
+          left: 24px;
+          top: 10px;
           text-shadow: -2px 0px 0px rgba(255, 255, 255, 0.75);
           opacity: 0.8;
         }
@@ -177,8 +177,8 @@
         &:after {
           content: '3';
           position: absolute;
-          right: 10px;
-          top: 14px;
+          right: 22px;
+          top: 10px;
           text-shadow: -2px 0px 0px rgba(255, 255, 255, 0.75);
           opacity: 0.8;
         }

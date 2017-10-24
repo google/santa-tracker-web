@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Vi har nettopp mistet forbindelsen med Nordpolen. Nissens alver jobber hardt for å løse problemet. Følg med!"
+		"message": "Det har oppstått et problem, men Julenissens hjelpere er på saken."
 	},
 	"error-lost-connection": {
 		"message": "Vi har nettopp mistet forbindelsen med Nordpolen. Nissens alver jobber hardt for å løse problemet. Følg med!"
+	},
+	"error-not-found": {
+		"message": "Å nei! Julenissens hjelpere finner ikke denne siden. Kanskje du har bedre hell hvis du går tilbake til \u003ca href=\"./village.html\"\u003eJulenissens landsby\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Prøv igjen"
@@ -882,13 +885,13 @@
 		"message": "Proteser"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Velg julekulen for favorittorganisasjonen din, og farg i vei!"
+		"message": "Velg en julekule, og farg i vei."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Del kunsten din med familie og venner!"
+		"message": "Del kunsten din med familie og venner, slik at de også kan lære."
 	},
 	"nonprofit-intro-type": {
-		"message": "Støtt de veldedige organisasjonene som bidrar til å gjøre verden til et bedre sted, ved å fargelegge denne samlingen med julekuler. Vis deretter at du engasjerer deg i disse gode sakene, ved å henge pynten på juletreet ditt eller gi den bort til familie og venner."
+		"message": "Vi samarbeider med Google.org for å promotere fem veldedige utdanningsorganisasjoner som sprer giverglede året rundt. Bla nedover for å finne ut mer om hvordan hver av disse organisasjonene gjør nettopp dette. Vis din støtte din ved å fargelegge disse julekulene og henge dem på treet ditt eller gi dem bort til kjente og kjære."
 	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforsk sjimpansenes leveområder\u003c/a\u003e i Gombe, Tanzania."

@@ -489,7 +489,7 @@
 		"message": "Cuba"
 	},
 	"cz_country_name": {
-		"message": "Czech Republic"
+		"message": "Czechia"
 	},
 	"da_language_name": {
 		"message": "Danish"
@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
+		"message": "Nagkaproblema, pero sinusuri ito ng mga Elf ni Santa."
 	},
 	"error-lost-connection": {
 		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
+	},
+	"error-not-found": {
+		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa \u003ca href=\"./village.html\"\u003eSanta's Village\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Subukang muli"
@@ -882,13 +885,13 @@
 		"message": "Mga Artipisyal na Braso't Binti"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Pumili ng ornamento na may paborito mong kawanggawa at simulan ang pagkulay!"
+		"message": "Pumili ng ornament at simulan ang pagkulay."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Ibahagi ang iyong sining sa iyong pamilya at mga kaibigan!"
+		"message": "Ibahagi ang iyong sining sa iyong pamilya at mga kaibigan upang matuto rin sila."
 	},
 	"nonprofit-intro-type": {
-		"message": "Suportahan ang mga organisasyong pangkawanggawa na tumutulong na panatilihing maganda at maparaan ang ating mundo sa pamamagitan ng pagkulay sa koleksyong ito ng mga ornamento. Pagkatapos ay ipakita ang iyong interes sa mga layuning ito sa pamamagitan ng pagsabit ng mga ito sa iyong Christmas tree o sa pagregalo ng mga ito sa iyong mga mahal sa buhay!"
+		"message": "Nakipagsosyo kami sa Google.org upang maipakita ang limang pang-edukasyong non-profit na buong taong ipinagdiriwang ang panahon ng pagbibigay. Mag-scroll pababa at alamin pa ang tungkol sa kung paano nagbibigay ang bawat organisasyon. Ipakita ang iyong suporta sa pamamagitan ng pagkulay nitong koleksyon ng mga ornament at pagkatapos ay pagsasabit ng mga ito sa iyong puno o pagreregalo ng mga ito sa iyong mga mahal sa buhay."
 	},
 	"nonprofit-jane-description": {
 		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
@@ -975,7 +978,7 @@
 		"message": "Itigil ang mga ito"
 	},
 	"notification_notice": {
-		"message": "Babalitaan ka ng Elves ni Santa tungkol sa schedule ni Santa"
+		"message": "Babalitaan ka ng mga elf ni Santa tungkol sa iskedyul ni Santa"
 	},
 	"notification_prompt": {
 		"message": "Panatilihing up-to-date ako kay Santa"
@@ -2784,7 +2787,7 @@
 		"message": "Anong bansa ang hindi matatagpuan sa Balkan Peninsula?"
 	},
 	"trivia_hard_012_answer0": {
-		"message": "Czech Republic"
+		"message": "Czechia"
 	},
 	"trivia_hard_012_answer1": {
 		"message": "Bulgaria"
@@ -4197,7 +4200,7 @@
 		"message": "Kinshasa"
 	},
 	"trivia_medium_025": {
-		"message": "Matatagpuan sa Vltava River, anong kabisera ang pinakalamaking lungsod sa\nCzech Republic?"
+		"message": "Matatagpuan sa Vltava River, anong kabisera ang pinakalamaking lungsod sa\nCzechia?"
 	},
 	"trivia_medium_025_answer0": {
 		"message": "Prague"
@@ -5151,7 +5154,7 @@
 		"message": "Bumalik sa ika-24 at tulungan kaming subaybayan si Santa buong gabi!"
 	},
 	"village_explore": {
-		"message": "Mag-explore, maglaro at matuto sa mga Elf ni Santa buong Disyembre"
+		"message": "Mag-explore, maglaro, at matuto kasama ang mga elf ni Santa buong Disyembre"
 	},
 	"village_get_the_app": {
 		"message": "Kunin ang Santa Tracker App para sa Android"

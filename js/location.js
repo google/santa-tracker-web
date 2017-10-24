@@ -95,7 +95,8 @@ SantaLocation = function SantaLocation(destination, fetchDetails, array, index) 
 }
 
 /**
- * Total distance travelled in metres.
+ * Total distance travelled in meters.
+ *
  * @return {number}
  * @export
  */
@@ -151,6 +152,7 @@ SantaLocation.prototype.getLocation = function() {
 
 /**
  * Returns the distance between this location and a given LatLng.
+ *
  * @param {LatLng} to
  * @return {number} in meters
  * @export

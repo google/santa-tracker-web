@@ -39,6 +39,7 @@ Analytics.prototype.THROTTLE_TIME_ = 10; // 10ms
  * sent to analytics. Use unique names if a race condition between timings is
  * possible; if a start time with the same names is registerd without an end
  * time in between, the original start time is discarded.
+ *
  * @param {string} category Category of timing (e.g. 'Assets load time')
  * @param {string} variable Name of the timing (e.g. 'polymer-ready')
  * @param {number} timeStart A timestamp associated with start, in ms.
@@ -53,6 +54,7 @@ Analytics.prototype.timeStart = function(category, variable, timeStart) {
  * Ends a timing event. The difference between the time associated with this
  * event and the timeStart event with the matching category and variable names
  * is sent to analytics. If no match can be found, the time is discarded.
+ *
  * @param {string} category Category of timing (e.g. 'Assets load time')
  * @param {string} variable Name of the timing (e.g. 'polymer-ready')
  * @param {number} timeEnd A timestamp associated with end, in ms.
@@ -87,6 +89,7 @@ Analytics.prototype.trackEvent = function(category, action, opt_label, opt_value
 
 /**
  * Tracks that a game has started.
+ *
  * @param {string} gameId module id.
  * @export
  */
@@ -96,6 +99,7 @@ Analytics.prototype.trackGameStart = function(gameId) {
 
 /**
  * Tracks that the user quit the game before finishing it.
+ *
  * @param {string} gameId module id.
  * @param {number} level
  * @param {number} timePlayed milliseconds played.
@@ -107,7 +111,8 @@ Analytics.prototype.trackGameQuit = function(gameId, level, timePlayed) {
 };
 
 /**
- * Tracks when a game has completed (i.e. the user lost the game).
+ * Tracks when a game has completed (i.e., the user won/lost a game).
+ *
  * @param {string} gameId module id.
  * @param {number} score
  * @param {number} level

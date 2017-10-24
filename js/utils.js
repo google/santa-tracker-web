@@ -16,38 +16,44 @@
 
 /**
  * Pads an integer to have two digits.
+ *
  * @param {number} n
  * @return {string}
  * @export
  */
 function padDigits(n) {
-  if (n > 9) {
-    return '' + n;
+  n = Math.floor(n);
+  if (isNaN(n) || n < 0 || n >= 10) {
+    return String(n);
   }
   return '0' + n;
 }
 
 /**
- * Returns a random number in the range [min,max).
+ * Returns a random number in the range [min,max). This number will likely not be an integer.
+ *
  * @param {number} min
- * @param {number=} opt_max
+ * @param {number=} max 
  * @return {number}
  * @export
  */
-function randomRange(min, opt_max) {
-  var max = opt_max || 0;
+function randomRange(min, max = undefined) {
+  if (max === undefined) {
+    [min, max] = [0, min];
+  }
   return min + Math.random() * (max - min);
 }
 
 /**
  * Returns a random choice from the given array or array-like.
+ *
  * @param {!IArrayLike} array
  * @return {*}
  * @export
  */
 function randomChoice(array) {
   if (array.length) {
-    var idx = Math.floor(Math.random() * array.length);
+    const idx = Math.floor(Math.random() * array.length);
     return array[idx];
   }
   return null;
@@ -55,34 +61,34 @@ function randomChoice(array) {
 
 /**
  * Shuffles an array.
+ *
  * @param {!IArrayLike<T>} opts to shuffle
- * @param {number=} opt_limit return only this many elements
+ * @param {number=} limit return only this many elements
  * @return {!Array<T>}
  * @template T
  * @export
  */
-function shuffleArray(opts, opt_limit) {
+function shuffleArray(opts, limit = undefined) {
   opts = Array.prototype.slice.call(opts);
-  opts.sort(function(a, b) {
-    return Math.random() - 0.5;
-  });
-  if (opt_limit !== undefined) {
-    return opts.slice(0, Math.floor(opt_limit));
+  opts.sort((a, b) => Math.random() - 0.5);
+  if (limit !== undefined) {
+    return opts.slice(0, Math.floor(limit));
   }
   return opts;
 }
 
 /**
  * Checks whether the passed dates are the same calendar day.
+ *
  * @param {!Date} date1
  * @param {!Date} date2
  * @return {boolean} whether the dates are the same calendar day
  * @export
  */
 function isSameDay(date1, date2) {
-  return date1.getMonth() == date2.getMonth() &&
-         date1.getDate() == date2.getDate() &&
-         date1.getYear() == date2.getYear();
+  return date1.getDate() === date2.getDate() &&
+         date1.getMonth() === date2.getMonth() &&
+         date1.getYear() === date2.getYear();
 }
 
 /**
@@ -102,7 +108,7 @@ function getUrlParameters() {
   const out = {};
   const search = window.location.search || '?';
 
-  search.substr(1).split('&').forEach(part => {
+  search.substr(1).split('&').forEach((part) => {
     if (!part) {
       return;
     }
@@ -120,43 +126,77 @@ function getUrlParameters() {
 
 /**
  * Throttle calls to a function
+ *
  * @param {function(...*)} func
  * @param {number} ms at most one per this many ms
  * @return {function(...*)}
  * @export
  */
 function throttle(func, ms) {
-  var timeout, last = 0;
+  let timeout = 0;
+  let last = 0;
   return function() {
-    var a = arguments, t = this, now = +(new Date);
-    var fn = function() { last = now; func.apply(t,a); };
+    const a = arguments, t = this, now = +(new Date);
+    const fn = function() {
+      last = now;
+      func.apply(t,a);
+    };
     window.clearTimeout(timeout);
     (now >= last + ms) ? fn() : timeout = window.setTimeout(fn, ms);
   }
 }
 
 /**
- * Returns an array of all scene IDs (e.g., dorf, boatload) which are cached.
+ * Splits a countdown (in ms) into days, hours, minutes, and seconds. Does not return -ve numbers.
+ *
+ * @param {number} ms countdown in milliseconds
+ * @return {{days: number, hours: number, minutes: number, seconds: number}}
  * @export
+ */
+function countdownSplit(ms) {
+  ms = Math.max(0, ms);
+  const msPerDay = 24 * 60 * 60 * 1000;
+
+  const daysX = ms / msPerDay;
+  const days = Math.floor(daysX);
+
+  const hoursX = (daysX - days) * 24;
+  const hours = Math.floor(hoursX);
+
+  const minutesX = (hoursX - hours) * 60;
+  const minutes = Math.floor(minutesX);
+
+  const secondsX = (minutesX - minutes) * 60;
+  const seconds = Math.floor(secondsX);
+
+  return {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds};
+}
+
+/**
+ * Returns an array of all scene IDs (e.g., dorf, boatload) which are cached.
+ *
  * @return {!Promise<!Array<string>>}
+ * @export
  */
 function getCachedScenes() {
   const caches = window.caches; 
-  if (typeof caches === 'undefined') { return Promise.resolve([]); }
+  if (typeof caches === 'undefined') {
+    return Promise.resolve([]);
+  }
 
   return caches.open('persistent')
-    .then(cache => cache.match(window.location.origin + '/manifest.json'))
-    .then(response => response.json())
-    .then(json => json.version)
-    .then(version => caches.open(version))
-    .then(cache => cache.keys())
-    .then(requests => {
-      const urls = requests.map(r => r.url);
-      const matches = urls.map(url => url.match(/\/scenes\/(\w+)\//));
-      return [...new Set(matches.filter(m => m).map(m => m[1]))];
+    .then((cache) => cache.match(window.location.origin + '/manifest.json'))
+    .then((response) => response.json())
+    .then((json) => caches.open(json['version']))
+    .then((cache) => cache.keys())
+    .then((requests) => {
+      const urls = requests.map((r) => r.url);
+      const matchesRe = urls.map((url) => url.match(/\/scenes\/(\w+)\//));
+      const matches = matchesRe.filter((m) => m).map((m) => m[1]);
+      return Array.from(new Set(matches));
     })
-    .catch(error => {
-      console.error('Couldn\'t retrieve cached scenes.', error);
+    .catch((error) => {
+      console.error(`couldn't retrieve cached scenes`, error);
       return [];
     });
 }

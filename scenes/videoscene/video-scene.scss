@@ -1,5 +1,9 @@
 $name: 'module-video';
 
+.fit {
+  @apply --layout-fit;
+}
+
 ##{$name} {
   background: #000;
 

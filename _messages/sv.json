@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Vi verkar ha tappat anslutningen till Nordpolen. Jultomtens nissar jobbar frenetiskt för att rätta till det – kom snart tillbaka!"
+		"message": "Det uppstod ett problem men jultomtens nissar försöker lösa det."
 	},
 	"error-lost-connection": {
 		"message": "Vi verkar ha tappat anslutningen till Nordpolen. Jultomtens nissar jobbar frenetiskt för att rätta till det – kom snart tillbaka!"
+	},
+	"error-not-found": {
+		"message": "Åh nej! Jultomtens nissar kan inte hitta sidan! Du kanske lyckas bättre om du går tillbaka till \u003ca href=\"./village.html\"\u003eTomtebyn\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Försök igen"
@@ -882,13 +885,13 @@
 		"message": "Proteser"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Välj en dekoration med en välgörenhetsorganisation du gillar och börja måla!"
+		"message": "Välj en dekoration och färglägg den."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Dela dina mästerverk med vänner och familj!"
+		"message": "Dela dina mästerverk med vänner och familj så att de också kan lära sig."
 	},
 	"nonprofit-intro-type": {
-		"message": "Stötta välgörenhetsorganisationerna som arbetar för att göra världen bättre genom att färglägga de här dekorationerna. Sedan kan du visa vilka organisationer du gillar genom att hänga dem i julgranen eller ge bort dem till dina nära och kära!"
+		"message": "Vi samarbetar med Google.org för att berätta om fem ideella utbildningsorganisationer som ger till andra året om. Rulla nedåt och lär dig om hur varje organisation arbetar. Visa ditt stöd genom att färglägga de här dekorationerna och hänga dem i granen eller ge dem till personer du tycker om."
 	},
 	"nonprofit-jane-description": {
 		"message": "Schimpanser är de närmaste nu levande släktingar mänskligheten har i djurriket! I dag finns färre än 300 000 schimpanser kvar i världen på grund av minskade utbredningsområden, sjukdomar och olaglig handel. Jane Goodall Institute (JGI) arbetar för att skydda schimpanserna genom att observera och förstå deras beteende och livsmiljö. JGI strävar efter att bygga upp ett nätverk av människor som skyddar och bevarar vilda djur och vår gemensamma miljö. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforska schimpansernas livsmiljö\u003c/a\u003e i Gombe i Tanzania."

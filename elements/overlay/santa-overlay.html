@@ -50,7 +50,7 @@ Shared overlay for Santa Tracker games.
         </button>
         <a class="Button" href$="[[urlFor('village')]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
       </section>
-      <section class$="[[_computeShareAreaClass(shareUrl)]]">
+      <section id="shareArea" class$="[[_computeShareAreaClass(shareUrl)]]">
         <div hidden$="[[!shareUrl]]">
           <h4><i18n-msg msgid="copy-me-short">PLACEHOLDER_i18n</i18n-msg></h4>
           <input id="url" type="url" readonly value="[[shortShareUrl]]" on-click="_selectUrl" />

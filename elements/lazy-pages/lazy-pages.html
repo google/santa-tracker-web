@@ -13,222 +13,383 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../components/iron-selector/iron-selectable.html">
+
+<link rel="import" href="lazy-pages_module.html">
 
 <!--
 Lazy loads children "pages".
 -->
 <dom-module id="lazy-pages">
   <template>
-    <style>
-      :host {
-        position: static;
-        display: block;
-      }
-      :host ::slotted(*) {
-        position: absolute;
-        top: 44px;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: hidden;  /* explicitly only needed for iOS */
-      }
-      :host ::slotted([mode="cast"]) {
-        top: 0;
-      }
-      :host ::slotted([allow-page-scrolling]) {
-        top: 0;
-        bottom: auto;
-        overflow: auto;
-      }
-      :host ::slotted(*:focus) {
-        outline: none;
-      }
-      :host ::slotted(*:not(.iron-selected)) {
-        display: none !important;
-      }
-
-      [hidden] {
-        display: none !important;
-      }
-      #error {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        min-height: 100vh;
-        box-sizing: border-box;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-        background: url(img/error.svg) bottom center no-repeat;
-        background-size: cover;
-      }
-      .icon {
-        position: relative;
-        width: 250px;
-        height: 250px;
-        border-radius: 10000px;
-        box-shadow: 4px 14px 0 rgba(0,0,0,.125);
-        background: #7ec6e5 url(img/snowman.png) center no-repeat;
-        background-size: 179px 214px;
-      }
-      .lock {
-        width: 100%;
-        height: 100%;
-        border-radius: 10000px;
-        background: rgba(0, 0, 0, 0.125) url(img/lock.svg) center no-repeat;
-      }
-      #error p {
-        margin: 2em auto;
-        max-width: 90%;
-        color: white;
-        font-size: 16px;
-        line-height: 28px;
-        text-align: center;
-      }
-      @media (max-height: 400px) {
-        #error {
-          flex-flow: row;
-        }
-        #error p {
-          margin: 0 2em;
-        }
-        .icon {
-          width: 192px;
-          height: 192px;
-          min-width: 192px;
-          margin: 0 1em;
-        }
-      }
-    </style>
-    <div id="error" hidden$="[[!_showError]]">
-      <div class="icon" style$="[[_computeLockedHouseStyle(lockedHouse)]]">
-        <div class="lock" hidden$="[[!lockedHouse]]"></div>
+    <style include="lazy-pages_module"></style>
+    <div hidden>
+      <!-- low-key preloading -->
+      <img src$="[[importPath]]img/snowman.png" />
+      <img src$="[[importPath]]img/lock.svg" />
+    </div>
+    <div id="error" class$="[[_computeErrorClass(selectedItem, error)]]">
+      <div class="icon">
+        <div class="bg" style$="[[_computeLockStyle(route, error)]]"></div>
+        <div class="lock"></div>
       </div>
-      <p hidden$="[[lockedHouse]]">
+      <!-- TODO(samthor): Restore 'network' error msgid="error-lost" -->
+      <p class="error">
         <i18n-msg msgid="error">PLACEHOLDER_i18n</i18n-msg>
+      </p>
+      <p class="missing">
+        <i18n-msg msgid="error-not-found">PLACEHOLDER_i18n</i18n-msg>
       </p>
     </div>
     <slot name="santa-scene"></slot>
   </template>
   <script>
 (function() {
-  var failedToLoad = {};
+  const failedToLoad = {};
+  const retainAttr = Object.freeze([
+    'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo', 'slot',
+  ]);
+
+  /**
+   * @param {!HTMLElement} scene
+   * @return {!HTMLElement} the clone of scene, if needed
+   */
+  function maybeCloneScene(scene) {
+    if (scene.hasAttribute('permanent')) {
+      return scene;  // don't need to recreate it
+    }
+    // Re-construct removed scene as it's e.g. a game that destructively modifies its DOM. Note
+    // that loading-* isn't copied, since the element is already loaded.
+    const clone = document.createElement(scene.localName);
+    retainAttr.forEach(function(attr) {
+      if (scene.hasAttribute(attr)) {
+        clone.setAttribute(attr, scene.getAttribute(attr));
+      }
+    });
+    // TODO(samthor): Otherwise, the scene itself triggers the `scene-progress` event.
+    clone.loaded = true;
+    return clone;
+  }
 
   Polymer({
     is: 'lazy-pages',
-    behaviors: [Polymer.IronSelectableBehavior],
 
     properties: {
 
       /**
-       * An array of valid route names (e.g., 'village' and 'boatload'). This
-       * is calculated in a subtly different way to that of the selectable
-       * items, and is available earlier in our life cycle.
+       * The error state (if any). Should be null or "network", "locked" etc.
        */
-      validRoutes: {
-        type: Array,
-        notify: true,
-        computed: '_computeValidRoutes(items, attrForSelected)'
-      },
-
-      /** The house, if any, to show as locked. */
-      lockedHouse: {
+      error: {
         type: String,
+        readOnly: true,
         value: null,
       },
 
-      /** Whether an import has recently failed. */
-      _importFailed: {
-        type: Boolean,
-        value: false,
+      /**
+       * An object of route name to scene element.
+       */
+      scenes: {
+        type: Object,
+        readOnly: true,
       },
 
-      /** Whether to show an error. */
-      _showError: {
-        type: Boolean,
-        computed: '_computeShowError(selected, _importFailed, lockedHouse)',
+      /**
+       * The string of the selected route. This changes after a successful load.
+       */
+      route: {
+        type: String,
+        notify: true,
+        observer: '_routeChanged',
+      },
+
+      /**
+       * The scene that's being loaded via hard URL change.
+       */
+      bootstrap: {
+        type: Object,
+        notify: true,
+        readOnly: true,
+      },
+
+      /**
+       * The current loading progress, from zero to 100, or null for none.
+       */
+      progress: {
+        type: Number,
+        notify: true,
+        readOnly: true,
+      },
+
+      /**
+       * The computed selectedItem.
+       */
+      selectedItem: {
+        type: Object,
+        notify: true,
+        readOnly: true,
+        observer: '_selectedItemChanged',
+      },
+
+      /**
+       * The current object/nonce identifying the active load. If this changes, then callbacks
+       * should be dropped.
+       */
+      _loadingPromise: {
+        type: Object,
+        value: Promise.resolve(null),
+      },
+
+      /**
+       * Stores scroll locations (from top), to restore on reload.
+       */
+      _scrollFromTop: {
+        type: Object,
+        value: function() { return new WeakMap(); },
       },
 
     },
 
-    listeners: {'iron-select': '_onIronSelect'},
-
-    isValidRoute: function(route) {
-      return this.getRoute(route) !== null;
+    listeners: {
+      'scene-progress': 'onSceneProgress',
     },
 
+    attached: function() {
+      this._observer = Polymer.dom(this).observeNodes(this._updateScenes);
+      this._updateScenes();
+    },
+
+    detatched: function() {
+      Polymer.dom(this).unobserveNodes(this._observer);
+      this._setScenes(null);
+      this._setSelectedItem(null);
+    },
+
+    onSceneProgress: function(ev) {
+      this._loadingPromise.then(function(scene) {
+        // Update progress bar only if the correct scene is dispatching events.
+        const target = ev.path[0] || null;
+        if (scene === target) {
+          this.cancelDebouncer('resetProgress');
+          this._setProgress(ev.detail);
+        }
+      }.bind(this));
+    },
+
+    load: function(route) {
+      this._loadingPromise = null;  // clear previous load
+
+      // TODO(samthor): Move into common Promise below.
+      if (!this._routeIsOpen(route)) {
+        this.route = route;
+        this._setBootstrap(null);
+        this._setSelectedItem(null);
+        this._setError('locked');
+        this.fire('embed', 'onfailure');
+        this._loadingPromise = Promise.reject('locked');
+        this._setProgress(null);
+        return;
+      }
+
+      const scene = this.getRoute(route);
+      if (!scene) {
+        console.debug('got null scene for', route);
+        this.route = route;
+        this._setBootstrap(null);
+        this._setSelectedItem(null);
+        this._setError(null);
+        this._loadingPromise = Promise.resolve(null);
+        this._setProgress(null);
+        return;
+      }
+
+      const p = this._loadingPromise = this._loadScene(scene);
+      const safe = function(fn) {
+        return function() {
+          if (this._loadingPromise === p) {
+            return fn.apply(this, arguments);
+          }
+        }.bind(this);
+      }.bind(this);
+
+      const loader = p.then(safe(function(scene) {
+        // At this point, scene is a real HTML element ready to be used.
+        return scene.preload.then(safe(function() {
+          this._setSelectedItem(scene);  // actually preloaded, so set item
+          this._setError(null);
+          this.route = route;  // finally update route in case this was a proper .load()
+
+          // log that the scene has finished preloading. If this wasn't a preloaded
+          // load, the event will be discarded harmlessly (no start event).
+          this.fire('analytics-time-end', {category: 'Scene Load Time',
+              variable: this.route, time: Date.now()});
+        }));
+
+      })).catch(safe(function(reason) {
+        console.warn('lazy-pages', scene && scene.localName, 'failure', reason);
+        this.fire('embed', 'onfailure');
+        this._setSelectedItem(null);
+        if (typeof reason !== 'string') {
+          this._setError('error');
+          throw reason;
+        }
+        this._setError(reason);
+      }));
+
+      // If noone sets the progress (resetProgress is cleared inside _progressChanged) in a short
+      // time, then set it to zero to show the kickoff. This prevents a 'flash' for already loaded
+      // changes.
+      this.debounce('resetProgress', function() {
+        this._setProgress(0);
+      }, 20);
+
+      loader.then(safe(function() {
+        this.cancelDebouncer('resetProgress');
+        this._setProgress(null);  // regardless of outcome, clear progress bar on completion
+        this._setBootstrap(null);  // and we're no longer bootstrapping
+      }));
+    },
+
+    /**
+     * Revalidate the currently selected scene, if any. May either load or unload the scene.
+     */
+    revalidate: function() {
+      this._routeChanged(this.route);
+    },
+
+    _updateScenes: function() {
+      const nodes = Polymer.dom(this).queryDistributedElements('[route]');
+      const scenes = {};
+
+      for (let i = 0; i < nodes.length; ++i) {
+        const scene = nodes[i];
+        const route = scene.getAttribute('route');
+        if (route) {
+          scenes[route] = scene;
+        }
+      }
+
+      const previousPossibleScene = this.getRoute(this.selected);
+      const candidateScene = scenes[this.selected] || null;
+      this._setScenes(Object.freeze(scenes));
+    },
+
+    /**
+     * Returns the scene with the specified route.
+     */
     getRoute: function(route) {
-      if (this.attrForSelected === undefined) {
-        // This should never happen (attrForSelected is part of IronSelectableBehavior), but for
-        // sanity, return true if this element can't yet determine which route is valid.
-        return true;
-      }
-      if (route) {
-        var q = '[' + this.attrForSelected + '="' + route + '"]';
-        var el = Polymer.dom(this).queryDistributedElements(q);
-        return el[0] || null;
-      }
-      return null;
+      return this.scenes && this.scenes[route] || null;
     },
 
-    _onIronSelect: function() {
-      this._importFailed = false;
-      var scene = this.selectedItem;
-      if (!scene || scene.loaded) { return; }
+    _routeChanged: function(route) {
+      if (route === undefined) {
+        return;  // literally do nothing
+      }
+
+      // TODO(samthor): If this is a revalidation and the route is *correct* but the scene isn't
+      // loaded, then it still triggers bootstrap mode (e.g. network error).
+      const scene = this.getRoute(route);
+      if (scene !== this.selectedItem) {
+        this.fire('bootstrap', scene)
+        this._setBootstrap(scene);
+        this._setSelectedItem(null);
+        this.load(route);
+      }
+    },
+
+    _selectedItemChanged: function(newValue, oldValue) {
+      if (oldValue) {
+        const scrollTop = window.scrollY;
+        if (scrollTop > 0) {
+          // Save the scroll position (midpoint of the page) if it was >0.
+          this._scrollFromTop.set(oldValue, scrollTop + (window.innerHeight / 2));
+        }
+
+        oldValue.removeAttribute('active');
+
+        const scene = maybeCloneScene(oldValue);
+        Polymer.dom(this).replaceChild(scene, oldValue);
+      }
+
+      if (newValue) {
+        newValue.setAttribute('active', '');
+
+        const scrollTopMid = this._scrollFromTop.get(newValue);
+        this._scrollFromTop.delete(newValue);
+        if (scrollTopMid !== undefined) {
+          const scrollTop = scrollTopMid - (window.innerHeight / 2);
+          window.requestAnimationFrame(function() {
+            // this needs to happen in rAF, otherwise the browser might take over.
+            window.scrollTo(0, scrollTop);
+          });
+        }
+      }
+    },
+
+    _loadScene: function(scene) {
+      if (!scene || scene.is) {
+        return Promise.resolve(scene);
+      }
 
       // Grab path from 'path' or 'path$'. The latter is needed as Polymer won't correctly map
       // attributes that have no bindings (e.g. path$="foo" => path$, path$="{{foo}}" => path).
-      var path = scene.getAttribute('path') || scene.getAttribute('path$');
-      if (!path) { return; }
+      const path = scene.getAttribute('path') || scene.getAttribute('path$');
+      if (!path) {
+        return Promise.resolve(scene);
+      }
 
       // Start scene loading time.
       var route = scene.getAttribute('route') || scene.route;
       this.fire('analytics-time-start', {category: 'Scene Load Time',
           variable: route, time: Date.now()});
 
-      // (Re)set the preload bg color and loading image before scene is loaded.
-      this.fire('scene-progress');
-
-      // Work around Polymer's failure to reload failed imports:
-      //   https://github.com/Polymer/polymer/issues/3908
-      // Append a numbered suffix if this is a 2nd failed load. This is stripped in the SW.
-      var attempt = failedToLoad[path] || 0;
-      var attemptSuffix = attempt ? '?' + attempt : '';
-      var resolvedPath = this.resolveUrl('../../' + path);
-      this.importHref(resolvedPath + attemptSuffix, function() {
-        // Great! Nothing else to do here. Load timing ends in SantaSceneBehavior, as it includes
-        // all resource preloading.
-      }, function(e) {
-        failedToLoad[path] = attempt + 1;
-        this._importFailed = true;
-        console.warn('unable to load path', path);
-        this.fire('scene-failure');
+      // TODO: Return a real promise.
+      const p = new Promise(function(resolve, reject) {
+        // Work around Polymer's failure to reload failed imports:
+        //   https://github.com/Polymer/polymer/issues/3908
+        // Append a numbered suffix if this is a 2nd failed load. This is stripped in the SW.
+        const attempt = failedToLoad[path] || 0;
+        const attemptSuffix = attempt ? '?' + attempt : '';
+        const resolvedPath = this.resolveUrl('../../' + path);
+        this.importHref(resolvedPath + attemptSuffix, function() {
+          // Great! Nothing else to do here. Load timing ends in SantaSceneBehavior, as it includes
+          // all resource preloading.
+          if (customElements.get(scene.localName)) {
+            resolve(scene);
+          } else {
+            reject('element');
+          }
+        }, function(e) {
+          failedToLoad[path] = attempt + 1;
+          reject('network');
+        });
       }.bind(this));
+
+      return p;
     },
 
-    _computeShowError: function(selected, importFailed, lockedHouse) {
-      return !selected || importFailed || lockedHouse;
+    /**
+     * @param {string} route to check if open
+     * @return {boolean} is this route open
+     */
+    _routeIsOpen: function(route) {
+      const event = this.fire('beforeload', route, {cancelable: true});
+      return !event.defaultPrevented;
     },
 
-    _computeLockedHouseStyle: function(lockedHouse) {
-      if (!lockedHouse) {
+    _computeErrorClass: function(selected, error) {
+      if (error) {
+        return 'error error-' + error;
+      } else if (selected === null) {  // not undefined
+        return 'missing';
+      }
+      return null;
+    },
+
+    _computeLockStyle: function(route, error) {
+      if (!route || error === 'network') {
         return null;
       }
-      var url = this.resolveUrl('../../images/scenes/' + lockedHouse + '_2x.png');
-      return 'background-image: url(' + url + '); background-size: cover;';
-    },
-
-    _computeValidRoutes: function(items, attrForSelected) {
-      // Items is intentionally unused as it may be empty before this element
-      // is fully attached. Query directly for valid, selectable routes.
-      var els = Polymer.dom(this).queryDistributedElements('[' + attrForSelected + ']');
-      return els.map(function(el) {
-        return el.getAttribute(attrForSelected) || el[attrForSelected];
-      });
+      const url = this.resolveUrl('../../images/scenes/' + route + '_2x.png');
+      return 'background-image: url(' + url + ');'
     },
 
   });

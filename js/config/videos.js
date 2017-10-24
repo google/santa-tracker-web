@@ -16,7 +16,7 @@
 
 window.VIDEOS = {
   'carpool': 'h83b1lWPuvQ',
-  'comroom': '_WdYujHlmHA',  // was com-room
+  'comroom': '_WdYujHlmHA',
   'jingle': 'sQnKCU_A0Yc',
   'liftoff': 'YNpwm08ZRD0',  // 2013: BfF7vfw6Zjw, 2014: oCAKV4Ikhec
   'office': 'IXmDOu-eSx4',
@@ -24,7 +24,7 @@ window.VIDEOS = {
   'santasback': 'zE_D9Vd69aw',  // 2015: nXLNcfNsWAY
   'satellite': 'ZJPL56IPTjw',
   'selfies': 'JA8Jn5DGt64',
-  'slackingoff': 'uEl2WIZOVdQ',  // was slacking-off
+  'slackingoff': 'uEl2WIZOVdQ',
   'temptation': '2FtcJJ9vzVQ',
   'tired': '2UGX3bT9u20',
   'trailer': 'IdpQSy4IB_I',

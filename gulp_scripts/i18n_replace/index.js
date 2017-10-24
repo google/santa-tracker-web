@@ -16,146 +16,192 @@
 
 /* jshint node: true */
 
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const through2 = require('through2');
 const gutil = require('gulp-util');
-const format = require('sprintf-js').sprintf;
 
 const mutate = require('../mutate_html');
 
-/**
- * Formats the passed msgid. Splits on space.
- * @param {string} msgid
- * @param {function(string): string}
- * @return {string}
- */
-function i18nFormat(msgid, lookup) {
-  return msgid.split(' ').filter(x => x).map(lookup).join(' \u2014 ');  // mdash
-}
-
 module.exports = function replaceMessages(opts) {
-  const warn = warnFunc(opts.strict);
-  const msgs = getMsgs(opts.path);
+  opts = Object.assign({strict: false, ext: 'html'}, opts);
+  const pendingMessages = getMsgs(opts.path).then((data) => new MessageData(data));
 
-  const stream = through2.obj(function(file, enc, cb) {
+  async function transform(file) {
     if (file.isStream()) {
-      error('No support for streams');
-    }
-    if (!file.path.match(/\.html$/) || file.isNull()) {
-      // Don't do work if the file isn't HTML.
-      warn('skipping non-html: %s', file.path);
-      stream.push(file);
-      return cb();
+      throw new gutil.PluginError('i18n_replace', 'no support for streams');
     }
 
-    const missing = {};
-    function recordMissing(msgid, lang) {
-      let langs = missing[msgid];
-      if (!langs) {
-        missing[msgid] = langs = new Set();
-      }
-      langs.add(lang);
+    const ext = path.extname(file.path);
+    if (ext !== `.${opts.ext || 'html'}` || file.isNull()) {
+      return file;  // ignore if the file isn't processable
     }
 
+    const messageData = await pendingMessages;
     const src = file.contents.toString();
     const rootPage = (path.dirname(file.relative) === '.');
 
-    msgs.then(messagesByLang => {
-      Object.keys(messagesByLang).forEach(lang => {
-        const msgs = messagesByLang[lang] || {};
-        function lookup(msgid) {
-          let msg = msgs[msgid];
-          if (!msg) {
-            recordMissing(msgid, lang);
-            msg = messagesByLang['en'][msgid];
+    messageData.langs.forEach((lang) => {
+      const ext = `_${lang}.html`;
+      const replaced = mutate(src, function() {
+        const s = (q, cb) => Array.from(this.querySelectorAll(q)).forEach(cb);
 
-            // Check e.g., fr for fr-CA, or es for es-419.
-            const parts = lang.split('-');
-            const base = parts[0];
-            if (base && base !== lang && base in messagesByLang) {
-              msg = messagesByLang[base][msgid] || msg;
-            }
+        s('[msgid]', (el) => {
+          if (el.localName === 'i') {
+            return;  // ignore, used by santa-strings
           }
-          return msg ? msg.message : 'MESSAGE_NOT_FOUND';
-        }
-
-        const ext = `_${lang}.html`;
-        const replaced = mutate(src, function() {
-          [...this.querySelectorAll('[msgid]')].forEach(el => {
-            if (el.localName === 'i') {
-              return;  // ignore, used by santa-strings
-            }
-            const msgid = el.getAttribute('msgid');
-            const msg = i18nFormat(msgid, lookup);
-            el.removeAttribute('msgid');
-
-            switch (el.localName) {
-            case 'title':
-              el.textContent = msg;
-              break;
-            case 'i18n-msg':
-              if (el.innerHTML !== 'PLACEHOLDER_i18n') {
-                error('i18n-msg was not "PLACEHOLDER_i18n" for %s in: %s', msgid, file.relative);
-              }
-              el.outerHTML = msg;
-              break;
-            case 'meta':
-              el.setAttribute('content', msg);
-              break;
-            default:
-              error('msgid on unhandled tag: %s', el.localName)
-            }
-          });
-          [...this.querySelectorAll('i18n-msg')].forEach(el => {
-            error('i18n-msg should be replaced with msgid, found: %s', el.outerHTML);
-          });
-          [...this.querySelectorAll('[lang]')].forEach(el => el.setAttribute('lang', lang));
-          [...this.querySelectorAll('[href$="_en.html"]')].forEach(el => {
-            const href = el.getAttribute('href').replace(/_en\.html$/, ext);
-            el.setAttribute('href', href);
-          });
+          const msgid = el.getAttribute('msgid');
+          const msg = messageData.format(lang, msgid);
+          el.removeAttribute('msgid');
+          mutateElement(el, msg);
         });
-
-        // Note that this always writes a new HTML file, even if the content
-        // is the same (perhaps a scene uses no i18n-msg elements).
-
-        if (!rootPage && !file.path.match(/(_en)\.html$/)) {
-          if (replaced === src) {
-            // ... this is a scene we've decided won't be translated anyway.
-            stream.push(file);
-            return;
-          }
-          error('[%s] Translatable files should end in _en.html', file.relative);
-        }
-
-        // Only non-en root pages should go in /intl/ directories.
-        const dir = (rootPage && lang != 'en') ? `/intl/${lang}_ALL/` : '/';
-        const i18nfile = file.clone();
-        i18nfile.path = path.dirname(file.path) + dir +
-            path.basename(file.path).replace(/_en.html$/, ext);
-        i18nfile.contents = new Buffer(replaced);
-        stream.push(i18nfile);
+        s('i18n-msg', (el) => {
+          throw new gutil.PluginError('i18n_replace', `i18n-msg without msgid: ${el.outerHTML}`);
+        });
+        s('[lang]', (el) => el.setAttribute('lang', lang));
+        s('[href$="_en.html"]', (el) => {
+          const href = el.getAttribute('href').replace(/_en\.html$/, ext);
+          el.setAttribute('href', href);
+        });
       });
 
-      Object.keys(missing).forEach(function(msgid) {
-        const langs = missing[msgid];
+      // Note that this always writes a new HTML file, even if the content is the same (perhaps a
+      // scene uses no i18n-msg elements).
 
-        if (langs.length >= 5) {
-          warn('%s: missing \'%s\' for %d langs', file.relative, msgid, langs.size);
-        } else {
-          warn('%s: missing \'%s\' for [%s]', file.relative, msgid, [...langs].join(' '));
+      if (!rootPage && !file.path.match(/(_en)\.html$/)) {
+        if (replaced !== src) {
+          // we found i18n-msg instances but there was no '_en.html' suffix
+          throw new gutil.PluginError('i18n_replace',
+              `had translated content, didn't end with _en.html: ${file.relative}`)
         }
-      });
-      cb();
-    }).catch(err => {
-      console.info('got err', err);
-      cb(null, err);
+        // ... this is a scene we've decided won't be translated anyway.
+        return this.push(file);
+      }
+
+      // Put non-en root pages (e.g., index, cast) in /intl/ directories.
+      const dir = (rootPage && lang !== 'en') ? `/intl/${lang}_ALL/` : '/';
+      const i18nfile = file.clone();
+      i18nfile.path = path.dirname(file.path) + dir +
+          path.basename(file.path).replace(/_en\.html$/, ext);
+      i18nfile.contents = new Buffer(replaced);
+      this.push(i18nfile);
     });
-  });
 
-  return stream;
+    const missing = messageData.missing;
+    const msgids = Object.keys(missing);
+    msgids.forEach((msgid) => {
+      const langs = missing[msgid];
+      const ratio = `${(langs.size/messageData.count*100).toFixed()} %`;
+      const rest = (langs.size <= 10) ? `[${[...langs]}]` : '';
+      gutil.log('Missing', `'${gutil.colors.yellow(msgid)}'`,
+          'for', gutil.colors.red(ratio), 'of languages', rest);
+    });
+    if (opts.strict && msgids.length) {
+      throw new gutil.PluginError('i18n_replace', `missing strings for ${msgids.length} messages`);
+    }
+  };
+
+  // TODO(samthor): Make a Promise-safe through2 version
+  return through2.obj(function(file, enc, cb) {
+    transform.call(this, file).then((f) => cb(null, f), (err) => this.destroy(err));
+  });
 };
+
+/**
+ * Mutates a given element to have an updated message.
+ * @param {!Element} el
+ * @param {string} msg
+ */
+function mutateElement(el, msg) {
+  switch (el.localName) {
+  case 'title':
+    el.textContent = msg;
+    break;
+  case 'i18n-msg':
+    if (el.innerHTML !== 'PLACEHOLDER_i18n') {
+      throw new gutil.PluginError('i18n_replace',
+          `i18n-msg was not "PLACEHOLDER_i18n" for ${msgid} in: ${file.relative}`);
+    }
+    el.outerHTML = msg;
+    break;
+  case 'meta':
+    el.setAttribute('content', msg);
+    break;
+  default:
+    throw new gutil.PluginError('i18n_replace', `msgid on unhandled tag: ${el.outerHTML}`);
+  }
+}
+
+/**
+ * MessageData is a convenience wrapper for the Gulp plugin in this file. It allows easy
+ * retrieval and formatting of msgids, and records missing msgids.
+ */
+class MessageData {
+
+  /**
+   * @param {!Object<!Object<string>>}
+   */
+  constructor(data) {
+    this.data_ = data;
+    this.missing_ = {};
+    this.count_ = Object.keys(this.data_).length;
+  }
+
+  /**
+   * Records the msgid as missing.
+   */
+  recordMissing_(lang, msgid) {
+    let langs = this.missing_[msgid];
+    if (langs === undefined) {
+      this.missing_[msgid] = langs = new Set();
+    }
+    langs.add(lang);
+  }
+
+  get count() {
+    return this.count_;
+  }
+
+  get missing() {
+    return this.missing_;
+  }
+
+  get langs() {
+    return Object.keys(this.data_);
+  }
+
+  /**
+   * Formats the passed msgid. Splits on space.
+   * @param {string} lang
+   * @param {string} s
+   * @return {string}
+   */
+  format(lang, s) {
+    const parts = s.split(' ').filter((x) => x);
+    return parts.map((part) => this.get(lang, part)).join(' \u2014 ');  // mdash
+  }
+
+  get(lang, msgid) {
+    const msgs = this.data_[lang] || {};
+    let msg = msgs[msgid];
+    if (!msg) {
+      this.recordMissing_(lang, msgid);
+      msg = this.data_['en'][msgid];  // default to English
+
+      // Fallback to e.g., fr for fr-CA, or es for es-419.
+      const parts = lang.split('-');
+      const base = parts[0];
+      if (base && base !== lang && base in this.data_) {
+        msg = this.data_[base][msgid] || msg;
+      }
+    }
+
+    return msg ? msg.message : 'MESSAGE_NOT_FOUND';
+  }
+}
+
 
 /**
  * Read messages from _messages/*.json into a map.
@@ -186,32 +232,16 @@ function getMsgs(msgDir) {
         return reject(err);
       }
 
-      const all = files.filter(f => f.endsWith('.json')).map(load);
-      resolve(Promise.all(all).then(out => {
+      const all = files.filter((f) => f.endsWith('.json')).map(load);
+      resolve(Promise.all(all).then((out) => {
         const msgs = {};
         for (const part of out) {
           for (const lang in part) {
             msgs[lang] = part[lang];
           }
         }
-        return msgs;
+        return Object.freeze(msgs);
       }, reject));
     });
   });
-}
-
-function warnFunc(strict) {
-  return function(var_args) {
-    const message = format.apply(this, arguments);
-    if (strict) {
-      throw new gutil.PluginError('i18n_replace', message);
-    } else {
-      gutil.log('WARNING[i18n_replace]:', message);
-    }
-  }
-}
-
-function error(var_args) {
-  const message = format.apply(this, arguments);
-  throw new gutil.PluginError('i18n_replace', message);
 }

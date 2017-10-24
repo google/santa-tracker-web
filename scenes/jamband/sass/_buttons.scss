@@ -34,5 +34,6 @@
   .Button-share {
     padding: 0 (10 / 28) +em;
     width: auto;
+    visibility: var(--link-visibility);
   }
 }

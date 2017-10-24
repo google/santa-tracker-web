@@ -23,11 +23,7 @@ Jamband scene.
 -->
 <dom-module id="jamband-scene">
 <template>
-  <style include="jamband-scene_module">  
-    :host([mode="portal"]) .Button-share {
-      display: none !important;
-    }
-  </style>
+  <style include="jamband-scene_module"></style>
   <div id="module-jamband">
     <div class="jamband">
       <div class="scene">
@@ -225,26 +221,18 @@ Jamband scene.
     game: null,
 
     properties: {
-      /**
-       * Whether the `<google-legacy-loader>` is loaded and ready to create the share
-       * overlay.
-       */
-      shareReady: {
-        type: Boolean,
-        value: false
-      },
 
       /**
        * Whether the band has already started.
        */
       bandStarted: {
         type: Boolean,
-        value: false
+        value: false,
       }
     },
 
     listeners: {
-      'sounds-loaded': 'onSoundsLoaded'
+      'sounds-loaded': 'onSoundsLoaded',
     },
 
     onPreload: function() {
@@ -269,7 +257,7 @@ Jamband scene.
         'img/icons/arrow.svg',
         'img/icons/close.svg',
         'img/icons/open.svg',
-        'img/icons/random.svg'
+        'img/icons/random.svg',
       ]);
     },
 

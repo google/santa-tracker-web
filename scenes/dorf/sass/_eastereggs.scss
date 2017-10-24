@@ -56,22 +56,6 @@
     }
   }
 
-  // cast disables
-  &.mode-cast {
-    @for $i from 1 through length($all) {
-      $row: nth($all, $i);
-      $id: nth($row, $idx-id);
-
-      $top: nth($row, $idx-top);
-      @if $top > $easteregg-cast-cutoff {
-        #easteregg-#{$id)} {
-          display: none !important;
-          background: transparent !important;
-        }
-      }
-    }
-  }
-
   #easteregg-schoolyard {
     $w: 434;
     $h: 160;

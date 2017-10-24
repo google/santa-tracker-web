@@ -9,7 +9,7 @@
 		"message": "A més, els nostres amics elfs us han convidat a descobrir l'aldea del Pare Noel mentre ell es prepara per al seu viatge. Visiteu i exploreu l'aldea; segur que trobeu activitats divertides i coneixeu elfs interessants."
 	},
 	"about-santa": {
-		"message": "Quant a"
+		"message": "Informació"
 	},
 	"about_title": {
 		"message": "Us donem la benvinguda a Segueix el Pare Noel!"
@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els elfs del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
+		"message": "Hi ha hagut un problema, però els elfs del Pare Noel ja l'estan intentant solucionar."
 	},
 	"error-lost-connection": {
 		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els elfs del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
+	},
+	"error-not-found": {
+		"message": "Els elfs del Pare Noel no troben la pàgina. Et recomanem que tornis a l'\u003ca href=\"./village.html\"\u003ealdea del Pare Noel\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Torna-ho a provar"
@@ -621,13 +624,13 @@
 		"message": "A Ghana, el Nadal se celebra amb tota la família. Els grans van disfressats i reparteixen llaminadures i caramels per tot el barri. Els petits decoren casa seva amb adornaments de paper i dibuixos que pinten a l'escola."
 	},
 	"gl_country_name": {
-		"message": "Grenlàndia"
+		"message": "Groenlàndia"
 	},
 	"gn_country_name": {
 		"message": "Guinea"
 	},
 	"gotovillage": {
-		"message": "Vés a l'aldea"
+		"message": "Ves a l'aldea"
 	},
 	"gplus": {
 		"message": "Google+"
@@ -807,7 +810,7 @@
 		"message": "Mali"
 	},
 	"mm_country_name": {
-		"message": "Myanmar"
+		"message": "Birmània"
 	},
 	"mr_country_name": {
 		"message": "Mauritània"
@@ -882,13 +885,13 @@
 		"message": "Pròtesis d'extremitats"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Tria un guarniment amb la teva organització benèfica preferida i comença a pintar."
+		"message": "Tria un guarniment i comença a pintar-lo."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Comparteix les teves creacions amb la família i els amics."
+		"message": "Comparteix les teves creacions amb la família i els amics perquè també puguin aprendre'n."
 	},
 	"nonprofit-intro-type": {
-		"message": "Pinta aquesta col·lecció de guarniments per donar suport a organitzacions benèfiques que treballen perquè el món continuï sent un lloc preciós i ple de possibilitats. Després, penja'ls a l'arbre de Nadal o regala'ls a les persones que més estimes per demostrar el teu interès per aquestes causes."
+		"message": "Ens hem associat amb Google.org per presentar cinc organitzacions educatives sense ànim de lucre que sempre estan disposades a ajudar els altres. Desplaça't cap avall per obtenir més informació sobre què fa cada organització. Per mostrar el teu suport, pinta aquesta col·lecció de guarniments i penja'ls a l'arbre o regala'ls a les persones que més estimes."
 	},
 	"nonprofit-jane-description": {
 		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
@@ -975,7 +978,7 @@
 		"message": "No vull rebre'n"
 	},
 	"notification_notice": {
-		"message": "Els elfs us aniran informant del que fa el Pare Noel"
+		"message": "Els elfs t'aniran informant del que fa el Pare Noel"
 	},
 	"notification_prompt": {
 		"message": "Informa'm del que fa el Pare Noel"
@@ -4008,7 +4011,7 @@
 		"message": "Quina gran illa es troba a 322 quilòmetres al nord-oest d'Islàndia?"
 	},
 	"trivia_medium_009_answer0": {
-		"message": "Grenlàndia"
+		"message": "Groenlàndia"
 	},
 	"trivia_medium_009_answer1": {
 		"message": "Nova Guinea"
@@ -4563,7 +4566,7 @@
 		"message": "Turquia"
 	},
 	"trivia_medium_055_answer1": {
-		"message": "Myanmar"
+		"message": "Birmània"
 	},
 	"trivia_medium_055_answer2": {
 		"message": "Estònia"
@@ -5151,7 +5154,7 @@
 		"message": "Torneu la nit de Nadal i ajudeu-nos a seguir el Pare Noel tota la nit!"
 	},
 	"village_explore": {
-		"message": "Exploreu, jugueu i apreneu amb els elfs del Pare Noel durant tot el mes de desembre"
+		"message": "Explora, juga i aprèn amb els elfs del Pare Noel durant tot el mes de desembre"
 	},
 	"village_get_the_app": {
 		"message": "Baixa l'aplicació Segueix el Pare Noel per a Android"

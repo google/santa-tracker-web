@@ -35,7 +35,7 @@ goog.require('app.shared.utils');
 
 /**
  * Main class for the endless runner game.
- * @param {Element} context Dom element that wraps the game.
+ * @param {!Element} context Dom element that wraps the game.
  *
  * @constructor
  * @export
@@ -61,7 +61,7 @@ app.Game = function(context) {
   this.gameoverDialog = new Gameover(this, this.context.find('.gameover'));
   this.tutorial = new Tutorial(this.context, 'touch-updown', 'keys-updown', 'spacenav-updown');
   this.controls = new app.Controls(this);
-  this.canvas = new app.Canvas(this);
+  this.canvas = new app.Canvas(this, context.querySelector('#stage-canvas'));
   this.ceiling = new app.Ceiling(this.context);
 
   this.gameSize = Constants.GAME_BASE_SIZE;
@@ -284,6 +284,7 @@ app.Game.prototype.onFrame = function() {
     this.hurryUpPlayed = true;
   }
 
+  this.canvas.onFrame(delta);
   this.player.onFrame(delta);
   this.updateEntities(delta);
 

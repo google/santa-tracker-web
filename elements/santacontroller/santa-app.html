@@ -18,10 +18,11 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../santa-badge/santa-badge.html">
 <link rel="import" href="../santa-chrome/santa-chrome.html">
-<link rel="import" href="../santa-notice/santa-notice.html">
+<link rel="import" href="../santa-sidebar/santa-sidebar.html">
 <link rel="import" href="../santa-tracker-router.html">
-<link rel="import" href="../preloader/preload-overlay.html">
+<link rel="import" href="../preloader/preload-bar.html">
 <link rel="import" href="../lazy-pages/lazy-pages.html">
+<link rel="import" href="../overlay/santa-overlay.html">
 <link rel="import" href="../santa-strings.html">
 <link rel="import" href="../santa-socket.html">
 
@@ -34,9 +35,13 @@ Santa Tracker app.
 <dom-module id="santa-app">
 <template>
   <style>
-  [hidden] {
-    display: none !important;
-  }
+    :host {
+      --link-visibility: visible;  /* piggyback [routing] from index to enable external links */
+    }
+    :host(:not([routing])) {
+      --link-visibility: hidden;
+      --link-display: none !important;
+    }
   </style>
 
   <!-- Shared i18n strings -->
@@ -53,22 +58,13 @@ Santa Tracker app.
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc enter" on-keys-pressed="_onKeysPressed"></iron-a11y-keys>
 
-  <!-- Preloading scene overlay -->
-  <preload-overlay id="preloader"></preload-overlay>
-
   <!-- Route controller -->
   <santa-tracker-router enabled="[[routing]]" route="{{route}}"></santa-tracker-router>
-
-  <!-- EU notice -->
-  <template is="dom-if" if="[[!omitSantaChrome(mode)]]">
-    <santa-notice></santa-notice>
-  </template>
 
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
       mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
-      today-house="[[todayHouse]]"
       share-options="[[shareOptions]]"
       socket-id="[[socketId]]"
       clients="[[clients]]"
@@ -77,20 +73,25 @@ Santa Tracker app.
 
     <santa-badge id="badge" slot="feature"></santa-badge>
 
+    <santa-sidebar slot="drawer" today-house="[[todayHouse]]"></santa-sidebar>
+
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
         share-options="[[shareOptions]]"></santa-overlay>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
+        route="{{route}}"
+        progress="{{_progress}}"
         selected-item="{{selectedScene}}"
-        selectable=":not([disabled])"
-        attr-for-selected="route"
-        selected-attribute="active">
+        bootstrap="{{_bootstrap}}">
+
+      <cast-scene route="cast"
+          path$="scenes/cast/cast-scene_[[language]].html"
+          slot="santa-scene" allow-page-scrolling></cast-scene>
 
       <dorf-scene id="village" route="village" icon="1f384" permanent
-          today-house="[[_limitTodayHouseForCast(todayHouse, mode)]]"
-          houses="[[_limitHousesForCast(_houses, mode)]]"
-          mode$="[[mode]]"
+          today-house="[[todayHouse]]"
+          houses="[[_houses]]"
           path$="scenes/dorf/dorf-scene_[[language]].html"
           slot="santa-scene" allow-page-scrolling></dorf-scene>
 
@@ -125,7 +126,6 @@ Santa Tracker app.
 
       <boatload-scene route="boatload" icon="26f5"
           path$="scenes/boatload/boatload-scene_[[language]].html"
-          mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/boatload/img/loading.svg"
           logo="scenes/boatload/img/logo.svg"
@@ -146,7 +146,6 @@ Santa Tracker app.
 
       <citylights-scene route="citylights" icon="1f306"
           path$="scenes/citylights/citylights-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#575769"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/citylights/img/loading.svg"
@@ -163,10 +162,8 @@ Santa Tracker app.
           logo="scenes/clausedraws/img/pole.svg"
           slot="santa-scene"></clausedraws-scene>
 
-
       <codeboogie-scene route="codeboogie" icon="1f4dd"
           path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codeboogie/img/loading.svg"
@@ -176,7 +173,6 @@ Santa Tracker app.
 
       <codelab-scene route="codelab" icon="1f4dd"
           path$="scenes/codelab/codelab-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
           loading-src="scenes/codelab/img/loading.svg"
@@ -185,7 +181,6 @@ Santa Tracker app.
 
       <commandcentre-scene route="commandcentre" icon="1f5fc"
           path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
           logo="scenes/commandcentre/img/logo.svg"
@@ -199,7 +194,6 @@ Santa Tracker app.
 
       <glider-scene route="glider" icon="1f343"
           path$="scenes/glider/glider-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#675ab9"
           loading-bg-color="#8d23a9"
           loading-src="scenes/glider/img/loading.svg"
@@ -208,7 +202,6 @@ Santa Tracker app.
 
       <gumball-scene route="gumball" icon="1f36d"
           path$="scenes/gumball/gumball-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="#8d23a9"
           loading-src="scenes/gumball/img/loading.svg"
@@ -226,7 +219,6 @@ Santa Tracker app.
 
       <jamband-scene route="jamband" icon="1f3b6"
           path$="scenes/jamband/jamband-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="#fdbe27"
           loading-src="scenes/jamband/img/loading.svg"
@@ -236,7 +228,6 @@ Santa Tracker app.
 
       <jetpack-scene route="jetpack" icon="1f680"
           path$="scenes/jetpack/jetpack-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/jetpack/img/loading.svg"
@@ -245,7 +236,6 @@ Santa Tracker app.
 
       <latlong-scene route="latlong" icon="1f3af"
           path$="scenes/latlong/latlong-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#76b1cc"
           loading-bg-color="#ffcc00"
           loading-src="scenes/latlong/img/loading.svg"
@@ -254,13 +244,11 @@ Santa Tracker app.
 
       <newtracker-scene route="tracker" icon="1f30d" permanent
           path$="scenes/newtracker/newtracker-scene_[[language]].html"
-          minimal-ui="[[omitSantaChrome(mode)]]"
           header-color="#00cc81"
           slot="santa-scene" allow-page-scrolling></newtracker-scene>
 
       <matching-scene route="matching" icon="1f6aa"
           path$="scenes/matching/matching-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#76b1cc"
           loading-bg-color="#b27644"
           loading-src="scenes/matching/img/loading.svg"
@@ -269,7 +257,6 @@ Santa Tracker app.
 
       <mercator-scene route="mercator" icon="1f30e"
           path$="scenes/mercator/mercator-scene_[[language]].html"
-          mode$="[[mode]]"
           loading-bg-color="#fbbf2c"
           loading-src="scenes/mercator/img/loading.svg"
           logo="scenes/mercator/img/logo.svg"
@@ -277,7 +264,6 @@ Santa Tracker app.
 
       <penguindash-scene route="penguindash" icon="1f680"
           path$="scenes/penguindash/penguindash-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#9a519f"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/penguindash/img/loading.svg"
@@ -293,7 +279,6 @@ Santa Tracker app.
 
       <postcard-scene route="postcard" icon="1f4ec"
           path$="scenes/postcard/postcard-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="rgb(244, 123, 32)"
           loading-bg-color="rgb(244, 123, 32)"
           loading-src="scenes/postcard/img/loading.gif"
@@ -302,7 +287,6 @@ Santa Tracker app.
 
       <presentbounce-scene route="presentbounce" icon="1f381"
           path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#e53935"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentbounce/img/loading.svg"
@@ -311,7 +295,6 @@ Santa Tracker app.
 
       <presentdrop-scene route="presentdrop" icon="1f381"
           path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#b4b6b9"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentdrop/img/loading.svg"
@@ -320,7 +303,6 @@ Santa Tracker app.
 
       <racer-scene route="racer" icon="1f3c1"
           path$="scenes/racer/racer-scene_[[language]].html"
-          mode$="[[mode]]"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/racer/img/loading.svg"
           logo="scenes/racer/img/logo.svg"
@@ -333,14 +315,12 @@ Santa Tracker app.
 
       <runner-scene route="runner" icon="1f3c7"
           path$="scenes/runner/runner-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#575769"
           logo="scenes/runner/img/logo.svg"
           slot="santa-scene"></runner-scene>
 
       <santasearch-scene route="santasearch"
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#00904a"
           loading-bg-color="#29B6F6"
           loading-src="scenes/santasearch/img/loading.svg"
@@ -349,7 +329,6 @@ Santa Tracker app.
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#4172e8"
           loading-bg-color="#83D7F5"
           loading-src="scenes/santaselfie/img/loading.svg"
@@ -359,7 +338,6 @@ Santa Tracker app.
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#09904a"
           loading-src="scenes/seasonofgiving/img/loading.svg"
           logo="scenes/seasonofgiving/img/header-icon.svg"
@@ -382,14 +360,8 @@ Santa Tracker app.
           logo="scenes/streetview/img/logo.svg"
           slot="santa-scene"></streetview-scene>
 
-      <tracker-scene route="tracker2015" icon="1f30d"
-          path$="scenes/tracker/tracker-scene_[[language]].html"
-          slot="santa-scene"
-          allow-page-scrolling></tracker-scene>
-
       <traditions-scene route="traditions" icon="1f4cc"
           path$="scenes/traditions/traditions-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#fdbe27"
           loading-bg-color="rgb(255,224,0)"
           loading-src="scenes/traditions/img/loading.gif"
@@ -398,7 +370,6 @@ Santa Tracker app.
 
       <translations-scene route="translations" icon="1f4e2"
           path$="scenes/translations/translations-scene_[[language]].html"
-          mode$="[[mode]]"
           header-color="#558b2f"
           feature-color="#83ce00"
           loading-bg-color="#8fd7f7"
@@ -419,7 +390,6 @@ Santa Tracker app.
       <template is="dom-repeat" items="[[_computeVideoRoutes(_videos)]]">
         <video-scene route$="[[item]]" icon="1f4fd"
             youtube-id$="[[_computeVideoId(_videos, item)]]"
-            mode$="[[mode]]"
             mute="[[userMute]]"
             pause="[[userPause]]"
             header-color="#ec4582"
@@ -445,6 +415,8 @@ Santa Tracker app.
 
   </santa-chrome>
 
+  <preload-bar progress="[[_progress]]" bootstrap="[[_bootstrap]]"></preload-bar>
+
 </template>
 <script>
 (function() {
@@ -456,6 +428,8 @@ var META_THEME_DEFAULT = META_THEME.content;
 var TRACKER_ROUTE = 'tracker';
 
 var ANALYTICS = new Analytics();
+
+var messagePort;
 
 Polymer({
   is: 'santa-app',
@@ -561,27 +535,31 @@ Polymer({
     },
 
     /**
-     * The previously selected scene route.
-     */
-    prevSelectedRoute: {
-      type: String,
-      observer: '_prevSelectedRouteChanged',
-      value: null
-    },
-
-    /**
      * Current URL route.
      */
     route: {
       type: String,
-      observer: '_routeChanged'
+      observer: '_routeChanged',
+    },
+
+    /**
+     * The progress value bound from `lazy-pages`.
+     */
+    _progress: {
+      type: Number,
+    },
+
+    /**
+     * The bootstrap scene, bound from `lazy-pages`.
+     */
+    _bootstrap: {
+      type: Boolean,
     },
 
     /** Whether the schedule is checked. If false, houses will remain unlocked. */
     scheduleChecked: {
       type: Boolean,
       value: !window.DEV,
-      observer: '_scheduleCheckedChanged',
     },
 
     /**
@@ -600,15 +578,7 @@ Polymer({
      */
     mode: {
       type: String,
-      value: ""
-    },
-
-    /**
-     * True when the tracker intro scene was shown. Used by `tracker-scene`.
-     */
-    hasTrackerIntroShown: {
-      type: Boolean,
-      value: false
+      value: '',
     },
 
     /**
@@ -626,13 +596,14 @@ Polymer({
      */
     currentTime: {
       type: Number,
-      observer: '_currentTimeChanged',
     },
 
     /**
      * Whether a reload has been requested. Bound from `santa-state`.
      */
-    requestedReload: Boolean,
+    requestedReload: {
+      type: Boolean,
+    },
 
     /**
      * The networks that Santa can share to.
@@ -658,11 +629,13 @@ Polymer({
 
   },
 
+  observers: [
+    '_updateLock(currentTime, scheduleChecked)',
+  ],
+
   listeners: {
     'click': 'onClick',
-    'scene-progress': 'onSceneProgress',
-    'scene-failure': 'onSceneFailure',
-    'scene-ready': 'onSceneReady',
+    'beforeload': 'onBeforeLoad',
     'analytics-track-event': 'trackEvent',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
@@ -688,7 +661,7 @@ Polymer({
     // _currentTimeChanged can actually be invoked before ready: is called.
     // TODO(samthor): This could be moved outside `santa-app`, it doesn't use any state.
 
-    var portalMode = getUrlParameter('api_client') === 'web_portal';
+    var portalMode = getUrlParameter('mode') === 'web_portal';
     var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
 
     for (var i = 0, house; house = window.HOUSES[i]; ++i) {
@@ -704,15 +677,16 @@ Polymer({
   },
 
   ready: function() {
-    if (getUrlParameter('api_client') === 'web_portal') {
+    if (getUrlParameter('mode') === 'web_portal') {
       this.mode = 'portal';
+    }
+    if (!this.hasAttribute('routing')) {
       this._setShareOptions([]);
     }
 
-    var staticUrl = this.resolveUrl('../../');
-
     // Don't load sounds in Cast mode.
     if (!this.omitSantaChrome(this.mode)) {
+      var staticUrl = this.resolveUrl('../../');
       var sc = new SoundController(staticUrl, this._soundsLoaded.bind(this));
       this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
@@ -734,7 +708,7 @@ Polymer({
         var parts = window.location.hash.substr(1).split('?');
         route = parts[0] || route;
       }
-      this.route = route;
+      this.$.lazypages.load(route);
     }
   },
 
@@ -769,48 +743,13 @@ Polymer({
     var m = /\/(?:(\w+)\.html|)$/.exec(targetUrl.pathname.substr(lastSlash));
     if (!m) { return; }
 
-    // Good job! You found a route. But throw it out if it's invalid for some reason.
-    var route = m[1] || this.defaultRoute;
-    if (!this.sceneIsValid(route)) { return; }
-
-    // If this is the same route, then close the drawer. It was probably a sidebar click.
-    if (this.route === route) {
-      this.$.chrome.closeDrawer();
-    }
-
     // Set the route. Hooray! \o/
-    this.route = route;
-    ev.preventDefault();
-  },
-
-  /**
-   * Handles a loading progress hint, hiding or displaying the preloader.
-   */
-  onSceneProgress: function() {
-    var scene = this.selectedScene;
-    if (scene) {
-      this.$.preloader.color = scene.getAttribute('loading-bg-color');
-      this.$.preloader.src = scene.getAttribute('loading-src');
-      this.$.preloader.active = !scene.loaded;
-      this.$.preloader.value = scene.preloadProgress || 0;  // prevent undefined
-    } else {
-      this.$.preloader.active = false;
+    var route = m[1] || this.defaultRoute;
+    if (this.route === route) {
+      this._defaultAction();
     }
-  },
-
-  /**
-   * Handles a preloader failure.
-   */
-  onSceneFailure: function() {
-    this.$.preloader.active = false;
-    this._updateStylingForScene(null);
-  },
-
-  /**
-   * Called when a scene is initially ready (and not when it's made active a 2nd time).
-   */
-  onSceneReady: function(event, scene) {
-    this._prepareScene(scene);
+    this.$.lazypages.load(route);
+    ev.preventDefault();
   },
 
   get defaultRoute() {
@@ -824,44 +763,48 @@ Polymer({
   /**
    * Reset and update various bits of global state when a new scene is made visible.
    */
-  _selectedSceneChanged: function(newValue, oldValue) {
+  _selectedSceneChanged: function() {
     this.$.chrome.hasGameButtons = false;
     this.$.chrome.closeDrawer();
     this.userPause = false;
 
-    if (oldValue && oldValue.route) {
-      this.prevSelectedRoute = oldValue.route;
-    }
-
     this._updateStylingForScene(this.selectedScene);
 
-    if (this.selectedScene && this.selectedScene.is) {
-      this._prepareScene(this.selectedScene);
+    if (!this.selectedScene) {
+      return;
+    } else if (!this.selectedScene.is) {
+      console.warn('got nonupgraded scene', this.selectedScene);
+      return;
+    }
+
+    // nb. Effectively checking for SantaSceneGameButtonsBehavior.
+    if ('pause' in this.selectedScene) {
+      this.$.overlay.pregame = true;
+      this.userPause = true;
     }
   },
 
   _updateStylingForScene: function(scene) {
-    var allowPageScrolling = scene ? scene.hasAttribute('allow-page-scrolling') : true;
-
     // Allow scrolling body if scene requests it. Update `santa-chrome` to match.
-    if (allowPageScrolling) {
+    if (!scene || scene.hasAttribute('allow-page-scrolling')) {
       document.body.classList.remove('scrollock');
       this.$.chrome.classList.remove('fixed');
     } else {
       document.body.classList.add('scrollock');
       this.$.chrome.classList.add('fixed');
     }
+    scene = scene || document.createElement('empty-scene');
 
     // Update custom colors and themes.
-    var headerColor = scene && scene.getAttribute('header-color');
+    var headerColor = scene.getAttribute('header-color');
     this.updateStyles({
       '--santa-header-color': headerColor,
-      '--santa-feature-color': scene && scene.getAttribute('feature-color')
+      '--santa-feature-color': scene.getAttribute('feature-color'),
     });
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
     this.$.badge.reset();
-    this.$.badge.logoUrl = scene ? scene.getAttribute('logo') : null;
+    this.$.badge.logoUrl = scene.getAttribute('logo');
 
     // TODO(samthor): This isn't quite right: the badge should be visible if there's a logo or a
     // score. But for now, just hide it when there's no logo.
@@ -869,11 +812,11 @@ Polymer({
 
     // Reset the overlay.
     this.$.overlay.reset();
-    this.$.overlay.hero = scene && scene.getAttribute('hero-src');
+    this.$.overlay.hero = scene.getAttribute('hero-src');
 
     // Optionally update the document title (with emoji/scene name).
     if (this.routing) {
-      var raw = scene && scene.getAttribute('icon');
+      var raw = scene.getAttribute('icon');
       var icon = '';
       if (raw && String.fromCodePoint) {  // no emoji on IE11
         icon = String.fromCodePoint(parseInt(raw, 16));
@@ -882,81 +825,23 @@ Polymer({
     }
   },
 
-  /**
-   * Called when a scene is brought to the foreground and is an upgraded Polymer element.
-   */
-  _prepareScene: function(scene) {
-    if (scene && 'pause' in scene) {
-      this.$.overlay.pregame = true;
-      this.userPause = true;
+  onBeforeLoad: function(ev) {
+    var route = ev.detail;
+
+    if (this.sceneIsOpen(route) === false) {
+      if (!window.DEV) {
+        window.ga('send', 'event', 'Routing', 'locked', '/' + route);
+        return ev.preventDefault();
+      }
+      console.debug('prod would lock', route);
     }
   },
 
-  _prevSelectedRouteChanged: function() {
-    // Find and remove the previous scene, if it exists and isn't a permanent scene.
-    var prevSelectedScene = this.$.lazypages.getRoute(this.prevSelectedRoute);
-    if (!prevSelectedScene || prevSelectedScene.hasAttribute('permanent')) {
-      return;
+  _routeChanged: function() {
+    if (typeof this.route === 'string') {
+      window.ga('set', 'page', '/' + this.route);
+      window.ga('send', 'pageview');
     }
-    var dom = Polymer.dom(this.$.lazypages);
-    dom.removeChild(prevSelectedScene);
-
-    // Re-construct removed scene and add it back to lazy-pages. Note that
-    // loading-* isn't copied, since the element is already loaded.
-    var el = document.createElement(prevSelectedScene.localName);
-    el.route = prevSelectedScene.route;
-    el.santaApp = this;
-    el.loaded = true;
-
-    var retainAttr = [
-      'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo', 'slot'
-    ];
-    retainAttr.forEach(function(attr) {
-      if (prevSelectedScene.hasAttribute(attr)) {
-        el.setAttribute(attr, prevSelectedScene.getAttribute(attr));
-      }
-    });
-
-    dom.appendChild(el);
-  },
-
-  /**
-   * The local route was changed. If valid, then trigger lazypages to load it. This is also invoked
-   * by _currentTimeChanged, in order to lock/unlock scenes that are loaded but currently invalid.
-   */
-  _routeChanged: function(newValue) {
-    var route = this.route;
-    var ok = this.sceneIsValid(route);
-    var sceneIsOpen = this.sceneIsOpen(route);
-
-    if (sceneIsOpen === false && ok) {
-      if (window.DEV) {
-        console.debug('prod would lock', route);
-      } else {
-        ok = false;
-      }
-    }
-
-    // check newValue: if called from _currentTimeChanged, it will be undefined, so ignore.
-    if (route !== undefined && newValue !== undefined) {
-      if (ok) {
-        this.debounce('_routeChanged', function() {
-          window.ga('set', 'page', '/' + this.route);
-          window.ga('send', 'pageview');
-        }, 10);
-      } else if (sceneIsOpen === undefined) {
-        var previousRoute = this.selectedScene ? this.selectedScene.route : '';
-        window.ga('send', 'event', 'Routing', 'Invalid Route Source', '/' + previousRoute);
-        window.ga('send', 'event', 'Routing', 'Invalid Route', '/' + route);
-      } else {
-        window.ga('send', 'event', 'Routing', 'Locked Route', '/' + route);
-      }
-    }
-
-    this.$.lazypages.selected = ok ? route : '';
-    this.$.lazypages.lockedHouse = (!ok && sceneIsOpen === false ? route : null);
-
-    // TODO(samthor): Unkown routes will show a generic error message.
   },
 
   /**
@@ -985,6 +870,7 @@ Polymer({
         this.$.chrome.hasGameButtons = true;
       }
       scene.start && scene.start();
+      this.fire('embed', 'onstart');
     }
   },
 
@@ -1036,16 +922,19 @@ Polymer({
     if (scene && 'pause' in scene) {  // nb. does it implement SantaSceneGameButtonsBehavior
       scene.pause = pause;
     }
-    if (!pause) {
+    if (pause) {
+      this.fire('embed', 'onpause');
+    } else {
+      this.fire('embed', 'onresume');
       this.selectedScene && this.selectedScene.focus();
     }
   },
 
-  _userMuteChanged: function(userMute) {
-    // It's possible to confuse Klang, so dedup this with a very short delay.
+  _userMuteChanged: function() {
+    // nb. sound-ambient is bound inside ready:, so dedup this for initial set
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
-    }, 50);
+    });
   },
 
   _soundsLoaded: function(soundsName) {
@@ -1094,7 +983,7 @@ Polymer({
     if (this.scheduleChecked) {
       this.scheduleChecked = false;
     } else {
-      this._routeChanged();  // scheduleChecked was already false, force update
+      this.$.lazypages.revalidate();
     }
     this._notifyHouses();
   },
@@ -1105,6 +994,7 @@ Polymer({
    * matches the launch date (e.g., a scene is open for everyone as soon as someone in New Zealand
    * has access to it).
    *
+   * @param {string} sceneName to check
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
   sceneIsOpen: function(sceneName) {
@@ -1139,28 +1029,11 @@ Polymer({
     return undefined;  // couldn't find this scene/house, defer to caller
   },
 
-  sceneIsValid: function(sceneName) {
-    if (this.$.lazypages.isValidRoute(sceneName)) {
-      return true;
-    }
-    for (var i = 0, house; house = this._houses[i]; ++i) {
-      if (house.module === sceneName) {
-        return true;
-      }
-    }
-    return false;
-  },
-
-  _scheduleCheckedChanged: function() {
-    // This calls _routeChanged internally.
-    this._currentTimeChanged();
-  },
-
   /**
    * Unlocks the correct houses based on the day (index).
    * @private
    */
-  _currentTimeChanged: function() {
+  _updateLock: function(currentTime, scheduleChecked) {
     var todayDate = new Date(this.currentTime || Date.now());
     var todayHouse = '';
     var change = false;
@@ -1200,15 +1073,14 @@ Polymer({
     this.todayHouse = todayHouse;
     change && this._notifyHouses();
 
-    this._routeChanged();  // hint to load/unload route
+    this.$.lazypages.revalidate();  // hint to maybe reload
   },
 
   _onKeysPressed: function(e, detail) {
     switch (detail.key) {
       case 'esc':
-        var wasOpen = this.$.chrome.closeDrawer();
-        if (!wasOpen) {
-          this.route = this.defaultRoute;
+        if (this._defaultAction()) {
+          this.$.lazypages.load(this.defaultRoute);
         }
         break;
       case 'enter':
@@ -1217,19 +1089,29 @@ Polymer({
     }
   },
 
-  _duringTrackerChanged: function(newValue, oldValue) {
-    if (this.mode === 'cast') {
-      this.route = this.defaultRoute;
-    } else if (oldValue === undefined && newValue === true) {
-      this.debounce('_duringTrackerChanged', function() {
-        if (this.duringTracker && (this.route === 'village' || !this.route)) {
-          this.route = TRACKER_ROUTE;
-        }
-      }, 2000);
-    } else if (oldValue === undefined) {
-      // other initial value, ignore
-    } else if (newValue === false && this.route === TRACKER_ROUTE) {
-      this.route = this.defaultRoute;
+  /**
+   * Perform the 'default action': when the title is clicked, esc is hit etc.
+   *
+   * @return {boolean} whether no action was performed
+   */
+  _defaultAction: function() {
+    var action = false;
+
+    if (this.$.chrome.closeDrawer()) {
+      action = true;
+    }
+    if (window.scrollY > 0) {
+      window.scrollTo(0, 0);
+      action = true;
+    }
+
+    return !action;
+  },
+
+  _duringTrackerChanged: function() {
+    // If the tracker was open, it's now locked: send the user back to the Village.
+    if (this.duringTracker === false && this.route === TRACKER_ROUTE) {
+      this.$.lazypages.load(this.defaultRoute);
     }
   },
 
@@ -1332,19 +1214,7 @@ Polymer({
   },
 
   omitSantaChrome: function(mode) {
-    return mode == 'cast' || mode == 'embed';
-  },
-
-  _limitTodayHouseForCast: function(todayHouse, mode) {
-    return mode === 'cast' ? null : todayHouse;
-  },
-
-  _limitHousesForCast: function(houses, mode) {
-    if (mode === 'cast') {
-      return houses.slice(0, 3);
-    } else {
-      return houses;
-    }
+    return mode === 'cast';
   },
 
   /**

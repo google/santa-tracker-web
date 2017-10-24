@@ -4,6 +4,7 @@ $name: 'module-undersea';
 
 ##{$name} {
   background: #2fbdbd;
+  @apply --layout-fit;
 
   .bubbles {
     position: absolute;

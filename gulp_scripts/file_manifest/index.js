@@ -17,9 +17,10 @@
 /* jshint node: true */
 
 const path = require('path');
-const through = require('through');
+const through = require('through2');
 const gutil = require('gulp-util');
 const crypto = require('crypto');
+const File = require('vinyl');
 
 const OUTPUT_NAME = 'contents';
 
@@ -38,13 +39,8 @@ module.exports = function fileManifest(version, prefix) {
 
   const pathPrefix = path.resolve(prefix);
 
-  function processFile(file) {
-    if (file.isNull()) {
-      return;  // ignore, we don't care
-    }
-    if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('file_manifest', 'No stream support'));
-    }
+  function processFile(file, enc, cb) {
+    if (file.isNull() || file.isStream()) { return cb(); }
 
     const p = path.normalize(file.path);
     const rel = path.relative(pathPrefix, p);
@@ -52,11 +48,12 @@ module.exports = function fileManifest(version, prefix) {
     if (rel === `${OUTPUT_NAME}.js` || rel === `${OUTPUT_NAME}.json`) {
       // TODO(samthor): This is a bit ugly. It won't hit in real prod builds (since we build/clean)
       // but will occur over multiple test runs at the same version.
-      return;  // nb. ignore ourselves
+      return cb();  // nb. ignore ourselves
     }
 
     if (rel.match(/^audio/)) {
-      return;  // TODO(samthor): audio is hard, as it's in one folder and not tied to scenes
+      // TODO(samthor): audio is hard, as it's in one folder and not tied to scenes
+      return cb();
     }
 
     let target = out['shared'];
@@ -72,30 +69,28 @@ module.exports = function fileManifest(version, prefix) {
     }
 
     target[rel] = hash(file.contents);
+    cb();
   }
 
-  function buildManifest() {
+  function buildManifest(cb) {
     const json = JSON.stringify(out);
-    const js = `// Generated at ${new Date().toISOString()}
-const contents = ${json};
-`;
-
-    const outputJsonFile = new gutil.File({
+    const outputJsonFile = new File({
       base: pathPrefix,
       contents: new Buffer(json),
       path: path.join(pathPrefix, `${OUTPUT_NAME}.json`),
     });
-    this.emit('data', outputJsonFile);
+    this.push(outputJsonFile);
 
-    const outputJsFile = new gutil.File({
+    const js = `// Generated at ${new Date().toISOString()}\nconst contents = ${json};`;
+    const outputJsFile = new File({
       base: pathPrefix,
       contents: new Buffer(js),
       path: path.join(pathPrefix, `${OUTPUT_NAME}.js`),
     });
-    this.emit('data', outputJsFile);
+    this.push(outputJsFile);
 
-    this.emit('end');
+    cb();
   }
 
-  return through(processFile, buildManifest);
+  return through({objectMode: true}, processFile, buildManifest);
 };

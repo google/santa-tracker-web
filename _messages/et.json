@@ -561,10 +561,13 @@
 		"message": "Eritrea"
 	},
 	"error": {
-		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
+		"message": "Tekkis probleem – päkapikud uurivad asja."
 	},
 	"error-lost-connection": {
 		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
+	},
+	"error-not-found": {
+		"message": "Oih, päkapikud ei leia seda lehte! Proovige \u003ca href=\"./village.html\"\u003ejõulukülla\u003c/a\u003e tagasi minna."
 	},
 	"error-try-again": {
 		"message": "Proovige uuesti"
@@ -882,13 +885,13 @@
 		"message": "Jäsemeproteesid"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Valige endale südamelähedase heategevusliku organisatsiooniga kaunistus ja hakake värvima!"
+		"message": "Valige kaunistus ja hakake värvima."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Jagage oma loomingut pere ja sõpradega!"
+		"message": "Jagage oma loomingut pere ja sõpradega, et ka nemad saaksid õppida."
 	},
 	"nonprofit-intro-type": {
-		"message": "Toetage kaunima ja mitmekülgsema maailma nimel töötavaid heategevuslikke organisatsioone, värvides need kaunistused. Seejärel näidake oma poolehoidu, riputades kaunistused oma jõulupuule või kinkides lähedastele!"
+		"message": "Tõstame koos Google.org'iga esile viit haridusalast mittetulundusorganisatsiooni, kelle jaoks on aasta läbi andmise aeg. Kerige alla, et lugeda lisaks nende organisatsioonide tegevuse kohta. Poolehoiu ülesnäitamiseks värvige see kaunistuste kogumik ning riputage need oma jõulupuule või kinkige lähedastele."
 	},
 	"nonprofit-jane-description": {
 		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."

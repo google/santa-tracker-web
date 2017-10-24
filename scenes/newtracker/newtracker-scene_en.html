@@ -16,15 +16,12 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/google-youtube/google-youtube.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../scene-behavior.html">
-<link rel="import" href="../../components/i18n-msg/i18n-msg.html">
-<link rel="import" href="../../components/paper-fab/paper-fab.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="newtracker-scene_module.html">
 
 <!-- nb: intentionally in subfolder, to deal with Vulcanize issue in same dir -->
-<link rel="import" href="../../elements/santa-media.html">
 <link rel="import" href="./elements/tracker-map.html">
 <link rel="import" href="./elements/tracker-location.html">
 <link rel="import" href="./elements/tracker-attribution.html">
@@ -36,7 +33,7 @@ Tracker scene.
 <template>
   <style include="newtracker-scene_module"></style>
 
-  <santa-strings strings="{{strings}}"></santa-strings>
+  <santa-strings strings="{{_strings}}"></santa-strings>
 
   <svg height="0" width="0">
     <defs>
@@ -69,18 +66,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     </defs>
   </svg>
 
-  <template is="dom-if" if="[[minimalUi]]">
-    <santa-media active="[[active]]"
-        countdown="[[_computeTrackerCountdown(countdown, _upcoming)]]"
-        video-active="{{_videoActive}}"></tracker-media>
-  </template>
-
   <div class="contain" id="sections">
     <section id="main">
-      <div id="topbar" hidden="[[minimalUi]]"></div>
-      <tracker-map id="map" minimal-ui="[[minimalUi]]"></tracker-map>
+      <div id="topbar"></div>
+      <tracker-map id="map"></tracker-map>
 
-      <div class$="cards [[_computeMinimalUiClass(minimalUi)]]" on-click="_onCardClick">
+      <div class="cards" on-click="_onCardClick">
         <article class="stats">
           <div class="data" hidden$="[[_hasArrivalHours]]">
             <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -88,14 +79,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           </div>
           <div class="data" hidden$="[[!_hasArrivalHours]]">
             <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
-            <big class="lessbig">[[_computeArrivalTime(_arrivalHours, strings)]]</big>
+            <big class="lessbig">[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
           </div>
-          <template is="dom-if" if="[[minimalUi]]">
-            <div class="data">
-              <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-              <big>[[_computeNumber(presentsDelivered)]]</big>
-            </div>
-          </template>
+          <div class="data">
+            <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeNumber(presentsDelivered)]]</big>
+          </div>
 
           <div class="divider"></div>
 
@@ -124,21 +113,18 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           <a class="bg" href="#stats"></a>
         </article>
 
-        <template is="dom-if" if="[[!minimalUi]]">
-          <article class="rotate rotate-games">
-            <div class="bg" id="feedbg" style$="[[_computeCardStyle(_gamesList.0)]]"></div>
-            <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h3 class="title">[[_computeCardTitle(_gamesList.0, strings)]]</h3>
-            <a class="bg" href="#games"></a>
-          </article>
-          <article class="rotate rotate-videos">
-            <div class="bg" id="feedbg" style$="[[_computeCardStyle(_videosList.0)]]"></div>
-            <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h3 class="title">[[_computeCardTitle(_videosList.0, strings)]]</h3>
-            <a class="bg" href="#videos"></a>
-          </article>
-        </template>
-
+        <article class="rotate rotate-games">
+          <div class="bg" id="feedbg" style$="[[_computeCardStyle(_gamesList.0)]]"></div>
+          <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
+          <h3 class="title">[[_computeCardTitle(_gamesList.0, _strings)]]</h3>
+          <a class="bg" href="#games"></a>
+        </article>
+        <article class="rotate rotate-videos">
+          <div class="bg" id="feedbg" style$="[[_computeCardStyle(_videosList.0)]]"></div>
+          <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
+          <h3 class="title">[[_computeCardTitle(_videosList.0, _strings)]]</h3>
+          <a class="bg" href="#videos"></a>
+        </article>
         <article class="big rotate rotate-livefeed">
           <div class="bg" style$="[[_computeBackgroundImageStyle(_cardFeedImage)]]"></div>
           <h2><i18n-msg msgid="tracker_feed">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -146,108 +132,106 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         </article>
       </div>
     </section>
-    <template is="dom-if" if="[[!minimalUi]]">
-      <section id="stats">
-        <div class="location">
-          <tracker-location details="[[_details]]"></tracker-location>
-        </div>
-        <div class="stats">
+    <section id="stats">
+      <div class="location">
+        <tracker-location details="[[_details]]"></tracker-location>
+      </div>
+      <div class="stats">
 
-          <div class="split top">
-            <div class="data" hidden$="[[!_hasArrivalHours]]">
-              <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
-              <big>[[_computeArrivalTime(_arrivalHours, strings)]]</big>
-            </div>
-            <div class="data left">
-              <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
-              <big>[[_computeDistance(_distance)]]</big>
-            </div>
-            <div class="data left">
-              <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
-              <big>[[_computeNumber(presentsDelivered)]]</big>
-            </div>
+        <div class="split top">
+          <div class="data" hidden$="[[!_hasArrivalHours]]">
+            <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
           </div>
-          <div class="divider"></div>
-          <div class="split">
-            <div class="data left">
-              <h4><i18n-msg msgid="tracker_distance_travelled">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_computeDistance(distanceTravelled)]]</h3>
-            </div>
-            <div class="data left">
-              <a href="https://weather.com" target="_blank" class="weather-attribution"></a>
-              <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_computeWeather(_details)]]</h3>
-            </div>
+          <div class="data left">
+            <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeDistance(_distance)]]</big>
           </div>
-          <div class="divider"></div>
-          <div class="data">
-            <h4 class="wrap"><tracker-attribution details="[[_details]]"></tracker-attribution></h4>
-          </div>
-          <div class="divider"></div>
-          <div class="data">
-            <div id="travelogue">
-              <template is="dom-repeat" items="[[_limitDestinations]]">
-                <div class="prev-location">
-                  <div class="marker"></div>
-                  <h4>[[_computeStopTime(item.departure)]]</h4>
-                  <h3>[[item.city]], [[item.region]]</h3>
-                </div>
-              </template>
-            </div>
+          <div class="data left">
+            <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+            <big>[[_computeNumber(presentsDelivered)]]</big>
           </div>
         </div>
-      </section>
-      <section id="games" class="listview">
-        <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
-        <div id="games-asset"></div>
-        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="gamesList">
-          <template is="dom-repeat" items="[[_gamesList]]">
-            <a href="[[urlFor(item)]]" class="over">
-              <div class="card">
-                <div class="card--inner" style$="[[_computeCardStyle(item)]]">
-                  <h3>[[_computeCardTitle(item, strings)]]</h3>
-                </div>
+        <div class="divider"></div>
+        <div class="split">
+          <div class="data left">
+            <h4><i18n-msg msgid="tracker_distance_travelled">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h3>[[_computeDistance(distanceTravelled)]]</h3>
+          </div>
+          <div class="data left">
+            <a href="https://weather.com" target="_blank" class="weather-attribution"></a>
+            <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h3>[[_computeWeather(_details)]]</h3>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="data">
+          <h4 class="wrap"><tracker-attribution details="[[_details]]"></tracker-attribution></h4>
+        </div>
+        <div class="divider"></div>
+        <div class="data">
+          <div id="travelogue">
+            <template is="dom-repeat" items="[[_limitDestinations]]">
+              <div class="prev-location">
+                <div class="marker"></div>
+                <h4>[[_computeStopTime(item.departure)]]</h4>
+                <h3>[[item.city]], [[item.region]]</h3>
               </div>
-            </a>
-          </template>
-        </div>
-      </section>
-      <section id="videos" class="listview">
-        <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
-        <div id="videos-asset"></div>
-        <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="videosList">
-          <template is="dom-repeat" items="[[_videosList]]">
-            <a href="[[urlFor(item)]]" class="over">
-              <div class="card">
-                <div class="card--inner" style$="[[_computeCardStyle(item)]]"></div>
-              </div>
-            </a>
-          </template>
-        </div>
-      </section>
-      <section id="livefeed">
-        <span class="title">
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 440"><g><path d="M68.08,215.52c0,18.69-12,85.1-13.62,93.76-17,89.83,38.64,98.79,77.15,90.05,9.77-2.22,104.29-21,118.17,4.57H250c13.88-25.54,108.4-6.79,118.17-4.57,38.51,8.74,94.12-.22,77.15-90.05-1.64-8.67-13.62-75.07-13.62-93.76s12-85.1,13.62-93.76c17-89.83-38.64-98.79-77.15-90.05-9.77,2.22-104.29,21-118.17-4.57h-.22c-13.88,25.54-108.4,6.79-118.17,4.57C93.1,23,37.49,31.92,54.46,121.76,56.1,130.43,68.08,196.83,68.08,215.52Z"/></g></svg>
-          <h1><i18n-msg msgid="tracker_just_in">PLACEHOLDER_i18n</i18n-msg></h1>
-        </span>
-        <span class$="factoid [[_factoidClass]]">
-          <div class="content">
-            <p class$="[[_computeFactoidTextClass(_factoidText)]]">[[_factoidText]]</p>
+            </template>
           </div>
-        </span>
-        <template is="dom-repeat" items="[[_feedImages]]">
-          <div class="image" style$="[[_computeBackgroundImageStyle(item)]]"></div>
+        </div>
+      </div>
+    </section>
+    <section id="games" class="listview">
+      <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
+      <div id="games-asset"></div>
+      <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="gamesList">
+        <template is="dom-repeat" items="[[_gamesList]]">
+          <a href="[[urlFor(item)]]" class="over">
+            <div class="card">
+              <div class="card--inner" style$="[[_computeCardStyle(item)]]">
+                <h3>[[_computeCardTitle(item, _strings)]]</h3>
+              </div>
+            </div>
+          </a>
         </template>
-      </section>
-      <section id="thanks">
-        <div class="ornament"></div>
-        <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
-        <h4><i18n-msg msgid="tracker_from_google">PLACEHOLDER_i18n</i18n-msg></h4>
-        <div class="feature"></div>
-        <a class="village-link" href="[[urlFor('village')]]"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
-        <smatch-secret character-id="snowman"></smatch-secret>
-      </section>
-    </template>
+      </div>
+    </section>
+    <section id="videos" class="listview">
+      <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
+      <div id="videos-asset"></div>
+      <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="videosList">
+        <template is="dom-repeat" items="[[_videosList]]">
+          <a href="[[urlFor(item)]]" class="over">
+            <div class="card">
+              <div class="card--inner" style$="[[_computeCardStyle(item)]]"></div>
+            </div>
+          </a>
+        </template>
+      </div>
+    </section>
+    <section id="livefeed">
+      <span class="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 440"><g><path d="M68.08,215.52c0,18.69-12,85.1-13.62,93.76-17,89.83,38.64,98.79,77.15,90.05,9.77-2.22,104.29-21,118.17,4.57H250c13.88-25.54,108.4-6.79,118.17-4.57,38.51,8.74,94.12-.22,77.15-90.05-1.64-8.67-13.62-75.07-13.62-93.76s12-85.1,13.62-93.76c17-89.83-38.64-98.79-77.15-90.05-9.77,2.22-104.29,21-118.17-4.57h-.22c-13.88,25.54-108.4,6.79-118.17,4.57C93.1,23,37.49,31.92,54.46,121.76,56.1,130.43,68.08,196.83,68.08,215.52Z"/></g></svg>
+        <h1><i18n-msg msgid="tracker_just_in">PLACEHOLDER_i18n</i18n-msg></h1>
+      </span>
+      <span class$="factoid [[_factoidClass]]">
+        <div class="content">
+          <p class$="[[_computeFactoidTextClass(_factoidText)]]">[[_factoidText]]</p>
+        </div>
+      </span>
+      <template is="dom-repeat" items="[[_feedImages]]">
+        <div class="image" style$="[[_computeBackgroundImageStyle(item)]]"></div>
+      </template>
+    </section>
+    <section id="thanks">
+      <div class="ornament"></div>
+      <h1><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></h1>
+      <h4><i18n-msg msgid="tracker_from_google">PLACEHOLDER_i18n</i18n-msg></h4>
+      <div class="feature"></div>
+      <a class="village-link" href="[[urlFor('village')]]"><i18n-msg msgid="gotovillage">PLACEHOLDER_i18n</i18n-msg></a>
+      <smatch-secret character-id="snowman"></smatch-secret>
+    </section>
   </div>
 
 </template>
@@ -260,8 +244,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
   var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
   var FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
-
-  var AUDIO_TRACKS = ['7853_62276019f9c87f2dcfe08641ce912452_village_music_lounge.ogg', '8138_4b63c7c7cbe8b32c4d429f4cddc74182_village_music_gameover_lounge_r2_36571.ogg', '8133_8706368a154a316f379990965e717192_villagemusiclounger339917ie.ogg', '8096_0b8b8a6e86b2859a78ebe14b1e7ccd8d_Santasearch_music_1.ogg'];
 
   var FALLBACK_CARDS = ['comroom', 'glider', 'jingle', 'latlong', 'office', 'reload', 'satellite', 'selfies', 'slackingoff', 'temptation', 'tired', 'trailer', 'trivia'];
 
@@ -279,22 +261,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       _updateSantaTimeout: Number,
       _listviewInterval: Number,
       _strings: Object,
-
-      /**
-       * Whether to display in minimal UI mode.
-       */
-      minimalUi: {
-        type: Boolean,
-        value: false,
-      },
-
-      /**
-       * Whether a full-screen video is active. Bound from `tracker-media` in minimal UI mode.
-       */
-      _videoActive: {
-        type: Boolean,
-        value: false,
-      },
 
       /**
        * The images currently being displayed in the social feed.
@@ -445,7 +411,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     observers: [
-      '_refreshCards(_current, _upcoming, _videoActive)',
+      '_refreshCards(_current, _upcoming)',
     ],
 
     _santaSync: function(data) {
@@ -469,11 +435,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      * short timeout.
      */
     _santaUpdate: function(data) {
-      if (this._videoActive) {
-        this.$.map.santaHeading = NaN;
-        return;
-      }
-
       var p = this.$.map.santaLatLng;
       var move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 
@@ -540,7 +501,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _onCurrentChanged: function(current) {
-      if (!this._current || this.minimalUi) {
+      if (!this._current) {
         this._details = null;
         return;
       }
@@ -555,10 +516,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }.bind(this));
     },
 
-    _refreshCards: function(current, upcoming, videoActive) {
-      if (videoActive) {
-        return;  // only refresh when videoActive goes true => false (don't load behind the video)
-      }
+    _refreshCards: function(current, upcoming) {
       this.debounce('_refreshCards', function() {
         this._pushSocialImage(function(src) {
           this._cardFeedImage = src;
@@ -567,13 +525,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _pushSocialImage: function(opt_callback) {
-      var chooseImage = function() {
-        if (!this.minimalUi && Math.random() < 0.2) {
+      function chooseImage() {
+        if (Math.random() < 0.2) {
           return randomChoice(FEED_ANIMATION) + '.gif';
-        } else {
-          return randomChoice(FEED_STATIC) + '.png';
         }
-      }.bind(this);
+        return randomChoice(FEED_STATIC) + '.png';
+      }
 
       var src;
       var count = 10;
@@ -585,9 +542,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       image.src = this.resolveUrl(src);
       image.onload = function() {
         opt_callback && opt_callback.call(this, src);
-        if (this.minimalUi) {
-          return;  // minimalUi doesn't have feedImages
-        }
 
         // If the image isn't already in the feed, add it here.
         if (this._feedImages.indexOf(src) === -1) {
@@ -672,6 +626,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _computeArrivalTime: function(hours, strings) {
+      console.info('computing arrival time', hours, strings);
+      if (!strings) {
+        return '';
+      }
       if (!hours) {
         return strings['tracker_time_from_you_one'];
       }
@@ -726,10 +684,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       return out;
     },
 
-    _computeMinimalUiClass: function(minimalUi) {
-      return minimalUi ? 'minimal-ui' : null;
-    },
-
     _computeBackgroundImageStyle: function(path) {
       if (path) {
         var url = this.resolveUrl(path);
@@ -739,7 +693,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _computeCardTitle: function(module, strings) {
-      return strings['scene-' + module] || '';
+      return strings && strings['scene-' + module] || '';
     },
 
     _computeCardStyle: function(module) {
@@ -804,7 +758,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      * scroll position (like the user, or another smooth scroll request).
      */
     _scrollTo: function(to) {
-      if (this.minimalUi || !window.KeyframeEffect) {
+      if (!window.KeyframeEffect) {
         window.scrollTo(0, to);
         return;
       }
@@ -833,7 +787,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      */
     _onScroll: function() {
       this.debounce('_onScroll', function() {
-        if (!this.active || this.minimalUi) {
+        if (!this.active) {
           return;
         }
         var cand;
@@ -869,19 +823,17 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       window.santaService.addListener('stream_changed', this._streamChanged);
       window.santaService.getCurrentLocation(this._santaSync);
 
-      if (!this.minimalUi) {
-        // TODO(samthor): There's no cache/list of images currently being loaded, so this might
-        // load duplicates and then the feed will have fewer than SOCIALFEED_COUNT entries: until
-        // we randomly load enough from Santa's flight, that is.
-        for (var i = 0; i < SOCIALFEED_COUNT; ++i) {
-          this._pushSocialImage();
-        }
+      // TODO(samthor): There's no cache/list of images currently being loaded, so this might
+      // load duplicates and then the feed will have fewer than SOCIALFEED_COUNT entries: until
+      // we randomly load enough from Santa's flight, that is.
+      for (var i = 0; i < SOCIALFEED_COUNT; ++i) {
+        this._pushSocialImage();
       }
 
       window.addEventListener('scroll', this._onScroll, {passive: true});
     },
 
-    detatched: function() {
+    detached: function() {
       window.santaService.removeListener('sync', this._santaSync);
       window.santaService.removeListener('stream_changed', this._streamChanged);
       window.removeEventListener('scroll', this._onScroll, {passive: true});
@@ -894,6 +846,11 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         'img/presents/roof.png',
         'img/presents/tree.png',
         'img/northpole.png',
+        'img/ornament.svg',
+        'img/thanks.svg',
+        'img/factoid/didyouknow.svg',
+        'img/factoid/status.svg',
+        'img/factoid/update.svg',
       ];
       'n ne e se s sw w nw'.split(' ').forEach(function(dir) {
         images.push('img/sleigh/sleigh-' + dir + '-back.svg');
@@ -901,25 +858,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         images.push('img/sleigh/sleigh-' + dir + '-santa.svg');
       });
 
-      if (!this.minimalUi) {
-        images = images.concat([
-          'img/ornament.svg',
-          'img/thanks.svg',
-          'img/factoid/didyouknow.svg',
-          'img/factoid/status.svg',
-          'img/factoid/update.svg',
-        ]);
-      }
-
       this.preloadImages(images);
       this.preloadSounds('village_load_sounds');
     },
 
     onShow: function() {
       this.fire('sound-ambient', 'music_start_village');
-      if (this.minimalUi) {
-        return;
-      }
 
       // Every 20s, push a random game or video.
       // TODO(samthor): Let the server control this again.

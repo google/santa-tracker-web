@@ -561,10 +561,13 @@
 		"message": "厄利垂亞"
 	},
 	"error": {
-		"message": "看來我們與北極的連線剛斷了，聖誕老人的小精靈正努力修復中，別走開喔！"
+		"message": "開啟網頁時發生問題。不過別擔心，聖誕老人的助手小精靈正在調查。"
 	},
 	"error-lost-connection": {
 		"message": "看來我們與北極的連線剛斷了，聖誕老人的小精靈正努力修復中，別走開喔！"
+	},
+	"error-not-found": {
+		"message": "糟糕，聖誕老人的助手小精靈找不到這個網頁！請先返回\u003ca href=\"./village.html\"\u003e聖誕村\u003c/a\u003e，等運氣好時再試一次。"
 	},
 	"error-try-again": {
 		"message": "再試一次"
@@ -882,13 +885,13 @@
 		"message": "義肢"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "請選擇你最喜愛的慈善機構的裝飾品，並開始著色！"
+		"message": "請先選擇一個裝飾品，然後開始著色。"
 	},
 	"nonprofit-instruction-share": {
-		"message": "與親友分享你的傑作！"
+		"message": "與親友分享你的傑作，讓他們知道這個活動。"
 	},
 	"nonprofit-intro-type": {
-		"message": "請為這些裝飾品塗上繽紛的色彩，和我們一起支持致力維護地球環境和資源的慈善機構。著色完成後，請把你的作品掛在聖誕樹上或贈送給親友，表達你對慈善理念的支持與肯定！"
+		"message": "我們與 Google.org 攜手合作，為你帶來 5 個全年無私奉獻的非營利教育機構。想知道這些機構如何回饋社會嗎？歡迎向下捲動以進一步瞭解。你也可以為這些裝飾品塗上繽紛的色彩，再將作品掛在聖誕樹上或贈送給親友，展現你對這些機構的支持。"
 	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是現存的動物中與人類血緣最接近的親戚！然而，由於棲息地消失、疾病橫行及非法捕獵等因素，現存的黑猩猩總數不到 30 萬隻。Jane Goodall Institute 致力於觀察和研究黑猩猩的行為和棲地，希望能藉此保育這個珍貴的物種。此外，Jane Goodall Institute 也努力打造一個社群和交流平台，供有志於野生動物及自然環境保育的人士參與。歡迎探訪坦尚尼亞的貢貝國家公園，\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e認識黑猩猩的棲息環境\u003c/a\u003e。"
@@ -975,7 +978,7 @@
 		"message": "停止發送通知"
 	},
 	"notification_notice": {
-		"message": "聖誕老人身旁的小精靈會偷偷向你通報聖誕老人的一舉一動"
+		"message": "聖誕老人身旁的小精靈會向你通報聖誕老人的一舉一動"
 	},
 	"notification_prompt": {
 		"message": "向我通報聖誕老人的一舉一動"
@@ -1461,7 +1464,7 @@
 		"message": "追蹤聖誕老人"
 	},
 	"tracker_travelogue": {
-		"message": "最近造訪過的城市"
+		"message": "行程紀錄"
 	},
 	"tracker_weather": {
 		"message": "天氣"
@@ -5049,7 +5052,7 @@
 		"message": "英屬哥倫比亞"
 	},
 	"trivia_medium_096": {
-		"message": "巴利阿里海和愛奧尼亞海皆是哪片海域的一部分？"
+		"message": "巴利亞利海和愛奧尼亞海皆是哪片海域的一部分？"
 	},
 	"trivia_medium_096_answer0": {
 		"message": "地中海"
@@ -5151,7 +5154,7 @@
 		"message": "24 號平安夜，別忘了和我們一起追蹤聖誕老人的行蹤！"
 	},
 	"village_explore": {
-		"message": "在溫馨的 12 月裡，和聖誕老人的助手小精靈到處逛逛、玩遊戲並且學習新知"
+		"message": "在溫馨的 12 月裡，與聖誕老人的助手小精靈四處探索、玩遊戲和學習新知"
 	},
 	"village_get_the_app": {
 		"message": "取得聖誕老人追蹤器應用程式 Android 版"

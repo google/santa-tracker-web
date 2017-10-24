@@ -561,10 +561,13 @@
 		"message": "Eritreja"
 	},
 	"error": {
-		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
+		"message": "Pojavio se problem, no Djedovi vilenjaci rade na njegovu rješavanju."
 	},
 	"error-lost-connection": {
 		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
+	},
+	"error-not-found": {
+		"message": "O, ne! Djedovi vilenjaci ne mogu pronaći tu stranicu. Možda je uspiješ pronaći ako se vratiš u \u003ca href=\"./village.html\"\u003eDjedovo selo\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Pokušaj ponovno"
@@ -882,13 +885,13 @@
 		"message": "Protetički udovi"
 	},
 	"nonprofit-instruction-coloring": {
-		"message": "Odaberi ukras sa svojom omiljenom dobrotvornom organizacijom i oboji ga!"
+		"message": "Odaberite ukras i obojite ga."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Podijeli svoje umjetničko djelo s obitelji i prijateljima!"
+		"message": "Podijelite svoje umjetničko djelo s obitelji i prijateljima da bi i oni naučili kako se to radi!"
 	},
 	"nonprofit-intro-type": {
-		"message": "Oboji ovu zbirku ukrasa i tako podrži dobrotvorne organizacije koje naš svijet čine lijepim i pravednim. Zatim pokaži svoj interes za te inicijative na način da ih objesiš na božićno drvce ili pokloniš dragim osobama!"
+		"message": "U partnerstvu s organizacijom Google.org predstavljamo pet neprofitnih obrazovnih inicijativa koje ne prestaju s darivanjem tijekom čitave godine. U nastavku možete saznati što svaka od tih inicijativa čini za svoje korisnike. Pokažite svoju podršku tako što ćete obojiti ukrase u ovoj zbirci i objesiti ih na svoje drvce ili pokloniti dragim ljudima."
 	},
 	"nonprofit-jane-description": {
 		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eIstražite staništa čimpanzi\u003c/a\u003e u Gombeu, u Tanzaniji."
@@ -975,7 +978,7 @@
 		"message": "Isključi obavijesti"
 	},
 	"notification_notice": {
-		"message": "Djedičini vilenjaci obavještavat će vas o njegovu rasporedu"
+		"message": "Djedovi vilenjaci obavještavat će te o njegovu rasporedu"
 	},
 	"notification_prompt": {
 		"message": "Šalji mi obavijesti o Djedu Božićnjaku"

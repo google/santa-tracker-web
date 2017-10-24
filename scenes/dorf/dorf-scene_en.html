@@ -17,7 +17,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
-<link rel="import" href="../../elements/santa-media.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
@@ -28,30 +27,14 @@ specific language governing permissions and limitations under the License.
 Santa's Village.
 -->
 <dom-module id="dorf-scene">
-<template>
-  <style include="dorf-scene_module">
-  :host[mode="cast"] #header-content p {
-    display: none;
-  }
-  :host[mode="cast"] .ice,
-  :host[mode="cast"] .launchdate,
-  :host[mode="portal"] .launchdate,
-  :host[mode="portal"] .donate-button {
-    display: none !important;
-    background: transparent !important;
-  }
-  </style>
+<template strip-whitespace>
+  <style include="dorf-scene_module"></style>
 
   <santa-strings strings="{{strings}}"></santa-strings>
 
   <santa-state countdown-finished="{{countdownFinished}}"
       during-tracker="{{duringTracker}}"
       remaining-time="{{remainingTime}}"></santa-state>
-
-  <template is="dom-if" if="[[_isCastMode(mode)]]">
-    <santa-media active="[[active]]"
-        countdown="[[_computeCountdown(remainingTime)]]"></tracker-media>
-  </template>
 
   <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
     <smatch-secret character-id="santa"></smatch-secret>
@@ -63,24 +46,22 @@ Santa's Village.
         <span class="sun"></span>
         <span class="plane"></span>
         <span id="village-pegman">
-          <a id="village-pegman-image" href$="[[_calculateDiveURL(mode)]]">Santa Dive</a>
+          <a id="village-pegman-image" href="https://santadive.withgoogle.com">Santa Dive</a>
         </span>
-        <santa-weather active="[[_computeWeatherActive(active, mode)]]"></santa-weather>
+        <santa-weather active="[[active]]"></santa-weather>
         <div id="header-mobileelves"></div>
       </div>
       <div id="header-content">
         <div id="ornament"></div>
-        <div id="count-down" class$="mode-[[mode]]">
+        <div id="countdown">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-          <countdown-timer remaining-time="[[remainingTime]]" active="[[active]]"
-              animate="{{!_isCastMode(mode)}}">
-            <h3><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h3>
-            <h3><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h3>
-            <h3><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h3>
-            <h3><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h3>
+          <countdown-timer remaining-time="[[remainingTime]]" active="[[active]]">
+            <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
           </countdown-timer>
         </div>
-        <div class="castlogo" hidden$="[[!_isCastMode(mode)]]"></div>
         <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
         <div hidden$="[[!countdownFinished]]">
           <a hidden$="[[!duringTracker]]" href$="[[urlFor('tracker')]]" class="village-tracker-link">
@@ -100,7 +81,7 @@ Santa's Village.
         <!-- The 'New Today' house exists in the regular grid -->
         <div class="house house-new-today">
           <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]" on-click="_onClickNewTodayHouse">
-            <div class$="card new-today-[[todayHouse]]" hidden$="[[_isCastMode(mode)]]">
+            <div class$="card new-today-[[todayHouse]]">
               <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_string('scene', todayHouse, strings)]]</h3>
             </div>
@@ -145,7 +126,7 @@ Santa's Village.
 
         <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
           have a shared stacking context with houses -->
-        <div id="eastereggs" class$="mode-[[mode]]">
+        <div id="eastereggs">
           <template is="dom-repeat" items="[[easterEggs]]">
             <div id$="easteregg-[[item]]" class="easter-egg"></div>
           </template>
@@ -246,16 +227,12 @@ Santa's Village.
       </div><!-- #houses -->
     </div>
 
-    <template is="dom-if" if="[[!_isCastMode(mode)]]">
-      <footer>
-        <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-        <img src$="[[_computeFooterElves(countdownFinished)]]">
-      </footer>
-    </template>
+    <footer>
+      <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+      <img src$="[[_computeFooterElves(countdownFinished)]]">
+    </footer>
 
-    <smatch-storage
-        unlocks="{{smatchUnlocks}}">
-    </smatch-storage>
+    <smatch-storage unlocks="{{smatchUnlocks}}"></smatch-storage>
   </div><!-- #module-dorf -->
 </template>
 <script>
@@ -283,9 +260,6 @@ Santa's Village.
 
       /** Bound from `santa-app`, today's unlocked house. */
       todayHouse: String,
-
-      /** Bound from `santa-app`, the current mode. Shouldn't change at runtime. */
-      mode: String,
 
       /** Easter eggs helper, used for template. */
       easterEggs: {
@@ -367,13 +341,6 @@ Santa's Village.
       return strings ? strings[type + '-' + id] : null;
     },
 
-    _calculateDiveURL: function(mode) {
-      if (mode == 'portal') {
-        return (location.pathname + 'dive');
-      }
-      return 'https://santadive.withgoogle.com';
-    },
-
     _onHousesOver: function(event) {
       if (!event.target || event.target.localName != 'a' || !event.target.href) {
         return;
@@ -417,11 +384,9 @@ Santa's Village.
         if (!isMobile) {
           preload.push('img/building-' + id + '.svg');
         }
-        if (this.mode != 'cast') {
-          preload.push('../../images/scenes/' + id + '_2x.png');
-          if (house.locked && !isMobile) {
-            preload.push('img/building-' + id + '-ice.svg')
-          }
+        preload.push('../../images/scenes/' + id + '_2x.png');
+        if (house.locked && !isMobile) {
+          preload.push('img/building-' + id + '-ice.svg')
         }
         this.preloadImages(preload);
       }
@@ -431,30 +396,12 @@ Santa's Village.
     onShow: function() {
       this.fire('sound-ambient', 'music_start_village');
       this.fire('sound-ambient', 'village_start');
-
-      if (this.mode !== 'cast') {
-        this._startEasterEggs();
-      }
+      this._startEasterEggs();
     },
 
     onHide: function() {
       this.fire('sound-ambient', 'village_end');
-
-      if (this.mode !== 'cast') {
-        this._stopEasterEggs();
-      }
-    },
-
-    _isCastMode: function(mode) {
-      return mode == 'cast';
-    },
-
-    _computeWeatherActive: function(active, mode) {
-      return active && mode !== 'cast';
-    },
-
-    _computeCountdown: function(remainingTime) {
-      return Math.max(0, Math.round(remainingTime / 1000));
+      this._stopEasterEggs();
     },
 
     /**

@@ -21,15 +21,21 @@ specific language governing permissions and limitations under the License.
     position: fixed;
     bottom: 0;
     width: 100%;
+  }
+  #holder {
     box-sizing: border-box;
     z-index: 9999;
-    background: rgba(51, 51, 51, 0.9);
+    background: rgba(51, 51, 51, 0.95);
     color: white;
     padding: 8px 12px;
+    padding-left: 20px;
     font-size: 15px;
     display: flex;
     align-items: center;
     min-height: 92px;
+  }
+  #holder[hidden] {
+    display: none !important;
   }
   p {
     margin: 0;
@@ -37,71 +43,65 @@ specific language governing permissions and limitations under the License.
   }
   .buttons {
     text-align: center;
+    font-size: 19px;
+    font-weight: 400;
   }
-  .buttons button,
-  .buttons a {
+  .button {
     text-decoration: none;
     min-width: 80px;
     display: inline-block;
     margin: 8px;
-    padding: 0 8px;
-    border-radius: 1px;
-    border: 0;
+    padding: 6px;
+    border-radius: 2px;
+    border: 2px solid transparent;
     background: rgba(255, 255, 255, 0.25);
     color: white;
     font: inherit;
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 35px;
     cursor: pointer;
+  }
+  .button:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    outline: none;
   }
   @media (min-width: 600px) {
     .buttons {
       white-space: nowrap;
+      font-size: 23px;
     }
   }
   </style>
-  <p><i18n-msg msgid="notice_cookies">PLACEHOLDER_i18n</i18n-msg></p>
-  <div class="buttons">
-    <button on-click="_closeOk">Ok</button>
-    <a href="https://www.google.com/intl/en/policies/technologies/cookies/" target="_blank"><i18n-msg msgid="notice_cookies_details">PLACEHOLDER_i18n</i18n-msg></a>
+  <div id="holder" hidden$="[[_hidden]]">
+    <p><i18n-msg msgid="notice_cookies">PLACEHOLDER_i18n</i18n-msg></p>
+    <div class="buttons">
+      <button class="button" on-click="_close"><i18n-msg msgid="okay">PLACEHOLDER_i18n</i18n-msg></button>
+      <a class="button" href="https://www.google.com/intl/en/policies/technologies/cookies/" target="_blank"><i18n-msg msgid="notice_cookies_details">PLACEHOLDER_i18n</i18n-msg></a>
+    </div>
   </div>
 </template>
 <script>
-(function() {
-  function isEurope(loc) {
-    if (!loc) { return true; }
-    if (loc.lng > 39.869301 || loc.lng < -31.266001 || loc.lat > 81.008797 || loc.lat < 27.636311) {
-      return false;
-    }
-    return true;
+window.santaService.addListener('sync', function cb() {
+  window.santaService.removeListener('sync', cb);
+
+  var KEY = 'cookie-ok';
+  if (!window.santaService.getUserInEurope() || window.localStorage.getItem(KEY)) {
+    return;  // never declare Polymer element
   }
 
   Polymer({
     is: 'santa-notice',
 
-    created: function() {
-      this.hidden = true;
-      if (localStorage.getItem('cookie-ok')) {
-        return; // great, done
-      }
-
-      var seen = false;
-      window.santaService.addListener('sync', function() {
-        if (seen) { return; }
-        seen = true;
-
-        if (isEurope(window.santaService.getUserLocation())) {
-          this.hidden = false;
-        }
-      }.bind(this));
+    properties: {
+      _hidden: {
+        type: Boolean,
+        value: false,
+      },
     },
 
-    _closeOk: function() {
-      localStorage.setItem('cookie-ok', 'yes');
-      this.hidden = true;
+    _close: function() {
+      window.localStorage.setItem(KEY, 'yes');
+      this._hidden = true;
     },
-  });
-}());
+  }); 
+});
 </script>
 </dom-module>

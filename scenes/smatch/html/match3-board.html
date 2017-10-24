@@ -43,6 +43,14 @@ specific language governing permissions and limitations under the License.
         });
       };
 
+      function gemForEvent(event) {
+        const candidate = event.composedPath()[0];
+        if (candidate instanceof window.Match3GemElement) {
+          return candidate;
+        }
+        return null;
+      }
+
       function Cell(position, gem) {
         this.position = position;
         this.gem = gem;
@@ -469,7 +477,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onUpKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'up');
         },
 
@@ -477,7 +485,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onDownKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'down');
         },
 
@@ -485,7 +493,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onLeftKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'left');
         },
 
@@ -493,7 +501,7 @@ specific language governing permissions and limitations under the License.
          * @param {CustomEvent} event
          */
         onRightKey_: function(event) {
-          const gem = event.detail.keyboardEvent.target;
+          const gem = gemForEvent(event.detail.keyboardEvent);
           this.moveGem_(gem, 'right');
         },
 
@@ -523,7 +531,7 @@ specific language governing permissions and limitations under the License.
           }
 
           this.pendingMove_ = false;
-          this.moveGem_(event.target, dir);
+          this.moveGem_(gemForEvent(event), dir);
         },
 
         /**

@@ -13,26 +13,25 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../components/polymer/polymer.html" />
-
 <link rel="import" href="../elements/santa-app-behavior.html" />
-
-<!-- Elements used by scenes -->
-<link rel="import" href="../components/i18n-msg/i18n-msg.html" />
-<link rel="import" href="../components/iron-flex-layout/iron-flex-layout.html" />
 
 <script>
 (function() {
 
   /**
-   * Max number of milliseconds to wait before timing out and abandoning
-   * preload.
+   * Max number of milliseconds to wait before timing out and abandoning preload.
    */
-  var MAX_PRELOAD_TIME = 30 * 1000;
+  const MAX_PRELOAD_TIME = 30 * 1000;
 
   /**
    * Number of frames to spread image preload over.
    */
-  var NUM_FRAMES_TO_SPREAD_PRELOAD = 10;
+  const NUM_FRAMES_TO_SPREAD_PRELOAD = 10;
+
+  /**
+   * Number of fake assets to assume we've loaded.
+   */
+  const FAKE_ASSETS = 1;
 
   /** @polymerBehavior */
   window.SantaSceneBehaviorImpl = {
@@ -45,21 +44,19 @@ specific language governing permissions and limitations under the License.
        */
       route: {
         type: String,
-        value: null
+        value: null,
       },
 
       /**
-       * If `true`, the scene is active. In Santa Tracker, this is set by the
-       * specific configuration of the lazy-scenes element (aka,
-       * selected-attribute="active").
+       * If `true`, the scene is active. In Santa Tracker, this is set by `lazy-pages.
        *
-       * Note that this intentionally starts undefined so that its observer is
-       * only called after the object is ready.
+       * Note that this intentionally starts undefined so that its observer is only called after
+       * the object is ready.
        */
       active: {
         type: Boolean,
         reflectToAttribute: true,
-        observer: '_activeChanged'
+        observer: '_activeChanged',
       },
 
       /**
@@ -69,7 +66,7 @@ specific language governing permissions and limitations under the License.
       loaded: {
         type: Boolean,
         notify: true,
-        value: false
+        value: false,
       },
 
       /**
@@ -77,15 +74,7 @@ specific language governing permissions and limitations under the License.
        */
       _assetsLoaded: {
         type: Number,
-        value: 0
-      },
-
-      /**
-       * Max preload async handler.
-       */
-      _maxPreloadAsync: {
-        type: Object,
-        value: null
+        value: 0,
       },
 
       /**
@@ -94,62 +83,55 @@ specific language governing permissions and limitations under the License.
        */
       _totalAssets: {
         type: Number,
-        value: 0
+        value: 0,
       },
 
       /**
-       * Preloading progress (percentage) of the loaded scene.
+       * Contains the Promise which will resolve when this scene loads its resources. This will
+       * always eventually resolve (possibly via timeout).
        */
-      preloadProgress: {
-        type: Number,
-        value: 0,
-        observer: '_preloadProgressChanged',
-        computed: '_computePreloadProgress(_assetsLoaded, loaded, _totalAssets)'
+      preload: {
+        type: Object,
+        readOnly: true,
       },
 
     },
 
-    ready: function() {
-      this.fire('scene-ready', this);
-    },
+    observers: [
+      '_progress(_assetsLoaded, _totalAssets)',
+    ],
 
-    _activeChanged: function() {
-      if (!this.active) {
-        if (this.loaded) {  // don't call onHide if not yet loaded
-          this.onHide && this.onHide();
-        }
+    ready: function() {
+      if (this.loaded) {
+        // we are a clone: pretend to already be loaded
+        this._setPreload(Promise.resolve());
         return;
       }
 
-      // If subclass defines preloading, call it. If not, or nothing needs to
-      // be preloaded, signal ready.
-      if (!this.loaded && this.onPreload) {
-        // Note that this is called before _totalAssets/_assetsLoaded are given
-        // sensible defaults.
-        if (isNaN(this._totalAssets)) {
-          throw new Error('active set on ' + this.localName + ' before ready');
+      // Setup preload Promise. This resolves when all assets are ready, or when the timeout
+      // expires. It should never reject.
+      const p = new Promise(function(resolve) {
+        this.onPreload && this.onPreload();
+
+        if (this._totalAssets === 0) {
+          return resolve();
         }
+        this.async(resolve, MAX_PRELOAD_TIME);  // resolve on timeout anyway
+        this.addEventListener('preload', resolve);
+      }.bind(this));
 
-        this.onPreload();
+      p.then(function() {
+        this.loaded = true;
+      }.bind(this));
 
-        // If assets are queued to preload, schedule showScene on timeout in
-        // case preloading fails.
-        if (this._totalAssets > 0) {
-          this._maxPreloadAsync = this.async(this.showScene, MAX_PRELOAD_TIME);
-          return;
-        }
-      }
-
-      this.showScene();
+      this._setPreload(p);
     },
 
-    _preloadProgressChanged: function() {
-      // Only show scene if the preload reaches 100% and we haven't loaded the
-      // scene before.
-      if (this.preloadProgress === 100 && !this.loaded) {
-        this.showScene();
+    _activeChanged: function() {
+      if (this.active) {
+        this.onShow && this.onShow();
       } else {
-        this.fire('scene-progress');
+        this.onHide && this.onHide();
       }
     },
 
@@ -160,16 +142,18 @@ specific language governing permissions and limitations under the License.
     preloadImages: function(imageUrls) {
       this._totalAssets += imageUrls.length;
 
-      var onload = function() {
-        this._assetsLoaded++;
+      const onload = function() {
+        ++this._assetsLoaded;
+        if (this._assetsLoaded === this._totalAssets) {
+          this.fire('preload', null, {bubbles: false});  // nb. resolves Promise in ready:
+        }
       }.bind(this);
 
-      var imagesPerRaf = Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD);
-      imagesPerRaf = Math.max(1, imagesPerRaf);
-      var imageIndex = 0;
-      var rafCallback = function() {
-        for (var i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; i++) {
-          var img = new Image();
+      const imagesPerRaf = Math.max(1, Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD));
+      let imageIndex = 0;
+      const rafCallback = function() {
+        for (let i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; ++i) {
+          const img = new Image();
           img.onerror = img.onload = onload;
           img.src = this.resolveUrl(imageUrls[imageIndex++]);
         }
@@ -190,28 +174,11 @@ specific language governing permissions and limitations under the License.
       this.fire('sound-preload', soundSetName);
     },
 
-    showScene: function() {
-      this.loaded = true;
-      this.fire('scene-progress');
-      // Cancel the max preload async
-      this.cancelAsync(this._maxPreloadAsync);
-      this._maxPreloadAsync = null;
-
-      if (this.active) {
-        this.onShow && this.onShow();
-
-        // log that the scene has finished preloading. If this wasn't a preloaded
-        // load, the event will be discarded harmlessly (no start event).
-        this.fire('analytics-time-end', {category: 'Scene Load Time',
-            variable: this.route, time: Date.now()});
-
-        // focus in case element needs keyboard events
-        this.focus();
+    _progress: function(assetsLoaded, totalAssets) {
+      if (totalAssets) {
+        const ratio = (assetsLoaded + FAKE_ASSETS) / (totalAssets + FAKE_ASSETS);
+        this.fire('scene-progress', ratio);
       }
-    },
-
-    _computePreloadProgress: function(assetsLoaded, loaded, totalAssets) {
-      return loaded ? 100 : (totalAssets ? assetsLoaded / totalAssets * 100 : 0);
     },
 
     /**

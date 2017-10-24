@@ -1,0 +1,189 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<link rel="import" href="../santa-strings.html">
+<link rel="import" href="../santa-state.html">
+<link rel="import" href="../santa-app-behavior.html">
+<link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../santa-icons.html">
+
+<link rel="import" href="santa-sidebar_module.html">
+
+<dom-module id="santa-sidebar">
+<template>
+  <style include="santa-sidebar_module"></style>
+
+  <santa-strings strings="{{_strings}}"></santa-strings>
+  <santa-state language="{{_language}}" during-tracker="{{_duringTracker}}"></santa-state>
+
+  <div class="cards">
+    <a href$="[[urlFor('village')]]">
+      <div class="menucard menucard-village">
+        <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
+      </div>
+    </a>
+    <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]">
+      <div class="menucard" style$="[[_computeTodayHouseBackgroundStyle(todayHouse)]]">
+        <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h3>[[_computeStringScene(todayHouse, _strings)]]</h3>
+      </div>
+    </a>
+    <a href$="[[_computeTrackerUrl(_duringTracker)]]">
+      <div class="menucard menucard-tracker">
+        <div class="lock" hidden$="[[_duringTracker]]"></div>
+        <h2>[[_computeDec24th(_language)]]</h2>
+        <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
+      </div>
+    </a>
+  </div>
+
+  <div class="links">
+    <ul>
+      <li><a href$="[[urlFor('about')]]">
+        <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li><a href$="[[urlFor('press')]]">
+        <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li><a href="[[urlFor('educators')]]">
+        <i18n-msg msgid="educators">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+    </ul>
+  </div>
+
+  <div class="lang">
+    <iron-icon icon="santa:language"></iron-icon>
+    <select id="language" value="[[_language]]" on-change="_onLanguageChanged" on-click="_onLanguageClick">
+      <option value="af">Afrikaans</option>
+      <option value="ca">Català</option>
+      <option value="zh-CN">中文 (简体)</option>
+      <option value="zh-TW">中文 (繁體)</option>
+      <option value="da">Dansk</option>
+      <option value="de">Deutsch</option>
+      <option value="et">Eesti</option>
+      <option value="en">English</option>
+      <option value="en-GB">English (United Kingdom)</option>
+      <option value="es">Español</option>
+      <option value="es-419">Español (América Latina)</option>
+      <option value="fr">Français</option>
+      <option value="fr-CA">Français (Canada)</option>
+      <option value="hr">Hrvatski</option>
+      <option value="id">Indonesia</option>
+      <option value="it">Italiano</option>
+      <option value="ko">한국어</option>
+      <option value="ja">日本語</option>
+      <option value="lv">Latvijas</option>
+      <option value="lt">Lietuvos</option>
+      <option value="no">Norsk</option>
+      <option value="pl">Polski</option>
+      <option value="pt-BR">Português (Brasil)</option>
+      <option value="pt-PT">Português (Portugal)</option>
+      <option value="ru">Русский</ru>
+      <option value="ro">Română</option>
+      <option value="sl">Slovenija</option>
+      <option value="sv">Svenska</option>
+      <option value="tl">Tagalog</option>
+      <option value="vi">Tiếng Việt</option>
+      <option value="fi">Viimeistely</option>
+      <option value="bg">Български</option>
+      <option value="uk">Український</option>
+      <option value="ta">தமிழ்</option>
+      <option value="ml">മലയാളം </option>
+      <option value="th">ภาษาไทย</option>
+    </select>
+  </div>
+
+  <div class="links external">
+    <h2>
+      <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
+    </h2>
+    <ul>
+      <li><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
+        <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li><a target="_blank" href$="[[localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')]]">
+        <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li><a target="_blank" href$="[[localizeUrl('https://www.google.com/policies/')]]">
+        <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li><a target="_blank" href$="[[localizeUrl('https://maps.google.com/maps/about/')]]">
+        <i18n-msg msgid="getgooglemaps">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+    </ul>
+  </div>
+</template>
+<script>
+Polymer({
+  is: 'santa-sidebar',
+
+  behaviors: [
+    window.SantaAppBehavior,
+  ],
+
+  properites: {
+
+    /**
+     * The house unlocked today, by ID.
+     */
+    todayHouse: {
+      type: String,
+      value: '',
+    },
+
+  },
+
+  _computeTodayHouseBackgroundStyle: function(todayHouse) {
+    if (!todayHouse) { return null; }
+    const url = this.resolveUrl('../../images/scenes/' + todayHouse + '_2x.png');
+    return 'background-image: url(' + url + ')';
+  },
+
+  /** Computes "December 24" in the local language. */
+  _computeDec24th: function(language) {
+    const d = new Date('December 24, ' + (new Date).getUTCFullYear());
+    return d.toLocaleDateString(language, {month: 'long', day: 'numeric'});
+  },
+
+  _computeTrackerUrl: function(duringTracker) {
+    return duringTracker ? this.urlFor('tracker') : null;
+  },
+
+  _computeStringScene: function(id, strings) {
+    return strings ? strings['scene-' + id] : null;
+  },
+
+  _onLanguageClick: function() {
+    window.ga('send', 'event', 'nav', 'click', 'language');
+  },
+
+  /**
+   * Changes the site URL to set a new language. Preference the /intl/xx/ form (xx_ALL for dev).
+   */
+  _onLanguageChanged: function() {
+    const lang = this.$.language.value;
+    const prod = (window.location.hostname === 'santatracker.google.com');
+    const pathname = '/intl/' + lang + (prod ? '' : '_ALL') + '/';
+
+    // nb. we drop the last path component, since we expect to be at /
+    window.location = window.location.origin + pathname + window.location.hash;
+  },
+
+
+});
+</script>
+</dom-module>

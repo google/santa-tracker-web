@@ -16,8 +16,6 @@
 
 goog.provide('Cards');
 
-goog.require('app.utils');
-
 /**
  * @constructor
  */
@@ -51,7 +49,7 @@ Cards.prototype.getLevelCards = function(numberOfCards) {
   }
 
   // Shuffle the deck before picking cards
-  this.allCards = app.utils.shuffleArray(this.allCards);
+  this.allCards = shuffleArray(this.allCards);
 
   var levelCards = [];
   for (i = 0; i < totalCards; i++) {
