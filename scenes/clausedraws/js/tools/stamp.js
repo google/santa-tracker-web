@@ -52,11 +52,11 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
   }
 
   var context = canvas.getContext('2d');
-  var size = app.utils.map(size, app.Constants.STAMP_MIN,
+  var sizeMultiplier = app.utils.map(size, app.Constants.STAMP_MIN,
       app.Constants.STAMP_MAX);
 
-  var drawWidth = this.stamp.width / mouseCoords.scale * size;
-  var drawHeight = this.stamp.height / mouseCoords.scale * size;
+  var drawWidth = this.stamp.width / mouseCoords.scale * sizeMultiplier;
+  var drawHeight = this.stamp.height / mouseCoords.scale * sizeMultiplier;
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
   var offsetX = this.mouseOffset.x / mouseCoords.scale;

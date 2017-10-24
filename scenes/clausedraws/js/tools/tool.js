@@ -104,9 +104,10 @@ app.Tool.prototype.reset = function() {
  * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
  * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
  * @param  {!number} size  The current size setting
+ * @param  {!string} color  The current color setting
  * @return {boolean} Whether the canvas was changed
  */
-app.Tool.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
+app.Tool.prototype.draw = function(canvas, mouseCoords, prevCanvas, size, color) {
   return false;
 }
 

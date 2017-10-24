@@ -205,10 +205,11 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
     }
 
     var slider = this.game_.slider;
+    var colorpicker = this.game_.colorpicker;
     var drawCanvas = this.backupCanvases[this.drawIndex].canvas;
     var baseCanvas = this.backupCanvases[this.baseIndex].canvas;
     var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse,
-        baseCanvas, slider.size);
+        baseCanvas, slider.size, colorpicker.selectedColor);
     if (didDraw) {
       this.needSave = true;
     }

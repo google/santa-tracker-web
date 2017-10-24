@@ -9,11 +9,16 @@ $name: 'module-clausedraws';
 @import "sass/tools";
 
 ##{$name} {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 
   .scene {
     background-color: #00ADEB;

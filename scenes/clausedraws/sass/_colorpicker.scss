@@ -1,4 +1,69 @@
 ##{$name} {
   .Colorpicker {
+    height: 75px;
+    margin: 20px auto;
+    position: relative;
+    width: 75px;
+  }
+
+  .Colorpicker-circle {
+    background: purple;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+
+  .Colorpicker-popup {
+    background: #fff;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    padding: 15px;
+    pointer-events: none;
+    position: absolute;
+    top: 5px;
+    transition: opacity 0.3s;
+    right: -20px;
+    transform: translateX(100%);
+
+    &.is-visible {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    &::before {
+      border-bottom: 15px solid transparent;
+      border-right:15px solid white;
+      border-top: 15px solid transparent;
+      content: '';
+      height: 0;
+      left: 0;
+      position: absolute;
+      transform: translateX(-100%);
+      width: 0;
+    }
+  }
+
+  .Colorpicker-colorgrid {
+    margin: 0 auto;
+    width: 112px;
+  }
+
+  .Colorpicker-color {
+    background: pink;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+
+    &.is-selected {
+      border: 3px solid #47a4ef;
+    }
+
+    &::after {
+      content: '';
+    }
   }
 }

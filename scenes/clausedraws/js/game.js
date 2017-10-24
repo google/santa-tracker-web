@@ -17,7 +17,9 @@
 goog.provide('app.Game');
 
 goog.require('app.Canvas');
+goog.require('app.Colorpicker');
 goog.require('app.Mouse');
+goog.require('app.Slider');
 goog.require('app.Tools');
 goog.require('app.shared.ShareOverlay');
 
@@ -40,6 +42,7 @@ app.Game = function(elem) {
   // Construct app.Tools last, as it needs mouse/canvas.
   this.tools = new app.Tools(this, this.sceneElem);
   this.slider = new app.Slider(this.elem, this.mouse);
+  this.colorpicker = new app.Colorpicker(this.elem);
 
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 

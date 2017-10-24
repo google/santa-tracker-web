@@ -26,13 +26,11 @@ goog.require('app.utils');
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the color.
- * @param {string} color The color of the pen
  */
-app.Pen = function($elem, name, color) {
+app.Pen = function($elem, name) {
   app.Tool.call(this, $elem, name, {x: 47, y: 0});
 
   this.soundKey = 'selfie_color';
-  this.color = color || name;
   this.points = [];
   this.dpr = 1;
 };
@@ -45,9 +43,11 @@ app.Pen.prototype = Object.create(app.Tool.prototype);
  * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
  * @param  {!HTMLCanvasElement} prevCanvas  The previously saved canvas
  * @param  {!number} size  The current size setting
+ * @param  {!string} color  The current color setting
  * @return {boolean} Whether the canvas was changed
  */
-app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
+app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
+    color) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
@@ -64,7 +64,7 @@ app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
     context.lineCap = 'round';
     context.lineWidth = app.utils.map(size, app.Constants.PEN_MIN,
         app.Constants.PEN_MAX);
-    context.strokeStyle = this.color;
+    context.strokeStyle = color;
     var p1 = this.points[0];
     var p2 = this.points[1];
     context.beginPath();
