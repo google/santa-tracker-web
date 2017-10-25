@@ -11,6 +11,8 @@
 
   .Tools--primary {
     bottom: 0;
+    display: flex;
+    flex-direction: column;
     left: 0;
     top: 0;
     width: 85px;
@@ -22,7 +24,12 @@
     height: 140px;
     left: 85px;
     right: 0;
+    transition: transform .3s;
     z-index: 1;
+
+    &.is-inactive {
+      transform: translateY(100%);
+    }
   }
 
   .Tools--tertiary {
@@ -35,23 +42,27 @@
 
   .Tools-categories {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
   }
 
   .Tools-inner {
+    align-items: center;
     bottom: 0;
-    display: none;
+    display: flex;
+    height: 100%;
     left: 0;
-    // position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
     right: 0;
     top: 0;
 
     &.is-active {
-      display: flex;
-      height: 100%;
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 
@@ -180,5 +191,18 @@
 
   .Tool-hover-inactive {
     display: none;
+  }
+
+  .Tools-slider {
+    &::after {
+      background: #F6F6F6;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1px;
+    }
   }
 }
