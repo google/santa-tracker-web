@@ -35,8 +35,8 @@ export class Game extends HTMLElement {
     this.shadowRoot.appendChild(this.renderSystem);
     this.shadowRoot.appendChild(this.inputSystem);
 
-    this.clockSystem.startClock('gameloop', () => {
-      this.tick = Math.floor(performance.now() * 60 / 1000);
+    this.clockSystem.startClock('gameloop', time => {
+      this.tick = Math.floor(time * 60 / 1000);
 
       if (this.currentLevel == null) {
         return;

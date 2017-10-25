@@ -2,6 +2,16 @@ export class ClockSystem {
   constructor() {
     this.clocks = new Map();
     this.active = false;
+    this.timeZero = performance.now();
+    this.timeSyncDelta = 0;
+  }
+
+  get time() {
+    return performance.now() - this.timeZero + this.timeSyncDelta;
+  }
+
+  synchronize(time) {
+    this.timeSyncDelta = time - performance.now();
   }
 
   startClock(name, handler) {
@@ -24,7 +34,8 @@ export class ClockSystem {
         return;
       }
 
-      this.clocks.forEach(handlers => handlers.forEach(handler => handler()));
+      this.clocks.forEach(handlers =>
+          handlers.forEach(handler => handler(this.time)));
       this.tick();
     });
   }
