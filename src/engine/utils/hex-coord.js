@@ -7,6 +7,8 @@ export class HexCoord extends Vector3 {
     this.q = this.x;
     this.r = this.y;
     this.s = this.z;
+
+    console.count('HexCoords constructed');
   }
 
   get q() {

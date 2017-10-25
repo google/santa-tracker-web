@@ -1,6 +1,7 @@
 import { Entity } from '../../engine/core/entity.js';
 import { combine } from '../../engine/utils/function.js';
 import { HexCoord } from '../../engine/utils/hex-coord.js';
+import { PriorityQueue } from '../../third_party/priorityqueue.js';
 
 const {
   Vector2,
@@ -115,6 +116,15 @@ void main() {
 const SQRT_THREE = Math.sqrt(3);
 
 const intermediateHexCoord = new HexCoord();
+const intermediateNeighbors = [
+  new HexCoord(), new HexCoord(), new HexCoord(),
+  new HexCoord(), new HexCoord(), new HexCoord()
+];
+
+const cubicNeighborhood = [
+  new HexCoord(1, -1, 0), new HexCoord(1, 0, -1), new HexCoord(0, 1, -1),
+  new HexCoord(-1, 1, 0), new HexCoord(-1, 0, 1), new HexCoord(0, -1, 1)
+];
 
 export class HexMap extends Entity(Mesh) {
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
@@ -252,11 +262,8 @@ export class HexMap extends Entity(Mesh) {
         const index = this.oddqToIndex(oddq);
         const offset = this.indexToOffset(index, oddq);
 
-        const ringIndex = Math.floor(mag);
-
-        const erosionChance = 0.5 + magDelta / erosionMag;
-
         // Decide the initial state of the tile (either hidden or shown):
+        const erosionChance = 0.5 + magDelta / erosionMag;
         const state = mag > erosionMag
             ? Math.random() < erosionChance
                 ? 0.0
@@ -267,14 +274,15 @@ export class HexMap extends Entity(Mesh) {
         const tile = Math.abs(Math.floor(
             12 + 4 * Math.random() - Math.random() * Math.random() * 16) % 16);
 
-
         if (state > 0.0) {
           // Build up an array of map "rings" for eroding tiles later:
+          const ringIndex = Math.floor(mag);
+
           this.tileRings[ringIndex] = this.tileRings[ringIndex] || [];
           this.tileRings[ringIndex].push(index);
         }
 
-
+        // Stash tile details into geometry attributes
         tileStates.setX(index, state);
         tileOffsets.setXYZ(index, offset.x, offset.y, offset.y / 10.0);
         tileSprites.setX(index, tile);
@@ -299,7 +307,7 @@ export class HexMap extends Entity(Mesh) {
 
       if (index != null) {
         ring.splice(tileIndex, 1);
-        this.setTileState(this.indexToCube(index), performance.now());
+        this.setTileState(index, performance.now());
       }
 
       if (ring.length === 0) {
@@ -308,33 +316,96 @@ export class HexMap extends Entity(Mesh) {
     }
   }
 
+  path(fromIndex, toIndex,
+      passable = currentIndex => true,
+      heuristic = (toIndex, currentIndex) => 0) {
+    const frontier = new PriorityQueue((a, b) => b.cost - a.cost);
+    const path = [];
+
+    //const currentCube = this.indexToCube(fromIndex);
+    //const toCube = this.indexToCube(toIndex);
+
+    // Short circuit if the target tile is not passable
+    if (!passable(toIndex)) {
+      return path;
+    }
+
+    const cost = new Map();
+    const directions = new Map();
+
+    cost.set(fromIndex, 0);
+    frontier.enq({ cost: 0, index: fromIndex });
+
+    while (frontier.size() > 0) {
+      const currentIndex = frontier.deq().index;
+
+      if (currentIndex === toIndex) {
+        let index = toIndex;
+        do {
+          path.unshift(index);
+          index = directions.get(index);
+        } while (index !== fromIndex);
+
+        path.unshift(fromIndex);
+
+        break;
+      }
+
+      const neighborIndices = this.indexToNeighborIndices(currentIndex);
+      //const currentCube = this.indexToCube(currentIndex);
+      //const neighborCubes = this.cubeToNeighborCubes(
+          //currentCube, intermediateNeighbors);
+
+      for (let i = 0; i < neighborIndices.length; ++i) {
+        //const neighborCube = neighborCubes[i];
+        //const neighborIndex = this.cubeToIndex(neighborCube);
+        const neighborIndex = neighborIndices[i];
+
+        if (!passable(neighborIndex)) {
+          continue;
+        }
+
+        const neighborCost = heuristic(toIndex, neighborIndex);
+        const previousTotalCost = cost.get(neighborIndex);
+        const newTotalCost = cost.get(fromIndex) + neighborCost;
+
+        if (previousTotalCost == null || newTotalCost < previousTotalCost) {
+          cost.set(neighborIndex, newTotalCost);
+          frontier.enq({ cost: newTotalCost, index: neighborIndex });
+          directions.set(neighborIndex, currentIndex);
+        }
+      }
+    }
+
+    return path;
+  }
+
   // Helpers for accessing state / tile values
   get attributes() {
     return this.geometry.attributes;
   }
 
-  setTileSprite(cube, sprite) {
+  setTileSprite(index, sprite) {
     const tileSprites = this.attributes.tileSprite;
 
-    tileSprites.setX(this.cubeToIndex(cube), sprite);
+    tileSprites.setX(index, sprite);
     tileSprites.needsUpdate = true;
   }
 
-  getTileSprite(cube) {
-    return this.attributes.tileSprite.getX(this.cubeToIndex(cube));
+  getTileSprite(index) {
+    return this.attributes.tileSprite.getX(index);
   }
 
-  setTileState(cube, state) {
+  setTileState(index, state) {
     const tileStates = this.attributes.tileState;
 
-    tileStates.setX(this.cubeToIndex(cube), state);
+    tileStates.setX(index, state);
     tileStates.needsUpdate = true;
   }
 
-  getTileState(cube) {
-    return this.attributes.tileState.getX(this.cubeToIndex(cube));
+  getTileState(index) {
+    return this.attributes.tileState.getX(index);
   }
-
 
   // UV conversions
   uvToPixel(uv, pixel = new HexCoord()) {
@@ -446,6 +517,25 @@ export class HexMap extends Entity(Mesh) {
     return axial;
   }
 
+  indexToNeighborIndices(index) {
+    return this.cubeToNeighborIndices(
+        this.indexToCube(index, intermediateHexCoord));
+  }
+
+  cubeToNeighborCubes(cube, neighbors = []) {
+    for (let i = 0; i < cubicNeighborhood.length; ++i) {
+      neighbors[i] = neighbors[i] || new HexCoord();
+      neighbors[i].addVectors(cube, cubicNeighborhood[i]);
+    }
+
+    return neighbors;
+  }
+
+  cubeToNeighborIndices(cube) {
+    return this.cubeToNeighborCubes(cube, intermediateNeighbors).map(
+        cube => this.cubeToIndex(cube));
+  }
+
 
   // Odd-Q conversions
   oddqToIndex(oddq) {
@@ -521,6 +611,11 @@ export class HexMap extends Entity(Mesh) {
     return this.cubeToOddq(roundedCube, oddq);
   }
 
+  hitEventToIndex(event) {
+    const hit = event.detail.hits.get(this.surface)[0];
+    const uv = hit.uv;
+    return this.uvToIndex(uv);
+  }
 
   setup(game) {
     const { inputSystem } = game;
@@ -540,10 +635,8 @@ export class HexMap extends Entity(Mesh) {
   }
 
   onMove(event) {
-    const hit = event.detail.hits.get(this.surface)[0];
-    const uv = hit.uv;
     const state = this.attributes.tileState;
-    const index = this.uvToIndex(uv);
+    const index = this.hitEventToIndex(event);
 
     if (this.lastHighlightIndex != null && state.getX(this.lastHighlightIndex) < 3) {
       state.setX(this.lastHighlightIndex, 1);
@@ -562,8 +655,33 @@ export class HexMap extends Entity(Mesh) {
   }
 
   onPick(event) {
-    const hit = event.detail.hits.get(this.surface)[0];
-    const uv = hit.uv;
     const state = this.attributes.state;
+    const index = this.hitEventToIndex(event);
+
+    if (this.lastPickIndex == null) {
+      this.lastPickIndex = index;
+    } else if (index !== this.lastPickIndex) {
+      const start = performance.now();
+      const path = this.path(this.lastPickIndex, index,
+          currentIndex =>
+              this.getTileState(currentIndex) > 0 &&
+              this.getTileSprite(currentIndex) !== 0,
+          (() => {
+            const toOddq = new HexCoord();
+            const currentOddq = new HexCoord();
+
+            return (toIndex, currentIndex) =>
+                this.indexToOddq(toIndex, toOddq)
+                    .distanceTo(this.indexToOddq(currentIndex, currentOddq));
+          })());
+      const end = performance.now();
+
+      path.forEach(index => {
+        this.setTileState(index, 2.0);
+      });
+
+      console.log(`Path found from ${this.lastPickIndex} to ${index} in ${end - start}ms:`, path);
+      this.lastPickIndex = null;
+    }
   }
 };
