@@ -48,22 +48,61 @@ Santaselfie scene.
         </div>
 
         <div class="Tools Tools--primary">
-          <div class="Tools--robot">
-            <div class="Robot-image"></div>
-            <button class="undo" data-tool-undo>Undo</button>
-            <button class="redo" data-tool-redo>Redo</button>
+          <div class="Tools-setting">
+            <div class="Tools-colorpicker Colorpicker">
+              <div class="Colorpicker-circle" data-colorpicker-selector></div>
+              <div class="Colorpicker-popup" data-colorpicker-popup>
+                <div class="Colorpicker-colorgrid">
+                  <div class="Colorpicker-color" data-colorpicker-color="#e34f3a"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#d93663"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#902fad"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#613cb3"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#3f4fb2"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#64ab56"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#419489"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#53b9d3"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#3987c4"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#4193ef"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#96c056"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#d0da4d"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#fcea52"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#f6c143"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#f19c39"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#000000"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#657b89"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#9e9c9e"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#76564a"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#ffffff"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="Tools-categories">
-            <div class="Category" data-tool-category-picker data-tool-category="drawing">Drawing</div>
-            <div class="Category" data-tool-category-picker data-tool-category="stamp">Stamps</div>
-            <div class="Category" data-tool-category-picker data-tool-category="spray">Sprays</div>
-            <div class="Category" data-tool-category-picker data-tool-category="wand">Wand</div>
-            <div class="Category" data-tool-category-picker data-tool-category="shapes">Shapes</div>
-            <div class="Category" data-tool-category-picker data-tool-category="bucket">Bucket</div>
-            <div class="Category" data-tool-category-picker data-tool-category="scene">Scenes</div>
-            <div class="Category" data-tool-category-picker data-tool-category="sticker">Stickers</div>
-            <div class="Category" data-tool-category-picker data-tool-category="eraser">Eraser</div>
+            <div class="Category Category--drawing" data-tool-category-picker data-tool-category="drawing">
+              <div class="Category-inner">Drawing</div>
+            </div>
+            <div class="Category Category--stamp" data-tool-category-picker data-tool-category="stamp">
+              <div class="Category-inner">Stamps</div>
+            </div>
+            <div class="Category Category--spray" data-tool-category-picker data-tool-category="spray">
+              <div class="Category-inner">Sprays</div>
+            </div>
+            <div class="Category Category--wand" data-tool-category-picker data-tool-category="wand">
+              <div class="Category-inner">Wand</div>
+            </div>
+            <div class="Category Category--shapes" data-tool-category-picker data-tool-category="shapes">
+              <div class="Category-inner">Shapes</div>
+            </div>
+            <div class="Category Category--scene" data-tool-category-picker data-tool-category="scene">
+              <div class="Category-inner">Scenes</div>
+            </div>
+            <div class="Category Category--sticker" data-tool-category-picker data-tool-category="sticker">
+              <div class="Category-inner">Stickers</div>
+            </div>
+            <div class="Category Category--eraser" data-tool-category-picker data-tool-category="eraser">
+              <div class="Category-inner">Eraser</div>
+            </div>
           </div>
 
           <div class="Tools-clear">
@@ -110,15 +149,14 @@ Santaselfie scene.
         </div>
 
         <div class="Tools Tools--secondary">
-          CONTEXT MENU
           <div class="Tools-inner" data-tool-category-menu data-tool-category="drawing">
-            <div class="Tool" data-tool="pen">
+            <div class="Tool Tool--pen" data-tool="pen">
               <div class="Tool-inner">PEN</div>
             </div>
-            <div class="Tool">
+            <div class="Tool Tool--crayon">
               <div class="Tool-inner">CRAYON</div>
             </div>
-            <div class="Tool">
+            <div class="Tool Tool--marker">
               <div class="Tool-inner">MARKER</div>
             </div>
             <div class="Tool">
@@ -162,6 +200,14 @@ Santaselfie scene.
             <div class="Tool" data-tool="eraser">
               <div class="Tool-inner">ERASER</div>
             </div>
+          </div>
+        </div>
+
+        <div class="Tools Tools--tertiary">
+          <div class="Tools--robot">
+            <div class="Robot-image"></div>
+            <button class="undo" data-tool-undo>Undo</button>
+            <button class="redo" data-tool-redo>Redo</button>
           </div>
         </div>
 

@@ -10,16 +10,35 @@
 
 
   .Tools--primary {
-    left: 20px;
+    bottom: 0;
+    left: 0;
     top: 0;
+    width: 85px;
   }
 
   .Tools--secondary {
+    background-color: #fff;
     bottom: 0;
-    right: 20px;
+    height: 140px;
+    left: 85px;
+    right: 0;
+    z-index: 1;
+  }
+
+  .Tools--tertiary {
+    background-color: #E9FEFF;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    width: 85px;
   }
 
   .Tools-categories {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .Tools-inner {
@@ -27,20 +46,110 @@
     display: none;
     left: 0;
     // position: absolute;
-    top: 0;
     right: 0;
+    top: 0;
 
     &.is-active {
-      display: block;
+      display: flex;
+      height: 100%;
     }
   }
 
   .Category {
     cursor: pointer;
+    flex: 1;
+    min-height: 75px;
+    position: relative;
+
+    &::before {
+      background: rgba(0, 0, 0, .05);
+      border-radius: 50%;
+      content: '';
+      display: block;
+      left: 50%;
+      opacity: 0;
+      padding-top: 75%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+    }
+
+    .Category-inner {
+      height: 60%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+    }
+
+    &--drawing {
+      .Category-inner {
+        background: url(img/tools/tool_drawing.svg) center / contain no-repeat;
+      }
+    }
+
+    &--stamp {
+      .Category-inner {
+        background: url(img/tools/tool_stamp.svg) center / contain no-repeat;
+      }
+    }
+
+    &--spray {
+      .Category-inner {
+        background: url(img/tools/tool_spray_yellow.svg) center / contain no-repeat;
+      }
+    }
+
+    &--wand {
+      .Category-inner {
+        background: url(img/tools/tool_effects.svg) center / contain no-repeat;
+      }
+    }
+
+    &--shapes {
+      .Category-inner {
+        background: url(img/tools/tool_shapes.svg) center / contain no-repeat;
+      }
+    }
+
+    &--sticker {
+      .Category-inner {
+        background: url(img/tools/tool_sticker.svg) center / contain no-repeat;
+      }
+    }
+
+    &--eraser {
+      .Category-inner {
+        background: url(img/tools/tool_eraser.svg) center / contain no-repeat;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    &.is-active {
+      &::before {
+        opacity: 1;
+      }
+    }
   }
 
   .Tool {
     cursor: pointer;
+    height: 100%;
+    padding: 0 40px;
+
+    &--pen {
+      background: url(img/tools/tool_pencil_regular.svg) center bottom / contain no-repeat;
+    }
+
+    &--crayon {
+      background: url(img/tools/tool_crayon_red.svg) center bottom / contain no-repeat;
+    }
+
+    &--marker {
+      background: url(img/tools/tool_marker_green.svg) center bottom / contain no-repeat;
+    }
   }
 
   .Tool-inner {

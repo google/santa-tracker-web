@@ -125,9 +125,11 @@ app.Tools.prototype.selectTool_ = function(e) {
 
 
 app.Tools.prototype.onCategoryClick_ = function(e) {
-  var category = $(e.target).closest('[data-tool-category-picker]')
-      .attr('data-tool-category');
+  var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
+  var categoryName = categoryPicker.attr('data-tool-category');
+  this.categoryPickers.removeClass('is-active');
   this.categoryMenus.removeClass('is-active');
-  this.secondaryMenu.find('[data-tool-category="' + category + '"]')
+  this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]')
       .addClass('is-active');
+  categoryPicker.addClass('is-active');
 }
