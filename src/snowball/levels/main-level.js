@@ -1,24 +1,29 @@
 import { Level } from '../../engine/core/level.js';
 import { combine } from '../../engine/utils/function.js';
-import { Map } from '../entities/map.js';
-import { FastMap } from '../entities/fastmap.js';
+import { HexMap } from '../entities/hex-map.js';
 
 export class MainLevel extends Level {
   setup(game) {
     console.log('Setup!');
 
-    const fastMap = this.fastMap = new FastMap(32, 32);
-    this.fastMap.setup(game);
-    this.add(this.fastMap);
+    this.hexMap = new HexMap(32, 32);
+    this.hexMap.setup(game);
+    this.add(this.hexMap);
+
+    this.lastErosionTick = 0;
   }
 
   teardown(game) {
-    this.fastMap.teardown(game);
-    this.remove(this.fastMap);
-    this.map = null;
+    this.hexMap.teardown(game);
+    this.remove(this.hexMap);
   }
 
   update(game) {
-    this.fastMap.update(game);
+    if ((game.tick - this.lastErosionTick) > 16) {
+      this.lastErosionTick = game.tick;
+      this.hexMap.erode(Math.floor(Math.random() * 3));
+    }
+
+    this.hexMap.update(game);
   }
 }
