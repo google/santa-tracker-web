@@ -37,8 +37,8 @@ app.SprinkleSpray = function($elem, name, offset) {
     $elem.find('#sprinkle5')[0]
   ];
   this.sprinkleIndex = 0;
-  this.height = 100;
-  this.width = 100;
+  this.sprinkleHeight = 100;
+  this.sprinkleWidth = 100;
   this.sprinkleOffset = {x: 50 - offset.x, y: 50 - offset.y};
 };
 app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
@@ -53,8 +53,9 @@ app.SprinkleSpray.prototype.draw = function(canvas, mouseCoords) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
-  var drawWidth = this.width / mouseCoords.scale;
-  var drawHeight = this.height / mouseCoords.scale;
+  var drawWidth = this.sprinkleWidth / mouseCoords.scale;
+  var drawHeight = this.sprinkleHeight / mouseCoords.scale;
+  // TODO: randomize offsets
   var offsetX = this.sprinkleOffset.x / mouseCoords.scale;
   var offsetY = this.sprinkleOffset.y / mouseCoords.scale;
   context.save();
