@@ -29,11 +29,14 @@ goog.require('app.utils');
  */
 app.Canvas = function(game, $elem) {
   this.displayCanvas = $elem.find('#draw-canvas')[0];
+  this.saveCanvas = $elem.find('#save-canvas')[0];
   this.backgroundCanvas = $elem.find('#back-canvas')[0];
   this.foregroundCanvas = $elem.find('#fore-canvas')[0];
   this.backgroundBackup = $elem.find('#back-backup')[0];
   this.foregroundBackup = $elem.find('#fore-backup')[0];
 
+  this.saveCanvas.height = app.Constants.CANVAS_HEIGHT;
+  this.saveCanvas.width = app.Constants.CANVAS_WIDTH;
   this.backgroundBackup.height = app.Constants.CANVAS_HEIGHT;
   this.backgroundBackup.width = app.Constants.CANVAS_WIDTH;
   this.foregroundBackup.height = app.Constants.CANVAS_HEIGHT;
@@ -77,6 +80,7 @@ app.Canvas = function(game, $elem) {
 
   $elem.find('button.redo').click(this.redo.bind(this));
 
+  $elem.find('a.save').click(this.saveToFile.bind(this));
 };
 
 
@@ -314,6 +318,25 @@ app.Canvas.prototype.copyCanvas = function(fromCanvas, toCanvas) {
   var toCtx = toCanvas.getContext('2d');
   toCtx.clearRect(0, 0, toCanvas.width, toCanvas.height);
   toCtx.drawImage(fromCanvas, 0, 0, toCanvas.width, toCanvas.height);
+};
+
+
+/**
+ * Save canvas as a file
+ */
+app.Canvas.prototype.saveToFile = function(e) {
+  var saveCtx = this.saveCanvas.getContext('2d');
+  saveCtx.fillStyle = "#fff";
+  saveCtx.fillRect(0, 0, this.saveCanvas.width, this.saveCanvas.height);
+  saveCtx.drawImage(this.backgroundBackup, 0, 0, this.saveCanvas.width,
+      this.saveCanvas.height);
+  saveCtx.drawImage(this.backupCanvases[this.baseIndex].canvas, 0, 0,
+      this.saveCanvas.width, this.saveCanvas.height);
+  saveCtx.drawImage(this.foregroundBackup, 0, 0, this.saveCanvas.width,
+      this.saveCanvas.height);
+
+  var data = this.saveCanvas.toDataURL('image/jpeg');
+  e.target.href = data;
 };
 
 
