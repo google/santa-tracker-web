@@ -152,13 +152,33 @@
     }
   }
 
-  .Tool-inner {
+  .Tool-hover {
     pointer-events: none;
   }
 
   .Tool--selected {
-    .Tool-inner {
+    .Tool-hover {
       position: fixed;
     }
+
+    .Tool-hover-active {
+      display: block;
+    }
+  }
+
+  .Tool-hover-circle {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    border-style: dashed;
+    height: 20px;
+    width: 20px;
+  }
+
+  .Tool-hover-active {
+    display: none;
+  }
+
+  .Tool-hover-inactive {
+    display: none;
   }
 }
