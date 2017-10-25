@@ -1,7 +1,7 @@
 import { Entity } from '../../engine/core/entity.js';
 import { combine } from '../../engine/utils/function.js';
 import { HexCoord } from '../../engine/utils/hex-coord.js';
-import { PriorityQueue } from '../../third_party/priorityqueue.js';
+import { MagicHexGrid } from '../utils/magic-hex-grid.js';
 
 const {
   Vector2,
@@ -113,19 +113,6 @@ void main() {
 }
 `;
 
-const SQRT_THREE = Math.sqrt(3);
-
-const intermediateHexCoord = new HexCoord();
-const intermediateNeighbors = [
-  new HexCoord(), new HexCoord(), new HexCoord(),
-  new HexCoord(), new HexCoord(), new HexCoord()
-];
-
-const cubicNeighborhood = [
-  new HexCoord(1, -1, 0), new HexCoord(1, 0, -1), new HexCoord(0, 1, -1),
-  new HexCoord(-1, 1, 0), new HexCoord(-1, 0, 1), new HexCoord(0, -1, 1)
-];
-
 export class HexMap extends Entity(Mesh) {
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
     const geometry = new InstancedBufferGeometry();
@@ -158,17 +145,10 @@ export class HexMap extends Entity(Mesh) {
       transparent: true
     }));
 
-    this.unitWidth = unitWidth;
-    this.unitHeight = unitHeight;
-    this.tileScale = tileScale;
+    this.grid = new MagicHexGrid(unitWidth, unitHeight, tileScale);
     this.tileCount = unitWidth * unitHeight;
 
-    // TODO(cdata): Make sure this is the correct calculation for
-    // pixel width / height:
-    this.width = this.unitWidth * tileScale * 0.75 + 0.25 * tileScale;
-    this.height = this.unitHeight * tileScale * 0.75 + 0.5 * tileScale;
-
-    console.log(this.width, this.height);
+    console.log(this.grid.pixelWidth, this.grid.pixelHeight);
 
     this.frustumCulled = false;
     this.uniforms = uniforms;
@@ -178,7 +158,7 @@ export class HexMap extends Entity(Mesh) {
     // There is probably a better way to make this work, but this way works
     // for now:
     this.surface = new Mesh(
-        new PlaneBufferGeometry(this.width, this.height),
+        new PlaneBufferGeometry(this.grid.pixelWidth, this.grid.pixelHeight),
         new MeshBasicMaterial({
           color: 0x000000,
           transparent: true,
@@ -191,14 +171,9 @@ export class HexMap extends Entity(Mesh) {
     this.tileRings = [];
 
     this.initializeGeometry();
-
-    window.m = this;
-    window.s = this.attributes.tileState;
   }
 
   initializeGeometry() {
-    const tileCount = this.unitWidth * this.unitHeight;
-
     // The vertices, uvs and indices for a single hex tile.
     // These will be instanced tileCount times:
     const positions = new BufferAttribute(new Float32Array([
@@ -228,7 +203,7 @@ export class HexMap extends Entity(Mesh) {
 
     // Contains the relative positions of the instanced tiles:
     const tileOffsets = new InstancedBufferAttribute(
-        new Float32Array(tileCount * 3), 3, 1);
+        new Float32Array(this.tileCount * 3), 3, 1);
 
     // Contains the state of each instanced tile.
     // 0: hidden
@@ -236,31 +211,32 @@ export class HexMap extends Entity(Mesh) {
     // 2: highlight
     // 3+: sunk; the value is the game time when the tile began to sink
     const tileStates = new InstancedBufferAttribute(
-        new Float32Array(tileCount), 1, 1).setDynamic(true);
+        new Float32Array(this.tileCount), 1, 1).setDynamic(true);
 
     // The sprite used when rendering the tile. Supports values 0 - 15.
     const tileSprites = new InstancedBufferAttribute(
-        new Float32Array(tileCount), 1, 1);
+        new Float32Array(this.tileCount), 1, 1);
 
     // Conventionally: q = column, r = row. Hex grid uses odd-q layout.
     // @see http://www.redblobgames.com/grids/hexagons/#coordinates
     const oddq = new HexCoord();
-    const halfSize = new HexCoord(this.unitWidth / 2.0, this.unitHeight / 2.0, 0);
+    const halfSize = new HexCoord(this.grid.width / 2.0, this.grid.height / 2.0, 0);
+    const intermediateHexCoord = new HexCoord();
 
-    oddq.set(this.unitWidth, this.unitHeight, 0.0);
+    oddq.set(this.grid.width, this.grid.height, 0.0);
 
     const maxMag = oddq.length() / 2.0;
     const erosionMag = maxMag * 0.65;
 
-    for (let q = 0; q < this.unitWidth; ++q) {
-      for (let r = 0; r < this.unitHeight; ++r) {
+    for (let q = 0; q < this.grid.width; ++q) {
+      for (let r = 0; r < this.grid.height; ++r) {
         oddq.set(q, r, 0);
 
         const mag = intermediateHexCoord.subVectors(oddq, halfSize).length();
         const magDelta = Math.abs(erosionMag - mag);
 
-        const index = this.oddqToIndex(oddq);
-        const offset = this.indexToOffset(index, oddq);
+        const index = this.grid.oddqToIndex(oddq);
+        const offset = this.grid.indexToOffset(index, oddq);
 
         // Decide the initial state of the tile (either hidden or shown):
         const erosionChance = 0.5 + magDelta / erosionMag;
@@ -316,70 +292,6 @@ export class HexMap extends Entity(Mesh) {
     }
   }
 
-  path(fromIndex, toIndex,
-      passable = currentIndex => true,
-      heuristic = (toIndex, currentIndex) => 0) {
-    const frontier = new PriorityQueue((a, b) => b.cost - a.cost);
-    const path = [];
-
-    //const currentCube = this.indexToCube(fromIndex);
-    //const toCube = this.indexToCube(toIndex);
-
-    // Short circuit if the target tile is not passable
-    if (!passable(toIndex)) {
-      return path;
-    }
-
-    const cost = new Map();
-    const directions = new Map();
-
-    cost.set(fromIndex, 0);
-    frontier.enq({ cost: 0, index: fromIndex });
-
-    while (frontier.size() > 0) {
-      const currentIndex = frontier.deq().index;
-
-      if (currentIndex === toIndex) {
-        let index = toIndex;
-        do {
-          path.unshift(index);
-          index = directions.get(index);
-        } while (index !== fromIndex);
-
-        path.unshift(fromIndex);
-
-        break;
-      }
-
-      const neighborIndices = this.indexToNeighborIndices(currentIndex);
-      //const currentCube = this.indexToCube(currentIndex);
-      //const neighborCubes = this.cubeToNeighborCubes(
-          //currentCube, intermediateNeighbors);
-
-      for (let i = 0; i < neighborIndices.length; ++i) {
-        //const neighborCube = neighborCubes[i];
-        //const neighborIndex = this.cubeToIndex(neighborCube);
-        const neighborIndex = neighborIndices[i];
-
-        if (!passable(neighborIndex)) {
-          continue;
-        }
-
-        const neighborCost = heuristic(toIndex, neighborIndex);
-        const previousTotalCost = cost.get(neighborIndex);
-        const newTotalCost = cost.get(fromIndex) + neighborCost;
-
-        if (previousTotalCost == null || newTotalCost < previousTotalCost) {
-          cost.set(neighborIndex, newTotalCost);
-          frontier.enq({ cost: newTotalCost, index: neighborIndex });
-          directions.set(neighborIndex, currentIndex);
-        }
-      }
-    }
-
-    return path;
-  }
-
   // Helpers for accessing state / tile values
   get attributes() {
     return this.geometry.attributes;
@@ -407,214 +319,10 @@ export class HexMap extends Entity(Mesh) {
     return this.attributes.tileState.getX(index);
   }
 
-  // UV conversions
-  uvToPixel(uv, pixel = new HexCoord()) {
-    const { x, y } = uv;
-
-    pixel.x = (x * 0.999 - 0.5 / this.unitWidth)
-        * this.width;
-
-    pixel.y = (y * 1.155 - 0.5 / this.unitHeight)
-        * this.height;
-
-    return pixel;
-  }
-
-  uvToIndex(uv) {
-    return this.pixelToIndex(this.uvToPixel(uv, intermediateHexCoord));
-  }
-
-
-  // Pixel conversions
-  pixelToIndex(pixel) {
-    return this.oddqToIndex(this.pixelToOddq(pixel, intermediateHexCoord));
-  }
-
-  pixelToOddq(pixel, oddq = new HexCoord()) {
-    const size = this.tileScale / 2.0;
-    const { x, y } = pixel;
-
-    const q = x * 2/3 / size;
-    const r = (-x / 3 + SQRT_THREE / 3 * y) / size;
-    const s = 0;
-
-    oddq.set(q, r, s);
-
-    return this.roundOddq(oddq);
-  }
-
-  pixelToAxial(pixel, axial = new HexCoord()) {
-    const size = this.tileScale / 2.0;
-    const { x, y } = pixel;
-
-    axial.q = x * 2/3 / size;
-    axial.r = (-x / 3 + SQRT_THREE / 3 * y) / size;
-    axial.s = 0;
-
-    return this.roundAxial(axial);
-  }
-
-
-  // Index conversions
-  indexToOffset(index, offset = new HexCoord()) {
-    return this.cubeToOffset(this.indexToCube(index, offset), offset);
-  }
-
-  indexToCube(index, cube = new HexCoord()) {
-    const oddq = this.indexToOddq(index, intermediateHexCoord);
-    return this.oddqToCube(oddq, cube);
-  }
-
-  indexToOddq(index, oddq = new HexCoord()) {
-    oddq.x = Math.floor(index / this.unitHeight);
-    oddq.y = index % this.unitHeight;
-    oddq.z = 0;
-
-    return oddq;
-  }
-
-  indexToPixel(index, pixel = new HexCoord()) {
-    const offset = this.indexToOffset(index, pixel);
-    pixel.multiplyScalar(this.tileScale);
-    return pixel;
-  }
-
-
-  // Cube conversions
-  cubeToIndex(cube) {
-    return this.oddqToIndex(this.cubeToOddq(cube, intermediateHexCoord));
-  }
-
-  cubeToOddq(cube, oddq = new HexCoord()) {
-    const { x, y, z } = cube;
-
-    oddq.q = x;
-    oddq.r = z + (x - (x&1)) / 2;
-    oddq.s = 0;
-
-    return oddq;
-  }
-
-  cubeToOffset(cube, offset = new HexCoord()) {
-    const scaleX = 0.5;
-    const scaleY = 0.4325; // Warning: here be magic
-    const { x, z } = cube;
-
-    offset.x = 0.5 + 1.5 * x * scaleX;
-    offset.y = 0.5 + (SQRT_THREE / 2 * x + SQRT_THREE * z) * scaleY;
-    offset.z = 0;
-
-    return offset;
-  }
-
-  cubeToAxial(cube, axial = new HexCoord()) {
-    const { x, z } = cube;
-
-    axial.q = x;
-    axial.r = z;
-    axial.s = 0;
-
-    return axial;
-  }
-
-  indexToNeighborIndices(index) {
-    return this.cubeToNeighborIndices(
-        this.indexToCube(index, intermediateHexCoord));
-  }
-
-  cubeToNeighborCubes(cube, neighbors = []) {
-    for (let i = 0; i < cubicNeighborhood.length; ++i) {
-      neighbors[i] = neighbors[i] || new HexCoord();
-      neighbors[i].addVectors(cube, cubicNeighborhood[i]);
-    }
-
-    return neighbors;
-  }
-
-  cubeToNeighborIndices(cube) {
-    return this.cubeToNeighborCubes(cube, intermediateNeighbors).map(
-        cube => this.cubeToIndex(cube));
-  }
-
-
-  // Odd-Q conversions
-  oddqToIndex(oddq) {
-    const { q, r } = oddq;
-
-    if (q > -1 && q < this.unitWidth && r > -1 && r < this.unitHeight) {
-      return q * this.unitHeight + r;
-    }
-
-    return -1;
-  }
-
-  oddqToCube(oddq, cube = new HexCoord()) {
-    const { q, r } = oddq;
-
-    cube.x = q;
-    cube.z = r - (q - (q&1)) / 2;
-    cube.y = -cube.x - cube.z;
-
-    return cube;
-  }
-
-
-  // Axial conversions
-  axialToCube(axial, cube = new HexCoord()) {
-    const { q, r } = axial;
-
-    cube.x = q;
-    cube.z = r;
-    cube.y = -cube.x - cube.z;
-
-    return cube;
-  }
-
-
-  // Rounding...
-  roundCube(cube) {
-    const rX = Math.round(cube.x);
-    const rY = Math.round(cube.y);
-    const rZ = Math.round(cube.z);
-
-    const dX = Math.abs(rX - cube.x);
-    const dY = Math.abs(rY - cube.y);
-    const dZ = Math.abs(rZ - cube.z);
-
-    cube.x = rX;
-    cube.y = rY;
-    cube.z = rZ;
-
-    if (dX > dY && dX > dZ) {
-      cube.x = -rY - rZ;
-    } else if (dY > dZ) {
-      cube.y = -rX - rZ;
-    } else {
-      cube.z = -rX - rY;
-    }
-
-    return cube;
-  }
-
-  roundAxial(axial) {
-    const cube = this.axialToCube(axial, intermediateHexCoord);
-    const roundedCube = this.roundCube(cube);
-
-    return this.cubeToAxial(roundedCube, axial);
-  }
-
-  roundOddq(oddq) {
-    intermediateHexCoord.set(oddq.q, -oddq.q - oddq.r, oddq.r);
-
-    const roundedCube = this.roundCube(intermediateHexCoord);
-
-    return this.cubeToOddq(roundedCube, oddq);
-  }
-
   hitEventToIndex(event) {
     const hit = event.detail.hits.get(this.surface)[0];
     const uv = hit.uv;
-    return this.uvToIndex(uv);
+    return this.grid.uvToIndex(uv);
   }
 
   setup(game) {
@@ -626,8 +334,9 @@ export class HexMap extends Entity(Mesh) {
   }
 
   update(game) {
-    const time = performance.now();
-    this.uniforms.time.value = time;
+    const { clockSystem } = game;
+
+    this.uniforms.time.value = clockSystem.time;
   }
 
   teardown(game) {
@@ -662,18 +371,10 @@ export class HexMap extends Entity(Mesh) {
       this.lastPickIndex = index;
     } else if (index !== this.lastPickIndex) {
       const start = performance.now();
-      const path = this.path(this.lastPickIndex, index,
-          currentIndex =>
+      const path = this.grid.path(this.lastPickIndex, index,
+          (grid, currentIndex) =>
               this.getTileState(currentIndex) > 0 &&
-              this.getTileSprite(currentIndex) !== 0,
-          (() => {
-            const toOddq = new HexCoord();
-            const currentOddq = new HexCoord();
-
-            return (toIndex, currentIndex) =>
-                this.indexToOddq(toIndex, toOddq)
-                    .distanceTo(this.indexToOddq(currentIndex, currentOddq));
-          })());
+              this.getTileSprite(currentIndex) !== 0);
       const end = performance.now();
 
       path.forEach(index => {
