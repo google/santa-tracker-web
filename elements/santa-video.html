@@ -43,6 +43,7 @@ later hit "play" on. This is potentially required for mobile browsers which don'
       overflow: hidden;
       pointer-events: none;
       background: black;
+      border-radius: inherit;
     }
     #holder[hidden] {
       display: initial !important;
@@ -168,11 +169,31 @@ Polymer({
     },
 
     /**
+     * Whether the player itself has started. This is a subset of `active`.
+     */
+    started: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: false,
+    },
+
+    /**
      * Whether to show the play/pause controls (`santa-video` is always clickable to play/pause).
      */
     controls: {
       type: Boolean,
       value: false,
+    },
+
+    /**
+     * The ID of the video being played. This is changed via the imperative API.
+     */
+    videoId: {
+      type: String,
+      readOnly: true,
+      notify: true,
+      value: null,
     },
 
     /**
@@ -211,6 +232,10 @@ Polymer({
     '_preparePlayer(_player, _op)',
     '_updatePlaying(active, playing)',
   ],
+
+  detached: function() {
+    throw new Error('santa-video detached, must recreate YouTube API')
+  },
 
   /**
    * Loads and plays the specified YouTube video.
@@ -284,11 +309,18 @@ Polymer({
   _youtubeStateChange: function(state) {
     if (state === 3 && !this.active) {
       // do nothing: we're preloading
-    } else if (isPlayingState(state) || state === 5) {
+    } else if (isPlayingState(state)) {
+      // playing or paused
+      this._setActive(true);
+      this._setStarted(true);
+    } else if (state === 5) {
+      // cued
       this._setActive(true);
     } else if (state === 0) {
+      // done
       this._op = null;
       this._setActive(false);
+      this._setStarted(false);
     }
 
     this._cued = (state === 5);
@@ -304,16 +336,20 @@ Polymer({
     player.nextVideo();
     player.loadVideoById();
     this._setActive(false);
+    this._setStarted(false);
 
     if (!op) {
-      // nothing else to do
-    } else if (op.cue) {
+      this._setVideoId(null);
+      return; // nothing else to do
+    }
+
+    if (op.cue) {
       player.cueVideoById(op.id);
-      this.playing = false;
     } else {
       player.loadVideoById(op.id);
-      this.playing = true;
     }
+    this.playing = !op.cue;
+    this._setVideoId(op.id);
   },
 
   _updatePlaying: function(active, playing) {
