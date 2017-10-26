@@ -38,12 +38,12 @@ varying float vTileState;
 varying float vShouldHighlight;
 
 void main() {
-  mat4 scaleMatrix = mat4(mat3(tileScale));
   vec3 positionOffset = vec3(
       tileOffset.x - size.x / 2.0 * 0.75 - 0.125,
       tileOffset.y * -1.0 + (size.y / 2.0 * 0.75) + 1.0,
       tileOffset.z * -1.0);
-  vec4 scaledPosition = scaleMatrix * vec4(positionOffset + (position * 2.0), 1.0);
+  vec4 tilePosition = vec4(positionOffset + (position * 2.0), 1.0);
+  vec4 scaledPosition = mat4(mat3(tileScale)) * tilePosition;
 
   vec2 uvOffset = vec2(mod(tileSprite, 4.0), (3.0 - floor(tileSprite / 4.0))) / 4.0;
   vUv = uvOffset + uv / 4.0;
@@ -105,8 +105,14 @@ void main() {
     aScale = min(1.35 - e3, 1.0);
   }
 
-  if (alpha < 0.001 || vTileState < 1.0 || aScale < 0.0) {
+  if (alpha == 0.0 || vTileState < 1.0 || aScale < 0.0) {
     discard;
+  }
+
+  // This is to fix the edges of the hexes so that they don't show
+  // a weird outline. Probably a better way to do this...
+  if (length(color.rgb) > length(vec3(0.9))) {
+    color = vec4(1.0, 1.0, 1.0, color.a);
   }
 
   gl_FragColor = vec4(colorTone * color.rgb, color.a * aScale);
@@ -275,6 +281,7 @@ export class HexMap extends Entity(Mesh) {
       const ring = this.tileRings[this.tileRings.length - 1];
 
       if (ring == null) {
+        this.tileRings.pop();
         return;
       }
 
@@ -372,6 +379,9 @@ export class HexMap extends Entity(Mesh) {
     } else if (index !== this.lastPickIndex) {
       const start = performance.now();
       const path = this.grid.path(this.lastPickIndex, index,
+          // NOTE(cdata): This is the "passable" function. It receives a
+          // grid reference and a tile index, and returns true if the tile
+          // can be traversed for the purpose of picking a path.
           (grid, currentIndex) =>
               this.getTileState(currentIndex) > 0 &&
               this.getTileSprite(currentIndex) !== 0);
