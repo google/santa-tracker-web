@@ -45,17 +45,28 @@ Santa Tracker app.
     }
 
     santa-video {
+      border-radius: inherit;
+    }
+    santa-video.scene {
+      position: fixed;
+      width: 100%;
+      height: calc(100% - 44px);
+      bottom: 0;
+      right: 0;
+    }
+    #pip {
       position: fixed;
       bottom: 20px;
-      height: 200px;
-      width: 300px;
+      width: 320px;
+      height: 180px;
       right: 20px;
-      background: red;
       z-index: 1000;
+      background: blue;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      border-radius: 2px;
+      cursor: pointer;
     }
   </style>
-
-  <santa-video id="video"></santa-video>
 
   <!-- Shared i18n strings -->
   <santa-strings id="strings"></santa-strings>
@@ -90,6 +101,13 @@ Santa Tracker app.
 
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
         share-options="[[shareOptions]]"></santa-overlay>
+
+    <!-- Video Picture-In-Picture -->
+    <div id="pip">
+      <!-- Shared `santa-video` element. This can't be attached/detached from the DOM without
+        stopping the video itself, so it is reused by all video scenes -->
+      <santa-video id="video" active="{{_videoActive}}"></santa-video>
+    </div>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -402,9 +420,6 @@ Santa Tracker app.
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(_videos)]]">
         <video-scene route$="[[item]]" icon="1f4fd"
-            youtube-id$="[[_computeVideoId(_videos, item)]]"
-            mute="[[userMute]]"
-            pause="[[userPause]]"
             header-color="#ec4582"
             path="scenes/videoscene/video-scene.html"
             slot="santa-scene"></video-scene>
@@ -443,6 +458,8 @@ var TRACKER_ROUTE = 'tracker';
 var ANALYTICS = new Analytics();
 
 var messagePort;
+
+var sharedVideo;
 
 Polymer({
   is: 'santa-app',
@@ -630,6 +647,11 @@ Polymer({
       readOnly: true,
     },
 
+    _videoActive: {
+      type: Boolean,
+      observer: '_videoActiveChanged',
+    },
+
     /**
      * The socket ID provided by `santa-socket`. Could be the client or host ID.
      */
@@ -711,8 +733,6 @@ Polymer({
     }.bind(this);
     document.addEventListener('visibilitychange', handler);
     handler();
-
-    this.$.video.cue(window.VIDEOS.carpool);
   },
 
   attached: function() {
@@ -778,12 +798,29 @@ Polymer({
   /**
    * Reset and update various bits of global state when a new scene is made visible.
    */
-  _selectedSceneChanged: function() {
+  _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.hasGameButtons = false;
     this.$.chrome.closeDrawer();
     this.userPause = false;
 
     this._updateStylingForScene(this.selectedScene);
+
+    // Update the `santa-video` element that acts on behalf of `video-scene`.
+    // TODO(samthor): Move this to a different helper.
+    var v = this.$.video;
+    if (newValue && newValue.localName === 'video-scene') {
+      v.classList.add('scene');
+      v.controls = false;
+
+      if (v.videoId !== newValue.videoId) {
+        // reset the video if the ID has changed
+        v.cue(newValue.videoId);
+      }
+    } else {
+      v.classList.remove('scene');
+      v.controls = true;
+      v.started || v.reset();  // reset if we hadn't started playing
+    }
 
     if (!this.selectedScene) {
       return;
@@ -797,6 +834,10 @@ Polymer({
       this.$.overlay.pregame = true;
       this.userPause = true;
     }
+  },
+
+  _videoActiveChanged: function(videoActive) {
+    this.$.pip.hidden = !videoActive;
   },
 
   _updateStylingForScene: function(scene) {
@@ -1237,13 +1278,6 @@ Polymer({
    */
   _computeVideoRoutes: function(videos) {
     return Object.keys(videos);
-  },
-
-  /**
-   * Converts the route to a YouTube ID.
-   */
-  _computeVideoId: function(videos, route) {
-    return videos[route];
   },
 
 });
