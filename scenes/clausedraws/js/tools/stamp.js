@@ -75,6 +75,7 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
  */
 app.Stamp.prototype.startMousedown = function() {
   app.utils.triggerOnce(this.soundKey);
+  this.el.addClass('Tool--down');
 }
 
 
@@ -83,6 +84,7 @@ app.Stamp.prototype.startMousedown = function() {
  */
 app.Stamp.prototype.stopMousedown = function() {
   app.utils.triggerReset(this.soundKey);
+  this.el.removeClass('Tool--down');
 }
 
 

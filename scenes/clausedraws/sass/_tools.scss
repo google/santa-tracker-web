@@ -30,6 +30,10 @@
     &.is-inactive {
       transform: translateY(100%);
     }
+
+    .Tool {
+      width: 130px;
+    }
   }
 
   .Tools--tertiary {
@@ -148,18 +152,26 @@
   .Tool {
     cursor: pointer;
     height: 100%;
-    padding: 0 40px;
 
     &--pen {
-      background: url(img/tools/tool_pencil_regular.svg) center bottom / contain no-repeat;
+      background-image: url(img/tools/tool_pencil_regular.svg);
     }
 
     &--crayon {
-      background: url(img/tools/tool_crayon_red.svg) center bottom / contain no-repeat;
+      background-image: url(img/tools/tool_crayon_red.svg);
     }
 
     &--marker {
-      background: url(img/tools/tool_marker_green.svg) center bottom / contain no-repeat;
+      background-image: url(img/tools/tool_marker_green.svg);
+    }
+  }
+
+  [data-tool-category="drawing"],
+  [data-tool-category="spray"] {
+    .Tool {
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: 200%;
     }
   }
 
@@ -175,6 +187,10 @@
 
     .Tool-hover-inactive {
       opacity: 1;
+    }
+
+    &.Tool--pen {
+      background-image: url(img/tools/tool_pencil_tray.svg);
     }
   }
 
