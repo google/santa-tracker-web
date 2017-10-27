@@ -143,9 +143,20 @@ app.Tools.prototype.selectTool_ = function(e) {
 app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
   var categoryName = categoryPicker.attr('data-tool-category');
+
+  if (this.currentCategory && this.currentCategory == categoryName) {
+    return;
+  }
+
   this.categoryPickers.removeClass('is-active');
   this.categoryMenus.removeClass('is-active');
   this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]')
       .addClass('is-active');
   categoryPicker.addClass('is-active');
+  this.currentCategory = categoryName;
+
+  if (this.selectedTool) {
+    this.selectedTool.deselect();
+    this.selectedTool = null;
+  }
 }
