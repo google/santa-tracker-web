@@ -1,17 +1,32 @@
 ##{$name} {
   .Colorpicker {
-    height: 75px;
-    margin: 20px auto;
+    height: 70px;
+    margin: 15px auto 5px;
     position: relative;
-    width: 75px;
+    width: 70px;
   }
 
   .Colorpicker-circle {
     background: purple;
     border-radius: 50%;
+    box-shadow:  inset 0 0 3.43px 0 rgba(0, 0, 0, .1), inset 0 0 0 7px #903AA5;
     cursor: pointer;
     height: 100%;
+    position: relative;
     width: 100%;
+
+    &::before {
+      border-radius: 50%;
+      box-shadow: inset -3px -3px 0 2px rgba(255, 255, 255, .1);
+      content: '';
+      display: block;
+      height: 75%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+    }
   }
 
   .Colorpicker-popup {
