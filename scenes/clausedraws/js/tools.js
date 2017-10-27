@@ -131,6 +131,7 @@ app.Tools.prototype.selectTool_ = function(e) {
     } else {
       var coords = this.game_.mouse.coordinates();
       this.selectedTool.select(coords);
+      this.sliderChanged(this.game_.slider.size);
     }
   }
 
@@ -160,3 +161,22 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     this.selectedTool = null;
   }
 }
+
+
+app.Tools.prototype.sliderChanged = function(size) {
+  if (this.selectedTool) {
+    this.selectedTool.updateSize(size);
+    this.circleSize = this.selectedTool.currentSize *
+        this.game_.canvas.canvasRatio;
+
+    this.selectedTool.circleEl.css({
+      height: this.circleSize,
+      width: this.circleSize
+    });
+
+    this.selectedTool.mouseOffset = {
+      x: -this.circleSize / 2,
+      y: this.circleSize / 2
+    };
+  }
+};

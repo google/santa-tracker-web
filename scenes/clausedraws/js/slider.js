@@ -19,11 +19,14 @@ goog.require('app.Constants');
 
 
 app.Slider = function($elem, mouse) {
+  // TODO: handle multiple sliders
   this.elem = $elem;
   this.base = this.elem.find('[data-slider-base]');
   this.dot = this.elem.find('[data-slider-dot]');
   this.sliding = false;
   this.mouse = mouse;
+  this.subscribers = [];
+
   this.setSize(0.5);
 };
 
@@ -82,4 +85,17 @@ app.Slider.prototype.setSize = function(relativeSize, xPos) {
   this.dot.css('transform',
       'scale(' + (1 + relativeSize * 1) + ') translate(-50%, -50%)');
   this.size = relativeSize;
+
+  this.subscribers.forEach(function(subscriber) {
+    subscriber.callback.call(subscriber.context, this.size);
+  }, this);
 };
+
+
+app.Slider.prototype.subscribe = function(callback, context) {
+  this.subscribers.push({
+    callback: callback,
+    context: context
+  });
+};
+

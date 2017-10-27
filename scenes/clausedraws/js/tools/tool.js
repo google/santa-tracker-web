@@ -30,6 +30,7 @@ app.Tool = function($elem, name) {
   this.elem = $elem;
   this.el = this.elem.find('[data-tool="' + name + '"]');
   this.hoverEl = this.el.find('[data-tool-hover]');
+  this.circleEl = this.el.find('[data-tool-circle]');
   this.isSelected = false;
   // TODO: calculate this based on circle size
   this.mouseOffset = {x: -10, y: 10};
@@ -127,5 +128,19 @@ app.Tool.prototype.startMousedown = function() {
 app.Tool.prototype.stopMousedown = function() {
   app.utils.triggerStop(this.soundKey);
   this.el.removeClass('Tool--down');
+}
+
+
+/**
+ * Updates size indicator
+ * @param  {!number} size  The current size setting
+ */
+app.Tool.prototype.updateSize = function(size) {
+  this.currentSize = this.calculateDrawSize(size);
+}
+
+
+app.Tool.prototype.calculateDrawSize = function(size) {
+  return size * 100;
 }
 

@@ -33,6 +33,7 @@ app.Pen = function($elem, name) {
   this.soundKey = 'selfie_color';
   this.points = [];
   this.dpr = 1;
+  this.circle = this.el.find('[data-tool-circle]');
 };
 app.Pen.prototype = Object.create(app.Tool.prototype);
 
@@ -62,8 +63,7 @@ app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
     context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
     context.lineJoin = 'round';
     context.lineCap = 'round';
-    context.lineWidth = app.utils.map(size, app.Constants.PEN_MIN,
-        app.Constants.PEN_MAX);
+    context.lineWidth = this.currentSize;
     context.strokeStyle = color;
     var p1 = this.points[0];
     var p2 = this.points[1];
@@ -99,4 +99,9 @@ app.Pen.prototype.reset = function() {
   this.points = [];
 }
 
+
+app.Pen.prototype.calculateDrawSize = function(size) {
+  return app.utils.map(size, app.Constants.PEN_MIN,
+      app.Constants.PEN_MAX);
+}
 

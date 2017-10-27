@@ -308,7 +308,10 @@
       background-repeat: no-repeat;
       background-size: contain;
       height: 100px;
-      transform: translate(11px, 25px) rotate(-125deg);
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(100%, -100%) rotate(-125deg);
       width: 100px;
     }
 
