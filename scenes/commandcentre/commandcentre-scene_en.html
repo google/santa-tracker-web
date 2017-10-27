@@ -551,13 +551,7 @@ Command center scene.
     onShow: function() {
       this.fire('sound-ambient', 'command_start');
       this.fire('sound-ambient', 'music_start_scene');
-      var div = this.$['module-commandcentre'];
-
-      if (this.santaApp.mode == 'portal') {
-        this.$.santa_dive.target = '';
-      }
-
-      this.scene = new scenes.commandcentre.Scene(div);
+      this.scene = new scenes.commandcentre.Scene(this.$['module-commandcentre']);
     },
 
     onHide: function() {
