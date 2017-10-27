@@ -24,10 +24,9 @@ goog.require('app.Tool');
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
  * @param {!string} name The name of the tool.
- * @param {{x: number, y: number}} offset Tool offset relative to the mouse
  */
-app.SprinkleSpray = function($elem, name, offset) {
-  app.Tool.call(this, $elem, name, offset);
+app.SprinkleSpray = function($elem, name) {
+  app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_shave';
   this.sprinkles = [
@@ -39,7 +38,7 @@ app.SprinkleSpray = function($elem, name, offset) {
   this.sprinkleIndex = 0;
   this.sprinkleHeight = 100;
   this.sprinkleWidth = 100;
-  this.sprinkleOffset = {x: 50 - offset.x, y: 50 - offset.y};
+  this.sprinkleOffset = {x: 50 - this.mouseOffset.x, y: 50 - this.mouseOffset.y};
 };
 app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
 

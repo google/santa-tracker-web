@@ -25,15 +25,14 @@ goog.require('app.utils');
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the tool.
  * Element should have class Tool-name.
- * @param {{x: number, y: number}} mouseOffset Tool offset relative to the mouse
  */
-app.Tool = function($elem, name, mouseOffset) {
+app.Tool = function($elem, name) {
   this.elem = $elem;
   this.el = this.elem.find('[data-tool="' + name + '"]');
   this.hoverEl = this.el.find('[data-tool-hover]');
   this.isSelected = false;
   // TODO: calculate this based on circle size
-  this.mouseOffset = mouseOffset || {x: -10, y: 10};
+  this.mouseOffset = {x: -10, y: 10};
   this.soundKey = '';
 };
 
@@ -114,7 +113,7 @@ app.Tool.prototype.draw = function(canvas, mouseCoords, prevCanvas, size, color)
 
 
 /**
- * Start playing the tool's sound
+ * Mousedown handler
  */
 app.Tool.prototype.startMousedown = function() {
   app.utils.triggerStart(this.soundKey);
@@ -123,7 +122,7 @@ app.Tool.prototype.startMousedown = function() {
 
 
 /**
- * Stop playing the tool's sound
+ * Mouseup handler
  */
 app.Tool.prototype.stopMousedown = function() {
   app.utils.triggerStop(this.soundKey);

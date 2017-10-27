@@ -26,11 +26,10 @@ goog.require('app.utils');
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the stamp
- * @param {{x: number, y: number}} offset Tool offset relative to the mouse
  * @param {!Image} Stamp image.
  */
-app.Stamp = function($elem, name, offset, stamp) {
-  app.Tool.call(this, $elem, 'stamp-' + name, offset);
+app.Stamp = function($elem, name, stamp) {
+  app.Tool.call(this, $elem, 'stamp-' + name);
 
   this.stamp = stamp;
   this.soundKey = 'selfie_spray_small';
@@ -71,7 +70,7 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
 
 
 /**
- * Start playing the tool's sound
+ * Mousedown handler
  */
 app.Stamp.prototype.startMousedown = function() {
   app.utils.triggerOnce(this.soundKey);
@@ -80,7 +79,7 @@ app.Stamp.prototype.startMousedown = function() {
 
 
 /**
- * Stop playing the tool's sound
+ * Mouseup handler
  */
 app.Stamp.prototype.stopMousedown = function() {
   app.utils.triggerReset(this.soundKey);

@@ -27,10 +27,9 @@ goog.require('app.utils');
  * @param {!jQuery} $elem toolbox elem
  * @param {!string} name The name of the tool.
  * Element should have class Tool-name.
- * @param {{x: number, y: number}} mouseOffset Tool offset relative to the mouse
  */
-app.Eraser = function($elem, name, mouseOffset) {
-  app.Tool.call(this, $elem, name, mouseOffset);
+app.Eraser = function($elem, name) {
+  app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_spray_small';
   this.points = [];
