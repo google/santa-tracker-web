@@ -1,4 +1,5 @@
 import { Game } from './engine/core/game.js';
+import { SnowballSystem } from './snowball/systems/snowball-system.js';
 import { MainLevel } from './snowball/levels/main-level.js';
 
 const { Scene, PerspectiveCamera } = self.THREE;

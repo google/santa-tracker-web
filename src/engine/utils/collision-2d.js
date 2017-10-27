@@ -1,4 +1,203 @@
+import { Allocatable } from './allocatable.js';
+
 const { Vector2 } = self.THREE;
+
+
+export class AbstractShape {
+  get type() {
+    return 'abstract';
+  }
+
+  contains(other) {
+    const tests = containmentTests[this.type];
+    const test = tests && tests[other.type];
+
+    if (test != null) {
+      return test(this, other);
+    }
+
+    console.warn('Containment test attempted between two unsupported types:',
+        this, other);
+    return false;
+
+  }
+
+  intersects(other) {
+    const tests = intersectionTests[this.type];
+    const test = tests && tests[other.type];
+
+    if (test != null) {
+      return test(this, other);
+    }
+
+    console.warn('Intersection test attempted between two unsupported types:',
+        this, other);
+    return false;
+  }
+};
+
+
+export class Point extends Allocatable(AbstractShape) {
+  get type() {
+    return 'point';
+  }
+
+  get x() {
+    return this.position.x;
+  }
+
+  get y() {
+    return this.position.y;
+  }
+
+  get width() {
+    return 1;
+  }
+
+  get height() {
+    return 1;
+  }
+
+  setup(position) {
+    this.position = position;
+  }
+
+  teardown() {
+    this.position = null;
+  }
+};
+
+
+export class Line extends Allocatable(AbstractShape) {
+  get type() {
+    return 'line';
+  }
+
+  get x() {
+    return this.midpoint.x;
+  }
+
+  get y() {
+    return this.midpoint.y;
+  }
+
+  get width() {
+    return Math.abs(this.a.x - this.b.x);
+  }
+
+  get height() {
+    return Math.abs(this.a.y - this.b.y);
+  }
+
+  constructor() {
+    super();
+    this.midpoint = new Vector2();
+  }
+
+  setup(a, b) {
+    this.a = a;
+    this.b = b;
+    this.midpoint.set((this.a.x + this.b.x) / 2, (this.a.y + this.b.y) / 2);
+  }
+
+  teardown() {
+    this.a = null;
+    this.b = null;
+  }
+};
+
+
+export class Circle extends Allocatable(AbstractShape) {
+  get type() {
+    return 'circle';
+  }
+
+  get x() {
+    return this.position.x;
+  }
+
+  get y() {
+    return this.position.y;
+  }
+
+  get width() {
+    return this.radius * 2;
+  }
+
+  get height() {
+    return this.width;
+  }
+
+  setup(radius, position) {
+    this.radius = radius;
+    this.position = position;
+    this.radiusSquared = radius * radius;
+  }
+
+  teardown() {
+    this.radius = 0;
+    this.position = null;
+    this.radiusSquared = 0;
+  }
+};
+
+
+export class Rectangle extends Allocatable(AbstractShape) {
+  get type() {
+    return 'rectangle';
+  }
+
+  get x() {
+    return this.position.x;
+  }
+
+  get y() {
+    return this.position.y;
+  }
+
+  constructor() {
+    super();
+
+    this.tl = new Vector2();
+    this.tr = new Vector2();
+    this.bl = new Vector2();
+    this.br = new Vector2();
+
+    this.vertices = [this.tl, this.tr, this.br, this.bl];
+  }
+
+  setup(width, height, position) {
+    this.width = width;
+    this.height = height;
+    this.position = position;
+
+    this.halfWidth = width / 2;
+    this.halfHeight = height / 2;
+
+    this.tl.set(this.position.x - this.halfWidth,
+        this.position.y - this.halfHeight);
+    this.br.set(this.position.x + this.halfWidth,
+        this.position.y + this.halfHeight);
+
+    this.tr.set(this.br.x, this.tl.y);
+    this.bl.set(this.tl.x, this.br.y);
+  }
+
+  teardown() {
+    this.width = 0;
+    this.height = 0;
+    this.position = null;
+
+    this.halfWidth = 0;
+    this.halfHeight = 0;
+
+    this.tl.set(0, 0);
+    this.br.set(0, 0);
+    this.tr.set(0, 0);
+    this.bl.set(0, 0);
+  }
+};
+
 
 // @see https://www.gamedev.net/articles/programming/math-and-physics/diy-2d-vector-physics-r4106/
 export const lineIntersectsLine = (() => {
@@ -34,10 +233,10 @@ export const circleIntersectsCircle = (() => {
 
 export const rectangleIntersectsRectangle = (() => {
   return (a, b) => {
-    if ((a.position.x + a.width) < b.position.x ||
-        (b.position.x + b.width) < a.position.x ||
-        (a.position.y + a.height) < b.position.y ||
-        (b.position.y + b.height) < a.position.y) {
+    if ((a.x + a.width) < b.x ||
+        (b.x + b.width) < a.x ||
+        (a.y + a.height) < b.y ||
+        (b.y + b.height) < a.y) {
       return false
     }
 
@@ -54,25 +253,22 @@ export const circleIntersectsRectangle = (() => {
     circleDistance.x = Math.abs(circleDistance.x);
     circleDistance.y = Math.abs(circleDistance.y);
 
-    const halfWidth = rectangle.width / 2;
-
-    if (circleDistance.x > (halfWidth + circle.radius)) {
+    if (circleDistance.x > (rectangle.halfWidth + circle.radius)) {
       return false;
     }
 
-    const halfHeight = rectangle.height / 2;
-
-    if (circleDistance.y > (halfHeight + cricle.radius)) {
+    if (circleDistance.y > (rectangle.halfHeight + cricle.radius)) {
       return false;
     }
 
-    if (circleDistance.x <= halfWidth || circleDistance.y <= halfHeight) {
+    if (circleDistance.x <= rectangle.halfWidth ||
+        circleDistance.y <= rectangle.halfHeight) {
       return true;
     }
 
     const cornerDistanceSquared =
-        Math.pow(circleDistance.x - halfWidth, 2) +
-        Math.pow(circleDistance.y - halfHeight, 2);
+        Math.pow(circleDistance.x - rectangle.halfWidth, 2) +
+        Math.pow(circleDistance.y - rectangle.halfHeight, 2);
 
     return cornerDistanceSquared <= circle.radiusSquared;
   };
@@ -89,13 +285,10 @@ export const pointIntersectsCircle = (() => {
 
 export const pointIntersectsRectangle = (() => {
   return (point, rectangle) => {
-    const halfWidth = rectangle.width / 2;
-    const halfHeight = rectangle.height / 2;
-
-    if (point.x < (rectangle.position.x - halfWidth) ||
-        point.x > (rectangle.position.x + halfHeight) ||
-        point.y < (rectangle.position.y - halfHeight) ||
-        point.y > (rectangle.position.y + halfHeight)) {
+    if (point.x < (rectangle.x - rectangle.halfWidth) ||
+        point.x > (rectangle.x + rectangle.halfHeight) ||
+        point.y < (rectangle.y - rectangle.halfHeight) ||
+        point.y > (rectangle.y + rectangle.halfHeight)) {
       return false;
     }
 
@@ -103,98 +296,84 @@ export const pointIntersectsRectangle = (() => {
   };
 })();
 
+// @see https://www.gamedev.net/articles/programming/math-and-physics/diy-2d-vector-physics-r4106/
+export const lineIntersectsRectangle = (() => {
+  const intermediateLine = new Line();
 
-export class AbstractShape {
-  intersects(other) {
-    console.warn('Intersection attempted between two unsupported types:',
-        this, other);
+  return (line, rectangle) => {
+    let intersects = false;
+
+    for (let i = 0, v0 = rectangle.bl; i < rectangle.vertices.length; ++i) {
+      let v1 = rectangle.vertices[i];
+
+      intermediateLine.setup(v0, v1);
+
+      if (lineIntersectsLine(line, intermediateLine)) {
+        intersects = true;
+        break;
+      }
+
+      v0 = v1;
+    }
+
+    intermediateLine.teardown();
+    return false;
+  };
+})();
+
+
+export const intersectionTests = {
+  point: {
+    point: (point, other) => point.x === other.x && point.y === other.y,
+    rectangle: (point, rectangle) =>
+        pointIntersectsRectangle(point, rectangle),
+    circle: (point, circle) => pointIntersectsCircle(point, circle)
+  },
+  line: {
+    rectangle: (line, rectangle) => lineIntersectsRectangle(line, rectangle),
+    line: (line, other) => lineIntersectsLine(line, other)
+  },
+  circle: {
+    circle: (circle, other) => circleIntersectsCircle(circle, other),
+    rectangle: (circle, rectangle) =>
+        circleIntersectsRectangle(circle, rectangle),
+    point: (circle, point) => pointIntersectsCircle(point, circle)
+  },
+  rectangle: {
+    point: (rectangle, point) => pointIntersectsRectangle(point, rectangle),
+    line: (rectangle, line) => lineIntersectsRectangle(line, rectangle),
+    circle: (rectangle, circle) => circleIntersectsRectangle(circle, rectangle),
+    rectangle: (rectangle, other) =>
+        rectangleIntersectsRectangle(rectangle, other)
+  }
+};
+
+
+export const rectangleContainsPoint = (rectangle, point) => {
+  if (point.x < rectangle.tl.x || point.x > rectangle.br.x ||
+      point.y > rectangle.bl.y || point.y < rectangle.tr.y) {
     return false;
   }
+
+  return true;
 };
 
-
-export class Point extends AbstractShape {
-  constructor(position) {
-    super();
-    this.position = position;
+export const rectangleContainsRectangle = (rectangle, other) => {
+  if (!rectangleContainsPoint(rectangle, other.tl) ||
+      !rectangleContainsPoint(rectangle, other.br)) {
+    return false;
   }
 
-  intersects(other) {
-    if (other instanceof Circle) {
-      return pointIntersectsCircle(this, other);
-    } else if (other instanceof Rectangle) {
-      return pointIntersectsRectangle(this, other);
-    }
-
-    return super.intersects(other);
-  }
+  return true;
 };
 
+export const containmentTests = {
+  rectangle: {
+    point: rectangleContainsPoint,
+    rectangle: rectangleContainsRectangle
+  },
 
-export class Line extends AbstractShape {
-  constructor(a, b) {
-    super();
-    this.a = a;
-    this.b = b;
-  }
-
-  intersects(other) {
-    if (other instanceof Line) {
-      return lineIntersectsLine(this, other);
-    }
-
-    return super.intersects(other);
+  point: {
+    rectangle: (point, rectangle) => rectangleContainsPoint(rectangle, point)
   }
 };
-
-
-const $radius = Symbol('radius');
-
-export class Circle {
-  set radius(value) {
-    this[$radius] = value;
-    this.radiusSquared = value * value;
-  }
-
-  get radius() {
-    return this[$radius];
-  }
-
-  constructor(radius = 0, position = new Vector2()) {
-    super();
-    this.radius = radius;
-    this.position = position;
-  }
-
-  intersects(other) {
-    if (other instanceof Circle) {
-      return circleIntersectsCircle(this, other);
-    } else if (other instanceof Rectangle) {
-      return circleIntersectsRectangle(this, other);
-    }
-
-    return super.intersects(other);
-  }
-};
-
-
-export class Rectangle {
-  constructor(width = 0, height = 0, position = new Vector2()) {
-    super();
-    this.width = width;
-    this.height = height;
-    this.position = position;
-  }
-
-  intersects(other) {
-    if (other instanceof Rectangle) {
-      return rectangleIntersectsRectangle(this, other);
-    } else if (other instanceof Circle) {
-      return circleIntersectsRectangle(other, this);
-    }
-
-    return super.intersects(other);
-  }
-};
-
-
