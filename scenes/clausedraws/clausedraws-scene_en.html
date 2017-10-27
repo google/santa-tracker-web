@@ -139,20 +139,27 @@ Santaselfie scene.
                 </div>
               </div>
             </div>
-            <div class="Tool Tool--crayon">
-              <div class="Tool-hover">CRAYON</div>
+            <div class="Tool Tool--crayon" data-tool="crayon">
+              <div class="Tool-hover" data-tool-hover>
+                <div class="Tool-hover-active">
+                  <div class="Tool-hover-circle" data-tool-circle></div>
+                </div>
+                <div class="Tool-hover-inactive">
+                  <div class="Tool-hover-minitool"></div>
+                  <div class="Tool-hover-circle" data-tool-circle></div>
+                </div>
+              </div>
             </div>
-            <div class="Tool Tool--marker">
-              <div class="Tool-hover">MARKER</div>
-            </div>
-            <div class="Tool">
-              <div class="Tool-hover">etc</div>
-            </div>
-            <div class="Tool">
-              <div class="Tool-hover">etc</div>
-            </div>
-            <div class="Tool">
-              <div class="Tool-hover">etc</div>
+            <div class="Tool Tool--marker" data-tool="marker">
+              <div class="Tool-hover" data-tool-hover>
+                <div class="Tool-hover-active">
+                  <div class="Tool-hover-circle" data-tool-circle></div>
+                </div>
+                <div class="Tool-hover-inactive">
+                  <div class="Tool-hover-minitool"></div>
+                  <div class="Tool-hover-circle" data-tool-circle></div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="Tools-inner" data-tool-category-menu data-tool-category="stamp">
@@ -330,6 +337,9 @@ Santaselfie scene.
         'img/tools/sprays/purple.png',
         'img/tools/sprays/red.png',
         'img/tools/sprays/yellow.png',
+        'img/tools/tool_pencil_tray.svg',
+        'img/tools/tool_crayon_tray.svg',
+        'img/tools/tool_marker_tray.svg',
         'img/icons/check.svg'
       ]);
     },

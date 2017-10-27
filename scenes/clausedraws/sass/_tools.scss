@@ -218,15 +218,6 @@
     }
   }
 
-  [data-tool-category="drawing"],
-  [data-tool-category="spray"] {
-    .Tool {
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-size: 200%;
-    }
-  }
-
   .Tool-hover {
     pointer-events: none;
     position: relative;
@@ -243,6 +234,14 @@
 
     &.Tool--pen {
       background-image: url(img/tools/tool_pencil_tray.svg);
+    }
+
+    &.Tool--crayon {
+      background-image: url(img/tools/tool_crayon_tray.svg);
+    }
+
+    &.Tool--marker {
+      background-image: url(img/tools/tool_marker_tray.svg);
     }
   }
 
@@ -274,14 +273,39 @@
     top: 0;
   }
 
-  .Tool--pen {
-    .Tool-hover-minitool {
-      background: url(img/tools/tool_pencil_regular.svg) center / contain no-repeat;
+  [data-tool-category="drawing"],
+  [data-tool-category="spray"] {
+    .Tool {
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: 200%;
+    }
+  }
+
+  [data-tool-category="drawing"] {
+    .Tool .Tool-hover-minitool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
       height: 100px;
       transform: translate(11px, 25px) rotate(-125deg);
       width: 100px;
     }
+
+    .Tool--pen .Tool-hover-minitool {
+      background-image: url(img/tools/tool_pencil_regular.svg);
+    }
+
+    .Tool--crayon .Tool-hover-minitool {
+      background-image: url(img/tools/tool_crayon_red.svg);
+    }
+
+    .Tool--marker .Tool-hover-minitool {
+      background-image: url(img/tools/tool_marker_green.svg);
+    }
   }
+
+
 
   .Tools-slider {
     &::after {
