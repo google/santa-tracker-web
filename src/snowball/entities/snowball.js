@@ -1,5 +1,6 @@
 import { Entity } from '../../engine/core/entity.js';
 import { Point } from '../../engine/utils/collision-2d.js';
+import { Allocatable } from '../../engine/utils/allocatable.js';
 
 const {
   Mesh,
@@ -9,7 +10,7 @@ const {
 const PI_OVER_TWELVE = Math.PI / 12.0;
 const PI_OVER_SIX = Math.PI / 6.0;
 
-export class Snowball extends Entity(Mesh) {
+export class Snowball extends Allocatable(Entity(Mesh)) {
   constructor() {
     super();
 

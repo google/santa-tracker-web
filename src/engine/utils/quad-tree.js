@@ -4,7 +4,8 @@ const { Vector2 } = self.THREE;
 
 // @see https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 export class QuadTree {
-  constructor(depth, bounds, measureBounds = () => {}, maxObjects = 10, maxDepth = 5) {
+  constructor(depth, bounds, maxObjects = 10, maxDepth = 5,
+      measureBounds = object => object) {
     this.depth = depth;
     this.bounds = bounds;
     this.measureBounds = measureBounds;
@@ -38,7 +39,7 @@ export class QuadTree {
         const rectangle = Rectangle.allocate(halfWidth, halfHeight,
             new Vector2(x + j * halfWidth, y + k * halfHeight));
         this.nodes[i] = new QuadTree(this.depth + 1, rectangle,
-            this.measureBounds, this.maxObjects, this.maxDepth);
+            this.maxObjects, this.maxDepth, this.measureBounds);
       }
     }
   }

@@ -7,7 +7,7 @@ export const Allocatable = SuperClass => {
 
       const item = this.freeItems.pop();
       this.allocatedItems.push(item);
-      item.setup(...args);
+      item.initialize(...args);
       return item;
     }
 
@@ -17,7 +17,7 @@ export const Allocatable = SuperClass => {
         return;
       }
       this.allocatedItems.splice(index, 1);
-      item.teardown();
+      item.reset();
       this.freeItems.push(item);
     }
 
@@ -25,8 +25,8 @@ export const Allocatable = SuperClass => {
       return new this();
     }
 
-    setup() {}
-    teardown() {}
+    initialize() {}
+    reset() {}
   };
 
   Allocatable.freeItems = [];

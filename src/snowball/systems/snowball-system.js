@@ -1,4 +1,5 @@
 import { QuadTree } from '../../engine/utils/quad-tree.js';
+import { Snowball } from '../entities/snowball.js';
 
 const {
   Mesh,

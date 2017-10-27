@@ -58,11 +58,11 @@ export class Point extends Allocatable(AbstractShape) {
     return 1;
   }
 
-  setup(position) {
+  initialize(position) {
     this.position = position;
   }
 
-  teardown() {
+  reset() {
     this.position = null;
   }
 };
@@ -94,13 +94,13 @@ export class Line extends Allocatable(AbstractShape) {
     this.midpoint = new Vector2();
   }
 
-  setup(a, b) {
+  initialize(a, b) {
     this.a = a;
     this.b = b;
     this.midpoint.set((this.a.x + this.b.x) / 2, (this.a.y + this.b.y) / 2);
   }
 
-  teardown() {
+  reset() {
     this.a = null;
     this.b = null;
   }
@@ -128,13 +128,13 @@ export class Circle extends Allocatable(AbstractShape) {
     return this.width;
   }
 
-  setup(radius, position) {
+  initialize(radius, position) {
     this.radius = radius;
     this.position = position;
     this.radiusSquared = radius * radius;
   }
 
-  teardown() {
+  reset() {
     this.radius = 0;
     this.position = null;
     this.radiusSquared = 0;
@@ -166,7 +166,7 @@ export class Rectangle extends Allocatable(AbstractShape) {
     this.vertices = [this.tl, this.tr, this.br, this.bl];
   }
 
-  setup(width, height, position) {
+  initialize(width, height, position) {
     this.width = width;
     this.height = height;
     this.position = position;
@@ -183,7 +183,7 @@ export class Rectangle extends Allocatable(AbstractShape) {
     this.bl.set(this.tl.x, this.br.y);
   }
 
-  teardown() {
+  reset() {
     this.width = 0;
     this.height = 0;
     this.position = null;
@@ -306,7 +306,7 @@ export const lineIntersectsRectangle = (() => {
     for (let i = 0, v0 = rectangle.bl; i < rectangle.vertices.length; ++i) {
       let v1 = rectangle.vertices[i];
 
-      intermediateLine.setup(v0, v1);
+      intermediateLine.initialize(v0, v1);
 
       if (lineIntersectsLine(line, intermediateLine)) {
         intersects = true;
@@ -316,7 +316,7 @@ export const lineIntersectsRectangle = (() => {
       v0 = v1;
     }
 
-    intermediateLine.teardown();
+    intermediateLine.reset();
     return false;
   };
 })();

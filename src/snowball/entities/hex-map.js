@@ -120,6 +120,14 @@ void main() {
 `;
 
 export class HexMap extends Entity(Mesh) {
+  get width() {
+    return this.grid.pixelWidth;
+  }
+
+  get height() {
+    return this.grid.pixelHeight;
+  }
+
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
     const geometry = new InstancedBufferGeometry();
     const texture = textureLoader.load('/src/images/tiles.png');
