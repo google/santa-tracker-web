@@ -34,6 +34,8 @@ goog.require('app.utils');
 app.Tools = function(game, $elem) {
   this.game_ = game;
 
+  this.sliders = $('[data-slider]', $elem);
+
   this.primaryMenu = $elem.find('.Tools--primary');
   this.categoryPickers = this.primaryMenu.find('[data-tool-category-picker]');
 
@@ -100,6 +102,14 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
+  // Check if on slider
+  var x = e.clientX;
+  var y = e.clientY;
+  if (this.game_.mouse.isInsideEl(x, y, this.sliders[0])) {
+    console.log('on slider');
+    return;
+  }
+
   var previousTool = this.selectedTool;
 
   this.selectedTool = this.tools.filter(function(tool) {
