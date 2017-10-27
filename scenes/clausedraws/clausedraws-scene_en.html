@@ -112,12 +112,6 @@ Santaselfie scene.
               <div class="Category-tooltip">Eraser</div>
             </div>
           </div>
-
-          <div class="Tools-clear">
-            <div class="Tool">
-              <div class="Tool-hover Tool--snowglobe"></div>
-            </div>
-          </div>
         </div>
 
         <div class="Tools Tools--secondary">
@@ -209,9 +203,17 @@ Santaselfie scene.
         </div>
 
         <div class="Tools Tools--tertiary">
-          <button class="undo" data-tool-undo>Undo</button>
-          <button class="redo" data-tool-redo>Redo</button>
-          <a class="save" href="#" download="clausedraws.jpg" data-tool-save>Save</a>
+          <div class="Tools-clear">
+            <div class="Button Button--tool Button--snowglobe" data-tool="snowglobe"></div>
+            <div class="Button Button--tool Button--explosion" data-tool="explosion"></div>
+          </div>
+
+          <div class="Tools-utilities">
+            <button class="Button Button--utility Button--undo" data-tool-undo>Undo</button>
+            <button class="Button Button--utility Button--redo" data-tool-redo>Redo</button>
+            <div class="Tools-divider Tools-divider--horizontal"></div>
+            <a class="Button Button--utility Button--save" href="#" download="clausedraws.jpg" data-tool-save>Save</a>
+          </div>
         </div>
 
         <!-- These images are use by canvases-->

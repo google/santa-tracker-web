@@ -76,11 +76,11 @@ app.Canvas = function(game, $elem) {
     scale: 1
   };
 
-  $elem.find('button.undo').click(this.undo.bind(this));
+  $elem.find('[data-tool-undo]').click(this.undo.bind(this));
 
-  $elem.find('button.redo').click(this.redo.bind(this));
+  $elem.find('[data-tool-redo]').click(this.redo.bind(this));
 
-  $elem.find('a.save').click(this.saveToFile.bind(this));
+  $elem.find('[data-tool-save]').click(this.saveToFile.bind(this));
 };
 
 
