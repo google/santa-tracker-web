@@ -44,6 +44,8 @@ app.Tools = function(game, $elem) {
   this.secondaryMenu = $elem.find('.Tools--secondary');
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
 
+  this.tertiaryMenu = $elem.find('.Tools--tertiary');
+
   this.categoryPickers.on('click.clausedraws', this.onCategoryClick_.bind(this));
 
   this.pen = new app.Pen($elem, 'pen');
@@ -95,8 +97,13 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 
     if (mouseCoords.down) {
       this.selectedTool.startMousedown();
+
+      if (this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
+        this.secondaryMenu.addClass('is-inactive');
+      }
     } else {
       this.selectedTool.stopMousedown();
+      this.secondaryMenu.removeClass('is-inactive');
     }
   }
 };
