@@ -258,25 +258,30 @@ Postcard scene.
 
     receiveMessage: function(event) {
       var iframe = this.$.blocklyArea;
-      var expectedSource = iframe.contentWindow || iframe;
-      if (event.source != expectedSource) {
-        throw new Error('unexpected source: ' + event.origin);
-      } else {
-        this.scene.blocks = event.data['blocks'];
-        switch (event.data['msg-type']) {
-          case ('updatePage'):
-            this.snowflake = event.data['snowflake'];
-            if (event.data['sharing']) {
-              this.showShareLanding();
-            } else {
-              this.showPostcard();
-              this.scene.startTutorial();
-            }
-            break;
-          case ('updateURL'):
-            this.scene.updateUrl();
-            break;
+      if (event.source !== iframe && event.source !== iframe.contentWindow) {
+        // The likely only other location for origin messages is from the YouTube embed.
+        if (event.origin !== 'https://www.youtube.com') {
+          console.warn('got unexpected message for snowflake', event.origin);
         }
+        return;
+      }
+
+      this.scene.blocks = event.data['blocks'];
+      switch (event.data['msg-type']) {
+        case 'updatePage':
+          this.snowflake = event.data['snowflake'];
+          if (event.data['sharing']) {
+            this.showShareLanding();
+          } else {
+            this.showPostcard();
+            this.scene.startTutorial();
+          }
+          break;
+        case 'updateURL':
+          this.scene.updateUrl();
+          break;
+        default:
+          throw new Error('unknown message from snowflake iframe: ' + event.data['msg-type']);
       }
     },
   });
