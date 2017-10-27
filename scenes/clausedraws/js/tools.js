@@ -118,6 +118,10 @@ app.Tools.prototype.selectTool_ = function(e) {
 
   var previousTool = this.selectedTool;
 
+  if (previousTool) {
+    previousTool.deselect();
+  }
+
   this.selectedTool = this.tools.filter(function(tool) {
     if (tool.el[0] === e.target && !tool.isSelected) {
       return tool;
@@ -133,10 +137,6 @@ app.Tools.prototype.selectTool_ = function(e) {
       this.selectedTool.select(coords);
       this.sliderChanged(this.game_.slider.size);
     }
-  }
-
-  if (previousTool) {
-    previousTool.deselect();
   }
 };
 

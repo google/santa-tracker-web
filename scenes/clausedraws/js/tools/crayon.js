@@ -100,3 +100,9 @@ app.Crayon.prototype.reset = function() {
 }
 
 
+app.Crayon.prototype.calculateDrawSize = function(size) {
+  return app.utils.map(size, app.Constants.PEN_MIN,
+      app.Constants.PEN_MAX);
+}
+
+

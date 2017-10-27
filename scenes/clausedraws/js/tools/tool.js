@@ -51,7 +51,7 @@ app.Tool.prototype.select = function(mouseCoords) {
   if (app.shared.utils.touchEnabled) {
     this.elem.css({ 'background-size': 0 }); // Hide tool on touch devices
   } else {
-    // this.elem.css({ cursor: 'none' });
+    this.elem.css({ cursor: 'none' });
   }
 
   this.move(mouseCoords);
@@ -70,9 +70,9 @@ app.Tool.prototype.deselect = function() {
     top: '',
     left: ''
   });
-  // this.elem.css({
-  //   cursor: ''
-  // });
+  this.elem.css({
+    cursor: ''
+  });
 
   this.stopMousedown();
   this.reset();
