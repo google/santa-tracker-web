@@ -26,9 +26,10 @@ Mercator scene.
 <template>
   <style include="mercator-scene_module"></style>
 
+  <santa-maps-api></santa-maps-api>
+
   <div id="module-mercator">
     <div class="scene">
-      <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
       <div class="map">
         <div class="gmap"></div>
       </div>
@@ -169,52 +170,37 @@ Mercator scene.
 
 </template>
 <script>
-(function() {
-  Polymer({
-    is: 'mercator-scene',
-    behaviors: [
-      window.SantaSceneBehavior,
-      window.SantaSceneGameButtonsBehavior,
-    ],
+Polymer({
+  is: 'mercator-scene',
+  behaviors: [
+    window.SantaSceneBehavior,
+    window.SantaSceneGameButtonsBehavior,
+  ],
 
-    showOnMapsReady: false,
+  onPreload: function() {
+    this.preloadSounds('mercator_load_sounds', 40);
+    this.preloadImages([
+      'img/bg.svg',
+      'img/logo.svg',
+      'img/pausescreen.svg'
+    ]);
 
-    mapsReady: false,
+    this.preloadPromise(new Promise(function(resolve) {
+      // Listen to the `api-load` event from `<santa-maps-api>`.
+      this.addEventListener('api-load', resolve);
+    }.bind(this)));
+  },
 
-    onPreload: function() {
-      this.preloadSounds('mercator_load_sounds', 40);
-      this.preloadImages([
-        'img/bg.svg',
-        'img/logo.svg',
-        'img/pausescreen.svg'
-      ]);
-    },
+  onShow: function() {
+    var module = this.$['module-mercator'];
+    this.game = new scenes.mercator.Game(module);
+  },
 
-    onShow: function() {
-      if (!this.mapsReady) {
-        this.showOnMapsReady = true;
-      } else {
-        var module = this.$['module-mercator'];
-        this.game = new scenes.mercator.Game(module);
-      }
-    },
-
-    onHide: function() {
-      if (this.game) {
-        this.game.dispose();
-        this.game = null;
-      }
-      this.fire('sound-ambient', 'mercator_end');
-    },
-
-    mapsAPIReady: function() {
-      this.mapsReady = true;
-      if (this.showOnMapsReady) {
-        this.onShow();
-      }
-    },
-  });
-
-})();
+  onHide: function() {
+    this.game.dispose();
+    this.game = null;
+    this.fire('sound-ambient', 'mercator_end');
+  },
+});
 </script>
 </dom-module>
