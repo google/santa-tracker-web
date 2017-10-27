@@ -20,9 +20,6 @@ specific language governing permissions and limitations under the License.
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
     <link href="codelabframe-scene.css" rel="stylesheet">
     <link id="DEV" comment="element removed in prod" />
-
-    <!-- In production, this is inlined, so don't worry about lack of support for HTML imports -->
-    <link rel="import" href="../../js/webanimations.html">
   </head>
   <body>
     <div id="module-codelab">
@@ -159,34 +156,21 @@ specific language governing permissions and limitations under the License.
       </div>
     </div>
 
+    <script src="../../components/web-animations-js/web-animations-next.min.js"></script>
     <script src="codelabframe-scene.min.js"></script>
+    <link rel="import" href="../../elements/i18n-msg.html">
+    <div hidden>
+      <i18n-msg id="loader" msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+    </div>
     <script>
       function createGame() {
         window.game = new app.Game(document.getElementById('module-codelab'));
       }
-
-      function initComponents() {
-        var script = document.createElement('script');
-        script.src = '../../components/webcomponentsjs/webcomponents-lite.js';
-        document.write(script.outerHTML);
-
-        var link = document.createElement('link');
-        link.rel = 'import';
-        link.href = '../../elements/i18n-msg.html';
-        document.write(link.outerHTML);
-
-        // Wait for HTMLImports before starting the game.
-        document.addEventListener('HTMLImportsLoaded', function() {
-          // Wait for i18n initialisation. Bad race-condition, should we add an event?
-          window.setTimeout(createGame, 100);
-        });
-      }
-
-      var compiled = !document.querySelector('link[rel="import"]');
-      if (compiled) {
-        createGame();
+      if (window.loader) {
+        // In dev, wait for i18n-msg to be created before starting the game.
+        window.loader.addEventListener('msg-changed', createGame);
       } else {
-        initComponents();
+        createGame();
       }
     </script>
 
