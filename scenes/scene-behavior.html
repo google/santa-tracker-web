@@ -21,17 +21,12 @@ specific language governing permissions and limitations under the License.
   /**
    * Max number of milliseconds to wait before timing out and abandoning preload.
    */
-  const MAX_PRELOAD_TIME = 30 * 1000;
+  const maxPreloadTime = 30 * 1000;
 
   /**
    * Number of frames to spread image preload over.
    */
-  const NUM_FRAMES_TO_SPREAD_PRELOAD = 10;
-
-  /**
-   * Number of fake assets to assume we've loaded.
-   */
-  const FAKE_ASSETS = 1;
+  const framesToSpread = 10;
 
   /** @polymerBehavior */
   window.SantaSceneBehaviorImpl = {
@@ -95,6 +90,13 @@ specific language governing permissions and limitations under the License.
         readOnly: true,
       },
 
+      /**
+       * Contains the Set of pending Preload promises.
+       */
+      _pendingPreload: {
+        type: Object,
+      },
+
     },
 
     observers: [
@@ -110,17 +112,24 @@ specific language governing permissions and limitations under the License.
 
       // Setup preload Promise. This resolves when all assets are ready, or when the timeout
       // expires. It should never reject.
+
+      const preload = new Set();
+      this._pendingPreload = preload;
+
       const p = new Promise(function(resolve) {
         this.onPreload && this.onPreload();
 
-        if (this._totalAssets === 0) {
+        if (!preload.size) {
           return resolve();
         }
-        this.async(resolve, MAX_PRELOAD_TIME);  // resolve on timeout anyway
+        this.async(resolve, maxPreloadTime);  // resolve on timeout anyway
         this.addEventListener('preload', resolve);
       }.bind(this));
 
       p.then(function() {
+        if (this._pendingPreload === preload) {
+          this._pendingPreload = null;
+        }
         this.loaded = true;
       }.bind(this));
 
@@ -136,34 +145,68 @@ specific language governing permissions and limitations under the License.
     },
 
     /**
+     * Adds a preload Promise to this scene.
+     * @param {!Promise<*>} p
+     */
+    preloadPromise: function(p) {
+      const preload = this._pendingPreload;
+      if (!preload) {
+        return;  // nothing to do, not really preloading
+      }
+      preload.add(p);
+
+      const done = function() {
+        ++this._assetsLoaded;
+
+        preload.delete(p);
+        if (!preload.size) {
+          this.fire('preload', preload, {bubbles: false});  // nb. resolves Promise in ready:
+        }
+      }.bind(this);
+
+      ++this._totalAssets;
+      p.then(done, done).catch(function(error) {
+        console.warn('preload for scene', this.route, 'error', error);
+      });
+    },
+
+    /**
      * A helper method for preloading an array of image URLs.
      * @param {!Array<string>} imageUrls
      */
     preloadImages: function(imageUrls) {
-      this._totalAssets += imageUrls.length;
+      if (!imageUrls.length) {
+        return;  // do nothing
+      }
 
-      const onload = function() {
-        ++this._assetsLoaded;
-        if (this._assetsLoaded === this._totalAssets) {
-          this.fire('preload', null, {bubbles: false});  // nb. resolves Promise in ready:
-        }
-      }.bind(this);
+      const p = new Promise(function(resolve) {
+        this._totalAssets += imageUrls.length;
+        let done = 0;
 
-      const imagesPerRaf = Math.max(1, Math.ceil(imageUrls.length / NUM_FRAMES_TO_SPREAD_PRELOAD));
-      let imageIndex = 0;
-      const rafCallback = function() {
-        for (let i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; ++i) {
-          const img = new Image();
-          img.onerror = img.onload = onload;
-          img.src = this.resolveUrl(imageUrls[imageIndex++]);
-        }
+        const onload = function() {
+          ++this._assetsLoaded;
+          ++done;
+          if (done === imageUrls.length) {
+            resolve();
+          }
+        }.bind(this);
 
-        if (imageIndex < imageUrls.length) {
-          this.async(rafCallback);
-        }
-      };
+        const imagesPerRaf = Math.max(1, Math.ceil(imageUrls.length / framesToSpread));
+        let imageIndex = 0;
+        (function rafCallback() {
+          for (let i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; ++i) {
+            const img = new Image();
+            img.onerror = img.onload = onload;
+            img.src = this.resolveUrl(imageUrls[imageIndex++]);
+          }
 
-      rafCallback.call(this);
+          if (imageIndex < imageUrls.length) {
+            this.async(rafCallback);
+          }
+        })();
+      }.bind(this));
+
+      this.preloadPromise(p);
     },
 
     /**
@@ -176,8 +219,7 @@ specific language governing permissions and limitations under the License.
 
     _progress: function(assetsLoaded, totalAssets) {
       if (totalAssets) {
-        const ratio = (assetsLoaded + FAKE_ASSETS) / (totalAssets + FAKE_ASSETS);
-        this.fire('scene-progress', ratio);
+        this.fire('scene-progress', assetsLoaded / totalAssets);
       }
     },
 
