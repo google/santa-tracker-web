@@ -165,6 +165,7 @@
 
   .Tool-hover {
     pointer-events: none;
+    position: relative;
   }
 
   .Tool--selected {
@@ -172,8 +173,18 @@
       position: fixed;
     }
 
+    .Tool-hover-inactive {
+      opacity: 1;
+    }
+  }
+
+  .Tool--down {
+    .Tool-hover-inactive {
+      opacity: 0;
+    }
+
     .Tool-hover-active {
-      display: block;
+      opacity: 1;
     }
   }
 
@@ -185,12 +196,23 @@
     width: 20px;
   }
 
-  .Tool-hover-active {
-    display: none;
+  .Tool-hover-active,
+  .Tool-hover-inactive {
+    opacity: 0;
+    position: absolute;
+    transform: translate(100%, -100%);
+    transition: opacity 0.1s;
+    right: 0;
+    top: 0;
   }
 
-  .Tool-hover-inactive {
-    display: none;
+  .Tool--pen {
+    .Tool-hover-minitool {
+      background: url(img/tools/tool_pencil_regular.svg) center / contain no-repeat;
+      height: 100px;
+      transform: translate(11px, 25px) rotate(-125deg);
+      width: 100px;
+    }
   }
 
   .Tools-slider {

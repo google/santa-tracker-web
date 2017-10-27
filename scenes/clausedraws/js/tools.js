@@ -86,9 +86,9 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.selectedTool.move(mouseCoords);
 
     if (mouseCoords.down) {
-      this.selectedTool.startSound();
+      this.selectedTool.startMousedown();
     } else {
-      this.selectedTool.stopSound();
+      this.selectedTool.stopMousedown();
     }
   }
 };

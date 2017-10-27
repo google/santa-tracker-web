@@ -32,7 +32,8 @@ app.Tool = function($elem, name, mouseOffset) {
   this.el = this.elem.find('[data-tool="' + name + '"]');
   this.hoverEl = this.el.find('[data-tool-hover]');
   this.isSelected = false;
-  this.mouseOffset = mouseOffset || {x: 0, y: 0};
+  // TODO: calculate this based on circle size
+  this.mouseOffset = mouseOffset || {x: -10, y: 10};
   this.soundKey = '';
 };
 
@@ -73,7 +74,7 @@ app.Tool.prototype.deselect = function() {
   //   cursor: ''
   // });
 
-  this.stopSound();
+  this.stopMousedown();
   this.reset();
 };
 
@@ -84,8 +85,8 @@ app.Tool.prototype.deselect = function() {
  */
 app.Tool.prototype.move = function(mouseCoords) {
   this.hoverEl.css({
-    left: mouseCoords.x - (this.mouseOffset.x),
-    top: mouseCoords.y - (this.mouseOffset.y) + window.santaApp.headerSize,
+    left: mouseCoords.x + (this.mouseOffset.x),
+    top: mouseCoords.y + (this.mouseOffset.y) + window.santaApp.headerSize,
   });
 };
 
@@ -115,15 +116,17 @@ app.Tool.prototype.draw = function(canvas, mouseCoords, prevCanvas, size, color)
 /**
  * Start playing the tool's sound
  */
-app.Tool.prototype.startSound = function() {
+app.Tool.prototype.startMousedown = function() {
   app.utils.triggerStart(this.soundKey);
+  this.el.addClass('Tool--down');
 }
 
 
 /**
  * Stop playing the tool's sound
  */
-app.Tool.prototype.stopSound = function() {
+app.Tool.prototype.stopMousedown = function() {
   app.utils.triggerStop(this.soundKey);
+  this.el.removeClass('Tool--down');
 }
 

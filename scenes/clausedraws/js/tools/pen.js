@@ -28,7 +28,7 @@ goog.require('app.utils');
  * @param {string} name The name of the color.
  */
 app.Pen = function($elem, name) {
-  app.Tool.call(this, $elem, name, {x: 47, y: 0});
+  app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_color';
   this.points = [];

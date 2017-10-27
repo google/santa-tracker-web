@@ -73,7 +73,7 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
 /**
  * Start playing the tool's sound
  */
-app.Stamp.prototype.startSound = function() {
+app.Stamp.prototype.startMousedown = function() {
   app.utils.triggerOnce(this.soundKey);
 }
 
@@ -81,7 +81,7 @@ app.Stamp.prototype.startSound = function() {
 /**
  * Stop playing the tool's sound
  */
-app.Stamp.prototype.stopSound = function() {
+app.Stamp.prototype.stopMousedown = function() {
   app.utils.triggerReset(this.soundKey);
 }
 
