@@ -2,6 +2,7 @@ import { Entity } from '../../engine/core/entity.js';
 import { combine } from '../../engine/utils/function.js';
 import { HexCoord } from '../../engine/utils/hex-coord.js';
 import { MagicHexGrid } from '../utils/magic-hex-grid.js';
+import { Circle } from '../../engine/utils/collision-2d.js';
 
 const {
   Vector2,
@@ -183,11 +184,18 @@ export class HexMap extends Entity(Mesh) {
     this.surface.position.y += tileScale / 4.0;
     this.add(this.surface);
     this.tileRings = [];
+    this.treeCollidables = [];
 
-    this.initializeGeometry();
+    //this.initializeGeometry();
   }
 
-  initializeGeometry() {
+  setup(game) {
+    const { collisionSystem, inputSystem } = game;
+
+    this.unsubscribe = combine(
+        inputSystem.on('pick', event => this.onPick(event), this.surface),
+        inputSystem.on('move', event => this.onMove(event), this.surface));
+
     // The vertices, uvs and indices for a single hex tile.
     // These will be instanced tileCount times:
     const positions = new BufferAttribute(new Float32Array([
@@ -276,12 +284,42 @@ export class HexMap extends Entity(Mesh) {
         tileStates.setX(index, state);
         tileOffsets.setXYZ(index, offset.x, offset.y, offset.y / 10.0);
         tileSprites.setX(index, tile);
+
+        if (tile === 0 && state === 1) {
+          const position = this.grid.indexToPosition(index);
+          const treeCollidable = {
+            type: 'tree',
+            collider: Circle.allocate(12, position)
+          };
+
+          console.log('Adding tree collidable to', treeCollidable.collider.position);
+
+          collisionSystem.addCollidable(treeCollidable);
+          //collisionSystem.handleCollisions(treeCollidable, (tree, other) => {
+            //console.log('Collided!');
+          //});
+        }
       }
     }
 
     this.geometry.addAttribute('tileOffset', tileOffsets);
     this.geometry.addAttribute('tileState', tileStates);
     this.geometry.addAttribute('tileSprite', tileSprites);
+  }
+
+  update(game) {
+    const { clockSystem, snowballSystem } = game;
+
+    this.uniforms.time.value = clockSystem.time;
+
+    if (this.lastPickPosition && this.targetPickPosition) {
+      snowballSystem.throwSnowball(this.lastPickPosition, this.targetPickPosition);
+      this.targetPickPosition = null;
+    }
+  }
+
+  teardown(game) {
+    this.unsubscribe();
   }
 
   erode(numberOfTiles) {
@@ -340,22 +378,12 @@ export class HexMap extends Entity(Mesh) {
     return this.grid.uvToIndex(uv);
   }
 
-  setup(game) {
-    const { inputSystem } = game;
+  hitEventToPosition(event) {
+    const hit = event.detail.hits.get(this.surface)[0];
+    const uv = hit.uv;
 
-    this.unsubscribe = combine(
-        inputSystem.on('pick', event => this.onPick(event), this.surface),
-        inputSystem.on('move', event => this.onMove(event), this.surface));
-  }
-
-  update(game) {
-    const { clockSystem } = game;
-
-    this.uniforms.time.value = clockSystem.time;
-  }
-
-  teardown(game) {
-    this.unsubscribe();
+    return new Vector2(uv.x * this.width - this.width / 2,
+        -uv.y * this.height + this.height / 2);
   }
 
   onMove(event) {
@@ -381,6 +409,15 @@ export class HexMap extends Entity(Mesh) {
   onPick(event) {
     const state = this.attributes.state;
     const index = this.hitEventToIndex(event);
+    const position = this.hitEventToPosition(event);
+
+    if (this.lastPickPosition == null) {
+      this.throwOriginIndex = index;
+      this.lastPickPosition = position;
+    } else {
+      this.targetPickPosition = position;
+      this.setTileState(this.throwOriginIndex, 2.0);
+    }
 
     if (this.lastPickIndex == null) {
       this.lastPickIndex = index;
@@ -394,10 +431,9 @@ export class HexMap extends Entity(Mesh) {
               this.getTileState(currentIndex) > 0 &&
               this.getTileSprite(currentIndex) !== 0);
       const end = performance.now();
-
-      path.forEach(index => {
-        this.setTileState(index, 2.0);
-      });
+      //path.forEach(index => {
+        //this.setTileState(index, 2.0);
+      //});
 
       console.log(`Path found from ${this.lastPickIndex} to ${index} in ${end - start}ms:`, path);
       this.lastPickIndex = null;

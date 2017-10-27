@@ -4,7 +4,9 @@ import { Allocatable } from '../../engine/utils/allocatable.js';
 
 const {
   Mesh,
-  Vector2
+  Vector2,
+  BoxGeometry,
+  MeshBasicMaterial
 } = self.THREE;
 
 const PI_OVER_TWELVE = Math.PI / 12.0;
@@ -12,17 +14,36 @@ const PI_OVER_SIX = Math.PI / 6.0;
 
 export class Snowball extends Allocatable(Entity(Mesh)) {
   constructor() {
-    super();
+    super(new BoxGeometry(10, 10, 10),
+        new MeshBasicMaterial({ color: 0xff0000, side: 2 }));
 
-    this.collider = new Point(this.position);
+    this.collider = Point.allocate(this.position);
     this.targetPosition = new Vector2();
+    this.origin = new Vector2();
   }
 
-  setup(game) {
+  initialize(origin) {
+    this.origin.copy(origin);
     this.thrown = false;
     this.tickWhenThrown = -1;
     this.targetPosition.set(0, 0);
     this.skew = 0;
+    this.collidedWith = null;
+    this.visible = false;
+  }
+
+  setup(game) {
+    const { collisionSystem } = game;
+
+    this.unsubscribeFromCollisions = collisionSystem.handleCollisions(this,
+        (snowball, collidable) => {
+          this.collidedWith = collidable;
+          this.visible = false;
+        });
+  }
+
+  teardown(game) {
+    this.unsubscribeFromCollisions();
   }
 
   update(game) {
@@ -35,13 +56,19 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
     }
   }
 
-  throw(target) {
+  throwAt(target) {
     if (!this.thrown) {
+      this.visible = true;
       this.thrown = true;
-      this.target.copy(target);
+      this.targetPosition.copy(target);
+
       // ±15º skew on the throw
       this.skew = Math.random() * PI_OVER_SIX - PI_OVER_TWELVE;
     }
+  }
+
+  deserialize(object) {
+    Object.assign(this, object);
   }
 
   serialize() {
@@ -53,4 +80,7 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
       position: { ...this.position }
     };
   };
-}
+};
+
+window.S = Snowball;
+

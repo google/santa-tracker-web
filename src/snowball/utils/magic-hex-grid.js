@@ -1,6 +1,8 @@
 import { HexCoord } from '../../engine/utils/hex-coord.js';
 import { HexGrid } from '../../engine/utils/hex-grid.js';
 
+const { Vector3 } = self.THREE;
+
 /**
  * Some of the scale computations are magic number-y right now because
  * I did the vertical scaling wrong somewhere. For now, the magic number
@@ -44,6 +46,17 @@ export class MagicHexGrid extends HexGrid {
     return this.cubeToOffset(this.indexToCube(index, offset), offset);
   }
 
+  indexToPosition(index, position = new Vector3()) {
+    const pixel = this.indexToPixel(index, HexGrid.intermediateHexCoord);
+    const x = pixel.x - this.pixelWidth / 2;
+    const y = -pixel.y + this.pixelHeight / 2 + this.cellSize / 2 * 0.75;
+
+    position.set(x, y, 0);
+
+    return position;
+  }
+
+  // Cube conversions
   cubeToOffset(cube, offset = new HexCoord()) {
     const scaleX = 0.5;
     const scaleY = 0.4325; // Warning: here be magic
@@ -54,5 +67,19 @@ export class MagicHexGrid extends HexGrid {
     offset.z = 0;
 
     return offset;
+  }
+
+  // Offset conversions
+  offsetToPosition(offset, position = new Vector3()) {
+    const x = offset.x * this.cellSize * 0.75 + 0.25 * this.cellSize -
+        this.pixelWidth / 2;
+    const y = -1 * offset.y * this.cellSize * 0.75 - 0.5 * this.cellSize +
+        this.pixelHeight / 2;
+
+    position.x = x;
+    position.y = y;
+    position.z = y / 10.0;
+
+    return position;
   }
 };

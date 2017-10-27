@@ -66,7 +66,7 @@ export class QuadTree {
       const length = this.objects.length;
       const object = this.objects.shift();
 
-      this.insert(object);
+      this.traverseAndInsert(object);
 
       if (length === this.objects.length) {
         i++;
@@ -74,7 +74,7 @@ export class QuadTree {
     }
   }
 
-  insert(object) {
+  traverseAndInsert(object) {
     const bounds = this.measureBounds(object);
 
     if (bounds == null) {
@@ -85,13 +85,17 @@ export class QuadTree {
     const quadrantIndex = this.getQuadrantIndex(bounds);
 
     if (quadrantIndex > -1) {
-      this.nodes[quadrantIndex].insert(object);
+      this.nodes[quadrantIndex].add(object);
     } else {
       this.objects.push(object);
+    }
+  }
 
-      if (this.objects.length > this.maxObjects && this.depth < this.maxDepth) {
-        this.redistributeObjects();
-      }
+  add(object) {
+    this.traverseAndInsert(object);
+
+    if (this.objects.length > this.maxObjects && this.depth < this.maxDepth) {
+      this.redistributeObjects();
     }
   }
 
@@ -114,7 +118,7 @@ export class QuadTree {
     const bounds = this.measureBounds(object);
     const quadrantIndex = this.getQuadrantIndex(bounds);
     const results = quadrantIndex > -1
-        ? this.nodes[quadrantIndex].getNearbyObjects
+        ? this.nodes[quadrantIndex].getObjectsNear(object)
         : [];
 
     return results.concat(this.objects);

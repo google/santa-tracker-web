@@ -11,7 +11,7 @@ export class Collision2DSystem {
 
   set bounds(bounds) {
     this.quadTree = new QuadTree(0, bounds, 10, 5, this.getCollider);
-    this.collidables.forEach(collidable => this.quadTree.insert(collidable));
+    this.collidables.forEach(collidable => this.quadTree.add(collidable));
   }
 
   get bounds() {
@@ -19,20 +19,20 @@ export class Collision2DSystem {
   }
 
   handleCollisions(collidable, handler) {
-    if (!this.collisionHandlers.has(object)) {
-      this.collisionHandlers.set(object, []);
+    if (!this.collisionHandlers.has(collidable)) {
+      this.collisionHandlers.set(collidable, []);
     }
 
-    this.collisionHandlers.get(object).push(handler);
+    this.collisionHandlers.get(collidable).push(handler);
 
     return () => {
-      const handlers = this.collisionHandlers.get(object);
+      const handlers = this.collisionHandlers.get(collidable);
       const handlerIndex = handlers.indexOf(handler);
 
       handlers.splice(handlerIndex, 1);
 
       if (handlers.length === 0) {
-        this.collisionHandlers.delete(object);
+        this.collisionHandlers.delete(collidable);
       }
     };
   }
@@ -40,13 +40,13 @@ export class Collision2DSystem {
   addCollidable(collidable) {
     if (!this.collidables.has(collidable)) {
       this.collidables.add(collidable);
-      this.quadTree && this.quadTree.insert(collidable);
+      this.quadTree && this.quadTree.add(collidable);
     }
   }
 
   removeCollidable(collidable) {
     if (this.collidables.has(collidable)) {
-      this.collidables.remove(collidable);
+      this.collidables.delete(collidable);
       this.quadTree && this.quadTree.remove(collidable);
     }
   }
@@ -55,7 +55,7 @@ export class Collision2DSystem {
     if (this.collisionHandlers.has(object)) {
       const handlers = this.collisionHandlers.get(object);
       for (let i = 0; i < handlers.length; ++i) {
-        handlers(object, other);
+        handlers[i](object, other);
       }
     }
   }
@@ -73,12 +73,18 @@ export class Collision2DSystem {
 
       for (let i = 0; i < nearbyCollidables.length; ++i) {
         const nearbyCollidable = nearbyCollidables[i];
-        const nearbyCollider = this.getCollider(collidable);
 
-        const collidableCollisions = measuredCollisions.get(nearbyCollidable);
+        if (nearbyCollidable === collidable) {
+          continue;
+        }
+
+        const nearbyCollider = this.getCollider(nearbyCollidable);
+
+        let collidableCollisions = measuredCollisions.get(nearbyCollidable);
 
         if (!collidableCollisions) {
-          measuredCollisions.set(nearbyCollidable, new WeakSet());
+          collidableCollisions = new WeakSet();
+          measuredCollisions.set(nearbyCollidable, collidableCollisions);
         } else if (collidableCollisions.has(collidable)) {
           continue;
         }
@@ -86,8 +92,8 @@ export class Collision2DSystem {
         collidableCollisions.add(collidable);
 
         if (collider.intersects(nearbyCollider)) {
-          this.notifyCollision(object, other);
-          this.notifyCollision(other, object);
+          this.notifyCollision(collidable, nearbyCollidable);
+          this.notifyCollision(nearbyCollidable, collidable);
         }
       }
     });

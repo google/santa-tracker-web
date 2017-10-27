@@ -10,8 +10,16 @@ export class Snowball extends Game {
     super();
 
     this.collisionSystem = new Collision2DSystem();
+    this.snowballSystem = new SnowballSystem();
     this.renderSystem.renderer.setClearColor(0x71A7DB, 1.0);
     this.level = new MainLevel();
+  }
+
+  update() {
+    super.update();
+
+    this.collisionSystem.update(this);
+    this.snowballSystem.update(this);
   }
 };
 

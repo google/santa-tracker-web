@@ -36,15 +36,14 @@ export class Game extends HTMLElement {
     this.shadowRoot.appendChild(this.inputSystem);
 
     this.clockSystem.startClock('gameloop', time => {
-      this.tick = Math.floor(time * 60 / 1000);
+      this.preciseTick = time * 60 / 1000;
+      this.tick = Math.floor(this.preciseTick);
 
       if (this.currentLevel == null) {
         return;
       }
 
-      this.currentLevel.update(this);
-      this.renderSystem.update(this);
-      this.inputSystem.update(this);
+      this.update();
     });
 
     self.addEventListener('resize', () => this.measure());
@@ -71,6 +70,12 @@ export class Game extends HTMLElement {
     this.camera.updateMatrixWorld();
 
     this.renderSystem.measure(this);
+  }
+
+  update() {
+    this.currentLevel.update(this);
+    this.renderSystem.update(this);
+    this.inputSystem.update(this);
   }
 
   set level(level) {

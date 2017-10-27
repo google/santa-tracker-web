@@ -367,13 +367,29 @@ export const rectangleContainsRectangle = (rectangle, other) => {
   return true;
 };
 
+export const rectangleContainsCircle = (rectangle, circle) => {
+  if ((circle.x - circle.radius) < rectangle.tl.x ||
+      (circle.x + circle.radius) > rectangle.br.x ||
+      (circle.y - circle.radius) < rectangle.tr.y ||
+      (circle.y + circle.radius) > rectangle.bl.y) {
+    return false;
+  }
+
+  return true;
+};
+
+export const circleContainsPoint = (circle, point) => {
+  return circle.position.distanceTo(point.position) <= circle.radius;
+};
+
 export const containmentTests = {
-  rectangle: {
-    point: rectangleContainsPoint,
-    rectangle: rectangleContainsRectangle
+  circle: {
+    point: circleContainsPoint,
   },
 
-  point: {
-    rectangle: (point, rectangle) => rectangleContainsPoint(rectangle, point)
+  rectangle: {
+    point: rectangleContainsPoint,
+    rectangle: rectangleContainsRectangle,
+    circle: rectangleContainsCircle
   }
 };
