@@ -165,9 +165,11 @@ specific language governing permissions and limitations under the License.
       </div>
     </div>
 
+    <!-- nb. This doesn't include any shared elements, so don't include any HTML imports here:
+      `polymer-bundler` will attempt to roll them up into `elements_en.html` -->
     <script src="../../components/web-animations-js/web-animations-next.min.js"></script>
     <script src="codeboogieframe-scene.min.js"></script>
-    <link rel="import" href="../../elements/i18n-msg.html">
+    <link rel="import" href="../../elements/i18n-msg.html"><!-- i18n-msg is removed anyway -->
     <div hidden>
       <i18n-msg id="loader" msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
     </div>
