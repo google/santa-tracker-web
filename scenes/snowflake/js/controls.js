@@ -20,7 +20,7 @@ goog.require('app.Constants');
 
 /**
  * Handles user input for controlling the postcard share scene.
- * @param {!Scene} scene The scene object.
+ * @param {!app.Scene} scene The scene object.
  * @constructor
  */
 app.Controls = function(scene) {
@@ -42,26 +42,30 @@ app.Controls = function(scene) {
 };
 
 /**
+ * Cleans up.
+ */
+app.Controls.prototype.dispose = function() {
+  $(window).off('keydown.sendamessage');
+};
+
+/**
  * Handles the key down event.
  * @private
- * @param {Event} e The event object.
+ * @param {!jQuery.Event} e The event object.
  */
 app.Controls.prototype.onKeyDown_ = function(e) {
-  var key;
-  if (e.keyCode in app.Controls.KEY_CODES_) {
-    key = app.Controls.KEY_CODES_[e.keyCode];
+  switch (e.keyCode) {
+  case 37:  // left
+    this.picker.navigate(-1, 0);
+    break;
+  case 39:  // right
+    this.picker.navigate(1, 0);
+    break;
+  default:
+    return;
   }
 
-  switch (key) {
-    case 'left':
-      this.picker.navigate(-1, 0);
-      break;
-    case 'right':
-      this.picker.navigate(1, 0);
-      break;
-  }
-
-  if (!this.leftRightPressed && (key === 'left' || key === 'right')) {
+  if (!this.leftRightPressed) {
     this.tutorial.off('keys-leftright');
     this.tutorial.off('spacenav-leftright');
     this.leftRightPressed = true;
@@ -69,19 +73,8 @@ app.Controls.prototype.onKeyDown_ = function(e) {
 };
 
 /**
- * A map of keycodes to their names.
- * @type {Object.<string, string>}
- * @private
- * @const
- */
-app.Controls.KEY_CODES_ = {
-  '37': 'left',
-  '39': 'right',
-};
-
-/**
  * Hande start of touch, save position for later.
- * @param {Event} event The touch event.
+ * @param {!jQuery.Event} event The touch event.
  * @private
  */
 app.Controls.prototype.handleTouchStart_ = function(event) {
@@ -110,9 +103,10 @@ app.Controls.prototype.getChange_ = function(movement) {
 
 /**
  * Slide if touch passes the touch treshold.
+ * @param {!jQuery.Event} event The touch event.
  * @private
  */
-app.Controls.prototype.handleTouchEnd_ = function() {
+app.Controls.prototype.handleTouchEnd_ = function(event) {
   var touch = event.changedTouches[0];
   var x = this.getChange_(touch.pageX - this.start.x);
   if (!this.leftRightSwiped && x !== 0) {

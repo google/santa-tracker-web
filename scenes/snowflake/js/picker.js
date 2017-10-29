@@ -16,15 +16,17 @@
 
 goog.provide('app.Picker');
 
-goog.require('app.I18n');
 goog.require('app.Constants');
 
 /**
  * Manages the background picker.
  * @constructor
- * @param {!Scene} scene The scene object.
+ * @param {!app.Scene} scene The scene object.
+ * @param {!Object<string, string>} strings
  */
-app.Picker = function(scene) {
+app.Picker = function(scene, strings) {
+  this.scene = scene;
+  this.strings = strings;
   this.elem = scene.elem;
   this.background = scene.background;
 
@@ -53,14 +55,13 @@ app.Picker.prototype.attachEvents_ = function() {
  * Create event handler to change background
  * @private
  * @param {number} bg This number is added to the selected background.
- * @return {function} event handler
+ * @return {function(!jQuery.Event)} event handler
  */
 app.Picker.prototype.handleChange_ = function(bg) {
-  return function(e) {
+  return (e) => {
     e.preventDefault();
-
     this.navigate(bg);
-  }.bind(this);
+  };
 };
 
 /**
@@ -70,12 +71,10 @@ app.Picker.prototype.handleChange_ = function(bg) {
 app.Picker.prototype.navigate = function(bgDelta) {
   const bg = this.background.getPosition(bgDelta);
 
-  const url = new URL(window.location.toString());
-  url.search = `?bg=${bg}`;
-  window.history.replaceState(null, '', url.toString());
-
   this.background.set(bg);
   this.updateMessage(bg);
+
+  this.scene.updateUrl();
 
   // Sound
   if (bgDelta !== 0) {
@@ -96,12 +95,12 @@ app.Picker.prototype.updateMessage = function(bg) {
   text.style.opacity = 0;
 
   // Fade in
-  setTimeout(function(){
-      var colors = ['#0a459b', 'white', 'white', '#0a459b', 'white', 'white', '#0a459b', 'white'];
-      var messages = [0, 1, 2, 3, 0, 1, 2, 3];
-      var messageId = messages[bg - 1];
-      text.innerHTML = app.I18n.getMsg('S_message' + messageId);
-      text.style.color = colors[bg - 1];
-      text.style.opacity = 1;
-  },150);
+  window.setTimeout(() => {
+    var colors = ['#0a459b', 'white', 'white', '#0a459b', 'white', 'white', '#0a459b', 'white'];
+    var messages = [0, 1, 2, 3, 0, 1, 2, 3];
+    var messageId = messages[bg - 1];
+    text.textContent = this.strings['snowflake_message' + messageId] || 'Unknown: ' + messageId;
+    text.style.color = colors[bg - 1];
+    text.style.opacity = 1;
+  }, 150);
 }
