@@ -14,6 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/santa-state.html">
+<link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 
 <script src="snowflake-scene.min.js"></script>
@@ -28,6 +29,7 @@ Postcard scene.
 <dom-module id="snowflake-scene">
 <template>
   <santa-state language="{{language}}"></santa-state>
+  <santa-strings strings="{{_strings}}"></santa-strings>
 
   <style include="snowflake-scene_module footer_module centering_module"></style>
 
@@ -72,7 +74,7 @@ Postcard scene.
           <div class="remix-button-div remix-text remix-bar share-landing">
             <i18n-msg msgid="snowflake_make_your_own">PLACEHOLDER_i18n</i18n-msg>
             <button id="remixButton" on-tap="backToBlockly" class="Button remix">
-                <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
+              <i18n-msg msgid="codeboogie-go">PLACEHOLDER_i18n</i18n-msg>
             </button>
           </div>
         </div>
@@ -85,7 +87,7 @@ Postcard scene.
             <i18n-msg msgid="back_to_previous_page">PLACEHOLDER_i18n</i18n-msg>
             </span>
           </div>
-          <div class='snow-share-div'>
+          <div class="snow-share-div">
             <button id="shareButton" class="Button button-share-snow">
               <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
             </button>
@@ -95,12 +97,6 @@ Postcard scene.
       </div>
     </div>
     <iframe id="blocklyArea" class="scene" src="about: blank" width="100%" height="100%" frameBorder="0" allowTransparency="true"></iframe>
-    <div style="display: none;">
-      <div id="S_message0"><i18n-msg msgid="holiday_message_0">PLACEHOLDER_i18n</i18n-msg></div>
-      <div id="S_message1"><i18n-msg msgid="holiday_message_3">PLACEHOLDER_i18n</i18n-msg></div>
-      <div id="S_message2"><i18n-msg msgid="holiday_message_4">PLACEHOLDER_i18n</i18n-msg></div>
-      <div id="S_message3"><i18n-msg msgid="holiday_message_5">PLACEHOLDER_i18n</i18n-msg></div>
-    </div>
     <div id="landscapeMsg" class="gui">
       <div class="force-rotate landscape">
         <div class="force-rotate-graphic"></div>
@@ -127,6 +123,9 @@ Postcard scene.
 
       /** Language. Bound from `santa-state`. */
       language: String,
+
+      /** Shared strings. Bound from `santa-strings`. */
+      _strings: Object,
     },
 
     attached: function() {
@@ -142,7 +141,7 @@ Postcard scene.
       this.preloadSounds('sm_load_sounds', 15);
       this.preloadImages([
         'img/bgs-small.png',
-        'img/bgs.png'
+        'img/bgs.png',
       ]);
     },
 
@@ -150,14 +149,8 @@ Postcard scene.
       var module = this.$['module-snowflake'];
       this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
-      this.scene = new scenes.snowflake.Scene(module);
+      this.scene = new scenes.snowflake.Scene(module, this._strings);
 
-      // Set the local i18n message.
-      // TODO(madCode): This doesn't work in prod, because i18ntext is compiled out.
-      if (this.$.i18ntext) {
-        var params = getUrlParameters();
-        this.$.i18ntext.msgid = 'holiday_message_' + (params.bg || 0);
-      }
       // nb. Note that the picker grabs bg/fg from the URL, so it doesn't need to be set here.
       // Pass the entire query string down to the blockly iframe so it can put the blocks in the
       // workspace. Decode the base64-encoded blocks, and pass to the frame.
@@ -278,11 +271,13 @@ Postcard scene.
           }
           break;
         case 'updateURL':
-          this.scene.updateUrl();
+          // ignore
           break;
         default:
           throw new Error('unknown message from snowflake iframe: ' + event.data['msg-type']);
       }
+      // Always updateUrl, to make sharing easy
+      this.scene.updateUrl();
     },
   });
 

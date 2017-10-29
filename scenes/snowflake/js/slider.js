@@ -19,9 +19,12 @@ goog.provide('app.Slider');
 /**
  * Slides the background and the foreground.
  * @param {!Element} elem The slider element.
- * @param {{track: Element, changed: function,
- *     max: number, width: number, size: number,
- *     horizontal: bool}} options
+ * @param {{
+ *    changed: function(number, number, number): void,
+ *    max: number,
+ *    size: number,
+ *    horizontal: boolean
+ * }} options
  * @constructor
  */
 app.Slider = function(elem, options) {

@@ -127,9 +127,9 @@ function getUrlParameters() {
 /**
  * Throttle calls to a function
  *
- * @param {function(...*)} func
+ * @param {!Function} func
  * @param {number} ms at most one per this many ms
- * @return {function(...*)}
+ * @return {!Function}
  * @export
  */
 function throttle(func, ms) {
