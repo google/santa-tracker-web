@@ -58,11 +58,11 @@ export class Point extends Allocatable(AbstractShape) {
     return 1;
   }
 
-  initialize(position) {
+  onAllocated(position) {
     this.position = position;
   }
 
-  reset() {
+  onFreed() {
     this.position = null;
   }
 };
@@ -94,13 +94,13 @@ export class Line extends Allocatable(AbstractShape) {
     this.midpoint = new Vector2();
   }
 
-  initialize(a, b) {
+  onAllocated(a, b) {
     this.a = a;
     this.b = b;
     this.midpoint.set((this.a.x + this.b.x) / 2, (this.a.y + this.b.y) / 2);
   }
 
-  reset() {
+  onFreed() {
     this.a = null;
     this.b = null;
   }
@@ -128,13 +128,13 @@ export class Circle extends Allocatable(AbstractShape) {
     return this.width;
   }
 
-  initialize(radius, position) {
+  onAllocated(radius, position) {
     this.radius = radius;
     this.position = position;
     this.radiusSquared = radius * radius;
   }
 
-  reset() {
+  onFreed() {
     this.radius = 0;
     this.position = null;
     this.radiusSquared = 0;
@@ -166,7 +166,7 @@ export class Rectangle extends Allocatable(AbstractShape) {
     this.vertices = [this.tl, this.tr, this.br, this.bl];
   }
 
-  initialize(width, height, position) {
+  onAllocated(width, height, position) {
     this.width = width;
     this.height = height;
     this.position = position;
@@ -183,7 +183,7 @@ export class Rectangle extends Allocatable(AbstractShape) {
     this.bl.set(this.tl.x, this.br.y);
   }
 
-  reset() {
+  onFreed() {
     this.width = 0;
     this.height = 0;
     this.position = null;
@@ -306,7 +306,7 @@ export const lineIntersectsRectangle = (() => {
     for (let i = 0, v0 = rectangle.bl; i < rectangle.vertices.length; ++i) {
       let v1 = rectangle.vertices[i];
 
-      intermediateLine.initialize(v0, v1);
+      intermediateLine.onAllocated(v0, v1);
 
       if (lineIntersectsLine(line, intermediateLine)) {
         intersects = true;
@@ -316,7 +316,7 @@ export const lineIntersectsRectangle = (() => {
       v0 = v1;
     }
 
-    intermediateLine.reset();
+    intermediateLine.onFreed();
     return false;
   };
 })();

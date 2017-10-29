@@ -10,7 +10,7 @@ export class MainLevel extends Level {
     const { snowballLayer } = snowballSystem;
 
 
-    this.hexMap = new HexMap(32, 32);
+    this.hexMap = new HexMap(32, 32, 32);
 
     collisionSystem.bounds = Rectangle.allocate(
         this.hexMap.width, this.hexMap.height, this.hexMap.position);
@@ -19,7 +19,7 @@ export class MainLevel extends Level {
     this.add(this.hexMap);
 
     snowballLayer.position.copy(this.hexMap.position);
-    snowballLayer.position.z = -50;
+    snowballLayer.position.z = this.hexMap.height / -2 - 25.0;
 
     this.add(snowballLayer);
 

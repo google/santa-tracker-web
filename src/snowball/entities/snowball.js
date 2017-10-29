@@ -1,28 +1,96 @@
 import { Entity } from '../../engine/core/entity.js';
-import { Point } from '../../engine/utils/collision-2d.js';
+import { Point, Circle } from '../../engine/utils/collision-2d.js';
 import { Allocatable } from '../../engine/utils/allocatable.js';
+import { snowball } from '../textures.js';
 
 const {
   Mesh,
   Vector2,
   BoxGeometry,
-  MeshBasicMaterial
+  MeshBasicMaterial,
+  RawShaderMaterial,
+  PlaneBufferGeometry
 } = self.THREE;
 
 const PI_OVER_TWELVE = Math.PI / 12.0;
 const PI_OVER_SIX = Math.PI / 6.0;
 
+const vertexShader = `
+precision highp float;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+uniform float random;
+
+attribute vec3 position;
+attribute vec2 uv;
+
+varying vec2 vUv;
+varying float vRandom;
+
+void main() {
+  vUv = uv;
+  vRandom = random;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+`;
+
+const fragmentShader = `
+precision highp float;
+
+vec2 rotate2d(float angle, vec2 v){
+    return mat2(cos(angle),-sin(angle),
+                sin(angle),cos(angle)) * v;
+}
+
+uniform sampler2D map;
+uniform float time;
+
+varying vec2 vUv;
+varying float vRandom;
+
+void main() {
+  float elapsed = time / (1000.0 + 5000.0 * vRandom);
+  vec2 halfUv = vec2(0.5);
+  vec2 rUv = rotate2d(elapsed * 3.14159 * 2.0, vUv - halfUv) + halfUv;
+  vec4 color = texture2D(map, rUv);
+
+  color -= vec4(0.05, 0.015, 0.0, 0.0) * cos(time / 30.0 * vRandom);
+
+  gl_FragColor = color;
+}
+`;
+
 export class Snowball extends Allocatable(Entity(Mesh)) {
   constructor() {
-    super(new BoxGeometry(10, 10, 10),
-        new MeshBasicMaterial({ color: 0xff0000, side: 2 }));
+    const uniforms = {
+      map: {
+        value: snowball
+      },
+      time: {
+        value: 0
+      },
+      random: {
+        value: Math.random()
+      }
+    };
 
-    this.collider = Point.allocate(this.position);
+    super(new PlaneBufferGeometry(12, 12),
+        new RawShaderMaterial({
+          uniforms,
+          vertexShader,
+          fragmentShader,
+          side: 2,
+          transparent: true
+        }));
+
+    this.uniforms = uniforms;
+    this.collider = Circle.allocate(5, this.position);
     this.targetPosition = new Vector2();
     this.origin = new Vector2();
   }
 
-  initialize(origin) {
+  onAllocated(origin) {
     this.origin.copy(origin);
     this.thrown = false;
     this.tickWhenThrown = -1;
@@ -47,6 +115,8 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
   }
 
   update(game) {
+    this.uniforms.time.value = game.clockSystem.time;
+
     if (!this.thrown) {
       return;
     }

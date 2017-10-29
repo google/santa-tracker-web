@@ -78,7 +78,7 @@ export class MagicHexGrid extends HexGrid {
 
     position.x = x;
     position.y = y;
-    position.z = y / 10.0;
+    position.z = y;
 
     return position;
   }

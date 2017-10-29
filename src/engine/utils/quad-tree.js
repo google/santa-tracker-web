@@ -37,7 +37,7 @@ export class QuadTree {
     for (let j = -1, i = 0; j < 2; j += 2) {
       for (let k = -1; k < 2; k += 2, i++) {
         const rectangle = Rectangle.allocate(halfWidth, halfHeight,
-            new Vector2(x + j * halfWidth, y + k * halfHeight));
+            new Vector2(x + j * halfWidth / 2.0, y + k * halfHeight / 2.0));
         this.nodes[i] = new QuadTree(this.depth + 1, rectangle,
             this.maxObjects, this.maxDepth, this.measureBounds);
       }

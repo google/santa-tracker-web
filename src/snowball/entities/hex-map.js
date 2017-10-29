@@ -2,7 +2,8 @@ import { Entity } from '../../engine/core/entity.js';
 import { combine } from '../../engine/utils/function.js';
 import { HexCoord } from '../../engine/utils/hex-coord.js';
 import { MagicHexGrid } from '../utils/magic-hex-grid.js';
-import { Circle } from '../../engine/utils/collision-2d.js';
+import { tiles } from '../textures.js';
+import { Tree } from './static/tree.js';
 
 const {
   Vector2,
@@ -10,14 +11,11 @@ const {
   PlaneBufferGeometry,
   MeshBasicMaterial,
   BufferAttribute,
-  TextureLoader,
   RawShaderMaterial,
   InstancedBufferGeometry,
   InstancedBufferAttribute,
   DoubleSide
 } = self.THREE;
-
-const textureLoader = new TextureLoader();
 
 const vertexShader = `
 precision highp float;
@@ -131,7 +129,6 @@ export class HexMap extends Entity(Mesh) {
 
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
     const geometry = new InstancedBufferGeometry();
-    const texture = textureLoader.load('/src/images/tiles.png');
     const uniforms = {
       // Will be updated with the time every game tick
       time: {
@@ -139,7 +136,7 @@ export class HexMap extends Entity(Mesh) {
       },
       // The texture containing the game tiles
       map: {
-        value: texture
+        value: tiles
       },
       // The scale of the tiles configured via constructor
       tileScale: {
@@ -163,7 +160,7 @@ export class HexMap extends Entity(Mesh) {
     this.grid = new MagicHexGrid(unitWidth, unitHeight, tileScale);
     this.tileCount = unitWidth * unitHeight;
 
-    console.log(this.grid.pixelWidth, this.grid.pixelHeight);
+    console.log('Map dimensions:', this.grid.pixelWidth, 'x', this.grid.pixelHeight);
 
     this.frustumCulled = false;
     this.uniforms = uniforms;
@@ -185,8 +182,6 @@ export class HexMap extends Entity(Mesh) {
     this.add(this.surface);
     this.tileRings = [];
     this.treeCollidables = [];
-
-    //this.initializeGeometry();
   }
 
   setup(game) {
@@ -282,22 +277,16 @@ export class HexMap extends Entity(Mesh) {
 
         // Stash tile details into geometry attributes
         tileStates.setX(index, state);
-        tileOffsets.setXYZ(index, offset.x, offset.y, offset.y / 10.0);
+        tileOffsets.setXYZ(index, offset.x, offset.y, offset.y);
         tileSprites.setX(index, tile);
 
         if (tile === 0 && state === 1) {
-          const position = this.grid.indexToPosition(index);
-          const treeCollidable = {
-            type: 'tree',
-            collider: Circle.allocate(12, position)
-          };
+          const tree = new Tree(index, this.grid.indexToPosition(index));
+          tree.setup(game);
 
-          console.log('Adding tree collidable to', treeCollidable.collider.position);
+          console.log('Adding tree collidable to', tree.collider.position);
 
-          collisionSystem.addCollidable(treeCollidable);
-          //collisionSystem.handleCollisions(treeCollidable, (tree, other) => {
-            //console.log('Collided!');
-          //});
+          collisionSystem.addCollidable(tree);
         }
       }
     }
