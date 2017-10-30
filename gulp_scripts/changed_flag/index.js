@@ -14,26 +14,63 @@
  * the License.
  */
 
+/**
+ * @fileoverview Checks whether flags match previous flags for a specified file path, and nukes
+ * the file otherwise.
+ */
+
 /* jshint node: true */
 
-var fs = require('fs');
+const fs = require('fs');
+const path = require('path');
+const through = require('through2');
+
+function mkdirpSync(to) {
+  const parts = to.split(path.sep);
+  let i = 1;
+
+  for (let i = 1; i <= parts.length; ++i) {
+    const segment = parts.slice(0, i).join(path.sep);
+    try {
+      fs.mkdirSync(segment);
+    } catch (err) {
+      // ignore
+    }
+  }
+}
 
 /**
- * Checks the given value against a version written to disk. If the value has
- * changed, runs the handler and return false.
- * This method is synchronous.
+ * @param {string} cand path of file to remove if flags change
+ * @param {*} config to serialize to JSON and compare
+ * @return {boolean} whether the file was removed
  */
-module.exports = function flagState(value, path, handler) {
-  var previousValue = '';
+module.exports = function(cand, config) {
+  // TODO(samthor): This is awkwardly an entirely synchronous operation.
+
+  if (config === undefined) {
+    config = {};
+  }
+  const flagPath = '.changedFlag/' + cand;
+  const raw = JSON.stringify(config);
+
+  let data;
   try {
-    previousValue = fs.readFileSync(path, 'utf-8');
-  } catch (e) {
-    // ignored
+    data = fs.readFileSync(flagPath);
+  } catch (err) {
+    // nb. we ignore err, in case it's file not found
   }
-  if (previousValue == value) {
-    return true;
+  if (data && data.toString('utf8') === raw) {
+    return false;
   }
-  fs.writeFileSync(path, value);
-  handler();
-  return false;
+
+  try {
+    fs.unlinkSync(cand);
+  } catch (err) {
+    // do nothing
+  }
+
+  // write the changed flag file
+  mkdirpSync(path.dirname(flagPath));
+  fs.writeFileSync(flagPath, raw);
+  return true;
 };

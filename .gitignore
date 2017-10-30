@@ -10,7 +10,6 @@ sass/*.css
 scenes/**/*.css
 scenes/*/*.min.js
 js/service/*.min.js
-js/.apiflag
 elements/*/*.css
 *_module.html
 *.min.js
@@ -19,3 +18,4 @@ bin/
 nginx/
 dive/
 .devmode
+.changedFlag/
