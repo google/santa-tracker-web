@@ -102,3 +102,9 @@ app.Eraser.prototype.reset = function() {
 }
 
 
+app.Eraser.prototype.calculateDrawSize = function(size) {
+  return app.utils.map(size, app.Constants.ERASER_MIN,
+      app.Constants.ERASER_MAX);
+}
+
+

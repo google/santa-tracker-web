@@ -33,7 +33,6 @@ app.Pen = function($elem, name) {
   this.soundKey = 'selfie_color';
   this.points = [];
   this.dpr = 1;
-  this.circle = this.el.find('[data-tool-circle]');
 };
 app.Pen.prototype = Object.create(app.Tool.prototype);
 
