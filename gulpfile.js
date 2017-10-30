@@ -66,7 +66,7 @@ const argv = require('yargs')
     })
     .option('scene', {
       type: 'string',
-      default: null,
+      default: '',
       describe: 'only compile JS for these scenes (e.g. scene1,scene2,scene3)',
     })
     .option('compile', {
@@ -119,14 +119,14 @@ const DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.buil
 const SCENE_CONFIG = require('./scenes');
 const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].fanout !== false);
 
-// List of scene names to compile.
-const ALL_SCENES = argv.scene.split(',').filter((sceneName) => sceneName); 
+// List of scene names to serve.
+const CONFIG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName); 
 const COMPILE_SCENES = (function() {
   if (!argv.scene) {
     return Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].entryPoint);
   }
   const out = [];
-  ALL_SCENES.forEach((scene) => {
+  CONFIG_SCENES.forEach((scene) => {
     const config = SCENE_CONFIG[scene];
     if (!config) {
       throw new Error(`unknown scene: ${scene}`);
@@ -484,7 +484,7 @@ gulp.task('serve', ['default', 'watch'], function() {
     return next();
   };
 
-  const firstScene = ALL_SCENES[0];
+  const firstScene = CONFIG_SCENES[0];
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
