@@ -194,18 +194,11 @@ gulp.task('sass', function() {
 });
 
 gulp.task('compile-js', function() {
-  scripts.changedFlag(API_BASE_URL, 'js/.apiflag', function() {
-    try {
-      fs.unlinkSync('js/santa.min.js');
-    } catch (e) {
-      // ignored
-    }
-  });
-
   const closureBasePath = path.resolve('components/closure-library/closure/goog/base.js');
   const externs = [
     'node_modules/google-closure-compiler/contrib/externs/google_universal_analytics_api.js',
   ];
+  scripts.changedFlag('js/santa.min.js', API_BASE_URL)
   return gulp.src(JS_FILES)
     .pipe($.newer('js/santa.min.js'))
     .pipe($.closureCompiler({
@@ -271,26 +264,21 @@ gulp.task('compile-scenes', function() {
     const libraries = (config.libraries || []).map(lib => lib.replace('**/*', '**'));
     compilerSrc.push(...libraries);
 
-    // Configure prefix. In some cases (no libraries, not dist), we can skip scene compilation for
-    // more rapid development. TODO(samthor): Increase the number of skippable compiles.
-    let prefixCode = 'var global=window;';
-    let compilationLevel = 'SIMPLE_OPTIMIZATIONS';
-    const mustCompile =
-        (argv.compile || libraries.length || config.closureLibrary || config.isFrame || argv.dist);
-    if (!mustCompile) {
-      // This (ab)uses Closure. Uncompiled Closure attempts to run `goog.provide` on an object
-      // namespace ("this" in our compile). However, as we're in a JS closure, we want the vars to
-      // exist as "var foo". Precreate known vars, then place it on the object namespace.
-      prefixCode += 'var app=this.app;';
-      ['SB', 'Blockly', 'Box2D'].forEach(v => prefixCode += `var ${v}={};this.${v}=${v};`);
-      compilationLevel = 'WHITESPACE_ONLY';
-    }
+    // Configure prefix and compilation options. In some cases (no libraries, not dist), we can
+    // skip scene compilation for  more rapid development.
+    // This flag is written to disk (via `scripts.changedFlag`), so a change forces a recompile.
+    const prefixCode = 'var global=window,app=this.app;';
+    const mustCompile = Boolean(
+        (argv.compile || argv.dist) ||  // always compile for prod
+        (libraries.length || config.closureLibrary || config.isFrame)  // needs compile
+    );
 
     const compilerFlags = addCompilerFlagOptions({
       js: compilerSrc,
       externs,
+      assume_function_wrapper: true,
       closure_entry_point: config.entryPoint,
-      compilation_level: compilationLevel,
+      compilation_level: mustCompile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
       warning_level: warningLevel,
       language_in: 'ECMASCRIPT6_STRICT',
       language_out: 'ECMASCRIPT5_STRICT',
@@ -304,10 +292,9 @@ gulp.task('compile-scenes', function() {
       output_wrapper: config.isFrame ? '%output%' :
           `var scenes = scenes || {};\n` +
           `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
-          `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`
+          `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`,
     });
 
-    // TODO(samthor): Log the kickoff of this event.
     const compilerStream = $.closureCompiler({
       compilerPath: COMPILER_PATH,
       continueWithWarnings: true,
@@ -315,13 +302,17 @@ gulp.task('compile-scenes', function() {
       compilerFlags,
     });
 
+    const target = `${dest}/${fileName}}`;
+    scripts.changedFlag(target, {mustCompile});
+
     return gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
-        .pipe($.newer(`${dest}/${fileName}`))
+        .pipe($.newer(target))
         .pipe(limit(compilerStream))
         .on('data', (file) => {
           if (file) {
             // if truthy, this is the minified output from Closure
-            gutil.log('Compiled scene', `'${gutil.colors.green(sceneName)}'`)
+            const message = mustCompile ? 'Compiled scene' : 'Fast transpiled';
+            gutil.log(message, `'${gutil.colors.green(sceneName)}'`)
           }
         })
         .pipe(gulp.dest(dest));

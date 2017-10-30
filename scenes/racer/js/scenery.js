@@ -601,6 +601,9 @@ SB.Object.Scenery.prototype.addScore = function(score) {
 SB.Object.Scenery.prototype.resetObject = function(cell) {
 
   // get the object
+  if (cell.objectIndex === null) {
+    throw new Error('index never null');
+  }
   this.object_ = this.objectPool_[cell.objectIndex];
 
   // set it back to being selectable

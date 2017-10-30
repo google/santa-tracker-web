@@ -34,7 +34,7 @@
 
 goog.provide('Box2D');
 
-Box2D = {};
+var Box2D = {};  // work around Closure-inside-a-closure use in Santa Tracker
 
 (function(a2j) {
 

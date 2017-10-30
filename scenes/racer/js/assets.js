@@ -16,6 +16,8 @@
 
 goog.provide('SB.Assets');
 
+goog.require('SB');
+
 /**
  * Handles the asset loading for the game.
  * @param {string} componentDir path to the scene static files.
