@@ -120,13 +120,14 @@ const SCENE_CONFIG = require('./scenes');
 const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].fanout !== false);
 
 // List of scene names to serve.
-const CONFIG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName); 
+const ARG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName); 
 const COMPILE_SCENES = (function() {
-  if (!argv.scene) {
+  if (!ARG_SCENES.length) {
+    // compile all scenes
     return Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].entryPoint);
   }
   const out = [];
-  CONFIG_SCENES.forEach((scene) => {
+  ARG_SCENES.forEach((scene) => {
     const config = SCENE_CONFIG[scene];
     if (!config) {
       throw new Error(`unknown scene: ${scene}`);
@@ -268,10 +269,8 @@ gulp.task('compile-scenes', function() {
     // skip scene compilation for  more rapid development.
     // This flag is written to disk (via `scripts.changedFlag`), so a change forces a recompile.
     const prefixCode = 'var global=window,app=this.app;';
-    const mustCompile = Boolean(
-        (argv.compile || argv.dist) ||  // always compile for prod
-        (libraries.length || config.closureLibrary || config.isFrame)  // needs compile
-    );
+    const mustCompile =
+        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame);
 
     const compilerFlags = addCompilerFlagOptions({
       js: compilerSrc,
@@ -321,7 +320,7 @@ gulp.task('compile-scenes', function() {
   return merged;
 });
 
-gulp.task('bundle', ['sass', 'compile-js'], async function() {
+gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
   const primaryModuleName = 'elements/elements_en.html';   // index.html loads this import
   const excludes = ['elements/i18n-msg.html'];  // never include in output
   const paths = await new Promise((resolve, reject) => {
@@ -456,6 +455,8 @@ gulp.task('build-contents', ['copy-assets'], function() {
 
 // clean + build a distribution version
 gulp.task('dist', function(callback) {
+  argv.compile = true;  // force compile for dist, works because we're skipping normal gulp below
+
   // nb. 'build-contents' is our leaf here, as it depends on everything else. Be careful what deps
   // you list here, because they're not part of the normal Gulp dependency chain.
   require('run-sequence')('rm-dist', 'build-contents', 'announce-dist', callback);
@@ -484,7 +485,7 @@ gulp.task('serve', ['default', 'watch'], function() {
     return next();
   };
 
-  const firstScene = CONFIG_SCENES[0];
+  const firstScene = ARG_SCENES[0];
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
