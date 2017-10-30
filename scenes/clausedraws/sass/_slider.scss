@@ -6,9 +6,9 @@
   }
 
   .Slider-inner {
-    height: 167px * 0.105;
+    height: 152px * 0.2;
     position: relative;
-    width: 167px;
+    width: 152px;
   }
 
   .Slider-base {
@@ -23,11 +23,11 @@
 
   .Slider-dot {
     background: url(img/slider-dot.svg) center/contain no-repeat;
-    bottom: -90%;
     cursor: pointer;
     height: 17px;
     left: 10px;
     position: absolute;
+    top: 60%;
     transform: translate(-50%, -50%);
     width: 17px;
   }

@@ -86,7 +86,7 @@ app.Slider.prototype.setSize = function(relativeSize, xPos) {
 
   this.dot.css('left', dotOffset);
   this.dot.css('transform',
-      'scale(' + (1 + relativeSize * 1) + ') translate(-50%, -50%)');
+      'translate(-50%, -50%) scale(' + (1 + relativeSize * 1) + ')');
   this.size = relativeSize;
 
   this.subscribers.forEach(function(subscriber) {
