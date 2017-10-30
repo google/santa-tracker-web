@@ -268,6 +268,14 @@
     &--eraser {
       background-image: url(img/tools/tool_eraser.svg);
     }
+
+    &--stamp-bow {
+      background-image: url(img/tools/decorations/bow.svg);
+
+      .Tool-hover-preview {
+        background-image: url(img/tools/decorations/bow.svg);
+      }
+    }
   }
 
   .Tool-hover {
@@ -326,11 +334,39 @@
   }
 
   [data-tool-category="drawing"],
+  [data-tool-category="eraser"],
   [data-tool-category="spray"] {
     .Tool {
       background-position: center top;
       background-repeat: no-repeat;
       background-size: 200%;
+    }
+  }
+
+  [data-tool-category="stamp"] {
+    .Tool, .Tool-hover-preview {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .Tool-hover-minitool {
+      background: url(img/tools/tool_stamp.svg) center/contain no-repeat;
+      height: 50px;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -100%);
+      width: 50px;
+    }
+
+    .Tool-hover-preview {
+      height: 100%;
+      left: 50%;
+      opacity: 0.5;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
     }
   }
 
@@ -359,8 +395,6 @@
       background-image: url(img/tools/tool_marker_green.svg);
     }
   }
-
-
 
   .Tools-slider {
     &::after {
