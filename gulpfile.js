@@ -120,13 +120,13 @@ const SCENE_CONFIG = require('./scenes');
 const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].fanout !== false);
 
 // List of scene names to compile.
+const ALL_SCENES = argv.scene.split(',').filter((sceneName) => sceneName); 
 const COMPILE_SCENES = (function() {
   if (!argv.scene) {
     return Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].entryPoint);
   }
   const out = [];
-  const scenes = argv.scene.split(',').filter((sceneName) => sceneName);
-  scenes.forEach((scene) => {
+  ALL_SCENES.forEach((scene) => {
     const config = SCENE_CONFIG[scene];
     if (!config) {
       throw new Error(`unknown scene: ${scene}`);
@@ -493,6 +493,7 @@ gulp.task('serve', ['default', 'watch'], function() {
     return next();
   };
 
+  const firstScene = ALL_SCENES[0];
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
@@ -503,7 +504,7 @@ gulp.task('serve', ['default', 'watch'], function() {
     middleware: [fanoutHelper],
     port: argv.port,
     server: ['.'],
-    startPath: argv.scene ? `/${COMPILE_SCENES[0]}.html` : '/',
+    startPath: firstScene ? `/${firstScene}.html` : '/',
     ui: {port: argv.port + 1},
   });
 });
