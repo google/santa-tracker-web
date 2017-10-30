@@ -2,6 +2,7 @@ import { Entity } from '../../engine/core/entity.js';
 import { Point, Circle } from '../../engine/utils/collision-2d.js';
 import { Allocatable } from '../../engine/utils/allocatable.js';
 import { snowball } from '../textures.js';
+import { Trail } from '../components/trail.js';
 
 const {
   Mesh,
@@ -88,6 +89,8 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
     this.collider = Circle.allocate(5, this.position);
     this.targetPosition = new Vector2();
     this.origin = new Vector2();
+
+    this.trail = new Trail(5, 0xaaccff, game => this.thrown);
   }
 
   onAllocated(origin) {
@@ -101,17 +104,21 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
   }
 
   setup(game) {
-    const { collisionSystem } = game;
+    const { collisionSystem, effectSystem } = game;
 
     this.unsubscribeFromCollisions = collisionSystem.handleCollisions(this,
         (snowball, collidable) => {
           this.collidedWith = collidable;
           this.visible = false;
         });
+
+    effectSystem.trailEffect.add(this);
   }
 
   teardown(game) {
+    const { effectSystem } = game;
     this.unsubscribeFromCollisions();
+    effectSystem.trailEffect.remove(this);
   }
 
   update(game) {

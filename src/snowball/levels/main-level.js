@@ -6,7 +6,7 @@ import { HexMap } from '../entities/hex-map.js';
 export class MainLevel extends Level {
   setup(game) {
     console.log('Setup!');
-    const { collisionSystem, snowballSystem } = game;
+    const { collisionSystem, snowballSystem, effectSystem } = game;
     const { snowballLayer } = snowballSystem;
 
 
@@ -19,9 +19,14 @@ export class MainLevel extends Level {
     this.add(this.hexMap);
 
     snowballLayer.position.copy(this.hexMap.position);
-    snowballLayer.position.z = this.hexMap.height / -2 - 25.0;
+    effectSystem.effectsLayer.position.copy(this.hexMap.position);
+
+    snowballLayer.position.z =
+        effectSystem.effectsLayer.position.z =
+        this.hexMap.height / -2 - 25.0;
 
     this.add(snowballLayer);
+    this.add(effectSystem.effectsLayer);
 
     this.lastErosionTick = 0;
   }
