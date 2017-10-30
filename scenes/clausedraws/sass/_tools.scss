@@ -40,11 +40,12 @@
     height: 140px;
     left: 85px;
     right: 0;
+    transform: translateY(100%);
     transition: transform .3s;
     z-index: 1;
 
-    &.is-inactive {
-      transform: translateY(100%);
+    &.is-active {
+      transform: none;
     }
 
     .Tool {

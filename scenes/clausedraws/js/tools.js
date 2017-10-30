@@ -99,11 +99,11 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
       this.selectedTool.startMousedown();
 
       if (this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
-        this.secondaryMenu.addClass('is-inactive');
+        this.secondaryMenu.removeClass('is-active');
       }
     } else {
       this.selectedTool.stopMousedown();
-      this.secondaryMenu.removeClass('is-inactive');
+      this.secondaryMenu.addClass('is-active');
     }
   }
 };
@@ -149,6 +149,10 @@ app.Tools.prototype.selectTool_ = function(e) {
 app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
   var categoryName = categoryPicker.attr('data-tool-category');
+
+  if (!this.currentCategory) {
+    this.secondaryMenu.addClass('is-active');
+  }
 
   if (this.currentCategory && this.currentCategory == categoryName) {
     return;
