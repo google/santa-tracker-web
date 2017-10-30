@@ -21,11 +21,15 @@ goog.require('app.Constants');
 app.Slider = function($elem, mouse) {
   // TODO: handle multiple sliders
   this.elem = $elem;
+  this.container = this.elem.find('[data-slider]');
   this.base = this.elem.find('[data-slider-base]');
   this.dot = this.elem.find('[data-slider-dot]');
   this.sliding = false;
   this.mouse = mouse;
   this.subscribers = [];
+
+  this.container.on('mousedown.clausedraws touchstart.clausedraws',
+    this.onMousedown.bind(this));
 
   this.setSize(0.5);
 };
@@ -33,13 +37,7 @@ app.Slider = function($elem, mouse) {
 
 
 app.Slider.prototype.mouseChanged = function(mouse) {
-  if (!this.sliding) {
-    var bounds = this.checkBounds(mouse);
-    if (mouse.down && bounds.inX && bounds.inY) {
-      this.sliding = true;
-      this.setSize(bounds.coords.normX, bounds.coords.x);
-    }
-  } else {
+  if (this.sliding) {
     if (!mouse.down) {
       this.sliding = false;
       return;
@@ -50,6 +48,11 @@ app.Slider.prototype.mouseChanged = function(mouse) {
       this.setSize(bounds.coords.normX, bounds.coords.x);
     }
   }
+};
+
+
+app.Slider.prototype.onMousedown = function() {
+  this.sliding = true;
 };
 
 

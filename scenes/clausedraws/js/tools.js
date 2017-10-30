@@ -116,9 +116,7 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
  */
 app.Tools.prototype.selectTool_ = function(e) {
   // Check if on slider
-  var x = e.clientX;
-  var y = e.clientY;
-  if (this.game_.mouse.isInsideEl(x, y, this.sliders[0])) {
+  if ($(e.target).closest('[data-slider]').length) {
     console.log('on slider');
     return;
   }
