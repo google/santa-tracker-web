@@ -43,10 +43,13 @@ app.Tools = function(game, $elem) {
 
   this.secondaryMenu = $elem.find('.Tools--secondary');
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
+  this.categoryMenuNavs = this.categoryMenus.find('[data-tool-category-nav]');
+  this.categoryMenuNavBtns = this.categoryMenuNavs.find('[data-tool-nav]');
 
   this.tertiaryMenu = $elem.find('.Tools--tertiary');
 
-  this.categoryPickers.on('click.clausedraws', this.onCategoryClick_.bind(this));
+  this.categoryPickers.on('click.clausedraws touchend.clausedraws', this.onCategoryClick_.bind(this));
+  this.categoryMenuNavBtns.on('click.clausedraws touchend.clausedraws', this.onNavClick_.bind(this));
 
   this.pen = new app.Pen($elem, 'pen');
   this.crayon = new app.Crayon($elem, 'crayon');
@@ -83,6 +86,9 @@ app.Tools.prototype.start = function() {
   this.selectTool_ = this.selectTool_.bind(this);
   this.secondaryMenu.on('click.clausedraws touchend.clausedraws',
       this.selectTool_);
+
+  this.onResize();
+  $(window).on('resize.clausedraws', this.onResize.bind(this));
 };
 
 
@@ -165,16 +171,11 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
   categoryPicker.addClass('is-active');
   this.currentCategory = categoryName;
 
-  if (categoryMenu[0] && categoryMenu[0].scrollWidth > this.secondaryMenu[0].getBoundingClientRect().width) {
-    categoryMenu.find('.Tools-nav').addClass('is-active');
-  }
-
   if (this.selectedTool) {
     this.selectedTool.deselect();
     this.selectedTool = null;
   }
 };
-
 
 app.Tools.prototype.sliderChanged = function(size) {
   if (this.selectedTool) {
@@ -192,4 +193,29 @@ app.Tools.prototype.sliderChanged = function(size) {
       y: this.circleSize / 2
     };
   }
+};
+
+
+app.Tools.prototype.onNavClick_ = function(e) {
+  var menu = $(e.target).closest('[data-tool-category-menu]');
+  var direction = $(e.target).attr('data-tool-nav') === 'next' ? 1 : -1;
+  var offset = direction * 130; // width of 1 tool
+
+  menu.animate({
+    scrollLeft: menu.scrollLeft() + offset
+  }, 300);
+};
+
+
+app.Tools.prototype.onResize = function() {
+  var outerWidth = this.secondaryMenu[0].getBoundingClientRect().width;
+
+  this.categoryMenuNavs.each(function() {
+    var menu = $(this).closest('[data-tool-category-menu]');
+    if (menu[0] && menu[0].scrollWidth > outerWidth) {
+      $(this).addClass('is-active');
+    } else {
+      $(this).removeClass('is-active');
+    }
+  });
 };

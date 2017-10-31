@@ -90,9 +90,23 @@
     right: 0;
     top: 0;
 
+    &::after {
+      content: '';
+      display: inline-block;
+      flex: 0 0 50px;
+      height: 100%;
+      width: 50px;
+    }
+
     &.is-active {
       opacity: 1;
       pointer-events: auto;
+
+      .Tools-nav.is-active {
+        .Button {
+          pointer-events: auto;
+        }
+      }
     }
   }
 
@@ -103,6 +117,7 @@
     height: 140px;
     justify-content: center;
     margin-left: auto;
+    pointer-events: none;
     position: fixed;
     right: 0;
     width: 85px;
