@@ -49,6 +49,7 @@
     }
 
     .Tool {
+      flex: 0 0 130px;
       width: 130px;
     }
   }
@@ -83,6 +84,7 @@
     height: 100%;
     left: 0;
     opacity: 0;
+    overflow-x: auto;
     pointer-events: none;
     position: absolute;
     right: 0;
@@ -91,6 +93,31 @@
     &.is-active {
       opacity: 1;
       pointer-events: auto;
+    }
+  }
+
+  .Tools-nav {
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    height: 140px;
+    justify-content: center;
+    margin-left: auto;
+    position: fixed;
+    right: 0;
+    width: 85px;
+
+    &::before {
+      background: linear-gradient(to left, #fff 30%, transparent);
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      width: 120%;
+    }
+
+    &.is-active {
+      display: flex;
     }
   }
 

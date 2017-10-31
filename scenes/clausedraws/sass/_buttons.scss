@@ -18,13 +18,22 @@
     width: 55px;
   }
 
-  .Button--utility {
-    background: white;
-    box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
-    color: #C1DBD9;
+  .Button--utility,
+  .Button--nav {
     height: 40px;
     margin: 10px auto;
     width: 40px;
+  }
+
+  .Button--utility {
+    background: #fff;
+    box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
+    color: #C1DBD9;
+  }
+
+  .Button--nav {
+    background: #FFC101;
+    box-shadow: 2px 4px 0 #F0932A, 5px 7px rgba(0,0,0,0.16);
   }
 
   .Button--reset {

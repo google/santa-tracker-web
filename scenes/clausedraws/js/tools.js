@@ -149,6 +149,7 @@ app.Tools.prototype.selectTool_ = function(e) {
 app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
   var categoryName = categoryPicker.attr('data-tool-category');
+  var categoryMenu = this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]');
 
   if (!this.currentCategory) {
     this.secondaryMenu.addClass('is-active');
@@ -160,16 +161,19 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
 
   this.categoryPickers.removeClass('is-active');
   this.categoryMenus.removeClass('is-active');
-  this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]')
-      .addClass('is-active');
+  categoryMenu.addClass('is-active');
   categoryPicker.addClass('is-active');
   this.currentCategory = categoryName;
+
+  if (categoryMenu[0] && categoryMenu[0].scrollWidth > this.secondaryMenu[0].getBoundingClientRect().width) {
+    categoryMenu.find('.Tools-nav').addClass('is-active');
+  }
 
   if (this.selectedTool) {
     this.selectedTool.deselect();
     this.selectedTool = null;
   }
-}
+};
 
 
 app.Tools.prototype.sliderChanged = function(size) {
