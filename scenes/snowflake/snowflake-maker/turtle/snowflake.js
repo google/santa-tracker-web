@@ -57,7 +57,7 @@ Snowflake.init = function() {
     Snowflake.bindClick('playButton',
       function() {
         Snowflake.Execute.runCode(Snowflake.Execute.DEFAULT_DELAY, Snowflake.display.maybeShowTutorialWrapper);
-        parent.postMessage({'msg-type': 'updateURL', 'blocks': Snowflake.Sharing.workspaceToUrl()}, location.origin);
+        parent.postMessage({'msg-type': 'updateURL', 'blocks': Snowflake.Sharing.workspaceToUrl()}, '*');
       });
   }
 
@@ -149,7 +149,7 @@ Snowflake.registerRunListener = function() {
       // This is a workaround because immovable blocks don't fire click events.
       Snowflake.workspace.getBlockById(BlocklyInterface.snowflakeStartBlockId).unselect();
       Snowflake.Execute.runCode(Snowflake.Execute.DEFAULT_DELAY, Snowflake.display.maybeShowTutorialWrapper);
-      parent.postMessage({'msg-type':'updateURL', 'blocks': Snowflake.Sharing.workspaceToUrl()}, location.origin);
+      parent.postMessage({'msg-type':'updateURL', 'blocks': Snowflake.Sharing.workspaceToUrl()}, '*');
     }
   }
   Snowflake.workspace.addChangeListener(onBlockSelected);
@@ -192,7 +192,7 @@ Snowflake.sendSnowflakeAndBlocks = function() {
       var outputCtx = Snowflake.display.drawSnowflake();
 
       parent.postMessage({'msg-type': 'updatePage', 'sharing': Snowflake.sharing, 'blocks': Snowflake.Sharing.workspaceToUrl(),
-          'snowflake': outputCtx.canvas.toDataURL('image/png', 1)}, location.origin);
+          'snowflake': outputCtx.canvas.toDataURL('image/png', 1)}, '*');
       //Once we've sent the shared snowflake, if the user hits the back button, we're not in the sharing state anymore.
       if (Snowflake.sharing){ Snowflake.sharing = false; }
     });
