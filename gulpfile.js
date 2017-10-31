@@ -455,7 +455,10 @@ gulp.task('build-contents', ['copy-assets'], function() {
 
 // clean + build a distribution version
 gulp.task('dist', function(callback) {
-  argv.compile = true;  // force compile for dist, works because we're skipping normal gulp below
+  if (!argv.compile) {
+    gutil.log(gutil.colors.red('Warning!'),
+        'Use', gutil.colors.green('--compile'), 'to build scenes for production');
+  }
 
   // nb. 'build-contents' is our leaf here, as it depends on everything else. Be careful what deps
   // you list here, because they're not part of the normal Gulp dependency chain.
