@@ -317,6 +317,14 @@
     &--stamp-bauble {
       background-image: url(img/tools/decorations/bauble.svg);
     }
+
+    &--spray-color {
+      background-image: url(img/tools/tool_spray_yellow.svg);
+    }
+
+    &--spray-sprinkles {
+      background-image: url(img/tools/tool_spray_yellow.svg);
+    }
   }
 
   .Tool--selected {
@@ -436,6 +444,33 @@
 
   [data-tool-hover-tool="marker"] .Tool-hover-inactive .Tool-hover-minitool {
     background-image: url(img/tools/tool_marker_green.svg);
+  }
+
+  [data-tool-hover-category="spray"] {
+    .Tool-hover-circle {
+      height: 50px !important;
+      width: 50px !important;
+    }
+
+    .Tool-hover-minitool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      position: absolute;
+      right: 90%;
+      top: 10%;
+      transform: translate(100%, 0);
+      width: 100px;
+    }
+  }
+
+  [data-tool-hover-tool="spray-color"] .Tool-hover-inactive .Tool-hover-minitool {
+    background-image: url(img/tools/tool_spray_yellow.svg);
+  }
+
+  [data-tool-hover-tool="spray-sprinkles"] .Tool-hover-inactive .Tool-hover-minitool {
+    background-image: url(img/tools/tool_spray_yellow.svg);
   }
 
   .Tools-slider {

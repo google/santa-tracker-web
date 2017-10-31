@@ -188,10 +188,12 @@ app.Tools.prototype.sliderChanged = function(size) {
       width: this.circleSize
     });
 
-    this.selectedTool.mouseOffset = {
-      x: -this.circleSize / 2,
-      y: this.circleSize / 2
-    };
+    if (!app.SprinkleSpray.prototype.isPrototypeOf(this.selectedTool)) {
+      this.selectedTool.mouseOffset = {
+        x: -this.circleSize / 2,
+        y: this.circleSize / 2
+      };
+    }
   }
 };
 

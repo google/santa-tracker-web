@@ -38,7 +38,7 @@ app.SprinkleSpray = function($elem, name) {
   this.sprinkleIndex = 0;
   this.sprinkleHeight = 100;
   this.sprinkleWidth = 100;
-  this.sprinkleOffset = {x: 50 - this.mouseOffset.x, y: 50 - this.mouseOffset.y};
+  this.mouseOffset = {x: -25, y: 25};
 };
 app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
 
@@ -52,15 +52,17 @@ app.SprinkleSpray.prototype.draw = function(canvas, mouseCoords) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
-  var drawWidth = this.sprinkleWidth / mouseCoords.scale;
-  var drawHeight = this.sprinkleHeight / mouseCoords.scale;
+  var drawWidth = this.sprinkleWidth;
+  var drawHeight = this.sprinkleHeight;
   // TODO: randomize offsets
-  var offsetX = this.sprinkleOffset.x / mouseCoords.scale;
-  var offsetY = this.sprinkleOffset.y / mouseCoords.scale;
+  this.sprinkleOffset = {x: -25, y: 25};
+  var offsetX = 50;
+  var offsetY = 50;
   context.save();
-  context.translate(drawX + offsetX, drawY + offsetY);
+  context.translate(drawX, drawY);
   context.rotate(Math.random() * 2 * Math.PI);
-  context.drawImage(this.sprinkles[this.sprinkleIndex], -offsetX, -offsetY, drawWidth, drawHeight);
+  context.drawImage(this.sprinkles[this.sprinkleIndex], -offsetX, -offsetY,
+      drawWidth, drawHeight);
   context.restore();
 
   this.sprinkleIndex = (this.sprinkleIndex + 1) % this.sprinkles.length;
