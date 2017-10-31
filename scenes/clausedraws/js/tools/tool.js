@@ -29,8 +29,11 @@ goog.require('app.utils');
 app.Tool = function($elem, name) {
   this.elem = $elem;
   this.el = this.elem.find('[data-tool="' + name + '"]');
-  this.hoverEl = this.el.find('[data-tool-hover]');
-  this.circleEl = this.el.find('[data-tool-circle]');
+  this.hoverEl = this.elem.find('[data-tool-hover]');
+  this.circleEl = this.elem.find('[data-tool-hover-circle]');
+  this.name = name;
+  this.category = this.el.closest('[data-tool-category]')
+    .attr('data-tool-category');
   this.isSelected = false;
   // TODO: calculate this based on circle size
   this.mouseOffset = {x: -10, y: 10};
@@ -47,6 +50,10 @@ app.Tool.prototype.select = function(mouseCoords) {
 
   this.el.addClass('Tool--selected');
   this.width = this.el.width();
+
+  this.hoverEl.addClass('is-selected');
+  this.hoverEl.attr('data-tool-hover-category', this.category);
+  this.hoverEl.attr('data-tool-hover-tool', this.name);
 
   if (app.shared.utils.touchEnabled) {
     this.elem.css({ 'background-size': 0 }); // Hide tool on touch devices
@@ -66,6 +73,7 @@ app.Tool.prototype.deselect = function() {
   this.isSelected = false;
 
   this.el.removeClass('Tool--selected');
+  this.hoverEl.removeClass('is-selected');
   this.hoverEl.css({
     top: '',
     left: ''
@@ -73,6 +81,9 @@ app.Tool.prototype.deselect = function() {
   this.elem.css({
     cursor: ''
   });
+
+  this.hoverEl.attr('data-tool-hover-category', '');
+  this.hoverEl.attr('data-tool-hover-tool', '');
 
   this.stopMousedown();
   this.reset();
@@ -118,7 +129,7 @@ app.Tool.prototype.draw = function(canvas, mouseCoords, prevCanvas, size, color)
  */
 app.Tool.prototype.startMousedown = function() {
   app.utils.triggerStart(this.soundKey);
-  this.el.addClass('Tool--down');
+  this.hoverEl.addClass('is-down');
 }
 
 
@@ -127,7 +138,7 @@ app.Tool.prototype.startMousedown = function() {
  */
 app.Tool.prototype.stopMousedown = function() {
   app.utils.triggerStop(this.soundKey);
-  this.el.removeClass('Tool--down');
+  this.hoverEl.removeClass('is-down');
 }
 
 

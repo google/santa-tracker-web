@@ -249,6 +249,24 @@
     }
   }
 
+  [data-tool-category="drawing"],
+  [data-tool-category="eraser"],
+  [data-tool-category="spray"] {
+    .Tool {
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: 200%;
+    }
+  }
+
+  [data-tool-category="stamp"] {
+    .Tool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
   .Tool {
     cursor: pointer;
     height: 100%;
@@ -271,27 +289,10 @@
 
     &--stamp-bow {
       background-image: url(img/tools/decorations/bow.svg);
-
-      .Tool-hover-preview {
-        background-image: url(img/tools/decorations/bow.svg);
-      }
     }
-  }
-
-  .Tool-hover {
-    pointer-events: none;
-    position: relative;
   }
 
   .Tool--selected {
-    .Tool-hover {
-      position: fixed;
-    }
-
-    .Tool-hover-inactive {
-      opacity: 1;
-    }
-
     &.Tool--pen {
       background-image: url(img/tools/tool_pencil_tray.svg);
     }
@@ -305,13 +306,24 @@
     }
   }
 
-  .Tool--down {
-    .Tool-hover-inactive {
-      opacity: 0;
+  .Tool-hover {
+    pointer-events: none;
+    position: fixed;
+
+    &.is-selected {
+      .Tool-hover-inactive {
+        opacity: 1;
+      }
     }
 
-    .Tool-hover-active {
-      opacity: 1;
+    &.is-down {
+      .Tool-hover-inactive {
+        opacity: 0;
+      }
+
+      .Tool-hover-active {
+        opacity: 1;
+      }
     }
   }
 
@@ -333,23 +345,7 @@
     top: 0;
   }
 
-  [data-tool-category="drawing"],
-  [data-tool-category="eraser"],
-  [data-tool-category="spray"] {
-    .Tool {
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-size: 200%;
-    }
-  }
-
-  [data-tool-category="stamp"] {
-    .Tool, .Tool-hover-preview {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
+  [data-tool-hover-category="stamp"] {
     .Tool-hover-minitool {
       background: url(img/tools/tool_stamp.svg) center/contain no-repeat;
       height: 50px;
@@ -360,6 +356,9 @@
     }
 
     .Tool-hover-preview {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
       height: 100%;
       left: 50%;
       opacity: 0.5;
@@ -370,8 +369,12 @@
     }
   }
 
-  [data-tool-category="drawing"] {
-    .Tool .Tool-hover-minitool {
+  [data-tool-hover-tool="stamp-bow"] .Tool-hover-preview {
+    background-image: url(img/tools/decorations/bow.svg);
+  }
+
+  [data-tool-hover-category="drawing"] {
+    .Tool-hover-minitool {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -382,18 +385,18 @@
       transform: translate(100%, -100%) rotate(-125deg);
       width: 100px;
     }
+  }
 
-    .Tool--pen .Tool-hover-minitool {
-      background-image: url(img/tools/tool_pencil_regular.svg);
-    }
+  [data-tool-hover-tool="pen"] .Tool-hover-inactive .Tool-hover-minitool {
+    background-image: url(img/tools/tool_pencil_regular.svg);
+  }
 
-    .Tool--crayon .Tool-hover-minitool {
-      background-image: url(img/tools/tool_crayon_red.svg);
-    }
+  [data-tool-hover-tool="crayon"] .Tool-hover-inactive .Tool-hover-minitool {
+    background-image: url(img/tools/tool_crayon_red.svg);
+  }
 
-    .Tool--marker .Tool-hover-minitool {
-      background-image: url(img/tools/tool_marker_green.svg);
-    }
+  [data-tool-hover-tool="marker"] .Tool-hover-inactive .Tool-hover-minitool {
+    background-image: url(img/tools/tool_marker_green.svg);
   }
 
   .Tools-slider {

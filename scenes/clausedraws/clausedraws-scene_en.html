@@ -122,39 +122,9 @@ Santaselfie scene.
                 <div class="Slider-dot" data-slider-dot></div>
               </div>
             </div>
-            <div class="Tool Tool--pen" data-tool="pen">
-              <div class="Tool-hover" data-tool-hover>
-                <div class="Tool-hover-active">
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-                <div class="Tool-hover-inactive">
-                  <div class="Tool-hover-minitool"></div>
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-              </div>
-            </div>
-            <div class="Tool Tool--crayon" data-tool="crayon">
-              <div class="Tool-hover" data-tool-hover>
-                <div class="Tool-hover-active">
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-                <div class="Tool-hover-inactive">
-                  <div class="Tool-hover-minitool"></div>
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-              </div>
-            </div>
-            <div class="Tool Tool--marker" data-tool="marker">
-              <div class="Tool-hover" data-tool-hover>
-                <div class="Tool-hover-active">
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-                <div class="Tool-hover-inactive">
-                  <div class="Tool-hover-minitool"></div>
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-              </div>
-            </div>
+            <div class="Tool Tool--pen" data-tool="pen"></div>
+            <div class="Tool Tool--crayon" data-tool="crayon"></div>
+            <div class="Tool Tool--marker" data-tool="marker"></div>
             <div class="Tools-nav">
               <div class="Button Button--nav Button--next">Next</div>
               <div class="Button Button--nav Button--prev">Prev</div>
@@ -168,26 +138,15 @@ Santaselfie scene.
               </div>
             </div>
             <div class="Tool Tool--stamp-bow" data-tool="stamp-bow">
-              <div class="Tool-hover" data-tool-hover>
-                <div class="Tool-hover-active">
-                  <div class="Tool-hover-minitool"></div>
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-                <div class="Tool-hover-inactive">
-                  <div class="Tool-hover-minitool"></div>
-                  <div class="Tool-hover-preview" data-tool-preview></div>
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-              </div>
             </div>
             <div class="Tool" data-tool="stamp-snowman">
-              <div class="Tool-hover">SNOWMAN</div>
+              SNOWMAN
             </div>
             <div class="Tool" data-tool="stamp-holly">
-              <div class="Tool-hover">HOLLY</div>
+              HOLLY
             </div>
             <div class="Tool" data-tool="stamp-bauble">
-              <div class="Tool-hover">BAUBLE</div>
+              BAUBLE
             </div>
           </div>
           <div class="Tools-inner" data-tool-category-menu data-tool-category="spray">
@@ -198,28 +157,19 @@ Santaselfie scene.
               </div>
             </div>
             <div class="Tool" data-tool="spray-sprinkles">
-              <div class="Tool-hover">SPRINKLES</div>
+              SPRINKLES
             </div>
           </div>
           <div class="Tools-inner" data-tool-category-menu data-tool-category="scene">
             <div class="Tool" data-tool="scene-snowbg">
-              <div class="Tool-hover">SNOW(BG)</div>
+              SNOW(BG)
             </div>
             <div class="Tool" data-tool="scene-snowfg">
-              <div class="Tool-hover">SNOW(FG)</div>
+              SNOW(FG)
             </div>
           </div>
           <div class="Tools-inner" data-tool-category-menu data-tool-category="eraser">
-            <div class="Tool Tool--eraser" data-tool="eraser">
-              <div class="Tool-hover" data-tool-hover>
-                <div class="Tool-hover-active">
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-                <div class="Tool-hover-inactive">
-                  <div class="Tool-hover-circle" data-tool-circle></div>
-                </div>
-              </div>
-            </div>
+            <div class="Tool Tool--eraser" data-tool="eraser"></div>
           </div>
         </div>
 
@@ -237,8 +187,18 @@ Santaselfie scene.
           </div>
         </div>
 
-        <div class="Tool-cursors">
-
+        <!-- Shared tool cursor -->
+        <div class="Tool-hover" data-tool-hover data-tool-hover-category="none" data-tool-hover-tool="none">
+          <div class="Tool-hover-active">
+            <div class="Tool-hover-minitool"></div>
+            <div class="Tool-hover-preview" data-tool-hover-preview></div>
+            <div class="Tool-hover-circle" data-tool-hover-circle></div>
+          </div>
+          <div class="Tool-hover-inactive">
+            <div class="Tool-hover-minitool"></div>
+            <div class="Tool-hover-preview" data-tool-hover-preview></div>
+            <div class="Tool-hover-circle" data-tool-hover-circle></div>
+          </div>
         </div>
 
         <!-- These images are use by canvases-->
