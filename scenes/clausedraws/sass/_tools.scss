@@ -263,7 +263,7 @@
     .Tool {
       background-position: center;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 80% 80%;
     }
   }
 
@@ -289,6 +289,18 @@
 
     &--stamp-bow {
       background-image: url(img/tools/decorations/bow.svg);
+    }
+
+    &--stamp-snowman {
+      background-image: url(img/tools/decorations/snowman.svg);
+    }
+
+    &--stamp-holly {
+      background-image: url(img/tools/decorations/holly.svg);
+    }
+
+    &--stamp-bauble {
+      background-image: url(img/tools/decorations/bauble.svg);
     }
   }
 
@@ -371,6 +383,18 @@
 
   [data-tool-hover-tool="stamp-bow"] .Tool-hover-preview {
     background-image: url(img/tools/decorations/bow.svg);
+  }
+
+  [data-tool-hover-tool="stamp-snowman"] .Tool-hover-preview {
+    background-image: url(img/tools/decorations/snowman.svg);
+  }
+
+  [data-tool-hover-tool="stamp-holly"] .Tool-hover-preview {
+    background-image: url(img/tools/decorations/holly.svg);
+  }
+
+  [data-tool-hover-tool="stamp-bauble"] .Tool-hover-preview {
+    background-image: url(img/tools/decorations/bauble.svg);
   }
 
   [data-tool-hover-category="drawing"] {
