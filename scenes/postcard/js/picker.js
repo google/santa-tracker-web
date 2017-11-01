@@ -51,7 +51,7 @@ app.Picker.prototype.attachEvents_ = function() {
  * @private
  * @param {number} bg This number is added to the selected background.
  * @param {number} fg This number is added to the selected foreground.
- * @return {function} event handler
+ * @return {function(!jQuery.Event): void} event handler
  */
 app.Picker.prototype.handleChange_ = function(bg, fg) {
   return function(e) {

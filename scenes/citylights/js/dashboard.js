@@ -196,7 +196,7 @@ app.Dashboard.prototype = {
   /**
    * Load the carousel
    * @public
-   * @param {function} callback Called when carousel has finished loading
+   * @param {function(): void} callback Called when carousel has finished loading
    */
   load: function(callback) {
     this.createItems_();

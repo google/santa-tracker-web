@@ -61,6 +61,7 @@ app.PhotoSphere.prototype = {
 
   /**
    * @private
+   * @param {function(): void} callback
    */
   onPanoLoaded_: function(callback) {
     callback();
@@ -70,7 +71,7 @@ app.PhotoSphere.prototype = {
 
   /**
    * @param {string} id Photo sphere unique id to embed
-   * @param {function} callback Called when Photo Sphere has been created
+   * @param {function(): void} callback Called when Photo Sphere has been created
    */
   load: function(id, pov, callback) {
     if (id === this.loadedId_) {
