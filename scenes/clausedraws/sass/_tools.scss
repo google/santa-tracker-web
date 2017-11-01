@@ -372,6 +372,7 @@
   .Tool-hover {
     pointer-events: none;
     position: fixed;
+    z-index: 3;
 
     &.is-selected {
       .Tool-hover-inactive {
