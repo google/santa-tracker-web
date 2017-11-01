@@ -47,9 +47,13 @@ app.Tools = function(game, $elem) {
   this.categoryMenuNavs = this.categoryMenus.find('[data-tool-category-nav]');
   this.categoryMenuNavBtns = this.categoryMenuNavs.find('[data-tool-nav]');
 
+  this.subcategoryPickers = this.categoryMenus.find('[data-tool-subcategory-picker]');
+  this.subcategoryMenus = this.categoryMenus.find('[data-tool-subcategory-menu]');
+
   this.tertiaryMenu = $elem.find('.Tools--tertiary');
 
   this.categoryPickers.on('click.clausedraws touchend.clausedraws', this.onCategoryClick_.bind(this));
+  this.subcategoryPickers.on('click.clausedraws touchend.clausedraws', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.clausedraws touchend.clausedraws', this.onNavClick_.bind(this));
 
   this.pen = new app.Pen($elem, 'pen');
@@ -179,6 +183,21 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     this.selectedTool = null;
   }
 };
+
+
+app.Tools.prototype.onSubcategoryClick_ = function(e) {
+  var subcategoryPicker = $(e.target).closest('[data-tool-subcategory-picker]');
+  var subcategoryName = subcategoryPicker.attr('data-tool-subcategory');
+  var subcategoryMenu = this.secondaryMenu.find('[data-tool-subcategory="' + subcategoryName + '"]');
+
+  this.subcategoryPickers.removeClass('is-active');
+  this.subcategoryMenus.removeClass('is-active');
+  subcategoryMenu.addClass('is-active');
+  subcategoryPicker.addClass('is-active');
+
+  this.onResize();
+};
+
 
 app.Tools.prototype.sliderChanged = function(size) {
   if (this.selectedTool) {

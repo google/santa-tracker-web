@@ -146,9 +146,37 @@
     }
 
     &--vertical {
+      flex: 0 0 2px;
       height: 80%;
       margin: 0 20px;
       width: 2px;
+    }
+  }
+
+  .Tools-submenu {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    width: 200px;
+
+    &__item {
+      background: lightgray;
+      cursor: pointer;
+      flex: 0 0 calc(25% - 20px);
+      margin: 10px;
+
+      &.is-active {
+        background: purple;
+      }
+    }
+  }
+
+  .Tools-subsection {
+    display: none;
+    height: 100%;
+
+    &.is-active {
+      display: flex;
     }
   }
 
