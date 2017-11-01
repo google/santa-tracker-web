@@ -14,7 +14,7 @@
  * the License.
  */
 
-goog.provide('app.Spray');
+goog.provide('app.SprayColor');
 goog.require('app.Constants');
 goog.require('app.Tool');
 goog.require('app.utils');
@@ -27,14 +27,14 @@ goog.require('app.utils');
  * @param {!jQuery} $elem toolbox elem
  * @param {!string} name The name of the tool.
  */
-app.Spray = function($elem, name) {
+app.SprayColor = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
   this.sprayImage = $elem.find('#spray--yellow')[0];
 
   this.soundKey = 'selfie_shave';
 };
-app.Spray.prototype = Object.create(app.Tool.prototype);
+app.SprayColor.prototype = Object.create(app.Tool.prototype);
 
 
 /**
@@ -42,7 +42,7 @@ app.Spray.prototype = Object.create(app.Tool.prototype);
  * @param  {!HTMLCanvasElement} canvas The canvas to draw to
  * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
  */
-app.Spray.prototype.draw = function(canvas, mouseCoords) {
+app.SprayColor.prototype.draw = function(canvas, mouseCoords) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
@@ -56,7 +56,7 @@ app.Spray.prototype.draw = function(canvas, mouseCoords) {
 };
 
 
-app.Spray.prototype.calculateDrawSize = function(size) {
+app.SprayColor.prototype.calculateDrawSize = function(size) {
   return app.utils.map(size, app.Constants.SPRAY_MIN,
       app.Constants.SPRAY_MAX);
 };

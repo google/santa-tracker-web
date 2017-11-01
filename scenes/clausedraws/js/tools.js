@@ -21,7 +21,7 @@ goog.require('app.LayerTool');
 goog.require('app.Marker');
 goog.require('app.Pen');
 goog.require('app.Slider');
-goog.require('app.Spray');
+goog.require('app.SprayColor');
 goog.require('app.SprinkleSpray');
 goog.require('app.Stamp');
 goog.require('app.Tool');
@@ -55,7 +55,7 @@ app.Tools = function(game, $elem) {
   this.pen = new app.Pen($elem, 'pen');
   this.crayon = new app.Crayon($elem, 'crayon');
   this.marker = new app.Marker($elem, 'marker');
-  this.spray = new app.Spray($elem, 'spray-color');
+  this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
   this.snowbg = new app.LayerTool($elem, 'scene-snowbg', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
   this.snowfg = new app.LayerTool($elem, 'scene-snowfg', app.LayerTool.Layer.FOREGROUND, $elem.find('#snowfg')[0]);
