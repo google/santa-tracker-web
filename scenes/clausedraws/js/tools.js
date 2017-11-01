@@ -112,11 +112,15 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
       this.selectedTool.startMousedown();
 
       if (this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
-        this.secondaryMenu.removeClass('is-active');
+        if (this.secondaryMenuActive) {
+          this.secondaryMenu.removeClass('is-active');
+        }
       }
     } else {
       this.selectedTool.stopMousedown();
-      this.secondaryMenu.addClass('is-active');
+      if (this.secondaryMenuActive) {
+        this.secondaryMenu.addClass('is-active');
+      }
     }
   }
 };
@@ -164,23 +168,28 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryName = categoryPicker.attr('data-tool-category');
   var categoryMenu = this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]');
 
-  if (!this.currentCategory) {
-    this.secondaryMenu.addClass('is-active');
-  }
-
   if (this.currentCategory && this.currentCategory == categoryName) {
     return;
   }
 
   this.categoryPickers.removeClass('is-active');
   this.categoryMenus.removeClass('is-active');
-  categoryMenu.addClass('is-active');
   categoryPicker.addClass('is-active');
   this.currentCategory = categoryName;
 
   if (this.selectedTool) {
     this.selectedTool.deselect();
     this.selectedTool = null;
+  }
+
+  if (categoryName == 'eraser') {
+    this.secondaryMenuActive = false;
+    this.secondaryMenu.removeClass('is-active');
+    this.selectTool_(e);
+  } else {
+    this.secondaryMenuActive = true;
+    this.secondaryMenu.addClass('is-active');
+    categoryMenu.addClass('is-active');
   }
 };
 

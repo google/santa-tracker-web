@@ -236,6 +236,29 @@
       transition: opacity .25s;
     }
 
+    .Category-popup {
+      background: #fff;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      transform: translateX(85px);
+      transition: opacity .25s;
+
+      &::before {
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid #fff;
+        border-top: 15px solid transparent;
+        content: '';
+        height: 0;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        width: 0;
+      }
+    }
+
     &--drawing {
       .Category-inner {
         background: url(img/tools/tool_drawing.svg) center / contain no-repeat;
@@ -288,6 +311,13 @@
     &.is-active {
       &::before {
         opacity: 1;
+      }
+
+      &:hover {
+        .Category-popup {
+          opacity: 1;
+          pointer-events: auto;
+        }
       }
     }
   }
