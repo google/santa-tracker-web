@@ -207,10 +207,10 @@ app.Sequencer = class {
     }, delayTime * 1000);
   }
   transition(from, to, bpm, sync, fadeOutTime, offset) {
-    var bpm = bpm || 120;
-    var fadeOutTime = fadeOutTime || 2;
-    var from = from;
-    var to = to;
+    bpm = bpm || 120;
+    fadeOutTime = fadeOutTime || 2;
+    from = from;
+    to = to;
     if (!to) {
       return Klang.Util.now();
     }
