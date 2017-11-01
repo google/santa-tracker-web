@@ -30,5 +30,8 @@ app.Constants = {
   ERASER_MIN: 10,
   ERASER_MAX: 100,
   STAMP_MIN: 0.5,
-  STAMP_MAX: 2.5
+  STAMP_MAX: 2.5,
+  SPRAY_CIRCLE_SIZE: 50,
+  SPRAY_MIN: 100,
+  SPRAY_MAX: 300,
 };

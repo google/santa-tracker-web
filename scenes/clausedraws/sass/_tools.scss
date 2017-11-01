@@ -447,19 +447,14 @@
   }
 
   [data-tool-hover-category="spray"] {
-    .Tool-hover-circle {
-      height: 50px !important;
-      width: 50px !important;
-    }
-
     .Tool-hover-minitool {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
       height: 100px;
       position: absolute;
-      right: 90%;
-      top: 10%;
+      right: 25%;
+      top: 75%;
       transform: translate(100%, 0);
       width: 100px;
     }
@@ -469,8 +464,17 @@
     background-image: url(img/tools/tool_spray_yellow.svg);
   }
 
-  [data-tool-hover-tool="spray-sprinkles"] .Tool-hover-inactive .Tool-hover-minitool {
-    background-image: url(img/tools/tool_spray_yellow.svg);
+  [data-tool-hover-tool="spray-sprinkles"] {
+    .Tool-hover-inactive .Tool-hover-minitool {
+      background-image: url(img/tools/tool_spray_yellow.svg);
+      right: 90%;
+      top: 10%;
+    }
+
+    .Tool-hover-circle {
+      height: 50px !important;
+      width: 50px !important;
+    }
   }
 
   .Tools-slider {

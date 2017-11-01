@@ -14,9 +14,10 @@
  * the License.
  */
 
-goog.provide('app.SprinkleSpray');
+goog.provide('app.Spray');
 goog.require('app.Constants');
 goog.require('app.Tool');
+goog.require('app.utils');
 
 
 /**
@@ -26,22 +27,14 @@ goog.require('app.Tool');
  * @param {!jQuery} $elem toolbox elem
  * @param {!string} name The name of the tool.
  */
-app.SprinkleSpray = function($elem, name) {
+app.Spray = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
+  this.sprayImage = $elem.find('#spray--yellow')[0];
+
   this.soundKey = 'selfie_shave';
-  this.sprinkles = [
-    $elem.find('#sprinkle2')[0],
-    $elem.find('#sprinkle3')[0],
-    $elem.find('#sprinkle4')[0],
-    $elem.find('#sprinkle5')[0]
-  ];
-  this.sprinkleIndex = 0;
-  this.sprinkleHeight = 100;
-  this.sprinkleWidth = 100;
-  this.currentSize = app.Constants.SPRAY_CIRCLE_SIZE;
 };
-app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
+app.Spray.prototype = Object.create(app.Tool.prototype);
 
 
 /**
@@ -49,27 +42,22 @@ app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
  * @param  {!HTMLCanvasElement} canvas The canvas to draw to
  * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
  */
-app.SprinkleSpray.prototype.draw = function(canvas, mouseCoords) {
+app.Spray.prototype.draw = function(canvas, mouseCoords) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
-  var drawWidth = this.sprinkleWidth;
-  var drawHeight = this.sprinkleHeight;
-  // TODO: randomize offsets
-  var offsetX = 50;
-  var offsetY = 50;
-  context.save();
-  context.translate(drawX, drawY);
-  context.rotate(Math.random() * 2 * Math.PI);
-  context.drawImage(this.sprinkles[this.sprinkleIndex], -offsetX, -offsetY,
+  var drawWidth = this.currentSize;
+  var drawHeight = this.currentSize;
+  var offsetX = drawWidth / 2;
+  var offsetY = drawHeight / 2;
+  context.drawImage(this.sprayImage, drawX - offsetX, drawY - offsetY,
       drawWidth, drawHeight);
-  context.restore();
-
-  this.sprinkleIndex = (this.sprinkleIndex + 1) % this.sprinkles.length;
   return true;
 };
 
-app.Tool.prototype.calculateDrawSize = function() {
-  return app.Constants.SPRAY_CIRCLE_SIZE;
+
+app.Spray.prototype.calculateDrawSize = function(size) {
+  return app.utils.map(size, app.Constants.SPRAY_MIN,
+      app.Constants.SPRAY_MAX);
 };
 

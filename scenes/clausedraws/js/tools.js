@@ -21,6 +21,7 @@ goog.require('app.LayerTool');
 goog.require('app.Marker');
 goog.require('app.Pen');
 goog.require('app.Slider');
+goog.require('app.Spray');
 goog.require('app.SprinkleSpray');
 goog.require('app.Stamp');
 goog.require('app.Tool');
@@ -54,6 +55,7 @@ app.Tools = function(game, $elem) {
   this.pen = new app.Pen($elem, 'pen');
   this.crayon = new app.Crayon($elem, 'crayon');
   this.marker = new app.Marker($elem, 'marker');
+  this.spray = new app.Spray($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
   this.snowbg = new app.LayerTool($elem, 'scene-snowbg', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
   this.snowfg = new app.LayerTool($elem, 'scene-snowfg', app.LayerTool.Layer.FOREGROUND, $elem.find('#snowfg')[0]);
@@ -67,6 +69,7 @@ app.Tools = function(game, $elem) {
     this.pen,
     this.crayon,
     this.marker,
+    this.spray,
     this.sprinkles,
     this.snowbg,
     this.snowfg,
@@ -188,12 +191,10 @@ app.Tools.prototype.sliderChanged = function(size) {
       width: this.circleSize
     });
 
-    if (!app.SprinkleSpray.prototype.isPrototypeOf(this.selectedTool)) {
-      this.selectedTool.mouseOffset = {
-        x: -this.circleSize / 2,
-        y: this.circleSize / 2
-      };
-    }
+    this.selectedTool.mouseOffset = {
+      x: -this.circleSize / 2,
+      y: this.circleSize / 2
+    };
   }
 };
 
