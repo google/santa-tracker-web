@@ -31,6 +31,19 @@
         z-index: 1;
       }
     }
+
+    @media screen and (max-width: 800px) {
+      flex-direction: row;
+      height: 85px;
+      padding-left: 60px;
+      right: 0;
+      top: auto;
+      width: auto;
+
+      .Tools-setting {
+        display: none;
+      }
+    }
   }
 
   .Tools--secondary {
@@ -52,6 +65,21 @@
       flex: 0 0 130px;
       width: 130px;
     }
+
+    @media screen and (max-width: 800px) {
+      bottom: 85px;
+      height: auto;
+      left: 0;
+      top: 0;
+
+      .Tool {
+        border-bottom: 2px solid #eee;
+        flex: 0 0 25%;
+        height: 15vh;
+        margin-top: 30px;
+        width: auto;
+      }
+    }
   }
 
   .Tools--tertiary {
@@ -60,6 +88,32 @@
     right: 0;
     top: 0;
     width: 85px;
+
+    @media screen and (max-width: 800px) {
+      bottom: auto;
+      height: 85px;
+      left: 0;
+      width: auto;
+
+      .Tools-clear,
+      .Tools-divider {
+        display: none;
+      }
+
+      .Tools-utilities {
+        text-align: right;
+
+        .Button {
+          display: inline-block;
+          margin-right: 10px;
+          vertical-align: top;
+        }
+
+        .Button--save {
+          margin-left: 5px;
+        }
+      }
+    }
   }
 
   .Tools-clear {
@@ -75,6 +129,14 @@
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 25px;
+
+    @media screen and (max-width: 800px) {
+      flex-direction: row;
+      margin: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0;
+    }
   }
 
   .Tools-inner {
@@ -106,6 +168,21 @@
         .Button {
           pointer-events: auto;
         }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding: 0 20px;
+
+      .Tools-slider {
+        display: none;
+      }
+
+      &::after {
+        content: none;
       }
     }
   }
@@ -187,6 +264,10 @@
     min-height: 65px;
     position: relative;
     width: 75px;
+
+    @media screen and (max-width: 800px) {
+      min-width: 75px;
+    }
 
     &:hover {
       .Category-inner {

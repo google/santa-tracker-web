@@ -50,11 +50,11 @@ app.Canvas = function(game, $elem) {
     scale: 1
   };
 
-  $elem.find('[data-tool-undo]').click(this.undo.bind(this));
+  $elem.find('[data-tool-undo]').on('click.clausedraws touchend.clausedraws', this.undo.bind(this));
 
-  $elem.find('[data-tool-redo]').click(this.redo.bind(this));
+  $elem.find('[data-tool-redo]').on('click.clausedraws touchend.clausedraws', this.redo.bind(this));
 
-  $elem.find('[data-tool-save]').click(this.saveToFile.bind(this));
+  $elem.find('[data-tool-save]').on('click.clausedraws touchend.clausedraws', this.saveToFile.bind(this));
 };
 
 
@@ -184,6 +184,7 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   var insideCanvas = this.mouse.normX >= 0 && this.mouse.normX <= 1 &&
     this.mouse.normY >= 0 && this.mouse.normY <= 1 &&
     !mouse.isInsideEl(mouse.x, mouse.y, tools.primaryMenu[0]) &&
+    !mouse.isInsideEl(mouse.x, mouse.y, tools.secondaryMenu[0]) &&
     !(colorpicker.isPopupOpen() &&
         mouse.isInsideEl(mouse.x, mouse.y, colorpicker.popup[0]));
 
