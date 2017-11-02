@@ -21,8 +21,10 @@ goog.provide('app.Constants');
  * Shared game constants
  */
 app.Constants = {
-  CANVAS_WIDTH: 1600,
-  CANVAS_HEIGHT: 900,
+  CANVAS_WIDTH_LANDSCAPE: 1600,
+  CANVAS_HEIGHT_LANDSCAPE: 900,
+  CANVAS_WIDTH_PORTRAIT: 900,
+  CANVAS_HEIGHT_PORTRAIT: 1200,
   NUM_BACKUPS: 32,
 
   PEN_MIN: 5,

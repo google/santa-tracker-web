@@ -28,31 +28,7 @@ goog.require('app.utils');
  * @constructor
  */
 app.Canvas = function(game, $elem) {
-  this.displayCanvas = $elem.find('#draw-canvas')[0];
-  this.saveCanvas = $elem.find('#save-canvas')[0];
-  this.backgroundCanvas = $elem.find('#back-canvas')[0];
-  this.foregroundCanvas = $elem.find('#fore-canvas')[0];
-  this.backgroundBackup = $elem.find('#back-backup')[0];
-  this.foregroundBackup = $elem.find('#fore-backup')[0];
-
-  this.saveCanvas.height = app.Constants.CANVAS_HEIGHT;
-  this.saveCanvas.width = app.Constants.CANVAS_WIDTH;
-  this.backgroundBackup.height = app.Constants.CANVAS_HEIGHT;
-  this.backgroundBackup.width = app.Constants.CANVAS_WIDTH;
-  this.foregroundBackup.height = app.Constants.CANVAS_HEIGHT;
-  this.foregroundBackup.width = app.Constants.CANVAS_WIDTH;
-
-  this.backupCanvases = [];
-
-  for (var i = 0; i < app.Constants.NUM_BACKUPS; i++) {
-    var backup = $elem.find('#draw-backup' + i)[0];
-    backup.height = app.Constants.CANVAS_HEIGHT;
-    backup.width = app.Constants.CANVAS_WIDTH;
-    this.backupCanvases.push({
-        canvas: backup,
-        saved: i ? false : true
-      });
-  }
+  this.initCanvases($elem);
 
   // Base state we're drawing on top of
   this.baseIndex = 0;
@@ -63,8 +39,6 @@ app.Canvas = function(game, $elem) {
   // scale of visible canvas to original
   this.canvasRatio = 1;
 
-  this.container = $(this.displayCanvas).closest('.Canvas');
-  this.displayCtx = this.displayCanvas.getContext('2d');
   this.game_ = game;
   this.needSave = false;
   this.mouse = {
@@ -93,15 +67,57 @@ app.Canvas.prototype.start = function() {
 };
 
 
+app.Canvas.prototype.initCanvases = function($elem) {
+  this.displayCanvas = $elem.find('#draw-canvas')[0];
+  this.saveCanvas = $elem.find('#save-canvas')[0];
+  this.backgroundCanvas = $elem.find('#back-canvas')[0];
+  this.foregroundCanvas = $elem.find('#fore-canvas')[0];
+  this.backgroundBackup = $elem.find('#back-backup')[0];
+  this.foregroundBackup = $elem.find('#fore-backup')[0];
+
+  this.container = $(this.displayCanvas).closest('.Canvas');
+  this.displayCtx = this.displayCanvas.getContext('2d');
+
+  // Decide whether canvas should be landscape or portrait
+  if (this.container.width() / this.container.height() > 1) {
+    this.canvasHeight = app.Constants.CANVAS_HEIGHT_LANDSCAPE;
+    this.canvasWidth = app.Constants.CANVAS_WIDTH_LANDSCAPE;
+  } else {
+    this.canvasHeight = app.Constants.CANVAS_HEIGHT_PORTRAIT;
+    this.canvasWidth = app.Constants.CANVAS_WIDTH_PORTRAIT;
+  }
+
+  this.saveCanvas.height = this.canvasHeight;
+  this.saveCanvas.width = this.canvasWidth;
+  this.backgroundBackup.height = this.canvasHeight;
+  this.backgroundBackup.width = this.canvasWidth;
+  this.foregroundBackup.height = this.canvasHeight;
+  this.foregroundBackup.width = this.canvasWidth;
+
+  this.backupCanvases = [];
+
+  for (var i = 0; i < app.Constants.NUM_BACKUPS; i++) {
+    var backup = $elem.find('#draw-backup' + i)[0];
+    backup.height = this.canvasHeight;
+    backup.width = this.canvasWidth;
+    this.backupCanvases.push({
+        canvas: backup,
+        saved: i ? false : true
+      });
+  }
+};
+
+
 /**
  * Resize handler
  */
 app.Canvas.prototype.onResize = function() {
+  // check isLandscape
   this.canvasRatio = Math.min(
-      this.container.height() / app.Constants.CANVAS_HEIGHT,
-      this.container.width() / app.Constants.CANVAS_WIDTH);
-  var height = app.Constants.CANVAS_HEIGHT * this.canvasRatio;
-  var width = app.Constants.CANVAS_WIDTH * this.canvasRatio;
+      this.container.height() / this.canvasHeight,
+      this.container.width() / this.canvasWidth);
+  var height = this.canvasHeight * this.canvasRatio;
+  var width = this.canvasWidth * this.canvasRatio;
   this.displayCanvas.height = this.backgroundCanvas.height =
       this.foregroundCanvas.height = height;
   this.displayCanvas.width = this.backgroundCanvas.width =
