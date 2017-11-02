@@ -24,8 +24,10 @@ export class Elf extends Entity(Object3D) {
     const geometry = new PlaneBufferGeometry(50, 50);
     const mesh = new Mesh(geometry, material);
 
-    this.add(mesh);
     mesh.position.y += 40;
     mesh.position.z += 3;
+
+    this.graphic = mesh;
+    this.add(mesh);
   }
 };

@@ -50,17 +50,12 @@ export class PlayerSystem {
       }
     }
 
-
-
     if (this.targetPosition != null) {
       intermediateVector2.copy(this.player.position);
       intermediateVector2.y += 35;
       snowballSystem.throwSnowball(intermediateVector2, this.targetPosition);
       this.targetPosition = null;
     }
-
-    game.camera.position.x = this.player.position.x;
-    game.camera.position.y = this.player.position.y;
   }
 
   throwSnowballAt(targetPosition) {

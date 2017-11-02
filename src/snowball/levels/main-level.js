@@ -3,6 +3,7 @@ import { combine } from '../../engine/utils/function.js';
 import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { HexMap } from '../entities/hex-map.js';
 import { Elf } from '../entities/elf.js';
+import { TetheredCameraTracker } from '../utils/camera-tracking.js';
 
 const { Vector2 } = self.THREE;
 
@@ -10,6 +11,7 @@ export class MainLevel extends Level {
   setup(game) {
     console.log('Setup!');
     const {
+      camera,
       collisionSystem,
       snowballSystem,
       effectSystem,
@@ -18,12 +20,13 @@ export class MainLevel extends Level {
       hexSystem
     } = game;
     const { snowballLayer } = snowballSystem;
-    const { playerLayer } = playerSystem;
+    const { playerLayer, player } = playerSystem;
     const { dummyTargetLayer } = dummyTargetSystem;
     const { hexLayer } = hexSystem;
     const { effectsLayer } = effectSystem;
 
     this.unsubscribe = hexSystem.handleMapPick(event => this.pickEvent = event);
+    this.cameraTracker = new TetheredCameraTracker(camera, player);
 
     collisionSystem.bounds = Rectangle.allocate(
        hexLayer.width, hexLayer.height, hexLayer.position);
@@ -56,8 +59,9 @@ export class MainLevel extends Level {
   }
 
   update(game) {
-    const { hexSystem, playerSystem } = game;
+    const { camera, hexSystem, playerSystem } = game;
     const { hexLayer } = hexSystem;
+    const { player } = playerSystem;
 
     if ((game.tick - this.lastErosionTick) > 16) {
       this.lastErosionTick = game.tick;
@@ -68,7 +72,6 @@ export class MainLevel extends Level {
 
     if (this.pickEvent != null) {
       const { index, sprite, state, position } = this.pickEvent;
-      const { player } = playerSystem;
 
       const playerIndex = grid.positionToIndex(player.position);
       const tileIsPassable = (grid, currentIndex) => {
@@ -98,5 +101,6 @@ export class MainLevel extends Level {
     }
 
     hexLayer.update(game);
+    this.cameraTracker.update(game);
   }
 }
