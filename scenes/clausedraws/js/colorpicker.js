@@ -23,6 +23,7 @@ app.Colorpicker = function($elem) {
   this.selector = this.elem.find('[data-colorpicker-selector]');
   this.popup = this.elem.find('[data-colorpicker-popup]');
   this.colors = this.elem.find('[data-colorpicker-color]');
+  this.tools = this.elem.find('[data-tool-color]');
   this.setColor('#e34f3a');
 
   this.colors.each(function() {
@@ -54,6 +55,7 @@ app.Colorpicker.prototype.setColor = function(color) {
   this.colors.removeClass('is-selected');
   this.elem.find('[data-colorpicker-color="' + color + '"]').addClass('is-selected');
   this.selector.css('background', color);
+  this.tools.attr('data-tool-color', color);
 };
 
 

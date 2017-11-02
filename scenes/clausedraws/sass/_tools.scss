@@ -448,19 +448,19 @@
     }
 
     &--stamp-bow {
-      background-image: url(img/tools/decorations/bow.svg);
+      @each $current-color in $colorpicker-colors {
+        &[data-tool-color="##{$current-color}"] {
+          background-image: url(img/tools/stamps/bow/#{$current-color}.svg);
+        }
+      }
     }
 
-    &--stamp-snowman {
-      background-image: url(img/tools/decorations/snowman.svg);
-    }
-
-    &--stamp-holly {
-      background-image: url(img/tools/decorations/holly.svg);
+    &--stamp-present {
+      background-image: url(img/tools/stamps/present.svg);
     }
 
     &--stamp-bauble {
-      background-image: url(img/tools/decorations/bauble.svg);
+      background-image: url(img/tools/stamps/bauble.svg);
     }
 
     &--spray-color {
@@ -551,19 +551,15 @@
   }
 
   [data-tool-hover-tool="stamp-bow"] .Tool-hover-preview {
-    background-image: url(img/tools/decorations/bow.svg);
+    background-image: url(img/tools/stamps/bow.svg);
   }
 
-  [data-tool-hover-tool="stamp-snowman"] .Tool-hover-preview {
-    background-image: url(img/tools/decorations/snowman.svg);
-  }
-
-  [data-tool-hover-tool="stamp-holly"] .Tool-hover-preview {
-    background-image: url(img/tools/decorations/holly.svg);
+  [data-tool-hover-tool="stamp-present"] .Tool-hover-preview {
+    background-image: url(img/tools/stamps/present.svg);
   }
 
   [data-tool-hover-tool="stamp-bauble"] .Tool-hover-preview {
-    background-image: url(img/tools/decorations/bauble.svg);
+    background-image: url(img/tools/stamps/bauble.svg);
   }
 
   [data-tool-hover-category="drawing"] {

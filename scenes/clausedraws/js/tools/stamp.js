@@ -26,12 +26,13 @@ goog.require('app.utils');
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the stamp
- * @param {!Image} Stamp image.
  */
-app.Stamp = function($elem, name, stamp) {
+app.Stamp = function($elem, name) {
   app.Tool.call(this, $elem, 'stamp-' + name);
 
-  this.stamp = stamp;
+  this.name = name;
+  this.stamp = $elem.find('#' + this.name + '-000000');
+  console.log('#' + this.name + '-000000');
   this.soundKey = 'selfie_spray_small';
   this.stamped = false;
   this.sizeMultiplier = 1;
@@ -57,7 +58,10 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var drawY = mouseCoords.normY * canvas.height;
   var offsetX = drawWidth / 2;
   var offsetY = drawHeight / 2;
-  context.drawImage(this.stamp,
+  var color = this.el.attr('data-tool-color');
+  var image = this.elem.find('#' + this.name + '-' + color.substring(1));
+  console.log('image', '#' + this.name + '-' + color.substring(1));
+  context.drawImage(image,
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);
   this.stamped = true;
