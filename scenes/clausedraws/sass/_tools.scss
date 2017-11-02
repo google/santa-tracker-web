@@ -340,6 +340,12 @@
     }
   }
 
+  [data-tool-category="spray"] {
+    .Tool--selected {
+      background-image: url(img/tools/tool_spray_tray.svg);
+    }
+  }
+
   .Tool {
     cursor: pointer;
     height: 100%;
@@ -381,7 +387,7 @@
     }
 
     &--spray-sprinkles {
-      background-image: url(img/tools/tool_spray_yellow.svg);
+      background-image: url(img/tools/tool_spray_sprinkles.svg);
     }
   }
 
@@ -525,7 +531,7 @@
 
   [data-tool-hover-tool="spray-sprinkles"] {
     .Tool-hover-inactive .Tool-hover-minitool {
-      background-image: url(img/tools/tool_spray_yellow.svg);
+      background-image: url(img/tools/tool_spray_sprinkles.svg);
       right: 90%;
       top: 10%;
     }
