@@ -1,0 +1,237 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<link rel="import" href="santa-tutorial_module.html">
+
+<!--
+Tutorial element. Shows helpful information bubbles about how to play Santa
+games. Clickable to dismiss/hide.
+-->
+<dom-module id="santa-tutorial">
+<template>
+  <style include="santa-tutorial_module"></style>
+  <video id="video" autoplay muted loop on-play="_blitToCanvas"></video>
+  <div id="outer" hidden>
+    <button id="tutorial" on-click="_dismissActive">
+      <div id="holder">
+        <canvas id="canvas" width="550" height="540"></canvas>
+        <img id="image" hidden on-load="_onImageLoad" />
+      </div>
+      <!-- inlined shadow SVG -->
+      <img id="shadow" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjc1LjA3NCIgaGVpZ2h0PSIyNzAuNTA4IiB2aWV3Qm94PSIwIDAgMjc1LjA3NCAyNzAuNTA4Ij48ZGVmcz48cGF0aCBpZD0iYSIgZD0iTTEwNC4xMSAyNjcuNjhhNDguNDk4IDQ4LjQ5OCAwIDAgMCAxOC4wNDMtNi42NzJjMTMuMzQ2IDcuODEgMjkuMzY4IDExLjIzNiA0NS44MzQgOC42NDggMjguMDg3LTQuNDE1IDQ5LjU3NS0yNS4wODcgNTYuMzk2LTUwLjkyLjE2Ny0uMDI0LjMzNC0uMDQ2LjUtLjA3MiAyNy4yMy00LjI4IDQ2LjA2Ny0yOC4zMzIgNDIuMDc2LTUzLjcyLTEuMzA2LTguMy00Ljg5LTE1LjcxNS0xMC4wNzQtMjEuNzg4IDEyLjQ4LTYuMjM0IDIwLjA2Ni0yMC4wMTggMTcuNzg0LTM0LjUzLTIuNTUtMTYuMjMtMTYuNTY0LTI3LjgwNy0zMi40OTUtMjcuNzg2YTYyLjE1IDYyLjE1IDAgMCAwLS43NDctOC44ODhjLTUuMDctMzIuMjUtMzQuMzI2LTU0LjY4NC02Ni4zODItNTEuNzM1QzE2OS4zNDYgNi41NDQgMTU0Ljg3Ni0yIDEzOS41OS40MDRjLTkuNjczIDEuNTItMTcuNjg4IDcuMTE2LTIyLjU4NSAxNC43NTgtOS41NTQtMy40MjQtMjAuMDc4LTQuNTcyLTMwLjgxLTIuODg1LTMxLjAyMiA0Ljg3Ny01My4xMiAzMS43NDYtNTIuOTE0IDYyLjIyNWEzNC43NyAzNC43NyAwIDAgMC00LjI1OC4zOUMxMC4zNTggNzcuODMtMi4zOTQgOTUuMzM3LjU0MiAxMTRjMS45NDUgMTIuMzc4IDEwLjMwNCAyMi4xNSAyMS4xNTYgMjYuNDc1LTE1LjA0NiA4LjQ1My0yNC4wMTMgMjUuNjMtMjEuMTc1IDQzLjY3OCAzLjU4IDIyLjc4IDI0LjYzIDM4LjQ3IDQ3LjM1MyAzNS41NzIuMDEgMi40NTIuMjA0IDQuOTM1LjU5NyA3LjQzMyA0LjE3MyAyNi41NTQgMjkuMDg0IDQ0LjY5NyA1NS42MzcgNDAuNTIzeiIvPjwvZGVmcz48dXNlIHhsaW5rOmhyZWY9IiNhIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvc3ZnPg==" />
+    </button>
+  </div>
+</template>
+<script>
+(function() {
+
+const spaceRe = /\s+/;
+
+function identity(s) {
+  return s;
+}
+
+function splitParts(s) {
+  return s.split(spaceRe).map(identity);
+}
+
+Polymer({
+  is: 'santa-tutorial',
+
+  properties: {
+
+    /**
+     * The space-separated list of tutorials to show.
+     */
+    tutorials: {
+      type: String,
+      value: '',
+    },
+
+    /**
+     * Whether to show these tutorials.
+     */
+    show: {
+      type: Boolean,
+      value: false,
+    },
+
+    /**
+     * The currently active tutorial.
+     */
+    active: {
+      type: String,
+      readOnly: true,
+      value: '',
+      observer: '_activeChanged',
+    },
+
+    /**
+     * The space-separated list of dismissed tutorials. This will be modified by this element
+     * only if a user clicks a tutorial to dismiss it.
+     */
+    dismissed: {
+      type: String,
+      value: '',
+      notify: true,
+    },
+
+  },
+
+  observers: [
+    '_updateTutorials(show, tutorials, dismissed)',
+  ],
+
+  /**
+   * Dismissed the named tutorial.
+   *
+   * @param {string} tutorial
+   */
+  dismiss: function(tutorial) {
+    tutorial = tutorial.trim();
+    const dismissed = splitParts(this.dismissed);
+
+    if (dismissed.indexOf(tutorial) === -1) {
+      dismissed.push(tutorial);
+      this.dismissed = dismissed.join(' ');
+    }
+  },
+
+  /**
+   * Dismisses the current tutorial.
+   */
+  _dismissActive: function() {
+    this.$.tutorial.blur();
+    this.active && this.dismiss(this.active);
+  },
+
+  _updateTutorials: function(show, tutorials, dismissed) {
+    if (!show) {
+      this.cancelDebouncer('_updateTutorials');
+      this._setActive(null);
+      return;
+    }
+
+    if (this.active) {
+      const dismissed = splitParts(this.dismissed);
+      if (dismissed.indexOf(this.active) >= 0) {
+        this._setActive(null);
+      }
+    }
+
+    // wait ~4s to show an active tutorial
+    this.debounce('_updateTutorials', function() {
+      // TODO(samthor): Filter tutorials by touch- or mouse-.
+      // If we are in portal mode and have _no_ spacenav-, then use touch-.
+      // Otherwise show default.
+      const tutorials = splitParts(this.tutorials);
+      const dismissed = splitParts(this.dismissed);
+
+      for (let i = 0; i < tutorials.length; ++i) {
+        if (dismissed.indexOf(tutorials[i]) === -1) {
+          this._setActive(tutorials[i]);
+          return;
+        }
+      }
+
+      this._setActive(null);
+    }, 4000);
+  },
+
+  _activeChanged: function(active) {
+    this.$.outer.hidden = true;
+
+    const i = this.$.image;
+    const v = this.$.video;
+
+    // aggressively revoke used object URLs
+    v.removeAttribute('src');
+    i.removeAttribute('src');
+    i.className = '';
+    i.hidden = true;
+    this.$.canvas.width = this.$.canvas.width;  // clear
+
+    if (!active) {
+      return;
+    }
+
+    const prefix = active.split('-', 2)[0];
+
+    switch (prefix) {
+    case 'video':
+      v.src = this.resolveUrl('img/' + active + '.mp4');
+      break;
+
+    case 'gif':
+      i.src = this.resolveUrl('img/' + active + '.gif');
+      break;
+
+    default:
+      i.src = this.resolveUrl('img/' + active + '.svg');
+      break;
+    }
+  },
+
+  _onImageLoad: function() {
+    this.$.outer.hidden = false;  // onload means we were made visible
+
+    const i = this.$.image;
+    i.hidden = false;
+
+    const bounds = i.getBoundingClientRect();
+    const steps = Math.max(1, Math.round(bounds.width / 275));
+    i.className = 'steps-' + steps;
+  },
+
+  /**
+   * Blits the HTML video element to our canvas including the 'shadow' SVG. This creates the
+   * impression that the tutorial videos are encompassed within a friendly shadow (as the SVGs are).
+   */
+  _blitToCanvas: function() {
+    const v = this.$.video;
+    const c = this.$.canvas;
+    c.width = c.width;  // clear
+
+    if (v.paused || v.ended || !v.src) {
+      return false;
+    }
+    window.requestAnimationFrame(this._blitToCanvas.bind(this));
+
+    this.$.outer.hidden = false;  // play means we were made visible
+    const context = c.getContext('2d');
+
+    // Blit shadow image.
+    context.drawImage(this.$.shadow, 0, 0, c.width, c.height);
+    context.globalCompositeOperation = 'source-atop';  // from now, this shadow is our viewport
+
+    // The above shadow is black; fill with white.
+    context.fillStyle = 'white';
+    context.rect(0, 0, c.width, c.height);
+    context.fill();
+
+    // Now blit the video in the center of the picture.
+    // TODO(samthor): Our videos are subtly bigger than this, and previously we just scaled them
+    // to fit. We may need to do the same again.
+    const width = Math.min(v.videoWidth, c.width);
+    const height = (width / v.videoWidth) * v.videoHeight;
+    context.drawImage(this.$.video, (c.width - width) / 2, (c.height - height) / 2, width, height);
+  },
+
+});
+
+})();
+</script>
+</dom-module>
