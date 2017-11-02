@@ -24,7 +24,7 @@ app.Colorpicker = function($elem) {
   this.popup = this.elem.find('[data-colorpicker-popup]');
   this.colors = this.elem.find('[data-colorpicker-color]');
   this.tools = this.elem.find('[data-tool-color]');
-  this.setColor('#e34f3a');
+  this.setColor('#' + app.Constants.COLORPICKER_DEFAULT);
 
   this.colors.each(function() {
     var el = $(this);

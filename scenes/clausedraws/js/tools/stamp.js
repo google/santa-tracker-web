@@ -30,9 +30,9 @@ goog.require('app.utils');
 app.Stamp = function($elem, name) {
   app.Tool.call(this, $elem, 'stamp-' + name);
 
-  this.name = name;
-  this.stamp = $elem.find('#' + this.name + '-000000');
-  console.log('#' + this.name + '-000000');
+  this.stampName = name;
+  this.stamp = $elem.find('#' + this.stampName + '-' +
+      app.Constants.COLORPICKER_DEFAULT)[0];
   this.soundKey = 'selfie_spray_small';
   this.stamped = false;
   this.sizeMultiplier = 1;
@@ -59,8 +59,7 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var offsetX = drawWidth / 2;
   var offsetY = drawHeight / 2;
   var color = this.el.attr('data-tool-color');
-  var image = this.elem.find('#' + this.name + '-' + color.substring(1));
-  console.log('image', '#' + this.name + '-' + color.substring(1));
+  var image = this.elem.find('#' + this.stampName + '-' + color.substring(1))[0];
   context.drawImage(image,
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);

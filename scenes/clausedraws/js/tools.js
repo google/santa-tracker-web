@@ -65,10 +65,9 @@ app.Tools = function(game, $elem) {
   this.snowbg = new app.LayerTool($elem, 'scene-snowbg', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
   this.snowfg = new app.LayerTool($elem, 'scene-snowfg', app.LayerTool.Layer.FOREGROUND, $elem.find('#snowfg')[0]);
   this.eraser = new app.Eraser($elem, 'eraser');
-  this.stampSnowman = new app.Stamp($elem, 'snowman', $elem.find('#snowman')[0]);
-  this.stampBauble = new app.Stamp($elem, 'bauble', $elem.find('#bauble')[0]);
-  this.stampBow = new app.Stamp($elem, 'bow', $elem.find('#bow')[0]);
-  this.stampHolly = new app.Stamp($elem, 'holly', $elem.find('#holly')[0]);
+  this.stampBauble = new app.Stamp($elem, 'bauble');
+  this.stampBow = new app.Stamp($elem, 'bow');
+  this.stampPresent = new app.Stamp($elem, 'present');
 
   this.tools = [
     this.pen,
@@ -79,10 +78,9 @@ app.Tools = function(game, $elem) {
     this.snowbg,
     this.snowfg,
     this.eraser,
-    this.stampSnowman,
     this.stampBauble,
     this.stampBow,
-    this.stampHolly
+    this.stampPresent
   ];
 };
 

@@ -1,3 +1,5 @@
+$stamp-names: "bow", "present", "bauble";
+
 ##{$name} {
   .Tools {
     display: inline-block;
@@ -447,20 +449,14 @@
       background-image: url(img/tools/tool_eraser.svg);
     }
 
-    &--stamp-bow {
-      @each $current-color in $colorpicker-colors {
-        &[data-tool-color="##{$current-color}"] {
-          background-image: url(img/tools/stamps/bow/#{$current-color}.svg);
+    @each $current-stamp in $stamp-names {
+      &--stamp-#{$current-stamp} {
+        @each $current-color in $colorpicker-colors {
+          &[data-tool-color="##{$current-color}"] {
+            background-image: url(img/tools/stamps/#{$current-stamp}/#{$current-color}.svg);
+          }
         }
       }
-    }
-
-    &--stamp-present {
-      background-image: url(img/tools/stamps/present.svg);
-    }
-
-    &--stamp-bauble {
-      background-image: url(img/tools/stamps/bauble.svg);
     }
 
     &--spray-color {
@@ -550,16 +546,14 @@
     }
   }
 
-  [data-tool-hover-tool="stamp-bow"] .Tool-hover-preview {
-    background-image: url(img/tools/stamps/bow.svg);
-  }
-
-  [data-tool-hover-tool="stamp-present"] .Tool-hover-preview {
-    background-image: url(img/tools/stamps/present.svg);
-  }
-
-  [data-tool-hover-tool="stamp-bauble"] .Tool-hover-preview {
-    background-image: url(img/tools/stamps/bauble.svg);
+  @each $current-stamp in $stamp-names {
+    [data-tool-hover-tool="stamp-#{$current-stamp}"] {
+      @each $current-color in $colorpicker-colors {
+        &[data-tool-color="##{$current-color}"] .Tool-hover-preview {
+          background-image: url(img/tools/stamps/#{$current-stamp}/#{$current-color}.svg);
+        }
+      }
+    }
   }
 
   [data-tool-hover-category="drawing"] {
