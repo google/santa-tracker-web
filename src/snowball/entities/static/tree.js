@@ -16,7 +16,7 @@ export class Tree extends Entity(class {}) {
   }
 
   setup(game) {
-    this.collider = Circle.allocate(12, this.position);
+    this.collider = Circle.allocate(16, this.position);
   }
 
   teardown(game) {

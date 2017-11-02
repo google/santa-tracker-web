@@ -27,14 +27,14 @@ export class SnowballSystem {
 
     // NOTE(cdata): This is just for testing perf of a lot of collidable
     // objects in the scene at one time:
-    for (let i = 0; i < 10; ++i) {
-      const targetX = Math.random() * (bounds.br.x - bounds.tl.x) + bounds.tl.x;
-      const originX = Math.random() * (bounds.br.x - bounds.tl.x) + bounds.tl.x;
-      const targetY = Math.random() * (bounds.tl.y - bounds.br.y) + bounds.br.y;
-      const originY = Math.random() * (bounds.tl.y - bounds.br.y) + bounds.br.y;
+    //for (let i = 0; i < 32; ++i) {
+      //const targetX = Math.random() * (bounds.br.x - bounds.tl.x) + bounds.tl.x;
+      //const originX = Math.random() * (bounds.br.x - bounds.tl.x) + bounds.tl.x;
+      //const targetY = Math.random() * (bounds.tl.y - bounds.br.y) + bounds.br.y;
+      //const originY = Math.random() * (bounds.tl.y - bounds.br.y) + bounds.br.y;
 
-      this.throwSnowball(new Vector2(targetX, targetY), new Vector2(originX, originY));
-    }
+      //this.throwSnowball(new Vector2(targetX, targetY), new Vector2(originX, originY));
+    //}
 
     while (this.newSnowballs.length) {
       this.setupSnowball(this.newSnowballs.pop(), game);
@@ -108,7 +108,6 @@ export class SnowballSystem {
 
   throwSnowball(origin, target) {
     const snowball = Snowball.allocate(origin);
-    snowball.position.copy(origin);
     snowball.throwAt(target);
     this.newSnowballs.push(snowball);
   }

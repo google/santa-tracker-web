@@ -213,6 +213,35 @@ export class HexGrid {
     return this.cubeToOddq(roundedCube, oddq);
   }
 
+  waypoints(fromIndex, toIndex, passable = defaultPassable,
+      heuristic = defaultHeuristic) {
+    const path = this.path(fromIndex, toIndex, passable, heuristic);
+    const cubes = path.map(index => this.indexToCube(index));
+
+    const waypoints = [];
+    const lastDelta = new HexCoord();
+    const nextDelta = new HexCoord();
+
+    lastDelta.set(0, 0, 0);
+
+    for (let i = 0; i < path.length; ++i) {
+      const cube = cubes[i];
+      const nextCube = cubes[i + 1];
+      const nextNexCube = cubes[i + 2];
+
+      if (nextCube != null) {
+        nextDelta.subVectors(nextCube, cube);
+      }
+
+      if (nextCube == null || !lastDelta.equals(nextDelta)) {
+        lastDelta.copy(nextDelta);
+        waypoints.push(this.cubeToIndex(cube));
+      }
+    }
+
+    return waypoints;
+  }
+
   path(fromIndex, toIndex, passable = defaultPassable,
       heuristic = defaultHeuristic) {
     const frontier = new PriorityQueue((a, b) => b.cost - a.cost);
@@ -237,7 +266,7 @@ export class HexGrid {
         do {
           path.unshift(index);
           index = directions.get(index);
-        } while (index !== fromIndex);
+        } while (directions.size > 0 && index !== fromIndex);
 
         path.unshift(fromIndex);
 
@@ -249,7 +278,8 @@ export class HexGrid {
       for (let i = 0; i < neighborIndices.length; ++i) {
         const neighborIndex = neighborIndices[i];
 
-        if (!passable(this, neighborIndex)) {
+        if (neighborIndex < 0 || neighborIndex == null ||
+            !passable(this, neighborIndex)) {
           continue;
         }
 

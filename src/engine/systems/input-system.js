@@ -7,6 +7,8 @@ const HitEvents = new Set([
   'enter', 'move', 'exit', 'pick'
 ]);
 
+const intermediateVector2 = new Vector2();
+
 export class InputSystem extends Entity(HTMLElement) {
   constructor() {
     super();
@@ -62,8 +64,10 @@ export class InputSystem extends Entity(HTMLElement) {
     this.dispatch(new Event('click', { x, y }, this));
   }
 
-  normalizeXY(x, y, width, height) {
-    return new Vector2(2 * x / width - 1, -2 * y / height + 1);
+  normalizeXY(x, y, width, height, normalized = new Vector2()) {
+    normalized.x = 2 * x / width - 1;
+    normalized.y = -2 * y / height + 1;
+    return normalized;
   }
 
   dispatch(event) {
@@ -79,7 +83,17 @@ export class InputSystem extends Entity(HTMLElement) {
       return;
     }
 
-    handlers.forEach(handler => handler(event));
+    let stopPropagation = false;
+
+    for (let i = 0; i < handlers.length; ++i) {
+      stopPropagation = handlers[i](event) === false;
+
+      if (stopPropagation) {
+        break;
+      }
+    }
+
+    return stopPropagation;
   }
 
   on(eventName, handler, target = this) {
@@ -179,8 +193,14 @@ export class InputSystem extends Entity(HTMLElement) {
       const hits = this.intersectHitTargets(x, y, width, height, camera);
       const hitDetails = { x, y, hits };
 
+      let stopPropagation = false;
+
       hits.forEach((intersections, target) => {
-        this.dispatch(
+        if (stopPropagation) {
+          return;
+        }
+
+        stopPropagation = this.dispatch(
             new Event('pick', { ...hitDetails, intersections }, target));
       });
     }
@@ -189,7 +209,7 @@ export class InputSystem extends Entity(HTMLElement) {
   }
 
   intersectHitTargets(x, y, width, height, camera) {
-    const normalized = this.normalizeXY(x, y, width, height);
+    const normalized = this.normalizeXY(x, y, width, height, intermediateVector2);
 
     this.raycaster.setFromCamera(normalized, camera);
 
@@ -197,19 +217,21 @@ export class InputSystem extends Entity(HTMLElement) {
     const candidates = this.octree.search(
         ray.origin, ray.far, true, ray.direction);
 
+    //console.log(candidates);
     const hits = this.raycaster.intersectOctreeObjects(candidates);
 
-    return hits.reduce((map, hit, index) => {
-      const target = hit.object;
+    return hits.sort((a, b) => a.distance > b.distance)
+        .reduce((map, hit, index) => {
+          const target = hit.object;
 
-      if (!map.has(target)) {
-        map.set(target, []);
-      }
+          if (!map.has(target)) {
+            map.set(target, []);
+          }
 
-      map.get(target).push(hit);
+          map.get(target).push(hit);
 
-      return map;
-    }, new Map());
+          return map;
+        }, new Map());
   }
 }
 

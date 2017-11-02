@@ -73,6 +73,66 @@ void main() {
 `;
 
 const fragmentShader = `
+
+/*
+// Based on https://www.shadertoy.com/view/4scXWS
+#define SQRT_3_OVER_3 0.5773502692
+#define SQRT_3_OVER_2 0.8660254038
+#define SQRT_3 1.7320508076
+#define PI 3.1415926536
+
+bool hex(vec2 coord, vec2 size, float scaleY, float offsetY) {
+  coord.y -= size.y * offsetY / 2.0;
+
+  vec2 shape = abs( 2.0 * coord - size) / size.y - fract(PI);
+  float x = shape.x;
+  float y = shape.y * (1.0 / scaleY);
+
+  return y < SQRT_3_OVER_2 && y + x * SQRT_3 < SQRT_3;
+}
+
+bool fill(vec2 coord, vec2 size, float scaleY, float offsetY) {
+  vec2 shape = abs( 2.0 * coord - size) / size.y - fract(PI);
+  float y = shape.y * (1.0 / scaleY);
+  float x = shape.x;
+
+  float threshold = offsetY * SQRT_3_OVER_3;
+
+  float height = size.y;
+  float s = height / 2.0 / SQRT_3_OVER_2 * 1.08;
+  float width = 2.0 * s;
+
+  float lowX = size.x / 2.0 - width / 2.0;
+  float highX = size.x / 2.0 + width / 2.0;
+
+  return y < threshold && coord.x >= lowX && coord.x <= highX;
+}
+
+vec4 tile(vec4 surfaceColor, vec4 cliffColor,
+          vec2 coord, vec2 size, float scaleY, float offsetY) {
+  bool surface = hex(coord, size, scaleY, offsetY);
+
+  bool cliff = hex(coord, size, scaleY, -offsetY);
+  bool cliffFill = fill(coord, size, scaleY, offsetY);
+
+  if (surface) {
+      return surfaceColor;
+  } else if (cliff || cliffFill) {
+      return cliffColor;
+  } else {
+      return vec4(0.0);
+  }
+}
+
+void mainImage( out vec4 fragColor, vec2 fragCoord )
+{
+  float scaleY = 0.75;
+  float offsetY = 1.0 - scaleY;
+
+  gl_fragColor = tile(vec4(1.0), vec4(0.80, 0.87, 0.86, 1.0), vec2(scale) * vUv, vec2(scale), scaleY, offsetY);
+}
+*/
+
 precision highp float;
 
 uniform sampler2D map;
@@ -127,7 +187,8 @@ export class HexMap extends Entity(Mesh) {
     return this.grid.pixelHeight;
   }
 
-  constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
+  constructor(grid, pickHandler = () => {}) {
+
     const geometry = new InstancedBufferGeometry();
     const uniforms = {
       // Will be updated with the time every game tick
@@ -140,11 +201,11 @@ export class HexMap extends Entity(Mesh) {
       },
       // The scale of the tiles configured via constructor
       tileScale: {
-        value: tileScale
+        value: 0
       },
       // The width and height in pixels of the game map
       size: {
-        value: new Vector2(unitWidth, unitHeight)
+        value: new Vector2()
       }
     };
 
@@ -157,13 +218,26 @@ export class HexMap extends Entity(Mesh) {
       transparent: true
     }));
 
-    this.grid = new MagicHexGrid(unitWidth, unitHeight, tileScale);
-    this.tileCount = unitWidth * unitHeight;
-
-    console.log('Map dimensions:', this.grid.pixelWidth, 'x', this.grid.pixelHeight);
+    this.pickHandler = pickHandler;
 
     this.frustumCulled = false;
     this.uniforms = uniforms;
+    this.grid = grid;
+
+    this.surface = null;
+    this.tileRings = null;
+    this.treeCollidables = null;
+    this.tileCount = 0;
+  }
+
+  setup(game) {
+    const { collisionSystem, inputSystem } = game;
+
+    this.tileCount = this.grid.width * this.grid.height;
+
+    console.log('Map dimensions:',
+        this.grid.pixelWidth, 'x', this.grid.pixelHeight);
+
 
     // This mesh is used for intersection testing. We need this because the
     // bounding box of the instanced buffer geometry is the size of one tile.
@@ -173,23 +247,22 @@ export class HexMap extends Entity(Mesh) {
         new PlaneBufferGeometry(this.grid.pixelWidth, this.grid.pixelHeight),
         new MeshBasicMaterial({
           color: 0x000000,
-          transparent: true,
-          wireframe: false
+          transparent: true
         }));
 
+    this.uniforms.size.value.set(this.grid.width, this.grid.height);
+    this.uniforms.tileScale.value = this.grid.cellSize;
     this.surface.rotation.x = Math.PI;
-    this.surface.position.y += tileScale / 4.0;
+    this.surface.position.y += this.grid.cellSize / 4.0;
     this.add(this.surface);
     this.tileRings = [];
     this.treeCollidables = [];
-  }
 
-  setup(game) {
-    const { collisionSystem, inputSystem } = game;
-
-    this.unsubscribe = combine(
-        inputSystem.on('pick', event => this.onPick(event), this.surface),
-        inputSystem.on('move', event => this.onMove(event), this.surface));
+    this.unsubscribe = inputSystem.on('pick',
+          event => {
+            console.warn('Map picked');
+            this.onPick(event);
+          }, this.surface);
 
     // The vertices, uvs and indices for a single hex tile.
     // These will be instanced tileCount times:
@@ -280,8 +353,9 @@ export class HexMap extends Entity(Mesh) {
         tileOffsets.setXYZ(index, offset.x, offset.y, offset.y);
         tileSprites.setX(index, tile);
 
-        if (tile === 0 && state === 1) {
+        if (tile >= 0 && tile < 4 && state === 1) {
           const tree = new Tree(index, this.grid.indexToPosition(index));
+
           tree.setup(game);
 
           console.log('Adding tree collidable to', tree.collider.position);
@@ -375,57 +449,12 @@ export class HexMap extends Entity(Mesh) {
         -uv.y * this.height + this.height / 2);
   }
 
-  onMove(event) {
-    const state = this.attributes.tileState;
-    const index = this.hitEventToIndex(event);
-
-    if (this.lastHighlightIndex != null && state.getX(this.lastHighlightIndex) < 3) {
-      state.setX(this.lastHighlightIndex, 1);
-      state.needsUpdate = true;
-    }
-
-    if (index < 0) {
-      return;
-    }
-
-    if (state.getX(index) === 1) {
-      this.lastHighlightIndex = index;
-      state.setX(index, 2);
-      state.needsUpdate = true;
-    }
-  }
-
   onPick(event) {
-    const state = this.attributes.state;
     const index = this.hitEventToIndex(event);
     const position = this.hitEventToPosition(event);
+    const sprite = this.getTileSprite(index);
+    const state = this.getTileState(index);
 
-    if (this.lastPickPosition == null) {
-      this.throwOriginIndex = index;
-      this.lastPickPosition = position;
-    } else {
-      this.targetPickPosition = position;
-      this.setTileState(this.throwOriginIndex, 2.0);
-    }
-
-    if (this.lastPickIndex == null) {
-      this.lastPickIndex = index;
-    } else if (index !== this.lastPickIndex) {
-      const start = performance.now();
-      const path = this.grid.path(this.lastPickIndex, index,
-          // NOTE(cdata): This is the "passable" function. It receives a
-          // grid reference and a tile index, and returns true if the tile
-          // can be traversed for the purpose of picking a path.
-          (grid, currentIndex) =>
-              this.getTileState(currentIndex) > 0 &&
-              this.getTileSprite(currentIndex) !== 0);
-      const end = performance.now();
-      //path.forEach(index => {
-        //this.setTileState(index, 2.0);
-      //});
-
-      console.log(`Path found from ${this.lastPickIndex} to ${index} in ${end - start}ms:`, path);
-      this.lastPickIndex = null;
-    }
+    this.pickHandler({ index, position, sprite, state });
   }
 };

@@ -1,0 +1,69 @@
+import { Elf } from '../entities/elf.js';
+
+const { Object3D, Vector2 } = self.THREE;
+
+const intermediateVector2 = new Vector2();
+
+export class PlayerSystem {
+  constructor() {
+    this.path = null;
+    this.playerLayer = new Object3D();
+    this.player = new Elf();
+    this.playerLayer.add(this.player);
+
+    this.targetPosition = null;
+    this.targetPickEvent = null;
+  }
+
+  assignPath(path) {
+    this.path = path;
+  }
+
+  update(game) {
+    const { snowballSystem } = game;
+
+    if (this.targetPickEvent != null) {
+      const uv = this.targetPickEvent.uv;
+      this.targetPosition = this.targetPickEvent.target.parent.position.clone();
+      this.targetPosition.y += 30;
+
+      this.targetPickEvent = null;
+    }
+
+    if (this.path != null && this.path.length) {
+      const nextWaypoint = this.path[0];
+      const delta = intermediateVector2;
+      delta.subVectors(nextWaypoint, this.player.position);
+      const length = delta.length();
+      delta.normalize();
+      delta.multiplyScalar(2.0);
+      const lengthNormalized = delta.length();
+
+      if (length <= lengthNormalized) {
+        this.player.position.x = nextWaypoint.x;
+        this.player.position.y = nextWaypoint.y;
+        this.path.shift();
+      } else {
+        this.player.position.x += delta.x;
+        this.player.position.y += delta.y;
+        this.player.position.z += delta.y;
+      }
+    }
+
+
+
+    if (this.targetPosition != null) {
+      intermediateVector2.copy(this.player.position);
+      intermediateVector2.y += 35;
+      snowballSystem.throwSnowball(intermediateVector2, this.targetPosition);
+      this.targetPosition = null;
+    }
+
+    game.camera.position.x = this.player.position.x;
+    game.camera.position.y = this.player.position.y;
+  }
+
+  throwSnowballAt(targetPosition) {
+    this.targetPosition = targetPosition;
+  }
+};

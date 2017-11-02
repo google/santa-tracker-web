@@ -20,6 +20,7 @@ export class Game extends HTMLElement {
     //this.camera = new PerspectiveCamera(60, 1.6, 0.1, 100000);
     this.camera = new OrthographicCamera(1, 1, 1, 1, 1, 100000);
     this.currentLevel = null;
+    this.ready = false;
 
     this.shadowRoot.innerHTML = `
 <style>
@@ -41,6 +42,11 @@ export class Game extends HTMLElement {
 
       if (this.currentLevel == null) {
         return;
+      }
+
+      if (!this.ready) {
+        this.setup();
+        this.ready = true;
       }
 
       this.update();
@@ -72,6 +78,9 @@ export class Game extends HTMLElement {
     this.renderSystem.measure(this);
   }
 
+  setup() {
+      }
+
   update() {
     this.currentLevel.update(this);
     this.renderSystem.update(this);
@@ -88,9 +97,10 @@ export class Game extends HTMLElement {
     }
 
     this.camera.position.copy(level.position);
-    this.camera.position.z -= 1000;
+    this.camera.position.z -= 3200;
     this.camera.lookAt(level.position);
     this.camera.rotation.z = 0;
+
 
     this.currentLevel = level;
     this.currentLevel.setup(this);

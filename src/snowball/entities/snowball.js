@@ -95,6 +95,7 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
 
   onAllocated(origin) {
     this.origin.copy(origin);
+    this.position.copy(origin);
     this.thrown = false;
     this.tickWhenThrown = -1;
     this.targetPosition.set(0, 0);
@@ -153,8 +154,14 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
       thrown: this.thrown,
       tickWhenThrown: this.tickWhenThrown,
       skew: this.skew,
-      target: { ...this.target },
-      position: { ...this.position }
+      target: {
+        x: this.target.x,
+        y: this.target.y
+      },
+      position: {
+        x: this.position.x,
+        y: this.position.y
+      }
     };
   };
 };

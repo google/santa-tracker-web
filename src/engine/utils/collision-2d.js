@@ -257,7 +257,7 @@ export const circleIntersectsRectangle = (() => {
       return false;
     }
 
-    if (circleDistance.y > (rectangle.halfHeight + cricle.radius)) {
+    if (circleDistance.y > (rectangle.halfHeight + circle.radius)) {
       return false;
     }
 

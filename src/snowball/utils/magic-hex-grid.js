@@ -82,4 +82,17 @@ export class MagicHexGrid extends HexGrid {
 
     return position;
   }
+
+  positionToIndex(position) {
+    const x = (position.x + this.pixelWidth / 2) / this.pixelWidth;
+    const y = 1.0 - (position.y + this.pixelHeight / 2) / this.pixelWidth;
+    const hexCoord = HexGrid.intermediateHexCoord;
+    console.log(position, x, y);
+
+    hexCoord.x = x;
+    hexCoord.y = y;
+    hexCoord.z = 0;
+
+    return this.uvToIndex(hexCoord);
+  }
 };
