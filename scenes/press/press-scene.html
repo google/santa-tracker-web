@@ -15,7 +15,9 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="press-scene_module.html">
 
-<script src="press-scene.min.js"></script>
+<link rel="import" href="../../elements/infopages/info-card.html">
+
+<link rel="import" href="models.html">
 
 <dom-module id="press-scene">
 <template>
@@ -67,33 +69,27 @@ specific language governing permissions and limitations under the License.
 
     <div id="press-primary">
       <div class="press-primary-inner">
-        <h2>Santa’s Village and The Tracker</h2>
-        <div class="card">
-          <div class="card-img" style$="background-image: url([[importPath]]img/tmb-santas-village.png)"></div>
-          <div class="card-info">
-            <h4>Santa's Village</h4>
-            <span>Open all December • Website</span>
-            <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they’ve realized it's time to study up on geography and coding to ensure Santa’s sleigh goes on the most efficient path around the world using the most advanced algorithms. It’s his biggest night of the year! </p>
-            <div class="card-links">
-              <span class="card-title">Press resources:</span>
-              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-village-with-santa.png" class="card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
-            </div>
-          </div>
-        </div>
+        <h2>Santa's Village and The Tracker</h2>
 
-        <div class="card">
-          <div class="card-img" style$="background-image: url([[importPath]]img/tmb-santa-tracker.png)"></div>
-          <div class="card-info">
-            <h4>The Tracker</h4>
-            <span>Opens December 24 • Experience</span>
-            <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city. Follow him each step of the way by searching for Santa directly in <a href="https://maps.google.com">Google Maps</a> and <a href="https://google.com">google.com</a>. Or, head over to <a href="https://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he’ll visit that night.  </p>
-            <div class="card-links">
-              <span class="card-title">Press resources:</span>
-              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tracker-map.png" class="card-dl" target="_blank">Still screenshot <span>(PNG file)</span></a>
-              <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/DEC24-tracker-full.gif" class="card-dl" target="_blank">Animation <span>(GIF file)</span></a>
-            </div>
+        <info-card image="[[importPath]]img/tmb-santas-village.png" opens="0">
+          <div slot="title">Santa's Village</div>
+          <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they’ve realized it's time to study up on geography and coding to ensure Santa’s sleigh goes on the most efficient path around the world using the most advanced algorithms. It’s his biggest night of the year! </p>
+          <div class="card-links">
+            <span class="card-title">Press resources</span>
+            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-village-with-santa.png" target="_blank">Still screenshot <span>(PNG file)</span></a>
           </div>
-        </div>
+        </info-card>
+
+        <info-card image="[[importPath]]img/tmb-santa-tracker.png" opens="24">
+          <div slot="title">The Tracker</div>
+          <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city. Follow him each step of the way by searching for Santa directly in <a href="https://maps.google.com">Google Maps</a> and <a href="https://google.com">google.com</a>. Or, head over to <a href="https://google.com/santatracker">google.com/santatracker</a> to get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he’ll visit that night.</p>
+          <div class="card-links">
+            <span class="card-title">Press resources</span>
+            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tracker-map.png" target="_blank">Still screenshot <span>(PNG file)</span></a>
+            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/DEC24-tracker-full.gif" target="_blank">Animation <span>(GIF file)</span></a>
+          </div>
+        </info-card>
+
       </div>
     </div>
 
@@ -109,56 +105,49 @@ specific language governing permissions and limitations under the License.
 
         <div class="press-card-container">
           <template is="dom-repeat" items="[[cards]]" as="card">
-            <div class="card" data-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
-              <a href$="[[_computeUnlockedUrlFor(card.key, card.locked)]]">
-                <div class="card-img" style$="[[_computeCardBackgroundStyle(card.key)]]">
-                  <div class="card-lock">
-                    <span class="card-unlock">Unlocks December</span>
-                    <span class="card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
-                  </div>
+
+            <info-card hidden$="[[_computeHidden(filter, card.filter)]]"
+                image="[[_computeInfoCardImage(card.key)]]"
+                opens="[[card.opens]]"
+                locked="[[card.locked]]"
+                type="[[card.type]]"
+                href="[[urlFor(card.key)]]">
+              <div slot="title">[[card.title]]</div>
+              <p>[[card.description]]</p>
+              <div class="card-links">
+                <span class="card-title">Press resources</span>
+                <div hidden$="[[card.locked]]">
+                  <template is="dom-repeat" items="[[card.resources]]">
+                    <a href="[[item.url]]" class$="[[item.class]]" target="_blank">
+                      [[item.title]] <span>([[item.type]])</span>
+                    </a>
+                  </template>
                 </div>
-              </a>
-              <div class="card-info">
-                <h4>[[card.title]]</h4>
-                <span>Opens December [[card.opens]] • [[card.type]]</span>
-                <p>[[card.description]]</p>
-                <div class="card-links">
-                  <span class="card-title">Press resources:</span>
-                  <div class="card-links-full">
-                    <div hidden$="[[card.locked]]">
-                      <template is="dom-repeat" items="[[card.resources]]">
-                        <a href="[[item.url]]" class$="[[item.class]]" target="_blank">
-                          [[item.title]] <span>([[item.type]])</span>
-                        </a>
-                      </template>
-                    </div>
-                    <div hidden$="[[!card.locked]]">
-                      <a class="card-dl card-locked">
-                        <span>Assets available soon</span>
-                      </a>
-                    </div>
-                  </div>
+                <div hidden$="[[!card.locked]]">
+                  <a class="card-locked">
+                    <span>Assets available soon</span>
+                  </a>
                 </div>
               </div>
-            </div>
+            </info-card>
+
           </template>
           <template is="dom-repeat" items="[[androidCards]]" as="card">
-            <div class="card" hidden$="[[_computeHidden(filter, 'android')]]">
-              <div class="card-img" style$="[[_computeAndroidCardStyle(card.key)]]"></div>
-              <div class="card-info">
-                <h4>[[card.title]]</h4>
-                <span>Santa Tracker App for Android • [[card.type]]</span>
-                <p>[[card.description]]</p>
-                <div class="card-links" hidden$="[[!card.screenshotUrl]]">
-                  <span class="card-title">Press resources:</span>
-                  <div class="card-links-full">
-                    <a href="[[card.screenshotUrl]]" class$="card-dl" target="_blank">
-                      Still Screenshot <span>(PNG file)</span>
-                    </a>
-                  </div>
-                </div>
+
+            <info-card hidden$="[[_computeHidden(filter, 'android')]]"
+                image="[[_computeInfoCardImage(card.key, 'app')]]"
+                opens="[[card.opens]]"
+                type="[[card.type]]">
+              <div slot="title">[[card.title]]</div>
+              <p>[[card.description]]</p>
+              <div class="card-links" hidden$="[[!card.screenshotUrl]]">
+                <span class="card-title">Press resources</span>
+                <a href="[[card.screenshotUrl]]" target="_blank">
+                  Still Screenshot <span>(PNG file)</span>
+                </a>
               </div>
-            </div>
+            </info-card>
+
           </template>
         </div>
       </div>
@@ -292,11 +281,6 @@ specific language governing permissions and limitations under the License.
       return parts.indexOf(filter) === -1;
     },
 
-    _computeAndroidCardStyle: function(key) {
-      var url = this.resolveUrl('img/app_' + key + '.png');
-      return 'background-image: url(' + url + ')';
-    },
-
     _onFilterClick: function(ev) {
       var filter = ev.target.dataset['filter'];
       if (filter !== undefined) {
@@ -308,32 +292,13 @@ specific language governing permissions and limitations under the License.
       return a === b ? 'active' : '';
     },
 
-    _computeOrd: function(n) {
-      var off = +n % 10;
-      if (off === 1) {
-        return 'st';
-      } else if (off === 2) {
-        return 'nd';
-      } else if (off === 3) {
-        return 'rd';
-      } else {
-        return 'th';
-      }
-    },
-
-    _computeUnlockedUrlFor: function(scene, locked) {
-      if (locked) {
+    _computeInfoCardImage: function(sceneName, opt_mode) {
+      if (!sceneName) {
         return null;
+      } else if (opt_mode === 'app') {
+        return this.resolveUrl('img/app_' + sceneName + '.png');
       }
-      return this.urlFor(scene);
-    },
-
-    _computeCardBackgroundStyle: function(sceneName) {
-      if (sceneName) {
-        var url = this.resolveUrl('../../images/scenes/' + sceneName + '_2x.png');
-        return 'background-image: url(' + url + ')';
-      }
-      return null;
+      return this.resolveUrl('../../images/scenes/' + sceneName + '_2x.png');
     },
 
   });

@@ -25,7 +25,7 @@ app.Models = [
   {
     'key': 'codeboogie',
     'title': 'Code Boogie',
-    'opens': '1',
+    'opens': 1,
     'type': 'Play',
     'filter': 'education computerscience',
     'description': 'The elves are back to coding practice, while mixing in their dancing skills. Use code to choreograph the elves\' dances - but watch out, as you get better, the dances get harder!',
@@ -47,7 +47,7 @@ app.Models = [
   {
     'key': 'traditions',
     'title': 'Holiday Traditions',
-    'opens': '1',
+    'opens': 1,
     'type': 'Learn',
     'filter': 'education socialstudies geography',
     'description': 'From wearing a toque in Canada to sporting swim trunks in Australia, click the map pins to learn about holiday traditions around the globe.',
@@ -69,7 +69,7 @@ app.Models = [
   {
     'key': 'airport',
     'title': 'North Pole Airport',
-    'opens': '1',
+    'opens': 1,
     'type': 'Play',
     'filter': '',
     'description': 'It\'s arrival time! Elves land at the North Pole Airport (ELV) - check out the conveyor belt for surprises.',
@@ -91,7 +91,7 @@ app.Models = [
   {
     'key': 'presentbounce',
     'title': 'Present Bounce',
-    'opens': '1',
+    'opens': 1,
     'type': 'Play',
     'filter': '',
     'description': 'Get presents from A to B using springs, conveyer belts, and the laws of motion and energy.',
@@ -113,7 +113,7 @@ app.Models = [
   {
     'key': 'santasback',
     'title': 'Santa\'s Back',
-    'opens': '2',
+    'opens': 2,
     'type': 'Watch',
     'filter': '',
     'description': 'Santa needs to get ready to deliver presents again this year!',
@@ -135,7 +135,7 @@ app.Models = [
   {
     'key': 'translations',
     'title': 'Translations',
-    'opens': '3',
+    'opens': 3,
     'type': 'Learn',
     'filter': 'education language',
     'description': 'From Happy New Year in Elvish to Дед Мороз, learn the Santa lingo from around the world.',
@@ -156,8 +156,8 @@ app.Models = [
   },
   {
     'key': 'snowflake',
-    'title': 'Snowflake Cards',
-    'opens': '4',
+    'title': 'Code a Snowflake',
+    'opens': 4,
     'type': 'Play',
     'filter': 'education computerscience new',
     'description': 'Nothing says "Happy Holidays" like Rudolph on the beach. Create your own holiday card by programming your own snowflake, selecting one of many backgrounds, and share with your friends.',
@@ -179,7 +179,7 @@ app.Models = [
   {
     'key': 'codelab',
     'title': 'Code Lab',
-    'opens': '5',
+    'opens': 5,
     'type': 'Learn',
     'filter': 'education computerscience',
     'description': 'Use coding fundamentals to navigate the elf through the forest to find dropped presents.',
@@ -201,7 +201,7 @@ app.Models = [
   {
     'key': 'santaselfie',
     'title': 'Santa Selfie',
-    'opens': '6',
+    'opens': 6,
     'type': 'Play',
     'filter': '',
     'description': 'Give Santa a makeover by trimming, coloring, and decorating Santa\'s beard. Don\'t forget to take a selfie and share with friends when you\'re done!',
@@ -223,7 +223,7 @@ app.Models = [
   {
     'key': 'penguindash',
     'title': 'Penguin Dash',
-    'opens': '7',
+    'opens': 7,
     'type': 'Play',
     'filter': 'new',
     'description': 'Help a penguin 🐧 slide, jump and navigate icebergs to collect presents. But watch out and don\'t fall in the icy water!',
@@ -245,7 +245,7 @@ app.Models = [
   {
     'key': 'santasearch',
     'title': 'Santa Search',
-    'opens': '8',
+    'opens': 8,
     'type': 'Play',
     'filter': '',
     'description': 'Santa\'s wandering about, but the elves need him back in the North Pole. Can you help find him?',
@@ -267,7 +267,7 @@ app.Models = [
   {
     'key': 'seasonofgiving',
     'title': 'Season of Giving',
-    'opens': '9',
+    'opens': 9,
     'type': 'Learn',
     'filter': 'education socialstudies',
     'description': 'Google\'s Santa Tracker partnered with Google.org to connect kids of all ages with charities around the world. Decorate an ornament to print out and hang on your tree to show your support for Libraries Without Borders, Khan Academy, Code.org, and more.',
@@ -289,7 +289,7 @@ app.Models = [
   {
     'key': 'commandcentre',
     'title': 'Mission Control',
-    'opens': '10',
+    'opens': 10,
     'type': 'Play',
     'filter': '',
     'description': 'It\'s almost go time. The elves are hard at work preparing the every team is ready for the big day.',
@@ -311,7 +311,7 @@ app.Models = [
   {
     'key': 'gumball',
     'title': 'Gumball Tilt',
-    'opens': '11',
+    'opens': 11,
     'type': 'Play',
     'filter': '',
     'description': 'Need your holidays to be a bit sweeter? Tilt the candy canes to make the gumballs fall into the machine.',
@@ -333,7 +333,7 @@ app.Models = [
   {
     'key': 'jamband',
     'title': 'Elf Jamband',
-    'opens': '12',
+    'opens': 12,
     'type': 'Play',
     'filter': '',
     'description': 'Drag and drop musical elves on stage to create your own unique holiday jam.',
@@ -355,7 +355,7 @@ app.Models = [
   {
     'key': 'wrapbattle',
     'title': 'Wrap Battle',
-    'opens': '13',
+    'opens': 13,
     'type': 'Play',
     'filter': 'new',
     'description': 'Use your phone or computer with rhythm to keep Santa\'s elves\' \"wrapping\"!',
@@ -377,7 +377,7 @@ app.Models = [
   {
     'key': 'boatload',
     'title': 'Gift Slingshot',
-    'opens': '14',
+    'opens': 14,
     'type': 'Play',
     'filter': '',
     'description': 'Slingshot presents into boats as the elves transport the gifts through the North Pole.',
@@ -399,7 +399,7 @@ app.Models = [
   {
     'key': 'runner',
     'title': 'Reindeer Runner',
-    'opens': '15',
+    'opens': 15,
     'type': 'Play',
     'filter': 'new',
     'description': 'Help an elf and their trusty companion collect lost presents around the village.',
@@ -415,7 +415,7 @@ app.Models = [
   {
     'key': 'jetpack',
     'title': 'Elf Jetpack',
-    'opens': '16',
+    'opens': 16,
     'type': 'Play',
     'filter': '',
     'description': 'Fly the elf through the air to collect falling presents - who knows, it might be yours.',
@@ -437,7 +437,7 @@ app.Models = [
   {
     'key': 'carpool',
     'title': 'Elf Car',
-    'opens': '17',
+    'opens': 17,
     'type': 'Watch',
     'filter': '',
     'description': 'A small car zooms through the village, arriving at the factory. One elf gets out, then another, then another...',
@@ -459,7 +459,7 @@ app.Models = [
   {
     'key': 'briefing',
     'title': 'Mrs. Claus\' Briefing',
-    'opens': '18',
+    'opens': 18,
     'type': 'Play',
     'filter': '',
     'description': 'Mrs. Claus briefs Santa and the team as they prepare for the big day.',
@@ -481,7 +481,7 @@ app.Models = [
   {
     'key': 'presentdrop',
     'title': 'Present Drop',
-    'opens': '19',
+    'opens': 19,
     'type': 'Play',
     'filter': '',
     'description': 'It\'s target practice time! Position the elf to hit presents so they make it down the chimney.',
@@ -503,7 +503,7 @@ app.Models = [
   {
     'key': 'mercator',
     'title': 'Map Quiz',
-    'opens': '20',
+    'opens': 20,
     'type': 'Learn',
     'filter': 'education geography',
     'description': 'Santa\'s got a lot of places to go. Match the outline of a country to the map in this geography game.',
@@ -525,7 +525,7 @@ app.Models = [
   {
     'key': 'racer',
     'title': 'Rudolph Racer',
-    'opens': '21',
+    'opens': 21,
     'type': 'Play',
     'filter': '',
     'description': 'On your marks, get set, go! Race with Rudolph through the forest to collect presents the elves have dropped.',
@@ -547,7 +547,7 @@ app.Models = [
   {
     'key': 'matching',
     'title': 'Memory Match',
-    'opens': '22',
+    'opens': 22,
     'type': 'Play',
     'filter': '',
     'description': 'Where\'d that tree go? Test your memory skills in this holiday game.',
@@ -569,7 +569,7 @@ app.Models = [
   {
     'key': 'liftoff',
     'title': 'Santa\'s Takeoff',
-    'opens': '23',
+    'opens': 23,
     'type': 'Watch',
     'filter': '',
     'description': 'It\'s almost C-day! Santa and team make the final preparations for the big night - but something always goes wrong at the last minute.',
@@ -594,7 +594,8 @@ app.AndroidModels = [
   {
     'key': 'presentquest',
     'title': 'Present Quest',
-    'type': 'Play',
+    'opens': 0,
+    'type': 'Android',
     'filter': 'android',
     'description': 'Oh no! Presents have fallen off the sleighs on their way to the North Pole. Santa needs your help to recover presents with your phone out in the real world.',
     'screenshotUrl': null,
@@ -602,7 +603,8 @@ app.AndroidModels = [
   {
     'key': 'cityquiz',
     'title': 'City Quiz',
-    'type': 'Play',
+    'opens': 0,
+    'type': 'Android',
     'filter': 'android',
     'description': 'Show off your globe trotting status by recognizing cities around the world by using scenic photos.',
     'screenshotUrl': null,
@@ -610,7 +612,8 @@ app.AndroidModels = [
   {
     'key': 'penguinswim',
     'title': 'Penguin Swim',
-    'type': 'Play',
+    'opens': 0,
+    'type': 'Android',
     'filter': 'android',
     'description': 'Penguins are some of the best swimmers in the north pole! Help Santa\'s favorite penguin swim through the ice filled waters and see how far you can get.',
     'screenshotUrl': null,
@@ -618,7 +621,8 @@ app.AndroidModels = [
   {
     'key': 'snowball',
     'title': 'Snowball Run',
-    'type': 'Play',
+    'opens': 0,
+    'type': 'Android',
     'filter': 'android',
     'description': 'Did you know elves have to train to get in shape for the big day? See if you can outpace Santa\'s helpers while also avoiding a rolling snowball.',
     'screenshotUrl': null,
