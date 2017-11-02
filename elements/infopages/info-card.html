@@ -1,0 +1,209 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<!--
+Reusable card showing information about a scene or other item. Used by info scenes.
+-->
+<dom-module id="info-card">
+<template>
+  <style>
+
+  #card {
+    border-radius: var(--info-card-border-radius, 5px);
+    background: #fff;
+    box-shadow: 0 3px 5px var(--info-card-shadow-color, #ddd);
+    overflow: hidden;
+    text-align: left;
+    will-change: transform;  /* force layer */
+    transform: translateZ(0);
+  }
+
+  #background {
+    background: transparent center/cover no-repeat;
+    border-radius: inherit;
+    color: #fff;
+    height: 265px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #lock {
+    background: rgba(0, 172, 193, .8) 50% 55% no-repeat;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAkpJREFUeNrtmz1Ow0AQhX2EPQJHyBHc0JuewoegJz2HWAlRUbAHoAgVrQUNDQegIkcYdpSNZDm2Y9i3P4N3pJGixGvnfR6PPevZqgps9HBZW99aN9Y763TGO7ctj6kraWb/tLLeOhEEcuP2qXIWvrGugaKnXGcVGS7EdxGED32XFIQLdZ1A+FhEqNjiG+v7DMQfnf9LE0u8zkj4STSEDvkuY/H926haq3g8BCd+L0h8Py9c5HXmzTXRxxPR9yedGH/Hv/E2uUQCVDyLW2q8LRBC2mz/eDV+xs8Zj+GxKe4O7j6fTnwYCE38pDcV9l9vRK93RM83B+fP/F3Yy2G/KB/AQp+T2Zix2Kkx/NuY4RKjXlLYhEt6c+LnIGCTYj0HAFfVDa99DvGlY4eXA+8LWEWGP/vsfzn7c1GAfUjahC1yOHMPjZPd0vG8bVgAeizzU1AAMccvc9UH0MIP4CsgPIC2D8CsEIDpA6AVAiBM9n+/p2TGx/Z9JnAvIHDJLrb5Adj6Xf/yARj/ml82gK6CJztZAKgASAaAC5yX24P7TJqIBcDCj/vgz6sDgLqb/AsAyP0UAAXArwF0KwbQ+ZfCsgEYv2JIPoCtfzksG0DtPyEi+EEIMyUm91HYYCZF5RZDLWZaXC4AhXkxIhOAnmp1XQuAGvdyVB6AHfb1uLxp8VpyJ2j4XiHBfYGYFhlok1Re3vynpug4TdTC+oOxjZJCm6TxTdPccCy4WVqVdvmyYKIsmSmLpsqyubJwMh6IWEtnN2XxtKDV5Fkvn/8BKSwdTo1I5NQAAAAASUVORK5CYII=');
+    background-size: 10% auto;
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: 30px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+
+  span#unlock {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  span#unlock-day {
+    font-family: 'Lobster', sans-serif;
+    font-size: 30px;
+  }
+
+  #info {
+    color: #546e7a;
+    padding: 25px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 22px;
+  }
+
+  h5 {
+    margin: 0;
+    color: #90a4ae;
+    font: inherit;
+  }
+
+  a {
+    text-decoration: none;
+    position: relative;
+    display: block;
+  }
+
+  a:focus {
+    outline: none;
+  }
+
+  a:focus::after {
+    content: '';
+    border: 4px solid black;
+    opacity: 0.33;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  </style>
+
+  <div id="card">
+    <a href$="[[_computeHref(href, locked)]]">
+      <div id="background" style$="[[_computeCardStyle(image)]]">
+        <template is="dom-if" if="[[locked]]">
+          <div id="lock">
+            <span id="unlock">Unlocks December</span>
+            <span id="unlock-day">[[_dayOfMonth(opens)]]</span>
+          </div>
+        </template>
+      </div>
+    </a>
+    <div id="info">
+      <h4><slot name="title"></slot></h4>
+      <h5>[[_computeInfo(opens, type)]]</h5>
+      <slot></slot>
+    </div>
+  </div>
+
+</template>
+<script>
+Polymer({
+  is: 'info-card',
+
+  properties: {
+
+    /**
+     * The day within December that this scene opens. Zero for always open, null for not openable.
+     */
+    opens: {
+      type: Number,
+      value: null,
+    },
+
+    /**
+     * Whether this scene is locked.
+     */
+    locked: {
+      type: Boolean,
+      value: false,
+    },
+
+    /**
+     * The URL to link to. Will be clickable if unlocked.
+     */
+    href: {
+      type: String,
+      value: null,
+    },
+
+    /**
+     * The type of scene, if any.
+     */
+    type: {
+      type: String,
+      value: null,
+    },
+
+  },
+
+  _computeHref: function(href, locked) {
+    if (locked) {
+      return null;
+    }
+    return href;
+  },
+
+  _computeCardStyle: function(image) {
+    if (!image) {
+      return null;
+    }
+    return 'background-image: url(' + image + ')';
+  },
+
+  _computeInfo: function(opens, type) {
+    const parts = [];
+
+    if (+opens === opens) {
+      if (opens <= 0) {
+        parts.push('Open all December')
+      } else if (opens <= 31) {
+        parts.push('Opens December ' + this._dayOfMonth(opens))
+      }
+    }
+
+    type && parts.push(type);  // nb. this is passed titlecase
+    return parts.join(' • ');
+  },
+
+  _dayOfMonth: function(n) {
+    switch (+n % 10) {
+    case 1:
+      return n + 'st';
+    case 2:
+      return n + 'nd';
+    case 3:
+      return n + 'rd';
+    }
+    return n + 'th';
+  },
+
+});
+</script>
+</dom-module>
