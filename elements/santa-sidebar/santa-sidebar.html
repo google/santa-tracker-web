@@ -27,7 +27,7 @@ specific language governing permissions and limitations under the License.
   <style include="santa-sidebar_module"></style>
 
   <santa-strings strings="{{_strings}}"></santa-strings>
-  <santa-state language="{{_language}}" during-tracker="{{_duringTracker}}"></santa-state>
+  <santa-state language="{{_language}}" during-tracker="{{_duringTracker}}" holiday-season="{{_holidaySeason}}"></santa-state>
 
   <div class="cards">
     <a href$="[[urlFor('village')]]">
@@ -112,10 +112,10 @@ specific language governing permissions and limitations under the License.
       <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
     </h2>
     <ul>
-      <li><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
-      <li><a target="_blank" href$="[[localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')]]">
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')]]">
         <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
       <li><a target="_blank" href$="[[localizeUrl('https://www.google.com/policies/')]]">
