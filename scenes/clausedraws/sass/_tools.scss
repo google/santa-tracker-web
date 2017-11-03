@@ -409,9 +409,9 @@ $stamp-names: "bow", "present", "bauble";
   [data-tool-category="eraser"],
   [data-tool-category="spray"] {
     .Tool {
-      background-position: center top;
+      background-position: center -10%;
       background-repeat: no-repeat;
-      background-size: 200%;
+      background-size: 40%;
     }
   }
 
@@ -438,7 +438,11 @@ $stamp-names: "bow", "present", "bauble";
     }
 
     &--crayon {
-      background-image: url(img/tools/tool_crayon_red.svg);
+      @each $current-color in $colorpicker-colors {
+        &[data-tool-color="##{$current-color}"] {
+          background-image: url(img/tools/crayon/#{$current-color}.svg);
+        }
+      }
     }
 
     &--marker {
@@ -474,7 +478,7 @@ $stamp-names: "bow", "present", "bauble";
     }
 
     &.Tool--crayon {
-      background-image: url(img/tools/tool_crayon_tray.svg);
+      background-image: url(img/tools/crayon/tray.svg);
     }
 
     &.Tool--marker {
@@ -574,8 +578,14 @@ $stamp-names: "bow", "present", "bauble";
     background-image: url(img/tools/tool_pencil_regular.svg);
   }
 
-  [data-tool-hover-tool="crayon"] .Tool-hover-inactive .Tool-hover-minitool {
-    background-image: url(img/tools/tool_crayon_red.svg);
+  [data-tool-hover-tool="crayon"] {
+    @each $current-color in $colorpicker-colors {
+      &[data-tool-color="##{$current-color}"] {
+        .Tool-hover-inactive .Tool-hover-minitool {
+          background-image: url(img/tools/crayon/#{$current-color}.svg);
+        }
+      }
+    }
   }
 
   [data-tool-hover-tool="marker"] .Tool-hover-inactive .Tool-hover-minitool {
