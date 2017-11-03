@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="educators-scene_module.html">
 
 <link rel="import" href="../../elements/infopages/info-card.html">
+<link rel="import" href="../../elements/infopages/info-chooser.html">
 
 <link rel="import" href="../press/models.html">
 
@@ -45,17 +46,10 @@ specific language governing permissions and limitations under the License.
     <div id="educators-secondary">
       <div class="educators-secondary-inner">
         <h2>Games for the classroom</h2>
-        <div class="educators-card-tabs" on-click="_onFilterClick">
-          <button class$="[[_computeActive(filter, 'education')]]" data-filter="education">View All</button>
-          <button class$="[[_computeActive(filter, 'geography')]]" data-filter="geography">Geography</button>
-          <button class$="[[_computeActive(filter, 'computerscience')]]" data-filter="computerscience">Computer Science</button>
-          <button class$="[[_computeActive(filter, 'language')]]" data-filter="language">Language</button>
-          <button class$="[[_computeActive(filter, 'socialstudies')]]" data-filter="socialstudies">Social Studies</button>
-        </div>
 
-        <div class="educators-card-container">
+        <info-chooser choices="geography computerscience language socialstudies">
           <template is="dom-repeat" items="[[cards]]" as="card">
-            <info-card hidden$="[[_computeHidden(filter, card.filter)]]"
+            <info-card filter$="[[card.filter]]"
                 image="[[_computeInfoCardImage(card.key)]]"
                 opens="[[card.opens]]"
                 locked="[[card.locked]]"
@@ -65,7 +59,7 @@ specific language governing permissions and limitations under the License.
               <p>[[card.description]]</p>
             </info-card>
           </template>
-        </div>
+        </info-chooser>
       </div>
     </div>
 
@@ -176,10 +170,6 @@ specific language governing permissions and limitations under the License.
   </div>
 </template>
 <script>
-// Note! The educators page is a copy of the press page, made in late 2016. It shares various
-// resources, including the JS itself (to provide the model). Future engineers may want to merge
-// its logic/display code with the press page.
-
   Polymer({
     is: 'educators-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -187,10 +177,6 @@ specific language governing permissions and limitations under the License.
     properties: {
       scene: Object,
       cards: Array,
-      filter: {
-        type: String,
-        value: 'education',
-      },
     },
 
     onPreload: function() {
@@ -210,6 +196,8 @@ specific language governing permissions and limitations under the License.
     },
 
     ready: function() {
+      const spaceRe = /\s+/;
+
       this.scene = new scenes.press.Scene();
       this.cards = this.scene.getModels(function(key) {
         var locked = santaApp.sceneIsOpen(key) === false;
@@ -217,26 +205,10 @@ specific language governing permissions and limitations under the License.
           locked = true;
         }
         return locked;
+      }).filter(function(card) {
+        // pre-filter to education cards only
+        return card.filter.split(spaceRe).indexOf('education') !== -1;
       });
-    },
-
-    _computeHidden: function(filter, card) {
-      if (!filter) {
-        return false;
-      }
-      var parts = card.split(' ');
-      return parts.indexOf(filter) === -1;
-    },
-
-    _onFilterClick: function(ev) {
-      var filter = ev.target.dataset['filter'];
-      if (filter !== undefined) {
-        this.filter = filter;
-      }
-    },
-
-    _computeActive: function(a, b) {
-      return a === b ? 'active' : '';
     },
 
     _computeInfoCardImage: function(sceneName) {

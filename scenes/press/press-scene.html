@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="press-scene_module.html">
 
 <link rel="import" href="../../elements/infopages/info-card.html">
+<link rel="import" href="../../elements/infopages/info-chooser.html">
 
 <link rel="import" href="models.html">
 
@@ -96,17 +97,11 @@ specific language governing permissions and limitations under the License.
     <div id="press-secondary">
       <div class="press-secondary-inner">
         <h2>All the fun and games</h2>
-        <div class="press-card-tabs" on-click="_onFilterClick">
-          <button class$="[[_computeActive(filter, '')]]" data-filter="">View All</button>
-          <button class$="[[_computeActive(filter, 'education')]]" data-filter="education">Education Focused</button>
-          <button class$="[[_computeActive(filter, 'android')]]" data-filter="android">Android</button>
-          <button class$="[[_computeActive(filter, 'new')]]" data-filter="new">New this year</button>
-        </div>
 
-        <div class="press-card-container">
+        <info-chooser choices="education android new" value="education">
           <template is="dom-repeat" items="[[cards]]" as="card">
 
-            <info-card hidden$="[[_computeHidden(filter, card.filter)]]"
+            <info-card filter$="[[card.filter]]"
                 image="[[_computeInfoCardImage(card.key)]]"
                 opens="[[card.opens]]"
                 locked="[[card.locked]]"
@@ -134,7 +129,7 @@ specific language governing permissions and limitations under the License.
           </template>
           <template is="dom-repeat" items="[[androidCards]]" as="card">
 
-            <info-card hidden$="[[_computeHidden(filter, 'android')]]"
+            <info-card filter$="[[card.filter]]"
                 image="[[_computeInfoCardImage(card.key, 'app')]]"
                 opens="[[card.opens]]"
                 type="[[card.type]]">
@@ -149,7 +144,8 @@ specific language governing permissions and limitations under the License.
             </info-card>
 
           </template>
-        </div>
+
+        </info-chooser>
       </div>
     </div>
 
@@ -224,10 +220,6 @@ specific language governing permissions and limitations under the License.
       scene: Object,
       cards: Array,
       androidCards: Array,
-      filter: {
-        type: String,
-        value: 'education',
-      },
     },
 
     onPreload: function() {
@@ -271,25 +263,6 @@ specific language governing permissions and limitations under the License.
         }
         return locked;
       });
-    },
-
-    _computeHidden: function(filter, card) {
-      if (!filter) {
-        return false;
-      }
-      var parts = card.split(' ');
-      return parts.indexOf(filter) === -1;
-    },
-
-    _onFilterClick: function(ev) {
-      var filter = ev.target.dataset['filter'];
-      if (filter !== undefined) {
-        this.filter = filter;
-      }
-    },
-
-    _computeActive: function(a, b) {
-      return a === b ? 'active' : '';
     },
 
     _computeInfoCardImage: function(sceneName, opt_mode) {

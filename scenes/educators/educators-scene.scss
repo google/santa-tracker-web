@@ -189,59 +189,19 @@ ul {
     color: #607D8B;
   }
 
+  h2 {
+    margin-bottom: 25px;
+  }
+
   p.educators-secondary-intro {
     font-size: 16px;
     line-height: 24px;
-  }
-
-  .educators-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    &.center {
-      justify-content: center;
-    }
-  }
-
-  .educators-card {
-    width: calc(33% - 30px);
-
-    .educators-card-img {
-      height: 175px;
-    }
   }
 
   .educators-secondary-inner {
     margin: 0 auto;
     overflow: auto;
     width: 1010px;
-
-    .educators-card-tabs {
-      padding-bottom: 50px;
-
-      button {
-        font: inherit;
-        border: none;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 20px;
-        position: relative;
-        text-transform: uppercase;
-        z-index: 1;
-        display: inline-block;
-        border-radius: 8px;
-        background: transparent;
-        color: #9575CD;
-
-        &.active {
-          background: #9575CD;
-          color: white;
-        }
-      }
-    }
   }
 }
 
