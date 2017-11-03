@@ -1,5 +1,6 @@
 $stamp-names: "bow", "present", "bauble";
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
+$scene-names: "snowbg", "snowfg", "air", "airport", "beach", "dock", "iceberg", "livingroom", "snow", "underwater", "workshop";
 
 ##{$name} {
   .Tools {
@@ -436,6 +437,15 @@ $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
     }
   }
 
+  [data-tool-category="scene"] {
+    .Tool {
+      background-size: cover;
+      flex: 0 0 185px;
+      height: 70%;
+      margin-left: 30px;
+    }
+  }
+
   .Tool {
     cursor: pointer;
     height: 100%;
@@ -448,7 +458,12 @@ $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
           }
         }
       }
+    }
 
+    @each $current-scene in $scene-names {
+      &[data-tool="scene-#{$current-scene}"] {
+        background-image: url(img/scenes/#{$current-scene}.png);
+      }
     }
 
     &--eraser {

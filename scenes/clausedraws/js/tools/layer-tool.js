@@ -26,11 +26,11 @@ goog.require('app.Tool');
  * @param {string} name The name of the tool.
  * @param {app.LayerTool.Layer} layer The layer this tool changes
  */
-app.LayerTool = function($elem, name, layer, image) {
-  app.Tool.call(this, $elem, name);
+app.LayerTool = function($elem, name, layer) {
+  app.Tool.call(this, $elem, 'scene-' + name);
 
   this.soundKey = 'selfie_color';
-  this.image = image;
+  this.image = $elem.find('#scene-' + name)[0];
 
   if (layer == app.LayerTool.Layer.BACKGROUND) {
     this.canvas = $elem.find('#back-canvas')[0];
