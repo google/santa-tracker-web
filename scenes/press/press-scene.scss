@@ -251,50 +251,10 @@ ul {
     margin-bottom: 25px;
   }
 
-  .press-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .press-card {
-    width: calc(33% - 30px);
-
-    .press-card-img {
-      height: 175px;
-    }
-  }
-
   .press-secondary-inner {
     margin: 0 auto;
     overflow: auto;
     width: 1010px;
-
-    .press-card-tabs {
-      padding-bottom: 50px;
-
-      button {
-        font: inherit;
-        border: none;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 20px;
-        position: relative;
-        text-transform: uppercase;
-        z-index: 1;
-        display: inline-block;
-        border-radius: 8px;
-        background: transparent;
-        color: #9575CD;
-
-        &.active {
-          background: #9575CD;
-          color: white;
-        }
-      }
-    }
   }
 }
 
