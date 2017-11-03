@@ -1,4 +1,5 @@
 $stamp-names: "bow", "present", "bauble";
+$drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 
 ##{$name} {
   .Tools {
@@ -433,20 +434,15 @@ $stamp-names: "bow", "present", "bauble";
     cursor: pointer;
     height: 100%;
 
-    &--pen {
-      background-image: url(img/tools/tool_pencil_regular.svg);
-    }
-
-    &--crayon {
-      @each $current-color in $colorpicker-colors {
-        &[data-tool-color="##{$current-color}"] {
-          background-image: url(img/tools/crayon/#{$current-color}.svg);
+    @each $current-tool in $drawing-tools {
+      &--#{$current-tool} {
+        @each $current-color in $colorpicker-colors {
+          &[data-tool-color="##{$current-color}"] {
+            background-image: url(img/tools/#{$current-tool}/#{$current-color}.svg);
+          }
         }
       }
-    }
 
-    &--marker {
-      background-image: url(img/tools/tool_marker_green.svg);
     }
 
     &--eraser {
@@ -473,16 +469,10 @@ $stamp-names: "bow", "present", "bauble";
   }
 
   .Tool--selected {
-    &.Tool--pen {
-      background-image: url(img/tools/tool_pencil_tray.svg);
-    }
-
-    &.Tool--crayon {
-      background-image: url(img/tools/crayon/tray.svg);
-    }
-
-    &.Tool--marker {
-      background-image: url(img/tools/tool_marker_tray.svg);
+    @each $current-tool in $drawing-tools {
+      &.Tool--#{$current-tool} {
+        background-image: url(img/tools/#{$current-tool}/tray.svg);
+      }
     }
   }
 
@@ -574,22 +564,16 @@ $stamp-names: "bow", "present", "bauble";
     }
   }
 
-  [data-tool-hover-tool="pen"] .Tool-hover-inactive .Tool-hover-minitool {
-    background-image: url(img/tools/tool_pencil_regular.svg);
-  }
-
-  [data-tool-hover-tool="crayon"] {
-    @each $current-color in $colorpicker-colors {
-      &[data-tool-color="##{$current-color}"] {
-        .Tool-hover-inactive .Tool-hover-minitool {
-          background-image: url(img/tools/crayon/#{$current-color}.svg);
+  @each $current-tool in $drawing-tools {
+    [data-tool-hover-tool="#{$current-tool}"] {
+      @each $current-color in $colorpicker-colors {
+        &[data-tool-color="##{$current-color}"] {
+          .Tool-hover-inactive .Tool-hover-minitool {
+            background-image: url(img/tools/#{$current-tool}/#{$current-color}.svg);
+          }
         }
       }
     }
-  }
-
-  [data-tool-hover-tool="marker"] .Tool-hover-inactive .Tool-hover-minitool {
-    background-image: url(img/tools/tool_marker_green.svg);
   }
 
   [data-tool-hover-category="spray"] {

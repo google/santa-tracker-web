@@ -14,27 +14,27 @@
  * the License.
  */
 
-goog.provide('app.Pen');
+goog.provide('app.Paintbrush');
 goog.require('app.Constants');
 goog.require('app.Tool');
 goog.require('app.utils');
 
 
 /**
- * Pen tool
+ * Paintbrush tool
  * @constructor
  * @extends {app.Tool}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the color.
  */
-app.Pen = function($elem, name) {
+app.Paintbrush = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_color';
   this.points = [];
   this.dpr = 1;
 };
-app.Pen.prototype = Object.create(app.Tool.prototype);
+app.Paintbrush.prototype = Object.create(app.Tool.prototype);
 
 
 /**
@@ -46,7 +46,7 @@ app.Pen.prototype = Object.create(app.Tool.prototype);
  * @param  {!string} color  The current color setting
  * @return {boolean} Whether the canvas was changed
  */
-app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
+app.Paintbrush.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
     color) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
@@ -94,12 +94,12 @@ app.Pen.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
 /**
  * Resets the pen path
  */
-app.Pen.prototype.reset = function() {
+app.Paintbrush.prototype.reset = function() {
   this.points = [];
 }
 
 
-app.Pen.prototype.calculateDrawSize = function(size) {
+app.Paintbrush.prototype.calculateDrawSize = function(size) {
   return app.utils.map(size, app.Constants.PEN_MIN,
       app.Constants.PEN_MAX);
 }

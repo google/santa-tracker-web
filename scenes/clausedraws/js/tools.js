@@ -19,7 +19,8 @@ goog.require('app.Crayon');
 goog.require('app.Eraser');
 goog.require('app.LayerTool');
 goog.require('app.Marker');
-goog.require('app.Pen');
+goog.require('app.Paintbrush');
+goog.require('app.Pencil');
 goog.require('app.Slider');
 goog.require('app.SprayColor');
 goog.require('app.SprinkleSpray');
@@ -57,9 +58,10 @@ app.Tools = function(game, $elem) {
   this.subcategoryPickers.on('click.clausedraws touchend.clausedraws', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.clausedraws touchend.clausedraws', this.onNavClick_.bind(this));
 
-  this.pen = new app.Pen($elem, 'pen');
+  this.pencil = new app.Pencil($elem, 'pencil');
   this.crayon = new app.Crayon($elem, 'crayon');
   this.marker = new app.Marker($elem, 'marker');
+  this.paintbrush = new app.Paintbrush($elem, 'paintbrush');
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
   this.snowbg = new app.LayerTool($elem, 'scene-snowbg', app.LayerTool.Layer.BACKGROUND, $elem.find('#snowbg')[0]);
@@ -70,9 +72,10 @@ app.Tools = function(game, $elem) {
   this.stampPresent = new app.Stamp($elem, 'present');
 
   this.tools = [
-    this.pen,
+    this.pencil,
     this.crayon,
     this.marker,
+    this.paintbrush,
     this.spray,
     this.sprinkles,
     this.snowbg,
