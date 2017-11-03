@@ -152,14 +152,18 @@ app.Tools.prototype.selectTool_ = function(e) {
     }
   })[0];
 
-  if (this.selectedTool && this.selectedTool != previousTool) {
+  if (this.selectedTool) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
       this.selectedTool = null;
     } else {
-      var coords = this.game_.mouse.coordinates();
-      this.selectedTool.select(coords);
-      this.sliderChanged(this.game_.slider.size);
+      if (this.selectedTool != previousTool) {
+        var coords = this.game_.mouse.coordinates();
+        this.selectedTool.select(coords);
+        this.sliderChanged(this.game_.slider.size);
+      } else {
+        this.selectedTool = null;
+      }
     }
 
     if (app.shared.utils.touchEnabled) {
