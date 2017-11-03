@@ -172,12 +172,20 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryMenu = this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]');
 
   if (this.currentCategory && this.currentCategory == categoryName) {
-    if (this.secondaryMenuActive && app.shared.utils.touchEnabled) {
-      if (!this.selectedTool) {
-        categoryPicker.toggleClass('is-active');
+    if (app.shared.utils.touchEnabled) {
+      if (this.secondaryMenuActive) {
+        if (!this.selectedTool) {
+          categoryPicker.toggleClass('is-active');
+        }
+        this.secondaryMenu.toggleClass('is-active');
       }
 
-      this.secondaryMenu.toggleClass('is-active');
+      if (categoryName == 'eraser') {
+        categoryPicker.removeClass('is-active');
+        this.currentCategory = null;
+        this.selectedTool.deselect();
+        this.selectedTool = null;
+      }
     }
 
     return;
