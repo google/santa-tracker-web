@@ -40,12 +40,12 @@ games. Clickable to dismiss/hide.
 
 const spaceRe = /\s+/;
 
-function identity(s) {
-  return s;
-}
-
 function splitParts(s) {
-  return s.split(spaceRe).map(identity);
+  var out = s.split(spaceRe);
+  if (out[0] === '') {
+    out.shift();
+  }
+  return out;
 }
 
 Polymer({
@@ -152,36 +152,26 @@ Polymer({
   },
 
   _activeChanged: function(active) {
-    this.$.outer.hidden = true;
-
     const i = this.$.image;
     const v = this.$.video;
 
-    // aggressively revoke used object URLs
+    // aggressively clear images/canvas
     v.removeAttribute('src');
     i.removeAttribute('src');
     i.className = '';
     i.hidden = true;
     this.$.canvas.width = this.$.canvas.width;  // clear
+    this.$.outer.hidden = true;
 
-    if (!active) {
-      return;
-    }
-
-    const prefix = active.split('-', 2)[0];
-
-    switch (prefix) {
-    case 'video':
-      v.src = this.resolveUrl('img/' + active + '.mp4');
-      break;
-
-    case 'gif':
-      i.src = this.resolveUrl('img/' + active + '.gif');
-      break;
-
-    default:
-      i.src = this.resolveUrl('img/' + active + '.svg');
-      break;
+    // set new image/video
+    if (active) {
+      const resolved = this.resolveUrl('img/' + active);
+      const suffix = active.substring(active.lastIndexOf('.'));
+      if (suffix === '.mp4') {
+        v.src = resolved;
+      } else {
+        i.src = resolved;
+      }
     }
   },
 
@@ -189,7 +179,7 @@ Polymer({
     this.$.outer.hidden = false;  // onload means we were made visible
 
     const i = this.$.image;
-    i.hidden = false;
+    i.hidden = false;  // we MUST make the image visible before calling getBoundingClientRect
 
     const bounds = i.getBoundingClientRect();
     const steps = Math.max(1, Math.round(bounds.width / 275));
@@ -227,7 +217,7 @@ Polymer({
     // to fit. We may need to do the same again.
     const width = Math.min(v.videoWidth, c.width);
     const height = (width / v.videoWidth) * v.videoHeight;
-    context.drawImage(this.$.video, (c.width - width) / 2, (c.height - height) / 2, width, height);
+    context.drawImage(v, (c.width - width) / 2, (c.height - height) / 2, width, height);
   },
 
 });

@@ -11,8 +11,8 @@ video {
   position: fixed;
   left: 50%;
   top: 50%;
-  margin-left: -($tutorial-width / 2);
-  margin-top: -($tutorial-height / 2);
+  margin-left: -(floor($tutorial-width / 2));  // show on whole pixels only
+  margin-top: -(floor($tutorial-height / 2));
   width: $tutorial-width;
   height: $tutorial-height;
 }
