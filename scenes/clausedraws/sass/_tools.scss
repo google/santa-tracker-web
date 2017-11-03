@@ -373,6 +373,12 @@ $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
       }
     }
 
+    &--scene {
+      .Category-inner {
+        background: url(img/tools/tool_scene.svg) center / contain no-repeat;
+      }
+    }
+
     &--sticker {
       .Category-inner {
         background: url(img/tools/tool_sticker.svg) center / contain no-repeat;

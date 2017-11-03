@@ -36,6 +36,13 @@
     box-shadow: 2px 4px 0 #F0932A, 5px 7px rgba(0,0,0,0.16);
   }
 
+  .Button--explosion {
+    background-image: url(img/tools/tool_explosion.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+  }
+
   .Button--reset {
     background-image: url(img/icons/reset.svg);
     background-position: 50% 50%;
