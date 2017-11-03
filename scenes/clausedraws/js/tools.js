@@ -152,7 +152,7 @@ app.Tools.prototype.selectTool_ = function(e) {
     }
   })[0];
 
-  if (this.selectedTool) {
+  if (this.selectedTool && this.selectedTool != previousTool) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
       this.selectedTool = null;
