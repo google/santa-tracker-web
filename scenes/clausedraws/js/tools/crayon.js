@@ -31,8 +31,8 @@ app.Crayon = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_color';
-  this.points = [];
-  this.dpr = 1;
+
+  this.lastPoint = null;
 };
 app.Crayon.prototype = Object.create(app.Tool.prototype);
 
@@ -51,43 +51,35 @@ app.Crayon.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
+  var drawWidth = this.currentSize;
+  var drawHeight = this.currentSize;
+  var offsetX = this.currentSize / 2;
+  var offsetY = this.currentSize / 2;
+  var texture = this.elem.find('#crayon-' + color.substring(1))[0];
 
-  this.points.push({
-      x: drawX,
-      y: drawY
-    });
+  if (this.lastPoint) {
+    var distance = app.utils.distance(drawX - this.lastPoint.x,
+      drawY - this.lastPoint.y);
+    var angle = app.utils.angle(this.lastPoint.x, this.lastPoint.y, drawX,
+        drawY);
+    var count = 0;
+    for (var i = 0; i <= distance; i += this.currentSize / 5) {
+      x = this.lastPoint.x + (Math.sin(angle) * i);
+      y = this.lastPoint.y + (Math.cos(angle) * i);
 
-  if (this.points.length > 1) {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
-    context.lineJoin = 'round';
-    context.lineCap = 'round';
-    context.lineWidth = app.utils.map(size, app.Constants.PEN_MIN,
-        app.Constants.PEN_MAX);
-    context.strokeStyle = color;
-    var p1 = this.points[0];
-    var p2 = this.points[1];
-    context.beginPath();
-    context.moveTo(p1.x * this.dpr, p1.y * this.dpr);
-
-    for (var i = 0; i < this.points.length - 1; i++) {
-      p1 = this.points[i];
-      p2 = this.points[i + 1];
-      var midpoint = {
-        x: p1.x + (p2.x - p1.x) / 2,
-        y: p1.y + (p2.y - p1.y) / 2
-      };
-
-      context.quadraticCurveTo(
-        p1.x * this.dpr,
-        p1.y * this.dpr,
-        midpoint.x * this.dpr,
-        midpoint.y * this.dpr
-      );
+      context.save();
+      context.translate(x, y);
+      context.rotate(Math.random() * 2 * Math.PI);
+      context.drawImage(texture, -offsetX, -offsetY,
+          drawWidth, drawHeight);
+      context.restore();
     }
-
-    context.stroke();
+  } else {
+    context.drawImage(texture, drawX - offsetX,
+        drawY - offsetY, drawWidth, drawHeight);
   }
+
+  this.lastPoint = {x: drawX, y: drawY};
   return true;
 };
 
@@ -96,7 +88,7 @@ app.Crayon.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
  * Resets the pen path
  */
 app.Crayon.prototype.reset = function() {
-  this.points = [];
+  this.lastPoint = null;
 }
 
 

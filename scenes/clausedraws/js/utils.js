@@ -26,6 +26,10 @@ app.utils = function() {
       return Math.sqrt(x * x + y * y);
     },
 
+    angle: function(x1, y1, x2, y2) {
+      return Math.atan2(x2-x1, y2-y1);
+    },
+
     map: function(value, min, max) {
       return min + (max - min) * value;
     },
