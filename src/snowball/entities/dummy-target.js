@@ -14,23 +14,23 @@ export class DummyTarget extends Elf {
     return dummy;
   }
 
-  constructor() {
-    super();
+  constructor(size = 50) {
+    super(size);
 
     this.hitTarget = new Mesh(
-      new PlaneBufferGeometry(100, 100),
+      new PlaneBufferGeometry(size * 2, size * 2),
       new MeshBasicMaterial({
         color: 0xff0000,
-        opacity: 0,
+        opacity: 0.5,
+        visible: false,
         side: 2,
         transparent: true,
         wireframe: false
       }));
 
-    this.hitTarget.position.y += 40;
-    this.hitTarget.position.z -= 500;
+    this.hitTarget.position.z = 12;
 
-    this.collider = Rectangle.allocate(20, 60, this.position.clone());
+    this.collider = Rectangle.allocate(size * 0.4, size * 1.2, this.position);
 
     this.add(this.hitTarget);
   }
@@ -49,8 +49,8 @@ export class DummyTarget extends Elf {
 
   update(game) {
     // TODO(cdata): Need a better way to offset-position colliders.
-    this.collider.position.copy(this.position);
-    this.collider.position.y += 40;
+    //this.collider.position.copy(this.position);
+    //this.collider.position.y += 0.8 * this.size;
   }
 
   teardown(game) {

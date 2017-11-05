@@ -70,8 +70,8 @@ export class Game extends HTMLElement {
     this.camera.aspect = this.width / this.height;
     this.camera.left = -this.width / 2;
     this.camera.right = this.width / 2;
-    this.camera.top = -this.height / 2;
-    this.camera.bottom = this.height / 2;
+    this.camera.top = this.height / 2;
+    this.camera.bottom = -this.height / 2;
     this.camera.updateProjectionMatrix();
     this.camera.updateMatrixWorld();
 

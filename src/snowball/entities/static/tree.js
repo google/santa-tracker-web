@@ -1,5 +1,5 @@
 import { Entity } from '../../../engine/core/entity.js';
-import { Circle } from '../../../engine/utils/collision-2d.js';
+import { Circle, Rectangle } from '../../../engine/utils/collision-2d.js';
 
 const { Math } = self.THREE;
 
@@ -9,14 +9,15 @@ export class Tree extends Entity(class {}) {
 
     this.tileIndex = tileIndex;
     this.position = position;
-    this.position.y += 10;
+    this.position.y += 15;
     this.static = true;
     this.uuid = Math.generateUUID();
     this.collider = null;
   }
 
   setup(game) {
-    this.collider = Circle.allocate(16, this.position);
+    this.collider = Circle.allocate(14, this.position);
+    //this.collider = Rectangle.allocate(24, 32, this.position);
   }
 
   teardown(game) {

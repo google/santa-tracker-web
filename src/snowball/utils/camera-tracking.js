@@ -16,7 +16,11 @@ export class TetheredCameraTracker {
     const { width, height } = game;
 
     const delta = intermediateVector3;
-    delta.subVectors(this.target.position, this.camera.position);
+    // TODO(cdata): Need to address why the y axis of the camera is
+    // inverted relative to the gimbal. Flipping it here for now:
+    delta.copy(this.target.position);
+    delta.y *= -1;
+    delta.subVectors(delta, this.camera.position);
     delta.z = 0;
 
     const deltaLength = delta.length();

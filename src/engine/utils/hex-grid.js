@@ -52,6 +52,25 @@ export class HexGrid {
     this.width = width;
     this.height = height;
     this.cellSize = cellSize;
+
+    this.cellHeight = HexGrid.SQRT_THREE / 2 * cellSize;
+    this.pixelWidth = this.width * this.cellSize * 0.75 +
+        0.25 * this.cellSize;
+    this.pixelHeight = this.height * this.cellHeight + this.cellHeight * 0.5;
+  }
+
+  // UV conversions
+  uvToPixel(uv, pixel = new HexCoord()) {
+    const { x, y } = uv;
+
+    pixel.x = (x - 0.5 / this.width) * this.pixelWidth;
+    pixel.y = ((1.0 - y) - 0.5 / this.height) * this.pixelHeight;
+
+    return pixel;
+  }
+
+  uvToIndex(uv) {
+    return this.pixelToIndex(this.uvToPixel(uv, HexGrid.intermediateHexCoord));
   }
 
   // Pixel conversions
@@ -102,6 +121,26 @@ export class HexGrid {
         this.indexToCube(index, intermediateHexCoord));
   }
 
+  indexToPixel(index, pixel = new HexCoord()) {
+    const offset = this.indexToOffset(index, pixel);
+    pixel.multiplyScalar(this.cellSize);
+    return pixel;
+  }
+
+  indexToOffset(index, offset = new HexCoord()) {
+    return this.cubeToOffset(this.indexToCube(index, offset), offset);
+  }
+
+  indexToPosition(index, position = new HexCoord()) {
+    const pixel = this.indexToPixel(index, HexGrid.intermediateHexCoord);
+    const x = pixel.x - this.pixelWidth / 2;
+    const y = -pixel.y + this.pixelHeight / 2 + this.cellSize / 2 * 0.75;
+
+    position.set(x, y, 0);
+
+    return position;
+  }
+
   // Cube conversions
   cubeToIndex(cube) {
     return this.oddqToIndex(this.cubeToOddq(cube, intermediateHexCoord));
@@ -141,6 +180,18 @@ export class HexGrid {
         cube => this.cubeToIndex(cube));
   }
 
+  cubeToOffset(cube, offset = new HexCoord()) {
+    const scaleX = 0.5;
+    const scaleY = 0.5;
+    const { x, z } = cube;
+
+    offset.x = 0.5 + 1.5 * x * scaleX;
+    offset.y = 0.5 + (HexGrid.SQRT_THREE / 2 * x + HexGrid.SQRT_THREE * z) * scaleY;
+    offset.z = 0;
+
+    return offset;
+  }
+
   // Odd-Q conversions
   oddqToIndex(oddq) {
     const { q, r } = oddq;
@@ -171,6 +222,34 @@ export class HexGrid {
     cube.y = -cube.x - cube.z;
 
     return cube;
+  }
+
+  // Offset conversions
+  offsetToPosition(offset, position = new Vector3()) {
+    const x = offset.x * this.cellSize * 0.75 + 0.25 * this.cellSize -
+        this.pixelWidth / 2;
+    const y = -1 * offset.y * this.cellSize * 0.75 - 0.5 * this.cellSize +
+        this.pixelHeight / 2;
+
+    position.x = x;
+    position.y = y;
+    position.z = y;
+
+    return position;
+  }
+
+  // Position conversions
+  positionToIndex(position) {
+    const x = (position.x + this.pixelWidth / 2) / this.pixelWidth;
+    const y = (position.y + this.pixelHeight / 2) / this.pixelHeight;
+    const hexCoord = HexGrid.intermediateHexCoord;
+    console.log(position, x, y);
+
+    hexCoord.x = x;
+    hexCoord.y = y;
+    hexCoord.z = 0;
+
+    return this.uvToIndex(hexCoord);
   }
 
   // Rounding...
@@ -238,6 +317,8 @@ export class HexGrid {
         waypoints.push(this.cubeToIndex(cube));
       }
     }
+
+    console.log(fromIndex, toIndex, waypoints);
 
     return waypoints;
   }

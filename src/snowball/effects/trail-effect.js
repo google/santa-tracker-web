@@ -34,7 +34,7 @@ void main() {
   float elapsed = timeDelta / 700.0;
 
   float drop = 75.0 - sin(PI / 2.0 + PI / 2.0 * elapsed) * 75.0;
-  float size = 7.5 - elapsed * 5.0;
+  float size = 10.0 - elapsed * 7.5;
 
   gl_PointSize = 5.0 * size;
   gl_Position = projectionMatrix * modelViewMatrix *
@@ -111,6 +111,7 @@ export class TrailEffect extends Entity(class {}) {
     this.trailedObjects = [];
     this.uniforms = uniforms;
     this.layer = new Points(geometry, material);
+    this.layer.frustumCulled = false;
   }
 
   add(object) {

@@ -7,10 +7,11 @@ export class DummyTargetSystem {
   constructor() {
     this.dummies = [];
     this.dummyTargetLayer = new Object3D();
+    this.dummyTargetLayer.z -= 20.0;
   }
 
   update(game) {
-    while (this.dummies.length < 50) {
+    while (this.dummies.length < 10) {
       this.addDummyTarget(game);
     }
 
@@ -20,10 +21,10 @@ export class DummyTargetSystem {
   }
 
   addDummyTarget(game) {
-    const { collisionSystem, hexSystem } = game;
-    const { grid, hexLayer } = hexSystem;
+    const { collisionSystem, mapSystem } = game;
+    const { grid, map } = mapSystem;
 
-    const target = new DummyTarget();
+    const target = new DummyTarget(34);
 
     this.dummies.push(target);
     this.dummyTargetLayer.add(target);
@@ -41,10 +42,10 @@ export class DummyTargetSystem {
     let sprite;
 
     do {
-      index = Math.floor(Math.random() * hexLayer.tileCount);
-      state = hexLayer.getTileState(index);
-      sprite = hexLayer.getTileSprite(index);
-    } while (state < 1.0 || state > 2.0 || sprite < 4.0);
+      index = Math.floor(Math.random() * map.tileCount);
+      state = map.getTileState(index);
+      sprite = map.getTileObstacle(index);
+    } while ((state < 1.0 || state > 2.0 || (sprite > -1 && sprite < 4.0)));
 
     let position = grid.indexToPosition(index);
 
@@ -52,7 +53,7 @@ export class DummyTargetSystem {
 
     target.position.x = position.x;
     target.position.y = position.y;
-    target.position.z = target.position.y;
+    //target.position.z = target.position.y;
   }
 
   removeDummyTarget(game, target) {

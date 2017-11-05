@@ -13,21 +13,22 @@ export class Elf extends Entity(Object3D) {
     return elf;
   }
 
-  constructor() {
+  constructor(size = 50) {
     super();
+
     const material = new MeshBasicMaterial({
       map: this.map,
-      side: 2,
       transparent: true,
     });
 
-    const geometry = new PlaneBufferGeometry(50, 50);
+    const geometry = new PlaneBufferGeometry(size, size);
     const mesh = new Mesh(geometry, material);
 
-    mesh.position.y += 40;
-    mesh.position.z += 3;
+    mesh.position.z += size * 0.5;
+    mesh.rotation.x += Math.PI / 6.0
 
     this.graphic = mesh;
+    this.size = size;
     this.add(mesh);
   }
 };

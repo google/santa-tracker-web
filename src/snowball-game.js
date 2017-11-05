@@ -2,10 +2,11 @@ import { Game } from './engine/core/game.js';
 import { Collision2DSystem } from './engine/systems/collision-2d-system.js';
 import { SnowballSystem } from './snowball/systems/snowball-system.js';
 import { EffectSystem } from './snowball/systems/effect-system.js';
-import { HexSystem } from './snowball/systems/hex-system.js';
+import { MapSystem } from './snowball/systems/map-system.js';
 import { PlayerSystem } from './snowball/systems/player-system.js';
 import { DummyTargetSystem } from './snowball/systems/dummy-target-system.js';
 import { MainLevel } from './snowball/levels/main-level.js';
+import { TestLevel } from './snowball/levels/test-level.js';
 
 const { Scene, PerspectiveCamera } = self.THREE;
 
@@ -13,10 +14,10 @@ export class SnowballGame extends Game {
   constructor() {
     super();
 
-    this.collisionSystem = new Collision2DSystem();
+    this.collisionSystem = new Collision2DSystem(object => object.collider);
     this.effectSystem = new EffectSystem();
     this.snowballSystem = new SnowballSystem();
-    this.hexSystem = new HexSystem(32, 32, 64);
+    this.mapSystem = new MapSystem(32, 32, 32.0);
     this.playerSystem = new PlayerSystem();
     this.dummyTargetSystem = new DummyTargetSystem();
 
@@ -27,7 +28,7 @@ export class SnowballGame extends Game {
   setup() {
     super.setup();
 
-    this.hexSystem.setup(this);
+    this.mapSystem.setup(this);
   }
 
   update() {
@@ -37,6 +38,7 @@ export class SnowballGame extends Game {
     this.snowballSystem.update(this);
     this.effectSystem.update(this);
     this.playerSystem.update(this);
+    this.mapSystem.update(this);
     this.dummyTargetSystem.update(this);
   }
 };

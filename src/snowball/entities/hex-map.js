@@ -1,5 +1,4 @@
 import { Entity } from '../../engine/core/entity.js';
-import { combine } from '../../engine/utils/function.js';
 import { HexCoord } from '../../engine/utils/hex-coord.js';
 import { MagicHexGrid } from '../utils/magic-hex-grid.js';
 import { tiles } from '../textures.js';
@@ -74,65 +73,6 @@ void main() {
 
 const fragmentShader = `
 
-/*
-// Based on https://www.shadertoy.com/view/4scXWS
-#define SQRT_3_OVER_3 0.5773502692
-#define SQRT_3_OVER_2 0.8660254038
-#define SQRT_3 1.7320508076
-#define PI 3.1415926536
-
-bool hex(vec2 coord, vec2 size, float scaleY, float offsetY) {
-  coord.y -= size.y * offsetY / 2.0;
-
-  vec2 shape = abs( 2.0 * coord - size) / size.y - fract(PI);
-  float x = shape.x;
-  float y = shape.y * (1.0 / scaleY);
-
-  return y < SQRT_3_OVER_2 && y + x * SQRT_3 < SQRT_3;
-}
-
-bool fill(vec2 coord, vec2 size, float scaleY, float offsetY) {
-  vec2 shape = abs( 2.0 * coord - size) / size.y - fract(PI);
-  float y = shape.y * (1.0 / scaleY);
-  float x = shape.x;
-
-  float threshold = offsetY * SQRT_3_OVER_3;
-
-  float height = size.y;
-  float s = height / 2.0 / SQRT_3_OVER_2 * 1.08;
-  float width = 2.0 * s;
-
-  float lowX = size.x / 2.0 - width / 2.0;
-  float highX = size.x / 2.0 + width / 2.0;
-
-  return y < threshold && coord.x >= lowX && coord.x <= highX;
-}
-
-vec4 tile(vec4 surfaceColor, vec4 cliffColor,
-          vec2 coord, vec2 size, float scaleY, float offsetY) {
-  bool surface = hex(coord, size, scaleY, offsetY);
-
-  bool cliff = hex(coord, size, scaleY, -offsetY);
-  bool cliffFill = fill(coord, size, scaleY, offsetY);
-
-  if (surface) {
-      return surfaceColor;
-  } else if (cliff || cliffFill) {
-      return cliffColor;
-  } else {
-      return vec4(0.0);
-  }
-}
-
-void mainImage( out vec4 fragColor, vec2 fragCoord )
-{
-  float scaleY = 0.75;
-  float offsetY = 1.0 - scaleY;
-
-  gl_fragColor = tile(vec4(1.0), vec4(0.80, 0.87, 0.86, 1.0), vec2(scale) * vUv, vec2(scale), scaleY, offsetY);
-}
-*/
-
 precision highp float;
 
 uniform sampler2D map;
@@ -145,6 +85,7 @@ varying float vShouldHighlight;
 
 void main() {
   vec4 color = texture2D(map, vUv);
+
   float alpha = smoothstep(0.75, 0.8, color.a);
 
   float aScale = 1.0;
@@ -358,7 +299,7 @@ export class HexMap extends Entity(Mesh) {
 
           tree.setup(game);
 
-          console.log('Adding tree collidable to', tree.collider.position);
+          //console.log('Adding tree collidable to', tree.collider.position);
 
           collisionSystem.addCollidable(tree);
         }

@@ -1,5 +1,4 @@
 import { Level } from '../../engine/core/level.js';
-import { combine } from '../../engine/utils/function.js';
 import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { HexMap } from '../entities/hex-map.js';
 import { Elf } from '../entities/elf.js';
@@ -17,34 +16,32 @@ export class MainLevel extends Level {
       effectSystem,
       playerSystem,
       dummyTargetSystem,
-      hexSystem
+      mapSystem
     } = game;
     const { snowballLayer } = snowballSystem;
     const { playerLayer, player } = playerSystem;
     const { dummyTargetLayer } = dummyTargetSystem;
-    const { hexLayer } = hexSystem;
+    const { mapLayer, grid, map, gimbal } = mapSystem;
     const { effectsLayer } = effectSystem;
+    const { collisionDebugLayer } = collisionSystem;
 
-    this.unsubscribe = hexSystem.handleMapPick(event => this.pickEvent = event);
+    this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera, player);
 
     collisionSystem.bounds = Rectangle.allocate(
-       hexLayer.width, hexLayer.height, hexLayer.position);
+       grid.pixelWidth, grid.pixelHeight, mapLayer.position);
 
-    snowballLayer.position.copy(hexLayer.position);
-    effectsLayer.position.copy(hexLayer.position);
+    if (collisionSystem.debug) {
+      collisionDebugLayer.position.z = grid.cellSize / 4.0 + 1.0;
+      gimbal.add(collisionDebugLayer);
+    }
 
-    snowballLayer.position.z = effectsLayer.position.z =
-        hexLayer.height / -2 - 35.0;
+    gimbal.add(snowballLayer);
+    gimbal.add(playerLayer);
+    gimbal.add(dummyTargetLayer);
+    gimbal.add(effectsLayer);
 
-    playerLayer.position.z = dummyTargetLayer.position.z =
-        hexLayer.height / -2 - 37.5;
-
-    this.add(hexLayer);
-    this.add(snowballLayer);
-    this.add(playerLayer);
-    this.add(dummyTargetLayer);
-    this.add(effectsLayer);
+    this.add(mapLayer);
 
     this.lastErosionTick = 0;
   }
@@ -52,33 +49,31 @@ export class MainLevel extends Level {
   teardown(game) {
     this.unsubscribe();
 
-    this.remove(game.hexSystem.hexLayer);
+    this.remove(game.mapSystem.mapLayer);
     this.remove(game.effectSystem.effectsLayer);
     this.remove(game.snowballSystem.snowballLayer);
     this.remove(game.playerSystem.playerLayer);
   }
 
   update(game) {
-    const { camera, hexSystem, playerSystem } = game;
-    const { hexLayer } = hexSystem;
+    const { camera, mapSystem, playerSystem } = game;
+    const { grid, map } = mapSystem;
     const { player } = playerSystem;
 
     if ((game.tick - this.lastErosionTick) > 16) {
       this.lastErosionTick = game.tick;
-      hexLayer.erode(Math.floor(Math.random() * 3));
+      map.erode(Math.floor(Math.random() * 3));
     }
-
-    const { grid } = hexSystem;
 
     if (this.pickEvent != null) {
       const { index, sprite, state, position } = this.pickEvent;
 
       const playerIndex = grid.positionToIndex(player.position);
       const tileIsPassable = (grid, currentIndex) => {
-        const state = hexLayer.getTileState(currentIndex);
-        const sprite = hexLayer.getTileSprite(currentIndex);
+        const state = map.getTileState(currentIndex);
+        const sprite = map.getTileObstacle(currentIndex);
 
-        return state > 0 && state < 3 && sprite > 3;
+        return state > 0 && state < 3 && sprite < 0;
       };
 
       const waypoints = grid.waypoints(playerIndex, index, tileIsPassable);
@@ -86,13 +81,13 @@ export class MainLevel extends Level {
       if (waypoints.length) {
         const path = waypoints.slice(1, waypoints.length - 1)
             .map(index => {
-              //hexLayer.setTileState(index, 2.0);
+              //map.setTileState(index, 2.0);
               return grid.indexToPosition(index)
             });
 
         path.push(position);
         playerSystem.assignPath(path);
-        console.log(playerIndex, index, waypoints);
+        console.log(playerIndex, index, path.slice());
       } else {
         playerSystem.throwSnowballAt(position);
       }
@@ -100,7 +95,6 @@ export class MainLevel extends Level {
       this.pickEvent = null;
     }
 
-    hexLayer.update(game);
     this.cameraTracker.update(game);
   }
 }

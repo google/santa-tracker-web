@@ -26,6 +26,7 @@ export class RenderSystem extends HTMLElement {
 </style>`;
 
     this.renderer = new WebGLRenderer();
+    this.renderer.autoClear = true;
     this.shadowRoot.appendChild(this.renderer.domElement);
   }
 

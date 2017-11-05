@@ -42,7 +42,7 @@ void main() {
 
   dist.y -= pow(3.0 * elapsed, 2.0);
 
-  gl_PointSize = (10.0 * random + 15.0) * (1.0 - elapsed);
+  gl_PointSize = (20.0 * random + 25.0) * (1.0 - elapsed);
   gl_Position = projectionMatrix * modelViewMatrix *
       vec4(position.xy + dist, position.z, 1.0);
 }
@@ -124,6 +124,7 @@ export class SnowsplatEffect extends Entity(class {}) {
 
     this.uniforms = uniforms;
     this.layer = new Points(geometry, material);
+    this.layer.frustumCulled = false;
     this.splats = [];
   }
 

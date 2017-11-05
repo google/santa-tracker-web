@@ -55,7 +55,7 @@ export class SnowballSystem {
         const maxDistance = 256;
 
         path.subVectors(snowball.targetPosition, snowball.origin)
-          .clampLength(0, maxDistance);
+            .clampLength(0, maxDistance);
 
         const maxAnimationFrames = 42;
         const durationScale = path.length() / maxDistance;
@@ -71,8 +71,9 @@ export class SnowballSystem {
           .add(snowball.origin);
 
         snowball.position.x = path.x;
-        snowball.position.y = path.y + arcSize;
-        snowball.position.z = path.y;
+        snowball.position.y = path.y;
+        snowball.position.z = 10.0 + arcSize;
+        //snowball.position.z = path.y;
 
         if (tickDelta >= duration) {
           this.removeSnowball(snowball, game);

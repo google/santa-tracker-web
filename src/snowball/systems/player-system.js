@@ -8,7 +8,7 @@ export class PlayerSystem {
   constructor() {
     this.path = null;
     this.playerLayer = new Object3D();
-    this.player = new Elf();
+    this.player = new Elf(34);
     this.playerLayer.add(this.player);
 
     this.targetPosition = null;
@@ -25,7 +25,6 @@ export class PlayerSystem {
     if (this.targetPickEvent != null) {
       const uv = this.targetPickEvent.uv;
       this.targetPosition = this.targetPickEvent.target.parent.position.clone();
-      this.targetPosition.y += 30;
 
       this.targetPickEvent = null;
     }
@@ -36,7 +35,7 @@ export class PlayerSystem {
       delta.subVectors(nextWaypoint, this.player.position);
       const length = delta.length();
       delta.normalize();
-      delta.multiplyScalar(2.0);
+      delta.multiplyScalar(2.25);
       const lengthNormalized = delta.length();
 
       if (length <= lengthNormalized) {
@@ -46,13 +45,12 @@ export class PlayerSystem {
       } else {
         this.player.position.x += delta.x;
         this.player.position.y += delta.y;
-        this.player.position.z += delta.y;
+        //this.player.position.z += delta.y;
       }
     }
 
     if (this.targetPosition != null) {
       intermediateVector2.copy(this.player.position);
-      intermediateVector2.y += 35;
       snowballSystem.throwSnowball(intermediateVector2, this.targetPosition);
       this.targetPosition = null;
     }
