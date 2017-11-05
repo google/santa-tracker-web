@@ -1,5 +1,5 @@
 import { MagicHexGrid } from '../utils/magic-hex-grid.js';
-import { HexGeometryMap } from '../entities/hex-geometry-map.js';
+import { HexMap } from '../entities/hex-map.js';
 import { Obstacles } from '../entities/obstacles.js';
 import { Map } from '../components/map.js';
 import { Tree } from '../entities/static/tree.js';
@@ -13,7 +13,7 @@ export class MapSystem {
     this.map = new Map(this.grid);
 
     this.mapLayer = new Object3D();
-    this.hexMap = new HexGeometryMap();
+    this.hexMap = new HexMap();
     this.obstacles = new Obstacles();
 
     const gimbal = new Object3D();

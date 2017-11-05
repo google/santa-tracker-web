@@ -6,7 +6,6 @@ import { MapSystem } from './snowball/systems/map-system.js';
 import { PlayerSystem } from './snowball/systems/player-system.js';
 import { DummyTargetSystem } from './snowball/systems/dummy-target-system.js';
 import { MainLevel } from './snowball/levels/main-level.js';
-import { TestLevel } from './snowball/levels/test-level.js';
 
 const { Scene, PerspectiveCamera } = self.THREE;
 
