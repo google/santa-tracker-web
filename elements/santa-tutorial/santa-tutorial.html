@@ -23,12 +23,12 @@ games. Clickable to dismiss/hide.
 <dom-module id="santa-tutorial">
 <template>
   <style include="santa-tutorial_module"></style>
-  <video id="video" autoplay muted loop on-play="_blitToCanvas"></video>
+  <video id="video" autoplay muted loop on-play="_blitToCanvas" on-error="_onError"></video>
   <div id="outer" hidden>
     <button id="tutorial" on-click="_dismissActive">
       <div id="holder">
         <canvas id="canvas" width="550" height="540"></canvas>
-        <img id="image" hidden on-load="_onImageLoad" />
+        <img id="image" hidden on-load="_onImageLoad" on-error="_onError" />
       </div>
       <!-- inlined shadow SVG -->
       <img id="shadow" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjc1LjA3NCIgaGVpZ2h0PSIyNzAuNTA4IiB2aWV3Qm94PSIwIDAgMjc1LjA3NCAyNzAuNTA4Ij48ZGVmcz48cGF0aCBpZD0iYSIgZD0iTTEwNC4xMSAyNjcuNjhhNDguNDk4IDQ4LjQ5OCAwIDAgMCAxOC4wNDMtNi42NzJjMTMuMzQ2IDcuODEgMjkuMzY4IDExLjIzNiA0NS44MzQgOC42NDggMjguMDg3LTQuNDE1IDQ5LjU3NS0yNS4wODcgNTYuMzk2LTUwLjkyLjE2Ny0uMDI0LjMzNC0uMDQ2LjUtLjA3MiAyNy4yMy00LjI4IDQ2LjA2Ny0yOC4zMzIgNDIuMDc2LTUzLjcyLTEuMzA2LTguMy00Ljg5LTE1LjcxNS0xMC4wNzQtMjEuNzg4IDEyLjQ4LTYuMjM0IDIwLjA2Ni0yMC4wMTggMTcuNzg0LTM0LjUzLTIuNTUtMTYuMjMtMTYuNTY0LTI3LjgwNy0zMi40OTUtMjcuNzg2YTYyLjE1IDYyLjE1IDAgMCAwLS43NDctOC44ODhjLTUuMDctMzIuMjUtMzQuMzI2LTU0LjY4NC02Ni4zODItNTEuNzM1QzE2OS4zNDYgNi41NDQgMTU0Ljg3Ni0yIDEzOS41OS40MDRjLTkuNjczIDEuNTItMTcuNjg4IDcuMTE2LTIyLjU4NSAxNC43NTgtOS41NTQtMy40MjQtMjAuMDc4LTQuNTcyLTMwLjgxLTIuODg1LTMxLjAyMiA0Ljg3Ny01My4xMiAzMS43NDYtNTIuOTE0IDYyLjIyNWEzNC43NyAzNC43NyAwIDAgMC00LjI1OC4zOUMxMC4zNTggNzcuODMtMi4zOTQgOTUuMzM3LjU0MiAxMTRjMS45NDUgMTIuMzc4IDEwLjMwNCAyMi4xNSAyMS4xNTYgMjYuNDc1LTE1LjA0NiA4LjQ1My0yNC4wMTMgMjUuNjMtMjEuMTc1IDQzLjY3OCAzLjU4IDIyLjc4IDI0LjYzIDM4LjQ3IDQ3LjM1MyAzNS41NzIuMDEgMi40NTIuMjA0IDQuOTM1LjU5NyA3LjQzMyA0LjE3MyAyNi41NTQgMjkuMDg0IDQ0LjY5NyA1NS42MzcgNDAuNTIzeiIvPjwvZGVmcz48dXNlIHhsaW5rOmhyZWY9IiNhIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvc3ZnPg==" />
@@ -89,10 +89,26 @@ Polymer({
       notify: true,
     },
 
+    /**
+     * The type of tutorials to show. Allows 'mouse' (or anything/default), 'touch' and 'spacenav'.
+     */
+    _mode: {
+      type: String,
+      value: 'mouse',
+    },
+
+    /**
+     * The set of tutorials to show, filtered by display mode.
+     */
+    _tutorials: {
+      type: Object,
+      computed: '_computeTutorials(tutorials, _mode)',
+    },
+
   },
 
   observers: [
-    '_updateTutorials(show, tutorials, dismissed)',
+    '_updateTutorials(show, _tutorials, dismissed)',
   ],
 
   /**
@@ -118,7 +134,47 @@ Polymer({
     this.active && this.dismiss(this.active);
   },
 
-  _updateTutorials: function(show, tutorials, dismissed) {
+  /**
+   * Computes the Set of actual tutorials, filtering down based on the current mode.
+   */
+  _computeTutorials: function(tutorials, mode) {
+    const arr = splitParts(tutorials);
+    const s = new Set();
+
+    // in spacenav mode, do we have any spacenav tutorials?
+    if (mode === 'spacenav') {
+      arr.forEach(function(tutorial) {
+        const first = tutorial.split('-')[0];
+        if (first === 'spacenav') {
+          s.add(tutorial);
+        }
+      });
+      if (s.size) {
+        return s;  // found some spacenav-, return early
+      }
+      mode = 'touch';  // otherwise, pretend we're in touch mode
+    }
+
+    arr.forEach(function(tutorial) {
+      const first = tutorial.split('-')[0];
+
+      if (mode === 'touch') {
+        if (first === 'mouse' || first === 'keys') {
+          // do nothing, skip
+        } else {
+          s.add(tutorial);
+        }
+      } else if (first === 'touch') {
+        // do nothing, skip touch
+      } else {
+        s.add(tutorial);
+      }
+    });
+
+    return s;
+  },
+
+  _updateTutorials: function(show, tutorialSet, dismissed) {
     if (!show) {
       this.cancelDebouncer('_updateTutorials');
       this._setActive(null);
@@ -134,20 +190,18 @@ Polymer({
 
     // wait ~4s to show an active tutorial
     this.debounce('_updateTutorials', function() {
-      // TODO(samthor): Filter tutorials by touch- or mouse-.
-      // If we are in portal mode and have _no_ spacenav-, then use touch-.
-      // Otherwise show default.
-      const tutorials = splitParts(this.tutorials);
+      const tutorialSet = this._tutorials;
       const dismissed = splitParts(this.dismissed);
 
-      for (let i = 0; i < tutorials.length; ++i) {
-        if (dismissed.indexOf(tutorials[i]) === -1) {
-          this._setActive(tutorials[i]);
-          return;
+      // IE11 has no iteration for Set, so we have to use .forEach and look at all entries.
+      let done = false;
+      tutorialSet.forEach(function(tutorial) {
+        if (!done && dismissed.indexOf(tutorial) == -1) {
+          this._setActive(tutorial);
+          done = true;
         }
-      }
-
-      this._setActive(null);
+      }, this);
+      done || this._setActive(null);
     }, 4000);
   },
 
@@ -166,8 +220,10 @@ Polymer({
     // set new image/video
     if (active) {
       const resolved = this.resolveUrl('img/' + active);
-      const suffix = active.substring(active.lastIndexOf('.'));
-      if (suffix === '.mp4') {
+      const suffix = active.substring(active.lastIndexOf('.'))
+      if (suffix[0] !== '.') {
+        i.src = resolved + '.svg';  // assume svg if no suffix provided
+      } else if (suffix === '.mp4') {
         v.src = resolved;
       } else {
         i.src = resolved;
@@ -213,11 +269,15 @@ Polymer({
     context.fill();
 
     // Now blit the video in the center of the picture.
-    // TODO(samthor): Our videos are subtly bigger than this, and previously we just scaled them
-    // to fit. We may need to do the same again.
     const width = Math.min(v.videoWidth, c.width);
     const height = (width / v.videoWidth) * v.videoHeight;
     context.drawImage(v, (c.width - width) / 2, (c.height - height) / 2, width, height);
+  },
+
+  _onError: function(ev) {
+    // the current active tutorial couldn't load, automatically dismiss it
+    console.warn('santa-tutorial dismissing, couldn\'t load', this.active);
+    this.dismiss(this.active);
   },
 
 });
