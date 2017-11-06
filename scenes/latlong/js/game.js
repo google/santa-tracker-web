@@ -41,7 +41,7 @@ app.Game = function(elem) {
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.pauseOverlay = this.elem.find('.pauseOverlay');
-  this.tutorial = new app.shared.Tutorial(this.elem, 'latlong', 'latlong', 'latlong');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'latlong');
 
   this.isPlaying = false;
   this.paused = false;

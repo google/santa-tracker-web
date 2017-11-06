@@ -52,7 +52,7 @@ app.Game = function(elem, componentDir) {
   this.scoreboard = new app.shared.Scoreboard(this, this.elem.find('.board'), app.Constants.TOTAL_LEVELS);
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
-  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt', 'keys-arrow', 'spacenav-arrows');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'device-tilt keys-arrows spacenav-arrows');
 
   this.gyroPresent = false;
   var detectGyro = function(event){

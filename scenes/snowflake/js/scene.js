@@ -45,8 +45,7 @@ app.Scene = function(elem, strings) {
   });
 
   this.picker = new app.Picker(this, strings);
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
-    'keys-leftright', 'spacenav-leftright');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright keys-leftright spacenav-leftright');
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));

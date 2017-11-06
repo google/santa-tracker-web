@@ -9,7 +9,6 @@ $shadow-width: 4px;
 $break-tablet: 1025px;
 
 @import "../shared/sass/levelup";
-@import "../shared/sass/tutorial";
 @import "../shared/sass/rotate";
 
 @import "sass/background";
@@ -67,10 +66,5 @@ $break-tablet: 1025px;
       transform: translate(-50%, -50%);
       width: 320px;
     }
-  }
-
-  @include tutorial(latlong, 'img/tutorial/tutorial.gif', 1);
-  .tutorial.latlong .tutorial-inner {
-    background-size: contain;  // fix gif being too big
   }
 }

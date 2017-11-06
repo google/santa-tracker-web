@@ -1,7 +1,6 @@
 $name: 'module-citylights';
 
 @import "../shared/sass/penner-easing";
-@import "../shared/sass/tutorial";
 
 $anchorFromTop: 50%;
 $anchorFromTopWide: 65%;
@@ -17,9 +16,6 @@ $screenMargin: 20px;
 @import "sass/pagination";
 
 ##{$name} {
-  @include tutorial(mouse-citylights, 'img/tutorial/mouse-citylights.svg', 2);
-  @include tutorial(touch-citylights, 'img/tutorial/touch-citylights.svg', 2);
-
   @mixin if-wide-layout {
     @media screen and (min-width: 600px) {
       @content;
