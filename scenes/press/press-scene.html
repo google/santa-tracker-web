@@ -253,7 +253,7 @@ specific language governing permissions and limitations under the License.
       this.preloadImages(images);
     },
 
-    ready: function() {
+    onShow: function() {
       this.scene = new scenes.press.Scene();
       this.androidCards = this.scene.getAndroidModels();
       this.cards = this.scene.getModels(function(key) {
