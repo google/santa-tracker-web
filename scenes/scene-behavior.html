@@ -166,9 +166,9 @@ specific language governing permissions and limitations under the License.
       }.bind(this);
 
       ++this._totalAssets;
-      p.then(done, done).catch(function(error) {
-        console.warn('preload for scene', this.route, 'error', error);
-      });
+      p.catch(function(error) {
+        console.warn('preload', this.localName, 'error', error);
+      }.bind(this)).then(done);
     },
 
     /**
@@ -194,6 +194,7 @@ specific language governing permissions and limitations under the License.
 
         const imagesPerRaf = Math.max(1, Math.ceil(imageUrls.length / framesToSpread));
         let imageIndex = 0;
+
         (function rafCallback() {
           for (let i = 0; i < imagesPerRaf && imageIndex < imageUrls.length; ++i) {
             const img = new Image();
@@ -204,7 +205,7 @@ specific language governing permissions and limitations under the License.
           if (imageIndex < imageUrls.length) {
             this.async(rafCallback);
           }
-        })();
+        }).call(this);
       }.bind(this));
 
       this.preloadPromise(p);
