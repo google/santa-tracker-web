@@ -24,11 +24,14 @@ export class Elf extends Entity(Object3D) {
     const geometry = new PlaneBufferGeometry(size, size);
     const mesh = new Mesh(geometry, material);
 
-    mesh.position.z += size * 0.5;
     mesh.rotation.x += Math.PI / 6.0
 
     this.graphic = mesh;
     this.size = size;
     this.add(mesh);
+  }
+
+  setup(game) {
+    this.graphic.position.z = game.mapSystem.grid.cellSize / 2.0; //this.size * 0.5;
   }
 };

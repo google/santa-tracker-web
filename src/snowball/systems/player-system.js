@@ -19,6 +19,10 @@ export class PlayerSystem {
     this.path = path;
   }
 
+  setup(game) {
+    this.player.setup(game);
+  }
+
   update(game) {
     const { snowballSystem } = game;
 

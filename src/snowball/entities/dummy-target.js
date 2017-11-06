@@ -38,6 +38,8 @@ export class DummyTarget extends Elf {
   setup(game) {
     const { inputSystem, playerSystem, collisionSystem } = game;
 
+    super.setup(game);
+
     collisionSystem.addCollidable(this);
 
     this.unsubscribe = combine(
