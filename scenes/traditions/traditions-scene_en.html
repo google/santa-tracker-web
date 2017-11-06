@@ -140,6 +140,17 @@ Polymer({
     traditions: {
       type: Object,
     },
+
+    mapsAPIReady: {
+      type: Object,
+      value: function() {
+        return new Promise((resolve) => {
+          // Listen to the `api-load` event from `<santa-maps-api>`.
+          this.addEventListener('api-load', resolve);
+        });
+      },
+    },
+
   },
 
   nextCountry: function(e) {
@@ -183,10 +194,7 @@ Polymer({
       'img/crayon-k-2.svg'
     ].concat(icons));
 
-    this.preloadPromise(new Promise(function(resolve) {
-      // Listen to the `api-load` event from `<santa-maps-api>`.
-      this.addEventListener('api-load', resolve);
-    }.bind(this)));
+    this.preloadPromise(this.mapsAPIReady);
   },
 
   onShow: function() {
