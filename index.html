@@ -150,7 +150,12 @@ ga('set', 'transport', 'beacon');
   if ('serviceWorker' in navigator) {
     // Register the SW in the served language, not the request language (as this isn't available
     // on the naked domain anyway).
-    window.sw = navigator.serviceWorker.register('/sw.js?lang=' + document.documentElement.lang);
+    var prod = window.location.hostname === 'santatracker.google.com';
+    if (prod) {
+      window.sw = navigator.serviceWorker.register('/sw.js?lang=' + document.documentElement.lang);
+    } else {
+      navigator.serviceWorker.register('/sw-dummy.js');
+    }
 
     // Reload the page when a new SW takes over. This should only happen in staging.
     navigator.serviceWorker.addEventListener('controllerchange', function() {
