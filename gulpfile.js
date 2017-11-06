@@ -301,7 +301,7 @@ gulp.task('compile-scenes', function() {
       compilerFlags,
     });
 
-    const target = `${dest}/${fileName}}`;
+    const target = `${dest}/${fileName}`;
     scripts.changedFlag(target, {mustCompile});
 
     return gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
