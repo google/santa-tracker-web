@@ -177,6 +177,21 @@ Polymer({
     window.SantaSceneGameButtonsBehavior,
   ],
 
+  properties: {
+    game: {
+      type: Object,
+    },
+    mapsAPIReady: {
+      type: Object,
+      value: function() {
+        return new Promise((resolve) => {
+          // Listen to the `api-load` event from `<santa-maps-api>`.
+          this.addEventListener('api-load', resolve);
+        });
+      },
+    },
+  },
+
   onPreload: function() {
     this.preloadSounds('mercator_load_sounds', 40);
     this.preloadImages([
@@ -185,10 +200,7 @@ Polymer({
       'img/pausescreen.svg'
     ]);
 
-    this.preloadPromise(new Promise(function(resolve) {
-      // Listen to the `api-load` event from `<santa-maps-api>`.
-      this.addEventListener('api-load', resolve);
-    }.bind(this)));
+    this.preloadPromise(this.mapsAPIReady);
   },
 
   onShow: function() {
