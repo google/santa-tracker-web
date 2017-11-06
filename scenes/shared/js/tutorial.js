@@ -22,104 +22,49 @@ goog.require('app.shared.utils');
 app.shared.Tutorial = Tutorial;
 
 /**
- * Tutorial animation.
- * Can be used to explain: mouse click, space press, arrows,
- * touch swipe, rotate the device, tilting, tap the screen,
- * and how to play matching.
+ * Tutorial animation. Just creates `<santa-tutorial>` in the parent element.
+ *
  * @constructor
- * @param {!Element|!jQuery} moduleElem The module element.
- * @param {string} touchTutorials Tutorials when touch is enabled.
- * @param {string} notouchTutorials Tutorials when touch is disabled.
- * @param {string} portalTutorials Tutorials when portal mode is activated.
+ * @param {!Element|!jQuery} elem The module element.
+ * @param {string} tutorials All tutorials.
  */
-function Tutorial(moduleElem, touchTutorials, notouchTutorials, portalTutorials) {
-  // Ability to disable tutorial
-  this.enabled = true;
-  this.first = true;
-  this.hasTouch = app.shared.utils.touchEnabled;
+function Tutorial(elem, tutorials) {
+  this.target_ = app.shared.utils.unwrapElement(elem);
 
-  // Tutorial element
-  this.elem = $('<div class="tutorial"><div class="tutorial-inner"></div></div>');
-  $(moduleElem).append(this.elem);
+  this.elem_ = document.createElement('santa-tutorial');
+  this.elem_.tutorials = tutorials;
 
-  if (window.santaApp.mode == 'portal') {
-    this.tutorials = portalTutorials.split(' ');
-  } else if (this.hasTouch) {
-    this.tutorials = touchTutorials.split(' ');
-  } else {
-    this.tutorials = notouchTutorials.split(' ');
+  const prev = this.target_.querySelectorAll('santa-tutorial');
+  for (let i = 0; i < prev.length; ++i) {
+    console.warn('removing old santa-tutorial', prev[i]);
+    prev[i].remove();
   }
 
-  this.onTimeout_ = this.onTimeout_.bind(this);
+  // TODO: walk up to top-level?
+  this.target_.appendChild(this.elem_);
 }
-
-// Default timeouts
-Tutorial.FIRST_TIMEOUT = 5000;
-Tutorial.SECOND_TIMEOUT = 3000;
 
 /**
  * Start the tutorial timer.
  */
 Tutorial.prototype.start = function() {
-  if (!this.tutorials.length) {
-    return;
-  }
-
-  this.timer = window.setTimeout(this.onTimeout_,
-    this.first ? Tutorial.FIRST_TIMEOUT : Tutorial.SECOND_TIMEOUT);
-  this.first = false;
+  this.elem_.show = true;
 };
 
 /**
  * Turn off a tutorial because user has already used the controls.
- * @param {string|undefined} opt_name The name of the tutorial, undefined for all
+ *
+ * @param {string} name The name of the tutorial.
  */
-Tutorial.prototype.off = function(opt_name) {
-  if (opt_name === undefined) {
-    this.tutorials = [];
-  } else {
-    this.tutorials = this.tutorials.filter(function(tut) {
-      return tut != opt_name;
-    });
-  }
-
-  // Stop timer if no tutorials are left
-  if (!this.tutorials.length) {
-    this.dispose();
-  }
-
-  // Hide tutorial if the current one is turned off
-  if (opt_name === this.current || opt_name === undefined) {
-    this.hide_();
-    this.start();
-  }
+Tutorial.prototype.off = function(name) {
+  // nb. This code doesn't know `santa-tutorial` is a Polymer element.
+  /** @suppress {missingProperties} */
+  this.elem_.dismiss(name);
 };
 
 /**
- * When the wait has ended.
- */
-Tutorial.prototype.onTimeout_ = function() {
-  this.show_(this.tutorials.shift());
-};
-
-/**
- * Display a tutorial.
- */
-Tutorial.prototype.show_ = function(name) {
-  this.current = name;
-  this.elem.addClass(name).show();
-};
-
-/**
- *  Hide the tutorial
- */
-Tutorial.prototype.hide_ = function() {
-  this.elem.hide().removeClass(this.current);
-};
-
-/**
- * Cleanup
+ * Cleanup.
  */
 Tutorial.prototype.dispose = function() {
-  window.clearTimeout(this.timer);
+  this.elem_.remove();
 };

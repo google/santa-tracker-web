@@ -48,6 +48,23 @@ function splitParts(s) {
   return out;
 }
 
+// TODO(samthor): This matches the shared scene JS which determines touchEnabled. However, it can
+// change over time and a device might have both.
+function isTouchEnabled() {
+  const hasCoarse = window.matchMedia('(pointer: coarse)').matches;
+  if (hasCoarse) {
+    return true;  // true-ish
+  }
+  const hasPointer = window.matchMedia('(pointer: fine)').matches;
+  if (hasPointer) {
+    return false;  // prioritize mouse control
+  }
+
+  // Otherwise, fall-back to older style mechanisms.
+  return ('ontouchstart' in window) ||
+      window.DocumentTouch && document instanceof window.DocumentTouch;
+}
+
 Polymer({
   is: 'santa-tutorial',
 
@@ -94,7 +111,6 @@ Polymer({
      */
     _mode: {
       type: String,
-      value: 'mouse',
     },
 
     /**
@@ -110,6 +126,17 @@ Polymer({
   observers: [
     '_updateTutorials(show, _tutorials, dismissed)',
   ],
+
+  ready: function() {
+    // TODO(samthor): This matches tutorial.js, but should be bound centrally.
+    if (window.santaApp.mode === 'portal') {
+      this._mode = 'spacenav';
+    } else if (isTouchEnabled()) {
+      this._mode = 'touch';
+    } else {
+      this._mode = 'mouse';
+    }
+  },
 
   /**
    * Dismissed the named tutorial.
@@ -132,14 +159,17 @@ Polymer({
   _dismissActive: function() {
     this.$.tutorial.blur();
     this.active && this.dismiss(this.active);
+    window.ga('send', 'event', 'nav', 'click', 'tutorial');
   },
 
   /**
    * Computes the Set of actual tutorials, filtering down based on the current mode.
    */
   _computeTutorials: function(tutorials, mode) {
-    const arr = splitParts(tutorials);
     const s = new Set();
+    if (mode === undefined) { return s; }
+
+    const arr = splitParts(tutorials);
 
     // in spacenav mode, do we have any spacenav tutorials?
     if (mode === 'spacenav') {
@@ -160,12 +190,12 @@ Polymer({
 
       if (mode === 'touch') {
         if (first === 'mouse' || first === 'keys') {
-          // do nothing, skip
+          // do nothing, skip mouse and keys
         } else {
           s.add(tutorial);
         }
-      } else if (first === 'touch') {
-        // do nothing, skip touch
+      } else if (first === 'touch' || first === 'device') {
+        // do nothing, skip touch and device
       } else {
         s.add(tutorial);
       }
@@ -216,6 +246,13 @@ Polymer({
     i.hidden = true;
     this.$.canvas.width = this.$.canvas.width;  // clear
     this.$.outer.hidden = true;
+
+    // TODO(samthor): Hack touch-updown to support -portrait in portrait mode.
+    if (active === 'touch-updown') {
+      if (window.innerHeight > window.innerWidth) {
+        active += '-portrait';
+      }
+    }
 
     // set new image/video
     if (active) {

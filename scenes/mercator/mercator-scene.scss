@@ -4,7 +4,6 @@ $rotate-bg: $gameover-bg;
 
 @import "../shared/sass/levelup";
 @import "../shared/sass/rotate";
-@import "../shared/sass/tutorial";
 
 @import "sass/country";
 @import "sass/map";
@@ -33,8 +32,4 @@ $rotate-bg: $gameover-bg;
   &.frozen .gmap {
     opacity: 0;
   }
-
-  // Custom tutorial
-  @include tutorial(mouse-mercator, 'img/tutorial/mouse-mercator.svg', 4);
-  @include tutorial(touch-mercator, 'img/tutorial/touch-mercator.svg', 4);
 }

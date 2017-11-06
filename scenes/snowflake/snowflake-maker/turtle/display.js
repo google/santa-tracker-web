@@ -56,7 +56,7 @@ Snowflake.Display = function () {
    * Displays after the first run and stays visible until the user drags in a block.
    * @type Snowflake.Tutorial
    */
-  this.tutorial =  new Snowflake.Tutorial(document.getElementById('blocklyTutorial'));
+  this.tutorial = new Snowflake.Tutorial(document.getElementById('blocklyTutorial'));
 
   /**
    * maybeShowTutorial_ is passed into Snowflake.Execute.runCode as a callback in snowflake.js.
