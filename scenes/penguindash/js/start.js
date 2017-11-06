@@ -72,7 +72,7 @@ app.Start.prototype.create = function() {
   this.camera.follow(this.penguin.elem);
 
   // Add background video
-  if(!this.isMobileOrIE) {
+  if (!this.isMobileOrIE) {
     this.video = this.game.add.video('background');
     this.vidsprite = this.video.addToWorld(0, 0, 0, 0, 2.2, 3);
     this.wave = new app.Wave(this);
@@ -91,10 +91,10 @@ app.Start.prototype.create = function() {
   this.initLevels_();
   this.showLevel_(1);
 
-  if(this.game.penguinPauseOnStart) {
+  if (this.game.penguinPauseOnStart) {
     this.game.paused = true;
   }
-  if(!this.isMobileOrIE) {
+  if (!this.isMobileOrIE) {
     this.video.play(true);
   }
 };
@@ -154,10 +154,10 @@ app.Start.prototype.update = function() {
 
   if (this.accelerating) {
     // If the penguin is moving, the user probably worked out how to play.
-    this.game.st_parent.tutorial.off();
+    this.game.st_parent.tutorial.off('device-tilt keys-arrows spacenav-arrows');
   }
 
-  if(this.accelerating) {
+  if (this.accelerating) {
     this.penguin.boost();
   } else {
     this.penguin.slide();
@@ -232,9 +232,9 @@ app.Start.prototype.initLevels_ = function() {
     // add items from the level config to respective group
     for (var e = 0; e < this.levelData[i].length; e++) {
       var item = this.levelData[i][e];
-      if(item.g=='character') {
-        if(!this.isLowPerformance) {
-          if(this.isMobileOrIE) {
+      if (item.g=='character') {
+        if (!this.isLowPerformance) {
+          if (this.isMobileOrIE) {
             var element = groups[item.g].group.create(item.x, item.y, 'element-' + item.t);
             this.additionalElementInit_(element, item);
           } else {
@@ -243,7 +243,7 @@ app.Start.prototype.initLevels_ = function() {
           }
         }
       } else {
-        if(!this.isLowPerformance || item.g!='obstacle') {
+        if (!this.isLowPerformance || item.g!='obstacle') {
           var element = groups[item.g].group.create(
               item.x, item.y, 'element-' + item.t);
           this.additionalElementInit_(element, item);
@@ -325,7 +325,7 @@ app.Start.prototype.initGroups_ = function() {
  * @private
  */
 app.Start.prototype.additionalElementInit_ = function(element, item) {
-  if(item.g != 'character') {
+  if (item.g != 'character') {
     element.body.immovable = true;
     element.scale.setTo(0.5, 0.5);
   }
@@ -351,7 +351,7 @@ app.Start.prototype.additionalElementInit_ = function(element, item) {
 
     case 'character':
       element.body.setSize(0, 0);
-      if(!this.isMobileOrIE) {
+      if (!this.isMobileOrIE) {
         if (typeof app.Constants.CHARACTERS[item.t] != 'undefined') {
           element.animations.add('default', app.Constants.CHARACTERS[item.t]);
         } else {
@@ -698,8 +698,8 @@ app.Start.prototype.handleOrientation_ = function(event) {
     var z = e.alpha; // range [0,360], up-down
     this.penguin.elem.body.velocity.x += x * 0.5;
     this.penguin.elem.body.velocity.y += y * 0.25;
-    if(Math.abs(x) > 10 || Math.abs(y) > 5) {
-      this.game.st_parent.tutorial.off();
+    if (Math.abs(x) > 10 || Math.abs(y) > 5) {
+      this.game.st_parent.tutorial.off('device-tilt keys-arrows spacenav-arrows');
     }
   }
 };
