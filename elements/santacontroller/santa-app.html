@@ -894,10 +894,8 @@ Polymer({
   },
 
   _routeChanged: function() {
-    if (typeof this.route === 'string') {
-      window.ga('set', 'page', '/' + this.route);
-      window.ga('send', 'pageview');
-    }
+    window.ga('set', 'page', '/' + (typeof this.route === 'string' ? this.route : ''));
+    window.ga('send', 'pageview');
   },
 
   /**
