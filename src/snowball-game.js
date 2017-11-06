@@ -16,7 +16,7 @@ export class SnowballGame extends Game {
     this.collisionSystem = new Collision2DSystem(object => object.collider);
     this.effectSystem = new EffectSystem();
     this.snowballSystem = new SnowballSystem();
-    this.mapSystem = new MapSystem(32, 32, 64.0);
+    this.mapSystem = new MapSystem(64, 64, 64.0);
     this.playerSystem = new PlayerSystem();
     this.dummyTargetSystem = new DummyTargetSystem();
 

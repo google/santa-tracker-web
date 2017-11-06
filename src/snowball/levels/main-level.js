@@ -69,11 +69,13 @@ export class MainLevel extends Level {
       const { index, sprite, state, position } = this.pickEvent;
 
       const playerIndex = grid.positionToIndex(player.position);
+      const playerTileState = map.getTileState(playerIndex);
+
       const tileIsPassable = (grid, currentIndex) => {
         const state = map.getTileState(currentIndex);
         const sprite = map.getTileObstacle(currentIndex);
 
-        return state > 0 && state < 3 && sprite < 0;
+        return state > 0 && state < 3 && sprite < 0 && state !== 5.0;
       };
 
       const waypoints = grid.waypoints(playerIndex, index, tileIsPassable);
@@ -87,7 +89,6 @@ export class MainLevel extends Level {
 
         path.push(position);
         playerSystem.assignPath(path);
-        console.log(playerIndex, index, path.slice());
       } else {
         playerSystem.throwSnowballAt(position);
       }

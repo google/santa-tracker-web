@@ -45,7 +45,6 @@ export class MapSystem {
     const position = this.grid.hitToPosition(hit);
     const pickEvent = { index, position };
 
-    console.log(event, pickEvent);
     this.pickHandlers.forEach(handler => {
       handler(pickEvent);
     });

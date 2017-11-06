@@ -83,12 +83,18 @@ export class Map {
     this.tileStates = tileStates;
     this.tileOffsets = tileOffsets;
     this.tileObstacles = tileObstacles;
+    this.grid = grid;
 
     this.generateRaisedTiles();
   }
 
   generateRaisedTiles() {
-    for (let i = 0; i < 10; ++i) {
+    const grid = this.grid;
+    const frontier = [];
+    const visited = new Set();
+    const maxIterations = Math.floor(this.tileCount / 64.0);
+
+    for (let i = 0; i < maxIterations; ++i) {
       let index = -1;
       let state = -1;
       do {
@@ -96,7 +102,33 @@ export class Map {
         state = this.getTileState(index);
       } while (state !== 1);
 
-      this.setTileState(index, 5.0);
+      let size = 0;
+
+      frontier.push(index);
+
+      while (frontier.length > 0 && size < 5.0) {
+        const currentIndex = frontier.pop();
+
+        const state = this.getTileState(currentIndex);
+        const obstacle = this.getTileObstacle(currentIndex);
+
+        if (Math.random() > 0.5 && !visited.has(currentIndex) &&
+            obstacle === -1 && state === 1.0) {
+
+          this.setTileState(currentIndex, 5.0);
+          visited.add(currentIndex);
+          size++;
+
+          const neighborIndices = grid.indexToNeighborIndices(currentIndex);
+
+          for (let i = 0; i < neighborIndices.length; i++) {
+            const neighborIndex = neighborIndices[i];
+            frontier.push(neighborIndex);
+          }
+        }
+      }
+
+      frontier.splice(0, frontier.length - 1);
     }
   }
 

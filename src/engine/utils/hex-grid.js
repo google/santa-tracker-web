@@ -243,7 +243,6 @@ export class HexGrid {
     const x = (position.x + this.pixelWidth / 2) / this.pixelWidth;
     const y = (position.y + this.pixelHeight / 2) / this.pixelHeight;
     const hexCoord = HexGrid.intermediateHexCoord;
-    console.log(position, x, y);
 
     hexCoord.x = x;
     hexCoord.y = y;
@@ -317,8 +316,6 @@ export class HexGrid {
         waypoints.push(this.cubeToIndex(cube));
       }
     }
-
-    console.log(fromIndex, toIndex, waypoints);
 
     return waypoints;
   }
