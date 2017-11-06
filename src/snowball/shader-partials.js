@@ -1,3 +1,12 @@
+export const constants = `
+#define PI 3.1415926536
+`;
+
+export const rotate2d = `
+vec2 rotate2d(float a, vec2 v){
+  return mat2(cos(a), -sin(a), sin(a), cos(a)) * v;
+}`;
+
 export const erode = {
   vertex: `
 vec3 erode(vec2 tileState, float time, vec3 position) {
@@ -34,3 +43,49 @@ float erode(vec2 tileState, float time) {
 }`
 };
 
+export const fade = `
+float fade(vec2 tileState, float time) {
+  float alpha = 1.0;
+
+  if (tileState.x == 4.0) {
+    time -= tileState.y;
+
+    float elapsed = time / 300.0;
+    alpha = max(1.0 - elapsed, 0.0);
+  }
+
+  return alpha;
+}`;
+
+export const sink = `
+vec3 sink(vec2 tileState, float time, vec3 position) {
+  if (tileState.x == 4.0) {
+    time -= tileState.y;
+    float elapsed = time / 300.0;
+
+    float scale = min(1.0 + elapsed * 0.5, 2.0);
+    float translate = pow(time / 50.0, 2.0);
+
+    position.z -= translate;
+    position.z /= scale;
+  }
+
+  return position;
+}
+`;
+
+export const shake = `
+vec3 shake(vec2 tileState, float time, vec3 position) {
+  if (tileState.x == 3.0) {
+    time -= tileState.y;
+
+    float xOffset = sin(time / 70.0 * PI) * 1.0;
+    float yOffset = cos(time / 80.0 * PI) * 1.0;
+    float zOffset = cos(time / 90.0 * PI) * 1.0;
+
+    position.x += xOffset;
+    position.y += yOffset;
+  }
+
+  return position;
+}`;

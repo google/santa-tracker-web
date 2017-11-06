@@ -1,7 +1,7 @@
 import { Entity } from '../../engine/core/entity.js';
 import { HexCoord } from '../../engine/utils/hex-coord.js';
 import { MagicHexGrid } from '../utils/magic-hex-grid.js';
-import { erode } from '../shader-partials.js';
+import { constants, rotate2d, fade, shake, sink } from '../shader-partials.js';
 
 const {
   Vector2,
@@ -20,7 +20,7 @@ const {
 const vertexShader = `
 precision highp float;
 
-#define PI 3.1415926536
+${constants}
 
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
@@ -36,11 +36,9 @@ attribute float tileSprite;
 varying vec2 vTileState;
 varying vec3 vPosition;
 
-vec2 rotate2d(float r, vec2 v){
-  return mat2(cos(r), -sin(r), sin(r), cos(r)) * v;
-}
-
-${erode.vertex}
+${rotate2d}
+${shake}
+${sink}
 
 void main() {
   vec3 offsetPosition = tileOffset * tileScale;
@@ -51,7 +49,8 @@ void main() {
 
   vec3 finalPosition = scaledPosition + offsetPosition;
 
-  finalPosition = erode(tileState, time, finalPosition);
+  finalPosition = shake(tileState, time, finalPosition);
+  finalPosition = sink(tileState, time, finalPosition);
 
   gl_Position = projectionMatrix * modelViewMatrix * vec4(finalPosition, 1.0);
 
@@ -71,7 +70,7 @@ varying vec2 vUv;
 varying vec2 vTileState;
 varying vec3 vPosition;
 
-${erode.fragment}
+${fade}
 
 void main() {
 
@@ -95,7 +94,7 @@ void main() {
     color = vec4(0.80, 0.87, 0.86, 1.0);
   }
 
-  float aScale = erode(vTileState, time);
+  float aScale = fade(vTileState, time);
 
   if (aScale < 0.0) {
     discard;

@@ -89,8 +89,14 @@ export class Map {
       const index = ring[tileIndex];
 
       if (index != null) {
-        ring.splice(tileIndex, 1);
-        this.setTileState(index, 3.0);
+        const state = this.getTileState(index);
+
+        if (state === 1.0) {
+          this.setTileState(index, 3.0);
+        } else if (state === 3.0) {
+          ring.splice(tileIndex, 1);
+          this.setTileState(index, 4.0);
+        }
       }
 
       if (ring.length === 0) {

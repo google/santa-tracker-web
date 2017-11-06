@@ -1,7 +1,7 @@
 import { Entity } from '../../engine/core/entity.js';
 import { Rectangle, Circle } from '../../engine/utils/collision-2d.js';
 import { tiles } from '../textures.js';
-import { erode } from '../shader-partials.js';
+import { constants, fade, shake, sink } from '../shader-partials.js';
 
 const {
   Mesh,
@@ -16,7 +16,7 @@ const {
 const vertexShader = `
 precision highp float;
 
-#define PI 3.1415926536
+${constants}
 
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
@@ -35,11 +35,8 @@ varying vec2 vTileState;
 varying float vTileObstacle;
 varying vec3 vPosition;
 
-${erode.vertex}
-
-vec2 rotate2d(float r, vec2 v){
-  return mat2(cos(r), -sin(r), sin(r), cos(r)) * v;
-}
+${shake}
+${sink}
 
 void main() {
   vec3 offsetPosition = tileOffset * tileScale;
@@ -47,7 +44,8 @@ void main() {
 
   scaledPosition.y += tileHeight / 2.0;
 
-  vec3 finalPosition = erode(tileState, time, scaledPosition + offsetPosition);
+  vec3 finalPosition = shake(tileState, time, scaledPosition + offsetPosition);
+  finalPosition = sink(tileState, time, finalPosition);
 
   gl_Position = projectionMatrix * modelViewMatrix * vec4(finalPosition, 1.0);
 
@@ -71,7 +69,7 @@ varying vec2 vTileState;
 varying float vTileObstacle;
 varying vec3 vPosition;
 
-${erode.fragment}
+${fade}
 
 void main() {
   if (vTileState.x < 1.0 || vTileObstacle < 0.0) {
@@ -90,7 +88,7 @@ void main() {
 
   #endif
 
-  color.a *= erode(vTileState, time);
+  color.a *= fade(vTileState, time);
 
   if (color.a < 0.1) {
     discard;
