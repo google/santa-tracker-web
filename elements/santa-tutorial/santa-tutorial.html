@@ -187,6 +187,9 @@ Polymer({
 
     arr.forEach(function(tutorial) {
       const first = tutorial.split('-')[0];
+      if (first === 'spacenav') {
+        return;  // spacenav is caught above
+      }
 
       if (mode === 'touch') {
         if (first === 'mouse' || first === 'keys') {
