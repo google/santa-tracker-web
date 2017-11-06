@@ -117,7 +117,9 @@ later hit "play" on. This is potentially required for mobile browsers which don'
     }
   </style>
 
-  <google-youtube-api on-api-load="_apiLoad" id="loader"></google-youtube-api>
+  <template is="dom-if" if="[[_anyVideoLoaded]]">
+    <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
+  </template>
 
   <div id="holder" hidden$="[[!active]]">
     <div id="player" tabindex="-1"></div>
@@ -211,6 +213,14 @@ Polymer({
     },
 
     /**
+     * Whether any video has been loaded. Controls loading the internal `google-youtube-api`.
+     */
+    _anyVideoLoaded: {
+      type: Boolean,
+      value: false,
+    },
+
+    /**
      * Holds the YT.Player instance.
      */
     _player: {
@@ -241,6 +251,7 @@ Polymer({
    * Loads and plays the specified YouTube video.
    */
   play: function(videoId) {
+    this._anyVideoLoaded = true;
     this._op = {id: videoId, cue: false};
   },
 
@@ -249,6 +260,7 @@ Polymer({
    * interaction, which is probably required for iOS/other mobile interfaces.
    */
   cue: function(videoId) {
+    this._anyVideoLoaded = true;
     this._op = {id: videoId, cue: true};
   },
 
@@ -259,11 +271,11 @@ Polymer({
     this._op = null;
   },
 
-  _apiLoad: function() {
-    if (this._api === this.$.loader.api) {
+  _apiLoad: function(ev) {
+    if (this._api === ev.target.api) {
       return;
     }
-    this._api = this.$.loader.api;
+    this._api = ev.target.api;
 
     const vars = {
       playsinline: 1,
