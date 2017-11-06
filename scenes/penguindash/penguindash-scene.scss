@@ -44,3 +44,9 @@ $gameover-bg: #46e9ff;
     transform: translate3d(0, 9999px, 0) !important;
   }
 }
+
+santa-tutorial {
+  // bring in front of .scene/.gui
+  z-index: 100;
+  position: absolute;
+}
