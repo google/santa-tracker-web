@@ -31,6 +31,27 @@ export class QuadTree {
     this.nodes = [];
   }
 
+  clearDynamic() {
+    this.objects = this.objects.filter(object => object.static);
+
+    for (let i = 0; i < this.nodes.length; ++i) {
+      this.nodes[i].clearDynamic();
+    }
+
+    let empty = true;
+
+    for (let i = 0; i < this.nodes.length; ++i) {
+      if (this.nodes.length > 0) {
+        empty = false;
+        break;
+      }
+    }
+
+    if (empty) {
+      this.nodes = [];
+    }
+  }
+
   split() {
     const { halfWidth, halfHeight, x, y } = this.bounds;
 

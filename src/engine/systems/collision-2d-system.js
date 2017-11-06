@@ -27,7 +27,6 @@ export class Collision2DSystem {
         this.remove(this.collisionDebugBounds);
       }
 
-      console.log(bounds);
       const collisionDebugBounds = new Mesh(
           new PlaneBufferGeometry(bounds.width, bounds.height),
           new MeshBasicMaterial({
@@ -128,8 +127,12 @@ export class Collision2DSystem {
     //const measuredCollisions = new WeakMap();
     const measuredCollisions = {};
 
-    this.quadTree.clear();
-    this.collidables.forEach(collidable => this.quadTree.add(collidable));
+    this.quadTree.clearDynamic();
+    this.collidables.forEach(collidable => {
+      if (!collidable.static) {
+        this.quadTree.add(collidable);
+      }
+    });
 
     this.collidables.forEach(collidable => {
       const collider = this.getCollider(collidable);
