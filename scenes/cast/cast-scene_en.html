@@ -49,11 +49,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
 
   <main></main>
 
-  <div class="cards">
-    <div class="card" style$="[[_computeCardStyle(_iteration)]]"></div>
-    <div class="card" style$="[[_computeCardStyle(_iteration)]]"></div>
-    <div class="card" style$="[[_computeCardStyle(_iteration)]]"></div>
-  </div>
+  <div id="cards"></div>
 
   <santa-video id="video" class$="[[_computeVideoClass(_videoActive)]]"
       active="{{_videoActive}}"></santa-video>
@@ -86,6 +82,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
       _iteration: {
         type: Number,
         value: 0,
+        observer: '_iterationChanged',
       },
 
       /**
@@ -116,7 +113,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
     attached: function() {
       this._updateInterval = window.setInterval(() => {
         ++this._iteration;
-      }, 5000);
+      }, 10 * 1000);
       this._videoActiveChanged(this._videoActive);  // trigger video play
     },
 
@@ -148,11 +145,19 @@ TODO(samthor): Bring in the Tracker with shared elements.
       }, randomRange(20, 60) * 1000)
     },
 
-    _computeCardStyle: function() {
-      // TODO(samthor): Fade in new card images
-      const choice = randomChoice(FEED_STATIC);
-      const url = this.resolveUrl(`../newtracker/img/feed/${choice}.png`);
-      return `background-image: url(${url})`;
+    _iterationChanged: function() {
+      // TODO(samthor): fade/animation
+      const image = new Image();
+      image.src = this.resolveUrl('../newtracker/img/feed/' + randomChoice(FEED_STATIC) + '.png');
+      image.onload = function() {
+        while (this.$.cards.children.length >= 3) {
+          this.$.cards.children[0].remove();
+        }
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.backgroundImage = 'url(' + image.src + ')';
+        this.$.cards.appendChild(card);
+      }.bind(this);
     },
 
     _computeVideoClass: function(videoActive) {
