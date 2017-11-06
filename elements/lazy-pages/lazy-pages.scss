@@ -48,10 +48,13 @@
   &:not(.error-locked) .icon::before {
     display: none;
   }
-  &:not(.error-network) p.error {
+  &:not(.error-error) p.error {
     display: none;
   }
-  &:not(.missing) p.missing {
+  &:not(.error-network) p.network {
+    display: none;
+  }
+  &:not(.error-missing) p.missing {
     display: none;
   }
 }
