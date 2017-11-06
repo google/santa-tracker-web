@@ -22,8 +22,9 @@ export class SnowballSystem {
 
   update(game) {
 
-    const { collisionSystem, effectSystem } = game;
+    const { mapSystem, collisionSystem, effectSystem } = game;
     const { bounds } = collisionSystem;
+    const { grid, map } = mapSystem;
 
     // NOTE(cdata): This is just for testing perf of a lot of collidable
     // objects in the scene at one time:
@@ -72,7 +73,7 @@ export class SnowballSystem {
 
         snowball.position.x = path.x;
         snowball.position.y = path.y;
-        snowball.position.z = 10.0 + arcSize;
+        snowball.position.z = grid.cellSize / 2.0 + arcSize;
         //snowball.position.z = path.y;
 
         if (tickDelta >= duration) {

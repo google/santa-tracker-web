@@ -35,13 +35,18 @@ attribute float tileSprite;
 
 varying vec2 vTileState;
 varying vec3 vPosition;
+varying vec3 vFinalPosition;
+varying float vTileScale;
 
 ${rotate2d}
 ${shake}
 ${sink}
 
 void main() {
+
+
   vec3 offsetPosition = tileOffset * tileScale;
+
   vec3 scaledPosition = position * (tileScale / 2.0);
 
   scaledPosition.xy = rotate2d(PI / 2.0, scaledPosition.xy);
@@ -49,18 +54,23 @@ void main() {
 
   vec3 finalPosition = scaledPosition + offsetPosition;
 
+  if (tileState.x == 5.0 && finalPosition.z == tileScale / 4.0) {
+    finalPosition.z *= 3.0;
+  }
+
   finalPosition = shake(tileState, time, finalPosition);
   finalPosition = sink(tileState, time, finalPosition);
 
   gl_Position = projectionMatrix * modelViewMatrix * vec4(finalPosition, 1.0);
 
   vPosition = position;
+  vFinalPosition = finalPosition;
   vTileState = tileState;
+  vTileScale = tileScale;
 }
 `;
 
 const fragmentShader = `
-
 precision highp float;
 
 uniform float scale;
@@ -69,6 +79,8 @@ uniform float time;
 varying vec2 vUv;
 varying vec2 vTileState;
 varying vec3 vPosition;
+varying vec3 vFinalPosition;
+varying float vTileScale;
 
 ${fade}
 
@@ -88,10 +100,13 @@ void main() {
       1.0 - shouldHighlight * gScale,
       1.0);
 
-  vec4 color = vec4(1.0, 1.0, 1.0, 1.0);
+  vec4 color = vTileState.x == 5.0
+      ? vec4(0.94, 0.97, 1.0, 1.0)
+      : vec4(1.0, 1.0, 1.0, 1.0);
 
   if (vPosition.y < 0.5) {
-    color = vec4(0.80, 0.87, 0.86, 1.0);
+    color = vec4(0.80, 0.87, 0.86, 1.0) + vPosition.y / 7.0;
+    //color = vec4(0.80, 0.87, 0.86, 1.0) + vFinalPosition.z / vTileScale / 6.0;
   }
 
   float aScale = fade(vTileState, time);

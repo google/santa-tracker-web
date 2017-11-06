@@ -5,6 +5,16 @@ const {
   InstancedBufferAttribute
 } = self.THREE;
 
+/**
+ * Tile state reference:
+ * - 0: Hidden
+ * - 1: Visible
+ * - 2: Glowing highlight
+ * - 3: Shaking
+ * - 4: Sinking
+ * - 5: Raised
+ */
+
 export class Map {
   constructor(grid) {
     const tileCount = grid.width * grid.height;
@@ -41,7 +51,7 @@ export class Map {
 
         // Decide the initial state of the tile (either hidden or shown):
         const erosionChance = 0.5 + magDelta / erosionMag;
-        const state = mag > erosionMag
+        let state = mag > erosionMag
             ? Math.random() < erosionChance
                 ? 0.0
                 : 1.0
@@ -67,13 +77,27 @@ export class Map {
       }
     }
 
-    console.log(tileOffsets.array);
     this.tileCount = tileCount;
     this.tileRings = tileRings;
 
     this.tileStates = tileStates;
     this.tileOffsets = tileOffsets;
     this.tileObstacles = tileObstacles;
+
+    this.generateRaisedTiles();
+  }
+
+  generateRaisedTiles() {
+    for (let i = 0; i < 10; ++i) {
+      let index = -1;
+      let state = -1;
+      do {
+        index = Math.floor(Math.random() * this.tileCount);
+        state = this.getTileState(index);
+      } while (state !== 1);
+
+      this.setTileState(index, 5.0);
+    }
   }
 
   erode(numberOfTiles) {
