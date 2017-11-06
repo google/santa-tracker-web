@@ -77,7 +77,7 @@ main {
   height: calc(100vh - #{$header-size});
 }
 
-.cards {
+#cards {
   position: absolute;
   bottom: 44px;
   box-sizing: border-box;
