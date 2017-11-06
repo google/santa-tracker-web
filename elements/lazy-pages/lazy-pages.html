@@ -27,14 +27,16 @@ Lazy loads children "pages".
       <img src$="[[importPath]]img/snowman.png" />
       <img src$="[[importPath]]img/lock.svg" />
     </div>
-    <div id="error" class$="[[_computeErrorClass(selectedItem, error)]]">
+    <div id="error" class$="[[_computeErrorClass(error)]]">
       <div class="icon">
-        <div class="bg" style$="[[_computeLockStyle(route, error)]]"></div>
+        <div class="bg" style$="[[_computeLockStyle(error)]]"></div>
         <div class="lock"></div>
       </div>
-      <!-- TODO(samthor): Restore 'network' error msgid="error-lost" -->
       <p class="error">
         <i18n-msg msgid="error">PLACEHOLDER_i18n</i18n-msg>
+      </p>
+      <p class="network">
+        <i18n-msg msgid="error-lost-connection">PLACEHOLDER_i18n</i18n-msg>
       </p>
       <p class="missing">
         <i18n-msg msgid="error-not-found">PLACEHOLDER_i18n</i18n-msg>
@@ -76,10 +78,10 @@ Lazy loads children "pages".
     properties: {
 
       /**
-       * The error state (if any). Should be null or "network", "locked" etc.
+       * The error state (if any). An object of {route: String, type: String}.
        */
       error: {
-        type: String,
+        type: Object,
         readOnly: true,
         value: null,
       },
@@ -102,16 +104,7 @@ Lazy loads children "pages".
       },
 
       /**
-       * The scene that's being loaded via hard URL change.
-       */
-      bootstrap: {
-        type: Object,
-        notify: true,
-        readOnly: true,
-      },
-
-      /**
-       * The current loading progress, from zero to 100, or null for none.
+       * The current loading progress, as per `preload-bar`: in the range [0,1] or null.
        */
       progress: {
         type: Number,
@@ -120,7 +113,24 @@ Lazy loads children "pages".
       },
 
       /**
-       * The computed selectedItem.
+       * The scene that is currently pending.
+       */
+      _pendingItem: {
+        type: Object,
+        value: null,
+      },
+
+      /**
+       * The scene that is being loaded via hard URL change, and no other scene is visible.
+       */
+      bootstrap: {
+        type: Object,
+        notify: true,
+        computed: '_computeBootstrap(_pendingItem, selectedItem, error)',
+      },
+
+      /**
+       * The current live scene.
        */
       selectedItem: {
         type: Object,
@@ -164,97 +174,109 @@ Lazy loads children "pages".
     },
 
     onSceneProgress: function(ev) {
-      this._loadingPromise.then(function(scene) {
-        // Update progress bar only if the correct scene is dispatching events.
-        const target = ev.path[0] || null;
-        if (scene === target) {
-          this.cancelDebouncer('resetProgress');
-          this._setProgress(ev.detail);
-        }
-      }.bind(this));
-    },
-
-    load: function(route) {
-      this._loadingPromise = null;  // clear previous load
-
-      // TODO(samthor): Move into common Promise below.
-      if (!this._routeIsOpen(route)) {
-        this.route = route;
-        this._setBootstrap(null);
-        this._setSelectedItem(null);
-        this._setError('locked');
-        this.fire('embed', 'onfailure');
-        this._loadingPromise = Promise.reject('locked');
-        this._setProgress(null);
-        return;
+      if (this._pendingItem === ev.path[0]) {
+        this._setProgress(ev.detail);  // only update if the correct scene is dispatching events
       }
-
-      const scene = this.getRoute(route);
-      if (!scene) {
-        console.debug('got null scene for', route);
-        this.route = route;
-        this._setBootstrap(null);
-        this._setSelectedItem(null);
-        this._setError(null);
-        this._loadingPromise = Promise.resolve(null);
-        this._setProgress(null);
-        return;
-      }
-
-      const p = this._loadingPromise = this._loadScene(scene);
-      const safe = function(fn) {
-        return function() {
-          if (this._loadingPromise === p) {
-            return fn.apply(this, arguments);
-          }
-        }.bind(this);
-      }.bind(this);
-
-      const loader = p.then(safe(function(scene) {
-        // At this point, scene is a real HTML element ready to be used.
-        return scene.preload.then(safe(function() {
-          this._setSelectedItem(scene);  // actually preloaded, so set item
-          this._setError(null);
-          this.route = route;  // finally update route in case this was a proper .load()
-
-          // log that the scene has finished preloading. If this wasn't a preloaded
-          // load, the event will be discarded harmlessly (no start event).
-          this.fire('analytics-time-end', {category: 'Scene Load Time',
-              variable: this.route, time: Date.now()});
-        }));
-
-      })).catch(safe(function(reason) {
-        console.warn('lazy-pages', scene && scene.localName, 'failure', reason);
-        this.fire('embed', 'onfailure');
-        this._setSelectedItem(null);
-        if (typeof reason !== 'string') {
-          this._setError('error');
-          throw reason;
-        }
-        this._setError(reason);
-      }));
-
-      // If noone sets the progress (resetProgress is cleared inside _progressChanged) in a short
-      // time, then set it to zero to show the kickoff. This prevents a 'flash' for already loaded
-      // changes.
-      this.debounce('resetProgress', function() {
-        this._setProgress(0);
-      }, 20);
-
-      loader.then(safe(function() {
-        this.cancelDebouncer('resetProgress');
-        this._setProgress(null);  // regardless of outcome, clear progress bar on completion
-        this._setBootstrap(null);  // and we're no longer bootstrapping
-      }));
     },
 
     /**
      * Revalidate the currently selected scene, if any. May either load or unload the scene.
      */
     revalidate: function() {
-      this._routeChanged(this.route);
+      const route = this.route;
+      const p = this._loadingPromise;
+
+      const handler = (scene) => {
+        if (p !== this._loadingPromise) {
+          return this.revalidate();  // something changed, try again
+        }
+
+        if (scene === this.getRoute(route)) {
+          // possibly close route
+          if (!this._routeIsOpen(route)) {
+            this._setSelectedItem(null);
+            this.load(route);
+          }
+        } else {
+          // will reload if selectedItem is null
+          this._routeChanged(route);
+        }
+      };
+
+      return this._loadingPromise.catch(() => {}).then(handler);
     },
 
+    _routeChanged: function(route) {
+      if (route === undefined) {
+        return;  // ignore
+      }
+
+      const scene = this.getRoute(route);
+      if (scene !== this.selectedItem) {
+        this._setSelectedItem(null);  // immediately revoke the current scene
+        this.load(route);
+      }
+    },
+
+    load: function(route) {
+      const scene = this.getRoute(route);
+      if (scene && (this.selectedItem === scene || this._pendingItem === scene)) {
+        return;  // already loaded or loading
+      }
+
+      let p = null;  // nb. declared here so safe() can use it
+      const safe = (fn) => {
+        return function() {
+          if (this._loadingPromise === p) {
+            return fn.apply(this, arguments);
+          }
+        }.bind(this);
+      };
+
+      const init = () => {
+        if (!this._routeIsOpen(route)) {
+          return Promise.reject('locked');
+        } else if (!scene) {
+          return Promise.reject('missing');
+        }
+        return this._loadScene(scene).then((scene) => scene.preload);
+      };
+
+      this._pendingItem = scene;
+      p = this._loadingPromise = init().then(safe(function() {
+        this._setSelectedItem(scene);  // actually preloaded (or null), so set item
+        this._setError(null);
+
+        // log that the scene has finished preloading. If this wasn't a preloaded
+        // load, the event will be discarded harmlessly (no start event).
+        this.fire('analytics-time-end', {category: 'Scene Load Time',
+            variable: route, time: Date.now()});
+        return scene;
+      }));
+
+      const caught = p.catch(safe(function(reason) {
+        console.warn('lazy-pages', scene && scene.localName, 'failure', reason);
+        this.fire('embed', 'onfailure');
+        this._setSelectedItem(null);
+
+        const error = {type: (typeof reason === 'string' ? reason : 'error'), route: route};
+        this._setError(Object.freeze(error));
+        if (typeof reason !== 'string') {
+          throw reason;
+        }
+      }));
+
+      // Regardless of outcome, clear progress outcome/_pendingItem on completion.
+      caught.catch(() => {}).then(safe(function() {
+        this.route = route;  // always set route
+        this._setProgress(null);
+        this._pendingItem = null;
+      }));
+    },
+
+    /**
+     * Updates the `scenes` property based on the current DOM contents.
+     */
     _updateScenes: function() {
       const nodes = Polymer.dom(this).queryDistributedElements('[route]');
       const scenes = {};
@@ -267,8 +289,6 @@ Lazy loads children "pages".
         }
       }
 
-      const previousPossibleScene = this.getRoute(this.selected);
-      const candidateScene = scenes[this.selected] || null;
       this._setScenes(Object.freeze(scenes));
     },
 
@@ -277,22 +297,6 @@ Lazy loads children "pages".
      */
     getRoute: function(route) {
       return this.scenes && this.scenes[route] || null;
-    },
-
-    _routeChanged: function(route) {
-      if (route === undefined) {
-        return;  // literally do nothing
-      }
-
-      // TODO(samthor): If this is a revalidation and the route is *correct* but the scene isn't
-      // loaded, then it still triggers bootstrap mode (e.g. network error).
-      const scene = this.getRoute(route);
-      if (scene !== this.selectedItem) {
-        this.fire('bootstrap', scene)
-        this._setBootstrap(scene);
-        this._setSelectedItem(null);
-        this.load(route);
-      }
     },
 
     _selectedItemChanged: function(newValue, oldValue) {
@@ -324,6 +328,13 @@ Lazy loads children "pages".
       }
     },
 
+    /**
+     * Loads the HTML import for the underlying scene based on its `path` attribute. If the scene
+     * is already a real Custom Element, then resolves immediately.
+     *
+     * @param {!HTMLElement} scene
+     * @return {!Promise<!HTMLElement>}
+     */
     _loadScene: function(scene) {
       if (!scene || scene.is) {
         return Promise.resolve(scene);
@@ -333,16 +344,15 @@ Lazy loads children "pages".
       // attributes that have no bindings (e.g. path$="foo" => path$, path$="{{foo}}" => path).
       const path = scene.getAttribute('path') || scene.getAttribute('path$');
       if (!path) {
-        return Promise.resolve(scene);
+        return Promise.reject('path');
       }
 
       // Start scene loading time.
-      var route = scene.getAttribute('route') || scene.route;
+      const route = scene.getAttribute('route') || scene.route;
       this.fire('analytics-time-start', {category: 'Scene Load Time',
           variable: route, time: Date.now()});
 
-      // TODO: Return a real promise.
-      const p = new Promise(function(resolve, reject) {
+      return new Promise((resolve, reject) => {
         // Work around Polymer's failure to reload failed imports:
         //   https://github.com/Polymer/polymer/issues/3908
         // Append a numbered suffix if this is a 2nd failed load. This is stripped in the SW.
@@ -361,9 +371,7 @@ Lazy loads children "pages".
           failedToLoad[path] = attempt + 1;
           reject('network');
         });
-      }.bind(this));
-
-      return p;
+      });
     },
 
     /**
@@ -375,20 +383,26 @@ Lazy loads children "pages".
       return !event.defaultPrevented;
     },
 
-    _computeErrorClass: function(selected, error) {
+    _computeBootstrap: function(pendingItem, selectedItem, error) {
+      if (selectedItem || error) {
+        return null;
+      }
+      return pendingItem;
+    },
+
+    _computeErrorClass: function(error) {
       if (error) {
-        return 'error error-' + error;
-      } else if (selected === null) {  // not undefined
-        return 'missing';
+        return 'error error-' + error.type;
       }
       return null;
     },
 
-    _computeLockStyle: function(route, error) {
-      if (!route || error === 'network') {
+    _computeLockStyle: function(error) {
+      if (!error || error.type !== 'locked') {
         return null;
       }
-      const url = this.resolveUrl('../../images/scenes/' + route + '_2x.png');
+      // show background only if scene is locked
+      const url = this.resolveUrl('../../images/scenes/' + error.route + '_2x.png');
       return 'background-image: url(' + url + ');'
     },
 
