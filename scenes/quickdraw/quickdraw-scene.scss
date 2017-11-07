@@ -1,4 +1,17 @@
 $name: 'module-quickdraw';
+$color-background: #009933;
+$color-card: $color-background;
+$color-slate-bg: $color-background;
+$color-slate-border: #e8c31c;
+
+@import "../shared/sass/button";
+
+@import "sass/card";
+@import "sass/slate";
+@import "sass/splashview";
+@import "sass/gameview";
+@import "sass/newround";
+@import "sass/timesup";
 
 ##{$name} {
  position: absolute;
@@ -15,7 +28,5 @@ $name: 'module-quickdraw';
    right: 0;
    bottom: 0;
    left: 0;
-
-   font-size: 1px;
  }
 }

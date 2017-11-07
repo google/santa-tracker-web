@@ -34,6 +34,44 @@ Quickdraw scene.
   <div id="module-quickdraw">
     <div class="quickdraw">
       <div class="scene">
+        <!-- PUT HTML CODE IN HERE -->
+        <div class="splashview">
+          <img src="[[importPath]]img/splashscreen-image.svg" class="splashview__picture" alt="">
+          <p class="splashview__title">Help Robby practice his image recognition!</p>
+          <button class="Button splashview__button">Start</button>
+        </div>
+        <div class="gameview">
+          <canvas class="drawingCanvas" resize="true"></canvas>
+          <div>
+            <p>I see...</p>
+            <div>TREE</div>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="newround-card covercard">
+            <div class="card-container fill">
+              <div class="slate">
+                <div class="slate__small-text">Draw</div>
+                <div class="slate__big-text">Snowflake</div>
+                <div class="slate__small-text"><span>1</span>/<span>4</span></div>
+              </div>
+              <button class="Button newround-card__button">Start</button>
+            </div>
+          </div>
+          <div class="timesup-card covercard">
+            <div class="card-container fill">
+              <h1 class="timesup-card__title">Well done!</h1>
+              <p class="timesup-card__subline">Robby recognized 3 of your drawings.</p>
+              <div class="timesup-card__drawings">
+                <div class="timesup-card__drawing"></div>
+                <div class="timesup-card__drawing"></div>
+                <div class="timesup-card__drawing"></div>
+                <div class="timesup-card__drawing"></div>
+              </div>
+              <button class="Button Button--large">Play again!</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,10 @@
+##{$name} {
+  .gameview {
+    display: flex;
+    height: 100%;
+    .drawingCanvas {
+      background-color: white;
+      width: 70%;
+    }
+  }
+}

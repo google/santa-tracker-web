@@ -1,0 +1,30 @@
+##{$name} {
+  .splashview {
+    display: none !important;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+    justify-content: center;
+
+    &__picture {
+      margin-top: -5%;
+      max-height: 50%;
+    }
+
+    &__title {
+      color: white;
+      font-family: 'Lobster', sans-serif;
+      font-size: 45px;
+    }
+
+    &__button {
+      padding: 0 40px;
+    }
+  }
+}

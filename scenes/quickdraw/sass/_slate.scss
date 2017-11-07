@@ -1,0 +1,31 @@
+##{$name} {
+
+  .slate {
+    align-items: center;
+    background-color: $color-slate-bg;
+    border: 25px solid $color-slate-border;
+    border-radius: 20px;
+    box-shadow: 25px 25px 0 0 rgba(0, 0, 0, 0.2);
+    color: white;
+    display: flex;
+    flex-direction:column;
+    height: 300px;
+    justify-content: space-between;
+    padding: 40px;
+    width: 500px;
+
+    &__small-text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    &__big-text {
+      font-family: 'Lobster', sans-serif;
+      font-size: 110px;
+      transform: rotate(-5.6deg);
+    }
+  }
+}

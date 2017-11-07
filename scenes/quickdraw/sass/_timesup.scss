@@ -1,0 +1,33 @@
+##{$name} {
+  .timesup-card {
+    color: white;
+
+    &__title {
+      font-family: 'Lobster', sans-serif;
+      font-size: 45px;
+      margin: 0;
+    }
+
+    &__subline {
+      font-family: 'Roboto', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      margin: 0;
+      margin-top: 20px;
+    }
+
+    &__drawings {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1350px;
+      width: 90%;
+      margin: 50px 0;
+    }
+
+    &__drawing {
+      background-color: white;
+      width: 300px;
+      height: 225px;
+    }
+  }
+}

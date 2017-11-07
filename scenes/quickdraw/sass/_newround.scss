@@ -1,0 +1,13 @@
+##{$name} {
+  .newround-card {
+
+    &__button {
+      padding: 0 40px;
+      margin-top: 10%;
+    }
+
+    .slate {
+      transform: rotate(3deg);
+    }
+  }
+}
