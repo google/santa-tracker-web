@@ -63,16 +63,15 @@ app.Tools = function(game, $elem) {
   this.paintbrush = new app.TextureDrawer($elem, 'paintbrush', 0.5);
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
-  this.sceneSnowfg = new app.LayerTool($elem, 'snowfg', app.LayerTool.Layer.FOREGROUND);
   this.sceneAir = new app.LayerTool($elem, 'air', app.LayerTool.Layer.BACKGROUND);
   this.sceneAirport = new app.LayerTool($elem, 'airport', app.LayerTool.Layer.BACKGROUND);
   this.sceneBeach = new app.LayerTool($elem, 'beach', app.LayerTool.Layer.BACKGROUND);
   this.sceneDock = new app.LayerTool($elem, 'dock', app.LayerTool.Layer.BACKGROUND);
   this.sceneIceberg = new app.LayerTool($elem, 'iceberg', app.LayerTool.Layer.BACKGROUND);
   this.sceneLivingroom = new app.LayerTool($elem, 'livingroom', app.LayerTool.Layer.BACKGROUND);
+  this.sceneNight = new app.LayerTool($elem, 'night', app.LayerTool.Layer.BACKGROUND);
   this.sceneSnow = new app.LayerTool($elem, 'snow', app.LayerTool.Layer.BACKGROUND);
   this.sceneUnderwater = new app.LayerTool($elem, 'underwater', app.LayerTool.Layer.BACKGROUND);
-  this.sceneWorkshop = new app.LayerTool($elem, 'workshop', app.LayerTool.Layer.BACKGROUND);
   this.eraser = new app.Eraser($elem, 'eraser');
   this.stampBauble = new app.Stamp($elem, 'bauble');
   this.stampBow = new app.Stamp($elem, 'bow');
@@ -85,16 +84,15 @@ app.Tools = function(game, $elem) {
     this.paintbrush,
     this.spray,
     this.sprinkles,
-    this.sceneSnowfg,
     this.sceneAir,
     this.sceneAirport,
     this.sceneBeach,
     this.sceneDock,
     this.sceneIceberg,
     this.sceneLivingroom,
+    this.sceneNight,
     this.sceneSnow,
     this.sceneUnderwater,
-    this.sceneWorkshop,
     this.eraser,
     this.stampBauble,
     this.stampBow,
