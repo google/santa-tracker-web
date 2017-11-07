@@ -66,22 +66,25 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
   if (this.points.length > 1) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
-    var p1, p2;
     var rotation = 0;
+    var lastPoint = this.points[0];
+    context.drawImage(texture, lastPoint.x - offsetX, lastPoint.y - offsetY,
+        drawWidth, drawHeight);
 
-    for (var i = 0; i < this.points.length - 1; i++) {
-      p1 = this.points[i];
-      p2 = this.points[i + 1];
+    for (var i = 1; i < this.points.length - 1; i++) {
+      var p1 = this.points[i];
+      var p2 = this.points[i + 1];
       var midpoint = {
         x: p1.x + (p2.x - p1.x) / 2,
         y: p1.y + (p2.y - p1.y) / 2
       };
 
-      var distance = app.utils.distance(p1, p2);
+      var distance = app.utils.distance(lastPoint, midpoint);
 
       for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
         var t = j / distance;
-        var point = app.utils.pointInCurve(t, p1, midpoint, p2);
+        var point = app.utils.pointInCurve(t, lastPoint, p1, midpoint);
+        rotation += Math.PI / 5;
 
         context.save();
         context.globalAlpha = this.opacity;
@@ -90,8 +93,9 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
         context.drawImage(texture, -offsetX, -offsetY,
             drawWidth, drawHeight);
         context.restore();
-        rotation += Math.PI / 5;
       }
+
+      lastPoint = midpoint;
     }
   } else {
     context.drawImage(texture, drawX - offsetX,

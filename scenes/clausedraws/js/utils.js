@@ -34,6 +34,8 @@ app.utils = function() {
 
     pointInCurve: function(t, start, control, end) {
       var u = (1 - t);
+      // var x = u * (u * start.x + (t * control.x)) + t * ((u * control.x + (t * end.x)));
+      // var y = u * (u * start.y + (t * control.y)) + t * ((u * control.y + (t * end.y)));
       var x = u * u * start.x + 2 * u * t * control.x + t * t * end.x;
       var y = u * u * start.y + 2 * u * t * control.y + t * t * end.y;
       var dx = (u * control.x + t * end.x) - (u * start.x + t * control.x);
