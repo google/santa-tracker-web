@@ -65,13 +65,14 @@ app.Marker.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
   } else if (this.points.length == 2) {
     var p1 = this.points[0];
     var p2 = this.points[1];
+    var midpoint = app.utils.midpoint(p1, p2);
     context.lineJoin = 'round';
     context.lineCap = 'round';
     context.lineWidth = this.currentSize;
     context.strokeStyle = color;
     context.beginPath();
     context.moveTo(p1.x * this.dpr, p1.y * this.dpr);
-    context.lineTo(p2.x * this.dpr, p2.y * this.dpr);
+    context.lineTo(midpoint.x * this.dpr, midpoint.y * this.dpr);
     context.stroke();
   } else {
     context.lineJoin = 'round';

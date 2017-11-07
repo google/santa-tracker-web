@@ -33,8 +33,8 @@ app.TextureDrawer = function($elem, name, opacity) {
   this.soundKey = 'selfie_color';
   this.opacity = opacity || 1;
   this.drawFrequency = 4;
-  this.inputPoints = [];
-  this.drawPoints = [];
+  this.points = [];
+  this.rotation = 0;
 };
 app.TextureDrawer.prototype = Object.create(app.Tool.prototype);
 
@@ -59,46 +59,55 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
   var offsetY = this.currentSize / 2;
   var texture = this.elem.find('#' + this.name + '-' + color.substring(1))[0];
 
-  this.inputPoints.push({
+  this.points.push({
       x: drawX,
       y: drawY
     });
 
-  if (this.inputPoints.length > 1) {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
-    var rotation = 0;
-    var lastPoint = this.inputPoints[0];
-    context.drawImage(texture, lastPoint.x - offsetX, lastPoint.y - offsetY,
+  if (this.points.length == 1) {
+    var p1 = this.points[0];
+    context.drawImage(texture, p1.x - offsetX, p1.y - offsetY,
         drawWidth, drawHeight);
+  } else if (this.points.length == 2) {
+    var p1 = this.points[0];
+    var p2 = this.points[1];
+    var midpoint = app.utils.midpoint(p1, p2);
+    var distance = app.utils.distance(p1, midpoint);
+    for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
+      var t = j / distance;
+      var point = app.utils.pointInCurve(t, p1, p1, midpoint);
+      this.rotation += Math.PI / 5;
 
-    for (var i = 1; i < this.inputPoints.length - 1; i++) {
-      var p1 = this.inputPoints[i];
-      var p2 = this.inputPoints[i + 1];
-      var midpoint = app.utils.midpoint(p1, p2);
-      var distance = app.utils.distance(lastPoint, midpoint);
-
-      for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
-        var t = j / distance;
-        var point = app.utils.pointInCurve(t, lastPoint, p1, midpoint);
-        rotation += Math.PI / 5;
-        this.drawPoints.push(point);
-
-        context.save();
-        context.globalAlpha = this.opacity;
-        context.translate(point.x, point.y);
-        context.rotate(rotation * 2 * Math.PI);
-        context.drawImage(texture, -offsetX, -offsetY,
-            drawWidth, drawHeight);
-        context.restore();
-      }
-
-      lastPoint = midpoint;
+      context.save();
+      context.globalAlpha = this.opacity;
+      context.translate(point.x, point.y);
+      context.rotate(this.rotation * 2 * Math.PI);
+      context.drawImage(texture, -offsetX, -offsetY,
+          drawWidth, drawHeight);
+      context.restore();
     }
   } else {
-    context.drawImage(texture, drawX - offsetX,
-        drawY - offsetY, drawWidth, drawHeight);
+    var p0 = this.points[this.points.length - 3];
+    var p1 = this.points[this.points.length - 2];
+    var p2 = this.points[this.points.length - 1];
+    var midpoint1 = app.utils.midpoint(p0, p1);
+    var midpoint2 = app.utils.midpoint(p1, p2);
+    var distance = app.utils.distance(midpoint1, midpoint2);
+    for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
+      var t = j / distance;
+      var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);
+
+      context.save();
+      context.globalAlpha = this.opacity;
+      context.translate(point.x, point.y);
+      context.rotate(this.rotation * 2 * Math.PI);
+      context.drawImage(texture, -offsetX, -offsetY,
+          drawWidth, drawHeight);
+      context.restore();
+    }
   }
+
+  this.rotation += Math.PI / 5;
 
   return true;
 };
@@ -108,8 +117,8 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
  * Resets the pen path
  */
 app.TextureDrawer.prototype.reset = function() {
-  this.inputPoints = [];
-  this.drawPoints = [];
+  this.points = [];
+  this.rotation = 0;
 }
 
 
