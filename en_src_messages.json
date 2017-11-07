@@ -1607,6 +1607,10 @@
     "description": "Title of a scene/game. Practice dropping presents into practice chimneys.",
     "message": "Present Drop"
   },
+  "scene_quickdraw": {
+    "description": "Title of a scene/game. Teach Robby the robot how to draw!",
+    "message": "Speed Sketch"
+  },
   "scene_racer": {
     "description": "Title of a scene/game. Race Rudolph through the snow, collecting the most presents along the way.",
     "message": "Rudolph Racer"
