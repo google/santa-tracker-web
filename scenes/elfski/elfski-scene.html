@@ -163,7 +163,7 @@ Polymer({
     this._player = scenes.elfski.Game.newCharacter();
 
     const image = new Image();
-    image.src = this.resolveUrl('img/explosion.png');
+    image.src = this.resolveUrl('img/tiles.png');
     image.onload = function() {
 
       const canvas = this.$.gl3d;
@@ -177,9 +177,10 @@ Polymer({
       //   console.info('added at', x, y);
       // }
 
+      let img = 0;
       canvas.onclick = function(ev) {
         console.info('got', ev.offsetX, ev.offsetY);
-        game.add(ev.offsetX, ev.offsetY, 0, 0);
+        game.add(ev.offsetX, ev.offsetY, (img = (img + 1) % 4), 0);
         game.draw();
       };
 
