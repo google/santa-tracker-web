@@ -55,13 +55,13 @@ Quickdraw scene.
       var module = this.$['module-quickdraw'];
 
       this.game = new scenes.quickdraw.Game(module);
-      //this.game.start();
+      this.game.start();
       this.fire('sound-ambient', 'selfie_start');
       this.fire('sound-ambient', 'music_start_ingame');
     },
 
     onHide: function() {
-      //this.game.dispose();
+      this.game.dispose();
       this.game = null;
       this.fire('sound-ambient', 'selfie_end');
     },

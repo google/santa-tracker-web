@@ -25,6 +25,14 @@ goog.provide('app.Game');
  * @struct
  * @export
  */
-app.Game = function(elem, componentDir) {
+app.Game = function(elem) {
   this.elem = $(elem);
+};
+
+app.Game.prototype.start = function() {
+  console.log('starting game');
+};
+
+app.Game.prototype.dispose = function() {
+  console.log('dispose game');
 };
