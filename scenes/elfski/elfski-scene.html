@@ -76,9 +76,15 @@ Elf Ski scene.
   will-change: transform;
   z-index: 10;
 }
+#gl3d {
+  position: absolute;
+  z-index: 100;
+  background: red;
+}
 
   </style>
 
+  <canvas id="gl3d" width="640" height="480"></canvas>
   <div id="mountain"
       on-pointerdown="_onPointerDown"
       on-pointermove="_onPointerMove"
@@ -144,6 +150,7 @@ Polymer({
       'img/tree2.svg',
       'img/tree3.svg',
       'img/tree4.svg',
+      'img/tiles.png',
     ]);
   },
 
@@ -154,6 +161,33 @@ Polymer({
     this._onResize();
 
     this._player = scenes.elfski.Game.newCharacter();
+
+    const image = new Image();
+    image.src = this.resolveUrl('img/explosion.png');
+    image.onload = function() {
+
+      const canvas = this.$.gl3d;
+      const SpriteGame = scenes.elfski.Game.getSpriteGame();
+      const game = new SpriteGame(canvas, image);
+
+      // for (let i = 0; i < 40; ++i) {
+      //   const x = Math.random() * canvas.width;
+      //   const y = Math.random() * canvas.height;
+      //   game.add(x, y, 0, 0);
+      //   console.info('added at', x, y);
+      // }
+
+      canvas.onclick = function(ev) {
+        console.info('got', ev.offsetX, ev.offsetY);
+        game.add(ev.offsetX, ev.offsetY, 0, 0);
+        game.draw();
+      };
+
+      game.draw();
+      this._game = game;
+
+    }.bind(this);
+
   },
 
   onHide: function() {
