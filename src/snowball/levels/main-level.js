@@ -4,7 +4,7 @@ import { HexMap } from '../entities/hex-map.js';
 import { Elf } from '../entities/elf.js';
 import { TetheredCameraTracker } from '../utils/camera-tracking.js';
 
-const { Vector2 } = self.THREE;
+const { AmbientLight } = self.THREE;
 
 export class MainLevel extends Level {
   setup(game) {
@@ -27,6 +27,7 @@ export class MainLevel extends Level {
 
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera, player);
+    this.light = new AmbientLight(0xffffff, 2.0);
 
     collisionSystem.bounds = Rectangle.allocate(
        grid.pixelWidth, grid.pixelHeight, mapLayer.position);
@@ -42,6 +43,7 @@ export class MainLevel extends Level {
     gimbal.add(effectsLayer);
 
     this.add(mapLayer);
+    this.add(this.light);
 
     this.lastErosionTick = 0;
   }
@@ -53,6 +55,7 @@ export class MainLevel extends Level {
     this.remove(game.effectSystem.effectsLayer);
     this.remove(game.snowballSystem.snowballLayer);
     this.remove(game.playerSystem.playerLayer);
+    this.remove(this.light);
   }
 
   update(game) {

@@ -60,6 +60,8 @@ export class PlayerSystem {
       snowballSystem.throwSnowball(intermediateVector2, this.targetPosition);
       this.targetPosition = null;
     }
+
+    this.player.update(game);
   }
 
   throwSnowballAt(targetPosition) {

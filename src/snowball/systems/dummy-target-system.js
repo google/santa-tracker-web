@@ -11,7 +11,7 @@ export class DummyTargetSystem {
   }
 
   update(game) {
-    while (this.dummies.length < 10) {
+    while (this.dummies.length < 0) {
       this.addDummyTarget(game);
     }
 

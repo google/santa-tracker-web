@@ -6,7 +6,8 @@ const {
   MeshBasicMaterial,
   PlaneBufferGeometry,
   Object3D,
-  GLTFLoader
+  GLTFLoader,
+  AnimationMixer
 } = self.THREE;
 
 
@@ -16,14 +17,25 @@ export class Elf extends Entity(Object3D) {
 
     this.size = size;
 
-    createElf().then(elf => {
-      elf.frustumCulled = false;
+    createElf().then(model => {
+      const elf = model.object;
+
+      elf.scale.multiplyScalar(5.0);
       elf.position.z = 19;
       elf.position.y = -10.0;
       elf.rotation.x += Math.PI / 2.25;
 
+      this.model = model;
+      this.model.play('animation_0');
       this.graphic = elf;
       this.add(elf);
     });
+  }
+
+  update(game) {
+    if (this.model != null) {
+      debugger;
+      this.model.update(game);
+    }
   }
 };
