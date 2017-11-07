@@ -22,6 +22,7 @@ goog.provide('app.Game');
  */
 
 import { Character } from './physics.js';
+import SpriteGame from './render.js';
 
 /**
  * @export
@@ -36,5 +37,13 @@ app.Game = class Game {
    */
   static newCharacter() {
     return new Character();
+  }
+
+ /**
+  * @export
+  * @return {function(): SpriteGame}
+  */
+  static getSpriteGame() {
+    return SpriteGame;
   }
 };
