@@ -125,7 +125,11 @@ export default class SpriteGame {
     this.canvas = canvas;
     this.tiles = tiles;
 
-    const gl = this.gl = canvas.getContext('webgl');
+    const args = {
+      // premultipliedAlpha: false,  // Ask for non-premultiplied alpha
+    };
+
+    const gl = this.gl = canvas.getContext('webgl', args);
     if (!gl) {
       throw new TypeError('no webgl');
     }
@@ -183,8 +187,8 @@ export default class SpriteGame {
 
   add(x, y, spriteIndex, rotation) {
 
-    const spriteSize = 32;
-    const textureSize = 256;
+    const spriteSize = 128;
+    const textureSize = 512;
 
     for (let ii = 0; ii < offsets.length; ++ii) {
       const offset = offsets[ii];
@@ -212,9 +216,8 @@ export default class SpriteGame {
     // Remember that the _positionData is at the start of _spriteBuffer.
     const gl = this.gl;
     const base = this._index * constantAttributeSize;
-    const start = (this._positionData.length + base * Float32Array.BYTES_PER_ELEMENT);
+    const start = (this._positionData.length + base) * Float32Array.BYTES_PER_ELEMENT;
     const sub = this._constantData.subarray(base, base + offsets.length * constantAttributeSize);
-    console.info('uploading constant data for quad at', this._index, 'start', start, 'sub', sub);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
     gl.bufferSubData(gl.ARRAY_BUFFER, start, sub);
@@ -232,12 +235,11 @@ export default class SpriteGame {
     gl.enable(gl.BLEND);
     gl.disable(gl.DEPTH_TEST);
     gl.disable(gl.CULL_FACE);
-    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     // Upload all verticies.
     // TODO: we could do this on change, not here
     gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
-    console.info('uploading', this._positionData.subarray(0, 2 * this._index));
     gl.bufferSubData(gl.ARRAY_BUFFER, 0, this._positionData.subarray(0, 2 * this._index));
 
     // Upload just a single texture.
