@@ -268,7 +268,8 @@ gulp.task('compile-scenes', function() {
     // Configure prefix and compilation options. In some cases (no libraries, not dist), we can
     // skip scene compilation for  more rapid development.
     // This flag is written to disk (via `scripts.changedFlag`), so a change forces a recompile.
-    const prefixCode = 'var global=window,app=this.app;';
+    const prefixCode =
+        'var global=window,app=this.app;var $jscomp=this[\'$jscomp\']={global:global};';
     const mustCompile =
         Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame);
 

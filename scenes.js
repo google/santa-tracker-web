@@ -95,6 +95,9 @@ module.exports = {
     msgid: 'educators',
     dependencies: ['press']
   },
+  elfski: {
+    entryPoint: 'app.Game'
+  },
   factory: {
     msgid: 'scene_factory',
     typeSafe: false,
