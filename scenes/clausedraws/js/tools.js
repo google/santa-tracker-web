@@ -15,16 +15,15 @@
  */
 
 goog.provide('app.Tools');
-goog.require('app.Crayon');
 goog.require('app.Eraser');
 goog.require('app.LayerTool');
 goog.require('app.Marker');
-goog.require('app.Paintbrush');
 goog.require('app.Pencil');
 goog.require('app.Slider');
 goog.require('app.SprayColor');
 goog.require('app.SprinkleSpray');
 goog.require('app.Stamp');
+goog.require('app.TextureDrawer');
 goog.require('app.Tool');
 goog.require('app.utils');
 goog.require('app.shared.utils');
@@ -59,9 +58,9 @@ app.Tools = function(game, $elem) {
   this.categoryMenuNavBtns.on('click.clausedraws touchend.clausedraws', this.onNavClick_.bind(this));
 
   this.pencil = new app.Pencil($elem, 'pencil');
-  this.crayon = new app.Crayon($elem, 'crayon');
+  this.crayon = new app.TextureDrawer($elem, 'crayon');
   this.marker = new app.Marker($elem, 'marker');
-  this.paintbrush = new app.Paintbrush($elem, 'paintbrush');
+  this.paintbrush = new app.TextureDrawer($elem, 'paintbrush', 0.5);
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
   this.sceneSnowfg = new app.LayerTool($elem, 'snowfg', app.LayerTool.Layer.FOREGROUND);

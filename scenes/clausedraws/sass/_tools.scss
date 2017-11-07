@@ -358,7 +358,7 @@ $scene-names: "snowbg", "snowfg", "air", "airport", "beach", "dock", "iceberg", 
 
     &--spray {
       .Category-inner {
-        background: url(img/tools/tool_spray_yellow.svg) center / contain no-repeat;
+        background: url(img/tools/spray/ffeb3b.svg) center / contain no-repeat;
       }
     }
 
@@ -414,8 +414,7 @@ $scene-names: "snowbg", "snowfg", "air", "airport", "beach", "dock", "iceberg", 
   }
 
   [data-tool-category="drawing"],
-  [data-tool-category="eraser"],
-  [data-tool-category="spray"] {
+  [data-tool-category="eraser"] {
     .Tool {
       background-position: center -10%;
       background-repeat: no-repeat;
@@ -432,8 +431,14 @@ $scene-names: "snowbg", "snowfg", "air", "airport", "beach", "dock", "iceberg", 
   }
 
   [data-tool-category="spray"] {
+    .Tool {
+      background-position: center -50%;
+      background-repeat: no-repeat;
+      background-size: 70%;
+    }
+
     .Tool--selected {
-      background-image: url(img/tools/tool_spray_tray.svg);
+      background-image: url(img/tools/spray/tray.svg) !important;
     }
   }
 
@@ -481,7 +486,11 @@ $scene-names: "snowbg", "snowfg", "air", "airport", "beach", "dock", "iceberg", 
     }
 
     &--spray-color {
-      background-image: url(img/tools/tool_spray_yellow.svg);
+      @each $current-color in $colorpicker-colors {
+        &[data-tool-color="##{$current-color}"] {
+          background-image: url(img/tools/spray/#{$current-color}.svg);
+        }
+      }
     }
 
     &--spray-sprinkles {
@@ -494,6 +503,10 @@ $scene-names: "snowbg", "snowfg", "air", "airport", "beach", "dock", "iceberg", 
       &.Tool--#{$current-tool} {
         background-image: url(img/tools/#{$current-tool}/tray.svg);
       }
+    }
+
+    [data-tool-category="spray"] {
+
     }
   }
 
@@ -611,8 +624,12 @@ $scene-names: "snowbg", "snowfg", "air", "airport", "beach", "dock", "iceberg", 
     }
   }
 
-  [data-tool-hover-tool="spray-color"] .Tool-hover-inactive .Tool-hover-minitool {
-    background-image: url(img/tools/tool_spray_yellow.svg);
+  [data-tool-hover-tool="spray-color"] {
+    @each $current-color in $colorpicker-colors {
+      &[data-tool-color="##{$current-color}"] .Tool-hover-inactive .Tool-hover-minitool {
+        background-image: url(img/tools/spray/#{$current-color}.svg);
+      }
+    }
   }
 
   [data-tool-hover-tool="spray-sprinkles"] {

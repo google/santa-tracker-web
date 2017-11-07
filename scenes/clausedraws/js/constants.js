@@ -31,6 +31,8 @@ app.Constants = {
 
   PEN_MIN: 5,
   PEN_MAX: 50,
+  PENCIL_MIN: 5,
+  PENCIL_MAX: 10,
   ERASER_MIN: 10,
   ERASER_MAX: 100,
   STAMP_MIN: 0.5,

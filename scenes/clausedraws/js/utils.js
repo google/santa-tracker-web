@@ -22,12 +22,28 @@ app.utils = function() {
   var audioProxy = {};
 
   return {
-    distance: function(x, y) {
+    distance: function(p1, p2) {
+      var x = p2.x - p1.x;
+      var y = p2.y - p1.y;
       return Math.sqrt(x * x + y * y);
     },
 
     angle: function(x1, y1, x2, y2) {
-      return Math.atan2(x2-x1, y2-y1);
+      return Math.atan2(x2 - x1, y2 - y1);
+    },
+
+    pointInCurve: function(t, start, control, end) {
+      var u = (1 - t);
+      var x = u * u * start.x + 2 * u * t * control.x + t * t * end.x;
+      var y = u * u * start.y + 2 * u * t * control.y + t * t * end.y;
+      var dx = (u * control.x + t * end.x) - (u * start.x + t * control.x);
+      var dy = (u * control.y + t * end.y) - (u * start.y + t * control.y);
+
+      return {
+        x: x,
+        y: y,
+        angle: Math.atan2(dy, dx)
+      };
     },
 
     map: function(value, min, max) {
