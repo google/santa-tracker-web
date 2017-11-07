@@ -19,6 +19,7 @@ goog.provide('app.Canvas');
 goog.require('app.Constants');
 goog.require('app.Point');
 goog.require('app.utils');
+goog.require('app.shared.utils');
 
 
 /**
@@ -353,7 +354,20 @@ app.Canvas.prototype.saveToFile = function(e) {
       this.saveCanvas.height);
 
   var data = this.saveCanvas.toDataURL('image/jpeg');
-  e.target.href = data;
+
+  if (app.shared.utils.touchEnabled) {
+    var windowContent = '<!DOCTYPE html>';
+    windowContent += '<html>';
+    windowContent += '<head><title>' + window.document.title + '</title></head>';
+    windowContent += '<body style="margin: 0;">';
+    windowContent += '<img style="width: 100%;" src="' + data + '">';
+    windowContent += '</body>';
+    windowContent += '</html>';
+    var tab = window.open();
+    tab.document.write(windowContent);
+  } else {
+    e.target.href = data;
+  }
 };
 
 
