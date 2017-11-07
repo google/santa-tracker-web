@@ -33,7 +33,8 @@ app.TextureDrawer = function($elem, name, opacity) {
   this.soundKey = 'selfie_color';
   this.opacity = opacity || 1;
   this.drawFrequency = 4;
-  this.points = [];
+  this.inputPoints = [];
+  this.drawPoints = [];
 };
 app.TextureDrawer.prototype = Object.create(app.Tool.prototype);
 
@@ -58,33 +59,30 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
   var offsetY = this.currentSize / 2;
   var texture = this.elem.find('#' + this.name + '-' + color.substring(1))[0];
 
-  this.points.push({
+  this.inputPoints.push({
       x: drawX,
       y: drawY
     });
 
-  if (this.points.length > 1) {
+  if (this.inputPoints.length > 1) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
     var rotation = 0;
-    var lastPoint = this.points[0];
+    var lastPoint = this.inputPoints[0];
     context.drawImage(texture, lastPoint.x - offsetX, lastPoint.y - offsetY,
         drawWidth, drawHeight);
 
-    for (var i = 1; i < this.points.length - 1; i++) {
-      var p1 = this.points[i];
-      var p2 = this.points[i + 1];
-      var midpoint = {
-        x: p1.x + (p2.x - p1.x) / 2,
-        y: p1.y + (p2.y - p1.y) / 2
-      };
-
+    for (var i = 1; i < this.inputPoints.length - 1; i++) {
+      var p1 = this.inputPoints[i];
+      var p2 = this.inputPoints[i + 1];
+      var midpoint = app.utils.midpoint(p1, p2);
       var distance = app.utils.distance(lastPoint, midpoint);
 
       for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
         var t = j / distance;
         var point = app.utils.pointInCurve(t, lastPoint, p1, midpoint);
         rotation += Math.PI / 5;
+        this.drawPoints.push(point);
 
         context.save();
         context.globalAlpha = this.opacity;
@@ -110,7 +108,8 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
  * Resets the pen path
  */
 app.TextureDrawer.prototype.reset = function() {
-  this.points = [];
+  this.inputPoints = [];
+  this.drawPoints = [];
 }
 
 

@@ -57,37 +57,43 @@ app.Marker.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
       y: drawY
     });
 
-  if (this.points.length > 1) {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
-    context.lineJoin = 'round';
-    context.lineCap = 'round';
-    context.lineWidth = app.utils.map(size, app.Constants.PEN_MIN,
-        app.Constants.PEN_MAX);
-    context.strokeStyle = color;
+  if (this.points.length == 1) {
+    var p1 = this.points[0];
+    context.fillStyle = color;
+    context.arc(p1.x, p1.y, this.currentSize / 2, 0 ,2 * Math.PI);
+    context.fill();
+  } else if (this.points.length == 2) {
     var p1 = this.points[0];
     var p2 = this.points[1];
+    context.lineJoin = 'round';
+    context.lineCap = 'round';
+    context.lineWidth = this.currentSize;
+    context.strokeStyle = color;
     context.beginPath();
     context.moveTo(p1.x * this.dpr, p1.y * this.dpr);
-
-    for (var i = 0; i < this.points.length - 1; i++) {
-      p1 = this.points[i];
-      p2 = this.points[i + 1];
-      var midpoint = {
-        x: p1.x + (p2.x - p1.x) / 2,
-        y: p1.y + (p2.y - p1.y) / 2
-      };
-
-      context.quadraticCurveTo(
-        p1.x * this.dpr,
-        p1.y * this.dpr,
-        midpoint.x * this.dpr,
-        midpoint.y * this.dpr
-      );
-    }
-
+    context.lineTo(p2.x * this.dpr, p2.y * this.dpr);
+    context.stroke();
+  } else {
+    context.lineJoin = 'round';
+    context.lineCap = 'round';
+    context.lineWidth = this.currentSize;
+    context.strokeStyle = color;
+    var p0 = this.points[this.points.length - 3];
+    var p1 = this.points[this.points.length - 2];
+    var p2 = this.points[this.points.length - 1];
+    var midpoint1 = app.utils.midpoint(p0, p1);
+    var midpoint2 = app.utils.midpoint(p1, p2);
+    context.beginPath();
+    context.moveTo(midpoint1.x * this.dpr, midpoint1.y * this.dpr);
+    context.quadraticCurveTo(
+      p1.x * this.dpr,
+      p1.y * this.dpr,
+      midpoint2.x * this.dpr,
+      midpoint2.y * this.dpr
+    );
     context.stroke();
   }
+
   return true;
 };
 

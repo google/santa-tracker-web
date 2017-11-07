@@ -28,8 +28,15 @@ app.utils = function() {
       return Math.sqrt(x * x + y * y);
     },
 
-    angle: function(x1, y1, x2, y2) {
-      return Math.atan2(x2 - x1, y2 - y1);
+    angle: function(point1, point2) {
+      return Math.atan2(point2.x - point1.x, point2.y - point1.y);
+    },
+
+    midpoint: function(start, end) {
+      return {
+        x: start.x + (end.x - start.x) / 2,
+        y: start.y + (end.y - start.y) / 2
+      };
     },
 
     pointInCurve: function(t, start, control, end) {
