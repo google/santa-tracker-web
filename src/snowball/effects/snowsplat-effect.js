@@ -1,5 +1,6 @@
 import { Entity } from '../../engine/core/entity.js';
 import { snowball } from '../textures.js';
+import { constants, rotate2d } from '../shader-partials.js';
 
 const {
   BufferGeometry,
@@ -10,10 +11,6 @@ const {
 } = self.THREE;
 
 const vertexShader = `
-vec2 rotate2d(float angle, vec2 v){
-    return mat2(cos(angle),-sin(angle),
-                sin(angle),cos(angle)) * v;
-}
 
 precision highp float;
 
@@ -28,7 +25,8 @@ attribute float random;
 
 varying float vDisplayTime;
 
-#define PI 3.14159
+${constants}
+${rotate2d}
 
 void main() {
   vDisplayTime = displayTime;
@@ -68,7 +66,9 @@ void main() {
 
   vec4 color = texture2D(map, gl_PointCoord);
 
-  color.a = alpha;
+  if (color.a > 0.5) {
+    color.a = alpha;
+  }
 
   gl_FragColor = color;
 }
