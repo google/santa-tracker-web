@@ -72,6 +72,13 @@ export class Character {
   }
 
   /**
+   * @export
+   */
+  crash() {
+    this._speed = 0;
+  }
+
+  /**
    * @param {number} delta as fraction of second
    * @param {?vec.Vector=} target relative to character position
    * @return {{x: number, y: number}} amount to move by

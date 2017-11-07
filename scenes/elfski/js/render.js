@@ -18,10 +18,13 @@ import * as webgl from './webgl.js';
 
 const spriteVertexShader = `
 // Corrects for screen size.
-uniform vec4 u_screenDims;
+uniform vec2 u_screenDims;
 
 // Center of the sprite in screen coordinates
 attribute vec2 centerPosition;
+
+// Transform of the whole screen.
+uniform vec2 u_transform;
 
 // Rotation to draw sprite at
 attribute float rotation;
@@ -31,9 +34,6 @@ attribute float spriteIndex;
 
 // Sprite size in screen coordinates
 attribute float spriteSize;
-
-// DEPTH!
-attribute float depth;
 
 // Offset of this vertex's corner from the center, in normalized
 // coordinates for the sprite. In other words:
@@ -53,21 +53,33 @@ attribute float spritesPerRow;
 varying vec2 v_texCoord;
 
 void main() {
-  // Compute the row
   float row = floor(spriteIndex / spritesPerRow);
-  // Compute the upper left texture coordinate of the sprite
-  vec2 upperLeftTC = vec2(spriteTextureSize.x * (spriteIndex - (row * spritesPerRow)),
-                          spriteTextureSize.y * row);
-  // Compute the texture coordinate of this vertex
-  vec2 tc = upperLeftTC + spriteTextureSize * (cornerOffset + vec2(0.5, 0.5));
-  v_texCoord = tc;
+  float col = (spriteIndex - (row * spritesPerRow));
 
+  vec2 upperLeftTC = vec2(spriteTextureSize.x * col, spriteTextureSize.y * row);
+
+  // Get the texture coordinate of this vertex (cornerOffset is in [-0.5,0.5])
+  v_texCoord = upperLeftTC + spriteTextureSize * (cornerOffset + vec2(0.5, 0.5));
+
+  // Shift to center of screen, base of sprite.
+  // TODO: We could make the origin configurable.
+  vec2 halfDims = u_screenDims / 2.0;
+  vec2 updateCenter = vec2(centerPosition.x + halfDims.x,
+                           centerPosition.y + halfDims.y - spriteSize / 2.0);
+
+  // Rotate as appropriate
   float s = sin(rotation);
   float c = cos(rotation);
   mat2 rotMat = mat2(c, -s, s, c);
   vec2 scaledOffset = spriteSize * cornerOffset;
-  vec2 pos = centerPosition + rotMat * scaledOffset;
-  gl_Position = vec4(pos * u_screenDims.xy + u_screenDims.zw, depth, 1.0);
+  vec2 pos = updateCenter + rotMat * scaledOffset;
+
+  // depth goes from 0-1, where 0=(-screenDims.y) and 1=(2*screenDims.y)
+  float depthRange = u_screenDims.y * 3.0;
+  float depth = 1.0 - (updateCenter.y + u_screenDims.y + u_transform.y) / depthRange;
+
+  vec4 screenTransform = vec4(2.0 / u_screenDims.x, -2.0 / u_screenDims.y, -1.0, 1.0);
+  gl_Position = vec4((pos + u_transform) * screenTransform.xy + screenTransform.zw, depth, 1.0);
 }
 `;
 
@@ -81,8 +93,9 @@ varying vec2 v_texCoord;
 void main() {
   vec4 color = texture2D(u_texture, v_texCoord);
 
+  // TODO: alpha isn't being blended properly
   if (color.a == 0.0)
-    discard; 
+    discard;
 
   gl_FragColor = color;
 }
@@ -110,7 +123,6 @@ const constantAttributes = [
   'cornerOffset',
   'spriteTextureSize',
   'spritesPerRow',
-  'depth',
 ];
 
 const constantAttributeSize = (constantAttributes.length * 2);
@@ -129,35 +141,52 @@ const constantAttributeInfo = (function() {
   return out;
 })();
 
+const zeroTransform = Object.freeze({x: 0, y: 0});
+
 export default class SpriteGame {
   constructor(canvas, tiles) {
     this.canvas = canvas;
     this.tiles = tiles;
 
-    const args = {
-      // premultipliedAlpha: false,  // Ask for non-premultiplied alpha
-    };
-
+    const args = {};
     const gl = this.gl = canvas.getContext('webgl', args);
     if (!gl) {
       throw new TypeError('no webgl');
     }
 
-    gl.clearColor(0, 0, 0, 1);
+    gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     this._index = 0;
     this._capacity = 0;
-    this._positionData = new Float32Array();
-    this._constantData = new Float32Array();
+    this._freeIndex = [];
+
+    this._positionData = new Float32Array(0);
+    this._constantData = new Float32Array(0);
 
     this._program = null;
     this._loc = {};
 
     this._loadProgram();
-    this._spriteBuffer = gl.createBuffer();  // TODO: badly named? contains positions + data
+    this._spriteBuffer = gl.createBuffer();
     this._resize(600, false);
     this._texture = webgl.loadTexture(gl, tiles);
+
+    this._transform = zeroTransform;
+  }
+
+  /**
+   * @param {?{x: number, y: number}} v
+   */
+  set transform(v) {
+    this._transform = v ? Object.freeze({x: v.x, y: v.y}) : zeroTransform;
+  }
+
+ /**
+  * @return {?{x: number, y: number}}
+  */
+  get transform() {
+    return this._transform;
   }
 
   _loadProgram() {
@@ -166,6 +195,7 @@ export default class SpriteGame {
     this._program = program;
 
     this._loc['u_screenDims'] = gl.getUniformLocation(program, 'u_screenDims');
+    this._loc['u_transform'] = gl.getUniformLocation(program, 'u_transform');
     this._loc['u_texture'] = gl.getUniformLocation(program, 'u_texture');
     this._loc['centerPosition'] = gl.getAttribLocation(program, 'centerPosition');
 
@@ -179,10 +209,11 @@ export default class SpriteGame {
    * @param {boolean} preserve whether to preserve existing data
    */
   _resize(size, preserve) {
-    size *= 6;
     this._capacity = size;
-    this._positionData = new Float32Array(2 * size);
-    this._constantData = new Float32Array(constantAttributeSize * size);
+
+    const verticies = size * offsets.length;
+    this._positionData = new Float32Array(2 * verticies);
+    this._constantData = new Float32Array(constantAttributeSize * verticies);
 
     const gl = this.gl;
     const bufferSize =
@@ -191,17 +222,55 @@ export default class SpriteGame {
     gl.bufferData(gl.ARRAY_BUFFER, bufferSize, gl.DYNAMIC_DRAW);
 
     this._index = 0;
-    // TODO: respect `preserve`
+
+    if (preserve) {
+      throw new Error('preserve not respected yet');
+    }
   }
 
-  add(x, y, spriteIndex, rotation) {
+  /**
+   * @param {number|undefined} index of sprite
+   * @param {number} x position from origin
+   * @param {number} y position from origin
+   * @param {number} spriteIndex index into tiles
+   * @param {number} rotation in rads
+   * @export
+   */
+  update(index, x, y, spriteIndex, rotation) {
+    if (index === undefined) {
+      index = this._freeIndex.shift();
+      if (index === undefined) {
+        if (this._index === this._capacity) {
+          throw new Error(`can't add sprite, at capacity: ${this._capacity}`);
+        }
+        index = this._index;
+        ++this._index;
+      }
+    } else if (index < 0 || index >= this._index || this._freeIndex.indexOf(index) !== -1) {
+      throw new Error(`can't update sprite, invalid or free ID: ${index}'`);
+    }
 
+    this._updateAt(index, x, y, spriteIndex, rotation);
+    return index;
+  }
+
+  /**
+   * @param {number} i index of sprite
+   * @param {number} x position from origin
+   * @param {number} y position from origin
+   * @param {number} spriteIndex index into tiles
+   * @param {number} rotation in rads
+   * @export
+   */
+  _updateAt(i, x, y, spriteIndex, rotation) {
     const spriteSize = 128;
     const textureSize = 512;
 
+    const vertexBase = i * offsets.length;
+
     for (let ii = 0; ii < offsets.length; ++ii) {
       const offset = offsets[ii];
-      const vertexIndex = this._index + ii;
+      const vertexIndex = vertexBase + ii;
 
       this._positionData[2 * vertexIndex + 0] = x;
       this._positionData[2 * vertexIndex + 1] = y;
@@ -219,27 +288,59 @@ export default class SpriteGame {
       s('spriteTextureSize', 0, spriteSize / textureSize);
       s('spriteTextureSize', 1, spriteSize / textureSize);
       s('spritesPerRow', 0, textureSize / spriteSize);
-      s('depth', 0, 1 - (y / this.canvas.height));
     }
 
     // The constant data won't change, so we can immediately upload it.
     // Remember that the _positionData is at the start of _spriteBuffer.
     const gl = this.gl;
-    const base = this._index * constantAttributeSize;
+    const base = vertexBase * constantAttributeSize;
     const start = (this._positionData.length + base) * Float32Array.BYTES_PER_ELEMENT;
     const sub = this._constantData.subarray(base, base + offsets.length * constantAttributeSize);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
     gl.bufferSubData(gl.ARRAY_BUFFER, start, sub);
-
-    this._index += offsets.length;
   }
 
+  /**
+   * Removes the numbered sprite.
+   * @param {number} v sprite to remove
+   * @export
+   */
+  remove(v) {
+    if (v < 0 || v >= this._index) {
+      return;  // do nothing, out of bounds
+    }
+
+    const alreadyFree = (this._freeIndex.indexOf(v) !== -1);
+    if (alreadyFree) {
+      return;  // already in freeIndex
+    }
+
+    if (v + 1 === this._index) {
+      --this._index;  // if this is the last sprite, just trim buffer
+      return;
+    }
+
+    // TODO(samthor): do something better than this
+    this._updateAt(v, -10000000, 0, 0, 0);
+    this._freeIndex.push(v);
+  }
+
+  /**
+   * @return {number} the number of sprites that can still be added
+   */
+  get spritesFree() {
+    return this._capacity - this._index + this._freeIndex.length;
+  }
+
+  /**
+   * @export
+   */
   draw() {
     const gl = this.gl;
 
     gl.viewport(0, 0, this.canvas.width, this.canvas.height);
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     gl.enable(gl.BLEND);
@@ -250,7 +351,7 @@ export default class SpriteGame {
     // Upload all verticies.
     // TODO: we could do this on change, not here
     gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
-    gl.bufferSubData(gl.ARRAY_BUFFER, 0, this._positionData.subarray(0, 2 * this._index));
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, this._positionData.subarray(0, 2 * this._index * offsets.length));
 
     // Upload just a single texture.
     gl.activeTexture(gl.TEXTURE0);
@@ -276,14 +377,14 @@ export default class SpriteGame {
           (base + info.offset) * Float32Array.BYTES_PER_ELEMENT);
     });
 
-    gl.uniform4f(this._loc['u_screenDims'],
-                  2.0 / this.canvas.width,
-                 -2.0 / this.canvas.height,
-                 -1.0,
-                  1.0);
+    gl.uniform2f(this._loc['u_transform'], this._transform.x, this._transform.y);
+    gl.uniform2f(this._loc['u_screenDims'], this.canvas.width, this.canvas.height);
     gl.uniform1i(this._loc['u_texture'], 0);
 
-    gl.drawArrays(gl.TRIANGLES, 0, this._index);
+    if (!this._index) {
+      return;  // nothing to draw
+    }
+    gl.drawArrays(gl.TRIANGLES, 0, this._index * offsets.length);
   };
   
 }
