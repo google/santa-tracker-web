@@ -51,6 +51,8 @@ export class PlayerSystem {
         this.player.position.y += delta.y;
         //this.player.position.z += delta.y;
       }
+
+      this.player.graphic.rotation.y = Math.atan2(delta.y, delta.x) + Math.PI / 2.0;
     }
 
     if (this.targetPosition != null) {

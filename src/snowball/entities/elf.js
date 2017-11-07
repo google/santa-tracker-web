@@ -1,37 +1,29 @@
 import { Entity } from '../../engine/core/entity.js';
-import { elf } from '../textures.js';
+import { createElf } from '../models.js';
 
 const {
   Mesh,
   MeshBasicMaterial,
   PlaneBufferGeometry,
-  Object3D
+  Object3D,
+  GLTFLoader
 } = self.THREE;
 
-export class Elf extends Entity(Object3D) {
-  get map() {
-    return elf;
-  }
 
+export class Elf extends Entity(Object3D) {
   constructor(size = 50) {
     super();
 
-    const material = new MeshBasicMaterial({
-      map: this.map,
-      transparent: true,
-    });
-
-    const geometry = new PlaneBufferGeometry(size, size);
-    const mesh = new Mesh(geometry, material);
-
-    mesh.rotation.x += Math.PI / 6.0
-
-    this.graphic = mesh;
     this.size = size;
-    this.add(mesh);
-  }
 
-  setup(game) {
-    this.graphic.position.z = game.mapSystem.grid.cellSize / 2.0; //this.size * 0.5;
+    createElf().then(elf => {
+      elf.frustumCulled = false;
+      elf.position.z = 19;
+      elf.position.y = -10.0;
+      elf.rotation.x += Math.PI / 2.25;
+
+      this.graphic = elf;
+      this.add(elf);
+    });
   }
 };
