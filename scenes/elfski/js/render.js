@@ -32,6 +32,9 @@ attribute float spriteIndex;
 // Sprite size in screen coordinates
 attribute float spriteSize;
 
+// DEPTH!
+attribute float depth;
+
 // Offset of this vertex's corner from the center, in normalized
 // coordinates for the sprite. In other words:
 //   (-0.5, -0.5) => Upper left corner
@@ -64,7 +67,7 @@ void main() {
   mat2 rotMat = mat2(c, -s, s, c);
   vec2 scaledOffset = spriteSize * cornerOffset;
   vec2 pos = centerPosition + rotMat * scaledOffset;
-  gl_Position = vec4(pos * u_screenDims.xy + u_screenDims.zw, 0.0, 1.0);
+  gl_Position = vec4(pos * u_screenDims.xy + u_screenDims.zw, depth, 1.0);
 }
 `;
 
@@ -76,7 +79,12 @@ uniform sampler2D u_texture;
 varying vec2 v_texCoord;
 
 void main() {
-  gl_FragColor = texture2D(u_texture, v_texCoord);
+  vec4 color = texture2D(u_texture, v_texCoord);
+
+  if (color.a == 0.0)
+    discard; 
+
+  gl_FragColor = color;
 }
 `;
 
@@ -102,6 +110,7 @@ const constantAttributes = [
   'cornerOffset',
   'spriteTextureSize',
   'spritesPerRow',
+  'depth',
 ];
 
 const constantAttributeSize = (constantAttributes.length * 2);
@@ -210,6 +219,7 @@ export default class SpriteGame {
       s('spriteTextureSize', 0, spriteSize / textureSize);
       s('spriteTextureSize', 1, spriteSize / textureSize);
       s('spritesPerRow', 0, textureSize / spriteSize);
+      s('depth', 0, 1 - (y / this.canvas.height));
     }
 
     // The constant data won't change, so we can immediately upload it.
@@ -233,7 +243,7 @@ export default class SpriteGame {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     gl.enable(gl.BLEND);
-    gl.disable(gl.DEPTH_TEST);
+    gl.enable(gl.DEPTH_TEST);
     gl.disable(gl.CULL_FACE);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
