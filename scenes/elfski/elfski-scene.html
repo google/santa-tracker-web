@@ -15,6 +15,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 
 <script src="elfski-scene.min.js"></script>
+<script src="../../third_party/lib/gltf/minimal-gltf-loader.js"></script>
 
 <!--
 Elf Ski scene.
@@ -184,6 +185,7 @@ Polymer({
     this._player = scenes.elfski.Game.newCharacter();
 
     const image = new Image();
+    image.crossOrigin = 'anonymous';
     image.src = this.resolveUrl('img/tiles.png');
     image.onload = function() {
 
