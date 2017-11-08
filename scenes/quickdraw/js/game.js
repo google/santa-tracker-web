@@ -16,23 +16,42 @@
 'use strict';
 
 goog.provide('app.Game');
+goog.require('app.EventEmitter');
+goog.require('app.config');
+goog.require('app.view.SplashView');
+goog.require('app.GameController');
 
 /**
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
- * @implements {SharedGame}
  * @constructor
  * @struct
  * @export
  */
 app.Game = function(elem) {
   this.elem = $(elem);
+  this.splashView = new app.view.SplashView(this.elem);
+  this.gameController = new app.GameController();
+  this.gameController.prepareNewGame();
+  this.gameController.addListener("GAME_END", () => this.showSplashscreen())
 };
 
 app.Game.prototype.start = function() {
-  console.log('starting game');
+  this.splashView.showView();
+  this.splashView.addListener('START_GAME', function() { this.startGame(); }.bind(this));
 };
 
 app.Game.prototype.dispose = function() {
   console.log('dispose game');
+};
+
+app.Game.prototype.startGame = function() {
+  this.gameController.prepareNewGame( function(challenge) {
+    this.gameController.startNewGameWithChallenge(challenge, {
+      onCardDismiss: function() {
+        this.splashView.hideView();
+        this.gameController.showView();
+      };
+    });
+  });
 };
