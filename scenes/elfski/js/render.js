@@ -91,13 +91,7 @@ uniform sampler2D u_texture;
 varying vec2 v_texCoord;
 
 void main() {
-  vec4 color = texture2D(u_texture, v_texCoord);
-
-  // TODO: alpha isn't being blended properly
-  if (color.a == 0.0)
-    discard;
-
-  gl_FragColor = color;
+  gl_FragColor = texture2D(u_texture, v_texCoord);;
 }
 `;
 
@@ -346,7 +340,8 @@ export default class SpriteGame {
     gl.enable(gl.BLEND);
     gl.enable(gl.DEPTH_TEST);
     gl.disable(gl.CULL_FACE);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    // gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     // Upload all verticies.
     // TODO: we could do this on change, not here
