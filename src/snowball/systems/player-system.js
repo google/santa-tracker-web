@@ -49,15 +49,24 @@ export class PlayerSystem {
       } else {
         this.player.position.x += delta.x;
         this.player.position.y += delta.y;
-        //this.player.position.z += delta.y;
       }
 
       this.player.graphic.rotation.y = Math.atan2(delta.y, delta.x) + Math.PI / 2.0;
+      this.player.run();
+    } else {
+      this.player.idle();
     }
 
     if (this.targetPosition != null) {
       intermediateVector2.copy(this.player.position);
       snowballSystem.throwSnowball(intermediateVector2, this.targetPosition);
+      intermediateVector2
+          .subVectors(this.targetPosition, this.player.position)
+          .normalize();
+
+      this.player.graphic.rotation.y = Math.atan2(
+          intermediateVector2.y, intermediateVector2.x) + Math.PI / 2.0;
+
       this.targetPosition = null;
     }
 

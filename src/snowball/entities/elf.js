@@ -26,15 +26,25 @@ export class Elf extends Entity(Object3D) {
       elf.rotation.x += Math.PI / 2.25;
 
       this.model = model;
-      this.model.play('animation_0');
       this.graphic = elf;
       this.add(elf);
     });
   }
 
+  idle() {
+    if (this.model != null) {
+      this.model.play('elf_rig_idle');
+    }
+  }
+
+  run() {
+    if (this.model != null) {
+      this.model.play('elf_rig_run');
+    }
+  }
+
   update(game) {
     if (this.model != null) {
-      debugger;
       this.model.update(game);
     }
   }

@@ -17,12 +17,21 @@ class Model {
   }
 
   play(animationName) {
-    const clip = AnimationClip.findByName( this.animations, 'animation_0' );
+    if (animationName === this.playing) {
+      return;
+    }
+    this.animationMixer.stopAllAction();
+
+    const clip = AnimationClip.findByName( this.animations, animationName );
     const action = this.animationMixer.clipAction(clip);
 
-    action.reset().play();
-    this.playing = true;
-    this.playTime = performance.now();
+    if (action != null) {
+      action.reset().play();
+      this.playing = animationName;
+      this.playTime = performance.now();
+    } else {
+      console.warn('No such animation clip:', animationName);
+    }
   }
 
   update(game) {
