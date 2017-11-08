@@ -20,7 +20,7 @@ const slerpRatio = 4;
 const accelerationBar = 0.5;
 const maximumSpeed = 0.5;
 const stopBar = 0.75;  // angle at which we are trying to stop
-
+const initialVec = {x: 1, y: 0};
 
 /**
  * @param {number} v
@@ -44,7 +44,7 @@ export class Character {
     this._speed = 0;
     
     /** @private {vec.Vector} */
-    this._vec = {x: 1, y: 0};
+    this._vec = initialVec;
 
     /** @private {number} */
     this._line = 0;
@@ -76,6 +76,15 @@ export class Character {
    */
   crash() {
     this._speed = 0;
+  }
+
+  /**
+   * @export
+   */
+  reset() {
+    this._speed = 0;
+    this._vec = initialVec;
+    this._line = 0;
   }
 
   /**

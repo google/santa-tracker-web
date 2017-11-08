@@ -28,11 +28,21 @@ export var Vector;
 
 /**
  * @param {Vector} vec
+ * @return {Vector} the same vec, but modified
+ */
+function inlineUnitVec(vec) {
+  const dist = Math.sqrt(vec.x * vec.x + vec.y * vec.y);
+  vec.x /= dist;
+  vec.y /= dist;
+  return vec;
+}
+
+/**
+ * @param {Vector} vec
  * @return {Vector}
  */
 export function unitVec(vec) {
-  const dist = Math.sqrt(vec.x * vec.x + vec.y * vec.y);
-  return {x: vec.x / dist, y: vec.y / dist};
+  return inlineUnitVec({x: vec.x, y: vec.y});
 }
 
 /**
@@ -52,8 +62,8 @@ export function angleBetween(vecA, vecB) {
  * @return {Vector}
  */
 export function slerp(vecA, vecB, part) {
-  if (vecA.x === vecB.x) {
-    return {x: vecA.x, y: vecA.y};  // if x is same, y must be same (unit vector)
+  if (vecA.x === vecB.x && vecB.y === vecB.y) {
+    return {x: vecA.x, y: vecA.y};  // make new object anyway
   }
 
   // assumes both are normal vectors
@@ -63,7 +73,7 @@ export function slerp(vecA, vecB, part) {
   const theta_0 = Math.acos(dot);
   const theta = theta_0 * part;
 
-  const vecC = unitVec({
+  const vecC = inlineUnitVec({
     x: vecB.x - vecA.x * dot,
     y: vecB.y - vecA.y * dot,
   });

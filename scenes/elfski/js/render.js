@@ -23,6 +23,12 @@ uniform vec2 u_screenDims;
 // Center of the sprite in screen coordinates
 attribute vec2 centerPosition;
 
+// Offset of the sprite's origin.
+attribute float offsetY;
+
+// Layer to push this sprite into.
+attribute float layer;
+
 // Transform of the whole screen.
 uniform vec2 u_transform;
 
@@ -65,7 +71,7 @@ void main() {
   // TODO: We could make the origin configurable.
   vec2 halfDims = u_screenDims / 2.0;
   vec2 updateCenter = vec2(centerPosition.x + halfDims.x,
-                           centerPosition.y + halfDims.y - spriteSize / 2.0);
+                           centerPosition.y + halfDims.y - spriteSize / 2.0 + offsetY);
 
   // Rotate as appropriate
   float s = sin(rotation);
@@ -77,6 +83,7 @@ void main() {
   // depth goes from 0-1, where 0=(-screenDims.y) and 1=(2*screenDims.y)
   float depthRange = u_screenDims.y * 3.0;
   float depth = 1.0 - (updateCenter.y + u_screenDims.y + u_transform.y) / depthRange;
+  depth = depth - layer;
 
   vec4 screenTransform = vec4(2.0 / u_screenDims.x, -2.0 / u_screenDims.y, -1.0, 1.0);
   gl_Position = vec4((pos + u_transform) * screenTransform.xy + screenTransform.zw, depth, 1.0);
@@ -93,9 +100,10 @@ varying vec2 v_texCoord;
 void main() {
   vec4 color = texture2D(u_texture, v_texCoord);
 
-  // TODO: alpha isn't being blended properly
-  if (color.a == 0.0)
+  if (color.a == 0.0) {
+    // sanity discard if blend mode is bad
     discard;
+  }
 
   gl_FragColor = color;
 }
@@ -121,9 +129,22 @@ const constantAttributes = [
   'spriteIndex',
   'spriteSize',
   'cornerOffset',
+  'offsetY',
+  'layer',
   'spriteTextureSize',
   'spritesPerRow',
 ];
+
+/**
+ * @typedef {{
+ *   at: {x: number, y: number},
+ *   rotation: (undefined|number),
+ *   offset: (undefined|number),
+ *   layer: (undefined|number),
+ *   spriteIndex: number
+ * }}
+ */
+var SpriteDef;
 
 const constantAttributeSize = (constantAttributes.length * 2);
 
@@ -148,7 +169,9 @@ export default class SpriteGame {
     this.canvas = canvas;
     this.tiles = tiles;
 
-    const args = {};
+    const args = {
+      premultipliedAlpha: false,  // Ask for non-premultiplied alpha
+    };
     const gl = this.gl = canvas.getContext('webgl', args);
     if (!gl) {
       throw new TypeError('no webgl');
@@ -230,13 +253,11 @@ export default class SpriteGame {
 
   /**
    * @param {number|undefined} index of sprite
-   * @param {number} x position from origin
-   * @param {number} y position from origin
-   * @param {number} spriteIndex index into tiles
-   * @param {number} rotation in rads
+   * @param {SpriteDef} def of sprite
+   * @return {number} index of sprite
    * @export
    */
-  update(index, x, y, spriteIndex, rotation) {
+  update(index, def) {
     if (index === undefined) {
       index = this._freeIndex.shift();
       if (index === undefined) {
@@ -250,19 +271,22 @@ export default class SpriteGame {
       throw new Error(`can't update sprite, invalid or free ID: ${index}'`);
     }
 
-    this._updateAt(index, x, y, spriteIndex, rotation);
+    this._updateAt(index, def);
     return index;
   }
 
   /**
    * @param {number} i index of sprite
-   * @param {number} x position from origin
-   * @param {number} y position from origin
-   * @param {number} spriteIndex index into tiles
-   * @param {number} rotation in rads
+   * @param {SpriteDef} def of sprite
    * @export
    */
-  _updateAt(i, x, y, spriteIndex, rotation) {
+  _updateAt(i, def) {
+    def = Object.assign({
+      rotation: 0,
+      offset: 0,
+      layer: 0,
+    }, def);
+
     const spriteSize = 128;
     const textureSize = 512;
 
@@ -272,16 +296,18 @@ export default class SpriteGame {
       const offset = offsets[ii];
       const vertexIndex = vertexBase + ii;
 
-      this._positionData[2 * vertexIndex + 0] = x;
-      this._positionData[2 * vertexIndex + 1] = y;
+      this._positionData[2 * vertexIndex + 0] = def.at.x;
+      this._positionData[2 * vertexIndex + 1] = def.at.y;
 
       const b = constantAttributeSize * vertexIndex;
       const s = (attr, off, value) => {
         this._constantData[b + constantAttributeInfo[attr].offset + off] = value;
       };
 
-      s('rotation', 0, rotation);
-      s('spriteIndex', 0, spriteIndex);
+      s('rotation', 0, def.rotation);
+      s('offsetY', 0, def.offset);
+      s('layer', 0, def.layer);
+      s('spriteIndex', 0, def.spriteIndex);
       s('spriteSize', 0, spriteSize);
       s('cornerOffset', 0, offset[0]);
       s('cornerOffset', 1, offset[1]);
@@ -322,7 +348,7 @@ export default class SpriteGame {
     }
 
     // TODO(samthor): do something better than this
-    this._updateAt(v, -10000000, 0, 0, 0);
+    this._updateAt(v, {at: {x: -10000000, y: 0}, spriteIndex: 0});
     this._freeIndex.push(v);
   }
 
@@ -346,7 +372,9 @@ export default class SpriteGame {
     gl.enable(gl.BLEND);
     gl.enable(gl.DEPTH_TEST);
     gl.disable(gl.CULL_FACE);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    // gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    // gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
 
     // Upload all verticies.
     // TODO: we could do this on change, not here
