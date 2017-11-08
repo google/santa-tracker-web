@@ -35,11 +35,15 @@ app.EventEmitter.prototype.isFunction = function(obj) {
 };
 
 app.EventEmitter.prototype.emit = function(label) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+    }
+
     var listeners = this.listeners[label];
 
     if (listeners && listeners.length) {
-        listeners.forEach(function(listener) {
-            listener();
+        listeners.forEach(function (listener) {
+            listener.apply(this, args);
         });
         return true;
     }
