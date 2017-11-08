@@ -219,6 +219,7 @@ Santa Tracker app.
 
       <elfski-scene route="elfski"
           path$="scenes/elfski/elfski-scene.html"
+          logo="scenes/commandcentre/img/logo.svg"
           slot="santa-scene"></elfski-scene>
 
       <factory-scene route="factory" icon="1f3ed"
@@ -903,18 +904,6 @@ Polymer({
   },
 
   /**
-   * Starts the current game, if it can be started, and it has not already been started.
-   * Checks that the overlay is in pregame state.
-   * TODO(samthor): This state machine is ugly. Clean it up.
-   */
-  maybeStartGame: function() {
-    var scene = this.selectedScene;
-    if (scene && 'pause' in scene && !this.$.chrome.hasGameButtons && this.$.overlay.pregame) {
-      this.onStartGame();
-    }
-  },
-
-  /**
    * Handler for 'game-start' event. Resests overlay state, and if the game supports pausing,
    * shows those buttons and starts the scene.
    */
@@ -1142,7 +1131,11 @@ Polymer({
         }
         break;
       case 'enter':
-        this.maybeStartGame();
+        // TODO(samthor): Clean up ugly state machine.
+        var scene = this.selectedScene;
+        if (scene && 'pause' in scene && !this.$.chrome.hasGameButtons && this.$.overlay.pregame) {
+          this.onStartGame();
+        }
         break;
     }
   },

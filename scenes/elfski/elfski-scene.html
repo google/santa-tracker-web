@@ -67,7 +67,7 @@ Elf Ski scene.
   background-image: url(../dorf/img/header-bg.svg);
   background-color: transparent;
   background-repeat: repeat-x;
-  background-position: 0px;  /* top-left, different origin than village */
+  background-position: 0 0;  /* top-left, different origin than village */
   background-size: 1618px 791px;
 }
 .down #ui {
@@ -103,6 +103,16 @@ Polymer({
       type: Number,
     },
 
+    _gameStartAt: {
+      type: Number,
+      value: 0,
+    },
+
+    _gameEndAt: {
+      type: Number,
+      value: 0,
+    },
+
     _positionDownMountain: {
       type: Number,
       value: 0,
@@ -126,6 +136,14 @@ Polymer({
     _ents: {
       type: Object,
       value: () => [],
+    },
+
+    /**
+     * The game renderer.
+     */
+    _game: {
+      type: Object,
+      value: null,
     },
 
     /**
@@ -182,6 +200,33 @@ Polymer({
     window.removeEventListener('resize', this._onResize);
   },
 
+  /**
+   * The misnamed 'start' function is called by `santa-app` when the user wants to play again.
+   */
+  start: function() {
+    // TODO(samthor): This is a bit of a hodge-podge.
+
+    this._gameStartAt = 0;
+    this._gameEndAt = 0;
+
+    this._playerX = 0;
+    this._transform = 0;
+    this._pathTo = 240;
+    this._positionDownMountain = 0;
+
+    this.$.mountain.className = '';
+
+    this._ents.forEach((ent) => {
+      this._game.remove(ent.index);
+    });
+    this._ents = [];
+    this._onResize();
+
+    this._player.reset();
+
+    this.fire('game-score', {});
+  },
+
   _onResize: function() {
     // TODO: HDPI
     this.$.canvas.width = this.$.mountain.offsetWidth;
@@ -227,6 +272,9 @@ Polymer({
   },
 
   updatePath: function() {
+    if (!this._game) {
+      return;
+    }
     const atPixels = 60;
 
     while (this._pathTo < this._positionDownMountain + this.$.mountain.offsetHeight / 2) {
@@ -293,36 +341,48 @@ Polymer({
     window.requestAnimationFrame(this._tick);
 
     // center target at player location (X => player, Y => mid screen)
-    const target = this._pointer ? {
-      x: this._pointer.x - this._playerX,
-      y: this._pointer.y,
-    } : null;
+    let change = {x: 0, y: 0};
+    if (!this._gameEndAt) {
+      const target = this._pointer ? {
+        x: this._pointer.x - this._playerX,
+        y: this._pointer.y,
+      } : null;
 
-    const change = this._player.tick(delta, target);
-    this._transform -= change.y;
-    this._positionDownMountain += (change.y * dim.h);
-    this._playerX += change.x * (dim.w / 2);
-    if (this._transform < -1) {
-      this._shiftBoard();
-    }
+      change = this._player.tick(delta, target);
+      this._transform -= change.y;
 
-    if (change.y) {
-      this._ents.some((ent, i) => {
-        if (ent.type !== 'tree') { return; }
+      if (this._positionDownMountain <= 0 && change.y > 0) {
+        this._gameStartAt = window.performance.now();
+      }
 
-        const delta = {
-          x: ent.at.x - this._playerX,
-          y: ent.at.y - this._positionDownMountain,
-        };
+      this._positionDownMountain += (change.y * dim.h);
+      this._playerX += change.x * (dim.w / 2);
+      if (this._transform < -1) {
+        this._shiftBoard();
+      }
+
+      if (change.y) {
+        this._ents.some((ent, i) => {
+          if (ent.type !== 'tree') { return; }
+
+          const delta = {
+            x: ent.at.x - this._playerX,
+            y: ent.at.y - this._positionDownMountain,
+          };
   
-        // TODO(samthor): Trees have different sizes.
-        const dist = Math.sqrt(delta.x * delta.x + delta.y * delta.y);
-        if (dist < 12) {
-          // TODO(samthor): End the game!
-          this._player.crash();
-          return true;
-        }
-      });
+          // TODO(samthor): Trees have different sizes.
+          const dist = Math.sqrt(delta.x * delta.x + delta.y * delta.y);
+          if (dist < 12) {
+            // TODO(samthor): End the game!
+            this._player.crash();
+            this._gameEndAt = window.performance.now();
+            this.fire('game-stop', {
+              score: Math.floor(this._positionDownMountain / 100),
+            });
+            return true;
+          }
+        });
+      }
     }
 
     this.$.surface.style.transform = 'translateY(' + (this._transform * dim.h) + 'px)';
@@ -353,8 +413,18 @@ Polymer({
     }
     this.updatePath();
 
-    this._game.transform = {x: 0, y: -this._positionDownMountain};
-    this._game.draw();
+    if (this._game) {
+      this._game.transform = {x: 0, y: -this._positionDownMountain};
+      this._game.draw();
+    }
+
+    if (this._gameStartAt && !this._gameEndAt) {
+      const detail = {
+        score: Math.floor(this._positionDownMountain / 100),
+        time: (window.performance.now() - this._gameStartAt) / 1000,
+      };
+      this.fire('game-score', detail);
+    }
   },
 
 });
