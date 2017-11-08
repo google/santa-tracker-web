@@ -32,6 +32,7 @@ Elf Ski scene.
 #surface {
   pointer-events: none;
   will-change: transform;
+  height: 100%;
 }
 #surface canvas {
   position: absolute;
@@ -57,6 +58,22 @@ Elf Ski scene.
   pointer-events: none;
 }
 
+#ui {
+  height: 791px;
+  position: absolute;
+  bottom: calc(50% - 120px);
+  min-height: calc(50% + 120px);  /* if we're bigger than 50%, then just clamp to top */
+  width: 100%;
+  background-image: url(../dorf/img/header-bg.svg);
+  background-color: transparent;
+  background-repeat: repeat-x;
+  background-position: 0px;  /* top-left, different origin than village */
+  background-size: 1618px 791px;
+}
+.down #ui {
+  display: none;
+}
+
   </style>
 
   <canvas id="gl3d"></canvas>
@@ -66,6 +83,8 @@ Elf Ski scene.
       on-pointerup="_onPointerUp">
     <div id="player"></div>
     <div id="surface">
+      <div id="ui">
+      </div>
       <canvas id="canvas"></canvas>
     </div>
   </div>
@@ -89,6 +108,11 @@ Polymer({
       value: 0,
     },
 
+    _pathTo: {
+      type: Number,
+      value: 240,
+    },
+
     _transform: {
       type: Number,
       value: 0,
@@ -99,7 +123,7 @@ Polymer({
       value: 0,
     },
 
-    _trees: {
+    _ents: {
       type: Object,
       value: () => [],
     },
@@ -196,8 +220,33 @@ Polymer({
       y: ((this.$.mountain.offsetHeight * 0.5) + this._positionDownMountain) + 256,
     };
 
-    const index = this._game.update(undefined, at.x, at.y, type, 0);
-    this._trees.push({index: index, at});
+    const def = {at: at, spriteIndex: type};
+    const index = this._game.update(undefined, def);
+    this._ents.push({index: index, at: at, type: 'tree'});
+  },
+
+  updatePath: function() {
+    const atPixels = 60;
+
+    while (this._pathTo < this._positionDownMountain + this.$.mountain.offsetHeight / 2) {
+      this._pathTo += atPixels;
+
+      const drift = Math.sin(this._pathTo / 155);
+
+      for (let i = 0; i < 2; ++i) {
+        const at = {x: i ? 200 : -200, y: this._pathTo};
+        const def = {at: at, spriteIndex: 5, scale: 0.25};
+
+        if (this._pathTo % (atPixels * 2)) {
+          def.spriteIndex = 4;
+        }
+
+        at.x += drift * 40;
+
+        const index = this._game.update(undefined, def);
+        this._ents.push({index: index, at: at, type: 'dot'});
+      }
+    }
   },
 
   _canvasTopAt: function() {
@@ -218,16 +267,17 @@ Polymer({
     context.drawImage(this.$.canvas, 0, dim.h, dim.w, dim.h, 0, 0, dim.w, dim.h);
     context.clearRect(0, dim.h, dim.w, dim.h);
 
-    while (this._trees.length) {
-      const next = this._trees[0];
+    while (this._ents.length) {
+      const next = this._ents[0];
       if (next.at.y > this._positionDownMountain - dim.h) {
         break;  // don't remove anymore
       }
       this._game.remove(next.index);
-      this._trees.shift();
+      this._ents.shift();
     }
-    console.info('now', this._game.spritesFree, 'sprites free');
 
+    // hide UI components
+    this.$.mountain.className = 'down';
     this._transform += 1;
   },
 
@@ -256,12 +306,13 @@ Polymer({
     }
 
     if (change.y) {
-      this._trees.some((tree, i) => {
+      this._ents.some((ent, i) => {
+        if (ent.type !== 'tree') { return; }
 
         // nb. the trees' origin is all 16px from center
         const delta = {
-          x: tree.at.x - this._playerX,
-          y: (tree.at.y - 16) - this._positionDownMountain,
+          x: ent.at.x - this._playerX,
+          y: (ent.at.y - 16) - this._positionDownMountain,
         };
   
         // TODO(samthor): Trees have different sizes.
@@ -300,6 +351,7 @@ Polymer({
     if (Math.random() / 10 < this._player.speed * delta) {
       this.addTree();
     }
+    this.updatePath();
 
     this._game.transform = {x: 0, y: -this._positionDownMountain};
     this._game.draw();
