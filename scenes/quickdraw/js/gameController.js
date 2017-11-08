@@ -17,13 +17,34 @@
 
 goog.provide('app.GameController');
 goog.require('app.EventEmitter');
+goog.require('app.view.DrawingCanvas');
 
-app.GameController = function() {
+app.GameController = function(container) {
   app.EventEmitter.call(this);
+
+  //Views
+  this.drawingCanvas = new app.view.DrawingCanvas(container);
+
+  // Elem
+  this.elem = container.find('.gameview');
+  this.elem.hide();
+
+  // Init
+  this.resetGameRounds();
+  this.newGuessesCounter = 0;
 };
 
 app.GameController.prototype = Object.create(app.EventEmitter.prototype);
 
-app.GameController.prototype.prepareNewGame = function() {
-  console.log('preparing new game');
+app.GameController.prototype.prepareNewGame = function(callback) {
+  console.log('GameController.prepareNewGame');
+};
+
+app.GameController.prototype.resetGameRounds = function() {
+  this.presentedWords = [];
+  this.previousRounds = [];
+};
+
+app.GameController.prototype.showView = function() {
+  this.elem.show();
 };

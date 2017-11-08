@@ -31,7 +31,7 @@ goog.require('app.GameController');
 app.Game = function(elem) {
   this.elem = $(elem);
   this.splashView = new app.view.SplashView(this.elem);
-  this.gameController = new app.GameController();
+  this.gameController = new app.GameController(this.elem);
   this.gameController.prepareNewGame();
   this.gameController.addListener("GAME_END", () => this.showSplashscreen())
 };
@@ -46,12 +46,14 @@ app.Game.prototype.dispose = function() {
 };
 
 app.Game.prototype.startGame = function() {
-  this.gameController.prepareNewGame( function(challenge) {
-    this.gameController.startNewGameWithChallenge(challenge, {
-      onCardDismiss: function() {
-        this.splashView.hideView();
-        this.gameController.showView();
-      };
-    });
-  });
+  // this.gameController.prepareNewGame( function(challenge) {
+  //   this.gameController.startNewGameWithChallenge(challenge, {
+  //     onCardDismiss: function() {
+  //       this.splashView.hideView();
+  //       this.gameController.showView();
+  //     }
+  //   });
+  // });
+  this.splashView.hideView();
+  this.gameController.showView();
 };

@@ -20,29 +20,29 @@ goog.require('app.EventEmitter');
 
 app.view.SplashView = function(container) {
   app.EventEmitter.call(this);
-  this.elm = container.find('.splashview');
-  this.elm.hide();
+  this.elem = container.find('.splashview');
+  this.elem.hide();
 };
 
 app.view.SplashView.prototype = Object.create(app.EventEmitter.prototype);
 
 app.view.SplashView.prototype.enableButtons = function() {
-  this.elm.find('.splashview__button').on('touchend mouseup', function () {
+  this.elem.find('.splashview__button').on('touchend mouseup', function () {
     this.emit('START_GAME');
     this.disableButtons();
   }.bind(this));
 };
 
 app.view.SplashView.prototype.disableButtons = function() {
-  this.elm.find('.splashview__button').off('touchend mouseup');
+  this.elem.find('.splashview__button').off('touchend mouseup');
 };
 
 app.view.SplashView.prototype.showView = function() {
   this.enableButtons();
-  this.elm.show();
+  this.elem.show();
 };
 
 app.view.SplashView.prototype.hideView = function() {
   this.disableButtons();
-  this.elm.hide();
+  this.elem.hide();
 };
