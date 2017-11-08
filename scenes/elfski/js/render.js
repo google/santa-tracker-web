@@ -23,14 +23,17 @@ uniform vec2 u_screenDims;
 // Center of the sprite in screen coordinates
 attribute vec2 centerPosition;
 
+// Offset of the sprite's origin.
+attribute float offsetY;
+
+// Layer to push this sprite into.
+attribute float layer;
+
 // Transform of the whole screen.
 uniform vec2 u_transform;
 
 // Rotation to draw sprite at
 attribute float rotation;
-
-// Scale to draw sprite at
-attribute float scale;
 
 // Per-sprite frame offset.
 attribute float spriteIndex;
@@ -68,18 +71,19 @@ void main() {
   // TODO: We could make the origin configurable.
   vec2 halfDims = u_screenDims / 2.0;
   vec2 updateCenter = vec2(centerPosition.x + halfDims.x,
-                           centerPosition.y + halfDims.y - spriteSize / 2.0);
+                           centerPosition.y + halfDims.y - spriteSize / 2.0 + offsetY);
 
-  // Rotate and scale as appropriate
+  // Rotate as appropriate
   float s = sin(rotation);
   float c = cos(rotation);
   mat2 rotMat = mat2(c, -s, s, c);
-  vec2 scaledOffset = spriteSize * cornerOffset * scale;
+  vec2 scaledOffset = spriteSize * cornerOffset;
   vec2 pos = updateCenter + rotMat * scaledOffset;
 
   // depth goes from 0-1, where 0=(-screenDims.y) and 1=(2*screenDims.y)
   float depthRange = u_screenDims.y * 3.0;
   float depth = 1.0 - (updateCenter.y + u_screenDims.y + u_transform.y) / depthRange;
+  depth = depth - layer;
 
   vec4 screenTransform = vec4(2.0 / u_screenDims.x, -2.0 / u_screenDims.y, -1.0, 1.0);
   gl_Position = vec4((pos + u_transform) * screenTransform.xy + screenTransform.zw, depth, 1.0);
@@ -122,19 +126,21 @@ const offsets = [
  */
 const constantAttributes = [
   'rotation',
-  'scale',
   'spriteIndex',
   'spriteSize',
   'cornerOffset',
+  'offsetY',
+  'layer',
   'spriteTextureSize',
   'spritesPerRow',
 ];
 
 /**
  * @typedef {{
- *   scale: (undefined|number),
- *   rotation: (undefined|number),
  *   at: {x: number, y: number},
+ *   rotation: (undefined|number),
+ *   offset: (undefined|number),
+ *   layer: (undefined|number),
  *   spriteIndex: number
  * }}
  */
@@ -276,8 +282,9 @@ export default class SpriteGame {
    */
   _updateAt(i, def) {
     def = Object.assign({
-      scale: 1,
       rotation: 0,
+      offset: 0,
+      layer: 0,
     }, def);
 
     const spriteSize = 128;
@@ -298,7 +305,8 @@ export default class SpriteGame {
       };
 
       s('rotation', 0, def.rotation);
-      s('scale', 0, def.scale);
+      s('offsetY', 0, def.offset);
+      s('layer', 0, def.layer);
       s('spriteIndex', 0, def.spriteIndex);
       s('spriteSize', 0, spriteSize);
       s('cornerOffset', 0, offset[0]);
