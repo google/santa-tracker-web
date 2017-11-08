@@ -36,7 +36,6 @@ Elf Ski scene.
 }
 #surface canvas {
   position: absolute;
-  z-index: -1;
 }
 
 #player {
@@ -83,8 +82,7 @@ Elf Ski scene.
       on-pointerup="_onPointerUp">
     <div id="player"></div>
     <div id="surface">
-      <div id="ui">
-      </div>
+      <div id="ui"></div>
       <canvas id="canvas"></canvas>
     </div>
   </div>
@@ -92,6 +90,8 @@ Elf Ski scene.
 </template>
 <script>
 (function() {
+
+const unitScale = {x: 400, y: 600};
 
 Polymer({
   is: 'elfski-scene',
@@ -298,14 +298,6 @@ Polymer({
     }
   },
 
-  _canvasTopAt: function() {
-    return (-this._transform * this.$.mountain.offsetHeight);
-  },
-
-  _canvasBottomAt: function() {
-    return ((-this._transform + 1) * this.$.mountain.offsetHeight);
-  },
-
   _shiftBoard: function() {
     const dim = {w: this.$.mountain.offsetWidth, h: this.$.mountain.offsetHeight};
 
@@ -327,7 +319,7 @@ Polymer({
 
     // hide UI components
     this.$.mountain.className = 'down';
-    this._transform += 1;
+    this._transform += dim.h;
   },
 
   _tick: function(now) {
@@ -349,15 +341,15 @@ Polymer({
       } : null;
 
       change = this._player.tick(delta, target);
-      this._transform -= change.y;
 
       if (this._positionDownMountain <= 0 && change.y > 0) {
         this._gameStartAt = window.performance.now();
       }
 
-      this._positionDownMountain += (change.y * dim.h);
-      this._playerX += change.x * (dim.w / 2);
-      if (this._transform < -1) {
+      this._positionDownMountain += (change.y * unitScale.y);
+      this._transform -= (change.y * unitScale.y);
+      this._playerX += change.x * (unitScale.x);
+      if (this._transform < -dim.h) {
         this._shiftBoard();
       }
 
@@ -385,20 +377,19 @@ Polymer({
       }
     }
 
-    this.$.surface.style.transform = 'translateY(' + (this._transform * dim.h) + 'px)';
+    this.$.surface.style.transform = 'translateY(' + (this._transform) + 'px)';
 
     const s = 'translateX(' + this._playerX + 'px) rotate(' + this._player.rotate + 'rad)';
     this.$.player.style.transform = s;
 
     // draw line
     const context = this.$.canvas.getContext('2d');
-    const midpoint = (this._canvasTopAt() + dim.h * 0.5);
 
     context.save();
-    context.translate((dim.w / 2) + this._playerX, midpoint);
+    context.translate((dim.w / 2) + this._playerX, -this._transform + (dim.h / 2));
     context.beginPath();
     context.moveTo(0, 0);
-    context.lineTo(-change.x, -change.y * dim.h);
+    context.lineTo(-change.x * unitScale.x, -change.y * unitScale.y);
 
     context.strokeStyle = 'white';
     context.lineCap = 'round';
