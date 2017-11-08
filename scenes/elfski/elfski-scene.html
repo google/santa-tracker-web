@@ -152,6 +152,7 @@ Polymer({
 
   onPreload: function() {
     this.preloadImages([
+      '../dorf/img/header-bg.svg',
       'img/tiles.png',
     ]);
   },
@@ -220,7 +221,7 @@ Polymer({
       y: ((this.$.mountain.offsetHeight * 0.5) + this._positionDownMountain) + 256,
     };
 
-    const def = {at: at, spriteIndex: type};
+    const def = {at: at, spriteIndex: type, offset: 16, layer: 1};
     const index = this._game.update(undefined, def);
     this._ents.push({index: index, at: at, type: 'tree'});
   },
@@ -235,7 +236,7 @@ Polymer({
 
       for (let i = 0; i < 2; ++i) {
         const at = {x: i ? 200 : -200, y: this._pathTo};
-        const def = {at: at, spriteIndex: 5, scale: 0.25};
+        const def = {at: at, spriteIndex: 5, offset: 16};
 
         if (this._pathTo % (atPixels * 2)) {
           def.spriteIndex = 4;
@@ -309,10 +310,9 @@ Polymer({
       this._ents.some((ent, i) => {
         if (ent.type !== 'tree') { return; }
 
-        // nb. the trees' origin is all 16px from center
         const delta = {
           x: ent.at.x - this._playerX,
-          y: (ent.at.y - 16) - this._positionDownMountain,
+          y: ent.at.y - this._positionDownMountain,
         };
   
         // TODO(samthor): Trees have different sizes.
