@@ -561,6 +561,22 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
   }
 
+  .Tool--marker, .Tool-hover-minitool--marker {
+    .cls-1 {
+      isolation: isolate;
+    }
+
+    .cls-2 {
+      fill: #f2faff;
+    }
+
+    .cls-4 {
+      fill: #bdbdbd;
+      opacity: 0.3;
+      mix-blend-mode: multiply;
+    }
+  }
+  
   .Tool--selected {
     @each $current-tool in $drawing-tools {
       &.Tool--#{$current-tool} {
