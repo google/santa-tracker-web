@@ -76,6 +76,10 @@ Santaselfie scene.
               <div class="Category-inner"></div>
               <div class="Category-tooltip">Drawing</div>
             </div>
+            <div class="Category Category--roller" data-tool-category-picker data-tool-category="roller">
+              <div class="Category-inner"></div>
+              <div class="Category-tooltip">Roller</div>
+            </div>
             <div class="Category Category--stamp" data-tool-category-picker data-tool-category="stamp">
               <div class="Category-inner"></div>
               <div class="Category-tooltip">Stamps</div>
@@ -127,6 +131,25 @@ Santaselfie scene.
             <div class="Tool Tool--crayon" data-tool="crayon" data-tool-color></div>
             <div class="Tool Tool--marker" data-tool="marker" data-tool-color></div>
             <div class="Tool Tool--paintbrush" data-tool="paintbrush" data-tool-color></div>
+            <div class="Tools-nav" data-tool-category-nav>
+              <div class="Button Button--nav Button--next" data-tool-nav="next">Next</div>
+              <div class="Button Button--nav Button--prev" data-tool-nav="prev">Prev</div>
+            </div>
+          </div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="roller">
+            <div class="Tools-slider Slider" data-slider>
+              <div class="Slider-inner">
+                <div class="Slider-base" data-slider-base></div>
+                <div class="Slider-dot" data-slider-dot></div>
+              </div>
+            </div>
+            <div class="Tool Tool--roller-checkered" data-tool="roller-checkered"></div>
+            <div class="Tool Tool--roller-diagonal" data-tool="roller-diagonal"></div>
+            <div class="Tool Tool--roller-horizontal" data-tool="roller-horizontal"></div>
+            <div class="Tool Tool--roller-polkadots" data-tool="roller-polkadots"></div>
+            <div class="Tool Tool--roller-snowflakes" data-tool="roller-snowflakes"></div>
+            <div class="Tool Tool--roller-trees" data-tool="roller-trees"></div>
+            <div class="Tool Tool--roller-vertical" data-tool="roller-vertical"></div>
             <div class="Tools-nav" data-tool-category-nav>
               <div class="Button Button--nav Button--next" data-tool-nav="next">Next</div>
               <div class="Button Button--nav Button--prev" data-tool-nav="prev">Prev</div>
@@ -383,6 +406,14 @@ Santaselfie scene.
           <img id="present-009688" src="/scenes/clausedraws/img/tools/stamps/present/009688.svg" width="118" height="143.5"/>
           <img id="present-795548" src="/scenes/clausedraws/img/tools/stamps/present/795548.svg" width="118" height="143.5"/>
           <img id="present-212121" src="/scenes/clausedraws/img/tools/stamps/present/212121.svg" width="118" height="143.5"/>
+          <img id="roller-checkered" src="/scenes/clausedraws/img/patterns/checkered.svg" width="410.36" height="361.17"/>
+          <img id="roller-diagonal" src="/scenes/clausedraws/img/patterns/diagonal.svg" width="410.36" height="361.17"/>
+          <img id="roller-horizontal" src="/scenes/clausedraws/img/patterns/horizontal.svg" width="410.36" height="361.17"/>
+          <img id="roller-polkadots" src="/scenes/clausedraws/img/patterns/polkadots.svg" width="410.36" height="375.84"/>
+          <img id="roller-snowflakes" src="/scenes/clausedraws/img/patterns/snowflakes.svg" width="410.36" height="361.17"/>
+          <img id="roller-trees" src="/scenes/clausedraws/img/patterns/trees.svg" width="410.36" height="361.17"/>
+          <img id="roller-vertical" src="/scenes/clausedraws/img/patterns/vertical.svg" width="410.36" height="361.17"/>
+          <canvas id="pattern-canvas"></canvas>
           <canvas id="save-canvas"></canvas>
           <canvas id="back-backup"></canvas>
           <canvas id="fore-backup"></canvas>

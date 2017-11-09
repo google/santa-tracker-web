@@ -1,6 +1,7 @@
 $stamp-names: "bow", "present", "bauble";
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
+$roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
 
 ##{$name} {
   .Tools {
@@ -349,6 +350,12 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
       }
     }
 
+    &--roller {
+      .Category-inner {
+        background: url(img/tools/tool_roller.svg) center / contain no-repeat;
+      }
+    }
+
     &--stamp {
       .Category-inner {
         background: url(img/tools/tool_stamp.svg) center / contain no-repeat;
@@ -421,7 +428,8 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
     }
   }
 
-  [data-tool-category="stamp"] {
+  [data-tool-category="stamp"],
+  [data-tool-category="roller"] {
     .Tool {
       background-position: center;
       background-repeat: no-repeat;
@@ -495,6 +503,12 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
             background-image: url(img/tools/stamps/#{$current-stamp}/#{$current-color}.svg);
           }
         }
+      }
+    }
+
+    @each $current-roller in $roller-names {
+      &--roller-#{$current-roller} {
+        background-image: url(img/patterns/#{$current-roller}.svg);
       }
     }
 

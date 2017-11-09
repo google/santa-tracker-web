@@ -18,6 +18,7 @@ goog.provide('app.Tools');
 goog.require('app.Eraser');
 goog.require('app.LayerTool');
 goog.require('app.Marker');
+goog.require('app.PaintRoller');
 goog.require('app.Pencil');
 goog.require('app.Slider');
 goog.require('app.SprayColor');
@@ -76,6 +77,13 @@ app.Tools = function(game, $elem) {
   this.stampBauble = new app.Stamp($elem, 'bauble');
   this.stampBow = new app.Stamp($elem, 'bow');
   this.stampPresent = new app.Stamp($elem, 'present');
+  this.rollerCheckered = new app.PaintRoller($elem, 'checkered');
+  this.rollerDiagonal = new app.PaintRoller($elem, 'diagonal');
+  this.rollerHorizontal = new app.PaintRoller($elem, 'horizontal');
+  this.rollerPolkadots = new app.PaintRoller($elem, 'polkadots');
+  this.rollerSnowflakes = new app.PaintRoller($elem, 'snowflakes');
+  this.rollerTrees = new app.PaintRoller($elem, 'trees');
+  this.rollerVertical = new app.PaintRoller($elem, 'vertical');
 
   this.tools = [
     this.pencil,
@@ -96,7 +104,14 @@ app.Tools = function(game, $elem) {
     this.eraser,
     this.stampBauble,
     this.stampBow,
-    this.stampPresent
+    this.stampPresent,
+    this.rollerCheckered,
+    this.rollerDiagonal,
+    this.rollerHorizontal,
+    this.rollerPolkadots,
+    this.rollerSnowflakes,
+    this.rollerTrees,
+    this.rollerVertical
   ];
 };
 
