@@ -551,6 +551,16 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
   }
 
+  .Tool--paintbrush, .Tool-hover-minitool--paintbrush {
+    .cls-3{
+      fill: #4e342e;
+    }
+    
+    .cls-4 {
+      opacity: 0.08;
+    }
+  }
+
   .Tool--selected {
     @each $current-tool in $drawing-tools {
       &.Tool--#{$current-tool} {
