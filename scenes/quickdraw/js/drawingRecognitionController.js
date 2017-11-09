@@ -48,6 +48,25 @@ app.DrawingRecognitionController.prototype.processDrawing = function(drawing) {
   }, 0);
 
   if (length > 10) {
-    this.handwritingAPI.processSegments(segments, drawing.canvas.width, drawing.canvas.height);
+    this.handwritingAPI.processSegments(segments, drawing.canvas.width, drawing.canvas.height)
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.error(jqXHR, textStatus, errorThrown);
+    })
+    .done(function(data) {
+      if(data[0] == "SUCCESS") {
+        this.processRecognitionResponse(this.handwritingAPI.parseResponse(data));
+      }
+    }.bind(this));
   }
+};
+
+app.DrawingRecognitionController.prototype.processRecognitionResponse = function(results) {
+  var guesses = this.filterGuesses(results);
+  this.emit('NEW_RECOGNITIONS', guesses);
+};
+
+app.DrawingRecognitionController.prototype.filterGuesses = function(visionResults) {
+  return visionResults.filter(function(result) {
+    return result.score < app.config.handwriting_threshold;
+  });
 };

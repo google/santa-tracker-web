@@ -29,8 +29,12 @@ app.GameController = function(container) {
   //Views
   this.drawingCanvas = new app.view.DrawingCanvas(container);
 
+  //Listeners
   this.drawingCanvas.addListener('DRAWING_UPDATED', function(data) {
     this.onDrawingUpdated(data);
+  }.bind(this));
+  this.recognitionController.addListener('NEW_RECOGNITIONS', function(guesses) {
+    this.onNewRecognitions(guesses)
   }.bind(this));
 
   // Elem
@@ -64,4 +68,9 @@ app.GameController.prototype.showView = function() {
 
 app.GameController.prototype.onDrawingUpdated = function(data) {
   this.recognitionController.onDrawingUpdated(data);
+};
+
+
+app.GameController.prototype.onNewRecognitions = function(recognitions) {
+  //Set recognitions
 };

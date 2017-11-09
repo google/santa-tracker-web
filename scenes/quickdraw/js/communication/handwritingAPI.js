@@ -47,22 +47,11 @@ app.HandwritingAPI.prototype.sendRequest = function(segments, options) {
     request.requests[0].ink = segments;
   }
 
-  $.post({
+  return $.post({
     url: app.config.handwriting_url,
     data: JSON.stringify(request),
     contentType: 'application/json'
-  })
-  .fail(function(jqXHR, textStatus, errorThrown) {
-      console.error(jqXHR, textStatus, errorThrown);
-      reject("Could not call classifier");
-  })
-  .done(function(data) {
-    if(data[0] == "SUCCESS") {
-      console.log(this.parseResponse(data));
-    } else {
-        reject("Could not process classifier response");
-    }
-  }.bind(this));
+  });
 };
 
 
