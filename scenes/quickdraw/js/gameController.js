@@ -18,12 +18,20 @@
 goog.provide('app.GameController');
 goog.require('app.EventEmitter');
 goog.require('app.view.DrawingCanvas');
+goog.require('app.DrawingRecognitionController');
+
 
 app.GameController = function(container) {
   app.EventEmitter.call(this);
 
+  this.recognitionController = new app.DrawingRecognitionController();
+
   //Views
   this.drawingCanvas = new app.view.DrawingCanvas(container);
+
+  this.drawingCanvas.addListener('DRAWING_UPDATED', function(data) {
+    this.onDrawingUpdated(data);
+  }.bind(this));
 
   // Elem
   this.elem = container.find('.gameview');
@@ -34,17 +42,26 @@ app.GameController = function(container) {
   this.newGuessesCounter = 0;
 };
 
+
 app.GameController.prototype = Object.create(app.EventEmitter.prototype);
+
 
 app.GameController.prototype.prepareNewGame = function(callback) {
   console.log('GameController.prepareNewGame');
 };
+
 
 app.GameController.prototype.resetGameRounds = function() {
   this.presentedWords = [];
   this.previousRounds = [];
 };
 
+
 app.GameController.prototype.showView = function() {
   this.elem.show();
+};
+
+
+app.GameController.prototype.onDrawingUpdated = function(data) {
+  this.recognitionController.onDrawingUpdated(data);
 };
