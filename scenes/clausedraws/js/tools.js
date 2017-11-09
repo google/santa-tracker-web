@@ -162,10 +162,8 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
-  console.log('select', e.target);
   // Check if on slider
   if ($(e.target).closest('[data-slider]').length) {
-    console.log('on slider');
     return;
   }
 

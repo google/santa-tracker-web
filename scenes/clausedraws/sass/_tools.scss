@@ -1,5 +1,6 @@
 $stamp-names: "bow", "present", "bauble";
-$drawing-tools: "crayon", "marker", "pencil", "paintbrush";
+$drawing-tools: "crayon";
+// $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
 
@@ -445,7 +446,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
 
     .Tool--selected {
-      background-image: url(img/tools/spray/tray.svg) !important;
+      background-image: url(img/tools/spray/tray.svg);
 
       svg {
         display: none;
@@ -482,9 +483,20 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
     @each $current-tool in $drawing-tools {
       &--#{$current-tool} {
+        padding: 10px 40px;
+
         @each $current-color in $colorpicker-colors {
           &[data-tool-color="##{$current-color}"] {
-            background-image: url(img/tools/#{$current-tool}/#{$current-color}.svg);
+
+            $toolConfig: map-get($svg-colors, $current-tool);
+            $colorConfig: map-get($toolConfig, $current-color);
+            $svgConfig: map-get($colorConfig, "tool");
+
+            @each $className, $fillColor in $svgConfig {
+              .#{$className} {
+                fill: $fillColor;
+              }
+            }
           }
         }
       }
@@ -533,7 +545,13 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
 
     &--spray-sprinkles {
-      background-image: url(img/tools/tool_spray_sprinkles.svg);
+      background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
+    }
+  }
+
+  .Tool--crayon {
+    .cls-3 {
+      opacity:0.05;
     }
   }
 
@@ -541,6 +559,10 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     @each $current-tool in $drawing-tools {
       &.Tool--#{$current-tool} {
         background-image: url(img/tools/#{$current-tool}/tray.svg);
+      }
+
+      svg {
+        display: none;
       }
     }
 
@@ -693,7 +715,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
   [data-tool-hover-tool="spray-sprinkles"] {
     .Tool-hover-inactive .Tool-hover-minitool {
-      background-image: url(img/tools/tool_spray_sprinkles.svg);
+      background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
       right: 90%;
       top: 10%;
     }
