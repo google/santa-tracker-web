@@ -93,14 +93,15 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
     this.trail = new Trail(5, 0xaaccff, game => this.thrown);
   }
 
-  onAllocated(origin) {
-    this.origin.copy(origin);
+  onAllocated(thrower) {
+    this.origin.copy(thrower.position);
     this.position.copy(origin);
     this.thrown = false;
     this.tickWhenThrown = -1;
     this.targetPosition.set(0, 0);
     this.skew = 0;
     this.collidedWith = null;
+    this.thrower = thrower;
     this.visible = false;
   }
 
@@ -109,6 +110,10 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
 
     this.unsubscribeFromCollisions = collisionSystem.handleCollisions(this,
         (snowball, collidable) => {
+          if (collidable === this.thrower) {
+            return;
+          }
+
           this.collidedWith = collidable;
           this.visible = false;
         });

@@ -1,81 +1,110 @@
 import { Elf } from '../entities/elf.js';
 
-const { Object3D, Vector2 } = self.THREE;
+const { Math: ThreeMath, Object3D, Vector2 } = self.THREE;
 
 const intermediateVector2 = new Vector2();
-
 const PI_OVER_TWO = Math.PI / 2.0;
 
 export class PlayerSystem {
-  constructor() {
+  setup(game) {
     this.path = null;
     this.playerLayer = new Object3D();
-    this.player = new Elf(34);
-    this.playerLayer.add(this.player);
+    this.playerMap = {};
+    this.players = [];
+    this.newPlayers = [];
 
-    this.targetPosition = null;
-    this.targetPickEvent = null;
+    this.playerDestinations = {};
+    this.playerTargetedPositions = {};
   }
 
-  assignPath(path) {
-    this.path = path;
+  addPlayer(id = ThreeMath.generateUUID()) {
+    const player = Elf.allocate(id);
+    this.playerMap[id] = player;
+    this.players.push(player);
+    this.playerLayer.add(player);
+    this.newPlayers.push(player);
+    return player;
   }
 
-  setup(game) {
-    this.player.setup(game);
+  removePlayer(id) {
+    const player = this.playerMap[id];
+    const playerIndex = this.players.indexOf(player);
+
+    if (index < 0) {
+      return;
+    }
+
+    this.players.splice(playerIndex, 1);
+    this.playerLayer.remove(player);
+    Elf.free(player);
+  }
+
+  assignPlayerDestination(playerId, destination) {
+    const player = this.playerMap[playerId];
+
+    if (player != null) {
+      this.playerDestinations[playerId] = destination;
+    }
+  }
+
+  assignPlayerTargetedPosition(playerId, targetedPosition) {
+    const player = this.playerMap[playerId];
+
+    if (player != null) {
+      this.playerTargetedPositions[playerId] = targetedPosition;
+    }
   }
 
   update(game) {
-    const { snowballSystem } = game;
+    const { mapSystem, snowballSystem, clientSystem } = game;
+    const { grid, map } = mapSystem;
+    const { player: clientPlayer } = clientSystem;
 
-    if (this.targetPickEvent != null) {
-      const uv = this.targetPickEvent.uv;
-      this.targetPosition = this.targetPickEvent.target.parent.position.clone();
-
-      this.targetPickEvent = null;
+    while (this.newPlayers.length) {
+      const newPlayer = this.newPlayers.shift();
+      newPlayer.setup(game);
     }
 
-    if (this.path != null && this.path.length) {
-      const nextWaypoint = this.path[0];
-      const delta = intermediateVector2;
-      delta.subVectors(nextWaypoint, this.player.position);
-      const length = delta.length();
-      delta.normalize();
-      delta.multiplyScalar(2.25);
-      const lengthNormalized = delta.length();
+    for (let playerId in this.playerDestinations) {
+      const player = this.playerMap[playerId];
+      const destination = this.playerDestinations[playerId];
+      const path = grid.playerWaypointsForMap(player, destination, map);
 
-      if (length <= lengthNormalized) {
-        this.player.position.x = nextWaypoint.x;
-        this.player.position.y = nextWaypoint.y;
-        this.path.shift();
+      if (path.length) {
+        player.followPath(path);
+      } else if (player === clientPlayer) {
+        clientSystem.assignTarget(destination);
       } else {
-        this.player.position.x += delta.x;
-        this.player.position.y += delta.y;
+        this.assignTargetedPosition(destination.position);
       }
-
-      this.player.face(Math.atan2(delta.y, delta.x) + PI_OVER_TWO);
-      this.player.run();
-    } else {
-      this.player.idle();
     }
 
-    if (this.targetPosition != null) {
-      intermediateVector2.copy(this.player.position);
-      snowballSystem.throwSnowball(intermediateVector2, this.targetPosition);
-      intermediateVector2
-          .subVectors(this.targetPosition, this.player.position)
-          .normalize();
+    this.playerDestinations = {};
 
-      this.player.face(Math.atan2(intermediateVector2.y, intermediateVector2.x) +
-          PI_OVER_TWO);
+    for (let playerId in this.playerTargetedPositions) {
+      const player = this.playerMap[playerId];
+      const targetPosition = this.playerTargetedPositions[playerId];
+      const partial = intermediateVector2;
 
-      this.targetPosition = null;
+      snowballSystem.throwSnowball(player, targetPosition);
+
+      partial.subVectors(targetPosition, player.position).normalize();
+      player.face(Math.atan2(partial.y, partial.x) + PI_OVER_TWO);
     }
 
-    this.player.update(game);
-  }
+    this.playerTargetedPositions = {};
 
-  throwSnowballAt(targetPosition) {
-    this.targetPosition = targetPosition;
+
+    for (let i = 0; i < this.players.length; ++i) {
+      const player = this.players[i];
+      player.update(game);
+
+      const tileIndex = grid.positionToIndex(player.position);
+      const tileState = map.getTileState(tileIndex);
+
+      if (tileState === 3.0) {
+        this.removePlayer(player);
+      }
+    }
   }
 };

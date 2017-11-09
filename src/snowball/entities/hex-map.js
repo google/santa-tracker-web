@@ -54,7 +54,7 @@ void main() {
 
   vec3 finalPosition = scaledPosition + offsetPosition;
 
-  if (tileState.x == 5.0 && finalPosition.z == tileScale / 4.0) {
+  if (tileState.x == 5.0 && finalPosition.z > 0.0) {
     finalPosition.z *= 3.0;
   }
 

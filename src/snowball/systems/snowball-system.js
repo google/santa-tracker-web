@@ -111,8 +111,8 @@ export class SnowballSystem {
     Snowball.free(snowball);
   }
 
-  throwSnowball(origin, target) {
-    const snowball = Snowball.allocate(origin);
+  throwSnowball(thrower, target) {
+    const snowball = Snowball.allocate(thrower);
     snowball.throwAt(target);
     this.newSnowballs.push(snowball);
   }

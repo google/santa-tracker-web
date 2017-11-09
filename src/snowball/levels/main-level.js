@@ -15,26 +15,24 @@ export class MainLevel extends Level {
       snowballSystem,
       effectSystem,
       playerSystem,
-      dummyTargetSystem,
+      clientSystem,
+      lodSystem,
       mapSystem
     } = game;
+
     const { snowballLayer } = snowballSystem;
-    const { playerLayer, player } = playerSystem;
-    const { dummyTargetLayer } = dummyTargetSystem;
+    const { playerLayer } = playerSystem;
+    const { player } = clientSystem;
     const { mapLayer, grid, map, gimbal } = mapSystem;
     const { effectsLayer } = effectSystem;
     const { collisionDebugLayer } = collisionSystem;
-
-    this.collisionLimit = null;
-    this.measure(game);
-
-    console.log(this.collisionLimit);
 
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera, player);
     this.light = new AmbientLight(0xffffff, Math.PI);
 
-    collisionSystem.limit = this.collisionLimit;
+    this.measure(game);
+
     collisionSystem.bounds = Rectangle.allocate(
        grid.pixelWidth, grid.pixelHeight, mapLayer.position);
 
@@ -45,7 +43,6 @@ export class MainLevel extends Level {
 
     gimbal.add(snowballLayer);
     gimbal.add(playerLayer);
-    gimbal.add(dummyTargetLayer);
     gimbal.add(effectsLayer);
 
     this.add(mapLayer);
@@ -55,15 +52,16 @@ export class MainLevel extends Level {
   }
 
   measure(game) {
-    const { collisionSystem, playerSystem } = game;
-    const { player } = playerSystem;
+    const { lodSystem, clientSystem } = game;
+    const { player } = clientSystem;
 
-    Rectangle.free(this.collisionLimit);
+    Rectangle.free(this.lodLimit);
 
-    this.collisionLimit = Rectangle.allocate(
+    this.lodLimit = Rectangle.allocate(
         game.width + 256, game.height * 4/3 + 256, player.position);
 
-    collisionSystem.limit = this.collisionLimit;
+    this.cameraTracker.tetherDistance = 0.05 * Math.max(game.width, game.height);
+    lodSystem.limit = this.lodLimit;
   }
 
   teardown(game) {
@@ -77,43 +75,17 @@ export class MainLevel extends Level {
   }
 
   update(game) {
-    const { camera, mapSystem, playerSystem } = game;
+    const { camera, mapSystem, playerSystem, clientSystem } = game;
     const { grid, map } = mapSystem;
-    const { player } = playerSystem;
 
     if ((game.tick - this.lastErosionTick) > 16) {
       this.lastErosionTick = game.tick;
-      map.erode(Math.floor(Math.random() * 3));
+      const maxErodedTiles = Math.ceil(map.tileRings.length / 5) * 3.0;
+      map.erode(Math.floor(Math.random() * maxErodedTiles));
     }
 
     if (this.pickEvent != null) {
-      const { index, sprite, state, position } = this.pickEvent;
-
-      const playerIndex = grid.positionToIndex(player.position);
-      const playerTileState = map.getTileState(playerIndex);
-
-      const tileIsPassable = (grid, currentIndex) => {
-        const state = map.getTileState(currentIndex);
-        const sprite = map.getTileObstacle(currentIndex);
-
-        return state > 0 && state < 3 && sprite < 0 && state !== 5.0;
-      };
-
-      const waypoints = grid.waypoints(playerIndex, index, tileIsPassable);
-
-      if (waypoints.length) {
-        const path = waypoints.slice(1, waypoints.length - 1)
-            .map(index => {
-              //map.setTileState(index, 2.0);
-              return grid.indexToPosition(index)
-            });
-
-        path.push(position);
-        playerSystem.assignPath(path);
-      } else {
-        playerSystem.throwSnowballAt(position);
-      }
-
+      clientSystem.assignDestination(this.pickEvent);
       this.pickEvent = null;
     }
 

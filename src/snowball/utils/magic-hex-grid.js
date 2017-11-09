@@ -32,4 +32,32 @@ export class MagicHexGrid extends HexGrid {
 
     return new Vector2(uv.x * width - width / 2, uv.y * height - height / 2);
   }
+
+  playerWaypointsForMap(player, destination, map) {
+    const { index, sprite, state, position } = destination;
+
+    const playerIndex = this.positionToIndex(player.position);
+
+    const tileIsPassable = (grid, currentIndex) => {
+      const state = map.getTileState(currentIndex);
+      const sprite = map.getTileObstacle(currentIndex);
+
+      return state > 0 && state < 3 && sprite < 0 && state !== 5.0;
+    };
+
+    const waypoints = this.waypoints(playerIndex, index, tileIsPassable);
+
+    if (waypoints.length) {
+      const path = waypoints.slice(1, waypoints.length - 1)
+          .map(index => {
+            //map.setTileState(index, 2.0);
+            return this.indexToPosition(index)
+          });
+
+      path.push(position);
+      return path;
+    }
+
+    return waypoints;
+  }
 };
