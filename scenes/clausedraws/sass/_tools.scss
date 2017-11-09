@@ -446,6 +446,10 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
     .Tool--selected {
       background-image: url(img/tools/spray/tray.svg) !important;
+
+      svg {
+        display: none;
+      }
     }
   }
 
@@ -513,9 +517,17 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
 
     &--spray-color {
+      padding: 20px;
+
       @each $current-color in $colorpicker-colors {
         &[data-tool-color="##{$current-color}"] {
-          background-image: url(img/tools/spray/#{$current-color}.svg);
+          $colorConfig: map-get($spray-cans, $current-color);
+
+          @each $className, $fillColor in $colorConfig {
+            .#{$className} {
+              fill: $fillColor;
+            }
+          }
         }
       }
     }

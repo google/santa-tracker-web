@@ -162,6 +162,7 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
+  console.log('select', e.target);
   // Check if on slider
   if ($(e.target).closest('[data-slider]').length) {
     console.log('on slider');
@@ -175,7 +176,8 @@ app.Tools.prototype.selectTool_ = function(e) {
   }
 
   this.selectedTool = this.tools.filter(function(tool) {
-    if (tool.el[0] === e.target && !tool.isSelected) {
+    var target = $(e.target).closest('[data-tool]');
+    if (tool.el[0] === target[0] && !tool.isSelected) {
       return tool;
     }
   })[0];
