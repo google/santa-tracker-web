@@ -485,20 +485,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
       &--#{$current-tool} {
         padding: 10px 40px;
 
-        @each $current-color in $colorpicker-colors {
-          &[data-tool-color="##{$current-color}"] {
-
-            $toolConfig: map-get($svg-colors, $current-tool);
-            $colorConfig: map-get($toolConfig, $current-color);
-            $svgConfig: map-get($colorConfig, "tool");
-
-            @each $className, $fillColor in $svgConfig {
-              .#{$className} {
-                fill: $fillColor;
-              }
-            }
-          }
-        }
+        @include generateSVGstyles($current-tool);
       }
     }
 
@@ -549,7 +536,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
   }
 
-  .Tool--crayon {
+  .Tool--crayon, .Tool-hover-minitool--crayon {
     .cls-3 {
       opacity:0.05;
     }
@@ -668,18 +655,6 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
   }
 
-  @each $current-tool in $drawing-tools {
-    [data-tool-hover-tool="#{$current-tool}"] {
-      @each $current-color in $colorpicker-colors {
-        &[data-tool-color="##{$current-color}"] {
-          .Tool-hover-inactive .Tool-hover-minitool {
-            background-image: url(img/tools/#{$current-tool}/#{$current-color}.svg);
-          }
-        }
-      }
-    }
-  }
-
   [data-tool-hover-category="spray"] {
     .Tool-hover-minitool {
       background-position: center;
@@ -723,6 +698,17 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     .Tool-hover-circle {
       height: 50px !important;
       width: 50px !important;
+    }
+  }
+
+  @each $current-tool in $drawing-tools {
+    [data-tool-hover-tool="#{$current-tool}"] {
+      @include generateSVGstyles($current-tool,
+          '.Tool-hover-minitool--#{$current-tool}');
+
+      .Tool-hover-minitool--#{$current-tool} {
+        display: block;
+      }
     }
   }
 

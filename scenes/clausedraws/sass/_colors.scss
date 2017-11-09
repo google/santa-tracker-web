@@ -227,3 +227,22 @@ $spray-cans: (
     "cls-3": #111111,
   )
 );
+
+@mixin generateSVGstyles($tool-name, $selector:'') {
+  @each $current-color in $colorpicker-colors {
+    &[data-tool-color="##{$current-color}"] #{$selector} {
+
+      $toolConfig: map-get($svg-colors, $tool-name);
+      $colorConfig: map-get($toolConfig, $current-color);
+      $svgConfig: map-get($colorConfig, "tool");
+
+      @each $className, $fillColor in $svgConfig {
+        .#{$className} {
+          fill: $fillColor;
+        }
+      }
+    }
+  }
+}
+
+
