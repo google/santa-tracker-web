@@ -1,6 +1,5 @@
 $stamp-names: "bow", "present", "bauble";
-$drawing-tools: "crayon";
-// $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
+$drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
 
@@ -534,11 +533,21 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     &--spray-sprinkles {
       background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
     }
-  }
+  } 
 
   .Tool--crayon, .Tool-hover-minitool--crayon {
     .cls-3 {
-      opacity:0.05;
+      opacity: 0.05;
+    }
+  }
+
+  .Tool--pencil, .Tool-hover-minitool--pencil {
+    .cls-3{
+      fill: #29b6f6;
+    }
+    
+    .cls-4 {
+      opacity: 0.05;
     }
   }
 
