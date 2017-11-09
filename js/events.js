@@ -20,8 +20,8 @@
  * @constructor
  */
 function EventsManager() {
-  /** @type {!Map<!Object, !Map<string, !Set<function(...*)>>>} */
-  this.m_ = new Map();
+  /** @type {!WeakMap<!Object, !Map<string, !Set<function(...*)>>>} */
+  this.m_ = new WeakMap();
 };
 
 /**

@@ -162,6 +162,11 @@ Polymer({
       value: null,
     },
 
+    _socket: {
+      type: Object,
+      value: null,
+    },
+
   },
 
   created: function() {
@@ -196,10 +201,15 @@ Polymer({
 
     }.bind(this);
 
+    this._socket = new SantaSocket('elfski');
+    this._socket.addListener('message', (data) => {
+      console.info('got message', data);
+    });
   },
 
   onHide: function() {
     window.removeEventListener('resize', this._onResize);
+    this._socket.close();
   },
 
   /**
@@ -343,6 +353,12 @@ Polymer({
       } : null;
 
       change = this._player.tick(delta, target);
+
+      this._socket.send({
+        'speed': this._player.speed,
+        'loc': {x: this._playerX, y: this._positionDownMountain},
+        'dir': change,
+      });
 
       if (this._positionDownMountain <= 0 && change.y > 0) {
         this._gameStartAt = window.performance.now();
