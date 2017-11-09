@@ -292,7 +292,7 @@ Polymer({
     while (this._pathTo < this._positionDownMountain + this.$.mountain.offsetHeight / 2) {
       this._pathTo += atPixels;
 
-      const drift = Math.sin(this._pathTo / 155);
+      const drift = Math.sin(this._pathTo / 155) + Math.cos(this._pathTo / 255);
 
       for (let i = 0; i < 2; ++i) {
         const at = {x: i ? 200 : -200, y: this._pathTo};

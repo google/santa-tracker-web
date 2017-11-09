@@ -66,7 +66,7 @@ export function slerp(vecA, vecB, part) {
     return {x: vecA.x, y: vecA.y};  // make new object anyway
   }
 
-  // assumes both are normal vectors
+  // assumes both are unit vectors
   const raw = vecA.x * vecB.x + vecA.y * vecB.y;
   const dot = Math.min(1, Math.max(-1, raw));  // clamp for sanity
 
@@ -78,8 +78,10 @@ export function slerp(vecA, vecB, part) {
     y: vecB.y - vecA.y * dot,
   });
 
+  const ctheta = Math.cos(theta);
+  const stheta = Math.sin(theta);
   return {
-    x: vecA.x * Math.cos(theta) + vecC.x * Math.sin(theta),
-    y: vecA.y * Math.cos(theta) + vecC.y * Math.sin(theta),
+    x: vecA.x * ctheta + vecC.x * stheta,
+    y: vecA.y * ctheta + vecC.y * stheta,
   };
 }
