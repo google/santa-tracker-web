@@ -364,7 +364,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
     &--spray {
       .Category-inner {
-        background: url(img/tools/spray/ffeb3b.svg) center / contain no-repeat;
+        background: url(img/tools/spray/tool_spray_color.svg) center / contain no-repeat;
       }
     }
 
@@ -589,6 +589,15 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     top: 0;
   }
 
+  .Tool-hover-minitool {
+    display: none;
+    text-align: center;
+
+    svg {
+      height: 100%;
+    }
+  }
+
   [data-tool-hover-category="stamp"] {
     .Tool-hover-minitool {
       background: url(img/tools/tool_stamp.svg) center/contain no-repeat;
@@ -664,11 +673,22 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
   }
 
   [data-tool-hover-tool="spray-color"] {
+    .Tool-hover-minitool--spray-color {
+      display: block;
+    }
+
     @each $current-color in $colorpicker-colors {
-      &[data-tool-color="##{$current-color}"] .Tool-hover-inactive .Tool-hover-minitool {
-        background-image: url(img/tools/spray/#{$current-color}.svg);
+      &[data-tool-color="##{$current-color}"] .Tool-hover-minitool--spray-color {
+        $colorConfig: map-get($spray-cans, $current-color);
+
+        @each $className, $fillColor in $colorConfig {
+          .#{$className} {
+            fill: $fillColor;
+          }
+        }
       }
     }
+
   }
 
   [data-tool-hover-tool="spray-sprinkles"] {
