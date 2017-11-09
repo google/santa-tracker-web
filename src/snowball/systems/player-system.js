@@ -30,7 +30,7 @@ export class PlayerSystem {
     const player = this.playerMap[id];
     const playerIndex = this.players.indexOf(player);
 
-    if (index < 0) {
+    if (playerIndex < 0) {
       return;
     }
 
@@ -102,8 +102,8 @@ export class PlayerSystem {
       const tileIndex = grid.positionToIndex(player.position);
       const tileState = map.getTileState(tileIndex);
 
-      if (tileState === 3.0) {
-        this.removePlayer(player);
+      if (tileState === 4.0) {
+        this.removePlayer(player.playerId);
       }
     }
   }
