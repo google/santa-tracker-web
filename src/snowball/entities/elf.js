@@ -126,7 +126,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
 
   run() {
     if (this.model != null) {
-      this.model.play('elf_rig_run');
+      this.model.play('elf_rig_running');
     }
   }
 
