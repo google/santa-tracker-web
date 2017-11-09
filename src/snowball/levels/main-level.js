@@ -25,10 +25,16 @@ export class MainLevel extends Level {
     const { effectsLayer } = effectSystem;
     const { collisionDebugLayer } = collisionSystem;
 
+    this.collisionLimit = null;
+    this.measure(game);
+
+    console.log(this.collisionLimit);
+
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera, player);
-    this.light = new AmbientLight(0xffffff, 2.0);
+    this.light = new AmbientLight(0xffffff, Math.PI);
 
+    collisionSystem.limit = this.collisionLimit;
     collisionSystem.bounds = Rectangle.allocate(
        grid.pixelWidth, grid.pixelHeight, mapLayer.position);
 
@@ -46,6 +52,18 @@ export class MainLevel extends Level {
     this.add(this.light);
 
     this.lastErosionTick = 0;
+  }
+
+  measure(game) {
+    const { collisionSystem, playerSystem } = game;
+    const { player } = playerSystem;
+
+    Rectangle.free(this.collisionLimit);
+
+    this.collisionLimit = Rectangle.allocate(
+        game.width + 256, game.height * 4/3 + 256, player.position);
+
+    collisionSystem.limit = this.collisionLimit;
   }
 
   teardown(game) {

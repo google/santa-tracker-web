@@ -80,11 +80,8 @@ vec3 shake(vec2 tileState, float time, vec3 position) {
     time -= tileState.y;
 
     float xOffset = sin(time / 70.0 * PI) * 1.0;
-    float yOffset = cos(time / 80.0 * PI) * 1.0;
-    float zOffset = cos(time / 90.0 * PI) * 1.0;
 
     position.x += xOffset;
-    position.y += yOffset;
   }
 
   return position;

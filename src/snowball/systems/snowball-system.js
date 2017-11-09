@@ -95,6 +95,7 @@ export class SnowballSystem {
 
   removeSnowball(snowball, game) {
     const { collisionSystem, effectSystem } = game;
+    console.log('Removing a snowball!');
 
     path.subVectors(snowball.targetPosition, snowball.origin);
 

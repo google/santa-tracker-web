@@ -33,6 +33,26 @@ export class DummyTarget extends Elf {
     this.collider = Rectangle.allocate(size * 0.4, size * 1.2, this.position);
 
     this.add(this.hitTarget);
+
+    this.lodNeedsUpdate = false;
+  }
+
+  set highLod(value) {
+    if (value != this.highLod) {
+      this.lodNeedsUpdate = true;
+    }
+
+    this.visible = value;
+  }
+
+  get highLod() {
+    return this.visible;
+  }
+
+  initializeModel() {
+    if (this.highLod) {
+      super.initializeModel();
+    }
   }
 
   setup(game) {
@@ -50,15 +70,26 @@ export class DummyTarget extends Elf {
   }
 
   update(game) {
-    // TODO(cdata): Need a better way to offset-position colliders.
-    //this.collider.position.copy(this.position);
-    //this.collider.position.y += 0.8 * this.size;
+    if (this.lodNeedsUpdate) {
+      if (this.highLod) {
+        this.initializeModel();
+      };
+
+      this.lodNeedsUpdate = false;
+    }
+
+    if (this.model) {
+      this.model.play('elf_rig_idle');
+    }
+
+    super.update(game);
   }
 
   teardown(game) {
     const { collisionSystem } = game;
 
     collisionSystem.removeCollidable(this);
+
     this.unsubscribe();
   }
 };

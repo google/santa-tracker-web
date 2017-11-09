@@ -4,6 +4,8 @@ const { Object3D, Vector2 } = self.THREE;
 
 const intermediateVector2 = new Vector2();
 
+const PI_OVER_TWO = Math.PI / 2.0;
+
 export class PlayerSystem {
   constructor() {
     this.path = null;
@@ -51,7 +53,7 @@ export class PlayerSystem {
         this.player.position.y += delta.y;
       }
 
-      this.player.graphic.rotation.y = Math.atan2(delta.y, delta.x) + Math.PI / 2.0;
+      this.player.face(Math.atan2(delta.y, delta.x) + PI_OVER_TWO);
       this.player.run();
     } else {
       this.player.idle();
@@ -64,8 +66,8 @@ export class PlayerSystem {
           .subVectors(this.targetPosition, this.player.position)
           .normalize();
 
-      this.player.graphic.rotation.y = Math.atan2(
-          intermediateVector2.y, intermediateVector2.x) + Math.PI / 2.0;
+      this.player.face(Math.atan2(intermediateVector2.y, intermediateVector2.x) +
+          PI_OVER_TWO);
 
       this.targetPosition = null;
     }

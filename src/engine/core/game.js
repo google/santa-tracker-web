@@ -40,13 +40,13 @@ export class Game extends HTMLElement {
       this.preciseTick = time * 60 / 1000;
       this.tick = Math.floor(this.preciseTick);
 
-      if (this.currentLevel == null) {
-        return;
-      }
-
       if (!this.ready) {
         this.setup();
         this.ready = true;
+      }
+
+      if (this.currentLevel == null) {
+        return;
       }
 
       this.update();
@@ -78,8 +78,7 @@ export class Game extends HTMLElement {
     this.renderSystem.measure(this);
   }
 
-  setup() {
-      }
+  setup() {}
 
   update() {
     this.currentLevel.update(this);

@@ -16,6 +16,32 @@ export class Collision2DSystem {
     this.quadTree = null;
     this.collisionDebugLayer = debug ? new Object3D() : null;
     this.collisionDebugObjects = debug ? new Map() : null;
+    this.collisionDebugBounds = null;
+    this.collisionDebugLimit = null;
+
+    this.collisionLimit = null;
+  }
+
+  set limit(limit) {
+    this.collisionLimit = limit;
+
+    if (this.debug) {
+      if (this.collisionDebugLimit != null) {
+        this.collisionDebugLayer.remove(this.collisionDebugLimit);
+      }
+
+      const collisionDebugLimit = new Mesh(
+          new PlaneBufferGeometry(limit.width, limit.height),
+          new MeshBasicMaterial({
+            color: 0x00ff00,
+            opacity: 0.25,
+            transparent: true,
+            side: 2
+          }));
+
+      this.collisionDebugLayer.add(collisionDebugLimit);
+      this.collisionDebugLimit = collisionDebugLimit;
+    }
   }
 
   set bounds(bounds) {
@@ -24,7 +50,7 @@ export class Collision2DSystem {
 
     if (this.debug) {
       if (this.collisionDebugBounds != null) {
-        this.remove(this.collisionDebugBounds);
+        this.collisionDebugLayer.remove(this.collisionDebugBounds);
       }
 
       const collisionDebugBounds = new Mesh(
@@ -117,14 +143,17 @@ export class Collision2DSystem {
     }
 
     if (this.debug) {
+      if (this.collisionDebugLimit && this.collisionLimit) {
+        this.collisionDebugLimit.position.copy(this.collisionLimit.position);
+      }
       this.collisionDebugObjects.forEach((object, collidable) => {
         const collider = this.getCollider(collidable);
         object.position.x = collider.position.x;
         object.position.y = collider.position.y;
+        object.position.z = 2.0;
       });
     }
 
-    //const measuredCollisions = new WeakMap();
     const measuredCollisions = {};
 
     this.quadTree.clearDynamic();

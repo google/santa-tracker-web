@@ -13,7 +13,7 @@ export class SnowballGame extends Game {
   constructor() {
     super();
 
-    this.collisionSystem = new Collision2DSystem(object => object.collider);
+    this.collisionSystem = new Collision2DSystem(object => object.collider || object);
     this.effectSystem = new EffectSystem();
     this.snowballSystem = new SnowballSystem();
     this.mapSystem = new MapSystem(64, 64, 64.0);
@@ -21,7 +21,6 @@ export class SnowballGame extends Game {
     this.dummyTargetSystem = new DummyTargetSystem();
 
     this.renderSystem.renderer.setClearColor(0x71A7DB, 1.0);
-    this.level = new MainLevel();
   }
 
   setup() {
@@ -29,6 +28,8 @@ export class SnowballGame extends Game {
 
     this.mapSystem.setup(this);
     this.playerSystem.setup(this);
+
+    this.level = new MainLevel();
   }
 
   update() {

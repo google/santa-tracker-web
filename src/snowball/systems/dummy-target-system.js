@@ -11,11 +11,18 @@ export class DummyTargetSystem {
   }
 
   update(game) {
-    while (this.dummies.length < 0) {
+    const { currentLevel } = game;
+    const { collisionLimit } = currentLevel;
+
+    while (this.dummies.length < 100) {
       this.addDummyTarget(game);
     }
 
     for (let i = 0; i < this.dummies.length; ++i) {
+      const dummy = this.dummies[i];
+
+      dummy.highLod = collisionLimit.intersects(dummy.collider);
+
       this.dummies[i].update(game);
     }
   }
@@ -53,7 +60,7 @@ export class DummyTargetSystem {
 
     target.position.x = position.x;
     target.position.y = position.y;
-    //target.position.z = target.position.y;
+    target.face(Math.PI * 2 * Math.random());
   }
 
   removeDummyTarget(game, target) {

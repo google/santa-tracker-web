@@ -147,7 +147,9 @@ export class Map {
       if (index != null) {
         const state = this.getTileState(index);
 
-        if (state === 1.0) {
+        // TODO(cdata): Show some kind of "collapse" effect when the tile
+        // goes from raised (5.0) to shaking (3.0)...
+        if (state === 1.0 || state === 5.0) {
           this.setTileState(index, 3.0);
         } else if (state === 3.0) {
           ring.splice(tileIndex, 1);

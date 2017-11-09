@@ -155,15 +155,24 @@ export class Rectangle extends Allocatable(AbstractShape) {
     return this.position.y;
   }
 
+  get left() {
+    return this.position.x - this.halfWidth;
+  }
+
+  get right() {
+    return this.position.x + this.halfWidth;
+  }
+
+  get top() {
+    return this.position.y + this.halfHeight;
+  }
+
+  get bottom() {
+    return this.position.y - this.halfHeight;
+  }
+
   constructor() {
     super();
-
-    this.tl = new Vector2();
-    this.tr = new Vector2();
-    this.bl = new Vector2();
-    this.br = new Vector2();
-
-    this.vertices = [this.tl, this.tr, this.br, this.bl];
   }
 
   onAllocated(width, height, position) {
@@ -173,14 +182,6 @@ export class Rectangle extends Allocatable(AbstractShape) {
 
     this.halfWidth = width / 2;
     this.halfHeight = height / 2;
-
-    this.tl.set(this.position.x - this.halfWidth,
-        this.position.y - this.halfHeight);
-    this.br.set(this.position.x + this.halfWidth,
-        this.position.y + this.halfHeight);
-
-    this.tr.set(this.br.x, this.tl.y);
-    this.bl.set(this.tl.x, this.br.y);
   }
 
   onFreed() {
@@ -190,11 +191,6 @@ export class Rectangle extends Allocatable(AbstractShape) {
 
     this.halfWidth = 0;
     this.halfHeight = 0;
-
-    this.tl.set(0, 0);
-    this.br.set(0, 0);
-    this.tr.set(0, 0);
-    this.bl.set(0, 0);
   }
 };
 
@@ -232,6 +228,17 @@ export const circleIntersectsCircle = (() => {
 })();
 
 export const rectangleIntersectsRectangle = (() => {
+  return (a, b) => {
+    if (b.left > a.right ||
+        b.right < a.left ||
+        b.top < a.bottom ||
+        b.bottom > a.top) {
+      return false;
+    }
+
+    return true;
+  };
+
   return (a, b) => {
     if ((a.x + a.width) < b.x ||
         (b.x + b.width) < a.x ||
@@ -350,28 +357,39 @@ export const intersectionTests = {
 
 
 export const rectangleContainsPoint = (rectangle, point) => {
-  if (point.x < rectangle.tl.x || point.x > rectangle.br.x ||
-      point.y > rectangle.bl.y || point.y < rectangle.tr.y) {
+  if (point.x < rectangle.left || point.x > rectangle.right ||
+      point.y < rectangle.bottom || point.y > rectangle.top) {
     return false;
   }
 
   return true;
 };
 
-export const rectangleContainsRectangle = (rectangle, other) => {
-  if (!rectangleContainsPoint(rectangle, other.tl) ||
-      !rectangleContainsPoint(rectangle, other.br)) {
-    return false;
-  }
+export const rectangleContainsRectangle = (() => {
+  const point = new Vector2();
 
-  return true;
-};
+  return (rectangle, other) => {
+    point.set(other.left, other.top);
+
+    if (!rectangleContainsPoint(rectangle, point)) {
+      return false;
+    }
+
+    point.set(other.right, other.bottom);
+
+    if (!rectangleContainsPoint(rectangle, point)) {
+      return false;
+    }
+
+    return true;
+  };
+})();
 
 export const rectangleContainsCircle = (rectangle, circle) => {
-  if ((circle.x - circle.radius) < rectangle.tl.x ||
-      (circle.x + circle.radius) > rectangle.br.x ||
-      (circle.y - circle.radius) < rectangle.tr.y ||
-      (circle.y + circle.radius) > rectangle.bl.y) {
+  if ((circle.x - circle.radius) < rectangle.left ||
+      (circle.x + circle.radius) > rectangle.right ||
+      (circle.y - circle.radius) > rectangle.top ||
+      (circle.y + circle.radius) < rectangle.bottom) {
     return false;
   }
 
