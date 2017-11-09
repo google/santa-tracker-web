@@ -517,17 +517,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     &--spray-color {
       padding: 20px;
 
-      @each $current-color in $colorpicker-colors {
-        &[data-tool-color="##{$current-color}"] {
-          $colorConfig: map-get($spray-cans, $current-color);
-
-          @each $className, $fillColor in $colorConfig {
-            .#{$className} {
-              fill: $fillColor;
-            }
-          }
-        }
-      }
+      @include generateSVGstyles('spray-color');
     }
 
     &--spray-sprinkles {
@@ -709,18 +699,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
       display: block;
     }
 
-    @each $current-color in $colorpicker-colors {
-      &[data-tool-color="##{$current-color}"] .Tool-hover-minitool--spray-color {
-        $colorConfig: map-get($spray-cans, $current-color);
-
-        @each $className, $fillColor in $colorConfig {
-          .#{$className} {
-            fill: $fillColor;
-          }
-        }
-      }
-    }
-
+    @include generateSVGstyles('spray-color', '.Tool-hover-minitool--spray-color');
   }
 
   [data-tool-hover-tool="spray-sprinkles"] {
