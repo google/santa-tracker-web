@@ -52,7 +52,7 @@ export class MainLevel extends Level {
   }
 
   measure(game) {
-    const { lodSystem, clientSystem } = game;
+    const { collisionSystem, lodSystem, clientSystem } = game;
     const { player } = clientSystem;
 
     Rectangle.free(this.lodLimit);
@@ -60,8 +60,10 @@ export class MainLevel extends Level {
     this.lodLimit = Rectangle.allocate(
         game.width + 256, game.height * 4/3 + 256, player.position);
 
+
     this.cameraTracker.tetherDistance = 0.05 * Math.max(game.width, game.height);
     lodSystem.limit = this.lodLimit;
+    collisionSystem.limit = this.lodLimit;
   }
 
   teardown(game) {

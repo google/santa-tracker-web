@@ -163,8 +163,15 @@ export class Collision2DSystem {
       }
     });
 
+    const collisionLimit = this.collisionLimit || this.bounds;
+
     this.collidables.forEach(collidable => {
       const collider = this.getCollider(collidable);
+
+      if (!collisionLimit.contains(collider)) {
+        return;
+      }
+
       const nearbyCollidables = this.quadTree.getObjectsNear(collidable);
       //console.log('Nearby collidables:', nearbyCollidables.length);
 
