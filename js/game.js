@@ -70,7 +70,7 @@ class SantaSocket {
       }
       if (data.p) {
         // got 'stuff'
-        Events.trigger(this, 'message', data.s);
+        Events.trigger(this, 'message', data.p);
         ok = true;
       }
       if (!ok) {
