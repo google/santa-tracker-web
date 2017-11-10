@@ -130,8 +130,9 @@ app.TextureDrawer.prototype.calculateDrawSize = function(size) {
 
 
 app.TextureDrawer.prototype.getTextureImage = function(color) {
-  var texture = this.elem.find('#' + this.name + '-' + color.substring(1))[0];
-  return texture;
+  // var texture = this.elem.find('#' + this.name + '-' + color.substring(1))[0];
+  // return texture;
+  return this.getSVGTexture(color);
 };
 
 
