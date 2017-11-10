@@ -4,6 +4,8 @@ import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { createElf } from '../models.js';
 import { LodSystem } from '../systems/lod-system.js';
 import { Health } from '../components/health.js';
+import { Path } from '../components/path.js';
+import { PlayerMarker } from './player-marker.js';
 
 const {
   Mesh,
@@ -92,6 +94,7 @@ const generateElfTexture = (() => {
   };
 })();
 
+const clientPlayerMarker = new PlayerMarker();
 
 export class Elf extends Allocatable(Entity(Object3D)) {
   randomizeColors() {
@@ -147,7 +150,8 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.dolly.position.y = -10.0;
 
     this.hasAssignedTarget = false;
-    this.path = null;
+
+    this.path = new Path();
     this.health = new Health();
   }
 
@@ -163,6 +167,9 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         clientSystem.assignTarget(this);
         return false;
       }, this.hitTarget);
+    } else {
+      this.dolly.add(clientPlayerMarker);
+      clientPlayerMarker.rotation.x = -Math.PI / 2.0;
     }
   }
 
@@ -212,10 +219,6 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.dolly.rotation.y = angle;
   }
 
-  followPath(path) {
-    this.path = path;
-  }
-
   idle() {
     if (this.model != null) {
       this.model.play('elf_rig_idle');
@@ -250,6 +253,8 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   }
 
   update(game) {
+    const { path, health } = this;
+
     if (this.lodNeedsUpdate) {
       if (this.currentLod === LodSystem.lod.HIGH) {
         this.initializeModel();
@@ -261,9 +266,9 @@ export class Elf extends Allocatable(Entity(Object3D)) {
       this.lodNeedsUpdate = false;
     }
 
-    if (this.health.alive) {
-      if (this.path != null) {
-        const nextWaypoint = this.path[0];
+    if (health.alive) {
+      if (!path.destinationReached) {
+        const nextWaypoint = path.nextWaypoint;
         const delta = intermediateVector2;
         delta.subVectors(nextWaypoint, this.position);
         const length = delta.length();
@@ -274,7 +279,8 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         if (length <= lengthNormalized) {
           this.position.x = nextWaypoint.x;
           this.position.y = nextWaypoint.y;
-          this.path.shift();
+
+          path.waypoints.shift();
         } else {
           this.position.x += delta.x;
           this.position.y += delta.y;
@@ -290,10 +296,6 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         this.throw();
         this.hasAssignedTarget = false;
       }
-    }
-
-    if (this.path != null && this.path.length === 0) {
-      this.path = null;
     }
 
     if (this.model != null) {

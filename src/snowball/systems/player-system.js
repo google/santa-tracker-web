@@ -78,7 +78,7 @@ export class PlayerSystem {
       const path = grid.playerWaypointsForMap(player, destination, map);
 
       if (path.length) {
-        player.followPath(path);
+        player.path.follow(path);
       } else if (player === clientPlayer) {
         clientSystem.assignTarget(destination);
       } else {

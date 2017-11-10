@@ -3,8 +3,11 @@ import { HexMap } from '../entities/hex-map.js';
 import { Obstacles } from '../entities/obstacles.js';
 import { Map } from '../components/map.js';
 import { Tree } from '../entities/static/tree.js';
+import { DestinationMarker } from '../entities/destination-marker.js';
 
 const { Object3D } = self.THREE;
+
+const destinationMarker = new DestinationMarker();
 
 export class MapSystem {
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
@@ -15,12 +18,14 @@ export class MapSystem {
     this.mapLayer = new Object3D();
     this.hexMap = new HexMap();
     this.obstacles = new Obstacles();
+    this.destinationMarker = new DestinationMarker();
 
     const gimbal = new Object3D();
 
     gimbal.rotation.x = 4 * Math.PI / 5;
     gimbal.add(this.hexMap);
     gimbal.add(this.obstacles);
+    gimbal.add(this.destinationMarker);
 
     this.mapLayer.add(gimbal);
 
@@ -52,6 +57,7 @@ export class MapSystem {
 
   setup(game) {
     this.obstacles.setup(game);
+    this.destinationMarker.setup(game);
     this.hexMap.setup(game);
 
     this.hexMap.handlePick(event => this.onMapPicked(event));
@@ -72,8 +78,21 @@ export class MapSystem {
   }
 
   update(game) {
+    const { clientSystem } = game;
+    const { player } = clientSystem;
+
     this.obstacles.update(game);
     this.hexMap.update(game);
-    //this.mapLayer.rotation.y += 0.01;
+
+    const destinationReached = player.path.destinationReached;
+
+    if (destinationReached && this.destinationMarker.visible) {
+      this.destinationMarker.visible = false;
+    } else if (!destinationReached) {
+      this.destinationMarker.position.x = player.path.destination.x;
+      this.destinationMarker.position.y = player.path.destination.y - 20.0;
+
+      this.destinationMarker.visible = true;
+    }
   }
 };

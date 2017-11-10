@@ -1,4 +1,9 @@
-const { Math: ThreeMath } = self.THREE;
+const {
+  Math: ThreeMath,
+  Mesh,
+  PlaneBufferGeometry,
+  MeshBasicMaterial
+} = self.THREE;
 
 export class ClientSystem {
   constructor(clientId = ThreeMath.generateUUID()) {
@@ -8,7 +13,6 @@ export class ClientSystem {
     this.player = null;
     this.targetedPosition = null;
     this.destination = null;
-    this.path = null;
   }
 
   assignTarget(target) {
@@ -26,7 +30,7 @@ export class ClientSystem {
   }
 
   update(game) {
-    const { playerId, health } = this.player;
+    const { playerId, health, path } = this.player;
 
     if (health.dead) {
       return;

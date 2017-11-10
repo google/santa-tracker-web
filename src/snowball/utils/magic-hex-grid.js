@@ -34,7 +34,7 @@ export class MagicHexGrid extends HexGrid {
   }
 
   playerWaypointsForMap(player, destination, map) {
-    const { index, sprite, state, position } = destination;
+    const { index, position } = destination;
 
     const playerIndex = this.positionToIndex(player.position);
 
