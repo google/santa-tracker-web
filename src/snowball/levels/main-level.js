@@ -29,7 +29,7 @@ export class MainLevel extends Level {
 
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera, player);
-    this.light = new AmbientLight(0xffffff, Math.PI);
+    this.light = new AmbientLight(0xbbaaaa, Math.PI);
 
     this.measure(game);
 

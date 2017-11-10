@@ -26,8 +26,13 @@ export class ClientSystem {
   }
 
   update(game) {
+    const { playerId, health } = this.player;
+
+    if (health.dead) {
+      return;
+    }
+
     const { networkSystem, playerSystem } = game;
-    const { playerId } = this.player;
     const { clientId, destination, targetedPosition } = this;
 
     if (destination != null) {

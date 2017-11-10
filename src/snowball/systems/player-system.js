@@ -53,6 +53,8 @@ export class PlayerSystem {
     if (player != null) {
       this.playerTargetedPositions[playerId] = targetedPosition;
     }
+
+    player.hasAssignedTarget = true;
   }
 
   update(game) {
@@ -67,6 +69,11 @@ export class PlayerSystem {
 
     for (let playerId in this.playerDestinations) {
       const player = this.playerMap[playerId];
+
+      if (player.health.dead) {
+        continue;
+      }
+
       const destination = this.playerDestinations[playerId];
       const path = grid.playerWaypointsForMap(player, destination, map);
 
@@ -83,6 +90,11 @@ export class PlayerSystem {
 
     for (let playerId in this.playerTargetedPositions) {
       const player = this.playerMap[playerId];
+
+      if (player.health.dead) {
+        continue;
+      }
+
       const targetPosition = this.playerTargetedPositions[playerId];
       const partial = intermediateVector2;
 
@@ -103,7 +115,7 @@ export class PlayerSystem {
       const tileState = map.getTileState(tileIndex);
 
       if (tileState === 4.0) {
-        this.removePlayer(player.playerId);
+        player.sink();
       }
     }
   }

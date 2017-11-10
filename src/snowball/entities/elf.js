@@ -3,6 +3,7 @@ import { Allocatable } from '../../engine/utils/allocatable.js';
 import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { createElf } from '../models.js';
 import { LodSystem } from '../systems/lod-system.js';
+import { Health } from '../components/health.js';
 
 const {
   Mesh,
@@ -11,14 +12,94 @@ const {
   Object3D,
   GLTFLoader,
   AnimationMixer,
-  Vector2
+  Vector2,
+  Texture
 } = self.THREE;
 
 const intermediateVector2 = new Vector2();
 const PI_OVER_TWO = Math.PI / 2.0;
 const PI_OVER_TWO_POINT_TWO_FIVE = Math.PI / 2.25;
 
+const majorColors = [
+  '#84488F',
+  '#D55040',
+  '#4DB1E9',
+  '#55AB57',
+  '#56BBCA',
+  '#BC3EB4',
+];
+
+const minorColors = [
+  '#E7C241',
+  //'#55453B',
+  '#936644',
+  '#B8906D',
+  '#DBBC99'
+];
+
+const randomElement = array => array[Math.floor(Math.random() * array.length)];
+
+const generateElfTexture = (() => {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  const TWO_PI = Math.PI * 2.0;
+  const cache = {};
+
+  canvas.width = canvas.height = 512;
+
+  return (majorColor, minorColor) => {
+    const cacheKey = `${majorColor}_${minorColor}`;
+
+    if (cache[cacheKey] != null) {
+      return cache[cacheKey];
+    }
+
+    // Socks / hat...
+    context.fillStyle = '#fff';
+    context.fillRect(0, 0, 512, 153);
+
+    // Skin...
+    context.fillStyle = minorColor;
+    context.fillRect(0, 153, 512, 174);
+
+    // Clothes...
+    context.fillStyle = majorColor;
+    context.fillRect(0, 327, 512, 140);
+
+    // Belt / boots...
+    context.fillStyle = '#333';
+    context.fillRect(0, 467, 512, 45);
+
+    // Eyes..
+    context.ellipse(44, 207, 21, 21, 0, 0, TWO_PI);
+    context.ellipse(150, 207, 21, 21, 0, 0, TWO_PI);
+    context.fill();
+
+    // Buckle...
+    context.fillStyle = '#F9D448';
+    context.fillRect(252, 460, 60, 52);
+
+    const image = document.createElement('img');
+    image.src = canvas.toDataURL();
+    cache[cacheKey] = image;
+    return image;
+
+    const texture = new Texture(image);
+
+    cache[cacheKey] = texture;
+
+    return texture;
+  };
+})();
+
+
 export class Elf extends Allocatable(Entity(Object3D)) {
+  randomizeColors() {
+    const material = this.dolly.children[0].children[0].material;
+    material.map.image = generateElfTexture(randomElement(majorColors), randomElement(minorColors));
+    material.map.needsUpdate = true;
+  }
+
   constructor() {
     super();
 
@@ -51,14 +132,23 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.collider = Rectangle.allocate(15, 45, this.position);
   }
 
-  onAllocated(playerId) {
+  onAllocated(playerId,
+      majorColor = randomElement(majorColors),
+      minorColor = randomElement(minorColors),
+      gender = 'male') {
     this.playerId = playerId;
+
+    this.majorColor = majorColor;
+    this.minorColor = minorColor;
+    this.gender = gender;
 
     this.dolly.rotation.x = PI_OVER_TWO_POINT_TWO_FIVE;
     this.dolly.position.z = 19;
     this.dolly.position.y = -10.0;
 
+    this.hasAssignedTarget = false;
     this.path = null;
+    this.health = new Health();
   }
 
   setup(game) {
@@ -97,8 +187,16 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   initializeModel() {
     if (!this.modelInitialized) {
       console.count('Elf model initialized');
+
+      const texture = generateElfTexture(this.majorColor, this.minorColor);
+
       createElf().then(model => {
         const elf = model.object.children[0];
+        const material = elf.children[0].material;
+
+        material.map.image = texture;
+        material.map.needsUpdate = true;
+        //material.needsUpdate = true;
 
         elf.scale.multiplyScalar(5.0);
 
@@ -130,6 +228,27 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     }
   }
 
+  throw() {
+    if (this.model != null) {
+      this.model.mixOnce('elf_rig_throw');
+    }
+  }
+
+  fallDown() {
+    if (this.model != null) {
+      this.model.playOnce('elf_rig_fall_down');
+    }
+  }
+
+  sink() {
+    this.die();
+  }
+
+  die() {
+    this.health.alive = false;
+    this.fallDown();
+  }
+
   update(game) {
     if (this.lodNeedsUpdate) {
       if (this.currentLod === LodSystem.lod.HIGH) {
@@ -142,28 +261,35 @@ export class Elf extends Allocatable(Entity(Object3D)) {
       this.lodNeedsUpdate = false;
     }
 
-    if (this.path != null) {
-      const nextWaypoint = this.path[0];
-      const delta = intermediateVector2;
-      delta.subVectors(nextWaypoint, this.position);
-      const length = delta.length();
-      delta.normalize();
-      delta.multiplyScalar(2.25);
-      const lengthNormalized = delta.length();
+    if (this.health.alive) {
+      if (this.path != null) {
+        const nextWaypoint = this.path[0];
+        const delta = intermediateVector2;
+        delta.subVectors(nextWaypoint, this.position);
+        const length = delta.length();
+        delta.normalize();
+        delta.multiplyScalar(2.25);
+        const lengthNormalized = delta.length();
 
-      if (length <= lengthNormalized) {
-        this.position.x = nextWaypoint.x;
-        this.position.y = nextWaypoint.y;
-        this.path.shift();
+        if (length <= lengthNormalized) {
+          this.position.x = nextWaypoint.x;
+          this.position.y = nextWaypoint.y;
+          this.path.shift();
+        } else {
+          this.position.x += delta.x;
+          this.position.y += delta.y;
+        }
+
+        this.face(Math.atan2(delta.y, delta.x) + PI_OVER_TWO);
+        this.run();
       } else {
-        this.position.x += delta.x;
-        this.position.y += delta.y;
+        this.idle();
       }
 
-      this.face(Math.atan2(delta.y, delta.x) + PI_OVER_TWO);
-      this.run();
-    } else {
-      this.idle();
+      if (this.hasAssignedTarget) {
+        this.throw();
+        this.hasAssignedTarget = false;
+      }
     }
 
     if (this.path != null && this.path.length === 0) {
