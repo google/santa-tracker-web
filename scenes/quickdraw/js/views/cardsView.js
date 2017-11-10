@@ -18,6 +18,7 @@
 goog.provide('app.view.CardsView');
 
 goog.require('app.config');
+goog.require('app.SVGUtils');
 goog.require('app.EventEmitter');
 
 
@@ -91,6 +92,26 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   this.hideCard(this.newround_card);
   this.showCard(this.timesup_card);
 
+  var roundsRecognized = rounds.filter(function(r) {
+    return r.recognized == true
+  }).length;
+
+  var $titleElem = this.timesup_card.find('.timesup-card__title');
+  var $sublineElem = this.timesup_card.find('.timesup-card__subline');
+  var $drawingsWrapper = this.timesup_card.find('.timesup-card__drawings');
+
+  if (roundsRecognized == 0) {
+    $titleElem.text('Oops!');
+    $sublineElem.text('Robby didn\'t recognized any of your drawings.');
+  } else {
+    $titleElem.text('Well done!');
+    $sublineElem.text('Robby recognized ' + roundsRecognized + ' of your drawings.');
+  }
+
+  rounds.forEach(function(round) {
+    $drawingsWrapper.append(this.createDrawingElem(round));
+  }.bind(this));
+
   this.timesup_card
     .find('.timesup-card__button')
     .off('touchend mouseup')
@@ -100,4 +121,14 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
       }
       this.hideCard(this.timesup_card);
     }.bind(this));
+};
+
+app.view.CardsView.prototype.createDrawingElem = function(round) {
+  var drawingElem = $('<div>')
+    .addClass('timesup-card__drawing');
+
+  var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, 360, 240, {padding: 25});
+  drawingElem.append(svgElem);
+
+  return drawingElem;
 };
