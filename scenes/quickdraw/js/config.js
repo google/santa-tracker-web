@@ -28,7 +28,7 @@ app.config = {
   'round_length': 20,
 
   // 'num_rounds': 2,
-  'num_rounds': 6,
+  'num_rounds': 3,
 
   // Max allowed rate recognition api can be called in seconds
   'max_api_rate': 1.0,
@@ -41,4 +41,5 @@ app.config = {
   'noNewGuessesSentences': ["no_clue", "not_sure", "stumped"],
   'timesUpSentences': ["sorry"],
   'userNotDrawingSentences': ["cant_guess", "start_drawing"],
+  'words': ["tree", "star", "snowflake", "snowman", "cookie", "penguin"]
 }

@@ -16,7 +16,6 @@
 'use strict';
 
 goog.provide('app.Game');
-goog.require('app.EventEmitter');
 goog.require('app.config');
 goog.require('app.view.SplashView');
 goog.require('app.GameController');
@@ -32,13 +31,20 @@ app.Game = function(elem) {
   this.elem = $(elem);
   this.splashView = new app.view.SplashView(this.elem);
   this.gameController = new app.GameController(this.elem);
-  this.gameController.prepareNewGame();
-  this.gameController.addListener("GAME_END", () => this.showSplashscreen())
 };
 
 app.Game.prototype.start = function() {
+  // Game Controller
+  this.gameController.prepareNewGame();
+  this.gameController.addListener('GAME_END', function() {
+    this.showSplashscreen()
+  }.bind(this));
+
+  //Splash view
   this.splashView.showView();
-  this.splashView.addListener('START_GAME', function() { this.startGame(); }.bind(this));
+  this.splashView.addListener('START_GAME', function() {
+    this.startGame();
+  }.bind(this));
 };
 
 app.Game.prototype.dispose = function() {
@@ -46,14 +52,19 @@ app.Game.prototype.dispose = function() {
 };
 
 app.Game.prototype.startGame = function() {
-  // this.gameController.prepareNewGame( function(challenge) {
-  //   this.gameController.startNewGameWithChallenge(challenge, {
-  //     onCardDismiss: function() {
-  //       this.splashView.hideView();
-  //       this.gameController.showView();
-  //     }
-  //   });
-  // });
-  this.splashView.hideView();
-  this.gameController.showView();
+  this.gameController.prepareNewGame( function(challenge) {
+    this.gameController.startNewGameWithChallenge(challenge, {
+      onCardDismiss: function () {
+        this.splashView.hideView();
+        this.gameController.showView();
+      }.bind(this)
+    });
+  }.bind(this));
+  // this.splashView.hideView();
+  // this.gameController.showView();
+};
+
+app.Game.prototype.showSplashscreen = function() {
+  this.gameController.hideView();
+  this.splashView.showView();
 };

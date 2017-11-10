@@ -16,26 +16,38 @@
 'use strict';
 
 goog.provide('app.GameController');
+goog.require('app.config');
 goog.require('app.EventEmitter');
-goog.require('app.view.DrawingCanvas');
+
+goog.require('app.DrawingCanvas');
+goog.require('app.view.CardsView');
+
 goog.require('app.DrawingRecognitionController');
+goog.require('app.Clock');
+goog.require('app.GameRound');
 
 
 app.GameController = function(container) {
   app.EventEmitter.call(this);
 
   this.recognitionController = new app.DrawingRecognitionController();
+  this.clock = new app.Clock();
 
   //Views
-  this.drawingCanvas = new app.view.DrawingCanvas(container);
+  this.drawingCanvas = new app.DrawingCanvas(container);
+  this.cardsView = new app.view.CardsView(container);
 
   //Listeners
   this.drawingCanvas.addListener('DRAWING_UPDATED', function(data) {
     this.onDrawingUpdated(data);
   }.bind(this));
   this.recognitionController.addListener('NEW_RECOGNITIONS', function(guesses) {
-    this.onNewRecognitions(guesses)
+    this.onNewRecognitions(guesses);
   }.bind(this));
+  this.clock.addListener('TIMES_UP', function() {
+    this.roundTimesUp()
+  }.bind(this));
+
 
   // Elem
   this.elem = container.find('.gameview');
@@ -52,6 +64,21 @@ app.GameController.prototype = Object.create(app.EventEmitter.prototype);
 
 app.GameController.prototype.prepareNewGame = function(callback) {
   console.log('GameController.prepareNewGame');
+  if (!this.preparedChallenge) {
+    this.fetchNewRound([], function (challenge) {
+      if (callback) {
+        callback(challenge);
+      } else {
+        this.preparedChallenge = challenge;
+      };
+    }.bind(this))
+  } else {
+    if (callback) {
+      var w = Object.assign({}, this.preparedChallenge);
+      this.preparedChallenge = undefined;
+      callback(w);
+    }
+  }
 };
 
 
@@ -73,4 +100,73 @@ app.GameController.prototype.onDrawingUpdated = function(data) {
 
 app.GameController.prototype.onNewRecognitions = function(recognitions) {
   //Set recognitions
+};
+
+
+app.GameController.prototype.fetchNewRound = function(alreadyPresentedWords, callback) {
+  var word = app.config.words[Math.floor(Math.random() * app.config.words.length)];
+  var data = {
+    word: word
+  };
+
+  callback(data);
+};
+
+
+app.GameController.prototype.startNewGameWithChallenge = function(challenge, options) {
+  console.log('GameController.startNewGameWithChallenge');
+  this.level = 1;
+  this.completedLevels = 0;
+
+  this.clock.reset();
+  this.clock.startClock();
+
+  this.startNewRoundWithChallenge(challenge, {
+      onCardDismiss : options.onCardDismiss
+  });
+};
+
+
+app.GameController.prototype.startNewRoundWithChallenge = function(challenge, options) {
+  console.log('new round with challenge:', challenge);
+
+  // Stop the clock
+  this.pauseGame();
+
+  this.currentRound = new app.GameRound(challenge, this.level);
+  this.currentRound.width = this.drawingCanvas.canvas.width;
+  this.currentRound.height = this.drawingCanvas.canvas.height;
+
+  this.presentedWords.push(this.currentRound.word);
+
+  var startCb = function() {
+    //this.drawingCanvas.clear();
+    // this.machineView.reset();
+    // this.recognitionController.start();
+
+    //Start The Clock
+    this.clock.reset();
+    this.clock.startClock();
+  }.bind(this);
+
+  this.cardsView.showNewRoundCard({
+    level: this.level,
+    word: this.currentRound.presentationWord,
+    onCardDismiss: function() {
+      options.onCardDismiss();
+      startCb();
+    }
+  });
+
+};
+
+
+app.GameController.prototype.roundTimesUp = function() {
+  //this.recognitionController.stop();
+};
+
+
+app.GameController.prototype.pauseGame = function() {
+  console.log('GameController.pauseGame');
+  this.clock.pauseClock();
 };

@@ -15,12 +15,12 @@
  */
 'use strict';
 
-goog.provide('app.view.DrawingCanvas');
+goog.provide('app.DrawingCanvas');
 goog.require('app.EventEmitter');
 goog.require('Paper');
 
 
-app.view.DrawingCanvas = function(container) {
+app.DrawingCanvas = function(container) {
   app.EventEmitter.call(this);
 
   // Canvas setup
@@ -34,7 +34,7 @@ app.view.DrawingCanvas = function(container) {
   this.previousPos = null;
   this.paths = [];
 
-  paper.install(app);
+  paper.install(this);
   paper.setup(this.canvas);
   var tool = new paper.Tool();
   var path;
@@ -97,10 +97,10 @@ app.view.DrawingCanvas = function(container) {
 };
 
 
-app.view.DrawingCanvas.prototype = Object.create(app.EventEmitter.prototype);
+app.DrawingCanvas.prototype = Object.create(app.EventEmitter.prototype);
 
 
-app.view.DrawingCanvas.prototype.currentTimeMs = function() {
+app.DrawingCanvas.prototype.currentTimeMs = function() {
   if(!this.startTime) {
     return 0;
   }
@@ -108,7 +108,7 @@ app.view.DrawingCanvas.prototype.currentTimeMs = function() {
 };
 
 
-app.view.DrawingCanvas.prototype.clear = function() {
+app.DrawingCanvas.prototype.clear = function() {
   project.activeLayer.removeChildren();
   this.resizeCanvas();
 
@@ -117,12 +117,12 @@ app.view.DrawingCanvas.prototype.clear = function() {
 };
 
 
-app.view.DrawingCanvas.prototype.getSegments = function() {
+app.DrawingCanvas.prototype.getSegments = function() {
   return this.paths;
 };
 
 
-app.view.DrawingCanvas.prototype.resizeCanvas = function() {
+app.DrawingCanvas.prototype.resizeCanvas = function() {
   var pCenter = paper.view.center;
 
   this.canvas.width = this.$canvas.width();

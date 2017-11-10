@@ -18,13 +18,16 @@
 goog.provide('app.view.SplashView');
 goog.require('app.EventEmitter');
 
+
 app.view.SplashView = function(container) {
   app.EventEmitter.call(this);
   this.elem = container.find('.splashview');
   this.elem.hide();
 };
 
+
 app.view.SplashView.prototype = Object.create(app.EventEmitter.prototype);
+
 
 app.view.SplashView.prototype.enableButtons = function() {
   this.elem.find('.splashview__button').on('touchend mouseup', function () {
@@ -33,14 +36,17 @@ app.view.SplashView.prototype.enableButtons = function() {
   }.bind(this));
 };
 
+
 app.view.SplashView.prototype.disableButtons = function() {
   this.elem.find('.splashview__button').off('touchend mouseup');
 };
+
 
 app.view.SplashView.prototype.showView = function() {
   this.enableButtons();
   this.elem.show();
 };
+
 
 app.view.SplashView.prototype.hideView = function() {
   this.disableButtons();

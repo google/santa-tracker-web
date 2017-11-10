@@ -14,3 +14,72 @@
  * the License.
  */
 'use strict';
+
+goog.provide('app.view.CardsView');
+
+goog.require('app.config');
+goog.require('app.EventEmitter');
+
+
+app.view.CardsView = function(container) {
+  app.EventEmitter.call(this);
+  this.newround_card = container.find('.newround-card');
+  this.newround_card.hide();
+};
+
+
+app.view.CardsView.prototype = Object.create(app.EventEmitter.prototype);
+
+
+app.view.CardsView.prototype.showCard = function(card, cb) {
+  card.isVisible = true;
+  card.show({
+    duration:0,
+    complete: function() {
+        card.addClass('visible');
+        if (cb) {
+          cb()
+        }
+    }
+  });
+};
+
+
+app.view.CardsView.prototype.hideCard = function(card, cb) {
+  card.isVisible = false;
+  if (card.hasClass('visible')) {
+    card.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function() {
+      card.hide();
+      card.off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+      if(cb) {
+        cb();
+      }
+    });
+    card.removeClass('visible');
+  }
+};
+
+
+app.view.CardsView.prototype.showNewRoundCard = function(options) {
+  this.showCard(this.newround_card);
+
+  this.newround_card.find('.slate__big-text').text(options.word);
+  this.newround_card.find('.newround-card__current-round').text(options.level);
+  this.newround_card.find('.newround-card__total-rounds').text(app.config.num_rounds);
+
+  var _callback = function() {
+    if (options.onCardDismiss) {
+      options.onCardDismiss();
+    }
+    this.hideCard(this.newround_card);
+  }.bind(this);
+
+  setTimeout(function() {
+    this.newround_card
+      .find('.newround-card__button')
+      .off('touchend mouseup')
+      .on('touchend mouseup',function() {
+        _callback();
+      });
+  }.bind(this), 1000);
+};
