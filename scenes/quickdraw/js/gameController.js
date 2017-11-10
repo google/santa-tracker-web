@@ -128,7 +128,7 @@ app.GameController.prototype.fetchNewRound = function(alreadyPresentedWords, cal
   }, alreadyPresentedWords);
 
   // Pick up a random word
-  var word = app.config.words[Math.floor(Math.random() * app.config.words.length)];
+  var word = words[Math.floor(Math.random() * words.length)];
 
   var data = {
     word: word
