@@ -19,8 +19,9 @@ goog.provide('app.GameController');
 goog.require('app.config');
 goog.require('app.EventEmitter');
 
-goog.require('app.view.DrawingCanvas');
 goog.require('app.view.CardsView');
+goog.require('app.view.GameView');
+goog.require('app.view.DrawingCanvas');
 
 goog.require('app.DrawingRecognitionController');
 goog.require('app.Clock');
@@ -34,12 +35,16 @@ app.GameController = function(container) {
   this.clock = new app.Clock();
 
   //Views
-  this.drawingCanvas = new app.view.DrawingCanvas(container);
   this.cardsView = new app.view.CardsView(container);
+  this.gameView = new app.view.GameView(container);
+  this.drawingCanvas = new app.view.DrawingCanvas(container);
 
   //Listeners
   this.drawingCanvas.addListener('DRAWING_UPDATED', function(data) {
     this.onDrawingUpdated(data);
+  }.bind(this));
+  this.gameView.addListener('CLEAR', function() {
+    this.drawingCanvas.clearDrawingCanvas();
   }.bind(this));
   this.recognitionController.addListener('NEW_RECOGNITIONS', function(guesses) {
     this.onNewRecognitions(guesses);
