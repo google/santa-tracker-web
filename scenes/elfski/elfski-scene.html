@@ -357,7 +357,7 @@ Polymer({
         'speed': this._player.speed,
         'loc': {x: this._playerX, y: this._positionDownMountain},
         'dir': change,
-      });
+      }, 'pos');
 
       if (this._positionDownMountain <= 0 && change.y > 0) {
         this._gameStartAt = window.performance.now();
