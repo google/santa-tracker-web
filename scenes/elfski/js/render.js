@@ -316,15 +316,22 @@ export default class SpriteGame {
       s('spritesPerRow', 0, textureSize / spriteSize);
     }
 
+    const gl = this.gl;
+    gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
+
+    // Upload vertex data.
+    const vertexSub =
+        this._positionData.subarray(vertexBase * 2, (vertexBase + offsets.length) * 2);
+    gl.bufferSubData(gl.ARRAY_BUFFER, vertexBase * 2 * Float32Array.BYTES_PER_ELEMENT, vertexSub);
+
     // The constant data won't change, so we can immediately upload it.
     // Remember that the _positionData is at the start of _spriteBuffer.
-    const gl = this.gl;
     const base = vertexBase * constantAttributeSize;
     const start = (this._positionData.length + base) * Float32Array.BYTES_PER_ELEMENT;
-    const sub = this._constantData.subarray(base, base + offsets.length * constantAttributeSize);
-
+    const constantSub =
+        this._constantData.subarray(base, base + offsets.length * constantAttributeSize);
     gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
-    gl.bufferSubData(gl.ARRAY_BUFFER, start, sub);
+    gl.bufferSubData(gl.ARRAY_BUFFER, start, constantSub);
   }
 
   /**
@@ -375,11 +382,6 @@ export default class SpriteGame {
     // gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     // gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-
-    // Upload all verticies.
-    // TODO: we could do this on change, not here
-    gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
-    gl.bufferSubData(gl.ARRAY_BUFFER, 0, this._positionData.subarray(0, 2 * this._index * offsets.length));
 
     // Upload just a single texture.
     gl.activeTexture(gl.TEXTURE0);

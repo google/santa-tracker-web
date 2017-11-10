@@ -86,8 +86,8 @@ export function initShaderProgram(gl, vsSource, fsSource) {
     throw new TypeError(`couldn't link shader program: ${gl.getProgramInfoLog(shaderProgram)}'`);
   }
 
-  // gl.deleteShader(vertexShader);
-  // gl.deleteShader(fragmentShader);
+  gl.deleteShader(vertexShader);
+  gl.deleteShader(fragmentShader);
 
   return shaderProgram;
 }
