@@ -30,10 +30,22 @@ app.DrawingRecognitionController = function() {
     }.bind(this),
     app.config.max_api_rate * 1000
   );
+
+  this.isRecognizing = false;
 };
 
 
 app.DrawingRecognitionController.prototype = Object.create(app.EventEmitter.prototype);
+
+
+app.DrawingRecognitionController.prototype.start = function() {
+  this.isRecognizing = true;
+};
+
+
+app.DrawingRecognitionController.prototype.stop = function() {
+  this.isRecognizing = false;
+};
 
 
 app.DrawingRecognitionController.prototype.onDrawingUpdated = function(drawing) {

@@ -45,7 +45,6 @@ app.Clock.prototype.startClock = function() {
   }
 
   this.interval = setInterval(function() {
-    console.log('time left', this.timeLeft);
     this.timeLeft -= 0.1;
     if (this.timeLeft <= 0) {
       this.timeLeft = 0;

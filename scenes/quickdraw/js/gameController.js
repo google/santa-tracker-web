@@ -19,7 +19,7 @@ goog.provide('app.GameController');
 goog.require('app.config');
 goog.require('app.EventEmitter');
 
-goog.require('app.DrawingCanvas');
+goog.require('app.view.DrawingCanvas');
 goog.require('app.view.CardsView');
 
 goog.require('app.DrawingRecognitionController');
@@ -34,7 +34,7 @@ app.GameController = function(container) {
   this.clock = new app.Clock();
 
   //Views
-  this.drawingCanvas = new app.DrawingCanvas(container);
+  this.drawingCanvas = new app.view.DrawingCanvas(container);
   this.cardsView = new app.view.CardsView(container);
 
   //Listeners
@@ -99,7 +99,20 @@ app.GameController.prototype.onDrawingUpdated = function(data) {
 
 
 app.GameController.prototype.onNewRecognitions = function(recognitions) {
-  //Set recognitions
+  this.currentRound.recognitions = recognitions;
+
+  if (this.recognitionController.isRecognizing) {
+    // Check if the correct word has been recognized
+    var correctRecognition = recognitions.find(function(recognition) {
+      return recognition.word == this.currentRound.word && recognition.score < app.config.handwriting_recognition_threshold;
+    }.bind(this));
+
+    if (this.currentRound && correctRecognition) {
+      this.roundRecognized(correctRecognition);
+    } else if (this.currentRound) {
+      console.log('not recognizing');
+    }
+  }
 };
 
 
@@ -140,9 +153,9 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
   this.presentedWords.push(this.currentRound.word);
 
   var startCb = function() {
-    //this.drawingCanvas.clear();
+    // this.drawingCanvas.clear();
     // this.machineView.reset();
-    // this.recognitionController.start();
+    this.recognitionController.start();
 
     //Start The Clock
     this.clock.reset();
@@ -161,8 +174,40 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
 };
 
 
+app.GameController.prototype.roundRecognized = function(correctRecognition) {
+  console.log('OH I RECOGNIZED, IT\'S' + this.currentRound.word);
+  this.recognitionController.stop();
+  this.pauseGame();
+
+  setTimeout(function() {
+    this.submitRoundResult({recognition: correctRecognition}, function(nextChallenge) {
+      this.previousRounds.push(this.currentRound);
+      this.completedLevels++;
+      this.level++;
+      if (this.level - 1 == app.config.num_rounds) {
+          this.endGame();
+      } else {
+          this.startNewRoundWithChallenge(nextChallenge);
+      }
+    }.bind(this));
+  }.bind(this), 1500);
+};
+
+
 app.GameController.prototype.roundTimesUp = function() {
-  //this.recognitionController.stop();
+  this.recognitionController.stop();
+  this.submitRoundResult({recognition:false});
+};
+
+
+app.GameController.prototype.submitRoundResult = function(options, callback) {
+  this.currentRound.drawing = this.drawingCanvas.getSegments();
+  this.currentRound.recognized = options.recognition ? true : false;
+  this.fetchNewRound(this.presentedWords, function(data) {
+    if (callback) {
+      callback(data);
+    }
+  });
 };
 
 
