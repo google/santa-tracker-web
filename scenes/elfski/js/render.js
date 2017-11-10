@@ -17,7 +17,6 @@
 import * as webgl from './webgl.js';
 
 const spriteVertexShader = `
-// Corrects for screen size.
 uniform vec2 u_screenDims;
 
 // Center of the sprite in screen coordinates
@@ -122,20 +121,6 @@ const offsets = [
 ];
 
 /**
- * @type {!Object<string, number>}
- */
-const constantAttributes = [
-  'rotation',
-  'spriteIndex',
-  'spriteSize',
-  'cornerOffset',
-  'offsetY',
-  'layer',
-  'spriteTextureSize',
-  'spritesPerRow',
-];
-
-/**
  * @typedef {{
  *   at: {x: number, y: number},
  *   rotation: (undefined|number),
@@ -145,22 +130,6 @@ const constantAttributes = [
  * }}
  */
 var SpriteDef;
-
-const constantAttributeSize = (constantAttributes.length * 2);
-
-const constantAttributeInfo = (function() {
-  const out = {};
-
-  constantAttributes.forEach((attr, i) => {
-    out[attr] = {
-      attr,
-      size: (attr === 'cornerOffset' || attr === 'spriteTextureSize') ? 2 : 1,
-      offset: i * 2,
-    };
-  });
-
-  return out;
-})();
 
 const zeroTransform = Object.freeze({x: 0, y: 0});
 
@@ -177,6 +146,8 @@ export default class SpriteGame {
       throw new TypeError('no webgl');
     }
 
+    this._program = new webgl.ShaderProgram(gl, spriteVertexShader, spriteFragmentShader);
+
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
@@ -187,10 +158,6 @@ export default class SpriteGame {
     this._positionData = new Float32Array(0);
     this._constantData = new Float32Array(0);
 
-    this._program = null;
-    this._loc = {};
-
-    this._loadProgram();
     this._spriteBuffer = gl.createBuffer();
     this._resize(600, false);
     this._texture = webgl.loadTexture(gl, tiles);
@@ -212,21 +179,6 @@ export default class SpriteGame {
     return this._transform;
   }
 
-  _loadProgram() {
-    const gl = this.gl;
-    const program = webgl.initShaderProgram(gl, spriteVertexShader, spriteFragmentShader);
-    this._program = program;
-
-    this._loc['u_screenDims'] = gl.getUniformLocation(program, 'u_screenDims');
-    this._loc['u_transform'] = gl.getUniformLocation(program, 'u_transform');
-    this._loc['u_texture'] = gl.getUniformLocation(program, 'u_texture');
-    this._loc['centerPosition'] = gl.getAttribLocation(program, 'centerPosition');
-
-    constantAttributes.forEach((n) => {
-      this._loc[n] = gl.getAttribLocation(program, n);
-    });
-  }
-
   /**
    * @param {number} size of sprite data
    * @param {boolean} preserve whether to preserve existing data
@@ -236,7 +188,7 @@ export default class SpriteGame {
 
     const verticies = size * offsets.length;
     this._positionData = new Float32Array(2 * verticies);
-    this._constantData = new Float32Array(constantAttributeSize * verticies);
+    this._constantData = new Float32Array(this._program.attribSize * verticies);
 
     const gl = this.gl;
     const bufferSize =
@@ -299,9 +251,9 @@ export default class SpriteGame {
       this._positionData[2 * vertexIndex + 0] = def.at.x;
       this._positionData[2 * vertexIndex + 1] = def.at.y;
 
-      const b = constantAttributeSize * vertexIndex;
+      const b = this._program.attribSize * vertexIndex;
       const s = (attr, off, value) => {
-        this._constantData[b + constantAttributeInfo[attr].offset + off] = value;
+        this._constantData[b + this._program.info(attr).offset + off] = value;
       };
 
       s('rotation', 0, def.rotation);
@@ -326,10 +278,10 @@ export default class SpriteGame {
 
     // The constant data won't change, so we can immediately upload it.
     // Remember that the _positionData is at the start of _spriteBuffer.
-    const base = vertexBase * constantAttributeSize;
+    const base = vertexBase * this._program.attribSize;
     const start = (this._positionData.length + base) * Float32Array.BYTES_PER_ELEMENT;
     const constantSub =
-        this._constantData.subarray(base, base + offsets.length * constantAttributeSize);
+        this._constantData.subarray(base, base + offsets.length * this._program.attribSize);
     gl.bindBuffer(gl.ARRAY_BUFFER, this._spriteBuffer);
     gl.bufferSubData(gl.ARRAY_BUFFER, start, constantSub);
   }
@@ -387,29 +339,30 @@ export default class SpriteGame {
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, this._texture);
 
-    gl.useProgram(this._program);
-    gl.enableVertexAttribArray(this._loc['centerPosition']);
-    gl.vertexAttribPointer(this._loc['centerPosition'], 2, gl.FLOAT, false, 0, 0);
+    gl.useProgram(this._program.program);
+    gl.enableVertexAttribArray(this._program.a('centerPosition'));
+    gl.vertexAttribPointer(this._program.a('centerPosition'), 2, gl.FLOAT, false, 0, 0);
 
     const base = this._positionData.length;
-    constantAttributes.forEach((attr) => {
-      const loc = this._loc[attr];
-      const info = constantAttributeInfo[attr];
-      if (info === undefined || loc === undefined) {
+    this._program.attribs.forEach((attr) => {
+      if (attr === 'centerPosition') { return; }
+
+      const info = this._program.info(attr);
+      if (!info) {
         throw new Error('expected valid info and loc: ' + attr);
       }
-      gl.enableVertexAttribArray(loc);
-      gl.vertexAttribPointer(loc,
+      gl.enableVertexAttribArray(info.loc);
+      gl.vertexAttribPointer(info.loc,
           info.size,
           gl.FLOAT,
           false,
-          constantAttributeSize * Float32Array.BYTES_PER_ELEMENT,  // stride from offset
+          this._program.attribSize * Float32Array.BYTES_PER_ELEMENT,  // stride from offset
           (base + info.offset) * Float32Array.BYTES_PER_ELEMENT);
     });
 
-    gl.uniform2f(this._loc['u_transform'], this._transform.x, this._transform.y);
-    gl.uniform2f(this._loc['u_screenDims'], this.canvas.width, this.canvas.height);
-    gl.uniform1i(this._loc['u_texture'], 0);
+    gl.uniform2f(this._program.u('u_transform'), this._transform.x, this._transform.y);
+    gl.uniform2f(this._program.u('u_screenDims'), this.canvas.width, this.canvas.height);
+    gl.uniform1i(this._program.u('u_texture'), 0);
 
     if (!this._index) {
       return;  // nothing to draw
