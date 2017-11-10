@@ -5,6 +5,7 @@ import { createElf } from '../models.js';
 import { LodSystem } from '../systems/lod-system.js';
 import { Health } from '../components/health.js';
 import { Path } from '../components/path.js';
+import { Arrival } from '../components/arrival.js';
 import { PlayerMarker } from './player-marker.js';
 
 const {
@@ -33,7 +34,6 @@ const majorColors = [
 
 const minorColors = [
   '#E7C241',
-  //'#55453B',
   '#936644',
   '#B8906D',
   '#DBBC99'
@@ -153,6 +153,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
 
     this.path = new Path();
     this.health = new Health();
+    this.arrival = new Arrival();
     this.sank = false;
   }
 
@@ -182,6 +183,78 @@ export class Elf extends Allocatable(Entity(Object3D)) {
 
     if (this.unsubscribe != null) {
       this.unsubscribe();
+    }
+  }
+
+  update(game) {
+    const { clientSystem } = game;
+    const { player: clientPlayer } = clientSystem;
+    const { arrival, path, health } = this;
+    const isClientPlayer = this === clientPlayer;
+
+    if (isClientPlayer) {
+      if (!arrival.arrived && clientPlayerMarker.visible) {
+        clientPlayerMarker.visible = false;
+      } else if (arrival.arrived && !clientPlayerMarker.visible) {
+        clientPlayerMarker.visible = true;
+      }
+    }
+
+    if (this.lodNeedsUpdate) {
+      if (this.currentLod === LodSystem.lod.HIGH) {
+        this.initializeModel();
+        this.visible = true;
+      } else {
+        this.visible = false;
+      }
+
+      this.lodNeedsUpdate = false;
+    }
+
+    if (health.alive) {
+      if (!path.destinationReached) {
+        const nextWaypoint = path.nextWaypoint;
+        const delta = intermediateVector2;
+        delta.subVectors(nextWaypoint, this.position);
+        const length = delta.length();
+        delta.normalize();
+        delta.multiplyScalar(2.25);
+        const lengthNormalized = delta.length();
+
+        if (length <= lengthNormalized) {
+          this.position.x = nextWaypoint.x;
+          this.position.y = nextWaypoint.y;
+
+          path.waypoints.shift();
+        } else {
+          this.position.x += delta.x;
+          this.position.y += delta.y;
+        }
+
+        this.face(Math.atan2(delta.y, delta.x) + PI_OVER_TWO);
+        this.run();
+      } else {
+        this.idle();
+      }
+
+      if (this.hasAssignedTarget) {
+        this.throw();
+        this.hasAssignedTarget = false;
+      }
+    } else if (this.sank) {
+      if (clientPlayerMarker.parent === this.dolly) {
+        this.dolly.remove(clientPlayerMarker);
+      }
+
+      if (this.dolly.position.z > 0.0) {
+        this.dolly.position.z -= 0.5 + this.dolly.position.z / 20.0;
+        this.elf.children[0].material.opacity =
+            Math.min(this.dolly.position.z / 10, 1.0);
+      }
+    }
+
+    if (this.model != null) {
+      this.model.update(game);
     }
   }
 
@@ -253,66 +326,5 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   die() {
     this.health.alive = false;
     this.fallDown();
-  }
-
-  update(game) {
-    const { path, health } = this;
-
-    if (this.lodNeedsUpdate) {
-      if (this.currentLod === LodSystem.lod.HIGH) {
-        this.initializeModel();
-        this.visible = true;
-      } else {
-        this.visible = false;
-      }
-
-      this.lodNeedsUpdate = false;
-    }
-
-    if (health.alive) {
-      if (!path.destinationReached) {
-        const nextWaypoint = path.nextWaypoint;
-        const delta = intermediateVector2;
-        delta.subVectors(nextWaypoint, this.position);
-        const length = delta.length();
-        delta.normalize();
-        delta.multiplyScalar(2.25);
-        const lengthNormalized = delta.length();
-
-        if (length <= lengthNormalized) {
-          this.position.x = nextWaypoint.x;
-          this.position.y = nextWaypoint.y;
-
-          path.waypoints.shift();
-        } else {
-          this.position.x += delta.x;
-          this.position.y += delta.y;
-        }
-
-        this.face(Math.atan2(delta.y, delta.x) + PI_OVER_TWO);
-        this.run();
-      } else {
-        this.idle();
-      }
-
-      if (this.hasAssignedTarget) {
-        this.throw();
-        this.hasAssignedTarget = false;
-      }
-    } else if (this.sank) {
-      if (clientPlayerMarker.parent === this.dolly) {
-        this.dolly.remove(clientPlayerMarker);
-      }
-
-      if (this.dolly.position.z > 0.0) {
-        this.dolly.position.z -= 0.5 + this.dolly.position.z / 20.0;
-        this.elf.children[0].material.opacity =
-            Math.min(this.dolly.position.z / 10, 1.0);
-      }
-    }
-
-    if (this.model != null) {
-      this.model.update(game);
-    }
   }
 };

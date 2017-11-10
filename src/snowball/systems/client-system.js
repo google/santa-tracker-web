@@ -1,3 +1,5 @@
+import { PlayerMarker } from '../entities/player-marker.js';
+
 const {
   Math: ThreeMath,
   Mesh,
@@ -13,6 +15,10 @@ export class ClientSystem {
     this.player = null;
     this.targetedPosition = null;
     this.destination = null;
+
+    const arrivalMarker = new PlayerMarker();
+
+    this.arrivalMarker = arrivalMarker;
   }
 
   assignTarget(target) {
@@ -30,14 +36,30 @@ export class ClientSystem {
   }
 
   update(game) {
-    const { playerId, health, path } = this.player;
+    const { playerId, health, path, arrival } = this.player;
 
     if (health.dead) {
       return;
     }
 
-    const { networkSystem, playerSystem } = game;
-    const { clientId, destination, targetedPosition } = this;
+    const { networkSystem, playerSystem, mapSystem } = game;
+    const { grid } = mapSystem;
+    const { clientId, destination, targetedPosition, arrivalMarker } = this;
+
+    if (!arrival.arrived) {
+      if (arrivalMarker.parent == null) {
+
+        arrivalMarker.position.z = 19.0;
+        arrivalMarker.position.y = this.player.dolly.position.y;
+        arrivalMarker.rotation.x = this.player.dolly.rotation.x;
+
+        playerSystem.playerLayer.add(arrivalMarker);
+      }
+    } else {
+      if (arrivalMarker.parent != null) {
+        arrivalMarker.parent.remove(arrivalMarker);
+      }
+    }
 
     if (destination != null) {
       playerSystem.assignPlayerDestination(playerId, destination);

@@ -13,6 +13,7 @@ export class MainLevel extends Level {
       camera,
       collisionSystem,
       snowballSystem,
+      parachuteSystem,
       effectSystem,
       playerSystem,
       clientSystem,
@@ -26,6 +27,7 @@ export class MainLevel extends Level {
     const { mapLayer, grid, map, gimbal } = mapSystem;
     const { effectsLayer } = effectSystem;
     const { collisionDebugLayer } = collisionSystem;
+    const { parachuteLayer } = parachuteSystem;
 
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera, player);
@@ -44,6 +46,7 @@ export class MainLevel extends Level {
     gimbal.add(snowballLayer);
     gimbal.add(playerLayer);
     gimbal.add(effectsLayer);
+    gimbal.add(parachuteLayer);
 
     this.add(mapLayer);
     this.add(this.light);

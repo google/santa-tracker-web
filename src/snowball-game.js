@@ -7,6 +7,7 @@ import { MapSystem } from './snowball/systems/map-system.js';
 import { PlayerSystem } from './snowball/systems/player-system.js';
 import { ClientSystem } from './snowball/systems/client-system.js';
 import { NetworkSystem } from './snowball/systems/network-system.js';
+import { ParachuteSystem } from './snowball/systems/parachute-system.js';
 import { MainLevel } from './snowball/levels/main-level.js';
 
 const { Scene, PerspectiveCamera } = self.THREE;
@@ -19,6 +20,7 @@ export class SnowballGame extends Game {
     this.lodSystem = new LodSystem();
     this.effectSystem = new EffectSystem();
     this.snowballSystem = new SnowballSystem();
+    this.parachuteSystem = new ParachuteSystem();
     this.mapSystem = new MapSystem(64, 64, 64.0);
     this.clientSystem = new ClientSystem();
     this.networkSystem = new NetworkSystem();
@@ -44,6 +46,7 @@ export class SnowballGame extends Game {
     this.collisionSystem.update(this);
     this.lodSystem.update(this);
     this.snowballSystem.update(this);
+    this.parachuteSystem.update(this);
     this.effectSystem.update(this);
     this.mapSystem.update(this);
     this.clientSystem.update(this);

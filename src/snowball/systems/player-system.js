@@ -12,6 +12,7 @@ export class PlayerSystem {
     this.playerMap = {};
     this.players = [];
     this.newPlayers = [];
+    this.parachutingPlayers = [];
 
     this.playerDestinations = {};
     this.playerTargetedPositions = {};
@@ -21,7 +22,7 @@ export class PlayerSystem {
     const player = Elf.allocate(id);
     this.playerMap[id] = player;
     this.players.push(player);
-    this.playerLayer.add(player);
+    //this.playerLayer.add(player);
     this.newPlayers.push(player);
     return player;
   }
@@ -58,19 +59,30 @@ export class PlayerSystem {
   }
 
   update(game) {
-    const { mapSystem, snowballSystem, clientSystem } = game;
+    const { mapSystem, snowballSystem, clientSystem, parachuteSystem } = game;
     const { grid, map } = mapSystem;
     const { player: clientPlayer } = clientSystem;
 
     while (this.newPlayers.length) {
       const newPlayer = this.newPlayers.shift();
       newPlayer.setup(game);
+      this.parachutingPlayers.push(newPlayer);
+      parachuteSystem.dropEntity(newPlayer);
+    }
+
+    for (let i = 0; i < this.parachutingPlayers.length; ++i) {
+      const player = this.parachutingPlayers[i];
+
+      if (player.arrival.arrived) {
+        this.parachutingPlayers.splice(i--, 1);
+        this.playerLayer.add(player);
+      }
     }
 
     for (let playerId in this.playerDestinations) {
       const player = this.playerMap[playerId];
 
-      if (player.health.dead) {
+      if (player.health.dead || !player.arrival.arrived) {
         continue;
       }
 
