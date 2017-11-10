@@ -108,12 +108,12 @@ app.view.DrawingCanvas.prototype.currentTimeMs = function() {
 };
 
 
-app.view.DrawingCanvas.prototype.clear = function() {
-  project.activeLayer.removeChildren();
-  this.resizeCanvas();
+app.view.DrawingCanvas.prototype.clearDrawingCanvas = function() {
+  paper.project.activeLayer.removeChildren();
+  this.resizeCanvas(); //NOT WORKING AS OF NOW
 
   delete this.startTime;
-  this.paths = []
+  this.paths = [];
 };
 
 

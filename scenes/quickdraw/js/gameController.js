@@ -141,7 +141,9 @@ app.GameController.prototype.startNewGameWithChallenge = function(challenge, opt
 
 
 app.GameController.prototype.startNewRoundWithChallenge = function(challenge, options) {
-  console.log('new round with challenge:', challenge);
+  var options = options || {
+    onCardDismiss: function() {}
+  };
 
   // Stop the clock
   this.pauseGame();
@@ -153,7 +155,7 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
   this.presentedWords.push(this.currentRound.word);
 
   var startCb = function() {
-    // this.drawingCanvas.clear();
+    this.drawingCanvas.clearDrawingCanvas();
     // this.machineView.reset();
     this.recognitionController.start();
 
@@ -214,4 +216,11 @@ app.GameController.prototype.submitRoundResult = function(options, callback) {
 app.GameController.prototype.pauseGame = function() {
   console.log('GameController.pauseGame');
   this.clock.pauseClock();
+};
+
+
+app.GameController.prototype.endGame = function() {
+  this.recognitionController.stop();
+  this.clock.pauseClock();
+  console.log("GAME END RESULT ", this.previousRounds);
 };
