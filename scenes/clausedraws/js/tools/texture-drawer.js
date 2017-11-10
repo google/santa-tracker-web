@@ -35,6 +35,7 @@ app.TextureDrawer = function($elem, name, opacity) {
   this.drawFrequency = 4;
   this.points = [];
   this.rotation = 0;
+  this.textures = {};
 };
 app.TextureDrawer.prototype = Object.create(app.Tool.prototype);
 
@@ -57,7 +58,7 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
   var drawHeight = this.currentSize;
   var offsetX = this.currentSize / 2;
   var offsetY = this.currentSize / 2;
-  var texture = this.elem.find('#' + this.name + '-' + color.substring(1))[0];
+  var texture = this.getTextureImage(color);
 
   this.points.push({
       x: drawX,
@@ -127,4 +128,31 @@ app.TextureDrawer.prototype.calculateDrawSize = function(size) {
       app.Constants.PEN_MAX);
 }
 
+
+app.TextureDrawer.prototype.getTextureImage = function(color) {
+  var texture = this.elem.find('#' + this.name + '-' + color.substring(1))[0];
+  return texture;
+};
+
+
+app.TextureDrawer.prototype.getSVGTexture = function(color) {
+  if (!this.textures[color]) {
+    var data = this.getSVGString(color);
+    var DOMURL = window.URL || window.webkitURL || window;
+
+    var img = new Image();
+    var svg = new Blob([data], {type: 'image/svg+xml'});
+    var url = DOMURL.createObjectURL(svg);
+
+    img.src = url;
+    this.textures[color] = img;
+  }
+
+  return this.textures[color];
+};
+
+
+app.TextureDrawer.prototype.getSVGString = function(color) {
+  return '';
+};
 
