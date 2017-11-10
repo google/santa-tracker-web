@@ -25,10 +25,10 @@ app.config = {
   'handwriting_recognition_threshold' : 2.0,
 
   // Duration of game in seconds
-  'round_length': 20,
+  'round_length': 30,
 
-  // 'num_rounds': 2,
-  'num_rounds': 3,
+  // Number of rounds in a game
+  'num_rounds': 4,
 
   // Max allowed rate recognition api can be called in seconds
   'max_api_rate': 1.0,
