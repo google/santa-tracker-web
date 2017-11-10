@@ -91,3 +91,135 @@ export function initShaderProgram(gl, vsSource, fsSource) {
 
   return shaderProgram;
 }
+
+/**
+ * @typedef {{
+ *   size: number,
+ *   offset: number,
+ *   loc: number
+ * }}
+ * @export
+ */
+var AttribInfo;
+
+/**
+ * Wraps a GL shader.
+ */
+export class ShaderProgram {
+  constructor(gl, vsSource, fsSource) {
+    /** @private {!WebGLProgram} */
+    this._program = initShaderProgram(gl, vsSource, fsSource);
+
+    /** @private {!Object<string, !WebGLUniformLocation>} */
+    this._uniform = {};
+
+    /** @private {!Object<string, AttribInfo>} */
+    this._attrib = {};
+
+    const uniformCount = gl.getProgramParameter(this._program, gl.ACTIVE_UNIFORMS);
+    for (let i = 0; i < uniformCount; ++i) {
+      const info = gl.getActiveUniform(this._program, i);
+      this._uniform[info.name] = gl.getUniformLocation(this._program, info.name);
+    }
+
+    let size = 0;
+    const names = [];
+    const attributeCount = gl.getProgramParameter(this._program, gl.ACTIVE_ATTRIBUTES);
+    for (let i = 0; i < attributeCount; ++i) {
+      const info = gl.getActiveAttrib(this._program, i);
+      names.push(info.name);
+
+      /** @type {AttribInfo} */
+      const attrib = {
+        // TODO(samthor): It seems like the returned `info.size` is the count of type, but I've
+        // previously assumed that we need the size to be number of floats. Check this later: at
+        // worst right now we're just wasting a bit of extra memory.
+        size: info.size * ShaderProgram.sizeForType_(gl, info.type),
+        offset: size,
+        loc: gl.getAttribLocation(this._program, info.name),
+      };
+      this._attrib[info.name] = attrib;
+      size += attrib.size;
+    }
+
+    /** @private {!Array<string>} */
+    this._attribs = Object.freeze(names);
+
+    /** @private {number} */
+    this._attribSize = size;
+  }
+
+  /**
+   * @param {string} key
+   * @return {?AttribInfo} info
+   * @export
+   */
+  info(key) {
+    return this._attrib[key] || null;
+  }
+
+  /**
+   * @return {!WebGLProgram}
+   * @export
+   */
+  get program() {
+    return this._program;
+  }
+
+  /**
+   * @return {!Array<string>}
+   * @export
+   */
+  get attribs() {
+    return this._attribs;
+  }
+
+  /**
+   * @return {number}
+   * @export
+   */
+  get attribSize() {
+    return this._attribSize;
+  }
+
+  /**
+   * @param {string} key
+   * @return {number}
+   * @export
+   */
+  a(key) {
+    const info = this._attrib[key];
+    return info ? info.loc : -1;
+  }
+
+  /**
+   * @param {string} key
+   * @return {!WebGLUniformLocation}
+   * @export
+   */
+  u(key) {
+    return this._uniform[key] || null;
+  }
+
+  /**
+   * @param {!WebGLRenderingContext} gl
+   * @param {number} type
+   * @return {number}
+   */
+  static sizeForType_(gl, type) {
+    switch (type) {
+    case gl.FLOAT:
+      return 1;
+    case gl.FLOAT_MAT2:
+    case gl.FLOAT_VEC2:
+      return 2;
+    case gl.FLOAT_MAT3:
+    case gl.FLOAT_VEC3:
+      return 3;
+    case gl.FLOAT_MAT4:
+    case gl.FLOAT_VEC4:
+      return 4;
+    }
+    throw new TypeError(`unknown type: ${type}`)
+  }
+}
