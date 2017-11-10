@@ -24,8 +24,7 @@ export class PlayerMarker extends Entity(Mesh) {
     super(new ShapeBufferGeometry(arc), new MeshBasicMaterial({
       color,
       opacity: 0.5,
-      transparent: true,
-      depthTest: false
+      transparent: true
     }));
   }
 };

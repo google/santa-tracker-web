@@ -5,7 +5,7 @@ const {
 } = self.THREE;
 
 export class ParachuteSystem {
-  constructor(frameCount = 220, dropHeight = 300) {
+  constructor(frameCount = 300, dropHeight = 420) {
     this.dropHeight = dropHeight;
     this.frameCount = frameCount;
 

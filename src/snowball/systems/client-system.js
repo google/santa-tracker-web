@@ -17,6 +17,7 @@ export class ClientSystem {
     this.destination = null;
 
     const arrivalMarker = new PlayerMarker();
+    arrivalMarker.material.depthTest = false;
 
     this.arrivalMarker = arrivalMarker;
   }
