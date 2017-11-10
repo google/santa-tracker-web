@@ -122,7 +122,14 @@ app.GameController.prototype.onNewRecognitions = function(recognitions) {
 
 
 app.GameController.prototype.fetchNewRound = function(alreadyPresentedWords, callback) {
+  // Only get words that didnt show up during game
+  var words = app.config.words.filter(function(word) {
+    return this.indexOf(word) < 0;
+  }, alreadyPresentedWords);
+
+  // Pick up a random word
   var word = app.config.words[Math.floor(Math.random() * app.config.words.length)];
+
   var data = {
     word: word
   };
