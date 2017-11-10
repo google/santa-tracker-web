@@ -35,8 +35,8 @@ class SantaSocket {
     this.host_ = 'ws://localhost:8080/socket';
     this.clientId_ = '';
 
-    /** @private {!Array<string>} */
-    this.queue_ = [];
+    /** @private {!Map<string, string>} */
+    this.queue_ = new Map();
 
     this.backoff_ = 0;
     this.timeout_ = 0;
@@ -52,29 +52,16 @@ class SantaSocket {
       this.backoff_ = 0;
       socket.send(JSON.stringify({'clientId': this.clientId_}));
 
-      while (this.queue_.length) {
-        // assumes this will send probably
-        socket.send(this.queue_.shift());
-      }
-
+      // assumes this will send properly
+      this.queue_.forEach((data, key) => {
+        socket.send(data);
+      });
+      this.queue_.clear();
     });
     socket.addEventListener('message', (ev) => {
-      const data = /** @type {SocketPayload} */ (JSON.parse(ev.data));
-      let ok = false;
-      if (data.clientId) {
-        this.clientId_ = data.clientId;
-        ok = true;
-      }
-      if (data.k) {
-        throw new Error('no support for keyed data: ' + data.k);
-      }
-      if (data.p) {
-        // got 'stuff'
-        Events.trigger(this, 'message', data.p);
-        ok = true;
-      }
-      if (!ok) {
-        console.debug('got unkown message', data);
+      const payload = /** @type {SocketPayload} */ (JSON.parse(ev.data));
+      if (!this.message_(payload)) {
+        console.debug('got unhandled payload', payload);
       }
     });
     socket.addEventListener('error', (ev) => {
@@ -83,16 +70,44 @@ class SantaSocket {
     socket.addEventListener('close', () => this.retry_());
   }
 
+  /**
+   * @param {SocketPayload} payload
+   * @return {boolean} whether consumed properly
+   */
+  message_(payload) {
+    let ok = false;
+
+    if (payload.clientId) {
+      if (payload.clientId !== this.clientId_) {
+        this.clientId_ = payload.clientId;
+        Events.trigger(this, 'client', this.clientId_);
+      }
+      ok = true;
+    }
+
+    if (payload.k) {
+      throw new Error(`no support for keyed data: ${payload.k}`);
+    }
+
+    // message payload to broadcast
+    if (payload.p) {
+      Events.trigger(this, 'message', payload.p);
+      ok = true;
+    }
+
+    return ok;
+  }
+
   retry_() {
     if (this.shutdown_) {
-      return;  // done
+      return;  // done, never reconnect
     }
 
     window.clearTimeout(this.timeout_);
     this.timeout_ = window.setTimeout(() => {
       this.socket_ = new WebSocket(this.host_);
       this.configureSocket_(this.socket_);
-    }, Math.pow(this.backoff_, 1.8) * Math.random());
+    }, (Math.pow(this.backoff_, 1.02) + Math.random()) * 1000);
   }
 
   /**
@@ -105,14 +120,15 @@ class SantaSocket {
 
   /**
    * @param {*} data JSON-stringify data
+   * @param {string} coalesce key to use if offline
    */
-  send(data) {
+  send(data, coalesce) {
     // TODO(samthor): Pretend to be Promise-based to delay multiple messages?
     const raw = JSON.stringify(data);
     if (this.socket_.readyState === WebSocket.OPEN) {
       this.socket_.send(raw);
     } else {
-      this.queue_.push(raw);
+      this.queue_.set(coalesce, raw);
     }
   }
 
