@@ -45,7 +45,7 @@ app.GameController = function(container) {
     this.onNewRecognitions(guesses);
   }.bind(this));
   this.clock.addListener('TIMES_UP', function() {
-    this.roundTimesUp()
+    this.roundTimesUp();
   }.bind(this));
 
 
@@ -128,6 +128,9 @@ app.GameController.prototype.fetchNewRound = function(alreadyPresentedWords, cal
 
 app.GameController.prototype.startNewGameWithChallenge = function(challenge, options) {
   console.log('GameController.startNewGameWithChallenge');
+  var options = options || {
+    onCardDismiss: function() {}
+  };
   this.level = 1;
   this.completedLevels = 0;
 
@@ -185,11 +188,11 @@ app.GameController.prototype.roundRecognized = function(correctRecognition) {
     this.submitRoundResult({recognition: correctRecognition}, function(nextChallenge) {
       this.previousRounds.push(this.currentRound);
       this.completedLevels++;
-      this.level++;
-      if (this.level - 1 == app.config.num_rounds) {
-          this.endGame();
+      if (this.level < app.config.num_rounds) {
+        this.level++;
+        this.startNewRoundWithChallenge(nextChallenge);
       } else {
-          this.startNewRoundWithChallenge(nextChallenge);
+        this.endGame();
       }
     }.bind(this));
   }.bind(this), 1500);
@@ -197,8 +200,17 @@ app.GameController.prototype.roundRecognized = function(correctRecognition) {
 
 
 app.GameController.prototype.roundTimesUp = function() {
+  console.log('TIMES UP');
   this.recognitionController.stop();
-  this.submitRoundResult({recognition:false});
+  this.submitRoundResult({recognition:false}, function(nextChallenge) {
+    this.previousRounds.push(this.currentRound);
+    if (this.level < app.config.num_rounds) {
+      this.level++;
+      this.startNewRoundWithChallenge(nextChallenge);
+    } else {
+      this.endGame();
+    }
+  }.bind(this));
 };
 
 
@@ -214,13 +226,20 @@ app.GameController.prototype.submitRoundResult = function(options, callback) {
 
 
 app.GameController.prototype.pauseGame = function() {
-  console.log('GameController.pauseGame');
   this.clock.pauseClock();
 };
 
 
 app.GameController.prototype.endGame = function() {
+  console.log('end game', this.previousRounds);
   this.recognitionController.stop();
   this.clock.pauseClock();
-  console.log("GAME END RESULT ", this.previousRounds);
+
+  this.cardsView.showTimesUpCard(this.previousRounds, function(res) {
+    if (res == 'NEW_GAME') {
+      this.prepareNewGame(function(challenge) {
+          this.startNewGameWithChallenge(challenge);
+      }.bind(this));
+    }
+  }.bind(this));
 };

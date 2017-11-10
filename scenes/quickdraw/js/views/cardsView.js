@@ -24,7 +24,9 @@ goog.require('app.EventEmitter');
 app.view.CardsView = function(container) {
   app.EventEmitter.call(this);
   this.newround_card = container.find('.newround-card');
+  this.timesup_card = container.find('.timesup-card');
   this.newround_card.hide();
+  this.timesup_card.hide();
 };
 
 
@@ -82,4 +84,20 @@ app.view.CardsView.prototype.showNewRoundCard = function(options) {
         _callback();
       });
   }.bind(this), 1000);
+};
+
+
+app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
+  this.hideCard(this.newround_card);
+  this.showCard(this.timesup_card);
+
+  this.timesup_card
+    .find('.timesup-card__button')
+    .off('touchend mouseup')
+    .on('touchend mouseup', function() {
+      if (callback) {
+          callback('NEW_GAME');
+      }
+      this.hideCard(this.timesup_card);
+    }.bind(this));
 };
