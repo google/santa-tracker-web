@@ -153,6 +153,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
 
     this.path = new Path();
     this.health = new Health();
+    this.sank = false;
   }
 
   setup(game) {
@@ -201,12 +202,13 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         const elf = model.object.children[0];
         const material = elf.children[0].material;
 
+        material.transparent = true;
         material.map.image = texture;
         material.map.needsUpdate = true;
-        //material.needsUpdate = true;
 
         elf.scale.multiplyScalar(5.0);
 
+        this.elf = elf;
         this.model = model;
         this.dolly.add(elf);
       });
@@ -244,6 +246,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   }
 
   sink() {
+    this.sank = true;
     this.die();
   }
 
@@ -295,6 +298,16 @@ export class Elf extends Allocatable(Entity(Object3D)) {
       if (this.hasAssignedTarget) {
         this.throw();
         this.hasAssignedTarget = false;
+      }
+    } else if (this.sank) {
+      if (clientPlayerMarker.parent === this.dolly) {
+        this.dolly.remove(clientPlayerMarker);
+      }
+
+      if (this.dolly.position.z > 0.0) {
+        this.dolly.position.z -= 0.5 + this.dolly.position.z / 20.0;
+        this.elf.children[0].material.opacity =
+            Math.min(this.dolly.position.z / 10, 1.0);
       }
     }
 
