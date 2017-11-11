@@ -35,7 +35,7 @@ export class Renderable {
     this._buffer = this._gl.createBuffer();
 
     /** @private {!Array<!Alloc>} */
-    this._free = [];
+    this._available = [];
 
     /** @private {number} */
     this._index = 0;
@@ -45,13 +45,16 @@ export class Renderable {
   }
 
   /**
-   * @param {number} size
+   * Resizes this Renderable. Removes all existing data. All granted Allocs are now void.
+   *
+   * @param {number} size of verticies allowed
    * @export
    */
   resize(size) {
     this._index = 0;
     this._capacity = size;
     this._data = new Float32Array(size * this._program.attribSize);
+    this._available = [];
 
     const bufferSize = this._data.length * Float32Array.BYTES_PER_ELEMENT;
     const gl = this._gl;
@@ -90,19 +93,30 @@ export class Renderable {
   }
 
   /**
+   * Calls `gl.drawArrays` with the given type.
+   *
+   * @param {number} type of GL upload to do, e.g. `gl.TRIANGLES`.
+   */
+  drawArrays(type) {
+    // this mostly exists to _not_ upload if we have no data
+    if (!this._index) { return; }
+    this._gl.drawArrays(type, 0, this._index);
+  }
+
+  /**
    * Allocate a number of verticies.
    * @param {number} count
    * @return {!Alloc}
    */
   alloc(count) {
-    for (let i = 0; i < this._free.length; ++i) {
+    for (let i = 0; i < this._available.length; ++i) {
       // FIXME(samthor): For now, we just look for exact matches. Good for fixed size objects.
-      if (this._free[i]._size !== count) {
+      const alloc = this._available[i];
+      if (alloc.size !== count) {
         continue;
       }
-      const found = this._free[i];
-      this._free.splice(i, 1);
-      return found;
+      this._available.splice(i, 1);
+      return alloc;
     }
 
     if (this._index + count >= this._capacity) {
@@ -118,18 +132,20 @@ export class Renderable {
    * Frees a previously allocated Alloc. This may leave a gap in the allocation, which will still
    * be rendered.
    * @param {!Alloc} alloc
+   * @return {boolean} whether this leaves a gap
    */
-  free(alloc) {
+  _free(alloc) {
     if (alloc._from + alloc._size === this._capacity) {
       this._capacity -= alloc._size;
       // TODO: we may now have an unused Alloc at the end; it doesn't really matter though
-      return;
+      return false;
     }
     if (alloc._from > this._capacity) {
       // ???
-      return;
+      return false;
     }
-    this._free.push(alloc);
+    this._available.push(alloc);
+    return true;
   }
 
 }
@@ -141,10 +157,45 @@ class Alloc {
    * @param {number} size
    */
   constructor(r, from, size) {
+    const attribSize = r._program.attribSize;
+    const base = attribSize * from;
+
+    /** @type {number} */
+    this.from = from;
+
+    /** @type {number} */
+    this.size = size;
+
+    /** @private {!Renderable} */
     this._r = r;
-    this._from = from;
-    this._size = size;
+
+    /** @private {number} */
+    this._base = base * Float32Array.BYTES_PER_ELEMENT;
+
+    /** @private {!Float32Array} */
+    this._sub = r._data.subarray(base, attribSize * (from + size));
+
     Object.freeze(this);
+  }
+
+  /**
+   * Frees this alloc. This object should not be used after this call.
+   */
+  free() {
+    if (this._r._free(this)) {
+      this.clear();
+    }
+  }
+
+  /**
+   * Writes zeros to this alloc.
+   */
+  clear() {
+    const sub = this._sub;
+    for (let i = 0; i < sub.length; ++i) {
+      sub[i] = 0;
+    }
+    this._upload();
   }
 
   /**
@@ -153,19 +204,17 @@ class Alloc {
    * @param {function(number, !Object<string, function(...number): void>): void} fn
    */
   update(fn) {
-    const p = this._r._program;
-    const data = this._r._data;
-    const attribSize = p.attribSize;
-    const base = attribSize * this._from;
-
-    let at = base;
+    let at = 0;
+    const sub = this._sub;
     const write = function(off, ...values) {
       for (let i = 0; i < values.length; ++i) {
-        data[at + off + i] = values[i];
+        sub[at + off + i] = values[i];
       }
     }
 
-    const attrs = this._r._program.attrs;
+    const p = this._r._program;
+    const attribSize = p.attribSize;
+    const attrs = p.attrs;
 
     /** @type {!Object<string, function(...number): void>} */
     const updater = {};
@@ -173,15 +222,19 @@ class Alloc {
       updater[key] = write.bind(null, attrs[key].offset);
     }
 
-    for (let i = 0; i < this._size; ++i) {
+    for (let i = 0; i < this.size; ++i) {
       fn(i, updater);
       at += attribSize;
     }
+    this._upload();
+  }
 
-    // reupload whole range
+  /**
+   * Upload this Alloc to GL.
+   */
+  _upload() {
     const gl = this._r._gl;
-    const sub = data.subarray(base, at);
     gl.bindBuffer(gl.ARRAY_BUFFER, this._r._buffer);
-    gl.bufferSubData(gl.ARRAY_BUFFER, base * Float32Array.BYTES_PER_ELEMENT, sub);
+    gl.bufferSubData(gl.ARRAY_BUFFER, this._base, this._sub);
   }
 }
