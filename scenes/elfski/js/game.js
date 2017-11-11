@@ -212,7 +212,7 @@ app.Game = class Game {
       if (next.at.y > -this._transform.y - this._canvas.height) {
         break;  // don't remove anymore
       }
-      this._render.remove(next.alloc);
+      next.alloc.free();
       this._ents.shift();
     }
 
@@ -250,8 +250,9 @@ app.Game = class Game {
 
     let d = 0;
 
-    for (let i = x; i < x + w; ++i) {
-      for (let j = y; j < y + h; ++j) {
+    // nb. operate on y first, as we clear from top-down
+    for (let j = y; j < y + h; ++j) {
+      for (let i = x; i < x + w; ++i) {
         const key = `${i},${j}`;
         if (key in this._decorated) {
           continue;
@@ -302,8 +303,8 @@ class Player {
   }
 
   dispose() {
-    // TODO: cleanup line
-    this._render.remove(this.spriteAlloc);
+    this.spriteAlloc.free();
+    this.lineAlloc.free();
   }
 }
 
@@ -582,17 +583,6 @@ export default class SantaRender {
   }
 
   /**
-   * Removes the numbered sprite.
-   * @param {!Alloc} alloc to remove
-   * @export
-   */
-  remove(alloc) {
-    // TODO(samthor): do something better than this
-    this._updateAt(alloc, {at: {x: -10000000, y: 0}, spriteIndex: 0});
-    this._foreground.free(alloc);
-  }
-
-  /**
    * @export
    */
   draw() {
@@ -617,13 +607,13 @@ export default class SantaRender {
     gl.uniform2f(this._spriteProgram.u('u_transform'), this._transform.x, this._transform.y);
     gl.uniform2f(this._spriteProgram.u('u_screenDims'), this.canvas.width, this.canvas.height);
     gl.uniform1i(this._spriteProgram.u('u_texture'), 0);
-    this._foreground.used && gl.drawArrays(gl.TRIANGLES, 0, this._foreground.used);
+    this._foreground.drawArrays(gl.TRIANGLES);
 
     // Run _trails and update its uniforms.
     this._trails.enableAll();
     gl.uniform2f(this._trailsProgram.u('u_transform'), this._transform.x, this._transform.y);
     gl.uniform2f(this._trailsProgram.u('u_screenDims'), this.canvas.width, this.canvas.height);
-    this._trails.used && gl.drawArrays(gl.LINES, 0, this._trails.used);
+    this._trails.drawArrays(gl.LINES);
   };
   
 }

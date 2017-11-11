@@ -137,7 +137,7 @@ export class ShaderProgram {
         // TODO(samthor): It seems like the returned `info.size` is the count of type, but I've
         // previously assumed that we need the size to be number of floats. Check this later: at
         // worst right now we're just wasting a bit of extra memory.
-        size: info.size * ShaderProgram.sizeForType_(gl, info.type),
+        size: info.size * ShaderProgram.sizeForType_(info.type),
         offset: size,
         loc: gl.getAttribLocation(this._program, info.name),
       });
@@ -223,22 +223,21 @@ export class ShaderProgram {
   }
 
   /**
-   * @param {!WebGLRenderingContext} gl
    * @param {number} type
    * @return {number}
    */
-  static sizeForType_(gl, type) {
+  static sizeForType_(type) {
     switch (type) {
-    case gl.FLOAT:
+    case WebGLRenderingContext.FLOAT:
       return 1;
-    case gl.FLOAT_MAT2:
-    case gl.FLOAT_VEC2:
+    case WebGLRenderingContext.FLOAT_MAT2:
+    case WebGLRenderingContext.FLOAT_VEC2:
       return 2;
-    case gl.FLOAT_MAT3:
-    case gl.FLOAT_VEC3:
+    case WebGLRenderingContext.FLOAT_MAT3:
+    case WebGLRenderingContext.FLOAT_VEC3:
       return 3;
-    case gl.FLOAT_MAT4:
-    case gl.FLOAT_VEC4:
+    case WebGLRenderingContext.FLOAT_MAT4:
+    case WebGLRenderingContext.FLOAT_VEC4:
       return 4;
     }
     throw new TypeError(`unknown type: ${type}`)
