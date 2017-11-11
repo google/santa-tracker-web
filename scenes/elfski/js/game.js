@@ -142,21 +142,33 @@ void main() {
 
 const lineVertexShader = `
 uniform vec2 u_screenDims;
+uniform vec2 u_transform;
 
 attribute vec2 position;
 attribute vec2 normal;
 attribute float miter;
 attribute float thickness;
 
+varying float v_thickness;
+
 void main() {
-  //push the point along its normal by half thickness
+  // push the point along its normal by half thickness
   vec2 p = position.xy + vec2(normal * thickness/2.0 * miter);
 
+  vec2 halfDims = u_screenDims / 2.0;
+  vec2 updateCenter = vec2(p.x + halfDims.x, p.y + halfDims.y);
+
+  v_thickness = thickness;
+
   vec4 screenTransform = vec4(2.0 / u_screenDims.x, -2.0 / u_screenDims.y, -1.0, 1.0);
-  gl_Position = vec4(p * screenTransform.xy + screenTransform.zw, 0.0, 1.0);
+  gl_Position = vec4((updateCenter + u_transform) * screenTransform.xy + screenTransform.zw, 0.0, 1.0);
 }
 `;
 const lineFragmentShader = `
+precision mediump float;
+
+varying float v_thickness;
+
 void main() {
   gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }
@@ -200,9 +212,13 @@ export default class SantaRender {
       throw new TypeError('no webgl');
     }
 
-    this._program = new webgl.ShaderProgram(gl, spriteVertexShader, spriteFragmentShader);
-    this._renderable = new render.Renderable(this._program);
-    this._renderable.resize(600 * 6);
+    this._spriteProgram = new webgl.ShaderProgram(gl, spriteVertexShader, spriteFragmentShader);
+    this._foreground = new render.Renderable(this._spriteProgram);
+    this._foreground.resize(600 * 6);
+
+    this._trailsProgram = new webgl.ShaderProgram(gl, lineVertexShader, lineFragmentShader);
+    this._trails = new render.Renderable(this._trailsProgram);
+    this._trails.resize(100 * 20);  // 100 players with 10 lines each?
 
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
@@ -227,13 +243,50 @@ export default class SantaRender {
 
   /**
    * @param {Alloc} alloc of sprite
+   * @param {!Array<{x: number, y: number}>} points to draw
+   * @return {!Alloc} alloc of sprite
+   * @export
+   */
+  updateLine(alloc, points) {
+    if (!alloc) {
+      alloc = this._trails.alloc(80);
+    }
+
+    let curr = 0;
+    let start = true;
+    let last = undefined;
+
+    alloc.update((i, update) => {
+      const p = points[curr] || last;  // line to last point always
+      if (p === undefined) {
+        update.thickness(0);
+        return;
+      }
+
+      last = p;
+      update.position(p.x, p.y)
+      update.normal(0, 0);
+      update.miter(10);
+      update.thickness(p.w);
+
+      if (start) {
+        ++curr;
+      }
+      start = !start;
+    });
+
+    return alloc;
+  }
+
+  /**
+   * @param {Alloc} alloc of sprite
    * @param {SpriteDef} def of sprite
    * @return {!Alloc} alloc of sprite
    * @export
    */
   update(alloc, def) {
     if (!alloc) {
-      alloc = this._renderable.alloc(6);
+      alloc = this._foreground.alloc(6);
     }
     this._updateAt(alloc, def);
     return alloc;
@@ -278,7 +331,7 @@ export default class SantaRender {
   remove(alloc) {
     // TODO(samthor): do something better than this
     this._updateAt(alloc, {at: {x: -10000000, y: 0}, spriteIndex: 0});
-    this._renderable.free(alloc);
+    this._foreground.free(alloc);
   }
 
   /**
@@ -298,20 +351,20 @@ export default class SantaRender {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     // gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
 
-    // Upload just a single texture.
+    // Run _foreground and update its uniforms.
+    this._foreground.enableAll();
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, this._texture);
+    gl.uniform2f(this._spriteProgram.u('u_transform'), this._transform.x, this._transform.y);
+    gl.uniform2f(this._spriteProgram.u('u_screenDims'), this.canvas.width, this.canvas.height);
+    gl.uniform1i(this._spriteProgram.u('u_texture'), 0);
+    this._foreground.used && gl.drawArrays(gl.TRIANGLES, 0, this._foreground.used);
 
-    // Run the _renderable program and update its uniforms.
-    this._renderable.enableAll();
-    gl.uniform2f(this._program.u('u_transform'), this._transform.x, this._transform.y);
-    gl.uniform2f(this._program.u('u_screenDims'), this.canvas.width, this.canvas.height);
-    gl.uniform1i(this._program.u('u_texture'), 0);
-
-    if (!this._renderable.used) {
-      return;  // nothing to draw
-    }
-    gl.drawArrays(gl.TRIANGLES, 0, this._renderable.used);
+    // Run _trails and update its uniforms.
+    this._trails.enableAll();
+    gl.uniform2f(this._trailsProgram.u('u_transform'), this._transform.x, this._transform.y);
+    gl.uniform2f(this._trailsProgram.u('u_screenDims'), this.canvas.width, this.canvas.height);
+    this._trails.used && gl.drawArrays(gl.LINES, 0, this._trails.used);
   };
   
 }

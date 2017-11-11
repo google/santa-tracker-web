@@ -161,6 +161,11 @@ Polymer({
       value: null,
     },
 
+    _line: {
+      type: Object,
+      value: () => [],
+    },
+
     _socket: {
       type: Object,
       value: null,
@@ -197,6 +202,7 @@ Polymer({
       const SpriteGame = scenes.elfski.Game.getSpriteGame();
       const game = new SpriteGame(canvas, image);
       this._game = game;
+      this._trail = game.updateLine(null, []);
 
     }.bind(this);
 
@@ -422,7 +428,21 @@ Polymer({
     this.updatePath();
 
     if (this._game) {
+
       this._game.transform = {x: 0, y: -this._positionDownMountain};
+
+      if (change.x || change.y) {
+        this._line.push({
+          x: this._playerX,
+          y: this._positionDownMountain,
+          w: 5 * (1 + this._player.lineWidth),
+        });
+        if (this._line.length > 40) {
+          this._line.shift();
+        }
+        this._game.updateLine(this._trail, this._line);
+      }
+
       this._game.draw();
     }
 

@@ -71,6 +71,7 @@ export class Renderable {
    */
   enableAll() {
     const gl = this._gl;
+    gl.bindBuffer(gl.ARRAY_BUFFER, this._buffer);
     gl.useProgram(this._program.program);
 
     const attribSize = this._program.attribSize;
@@ -152,8 +153,9 @@ class Alloc {
    * @param {function(number, !Object<string, function(...number): void>): void} fn
    */
   update(fn) {
+    const p = this._r._program;
     const data = this._r._data;
-    const attribSize = this._r._program.attribSize;
+    const attribSize = p.attribSize;
     const base = attribSize * this._from;
 
     let at = base;
