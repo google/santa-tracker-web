@@ -15,6 +15,10 @@
  */
 
 /**
+ * @fileoverview Low-level WebGL helpers.
+ */
+
+/**
  * @param {number} v
  * @return {boolean}
  */
@@ -103,7 +107,8 @@ export function initShaderProgram(gl, vsSource, fsSource) {
 var AttribInfo;
 
 /**
- * Wraps a GL shader.
+ * Wraps a GL shader and provides conveiene methods and info, such as introspected access to the
+ * shader's attributes.
  */
 export class ShaderProgram {
   constructor(gl, vsSource, fsSource) {

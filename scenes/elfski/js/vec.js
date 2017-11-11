@@ -56,6 +56,23 @@ export function angleBetween(vecA, vecB) {
 }
 
 /**
+ * Lerps between two vectors of any size.
+ *
+ * @param {Vector} vecA
+ * @param {Vector} vecB
+ * @param {number} part
+ * @return {Vector}
+ */
+export function lerp(vecA, vecB, part) {
+  return {
+    x: vecA.x + (vecB.x - vecA.x) * part,
+    y: vecA.y + (vecB.y - vecA.y) * part,
+  };
+}
+
+/**
+ * Slerps between two unit vectors.
+ *
  * @param {Vector} vecA
  * @param {Vector} vecB
  * @param {number} part
