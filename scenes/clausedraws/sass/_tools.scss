@@ -368,7 +368,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
       }
     }
 
-    &--wand {
+    &--effect {
       .Category-inner {
         background: url(img/tools/tool_effects.svg) center / contain no-repeat;
       }
@@ -523,7 +523,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     &--spray-sprinkles {
       background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
     }
-  } 
+  }
 
   .Tool--crayon, .Tool-hover-minitool--crayon {
     .cls-3 {
@@ -535,7 +535,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     .cls-3{
       fill: #29b6f6;
     }
-    
+
     .cls-4 {
       opacity: 0.05;
     }
@@ -545,7 +545,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     .cls-3{
       fill: #4e342e;
     }
-    
+
     .cls-4 {
       opacity: 0.08;
     }
@@ -566,7 +566,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
       mix-blend-mode: multiply;
     }
   }
-  
+
   .Tool--selected {
     @each $current-tool in $drawing-tools {
       &.Tool--#{$current-tool} {

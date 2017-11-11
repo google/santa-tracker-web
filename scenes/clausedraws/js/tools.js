@@ -27,6 +27,7 @@ goog.require('app.SprayColor');
 goog.require('app.SprinkleSpray');
 goog.require('app.Stamp');
 goog.require('app.TextureDrawer');
+goog.require('app.EffectInvert');
 goog.require('app.Tool');
 goog.require('app.utils');
 goog.require('app.shared.utils');
@@ -86,6 +87,7 @@ app.Tools = function(game, $elem) {
   this.rollerSnowflakes = new app.PaintRoller($elem, 'snowflakes');
   this.rollerTrees = new app.PaintRoller($elem, 'trees');
   this.rollerVertical = new app.PaintRoller($elem, 'vertical');
+  this.effectInvert = new app.EffectInvert($elem, 'effect-invert');
 
   this.tools = [
     this.pencil,
@@ -113,7 +115,8 @@ app.Tools = function(game, $elem) {
     this.rollerPolkadots,
     this.rollerSnowflakes,
     this.rollerTrees,
-    this.rollerVertical
+    this.rollerVertical,
+    this.effectInvert
   ];
 };
 
@@ -186,6 +189,9 @@ app.Tools.prototype.selectTool_ = function(e) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
       this.selectedTool = null;
+    } else if (app.EffectInvert.prototype.isPrototypeOf(this.selectedTool)) {
+      this.drawToCanvas(this.selectedTool);
+      this.selectedTool = null;
     } else {
       if (this.selectedTool != previousTool) {
         var coords = this.game_.mouse.coordinates();
@@ -200,6 +206,13 @@ app.Tools.prototype.selectTool_ = function(e) {
       this.secondaryMenu.removeClass('is-active');
     }
   }
+};
+
+
+app.Tools.prototype.drawToCanvas = function(selectedTool) {
+  this.game_.canvas.updateCanvas(selectedTool, selectedTool.draw);
+  this.game_.canvas.save();
+  this.game_.canvas.needSave = false;
 };
 
 
