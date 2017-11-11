@@ -42,10 +42,13 @@ Quickdraw scene.
         </div>
         <div class="gameview">
           <canvas class="drawingCanvas" resize="true"></canvas>
-          <div>
-            <p>I see...</p>
-            <div>TREE</div>
-            <button class="gameview__clear-btn">Clear</button>
+          <div class="machineview">
+            <div>
+              <button class="gameview__clear-btn">Clear</button>
+              <p class="machineview__primary">I see...</p>
+              <p class="machineview__secondary">TREE</p>
+            </div>
+            <img src="[[importPath]]img/robby.svg" alt="">
           </div>
         </div>
         <div class="cards">
@@ -87,7 +90,11 @@ Quickdraw scene.
 
     onPreload: function() {
       this.preloadSounds('selfie_load_sounds', 30);
-      this.preloadImages([]);
+      this.preloadImages([
+      'img/splashscreen-image.svg',
+      'img/quickdraw-background.svg',
+      'img/whiteboard.svg'
+      ]);
     },
 
     onShow: function() {

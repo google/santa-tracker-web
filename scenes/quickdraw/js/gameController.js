@@ -21,6 +21,7 @@ goog.require('app.EventEmitter');
 
 goog.require('app.view.CardsView');
 goog.require('app.view.GameView');
+goog.require('app.view.MachineView');
 goog.require('app.view.DrawingCanvas');
 
 goog.require('app.DrawingRecognitionController');
@@ -37,6 +38,7 @@ app.GameController = function(container) {
   //Views
   this.cardsView = new app.view.CardsView(container);
   this.gameView = new app.view.GameView(container);
+  this.machineView = new app.view.MachineView(container);
   this.drawingCanvas = new app.view.DrawingCanvas(container);
 
   //Listeners
@@ -139,10 +141,12 @@ app.GameController.prototype.fetchNewRound = function(alreadyPresentedWords, cal
 
 
 app.GameController.prototype.startNewGameWithChallenge = function(challenge, options) {
-  console.log('GameController.startNewGameWithChallenge');
   var options = options || {
     onCardDismiss: function() {}
   };
+
+  this.resetGameRounds();
+
   this.level = 1;
   this.completedLevels = 0;
 
@@ -152,6 +156,10 @@ app.GameController.prototype.startNewGameWithChallenge = function(challenge, opt
   this.startNewRoundWithChallenge(challenge, {
       onCardDismiss : options.onCardDismiss
   });
+
+  this.gameView.addListener('CLEAR', function() {
+    this.machineView.reset();
+  }.bind(this));
 };
 
 
@@ -171,7 +179,7 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
 
   var startCb = function() {
     this.drawingCanvas.clearDrawingCanvas();
-    // this.machineView.reset();
+    this.machineView.reset();
     this.recognitionController.start();
 
     //Start The Clock

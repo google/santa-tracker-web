@@ -99,6 +99,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   var $titleElem = this.timesup_card.find('.timesup-card__title');
   var $sublineElem = this.timesup_card.find('.timesup-card__subline');
   var $drawingsWrapper = this.timesup_card.find('.timesup-card__drawings');
+  $drawingsWrapper.html('');
 
   if (roundsRecognized == 0) {
     $titleElem.text('Oops!');

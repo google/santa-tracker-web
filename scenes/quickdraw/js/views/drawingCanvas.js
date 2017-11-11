@@ -110,7 +110,7 @@ app.view.DrawingCanvas.prototype.currentTimeMs = function() {
 
 app.view.DrawingCanvas.prototype.clearDrawingCanvas = function() {
   paper.project.activeLayer.removeChildren();
-  this.resizeCanvas(); //NOT WORKING AS OF NOW
+  this.resizeCanvas();
 
   delete this.startTime;
   this.paths = [];
@@ -126,9 +126,9 @@ app.view.DrawingCanvas.prototype.resizeCanvas = function() {
   var pCenter = paper.view.center;
 
   this.canvas.width = this.$canvas.width();
-  this.canvas.height = this.$canvas.height();
+  this.canvas.height = this.canvas.width * 594 / 1015;
   this.canvas.style.width = this.$canvas.width() + "px";
-  this.canvas.style.height = this.$canvas.height() + "px";
+  this.canvas.style.height = (this.$canvas.width() * 594 / 1015) + "px";
   paper.view.viewSize = new paper.Size(this.canvas.width, this.canvas.height);
 
   paper.view.draw();
