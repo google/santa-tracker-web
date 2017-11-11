@@ -164,10 +164,15 @@ export class Map {
   }
 
   getRandomHabitableTileIndex() {
+
     console.log(this.tileRings.length);
+
     for (let i = 0; i < this.tileCount; ++i) {
-      const maxRingIndex = Math.max(2.0, this.tileRings.length - 15);
-      const ringIndex = Math.floor(Math.random() * maxRingIndex) + 10.0;
+      const minRingIndex = Math.floor(this.tileRings.length / 4);
+      const maxRingIndex = Math.max(2.0, this.tileRings.length - 10);
+      const ringIndex = Math.floor(
+          Math.random() * (maxRingIndex - minRingIndex) + minRingIndex);
+
       const ring = this.tileRings[ringIndex];
       const tileIndex = Math.floor(Math.random() * ring.length);
       const index = ring[tileIndex];

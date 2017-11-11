@@ -233,7 +233,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     }
 
     if (this.lodNeedsUpdate) {
-      if (this.currentLod === LodSystem.lod.HIGH) {
+      if (this.currentLod === LodSystem.lod.HIGH && health.alive) {
         this.initializeModel();
         this.visible = true;
       } else {
