@@ -25,13 +25,17 @@ import { Character } from './physics.js';
 import * as render from './render.js';
 import * as webgl from './webgl.js';
 import * as vec from './vec.js';
+import noise from './noise.js';
 
 /**
- * Magic numbers for player control speed.
- *
- * @type {vec.Vector}
+ * @type {vec.Vector} Magic numbers for player control speed.
  */
 const unitScale = {x: 400, y: 600};
+
+/**
+ * @type {number} Cell size for decoration code.
+ */
+const cellSize = 48;
 
 /**
  * @typedef {{
@@ -68,6 +72,9 @@ app.Game = class Game {
     this._ents = [];
 
     this._now = 0;
+    this._decorated = {};
+
+    this.decorateTerrain();
   }
 
   get transform() {
@@ -91,7 +98,7 @@ app.Game = class Game {
   clearRemotePlayer(id) {
     const p = this._remotePlayers[id];
     if (p !== undefined) {
-//      p.dispose();
+      p.dispose();
       delete this._remotePlayers[id];
     }
   }
@@ -186,6 +193,10 @@ app.Game = class Game {
     }
   }
 
+  draw() {
+    this._render.draw();
+  }
+
   get playerAt() {
     return this._me.at;
   }
@@ -228,17 +239,48 @@ app.Game = class Game {
     });
 
     // add more trees
-    if (Math.random() / 10 < this._me.char.speed * delta) {
-      this.addTree();
+    this.decorateTerrain();
+  }
+
+  decorateTerrain() {
+    const x = ~~((-this._transform.x - this._canvas.width / 2) / 32);
+    const y = Math.max(4, ~~((-this._transform.y - this._canvas.height / 2) / 32));
+    const w = Math.ceil(this._canvas.width / 32);
+    const h = Math.ceil(this._canvas.height / 32);
+
+    let d = 0;
+
+    for (let i = x; i < x + w; ++i) {
+      for (let j = y; j < y + h; ++j) {
+        const key = `${i},${j}`;
+        if (key in this._decorated) {
+          continue;
+        }
+        this._decorated[key] = true;
+        this.decorateCell(i, j);
+        ++d;
+      }
     }
   }
 
-  addTree() {
-    const type = Math.floor(Math.random() * 4);
+  /**
+   * Decorates a single cell with an optional tree.
+   * @param {number} x of cell
+   * @param {number} y of cell
+   */
+  decorateCell(x, y) {
+    const v = noise(x / 3.27, y / 8.742);
+    if (v <= 0.15) {
+      return;
+    }
 
+    const type = Math.floor((0.5 + noise(x / 1.00124, y / 0.1241)) * 4);
+
+    const offX = noise(x / 4.1222, y / 8.2421);
+    const offY = noise(x / 1.21, y / 2.31);
     const at = {
-      x: ((Math.random() - 0.5) * this._canvas.width),
-      y: (this._me.at.y + this._canvas.height / 2) + 256,  // hide offscreen
+      x: cellSize * (x + 0.5 + 2 * offX),
+      y: cellSize * (y + 0.5 + 2 * offY),
     };
 
     const def = {at, spriteIndex: type, offset: 16, layer: 1};
@@ -254,10 +296,14 @@ class Player {
 
     this.line = [];
 
-    this.steps = [];
-
     this.lineAlloc = render.updateLine(null, []);
     this.spriteAlloc = render.update(null, {at: this.at});
+    this._render = render;
+  }
+
+  dispose() {
+    // TODO: cleanup line
+    this._render.remove(this.spriteAlloc);
   }
 }
 
@@ -426,7 +472,7 @@ export default class SantaRender {
 
     this._spriteProgram = new webgl.ShaderProgram(gl, spriteVertexShader, spriteFragmentShader);
     this._foreground = new render.Renderable(this._spriteProgram);
-    this._foreground.resize(600 * 6);
+    this._foreground.resize(1200 * 6);
 
     this._trailsProgram = new webgl.ShaderProgram(gl, lineVertexShader, lineFragmentShader);
     this._trails = new render.Renderable(this._trailsProgram);
