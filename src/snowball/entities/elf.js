@@ -7,6 +7,8 @@ import { Health } from '../components/health.js';
 import { Path } from '../components/path.js';
 import { Arrival } from '../components/arrival.js';
 import { PlayerMarker } from './player-marker.js';
+import { Snowball } from './snowball.js';
+import { combine } from '../../engine/utils/function.js';
 
 const {
   Mesh,
@@ -103,6 +105,13 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     material.map.needsUpdate = true;
   }
 
+  ensureCorrectTextureImage() {
+    if (this.elf != null) {
+      this.elf.children[0].material.map.image = this.textureImage;
+      this.elf.children[0].material.map.needsUpdate = true;
+    }
+  }
+
   clone() {
     return Elf.allocate(
         this.playerId, this.majorColor, this.minorColor, this.gender);
@@ -126,7 +135,6 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         wireframe: false
       }));
 
-    hitTarget.position.z = 12;
     this.add(hitTarget);
     this.hitTarget = hitTarget;
 
@@ -150,6 +158,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.majorColor = majorColor;
     this.minorColor = minorColor;
     this.gender = gender;
+    this.textureImage = generateElfTexture(majorColor, minorColor);
 
     this.dolly.rotation.x = PI_OVER_TWO_POINT_TWO_FIVE;
     this.dolly.position.z = 19;
@@ -164,21 +173,18 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   }
 
   setup(game) {
-    const { lodSystem, inputSystem, clientSystem, collisionSystem } = game;
+    const { lodSystem, clientSystem, collisionSystem } = game;
     const { player: clientPlayer } = clientSystem;
 
     lodSystem.addEntity(this);
     collisionSystem.addCollidable(this);
 
-    if (this !== clientPlayer) {
-      this.unsubscribe = inputSystem.on('pick', event => {
-        clientSystem.assignTarget(this);
-        return false;
-      }, this.hitTarget);
-    } else {
+    if (this === clientPlayer) {
       this.dolly.add(clientPlayerMarker);
-      clientPlayerMarker.rotation.x = -Math.PI / 2.0;
+      clientPlayerMarker.rotation.x = -PI_OVER_TWO;
     }
+
+    this.ensureCorrectTextureImage();
   }
 
   teardown(game) {
@@ -193,8 +199,9 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   }
 
   update(game) {
-    const { clientSystem } = game;
+    const { clientSystem, mapSystem, inputSystem, collisionSystem } = game;
     const { player: clientPlayer } = clientSystem;
+    const { grid } = mapSystem;
     const { arrival, path, health } = this;
     const isClientPlayer = this === clientPlayer;
 
@@ -203,6 +210,25 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         clientPlayerMarker.visible = false;
       } else if (arrival.arrived && !clientPlayerMarker.visible) {
         clientPlayerMarker.visible = true;
+      }
+    } else {
+      if (arrival.arrived && this.unsubscribe == null) {
+        this.hitTarget.position.z = grid.cellSize / 4.0 + 2.0;
+        // NOTE(cdata): Pick listening is deferred because reparenting
+        // the player apparently messes up the octree hierarchy.
+        this.unsubscribe = combine(
+            inputSystem.on('pick', event => {
+              clientSystem.assignTarget(this);
+              return false;
+            }, this.hitTarget),
+            collisionSystem.handleCollisions(this, (self, other) => {
+              if (other instanceof Snowball) {
+                const { direction } = other.trajectory;
+
+                this.face(Math.atan2(direction.y, direction.x) - PI_OVER_TWO);
+                this.die();
+              }
+            }));
       }
     }
 
@@ -247,16 +273,22 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         this.throw();
         this.hasAssignedTarget = false;
       }
-    } else if (this.sank) {
-      if (clientPlayerMarker.parent === this.dolly) {
-        this.dolly.remove(clientPlayerMarker);
+    } else {
+      if (this.sank) {
+        if (clientPlayerMarker.parent === this.dolly) {
+          this.dolly.remove(clientPlayerMarker);
+        }
+
+        if (this.dolly.position.z > 0.0) {
+          this.dolly.position.z -= 0.5 + this.dolly.position.z / 20.0;
+          if (this.elf != null) {
+            this.elf.children[0].material.opacity =
+                Math.min(this.dolly.position.z / 10, 1.0);
+          }
+        }
       }
 
-      if (this.dolly.position.z > 0.0) {
-        this.dolly.position.z -= 0.5 + this.dolly.position.z / 20.0;
-        this.elf.children[0].material.opacity =
-            Math.min(this.dolly.position.z / 10, 1.0);
-      }
+      collisionSystem.removeCollidable(this);
     }
 
     if (this.model != null) {
@@ -275,21 +307,23 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     if (!this.modelInitialized) {
       console.count('Elf model initialized');
 
-      const texture = generateElfTexture(this.majorColor, this.minorColor);
-
       createElf().then(model => {
         const elf = model.object.children[0];
-        const material = elf.children[0].material;
+        const material = elf.children[0].material.clone();
+        const map = material.map.clone();
+
+        elf.children[0].material = material;
+        material.map = map;
 
         material.transparent = true;
-        material.map.image = texture;
-        material.map.needsUpdate = true;
 
         elf.scale.multiplyScalar(5.0);
 
         this.elf = elf;
         this.model = model;
         this.dolly.add(elf);
+
+        this.ensureCorrectTextureImage();
       });
     }
 

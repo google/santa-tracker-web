@@ -3,6 +3,7 @@ import { Point, Circle } from '../../engine/utils/collision-2d.js';
 import { Allocatable } from '../../engine/utils/allocatable.js';
 import { snowball } from '../textures.js';
 import { Trail } from '../components/trail.js';
+import { Trajectory } from '../components/trajectory.js';
 
 const {
   Mesh,
@@ -87,18 +88,18 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
 
     this.uniforms = uniforms;
     this.collider = Circle.allocate(5, this.position);
-    this.targetPosition = new Vector2();
-    this.origin = new Vector2();
 
     this.trail = new Trail(5, 0xaaccff, game => this.thrown);
+
+    this.trajectory = new Trajectory();
   }
 
   onAllocated(thrower) {
-    this.origin.copy(thrower.position);
-    this.position.copy(origin);
+    this.trajectory.origin.copy(thrower.position);
+    this.position.copy(this.trajectory.origin);
     this.thrown = false;
     this.tickWhenThrown = -1;
-    this.targetPosition.set(0, 0);
+    this.trajectory.targetPosition.set(0, 0);
     this.skew = 0;
     this.collidedWith = null;
     this.thrower = thrower;
@@ -143,7 +144,7 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
     if (!this.thrown) {
       this.visible = true;
       this.thrown = true;
-      this.targetPosition.copy(target);
+      this.trajectory.targetPosition.copy(target);
 
       // ±15º skew on the throw
       this.skew = Math.random() * PI_OVER_SIX - PI_OVER_TWELVE;

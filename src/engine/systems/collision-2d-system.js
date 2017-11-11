@@ -144,7 +144,9 @@ export class Collision2DSystem {
 
     if (this.debug) {
       if (this.collisionDebugLimit && this.collisionLimit) {
-        this.collisionDebugLimit.position.copy(this.collisionLimit.position);
+        this.collisionDebugLimit.position.x = this.collisionLimit.position.x;
+        this.collisionDebugLimit.position.y = this.collisionLimit.position.y;
+        this.collisionDebugLimit.position.z = game.mapSystem.grid.cellSize;
       }
       this.collisionDebugObjects.forEach((object, collidable) => {
         const collider = this.getCollider(collidable);
@@ -185,20 +187,26 @@ export class Collision2DSystem {
         const nearbyCollider = this.getCollider(nearbyCollidable);
 
         //let collidableCollisions = measuredCollisions.get(nearbyCollidable);
-        let collidableCollisions = measuredCollisions[nearbyCollidable.uuid];
+        let nearbyCollisions = measuredCollisions[nearbyCollidable.uuid];
 
-        if (!collidableCollisions) {
-          //collidableCollisions = new WeakSet();
-          //measuredCollisions.set(nearbyCollidable, collidableCollisions);
-          collidableCollisions = {};
-          measuredCollisions[nearbyCollidable.uuid] = collidableCollisions;
+        if (!nearbyCollisions) {
+          //nearbyCollisions = new WeakSet();
+          //measuredCollisions.set(nearbyCollidable, nearbyCollisions);
+          nearbyCollisions = {};
+          measuredCollisions[nearbyCollidable.uuid] = nearbyCollisions;
         //} else if (collidableCollisions.has(collidable)) {
-        } else if (collidableCollisions[collidable.uuid]) {
+        } else if (nearbyCollisions[collidable.uuid]) {
           continue;
+        } else {
+          nearbyCollisions[collidable.uuid] = true;
         }
 
-        //collidableCollisions.add(collidable);
-        collidableCollisions[collidable.uuid] = true;
+        let collidableCollisions = measuredCollisions[collidable.uuid];
+
+        if (collidableCollisions &&
+            collidableCollisions[nearbyCollidable.uuid]) {
+          continue;
+        }
 
         if (collider.intersects(nearbyCollider)) {
           this.notifyCollision(collidable, nearbyCollidable);

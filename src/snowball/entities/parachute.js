@@ -1,5 +1,6 @@
 import { Entity } from '../../engine/core/entity.js';
 import { Allocatable } from '../../engine/utils/allocatable.js';
+import { Point } from '../../engine/utils/collision-2d.js';
 import { parachute } from '../textures.js';
 
 const {
@@ -34,6 +35,13 @@ export class Parachute extends Allocatable(Entity(Object3D)) {
     this.graphic = graphic;
 
     this.size = size;
+    this.collider = Point.allocate(this.position);
+  }
+
+  set lod(value) {
+    if (this.carriedObject) {
+      this.carriedObject.lod = value;
+    }
   }
 
   onFreed() {

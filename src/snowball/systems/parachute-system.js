@@ -28,7 +28,7 @@ export class ParachuteSystem {
   }
 
   update(game) {
-    const { mapSystem, tick } = game;
+    const { lodSystem, mapSystem, tick } = game;
     const { grid } = mapSystem;
 
     while (this.undroppedEntities.length) {
@@ -41,6 +41,8 @@ export class ParachuteSystem {
       parachute.position.x = position.x;
       parachute.position.y = position.y;
       parachute.carry(entity);
+
+      lodSystem.addEntity(parachute);
 
       this.entityParachutes.set(entity, parachute);
       this.parachuteLayer.add(parachute);
@@ -71,6 +73,7 @@ export class ParachuteSystem {
         this.entityParachutes.delete(entity);
         this.parachuteLayer.remove(parachute);
 
+        lodSystem.removeEntity(parachute);
         Parachute.free(parachute);
       }
     }

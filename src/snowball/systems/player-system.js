@@ -65,6 +65,16 @@ export class PlayerSystem {
     // New players are passed through the parachute system...
     while (this.newPlayers.length) {
       const player = this.newPlayers.shift();
+      const { arrival } = player;
+
+      // This should never be true in practice, since the tile index is provided
+      // by the game server. However, a player may be spawned when testing stuff
+      // locally, so we will pick a random safe tile in this case:
+      if (arrival.tileIndex < 0) {
+        arrival.tileIndex = map.getRandomHabitableTileIndex();
+      }
+
+      console.log(arrival.tileIndex);
 
       player.setup(game);
       parachuteSystem.dropEntity(player);
@@ -78,6 +88,7 @@ export class PlayerSystem {
 
       if (player.arrival.arrived) {
         const { arrival } = player;
+
         const position = grid.indexToPosition(
             arrival.tileIndex, intermediateVector2);
 

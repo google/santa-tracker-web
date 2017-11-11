@@ -175,7 +175,7 @@ export class Rectangle extends Allocatable(AbstractShape) {
     super();
   }
 
-  onAllocated(width, height, position) {
+  onAllocated(width, height, position = new Vector2()) {
     this.width = width;
     this.height = height;
     this.position = position;

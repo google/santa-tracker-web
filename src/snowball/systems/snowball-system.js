@@ -43,6 +43,7 @@ export class SnowballSystem {
 
     for (let i = 0; i < this.snowballs.length; ++i) {
       const snowball = this.snowballs[i];
+      const { trajectory } = snowball;
 
       if (snowball.collidedWith != null) {
         this.removeSnowball(snowball, game);
@@ -55,7 +56,7 @@ export class SnowballSystem {
         const tickDelta = game.preciseTick - snowball.tickWhenThrown;
         const maxDistance = 256;
 
-        path.subVectors(snowball.targetPosition, snowball.origin)
+        path.subVectors(trajectory.targetPosition, trajectory.origin)
             .clampLength(0, maxDistance);
 
         const maxAnimationFrames = 42;
@@ -69,7 +70,7 @@ export class SnowballSystem {
             Math.sin(time * Math.PI) * 20.0 * durationScale;
 
         path.multiplyScalar(time)
-          .add(snowball.origin);
+          .add(trajectory.origin);
 
         snowball.position.x = path.x;
         snowball.position.y = path.y;
@@ -95,9 +96,10 @@ export class SnowballSystem {
 
   removeSnowball(snowball, game) {
     const { collisionSystem, effectSystem } = game;
+    const { trajectory } = snowball;
     console.log('Removing a snowball!');
 
-    path.subVectors(snowball.targetPosition, snowball.origin);
+    path.subVectors(trajectory.targetPosition, trajectory.origin);
 
     effectSystem.snowsplatEffect.show(
               snowball.position.clone(), path.clone().normalize());

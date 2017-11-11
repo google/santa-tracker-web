@@ -33,14 +33,7 @@ export class ClientSystem {
 
   setup(game) {
     const { playerSystem, mapSystem } = game;
-    const { map } = mapSystem;
-
-    // This should never be true in practice, since the tile index is provided
-    // by the game server. However, a player may be spawned when testing stuff
-    // locally, so we will pick a random safe tile in this case:
-    if (this.startingTileIndex < 0) {
-      this.startingTileIndex = map.getRandomHabitableTileIndex();
-    }
+    const { map, grid } = mapSystem;
 
     const player = playerSystem.addPlayer(
         this.clientId, this.startingTileIndex);
@@ -60,7 +53,7 @@ export class ClientSystem {
     const { clientId, destination, targetedPosition, arrivalMarker } = this;
 
     if (!arrival.arrived) {
-      if (arrivalMarker.parent == null) {
+      if (arrivalMarker.parent == null && arrival.tileIndex > -1) {
         const position = grid.indexToPosition(arrival.tileIndex);
 
         arrivalMarker.position.z = 19.0;

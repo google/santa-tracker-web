@@ -32,6 +32,11 @@ export class LodSystem {
       return;
     }
 
+    const { camera } = game;
+
+    this.limit.position.x = camera.position.x;
+    this.limit.position.y = camera.position.y * -4/3;
+
     for (let i = 0; i < this.lodEntities.length; ++i) {
       const entity = this.lodEntities[i];
       const bounds = this.getCollider(entity);
