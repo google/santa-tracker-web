@@ -31,30 +31,18 @@ Elf Ski scene.
   touch-action: none; /* TODO: we may want to allow users to drag the screen down */
 }
 #surface {
+  position: absolute;
   pointer-events: none;
   will-change: transform;
+  width: 100%;
   height: 100%;
 }
 #surface canvas {
   position: absolute;
 }
 
-#player {
-  background: red;
-  width: 4px;
-  height: 12px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -4px;
-  margin-top: -6px;
-  border-bottom: 2px solid blue;
-  will-change: transform;
-  z-index: 10;
-}
 #gl3d {
   position: absolute;
-  z-index: 100;
   pointer-events: none;
 }
 
@@ -64,6 +52,7 @@ Elf Ski scene.
   bottom: calc(50% - 120px);
   min-height: calc(50% + 120px);  /* if we're bigger than 50%, then just clamp to top */
   width: 100%;
+  left: 0%;
   background-image: url(../dorf/img/header-bg.svg);
   background-color: transparent;
   background-repeat: repeat-x;
@@ -76,23 +65,22 @@ Elf Ski scene.
 
   </style>
 
-  <canvas id="gl3d"></canvas>
   <div id="mountain"
       on-pointerdown="_onPointerDown"
       on-pointermove="_onPointerMove"
       on-pointerup="_onPointerUp">
-    <div id="player"></div>
     <div id="surface">
       <div id="ui"></div>
       <canvas id="canvas"></canvas>
     </div>
+    <canvas id="gl3d"></canvas>
   </div>
 
 </template>
 <script>
 (function() {
 
-const unitScale = {x: 400, y: 600};
+const socketRate = (1000 / 4);
 
 Polymer({
   is: 'elfski-scene',
@@ -100,6 +88,9 @@ Polymer({
 
   properties: {
 
+    /**
+     * Used to calculate frame delta.
+     */
     _lastFrameAt: {
       type: Number,
     },
@@ -114,60 +105,28 @@ Polymer({
       value: 0,
     },
 
-    _positionDownMountain: {
-      type: Number,
-      value: 0,
-    },
-
-    _pathTo: {
-      type: Number,
-      value: 240,
-    },
-
-    _transform: {
-      type: Number,
-      value: 0,
-    },
-
-    _playerX: {
-      type: Number,
-      value: 0,
-    },
-
-    _ents: {
-      type: Object,
-      value: () => [],
-    },
-
     /**
-     * The game renderer.
+     * The game.
      */
     _game: {
       type: Object,
       value: null,
     },
 
-    /**
-     * Character from the compiled JS.
-     */
-    _player: {
+    _socket: {
       type: Object,
+      value: null,
+    },
+
+    _socketInterval: {
+      type: Number,
+      value: 0,
     },
 
     /**
      * The current pointer position, or null.
      */
     _pointer: {
-      type: Object,
-      value: null,
-    },
-
-    _line: {
-      type: Object,
-      value: () => [],
-    },
-
-    _socket: {
       type: Object,
       value: null,
     },
@@ -188,11 +147,8 @@ Polymer({
 
   onShow: function() {
     this._lastFrameAt = window.performance.now();
-    window.requestAnimationFrame(this._tick);
     window.addEventListener('resize', this._onResize);
     this._onResize();
-
-    this._player = scenes.elfski.Game.newCharacter();
 
     const image = new Image();
     image.crossOrigin = 'anonymous';
@@ -200,22 +156,36 @@ Polymer({
     image.onload = function() {
 
       const canvas = this.$.gl3d;
-      const SpriteGame = scenes.elfski.Game.getSpriteGame();
-      const game = new SpriteGame(canvas, image);
-      this._game = game;
-      this._trail = game.updateLine(null, []);
+      this._game = new scenes.elfski.Game(canvas, image)
+      window.requestAnimationFrame(this._tick);
 
     }.bind(this);
 
     this._socket = new SantaSocket('elfski');
     this._socket.addListener('message', (data) => {
-      console.info('got message', data);
+      console.info('got message', data.id);
+      if (!this._game || !data.id) { return; }
+
+      const id = 'p' + data.id;
+      if (!data.at) {
+        this._game.clearRemotePlayer(id);
+      } else {
+        this._game.updateRemotePlayer(id, data.p, data.at);
+      }
     });
+
+    this._socketInterval = window.setInterval(() => {
+      this._socket.send({
+        p: this._pointer,
+        at: this._game.playerAt,
+      }, 'player');
+    }, socketRate);
   },
 
   onHide: function() {
     window.removeEventListener('resize', this._onResize);
     this._socket.close();
+    window.clearInterval(this._socketInterval);
   },
 
   /**
@@ -276,46 +246,6 @@ Polymer({
     this._pointer = null;
   },
 
-  addTree: function() {
-    const type = Math.floor(Math.random() * 4);
-
-    const at = {
-      x: ((Math.random() - 0.5) * this.$.mountain.offsetWidth),
-      y: ((this.$.mountain.offsetHeight * 0.5) + this._positionDownMountain) + 256,
-    };
-
-    const def = {at: at, spriteIndex: type, offset: 16, layer: 1};
-    const index = this._game.update(undefined, def);
-    this._ents.push({index: index, at: at, type: 'tree'});
-  },
-
-  updatePath: function() {
-    if (!this._game) {
-      return;
-    }
-    const atPixels = 60;
-
-    while (this._pathTo < this._positionDownMountain + this.$.mountain.offsetHeight / 2) {
-      this._pathTo += atPixels;
-
-      const drift = Math.sin(this._pathTo / 155) + Math.cos(this._pathTo / 255);
-
-      for (let i = 0; i < 2; ++i) {
-        const at = {x: i ? 200 : -200, y: this._pathTo};
-        const def = {at: at, spriteIndex: 5, offset: 16};
-
-        if (this._pathTo % (atPixels * 2)) {
-          def.spriteIndex = 4;
-        }
-
-        at.x += drift * 40;
-
-        const index = this._game.update(undefined, def);
-        this._ents.push({index: index, at: at, type: 'dot'});
-      }
-    }
-  },
-
   _shiftBoard: function() {
     const dim = {w: this.$.mountain.offsetWidth, h: this.$.mountain.offsetHeight};
 
@@ -341,76 +271,32 @@ Polymer({
   },
 
   _tick: function(now) {
-    if (this.pause || !this.isAttached) {
+    if (!this.isAttached) {
       return;  // do nothing
     }
-    const dim = {w: this.$.mountain.offsetWidth, h: this.$.mountain.offsetHeight};
-
     const delta = (now - this._lastFrameAt) / 1000;  // ratio of second
     this._lastFrameAt = now;
     window.requestAnimationFrame(this._tick);
 
-    // center target at player location (X => player, Y => mid screen)
-    let change = {x: 0, y: 0};
-    if (!this._gameEndAt) {
-      const target = this._pointer ? {
-        x: this._pointer.x - this._playerX,
-        y: this._pointer.y,
-      } : null;
+    this._game.tick(delta, this._pointer);
+    this._game._render.draw();
 
-      change = this._player.tick(delta, target);
-
-      this._socket.send({
-        'speed': this._player.speed,
-        'loc': {x: this._playerX, y: this._positionDownMountain},
-        'dir': change,
-      }, 'pos');
-
-      if (this._positionDownMountain <= 0 && change.y > 0) {
-        this._gameStartAt = window.performance.now();
-      }
-
-      this._positionDownMountain += (change.y * unitScale.y);
-      this._transform -= (change.y * unitScale.y);
-      this._playerX += change.x * (unitScale.x);
-      if (this._transform < -dim.h) {
-        this._shiftBoard();
-      }
-
-      if (change.y) {
-        this._ents.some((ent, i) => {
-          if (ent.type !== 'tree') { return; }
-
-          const delta = {
-            x: ent.at.x - this._playerX,
-            y: ent.at.y - this._positionDownMountain,
-          };
-  
-          // TODO(samthor): Trees have different sizes.
-          const dist = Math.sqrt(delta.x * delta.x + delta.y * delta.y);
-          if (dist < 12) {
-            // TODO(samthor): End the game!
-            this._player.crash();
-            this._gameEndAt = window.performance.now();
-            this.fire('game-stop', {
-              score: Math.floor(this._positionDownMountain / 100),
-            });
-            return true;
-          }
-        });
-      }
+    const transform = this._game.transform;
+    if (transform.y >= 800) {
+      // gone too far, just hide UI
+      this.$.surface.hidden = true;
+    } else {
+      this.$.surface.style.transform = 'translateY(' + transform.y + 'px)';
+      this.$.ui.style.transform = 'translateX(' + transform.x + 'px)';
     }
 
-    this.$.surface.style.transform = 'translateY(' + (this._transform) + 'px)';
-
-    const s = 'translateX(' + this._playerX + 'px) rotate(' + this._player.rotate + 'rad)';
-    this.$.player.style.transform = s;
+    return;
 
     // draw line
     const context = this.$.canvas.getContext('2d');
 
     context.save();
-    context.translate((dim.w / 2) + this._playerX, -this._transform + (dim.h / 2));
+    context.translate((dim.w / 2) + transform.x, -this._transform.y + (this.$.canvas.height / 2));
     context.beginPath();
     context.moveTo(0, 0);
     context.lineTo(-change.x * unitScale.x, -change.y * unitScale.y);
@@ -421,31 +307,6 @@ Polymer({
     context.stroke();
 
     context.restore();
-
-    // add random trees
-    if (Math.random() / 10 < this._player.speed * delta) {
-      this.addTree();
-    }
-    this.updatePath();
-
-    if (this._game) {
-
-      this._game.transform = {x: 0, y: -this._positionDownMountain};
-
-      if (change.x || change.y) {
-        this._line.push({
-          x: this._playerX,
-          y: this._positionDownMountain,
-          w: 5 * (1 + this._player.lineWidth),
-        });
-        if (this._line.length > 40) {
-          this._line.shift();
-        }
-        this._game.updateLine(this._trail, this._line);
-      }
-
-      this._game.draw();
-    }
 
     if (this._gameStartAt && !this._gameEndAt) {
       const detail = {
