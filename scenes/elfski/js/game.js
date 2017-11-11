@@ -22,10 +22,13 @@ goog.provide('app.Game');
  */
 
 import { Character } from './physics.js';
-import * as render from './render.js';
-import * as webgl from './webgl.js';
+import * as render from './gl/render.js';
+import * as webgl from './gl/webgl.js';
 import * as vec from './vec.js';
 import noise from './noise.js';
+
+import * as lineShader from './shader/line.js';
+import * as spriteShader from './shader/sprite.js';
 
 /**
  * @type {vec.Vector} Magic numbers for player control speed.
@@ -45,15 +48,6 @@ const cellSize = 48;
  * }}
  */
 var PlayerSpec;
-
-function lerp(from, to, by, threshold=0) {
-  const out = from + (to - from) * by;
-
-  if (Math.abs(out - to) < threshold) {
-    return to;
-  }
-  return out;
-}
 
 /**
  * @export
@@ -173,8 +167,7 @@ app.Game = class Game {
 
       const change = p.char.tick(delta, p.pointer);
       if (p.goal) {
-        p.at.x = lerp(p.at.x, p.goal.x, delta, 1);
-        p.at.y = lerp(p.at.y, p.goal.y, delta, 1);
+        p.at = vec.lerp(p.at, p.goal, delta);
         p.goal.x += (change.x * unitScale.x);
         p.goal.y += (change.y * unitScale.y);
       }
@@ -308,130 +301,6 @@ class Player {
   }
 }
 
-const spriteVertexShader = `
-uniform vec2 u_screenDims;
-
-// Center of the sprite in screen coordinates
-attribute vec2 centerPosition;
-
-// Offset of the sprite's origin.
-attribute float offsetY;
-
-// Layer to push this sprite into.
-attribute float layer;
-
-// Transform of the whole screen.
-uniform vec2 u_transform;
-
-// Rotation to draw sprite at
-attribute float rotation;
-
-// Per-sprite frame offset.
-attribute float spriteIndex;
-
-// Sprite size in screen coordinates
-attribute float spriteSize;
-
-// Offset of this vertex's corner from the center, in normalized
-// coordinates for the sprite. In other words:
-//   (-0.5, -0.5) => Upper left corner
-//   ( 0.5, -0.5) => Upper right corner
-//   (-0.5,  0.5) => Lower left corner
-//   ( 0.5,  0.5) => Lower right corner
-attribute vec2 cornerOffset;
-
-// Specified in normalized coordinates (0.0..1.0), where 1.0 = spriteSize.
-attribute vec2 spriteTextureSize;
-
-// Number of sprites per row of texture
-attribute float spritesPerRow;
-
-// Output to the fragment shader.
-varying vec2 v_texCoord;
-
-void main() {
-  float row = floor(spriteIndex / spritesPerRow);
-  float col = (spriteIndex - (row * spritesPerRow));
-
-  vec2 upperLeftTC = vec2(spriteTextureSize.x * col, spriteTextureSize.y * row);
-
-  // Get the texture coordinate of this vertex (cornerOffset is in [-0.5,0.5])
-  v_texCoord = upperLeftTC + spriteTextureSize * (cornerOffset + vec2(0.5, 0.5));
-
-  // Shift to center of screen, base of sprite.
-  // TODO: We could make the origin configurable.
-  vec2 halfDims = u_screenDims / 2.0;
-  vec2 updateCenter = vec2(centerPosition.x + halfDims.x,
-                           centerPosition.y + halfDims.y - spriteSize / 2.0 + offsetY);
-
-  // Rotate as appropriate
-  float s = sin(rotation);
-  float c = cos(rotation);
-  mat2 rotMat = mat2(c, -s, s, c);
-  vec2 scaledOffset = spriteSize * cornerOffset;
-  vec2 pos = updateCenter + rotMat * scaledOffset;
-
-  // depth goes from 0-1, where 0=(-screenDims.y) and 1=(2*screenDims.y)
-  float depthRange = u_screenDims.y * 3.0;
-  float depth = 1.0 - (updateCenter.y + u_screenDims.y + u_transform.y) / depthRange;
-  depth = depth - layer;
-
-  vec4 screenTransform = vec4(2.0 / u_screenDims.x, -2.0 / u_screenDims.y, -1.0, 1.0);
-  gl_Position = vec4((pos + u_transform) * screenTransform.xy + screenTransform.zw, depth, 1.0);
-}
-`;
-const spriteFragmentShader = `
-precision mediump float;
-
-uniform sampler2D u_texture;
-
-varying vec2 v_texCoord;
-
-void main() {
-  vec4 color = texture2D(u_texture, v_texCoord);
-
-  if (color.a == 0.0) {
-    // sanity discard if blend mode is bad
-    discard;
-  }
-
-  gl_FragColor = color;
-}
-`;
-
-const lineVertexShader = `
-uniform vec2 u_screenDims;
-uniform vec2 u_transform;
-
-attribute vec2 position;
-attribute vec2 normal;
-attribute float miter;
-attribute float thickness;
-
-varying float v_thickness;
-
-void main() {
-  // push the point along its normal by half thickness
-  vec2 p = position.xy + vec2(normal * thickness/2.0 * miter);
-
-  vec2 halfDims = u_screenDims / 2.0;
-  vec2 updateCenter = vec2(p.x + halfDims.x, p.y + halfDims.y);
-
-  v_thickness = thickness;
-
-  vec4 screenTransform = vec4(2.0 / u_screenDims.x, -2.0 / u_screenDims.y, -1.0, 1.0);
-  gl_Position = vec4((updateCenter + u_transform) * screenTransform.xy + screenTransform.zw, 0.0, 1.0);
-}
-`;
-const lineFragmentShader = `
-precision mediump float;
-
-varying float v_thickness;
-
-void main() {
-  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-}
-`;
 
 /**
  * @type {!Array<!Array<number>>}
@@ -471,11 +340,11 @@ export default class SantaRender {
       throw new TypeError('no webgl');
     }
 
-    this._spriteProgram = new webgl.ShaderProgram(gl, spriteVertexShader, spriteFragmentShader);
+    this._spriteProgram = new webgl.ShaderProgram(gl, spriteShader.vertex, spriteShader.fragment);
     this._foreground = new render.Renderable(this._spriteProgram);
     this._foreground.resize(1200 * 6);
 
-    this._trailsProgram = new webgl.ShaderProgram(gl, lineVertexShader, lineFragmentShader);
+    this._trailsProgram = new webgl.ShaderProgram(gl, lineShader.vertex, lineShader.fragment);
     this._trails = new render.Renderable(this._trailsProgram);
     this._trails.resize(100 * 20);  // 100 players with 10 lines each?
 
