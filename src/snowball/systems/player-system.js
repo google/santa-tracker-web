@@ -18,11 +18,10 @@ export class PlayerSystem {
     this.playerTargetedPositions = {};
   }
 
-  addPlayer(id = ThreeMath.generateUUID()) {
-    const player = Elf.allocate(id);
+  addPlayer(id = ThreeMath.generateUUID(), startingTileIndex = -1) {
+    const player = Elf.allocate(id, startingTileIndex);
     this.playerMap[id] = player;
     this.players.push(player);
-    //this.playerLayer.add(player);
     this.newPlayers.push(player);
     return player;
   }
@@ -63,18 +62,30 @@ export class PlayerSystem {
     const { grid, map } = mapSystem;
     const { player: clientPlayer } = clientSystem;
 
+    // New players are passed through the parachute system...
     while (this.newPlayers.length) {
-      const newPlayer = this.newPlayers.shift();
-      newPlayer.setup(game);
-      this.parachutingPlayers.push(newPlayer);
-      parachuteSystem.dropEntity(newPlayer);
+      const player = this.newPlayers.shift();
+
+      player.setup(game);
+      parachuteSystem.dropEntity(player);
+
+      this.parachutingPlayers.push(player);
     }
 
+    // Arrived players are positioned and placed with existing players...
     for (let i = 0; i < this.parachutingPlayers.length; ++i) {
       const player = this.parachutingPlayers[i];
 
       if (player.arrival.arrived) {
+        const { arrival } = player;
+        const position = grid.indexToPosition(
+            arrival.tileIndex, intermediateVector2);
+
         this.parachutingPlayers.splice(i--, 1);
+
+        player.position.x = position.x;
+        player.position.y = position.y;
+
         this.playerLayer.add(player);
       }
     }

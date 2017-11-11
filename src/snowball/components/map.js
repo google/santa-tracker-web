@@ -163,6 +163,24 @@ export class Map {
     }
   }
 
+  getRandomHabitableTileIndex() {
+    console.log(this.tileRings.length);
+    for (let i = 0; i < this.tileCount; ++i) {
+      const maxRingIndex = Math.max(2.0, this.tileRings.length - 15);
+      const ringIndex = Math.floor(Math.random() * maxRingIndex);
+      const ring = this.tileRings[ringIndex];
+      const tileIndex = Math.floor(Math.random() * ring.length);
+      const index = ring[tileIndex];
+
+      if (this.getTileState(index) === 1.0 &&
+          this.getTileObstacle(index) === -1.0) {
+        return index;
+      }
+    }
+
+    console.warn('No habitable tile index found!');
+  }
+
   setTileObstacle(index, sprite) {
     const tileObstacles = this.tileObstacles;
 

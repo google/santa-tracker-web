@@ -4,6 +4,9 @@ const intermediateVector3 = new Vector3();
 
 export class TetheredCameraTracker {
   constructor(camera, target, tetherDistance = 100.0, acceleration = 0.15) {
+    camera.position.x = target.position.x;
+    camera.position.y = target.position.y;
+
     this.camera = camera;
     this.target = target;
 

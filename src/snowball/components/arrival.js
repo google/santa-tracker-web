@@ -1,7 +1,8 @@
 export class Arrival {
-  constructor() {
+  constructor(tileIndex) {
     this.droppedTick = Infinity;
     this.arrived = false;
+    this.tileIndex = tileIndex;
   }
 
   isDropping() {

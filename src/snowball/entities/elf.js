@@ -103,6 +103,11 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     material.map.needsUpdate = true;
   }
 
+  clone() {
+    return Elf.allocate(
+        this.playerId, this.majorColor, this.minorColor, this.gender);
+  }
+
   constructor() {
     super();
 
@@ -136,6 +141,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   }
 
   onAllocated(playerId,
+      startingTileIndex,
       majorColor = randomElement(majorColors),
       minorColor = randomElement(minorColors),
       gender = 'male') {
@@ -153,7 +159,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
 
     this.path = new Path();
     this.health = new Health();
-    this.arrival = new Arrival();
+    this.arrival = new Arrival(startingTileIndex);
     this.sank = false;
   }
 

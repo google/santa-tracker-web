@@ -46,5 +46,7 @@ export class DestinationMarker extends Entity(Mesh) {
 
     this.rotation.z = Math.PI / 4.0;
     this.position.z = grid.cellSize * 0.5;
+
+    this.visible = false;
   }
 }

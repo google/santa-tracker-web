@@ -80,7 +80,8 @@ export class MainLevel extends Level {
   }
 
   update(game) {
-    const { camera, mapSystem, playerSystem, clientSystem } = game;
+    const { camera, mapSystem, clientSystem } = game;
+    const { player } = clientSystem;
     const { grid, map } = mapSystem;
 
     if ((game.tick - this.lastErosionTick) > 16) {
@@ -94,6 +95,8 @@ export class MainLevel extends Level {
       this.pickEvent = null;
     }
 
-    this.cameraTracker.update(game);
+    if (player.arrival.arrived) {
+      this.cameraTracker.update(game);
+    }
   }
 }

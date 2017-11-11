@@ -6,7 +6,8 @@ const {
   Object3D,
   Mesh,
   PlaneBufferGeometry,
-  MeshBasicMaterial
+  MeshBasicMaterial,
+  Vector3
 } = self.THREE;
 
 export class Parachute extends Allocatable(Entity(Object3D)) {
@@ -41,7 +42,8 @@ export class Parachute extends Allocatable(Entity(Object3D)) {
   }
 
   carry(object) {
-    //object.position.z = -this.size - 8.0;
+    object.position.set(0, 0, 0);
+
     this.carriedObject = object;
     this.dolly.add(object);
   }

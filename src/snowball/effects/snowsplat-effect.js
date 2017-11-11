@@ -55,6 +55,10 @@ uniform float time;
 varying float vDisplayTime;
 
 void main() {
+  if (vDisplayTime < 1.0) {
+    discard;
+  }
+
   float timeDelta = time - vDisplayTime;
   float elapsed = min(timeDelta / 300.0, 1.0);
 

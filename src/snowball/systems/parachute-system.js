@@ -1,8 +1,11 @@
 import { Parachute } from '../entities/parachute.js';
 
 const {
-  Object3D
+  Object3D,
+  Vector2
 } = self.THREE;
+
+const intermediateVector2 = new Vector2();
 
 export class ParachuteSystem {
   constructor(frameCount = 300, dropHeight = 420) {
@@ -31,8 +34,12 @@ export class ParachuteSystem {
     while (this.undroppedEntities.length) {
       const entity = this.undroppedEntities.shift();
       const { arrival } = entity;
+      const position = grid.indexToPosition(
+          arrival.tileIndex, intermediateVector2);
       const parachute = Parachute.allocate();
 
+      parachute.position.x = position.x;
+      parachute.position.y = position.y;
       parachute.carry(entity);
 
       this.entityParachutes.set(entity, parachute);
