@@ -58,13 +58,6 @@ export class Character {
   }
 
   /**
-   * @return {number} rotation in rads
-   */
-  get rotate() {
-    return -Math.atan2(this._vec.x, this._vec.y);
-  }
-
-  /**
    * @return {number} line width due to rotation
    */
   get lineWidth() {
@@ -72,10 +65,26 @@ export class Character {
   }
 
   /**
+   * @return {number} angle in rads
+   */
+  get angle() {
+    return Math.atan2(this._vec.x, this._vec.y);
+  }
+
+  /**
+   * @param {number} v angle in rads
+   */
+  set angle(v) {
+    this._vec.x = Math.cos(v);
+    this._vec.y = Math.sin(v);
+  }
+
+  /**
    * @export
    */
   crash() {
     this._speed = 0;
+    this._vec = {x: (this._vec.x > 0) ? +1 : -1, y: 0};
   }
 
   /**
@@ -94,10 +103,6 @@ export class Character {
    * @export
    */
   tick(delta, target=null) {
-    const angle = Math.atan2(this._vec.x, this._vec.y);
-    const changeX = Math.sin(angle) * this._speed * delta;
-    const changeY = this._speed * this._vec.y * delta;
-
     if (target) {
       target = vec.unitVec(target);  // deal with bad client data
 
@@ -117,13 +122,17 @@ export class Character {
       this._line = 0;  // character not changing direction
     }
 
+    const angle = this.angle;
     let accel = Math.cos(angle) - accelerationBar;
     if (accel < 0) {
       accel = Math.tan(accel);
     }
     this._speed = clamp(this._speed + accel * delta, 0, maximumSpeed);
 
-    return {x: changeX, y: changeY};
+    return {
+      x: this._speed * Math.sin(angle) * delta,
+      y: this._speed * this._vec.y * delta,
+    };
   }
 }
 

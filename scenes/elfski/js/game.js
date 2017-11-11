@@ -24,30 +24,242 @@ goog.provide('app.Game');
 import { Character } from './physics.js';
 import * as render from './render.js';
 import * as webgl from './webgl.js';
+import * as vec from './vec.js';
+
+/**
+ * Magic numbers for player control speed.
+ *
+ * @type {vec.Vector}
+ */
+const unitScale = {x: 400, y: 600};
+
+/**
+ * @typedef {{
+ *   char: Character,
+ *   loc: vec.Vector,
+ *   alloc: !Object
+ * }}
+ */
+var PlayerSpec;
+
+function lerp(from, to, by, threshold=0) {
+  const out = from + (to - from) * by;
+
+  if (Math.abs(out - to) < threshold) {
+    return to;
+  }
+  return out;
+}
 
 /**
  * @export
  */
 app.Game = class Game {
-  constructor() {
+  constructor(canvas, tiles) {
+    this._render = new SantaRender(canvas, tiles);
+    this._canvas = canvas;
+    this._transform = {x: 0, y: 0};
+
+    /** @type {!Object<string, !Player>} */
+    this._remotePlayers = {};
+    this._me = new Player(this._render);
+
+    this._pathTo = 0;
+    this._ents = [];
+
+    this._now = 0;
+  }
+
+  get transform() {
+    return {x: this._transform.x, y: this._transform.y};
   }
 
   /**
-   * @export
-   * @return {!Character}
+   * @param {string} id
    */
-  static newCharacter() {
-    return new Character();
+  updateRemotePlayer(id, pointer, at) {
+    let p = this._remotePlayers[id];
+    if (p === undefined) {
+      p = new Player(this._render);
+      this._remotePlayers[id] = p;
+      p.at = at;
+    }
+    p.pointer = pointer;
+    p.goal = at;
   }
 
- /**
-  * @export
-  * @return {function(): SpriteGame}
-  */
-  static getSpriteGame() {
-    return SantaRender;
+  clearRemotePlayer(id) {
+    const p = this._remotePlayers[id];
+    if (p !== undefined) {
+//      p.dispose();
+      delete this._remotePlayers[id];
+    }
+  }
+
+  _updatePath() {
+    const atPixels = 60;
+
+    while (this._pathTo < this._me.at.y + this._canvas.offsetHeight / 2) {
+      this._pathTo += atPixels;
+
+      const drift = Math.sin(this._pathTo / 155) + Math.cos(this._pathTo / 255);
+
+      for (let i = 0; i < 2; ++i) {
+        const at = {x: i ? 200 : -200, y: this._pathTo};
+        const def = {at: at, spriteIndex: 5, offset: 16};
+
+        if (this._pathTo % (atPixels * 2)) {
+          def.spriteIndex = 4;
+        }
+
+        at.x += drift * 40;
+
+        const alloc = this._render.update(undefined, def);
+        this._ents.push({alloc, at, type: 'dot'});
+      }
+    }
+  }
+
+  /**
+   * @param {number} fraction of second
+   * @param {vec.Vector} pointer position relative to player
+   * @export
+   */
+  tick(delta, pointer) {
+    this._updatePath()
+    this._now += delta;
+
+    const change = this._me.char.tick(delta, pointer);
+    const unitChange = change.x ? vec.unitVec(change) : change;
+
+    // TODO: simplify line
+    let lineChange = false;
+    if (change.x) {
+      this._me.line.push({
+        x: this._me.at.x,
+        y: this._me.at.y,
+        w: 5 * (1 + this._me.char.lineWidth),
+        at: this._now,
+      });
+      lineChange = true;
+    }
+    while (this._me.line.length > 40 || (this._me.line[0] && this._me.line[0].at < this._now - 2)) {
+      lineChange = true;
+      this._me.line.shift();
+    }
+    lineChange && this._render.updateLine(this._me.lineAlloc, this._me.line);
+
+    this._me.at.x += (change.x * unitScale.x);
+    this._me.at.y += (change.y * unitScale.y);
+
+    // TODO: lerp "away" from X goal
+    this._transform.x = -this._me.at.x;
+    this._transform.y = -this._me.at.y;
+
+    const def = {at: this._me.at, spriteIndex: 6, rotation: this._me.char.angle, offset: 64};
+    this._render.update(this._me.spriteAlloc, def);
+    this._render.transform = this._transform;
+
+    // move other players
+    for (const id in this._remotePlayers) {
+      const p = this._remotePlayers[id];
+
+      const change = p.char.tick(delta, p.pointer);
+      if (p.goal) {
+        p.at.x = lerp(p.at.x, p.goal.x, delta, 1);
+        p.at.y = lerp(p.at.y, p.goal.y, delta, 1);
+        p.goal.x += (change.x * unitScale.x);
+        p.goal.y += (change.y * unitScale.y);
+      }
+      p.at.x += (change.x * unitScale.x);
+      p.at.y += (change.y * unitScale.y);
+
+      const def = {at: p.at, spriteIndex: 6, rotation: p.char.angle, offset: 64};
+      this._render.update(p.spriteAlloc, def);
+    }
+
+    // determine whether we need to do local work
+    if (change.y < 0) {
+      throw new Error('should never go back up')
+    } else if (change.y > 0) {
+      this._cleanup(delta);
+    }
+  }
+
+  get playerAt() {
+    return this._me.at;
+  }
+
+  get playerAngle() {
+    return this._me.char.angle;
+  }
+
+  _cleanup(delta) {
+    // remove offscreen (up) ents
+    while (this._ents.length) {
+      const next = this._ents[0];
+      if (next.at.y > -this._transform.y - this._canvas.height) {
+        break;  // don't remove anymore
+      }
+      this._render.remove(next.alloc);
+      this._ents.shift();
+    }
+
+    // collide with ents
+    this._ents.some((ent, i) => {
+      if (ent.type !== 'tree') { return; }
+
+      const delta = {
+        x: ent.at.x - this._me.at.x,
+        y: ent.at.y - this._me.at.y,
+      };
+
+      // TODO(samthor): Trees have different sizes.
+      const dist = Math.sqrt(delta.x * delta.x + delta.y * delta.y);
+      if (dist < 12) {
+        this._me.char.crash();
+        // TODO: stop game
+        // this._gameEndAt = window.performance.now();
+        // this.fire('game-stop', {
+        //   score: Math.floor(this._positionDownMountain / 100),
+        // });
+        return true;
+      }
+    });
+
+    // add more trees
+    if (Math.random() / 10 < this._me.char.speed * delta) {
+      this.addTree();
+    }
+  }
+
+  addTree() {
+    const type = Math.floor(Math.random() * 4);
+
+    const at = {
+      x: ((Math.random() - 0.5) * this._canvas.width),
+      y: (this._me.at.y + this._canvas.height / 2) + 256,  // hide offscreen
+    };
+
+    const def = {at, spriteIndex: type, offset: 16, layer: 1};
+    const alloc = this._render.update(undefined, def);
+    this._ents.push({alloc, at, type: 'tree'});
   }
 };
+
+class Player {
+  constructor(render) {
+    this.char = new Character();
+    this.at = {x: 0, y: 0};
+
+    this.line = [];
+
+    this.steps = [];
+
+    this.lineAlloc = render.updateLine(null, []);
+    this.spriteAlloc = render.update(null, {at: this.at});
+  }
+}
 
 const spriteVertexShader = `
 uniform vec2 u_screenDims;
@@ -342,6 +554,7 @@ export default class SantaRender {
 
     gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     gl.clearColor(0, 0, 0, 0);
+//    gl.clearColor(0.9608, 0.9490, 0.8863, 1);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     gl.enable(gl.BLEND);
