@@ -80,7 +80,7 @@ Elf Ski scene.
 <script>
 (function() {
 
-const socketRate = (1000 / 4);
+const tickInterval = (1000 / 60);
 
 Polymer({
   is: 'elfski-scene',
@@ -118,7 +118,7 @@ Polymer({
       value: null,
     },
 
-    _socketInterval: {
+    _tickInterval: {
       type: Number,
       value: 0,
     },
@@ -134,9 +134,14 @@ Polymer({
   },
 
   created: function() {
+    this._draw = this._draw.bind(this);
     this._tick = this._tick.bind(this);
     this._onResize = this._onResize.bind(this);
   },
+
+  observers: [
+    '_sendPlayerState(_socket, _pointer)',
+  ],
 
   onPreload: function() {
     this.preloadImages([
@@ -157,7 +162,8 @@ Polymer({
 
       const canvas = this.$.gl3d;
       this._game = new scenes.elfski.Game(canvas, image)
-      window.requestAnimationFrame(this._tick);
+      window.requestAnimationFrame(this._draw);
+      this._tickInterval = window.setInterval(this._tick, tickInterval);
 
     }.bind(this);
 
@@ -173,19 +179,21 @@ Polymer({
         this._game.updateRemotePlayer(id, data.p, data.at);
       }
     });
-
-    this._socketInterval = window.setInterval(() => {
-      this._socket.send({
-        p: this._pointer,
-        at: this._game.playerAt,
-      }, 'player');
-    }, socketRate);
   },
 
   onHide: function() {
     window.removeEventListener('resize', this._onResize);
     this._socket.close();
-    window.clearInterval(this._socketInterval);
+    window.clearInterval(this._tickInterval);
+  },
+
+  _sendPlayerState: function(socket, pointer) {
+    if (!socket || !this._game) { return; }
+    console.info('sending state', pointer);
+    socket.send({
+      p: pointer,
+      at: this._game.playerAt,
+    }, 'player');
   },
 
   /**
@@ -270,16 +278,20 @@ Polymer({
     this._transform += dim.h;
   },
 
-  _tick: function(now) {
+  _tick: function() {
     if (!this.isAttached) {
       return;  // do nothing
     }
+    const now = window.performance.now();
     const delta = (now - this._lastFrameAt) / 1000;  // ratio of second
     this._lastFrameAt = now;
-    window.requestAnimationFrame(this._tick);
 
     this._game.tick(delta, this._pointer);
+  },
+
+  _draw: function() {
     this._game._render.draw();
+    window.requestAnimationFrame(this._draw);
 
     const transform = this._game.transform;
     if (transform.y >= 800) {
@@ -291,6 +303,8 @@ Polymer({
     }
 
     return;
+
+    // TODO(samthor): Restore old snow code. It was pretty :(
 
     // draw line
     const context = this.$.canvas.getContext('2d');
