@@ -107,6 +107,9 @@ var AttribInfo;
  */
 export class ShaderProgram {
   constructor(gl, vsSource, fsSource) {
+    /** @private {!WebGLRenderingContext} */
+    this._gl = gl;
+
     /** @private {!WebGLProgram} */
     this._program = initShaderProgram(gl, vsSource, fsSource);
 
@@ -130,23 +133,41 @@ export class ShaderProgram {
       names.push(info.name);
 
       /** @type {AttribInfo} */
-      const attrib = {
+      const attrib = Object.freeze({
         // TODO(samthor): It seems like the returned `info.size` is the count of type, but I've
         // previously assumed that we need the size to be number of floats. Check this later: at
         // worst right now we're just wasting a bit of extra memory.
         size: info.size * ShaderProgram.sizeForType_(gl, info.type),
         offset: size,
         loc: gl.getAttribLocation(this._program, info.name),
-      };
+      });
       this._attrib[info.name] = attrib;
       size += attrib.size;
     }
+
+    Object.freeze(this._attrib);  // freeze our storage so we can return it
 
     /** @private {!Array<string>} */
     this._attribs = Object.freeze(names);
 
     /** @private {number} */
     this._attribSize = size;
+  }
+
+  /**
+   * @return {!WebGLRenderingContext}
+   * @export
+   */
+  get gl() {
+    return this._gl;
+  }
+
+  /**
+   * @return {!WebGLProgram}
+   * @export
+   */
+  get program() {
+    return this._program;
   }
 
   /**
@@ -159,11 +180,11 @@ export class ShaderProgram {
   }
 
   /**
-   * @return {!WebGLProgram}
+   * @return {!Object<string, AttribInfo>}
    * @export
    */
-  get program() {
-    return this._program;
+  get attrs() {
+    return this._attrib;  // TODO: fix badly named thing
   }
 
   /**
