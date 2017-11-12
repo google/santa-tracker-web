@@ -1,5 +1,5 @@
 
-const lod = {
+export const lod = {
   HIGH: 'high',
   LOW: 'low'
 };
@@ -48,4 +48,4 @@ export class LodSystem {
       }
     }
   }
-}
+};

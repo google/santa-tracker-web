@@ -2,10 +2,11 @@ import { Entity } from '../../engine/core/entity.js';
 import { Allocatable } from '../../engine/utils/allocatable.js';
 import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { createElf } from '../models.js';
-import { LodSystem } from '../systems/lod-system.js';
+import { lod } from '../systems/lod-system.js';
 import { Health } from '../components/health.js';
 import { Path } from '../components/path.js';
 import { Arrival } from '../components/arrival.js';
+import { Presence } from '../components/presence.js';
 import { PlayerMarker } from './player-marker.js';
 import { Snowball } from './snowball.js';
 import { combine } from '../../engine/utils/function.js';
@@ -143,7 +144,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.add(dolly);
     this.dolly = dolly;
     this.path = null;
-    this.lod = LodSystem.lod.LOW;
+    this.lod = lod.LOW;
 
     this.collider = Rectangle.allocate(15, 45, this.position);
   }
@@ -169,7 +170,14 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.path = new Path();
     this.health = new Health();
     this.arrival = new Arrival(startingTileIndex);
+    this.presence = new Presence();
     this.sank = false;
+
+    if (this.elf) {
+      // This opacity may have changed depending on how the character departed
+      // when it was last used:
+      this.elf.children[0].material.opacity = 1.0;
+    }
   }
 
   setup(game) {
@@ -233,7 +241,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     }
 
     if (this.lodNeedsUpdate) {
-      if (this.currentLod === LodSystem.lod.HIGH && health.alive) {
+      if (this.currentLod === lod.HIGH && health.alive) {
         this.initializeModel();
         this.visible = true;
       } else {
@@ -274,17 +282,16 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         this.hasAssignedTarget = false;
       }
     } else {
-      if (this.sank) {
+      const { presence } = this;
+
+      if (presence.exiting) {
         if (clientPlayerMarker.parent === this.dolly) {
           this.dolly.remove(clientPlayerMarker);
         }
 
-        if (this.dolly.position.z > 0.0) {
-          this.dolly.position.z -= 0.5 + this.dolly.position.z / 20.0;
-          if (this.elf != null) {
-            this.elf.children[0].material.opacity =
-                Math.min(this.dolly.position.z / 10, 1.0);
-          }
+        if (this.currentLod === lod.HIGH) {
+          const material = this.elf.children[0].material;
+          material.opacity = 0.5;
         }
       }
 
@@ -297,6 +304,10 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   }
 
   set lod(value) {
+    if (this.health && !this.health.alive) {
+      return;
+    }
+
     if (value != this.currentLod) {
       this.currentLod = value;
       this.lodNeedsUpdate = true;

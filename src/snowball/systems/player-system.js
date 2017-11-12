@@ -58,7 +58,7 @@ export class PlayerSystem {
   }
 
   update(game) {
-    const { mapSystem, snowballSystem, clientSystem, parachuteSystem } = game;
+    const { mapSystem, snowballSystem, clientSystem, parachuteSystem, icebergSystem } = game;
     const { grid, map } = mapSystem;
     const { player: clientPlayer } = clientSystem;
 
@@ -73,8 +73,6 @@ export class PlayerSystem {
       if (arrival.tileIndex < 0) {
         arrival.tileIndex = map.getRandomHabitableTileIndex();
       }
-
-      console.log(arrival.tileIndex);
 
       player.setup(game);
       parachuteSystem.dropEntity(player);
@@ -143,13 +141,23 @@ export class PlayerSystem {
 
     for (let i = 0; i < this.players.length; ++i) {
       const player = this.players[i];
+      const { presence } = player;
+
       player.update(game);
 
       const tileIndex = grid.positionToIndex(player.position);
       const tileState = map.getTileState(tileIndex);
 
-      if (tileState === 4.0) {
+      if (tileState === 4.0 && presence.present && !presence.exiting) {
         player.sink();
+        icebergSystem.freezeEntity(player);
+        presence.exiting = true;
+      } else if (presence.gone) {
+        this.players.splice(i--, 1);
+
+        if (player !== clientPlayer) {
+          Elf.free(player);
+        }
       }
     }
   }

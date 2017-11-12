@@ -164,9 +164,6 @@ export class Map {
   }
 
   getRandomHabitableTileIndex() {
-
-    console.log(this.tileRings.length);
-
     for (let i = 0; i < this.tileCount; ++i) {
       const minRingIndex = Math.floor(this.tileRings.length / 4);
       const maxRingIndex = Math.max(2.0, this.tileRings.length - 10);

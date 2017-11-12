@@ -73,7 +73,6 @@ void main() {
 const fragmentShader = `
 precision highp float;
 
-uniform float scale;
 uniform float time;
 
 varying vec2 vUv;
@@ -150,7 +149,7 @@ export class HexMap extends Entity(Object3D) {
       transparent: true
     });
 
-    const hexGeometry = new THREE.CylinderBufferGeometry(1, 1, 1, 6);
+    const hexGeometry = new CylinderBufferGeometry(1, 1, 1, 6);
     const tileCount = grid.width * grid.height;
 
     Object.assign(geometry.attributes, hexGeometry.attributes);

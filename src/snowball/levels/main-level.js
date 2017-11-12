@@ -1,19 +1,17 @@
 import { Level } from '../../engine/core/level.js';
 import { Rectangle } from '../../engine/utils/collision-2d.js';
-import { HexMap } from '../entities/hex-map.js';
-import { Elf } from '../entities/elf.js';
 import { TetheredCameraTracker } from '../utils/camera-tracking.js';
 
 const { AmbientLight } = self.THREE;
 
 export class MainLevel extends Level {
   setup(game) {
-    console.log('Setup!');
     const {
       camera,
       collisionSystem,
       snowballSystem,
       parachuteSystem,
+      icebergSystem,
       effectSystem,
       playerSystem,
       clientSystem,
@@ -28,6 +26,7 @@ export class MainLevel extends Level {
     const { effectsLayer } = effectSystem;
     const { collisionDebugLayer } = collisionSystem;
     const { parachuteLayer } = parachuteSystem;
+    const { icebergLayer } = icebergSystem;
 
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera, player);
@@ -47,6 +46,7 @@ export class MainLevel extends Level {
     gimbal.add(playerLayer);
     gimbal.add(effectsLayer);
     gimbal.add(parachuteLayer);
+    gimbal.add(icebergLayer);
 
     this.add(mapLayer);
     this.add(this.light);
@@ -93,7 +93,9 @@ export class MainLevel extends Level {
       this.pickEvent = null;
     }
 
-    if (player.arrival.arrived) {
+    if (player.arrival.arrived &&
+        !player.presence.exiting &&
+        !player.presence.gone) {
       this.cameraTracker.update(game);
     }
   }
