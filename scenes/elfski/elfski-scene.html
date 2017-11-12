@@ -71,7 +71,6 @@ Elf Ski scene.
       on-pointerup="_onPointerUp">
     <div id="surface">
       <div id="ui"></div>
-      <canvas id="canvas"></canvas>
     </div>
     <canvas id="gl3d"></canvas>
   </div>
@@ -164,6 +163,7 @@ Polymer({
       this._game = new scenes.elfski.Game(canvas, image)
       window.requestAnimationFrame(this._draw);
       this._tickInterval = window.setInterval(this._tick, tickInterval);
+      this._onResize();
 
     }.bind(this);
 
@@ -205,31 +205,18 @@ Polymer({
     this._gameStartAt = 0;
     this._gameEndAt = 0;
 
-    this._playerX = 0;
-    this._transform = 0;
-    this._pathTo = 240;
-    this._positionDownMountain = 0;
-
+    this._game.reset();
     this.$.mountain.className = '';
-
-    this._ents.forEach((ent) => {
-      this._game.remove(ent.index);
-    });
-    this._ents = [];
     this._onResize();
-
-    this._player.reset();
 
     this.fire('game-score', {});
   },
 
   _onResize: function() {
-    // TODO: HDPI
-    this.$.canvas.width = this.$.mountain.offsetWidth;
-    this.$.canvas.height = this.$.mountain.offsetHeight * 2;
-
     this.$.gl3d.width = this.$.mountain.offsetWidth;
     this.$.gl3d.height = this.$.mountain.offsetHeight;
+
+    this._game && this._game.resize();
   },
 
   /**
@@ -254,30 +241,6 @@ Polymer({
     this._pointer = null;
   },
 
-  _shiftBoard: function() {
-    const dim = {w: this.$.mountain.offsetWidth, h: this.$.mountain.offsetHeight};
-
-    // clone canvas, top to bottom
-    const context = this.$.canvas.getContext('2d');
-    context.clearRect(0, 0, dim.w, dim.h);
-    context.beginPath();  // clearRect starts path
-    context.drawImage(this.$.canvas, 0, dim.h, dim.w, dim.h, 0, 0, dim.w, dim.h);
-    context.clearRect(0, dim.h, dim.w, dim.h);
-
-    while (this._ents.length) {
-      const next = this._ents[0];
-      if (next.at.y > this._positionDownMountain - dim.h) {
-        break;  // don't remove anymore
-      }
-      this._game.remove(next.index);
-      this._ents.shift();
-    }
-
-    // hide UI components
-    this.$.mountain.className = 'down';
-    this._transform += dim.h;
-  },
-
   _tick: function() {
     if (!this.isAttached) {
       return;  // do nothing
@@ -286,7 +249,26 @@ Polymer({
     const delta = (now - this._lastFrameAt) / 1000;  // ratio of second
     this._lastFrameAt = now;
 
-    this._game.tick(delta, this._pointer);
+    if (!this._gameStartAt && this.score) {
+      this._gameStartAt = now;
+    }
+
+    const crashed = this._game.tick(delta, this._pointer, Boolean(this._gameEndAt));
+    if (!crashed) {
+      return;
+    }
+
+    this._gameEndAt = now;
+    this.fire('game-stop', {
+      score: this.score,
+    });
+  },
+
+  get score() {
+    if (!this._game) {
+      return 0;
+    }
+    return Math.max(0, Math.floor(this._game.playerAt.y / 100));
   },
 
   _draw: function() {
@@ -300,6 +282,14 @@ Polymer({
     } else {
       this.$.surface.style.transform = 'translateY(' + transform.y + 'px)';
       this.$.ui.style.transform = 'translateX(' + transform.x + 'px)';
+    }
+
+    if (this._gameStartAt && !this._gameEndAt) {
+      const detail = {
+        score: this.score,
+        time: (window.performance.now() - this._gameStartAt) / 1000,
+      };
+      this.fire('game-score', detail);
     }
 
     return;
@@ -321,14 +311,6 @@ Polymer({
     context.stroke();
 
     context.restore();
-
-    if (this._gameStartAt && !this._gameEndAt) {
-      const detail = {
-        score: Math.floor(this._positionDownMountain / 100),
-        time: (window.performance.now() - this._gameStartAt) / 1000,
-      };
-      this.fire('game-score', detail);
-    }
   },
 
 });

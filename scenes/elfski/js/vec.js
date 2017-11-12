@@ -26,6 +26,9 @@
  */
 export var Vector;
 
+/** @type {Vector} */
+export const zero = Object.freeze({x: 0, y: 0});
+
 /**
  * @param {Vector} vec
  * @return {Vector} the same vec, but modified
@@ -56,6 +59,42 @@ export function angleBetween(vecA, vecB) {
 }
 
 /**
+ * @param {Vector} vecA
+ * @param {Vector} vecB
+ * @return {Vector}
+ */
+export function add(vecA, vecB) {
+  return {
+    x: vecA.x + vecB.x,
+    y: vecA.y + vecB.y,
+  };
+}
+
+/**
+ * @param {Vector} vecA
+ * @param {number} v
+ * @return {Vector}
+ */
+export function mult(vec, v) {
+  return {
+    x: vec.x * v,
+    y: vec.y * v,
+  };
+}
+
+/**
+ * @param {Vector} vecA
+ * @param {Vector} vecB
+ * @return {Vector}
+ */
+export function multVec(vecA, vecB) {
+  return {
+    x: vecA.x * vecB.x,
+    y: vecA.y * vecB.y,
+  };
+}
+
+/**
  * Lerps between two vectors of any size.
  *
  * @param {Vector} vecA
@@ -68,6 +107,19 @@ export function lerp(vecA, vecB, part) {
     x: vecA.x + (vecB.x - vecA.x) * part,
     y: vecA.y + (vecB.y - vecA.y) * part,
   };
+}
+
+/**
+ * Returns the distance between two vectors.
+ *
+ * @param {Vector} vecA
+ * @param {Vector} vecB
+ * @return {number}
+ */
+export function dist(vecA, vecB) {
+  const dx = vecA.x - vecB.x;
+  const dy = vecA.y - vecB.y;
+  return Math.sqrt(dx * dx + dy * dy);
 }
 
 /**

@@ -15,27 +15,13 @@
  */
 
 import * as vec from './vec.js';
+import {clamp} from './util.js';
 
 const slerpRatio = 4;
 const accelerationBar = 0.5;
 const maximumSpeed = 0.5;
 const stopBar = 0.75;  // angle at which we are trying to stop
 const initialVec = {x: 1, y: 0};
-
-/**
- * @param {number} v
- * @param {number} low
- * @param {number} high
- * @return {number}
- */
-function clamp(v, low, high) {
-  if (v < low) {
-    return low;
-  } else if (v > high) {
-    return high;
-  }
-  return v;
-}
 
 
 export class Character {
