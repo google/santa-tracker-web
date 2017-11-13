@@ -18,20 +18,27 @@ goog.provide('app.Snow');
 goog.require('app.Constants');
 
 
-app.Snow = function(canvas, backupCanvas) {
+app.Snow = function($elem, canvas, backupCanvas) {
   this.canvas = canvas;
   this.context = canvas.getContext('2d');
   this.backup = backupCanvas;
   this.backupContext = backupCanvas.getContext('2d');
-  this.playing = true; // change to false
+  this.playing = false;
   this.cleared = true;
 
   this.flakes = [];
+  $elem.find('[data-tool="snowglobe"]').on(
+      'click.clausedraws touchend.clausedraws', this.toggleSnow.bind(this));
 };
 
 
+app.Snow.prototype.toggleSnow  = function() {
+  this.playing = !this.playing;
+};
+
 
 app.Snow.prototype.update = function(delta) {
+  // TODO: connect to button,
   if (!this.playing && this.cleared) {
     return;
   }
@@ -41,14 +48,25 @@ app.Snow.prototype.update = function(delta) {
   this.cleared = true;
 
   if (this.playing) {
-    if (Math.random() > 0.9) {
+    if (Math.random() > 0.95 &&
+        this.flakes.length < app.Constants.SNOW_MAX_PARTICLES) {
       this.addFlake();
-      console.log('adding');
     }
 
     for (var i = 0; i < this.flakes.length; i++) {
       this.drawFlake(this.flakes[i]);
-      this.updateFlake(this.flakes[i], delta);
+      this.updateFlake(this.flakes[i], delta, i);
+    }
+
+    for (var i = this.flakes.length - 1; i >= 0; i--) {
+      var flake = this.flakes[i];
+      this.drawFlake(flake);
+      this.updateFlake(flake, delta);
+
+      if (flake.x > this.backup.width || flake.x < 0 ||
+          flake.y > this.backup.height) {
+        this.flakes.splice(i, 1);
+      }
     }
 
     this.context.drawImage(this.backup, 0, 0, this.canvas.width,
@@ -59,14 +77,13 @@ app.Snow.prototype.update = function(delta) {
 
 
 app.Snow.prototype.addFlake = function() {
+  var distance = Math.random();
   var snowflake = {
     x: Math.random() * this.backup.width,
     y: 0,
-    // vx: -0.01 + Math.random() * 0.02,
-    // vy: Math.random() * 0.01,
-    vx: 0.0,
-    vy: 0.01,
-    size: Math.random() * 10
+    vx: -app.Constants.SNOW_MAX_X / 2 + Math.random() * app.Constants.SNOW_MAX_X,
+    vy: distance * app.Constants.SNOW_MAX_Y,
+    size: distance * app.Constants.SNOW_MAX_SIZE
   };
 
   this.flakes.push(snowflake);
@@ -80,7 +97,7 @@ app.Snow.prototype.updateFlake = function(flake, delta) {
 
 
 app.Snow.prototype.drawFlake = function(flake) {
-  this.backupContext.fillStyle = '#eee';
+  this.backupContext.fillStyle = 'rgba(255, 255, 255, 0.8)';
   this.backupContext.beginPath();
   this.backupContext.arc(flake.x, flake.y, flake.size, 0, 2 * Math.PI);
   this.backupContext.fill();

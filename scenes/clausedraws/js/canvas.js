@@ -107,7 +107,8 @@ app.Canvas.prototype.initCanvases = function($elem) {
       });
   }
 
-  this.snow = new app.Snow(this.foregroundCanvas, this.foregroundBackup);
+  this.snow = new app.Snow($elem, this.foregroundCanvas,
+      this.foregroundBackup);
 };
 
 
