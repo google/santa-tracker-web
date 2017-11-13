@@ -9,7 +9,7 @@ import { Arrival } from '../components/arrival.js';
 import { Presence } from '../components/presence.js';
 import { PlayerMarker } from './player-marker.js';
 import { Snowball } from './snowball.js';
-import { combine } from '../../engine/utils/function.js';
+import { combine, randomElement } from '../../engine/utils/function.js';
 
 const {
   Mesh,
@@ -41,8 +41,6 @@ const minorColors = [
   '#B8906D',
   '#DBBC99'
 ];
-
-const randomElement = array => array[Math.floor(Math.random() * array.length)];
 
 const generateElfTexture = (() => {
   const canvas = document.createElement('canvas');
@@ -88,12 +86,6 @@ const generateElfTexture = (() => {
     image.src = canvas.toDataURL();
     cache[cacheKey] = image;
     return image;
-
-    const texture = new Texture(image);
-
-    cache[cacheKey] = texture;
-
-    return texture;
   };
 })();
 

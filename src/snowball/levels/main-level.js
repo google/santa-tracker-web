@@ -1,6 +1,7 @@
 import { Level } from '../../engine/core/level.js';
 import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { TetheredCameraTracker } from '../utils/camera-tracking.js';
+import { Drop } from '../entities/drop.js';
 
 const { AmbientLight } = self.THREE;
 
