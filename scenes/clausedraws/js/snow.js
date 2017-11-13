@@ -16,6 +16,7 @@
 
 goog.provide('app.Snow');
 goog.require('app.Constants');
+goog.require('app.utils');
 
 
 app.Snow = function($elem, canvas, backupCanvas) {
@@ -77,7 +78,7 @@ app.Snow.prototype.update = function(delta) {
 
 
 app.Snow.prototype.addFlake = function() {
-  var distance = Math.random();
+  var distance = app.utils.map(Math.random(), app.Constants.SNOW_MIN_DISTANCE, 1);
   var snowflake = {
     x: Math.random() * this.backup.width,
     y: 0,

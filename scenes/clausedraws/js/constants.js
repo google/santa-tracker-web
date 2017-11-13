@@ -47,4 +47,5 @@ app.Constants = {
   SNOW_MAX_Y: 0.05,
   SNOW_MAX_SIZE: 10,
   SNOW_MAX_PARTICLES: 60,
+  SNOW_MIN_DISTANCE: 0.2
 };
