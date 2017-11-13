@@ -3,12 +3,9 @@ const { Vector3 } = self.THREE;
 const intermediateVector3 = new Vector3();
 
 export class TetheredCameraTracker {
-  constructor(camera, target, tetherDistance = 100.0, acceleration = 0.15) {
-    camera.position.x = target.position.x;
-    camera.position.y = target.position.y;
-
+  constructor(camera, tetherDistance = 100.0, acceleration = 0.15) {
     this.camera = camera;
-    this.target = target;
+    this.target = null;
 
     this.tetherDistance = tetherDistance;
     this.acceleration = acceleration;
@@ -16,6 +13,10 @@ export class TetheredCameraTracker {
   }
 
   update(game) {
+    if (!this.target) {
+      return;
+    }
+
     const { width, height } = game;
     const delta = intermediateVector3;
     // TODO(cdata): Need to address why the y axis of the camera is

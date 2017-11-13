@@ -34,6 +34,7 @@ export class PlayerSystem {
       return;
     }
 
+    delete this.playerMap[id];
     this.players.splice(playerIndex, 1);
     this.playerLayer.remove(player);
     Elf.free(player);

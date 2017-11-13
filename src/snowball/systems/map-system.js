@@ -16,12 +16,6 @@ export class MapSystem {
     this.pendingMapSeed = undefined;
     this.map = null;
 
-    // TODO(samthor): This can be later triggered by network or other reasons, but just shows off
-    // that the seed can be created "late".
-    window.setTimeout(() => {
-      this.pendingMapSeed = Math.floor(Math.random() * 0x100000000);
-    }, 100);
-
     this.mapLayer = new Object3D();
     this.hexMap = new HexMap();
     this.obstacles = new Obstacles();
@@ -77,7 +71,7 @@ export class MapSystem {
 
   update(game) {
     const { clientSystem } = game;
-    const { player } = clientSystem;
+    const { player: clientPlayer } = clientSystem;
 
     if (this.pendingMapSeed != null) {
       this.rebuildMap(game, this.pendingMapSeed);
@@ -87,13 +81,16 @@ export class MapSystem {
     this.obstacles.update(game);
     this.hexMap.update(game);
 
-    const destinationReached = player.path.destinationReached;
+    if (!clientPlayer) {
+      return;
+    }
+    const destinationReached = clientPlayer.path.destinationReached;
 
     if (destinationReached && this.destinationMarker.visible) {
       this.destinationMarker.visible = false;
     } else if (!destinationReached) {
-      this.destinationMarker.position.x = player.path.destination.x;
-      this.destinationMarker.position.y = player.path.destination.y - 20.0;
+      this.destinationMarker.position.x = clientPlayer.path.destination.x;
+      this.destinationMarker.position.y = clientPlayer.path.destination.y - 20.0;
 
       this.destinationMarker.visible = true;
     }

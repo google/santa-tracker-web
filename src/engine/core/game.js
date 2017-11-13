@@ -86,22 +86,30 @@ export class Game extends HTMLElement {
     this.inputSystem.update(this);
   }
 
-  set level(level) {
-    if (level == null) {
-      return;
-    }
-
+  setLevel(level, seed=0) {
     if (this.currentLevel) {
       this.currentLevel.teardown(this);
     }
 
+    if (level == null) {
+      this.currentLevel = null;
+      this.renderSystem.clear();
+      return;
+    }
+
     this.camera.position.copy(level.position);
-    this.camera.position.z -= 3200;
+    this.camera.position.z = -3200;
     this.camera.lookAt(level.position);
     this.camera.rotation.z = 0;
 
+    const { mapSystem } = this;
+    mapSystem.regenerateMapWithSeed(seed);
 
     this.currentLevel = level;
     this.currentLevel.setup(this);
+  }
+
+  get level() {
+    return this.currentLevel;
   }
 }

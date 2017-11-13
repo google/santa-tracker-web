@@ -42,6 +42,10 @@ export class RenderSystem extends HTMLElement {
     const { currentLevel, camera } = game;
     this.renderer.render(currentLevel, camera);
   }
+
+  clear() {
+    this.renderer.clearColor();
+  }
 };
 
 customElements.define('render-system', RenderSystem);

@@ -29,6 +29,11 @@ export class SnowballGame extends Game {
     this.playerSystem = new PlayerSystem();
 
     this.renderSystem.renderer.setClearColor(0x71A7DB, 1.0);
+    self.requestAnimationFrame(() => this.renderSystem.clear());
+  }
+
+  get levelType() {
+    return MainLevel;
   }
 
   setup() {
@@ -38,8 +43,6 @@ export class SnowballGame extends Game {
     this.playerSystem.setup(this);
     this.clientSystem.setup(this);
     this.networkSystem.setup(this);
-
-    this.level = new MainLevel();
   }
 
   update() {
@@ -55,6 +58,12 @@ export class SnowballGame extends Game {
     this.clientSystem.update(this);
     this.networkSystem.update(this);
     this.playerSystem.update(this);
+  }
+
+  setLevel(level, seed) {
+    super.setLevel(level, seed);
+
+    this.clientSystem.setup(this);
   }
 };
 

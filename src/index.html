@@ -9,9 +9,30 @@
         margin: 0;
         padding: 0;
       }
+      #debugButtons {
+        position: absolute;
+        z-index: 10000;
+        padding: 4px;
+        background: rgba(255, 255, 255, 0.125);
+      }
     </style>
   </head>
   <body>
+    <div id="debugButtons">
+      <button id="levelButton">Create/Clear Level</button>
+    </div>
+    <script>
+      levelButton.addEventListener('click', (ev) => {
+        if (game.currentLevel) {
+          console.info('cleared level');
+          game.setLevel(null);
+        } else {
+          const ctor = game.levelType;
+          game.setLevel(new ctor(), 0); //~~(Math.random() * 0x100000000));
+          console.info('created level', game.level);
+        }
+      });
+    </script>
     <snowball-game id="game"></snowball-game>
 
     <script src="./node_modules/three/build/three.js"></script>

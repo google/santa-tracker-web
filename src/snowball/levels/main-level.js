@@ -21,7 +21,6 @@ export class MainLevel extends Level {
 
     const { snowballLayer } = snowballSystem;
     const { playerLayer } = playerSystem;
-    const { player } = clientSystem;
     const { mapLayer, grid, map, gimbal } = mapSystem;
     const { effectsLayer } = effectSystem;
     const { collisionDebugLayer } = collisionSystem;
@@ -29,7 +28,7 @@ export class MainLevel extends Level {
     const { icebergLayer } = icebergSystem;
 
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
-    this.cameraTracker = new TetheredCameraTracker(camera, player);
+    this.cameraTracker = new TetheredCameraTracker(camera);
     this.light = new AmbientLight(0xbbaaaa, Math.PI);
 
     this.measure(game);
@@ -79,7 +78,7 @@ export class MainLevel extends Level {
 
   update(game) {
     const { camera, mapSystem, clientSystem } = game;
-    const { player } = clientSystem;
+    const { player: clientPlayer } = clientSystem;
     const { grid, map } = mapSystem;
 
     if (map && (game.tick - this.lastErosionTick) > 16) {
@@ -88,14 +87,14 @@ export class MainLevel extends Level {
     }
 
     if (this.pickEvent != null) {
-      clientSystem.assignDestination(this.pickEvent);
+      if (clientPlayer) {
+        clientSystem.assignDestination(this.pickEvent);
+      } else {
+        this.cameraTracker.target = this.pickEvent;
+      }
       this.pickEvent = null;
     }
 
-    if (player.arrival.arrived &&
-        !player.presence.exiting &&
-        !player.presence.gone) {
-      this.cameraTracker.update(game);
-    }
+    this.cameraTracker.update(game);
   }
 }

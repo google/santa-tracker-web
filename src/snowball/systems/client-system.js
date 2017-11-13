@@ -7,12 +7,10 @@ const {
   MeshBasicMaterial
 } = self.THREE;
 
-export class ClientSystem {
-  constructor(clientId = ThreeMath.generateUUID(), startingTileIndex = -1) {
-    // NOTE(cdata): This wll probably be provided by the game service:
-    this.clientId = clientId;
-    this.startingTileIndex = -1;
+const localClientId = 'local';
 
+export class ClientSystem {
+  constructor() {
     this.player = null;
     this.targetedPosition = null;
     this.destination = null;
@@ -31,16 +29,13 @@ export class ClientSystem {
     this.destination = destination;
   }
 
-  setup(game) {
-    const { playerSystem, mapSystem } = game;
-    const { map, grid } = mapSystem;
-
-    const player = playerSystem.addPlayer(
-        this.clientId, this.startingTileIndex);
-    this.player = player;
-  }
+  setup(game) {}
 
   update(game) {
+    if (!this.player) {
+      return;
+    }
+
     const { camera } = game;
     const { playerId, health, path, arrival } = this.player;
 
@@ -50,7 +45,7 @@ export class ClientSystem {
 
     const { networkSystem, playerSystem, mapSystem } = game;
     const { grid } = mapSystem;
-    const { clientId, destination, targetedPosition, arrivalMarker } = this;
+    const { destination, targetedPosition, arrivalMarker } = this;
 
     if (!arrival.arrived) {
       if (arrivalMarker.parent == null && arrival.tileIndex > -1) {
