@@ -17,7 +17,7 @@
 goog.provide('app.Canvas');
 
 goog.require('app.Constants');
-goog.require('app.Point');
+goog.require('app.Snow');
 goog.require('app.utils');
 goog.require('app.shared.utils');
 
@@ -106,6 +106,8 @@ app.Canvas.prototype.initCanvases = function($elem) {
         saved: i ? false : true
       });
   }
+
+  this.snow = new app.Snow(this.foregroundCanvas, this.foregroundBackup);
 };
 
 
@@ -113,7 +115,6 @@ app.Canvas.prototype.initCanvases = function($elem) {
  * Resize handler
  */
 app.Canvas.prototype.onResize = function() {
-  // check isLandscape
   this.canvasRatio = Math.min(
       this.container.height() / this.canvasHeight,
       this.container.width() / this.canvasWidth);
