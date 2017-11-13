@@ -19,7 +19,7 @@ const {
  */
 
 export class Map {
-  constructor(grid, seed=undefined) {
+  constructor(grid, seed) {
     const seedRandom = this.seedRandom = new SeedRandom(seed);
     this.erodeSeedRandom = seedRandom.clone();
     this.erodeStep = 0;
@@ -48,10 +48,6 @@ export class Map {
 
     for (let q = 0; q < grid.width; ++q) {
       for (let r = 0; r < grid.height; ++r) {
-        if (seed === undefined) {
-          break;
-        }
-
         oddq.set(q, r, 0);
 
         const mag = intermediateHexCoord.subVectors(oddq, halfSize).length();
