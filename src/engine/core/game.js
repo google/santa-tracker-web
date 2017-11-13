@@ -86,9 +86,8 @@ export class Game extends HTMLElement {
     this.inputSystem.update(this);
   }
 
-  setLevel(level) {
+  set level(level) {
     if (this.currentLevel) {
-      // TODO(samthor): Do we expect this to happen?
       this.currentLevel.teardown(this);
     }
 

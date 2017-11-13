@@ -27,7 +27,7 @@
           // TODO: do nothing, reload?
         } else {
           const ctor = game.levelType;
-          game.setLevel(new ctor(), 0); //~~(Math.random() * 0x100000000));
+          game.level = new ctor();
           console.info('created level', game.level);
         }
       });
