@@ -82,11 +82,13 @@ Serve from `./dist_pretty`.
 
 To rebuild, run `docker rm -f santa` and start over from building the image.
 
-# Scenes
+# Development Guide
+
+## Scenes
 
 Santa Tracker is comprised shared code along with many individual scenes: e.g., `village`, `tracker` etc.
 
-## Relevant Paths
+### Paths
 
 Scenes are referenced in a few locations-
 
@@ -103,6 +105,14 @@ There are two optional locations-
 
 * `scenes/dorf/sass/_houses.scss`: If the scene is also a _house_ that lives in the village.
 * `scenes/press/js/models.js`: To be included in the Press and Educators scenes.
+
+## Translations
+
+Santa Tracker contains translations for a variety of different languages.
+These translations are sourced from Google's internal translation tool.
+
+If you're adding a string for development, please modify `en_src_messages.json`.
+If you'd building Santa Tracker for production, you'll need the string to be translated.
 
 # License
 
