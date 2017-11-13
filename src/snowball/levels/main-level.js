@@ -84,7 +84,7 @@ export class MainLevel extends Level {
 
     if (map && (game.tick - this.lastErosionTick) > 16) {
       this.lastErosionTick = game.tick;
-      map.moveErodeStep();
+      map.erode();  // TODO(samthor): The number of calls should be synchronized with server state.
     }
 
     if (this.pickEvent != null) {

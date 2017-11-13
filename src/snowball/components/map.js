@@ -92,10 +92,10 @@ export class Map {
     this.tileObstacles = tileObstacles;
     this.grid = grid;
 
-    this.generateRaisedTiles(seedRandom);
+    this._generateRaisedTiles(seedRandom);
   }
 
-  generateRaisedTiles(seedRandom) {
+  _generateRaisedTiles(seedRandom) {
     const grid = this.grid;
     const frontier = [];
     const visited = new Set();
@@ -143,40 +143,32 @@ export class Map {
     }
   }
 
-  moveErodeStep(target) {
-    if (target === undefined) {
-      target = this.erodeStep + 1;
-    } else if (target < this.erodeStep) {
-      throw new Error(`can't erode backwards: wanted ${target}, was ${this.erodeStep}`)
-    }
+  erode() {
+    const maxErodedTiles = Math.ceil(this.tileRings.length / 5) * 3.0;
+    const numberOfTiles = this.erodeSeedRandom.randRange(maxErodedTiles);
 
-    for (; this.erodeStep < target; ++this.erodeStep) {
-      const maxErodedTiles = Math.ceil(this.tileRings.length / 5) * 3.0;
-      const numberOfTiles = this.erodeSeedRandom.randRange(maxErodedTiles);
+    for (let i = 0; i < numberOfTiles; ++i) {
+      const ring = this.tileRings[this.tileRings.length - 1];
+      if (ring == null) {
+        this.tileRings.pop();
+        continue;
+      }
 
-      for (let i = 0; i < numberOfTiles; ++i) {
-        const ring = this.tileRings[this.tileRings.length - 1];
-        if (ring == null) {
-          this.tileRings.pop();
-          continue;
-        }
+      const ringIndex = this.erodeSeedRandom.randRange(ring.length);
+      const index = ring[ringIndex];
+      const state = this.getTileState(index);
 
-        const ringIndex = this.erodeSeedRandom.randRange(ring.length);
-        const index = ring[ringIndex];
-        const state = this.getTileState(index);
+      // TODO(cdata): Show some kind of "collapse" effect when the tile
+      // goes from raised (5.0) to shaking (3.0)...
+      if (state === 1.0 || state === 5.0) {
+        this.setTileState(index, 3.0);
+      } else if (state === 3.0) {
+        ring.splice(ringIndex, 1);
+        this.setTileState(index, 4.0);
+      }
 
-        // TODO(cdata): Show some kind of "collapse" effect when the tile
-        // goes from raised (5.0) to shaking (3.0)...
-        if (state === 1.0 || state === 5.0) {
-          this.setTileState(index, 3.0);
-        } else if (state === 3.0) {
-          ring.splice(ringIndex, 1);
-          this.setTileState(index, 4.0);
-        }
-
-        if (!ring.length) {
-          this.tileRings.pop();
-        }
+      if (!ring.length) {
+        this.tileRings.pop();
       }
     }
   }

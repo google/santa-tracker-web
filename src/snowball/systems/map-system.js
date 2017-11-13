@@ -105,8 +105,8 @@ export class MapSystem {
     });
 
     this.map = new Map(this.grid, seed);
-    this.hexMap.refreshMap(this.map);
-    this.obstacles.refreshMap(this.map);
+    this.hexMap.map = this.map;
+    this.obstacles.map = this.map;
 
     this.obstacleCollidables = new Set();
     this.map.tileObstacles.array.forEach((obstacle, index) => {

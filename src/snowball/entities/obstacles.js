@@ -156,10 +156,22 @@ export class Obstacles extends Entity(Object3D) {
     this.uniforms.time.value = performance.now();
   }
 
-  refreshMap(map) {
+  get map() {
+    return this._map;
+  }
+
+  set map(map) {
+    this._map = map;
+
     const geometry = this.geometry;
-    geometry.addAttribute('tileOffset', map.tileOffsets);
-    geometry.addAttribute('tileState', map.tileStates);
-    geometry.addAttribute('tileObstacle', map.tileObstacles);
+    if (map) {
+      geometry.addAttribute('tileOffset', map.tileOffsets);
+      geometry.addAttribute('tileState', map.tileStates);
+      geometry.addAttribute('tileObstacle', map.tileObstacles);
+    } else {
+      geometry.removeAttribute('tileOffset');
+      geometry.removeAttribute('tileState');
+      geometry.removeAttribute('tileObstacle');
+    }
   }
 }

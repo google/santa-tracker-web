@@ -122,6 +122,7 @@ export class HexMap extends Entity(Object3D) {
   constructor() {
     super();
 
+    this._map = null;
     this.pickHandlers = [];
     this.inputSurface = null;
     this.tileCount = 0;
@@ -188,10 +189,21 @@ export class HexMap extends Entity(Object3D) {
 
   }
 
-  refreshMap(map) {
+  get map() {
+    return this._map;
+  }
+
+  set map(map) {
+    this._map = map;
+
     const geometry = this.geometry;
-    geometry.addAttribute('tileOffset', map.tileOffsets);
-    geometry.addAttribute('tileState', map.tileStates);
+    if (map) {
+      geometry.addAttribute('tileOffset', map.tileOffsets);
+      geometry.addAttribute('tileState', map.tileStates);
+    } else {
+      geometry.removeAttribute('tileOffset');
+      geometry.removeAttribute('tileState');
+    }
   }
 
   teardown(game) {
