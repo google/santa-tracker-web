@@ -1,4 +1,7 @@
 import { HexCoord } from '../../engine/utils/hex-coord.js';
+import { SeedRandom } from '../utils/seed-random.js';
+
+const treeTypes = 4;
 
 const {
   BufferAttribute,
@@ -16,7 +19,11 @@ const {
  */
 
 export class Map {
-  constructor(grid) {
+  constructor(grid, seed=undefined) {
+    const seedRandom = this.seedRandom = new SeedRandom(seed);
+    this.erodeSeedRandom = seedRandom.clone();
+    this.erodeStep = 0;
+
     const tileCount = grid.width * grid.height;
 
     const tileStates = new InstancedBufferAttribute(
@@ -41,6 +48,10 @@ export class Map {
 
     for (let q = 0; q < grid.width; ++q) {
       for (let r = 0; r < grid.height; ++r) {
+        if (seed === undefined) {
+          break;
+        }
+
         oddq.set(q, r, 0);
 
         const mag = intermediateHexCoord.subVectors(oddq, halfSize).length();
@@ -51,15 +62,15 @@ export class Map {
 
         // Decide the initial state of the tile (either hidden or shown):
         const erosionChance = 0.5 + magDelta / erosionMag;
-        let state = mag > erosionMag
-            ? Math.random() < erosionChance
+        const state = mag > erosionMag 
+            ? seedRandom.random() < erosionChance
                 ? 0.0
                 : 1.0
             : 1.0;
 
         // 15% chance to be a random tree for now:
-        const obstacle = Math.random() > 0.85
-            ? Math.floor(Math.random() * 4)
+        const obstacle = seedRandom.random() > 0.85
+            ? seedRandom.randRange(treeTypes)
             : -1.0;
 
         if (state > 0.0) {
@@ -85,10 +96,10 @@ export class Map {
     this.tileObstacles = tileObstacles;
     this.grid = grid;
 
-    this.generateRaisedTiles();
+    this.generateRaisedTiles(seedRandom);
   }
 
-  generateRaisedTiles() {
+  generateRaisedTiles(seedRandom) {
     const grid = this.grid;
     const frontier = [];
     const visited = new Set();
@@ -97,9 +108,13 @@ export class Map {
     for (let i = 0; i < maxIterations; ++i) {
       let index = -1;
       let state = -1;
+      let attempts = 10;
       do {
-        index = Math.floor(Math.random() * this.tileCount);
+        index = seedRandom.randRange(this.tileCount);
         state = this.getTileState(index);
+        if (!--attempts) {
+          return;
+        }
       } while (state !== 1);
 
       let size = 0;
@@ -112,7 +127,7 @@ export class Map {
         const state = this.getTileState(currentIndex);
         const obstacle = this.getTileObstacle(currentIndex);
 
-        if (Math.random() > 0.5 && !visited.has(currentIndex) &&
+        if (seedRandom.random() > 0.5 && !visited.has(currentIndex) &&
             obstacle === -1 && state === 1.0) {
 
           this.setTileState(currentIndex, 5.0);
@@ -132,19 +147,26 @@ export class Map {
     }
   }
 
-  erode(numberOfTiles) {
-    for (let i = 0; i < numberOfTiles; ++i) {
-      const ring = this.tileRings[this.tileRings.length - 1];
+  moveErodeStep(target) {
+    if (target === undefined) {
+      target = this.erodeStep + 1;
+    } else if (target < this.erodeStep) {
+      throw new Error(`can't erode backwards: wanted ${target}, was ${this.erodeStep}`)
+    }
 
-      if (ring == null) {
-        this.tileRings.pop();
-        return;
-      }
+    for (; this.erodeStep < target; ++this.erodeStep) {
+      const maxErodedTiles = Math.ceil(this.tileRings.length / 5) * 3.0;
+      const numberOfTiles = this.erodeSeedRandom.randRange(maxErodedTiles);
 
-      const tileIndex = Math.floor(Math.random() * ring.length)
-      const index = ring[tileIndex];
+      for (let i = 0; i < numberOfTiles; ++i) {
+        const ring = this.tileRings[this.tileRings.length - 1];
+        if (ring == null) {
+          this.tileRings.pop();
+          continue;
+        }
 
-      if (index != null) {
+        const ringIndex = this.erodeSeedRandom.randRange(ring.length);
+        const index = ring[ringIndex];
         const state = this.getTileState(index);
 
         // TODO(cdata): Show some kind of "collapse" effect when the tile
@@ -152,13 +174,13 @@ export class Map {
         if (state === 1.0 || state === 5.0) {
           this.setTileState(index, 3.0);
         } else if (state === 3.0) {
-          ring.splice(tileIndex, 1);
+          ring.splice(ringIndex, 1);
           this.setTileState(index, 4.0);
         }
-      }
 
-      if (ring.length === 0) {
-        this.tileRings.pop();
+        if (!ring.length) {
+          this.tileRings.pop();
+        }
       }
     }
   }

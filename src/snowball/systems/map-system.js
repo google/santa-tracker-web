@@ -13,11 +13,13 @@ export class MapSystem {
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
     this.grid = new MagicHexGrid(unitWidth, unitHeight, tileScale);
 
-    this.map = new Map(this.grid);
+    this.pendingMapSeed = 0;
+    this.map = new Map(this.grid, 0);
 
     this.mapLayer = new Object3D();
     this.hexMap = new HexMap();
     this.obstacles = new Obstacles();
+    this.obstacleCollidables = new Set();
     this.destinationMarker = new DestinationMarker();
 
     const gimbal = new Object3D();
@@ -33,6 +35,10 @@ export class MapSystem {
     this.mapLayer.add(gimbal);
 
     this.pickHandlers = [];
+  }
+
+  regenerateMapWithSeed(seed) {
+    this.pendingMapSeed = seed;
   }
 
   handleMapPick(handler) {
@@ -61,25 +67,16 @@ export class MapSystem {
     this.hexMap.setup(game);
 
     this.hexMap.handlePick(event => this.onMapPicked(event));
-
-    this.map.tileObstacles.array.forEach((obstacle, index) => {
-      if (obstacle < 0) {
-        return;
-      }
-
-      const position = this.grid.indexToPosition(index);
-      position.y -= this.grid.cellSize / 2.0;
-      const tree = new Tree(index, position);
-
-      tree.setup(game);
-
-      game.collisionSystem.addCollidable(tree);
-    });
   }
 
   update(game) {
     const { clientSystem } = game;
     const { player } = clientSystem;
+
+    if (this.pendingMapSeed != null) {
+      this.rebuildMap(game, this.pendingMapSeed);
+      this.pendingMapSeed = undefined;
+    }
 
     this.obstacles.update(game);
     this.hexMap.update(game);
@@ -94,5 +91,31 @@ export class MapSystem {
 
       this.destinationMarker.visible = true;
     }
+  }
+
+  rebuildMap(game, seed) {
+    this.obstacleCollidables.forEach((tree) => {
+      game.collisionSystem.removeCollidable(tree);
+    });
+
+    this.map = new Map(this.grid, seed);
+    this.hexMap.refreshMap(this.map);
+    this.obstacles.refreshMap(this.map);
+
+    this.obstacleCollidables = new Set();
+    this.map.tileObstacles.array.forEach((obstacle, index) => {
+      if (obstacle < 0) {
+        return;
+      }
+
+      const position = this.grid.indexToPosition(index);
+      position.y -= this.grid.cellSize / 2.0;
+      const tree = new Tree(index, position);
+
+      tree.setup(game);
+
+      game.collisionSystem.addCollidable(tree);
+      this.obstacleCollidables.add(tree);
+    });
   }
 };

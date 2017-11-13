@@ -155,8 +155,8 @@ export class HexMap extends Entity(Object3D) {
     Object.assign(geometry.attributes, hexGeometry.attributes);
     geometry.setIndex(hexGeometry.index);
 
-    geometry.addAttribute('tileOffset', map.tileOffsets);
-    geometry.addAttribute('tileState', map.tileStates);
+    this.geometry = geometry;
+    this.refreshMap(map);
 
     this.uniforms = uniforms;
 
@@ -189,6 +189,12 @@ export class HexMap extends Entity(Object3D) {
           event => this.pickHandlers.forEach(
               handler => handler(event)), this.inputSurface);
 
+  }
+
+  refreshMap(map) {
+    const geometry = this.geometry;
+    geometry.addAttribute('tileOffset', map.tileOffsets);
+    geometry.addAttribute('tileState', map.tileStates);
   }
 
   teardown(game) {

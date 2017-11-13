@@ -138,9 +138,8 @@ export class Obstacles extends Entity(Object3D) {
     Object.assign(geometry.attributes, planeGeometry.attributes);
     geometry.setIndex(planeGeometry.index);
 
-    geometry.addAttribute('tileOffset', map.tileOffsets);
-    geometry.addAttribute('tileState', map.tileStates);
-    geometry.addAttribute('tileObstacle', map.tileObstacles);
+    this.geometry = geometry;
+    this.refreshMap(map);
 
     const mesh = new Mesh(geometry, material);
 
@@ -157,5 +156,12 @@ export class Obstacles extends Entity(Object3D) {
 
   update(game) {
     this.uniforms.time.value = performance.now();
+  }
+
+  refreshMap(map) {
+    const geometry = this.geometry;
+    geometry.addAttribute('tileOffset', map.tileOffsets);
+    geometry.addAttribute('tileState', map.tileStates);
+    geometry.addAttribute('tileObstacle', map.tileObstacles);
   }
 }

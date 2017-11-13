@@ -84,8 +84,7 @@ export class MainLevel extends Level {
 
     if ((game.tick - this.lastErosionTick) > 16) {
       this.lastErosionTick = game.tick;
-      const maxErodedTiles = Math.ceil(map.tileRings.length / 5) * 3.0;
-      map.erode(Math.floor(Math.random() * maxErodedTiles));
+      map.moveErodeStep();
     }
 
     if (this.pickEvent != null) {
