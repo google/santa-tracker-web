@@ -25,12 +25,12 @@ i18n-msg, but is a total rewrite.
 
 class Messages {
   constructor(data, fallback) {
-    this.data_ = data;
-    this.fallback_ = fallback;
+    this._data = data;
+    this._fallback = fallback;
   }
 
   get(msgid) {
-    const value = this.data_[msgid] || this.fallback_[msgid];
+    const value = this._data[msgid] || this._fallback[msgid];
     if (value !== undefined && 'message' in value) {
       return value['message'];
     }
@@ -61,7 +61,7 @@ function fetchMessages() {
 }
 
 const observer = new MutationObserver(() => {
-  _futureMessages = fetchMessages();  // refetch if lang changes
+  futureMessages = fetchMessages();  // refetch if lang changes
 });
 observer.observe(document.documentElement, {attributes: true, attributeFilter: ['lang']});
 
