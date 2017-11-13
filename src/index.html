@@ -19,13 +19,12 @@
   </head>
   <body>
     <div id="debugButtons">
-      <button id="levelButton">Create/Clear Level</button>
+      <button id="levelButton">Create Level</button>
     </div>
     <script>
       levelButton.addEventListener('click', (ev) => {
         if (game.currentLevel) {
-          console.info('cleared level');
-          game.setLevel(null);
+          // TODO: do nothing, reload?
         } else {
           const ctor = game.levelType;
           game.setLevel(new ctor(), 0); //~~(Math.random() * 0x100000000));

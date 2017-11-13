@@ -5,6 +5,11 @@ import { TetheredCameraTracker } from '../utils/camera-tracking.js';
 const { AmbientLight } = self.THREE;
 
 export class MainLevel extends Level {
+  constructor(seed=0) {
+    super();
+    this.mapSeed = seed;
+  }
+
   setup(game) {
     const {
       camera,
@@ -52,6 +57,7 @@ export class MainLevel extends Level {
 
     this.lastErosionTick = 0;
 
+    mapSystem.regenerateMapWithSeed(this.mapSeed);
     clientSystem.setPendingSpawn(-1);  // TODO(samthor): Do better than random position.
   }
 
@@ -93,7 +99,7 @@ export class MainLevel extends Level {
     }
 
     if (this.pickEvent != null) {
-      if (clientPlayer && clientPlayer.isAlive) {
+      if (clientPlayer && clientPlayer.health.alive) {
         clientSystem.assignDestination(this.pickEvent);
 
         // Set target only if arrived, otherwise the player is a child of parachute and has a

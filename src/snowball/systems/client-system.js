@@ -30,14 +30,14 @@ export class ClientSystem {
     this.destination = destination;
   }
 
-  setPendingSpawn(at) {
-    this.pendingSpawnAt = at;
+  setPendingSpawn(index) {
+    this.pendingSpawnAtIndex = index;
   }
 
   reset(game) {
     const { playerSystem } = game;
 
-    if (this.player) {
+    if (this.player != null) {
       playerSystem.removePlayer(this.player.playerId);
     }
 
@@ -52,12 +52,12 @@ export class ClientSystem {
   setup(game) {}
 
   update(game) {
-    if (!this.player) {
-      if (this.pendingSpawnAt == null) {
+    if (this.player == null) {
+      if (this.pendingSpawnAtIndex == null) {
         return;
       }
       const { playerSystem } = game;
-      this.player = playerSystem.addPlayer(localClientId, this.pendingSpawnAt);
+      this.player = playerSystem.addPlayer(localClientId, this.pendingSpawnAtIndex);
       this.pendingSpawnAt = null;
     }
 

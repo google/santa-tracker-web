@@ -86,24 +86,16 @@ export class Game extends HTMLElement {
     this.inputSystem.update(this);
   }
 
-  setLevel(level, seed=0) {
+  setLevel(level) {
     if (this.currentLevel) {
+      // TODO(samthor): Do we expect this to happen?
       this.currentLevel.teardown(this);
-    }
-
-    if (level == null) {
-      this.currentLevel = null;
-      this.renderSystem.clear();
-      return;
     }
 
     this.camera.position.copy(level.position);
     this.camera.position.z = -3200;
     this.camera.lookAt(level.position);
     this.camera.rotation.z = 0;
-
-    const { mapSystem } = this;
-    mapSystem.regenerateMapWithSeed(seed);
 
     this.currentLevel = level;
     this.currentLevel.setup(this);

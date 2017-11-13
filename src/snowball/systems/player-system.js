@@ -19,6 +19,10 @@ export class PlayerSystem {
   }
 
   addPlayer(id = ThreeMath.generateUUID(), startingTileIndex = -1) {
+    if (this.playerMap[id]) {
+      throw new Error(`player ${id} already described`);
+    }
+
     const player = Elf.allocate(id, startingTileIndex);
     this.playerMap[id] = player;
     this.players.push(player);
