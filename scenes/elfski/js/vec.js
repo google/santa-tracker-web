@@ -71,7 +71,7 @@ export function add(vecA, vecB) {
 }
 
 /**
- * @param {Vector} vecA
+ * @param {Vector} vec
  * @param {number} v
  * @return {Vector}
  */
