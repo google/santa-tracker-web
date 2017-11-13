@@ -13,8 +13,14 @@ export class MapSystem {
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
     this.grid = new MagicHexGrid(unitWidth, unitHeight, tileScale);
 
-    this.pendingMapSeed = 0;
-    this.map = new Map(this.grid, 0);
+    this.pendingMapSeed = undefined;
+    this.map = null;
+
+    // TODO(samthor): This can be later triggered by network or other reasons, but just shows off
+    // that the seed can be created "late".
+    window.setTimeout(() => {
+      this.pendingMapSeed = Math.floor(Math.random() * 0x100000000);
+    }, 100);
 
     this.mapLayer = new Object3D();
     this.hexMap = new HexMap();

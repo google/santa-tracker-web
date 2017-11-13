@@ -28,7 +28,6 @@ export class IcebergSystem {
     const { mapSystem } = game;
     const { grid, map } = mapSystem;
     const { cellSize } = grid;
-    const { tileRings } = map;
 
     while (this.freezingEntities.length) {
       const entity = this.freezingEntities.pop();
@@ -51,6 +50,11 @@ export class IcebergSystem {
 
       this.icebergLayer.add(iceberg);
     }
+
+    if (map == null) {
+      return;
+    }
+    const { tileRings } = map;
 
     for (let i = 0; i < this.frozenEntities.length; ++i) {
       const entity = this.frozenEntities[i];

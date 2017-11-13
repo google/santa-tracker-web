@@ -123,14 +123,13 @@ export class HexMap extends Entity(Object3D) {
     super();
 
     this.pickHandlers = [];
-    this.map = null;
     this.inputSurface = null;
     this.tileCount = 0;
   }
 
   setup(game) {
     const { mapSystem, inputSystem } = game;
-    const { grid, map } = mapSystem;
+    const { grid } = mapSystem;
 
     const uniforms = {
       tileScale: {
@@ -154,9 +153,7 @@ export class HexMap extends Entity(Object3D) {
 
     Object.assign(geometry.attributes, hexGeometry.attributes);
     geometry.setIndex(hexGeometry.index);
-
     this.geometry = geometry;
-    this.refreshMap(map);
 
     this.uniforms = uniforms;
 

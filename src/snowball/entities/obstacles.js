@@ -106,7 +106,7 @@ orientationMesh.updateMatrix();
 export class Obstacles extends Entity(Object3D) {
   setup(game) {
     const { mapSystem } = game;
-    const { map, grid } = mapSystem;
+    const { grid } = mapSystem;
 
     const uniforms = {
       time: {
@@ -137,9 +137,7 @@ export class Obstacles extends Entity(Object3D) {
 
     Object.assign(geometry.attributes, planeGeometry.attributes);
     geometry.setIndex(planeGeometry.index);
-
     this.geometry = geometry;
-    this.refreshMap(map);
 
     const mesh = new Mesh(geometry, material);
 

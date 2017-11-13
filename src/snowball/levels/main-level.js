@@ -82,7 +82,7 @@ export class MainLevel extends Level {
     const { player } = clientSystem;
     const { grid, map } = mapSystem;
 
-    if ((game.tick - this.lastErosionTick) > 16) {
+    if (map && (game.tick - this.lastErosionTick) > 16) {
       this.lastErosionTick = game.tick;
       map.moveErodeStep();
     }

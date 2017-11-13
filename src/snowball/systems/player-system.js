@@ -62,6 +62,10 @@ export class PlayerSystem {
     const { grid, map } = mapSystem;
     const { player: clientPlayer } = clientSystem;
 
+    if (map == null) {
+      return;
+    }
+
     // New players are passed through the parachute system...
     while (this.newPlayers.length) {
       const player = this.newPlayers.shift();
