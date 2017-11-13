@@ -102,9 +102,8 @@ export function initShaderProgram(gl, vsSource, fsSource) {
  *   offset: number,
  *   loc: number
  * }}
- * @export
  */
-var AttribInfo;
+export var AttribInfo;
 
 /**
  * Wraps a GL shader and provides conveiene methods and info, such as introspected access to the
@@ -161,7 +160,6 @@ export class ShaderProgram {
 
   /**
    * @return {!WebGLRenderingContext}
-   * @export
    */
   get gl() {
     return this._gl;
@@ -169,7 +167,6 @@ export class ShaderProgram {
 
   /**
    * @return {!WebGLProgram}
-   * @export
    */
   get program() {
     return this._program;
@@ -178,7 +175,6 @@ export class ShaderProgram {
   /**
    * @param {string} key
    * @return {?AttribInfo} info
-   * @export
    */
   info(key) {
     return this._attrib[key] || null;
@@ -186,7 +182,6 @@ export class ShaderProgram {
 
   /**
    * @return {!Object<string, AttribInfo>}
-   * @export
    */
   get attrs() {
     return this._attrib;  // TODO: fix badly named thing
@@ -194,7 +189,6 @@ export class ShaderProgram {
 
   /**
    * @return {!Array<string>}
-   * @export
    */
   get attribs() {
     return this._attribs;
@@ -202,7 +196,6 @@ export class ShaderProgram {
 
   /**
    * @return {number}
-   * @export
    */
   get attribSize() {
     return this._attribSize;
@@ -211,7 +204,6 @@ export class ShaderProgram {
   /**
    * @param {string} key
    * @return {number}
-   * @export
    */
   a(key) {
     const info = this._attrib[key];
@@ -221,7 +213,6 @@ export class ShaderProgram {
   /**
    * @param {string} key
    * @return {!WebGLUniformLocation}
-   * @export
    */
   u(key) {
     return this._uniform[key] || null;

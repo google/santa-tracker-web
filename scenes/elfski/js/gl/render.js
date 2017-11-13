@@ -135,12 +135,12 @@ export class Renderable {
    * @return {boolean} whether this leaves a gap
    */
   _free(alloc) {
-    if (alloc._from + alloc._size === this._capacity) {
-      this._capacity -= alloc._size;
+    if (alloc.from + alloc.size === this._capacity) {
+      this._capacity -= alloc.size;
       // TODO: we may now have an unused Alloc at the end; it doesn't really matter though
       return false;
     }
-    if (alloc._from > this._capacity) {
+    if (alloc.from > this._capacity) {
       // ???
       return false;
     }

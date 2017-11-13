@@ -14,17 +14,17 @@
  *
  */
 
-function Grad(x, y, z) {
-  this.x = x; this.y = y; this.z = z;
+class Grad {
+  constructor(x, y, z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+
+  dot2(x, y) {
+    return this.x * x + this.y * y;
+  }
 }
-
-Grad.prototype.dot2 = function(x, y) {
-  return this.x*x + this.y*y;
-};
-
-Grad.prototype.dot3 = function(x, y, z) {
-  return this.x*x + this.y*y + this.z*z;
-};
 
 var grad3 = [new Grad(1,1,0),new Grad(-1,1,0),new Grad(1,-1,0),new Grad(-1,-1,0),
              new Grad(1,0,1),new Grad(-1,0,1),new Grad(1,0,-1),new Grad(-1,0,-1),

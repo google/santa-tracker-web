@@ -41,7 +41,7 @@ const offsets = [
  */
 export var SpriteDef;
 
-export default class SantaRender {
+export class SantaRender {
   constructor(canvas, tiles) {
     this.canvas = canvas;
     this.tiles = tiles;
@@ -100,10 +100,11 @@ export default class SantaRender {
    * @return {!SpriteEnt}
    */
   newSprite(def, at, rotation=0) {
-    def = Object.assign({
+    def = /** @type {SpriteDef} */ (Object.assign({
       layer: 0,
       offset: 0,
-    }, def);
+      spriteIndex: -1,
+    }, def));
 
     const alloc = this._foreground.alloc(6);
     const spriteSize = 128;

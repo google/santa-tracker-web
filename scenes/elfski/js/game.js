@@ -23,7 +23,7 @@ goog.provide('app.Game');
 
 import {Character} from './physics.js';
 import * as vec from './vec.js';
-import SantaRender from './ents.js';
+import {SantaRender} from './ents.js';
 import * as util from './util.js';
 import * as ents from './ents.js';
 import {WorldManager} from './world.js';
@@ -93,7 +93,7 @@ app.Game = class Game {
   clearRemotePlayer(id) {
     const p = this._remotePlayers[id];
     if (p !== undefined) {
-      p.dispose();
+      p.ent.free();
       delete this._remotePlayers[id];
     }
   }
@@ -110,7 +110,7 @@ app.Game = class Game {
   }
 
   /**
-   * @param {number} fraction of second
+   * @param {number} delta fraction of second
    * @param {vec.Vector} pointer position relative to player
    * @param {boolean} stop whether to not move the player
    * @export
