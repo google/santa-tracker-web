@@ -374,6 +374,13 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.die();
   }
 
+  get isAlive() {
+    if (this.health != null) {
+      return this.health.alive;
+    }
+    return false;
+  }
+
   die() {
     this.health.alive = false;
     this.fallDown();

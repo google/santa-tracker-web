@@ -59,12 +59,6 @@ export class SnowballGame extends Game {
     this.networkSystem.update(this);
     this.playerSystem.update(this);
   }
-
-  setLevel(level, seed) {
-    super.setLevel(level, seed);
-
-    this.clientSystem.setup(this);
-  }
 };
 
 customElements.define('snowball-game', SnowballGame);

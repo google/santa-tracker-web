@@ -51,6 +51,8 @@ export class MainLevel extends Level {
     this.add(this.light);
 
     this.lastErosionTick = 0;
+
+    clientSystem.setPendingSpawn(-1);  // TODO(samthor): Do better than random position.
   }
 
   measure(game) {
@@ -68,6 +70,10 @@ export class MainLevel extends Level {
 
   teardown(game) {
     this.unsubscribe();
+
+    game.clientSystem.reset(game);
+    game.playerSystem.clearAllPlayers();
+    game.parachuteSystem.reset();
 
     this.remove(game.mapSystem.mapLayer);
     this.remove(game.effectSystem.effectsLayer);
@@ -87,7 +93,7 @@ export class MainLevel extends Level {
     }
 
     if (this.pickEvent != null) {
-      if (clientPlayer) {
+      if (clientPlayer && clientPlayer.isAlive) {
         clientSystem.assignDestination(this.pickEvent);
       } else {
         this.cameraTracker.target = this.pickEvent;

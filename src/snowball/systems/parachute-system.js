@@ -14,6 +14,7 @@ export class ParachuteSystem {
 
     this.undroppedEntities = [];
     this.droppingEntities = [];
+    this.removedEntities = [];
 
     this.entityParachutes = new Map();
     this.parachuteLayer = new Object3D();
@@ -27,9 +28,40 @@ export class ParachuteSystem {
     this.undroppedEntities.push(entity);
   }
 
+  removeEntity(entity) {
+    const undroppedIndex = this.undroppedEntities.indexOf(entity);
+    if (undroppedIndex !== -1) {
+      this.undroppedEntities.splice(undroppedIndex, 1);
+    }
+
+    const droppedIndex = this.droppingEntities.indexOf(entity);
+    if (droppedIndex !== -1) {
+      this.droppingEntities.splice(droppedIndex, 1);
+    }
+
+    this.removedEntities.push(entity);
+  }
+
+  reset() {
+    this.undroppedEntities.forEach((entity) => this.removeEntity(entity));
+    this.droppingEntities.forEach((entity) => this.removeEntity(entity));
+  }
+
   update(game) {
     const { lodSystem, mapSystem, tick } = game;
     const { grid } = mapSystem;
+
+    this.removedEntities.forEach((entity) => {
+      const parachute = this.entityParachutes.get(entity);
+      if (parachute !== undefined) {
+        this.entityParachutes.delete(entity);
+        this.parachuteLayer.remove(parachute);
+
+        lodSystem.removeEntity(parachute);
+        Parachute.free(parachute);
+      }
+    });
+    this.removedEntities = [];
 
     while (this.undroppedEntities.length) {
       const entity = this.undroppedEntities.shift();

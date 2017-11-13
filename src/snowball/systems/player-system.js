@@ -48,12 +48,9 @@ export class PlayerSystem {
       }
     });
 
-    const possibleMaps = [this.playerMap, this.playerDestinations, this.playerTargetedPositions];
-    possibleMaps.forEach((map) => {
-      if (id in map) {
-        delete map[id];
-      }
-    });
+    const possibleObjects =
+        [this.playerMap, this.playerDestinations, this.playerTargetedPositions];
+    possibleObjects.forEach((object) => delete object[id]);
   }
 
   assignPlayerDestination(playerId, destination) {

@@ -14,6 +14,7 @@ export class ClientSystem {
     this.player = null;
     this.targetedPosition = null;
     this.destination = null;
+    this.pendingSpawnAt = null;
 
     const arrivalMarker = new PlayerMarker();
     arrivalMarker.material.depthTest = false;
@@ -29,11 +30,34 @@ export class ClientSystem {
     this.destination = destination;
   }
 
+  setPendingSpawn(at) {
+    this.pendingSpawnAt = at;
+  }
+
+  reset(game) {
+    const { playerSystem } = game;
+
+    if (this.player) {
+      playerSystem.removePlayer(this.player.playerId);
+    }
+
+    const { arrivalMarker } = this;
+    if (arrivalMarker.parent != null) {
+      arrivalMarker.parent.remove(arrivalMarker);
+    }
+
+    this.player = null;
+  }
+
   setup(game) {}
 
   update(game) {
     if (!this.player) {
-      return;
+      if (this.pendingSpawnAt == null) {
+        return;
+      }
+      const { playerSystem } = game;
+      this.player = playerSystem.addPlayer(localClientId, this.pendingSpawnAt);
     }
 
     const { camera } = game;
