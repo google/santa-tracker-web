@@ -1,4 +1,5 @@
-$stamp-names: "bow", "present", "bauble";
+// $stamp-names: "bow", "present", "bauble";
+$stamp-names: "bauble";
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
@@ -500,12 +501,14 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
     @each $current-stamp in $stamp-names {
       &--stamp-#{$current-stamp} {
-        @each $current-color in $colorpicker-colors {
-          &[data-tool-color="##{$current-color}"] {
-            background-image: url(img/tools/stamps/#{$current-stamp}/#{$current-color}.svg);
-          }
-        }
+        padding: 35px 15px;
+
+        @include generateSVGstyles('stamp-#{$current-stamp}');
       }
+    }
+
+    &--stamp-bauble {
+      padding: 20px 35px;
     }
 
     @each $current-roller in $roller-names {
@@ -567,6 +570,43 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
   }
 
+  .Tool--stamp-bauble, .Tool-hover-preview--stamp-bauble {
+    .cls-1 {
+      isolation: isolate;
+    }
+
+    .cls-2 {
+      fill: none;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+    }
+
+    .cls-3 {
+      fill: #bdbdbd;
+    }
+
+    .cls-4 {
+      fill: #eee;
+    }
+
+    .cls-6 {
+      mix-blend-mode: multiply;
+      opacity: 0.15;
+    }
+
+    .cls-7 {
+      fill: #231f20;
+    }
+
+    .cls-8,.cls-9 {
+      fill: #fff;
+    }
+
+    .cls-9 {
+      opacity: 0.3;
+    }
+  }
+
   .Tool--selected {
     @each $current-tool in $drawing-tools {
       &.Tool--#{$current-tool} {
@@ -576,10 +616,6 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
       svg {
         display: none;
       }
-    }
-
-    [data-tool-category="spray"] {
-
     }
   }
 
@@ -623,18 +659,21 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     top: 0;
   }
 
-  .Tool-hover-minitool {
+  .Tool-hover-minitool,
+  .Tool-hover-preview {
     display: none;
     text-align: center;
 
     svg {
       height: 100%;
+      width: 100%;
     }
   }
 
   [data-tool-hover-category="stamp"] {
-    .Tool-hover-minitool {
+    .Tool-hover-minitool--default {
       background: url(img/tools/tool_stamp.svg) center/contain no-repeat;
+      display: block;
       height: 50px;
       left: 50%;
       position: absolute;
@@ -658,11 +697,17 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
   @each $current-stamp in $stamp-names {
     [data-tool-hover-tool="stamp-#{$current-stamp}"] {
-      @each $current-color in $colorpicker-colors {
-        &[data-tool-color="##{$current-color}"] .Tool-hover-preview {
-          background-image: url(img/tools/stamps/#{$current-stamp}/#{$current-color}.svg);
-        }
+      .Tool-hover-preview--stamp-#{$current-stamp} {
+        display: block;
       }
+
+      @include generateSVGstyles('stamp-#{$current-stamp}', '.Tool-hover-preview');
+
+      // @each $current-color in $colorpicker-colors {
+      //   &[data-tool-color="##{$current-color}"] .Tool-hover-preview {
+      //     background-image: url(img/tools/stamps/#{$current-stamp}/#{$current-color}.svg);
+      //   }
+      // }
     }
   }
 
