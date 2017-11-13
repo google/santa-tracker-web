@@ -95,6 +95,14 @@ export class MainLevel extends Level {
     if (this.pickEvent != null) {
       if (clientPlayer && clientPlayer.isAlive) {
         clientSystem.assignDestination(this.pickEvent);
+
+        // Set target only if arrived, otherwise the player is a child of parachute and has a
+        // position of (0,0,0).
+        if (clientPlayer.arrival.arrived &&
+          !clientPlayer.presence.exiting &&
+          !clientPlayer.presence.gone) {
+          this.cameraTracker.target = clientPlayer;
+        }
       } else {
         this.cameraTracker.target = this.pickEvent;
       }

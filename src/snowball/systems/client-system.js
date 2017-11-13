@@ -56,12 +56,8 @@ export class ClientSystem {
       if (this.pendingSpawnAt == null) {
         return;
       }
-      const { playerSystem, currentLevel } = game;
+      const { playerSystem } = game;
       this.player = playerSystem.addPlayer(localClientId, this.pendingSpawnAt);
-      if (currentLevel) {
-        // TODO(samthor): This assignment is a bit awkward.
-        currentLevel.cameraTracker.target = this.player;
-      }
       this.pendingSpawnAt = null;
     }
 
