@@ -26,18 +26,34 @@ export class PlayerSystem {
     return player;
   }
 
+  clearAllPlayers() {
+    const all = Object.keys(this.playerMap);
+    all.forEach((id) => this.removePlayer(id));
+  }
+
   removePlayer(id) {
     const player = this.playerMap[id];
-    const playerIndex = this.players.indexOf(player);
-
-    if (playerIndex < 0) {
+    if (player === undefined) {
       return;
     }
 
-    delete this.playerMap[id];
-    this.players.splice(playerIndex, 1);
     this.playerLayer.remove(player);
     Elf.free(player);
+
+    const possibleArrays = [this.players, this.newPlayers, this.parachutingPlayers];
+    possibleArrays.forEach((array) => {
+      const index = array.indexOf(player);
+      if (index !== -1) {
+        array.splice(index, 1);
+      }
+    });
+
+    const possibleMaps = [this.playerMap, this.playerDestinations, this.playerTargetedPositions];
+    possibleMaps.forEach((map) => {
+      if (id in map) {
+        delete map[id];
+      }
+    });
   }
 
   assignPlayerDestination(playerId, destination) {
