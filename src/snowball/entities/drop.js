@@ -1,6 +1,9 @@
 import { Entity } from '../../engine/core/entity.js';
 import { Allocatable } from '../../engine/utils/allocatable.js';
 import { randomValue } from '../../engine/utils/function.js';
+import { Contents } from '../components/contents.js';
+import { Arrival } from '../components/arrival.js';
+import { Presence } from '../components/presence.js';
 
 const {
   Object3D,
@@ -81,14 +84,40 @@ export class Drop extends Allocatable(Entity(Object3D)) {
     super();
     const model = new Mesh(
         geometry, new MeshBasicMaterial({ map: new Texture() }));
-    model.scale.multiplyScalar(100.0);
-    model.rotation.x += Math.PI / 2.0;
+    model.rotation.x = Math.PI / 2.5;
+
     this.add(model);
     this.model = model;
   }
 
   onAllocated(colorCombo = randomValue(colorCombos)) {
+    this.model.scale.set(
+        Math.random() * 5 + 10,
+        Math.random() * 5 + 10,
+        Math.random() * 4 + 8);
     this.model.material.map.image = generateDropTexture(...colorCombo);
     this.model.material.map.needsUpdate = true;
+
+    this.arrival = new Arrival();
+    this.contents = new Contents();
+    this.presence = new Presence();
+  }
+
+  setup(game) {
+    const { mapSystem } = game;
+    const { grid } = mapSystem;
+
+    this.model.position.z = grid.cellSize / 2.0;
+  }
+
+  update(game) {
+    const { presence } = this;
+
+    if (!presence.exiting) {
+      this.model.rotation.y += 0.01;
+    } else {
+      this.model.rotation.y = 0;
+      this.model.rotation.x = Math.PI / 2.0;
+    }
   }
 };

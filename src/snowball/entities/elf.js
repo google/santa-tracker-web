@@ -93,7 +93,7 @@ const clientPlayerMarker = new PlayerMarker();
 
 export class Elf extends Allocatable(Entity(Object3D)) {
   randomizeColors() {
-    const material = this.dolly.children[0].children[0].material;
+    const material = this.elf.children[0].material;
     material.map.image = generateElfTexture(randomElement(majorColors), randomElement(minorColors));
     material.map.needsUpdate = true;
   }
