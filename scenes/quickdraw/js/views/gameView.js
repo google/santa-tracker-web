@@ -17,6 +17,7 @@
 
 goog.provide('app.view.GameView');
 goog.require('app.EventEmitter');
+goog.require('app.Utils');
 
 
 app.view.GameView = function(container) {
@@ -40,5 +41,5 @@ app.view.GameView.prototype.initListeners = function() {
 
 app.view.GameView.prototype.setCurrentWord = function(word) {
   this.elem.find('.helping-elf__secondary')
-    .text(word);
+    .text(app.Utils.capitalize(word));
 };

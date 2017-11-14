@@ -19,6 +19,7 @@ goog.provide('app.view.CardsView');
 
 goog.require('app.Constants');
 goog.require('app.SVGUtils');
+goog.require('app.Utils');
 goog.require('app.EventEmitter');
 
 
@@ -66,7 +67,7 @@ app.view.CardsView.prototype.hideCard = function(card, cb) {
 app.view.CardsView.prototype.showNewRoundCard = function(options) {
   this.showCard(this.newround_card);
 
-  this.newround_card.find('.slate__big-text').text(options.word);
+  this.newround_card.find('.slate__big-text').text(app.Utils.capitalize(options.word));
   this.newround_card.find('.newround-card__current-round').text(options.level);
   this.newround_card.find('.newround-card__total-rounds').text(app.Constants.TOTAL_LEVELS);
 
