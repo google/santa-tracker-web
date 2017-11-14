@@ -3,6 +3,7 @@ $stamp-names: "bauble";
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
+$shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", "square", "star", "triangle";
 
 ##{$name} {
   .Tools {
@@ -454,6 +455,14 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
   }
 
+  [data-tool-category="shape"] {
+    .Tool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 70%;
+    }
+  }
+
   [data-tool-category="scene"] {
     .Tool {
       background-size: cover;
@@ -486,6 +495,18 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
         padding: 10px 40px;
 
         @include generateSVGstyles($current-tool);
+      }
+    }
+
+    @each $current-shape in $shape-names {
+      &[data-tool="shape-#{$current-shape}"] {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px 25px;
+
+        @include generateSVGstyles('shape');
       }
     }
 
@@ -611,6 +632,16 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     @each $current-tool in $drawing-tools {
       &.Tool--#{$current-tool} {
         background-image: url(img/tools/#{$current-tool}/tray.svg);
+      }
+
+      svg {
+        display: none;
+      }
+    }
+
+    @each $current-shape in $shape-names {
+      &.Tool--shape-#{$current-shape} {
+        background-image: url(img/tools/shapes/#{$current-shape}_tray.svg);
       }
 
       svg {
