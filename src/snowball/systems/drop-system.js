@@ -6,7 +6,7 @@ const {
   Vector2
 } = self.THREE;
 
-export const dropType = {
+export const itemType = {
   NOTHING: 0
 };
 
@@ -23,20 +23,30 @@ export class DropSystem {
   reset(game) {
   }
 
-  addDrop(tileIndex = -1, type = randomValue(dropType)) {
+  addDrop(tileIndex = -1, containedItem = randomValue(itemType)) {
     const drop = Drop.allocate();
     drop.setup(game);
 
     drop.arrival.tileIndex = tileIndex;
-    drop.contents.inventory.push(type);
+    drop.contents.inventory.push(containedItem);
 
     this.drops.push(drop);
     this.newDrops.push(drop);
   }
 
   update(game) {
-    const { icebergSystem, mapSystem, parachuteSystem } = game;
+    const {
+      playerSystem,
+      collisionSystem,
+      icebergSystem,
+      mapSystem,
+      parachuteSystem
+    } = game;
     const { map, grid } = mapSystem;
+
+    if (map == null) {
+      return;
+    }
 
     while (this.newDrops.length) {
       const drop = this.newDrops.shift();
@@ -64,6 +74,7 @@ export class DropSystem {
         drop.position.x = position.x;
         drop.position.y = position.y;
 
+        collisionSystem.addCollidable(drop);
         this.dropLayer.add(drop);
       }
     }
@@ -79,12 +90,27 @@ export class DropSystem {
       const tileIndex = grid.positionToIndex(drop.position);
       const tileState = map.getTileState(tileIndex);
 
-      if (tileState === 4.0 && presence.present && !presence.exiting) {
-        icebergSystem.freezeEntity(drop);
-        presence.exiting = true;
-      } else if (presence.gone) {
-        this.drops.splice(i--, 1);
-        Drop.free(drop);
+      if (arrival.arrived) {
+        if (!presence.gone) {
+          if (!presence.exiting) {
+            if (tileState === 4.0) {
+              collisionSystem.removeCollidable(drop);
+              icebergSystem.freezeEntity(drop);
+            } else if (drop.collidingPlayer != null) {
+              playerSystem.assignPlayerItem(
+                  drop.collidingPlayer.playerId, drop.contents.inventory[0]);
+              drop.collidingPlayer = null;
+              drop.spin();
+            }
+          }
+        } else {
+          if (drop.parent === this.dropLayer) {
+            this.dropLayer.remove(drop);
+          }
+
+          this.drops.splice(i--, 1);
+          Drop.free(drop);
+        }
       }
     }
   }

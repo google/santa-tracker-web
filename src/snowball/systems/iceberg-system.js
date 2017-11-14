@@ -21,6 +21,7 @@ export class IcebergSystem {
       return;
     }
 
+    entity.presence.exiting = true;
     this.freezingEntities.push(entity);
   }
 

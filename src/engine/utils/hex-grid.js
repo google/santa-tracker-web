@@ -134,7 +134,7 @@ export class HexGrid {
   indexToPosition(index, position = new HexCoord()) {
     const pixel = this.indexToPixel(index, HexGrid.intermediateHexCoord);
     const x = pixel.x - this.pixelWidth / 2;
-    const y = -pixel.y + this.pixelHeight / 2 + this.cellSize / 2 * 0.75;
+    const y = -pixel.y + this.pixelHeight / 2;
 
     position.set(x, y, 0);
 

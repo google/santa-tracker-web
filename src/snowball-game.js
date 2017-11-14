@@ -31,7 +31,6 @@ export class SnowballGame extends Game {
     this.playerSystem = new PlayerSystem();
 
     this.renderSystem.renderer.setClearColor(0x71A7DB, 1.0);
-    self.requestAnimationFrame(() => this.renderSystem.clear());
   }
 
   get levelType() {

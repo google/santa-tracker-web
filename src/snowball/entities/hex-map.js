@@ -105,7 +105,6 @@ void main() {
 
   if (vPosition.y < 0.5) {
     color = vec4(0.80, 0.87, 0.86, 1.0) + vPosition.y / 7.0;
-    //color = vec4(0.80, 0.87, 0.86, 1.0) + vFinalPosition.z / vTileScale / 6.0;
   }
 
   float aScale = fade(vTileState, time);

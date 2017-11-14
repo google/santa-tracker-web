@@ -58,7 +58,7 @@ export class Map {
 
         // Decide the initial state of the tile (either hidden or shown):
         const erosionChance = 0.5 + magDelta / erosionMag;
-        const state = mag > erosionMag 
+        const state = mag > erosionMag
             ? seedRandom.random() < erosionChance
                 ? 0.0
                 : 1.0
@@ -175,6 +175,10 @@ export class Map {
 
   getRandomHabitableTileIndex() {
     for (let i = 0; i < this.tileCount; ++i) {
+      if (this.tileRings.length === 0) {
+        break;
+      }
+
       const minRingIndex = Math.floor(this.tileRings.length / 4);
       const maxRingIndex = Math.max(2.0, this.tileRings.length - 10);
       const ringIndex = Math.floor(

@@ -4,6 +4,8 @@ import { randomValue } from '../../engine/utils/function.js';
 import { Contents } from '../components/contents.js';
 import { Arrival } from '../components/arrival.js';
 import { Presence } from '../components/presence.js';
+import { Circle } from '../../engine/utils/collision-2d.js';
+import { Elf } from './elf.js';
 
 const {
   Object3D,
@@ -51,7 +53,7 @@ export const colorCombos = {
   bluePurple: ['#4EB3EA', '#87488F']
 };
 
-const generateDropTexture = (() => {
+export const generateDropTexture = (() => {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   const TWO_PI = Math.PI * 2.0;
@@ -83,41 +85,86 @@ export class Drop extends Allocatable(Entity(Object3D)) {
   constructor() {
     super();
     const model = new Mesh(
-        geometry, new MeshBasicMaterial({ map: new Texture() }));
+        geometry, new MeshBasicMaterial({ map: new Texture(), transparent: true }));
     model.rotation.x = Math.PI / 2.5;
 
     this.add(model);
     this.model = model;
+    this.collider = Circle.allocate(10, this.position);
   }
 
   onAllocated(colorCombo = randomValue(colorCombos)) {
     this.model.scale.set(
-        Math.random() * 5 + 10,
-        Math.random() * 5 + 10,
-        Math.random() * 4 + 8);
+        Math.random() * 7 + 12,
+        Math.random() * 7 + 12,
+        Math.random() * 5 + 10);
+
     this.model.material.map.image = generateDropTexture(...colorCombo);
     this.model.material.map.needsUpdate = true;
 
     this.arrival = new Arrival();
     this.contents = new Contents();
     this.presence = new Presence();
+    this.spinTime = -1;
   }
 
   setup(game) {
-    const { mapSystem } = game;
+    const { mapSystem, collisionSystem } = game;
     const { grid } = mapSystem;
 
+    this.collidingPlayer = null;
+    this.model.rotation.y = 0;
     this.model.position.z = grid.cellSize / 2.0;
+    this.model.material.opacity = 1.0;
+    this.unsubscribe = collisionSystem.handleCollisions(this, (drop, other) => {
+      if (this.collidingPlayer == null && other instanceof Elf) {
+        this.collidingPlayer = other;
+      }
+    });
+  }
+
+  teardown(game) {
+    if (this.unsubscribe) {
+      this.unsubscribe();
+      this.unsubscribe = null;
+    }
   }
 
   update(game) {
+    const { mapSystem } = game;
+    const { grid } = mapSystem;
     const { presence } = this;
 
     if (!presence.exiting) {
       this.model.rotation.y += 0.01;
     } else {
-      this.model.rotation.y = 0;
-      this.model.rotation.x = Math.PI / 2.0;
+      if (this.spinTime > -1) {
+        const duration = 300;
+        const elapsed = performance.now() - this.spinTime;
+        const timeScale = Math.min(elapsed / duration, 1.0);
+        const spinDelta = -1 *
+            (Math.pow(timeScale - 1.0, 4) + Math.pow(timeScale - 1.0, 3));
+
+        this.model.rotation.y += spinDelta * 2.0 * Math.PI;
+        this.model.position.z += spinDelta * (grid.cellSize);
+        this.model.scale.multiplyScalar(Math.max(1.0, 1.0 + spinDelta));
+        this.model.material.opacity = Math.max(1.0 - timeScale, 0.0);
+
+        if (timeScale === 1.0) {
+          presence.present = false;
+          presence.exiting = false;
+        }
+      } else {
+        this.model.rotation.y = 0;
+        this.model.rotation.x = Math.PI / 2.0;
+      }
     }
+  }
+
+  spin() {
+    // TODO: animation
+    this.presence.exiting = true;
+    this.presence.present = true;
+    this.spinTime = performance.now();
   }
 };

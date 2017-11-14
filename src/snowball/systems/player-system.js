@@ -57,6 +57,10 @@ export class PlayerSystem {
     possibleObjects.forEach((object) => delete object[id]);
   }
 
+  assignPlayerItem(playerId, itemType) {
+    console.log(`Player ${playerId} collected item ${itemType}`);
+  }
+
   assignPlayerDestination(playerId, destination) {
     const player = this.playerMap[playerId];
 
@@ -173,7 +177,6 @@ export class PlayerSystem {
       if (tileState === 4.0 && presence.present && !presence.exiting) {
         player.sink();
         icebergSystem.freezeEntity(player);
-        presence.exiting = true;
       } else if (presence.gone) {
         this.players.splice(i--, 1);
 

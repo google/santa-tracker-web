@@ -60,9 +60,14 @@ export class MainLevel extends Level {
     this.add(this.light);
 
     this.lastErosionTick = 0;
+    this.lastDropTick = 0;
 
     mapSystem.regenerateMapWithSeed(this.mapSeed);
     clientSystem.setPendingSpawn(-1);  // TODO(samthor): Do better than random position.
+
+    for (let i = 0; i < 5; ++i) {
+      dropSystem.addDrop();
+    }
   }
 
   measure(game) {
@@ -93,7 +98,7 @@ export class MainLevel extends Level {
   }
 
   update(game) {
-    const { camera, mapSystem, clientSystem } = game;
+    const { camera, mapSystem, clientSystem, dropSystem } = game;
     const { player: clientPlayer } = clientSystem;
     const { grid, map } = mapSystem;
 
@@ -102,23 +107,38 @@ export class MainLevel extends Level {
       map.erode();  // TODO(samthor): The number of calls should be synchronized with server state.
     }
 
-    if (this.pickEvent != null) {
-      if (clientPlayer && clientPlayer.health.alive) {
-        clientSystem.assignDestination(this.pickEvent);
+    // 300000 ms / 30 drops / 16 ms/f = 625 f/drop
+    if (map && (game.tick - this.lastDropTick) > 625) {
+      this.lastDropTick = game.tick;
+      dropSystem.addDrop();
+    }
 
-        // Set target only if arrived, otherwise the player is a child of parachute and has a
-        // position of (0,0,0).
+    if (clientPlayer) {
+      if (clientPlayer.health.alive) {
+        this.cameraTracker.target = clientPlayer;
+
+        if (this.pickEvent != null) {
+          clientSystem.assignDestination(this.pickEvent);
+        }
+
+        // Update camera only if arrived, otherwise the player is a child of
+        // parachute and has a position of (0,0,0).
         if (clientPlayer.arrival.arrived &&
           !clientPlayer.presence.exiting &&
           !clientPlayer.presence.gone) {
-          this.cameraTracker.target = clientPlayer;
+          this.cameraTracker.update(game);
         }
-      } else {
-        this.cameraTracker.target = this.pickEvent;
+      } else if (clientPlayer.health.dead) {
+        if (this.pickEvent != null) {
+          this.cameraTracker.target = this.pickEvent;
+        }
+
+        if (this.cameraTracker.target !== clientPlayer) {
+          this.cameraTracker.update(game);
+        }
       }
-      this.pickEvent = null;
     }
 
-    this.cameraTracker.update(game);
+    this.pickEvent = null;
   }
 }
