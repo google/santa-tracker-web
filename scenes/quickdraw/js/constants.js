@@ -33,7 +33,7 @@ app.Constants = {
   HANDWRITING_RECOGNITION_THRESHOLD: 2.0,
   // Max allowed rate recognition api can be called in seconds
   MAX_API_RATE: 1.0,
-  WORDS: ["tree", "star", "snowflake", "snowman", "cookie", "penguin"]
+  WORDS: ["campfire", "cookie", "penguin", "snowflake", "snowman", "star", "tree"]
 };
 
 
