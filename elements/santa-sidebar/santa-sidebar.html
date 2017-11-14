@@ -112,6 +112,9 @@ specific language governing permissions and limitations under the License.
       <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
     </h2>
     <ul>
+      <li hidden$="[[!a2hsAvailable]]"><a on-click="_onA2HSClick">
+        <i18n-msg msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
       <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
@@ -145,6 +148,11 @@ Polymer({
       value: '',
     },
 
+    a2hsAvailable: {
+      type: Boolean,
+      value: false,
+    },
+
   },
 
   _computeTodayHouseBackgroundStyle: function(todayHouse) {
@@ -171,6 +179,11 @@ Polymer({
     window.ga('send', 'event', 'nav', 'click', 'language');
   },
 
+  _onA2HSClick: function() {
+    this.a2hsevent.prompt();
+    this.a2hsAvailable = false;
+  },
+
   /**
    * Changes the site URL to set a new language. Preference the /intl/xx/ form (xx_ALL for dev).
    */
@@ -183,6 +196,18 @@ Polymer({
     window.location = window.location.origin + pathname + window.location.hash;
   },
 
+  handleBeforeInstallPrompt: function(e) {
+    this.a2hsevent = e;
+    this.a2hsAvailable = true;
+  },
+
+  attached: function() {
+    this.listen(window, 'beforeinstallprompt', 'handleBeforeInstallPrompt');
+  },
+
+  detached: function() {
+    this.unlisten(window, 'beforeinstallprompt', 'handleBeforeInstallPrompt');
+  },
 
 });
 </script>

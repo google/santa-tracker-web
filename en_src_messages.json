@@ -6893,6 +6893,10 @@
     "description": "Menu item to find more ways to learn, play, explore etc about Santa.",
     "message": "More Ways to Explore"
   },
+  "village_santa_a2hs": {
+    "description": "Menu item for adding Santa to the homescreen.",
+    "message": "Add to Home Screen"
+  },
   "village_santa_cardboard": {
     "description": "Menu item for finding Santa as part of an app which supports Google Cardboard (Google's Virtual Reality experience). Don't translate 'Cardboard'.",
     "message": "Santa on Cardboard"
