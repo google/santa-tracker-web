@@ -4,6 +4,7 @@ import { Allocatable } from '../../engine/utils/allocatable.js';
 import { snowball } from '../textures.js';
 import { Trail } from '../components/trail.js';
 import { Trajectory } from '../components/trajectory.js';
+import { Presence } from '../components/presence.js';
 
 const {
   Mesh,
@@ -16,6 +17,8 @@ const {
 
 const PI_OVER_TWELVE = Math.PI / 12.0;
 const PI_OVER_SIX = Math.PI / 6.0;
+const PI_OVER_TWO = Math.PI / 2.0;
+const path = new Vector2();
 
 const vertexShader = `
 precision highp float;
@@ -64,7 +67,7 @@ void main() {
 `;
 
 export class Snowball extends Allocatable(Entity(Mesh)) {
-  constructor() {
+  constructor(size = 12) {
     const uniforms = {
       map: {
         value: snowball
@@ -77,7 +80,7 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
       }
     };
 
-    super(new PlaneBufferGeometry(12, 12),
+    super(new PlaneBufferGeometry(size, size),
         new RawShaderMaterial({
           uniforms,
           vertexShader,
@@ -86,24 +89,27 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
           transparent: true
         }));
 
+    this.size = size;
     this.uniforms = uniforms;
-    this.collider = Circle.allocate(5, this.position);
+    this.collider = Circle.allocate(size / 2, this.position);
 
-    this.trail = new Trail(5, 0xaaccff, game => this.thrown);
+    this.trail = new Trail(size / 2, 0xaaccff, game => this.thrown);
 
     this.trajectory = new Trajectory();
   }
 
   onAllocated(thrower) {
     this.trajectory.origin.copy(thrower.position);
-    this.position.copy(this.trajectory.origin);
-    this.thrown = false;
-    this.tickWhenThrown = -1;
     this.trajectory.targetPosition.set(0, 0);
-    this.skew = 0;
-    this.collidedWith = null;
     this.thrower = thrower;
     this.visible = false;
+    this.thrown = false;
+
+    this.position.copy(this.trajectory.origin);
+    this.tickWhenThrown = -1;
+    this.skew = 0;
+    this.collidedWith = null;
+    this.presence = new Presence();
   }
 
   setup(game) {
@@ -133,10 +139,10 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
 
     if (!this.thrown) {
       return;
-    }
-
-    if (this.tickWhenThrown === -1) {
+    } else if (this.tickWhenThrown === -1) {
       this.tickWhenThrown = game.tick;
+    } else {
+      this.advance(game);
     }
   }
 
@@ -148,6 +154,39 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
 
       // ±15º skew on the throw
       this.skew = Math.random() * PI_OVER_SIX - PI_OVER_TWELVE;
+    }
+  }
+
+  advance(game) {
+    const { mapSystem } = game;
+    const { grid } = mapSystem;
+    const { trajectory } = this;
+    const tickDelta = game.preciseTick - this.tickWhenThrown;
+    const maxDistance = 256;
+
+    path.subVectors(trajectory.targetPosition, trajectory.origin)
+        .clampLength(0, maxDistance);
+
+    const maxAnimationFrames = 42;
+    const durationScale = path.length() / maxDistance;
+    const duration = maxAnimationFrames * durationScale;
+    const time = tickDelta / duration;
+
+    const shotAngle = path.angle();
+    const arcScale = Math.abs((shotAngle % Math.PI) - PI_OVER_TWO) / PI_OVER_TWO;
+    const arcSize = arcScale * arcScale *
+        Math.sin(time * Math.PI) * 20.0 * durationScale;
+
+    path.multiplyScalar(time)
+      .add(trajectory.origin);
+
+    this.position.x = path.x;
+    this.position.y = path.y;
+    this.position.z = grid.cellSize / 2.0 + arcSize;
+
+    if (tickDelta >= duration) {
+      this.presence.exiting = false;
+      this.presence.present = false;
     }
   }
 

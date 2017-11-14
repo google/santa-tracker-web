@@ -7,7 +7,8 @@ const {
 } = self.THREE;
 
 export const itemType = {
-  NOTHING: 0
+  NOTHING: 0,
+  BIG_SNOWBALL: 1
 };
 
 const intermediateVector2 = new Vector2();
@@ -27,7 +28,8 @@ export class DropSystem {
     const drop = Drop.allocate();
 
     drop.arrival.tileIndex = tileIndex;
-    drop.contents.inventory.push(containedItem);
+    drop.contents.inventory.push(itemType.BIG_SNOWBALL);
+    //drop.contents.inventory.push(containedItem);
 
     this.drops.push(drop);
     this.newDrops.push(drop);

@@ -63,6 +63,7 @@ export class PlayerSystem {
 
   assignPlayerItem(playerId, itemType) {
     console.log(`Player ${playerId} collected item ${itemType}`);
+    this.playerMap[playerId].powerup.snowballType = itemType;
   }
 
   assignPlayerDestination(playerId, destination) {

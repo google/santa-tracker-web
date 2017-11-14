@@ -1,15 +1,22 @@
 import { QuadTree } from '../../engine/utils/quad-tree.js';
 import { Snowball } from '../entities/snowball.js';
+import { BigSnowball } from '../entities/snowballs/big-snowball.js';
+import { itemType } from '../systems/drop-system.js';
 
 const {
   Object3D,
   Vector2
 } = self.THREE;
 
-const path = new Vector2();
+const intermediateVector2 = new Vector2();
 
-const PI_OVER_FOUR = Math.PI / 4.0;
-const PI_OVER_TWO = Math.PI / 2.0;
+const snowballConstructorForType = type => {
+  switch(type) {
+    default:
+    case itemType.NOTHING: return Snowball;
+    case itemType.BIG_SNOWBALL: return BigSnowball;
+  }
+}
 
 export class SnowballSystem {
   constructor(drag) {
@@ -43,7 +50,6 @@ export class SnowballSystem {
 
     for (let i = 0; i < this.snowballs.length; ++i) {
       const snowball = this.snowballs[i];
-      const { trajectory } = snowball;
 
       if (snowball.collidedWith != null) {
         this.removeSnowball(snowball, game);
@@ -52,34 +58,8 @@ export class SnowballSystem {
 
       snowball.update(game);
 
-      if (snowball.thrown) {
-        const tickDelta = game.preciseTick - snowball.tickWhenThrown;
-        const maxDistance = 256;
-
-        path.subVectors(trajectory.targetPosition, trajectory.origin)
-            .clampLength(0, maxDistance);
-
-        const maxAnimationFrames = 42;
-        const durationScale = path.length() / maxDistance;
-        const duration = maxAnimationFrames * durationScale;
-        const time = tickDelta / duration;
-
-        const shotAngle = path.angle();
-        const arcScale = Math.abs((shotAngle % Math.PI) - PI_OVER_TWO) / PI_OVER_TWO;
-        const arcSize = arcScale * arcScale *
-            Math.sin(time * Math.PI) * 20.0 * durationScale;
-
-        path.multiplyScalar(time)
-          .add(trajectory.origin);
-
-        snowball.position.x = path.x;
-        snowball.position.y = path.y;
-        snowball.position.z = grid.cellSize / 2.0 + arcSize;
-        //snowball.position.z = path.y;
-
-        if (tickDelta >= duration) {
-          this.removeSnowball(snowball, game);
-        }
+      if (snowball.thrown && snowball.presence.gone) {
+        this.removeSnowball(snowball, game);
       }
     }
   }
@@ -98,10 +78,11 @@ export class SnowballSystem {
     const { collisionSystem, effectSystem } = game;
     const { trajectory } = snowball;
 
-    path.subVectors(trajectory.targetPosition, trajectory.origin);
+    intermediateVector2.subVectors(
+        trajectory.targetPosition, trajectory.origin);
 
     effectSystem.snowsplatEffect.show(
-              snowball.position.clone(), path.clone().normalize());
+        snowball.position.clone(), intermediateVector2.clone().normalize());
 
     this.snowballs.splice(this.snowballs.indexOf(snowball), 1);
     this.snowballLayer.remove(snowball);
@@ -113,7 +94,11 @@ export class SnowballSystem {
   }
 
   throwSnowball(thrower, target) {
-    const snowball = Snowball.allocate(thrower);
+    const { powerup } = thrower;
+    const type = powerup == null ? itemType.NOTHING : powerup.snowballType;
+
+    const SnowballConstructor = snowballConstructorForType(type);
+    const snowball = SnowballConstructor.allocate(thrower);
     snowball.throwAt(target);
     this.newSnowballs.push(snowball);
   }

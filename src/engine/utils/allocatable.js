@@ -1,3 +1,6 @@
+const classFreeItems = new WeakMap();
+const classAllocatedItems = new WeakMap();
+
 export const Allocatable = SuperClass => {
   const Allocatable = class extends SuperClass {
     static allocate(...args) {
@@ -25,12 +28,25 @@ export const Allocatable = SuperClass => {
       return new this();
     }
 
+    static get freeItems() {
+      if (!classFreeItems.has(this)) {
+        classFreeItems.set(this, []);
+      }
+
+      return classFreeItems.get(this);
+    }
+
+    static get allocatedItems() {
+      if (!classAllocatedItems.has(this)) {
+        classAllocatedItems.set(this, []);
+      }
+
+      return classAllocatedItems.get(this);
+    }
+
     onAllocated() {}
     onFreed() {}
   };
-
-  Allocatable.freeItems = [];
-  Allocatable.allocatedItems = [];
 
   return Allocatable;
 };
