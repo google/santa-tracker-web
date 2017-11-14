@@ -65,7 +65,7 @@ export class MainLevel extends Level {
     mapSystem.regenerateMapWithSeed(this.mapSeed);
     clientSystem.setPendingSpawn(-1);  // TODO(samthor): Do better than random position.
 
-    for (let i = 0; i < 5; ++i) {
+    for (let i = 0; i < 15; ++i) {
       dropSystem.addDrop();
     }
   }

@@ -25,7 +25,6 @@ export class DropSystem {
 
   addDrop(tileIndex = -1, containedItem = randomValue(itemType)) {
     const drop = Drop.allocate();
-    drop.setup(game);
 
     drop.arrival.tileIndex = tileIndex;
     drop.contents.inventory.push(containedItem);
@@ -50,6 +49,9 @@ export class DropSystem {
 
     while (this.newDrops.length) {
       const drop = this.newDrops.shift();
+
+      drop.setup(game);
+
       const { arrival } = drop;
 
       this.parachutingDrops.push(drop);
@@ -109,6 +111,7 @@ export class DropSystem {
           }
 
           this.drops.splice(i--, 1);
+          drop.teardown(game);
           Drop.free(drop);
         }
       }

@@ -117,14 +117,18 @@ export class Drop extends Allocatable(Entity(Object3D)) {
     this.model.position.z = grid.cellSize / 2.0;
     this.model.material.opacity = 1.0;
     this.unsubscribe = collisionSystem.handleCollisions(this, (drop, other) => {
-      if (this.collidingPlayer == null && other instanceof Elf) {
+      if (this.collidingPlayer == null &&
+          !this.presence.exiting &&
+          other instanceof Elf) {
         this.collidingPlayer = other;
       }
     });
   }
 
   teardown(game) {
-    if (this.unsubscribe) {
+    this.collidingPlayer = null;
+
+    if (this.unsubscribe != null) {
       this.unsubscribe();
       this.unsubscribe = null;
     }
