@@ -52,14 +52,13 @@ app.view.CardsView.prototype.showCard = function(card, cb) {
 app.view.CardsView.prototype.hideCard = function(card, cb) {
   card.isVisible = false;
   if (card.hasClass('visible')) {
-    card.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function() {
+    card.removeClass('visible');
+    setTimeout(function() {
       card.hide();
-      card.off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
       if(cb) {
         cb();
       }
-    });
-    card.removeClass('visible');
+    }.bind(this), 1000);
   }
 };
 
@@ -81,10 +80,10 @@ app.view.CardsView.prototype.showNewRoundCard = function(options) {
   setTimeout(function() {
     this.newround_card
       .find('.newround-card__button')
-      .off('touchend mouseup')
       .on('touchend mouseup',function() {
+        this.newround_card.off('touchend mouseup');
         _callback();
-      });
+      }.bind(this));
   }.bind(this), 1000);
 };
 
