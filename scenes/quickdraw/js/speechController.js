@@ -59,7 +59,6 @@ app.SpeechController.prototype.speak = function(text, callback) {
     utterThis.rate = 1.1;
     utterThis.lang = this.voiceLang;
 
-    console.log('speaking');
     this.synth.speak(utterThis);
   }
 };

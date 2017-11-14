@@ -71,7 +71,6 @@ app.GameController.prototype = Object.create(app.EventEmitter.prototype);
 
 
 app.GameController.prototype.prepareNewGame = function(callback) {
-  console.log('GameController.prepareNewGame');
   if (!this.preparedChallenge) {
     this.fetchNewRound([], function (challenge) {
       if (callback) {
