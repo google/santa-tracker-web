@@ -16,12 +16,15 @@
 'use strict';
 
 goog.provide('app.view.MachineView');
+goog.require('app.SpeechController');
 
 
 app.view.MachineView = function(container) {
   this.elem = container.find('.machineview');
   this.elemA = this.elem.find('.machineview__primary');
   this.elemB = this.elem.find('.machineview__secondary');
+
+  this.speech = new app.SpeechController();
 }
 
 
@@ -63,10 +66,13 @@ app.view.MachineView.prototype.speakAndWrite = function(textA, textB, callback) 
 };
 
 app.view.MachineView.prototype.speak = function(text, callback) {
-  //TODO: Add voice
-  if (callback) {
-    callback();
-  }
+  this.talking = true;
+  this.speech.speak(text, function() {
+    this.talking = false;
+    if (callback) {
+      callback();
+    }
+  }.bind(this));
 };
 
 app.view.MachineView.prototype.setGuesses = function(words) {
@@ -105,9 +111,7 @@ app.view.MachineView.prototype.readNextGuess = function(first) {
     speakSentence = 'I see ' + next;
   }
   this.speak(speakSentence, function() {
-    setTimeout(function() {
-      this.readNextGuess();
-    }.bind(this), 500);
+    this.readNextGuess();
   }.bind(this));
 
   this.recentMentionedWords.push(next);
