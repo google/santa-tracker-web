@@ -128,6 +128,12 @@ app.view.CardsView.prototype.createDrawingElem = function(round) {
   var drawingElem = $('<div>')
     .addClass('timesup-card__drawing');
 
+  if (round.recognized) {
+    drawingElem.addClass('timesup-card__drawing--recognized');
+  } else {
+    drawingElem.addClass('timesup-card__drawing--not-recognized');
+  }
+
   var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, 360, 240, {padding: 25});
   drawingElem.append(svgElem);
 
