@@ -7,6 +7,7 @@
     background-size: cover;
     display: flex;
     height: 100%;
+    position: relative;
 
     .drawingCanvas {
       background-image: url('img/whiteboard.svg');
@@ -20,16 +21,86 @@
     }
 
     .machineview {
+      bottom: 5%;
       display: flex;
       flex-flow: column;
       height: 80%;
+      justify-content: flex-end;
       position: absolute;
       right: 5%;
-      top: 20%;
       width: 20%;
 
+      &__robot {
+        width: 100%;
+      }
+
+      &__bubble {
+        background-image: url('img/speech-bubble.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding-bottom: 62%;
+        position: relative;
+        width: 100%;
+
+        &-inner {
+          left: 0;
+          position: absolute;
+          text-align: center;
+          top: 40%;
+          transform: translateY(-50%);
+          width: 98%;
+        }
+      }
+
+      &__primary {
+        font-family: Monaco, Consolas, "Lucida Console", monospace;
+        font-size: 20px;
+        margin: 0;
+      }
+
+      &__secondary {
+        text-transform: uppercase;
+        color: $color-machine-secondary;
+        font-family: Monaco, Consolas, "Lucida Console", monospace;
+        font-size: 40px;
+        margin: 0;
+      }
+
+    }
+
+    .helping-elf {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      width: 15%;
+      z-index: 2;
       img {
         width: 100%;
+      }
+
+      &-inner {
+        position: absolute;
+        text-align: center;
+        top: 55%;
+        transform: translateY(-50%);
+        width: 91.5%;
+      }
+
+      &__primary {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      &__secondary {
+        color: white;
+        font-family: 'Lobster', sans-serif;
+        font-size: 40px;
+        letter-spacing: 0.02em;
       }
     }
   }

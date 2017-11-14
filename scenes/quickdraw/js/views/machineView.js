@@ -17,11 +17,13 @@
 
 goog.provide('app.view.MachineView');
 
+
 app.view.MachineView = function(container) {
-  this.elem = container.find('.machine');
+  this.elem = container.find('.machineview');
   this.elemA = this.elem.find('.machineview__primary');
   this.elemB = this.elem.find('.machineview__secondary');
 }
+
 
 app.view.MachineView.prototype.reset = function() {
   this.setText('...');
@@ -31,10 +33,83 @@ app.view.MachineView.prototype.reset = function() {
   this.recentMentionedWords = [];
 };
 
+
 app.view.MachineView.prototype.setText = function(textA, textB) {
   var textA = textA || '';
-  var textA = textB || '';
+  var textB = textB || '';
   this.elemA.text(textA);
   this.elemB.text(textB);
   //this.resetTextAfterDelay();
+};
+
+
+app.view.MachineView.prototype.setResultWord = function(word) {
+  var word = word;
+  this.guessesQueue = [];
+  this.speakAndWrite('Oh I know, this is ', word);
+  setTimeout(function() {
+    if (this.guessesQueue.length == 0) {
+        this.setText('...');
+    }
+  }.bind(this), 3000);
+};
+
+
+app.view.MachineView.prototype.speakAndWrite = function(textA, textB, callback) {
+  var textB = textB || '';
+  this.setText(textA, textB);
+  var text = textA + textB;
+  this.speak(text, callback);
+};
+
+app.view.MachineView.prototype.speak = function(text, callback) {
+  //TODO: Add voice
+  if (callback) {
+    callback();
+  }
+};
+
+app.view.MachineView.prototype.setGuesses = function(words) {
+  this.guessesQueue = words.filter(function(word) {
+    return !this.mentionedWords.hasOwnProperty(word);
+  }.bind(this));
+
+  if (!this.talkingGuesses && this.guessesQueue.length > 0) {
+    this.readNextGuess(true);
+  }
+
+  return this.guessesQueue.length;
+};
+
+app.view.MachineView.prototype.readNextGuess = function(first) {
+  this.talkingGuesses = true;
+  if (this.guessesQueue.length == 0) {
+    this.talkingGuesses = false;
+    return;
+  }
+
+  if (first) {
+    this.recentMentionedWords = [];
+  }
+
+  var next = this.guessesQueue.shift();
+
+  //Set text
+  var textSentenceA = 'I see';
+  var textSentenceB = next;
+  this.setText(textSentenceA, textSentenceB);
+
+  //Set speaking text and speak
+  var speakSentence = 'or ' + next;
+  if (first) {
+    speakSentence = 'I see ' + next;
+  }
+  this.speak(speakSentence, function() {
+    setTimeout(function() {
+      this.readNextGuess();
+    }.bind(this), 500);
+  }.bind(this));
+
+  this.recentMentionedWords.push(next);
+  this.mentionedWords[next] = 1;
 };

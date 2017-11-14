@@ -37,3 +37,8 @@ app.view.GameView.prototype.initListeners = function() {
     this.emit('CLEAR');
   }.bind(this));
 };
+
+app.view.GameView.prototype.setCurrentWord = function(word) {
+  this.elem.find('.helping-elf__secondary')
+    .text(word);
+};

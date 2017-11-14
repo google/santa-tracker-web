@@ -41,14 +41,23 @@ Quickdraw scene.
           <button class="Button splashview__button">Start</button>
         </div>
         <div class="gameview">
+          <div class="helping-elf">
+            <img src="[[importPath]]img/elf.svg" alt="Elf">
+            <div class="helping-elf-inner">
+              <div class="helping-elf__primary">Draw</div>
+              <div class="helping-elf__secondary">Snowflake</div>
+            </div>
+          </div>
           <canvas class="drawingCanvas" resize="true"></canvas>
           <div class="machineview">
-            <div>
-              <button class="gameview__clear-btn">Clear</button>
-              <p class="machineview__primary">I see...</p>
-              <p class="machineview__secondary">TREE</p>
+            <button class="gameview__clear-btn">Clear</button>
+            <div class="machineview__bubble">
+              <div class="machineview__bubble-inner">
+                  <p class="machineview__primary">I see...</p>
+                  <p class="machineview__secondary">TREE</p>
+              </div>
             </div>
-            <img src="[[importPath]]img/robby.svg" alt="">
+            <img src="[[importPath]]img/robby.svg" alt="Robby the robot" class="machineview__robot">
           </div>
         </div>
         <div class="cards">

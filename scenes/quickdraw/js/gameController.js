@@ -42,6 +42,7 @@ app.GameController = function(container) {
   this.drawingCanvas = new app.view.DrawingCanvas(container);
 
   //Listeners
+  this.drawingUntouched = true;
   this.drawingCanvas.addListener('DRAWING_UPDATED', function(data) {
     this.onDrawingUpdated(data);
   }.bind(this));
@@ -102,6 +103,10 @@ app.GameController.prototype.showView = function() {
 
 app.GameController.prototype.onDrawingUpdated = function(data) {
   this.recognitionController.onDrawingUpdated(data);
+  if (this.drawingUntouched) {
+      this.drawingUntouched = false;
+      this.machineView.setText('...')
+  }
 };
 
 
@@ -117,7 +122,25 @@ app.GameController.prototype.onNewRecognitions = function(recognitions) {
     if (this.currentRound && correctRecognition) {
       this.roundRecognized(correctRecognition);
     } else if (this.currentRound) {
-      console.log('not recognizing');
+      recognitions = recognitions.filter(function(r) {
+        return r.word != this.currentRound.word;
+      }.bind(this));
+
+      var guesses = recognitions.map(function(r) {
+        return r.word;
+      });
+
+      var queueLength = this.machineView.setGuesses(guesses);
+      if (queueLength == 0) {
+        this.newGuessesCounter++;
+      } else {
+        this.newGuessesCounter = 0;
+      }
+      if (this.newGuessesCounter > 2) {
+        this.newGuessesCounter = 0;
+        var noNewGuess = 'I\'m not sure what that is.';
+        this.machineView.speakAndWrite(noNewGuess);
+      }
     }
   }
 };
@@ -170,6 +193,7 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
 
   // Stop the clock
   this.pauseGame();
+  this.drawingUntouched = true;
 
   this.currentRound = new app.GameRound(challenge, this.level);
   this.currentRound.width = this.drawingCanvas.canvas.width;
@@ -178,6 +202,8 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
   this.presentedWords.push(this.currentRound.word);
 
   var startCb = function() {
+
+    this.gameView.setCurrentWord(this.currentRound.word);
     this.drawingCanvas.clearDrawingCanvas();
     this.machineView.reset();
     this.recognitionController.start();
@@ -200,9 +226,10 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
 
 
 app.GameController.prototype.roundRecognized = function(correctRecognition) {
-  console.log('OH I RECOGNIZED, IT\'S' + this.currentRound.word);
   this.recognitionController.stop();
   this.pauseGame();
+
+  this.machineView.setResultWord(this.currentRound.word);
 
   setTimeout(function() {
     this.submitRoundResult({recognition: correctRecognition}, function(nextChallenge) {
@@ -220,11 +247,16 @@ app.GameController.prototype.roundRecognized = function(correctRecognition) {
 
 
 app.GameController.prototype.roundTimesUp = function() {
-  console.log('TIMES UP');
   this.recognitionController.stop();
+
+  setTimeout(function() {
+    this.machineView.speakAndWrite('I couldn\'t guess it.', 'Sorry');
+  }.bind(this), 500);
+
   this.submitRoundResult({recognition:false}, function(nextChallenge) {
     this.previousRounds.push(this.currentRound);
     if (this.level < app.config.num_rounds) {
+      this.machineView.reset();
       this.level++;
       this.startNewRoundWithChallenge(nextChallenge);
     } else {
@@ -254,6 +286,7 @@ app.GameController.prototype.endGame = function() {
   console.log('end game', this.previousRounds);
   this.recognitionController.stop();
   this.clock.pauseClock();
+  this.machineView.reset();
 
   this.cardsView.showTimesUpCard(this.previousRounds, function(res) {
     if (res == 'NEW_GAME') {
@@ -262,4 +295,12 @@ app.GameController.prototype.endGame = function() {
       }.bind(this));
     }
   }.bind(this));
+};
+
+app.GameController.prototype.exitGame = function() {
+  this.pauseGame();
+  this.recognitionController.stop();
+  this.machineView.setGuesses([]);
+  this.currentRound = undefined;
+  this.clock.pauseClock();
 };
