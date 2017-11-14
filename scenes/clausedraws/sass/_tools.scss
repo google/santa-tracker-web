@@ -1,5 +1,4 @@
-// $stamp-names: "bow", "present", "bauble";
-$stamp-names: "bow", "bauble";
+$stamp-names: "bow", "present", "bauble";
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
@@ -494,7 +493,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       &--#{$current-tool} {
         padding: 10px 40px;
 
-        @include generateSVGstyles($current-tool);
+        @include generateSVGstyles2($current-tool);
       }
     }
 
@@ -556,7 +555,11 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
   }
 
   .Tool--pencil, .Tool-hover-minitool--pencil {
-    .cls-3{
+    .cls-1 {
+      fill: #f5ce85;
+    }
+
+    .cls-3 {
       fill: #29b6f6;
     }
 
@@ -566,7 +569,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
   }
 
   .Tool--paintbrush, .Tool-hover-minitool--paintbrush {
-    .cls-3{
+    .cls-3 {
       fill: #4e342e;
     }
 
@@ -625,6 +628,22 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
 
     .cls-9 {
       opacity: 0.3;
+    }
+  }
+
+  .Tool--stamp-present, .Tool-hover-preview--stamp-present {
+    .cls-1 {
+      isolation: isolate;
+    }
+
+    .cls-2 {
+      fill: #f2faff;
+    }
+
+    .cls-4 {
+      fill: #221f1f;
+      mix-blend-mode: multiply;
+      opacity: 0.15;
     }
   }
 
@@ -793,7 +812,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
 
   @each $current-tool in $drawing-tools {
     [data-tool-hover-tool="#{$current-tool}"] {
-      @include generateSVGstyles($current-tool,
+      @include generateSVGstyles2($current-tool,
           '.Tool-hover-minitool--#{$current-tool}');
 
       .Tool-hover-minitool--#{$current-tool} {

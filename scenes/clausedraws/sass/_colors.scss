@@ -2,474 +2,6 @@ $colorpicker-colors:  "8bc34a" "ffeb3b" "ffc107" "ff5722" "e91e63" "259b24" "cdd
 $colorpicker-colors2:  "8bc34a" "ffeb3b" "ffc107" "ff5722" "e91e63" "259b24" "cddc39" "ff9800" "e51c23" "9c27b0" "3f51b5" "03a9f4" "6ae5b9" "9e9e9e" "f2faff" "673ab7" "5677fc" "009688" "795548" "212121";
 
 $svg-colors: (
-  "crayon": (
-    "8bc34a": (
-      "tool": (
-        "cls-1": #8bc34a,
-        "cls-2": #93d839,
-      ),
-    ),
-    "ffeb3b": (
-      "tool": (
-        "cls-1": #ffeb3b,
-        "cls-2": #fffb73,
-      ),
-    ),
-    "ffc107": (
-      "tool": (
-        "cls-1": #ffc107,
-        "cls-2": #ffdb08,
-      ),
-    ),
-    "ff5722": (
-      "tool": (
-        "cls-1": #ff5722,
-        "cls-2": #ff8101,
-      ),
-    ),
-    "e91e63": (
-      "tool": (
-        "cls-1": #e91e63,
-        "cls-2": #fc3d86,
-      ),
-    ),
-    "259b24": (
-      "tool": (
-        "cls-1": #259b24,
-        "cls-2": #22af22,
-      ),
-    ),
-    "cddc39": (
-      "tool": (
-        "cls-1": #cddc39,
-        "cls-2": #e7ef41,
-      ),
-    ),
-    "ff9800": (
-      "tool": (
-        "cls-1": #ff9800,
-        "cls-2": #ffb703,
-      ),
-    ),
-    "e51c23": (
-      "tool": (
-        "cls-1": #e51c23,
-        "cls-2": #e53935,
-      ),
-    ),
-    "9c27b0": (
-      "tool": (
-        "cls-1": #9c27b0,
-        "cls-2": #c30fe8,
-      ),
-    ),
-    "3f51b5": (
-      "tool": (
-        "cls-1": #3f51b5,
-        "cls-2": #4661e0,
-      ),
-    ),
-    "03a9f4": (
-      "tool": (
-        "cls-1": #03a9f4,
-        "cls-2": #06c5f2,
-      ),
-    ),
-    "6ae5b9": (
-      "tool": (
-        "cls-1": #6ae5b9,
-        "cls-2": #8efcdc,
-      ),
-    ),
-    "9e9e9e": (
-      "tool": (
-        "cls-1": #9e9e9e,
-        "cls-2": #bcbcbc,
-      ),
-    ),
-    "607d8b": (
-      "tool": (
-        "cls-1": #607d8b,
-        "cls-2": #658b99,
-      ),
-    ),
-    "673ab7": (
-      "tool": (
-        "cls-1": #673ab7,
-        "cls-2": #764acc,
-      ),
-    ),
-    "5677fc": (
-      "tool": (
-        "cls-1": #5677fc,
-        "cls-2": #6c9dff,
-      ),
-    ),
-    "009688": (
-      "tool": (
-        "cls-1": #009688,
-        "cls-2": #06bca6,
-      ),
-    ),
-    "795548": (
-      "tool": (
-        "cls-1": #795548,
-        "cls-2": #895c4e,
-      ),
-    ),
-    "212121": (
-      "tool": (
-        "cls-1": #212121,
-        "cls-2": #333333,
-      ),
-    ),
-  ),
-  "marker": (
-    "8bc34a": (
-      "tool": (
-        "cls-3": #8bc34a
-      ),
-    ),
-    "ffeb3b": (
-      "tool": (
-        "cls-3": #ffeb3b
-      ),
-    ),
-    "ffc107": (
-      "tool": (
-        "cls-3": #ffc107
-      ),
-    ),
-    "ff5722": (
-      "tool": (
-        "cls-3": #ff5722
-      ),
-    ),
-    "e91e63": (
-      "tool": (
-        "cls-3": #e91e63
-      ),
-    ),
-    "259b24": (
-      "tool": (
-        "cls-3": #259b24
-      ),
-    ),
-    "cddc39": (
-      "tool": (
-        "cls-3": #cddc39
-      ),
-    ),
-    "ff9800": (
-      "tool": (
-        "cls-3": #ff9800
-      ),
-    ),
-    "e51c23": (
-      "tool": (
-        "cls-3": #e51c23
-      ),
-    ),
-    "9c27b0": (
-      "tool": (
-        "cls-3": #9c27b0
-      ),
-    ),
-    "3f51b5": (
-      "tool": (
-        "cls-3": #3f51b5
-      ),
-    ),
-    "03a9f4": (
-      "tool": (
-        "cls-3": #03a9f4
-      ),
-    ),
-    "6ae5b9": (
-      "tool": (
-        "cls-3": #6ae5b9
-      ),
-    ),
-    "9e9e9e": (
-      "tool": (
-        "cls-3": #9e9e9e
-      ),
-    ),
-    "607d8b": (
-      "tool": (
-        "cls-3": #607d8b
-      ),
-    ),
-    "673ab7": (
-      "tool": (
-        "cls-3": #673ab7
-      ),
-    ),
-    "5677fc": (
-      "tool": (
-        "cls-3": #5677fc
-      ),
-    ),
-    "009688": (
-      "tool": (
-        "cls-3": #009688
-      ),
-    ),
-    "795548": (
-      "tool": (
-        "cls-3": #795548
-      ),
-    ),
-    "212121": (
-      "tool": (
-        "cls-3": #212121
-      ),
-    ),
-  ),
-  "pencil": (
-    "8bc34a": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #8bc34a
-      ),
-    ),
-    "ffeb3b": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #ffeb3b
-      ),
-    ),
-    "ffc107": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #ffc107
-      ),
-    ),
-    "ff5722": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #ff5722
-      ),
-    ),
-    "e91e63": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #e91e63
-      ),
-    ),
-    "259b24": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #259b24
-      ),
-    ),
-    "cddc39": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #cddc39
-      ),
-    ),
-    "ff9800": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #ff9800
-      ),
-    ),
-    "e51c23": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #e51c23
-      ),
-    ),
-    "9c27b0": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #9c27b0
-      ),
-    ),
-    "3f51b5": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #3f51b5
-      ),
-    ),
-    "03a9f4": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #03a9f4
-      ),
-    ),
-    "6ae5b9": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #6ae5b9
-      ),
-    ),
-    "9e9e9e": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #9e9e9e
-      ),
-    ),
-    "607d8b": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #607d8b
-      ),
-    ),
-    "673ab7": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #673ab7
-      ),
-    ),
-    "5677fc": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #5677fc
-      ),
-    ),
-    "009688": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #009688
-      ),
-    ),
-    "795548": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #795548
-      ),
-    ),
-    "212121": (
-      "tool": (
-        "cls-1": #f5ce85,
-        "cls-2": #212121
-      ),
-    ),
-  ),
-  "paintbrush": (
-    "8bc34a": (
-      "tool": (
-        "cls-1": #8bc34a,
-        "cls-2": #93d839,
-      ),
-    ),
-    "ffeb3b": (
-      "tool": (
-        "cls-1": #ffeb3b,
-        "cls-2": #fffb73,
-      ),
-    ),
-    "ffc107": (
-      "tool": (
-        "cls-1": #ffc107,
-        "cls-2": #ffdb08,
-      ),
-    ),
-    "ff5722": (
-      "tool": (
-        "cls-1": #ff5722,
-        "cls-2": #ff8101,
-      ),
-    ),
-    "e91e63": (
-      "tool": (
-        "cls-1": #e91e63,
-        "cls-2": #fc3d86,
-      ),
-    ),
-    "259b24": (
-      "tool": (
-        "cls-1": #259b24,
-        "cls-2": #22af22,
-      ),
-    ),
-    "cddc39": (
-      "tool": (
-        "cls-1": #cddc39,
-        "cls-2": #e7ef41,
-      ),
-    ),
-    "ff9800": (
-      "tool": (
-        "cls-1": #ff9800,
-        "cls-2": #ffb703,
-      ),
-    ),
-    "e51c23": (
-      "tool": (
-        "cls-1": #e51c23,
-        "cls-2": #ff0619,
-      ),
-    ),
-    "9c27b0": (
-      "tool": (
-        "cls-1": #9c27b0,
-        "cls-2": #c30fe8,
-      ),
-    ),
-    "3f51b5": (
-      "tool": (
-        "cls-1": #3f51b5,
-        "cls-2": #4661e0,
-      ),
-    ),
-    "03a9f4": (
-      "tool": (
-        "cls-1": #03a9f4,
-        "cls-2": #06c5f2,
-      ),
-    ),
-    "6ae5b9": (
-      "tool": (
-        "cls-1": #6ae5b9,
-        "cls-2": #8efcdc,
-      ),
-    ),
-    "9e9e9e": (
-      "tool": (
-        "cls-1": #9e9e9e,
-        "cls-2": #bcbcbc,
-      ),
-    ),
-    "607d8b": (
-      "tool": (
-        "cls-1": #607d8b,
-        "cls-2": #658b99,
-      ),
-    ),
-    "673ab7": (
-      "tool": (
-        "cls-1": #673ab7,
-        "cls-2": #764acc,
-      ),
-    ),
-    "5677fc": (
-      "tool": (
-        "cls-1": #5677fc,
-        "cls-2": #6c9dff,
-      ),
-    ),
-    "009688": (
-      "tool": (
-        "cls-1": #009688,
-        "cls-2": #06bca6,
-      ),
-    ),
-    "795548": (
-      "tool": (
-        "cls-1": #795548,
-        "cls-2": #895c4e,
-      ),
-    ),
-    "212121": (
-      "tool": (
-        "cls-1": #212121,
-        "cls-2": #333333,
-      ),
-    ),
-  ),
   'shape': (
     "8bc34a": (
       "tool": (
@@ -943,6 +475,28 @@ $svg-color-matrix: (
 
 
 $svg-colors-2: (
+  "crayon": (
+    "tool": (
+      "cls-1": "primary",
+      "cls-2": "highlight"
+    )
+  ),
+  "marker": (
+    "tool": (
+      "cls-3": "primary"
+    )
+  ),
+  "pencil": (
+    "tool": (
+      "cls-2": "primary"
+    )
+  ),
+  "paintbrush": (
+    "tool": (
+      "cls-1": "primary",
+      "cls-2": "highlight"
+    )
+  ),
   "stamp-bow": (
     "tool": (
       "cls-1": "primary",
@@ -955,7 +509,14 @@ $svg-colors-2: (
     "tool": (
       "cls-5": "primary",
     )
-  )
+  ),
+  "stamp-present": (
+    "tool": (
+      "cls-3": "primary",
+      "cls-5": "medium",
+      "cls-6": "highlight"
+    )
+  ),
 );
 
 @mixin generateSVGstyles($tool-name, $selector:'') {
@@ -983,10 +544,6 @@ $svg-colors-2: (
       $toolConfig: map-get($svg-colors-2, $tool-name);
       $svgConfig: map-get($toolConfig, "tool");
       $colorConfig: map-get($svg-color-matrix, $current-color);
-
-      // background: $toolConfig;
-      // background: $colorConfig;
-      // background: $svgConfig;
 
       @each $className, $colorName in $svgConfig {
         .#{$className} {

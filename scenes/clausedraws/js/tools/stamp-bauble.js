@@ -29,8 +29,8 @@ goog.require('app.Stamp');
 app.StampBauble = function($elem, name) {
   app.Stamp.call(this, $elem, name);
 
-  this.width = 50.51;
-  this.height = 81.45;
+  this.width = 50.5;
+  this.height = 81.5;
 };
 app.StampBauble.prototype = Object.create(app.Stamp.prototype);
 

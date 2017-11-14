@@ -28,6 +28,7 @@ goog.require('app.SprinkleSpray');
 goog.require('app.Stamp');
 goog.require('app.StampBauble');
 goog.require('app.StampBow');
+goog.require('app.StampPresent');
 goog.require('app.TextureDrawer');
 goog.require('app.EffectInvert');
 goog.require('app.Tool');
@@ -81,7 +82,7 @@ app.Tools = function(game, $elem) {
   this.eraser = new app.Eraser($elem, 'eraser');
   this.stampBauble = new app.StampBauble($elem, 'bauble');
   this.stampBow = new app.StampBow($elem, 'bow');
-  // this.stampPresent = new app.Stamp($elem, 'present');
+  this.stampPresent = new app.StampPresent($elem, 'present');
   this.rollerCheckered = new app.PaintRoller($elem, 'checkered');
   this.rollerDiagonal = new app.PaintRoller($elem, 'diagonal');
   this.rollerHorizontal = new app.PaintRoller($elem, 'horizontal');
@@ -110,7 +111,7 @@ app.Tools = function(game, $elem) {
     this.eraser,
     this.stampBauble,
     this.stampBow,
-    // this.stampPresent,
+    this.stampPresent,
     this.rollerCheckered,
     this.rollerDiagonal,
     this.rollerHorizontal,
