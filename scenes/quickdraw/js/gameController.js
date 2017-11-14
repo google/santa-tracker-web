@@ -282,7 +282,6 @@ app.GameController.prototype.pauseGame = function() {
 
 
 app.GameController.prototype.endGame = function() {
-  console.log('end game', this.previousRounds);
   this.recognitionController.stop();
   this.clock.pauseClock();
   this.machineView.reset();

@@ -38,7 +38,7 @@ app.Game.prototype.start = function() {
   // Game Controller
   this.gameController.prepareNewGame();
   this.gameController.addListener('GAME_END', function() {
-    this.showSplashscreen()
+    this.showSplashscreen();
   }.bind(this));
 
   //Splash view
@@ -61,8 +61,6 @@ app.Game.prototype.startGame = function() {
       }.bind(this)
     });
   }.bind(this));
-  // this.splashView.hideView();
-  // this.gameController.showView();
 };
 
 app.Game.prototype.showSplashscreen = function() {

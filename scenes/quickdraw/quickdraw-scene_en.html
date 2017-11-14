@@ -94,7 +94,9 @@ Quickdraw scene.
 (function() {
   Polymer({
     is: 'quickdraw-scene',
-    behaviors: [window.SantaSceneBehavior],
+    behaviors: [
+      window.SantaSceneBehavior
+    ],
     game: null,
 
     onPreload: function() {
