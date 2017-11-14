@@ -20,19 +20,23 @@
 
   .Button--utility,
   .Button--nav {
+    background-position: center;
+    background-repeat: no-repeat;
     height: 40px;
     margin: 10px auto;
     width: 40px;
   }
 
   .Button--utility {
-    background: #fff;
+    background-color: #fff;
+    background-size: 40%;
     box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
     color: #C1DBD9;
   }
 
   .Button--nav {
-    background: #FFC101;
+    background-color: #FFC101;
+    background-size: 30%;
     box-shadow: 2px 4px 0 #F0932A, 5px 7px rgba(0,0,0,0.16);
   }
 
@@ -41,6 +45,33 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 70%;
+  }
+
+  .Button--snowglobe {
+    background-image: url(img/icons/snow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+  }
+
+  .Button--next {
+    background-image: url(img/icons/next.svg);
+  }
+
+  .Button--prev {
+    background-image: url(img/icons/previous.svg);
+  }
+
+  .Button--redo {
+    background-image: url(img/icons/redo.svg);
+  }
+
+  .Button--undo {
+    background-image: url(img/icons/undo.svg);
+  }
+
+  .Button--save {
+    background-image: url(img/icons/save.svg);
   }
 
   .Button--reset {
