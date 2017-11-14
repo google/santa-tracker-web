@@ -14,27 +14,28 @@
  * the License.
  */
 
-goog.provide('app.Pencil');
+goog.provide('app.SVGImage');
 goog.require('app.Constants');
-goog.require('app.TextureDrawer');
 goog.require('app.utils');
 
 
-/**
- * Pencil tool
- * @constructor
- * @extends {app.TextureDrawer}
- * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the tool.
- */
-app.Pencil = function($elem, name) {
-  app.TextureDrawer.call(this, $elem, name);
-  this.drawFrequency = 2;
+app.SVGImage = function() {
+  this.cache = {};
+  this.width = 100;
+  this.height = 100;
 };
-app.Pencil.prototype = Object.create(app.TextureDrawer.prototype);
 
 
-app.Pencil.prototype.calculateDrawSize = function(size) {
-  return app.utils.map(size, app.Constants.PENCIL_MIN,
-      app.Constants.PENCIL_MAX);
-}
+app.SVGImage.prototype.getSVGString = function(color) {
+  // subclasses fill this out
+  return;
+};
+
+
+app.SVGImage.prototype.getImage = function(color, callback) {
+  if (!this.cache[color]) {
+    this.cache[color] = app.utils.svgToImage(this.getSVGString(color), callback);
+  }
+
+  return this.cache[color];
+};

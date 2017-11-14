@@ -16,6 +16,7 @@
 
 goog.provide('app.TextureDrawer');
 goog.require('app.Constants');
+goog.require('app.ImageManager');
 goog.require('app.Tool');
 goog.require('app.utils');
 
@@ -31,6 +32,7 @@ app.TextureDrawer = function($elem, name, opacity) {
   app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_color';
+  this.textureName = 'texture-' + name;
   this.opacity = opacity || 1;
   this.drawFrequency = 4;
   this.points = [];
@@ -58,7 +60,7 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
   var drawHeight = this.currentSize;
   var offsetX = this.currentSize / 2;
   var offsetY = this.currentSize / 2;
-  var texture = this.getSVGTexture(color);
+  var texture = app.ImageManager.getImage(this.textureName, color);
 
   this.points.push({
       x: drawX,
@@ -127,18 +129,3 @@ app.TextureDrawer.prototype.calculateDrawSize = function(size) {
   return app.utils.map(size, app.Constants.PEN_MIN,
       app.Constants.PEN_MAX);
 }
-
-
-app.TextureDrawer.prototype.getSVGTexture = function(color) {
-  if (!this.textures[color]) {
-    this.textures[color] = app.utils.svgToImage(this.getSVGString(color));
-  }
-
-  return this.textures[color];
-};
-
-
-app.TextureDrawer.prototype.getSVGString = function(color) {
-  return '';
-};
-

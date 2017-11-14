@@ -59,14 +59,19 @@ app.utils = function() {
       return min + (max - min) * value;
     },
 
-    svgToImage: function(svgString) {
-      // TODO: retun onload
+    svgToImage: function(svgString, callback) {
       var data = svgString;
       var DOMURL = window.URL || window.webkitURL || window;
 
       var img = new Image();
       var svg = new Blob([data], {type: 'image/svg+xml'});
       var url = DOMURL.createObjectURL(svg);
+
+      if (callback) {
+        img.onload = function() {
+          callback(img);
+        }
+      }
 
       img.src = url;
       return img;
