@@ -531,6 +531,10 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       padding: 20px 35px;
     }
 
+    &--stamp-present {
+      padding: 15px 20px;
+    }
+
     @each $current-roller in $roller-names {
       &--roller-#{$current-roller} {
         background-image: url(img/patterns/#{$current-roller}.svg);
@@ -634,10 +638,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
   .Tool--stamp-present, .Tool-hover-preview--stamp-present {
     .cls-1 {
       isolation: isolate;
-    }
-
-    .cls-2 {
-      fill: #f2faff;
     }
 
     .cls-4 {

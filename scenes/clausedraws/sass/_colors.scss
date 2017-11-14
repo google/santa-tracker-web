@@ -62,7 +62,7 @@ $svg-color-matrix: (
     "highlight": #ff0619,
     "medium": #c61724,
     "dark": #af0000,
-    "complement": #259b24
+    "complement": #8bc34a
   ),
   "9c27b0": (
     "primary": #9c27b0,
@@ -194,9 +194,11 @@ $svg-colors: (
   ),
   "stamp-present": (
     "tool": (
-      "cls-3": "primary",
-      "cls-5": "medium",
-      "cls-6": "highlight"
+      "cls-2": "primary",
+      "cls-3": "complement.primary",
+      "cls-5": "complement.dark",
+      "cls-6": "complement.medium",
+      "cls-7": "complement.highlight"
     )
   ),
 );
@@ -209,10 +211,17 @@ $svg-colors: (
       $toolConfig: map-get($svg-colors, $tool-name);
       $svgConfig: map-get($toolConfig, "tool");
       $colorConfig: map-get($svg-color-matrix, $current-color);
+      $complement: map-get($colorConfig, "complement");
+      $complementConfig: map-get($svg-color-matrix, str-slice(#{$complement}, 2));
 
       @each $className, $colorName in $svgConfig {
         .#{$className} {
-          fill: map-get($colorConfig, $colorName);
+          @if (str-index($colorName, '.')) {
+            $complementColorName: str-slice($colorName, str-index($colorName, '.') + 1);
+            fill: map-get($complementConfig, $complementColorName);
+          } @else {
+            fill: map-get($colorConfig, $colorName);
+          }
         }
       }
     }

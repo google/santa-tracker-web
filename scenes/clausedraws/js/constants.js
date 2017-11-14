@@ -112,7 +112,7 @@ app.Constants = {
       "highlight": "#ff0619",
       "medium": "#c61724",
       "dark": "#af0000",
-      "complement": "#259b24"
+      "complement": "#8bc34a"
     },
     "#9c27b0": {
       "primary": "#9c27b0",
