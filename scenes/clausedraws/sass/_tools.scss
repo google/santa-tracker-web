@@ -720,6 +720,31 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
     }
   }
 
+  [data-tool-hover-category="shape"] {
+    .Tool-hover-preview {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100%;
+      left: 50%;
+      opacity: 0.5;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+  }
+
+  @each $current-shape in $shape-names {
+    [data-tool-hover-tool="shape-#{$current-shape}"] {
+      .Tool-hover-preview--shape-#{$current-shape} {
+        display: block;
+      }
+
+      @include generateSVGstyles('shape', '.Tool-hover-preview');
+    }
+  }
+
   [data-tool-hover-category="stamp"] {
     .Tool-hover-minitool--default {
       background: url(img/tools/tool_stamp.svg) center/contain no-repeat;
