@@ -35,6 +35,8 @@ app.Constants = {
   PENCIL_MAX: 10,
   ERASER_MIN: 10,
   ERASER_MAX: 100,
+  SHAPE_MIN: 0.5,
+  SHAPE_MAX: 3.0,
   STAMP_MIN: 0.5,
   STAMP_MAX: 2.5,
   SPRAY_CIRCLE_SIZE: 50,

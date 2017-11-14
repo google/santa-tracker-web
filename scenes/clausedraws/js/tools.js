@@ -22,6 +22,16 @@ goog.require('app.Marker');
 goog.require('app.Paintbrush');
 goog.require('app.PaintRoller');
 goog.require('app.Pencil');
+goog.require('app.Shape');
+goog.require('app.ShapeCircle');
+goog.require('app.ShapeDiamond');
+goog.require('app.ShapeHeart');
+goog.require('app.ShapeOctagon');
+goog.require('app.ShapePentagon');
+goog.require('app.ShapeRectangle');
+goog.require('app.ShapeSquare');
+goog.require('app.ShapeStar');
+goog.require('app.ShapeTriangle');
 goog.require('app.Slider');
 goog.require('app.SprayColor');
 goog.require('app.SprinkleSpray');
@@ -80,6 +90,15 @@ app.Tools = function(game, $elem) {
   this.sceneSnow = new app.LayerTool($elem, 'snow', app.LayerTool.Layer.BACKGROUND);
   this.sceneUnderwater = new app.LayerTool($elem, 'underwater', app.LayerTool.Layer.BACKGROUND);
   this.eraser = new app.Eraser($elem, 'eraser');
+  this.shapeCircle = new app.ShapeCircle($elem, 'circle');
+  this.shapeDiamond = new app.ShapeDiamond($elem, 'diamond');
+  this.shapeHeart = new app.ShapeHeart($elem, 'heart');
+  this.shapeOctagon = new app.ShapeOctagon($elem, 'octagon');
+  this.shapePentagon = new app.ShapePentagon($elem, 'pentagon');
+  this.shapeRectangle = new app.ShapeRectangle($elem, 'rectangle');
+  this.shapeSquare = new app.ShapeSquare($elem, 'square');
+  this.shapeStar = new app.ShapeStar($elem, 'star');
+  this.shapeTriangle = new app.ShapeTriangle($elem, 'triangle');
   this.stampBauble = new app.StampBauble($elem, 'bauble');
   this.stampBow = new app.StampBow($elem, 'bow');
   this.stampPresent = new app.StampPresent($elem, 'present');
@@ -109,6 +128,15 @@ app.Tools = function(game, $elem) {
     this.sceneSnow,
     this.sceneUnderwater,
     this.eraser,
+    this.shapeCircle,
+    this.shapeDiamond,
+    this.shapeHeart,
+    this.shapeOctagon,
+    this.shapePentagon,
+    this.shapeRectangle,
+    this.shapeSquare,
+    this.shapeStar,
+    this.shapeTriangle,
     this.stampBauble,
     this.stampBow,
     this.stampPresent,
