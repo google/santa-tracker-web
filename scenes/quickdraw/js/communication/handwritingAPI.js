@@ -16,7 +16,7 @@
 'use strict';
 
 goog.provide('app.HandwritingAPI');
-goog.require('app.config');
+goog.require('app.Constants');
 
 
 app.HandwritingAPI = function() {
@@ -48,7 +48,7 @@ app.HandwritingAPI.prototype.sendRequest = function(segments, options) {
   }
 
   return $.post({
-    url: app.config.handwriting_url,
+    url: app.Constants.HANDWRITING_URL,
     data: JSON.stringify(request),
     contentType: 'application/json'
   });

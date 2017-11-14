@@ -16,7 +16,7 @@
 'use strict';
 
 goog.provide('app.Clock');
-goog.require('app.config');
+goog.require('app.Constants');
 goog.require('app.EventEmitter');
 
 
@@ -31,8 +31,8 @@ app.Clock.prototype = Object.create(app.EventEmitter.prototype);
 
 
 app.Clock.prototype.reset = function() {
-  this.totalTime = app.config.round_length;
-  this.timeLeft = app.config.round_length;
+  this.totalTime = app.Constants.INITIAL_COUNTDOWN;
+  this.timeLeft = app.Constants.INITIAL_COUNTDOWN;
   this.started = false;
 };
 

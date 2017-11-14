@@ -16,7 +16,7 @@
 'use strict';
 
 goog.provide('app.GameController');
-goog.require('app.config');
+goog.require('app.Constants');
 goog.require('app.EventEmitter');
 
 goog.require('app.view.CardsView');
@@ -116,7 +116,7 @@ app.GameController.prototype.onNewRecognitions = function(recognitions) {
   if (this.recognitionController.isRecognizing) {
     // Check if the correct word has been recognized
     var correctRecognition = recognitions.find(function(recognition) {
-      return recognition.word == this.currentRound.word && recognition.score < app.config.handwriting_recognition_threshold;
+      return recognition.word == this.currentRound.word && recognition.score < app.Constants.HANDWRITING_RECOGNITION_THRESHOLD;
     }.bind(this));
 
     if (this.currentRound && correctRecognition) {
@@ -148,7 +148,7 @@ app.GameController.prototype.onNewRecognitions = function(recognitions) {
 
 app.GameController.prototype.fetchNewRound = function(alreadyPresentedWords, callback) {
   // Only get words that didnt show up during game
-  var words = app.config.words.filter(function(word) {
+  var words = app.Constants.WORDS.filter(function(word) {
     return this.indexOf(word) < 0;
   }, alreadyPresentedWords);
 
@@ -235,7 +235,7 @@ app.GameController.prototype.roundRecognized = function(correctRecognition) {
     this.submitRoundResult({recognition: correctRecognition}, function(nextChallenge) {
       this.previousRounds.push(this.currentRound);
       this.completedLevels++;
-      if (this.level < app.config.num_rounds) {
+      if (this.level < app.Constants.TOTAL_LEVELS) {
         this.level++;
         this.startNewRoundWithChallenge(nextChallenge);
       } else {
@@ -255,7 +255,7 @@ app.GameController.prototype.roundTimesUp = function() {
 
   this.submitRoundResult({recognition:false}, function(nextChallenge) {
     this.previousRounds.push(this.currentRound);
-    if (this.level < app.config.num_rounds) {
+    if (this.level < app.Constants.TOTAL_LEVELS) {
       this.machineView.reset();
       this.level++;
       this.startNewRoundWithChallenge(nextChallenge);

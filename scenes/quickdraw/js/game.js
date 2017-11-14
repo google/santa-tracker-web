@@ -16,7 +16,8 @@
 'use strict';
 
 goog.provide('app.Game');
-goog.require('app.config');
+
+goog.require('app.Constants');
 goog.require('app.view.SplashView');
 goog.require('app.GameController');
 

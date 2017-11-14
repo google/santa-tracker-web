@@ -18,7 +18,7 @@
 goog.provide('app.DrawingRecognitionController');
 goog.require('app.EventEmitter');
 goog.require('app.HandwritingAPI');
-goog.require('app.config');
+goog.require('app.Constants');
 
 
 app.DrawingRecognitionController = function() {
@@ -28,7 +28,7 @@ app.DrawingRecognitionController = function() {
     function(drawing) {
       this.processDrawing(drawing)
     }.bind(this),
-    app.config.max_api_rate * 1000
+    app.Constants.MAX_API_RATE * 1000
   );
 
   this.isRecognizing = false;
@@ -79,6 +79,6 @@ app.DrawingRecognitionController.prototype.processRecognitionResponse = function
 
 app.DrawingRecognitionController.prototype.filterGuesses = function(visionResults) {
   return visionResults.filter(function(result) {
-    return result.score < app.config.handwriting_threshold;
+    return result.score < app.Constants.HANDWRITING_THRESHOLD;
   });
 };
