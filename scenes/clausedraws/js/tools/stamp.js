@@ -31,11 +31,12 @@ app.Stamp = function($elem, name) {
   app.Tool.call(this, $elem, 'stamp-' + name);
 
   this.stampName = name;
-  this.stamp = $elem.find('#' + this.stampName + '-' +
-      app.Constants.COLORPICKER_DEFAULT)[0];
   this.soundKey = 'selfie_spray_small';
   this.stamped = false;
   this.sizeMultiplier = 1;
+  this.stampImages = {};
+  this.height = 100;
+  this.width = 100;
 };
 app.Stamp.prototype = Object.create(app.Tool.prototype);
 
@@ -52,14 +53,14 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   }
 
   var context = canvas.getContext('2d');
-  var drawWidth = this.stamp.width * this.sizeMultiplier;
-  var drawHeight = this.stamp.height * this.sizeMultiplier;
+  var drawWidth = this.width * this.sizeMultiplier;
+  var drawHeight = this.height * this.sizeMultiplier;
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
   var offsetX = drawWidth / 2;
   var offsetY = drawHeight / 2;
   var color = this.el.attr('data-tool-color');
-  var image = this.elem.find('#' + this.stampName + '-' + color.substring(1))[0];
+  var image = this.getStampImage(color);
   context.drawImage(image,
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);
@@ -107,8 +108,23 @@ app.Stamp.prototype.updateSize = function(size) {
 
 
 app.Stamp.prototype.calculateDrawSize = function(size) {
-  return Math.max(this.stamp.width * this.sizeMultiplier,
-      this.stamp.height * this.sizeMultiplier);
+  return Math.max(this.width * this.sizeMultiplier,
+      this.height * this.sizeMultiplier);
 }
+
+
+app.Stamp.prototype.getStampImage = function(color) {
+  if (!this.stampImages[color]) {
+    this.stampImages[color] = app.utils.svgToImage(this.getSVGString(color));
+  }
+
+  return this.stampImages[color];
+};
+
+
+app.Stamp.prototype.getSVGString = function(color) {
+  return '';
+};
+
 
 

@@ -59,6 +59,19 @@ app.utils = function() {
       return min + (max - min) * value;
     },
 
+    svgToImage: function(svgString) {
+      // TODO: retun onload
+      var data = svgString;
+      var DOMURL = window.URL || window.webkitURL || window;
+
+      var img = new Image();
+      var svg = new Blob([data], {type: 'image/svg+xml'});
+      var url = DOMURL.createObjectURL(svg);
+
+      img.src = url;
+      return img;
+    },
+
     randomLoop: function(fn, minInterval, maxInterval) {
       var random = Math.max(minInterval, Math.random() * maxInterval);
 

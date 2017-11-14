@@ -58,7 +58,7 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
   var drawHeight = this.currentSize;
   var offsetX = this.currentSize / 2;
   var offsetY = this.currentSize / 2;
-  var texture = this.getTextureImage(color);
+  var texture = this.getSVGTexture(color);
 
   this.points.push({
       x: drawX,
@@ -129,24 +129,9 @@ app.TextureDrawer.prototype.calculateDrawSize = function(size) {
 }
 
 
-app.TextureDrawer.prototype.getTextureImage = function(color) {
-  // var texture = this.elem.find('#' + this.name + '-' + color.substring(1))[0];
-  // return texture;
-  return this.getSVGTexture(color);
-};
-
-
 app.TextureDrawer.prototype.getSVGTexture = function(color) {
   if (!this.textures[color]) {
-    var data = this.getSVGString(color);
-    var DOMURL = window.URL || window.webkitURL || window;
-
-    var img = new Image();
-    var svg = new Blob([data], {type: 'image/svg+xml'});
-    var url = DOMURL.createObjectURL(svg);
-
-    img.src = url;
-    this.textures[color] = img;
+    this.textures[color] = app.utils.svgToImage(this.getSVGString(color));
   }
 
   return this.textures[color];
