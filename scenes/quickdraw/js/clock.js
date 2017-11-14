@@ -45,7 +45,11 @@ app.Clock.prototype.startClock = function() {
   }
 
   this.interval = setInterval(function() {
+    var oldTimeLeft = Math.round(this.timeLeft);
     this.timeLeft -= 0.1;
+    if (oldTimeLeft != Math.round(this.timeLeft)) {
+      this.emit('TIME_DOWN');
+    }
     if (this.timeLeft <= 0) {
       this.timeLeft = 0;
       this.pauseClock();

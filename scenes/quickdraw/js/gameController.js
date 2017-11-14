@@ -27,6 +27,7 @@ goog.require('app.view.DrawingCanvas');
 goog.require('app.DrawingRecognitionController');
 goog.require('app.Clock');
 goog.require('app.GameRound');
+goog.require('app.shared.Scoreboard');
 
 
 app.GameController = function(container) {
@@ -34,6 +35,7 @@ app.GameController = function(container) {
 
   this.recognitionController = new app.DrawingRecognitionController();
   this.clock = new app.Clock();
+  this.scoreboard = new app.shared.Scoreboard(this, container.find('.board'), app.Constants.TOTAL_LEVELS);
 
   //Views
   this.cardsView = new app.view.CardsView(container);
@@ -54,6 +56,9 @@ app.GameController = function(container) {
   }.bind(this));
   this.clock.addListener('TIMES_UP', function() {
     this.roundTimesUp();
+  }.bind(this));
+  this.clock.addListener('TIME_DOWN', function() {
+    this.scoreboard.onFrame(1);
   }.bind(this));
 
 
@@ -168,6 +173,7 @@ app.GameController.prototype.startNewGameWithChallenge = function(challenge, opt
   };
 
   this.resetGameRounds();
+  this.scoreboard.reset();
 
   this.level = 1;
   this.completedLevels = 0;
@@ -206,11 +212,14 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
     this.drawingCanvas.clearDrawingCanvas();
     this.machineView.reset();
     this.recognitionController.start();
+    window.santaApp.fire('sound-trigger', 'bl_game_start');
 
     //Start The Clock
     this.clock.reset();
     this.clock.startClock();
   }.bind(this);
+
+  this.scoreboard.setLevel(this.level - 1);
 
   this.cardsView.showNewRoundCard({
     level: this.level,
@@ -229,6 +238,7 @@ app.GameController.prototype.roundRecognized = function(correctRecognition) {
   this.pauseGame();
 
   this.machineView.setResultWord(this.currentRound.word);
+  this.scoreboard.addScore(1);
 
   setTimeout(function() {
     this.submitRoundResult({recognition: correctRecognition}, function(nextChallenge) {
@@ -266,6 +276,8 @@ app.GameController.prototype.roundTimesUp = function() {
 
 
 app.GameController.prototype.submitRoundResult = function(options, callback) {
+  this.scoreboard.restart();
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   this.currentRound.drawing = this.drawingCanvas.getSegments();
   this.currentRound.recognized = options.recognition ? true : false;
   this.fetchNewRound(this.presentedWords, function(data) {
@@ -301,4 +313,7 @@ app.GameController.prototype.exitGame = function() {
   this.machineView.setGuesses([]);
   this.currentRound = undefined;
   this.clock.pauseClock();
+};
+
+app.GameController.prototype.gameover = function() {
 };

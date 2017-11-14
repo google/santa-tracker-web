@@ -27,6 +27,7 @@ app.Constants = {
   TOTAL_LEVELS: 4,
   // Duration of game in seconds
   INITIAL_COUNTDOWN: 30,
+  COUNTDOWN_FLASH: 10,
   HANDWRITING_URL: "https://inputtools.google.com/request?ime=handwriting&app=quickdraw&dbg=1&cs=1&oe=UTF-8",
   HANDWRITING_THRESHOLD: 4.0,
   HANDWRITING_RECOGNITION_THRESHOLD: 2.0,

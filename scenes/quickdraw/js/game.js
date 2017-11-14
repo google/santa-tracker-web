@@ -49,7 +49,7 @@ app.Game.prototype.start = function() {
 };
 
 app.Game.prototype.dispose = function() {
-  console.log('dispose game');
+  this.gameController.exitGame();
 };
 
 app.Game.prototype.startGame = function() {
