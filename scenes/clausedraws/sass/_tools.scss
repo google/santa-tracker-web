@@ -493,7 +493,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       &--#{$current-tool} {
         padding: 10px 40px;
 
-        @include generateSVGstyles2($current-tool);
+        @include generateSVGstyles($current-tool);
       }
     }
 
@@ -523,7 +523,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       &--stamp-#{$current-stamp} {
         padding: 35px 15px;
 
-        @include generateSVGstyles2('stamp-#{$current-stamp}');
+        @include generateSVGstyles('stamp-#{$current-stamp}');
       }
     }
 
@@ -751,7 +751,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
         display: block;
       }
 
-      @include generateSVGstyles2('stamp-#{$current-stamp}', '.Tool-hover-preview');
+      @include generateSVGstyles('stamp-#{$current-stamp}', '.Tool-hover-preview');
 
       // @each $current-color in $colorpicker-colors {
       //   &[data-tool-color="##{$current-color}"] .Tool-hover-preview {
@@ -812,7 +812,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
 
   @each $current-tool in $drawing-tools {
     [data-tool-hover-tool="#{$current-tool}"] {
-      @include generateSVGstyles2($current-tool,
+      @include generateSVGstyles($current-tool,
           '.Tool-hover-minitool--#{$current-tool}');
 
       .Tool-hover-minitool--#{$current-tool} {
