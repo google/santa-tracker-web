@@ -1,5 +1,5 @@
 // $stamp-names: "bow", "present", "bauble";
-$stamp-names: "bauble";
+$stamp-names: "bow", "bauble";
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
@@ -524,7 +524,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       &--stamp-#{$current-stamp} {
         padding: 35px 15px;
 
-        @include generateSVGstyles('stamp-#{$current-stamp}');
+        @include generateSVGstyles2('stamp-#{$current-stamp}');
       }
     }
 
@@ -732,7 +732,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
         display: block;
       }
 
-      @include generateSVGstyles('stamp-#{$current-stamp}', '.Tool-hover-preview');
+      @include generateSVGstyles2('stamp-#{$current-stamp}', '.Tool-hover-preview');
 
       // @each $current-color in $colorpicker-colors {
       //   &[data-tool-color="##{$current-color}"] .Tool-hover-preview {

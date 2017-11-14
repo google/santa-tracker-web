@@ -1,4 +1,5 @@
 $colorpicker-colors:  "8bc34a" "ffeb3b" "ffc107" "ff5722" "e91e63" "259b24" "cddc39" "ff9800" "e51c23" "9c27b0" "3f51b5" "03a9f4" "6ae5b9" "9e9e9e" "607d8b" "673ab7" "5677fc" "009688" "795548" "212121";
+$colorpicker-colors2:  "8bc34a" "ffeb3b" "ffc107" "ff5722" "e91e63" "259b24" "cddc39" "ff9800" "e51c23" "9c27b0" "3f51b5" "03a9f4" "6ae5b9" "9e9e9e" "f2faff" "673ab7" "5677fc" "009688" "795548" "212121";
 
 $svg-colors: (
   "crayon": (
@@ -817,7 +818,7 @@ $svg-colors: (
   ),
 );
 
-$svg-colors-2: (
+$svg-color-matrix: (
   "8bc34a": (
     "primary": #8bc34a,
     "highlight": #93d839,
@@ -940,6 +941,23 @@ $svg-colors-2: (
   ),
 );
 
+
+$svg-colors-2: (
+  "stamp-bow": (
+    "tool": (
+      "cls-1": "primary",
+      "cls-2": "medium",
+      "cls-3": "highlight",
+      "cls-4": "dark"
+    )
+  ),
+  "stamp-bauble": (
+    "tool": (
+      "cls-5": "primary",
+    )
+  )
+);
+
 @mixin generateSVGstyles($tool-name, $selector:'') {
   @each $current-color in $colorpicker-colors {
     &[data-tool-color="##{$current-color}"] #{$selector} {
@@ -956,4 +974,28 @@ $svg-colors-2: (
     }
   }
 }
+
+
+@mixin generateSVGstyles2($tool-name, $selector:'') {
+  @each $current-color in $colorpicker-colors2 {
+    &[data-tool-color="##{$current-color}"] #{$selector} {
+
+      $toolConfig: map-get($svg-colors-2, $tool-name);
+      $svgConfig: map-get($toolConfig, "tool");
+      $colorConfig: map-get($svg-color-matrix, $current-color);
+
+      // background: $toolConfig;
+      // background: $colorConfig;
+      // background: $svgConfig;
+
+      @each $className, $colorName in $svgConfig {
+        .#{$className} {
+          fill: map-get($colorConfig, $colorName);
+        }
+      }
+    }
+  }
+}
+
+
 
