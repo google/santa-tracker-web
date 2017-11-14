@@ -259,7 +259,7 @@ app.GameController.prototype.roundTimesUp = function() {
   this.recognitionController.stop();
 
   setTimeout(function() {
-    this.machineView.speakAndWrite('I couldn\'t guess it.', 'Sorry');
+    this.machineView.speakAndWrite('I couldn\'t guess it ', 'Sorry');
   }.bind(this), 500);
 
   this.submitRoundResult({recognition:false}, function(nextChallenge) {
