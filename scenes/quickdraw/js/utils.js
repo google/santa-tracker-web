@@ -21,8 +21,45 @@ goog.provide('app.Utils');
 Utils = function() {
 };
 
+Utils.CACHE_ = {};
+
 Utils.prototype.capitalize = function(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+Utils.prototype.getTranslation = function(container, key, variable, varValue) {
+  var variable = variable || null;
+  var varValue = varValue || null;
+  var msg = this.getMsgOrNull(container, key, variable, varValue);
+  return msg === null ? '[Unknown message: ' + key + ']' : msg;
+};
+
+Utils.prototype.getMsgOrNull = function(container, key, variable, varValue) {
+  var text = null;
+
+  // Get translated String
+  if (!(key in Utils.CACHE_)) {
+    var element = container.find('#' + key);
+    if (element.length > 0) {
+      text = element.text();
+      text = text.replace(/\\n/g, '\n');
+      Utils.CACHE_[key] = text;
+    }
+  } else {
+    text = Utils.CACHE_[key];
+  }
+
+  // Replace value
+  if (text && variable && varValue) {
+    text = this.replaceVarWithValue(text, variable, varValue);
+  }
+
+  // Return it
+  return text;
+};
+
+Utils.prototype.replaceVarWithValue = function(string, variable, varValue) {
+  return string.replace('{{' + variable + '}}', varValue);
 };
 
 app.Utils = new Utils();

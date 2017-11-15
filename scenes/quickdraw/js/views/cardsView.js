@@ -25,6 +25,7 @@ goog.require('app.EventEmitter');
 
 app.view.CardsView = function(container) {
   app.EventEmitter.call(this);
+  this.container = container;
   this.newround_card = container.find('.newround-card');
   this.timesup_card = container.find('.timesup-card');
   this.newround_card.hide();
@@ -102,11 +103,11 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   $drawingsWrapper.html('');
 
   if (roundsRecognized == 0) {
-    $titleElem.text('Oops!');
-    $sublineElem.text('Robby didn\'t recognized any of your drawings.');
+    $titleElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-title-noguess'));
+    $sublineElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-subline-noguess'));
   } else {
-    $titleElem.text('Well done!');
-    $sublineElem.text('Robby recognized ' + roundsRecognized + ' of your drawings.');
+    $titleElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-title-guess'));
+    $sublineElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-subline-guess', 'roundsRecognized', roundsRecognized));
   }
 
   rounds.forEach(function(round) {

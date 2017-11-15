@@ -1085,6 +1085,36 @@
 	"quickdraw-timesup-button": {
 		"message": "Play again!"
 	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oops!"
+  },
+  "quickdraw-timesup-subline-noguess": {
+		"message": "Robby didn’t recognized any of your drawings."
+  },
+  "quickdraw-timesup-title-guess": {
+		"message": "Well done!"
+  },
+  "quickdraw-timesup-subline-guess": {
+		"message": "Robby recognized {{roundsRecognized}} of your drawings."
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "I’m not sure what that is."
+  },
+  "quickdraw-round-sorry": {
+		"message": "Sorry"
+  },
+  "quickdraw-round-timesup": {
+		"message": "I couldn’t guess it "
+  },
+  "quickdraw-machine-see": {
+		"message": "I see"
+  },
+  "quickdraw-machine-or": {
+		"message": "or"
+	},
+	"quickdraw-machine-know": {
+		"message": "Oh I know, this is {{word}}"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},

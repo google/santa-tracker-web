@@ -1446,7 +1446,47 @@
 	"quickdraw-timesup-button": {
     "description": "Label for the button to restart a game.",
 		"message": "Play again!"
-	},
+  },
+  "quickdraw-timesup-title-noguess": {
+    "description": "",
+		"message": "Oops!"
+  },
+  "quickdraw-timesup-subline-noguess": {
+    "description": "",
+		"message": "Robby didn’t recognized any of your drawings."
+  },
+  "quickdraw-timesup-title-guess": {
+    "description": "",
+		"message": "Well done!"
+  },
+  "quickdraw-timesup-subline-guess": {
+    "description": "",
+		"message": "Robby recognized {{roundsRecognized}} of your drawings."
+  },
+  "quickdraw-round-no-new-guess": {
+    "description": "",
+		"message": "I’m not sure what that is."
+  },
+  "quickdraw-round-sorry": {
+    "description": "",
+		"message": "Sorry"
+  },
+  "quickdraw-round-timesup": {
+    "description": "",
+		"message": "I couldn’t guess it "
+  },
+  "quickdraw-machine-see": {
+    "description": "'I see' is followed by a list of guesses",
+		"message": "I see"
+  },
+  "quickdraw-machine-or": {
+    "description": "In a list of objects 'or' is followed by objects",
+		"message": "or"
+  },
+  "quickdraw-machine-know": {
+    "description": "In a list of objects 'or' is followed by objects",
+    "message": "Oh I know, this is {{word}}"
+  },
   "ro_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Romania"

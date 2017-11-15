@@ -17,6 +17,7 @@
 
 goog.provide('app.GameController');
 goog.require('app.Constants');
+goog.require('app.Utils');
 goog.require('app.EventEmitter');
 
 goog.require('app.view.CardsView');
@@ -32,7 +33,7 @@ goog.require('app.shared.Scoreboard');
 
 app.GameController = function(container) {
   app.EventEmitter.call(this);
-
+  this.container = container;
   this.recognitionController = new app.DrawingRecognitionController();
   this.clock = new app.Clock();
   this.scoreboard = new app.shared.Scoreboard(this, container.find('.board'), app.Constants.TOTAL_LEVELS);
@@ -142,7 +143,7 @@ app.GameController.prototype.onNewRecognitions = function(recognitions) {
       }
       if (this.newGuessesCounter > 2) {
         this.newGuessesCounter = 0;
-        var noNewGuess = 'I\'m not sure what that is.';
+        var noNewGuess = app.Utils.getTranslation(this.container, 'quickdraw-round-no-new-guess');
         this.machineView.speakAndWrite(noNewGuess);
       }
     }
@@ -259,7 +260,9 @@ app.GameController.prototype.roundTimesUp = function() {
   this.recognitionController.stop();
 
   setTimeout(function() {
-    this.machineView.speakAndWrite('I couldn\'t guess it ', 'Sorry');
+    this.machineView.speakAndWrite(
+      app.Utils.getTranslation(this.container, 'quickdraw-round-timesup'),
+      app.Utils.getTranslation(this.container, 'quickdraw-round-sorry'));
   }.bind(this), 500);
 
   this.submitRoundResult({recognition:false}, function(nextChallenge) {

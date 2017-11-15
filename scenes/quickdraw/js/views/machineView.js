@@ -20,6 +20,7 @@ goog.require('app.SpeechController');
 
 
 app.view.MachineView = function(container) {
+  this.container = container;
   this.elem = container.find('.machineview');
   this.elemA = this.elem.find('.machineview__primary');
   this.elemB = this.elem.find('.machineview__secondary');
@@ -49,7 +50,7 @@ app.view.MachineView.prototype.setText = function(textA, textB) {
 app.view.MachineView.prototype.setResultWord = function(word) {
   var word = word;
   this.guessesQueue = [];
-  this.speakAndWrite('Oh I know, this is ', word);
+  this.speakAndWrite(app.Utils.getTranslation(this.container, 'quickdraw-machine-know', 'word', word));
   setTimeout(function() {
     if (this.guessesQueue.length == 0) {
         this.setText('...');
@@ -101,14 +102,14 @@ app.view.MachineView.prototype.readNextGuess = function(first) {
   var next = this.guessesQueue.shift();
 
   //Set text
-  var textSentenceA = 'I see';
+  var textSentenceA = app.Utils.getTranslation(this.container, 'quickdraw-machine-see');
   var textSentenceB = next;
   this.setText(textSentenceA, textSentenceB);
 
   //Set speaking text and speak
-  var speakSentence = 'or ' + next;
+  var speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-or') + ' ' + next;
   if (first) {
-    speakSentence = 'I see ' + next;
+    speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-see') + ' ' + next;
   }
   this.speak(speakSentence, function() {
     this.readNextGuess();
