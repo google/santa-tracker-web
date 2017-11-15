@@ -3,12 +3,6 @@ const { Vector3 } = self.THREE;
 export class HexCoord extends Vector3 {
   constructor(x = 0, y = 0, z = 0) {
     super(x, y, z);
-
-    this.q = this.x;
-    this.r = this.y;
-    this.s = this.z;
-
-    //console.count('HexCoords constructed');
   }
 
   get q() {
