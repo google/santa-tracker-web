@@ -42,6 +42,7 @@ app.Tools = function(game, $elem) {
   this.game_ = game;
 
   this.sliders = $('[data-slider]', $elem);
+  this.rotators = $('[data-rotator]', $elem);
 
   this.primaryMenu = $elem.find('.Tools--primary');
   this.categoryPickers = this.primaryMenu.find('[data-tool-category-picker]');
@@ -184,8 +185,9 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
-  // Check if on slider
-  if ($(e.target).closest('[data-slider]').length) {
+  // Check if on slider or rotator
+  if ($(e.target).closest('[data-slider]').length ||
+    $(e.target).closest('[data-rotator]').length) {
     return;
   }
 
@@ -309,6 +311,13 @@ app.Tools.prototype.sliderChanged = function(size) {
       x: -this.circleSize / 2,
       y: this.circleSize / 2
     };
+  }
+};
+
+
+app.Tools.prototype.rotatorChanged = function(angle) {
+  if (this.selectedTool) {
+    this.selectedTool.updateAngle(angle);
   }
 };
 

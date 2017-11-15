@@ -29,6 +29,8 @@ app.Constants = {
 
   COLORPICKER_DEFAULT: "8bc34a",
 
+  ROTATE_ANGLE: 45,
+
   PEN_MIN: 5,
   PEN_MAX: 50,
   PENCIL_MIN: 5,

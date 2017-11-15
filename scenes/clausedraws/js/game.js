@@ -19,6 +19,7 @@ goog.provide('app.Game');
 goog.require('app.Canvas');
 goog.require('app.Colorpicker');
 goog.require('app.Mouse');
+goog.require('app.Rotator');
 goog.require('app.Slider');
 goog.require('app.Tools');
 goog.require('app.shared.ShareOverlay');
@@ -43,6 +44,7 @@ app.Game = function(elem) {
   this.tools = new app.Tools(this, this.sceneElem);
   this.slider = new app.Slider(this.elem, this.mouse);
   this.colorpicker = new app.Colorpicker(this.elem);
+  this.rotator = new app.Rotator(this.elem);
 
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
@@ -62,6 +64,7 @@ app.Game.prototype.start = function() {
   this.mouse.subscribe(this.canvas.mouseChanged, this.canvas);
   this.mouse.subscribe(this.slider.mouseChanged, this.slider);
   this.slider.subscribe(this.tools.sliderChanged, this.tools);
+  this.rotator.subscribe(this.tools.rotatorChanged, this.tools);
 
   this.elem.find('#share-button, #share-button-toolbox').
     on('click.clausedraws touchend.clausedraws', this.showShareOverlay.bind(this));

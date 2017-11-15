@@ -40,6 +40,9 @@ app.Shape = function($elem, name) {
   var dimensions = app.ImageManager.getImageDimensions(this.shapeName);
   this.height = dimensions.height;
   this.width = dimensions.width;
+
+  this.hoverPreviewEl = $elem.find('.Tool-hover-preview--' + this.shapeName);
+  this.currentAngle = 0;
 };
 app.Shape.prototype = Object.create(app.Tool.prototype);
 
@@ -64,9 +67,12 @@ app.Shape.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var offsetY = drawHeight / 2;
   var color = this.el.attr('data-tool-color');
   var image = app.ImageManager.getImage(this.shapeName, color);
-  context.drawImage(image,
-    drawX - offsetX, drawY - offsetY,
-    drawWidth, drawHeight);
+  var rad = this.currentAngle * Math.PI / 180;
+
+  context.translate(drawX, drawY);
+  context.rotate(rad);
+  context.drawImage(image, -offsetX, -offsetY, drawWidth, drawHeight);
+  context.setTransform(1, 0, 0, 1, 0, 0);
   this.stamped = true;
 
   return true;
@@ -114,3 +120,12 @@ app.Shape.prototype.calculateDrawSize = function(size) {
   return Math.max(this.width * this.sizeMultiplier,
       this.height * this.sizeMultiplier);
 };
+
+
+app.Shape.prototype.updateAngle = function(angle) {
+  this.currentAngle += angle;
+  this.hoverPreviewEl.css({
+    transform: 'translate(-50%, -50%) rotate(' + this.currentAngle + 'deg)'
+  });
+};
+

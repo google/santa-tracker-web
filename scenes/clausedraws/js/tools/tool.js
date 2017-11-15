@@ -81,6 +81,12 @@ app.Tool.prototype.deselect = function() {
   this.elem.css({
     cursor: ''
   });
+  if (this.hoverPreviewEl) {
+    this.hoverPreviewEl.css({
+      transform: 'translate(-50%, -50%)'
+    });
+  }
+  this.currentAngle = 0;
 
   this.hoverEl.attr('data-tool-hover-category', '');
   this.hoverEl.attr('data-tool-hover-tool', '');
@@ -155,3 +161,7 @@ app.Tool.prototype.calculateDrawSize = function(size) {
   return size * 100;
 }
 
+
+app.Tool.prototype.updateAngle = function(angle) {
+  return;
+};
