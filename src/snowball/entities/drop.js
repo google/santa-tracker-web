@@ -86,7 +86,6 @@ export class Drop extends Allocatable(Entity(Object3D)) {
     super();
     const model = new Mesh(
         geometry, new MeshBasicMaterial({ map: new Texture(), transparent: true }));
-    model.rotation.x = Math.PI / 2.5;
 
     this.add(model);
     this.model = model;
@@ -113,7 +112,7 @@ export class Drop extends Allocatable(Entity(Object3D)) {
     const { grid } = mapSystem;
 
     this.collidingPlayer = null;
-    this.model.rotation.y = 0;
+    this.model.rotation.set(Math.PI / 2.5, 0, 0);
     this.model.position.z = grid.cellSize / 2.0;
     this.model.material.opacity = 1.0;
     this.unsubscribe = collisionSystem.handleCollisions(this, (drop, other) => {

@@ -7,7 +7,7 @@ import { Health } from '../components/health.js';
 import { Path } from '../components/path.js';
 import { Arrival } from '../components/arrival.js';
 import { Presence } from '../components/presence.js';
-import { Powerup } from '../components/powerup.js';
+import { Powerups } from '../components/powerup.js';
 import { PlayerMarker } from './player-marker.js';
 import { Snowball } from './snowball.js';
 import { combine, randomElement } from '../../engine/utils/function.js';
@@ -164,7 +164,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.health = new Health();
     this.arrival = new Arrival(startingTileIndex);
     this.presence = new Presence();
-    this.powerup = new Powerup();
+    this.powerups = new Powerups();
     this.sank = false;
 
     if (this.elf) {

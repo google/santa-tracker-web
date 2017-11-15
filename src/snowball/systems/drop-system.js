@@ -1,15 +1,11 @@
 import { Drop } from '../entities/drop.js';
 import { randomValue } from '../../engine/utils/function.js';
+import { powerupType } from '../components/powerup.js';
 
 const {
   Object3D,
   Vector2
 } = self.THREE;
-
-export const itemType = {
-  NOTHING: 0,
-  BIG_SNOWBALL: 1
-};
 
 const intermediateVector2 = new Vector2();
 
@@ -24,11 +20,11 @@ export class DropSystem {
   reset(game) {
   }
 
-  addDrop(tileIndex = -1, containedItem = randomValue(itemType)) {
+  addDrop(tileIndex = -1, containedItem = randomValue(powerupType)) {
     const drop = Drop.allocate();
 
     drop.arrival.tileIndex = tileIndex;
-    drop.contents.inventory.push(itemType.BIG_SNOWBALL);
+    drop.contents.inventory.push(powerupType.BIG_SNOWBALL);
     //drop.contents.inventory.push(containedItem);
 
     this.drops.push(drop);
@@ -98,14 +94,15 @@ export class DropSystem {
         if (!presence.gone) {
           if (!presence.exiting) {
             if (tileState === 4.0) {
-              collisionSystem.removeCollidable(drop);
               icebergSystem.freezeEntity(drop);
             } else if (drop.collidingPlayer != null) {
-              playerSystem.assignPlayerItem(
+              playerSystem.assignPlayerPowerup(
                   drop.collidingPlayer.playerId, drop.contents.inventory[0]);
               drop.collidingPlayer = null;
               drop.spin();
             }
+          } else {
+            collisionSystem.removeCollidable(drop);
           }
         } else {
           if (drop.parent === this.dropLayer) {

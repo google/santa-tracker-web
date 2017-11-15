@@ -61,9 +61,12 @@ export class PlayerSystem {
     possibleObjects.forEach((object) => delete object[id]);
   }
 
-  assignPlayerItem(playerId, itemType) {
-    console.log(`Player ${playerId} collected item ${itemType}`);
-    this.playerMap[playerId].powerup.snowballType = itemType;
+  assignPlayerPowerup(playerId, powerupType) {
+    console.log(`Player ${playerId} collected powerup ${powerupType}`);
+    const player = this.playerMap[playerId];
+    const { powerups } = player;
+
+    powerups.collect(powerupType);
   }
 
   assignPlayerDestination(playerId, destination) {

@@ -1,7 +1,7 @@
 import { QuadTree } from '../../engine/utils/quad-tree.js';
 import { Snowball } from '../entities/snowball.js';
 import { BigSnowball } from '../entities/snowballs/big-snowball.js';
-import { itemType } from '../systems/drop-system.js';
+import { powerupType } from '../components/powerup.js';
 
 const {
   Object3D,
@@ -13,8 +13,8 @@ const intermediateVector2 = new Vector2();
 const snowballConstructorForType = type => {
   switch(type) {
     default:
-    case itemType.NOTHING: return Snowball;
-    case itemType.BIG_SNOWBALL: return BigSnowball;
+    case powerupType.NOTHING: return Snowball;
+    case powerupType.BIG_SNOWBALL: return BigSnowball;
   }
 }
 
@@ -89,8 +89,11 @@ export class SnowballSystem {
   }
 
   throwSnowball(thrower, target) {
-    const { powerup } = thrower;
-    const type = powerup == null ? itemType.NOTHING : powerup.snowballType;
+    const { powerups } = thrower;
+    const { active: powerup } = powerups;
+    const type = powerup == null ? powerupType.NOTHING : powerup.type;
+
+    powerups.decrementActiveQuantity();
 
     const SnowballConstructor = snowballConstructorForType(type);
     const snowball = SnowballConstructor.allocate(thrower);

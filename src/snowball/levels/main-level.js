@@ -2,6 +2,7 @@ import { Level } from '../../engine/core/level.js';
 import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { TetheredCameraTracker } from '../utils/camera-tracking.js';
 import { Drop } from '../entities/drop.js';
+import { PowerupUi } from '../ui/powerup-ui.js';
 
 const { AmbientLight } = self.THREE;
 
@@ -33,6 +34,7 @@ export class MainLevel extends Level {
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
     this.cameraTracker = new TetheredCameraTracker(camera);
     this.light = new AmbientLight(0xbbaaaa, Math.PI);
+    this.powerupUi = new PowerupUi();
 
     this.measure(game);
 
@@ -53,6 +55,9 @@ export class MainLevel extends Level {
 
     this.add(mapLayer);
     this.add(this.light);
+
+    game.shadowRoot.insertBefore(this.powerupUi,
+        game.shadowRoot.firstElementChild);
   }
 
   measure(game) {
@@ -111,6 +116,8 @@ export class MainLevel extends Level {
         }
       }
     }
+
+    this.powerupUi.update(game);
 
     this.pickEvent = null;
   }
