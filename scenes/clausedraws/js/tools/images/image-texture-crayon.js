@@ -24,7 +24,7 @@ goog.require('app.SVGImage');
  * @constructor
  * @extends {app.SVGImage}
  */
-app.ImageTextureCrayon = function($elem, name) {
+app.ImageTextureCrayon = function() {
   app.SVGImage.call(this);
 };
 app.ImageTextureCrayon.prototype = Object.create(app.SVGImage.prototype);

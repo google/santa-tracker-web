@@ -16,6 +16,8 @@
 
 goog.provide('app.ImageManager');
 goog.require('app.Constants');
+goog.require('app.ImageItemBow');
+goog.require('app.ImageItemPresent');
 goog.require('app.ImageTextureCrayon');
 goog.require('app.ImageTexturePaintbrush');
 goog.require('app.ImageTexturePencil');
@@ -36,6 +38,8 @@ app.ImageManager = function() {
     },
 
     images: {
+      "image-bow": new app.ImageItemBow(),
+      "image-present": new app.ImageItemPresent(),
       "texture-pencil": new app.ImageTexturePencil(),
       "texture-crayon": new app.ImageTextureCrayon(),
       "texture-paintbrush": new app.ImageTexturePaintbrush()

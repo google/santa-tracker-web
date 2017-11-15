@@ -24,7 +24,7 @@ goog.require('app.SVGImage');
  * @constructor
  * @extends {app.SVGImage}
  */
-app.ImageTexturePencil = function($elem, name) {
+app.ImageTexturePencil = function() {
   app.SVGImage.call(this);
 };
 app.ImageTexturePencil.prototype = Object.create(app.SVGImage.prototype);

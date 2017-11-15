@@ -16,6 +16,7 @@
 
 goog.provide('app.Stamp');
 goog.require('app.Constants');
+goog.require('app.ImageManager');
 goog.require('app.Tool');
 goog.require('app.utils');
 
@@ -31,12 +32,15 @@ app.Stamp = function($elem, name) {
   app.Tool.call(this, $elem, 'stamp-' + name);
 
   this.stampName = name;
+  this.imageName = 'image-' + name;
   this.soundKey = 'selfie_spray_small';
   this.stamped = false;
   this.sizeMultiplier = 1;
   this.stampImages = {};
-  this.height = 100;
-  this.width = 100;
+
+  var dimensions = app.ImageManager.getImageDimensions(this.imageName);
+  this.height = dimensions.height;
+  this.width = dimensions.width;
 };
 app.Stamp.prototype = Object.create(app.Tool.prototype);
 
@@ -60,7 +64,7 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var offsetX = drawWidth / 2;
   var offsetY = drawHeight / 2;
   var color = this.el.attr('data-tool-color');
-  var image = this.getStampImage(color);
+  var image = app.ImageManager.getImage(this.imageName, color);
   context.drawImage(image,
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);
@@ -111,20 +115,3 @@ app.Stamp.prototype.calculateDrawSize = function(size) {
   return Math.max(this.width * this.sizeMultiplier,
       this.height * this.sizeMultiplier);
 }
-
-
-app.Stamp.prototype.getStampImage = function(color) {
-  if (!this.stampImages[color]) {
-    this.stampImages[color] = app.utils.svgToImage(this.getSVGString(color));
-  }
-
-  return this.stampImages[color];
-};
-
-
-app.Stamp.prototype.getSVGString = function(color) {
-  return '';
-};
-
-
-
