@@ -1,7 +1,7 @@
 import { MagicHexGrid } from '../utils/magic-hex-grid.js';
 import { HexMap } from '../entities/hex-map.js';
 import { Obstacles } from '../entities/obstacles.js';
-import { Map } from '../components/map.js';
+import { GameMap } from '../components/game-map.js';
 import { Tree } from '../entities/static/tree.js';
 import { DestinationMarker } from '../entities/destination-marker.js';
 
@@ -101,7 +101,7 @@ export class MapSystem {
       game.collisionSystem.removeCollidable(tree);
     });
 
-    this.map = new Map(this.grid, seed);
+    this.map = new GameMap(this.grid, seed);
     this.hexMap.map = this.map;
     this.obstacles.map = this.map;
 
