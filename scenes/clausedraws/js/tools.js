@@ -24,7 +24,6 @@ goog.require('app.Shape');
 goog.require('app.SprayColor');
 goog.require('app.SprinkleSpray');
 goog.require('app.Stamp');
-// goog.require('app.StampBauble');
 goog.require('app.TextureDrawer');
 goog.require('app.EffectInvert');
 goog.require('app.Tool');
@@ -86,7 +85,6 @@ app.Tools = function(game, $elem) {
   this.shapeSquare = new app.Shape($elem, 'square');
   this.shapeStar = new app.Shape($elem, 'star');
   this.shapeTriangle = new app.Shape($elem, 'triangle');
-  // this.stampBauble = new app.StampBauble($elem, 'bauble');
   this.stampBow = new app.Stamp($elem, 'bow');
   this.stampPresent = new app.Stamp($elem, 'present');
   this.rollerCheckered = new app.PaintRoller($elem, 'checkered');
@@ -124,7 +122,6 @@ app.Tools = function(game, $elem) {
     this.shapeSquare,
     this.shapeStar,
     this.shapeTriangle,
-    // this.stampBauble,
     this.stampBow,
     this.stampPresent,
     this.rollerCheckered,

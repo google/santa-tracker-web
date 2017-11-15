@@ -1,4 +1,4 @@
-$stamp-names: "bow", "present", "bauble";
+$stamp-names: "bow", "present"; //, "ornament-round1", "ornament-round2", "ornament-round3", "ornament-skinny1", "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
@@ -527,10 +527,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       }
     }
 
-    &--stamp-bauble {
-      padding: 20px 35px;
-    }
-
     &--stamp-present {
       padding: 15px 20px;
     }
@@ -595,43 +591,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       fill: #bdbdbd;
       opacity: 0.3;
       mix-blend-mode: multiply;
-    }
-  }
-
-  .Tool--stamp-bauble, .Tool-hover-preview--stamp-bauble {
-    .cls-1 {
-      isolation: isolate;
-    }
-
-    .cls-2 {
-      fill: none;
-      stroke: #eee;
-      stroke-miterlimit: 10;
-    }
-
-    .cls-3 {
-      fill: #bdbdbd;
-    }
-
-    .cls-4 {
-      fill: #eee;
-    }
-
-    .cls-6 {
-      mix-blend-mode: multiply;
-      opacity: 0.15;
-    }
-
-    .cls-7 {
-      fill: #231f20;
-    }
-
-    .cls-8,.cls-9 {
-      fill: #fff;
-    }
-
-    .cls-9 {
-      opacity: 0.3;
     }
   }
 
