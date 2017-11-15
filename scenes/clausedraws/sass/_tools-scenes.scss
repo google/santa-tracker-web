@@ -1,0 +1,35 @@
+$scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
+
+##{$name} {
+  // TOOLBAR
+  [data-tool-category="scene"] {
+    .Tool {
+      background-size: cover;
+      flex: 0 0 185px;
+      height: 70%;
+      margin-left: 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+      justify-content: space-around;
+      padding-bottom: 30px;
+      padding-top: 10px;
+
+      .Tool {
+        border-bottom: 0;
+        flex: 0 0 45%;
+        height: 15vh;
+        margin: 20px 0 0;
+        width: auto;
+      }
+    }
+  }
+
+  .Tool {
+    @each $current-scene in $scene-names {
+      &[data-tool="scene-#{$current-scene}"] {
+        background-image: url(img/scenes/#{$current-scene}.png);
+      }
+    }
+  }
+}

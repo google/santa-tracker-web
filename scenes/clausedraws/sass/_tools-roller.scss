@@ -1,0 +1,20 @@
+$roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
+
+##{$name} {
+  // TOOLBAR
+  [data-tool-category="roller"] {
+    .Tool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 80% 80%;
+    }
+  }
+
+  .Tool {
+    @each $current-roller in $roller-names {
+      &--roller-#{$current-roller} {
+        background-image: url(img/patterns/#{$current-roller}.svg);
+      }
+    }
+  }
+}
