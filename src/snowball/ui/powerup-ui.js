@@ -14,9 +14,11 @@ export class PowerupUi extends Entity(HTMLElement) {
   z-index: 2;
   bottom: 0;
   left: 0;
-  overflow: visible;
+  height: 180px;
+  width: 212px;
+  overflow: hidden;
   box-sizing: border-box;
-  border-top: 1px solid #333;
+  pointer-events: none;
 }
 
 powerup-status {
@@ -25,24 +27,24 @@ powerup-status {
 
 :host(.swap) #powerupTwo,
 #powerupOne {
-  transform: translate(40%, -140%);
+  transform: translate(40%, 0%);
   z-index: 2;
 }
 
 :host(.swap) #powerupOne,
 #powerupTwo {
-  transform: scale(calc(1/2)) translate(180%, -230%);
+  transform: scale(calc(1/2)) translate(180%, 50%);
   z-index: 1;
 }
 
 :host(.swap:not(.has-active)) #powerupTwo,
 :host(:not(.swap):not(.has-active)) #powerupOne {
-  transform: translate(40%, 0);
+  transform: translate(40%, 140%);
 }
 
 :host(.swap:not(.has-inactive)) #powerupOne,
 :host(:not(.swap):not(.has-inactive)) #powerupTwo {
-  transform: scale(calc(1/2)) translate(180%, 0);
+  transform: scale(calc(1/2)) translate(180%, 230%);
 }
 
 </style>

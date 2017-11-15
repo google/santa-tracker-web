@@ -17,6 +17,7 @@ export class PowerupStatus extends Entity(HTMLElement) {
     height: calc(209/201 * 128px);
     background-image: url(/src/images/item-frame.png);
     background-size: 100%;
+    pointer-events: all;
   }
 
   .icon {
