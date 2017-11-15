@@ -1,0 +1,70 @@
+$stamp-names: "bow", "present"; //, "ornament-round1", "ornament-round2", "ornament-round3", "ornament-skinny1", "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
+
+##{$name} {
+  // TOOLBAR
+  .Tool {
+    @each $current-stamp in $stamp-names {
+      &--stamp-#{$current-stamp} {
+        padding: 35px 15px;
+
+        @include generateSVGstyles('stamp-#{$current-stamp}');
+      }
+    }
+
+    &--stamp-present {
+      padding: 15px 20px;
+    }
+
+    &--stamp-ornament-round1 {
+      padding: 25px 30px;
+    }
+  }
+
+
+  // SVG STYLES
+  .Tool--stamp-present, .Tool-hover-preview--stamp-present {
+    .cls-1 {
+      isolation: isolate;
+    }
+
+    .cls-4 {
+      fill: #221f1f;
+      mix-blend-mode: multiply;
+      opacity: 0.15;
+    }
+  }
+
+
+  // HOVER
+  [data-tool-hover-category="stamp"] {
+    .Tool-hover-minitool--default {
+      background: url(img/tools/tool_stamp.svg) center/contain no-repeat;
+      display: block;
+      height: 50px;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -100%);
+      width: 50px;
+    }
+
+    .Tool-hover-preview {
+      height: 100%;
+      left: 50%;
+      opacity: 0.5;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+  }
+
+  @each $current-stamp in $stamp-names {
+    [data-tool-hover-tool="stamp-#{$current-stamp}"] {
+      .Tool-hover-preview--stamp-#{$current-stamp} {
+        display: block;
+      }
+
+      @include generateSVGstyles('stamp-#{$current-stamp}', '.Tool-hover-preview');
+    }
+  }
+}

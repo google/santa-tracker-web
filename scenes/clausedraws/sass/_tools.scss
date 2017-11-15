@@ -1,5 +1,3 @@
-$stamp-names: "bow", "present"; //, "ornament-round1", "ornament-round2", "ornament-round3", "ornament-skinny1", "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
-$drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
 $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", "square", "star", "triangle";
@@ -429,7 +427,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
     }
   }
 
-  [data-tool-category="stamp"],
   [data-tool-category="roller"] {
     .Tool {
       background-position: center;
@@ -489,14 +486,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
     cursor: pointer;
     height: 100%;
 
-    @each $current-tool in $drawing-tools {
-      &--#{$current-tool} {
-        padding: 10px 40px;
-
-        @include generateSVGstyles($current-tool);
-      }
-    }
-
     @each $current-shape in $shape-names {
       &[data-tool="shape-#{$current-shape}"] {
         align-items: center;
@@ -519,18 +508,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       background-image: url(img/tools/tool_eraser.svg);
     }
 
-    @each $current-stamp in $stamp-names {
-      &--stamp-#{$current-stamp} {
-        padding: 35px 15px;
-
-        @include generateSVGstyles('stamp-#{$current-stamp}');
-      }
-    }
-
-    &--stamp-present {
-      padding: 15px 20px;
-    }
-
     @each $current-roller in $roller-names {
       &--roller-#{$current-roller} {
         background-image: url(img/patterns/#{$current-roller}.svg);
@@ -548,75 +525,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
     }
   }
 
-  .Tool--crayon, .Tool-hover-minitool--crayon {
-    .cls-3 {
-      opacity: 0.05;
-    }
-  }
-
-  .Tool--pencil, .Tool-hover-minitool--pencil {
-    .cls-1 {
-      fill: #f5ce85;
-    }
-
-    .cls-3 {
-      fill: #29b6f6;
-    }
-
-    .cls-4 {
-      opacity: 0.05;
-    }
-  }
-
-  .Tool--paintbrush, .Tool-hover-minitool--paintbrush {
-    .cls-3 {
-      fill: #4e342e;
-    }
-
-    .cls-4 {
-      opacity: 0.08;
-    }
-  }
-
-  .Tool--marker, .Tool-hover-minitool--marker {
-    .cls-1 {
-      isolation: isolate;
-    }
-
-    .cls-2 {
-      fill: #f2faff;
-    }
-
-    .cls-4 {
-      fill: #bdbdbd;
-      opacity: 0.3;
-      mix-blend-mode: multiply;
-    }
-  }
-
-  .Tool--stamp-present, .Tool-hover-preview--stamp-present {
-    .cls-1 {
-      isolation: isolate;
-    }
-
-    .cls-4 {
-      fill: #221f1f;
-      mix-blend-mode: multiply;
-      opacity: 0.15;
-    }
-  }
-
   .Tool--selected {
-    @each $current-tool in $drawing-tools {
-      &.Tool--#{$current-tool} {
-        background-image: url(img/tools/#{$current-tool}/tray.svg);
-      }
-
-      svg {
-        display: none;
-      }
-    }
-
     @each $current-shape in $shape-names {
       &.Tool--shape-#{$current-shape} {
         background-image: url(img/tools/shapes/#{$current-shape}_tray.svg);
@@ -704,61 +613,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
     }
   }
 
-  [data-tool-hover-category="stamp"] {
-    .Tool-hover-minitool--default {
-      background: url(img/tools/tool_stamp.svg) center/contain no-repeat;
-      display: block;
-      height: 50px;
-      left: 50%;
-      position: absolute;
-      transform: translate(-50%, -100%);
-      width: 50px;
-    }
-
-    .Tool-hover-preview {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      height: 100%;
-      left: 50%;
-      opacity: 0.5;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-    }
-  }
-
-  @each $current-stamp in $stamp-names {
-    [data-tool-hover-tool="stamp-#{$current-stamp}"] {
-      .Tool-hover-preview--stamp-#{$current-stamp} {
-        display: block;
-      }
-
-      @include generateSVGstyles('stamp-#{$current-stamp}', '.Tool-hover-preview');
-
-      // @each $current-color in $colorpicker-colors {
-      //   &[data-tool-color="##{$current-color}"] .Tool-hover-preview {
-      //     background-image: url(img/tools/stamps/#{$current-stamp}/#{$current-color}.svg);
-      //   }
-      // }
-    }
-  }
-
-  [data-tool-hover-category="drawing"] {
-    .Tool-hover-minitool {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      height: 100px;
-      position: absolute;
-      right: 0;
-      top: 0;
-      transform: translate(100%, -100%) rotate(-125deg);
-      width: 100px;
-    }
-  }
-
   [data-tool-hover-category="spray"] {
     .Tool-hover-minitool {
       background-position: center;
@@ -791,17 +645,6 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
     .Tool-hover-circle {
       height: 50px !important;
       width: 50px !important;
-    }
-  }
-
-  @each $current-tool in $drawing-tools {
-    [data-tool-hover-tool="#{$current-tool}"] {
-      @include generateSVGstyles($current-tool,
-          '.Tool-hover-minitool--#{$current-tool}');
-
-      .Tool-hover-minitool--#{$current-tool} {
-        display: block;
-      }
     }
   }
 

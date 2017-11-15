@@ -9,6 +9,8 @@ $name: 'module-clausedraws';
 @import "sass/colorpicker";
 @import "sass/slider";
 @import "sass/tools";
+@import "sass/tools-drawing";
+@import "sass/tools-stamps";
 
 ##{$name} {
   box-sizing: border-box;
