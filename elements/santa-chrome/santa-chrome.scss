@@ -1,4 +1,6 @@
 $toolbar-height: 44px;
+$mobile-width: 768px;
+$santa-color: rgb(48, 203, 236);
 
 // nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
 // using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
@@ -8,12 +10,32 @@ $feature-width: 198px;
   display: block;
 }
 
-[hidden] {
+:host([mode="embed"]) #drawer,
+:host([mode="embed"]) .share,
+:host([mode="embed"]) .toolbar-icon,
+:host([mode="embed"]) .title,
+:host([mode="embed"]) #sound  {
   display: none !important;
 }
 
+app-drawer {
+  --app-drawer-width: 320px;
+  --app-drawer-scrim-background: fade-out($santa-color, 0.4);
+}
 app-header {
   background-color: transparent;
+}
+
+.button-set:not(.alternate),
+#fixed-background {
+  color: var(--santa-header-color, $santa-color);
+}
+:host(.fixed) #fixed-background {
+  visibility: visible;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 #fixed-background {
@@ -47,6 +69,11 @@ app-drawer {
     font-family: 'Lobster';
     font-size: 2em;
     color: #ccc;
+    pointer-events: auto;
+
+    paper-icon-button {
+      margin-right: 6px;
+    }
   }
 }
 
@@ -135,7 +162,7 @@ app-toolbar {
       }
     }
   }
-  @media (max-width: 768px - 1px) {
+  @media (max-width: $mobile-width - 1px) {
     .share {
       *:not(.share-webshare) {
         display: none;
@@ -147,7 +174,7 @@ app-toolbar {
    * In the full village experience, make the left/right (.title/.share respectively) grow to the
    * same center point.
    */
-  @media (min-width: 768px) {
+  @media (min-width: $mobile-width) {
     .title {
       width: 69px - 44px;
     }
@@ -306,36 +333,4 @@ $button-size: 45px;
       visibility: visible;
     }
   }
-
-  @media (max-width: 768px - 1px) {
-    button#add-player {
-      display: none;
-    }
-  }
-
-  button#add-player {
-    &::after {
-      content: '';
-      visibility: visible;
-      background-image: url(img/add-player.svg);
-    }
-  }
-
-  .overlay {
-    pointer-events: auto;
-    $dim: 100px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
-    color: black;
-    width: $dim;
-    height: $dim;
-    border-radius: 8px;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
-    bottom: 75px;
-    background: #eee;
-  }
 }
-
