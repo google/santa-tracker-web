@@ -76,13 +76,8 @@ export class SnowballSystem {
 
   removeSnowball(snowball, game) {
     const { collisionSystem, effectSystem } = game;
-    const { trajectory } = snowball;
 
-    intermediateVector2.subVectors(
-        trajectory.targetPosition, trajectory.origin);
-
-    effectSystem.snowsplatEffect.show(
-        snowball.position.clone(), intermediateVector2.clone().normalize());
+    effectSystem.snowsplatEffect.showFor(snowball);
 
     this.snowballs.splice(this.snowballs.indexOf(snowball), 1);
     this.snowballLayer.remove(snowball);

@@ -5,6 +5,7 @@ import { snowball } from '../textures.js';
 import { Trail } from '../components/trail.js';
 import { Trajectory } from '../components/trajectory.js';
 import { Presence } from '../components/presence.js';
+import { Splat } from '../components/splat.js';
 
 const {
   Mesh,
@@ -96,6 +97,7 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
     this.trail = new Trail(size / 2, 0xaaccff, game => this.thrown);
 
     this.trajectory = new Trajectory();
+    this.splat = new Splat(this.position);
   }
 
   onAllocated(thrower) {
@@ -151,6 +153,8 @@ export class Snowball extends Allocatable(Entity(Mesh)) {
       this.visible = true;
       this.thrown = true;
       this.trajectory.targetPosition.copy(target);
+      this.splat.direction.subVectors(this.trajectory.targetPosition,
+          this.trajectory.origin).normalize();
 
       // ±15º skew on the throw
       this.skew = Math.random() * PI_OVER_SIX - PI_OVER_TWELVE;

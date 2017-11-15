@@ -20,23 +20,26 @@ attribute vec3 position;
 attribute vec2 uv;
 attribute float displayTime;
 attribute vec3 color;
+attribute float size;
 
 varying vec3 vColor;
 varying float vDisplayTime;
+varying float vSize;
 
 #define PI 3.14159
 
 void main() {
   vColor = color;
   vDisplayTime = displayTime;
+  vSize = size;
 
   float timeDelta = time - vDisplayTime;
   float elapsed = timeDelta / 700.0;
 
   float drop = 75.0 - sin(PI / 2.0 + PI / 2.0 * elapsed) * 75.0;
-  float size = 10.0 - elapsed * 7.5;
+  float scale = 10.0 - elapsed * 7.5;
 
-  gl_PointSize = 5.0 * size;
+  gl_PointSize = size * scale;
   gl_Position = projectionMatrix * modelViewMatrix *
       vec4(position.x, position.y - drop, position.z, 1.0);
 }
@@ -49,24 +52,26 @@ uniform float time;
 
 varying vec3 vColor;
 varying float vDisplayTime;
+varying float vSize;
 
 void main() {
   float timeDelta = time - vDisplayTime;
+  float scale = vSize / 6.0;
 
   if (vDisplayTime <= 0.0 || timeDelta >= 700.0) {
     discard;
   }
 
   float dist = 0.5 - abs(length(gl_PointCoord - vec2(0.5)));
-  float show = dist;//smoothstep(0.0, 0.1, dist);
+  float show = dist;
 
-  float fade = timeDelta / 700.0;
+  float fade = timeDelta / (700.0 * scale);
 
   if (fade > 1.0) {
     discard;
   }
 
-  gl_FragColor = vec4(vColor, (show - fade) / 3.0);
+  gl_FragColor = vec4(vColor, (show - fade) / (3.0 * scale));
 }
 `;
 
@@ -85,6 +90,8 @@ export class TrailEffect extends Entity(class {}) {
         new Float32Array(this.maxParticles * 3), 3).setDynamic(true);
     const displayTimes = new BufferAttribute(
         new Float32Array(this.maxParticles), 1).setDynamic(true);
+    const sizes = new BufferAttribute(
+        new Float32Array(this.maxParticles), 1).setDynamic(true);
 
     const uniforms = {
       time: {
@@ -97,7 +104,7 @@ export class TrailEffect extends Entity(class {}) {
     geometry.addAttribute('position', positions);
     geometry.addAttribute('color', colors);
     geometry.addAttribute('displayTime', displayTimes);
-
+    geometry.addAttribute('size', sizes);
 
     const material = new RawShaderMaterial({
       vertexShader,
@@ -133,7 +140,7 @@ export class TrailEffect extends Entity(class {}) {
       if (trail && trail.showTest(game)) {
         const particleIndex = this.nextAvailableParticle;
         const { attributes } = this.layer.geometry;
-        const { position, color, displayTime } = attributes;
+        const { position, color, displayTime, size } = attributes;
 
         position.setXYZ(particleIndex,
             object.position.x, object.position.y, object.position.z + 1.0);
@@ -143,9 +150,14 @@ export class TrailEffect extends Entity(class {}) {
         color.setXYZ(particleIndex,
             intermediateColor.r, intermediateColor.g, intermediateColor.b);
 
+        size.setX(particleIndex, trail.size);
+
         displayTime.setX(particleIndex, game.clockSystem.time);
 
-        position.needsUpdate = color.needsUpdate = displayTime.needsUpdate = true;
+        position.needsUpdate =
+            color.needsUpdate =
+            size.needsUpdate =
+            displayTime.needsUpdate = true;
 
         this.nextAvailableParticle = (particleIndex + 1) % this.maxParticles;
       }

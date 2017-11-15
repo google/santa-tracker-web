@@ -22,6 +22,7 @@ attribute vec3 position;
 attribute float displayTime;
 attribute vec2 direction;
 attribute float random;
+attribute float size;
 
 varying float vDisplayTime;
 
@@ -40,7 +41,10 @@ void main() {
 
   dist.y -= pow(3.0 * elapsed, 2.0);
 
-  gl_PointSize = (20.0 * random + 25.0) * (1.0 - elapsed);
+  float halfSize = size / 2.0;
+  float eighthSize = size / 8.0;
+
+  gl_PointSize = (halfSize * random + halfSize + eighthSize) * (1.0 - elapsed);
   gl_Position = projectionMatrix * modelViewMatrix *
       vec4(position.xy + dist, position.z, 1.0);
 }
@@ -94,6 +98,9 @@ export class SnowsplatEffect extends Entity(class {}) {
     const displayTime = new BufferAttribute(
         new Float32Array(this.maxParticles), 1).setDynamic(true);
 
+    const size = new BufferAttribute(
+        new Float32Array(this.maxParticles), 1).setDynamic(true);
+
     const random = new BufferAttribute(
         new Float32Array(this.maxParticles), 1);
 
@@ -106,6 +113,7 @@ export class SnowsplatEffect extends Entity(class {}) {
     geometry.addAttribute('position', position);
     geometry.addAttribute('direction', direction);
     geometry.addAttribute('displayTime', displayTime);
+    geometry.addAttribute('size', size);
     geometry.addAttribute('random', random);
 
     const uniforms = {
@@ -132,8 +140,14 @@ export class SnowsplatEffect extends Entity(class {}) {
     this.splats = [];
   }
 
-  show(position, direction) {
-    this.splats.push({ position, direction });
+  showFor(entity) {
+    const { splat } = entity;
+
+    if (splat == null) {
+      return;
+    }
+
+    this.splats.push(splat);
   }
 
   update(game) {
@@ -141,23 +155,32 @@ export class SnowsplatEffect extends Entity(class {}) {
 
     while (this.splats.length) {
       const splat = this.splats.pop();
-      const particleIndex = this.nextAvailableParticle;
-      const { position, direction, displayTime } =
+      const remainingParticles = this.maxParticles - this.nextAvailableParticle;
+      const particleIndex = remainingParticles < splat.quantity
+          ? 0
+          : this.nextAvailableParticle;
+
+      const { position, direction, displayTime, size } =
           this.layer.geometry.attributes;
 
-      for (let i = 0; i < 5; ++i) {
-        position.setXYZ(particleIndex + i,
+      for (let i = 0; i < splat.quantity; ++i) {
+        const index = particleIndex + i;
+
+        position.setXYZ(index,
             splat.position.x, splat.position.y, splat.position.z);
 
-        direction.setXY(particleIndex + i, splat.direction.x, splat.direction.y);
-        displayTime.setX(particleIndex + i, game.clockSystem.time);
+        direction.setXY(index, splat.direction.x, splat.direction.y);
+        displayTime.setX(index, game.clockSystem.time);
+        size.setX(index, splat.size);
       }
 
       position.needsUpdate =
           direction.needsUpdate =
-          displayTime.needsUpdate = true;
+          displayTime.needsUpdate =
+          size.needsUpdate = true;
 
-      this.nextAvailableParticle = (this.nextAvailableParticle + 5) % this.maxParticles;
+      this.nextAvailableParticle =
+          (this.nextAvailableParticle + splat.quantity) % this.maxParticles;
     }
   }
 }
