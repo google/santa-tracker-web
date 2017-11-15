@@ -359,7 +359,8 @@ export class Elf extends Allocatable(Entity(Object3D)) {
 
   fallDown() {
     if (this.model != null) {
-      this.model.playOnce('elf_rig_fall_down');
+      const fall = Math.floor(Math.random() * 3) + 1;
+      this.model.playOnce(`elf_rig_fall_down${fall > 1 ? `_${fall}` : ''}`);
     }
   }
 
