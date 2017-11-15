@@ -8,36 +8,35 @@
       body, html {
         margin: 0;
         padding: 0;
+        font-family: 'Roboto', 'Arial', Sans-Serif;
       }
-      #debugButtons {
+      snowball-dialer {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
         position: absolute;
-        z-index: 10000;
-        padding: 4px;
-        background: rgba(255, 255, 255, 0.125);
+        background: white;
       }
     </style>
   </head>
   <body>
-    <div id="debugButtons">
-      <button id="levelButton">Create Level</button>
-    </div>
+    <snowball-game id="game"></snowball-game>
+    <snowball-dialer id="dialer"></snowball-dialer>
     <script>
-      levelButton.addEventListener('click', (ev) => {
-        if (game.currentLevel) {
-          // TODO: do nothing, reload?
-        } else {
-          const ctor = game.levelType;
-          game.level = new ctor();
-          console.info('created level', game.level);
-        }
+      dialer.addEventListener('start', (ev) => {
+        const remote = ev.detail;
+        game.level = remote ? new game.networkLevelType(remote) : new game.localLevelType();
+        dialer.remove();
       });
     </script>
-    <snowball-game id="game"></snowball-game>
 
     <script src="./node_modules/three/build/three.js"></script>
     <script src="./node_modules/three/examples/js/Octree.js"></script>
     <script src="./node_modules/three/examples/js/loaders/GLTFLoader.js"></script>
 
     <script type="module" src="./snowball-game.js"></script>
+    <script type="module" src="./snowball-dialer.js"></script>
   </body>
 </html>

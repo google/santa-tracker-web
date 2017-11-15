@@ -173,7 +173,7 @@ export class GameMap {
     }
   }
 
-  getRandomHabitableTileIndex() {
+  getRandomHabitableTileIndex(random = this.seedRandom.clone()) {
     for (let i = 0; i < this.tileCount; ++i) {
       if (this.tileRings.length === 0) {
         break;
@@ -181,11 +181,10 @@ export class GameMap {
 
       const minRingIndex = Math.floor(this.tileRings.length / 4);
       const maxRingIndex = Math.max(2.0, this.tileRings.length - 10);
-      const ringIndex = Math.floor(
-          Math.random() * (maxRingIndex - minRingIndex) + minRingIndex);
+      const ringIndex = random.randRange(minRingIndex, maxRingIndex);
 
       const ring = this.tileRings[ringIndex];
-      const tileIndex = Math.floor(Math.random() * ring.length);
+      const tileIndex = random.randRange(ring.length);
       const index = ring[tileIndex];
 
       if (this.getTileState(index) === 1.0 &&

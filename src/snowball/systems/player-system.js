@@ -30,6 +30,10 @@ export class PlayerSystem {
     return player;
   }
 
+  getPlayer(id) {
+    return this.playerMap[id];
+  }
+
   clearAllPlayers() {
     const all = Object.keys(this.playerMap);
     all.forEach((id) => this.removePlayer(id));
@@ -140,7 +144,9 @@ export class PlayerSystem {
       } else if (player === clientPlayer) {
         clientSystem.assignTarget(destination);
       } else {
-        this.assignTargetedPosition(destination.position);
+        console.debug('can\'t navigate', playerId, 'to', destination);
+        // TODO(samthor): this should throw a snowball—where is the method?
+        // clientSystem.assignTargetedPosition(destination.position);
       }
     }
 

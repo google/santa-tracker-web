@@ -13,7 +13,6 @@ export class MapSystem {
   constructor(unitWidth = 32, unitHeight = 32, tileScale = 32) {
     this.grid = new MagicHexGrid(unitWidth, unitHeight, tileScale);
 
-    this.pendingMapSeed = undefined;
     this.map = null;
 
     this.mapLayer = new Object3D();
@@ -35,10 +34,6 @@ export class MapSystem {
     this.mapLayer.add(gimbal);
 
     this.pickHandlers = [];
-  }
-
-  regenerateMapWithSeed(seed) {
-    this.pendingMapSeed = seed;
   }
 
   handleMapPick(handler) {
@@ -72,11 +67,6 @@ export class MapSystem {
   update(game) {
     const { clientSystem } = game;
     const { player: clientPlayer } = clientSystem;
-
-    if (this.pendingMapSeed != null) {
-      this.rebuildMap(game, this.pendingMapSeed);
-      this.pendingMapSeed = undefined;
-    }
 
     this.obstacles.update(game);
     this.hexMap.update(game);

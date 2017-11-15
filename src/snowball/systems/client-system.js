@@ -30,8 +30,8 @@ export class ClientSystem {
     this.destination = destination;
   }
 
-  setPendingSpawn(index) {
-    this.pendingSpawnAtIndex = index;
+  assignPlayer(player) {
+    this.player = player;
   }
 
   reset(game) {
@@ -53,12 +53,7 @@ export class ClientSystem {
 
   update(game) {
     if (this.player == null) {
-      if (this.pendingSpawnAtIndex == null) {
-        return;
-      }
-      const { playerSystem } = game;
-      this.player = playerSystem.addPlayer(localClientId, this.pendingSpawnAtIndex);
-      this.pendingSpawnAt = null;
+      return;
     }
 
     const { camera } = game;
@@ -94,7 +89,7 @@ export class ClientSystem {
 
     if (destination != null) {
       playerSystem.assignPlayerDestination(playerId, destination);
-      networkSystem.postDestination(destination);
+      networkSystem.postMove(this.player.position, destination.position);
 
       this.destination = null;
     }

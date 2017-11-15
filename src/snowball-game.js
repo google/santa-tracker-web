@@ -10,7 +10,8 @@ import { NetworkSystem } from './snowball/systems/network-system.js';
 import { ParachuteSystem } from './snowball/systems/parachute-system.js';
 import { IcebergSystem } from './snowball/systems/iceberg-system.js';
 import { DropSystem } from './snowball/systems/drop-system.js';
-import { MainLevel } from './snowball/levels/main-level.js';
+import { LocalLevel } from './snowball/levels/local-level.js';
+import { NetworkLevel } from './snowball/levels/network-level.js';
 
 const { Scene, PerspectiveCamera } = self.THREE;
 
@@ -33,8 +34,12 @@ export class SnowballGame extends Game {
     this.renderSystem.renderer.setClearColor(0x71A7DB, 1.0);
   }
 
-  get levelType() {
-    return MainLevel;
+  get networkLevelType() {
+    return NetworkLevel;
+  }
+
+  get localLevelType() {
+    return LocalLevel;
   }
 
   setup() {
