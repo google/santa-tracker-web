@@ -88,6 +88,9 @@ app.Tools = function(game, $elem) {
   this.stampBow = new app.Stamp($elem, 'bow');
   this.stampPresent = new app.Stamp($elem, 'present');
   this.stampOrnamentRound1 = new app.Stamp($elem, 'ornament-round1');
+  this.stampOrnamentRound2 = new app.Stamp($elem, 'ornament-round2');
+  this.stampOrnamentRound3 = new app.Stamp($elem, 'ornament-round3');
+  this.stampOrnamentSkinny1 = new app.Stamp($elem, 'ornament-skinny1');
   this.rollerCheckered = new app.PaintRoller($elem, 'checkered');
   this.rollerDiagonal = new app.PaintRoller($elem, 'diagonal');
   this.rollerHorizontal = new app.PaintRoller($elem, 'horizontal');
@@ -126,6 +129,9 @@ app.Tools = function(game, $elem) {
     this.stampBow,
     this.stampPresent,
     this.stampOrnamentRound1,
+    this.stampOrnamentRound2,
+    this.stampOrnamentRound3,
+    this.stampOrnamentSkinny1,
     this.rollerCheckered,
     this.rollerDiagonal,
     this.rollerHorizontal,

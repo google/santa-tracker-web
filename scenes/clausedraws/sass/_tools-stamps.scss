@@ -1,22 +1,18 @@
-$stamp-names: "bow", "present", "ornament-round1"; //, "ornament-round2", "ornament-round3", "ornament-skinny1", "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
+$stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
+    "ornament-round3", "ornament-skinny1"; //, "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
 
 ##{$name} {
   // TOOLBAR
   .Tool {
     @each $current-stamp in $stamp-names {
       &--stamp-#{$current-stamp} {
-        padding: 35px 15px;
-
         @include generateSVGstyles('stamp-#{$current-stamp}');
       }
     }
 
-    &--stamp-present {
-      padding: 15px 20px;
-    }
-
-    &--stamp-ornament-round1 {
-      padding: 25px 30px;
+    svg {
+      max-height: 80%;
+      padding-top: 20%;
     }
   }
 
@@ -52,6 +48,91 @@ $stamp-names: "bow", "present", "ornament-round1"; //, "ornament-round2", "ornam
     }
   }
 
+  .Tool--stamp-ornament-round2, .Tool-hover-preview--stamp-ornament-round2 {
+    .cls-1,
+    .cls-5,
+    .cls-7,
+    .cls-8 {
+      fill: none;
+    }
+
+    .cls-3 {
+      fill: #231f20;
+      opacity: 0.1;
+    }
+
+    .cls-4 {
+      fill: #607d8b;
+    }
+
+    .cls-5 {
+      stroke: #607d8b;
+      stroke-width: 1.03px;
+    }
+
+    .cls-5,
+    .cls-7,
+    .cls-8 {
+      stroke-miterlimit: 10;
+    }
+
+    .cls-6 {
+      clip-path: url(#clip-path);
+    }
+
+    .cls-7,
+    .cls-8 {
+      stroke: #fff;
+    }
+
+    .cls-7 {
+      stroke-width: 2.84px;
+    }
+
+    .cls-8 {
+      stroke-linecap: round;
+      stroke-width: 1.06px;
+    }
+  }
+
+  .Tool--stamp-ornament-round3, .Tool-hover-preview--stamp-ornament-round3 {
+    .cls-3 {
+      fill: #fff;
+    }
+
+    .cls-4 {
+      fill: #231f20;
+      opacity: 0.1;
+    }
+
+    .cls-5 {
+      fill: #607d8b;
+    }
+
+    .cls-6 {
+      fill: none;
+      stroke: #607d8b;
+      stroke-miterlimit: 10;
+      stroke-width: 1.03px;
+    }
+  }
+
+  .Tool--stamp-ornament-skinny1, .Tool-hover-preview--stamp-ornament-skinny1 {
+    .cls-2 {
+      fill: #231f20;
+      opacity: 0.06;
+    }
+
+    .cls-3 {
+      fill: #607d8b;
+    }
+
+    .cls-4 {
+      fill: none;stroke: #607d8b;
+      stroke-miterlimit: 10;
+      stroke-width: 1.03px;
+    }
+  }
 
   // HOVER
   [data-tool-hover-category="stamp"] {

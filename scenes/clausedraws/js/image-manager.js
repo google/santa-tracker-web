@@ -18,6 +18,9 @@ goog.provide('app.ImageManager');
 goog.require('app.Constants');
 goog.require('app.ImageItemBow');
 goog.require('app.ImageItemOrnamentRound1');
+goog.require('app.ImageItemOrnamentRound2');
+goog.require('app.ImageItemOrnamentRound3');
+goog.require('app.ImageItemOrnamentSkinny1');
 goog.require('app.ImageItemPresent');
 goog.require('app.ImageTextureCrayon');
 goog.require('app.ImageTexturePaintbrush');
@@ -52,6 +55,9 @@ app.ImageManager = function() {
       "image-bow": new app.ImageItemBow(),
       "image-present": new app.ImageItemPresent(),
       "image-ornament-round1": new app.ImageItemOrnamentRound1(),
+      "image-ornament-round2": new app.ImageItemOrnamentRound2(),
+      "image-ornament-round3": new app.ImageItemOrnamentRound3(),
+      "image-ornament-skinny1": new app.ImageItemOrnamentSkinny1(),
       "texture-pencil": new app.ImageTexturePencil(),
       "texture-crayon": new app.ImageTextureCrayon(),
       "texture-paintbrush": new app.ImageTexturePaintbrush(),
