@@ -14,30 +14,26 @@
  * the License.
  */
 
-goog.provide('app.ShapeCircle');
+goog.provide('app.ImageShapeRectangle');
 goog.require('app.Constants');
-goog.require('app.Shape');
+goog.require('app.SVGImage');
 
 
 /**
- * Shape Circle tool
+ * Rectangle shape
  * @constructor
- * @extends {app.Shape}
- * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the shape
+ * @extends {app.SVGImage}
  */
-app.ShapeCircle = function($elem, name) {
-  app.Shape.call(this, $elem, name);
+app.ImageShapeRectangle = function($elem, name) {
+  app.SVGImage.call(this);
 
-  this.width = 65;
+  this.width = 115.6;
   this.height = 65;
 };
-app.ShapeCircle.prototype = Object.create(app.Shape.prototype);
+app.ImageShapeRectangle.prototype = Object.create(app.SVGImage.prototype);
 
 
-app.ShapeCircle.prototype.getSVGString = function(color) {
-  var colors = app.Constants.SVG_COLOR_MATRIX[color];
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65"><defs><style>.cls-1{fill:' + colors.primary + ';}</style></defs><circle class="cls-1" cx="32.5" cy="32.5" r="32.5"/></svg>';
+app.ImageShapeRectangle.prototype.getSVGString = function(color) {
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.56 65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><rect class="cls-1" width="115.56" height="65"/></svg>';
   return data;
 };
-

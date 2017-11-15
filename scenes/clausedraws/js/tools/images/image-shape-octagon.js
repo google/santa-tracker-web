@@ -14,29 +14,26 @@
  * the License.
  */
 
-goog.provide('app.ShapeOctagon');
+goog.provide('app.ImageShapeOctagon');
 goog.require('app.Constants');
-goog.require('app.Shape');
+goog.require('app.SVGImage');
 
 
 /**
- * Shape Circle tool
+ * Octagon shape
  * @constructor
- * @extends {app.Shape}
- * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the shape
+ * @extends {app.SVGImage}
  */
-app.ShapeOctagon = function($elem, name) {
-  app.Shape.call(this, $elem, name);
+app.ImageShapeOctagon = function($elem, name) {
+  app.SVGImage.call(this);
 
   this.width = 75;
   this.height = 75;
 };
-app.ShapeOctagon.prototype = Object.create(app.Shape.prototype);
+app.ImageShapeOctagon.prototype = Object.create(app.SVGImage.prototype);
 
 
-app.ShapeOctagon.prototype.getSVGString = function(color) {
-  var colors = app.Constants.SVG_COLOR_MATRIX[color];
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75"><defs><style>.cls-1{fill:' + colors.primary + ';}</style></defs><polygon class="cls-1" points="53.03 0 21.97 0 0 21.97 0 53.03 21.97 75 53.03 75 75 53.03 75 21.97 53.03 0"/></svg>';
+app.ImageShapeOctagon.prototype.getSVGString = function(color) {
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="53.03 0 21.97 0 0 21.97 0 53.03 21.97 75 53.03 75 75 53.03 75 21.97 53.03 0"/></svg>';
   return data;
 };

@@ -14,29 +14,26 @@
  * the License.
  */
 
-goog.provide('app.ShapePentagon');
+goog.provide('app.ImageShapeDiamond');
 goog.require('app.Constants');
-goog.require('app.Shape');
+goog.require('app.SVGImage');
 
 
 /**
- * Shape Circle tool
+ * Diamond shape
  * @constructor
- * @extends {app.Shape}
- * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the shape
+ * @extends {app.SVGImage}
  */
-app.ShapePentagon = function($elem, name) {
-  app.Shape.call(this, $elem, name);
+app.ImageShapeDiamond = function($elem, name) {
+  app.SVGImage.call(this);
 
-  this.width = 78.9;
+  this.width = 61.4;
   this.height = 75;
 };
-app.ShapePentagon.prototype = Object.create(app.Shape.prototype);
+app.ImageShapeDiamond.prototype = Object.create(app.SVGImage.prototype);
 
 
-app.ShapePentagon.prototype.getSVGString = function(color) {
-  var colors = app.Constants.SVG_COLOR_MATRIX[color];
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.86 75"><defs><style>.cls-1{fill:' + colors.primary + ';}</style></defs><polygon class="cls-1" points="39.43 0 0 28.65 15.06 75 63.8 75 78.86 28.65 39.43 0"/></svg>';
+app.ImageShapeDiamond.prototype.getSVGString = function(color) {
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.38 75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="30.69 75 0 37.5 30.69 0 61.38 37.5 30.69 75"/></svg>';
   return data;
 };

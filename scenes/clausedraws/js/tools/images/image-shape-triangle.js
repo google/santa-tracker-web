@@ -14,29 +14,26 @@
  * the License.
  */
 
-goog.provide('app.ShapeRectangle');
+goog.provide('app.ImageShapeTriangle');
 goog.require('app.Constants');
-goog.require('app.Shape');
+goog.require('app.SVGImage');
 
 
 /**
- * Shape Circle tool
+ * Triangle shape
  * @constructor
- * @extends {app.Shape}
- * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the shape
+ * @extends {app.SVGImage}
  */
-app.ShapeRectangle = function($elem, name) {
-  app.Shape.call(this, $elem, name);
+app.ImageShapeTriangle = function($elem, name) {
+  app.SVGImage.call(this);
 
-  this.width = 115.6;
+  this.width = 75.1;
   this.height = 65;
 };
-app.ShapeRectangle.prototype = Object.create(app.Shape.prototype);
+app.ImageShapeTriangle.prototype = Object.create(app.SVGImage.prototype);
 
 
-app.ShapeRectangle.prototype.getSVGString = function(color) {
-  var colors = app.Constants.SVG_COLOR_MATRIX[color];
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.56 65"><defs><style>.cls-1{fill:' + colors.primary + ';}</style></defs><rect class="cls-1" width="115.56" height="65"/></svg>';
+app.ImageShapeTriangle.prototype.getSVGString = function(color) {
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.06 65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="37.53 0 0 65 75.06 65 37.53 0"/></svg>';
   return data;
 };

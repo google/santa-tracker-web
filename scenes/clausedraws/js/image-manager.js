@@ -22,6 +22,15 @@ goog.require('app.ImageTextureCrayon');
 goog.require('app.ImageTexturePaintbrush');
 goog.require('app.ImageTexturePencil');
 goog.require('app.ImageTextureSpray');
+goog.require('app.ImageShapeCircle');
+goog.require('app.ImageShapeDiamond');
+goog.require('app.ImageShapeHeart');
+goog.require('app.ImageShapeOctagon');
+goog.require('app.ImageShapePentagon');
+goog.require('app.ImageShapeRectangle');
+goog.require('app.ImageShapeSquare');
+goog.require('app.ImageShapeStar');
+goog.require('app.ImageShapeTriangle');
 
 
 
@@ -44,7 +53,16 @@ app.ImageManager = function() {
       "texture-pencil": new app.ImageTexturePencil(),
       "texture-crayon": new app.ImageTextureCrayon(),
       "texture-paintbrush": new app.ImageTexturePaintbrush(),
-      "texture-spray-color": new app.ImageTextureSpray()
+      "texture-spray-color": new app.ImageTextureSpray(),
+      "shape-circle": new app.ImageShapeCircle(),
+      "shape-diamond": new app.ImageShapeDiamond(),
+      "shape-heart": new app.ImageShapeHeart(),
+      "shape-octagon": new app.ImageShapeOctagon(),
+      "shape-pentagon": new app.ImageShapePentagon(),
+      "shape-rectangle": new app.ImageShapeRectangle(),
+      "shape-square": new app.ImageShapeSquare(),
+      "shape-star": new app.ImageShapeStar(),
+      "shape-triangle": new app.ImageShapeTriangle()
     }
   };
 }();

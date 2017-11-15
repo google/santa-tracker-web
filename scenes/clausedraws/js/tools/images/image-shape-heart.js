@@ -14,29 +14,26 @@
  * the License.
  */
 
-goog.provide('app.ShapeSquare');
+goog.provide('app.ImageShapeHeart');
 goog.require('app.Constants');
-goog.require('app.Shape');
+goog.require('app.SVGImage');
 
 
 /**
- * Shape Circle tool
+ * Heart shape
  * @constructor
- * @extends {app.Shape}
- * @param {!jQuery} $elem toolbox elem
- * @param {string} name The name of the shape
+ * @extends {app.SVGImage}
  */
-app.ShapeSquare = function($elem, name) {
-  app.Shape.call(this, $elem, name);
+app.ImageShapeHeart = function($elem, name) {
+  app.SVGImage.call(this);
 
-  this.width = 65;
+  this.width = 75.2;
   this.height = 65;
 };
-app.ShapeSquare.prototype = Object.create(app.Shape.prototype);
+app.ImageShapeHeart.prototype = Object.create(app.SVGImage.prototype);
 
 
-app.ShapeSquare.prototype.getSVGString = function(color) {
-  var colors = app.Constants.SVG_COLOR_MATRIX[color];
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65"><defs><style>.cls-1{fill:' + colors.primary + ';}</style></defs><rect class="cls-1" width="65" height="65"/></svg>';
+app.ImageShapeHeart.prototype.getSVGString = function(color) {
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.16 65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><path class="cls-1" d="M55.89,0A19.48,19.48,0,0,0,37.58,11.46,19.48,19.48,0,0,0,19.27,0C-1.39,0,0,19,0,19,0,42.39,37.58,65,37.58,65S75.14,42.39,75.14,19C75.14,19,76.56,0,55.89,0Z"/></svg>';
   return data;
 };

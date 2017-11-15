@@ -18,6 +18,7 @@ goog.provide('app.Shape');
 goog.require('app.Constants');
 goog.require('app.Tool');
 goog.require('app.utils');
+goog.require('app.ImageManager');
 
 
 /**
@@ -30,13 +31,15 @@ goog.require('app.utils');
 app.Shape = function($elem, name) {
   app.Tool.call(this, $elem, 'shape-' + name);
 
-  this.shapeName = name;
+  this.shapeName = 'shape-' + name;
   this.soundKey = 'selfie_spray_small';
   this.stamped = false;
   this.sizeMultiplier = 1;
   this.shapeImages = {};
-  this.height = 100;
-  this.width = 100;
+
+  var dimensions = app.ImageManager.getImageDimensions(this.shapeName);
+  this.height = dimensions.height;
+  this.width = dimensions.width;
 };
 app.Shape.prototype = Object.create(app.Tool.prototype);
 
@@ -60,7 +63,7 @@ app.Shape.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var offsetX = drawWidth / 2;
   var offsetY = drawHeight / 2;
   var color = this.el.attr('data-tool-color');
-  var image = this.getShapeImage(color);
+  var image = app.ImageManager.getImage(this.shapeName, color);
   context.drawImage(image,
     drawX - offsetX, drawY - offsetY,
     drawWidth, drawHeight);
@@ -76,7 +79,7 @@ app.Shape.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
 app.Shape.prototype.startMousedown = function() {
   app.utils.triggerOnce(this.soundKey);
   this.el.addClass('Tool--down');
-}
+};
 
 
 /**
@@ -85,7 +88,7 @@ app.Shape.prototype.startMousedown = function() {
 app.Shape.prototype.stopMousedown = function() {
   app.utils.triggerReset(this.soundKey);
   this.el.removeClass('Tool--down');
-}
+};
 
 
 /**
@@ -104,24 +107,10 @@ app.Shape.prototype.updateSize = function(size) {
   this.sizeMultiplier = app.utils.map(size, app.Constants.SHAPE_MIN,
       app.Constants.SHAPE_MAX);
   this.currentSize = this.calculateDrawSize(size);
-}
+};
 
 
 app.Shape.prototype.calculateDrawSize = function(size) {
   return Math.max(this.width * this.sizeMultiplier,
       this.height * this.sizeMultiplier);
-}
-
-
-app.Shape.prototype.getShapeImage = function(color) {
-  if (!this.shapeImages[color]) {
-    this.shapeImages[color] = app.utils.svgToImage(this.getSVGString(color));
-  }
-
-  return this.shapeImages[color];
-};
-
-
-app.Shape.prototype.getSVGString = function(color) {
-  return '';
 };
