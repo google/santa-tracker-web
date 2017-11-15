@@ -21,6 +21,7 @@ goog.require('app.ImageItemPresent');
 goog.require('app.ImageTextureCrayon');
 goog.require('app.ImageTexturePaintbrush');
 goog.require('app.ImageTexturePencil');
+goog.require('app.ImageTextureSpray');
 
 
 
@@ -42,7 +43,8 @@ app.ImageManager = function() {
       "image-present": new app.ImageItemPresent(),
       "texture-pencil": new app.ImageTexturePencil(),
       "texture-crayon": new app.ImageTextureCrayon(),
-      "texture-paintbrush": new app.ImageTexturePaintbrush()
+      "texture-paintbrush": new app.ImageTexturePaintbrush(),
+      "texture-spray-color": new app.ImageTextureSpray()
     }
   };
 }();
