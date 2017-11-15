@@ -1,4 +1,4 @@
-$stamp-names: "bow", "present"; //, "ornament-round1", "ornament-round2", "ornament-round3", "ornament-skinny1", "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
+$stamp-names: "bow", "present", "ornament-round1"; //, "ornament-round2", "ornament-round3", "ornament-skinny1", "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
 
 ##{$name} {
   // TOOLBAR
@@ -31,6 +31,24 @@ $stamp-names: "bow", "present"; //, "ornament-round1", "ornament-round2", "ornam
       fill: #221f1f;
       mix-blend-mode: multiply;
       opacity: 0.15;
+    }
+  }
+
+  .Tool--stamp-ornament-round1, .Tool-hover-preview--stamp-ornament-round1 {
+    .cls-2 {
+      fill: #231f20;
+      opacity: 0.1;
+    }
+
+    .cls-3 {
+      fill: #607d8b;
+    }
+
+    .cls-4 {
+      fill: none;
+      stroke: #607d8b;
+      stroke-miterlimit: 10;
+      stroke-width: 1.03px;
     }
   }
 
