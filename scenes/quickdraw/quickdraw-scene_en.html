@@ -37,14 +37,14 @@ Quickdraw scene.
         <!-- PUT HTML CODE IN HERE -->
         <div class="splashview">
           <img src="[[importPath]]img/splashscreen-image.svg" class="splashview__picture" alt="">
-          <p class="splashview__title">Help Robby practice his image recognition!</p>
-          <button class="Button splashview__button">Start</button>
+          <p class="splashview__title"><i18n-msg msgid="quickdraw-splashview-title">PLACEHOLDER_i18n</i18n-msg></p>
+          <button class="Button splashview__button"><i18n-msg msgid="quickdraw-splashview-button">PLACEHOLDER_i18n</i18n-msg></button>
         </div>
         <div class="gameview">
           <div class="helping-elf">
             <img src="[[importPath]]img/elf.svg" alt="Elf">
             <div class="helping-elf-inner">
-              <div class="helping-elf__primary">Draw</div>
+              <div class="helping-elf__primary"><i18n-msg msgid="quickdraw-helping-elf">PLACEHOLDER_i18n</i18n-msg></div>
               <div class="helping-elf__secondary"></div>
             </div>
           </div>
@@ -53,8 +53,8 @@ Quickdraw scene.
             <button class="gameview__clear-btn">Clear</button>
             <div class="machineview__bubble">
               <div class="machineview__bubble-inner">
-                  <p class="machineview__primary">I see...</p>
-                  <p class="machineview__secondary">TREE</p>
+                  <p class="machineview__primary"></p>
+                  <p class="machineview__secondary"></p>
               </div>
             </div>
             <img src="[[importPath]]img/robby.svg" alt="Robby the robot" class="machineview__robot">
@@ -64,7 +64,7 @@ Quickdraw scene.
           <div class="newround-card covercard">
             <div class="card-container fill">
               <div class="slate">
-                <div class="slate__small-text">Draw</div>
+                <div class="slate__small-text"><i18n-msg msgid="quickdraw-slate">PLACEHOLDER_i18n</i18n-msg></div>
                 <div class="slate__big-text"></div>
                 <div class="slate__small-text">
                   <span class="newround-card__current-round"></span>
@@ -72,7 +72,7 @@ Quickdraw scene.
                   <span class="newround-card__total-rounds"></span>
                 </div>
               </div>
-              <button class="Button newround-card__button">Start</button>
+              <button class="Button newround-card__button"><i18n-msg msgid="quickdraw-newround-button">PLACEHOLDER_i18n</i18n-msg></button>
             </div>
           </div>
           <div class="timesup-card covercard">
@@ -81,7 +81,7 @@ Quickdraw scene.
               <p class="timesup-card__subline"></p>
               <div class="timesup-card__drawings">
               </div>
-              <button class="Button Button--large timesup-card__button">Play again!</button>
+              <button class="Button Button--large timesup-card__button"><i18n-msg msgid="quickdraw-timesup-button">PLACEHOLDER_i18n</i18n-msg></button>
             </div>
           </div>
         </div>
