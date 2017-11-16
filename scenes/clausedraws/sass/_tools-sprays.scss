@@ -1,0 +1,64 @@
+##{$name} {
+  // TOOLBAR
+  [data-tool-category="spray"] {
+    .Tool {
+      background-position: center -50%;
+      background-repeat: no-repeat;
+      background-size: 70%;
+
+      &--spray-color {
+        padding: 20px;
+
+        @include generateSVGstyles('spray-color');
+      }
+
+      &--spray-sprinkles {
+        background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
+      }
+    }
+
+    .Tool--selected {
+      background-image: url(img/tools/spray/tray.svg);
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  // HOVER
+  [data-tool-hover-category="spray"] {
+    .Tool-hover-minitool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      position: absolute;
+      right: 25%;
+      top: 75%;
+      transform: translate(100%, 0);
+      width: 100px;
+    }
+  }
+
+  [data-tool-hover-tool="spray-color"] {
+    .Tool-hover-minitool--spray-color {
+      display: block;
+    }
+
+    @include generateSVGstyles('spray-color', '.Tool-hover-minitool--spray-color');
+  }
+
+  [data-tool-hover-tool="spray-sprinkles"] {
+    .Tool-hover-inactive .Tool-hover-minitool {
+      background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
+      right: 90%;
+      top: 10%;
+    }
+
+    .Tool-hover-circle {
+      height: 50px !important;
+      width: 50px !important;
+    }
+  }
+}
