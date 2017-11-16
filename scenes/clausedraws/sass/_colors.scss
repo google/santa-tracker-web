@@ -258,17 +258,19 @@ $svg-colors: (
   ),
   "stamp-candy-mint-swirl": (
     "tool": (
-      "cls-1": "primary"
+      "cls-4": "highlight"
     )
   ),
   "stamp-candy-mint-wheel": (
     "tool": (
-      "cls-1": "primary"
+      "cls-2": "primary"
     )
   ),
   "stamp-candy-sucker": (
     "tool": (
-      "cls-1": "primary"
+      "cls-2": "dark",
+      "cls-3.stroke": "medium",
+      "cls-4": "primary"
     )
   ),
 );

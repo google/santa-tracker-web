@@ -258,6 +258,54 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
     }
   }
 
+  .Tool--stamp-candy-jellybean, .Tool-hover-preview--stamp-candy-jellybean {
+    .cls-2 {
+      fill: none;
+      opacity: 0.3;
+      stroke: #f2f2f2;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+      stroke-width: 1.69px;
+    }
+  }
+
+  .Tool--stamp-candy-mint-swirl, .Tool-hover-preview--stamp-candy-mint-swirl {
+    .cls-2 {
+      fill:#f2faff;
+    }
+
+    .cls-5 {
+      opacity:0.2;
+    }
+  }
+
+  .Tool--stamp-candy-mint-wheel, .Tool-hover-preview--stamp-candy-mint-wheel {
+    .cls-1 {
+      fill: #f2f2f2;
+    }
+
+    .cls-3 {
+      opacity: 0.2;
+    }
+  }
+
+  .Tool--stamp-candy-sucker, .Tool-hover-preview--stamp-candy-sucker {
+    .cls-1 {
+      fill: #f2f2f2;
+    }
+
+    .cls-3 {
+      fill: none;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+      stroke-width: 1.04px;
+    }
+
+    .cls-5 {
+      opacity: 0.2;
+    }
+  }
+
   // HOVER
   [data-tool-hover-category="stamp"] {
     .Tool-hover-minitool--default {
