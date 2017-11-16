@@ -36,7 +36,7 @@ app.Sticker = function($elem, name) {
   this.stamped = false;
   this.sizeMultiplier = 1;
 
-  this.hoverPreviewEl = $elem.find('.Tool-hover-preview--' + this.stickerName);
+  this.hoverPreviewEl = $elem.find('.Tool-hover-preview--default');
   this.currentAngle = 0;
 };
 app.Sticker.prototype = Object.create(app.Tool.prototype);

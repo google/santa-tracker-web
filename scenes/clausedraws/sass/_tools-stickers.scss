@@ -8,6 +8,10 @@ $sticker-nature: "cactus", "igloo", "tree-palm";
       background-repeat: no-repeat;
       background-size: 60%;
     }
+
+    .Tool--selected {
+      opacity: 0.5;
+    }
   }
 
   .Tool {
@@ -21,6 +25,36 @@ $sticker-nature: "cactus", "igloo", "tree-palm";
       &--sticker-#{$current-sticker} {
         background-image: url(img/stickers/nature/#{$current-sticker}.svg);
       }
+    }
+  }
+
+
+  [data-tool-hover-category="sticker"] {
+    .Tool-hover-preview {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100%;
+      left: 50%;
+      opacity: 0.5;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+  }
+
+  @each $current-sticker in $sticker-characters {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/characters/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+
+  @each $current-sticker in $sticker-nature {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+      display: block;
     }
   }
 }
