@@ -5,19 +5,41 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
 
 ##{$name} {
   // TOOLBAR
-  .Tool {
-    @each $current-stamp in $stamp-names {
-      &--stamp-#{$current-stamp} {
-        @include generateSVGstyles('stamp-#{$current-stamp}');
+  [data-tool-category="stamp"] {
+    .Tool {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        height: 80%;
+        width: 80%;
+      }
+
+      &--stamp-candy-gumdrop,
+      &--stamp-candy-jellybean,
+      &--stamp-candy-mint-swirl,
+      &--stamp-candy-mint-wheel {
+        svg {
+          height: 50%;
+          width: 50%;
+        }
+      }
+
+      @each $current-stamp in $stamp-names {
+        &--stamp-#{$current-stamp} {
+          @include generateSVGstyles('stamp-#{$current-stamp}');
+        }
       }
     }
 
-    svg {
-      max-height: 80%;
-      padding-top: 20%;
+    .Tool--selected {
+      svg {
+        display: block;
+        opacity: 0.5;
+      }
     }
   }
-
 
   // SVG STYLES
   .Tool--stamp-present, .Tool-hover-preview--stamp-present {
