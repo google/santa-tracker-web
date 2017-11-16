@@ -139,7 +139,7 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
     }
 
     .cls-3 {
-      clip-path: url(img/tools/stamps/svg/ornament-skinny2-clip-path.svg);
+      clip-path: url(img/svg-images/clip-paths/ornament-skinny2.svg);
     }
 
     .cls-4 {
@@ -190,6 +190,71 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
 
     .cls-4 {
       fill:#607d8b;
+    }
+  }
+
+  .Tool--stamp-candy-wrapper1, .Tool-hover-preview--stamp-candy-wrapper1 {
+    .cls-2 {
+      fill: none;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+      stroke-width: 1.06px;
+    }
+
+    .cls-4 {
+      opacity: 0.2;
+    }
+  }
+
+  .Tool--stamp-candy-wrapper2, .Tool-hover-preview--stamp-candy-wrapper2 {
+    .cls-1,
+    .cls-4,
+    .cls-6 {
+      fill: none;
+    }
+
+    .cls-2 {
+      fill: #f2f2f2;
+    }
+
+    .cls-3 {
+      clip-path: url(img/svg-images/clip-paths/candy-wrapper2.svg);
+    }
+
+    .cls-4 {
+      stroke-width: 4.12px;
+    }
+
+    .cls-4,
+    .cls-6 {
+      stroke-miterlimit: 10;
+    }
+
+    .cls-6 {
+      stroke-linecap: round;
+      stroke-width: 0.55px;
+    }
+
+    .cls-7 {
+      opacity: 0.1;
+    }
+  }
+
+  .Tool--stamp-candy-gumdrop, .Tool-hover-preview--stamp-candy-gumdrop {
+    .cls-3 {
+      opacity: 0.2;
+    }
+
+    .cls-5 {
+      opacity: 0.5;
+    }
+
+    .cls-6 {
+      fill: #fff;
+    }
+
+    .cls-7 {
+      opacity: 0.75;
     }
   }
 

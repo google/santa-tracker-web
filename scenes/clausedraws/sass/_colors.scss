@@ -234,17 +234,21 @@ $svg-colors: (
   ),
   "stamp-candy-wrapper1": (
     "tool": (
-      "cls-1": "primary"
+      "cls-1": "dark",
+      "cls-2.stroke": "medium",
+      "cls-3": "primary"
     )
   ),
   "stamp-candy-wrapper2": (
     "tool": (
-      "cls-1": "primary"
+      "cls-4.stroke": "primary",
+      "cls-5": "dark",
+      "cls-6.stroke": "medium"
     )
   ),
   "stamp-candy-gumdrop": (
     "tool": (
-      "cls-1": "primary"
+      "cls-2": "primary"
     )
   ),
   "stamp-candy-jellybean": (
@@ -281,12 +285,18 @@ $svg-colors: (
       $complementConfig: map-get($svg-color-matrix, str-slice(#{$complement}, 2));
 
       @each $className, $colorName in $svgConfig {
+        $propertyName: "fill";
+        @if (str-index($className, '.')) {
+          $propertyName: str-slice($className, str-index($className, '.') + 1);
+          $className: str-slice($className, 1, str-index($className, '.') - 1);
+        }
+
         .#{$className} {
           @if (str-index($colorName, '.')) {
             $complementColorName: str-slice($colorName, str-index($colorName, '.') + 1);
-            fill: map-get($complementConfig, $complementColorName);
+            #{$propertyName}: map-get($complementConfig, $complementColorName);
           } @else {
-            fill: map-get($colorConfig, $colorName);
+            #{$propertyName}: map-get($colorConfig, $colorName);
           }
         }
       }
