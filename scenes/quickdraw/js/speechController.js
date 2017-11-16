@@ -18,7 +18,7 @@
 goog.provide('app.SpeechController');
 
 app.SpeechController = function() {
-  this.voiceLang = 'en-US';
+  // this.voiceLang = 'en-US';
   this.supported = false;
   this.synth = window.speechSynthesis;
   if(this.synth) {
@@ -57,7 +57,7 @@ app.SpeechController.prototype.speak = function(text, callback) {
     }.bind(this), 500);
 
     utterThis.rate = 1.1;
-    utterThis.lang = this.voiceLang;
+    //utterThis.lang = this.voiceLang;
 
     this.synth.speak(utterThis);
   }
