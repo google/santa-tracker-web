@@ -47,11 +47,6 @@ Polymer({
 
   properties: {
 
-    active: {
-      type: Boolean,
-      observer: '_activeChanged'
-    },
-
     /** Number of snowflakes to show. Not expected to change after init. */
     snowflakes: {
       type: Number,
@@ -106,18 +101,11 @@ Polymer({
     this._createClouds();
     this._setWind();
     window.addEventListener('resize', this._onResize);
+    window.requestAnimationFrame(this._update);
   },
 
   detached: function() {
     window.removeEventListener('resize', this._onResize);
-  },
-
-  _activeChanged: function() {
-    if (!this.active) {
-      return;
-    }
-
-    window.requestAnimationFrame(this._update);
   },
 
   _setWind: function() {
@@ -227,9 +215,8 @@ Polymer({
   },
 
   _update: function() {
-    if (!this.active) {
-      return;
-    }
+    if (!this.isAttached) { return; }
+    window.requestAnimationFrame(this._update);
 
     for (var i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
       snowflake.x += 0.01 * this._currentWind * (1 / snowflake.d);
@@ -247,8 +234,6 @@ Polymer({
     // Ease the actual wind value to the new wind value.
     this._currentWind += (this.wind - this._currentWind) / 200;
     this._draw();
-
-    window.requestAnimationFrame(this._update);
   },
 
   _updateClouds: function() {

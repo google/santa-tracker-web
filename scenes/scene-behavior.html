@@ -22,7 +22,7 @@ specific language governing permissions and limitations under the License.
   /**
    * Max number of milliseconds to wait before timing out and abandoning preload.
    */
-  const maxPreloadTime = 30 * 1000;
+  const maxPreloadTime = 3 * 1000;
 
   /**
    * Number of frames to spread image preload over.
@@ -41,28 +41,6 @@ specific language governing permissions and limitations under the License.
       route: {
         type: String,
         value: null,
-      },
-
-      /**
-       * If `true`, the scene is active. In Santa Tracker, this is set by `lazy-pages.
-       *
-       * Note that this intentionally starts undefined so that its observer is only called after
-       * the object is ready.
-       */
-      active: {
-        type: Boolean,
-        reflectToAttribute: true,
-        observer: '_activeChanged',
-      },
-
-      /**
-       * If `true`, the scene was previously loaded. This includes if a preload
-       * took too long.
-       */
-      loaded: {
-        type: Boolean,
-        notify: true,
-        value: false,
       },
 
       /**
@@ -104,45 +82,34 @@ specific language governing permissions and limitations under the License.
       '_progress(_assetsLoaded, _totalAssets)',
     ],
 
-    ready: function() {
-      if (this.loaded) {
-        // we are a clone: pretend to already be loaded
-        this._setPreload(Promise.resolve());
-        return;
+    created: function() {
+      console.info('scene', this.localName, 'is created');
+      this._setPreload(new Promise((resolve) => {
+        this.addEventListener('preload', resolve);
+      }));
+
+      // Run onPreload to preload resources. Resolves when assets are ready, when the timeout
+      // expires, or immediately—if there's nothing to preload.
+      this._pendingPreload = new Set();
+      this.onPreload && this.onPreload();
+      const done = () => this.fire('preload');
+      if (!this._pendingPreload.size) {
+        done();
+      } else {
+        this.async(done, maxPreloadTime);
       }
 
-      // Setup preload Promise. This resolves when all assets are ready, or when the timeout
-      // expires. It should never reject.
-
-      const preload = new Set();
-      this._pendingPreload = preload;
-
-      const p = new Promise(function(resolve) {
-        this.onPreload && this.onPreload();
-
-        if (!preload.size) {
-          return resolve();
-        }
-        this.async(resolve, maxPreloadTime);  // resolve on timeout anyway
-        this.addEventListener('preload', resolve);
-      }.bind(this));
-
-      p.then(function() {
-        if (this._pendingPreload === preload) {
-          this._pendingPreload = null;
-        }
-        this.loaded = true;
-      }.bind(this));
-
-      this._setPreload(p);
+      this.preload.then(() => {
+        this._pendingPreload = null;
+      });
     },
 
-    _activeChanged: function() {
-      if (this.active) {
-        this.onShow && this.onShow();
-      } else {
-        this.onHide && this.onHide();
-      }
+    attached: function() {
+      this.onShow && this.onShow();
+    },
+
+    detached: function() {
+      this.onHide && this.onHide();
     },
 
     /**
@@ -156,19 +123,16 @@ specific language governing permissions and limitations under the License.
       }
       preload.add(p);
 
-      const done = function() {
+      ++this._totalAssets;
+      p.catch((error) => {
+        console.warn('preload', this.localName, 'error', error);
+      }).then(() => {
         ++this._assetsLoaded;
-
         preload.delete(p);
         if (!preload.size) {
           this.fire('preload', preload, {bubbles: false});  // nb. resolves Promise in ready:
         }
-      }.bind(this);
-
-      ++this._totalAssets;
-      p.catch(function(error) {
-        console.warn('preload', this.localName, 'error', error);
-      }.bind(this)).then(done);
+      });
     },
 
     /**
@@ -180,17 +144,17 @@ specific language governing permissions and limitations under the License.
         return;  // do nothing
       }
 
-      const p = new Promise(function(resolve) {
+      const p = new Promise((resolve) => {
         this._totalAssets += imageUrls.length;
         let done = 0;
 
-        const onload = function() {
+        const onload = () => {
           ++this._assetsLoaded;
           ++done;
           if (done === imageUrls.length) {
             resolve();
           }
-        }.bind(this);
+        };
 
         const imagesPerRaf = Math.max(1, Math.ceil(imageUrls.length / framesToSpread));
         let imageIndex = 0;
@@ -206,7 +170,7 @@ specific language governing permissions and limitations under the License.
             this.async(rafCallback);
           }
         }).call(this);
-      }.bind(this));
+      });
 
       this.preloadPromise(p);
     },

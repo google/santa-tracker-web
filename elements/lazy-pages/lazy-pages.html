@@ -56,9 +56,11 @@ Lazy loads children "pages".
    * @return {!HTMLElement} the clone of scene, if needed
    */
   function maybeCloneScene(scene) {
+    throw new Error('unused');
     if (scene.hasAttribute('permanent')) {
       return scene;  // don't need to recreate it
     }
+    console.info('cloning', scene.localName);
     // Re-construct removed scene as it's e.g. a game that destructively modifies its DOM. Note
     // that loading-* isn't copied, since the element is already loaded.
     const clone = document.createElement(scene.localName);
@@ -67,10 +69,10 @@ Lazy loads children "pages".
         clone.setAttribute(attr, scene.getAttribute(attr));
       }
     });
-    // TODO(samthor): Otherwise, the scene itself triggers the `scene-progress` event.
-    clone.loaded = true;
     return clone;
   }
+
+  const placeholderMap = new WeakMap();
 
   Polymer({
     is: 'lazy-pages',
@@ -167,7 +169,7 @@ Lazy loads children "pages".
       this._updateScenes();
     },
 
-    detatched: function() {
+    detached: function() {
       Polymer.dom(this).unobserveNodes(this._observer);
       this._setScenes(null);
       this._setSelectedItem(null);
@@ -233,18 +235,25 @@ Lazy loads children "pages".
         }.bind(this);
       };
 
+      let upgradedScene = null;
       const init = () => {
         if (!this._routeIsOpen(route)) {
           return Promise.reject('locked');
         } else if (!scene) {
           return Promise.reject('missing');
         }
-        return this._loadScene(scene).then((scene) => scene.preload);
+        return this._loadScene(scene).then((x) => {
+          upgradedScene = x;
+          return x.preload;
+        });
       };
 
+      if (this._pendingItem) {
+        this._ensurePlaceholderFor(this._pendingItem);
+      }
       this._pendingItem = scene;
       p = this._loadingPromise = init().then(safe(function() {
-        this._setSelectedItem(scene);  // actually preloaded (or null), so set item
+        this._setSelectedItem(upgradedScene);  // actually preloaded (or null), so set item
         this._setError(null);
 
         // log that the scene has finished preloading. If this wasn't a preloaded
@@ -282,7 +291,8 @@ Lazy loads children "pages".
       const scenes = {};
 
       for (let i = 0; i < nodes.length; ++i) {
-        const scene = nodes[i];
+        const node = nodes[i];
+        const scene = placeholderMap.get(node) || node;
         const route = scene.getAttribute('route');
         if (route) {
           scenes[route] = scene;
@@ -308,12 +318,16 @@ Lazy loads children "pages".
         }
 
         oldValue.removeAttribute('active');
-
-        const scene = maybeCloneScene(oldValue);
-        Polymer.dom(this).replaceChild(scene, oldValue);
+        this._ensurePlaceholderFor(oldValue);
       }
 
       if (newValue) {
+        const placeholder = placeholderMap.get(newValue);
+        if (placeholder) {
+          placeholderMap.delete(newValue);
+          Polymer.dom(this).replaceChild(newValue, placeholder);
+        }
+
         newValue.setAttribute('active', '');
 
         const scrollTopMid = this._scrollFromTop.get(newValue);
@@ -352,6 +366,9 @@ Lazy loads children "pages".
       this.fire('analytics-time-start', {category: 'Scene Load Time',
           variable: route, time: Date.now()});
 
+      // Ensure this is a placeholder, so it doesn't ...
+      this._ensurePlaceholderFor(scene);
+
       return new Promise((resolve, reject) => {
         // Work around Polymer's failure to reload failed imports:
         //   https://github.com/Polymer/polymer/issues/3908
@@ -360,10 +377,10 @@ Lazy loads children "pages".
         const attemptSuffix = attempt ? '?' + attempt : '';
         const resolvedPath = this.resolveUrl('../../' + path);
         this.importHref(resolvedPath + attemptSuffix, function() {
-          // Great! Nothing else to do here. Load timing ends in SantaSceneBehavior, as it includes
-          // all resource preloading.
+          // Great! Yield back to the caller. Load timing ends in SantaSceneBehavior, as it
+          // includes all resource preloading.
           if (customElements.get(scene.localName)) {
-            resolve(scene);
+            resolve(this._upgradeScene(scene));
           } else {
             reject('element');
           }
@@ -372,6 +389,33 @@ Lazy loads children "pages".
           reject('network');
         });
       });
+    },
+
+    _ensurePlaceholderFor: function(scene) {
+      const existing = placeholderMap.get(scene);
+      if (existing || scene.parentNode !== this) {
+        return existing;
+      }
+
+      const placeholder = document.createElement('dom-placeholder');
+      placeholder.setAttribute('route', scene.getAttribute('route'));
+      placeholderMap.set(placeholder, scene);
+      placeholderMap.set(scene, placeholder);
+      Polymer.dom(this).replaceChild(placeholder, scene);
+    },
+
+    _upgradeScene: function(scene) {
+      if (scene.is) {
+        return scene;
+      }
+      const replacement = document.createElement(scene.localName);
+
+      const placeholder = placeholderMap.get(scene);
+      placeholderMap.delete(scene);
+      placeholderMap.set(placeholder, replacement);
+      placeholderMap.set(replacement, placeholder);
+
+      return replacement;
     },
 
     /**

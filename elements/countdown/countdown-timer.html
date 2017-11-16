@@ -84,15 +84,6 @@ Example
         },
 
         /**
-         * True if the countdown should be active.
-         */
-        active: {
-          type: Boolean,
-          value: false,
-          observer: '_activeChanged',
-        },
-
-        /**
          * Whether the "Days" counter is hidden.
          */
         _daysHidden: {
@@ -125,32 +116,27 @@ Example
         }
       },
 
+      observers: [
+        '_startInterval(isAttached, remainingTime)',
+      ],
+
       _oldNumbers: [],  // replaced in tickTock
       _tickInterval: 0,
 
       attached: function() {
-        Polymer.RenderStatus.afterNextRender(this, function() {
-          // Needs to wait one rAF so titles has populated the template repeat.
-          this._setHolders(Array.prototype.slice.call(this.$.counter.children));
-          this._activeChanged();
-        });
+        this._setHolders(Array.prototype.slice.call(this.$.counter.children));
       },
 
-      detached: function() {
+      _startInterval: function(isAttached, remainingTime) {
         window.clearInterval(this._tickInterval);
+        if (isAttached && remainingTime >= 0) {
+          this._tickTock();
+          this._tickInterval = window.setInterval(this._tickTock.bind(this), 1000);
+        }
       },
 
       _remainingTimeChanged: function() {
         this._remainingTimeSetAt = Date.now();
-      },
-
-      _activeChanged: function() {
-        window.clearInterval(this._tickInterval);
-
-        if (this.active && this.isAttached && this.remainingTime >= 0) {
-          this._tickTock();
-          this._tickInterval = window.setInterval(this._tickTock.bind(this), 1000);
-        }
       },
 
       /**
@@ -163,8 +149,10 @@ Example
         var remainingTime = this.remainingTime - delta;
 
         if (remainingTime <= 0) {
-          window.clearInterval(this._tickInterval);
           remainingTime = 0;
+        }
+        if (remainingTime === 0 || !this.isAttached) {
+          window.clearInterval(this._tickInterval);
         }
         this._render(remainingTime);
       },

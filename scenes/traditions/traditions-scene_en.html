@@ -128,8 +128,8 @@ Traditions scene.
     </div>
     <div id="lessons-popup">
       <p>K-12 teachers <span id="teacher-elf"></span> <a href$="[[urlFor('educators')]]">Download lesson plans</a> aligned with the Common Core</p>
-      </div>
     </div>
+  </div>
 </template>
 <script>
 Polymer({
@@ -174,9 +174,11 @@ Polymer({
   onPreload: function() {
     this.preloadSounds('traditions_load_sounds', 30);
 
-    var icons = [].slice.call(this.$['traditions-all'].children).map(function(div) {
-      return 'img/' + div.dataset['id'] + '.png';
-    });
+    // nb. onPreload is called in create:, so local DOM isn't ready yet
+    const template = this.constructor.template;
+    const all = template.content.getElementById('traditions-all');
+    const icons =
+        Array.prototype.slice.call(all.children).map((div) => `img/${div.dataset['id']}.png`);
 
     this.preloadImages([
       'img/pins_small.png',
