@@ -103,6 +103,7 @@ app.GameController.prototype.resetGameRounds = function() {
 
 app.GameController.prototype.showView = function() {
   this.elem.show();
+  this.drawingCanvas.resizeCanvas();
 };
 
 

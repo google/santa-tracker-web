@@ -83,12 +83,12 @@ app.view.DrawingCanvas.prototype.resizeCanvas = function() {
   this.canvas.style.width = this.$canvas.width() + "px";
   this.canvas.style.height = (this.$canvas.width() * 594 / 1015) + "px";
   paper.view.viewSize = new paper.Size(this.canvas.width, this.canvas.height);
+  this.$canvas.parent().css('padding-bottom', this.$canvas.width() * 594 / 1015);
 
   paper.view.draw();
 };
 
 app.view.DrawingCanvas.prototype.startListening = function() {
-
   paper.view.on('mousemove', function(event) {
     if (this.canvas) {
       var x = event.point.x;
