@@ -17,6 +17,7 @@
 
 goog.provide('app.view.DrawingCanvas');
 goog.require('app.EventEmitter');
+goog.require('app.Utils');
 goog.require('Paper');
 
 
@@ -27,67 +28,19 @@ app.view.DrawingCanvas = function(container) {
   this.$canvas = container.find('.drawingCanvas');
   this.canvas = this.$canvas[0];
 
+  this.$pen = container.find('.whiteboard__pen');
+
   // Drawing config
-  var strokeColor = '#37414D';
-  var strokeWidth = 15;
-  var strokeCap = 'round';
+  this.strokeColor = '#37414D';
+  this.strokeWidth = 15;
+  this.strokeCap = 'round';
   this.previousPos = null;
   this.paths = [];
 
   paper.install(this);
   paper.setup(this.canvas);
-  var tool = new paper.Tool();
-  var path;
-
-  tool.onMouseDown = function(event) {
-    // If we produced a path before, deselect it:
-    if (path) {
-        path.selected = false;
-    }
-
-    // Create a new path and set its stroke color to black:
-    path = new paper.Path({
-        segments: [event.point],
-        strokeColor: strokeColor,
-        strokeCap: strokeCap,
-        strokeWidth: strokeWidth
-    });
-
-    if (this.paths.length == 0) {
-      this.startTime = new Date();
-    }
-
-    this.paths.push([[event.point.x],[event.point.y],[this.currentTimeMs()]]);
-
-    paper.view.draw();
-  }.bind(this);
-
-  tool.onMouseDrag = function(event) {
-    path.add(event.point);
-
-    var arr = this.paths[this.paths.length - 1];
-    if (arr[0].length == 0
-      || Math.abs(arr[0][arr[0].length - 1] - event.point.x) > 4
-      || Math.abs(arr[1][arr[1].length - 1]- event.point.y) > 4) {
-      arr[0].push(event.point.x)
-      arr[1].push(event.point.y)
-      arr[2].push(this.currentTimeMs())
-    }
-
-    path.smooth();
-    paper.view.draw();
-    this.emit('DRAWING_UPDATED', this);
-  }.bind(this);
-
-  tool.onMouseUp = function(event) {
-    path.smooth();
-    paper.view.draw();
-    this.emit('DRAWING_UPDATED', this);
-
-    this.paths[this.paths.length - 1][0].push(event.point.x);
-    this.paths[this.paths.length - 1][1].push(event.point.y);
-    this.paths[this.paths.length - 1][2].push(this.currentTimeMs());
-  }.bind(this);
+  this.tool = new paper.Tool();
+  this.path;
 
   this.resizeCanvas();
 
@@ -132,4 +85,78 @@ app.view.DrawingCanvas.prototype.resizeCanvas = function() {
   paper.view.viewSize = new paper.Size(this.canvas.width, this.canvas.height);
 
   paper.view.draw();
+};
+
+app.view.DrawingCanvas.prototype.startListening = function() {
+
+  paper.view.on('mousemove', function(event) {
+    if (this.canvas) {
+      var x = event.point.x;
+      var y = this.canvas.height - event.point.y;
+
+      this.$pen.css({
+        bottom: y + 1,
+        left: x + 1
+      });
+    }
+  }.bind(this));
+
+
+  this.tool.on('mousedown', function(event) {
+    // If we produced a path before, deselect it:
+    if (this.path) {
+        this.path.selected = false;
+    }
+
+    // Create a new path and set its stroke color to black:
+    this.path = new paper.Path({
+        segments: [event.point],
+        strokeColor: this.strokeColor,
+        strokeCap: this.strokeCap,
+        strokeWidth: this.strokeWidth
+    });
+
+    if (this.paths.length == 0) {
+      this.startTime = new Date();
+    }
+
+    this.paths.push([[event.point.x],[event.point.y],[this.currentTimeMs()]]);
+
+    paper.view.draw();
+  }.bind(this));
+
+  this.tool.on('mousedrag', function(event) {
+    this.path.add(event.point);
+
+    var arr = this.paths[this.paths.length - 1];
+    if (arr[0].length == 0
+      || Math.abs(arr[0][arr[0].length - 1] - event.point.x) > 4
+      || Math.abs(arr[1][arr[1].length - 1]- event.point.y) > 4) {
+      arr[0].push(event.point.x)
+      arr[1].push(event.point.y)
+      arr[2].push(this.currentTimeMs())
+    }
+
+    this.path.smooth();
+    paper.view.draw();
+    this.emit('DRAWING_UPDATED', this);
+  }.bind(this));
+
+  this.tool.on('mouseup', function(event) {
+    this.path.smooth();
+    paper.view.draw();
+    this.emit('DRAWING_UPDATED', this);
+
+    this.paths[this.paths.length - 1][0].push(event.point.x);
+    this.paths[this.paths.length - 1][1].push(event.point.y);
+    this.paths[this.paths.length - 1][2].push(this.currentTimeMs());
+  }.bind(this));
+
+};
+
+app.view.DrawingCanvas.prototype.stopListening = function() {
+  paper.view.off('mousemove');
+  this.tool.off('mousedown');
+  this.tool.off('mousedrag');
+  this.tool.off('mouseup');
 };

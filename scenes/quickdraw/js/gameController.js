@@ -316,7 +316,13 @@ app.GameController.prototype.exitGame = function() {
   this.machineView.setGuesses([]);
   this.currentRound = undefined;
   this.clock.pauseClock();
+  this.drawingCanvas.stopListening();
 };
 
+
 app.GameController.prototype.gameover = function() {
+};
+
+app.GameController.prototype.prepareGame = function() {
+  this.drawingCanvas.startListening();
 };

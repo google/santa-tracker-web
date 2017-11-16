@@ -36,6 +36,7 @@ app.Game = function(elem) {
 
 app.Game.prototype.start = function() {
   // Game Controller
+  this.gameController.prepareGame();
   this.gameController.prepareNewGame();
   this.gameController.addListener('GAME_END', function() {
     this.showSplashscreen();

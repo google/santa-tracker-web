@@ -18,21 +18,60 @@
     }
 
     .whiteboard {
-      height: 58.52%;
+      $width-whiteboard: 0.6;
+      height: 0;
       left: 15%;
       position: relative;
       top: 5.3%;
-      width: 60%;
+      width: 100% * $width-whiteboard;
+      padding-bottom: 58.52% * $width-whiteboard;
 
       &__bottom {
         background-color: #999999;
         border-radius: 0 0 12px 12px;
         box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.2);
-        bottom: 5px;
+        bottom: 0;
         height: 12px;
         left: -20px;
         position: absolute;
         width: calc(100% + 40px)
+      }
+
+      &__decorations {
+        align-items: flex-end;
+        display: flex;
+        position: absolute;
+        bottom: 12px;
+        left: 70%;
+
+        img:first-child {
+          width: 15vw * $width-whiteboard;
+        }
+
+        img:last-child {
+          width: 10vw * $width-whiteboard;
+        }
+      }
+
+      &__pen {
+        background-image: url('img/pen.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        bottom: 0;
+        display: none;
+        height: 34%;
+        left: 0;
+        position: absolute;
+        width:20%;
+      }
+
+      &:hover {
+        cursor: none;
+
+        .whiteboard__pen {
+          display: block;
+        }
       }
     }
 
@@ -43,7 +82,7 @@
       height: 80%;
       justify-content: flex-end;
       position: absolute;
-      right: 5%;
+      right: 2%;
       width: 20%;
 
       &__robot {

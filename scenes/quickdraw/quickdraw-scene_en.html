@@ -62,6 +62,11 @@ Quickdraw scene.
           </div>
           <div class="whiteboard">
             <canvas class="drawingCanvas" resize="true"></canvas>
+            <div class="whiteboard__pen"></div>
+            <div class="whiteboard__decorations">
+              <img src="[[importPath]]img/eraser.svg" alt="Eraser">
+              <img src="[[importPath]]img/pens.svg" alt="Pen Pot">
+            </div>
             <div class="whiteboard__bottom"></div>
           </div>
           <div class="machineview">
@@ -118,6 +123,9 @@ Quickdraw scene.
       this.preloadSounds('selfie_load_sounds', 30);
       this.preloadImages([
       'img/elf.svg',
+      'img/eraser.svg',
+      'img/pen.svg',
+      'img/pens.svg',
       'img/pole.svg',
       'img/quickdraw-background.svg',
       'img/robby.svg',
