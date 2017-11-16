@@ -1,0 +1,170 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+
+<script src="../js/config/houses.js"></script>
+<script src="../js/config/videos.js"></script>
+
+<!--
+Wraps the SantaService object for Santa Tracker. This is a singleton that provides information
+about Santa's current status: e.g., pre- or post- flight, time before takeoff etc.
+-->
+<dom-module id="santa-houses">
+<template>
+</template>
+<script>
+(function() {
+
+const ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
+
+window.HOUSES.forEach((house) => {
+  house.disabled = (house.module === 'app' && ios);  // disable Play Store on iOS
+  house.locked = !window.DEV;  // initial state
+});
+
+let currentTime = Date.now();
+santaService.addListener('sync', () => {
+  currentTime = santaService.now();
+});
+
+
+Polymer({
+  is: 'santa-houses',
+
+  properties: {
+
+    /**
+     * Whether the user is offline.
+     */
+    offline: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: function() { return offline; },
+    },
+
+    /**
+     * Whether a reload of the site has been requested.
+     */
+    requestedReload: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: function() { return requestedReload; },
+    },
+
+    /**
+     * The language of the site.
+     */
+    language: {
+      type: String,
+      readOnly: true,
+      notify: true,
+      value: LANGUAGE,
+    },
+
+    /**
+     * The current time in ms. This only changes every few minutes, not every second.
+     */
+    currentTime: {
+      type: Number,
+      readOnly: true,
+      notify: true,
+      value: function() { return currentTime; },
+    },
+
+    /**
+     * The remaining time in ms. This only changes every few minutes, not every second.
+     */
+    remainingTime: {
+      type: Number,
+      computed: '_computeRemainingTime(currentTime)',
+      notify: true,
+    },
+
+    /**
+     * Whether it is December and the calendar is open.
+     */
+    holidaySeason: {
+      type: Boolean,
+      computed: '_computeHolidaySeason(currentTime)',
+      notify: true,
+    },
+
+    /**
+     * Whether or not the countdown is complete (including after Santa's flight).
+     */
+    countdownFinished: {
+      type: Boolean,
+      computed: '_computeCountdownFinished(remainingTime)',
+      notify: true,
+    },
+
+    /**
+     * If we're during the window that the Tracker is open.
+     */
+    duringTracker: {
+      type: Boolean,
+      computed: '_computeDuringTracker(countdownFinished, postFlight)',
+      notify: true,
+    },
+
+    /**
+     * Whether or not it is after Santa has finished his big flight.
+     */
+    postFlight: {
+      type: Boolean,
+      computed: '_computePostFlight(currentTime)',
+      notify: true,
+    },
+
+  },
+
+  // nb. All time compute methods run O(n) times every few minutes.
+
+  _computeHolidaySeason: function(currentTime) {
+    return currentTime >= CALENDAR_OPEN && currentTime < FLIGHT_FINISHED;
+  },
+  _computeRemainingTime: function(currentTime) {
+    return COUNTDOWN_END - currentTime;
+  },
+  _computeCountdownFinished: function(remainingTime) {
+    return remainingTime <= 0;
+  },
+  _computeDuringTracker: function(countdownFinished, postFlight) {
+    return countdownFinished && !postFlight;
+  },
+  _computePostFlight: function(currentTime) {
+    return currentTime >= FLIGHT_FINISHED;
+  },
+
+  created: function() {
+    instances.add(this);  // aggressively add to instances, to catch all updates
+  },
+
+  attached: function() {
+    instances.add(this);
+  },
+
+  detached: function() {
+    instances.delete(this);
+  },
+
+});
+
+}());
+
+</script>
+</dom-module>

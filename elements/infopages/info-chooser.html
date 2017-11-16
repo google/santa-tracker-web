@@ -168,7 +168,17 @@ Polymer({
     return names[choice] || choice;
   },
 
-  _updateSelection: function(value, attributeForFilter) {
+  attached: function() {
+    this._observer = Polymer.dom(this).observeNodes(this._updateSelection);
+  },
+
+  detatched: function() {
+    Polymer.dom(this).unobserveNodes(this._observer);
+  },
+
+  _updateSelection: function() {
+    const value = this.value;
+    const attributeForFilter = this.attributeForFilter;
     const nodes = Polymer.dom(this).queryDistributedElements('info-card');
     for (let i = 0; i < nodes.length; ++i) {
       const node = nodes[i];
