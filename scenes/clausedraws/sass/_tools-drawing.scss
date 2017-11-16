@@ -1,4 +1,5 @@
 $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
+$silly-pens: "tinsel";
 
 ##{$name} {
   // TOOLBAR
@@ -8,6 +9,12 @@ $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
         padding: 10px 40px;
 
         @include generateSVGstyles($current-tool);
+      }
+    }
+
+    @each $current-tool in $silly-pens {
+      &--#{$current-tool} {
+        background-image: url(img/tools/#{$current-tool}/tool.svg);
       }
     }
   }
@@ -83,6 +90,13 @@ $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
       transform: translate(100%, -100%) rotate(-125deg);
       width: 100px;
     }
+
+    .Tool-hover-minitool--default {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translate(100%, -100%) rotate(45deg);
+    }
   }
 
   @each $current-tool in $drawing-tools {
@@ -91,6 +105,15 @@ $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
           '.Tool-hover-minitool--#{$current-tool}');
 
       .Tool-hover-minitool--#{$current-tool} {
+        display: block;
+      }
+    }
+  }
+
+  @each $current-tool in $silly-pens {
+    [data-tool-hover-tool="#{$current-tool}"] {
+      .Tool-hover-minitool--default {
+        background-image: url(img/tools/#{$current-tool}/tool.svg);
         display: block;
       }
     }
