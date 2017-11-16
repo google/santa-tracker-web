@@ -8,6 +8,9 @@
   }
 
   .Button {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     border-radius: 50%;
     box-shadow: 2px 4px 0 #852C81, 5px 7px rgba(0,0,0,0.16);
     display: block;
@@ -19,38 +22,39 @@
   }
 
   .Button--utility,
-  .Button--nav {
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 40px;
+  .Button--nav,
+  .Button--rotate {
     margin: 10px auto;
+  }
+
+  .Button--nav,
+  .Button--rotate {
+    background-color: #EFEFEF;
+    background-size: 30%;
+    box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
+    height: 40px;
     width: 40px;
   }
 
   .Button--utility {
     background-color: #fff;
-    background-size: 40%;
+    background-size: 50%;
     box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
-    color: #C1DBD9;
+    height: 50px;
+    width: 50px;
   }
 
-  .Button--nav {
-    background-color: #FFC101;
-    background-size: 30%;
-    box-shadow: 2px 4px 0 #F0932A, 5px 7px rgba(0,0,0,0.16);
+  .Button--primary {
+    background-color: #F7C243;
+    box-shadow: 2px 4px 0 #E59644, 5px 7px rgba(0,0,0,0.04);
   }
 
-  .Button--explosion {
-    background-image: url(img/tools/tool_explosion.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 70%;
+  .Button--trash {
+    background-image: url(img/icons/trash.svg);
   }
 
   .Button--snowglobe {
     background-image: url(img/icons/snow.svg);
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: 60%;
   }
 
@@ -74,9 +78,13 @@
     background-image: url(img/icons/save.svg);
   }
 
-  .Button--reset {
-    background-image: url(img/icons/reset.svg);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+  .Button--rotate {
+    background-image: url(img/icons/rotate_clock.svg);
+    background-size: 45%;
+  }
+
+  .Button--rotate-counter {
+    background-image: url(img/icons/rotate_counter_clock.svg);
+    background-size: 45%;
   }
 }
