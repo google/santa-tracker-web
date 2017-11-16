@@ -18,7 +18,7 @@ const {
  * - 5: Raised
  */
 
-export class Map {
+export class GameMap {
   constructor(grid, seed) {
     const seedRandom = this.seedRandom = new SeedRandom(seed);
     this.erodeSeedRandom = seedRandom.clone();
