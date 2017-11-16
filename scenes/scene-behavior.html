@@ -22,7 +22,7 @@ specific language governing permissions and limitations under the License.
   /**
    * Max number of milliseconds to wait before timing out and abandoning preload.
    */
-  const maxPreloadTime = 3 * 1000;
+  const maxPreloadTime = 10 * 1000;
 
   /**
    * Number of frames to spread image preload over.
@@ -74,25 +74,33 @@ specific language governing permissions and limitations under the License.
        */
       _pendingPreload: {
         type: Object,
+        value: null,
+      },
+
+      /**
+       * Contains the chain of promises calling onShow and onHide for this scene.
+       */
+      _showPromise: {
+        type: Object,
+        value: Promise.resolve(null),
       },
 
     },
 
     observers: [
-      '_progress(_assetsLoaded, _totalAssets)',
+      '_progress(_assetsLoaded, _totalAssets, _pendingPreload)',
     ],
 
-    created: function() {
-      console.info('scene', this.localName, 'is created');
+    ready: function() {
       this._setPreload(new Promise((resolve) => {
-        this.addEventListener('preload', resolve);
+        this.addEventListener('_preload', resolve);
       }));
 
       // Run onPreload to preload resources. Resolves when assets are ready, when the timeout
       // expires, or immediately—if there's nothing to preload.
       this._pendingPreload = new Set();
       this.onPreload && this.onPreload();
-      const done = () => this.fire('preload');
+      const done = () => this.fire('_preload', null, {bubbles: false});
       if (!this._pendingPreload.size) {
         done();
       } else {
@@ -105,11 +113,26 @@ specific language governing permissions and limitations under the License.
     },
 
     attached: function() {
-      this.onShow && this.onShow();
+      const show = this.preload.then(() => {
+        // nb. put onShow into a rAF as this ensures the onHide method from any previous scene
+        // is run before us. The same guarantees don't apply to attached: or detached:, as we
+        // attach scenes to preload them.
+        return new Promise((resolve) => requestAnimationFrame(resolve));
+      }).then(() => {
+        if (this._showPromise !== p || !this.isAttached) {
+          return true;
+        }
+        this.onShow && this.onShow();
+      });
+      const p = this._showPromise = this._showPromise.then(() => show);
     },
 
     detached: function() {
-      this.onHide && this.onHide();
+      this._showPromise = this._showPromise.then((skipped) => {
+        if (!skipped) {
+          this.onHide && this.onHide()
+        }
+      });
     },
 
     /**
@@ -130,7 +153,7 @@ specific language governing permissions and limitations under the License.
         ++this._assetsLoaded;
         preload.delete(p);
         if (!preload.size) {
-          this.fire('preload', preload, {bubbles: false});  // nb. resolves Promise in ready:
+          this.fire('_preload', null, {bubbles: false});  // nb. resolves Promise in ready:
         }
       });
     },
@@ -183,8 +206,8 @@ specific language governing permissions and limitations under the License.
       this.fire('sound-preload', soundSetName);
     },
 
-    _progress: function(assetsLoaded, totalAssets) {
-      if (totalAssets) {
+    _progress: function(assetsLoaded, totalAssets, pendingPreload) {
+      if (totalAssets && pendingPreload) {
         this.fire('scene-progress', assetsLoaded / totalAssets);
       }
     },
