@@ -135,7 +135,7 @@ app.view.CardsView.prototype.createDrawingElem = function(round) {
     drawingElem.addClass('timesup-card__drawing--not-recognized');
   }
 
-  var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, 360, 240, {padding: 25});
+  var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, 300, 225, {padding: 10});
   drawingElem.append(svgElem);
 
   return drawingElem;
