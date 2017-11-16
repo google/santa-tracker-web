@@ -28,8 +28,8 @@ app.view.DrawingCanvas = function(container) {
   this.canvas = this.$canvas[0];
 
   // Drawing config
-  var strokeColor = 'black';
-  var strokeWidth = 7;
+  var strokeColor = '#37414D';
+  var strokeWidth = 15;
   var strokeCap = 'round';
   this.previousPos = null;
   this.paths = [];
