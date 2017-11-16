@@ -13,8 +13,4 @@ export class NetworkLevel extends MainLevel {
     this.socket.target = networkSystem;
     networkSystem.socket = this.socket;
   }
-
-  update(game) {
-    super.update(game);
-  }
 }

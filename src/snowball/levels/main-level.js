@@ -6,10 +6,6 @@ import { Drop } from '../entities/drop.js';
 const { AmbientLight } = self.THREE;
 
 export class MainLevel extends Level {
-  constructor() {
-    super();
-  }
-
   setup(game) {
     const {
       camera,
