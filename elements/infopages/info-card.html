@@ -24,6 +24,9 @@ Reusable card showing information about a scene or other item. Used by info scen
   :host {
     display: inline-block;
   }
+  :host([hidden]) {
+    display: none !important;
+  }
 
   #card {
     border-radius: var(--info-card-border-radius, 5px);
