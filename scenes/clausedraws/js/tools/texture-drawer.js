@@ -35,12 +35,19 @@ app.TextureDrawer = function($elem, name, config) {
   this.textureName = 'texture-' + name;
   this.opacity = config && config.opacity || 1;
   this.drawFrequency = config && config.drawFrequency || 4;
+  this.points = [];
+  this.monotone = config && config.monotone || false;
   this.sizeConfig = config && config.sizeConfig || {
       min: app.Constants.PEN_MIN,
       max: app.Constants.PEN_MAX
     };
-  this.points = [];
-  this.textures = {};
+
+  if (this.monotone) {
+    this.$image = $elem.find('#' + this.textureName);
+    this.image = this.$image[0];
+    this.height = this.$image.height();
+    this.width = this.$image.width();
+  }
 };
 app.TextureDrawer.prototype = Object.create(app.Tool.prototype);
 
@@ -54,16 +61,27 @@ app.TextureDrawer.prototype = Object.create(app.Tool.prototype);
  * @param  {!string} color  The current color setting
  * @return {boolean} Whether the canvas was changed
  */
-app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
-    color) {
+app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
+    size, color) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
   var drawWidth = this.currentSize;
   var drawHeight = this.currentSize;
-  var offsetX = this.currentSize / 2;
-  var offsetY = this.currentSize / 2;
-  var texture = app.ImageManager.getImage(this.textureName, color);
+
+  if (this.sizeConfig.scale) {
+    drawWidth = this.currentSize * this.width;
+    drawHeight = this.currentSize * this.height;
+  }
+
+  var offsetX = drawWidth / 2;
+  var offsetY = drawHeight / 2;
+  var texture;
+  if (this.monotone) {
+    texture = this.image;
+  } else {
+    texture = app.ImageManager.getImage(this.textureName, color);
+  }
 
   this.points.push({
       x: drawX,
@@ -79,7 +97,7 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
     var p2 = this.points[1];
     var midpoint = app.utils.midpoint(p1, p2);
     var distance = app.utils.distance(p1, midpoint);
-    for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
+    for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, p1, p1, midpoint);
       var rotation = Math.random();
@@ -99,7 +117,7 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
     var midpoint1 = app.utils.midpoint(p0, p1);
     var midpoint2 = app.utils.midpoint(p1, p2);
     var distance = app.utils.distance(midpoint1, midpoint2);
-    for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
+    for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);
       var rotation = Math.random();
