@@ -191,9 +191,26 @@
   }
 
   .Tools-rotator {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px 20px;
+
     .Button {
       display: inline-block;
       margin: 0;
+    }
+  }
+
+  .Tools-slider {
+    &::after {
+      background: #F6F6F6;
+      // content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1px;
     }
   }
 
@@ -241,16 +258,19 @@
   }
 
   .Tools-submenu {
+    background: #EFEFEF;
+    border-radius: 5px;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding-left: 20px;
-    width: 200px;
+    padding: 20px;
+    width: 140px;
 
     &__item {
       background: lightgray;
       cursor: pointer;
-      flex: 0 0 calc(33% - 20px);
-      margin: 10px;
+      flex: 0 0 33%;
+      height: 20px;
 
       &.is-active {
         background: purple;
@@ -491,19 +511,6 @@
     svg {
       height: 100%;
       width: 100%;
-    }
-  }
-
-  .Tools-slider {
-    &::after {
-      background: #F6F6F6;
-      content: '';
-      display: block;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 1px;
     }
   }
 }

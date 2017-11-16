@@ -1,14 +1,13 @@
 ##{$name} {
   .Slider {
-    // margin: 50px 0;
-    padding: 30px 35px;
+    padding: 20px;
     position: relative;
   }
 
   .Slider-inner {
-    height: 152px * 0.2;
+    height: 110px * 0.2;
     position: relative;
-    width: 152px;
+    width: 110px;
   }
 
   .Slider-base {
@@ -24,11 +23,11 @@
   .Slider-dot {
     background: url(img/slider-dot.svg) center/contain no-repeat;
     cursor: pointer;
-    height: 17px;
+    height: 14px;
     left: 10px;
     position: absolute;
     top: 60%;
     transform: translate(-50%, -50%);
-    width: 17px;
+    width: 14px;
   }
 }
