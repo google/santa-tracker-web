@@ -61,10 +61,19 @@ app.Tools = function(game, $elem) {
   this.subcategoryPickers.on('click.clausedraws touchend.clausedraws', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.clausedraws touchend.clausedraws', this.onNavClick_.bind(this));
 
-  this.pencil = new app.Pencil($elem, 'pencil');
+  this.pencil = new app.TextureDrawer($elem, 'pencil', {
+      opacity: 0.5,
+      drawFrequency: 2,
+      sizeConfig: {
+        min: app.Constants.PENCIL_MIN,
+        max: app.Constants.PENCIL_MAX
+      }
+    });
   this.crayon = new app.TextureDrawer($elem, 'crayon');
   this.marker = new app.Marker($elem, 'marker');
-  this.paintbrush = new app.TextureDrawer($elem, 'paintbrush', 0.5);
+  this.paintbrush = new app.TextureDrawer($elem, 'paintbrush', { opacity: 0.5 });
+  this.tinsel = new app.Marker($elem, 'tinsel');
+
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
   this.sceneAir = new app.LayerTool($elem, 'air', app.LayerTool.Layer.BACKGROUND);
@@ -122,6 +131,7 @@ app.Tools = function(game, $elem) {
     this.crayon,
     this.marker,
     this.paintbrush,
+    this.tinsel,
     this.spray,
     this.sprinkles,
     this.sceneAir,

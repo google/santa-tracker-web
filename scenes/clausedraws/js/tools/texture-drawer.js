@@ -28,15 +28,18 @@ goog.require('app.utils');
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the tool.
  */
-app.TextureDrawer = function($elem, name, opacity) {
+app.TextureDrawer = function($elem, name, config) {
   app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_color';
   this.textureName = 'texture-' + name;
-  this.opacity = opacity || 1;
-  this.drawFrequency = 4;
+  this.opacity = config && config.opacity || 1;
+  this.drawFrequency = config && config.drawFrequency || 4;
+  this.sizeConfig = config && config.sizeConfig || {
+      min: app.Constants.PEN_MIN,
+      max: app.Constants.PEN_MAX
+    };
   this.points = [];
-  this.rotation = 0;
   this.textures = {};
 };
 app.TextureDrawer.prototype = Object.create(app.Tool.prototype);
@@ -79,12 +82,12 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
     for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, p1, p1, midpoint);
-      this.rotation += Math.PI / 5;
+      var rotation = Math.random();
 
       context.save();
       context.globalAlpha = this.opacity;
       context.translate(point.x, point.y);
-      context.rotate(this.rotation * 2 * Math.PI);
+      context.rotate(rotation * 2 * Math.PI);
       context.drawImage(texture, -offsetX, -offsetY,
           drawWidth, drawHeight);
       context.restore();
@@ -99,18 +102,17 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
     for (var j = 0; j < distance; j += this.currentSize / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);
+      var rotation = Math.random();
 
       context.save();
       context.globalAlpha = this.opacity;
       context.translate(point.x, point.y);
-      context.rotate(this.rotation * 2 * Math.PI);
+      context.rotate(rotation * 2 * Math.PI);
       context.drawImage(texture, -offsetX, -offsetY,
           drawWidth, drawHeight);
       context.restore();
     }
   }
-
-  this.rotation += Math.PI / 5;
 
   return true;
 };
@@ -121,11 +123,10 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas, siz
  */
 app.TextureDrawer.prototype.reset = function() {
   this.points = [];
-  this.rotation = 0;
 }
 
 
 app.TextureDrawer.prototype.calculateDrawSize = function(size) {
-  return app.utils.map(size, app.Constants.PEN_MIN,
-      app.Constants.PEN_MAX);
+  return app.utils.map(size, this.sizeConfig.min,
+      this.sizeConfig.max);
 }
