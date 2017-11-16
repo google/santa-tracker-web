@@ -1425,8 +1425,12 @@
   },
   "quickdraw-splashview-title": {
     "description": "Text on the splash screen",
-		"message": "Help Robby practice his image recognition!"
-	},
+		"message": "Help Tensor practice his image recognition!"
+  },
+  "quickdraw-splashview-description": {
+    "description": "Description on splash screen",
+    "message": "Tensor is Santa’s machine learning bot that helps him decipher the letter’s he recieves from children all over the world. To help him practice, draw images that he can recognize and identify. This will help Santa be more efficient in the holiday season."
+  },
 	"quickdraw-splashview-button": {
     "description": "Label for the button to click to start a game",
 		"message": "Start"
@@ -1453,7 +1457,7 @@
   },
   "quickdraw-timesup-subline-noguess": {
     "description": "",
-		"message": "Robby didn’t recognized any of your drawings."
+		"message": "Tensor didn’t recognized any of your drawings."
   },
   "quickdraw-timesup-title-guess": {
     "description": "",
@@ -1461,7 +1465,7 @@
   },
   "quickdraw-timesup-subline-guess": {
     "description": "",
-		"message": "Robby recognized {{roundsRecognized}} of your drawings."
+		"message": "Tensor recognized {{roundsRecognized}} of your drawings."
   },
   "quickdraw-round-no-new-guess": {
     "description": "",
@@ -1672,7 +1676,7 @@
     "message": "Present Drop"
   },
   "scene_quickdraw": {
-    "description": "Title of a scene/game. Teach Robby the robot how to draw!",
+    "description": "Title of a scene/game. Teach Tensor the robot how to draw!",
     "message": "Speed Sketch"
   },
   "scene_racer": {
