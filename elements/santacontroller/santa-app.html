@@ -24,7 +24,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../lazy-pages/lazy-pages.html">
 <link rel="import" href="../overlay/santa-overlay.html">
 <link rel="import" href="../santa-strings.html">
-<link rel="import" href="../santa-socket.html">
 <link rel="import" href="../santa-video.html">
 
 <script src="../../js/config/houses.js"></script>
@@ -76,9 +75,6 @@ Santa Tracker app.
       current-time="{{currentTime}}"
       requested-reload="{{requestedReload}}"></santa-state>
 
-  <!-- Network state -->
-  <santa-socket id="socket" socket-id="{{socketId}}" clients="{{clients}}"></santa-socket>
-
   <!-- Keyboard handler -->
   <iron-a11y-keys keys="esc enter" on-keys-pressed="_onKeysPressed"></iron-a11y-keys>
 
@@ -90,7 +86,6 @@ Santa Tracker app.
       mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
       share-options="[[shareOptions]]"
-      socket-id="[[socketId]]"
       clients="[[clients]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
@@ -651,16 +646,6 @@ Polymer({
       observer: '_videoActiveChanged',
     },
 
-    /**
-     * The socket ID provided by `santa-socket`. Could be the client or host ID.
-     */
-    socketId: Number,
-
-    /**
-     * The list of clients provided by `santa-socket`.
-     */
-    clients: Object,
-
   },
 
   observers: [
@@ -1214,14 +1199,6 @@ Polymer({
       return out;
     case 'facebook':
       return 'https://facebook.com/sharer.php?p[url]=' + enc;
-    }
-  },
-
-  onRequestHost: function() {
-    if (!this.$.socket.mode) {
-      this.$.socket.mode = 'host';
-    } else {
-      console.debug('cowardly refusing to steal socket', this.$.socket.mode);
     }
   },
 
