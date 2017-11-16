@@ -41,6 +41,9 @@ app.Stamp = function($elem, name) {
   var dimensions = app.ImageManager.getImageDimensions(this.imageName);
   this.height = dimensions.height;
   this.width = dimensions.width;
+
+  this.hoverPreviewEl = $elem.find('.Tool-hover-preview--stamp-' + this.stampName);
+  this.currentAngle = 0;
 };
 app.Stamp.prototype = Object.create(app.Tool.prototype);
 
@@ -65,9 +68,11 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var offsetY = drawHeight / 2;
   var color = this.el.attr('data-tool-color');
   var image = app.ImageManager.getImage(this.imageName, color);
-  context.drawImage(image,
-    drawX - offsetX, drawY - offsetY,
-    drawWidth, drawHeight);
+  var rad = this.currentAngle * Math.PI / 180;
+
+  context.translate(drawX, drawY);
+  context.rotate(rad);
+  context.drawImage(image, -offsetX, -offsetY, drawWidth, drawHeight);
   this.stamped = true;
 
   return true;
@@ -121,3 +126,10 @@ app.Stamp.prototype.preloadColor = function(color) {
   return app.ImageManager.getImage(this.imageName, color);
 };
 
+
+app.Stamp.prototype.updateAngle = function(angle) {
+  this.currentAngle += angle;
+  this.hoverPreviewEl.css({
+    transform: 'translate(-50%, -50%) rotate(' + this.currentAngle + 'deg)'
+  });
+};

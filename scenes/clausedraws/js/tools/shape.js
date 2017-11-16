@@ -16,9 +16,9 @@
 
 goog.provide('app.Shape');
 goog.require('app.Constants');
+goog.require('app.ImageManager');
 goog.require('app.Tool');
 goog.require('app.utils');
-goog.require('app.ImageManager');
 
 
 /**
