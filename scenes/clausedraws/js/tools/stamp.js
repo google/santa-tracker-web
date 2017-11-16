@@ -115,3 +115,9 @@ app.Stamp.prototype.calculateDrawSize = function(size) {
   return Math.max(this.width * this.sizeMultiplier,
       this.height * this.sizeMultiplier);
 }
+
+
+app.Stamp.prototype.preloadColor = function(color) {
+  return app.ImageManager.getImage(this.imageName, color);
+};
+

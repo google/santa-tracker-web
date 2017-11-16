@@ -165,3 +165,9 @@ app.Tool.prototype.calculateDrawSize = function(size) {
 app.Tool.prototype.updateAngle = function(angle) {
   return;
 };
+
+
+app.Tool.prototype.preloadColor = function(color) {
+  return;
+};
+

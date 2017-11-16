@@ -65,6 +65,7 @@ app.Game.prototype.start = function() {
   this.mouse.subscribe(this.slider.mouseChanged, this.slider);
   this.slider.subscribe(this.tools.sliderChanged, this.tools);
   this.rotator.subscribe(this.tools.rotatorChanged, this.tools);
+  this.colorpicker.subscribe(this.tools.colorChanged, this.tools);
 
   this.elem.find('#share-button, #share-button-toolbox').
     on('click.clausedraws touchend.clausedraws', this.showShareOverlay.bind(this));

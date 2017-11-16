@@ -252,6 +252,7 @@ app.Tools.prototype.selectTool_ = function(e) {
     } else {
       if (this.selectedTool != previousTool) {
         var coords = this.game_.mouse.coordinates();
+        this.selectedTool.preloadColor(this.game_.colorpicker.selectedColor);
         this.selectedTool.select(coords);
         this.sliderChanged(this.game_.slider.size);
       } else {
@@ -356,6 +357,13 @@ app.Tools.prototype.sliderChanged = function(size) {
 app.Tools.prototype.rotatorChanged = function(angle) {
   if (this.selectedTool) {
     this.selectedTool.updateAngle(angle);
+  }
+};
+
+
+app.Tools.prototype.colorChanged = function(color) {
+  if (this.selectedTool) {
+    this.selectedTool.preloadColor(color);
   }
 };
 

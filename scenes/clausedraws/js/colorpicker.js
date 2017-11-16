@@ -24,6 +24,7 @@ app.Colorpicker = function($elem) {
   this.popup = this.elem.find('[data-colorpicker-popup]');
   this.colors = this.elem.find('[data-colorpicker-color]');
   this.tools = this.elem.find('[data-tool-color]');
+  this.subscribers = [];
   this.setColor('#' + app.Constants.COLORPICKER_DEFAULT);
 
   this.colors.each(function() {
@@ -56,9 +57,20 @@ app.Colorpicker.prototype.setColor = function(color) {
   this.elem.find('[data-colorpicker-color="' + color + '"]').addClass('is-selected');
   this.selector.css('background', color);
   this.tools.attr('data-tool-color', color);
+
+  this.subscribers.forEach(function(subscriber) {
+    subscriber.callback.call(subscriber.context, this.selectedColor);
+  }, this);
 };
 
 
 app.Colorpicker.prototype.isPopupOpen = function() {
   return this.popup.hasClass('is-visible');
+};
+
+app.Colorpicker.prototype.subscribe = function(callback, context) {
+  this.subscribers.push({
+    callback: callback,
+    context: context
+  });
 };
