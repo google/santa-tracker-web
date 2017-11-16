@@ -186,6 +186,17 @@
     }
   }
 
+  .Tools-inner-settings {
+
+  }
+
+  .Tools-rotator {
+    .Button {
+      display: inline-block;
+      margin: 0;
+    }
+  }
+
   .Tools-nav {
     align-items: center;
     display: none;
@@ -238,7 +249,7 @@
     &__item {
       background: lightgray;
       cursor: pointer;
-      flex: 0 0 calc(25% - 20px);
+      flex: 0 0 calc(33% - 20px);
       margin: 10px;
 
       &.is-active {

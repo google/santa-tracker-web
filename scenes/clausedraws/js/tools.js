@@ -24,6 +24,7 @@ goog.require('app.Shape');
 goog.require('app.SprayColor');
 goog.require('app.SprinkleSpray');
 goog.require('app.Stamp');
+goog.require('app.Sticker');
 goog.require('app.TextureDrawer');
 goog.require('app.EffectInvert');
 goog.require('app.Tool');
@@ -109,6 +110,12 @@ app.Tools = function(game, $elem) {
   this.rollerTrees = new app.PaintRoller($elem, 'trees');
   this.rollerVertical = new app.PaintRoller($elem, 'vertical');
   this.effectInvert = new app.EffectInvert($elem, 'effect-invert');
+  this.stickerDinosaur = new app.Sticker($elem, 'dinosaur');
+  this.stickerFishTeal = new app.Sticker($elem, 'fish-teal');
+  this.stickerSanta = new app.Sticker($elem, 'santa');
+  this.stickerCactus = new app.Sticker($elem, 'cactus');
+  this.stickerIgloo = new app.Sticker($elem, 'igloo');
+  this.stickerTreePalm = new app.Sticker($elem, 'tree-palm');
 
   this.tools = [
     this.pencil,
@@ -159,7 +166,13 @@ app.Tools = function(game, $elem) {
     this.rollerSnowflakes,
     this.rollerTrees,
     this.rollerVertical,
-    this.effectInvert
+    this.effectInvert,
+    this.stickerDinosaur,
+    this.stickerFishTeal,
+    this.stickerSanta,
+    this.stickerCactus,
+    this.stickerIgloo,
+    this.stickerTreePalm
   ];
 };
 

@@ -1,0 +1,26 @@
+$sticker-characters: "dinosaur", "fish-teal", "santa";
+$sticker-nature: "cactus", "igloo", "tree-palm";
+
+##{$name} {
+  [data-tool-category="sticker"] {
+    .Tool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 60%;
+    }
+  }
+
+  .Tool {
+    @each $current-sticker in $sticker-characters {
+      &--sticker-#{$current-sticker} {
+        background-image: url(img/stickers/characters/#{$current-sticker}.svg);
+      }
+    }
+
+    @each $current-sticker in $sticker-nature {
+      &--sticker-#{$current-sticker} {
+        background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+      }
+    }
+  }
+}
