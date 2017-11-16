@@ -91,6 +91,16 @@ app.Tools = function(game, $elem) {
   this.stampOrnamentRound2 = new app.Stamp($elem, 'ornament-round2');
   this.stampOrnamentRound3 = new app.Stamp($elem, 'ornament-round3');
   this.stampOrnamentSkinny1 = new app.Stamp($elem, 'ornament-skinny1');
+  this.stampOrnamentSkinny2 = new app.Stamp($elem, 'ornament-skinny2');
+  this.stampOrnamentWide1 = new app.Stamp($elem, 'ornament-wide1');
+  this.stampOrnamentWide2 = new app.Stamp($elem, 'ornament-wide2');
+  this.stampCandyGumdrop = new app.Stamp($elem, 'candy-gumdrop');
+  this.stampCandyJellybean = new app.Stamp($elem, 'candy-jellybean');
+  this.stampCandyMintSwirl = new app.Stamp($elem, 'candy-mint-swirl');
+  this.stampCandyMintWheel = new app.Stamp($elem, 'candy-mint-wheel');
+  this.stampCandySucker = new app.Stamp($elem, 'candy-sucker');
+  this.stampCandyWrapper1 = new app.Stamp($elem, 'candy-wrapper1');
+  this.stampCandyWrapper2 = new app.Stamp($elem, 'candy-wrapper2');
   this.rollerCheckered = new app.PaintRoller($elem, 'checkered');
   this.rollerDiagonal = new app.PaintRoller($elem, 'diagonal');
   this.rollerHorizontal = new app.PaintRoller($elem, 'horizontal');
@@ -132,6 +142,16 @@ app.Tools = function(game, $elem) {
     this.stampOrnamentRound2,
     this.stampOrnamentRound3,
     this.stampOrnamentSkinny1,
+    this.stampOrnamentSkinny2,
+    this.stampOrnamentWide1,
+    this.stampOrnamentWide2,
+    this.stampCandyGumdrop,
+    this.stampCandyJellybean,
+    this.stampCandyMintSwirl,
+    this.stampCandyMintWheel,
+    this.stampCandySucker,
+    this.stampCandyWrapper1,
+    this.stampCandyWrapper2,
     this.rollerCheckered,
     this.rollerDiagonal,
     this.rollerHorizontal,

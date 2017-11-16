@@ -17,10 +17,20 @@
 goog.provide('app.ImageManager');
 goog.require('app.Constants');
 goog.require('app.ImageItemBow');
+goog.require('app.ImageItemCandyGumdrop');
+goog.require('app.ImageItemCandyJellybean');
+goog.require('app.ImageItemCandyMintSwirl');
+goog.require('app.ImageItemCandyMintWheel');
+goog.require('app.ImageItemCandySucker');
+goog.require('app.ImageItemCandyWrapper1');
+goog.require('app.ImageItemCandyWrapper2');
 goog.require('app.ImageItemOrnamentRound1');
 goog.require('app.ImageItemOrnamentRound2');
 goog.require('app.ImageItemOrnamentRound3');
 goog.require('app.ImageItemOrnamentSkinny1');
+goog.require('app.ImageItemOrnamentSkinny2');
+goog.require('app.ImageItemOrnamentWide1');
+goog.require('app.ImageItemOrnamentWide2');
 goog.require('app.ImageItemPresent');
 goog.require('app.ImageTextureCrayon');
 goog.require('app.ImageTexturePaintbrush');
@@ -52,25 +62,35 @@ app.ImageManager = function() {
     },
 
     images: {
-      "image-bow": new app.ImageItemBow(),
-      "image-present": new app.ImageItemPresent(),
-      "image-ornament-round1": new app.ImageItemOrnamentRound1(),
-      "image-ornament-round2": new app.ImageItemOrnamentRound2(),
-      "image-ornament-round3": new app.ImageItemOrnamentRound3(),
-      "image-ornament-skinny1": new app.ImageItemOrnamentSkinny1(),
-      "texture-pencil": new app.ImageTexturePencil(),
-      "texture-crayon": new app.ImageTextureCrayon(),
-      "texture-paintbrush": new app.ImageTexturePaintbrush(),
-      "texture-spray-color": new app.ImageTextureSpray(),
-      "shape-circle": new app.ImageShapeCircle(),
-      "shape-diamond": new app.ImageShapeDiamond(),
-      "shape-heart": new app.ImageShapeHeart(),
-      "shape-octagon": new app.ImageShapeOctagon(),
-      "shape-pentagon": new app.ImageShapePentagon(),
-      "shape-rectangle": new app.ImageShapeRectangle(),
-      "shape-square": new app.ImageShapeSquare(),
-      "shape-star": new app.ImageShapeStar(),
-      "shape-triangle": new app.ImageShapeTriangle()
+      'image-bow': new app.ImageItemBow(),
+      'image-present': new app.ImageItemPresent(),
+      'image-ornament-round1': new app.ImageItemOrnamentRound1(),
+      'image-ornament-round2': new app.ImageItemOrnamentRound2(),
+      'image-ornament-round3': new app.ImageItemOrnamentRound3(),
+      'image-ornament-skinny1': new app.ImageItemOrnamentSkinny1(),
+      'image-ornament-skinny2': new app.ImageItemOrnamentSkinny2(),
+      'image-ornament-wide1': new app.ImageItemOrnamentWide1(),
+      'image-ornament-wide2': new app.ImageItemOrnamentWide2(),
+      'image-candy-gumdrop': new app.ImageItemCandyGumdrop(),
+      'image-candy-jellybean': new app.ImageItemCandyJellybean(),
+      'image-candy-mint-swirl': new app.ImageItemCandyMintSwirl(),
+      'image-candy-mint-wheel': new app.ImageItemCandyMintWheel(),
+      'image-candy-sucker': new app.ImageItemCandySucker(),
+      'image-candy-wrapper1': new app.ImageItemCandyWrapper1(),
+      'image-candy-wrapper2': new app.ImageItemCandyWrapper2(),
+      'texture-pencil': new app.ImageTexturePencil(),
+      'texture-crayon': new app.ImageTextureCrayon(),
+      'texture-paintbrush': new app.ImageTexturePaintbrush(),
+      'texture-spray-color': new app.ImageTextureSpray(),
+      'shape-circle': new app.ImageShapeCircle(),
+      'shape-diamond': new app.ImageShapeDiamond(),
+      'shape-heart': new app.ImageShapeHeart(),
+      'shape-octagon': new app.ImageShapeOctagon(),
+      'shape-pentagon': new app.ImageShapePentagon(),
+      'shape-rectangle': new app.ImageShapeRectangle(),
+      'shape-square': new app.ImageShapeSquare(),
+      'shape-star': new app.ImageShapeStar(),
+      'shape-triangle': new app.ImageShapeTriangle()
     }
   };
 }();

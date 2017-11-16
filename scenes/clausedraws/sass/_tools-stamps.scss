@@ -1,5 +1,7 @@
 $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
-    "ornament-round3", "ornament-skinny1"; //, "ornament-skinny2", "ornament-wide1", "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",  "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
+    "ornament-round3", "ornament-skinny1", "ornament-skinny2", "ornament-wide1",
+    "ornament-wide2", "candy-wrapper1", "candy-wrapper2", "candy-gumdrop",
+    "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
 
 ##{$name} {
   // TOOLBAR
@@ -76,10 +78,6 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       stroke-miterlimit: 10;
     }
 
-    .cls-6 {
-      clip-path: url(#clip-path);
-    }
-
     .cls-7,
     .cls-8 {
       stroke: #fff;
@@ -131,6 +129,67 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       fill: none;stroke: #607d8b;
       stroke-miterlimit: 10;
       stroke-width: 1.03px;
+    }
+  }
+
+  .Tool--stamp-ornament-skinny2, .Tool-hover-preview--stamp-ornament-skinny2 {
+    .cls-1,
+    .cls-7 {
+      fill: none;
+    }
+
+    .cls-3 {
+      clip-path: url(img/tools/stamps/svg/ornament-skinny2-clip-path.svg);
+    }
+
+    .cls-4 {
+      fill: #fff;
+    }
+
+    .cls-5 {
+      fill: #231f20;
+      opacity: 0.06;
+    }
+
+    .cls-6 {
+      fill: #607d8b;
+    }
+
+    .cls-7 {
+      stroke: #607d8b;
+      stroke-miterlimit: 10;
+      stroke-width: 1.03px;
+    }
+  }
+
+  .Tool--stamp-ornament-wide1, .Tool-hover-preview--stamp-ornament-wide1 {
+    .cls-2 {
+      opacity: 0.1;
+    }
+
+    .cls-3 {
+      fill: #607d8b;
+    }
+
+    .cls-4 {
+      fill: none;
+      stroke: #607d8b;
+      stroke-miterlimit: 10;
+      stroke-width: 1.03px;
+    }
+  }
+
+  .Tool--stamp-ornament-wide2, .Tool-hover-preview--stamp-ornament-wide2 {
+    .cls-2 {
+      fill:#fff;
+    }
+
+    .cls-3 {
+      opacity:0.1;
+    }
+
+    .cls-4 {
+      fill:#607d8b;
     }
   }
 
