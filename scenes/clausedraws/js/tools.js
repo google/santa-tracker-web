@@ -89,6 +89,16 @@ app.Tools = function(game, $elem) {
       noRotation: true,
       monotone: true
     });
+  this.garland = new app.TextureDrawer($elem, 'garland', {
+      sizeConfig: {
+        min: 0.5,
+        max: 5,
+        scale: true
+      },
+      noRotation: true,
+      drawFrequency: 0.1,
+      monotone: true
+    });
 
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
@@ -149,6 +159,7 @@ app.Tools = function(game, $elem) {
     this.paintbrush,
     this.tinsel,
     this.icing,
+    this.garland,
     this.spray,
     this.sprinkles,
     this.sceneAir,
