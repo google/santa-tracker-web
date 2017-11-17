@@ -72,7 +72,14 @@ app.Tools = function(game, $elem) {
   this.crayon = new app.TextureDrawer($elem, 'crayon');
   this.marker = new app.Marker($elem, 'marker');
   this.paintbrush = new app.TextureDrawer($elem, 'paintbrush', { opacity: 0.5 });
-  this.tinsel = new app.Marker($elem, 'tinsel');
+  this.tinsel = new app.TextureDrawer($elem, 'tinsel', {
+      sizeConfig: {
+        min: app.Constants.TINSEL_MIN,
+        max: app.Constants.TINSEL_MAX,
+        scale: true
+      },
+      monotone: true
+    });
 
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
