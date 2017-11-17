@@ -16,7 +16,7 @@
 
 goog.provide('app.SprayPattern');
 goog.require('app.Constants');
-goog.require('app.Tool');
+goog.require('app.ImageManager');
 
 
 /**
@@ -26,20 +26,16 @@ goog.require('app.Tool');
  * @param {!jQuery} $elem toolbox elem
  * @param {!string} name The name of the tool.
  */
-app.SprayPattern = function($elem, name) {
+app.SprayPattern = function($elem, name, config) {
   app.Tool.call(this, $elem, name);
 
   this.soundKey = 'selfie_shave';
-  this.sprinkles = [
-    $elem.find('#sprinkle2')[0],
-    $elem.find('#sprinkle3')[0],
-    $elem.find('#sprinkle4')[0],
-    $elem.find('#sprinkle5')[0]
-  ];
-  this.sprinkleIndex = 0;
-  this.sprinkleHeight = 100;
-  this.sprinkleWidth = 100;
+  this.images = config.images || [];
+  this.imageIndex = 0;
   this.currentSize = app.Constants.SPRAY_CIRCLE_SIZE;
+  this.maxOffset = config.maxOffset || 0;
+
+  this.populateImages($elem);
 };
 app.SprayPattern.prototype = Object.create(app.Tool.prototype);
 
@@ -53,21 +49,53 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
-  var drawWidth = this.sprinkleWidth;
-  var drawHeight = this.sprinkleHeight;
+
+  this.imageIndex = Math.floor(Math.random() * this.images.length);
+  var image = this.images[this.imageIndex];
+  var drawWidth = image.width;
+  var drawHeight = image.height;
   // TODO: randomize offsets
-  var offsetX = 50;
-  var offsetY = 50;
+  var offsetX = -drawWidth / 2 + this.getRandomOffset();
+  var offsetY = -drawHeight / 2 + this.getRandomOffset();
+
+  var drawElem;
+  if (image.elem) {
+    drawElem = image.elem;
+  } else if (image.name) {
+    drawElem = app.ImageManager.getImage(image.name, image.color);
+  }
+
   context.save();
   context.translate(drawX, drawY);
   context.rotate(Math.random() * 2 * Math.PI);
-  context.drawImage(this.sprinkles[this.sprinkleIndex], -offsetX, -offsetY,
-      drawWidth, drawHeight);
+  context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
   context.restore();
 
-  this.sprinkleIndex = (this.sprinkleIndex + 1) % this.sprinkles.length;
   return true;
 };
+
+
+app.SprayPattern.prototype.populateImages = function($elem) {
+  for (var i = 0; i < this.images.length; i++) {
+    var image = this.images[i];
+    if (image.elemId) {
+      image.elem = $elem.find('#' + image.elemId);
+      image.width = image.elem.width();
+      image.height = image.elem.height();
+      image.elem = image.elem[0];
+    } else if (image.name) {
+      var dimens = app.ImageManager.getImageDimensions(image.name);
+      image.width = dimens.width;
+      image.height = dimens.height;
+    }
+  }
+};
+
+
+app.SprayPattern.prototype.getRandomOffset = function() {
+  return Math.random() * this.maxOffset * 2 - this.maxOffset;
+};
+
 
 app.SprayPattern.prototype.calculateDrawSize = function() {
   return app.Constants.SPRAY_CIRCLE_SIZE;

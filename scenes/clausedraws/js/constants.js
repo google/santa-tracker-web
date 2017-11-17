@@ -61,6 +61,15 @@ app.Constants = {
   SNOW_MAX_PARTICLES: 60,
   SNOW_MIN_DISTANCE: 0.2,
 
+  SPRINKLE_SPRAY_CONFIG: {
+    images: [
+      { elemId: "sprinkle2" },
+      { elemId: "sprinkle3" },
+      { elemId: "sprinkle4" },
+      { elemId: "sprinkle5" }
+    ]
+  },
+
   // Needs to match _colors.scss
   SVG_COLOR_MATRIX: {
     "#8bc34a": {

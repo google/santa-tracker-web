@@ -28,6 +28,15 @@ goog.require('app.SprayPattern');
  */
 app.SprinkleSpray = function($elem, name) {
   app.SprayPattern.call(this, $elem, name);
+
+  this.images = [
+    { elem: $elem.find('#sprinkle2')[0] },
+    { elem: $elem.find('#sprinkle3')[0] },
+    { elem: $elem.find('#sprinkle4')[0] },
+    { elem: $elem.find('#sprinkle5')[0] }
+  ];
+
+  this.populateImageDimensions();
 };
 app.SprinkleSpray.prototype = Object.create(app.SprayPattern.prototype);
 
