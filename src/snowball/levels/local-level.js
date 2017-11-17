@@ -4,14 +4,17 @@ export class LocalLevel extends MainLevel {
   setup(game) {
     super.setup(game);
 
-    const { clientSystem, dropSystem, mapSystem } = game;
+    const { clientSystem, dropSystem, mapSystem, playerSystem } = game;
 
     this.lastErosionTick = 0;
     this.lastDropTick = 0;
 
     const seed = (Math.random() * 0x100000000) & 0xffffffff;  // 32bit int
-    mapSystem.regenerateMapWithSeed(seed);
-    clientSystem.setPendingSpawn(-1);
+    mapSystem.rebuildMap(game, seed);
+
+    const id = 'local';
+    const player = playerSystem.addPlayer(id, -1);
+    clientSystem.assignPlayer(player);
 
     for (let i = 0; i < 15; ++i) {
       dropSystem.addDrop();
