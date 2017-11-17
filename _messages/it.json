@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "La vigilia di Natale saremo lieti di presentarti la plancia di comando di Babbo Natale, super tecnologica, che gli consentirà di guidare la slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale, che stanno lavorando sodo al Polo Nord per aiutare Babbo Natale nei preparativi per il grande giorno. La plancia di comando di Babbo Natale, che presenta le soluzioni più recenti e sofisticate della tecnologia di Google Maps e delle tecniche di costruzione di slitte, ti permetterà di seguire Babbo Natale nel suo viaggio intorno al mondo e scoprire qualche dettaglio su alcune delle tappe lungo il percorso."
+		"message": "La vigilia di Natale ti mostreremo la plancia di comando di Babbo Natale, super tecnologica, che gli consentirà di guidare la slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale, che stanno lavorando sodo al Polo Nord per aiutare Babbo Natale nei preparativi per il grande giorno. La plancia di comando di Babbo Natale, dotata delle soluzioni più recenti e sofisticate della tecnologia di Google Maps e delle tecniche di costruzione di slitte, ti permetterà di seguire Babbo Natale nel suo viaggio intorno al mondo e scoprire qualche dettaglio su alcune delle tappe lungo il percorso."
 	},
 	"about-content-three": {
 		"message": "Segui Babbo Natale di Google Maps è stato creato e sviluppato da Google, con un po' di aiuto da parte degli elfi di Babbo Natale. Hai bisogno di aiuto o hai un'altra domanda? Visita il nostro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro assistenza\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo e scopri il villaggio di Babbo Natale dove potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
+		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo e scopri il villaggio di Babbo Natale, dove potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
 	},
 	"about-santa": {
 		"message": "Informazioni"
@@ -96,7 +96,7 @@
 		"message": "In Canada, i bambini festeggiano un Natale bianco e innevato. Avvolti in sciarpe e berretti toque (tradizionali canadesi) giocano sulla neve, pattinano sul ghiaccio e si divertono sulle tipiche slitte canadesi, chiamate toboga. La notte della Vigilia lasciano latte e biscotti accanto al camino per Babbo Natale, e a volte anche una carota per la sua renna."
 	},
 	"calendar": {
-		"message": "Il calendario"
+		"message": "Calendario"
 	},
 	"category_code": {
 		"message": "Codice"
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Le luci della città"
 	},
+	"scene_clausdraws": {
+		"message": "Disegni di Babbo Natale"
+	},
 	"scene_codeboogie": {
 		"message": "La danza del codice"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Lo scatto del pinguino"
 	},
+	"scene_elfski": {
+		"message": "Folletti che sciano"
+	},
 	"scene_factory": {
 		"message": "La fabbrica delle caramelle"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
+	},
+	"scene_icecave": {
+		"message": "Cava di ghiaccio"
+	},
+	"scene_island": {
+		"message": "Isola"
 	},
 	"scene_jamband": {
 		"message": "La band dei folletti"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "La stagione dei regali"
 	},
+	"scene_snowball": {
+		"message": "Battaglia di palle di neve"
+	},
+	"scene_speedsketch": {
+		"message": "Indovina il disegno"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "I selfie di Babbo Natale"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Voglia di lavorare zero"
 	},
 	"scene_videoscene_temptation": {
 		"message": "La tentazione"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Congelato."
 	},
 	"snowflake_choose_background": {
 		"message": "Scegli uno sfondo"

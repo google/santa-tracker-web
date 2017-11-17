@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "City Lights"
 	},
+	"scene_clausdraws": {
+		"message": "Claus Draws"
+	},
 	"scene_codeboogie": {
 		"message": "Code Boogie"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfski": {
+		"message": "Elf Ski"
+	},
 	"scene_factory": {
 		"message": "Candy Factory"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
+	},
+	"scene_icecave": {
+		"message": "Ice Cave"
+	},
+	"scene_island": {
+		"message": "Island"
 	},
 	"scene_jamband": {
 		"message": "Elf Jamband"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Panahon ng Bigayan"
 	},
+	"scene_snowball": {
+		"message": "Snowball Storm"
+	},
+	"scene_speedsketch": {
+		"message": "Speed Sketch"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Santa Selfies"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Slacking Off"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Temptation"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Iced!"
 	},
 	"snowflake_choose_background": {
 		"message": "Pumili ng backdrop"

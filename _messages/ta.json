@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "சிட்டி லைட்ஸ்"
 	},
+	"scene_clausdraws": {
+		"message": "க்ளாஸ் ஓவியம்"
+	},
 	"scene_codeboogie": {
 		"message": "கோடு பூகி"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "பென்குயின் டேஷ்"
 	},
+	"scene_elfski": {
+		"message": "எல்ஃப் பனிச்சறுக்கு"
+	},
 	"scene_factory": {
 		"message": "மிட்டாய் ஆலை"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "கம்பால் டில்ட்"
+	},
+	"scene_icecave": {
+		"message": "பனிக் குகை"
+	},
+	"scene_island": {
+		"message": "தீவு"
 	},
 	"scene_jamband": {
 		"message": "எல்ஃப் ஜாம்பேண்ட்"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "கொடையளிக்கும் காலம்"
 	},
+	"scene_snowball": {
+		"message": "ஸ்னோபால் ஸ்டோர்ம்"
+	},
+	"scene_speedsketch": {
+		"message": "ஸ்பீடு ஸ்கெட்ச்"
+	},
 	"scene_streetview": {
 		"message": "வீதிக் காட்சி"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "செயற்கைக்கோள்"
+	},
+	"scene_videoscene_selfies": {
+		"message": "சான்டா செல்ஃபிகள்"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "வேலை செய்வதற்குப் பதிலாக வீடியோ கேம்கள் விளையாடுவது"
 	},
 	"scene_videoscene_temptation": {
 		"message": "தூண்டுதல்"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "செனகல்"
+	},
+	"snowball_iced": {
+		"message": "ஐஸ் அவுட்!"
 	},
 	"snowflake_choose_background": {
 		"message": "பின்னணியைத் தேர்வுசெய்யவும்"

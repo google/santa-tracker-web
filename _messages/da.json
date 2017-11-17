@@ -888,10 +888,10 @@
 		"message": "Vælg et stykke julepynt, og begynd at farve."
 	},
 	"nonprofit-instruction-share": {
-		"message": "Del din kunst med familie og venner, så de også kan lære."
+		"message": "Del dine mesterværker med familie og venner, så de også kan lære."
 	},
 	"nonprofit-intro-type": {
-		"message": "Vi er gået sammen med Google.org om at fremhæve fem nonprofitorganisationer for uddannelse, der fejrer gavernes årstid hele året rundt. Rul ned, og få flere oplysninger om, hvordan hver enkelt organisation hjælper andre. Vis din støtte ved at farvelægge denne samling af julepynt og bagefter hænge dem på dit træ eller give dem til de personer, du holder af."
+		"message": "Vi er gået sammen med Google.org om at fremhæve fem nonprofitorganisationer for uddannelse, der fejrer gavmildhedens ånd hele året rundt. Rul ned, og få flere oplysninger om, hvordan hver enkelt organisation hjælper andre. Vis din støtte ved at farvelægge denne samling af julepynt og bagefter hænge den på dit træ eller give den til dem, du holder af."
 	},
 	"nonprofit-jane-description": {
 		"message": "Chimpanser er menneskets nærmeste nulevende slægtninge i dyreriget. I dag er der under 300.000 chimpanser tilbage på grund af mistede levesteder, sygdomme og ulovlig handel. Jane Goodall Institute (JGI) beskytter chimpanser ved at observere og lære at forstå deres adfærd samt deres levesteder. JGI arbejder også for at opbygge velfungerende lokale landsbysamfund med mennesker, som beskytter og bevarer dyrelivet og vores fælles miljø. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUdforsk chimpansernes levesteder\u003c/a\u003e i Gombe i Tanzania."
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Byens lys"
 	},
+	"scene_clausdraws": {
+		"message": "Julekruseduller"
+	},
 	"scene_codeboogie": {
 		"message": "Kodeboogie"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingvin med fart på"
 	},
+	"scene_elfski": {
+		"message": "Nisseskiløb"
+	},
 	"scene_factory": {
 		"message": "Slikfabrikken"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Rullende tyggegummikugler"
+	},
+	"scene_icecave": {
+		"message": "Ishule"
+	},
+	"scene_island": {
+		"message": "Ø"
 	},
 	"scene_jamband": {
 		"message": "Nissejamband"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Årstiden for gaver"
 	},
+	"scene_snowball": {
+		"message": "Sneboldkrig"
+	},
+	"scene_speedsketch": {
+		"message": "Hurtigtegner"
+	},
 	"scene_streetview": {
 		"message": "Gadevisning"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Julemands-selfies"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Dovner den"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Det er svært at modstå fristelsen"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Lagt på is!"
 	},
 	"snowflake_choose_background": {
 		"message": "Vælg en baggrund"
@@ -1464,7 +1491,7 @@
 		"message": "Følg julemanden"
 	},
 	"tracker_travelogue": {
-		"message": "Rejsebeskrivelse"
+		"message": "Julemandens rute"
 	},
 	"tracker_weather": {
 		"message": "Vejret"

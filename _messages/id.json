@@ -456,10 +456,10 @@
 		"message": "Coba Lagi"
 	},
 	"copy-me": {
-		"message": "Salin tautan ini untuk membagikan pesan"
+		"message": "Salin link ini untuk membagikan pesan"
 	},
 	"copy-me-short": {
-		"message": "Salin tautan untuk berbagi"
+		"message": "Salin link untuk berbagi"
 	},
 	"countdown_days": {
 		"message": "Hari"
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Lampu Kota"
 	},
+	"scene_clausdraws": {
+		"message": "Sinterklas Menggambar"
+	},
 	"scene_codeboogie": {
 		"message": "Tarian Kode"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfski": {
+		"message": "Ski Kurcaci"
+	},
 	"scene_factory": {
 		"message": "Candy Factory"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Miringkan Gumball"
+	},
+	"scene_icecave": {
+		"message": "Gua Es"
+	},
+	"scene_island": {
+		"message": "Pulau"
 	},
 	"scene_jamband": {
 		"message": "Kolaborasi Band Kurcaci"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Musim Berbagi"
 	},
+	"scene_snowball": {
+		"message": "Badai Bola Salju"
+	},
+	"scene_speedsketch": {
+		"message": "Sketsa Cepat"
+	},
 	"scene_streetview": {
 		"message": "Tampilan Jalan"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfie Sinterklas"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Bermalas-malasan"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Cobaan"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Kena!"
 	},
 	"snowflake_choose_background": {
 		"message": "Pilih tampilan latar"
@@ -5151,7 +5178,7 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Datang kembali tanggal 24 dan bantu kami lacak Sinterklas sepanjang malam!"
+		"message": "Datanglah kembali tanggal 24 dan bantu kami melacak Sinterklas sepanjang malam!"
 	},
 	"village_explore": {
 		"message": "Menjelajah, bermain, dan belajar bersama para kurcaci Sinterklas selama bulan Desember"

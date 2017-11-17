@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Pilsētas gaismas"
 	},
+	"scene_clausdraws": {
+		"message": "Ziemassvētku vecīša zīmēšanas spēle"
+	},
 	"scene_codeboogie": {
 		"message": "Kods: bugi"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingvīna skrējiens"
 	},
+	"scene_elfski": {
+		"message": "Slēpojošie rūķīši"
+	},
 	"scene_factory": {
 		"message": "Saldumu rūpnīca"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Spēle Gumball Tilt"
+	},
+	"scene_icecave": {
+		"message": "Ledus ala"
+	},
+	"scene_island": {
+		"message": "Sala"
 	},
 	"scene_jamband": {
 		"message": "Elfu muzikālā apvienība"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Dāvināšanas sezona"
 	},
+	"scene_snowball": {
+		"message": "Sniega piku kauja"
+	},
+	"scene_speedsketch": {
+		"message": "Zīmēšana uz ātrumu"
+	},
 	"scene_streetview": {
 		"message": "Ielas attēls"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelīts"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Vecīša pašbildes"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Slinkošana"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Kārdinājums"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegāla"
+	},
+	"snowball_iced": {
+		"message": "Jums trāpīja ar sniega piku!"
 	},
 	"snowflake_choose_background": {
 		"message": "Izvēlieties fonu"

@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Les lumières de la ville"
 	},
+	"scene_clausdraws": {
+		"message": "Dessin de Noël"
+	},
 	"scene_codeboogie": {
 		"message": "Boogie du code"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "La ruée du pingouin"
 	},
+	"scene_elfski": {
+		"message": "Le ski des lutins"
+	},
 	"scene_factory": {
 		"message": "La fabrique de bonbons"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Boule de gomme en mouvement"
+	},
+	"scene_icecave": {
+		"message": "Caverne de glace"
+	},
+	"scene_island": {
+		"message": "Île"
 	},
 	"scene_jamband": {
 		"message": "Le jam des lutins"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "La saison pour offrir"
 	},
+	"scene_snowball": {
+		"message": "Tempête de boules de neige"
+	},
+	"scene_speedsketch": {
+		"message": "Croquis rapide"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Images satellites"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Égoportraits du père Noël"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Relaxation"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentation"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Sénégal"
+	},
+	"snowball_iced": {
+		"message": "Glacé!"
 	},
 	"snowflake_choose_background": {
 		"message": "Sélectionnez un arrière-plan"

@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Llums de la ciutat"
 	},
+	"scene_clausdraws": {
+		"message": "Dibuixos de Nadal"
+	},
 	"scene_codeboogie": {
 		"message": "El ball del codi"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Carrera de pingüins"
 	},
+	"scene_elfski": {
+		"message": "Els elfs van a esquiar"
+	},
 	"scene_factory": {
 		"message": "Fàbrica de llaminadures"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Joc de guiar els caramels"
+	},
+	"scene_icecave": {
+		"message": "Cova de gel"
+	},
+	"scene_island": {
+		"message": "Illa"
 	},
 	"scene_jamband": {
 		"message": "La banda dels elfs"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Temps de regals"
 	},
+	"scene_snowball": {
+		"message": "Tempesta de boles de neu"
+	},
+	"scene_speedsketch": {
+		"message": "Esbós ràpid"
+	},
 	"scene_streetview": {
 		"message": "Street view"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satèl·lit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Les selfies del Pare Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Fent el dropo"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Temptació"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Congelat!"
 	},
 	"snowflake_choose_background": {
 		"message": "Tria un fons"

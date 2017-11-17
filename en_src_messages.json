@@ -1531,6 +1531,10 @@
     "description": "Title of a scene/game. Showcases different Street View scenes, containing holiday lights and decorations, from around the world.",
     "message": "City Lights"
   },
+  "scene_clausdraws": {
+    "description": "Title of a scene/game. A drawing game where the player can draw creatively in a Santa-themed environment. In English, this title ryhmes, and 'Claus' refers to 'Santa Claus'.",
+    "message": "Claus Draws"
+  },
   "scene_codeboogie": {
     "description": "Title of a scene/game. You can teach Santa's Elves how to dance ('boogie') through code.",
     "message": "Code Boogie"
@@ -1546,6 +1550,10 @@
   "scene_dash": {
     "description": "Title of a scene/game. Help a penguin navigate icebergs to pick up presents.",
     "message": "Penguin Dash"
+  },
+  "scene_elfski": {
+    "description": "Title of a scene/game. Elves ski down a mountain.",
+    "message": "Elf Ski"
   },
   "scene_factory": {
     "description": "Title of a scene/game. See how Santa makes candy in a factory.",
@@ -1634,6 +1642,14 @@
   "scene_seasonofgiving": {
     "description": "Title of a scene/game. Learn about different charities, and paint baubles.",
     "message": "Season of Giving"
+  },
+  "scene_snowball": {
+    "description": "Title of a scene/game. Throw snowballs at fellow elves until only one remains standing up.",
+    "message": "Snowball Storm"
+  },
+  "scene_speedsketch": {
+    "description": "Title of a scene/game. Draw images on a frosted glass window that Santa's helper robot tries to identify.",
+    "message": "Speed Sketch"
   },
   "scene_streetview": {
     "description": "Title of a scene/game. View a \"street view\" style enviroment in the downtown North Pole.",
@@ -1746,6 +1762,10 @@
   "share-this": {
     "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
     "message": "Share"
+  },
+  "snowball_iced": {
+    "description": "A player has been 'iced', hit by a snowball and is out of a game.",
+    "message": "Iced!"
   },
   "snowflake_choose_background": {
     "description": "Tell user to choose background for their postcard.",

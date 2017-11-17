@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "城市之光"
 	},
+	"scene_clausdraws": {
+		"message": "圣诞老人画册"
+	},
 	"scene_codeboogie": {
 		"message": "代码之舞"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "企鹅向前冲"
 	},
+	"scene_elfski": {
+		"message": "精灵滑雪"
+	},
 	"scene_factory": {
 		"message": "糖果工厂"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "彩球滑落"
+	},
+	"scene_icecave": {
+		"message": "冰洞"
+	},
+	"scene_island": {
+		"message": "海岛"
 	},
 	"scene_jamband": {
 		"message": "摇滚精灵乐"
@@ -1218,7 +1230,13 @@
 		"message": "送温暖的季节"
 	},
 	"scene_seasonofgiving": {
-		"message": "礼物漫天飞"
+		"message": "温馨礼品巧填色"
+	},
+	"scene_snowball": {
+		"message": "雪球风暴"
+	},
+	"scene_speedsketch": {
+		"message": "快手画图"
 	},
 	"scene_streetview": {
 		"message": "街景"
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "卫星"
+	},
+	"scene_videoscene_selfies": {
+		"message": "圣诞老人自拍照"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "偷懒"
 	},
 	"scene_videoscene_temptation": {
 		"message": "诱惑"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "塞内加尔"
+	},
+	"snowball_iced": {
+		"message": "冰冻！"
 	},
 	"snowflake_choose_background": {
 		"message": "选择背景"

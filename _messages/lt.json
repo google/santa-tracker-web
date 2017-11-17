@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Miesto šviesos"
 	},
+	"scene_clausdraws": {
+		"message": "Kalėdų Senelio piešiniai"
+	},
 	"scene_codeboogie": {
 		"message": "Bugivugio kodai"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingvinas ant ledkalnių"
 	},
+	"scene_elfski": {
+		"message": "Elfų slidinėjimas"
+	},
 	"scene_factory": {
 		"message": "Saldainių fabrikas"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Gumos kamuoliukų svyriai"
+	},
+	"scene_icecave": {
+		"message": "Ledo urvas"
+	},
+	"scene_island": {
+		"message": "Sala"
 	},
 	"scene_jamband": {
 		"message": "Elfų muzikinė grupė"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Dovanų laikas"
 	},
+	"scene_snowball": {
+		"message": "Gniūžčių lietus"
+	},
+	"scene_speedsketch": {
+		"message": "Greitas eskizas"
+	},
 	"scene_streetview": {
 		"message": "Gatvės vaizdas"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Palydovas"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Asmenukės su Kalėdų Seneliu"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Tinginiavimas"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Pagunda"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegalas"
+	},
+	"snowball_iced": {
+		"message": "Apledėjęs!"
 	},
 	"snowflake_choose_background": {
 		"message": "Pasirinkite foną"

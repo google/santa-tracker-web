@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Svjetla grada"
 	},
+	"scene_clausdraws": {
+		"message": "Djedovi crteži"
+	},
 	"scene_codeboogie": {
 		"message": "Ples kodova"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Utrka pingvina"
 	},
+	"scene_elfski": {
+		"message": "Skijalište vilenjaka"
+	},
 	"scene_factory": {
 		"message": "Tvornica slatkiša"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Igra s kuglicama"
+	},
+	"scene_icecave": {
+		"message": "Ledena spilja"
+	},
+	"scene_island": {
+		"message": "Otok"
 	},
 	"scene_jamband": {
 		"message": "Vilenjački bend"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Vrijeme darivanja"
 	},
+	"scene_snowball": {
+		"message": "Grudalište"
+	},
+	"scene_speedsketch": {
+		"message": "Brzo skiciranje"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Djedovi selfieji"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Ljenčarenje"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Iskušenje"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Pogođen!"
 	},
 	"snowflake_choose_background": {
 		"message": "Odaberi pozadinu"

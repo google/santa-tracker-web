@@ -969,7 +969,7 @@
 		"message": "Подробнее"
 	},
 	"notification": {
-		"message": "Оповещения"
+		"message": "Уведомления"
 	},
 	"notification_newtoday": {
 		"message": "Новости"
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Огни большого города"
 	},
+	"scene_clausdraws": {
+		"message": "Новогодние рисунки"
+	},
 	"scene_codeboogie": {
 		"message": "Буги-вуги"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Быстрый пингвин"
 	},
+	"scene_elfski": {
+		"message": "Лыжный спуск"
+	},
 	"scene_factory": {
 		"message": "Кондитерская фабрика"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Леденцы"
+	},
+	"scene_icecave": {
+		"message": "Ледяная пещера"
+	},
+	"scene_island": {
+		"message": "Остров"
 	},
 	"scene_jamband": {
 		"message": "Эльфы-музыканты"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Раскрась елочную игрушку"
 	},
+	"scene_snowball": {
+		"message": "Снежная перестрелка"
+	},
+	"scene_speedsketch": {
+		"message": "Узоры на окне"
+	},
 	"scene_streetview": {
 		"message": "Просмотр улиц"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Спутник"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Селфи Санты"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Лишь бы не работать"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Искушение"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowball_iced": {
+		"message": "Навылет!"
 	},
 	"snowflake_choose_background": {
 		"message": "Выберите фон"

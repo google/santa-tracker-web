@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "街の灯り"
 	},
+	"scene_clausdraws": {
+		"message": "Claus Draws"
+	},
 	"scene_codeboogie": {
 		"message": "Code Boogie"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "ペンギン ダッシュ"
 	},
+	"scene_elfski": {
+		"message": "妖精のスキー"
+	},
 	"scene_factory": {
 		"message": "キャンディ工場"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
+	},
+	"scene_icecave": {
+		"message": "氷の洞窟"
+	},
+	"scene_island": {
+		"message": "島"
 	},
 	"scene_jamband": {
 		"message": "Elf Jamband"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "プレゼントの季節"
 	},
+	"scene_snowball": {
+		"message": "Snowball Storm"
+	},
+	"scene_speedsketch": {
+		"message": "Speed Sketch"
+	},
 	"scene_streetview": {
 		"message": "ストリートビュー"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "衛星"
+	},
+	"scene_videoscene_selfies": {
+		"message": "サンタの自撮り写真"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "サボりの現行犯"
 	},
 	"scene_videoscene_temptation": {
 		"message": "誘惑"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "セネガル"
+	},
+	"snowball_iced": {
+		"message": "凍った！"
 	},
 	"snowflake_choose_background": {
 		"message": "背景を選択します"

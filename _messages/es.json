@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Luces de la ciudad"
 	},
+	"scene_clausdraws": {
+		"message": "Diseños navideños"
+	},
 	"scene_codeboogie": {
 		"message": "Baile de código"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingüino atraparregalos"
 	},
+	"scene_elfski": {
+		"message": "Esquí élfico"
+	},
 	"scene_factory": {
 		"message": "Fábrica de caramelos"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Guía la bola"
+	},
+	"scene_icecave": {
+		"message": "Cueva de hielo"
+	},
+	"scene_island": {
+		"message": "Isla"
 	},
 	"scene_jamband": {
 		"message": "Jam session de los elfos"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Tiempo de regalos"
 	},
+	"scene_snowball": {
+		"message": "Pelea de bolas de nieve"
+	},
+	"scene_speedsketch": {
+		"message": "Retratos contrarreloj"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satélite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies de Papá Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Haciendo el vago"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentación"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "¡Te han dado!"
 	},
 	"snowflake_choose_background": {
 		"message": "Escoge un fondo"

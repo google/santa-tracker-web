@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Lichter der Stadt"
 	},
+	"scene_clausdraws": {
+		"message": "Zeichnen mit dem Weihnachtsmann"
+	},
 	"scene_codeboogie": {
 		"message": "Code-Boogie"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pinguin gib Acht"
 	},
+	"scene_elfski": {
+		"message": "Wichtel auf der Piste"
+	},
 	"scene_factory": {
 		"message": "Süßigkeitenfabrik"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Lolli-Flipper"
+	},
+	"scene_icecave": {
+		"message": "Eishöhle"
+	},
+	"scene_island": {
+		"message": "Insel"
 	},
 	"scene_jamband": {
 		"message": "Wichtel-Wunschkonzert"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Zeit des Gebens"
 	},
+	"scene_snowball": {
+		"message": "Schneeballsturm"
+	},
+	"scene_speedsketch": {
+		"message": "Frostmaler"
+	},
 	"scene_streetview": {
 		"message": "Straßenperspektive"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies vom Weihnachtsmann"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Faulenzen"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Versuchung"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Erwischt!"
 	},
 	"snowflake_choose_background": {
 		"message": "Such einen Hintergrund aus"
@@ -5151,7 +5178,7 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Komm am 24. wieder und hefte dich gemeinsam mit uns die ganze Nacht an die Fersen des Weihnachtsmanns!"
+		"message": "Komm am 24. wieder und verfolge gemeinsam mit uns die ganze Nacht die Spur des Weihnachtsmanns!"
 	},
 	"village_explore": {
 		"message": "Entdecke, spiele und lerne den ganzen Dezember lang gemeinsam mit den Wichteln des Weihnachtsmanns"

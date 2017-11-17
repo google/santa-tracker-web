@@ -75,7 +75,7 @@
 		"message": "Brasil"
 	},
 	"br_tradition": {
-		"message": "Julefeiringen begynner rundt midnatt, vanligvis med store familiemiddager, gaveåpning og gudstjenesten «Missa do Galo» (hanens messe). Til tross for det varme tropiske sommerværet er det ikke uvanlig at feiringen er preget av vinter og snø."
+		"message": "Julefeiringen begynner rundt midnatt, vanligvis med store familiemiddager, gaveåpning og gudstjenesten «Missa do Galo» (hanens messe). Til tross for det varme tropiske sommerværet er feiringen ofte preget av dekorasjoner knyttet til vinter og snø."
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
@@ -645,7 +645,7 @@
 		"message": "Guatemala"
 	},
 	"gt_tradition": {
-		"message": "I Guatemala feires julen med moro og dans. Folk går med hatter som kalles Puritina, spiser tradisjonelle guatemalanske tamales, sender opp fyrverkeri ved midnatt og danser seg gjennom natten med mange slags danser."
+		"message": "I Guatemala feires julen med moro og dans. Folk går med Puritina-hatter, spiser tradisjonelle tamales, sender opp fyrverkeri ved midnatt og danser seg gjennom natten i mange ulike dansestiler."
 	},
 	"gy_country_name": {
 		"message": "Guyana"
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Bylys"
 	},
+	"scene_clausdraws": {
+		"message": "Nissetegning"
+	},
 	"scene_codeboogie": {
 		"message": "Kodeboogie"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pakkepingvin"
 	},
+	"scene_elfski": {
+		"message": "Alveskikjøring"
+	},
 	"scene_factory": {
 		"message": "Godterifabrikken"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Rulledrops"
+	},
+	"scene_icecave": {
+		"message": "Ishulelevering"
+	},
+	"scene_island": {
+		"message": "Øylevering"
 	},
 	"scene_jamband": {
 		"message": "Alvemusikkband"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "En tid for å gi"
 	},
+	"scene_snowball": {
+		"message": "Snøballstorm"
+	},
+	"scene_speedsketch": {
+		"message": "Hurtigtegning"
+	},
 	"scene_streetview": {
 		"message": "«Street View»"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellitt"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Julenissens selfier"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Unnasluntring"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Fartsfristelser"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Dynket!"
 	},
 	"snowflake_choose_background": {
 		"message": "Velg en bakgrunn"

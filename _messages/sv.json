@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Stadsljus"
 	},
+	"scene_clausdraws": {
+		"message": "Ritkul i jul"
+	},
 	"scene_codeboogie": {
 		"message": "Koddans"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingvinloppet"
 	},
+	"scene_elfski": {
+		"message": "Nisseslalom"
+	},
 	"scene_factory": {
 		"message": "Godisfabriken"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Godisspel"
+	},
+	"scene_icecave": {
+		"message": "Isgrotta"
+	},
+	"scene_island": {
+		"message": "Ö"
 	},
 	"scene_jamband": {
 		"message": "Tomtenissarna jammar"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Gåvornas säsong"
 	},
+	"scene_snowball": {
+		"message": "Snöbollsstorm"
+	},
+	"scene_speedsketch": {
+		"message": "Snabbskissa"
+	},
 	"scene_streetview": {
 		"message": "Gatuvy"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Tomteselfies"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Slappar"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Frestelsen"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Mulad!"
 	},
 	"snowflake_choose_background": {
 		"message": "Välj en bakgrund"

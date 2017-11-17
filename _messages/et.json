@@ -465,7 +465,7 @@
 		"message": "Päevi"
 	},
 	"countdown_hours": {
-		"message": "h"
+		"message": "Tunde"
 	},
 	"countdown_minutes": {
 		"message": "min"
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Linnatuled"
 	},
+	"scene_clausdraws": {
+		"message": "Jõuluvana jutupliiats"
+	},
 	"scene_codeboogie": {
 		"message": "Tants ja trall"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingviinijooks"
 	},
+	"scene_elfski": {
+		"message": "Päkapikuslaalom"
+	},
 	"scene_factory": {
 		"message": "Kommivabrik"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Nätsukommid"
+	},
+	"scene_icecave": {
+		"message": "Jääkoobas"
+	},
+	"scene_island": {
+		"message": "Saar"
 	},
 	"scene_jamband": {
 		"message": "Päkapikubänd"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Pühadelahkus"
 	},
+	"scene_snowball": {
+		"message": "Lumesõda"
+	},
+	"scene_speedsketch": {
+		"message": "Arva ära"
+	},
 	"scene_streetview": {
 		"message": "Tänavavaade"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelliit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Jõuluvana selfi"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Aeg maha"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Kiusatus"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Väljas!"
 	},
 	"snowflake_choose_background": {
 		"message": "Valige taust"

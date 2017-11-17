@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "സിറ്റി ലൈറ്റ്സ്"
 	},
+	"scene_clausdraws": {
+		"message": "ക്ലോസ് ഡ്രോസ്"
+	},
 	"scene_codeboogie": {
 		"message": "കോഡ് ബൂഗി"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "പെൻഗ്വിൻ ഡാഷ്"
 	},
+	"scene_elfski": {
+		"message": "എൽഫ് സ്‌കീ"
+	},
 	"scene_factory": {
 		"message": "കാൻഡി ഫാക്ടറി"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "ഗംബോൾ ടിൽറ്റ്"
+	},
+	"scene_icecave": {
+		"message": "മഞ്ഞ് ഗുഹ"
+	},
+	"scene_island": {
+		"message": "ഐലന്‍ഡ്"
 	},
 	"scene_jamband": {
 		"message": "എൽഫ് ജാംബാൻഡ്"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "ദാനധർമ്മങ്ങളുടെ കാലം"
 	},
+	"scene_snowball": {
+		"message": "സ്‌നോബോൾ സ്‌റ്റോം"
+	},
+	"scene_speedsketch": {
+		"message": "സ്‌പീഡ് സ്‌കെച്ച്"
+	},
 	"scene_streetview": {
 		"message": "തെരുവ് കാഴ്‌ച"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "ഉപഗ്രഹം"
+	},
+	"scene_videoscene_selfies": {
+		"message": "സാന്തയുടെ സെൽഫികൾ"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "അലസനായി കളിച്ചിരിക്കുന്നു"
 	},
 	"scene_videoscene_temptation": {
 		"message": "ടെംപ്‌റ്റേഷൻ"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "സെനഗൽ"
+	},
+	"snowball_iced": {
+		"message": "ഐസ് ആയി!"
 	},
 	"snowflake_choose_background": {
 		"message": "ഒരു ബാക്ക്‌ഡ്രോപ്പ് തിരഞ്ഞെടുക്കുക"
@@ -5154,7 +5181,7 @@
 		"message": "24-ന് തിരിച്ചെത്തുക, രാത്രി മുഴുവൻ സാന്തയെ ട്രാക്കുചെയ്യാൻ ഞങ്ങളെ സഹായിക്കുക!"
 	},
 	"village_explore": {
-		"message": "ഡിസംബർ മുഴുവനും സാന്തയുടെ കുട്ടിച്ചാത്തന്മാരെ അടുത്തറിയുക, അവരോടൊപ്പം കളിക്കുക, പല കാര്യങ്ങളും പഠിക്കുക"
+		"message": "ഡിസംബർ മുഴുവനും സാന്തയുടെ കുട്ടിച്ചാത്തന്മാരെ കണ്ടറിയുക, അവരോടൊപ്പം കളിക്കുക, പല കാര്യങ്ങളും പഠിക്കുക"
 	},
 	"village_get_the_app": {
 		"message": "Android-നുള്ള സാന്ത ട്രാക്കർ ആപ്പ് സ്വന്തമാക്കുക"

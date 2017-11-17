@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Mestne luči"
 	},
+	"scene_clausdraws": {
+		"message": "Božično risanje"
+	},
 	"scene_codeboogie": {
 		"message": "Kodirni ples"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingvinovo iskanje"
 	},
+	"scene_elfski": {
+		"message": "Palček smuča"
+	},
 	"scene_factory": {
 		"message": "Tovarna slaščic"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Vodenje bonbonov"
+	},
+	"scene_icecave": {
+		"message": "Ledena jama"
+	},
+	"scene_island": {
+		"message": "Otok"
 	},
 	"scene_jamband": {
 		"message": "Skupina Palčki"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Čas podarjanja"
 	},
+	"scene_snowball": {
+		"message": "Nevihta kep"
+	},
+	"scene_speedsketch": {
+		"message": "Hitrostno skiciranje"
+	},
 	"scene_streetview": {
 		"message": "Pogled ulic"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Božičkovi sebki"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Lenarjenje"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Skušnjava"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Zadetek!"
 	},
 	"snowflake_choose_background": {
 		"message": "Izberite ozadje"
@@ -5151,7 +5178,7 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Vrnite se 24. in nam pomagajte vso noč slediti Božičku."
+		"message": "Vrnite se 24. decembra in nam pomagajte vso noč slediti Božičku."
 	},
 	"village_explore": {
 		"message": "Ves december lahko raziskujete, se igrate in učite z Božičkovimi palčki"

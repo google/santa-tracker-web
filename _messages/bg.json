@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Светлините на града"
 	},
+	"scene_clausdraws": {
+		"message": "Рисунки с коледно настроение"
+	},
 	"scene_codeboogie": {
 		"message": "Танц за кодиране"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Бързият пингвин"
 	},
+	"scene_elfski": {
+		"message": "Джуджета на ски"
+	},
 	"scene_factory": {
 		"message": "Фабрика за бонбони"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Балансиране на топчета от дъвка"
+	},
+	"scene_icecave": {
+		"message": "Ледена пещера"
+	},
+	"scene_island": {
+		"message": "Остров"
 	},
 	"scene_jamband": {
 		"message": "Джуджешка музика"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Сезонът на щедростта"
 	},
+	"scene_snowball": {
+		"message": "Бой със снежни топки"
+	},
+	"scene_speedsketch": {
+		"message": "Рисуване върху заскрежено стъкло"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Сателит"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Селфита на Дядо Коледа"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Скатавка"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Изкушение"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowball_iced": {
+		"message": "Вън от играта"
 	},
 	"snowflake_choose_background": {
 		"message": "Изберете фон"

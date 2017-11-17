@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "În Ajunul Crăciunului, vom prezenta cu mândrie tabloul de bord al Moșului, tehnologia care pune în mișcare sania cu care călătorește în jurul lumii. Am primit această imagine specială de la unul din numeroșii elfi dezvoltatori ai Moșului, care lucrează din greu la Polul Nord pentru a-l ajuta pe Moș în pregătirile pentru ziua cea mare. Tabloul de bord al Moșului, care dispune de cea mai recentă și extraordinară tehnologie Google Maps și de sisteme de ultimă generație pentru sanie, ne va permite să-i urmărim traseul din jurul lumii și să aflăm mai multe despre câteva dintre locurile vizitate pe drum."
+		"message": "În Ajunul Crăciunului, vom prezenta cu mândrie tabloul de bord al Moșului, tehnologia care pune în mișcare sania cu care călătorește în jurul lumii. Am primit această imagine specială de la unul din numeroșii elfi dezvoltatori ai Moșului, care lucrează din greu la Polul Nord pentru a-l ajuta pe Moș în pregătirile pentru ziua cea mare. Tabloul de bord al Moșului, care dispune de cea mai recentă și extraordinară tehnologie Google Maps și de sisteme de ultimă generație pentru sanie, ne va ajuta să-i urmărim traseul din jurul lumii și să aflăm mai multe despre câteva dintre locurile vizitate pe drum."
 	},
 	"about-content-three": {
 		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Luminile orașului"
 	},
+	"scene_clausdraws": {
+		"message": "Desenează cu Moș Crăciun"
+	},
 	"scene_codeboogie": {
 		"message": "Dans codificat"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Goana pinguinului"
 	},
+	"scene_elfski": {
+		"message": "Elfi schiori"
+	},
 	"scene_factory": {
 		"message": "Fabrica de bomboane"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Direct la țintă"
+	},
+	"scene_icecave": {
+		"message": "Peșteră înghețată"
+	},
+	"scene_island": {
+		"message": "Insulă"
 	},
 	"scene_jamband": {
 		"message": "Orchestra elfilor"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Anotimpul cadourilor"
 	},
+	"scene_snowball": {
+		"message": "Furtună cu bulgări de zăpadă"
+	},
+	"scene_speedsketch": {
+		"message": "Ghicitori desenate"
+	},
 	"scene_streetview": {
 		"message": "Vedere din stradă"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfie-urile Moșului"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Pierde-vară"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentație"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Congelat!"
 	},
 	"snowflake_choose_background": {
 		"message": "Alege un fundal"

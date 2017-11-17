@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Światła miasta"
 	},
+	"scene_clausdraws": {
+		"message": "Rysowanie z Mikołajem"
+	},
 	"scene_codeboogie": {
 		"message": "Kodowanie w rytmie boogie"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingwini bieg"
 	},
+	"scene_elfski": {
+		"message": "Elf na nartach"
+	},
 	"scene_factory": {
 		"message": "Fabryka słodyczy"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Spadające kulki"
+	},
+	"scene_icecave": {
+		"message": "Jaskinia lodowa"
+	},
+	"scene_island": {
+		"message": "Wyspa"
 	},
 	"scene_jamband": {
 		"message": "Muzyczny zespół elfów"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Czas prezentów"
 	},
+	"scene_snowball": {
+		"message": "Atak śnieżkami"
+	},
+	"scene_speedsketch": {
+		"message": "Rysowanie na czas"
+	},
 	"scene_streetview": {
 		"message": "Widok ulicy"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelita"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfie Mikołaja"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Zbijanie bąków"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Pokusa"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Przegrywasz"
 	},
 	"snowflake_choose_background": {
 		"message": "Wybierz tło"

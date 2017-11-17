@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "Jouluaattona esittelemme sinulle ylpeinä joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa pukin rekeä matkalla ympäri maailman. Eräs ahkerasti joulupukin matkaa valmistelevista Korvatunturin kehittäjätontuista on päästänyt meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa hyödynnetään Google Mapsin ja rekisuunnittelun uusimpia tekniikoita, ja sen avulla voit seurata joulupukin matkaa ympäri maailman."
+		"message": "Jouluaattona esittelemme sinulle Joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa Pukin rekeä maailman ympäri. Yksi Joulupukin matkaa ahkerasti valmistelevista Korvatunturin kehittäjätontuista päästää meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa on hyödynnetty Google Mapsin ja rekisuunnittelun uusimpia tekniikoita. Seuraa sen avulla Joulupukin matkaa maailman ympäri!"
 	},
 	"about-content-three": {
 		"message": "Google on luonut ja kehittänyt Google Mapsin Joulupukin jäljittimen joulupukin tonttujen avustamana. Tarvitsetko apua tai onko sinulla muuta kysyttävää? Käy \u003ca href=\"//support.google.com/santatracker\"\u003eohjekeskuksessamme\u003c/a\u003e."
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Kaupungin valot"
 	},
+	"scene_clausdraws": {
+		"message": "Pukin piirustuspaja"
+	},
 	"scene_codeboogie": {
 		"message": "Kooditanssi"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pingviinikilpa"
 	},
+	"scene_elfski": {
+		"message": "Tonttuslalom"
+	},
 	"scene_factory": {
 		"message": "Karkkitehdas"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Purkkapallo"
+	},
+	"scene_icecave": {
+		"message": "Jääluola"
+	},
+	"scene_island": {
+		"message": "Saari"
 	},
 	"scene_jamband": {
 		"message": "Tonttujen bilebändi"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Antamisen aika"
 	},
+	"scene_snowball": {
+		"message": "Lumisota"
+	},
+	"scene_speedsketch": {
+		"message": "Pikapiirros"
+	},
 	"scene_streetview": {
 		"message": "Katunäkymä"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelliitti"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Pukin selfiet"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Lorvailua"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Houkutus"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Osuma!"
 	},
 	"snowflake_choose_background": {
 		"message": "Valitse taustaväri."

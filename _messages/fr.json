@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Les lumières de la ville"
 	},
+	"scene_clausdraws": {
+		"message": "Dessine avec le père Noël"
+	},
 	"scene_codeboogie": {
 		"message": "La danse du code"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "La promenade du pingouin"
 	},
+	"scene_elfski": {
+		"message": "La descente en skis de l'elfe"
+	},
 	"scene_factory": {
 		"message": "L'usine à bonbons"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Boules de chewing-gum en balade"
+	},
+	"scene_icecave": {
+		"message": "Grotte de glace"
+	},
+	"scene_island": {
+		"message": "Île"
 	},
 	"scene_jamband": {
 		"message": "Le groupe des lutins"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "La saison des fêtes"
 	},
+	"scene_snowball": {
+		"message": "Tempête de boules de neige"
+	},
+	"scene_speedsketch": {
+		"message": "Esquisse rapide"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Le satellite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies du père Noël"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Moment de détente"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentation"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Sénégal"
+	},
+	"snowball_iced": {
+		"message": "Gelé !"
 	},
 	"snowflake_choose_background": {
 		"message": "Choisissez un fond"

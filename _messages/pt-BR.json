@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Luzes da cidade"
 	},
+	"scene_clausdraws": {
+		"message": "Desenhe com o Papai Noel"
+	},
 	"scene_codeboogie": {
 		"message": "Dança de códigos"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Corrida do pinguim"
 	},
+	"scene_elfski": {
+		"message": "Esqui de duendes"
+	},
 	"scene_factory": {
 		"message": "Fábrica de doces"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Ladeira de bolas de chiclete"
+	},
+	"scene_icecave": {
+		"message": "Caverna de gelo"
+	},
+	"scene_island": {
+		"message": "Ilha"
 	},
 	"scene_jamband": {
 		"message": "Banda dos duendes"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Tempo de generosidade"
 	},
+	"scene_snowball": {
+		"message": "Batalha de bolas de neve"
+	},
+	"scene_speedsketch": {
+		"message": "Desenho rápido"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satélite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies do Papai Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Empurrando com a barriga"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentação"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Fica frio aí!"
 	},
 	"snowflake_choose_background": {
 		"message": "Escolha um cenário"

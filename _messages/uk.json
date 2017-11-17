@@ -462,7 +462,7 @@
 		"message": "Копіювати посилання"
 	},
 	"countdown_days": {
-		"message": "Дні"
+		"message": "Дн"
 	},
 	"countdown_hours": {
 		"message": "год"
@@ -495,7 +495,7 @@
 		"message": "данська"
 	},
 	"days": {
-		"message": "Дні"
+		"message": "Дн"
 	},
 	"de_country_name": {
 		"message": "Німеччина"
@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Вогні міста"
 	},
+	"scene_clausdraws": {
+		"message": "Малюнок для Діда Мороза"
+	},
 	"scene_codeboogie": {
 		"message": "Бугі-вугі"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Біг пінгвіна"
 	},
+	"scene_elfski": {
+		"message": "Ельф на лижах"
+	},
 	"scene_factory": {
 		"message": "Цукеркова фабрика"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Перекоти кульку"
+	},
+	"scene_icecave": {
+		"message": "Крижана печера"
+	},
+	"scene_island": {
+		"message": "Острів"
 	},
 	"scene_jamband": {
 		"message": "Музичний гурт помічників Діда Мороза"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Сезон подарунків"
 	},
+	"scene_snowball": {
+		"message": "Бій сніжками"
+	},
+	"scene_speedsketch": {
+		"message": "Швидка замальовка"
+	},
 	"scene_streetview": {
 		"message": "Перегляд вулиць"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Супутник"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Селфі Діда Мороза"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Ельф сачкує"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Спокуса"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowball_iced": {
+		"message": "Вибито!"
 	},
 	"snowflake_choose_background": {
 		"message": "Виберіть фон"
@@ -5151,7 +5178,7 @@
 		"message": "Венесуела"
 	},
 	"village_comeback": {
-		"message": "Відстежуйте пересування Діда Мороза всю ніч із 24 на 25 грудня!"
+		"message": "Стежте за подорожжю Діда Мороза всю ніч із 24 на 25 грудня!"
 	},
 	"village_explore": {
 		"message": "Дивіться відео, грайте та вчіться весь грудень разом із помічниками Діда Мороза"

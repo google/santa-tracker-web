@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Stadsligte"
 	},
+	"scene_clausdraws": {
+		"message": "Kersvader-tekeninge"
+	},
 	"scene_codeboogie": {
 		"message": "Kode-Boogie"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Pikkewynjaagtog"
 	},
+	"scene_elfski": {
+		"message": "Elf-ski"
+	},
 	"scene_factory": {
 		"message": "Lekkergoedfabriek"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Gumball-kantel"
+	},
+	"scene_icecave": {
+		"message": "Ysgrot"
+	},
+	"scene_island": {
+		"message": "Eiland"
 	},
 	"scene_jamband": {
 		"message": "Elf-jamgroep"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Seisoen van geskenke"
 	},
+	"scene_snowball": {
+		"message": "Sneeubalstorm"
+	},
+	"scene_speedsketch": {
+		"message": "Spoedskets"
+	},
 	"scene_streetview": {
 		"message": "Straataansig"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelliet"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Santa-selfies"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Steek lyf weg"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Versoeking"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Verys!"
 	},
 	"snowflake_choose_background": {
 		"message": "Kies 'n agtergrond"

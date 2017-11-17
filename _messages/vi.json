@@ -1148,6 +1148,9 @@
 	"scene_citylights": {
 		"message": "Ánh đèn thành phố"
 	},
+	"scene_clausdraws": {
+		"message": "Vẽ tranh ông già Noel"
+	},
 	"scene_codeboogie": {
 		"message": "Vũ điệu của mã"
 	},
@@ -1160,6 +1163,9 @@
 	"scene_dash": {
 		"message": "Chim cánh cụt tấn công"
 	},
+	"scene_elfski": {
+		"message": "Yêu tinh trượt tuyết"
+	},
 	"scene_factory": {
 		"message": "Nhà máy kẹo"
 	},
@@ -1171,6 +1177,12 @@
 	},
 	"scene_gumball": {
 		"message": "Độ nghiêng Gumball"
+	},
+	"scene_icecave": {
+		"message": "Động băng"
+	},
+	"scene_island": {
+		"message": "Đảo nhiệt đới"
 	},
 	"scene_jamband": {
 		"message": "Ban nhạc của chú lùn"
@@ -1220,6 +1232,12 @@
 	"scene_seasonofgiving": {
 		"message": "Mùa trao tặng"
 	},
+	"scene_snowball": {
+		"message": "Bão bóng tuyết"
+	},
+	"scene_speedsketch": {
+		"message": "Ký họa nhanh"
+	},
 	"scene_streetview": {
 		"message": "Chế độ xem phố"
 	},
@@ -1258,6 +1276,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Vệ tinh"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Ảnh tự chụp của ông già Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Chểnh mảng"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Sự cám dỗ"
@@ -1309,6 +1333,9 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Dính tuyết rồi!"
 	},
 	"snowflake_choose_background": {
 		"message": "Chọn phông nền"
