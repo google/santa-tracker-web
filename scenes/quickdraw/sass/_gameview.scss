@@ -13,6 +13,7 @@
       background-color: white;
       border-radius: 5px 5px 0 0;
       box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.2);
+      cursor: none;
       position: relative;
       width: 100% !important;
     }
@@ -72,6 +73,14 @@
         .whiteboard__pen {
           display: block;
         }
+      }
+
+      .gameview__clear-btn {
+        cursor: pointer;
+        left: 2%;
+        position: absolute;
+        top: 5%;
+        z-index: 3;
       }
     }
 
@@ -156,6 +165,26 @@
         font-family: 'Lobster', sans-serif;
         font-size: 40px;
         letter-spacing: 0.02em;
+      }
+    }
+
+    &__clear-btn {
+      background-color: #efefef;
+      background-image: url('img/clear-btn.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 45%;
+      border-radius: 50%;
+      box-shadow: 0 4px 1px #C1DBD9, 3px 7px rgba(0, 0, 0, 0.04);
+      height: 60px;
+      outline: none;
+      width: 60px;
+
+      &:active {
+        box-shadow: none !important;
+        outline: none;
+        transform: translateY(4px) translateZ(0);
+        transition: transform 0.2s, box-shadow 0.2s;
       }
     }
   }

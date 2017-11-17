@@ -61,6 +61,7 @@ Quickdraw scene.
             </div>
           </div>
           <div class="whiteboard">
+            <button class="gameview__clear-btn"></button>
             <canvas class="drawingCanvas" resize="true"></canvas>
             <div class="whiteboard__pen"></div>
             <div class="whiteboard__decorations">
@@ -70,7 +71,6 @@ Quickdraw scene.
             <div class="whiteboard__bottom"></div>
           </div>
           <div class="machineview">
-            <button class="gameview__clear-btn">Clear</button>
             <div class="machineview__bubble">
               <div class="machineview__bubble-inner">
                   <p class="machineview__primary"></p>
@@ -122,6 +122,7 @@ Quickdraw scene.
     onPreload: function() {
       this.preloadSounds('selfie_load_sounds', 30);
       this.preloadImages([
+      'img/clear-btn.svg',
       'img/elf.svg',
       'img/eraser.svg',
       'img/pen.svg',
