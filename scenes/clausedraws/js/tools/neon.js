@@ -44,8 +44,7 @@ app.Neon.prototype = Object.create(app.Marker.prototype);
  * @param  {!string} color  The current color setting
  * @return {boolean} Whether the canvas was changed
  */
-app.Neon.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
-    color) {
+app.Neon.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
   var context = canvas.getContext('2d');
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
@@ -60,7 +59,7 @@ app.Neon.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
 
   if (this.points.length > 1) {
     context.save();
-    context.shadowColor = color;
+    context.shadowColor = "#6ae5b9";
     context.shadowOffsetX = 0;
     context.shadowOffsetY = 0;
     context.shadowBlur = this.currentSize * 5;
