@@ -146,6 +146,7 @@
     left: 0;
     opacity: 0;
     overflow-x: auto;
+    overflow-y: hidden;
     pointer-events: none;
     position: absolute;
     right: 0;
@@ -191,19 +192,20 @@
   }
 
   .Tools-settings {
-    padding: 20px;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 0 20px;
     position: relative;
 
     &::after {
       background: #F6F6F6;
       content: '';
       display: block;
-      height: 90%;
+      height: 110px;
       position: absolute;
       right: 0;
-      top: 5%;
+      top: 15px;
       width: 2px;
     }
   }
