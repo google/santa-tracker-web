@@ -127,7 +127,7 @@
     margin-bottom: 90px;
     overflow-x: hidden;
     overflow-y: auto;
-    padding-top: 25px;
+    padding-top: 15px;
 
     @media screen and (max-width: 800px) {
       flex-direction: row;
@@ -372,6 +372,12 @@
         top: 50%;
         transform: translate(-100%, -50%);
         width: 0;
+      }
+    }
+
+    &--snow {
+      .Button {
+        margin: 0 auto;
       }
     }
 
