@@ -70,8 +70,8 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
   var drawHeight = this.currentSize;
 
   if (this.sizeConfig.scale) {
-    drawWidth = this.currentSize * this.width;
-    drawHeight = this.currentSize * this.height;
+    drawWidth = this.sizeFactor * this.width;
+    drawHeight = this.sizeFactor * this.height;
   }
 
   var offsetX = drawWidth / 2;
@@ -145,6 +145,13 @@ app.TextureDrawer.prototype.reset = function() {
 
 
 app.TextureDrawer.prototype.calculateDrawSize = function(size) {
-  return app.utils.map(size, this.sizeConfig.min,
-      this.sizeConfig.max);
+  if (this.sizeConfig.scale) {
+    var dimension = Math.max(this.height, this.width);
+    this.sizeFactor = app.utils.map(size, this.sizeConfig.min,
+        this.sizeConfig.max);
+    return dimension * this.sizeFactor;
+  } else {
+    return app.utils.map(size, this.sizeConfig.min,
+        this.sizeConfig.max);
+  }
 }
