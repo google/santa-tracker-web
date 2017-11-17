@@ -16,60 +16,18 @@
 
 goog.provide('app.SprinkleSpray');
 goog.require('app.Constants');
-goog.require('app.Tool');
+goog.require('app.SprayPattern');
 
 
 /**
  * Spray can that sprays sprinkles
  * @constructor
- * @extends {app.Tool}
+ * @extends {app.SprayPattern}
  * @param {!jQuery} $elem toolbox elem
  * @param {!string} name The name of the tool.
  */
 app.SprinkleSpray = function($elem, name) {
-  app.Tool.call(this, $elem, name);
-
-  this.soundKey = 'selfie_shave';
-  this.sprinkles = [
-    $elem.find('#sprinkle2')[0],
-    $elem.find('#sprinkle3')[0],
-    $elem.find('#sprinkle4')[0],
-    $elem.find('#sprinkle5')[0]
-  ];
-  this.sprinkleIndex = 0;
-  this.sprinkleHeight = 100;
-  this.sprinkleWidth = 100;
-  this.currentSize = app.Constants.SPRAY_CIRCLE_SIZE;
+  app.SprayPattern.call(this, $elem, name);
 };
-app.SprinkleSpray.prototype = Object.create(app.Tool.prototype);
-
-
-/**
- * Draws this tool to the canvas.
- * @param  {!HTMLCanvasElement} canvas The canvas to draw to
- * @param  {!app.Canvas.CoordsType} mouseCoords Mouse coords
- */
-app.SprinkleSpray.prototype.draw = function(canvas, mouseCoords) {
-  var context = canvas.getContext('2d');
-  var drawX = mouseCoords.normX * canvas.width;
-  var drawY = mouseCoords.normY * canvas.height;
-  var drawWidth = this.sprinkleWidth;
-  var drawHeight = this.sprinkleHeight;
-  // TODO: randomize offsets
-  var offsetX = 50;
-  var offsetY = 50;
-  context.save();
-  context.translate(drawX, drawY);
-  context.rotate(Math.random() * 2 * Math.PI);
-  context.drawImage(this.sprinkles[this.sprinkleIndex], -offsetX, -offsetY,
-      drawWidth, drawHeight);
-  context.restore();
-
-  this.sprinkleIndex = (this.sprinkleIndex + 1) % this.sprinkles.length;
-  return true;
-};
-
-app.Tool.prototype.calculateDrawSize = function() {
-  return app.Constants.SPRAY_CIRCLE_SIZE;
-};
+app.SprinkleSpray.prototype = Object.create(app.SprayPattern.prototype);
 
