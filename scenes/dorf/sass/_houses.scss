@@ -92,7 +92,7 @@ $idx-zIndex: 14;
 
       .assets {
         .building {
-          background-image: url(img/building-#{$id}.svg);
+          background-image: url(img/building/#{$id}.svg);
           width: percent(nth($house, $idx-width), $dim-house);
           height: percent(nth($house, $idx-height), $dim-house);
           left: percent(nth($house, $idx-left), $dim-house);
@@ -100,7 +100,7 @@ $idx-zIndex: 14;
         }
 
         .ice {
-          background-image: url(img/building-#{$id}-ice.svg);
+          background-image: url(img/building/#{$id}-ice.svg);
           width: percent(nth($house, $idx-iceWidth), $dim-house);
           height: percent(nth($house, $idx-iceHeight), $dim-house);
           left: percent(nth($house, $idx-iceLeft), $dim-house);

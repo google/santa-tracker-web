@@ -386,11 +386,11 @@ Santa's Village.
         var preload = [];
 
         if (!isMobile) {
-          preload.push('img/building-' + id + '.svg');
+          preload.push('img/building/' + id + '.svg');
         }
         preload.push('../../images/scenes/' + id + '_2x.png');
         if (house.locked && !isMobile) {
-          preload.push('img/building-' + id + '-ice.svg')
+          preload.push('img/building/' + id + '-ice.svg')
         }
         this.preloadImages(preload);
       }
