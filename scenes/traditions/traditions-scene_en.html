@@ -174,7 +174,7 @@ Polymer({
   onPreload: function() {
     this.preloadSounds('traditions_load_sounds', 30);
 
-    // nb. onPreload is called in create:, so local DOM isn't ready yet
+    // don't need the stamped HTML, the template is fine
     const template = this.constructor.template;
     const all = template.content.getElementById('traditions-all');
     const icons =
