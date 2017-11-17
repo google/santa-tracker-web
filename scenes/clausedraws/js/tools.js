@@ -18,6 +18,7 @@ goog.provide('app.Tools');
 goog.require('app.Eraser');
 goog.require('app.LayerTool');
 goog.require('app.Marker');
+goog.require('app.Neon');
 goog.require('app.PaintRoller');
 goog.require('app.Pencil');
 goog.require('app.Shape');
@@ -99,6 +100,7 @@ app.Tools = function(game, $elem) {
       drawFrequency: 0.1,
       monotone: true
     });
+  this.neon = new app.Neon($elem, 'neon');
 
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
@@ -160,6 +162,7 @@ app.Tools = function(game, $elem) {
     this.tinsel,
     this.icing,
     this.garland,
+    this.neon,
     this.spray,
     this.sprinkles,
     this.sceneAir,
