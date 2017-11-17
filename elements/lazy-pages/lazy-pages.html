@@ -227,7 +227,11 @@ Lazy loads children "pages".
           // wait for scene.preload, then return scene
           scene.setAttribute('preload', '');
           this.$.scene.appendChild(scene);
-          return scene.preload.then(() => scene);
+          if (scene.preload) {
+            return scene.preload.then(() => scene);
+          }
+          console.debug('got scene without preload', scene.localName);
+          return scene;
         }));
       };
 
