@@ -172,7 +172,7 @@ Polymer({
     this._observer = Polymer.dom(this).observeNodes(this._updateSelection);
   },
 
-  detatched: function() {
+  detached: function() {
     Polymer.dom(this).unobserveNodes(this._observer);
   },
 
