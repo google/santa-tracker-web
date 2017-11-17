@@ -49,8 +49,8 @@ export class DialerElement extends HTMLElement {
       <label for="localhost">ws://localhost:8080/socket</label>
     </div>
     <div>
-      <input type="radio" id="remote" name="server" value="wss://game-dot-next-santa-api/socket" />
-      <label for="remote">wss://game-dot-next-santa-api/socket</label>
+      <input type="radio" id="remote" name="server" value="wss://game-dot-next-santa-api.appspot.com/socket" />
+      <label for="remote">wss://game-dot-next-santa-api.appspot.com/socket</label>
     </div>
     <div>
       <button>Start</button>
