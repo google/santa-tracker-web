@@ -1,6 +1,10 @@
 ##{$name} {
   .timesup-card {
     color: white;
+    @media (max-width: 767px) {
+      box-sizing: border-box;
+      padding: 20px 0;
+    }
 
     &__title {
       font-family: 'Lobster', sans-serif;
@@ -22,6 +26,10 @@
       max-width: 1350px;
       width: 90%;
       margin: 50px 0;
+
+      @media (max-width: 767px) {
+        flex-wrap: wrap;
+      }
     }
 
     &__drawing {
@@ -30,6 +38,11 @@
       height: 225px;
       position: relative;
       width: 300px;
+
+      @media (max-width: 767px) {
+        width: 100%;
+        margin: 10px;
+      }
 
       &--recognized::before,
       &--not-recognized::before {
