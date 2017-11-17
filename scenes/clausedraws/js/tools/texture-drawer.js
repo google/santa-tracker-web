@@ -37,6 +37,7 @@ app.TextureDrawer = function($elem, name, config) {
   this.drawFrequency = config && config.drawFrequency || 4;
   this.points = [];
   this.monotone = config && config.monotone || false;
+  this.noRotation = config && config.noRotation || false;
   this.sizeConfig = config && config.sizeConfig || {
       min: app.Constants.PEN_MIN,
       max: app.Constants.PEN_MAX
@@ -100,7 +101,7 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, p1, p1, midpoint);
-      var rotation = Math.random();
+      var rotation = this.noRotation ? 0 : Math.random();
 
       context.save();
       context.globalAlpha = this.opacity;
@@ -120,7 +121,7 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);
-      var rotation = Math.random();
+      var rotation = this.noRotation ? 0 : Math.random();
 
       context.save();
       context.globalAlpha = this.opacity;

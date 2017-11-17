@@ -80,6 +80,15 @@ app.Tools = function(game, $elem) {
       },
       monotone: true
     });
+  this.icing = new app.TextureDrawer($elem, 'icing', {
+      sizeConfig: {
+        min: app.Constants.FROSTING_MIN,
+        max: app.Constants.FROSTING_MAX,
+        scale: true
+      },
+      noRotation: true,
+      monotone: true
+    });
 
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
@@ -139,6 +148,7 @@ app.Tools = function(game, $elem) {
     this.marker,
     this.paintbrush,
     this.tinsel,
+    this.icing,
     this.spray,
     this.sprinkles,
     this.sceneAir,
