@@ -76,14 +76,20 @@ app.view.DrawingCanvas.prototype.getSegments = function() {
 
 
 app.view.DrawingCanvas.prototype.resizeCanvas = function() {
-  var pCenter = paper.view.center;
-
-  this.canvas.width = this.$canvas.width();
-  this.canvas.height = this.canvas.width * 594 / 1015;
-  this.canvas.style.width = this.$canvas.width() + "px";
-  this.canvas.style.height = (this.$canvas.width() * 594 / 1015) + "px";
-  paper.view.viewSize = new paper.Size(this.canvas.width, this.canvas.height);
-  this.$canvas.parent().css('padding-bottom', this.$canvas.width() * 594 / 1015);
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    this.canvas.width = this.$canvas.width();
+    this.canvas.height = this.$canvas.parent().height();
+    this.canvas.style.width = this.$canvas.width() + "px";
+    this.canvas.style.height = this.$canvas.parent().height() + "px";
+    paper.view.viewSize = new paper.Size(this.canvas.width, this.canvas.height);
+  } else {
+    this.canvas.width = this.$canvas.width();
+    this.canvas.height = this.canvas.width * 594 / 1015;
+    this.canvas.style.width = this.$canvas.width() + "px";
+    this.canvas.style.height = (this.$canvas.width() * 594 / 1015) + "px";
+    paper.view.viewSize = new paper.Size(this.canvas.width, this.canvas.height);
+    this.$canvas.parent().css('padding-bottom', this.$canvas.width() * 594 / 1015);
+  }
 
   paper.view.draw();
 };

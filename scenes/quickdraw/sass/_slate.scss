@@ -20,12 +20,25 @@
       font-weight: 900;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+      }
     }
 
     &__big-text {
       font-family: 'Lobster', sans-serif;
       font-size: 110px;
       transform: rotate(-5.6deg);
+
+      @media (max-width: 767px) {
+        font-size: 60px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      max-width: 50vw;
+      max-height: 35vw;
     }
   }
 }

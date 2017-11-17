@@ -13,9 +13,19 @@
 
     justify-content: center;
 
+    @media (max-width: 767px) {
+      box-sizing: border-box;
+      display: block;
+      overflow: scroll;
+      padding: 5vh 0;
+    }
+
     &__picture {
       margin-top: -5%;
       max-height: 35%;
+      @media (max-width: 767px) {
+        margin-top: 0;
+      }
     }
 
     &__title {

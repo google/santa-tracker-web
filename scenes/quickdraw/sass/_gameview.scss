@@ -9,6 +9,10 @@
     height: 100%;
     position: relative;
 
+    @media (max-width: 767px) {
+      flex-flow: column;
+    }
+
     .drawingCanvas {
       background-color: white;
       border-radius: 5px 5px 0 0;
@@ -16,6 +20,11 @@
       cursor: none;
       position: relative;
       width: 100% !important;
+
+      @media (max-width: 767px) {
+        border-radius: 0;
+        height: 100% !important;
+      }
     }
 
     .whiteboard {
@@ -27,6 +36,15 @@
       width: 100% * $width-whiteboard;
       padding-bottom: 58.52% * $width-whiteboard;
 
+      @media (max-width: 767px) {
+        padding-bottom: 0 !important;
+        width: 100%;
+        left: initial;
+        height: 70%;
+        padding: 0;
+        top: 0;
+      }
+
       &__bottom {
         background-color: #999999;
         border-radius: 0 0 12px 12px;
@@ -35,7 +53,11 @@
         height: 12px;
         left: -20px;
         position: absolute;
-        width: calc(100% + 40px)
+        width: calc(100% + 40px);
+
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
 
       &__decorations {
@@ -52,6 +74,10 @@
         img:last-child {
           width: 10vw * $width-whiteboard;
         }
+
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
 
       &__pen {
@@ -65,6 +91,10 @@
         left: 0;
         position: absolute;
         width: 15%;
+
+        @media (max-width: 767px) {
+          display: none !important;
+        }
       }
 
       &:hover {
@@ -94,8 +124,23 @@
       right: 2%;
       width: 20%;
 
+      @media (max-width: 767px) {
+        position: relative;
+        height: 20%;
+        width: 100%;
+        background-color: #009245;
+        left: initial;
+        right: initial;
+        top: initial;
+        bottom: initial;
+      }
+
       &__robot {
         width: 100%;
+
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
 
       &__bubble {
@@ -107,6 +152,13 @@
         position: relative;
         width: 100%;
 
+        @media (max-width: 767px) {
+          background-image: url('img/mobile-bubble.svg');
+          padding-bottom: 42%;
+          width: calc(100% - 32px);
+          margin-left: 16px;
+        }
+
         &-inner {
           left: 0;
           position: absolute;
@@ -114,6 +166,11 @@
           top: 40%;
           transform: translateY(-50%);
           width: 98%;
+
+          @media (max-width: 767px) {
+            top: 58%;
+            width: 49.4%;
+          }
         }
       }
 
@@ -121,6 +178,10 @@
         font-family: Monaco, Consolas, "Lucida Console", monospace;
         font-size: 20px;
         margin: 0;
+
+        @media (max-width: 767px) {
+          font-size: 14px;
+        }
       }
 
       &__secondary {
@@ -129,6 +190,10 @@
         font-family: Monaco, Consolas, "Lucida Console", monospace;
         font-size: 40px;
         margin: 0;
+
+        @media (max-width: 767px) {
+          font-size: 25px;
+        }
       }
 
     }
@@ -139,8 +204,23 @@
       left: 5%;
       width: 15%;
       z-index: 2;
+
+      @media (max-width: 767px) {
+        position: relative;
+        height: 10%;
+        width: 100%;
+        background-color: #F9CE1D;
+        left: initial;
+        right: initial;
+        top: initial;
+        bottom: initial;
+      }
+
       img {
         width: 100%;
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
 
       &-inner {
@@ -149,6 +229,12 @@
         top: 55%;
         transform: translateY(-50%);
         width: 91.5%;
+
+        @media (max-width: 767px) {
+          position: relative;
+          display: flex;
+          padding-left: 16px;
+        }
       }
 
       &__primary {
@@ -158,6 +244,17 @@
         font-weight: 900;
         letter-spacing: 0.16em;
         text-transform: uppercase;
+
+        @media (max-width: 767px) {
+          font-family: Monaco, Consolas, "Lucida Console", monospace;
+          font-size: 15px;
+          font-weight: normal;
+          letter-spacing: initial;
+        }
+
+        &:after {
+          content: ':';
+        }
       }
 
       &__secondary {
@@ -165,6 +262,15 @@
         font-family: 'Lobster', sans-serif;
         font-size: 40px;
         letter-spacing: 0.02em;
+
+        @media (max-width: 767px) {
+          font-family: Monaco, Consolas, "Lucida Console", monospace;
+          font-size: 15px;
+          font-weight: normal;
+          letter-spacing: initial;
+          padding-left: 3px;
+          text-transform: uppercase;
+        }
       }
     }
 
