@@ -191,7 +191,7 @@ Lazy loads children "pages".
     },
 
     load: function(route) {
-      const draft = this.drafts[route];
+      const draft = this.getDraft(route);
       if (this._pendingDraft === draft) {
         return;  // already loading
       }

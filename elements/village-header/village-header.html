@@ -1,0 +1,84 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<link rel="import" href="../../components/polymer/polymer.html" />
+
+<link rel="import" href="village-header_module.html">
+
+<dom-module id="village-header">
+<template>
+  <style include="village-header_module"></style>
+  <header>
+    <div id="effects">
+      <slot name="effects"></slot>
+    </div>
+    <div id="ornament" class$="[[_computeOrnamentClass(remainingTime)]]"></div>
+    <div hidden="[[!remainingTime]]">
+      <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
+      <countdown-timer remaining-time="[[remainingTime]]" fast="[[fast]]">
+        <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
+      </countdown-timer>
+    </div>
+    <div class="spacer"></div>
+    <div class="google" hidden$="[[nobranding]]"></div>
+    <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
+    <div class="spacer"></div>
+    <slot></slot>
+  </header>
+</template>
+<script>
+
+Polymer({
+  is: 'village-header',
+
+  properties: {
+
+    /**
+     * The remaining time to show in the contained `countdown-timer`.
+     */
+    remainingTime: {
+      type: Number,
+    },
+
+    /**
+     * Whether to show the header in 'fast' mode.
+     */
+    fast: {
+      type: Boolean,
+      value: false,
+    },
+
+    /**
+     * Whether to hide the Google logo.
+     */
+    nobranding: {
+      type: Boolean,
+      value: false,
+    },
+
+  },
+
+  _computeOrnamentClass: function(remainingTime) {
+    return remainingTime ? '' : 'post';
+  },
+
+});
+
+</script>
+
+</dom-module>

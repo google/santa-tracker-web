@@ -20,6 +20,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
+<link rel="import" href="../../elements/village-header/village-header.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="dorf-scene_module.html">
 
@@ -32,12 +33,25 @@ Santa's Village.
 
   <santa-strings strings="{{strings}}"></santa-strings>
 
-  <santa-state countdown-finished="{{countdownFinished}}"
-      during-tracker="{{duringTracker}}"
-      remaining-time="{{remainingTime}}"></santa-state>
+  <santa-state countdown-finished="{{_countdownFinished}}"
+      during-tracker="{{_duringTracker}}"
+      remaining-time="{{_remainingTime}}"></santa-state>
 
-  <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
+  <village-header nobranding remaining-time="[[_remainingTime]]"
+      class$="[[_computeHeaderClass(_countdownFinished)]]">
+    <button>
+      <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
+    </button>
+    <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+  </village-header>
+
+  <div id="mobiletext">
+    <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+  </div>
+
+  <div id="module-dorf" class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
     <smatch-secret character-id="santa"></smatch-secret>
+<!--
     <header>
       <div id="header-background">
         <div id="header-mobilevillage"></div>
@@ -55,7 +69,7 @@ Santa's Village.
         <div id="ornament"></div>
         <div id="countdown">
           <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-          <countdown-timer remaining-time="[[remainingTime]]">
+          <countdown-timer remaining-time="[[_remainingTime]]">
             <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
             <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
             <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
@@ -71,10 +85,8 @@ Santa's Village.
         <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
       </div>
     </header>
+-->
     <div id="village-all">
-      <div id="mobiletext">
-        <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
-      </div>
       <div id="ground"></div>
       <div id="road"></div>
       <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
@@ -228,8 +240,8 @@ Santa's Village.
     </div>
 
     <footer>
-      <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <img src$="[[_computeFooterElves(countdownFinished)]]">
+      <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+      <img src$="[[_computeFooterElves(_countdownFinished)]]">
     </footer>
 
     <smatch-storage unlocks="{{smatchUnlocks}}"></smatch-storage>
@@ -273,10 +285,10 @@ Santa's Village.
       },
 
       /** Bound from `santa-state`, whether the countdown is done. */
-      countdownFinished: Boolean,
+      _countdownFinished: Boolean,
 
       /** Bound from `santa-state`, whether we are during the tracker. */
-      duringTracker: Boolean,
+      _duringTracker: Boolean,
 
       /** Strings bound from `santa-strings`. */
       strings: Object,
@@ -295,6 +307,10 @@ Santa's Village.
       'easteregg-snowmobile2.click': '_driveSnowmobile',
       'easteregg-snowmobile3.click': '_driveSnowmobile',
       'easteregg-snowmobile4.click': '_driveSnowmobile',
+    },
+
+    _computeHeaderClass: function(countdownFinished) {
+      return countdownFinished ? 'countdown-finished' : '';
     },
 
     _computeCountdownFinishedClass: function(finished) {

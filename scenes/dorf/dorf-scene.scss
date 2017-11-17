@@ -8,12 +8,6 @@ $name: 'module-dorf';
 $width-big: 600px;
 $toolbar-size: 64px;
 
-[lang='de'] ##{$name} {
-  h1 {
-    font-size: 62px !important;
-  }
-}
-
 :host {
   background: #f5f2e2;
 }
@@ -21,6 +15,113 @@ $toolbar-size: 64px;
 [hidden] {
   display: none !important;
 }
+
+p {
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 24px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+village-header {
+  p {
+    font-weight: 600;
+    max-width: 400px;
+  }
+
+  $extra-height: 142px;
+  button {
+    margin-top: $extra-height;
+    background: #83ce00;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 4px;
+    line-height: 28px;
+    padding: 0 16px;
+    border: 2px solid transparent;
+    position: relative;
+    box-shadow: 0 3px 0 #659e00;
+    will-change: transform;
+    letter-spacing: -1px;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: 0 1px 0 #659e00;
+      transform: translateY(2px);
+    }
+
+    &:focus {
+      border-color: rgba(255, 255, 255, 0.25);
+      outline: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      pointer-events: auto;
+      top: -($extra-height);
+      width: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      background: url(img/santa-takeoff.svg) center top no-repeat;
+      background-size: 128px 128px;
+    }
+  }
+
+  &:not(.countdown-finished) {
+    button {
+      display: none;
+    }
+  }
+  &.countdown-finished {
+    p {
+      display: none;
+    }
+  }
+  @media (max-width: ($width-tablet - 1)) {
+    p {
+      display: none;
+    }
+  }
+}
+
+
+#mobiletext {
+  display: none;
+}
+@media (max-width: ($width-tablet - 1)) {
+  #mobiletext {
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.125);
+    z-index: 100;
+    display: block;
+    background: #00c6ed;
+    color: white;
+    padding: 17px 24px 16px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -101px;
+      width: 320px;
+      left: 20px;
+      height: 120px;
+      display: block;
+      background: url(img/mobile-header-elves.svg) bottom left no-repeat;
+    }
+  }
+}
+
+
+
 
 ##{$name} {
 
@@ -31,58 +132,6 @@ $toolbar-size: 64px;
     z-index: 1000;
   }
 
-  header {
-    .village-tracker-link {
-      display: block;
-      background: #83CE00;
-      box-shadow: 0 3px 0 #659e00;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 16px;
-      border-radius: 4px;
-      line-height: 33px;
-      padding: 0 21px;
-      position: relative;
-      top: 229px;
-      pointer-events: all;
-
-      &:active {
-        box-shadow: 0 1px 0 #659e00;
-        margin-top: 2px;
-      }
-
-      // create a big hit target around the link
-      &::after {
-        content: '';
-        position: absolute;
-        left: -80px;
-        bottom: 0;
-        right: -80px;
-        top: -200px;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: -135px;
-        left: 0;
-        width: 100%;
-        height: 101px;
-        background: url(img/santa-takeoff.svg) center no-repeat;
-        background-size: contain;
-      }
-
-      @media (max-width: ($width-tablet - 1)) {
-        top: 149px;
-
-        &::before {
-          top: -107px;
-        }
-      }
-    }
-  }
-
   &.countdown-finished {
     footer {
       img {
@@ -90,244 +139,6 @@ $toolbar-size: 64px;
         width: 800px;
         max-width: 100%;
       }
-    }
-
-    header {
-      #header-content {
-        #count-down, p {
-          display: none;
-        }
-
-        h1 {
-          position: relative;
-          top: 70px;
-        }
-
-        #ornament {
-          position: absolute;
-          top: 10px;
-          left: 50%;
-          transform: translate(-50%);
-          background: url(img/day-of-assets-globe.svg) 50% 20% no-repeat;
-          background-size: contain;
-          width: 453px;
-          height: 396px;
-
-          @media (max-width: ($width-tablet - 1)) {
-            width: 226px;
-            height: 198px;
-            top: 5px;
-          }
-        }
-      }
-    }
-  }
-
-  p {
-    margin: 35px auto 0;
-    color: #fff;
-    text-align: center;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 26px;
-    max-width: 480px;
-  }
-
-  header {
-    // NOTE: This is intentionally not position: relative (or absolute, ...)
-    // so that we don't create a new z-index heirarchy. Conveniently, the
-    // <header> element is always shown at 0,0, so positioning is still easy.
-    height: 385px;
-    overflow: visible;
-
-    // By default, there's nothing user-interactable here.
-    pointer-events: none;
-
-    #header-background {
-      z-index: $base-background-z-index;
-      height: 665px;
-      background-image: url(img/header-bg.svg);
-      background-repeat: repeat-x;
-      background-position: 50% 100%;
-      background-size: 1618px 791px;
-      position: absolute;
-      width: 100%;
-    }
-
-    /** Contains all effects, like snow, the airplane etc. */
-    #header-skyeffect {
-      z-index: $base-raised-z-index;
-      position: absolute;
-      width: 100%;
-      height: 630px;
-      overflow: hidden;
-
-      santa-weather {
-        height: 100%;
-      }
-
-      span {
-        display: inline-block;
-        position: absolute;
-      }
-
-      .sun {
-        position: absolute;
-        top: 32px;
-        left: 70%;
-        width: 107px;
-        height: 109px;
-        background: url(img/sun.svg) no-repeat;
-      }
-
-      .plane {
-        position: absolute;
-        top: 32px;
-        width: 171px;
-        height: 82px;
-        margin-left: -(171px/2);
-        background: url(img/plane.svg) center no-repeat;
-        // this only animates across the screen for <10% of the time
-        animation: #{$name}-plane 75s infinite linear;
-      }
-
-      #village-pegman {
-        $img-width: 192px;
-        $img-height: 128px;
-
-        @include will-change(transform, opacity);
-        transform: translateY(-1000px) translateZ(0);  // hide offscreen
-        pointer-events: auto;
-
-        position: absolute;
-        overflow: hidden;
-
-        &.fadeout {
-          transition: opacity 0.5s;
-          opacity: 0;
-        }
-
-        #village-pegman-image {
-          width: $img-width;
-          height: $img-height;
-          display: block;
-          background: url(img/pegman-frames.png);
-          background-repeat: no-repeat;
-          background-size: $img-width ($img-height * 3);
-          font-size: 0;
-        }
-
-        left: calc(50% + 520px);
-
-        @media (max-width: ($width-desktop - 1)) {
-          top: 20px;
-          left: calc(50% + 300px);
-
-          #village-pegman-image {
-            transform: scale(0.6);
-          }
-        }
-        @media (max-width: ($width-tablet - 1)) {
-          // Land pegman right in the middle of the village, where there's just snow.
-          left: calc(50% - 120px);
-        }
-
-        &.active {
-          animation: 10s #{$name}-skydive ease-in;
-          animation-fill-mode: forwards;
-          #village-pegman-image {
-            animation: 6s #{$name}-skydive-image steps(2);
-            animation-delay: 4s;
-            animation-fill-mode: both;
-          }
-        }
-      }
-    }
-
-    #header-content {
-      z-index: $base-raised-z-index;
-      position: absolute;
-      width: 100%;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      text-align: center;
-      flex-direction: column;
-      position: relative;
-
-      // NOTE: Give this a layer, as it extends over its neighbour to the
-      // south, and Chrome is confused when painting.
-      @include will-change();
-
-      #ornament {
-        position: absolute;
-        top: 60px;
-        left: 50%;
-        transform: translate(-50%);
-        background: url(img/ornament.svg) 50% 20% no-repeat;
-        background-size: contain;
-        width: 450px;
-        height: 250px;
-        z-index: -10;  // hide in background
-
-        @media (max-width: ($width-tablet - 1)) {
-          top: 20px;
-          width: 300px;
-        }
-      }
-
-      #countdown {
-        padding: 60px 0 30px 0;
-      }
-
-      // NOTE: This is used for the countdown timer.
-      h2 {
-        font-size: 12px;
-        letter-spacing: 1px;
-        font-weight: 600;
-        color: #fff;
-        margin: 6px 0;
-        line-height: 12px;
-        text-transform: uppercase;
-      }
-      countdown-timer h2 {
-        margin: 0;
-      }
-
-      h1 {
-        @include will-change();
-        margin: 0 8px;
-        font-family: 'Lobster', sans-serif;
-        font-size: 72px;
-        line-height: 54px;
-        color: white;
-        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-        transform: rotateZ(-3deg) skew(-4deg);
-      }
-
-      p {
-        font-weight: 500;
-        margin-top: 35px;
-        letter-spacing: -1px;
-      }
-    }
-
-    #header-mobilevillage {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 80px;
-      display: none;
-    }
-    #header-mobileelves {
-      position: absolute;
-      top: 210px + 180px;
-      width: 320px;
-      left: 20px;
-      height: 120px;
-      display: none;
     }
   }
 
@@ -337,12 +148,8 @@ $toolbar-size: 64px;
   /** Village flexbox */
   #village-all {
     z-index: $base-background-z-index;
-    position: relative;  // nb. creates a z-index layer for children
     overflow: hidden;
-
-    #mobiletext {
-      display: none;
-    }
+    position: relative;  // nb. creates a z-index layer for children
 
     #houses {
       position: relative;
@@ -494,13 +301,12 @@ $toolbar-size: 64px;
     margin-top: -200px;  // nb: removed on mobile
 
     p {
-      margin: 0 auto;
       padding: 20px 12px;
       color: #3474ba;
-      font-weight: 500;
       font-size: 22px;
       line-height: 26px;
       max-width: 400px;
+      text-shadow: none;
     }
 
     img {
@@ -774,57 +580,7 @@ $toolbar-size: 64px;
       transform-origin: center bottom;
     }
 
-    header {
-      margin-bottom: -80px;
-
-      #header-content {
-        #count-down {
-          padding-top: 90px;
-        }
-        p, h1 {
-          display: none;
-        }
-      }
-
-      #header-skyeffect {
-        margin-top: -180px;
-      }
-      #header-background {
-        margin-top: -180px;
-        height: 305px + 180px;
-        background-position: center;
-      }
-
-      #header-mobilevillage {
-        display: block;
-        background: url(img/mobile-header.svg) center bottom no-repeat;
-      }
-      #header-mobileelves {
-        display: block;
-        background: url(img/mobile-header-elves.svg) center left no-repeat;
-      }
-    }
-
     #village-all {
-      #mobiletext {
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.33);
-        display: block;
-        background: #00c6ed;
-        color: white;
-        padding: 17px 24px 16px;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.125);
-
-        p {
-          font-size: 1.4em;
-          line-height: 1.45em;
-          letter-spacing: -1px;
-          font-weight: 500;
-
-          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
-          margin: 0 auto;
-        }
-      }
-
       #houses {
         align-items: stretch;
 
