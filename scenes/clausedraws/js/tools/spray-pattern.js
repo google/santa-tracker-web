@@ -34,6 +34,7 @@ app.SprayPattern = function($elem, name, config) {
   this.imageIndex = 0;
   this.currentSize = app.Constants.SPRAY_CIRCLE_SIZE;
   this.maxOffset = config.maxOffset || 0;
+  this.density = config.density || 1;
 
   this.populateImages($elem);
 };
@@ -50,26 +51,30 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
 
-  this.imageIndex = Math.floor(Math.random() * this.images.length);
-  var image = this.images[this.imageIndex];
-  var drawWidth = image.width;
-  var drawHeight = image.height;
-  // TODO: randomize offsets
-  var offsetX = -drawWidth / 2 + this.getRandomOffset();
-  var offsetY = -drawHeight / 2 + this.getRandomOffset();
+  for (var i = 0; i < this.density; i++) {
+    this.imageIndex = Math.floor(Math.random() * this.images.length);
+    var image = this.images[this.imageIndex];
+    var drawWidth = image.width;
+    var drawHeight = image.height;
+    // TODO: randomize offsets
+    var offsetX = -drawWidth / 2 + this.getRandomOffset();
+    var offsetY = -drawHeight / 2 + this.getRandomOffset();
 
-  var drawElem;
-  if (image.elem) {
-    drawElem = image.elem;
-  } else if (image.name) {
-    drawElem = app.ImageManager.getImage(image.name, image.color);
+    var drawElem;
+    if (image.elem) {
+      drawElem = image.elem;
+    } else if (image.name) {
+      drawElem = app.ImageManager.getImage(image.name, image.color);
+    }
+
+    context.save();
+    context.translate(drawX, drawY);
+    if (!image.noRotate) {
+      context.rotate(Math.random() * 2 * Math.PI);
+    }
+    context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
+    context.restore();
   }
-
-  context.save();
-  context.translate(drawX, drawY);
-  context.rotate(Math.random() * 2 * Math.PI);
-  context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
-  context.restore();
 
   return true;
 };

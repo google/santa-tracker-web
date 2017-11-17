@@ -21,6 +21,7 @@ goog.require('app.ImageItemCandyGumdrop');
 goog.require('app.ImageItemCandyJellybean');
 goog.require('app.ImageItemCandyMintSwirl');
 goog.require('app.ImageItemCandyMintWheel');
+goog.require('app.ImageItemCandySprinkleRound');
 goog.require('app.ImageItemCandySucker');
 goog.require('app.ImageItemCandyWrapper1');
 goog.require('app.ImageItemCandyWrapper2');
@@ -75,6 +76,7 @@ app.ImageManager = function() {
       'image-candy-jellybean': new app.ImageItemCandyJellybean(),
       'image-candy-mint-swirl': new app.ImageItemCandyMintSwirl(),
       'image-candy-mint-wheel': new app.ImageItemCandyMintWheel(),
+      'image-candy-sprinkle-round': new app.ImageItemCandySprinkleRound(),
       'image-candy-sucker': new app.ImageItemCandySucker(),
       'image-candy-wrapper1': new app.ImageItemCandyWrapper1(),
       'image-candy-wrapper2': new app.ImageItemCandyWrapper2(),

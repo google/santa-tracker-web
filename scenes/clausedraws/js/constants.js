@@ -70,6 +70,7 @@ app.Constants = {
     ]
   },
   CANDY_SPRAY_CONFIG: {
+    density: 5,
     maxOffset: 50,
     images: [
       { name: "image-candy-jellybean",
@@ -81,7 +82,25 @@ app.Constants = {
       { name: "image-candy-jellybean",
         color: "#22af22" },
       { name: "image-candy-jellybean",
-        color: "#00750b" }
+        color: "#00750b" },
+      { name: "image-candy-sprinkle-round",
+        noRotate: true,
+        color: "#ff0619" },
+      { name: "image-candy-sprinkle-round",
+        noRotate: true,
+        color: "#af0000" },
+      { name: "image-candy-sprinkle-round",
+        noRotate: true,
+        color: "#259b24" },
+      { name: "image-candy-sprinkle-round",
+        noRotate: true,
+        color: "#22af22" },
+      { name: "image-candy-sprinkle-round",
+        noRotate: true,
+        color: "#00750b" },
+      { name: "image-candy-sprinkle-round",
+        noRotate: true,
+        color: "#f2faff" },
     ]
   },
 
