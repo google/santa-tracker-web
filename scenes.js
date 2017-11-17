@@ -48,6 +48,7 @@ module.exports = {
     entryPoint: 'app.Scene'
   },
   clausdraws: {
+    msgid: 'scene_clausdraws',
   },
   citylights: {
     msgid: 'scene_citylights',
@@ -92,6 +93,7 @@ module.exports = {
     dependencies: ['press']
   },
   elfski: {
+    msgid: 'scene_elfski',
     entryPoint: 'app.Game'
   },
   factory: {
@@ -110,8 +112,10 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   icecave: {
+    msgid: 'scene_icecave',
   },
   island: {
+    msgid: 'scene_island',
   },
   jamband: {
     msgid: 'scene_jamband',
@@ -196,6 +200,9 @@ module.exports = {
     msgid: 'scene_giftmatch',
     entryPoint: 'app.Game'
   },
+  snowball: {
+    msgid: 'scene_snowball',
+  },
   snowflake: {
     msgid: 'scene_postcard',
     entryPoint: 'app.Scene',
@@ -247,15 +254,15 @@ module.exports = {
   reload: {msgid: 'scene_videoscene_reload'},
   santasback: {msgid: 'scene_videoscene_santasback'},
   satellite: {msgid: 'scene_videoscene_satellite'},
-  selfies: {},
-  slackingoff: {},
+  selfies: {msgid: 'scene_videoscene_selfies'},
+  slackingoff: {msgid: 'scene_videoscene_slackingoff'},
   temptation: {msgid: 'scene_videoscene_temptation'},
   tired: {msgid: 'scene_videoscene_tired'},
   trailer: {msgid: 'scene_videoscene_trailer'},
   wheressanta: {msgid: 'scene_videoscene_wheressanta'},
 
 // dummy: used for prod demos
-  
-  somebodypleasethinkofthechildren: {},
+
+  somebodypleasethinkofthechildren: {msgid: 'wrapbattle_feedback_perfect'},
 
 };
