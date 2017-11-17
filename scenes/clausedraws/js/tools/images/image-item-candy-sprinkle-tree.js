@@ -14,26 +14,26 @@
  * the License.
  */
 
-goog.provide('app.ImageItemCandySprinkleRound');
+goog.provide('app.ImageItemCandySprinkleTree');
 goog.require('app.Constants');
 goog.require('app.SVGImage');
 
 
 /**
- * Candy round sprinkle image
+ * Candy tree sprinkle image
  * @constructor
  * @extends {app.SVGImage}
  */
-app.ImageItemCandySprinkleRound = function() {
+app.ImageItemCandySprinkleTree = function() {
   app.SVGImage.call(this);
 
-  this.width = 7.7;
-  this.height = 7.7;
+  this.width = 17;
+  this.height = 21;
 };
-app.ImageItemCandySprinkleRound.prototype = Object.create(app.SVGImage.prototype);
+app.ImageItemCandySprinkleTree.prototype = Object.create(app.SVGImage.prototype);
 
 
-app.ImageItemCandySprinkleRound.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.66 7.66"><defs><style>.cls-1{fill:' + color + ';}.cls-2{opacity:0.2;}</style></defs><circle class="cls-1" cx="3.83" cy="3.83" r="3.83"/><path class="cls-2" d="M6.17.82A3.86,3.86,0,0,1,6.68,2.7,3.83,3.83,0,0,1,2.85,6.53,3.78,3.78,0,0,1,.51,5.71,3.82,3.82,0,1,0,6.17.82Z"/></svg>';
+app.ImageItemCandySprinkleTree.prototype.getSVGString = function(color) {
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.52 10.45"><defs><style>.cls-1{fill:' + color + ';}</style></defs><path class="cls-1" d="M8.5,9.18l-2-2.77h1.2a.12.12,0,0,0,.09-.19l-2-2.7h.65a.12.12,0,0,0,.11-.18L4.36.06a.11.11,0,0,0-.2,0L2,3.34a.11.11,0,0,0,.1.18h.65l-2,2.7a.12.12,0,0,0,.1.19H2.1L0,9.18a.11.11,0,0,0,.09.19H3.5v1a.12.12,0,0,0,.12.12H4.9A.12.12,0,0,0,5,10.33v-1H8.4A.12.12,0,0,0,8.5,9.18Z"/></svg>';
   return data;
 };
