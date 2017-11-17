@@ -32,7 +32,7 @@ app.view.DrawingCanvas = function(container) {
 
   // Drawing config
   this.strokeColor = '#37414D';
-  this.strokeWidth = 15;
+  this.strokeWidth = 10;
   this.strokeCap = 'round';
   this.previousPos = null;
   this.paths = [];
@@ -92,7 +92,7 @@ app.view.DrawingCanvas.prototype.startListening = function() {
   paper.view.on('mousemove', function(event) {
     if (this.canvas) {
       var x = event.point.x;
-      var y = this.canvas.height - event.point.y;
+      var y = paper.view.viewSize.height - event.point.y;
 
       this.$pen.css({
         bottom: y + 1,
