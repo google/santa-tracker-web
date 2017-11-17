@@ -163,6 +163,10 @@
       opacity: 1;
       pointer-events: auto;
 
+      .Colorpicker {
+        display: block;
+      }
+
       .Tools-nav.is-active {
         .Button {
           pointer-events: auto;
@@ -186,8 +190,22 @@
     }
   }
 
-  .Tools-inner-settings {
+  .Tools-settings {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
 
+    &::after {
+      background: #F6F6F6;
+      content: '';
+      display: block;
+      height: 90%;
+      position: absolute;
+      right: 0;
+      top: 5%;
+      width: 2px;
+    }
   }
 
   .Tools-rotator {
@@ -198,19 +216,6 @@
     .Button {
       display: inline-block;
       margin: 0;
-    }
-  }
-
-  .Tools-slider {
-    &::after {
-      background: #F6F6F6;
-      // content: '';
-      display: block;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 1px;
     }
   }
 

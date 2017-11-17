@@ -40,6 +40,7 @@ app.Mouse = function($elem) {
   $elem.on('mousemove.clausedraws', function(e) {
     this.x = e.clientX;
     this.y = e.clientY;
+    this.target = e.target;
 
     e.preventDefault();
   }.bind(this));
@@ -47,6 +48,7 @@ app.Mouse = function($elem) {
   $elem.on('touchstart.clausedraws touchmove.clausedraws', function(e) {
     this.x = e.originalEvent.touches[0].clientX;
     this.y = e.originalEvent.touches[0].clientY;
+    this.target = e.originalEvent.touches[0].target;
 
     e.preventDefault();
   }.bind(this));

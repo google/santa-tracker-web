@@ -44,7 +44,7 @@ app.Slider.prototype.mouseChanged = function(mouse) {
     }
 
     var bounds = this.checkBounds(mouse);
-    if (bounds.inX) {
+    if (bounds && bounds.inX) {
       this.setSize(bounds.coords.normX, bounds.coords.x);
     }
   }
@@ -57,7 +57,15 @@ app.Slider.prototype.onMousedown = function() {
 
 
 app.Slider.prototype.checkBounds = function(mouse) {
-  var rect = this.base[0].getBoundingClientRect();
+  // var rect = this.base[0].getBoundingClientRect();
+  var slider = mouse.target.closest('[data-slider]');
+  var base = $(slider).find('[data-slider-base]')[0];
+  if (base) {
+    var rect = base.getBoundingClientRect();
+  } else {
+    return null;
+  }
+
   var baseCoords = this.mouse.transformCoordinates(mouse.x, mouse.y, rect);
   var horizontal = false;
   var vertical = false;

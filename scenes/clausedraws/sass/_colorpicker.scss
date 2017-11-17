@@ -1,45 +1,35 @@
 ##{$name} {
   .Colorpicker {
-    height: 70px;
-    margin: 15px auto 5px;
+    background: url(img/tools/color_wheel_bottom.svg) center / cover no-repeat;
+    height: 100px;
+    display: none;
+    margin: 0 auto;
     position: relative;
-    width: 70px;
+    width: 100px;
   }
 
   .Colorpicker-circle {
     background: purple;
     border-radius: 50%;
-    box-shadow:  inset 0 0 3.43px 0 rgba(0, 0, 0, .1), inset 0 0 0 7px #903AA5;
+    // box-shadow:  inset 0 0 3.43px 0 rgba(0, 0, 0, .1), inset 0 0 0 7px #903AA5;
     cursor: pointer;
-    height: 100%;
+    height: 80px;
+    left: 10px;
     position: relative;
-    width: 100%;
-
-    &::before {
-      border-radius: 50%;
-      box-shadow: inset -3px -3px 0 2px rgba(255, 255, 255, .1);
-      content: '';
-      display: block;
-      height: 75%;
-      left: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 75%;
-    }
+    top: 10px;
+    width: 80px;
   }
 
   .Colorpicker-popup {
     background: #fff;
+    bottom: 120px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     opacity: 0;
     padding: 15px;
     pointer-events: none;
-    position: absolute;
-    top: 5px;
+    position: fixed;
+    transform: translateX(25px);
     transition: opacity 0.3s;
-    right: -20px;
-    transform: translateX(100%);
 
     &.is-visible {
       pointer-events: auto;
@@ -47,14 +37,15 @@
     }
 
     &::before {
-      border-bottom: 15px solid transparent;
-      border-right:15px solid white;
-      border-top: 15px solid transparent;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid #fff;
+      bottom: 0;
       content: '';
       height: 0;
-      left: 0;
+      left: 10px;
       position: absolute;
-      transform: translateX(-100%);
+      transform: translateY(100%);
       width: 0;
     }
   }
