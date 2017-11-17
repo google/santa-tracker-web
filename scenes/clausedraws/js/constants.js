@@ -69,6 +69,21 @@ app.Constants = {
       { elemId: "sprinkle5" }
     ]
   },
+  CANDY_SPRAY_CONFIG: {
+    maxOffset: 50,
+    images: [
+      { name: "image-candy-jellybean",
+        color: "#ff0619" },
+      { name: "image-candy-jellybean",
+        color: "#af0000" },
+      { name: "image-candy-jellybean",
+        color: "#259b24" },
+      { name: "image-candy-jellybean",
+        color: "#22af22" },
+      { name: "image-candy-jellybean",
+        color: "#00750b" }
+    ]
+  },
 
   // Needs to match _colors.scss
   SVG_COLOR_MATRIX: {
