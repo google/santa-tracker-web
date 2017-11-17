@@ -50,7 +50,7 @@ app.view.MachineView.prototype.setText = function(textA, textB) {
 app.view.MachineView.prototype.setResultWord = function(word) {
   var word = word;
   this.guessesQueue = [];
-  this.speakAndWrite(app.Utils.getTranslation(this.container, 'quickdraw-machine-know', 'word', word));
+  this.speakAndWrite(app.Utils.getTranslation(this.container, 'quickdraw-machine-know'), word);
   setTimeout(function() {
     if (this.guessesQueue.length == 0) {
         this.setText('...');
@@ -62,7 +62,7 @@ app.view.MachineView.prototype.setResultWord = function(word) {
 app.view.MachineView.prototype.speakAndWrite = function(textA, textB, callback) {
   var textB = textB || '';
   this.setText(textA, textB);
-  var text = textA + textB;
+  var text = textA + ' ' + textB;
   this.speak(text, callback);
 };
 
