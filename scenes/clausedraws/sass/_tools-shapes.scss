@@ -19,7 +19,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
   .Tool--selected {
     @each $current-shape in $shape-names {
       &.Tool--shape-#{$current-shape} {
-        background-image: url(img/tools/shapes/#{$current-shape}_tray.svg);
+        background: url(img/tools/shapes/#{$current-shape}_tray.svg) center / contain no-repeat content-box;
       }
 
       svg {
