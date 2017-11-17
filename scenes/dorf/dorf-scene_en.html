@@ -255,17 +255,21 @@ Santa's Village.
 
     properties: {
 
-      /** Bound from `santa-app`, the array of houses to show. */
-      houses: Array,
+      houses: {
+        type: Array,
+        value: null,
+      },
 
-      /** Bound from `santa-app`, today's unlocked house. */
-      todayHouse: String,
+      todayHouse: {
+        type: String,
+        value: '',
+      },
 
       /** Easter eggs helper, used for template. */
       easterEggs: {
         type: Array,
         readOnly: true,
-        value: Object.freeze(EASTER_EGGS)
+        value: Object.freeze(EASTER_EGGS),
       },
 
       /** Bound from `santa-state`, whether the countdown is done. */
@@ -391,6 +395,41 @@ Santa's Village.
         this.preloadImages(preload);
       }
 
+    },
+
+    created: function() {
+      const t = window.santaApp;
+      this._refreshHouseData = () => {
+        this.todayHouse = t.todayHouse;
+        this.houses = t.houses;
+
+        // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
+        // there's no way to notify a whole house.
+        const propertiesToNotify = ['locked', 'disabled'];
+        this.houses.forEach((house, i) => {
+          const path = ['houses', i, ''];
+          propertiesToNotify.forEach((property) => {
+            path[2] = property;
+            this.notifyPath(path, house[property]);
+          });
+        });
+      };
+
+      this.todayHouse = t.todayHouse;
+      this.houses = t.houses;
+    },
+
+    attached: function() {
+      const t = window.santaApp;
+      t.addEventListener('today-house-changed', this._refreshHouseData);
+      t.addEventListener('houses-changed', this._refreshHouseData);
+      this._refreshHouseData();
+    },
+
+    detached: function() {
+      const t = window.santaApp;
+      t.removeEventListener('today-house-changed', this._refreshHouseData);
+      t.removeEventListener('houses-changed', this._refreshHouseData);
     },
 
     onShow: function() {

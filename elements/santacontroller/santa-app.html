@@ -431,9 +431,10 @@ Polymer({
     /**
      * The house metadata, including unlock information.
      */
-    _houses: {
+    houses: {
       type: Array,
       readOnly: true,
+      notify: true,
       value: window.HOUSES,
     },
 
@@ -953,7 +954,7 @@ Polymer({
 
   unlockAllHouses: function() {
     window.ga('send', 'event', 'Routing', 'unlockAllHouses');
-    for (var i = 0, house; house = this._houses[i]; ++i) {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
       house.locked = false;
     }
     if (this.scheduleChecked) {
@@ -961,7 +962,7 @@ Polymer({
     } else {
       this.$.lazypages.revalidate();
     }
-    this._notifyHouses();
+    this.fire('houses-changed');
   },
 
   /**
@@ -987,7 +988,7 @@ Polymer({
     var userOffset = dateNow.getTimezoneOffset() * 60000;
     var eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
 
-    for (var i = 0, house; house = this._houses[i]; ++i) {
+    for (var i = 0, house; house = this.houses[i]; ++i) {
       if (house.module === sceneName) {
         if (house.disabled) {
           return false;
@@ -1018,7 +1019,7 @@ Polymer({
       case 0:  // January
         // fall-through to December logic
       case 11: // December
-        for (var i = 0, house; house = this._houses[i]; ++i) {
+        for (var i = 0, house; house = this.houses[i]; ++i) {
           var launchDate = house.launchDate;
           if (santaApp.mode == 'portal' && house.portalLaunchDate) {
             launchDate = house.portalLaunchDate;
@@ -1037,7 +1038,7 @@ Polymer({
         break;
       default:
         if (this.scheduleChecked) {
-          for (var i = 0, house; house = this._houses[i]; ++i) {
+          for (var i = 0, house; house = this.houses[i]; ++i) {
             if (!house.locked) {
               change = true;
               house.locked = true;
@@ -1047,7 +1048,7 @@ Polymer({
         break;
     }
     this.todayHouse = todayHouse;
-    change && this._notifyHouses();
+    change && this.fire('houses-changed');
 
     this.$.lazypages.revalidate();  // hint to maybe reload
   },
@@ -1150,31 +1151,6 @@ Polymer({
     case 'facebook':
       return 'https://facebook.com/sharer.php?p[url]=' + enc;
     }
-  },
-
-  /**
-   * Notifies bound properties that the houses have changed (useful for the
-   * village). Dedups with a microtask.
-   * @private
-   */
-  _notifyHouses: function() {
-    this.debounce('_notifyHouses', function() {
-      if (!this.$.village.is) {
-        return;  // the village isn't yet a Polymer element, so ignore.
-      }
-
-      // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
-      // there's no way to notify a whole house.
-      var propertiesToNotify = ['locked', 'disabled'];
-
-      this._houses.forEach(function(house, i) {
-        var path = ['houses', i, ''];
-        propertiesToNotify.forEach(function(property) {
-          path[2] = property;
-          this.$.village.notifyPath(path, house[property]);
-        }, this);
-      }, this);
-    });
   },
 
   /**
