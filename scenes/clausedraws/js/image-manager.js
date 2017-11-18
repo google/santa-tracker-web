@@ -28,6 +28,11 @@ goog.require('app.ImageItemCandySprinkleTree');
 goog.require('app.ImageItemCandySucker');
 goog.require('app.ImageItemCandyWrapper1');
 goog.require('app.ImageItemCandyWrapper2');
+goog.require('app.ImageItemConfettiCurve');
+goog.require('app.ImageItemConfettiTriangle');
+goog.require('app.ImageItemConfettiCircle');
+goog.require('app.ImageItemConfettiOutlinedCircle');
+goog.require('app.ImageItemConfettiSquiggle');
 goog.require('app.ImageItemOrnamentRound1');
 goog.require('app.ImageItemOrnamentRound2');
 goog.require('app.ImageItemOrnamentRound3');
@@ -86,6 +91,11 @@ app.ImageManager = function() {
       'image-candy-sucker': new app.ImageItemCandySucker(),
       'image-candy-wrapper1': new app.ImageItemCandyWrapper1(),
       'image-candy-wrapper2': new app.ImageItemCandyWrapper2(),
+      'image-confetti-curve': new app.ImageItemConfettiCurve(),
+      'image-confetti-triangle': new app.ImageItemConfettiTriangle(),
+      'image-confetti-circle': new app.ImageItemConfettiCircle(),
+      'image-confetti-outlined-circle': new app.ImageItemConfettiOutlinedCircle(),
+      'image-confetti-squiggle': new app.ImageItemConfettiSquiggle(),
       'texture-pencil': new app.ImageTexturePencil(),
       'texture-crayon': new app.ImageTextureCrayon(),
       'texture-paintbrush': new app.ImageTexturePaintbrush(),
