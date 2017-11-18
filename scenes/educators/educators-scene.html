@@ -219,8 +219,11 @@ specific language governing permissions and limitations under the License.
     },
 
     _trackLessonPlan: function(e, detail) {
-      var a = e.target.closest('a[href]');
-      var label = a.getAttribute('data-id');
+      var link = e.target.closest('a[href]');
+      if (!link) {
+        return;
+      }
+      var label = link.getAttribute('data-id');
       window.ga('send', 'event', 'lessonPlanDownload', 'click', label);
     },
 
