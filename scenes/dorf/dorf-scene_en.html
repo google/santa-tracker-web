@@ -353,7 +353,7 @@ Santa's Village.
     },
 
     _onHousesOver: function(event) {
-      if (!event.target || event.target.localName != 'a' || !event.target.href) {
+      if (!event.target || event.target.localName !== 'a' || !event.target.href) {
         return;
       }
       this.fire('sound-trigger', 'village_bubble_appear');
