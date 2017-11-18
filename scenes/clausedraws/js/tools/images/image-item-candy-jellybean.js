@@ -27,8 +27,8 @@ goog.require('app.SVGImage');
 app.ImageItemCandyJellybean = function() {
   app.SVGImage.call(this);
 
-  this.width = 26.6;
-  this.height = 14;
+  this.width = 53.2;
+  this.height = 28;
 };
 app.ImageItemCandyJellybean.prototype = Object.create(app.SVGImage.prototype);
 

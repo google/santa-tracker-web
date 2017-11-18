@@ -27,8 +27,8 @@ goog.require('app.SVGImage');
 app.ImageItemCandySucker = function() {
   app.SVGImage.call(this);
 
-  this.width = 27.3;
-  this.height = 67.1;
+  this.width = 40.9;
+  this.height = 100.7;
 };
 app.ImageItemCandySucker.prototype = Object.create(app.SVGImage.prototype);
 

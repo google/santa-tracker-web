@@ -23,7 +23,7 @@ goog.require('app.PaintRoller');
 goog.require('app.Pencil');
 goog.require('app.Shape');
 goog.require('app.SprayColor');
-goog.require('app.SprinkleSpray');
+goog.require('app.SprayPattern');
 goog.require('app.Stamp');
 goog.require('app.Sticker');
 goog.require('app.TextureDrawer');
@@ -103,7 +103,16 @@ app.Tools = function(game, $elem) {
   this.neon = new app.Neon($elem, 'neon');
 
   this.spray = new app.SprayColor($elem, 'spray-color');
-  this.sprinkles = new app.SprinkleSpray($elem, 'spray-sprinkles');
+  this.spraySprinkles = new app.SprayPattern($elem, 'spray-sprinkles', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.sprayCandy = new app.SprayPattern($elem, 'spray-candy', app.Constants.CANDY_SPRAY_CONFIG);
+  this.sprayConfetti = new app.SprayPattern($elem, 'spray-confetti', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.sprayHoliday = new app.SprayPattern($elem, 'spray-holiday', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.sprayOcean = new app.SprayPattern($elem, 'spray-ocean', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.sprayOrnaments = new app.SprayPattern($elem, 'spray-ornaments', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.spraySnow = new app.SprayPattern($elem, 'spray-snow', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.spraySnowflakes = new app.SprayPattern($elem, 'spray-snowflakes', app.Constants.SPRINKLE_SPRAY_CONFIG);
+
+
   this.sceneAir = new app.LayerTool($elem, 'air', app.LayerTool.Layer.BACKGROUND);
   this.sceneAirport = new app.LayerTool($elem, 'airport', app.LayerTool.Layer.BACKGROUND);
   this.sceneBeach = new app.LayerTool($elem, 'beach', app.LayerTool.Layer.BACKGROUND);
@@ -217,7 +226,14 @@ app.Tools = function(game, $elem) {
     this.garland,
     this.neon,
     this.spray,
-    this.sprinkles,
+    this.spraySprinkles,
+    this.sprayCandy,
+    this.sprayConfetti,
+    this.sprayHoliday,
+    this.sprayOcean,
+    this.sprayOrnaments,
+    this.spraySnow,
+    this.spraySnowflakes,
     this.sceneAir,
     this.sceneAirport,
     this.sceneBeach,

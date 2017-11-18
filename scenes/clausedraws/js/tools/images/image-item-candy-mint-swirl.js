@@ -27,8 +27,8 @@ goog.require('app.SVGImage');
 app.ImageItemCandyMintSwirl = function() {
   app.SVGImage.call(this);
 
-  this.width = 28.25;
-  this.height = 27.9;
+  this.width = 42.4;
+  this.height = 41.9;
 };
 app.ImageItemCandyMintSwirl.prototype = Object.create(app.SVGImage.prototype);
 

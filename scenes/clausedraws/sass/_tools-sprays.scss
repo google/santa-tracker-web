@@ -1,3 +1,5 @@
+$spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow" "snowflakes";
+
 ##{$name} {
   // TOOLBAR
   [data-tool-category="spray"] {
@@ -12,8 +14,10 @@
         @include generateSVGstyles('spray-color');
       }
 
-      &--spray-sprinkles {
-        background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
+      @each $current-tool in $spray-tools {
+        &--spray-#{$current-tool} {
+          background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
+        }
       }
     }
 
@@ -49,16 +53,19 @@
     @include generateSVGstyles('spray-color', '.Tool-hover-minitool--spray-color');
   }
 
-  [data-tool-hover-tool="spray-sprinkles"] {
-    .Tool-hover-inactive .Tool-hover-minitool {
-      background-image: url(img/tools/spray/tool_spray_sprinkles.svg);
-      right: 90%;
-      top: 10%;
-    }
+  @each $current-tool in $spray-tools {
+    [data-tool-hover-tool="spray-#{$current-tool}"] {
+      .Tool-hover-inactive .Tool-hover-minitool--default {
+        background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
+        display: block;
+        right: 30%;
+        top: 40%;
+      }
 
-    .Tool-hover-circle {
-      height: 50px !important;
-      width: 50px !important;
+      .Tool-hover-circle {
+        height: 50px !important;
+        width: 50px !important;
+      }
     }
   }
 }
