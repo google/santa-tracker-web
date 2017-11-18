@@ -22,6 +22,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-state.html">
 <link rel="import" href="../../elements/village-header/village-header.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
+<link rel="import" href="elements/effect-skydive.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -47,6 +48,7 @@ Santa's Village.
     <div slot="effects" id="effect-sun"></div>
     <santa-weather slot="effects"></santa-weather>
     <div slot="effects" id="effect-plane"></div>
+    <effect-skydive slot="effects"></effect-skydive>
   </village-header>
 
   <div id="mobiletext">
@@ -55,13 +57,6 @@ Santa's Village.
 
   <div id="module-dorf" class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
     <smatch-secret character-id="santa"></smatch-secret>
-<!--
-      <div id="header-skyeffect">
-        <span id="village-pegman">
-          <a id="village-pegman-image" href="https://santadive.withgoogle.com">Santa Dive</a>
-        </span>
-      </div>
--->
     <div id="village-all">
       <div id="ground"></div>
       <div id="road"></div>
@@ -228,9 +223,6 @@ Santa's Village.
 
   var RANDOM_EGG_WAIT_MIN = 5000;
   var RANDOM_EGG_WAIT_MAX = 30000;
-
-  var PEGMAN_WAIT_MIN = 15000;  // needs to be > 10s of falling
-  var PEGMAN_WAIT_MAX = 30000;
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
       'snowman-reading', 'rosetta-stone', 'white-board',
@@ -463,23 +455,6 @@ Santa's Village.
     },
 
     /** NOTE: easteregg code only below this point */
-
-    _pegmanStep: function() {
-      if (!this.isAttached) {
-        return;  // give up, not active
-      }
-      var pegman = this.$['village-pegman'];
-      if (!pegman.classList.contains('active')) {
-        // fall from the sky
-        pegman.classList.add('active');
-      } else {
-        pegman.classList.add('fadeout');
-        this.async(function() {
-          pegman.classList.remove('fadeout', 'active');
-        }, 500);
-      }
-      this.async(this._pegmanStep, randomRange(PEGMAN_WAIT_MIN, PEGMAN_WAIT_MAX));
-    },
 
     /**
      * Async task for _randomEasterEggs.
@@ -732,8 +707,6 @@ Santa's Village.
       this._stopEasterEggs();
       this._randomEasterEggs();  // stops self if no longer active
       this._playTicTacToe();
-
-      this._pegmanStep();  // stops self if not active
     },
 
     _stopEasterEggs: function() {

@@ -120,6 +120,22 @@ village-header {
     // this only animates across the screen for <10% of the time
     animation: #{$name}-plane 75s infinite linear;
   }
+
+
+  effect-skydive {
+    // nb. this isn't clickable on mobile; it's probably fine
+    position: absolute;
+    left: calc(50% + 520px);
+    top: 433px;
+    @media (max-width: ($width-desktop - 1)) {
+      transform: scale(0.6);
+      left: calc(50% + 300px);
+    }
+    @media (max-width: ($width-tablet - 1)) {
+      left: 50%;
+      top: 264px;
+    }
+  }
 }
 
 

@@ -108,8 +108,8 @@ header {
   }
 
   h2 {
-    font-size: 12px;
-    line-height: 12px;
+    font-size: var(--smallcaps-size, 12px);
+    line-height: var(--smallcaps-size, 12px);
     letter-spacing: 1px;
     font-weight: 800;
     color: #fff;
