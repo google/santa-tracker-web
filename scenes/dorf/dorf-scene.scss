@@ -35,7 +35,6 @@ village-header {
 
   $extra-height: 132px;
   a.button {
-    font: inherit;
     pointer-events: auto;
     margin-top: $extra-height;
     background: #83ce00;
@@ -99,6 +98,27 @@ village-header {
   santa-weather {
     width: 100%;
     height: 100%;
+  }
+
+  #effect-sun {
+    position: absolute;
+    top: 32px;
+    left: 70%;
+    width: 107px;
+    height: 109px;
+    background: url(img/sun.svg) no-repeat;
+  }
+
+  #effect-plane {
+    will-change: transform;
+    position: absolute;
+    top: 32px;
+    width: 171px;
+    height: 82px;
+    margin-left: -(171px/2);
+    background: url(img/plane.svg) center no-repeat;
+    // this only animates across the screen for <10% of the time
+    animation: #{$name}-plane 75s infinite linear;
   }
 }
 
