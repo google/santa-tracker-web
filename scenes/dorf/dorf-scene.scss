@@ -33,23 +33,27 @@ village-header {
     max-width: 400px;
   }
 
-  $extra-height: 142px;
-  button {
+  $extra-height: 132px;
+  a.button {
+    font: inherit;
+    pointer-events: auto;
     margin-top: $extra-height;
     background: #83ce00;
     border-radius: 4px;
     color: #fff;
     font-weight: 600;
-    font-size: 16px;
-    border-radius: 4px;
-    line-height: 28px;
+    font-family: 'Lobster';
+    font-size: 23px;
+    line-height: 32px;
     padding: 0 16px;
     border: 2px solid transparent;
     position: relative;
     box-shadow: 0 3px 0 #659e00;
     will-change: transform;
-    letter-spacing: -1px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
     cursor: pointer;
+    text-decoration: none;
+    z-index: 10;  // nb. we need this to be clickable on mobile
 
     &:active {
       box-shadow: 0 1px 0 #659e00;
@@ -64,7 +68,6 @@ village-header {
     &::before {
       content: '';
       position: absolute;
-      pointer-events: auto;
       top: -($extra-height);
       width: 200px;
       left: 50%;
@@ -72,15 +75,16 @@ village-header {
       bottom: 0;
       background: url(img/santa-takeoff.svg) center top no-repeat;
       background-size: 128px 128px;
+      display: block;
     }
   }
 
-  &:not(.countdown-finished) {
-    button {
+  &:not(.track) {
+    a.button {
       display: none;
     }
   }
-  &.countdown-finished {
+  &.notext {
     p {
       display: none;
     }
@@ -104,6 +108,7 @@ village-header {
 }
 @media (max-width: ($width-tablet - 1)) {
   #mobiletext {
+    pointer-events: none;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.125);
     z-index: 100;
     display: block;
@@ -113,16 +118,27 @@ village-header {
     border-bottom: 2px solid rgba(0, 0, 0, 0.125);
     position: relative;
 
-    &::before {
+    &::before, &::after {
       content: '';
       position: absolute;
-      top: -101px;
-      width: 320px;
-      left: 20px;
+      top: -100px;
       height: 120px;
       display: block;
-      background: url(img/mobile-header-elves.svg) bottom left no-repeat;
+      background: transparent bottom center no-repeat;
     }
+
+    &::before {
+      left: 0;
+      width: 140px;
+      background-image: url(img/mobile-elf1.svg);
+    }
+
+    &::after {
+      right: 0;
+      width: 128px;
+      background-image: url(img/mobile-elf2.svg);
+    }
+
   }
 }
 
@@ -333,6 +349,7 @@ village-header {
     font-size: 16px;
 
     #village-all {
+      pointer-events: none;
       padding-bottom: 300px;
 
       // Move the village up by 30px, but give the layer an extra 30px to work
@@ -347,6 +364,7 @@ village-header {
         width: $width-desktop;
         height: $height-desktop;
         z-index: 10;
+        pointer-events: auto;
       }
 
       #ground {

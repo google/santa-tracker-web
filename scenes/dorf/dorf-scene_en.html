@@ -38,10 +38,10 @@ Santa's Village.
       remaining-time="{{_remainingTime}}"></santa-state>
 
   <village-header nobranding remaining-time="[[_remainingTime]]"
-      class$="[[_computeHeaderClass(_countdownFinished)]]">
-    <button>
+      class$="[[_computeHeaderClass(_countdownFinished, _duringTracker)]]">
+    <a class="button" href$="[[urlFor('tracker')]]">
       <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
-    </button>
+    </a>
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
 
     <santa-weather slot="effects"></santa-weather>
@@ -261,10 +261,19 @@ Santa's Village.
       },
 
       /** Bound from `santa-state`, whether the countdown is done. */
-      _countdownFinished: Boolean,
+      _countdownFinished: {
+        type: Boolean,
+      },
 
       /** Bound from `santa-state`, whether we are during the tracker. */
-      _duringTracker: Boolean,
+      _duringTracker: {
+        type: Boolean,
+      },
+
+      /** Bound from `santa-state`, the remaining time. */
+      _remainingTime: {
+        type: Number,
+      },
 
       /** Strings bound from `santa-strings`. */
       strings: Object,
@@ -285,8 +294,14 @@ Santa's Village.
       'easteregg-snowmobile4.click': '_driveSnowmobile',
     },
 
-    _computeHeaderClass: function(countdownFinished) {
-      return countdownFinished ? 'countdown-finished' : '';
+    _computeHeaderClass: function(countdownFinished, duringTracker) {
+      if (countdownFinished) {
+        if (duringTracker) {
+          return 'track notext';
+        }
+        return 'notext';
+      }
+      return '';
     },
 
     _computeCountdownFinishedClass: function(finished) {

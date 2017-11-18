@@ -46,6 +46,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: -2;
   }
 
   #ornament {
@@ -66,6 +67,7 @@ header {
     @media (max-width: ($width-tablet - 1)) {
       // shrink on mobile
       width: 320px;
+      height: 240px !important;
     }
   }
 
@@ -103,10 +105,6 @@ header {
       font-size: 54px;
       line-height: 40px;
     }
-
-    @media (max-width: $width-tablet - 1) {
-      display: none;
-    }
   }
 
   h2 {
@@ -118,5 +116,11 @@ header {
     margin: 0;
     text-transform: uppercase;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  @media (max-width: $width-tablet - 1) {
+    h1, .spacer, .google {
+      display: none;
+    }
   }
 }
