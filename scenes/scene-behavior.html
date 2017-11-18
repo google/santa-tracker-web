@@ -87,6 +87,10 @@ specific language governing permissions and limitations under the License.
 
     },
 
+    listeners: {
+      'preload': 'preloadEvent',
+    },
+
     observers: [
       '_progress(_assetsLoaded, _totalAssets, _pendingPreload)',
     ],
@@ -204,6 +208,23 @@ specific language governing permissions and limitations under the License.
      */
     preloadSounds: function(soundSetName) {
       this.fire('sound-preload', soundSetName);
+    },
+
+    /**
+     * Preload the request from a contained element.
+     */
+    preloadEvent: function(ev) {
+      const source = ev.path[0];
+      const detail = ev.detail;
+
+      if (detail instanceof Array) {
+        const urls = ev.detail.map((url) => source.resolveUrl(url));
+        this.preloadImages(urls);
+      } else if (detail instanceof Promise) {
+        this.preloadPromise(detail);
+      } else {
+        console.debug('unknown preload from', source.localName, 'detail', detail);
+      }
     },
 
     _progress: function(assetsLoaded, totalAssets, pendingPreload) {

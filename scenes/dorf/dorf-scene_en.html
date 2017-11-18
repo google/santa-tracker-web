@@ -43,6 +43,8 @@ Santa's Village.
       <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
     </button>
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+
+    <santa-weather slot="effects"></santa-weather>
   </village-header>
 
   <div id="mobiletext">
@@ -52,39 +54,13 @@ Santa's Village.
   <div id="module-dorf" class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
     <smatch-secret character-id="santa"></smatch-secret>
 <!--
-    <header>
-      <div id="header-background">
-        <div id="header-mobilevillage"></div>
-      </div>
       <div id="header-skyeffect">
         <span class="sun"></span>
         <span class="plane"></span>
         <span id="village-pegman">
           <a id="village-pegman-image" href="https://santadive.withgoogle.com">Santa Dive</a>
         </span>
-        <santa-weather></santa-weather>
-        <div id="header-mobileelves"></div>
       </div>
-      <div id="header-content">
-        <div id="ornament"></div>
-        <div id="countdown">
-          <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-          <countdown-timer remaining-time="[[_remainingTime]]">
-            <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
-          </countdown-timer>
-        </div>
-        <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
-        <div hidden$="[[!countdownFinished]]">
-          <a hidden$="[[!duringTracker]]" href$="[[urlFor('tracker')]]" class="village-tracker-link">
-            <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
-          </a>
-        </div>
-        <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
-      </div>
-    </header>
 -->
     <div id="village-all">
       <div id="ground"></div>
@@ -381,14 +357,12 @@ Santa's Village.
         'img/road.svg',
         'img/ground.svg',
         'img/sun.svg',
-        'img/header-bg.svg',
         '../../elements/countdown/img/number-bg.svg',
       ]);
 
       var isMobile = (window.innerWidth < 768);
       if (isMobile) {
         this.preloadImages([
-          'img/mobile-header.svg',
           'img/mobile-header-elves.svg',
         ]);
       }

@@ -77,6 +77,16 @@ Polymer({
     return remainingTime ? '' : 'post';
   },
 
+  attached: function() {
+    const images = [
+      'img/mountain.svg',
+      'img/ornament.svg',  // nb. preload both, as remainingTime isn't available yet
+      'img/globe.svg',
+    ];
+    this.nobranding || images.push('img/google.svg');
+    this.fire('preload', images);
+  },
+
 });
 
 </script>
