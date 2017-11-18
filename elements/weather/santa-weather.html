@@ -24,11 +24,13 @@ Renders random snow and clouds across this element's surface. Used for the villa
       position: relative;
       display: block;
     }
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
   </style>
 
-  <div id="holder">
-    <canvas id="snowcanvas"></canvas>
-  </div>
+  <canvas id="snowcanvas"></canvas>
 
   <slot></slot>
 
@@ -36,34 +38,46 @@ Renders random snow and clouds across this element's surface. Used for the villa
 <script>
 (function() {
 
-var cloudImageSrc = [
-  'img/cloud1.svg',
-  'img/cloud2.svg',
-  'img/cloud3.svg',
+const b64clouds = [
+  'PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDIzMC4zIDEzOC41Ij48c3R5bGU+LnN0MHtmaWxsOiNmZmZ9PC9zdHlsZT48c3ltYm9sIGlkPSJOZXdfU3ltYm9sXzE0IiB2aWV3Qm94PSItNjcuNCAtMjQuMiAxMzQuOCA0OC41Ij48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNjcuNC0xOGMwLTEuOC0uNS00LjgtMS4zLTYuM0gtNjYuMWMtLjggMS40LTEuMyA0LjUtMS4zIDYuMyAwIDUuMyA0LjMgOC41IDkuNyA4LjVoMjYuNHYuNWMwIDcgNS43IDEyLjYgMTIuNiAxMi42IDEuNiAwIDMuMS0uMyA0LjUtLjggMi4zIDEyLjIgMTMgMjEuNCAyNS45IDIxLjQgMTIuNiAwIDIzLjEtOC44IDI1LjctMjAuNkM0My45IDMuMiA0OS0yLjMgNDktOXYtLjVoOC43YzUuNCAwIDkuNy0zLjEgOS43LTguNXoiLz48L3N5bWJvbD48dXNlIHhsaW5rOmhyZWY9IiNOZXdfU3ltYm9sXzE0IiB3aWR0aD0iMTM0LjgiIGhlaWdodD0iNDguNSIgeD0iLTY3LjQiIHk9Ii0yNC4yIiB0cmFuc2Zvcm09Im1hdHJpeCgxLjcwODcgMCAwIC0xLjcwODcgMTE1LjE3MyA0MS40MDYpIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvc3ZnPg==',
+  'PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDE5Ny4zIDExNy42Ij48c3R5bGU+LnN0MHtmaWxsOiNmZmZ9PC9zdHlsZT48c3ltYm9sIGlkPSJOZXdfU3ltYm9sXzE1IiB2aWV3Qm94PSItNTcuNyAtMzQuNCAxMTUuNSA2OC44Ij48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTcuNy0xOS40YzAtNS4zLTEuNy0xMS00LjYtMTVILTU2LjRjLS44IDEuNC0xLjMgMy4xLTEuMyA0LjggMCA1LjMgNC4zIDkuNyA5LjcgOS43aDExLjljLTEuNCAzLjUtMi4yIDcuMi0yLjIgMTEuMiAwIDE2LjYgMTMuNSAzMCAzMCAzMCAxLjMgMCAyLjUtLjEgMy44LS4yIDAgLjEtLjEuMS0uMS4yLjItLjEuNC0uMi41LS4zLjUgMCAxLS4xIDEuNC0uMiAzLjUgOCAxMS41IDEzLjYgMjAuOCAxMy42IDEyLjUgMCAyMi43LTEwLjEgMjIuNy0yMi43VjMuNmM5LjctMy4xIDE2LjktMTIuMiAxNi45LTIzeiIvPjwvc3ltYm9sPjx1c2UgeGxpbms6aHJlZj0iI05ld19TeW1ib2xfMTUiIHdpZHRoPSIxMTUuNSIgaGVpZ2h0PSI2OC44IiB4PSItNTcuNyIgeT0iLTM0LjQiIHRyYW5zZm9ybT0ibWF0cml4KDEuNzA4NyAwIDAgLTEuNzA4NyA5OC42NTIgNTguNzkyKSIgb3ZlcmZsb3c9InZpc2libGUiLz48L3N2Zz4=',
+  'PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDExNy44IDcwLjciPjxzdHlsZT4uc3Qwe2ZpbGw6I2ZmZn08L3N0eWxlPjxzeW1ib2wgaWQ9Ik5ld19TeW1ib2xfMTYiIHZpZXdCb3g9Ii0yNiAtMTUuNiA1Mi4xIDMxLjMiPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMTguMi0zLjloMS4zVjBjMCA1LjggNC43IDEwLjQgMTAuNCAxMC40IDEuOCAwIDMuNC0uNSA0LjctMS4zIDEuNiAzLjggNS4zIDYuNSA5LjYgNi41IDUuOCAwIDEwLjQtNC43IDEwLjQtMTAuNFYxLjVDMjIuNyAwIDI2LTQuMiAyNi05LjFjMC0yLjQtLjgtNC43LTIuMS02LjVILTI1Yy0uNyAxLjEtMSAyLjUtMSAzLjkgMCA0LjMgMy40IDcuOCA3LjggNy44eiIvPjwvc3ltYm9sPjx1c2UgeGxpbms6aHJlZj0iI05ld19TeW1ib2xfMTYiIHdpZHRoPSI1Mi4xIiBoZWlnaHQ9IjMxLjMiIHg9Ii0yNiIgeT0iLTE1LjYiIHRyYW5zZm9ybT0ibWF0cml4KDIuMjYwNSAwIDAgLTIuMjYwNSA1OC44ODQgMzUuMzMpIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvc3ZnPg==',
 ];
+
+const cloudImages = b64clouds.map((src) => {
+  const i = new Image();
+  i.src = 'data:image/svg+xml;base64,' + src;
+  return i;
+});
 
 Polymer({
   is: 'santa-weather',
 
   properties: {
 
-    /** Number of snowflakes to show. Not expected to change after init. */
+    /**
+     * Number of snowflakes to show.
+     */
     snowflakes: {
       type: Number,
       value: 40,
     },
 
-    /** Number of clouds to show. Not expected to change after init. */
+    /**
+     * Number of clouds to show.
+     */
     clouds: {
       type: Number,
       value: 6,
     },
 
-    /** Maximum wind speed. */
+    /**
+     * Maximum wind speed, in... TODO(samthor): units
+     */
     wind: {
       type: Number,
       value: 0,
-    }
+    },
 
   },
 
@@ -73,18 +87,6 @@ Polymer({
     // of the weather, and not window.
     this._onResize = this._onResize.bind(this);
     this._update = this._update.bind(this);
-    this._updateClouds = this._updateClouds.bind(this);
-    this._drawClouds = this._drawClouds.bind(this);
-
-    this._cloudImagesPending = cloudImageSrc.length;
-    this._cloudImages = cloudImageSrc.map(function(src) {
-      var img = new Image();
-      img.src = this.resolveUrl(src);
-      img.onload = function() {
-        --this._cloudImagesPending;
-      }.bind(this);
-      return img;
-    }, this);
   },
 
   ready: function() {
@@ -92,7 +94,6 @@ Polymer({
     this._snowflakes = [];
     this._clouds = [];
     this._currentWind = 0;
-    this._startTime;
   },
 
   attached: function() {
@@ -116,33 +117,22 @@ Polymer({
     this.async(this._setWind, Math.random() * 15000);
   },
 
-  /**
-   * Handles the window resizing. Temporarily hides the canvas so that the
-   * container can scale to its natural size. After that's completed the
-   * canvas sizes set, and its visibility restored.
-   */
   _onResize: function() {
-    this.$.snowcanvas.hidden = true;
+    this._width = this.offsetWidth;
+    this._height = this.offsetHeight;
 
-    var bounds = this.getBoundingClientRect();
-
-    this._width = bounds.width;
-    this._height = bounds.height;
-
-    this.$.snowcanvas.width = this._width;
-    this.$.snowcanvas.height = this._height;
-    this.$.snowcanvas.hidden = false;
-
-    // Go into a poll to wait if the element is zero by zero. Ideally this would
-    // be solved with ResizeObservers in the future.
-    if (this._width === 0 && this._height === 0) {
-      return this.async(function() {
-        this._onResize();
-      }, 1000);
+    // use rAF to wait until the element is not zero-by-zero.
+    if (!this._width || !this._height) {
+      if (this.isAttached) {
+        window.requestAnimationFrame(this._onResize);
+      }
+      return;
     }
 
-    // Track the start time to do a fade-in of the overall scene.
-    this._startTime = window.performance.now();
+    const dpi = window.devicePixelRatio || 1;
+    const c = this.$.snowcanvas;
+    c.width = this.offsetWidth * dpi;
+    c.height = this.offsetHeight * dpi;
   },
 
   _createSnowflakes: function() {
@@ -191,7 +181,7 @@ Polymer({
     }
 
     return {
-      img: Math.floor(Math.random() * cloudImageSrc.length),
+      img: Math.floor(Math.random() * cloudImages.length),
       w: width,
       h: height,
       m: 4 - (width / 50),
@@ -248,9 +238,8 @@ Polymer({
   },
 
   _draw: function() {
-    if (!this._startTime) {
-      return;
-    }
+    this._ctx.save();
+    this._ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
 
     var TAU = Math.PI * 2;
     this._ctx.fillStyle = '#FFF';
@@ -278,25 +267,19 @@ Polymer({
       this._ctx.fill();
     }
 
-    // Ensure all cloud images have loaded first before drawing any, because we
-    // don't want any magically-appearing clouds. That's not how clouds work.
-    if (!this._cloudImagesPending) {
-      this._drawClouds();
-    }
-  },
-
-  _drawClouds: function() {
     for (var c = 0, cloud; cloud = this._clouds[c]; ++c) {
       this._ctx.globalAlpha = cloud.o;
       this._ctx.drawImage(
-          this._cloudImages[cloud.img],
+          cloudImages[cloud.img],
           cloud.x * this._width,
           cloud.y * this._height,
           cloud.w,
           cloud.h
       );
     }
-  }
+
+    this._ctx.restore();
+  },
 });
 
 })();
