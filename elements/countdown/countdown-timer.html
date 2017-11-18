@@ -125,6 +125,10 @@ Example
 
       attached: function() {
         this._setHolders(Array.prototype.slice.call(this.$.counter.children));
+
+        this.fire('preload', [
+          'img/number-bg.svg',
+        ]);
       },
 
       _startInterval: function(isAttached, remainingTime) {

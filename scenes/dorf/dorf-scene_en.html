@@ -369,16 +369,19 @@ Santa's Village.
     onPreload: function() {
       this.preloadSounds('village_load_sounds');
       this.preloadImages([
-        'img/road.svg',
-        'img/ground.svg',
         'img/sun.svg',
-        '../../elements/countdown/img/number-bg.svg',
       ]);
 
-      var isMobile = (window.innerWidth < 768);
+      var isMobile = window.innerWidth < 768;
       if (isMobile) {
         this.preloadImages([
-          'img/mobile-header-elves.svg',
+          'img/mobile-elf1.svg',
+          'img/mobile-elf2.svg',
+        ]);
+      } else {
+        this.preloadImages([
+          'img/road.svg',
+          'img/ground.svg',
         ]);
       }
 

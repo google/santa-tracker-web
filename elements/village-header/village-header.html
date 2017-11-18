@@ -83,7 +83,12 @@ Polymer({
       'img/ornament.svg',  // nb. preload both, as remainingTime isn't available yet
       'img/globe.svg',
     ];
+
     this.nobranding || images.push('img/google.svg');
+    if (window.innerWidth < 768) {
+      images.push('img/mobile-header.svg');
+    }
+
     this.fire('preload', images);
   },
 
