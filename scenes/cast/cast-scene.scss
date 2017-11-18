@@ -35,6 +35,10 @@ header {
   }
 }
 
+village-header {
+  --smallcaps-size: 14px;
+}
+
 main {
   // this should never appear (header-size is 720px, size of Cast) but match color just in case
   background-color: $snow-color;
