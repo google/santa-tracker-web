@@ -34,7 +34,7 @@
 
     @media screen and (max-width: 800px) {
       flex-direction: row;
-      height: 85px;
+      height: 75px;
       padding-left: 60px;
       right: 0;
       top: auto;
@@ -89,28 +89,69 @@
     top: 0;
     width: 85px;
 
+    .Tools-mobile {
+      display: none;
+    }
+
     @media screen and (max-width: 800px) {
-      bottom: auto;
-      left: 0;
+      background-color: transparent;
+      bottom: 95px;
+      left: 20px;
+      pointer-events: none;
+      right: 20px;
+      top: 20px;
       width: auto;
 
-      .Tools-clear,
-      .Tools-divider {
-        display: none;
-      }
-
-      .Tools-utilities {
-        text-align: right;
+      .Tools-mobile {
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
 
         .Button {
-          display: inline-block;
-          margin-right: 10px;
-          vertical-align: top;
+          height: 50px;
+          margin: 0 0 10px;
+          pointer-events: auto;
+          width: 50px;
         }
 
-        .Button--save {
-          margin-left: 5px;
+        .Tools-mobile--right,
+        .Tools-mobile--left {
+          bottom: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          position: absolute;
+          top: 0;
         }
+
+        .Tools-mobile--right {
+          right: 0;
+        }
+
+        .Tools-mobile--left {
+          left: 0;
+          width: 50px;
+        }
+
+        .Tools-edit {
+
+        }
+
+        .Tools-rotator {
+          flex-direction: column;
+          padding: 0;
+        }
+
+        .Tools-slider {
+          padding: 15px 20px;
+          transform: rotate(-90deg) translateY(100%);
+          transform-origin: bottom left;
+        }
+      }
+
+      .Tools-desktop {
+        display: none;
       }
     }
   }
@@ -181,7 +222,7 @@
       justify-content: center;
       padding: 0 20px;
 
-      .Tools-slider {
+      .Tools-settings {
         display: none;
       }
 

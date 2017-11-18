@@ -39,6 +39,12 @@ $name: 'module-clausedraws';
     left: 0;
 
     font-size: 1px;
+
+    &.ui-hidden {
+      .Tools {
+        opacity: 0;
+      }
+    }
   }
 
   /**

@@ -188,6 +188,9 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.mouse.normY >= 0 && this.mouse.normY <= 1 &&
     !mouse.isInsideEl(mouse.x, mouse.y, tools.primaryMenu[0]) &&
     !mouse.isInsideEl(mouse.x, mouse.y, tools.secondaryMenu[0]) &&
+    !mouse.isInsideEl(mouse.x, mouse.y, tools.mobileEdit[0]) &&
+    !mouse.isInsideEl(mouse.x, mouse.y, tools.mobileRotate[0]) &&
+    !mouse.isInsideEl(mouse.x, mouse.y, tools.mobileSlider[0]) &&
     !(colorpicker.isPopupOpen() &&
         mouse.isInsideEl(mouse.x, mouse.y, colorpicker.popup[0]));
 

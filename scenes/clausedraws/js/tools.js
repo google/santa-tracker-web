@@ -57,6 +57,10 @@ app.Tools = function(game, $elem) {
   this.subcategoryMenus = this.categoryMenus.find('[data-tool-subcategory-menu]');
 
   this.tertiaryMenu = $elem.find('.Tools--tertiary');
+  this.tertiaryMenuMobile = this.tertiaryMenu.find('.Tools-mobile');
+  this.mobileEdit = this.tertiaryMenuMobile.find('.Tools-edit');
+  this.mobileRotate = this.tertiaryMenuMobile.find('.Tools-rotator');
+  this.mobileSlider = this.tertiaryMenuMobile.find('.Tools-slider');
 
   this.categoryPickers.on('click.clausedraws touchend.clausedraws', this.onCategoryClick_.bind(this));
   this.subcategoryPickers.on('click.clausedraws touchend.clausedraws', this.onSubcategoryClick_.bind(this));
@@ -363,6 +367,11 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 
     if (mouseCoords.down) {
       this.selectedTool.startMousedown();
+
+      // if (app.shared.utils.touchEnabled &&
+      //     this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
+      //   this.game_.sceneElem.addClass('ui-hidden');
+      // }
 
       if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
           this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
