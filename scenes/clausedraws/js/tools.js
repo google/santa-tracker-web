@@ -24,6 +24,7 @@ goog.require('app.Pencil');
 goog.require('app.Shape');
 goog.require('app.SprayColor');
 goog.require('app.SprayPattern');
+goog.require('app.SpraySnow');
 goog.require('app.Stamp');
 goog.require('app.Sticker');
 goog.require('app.TextureDrawer');
@@ -109,7 +110,7 @@ app.Tools = function(game, $elem) {
   this.sprayHoliday = new app.SprayPattern($elem, 'spray-holiday', app.Constants.HOLIDAY_SPRAY_CONFIG);
   this.sprayOcean = new app.SprayPattern($elem, 'spray-ocean', app.Constants.OCEAN_SPRAY_CONFIG);
   this.sprayOrnaments = new app.SprayPattern($elem, 'spray-ornaments', app.Constants.ORNAMENT_SPRAY_CONFIG);
-  this.spraySnow = new app.SprayPattern($elem, 'spray-snow', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.spraySnow = new app.SpraySnow($elem, 'spray-snow');
   this.spraySnowflakes = new app.SprayPattern($elem, 'spray-snowflakes', app.Constants.SNOWFLAKE_SPRAY_CONFIG);
 
 
