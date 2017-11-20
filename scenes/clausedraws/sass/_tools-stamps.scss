@@ -31,6 +31,10 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
           @include generateSVGstyles('stamp-#{$current-stamp}');
         }
       }
+
+      @media (max-width: 800px) {
+        border-bottom: none;
+      }
     }
 
     .Tool--selected {

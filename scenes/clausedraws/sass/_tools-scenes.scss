@@ -4,13 +4,14 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
   // TOOLBAR
   [data-tool-category="scene"] {
     .Tool {
+      background-position: center;
       background-size: cover;
       flex: 0 0 185px;
       height: 70%;
       margin-left: 30px;
     }
 
-    @media screen and (max-width: 800px) {
+    @media (max-width: 800px) {
       justify-content: space-around;
       padding-bottom: 30px;
       padding-top: 10px;
@@ -18,8 +19,8 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
       .Tool {
         border-bottom: 0;
         flex: 0 0 45%;
-        height: 15vh;
-        margin: 20px 0 0;
+        height: 100px;
+        margin: 10px 0 0;
         width: auto;
       }
     }

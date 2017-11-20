@@ -19,6 +19,14 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
           background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
         }
       }
+
+      @media (max-width: 800px) {
+        background-position: center 0%;
+
+        &--spray-color {
+          padding: 0 17px;
+        }
+      }
     }
 
     .Tool--selected {

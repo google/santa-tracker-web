@@ -13,6 +13,28 @@ $sticker-decorations: "beach-ball", "bell", "candle", "clock", "disco-ball", "fr
     .Tool--selected {
       opacity: 0.5;
     }
+
+    @media (max-width: 800px) {
+      .Tool {
+        border-bottom: none;
+        flex: 0 0 25%;
+        margin-top: 20px;
+      }
+
+      .Tools-settings {
+        bottom: 0;
+        display: block;
+        height: 45px;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+
+        &::after,
+        .Tools-settings-inner {
+          display: none;
+        }
+      }
+    }
   }
 
   .Tool {
