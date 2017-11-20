@@ -47,6 +47,13 @@ powerup-status {
   transform: scale(calc(1/2)) translate(180%, 230%);
 }
 
+@media (max-width: 768px) {
+  :host {
+    transform-origin: bottom left;
+    transform: scale(0.7);
+  }
+}
+
 </style>
 <powerup-status id="powerupOne"></powerup-status>
 <powerup-status id="powerupTwo"></powerup-status>`;
@@ -56,9 +63,11 @@ powerup-status {
     this.swapped = false;
     this.swapRequested = false;
 
-    this.addEventListener('click', event => {
-      this.swapRequested = true;
-    })
+    // NOTE(cdata): We are disabling swapping as a design decision, but
+    // keeping this around in case we want to test it later:
+    //this.addEventListener('click', event => {
+      //this.swapRequested = true;
+    //})
   }
 
   swap() {
