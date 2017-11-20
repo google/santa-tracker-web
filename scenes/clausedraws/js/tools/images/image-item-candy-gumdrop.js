@@ -27,8 +27,8 @@ goog.require('app.SVGImage');
 app.ImageItemCandyGumdrop = function() {
   app.SVGImage.call(this);
 
-  this.width = 38.4;
-  this.height = 41.9;
+  this.width = 46.1;
+  this.height = 50.3;
 };
 app.ImageItemCandyGumdrop.prototype = Object.create(app.SVGImage.prototype);
 

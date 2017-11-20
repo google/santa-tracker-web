@@ -27,8 +27,8 @@ goog.require('app.SVGImage');
 app.ImageItemCandyMintWheel = function() {
   app.SVGImage.call(this);
 
-  this.width = 41.9;
-  this.height = 41.9;
+  this.width = 62.8;
+  this.height = 62.8;
 };
 app.ImageItemCandyMintWheel.prototype = Object.create(app.SVGImage.prototype);
 
