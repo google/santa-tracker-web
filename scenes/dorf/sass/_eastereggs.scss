@@ -27,7 +27,7 @@
       "snowmobile3"     40    39    645   855    ($house-z-index-front),
       "snowmobile4"     40    39    200   1910   ($house-z-index-front),
       "unicycle"        21    57    310   500    ($house-row-2-z-index + 40),
-      "wrangler"        182   88    800   2300   ($house-row-7-z-index + 150),
+      "wrangler"        182   88    700   2250   ($house-row-7-z-index + 150),
   ;
 
   div {
@@ -54,6 +54,10 @@
       left: percent(nth($row, $idx-left), $width-desktop);
       top: percent(nth($row, $idx-top), $height-desktop);
     }
+  }
+
+  #easteregg-wrangler {
+    position: absolute;  // not a div
   }
 
   #easteregg-schoolyard {

@@ -78,7 +78,7 @@ specific language governing permissions and limitations under the License.
 
   </style>
   <div id="align">
-    <a id="fall" href="https://santadive.withgoogle.com" target="_blank" on-animationend="_onAnimationEnd">
+    <a id="fall" href="[[href]]" target="_blank" on-animationend="_onAnimationEnd">
       <span>Santa Dive</span>
     </a>
   </div>
@@ -87,6 +87,17 @@ specific language governing permissions and limitations under the License.
 
 Polymer({
   is: 'effect-skydive',
+
+  properties: {
+
+    /**
+     * The link to use when clicking on pegman.
+     */
+    href: {
+      type: String,
+    },
+
+  },
 
   attached: function() {
     this.fire('preload', [

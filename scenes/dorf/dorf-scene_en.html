@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/village-header/village-header.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="elements/effect-skydive.html">
+<link rel="import" href="elements/effect-wrangler.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -48,7 +49,7 @@ Santa's Village.
     <div slot="effects" id="effect-sun"></div>
     <santa-weather slot="effects"></santa-weather>
     <div slot="effects" id="effect-plane"></div>
-    <effect-skydive slot="effects"></effect-skydive>
+    <effect-skydive slot="effects" href="https://santadive.withgoogle.com"></effect-skydive>
   </village-header>
 
   <div id="mobiletext">
@@ -187,25 +188,8 @@ Santa's Village.
             <div id="easteregg-tic-tac-toe-win"></div>
           </div>
 
-          <div id="easteregg-wrangler" class="easter-egg">
-            <div id="easteregg-wrangler-wrangler">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div id="easteregg-wrangler-reindeer1">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div id="easteregg-wrangler-reindeer2">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
+          <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
+
         </div>
       </div><!-- #houses -->
     </div>
