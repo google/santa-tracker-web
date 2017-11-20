@@ -81,7 +81,7 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
 
 
 app.SprayPattern.prototype.populateImages = function($elem) {
-  for (var i = 0; i < this.images.length; i++) {
+  for (var i = this.images.length - 1; i >= 0; i--) {
     var image = this.images[i];
     if (image.elemId) {
       image.elem = $elem.find('#' + image.elemId);
@@ -92,6 +92,12 @@ app.SprayPattern.prototype.populateImages = function($elem) {
       var dimens = app.ImageManager.getImageDimensions(image.name);
       image.width = dimens.width;
       image.height = dimens.height;
+    }
+
+    if (image.frequencyFactor) {
+      for (var j = 0; j < image.frequencyFactor; j++) {
+        this.images.push(image);
+      }
     }
   }
 };

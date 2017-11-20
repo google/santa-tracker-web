@@ -297,6 +297,29 @@ app.Constants = {
     ]
   },
 
+  OCEAN_SPRAY_CONFIG: {
+    maxOffset: 100,
+    images: [
+      { elemId: "box_fish" },
+      { elemId: "coral_large" },
+      { elemId: "coral_medium" },
+      { elemId: "coral_small" },
+      { elemId: "fish_little" },
+      { elemId: "fish_pink" },
+      { elemId: "fish_teal" },
+      { elemId: "fish_yellow" },
+      { elemId: "jellyfish" },
+      { elemId: "light_fish" },
+      { elemId: "ocean_bubble",
+        frequencyFactor: 20 },
+      { elemId: "seashell" },
+      { elemId: "seaweed_green" },
+      { elemId: "seaweed_lime" },
+      { elemId: "starfish" },
+      { elemId: "turtle" }
+    ]
+  },
+
   // Needs to match _colors.scss
   SVG_COLOR_MATRIX: {
     '#8bc34a': {
