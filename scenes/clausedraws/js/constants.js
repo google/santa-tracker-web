@@ -410,6 +410,24 @@ app.Constants = {
     ]
   },
 
+  SNOWFLAKE_SPRAY_CONFIG: {
+    maxOffset: 100,
+    opacity: 0.5,
+    images: [
+        { elemId: "snowflake_1" },
+        { elemId: "snowflake_2" },
+        { elemId: "snowflake_3" },
+        { elemId: "snowflake_4" },
+        { elemId: "snowflake_5" },
+        { elemId: "snowflake_6" },
+        { elemId: "snowflake_7" },
+        { elemId: "snowflake_8" },
+        { elemId: "snowflake_9" },
+        { elemId: "snowflake_10" },
+        { elemId: "snowflake_11" }
+    ]
+  },
+
   // Needs to match _colors.scss
   SVG_COLOR_MATRIX: {
     '#8bc34a': {

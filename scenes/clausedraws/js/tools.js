@@ -110,7 +110,7 @@ app.Tools = function(game, $elem) {
   this.sprayOcean = new app.SprayPattern($elem, 'spray-ocean', app.Constants.OCEAN_SPRAY_CONFIG);
   this.sprayOrnaments = new app.SprayPattern($elem, 'spray-ornaments', app.Constants.ORNAMENT_SPRAY_CONFIG);
   this.spraySnow = new app.SprayPattern($elem, 'spray-snow', app.Constants.SPRINKLE_SPRAY_CONFIG);
-  this.spraySnowflakes = new app.SprayPattern($elem, 'spray-snowflakes', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.spraySnowflakes = new app.SprayPattern($elem, 'spray-snowflakes', app.Constants.SNOWFLAKE_SPRAY_CONFIG);
 
 
   this.sceneAir = new app.LayerTool($elem, 'air', app.LayerTool.Layer.BACKGROUND);

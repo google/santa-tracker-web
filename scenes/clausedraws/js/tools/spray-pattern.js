@@ -35,6 +35,7 @@ app.SprayPattern = function($elem, name, config) {
   this.currentSize = app.Constants.SPRAY_CIRCLE_SIZE;
   this.maxOffset = config.maxOffset || 0;
   this.density = config.density || 1;
+  this.opacity = config.opacity || 1;
 
   this.populateImages($elem);
 };
@@ -68,6 +69,7 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
     }
 
     context.save();
+    context.globalAlpha = this.opacity;
     context.translate(drawX, drawY);
     if (!image.noRotate) {
       context.rotate(Math.random() * 2 * Math.PI);
