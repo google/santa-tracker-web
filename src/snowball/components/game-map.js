@@ -173,7 +173,7 @@ export class GameMap {
     }
   }
 
-  getRandomHabitableTileIndex(random = this.seedRandom.clone()) {
+  getRandomHabitableTileIndex(random = this.seedRandom) {
     for (let i = 0; i < this.tileCount; ++i) {
       if (this.tileRings.length === 0) {
         break;

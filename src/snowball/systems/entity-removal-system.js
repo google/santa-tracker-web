@@ -102,7 +102,7 @@ export class EntityRemovalSystem {
       const { presence, visibility } = entity;
 
       const delta = performance.now() - presence.exitTime;
-      const threshold = 1000;
+      const threshold = 1500;
       const elapsed = delta - threshold;
 
       if (elapsed < 0.0) {
@@ -112,7 +112,7 @@ export class EntityRemovalSystem {
       const teleportDuration = 700;
       const time = Math.min(1.0, elapsed / teleportDuration);
 
-      const distance = time * time * grid.cellSize;
+      const distance = time * time * grid.cellSize / 1.5;
       const opacity = 1.0 - time;
 
       entity.position.z = distance;

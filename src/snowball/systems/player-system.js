@@ -198,6 +198,7 @@ export class PlayerSystem {
 
         if (player !== clientPlayer) {
           Elf.free(player);
+          this.playerLayer.remove(player);
         }
       }
     }
