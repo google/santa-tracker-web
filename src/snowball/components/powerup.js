@@ -69,7 +69,6 @@ export class Powerups {
   }
 
   collect(type) {
-    console.log('Collecting', type);
     if (this.active == null) {
       this.active = new Powerup(type);
     } else {
