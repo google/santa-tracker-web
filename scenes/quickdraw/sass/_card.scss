@@ -40,5 +40,10 @@
     &.fill {
       min-height: 100%;
     }
+
+    @media (max-width: 767px) {
+      margin: auto;
+      max-width: 90%;
+    }
   }
 }

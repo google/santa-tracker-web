@@ -22,9 +22,11 @@
 
     &__picture {
       margin-top: -5%;
-      max-height: 35%;
+      max-height: 35vh;
+
       @media (max-width: 767px) {
         margin-top: 0;
+        width: 60%;
       }
     }
 
@@ -45,6 +47,17 @@
 
     &__button {
       padding: 0 40px;
+
+      @media (max-width: 767px) {
+        margin-top: 20px;
+      }
+    }
+
+    &__container {
+      @media (max-width: 767px) {
+        margin: auto;
+        max-width: 90%;
+      }
     }
   }
 }

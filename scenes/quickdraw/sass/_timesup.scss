@@ -29,6 +29,8 @@
 
       @media (max-width: 767px) {
         flex-wrap: wrap;
+        width: 100%;
+        overflow: hidden;
       }
     }
 
@@ -40,8 +42,10 @@
       width: 300px;
 
       @media (max-width: 767px) {
-        width: 100%;
-        margin: 10px;
+        height: 0;
+        padding-bottom: 73.6%;
+        width: calc(100% - 10px);
+        margin: 10px 0;
       }
 
       &--recognized::before,
@@ -68,6 +72,14 @@
 
       > svg {
         margin: 10px;
+
+        @media (max-width: 767px) {
+          position: absolute;
+          height: calc(100% - 20px) !important;
+          width: calc(100% - 20px) !important;
+          top: 0;
+          left: 0;
+        }
       }
     }
   }
