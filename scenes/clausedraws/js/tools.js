@@ -108,7 +108,7 @@ app.Tools = function(game, $elem) {
   this.sprayConfetti = new app.SprayPattern($elem, 'spray-confetti', app.Constants.CONFETTI_SPRAY_CONFIG);
   this.sprayHoliday = new app.SprayPattern($elem, 'spray-holiday', app.Constants.HOLIDAY_SPRAY_CONFIG);
   this.sprayOcean = new app.SprayPattern($elem, 'spray-ocean', app.Constants.OCEAN_SPRAY_CONFIG);
-  this.sprayOrnaments = new app.SprayPattern($elem, 'spray-ornaments', app.Constants.SPRINKLE_SPRAY_CONFIG);
+  this.sprayOrnaments = new app.SprayPattern($elem, 'spray-ornaments', app.Constants.ORNAMENT_SPRAY_CONFIG);
   this.spraySnow = new app.SprayPattern($elem, 'spray-snow', app.Constants.SPRINKLE_SPRAY_CONFIG);
   this.spraySnowflakes = new app.SprayPattern($elem, 'spray-snowflakes', app.Constants.SPRINKLE_SPRAY_CONFIG);
 
