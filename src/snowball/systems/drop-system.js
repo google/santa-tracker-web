@@ -35,7 +35,7 @@ export class DropSystem {
     const {
       playerSystem,
       collisionSystem,
-      icebergSystem,
+      entityRemovalSystem,
       mapSystem,
       parachuteSystem
     } = game;
@@ -94,7 +94,8 @@ export class DropSystem {
         if (!presence.gone) {
           if (!presence.exiting) {
             if (tileState === 4.0) {
-              icebergSystem.freezeEntity(drop);
+              collisionSystem.removeCollidable(drop);
+              entityRemovalSystem.freezeEntity(drop);
             } else if (drop.collidingPlayer != null) {
               playerSystem.assignPlayerPowerup(
                   drop.collidingPlayer.playerId, drop.contents.inventory[0]);

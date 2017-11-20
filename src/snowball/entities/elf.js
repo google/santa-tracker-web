@@ -8,6 +8,7 @@ import { Path } from '../components/path.js';
 import { Arrival } from '../components/arrival.js';
 import { Presence } from '../components/presence.js';
 import { Powerups } from '../components/powerup.js';
+import { Visibility } from '../components/visibility.js';
 import { PlayerMarker } from './player-marker.js';
 import { Snowball } from './snowball.js';
 import { combine, randomElement } from '../../engine/utils/function.js';
@@ -165,6 +166,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
     this.arrival = new Arrival(startingTileIndex);
     this.presence = new Presence();
     this.powerups = new Powerups();
+    this.visibility = new Visibility();
     this.sank = false;
 
     if (this.elf) {
@@ -201,7 +203,13 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   }
 
   update(game) {
-    const { clientSystem, mapSystem, inputSystem, collisionSystem } = game;
+    const {
+      clientSystem,
+      mapSystem,
+      inputSystem,
+      collisionSystem,
+      entityRemovalSystem
+    } = game;
     const { player: clientPlayer } = clientSystem;
     const { grid } = mapSystem;
     const { arrival, path, health } = this;
@@ -228,7 +236,11 @@ export class Elf extends Allocatable(Entity(Object3D)) {
                 const { direction } = other.trajectory;
 
                 this.face(Math.atan2(direction.y, direction.x) - PI_OVER_TWO);
+                // TODO(cdata): This probably should be handled in the player
+                // based on some state that says "this deadly thing collided
+                // with me."
                 this.die();
+                entityRemovalSystem.teleportEntity(this);
               }
             }));
       }
@@ -276,7 +288,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
         this.hasAssignedTarget = false;
       }
     } else {
-      const { presence } = this;
+      const { presence, visibility } = this;
 
       if (presence.exiting) {
         if (clientPlayerMarker.parent === this.dolly) {
@@ -285,7 +297,7 @@ export class Elf extends Allocatable(Entity(Object3D)) {
 
         if (this.currentLod === lod.HIGH) {
           const material = this.elf.children[0].material;
-          material.opacity = 0.5;
+          material.opacity = visibility.opacity;
         }
       }
 
@@ -360,7 +372,12 @@ export class Elf extends Allocatable(Entity(Object3D)) {
   fallDown() {
     if (this.model != null) {
       const fall = Math.floor(Math.random() * 3) + 1;
-      this.model.playOnce(`elf_rig_fall_down${fall > 1 ? `_${fall}` : ''}`);
+      this.model.playOnce(`elf_rig_fall_down_${fall}`);
+      const handler = event => {
+        this.model.play(`elf_rig_fall_down_${fall}_idle`).fadeIn(0.5);
+        this.model.animationMixer.removeEventListener('finished', handler);
+      };
+      this.model.animationMixer.addEventListener('finished', handler);
     }
   }
 

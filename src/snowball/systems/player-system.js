@@ -88,7 +88,13 @@ export class PlayerSystem {
   }
 
   update(game) {
-    const { mapSystem, snowballSystem, clientSystem, parachuteSystem, icebergSystem } = game;
+    const {
+      mapSystem,
+      snowballSystem,
+      clientSystem,
+      parachuteSystem,
+      entityRemovalSystem
+    } = game;
     const { grid, map } = mapSystem;
     const { player: clientPlayer } = clientSystem;
 
@@ -186,7 +192,7 @@ export class PlayerSystem {
 
       if (tileState === 4.0 && presence.present && !presence.exiting) {
         player.sink();
-        icebergSystem.freezeEntity(player);
+        entityRemovalSystem.freezeEntity(player);
       } else if (presence.gone) {
         this.players.splice(i--, 1);
 

@@ -8,7 +8,7 @@ import { PlayerSystem } from './snowball/systems/player-system.js';
 import { ClientSystem } from './snowball/systems/client-system.js';
 import { NetworkSystem } from './snowball/systems/network-system.js';
 import { ParachuteSystem } from './snowball/systems/parachute-system.js';
-import { IcebergSystem } from './snowball/systems/iceberg-system.js';
+import { EntityRemovalSystem } from './snowball/systems/entity-removal-system.js';
 import { DropSystem } from './snowball/systems/drop-system.js';
 import { LocalLevel } from './snowball/levels/local-level.js';
 import { NetworkLevel } from './snowball/levels/network-level.js';
@@ -24,7 +24,7 @@ export class SnowballGame extends Game {
     this.effectSystem = new EffectSystem();
     this.snowballSystem = new SnowballSystem();
     this.parachuteSystem = new ParachuteSystem();
-    this.icebergSystem = new IcebergSystem();
+    this.entityRemovalSystem = new EntityRemovalSystem();
     this.dropSystem = new DropSystem();
     this.mapSystem = new MapSystem(64.0, 64.0, 64.0);
     this.clientSystem = new ClientSystem();
@@ -58,7 +58,7 @@ export class SnowballGame extends Game {
     this.collisionSystem.update(this);
     this.lodSystem.update(this);
     this.snowballSystem.update(this);
-    this.icebergSystem.update(this);
+    this.entityRemovalSystem.update(this);
     this.dropSystem.update(this);
     this.parachuteSystem.update(this);
     this.effectSystem.update(this);

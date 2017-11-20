@@ -7,8 +7,10 @@ const {
 
 const intermediateVector2 = new Vector2();
 
-export class IcebergSystem {
+export class EntityRemovalSystem {
   constructor() {
+    this.teleportingEntities = [];
+
     this.freezingEntities = [];
     this.frozenEntities = [];
 
@@ -16,8 +18,17 @@ export class IcebergSystem {
     this.icebergLayer = new Object3D();
   }
 
+  teleportEntity(entity) {
+    if (entity.presence == null || entity.presence.exiting) {
+      return;
+    }
+
+    entity.presence.exiting = true;
+    this.teleportingEntities.push(entity);
+  }
+
   freezeEntity(entity) {
-    if (entity.presence == null) {
+    if (entity.presence == null || entity.presence.exiting) {
       return;
     }
 
@@ -55,6 +66,7 @@ export class IcebergSystem {
     if (map == null) {
       return;
     }
+
     const { tileRings } = map;
 
     for (let i = 0; i < this.frozenEntities.length; ++i) {
@@ -81,6 +93,36 @@ export class IcebergSystem {
         this.frozenEntities.splice(i--, 1);
         Iceberg.free(iceberg);
 
+        presence.present = presence.exiting = false;
+      }
+    }
+
+    for (let i = 0; i < this.teleportingEntities.length; ++i) {
+      const entity = this.teleportingEntities[i];
+      const { presence, visibility } = entity;
+
+      const delta = performance.now() - presence.exitTime;
+      const threshold = 1000;
+      const elapsed = delta - threshold;
+
+      if (elapsed < 0.0) {
+        continue;
+      }
+
+      const teleportDuration = 700;
+      const time = Math.min(1.0, elapsed / teleportDuration);
+
+      const distance = time * time * grid.cellSize;
+      const opacity = 1.0 - time;
+
+      entity.position.z = distance;
+
+      if (visibility) {
+        visibility.opacity = opacity;
+      }
+
+      if (time === 1.0) {
+        this.teleportingEntities.splice(i--, 1);
         presence.present = presence.exiting = false;
       }
     }

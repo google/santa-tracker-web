@@ -13,7 +13,7 @@ export class MainLevel extends Level {
       collisionSystem,
       snowballSystem,
       parachuteSystem,
-      icebergSystem,
+      entityRemovalSystem,
       dropSystem,
       effectSystem,
       playerSystem,
@@ -28,7 +28,7 @@ export class MainLevel extends Level {
     const { effectsLayer } = effectSystem;
     const { collisionDebugLayer } = collisionSystem;
     const { parachuteLayer } = parachuteSystem;
-    const { icebergLayer } = icebergSystem;
+    const { icebergLayer } = entityRemovalSystem;
     const { dropLayer } = dropSystem;
 
     this.unsubscribe = mapSystem.handleMapPick(event => this.pickEvent = event);
