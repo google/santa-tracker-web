@@ -407,6 +407,18 @@ app.Constants = {
         color: '#5677fc' },
       { name: 'image-ornament-wide2',
         color: '#9c27b0' },
+      { name: 'image-ornament-wide3',
+        color: '#e51c23' },
+      { name: 'image-ornament-wide3',
+        color: '#ff9800' },
+      { name: 'image-ornament-wide3',
+        color: '#ffeb3b' },
+      { name: 'image-ornament-wide3',
+        color: '#259b24' },
+      { name: 'image-ornament-wide3',
+        color: '#5677fc' },
+      { name: 'image-ornament-wide3',
+        color: '#9c27b0' },
     ]
   },
 

@@ -40,6 +40,7 @@ goog.require('app.ImageItemOrnamentSkinny1');
 goog.require('app.ImageItemOrnamentSkinny2');
 goog.require('app.ImageItemOrnamentWide1');
 goog.require('app.ImageItemOrnamentWide2');
+goog.require('app.ImageItemOrnamentWide3');
 goog.require('app.ImageItemPresent');
 goog.require('app.ImageItemStringLight');
 goog.require('app.ImageTextureCrayon');
@@ -81,6 +82,7 @@ app.ImageManager = function() {
       'image-ornament-skinny2': new app.ImageItemOrnamentSkinny2(),
       'image-ornament-wide1': new app.ImageItemOrnamentWide1(),
       'image-ornament-wide2': new app.ImageItemOrnamentWide2(),
+      'image-ornament-wide3': new app.ImageItemOrnamentWide3(),
       'image-candy-gumdrop': new app.ImageItemCandyGumdrop(),
       'image-candy-jellybean': new app.ImageItemCandyJellybean(),
       'image-candy-mint-swirl': new app.ImageItemCandyMintSwirl(),
