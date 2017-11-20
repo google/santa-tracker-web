@@ -41,6 +41,7 @@ goog.require('app.ImageItemOrnamentSkinny2');
 goog.require('app.ImageItemOrnamentWide1');
 goog.require('app.ImageItemOrnamentWide2');
 goog.require('app.ImageItemPresent');
+goog.require('app.ImageItemStringLight');
 goog.require('app.ImageTextureCrayon');
 goog.require('app.ImageTexturePaintbrush');
 goog.require('app.ImageTexturePencil');
@@ -96,6 +97,7 @@ app.ImageManager = function() {
       'image-confetti-circle': new app.ImageItemConfettiCircle(),
       'image-confetti-outlined-circle': new app.ImageItemConfettiOutlinedCircle(),
       'image-confetti-squiggle': new app.ImageItemConfettiSquiggle(),
+      'image-string-light': new app.ImageItemStringLight(),
       'texture-pencil': new app.ImageTexturePencil(),
       'texture-crayon': new app.ImageTextureCrayon(),
       'texture-paintbrush': new app.ImageTexturePaintbrush(),
