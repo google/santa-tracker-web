@@ -4,6 +4,21 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
     "candy-jellybean",  "candy-mint-swirl",  "candy-mint-wheel",  "candy-sucker";
 
 ##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="stamp"] {
+    .Tools-display-inner {
+      background-size: 75% 75%;
+    }
+
+    @each $current-stamp in $stamp-names {
+      &[data-current-tool="stamp-#{$current-stamp}"] {
+        .Tools-display-inner {
+          background-image: url(img/tools/stamps/#{$current-stamp}.svg);
+        }
+      }
+    }
+  }
+
   // TOOLBAR
   [data-tool-category="stamp"] {
     .Tool {
