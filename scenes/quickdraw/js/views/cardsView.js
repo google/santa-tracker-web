@@ -28,6 +28,7 @@ app.view.CardsView = function(container) {
   this.container = container;
   this.newround_card = container.find('.newround-card');
   this.timesup_card = container.find('.timesup-card');
+  this.round_detail_card = container.find('.rounddetails-card');
   this.newround_card.hide();
   this.timesup_card.hide();
 };
@@ -62,7 +63,6 @@ app.view.CardsView.prototype.hideCard = function(card, cb) {
     }.bind(this), 1000);
   }
 };
-
 
 app.view.CardsView.prototype.showNewRoundCard = function(options) {
   this.showCard(this.newround_card);
@@ -125,6 +125,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
     }.bind(this));
 };
 
+
 app.view.CardsView.prototype.createDrawingElem = function(round) {
   var drawingElem = $('<div>')
     .addClass('timesup-card__drawing');
@@ -138,5 +139,38 @@ app.view.CardsView.prototype.createDrawingElem = function(round) {
   var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, 300, 225, {padding: 10});
   drawingElem.append(svgElem);
 
+  drawingElem.on('touchend mouseup', function() {
+    this.showRoundDetailsCard(round);
+  }.bind(this));
+
   return drawingElem;
+};
+
+
+app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
+  //Section 1
+
+  // - [ ] Round Details > Your Drawing > Replace word
+  this.round_detail_card
+    .find('.rounddetails-card__word')
+    .text(round.word);
+  // - [ ] Round Details > Your Drawing > Replace Drawing
+  var svg = app.SVGUtils.createSvgFromSegments(round.drawing, 270, 180, {padding:10, color: 'rgba(0,0,0,1.00)'});
+  var drawingElm = this.round_detail_card.find('.rounddetails-card__drawing--user');
+  drawingElm.html('');
+  drawingElm.append(svg);
+  // - [ ] Round Details > Your Drawing > Add Santa Drawing (Prepare code)
+
+  //Section 2
+
+  //Section 3
+
+  this.showCard(this.round_detail_card);
+
+  this.round_detail_card
+    .find('.rounddetails-card__back-btn')
+    .off('touchend mouseup')
+    .on('touchend mouseup', function() {
+      this.hideCard(this.round_detail_card);
+    }.bind(this));
 };
