@@ -174,7 +174,7 @@ class Model {
 
 export const createElf = (() => {
   const gltfLoads = new Promise(resolve => {
-    loader.load('./models/elf-animated.gltf', function(gltf) {
+    loader.load('scenes/snowball/js/models/elf-animated.gltf', function(gltf) {
       gltf.scene.traverse(node => {
         if (node.isSkinnedMesh) {
           //const originalMaterial = node.material;

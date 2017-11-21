@@ -67,6 +67,11 @@ export class SnowballGame extends Game {
     this.networkSystem.update(this);
     this.playerSystem.update(this);
   }
+
+  start() {
+    const LevelClass = this.localLevelType;
+    this.level = LevelClass();
+  }
 };
 
 customElements.define('snowball-game', SnowballGame);

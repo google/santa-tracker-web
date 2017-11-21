@@ -33,8 +33,8 @@ Object.defineProperty(AllocatableInterface, 'allocatedItems', {
   get() {}
 });
 
-AllocatableInterace.prototype.onAllocated = function() {};
-AllocatableInterace.prototype.onFreed = function() {};
+AllocatableInterface.prototype.onAllocated = function() {};
+AllocatableInterface.prototype.onFreed = function() {};
 
 export const Allocatable = SuperClass => {
 

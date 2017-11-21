@@ -22,7 +22,7 @@ export class PowerupStatus extends EntityElement {
     border-radius: 100%;
     width: 128px;
     height: calc(209/201 * 128px);
-    background-image: url(/src/images/item-frame.png);
+    background-image: url(scenes/snowball/img/item-frame.png);
     background-size: 100%;
     pointer-events: all;
   }
@@ -65,7 +65,7 @@ export class PowerupStatus extends EntityElement {
   }
 
   :host(.powerup-1) .icon {
-    background-image: url(/src/images/powerup-1.png);
+    background-image: url(scenes/snowball/img/powerup-1.png);
   }
 </style>
 <div id="one" class="icon"></div>
