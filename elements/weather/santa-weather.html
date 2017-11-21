@@ -79,6 +79,14 @@ Polymer({
       value: 0,
     },
 
+    /**
+     * The fraction of the screen to generate clouds in.
+     */
+    cloudFrac: {
+      type: Number,
+      value: 0.4,
+    },
+
   },
 
   created: function() {
@@ -189,7 +197,7 @@ Polymer({
       // Adjust the start position based on the wind value. Positive wind dir
       // should imply that the cloud starts screen left, and vice-versa.
       x: x,
-      y: Math.random() * 0.4,
+      y: Math.random() * this.cloudFrac,
       o: 0.2 + Math.random() * 0.7
     }
   },

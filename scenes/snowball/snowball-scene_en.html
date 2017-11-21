@@ -45,7 +45,9 @@ Snowball Storm scene.
       100% { transform: translateX(100%); }
     }
     #mover {
+      pointer-events: none;
       width: 100%;
+      min-width: 800px;
       animation: snowball-sleigh 8s linear infinite;
       will-change: transform;
     }
@@ -64,6 +66,7 @@ Snowball Storm scene.
     </div>
   </div>
   <santa-weather cloud-frac="1.0" clouds="20"></santa-weather>
+  <santa-tutorial tutorials="snowball_move.mp4 snowball_throw.mp4" show></santa-tutorial>
 </template>
 <script>
 Polymer({
