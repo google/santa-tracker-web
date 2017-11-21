@@ -33,4 +33,4 @@ RUN yarn install
 
 EXPOSE 8080
 
-CMD ["gulp", "serve"]
+CMD ["http-server", ".", "-s", "-p", "8080"]
