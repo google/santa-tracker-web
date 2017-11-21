@@ -188,7 +188,7 @@ Santa Tracker app.
           loading-bg-color="rgb(129,208,0)"
           logo="scenes/commandcentre/img/logo.svg"></commandcentre-scene>
 
-      <elfski-scene route="elfski"
+      <elfski-scene route="elfski" icon="1f3bf"
           path$="scenes/elfski/elfski-scene.html"
           logo="scenes/commandcentre/img/logo.svg"></elfski-scene>
 
@@ -307,7 +307,7 @@ Santa Tracker app.
           header-color="#575769"
           logo="scenes/runner/img/logo.svg"></runner-scene>
 
-      <santasearch-scene route="santasearch"
+      <santasearch-scene route="santasearch" icon="1f50d"
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
           header-color="#00904a"
           loading-bg-color="#29B6F6"
@@ -328,18 +328,18 @@ Santa Tracker app.
           loading-src="scenes/seasonofgiving/img/loading.svg"
           logo="scenes/seasonofgiving/img/header-icon.svg"></seasonofgiving-scene>
 
-      <smatch-scene route="smatch"
+      <smatch-scene route="smatch" icon="1f3e1"
           path$="scenes/smatch/smatch-scene_[[language]].html"
-          header-color="#00C6ED"
+          header-color="#00c6ed"
           loading-bg-color="rgb(129,208,0)"></smatch-scene>
 
-      <snowball-scene route="snowball"
+      <snowball-scene route="snowball" icon="2603*"
           path$="scenes/snowball/snowball-scene_[[language]].html"
           loading-bg-color="#71a7db"
           loading-src="scenes/snowball/img/loading.svg"
           logo="scenes/snowball/img/logo.svg"></snowball-scene>
 
-      <snowflake-scene route="snowflake"
+      <snowflake-scene route="snowflake" icon="2744*"
           path$="scenes/snowflake/snowflake-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"></snowflake-scene>
 
@@ -363,7 +363,7 @@ Santa Tracker app.
           loading-src="scenes/translations/img/loading.png"
           logo="scenes/translations/img/logo.svg"></translations-scene>
 
-      <trivia-scene route="trivia"
+      <trivia-scene route="trivia" icon="1f914"
           path$="scenes/trivia/trivia-scene_[[language]].html"
           logo="scenes/traditions/img/traditions_icon.svg"></trivia-scene>
 
@@ -816,6 +816,11 @@ Polymer({
       var icon = '';
       if (raw && String.fromCodePoint) {  // no emoji on IE11
         icon = String.fromCodePoint(parseInt(raw, 16));
+
+        if (raw.endsWith('*')) {
+          // add VS16/'force emoji' char
+          icon += String.fromCodePoint(0xfe0f);
+        }
       }
       document.title = icon + this.$.strings.s('meta_title');
     }
