@@ -332,7 +332,13 @@ app.Constants = {
       { elemId: "jellyfish" },
       { elemId: "light_fish" },
       { elemId: "ocean_bubble",
-        frequencyFactor: 20 },
+        frequencyFactor: 6 },
+      { elemId: "ocean_bubble",
+        sizeFactor: 1.75,
+        frequencyFactor: 6 },
+      { elemId: "ocean_bubble",
+        sizeFactor: 2.5,
+        frequencyFactor: 6 },
       { elemId: "seashell" },
       { elemId: "seaweed_green" },
       { elemId: "seaweed_lime" },
@@ -344,6 +350,7 @@ app.Constants = {
   ORNAMENT_SPRAY_CONFIG: {
     maxOffset: 75,
     density: 0.5,
+    noRotate: true,
     images: [
       { name: 'image-ornament-round1',
         color: '#e51c23' },

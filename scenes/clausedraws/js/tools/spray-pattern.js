@@ -36,6 +36,8 @@ app.SprayPattern = function($elem, name, config) {
   this.maxOffset = config.maxOffset || 0;
   this.density = config.density || 1;
   this.opacity = config.opacity || 1;
+  this.noRotate = config.noRotate;
+
 
   this.populateImages($elem);
 };
@@ -71,7 +73,7 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
       context.save();
       context.globalAlpha = this.opacity;
       context.translate(drawX, drawY);
-      if (!image.noRotate) {
+      if (!this.noRotate && !image.noRotate) {
         context.rotate(Math.random() * 2 * Math.PI);
       }
       context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
@@ -86,15 +88,16 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
 app.SprayPattern.prototype.populateImages = function($elem) {
   for (var i = this.images.length - 1; i >= 0; i--) {
     var image = this.images[i];
+    var sizeFactor = image.sizeFactor || 1;
     if (image.elemId) {
       image.elem = $elem.find('#' + image.elemId);
-      image.width = image.elem.width();
-      image.height = image.elem.height();
+      image.width = image.elem.width() * sizeFactor;
+      image.height = image.elem.height() * sizeFactor;
       image.elem = image.elem[0];
     } else if (image.name) {
       var dimens = app.ImageManager.getImageDimensions(image.name);
-      image.width = dimens.width;
-      image.height = dimens.height;
+      image.width = dimens.width * sizeFactor;
+      image.height = dimens.height * sizeFactor;
     }
 
     if (image.frequencyFactor) {
