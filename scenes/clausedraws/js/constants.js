@@ -70,7 +70,7 @@ app.Constants = {
     ]
   },
   CANDY_SPRAY_CONFIG: {
-    density: 2,
+    density: 0.75,
     maxOffset: 100,
     images: [
       { name: 'image-candy-jellybean',
@@ -282,7 +282,7 @@ app.Constants = {
   },
 
   HOLIDAY_SPRAY_CONFIG: {
-    maxOffset: 200,
+    maxOffset: 150,
     density: 0.5,
     images: [
       { name: 'image-string-light',
@@ -319,7 +319,7 @@ app.Constants = {
 
   OCEAN_SPRAY_CONFIG: {
     maxOffset: 150,
-    density: 0.25,
+    // density: 0.25,
     images: [
       { elemId: "box_fish" },
       { elemId: "coral_large" },
@@ -343,7 +343,7 @@ app.Constants = {
 
   ORNAMENT_SPRAY_CONFIG: {
     maxOffset: 75,
-    density: 0.25,
+    density: 0.5,
     images: [
       { name: 'image-ornament-round1',
         color: '#e51c23' },
@@ -445,9 +445,9 @@ app.Constants = {
   },
 
   SNOWFLAKE_SPRAY_CONFIG: {
-    maxOffset: 100,
+    maxOffset: 150,
     opacity: 0.5,
-    density: 0.25,
+    density: 0.5,
     images: [
         { elemId: "snowflake_1" },
         { elemId: "snowflake_2" },
