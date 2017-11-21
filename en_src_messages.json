@@ -1423,6 +1423,102 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Paraguay"
   },
+  "quickdraw-splashview-title": {
+    "description": "Title on the splash screen.",
+    "message": "Help Tensor practice his image recognition!"
+  },
+  "quickdraw-splashview-description": {
+    "description": "Description on splash screen",
+    "message": "Tensor is Santa’s Machine Learning bot that helps him quickly decipher the letters he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and he’ll tell you what he sees. The more you draw, the smarter Tensor will get, so let’s help Santa be more efficient than ever this holiday season!"
+  },
+  "quickdraw-splashview-button": {
+    "description": "Label for the button to click to start a game",
+    "message": "Start"
+  },
+  "quickdraw-helping-elf": {
+    "description": "Action/order/verb. Text that appears in the elf slate. 8 character limit.",
+    "message": "Draw"
+	},
+  "quickdraw-slate": {
+    "description": "Action/order/verb. Text that appears above the word to draw.",
+    "message": "Draw"
+	},
+  "quickdraw-newround-button": {
+    "description": "Label for the button to click to start a game round",
+    "message": "Start"
+	},
+  "quickdraw-timesup-button": {
+    "description": "Label for the button to restart a game.",
+    "message": "Play again!"
+  },
+  "quickdraw-timesup-title-noguess": {
+    "description": "Interjection on end of game screen. When AI didn't recognize any drawing.",
+    "message": "Oops!"
+  },
+  "quickdraw-timesup-subline-noguess": {
+    "description": "Sentence on end of game screen. When AI didn't recognize any drawing.",
+    "message": "Tensor didn’t recognized any of your drawings."
+  },
+  "quickdraw-timesup-title-guess": {
+    "description": "Interjection on end of game screen. When AI recognized at least one of player's drawings.",
+    "message": "Well done!"
+  },
+  "quickdraw-timesup-subline-guess": {
+    "description": "Sentence on end of game screen. When AI recognized at least one of player's drawings.",
+    "message": "Tensor recognized {{roundsRecognized}} of your drawings."
+  },
+  "quickdraw-round-no-new-guess": {
+    "description": "Sentence displays during the game, when player is drawing, and AI can't guess what is it. 30 character limit.",
+    "message": "I’m not sure what that is."
+  },
+  "quickdraw-round-sorry": {
+    "description": "When the AI coudn't guess the drawing and is sorry about it. 8 character limit.",
+    "message": "Sorry"
+  },
+  "quickdraw-round-timesup": {
+    "description": "When the timer run out of time and AI didn't guess the drawing. 20 character limit.",
+    "message": "I couldn’t guess it"
+  },
+  "quickdraw-machine-see": {
+    "description": "'I see' is followed by a list of guesses. 8 character limit.",
+    "message": "I see"
+  },
+  "quickdraw-machine-or": {
+    "description": "This separates different guesses in a list of guesses",
+    "message": "or"
+  },
+  "quickdraw-machine-know": {
+    "description": "When the AI finally guessed what the drawing is. Followed by the guess. 20 character limit.",
+    "message": "Oh I know, this is"
+  },
+  "quickdraw-rounddetails-back-button": {
+    "description": "Label of back button",
+    "message": "Back"
+  },
+  "quickdraw-rounddetails-title": {
+    "description": "Display on End of game Screen. Remind what the players were asked to draw.",
+    "message": "You were asked to draw {{word}}"
+  },
+  "quickdraw-rounddetails-santa-version": {
+    "description": "Display on End of game Screen. Above the santa's version of players' drawings. (i.e. a beautiful drawing).",
+    "message": "This is Santa’s version of {{word}}"
+  },
+  "quickdraw-rounddetails-also-look": {
+    "description": "Display on End of game Screen. Show other guesses drawings that looks like player's drawing. Show When AI recognized the drawing.",
+    "message": "Tensor also thought your drawing looked like these:"
+  },
+  "quickdraw-rounddetails-look-more": {
+    "description": "Displays on End of game Screen. Show other guesses drawings that looks like player's drawing. When AI didn't recognize the drawing.",
+    "message": "Tensor thought your drawing looked more like these:"
+  },
+  "quickdraw-rounddetails-how-know": {
+    "description": "Ask how the AI did to guess your drawings. Answer is below.",
+    "message": "How does is know what {{word}} look like?"
+  },
+  "quickdraw-rounddetails-it-learned": {
+    "description": "Explains how the AI guessed your drawings. Answers the question above",
+    "message": "It learned by looking at these examples drawn by other people."
+  },
   "ro_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Romania"
