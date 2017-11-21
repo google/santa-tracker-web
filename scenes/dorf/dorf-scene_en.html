@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/village-header/village-header.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="elements/effect-skydive.html">
+<link rel="import" href="elements/effect-snowmobile.html">
 <link rel="import" href="elements/effect-tictactoe.html">
 <link rel="import" href="elements/effect-wrangler.html">
 <link rel="import" href="dorf-scene_module.html">
@@ -126,10 +127,10 @@ Santa's Village.
           <div id="easteregg-balloon-ropes" class="easter-egg"></div>
           <div id="easteregg-balloon-flight" class="easter-egg"></div>
 
-          <div id="easteregg-snowmobile1" class="easter-egg"></div>
-          <div id="easteregg-snowmobile2" class="easter-egg"></div>
-          <div id="easteregg-snowmobile3" class="easter-egg"></div>
-          <div id="easteregg-snowmobile4" class="easter-egg"></div>
+          <effect-snowmobile id="easteregg-snowmobile1"></effect-snowmobile>
+          <effect-snowmobile id="easteregg-snowmobile2"></effect-snowmobile>
+          <effect-snowmobile id="easteregg-snowmobile3"></effect-snowmobile>
+          <effect-snowmobile id="easteregg-snowmobile4"></effect-snowmobile>
 
           <div id="easteregg-busstop1" class="easter-egg">
             <div class="elf-stop elf-green"></div>
@@ -251,10 +252,6 @@ Santa's Village.
       'easteregg-busstop2.click': '_triggerBus',
       'easteregg-busstop3.click': '_triggerBus',
       'easteregg-balloon.click': '_flyBalloon',
-      'easteregg-snowmobile1.click': '_driveSnowmobile',
-      'easteregg-snowmobile2.click': '_driveSnowmobile',
-      'easteregg-snowmobile3.click': '_driveSnowmobile',
-      'easteregg-snowmobile4.click': '_driveSnowmobile',
     },
 
     _computeHeaderClass: function(countdownFinished, duringTracker) {
@@ -435,8 +432,7 @@ Santa's Village.
     _randomEasterEggs: function() {
       this.cancelAsync(this._eggTimer);
 
-      var easterEggs = ['balloon', 'snowmobile1', 'snowmobile2', 'snowmobile3',
-          'snowmobile4', 'busstop1', 'busstop2', 'busstop3'];
+      var easterEggs = ['balloon', 'busstop1', 'busstop2', 'busstop3'];
 
       var eggTime = randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX);
       this._eggTimer = this.async(function() {
@@ -459,20 +455,6 @@ Santa's Village.
 
         this._randomEasterEggs();
       }, eggTime);
-    },
-
-    _driveSnowmobile: function(e) {
-      if (!e.fakeEvent) {
-        window.ga('send', 'event', 'village', 'click', 'snowmobile');
-      }
-      var DRIVE_TIME = 10000;
-      var snowmobile = e.currentTarget;
-      if (snowmobile.classList.contains('drive')) return;
-
-      snowmobile.classList.add('drive');
-      this.async(function() {
-        snowmobile.classList.remove('drive');
-      }, DRIVE_TIME + 1);
     },
 
     _flyBalloon: function(e) {
