@@ -70,7 +70,7 @@ export class SnowballGame extends Game {
 
   start() {
     const LevelClass = this.localLevelType;
-    this.level = LevelClass();
+    this.level = new LevelClass();
   }
 };
 
