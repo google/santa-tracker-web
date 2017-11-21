@@ -28,12 +28,18 @@ specific language governing permissions and limitations under the License.
     <div class="cell empty"></div>
     <div class="cell empty"></div>
     <div class="cell empty"></div>
-    <div id="elves-red" class="elves move"></div>
-    <div id="elves-blue" class="elves move"></div>
+    <div id="elves-red" class="elves"></div>
+    <div id="elves-blue" class="elves"></div>
     <div id="win"></div>
   </div>
 </template>
 <script>
+(function() {
+
+const wins = Object.freeze([7, 56, 448, 73, 146, 292, 273, 84]);
+
+const showLineTime = 2 * 1000;
+const restartGameTime = randomRange.bind(null, 20 * 1000, 60 * 1000);
 
 Polymer({
   is: 'effect-tictactoe',
@@ -43,90 +49,96 @@ Polymer({
     /**
      * If the game is being played or not
      */
-    _isPlayingTicTacToe: {
+    _isPlaying: {
+      type: Boolean,
       value: false,
     },
+
     /**
      * Which players turn, only 2 players so a bool is fine
      */
-    _ticTacToeTurn: {
+    _turn: {
+      type: Boolean,
       value: true,
     },
+
     /**
-     * Game cell
+     * Game cells.
      */
-    _ticTacToeCells: {
+    _cells: {
+      type: Array,
       value: null,
     },
 
-    _ticTacToeMove: {
-      value: 1,
+    _redScore: {
+      type: Number,
     },
-    _ticTacToeScore: {
-      value: {'red': 0, 'blue': 0},
+
+    _blueScore: {
+      type: Number,
     },
-    _ticTacToeCellValues: {
-      value: [1, 2, 4, 8, 16, 32, 64, 128, 256],
-    },
-    _ticTacToeWins: {
-      value: [7, 56, 448, 73, 146, 292, 273, 84],
-    },
-    _playTicTacToeTimers: {
-      value: [],
+
+    _timers: {
+      value: () => [],
     },
 
   },
 
   attached: function() {
-    this._playTicTacToe();
+    this.fire('preload', [
+      'img/easteregg-tictactoe.svg',
+      'img/easteregg-tictactoe-move-red.svg',
+      'img/easteregg-tictactoe-draw-red.svg',
+      'img/easteregg-tictactoe-move-blue.svg',
+      'img/easteregg-tictactoe-draw-blue.svg',
+      'img/easteregg-tictactoe-place-red.svg',
+      'img/easteregg-tictactoe-place-blue.svg',
+      'img/easteregg-tictactoe-win-red.svg',
+      'img/easteregg-tictactoe-win-blue.svg',
+    ]);
+
+    this._timers[0] = this.async(this._play, 2000);
   },
 
   detached: function() {
-    for (var i = 0; i < this._playTicTacToeTimers.length; i++) {
-      this.cancelAsync(this._playTicTacToeTimers[i]);
-    }
-    this._playTicTacToeTimers = [];
+    this._timers.forEach((timer) => this.cancelAsync(timer));
+    this._timers = [];
+    this._isPlaying = false;
   },
 
-  _playTicTacToe: function() {
+  _play: function() {
     if (!this.isAttached) {
       return;
     }
 
-    var ticTacGameBoard = this.$.holder;
     var redTeam = this.$['elves-red'];
     var blueTeam = this.$['elves-blue'];
 
-    if (!this._isPlayingTicTacToe || this._ticTacToeCells.length == 0) {
-      this._isPlayingTicTacToe = true;
+    if (!this._isPlaying || !this._cells.length) {
+      this._isPlaying = true;
 
       // Setup a new game
-      this.ticTacToeScore = {'red': 0, 'blue': 0};
+      this._redScore = 0;
+      this._blueScore = 0;
 
-      this.$.win.classList.remove('red', 'blue',
-        'pos-0', 'pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5', 'pos-6', 'pos-7');
+      this.$.win.className = '';
 
-      this._ticTacToeCells = [].slice.call(ticTacGameBoard.querySelectorAll('.cell'));
-      this._ticTacToeCells.forEach(function(cell) {
-        cell.classList.remove('cross', 'naught', 'red', 'blue');
-        cell.classList.add('empty');
-      });
+      this._cells = [].slice.call(this.$.holder.querySelectorAll('.cell'));
+      this._cells.forEach((cell) => cell.className = 'cell empty');
 
       redTeam.classList.remove('draw');
-      redTeam.classList.add('move');
       blueTeam.classList.remove('draw');
-      blueTeam.classList.add('move');
     }
 
     // Random is the best AI....
-    var rnd = Math.floor(Math.random() * this._ticTacToeCells.length);
-    var cell = this._ticTacToeCells.splice(rnd, 1).pop();
-    var index = Array.prototype.indexOf.call(ticTacGameBoard.children, cell);
-    var player = this._ticTacToeTurn ? blueTeam : redTeam;
-    this._playTicTacToeCell(player, cell, index);
+    var rnd = Math.floor(Math.random() * this._cells.length);
+    var cell = this._cells.splice(rnd, 1).pop();
+    var index = Array.prototype.indexOf.call(this.$.holder.children, cell);
+    var player = this._turn ? blueTeam : redTeam;
+    this._playCell(player, cell, index);
   },
 
-  _playTicTacToeCell: function(player, cell, index) {
+  _playCell: function(player, cell, index) {
     var moveTime = 500;
     var drawTime = moveTime + 200;
     var doneDrawTime = drawTime + 500;
@@ -134,81 +146,78 @@ Polymer({
     var playAgainTime = moveBackTime + 1000;
     var posClass = 'to-pos-' + (index + 1);
     player.classList.add(posClass);
-    this._ticTacToeTurn = !this._ticTacToeTurn;
-    var turn = this._ticTacToeTurn;
+
+    this._turn = !this._turn;
+    var turn = this._turn;
 
     var move = function() {
-      player.classList.remove('move');
       player.classList.add('draw');
     };
 
     var draw = function() {
       if (turn) {
-        cell.classList.add('cross', 'red');
+        cell.classList.add('red');
       } else {
-        cell.classList.add('naught', 'blue');
+        cell.classList.add('blue');
       }
       cell.classList.remove('empty');
     };
 
     var doneDraw = function() {
       player.classList.remove('draw');
-      player.classList.add('move');
     };
 
     var moveBack = function() {
       player.classList.remove(posClass);
     };
 
-    this._playTicTacToeTimers[1] = this.async(move.bind(this), moveTime);
-    this._playTicTacToeTimers[2] = this.async(draw.bind(this), drawTime);
-    this._playTicTacToeTimers[3] = this.async(doneDraw.bind(this), doneDrawTime);
-    this._playTicTacToeTimers[4] = this.async(moveBack.bind(this), moveBackTime);
+    this._timers[1] = this.async(move.bind(this), moveTime);
+    this._timers[2] = this.async(draw.bind(this), drawTime);
+    this._timers[3] = this.async(doneDraw.bind(this), doneDrawTime);
+    this._timers[4] = this.async(moveBack.bind(this), moveBackTime);
 
     if (turn) {
-      this.ticTacToeScore['red'] += this._ticTacToeCellValues[index];
-      var w = this._checkTicTacToeWin(this.ticTacToeScore['red']);
+      this._redScore += (1 << index);
+      var w = this._checkWin(this._redScore);
       if (w !== false) {
-        this._showTicTacToeWin('red', w);
+        this._showWin('red', w);
         return;
       }
     } else {
-      this.ticTacToeScore['blue'] += this._ticTacToeCellValues[index];
-      var w = this._checkTicTacToeWin(this.ticTacToeScore['blue']);
+      this._blueScore += (1 << index);
+      var w = this._checkWin(this._blueScore);
       if (w !== false) {
-        this._showTicTacToeWin('blue', w);
+        this._showWin('blue', w);
         return;
       }
     }
 
-    if (this._ticTacToeCells.length == 0) {
+    if (!this._cells.length) {
       // Draw
       window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
     }
 
-    this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
+    this._timers[0] = this.async(this._play, playAgainTime);
   },
 
-  _showTicTacToeWin: function(player, w) {
-    var WIN_LINE_TIME = 2000;
-    var RESTART_GAME_TIME = randomRange(20000, 60000);
-    this._isPlayingTicTacToe = false;
+  _showWin: function(player, w) {
+    this._isPlaying = false;
     var c = 'pos-' + w;
 
     window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
-    this._playTicTacToeTimers[0] = this.async(function() {
+    this._timers[0] = this.async(function() {
       this.$.win.classList.add(player, c);
-    }, WIN_LINE_TIME);
+    }, showLineTime);
 
-    this._playTicTacToeTimers[1] = this.async(function() {
+    this._timers[1] = this.async(function() {
       this.$.win.classList.remove(player, c);
-      this._playTicTacToe();
-    }, RESTART_GAME_TIME);
+      this._play();
+    }, restartGameTime());
   },
 
-  _checkTicTacToeWin: function(score) {
-    for (var i = 0; i < this._ticTacToeWins.length; i++) {
-      if ((this._ticTacToeWins[i] & score) === this._ticTacToeWins[i]) {
+  _checkWin: function(score) {
+    for (let i = 0; i < wins.length; ++i) {
+      if ((wins[i] & score) === wins[i]) {
         return i;
       }
     }
@@ -217,5 +226,6 @@ Polymer({
 
 });
 
+})();
 </script>
 </dom-module>

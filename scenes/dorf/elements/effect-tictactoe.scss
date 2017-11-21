@@ -57,32 +57,19 @@
   background-size: contain;
 
   &.empty {
-    opacity: 1;
+    opacity: 0;
   }
 
-  &.cross {
+  &.red {
     width: 44px;
     height: 19px;
-
-    &.red {
-      background-image: url(img/easteregg-tictactoe-cross-red.svg);
-    }
-    &.blue {
-      background-image: url(img/easteregg-tictactoe-cross-blue.svg);
-    }
+    background-image: url(img/easteregg-tictactoe-place-red.svg);
   }
 
-  &.naught {
+  &.blue {
     width: 48px;
     height: 14px;
-
-    &.red {
-      background-image: url(img/easteregg-tictactoe-naught-red.svg);
-    }
-
-    &.blue {
-      background-image: url(img/easteregg-tictactoe-naught-blue.svg);
-    }
+    background-image: url(img/easteregg-tictactoe-place-blue.svg);
   }
 }
 
