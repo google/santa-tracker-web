@@ -62,12 +62,12 @@ export class InputSystem extends EntityElement {
   }
 
   onPointerMove(event) {
-    const { x, y } = event;
+    const { offsetX: x, offsetY: y } = event;
     this.dispatch(new Event('pointer-move', { x, y }, this));
   }
 
   onClick(event) {
-    const { x, y } = event;
+    const { offsetX: x, offsetY: y } = event;
     this.dispatch(new Event('click', { x, y }, this));
   }
 
