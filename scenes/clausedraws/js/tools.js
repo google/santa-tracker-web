@@ -20,6 +20,7 @@ goog.require('app.LayerTool');
 goog.require('app.Marker');
 goog.require('app.Neon');
 goog.require('app.PaintRoller');
+goog.require('app.PenGarland');
 goog.require('app.Pencil');
 goog.require('app.Shape');
 goog.require('app.SprayColor');
@@ -91,7 +92,7 @@ app.Tools = function(game, $elem) {
       noRotation: true,
       monotone: true
     });
-  this.garland = new app.TextureDrawer($elem, 'garland', {
+  this.garland = new app.PenGarland($elem, 'garland', {
       sizeConfig: {
         min: 0.5,
         max: 5,

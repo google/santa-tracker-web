@@ -41,8 +41,6 @@ app.utils = function() {
 
     pointInCurve: function(t, start, control, end) {
       var u = (1 - t);
-      // var x = u * (u * start.x + (t * control.x)) + t * ((u * control.x + (t * end.x)));
-      // var y = u * (u * start.y + (t * control.y)) + t * ((u * control.y + (t * end.y)));
       var x = u * u * start.x + 2 * u * t * control.x + t * t * end.x;
       var y = u * u * start.y + 2 * u * t * control.y + t * t * end.y;
       var dx = (u * control.x + t * end.x) - (u * start.x + t * control.x);
@@ -54,6 +52,25 @@ app.utils = function() {
         angle: Math.atan2(dy, dx)
       };
     },
+
+    curveLength: function(start, control, end) {
+      var ax = start.x - 2 * control.x + end.x;
+      var ay = start.y - 2 * control.y + end.y;
+      var bx = 2 * control.x - 2 * start.x;
+      var by = 2 * control.y - 2 * start.y;
+      var A = 4 * (ax * ax + ay * ay);
+      var B = 4 * (ax * bx + ay * by);
+      var C = bx * bx + by * by;
+
+      var Sabc = 2 * Math.sqrt(A+B+C);
+      var A_2 = Math.sqrt(A);
+      var A_32 = 2 * A * A_2;
+      var C_2 = 2 * Math.sqrt(C);
+      var BA = B / A_2;
+
+      return (A_32 * Sabc + A_2 * B * (Sabc - C_2) + (4 * C * A - B * B) * Math.log((2 * A_2 + BA + Sabc) / (BA + C_2))) / (4 * A_32);
+    },
+
 
     map: function(value, min, max) {
       return min + (max - min) * value;
