@@ -1,6 +1,13 @@
 import { Entity } from '../../engine/core/entity.js';
 
-export class PowerupStatus extends Entity(HTMLElement) {
+/**
+ * @constructor
+ * @extends {HTMLElement}
+ * @implements {EntityInterface}
+ */
+const EntityElement = Entity(HTMLElement);
+
+export class PowerupStatus extends EntityElement {
 
   constructor(...args) {
     super(...args);

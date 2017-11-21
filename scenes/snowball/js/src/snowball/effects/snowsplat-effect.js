@@ -82,7 +82,13 @@ void main() {
 }
 `;
 
-export class SnowsplatEffect extends Entity(class {}) {
+/**
+ * @constructor
+ * @implements {EntityInterface}
+ */
+const EntityClass = Entity();
+
+export class SnowsplatEffect extends EntityClass {
   constructor() {
     super();
 

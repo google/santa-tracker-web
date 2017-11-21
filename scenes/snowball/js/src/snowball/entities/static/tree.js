@@ -3,7 +3,13 @@ import { Circle, Rectangle } from '../../../engine/utils/collision-2d.js';
 
 const { Math } = self.THREE;
 
-export class Tree extends Entity(class {}) {
+/**
+ * @constructor
+ * @implements {EntityInterface}
+ */
+const EntityClass = Entity();
+
+export class Tree extends EntityClass {
   constructor(tileIndex, position) {
     super();
 

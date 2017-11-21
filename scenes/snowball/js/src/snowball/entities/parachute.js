@@ -11,7 +11,21 @@ const {
   Vector3
 } = self.THREE;
 
-export class Parachute extends Allocatable(Entity(Object3D)) {
+/**
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @implements {EntityInterface}
+ */
+const EntityObject3D = Entity(Object3D);
+
+/**
+ * @constructor
+ * @extends {EntityObject3D}
+ * @implements {AllocatableInterface}
+ */
+const AllocatableEntityObject3D = Allocatable(EntityObject3D);
+
+export class Parachute extends AllocatableEntityObject3D {
   constructor() {
     super();
 

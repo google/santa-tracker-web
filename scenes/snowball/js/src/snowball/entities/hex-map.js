@@ -117,7 +117,14 @@ void main() {
 }
 `;
 
-export class HexMap extends Entity(Object3D) {
+/**
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @implements {EntityInterface}
+ */
+const EntityObject3D = Entity(Object3D);
+
+export class HexMap extends EntityObject3D {
   constructor() {
     super();
 

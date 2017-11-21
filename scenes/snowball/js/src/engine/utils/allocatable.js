@@ -1,8 +1,48 @@
 const classFreeItems = new WeakMap();
 const classAllocatedItems = new WeakMap();
 
+/** @interface */
+function AllocatableInterface() {}
+
+/**
+ * @param {...*} args
+ */
+AllocatableInterface.allocate = function(...args) {};
+
+/**
+ * @param {AllocatableInterface} allocatable
+ */
+AllocatableInterface.free = function(allocatable) {};
+
+/**
+ * @return {AllocatableInterface}
+ */
+AllocatableInterface.createItem = function() {};
+
+Object.defineProperty(AllocatableInterface, 'freeItems', {
+  /**
+   * @return {Array.AllocatableInterface}
+   */
+  get() {}
+});
+
+Object.defineProperty(AllocatableInterface, 'allocatedItems', {
+  /**
+   * @return {Array.AllocatableInterface}
+   */
+  get() {}
+});
+
+AllocatableInterace.prototype.onAllocated = function() {};
+AllocatableInterace.prototype.onFreed = function() {};
+
 export const Allocatable = SuperClass => {
-  const Allocatable = class extends SuperClass {
+
+  /**
+   * @polymer
+   * @implements {AllocatableInterface}
+   */
+  class Allocatable extends SuperClass {
     static allocate(...args) {
       if (this.freeItems.length === 0) {
         this.freeItems.push(this.createItem());

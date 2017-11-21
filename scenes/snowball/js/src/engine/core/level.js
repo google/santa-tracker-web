@@ -4,6 +4,14 @@ const {
   Scene
 } = self.THREE;
 
-export class Level extends Entity(Scene) {
+/**
+ * @constructor
+ * @extends {THREE.Scene}
+ * @implements {Entity}
+ */
+const EntityScene = Entity(Scene);
+
+
+export class Level extends EntityScene {
   measure(game) {}
 };

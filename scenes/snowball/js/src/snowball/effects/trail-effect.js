@@ -77,7 +77,13 @@ void main() {
 
 const intermediateColor = new Color();
 
-export class TrailEffect extends Entity(class {}) {
+/**
+ * @constructor
+ * @implements {EntityInterface}
+ */
+const EntityClass = Entity();
+
+export class TrailEffect extends EntityClass {
   constructor() {
     super();
 

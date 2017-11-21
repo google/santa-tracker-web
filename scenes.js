@@ -199,6 +199,8 @@ module.exports = {
   },
   snowball: {
     msgid: 'scene_snowball',
+    entryPoint: 'scenes/snowball/js/src/snowball-game.js',
+    es2015: true
   },
   snowflake: {
     msgid: 'scene_postcard',

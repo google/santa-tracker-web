@@ -8,8 +8,14 @@ const {
   MeshBasicMaterial
 } = self.THREE;
 
+/**
+ * @constructor
+ * @extends {THREE.Mesh}
+ * @implements {EntityInterface}
+ */
+const EntityMesh = Entity(Mesh);
 
-export class PlayerMarker extends Entity(Mesh) {
+export class PlayerMarker extends EntityMesh {
   constructor(radius = 15.0, thickness = 4.0, color = 0x22cc88) {
     const arc = new Shape();
     arc.moveTo(0, 0);

@@ -272,9 +272,17 @@ gulp.task('compile-scenes', function() {
     const prefixCode =
         'var global=window,app=this.app;var $jscomp=this[\'$jscomp\']={global:global};';
     const mustCompile =
-        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame);
+        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame || config.es2015);
 
-    const compilerFlags = addCompilerFlagOptions({
+    // If some options are appended to the config, they seem to be ignored by the
+    // options generator when invoking the Closure Compiler JAR.
+    const prependOptions = config.es2015
+        ? {
+            new_type_inf: null
+          }
+        : {};
+
+    const compilerFlags = addCompilerFlagOptions(Object.assign(prependOptions, {
       js: compilerSrc,
       externs,
       assume_function_wrapper: true,
@@ -294,7 +302,7 @@ gulp.task('compile-scenes', function() {
           `var scenes = scenes || {};\n` +
           `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
           `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`,
-    });
+    }));
 
     const compilerStream = $.closureCompiler({
       compilerPath: COMPILER_PATH,

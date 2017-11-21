@@ -62,7 +62,21 @@ void main() {
 
 const intermediateVector2 = new Vector2();
 
-export class Iceberg extends Allocatable(Entity(Object3D)) {
+/**
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @implements {EntityInterface}
+ */
+const EntityObject3D = Entity(Object3D);
+
+/**
+ * @constructor
+ * @extends {EntityObject3D}
+ * @implements {AllocatableInterface}
+ */
+const AllocatableEntityObject3D = Allocatable(EntityObject3D);
+
+export class Iceberg extends AllocatableEntityObject3D {
   setup(game) {
     const { mapSystem } = game;
     const { grid } = mapSystem;

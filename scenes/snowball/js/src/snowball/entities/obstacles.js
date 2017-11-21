@@ -103,7 +103,14 @@ const orientationMesh = new Mesh();
 orientationMesh.rotation.x += Math.PI / 6.0;
 orientationMesh.updateMatrix();
 
-export class Obstacles extends Entity(Object3D) {
+/**
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @implements {EntityInterface}
+ */
+const EntityObject3D = Entity(Object3D);
+
+export class Obstacles extends EntityObject3D {
   setup(game) {
     const { mapSystem } = game;
     const { grid } = mapSystem;

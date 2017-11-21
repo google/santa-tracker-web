@@ -8,7 +8,14 @@ const {
   MeshBasicMaterial
 } = self.THREE;
 
-export class DestinationMarker extends Entity(Mesh) {
+/**
+ * @constructor
+ * @extends {THREE.Mesh}
+ * @implements {EntityInterface}
+ */
+const EntityMesh = Entity(Mesh);
+
+export class DestinationMarker extends EntityMesh {
   constructor(size = 10.0, color = 0x22cc88) {
     const x = new Shape();
 

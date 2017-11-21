@@ -81,7 +81,21 @@ export const generateDropTexture = (() => {
   };
 })();
 
-export class Drop extends Allocatable(Entity(Object3D)) {
+/**
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @implements {EntityInterface}
+ */
+const EntityObject3D = Entity(Object3D);
+
+/**
+ * @constructor
+ * @extends {EntityObject3D}
+ * @implements {AllocatableInterface}
+ */
+const AllocatableEntityObject3D = Allocatable(EntityObject3D);
+
+export class Drop extends AllocatableEntityObject3D {
   constructor() {
     super();
     const model = new Mesh(

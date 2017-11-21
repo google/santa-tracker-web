@@ -67,7 +67,21 @@ void main() {
 }
 `;
 
-export class Snowball extends Allocatable(Entity(Mesh)) {
+/**
+ * @constructor
+ * @extends {THREE.Mesh}
+ * @implements {EntityInterface}
+ */
+const EntityMesh = Entity(Mesh);
+
+/**
+ * @constructor
+ * @extends {EntityMesh}
+ * @implements {AllocatableInterface}
+ */
+const AllocatableEntityMesh = Allocatable(EntityMesh);
+
+export class Snowball extends AllocatableEntityMesh {
   constructor(size = 12) {
     const uniforms = {
       map: {

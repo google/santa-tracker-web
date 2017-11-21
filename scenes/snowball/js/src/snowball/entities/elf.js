@@ -93,7 +93,21 @@ const generateElfTexture = (() => {
 
 const clientPlayerMarker = new PlayerMarker();
 
-export class Elf extends Allocatable(Entity(Object3D)) {
+/**
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @implements {EntityInterface}
+ */
+const EntityObject3D = Entity(Object3D);
+
+/**
+ * @constructor
+ * @extends {EntityObject3D}
+ * @implements {AllocatableInterface}
+ */
+const AllocatableEntityObject3D = Allocatable(EntityObject3D);
+
+export class Elf extends AllocatableEntityObject3D {
   randomizeColors() {
     const material = this.elf.children[0].material;
     material.map.image = generateElfTexture(randomElement(majorColors), randomElement(minorColors));

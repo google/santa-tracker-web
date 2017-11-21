@@ -37,7 +37,14 @@ export class AbstractShape {
 };
 
 
-export class Point extends Allocatable(AbstractShape) {
+/**
+ * @constructor
+ * @extends {AbstractShape}
+ * @implements {AllocatableInterface}
+ */
+const AllocatableAbstractShape = Allocatable(AbstractShape);
+
+export class Point extends AllocatableAbstractShape {
   get type() {
     return 'point';
   }
@@ -68,7 +75,7 @@ export class Point extends Allocatable(AbstractShape) {
 };
 
 
-export class Line extends Allocatable(AbstractShape) {
+export class Line extends AllocatableAbstractShape {
   get type() {
     return 'line';
   }
@@ -107,7 +114,7 @@ export class Line extends Allocatable(AbstractShape) {
 };
 
 
-export class Circle extends Allocatable(AbstractShape) {
+export class Circle extends AllocatableAbstractShape {
   get type() {
     return 'circle';
   }
@@ -142,7 +149,7 @@ export class Circle extends Allocatable(AbstractShape) {
 };
 
 
-export class Rectangle extends Allocatable(AbstractShape) {
+export class Rectangle extends AllocatableAbstractShape {
   get type() {
     return 'rectangle';
   }

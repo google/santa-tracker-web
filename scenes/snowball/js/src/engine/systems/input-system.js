@@ -9,7 +9,14 @@ const HitEvents = new Set([
 
 const intermediateVector2 = new Vector2();
 
-export class InputSystem extends Entity(HTMLElement) {
+/**
+ * @constructor
+ * @extends {HTMLElement}
+ * @implements {Entity}
+ */
+const EntityElement = Entity(HTMLElement);
+
+export class InputSystem extends EntityElement {
   constructor() {
     super();
 
@@ -168,7 +175,8 @@ export class InputSystem extends Entity(HTMLElement) {
       const hitDetails = { x, y, hits };
 
       hits.forEach((intersections, target) => {
-        const details = { ...hitDetails, intersections };
+        const details = Object.assign({ intersections }, hitDetails);
+        //const details = { ...hitDetails, intersections };
         if (this.previousMoveHits.has(target)) {
           this.previousMoveHits.delete(target);
         } else {
@@ -200,8 +208,10 @@ export class InputSystem extends Entity(HTMLElement) {
           return;
         }
 
+        const details = Object.assign({ intersections }, hitDetails);
         stopPropagation = this.dispatch(
-            new Event('pick', { ...hitDetails, intersections }, target));
+            new Event('pick', details, target));
+            //new Event('pick', { ...hitDetails, intersections }, target));
       });
     }
 
@@ -217,7 +227,6 @@ export class InputSystem extends Entity(HTMLElement) {
     const candidates = this.octree.search(
         ray.origin, ray.far, true, ray.direction);
 
-    //console.log(candidates);
     const hits = this.raycaster.intersectOctreeObjects(candidates);
 
     return hits.sort((a, b) => a.distance > b.distance)
