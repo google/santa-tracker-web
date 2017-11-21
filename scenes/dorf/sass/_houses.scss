@@ -118,6 +118,32 @@ $idx-zIndex: 14;
     $house: nth($houses, $i);
     $id: nth($house, $idx-id);
 
+    // TODO: new stuff
+    .cell:nth-child(#{$i + 1}) {
+      village-house {
+        // TODO: write this back as cell positions
+        $l: nth($house, $idx-left) + nth($house, $idx-width) / 2 + nth($house, $idx-labelX);
+        $t: nth($house, $idx-top) + nth($house, $idx-height) + nth($house, $idx-labelY);
+        left: percent($l, $dim-house);
+        top: percent($t, $dim-house);
+
+        --house-layer: nth($house, $idx-zIndex);
+
+        --house-width: percent(nth($house, $idx-width), $dim-house);
+        --house-left: percent(nth($house, $idx-left), $dim-house);
+        --house-top: percent(nth($house, $idx-top), $dim-house);
+        --ice-width: percent(nth($house, $idx-iceWidth), $dim-house);
+        --ice-left: percent(nth($house, $idx-iceLeft), $dim-house);
+        --ice-top: percent(nth($house, $idx-iceTop), $dim-house);
+
+        --background-image: url(../../images/scenes/#{$id}_2x.png);
+      }
+    }
+
+    village-house {
+      
+    }
+
     .card.new-today-#{$id} {
       background-image: url(img/new-today/#{$id}_2x.png);
     }

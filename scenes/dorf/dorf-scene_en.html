@@ -26,6 +26,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="elements/effect-snowmobile.html">
 <link rel="import" href="elements/effect-tictactoe.html">
 <link rel="import" href="elements/effect-wrangler.html">
+<link rel="import" href="elements/village-house.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -73,7 +74,22 @@ Santa's Village.
             </div>
           </a>
         </div>
-        <template is="dom-repeat" items="[[houses]]" initial-count="7">
+        <template is="dom-repeat" items="[[houses]]">
+
+          <div class="cell">
+            <village-house house="[[item.module]]"
+                opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
+                locked="[[item.locked]]">
+              <a class="link" href$="[[_calculateHref(item, item.locked)]]">
+                <div class="card">
+                  <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
+                  <h4>[[_string('category', item.category, strings)]]</h4>
+                  <h3>[[_string('scene', item.module, strings)]]</h3>
+                </div>
+              </a>
+            </village-house>
+          </div>
+<!--
           <div id$="house-[[item.module]]"
                class$="house [[_calculateHouseClass(item, item.locked, todayHouse)]]">
             <div class="assets housez">
@@ -108,6 +124,7 @@ Santa's Village.
               </div>
             </template>
           </div>
+          -->
         </template>
 
         <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
@@ -300,8 +317,8 @@ Santa's Village.
     /**
      * Calculates the numeric (i.e., day of month) date for this Date.
      */
-    _calculateDateNo: function(date) {
-      return date && date.getDate();
+    _computeDateNo: function(hideDate, date) {
+      return !hideDate && date && date.getDate() || '';
     },
 
     /**

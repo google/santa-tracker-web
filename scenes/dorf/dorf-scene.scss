@@ -750,3 +750,177 @@ village-header {
     }
   }
 }
+
+
+/** TODO new stuff */
+
+village-house {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.card {
+  text-align: center;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  &::before {
+    content: '';
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent center no-repeat;
+    background-size: cover;
+    background-image: var(--background-image);
+    position: absolute;
+    display: block;
+    overflow: auto;
+    backface-visibility: hidden;
+    perspective: 1000;
+  }
+  &::after {
+    content: '';
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    margin: 0 auto;
+    background: url(img/lock.svg) no-repeat center;
+    background-size: contain;
+  }
+  &:not(.locked)::after {
+    display: none;
+  }
+
+  .launchdate {
+    font-family: 'Lobster', sans-serif;
+    font-size: 2em;
+    line-height: 1.4em;
+    padding: 0.25em 0;
+  }
+  h4 {
+    display: inline-block;
+    padding-top: 0.2em;
+    font-family: 'Lobster', sans-serif;
+    font-size: 2.875em;
+    line-height: 1.5em;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    transform: rotateZ(-3deg) translateZ(-10px);
+    display: none;
+    margin: 0;
+    z-index: 100;
+  }
+  h3 {
+    font-size: 1em;
+    line-height: 1.5em;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    margin: 2px 0 0;
+  }
+}
+
+.cell {
+  @media (max-width: $width-tablet - 1px) {
+    width: 50%;
+    min-height: 204px;
+    flex-grow: 1;
+
+    h4 {
+      display: none;
+    }
+    h3 {
+      letter-spacing: 1px;
+      font-size: 1em;
+      line-height: 1em;
+      margin-top: 2px;
+      text-transform: uppercase;
+      text-shadow: none;
+    }
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+  @media (min-width: $width-tablet) {
+    $duration-in: 0.23s;
+    $easing-in: cubic-bezier(0,1,.33,1.28);
+    $duration-out: 0.2s;
+    $easing-out: cubic-bezier(.83,.02,1,.01);
+
+    width: $dim-house;
+    height: $dim-house;
+    position: relative;
+
+    --house-dim: 192px;
+
+    /** Tablet village. Shrunk version of desktop. */
+    @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
+      width: $dim-house * $tablet-desktop-ratio;
+      height: $dim-house * $tablet-desktop-ratio;
+      --house-dim: 128px;  // this isn't 0.6 * 192px, but close enough
+    }
+
+    village-house {
+      position: absolute;
+    }
+
+    .link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      will-change: transform;
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 10000px;
+      transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
+      transform: scale(0);
+      will-change: transform, opacity;
+      box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
+      visibility: hidden;
+
+      $dim: 172px;
+      margin-left: -($dim / 2);
+      margin-top: -($dim / 2);
+      width: $dim;
+      height: $dim;
+
+      &::before {
+        border-radius: 10000px;
+        will-change: transform;
+//        transform: rotate(10deg);
+        transition: transform 0s ease-out $duration-out;
+      }
+    }
+
+    .link[href]:hover {
+      .card {
+        visibility: visible;
+        transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
+        transform: scale(1);
+
+        &::before {
+          transform: translateZ(0)  rotate(0deg);
+          transition: transform $duration-in ease-out 0.02s;
+        }
+      }
+    }
+  }
+  @media (min-width: $width-desktop) {
+    .card {
+      $dim: 282px;
+      margin-left: -($dim / 2);
+      margin-top: -($dim / 2);
+      width: $dim;
+      height: $dim;
+    }
+  }
+}
