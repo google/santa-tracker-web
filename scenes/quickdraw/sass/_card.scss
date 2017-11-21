@@ -41,9 +41,19 @@
       min-height: 100%;
     }
 
+    &.scroll {
+      width: 90%;
+      max-width: 1280px;
+    }
+
     @media (max-width: 767px) {
       margin: auto;
       max-width: 90%;
     }
+  }
+
+  .card-row {
+    width: 100%;
+    margin: 100px 0;
   }
 }
