@@ -423,10 +423,24 @@ app.Tools.prototype.selectTool_ = function(e) {
       this.selectedTool.draw();
       this.selectedTool = null;
       this.toolDisplay.attr('data-current-tool', '');
+
+      if (app.shared.utils.touchEnabled) {
+        this.currentCategory = null;
+        this.secondaryMenuActive = false;
+        this.categoryPickers.removeClass('is-active');
+        this.secondaryMenu.removeClass('is-active');
+      }
     } else if (app.EffectInvert.prototype.isPrototypeOf(this.selectedTool)) {
       this.drawToCanvas(this.selectedTool);
       this.selectedTool = null;
       this.toolDisplay.attr('data-current-tool', '');
+
+      if (app.shared.utils.touchEnabled) {
+        this.currentCategory = null;
+        this.secondaryMenuActive = false;
+        this.categoryPickers.removeClass('is-active');
+        this.secondaryMenu.removeClass('is-active');
+      }
     } else {
       if (this.selectedTool != previousTool) {
         var coords = this.game_.mouse.coordinates();
@@ -434,14 +448,14 @@ app.Tools.prototype.selectTool_ = function(e) {
         this.selectedTool.select(coords);
         this.sliderChanged(this.game_.slider.size);
         this.toolDisplay.attr('data-current-tool', this.selectedTool.name);
+
+        if (app.shared.utils.touchEnabled) {
+          this.secondaryMenu.removeClass('is-active');
+        }
       } else {
         this.selectedTool = null;
         this.toolDisplay.attr('data-current-tool', '');
       }
-    }
-
-    if (app.shared.utils.touchEnabled) {
-      this.secondaryMenu.removeClass('is-active');
     }
   }
 };
