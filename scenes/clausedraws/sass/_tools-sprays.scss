@@ -4,12 +4,14 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
   // TOOLBAR
   [data-tool-category="spray"] {
     .Tool {
-      background-position: center -50%;
+      background-position: center top;
       background-repeat: no-repeat;
       background-size: 70%;
+      position: relative;
+      top: 20px;
 
       &--spray-color {
-        padding: 20px;
+        padding: 0 20px 20px 20px;
 
         @include generateSVGstyles('spray-color');
       }
