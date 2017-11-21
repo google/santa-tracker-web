@@ -7,7 +7,7 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
   // MOBILE CURRENT TOOL
   .Tools-display[data-current-category="stamp"] {
     .Tools-display-inner {
-      background-size: 75% 75%;
+      background-size: 60% 60%;
     }
 
     @each $current-stamp in $stamp-names {
