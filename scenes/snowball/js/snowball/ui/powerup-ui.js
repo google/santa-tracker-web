@@ -21,7 +21,7 @@ export class PowerupUi extends EntityElement {
   z-index: 2;
   bottom: 0;
   left: 0;
-  height: 180px;
+  height: 265px;
   width: 212px;
   overflow: hidden;
   box-sizing: border-box;
@@ -46,12 +46,12 @@ powerup-status {
 
 :host(.swap:not(.has-active)) #powerupTwo,
 :host(:not(.swap):not(.has-active)) #powerupOne {
-  transform: translate(40%, 140%);
+  transform: translate(40%, 200%);
 }
 
 :host(.swap:not(.has-inactive)) #powerupOne,
 :host(:not(.swap):not(.has-inactive)) #powerupTwo {
-  transform: scale(calc(1/2)) translate(180%, 230%);
+  transform: scale(calc(1/2)) translate(180%, 350%);
 }
 
 @media (max-width: 768px) {
