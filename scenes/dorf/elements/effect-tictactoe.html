@@ -1,0 +1,221 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<link rel="import" href="effect-tictactoe_module.html">
+
+<dom-module id="effect-tictactoe">
+<template>
+  <style include="effect-tictactoe_module"></style>
+  <div id="holder">
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div id="elves-red" class="elves move"></div>
+    <div id="elves-blue" class="elves move"></div>
+    <div id="win"></div>
+  </div>
+</template>
+<script>
+
+Polymer({
+  is: 'effect-tictactoe',
+
+  properties: {
+
+    /**
+     * If the game is being played or not
+     */
+    _isPlayingTicTacToe: {
+      value: false,
+    },
+    /**
+     * Which players turn, only 2 players so a bool is fine
+     */
+    _ticTacToeTurn: {
+      value: true,
+    },
+    /**
+     * Game cell
+     */
+    _ticTacToeCells: {
+      value: null,
+    },
+
+    _ticTacToeMove: {
+      value: 1,
+    },
+    _ticTacToeScore: {
+      value: {'red': 0, 'blue': 0},
+    },
+    _ticTacToeCellValues: {
+      value: [1, 2, 4, 8, 16, 32, 64, 128, 256],
+    },
+    _ticTacToeWins: {
+      value: [7, 56, 448, 73, 146, 292, 273, 84],
+    },
+    _playTicTacToeTimers: {
+      value: [],
+    },
+
+  },
+
+  attached: function() {
+    this._playTicTacToe();
+  },
+
+  detached: function() {
+    for (var i = 0; i < this._playTicTacToeTimers.length; i++) {
+      this.cancelAsync(this._playTicTacToeTimers[i]);
+    }
+    this._playTicTacToeTimers = [];
+  },
+
+  _playTicTacToe: function() {
+    if (!this.isAttached) {
+      return;
+    }
+
+    var ticTacGameBoard = this.$.holder;
+    var redTeam = this.$['elves-red'];
+    var blueTeam = this.$['elves-blue'];
+
+    if (!this._isPlayingTicTacToe || this._ticTacToeCells.length == 0) {
+      this._isPlayingTicTacToe = true;
+
+      // Setup a new game
+      this.ticTacToeScore = {'red': 0, 'blue': 0};
+
+      this.$.win.classList.remove('red', 'blue',
+        'pos-0', 'pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5', 'pos-6', 'pos-7');
+
+      this._ticTacToeCells = [].slice.call(ticTacGameBoard.querySelectorAll('.cell'));
+      this._ticTacToeCells.forEach(function(cell) {
+        cell.classList.remove('cross', 'naught', 'red', 'blue');
+        cell.classList.add('empty');
+      });
+
+      redTeam.classList.remove('draw');
+      redTeam.classList.add('move');
+      blueTeam.classList.remove('draw');
+      blueTeam.classList.add('move');
+    }
+
+    // Random is the best AI....
+    var rnd = Math.floor(Math.random() * this._ticTacToeCells.length);
+    var cell = this._ticTacToeCells.splice(rnd, 1).pop();
+    var index = Array.prototype.indexOf.call(ticTacGameBoard.children, cell);
+    var player = this._ticTacToeTurn ? blueTeam : redTeam;
+    this._playTicTacToeCell(player, cell, index);
+  },
+
+  _playTicTacToeCell: function(player, cell, index) {
+    var moveTime = 500;
+    var drawTime = moveTime + 200;
+    var doneDrawTime = drawTime + 500;
+    var moveBackTime = doneDrawTime + 500;
+    var playAgainTime = moveBackTime + 1000;
+    var posClass = 'to-pos-' + (index + 1);
+    player.classList.add(posClass);
+    this._ticTacToeTurn = !this._ticTacToeTurn;
+    var turn = this._ticTacToeTurn;
+
+    var move = function() {
+      player.classList.remove('move');
+      player.classList.add('draw');
+    };
+
+    var draw = function() {
+      if (turn) {
+        cell.classList.add('cross', 'red');
+      } else {
+        cell.classList.add('naught', 'blue');
+      }
+      cell.classList.remove('empty');
+    };
+
+    var doneDraw = function() {
+      player.classList.remove('draw');
+      player.classList.add('move');
+    };
+
+    var moveBack = function() {
+      player.classList.remove(posClass);
+    };
+
+    this._playTicTacToeTimers[1] = this.async(move.bind(this), moveTime);
+    this._playTicTacToeTimers[2] = this.async(draw.bind(this), drawTime);
+    this._playTicTacToeTimers[3] = this.async(doneDraw.bind(this), doneDrawTime);
+    this._playTicTacToeTimers[4] = this.async(moveBack.bind(this), moveBackTime);
+
+    if (turn) {
+      this.ticTacToeScore['red'] += this._ticTacToeCellValues[index];
+      var w = this._checkTicTacToeWin(this.ticTacToeScore['red']);
+      if (w !== false) {
+        this._showTicTacToeWin('red', w);
+        return;
+      }
+    } else {
+      this.ticTacToeScore['blue'] += this._ticTacToeCellValues[index];
+      var w = this._checkTicTacToeWin(this.ticTacToeScore['blue']);
+      if (w !== false) {
+        this._showTicTacToeWin('blue', w);
+        return;
+      }
+    }
+
+    if (this._ticTacToeCells.length == 0) {
+      // Draw
+      window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
+    }
+
+    this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
+  },
+
+  _showTicTacToeWin: function(player, w) {
+    var WIN_LINE_TIME = 2000;
+    var RESTART_GAME_TIME = randomRange(20000, 60000);
+    this._isPlayingTicTacToe = false;
+    var c = 'pos-' + w;
+
+    window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
+    this._playTicTacToeTimers[0] = this.async(function() {
+      this.$.win.classList.add(player, c);
+    }, WIN_LINE_TIME);
+
+    this._playTicTacToeTimers[1] = this.async(function() {
+      this.$.win.classList.remove(player, c);
+      this._playTicTacToe();
+    }, RESTART_GAME_TIME);
+  },
+
+  _checkTicTacToeWin: function(score) {
+    for (var i = 0; i < this._ticTacToeWins.length; i++) {
+      if ((this._ticTacToeWins[i] & score) === this._ticTacToeWins[i]) {
+        return i;
+      }
+    }
+    return false;
+  },
+
+});
+
+</script>
+</dom-module>
