@@ -47,6 +47,7 @@ app.Tools = function(game, $elem) {
 
   this.primaryMenu = $elem.find('.Tools--primary');
   this.categoryPickers = this.primaryMenu.find('[data-tool-category-picker]');
+  this.toolDisplay = this.primaryMenu.find('[data-tool-display]');
 
   this.secondaryMenu = $elem.find('.Tools--secondary');
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
@@ -376,6 +377,10 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
       if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
           this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
         this.secondaryMenu.removeClass('is-active');
+
+        if (this.game_.colorpicker.isPopupOpen()) {
+          this.game_.colorpicker.togglePopup();
+        }
       }
     } else {
       this.selectedTool.stopMousedown();
@@ -417,17 +422,21 @@ app.Tools.prototype.selectTool_ = function(e) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
       this.selectedTool = null;
+      this.toolDisplay.attr('data-current-tool', '');
     } else if (app.EffectInvert.prototype.isPrototypeOf(this.selectedTool)) {
       this.drawToCanvas(this.selectedTool);
       this.selectedTool = null;
+      this.toolDisplay.attr('data-current-tool', '');
     } else {
       if (this.selectedTool != previousTool) {
         var coords = this.game_.mouse.coordinates();
         this.selectedTool.preloadColor(this.game_.colorpicker.selectedColor);
         this.selectedTool.select(coords);
         this.sliderChanged(this.game_.slider.size);
+        this.toolDisplay.attr('data-current-tool', this.selectedTool.name);
       } else {
         this.selectedTool = null;
+        this.toolDisplay.attr('data-current-tool', '');
       }
     }
 
@@ -470,10 +479,15 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     return;
   }
 
+  if (this.game_.colorpicker.isPopupOpen()) {
+    this.game_.colorpicker.togglePopup();
+  }
+
   this.categoryPickers.removeClass('is-active');
   this.categoryMenus.removeClass('is-active');
   categoryPicker.addClass('is-active');
   this.currentCategory = categoryName;
+  this.toolDisplay.attr('data-current-category', this.currentCategory);
 
   if (this.selectedTool) {
     this.selectedTool.deselect();

@@ -16,9 +16,14 @@
     width: 85px;
     z-index: 2;
 
-    .Tools-setting {
+    .Tools-mobile-settings {
       background-color: #A341B7;
-      position: relative;
+      bottom: 0;
+      display: none;
+      height: 85px;
+      left: 0;
+      position: absolute;
+      width: 95px;
 
       &::after {
         background: #A341B7;
@@ -35,14 +40,65 @@
     @media (max-width: 800px) {
       flex-direction: row;
       height: 75px;
-      padding-left: 60px;
+      padding-left: 95px;
       right: 0;
       top: auto;
       width: auto;
 
-      .Tools-setting {
-        display: none;
+      .Tools-mobile-settings {
+        display: block;
+
+        .Tools-colorpicker {
+          display: block;
+        }
       }
+    }
+  }
+
+  .Tools-display {
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &[data-current-category="drawing"] {
+      .Tools-display-inner {
+        background-position: center -30%;
+        background-size: 40%;
+      }
+    }
+
+    &[data-current-category="sticker"] {
+      background: #A341B7;
+
+      .Tools-display-outer {
+        border-radius: 0;
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+
+    .Tools-display-outer {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      height: 70px;
+      margin: 8px auto;
+      width: 70px;
+    }
+
+    .Tools-display-inner {
+      // background-color: #fff;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 50%;
+      height: 55px;
+      margin: 7px auto;
+      overflow: hidden;
+      width: 55px;
     }
   }
 

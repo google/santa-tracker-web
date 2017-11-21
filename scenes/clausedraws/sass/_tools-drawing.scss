@@ -2,6 +2,25 @@ $drawing-tools: "crayon", "marker", "pencil", "paintbrush";
 $silly-pens: "tinsel", "icing", "garland", "neon";
 
 ##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="drawing"] {
+    @each $current-tool in $drawing-tools {
+      &[data-current-tool="#{$current-tool}"] {
+        .Tools-display-inner {
+          background-image: url(img/tools/#{$current-tool}/tool.svg);
+        }
+      }
+    }
+
+    @each $current-pen in $silly-pens {
+      &[data-current-tool="#{$current-pen}"] {
+        .Tools-display-inner {
+          background-image: url(img/tools/#{$current-pen}/tool.svg);
+        }
+      }
+    }
+  }
+
   // TOOLBAR
   .Tool {
     @each $current-tool in $drawing-tools {
