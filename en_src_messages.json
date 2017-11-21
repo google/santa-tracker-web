@@ -1435,19 +1435,19 @@
     "description": "Label for the button to click to start a game",
     "message": "Start"
   },
-	"quickdraw-helping-elf": {
+  "quickdraw-helping-elf": {
     "description": "Action/order/verb. Text that appears in the elf slate. 8 character limit.",
     "message": "Draw"
 	},
-	"quickdraw-slate": {
+  "quickdraw-slate": {
     "description": "Action/order/verb. Text that appears above the word to draw.",
     "message": "Draw"
 	},
-	"quickdraw-newround-button": {
+  "quickdraw-newround-button": {
     "description": "Label for the button to click to start a game round",
     "message": "Start"
 	},
-	"quickdraw-timesup-button": {
+  "quickdraw-timesup-button": {
     "description": "Label for the button to restart a game.",
     "message": "Play again!"
   },
