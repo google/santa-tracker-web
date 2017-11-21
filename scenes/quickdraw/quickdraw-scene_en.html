@@ -110,24 +110,27 @@ Quickdraw scene.
             <button class="rounddetails-card__back-btn">Back</button>
             <div class="card-container scroll">
 
-                  <div class="card-row rounddetails-card__my-drawings">
-                    <div class="rounddetails-card__headline rounddetails-card__title">
-                      You were asked to draw <span class="rounddetails-card__word">bicycle</span>
+                  <div class="card-row">
+                    <div class="rounddetails-card__text rounddetails-card__title">
+                      You were asked to draw <span class="rounddetails-card__word"></span>
                     </div>
-                    <div class="rounddetails-card__my-drawings-container">
-                      <div>
-                        <p class="rounddetails-card__text">You drew this:</p>
-                        <div class="rounddetails-card__drawing"></div>
-                      </div>
-                      <div>
-                        <p class="rounddetails-card__text">Santa's version:</p>
-                        <div class="rounddetails-card__drawing"></div>
-                      </div>
+                    <div class="rounddetails-card__drawing-container">
+                      <div class="rounddetails-card__drawing rounddetails-card__drawing--user"></div>
+                    </div>
+                  </div>
+
+                  <div class="card-row">
+                    <div class="rounddetails-card__text rounddetails-card__santa-title">
+                        This is Santa’s version of <span class="rounddetails-card__word"></span>
+                    </div>
+                    <div class="rounddetails-card__drawing-container">
+                      <div class="rounddetails-card__drawing rounddetails-card__drawing--santa"></div>
                     </div>
                   </div>
 
                   <div class="card-row rounddetails-card__similar-drawings">
-                    <div class="rounddetails-card__headline">It also thought your drawing looked like these:</div>
+                    <div class="rounddetails-card__headline rounddetails-card__similar-drawings-title--recognized">It also thought your drawing looked like these:</div>
+                    <div class="rounddetails-card__headline rounddetails-card__similar-drawings-title--not-recognized">It thought your drawing looked more like these:</div>
                     <div class="rounddetails-card__similar-drawings-container">
                       <div class="rounddetails-card__similar-drawing">
                         <div></div>
@@ -142,7 +145,7 @@ Quickdraw scene.
                   </div>
 
                   <div class="card-row rounddetails-card__gallery">
-                    <div class="rounddetails-card__headline">How does is know what <span>bicycle</span> look like?</div>
+                    <div class="rounddetails-card__headline">How does is know what <span></span> look like?</div>
                     <p class="rounddetails-card__text">It learned by looking at these examples drawn by other people.</p>
                     <div class="rounddetails-card__gallery-container">
                       <div class="rounddetails-card__gallery-drawing">

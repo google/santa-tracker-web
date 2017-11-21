@@ -2,29 +2,12 @@
   .rounddetails-card {
     color: white;
 
-    &__headline {
+    &__text {
       font-family: 'Lobster', sans-serif;
       font-size: 45px;
+      line-height: 63px;
+      letter-spacing: 0.2px;
       margin: 0;
-    }
-
-    &__text {
-      font-family: 'Roboto', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 33px;
-    }
-
-    &__my-drawings {
-
-      &-container {
-        display: flex;
-        justify-content: space-between;
-
-        > div {
-          flex: 48% 0 0;
-        }
-      }
     }
 
     &__drawing {
@@ -34,6 +17,12 @@
       padding-bottom: 73.6%;
       position: relative;
       width: 100%;
+
+      &-container {
+        width: 65%;
+        margin: auto;
+        margin-top: 50px;
+      }
     }
 
     &__similar-drawings {
