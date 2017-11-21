@@ -1,0 +1,151 @@
+{
+    "accessors" : [{
+        "bufferView" : 0, 
+        "componentType" : 5123, 
+        "count" : 2688, 
+        "max" : [1987], 
+        "min" : [0], 
+        "type" : "SCALAR"
+    }, {
+        "bufferView" : 1, 
+        "componentType" : 5126, 
+        "count" : 1988, 
+        "max" : [2.47678, 7.16882, 1.44197], 
+        "min" : [-2.48042, -0.0505116, -1.00215], 
+        "type" : "VEC3"
+    }, {
+        "bufferView" : 2, 
+        "componentType" : 5126, 
+        "count" : 1988, 
+        "max" : [1, 1, 1], 
+        "min" : [-1, -1, -1], 
+        "type" : "VEC3"
+    }, {
+        "bufferView" : 3, 
+        "componentType" : 5126, 
+        "count" : 1988, 
+        "max" : [0.987292, 0.999631], 
+        "min" : [0.000369215, 0.000369191], 
+        "type" : "VEC2"
+    }, {
+        "bufferView" : 4, 
+        "componentType" : 5126, 
+        "count" : 1988, 
+        "max" : [0, 1], 
+        "min" : [0, 1], 
+        "type" : "VEC2"
+    }, {
+        "bufferView" : 5, 
+        "componentType" : 5126, 
+        "count" : 1988, 
+        "max" : [1, 1, 1, 1], 
+        "min" : [0, 0, 0, 1], 
+        "type" : "VEC4"
+    }, {
+        "bufferView" : 6, 
+        "componentType" : 5123, 
+        "count" : 1988, 
+        "max" : [0, 0, 0, 0], 
+        "min" : [0, 0, 0, 0], 
+        "type" : "VEC4"
+    }, {
+        "bufferView" : 7, 
+        "componentType" : 5126, 
+        "count" : 1988, 
+        "max" : [0, 0, 0, 0], 
+        "min" : [0, 0, 0, 0], 
+        "type" : "VEC4"
+    }], 
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter", 
+        "version" : "2.0"
+    }, 
+    "bufferViews" : [{
+        "buffer" : 0, 
+        "byteLength" : 5376, 
+        "byteOffset" : 0, 
+        "target" : 34963
+    }, {
+        "buffer" : 0, 
+        "byteLength" : 23856, 
+        "byteOffset" : 5376, 
+        "target" : 34962
+    }, {
+        "buffer" : 0, 
+        "byteLength" : 23856, 
+        "byteOffset" : 29232, 
+        "target" : 34962
+    }, {
+        "buffer" : 0, 
+        "byteLength" : 15904, 
+        "byteOffset" : 53088, 
+        "target" : 34962
+    }, {
+        "buffer" : 0, 
+        "byteLength" : 15904, 
+        "byteOffset" : 68992, 
+        "target" : 34962
+    }, {
+        "buffer" : 0, 
+        "byteLength" : 31808, 
+        "byteOffset" : 84896, 
+        "target" : 34962
+    }, {
+        "buffer" : 0, 
+        "byteLength" : 15904, 
+        "byteOffset" : 116704, 
+        "target" : 34962
+    }, {
+        "buffer" : 0, 
+        "byteLength" : 31808, 
+        "byteOffset" : 132608, 
+        "target" : 34962
+    }], 
+    "buffers" : [{
+        "byteLength" : 164416, 
+        "uri" : "elf.bin"
+    }], 
+    "images" : [{
+        "uri" : "elf.png"
+    }], 
+    "materials" : [{
+        "name" : "Material", 
+        "pbrMetallicRoughness" : {
+            "baseColorFactor" : [0.64, 0.64, 0.64, 1], 
+            "baseColorTexture" : {
+                "index" : 0
+            }, 
+            "metallicFactor" : 0
+        }
+    }], 
+    "meshes" : [{
+        "name" : "elf_geometry", 
+        "primitives" : [{
+            "attributes" : {
+                "COLOR_0" : 5, 
+                "JOINTS_0" : 6, 
+                "NORMAL" : 2, 
+                "POSITION" : 1, 
+                "TEXCOORD_0" : 3, 
+                "TEXCOORD_1" : 4, 
+                "WEIGHTS_0" : 7
+            }, 
+            "indices" : 0, 
+            "material" : 0
+        }]
+    }], 
+    "nodes" : [{
+        "mesh" : 0, 
+        "name" : "Elf"
+    }], 
+    "samplers" : [{}], 
+    "scene" : 0, 
+    "scenes" : [{
+        "name" : "Scene", 
+        "nodes" : [0]
+    }], 
+    "textures" : [{
+        "sampler" : 0, 
+        "source" : 0
+    }]
+}

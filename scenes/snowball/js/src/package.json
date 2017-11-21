@@ -1,0 +1,9 @@
+{
+  "name": "snowball",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.88.0"
+  }
+}
