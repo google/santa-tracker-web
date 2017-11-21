@@ -1491,6 +1491,46 @@
     "description": "In a list of objects 'or' is followed by objects",
     "message": "Oh I know, this is"
   },
+  "quickdraw-rounddetails-back-button": {
+    "description": "Label of back button",
+    "message": "Back"
+  },
+  "quickdraw-rounddetails-title": {
+    "description": "",
+    "message": "You were asked to draw {{word}}"
+  },
+  "quickdraw-rounddetails-user-drawing": {
+    "description": "",
+    "message": "You drew this:"
+  },
+  "quickdraw-rounddetails-santa-version": {
+    "description": "",
+    "message": "Santa's version:"
+  },
+  "quickdraw-rounddetails-also-look": {
+    "description": "",
+    "message": "It also thought your drawing looked like these:"
+  },
+  "quickdraw-rounddetails-look-more": {
+    "description": "",
+    "message": "It thought your drawing looked more like these:"
+  },
+  "quickdraw-rounddetails-how-know": {
+    "description": "",
+    "message": "How does is know what {{word}} look like?"
+  },
+  "quickdraw-rounddetails-it-learned": {
+    "description": "",
+    "message": "It learned by looking at these examples drawn by other people."
+  },
+  "quickdraw-rounddetails-correct-match": {
+    "description": "",
+    "message": "Correct Match"
+  },
+  "quickdraw-rounddetails-closest-match": {
+    "description": "",
+    "message": "Closest Match"
+  },
   "ro_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Romania"
