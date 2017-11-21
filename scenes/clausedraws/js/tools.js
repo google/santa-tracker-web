@@ -423,6 +423,7 @@ app.Tools.prototype.selectTool_ = function(e) {
       this.selectedTool.draw();
       this.selectedTool = null;
       this.toolDisplay.attr('data-current-tool', '');
+      this.toolDisplay.attr('data-current-category', '');
 
       if (app.shared.utils.touchEnabled) {
         this.currentCategory = null;
@@ -434,6 +435,7 @@ app.Tools.prototype.selectTool_ = function(e) {
       this.drawToCanvas(this.selectedTool);
       this.selectedTool = null;
       this.toolDisplay.attr('data-current-tool', '');
+      this.toolDisplay.attr('data-current-category', '');
 
       if (app.shared.utils.touchEnabled) {
         this.currentCategory = null;
@@ -478,6 +480,8 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
       if (this.secondaryMenuActive) {
         if (!this.selectedTool) {
           categoryPicker.toggleClass('is-active');
+          this.currentCategory = null;
+          this.toolDisplay.attr('data-current-category', '');
         }
         this.secondaryMenu.toggleClass('is-active');
       }
