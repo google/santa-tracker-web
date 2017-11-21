@@ -1,6 +1,33 @@
 $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
 
 ##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="roller"] {
+    pointer-events: auto;
+
+    .Tools-display-outer {
+      background-color: #A341B7;
+      border-radius: 0;
+      height: 100%;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .Tools-display-inner {
+      background-size: cover;
+      height: 70px;
+      width: 70px;
+    }
+
+    @each $current-roller in $roller-names {
+      &[data-current-tool="roller-#{$current-roller}"] {
+        .Tools-display-inner {
+          background-image: url(img/patterns/#{$current-roller}.svg);
+        }
+      }
+    }
+  }
+
   // TOOLBAR
   [data-tool-category="roller"] {
     .Tool {
