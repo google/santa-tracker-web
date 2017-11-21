@@ -31,26 +31,21 @@ goog.require('app.utils');
 app.PenGarland = function($elem, name, config) {
   app.Tool.call(this, $elem, name);
 
-  this.soundKey = 'selfie_color';
   this.textureName = 'texture-' + name;
-  this.opacity = config && config.opacity || 1;
-  this.drawFrequency = config && config.drawFrequency || 4;
   this.points = [];
-  this.monotone = config && config.monotone || false;
-  this.noRotation = config && config.noRotation || false;
   this.sizeConfig = config && config.sizeConfig || {
       min: app.Constants.PEN_MIN,
       max: app.Constants.PEN_MAX
     };
+  this.$image = $elem.find('#' + this.textureName);
+  this.image = this.$image[0];
+  this.height = this.$image.height();
+  this.width = this.$image.width();
+  this.lineColor = '';
+  this.lineSize = 0;
 
-  if (this.monotone) {
-    this.$image = $elem.find('#' + this.textureName);
-    this.image = this.$image[0];
-    this.height = this.$image.height();
-    this.width = this.$image.width();
-  }
-
-  this.spacing = 100;
+  this.updateSize();
+  this.spacing = this.currentSize * 2;
   this.spaceUntilNext = 0;
 };
 app.PenGarland.prototype = Object.create(app.Tool.prototype);
@@ -78,14 +73,10 @@ app.PenGarland.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     drawHeight = this.sizeFactor * this.height;
   }
 
-  var offsetX = drawWidth / 2;
-  var offsetY = drawHeight / 2;
-  var texture;
-  if (this.monotone) {
-    texture = this.image;
-  } else {
-    texture = app.ImageManager.getImage(this.textureName, color);
-  }
+  var offsets = this.getOffsets(drawWidth, drawHeight);
+  var offsetX = offsets.x;
+  var offsetY = offsets.y;
+  var texture = this.image;
 
   this.points.push({
       x: drawX,
@@ -97,12 +88,29 @@ app.PenGarland.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     context.drawImage(texture, p1.x - offsetX, p1.y - offsetY,
         drawWidth, drawHeight);
     this.spaceUntilNext = this.spacing;
+
+    if (this.lineColor) {
+      context.fillStyle = this.lineColor;
+      context.arc(p1.x, p1.y, this.lineSize / 2, 0 ,2 * Math.PI);
+      context.fill();
+    }
   } else if (this.points.length == 2) {
     var p1 = this.points[0];
     var p2 = this.points[1];
     var midpoint = app.utils.midpoint(p1, p2);
     this.drawAlongCurve(p1, p1, midpoint, context, texture, drawX, drawY,
         drawWidth, drawHeight, offsetX, offsetY);
+
+    if (this.lineColor) {
+      context.lineJoin = 'round';
+      context.lineCap = 'round';
+      context.lineWidth = this.lineSize;
+      context.strokeStyle = this.lineColor;
+      context.beginPath();
+      context.moveTo(p1.x, p1.y);
+      context.lineTo(midpoint.x, midpoint.y);
+      context.stroke();
+    }
   } else {
     var p0 = this.points[this.points.length - 3];
     var p1 = this.points[this.points.length - 2];
@@ -111,6 +119,22 @@ app.PenGarland.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     var midpoint2 = app.utils.midpoint(p1, p2);
     this.drawAlongCurve(midpoint1, p1, midpoint2, context, texture, drawX,
         drawY, drawWidth, drawHeight, offsetX, offsetY);
+
+    if (this.lineColor) {
+      context.lineJoin = 'round';
+      context.lineCap = 'round';
+      context.lineWidth = this.lineSize;
+      context.strokeStyle = this.lineColor;
+      context.beginPath();
+      context.moveTo(midpoint1.x, midpoint1.y);
+      context.quadraticCurveTo(
+        p1.x,
+        p1.y,
+        midpoint2.x,
+        midpoint2.y
+      );
+      context.stroke();
+    }
   }
 
   return true;
@@ -123,17 +147,18 @@ app.PenGarland.prototype.draw = function(canvas, mouseCoords, prevCanvas,
 app.PenGarland.prototype.reset = function() {
   this.points = [];
   this.spaceUntilNext = 0;
+  this.spacing = this.currentSize * 2;
 };
 
 
 app.PenGarland.prototype.drawAlongCurve = function(start, control, end, context,
     texture, drawX, drawY, drawWidth, drawHeight, offsetX, offsetY) {
   var distance = app.utils.curveLength(start, control, end);
-  if (!distance) {
+  if (!distance || !isFinite(distance)) {
     return;
   }
 
-  console.log(distance, this.spaceUntilNext);
+  console.log(distance);
 
   if (distance > this.spaceUntilNext) {
     var currentPoint = this.spaceUntilNext;
@@ -141,14 +166,8 @@ app.PenGarland.prototype.drawAlongCurve = function(start, control, end, context,
     while (currentPoint < distance) {
       var t = currentPoint / distance;
       var point = app.utils.pointInCurve(t, start, control, end);
-      var rotation = this.noRotation ? 0 : Math.random();
-      context.save();
-      context.globalAlpha = this.opacity;
-      context.translate(point.x, point.y);
-      context.rotate(rotation * 2 * Math.PI);
-      context.drawImage(texture, -offsetX, -offsetY,
-          drawWidth, drawHeight);
-      context.restore();
+      this.drawItem(context, texture, point, drawWidth, drawHeight, offsetX,
+          offsetY);
 
       currentPoint += this.spacing;
     }
@@ -157,6 +176,24 @@ app.PenGarland.prototype.drawAlongCurve = function(start, control, end, context,
   } else {
     this.spaceUntilNext -= distance;
   }
+};
+
+
+app.PenGarland.prototype.drawItem = function(context, texture, point,
+    drawWidth, drawHeight, offsetX, offsetY ) {
+  context.save();
+  context.translate(point.x, point.y);
+  context.drawImage(texture, -offsetX, -offsetY,
+      drawWidth, drawHeight);
+  context.restore();
+};
+
+
+app.PenGarland.prototype.getOffsets = function(drawWidth, drawHeight) {
+  return {
+    x: drawWidth / 2,
+    y: drawHeight / 2
+  };
 };
 
 

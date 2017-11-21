@@ -20,6 +20,7 @@ goog.require('app.LayerTool');
 goog.require('app.Marker');
 goog.require('app.Neon');
 goog.require('app.PaintRoller');
+goog.require('app.PenBells');
 goog.require('app.PenGarland');
 goog.require('app.Pencil');
 goog.require('app.Shape');
@@ -97,12 +98,16 @@ app.Tools = function(game, $elem) {
         min: 0.5,
         max: 5,
         scale: true
-      },
-      noRotation: true,
-      drawFrequency: 0.1,
-      monotone: true
+      }
     });
   this.neon = new app.Neon($elem, 'neon');
+  this.bell = new app.PenBells($elem, 'bell', {
+      sizeConfig: {
+        min: 0.1,
+        max: 0.3,
+        scale: true
+      }
+    });
 
   this.spray = new app.SprayColor($elem, 'spray-color');
   this.spraySprinkles = new app.SprayPattern($elem, 'spray-sprinkles', app.Constants.SPRINKLE_SPRAY_CONFIG);
@@ -227,6 +232,7 @@ app.Tools = function(game, $elem) {
     this.icing,
     this.garland,
     this.neon,
+    this.bell,
     this.spray,
     this.spraySprinkles,
     this.sprayCandy,
