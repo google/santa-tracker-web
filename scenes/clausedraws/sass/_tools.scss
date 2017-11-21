@@ -420,10 +420,6 @@
     position: relative;
     width: 75px;
 
-    @media (max-width: 800px) {
-      min-width: 75px;
-    }
-
     &:hover {
       .Category-inner {
         transform: translate3d(-50%, -50%, 0) scale(1.1);
@@ -576,6 +572,18 @@
           opacity: 1;
           pointer-events: auto;
         }
+      }
+    }
+
+    @media (max-width: 800px) {
+      &::before {
+        padding-top: 90%;
+        width: 90%;
+      }
+
+      .Category-inner {
+        height: 50%;
+        width: 85%;
       }
     }
   }
