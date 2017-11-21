@@ -28,8 +28,8 @@ goog.require('app.Constants');
 app.SpraySnow = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
-  this.density = 5;
-  this.maxOffset = 50;
+  this.density = app.Constants.SPRAY_SNOW_DENSITY;
+  this.maxOffset = app.Constants.SPRAY_SNOW_OFFSET;
 };
 app.SpraySnow.prototype = Object.create(app.Tool.prototype);
 
@@ -45,8 +45,9 @@ app.SpraySnow.prototype.draw = function(canvas, mouseCoords) {
   var drawY = mouseCoords.normY * canvas.height;
 
   for (var i = 0; i < this.density; i++) {
-    var size = Math.random() * 5;
-    var opacity = Math.random() * 0.2 + 0.8;
+    var size = Math.random() * app.Constants.SPRAY_SNOW_MAX_SIZE;
+    var opacity = Math.random() * (1 - app.Constants.SPRAY_SNOW_MIN_OPACITY) +
+        app.Constants.SPRAY_SNOW_MIN_OPACITY;
 
     context.save();
     context.fillStyle = 'rgba(242, 250, 255, ' + opacity + ')';
