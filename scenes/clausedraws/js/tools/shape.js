@@ -130,7 +130,7 @@ app.Shape.prototype.updateAngle = function(angle) {
 };
 
 
-app.Shape.prototype.preloadColor = function(color) {
+app.Shape.prototype.preloadImage = function(color) {
   return app.ImageManager.getImage(this.shapeName, color);
 };
 

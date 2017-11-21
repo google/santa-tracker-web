@@ -122,7 +122,7 @@ app.Stamp.prototype.calculateDrawSize = function(size) {
 }
 
 
-app.Stamp.prototype.preloadColor = function(color) {
+app.Stamp.prototype.preloadImage = function(color) {
   return app.ImageManager.getImage(this.imageName, color);
 };
 

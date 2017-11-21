@@ -167,7 +167,7 @@ app.Tool.prototype.updateAngle = function(angle) {
 };
 
 
-app.Tool.prototype.preloadColor = function(color) {
+app.Tool.prototype.preloadImage = function(color) {
   return;
 };
 

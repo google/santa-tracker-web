@@ -52,30 +52,31 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
   var drawX = mouseCoords.normX * canvas.width;
   var drawY = mouseCoords.normY * canvas.height;
 
-  for (var i = 0; i < this.density; i++) {
-    this.imageIndex = Math.floor(Math.random() * this.images.length);
-    var image = this.images[this.imageIndex];
-    var drawWidth = image.width;
-    var drawHeight = image.height;
-    // TODO: randomize offsets
-    var offsetX = -drawWidth / 2 + this.getRandomOffset();
-    var offsetY = -drawHeight / 2 + this.getRandomOffset();
+  if (this.density >= 1 || Math.random() < this.density) {
+    for (var i = 0; i < this.density; i++) {
+      this.imageIndex = Math.floor(Math.random() * this.images.length);
+      var image = this.images[this.imageIndex];
+      var drawWidth = image.width;
+      var drawHeight = image.height;
+      var offsetX = -drawWidth / 2 + this.getRandomOffset();
+      var offsetY = -drawHeight / 2 + this.getRandomOffset();
 
-    var drawElem;
-    if (image.elem) {
-      drawElem = image.elem;
-    } else if (image.name) {
-      drawElem = app.ImageManager.getImage(image.name, image.color);
-    }
+      var drawElem;
+      if (image.elem) {
+        drawElem = image.elem;
+      } else if (image.name) {
+        drawElem = app.ImageManager.getImage(image.name, image.color);
+      }
 
-    context.save();
-    context.globalAlpha = this.opacity;
-    context.translate(drawX, drawY);
-    if (!image.noRotate) {
-      context.rotate(Math.random() * 2 * Math.PI);
+      context.save();
+      context.globalAlpha = this.opacity;
+      context.translate(drawX, drawY);
+      if (!image.noRotate) {
+        context.rotate(Math.random() * 2 * Math.PI);
+      }
+      context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
+      context.restore();
     }
-    context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
-    context.restore();
   }
 
   return true;
@@ -100,6 +101,16 @@ app.SprayPattern.prototype.populateImages = function($elem) {
       for (var j = 0; j < image.frequencyFactor; j++) {
         this.images.push(image);
       }
+    }
+  }
+};
+
+
+app.SprayPattern.prototype.preloadImage = function() {
+  for (var i = this.images.length - 1; i >= 0; i--) {
+    var image = this.images[i];
+    if (image.name) {
+      app.ImageManager.getImage(image.name, image.color);
     }
   }
 };
