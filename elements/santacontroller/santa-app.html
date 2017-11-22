@@ -998,7 +998,7 @@ Polymer({
       if (house.module === sceneName) {
         if (house.disabled) {
           return false;
-        } else if (!house.locked) {
+        } else if (house.edu || !house.locked) {
           return true;
         }
         var launchDate = house.launchDate;

@@ -51,8 +51,6 @@ specific language governing permissions and limitations under the License.
           <template is="dom-repeat" items="[[cards]]" as="card">
             <info-card filter$="[[card.filter]]"
                 image="[[_computeInfoCardImage(card.key)]]"
-                opens="[[card.opens]]"
-                locked="[[card.locked]]"
                 type="[[card.type]]"
                 href="[[urlFor(card.key)]]">
               <div slot="title">[[card.title]]</div>
