@@ -56,6 +56,8 @@ app.Canvas = function(game, $elem) {
   $elem.find('[data-tool-redo]').on('click.clausedraws touchend.clausedraws', this.redo.bind(this));
 
   $elem.find('[data-tool-save]').on('click.clausedraws touchend.clausedraws', this.saveToFile.bind(this));
+
+  $elem.find('[data-tool-trash]').on('click.clausedraws touchend.clausedraws', this.onTrashClick.bind(this));
 };
 
 
@@ -145,6 +147,10 @@ app.Canvas.prototype.resetCanvas = function() {
     this.clearCanvas(index);
   }, this);
 
+  this.clearCanvasElement(this.backgroundCanvas);
+  this.clearCanvasElement(this.foregroundCanvas);
+  this.clearCanvasElement(this.backgroundBackup);
+  this.clearCanvasElement(this.foregroundBackup);
 
   this.backupCanvases[0].saved = true;
   this.baseIndex = 0;
@@ -312,13 +318,18 @@ app.Canvas.prototype.clearCanvas = function(index) {
   if (typeof index != 'undefined') {
     // console.log('clearing', index);
     var backup = this.backupCanvases[index];
-    var ctx = backup.canvas.getContext('2d');
-    ctx.clearRect(0, 0, backup.canvas.width, backup.canvas.height);
+    this.clearCanvasElement(backup.canvas);
     backup.saved = false;
   } else {
     this.displayCtx.clearRect(0, 0, this.displayCanvas.width,
         this.displayCanvas.height);
   }
+};
+
+
+app.Canvas.prototype.clearCanvasElement = function(canvas) {
+  var ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
 
 
@@ -375,6 +386,11 @@ app.Canvas.prototype.saveToFile = function(e) {
   }
 };
 
+
+app.Canvas.prototype.onTrashClick = function() {
+  // play animation on snow layer
+  this.resetCanvas();
+};
 
 /**
  * @typedef {{x: number, y: number, down: boolean, scale: number, normX: number,

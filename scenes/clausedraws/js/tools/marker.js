@@ -60,6 +60,7 @@ app.Marker.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
   if (this.points.length == 1) {
     var p1 = this.points[0];
     context.fillStyle = color;
+    context.beginPath();
     context.arc(p1.x, p1.y, this.currentSize / 2, 0 ,2 * Math.PI);
     context.fill();
   } else if (this.points.length == 2) {
