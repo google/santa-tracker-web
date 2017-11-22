@@ -23,6 +23,14 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
   }
 
   // TOOLBAR
+  [data-tool-category="drawing"] {
+    .Tool {
+      background-position: center 20%;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+
   .Tool {
     @each $current-tool in $drawing-tools {
       &--#{$current-tool} {

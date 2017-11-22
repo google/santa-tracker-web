@@ -580,15 +580,6 @@
     }
   }
 
-  [data-tool-category="drawing"],
-  [data-tool-category="eraser"] {
-    .Tool {
-      background-position: center -10%;
-      background-repeat: no-repeat;
-      background-size: 40%;
-    }
-  }
-
   .Tool {
     cursor: pointer;
     height: 100%;
