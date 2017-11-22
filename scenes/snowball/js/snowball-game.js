@@ -16,6 +16,8 @@ import { NetworkLevel } from './snowball/levels/network-level.js';
 const { Scene, PerspectiveCamera } = self.THREE;
 
 export class SnowballGame extends Game {
+  static get is() { return 'snowball-game'; }
+
   constructor() {
     super();
 
@@ -74,4 +76,4 @@ export class SnowballGame extends Game {
   }
 };
 
-customElements.define('snowball-game', SnowballGame);
+customElements.define(SnowballGame.is, SnowballGame);

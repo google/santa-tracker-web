@@ -1,3 +1,4 @@
+import { BasicElement } from '../utils/basic-element.js';
 import { Event } from '../core/event.js';
 import { Entity } from '../core/entity.js';
 
@@ -11,16 +12,32 @@ const intermediateVector2 = new Vector2();
 
 /**
  * @constructor
- * @extends {HTMLElement}
+ * @extends {BasicElement}
  * @implements {Entity}
  */
-const EntityElement = Entity(HTMLElement);
+const EntityElement = Entity(BasicElement);
+
+const template = document.createElement('template');
+
+template.innerHTML = `
+<style>
+:host {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+</style>`;
 
 export class InputSystem extends EntityElement {
+  static get is() { return 'input-system'; }
+
+  static get template() { return template; }
+
   constructor() {
     super();
-
-    this.attachShadow({ mode: 'open' });
 
     this.raycaster = new Raycaster();
     this.octree = new Octree({
@@ -40,18 +57,6 @@ export class InputSystem extends EntityElement {
     this.on('click', event => this.hitSourceEvents.set('click', event));
     this.on('pointer-move',
         event => this.hitSourceEvents.set('pointer-move', event));
-
-    this.shadowRoot.innerHTML = `
-<style>
-:host {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-</style>`;
 
     this.addEventListener('mousemove',
         event => this.onPointerMove(event), { passive: true });
@@ -244,4 +249,4 @@ export class InputSystem extends EntityElement {
   }
 }
 
-customElements.define('input-system', InputSystem);
+customElements.define(InputSystem.is, InputSystem);

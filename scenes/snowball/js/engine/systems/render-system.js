@@ -1,18 +1,12 @@
+import { BasicElement } from '../utils/basic-element.js';
+
 const {
   WebGLRenderer,
 } = self.THREE;
 
-export class RenderSystem extends HTMLElement {
-  get aspectRatio() {
-    return this.width / this.height;
-  }
+const template = document.createElement('template');
 
-  constructor() {
-    super();
-
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `
+template.innerHTML = `
 <style>
   :host, canvas {
     display: flex;
@@ -23,7 +17,20 @@ export class RenderSystem extends HTMLElement {
 
     pointer-events: none;
   }
-</style>`;
+</style>
+`;
+
+export class RenderSystem extends BasicElement {
+  static get is() { return 'render-system'; }
+
+  static get template() { return template }
+
+  get aspectRatio() {
+    return this.width / this.height;
+  }
+
+  constructor() {
+    super();
 
     this.renderer = new WebGLRenderer();
     this.renderer.autoClear = true;
@@ -48,4 +55,4 @@ export class RenderSystem extends HTMLElement {
   }
 };
 
-customElements.define('render-system', RenderSystem);
+customElements.define(RenderSystem.is, RenderSystem);

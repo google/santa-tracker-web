@@ -1,20 +1,17 @@
+import { BasicElement } from '../../engine/utils/basic-element.js';
 import { Entity } from '../../engine/core/entity.js';
 import { PowerupStatus } from './powerup-status.js';
 
 /**
  * @constructor
- * @extends {HTMLElement}
+ * @extends {BasicElement}
  * @implements {EntityInterface}
  */
-const EntityElement = Entity(HTMLElement);
+const EntityElement = Entity(BasicElement);
 
-export class PowerupUi extends EntityElement {
-  constructor(...args) {
-    super(...args);
+const template = document.createElement('template');
 
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `
+template.innerHTML = `
 <style>
 :host {
   position: absolute;
@@ -64,6 +61,14 @@ powerup-status {
 </style>
 <powerup-status id="powerupOne"></powerup-status>
 <powerup-status id="powerupTwo"></powerup-status>`;
+
+export class PowerupUi extends EntityElement {
+  static get is() { return 'powerup-ui'; }
+
+  static get template() { return template; }
+
+  constructor(...args) {
+    super(...args);
 
     this.powerupOne = this.shadowRoot.querySelector('#powerupOne');
     this.powerupTwo = this.shadowRoot.querySelector('#powerupTwo');
@@ -122,4 +127,4 @@ powerup-status {
   }
 };
 
-customElements.define('powerup-ui', PowerupUi);
+customElements.define(PowerupUi.is, PowerupUi);

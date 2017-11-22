@@ -1,20 +1,16 @@
+import { BasicElement } from '../../engine/utils/basic-element.js';
 import { Entity } from '../../engine/core/entity.js';
 
 /**
  * @constructor
- * @extends {HTMLElement}
+ * @extends {BasicElement}
  * @implements {EntityInterface}
  */
-const EntityElement = Entity(HTMLElement);
+const EntityElement = Entity(BasicElement);
 
-export class PowerupStatus extends EntityElement {
+const template = document.createElement('template');
 
-  constructor(...args) {
-    super(...args);
-
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `
+template.innerHTML = `
 <style>
   :host {
     display: block;
@@ -70,8 +66,15 @@ export class PowerupStatus extends EntityElement {
 </style>
 <div id="one" class="icon"></div>
 <div id="two" class="icon"></div>
-<div id="three" class="icon"></div>
-`;
+<div id="three" class="icon"></div>`;
+
+export class PowerupStatus extends EntityElement {
+  static get is() { return 'powerup-status'; }
+
+  static get template() { return template; }
+
+  constructor(...args) {
+    super(...args);
 
     this.powerup = null;
     this.currentQuantity = 0;
@@ -108,4 +111,4 @@ export class PowerupStatus extends EntityElement {
   }
 };
 
-customElements.define('powerup-status', PowerupStatus);
+customElements.define(PowerupStatus.is, PowerupStatus);

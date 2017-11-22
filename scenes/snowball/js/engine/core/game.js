@@ -1,3 +1,4 @@
+import { BasicElement } from '../utils/basic-element.js';
 import { RenderSystem } from '../systems/render-system.js';
 import { ClockSystem } from '../systems/clock-system.js';
 import { InputSystem } from '../systems/input-system.js';
@@ -7,22 +8,9 @@ const {
   OrthographicCamera
 } = self.THREE;
 
-export class Game extends HTMLElement {
-  constructor(...args) {
-    super(...args);
+const template = document.createElement('template');
 
-    this.attachShadow({ mode: 'open' });
-
-    this.renderSystem = new RenderSystem();
-    this.clockSystem = new ClockSystem();
-    this.inputSystem = new InputSystem();
-
-    //this.camera = new PerspectiveCamera(60, 1.6, 0.1, 100000);
-    this.camera = new OrthographicCamera(1, 1, 1, 1, 1, 100000);
-    this.currentLevel = null;
-    this.ready = false;
-
-    this.shadowRoot.innerHTML = `
+template.innerHTML = `
 <style>
   :host {
     display: flex;
@@ -32,6 +20,20 @@ export class Game extends HTMLElement {
     height: 100%;
   }
 </style>`;
+
+export class Game extends BasicElement {
+  static get template() { return template; }
+
+  constructor(...args) {
+    super(...args);
+
+    this.renderSystem = new RenderSystem();
+    this.clockSystem = new ClockSystem();
+    this.inputSystem = new InputSystem();
+
+    this.camera = new OrthographicCamera(1, 1, 1, 1, 1, 100000);
+    this.currentLevel = null;
+    this.ready = false;
 
     this.shadowRoot.appendChild(this.renderSystem);
     this.shadowRoot.appendChild(this.inputSystem);
