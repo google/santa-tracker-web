@@ -23,6 +23,7 @@ const glob = require('glob');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const uglifyES = require('uglify-es');
+const buble = require('buble');
 const scripts = require('./gulp_scripts');
 
 const fs = require('fs');
@@ -357,6 +358,7 @@ gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
   // bundle, CSP, and do language fanout
   const limit = $.limiter(-2);
   const stream = scripts.generateModules(result, [primaryModuleName].concat(excludes))
+    .pipe(scripts.transformInlineScripts(script => buble.transform(script).code))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(limit(scripts.crisper()))
     .on('data', (file) => {
