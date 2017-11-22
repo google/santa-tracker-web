@@ -30,11 +30,27 @@
       "wrangler"        0     0     700   2250   ($house-row-7-z-index + 150),
   ;
 
-  div {
+  // TODO: top/top for tablet and desktop are magic numbers
+
+  width: $width-desktop;
+  position: absolute;
+  top: 82px;
+  left: 50%;
+  margin-left: -($width-desktop / 2);
+  pointer-events: auto;
+  height: $height-desktop;
+
+  @media (max-width: $width-desktop - 1px) {
+    width: $width-tablet;
+    margin-left: -($width-tablet / 2);
+    height: $height-tablet;
+    top: 50px;
+  }
+
+  > *, div {
     background: center no-repeat;
     background-size: contain;
     position: absolute;
-    pointer-events: none;
   }
 
   @for $i from 1 through length($all) {
@@ -60,11 +76,6 @@
     }
   }
 
-  #easteregg-tictactoe,
-  #easteregg-wrangler,
-  effect-snowmobile {
-    position: absolute;  // not a div
-  }
   #easteregg-tictactoe, effect-snowmobile {
     @media (max-width: ($width-desktop - 1)) {
       transform: scale(0.6);
@@ -144,7 +155,6 @@
 
   #easteregg-balloon, #easteregg-busstop1,
   #easteregg-busstop2, #easteregg-busstop3 {
-    pointer-events: all;
     cursor: pointer;
   }
 
@@ -162,6 +172,7 @@
   }
 
   #easteregg-balloon-flight, #easteregg-balloon-ropes {
+    pointer-events: none;
     opacity: 0;
 
     &.flying {

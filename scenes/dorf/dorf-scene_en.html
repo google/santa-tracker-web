@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
@@ -57,6 +58,8 @@ Santa's Village.
   <div id="mobiletext">
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
   </div>
+
+  <iron-media-query query="(min-width: 768px)" query-matches="{{_isSceneVillage}}"></iron-media-query>
 
   <div id="village-all">
     <div id="ground"></div>
@@ -126,30 +129,29 @@ Santa's Village.
           </village-house>
         </div>
       </template>
-
-      <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
-        have a shared stacking context with houses -->
+    </div>
+    <template is="dom-if" if="[[_isSceneVillage]]" restamp>
       <div id="eastereggs">
         <template is="dom-repeat" items="[[easterEggs]]">
-          <div id$="easteregg-[[item]]" class="easter-egg"></div>
+          <div id$="easteregg-[[item]]"></div>
         </template>
 
-        <div id="easteregg-schoolyard" class="easter-egg">
+        <div id="easteregg-schoolyard">
           <div class="slide"></div>
           <div class="seesaw"></div>
           <div class="swing"></div>
         </div>
 
-        <div id="easteregg-balloon" class="easter-egg"></div>
-        <div id="easteregg-balloon-ropes" class="easter-egg"></div>
-        <div id="easteregg-balloon-flight" class="easter-egg"></div>
+        <div id="easteregg-balloon" class="random" on-click="_flyBalloon"></div>
+        <div id="easteregg-balloon-ropes"></div>
+        <div id="easteregg-balloon-flight"></div>
 
         <effect-snowmobile id="easteregg-snowmobile1"></effect-snowmobile>
         <effect-snowmobile id="easteregg-snowmobile2"></effect-snowmobile>
         <effect-snowmobile id="easteregg-snowmobile3"></effect-snowmobile>
         <effect-snowmobile id="easteregg-snowmobile4"></effect-snowmobile>
 
-        <div id="easteregg-busstop1" class="easter-egg">
+        <div id="easteregg-busstop1" class="random" on-click="_triggerBus">
           <div class="elf-stop elf-green"></div>
           <div class="elf-stop elf-orange"></div>
           <div class="elf-stop elf-orange"></div>
@@ -165,7 +167,7 @@ Santa's Village.
           </div>
         </div>
 
-        <div id="easteregg-busstop2" class="easter-egg">
+        <div id="easteregg-busstop2" class="random" on-click="_triggerBus">
           <div class="elf-stop elf-blue"></div>
           <div class="elf-stop elf-green"></div>
           <div class="bus">
@@ -178,7 +180,7 @@ Santa's Village.
           </div>
         </div>
 
-        <div id="easteregg-busstop3" class="easter-egg">
+        <div id="easteregg-busstop3" class="random" on-click="_triggerBus">
           <div class="elf-stop elf-sit-red"></div>
           <div class="elf-stop elf-blue"></div>
           <div class="elf-stop elf-green"></div>
@@ -194,9 +196,8 @@ Santa's Village.
 
         <effect-tictactoe id="easteregg-tictactoe"></effect-tictactoe>
         <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
-
       </div>
-    </div><!-- #houses -->
+    </template>
   </div>
 
   <footer class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
@@ -239,6 +240,11 @@ Santa's Village.
         value: Object.freeze(EASTER_EGGS),
       },
 
+      /** Whether this is the full village. Used to control stamping of easter eggs. */
+      _isSceneVillage: {
+        type: Boolean,
+      },
+
       /** Bound from `santa-state`, whether the countdown is done. */
       _countdownFinished: {
         type: Boolean,
@@ -258,13 +264,6 @@ Santa's Village.
       strings: Object,
     },
 
-    listeners: {
-      'easteregg-busstop1.click': '_triggerBus',
-      'easteregg-busstop2.click': '_triggerBus',
-      'easteregg-busstop3.click': '_triggerBus',
-      'easteregg-balloon.click': '_flyBalloon',
-    },
-
     _computeHeaderClass: function(countdownFinished, duringTracker) {
       if (countdownFinished) {
         if (duringTracker) {
@@ -282,6 +281,10 @@ Santa's Village.
     _computeFooterElves: function(finished) {
       var url = (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
       return this.resolveUrl(url);
+    },
+
+    _computeIsSceneVillage: function(screenWidth) {
+      return screenWidth >= 768;
     },
 
     /**
@@ -311,8 +314,8 @@ Santa's Village.
     /**
      * Places the most recently opened cells at the top, for mobile only.
      */
-    _computeCellStyle: function(date, locked) {
-      if (locked || !date) {
+    _computeCellStyle: function(date, hideDate, locked) {
+      if (hideDate || locked || !date) {
         return '';
       }
       return '--release-order: ' + -date.getDate();
@@ -360,16 +363,15 @@ Santa's Village.
         'img/sun.svg',
       ]);
 
-      var isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        this.preloadImages([
-          'img/mobile-elf1.svg',
-          'img/mobile-elf2.svg',
-        ]);
-      } else {
+      if (this._isSceneVillage) {
         this.preloadImages([
           'img/road.svg',
           'img/ground.svg',
+        ]);
+      } else {
+        this.preloadImages([
+          'img/mobile-elf1.svg',
+          'img/mobile-elf2.svg',
         ]);
       }
 
@@ -380,11 +382,11 @@ Santa's Village.
 
         var preload = [];
 
-        if (!isMobile) {
+        if (this._isSceneVillage) {
           preload.push('img/building/' + id + '.svg');
         }
         preload.push('../../images/scenes/' + id + '_2x.png');
-        if (house.locked && !isMobile) {
+        if (house.locked && this._isSceneVillage) {
           preload.push('img/building/' + id + '-ice.svg')
         }
         this.preloadImages(preload);
@@ -401,8 +403,9 @@ Santa's Village.
         // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
         // there's no way to notify a whole house.
         const propertiesToNotify = ['locked', 'disabled'];
+        const path = ['houses', 0, ''];
         this.houses.forEach((house, i) => {
-          const path = ['houses', i, ''];
+          path[1] = i;
           propertiesToNotify.forEach((property) => {
             path[2] = property;
             this.notifyPath(path, house[property]);
@@ -430,19 +433,12 @@ Santa's Village.
     onShow: function() {
       this.fire('sound-ambient', 'music_start_village');
       this.fire('sound-ambient', 'village_start');
-      this._startEasterEggs();
+      this._randomEasterEggs();
     },
 
     onHide: function() {
       this.fire('sound-ambient', 'village_end');
-      this._stopEasterEggs();
-    },
-
-    /**
-     * Wraps `santaApp.colorForRoute`.
-     */
-    _colorForRoute: function(id) {
-      return window.santaApp.colorForRoute(id);
+      this.cancelDebouncer('easteregg');
     },
 
     _onClickNewTodayHouse: function() {
@@ -451,49 +447,35 @@ Santa's Village.
 
     /** NOTE: easteregg code only below this point */
 
-    /**
-     * Async task for _randomEasterEggs.
-     */
-    _eggTimer: null,
-
     _randomEasterEggs: function() {
-      this.cancelAsync(this._eggTimer);
-
-      var easterEggs = ['balloon', 'busstop1', 'busstop2', 'busstop3'];
-
-      var eggTime = randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX);
-      this._eggTimer = this.async(function() {
-        if (!this.isAttached) {
-          return;  // give up, not active
-        }
-        var eggName = 'easteregg-' +
-            easterEggs[Math.floor(Math.random() * easterEggs.length)];
-        var easterEgg = this.$[eggName];
-        var bounds = easterEgg.getBoundingClientRect();
-
-        // trigger the easter egg only if it's not display: none
-        if (bounds.width && bounds.height) {
-          var eggTrigger = this.listeners[eggName + '.click'];
-          this[eggTrigger]({
-            fakeEvent: true,
-            currentTarget: easterEgg
-          });
-        }
-
+      this.debounce('easteregg', function() {
+        if (!this.isAttached) { return; }
         this._randomEasterEggs();
-      }, eggTime);
+
+        const eggs = Polymer.dom(this.root).querySelectorAll('#eastereggs .random');
+        if (!eggs.length) { return; }
+
+        const choice = eggs[Math.floor(Math.random() * eggs.length)];
+        const bounds = choice.getBoundingClientRect();
+        if (!bounds.width && !bounds.height) { return; }
+
+        choice.click();
+      }, randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX));
     },
 
     _flyBalloon: function(e) {
-      if (!e.fakeEvent) {
+      if (e.isTrusted || e.screenX) {
         window.ga('send', 'event', 'village', 'click', 'balloon');
       }
 
       var FLIGHT_TIME = 30000;
-      var balloon = this.$['easteregg-balloon'];
-      var balloonRopes = this.$['easteregg-balloon-ropes'];
-      var balloonFlight = this.$['easteregg-balloon-flight'];
-      if (balloon.classList.contains('flying')) return;
+
+      // nb. these may not start on the page
+      const dom = Polymer.dom(this.root);
+      var balloon = dom.querySelector('#easteregg-balloon');
+      var balloonRopes = dom.querySelector('#easteregg-balloon-ropes');
+      var balloonFlight = dom.querySelector('#easteregg-balloon-flight');
+      if (!balloon || balloon.classList.contains('flying')) { return; }
 
       this.fire('sound-trigger', 'village_balloon_click');
 
@@ -508,7 +490,7 @@ Santa's Village.
     },
 
     _triggerBus: function(e) {
-      if (!e.fakeEvent) {
+      if (e.isTrusted || e.screenX) {
         window.ga('send', 'event', 'village', 'click', 'bus');
       }
 
@@ -538,14 +520,6 @@ Santa's Village.
       }, BUS_DRIVE_ANIMATION + 1);
     },
 
-    _startEasterEggs: function() {
-      this._stopEasterEggs();
-      this._randomEasterEggs();  // stops self if no longer active
-    },
-
-    _stopEasterEggs: function() {
-      this.cancelAsync(this._eggTimer);
-    },
   });
 })();
 </script>
