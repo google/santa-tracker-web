@@ -21,10 +21,19 @@
       position: relative;
       width: 100%;
 
+      @media (max-width: 767px) {
+        margin-top: 20px;
+      }
+
       &-container {
         width: 65%;
         margin: auto;
         margin-top: 50px;
+
+        @media (max-width: 767px) {
+          width: 100%;
+          margin-top: 20px;
+        }
       }
 
       svg {
@@ -37,12 +46,20 @@
         display: flex;
         justify-content: space-between;
         margin-top: 50px;
+
+        @media (max-width: 767px) {
+          flex-wrap: wrap;
+        }
       }
     }
 
     &__similar-drawing {
       flex: 30% 0 0;
       position: relative;
+
+      @media (max-width: 767px) {
+        flex: 100% 0 0;
+      }
 
       > div {
         box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
@@ -90,8 +107,18 @@
     }
 
     &__back-btn {
-      position: sticky;
-      top: 20px;
+      position: fixed;
+      top: 80px;
+      left: 30px;
+      background-image: url('img/back-button-arrow.svg');
+      background-size: 40%;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      @media (max-width: 767px) {
+        width: 50px;
+        height: 50px;
+      }
     }
   }
 }

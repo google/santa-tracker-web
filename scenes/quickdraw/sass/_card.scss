@@ -55,5 +55,15 @@
   .card-row {
     width: 100%;
     margin: 100px 0;
+
+    @media (max-width: 767px) {
+      margin: 50px 0;
+    }
+
+    &:first-child {
+      @media (max-width: 767px) {
+        margin-top: 100px;
+      }
+    }
   }
 }
