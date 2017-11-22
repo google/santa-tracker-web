@@ -32,7 +32,6 @@ goog.require('app.SpraySnow');
 goog.require('app.Stamp');
 goog.require('app.Sticker');
 goog.require('app.TextureDrawer');
-goog.require('app.EffectInvert');
 goog.require('app.Tool');
 goog.require('app.utils');
 goog.require('app.shared.utils');
@@ -183,7 +182,6 @@ app.Tools = function(game, $elem) {
   this.rollerSnowflakes = new app.PaintRoller($elem, 'snowflakes');
   this.rollerTrees = new app.PaintRoller($elem, 'trees');
   this.rollerVertical = new app.PaintRoller($elem, 'vertical');
-  this.effectInvert = new app.EffectInvert($elem, 'effect-invert');
   this.stickerDinosaur = new app.Sticker($elem, 'dinosaur');
   this.stickerFishTeal = new app.Sticker($elem, 'fish-teal');
   this.stickerSanta = new app.Sticker($elem, 'santa');
@@ -307,7 +305,6 @@ app.Tools = function(game, $elem) {
     this.rollerSnowflakes,
     this.rollerTrees,
     this.rollerVertical,
-    this.effectInvert,
     this.stickerBrownBear,
     this.stickerDinosaur,
     this.stickerFishTeal,
@@ -459,18 +456,6 @@ app.Tools.prototype.selectTool_ = function(e) {
   if (this.selectedTool) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
-      this.selectedTool = null;
-      this.toolDisplay.attr('data-current-tool', '');
-      this.toolDisplay.attr('data-current-category', '');
-
-      if (app.shared.utils.touchEnabled) {
-        this.currentCategory = null;
-        this.secondaryMenuActive = false;
-        this.categoryPickers.removeClass('is-active');
-        this.secondaryMenu.removeClass('is-active');
-      }
-    } else if (app.EffectInvert.prototype.isPrototypeOf(this.selectedTool)) {
-      this.drawToCanvas(this.selectedTool);
       this.selectedTool = null;
       this.toolDisplay.attr('data-current-tool', '');
       this.toolDisplay.attr('data-current-category', '');
