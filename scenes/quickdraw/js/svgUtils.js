@@ -23,10 +23,23 @@ SVGUtils = function() {
 
 SVGUtils.prototype.createSvgFromSegments = function(segments, w, h, options) {
   var options = options || {};
-  options.order = 0;
-  options.color = '#000000';
+  options.order = options.order || 0;
+  options.color = options.color || '#000000';
 
-  var _segments = segments;
+  var _segments = [];
+  if (options.order == 1) {
+    // Flip the order of the segments array
+    for (var i = 0; i<segments.length; i++) {
+      var a = [[], []];
+      for (var j = 0; j < segments[i].length; j++) {
+        a[0].push(segments[i][j][0]);
+        a[1].push(segments[i][j][1]);
+      }
+      _segments.push(a);
+    }
+  } else if (segments) {
+    _segments = segments;
+  }
 
   w -= options.padding * 2;
   h -= options.padding * 2;

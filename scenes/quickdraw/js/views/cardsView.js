@@ -19,18 +19,23 @@ goog.provide('app.view.CardsView');
 
 goog.require('app.Constants');
 goog.require('app.SVGUtils');
+goog.require('app.HandwritingAPI');
 goog.require('app.Utils');
 goog.require('app.EventEmitter');
 
 
 app.view.CardsView = function(container) {
   app.EventEmitter.call(this);
+
+  this.handwritingAPI = new app.HandwritingAPI();
+
   this.container = container;
   this.newround_card = container.find('.newround-card');
   this.timesup_card = container.find('.timesup-card');
   this.round_detail_card = container.find('.rounddetails-card');
   this.newround_card.hide();
   this.timesup_card.hide();
+  this.round_detail_card.hide();
 };
 
 
@@ -149,23 +154,34 @@ app.view.CardsView.prototype.createDrawingElem = function(round) {
 
 app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   //Section 1
+  this.showCard(this.round_detail_card);
 
-  // - [ ] Round Details > Your Drawing > Replace word
   this.round_detail_card
     .find('.rounddetails-card__word')
     .text(round.word);
-  // - [ ] Round Details > Your Drawing > Replace Drawing
-  var svg = app.SVGUtils.createSvgFromSegments(round.drawing, 270, 180, {padding:10, color: 'rgba(0,0,0,1.00)'});
-  var drawingElm = this.round_detail_card.find('.rounddetails-card__drawing--user');
-  drawingElm.html('');
-  drawingElm.append(svg);
-  // - [ ] Round Details > Your Drawing > Add Santa Drawing (Prepare code)
+  // Section1
+  var drawingElem = this.round_detail_card.find('.rounddetails-card__drawing--user');
+  var svg = app.SVGUtils.createSvgFromSegments(round.drawing, drawingElem.width(), drawingElem.width() * 0.736, {padding: 25, color: 'rgba(0,0,0,1.00)'});
+  drawingElem.html('');
+  drawingElem.append(svg);
 
   //Section 2
+  var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa');
+  santaElem.css('background-image', "url('img/santas-" + round.word + ".svg')");
 
   //Section 3
+  if (round.recognized) {
+    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').hide();
+    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').show();
+  } else {
+    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').hide();
+    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').show();
+  }
+  //- [ ] Round Details > Neighbors > Add 3 neighbors
+  this.fetchAndShowDrawingNeighbors(round);
 
-  this.showCard(this.round_detail_card);
+  //Section 4
+  // - [ ] Round Details > Gallery > Add Gallery
 
   this.round_detail_card
     .find('.rounddetails-card__back-btn')
@@ -173,4 +189,58 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
     .on('touchend mouseup', function() {
       this.hideCard(this.round_detail_card);
     }.bind(this));
+};
+
+
+app.view.CardsView.prototype.fetchAndShowDrawingNeighbors = function(round) {
+  var neighborElems = this.round_detail_card.find('.rounddetails-card__similar-drawing');
+  if (round.drawing && round.drawing.length > 0) {
+    this.handwritingAPI.getSimilarDrawings(round.drawing, round.width, round.height)
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.error(jqXHR, textStatus, errorThrown);
+    })
+    .done(function(data) {
+      if(data[0] == "SUCCESS") {
+        var data = this.handwritingAPI.parseResponse(data);
+        var neighbors = data.filter(function(d) {
+          return d.neighbor;
+        });
+
+        neighbors = neighbors.filter(function(neighbor) {
+          return neighbor.word != round.word;
+        });
+
+        neighbors = neighbors.slice(0, 3);
+
+        // Loop over the three neighbors
+        for (var i = 0; i < 3; i++) {
+          if (neighbors.length > i) {
+            var elem = $(neighborElems[i]);
+            elem.show();
+
+            // Set Text
+            var textElem = elem.find('p');
+            textElem.text(neighbors[i].word);
+
+            // Set Reference Element
+            var referenceElem = elem.find('.rounddetails-card__similar-drawing-reference');
+            referenceElem.html('');
+            var svgReference = app.SVGUtils.createSvgFromSegments(round.drawing, elem.width(), elem.width() * 0.736, {padding: 10, color: "rgba(0,0,0,0.15)"});
+            referenceElem.append(svgReference);
+
+            // Set Neighbor Element
+            var neighborElem = elem.find('.rounddetails-card__similar-drawing-neighbor');
+            neighborElem.html('');
+            var svgNeighbor = app.SVGUtils.createSvgFromSegments(neighbors[i].neighbor, elem.width(), elem.width() * 0.736, {padding: 10, order: 1});
+            neighborElem.append(svgNeighbor);
+
+          } else {
+            $(neighborElems[i]).hide();
+          }
+        } //ENDFOR
+      }
+    }.bind(this));
+  } else {
+    neighborElems.hide();
+  }
 };

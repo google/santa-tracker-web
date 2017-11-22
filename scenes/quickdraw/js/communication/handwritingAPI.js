@@ -28,11 +28,16 @@ app.HandwritingAPI.prototype.processSegments = function(segments, width, height)
 };
 
 
+app.HandwritingAPI.prototype.getSimilarDrawings = function(segments, width, height) {
+  return this.sendRequest(segments, {similar_drawings: true, width: width, height: height});
+};
+
+
 app.HandwritingAPI.prototype.sendRequest = function(segments, options) {
   var request = {
     input_type: 0,
     requests: [{
-      language: 'quickdraw'
+      language: options.similar_drawings ? 'quickdraw-ink' : 'quickdraw'
     }]
   };
 

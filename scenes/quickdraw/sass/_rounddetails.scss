@@ -12,6 +12,9 @@
 
     &__drawing {
       background-color: white;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
       box-shadow: 20px 20px 0 0 rgba(0, 0, 0, 0.2);
       height: 0;
       padding-bottom: 73.6%;
@@ -22,6 +25,10 @@
         width: 65%;
         margin: auto;
         margin-top: 50px;
+      }
+
+      svg {
+        margin-top: 25px;
       }
     }
 
@@ -35,14 +42,24 @@
 
     &__similar-drawing {
       flex: 30% 0 0;
+      position: relative;
 
       > div {
-        background-color: white;
         box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
         height: 0;
         padding-bottom: 73.6%;
         position: relative;
         width: 100%;
+
+        &.rounddetails-card__similar-drawing-reference {
+          background-color: white;
+        }
+
+        &.rounddetails-card__similar-drawing-neighbor {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
     }
 
