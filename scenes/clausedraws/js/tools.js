@@ -52,6 +52,7 @@ app.Tools = function(game, $elem) {
 
   this.primaryMenu = $elem.find('.Tools--primary');
   this.categoryPickers = this.primaryMenu.find('[data-tool-category-picker]');
+  this.toolDisplay = this.primaryMenu.find('[data-tool-display]');
 
   this.secondaryMenu = $elem.find('.Tools--secondary');
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
@@ -62,6 +63,10 @@ app.Tools = function(game, $elem) {
   this.subcategoryMenus = this.categoryMenus.find('[data-tool-subcategory-menu]');
 
   this.tertiaryMenu = $elem.find('.Tools--tertiary');
+  this.tertiaryMenuMobile = this.tertiaryMenu.find('.Tools-mobile');
+  this.mobileEdit = this.tertiaryMenuMobile.find('.Tools-edit');
+  this.mobileRotate = this.tertiaryMenuMobile.find('.Tools-rotator');
+  this.mobileSlider = this.tertiaryMenuMobile.find('.Tools-slider');
 
   this.categoryPickers.on('click.clausedraws touchend.clausedraws', this.onCategoryClick_.bind(this));
   this.subcategoryPickers.on('click.clausedraws touchend.clausedraws', this.onSubcategoryClick_.bind(this));
@@ -390,15 +395,36 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     if (mouseCoords.down) {
       this.selectedTool.startMousedown();
 
+      var insideCanvas = this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.secondaryMenu[0]) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.colorpicker.popup[0]) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileEdit[0]) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileSlider[0]);
+      // console.log(insideCanvas);
+
+      var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
+
+      if (app.shared.utils.touchEnabled && insideCanvas && !startedOnSlider) {
+        this.game_.sceneElem.addClass('ui-hidden');
+      }
+
       if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
           this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
         this.secondaryMenu.removeClass('is-active');
+
+        if (this.game_.colorpicker.isPopupOpen()) {
+          this.game_.colorpicker.togglePopup();
+        }
       }
     } else {
       this.selectedTool.stopMousedown();
 
       if (!app.shared.utils.touchEnabled && this.secondaryMenuActive) {
         this.secondaryMenu.addClass('is-active');
+      }
+
+      if (app.shared.utils.touchEnabled) {
+        this.game_.sceneElem.removeClass('ui-hidden');
       }
     }
   }
@@ -434,22 +460,42 @@ app.Tools.prototype.selectTool_ = function(e) {
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
       this.selectedTool = null;
+      this.toolDisplay.attr('data-current-tool', '');
+      this.toolDisplay.attr('data-current-category', '');
+
+      if (app.shared.utils.touchEnabled) {
+        this.currentCategory = null;
+        this.secondaryMenuActive = false;
+        this.categoryPickers.removeClass('is-active');
+        this.secondaryMenu.removeClass('is-active');
+      }
     } else if (app.EffectInvert.prototype.isPrototypeOf(this.selectedTool)) {
       this.drawToCanvas(this.selectedTool);
       this.selectedTool = null;
+      this.toolDisplay.attr('data-current-tool', '');
+      this.toolDisplay.attr('data-current-category', '');
+
+      if (app.shared.utils.touchEnabled) {
+        this.currentCategory = null;
+        this.secondaryMenuActive = false;
+        this.categoryPickers.removeClass('is-active');
+        this.secondaryMenu.removeClass('is-active');
+      }
     } else {
       if (this.selectedTool != previousTool) {
         var coords = this.game_.mouse.coordinates();
         this.selectedTool.preloadImage(this.game_.colorpicker.selectedColor);
         this.selectedTool.select(coords);
         this.sliderChanged(this.game_.slider.size);
+        this.toolDisplay.attr('data-current-tool', this.selectedTool.name);
+
+        if (app.shared.utils.touchEnabled) {
+          this.secondaryMenu.removeClass('is-active');
+        }
       } else {
         this.selectedTool = null;
+        this.toolDisplay.attr('data-current-tool', '');
       }
-    }
-
-    if (app.shared.utils.touchEnabled) {
-      this.secondaryMenu.removeClass('is-active');
     }
   }
 };
@@ -472,6 +518,8 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
       if (this.secondaryMenuActive) {
         if (!this.selectedTool) {
           categoryPicker.toggleClass('is-active');
+          this.currentCategory = null;
+          this.toolDisplay.attr('data-current-category', '');
         }
         this.secondaryMenu.toggleClass('is-active');
       }
@@ -487,10 +535,15 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     return;
   }
 
+  if (this.game_.colorpicker.isPopupOpen()) {
+    this.game_.colorpicker.togglePopup();
+  }
+
   this.categoryPickers.removeClass('is-active');
   this.categoryMenus.removeClass('is-active');
   categoryPicker.addClass('is-active');
   this.currentCategory = categoryName;
+  this.toolDisplay.attr('data-current-category', this.currentCategory);
 
   if (this.selectedTool) {
     this.selectedTool.deselect();

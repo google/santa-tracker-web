@@ -188,10 +188,13 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.mouse.normY >= 0 && this.mouse.normY <= 1 &&
     !mouse.isInsideEl(mouse.x, mouse.y, tools.primaryMenu[0]) &&
     !mouse.isInsideEl(mouse.x, mouse.y, tools.secondaryMenu[0]) &&
+    !mouse.isInsideEl(mouse.x, mouse.y, tools.mobileEdit[0]) &&
+    !mouse.isInsideEl(mouse.x, mouse.y, tools.mobileSlider[0]) &&
     !(colorpicker.isPopupOpen() &&
         mouse.isInsideEl(mouse.x, mouse.y, colorpicker.popup[0]));
+  var startedOnSlider = $(mouse.originalTarget).closest('[data-slider]').length;
 
-  if (insideCanvas && this.mouse.down && tools.selectedTool) {
+  if (insideCanvas && this.mouse.down && tools.selectedTool && !startedOnSlider) {
     this.updateCanvas(tools.selectedTool, tools.selectedTool.draw);
   } else if ((!insideCanvas || !this.mouse.down) && tools.selectedTool) {
     tools.selectedTool.reset();

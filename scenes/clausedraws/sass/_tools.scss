@@ -13,12 +13,18 @@
     flex-direction: column;
     left: 0;
     top: 0;
+    transition: transform .3s;
     width: 85px;
     z-index: 2;
 
-    .Tools-setting {
+    .Tools-mobile-settings {
       background-color: #A341B7;
-      position: relative;
+      bottom: 0;
+      display: none;
+      height: 85px;
+      left: 0;
+      position: absolute;
+      width: 95px;
 
       &::after {
         background: #A341B7;
@@ -32,17 +38,71 @@
       }
     }
 
-    @media screen and (max-width: 800px) {
+    @media (max-width: 800px) {
       flex-direction: row;
-      height: 85px;
-      padding-left: 60px;
+      height: 75px;
+      padding-left: 95px;
       right: 0;
       top: auto;
       width: auto;
 
-      .Tools-setting {
-        display: none;
+      position: fixed;
+      bottom: 0;
+
+      .Tools-mobile-settings {
+        display: block;
+
+        .Tools-colorpicker {
+          display: block;
+        }
       }
+    }
+  }
+
+  .Tools-display {
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &[data-current-category="drawing"] {
+      .Tools-display-inner {
+        background-position: center -30%;
+        background-size: 40%;
+      }
+    }
+
+    &[data-current-category="sticker"] {
+      background: #A341B7;
+
+      .Tools-display-outer {
+        border-radius: 0;
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+
+    .Tools-display-outer {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      height: 70px;
+      margin: 8px auto;
+      width: 70px;
+    }
+
+    .Tools-display-inner {
+      // background-color: #fff;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 50%;
+      height: 55px;
+      margin: 7px auto;
+      overflow: hidden;
+      width: 55px;
     }
   }
 
@@ -66,17 +126,19 @@
       width: 130px;
     }
 
-    @media screen and (max-width: 800px) {
-      bottom: 85px;
+    @media (max-width: 800px) {
+      bottom: 75px;
       height: auto;
       left: 0;
       top: 0;
 
       .Tool {
         border-bottom: 2px solid #eee;
-        flex: 0 0 25%;
-        height: 15vh;
+        flex: 0 0 33%;
+        // height: 15vh;
+        height: 100px;
         margin-top: 30px;
+        overflow: hidden;
         width: auto;
       }
     }
@@ -89,28 +151,75 @@
     top: 0;
     width: 85px;
 
-    @media screen and (max-width: 800px) {
-      bottom: auto;
-      left: 0;
+    .Tools-mobile {
+      display: none;
+    }
+
+    @media (max-width: 800px) {
+      background-color: transparent;
+      bottom: 95px;
+      left: 20px;
+      pointer-events: none;
+      right: 20px;
+      top: 20px;
       width: auto;
 
-      .Tools-clear,
-      .Tools-divider {
-        display: none;
-      }
-
-      .Tools-utilities {
-        text-align: right;
+      .Tools-mobile {
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
 
         .Button {
-          display: inline-block;
-          margin-right: 10px;
-          vertical-align: top;
+          height: 50px;
+          margin: 0 0 15px;
+          pointer-events: auto;
+          width: 50px;
         }
 
-        .Button--save {
-          margin-left: 5px;
+        .Tools-mobile--right,
+        .Tools-mobile--left {
+          bottom: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          transition: transform .3s;
         }
+
+        .Tools-mobile--right {
+          right: 0;
+        }
+
+        .Tools-mobile--left {
+          left: 0;
+          // width: 50px;
+        }
+
+        .Tools-edit {
+
+        }
+
+        .Tools-rotator {
+          flex-direction: column;
+          padding: 0;
+        }
+
+        .Tools-slider {
+          padding: 15px 20px;
+          transform: rotate(-90deg) translateY(100%);
+          transform-origin: bottom left;
+
+          .Slider-base,
+          .Slider-dot {
+            pointer-events: auto;
+          }
+        }
+      }
+
+      .Tools-desktop {
+        display: none;
       }
     }
   }
@@ -129,7 +238,7 @@
     overflow-y: auto;
     padding-top: 15px;
 
-    @media screen and (max-width: 800px) {
+    @media (max-width: 800px) {
       flex-direction: row;
       margin: 0;
       overflow-x: auto;
@@ -175,13 +284,14 @@
       }
     }
 
-    @media screen and (max-width: 800px) {
-      align-items: flex-start;
+    @media (max-width: 800px) {
+      // align-items: flex-start;
+      align-items: center;
       flex-wrap: wrap;
       justify-content: center;
       padding: 0 20px;
 
-      .Tools-slider {
+      .Tools-settings {
         display: none;
       }
 
@@ -268,8 +378,8 @@
     background: #EFEFEF;
     border-radius: 5px;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
     padding: 20px;
     width: 140px;
 
@@ -283,6 +393,19 @@
         background: purple;
       }
     }
+
+    @media (max-width: 800px) {
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      padding: 0;
+      width: 100%;
+
+      &__item {
+        flex: 0 0 auto;
+        padding: 0 10px;
+      }
+    }
   }
 
   .Tools-subsection {
@@ -291,6 +414,11 @@
 
     &.is-active {
       display: flex;
+    }
+
+    @media (max-width: 800px) {
+      flex-wrap: wrap;
+      width: 100%;
     }
   }
 
@@ -301,10 +429,6 @@
     min-height: 65px;
     position: relative;
     width: 75px;
-
-    @media screen and (max-width: 800px) {
-      min-width: 75px;
-    }
 
     &:hover {
       .Category-inner {
@@ -381,6 +505,10 @@
       .Button {
         margin: 0 auto;
       }
+
+      @media (max-width: 800px) {
+        display: none;
+      }
     }
 
     &--drawing {
@@ -454,6 +582,18 @@
           opacity: 1;
           pointer-events: auto;
         }
+      }
+    }
+
+    @media (max-width: 800px) {
+      &::before {
+        padding-top: 90%;
+        width: 90%;
+      }
+
+      .Category-inner {
+        height: 50%;
+        width: 85%;
       }
     }
   }

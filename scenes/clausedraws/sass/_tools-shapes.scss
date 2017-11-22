@@ -1,16 +1,40 @@
 $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", "square", "star", "triangle";
 
 ##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="shape"] {
+    .Tools-display-inner {
+      background-size: 60% 60%;
+    }
+
+    @each $current-shape in $shape-names {
+      &[data-current-tool="shape-#{$current-shape}"] {
+        .Tools-display-inner {
+          background-image: url(img/tools/shapes/#{$current-shape}.svg);
+        }
+      }
+    }
+  }
+
   // TOOLBAR
+  [data-tool-category="shape"] {
+    .Tool {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 25px;
+
+      @media (max-width: 800px) {
+        border-bottom: none;
+        padding: 10px 15px;
+      }
+    }
+  }
+
   .Tool {
     @each $current-shape in $shape-names {
       &[data-tool="shape-#{$current-shape}"] {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 20px 25px;
-
         @include generateSVGstyles('shape');
       }
     }

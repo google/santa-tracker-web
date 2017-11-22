@@ -1,6 +1,37 @@
 $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow" "snowflakes";
 
 ##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="spray"] {
+    &[data-current-tool="spray-color"] {
+      .Tools-display-inner {
+        background-image: url(img/tools/spray/tool_spray_color.svg);
+      }
+    }
+
+    @each $current-tool in $spray-tools {
+      &[data-current-tool="spray-#{$current-tool}"] {
+        pointer-events: auto;
+
+        .Tools-display-outer {
+          background-color: #A341B7;
+          border-radius: 0;
+          height: 100%;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .Tools-display-inner {
+          background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
+          background-position: center -20%;
+          background-size: 100%;
+          border-radius: 0;
+          height: 100%;
+        }
+      }
+    }
+  }
+
   // TOOLBAR
   [data-tool-category="spray"] {
     .Tool {
@@ -19,6 +50,14 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
       @each $current-tool in $spray-tools {
         &--spray-#{$current-tool} {
           background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
+        }
+      }
+
+      @media (max-width: 800px) {
+        background-position: center 0%;
+
+        &--spray-color {
+          padding: 0 17px;
         }
       }
     }

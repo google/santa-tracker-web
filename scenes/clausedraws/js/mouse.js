@@ -56,11 +56,18 @@ app.Mouse = function($elem) {
   $elem.on('mousedown.clausedraws touchstart.clausedraws', function(e) {
     this.down = true;
 
+    if (e.type == 'touchstart') {
+      this.originalTarget = e.originalEvent.touches[0].target;
+    } else {
+      this.originalTarget = e.target;
+    }
+
     e.preventDefault();
   }.bind(this));
 
   $elem.on('mouseup.clausedraws mouseleave.clausedraws touchend.clausedraws touchleave.clausedraws', function(e) {
     this.down = false;
+    this.originalTarget = null;
 
     if (e.cancelable) {
       e.preventDefault();

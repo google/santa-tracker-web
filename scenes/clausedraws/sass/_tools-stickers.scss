@@ -3,6 +3,50 @@ $sticker-nature: "cactus", "cloud1", "cloud2", "cloud3", "coral-large", "coral-m
 $sticker-decorations: "beach-ball", "bell", "candle", "clock", "disco-ball", "frame1", "frame2", "frame3", "holly", "presents-stack", "record-player", "red-bow", "snowglobe-snowman", "snowglobe-tree", "stereo", "stocking-green", "stocking-pink", "stocking-red", "stocking-yellow", "treasure-closed", "treasure-open", "window", "wreath";
 
 ##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="sticker"] {
+    pointer-events: auto;
+
+    .Tools-display-outer {
+      background-color: #A341B7;
+      border-radius: 0;
+      height: 100%;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .Tools-display-inner {
+      border-radius: 0;
+      height: 80%;
+      margin: 10%;
+      width: 80%;
+    }
+
+    @each $current-sticker in $sticker-characters {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/characters/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    @each $current-sticker in $sticker-nature {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    @each $current-sticker in $sticker-decorations {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+        }
+      }
+    }
+  }
+
   [data-tool-category="sticker"] {
     .Tool {
       background-position: center;
@@ -12,6 +56,28 @@ $sticker-decorations: "beach-ball", "bell", "candle", "clock", "disco-ball", "fr
 
     .Tool--selected {
       opacity: 0.5;
+    }
+
+    @media (max-width: 800px) {
+      .Tool {
+        border-bottom: none;
+        flex: 0 0 25%;
+        margin-top: 20px;
+      }
+
+      .Tools-settings {
+        bottom: 0;
+        display: block;
+        height: 45px;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+
+        &::after,
+        .Tools-settings-inner {
+          display: none;
+        }
+      }
     }
   }
 
