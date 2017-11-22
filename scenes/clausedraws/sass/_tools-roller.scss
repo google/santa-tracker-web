@@ -31,15 +31,35 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
   // TOOLBAR
   [data-tool-category="roller"] {
     .Tool {
-      background-position: center;
+      background-image: url(img/tools/tool_roller_regular.svg);
+      background-position: center 250%;
       background-repeat: no-repeat;
       background-size: 80% 80%;
+      position: relative;
+
+      &::before {
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        bottom: 32%;
+        content: '';
+        height: 64%;
+        left: 23%;
+        position: absolute;
+        transform: rotate(-90deg);
+        width: 42%;
+        z-index: -1;
+      }
+    }
+
+    .Tool--selected {
+      opacity: 0.5;
     }
   }
 
   .Tool {
     @each $current-roller in $roller-names {
-      &--roller-#{$current-roller} {
+      &--roller-#{$current-roller}::before {
         background-image: url(img/patterns/#{$current-roller}.svg);
       }
     }
