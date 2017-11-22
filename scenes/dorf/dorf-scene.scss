@@ -427,7 +427,8 @@ footer {
 
     width: $dim-house * $tablet-desktop-ratio;
     height: $dim-house * $tablet-desktop-ratio;
-    --house-dim: 128px;  // this isn't 0.6 * 192px, but close enough
+    --house-dim: 128px;
+    --house-scale: 0.6;
 
     village-house {
       position: absolute;
@@ -444,9 +445,6 @@ footer {
       width: 100%;
       height: 100%;
       pointer-events: auto;
-
-      // TODO: remove not in debug
-      background: rgba(0, 0, 255, 0.15);
     }
 
     .card {
@@ -489,6 +487,7 @@ footer {
     width: $dim-house;
     height: $dim-house;
     --house-dim: 192px;
+    --house-scale: 1;
 
     .card {
       $dim: 282px;

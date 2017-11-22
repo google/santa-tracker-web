@@ -58,8 +58,7 @@
     $id: nth($row, $idx-id);
 
     #easteregg-#{$id} {
-      z-index: nth($row, $idx-z-index) - 1;
-
+      z-index: nth($row, $idx-top) + floor(nth($row, $idx-height) * $svg-ratio);
       // only load background-image if the w/h is nonzero
       @if nth($row, $idx-width) > 0 {
         background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
