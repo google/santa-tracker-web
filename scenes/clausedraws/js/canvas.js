@@ -388,6 +388,7 @@ app.Canvas.prototype.saveToFile = function(e) {
 
 
 app.Canvas.prototype.onTrashClick = function() {
+  this.snow.reset();
   // play animation on snow layer
   this.resetCanvas();
 };

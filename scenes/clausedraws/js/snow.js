@@ -38,6 +38,15 @@ app.Snow.prototype.toggleSnow  = function() {
 };
 
 
+app.Snow.prototype.reset  = function() {
+  this.playing = false;
+  this.flakes = [];
+  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
+  this.cleared = true;
+};
+
+
 app.Snow.prototype.update = function(delta) {
   // TODO: connect to button,
   if (!this.playing && this.cleared) {
