@@ -45,6 +45,9 @@
       top: auto;
       width: auto;
 
+      position: fixed;
+      bottom: 0;
+
       .Tools-mobile-settings {
         display: block;
 
@@ -168,7 +171,7 @@
 
         .Button {
           height: 50px;
-          margin: 0 0 10px;
+          margin: 0 0 15px;
           pointer-events: auto;
           width: 50px;
         }
@@ -178,7 +181,7 @@
           bottom: 0;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: center;
           position: absolute;
           top: 0;
         }
