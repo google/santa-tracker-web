@@ -14,7 +14,7 @@
  * the License.
  */
 
-goog.provide('app.PenHangingLights');
+goog.provide('app.PenStringLights');
 goog.require('app.Constants');
 goog.require('app.ImageManager');
 goog.require('app.PenGarland');
@@ -22,15 +22,15 @@ goog.require('app.utils');
 
 
 /**
- * PenHangingLights tool
+ * PenStringLights tool
  * @constructor
  * @extends {app.PenGarland}
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the tool.
  */
-app.PenHangingLights = function($elem, name, config) {
+app.PenStringLights = function($elem, name, config) {
   app.PenGarland.call(this, $elem, name, config);
-  this.lineColor = '#99eaff';
+  this.lineColor = '#212121';
   this.lineSize = 3;
 
   this.$image = $elem.find('#' + this.textureName + '1');
@@ -41,18 +41,19 @@ app.PenHangingLights = function($elem, name, config) {
   this.textures = [
     $elem.find('#' + this.textureName + '1'),
     $elem.find('#' + this.textureName + '2'),
-    $elem.find('#' + this.textureName + '3')
+    $elem.find('#' + this.textureName + '3'),
+    $elem.find('#' + this.textureName + '4')
   ];
 
-  this.spacing = 75;
-  console.log(this.textures);
+  // this.spacing = 75;
+  this.faceUp = true;
 };
-app.PenHangingLights.prototype = Object.create(app.PenGarland.prototype);
+app.PenStringLights.prototype = Object.create(app.PenGarland.prototype);
 
 
-app.PenHangingLights.prototype.drawItem = function(context, texture, point,
+app.PenStringLights.prototype.drawItem = function(context, texture, point,
     drawWidth, drawHeight, offsetX, offsetY ) {
-  var randomTexture = this.textures[Math.floor(Math.random() * 3)];
+  var randomTexture = this.textures[Math.floor(Math.random() * 4)];
   var width = randomTexture.width() * this.sizeFactor;
   var height = randomTexture.height() * this.sizeFactor;
   var angle = point.angle * 180 / Math.PI;
@@ -64,25 +65,31 @@ app.PenHangingLights.prototype.drawItem = function(context, texture, point,
     angle -= 180;
   }
 
+  if (this.faceUp) {
+    angle += 180;
+  }
+
   context.save();
   context.translate(point.x, point.y);
   context.rotate(angle * Math.PI / 180);
-  context.drawImage(randomTexture[0], -width / 2, 0,
+  context.drawImage(randomTexture[0], -width / 2, -height * 0.1,
       width, height);
   context.restore();
+
+  this.faceUp = !this.faceUp;
 };
 
 
-app.PenHangingLights.prototype.reset = function() {
-  this.points = [];
-  this.spaceUntilNext = 0;
-  this.spacing = 75;
-};
+// app.PenStringLights.prototype.reset = function() {
+//   this.points = [];
+//   this.spaceUntilNext = 0;
+//   this.spacing = 75;
+// };
 
 
-app.PenHangingLights.prototype.getOffsets = function(drawWidth, drawHeight) {
+app.PenStringLights.prototype.getOffsets = function(drawWidth, drawHeight) {
   return {
     x: drawWidth / 2,
-    y: 0
+    y: drawHeight * 0.1
   };
 };

@@ -23,6 +23,7 @@ goog.require('app.PaintRoller');
 goog.require('app.PenBells');
 goog.require('app.PenGarland');
 goog.require('app.PenHangingLights');
+goog.require('app.PenStringLights');
 goog.require('app.Pencil');
 goog.require('app.Shape');
 goog.require('app.SprayColor');
@@ -113,6 +114,13 @@ app.Tools = function(game, $elem) {
       sizeConfig: {
         min: 0.1,
         max: 0.3,
+        scale: true
+      }
+    });
+  this.stringLights = new app.PenStringLights($elem, 'string-lights', {
+      sizeConfig: {
+        min: 0.5,
+        max: 1,
         scale: true
       }
     });
@@ -242,6 +250,7 @@ app.Tools = function(game, $elem) {
     this.neon,
     this.bell,
     this.hangingLights,
+    this.stringLights,
     this.spray,
     this.spraySprinkles,
     this.sprayCandy,
