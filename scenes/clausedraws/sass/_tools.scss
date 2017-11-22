@@ -380,17 +380,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px 15px;
     width: 140px;
 
     &__item {
-      background: lightgray;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 75% 75%;
+      border-radius: 50%;
       cursor: pointer;
-      flex: 0 0 33%;
-      height: 20px;
+      flex: 0 0 35px;
+      height: 35px;
 
       &.is-active {
-        background: purple;
+        background-color: #FFD200;
       }
     }
 
@@ -402,8 +405,9 @@
       width: 100%;
 
       &__item {
-        flex: 0 0 auto;
-        padding: 0 10px;
+        flex: 0 0 30px;
+        height: 30px;
+        margin: 0 3px;
       }
     }
   }

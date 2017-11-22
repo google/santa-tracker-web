@@ -1,3 +1,4 @@
+$sticker-categories: "characters", "decorations", "people", "food", "nature", "silly";
 $sticker-characters: "brown-bear", "dinosaur", "fish-teal", "fish-yellow", "gingerbread-man", "mrs-claus", "narwhal", "nutcracker-blue", "pegman", "penguin-hat", "penguin-presents", "rudolph-front", "rudolph-side", "santa-sled", "santa-wave", "santa", "snow-monster", "snowman-big-orange", "snowman";
 $sticker-nature: "cactus", "cloud1", "cloud2", "cloud3", "coral-large", "coral-medium", "coral-small", "igloo", "moon", "seaweed-green", "seaweed-lime", "sun", "tree-holiday", "tree-palm", "trees-blue", "trees-green";
 $sticker-decorations: "beach-ball", "bell", "candle", "clock", "disco-ball", "frame1", "frame2", "frame3", "holly", "presents-stack", "record-player", "red-bow", "snowglobe-snowman", "snowglobe-tree", "stereo", "stocking-green", "stocking-pink", "stocking-red", "stocking-yellow", "treasure-closed", "treasure-open", "window", "wreath";
@@ -48,6 +49,13 @@ $sticker-decorations: "beach-ball", "bell", "candle", "clock", "disco-ball", "fr
   }
 
   [data-tool-category="sticker"] {
+    // SUBCATEGORY ICONS
+    @each $current-cat in $sticker-categories {
+      .Tools-submenu__item[data-tool-subcategory="#{$current-cat}"] {
+        background-image: url(img/tools/tool_sticker_#{$current-cat}.svg);
+      }
+    }
+
     .Tool {
       background-position: center;
       background-repeat: no-repeat;
