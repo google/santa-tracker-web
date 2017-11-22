@@ -193,8 +193,6 @@ app.Tools = function(game, $elem) {
   this.stickerGingerbreadMan = new app.Sticker($elem, 'gingerbread-man');
   this.stickerMrsClaus = new app.Sticker($elem, 'mrs-claus');
   this.stickerNarwhal = new app.Sticker($elem, 'narwhal');
-  this.stickerNutcrackerBlue = new app.Sticker($elem, 'nutcracker-blue');
-  this.stickerPegman = new app.Sticker($elem, 'pegman');
   this.stickerPenguinHat = new app.Sticker($elem, 'penguin-hat');
   this.stickerPenguinPresents = new app.Sticker($elem, 'penguin-presents');
   this.stickerRudolphFront = new app.Sticker($elem, 'rudolph-front');
@@ -203,7 +201,6 @@ app.Tools = function(game, $elem) {
   this.stickerSantaWave = new app.Sticker($elem, 'santa-wave');
   this.stickerSnowMonster = new app.Sticker($elem, 'snow-monster');
   this.stickerSnowmanBigOrange = new app.Sticker($elem, 'snowman-big-orange');
-  this.stickerSnowman = new app.Sticker($elem, 'snowman');
   this.stickerCloud1 = new app.Sticker($elem, 'cloud1');
   this.stickerCloud2 = new app.Sticker($elem, 'cloud2');
   this.stickerCloud3 = new app.Sticker($elem, 'cloud3');
@@ -222,6 +219,7 @@ app.Tools = function(game, $elem) {
   this.stickerCandle = new app.Sticker($elem, 'candle');
   this.stickerClock = new app.Sticker($elem, 'clock');
   this.stickerDiscoBall = new app.Sticker($elem, 'disco-ball');
+  this.stickerFirewood = new app.Sticker($elem, 'firewood');
   this.stickerFrame1 = new app.Sticker($elem, 'frame1');
   this.stickerFrame2 = new app.Sticker($elem, 'frame2');
   this.stickerFrame3 = new app.Sticker($elem, 'frame3');
@@ -229,6 +227,7 @@ app.Tools = function(game, $elem) {
   this.stickerPresentsStack = new app.Sticker($elem, 'presents-stack');
   this.stickerRecordPlayer = new app.Sticker($elem, 'record-player');
   this.stickerRedBow = new app.Sticker($elem, 'red-bow');
+  this.stickerShowLights = new app.Sticker($elem, 'show-lights');
   this.stickerSnowglobeSnowman = new app.Sticker($elem, 'snowglobe-snowman');
   this.stickerSnowglobeTree = new app.Sticker($elem, 'snowglobe-tree');
   this.stickerStereo = new app.Sticker($elem, 'stereo');
@@ -312,8 +311,6 @@ app.Tools = function(game, $elem) {
     this.stickerGingerbreadMan,
     this.stickerMrsClaus,
     this.stickerNarwhal,
-    this.stickerNutcrackerBlue,
-    this.stickerPegman,
     this.stickerPenguinHat,
     this.stickerPenguinPresents,
     this.stickerRudolphFront,
@@ -323,7 +320,6 @@ app.Tools = function(game, $elem) {
     this.stickerSanta,
     this.stickerSnowMonster,
     this.stickerSnowmanBigOrange,
-    this.stickerSnowman,
     this.stickerCactus,
     this.stickerCloud1,
     this.stickerCloud2,
@@ -345,6 +341,7 @@ app.Tools = function(game, $elem) {
     this.stickerCandle,
     this.stickerClock,
     this.stickerDiscoBall,
+    this.stickerFirewood,
     this.stickerFrame1,
     this.stickerFrame2,
     this.stickerFrame3,
@@ -352,6 +349,7 @@ app.Tools = function(game, $elem) {
     this.stickerPresentsStack,
     this.stickerRecordPlayer,
     this.stickerRedBow,
+    this.stickerShowLights,
     this.stickerSnowglobeSnowman,
     this.stickerSnowglobeTree,
     this.stickerStereo,
