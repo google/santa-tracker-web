@@ -20,6 +20,7 @@ goog.provide('app.view.CardsView');
 goog.require('app.Constants');
 goog.require('app.SVGUtils');
 goog.require('app.HandwritingAPI');
+goog.require('app.GameAPI');
 goog.require('app.Utils');
 goog.require('app.EventEmitter');
 
@@ -28,6 +29,7 @@ app.view.CardsView = function(container) {
   app.EventEmitter.call(this);
 
   this.handwritingAPI = new app.HandwritingAPI();
+  this.gameAPI = new app.GameAPI();
 
   this.container = container;
   this.newround_card = container.find('.newround-card');
@@ -181,7 +183,8 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   this.fetchAndShowDrawingNeighbors(round);
 
   //Section 4
-  // - [ ] Round Details > Gallery > Add Gallery
+  // - NEED ACCESS TO API
+  //this.gameAPI.fetchGallery(round.word);
 
   this.round_detail_card
     .find('.rounddetails-card__back-btn')
