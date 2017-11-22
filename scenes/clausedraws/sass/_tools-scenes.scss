@@ -4,11 +4,22 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
   // TOOLBAR
   [data-tool-category="scene"] {
     .Tool {
-      background-position: center;
-      background-size: cover;
+      background-position: center 38%;
+      background-repeat: no-repeat;
+      background-size: 75%;
       flex: 0 0 185px;
       height: 70%;
-      margin-left: 30px;
+      margin-left: 10px;
+      position: relative;
+
+      &::before {
+        background: url(img/tools/tool_scene_tray.svg) center 20% / 109% no-repeat;
+        content: '';
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+      }
     }
 
     @media (max-width: 800px) {
@@ -17,6 +28,7 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
       padding-top: 10px;
 
       .Tool {
+        background-position: center 28%;
         border-bottom: 0;
         flex: 0 0 45%;
         height: 100px;
