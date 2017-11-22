@@ -24,6 +24,10 @@ main {
   display: none;
 }
 
+#top {
+  height: 100%;
+}
+
 @media (min-width: 768px) {
   main {
     display: block;
@@ -50,9 +54,6 @@ main {
     height: var(--house-dim, 128px);
     transform: translate(-50%, -100%);  /* origin is bottom center */
     z-index: var(--house-top-index, 3000);
-
-
-    background: rgba(0, 0, 255, 0.15);
   }
 
   sup {
@@ -106,6 +107,7 @@ Polymer({
      */
     house: {
       type: String,
+      reflectToAttribute: true,
     },
 
     /**
@@ -114,6 +116,7 @@ Polymer({
     locked: {
       type: Boolean,
       value: false,
+      reflectToAttribute: true,
     },
 
   },

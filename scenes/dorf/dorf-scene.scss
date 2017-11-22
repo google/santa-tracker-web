@@ -5,9 +5,6 @@ $name: 'module-dorf';
 @import "sass/variables";
 @import "sass/animations";
 
-$width-big: 600px;
-$toolbar-size: 64px;
-
 :host {
   background: #f5f2e2;
 }
@@ -15,6 +12,8 @@ $toolbar-size: 64px;
 [hidden] {
   display: none !important;
 }
+
+// # Common
 
 p {
   margin: 0 auto;
@@ -26,6 +25,37 @@ p {
   line-height: 24px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.launchdate {
+  font-family: 'Lobster', sans-serif;
+  font-size: 2em;
+  line-height: 1.4em;
+  padding: 0.4em 0 0;
+}
+h4 {
+  display: inline-block;
+  padding-top: 0.2em;
+  font-family: 'Lobster', sans-serif;
+  font-size: 2.875em;
+  line-height: 1.5em;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  transform: rotateZ(-3deg);
+  width: auto;
+  margin: 0;
+  white-space: nowrap;
+}
+h3 {
+  font-size: 1em;
+  line-height: 1.5em;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  margin: 0;
+}
+
+// # Header
 
 village-header {
   p {
@@ -121,7 +151,6 @@ village-header {
     animation: #{$name}-plane 75s infinite linear;
   }
 
-
   effect-skydive {
     // nb. this isn't clickable on mobile; it's probably fine
     position: absolute;
@@ -138,6 +167,43 @@ village-header {
   }
 }
 
+// # Footer
+
+footer {
+  z-index: $base-background-z-index;
+  position: relative;
+  background: url(img/footer-snow-tile.svg) repeat-x;
+  background-size: contain;
+  background-position: center bottom;
+  min-height: 200px;
+  margin-top: -200px;  // nb: removed on mobile
+
+  p {
+    padding: 20px 12px;
+    color: #3474ba;
+    font-size: 22px;
+    line-height: 26px;
+    max-width: 400px;
+    text-shadow: none;
+  }
+
+  img {
+    width: 100%;
+    max-width: $width-desktop + 240px;
+    margin: 20px auto 0;
+    display: block;
+  }
+
+  &.countdown-finished {
+    img {
+      // finished image is much taller; keep to max size
+      width: 800px;
+      max-width: 100%;
+    }
+  }
+}
+
+// # Mobile Text
 
 #mobiletext {
   display: none;
@@ -174,663 +240,139 @@ village-header {
       width: 128px;
       background-image: url(img/mobile-elf2.svg);
     }
-
   }
 }
 
+// # Houses
 
+@import "sass/houses";
 
+#village-all {
+  z-index: $base-background-z-index;
+  overflow: hidden;
+  position: relative;  // nb. creates a z-index layer for children
 
-##{$name} {
-
-  smatch-secret {
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-  }
-
-  &.countdown-finished {
-    footer {
-      img {
-        // finished image is much taller; keep to max size
-        width: 800px;
-        max-width: 100%;
-      }
-    }
-  }
-
-  /** House data */
-  @import "sass/houses";
-
-  /** Village flexbox */
-  #village-all {
-    z-index: $base-background-z-index;
-    overflow: hidden;
-    position: relative;  // nb. creates a z-index layer for children
-
-    #houses {
-      position: relative;
-      display: flex;
-      align-content: flex-start;
-      flex-flow: wrap;
-    }
-  }
-
-  .house {
+  #houses {
     position: relative;
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    h4 {
-      margin: 0;
-      padding-top: 0.2em;
-      font-family: 'Lobster', sans-serif;
-      font-size: 2.875em;
-      line-height: 1.5em;
-      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-      transform: rotateZ(-3deg);
-    }
-    h3 {
-      margin: 0;
-      font-size: 1em;
-      line-height: 1.5em;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-    }
-
-    /** Common card styling */
-    .link {
-      color: white;
-      text-decoration: none;
-      text-align: center;
-
-      .card {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        color: white;
-
-        // disabled cards only
-        .color {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          display: none;
-          background: #00c6ed;
-        }
-
-        .text {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          display: flex;
-          flex-flow: column;
-          align-items: center;
-
-          .img-lock {
-            width: 42px;
-            height: 42px;
-            background: url(img/lock.svg) no-repeat center;
-            background-size: contain;
-          }
-        }
-
-        .image {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          z-index: -1;  // behind text
-        }
-
-        .launchdate {
-          font-family: 'Lobster', sans-serif;
-          font-size: 1.5em;
-          line-height: 1.4em;
-          padding-top: 0.25em;
-          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-        }
-
-        .label {
-          position: absolute;
-          bottom: 4%;
-          right: 50%;
-          transform: translate(($height-newcard-mobile * 0.5) + 14px) rotate(12deg);
-          background: url(img/new-today-tag.svg) center no-repeat;
-          background-size: cover;
-          box-sizing: border-box;
-          width: 85px;
-          height: 53px;
-          padding: 0 4px 9px 16px;
-          line-height: 44px;
-          font-size: 14px;
-          font-family: 'Lobster', sans-serif;
-          font-weight: 400;
-          text-align: center;
-        }
-      }
-    }
-  }  // .house
-  .house-new-today {
-    a {
-      color: white;
-      text-align: center;
-      display: block;
-      margin: 0 auto;
-      height: percent(315px * $svg-ratio, $dim-house);
-      width:  percent(315px * $svg-ratio, $dim-house);
-      z-index: $house-z-index-front;
-
-      &:hover {
-        .card {
-          transform: translateY(-16px);
-          transition: transform 0.2s;
-        }
-      }
-    }
-
-    .card {
-      background: transparent center bottom no-repeat;
-      background-size: contain;
-      height: 100%;
-      padding-right: 5%;  // overcome shadow
-      transform: translateY(0);
-      transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
-      will-change: transform;
-
-      h4 {
-        margin: 0 -0.5em;  // expand for i18n
-        font-size: 2.275em;
-        transform: rotateZ(-6deg);
-      }
-    }
-  }  // .house-new-today
-
-
-  footer {
-    z-index: $base-background-z-index;
-    position: relative;
-    background: url(img/footer-snow-tile.svg) repeat-x;
-    background-size: contain;
-    background-position: center bottom;
-    min-height: 200px;
-    margin-top: -200px;  // nb: removed on mobile
-
-    p {
-      padding: 20px 12px;
-      color: #3474ba;
-      font-size: 22px;
-      line-height: 26px;
-      max-width: 400px;
-      text-shadow: none;
-    }
-
-    img {
-      width: 100%;
-      max-width: $width-desktop + 240px;
-      margin: 20px auto 0;
-      display: block;
-    }
-
-    img[locked] {
-      animation: #{$name}-bounce 2s infinite;
-      cursor: pointer;
-    }
+    display: flex;
+    align-content: flex-start;
+    flex-flow: wrap;
   }
 
-  /** Tablet/desktop specific styles. */
   @media (min-width: $width-tablet) {
     font-size: 16px;
+    pointer-events: none;
+    padding-bottom: 300px;
 
-    #village-all {
-      pointer-events: none;
-      padding-bottom: 300px;
+    // Move the village up by 30px, but give the layer an extra 30px to work
+    // with: this gives space for the hover cards.
+    margin-top: 0 - $village-offset-up - $village-extra-padding;
+    padding-top: $village-extra-padding;
 
-      // Move the village up by 30px, but give the layer an extra 30px to work
-      // with: this gives space for the hover cards.
-      margin-top: 0 - $village-offset-up - $village-extra-padding;
-      padding-top: $village-extra-padding;
+    @import "sass/eastereggs";
 
-      @import "sass/eastereggs";
-
-      #houses {
-        margin: 0 auto;
-        width: $width-desktop;
-        height: $height-desktop;
-        z-index: 10;
-        pointer-events: auto;
-      }
-
-      #ground {
-        z-index: 1;
-        position: absolute;
-        background-image: url(img/ground.svg);
-        background-repeat: repeat-x;
-        background-size: $ground-size-w $ground-size-h;
-        background-position: 50% 0;
-        width: 100%;
-        height: 100%;
-        top: $ground-top + $village-extra-padding;
-      }
-
-      #road {
-        position: absolute;
-        z-index: 2;
-        background-image: url(img/road.svg);
-        background-repeat: no-repeat;
-        background-position: 50% 0;
-        background-size: $road-size-w $road-size-h;
-        width: 100%;
-        height: 100%;
-        top: $road-top + $village-extra-padding;
-      }
-
-      .house {
-        position: relative;
-        width: $dim-house;
-        height: $dim-house;
-
-        .assets {
-          .ice {
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 2s ease-out;
-            will-change: none;  // don't create a layer; this only transitions once
-          }
-
-          .launchdate {
-            pointer-events: none;
-            position: absolute;
-            background: url(img/number-bg-dark.svg) center no-repeat;
-            background-size: contain;
-            transform: translate(-50%, -50%);
-            width: 1.6em;
-            height: 1.6em;
-            font-family: "Lobster";
-            font-size: 2.5em;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        }
-
-        &.iced {
-          .assets {
-            .building {
-              a, h3 {
-                display: none;
-              }
-            }
-            .ice {
-              opacity: 1;
-            }
-          }
-          h5 {
-            display: none;
-          }
-        }
-      }  // .house
+    #houses {
+      margin: 0 auto;
+      width: $width-desktop;
+      height: $height-desktop;
+      z-index: 10;
+      pointer-events: auto;
     }
 
-    .assets {
-      // This is the same size as its parent, but ties in with _houses setting
-      // z-index here. This ensures that building/ice is layered correctly with
-      // other village things like easter eggs.
+    #ground {
+      z-index: 1;
       position: absolute;
+      background-image: url(img/ground.svg);
+      background-repeat: repeat-x;
+      background-size: $ground-size-w $ground-size-h;
+      background-position: 50% 0;
       width: 100%;
       height: 100%;
+      top: $ground-top + $village-extra-padding;
     }
 
-    /**
-     * Each house's action is basically positioned at its center bottom point,
-     * something like its door. The label, e.g. "Play", "Learn" etc is shown
-     * just under this point. It provides the base for a touch area.
-     */
-    .action {
-      $size: percent($link-target-size, $dim-house);
-      $size-half: percent($link-target-size / 2, $dim-house);
-
+    #road {
       position: absolute;
-      width: $size;
-      height: $size;
-      margin-bottom: -$size;
-      margin-left: -$size-half;
-
-      h5 {
-        margin: 0;
-        font-size: 12px;
-        letter-spacing: 1px;
-        font-weight: 600;
-        color: #fff;
-        line-height: 12px;
-        text-transform: uppercase;
-        text-align: center;
-        color: #37afdb;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.125);
-        position: relative;  // so .housez class can take effect
-      }
-
-      .link {
-        // These 100%'s refer to the size of our parent .action.
-        width: 100%;
-        height: 100%;
-        left: 0%;
-        bottom: 100%;
-        position: absolute;
-        z-index: 30000;
-        margin-bottom: percent($action-offset-top, $dim-house);
-
-        // Create a layer: this hints to browsers that yes, this card _REALLY IS_
-        // above everything else. Since there's no background/color etc, it's
-        // ignored anyway.
-        @include will-change();
-
-        $duration-in: 0.23s;
-        $easing-in: cubic-bezier(0,1,.33,1.28);
-        $duration-out: 0.2s;
-        $easing-out: cubic-bezier(.83,.02,1,.01);
-        $easing-rotate-in: ease-out;
-
-        .card {
-          $hs: $hover-card-size / 2;
-          width: $hover-card-size !important;
-          height: $hover-card-size !important;
-          margin: (-$hs) 0 0 (-$hs);
-          @include will-change(transform, opacity);
-          transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
-          transform: scale(0);
-          opacity: 0.25;
-          left: 50%;
-          top: 50%;
-
-          .label {
-            display: none;  // hide the 'new' label
-          }
-
-          .image {
-            border-radius: 10000px;
-            box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
-          }
-
-          .launchdate {
-            display: none;
-          }
-
-          .image {
-            transform: rotate(10deg);
-            transition: transform .01s ease-out $duration-out;
-          }
-        }
-
-        // only change state on links with hrefs
-        &[href]:hover, &[href]:active {
-          .card {
-            transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
-            transform: scale(1);
-            opacity: 1;
-
-            .image {
-              transform: rotate(0deg);
-              transition: transform $duration-in $easing-rotate-in .02s;
-            }
-          }
-        }
-      }  // .link
-    } // .action
+      z-index: 2;
+      background-image: url(img/road.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-size: $road-size-w $road-size-h;
+      width: 100%;
+      height: 100%;
+      top: $road-top + $village-extra-padding;
+    }
   }
 
-  /** Tablet village. Shrunk version of desktop. */
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
     font-size: 12px;
+    margin-top: (0 - $village-offset-up - $village-extra-padding) * $tablet-desktop-ratio;
+    padding-top: $village-extra-padding * $tablet-desktop-ratio;
 
-    .action {
-      .link {
-        .card {
-          $hs: $hover-card-size * $tablet-desktop-ratio / 2;
-          width: $hover-card-size * $tablet-desktop-ratio !important;
-          height: $hover-card-size * $tablet-desktop-ratio !important;
-          margin: (-$hs) 0 0 (-$hs);
-        }
-      }
+    #houses {
+      width: $width-tablet;
+      height: $height-tablet;
     }
 
-    #village-all {
-      margin-top: (0 - $village-offset-up - $village-extra-padding) * $tablet-desktop-ratio;
-      padding-top: $village-extra-padding * $tablet-desktop-ratio;
-
-      #houses {
-        width: $width-tablet;
-        height: $height-tablet;
-        .house {
-          width: $dim-house * $tablet-desktop-ratio;
-          height: $dim-house * $tablet-desktop-ratio;
-
-          .building {
-            a {
-              img {
-                width: $hover-card-size * $tablet-desktop-ratio;
-                height: $hover-card-size * $tablet-desktop-ratio;
-                margin: #{-$hover-card-size * $tablet-desktop-ratio}px 0 0 #{-$hover-card-size * $tablet-desktop-ratio}px;
-              }
-            }
-          }
-        }
-      }
-
-      #ground {
-        background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
-        top: ($ground-top + $village-extra-padding) * $tablet-desktop-ratio;
-      }
-      #road {
-        background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
-        top: ($road-top + $village-extra-padding) * $tablet-desktop-ratio;
-      }
+    #ground {
+      background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
+      top: ($ground-top + $village-extra-padding) * $tablet-desktop-ratio;
+    }
+    #road {
+      background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
+      top: ($road-top + $village-extra-padding) * $tablet-desktop-ratio;
     }
   }
 
-  /** All mobile villages (two cols) */
   @media (max-width: $width-tablet - 1) {
     font-size: 14px;
-
-    smatch-secret {
-      transform: scale(0.5);
-      transform-origin: center bottom;
-    }
-
-    #village-all {
-      #houses {
-        align-items: stretch;
-
-        .house-new-today {
-          display: none;
-        }
-        h5 {
-          display: none;  // this is Play/Learn etc below houses
-        }
-
-        .house {
-          width: 50%;
-          min-height: $height-card-mobile;
-          flex-grow: 1;
-
-          &[disabled] {
-            display: none;  // don't display in flexbox at all
-          }
-
-          .assets {
-            display: none;
-          }
-
-          .text {
-            margin-top: 12px;
-
-            .launchdate {
-              margin: 0;
-              margin-top: -8px;
-              font-size: 2em;
-              line-height: 1.4em;
-              text-shadow: none;
-            }
-            h4 {
-              display: none;
-            }
-            h3 {
-              letter-spacing: 1px;
-              font-size: 1em;
-              line-height: 1em;
-              font-weight: 500;
-              color: #fff;
-              margin-top: 2px;
-              text-transform: uppercase;
-              font-family: inherit;
-              transform: none;
-              text-shadow: none;
-            }
-          }
-
-          &.iced {
-            .text {
-              h3, h4 {
-                display: none;
-              }
-            }
-
-            .text {
-              margin: 0;
-              justify-content: center;
-              .launchdate {
-                font-size: 5em;
-              }
-            }
-
-            // fade out iced cards
-            .color {
-              display: block;
-              opacity: 0.75;
-            }
-          }
-
-          &.new-today {
-            height: $height-newcard-mobile;
-
-            .text {
-              margin-top: 24px;
-            }
-
-            .card {
-              // use natural size
-              background: url(img/new-today-path.svg) center no-repeat;
-            }
-          }
-        }  // .house
-      }
-
-      #ground, #road, .easter-egg, #eastereggs {
-        display: none;
-      }
-    }
-
-    footer {
-      margin-top: 0;
-      background-size: 500px;
-    }
-  }
-
-  /** Mobile village (one col) */
-  @media (max-width: $width-twocol) {
-    #village-all {
-      #houses {
-        .house {
-          width: 100%;
-        }
-      }
-    }
   }
 }
 
-
-/** TODO new stuff */
-
-village-house {
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-}
+// # Card
 
 .card {
   text-align: center;
-  color: white;
   position: relative;
+  height: 100%;
   display: flex;
   flex-flow: column;
-  align-items: center;
 
   &::before {
     content: '';
     z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent center no-repeat;
-    background-size: cover;
-    background-image: var(--background-image);
     position: absolute;
     display: block;
-    overflow: auto;
-    backface-visibility: hidden;
-    perspective: 1000;
-  }
-  &::after {
-    content: '';
-    width: 42px;
-    height: 42px;
-    display: inline-block;
-    margin: 0 auto;
-    background: url(img/lock.svg) no-repeat center;
-    background-size: contain;
-  }
-  &:not(.locked)::after {
-    display: none;
-  }
-
-  .launchdate {
-    font-family: 'Lobster', sans-serif;
-    font-size: 2em;
-    line-height: 1.4em;
-    padding: 0.25em 0;
-  }
-  h4 {
-    display: inline-block;
-    padding-top: 0.2em;
-    font-family: 'Lobster', sans-serif;
-    font-size: 2.875em;
-    line-height: 1.5em;
-    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-    transform: rotateZ(-3deg) translateZ(-10px);
-    display: none;
-    margin: 0;
-    z-index: 100;
-  }
-  h3 {
-    font-size: 1em;
-    line-height: 1.5em;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-    font-weight: 500;
-    margin: 2px 0 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent center no-repeat;
+    background-size: cover;
+    // nb. using a var(--...) here causes Chrome to redraw every frame because _maybe_ it changed
+    // look in _houses.scss for the background-image: ...
   }
 }
 
+// # Cell
+
 .cell {
+  position: relative;
+  color: #fff;
+
+  &.new-today {
+    z-index: 1;
+  }
+
   @media (max-width: $width-tablet - 1px) {
     width: 50%;
     min-height: 204px;
     flex-grow: 1;
+    order: var(--release-order, 0);
 
+    &.new-today {
+      display: none !important;
+    }
     h4 {
       display: none;
     }
@@ -842,6 +384,34 @@ village-house {
       text-transform: uppercase;
       text-shadow: none;
     }
+
+    .card::after {
+      content: '';
+      width: 42px;
+      height: 42px;
+      display: inline-block;
+      margin: 0 auto;
+      background: url(img/lock.svg) no-repeat center;
+      background-size: contain;
+      display: block;
+    }
+
+    village-house:not([locked]) .card::after {
+      display: none;
+    }
+    village-house[locked] {
+      .card {
+        justify-content: center;
+        background-color: var(--scene-lock-color, rgba(44, 44, 44, 0.4));
+      }
+      h3 { 
+        display: none;
+      }
+      .launchdate {
+        padding-top: 0;
+        font-size: 5em;
+      }
+    }
   }
   @media (max-width: 600px) {
     width: 100%;
@@ -852,28 +422,27 @@ village-house {
     $duration-out: 0.2s;
     $easing-out: cubic-bezier(.83,.02,1,.01);
 
-    width: $dim-house;
-    height: $dim-house;
-    position: relative;
-
-    --house-dim: 192px;
-
-    /** Tablet village. Shrunk version of desktop. */
-    @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
-      width: $dim-house * $tablet-desktop-ratio;
-      height: $dim-house * $tablet-desktop-ratio;
-      --house-dim: 128px;  // this isn't 0.6 * 192px, but close enough
-    }
+    width: $dim-house * $tablet-desktop-ratio;
+    height: $dim-house * $tablet-desktop-ratio;
+    --house-dim: 128px;  // this isn't 0.6 * 192px, but close enough
 
     village-house {
       position: absolute;
     }
 
+    .launchdate {
+      display: none;
+    }
+
     .link {
+      // .link isn't visible, but this makes it selectable
+      border-radius: 10000px;
       display: block;
       width: 100%;
       height: 100%;
-      will-change: transform;
+
+      // TODO: remove not in debug
+      background: rgba(0, 0, 255, 0.15);
     }
 
     .card {
@@ -883,9 +452,8 @@ village-house {
       border-radius: 10000px;
       transition: transform $duration-out $easing-out, opacity $duration-out $easing-out;
       transform: scale(0);
-      will-change: transform, opacity;
+      will-change: transform;
       box-shadow: 4px 14px 0 rgba(0, 0, 0, .125);
-      visibility: hidden;
 
       $dim: 172px;
       margin-left: -($dim / 2);
@@ -896,31 +464,85 @@ village-house {
       &::before {
         border-radius: 10000px;
         will-change: transform;
-//        transform: rotate(10deg);
-        transition: transform 0s ease-out $duration-out;
+        transform: rotate(10deg) translateZ(0);
+        transition: transform 0.01s ease-out $duration-out;
       }
     }
 
     .link[href]:hover {
       .card {
-        visibility: visible;
         transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
         transform: scale(1);
 
         &::before {
-          transform: translateZ(0)  rotate(0deg);
+          transform: rotate(0deg) translateZ(0);
           transition: transform $duration-in ease-out 0.02s;
         }
       }
     }
   }
   @media (min-width: $width-desktop) {
+    width: $dim-house;
+    height: $dim-house;
+    --house-dim: 192px;
+
     .card {
       $dim: 282px;
       margin-left: -($dim / 2);
       margin-top: -($dim / 2);
       width: $dim;
       height: $dim;
+    }
+  }
+}
+
+// # New Today
+
+#house-new-today {
+  left: 16px;
+  width: 144px;
+  height: 144px;
+  position: relative;
+  text-align: center;
+
+  @media (min-width: $width-desktop) {
+    width: 240px;
+    height: 240px;
+  }
+
+  a {
+    z-index: $house-z-index-front;
+
+    &:hover {
+      .new-today {
+        transform: translateY(-16px);
+        transition: transform 0.2s;
+      }
+    }
+  }
+
+  .new-today {
+    pointer-events: none;
+    background: transparent center no-repeat;
+    background-size: contain;
+    height: 100%;
+    padding-right: 5%;  // overcome shadow
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    will-change: transform;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    &::before {
+      content: '';
+      
+    }
+
+    h4 {
+      padding: 0;
+      font-size: 2em;
+      transform: none;
     }
   }
 }

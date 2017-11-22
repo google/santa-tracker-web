@@ -21,7 +21,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
 <link rel="import" href="../../elements/village-header/village-header.html">
-<link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="elements/effect-skydive.html">
 <link rel="import" href="elements/effect-snowmobile.html">
 <link rel="import" href="elements/effect-tictactoe.html">
@@ -59,16 +58,17 @@ Santa's Village.
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
   </div>
 
-  <div id="module-dorf" class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
-    <smatch-secret character-id="santa"></smatch-secret>
-    <div id="village-all">
-      <div id="ground"></div>
-      <div id="road"></div>
-      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
-        <!-- The 'New Today' house exists in the regular grid -->
-        <div class="house house-new-today">
-          <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]" on-click="_onClickNewTodayHouse">
-            <div class$="card new-today-[[todayHouse]]">
+  <div id="village-all">
+    <div id="ground"></div>
+    <div id="road"></div>
+    <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
+      <!-- The 'New Today' house exists in the regular grid -->
+      <div class="cell new-today">
+        <div id="house-new-today">
+          <a class="link" href$="[[urlFor(todayHouse)]]"
+              hidden$="[[!todayHouse]]"
+              on-click="_onClickNewTodayHouse">
+            <div class="new-today" house$="[[todayHouse]]">
               <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
               <h3>[[_string('scene', todayHouse, strings)]]</h3>
             </div>
@@ -122,90 +122,88 @@ Santa's Village.
                 </a>
                 <h5 class="housez">[[_string('category', item.category, strings)]]</h5>
               </div>
-            </template>
-          </div>
-          -->
+            </a>
+          </village-house>
+        </div>
+      </template>
+
+      <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
+        have a shared stacking context with houses -->
+      <div id="eastereggs">
+        <template is="dom-repeat" items="[[easterEggs]]">
+          <div id$="easteregg-[[item]]" class="easter-egg"></div>
         </template>
 
-        <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
-          have a shared stacking context with houses -->
-        <div id="eastereggs">
-          <template is="dom-repeat" items="[[easterEggs]]">
-            <div id$="easteregg-[[item]]" class="easter-egg"></div>
-          </template>
-
-          <div id="easteregg-schoolyard" class="easter-egg">
-            <div class="slide"></div>
-            <div class="seesaw"></div>
-            <div class="swing"></div>
-          </div>
-
-          <div id="easteregg-balloon" class="easter-egg"></div>
-          <div id="easteregg-balloon-ropes" class="easter-egg"></div>
-          <div id="easteregg-balloon-flight" class="easter-egg"></div>
-
-          <effect-snowmobile id="easteregg-snowmobile1"></effect-snowmobile>
-          <effect-snowmobile id="easteregg-snowmobile2"></effect-snowmobile>
-          <effect-snowmobile id="easteregg-snowmobile3"></effect-snowmobile>
-          <effect-snowmobile id="easteregg-snowmobile4"></effect-snowmobile>
-
-          <div id="easteregg-busstop1" class="easter-egg">
-            <div class="elf-stop elf-green"></div>
-            <div class="elf-stop elf-orange"></div>
-            <div class="elf-stop elf-orange"></div>
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop biz-snowman"></div>
-            <div class="bus">
-              <div class="snowman-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-            </div>
-          </div>
-
-          <div id="easteregg-busstop2" class="easter-egg">
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop elf-green"></div>
-            <div class="bus">
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-            </div>
-          </div>
-
-          <div id="easteregg-busstop3" class="easter-egg">
-            <div class="elf-stop elf-sit-red"></div>
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop elf-green"></div>
-            <div class="bus">
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-            </div>
-          </div>
-
-          <effect-tictactoe id="easteregg-tictactoe"></effect-tictactoe>
-          <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
-
+        <div id="easteregg-schoolyard" class="easter-egg">
+          <div class="slide"></div>
+          <div class="seesaw"></div>
+          <div class="swing"></div>
         </div>
-      </div><!-- #houses -->
-    </div>
 
-    <footer>
-      <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <img src$="[[_computeFooterElves(_countdownFinished)]]">
-    </footer>
+        <div id="easteregg-balloon" class="easter-egg"></div>
+        <div id="easteregg-balloon-ropes" class="easter-egg"></div>
+        <div id="easteregg-balloon-flight" class="easter-egg"></div>
 
-    <smatch-storage unlocks="{{smatchUnlocks}}"></smatch-storage>
-  </div><!-- #module-dorf -->
+        <effect-snowmobile id="easteregg-snowmobile1"></effect-snowmobile>
+        <effect-snowmobile id="easteregg-snowmobile2"></effect-snowmobile>
+        <effect-snowmobile id="easteregg-snowmobile3"></effect-snowmobile>
+        <effect-snowmobile id="easteregg-snowmobile4"></effect-snowmobile>
+
+        <div id="easteregg-busstop1" class="easter-egg">
+          <div class="elf-stop elf-green"></div>
+          <div class="elf-stop elf-orange"></div>
+          <div class="elf-stop elf-orange"></div>
+          <div class="elf-stop elf-blue"></div>
+          <div class="elf-stop biz-snowman"></div>
+          <div class="bus">
+            <div class="snowman-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+          </div>
+        </div>
+
+        <div id="easteregg-busstop2" class="easter-egg">
+          <div class="elf-stop elf-blue"></div>
+          <div class="elf-stop elf-green"></div>
+          <div class="bus">
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+          </div>
+        </div>
+
+        <div id="easteregg-busstop3" class="easter-egg">
+          <div class="elf-stop elf-sit-red"></div>
+          <div class="elf-stop elf-blue"></div>
+          <div class="elf-stop elf-green"></div>
+          <div class="bus">
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+          </div>
+        </div>
+
+        <effect-tictactoe id="easteregg-tictactoe"></effect-tictactoe>
+        <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
+
+      </div>
+    </div><!-- #houses -->
+  </div>
+
+  <footer class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
+    <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+    <img src$="[[_computeFooterElves(_countdownFinished)]]" />
+  </footer>
+
 </template>
 <script>
 (function() {
@@ -258,10 +256,6 @@ Santa's Village.
 
       /** Strings bound from `santa-strings`. */
       strings: Object,
-
-      /** Bound from `smatch-storage`, to maintain state related to
-          the smatch scene **/
-      smatchUnlocks: Object,
     },
 
     listeners: {
@@ -312,6 +306,16 @@ Santa's Village.
         out += ' new-today';
       }
       return out;
+    },
+
+    /**
+     * Places the most recently opened cells at the top, for mobile only.
+     */
+    _computeCellStyle: function(date, locked) {
+      if (locked || !date) {
+        return '';
+      }
+      return '--release-order: ' + -date.getDate();
     },
 
     /**
