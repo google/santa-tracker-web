@@ -155,19 +155,21 @@ app.view.CardsView.prototype.createDrawingElem = function(round) {
 
 
 app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
-  //Section 1
   this.showCard(this.round_detail_card);
 
+  //Section 1
   this.round_detail_card
-    .find('.rounddetails-card__word')
-    .text(round.word);
-  // Section1
+    .find('.rounddetails-card__title')
+    .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-title', 'word', round.word));
   var drawingElem = this.round_detail_card.find('.rounddetails-card__drawing--user');
   var svg = app.SVGUtils.createSvgFromSegments(round.drawing, drawingElem.width(), drawingElem.width() * 0.736, {padding: 25, color: 'rgba(0,0,0,1.00)'});
   drawingElem.html('');
   drawingElem.append(svg);
 
   //Section 2
+  this.round_detail_card
+  .find('.rounddetails-card__santa-title')
+  .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-santa-version', 'word', round.word));
   var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa');
   santaElem.css('background-image', "url('img/santas-" + round.word + ".svg')");
 
@@ -179,7 +181,6 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
     this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').hide();
     this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').show();
   }
-  //- [ ] Round Details > Neighbors > Add 3 neighbors
   this.fetchAndShowDrawingNeighbors(round);
 
   //Section 4

@@ -1118,6 +1118,27 @@
 	"quickdraw-machine-know": {
 		"message": "Oh I know, this is"
 	},
+	"quickdraw-rounddetails-back-button": {
+    "message": "Back"
+  },
+  "quickdraw-rounddetails-title": {
+    "message": "You were asked to draw {{word}}"
+  },
+  "quickdraw-rounddetails-santa-version": {
+    "message": "This is Santa’s version of {{word}}"
+  },
+  "quickdraw-rounddetails-also-look": {
+    "message": "Tensor also thought your drawing looked like these:"
+  },
+  "quickdraw-rounddetails-look-more": {
+    "message": "Tensor thought your drawing looked more like these:"
+  },
+  "quickdraw-rounddetails-how-know": {
+    "message": "How does is know what {{word}} look like?"
+  },
+  "quickdraw-rounddetails-it-learned": {
+    "message": "It learned by looking at these examples drawn by other people."
+  },
 	"ro_country_name": {
 		"message": "Romania"
 	},
