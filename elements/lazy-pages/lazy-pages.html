@@ -248,7 +248,10 @@ Lazy loads children "pages".
 
       const caught = p.catch(safe(function(reason) {
         console.warn('lazy-pages', route, 'failure', reason);
-        this.fire('embed', 'onfailure');
+        if (reason !== 'locked') {
+          // embed doesn't want to know about "locked"
+          this.fire('embed', 'onfailure');
+        }
         this._setSelectedItem(null);
 
         const error = {type: (typeof reason === 'string' ? reason : 'error'), route: route};
