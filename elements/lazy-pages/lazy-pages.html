@@ -152,7 +152,7 @@ Lazy loads children "pages".
     },
 
     _onSceneProgress: function(ev) {
-      const source = ev.path[0];
+      const source = Polymer.dom(ev).path[0];
       if (source.hasAttribute('preload')) {
         this._setProgress(ev.detail);
       }
