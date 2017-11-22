@@ -205,6 +205,11 @@
           padding: 15px 20px;
           transform: rotate(-90deg) translateY(100%);
           transform-origin: bottom left;
+
+          .Slider-base,
+          .Slider-dot {
+            pointer-events: auto;
+          }
         }
       }
 

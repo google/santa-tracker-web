@@ -19,7 +19,6 @@ goog.require('app.Constants');
 
 
 app.Slider = function($elem, mouse) {
-  // TODO: handle multiple sliders
   this.elem = $elem;
   this.container = this.elem.find('[data-slider]');
   this.base = this.elem.find('[data-slider-base]');
@@ -44,8 +43,14 @@ app.Slider.prototype.mouseChanged = function(mouse) {
     }
 
     var bounds = this.checkBounds(mouse);
-    if (bounds && bounds.inX) {
-      this.setSize(bounds.coords.normX, bounds.coords.x);
+    if (app.shared.utils.touchEnabled) {
+      if (bounds && bounds.inY) {
+        this.setSize((1 - bounds.coords.normY), bounds.coords.y, true);
+      }
+    } else {
+      if (bounds && bounds.inX) {
+        this.setSize(bounds.coords.normX, bounds.coords.x);
+      }
     }
   }
 };
@@ -85,16 +90,23 @@ app.Slider.prototype.checkBounds = function(mouse) {
 };
 
 
-app.Slider.prototype.setSize = function(relativeSize, xPos) {
+app.Slider.prototype.setSize = function(relativeSize, xPos, vertical) {
   var dotOffset = xPos;
   if (!xPos) {
     var rect = this.base[0].getBoundingClientRect();
     dotOffset = rect.width * relativeSize;
   }
 
-  this.dot.css('left', dotOffset);
-  this.dot.css('transform',
-      'translate(-50%, -50%) scale(' + (1 + relativeSize * 1) + ')');
+  if (vertical) {
+    this.dot.css('left', '');
+    this.dot.css('right', dotOffset);
+    this.dot.css('transform',
+        'translate(50%, -50%) scale(' + (1 + relativeSize * 1) + ')');
+  } else {
+    this.dot.css('left', dotOffset);
+    this.dot.css('transform',
+        'translate(-50%, -50%) scale(' + (1 + relativeSize * 1) + ')');
+  }
   this.size = relativeSize;
 
   this.subscribers.forEach(function(subscriber) {
