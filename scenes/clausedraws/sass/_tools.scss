@@ -434,10 +434,6 @@
       .Category-inner {
         transform: translate3d(-50%, -50%, 0) scale(1.1);
       }
-
-      .Category-tooltip {
-        opacity: 1;
-      }
     }
 
     &::before {
@@ -464,18 +460,6 @@
       transform: translate3d(-50%, -50%, 0);
       transition: transform .25s;
       width: 65%;
-    }
-
-    .Category-tooltip {
-      bottom: 0;
-      color: white;
-      font-size: 8px;
-      left: 50%;
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-      transform: translateX(-50%);
-      transition: opacity .25s;
     }
 
     .Category-popup {
