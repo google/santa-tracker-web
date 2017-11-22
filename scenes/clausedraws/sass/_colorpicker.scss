@@ -14,10 +14,12 @@
 
       .Colorpicker-popup {
         bottom: 75px;
+        display: none;
         left: 0;
         padding: 30px 0;
         right: 0;
         transform: none;
+        // transform: translateY(120%);
         z-index: -1;
 
         &::before {
@@ -75,8 +77,9 @@
     transition: opacity 0.3s;
 
     &.is-visible {
-      pointer-events: auto;
+      display: block;
       opacity: 1;
+      pointer-events: auto;
     }
 
     &::before {
