@@ -94,9 +94,22 @@ $sticker-silly: "";
     }
 
     @media (max-width: 800px) {
+      .Tools-subsection {
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 45px;
+
+        &[data-tool-subcategory="nature"] {
+          .Tool {
+            flex: 0 0 25%;
+          }
+        }
+      }
+
       .Tool {
         border-bottom: none;
-        flex: 0 0 25%;
+        flex: 0 0 20%;
         margin-top: 20px;
       }
 
