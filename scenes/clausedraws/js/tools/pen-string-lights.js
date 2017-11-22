@@ -45,7 +45,8 @@ app.PenStringLights = function($elem, name, config) {
     $elem.find('#' + this.textureName + '4')
   ];
 
-  // this.spacing = 75;
+  this.spacing = this.currentSize * .75;
+  this.spaceUntilNext = this.spacing / 2;
   this.faceUp = true;
 };
 app.PenStringLights.prototype = Object.create(app.PenGarland.prototype);
@@ -80,11 +81,11 @@ app.PenStringLights.prototype.drawItem = function(context, texture, point,
 };
 
 
-// app.PenStringLights.prototype.reset = function() {
-//   this.points = [];
-//   this.spaceUntilNext = 0;
-//   this.spacing = 75;
-// };
+app.PenStringLights.prototype.reset = function() {
+  this.points = [];
+  this.spacing = this.currentSize * .75;
+  this.spaceUntilNext = this.spacing / 2;
+};
 
 
 app.PenStringLights.prototype.getOffsets = function(drawWidth, drawHeight) {

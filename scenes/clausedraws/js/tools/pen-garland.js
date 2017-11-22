@@ -85,12 +85,12 @@ app.PenGarland.prototype.draw = function(canvas, mouseCoords, prevCanvas,
 
   if (this.points.length == 1) {
     var p1 = this.points[0];
-    context.drawImage(texture, p1.x - offsetX, p1.y - offsetY,
-        drawWidth, drawHeight);
-    this.spaceUntilNext = this.spacing;
+    this.drawAlongCurve(p1, p1, p1, context, texture, drawX, drawY,
+        drawWidth, drawHeight, offsetX, offsetY);
 
     if (this.lineColor) {
       context.fillStyle = this.lineColor;
+      context.beginPath();
       context.arc(p1.x, p1.y, this.lineSize / 2, 0 ,2 * Math.PI);
       context.fill();
     }

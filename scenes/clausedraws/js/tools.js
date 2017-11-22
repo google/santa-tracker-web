@@ -124,7 +124,7 @@ app.Tools = function(game, $elem) {
     });
   this.stringLights = new app.PenStringLights($elem, 'string-lights', {
       sizeConfig: {
-        min: 0.5,
+        min: 0.25,
         max: 1,
         scale: true
       }

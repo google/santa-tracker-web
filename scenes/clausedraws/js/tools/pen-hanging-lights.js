@@ -44,8 +44,8 @@ app.PenHangingLights = function($elem, name, config) {
     $elem.find('#' + this.textureName + '3')
   ];
 
-  this.spacing = 75;
-  console.log(this.textures);
+  this.spacing = this.currentSize / 2;
+  this.spaceUntilNext = this.spacing / 2;
 };
 app.PenHangingLights.prototype = Object.create(app.PenGarland.prototype);
 
@@ -75,8 +75,8 @@ app.PenHangingLights.prototype.drawItem = function(context, texture, point,
 
 app.PenHangingLights.prototype.reset = function() {
   this.points = [];
-  this.spaceUntilNext = 0;
-  this.spacing = 75;
+  this.spacing = this.currentSize / 2;
+  this.spaceUntilNext = this.spacing / 2;
 };
 
 
