@@ -24,9 +24,6 @@
  */
 
 module.exports = {
-  about: {
-    msgid: 'about-santa'
-  },
   airport: {
     msgid: 'scene_airport',
     typeSafe: false,
