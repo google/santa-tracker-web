@@ -369,10 +369,18 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     if (mouseCoords.down) {
       this.selectedTool.startMousedown();
 
-      // if (app.shared.utils.touchEnabled &&
-      //     this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
-      //   this.game_.sceneElem.addClass('ui-hidden');
-      // }
+      var insideCanvas = this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.secondaryMenu[0]) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.colorpicker.popup[0]) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileEdit[0]) &&
+        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileSlider[0]);
+      // console.log(insideCanvas);
+
+      var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
+
+      if (app.shared.utils.touchEnabled && insideCanvas && !startedOnSlider) {
+        this.game_.sceneElem.addClass('ui-hidden');
+      }
 
       if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
           this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
@@ -387,6 +395,10 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 
       if (!app.shared.utils.touchEnabled && this.secondaryMenuActive) {
         this.secondaryMenu.addClass('is-active');
+      }
+
+      if (app.shared.utils.touchEnabled) {
+        this.game_.sceneElem.removeClass('ui-hidden');
       }
     }
   }

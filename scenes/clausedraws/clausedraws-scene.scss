@@ -42,8 +42,19 @@ $name: 'module-clausedraws';
     font-size: 1px;
 
     &.ui-hidden {
-      .Tools {
-        opacity: 0;
+      .Tools--primary,
+      .Tools--secondary {
+        transform: translateY(120%);
+      }
+
+      .Tools--tertiary .Tools-mobile {
+        .Tools-mobile--left {
+          transform: translateX(-150%);
+        }
+
+        .Tools-mobile--right {
+          transform: translateX(150%);
+        }
       }
     }
   }

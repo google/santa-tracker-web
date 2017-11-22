@@ -13,6 +13,7 @@
     flex-direction: column;
     left: 0;
     top: 0;
+    transition: transform .3s;
     width: 85px;
     z-index: 2;
 
@@ -184,6 +185,7 @@
           justify-content: center;
           position: absolute;
           top: 0;
+          transition: transform .3s;
         }
 
         .Tools-mobile--right {
@@ -192,7 +194,7 @@
 
         .Tools-mobile--left {
           left: 0;
-          width: 50px;
+          // width: 50px;
         }
 
         .Tools-edit {
