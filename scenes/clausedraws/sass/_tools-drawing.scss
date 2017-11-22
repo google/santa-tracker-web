@@ -51,10 +51,18 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
     @each $current-tool in $drawing-tools {
       &.Tool--#{$current-tool} {
         background-image: url(img/tools/#{$current-tool}/tray.svg);
+        background-position: center -10%;
+        background-size: 40%;
       }
 
       svg {
         display: none;
+      }
+    }
+
+    @each $current-tool in $silly-pens {
+      &.Tool--#{$current-tool} {
+        background-image: url(img/tools/#{$current-tool}/tray.svg);
       }
     }
   }
