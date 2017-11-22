@@ -239,6 +239,15 @@ app.Tools = function(game, $elem) {
   this.stickerTreasureOpen = new app.Sticker($elem, 'treasure-open');
   this.stickerWindow = new app.Sticker($elem, 'window');
   this.stickerWreath = new app.Sticker($elem, 'wreath');
+  this.stickerElf1 = new app.Sticker($elem, 'elf1');
+  this.stickerElf7 = new app.Sticker($elem, 'elf7');
+  this.stickerCandycaneGreen = new app.Sticker($elem, 'candycane-green');
+  this.stickerCookieChocChip = new app.Sticker($elem, 'cookie-choc-chip');
+  this.stickerCookieMan = new app.Sticker($elem, 'cookie-man');
+  this.stickerFaceEyesGlasses1 = new app.Sticker($elem, 'face-eyes-glasses1');
+  this.stickerFaceMouthBlack = new app.Sticker($elem, 'face-mouth-black');
+  this.stickerHatBlue = new app.Sticker($elem, 'hat-blue');
+  this.stickerHeadElfHair2 = new app.Sticker($elem, 'head-elf-hair2');
 
 
   this.tools = [
@@ -360,7 +369,16 @@ app.Tools = function(game, $elem) {
     this.stickerTreasureClosed,
     this.stickerTreasureOpen,
     this.stickerWindow,
-    this.stickerWreath
+    this.stickerWreath,
+    this.stickerElf1,
+    this.stickerElf7,
+    this.stickerCandycaneGreen,
+    this.stickerCookieChocChip,
+    this.stickerCookieMan,
+    this.stickerFaceEyesGlasses1,
+    this.stickerFaceMouthBlack,
+    this.stickerHatBlue,
+    this.stickerHeadElfHair2
   ];
 };
 
