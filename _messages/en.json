@@ -1098,7 +1098,7 @@
 		"message": "Well done!"
   },
   "quickdraw-timesup-subline-guess": {
-		"message": "Tensor recognized {{roundsRecognized}} of your drawings."
+		"message": "Tensor recognized ((roundsRecognized)) of your drawings."
 	},
 	"quickdraw-round-no-new-guess": {
 		"message": "I’m not sure what that is."
@@ -1122,10 +1122,10 @@
     "message": "Back"
   },
   "quickdraw-rounddetails-title": {
-    "message": "You were asked to draw {{word}}"
+    "message": "You were asked to draw ((word))"
   },
   "quickdraw-rounddetails-santa-version": {
-    "message": "This is Santa’s version of {{word}}"
+    "message": "This is Santa’s version of ((word))"
   },
   "quickdraw-rounddetails-also-look": {
     "message": "Tensor also thought your drawing looked like these:"
@@ -1134,7 +1134,7 @@
     "message": "Tensor thought your drawing looked more like these:"
   },
   "quickdraw-rounddetails-how-know": {
-    "message": "How does is know what {{word}} look like?"
+    "message": "How does is know what ((word)) look like?"
   },
   "quickdraw-rounddetails-it-learned": {
     "message": "It learned by looking at these examples drawn by other people."

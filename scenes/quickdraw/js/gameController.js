@@ -240,7 +240,6 @@ app.GameController.prototype.roundRecognized = function(correctRecognition) {
   this.pauseGame();
 
   this.machineView.setResultWord(this.currentRound.word);
-  this.scoreboard.addScore(1);
 
   setTimeout(function() {
     this.submitRoundResult({recognition: correctRecognition}, function(nextChallenge) {

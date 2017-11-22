@@ -50,6 +50,7 @@ Utils.prototype.getMsgOrNull = function(container, key, variable, varValue) {
   }
 
   // Replace value
+  console.log('53', text, variable, varValue);
   if (text && variable && varValue) {
     text = this.replaceVarWithValue(text, variable, varValue);
   }
@@ -59,7 +60,9 @@ Utils.prototype.getMsgOrNull = function(container, key, variable, varValue) {
 };
 
 Utils.prototype.replaceVarWithValue = function(string, variable, varValue) {
-  return string.replace('{{' + variable + '}}', varValue);
+  console.log(string, variable, varValue);
+  console.log(string.replace('((' + variable + '))', varValue));
+  return string.replace('((' + variable + '))', varValue);
 };
 
 app.Utils = new Utils();
