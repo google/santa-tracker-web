@@ -34,7 +34,7 @@ Jetpack scene.
       <div class="levelup"></div>
       <div class="levelup--number"></div>
     </div>
-    <div class="lockscreen hidden">
+    <div class="lockscreen hidden" id="locked">
       <div class="lockscreen-graphic"></div>
       <div class="lockscreen-explanation">
         <i18n-msg msgid="lock_orientation">PLACEHOLDER_i18n</i18n-msg>
@@ -112,9 +112,18 @@ Jetpack scene.
     onShow: function() {
       var module = this.$['module-penguindash'];
       this.game = new scenes.penguindash.Game(module, this.resolveUrl('.'));
+
+      // Attempt to lock the screen, or if in embed mode, don't show the notice.
+      var locked = window.screen.lockOrientation && window.screen.lockOrientation('portrait');
+      if (locked || window.santaApp.getAttribute('mode') === 'embed') {
+        console.info('locked or embed');
+        locked.hidden = true;
+      }
     },
 
     onHide: function() {
+      window.screen.unlockOrientation && window.screen.unlockOrientation();
+
       this.game.dispose();
       this.game = null;
     },
