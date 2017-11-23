@@ -105,7 +105,7 @@ app.utils = function() {
 
     triggerStart: function(event) {
       if (!audioProxy[event]) {
-        window.santaApp.fire('sound-trigger', event + '_start');
+        window.santaApp.fire('sound-trigger', this.sanitizeName(event) + '_start');
         audioProxy[event] = true;
       }
     },
@@ -126,6 +126,10 @@ app.utils = function() {
 
     triggerReset: function(event) {
       audioProxy[event] = false;
+    },
+
+    sanitizeName: function(event) {
+      return 'cd_' + event.replace(/-/ig, '_')
     }
   };
 }();

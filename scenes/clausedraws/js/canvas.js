@@ -51,6 +51,11 @@ app.Canvas = function(game, $elem) {
     prevY: 0,
     scale: 1
   };
+  //sound
+  this.drawingVolume = 0;
+  this.lastTime = 0;
+  this.lastMouseX = 0;
+  this.lastMouseY = 0;
 
   $elem.find('[data-tool-undo]').on('click.clausedraws touchend.clausedraws', this.undo.bind(this));
 
@@ -248,13 +253,34 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
     if (didDraw) {
       this.needSave = true;
     }
+    this.calculateDrawingVolume(actionFnContext.textureName);
   }
 
   // TODO check if we need to copy back and fore
   this.copyCanvasIndex(this.drawIndex);
 };
 
+app.Canvas.prototype.calculateDrawingVolume = function() {
 
+  var xPos = Math.abs(this.mouse.x / this.canvasWidth - this.lastMouseX);
+  var yPos = Math.abs(this.mouse.y / this.canvasHeight - this.lastMouseY);
+  var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
+
+  if (isFinite(speed)) {
+    this.drawingVolume += speed / 20;
+  }
+
+  this.lastTime = Klang.context.currentTime;
+  this.lastMouseX = this.mouse.x / this.canvasWidth;
+  this.lastMouseY = this.mouse.y / this.canvasHeight;
+
+}
+app.Canvas.prototype.soundUpdate = function(delta) {
+  if (isFinite(this.drawingVolume)) {
+    this.drawingVolume *= 0.90;
+    Klang.trigger("cd_draw_update", this.drawingVolume);
+  }
+}
 /**
  * Save state and move to next backup
  */
@@ -401,5 +427,3 @@ app.Canvas.prototype.onTrashClick = function() {
  *          normY: number}}
  */
 app.Canvas.CoordsType;
-
-
