@@ -160,12 +160,14 @@ Santa Tracker app.
           logo="scenes/citylights/img/logo.svg"></citylights-scene>
 
       <clausdraws-scene route="clausdraws"
-          path$="scenes/clausdraws/clausdraws-scene_[[language]].html"></clausdraws-scene>
+          path$="scenes/clausdraws/clausdraws-scene_[[language]].html"
+          logo="scenes/clausdraws/img/logo.svg"></clausdraws-scene>
 
       <codeboogie-scene route="codeboogie" icon="1f4dd"
           path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
+          feature-color="#f9ce1d"
           loading-src="scenes/codeboogie/img/loading.svg"
           hero-src="scenes/codeboogie/img/share.svg"
           logo="scenes/codeboogie/img/logo.svg"></codeboogie-scene>
@@ -174,6 +176,7 @@ Santa Tracker app.
           path$="scenes/codelab/codelab-scene_[[language]].html"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
+          feature-color="#f9ce1d"
           loading-src="scenes/codelab/img/loading.svg"
           logo="scenes/codelab/img/logo.svg"></codelab-scene>
 
@@ -305,9 +308,11 @@ Santa Tracker app.
       <santasearch-scene route="santasearch" icon="1f50d"
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
           header-color="#00904a"
+          feature-color="#f9ce1d"
           loading-bg-color="#29B6F6"
           loading-src="scenes/santasearch/img/loading.svg"
-          hero-src="scenes/santasearch/img/gameover.svg"></santasearch-scene>
+          hero-src="scenes/santasearch/img/gameover.svg"
+          logo="scenes/santasearch/img/logo.svg"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
@@ -336,7 +341,8 @@ Santa Tracker app.
 
       <snowflake-scene route="snowflake" icon="2744*"
           path$="scenes/snowflake/snowflake-scene_[[language]].html"
-          loading-bg-color="rgb(129,208,0)"></snowflake-scene>
+          loading-bg-color="rgb(129,208,0)"
+          logo="scenes/snowflake/img/logo.svg"></snowflake-scene>
 
       <streetview-scene route="streetview" icon="1f3a5"
           path$="scenes/streetview/streetview-scene_[[language]].html"
@@ -368,7 +374,9 @@ Santa Tracker app.
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(_videos)]]">
         <video-scene route$="[[item]]" icon="1f4fd"
-            header-color="#ec4582"
+            header-color="#ea4882"
+            feature-color="#f9ce1d"
+            logo="scenes/videoscene/img/logo.svg"
             path="scenes/videoscene/video-scene.html"
             slot="santa-scene"></video-scene>
       </template>
