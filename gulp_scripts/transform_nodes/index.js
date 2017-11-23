@@ -79,7 +79,17 @@ const transformInlineScripts = scriptTransformation => {
   });
 };
 
+const transformExternalScriptNodes = scriptNodeTransformation => {
+  const p = dom5.predicates;
+  const externalModuleScripts = p.AND(
+      p.hasTagName('script'),
+      p.hasAttr('src'));
+
+  return transformNodes(externalModuleScripts, scriptNodeTransformation);
+};
+
 module.exports = {
   transformNodes,
-  transformInlineScripts
+  transformInlineScripts,
+  transformExternalScriptNodes
 };

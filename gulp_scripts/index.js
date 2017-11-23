@@ -25,7 +25,10 @@ module.exports = {
   merge: require('./merge'),
   mutateHTML: require('./mutate_html'),
   styleModules: require('./style_modules'),
-  transformInlineScripts: require('./transform_inline_scripts').transformInlineScripts,
-  transformNodes: require('./transform_inline_scripts').transformNodes,
+  transformInlineScripts:
+      require('./transform_nodes').transformInlineScripts,
+  transformExternalScriptNodes:
+      require('./transform_nodes').transformExternalScriptNodes,
+  transformNodes: require('./transform_nodes').transformNodes,
   insertEs5Adapter: require('./insert_es5_adapter')
 };

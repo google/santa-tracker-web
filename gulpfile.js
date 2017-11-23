@@ -25,6 +25,9 @@ const gutil = require('gulp-util');
 const uglifyES = require('uglify-es');
 const buble = require('buble');
 const scripts = require('./gulp_scripts');
+const dom5 = require('dom5');
+const connect = require('connect');
+const serveStatic = require('serve-static');
 
 const fs = require('fs');
 const path = require('path');
@@ -366,6 +369,20 @@ gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
   // bundle, CSP, and do language fanout
   const limit = $.limiter(-2);
   const stream = scripts.generateModules(result, [primaryModuleName].concat(excludes))
+    .pipe(scripts.transformExternalScriptNodes(scriptNode => {
+      if (dom5.getAttribute(scriptNode, 'type') === 'module') {
+        // Removes the node:
+        return null;
+      }
+
+      const newScriptNode = dom5.cloneNode(scriptNode);
+
+      if (dom5.hasAttribute(scriptNode, 'nomodule')) {
+        dom5.removeAttribute(newScriptNode, 'nomodule');
+      }
+
+      return newScriptNode;
+    }))
     .pipe(scripts.transformInlineScripts(script => buble.transform(script).code))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(limit(scripts.crisper()))
@@ -517,6 +534,17 @@ gulp.task('serve', ['default', 'watch'], function() {
     startPath: firstScene ? `/${firstScene}.html` : '/',
     ui: {port: argv.port + 1},
   });
+});
+
+gulp.task('serve-prod', cb => {
+  const prod = connect();
+
+  prod.use(serveStatic(PROD_DIR, { index: 'index.html' }));
+  prod.use(serveStatic(STATIC_DIR, { index: false }));
+
+  prod.listen(argv.port);
+
+  gutil.log(`Serving prod on port ${argv.port}`);
 });
 
 gulp.task('default', ['sass', 'compile-js', 'compile-scenes']);
