@@ -139,7 +139,7 @@ Polymer({
     }
 
     const i = new Image();
-    i.src = src;
+    i.src = this.resolveUrl('../../' + src);  // resolve relative to top-level
     i.onload = function() {
       // The loading image is ready, so update the src and backgroundColor if we're still at
       // an early part of the loading process (<0.5).
@@ -150,7 +150,7 @@ Polymer({
   },
 
   _computeLoadingSrc: function(defaultLoadingSrc, loadingSrc) {
-    return loadingSrc || defaultLoadingSrc || '';
+    return this.resolveUrl('../../' + (loadingSrc || defaultLoadingSrc || ''));
   },
 
   _update: function(progress, inset) {
