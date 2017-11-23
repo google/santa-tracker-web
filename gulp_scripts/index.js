@@ -26,4 +26,5 @@ module.exports = {
   mutateHTML: require('./mutate_html'),
   styleModules: require('./style_modules'),
   transformInlineScripts: require('./transform_inline_scripts'),
+  insertEs5Adapter: require('./insert_es5_adapter')
 };

@@ -121,7 +121,7 @@ const SCENE_CONFIG = require('./scenes');
 const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].fanout !== false);
 
 // List of scene names to serve.
-const ARG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName); 
+const ARG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName);
 const COMPILE_SCENES = (function() {
   if (!ARG_SCENES.length) {
     // compile all scenes
@@ -385,10 +385,14 @@ gulp.task('build-prod', function() {
   const entrypoints = ['index.html', 'error.html', 'upgrade.html', 'cast.html', 'embed.html'];
   const htmlStream = gulp.src(entrypoints)
     .pipe(scripts.mutateHTML.gulp(function() {
+
       if (!argv.pretty) {
         const dev = this.head.querySelector('#DEV');
+
         dev && dev.remove();
       }
+
+      scripts.insertEs5Adapter(this, staticUrl);
 
       // Fix top-level HTML/CSS imports to include static base.
       const relativeLinks = Array.from(this.head.querySelectorAll('link:not([href^="/"])'));
