@@ -173,23 +173,23 @@ class Model {
 }
 
 export const createElf = (() => {
-  const gltfLoads = new Promise(resolve => {
-    loader.load('scenes/snowball/js/models/elf-animated.gltf', function(gltf) {
-      gltf.scene.traverse(node => {
-        if (node.isSkinnedMesh) {
-          //const originalMaterial = node.material;
-          //debugger;
-          //node.material = new MeshBasicMaterial({
-            //map: originalMaterial.map
-          //});
-        }
-      });
-      resolve(gltf);
-    });
-  });
+  const loadGltf = (() => {
+    let gltfLoads;
 
-  return (majorColor, minorColor, gender) => {
-    return gltfLoads.then(gltf => new Model(cloneGltf(gltf)));
+    return assetBaseUrl => {
+      if (gltfLoads == null) {
+        gltfLoads = new Promise(resolve => {
+          loader.load(`${assetBaseUrl}models/elf-animated.gltf`,
+              gltf => resolve(gltf));
+        });
+      }
+
+      return gltfLoads;
+    };
+  })();
+
+  return (assetBaseUrl, majorColor, minorColor, gender) => {
+    return loadGltf(assetBaseUrl).then(gltf => new Model(cloneGltf(gltf)));
   };
 })();
 

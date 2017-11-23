@@ -25,16 +25,13 @@ export class BasicElement extends HTMLElement {
     preparedTemplates.add(this);
   }
 
-  constructor() {
-    super();
-
+  stampTemplate() {
     this.attachShadow({ mode: 'open' });
     this.constructor.prepareTemplate();
 
     const template = this.constructor.template;
 
     if (template != null) {
-      console.log(document.importNode(template.content, true).childNodes);
       this.shadowRoot.appendChild(
           document.importNode(template.content, true));
     }

@@ -39,6 +39,7 @@ export class InputSystem extends EntityElement {
   constructor() {
     super();
 
+    this.stampTemplate();
     this.raycaster = new Raycaster();
     this.octree = new Octree({
       undeferred: false,

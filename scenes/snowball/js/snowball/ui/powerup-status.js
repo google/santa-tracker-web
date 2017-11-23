@@ -8,9 +8,12 @@ import { Entity } from '../../engine/core/entity.js';
  */
 const EntityElement = Entity(BasicElement);
 
-const template = document.createElement('template');
+let template = null;
 
-template.innerHTML = `
+const initializeTemplate = assetBaseUrl => {
+  template = document.createElement('template');
+
+  template.innerHTML = `
 <style>
   :host {
     display: block;
@@ -18,7 +21,7 @@ template.innerHTML = `
     border-radius: 100%;
     width: 128px;
     height: calc(209/201 * 128px);
-    background-image: url(scenes/snowball/img/item-frame.png);
+    background-image: url(${assetBaseUrl}img/item-frame.png);
     background-size: 100%;
     pointer-events: all;
   }
@@ -61,12 +64,13 @@ template.innerHTML = `
   }
 
   :host(.powerup-1) .icon {
-    background-image: url(scenes/snowball/img/powerup-1.png);
+    background-image: url(${assetBaseUrl}img/powerup-1.png);
   }
 </style>
 <div id="one" class="icon"></div>
 <div id="two" class="icon"></div>
 <div id="three" class="icon"></div>`;
+};
 
 export class PowerupStatus extends EntityElement {
   static get is() { return 'powerup-status'; }
@@ -78,6 +82,25 @@ export class PowerupStatus extends EntityElement {
 
     this.powerup = null;
     this.currentQuantity = 0;
+  }
+
+  connectedCallback() {
+    if (template == null) {
+      let parentNode = this.parentNode;
+      while (parentNode && parentNode.tagName !== 'SNOWBALL-GAME') {
+        if (parentNode.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+          parentNode = parentNode.host;
+        } else {
+          parentNode = parentNode.parentNode;
+        }
+      }
+
+      initializeTemplate(parentNode.assetBaseUrl);
+    }
+
+    if (this.shadowRoot == null) {
+      this.stampTemplate();
+    }
   }
 
   set value(powerup) {

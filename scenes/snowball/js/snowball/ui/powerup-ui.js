@@ -70,6 +70,7 @@ export class PowerupUi extends EntityElement {
   constructor(...args) {
     super(...args);
 
+    this.stampTemplate();
     this.powerupOne = this.shadowRoot.querySelector('#powerupOne');
     this.powerupTwo = this.shadowRoot.querySelector('#powerupTwo');
     this.swapped = false;

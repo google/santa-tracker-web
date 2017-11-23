@@ -85,7 +85,7 @@ export class Snowball extends AllocatableEntityMesh {
   constructor(size = 12) {
     const uniforms = {
       map: {
-        value: snowball
+        value: null
       },
       time: {
         value: 0
@@ -130,6 +130,10 @@ export class Snowball extends AllocatableEntityMesh {
 
   setup(game) {
     const { collisionSystem, effectSystem } = game;
+
+    if (this.uniforms.map.value == null) {
+      this.uniforms.map.value = snowball(game.assetBaseUrl);
+    }
 
     this.unsubscribeFromCollisions = collisionSystem.handleCollisions(this,
         (snowball, collidable) => {

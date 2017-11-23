@@ -32,9 +32,8 @@ export class Parachute extends AllocatableEntityObject3D {
     const size = 64;
     const geometry = new PlaneBufferGeometry(size, size);
     const material = new MeshBasicMaterial({
-      color: 0xffffff,
-      transparent: true,
-      map: parachute
+      color: 0xffffff00,
+      transparent: true
     });
     const dolly = new Object3D();
 
@@ -50,6 +49,13 @@ export class Parachute extends AllocatableEntityObject3D {
 
     this.size = size;
     this.collider = Point.allocate(this.position);
+  }
+
+  setup(game) {
+    if (this.graphic.material.map == null) {
+      this.graphic.material.map = parachute(game.assetBaseUrl);
+      this.graphic.material.needsUpdate = true;
+    }
   }
 
   set lod(value) {

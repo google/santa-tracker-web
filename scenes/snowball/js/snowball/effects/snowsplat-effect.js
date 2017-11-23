@@ -127,7 +127,7 @@ export class SnowsplatEffect extends EntityClass {
         value: 0
       },
       map: {
-        value: snowball
+        value: null
       }
     };
 
@@ -157,6 +157,10 @@ export class SnowsplatEffect extends EntityClass {
   }
 
   update(game) {
+    if (this.uniforms.map.value == null) {
+      this.uniforms.map.value = snowball(game.assetBaseUrl);
+    }
+
     this.uniforms.time.value = game.clockSystem.time;
 
     while (this.splats.length) {

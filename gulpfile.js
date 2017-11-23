@@ -464,6 +464,7 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     'js/ccsender.html',
     // TODO(samthor): Better support for custom scenes (#1679).
     'scenes/snowflake/snowflake-maker/{media,third-party}/**',
+    'scenes/snowball/models/*'
   ], {base: './'})
     .pipe(gulp.dest(DIST_STATIC_DIR));
 

@@ -27,6 +27,7 @@ export class Game extends BasicElement {
   constructor(...args) {
     super(...args);
 
+    this.stampTemplate();
     this.renderSystem = new RenderSystem();
     this.clockSystem = new ClockSystem();
     this.inputSystem = new InputSystem();

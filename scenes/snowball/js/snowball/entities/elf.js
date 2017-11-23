@@ -262,7 +262,7 @@ export class Elf extends AllocatableEntityObject3D {
 
     if (this.lodNeedsUpdate) {
       if (this.currentLod === lod.HIGH && health.alive) {
-        this.initializeModel();
+        this.initializeModel(game.assetBaseUrl);
         this.visible = true;
       } else {
         this.visible = false;
@@ -334,11 +334,11 @@ export class Elf extends AllocatableEntityObject3D {
     }
   }
 
-  initializeModel() {
+  initializeModel(assetBaseUrl) {
     if (!this.modelInitialized) {
       console.count('Elf model initialized');
 
-      createElf().then(model => {
+      createElf(assetBaseUrl).then(model => {
         const elf = model.object.children[0];
         const material = elf.children[0].material.clone();
         const map = material.map.clone();

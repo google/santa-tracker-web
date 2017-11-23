@@ -32,6 +32,7 @@ export class RenderSystem extends BasicElement {
   constructor() {
     super();
 
+    this.stampTemplate();
     this.renderer = new WebGLRenderer();
     this.renderer.autoClear = true;
     this.shadowRoot.appendChild(this.renderer.domElement);

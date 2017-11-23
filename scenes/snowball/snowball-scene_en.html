@@ -87,12 +87,18 @@ Polymer({
   is: 'snowball-scene',
   behaviors: [window.SantaSceneBehavior],
 
-  properties: {
+  ready() {
+    this.$.game.setAttribute('asset-base-url', this.resolveUrl('.'));
   },
 
   onPreload: function() {
     this.preloadImages([
       'img/sleigh.png',
+      'img/item-frame.png',
+      'img/parachute.png',
+      'img/powerup-1.png',
+      'img/snowball.png',
+      'img/tiles.png',
     ]);
   },
 

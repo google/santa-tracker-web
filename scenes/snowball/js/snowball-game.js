@@ -44,6 +44,10 @@ export class SnowballGame extends Game {
     return LocalLevel;
   }
 
+  get assetBaseUrl() {
+    return this.getAttribute('asset-base-url') || '';
+  }
+
   setup() {
     super.setup();
 

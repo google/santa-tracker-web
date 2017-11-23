@@ -70,6 +70,7 @@ export class ParachuteSystem {
           arrival.tileIndex, intermediateVector2);
       const parachute = Parachute.allocate();
 
+      parachute.setup(game);
       parachute.position.x = position.x;
       parachute.position.y = position.y;
       parachute.carry(entity);

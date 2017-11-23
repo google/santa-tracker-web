@@ -120,7 +120,7 @@ export class Obstacles extends EntityObject3D {
         value: 0
       },
       map: {
-        value: tiles
+        value: tiles(game.assetBaseUrl)
       },
       tileScale: {
         value: grid.cellSize
