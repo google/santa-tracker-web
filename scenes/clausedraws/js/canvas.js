@@ -16,6 +16,7 @@
 
 goog.provide('app.Canvas');
 
+goog.require('app.ClearAnimation');
 goog.require('app.Constants');
 goog.require('app.Snow');
 goog.require('app.utils');
@@ -110,6 +111,8 @@ app.Canvas.prototype.initCanvases = function($elem) {
   }
 
   this.snow = new app.Snow($elem, this.foregroundCanvas,
+      this.foregroundBackup);
+  this.clearAnimation = new app.ClearAnimation($elem, this.foregroundCanvas,
       this.foregroundBackup);
 };
 
@@ -389,9 +392,9 @@ app.Canvas.prototype.saveToFile = function(e) {
 
 app.Canvas.prototype.onTrashClick = function() {
   this.snow.reset();
-  // play animation on snow layer
-  this.resetCanvas();
+  this.clearAnimation.beginAnimation(this.resetCanvas.bind(this));
 };
+
 
 /**
  * @typedef {{x: number, y: number, down: boolean, scale: number, normX: number,

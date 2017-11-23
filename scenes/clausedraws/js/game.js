@@ -111,6 +111,7 @@ app.Game.prototype.update = function(delta) {
 
   this.mouse.update();
   this.canvas.snow.update(delta);
+  this.canvas.clearAnimation.update(delta);
 };
 
 

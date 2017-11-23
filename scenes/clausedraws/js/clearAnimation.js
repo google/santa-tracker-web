@@ -25,63 +25,65 @@ app.ClearAnimation = function($elem, canvas, backupCanvas) {
   this.backup = backupCanvas;
   this.backupContext = backupCanvas.getContext('2d');
   this.playing = false;
-  this.cleared = true;
 
   this.frames = [];
+  this.currentFrame = 0;
+  this.timeUntilNextFrame = 0;
 
-  // preload frames
-  // on update, if playing, draw frames
-  // call update from game
+  this.preloadFrames();
 };
 
 
-app.ClearAnimation.prototype.beginAnimation  = function() {
+app.ClearAnimation.prototype.preloadFrames  = function() {
+  for (var i = 0; i < app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES; i++) {
+    var image = new Image();
+    image.src = '/scenes/clausedraws/img/avalanche/avalanche_' + i + '.png';
+    this.frames.push(image);
+  }
+};
+
+
+app.ClearAnimation.prototype.beginAnimation  = function(callback) {
+  if (this.playing) {
+    return;
+  }
+
+  this.callback = callback;
+  this.playing = true;
 };
 
 
 app.ClearAnimation.prototype.reset  = function() {
   this.playing = false;
-  this.flakes = [];
-  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
-  this.cleared = true;
+  this.currentFrame = 0;
+  this.timeUntilNextFrame = 0;
 };
 
 
 app.ClearAnimation.prototype.update = function(delta) {
-  // TODO: connect to button,
-  if (!this.playing && this.cleared) {
+  if (!this.playing) {
     return;
   }
 
-  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
-  this.cleared = true;
+  if (this.currentFrame >= app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES) {
+    this.callback();
+    this.reset();
+  }
 
-  if (this.playing) {
-    if (Math.random() > 0.95 &&
-        this.flakes.length < app.Constants.SNOW_MAX_PARTICLES) {
-      this.addFlake();
-    }
+  if (this.timeUntilNextFrame > delta) {
+    this.timeUntilNextFrame -= delta;
+  } else {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
 
-    for (var i = 0; i < this.flakes.length; i++) {
-      this.drawFlake(this.flakes[i]);
-      this.updateFlake(this.flakes[i], delta, i);
-    }
-
-    for (var i = this.flakes.length - 1; i >= 0; i--) {
-      var flake = this.flakes[i];
-      this.drawFlake(flake);
-      this.updateFlake(flake, delta);
-
-      if (flake.x > this.backup.width || flake.x < 0 ||
-          flake.y > this.backup.height) {
-        this.flakes.splice(i, 1);
-      }
-    }
+    // draw frame to backupContext
+    this.backupContext.drawImage(this.frames[this.currentFrame], 0, 0,
+        this.backup.width, this.backup.height);
 
     this.context.drawImage(this.backup, 0, 0, this.canvas.width,
         this.canvas.height);
-    this.cleared = false;
+
+    this.timeUntilNextFrame = 33;
+    this.currentFrame++;
   }
 };
