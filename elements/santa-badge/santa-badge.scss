@@ -38,18 +38,20 @@ $size-inset: 8px;
 .feature {
   align-self: flex-start;
   position: relative;
-  background: var(--santa-feature-color, #b757c5);
-  top: -4px;
-  height: 55px;
+  height: 48px;
   width: 55px;
-  padding-top: 4px;
-  box-shadow: 0 1px 0 1px rgba(0,0,0,0.15);
-  border-radius: 6px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    width: 80px;
+    color: var(--santa-feature-color, #b757c5);
+  }
 
   .value {
     font-size: 21px;
@@ -61,6 +63,8 @@ $size-inset: 8px;
     right: 0;
     bottom: 10%;
     top: 10%;
+    padding-right: 3px;  // offset icon in center of svg
+    box-sizing: border-box;
     background: transparent center/contain no-repeat;
     will-change: transform;
     transition: transform 0.4s;
