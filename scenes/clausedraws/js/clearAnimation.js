@@ -68,6 +68,7 @@ app.ClearAnimation.prototype.update = function(delta) {
   if (this.currentFrame >= app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES) {
     this.callback();
     this.reset();
+    return;
   }
 
   if (this.timeUntilNextFrame > delta) {
