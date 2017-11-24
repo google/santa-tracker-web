@@ -25,6 +25,9 @@ const gutil = require('gulp-util');
 const uglifyES = require('uglify-es');
 const buble = require('buble');
 const scripts = require('./gulp_scripts');
+const dom5 = require('dom5');
+const connect = require('connect');
+const serveStatic = require('serve-static');
 
 const fs = require('fs');
 const path = require('path');
@@ -272,9 +275,17 @@ gulp.task('compile-scenes', function() {
     const prefixCode =
         'var global=window,app=this.app;var $jscomp=this[\'$jscomp\']={global:global};';
     const mustCompile =
-        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame);
+        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame || config.es2015);
 
-    const compilerFlags = addCompilerFlagOptions({
+    // If some options are appended to the config, they seem to be ignored by the
+    // options generator when invoking the Closure Compiler JAR.
+    const prependOptions = config.es2015
+        ? {
+            new_type_inf: null
+          }
+        : {};
+
+    const compilerFlags = addCompilerFlagOptions(Object.assign(prependOptions, {
       js: compilerSrc,
       externs,
       assume_function_wrapper: true,
@@ -294,7 +305,7 @@ gulp.task('compile-scenes', function() {
           `var scenes = scenes || {};\n` +
           `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
           `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`,
-    });
+    }));
 
     const compilerStream = $.closureCompiler({
       compilerPath: COMPILER_PATH,
@@ -358,6 +369,20 @@ gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
   // bundle, CSP, and do language fanout
   const limit = $.limiter(-2);
   const stream = scripts.generateModules(result, [primaryModuleName].concat(excludes))
+    .pipe(scripts.transformExternalScriptNodes(scriptNode => {
+      if (dom5.getAttribute(scriptNode, 'type') === 'module') {
+        // Removes the node:
+        return null;
+      }
+
+      const newScriptNode = dom5.cloneNode(scriptNode);
+
+      if (dom5.hasAttribute(scriptNode, 'nomodule')) {
+        dom5.removeAttribute(newScriptNode, 'nomodule');
+      }
+
+      return newScriptNode;
+    }))
     .pipe(scripts.transformInlineScripts(script => buble.transform(script).code))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(limit(scripts.crisper()))
@@ -439,6 +464,7 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     'js/ccsender.html',
     // TODO(samthor): Better support for custom scenes (#1679).
     'scenes/snowflake/snowflake-maker/{media,third-party}/**',
+    'scenes/snowball/models/*'
   ], {base: './'})
     .pipe(gulp.dest(DIST_STATIC_DIR));
 
@@ -509,6 +535,17 @@ gulp.task('serve', ['default', 'watch'], function() {
     startPath: firstScene ? `/${firstScene}.html` : '/',
     ui: {port: argv.port + 1},
   });
+});
+
+gulp.task('serve-prod', cb => {
+  const prod = connect();
+
+  prod.use(serveStatic(PROD_DIR, { index: 'index.html' }));
+  prod.use(serveStatic(STATIC_DIR, { index: false }));
+
+  prod.listen(argv.port);
+
+  gutil.log(`Serving prod on port ${argv.port}`);
 });
 
 gulp.task('default', ['sass', 'compile-js', 'compile-scenes']);

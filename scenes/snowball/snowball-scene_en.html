@@ -14,6 +14,12 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 
+<script src="../../third_party/lib/three/build/three.js"></script>
+<script src="../../third_party/lib/three/examples/js/Octree.js"></script>
+<script src="../../third_party/lib/three/examples/js/loaders/GLTFLoader.js"></script>
+<script nomodule src="snowball-scene.min.js"></script>
+<script type="module" src="js/snowball-game.js"></script>
+
 <!--
 Snowball Storm scene.
 -->
@@ -58,30 +64,49 @@ Snowball Storm scene.
       background: url(img/sleigh.png) center no-repeat;
       background-size: contain;
     }
+
+    [hidden] {
+      display: none;
+    }
   </style>
 
-  <div id="mid">
-    <div id="mover">
-      <div id="sleigh"></div>
+  <div id="splash" on-click="onSplashClicked">
+    <div id="mid">
+      <div id="mover">
+        <div id="sleigh"></div>
+      </div>
     </div>
+    <santa-weather cloud-frac="1.0" clouds="20"></santa-weather>
+    <santa-tutorial tutorials="snowball_move.mp4 snowball_throw.mp4" show></santa-tutorial>
   </div>
-  <santa-weather cloud-frac="1.0" clouds="20"></santa-weather>
-  <santa-tutorial tutorials="snowball_move.mp4 snowball_throw.mp4" show></santa-tutorial>
+  <snowball-game id="game" hidden></snowball-game>
+
 </template>
 <script>
 Polymer({
   is: 'snowball-scene',
   behaviors: [window.SantaSceneBehavior],
 
-  properties: {
+  ready() {
+    this.$.game.setAttribute('asset-base-url', this.resolveUrl('.'));
   },
 
   onPreload: function() {
     this.preloadImages([
       'img/sleigh.png',
+      'img/item-frame.png',
+      'img/parachute.png',
+      'img/powerup-1.png',
+      'img/snowball.png',
+      'img/tiles.png',
     ]);
   },
 
+  onSplashClicked: function() {
+    this.$.splash.hidden = true;
+    this.$.game.hidden = false;
+    this.$.game.start();
+  }
 });
 </script>
 </dom-module>
