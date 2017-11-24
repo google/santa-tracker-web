@@ -28,6 +28,7 @@ goog.require('app.Constants');
 app.SpraySnow = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
+  this.soundKey = name;
   this.density = app.Constants.SPRAY_SNOW_DENSITY;
   this.maxOffset = app.Constants.SPRAY_SNOW_OFFSET;
 };
@@ -70,4 +71,3 @@ app.SpraySnow.prototype.getRandomOffset = function() {
 app.SpraySnow.prototype.calculateDrawSize = function() {
   return app.Constants.SPRAY_CIRCLE_SIZE;
 };
-

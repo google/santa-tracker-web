@@ -29,7 +29,7 @@ goog.require('app.Tool');
 app.LayerTool = function($elem, name, layer) {
   app.Tool.call(this, $elem, 'scene-' + name);
 
-  this.soundKey = 'selfie_color';
+  this.soundKey = name;
   this.image = $elem.find('#scene-' + name)[0];
 
   if (layer == app.LayerTool.Layer.BACKGROUND) {

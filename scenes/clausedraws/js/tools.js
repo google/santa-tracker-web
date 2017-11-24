@@ -406,7 +406,7 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.selectedTool.move(mouseCoords);
 
     if (mouseCoords.down) {
-      this.selectedTool.startMousedown();
+
 
       var insideCanvas = this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas) &&
         !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.secondaryMenu[0]) &&
@@ -414,6 +414,10 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
         !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileEdit[0]) &&
         !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileSlider[0]);
       // console.log(insideCanvas);
+
+      if (insideCanvas) {
+        this.selectedTool.startMousedown();
+      }
 
       var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
 

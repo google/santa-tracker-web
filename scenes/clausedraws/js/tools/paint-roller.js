@@ -30,7 +30,7 @@ goog.require('app.utils');
 app.PaintRoller = function($elem, name) {
   app.Tool.call(this, $elem, 'roller-' + name);
 
-  this.soundKey = 'selfie_color';
+  this.soundKey = name;
   this.drawing = false;
   this.pattern = $elem.find('#roller-' + name)[0];
   this.patternCanvas = $elem.find('#pattern-canvas')[0];
@@ -93,5 +93,3 @@ app.PaintRoller.prototype.calculateDrawSize = function(size) {
   return app.utils.map(size, app.Constants.PAINT_ROLLER_MIN,
       app.Constants.PAINT_ROLLER_MAX);
 };
-
-

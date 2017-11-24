@@ -30,7 +30,7 @@ goog.require('app.utils');
  */
 app.PenGarland = function($elem, name, config) {
   app.Tool.call(this, $elem, name);
-
+  this.soundKey = name;
   this.textureName = 'texture-' + name;
   this.points = [];
   this.sizeConfig = config && config.sizeConfig || {

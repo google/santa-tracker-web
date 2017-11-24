@@ -30,7 +30,7 @@ goog.require('app.utils');
 app.Marker = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
-  this.soundKey = 'selfie_color';
+  this.soundKey = name;
   this.points = [];
   this.dpr = 1;
 };
@@ -112,5 +112,3 @@ app.Marker.prototype.calculateDrawSize = function(size) {
   return app.utils.map(size, app.Constants.PEN_MIN,
       app.Constants.PEN_MAX);
 }
-
-

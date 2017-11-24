@@ -29,7 +29,7 @@ goog.require('app.utils');
  */
 app.Neon = function($elem, name) {
   app.Marker.call(this, $elem, name);
-
+  this.soundKey = name;
   this.points = [];
 };
 app.Neon.prototype = Object.create(app.Marker.prototype);

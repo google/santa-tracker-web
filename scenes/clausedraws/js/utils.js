@@ -105,6 +105,7 @@ app.utils = function() {
 
     triggerStart: function(event) {
       if (!audioProxy[event]) {
+        window.santaApp.fire('sound-trigger', 'cd_stop_all_drawing');
         window.santaApp.fire('sound-trigger', this.sanitizeName(event) + '_start');
         audioProxy[event] = true;
       }
@@ -112,7 +113,7 @@ app.utils = function() {
 
     triggerStop: function(event) {
       if (audioProxy[event]) {
-        window.santaApp.fire('sound-trigger', event + '_stop');
+        window.santaApp.fire('sound-trigger', this.sanitizeName(event) + '_stop');
         audioProxy[event] = false;
       }
     },

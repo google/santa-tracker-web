@@ -40,6 +40,9 @@ app.Colorpicker = function($elem) {
 
 app.Colorpicker.prototype.togglePopup = function() {
   this.popup.toggleClass('is-visible');
+  if (this.isPopupOpen()) {
+    window.santaApp.fire('sound-trigger', 'cd_color_popup');
+  }
 };
 
 
@@ -48,6 +51,7 @@ app.Colorpicker.prototype.onColorClick = function(event) {
       .attr('data-colorpicker-color');
   this.setColor(color);
   this.togglePopup();
+  window.santaApp.fire('sound-trigger', 'cd_color_select');
 };
 
 
