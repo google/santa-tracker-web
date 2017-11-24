@@ -904,10 +904,6 @@ Polymer({
     this.$.badge.time = detail.time || null;
   },
 
-  onCloseDrawer: function(event) {
-    this.$.chrome.closeDrawer();
-  },
-
   _computePause: function(userPause, pageInBackground) {
     return userPause || pageInBackground;
   },
@@ -1170,6 +1166,10 @@ Polymer({
     case 'facebook':
       return 'https://facebook.com/sharer.php?p[url]=' + enc;
     }
+  },
+
+  onCloseDrawer: function(event) {
+    this.$.chrome.closeDrawer();
   },
 
   /**
