@@ -47,18 +47,20 @@ Snowball Storm scene.
       height: 100%;
     }
     @keyframes snowball-sleigh {
-      0%   { transform: translateX(-200%); }
-      100% { transform: translateX(100%); }
+      0%   { transform: translateY(-10%); }
+      50% { transform: translateY(10%); }
+      100% { transform: translateY(-10%); }
     }
     #mover {
       pointer-events: none;
       width: 100%;
       min-width: 800px;
-      animation: snowball-sleigh 8s linear infinite;
+      animation: snowball-sleigh 3s ease-in-out infinite;
       will-change: transform;
     }
     #sleigh {
-      display: inline-block;
+      display: block;
+      margin: auto;
       width: 514px;
       height: 120px;
       background: url(img/sleigh.png) center no-repeat;
@@ -76,13 +78,14 @@ Snowball Storm scene.
         <div id="sleigh"></div>
       </div>
     </div>
-    <santa-weather cloud-frac="1.0" clouds="20"></santa-weather>
-    <santa-tutorial tutorials="snowball_move.mp4 snowball_throw.mp4" show></santa-tutorial>
+    <santa-weather cloud-frac="1.0" clouds="20" directional-strength="-1.0"></santa-weather>
+    <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4" show></santa-tutorial>
   </div>
   <snowball-game id="game" hidden></snowball-game>
 
 </template>
 <script>
+// wss://game-dot-next-santa-api.appspot.com/socket
 Polymer({
   is: 'snowball-scene',
   behaviors: [window.SantaSceneBehavior],
@@ -103,7 +106,8 @@ Polymer({
   },
 
   onSplashClicked: function() {
-    this.$.splash.hidden = true;
+    this.shadowRoot.removeChild(this.$.splash);
+    this.$.tutorial.show = false;
     this.$.game.hidden = false;
     this.$.game.start();
   }

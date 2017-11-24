@@ -80,6 +80,15 @@ Polymer({
     },
 
     /**
+     * Fixed directional strength that offsets the
+     * randomly chosen wind value.
+     */
+    directionalStrength: {
+      type: Number,
+      value: 0
+    },
+
+    /**
      * The fraction of the screen to generate clouds in.
      */
     cloudFrac: {
@@ -119,7 +128,7 @@ Polymer({
   },
 
   _setWind: function() {
-    this.wind = 0.25 - Math.random() * 0.5;
+    this.wind = 0.25 - Math.random() * 0.5 + this.directionalStrength;
 
     // Wait a random amount of time (up to 15 seconds) before changing the wind
     // direction for the snow.
@@ -155,6 +164,8 @@ Polymer({
     // Fill up any remaining gaps.
     for (var i = count; i < this.snowflakes; ++i) {
       this._resetSnowflake(i);
+      this._snowflakes[i].y = Math.random();
+      this._snowflakes[i].x = Math.random();
     }
   },
 
@@ -200,17 +211,35 @@ Polymer({
       x: x,
       y: Math.random() * this.cloudFrac,
       o: 0.2 + Math.random() * 0.7
-    }
+    };
   },
 
   _createSnowflake: function() {
+    // Snowflakes have a 2/3 chance to spawn on the side of the screen. The
+    // chance for each side is then scaled depending on the directional strength
+    // of the wind.
+    const diversityChance = 2/3;
+    const sideChance = diversityChance / 2.0;
+    const leftChance = sideChance + this.directionalStrength * sideChance;
+    const rightChance = 1.0 - (sideChance -
+        this.directionalStrength * sideChance);
+    const pos = Math.random();
+
+    const x = pos < leftChance
+        ? -0.1
+        : pos > rightChance
+          ? 1.1
+          : Math.random();
+    const y = (pos < leftChance || pos > rightChance)
+        ? Math.random()
+        : 0;
+
     return {
-      x: Math.random(),
-      y: -Math.random(),
+      x, y,
       ry: 0.5 + Math.random(),
       d: 2 + Math.random() * 2,
       o: 0.6 + Math.random() * 0.4
-    }
+    };
   },
 
   _update: function() {
