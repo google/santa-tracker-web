@@ -45,26 +45,10 @@ main {
   height: calc(100vh - #{$header-size});
 }
 
-#cards {
+social-cards {
   position: absolute;
   bottom: 44px;
-  box-sizing: border-box;
-  justify-content: center;
-  width: 100%;
   left: 0;
-  display: flex;
-
-  .card {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    z-index: 10;
-    width: 240px;
-    height: 180px;
-    margin: 0 12px;
-    background: black;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 2px;
-    transform-origin: bottom center;
-    opacity: 0.95;
-  }
+  width: 100%;
 }
+
