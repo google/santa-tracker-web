@@ -442,7 +442,9 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
   ], {base: './'})
     .pipe(gulp.dest(DIST_STATIC_DIR));
 
+  // include misc assets from the top level of santatracker
   const prodStream = gulp.src([
+    'sw-dummy.js',
     'robots.txt',
     'images/*',
     'images/og/*',
