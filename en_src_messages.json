@@ -7013,6 +7013,14 @@
     "description": "Menu item for adding Santa to the homescreen.",
     "message": "Add to Home Screen"
   },
+  "village_santa_a2hs_chromeos": {
+    "description": "Menu item for adding Santa to the shelf of a Chrome OS device.",
+    "message": "Add to Shelf"
+  },
+  "village_santa_a2hs_desktop": {
+    "description": "Menu item for adding Santa to the desktop.",
+    "message": "Add to Desktop"
+  },
   "village_santa_cardboard": {
     "description": "Menu item for finding Santa as part of an app which supports Google Cardboard (Google's Virtual Reality experience). Don't translate 'Cardboard'.",
     "message": "Santa on Cardboard"
