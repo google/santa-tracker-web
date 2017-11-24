@@ -111,7 +111,9 @@ specific language governing permissions and limitations under the License.
     </h2>
     <ul>
       <li hidden$="[[!a2hsAvailable]]"><a on-click="_onA2HSClick">
-        <i18n-msg msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
+        <i18n-msg hidden$="[[!onAndroid]]"] msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
+        <i18n-msg hidden$="[[!onChromeOS]]"]  msgid="village_santa_a2hs_chromeos">PLACEHOLDER_i18n</i18n-msg>
+        <i18n-msg hidden$="[[!onOtherPlatform]]"]  msgid="village_santa_a2hs_desktop">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
       <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
@@ -147,6 +149,21 @@ Polymer({
     },
 
     a2hsAvailable: {
+      type: Boolean,
+      value: false,
+    },
+
+    onAndroid: {
+      type: Boolean,
+      value: false,
+    },
+
+    onChromeOS: {
+      type: Boolean,
+      value: false,
+    },
+
+    onOtherPlatform: {
       type: Boolean,
       value: false,
     },
@@ -198,6 +215,12 @@ Polymer({
   handleBeforeInstallPrompt: function(e) {
     this.a2hsevent = e;
     this.a2hsAvailable = true;
+  },
+
+  ready: function() {
+    this.onAndroid = navigator.userAgent.match(/Android/i);
+    this.onChromeOS = navigator.userAgent.match(/CrOS/i);
+    this.onOtherPlatform = !this.onAndroid && !this.onChromeOS;
   },
 
   attached: function() {
