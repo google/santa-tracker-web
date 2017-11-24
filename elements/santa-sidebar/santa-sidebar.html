@@ -180,6 +180,7 @@ Polymer({
   _onA2HSClick: function() {
     this.a2hsevent.prompt();
     this.a2hsAvailable = false;
+    this.fire('close-drawer');
   },
 
   /**

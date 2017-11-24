@@ -627,6 +627,7 @@ Polymer({
     'game-score': 'onScoreGame',
     'share': 'onShare',
     'request-host': 'onRequestHost',
+    'close-drawer': 'onCloseDrawer',
   },
 
   created: function() {
@@ -901,6 +902,10 @@ Polymer({
     this.$.badge.level = detail.level || null;
     this.$.badge.levels = detail.levels || null;
     this.$.badge.time = detail.time || null;
+  },
+
+  onCloseDrawer: function(event) {
+    this.$.chrome.closeDrawer();
   },
 
   _computePause: function(userPause, pageInBackground) {
