@@ -81,17 +81,6 @@ TODO(samthor): Bring in the Tracker with shared elements.
         value: false,
       },
 
-      /**
-       * setInterval() handle.
-       */
-      _updateInterval: {
-        type: Number,
-      },
-
-      _placeToUse: {
-        type: Object,
-      },
-
     },
 
     attached: function() {
@@ -99,7 +88,6 @@ TODO(samthor): Bring in the Tracker with shared elements.
     },
 
     detached: function() {
-      window.clearInterval(this._updateInterval);
       this.$.video.stop();
       this.debounce('video', () => {});  // no longer play a video
     },
@@ -118,19 +106,16 @@ TODO(samthor): Bring in the Tracker with shared elements.
     _videoActiveChanged: function(videoActive) {
       if (videoActive) { return; }
 
-      // this.debounce('video', () => {
-      //   // TODO(samthor): avoid previous selection.
-      //   // TODO(samthor): Limit to unlocked videos.
-      //   const videoId = randomChoice(Object.values(VIDEOS));
-      //   this.$.video.play(videoId);
-      // }, randomRange(20, 60) * 1000)
+      this.debounce('video', () => {
+        // TODO(samthor): avoid previous selection.
+        // TODO(samthor): Limit to unlocked videos.
+        const videoId = randomChoice(Object.values(VIDEOS));
+        this.$.video.play(videoId);
+      }, randomRange(20, 60) * 1000)
     },
 
     _computeVideoClass: function(videoActive) {
       return videoActive ? 'active' : '';
-    },
-
-    onPreload: function() {
     },
 
   });
