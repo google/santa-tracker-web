@@ -46,8 +46,12 @@ function Tutorial(elem, tutorials) {
 
 /**
  * Start the tutorial timer.
+ * @param {string=} tutorials to replace the current set with
  */
-Tutorial.prototype.start = function() {
+Tutorial.prototype.start = function(tutorials = undefined) {
+  if (tutorials !== undefined) {
+    this.elem_.tutorials = tutorials;
+  }
   this.elem_.show = true;
 };
 

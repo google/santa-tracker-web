@@ -291,8 +291,8 @@ app.BlockRunnerApi = function(scene, runner) {
 
 /**
  * Creates a method function which verifies which guards that the runner is still executing.
- * @param {function} fn real api method.
- * @return {function}
+ * @param {!Function} fn real api method.
+ * @return {!Function}
  */
 app.BlockRunnerApi.createApiMethod = function(fn) {
   return function() {

@@ -24,7 +24,6 @@ goog.require('app.Map');
 goog.require('app.Player');
 goog.require('app.Present');
 goog.require('app.ResultType');
-goog.require('app.SceneTutorial');
 goog.require('app.TileType');
 goog.require('app.TreeSquare');
 goog.require('goog.style');

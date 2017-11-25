@@ -23,7 +23,7 @@ goog.provide('app.TileType');
  * The complete map data. Note that only spaces and T's (trees)
  * are used. X is just for the editor to make a note of level
  * points of interest.
- * @type {string[]}
+ * @type {!Array<string>}
  */
 
 app.MapData = [
