@@ -211,28 +211,15 @@ Jamband scene.
 </template>
 <script>
 (function() {
-  // Whether the sounds for the scene are loaded and the band can commence
-  // jamming. Static so that it's permanent across mutliple visits to the scene.
-  var soundsLoaded = false;
-
   Polymer({
     is: 'jamband-scene',
     behaviors: [window.SantaSceneBehavior],
-    game: null,
 
     properties: {
-
-      /**
-       * Whether the band has already started.
-       */
-      bandStarted: {
-        type: Boolean,
-        value: false,
-      }
-    },
-
-    listeners: {
-      'sounds-loaded': 'onSoundsLoaded',
+      game: {
+        type: Object,
+        value: null,
+      },
     },
 
     onPreload: function() {
@@ -261,30 +248,11 @@ Jamband scene.
       ]);
     },
 
-    onSoundsLoaded: function(e, soundsName) {
-      if (soundsName === 'jamband_load_sounds') {
-        soundsLoaded = true;
-        this.gatedStartBand();
-      }
-    },
-
     onShow: function() {
       this.fire('sound-ambient', 'jamband_start');
-
       var module = this.$['module-jamband'];
-
       this.game = new scenes.jamband.Game(module);
-      this.gatedStartBand();
-    },
-
-    /**
-     * Start band if necessary prerequisites are met.
-     */
-    gatedStartBand: function() {
-      if (this.game && soundsLoaded && !this.bandStarted) {
-        this.game.start();
-        this.bandStarted = true;
-      }
+      this.game.start();
     },
 
     onHide: function() {

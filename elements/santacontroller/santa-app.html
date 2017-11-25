@@ -666,8 +666,16 @@ Polymer({
     // Don't load sounds in Cast mode.
     if (!this.omitSantaChrome(this.mode)) {
       var staticUrl = this.resolveUrl('../../');
-      var sc = new SoundController(staticUrl, this._soundsLoaded.bind(this));
-      this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
+      var sc = new SoundController(staticUrl);
+      this.addEventListener('sound-preload', (ev) => {
+        // call SoundController, which returns a Promise, which we can add to the source.
+        // nb. This breaks the sound-preload abstraction a bit, but works fine.
+        const p = sc.loadSounds(ev);
+        const source = Polymer.dom(ev).path[0];
+        if (source && source.preloadPromise) {
+          source.preloadPromise(p);
+        }
+      });
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
@@ -926,17 +934,6 @@ Polymer({
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
     });
-  },
-
-  _soundsLoaded: function(soundsName) {
-    console.info('got soundsLoaded for', soundsName);
-
-    // _soundsLoaded is typically invoked after a scene preloads audio, but the
-    // scene may have changed in that time, so check upgraded state again.
-    // TODO(samthor): This is just needed for our coding frame scenes: can it be removed?
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('sounds-loaded', soundsName);
-    }
   },
 
   trackEvent: function(e, detail) {

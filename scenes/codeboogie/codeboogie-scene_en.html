@@ -105,27 +105,16 @@ Codeboogie scene.
 </template>
 <script>
 (function() {
-  // Whether the sounds for the scene are loaded and the band can commence
-  // jamming. Static so that it's permanent across multiple visits to the scene.
-  var soundsLoaded = false;
 
   Polymer({
     is: 'codeboogie-scene',
     behaviors: [window.SantaSceneBehavior],
-    frame: null,
 
     properties: {
-      /**
-       * Whether the scene has already started.
-       */
-      started: {
-        type: Boolean,
-        value: false
-      }
-    },
-
-    listeners: {
-      'sounds-loaded': 'onSoundsLoaded'
+      frame: {
+        type: Object,
+        value: null,
+      },
     },
 
     onPreload: function() {
@@ -255,9 +244,9 @@ Codeboogie scene.
 
     onShow: function() {
       var module = this.$['module-codeboogie'];
-      this.frame = new scenes.codeboogie.FrameWrapper(module, this.resolveUrl('.'));
       this.fire('sound-ambient', 'cb_start');
-      this.gatedStart();
+      this.frame = new scenes.codeboogie.FrameWrapper(module, this.resolveUrl('.'));
+      this.frame.start(getUrlParameters());
     },
 
     onHide: function() {
@@ -270,19 +259,6 @@ Codeboogie scene.
       this.frame.restart();
     },
 
-    onSoundsLoaded: function(e, soundsName) {
-      if (soundsName === 'codeboogie_load_sounds') {
-        soundsLoaded = true;
-        this.gatedStart();
-      }
-    },
-
-    gatedStart: function() {
-      if (this.frame && soundsLoaded && !this.started) {
-        this.frame.start(getUrlParameters());
-        this.started = true;
-      }
-    }
   });
 
 })();
