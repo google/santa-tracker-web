@@ -448,12 +448,9 @@ app.Scene.prototype.getWidth = function() {
  * @param {boolean} visible should be true to show the maze.
  */
 app.Scene.prototype.toggleVisibility = function(visible) {
-  if (this.visible_ === visible) {
-    return;
-  }
   this.visible_ = visible;
 
   // Keep it simple for now. Translation animation might conflict with portrait dragging.
-  this.el_.style.display = visible ? 'block' : 'none';
-  this.underlayEl_.style.display = visible ? 'block' : 'none';
+  this.el_.hidden = !visible;
+  this.underlayEl_.hidden = !visible;
 };
