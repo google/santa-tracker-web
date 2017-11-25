@@ -49,39 +49,26 @@ app.Scene = class {
     this.width_ = 0;
 
     // The world stage
+    this.parentEl_ = el.parentNode;
     this.underlayEl_ = el.parentNode.querySelector('.scene-underlay');
     this.charactersEl_ = el.querySelector('.scene__characters');
     this.buttonEl_ = el.querySelector('.scene__play');
 
-    // Portrait draggability
-    var dummy = new KeyframeEffect(document.body, [], 0);
-    this.dragPlayer_ = document.timeline.play(dummy);
-    /** @type {(Number|null)} */
-    this.dragStartTime_ = null;
-    /** @type {(Number|null)} */
-    this.dragStartX_ = null;
-    /** @type {(Number|null)} */
-    this.dragLastX_ = null;
-    /** @type {(boolean|null)} */
-    this.dragDirection_ = null;
-
     // Bind handlers
     this.calculateViewport_ = this.calculateViewport_.bind(this);
     this.onClickRun_ = this.onClickRun_.bind(this);
-    this.onMouseDown_ = this.onMouseDown_.bind(this);
-    this.onMouseMove_ = this.onMouseMove_.bind(this);
-    this.onMouseUp_ = this.onMouseUp_.bind(this);
+    this.onClickScene_ = this.onClickScene_.bind(this);
+    this.onClickUnderlay_ = this.onClickUnderlay_.bind(this);
 
     // Calculate the viewport now and whenever the browser resizes.
     window.addEventListener('resize', this.calculateViewport_, false);
+    window.requestAnimationFrame(() => this.calculateViewport_(true));
     this.calculateViewport_();
 
     // Other events
     this.buttonEl_.addEventListener('click', this.onClickRun_, false);
-    this.el_.addEventListener(app.InputEvent.START, this.onMouseDown_, false);
-    this.underlayEl_.addEventListener(app.InputEvent.START, this.onMouseDown_, false);
-    window.addEventListener(app.InputEvent.MOVE, this.onMouseMove_, false);
-    window.addEventListener(app.InputEvent.END, this.onMouseUp_, false);
+    this.el_.addEventListener('click', this.onClickScene_, false);
+    this.underlayEl_.addEventListener('click', this.onClickUnderlay_, false);
   }
 
   /**
@@ -92,10 +79,8 @@ app.Scene = class {
     window.removeEventListener('resize', this.calculateViewport_, false);
 
     this.buttonEl_.removeEventListener('click', this.onClickRun_, false);
-    this.el_.removeEventListener(app.InputEvent.START, this.onMouseDown_, false);
-    this.underlayEl_.removeEventListener(app.InputEvent.START, this.onMouseDown_, false);
-    window.removeEventListener(app.InputEvent.MOVE, this.onMouseMove_, false);
-    window.removeEventListener(app.InputEvent.END, this.onMouseUp_, false);
+    this.el_.removeEventListener('click', this.onClickScene_, false);
+    this.underlayEl_.removeEventListener('click', this.onClickUnderlay_, false);
   }
 
   /**
@@ -106,12 +91,11 @@ app.Scene = class {
   }
 
   /**
-   * @return {boolean} whether currently in portrait mode
+   * @return {boolean} whether we're in portrait mode
    */
   getPortraitMode() {
     return this.portraitMode_;
   };
-
 
   /**
    * Changes the current level.
@@ -147,9 +131,10 @@ app.Scene = class {
    * Configures scaling and width of scene elements. Runs on init and resize.
    * @private
    */
-  calculateViewport_() {
+  calculateViewport_(force = false) {
     // Blockly spams window.onresize for their scrollbar logic. Let's ignore those.
-    if (window.innerHeight === this.cachedWindowHeight_ &&
+    if (!force &&
+        window.innerHeight === this.cachedWindowHeight_ &&
         window.innerWidth === this.cachedWindowWidth_) {
       return;
     }
@@ -174,6 +159,7 @@ app.Scene = class {
     }
 
     this.portraitMode_ = portraitMode;
+    this.parentEl_.classList.toggle('responsive', this.portraitMode_);
     this.width_ = sceneWidth;
     this.scaleRatio_ = Math.min(sceneWidth / 540, sceneHeight / app.Scene.CONTENT_HEIGHT);
 
@@ -181,128 +167,22 @@ app.Scene = class {
     this.el_.style.fontSize = this.scaleRatio_ * 10 + 'px';
     this.el_.style.width = sceneWidth + 'px';
     this.charactersEl_.style.transform = 'scale(' + Math.min(1, this.scaleRatio_) + ')';
-
-    this.configPortraitDraggability_();
   }
 
   /**
-   * Disables or enables and reconfigures the expand/collapse animation for portrait.
+   * Click handler for scene. Shows tools.
    * @private
    */
-  configPortraitDraggability_() {
-    if (this.portraitMode_) {
-      this.dragPlayer_ = document.timeline.play(new GroupEffect([
-        new KeyframeEffect(this.el_, [
-          {transform: 'translate3d(0, 0, 0)'},
-          {transform: 'translate3d(' + (this.width_ - app.Constants.EDGE_MIN_WIDTH) + 'px, 0, 0)'}
-        ], {duration: app.Constants.SCENE_TOGGLE_DURATION, fill: 'forwards'}),
-        new KeyframeEffect(this.underlayEl_, [
-          {opacity: 1, visibility: 'visible'},
-          {opacity: 0, visibility: 'visible', offset: 0.95},
-          {opacity: 0, visibility: 'hidden'}
-        ], {duration: app.Constants.SCENE_TOGGLE_DURATION, fill: 'forwards'})
-      ], {fill: 'forwards'}));
-      this.dragPlayer_.pause();
-    } else if (this.dragPlayer_) {
-      this.dragPlayer_.cancel();
-    }
+  onClickScene_() {
+    this.portraitToggleScene(true, true);
   }
 
   /**
-   * Mouse/touch down handler for portrait mode. Stores mouse/tap position
-   * for other handlers to use.
-   *
-   * @param {Event} e event object.
+   * Click handler for overlay. Shows play area.
    * @private
    */
-  onMouseDown_(e) {
-    if (!this.portraitMode_) {
-      return;
-    }
-
-    e = app.InputEvent.normalize(e);
-    this.dragLastX_ = this.dragStartX_ = e.clientX;
-  }
-
-  /**
-   * Mouse/touch move handler for portrait mode. Starts moving the scene if
-   * dragged far enough.
-   *
-   * @param {Event} e event object.
-   * @private
-   */
-  onMouseMove_(e) {
-    if (this.dragStartX_ == null) {
-      return;
-    }
-    e.preventDefault();
-
-    // Figure out if we have dragged far enough to start moving the scene.
-    e = app.InputEvent.normalize(e);
-    var deltaX = e.clientX - this.dragStartX_;
-    if (this.dragStartTime_ == null) {
-      if (Math.abs(deltaX) < app.Constants.SCENE_TOGGLE_MIN_DRAG) {
-        return;
-      }
-      this.dragStartTime_ = this.dragPlayer_.currentTime;
-      this.dragPlayer_.pause();
-    }
-
-    // Figure out which direction is currently being dragged in.
-    // Could be more elaborate for sure.
-    this.dragDirection_ = (e.clientX - this.dragLastX_) === 0 ?
-        this.dragDirection_ :
-    (e.clientX - this.dragLastX_) < 0;
-    this.dragLastX_ = e.clientX;
-
-    // Calculate a currentTime for the animation based on drag.
-    var newCurrentTime = this.dragStartTime_ +
-        deltaX / this.width_ * app.Constants.SCENE_TOGGLE_DURATION;
-    newCurrentTime = Math.max(0, Math.min(app.Constants.SCENE_TOGGLE_DURATION, newCurrentTime));
-    this.dragPlayer_.currentTime = newCurrentTime;
-  }
-
-  /**
-   * Mouse/touch up handler for portrait mode. Makes sure the scene is either
-   * visible or hidden. Also checks if the user clicked/tapped to show/hide the
-   * scene.
-   *
-   * @param {Event} e event object.
-   * @private
-   */
-  onMouseUp_(e) {
-    if (this.dragStartX_ == null) {
-      return;
-    }
-
-    // We're either finishing an elaborate tap, or finishing a drag. Let's figure out if we should
-    // expand or collapse.
-    var didTap = this.dragStartTime_ == null && e.target !== this.buttonEl_;
-
-    var makeVisible = didTap ?
-    this.dragPlayer_.currentTime > app.Constants.SCENE_TOGGLE_DURATION / 2 :
-        !!this.dragDirection_;
-    var tappingUnderlay = e.target === this.underlayEl_;
-    var didTapCorrectSide = didTap && tappingUnderlay === !makeVisible;
-
-    var notAtEnd = this.dragPlayer_.currentTime > 0 &&
-        this.dragPlayer_.currentTime < app.Constants.SCENE_TOGGLE_DURATION;
-
-    if (didTapCorrectSide || notAtEnd) {
-      this.portraitToggleScene(makeVisible, true);
-    }
-
-    this.dragStartX_ = null;
-    this.dragStartTime_ = null;
-  }
-
-  /**
-   * Checks if the scene is currently visible in portrait mode.
-   * @return {boolean} true if visible.
-   * @private
-   */
-  isSceneVisibleInPortrait_() {
-    return this.dragPlayer_.currentTime === 0;
+  onClickUnderlay_() {
+    this.portraitToggleScene(false, true);
   }
 
   /**
@@ -313,32 +193,21 @@ app.Scene = class {
     if (userAction) {
       this.game.dismissTutorial('codeboogie_tray.mp4');
     }
-
-    if (!this.portraitMode_) {
-      return;
-    }
-
-    var targetTime = visible ? 0 : app.Constants.SCENE_TOGGLE_DURATION;
-    if (this.dragPlayer_.currentTime === targetTime) {
-      return;
-    }
-
-    this.dragPlayer_.playbackRate = visible ? -1 : 1;
-    this.dragPlayer_.play();
+    this.parentEl_.classList.toggle('show', !visible);
   }
 
   /**
    * Click handler on play button. Starts execution of the blockly code.
    * @private
    */
-  onClickRun_() {
+  onClickRun_(ev) {
+    ev.stopPropagation();  // don't trigger scene click
     this.buttonEl_.blur();
     this.game.dismissTutorial();
 
-    if (this.portraitMode_ && !this.isSceneVisibleInPortrait_()) {
+    if (this.portraitMode_) {
       this.portraitToggleScene(true);
-      window.setTimeout(this.blockRunner_.execute.bind(this.blockRunner_),
-          app.Constants.SCENE_TOGGLE_DURATION);
+      window.setTimeout(() => this.blockRunner_.execute(), app.Constants.SCENE_TOGGLE_DURATION);
     } else {
       this.blockRunner_.execute();
       Klang.triggerEvent('generic_button_click');
@@ -397,14 +266,11 @@ app.Scene = class {
    * @param {boolean} visible should be true to show the maze.
    */
   toggleVisibility(visible) {
-    if (this.visible_ === visible) {
-      return;
-    }
     this.visible_ = visible;
 
     // Keep it simple for now. Translation animation might conflict with portrait dragging.
-    this.el_.style.display = visible ? 'block' : 'none';
-    this.underlayEl_.style.display = visible ? 'block' : 'none';
+    this.el_.hidden = !visible;
+    this.underlayEl_.hidden = !visible;
   }
 };
 
