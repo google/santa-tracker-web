@@ -22,7 +22,6 @@ goog.require('app.Blockly');
 goog.require('app.Constants');
 goog.require('app.Result');
 goog.require('app.Scene');
-goog.require('app.SceneTutorial');
 goog.require('app.Levels');
 goog.require('app.freestyleLevel');
 goog.require('app.monkeypatches');
@@ -56,7 +55,6 @@ app.Game = class {
     this.successResult = new app.Result(elem.querySelector('.result--success'), this);
     this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
     this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
-    this.tutorial = new app.SceneTutorial(elem.querySelector('.tutorial'));
 
     this.iframeChannel = new app.shared.FrameRPC(window.parent, {
       restart: this.restart.bind(this),
@@ -68,8 +66,13 @@ app.Game = class {
     this.scene.player.listen('start', () => this.iframeChannel.call('setVariant', 1));
     this.scene.player.listen('finish', () => this.iframeChannel.call('setVariant', 0));
 
-    window.addEventListener('blur', this.onBlur.bind(this));
-    window.addEventListener('focus', this.onFocus.bind(this));
+    this.dismissTutorial = this.dismissTutorial.bind(this);
+    document.body.addEventListener('blocklyDragBlock', this.dismissTutorial, false);
+
+    this.onBlur = this.onBlur.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    window.addEventListener('blur', this.onBlur);
+    window.addEventListener('focus', this.onFocus);
   }
 
   /**
@@ -77,7 +80,10 @@ app.Game = class {
    * @private
    */
   dispose_() {
-    this.tutorial.dispose();
+    document.body.removeEventListener('blocklyDragBlock', this.dismissTutorial, false);
+    window.removeEventListener('blur', this.onBlur);
+    window.removeEventListener('focus', this.onFocus);
+
     this.scene.dispose();
   }
 
@@ -102,6 +108,14 @@ app.Game = class {
     this.blockly.setLevel(this.level);
     this.scene.setLevel(this.level);
     this.scene.toggleVisibility(true);
+  }
+
+  showTutorial() {
+    this.iframeChannel.call('showTutorial');
+  }
+
+  dismissTutorial() {
+    this.iframeChannel.call('dismissTutorial');
   }
 
   onBlur() {
@@ -135,6 +149,8 @@ app.Game = class {
    * @param {string=} param
    */
   restart(mode, param) {
+    this.showTutorial();
+
     this.levelNumber = -1;
     this.currentMode = mode;
 
