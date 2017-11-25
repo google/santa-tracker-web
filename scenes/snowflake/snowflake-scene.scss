@@ -130,40 +130,17 @@ $rotate-bg: $gameover-bg;
     }
   }
 
-
-  .small-button-image {
-    vertical-align: middle;
-    font-size: 40px;
-    background-image: url('img/btn_back_ar.png');
-    background-position: center;
-    padding: 6px;
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    border: none;
-    width: 20px;
-    height:20px;
-    display:inline-block;
-  }
-
-  .help {
-    background-image: url('img/btn_help.png');
-    top: 52px;
-
-    &:hover {
-      background-image: url('img/btn_help_over.png');
-    }
-
-    &:active {
-      background-image: url('img/btn_help_press.png');
-    }
-  }
-
-  .share:before {
-    background-image: url('img/ic_share.png');
-  }
-
   .share-bar {
-    z-index: 1,
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    button {
+      margin: 0 6px;
+      font-size: 28px !important;
+      min-height: 60px !important;
+    }
   }
 
 
