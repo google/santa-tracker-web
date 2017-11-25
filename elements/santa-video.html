@@ -34,6 +34,7 @@ later hit "play" on. This is potentially required for mobile browsers which don'
       position: relative;
       width: 100%;
       height: 100%;
+      background: black;
     }
     #holder, #player {
       width: 100%;
@@ -42,7 +43,7 @@ later hit "play" on. This is potentially required for mobile browsers which don'
     #holder {
       overflow: hidden;
       pointer-events: none;
-      background: black;
+      background: var(--santa-video-background, #21a34a);
       border-radius: inherit;
     }
     #holder[hidden] {
@@ -117,7 +118,8 @@ later hit "play" on. This is potentially required for mobile browsers which don'
     }
   </style>
 
-  <template is="dom-if" if="[[_anyVideoLoaded]]">
+  <!-- nb. use restamp to cause recreation when detached/attached -->
+  <template is="dom-if" if="[[_anyVideoLoaded]]" restamp>
     <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
   </template>
 
@@ -199,6 +201,15 @@ Polymer({
     },
 
     /**
+     * The number of seconds to wait before playing. This helps Cast not jitter as it starts the
+     * video playing.
+     */
+    playDelay: {
+      type: Number,
+      value: 0,
+    },
+
+    /**
      * The current active operation.
      */
     _op: {
@@ -244,7 +255,11 @@ Polymer({
   ],
 
   detached: function() {
-    throw new Error('santa-video detached, must recreate YouTube API')
+    this.reset();  // nb. call first, to clear _op before player
+
+    this._anyVideoLoaded = false;
+    this._player = null;
+    this._api = null;
   },
 
   /**
@@ -265,7 +280,8 @@ Polymer({
   },
 
   /**
-   * Resets this `<santa-video>` to its initial state, not playing a video whatsoever.
+   * Resets this `<santa-video>` to its initial state, not playing a video whatsoever. This does
+   * _not_ destroy the internal YouTube API.
    */
   reset: function() {
     this._op = null;
@@ -319,6 +335,7 @@ Polymer({
   },
 
   _youtubeStateChange: function(state) {
+    console.info('got state', state);
     if (state === 3 && !this.active) {
       // do nothing: we're preloading
     } else if (isPlayingState(state)) {
@@ -345,20 +362,24 @@ Polymer({
   _preparePlayer: function(player, op) {
     if (!player) { return; }
 
-    player.nextVideo();
-    player.loadVideoById();
+    if (this.isAttached) {
+      player.nextVideo();
+      player.loadVideoById();
+    }
     this._setActive(false);
     this._setStarted(false);
 
-    if (!op) {
+    if (!op || !this.isAttached) {
       this._setVideoId(null);
+      this.playing = false;
       return; // nothing else to do
     }
 
     if (op.cue) {
       player.cueVideoById(op.id);
     } else {
-      player.loadVideoById(op.id);
+      // TODO(samthor): Not sure we can trick YouTube by giving it a -ve playDelay.
+      player.loadVideoById({videoId: op.id, startSeconds: -this.playDelay});
     }
     this.playing = !op.cue;
     this._setVideoId(op.id);

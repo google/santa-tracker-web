@@ -31,7 +31,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
 <template>
   <style include="cast-scene_module"></style>
 
-  <audio autoplay loop src="[[_srcForAudio(_videoActive)]]"></audio>
+  <audio autoplay loop src="[[_srcForAudio(_videoActive, isAttached)]]"></audio>
 
   <santa-state remaining-time="{{_remainingTime}}"></santa-state>
 
@@ -41,10 +41,10 @@ TODO(samthor): Bring in the Tracker with shared elements.
 
   <main></main>
 
-  <social-cards></social-cards>
+  <social-cards pause="[[_videoActive]]"></social-cards>
 
   <santa-video id="video" class$="[[_computeVideoClass(_videoActive)]]"
-      active="{{_videoActive}}"></santa-video>
+      active="{{_videoActive}}" play-delay="5"></santa-video>
 
 </template>
 <script>
@@ -88,7 +88,6 @@ TODO(samthor): Bring in the Tracker with shared elements.
     },
 
     detached: function() {
-      this.$.video.stop();
       this.debounce('video', () => {});  // no longer play a video
     },
 
@@ -96,9 +95,10 @@ TODO(samthor): Bring in the Tracker with shared elements.
      * Calculates the audio track to play, or none. Uses the _change_ in the video active property
      * to choose a new audio track.
      */
-    _srcForAudio: function(videoActive) {
-      if (videoActive) {
-        return '';  // video playing, do nothing
+    _srcForAudio: function(videoActive, isAttached) {
+      if (videoActive || !isAttached) {
+        // nb. the <audio> tag keeps playing in Chrome sometimes even while detached, reset src
+        return '';  // video playing or not attached, do nothing
       }
       return this.resolveUrl(`../../audio/${randomChoice(AUDIO_TRACKS)}`);
     },
@@ -111,7 +111,7 @@ TODO(samthor): Bring in the Tracker with shared elements.
         // TODO(samthor): Limit to unlocked videos.
         const videoId = randomChoice(Object.values(VIDEOS));
         this.$.video.play(videoId);
-      }, randomRange(20, 60) * 1000)
+      }, randomRange(30, 60) * 1000)
     },
 
     _computeVideoClass: function(videoActive) {

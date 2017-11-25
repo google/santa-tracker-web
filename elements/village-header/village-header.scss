@@ -13,6 +13,7 @@ header {
   background-size: 1618px 791px;
   width: 100%;
   text-align: center;
+  overflow: hidden;
 
   @media (max-width: ($width-tablet - 1)) {
     height: $mobile-size;

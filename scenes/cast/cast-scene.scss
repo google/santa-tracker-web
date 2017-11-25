@@ -23,6 +23,8 @@ header {
   background: $snow-color;
   box-shadow: 0 2px 0 $snow-color;  // cover soft svg border
 
+  // nb. clone this from village-header as cast is never a responsive design, and the mobile-header
+  // needs to be much larger than in cast.
   &::after {
     content: '';
     position: absolute;
@@ -36,7 +38,9 @@ header {
 }
 
 village-header {
-  --smallcaps-size: 14px;
+  --smallcaps-size: 15px;
+  --countdown-timer-box-size: 102px;
+  --countdown-timer-font-size: 46px;
 }
 
 main {

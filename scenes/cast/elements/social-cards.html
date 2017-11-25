@@ -88,6 +88,14 @@ Shows a carousel of social cards.
     properties: {
 
       /**
+       * Whether to pause card creation.
+       */
+      pause: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
        * The minimum delay (in seconds) to wait to add a new card.
        */
       delay: {
@@ -126,7 +134,10 @@ Shows a carousel of social cards.
         if (!this.isAttached) { return; }
         const seconds = this.delay + this.delayRange * Math.random();
         this.debounce('change', run, 1000 * seconds);
-        this._changeCard();
+
+        if (!this.pause) {
+          this._changeCard();
+        }
       }
       run();
 
