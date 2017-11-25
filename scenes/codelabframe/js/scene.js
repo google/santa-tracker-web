@@ -389,7 +389,6 @@ app.Scene.prototype.onClickUnderlay_ = function(e) {
  */
 app.Scene.prototype.portraitToggleScene = function(visible, userAction = false) {
   if (userAction) {
-    console.info('dismissing tray', new Error);
     this.game.dismissTutorial('codelab_tray.mp4');
   }
   this.parentEl_.classList.toggle('show', !visible);
