@@ -120,17 +120,11 @@ app.Game.prototype.bumpLevel = function() {
   this.scene.toggleVisibility(isMaze);
 
   // Show tutorial
-  if (this.levelNumber === 0) {
-    this.iframeChannel.call('showTutorial', this.tutorialForLevel_(this.levelNumber));
-  } else if (this.levelNumber === 2) {
-
-    const tutorials = [this.tutorialForLevel_(this.levelNumber)];
-    if (this.scene.getPortraitMode()) {
-      tutorials.push('codelab_tray.mp4');
-    }
-
-    this.iframeChannel.call('showTutorial', tutorials.join(' '));
+  const tutorials = [this.tutorialForLevel_(this.levelNumber)];
+  if (this.levelNumber === 2 && this.scene.getPortraitMode()) {
+    tutorials.unshift('codelab_tray.mp4');  // put first
   }
+  this.iframeChannel.call('showTutorial', tutorials.join(' '));
 };
 
 app.Game.prototype.onBlur = function() {
