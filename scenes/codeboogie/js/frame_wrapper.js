@@ -53,7 +53,7 @@ app.FrameWrapper = function(el, staticDir) {
     setLevel: this.setLevel.bind(this),
     triggerSound: this.triggerSound.bind(this),
     share: this.share.bind(this),
-    setVariant: this.setVariant.bind(this)
+    setVariant: this.setVariant.bind(this),
   });
 
   this.sequencer = new app.Sequencer();
@@ -138,6 +138,7 @@ app.FrameWrapper.prototype.dispose = function() {
         level: this.level_});
   }
 
+  this.sequencer.stop();
   this.iframeChannel.dispose();
   this.iframeEl = null;
 };

@@ -929,6 +929,8 @@ Polymer({
   },
 
   _soundsLoaded: function(soundsName) {
+    console.info('got soundsLoaded for', soundsName);
+
     // _soundsLoaded is typically invoked after a scene preloads audio, but the
     // scene may have changed in that time, so check upgraded state again.
     // TODO(samthor): This is just needed for our coding frame scenes: can it be removed?
