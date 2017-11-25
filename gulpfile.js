@@ -459,7 +459,7 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     'third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur,mp4}',
-    'elements/**/img/*.{png,jpg,svg,gif}',
+    'elements/**/img/*.{png,jpg,svg,gif,mp4}',
     'components/webcomponentsjs/*.js',
     'js/ccsender.html',
     // TODO(samthor): Better support for custom scenes (#1679).
