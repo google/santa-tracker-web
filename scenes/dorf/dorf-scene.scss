@@ -137,6 +137,9 @@ village-header {
     width: 107px;
     height: 109px;
     background: url(img/sun.svg) no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #effect-plane {

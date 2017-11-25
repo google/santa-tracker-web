@@ -468,7 +468,6 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     'elements/**/img/*.{png,jpg,svg,gif,mp4}',
     'components/webcomponentsjs/*.js',
     'components/url/*.js',
-    'js/ccsender.html',
     // TODO(samthor): Better support for custom scenes (#1679).
     'scenes/snowflake/snowflake-maker/{media,third-party}/**',
     'scenes/snowball/models/*'

@@ -100,3 +100,12 @@ if (!('sign' in Math)) {
     return x > 0 ? +1 : -1;
   }
 }
+
+// prevent Shadow DOM v0 (see https://crbug.com/791400)
+Element.prototype.createShadowRoot = function() {
+  console.warn('createShadowRoot is deprecated, using v1', new Error());
+  if (this.attachShadow) {
+    return this.attachShadow({mode: 'open'});
+  }
+  throw new TypeError('no attachShadow available');
+};
