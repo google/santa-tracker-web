@@ -106,6 +106,14 @@ app.Scene = class {
   }
 
   /**
+   * @return {boolean} whether currently in portrait mode
+   */
+  getPortraitMode() {
+    return this.portraitMode_;
+  };
+
+
+  /**
    * Changes the current level.
    *
    * @param {app.DanceLevel} level
@@ -118,11 +126,11 @@ app.Scene = class {
     this.portraitToggleScene(true);
 
     let introAnimation = !level.freestyle && level.introAnimation();
-
     if (introAnimation) {
       this.blockRunner_.runAnimation(introAnimation);
     } else {
-      window.setTimeout(this.portraitToggleScene.bind(this, false), 3000);
+      // show immediately, we're in freestyle mode
+      this.showTutorials_();
     }
   }
 
@@ -281,7 +289,7 @@ app.Scene = class {
         this.dragPlayer_.currentTime < app.Constants.SCENE_TOGGLE_DURATION;
 
     if (didTapCorrectSide || notAtEnd) {
-      this.portraitToggleScene(makeVisible);
+      this.portraitToggleScene(makeVisible, true);
     }
 
     this.dragStartX_ = null;
@@ -301,7 +309,11 @@ app.Scene = class {
    * Conditionally show or hide the scene with animation in portrait mode.
    * @param {boolean} visible true if the scene should be shown.
    */
-  portraitToggleScene(visible) {
+  portraitToggleScene(visible, userAction) {
+    if (userAction) {
+      this.game.dismissTutorial('codeboogie_tray.mp4');
+    }
+
     if (!this.portraitMode_) {
       return;
     }
@@ -333,6 +345,14 @@ app.Scene = class {
     }
   }
 
+  showTutorials_() {
+    const tutorials = ['codeboogie.gif'];
+    if (this.portraitMode_) {
+      tutorials.unshift('codeboogie_tray.mp4');  // put before regular tutorial
+    }
+    this.game.showTutorial(tutorials);
+  }
+
   /**
    * Callback after running the blockly code. Presents user with smart
    * success or failure messages.
@@ -341,6 +361,8 @@ app.Scene = class {
    */
   onFinishExecution(result) {
     if (!result.showResult()) {
+      // this occurs on the "follow these steps" guide
+      this.showTutorials_();
       return;
     }
     if (this.level === game.levels[game.levels.length - 1]) {

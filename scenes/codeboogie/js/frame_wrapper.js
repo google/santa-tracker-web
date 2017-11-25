@@ -46,7 +46,7 @@ app.FrameWrapper = function(el, staticDir) {
   this.shareOverlay =
       new app.shared.ShareOverlay(this.el.find('.shareOverlay'));
 
-  this.tutorial = new Tutorial(el, 'codeboogie.gif');
+  this.tutorial = new Tutorial(el);
 
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
@@ -57,8 +57,8 @@ app.FrameWrapper = function(el, staticDir) {
     triggerSound: this.triggerSound.bind(this),
     share: this.share.bind(this),
     setVariant: this.setVariant.bind(this),
-    showTutorial: () => this.tutorial.start(),
-    dismissTutorial: () => this.tutorial.off('codeboogie.gif'),
+    showTutorial: this.tutorial.start.bind(this.tutorial),
+    dismissTutorial: this.tutorial.off.bind(this.tutorial),
   });
 
   this.sequencer = new app.Sequencer();

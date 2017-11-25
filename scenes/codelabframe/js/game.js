@@ -52,8 +52,8 @@ app.Game = function(elem) {
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
 
-  this.dismissTutorial = this.dismissTutorial.bind(this);
-  document.body.addEventListener('blocklyDragBlock', this.dismissTutorial, false);
+  this.dismissUnnamedTutorial = () => this.dismissTutorial();
+  document.body.addEventListener('blocklyDragBlock', this.dismissUnnamedTutorial, false);
 
   this.onBlur = this.onBlur.bind(this);
   this.onFocus = this.onFocus.bind(this);
@@ -71,8 +71,14 @@ app.Game.prototype.tutorialForLevel_ = function(levelNumber) {
   return 'codelab_' + (levelNumber >= 2 ? 'maze' : 'puzzle') + '.mp4';
 };
 
-app.Game.prototype.dismissTutorial = function() {
-  this.iframeChannel.call('dismissTutorial', this.tutorialForLevel_(this.levelNumber));
+/**
+ * @param {string=} name
+ */
+app.Game.prototype.dismissTutorial = function(name = undefined) {
+  if (name === undefined) {
+    name = this.tutorialForLevel_(this.levelNumber);
+  }
+  this.iframeChannel.call('dismissTutorial', name);
 };
 
 /**
@@ -80,7 +86,7 @@ app.Game.prototype.dismissTutorial = function() {
  * @private
  */
 app.Game.prototype.dispose_ = function() {
-  document.body.removeEventListener('blocklyDragBlock', this.dismissTutorial, false);
+  document.body.removeEventListener('blocklyDragBlock', this.dismissUnnamedTutorial, false);
   window.removeEventListener('blur', this.onBlur);
   window.removeEventListener('focus', this.onFocus);
 
@@ -114,8 +120,16 @@ app.Game.prototype.bumpLevel = function() {
   this.scene.toggleVisibility(isMaze);
 
   // Show tutorial
-  if (this.levelNumber === 0 || this.levelNumber === 2) {
+  if (this.levelNumber === 0) {
     this.iframeChannel.call('showTutorial', this.tutorialForLevel_(this.levelNumber));
+  } else if (this.levelNumber === 2) {
+
+    const tutorials = [this.tutorialForLevel_(this.levelNumber)];
+    if (this.scene.getPortraitMode()) {
+      tutorials.push('codelab_tray.mp4');
+    }
+
+    this.iframeChannel.call('showTutorial', tutorials.join(' '));
   }
 };
 

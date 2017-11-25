@@ -170,6 +170,13 @@ app.Scene.prototype.reset = function() {
 };
 
 /**
+ * @return {boolean} whether currently in portrait mode
+ */
+app.Scene.prototype.getPortraitMode = function() {
+  return this.portraitMode_;
+};
+
+/**
  * Create background graphics for the map.
  * @private
  */
@@ -469,7 +476,7 @@ app.Scene.prototype.onMouseUp_ = function(e) {
       this.dragPlayer_.currentTime < app.Constants.SCENE_TOGGLE_DURATION;
 
   if (didTapCorrectSide || notAtEnd) {
-    this.portraitToggleScene(makeVisible);
+    this.portraitToggleScene(makeVisible, true);
   }
 
   this.dragStartX_ = null;
@@ -489,7 +496,11 @@ app.Scene.prototype.isSceneVisibleInPortrait_ = function() {
  * Conditionally show or hide the scene with animation in portrait mode.
  * @param {boolean} visible true if the scene should be shown.
  */
-app.Scene.prototype.portraitToggleScene = function(visible) {
+app.Scene.prototype.portraitToggleScene = function(visible, userAction = false) {
+  if (userAction) {
+    this.game.dismissTutorial('codelab_tray.mp4');
+  }
+
   if (!this.portraitMode_) {
     return;
   }

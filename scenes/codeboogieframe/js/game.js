@@ -66,8 +66,8 @@ app.Game = class {
     this.scene.player.listen('start', () => this.iframeChannel.call('setVariant', 1));
     this.scene.player.listen('finish', () => this.iframeChannel.call('setVariant', 0));
 
-    this.dismissTutorial = this.dismissTutorial.bind(this);
-    document.body.addEventListener('blocklyDragBlock', this.dismissTutorial, false);
+    this.dismissBlocklyTutorial = () => this.dismissTutorial('codeboogie.gif');
+    document.body.addEventListener('blocklyDragBlock', this.dismissBlocklyTutorial, false);
 
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
@@ -80,7 +80,7 @@ app.Game = class {
    * @private
    */
   dispose_() {
-    document.body.removeEventListener('blocklyDragBlock', this.dismissTutorial, false);
+    document.body.removeEventListener('blocklyDragBlock', this.dismissBlocklyTutorial, false);
     window.removeEventListener('blur', this.onBlur);
     window.removeEventListener('focus', this.onFocus);
 
@@ -110,12 +110,15 @@ app.Game = class {
     this.scene.toggleVisibility(true);
   }
 
-  showTutorial() {
-    this.iframeChannel.call('showTutorial');
+  /**
+   * @param {!Array<string>} showTutorial
+   */
+  showTutorial(names = []) {
+    this.iframeChannel.call('showTutorial', names.join(' '));
   }
 
-  dismissTutorial() {
-    this.iframeChannel.call('dismissTutorial');
+  dismissTutorial(name) {
+    this.iframeChannel.call('dismissTutorial', name);
   }
 
   onBlur() {
@@ -149,8 +152,6 @@ app.Game = class {
    * @param {string=} param
    */
   restart(mode, param) {
-    this.showTutorial();
-
     this.levelNumber = -1;
     this.currentMode = mode;
 
