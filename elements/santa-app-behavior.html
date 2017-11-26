@@ -18,15 +18,6 @@ specific language governing permissions and limitations under the License.
 (function() {
   /** @polymerBehavior */
   window.SantaAppBehavior = {
-    properties: {
-
-      /** The master santaApp. */
-      santaApp: {
-        type: Object,
-        readOnly: true,
-        value: () => window.santaApp,
-      }
-    },
 
     /**
      * Returns the localized version of a URL: with hl=<lang> appended to the query, if needed.

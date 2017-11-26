@@ -326,6 +326,13 @@ Santa's Village.
       this.fire('sound-trigger', 'village_bubble_disappear');
     },
 
+    /**
+     * Helper method. Just does equality.
+     */
+    _equals: function(a, b) {
+      return a === b;
+    },
+
     onPreload: function() {
       this.preloadSounds('village_load_sounds');
       this.preloadImages([
@@ -346,9 +353,8 @@ Santa's Village.
       }
 
       // Preload the first ~7 houses.
-      var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];
-      for (var i = 0; i < 7 && i < houses.length; ++i) {
-        var house = houses[i];
+      for (var i = 0; i < 7 && i < this.houses.length; ++i) {
+        var house = this.houses[i];
         var id = house.module;
 
         var preload = [];
