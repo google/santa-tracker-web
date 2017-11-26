@@ -88,7 +88,7 @@ Santa's Village.
                 <a class="link" href$="[[_calculateHref(item, item.locked)]]">
                   <div class$="card card-[[item.module]]">
                     <div class="image"></div>
-                    <div class="color" style$="background-color: [[_colorForRoute(santaApp, item.module)]]"></div>
+                    <div class="color" style$="background-color: [[_colorForRoute(item.module)]]"></div>
                     <div class="text">
                       <div class="launchdate" hidden$="[[item.hideDate]]">
                         [[_calculateDateNo(item.launchDate)]]
@@ -420,8 +420,8 @@ Santa's Village.
     /**
      * Wraps `santaApp.colorForRoute`.
      */
-    _colorForRoute: function(santaApp, id) {
-      return santaApp.colorForRoute(id);
+    _colorForRoute: function(id) {
+      return window.santaApp.colorForRoute(id);
     },
 
     _onClickNewTodayHouse: function() {
