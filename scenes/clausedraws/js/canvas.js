@@ -390,9 +390,15 @@ app.Canvas.prototype.saveToFile = function(e) {
 };
 
 
-app.Canvas.prototype.onTrashClick = function() {
+app.Canvas.prototype.onTrashClick = function(event) {
+  var button = $(event.target).closest('[data-tool-trash]');
   this.snow.reset();
-  this.clearAnimation.beginAnimation(this.resetCanvas.bind(this));
+
+  if (button.attr('data-tool-trash') == 'desktop') {
+    this.clearAnimation.beginAnimation(this.resetCanvas.bind(this));
+  } else {
+    this.resetCanvas();
+  }
 };
 
 
