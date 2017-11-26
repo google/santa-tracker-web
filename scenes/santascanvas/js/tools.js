@@ -67,9 +67,9 @@ app.Tools = function(game, $elem) {
   this.mobileRotate = this.tertiaryMenuMobile.find('.Tools-rotator');
   this.mobileSlider = this.tertiaryMenuMobile.find('.Tools-slider');
 
-  this.categoryPickers.on('click.clausedraws touchend.clausedraws', this.onCategoryClick_.bind(this));
-  this.subcategoryPickers.on('click.clausedraws touchend.clausedraws', this.onSubcategoryClick_.bind(this));
-  this.categoryMenuNavBtns.on('click.clausedraws touchend.clausedraws', this.onNavClick_.bind(this));
+  this.categoryPickers.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
+  this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
+  this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
@@ -388,11 +388,11 @@ app.Tools = function(game, $elem) {
  */
 app.Tools.prototype.start = function() {
   this.selectTool_ = this.selectTool_.bind(this);
-  this.secondaryMenu.on('click.clausedraws touchend.clausedraws',
+  this.secondaryMenu.on('click.santascanvas touchend.santascanvas',
       this.selectTool_);
 
   this.onResize();
-  $(window).on('resize.clausedraws', this.onResize.bind(this));
+  $(window).on('resize.santascanvas', this.onResize.bind(this));
 };
 
 

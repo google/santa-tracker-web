@@ -52,13 +52,13 @@ app.Canvas = function(game, $elem) {
     scale: 1
   };
 
-  $elem.find('[data-tool-undo]').on('click.clausedraws touchend.clausedraws', this.undo.bind(this));
+  $elem.find('[data-tool-undo]').on('click.santascanvas touchend.santascanvas', this.undo.bind(this));
 
-  $elem.find('[data-tool-redo]').on('click.clausedraws touchend.clausedraws', this.redo.bind(this));
+  $elem.find('[data-tool-redo]').on('click.santascanvas touchend.santascanvas', this.redo.bind(this));
 
-  $elem.find('[data-tool-save]').on('click.clausedraws touchend.clausedraws', this.saveToFile.bind(this));
+  $elem.find('[data-tool-save]').on('click.santascanvas touchend.santascanvas', this.saveToFile.bind(this));
 
-  $elem.find('[data-tool-trash]').on('click.clausedraws touchend.clausedraws', this.onTrashClick.bind(this));
+  $elem.find('[data-tool-trash]').on('click.santascanvas touchend.santascanvas', this.onTrashClick.bind(this));
 };
 
 
@@ -67,7 +67,7 @@ app.Canvas = function(game, $elem) {
  */
 app.Canvas.prototype.start = function() {
   this.onResize();
-  $(window).on('resize.clausedraws', this.onResize.bind(this));
+  $(window).on('resize.santascanvas', this.onResize.bind(this));
 };
 
 

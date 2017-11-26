@@ -33,8 +33,8 @@ app.Colorpicker = function($elem) {
     el.css('background', color);
   });
 
-  this.selector.on('click.clausedraws touchend.clausedraws', this.togglePopup.bind(this));
-  this.colors.on('click.clausedraws touchend.clausedraws', this.onColorClick.bind(this));
+  this.selector.on('click.santascanvas touchend.santascanvas', this.togglePopup.bind(this));
+  this.colors.on('click.santascanvas touchend.santascanvas', this.onColorClick.bind(this));
 };
 
 

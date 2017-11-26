@@ -29,7 +29,7 @@ app.Snow = function($elem, canvas, backupCanvas) {
 
   this.flakes = [];
   $elem.find('[data-tool="snowglobe"]').on(
-      'click.clausedraws touchend.clausedraws', this.toggleSnow.bind(this));
+      'click.santascanvas touchend.santascanvas', this.toggleSnow.bind(this));
 };
 
 

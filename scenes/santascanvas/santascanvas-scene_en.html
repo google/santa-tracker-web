@@ -15,24 +15,24 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/webanimations.html">
 
-<script src="clausedraws-scene.min.js"></script>
+<script src="santascanvas-scene.min.js"></script>
 
-<link rel="import" href="clausedraws-scene_module.html">
+<link rel="import" href="santascanvas-scene_module.html">
 
 <!--
 Santaselfie scene.
 -->
-<dom-module id="clausedraws-scene">
+<dom-module id="santascanvas-scene">
 <template>
-  <style include="clausedraws-scene_module">
+  <style include="santascanvas-scene_module">
     :host([mode="portal"]) #share-button,
     :host([mode="portal"]) #share-button-toolbox {
       display: none !important;
     }
   </style>
 
-  <div id="module-clausedraws">
-    <div class="clausedraws">
+  <div id="module-santascanvas">
+    <div class="santascanvas">
       <div class="scene">
         <div class="Canvas">
           <canvas id="back-canvas"></canvas>
@@ -557,7 +557,7 @@ Santaselfie scene.
             <button class="Button Button--utility Button--primary Button--undo" data-tool-undo></button>
             <button class="Button Button--utility Button--primary Button--redo" data-tool-redo></button>
             <div class="Tools-divider Tools-divider--horizontal"></div>
-            <a class="Button Button--utility Button--save" href="#" download="clausedraws.jpg" data-tool-save></a>
+            <a class="Button Button--utility Button--save" href="#" download="santascanvas.jpg" data-tool-save></a>
           </div>
 
           <div class="Tools-mobile">
@@ -567,7 +567,7 @@ Santaselfie scene.
                 <div class="Button Button--utility" data-tool="eraser"></div>
                 <button class="Button Button--utility Button--primary Button--undo" data-tool-undo></button>
                 <button class="Button Button--utility Button--primary Button--redo" data-tool-redo></button>
-                <a class="Button Button--utility Button--save" href="#" download="clausedraws.jpg" data-tool-save></a>
+                <a class="Button Button--utility Button--save" href="#" download="santascanvas.jpg" data-tool-save></a>
               </div>
             </div>
 
@@ -688,169 +688,169 @@ Santaselfie scene.
 
         <!-- These images are use by canvases-->
         <div class="hidden">
-          <img id="texture-tinsel" src="/scenes/clausedraws/img/tools/tinsel/texture.svg" width="273.36" height="328.17"/>
-          <img id="texture-icing" src="/scenes/clausedraws/img/tools/icing/texture.svg" width="382" height="382"/>
-          <img id="texture-garland" src="/scenes/clausedraws/img/tools/garland/texture.svg" width="21" height="21"/>
-          <img id="texture-bell" src="/scenes/clausedraws/img/tools/bell/texture.svg" width="301" height="384"/>
-          <img id="texture-hanging-lights1" src="/scenes/clausedraws/img/tools/hanging-lights/texture1.svg" width="281" height="699"/>
-          <img id="texture-hanging-lights2" src="/scenes/clausedraws/img/tools/hanging-lights/texture2.svg" width="281" height="473"/>
-          <img id="texture-hanging-lights3" src="/scenes/clausedraws/img/tools/hanging-lights/texture3.svg" width="281" height="586"/>
-          <img id="texture-string-lights1" src="/scenes/clausedraws/img/tools/string-lights/texture1.svg" width="172" height="172"/>
-          <img id="texture-string-lights2" src="/scenes/clausedraws/img/tools/string-lights/texture2.svg" width="172" height="172"/>
-          <img id="texture-string-lights3" src="/scenes/clausedraws/img/tools/string-lights/texture3.svg" width="172" height="172"/>
-          <img id="texture-string-lights4" src="/scenes/clausedraws/img/tools/string-lights/texture4.svg" width="172" height="172"/>
-          <img id="sprinkle2" src="/scenes/clausedraws/img/sprinkles/sprinkle2.svg" width="100" height="100"/>
-          <img id="sprinkle3" src="/scenes/clausedraws/img/sprinkles/sprinkle3.svg" width="100" height="100"/>
-          <img id="sprinkle4" src="/scenes/clausedraws/img/sprinkles/sprinkle4.svg" width="100" height="100"/>
-          <img id="sprinkle5" src="/scenes/clausedraws/img/sprinkles/sprinkle5.svg" width="100" height="100"/>
-          <img id="candycane_green" src="/scenes/clausedraws/img/tools/spray/candy/texture/candycane_green.svg" width="63.69" height="143.49"/>
-          <img id="candycane_greens" src="/scenes/clausedraws/img/tools/spray/candy/texture/candycane_greens.svg" width="77.54" height="157.65"/>
-          <img id="candycane_holiday" src="/scenes/clausedraws/img/tools/spray/candy/texture/candycane_holiday.svg" width="63.69" height="143.49"/>
-          <img id="candycane_red" src="/scenes/clausedraws/img/tools/spray/candy/texture/candycane_red.svg" width="63.69" height="143.49"/>
-          <img id="candycane_reds" src="/scenes/clausedraws/img/tools/spray/candy/texture/candycane_reds.svg" width="77.54" height="157.65"/>
-          <img id="candycane_tropical" src="/scenes/clausedraws/img/tools/spray/candy/texture/candycane_tropical.svg" width="77.54" height="157.65"/>
-          <img id="candycane_holiday" src="/scenes/clausedraws/img/tools/spray/candy/texture/candycane_holiday.svg" width="28.32" height="41.85"/>
-          <img id="chocolate_gumdrop" src="/scenes/clausedraws/img/tools/spray/candy/texture/chocolate_gumdrop.svg" width="50.63" height="40.8"/>
-          <img id="chocolate_nuts" src="/scenes/clausedraws/img/tools/spray/candy/texture/chocolate_nuts.svg" width="46.19" height="46.77"/>
-          <img id="chocolate_pretzel" src="/scenes/clausedraws/img/tools/spray/candy/texture/chocolate_pretzel.svg" width="26" height="143.67"/>
-          <img id="chocolate_squiggle" src="/scenes/clausedraws/img/tools/spray/candy/texture/chocolate_squiggle.svg" width="49.17" height="41.75"/>
-          <img id="chocolate_stripes" src="/scenes/clausedraws/img/tools/spray/candy/texture/chocolate_stripes.svg" width="49.17" height="41.75"/>
-          <img id="chocolate_swirl" src="/scenes/clausedraws/img/tools/spray/candy/texture/chocolate_swirl.svg" width="44.51" height="44.66"/>
-          <img id="cookie_choc_chip" src="/scenes/clausedraws/img/tools/spray/candy/texture/cookie_choc_chip.svg" width="86.88" height="84.78"/>
-          <img id="cookie_kiss" src="/scenes/clausedraws/img/tools/spray/candy/texture/cookie_kiss.svg" width="94.83" height="44.93"/>
-          <img id="jellybean_green_dots" src="/scenes/clausedraws/img/tools/spray/candy/texture/jellybean_green_dots.svg" width="53.1" height="30.3"/>
-          <img id="jellybean_red_dots" src="/scenes/clausedraws/img/tools/spray/candy/texture/jellybean_red_dots.svg" width="53.1" height="30.3"/>
-          <img id="sprinkle_snow" src="/scenes/clausedraws/img/tools/spray/candy/texture/sprinkle_snow.svg" width="11.18" height="12.42"/>
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/candle.svg" id="candle" width="62.65" height="81.84">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/candycane_red.svg" id="candycane_red" width="42.46" height="95.66">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/cookie_man.svg" id="cookie_man" width="61.49" height="77.12">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/cookie_snowman.svg" id="cookie_snowman" width="53.33" height="76.18">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/cookie_stocking.svg" id="cookie_stocking" width="65.38" height="73.03">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/cookie_tree.svg" id="cookie_tree" width="59.79" height="73.49">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/firewood.svg" id="firewood" width="187.38" height="82.97">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/holiday_bells.svg" id="holiday_bells" width="67.24" height="37.52">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/holiday_hat.svg" id="holiday_hat" width="58.86" height="54.45">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/holiday_mitten.svg" id="holiday_mitten" width="44.13" height="67.69">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/holly.svg" id="holly" width="84.16" height="94.88">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/mug_green.svg" id="mug_green" width="82.5" height="94.26">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/mug_red.svg" id="mug_red" width="76.95" height="97.42">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/red_bow.svg" id="red_bow" width="89.67" height="102.09">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/snowglobe_snowman.svg" id="snowglobe_snowman" width="148.57" height="93.69">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/snowglobe_tree.svg" id="snowglobe_tree" width="148.57" height="93.69">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/stocking_green.svg" id="stocking_green" width="109.19" height="165.4">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/stocking_pink.svg" id="stocking_pink" width="126.69" height="190.74">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/stocking_red.svg" id="stocking_red" width="109.44" height="206.69">
-          <img src="/scenes/clausedraws/img/tools/spray/holiday/texture/stocking_yellow.svg" id="stocking_yellow" width="76.5" height="137.8">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_1.svg" id="snowflake_1" width="92.37" height="102.675">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_2.svg" id="snowflake_2" width="92.37" height="102.675">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_3.svg" id="snowflake_3" width="89.61" height="103.47">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_4.svg" id="snowflake_4" width="99.105" height="102.695">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_5.svg" id="snowflake_5" width="99.105" height="102.695">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_6.svg" id="snowflake_6" width="102.695" height="102.695">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_7.svg" id="snowflake_7" width="102.695" height="102.695">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_8.svg" id="snowflake_8" width="102.695" height="102.695">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_9.svg" id="snowflake_9" width="89.61" height="102.695">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_10.svg" id="snowflake_10" width="89.61" height="102.695">
-          <img src="/scenes/clausedraws/img/tools/spray/snowflakes/texture/snowflake_11.svg" id="snowflake_11" width="71.83" height="90.625">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/box_fish.svg" id="box_fish" width="84.97" height="60.04">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/coral_large.svg" id="coral_large" width="122.64" height="130.23">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/coral_medium.svg" id="coral_medium" width="76.8" height="68.55">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/coral_small.svg" id="coral_small" width="59.36" height="55.3">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/fish_little.svg" id="fish_little" width="60.65" height="44.57">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/fish_pink.svg" id="fish_pink" width="97.31" height="56.18">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/fish_teal.svg" id="fish_teal" width="82.06" height="33.11">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/fish_yellow.svg" id="fish_yellow" width="50.3" height="40.46">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/jellyfish.svg" id="jellyfish" width="41.71" height="47.98">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/light_fish.svg" id="light_fish" width="132.19" height="78.67">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/ocean_bubble.svg" id="ocean_bubble" width="42.67" height="42.67">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/seashell.svg" id="seashell" width="39.08" height="30.99">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/seaweed_green.svg" id="seaweed_green" width="37.79" height="37.47">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/seaweed_lime.svg" id="seaweed_lime" width="57.36" height="114.59">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/starfish.svg" id="starfish" width="38.85" height="37.14">
-          <img src="/scenes/clausedraws/img/tools/spray/ocean/texture/turtle.svg" id="turtle" width="97.83" height="96.04">
+          <img id="texture-tinsel" src="/scenes/santascanvas/img/tools/tinsel/texture.svg" width="273.36" height="328.17"/>
+          <img id="texture-icing" src="/scenes/santascanvas/img/tools/icing/texture.svg" width="382" height="382"/>
+          <img id="texture-garland" src="/scenes/santascanvas/img/tools/garland/texture.svg" width="21" height="21"/>
+          <img id="texture-bell" src="/scenes/santascanvas/img/tools/bell/texture.svg" width="301" height="384"/>
+          <img id="texture-hanging-lights1" src="/scenes/santascanvas/img/tools/hanging-lights/texture1.svg" width="281" height="699"/>
+          <img id="texture-hanging-lights2" src="/scenes/santascanvas/img/tools/hanging-lights/texture2.svg" width="281" height="473"/>
+          <img id="texture-hanging-lights3" src="/scenes/santascanvas/img/tools/hanging-lights/texture3.svg" width="281" height="586"/>
+          <img id="texture-string-lights1" src="/scenes/santascanvas/img/tools/string-lights/texture1.svg" width="172" height="172"/>
+          <img id="texture-string-lights2" src="/scenes/santascanvas/img/tools/string-lights/texture2.svg" width="172" height="172"/>
+          <img id="texture-string-lights3" src="/scenes/santascanvas/img/tools/string-lights/texture3.svg" width="172" height="172"/>
+          <img id="texture-string-lights4" src="/scenes/santascanvas/img/tools/string-lights/texture4.svg" width="172" height="172"/>
+          <img id="sprinkle2" src="/scenes/santascanvas/img/sprinkles/sprinkle2.svg" width="100" height="100"/>
+          <img id="sprinkle3" src="/scenes/santascanvas/img/sprinkles/sprinkle3.svg" width="100" height="100"/>
+          <img id="sprinkle4" src="/scenes/santascanvas/img/sprinkles/sprinkle4.svg" width="100" height="100"/>
+          <img id="sprinkle5" src="/scenes/santascanvas/img/sprinkles/sprinkle5.svg" width="100" height="100"/>
+          <img id="candycane_green" src="/scenes/santascanvas/img/tools/spray/candy/texture/candycane_green.svg" width="63.69" height="143.49"/>
+          <img id="candycane_greens" src="/scenes/santascanvas/img/tools/spray/candy/texture/candycane_greens.svg" width="77.54" height="157.65"/>
+          <img id="candycane_holiday" src="/scenes/santascanvas/img/tools/spray/candy/texture/candycane_holiday.svg" width="63.69" height="143.49"/>
+          <img id="candycane_red" src="/scenes/santascanvas/img/tools/spray/candy/texture/candycane_red.svg" width="63.69" height="143.49"/>
+          <img id="candycane_reds" src="/scenes/santascanvas/img/tools/spray/candy/texture/candycane_reds.svg" width="77.54" height="157.65"/>
+          <img id="candycane_tropical" src="/scenes/santascanvas/img/tools/spray/candy/texture/candycane_tropical.svg" width="77.54" height="157.65"/>
+          <img id="candycane_holiday" src="/scenes/santascanvas/img/tools/spray/candy/texture/candycane_holiday.svg" width="28.32" height="41.85"/>
+          <img id="chocolate_gumdrop" src="/scenes/santascanvas/img/tools/spray/candy/texture/chocolate_gumdrop.svg" width="50.63" height="40.8"/>
+          <img id="chocolate_nuts" src="/scenes/santascanvas/img/tools/spray/candy/texture/chocolate_nuts.svg" width="46.19" height="46.77"/>
+          <img id="chocolate_pretzel" src="/scenes/santascanvas/img/tools/spray/candy/texture/chocolate_pretzel.svg" width="26" height="143.67"/>
+          <img id="chocolate_squiggle" src="/scenes/santascanvas/img/tools/spray/candy/texture/chocolate_squiggle.svg" width="49.17" height="41.75"/>
+          <img id="chocolate_stripes" src="/scenes/santascanvas/img/tools/spray/candy/texture/chocolate_stripes.svg" width="49.17" height="41.75"/>
+          <img id="chocolate_swirl" src="/scenes/santascanvas/img/tools/spray/candy/texture/chocolate_swirl.svg" width="44.51" height="44.66"/>
+          <img id="cookie_choc_chip" src="/scenes/santascanvas/img/tools/spray/candy/texture/cookie_choc_chip.svg" width="86.88" height="84.78"/>
+          <img id="cookie_kiss" src="/scenes/santascanvas/img/tools/spray/candy/texture/cookie_kiss.svg" width="94.83" height="44.93"/>
+          <img id="jellybean_green_dots" src="/scenes/santascanvas/img/tools/spray/candy/texture/jellybean_green_dots.svg" width="53.1" height="30.3"/>
+          <img id="jellybean_red_dots" src="/scenes/santascanvas/img/tools/spray/candy/texture/jellybean_red_dots.svg" width="53.1" height="30.3"/>
+          <img id="sprinkle_snow" src="/scenes/santascanvas/img/tools/spray/candy/texture/sprinkle_snow.svg" width="11.18" height="12.42"/>
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/candle.svg" id="candle" width="62.65" height="81.84">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/candycane_red.svg" id="candycane_red" width="42.46" height="95.66">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/cookie_man.svg" id="cookie_man" width="61.49" height="77.12">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/cookie_snowman.svg" id="cookie_snowman" width="53.33" height="76.18">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/cookie_stocking.svg" id="cookie_stocking" width="65.38" height="73.03">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/cookie_tree.svg" id="cookie_tree" width="59.79" height="73.49">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/firewood.svg" id="firewood" width="187.38" height="82.97">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/holiday_bells.svg" id="holiday_bells" width="67.24" height="37.52">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/holiday_hat.svg" id="holiday_hat" width="58.86" height="54.45">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/holiday_mitten.svg" id="holiday_mitten" width="44.13" height="67.69">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/holly.svg" id="holly" width="84.16" height="94.88">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/mug_green.svg" id="mug_green" width="82.5" height="94.26">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/mug_red.svg" id="mug_red" width="76.95" height="97.42">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/red_bow.svg" id="red_bow" width="89.67" height="102.09">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/snowglobe_snowman.svg" id="snowglobe_snowman" width="148.57" height="93.69">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/snowglobe_tree.svg" id="snowglobe_tree" width="148.57" height="93.69">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/stocking_green.svg" id="stocking_green" width="109.19" height="165.4">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/stocking_pink.svg" id="stocking_pink" width="126.69" height="190.74">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/stocking_red.svg" id="stocking_red" width="109.44" height="206.69">
+          <img src="/scenes/santascanvas/img/tools/spray/holiday/texture/stocking_yellow.svg" id="stocking_yellow" width="76.5" height="137.8">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_1.svg" id="snowflake_1" width="92.37" height="102.675">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_2.svg" id="snowflake_2" width="92.37" height="102.675">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_3.svg" id="snowflake_3" width="89.61" height="103.47">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_4.svg" id="snowflake_4" width="99.105" height="102.695">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_5.svg" id="snowflake_5" width="99.105" height="102.695">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_6.svg" id="snowflake_6" width="102.695" height="102.695">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_7.svg" id="snowflake_7" width="102.695" height="102.695">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_8.svg" id="snowflake_8" width="102.695" height="102.695">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_9.svg" id="snowflake_9" width="89.61" height="102.695">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_10.svg" id="snowflake_10" width="89.61" height="102.695">
+          <img src="/scenes/santascanvas/img/tools/spray/snowflakes/texture/snowflake_11.svg" id="snowflake_11" width="71.83" height="90.625">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/box_fish.svg" id="box_fish" width="84.97" height="60.04">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/coral_large.svg" id="coral_large" width="122.64" height="130.23">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/coral_medium.svg" id="coral_medium" width="76.8" height="68.55">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/coral_small.svg" id="coral_small" width="59.36" height="55.3">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/fish_little.svg" id="fish_little" width="60.65" height="44.57">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/fish_pink.svg" id="fish_pink" width="97.31" height="56.18">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/fish_teal.svg" id="fish_teal" width="82.06" height="33.11">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/fish_yellow.svg" id="fish_yellow" width="50.3" height="40.46">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/jellyfish.svg" id="jellyfish" width="41.71" height="47.98">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/light_fish.svg" id="light_fish" width="132.19" height="78.67">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/ocean_bubble.svg" id="ocean_bubble" width="42.67" height="42.67">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/seashell.svg" id="seashell" width="39.08" height="30.99">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/seaweed_green.svg" id="seaweed_green" width="37.79" height="37.47">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/seaweed_lime.svg" id="seaweed_lime" width="57.36" height="114.59">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/starfish.svg" id="starfish" width="38.85" height="37.14">
+          <img src="/scenes/santascanvas/img/tools/spray/ocean/texture/turtle.svg" id="turtle" width="97.83" height="96.04">
 
-          <img id="scene-air" src="/scenes/clausedraws/img/scenes/air.png" width="1600" height="900"/>
-          <img id="scene-airport" src="/scenes/clausedraws/img/scenes/airport.png" width="1600" height="900"/>
-          <img id="scene-beach" src="/scenes/clausedraws/img/scenes/beach.png" width="1600" height="900"/>
-          <img id="scene-dock" src="/scenes/clausedraws/img/scenes/dock.png" width="1600" height="900"/>
-          <img id="scene-iceberg" src="/scenes/clausedraws/img/scenes/iceberg.png" width="1600" height="900"/>
-          <img id="scene-livingroom" src="/scenes/clausedraws/img/scenes/livingroom.png" width="1600" height="900"/>
-          <img id="scene-night" src="/scenes/clausedraws/img/scenes/night.png" width="1600" height="900"/>
-          <img id="scene-snow" src="/scenes/clausedraws/img/scenes/snow.png" width="1600" height="900"/>
-          <img id="scene-underwater" src="/scenes/clausedraws/img/scenes/underwater.png" width="1600" height="900"/>
-          <img id="roller-checkered" src="/scenes/clausedraws/img/patterns/checkered.svg" width="410.36" height="361.17"/>
-          <img id="roller-diagonal" src="/scenes/clausedraws/img/patterns/diagonal.svg" width="410.36" height="361.17"/>
-          <img id="roller-horizontal" src="/scenes/clausedraws/img/patterns/horizontal.svg" width="410.36" height="361.17"/>
-          <img id="roller-polkadots" src="/scenes/clausedraws/img/patterns/polkadots.svg" width="410.36" height="375.84"/>
-          <img id="roller-snowflakes" src="/scenes/clausedraws/img/patterns/snowflakes.svg" width="410.36" height="361.17"/>
-          <img id="roller-trees" src="/scenes/clausedraws/img/patterns/trees.svg" width="410.36" height="361.17"/>
-          <img id="roller-vertical" src="/scenes/clausedraws/img/patterns/vertical.svg" width="410.36" height="361.17"/>
-          <img id="sticker-brown-bear" src="/scenes/clausedraws/img/stickers/animals/brown-bear.svg" width="251.35" height="355"/>
-          <img id="sticker-dinosaur" src="/scenes/clausedraws/img/stickers/animals/dinosaur.svg" width="743.3" height="645"/>
-          <img id="sticker-fish-teal" src="/scenes/clausedraws/img/stickers/animals/fish-teal.svg" width="82.06" height="33.11"/>
-          <img id="sticker-fish-yellow" src="/scenes/clausedraws/img/stickers/animals/fish-yellow.svg" width="50.3" height="40.46"/>
-          <img id="sticker-gingerbread-man" src="/scenes/clausedraws/img/stickers/animals/gingerbread-man.svg" width="171.78" height="262.43"/>
-          <img id="sticker-mrs-claus" src="/scenes/clausedraws/img/stickers/people/mrs-claus.svg" width="172.02" height="330"/>
-          <img id="sticker-narwhal" src="/scenes/clausedraws/img/stickers/animals/narwhal.svg" width="1045.49" height="313.02"/>
-          <img id="sticker-penguin-hat" src="/scenes/clausedraws/img/stickers/animals/penguin-hat.svg" width="65.94" height="134.17"/>
-          <img id="sticker-penguin-presents" src="/scenes/clausedraws/img/stickers/animals/penguin-presents.svg" width="135.86" height="144.03"/>
-          <img id="sticker-rudolph-front" src="/scenes/clausedraws/img/stickers/animals/rudolph-front.svg" width="115.47" height="340.71"/>
-          <img id="sticker-rudolph-side" src="/scenes/clausedraws/img/stickers/animals/rudolph-side.svg" width="260.65" height="365.5"/>
-          <img id="sticker-santa-sled" src="/scenes/clausedraws/img/stickers/people/santa-sled.svg" width="431.88" height="345"/>
-          <img id="sticker-santa-wave" src="/scenes/clausedraws/img/stickers/people/santa-wave.svg" width="228.36" height="355"/>
-          <img id="sticker-santa" src="/scenes/clausedraws/img/stickers/people/santa.svg" width="219.17" height="355"/>
-          <img id="sticker-snow-monster" src="/scenes/clausedraws/img/stickers/animals/snow-monster.svg" width="384.52" height="567.57"/>
-          <img id="sticker-snowman-big-orange" src="/scenes/clausedraws/img/stickers/animals/snowman-big-orange.svg" width="338.28" height="730"/>
-          <img id="sticker-cactus" src="/scenes/clausedraws/img/stickers/nature/cactus.svg" width="123.7" height="256.03"/>
-          <img id="sticker-cloud1" src="/scenes/clausedraws/img/stickers/nature/cloud1.svg" width="580" height="267"/>
-          <img id="sticker-cloud2" src="/scenes/clausedraws/img/stickers/nature/cloud2.svg" width="250" height="186"/>
-          <img id="sticker-cloud3" src="/scenes/clausedraws/img/stickers/nature/cloud3.svg" width="211" height="163"/>
-          <img id="sticker-coral-large" src="/scenes/clausedraws/img/stickers/nature/coral-large.svg" width="122.64" height="130.23"/>
-          <img id="sticker-coral-medium" src="/scenes/clausedraws/img/stickers/nature/coral-medium.svg" width="76.8" height="68.55"/>
-          <img id="sticker-coral-small" src="/scenes/clausedraws/img/stickers/nature/coral-small.svg" width="59.36" height="55.3"/>
-          <img id="sticker-igloo" src="/scenes/clausedraws/img/stickers/nature/igloo.svg" width="477.76" height="200"/>
-          <img id="sticker-moon" src="/scenes/clausedraws/img/stickers/nature/moon.svg" width="397" height="391"/>
-          <img id="sticker-seaweed-green" src="/scenes/clausedraws/img/stickers/nature/seaweed-green.svg" width="37.79" height="37.47"/>
-          <img id="sticker-seaweed-lime" src="/scenes/clausedraws/img/stickers/nature/seaweed-lime.svg" width="57.36" height="114.59"/>
-          <img id="sticker-sun" src="/scenes/clausedraws/img/stickers/nature/sun.svg" width="486.9" height="492.95"/>
-          <img id="sticker-tree-holiday" src="/scenes/clausedraws/img/stickers/nature/tree-holiday.svg" width="319.54" height="615.58"/>
-          <img id="sticker-tree-palm" src="/scenes/clausedraws/img/stickers/nature/tree-palm.svg" width="387.35" height="613.82"/>
-          <img id="sticker-trees-blue" src="/scenes/clausedraws/img/stickers/nature/trees-blue.svg" width="380.26" height="430"/>
-          <img id="sticker-trees-green" src="/scenes/clausedraws/img/stickers/nature/trees-green.svg" width="434.39" height="430"/>
-          <img id="sticker-beach-ball" src="/scenes/clausedraws/img/stickers/decorations/beach-ball.svg" width="119.02" height="119"/>
-          <img id="sticker-bell" src="/scenes/clausedraws/img/stickers/decorations/bell.svg" width="138.58" height="153.18"/>
-          <img id="sticker-candle" src="/scenes/clausedraws/img/stickers/decorations/candle.svg" width="62.65" height="81.84"/>
-          <img id="sticker-clock" src="/scenes/clausedraws/img/stickers/decorations/clock.svg" width="160.87" height="160.87"/>
-          <img id="sticker-disco-ball" src="/scenes/clausedraws/img/stickers/decorations/disco-ball.svg" width="170.11" height="350.89"/>
-          <img id="sticker-firewood" src="/scenes/clausedraws/img/stickers/decorations/firewood.svg" width="187.38" height="82.97"/>
-          <img id="sticker-frame1" src="/scenes/clausedraws/img/stickers/decorations/frame1.svg" width="186.17" height="146.83"/>
-          <img id="sticker-frame2" src="/scenes/clausedraws/img/stickers/decorations/frame2.svg" width="279.07" height="143.39"/>
-          <img id="sticker-frame3" src="/scenes/clausedraws/img/stickers/decorations/frame3.svg" width="87.38" height="82.95"/>
-          <img id="sticker-holly" src="/scenes/clausedraws/img/stickers/decorations/holly.svg" width="84.16" height="94.88"/>
-          <img id="sticker-presents-stack" src="/scenes/clausedraws/img/stickers/decorations/presents-stack.svg" width="426.59" height="251.88"/>
-          <img id="sticker-record-player" src="/scenes/clausedraws/img/stickers/decorations/record-player.svg" width="183.3" height="214.41"/>
-          <img id="sticker-red-bow" src="/scenes/clausedraws/img/stickers/decorations/red-bow.svg" width="89.67" height="102.09"/>
-          <img id="sticker-show-lights" src="/scenes/clausedraws/img/stickers/decorations/show-lights.svg" width="768.73" height="431.74"/>
-          <img id="sticker-snowglobe-snowman" src="/scenes/clausedraws/img/stickers/decorations/snowglobe-snowman.svg" width="148.57" height="93.69"/>
-          <img id="sticker-snowglobe-tree" src="/scenes/clausedraws/img/stickers/decorations/snowglobe-tree.svg" width="148.57" height="93.69"/>
-          <img id="sticker-stereo" src="/scenes/clausedraws/img/stickers/decorations/stereo.svg" width="97.34" height="185.27"/>
-          <img id="sticker-stocking-green" src="/scenes/clausedraws/img/stickers/decorations/stocking-green.svg" width="109.19" height="165.4"/>
-          <img id="sticker-stocking-pink" src="/scenes/clausedraws/img/stickers/decorations/stocking-pink.svg" width="126.69" height="190.74"/>
-          <img id="sticker-stocking-red" src="/scenes/clausedraws/img/stickers/decorations/stocking-red.svg" width="109.44" height="206.69"/>
-          <img id="sticker-stocking-yellow" src="/scenes/clausedraws/img/stickers/decorations/stocking-yellow.svg" width="76.5" height="137.8"/>
-          <img id="sticker-treasure-closed" src="/scenes/clausedraws/img/stickers/decorations/treasure-closed.svg" width="194.21" height="113.32"/>
-          <img id="sticker-treasure-open" src="/scenes/clausedraws/img/stickers/decorations/treasure-open.svg" width="226.22" height="142.58"/>
-          <img id="sticker-window" src="/scenes/clausedraws/img/stickers/decorations/window.svg" width="271.51" height="369.76"/>
-          <img id="sticker-wreath" src="/scenes/clausedraws/img/stickers/decorations/wreath.svg" width="178.19" height="215.43"/>
-          <img id="sticker-elf1" src="/scenes/clausedraws/img/stickers/people/elf1.svg" width="128.11" height="236.99"/>
-          <img id="sticker-elf7" src="/scenes/clausedraws/img/stickers/people/elf7.svg" width="131.93" height="257.54"/>
-          <img id="sticker-candycane-green" src="/scenes/clausedraws/img/stickers/food/candycane-green.svg" width="128.11" height="236.99"/>
-          <img id="sticker-cookie-choc-chip" src="/scenes/clausedraws/img/stickers/food/cookie-choc-chip.svg" width="57.92" height="56.52"/>
-          <img id="sticker-cookie-man" src="/scenes/clausedraws/img/stickers/food/cookie-man.svg" width="61.49" height="77.12"/>
-          <img id="sticker-face-eyes-glasses1" src="/scenes/clausedraws/img/stickers/silly/face-eyes-glasses1.svg" width="157.59" height="54.28"/>
-          <img id="sticker-face-mouth-black" src="/scenes/clausedraws/img/stickers/silly/face-mouth-black.svg" width="90.46" height="45.23"/>
-          <img id="sticker-hat-blue" src="/scenes/clausedraws/img/stickers/silly/hat-blue.svg" width="199.27" height="255.97"/>
-          <img id="sticker-head-elf-hair2" src="/scenes/clausedraws/img/stickers/silly/head-elf-hair2.svg" width="205.4" height="176.54"/>
+          <img id="scene-air" src="/scenes/santascanvas/img/scenes/air.png" width="1600" height="900"/>
+          <img id="scene-airport" src="/scenes/santascanvas/img/scenes/airport.png" width="1600" height="900"/>
+          <img id="scene-beach" src="/scenes/santascanvas/img/scenes/beach.png" width="1600" height="900"/>
+          <img id="scene-dock" src="/scenes/santascanvas/img/scenes/dock.png" width="1600" height="900"/>
+          <img id="scene-iceberg" src="/scenes/santascanvas/img/scenes/iceberg.png" width="1600" height="900"/>
+          <img id="scene-livingroom" src="/scenes/santascanvas/img/scenes/livingroom.png" width="1600" height="900"/>
+          <img id="scene-night" src="/scenes/santascanvas/img/scenes/night.png" width="1600" height="900"/>
+          <img id="scene-snow" src="/scenes/santascanvas/img/scenes/snow.png" width="1600" height="900"/>
+          <img id="scene-underwater" src="/scenes/santascanvas/img/scenes/underwater.png" width="1600" height="900"/>
+          <img id="roller-checkered" src="/scenes/santascanvas/img/patterns/checkered.svg" width="410.36" height="361.17"/>
+          <img id="roller-diagonal" src="/scenes/santascanvas/img/patterns/diagonal.svg" width="410.36" height="361.17"/>
+          <img id="roller-horizontal" src="/scenes/santascanvas/img/patterns/horizontal.svg" width="410.36" height="361.17"/>
+          <img id="roller-polkadots" src="/scenes/santascanvas/img/patterns/polkadots.svg" width="410.36" height="375.84"/>
+          <img id="roller-snowflakes" src="/scenes/santascanvas/img/patterns/snowflakes.svg" width="410.36" height="361.17"/>
+          <img id="roller-trees" src="/scenes/santascanvas/img/patterns/trees.svg" width="410.36" height="361.17"/>
+          <img id="roller-vertical" src="/scenes/santascanvas/img/patterns/vertical.svg" width="410.36" height="361.17"/>
+          <img id="sticker-brown-bear" src="/scenes/santascanvas/img/stickers/animals/brown-bear.svg" width="251.35" height="355"/>
+          <img id="sticker-dinosaur" src="/scenes/santascanvas/img/stickers/animals/dinosaur.svg" width="743.3" height="645"/>
+          <img id="sticker-fish-teal" src="/scenes/santascanvas/img/stickers/animals/fish-teal.svg" width="82.06" height="33.11"/>
+          <img id="sticker-fish-yellow" src="/scenes/santascanvas/img/stickers/animals/fish-yellow.svg" width="50.3" height="40.46"/>
+          <img id="sticker-gingerbread-man" src="/scenes/santascanvas/img/stickers/animals/gingerbread-man.svg" width="171.78" height="262.43"/>
+          <img id="sticker-mrs-claus" src="/scenes/santascanvas/img/stickers/people/mrs-claus.svg" width="172.02" height="330"/>
+          <img id="sticker-narwhal" src="/scenes/santascanvas/img/stickers/animals/narwhal.svg" width="1045.49" height="313.02"/>
+          <img id="sticker-penguin-hat" src="/scenes/santascanvas/img/stickers/animals/penguin-hat.svg" width="65.94" height="134.17"/>
+          <img id="sticker-penguin-presents" src="/scenes/santascanvas/img/stickers/animals/penguin-presents.svg" width="135.86" height="144.03"/>
+          <img id="sticker-rudolph-front" src="/scenes/santascanvas/img/stickers/animals/rudolph-front.svg" width="115.47" height="340.71"/>
+          <img id="sticker-rudolph-side" src="/scenes/santascanvas/img/stickers/animals/rudolph-side.svg" width="260.65" height="365.5"/>
+          <img id="sticker-santa-sled" src="/scenes/santascanvas/img/stickers/people/santa-sled.svg" width="431.88" height="345"/>
+          <img id="sticker-santa-wave" src="/scenes/santascanvas/img/stickers/people/santa-wave.svg" width="228.36" height="355"/>
+          <img id="sticker-santa" src="/scenes/santascanvas/img/stickers/people/santa.svg" width="219.17" height="355"/>
+          <img id="sticker-snow-monster" src="/scenes/santascanvas/img/stickers/animals/snow-monster.svg" width="384.52" height="567.57"/>
+          <img id="sticker-snowman-big-orange" src="/scenes/santascanvas/img/stickers/animals/snowman-big-orange.svg" width="338.28" height="730"/>
+          <img id="sticker-cactus" src="/scenes/santascanvas/img/stickers/nature/cactus.svg" width="123.7" height="256.03"/>
+          <img id="sticker-cloud1" src="/scenes/santascanvas/img/stickers/nature/cloud1.svg" width="580" height="267"/>
+          <img id="sticker-cloud2" src="/scenes/santascanvas/img/stickers/nature/cloud2.svg" width="250" height="186"/>
+          <img id="sticker-cloud3" src="/scenes/santascanvas/img/stickers/nature/cloud3.svg" width="211" height="163"/>
+          <img id="sticker-coral-large" src="/scenes/santascanvas/img/stickers/nature/coral-large.svg" width="122.64" height="130.23"/>
+          <img id="sticker-coral-medium" src="/scenes/santascanvas/img/stickers/nature/coral-medium.svg" width="76.8" height="68.55"/>
+          <img id="sticker-coral-small" src="/scenes/santascanvas/img/stickers/nature/coral-small.svg" width="59.36" height="55.3"/>
+          <img id="sticker-igloo" src="/scenes/santascanvas/img/stickers/nature/igloo.svg" width="477.76" height="200"/>
+          <img id="sticker-moon" src="/scenes/santascanvas/img/stickers/nature/moon.svg" width="397" height="391"/>
+          <img id="sticker-seaweed-green" src="/scenes/santascanvas/img/stickers/nature/seaweed-green.svg" width="37.79" height="37.47"/>
+          <img id="sticker-seaweed-lime" src="/scenes/santascanvas/img/stickers/nature/seaweed-lime.svg" width="57.36" height="114.59"/>
+          <img id="sticker-sun" src="/scenes/santascanvas/img/stickers/nature/sun.svg" width="486.9" height="492.95"/>
+          <img id="sticker-tree-holiday" src="/scenes/santascanvas/img/stickers/nature/tree-holiday.svg" width="319.54" height="615.58"/>
+          <img id="sticker-tree-palm" src="/scenes/santascanvas/img/stickers/nature/tree-palm.svg" width="387.35" height="613.82"/>
+          <img id="sticker-trees-blue" src="/scenes/santascanvas/img/stickers/nature/trees-blue.svg" width="380.26" height="430"/>
+          <img id="sticker-trees-green" src="/scenes/santascanvas/img/stickers/nature/trees-green.svg" width="434.39" height="430"/>
+          <img id="sticker-beach-ball" src="/scenes/santascanvas/img/stickers/decorations/beach-ball.svg" width="119.02" height="119"/>
+          <img id="sticker-bell" src="/scenes/santascanvas/img/stickers/decorations/bell.svg" width="138.58" height="153.18"/>
+          <img id="sticker-candle" src="/scenes/santascanvas/img/stickers/decorations/candle.svg" width="62.65" height="81.84"/>
+          <img id="sticker-clock" src="/scenes/santascanvas/img/stickers/decorations/clock.svg" width="160.87" height="160.87"/>
+          <img id="sticker-disco-ball" src="/scenes/santascanvas/img/stickers/decorations/disco-ball.svg" width="170.11" height="350.89"/>
+          <img id="sticker-firewood" src="/scenes/santascanvas/img/stickers/decorations/firewood.svg" width="187.38" height="82.97"/>
+          <img id="sticker-frame1" src="/scenes/santascanvas/img/stickers/decorations/frame1.svg" width="186.17" height="146.83"/>
+          <img id="sticker-frame2" src="/scenes/santascanvas/img/stickers/decorations/frame2.svg" width="279.07" height="143.39"/>
+          <img id="sticker-frame3" src="/scenes/santascanvas/img/stickers/decorations/frame3.svg" width="87.38" height="82.95"/>
+          <img id="sticker-holly" src="/scenes/santascanvas/img/stickers/decorations/holly.svg" width="84.16" height="94.88"/>
+          <img id="sticker-presents-stack" src="/scenes/santascanvas/img/stickers/decorations/presents-stack.svg" width="426.59" height="251.88"/>
+          <img id="sticker-record-player" src="/scenes/santascanvas/img/stickers/decorations/record-player.svg" width="183.3" height="214.41"/>
+          <img id="sticker-red-bow" src="/scenes/santascanvas/img/stickers/decorations/red-bow.svg" width="89.67" height="102.09"/>
+          <img id="sticker-show-lights" src="/scenes/santascanvas/img/stickers/decorations/show-lights.svg" width="768.73" height="431.74"/>
+          <img id="sticker-snowglobe-snowman" src="/scenes/santascanvas/img/stickers/decorations/snowglobe-snowman.svg" width="148.57" height="93.69"/>
+          <img id="sticker-snowglobe-tree" src="/scenes/santascanvas/img/stickers/decorations/snowglobe-tree.svg" width="148.57" height="93.69"/>
+          <img id="sticker-stereo" src="/scenes/santascanvas/img/stickers/decorations/stereo.svg" width="97.34" height="185.27"/>
+          <img id="sticker-stocking-green" src="/scenes/santascanvas/img/stickers/decorations/stocking-green.svg" width="109.19" height="165.4"/>
+          <img id="sticker-stocking-pink" src="/scenes/santascanvas/img/stickers/decorations/stocking-pink.svg" width="126.69" height="190.74"/>
+          <img id="sticker-stocking-red" src="/scenes/santascanvas/img/stickers/decorations/stocking-red.svg" width="109.44" height="206.69"/>
+          <img id="sticker-stocking-yellow" src="/scenes/santascanvas/img/stickers/decorations/stocking-yellow.svg" width="76.5" height="137.8"/>
+          <img id="sticker-treasure-closed" src="/scenes/santascanvas/img/stickers/decorations/treasure-closed.svg" width="194.21" height="113.32"/>
+          <img id="sticker-treasure-open" src="/scenes/santascanvas/img/stickers/decorations/treasure-open.svg" width="226.22" height="142.58"/>
+          <img id="sticker-window" src="/scenes/santascanvas/img/stickers/decorations/window.svg" width="271.51" height="369.76"/>
+          <img id="sticker-wreath" src="/scenes/santascanvas/img/stickers/decorations/wreath.svg" width="178.19" height="215.43"/>
+          <img id="sticker-elf1" src="/scenes/santascanvas/img/stickers/people/elf1.svg" width="128.11" height="236.99"/>
+          <img id="sticker-elf7" src="/scenes/santascanvas/img/stickers/people/elf7.svg" width="131.93" height="257.54"/>
+          <img id="sticker-candycane-green" src="/scenes/santascanvas/img/stickers/food/candycane-green.svg" width="128.11" height="236.99"/>
+          <img id="sticker-cookie-choc-chip" src="/scenes/santascanvas/img/stickers/food/cookie-choc-chip.svg" width="57.92" height="56.52"/>
+          <img id="sticker-cookie-man" src="/scenes/santascanvas/img/stickers/food/cookie-man.svg" width="61.49" height="77.12"/>
+          <img id="sticker-face-eyes-glasses1" src="/scenes/santascanvas/img/stickers/silly/face-eyes-glasses1.svg" width="157.59" height="54.28"/>
+          <img id="sticker-face-mouth-black" src="/scenes/santascanvas/img/stickers/silly/face-mouth-black.svg" width="90.46" height="45.23"/>
+          <img id="sticker-hat-blue" src="/scenes/santascanvas/img/stickers/silly/hat-blue.svg" width="199.27" height="255.97"/>
+          <img id="sticker-head-elf-hair2" src="/scenes/santascanvas/img/stickers/silly/head-elf-hair2.svg" width="205.4" height="176.54"/>
           <canvas id="pattern-canvas"></canvas>
           <canvas id="save-canvas"></canvas>
           <canvas id="back-backup"></canvas>
@@ -896,7 +896,7 @@ Santaselfie scene.
 <script>
 (function() {
   Polymer({
-    is: 'clausedraws-scene',
+    is: 'santascanvas-scene',
     behaviors: [window.SantaSceneBehavior],
     game: null,
 
@@ -922,9 +922,9 @@ Santaselfie scene.
     },
 
     onShow: function() {
-      var module = this.$['module-clausedraws'];
+      var module = this.$['module-santascanvas'];
 
-      this.game = new scenes.clausedraws.Game(module);
+      this.game = new scenes.santascanvas.Game(module);
       this.game.start();
       this.fire('sound-ambient', 'selfie_start');
       this.fire('sound-ambient', 'music_start_ingame');

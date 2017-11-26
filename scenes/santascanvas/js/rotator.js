@@ -25,9 +25,9 @@ app.Rotator = function($elem) {
   this.rotateR = this.elem.find('[data-rotate-right]');
   this.rotateL = this.elem.find('[data-rotate-left]');
 
-  this.rotateR.on('click.clausedraws touchend.clausedraws',
+  this.rotateR.on('click.santascanvas touchend.santascanvas',
       this.rotate.bind(this, 1));
-  this.rotateL.on('click.clausedraws touchend.clausedraws',
+  this.rotateL.on('click.santascanvas touchend.santascanvas',
       this.rotate.bind(this, -1));
 };
 

@@ -47,15 +47,13 @@ module.exports = {
     msgid: 'scene_callfromsanta',
     entryPoint: 'app.Scene'
   },
-  clausdraws: {
-  },
   citylights: {
     msgid: 'scene_citylights',
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
-  clausedraws: {
-    msgid: 'scene_clausedraws',
+  santascanvas: {
+    msgid: 'scene_santascanvas',
     entryPoint: 'app.Game'
   },
   codeboogie: {
