@@ -178,9 +178,7 @@ Polymer({
       console.warn('couldn\'t shorten URL', err);
     }).then((url) => {
       if (this.shareUrl !== newValue) { return; }
-      url = url || this.shareUrl;  // fallback to original
-
-      this._setShortShareUrl(shortUrl);
+      this._setShortShareUrl(url || this.shareUrl);
       this._selectUrl();
     });
   },

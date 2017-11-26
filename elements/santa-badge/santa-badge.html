@@ -99,12 +99,6 @@ specific language governing permissions and limitations under the License.
         value: null,
       },
 
-      /** The logo to show in the feature if there is no time. */
-      logoUrl: {
-        type: String,
-        value: null,
-      },
-
       /** Whether to show the level indicator (for mobile). Set by _levelChanged. */
       _levelActive: {
         type: Boolean,
@@ -115,7 +109,8 @@ specific language governing permissions and limitations under the License.
 
     _computeBackgroundStyle: function(logoUrl) {
       if (logoUrl) {
-        return 'background-image: url(' + this.resolveUrl('../../' + logoUrl) + ')';
+        const resolved = this.resolveUrl('../../' + logoUrl);
+        return `background-image: url(${resolved})`;
       }
       return null;
     },
