@@ -311,17 +311,17 @@ Polymer({
       height: '100%',
       playerVars: vars,
       events: {
-        onReady: function(ev) {
+        onReady: (ev) => {
           this._player = player;
-        }.bind(this),
-        onStateChange: function(ev) {
+        },
+        onStateChange: (ev) => {
           this._youtubeStateChange(ev.data);
-        }.bind(this),
-        onError: function(ev) {
+        },
+        onError: (ev) => {
           if (this._hasVideoUrl) {
             this.fire('youtube-error', ev);
           }
-        }.bind(this),
+        },
       },
     });
     // don't save player: wait for onReady to be called

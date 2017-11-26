@@ -403,15 +403,13 @@ Santa Tracker app.
 <script>
 (function() {
 
-var META_THEME = document.head.querySelector('meta[name="theme-color"]')
+const META_THEME = document.head.querySelector('meta[name="theme-color"]')
     || document.createElement('meta');
-var META_THEME_DEFAULT = META_THEME.content;
+const META_THEME_DEFAULT = META_THEME.content;
+const TRACKER_ROUTE = 'tracker';
+const ANALYTICS = new Analytics();
 
-var TRACKER_ROUTE = 'tracker';
-
-var ANALYTICS = new Analytics();
-
-var messagePort;
+let messagePort;
 
 Polymer({
   is: 'santa-app',
@@ -425,7 +423,7 @@ Polymer({
     headerSize: {
       type: Number,
       readOnly: true,
-      value: 44
+      value: 44,
     },
 
     /**
@@ -453,7 +451,7 @@ Polymer({
     todayHouse: {
       type: String,
       value: '',
-      notify: true
+      notify: true,
     },
 
     /**
@@ -505,7 +503,7 @@ Polymer({
     language: {
       type: String,
       readOnly: true,
-      value: document.documentElement.lang || 'en'
+      value: () => document.documentElement.lang || 'en',
     },
 
     /**
@@ -514,7 +512,7 @@ Polymer({
     selectedScene: {
       type: Element,
       observer: '_selectedSceneChanged',
-      value: null
+      value: null,
     },
 
     /**
@@ -594,7 +592,7 @@ Polymer({
     shareOptions: {
       type: Array,
       value: function() {
-        var options = navigator.share ? ['webshare'] : ['gplus', 'twitter', 'facebook'];
+        const options = navigator.share ? ['webshare'] : ['gplus', 'twitter', 'facebook'];
         return Object.freeze(options);
       },
       readOnly: true,
@@ -640,10 +638,10 @@ Polymer({
     // _currentTimeChanged can actually be invoked before ready: is called.
     // TODO(samthor): This could be moved outside `santa-app`, it doesn't use any state.
 
-    var portalMode = getUrlParameter('mode') === 'web_portal';
-    var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
+    const portalMode = getUrlParameter('mode') === 'web_portal';
+    const ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
 
-    for (var i = 0, house; house = window.HOUSES[i]; ++i) {
+    for (let i = 0, house; house = window.HOUSES[i]; ++i) {
       house.disabled = false;
       house.locked = !window.DEV;  // initial state
       switch (house.module) {
@@ -665,8 +663,8 @@ Polymer({
 
     // Don't load sounds in Cast mode.
     if (!this.omitSantaChrome(this.mode)) {
-      var staticUrl = this.resolveUrl('../../');
-      var sc = new SoundController(staticUrl);
+      const staticUrl = this.resolveUrl('../../');
+      const sc = new SoundController(staticUrl);
       this.addEventListener('sound-preload', (ev) => {
         // call SoundController, which returns a Promise, which we can add to the source.
         // nb. This breaks the sound-preload abstraction a bit, but works fine.
@@ -680,23 +678,23 @@ Polymer({
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
 
-    var handler = function() {
-      this._setPageInBackground(document.hidden || false);
-    }.bind(this);
+    const handler = () => this._setPageInBackground(document.hidden || false);
     document.addEventListener('visibilitychange', handler);
     handler();
   },
 
   attached: function() {
-    if (this.route === undefined) {
-      var route = this.defaultRoute;
-      if (window.location.hash) {
-        // drop old query #foo?blah=1...
-        var parts = window.location.hash.substr(1).split('?');
-        route = parts[0] || route;
-      }
-      this.$.lazypages.load(route);
+    if (this.route !== undefined) {
+      return;
     }
+
+    let route = this.defaultRoute;
+    if (window.location.hash) {
+      // drop old query #foo?blah=1...
+      const parts = window.location.hash.substr(1).split('?');
+      route = parts[0] || route;
+    }
+    this.$.lazypages.load(route);
   },
 
   detached: function() {
@@ -704,9 +702,7 @@ Polymer({
   },
 
   onClick: function(ev) {
-    var link = ev.composedPath().filter(function(el) {
-      return el.localName === 'a' && el.href;
-    })[0];
+    const link = ev.composedPath().filter((el) => el.localName === 'a' && el.href)[0];
     if (!link) { return; }
 
     // Ignore if a reload was requested. Allow the new page to load naturally!
@@ -719,19 +715,19 @@ Polymer({
     if (ev.ctrlKey || ev.metaKey || ev.which > 1) { return; }
 
     // Check domain/origin/etc.
-    var targetUrl = new URL(link.href);
+    const targetUrl = new URL(link.href);
     if (targetUrl.origin !== window.location.origin) { return; }
 
     // Check the URLs have the same dirname (e.g. "/foo/bar/" vs "/foo/bar/zing.html").
-    var lastSlash = window.location.pathname.lastIndexOf('/');
+    const lastSlash = window.location.pathname.lastIndexOf('/');
     if (targetUrl.pathname.lastIndexOf('/') !== lastSlash) { return; }
 
     // Pull out either the flat "/", or "/foo.html" at this path.
-    var m = /\/(?:(\w+)\.html|)$/.exec(targetUrl.pathname.substr(lastSlash));
+    const m = /\/(?:(\w+)\.html|)$/.exec(targetUrl.pathname.substr(lastSlash));
     if (!m) { return; }
 
     // Set the route. Hooray! \o/
-    var route = m[1] || this.defaultRoute;
+    const route = m[1] || this.defaultRoute;
     if (this.route === route) {
       this._defaultAction();
     }
@@ -759,7 +755,7 @@ Polymer({
 
     // Update the `santa-video` element that acts on behalf of `video-scene`.
     // TODO(samthor): Move this to a different helper.
-    var v = this.$.video;
+    const v = this.$.video;
     if (newValue && newValue.localName === 'video-scene') {
       v.classList.add('scene');
       v.controls = false;
@@ -804,7 +800,7 @@ Polymer({
     scene = scene || document.createElement('empty-scene');
 
     // Update custom colors and themes.
-    var headerColor = scene.getAttribute('header-color');
+    const headerColor = scene.getAttribute('header-color');
     this.updateStyles({
       '--santa-header-color': headerColor,
       '--santa-feature-color': scene.getAttribute('feature-color'),
@@ -824,8 +820,8 @@ Polymer({
 
     // Optionally update the document title (with emoji/scene name).
     if (this.routing) {
-      var raw = scene.getAttribute('icon');
-      var icon = '';
+      const raw = scene.getAttribute('icon');
+      let icon = '';
       if (raw && String.fromCodePoint) {  // no emoji on IE11
         icon = String.fromCodePoint(parseInt(raw, 16));
 
@@ -839,7 +835,7 @@ Polymer({
   },
 
   onBeforeLoad: function(ev) {
-    var route = ev.detail;
+    const route = ev.detail;
 
     if (this.sceneIsOpen(route) === false) {
       if (!window.DEV) {
@@ -863,7 +859,7 @@ Polymer({
     this.userPause = false;
     this.$.overlay.reset();
 
-    var scene = this.selectedScene;
+    const scene = this.selectedScene;
     if (scene) {
       if ('pause' in scene) {
         this.$.chrome.hasGameButtons = true;
@@ -881,7 +877,7 @@ Polymer({
     this.userPause = false;
     this.$.overlay.reset();
 
-    var scene = this.selectedScene;
+    const scene = this.selectedScene;
     if (scene) {
       scene.playExtra && scene.playExtra();
     }
@@ -896,7 +892,7 @@ Polymer({
   onStopGame: function(event, detail) {
     this.$.chrome.hasGameButtons = false;
 
-    var o = this.$.overlay;
+    const o = this.$.overlay;
     detail = detail || {};
     o.score = 'score' in detail ? detail.score : null;  // allow zero
     o.playExtra = detail.hasPlayExtra || false;
@@ -917,7 +913,7 @@ Polymer({
   },
 
   _pauseChanged: function(pause) {
-    var scene = this.selectedScene;
+    const scene = this.selectedScene;
     if (scene && 'pause' in scene) {  // nb. does it implement SantaSceneGameButtonsBehavior
       scene.pause = pause;
     }
@@ -968,7 +964,7 @@ Polymer({
 
   unlockAllHouses: function() {
     window.ga('send', 'event', 'Routing', 'unlockAllHouses');
-    for (var i = 0, house; house = this.houses[i]; ++i) {
+    for (let i = 0, house; house = this.houses[i]; ++i) {
       house.locked = false;
     }
     if (this.scheduleChecked) {
@@ -997,19 +993,19 @@ Polymer({
       return false;  // special-case tracker, as it's open only when Santa is in flight
     }
 
-    var targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
-    var dateNow = new Date(this.currentTime);
-    var userOffset = dateNow.getTimezoneOffset() * 60000;
-    var eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
+    const targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
+    const dateNow = new Date(this.currentTime);
+    const userOffset = dateNow.getTimezoneOffset() * 60000;
+    const eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
 
-    for (var i = 0, house; house = this.houses[i]; ++i) {
+    for (let i = 0, house; house = this.houses[i]; ++i) {
       if (house.module === sceneName) {
         if (house.disabled) {
           return false;
         } else if (house.edu || !house.locked) {
           return true;
         }
-        var launchDate = house.launchDate;
+        let launchDate = house.launchDate;
         if (santaApp.mode == 'portal' && house.portalLaunchDate) {
           launchDate = house.portalLaunchDate;
         }
@@ -1025,16 +1021,16 @@ Polymer({
    * @private
    */
   _updateLock: function(currentTime, scheduleChecked) {
-    var todayDate = new Date(this.currentTime || Date.now());
-    var todayHouse = '';
-    var change = false;
+    const todayDate = new Date(this.currentTime || Date.now());
+    let todayHouse = '';
+    let change = false;
 
     switch (todayDate.getMonth()) {
       case 0:  // January
         // fall-through to December logic
       case 11: // December
-        for (var i = 0, house; house = this.houses[i]; ++i) {
-          var launchDate = house.launchDate;
+        for (let i = 0, house; house = this.houses[i]; ++i) {
+          let launchDate = house.launchDate;
           if (santaApp.mode == 'portal' && house.portalLaunchDate) {
             launchDate = house.portalLaunchDate;
           }
@@ -1042,7 +1038,7 @@ Polymer({
             todayHouse = house.module;
           }
           if (this.scheduleChecked) {
-            var locked = (launchDate > todayDate);
+            const locked = (launchDate > todayDate);
             if (house.locked !== locked) {
               change = true;
               house.locked = locked;
@@ -1052,7 +1048,7 @@ Polymer({
         break;
       default:
         if (this.scheduleChecked) {
-          for (var i = 0, house; house = this.houses[i]; ++i) {
+          for (let i = 0, house; house = this.houses[i]; ++i) {
             if (!house.locked) {
               change = true;
               house.locked = true;
@@ -1076,7 +1072,7 @@ Polymer({
         break;
       case 'enter':
         // TODO(samthor): Clean up ugly state machine.
-        var scene = this.selectedScene;
+        const scene = this.selectedScene;
         if (scene && 'pause' in scene && !this.$.chrome.hasGameButtons && this.$.overlay.pregame) {
           this.onStartGame();
         }
@@ -1090,7 +1086,7 @@ Polymer({
    * @return {boolean} whether no action was performed
    */
   _defaultAction: function() {
-    var action = false;
+    let action = false;
 
     if (this.$.chrome.closeDrawer()) {
       action = true;
@@ -1115,11 +1111,11 @@ Polymer({
    * detail of event).
    */
   onShare: function(e, detail) {
-    var network = detail.network;
-    var url = detail.url || window.location.href;
-    var route = this.route || '';
-    var title = this.$.strings.s('scene-' + route) || this.$.strings.s('santatracker') || '';
-    var hashtags = ['santatracker'];
+    const network = detail.network;
+    const url = detail.url || window.location.href;
+    const route = this.route || '';
+    const hashtags = ['santatracker'];
+    let title = this.$.strings.s(`scene-${route}`) || this.$.strings.s('santatracker') || '';
 
     switch (route) {
     case 'snowflake':
@@ -1133,11 +1129,11 @@ Polymer({
 
     window.ga('send', 'social', network, 'share', '/' + route);
 
-    var shareUrl = this._findShareUrl(network, url, hashtags, title);
+    const shareUrl = this._findShareUrl(network, url, hashtags, title);
     if (network === 'webshare' && navigator.share) {
       navigator.share({title: title, url: url});
     } else if (shareUrl) {
-      var opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
+      const opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
       window.open(shareUrl, '', opts);
     }
   },
@@ -1146,24 +1142,24 @@ Polymer({
    * Returns the URL to popup open in response to a sharing action.
    */
   _findShareUrl: function(network, url, hashtags, title) {
-    var enc = window.encodeURIComponent(url);
+    const enc = window.encodeURIComponent(url);
 
     switch (network) {
     case 'gplus':
-      var out = 'https://plus.google.com/share?url=' + enc;
+      let out = `https://plus.google.com/share?url=${enc}`;
       if (window.requestLang) {
-        out += '&hl=' + window.requestLang;
+        out += `&hl=${window.requestLang}`;
       }
       return out;
     case 'twitter':
-      var out = 'https://twitter.com/intent/tweet?hashtags=' + hashtags.join(',') + '&text=' +
-          window.encodeURIComponent(title) + '&url=' + enc;
+      let out = `https://twitter.com/intent/tweet?hashtags=${hashtags.join(',')}&text=` +
+          window.encodeURIComponent(title) + `&url=${enc}`;
       if (window.requestLang) {
-        out += '&lang=' + window.requestLang;
+        out += `&hl=${window.requestLang}`;
       }
       return out;
     case 'facebook':
-      return 'https://facebook.com/sharer.php?p[url]=' + enc;
+      return `https://facebook.com/sharer.php?p[url]=${enc}`;
     }
   },
 
@@ -1175,7 +1171,7 @@ Polymer({
    * Returns the (static) color for the given route. Returns the blank string if there is no color.
    */
   colorForRoute: function(route) {
-    var draft = this.$.lazypages.getDraft(route);
+    const draft = this.$.lazypages.getDraft(route);
     return draft && draft.getAttribute('header-color') || '';
   },
 

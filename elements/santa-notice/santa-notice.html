@@ -82,7 +82,7 @@ specific language governing permissions and limitations under the License.
 window.santaService.addListener('sync', function cb() {
   window.santaService.removeListener('sync', cb);
 
-  var KEY = 'cookie-ok';
+  const KEY = 'cookie-ok';
   if (!window.santaService.getUserInEurope() || window.localStorage.getItem(KEY)) {
     return;  // never declare Polymer element
   }

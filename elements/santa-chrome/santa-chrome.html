@@ -138,7 +138,7 @@ specific language governing permissions and limitations under the License.
        */
       mute: {
         type: Boolean,
-        value: function() { return !!window.DEV; },
+        value: () => !!window.DEV,
         notify: true,
       },
 

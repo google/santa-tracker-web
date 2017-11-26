@@ -112,24 +112,24 @@ as opposed to at compile time.
 (function() {
 'use strict';
 
-var s = document._currentScript || document.currentScript;
-var source = s.ownerDocument.getElementById('santa-strings-source');
+const s = document._currentScript || document.currentScript;
+const source = s.ownerDocument.getElementById('santa-strings-source');
 
 function buildTable() {
   if (!source) {
     throw new Error('could not found `santa-strings-source` element');
   }
-  var table = {};
-  var all = source.children;
-  for (var x, i = 0; x = all[i]; ++i) {
-    var msgid = x.getAttribute('msgid');
+  const table = {};
+  const all = source.children;
+  for (let x, i = 0; x = all[i]; ++i) {
+    const msgid = x.getAttribute('msgid');
     table[msgid] = x.textContent;
   }
   return Object.freeze(table);
 }
 
-var instances = null;
-var table = undefined;
+let instances = null;
+let table = undefined;
 
 // In prod, the strings are just physically in the page so build the table immediately. Otherwise,
 // record instances and wait until the element is ready to create the table.
@@ -150,7 +150,7 @@ Polymer({
     strings: {
       type: Object,
       readOnly: true,
-      value: function() { return table; },
+      value: () => table,
       notify: true,
     },
 
@@ -178,9 +178,7 @@ Polymer({
     }
 
     table = buildTable();
-    instances.forEach(function(instance) {
-      instance._setStrings(table);
-    });
+    instances.forEach((instance) => instance._setStrings(table));
   },
 
   /**
@@ -191,7 +189,7 @@ Polymer({
     if (!table) {
       return undefined;
     }
-    var out = table[id];
+    const out = table[id];
     if (out === undefined) {
       console.debug('santa-strings missing string', id);
     }

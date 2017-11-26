@@ -154,7 +154,7 @@ Polymer({
   },
 
   _createSnowflakes: function() {
-    var count = this._snowflakes.length;
+    const count = this._snowflakes.length;
     this._snowflakes.length = this.snowflakes;
 
     if (count >= this.snowflakes) {
@@ -162,7 +162,7 @@ Polymer({
     }
 
     // Fill up any remaining gaps.
-    for (var i = count; i < this.snowflakes; ++i) {
+    for (let i = count; i < this.snowflakes; ++i) {
       this._resetSnowflake(i);
       this._snowflakes[i].y = Math.random();
       this._snowflakes[i].x = Math.random();
@@ -170,7 +170,7 @@ Polymer({
   },
 
   _createClouds: function() {
-    var count = this._clouds.length;
+    const count = this._clouds.length;
     this._clouds.length = this.clouds;
 
     if (count >= this.clouds) {
@@ -178,7 +178,7 @@ Polymer({
     }
 
     // Fill up any remaining gaps.
-    for (var i = count; i < this.clouds; ++i) {
+    for (let i = count; i < this.clouds; ++i) {
       this._resetCloud(i, true);
     }
   },
@@ -192,9 +192,9 @@ Polymer({
   },
 
   _createCloud: function(opt_initialView) {
-    var width = 50 + Math.random() * 100;
-    var height = width * 0.6;
-    var x = this.wind > 0 ? -Math.random() * 0.5 : 1 + Math.random() * 0.5;
+    const width = 50 + Math.random() * 100;
+    const height = width * 0.6;
+    let x = this.wind > 0 ? -Math.random() * 0.5 : 1 + Math.random() * 0.5;
 
     if (opt_initialView) {
       x = Math.random();
@@ -246,7 +246,7 @@ Polymer({
     if (!this.isAttached) { return; }
     window.requestAnimationFrame(this._update);
 
-    for (var i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
+    for (let i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
       snowflake.x += 0.01 * this._currentWind * (1 / snowflake.d);
       snowflake.y += 0.0002 * snowflake.d * snowflake.ry;
 
@@ -265,7 +265,7 @@ Polymer({
   },
 
   _updateClouds: function() {
-    for (var c = 0, cloud; cloud = this._clouds[c]; ++c) {
+    for (let c = 0, cloud; cloud = this._clouds[c]; ++c) {
       cloud.x += 0.001 * this._currentWind * cloud.m;
 
       if (this.wind > 0 && cloud.x * this._width > this._width ||
@@ -279,12 +279,12 @@ Polymer({
     this._ctx.save();
     this._ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
 
-    var TAU = Math.PI * 2;
+    const TAU = Math.PI * 2;
     this._ctx.fillStyle = '#FFF';
     this._ctx.clearRect(0, 0, this._width, this._height);
 
-    for (var i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
-      var alpha = 1;
+    for (let i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
+      let alpha = 1;
 
       if (snowflake.y > 0.9) {
         // Fade out the snowflake at the end.
@@ -305,7 +305,7 @@ Polymer({
       this._ctx.fill();
     }
 
-    for (var c = 0, cloud; cloud = this._clouds[c]; ++c) {
+    for (let c = 0, cloud; cloud = this._clouds[c]; ++c) {
       this._ctx.globalAlpha = cloud.o;
       this._ctx.drawImage(
           cloudImages[cloud.img],

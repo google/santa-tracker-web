@@ -211,6 +211,7 @@ Lazy loads children "pages".
       let p = null;  // nb. declared here so safe() can use it
       const safe = (fn) => {
         return function() {
+          // nb. this is explicitly .bind() as it passes arguments
           if (this._loadingPromise === p) {
             return fn.apply(this, arguments);
           }

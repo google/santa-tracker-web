@@ -158,7 +158,7 @@ specific language governing permissions and limitations under the License.
       } else if (time < 0) {
         return '00';
       }
-      var out = Math.floor(time % 60);
+      const out = Math.floor(time % 60);
       return (out < 10 ? '0' : '') + out;
     },
 

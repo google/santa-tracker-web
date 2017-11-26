@@ -68,7 +68,7 @@ Example
   <script>
   (function() {
 
-    var _TRANSITION_TIME = 400;
+    const _TRANSITION_TIME = 400;
 
     Polymer({
       is: 'countdown-timer',
@@ -149,13 +149,10 @@ Example
        * if that is zero or below.
        */
       _tickTock: function() {
-        var delta = Date.now() - this._remainingTimeSetAt;
-        var remainingTime = this.remainingTime - delta;
+        const delta = Date.now() - this._remainingTimeSetAt;
+        const remainingTime = Math.max(0, this.remainingTime - delta);
 
-        if (remainingTime <= 0) {
-          remainingTime = 0;
-        }
-        if (remainingTime === 0 || !this.isAttached) {
+        if (!remainingTime || !this.isAttached) {
           window.clearInterval(this._tickInterval);
         }
         this._render(remainingTime);
@@ -166,19 +163,18 @@ Example
        * object directly.
        */
       _render: function(remainingTime) {
-        var parts = countdownSplit(remainingTime);
-
-        var days = parts.days;
-        var hours = parts.hours;
-        var minutes = parts.minutes;
-        var seconds = parts.seconds;
-
-        var numbers = [padDigits(days), padDigits(hours), padDigits(minutes), padDigits(seconds)];
-        this._daysHidden = (days <= 0);
+        const parts = countdownSplit(remainingTime);
+        const numbers = [
+          padDigits(parts.days),
+          padDigits(parts.hours),
+          padDigits(parts.minutes),
+          padDigits(parts.seconds),
+        ];
+        this._daysHidden = (parts.days <= 0);
 
         // Ensure holders exist. Solves inconsistent asyncs.
         if (this.holders.length) {
-          for (var i = 0, holder; holder = this.holders[i]; ++i) {
+          for (let i = 0, holder; holder = this.holders[i]; ++i) {
             this.setValue(holder, this._oldNumbers[i], numbers[i]);
           }
           this._oldNumbers = numbers;

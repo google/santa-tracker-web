@@ -126,12 +126,12 @@ Polymer({
   _bootstrapChanged: function(bootstrap) {
     bootstrap = bootstrap || document.createElement('empty-scene');
     const src = bootstrap.getAttribute('loading-src');
-    const done = function() {
+    const done = () => {
       this._loadingSrc = src;
       this.updateStyles({
         '--preloader-background-color': bootstrap.getAttribute('loading-bg-color'),
       });
-    }.bind(this);
+    };
 
     this.$.fullscreen.getBoundingClientRect();  // force appear, work around Chrome bug
     if (!src) {
@@ -140,13 +140,13 @@ Polymer({
 
     const i = new Image();
     i.src = this.resolveUrl('../../' + src);  // resolve relative to top-level
-    i.onload = function() {
+    i.onload = () => {
       // The loading image is ready, so update the src and backgroundColor if we're still at
       // an early part of the loading process (<0.5).
       if (this.bootstrap === bootstrap && this.progress < 0.5) {
         done();
       }
-    }.bind(this);
+    };
   },
 
   _computeLoadingSrc: function(defaultLoadingSrc, loadingSrc) {
@@ -161,7 +161,7 @@ Polymer({
       progress = ((inset / 2) + progress * (100 - inset));
 
       this.$.under.classList.add('show');
-      bar.style.transform = 'translate(' + (progress - 100) + '%)';
+      bar.style.transform = `translate(${progress - 100}%)`;
     } else {
       this.$.under.classList.remove('show');
       bar.style.transform = 'translate(0%)';  // always end at 'full'
