@@ -249,7 +249,6 @@ Codeboogie scene.
       // hiding share buttons.
       const elementStyles = window.getComputedStyle(this);
       const linkVisibility = elementStyles.getPropertyValue('--link-visibility');
-      console.info('got linkVisibility', linkVisibility);
       if (linkVisibility.trim() === 'hidden') {
         this.frame.disableShare();
       }
