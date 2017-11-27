@@ -55,7 +55,7 @@ module.exports = function replaceMessages(opts) {
           const msgid = el.getAttribute('msgid');
           const msg = messageData.format(lang, msgid);
           el.removeAttribute('msgid');
-          mutateElement(el, msg);
+          mutateElement(el, msg, msgid);
         });
         s('i18n-msg', (el) => {
           throw new gutil.PluginError('i18n_replace', `i18n-msg without msgid: ${el.outerHTML}`);
@@ -113,8 +113,9 @@ module.exports = function replaceMessages(opts) {
  * Mutates a given element to have an updated message.
  * @param {!Element} el
  * @param {string} msg
+ * @param {string} msgid
  */
-function mutateElement(el, msg) {
+function mutateElement(el, msg, msgid) {
   switch (el.localName) {
   case 'title':
     el.textContent = msg;
@@ -123,6 +124,11 @@ function mutateElement(el, msg) {
     if (el.innerHTML !== 'PLACEHOLDER_i18n') {
       throw new gutil.PluginError('i18n_replace',
           `i18n-msg was not "PLACEHOLDER_i18n" for ${msgid} in: ${file.relative}`);
+    }
+    const otherAttributes = Array.from(el.attributes).map((attr) => attr.name);
+    if (otherAttributes.length) {
+      throw new gutil.PluginError('i18n_replace',
+          `i18n-msg had extra unknown attributes for ${msgid}: ${otherAttributes.join(', ')}`);
     }
     el.outerHTML = msg;
     break;
