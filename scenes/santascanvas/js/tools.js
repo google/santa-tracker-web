@@ -612,9 +612,9 @@ app.Tools.prototype.colorChanged = function(color) {
 
 
 app.Tools.prototype.onNavClick_ = function(e) {
-  var menu = $(e.target).closest('[data-tool-category-menu]');
+  var menu = $(e.target).closest('[data-tool-category-tray]');
   var direction = $(e.target).attr('data-tool-nav') === 'next' ? 1 : -1;
-  var offset = direction * 130; // width of 1 tool
+  var offset = direction * 130 * 2; // width of 2 tools
 
   menu.animate({
     scrollLeft: menu.scrollLeft() + offset
@@ -626,7 +626,7 @@ app.Tools.prototype.onResize = function() {
   var outerWidth = this.secondaryMenu[0].getBoundingClientRect().width;
 
   this.categoryMenuNavs.each(function() {
-    var menu = $(this).closest('[data-tool-category-menu]');
+    var menu = $(this).closest('[data-tool-category-tray]');
     if (menu[0] && menu[0].scrollWidth > outerWidth) {
       $(this).addClass('is-active');
     } else {
