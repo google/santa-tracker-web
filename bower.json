@@ -40,6 +40,7 @@
     "web-animations-utils": "GoogleChrome/web-animations-utils#^0.1.2",
     "app-layout": "PolymerElements/app-layout#2",
     "iron-icons": "PolymerElements/iron-icons#2",
-    "iron-flex-layout": "^2.0.0"
+    "iron-flex-layout": "^2.0.0",
+    "url": "webcomponents/URL#^0.5.7"
   }
 }

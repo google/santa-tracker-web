@@ -196,7 +196,14 @@ ga('set', 'transport', 'beacon');
 (function() {
 
 function lazyLoadWCPolyfillsIfNecessary() {
+  var requiredPolyfillCount = 0;
+  var loadedPolyfillCount = 0;
+
   var onload = function() {
+    if (++loadedPolyfillCount < requiredPolyfillCount) {
+      return;
+    }
+
     // If the browser supports native HTML Imports, manually fire the WCR event
     // so the same code paths can be used for polyfill'd and native.
     // window.HTMLImports only exists under the poylfill.
@@ -205,17 +212,42 @@ function lazyLoadWCPolyfillsIfNecessary() {
     }
   };
 
+  // @see https://github.com/webcomponents/URL/blob/master/url.js#L8-L15
+  var hasWorkingUrl = false;
+  try {
+    var u = new URL('b', 'http://a');
+    u.pathname = 'c%20d';
+    hasWorkingUrl = u.href === 'http://a/c%20d';
+  } catch (e) {}
+
+  if (!hasWorkingUrl) {
+    requiredPolyfillCount++;
+    (function() {
+      var script = document.createElement('script');
+      var baseUrl = document.body.getAttribute('data-static');
+      script.src = baseUrl + 'components/url/url.js';
+      script.onload = onload;
+      document.head.appendChild(script);
+    })();
+  }
+
   var webComponentsSupported =
       'registerElement' in document
       && 'import' in document.createElement('link')
       && 'content' in document.createElement('template');
+
   if (!webComponentsSupported) {
-    var script = document.createElement('script');
-    var baseUrl = document.body.getAttribute('data-static');
-    script.src = baseUrl + 'components/webcomponentsjs/webcomponents-lite.js';
-    script.onload = onload;
-    document.head.appendChild(script);
-  } else {
+    requiredPolyfillCount++;
+    (function() {
+      var script = document.createElement('script');
+      var baseUrl = document.body.getAttribute('data-static');
+      script.src = baseUrl + 'components/webcomponentsjs/webcomponents-lite.js';
+      script.onload = onload;
+      document.head.appendChild(script);
+    })();
+  }
+
+  if (requiredPolyfillCount === 0) {
     onload();
   }
 }
