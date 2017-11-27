@@ -929,10 +929,10 @@ Polymer({
   },
 
   _userMuteChanged: function() {
-    // nb. sound-ambient is bound inside ready:, so dedup this for initial set
+    // nb. dedup this as sound-ambient is bound inside ready:, and changes <frame confuse Klang
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
-    });
+    }, 20);
   },
 
   trackEvent: function(e, detail) {
