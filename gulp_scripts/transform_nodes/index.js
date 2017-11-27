@@ -72,7 +72,6 @@ const transformInlineScripts = scriptTransformation => {
     const textContent = textNodes.map(textNode => textNode.value).join('\n');
 
     const compiledTextContent = await scriptTransformation(textContent);
-    console.log('compiled text content','\n',compiledTextContent);
 
     dom5.setTextContent(newInlineScript, compiledTextContent);
 
