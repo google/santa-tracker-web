@@ -120,6 +120,7 @@ $sticker-silly: "face-eyes-glasses1", "face-mouth-black", "hat-blue", "head-elf-
         padding: 0;
         position: absolute;
         width: 100%;
+        z-index: 1;
 
         &::after,
         .Tools-settings-inner {

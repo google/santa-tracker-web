@@ -55,6 +55,7 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
 
       @media (max-width: 800px) {
         background-position: center 0%;
+        top: auto;
 
         &--spray-color {
           padding: 0 17px;
