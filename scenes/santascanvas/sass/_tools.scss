@@ -130,7 +130,9 @@
       bottom: 75px;
       height: auto;
       left: 0;
-      top: 0;
+      position: fixed;
+      // top: 0;
+      top: 44px;
 
       .Tool {
         border-bottom: 2px solid #eee;
