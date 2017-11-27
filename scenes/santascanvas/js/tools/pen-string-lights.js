@@ -45,6 +45,8 @@ app.PenStringLights = function($elem, name, config) {
     $elem.find('#' + this.textureName + '4')
   ];
 
+  this.textureIndex = 0;
+
   this.spacing = this.currentSize * .75;
   this.spaceUntilNext = this.spacing / 2;
   this.faceUp = true;
@@ -54,9 +56,9 @@ app.PenStringLights.prototype = Object.create(app.PenGarland.prototype);
 
 app.PenStringLights.prototype.drawItem = function(context, texture, point,
     drawWidth, drawHeight, offsetX, offsetY ) {
-  var randomTexture = this.textures[Math.floor(Math.random() * 4)];
-  var width = randomTexture.width() * this.sizeFactor;
-  var height = randomTexture.height() * this.sizeFactor;
+  var texture = this.textures[this.textureIndex];
+  var width = texture.width() * this.sizeFactor;
+  var height = texture.height() * this.sizeFactor;
   var angle = point.angle * 180 / Math.PI;
   if ((angle > 45 && angle <= 90) || (angle < -45 && angle >= -90)) {
     return;
@@ -73,11 +75,12 @@ app.PenStringLights.prototype.drawItem = function(context, texture, point,
   context.save();
   context.translate(point.x, point.y);
   context.rotate(angle * Math.PI / 180);
-  context.drawImage(randomTexture[0], -width / 2, -height * 0.1,
+  context.drawImage(texture[0], -width / 2, -height * 0.1,
       width, height);
   context.restore();
 
   this.faceUp = !this.faceUp;
+  this.textureIndex = (this.textureIndex + 1) % this.textures.length;
 };
 
 
