@@ -222,7 +222,7 @@ function lazyLoadWCPolyfillsIfNecessary() {
         script.async = false;
       }
 
-      script.src = baseUrl + 'components/url/url.js';
+      script.src = baseUrl + url;
       script.onload = onload;
       document.head.appendChild(script);
     };
