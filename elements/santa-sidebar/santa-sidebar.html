@@ -213,6 +213,7 @@ Polymer({
   },
 
   handleBeforeInstallPrompt: function(e) {
+    e.preventDefault();
     this.a2hsevent = e;
     this.a2hsAvailable = true;
   },
