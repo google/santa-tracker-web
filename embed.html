@@ -134,13 +134,14 @@ document.addEventListener('beforeload', (ev) => {
   }
 
   window.addEventListener('message', (e) => {
-    messagePort = e.ports[0];
-    if (!messagePort) {
-      console.debug('message without messagePort', e.ports.length);
-    } else {
-      messagePort.onmessage = (e) => recv(e.data);
+    if (typeof e.data === 'object' || e.data || !e.ports.length) {
+      // this is probably from FrameRPC, ignore
+      // Android sends us an empty string for data.
+      return;
     }
-    send('onready');  // notify app to establish communication
+
+    messagePort = e.ports[0];
+    messagePort.onmessage = (e) => recv(e.data);
   });
   s.addEventListener('embed', (e) => send(e.detail));
 }());

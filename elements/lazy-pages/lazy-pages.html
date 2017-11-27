@@ -239,6 +239,7 @@ Lazy loads children "pages".
       p = this._loadingPromise = init().then(safe(function(scene) {
         this._setSelectedItem(scene);  // actually preloaded (or null), so set item
         this._setError(null);
+        this.fire('embed', 'onready');  // notify embed scene is ready to show
 
         // log that the scene has finished preloading. If this wasn't a preloaded
         // load, the event will be discarded harmlessly (no start event).
