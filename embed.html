@@ -135,7 +135,11 @@ document.addEventListener('beforeload', (ev) => {
 
   window.addEventListener('message', (e) => {
     messagePort = e.ports[0];
-    messagePort.onmessage = (e) => recv(e.data);
+    if (!messagePort) {
+      console.debug('message without messagePort', e.ports.length);
+    } else {
+      messagePort.onmessage = (e) => recv(e.data);
+    }
     send('onready');  // notify app to establish communication
   });
   s.addEventListener('embed', (e) => send(e.detail));
