@@ -27,3 +27,12 @@ body {
     transform: translate3d(0, 9999px, 0) !important;
   }
 }
+
+.noshare {
+  .result__button--share {
+    display: none !important;
+  }
+  .result__details {
+    display: none !important;
+  }
+}

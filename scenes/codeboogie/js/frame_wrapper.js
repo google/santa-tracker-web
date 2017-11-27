@@ -72,6 +72,14 @@ app.FrameWrapper = function(el, staticDir) {
 };
 
 /**
+ * Disables the share UI on the wrapped scene.
+ * @export
+ */
+app.FrameWrapper.prototype.disableShare = function() {
+  this.iframeChannel.call('disableShare');
+};
+
+/**
  * Starts the scene.
  *
  * @param {{dance: string, level: string}} params

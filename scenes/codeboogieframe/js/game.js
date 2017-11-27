@@ -52,13 +52,18 @@ app.Game = class {
     /** @type {?app.GameMode} */
     this.currentMode = null;
     this.isPlaying = false;
-    this.successResult = new app.Result(elem.querySelector('.result--success'), this);
+
+    const successEl = elem.querySelector('.result--success');
+    this.successResult = new app.Result(successEl, this);
     this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
     this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
 
     this.iframeChannel = new app.shared.FrameRPC(window.parent, {
       restart: this.restart.bind(this),
-      beat: this.scene.player.onBeat.bind(this.scene.player)
+      beat: this.scene.player.onBeat.bind(this.scene.player),
+      disableShare: () => {
+        successEl.classList.add('noshare');
+      },
     });
 
     Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));

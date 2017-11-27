@@ -53,7 +53,7 @@ Codeboogie scene.
               </div>
               <div class="choose-mode-info">
                 <h3 class="choose-mode__text"><i18n-msg msgid="codeboogie-mode-freestyle">PLACEHOLDER_i18n</i18n-msg></h3>
-                <h4 class="choose-mode__description"><i18n-msg msgid="codeboogie-mode-freestyle-description">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h4 class="choose-mode__description hide-noshare"><i18n-msg msgid="codeboogie-mode-freestyle-description">PLACEHOLDER_i18n</i18n-msg></h4>
               </div>
             </div>
           </div>
@@ -244,6 +244,15 @@ Codeboogie scene.
       this.fire('sound-ambient', 'cb_start');
       this.frame = new scenes.codeboogie.FrameWrapper(module, this.resolveUrl('.'));
       this.frame.start(getUrlParameters());
+
+      // TODO(samthor): This might only work in Chrome, which is the only place we care about
+      // hiding share buttons.
+      const elementStyles = window.getComputedStyle(this);
+      const linkVisibility = elementStyles.getPropertyValue('--link-visibility');
+      console.info('got linkVisibility', linkVisibility);
+      if (linkVisibility.trim() === 'hidden') {
+        this.frame.disableShare();
+      }
     },
 
     onHide: function() {
