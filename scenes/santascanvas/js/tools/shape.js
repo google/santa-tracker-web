@@ -69,10 +69,12 @@ app.Shape.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var image = app.ImageManager.getImage(this.shapeName, color);
   var rad = this.currentAngle * Math.PI / 180;
 
+  context.save();
   context.translate(drawX, drawY);
   context.rotate(rad);
   context.drawImage(image, -offsetX, -offsetY, drawWidth, drawHeight);
-  context.setTransform(1, 0, 0, 1, 0, 0);
+  // context.setTransform(1, 0, 0, 1, 0, 0);
+  context.restore();
   this.stamped = true;
 
   return true;

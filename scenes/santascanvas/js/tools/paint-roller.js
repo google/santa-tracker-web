@@ -57,11 +57,13 @@ app.PaintRoller.prototype.draw = function(canvas, mouseCoords, prevCanvas, size)
     var distance = app.utils.distance(this.startPt, endPt);
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(prevCanvas, 0, 0, canvas.width, canvas.height);
+    context.save();
     context.translate(this.startPt.x, this.startPt.y);
     context.rotate(angle);
     context.translate(0, -this.currentSize / 2); // offset for pattern
     context.fillRect(0, 0, distance, this.currentSize);
-    context.setTransform(1, 0, 0, 1, 0, 0);
+    // context.setTransform(1, 0, 0, 1, 0, 0);
+    context.restore();
   } else {
     this.startPt = { x: drawX, y: drawY };
     this.drawing = true;
