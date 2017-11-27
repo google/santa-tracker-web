@@ -71,6 +71,8 @@ app.Tools = function(game, $elem) {
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
 
+  this.categoryPickers.on('mouseover.santascanvas', this.onCategoryClick_.bind(this));
+
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
       drawFrequency: 2,
