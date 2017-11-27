@@ -23,7 +23,6 @@ const glob = require('glob');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const uglifyES = require('uglify-es');
-//const buble = require('buble');
 const babel = require('babel-core');
 const scripts = require('./gulp_scripts');
 const dom5 = require('dom5');
@@ -385,7 +384,6 @@ gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
       return newScriptNode;
     }))
     .pipe(scripts.transformInlineScripts(script => {
-      //buble.transform(script).code
       return babel.transform(script, {
         presets: [['es2015', {
           modules: false
