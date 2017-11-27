@@ -411,12 +411,11 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     if (mouseCoords.down) {
       this.selectedTool.startMousedown();
 
-      var insideCanvas = this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.secondaryMenu[0]) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.colorpicker.popup[0]) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileEdit[0]) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileSlider[0]);
-      // console.log(insideCanvas);
+      var insideCanvas = this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileSlider[0]);
 
       var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
 
@@ -425,7 +424,8 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
       }
 
       if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
-          this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
+          this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+          !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0])) {
         this.secondaryMenu.removeClass('is-active');
 
         if (this.game_.colorpicker.isPopupOpen()) {
