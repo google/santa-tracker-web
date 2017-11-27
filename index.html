@@ -212,6 +212,22 @@ function lazyLoadWCPolyfillsIfNecessary() {
     }
   };
 
+  var loadPolyfill = (function() {
+    var baseUrl = document.body.getAttribute('data-static');
+    return function(url, defer) {
+      requiredPolyfillCount++;
+      var script = document.createElement('script');
+
+      if (defer) {
+        script.async = false;
+      }
+
+      script.src = baseUrl + 'components/url/url.js';
+      script.onload = onload;
+      document.head.appendChild(script);
+    };
+  })();
+
   // @see https://github.com/webcomponents/URL/blob/master/url.js#L8-L15
   var hasWorkingUrl = false;
   try {
@@ -221,14 +237,7 @@ function lazyLoadWCPolyfillsIfNecessary() {
   } catch (e) {}
 
   if (!hasWorkingUrl) {
-    requiredPolyfillCount++;
-    (function() {
-      var script = document.createElement('script');
-      var baseUrl = document.body.getAttribute('data-static');
-      script.src = baseUrl + 'components/url/url.js';
-      script.onload = onload;
-      document.head.appendChild(script);
-    })();
+    loadPolyfill('components/url/url.js');
   }
 
   var webComponentsSupported =
@@ -237,14 +246,7 @@ function lazyLoadWCPolyfillsIfNecessary() {
       && 'content' in document.createElement('template');
 
   if (!webComponentsSupported) {
-    requiredPolyfillCount++;
-    (function() {
-      var script = document.createElement('script');
-      var baseUrl = document.body.getAttribute('data-static');
-      script.src = baseUrl + 'components/webcomponentsjs/webcomponents-lite.js';
-      script.onload = onload;
-      document.head.appendChild(script);
-    })();
+    loadPolyfill('components/webcomponentsjs/webcomponents-lite.js', true);
   }
 
   if (requiredPolyfillCount === 0) {
