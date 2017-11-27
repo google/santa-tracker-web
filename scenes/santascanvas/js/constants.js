@@ -309,7 +309,6 @@ app.Constants = {
       { elemId: "holiday_hat" },
       { elemId: "holiday_mitten" },
       { elemId: "holly" },
-      { elemId: "milk" },
       { elemId: "mug_green" },
       { elemId: "mug_red" },
       { elemId: "red_bow" },

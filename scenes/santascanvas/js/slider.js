@@ -27,7 +27,7 @@ app.Slider = function($elem, mouse) {
   this.mouse = mouse;
   this.subscribers = [];
 
-  this.container.on('mousedown.clausedraws touchstart.clausedraws',
+  this.container.on('mousedown.santascanvas touchstart.santascanvas',
     this.onMousedown.bind(this));
 
   this.setSize(0.5);

@@ -33,11 +33,11 @@ app.Mouse = function($elem) {
 
   this.subscribers = [];
 
-  $(window).on('resize.clausedraws orientationchange.clausedraws', function() {
+  $(window).on('resize.santascanvas orientationchange.santascanvas', function() {
     this.update();
   }.bind(this));
 
-  $elem.on('mousemove.clausedraws', function(e) {
+  $elem.on('mousemove.santascanvas', function(e) {
     this.x = e.clientX;
     this.y = e.clientY;
     this.target = e.target;
@@ -45,7 +45,7 @@ app.Mouse = function($elem) {
     e.preventDefault();
   }.bind(this));
 
-  $elem.on('touchstart.clausedraws touchmove.clausedraws', function(e) {
+  $elem.on('touchstart.santascanvas touchmove.santascanvas', function(e) {
     this.x = e.originalEvent.touches[0].clientX;
     this.y = e.originalEvent.touches[0].clientY;
     this.target = e.originalEvent.touches[0].target;
@@ -53,7 +53,7 @@ app.Mouse = function($elem) {
     e.preventDefault();
   }.bind(this));
 
-  $elem.on('mousedown.clausedraws touchstart.clausedraws', function(e) {
+  $elem.on('mousedown.santascanvas touchstart.santascanvas', function(e) {
     this.down = true;
 
     if (e.type == 'touchstart') {
@@ -65,7 +65,7 @@ app.Mouse = function($elem) {
     e.preventDefault();
   }.bind(this));
 
-  $elem.on('mouseup.clausedraws mouseleave.clausedraws touchend.clausedraws touchleave.clausedraws', function(e) {
+  $elem.on('mouseup.santascanvas mouseleave.santascanvas touchend.santascanvas touchleave.santascanvas', function(e) {
     this.down = false;
     this.originalTarget = null;
 

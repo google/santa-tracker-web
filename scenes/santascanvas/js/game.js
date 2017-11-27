@@ -68,10 +68,10 @@ app.Game.prototype.start = function() {
   this.colorpicker.subscribe(this.tools.colorChanged, this.tools);
 
   this.elem.find('#share-button, #share-button-toolbox').
-    on('click.clausedraws touchend.clausedraws', this.showShareOverlay.bind(this));
+    on('click.santascanvas touchend.santascanvas', this.showShareOverlay.bind(this));
 
   this.elem.find('#reset-button, #reset-button-toolbox').
-    on('click.clausedraws touchend.clausedraws', this.resetCanvas_.bind(this));
+    on('click.santascanvas touchend.santascanvas', this.resetCanvas_.bind(this));
 
   this.restart();
 };
@@ -95,7 +95,7 @@ app.Game.prototype.restart = function() {
   this.resetCanvas_();
   this.unfreezeGame();
 
-  window.santaApp.fire('analytics-track-game-start', {gameid: 'clausedraws'});
+  window.santaApp.fire('analytics-track-game-start', {gameid: 'santascanvas'});
   this.gameStartTime = +new Date;
 };
 
@@ -197,7 +197,7 @@ app.Game.prototype.resume = function() {
 app.Game.prototype.dispose = function() {
   if (this.isPlaying) {
     var opts = {
-      gameid: 'clausedraws',
+      gameid: 'santascanvas',
       timePlayed: new Date - this.gameStartTime,
       level: 1
     };
@@ -206,6 +206,6 @@ app.Game.prototype.dispose = function() {
   this.freezeGame();
 
   window.cancelAnimationFrame(this.requestId);
-  $(window).off('.clausedraws');
-  $(document).off('.clausedraws');
+  $(window).off('.santascanvas');
+  $(document).off('.santascanvas');
 };

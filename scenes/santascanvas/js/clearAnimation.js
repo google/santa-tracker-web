@@ -37,7 +37,7 @@ app.ClearAnimation = function($elem, canvas, backupCanvas) {
 app.ClearAnimation.prototype.preloadFrames  = function() {
   for (var i = 0; i < app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES; i++) {
     var image = new Image();
-    image.src = '/scenes/clausedraws/img/avalanche/avalanche_' + i + '.png';
+    image.src = '/scenes/santascanvas/img/avalanche/avalanche_' + i + '.png';
     this.frames.push(image);
   }
 };
