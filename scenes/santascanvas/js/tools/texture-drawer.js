@@ -97,7 +97,11 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     var p1 = this.points[0];
     var p2 = this.points[1];
     var midpoint = app.utils.midpoint(p1, p2);
-    var distance = app.utils.distance(p1, midpoint);
+    var distance = app.utils.curveLength(p1, p1, midpoint);
+    if (!distance || !isFinite(distance)) {
+      return;
+    }
+
     for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, p1, p1, midpoint);
@@ -117,7 +121,11 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     var p2 = this.points[this.points.length - 1];
     var midpoint1 = app.utils.midpoint(p0, p1);
     var midpoint2 = app.utils.midpoint(p1, p2);
-    var distance = app.utils.distance(midpoint1, midpoint2);
+    var distance = app.utils.curveLength(midpoint1, p1, midpoint2);
+    if (!distance || !isFinite(distance)) {
+      return;
+    }
+
     for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
       var t = j / distance;
       var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);

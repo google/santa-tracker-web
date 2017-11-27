@@ -97,7 +97,8 @@ app.Tools = function(game, $elem) {
         scale: true
       },
       noRotation: true,
-      monotone: true
+      monotone: true,
+      drawFrequency: 8
     });
   this.garland = new app.PenGarland($elem, 'garland', {
       sizeConfig: {
