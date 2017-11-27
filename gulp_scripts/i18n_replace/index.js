@@ -127,8 +127,8 @@ function mutateElement(el, msg, msgid) {
     }
     const otherAttributes = Array.from(el.attributes).map((attr) => attr.name);
     if (otherAttributes.length) {
-      throw new gutil.PluginError('i18n_replace',
-          `i18n-msg had extra unknown attributes for ${msgid}: ${otherAttributes.join(', ')}`);
+      gutil.log(`Unexpected attributes on '${gutil.colors.yellow(msgid)}':`,
+          gutil.colors.red(otherAttributes.join(', ')));
     }
     el.outerHTML = msg;
     break;
