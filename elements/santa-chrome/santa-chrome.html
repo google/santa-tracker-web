@@ -78,19 +78,22 @@ specific language governing permissions and limitations under the License.
           <div class="feature">
             <slot name="feature"></slot>
           </div>
-          <div class="buttons">
-            <paper-icon-button on-click="_onShowMore" icon="santa:more"></paper-icon-button>
+          <div class="buttons" id="buttons">
+            <paper-icon-button on-click="_onShowMore" on-mouseover="_onShowMore" icon="santa:more"></paper-icon-button>
           </div>
           <div class="buttons-overflow fade" id="overflow" on-click="_onClickOverflow">
-            <paper-icon-button
+            <paper-icon-button data-title="Share"
                 on-click="_onShare"
                 icon="santa:share">
             </paper-icon-button>
-            <paper-icon-button
+            <paper-icon-button data-title="Fullscreen"
+                icon="santa:fullscreen">
+            </paper-icon-button>
+            <paper-icon-button data-title="Pause"
                 on-click="_togglePause"
                 icon$="santa:[[_computeTernary(pause, 'play', 'pause')]]">
             </paper-icon-button>
-            <paper-icon-button
+            <paper-icon-button data-title="Mute"
                 on-click="_toggleSounds"
                 icon$="santa:sound-[[_computeTernary(mute, 'off', 'on')]]">
             </paper-icon-button>
@@ -189,6 +192,7 @@ specific language governing permissions and limitations under the License.
 
     _hideOverflow: function() {
       this.$.overflow.classList.add('fade');
+      this.$.buttons.classList.toggle('active', !this.$.overflow.classList.contains('fade'));
     },
 
     _onClickOverflow: function(ev) {
@@ -197,7 +201,15 @@ specific language governing permissions and limitations under the License.
 
     _onShowMore: function(ev) {
       ev.stopPropagation();
+
+      if (ev.type !== 'click') {
+        if (!this.$.overflow.classList.contains('fade')) {
+          return;
+        }
+      }
+
       this.$.overflow.classList.toggle('fade');
+      this.$.buttons.classList.toggle('active', !this.$.overflow.classList.contains('fade'));
     },
 
     _onShare: function(ev) {

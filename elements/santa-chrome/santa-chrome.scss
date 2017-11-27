@@ -170,12 +170,59 @@ app-toolbar {
 
     paper-icon-button {
       margin-top: 12px;
-      background: var(--santa-header-color, $santa-color);;
+      background: var(--santa-feature-color, #00e8bf);
       border-radius: 1000px;
       color: white;
       box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
       will-change: transform;
-      transition: transform 0.45s;
+      transition: transform 0.1s;
+
+      &::after {
+        // nb. this increases the mouse target for the icon, but is otherwise invisible
+        z-index: -2;
+        content: attr(data-title);
+        color: transparent;
+        position: absolute;
+        right: -4px;
+        top: -4px;
+        bottom: -4px;
+        border-radius: 10000px;
+        padding-right: 66px;
+        padding-left: 8px;
+        font-size: 14px;
+      }
+
+      &::before {
+        content: attr(data-title);
+        position: absolute;
+        right: 100%;
+        margin-right: 12px;
+        display: flex;
+        align-items: center;
+        top: 8px;
+        bottom: 8px;
+        padding: 4px 6px;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+        border-radius: 2px;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0;
+        pointer-events: none;
+        will-change: opacity;
+        transition: opacity 0.125s;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+
+    @for $i from 1 through 10 {
+      :nth-child(#{$i}) {
+        transition-delay: 0.04s * ($i - 1);
+      }
     }
 
     @keyframes hold {
@@ -187,11 +234,10 @@ app-toolbar {
       pointer-events: none;
       animation: hold 0.33s;
       visibility: hidden;
-
-      transform: translateY(calc(-100% - 44px));
       opacity: 0.33;
       paper-icon-button {
-        transform: translateY(-100%);
+        transform: scale(0);
+        transition-delay: 0s !important;
       }
     }
   }
