@@ -56,9 +56,9 @@ app.PenStringLights.prototype = Object.create(app.PenGarland.prototype);
 
 app.PenStringLights.prototype.drawItem = function(context, texture, point,
     drawWidth, drawHeight, offsetX, offsetY ) {
-  var texture = this.textures[this.textureIndex];
-  var width = texture.width() * this.sizeFactor;
-  var height = texture.height() * this.sizeFactor;
+  var currentTexture = this.textures[this.textureIndex];
+  var width = currentTexture.width() * this.sizeFactor;
+  var height = currentTexture.height() * this.sizeFactor;
   var angle = point.angle * 180 / Math.PI;
   if ((angle > 45 && angle <= 90) || (angle < -45 && angle >= -90)) {
     return;
@@ -75,7 +75,7 @@ app.PenStringLights.prototype.drawItem = function(context, texture, point,
   context.save();
   context.translate(point.x, point.y);
   context.rotate(angle * Math.PI / 180);
-  context.drawImage(texture[0], -width / 2, -height * 0.1,
+  context.drawImage(currentTexture[0], -width / 2, -height * 0.1,
       width, height);
   context.restore();
 
