@@ -62,7 +62,14 @@ app.Tool.prototype.select = function(mouseCoords) {
   }
 
   this.move(mouseCoords);
-  window.santaApp.fire('sound-trigger', 'selfie_click');
+
+  if (this.category === "spray") {
+    window.santaApp.fire('sound-trigger', 'sfx_select_lid_open');
+  }else if (this.category === "stamp") {
+    window.santaApp.fire('sound-trigger', 'cd_stamp_up');
+  }else {
+    window.santaApp.fire('sound-trigger', 'cd_generic_select');
+  }
 };
 
 
@@ -93,6 +100,12 @@ app.Tool.prototype.deselect = function() {
 
   this.stopMousedown();
   this.reset();
+
+  if (this.category === "spray") {
+    window.santaApp.fire('sound-trigger', 'sfx_unselect_lid_close');
+  }else {
+    window.santaApp.fire('sound-trigger', 'cd_generic_deselect');
+  }
 };
 
 
@@ -170,4 +183,3 @@ app.Tool.prototype.updateAngle = function(angle) {
 app.Tool.prototype.preloadImage = function(color) {
   return;
 };
-

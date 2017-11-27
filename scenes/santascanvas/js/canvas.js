@@ -290,6 +290,7 @@ app.Canvas.prototype.save = function() {
   this.drawIndex = this.nextIndex(this.baseIndex);
   this.copyCanvasIndex(this.baseIndex, this.drawIndex);
   this.backupCanvases[this.drawIndex].saved = false;
+
 };
 
 
@@ -302,6 +303,7 @@ app.Canvas.prototype.undo = function() {
   if (previous != this.drawIndex && this.backupCanvases[previous].saved) {
     this.baseIndex = previous;
     this.copyCanvasIndex(this.baseIndex);
+    window.santaApp.fire('sound-trigger', 'cd_undo');
   }
   this.undoing = true;
 };
@@ -316,6 +318,7 @@ app.Canvas.prototype.redo = function() {
     if (next != this.drawIndex) {
       this.baseIndex = next;
       this.copyCanvasIndex(this.baseIndex);
+      window.santaApp.fire('sound-trigger', 'cd_redo');
     }
   }
 };
@@ -413,6 +416,7 @@ app.Canvas.prototype.saveToFile = function(e) {
   } else {
     e.target.href = data;
   }
+  window.santaApp.fire('sound-trigger', 'cd_save');
 };
 
 
@@ -425,6 +429,7 @@ app.Canvas.prototype.onTrashClick = function(event) {
   } else {
     this.resetCanvas();
   }
+  window.santaApp.fire('sound-trigger', 'cd_trash');
 };
 
 

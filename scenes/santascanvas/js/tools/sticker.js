@@ -32,7 +32,7 @@ app.Sticker = function($elem, name) {
 
   this.stickerName = 'sticker-' + name;
   this.sticker = $elem.find('#' + this.stickerName)[0];
-  this.soundKey = 'selfie_spray_small';
+  this.soundKey = 'cd_sticker_place';
   this.stamped = false;
   this.sizeMultiplier = 1;
 
@@ -121,4 +121,3 @@ app.Sticker.prototype.updateAngle = function(angle) {
     transform: 'translate(-50%, -50%) rotate(' + this.currentAngle + 'deg)'
   });
 };
-

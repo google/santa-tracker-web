@@ -35,6 +35,8 @@ app.Rotator = function($elem) {
 app.Rotator.prototype.rotate = function(direction) {
   var angle = app.Constants.ROTATE_ANGLE * direction;
 
+  window.santaApp.fire('sound-trigger', {name: 'cd_rotate', args: [direction]});
+
   this.subscribers.forEach(function(subscriber) {
     subscriber.callback.call(subscriber.context, angle);
   }, this);
@@ -47,4 +49,3 @@ app.Rotator.prototype.subscribe = function(callback, context) {
     context: context
   });
 };
-

@@ -30,7 +30,7 @@ goog.require('app.utils');
 app.PaintRoller = function($elem, name) {
   app.Tool.call(this, $elem, 'roller-' + name);
 
-  this.soundKey = name;
+  this.soundKey = 'roller';
   this.drawing = false;
   this.pattern = $elem.find('#roller-' + name)[0];
   this.patternCanvas = $elem.find('#pattern-canvas')[0];
@@ -62,6 +62,7 @@ app.PaintRoller.prototype.draw = function(canvas, mouseCoords, prevCanvas, size)
     context.translate(0, -this.currentSize / 2); // offset for pattern
     context.fillRect(0, 0, distance, this.currentSize);
     context.setTransform(1, 0, 0, 1, 0, 0);
+    window.santaApp.fire('sound-trigger', {name: 'cd_roller_stretch', args: [distance / Math.max(canvas.width, canvas.height)]});
   } else {
     this.startPt = { x: drawX, y: drawY };
     this.drawing = true;

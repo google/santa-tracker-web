@@ -32,7 +32,7 @@ app.Shape = function($elem, name) {
   app.Tool.call(this, $elem, 'shape-' + name);
 
   this.shapeName = 'shape-' + name;
-  this.soundKey = 'selfie_spray_small';
+  this.soundKey = 'cd_shape_place_' + name;
   this.stamped = false;
   this.sizeMultiplier = 1;
   this.shapeImages = {};
@@ -133,4 +133,3 @@ app.Shape.prototype.updateAngle = function(angle) {
 app.Shape.prototype.preloadImage = function(color) {
   return app.ImageManager.getImage(this.shapeName, color);
 };
-

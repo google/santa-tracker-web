@@ -71,6 +71,8 @@ app.Tools = function(game, $elem) {
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
 
+  this.lastSize = 0;
+
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
       drawFrequency: 2,
@@ -565,6 +567,7 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     this.secondaryMenu.addClass('is-active');
     categoryMenu.addClass('is-active');
   }
+  window.santaApp.fire('sound-trigger', 'selfie_click');
 };
 
 
@@ -597,6 +600,10 @@ app.Tools.prototype.sliderChanged = function(size) {
       x: -this.circleSize / 2,
       y: this.circleSize / 2
     };
+  }
+  if (this.lastSize !== size) {
+    window.santaApp.fire('sound-trigger', {name: 'cd_size', args: [size]});
+    this.lastSize = size;
   }
 };
 

@@ -106,21 +106,22 @@ app.utils = function() {
     triggerStart: function(event) {
       if (!audioProxy[event]) {
         window.santaApp.fire('sound-trigger', 'cd_stop_all_drawing');
-        window.santaApp.fire('sound-trigger', this.sanitizeName(event) + '_start');
+        window.santaApp.fire('sound-trigger', this.cleanNameForKlang(event) + '_start');
         audioProxy[event] = true;
       }
     },
 
     triggerStop: function(event) {
       if (audioProxy[event]) {
-        window.santaApp.fire('sound-trigger', this.sanitizeName(event) + '_stop');
+        window.santaApp.fire('sound-trigger', this.cleanNameForKlang(event) + '_stop');
         audioProxy[event] = false;
       }
     },
 
-    triggerOnce: function(event) {
+    triggerOnce: function(event, args) {
       if (!audioProxy[event]) {
-        window.santaApp.fire('sound-trigger', event);
+        args = args || [];
+        window.santaApp.fire('sound-trigger', {name: event, args: args});
         audioProxy[event] = true;
       }
     },
@@ -129,7 +130,7 @@ app.utils = function() {
       audioProxy[event] = false;
     },
 
-    sanitizeName: function(event) {
+    cleanNameForKlang: function(event) {
       return 'cd_' + event.replace(/-/ig, '_')
     }
   };
