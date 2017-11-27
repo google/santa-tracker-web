@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Kry Google Maps"
 	},
+	"getready": {
+		"message": "Maak gereed!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Oefen"
+	},
 	"press": {
 		"message": "Pers"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "O, ek weet, dit is {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "of"
+	},
+	"quickdraw-machine-see": {
+		"message": "Ek sien"
+	},
+	"quickdraw-newround-button": {
+		"message": "Begin"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ek's nie seker wat dit is nie."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Jammer"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Ek kon nie raai nie!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor het ook gedink jou tekening lyk soos dié:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Hoe weet Tensor hoe {{thing}} lyk?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Dit het geleer deur te kyk na hierdie voorbeelde wat deur ander mense geteken is."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor het gedink jou tekening lyk meer soos dié:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Hierdie is Kersvader se weergawe van {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Jy is gevra om {{thing}} te teken."
+	},
+	"quickdraw-slate": {
+		"message": "Skets"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor is Kersvader se masjienleer-robot wat hom help om die briewe wat hy vanaf kinders wêreldwyd ontvang, vinnig te ontsyfer. Help Tensor oefen deur 'n prent van elke vakansiewoord op die skerm te teken en hy sal jou sê wat hy sien. Hoe meer jy teken, hoe slimmer sal Tensor word. So kom ons help Kersvader om hierdie vakansie nog doeltreffender as ooit tevore te wees!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Help Tensor om sy prentherkenning te oefen!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor het {{recognized}} van jou tekeninge herken."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor het een van jou tekeninge herken."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor het nie enige van jou tekeninge herken nie."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Welgedaan!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oeps!"
 	},
 	"ro_country_name": {
 		"message": "Roemenië"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Oproep van Kersvader"
 	},
+	"scene_canvas": {
+		"message": "Kersvader se skilderdoek"
+	},
 	"scene_citylights": {
 		"message": "Stadsligte"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Aflaai van geskenke"
 	},
+	"scene_quickdraw": {
+		"message": "Kitsteken"
+	},
 	"scene_racer": {
 		"message": "Rudolph se jaer"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Kersvader se opstyg"
+	},
+	"scene_videoscene_museum": {
+		"message": "'n Dag by die museum"
 	},
 	"scene_videoscene_office": {
 		"message": "Kantoorpoets"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Verys!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} van {{total}} elwe bly oor"
+	},
+	"snowball_spectate": {
+		"message": "Hou die speletjie dop"
+	},
+	"snowball_waiting": {
+		"message": "Wag tans vir nog Santa se elwe"
 	},
 	"snowflake_choose_background": {
 		"message": "Kies 'n agtergrond"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Meer maniere om te verken"
 	},
+	"village_santa_a2hs": {
+		"message": "Voeg by tuisskerm"
+	},
 	"village_santa_cardboard": {
 		"message": "Kersvader op Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Beste telling"
 	},
 	"zh-CN_language_name": {
 		"message": "Chinees (vereenvoudig)"

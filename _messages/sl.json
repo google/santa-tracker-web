@@ -33,7 +33,7 @@
 		"message": "arabščina"
 	},
 	"ar_tradition": {
-		"message": "V Argentini se božič začne takoj ob polnoči. Številne družine praznujejo tako, da priredijo bogate pogostitve v svojih domovih, odpiranje daril skupaj z najbližjimi in ognjemete zgodaj zjutraj."
+		"message": "V Argentini se božič začne takoj ob polnoči. Številne družine praznujejo tako, da priredijo bogate pogostitve v svojih domovih, odpirajo darila skupaj z najbližjimi in prižgejo ognjemete zgodaj zjutraj."
 	},
 	"at_country_name": {
 		"message": "Avstrija"
@@ -42,7 +42,7 @@
 		"message": "Avstralija"
 	},
 	"au_tradition": {
-		"message": "Ker je Avstralija na južni polobli, to pomeni, da je decembra tam poletje. Namesto bi prisluhnili kraguljčkom in pili kakav, se številni Avstralci napotijo na plažo ter praznujejo tako, da si za kosilo privoščijo rakce in igrajo kriket."
+		"message": "Ker je Avstralija na južni polobli, to pomeni, da je decembra tam poletje. Namesto da bi prisluhnili kraguljčkom in pili kakav, se številni Avstralci napotijo na plažo ter praznujejo tako, da si za kosilo privoščijo rakce in igrajo kriket."
 	},
 	"ba_country_name": {
 		"message": "Bosna in Hercegovina"
@@ -93,7 +93,7 @@
 		"message": "Kanada"
 	},
 	"ca_tradition": {
-		"message": "Kanadski otroci običajno praznujejo zasnežen, bel božič. Zavijejo se v svoje šale in kanadske volnene kape ter se igrajo v snegu, drsajo in vozijo po toboganih. Na božični večer ob kaminu Božičku nastavijo mleko in piškote (včasih pa tudi kakšen korenček za njegove jelene)."
+		"message": "Kanadski otroci običajno praznujejo zasnežen, bel božič. Zavijejo se v šale in kanadske volnene kape ter se igrajo v snegu, drsajo in sankajo. Na božični večer ob kaminu Božičku nastavijo mleko in piškote (včasih pa tudi kakšen korenček za njegove jelene)."
 	},
 	"calendar": {
 		"message": "Koledar"
@@ -366,7 +366,7 @@
 		"message": "Odlično!"
 	},
 	"codeboogie-watch-closely": {
-		"message": "Glejte pozorno!"
+		"message": "Pozorno glejte!"
 	},
 	"codeboogie-your-turn": {
 		"message": "Na vrsti ste"
@@ -459,7 +459,7 @@
 		"message": "Če želite svoje sporočilo deliti z drugimi, kopirajte to povezavo"
 	},
 	"copy-me-short": {
-		"message": "Kopir. pov. za sk. rabo"
+		"message": "Kopirajte povezavo za deljenje"
 	},
 	"countdown_days": {
 		"message": "dni"
@@ -582,13 +582,13 @@
 		"message": "Etiopija"
 	},
 	"explore": {
-		"message": "Raziskovanje"
+		"message": "Raziščite"
 	},
 	"fi_country_name": {
 		"message": "Finska"
 	},
 	"fi_tradition": {
-		"message": "Finci verjamejo, da Božiček, »Joulupukki«, živi v severnem delu države, v Korvatunturiju, če smo bolj natančni. Če ta kraj obiščete, boste morda našli njegovo skrivno delavnico, kjer pridno delajo palčki, ali severne jelene, ki se sprehajajo po borovih gozdovih."
+		"message": "Finci verjamejo, da Božiček, »Joulupukki«, živi v severnem delu države – natančneje v Korvatunturiju. Če ta kraj obiščete, boste morda našli njegovo skrivno delavnico, kjer pridno delajo palčki, ali severne jelene, ki se sprehajajo po borovih gozdovih."
 	},
 	"finished-text": {
 		"message": "Vesele praznike! Božiček je zaključil svoje potovanje okoli sveta in zdaj odhaja na zaslužen počitek. Obiščite nas tudi naslednje leto."
@@ -616,6 +616,9 @@
 	},
 	"getgooglemaps": {
 		"message": "Prenesite Google Zemljevide"
+	},
+	"getready": {
+		"message": "Pripravite se!"
 	},
 	"gh_country_name": {
 		"message": "Gana"
@@ -732,7 +735,7 @@
 		"message": "Kirgizistan"
 	},
 	"kg_tradition": {
-		"message": "V Kirgizistanu ob polnoči na novoletni večer pride Ayaz Ata (Dedek Mraz) in pusti darila pod novoletnim drevescem. Ko ura odbije polnoči, družine po vsej državi prižgejo ognjemete, s katerimi praznujejo ta lep praznik. Mesta so osvetljena kot podnevi."
+		"message": "V Kirgizistanu ob polnoči na novoletni večer pride Ayaz Ata (Dedek Mraz) in pusti darila pod novoletnim drevescem. Ko ura odbije polnoč, družine po vsej državi prižgejo ognjemete, s katerimi praznujejo ta lep praznik. Mesta so osvetljena kot podnevi."
 	},
 	"ko_language_name": {
 		"message": "korejščina"
@@ -753,7 +756,7 @@
 		"message": "Jezik"
 	},
 	"learn": {
-		"message": "Več"
+		"message": "Spoznajte"
 	},
 	"learnmore": {
 		"message": "Več o tem"
@@ -822,7 +825,7 @@
 		"message": "Mehika"
 	},
 	"mx_tradition": {
-		"message": "V Mehiki otroci vseh starosti praznujejo tako, da razbijajo pinate. Odrasli in otroci se zabavajo tako, da se vrtijo s prevezanimi očmi ter mahajo s palico, da bi razbili in odprli viseče posode v obliki zvezde. Ko je pinata razbita, se iz nje vsujejo oreščki, sadje in bonboni, ki si jih lahko nato vsi privoščijo."
+		"message": "V Mehiki otroci vseh starosti praznujejo božič tako, da razbijajo pinate. Odrasli in otroci se zabavajo tako, da se vrtijo s prevezanimi očmi ter mahajo s palico, da bi razbili in odprli viseče posode v obliki zvezde. Ko je pinata razbita, se iz nje vsujejo oreščki, sadje in bonboni, ki si jih lahko nato vsi privoščijo."
 	},
 	"my_country_name": {
 		"message": "Malezija"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Portoriko"
 	},
+	"practice": {
+		"message": "Vaja"
+	},
 	"press": {
 		"message": "Mediji"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paragvaj"
+	},
+	"quickdraw-machine-know": {
+		"message": "Že vem, to je {{thing}}."
+	},
+	"quickdraw-machine-or": {
+		"message": "ali"
+	},
+	"quickdraw-machine-see": {
+		"message": "To je"
+	},
+	"quickdraw-newround-button": {
+		"message": "Začni"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ne vem, kaj je to."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Žal"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Nisem mogel uganiti."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor meni tudi, da je vaša risba podobna tem:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Kako Tensor ve, kako je videti predmet {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Naučil se je tako, da si je ogledal te risbe drugih."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor meni, da je vaša risba bolj podobna tem:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "To je Božičkova različica predmeta {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Prosili smo vas, da narišete: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Nariši"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor je Božičkov strojno učeči se robot. Pomaga mu hitro razvozlati pisma, ki mu jih pošljejo otroci z vsega sveta. Če želite Tensorju pomagati vaditi, narišite sliko vsake praznične besede na zaslonu in povedal vam bo, kaj vidi. Več risb narišete, pametnejši bo Tensor postal. Pomagajmo Božičku, da bo te praznike bolj učinkovit kot kadar koli prej."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Pomagajte Tensorju pri vadbi prepoznavanja slik."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor je prepoznal toliko vaših slik: {{recognized}}."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor je prepoznal eno od vaših risb."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor ni prepoznal nobene vaše slike."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Odlično!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ojej!"
 	},
 	"ro_country_name": {
 		"message": "Romunija"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Božičkov klic"
 	},
+	"scene_canvas": {
+		"message": "Božičkovo platno"
+	},
 	"scene_citylights": {
 		"message": "Mestne luči"
 	},
@@ -1161,7 +1233,7 @@
 		"message": "Nadzorni center"
 	},
 	"scene_dash": {
-		"message": "Pingvinovo iskanje"
+		"message": "Pingvinova odprava"
 	},
 	"scene_elfski": {
 		"message": "Palček smuča"
@@ -1210,6 +1282,9 @@
 	},
 	"scene_presentdrop": {
 		"message": "Spust darila"
+	},
+	"scene_quickdraw": {
+		"message": "Hitro risanje"
 	},
 	"scene_racer": {
 		"message": "Hitri Rudolf"
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Božičkovo vzletišče"
+	},
+	"scene_videoscene_museum": {
+		"message": "Dan v muzeju"
 	},
 	"scene_videoscene_office": {
 		"message": "Pisarniška potegavščina"
@@ -1320,7 +1398,7 @@
 		"message": "To razglednico sem ustvaril zate v Googlovi aplikaciji Spremljanje Božičkove poti. Vesele praznike!"
 	},
 	"share-this": {
-		"message": "Daj v skupno rabo"
+		"message": "Deli"
 	},
 	"sk_country_name": {
 		"message": "Slovaška"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Zadetek!"
+	},
+	"snowball_remaining": {
+		"message": "Še {{remaining}} od toliko palčkov: {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Gledanje"
+	},
+	"snowball_waiting": {
+		"message": "Čakanje na več Božičkovih palčkov"
 	},
 	"snowflake_choose_background": {
 		"message": "Izberite ozadje"
@@ -2142,7 +2229,7 @@
 		"message": "Skalno gorovje poteka skozi Kanado in še eno drugo državo. Katero?"
 	},
 	"trivia_beginner_053_answer0": {
-		"message": "Združene države Amerike"
+		"message": "Združene države"
 	},
 	"trivia_beginner_053_answer1": {
 		"message": "Venezuela"
@@ -2493,7 +2580,7 @@
 		"message": "Brazilija"
 	},
 	"trivia_beginner_082_answer1": {
-		"message": "Združeno kraljestvo"
+		"message": "Združ. kraljestvo"
 	},
 	"trivia_beginner_082_answer2": {
 		"message": "Vietnam"
@@ -2832,7 +2919,7 @@
 		"message": "Danska"
 	},
 	"trivia_hard_013_answer2": {
-		"message": "Združeno kraljestvo"
+		"message": "Združ. kraljestvo"
 	},
 	"trivia_hard_014": {
 		"message": "Katera država ne meji na Črno morje?"
@@ -3096,7 +3183,7 @@
 		"message": "Turčija"
 	},
 	"trivia_hard_035_answer2": {
-		"message": "Združeno kraljestvo"
+		"message": "Združ. kraljestvo"
 	},
 	"trivia_hard_036": {
 		"message": "Katera puščava prekriva večji del ozemlja med Pekingom in \nUlan Batorjem?"
@@ -4317,7 +4404,7 @@
 		"message": "Norveška"
 	},
 	"trivia_medium_032_answer1": {
-		"message": "Združeno kraljestvo"
+		"message": "Združ. kraljestvo"
 	},
 	"trivia_medium_032_answer2": {
 		"message": "Šrilanka"
@@ -4581,7 +4668,7 @@
 		"message": "Islandija"
 	},
 	"trivia_medium_054_answer1": {
-		"message": "Združeno kraljestvo"
+		"message": "Združ. kraljestvo"
 	},
 	"trivia_medium_054_answer2": {
 		"message": "Poljska"
@@ -4725,7 +4812,7 @@
 		"message": "Avstralija"
 	},
 	"trivia_medium_066_answer1": {
-		"message": "Združene države Amerike"
+		"message": "Združene države"
 	},
 	"trivia_medium_066_answer2": {
 		"message": "Kanada"
@@ -5154,16 +5241,16 @@
 		"message": "Uganda"
 	},
 	"uk_country_name": {
-		"message": "Združeno kraljestvo"
+		"message": "Združ. kraljestvo"
 	},
 	"uk_tradition": {
-		"message": "V Združenem Kraljestvu se veseljaki vseh starosti pri božični večerji radi pozabavajo z božičnimi pokalicami. Pokalice so cevke, ovite s pisanim papirjem in jezičkoma za vlečenje na vsaki strani. Ko povlečete jezička, se cevka razpoči z glasnim pokom. Notri so klobuki iz papirja, igrače in sladkarije, ki jih nato uživate na božični večer."
+		"message": "V Združenem kraljestvu se veseljaki vseh starosti pri božični večerji radi pozabavajo z božičnimi pokalicami. Pokalice so cevke, ovite s pisanim papirjem in jezičkoma za vlečenje na vsaki strani. Ko povlečete jezička, se cevka razpoči z glasnim pokom. Notri so klobuki iz papirja, igrače in sladkarije, ki jih nato uživate na božični večer."
 	},
 	"upgrade-warning": {
 		"message": "Ojej! Spremljanje Božičkove poti ni podprto v tej različici brskalnika. Za dostop do spremljanja Božičkove poti prenesite sodobnejši brskalnik. Za več informacij obiščite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
-		"message": "Združene države Amerike"
+		"message": "Združene države"
 	},
 	"us_tradition": {
 		"message": "V Združenih državah na božični večer obesijo božične nogavice. Legenda pravi, da je sv. Nikolaj slišal za družino v stiski. Želel jih je presenetiti, zato je splezal po njihovem dimniku in jim v obešene nogavice nastavil dragocene vrečke zlata. Od takrat dalje je bil poznan kot Božiček, obdarovalec."
@@ -5188,6 +5275,9 @@
 	},
 	"village_more": {
 		"message": "Več načinov raziskovanja"
+	},
+	"village_santa_a2hs": {
+		"message": "Dodaj na začetni zaslon"
 	},
 	"village_santa_cardboard": {
 		"message": "Božiček v napravi Cardboard"
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Najboljši rezultat"
 	},
 	"zh-CN_language_name": {
 		"message": "kitajščina (poenostavljena)"

@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Google வரைபடத்தைப் பெறுக"
 	},
+	"getready": {
+		"message": "தயாராகுங்கள்!"
+	},
 	"gh_country_name": {
 		"message": "கானா"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "போர்டோ ரிக்கோ"
 	},
+	"practice": {
+		"message": "பயிற்சி"
+	},
 	"press": {
 		"message": "பத்திரிகை"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "பராகுவே"
+	},
+	"quickdraw-machine-know": {
+		"message": "எனக்குத் தெரியும், இது {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "அல்லது"
+	},
+	"quickdraw-machine-see": {
+		"message": "தெரிவது"
+	},
+	"quickdraw-newround-button": {
+		"message": "தொடங்கு"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "அது என்ன என்பது தெரியவில்லை."
+	},
+	"quickdraw-round-sorry": {
+		"message": "மன்னிக்கவும்"
+	},
+	"quickdraw-round-timesup": {
+		"message": "யூகிக்க முடியவில்லை!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "நீங்கள் வரைந்தது இவற்றைப் போன்றும் உள்ளது என டென்சார் நினைக்கிறது:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "{{thing}} போல் உள்ளது என்பது டென்சாருக்கு எப்படி தெரியும்?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "இது மற்றவர்கள் வரைந்த இந்த உதாரணங்களைப் பார்த்து கற்றுக் கொண்டது."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "நீங்கள் வரைந்தது கிட்டத்தட்ட இவற்றைப் போன்று உள்ளது என டென்சார் நினைக்கிறது:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "இது சான்டாவின் {{thing}} பதிப்பு."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "உங்களிடம் {{thing}}ஐ வரையுமாறு கேட்கப்பட்டது."
+	},
+	"quickdraw-slate": {
+		"message": "வரை"
+	},
+	"quickdraw-splashview-description": {
+		"message": "டென்சார் என்பது உலகெங்கிலும் உள்ள குழந்தைகளிடமிருந்து பெறும் கடிதங்களை விரைவாகப் புரிந்துகொள்ள சான்டாவுக்கு உதவுகின்ற, எந்திரக் கற்றல் ரோபோட் ஆகும். டென்சாருக்குப் பயிற்சியளிக்க, ஒவ்வொரு விடுமுறை வார்த்தையின் படத்தையும் திரையில் வரையவும், என்ன தெரிகிறது என்று அது உங்களுக்குக் கூறும். நீங்கள் அதிகமாக வரைய வரைய, டென்சார் இன்னும் ஸ்மார்ட் ஆகும், எனவே இந்த விடுமுறை சீசனில் சான்டா முன்பை விடச் சிறப்பாகச் செயல்படுவதற்கு அவருக்கு உதவுவோம்!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "படத்தைக் கண்டறிவதற்கு டென்சாருக்குப் பயிற்சி அளியுங்கள்!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "டென்சார் நீங்கள் வரைந்தவற்றில் {{recognized}}ஐக் கண்டுபிடித்துள்ளது."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "டென்சார் நீங்கள் வரைந்தவற்றில் ஒன்றைக் கண்டுபிடித்துவிட்டது."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "டென்சார் நீங்கள் வரைந்தவற்றில் எதையுமே கண்டுபிடிக்கவில்லை."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "அருமை!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "அச்சச்சோ!"
 	},
 	"ro_country_name": {
 		"message": "ருமேனியா"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "சான்டாவின் அழைப்பு"
 	},
+	"scene_canvas": {
+		"message": "சாண்டாவின் கேன்வாஸ்"
+	},
 	"scene_citylights": {
 		"message": "சிட்டி லைட்ஸ்"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "பிரசென்ட் டிராப்"
 	},
+	"scene_quickdraw": {
+		"message": "Quick Draw"
+	},
 	"scene_racer": {
 		"message": "ருடால்ஃப் ரேஸர்"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "சான்டாவின் புறப்பாடு"
+	},
+	"scene_videoscene_museum": {
+		"message": "அருங்காட்சியகத்தில் ஒரு நாள்"
 	},
 	"scene_videoscene_office": {
 		"message": "அலுவலகக் குறும்பு"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "ஐஸ் அவுட்!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} / {{total}} குட்டித் தேவதைகள் மீதமுள்ளனர்"
+	},
+	"snowball_spectate": {
+		"message": "பார்க்க அனுமதி"
+	},
+	"snowball_waiting": {
+		"message": "சான்டாவின் பிற குட்டித் தேவதைகள் இணைவதற்காகக் காத்திருக்கின்றன"
 	},
 	"snowflake_choose_background": {
 		"message": "பின்னணியைத் தேர்வுசெய்யவும்"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "கண்டறிவதற்கான மேலும் வழிகள்"
 	},
+	"village_santa_a2hs": {
+		"message": "முகப்புத் திரையில் சேர்"
+	},
 	"village_santa_cardboard": {
 		"message": "கார்ட்போர்டில் சான்டா"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "ஏமன்"
+	},
+	"yourbest": {
+		"message": "சிறந்த ஸ்கோர்"
 	},
 	"zh-CN_language_name": {
 		"message": "சீனம் (எளிதாக்கப்பட்டது)"

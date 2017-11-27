@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Dapatkan Google Maps"
 	},
+	"getready": {
+		"message": "Bersiaplah!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -780,7 +783,7 @@
 		"message": "Lituania"
 	},
 	"lt_tradition": {
-		"message": "Di Lithuania, ornamen Natal tradisional terbuat dari jerami atau rumput kering. Bahan-bahan tersebut dianyam membentuk bintang, bunga salju, atau lonceng. Banyak keluarga menggunakan jerami sebagai dekorasi meja pada acara makan malam besar yang disebut Kūčios."
+		"message": "Di Lituania, ornamen Natal tradisional dibuat dari jerami atau rumput kering. Bahan-bahan tersebut dianyam membentuk bintang, bunga salju, atau lonceng. Banyak keluarga menggunakan jerami sebagai dekorasi meja pada acara makan malam besar yang disebut Kūčios."
 	},
 	"lv_country_name": {
 		"message": "Latvia"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Riko"
 	},
+	"practice": {
+		"message": "Praktik"
+	},
 	"press": {
 		"message": "Pers"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Aku tahu, ini {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "atau"
+	},
+	"quickdraw-machine-see": {
+		"message": "Ini"
+	},
+	"quickdraw-newround-button": {
+		"message": "Mulai"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Aku tak yakin gambar apa ini."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Maaf"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Aku tidak tahu!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor juga mengira gambar Anda mirip ini:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Bagaimana Tensor tahu seperti apa bentuk {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Tensor belajar dengan melihat contoh-contoh yang digambar orang lain."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor mengira gambar Anda lebih mirip ini:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Ini adalah versi Sinterklas dari {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Anda diminta menggambar {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Gambar"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor adalah robot Machine Learning Sinterklas, yang membantunya memahami dengan cepat berbagai surat yang diterimanya dari anak-anak di seluruh dunia. Untuk membantu Tensor berlatih, gambar setiap kata liburan di layar dan dia akan memberi tahu Anda apa yang dilihatnya. Semakin sering Anda menggambar, Tensor akan semakin cerdas menebak. Jadi, ayo bantu Sinterklas agar semakin efisien di musim liburan ini!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Bantu Tensor berlatih mengenali gambar!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor mengenali {{recognized}} dari gambar Anda."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor mengenali salah satu gambar Anda."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor sama sekali tidak mengenali gambar Anda."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Bagus!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ups!"
 	},
 	"ro_country_name": {
 		"message": "Rumania"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Telepon dari Sinterklas"
 	},
+	"scene_canvas": {
+		"message": "Kanvas Sinterklas"
+	},
 	"scene_citylights": {
 		"message": "Lampu Kota"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Jatuhkan Hadiah"
 	},
+	"scene_quickdraw": {
+		"message": "Menggambar Cepat"
+	},
 	"scene_racer": {
 		"message": "Pembalap Rudolph"
 	},
@@ -1221,7 +1296,7 @@
 		"message": "Reindeer Runner"
 	},
 	"scene_santasearch": {
-		"message": "Penelusuran Sinterklas"
+		"message": "Pencarian Sinterklas"
 	},
 	"scene_santaselfie": {
 		"message": "Santa Selfie"
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Keberangkatan Sinterklas"
+	},
+	"scene_videoscene_museum": {
+		"message": "Sehari di Museum"
 	},
 	"scene_videoscene_office": {
 		"message": "Gurauan Kantor"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Kena!"
+	},
+	"snowball_remaining": {
+		"message": "Tersisa {{remaining}} dari {{total}} kurcaci"
+	},
+	"snowball_spectate": {
+		"message": "Tonton"
+	},
+	"snowball_waiting": {
+		"message": "Menunggu kurcaci Sinterklas lainnya"
 	},
 	"snowflake_choose_background": {
 		"message": "Pilih tampilan latar"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Cara Lain untuk Menjelajahi"
 	},
+	"village_santa_a2hs": {
+		"message": "Tambahkan ke Layar Utama"
+	},
 	"village_santa_cardboard": {
 		"message": "Sinterklas di Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yaman"
+	},
+	"yourbest": {
+		"message": "Skor Terbaik"
 	},
 	"zh-CN_language_name": {
 		"message": "China (aksara sederhana)"

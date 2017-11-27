@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Hämta Google Maps"
 	},
+	"getready": {
+		"message": "Gör dig redo!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Öva"
+	},
 	"press": {
 		"message": "Press"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Jag vet! Det är {{thing}}."
+	},
+	"quickdraw-machine-or": {
+		"message": "eller"
+	},
+	"quickdraw-machine-see": {
+		"message": "Jag ser"
+	},
+	"quickdraw-newround-button": {
+		"message": "Börja"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Jag vet inte vad det är."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Tyvärr"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Jag kunde inte gissa det!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor tyckte att din teckning även liknade dessa:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Hur kan Tensor veta hur {{thing}} ser ut?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Den lärde sig genom att titta på dessa exempel som ritats av andra personer."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor tyckte att din teckning mer liknade dessa:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Detta är tomtens version av {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Du blev ombedd att rita {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Teckna"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor är tomtens maskininlärningsrobot som hjälper honom att snabbt dechiffrera breven som han får från barn över hela världen. Du kan hjälpa Tensor att öva genom att rita en teckning av varje ord på skärmen så berättar han vad han ser. Ju mer du ritar, desto smartare blir Tensor, så låt oss hjälpa tomten att bli effektivare än någonsin under den här julen!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjälp Tensor öva på sin bildigenkänningsförmåga!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor identifierade {{recognized}} av dina teckningar."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor identifierade en av dina teckningar."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor kunde inte identifiera någon av dina teckningar."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Bra jobbat!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Hoppsan!"
 	},
 	"ro_country_name": {
 		"message": "Rumänien"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Samtal från jultomten"
 	},
+	"scene_canvas": {
+		"message": "Måla med tomten"
+	},
 	"scene_citylights": {
 		"message": "Stadsljus"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Julklappsutdelning"
 	},
+	"scene_quickdraw": {
+		"message": "Rita snabbt"
+	},
 	"scene_racer": {
 		"message": "Rudolfloppet"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Jultomten lyfter"
+	},
+	"scene_videoscene_museum": {
+		"message": "En dag i museet"
 	},
 	"scene_videoscene_office": {
 		"message": "Kontorsspratt"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Mulad!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} av {{total}} tomtenissar återstår"
+	},
+	"snowball_spectate": {
+		"message": "Titta"
+	},
+	"snowball_waiting": {
+		"message": "Väntar på fler tomtenissar"
 	},
 	"snowflake_choose_background": {
 		"message": "Välj en bakgrund"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Fler sätt att utforska"
 	},
+	"village_santa_a2hs": {
+		"message": "Lägg till på startsidan"
+	},
 	"village_santa_cardboard": {
 		"message": "Jultomten på Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Bästa resultatet"
 	},
 	"zh-CN_language_name": {
 		"message": "kinesiska (förenklad)"

@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "取得「Google 地圖」"
 	},
+	"getready": {
+		"message": "準備好了嗎？"
+	},
 	"gh_country_name": {
 		"message": "加納"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"practice": {
+		"message": "練習"
+	},
 	"press": {
 		"message": "新聞稿"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "巴拉圭"
+	},
+	"quickdraw-machine-know": {
+		"message": "噢，我知道了，這是{{thing}}！"
+	},
+	"quickdraw-machine-or": {
+		"message": "或"
+	},
+	"quickdraw-machine-see": {
+		"message": "您畫的是"
+	},
+	"quickdraw-newround-button": {
+		"message": "開始"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "我不肯定這是什麼。"
+	},
+	"quickdraw-round-sorry": {
+		"message": "抱歉"
+	},
+	"quickdraw-round-timesup": {
+		"message": "我猜不到！"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor 覺得您的作品亦很像這些物件："
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Tensor 如何知道{{thing}}是什麼樣子的？"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Tensor 是透過觀察這些由其他人所畫的作品學習。"
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor 覺得您的作品比較像這些物件："
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "這是聖誕老人所畫的{{thing}}。"
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "您要畫的是{{thing}}。"
+	},
+	"quickdraw-slate": {
+		"message": "繪圖"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor 是聖誕老人的機器學習機械人，會幫助聖誕老人快速解讀世界各地孩子寄來的信。要幫助 Tensor 練習，只需在畫面上畫出每個節日詞語的圖畫，他便會告訴您他看到什麼。您畫得越多，Tensor 便會越聰明；快來幫助聖誕老人，讓他在今年聖誕更有效率地解讀全球各地的來信吧！"
+	},
+	"quickdraw-splashview-title": {
+		"message": "幫助 Tensor 練習圖像識別技巧！"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor 猜對了您其中 {{recognized}} 幅作品。"
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor 猜對了您其中一幅作品。"
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor 猜不到您任何一幅作品。"
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "做得好！"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "噢！"
 	},
 	"ro_country_name": {
 		"message": "羅馬尼亞"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "聖誕老人來電"
 	},
+	"scene_canvas": {
+		"message": "聖誕老人的畫布"
+	},
 	"scene_citylights": {
 		"message": "城市之光"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "掉下禮物"
 	},
+	"scene_quickdraw": {
+		"message": "快速繪圖"
+	},
 	"scene_racer": {
 		"message": "聖誕馴鹿競賽"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "聖誕老人出發"
+	},
+	"scene_videoscene_museum": {
+		"message": "博物館一日遊"
 	},
 	"scene_videoscene_office": {
 		"message": "辦公室惡作劇"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "冰封！"
+	},
+	"snowball_remaining": {
+		"message": "尚餘 {{remaining}} 隻小精靈，共 {{total}} 隻"
+	},
+	"snowball_spectate": {
+		"message": "觀戰"
+	},
+	"snowball_waiting": {
+		"message": "正等待聖誕老人的其他小精靈加入"
 	},
 	"snowflake_choose_background": {
 		"message": "選擇背景"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "更多探索方法"
 	},
+	"village_santa_a2hs": {
+		"message": "新增至主畫面"
+	},
 	"village_santa_cardboard": {
 		"message": "在 Cardboard 上「追蹤聖誕老人」"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "也門"
+	},
+	"yourbest": {
+		"message": "最佳成績"
 	},
 	"zh-CN_language_name": {
 		"message": "中文 (簡體)"

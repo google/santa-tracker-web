@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Descarcă Google Maps"
 	},
+	"getready": {
+		"message": "Pregătește-te!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Antrenament"
+	},
 	"press": {
 		"message": "Presă"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Știu, este {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "sau"
+	},
+	"quickdraw-machine-see": {
+		"message": "Văd"
+	},
+	"quickdraw-newround-button": {
+		"message": "Începe"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Nu știu sigur ce este."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Scuze!"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Nu am putut ghici!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor a crezut că desenul tău semăna cu:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "De unde știe Tensor cum arată {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "A învățat uitându-se la aceste exemple desenate de alți oameni."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor a crezut că desenul tău semăna mai mult cu:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Desenul lui Moș Crăciun cu {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Ți s-a cerut să desenezi {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Desen"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor este robotul de învățare automată al lui Moș Crăciun, care-l ajută să descifreze rapid scrisorile pe care le primește de la copiii din întreaga lume. Pentru a-l ajuta pe Tensor să exerseze, desenează o imagine a fiecărui cuvânt festiv de pe ecran, iar el îți va spune ce vede. Cu cât desenezi mai mult, cu atât mai inteligent va fi Tensor. Ajută-l pe Moș Crăciun să fie mai eficient în timpul sărbătorilor!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ajută-l pe Tensor să exerseze recunoașterea imaginilor!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor a ghicit {{recognized}} dintre desenele tale."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor a ghicit unul dintre desenele tale."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor nu a ghicit niciunul dintre desenele tale."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Felicitări!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Hopa!"
 	},
 	"ro_country_name": {
 		"message": "România"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Apel de la Moș Crăciun"
 	},
+	"scene_canvas": {
+		"message": "Tabloul lui Moș Crăciun"
+	},
 	"scene_citylights": {
 		"message": "Luminile orașului"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Împărțirea cadourilor"
 	},
+	"scene_quickdraw": {
+		"message": "Ghicitori desenate"
+	},
 	"scene_racer": {
 		"message": "Cursa lui Rudolph"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Plecarea lui Moș Crăciun"
+	},
+	"scene_videoscene_museum": {
+		"message": "O zi la muzeu"
 	},
 	"scene_videoscene_office": {
 		"message": "Farsă în birou"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Congelat!"
+	},
+	"snowball_remaining": {
+		"message": "Au rămas {{remaining}} din {{total}} elfi"
+	},
+	"snowball_spectate": {
+		"message": "Urmărește"
+	},
+	"snowball_waiting": {
+		"message": "Se așteaptă mai mulți elfi ai lui Moș Crăciun"
 	},
 	"snowflake_choose_background": {
 		"message": "Alege un fundal"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Alte metode de explorat"
 	},
+	"village_santa_a2hs": {
+		"message": "Adaugă pe ecranul de pornire"
+	},
 	"village_santa_cardboard": {
 		"message": "Moș Crăciun pe Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Cel mai bun scor"
 	},
 	"zh-CN_language_name": {
 		"message": "Chineză (simplificată)"

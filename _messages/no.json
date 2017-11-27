@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Få Google Maps"
 	},
+	"getready": {
+		"message": "Gjør deg klar."
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Øvelsesmodus"
+	},
 	"press": {
 		"message": "Presse"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Jeg vet, dette er {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "eller"
+	},
+	"quickdraw-machine-see": {
+		"message": "Jeg ser"
+	},
+	"quickdraw-newround-button": {
+		"message": "Start"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Jeg vet ikke helt hva det er."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Beklager"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Klarte ikke å gjette"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor syntes også at tegningen din lignet på disse:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Hvordan vet Tensor hvordan {{thing}} ser ut?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Den har lært seg dette ved å se på hvordan andre personer har tegnet disse tingene."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor syntes at tegningen din lignet mer på disse:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Dette er julenissens versjon av {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Du ble bedt om å tegne {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Tegning"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor er julenissens maskinlæringsrobot og hjelper julenissen slik at han raskt kan tyde brevene han får fra barn over hele verden. For å hjelpe Tensor med å øve kan du tegne et bilde av hvert juleord som vises på skjermen, så forteller Tensor deg hva han ser. Jo mer du tegner, desto smartere blir Tensor. La oss hjelpe julenissen med å bli enda mer effektiv denne julen!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjelp Tensor med å øve på å kjenne igjen bilder."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor kjente igjen {{recognized}} av tegningene dine."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor kjente igjen én av tegningene dine."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor kjente ikke igjen noen av tegningene dine."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Bra jobbet!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oi sann!"
 	},
 	"ro_country_name": {
 		"message": "Romania"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Telefon fra julenissen"
 	},
+	"scene_canvas": {
+		"message": "Julenissens lerret"
+	},
 	"scene_citylights": {
 		"message": "Bylys"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Gaveslipp"
 	},
+	"scene_quickdraw": {
+		"message": "Hurtigtegning"
+	},
 	"scene_racer": {
 		"message": "Rudolf-løpet"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Julenissens avgang"
+	},
+	"scene_videoscene_museum": {
+		"message": "En dag på museet"
 	},
 	"scene_videoscene_office": {
 		"message": "Alvestreker"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Dynket!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} av {{total}} alver gjenstår"
+	},
+	"snowball_spectate": {
+		"message": "Se på"
+	},
+	"snowball_waiting": {
+		"message": "Venter på flere av julenissens alver"
 	},
 	"snowflake_choose_background": {
 		"message": "Velg en bakgrunn"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Mer moro med julenissen"
 	},
+	"village_santa_a2hs": {
+		"message": "Legg til på startsiden"
+	},
 	"village_santa_cardboard": {
 		"message": "Finn julenissen med Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Beste poengsum"
 	},
 	"zh-CN_language_name": {
 		"message": "Kinesisk (forenklet)"

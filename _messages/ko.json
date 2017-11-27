@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Google 지도 다운로드"
 	},
+	"getready": {
+		"message": "준비되셨나요?"
+	},
 	"gh_country_name": {
 		"message": "가나"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "푸에르토리코"
 	},
+	"practice": {
+		"message": "연습하기"
+	},
 	"press": {
 		"message": "보도자료"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "파라과이"
+	},
+	"quickdraw-machine-know": {
+		"message": "아, 알겠어요. {{thing}} 맞죠?"
+	},
+	"quickdraw-machine-or": {
+		"message": "또는"
+	},
+	"quickdraw-machine-see": {
+		"message": "인식:"
+	},
+	"quickdraw-newround-button": {
+		"message": "시작"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "무슨 그림인지 잘 모르겠어요."
+	},
+	"quickdraw-round-sorry": {
+		"message": "미안해요"
+	},
+	"quickdraw-round-timesup": {
+		"message": "추측하지 못했습니다."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor가 그림이 다음과도 비슷하다고 판단했습니다."
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Tensor가 {{thing}}의 모양을 어떻게 아는 것일까요?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "다른 사람들이 그린 아래와 같은 예시를 보고 배운 것입니다."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor가 그림이 다음과 비슷하다고 판단했습니다."
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "산타가 그린 {{thing}}입니다."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "{{thing}} 그림을 그려보세요."
+	},
+	"quickdraw-slate": {
+		"message": "그리기"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor는 산타가 온 세상 어린이들이 보내는 편지를 빨리 알아볼 수 있도록 도와주는 머신러닝 로봇입니다. 화면에 표시된 명절과 관련된 단어를 그림으로 그리면 Tensor가 무엇인지 말해줍니다. 많이 그릴수록 Tensor가 똑똑해져서 산타를 훨씬 더 잘 도와드릴 수 있답니다."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Tensor의 이미지 인식 연습을 도와주세요."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor가 그림 중 {{recognized}}개를 알아보았습니다."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor가 그림 중 하나를 알아보았습니다."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor가 그림을 하나도 알아보지 못했습니다."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "잘 하셨습니다."
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "앗!"
 	},
 	"ro_country_name": {
 		"message": "루마니아"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "산타의 전화"
 	},
+	"scene_canvas": {
+		"message": "산타의 캔버스"
+	},
 	"scene_citylights": {
 		"message": "도시 야경"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "선물 떨구기"
 	},
+	"scene_quickdraw": {
+		"message": "퀵드로우"
+	},
 	"scene_racer": {
 		"message": "루돌프 경주"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "산타 이륙"
+	},
+	"scene_videoscene_museum": {
+		"message": "박물관에서의 하루"
 	},
 	"scene_videoscene_office": {
 		"message": "장난 사무실"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "꽁꽁 얼었습니다."
+	},
+	"snowball_remaining": {
+		"message": "{{total}}명 중 {{remaining}}명의 엘프가 남아 있습니다."
+	},
+	"snowball_spectate": {
+		"message": "계속 구경하기"
+	},
+	"snowball_waiting": {
+		"message": "산타의 엘프 친구들을 기다리는 중"
 	},
 	"snowflake_choose_background": {
 		"message": "배경을 선택하세요."
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "산타에 대해 알아볼 수 있는 다양한 방법"
 	},
+	"village_santa_a2hs": {
+		"message": "홈 화면에 추가"
+	},
 	"village_santa_cardboard": {
 		"message": "Cardboard에서 산타 찾기"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "예멘"
+	},
+	"yourbest": {
+		"message": "최고 득점"
 	},
 	"zh-CN_language_name": {
 		"message": "중국어(간체)"

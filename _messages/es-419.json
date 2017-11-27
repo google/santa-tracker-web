@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Obtener Google Maps"
 	},
+	"getready": {
+		"message": "¡Prepárate!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Práctica"
+	},
 	"press": {
 		"message": "Prensa"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "¡Ya sé! Es {{thing}}."
+	},
+	"quickdraw-machine-or": {
+		"message": "o"
+	},
+	"quickdraw-machine-see": {
+		"message": "Veo"
+	},
+	"quickdraw-newround-button": {
+		"message": "Comenzar"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "No sé bien qué es eso."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Lo siento"
+	},
+	"quickdraw-round-timesup": {
+		"message": "No pude adivinarlo."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor también detectó que tu dibujo se parecía a estos:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "¿Cómo sabe Tensor qué aspecto tiene {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Aprendió mirando estos ejemplos que dibujaron otras personas."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor detectó que tu dibujo se parecía más a estos:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Esta es la versión de {{thing}} que tiene Santa."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Te pedimos que dibujaras {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Dibujar"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor es el robot de Santa, que usa aprendizaje automático para descifrar las cartas que le envían los niños de todo el mundo. Para ayudar a Tensor a practicar, haz un dibujo de cada palabra relacionada con la Navidad que aparecerá en pantalla. Luego, Tensor te dirá qué ve. Cuanto más dibujes, más inteligente se volverá Tensor. Ayudemos a Santa a ser más eficiente que nunca esta Navidad."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ayuda a Tensor a practicar para reconocer imágenes."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor reconoció {{recognized}} de tus dibujos."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor reconoció uno de tus dibujos."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor no reconoció ninguno de tus dibujos."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "¡Bien hecho!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "¡Uy!"
 	},
 	"ro_country_name": {
 		"message": "Rumania"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Llamada de Santa"
 	},
+	"scene_canvas": {
+		"message": "Cuadros de Santa"
+	},
 	"scene_citylights": {
 		"message": "Luces de la ciudad"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Entrega de regalos"
 	},
+	"scene_quickdraw": {
+		"message": "Dibujo veloz"
+	},
 	"scene_racer": {
 		"message": "Trineo de carrera de Rudolph"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Despegue de Santa"
+	},
+	"scene_videoscene_museum": {
+		"message": "Un día en el museo"
 	},
 	"scene_videoscene_office": {
 		"message": "Broma de oficina"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "¡Congelado!"
+	},
+	"snowball_remaining": {
+		"message": "Quedan {{remaining}} de {{total}} duendes"
+	},
+	"snowball_spectate": {
+		"message": "Observar"
+	},
+	"snowball_waiting": {
+		"message": "Esperando a más duendes de Santa"
 	},
 	"snowflake_choose_background": {
 		"message": "Elige un fondo"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Más formas de explorar"
 	},
+	"village_santa_a2hs": {
+		"message": "Agregar a la pantalla principal"
+	},
 	"village_santa_cardboard": {
 		"message": "Santa en Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Mejor puntuación"
 	},
 	"zh-CN_language_name": {
 		"message": "Chino (simplificado)"

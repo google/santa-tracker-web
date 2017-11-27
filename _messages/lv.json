@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Iegūt lietotni Google Maps"
 	},
+	"getready": {
+		"message": "Sagatavojieties!"
+	},
 	"gh_country_name": {
 		"message": "Gana"
 	},
@@ -711,10 +714,10 @@
 		"message": "Irāna"
 	},
 	"is_country_name": {
-		"message": "Īslande"
+		"message": "Islande"
 	},
 	"is_tradition": {
-		"message": "Īslandē Ziemassvētku laikā ģimenes locekļi cits citam dāvina siltus apģērbus. Leģenda vēsta par baismīgu Ziemassvētku kaķi, kurš aprij ikvienu, kas nav gatavs aukstumam un ziemai. Ģimenes gādā, lai neviens nenonāk Ziemassvētku kaķa nagos."
+		"message": "Islandē Ziemassvētku laikā ģimenes locekļi cits citam dāvina siltus apģērbus. Leģenda vēsta par baismīgu Ziemassvētku kaķi, kurš aprij ikvienu, kas nav gatavs aukstumam un ziemai. Ģimenes gādā, lai neviens nenonāk Ziemassvētku kaķa nagos."
 	},
 	"it_country_name": {
 		"message": "Itālija"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puertoriko"
 	},
+	"practice": {
+		"message": "Vingrināšanās"
+	},
 	"press": {
 		"message": "Prese"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paragvaja"
+	},
+	"quickdraw-machine-know": {
+		"message": "Es zinu! Tas ir “{{thing}}”."
+	},
+	"quickdraw-machine-or": {
+		"message": "vai"
+	},
+	"quickdraw-machine-see": {
+		"message": "Es redzu"
+	},
+	"quickdraw-newround-button": {
+		"message": "Sākt"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Nesaprotu, kas tas ir."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Man žēl"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Nevarēju uzminēt."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Robots “Tensor” arī uzskatīja, ka jūsu zīmējums līdzinājās šiem zīmējumiem."
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Kā robots “Tensor” zina, kā izskatās “{{thing}}”?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Robots apguva savas prasmes, apskatot citu lietotāju zīmējumu paraugus."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Robots “Tensor” uzskatīja, ka jūsu zīmējums vairāk līdzinājās šiem zīmējumiem."
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Šī ir Ziemassvētku vecīša versija: “{{thing}}”."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Jums ir jāuzzīmē “{{thing}}”."
+	},
+	"quickdraw-slate": {
+		"message": "Zīmēt"
+	},
+	"quickdraw-splashview-description": {
+		"message": "“Tensor” ir Ziemassvētku vecīša mašīnmācīšanās robots, kas viņam palīdz ātri atšifrēt vēstules no bērniem visā pasaulē. Lai palīdzētu robotam “Tensor” vingrināties, ekrānā uzzīmējiet katra svētku vārda attēlu un viņš jums pateiks, ko redz. Jo vairāk zīmēsit, jo gudrāks kļūs robots “Tensor” Palīdzēsim Ziemassvētku vecītim šajā svētku sezonā darboties efektīvāk nekā jebkad agrāk."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Palīdziet robotam “Tensor” vingrināties attēlu atpazīšanā."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Robots “Tensor” atpazina {{recognized}} no jūsu zīmējumiem."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Robots “Tensor” atpazina vienu no jūsu zīmējumiem."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Robots “Tensor” neatpazina nevienu no jūsu zīmējumiem."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Lieliski!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ak, vai!"
 	},
 	"ro_country_name": {
 		"message": "Rumānija"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Zvans no Ziemassvētku vecīša"
 	},
+	"scene_canvas": {
+		"message": "Ziemassvētku vecīša zīmēšanas spēle"
+	},
 	"scene_citylights": {
 		"message": "Pilsētas gaismas"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Dāvanu piegāde"
 	},
+	"scene_quickdraw": {
+		"message": "Zīmēšana uz ātrumu"
+	},
 	"scene_racer": {
 		"message": "Ziemeļbrieža Rūdolfa brauciens"
 	},
@@ -1230,7 +1305,7 @@
 		"message": "Labo darbu sezona"
 	},
 	"scene_seasonofgiving": {
-		"message": "Dāvināšanas sezona"
+		"message": "Dāvanu laiks"
 	},
 	"scene_snowball": {
 		"message": "Sniega piku kauja"
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Ziemassvētku vecīša pacelšanās"
+	},
+	"scene_videoscene_museum": {
+		"message": "Muzeja apmeklēšana"
 	},
 	"scene_videoscene_office": {
 		"message": "Izjokošana birojā"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Jums trāpīja ar sniega piku!"
+	},
+	"snowball_remaining": {
+		"message": "Atlikuši {{remaining}} no {{total}} rūķīšiem"
+	},
+	"snowball_spectate": {
+		"message": "Skatīties spēli"
+	},
+	"snowball_waiting": {
+		"message": "Notiek citu Ziemassvētku vecīša rūķīšu gaidīšana"
 	},
 	"snowflake_choose_background": {
 		"message": "Izvēlieties fonu"
@@ -1749,7 +1836,7 @@
 		"message": "Ķīna"
 	},
 	"trivia_beginner_020_answer1": {
-		"message": "Īslande"
+		"message": "Islande"
 	},
 	"trivia_beginner_020_answer2": {
 		"message": "Etiopija"
@@ -2574,7 +2661,7 @@
 		"message": "Kuru valsti apskalo Atlantijas okeāns?"
 	},
 	"trivia_beginner_089_answer0": {
-		"message": "Īslande"
+		"message": "Islande"
 	},
 	"trivia_beginner_089_answer1": {
 		"message": "Pakistāna"
@@ -2652,7 +2739,7 @@
 		"message": "Dienvidāfrika"
 	},
 	"trivia_beginner_095_answer2": {
-		"message": "Īslande"
+		"message": "Islande"
 	},
 	"trivia_beginner_096": {
 		"message": "Kura valsts atrodas uz Skandināvijas pussalas?"
@@ -3660,7 +3747,7 @@
 		"message": "Nīderlande"
 	},
 	"trivia_hard_082_answer2": {
-		"message": "Īslande"
+		"message": "Islande"
 	},
 	"trivia_hard_083": {
 		"message": "Kuras Eiropas valsts lielākā osta ir Gdaņska, kas atrodas netālu no Vislas ietekas jūrā?"
@@ -4578,7 +4665,7 @@
 		"message": "Nosauciet valsti, kurā ir vislielākā vulkāniskā aktivitāte."
 	},
 	"trivia_medium_054_answer0": {
-		"message": "Īslande"
+		"message": "Islande"
 	},
 	"trivia_medium_054_answer1": {
 		"message": "Lielbritānija"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Vairāk izpētes veidu"
 	},
+	"village_santa_a2hs": {
+		"message": "Pievienot sākuma ekrānam"
+	},
 	"village_santa_cardboard": {
 		"message": "Ziemassvētku vecītis pakalpojumā Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemena"
+	},
+	"yourbest": {
+		"message": "Labākais rezultāts"
 	},
 	"zh-CN_language_name": {
 		"message": "Ķīniešu (vienkāršotā)"

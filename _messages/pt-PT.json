@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Obter Google Maps"
 	},
+	"getready": {
+		"message": "Prepare-se!"
+	},
 	"gh_country_name": {
 		"message": "Gana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"practice": {
+		"message": "Praticar"
+	},
 	"press": {
 		"message": "Comunicação social"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguai"
+	},
+	"quickdraw-machine-know": {
+		"message": "Ah, já sei, isso é {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "ou"
+	},
+	"quickdraw-machine-see": {
+		"message": "Vejo"
+	},
+	"quickdraw-newround-button": {
+		"message": "Começar"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Não sei bem o que é."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Lamento"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Não consegui adivinhar!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "O robô Tensor também pensou que o seu desenho se parece com estes:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Como é que o robô Tensor sabe o aspeto de {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "O robô reconheceu olhando para estes exemplos desenhados por outras pessoas."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "O robô Tensor pensou que o seu desenho se parece mais com estes:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Esta é uma versão do Pai Natal de {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Tem de desenhar {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Desenhar"
+	},
+	"quickdraw-splashview-description": {
+		"message": "O Tensor é o robô de aprendizagem automática do Pai Natal que o ajuda a decifrar rapidamente as cartas que recebe de crianças de todo o mundo. Para ajudar o Tensor a praticar, desenhe uma imagem de cada palavra do Natal no ecrã e ele diz-lhe o que vê. Quanto mais desenha, mais inteligente fica o robô, por isso, vamos ajudar o Pai Natal a ser mais eficiente do que nunca nesta época festiva."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ajude o robô Tensor a exercitar a sua capacidade de reconhecimento de imagens!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "O robô Tensor reconheceu {{recognized}} dos seus desenhos."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "O robô Tensor reconheceu um dos seus desenhos."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "O robô Tensor não reconheceu nenhum dos seus desenhos."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Muito bem!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ups!"
 	},
 	"ro_country_name": {
 		"message": "Roménia"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Chamada do Pai Natal"
 	},
+	"scene_canvas": {
+		"message": "Tela do Pai Natal"
+	},
 	"scene_citylights": {
 		"message": "Luzes noturnas"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Lançamento de presentes"
 	},
+	"scene_quickdraw": {
+		"message": "Desenha depressa"
+	},
 	"scene_racer": {
 		"message": "Piloto Rodolfo"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Descolagem do Pai Natal"
+	},
+	"scene_videoscene_museum": {
+		"message": "Um dia no museu"
 	},
 	"scene_videoscene_office": {
 		"message": "Praxe no escritório"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Gelado!"
+	},
+	"snowball_remaining": {
+		"message": "Restam {{remaining}} de {{total}} elfos"
+	},
+	"snowball_spectate": {
+		"message": "Assistir"
+	},
+	"snowball_waiting": {
+		"message": "A aguardar mais elfos do Pai Natal"
 	},
 	"snowflake_choose_background": {
 		"message": "Escolha um fundo"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Mais formas de explorar"
 	},
+	"village_santa_a2hs": {
+		"message": "Adicionar ao ecrã principal"
+	},
 	"village_santa_cardboard": {
 		"message": "O Pai Natal no Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Iémen"
+	},
+	"yourbest": {
+		"message": "Melhor pontuação"
 	},
 	"zh-CN_language_name": {
 		"message": "Chinês (simplificado)"

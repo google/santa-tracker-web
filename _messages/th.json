@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "ดาวน์โหลด Google Maps"
 	},
+	"getready": {
+		"message": "เตรียมพร้อม!"
+	},
 	"gh_country_name": {
 		"message": "กานา"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "เปอร์โตริโก"
 	},
+	"practice": {
+		"message": "ฝึกปฏิบัติ"
+	},
 	"press": {
 		"message": "สื่อ"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "ปารากวัย"
+	},
+	"quickdraw-machine-know": {
+		"message": "อ๊ะ ฉันรู้แล้ว นี่คือ {{thing}}"
+	},
+	"quickdraw-machine-or": {
+		"message": "หรือ"
+	},
+	"quickdraw-machine-see": {
+		"message": "เข้าใจแล้ว"
+	},
+	"quickdraw-newround-button": {
+		"message": "เริ่ม"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "ฉันไม่แน่ใจว่าคือรูปอะไร"
+	},
+	"quickdraw-round-sorry": {
+		"message": "ขออภัย"
+	},
+	"quickdraw-round-timesup": {
+		"message": "ฉันทายไม่ถูก"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor ยังคิดว่าภาพที่คุณวาดมีรูปร่างคล้ายสิ่งเหล่านี้ด้วย:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Tensor รู้ได้อย่างไรว่า {{thing}} มีรูปร่างแบบไหน"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "ระบบได้เรียนรู้จากการดูตัวอย่างภาพที่วาดโดยผู้เล่นคนอื่น"
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor คิดว่าภาพที่คุณวาดมีรูปร่างคล้ายสิ่งเหล่านี้:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "นี่คือ {{thing}} ในเวอร์ชันซานต้า"
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "ระบบได้ขอให้คุณวาด {{thing}}"
+	},
+	"quickdraw-slate": {
+		"message": "วาด"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor เป็นหุ่นยนต์แมชชีนเลิร์นนิงของซานต้าที่ช่วยให้เขาตีความจดหมายที่ได้รับจากเด็กๆ ทั่วโลก เพื่อช่วยให้ Tensor เรียนรู้ ลองวาดภาพคำเกี่ยวกับวันหยุดเทศกาลบนหน้าจอ แล้วเขาจะบอกว่าเขาเห็นอะไร ยิ่งคุณวาดมากเท่าใด Tensor ก็จะยิ่งเข้าใจมากขึ้นเท่านั้น มาช่วยให้ซานต้าทำงานได้อย่างราบรื่นยิ่งกว่าเคยในเทศกาลวันหยุดนี้"
+	},
+	"quickdraw-splashview-title": {
+		"message": "ช่วย Tensor ฝึกฝนการจดจำรูปภาพ"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor จำ {{recognized}} ภาพที่คุณวาดได้"
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor จำภาพใดภาพหนึ่งที่คุณวาดได้"
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor จำภาพที่คุณวาดไม่ได้เลย"
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "เยี่ยมมาก!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "อ๊ะ!"
 	},
 	"ro_country_name": {
 		"message": "โรมาเนีย"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "ซานต้าโทรมา"
 	},
+	"scene_canvas": {
+		"message": "ผืนผ้าใบของซานต้า"
+	},
 	"scene_citylights": {
 		"message": "เมืองแห่งแสงสี"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "หย่อนของขวัญ"
 	},
+	"scene_quickdraw": {
+		"message": "วาดให้ไว"
+	},
 	"scene_racer": {
 		"message": "รูดอล์ฟนักวิ่งแข่ง"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "ซานต้าจะออกเดินทางแล้ว"
+	},
+	"scene_videoscene_museum": {
+		"message": "วันวานที่พิพิธภัณฑ์"
 	},
 	"scene_videoscene_office": {
 		"message": "หยอกกันในออฟฟิศ"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "แช่แข็ง"
+	},
+	"snowball_remaining": {
+		"message": "เหลือเอลฟ์อีก {{remaining}} ตน จากทั้งหมด {{total}} ตน"
+	},
+	"snowball_spectate": {
+		"message": "รับชม"
+	},
+	"snowball_waiting": {
+		"message": "กำลังรอเอลฟ์ของซานต้าตนอื่น"
 	},
 	"snowflake_choose_background": {
 		"message": "เลือกฉากหลัง"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "วิธีอื่นๆ ในการสำรวจ"
 	},
+	"village_santa_a2hs": {
+		"message": "เพิ่มลงในหน้าแรก"
+	},
 	"village_santa_cardboard": {
 		"message": "ซานต้าบน Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "เยเมน"
+	},
+	"yourbest": {
+		"message": "เวลาที่ดีที่สุด"
 	},
 	"zh-CN_language_name": {
 		"message": "ภาษาจีน (ตัวย่อ)"

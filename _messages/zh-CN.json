@@ -42,7 +42,7 @@
 		"message": "澳大利亚"
 	},
 	"au_tradition": {
-		"message": "澳大利亚地处南半球，意味着十二月的这里正值仲夏时节。这里没有雪橇铃声和热腾腾的可可，许多澳大利亚人会前往海滩庆祝节日，吃一顿全虾午餐，再打几场板球。"
+		"message": "澳大利亚地处南半球，所以十二月正值仲夏时节。这里没有雪橇铃声和热腾腾的可可，许多澳大利亚人会前往海滩庆祝节日，吃一顿全虾午餐，再打几场板球。"
 	},
 	"ba_country_name": {
 		"message": "波斯尼亚和黑塞哥维那"
@@ -339,19 +339,19 @@
 		"message": "跳得好！"
 	},
 	"codeboogie-result-missing-block-fail": {
-		"message": "请按照方块提示跳舞。"
+		"message": "请按照下面的拼板提示来跳舞。"
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "知道吗？您只需 {{ideal}} 个方块就能完成这支舞蹈。来吧，用下面的方块跳跳看。"
+		"message": "您知道吗？只需 {{ideal}} 个拼板就能完成这支舞。来吧！用下面的拼板跳跳看。"
 	},
 	"codeboogie-result-perfect-success": {
 		"message": "真棒！这整场舞您都跳得很好。"
 	},
 	"codeboogie-result-too-few-blocks-fail": {
-		"message": "您用的方块没错，但要用到更多方块才能过关。"
+		"message": "您使用的拼板正确，只要再多用几个拼板就能通关哦 ！"
 	},
 	"codeboogie-result-too-many-blocks-success": {
-		"message": "知道吗？您只需 {{ideal}} 个方块就能完成这支舞蹈。"
+		"message": "您知道吗？只需 {{ideal}} 个拼板就能完成这支舞。"
 	},
 	"codeboogie-result-too-many-steps": {
 		"message": "您跳得太快啦。"
@@ -378,28 +378,28 @@
 		"message": "跳过图块。"
 	},
 	"codelab-block-moveeast": {
-		"message": "东"
+		"message": "向东"
 	},
 	"codelab-block-moveeast-tooltip": {
-		"message": "把我向东移一个位置。"
+		"message": "把我向东移一格。"
 	},
 	"codelab-block-movenorth": {
-		"message": "北"
+		"message": "向北"
 	},
 	"codelab-block-movenorth-tooltip": {
-		"message": "把我向北移一个位置。"
+		"message": "把我向北移一格。"
 	},
 	"codelab-block-movesouth": {
-		"message": "南"
+		"message": "向南"
 	},
 	"codelab-block-movesouth-tooltip": {
-		"message": "把我向南移一个位置。"
+		"message": "把我向南移一格。"
 	},
 	"codelab-block-movewest": {
-		"message": "西"
+		"message": "向西"
 	},
 	"codelab-block-movewest-tooltip": {
-		"message": "把我向西移一个位置。"
+		"message": "把我向西移一格。"
 	},
 	"codelab-block-repeat": {
 		"message": "重复"
@@ -411,7 +411,7 @@
 		"message": "将某些语句重复数次。"
 	},
 	"codelab-block-whenrun": {
-		"message": "行驶方向"
+		"message": "动作顺序"
 	},
 	"codelab-finish": {
 		"message": "完成"
@@ -429,16 +429,16 @@
 		"message": "糟糕！"
 	},
 	"codelab-result-empty-repeat-fail": {
-		"message": "要使用“重复”拼板，必须在其内部添加其他拼板。"
+		"message": "“重复”拼板里要有其他拼板才能起作用呢！"
 	},
 	"codelab-result-extra-top-block-fail": {
-		"message": "某些拼板未能正确拼接在一起。"
+		"message": "有些拼板未接好哦！"
 	},
 	"codelab-result-generic-fail": {
-		"message": "看起来您迷路了！"
+		"message": "好像晕头转向了呢！"
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "请尝试使用以下一块或多块拼板来解开此谜题。"
+		"message": "试着用以下拼板来通关哦！"
 	},
 	"codelab-result-missing-block-success": {
 		"message": "您知道吗？此关卡只需 {{ideal}} 块拼板即可完成。请尝试使用以下拼板。"
@@ -447,7 +447,7 @@
 		"message": "恭喜您！您完美地解开了此谜题。"
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "您使用的是正确的拼板，但要解开此谜题，您需要使用更多正确的拼板。"
+		"message": "您使用的拼板正确，只要再多用几个拼板就能通关哦。"
 	},
 	"codelab-result-too-many-blocks-success": {
 		"message": "您知道吗？此关卡只需 {{ideal}} 块拼板即可完成。"
@@ -513,7 +513,7 @@
 		"message": "用圣诞老人 Chrome 扩展程序装饰您的浏览器。"
 	},
 	"detected": {
-		"message": "已测出"
+		"message": "自动检测"
 	},
 	"difficulty": {
 		"message": "难度"
@@ -616,6 +616,9 @@
 	},
 	"getgooglemaps": {
 		"message": "下载 Google 地图"
+	},
+	"getready": {
+		"message": "预备！"
 	},
 	"gh_country_name": {
 		"message": "加纳"
@@ -867,13 +870,13 @@
 		"message": "教师和学生"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® 是一家公益组织，一直致力于普及计算机科学，希望让更多女性以及有色人种中的弱势群体学生接受计算机科学教育。Code.org® 的愿景是让每一所学校的每一位学生都有机会学习计算机科学。"
+		"message": "Code.org® 是一家致力于普及计算机科学的公益组织，其鼓励更多女性和各肤色弱势学生积极参与。Code.org® 的愿景是让每所学校的每位学生都有机会学习计算机科学。"
 	},
 	"nonprofit-code-type": {
 		"message": "计算机科学"
 	},
 	"nonprofit-donorschoose-description": {
-		"message": "DonorsChoose.org 是布朗克斯的一位历史老师在 2000 年建立的，已经募集了超过 4.8 亿美元的资金用于美国学校的课堂教育。教师们可根据课堂教学上需要的材料和要为学生提供的体验，在 DonorsChoose.org 上发出捐助请求。"
+		"message": "DonorsChoose.org 是布朗克斯的一位历史老师在 2000 年建立的，目前已为全美学校募集了超过 4.8 亿美元的教育经费。教师如需教学相关的材料和体验，可通过 DonorsChoose.org 寻求帮助。"
 	},
 	"nonprofit-donorschoose-type": {
 		"message": "课堂"
@@ -891,7 +894,7 @@
 		"message": "与家人和朋友分享自己的作品，让他们也能够了解相关活动。"
 	},
 	"nonprofit-intro-type": {
-		"message": "我们与 Google.org 携手，向您介绍五家这一年来参加“礼物漫天飞”活动的非盈利教育组织。向下滚动可详细了解每家组织如何回馈社会。您可以为这一系列的装饰品涂色，将涂好的装饰品挂在圣诞树上或赠送给亲朋好友，以此表达自己对这些组织的支持。"
+		"message": "我们与 Google.org 携手，向您介绍五家全年无私奉献的非盈利教育组织。向下滚动可详细了解每家组织如何回馈社会。您可以为这一系列的装饰品涂色，将涂好的装饰品挂在圣诞树上或赠送给亲朋好友，以此表达自己对这些组织的支持。"
 	},
 	"nonprofit-jane-description": {
 		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
@@ -900,7 +903,7 @@
 		"message": "黑猩猩"
 	},
 	"nonprofit-khan-description": {
-		"message": "Khan Academy 是一家公益组织，致力于向全球所有人免费提供一流的教育。Khan Academy 认为学习者不分年龄大小，都应有权利获得免费教育，并能按照自己的节奏进行学习。"
+		"message": "Khan Academy 是一家致力于向全球所有人免费提供一流教育的公益组织。Khan Academy 认为学习者不分年龄大小，都应有权利获得免费教育，并能按照自己的节奏进行学习。"
 	},
 	"nonprofit-khan-type": {
 		"message": "教育"
@@ -921,7 +924,7 @@
 		"message": "森林"
 	},
 	"nonprofit-pratham-description": {
-		"message": "全世界有将近 40% 的人口无法以母语或能理解的语言接受教育。StoryWeaver 希望通过帮助教育工作者、作家和翻译工作者为儿童创作有趣的课外阅读材料，改变这一现状。"
+		"message": "全世界有将近 40% 的人口无法以母语或能理解的语言接受教育。StoryWeaver 希望通过帮助教育工作者、作家和翻译工作者为儿童创作有趣的课外阅读材料，借此改变这一现状。"
 	},
 	"nonprofit-pratham-type": {
 		"message": "阅读"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "波多黎各"
 	},
+	"practice": {
+		"message": "练习"
+	},
 	"press": {
 		"message": "新闻"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "巴拉圭"
+	},
+	"quickdraw-machine-know": {
+		"message": "我知道了，这是{{thing}}！"
+	},
+	"quickdraw-machine-or": {
+		"message": "或"
+	},
+	"quickdraw-machine-see": {
+		"message": "我猜是"
+	},
+	"quickdraw-newround-button": {
+		"message": "开始"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "我不知道这是什么。"
+	},
+	"quickdraw-round-sorry": {
+		"message": "抱歉"
+	},
+	"quickdraw-round-timesup": {
+		"message": "我猜不出来！"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor 觉得您画的还像是："
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Tensor 是怎么知道{{thing}}是什么样子的？"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "它会观察其他人的画作并从中学习。"
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor 觉得您画的更像是："
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "这是圣诞老人画的{{thing}}。"
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "您要画的是{{thing}}。"
+	},
+	"quickdraw-slate": {
+		"message": "绘图"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解析世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上就每一个与节日相关的词语画一幅画，然后让它猜猜是什么。您画的越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
+	},
+	"quickdraw-splashview-title": {
+		"message": "帮助 Tensor 练习识图吧！"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor 认出了 {{recognized}} 幅画。"
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor 认出了 1 幅画。"
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor 一幅画也没有认出来。"
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "太棒了！"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "糟糕！"
 	},
 	"ro_country_name": {
 		"message": "罗马尼亚"
@@ -1077,7 +1146,7 @@
 		"message": "俄语"
 	},
 	"ru_tradition": {
-		"message": "俄罗斯的孩子们装饰“新年树”，而不是圣诞树。他们等待冰霜爷爷 (Grandfather Frost) 和他的孙女雪姑娘 (Snowmaiden) 给大家带来礼物。冰霜爷爷居住在俄罗斯北部大乌斯秋格 (Veliky Ustyug) 的森林深处。"
+		"message": "俄罗斯的孩子们不装饰圣诞树，而是装饰新年树。他们等待冰霜爷爷 (Grandfather Frost) 和他的孙女雪姑娘 (Snowmaiden) 给大家带来礼物。冰霜爷爷居住在俄罗斯北部大乌斯秋格 (Veliky Ustyug) 的森林深处。"
 	},
 	"sa_country_name": {
 		"message": "沙特阿拉伯"
@@ -1137,13 +1206,16 @@
 		"message": "礼物补给"
 	},
 	"scene_boatload": {
-		"message": "礼物弹珠"
+		"message": "礼物弹弓"
 	},
 	"scene_briefing": {
-		"message": "克劳斯太太的致辞"
+		"message": "圣诞太太作简报"
 	},
 	"scene_callfromsanta": {
 		"message": "圣诞老人来电"
+	},
+	"scene_canvas": {
+		"message": "圣诞老人画布"
 	},
 	"scene_citylights": {
 		"message": "城市之光"
@@ -1152,10 +1224,10 @@
 		"message": "圣诞老人画册"
 	},
 	"scene_codeboogie": {
-		"message": "代码之舞"
+		"message": "编码热舞"
 	},
 	"scene_codelab": {
-		"message": "代码实验室"
+		"message": "编码实验室"
 	},
 	"scene_commandcentre": {
 		"message": "任务控制中心"
@@ -1197,19 +1269,22 @@
 		"message": "翻牌配对"
 	},
 	"scene_mercator": {
-		"message": "地图测验"
+		"message": "地图小测验"
 	},
 	"scene_playground": {
 		"message": "北极游乐场"
 	},
 	"scene_postcard": {
-		"message": "用代码设计雪花"
+		"message": "使用编码设计雪花"
 	},
 	"scene_presentbounce": {
-		"message": "礼物弹球"
+		"message": "礼物弹弹跳"
 	},
 	"scene_presentdrop": {
 		"message": "礼从天降"
+	},
+	"scene_quickdraw": {
+		"message": "绘图猜猜猜"
 	},
 	"scene_racer": {
 		"message": "驯鹿狂飙"
@@ -1218,19 +1293,19 @@
 		"message": "精灵过山车"
 	},
 	"scene_runner": {
-		"message": "驯鹿快跑，礼在前方"
+		"message": "驯鹿快跑接大礼"
 	},
 	"scene_santasearch": {
-		"message": "圣诞老人搜索"
+		"message": "圣诞老人找找乐"
 	},
 	"scene_santaselfie": {
-		"message": "圣诞老人自拍"
+		"message": "圣诞老人换造型"
 	},
 	"scene_seasonofcaring": {
 		"message": "送温暖的季节"
 	},
 	"scene_seasonofgiving": {
-		"message": "温馨礼品巧填色"
+		"message": "温馨分享季"
 	},
 	"scene_snowball": {
 		"message": "雪球风暴"
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "圣诞老人出发"
+	},
+	"scene_videoscene_museum": {
+		"message": "博物馆一日游"
 	},
 	"scene_videoscene_office": {
 		"message": "办公室恶作剧"
@@ -1337,6 +1415,15 @@
 	"snowball_iced": {
 		"message": "冰冻！"
 	},
+	"snowball_remaining": {
+		"message": "还剩 {{remaining}} 个精灵，共 {{total}} 个"
+	},
+	"snowball_spectate": {
+		"message": "观看"
+	},
+	"snowball_waiting": {
+		"message": "正在等待更多圣诞老人的精灵加入"
+	},
 	"snowflake_choose_background": {
 		"message": "选择背景"
 	},
@@ -1347,7 +1434,7 @@
 		"message": "用代码设计雪花"
 	},
 	"snowflake_code_instructions": {
-		"message": "将代码连在一起即可设计出您自己的雪花"
+		"message": "将拼板连在一起，设计独一无二的雪花"
 	},
 	"snowflake_create_message": {
 		"message": "设计您自己的雪花"
@@ -5178,16 +5265,19 @@
 		"message": "委内瑞拉"
 	},
 	"village_comeback": {
-		"message": "24 日平安夜，来跟我们一起追踪圣诞老人的行踪！"
+		"message": "24 日平安夜，别忘了跟我们一起追踪圣诞老人的行踪！"
 	},
 	"village_explore": {
-		"message": "在弥漫着节日气氛的 12 月，与圣诞老人的小精灵们一起探索、玩耍、学习"
+		"message": "在温馨的 12 月里，与圣诞老人的小精灵们一起探索、玩游戏并学习新知"
 	},
 	"village_get_the_app": {
 		"message": "下载 Android 版“追踪圣诞老人”应用"
 	},
 	"village_more": {
 		"message": "更多探索方式"
+	},
+	"village_santa_a2hs": {
+		"message": "添加到主屏幕"
 	},
 	"village_santa_cardboard": {
 		"message": "使用 Cardboard 寻找圣诞老人"
@@ -5205,7 +5295,7 @@
 		"message": "越南"
 	},
 	"watch": {
-		"message": "看视频"
+		"message": "观看视频"
 	},
 	"wrapbattle_combo": {
 		"message": "漂亮的组合指法"
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "也门"
+	},
+	"yourbest": {
+		"message": "最高得分"
 	},
 	"zh-CN_language_name": {
 		"message": "中文（简体）"

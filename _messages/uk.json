@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Отримати Карти Google"
 	},
+	"getready": {
+		"message": "Приготуйтеся!"
+	},
 	"gh_country_name": {
 		"message": "Гана"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Пуерто-Рико"
 	},
+	"practice": {
+		"message": "Тренування"
+	},
 	"press": {
 		"message": "Преса"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Парагвай"
+	},
+	"quickdraw-machine-know": {
+		"message": "О, я знаю, це ж {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "або"
+	},
+	"quickdraw-machine-see": {
+		"message": "Я бачу"
+	},
+	"quickdraw-newround-button": {
+		"message": "Почати"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Я не знаю напевно, що це."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Шкода"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Я не знаю, що це."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Крім того, робот Тензор вважає, що ваш малюнок схожий на такі зображення:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Звідки робот Тензор знає, як зображують {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Він дізнався, вивчаючи малюнки інших людей."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Робот Тензор вважає, що ваш малюнок більше схожий на це:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Ось так Дід Мороз уявляє собі {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Вас попросили намалювати {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Малювати"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Тензор – це робот з алгоритмом машинного навчання, який допомагає Діду Морозу швидко розшифровувати листи від дітей з усього світу. Щоб Тензор міг попрактикуватися, намалюйте на екрані зображення, що відповідають запропонованим словам, і він розкаже вам, що бачить. Що більше ви малюватимете, то розумнішим ставатиме Тензор. З вашою допомогою Дід Мороз упорається зі своєю роботою краще, ніж будь-коли."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Допоможіть роботу Тензору попрактикуватися в розпізнаванні зображень."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Робот Тензор розпізнав стільки ваших малюнків: {{recognized}}."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Робот Тензор розпізнав один із ваших малюнків."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Робот Тензор не розпізнав жодного з ваших малюнків."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Чудово!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Отакої!"
 	},
 	"ro_country_name": {
 		"message": "Румунія"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Дзвінок від Діда Мороза"
 	},
+	"scene_canvas": {
+		"message": "Картина для Діда Мороза"
+	},
 	"scene_citylights": {
 		"message": "Вогні міста"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Кидання подарунків"
 	},
+	"scene_quickdraw": {
+		"message": "Намалюйте щось"
+	},
 	"scene_racer": {
 		"message": "Гонщик Рудольф"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Злет Діда Мороза"
+	},
+	"scene_videoscene_museum": {
+		"message": "День у музеї"
 	},
 	"scene_videoscene_office": {
 		"message": "Офісна витівка"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Вибито!"
+	},
+	"snowball_remaining": {
+		"message": "Залишилося стільки помічників Діда Мороза: {{remaining}} з {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Спостерігати"
+	},
+	"snowball_waiting": {
+		"message": "Чекаємо на інших помічників Діда Мороза"
 	},
 	"snowflake_choose_background": {
 		"message": "Виберіть фон"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Більше цікавого"
 	},
+	"village_santa_a2hs": {
+		"message": "Додати на головний екран"
+	},
 	"village_santa_cardboard": {
 		"message": "Дід Мороз у Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Ємен"
+	},
+	"yourbest": {
+		"message": "Найкращий результат"
 	},
 	"zh-CN_language_name": {
 		"message": "китайська (спрощена)"

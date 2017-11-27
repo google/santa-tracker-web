@@ -411,7 +411,7 @@
 		"message": "Gentag nogle udsagn flere gange."
 	},
 	"codelab-block-whenrun": {
-		"message": "ved kørsel"
+		"message": "rækkefølge"
 	},
 	"codelab-finish": {
 		"message": "Afslut"
@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Få Google Maps"
 	},
+	"getready": {
+		"message": "Gør dig klar"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -663,7 +666,7 @@
 		"message": "Honduras"
 	},
 	"holiday_message_0": {
-		"message": "Glædelig højtid!"
+		"message": "Glædelig jul!"
 	},
 	"holiday_message_1": {
 		"message": "De bedste juleønsker!"
@@ -753,7 +756,7 @@
 		"message": "Sprog"
 	},
 	"learn": {
-		"message": "Få mere at vide"
+		"message": "Quiz"
 	},
 	"learnmore": {
 		"message": "Få flere oplysninger"
@@ -822,7 +825,7 @@
 		"message": "Mexico"
 	},
 	"mx_tradition": {
-		"message": "I Mexico fejrer børn i alle aldre jul med \"pinataer\", som er en slags papfigurer. De morer sig med at få bind for øjnene, snurre rundt og slå på de stjerneformede figurer med en pind. Når pinataen går i stykker, falder der nødder, frugt og slik ud."
+		"message": "I Mexico fejrer børn i alle aldre jul med \"piñataer\", som er en slags papfigurer. De morer sig med at få bind for øjnene, snurre rundt og slå på de stjerneformede figurer med en pind. Når piñataen går i stykker, falder der nødder, frugt og slik ud."
 	},
 	"my_country_name": {
 		"message": "Malaysia"
@@ -990,7 +993,7 @@
 		"message": "New Zealand"
 	},
 	"nz_tradition": {
-		"message": "I New Zealand er det jul om sommeren, så familie og venner samles til en grillfest. Typisk julemad er stegt lam, der somme tider er tilberedt i en \"hangi\" – en underjordisk hule eller en jordovn. Pavolva er en populær dessert: marengs med friske frugter som jordbær og kiwi."
+		"message": "I New Zealand er det jul om sommeren, så familie og venner samles til en grillfest. Typisk julemad er stegt lam, der somme tider er tilberedt i en \"hangi\" – en underjordisk hule eller en jordovn. Pavlova er en populær dessert: marengs med friske frugter som jordbær og kiwi."
 	},
 	"offline": {
 		"message": "Offline"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Øv dig"
+	},
 	"press": {
 		"message": "Medier"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Jeg ved det! Det er {{thing}}"
+	},
+	"quickdraw-machine-or": {
+		"message": "eller"
+	},
+	"quickdraw-machine-see": {
+		"message": "Jeg ser"
+	},
+	"quickdraw-newround-button": {
+		"message": "Start"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Jeg ved ikke, hvad det er."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Beklager"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Jeg kan ikke gætte det."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor synes også, din tegning ligner disse:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Hvordan ved Tensor, hvordan {{thing}} ser ud?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Den har lært det ved at se på disse eksempler, som andre har tegnet."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor synes, din tegning mere ligner disse:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Dette er julemandens version af {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Du blev bedt om at tegne {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Tegn"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor er julemandens maskinlæringsrobot, der hjælper ham med hurtigt at tyde de breve, han modtager fra børn over hele verden. Du kan hjælpe Tensor med at øve sig ved at tegne et billede af hvert juleord på skærmen, og så fortæller han dig, hvad han ser. Jo mere du tegner, desto klogere bliver Tensor. Lad os hjælpe julemanden med at være mere effektiv end nogensinde denne jul!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjælp Tensor med at øve sig i at genkende billeder."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor genkendte {{recognized}} af dine tegninger."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor genkendte en af dine tegninger."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor kunne ikke genkende nogen af dine tegninger."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Flot klaret!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ups!"
 	},
 	"ro_country_name": {
 		"message": "Rumænien"
@@ -1140,10 +1209,13 @@
 		"message": "Slangebøsse med gaver"
 	},
 	"scene_briefing": {
-		"message": "Briefing fra fru julemand"
+		"message": "Ordrer fra julemandens kone"
 	},
 	"scene_callfromsanta": {
 		"message": "Opkald fra julemanden"
+	},
+	"scene_canvas": {
+		"message": "Julemandens lærred"
 	},
 	"scene_citylights": {
 		"message": "Byens lys"
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Smid gaven"
 	},
+	"scene_quickdraw": {
+		"message": "Klar, parat, tegn!"
+	},
 	"scene_racer": {
 		"message": "Racer-Rudolf"
 	},
@@ -1227,10 +1302,10 @@
 		"message": "Julemandsselfie"
 	},
 	"scene_seasonofcaring": {
-		"message": "Årstiden, hvor man kommer hinanden ved"
+		"message": "Hjælpsomhedens højtid"
 	},
 	"scene_seasonofgiving": {
-		"message": "Årstiden for gaver"
+		"message": "Gavmildhedens højtid"
 	},
 	"scene_snowball": {
 		"message": "Sneboldkrig"
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Julemandens afgang"
+	},
+	"scene_videoscene_museum": {
+		"message": "En dag på museet"
 	},
 	"scene_videoscene_office": {
 		"message": "Spøg på kontoret"
@@ -1302,7 +1380,7 @@
 		"message": "Gaveindpakningens mester"
 	},
 	"score": {
-		"message": "Resultat"
+		"message": "Point"
 	},
 	"se_country_name": {
 		"message": "Sverige"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Lagt på is!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} af {{total}} nisser tilbage"
+	},
+	"snowball_spectate": {
+		"message": "Nyd forestillingen"
+	},
+	"snowball_waiting": {
+		"message": "Venter på flere af julemandens nisser"
 	},
 	"snowflake_choose_background": {
 		"message": "Vælg en baggrund"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Mere"
 	},
+	"village_santa_a2hs": {
+		"message": "Føj til startsiden"
+	},
 	"village_santa_cardboard": {
 		"message": "Julemanden på Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Bedste resultat"
 	},
 	"zh-CN_language_name": {
 		"message": "Kinesisk (forenklet)"

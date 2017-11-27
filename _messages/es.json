@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Descargar Google Maps"
 	},
+	"getready": {
+		"message": "Prepárate"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Práctica"
+	},
 	"press": {
 		"message": "Prensa"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "¡Ya lo sé, es {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "o"
+	},
+	"quickdraw-machine-see": {
+		"message": "Veo"
+	},
+	"quickdraw-newround-button": {
+		"message": "Empezar"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "No sé qué es eso."
+	},
+	"quickdraw-round-sorry": {
+		"message": "¡Perdón!"
+	},
+	"quickdraw-round-timesup": {
+		"message": "¡No sé qué es!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor cree que tu dibujo también se parece a estas cosas:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "¿Cómo sabe Tensor qué aspecto tiene {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Para ir aprendiendo, ha estudiado estos dibujos de otras personas."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor cree que tu dibujo se parece más a estas cosas:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Esta es la versión de Papá Noel de {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Tienes que dibujar {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Dibujar"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor es un robot de Papá Noel especializado en aprendizaje automático y se encarga de descifrar las cartas que les envían niños y niñas de todo el mundo. ¿Te gustaría ayudarle a practicar? Haz un dibujo de las palabras que salen en la pantalla y él te dirá lo que ve. ¡Todas ellas están relacionadas con la Navidad! ¿Echamos una mano a Papá Noel para que sea más eficiente estas fiestas? ¡Cuantos más dibujos hagas, más inteligente se volverá Tensor!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "¡Ayuda a Tensor a practicar con el reconocimiento de imágenes!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor ha reconocido {{recognized}} de tus dibujos."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor ha reconocido uno de tus dibujos."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor no ha reconocido ninguno de tus dibujos."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "¡Buen trabajo!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "¡Vaya!"
 	},
 	"ro_country_name": {
 		"message": "Rumanía"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Llamada de Papá Noel"
 	},
+	"scene_canvas": {
+		"message": "Pintura navideña"
+	},
 	"scene_citylights": {
 		"message": "Luces de la ciudad"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Entrega los regalos"
 	},
+	"scene_quickdraw": {
+		"message": "Quick Draw"
+	},
 	"scene_racer": {
 		"message": "Carrera de obstáculos de Rudolph"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "El despegue de Papá Noel"
+	},
+	"scene_videoscene_museum": {
+		"message": "Un día en el museo"
 	},
 	"scene_videoscene_office": {
 		"message": "Bromas en la oficina"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "¡Te han dado!"
+	},
+	"snowball_remaining": {
+		"message": "Elfos restantes: {{remaining}} de {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Observar"
+	},
+	"snowball_waiting": {
+		"message": "Esperando a que se unan más elfos de Papá Noel"
 	},
 	"snowflake_choose_background": {
 		"message": "Escoge un fondo"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "¿Qué más puedes hacer?"
 	},
+	"village_santa_a2hs": {
+		"message": "Añadir a la pantalla de inicio"
+	},
 	"village_santa_cardboard": {
 		"message": "Papá Noel en Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Mejor puntuación"
 	},
 	"zh-CN_language_name": {
 		"message": "Chino (simplificado)"

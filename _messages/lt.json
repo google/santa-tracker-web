@@ -582,7 +582,7 @@
 		"message": "Etiopija"
 	},
 	"explore": {
-		"message": "Tyrinėti"
+		"message": "Tyrinėkite"
 	},
 	"fi_country_name": {
 		"message": "Suomija"
@@ -616,6 +616,9 @@
 	},
 	"getgooglemaps": {
 		"message": "Gauti „Google“ žemėlapius"
+	},
+	"getready": {
+		"message": "Pasiruoškite!"
 	},
 	"gh_country_name": {
 		"message": "Gana"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rikas"
 	},
+	"practice": {
+		"message": "Treniruotės"
+	},
 	"press": {
 		"message": "Žiniasklaida"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paragvajus"
+	},
+	"quickdraw-machine-know": {
+		"message": "Žinau, tai – {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "arba"
+	},
+	"quickdraw-machine-see": {
+		"message": "Matau"
+	},
+	"quickdraw-newround-button": {
+		"message": "Pradžia"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Nežinau, kas tai yra."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Nepavyko"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Nežinau, kas tai!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tenzorius taip pat pamanė, kad piešinys panašus į:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Iš kur tenzorius žino, kaip atrodo {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Jis išmoko žiūrėdamas į šiuos kitų žmonių nupieštus pavyzdžius."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tenzorius pamanė, kad piešinys labiau panašus į:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "{{thing}}, kaip tai įsivaizduoja Kalėdų Senelis."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Štai ko jūsų prašyta nupiešti: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Piešti"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tenzorius yra Kalėdų Senelio mašininio mokymosi robotas, Seneliui padedantis greitai dešifruoti iš viso pasaulio vaikų gaunamus laiškus. Kad Tenzoriui padėtumėte treniruotis, ekrane nupieškite kiekvieną žodžio „šventė“ raidę ir jis pasakys, ką mato. Kuo daugiau raidžių nupiešite, tuo sumanesnis taps Tenzorius, taigi padėkime Kalėdų Seneliui šį švenčių sezoną tvarkytis efektyviau nei bet kada anksčiau!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Padėkite Tenzoriui treniruotis atpažinti vaizdus!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tenzorius atpažino {{recognized}} iš jūsų piešinių."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tenzorius atpažino vieną jūsų piešinių."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tenzorius neatpažino nei vieno jūsų piešinio."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Puiku!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oi!"
 	},
 	"ro_country_name": {
 		"message": "Rumunija"
@@ -1119,7 +1188,7 @@
 		"message": "Pradėti"
 	},
 	"santasearch_search_for_santa": {
-		"message": "Ieškoti Kalėdų Senelio!"
+		"message": "Ieškokite Kalėdų Senelio!"
 	},
 	"santasvillage": {
 		"message": "Kalėdų Senelio kaimas"
@@ -1144,6 +1213,9 @@
 	},
 	"scene_callfromsanta": {
 		"message": "Kalėdų Senelio skambutis"
+	},
+	"scene_canvas": {
+		"message": "Kalėdų Senelio drobė"
 	},
 	"scene_citylights": {
 		"message": "Miesto šviesos"
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Dovanų mėtymas"
 	},
+	"scene_quickdraw": {
+		"message": "Greitasis piešimas"
+	},
 	"scene_racer": {
 		"message": "Rudolfas lenktynininkas"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Kalėdų Senelio išvykimas"
+	},
+	"scene_videoscene_museum": {
+		"message": "Diena muziejuje"
 	},
 	"scene_videoscene_office": {
 		"message": "Biuro juokelis"
@@ -1337,6 +1415,15 @@
 	"snowball_iced": {
 		"message": "Apledėjęs!"
 	},
+	"snowball_remaining": {
+		"message": "Liko {{remaining}} iš {{total}} elfų"
+	},
+	"snowball_spectate": {
+		"message": "Žiūrėti"
+	},
+	"snowball_waiting": {
+		"message": "Laukiama daugiau Kalėdų Senelio elfų"
+	},
 	"snowflake_choose_background": {
 		"message": "Pasirinkite foną"
 	},
@@ -1353,7 +1440,7 @@
 		"message": "Sukurkite savo snaigę"
 	},
 	"snowflake_draw_now_repeat_message": {
-		"message": "Dabar kartokite!"
+		"message": "Dabar pakartokime!"
 	},
 	"snowflake_draw_repeat_message": {
 		"message": "Kartojama"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Dar daugiau būdų tyrinėti"
 	},
+	"village_santa_a2hs": {
+		"message": "Pridėti prie pagrindinio ekrano"
+	},
 	"village_santa_cardboard": {
 		"message": "Kalėdų Senelis platformoje „Cardboard“"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemenas"
+	},
+	"yourbest": {
+		"message": "Geriausias rezultatas"
 	},
 	"zh-CN_language_name": {
 		"message": "Kinų (supaprastinta)"

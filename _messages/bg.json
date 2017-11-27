@@ -411,7 +411,7 @@
 		"message": "Повторете някои твърдения по няколко пъти."
 	},
 	"codelab-block-whenrun": {
-		"message": "маршрут"
+		"message": "изпълнение"
 	},
 	"codelab-finish": {
 		"message": "Край"
@@ -616,6 +616,9 @@
 	},
 	"getgooglemaps": {
 		"message": "Изтегляне на Google Карти"
+	},
+	"getready": {
+		"message": "Готови...!"
 	},
 	"gh_country_name": {
 		"message": "Гана"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Пуерто Рико"
 	},
+	"practice": {
+		"message": "Пробен режим"
+	},
 	"press": {
 		"message": "Преса"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Парагвай"
+	},
+	"quickdraw-machine-know": {
+		"message": "Сетих се, това е {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "или"
+	},
+	"quickdraw-machine-see": {
+		"message": "Виждам"
+	},
+	"quickdraw-newround-button": {
+		"message": "Старт"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Не ми е ясно какво е това."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Съжалявам"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Не можех да позная!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Според Tensor рисунката ви прилича и на тези:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Откъде Tensor знае как изглежда {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Той се учи чрез тези примерни рисунки, създадени от други хора."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Според Tensor рисунката ви прилича повече на тези:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Това е версия на Дядо Коледа за {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Трябва да нарисувате {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Рисуване"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor е робот на Дядо Коледа, който му помага бързо да разчита писмата, изпратени от деца по цял свят. За да помогнете за машинното обучение на Tensor, създайте рисунка за всяка празнична дума на екрана и той ще ви каже какво вижда. Колкото повече рисувате, толкова по-умен ще става Tensor. Помогнете на Дядо Коледа да бъде по-ефективен от всякога през този празничен сезон!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Помогнете на Tensor да се упражнява в разпознаването на изображения!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor позна {{recognized}} от рисунките ви."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor позна една от рисунките ви."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor не позна нито една от рисунките ви."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Браво!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ами сега!"
 	},
 	"ro_country_name": {
 		"message": "Румъния"
@@ -1145,6 +1214,9 @@
 	"scene_callfromsanta": {
 		"message": "Обаждане от Дядо Коледа"
 	},
+	"scene_canvas": {
+		"message": "Платното на Дядо Коледа"
+	},
 	"scene_citylights": {
 		"message": "Светлините на града"
 	},
@@ -1211,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Пускане на подаръци"
 	},
+	"scene_quickdraw": {
+		"message": "Бърза скица"
+	},
 	"scene_racer": {
 		"message": "Надпревара с Рудолф"
 	},
@@ -1264,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Потегляне на Дядо Коледа"
+	},
+	"scene_videoscene_museum": {
+		"message": "Ден в музея"
 	},
 	"scene_videoscene_office": {
 		"message": "Офис шега"
@@ -1336,6 +1414,15 @@
 	},
 	"snowball_iced": {
 		"message": "Вън от играта"
+	},
+	"snowball_remaining": {
+		"message": "Остават {{remaining}} от {{total}} джуджета"
+	},
+	"snowball_spectate": {
+		"message": "Наблюдаване"
+	},
+	"snowball_waiting": {
+		"message": "Изчакват се още джуджета"
 	},
 	"snowflake_choose_background": {
 		"message": "Изберете фон"
@@ -5189,6 +5276,9 @@
 	"village_more": {
 		"message": "Още начини за изследване"
 	},
+	"village_santa_a2hs": {
+		"message": "Добавяне на началния екран"
+	},
 	"village_santa_cardboard": {
 		"message": "Дядо Коледа в Cardboard"
 	},
@@ -5224,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Йемен"
+	},
+	"yourbest": {
+		"message": "Най-добър резултат"
 	},
 	"zh-CN_language_name": {
 		"message": "китайски (опростен)"
