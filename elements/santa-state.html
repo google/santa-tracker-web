@@ -208,7 +208,7 @@ Polymer({
     return currentTime >= CALENDAR_OPEN && currentTime < FLIGHT_FINISHED;
   },
   _computeRemainingTime: function(currentTime) {
-    return COUNTDOWN_END - currentTime;
+    return Math.max(0, COUNTDOWN_END - currentTime);
   },
   _computeCountdownFinished: function(remainingTime) {
     return remainingTime <= 0;

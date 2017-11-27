@@ -74,7 +74,10 @@ Polymer({
   },
 
   _computeOrnamentClass: function(remainingTime) {
-    return remainingTime ? '' : 'post';
+    if (remainingTime > 0) {
+      return '';
+    }
+    return 'post';
   },
 
   attached: function() {
