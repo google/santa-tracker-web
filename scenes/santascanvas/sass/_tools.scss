@@ -344,7 +344,7 @@
     width: 85px;
 
     &::before {
-      background: linear-gradient(to left, #fff 30%, transparent);
+      background: linear-gradient(to left, #fff 30%, rgba(255, 255, 255, 0));
       content: '';
       height: 100%;
       position: absolute;
