@@ -410,6 +410,7 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
       this.selectedTool.startMousedown();
 
       var insideCanvas = this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
         !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
         !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
         !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
