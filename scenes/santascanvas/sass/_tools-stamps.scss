@@ -330,6 +330,10 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       transform: translate(-50%, -50%);
       width: 100%;
     }
+
+    .Tool-hover-circle {
+      visibility: hidden;
+    }
   }
 
   @each $current-stamp in $stamp-names {

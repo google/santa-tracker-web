@@ -63,6 +63,10 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       transform: translate(-50%, -50%);
       width: 100%;
     }
+
+    .Tool-hover-circle {
+      visibility: hidden;
+    }
   }
 
   @each $current-shape in $shape-names {

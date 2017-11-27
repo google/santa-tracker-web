@@ -182,6 +182,10 @@ $sticker-silly: "face-eyes-glasses1", "face-mouth-black", "hat-blue", "head-elf-
       transform: translate(-50%, -50%);
       width: 100%;
     }
+
+    .Tool-hover-circle {
+      visibility: hidden;
+    }
   }
 
   @each $current-sticker in $sticker-animals {
