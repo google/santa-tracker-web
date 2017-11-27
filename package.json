@@ -7,6 +7,8 @@
   },
   "license": "Apache-2",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.9.12",
     "buble": "^0.18.0",
     "connect": "^3.6.5",
