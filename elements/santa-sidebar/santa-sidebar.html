@@ -111,9 +111,15 @@ specific language governing permissions and limitations under the License.
     </h2>
     <ul>
       <li hidden$="[[!a2hsAvailable]]"><a on-click="_onA2HSClick">
-        <i18n-msg hidden$="[[!onAndroid]]"] msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
-        <i18n-msg hidden$="[[!onChromeOS]]"]  msgid="village_santa_a2hs_chromeos">PLACEHOLDER_i18n</i18n-msg>
-        <i18n-msg hidden$="[[!onOtherPlatform]]"]  msgid="village_santa_a2hs_desktop">PLACEHOLDER_i18n</i18n-msg>
+        <div hidden$="[[!onAndroid]]"]>
+          <i18n-msg msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+        <div hidden$="[[!onChromeOS]]"]>
+          <i18n-msg msgid="village_santa_a2hs_chromeos">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+        <div hidden$="[[!onOtherPlatform]]"]>
+          <i18n-msg msgid="village_santa_a2hs_desktop">PLACEHOLDER_i18n</i18n-msg>
+        </div>
       </a></li>
       <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
