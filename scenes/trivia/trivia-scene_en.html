@@ -36,7 +36,7 @@ Trivia scene.
         <a href="http://www.nationalgeographic.com/geobee/" target="_blank" class="ngb-logo">
           <i18n-msg msgid="trivia_ngb_promo">PLACEHOLDER_i18n</i18n-msg>
         </a>
-        <div class$="question {{_computeTernary(questionVisible, 'is-visible', '')}}">
+        <div class$="question {{_computeVisibleClass(questionVisible)}}">
           <div class="question-number"></div>
           <div class="question-text"></div>
         </div>
@@ -2489,7 +2489,7 @@ Trivia scene.
        */
       game: {
         type: Object,
-        value: null
+        value: null,
       },
 
       /**
@@ -2497,7 +2497,7 @@ Trivia scene.
        */
       questionVisible: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
     },
@@ -2508,7 +2508,7 @@ Trivia scene.
       'time-up': 'onAnswered',
       'game-over': 'onGameOver',
       'hide-question': 'onHideQuestion',
-      'restart': 'onRestart'
+      'restart': 'onRestart',
     },
 
     onPreload: function() {
@@ -2520,7 +2520,7 @@ Trivia scene.
         'img/hard.svg',
         'img/incorrect.svg',
         'img/medium.svg',
-        'img/ngb-logo.svg'
+        'img/ngb-logo.svg',
       ]);
     },
 
@@ -2584,7 +2584,12 @@ Trivia scene.
     onRestart: function() {
       this.$.menu.hidden = false;
       this.$.menu.classList.remove('menu--hidden');
-    }
+    },
+
+    _computeVisibleClass(visible) {
+      return visible ? 'is-visible' :'';
+    },
+
   });
 })();
 </script>

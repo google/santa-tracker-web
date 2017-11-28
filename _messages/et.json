@@ -465,7 +465,7 @@
 		"message": "Päevi"
 	},
 	"countdown_hours": {
-		"message": "h"
+		"message": "Tunde"
 	},
 	"countdown_minutes": {
 		"message": "min"
@@ -582,7 +582,7 @@
 		"message": "Etioopia"
 	},
 	"explore": {
-		"message": "Avastamine"
+		"message": "Avastage"
 	},
 	"fi_country_name": {
 		"message": "Soome"
@@ -615,7 +615,10 @@
 		"message": "Teie tulemus:"
 	},
 	"getgooglemaps": {
-		"message": "Hangi Google Maps"
+		"message": "Hankige Google Maps"
+	},
+	"getready": {
+		"message": "Valmis olla!"
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -867,7 +870,7 @@
 		"message": "Õpetajad ja õpilased"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® on mittetulundusorganisatsioon eesmärgiga pakkuda naissoost ja tavapärasest väiksema osalusmääraga rassidest õpilastele paremat juurdepääsu informaatikaõppele ja suurendada nende osalust selles. Organisatsiooni Code.org® visioon on, et kõigi koolide kõigil õpilastel oleks võimalus informaatikat õppida."
+		"message": "Code.org® on mittetulundusorganisatsioon eesmärgiga pakkuda naissoost ja tavapärasest väiksema osalusmääraga rassidest õpilastele paremat juurdepääsu informaatikaõppele ja suurendada nende osalust selles. Organisatsiooni Code.org® visioon on, et kõigi koolide kõigil õpilastel oleks võimalus õppida informaatikat."
 	},
 	"nonprofit-code-type": {
 		"message": "Informaatika"
@@ -900,7 +903,7 @@
 		"message": "Šimpansid"
 	},
 	"nonprofit-khan-description": {
-		"message": "Khan Academy on mittetulundusorganisatsioon eesmärgiga pakkuda kõikjal kõigile tasuta tipptasemel haridust. Khan Academy usub, et igas vanuses õppijatel peaks olema piiramatu juurdepääs tasuta õppesisule, mida nad saaksid omandada endale sobivas tempos."
+		"message": "Khan Academy on mittetulundusorganisatsioon eesmärgiga pakkuda tasuta tipptasemel haridust kõikjal ja kõigile. Khan Academy usub, et igas vanuses õppijatel peaks olema piiramatu juurdepääs tasuta õppematerjalidele, mida nad saaksid omandada endale sobivas tempos."
 	},
 	"nonprofit-khan-type": {
 		"message": "Haridus"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Harjutamine"
+	},
 	"press": {
 		"message": "Press"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguai"
+	},
+	"quickdraw-machine-know": {
+		"message": "Tean küll, see on {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "või"
+	},
+	"quickdraw-machine-see": {
+		"message": "Näen"
+	},
+	"quickdraw-newround-button": {
+		"message": "Alusta"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ma ei tea, mis see on."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Vabandust"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Ei osanud arvata!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Lisaks arvas Tensor, et teie joonistus sarnaneb neile:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Kuidas Tensor teab, milline {{thing}} välja näeb?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "See õppis, vaadeldes neid teiste inimeste joonistatud näiteid."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor arvas, et teie joonistus sarnaneb rohkem neile:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Nii joonistas selle ({{thing}}) jõuluvana."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Teil paluti joonistada {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Joonista"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor on jõuluvana masinõpperobot, mis aitab tal kogu maailma lastelt saadud kirju kiiresti analüüsida. Aidake Tensoril harjutada – joonistage ekraanile pühadega seotud sõnale vastav pilt ja laske tal sõna ära arvata. Mida rohkem joonistate, seda rohkem Tensor õpib ja seda paremini oskab jõuluvana laste soove täita."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Aidake Tensoril pildituvastust harjutada!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor tundis ära {{recognized}} teie joonistust."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor tundis ühe teie joonistustest ära."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor ei tundnud ära ühtegi teie joonistust."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Tubli!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oih!"
 	},
 	"ro_country_name": {
 		"message": "Rumeenia"
@@ -1140,13 +1209,19 @@
 		"message": "Kingikatapult"
 	},
 	"scene_briefing": {
-		"message": "Jõulumemme tutvustus"
+		"message": "Jõulumemme õppetund"
 	},
 	"scene_callfromsanta": {
 		"message": "Jõuluvana kõne"
 	},
+	"scene_canvas": {
+		"message": "Jõuluvana joonistab"
+	},
 	"scene_citylights": {
 		"message": "Linnatuled"
+	},
+	"scene_clausdraws": {
+		"message": "Jõuluvana jutupliiats"
 	},
 	"scene_codeboogie": {
 		"message": "Tants ja trall"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Pingviinijooks"
 	},
+	"scene_elfski": {
+		"message": "Päkapikuslaalom"
+	},
 	"scene_factory": {
 		"message": "Kommivabrik"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Nätsukommid"
+	},
+	"scene_icecave": {
+		"message": "Jääkoobas"
+	},
+	"scene_island": {
+		"message": "Saar"
 	},
 	"scene_jamband": {
 		"message": "Päkapikubänd"
@@ -1197,7 +1281,10 @@
 		"message": "Põrkavad kingid"
 	},
 	"scene_presentdrop": {
-		"message": "Kingitustesadu"
+		"message": "Kingisadu"
+	},
+	"scene_quickdraw": {
+		"message": "Äraarvamismäng"
 	},
 	"scene_racer": {
 		"message": "Rudolfi võidusõit"
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Pühadelahkus"
+	},
+	"scene_snowball": {
+		"message": "Lumesõda"
+	},
+	"scene_speedsketch": {
+		"message": "Arva ära"
 	},
 	"scene_streetview": {
 		"message": "Tänavavaade"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Jõuluvana asub teele"
 	},
+	"scene_videoscene_museum": {
+		"message": "Päev muuseumis"
+	},
 	"scene_videoscene_office": {
 		"message": "Vingerpuss kontoris"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelliit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Jõuluvana selfi"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Aeg maha"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Kiusatus"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Väljas!"
+	},
+	"snowball_remaining": {
+		"message": "Päkapikke alles {{remaining}}/{{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Vaata edasi"
+	},
+	"snowball_waiting": {
+		"message": "Ootame teisi päkapikke"
 	},
 	"snowflake_choose_background": {
 		"message": "Valige taust"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Veel avastamisvõimalusi"
 	},
+	"village_santa_a2hs": {
+		"message": "Lisa avalehele"
+	},
 	"village_santa_cardboard": {
 		"message": "Jõuluvana Cardboardis"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jeemen"
+	},
+	"yourbest": {
+		"message": "Parim tulemus"
 	},
 	"zh-CN_language_name": {
 		"message": "hiina keel (lihtsustatud)"

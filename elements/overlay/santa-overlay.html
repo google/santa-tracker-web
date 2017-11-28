@@ -72,18 +72,17 @@ Shared overlay for Santa Tracker games.
 (function() {
 
 function shortenUrl(url, cb) {
-  var key = 'AIzaSyA4LaOn5d1YRsJIOTlhrm7ONbuJ4fn7AuE';
-  var x = new XMLHttpRequest();
-  x.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=' + key);
-  x.responseType = 'json';
-  x.onload = function() {
-    cb && cb(x.response['id'] || url);
-  };
-  x.onerror = function() {
-    cb && cb(url);
-  };
-  x.setRequestHeader('Content-Type', 'application/json');
-  x.send(JSON.stringify({longUrl: url}));
+  const key = 'AIzaSyA4LaOn5d1YRsJIOTlhrm7ONbuJ4fn7AuE';
+
+  return new Promise((resolve, reject) => {
+    const x = new XMLHttpRequest();
+    x.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=' + key);
+    x.responseType = 'json';
+    x.onload = () => resolve(x.response['id'] || url);
+    x.onerror = () => reject(x.responseText);
+    x.setRequestHeader('Content-Type', 'application/json');
+    x.send(JSON.stringify({longUrl: url}));
+  });
 }
 
 Polymer({
@@ -171,17 +170,17 @@ Polymer({
 
   _shareUrlChanged: function(newValue) {
     this._setShortShareUrl(null);
+    if (!this.shareUrl) { return; }
 
-    if (this.shareUrl) {
-      window.ga('send', 'event', 'nav', 'share', 'overlay');
-      shortenUrl(this.shareUrl, function(shortUrl) {
-        if (shortUrl && this.shareUrl === newValue) {
-          // if valid, and URL hasn't changed...
-          this._setShortShareUrl(shortUrl);
-          this._selectUrl();
-        }
-      }.bind(this));
-    }
+    window.ga('send', 'event', 'nav', 'share', 'overlay');
+
+    shortenUrl(this.shareUrl).catch((err) => {
+      console.warn('couldn\'t shorten URL', err);
+    }).then((url) => {
+      if (this.shareUrl !== newValue) { return; }
+      this._setShortShareUrl(url || this.shareUrl);
+      this._selectUrl();
+    });
   },
 
   _computeBackgroundStyle: function(heroUrl) {
@@ -223,7 +222,7 @@ Polymer({
 
   _onShare: function(ev) {
     window.ga('send', 'event', 'nav', 'click', 'share');
-    var p = ev.target.closest('button');
+    const p = ev.target.closest('button');
     if (p) {
       ev.preventDefault();
       this.fire('share', {network: p.id, url: this.shortShareUrl || this.shareUrl, overlay: true});

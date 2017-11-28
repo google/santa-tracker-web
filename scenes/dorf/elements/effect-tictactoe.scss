@@ -1,0 +1,176 @@
+// scaled down by 0.8 to match asset sizes.
+
+#holder {
+  position: absolute;
+  width: 475px;
+  height: 150px;
+  background: url(img/easteregg-tictactoe.svg) top left no-repeat;
+  background-size: 447px;
+  transform: translate(-50%, -100%) scale(0.8);
+  z-index: 0;  // create stacking context
+  // TODO(samthor): The left-most column extends to the left by +28px, so we can't set
+  // overflow: hidden. This is a task for a future engineer.
+}
+
+.elves {
+  position: absolute;
+  background: transparent center bottom no-repeat;
+  background-size: contain;
+  transition: transform 0.5s ease-in-out;
+  transform: translate(0, 0);
+  will-change: transform;
+
+  // aligns to bottom right, as this is where the crayon points
+  margin-left: -72px;
+  margin-top: -58px;
+  width: 72px;
+  height: 58px;
+
+  &#elves-red {
+    transform: translate(360px, 130px);
+    background-image: url(img/easteregg-tictactoe-move-red.svg);
+    z-index: 3;
+
+    &.draw {
+      background-image: url(img/easteregg-tictactoe-draw-red.svg);
+    }
+  }
+
+  &#elves-blue {
+    transform: translate(350px, 100px);
+    background-image: url(img/easteregg-tictactoe-move-blue.svg);
+    z-index: 2;
+
+    &.draw {
+      background-image: url(img/easteregg-tictactoe-draw-blue.svg);
+    }
+  }
+}
+
+.cell {
+  position: absolute;
+  transform: translate(-50%, -50%);  // center
+  opacity: 1;
+  transition: opacity .2s ease;
+  will-change: opacity;
+  background: transparent center no-repeat;
+  background-size: contain;
+
+  &.empty {
+    opacity: 0;
+  }
+
+  &.red {
+    width: 44px;
+    height: 19px;
+    background-image: url(img/easteregg-tictactoe-place-red.svg);
+  }
+
+  &.blue {
+    width: 48px;
+    height: 14px;
+    background-image: url(img/easteregg-tictactoe-place-blue.svg);
+  }
+}
+
+// top row
+
+$startX: 88px;
+$startY: 60px;
+$gap: 74px;
+
+@for $i from 1 through 3 {
+  .cell:nth-child(#{$i}) {
+    top: $startY;
+    left: ($startX + ($i - 1) * $gap);
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  .elves.to-pos-#{$i} {
+    transform: translate($startX + ($i - 1) * $gap, $startY) !important;
+  }
+}
+
+// middle row
+
+$startX: 65px;
+$startY: 87px;
+$gap: 80px;
+
+@for $i from 4 through 6 {
+  .cell:nth-child(#{$i}) {
+    top: $startY;
+    left: ($startX + ($i - 4) * $gap);
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  .elves.to-pos-#{$i} {
+    transform: translate($startX + ($i - 4) * $gap, $startY) !important;
+  }
+}
+
+// bottom row
+
+$startX: 44px;
+$startY: 115px;
+$gap: 88px;
+
+@for $i from 7 through 9 {
+  .cell:nth-child(#{$i}) {
+    top: $startY;
+    left: ($startX + ($i - 7) * $gap);
+  }
+  .elves.to-pos-#{$i} {
+    transform: translate($startX + ($i - 7) * $gap, $startY) !important;
+  }
+}
+
+// rest
+
+#win {
+  position: absolute;
+  width: 144px;
+  height: 7px;
+  background: transparent center no-repeat;
+  background-size: contain;
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  will-change: transform, opacity;
+
+  &.red {
+    opacity: 1;
+    background-image: url(img/easteregg-tictactoe-win-red.svg);
+  }
+
+  &.blue {
+    opacity: 1;
+    background-image: url(img/easteregg-tictactoe-win-blue.svg);
+  }
+
+  &.pos-0 {
+    transform: translate3d(88px, 56px, 0) rotateZ(0deg);
+  }
+  &.pos-1 {
+    transform: translate3d(74px, 85px, 0) rotateZ(0deg);
+  }
+  &.pos-2 {
+    transform: translate3d(66px, 114px, 0) rotateZ(0deg);
+  }
+  &.pos-3 {
+    transform: translate3d(-6px, 89px, 0) rotateZ(128deg);
+  }
+  &.pos-4 {
+    transform: translate3d(69px, 101px, 0) rotateZ(108deg);
+  }
+  &.pos-5 {
+    transform: translate3d(156px, 88px, 0) rotateZ(96deg);
+  }
+  &.pos-6 {
+    transform: translate3d(89px, 88px, 0) rotateZ(27deg);
+  }
+  &.pos-7 {
+    transform: translate3d(75px, 82px, 0) rotateZ(163deg);
+  }
+  &.pos-8 {
+    transform: translate3d(75px, 84px, 0) rotateZ(0);
+  }
+}

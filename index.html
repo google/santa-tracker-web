@@ -32,7 +32,7 @@ specific language governing permissions and limitations under the License.
   <meta name="twitter:description" msgid="meta_description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world.">
   <meta name="twitter:image" content="https://santatracker.google.com/images/og.png">
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,600,700,800|Lobster">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster">
   <link rel="stylesheet" href="sass/santatracker.css">
 
   <meta name="theme-color" content="#00c6ed">
@@ -64,6 +64,7 @@ ga('set', 'transport', 'beacon');
 
   <!-- JS -->
   <link id="DEV" comment="element removed in prod" />
+  <link id="ES5_ADAPTER" comment="replaced with es5 adapter in prod">
   <script>
 (function() {
   // Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 9+ and
@@ -195,7 +196,14 @@ ga('set', 'transport', 'beacon');
 (function() {
 
 function lazyLoadWCPolyfillsIfNecessary() {
+  var requiredPolyfillCount = 0;
+  var loadedPolyfillCount = 0;
+
   var onload = function() {
+    if (++loadedPolyfillCount < requiredPolyfillCount) {
+      return;
+    }
+
     // If the browser supports native HTML Imports, manually fire the WCR event
     // so the same code paths can be used for polyfill'd and native.
     // window.HTMLImports only exists under the poylfill.
@@ -204,17 +212,44 @@ function lazyLoadWCPolyfillsIfNecessary() {
     }
   };
 
+  var loadPolyfill = (function() {
+    var baseUrl = document.body.getAttribute('data-static');
+    return function(url, defer) {
+      requiredPolyfillCount++;
+      var script = document.createElement('script');
+
+      if (defer) {
+        script.async = false;
+      }
+
+      script.src = baseUrl + url;
+      script.onload = onload;
+      document.head.appendChild(script);
+    };
+  })();
+
+  // @see https://github.com/webcomponents/URL/blob/master/url.js#L8-L15
+  var hasWorkingUrl = false;
+  try {
+    var u = new URL('b', 'http://a');
+    u.pathname = 'c%20d';
+    hasWorkingUrl = u.href === 'http://a/c%20d';
+  } catch (e) {}
+
+  if (!hasWorkingUrl) {
+    loadPolyfill('components/url/url.js');
+  }
+
   var webComponentsSupported =
       'registerElement' in document
       && 'import' in document.createElement('link')
       && 'content' in document.createElement('template');
+
   if (!webComponentsSupported) {
-    var script = document.createElement('script');
-    var baseUrl = document.body.getAttribute('data-static');
-    script.src = baseUrl + 'components/webcomponentsjs/webcomponents-lite.js';
-    script.onload = onload;
-    document.head.appendChild(script);
-  } else {
+    loadPolyfill('components/webcomponentsjs/webcomponents-lite.js', true);
+  }
+
+  if (requiredPolyfillCount === 0) {
     onload();
   }
 }

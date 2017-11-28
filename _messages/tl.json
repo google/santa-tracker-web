@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Kunin ang Google Maps"
 	},
+	"getready": {
+		"message": "Maghanda Ka Na!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Magsanay"
+	},
 	"press": {
 		"message": "Press"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Ay alam ko, {{thing}} ito!"
+	},
+	"quickdraw-machine-or": {
+		"message": "o"
+	},
+	"quickdraw-machine-see": {
+		"message": "I see"
+	},
+	"quickdraw-newround-button": {
+		"message": "Simulan"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Hindi ako sigurado kung ano iyan."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Paumanhin"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Hindi ko mahulaan ito!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Sa palagay din ni Tensor parang ganito ang iyong drawing:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Paano nalalaman ni Tensor kung ano ang hitsura ng {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Natuto ito sa pamamagitan ng pagtingin sa mga halimbawa na ito na iginuhit ng iba pang tao."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Sa palagay ni Tensor mas parang ganito ang iyong drawing:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Ito ang bersyon ng {{thing}} ni Santa."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Hiniling  sa iyo na gumuhit ng {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Iguhit"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Si Tensor ang Machine Learning robot ni Santa na tumutulong sa kanya na mabilis na maunawaan ang mga liham na natatanggap niya mula sa mga bata sa buong mundo. Upang makatulong sa pagsasanay ni Tensor, gumuhit ng isang larawan ng bawat salita ng kapaskuhan sa screen at sasabihin niya sa iyo kung ano ang nakikita niya. Mas marami kang iginuguhit, mas tumatalino si Tensor, kaya tulungan natin si Santa na maging mas mahusay kaysa dati ngayong kapaskuhan!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Tulungan si Tensor na sanayin ang kanyang pagkilala sa larawan!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Nakilala ni Tensor ang {{recognized}} sa iyong mga drawing."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Nakilala ni Tensor ang isa sa iyong mga drawing."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Walang nakilala si Tensor sa alinman sa iyong mga drawing."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Magaling!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oops!"
 	},
 	"ro_country_name": {
 		"message": "Romania"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Tawag mula kay Santa"
 	},
+	"scene_canvas": {
+		"message": "Santa's Canvas"
+	},
 	"scene_citylights": {
 		"message": "City Lights"
+	},
+	"scene_clausdraws": {
+		"message": "Claus Draws"
 	},
 	"scene_codeboogie": {
 		"message": "Code Boogie"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfski": {
+		"message": "Elf Ski"
+	},
 	"scene_factory": {
 		"message": "Candy Factory"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
+	},
+	"scene_icecave": {
+		"message": "Ice Cave"
+	},
+	"scene_island": {
+		"message": "Island"
 	},
 	"scene_jamband": {
 		"message": "Elf Jamband"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Present Drop"
 	},
+	"scene_quickdraw": {
+		"message": "Quick Draw"
+	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Panahon ng Bigayan"
+	},
+	"scene_snowball": {
+		"message": "Snowball Storm"
+	},
+	"scene_speedsketch": {
+		"message": "Speed Sketch"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Paglipad ni Santa"
 	},
+	"scene_videoscene_museum": {
+		"message": "Isang Araw sa Museo"
+	},
 	"scene_videoscene_office": {
 		"message": "Office Prank"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Santa Selfies"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Slacking Off"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Temptation"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Iced!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} sa {{total}} ang natitirang elf"
+	},
+	"snowball_spectate": {
+		"message": "Manood"
+	},
+	"snowball_waiting": {
+		"message": "Hinihintay ang iba pa sa mga elf ni Santa"
 	},
 	"snowflake_choose_background": {
 		"message": "Pumili ng backdrop"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Mas Marami Pang Paraan para Mag-explore"
 	},
+	"village_santa_a2hs": {
+		"message": "Idagdag sa Home Screen"
+	},
 	"village_santa_cardboard": {
 		"message": "Santa sa Cardboard"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Pinakamataas na Score"
 	},
 	"zh-CN_language_name": {
 		"message": "Chinese (simplified)"

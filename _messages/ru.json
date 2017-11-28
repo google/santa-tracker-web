@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Скачать Google Карты"
 	},
+	"getready": {
+		"message": "Приготовьтесь!"
+	},
 	"gh_country_name": {
 		"message": "Гана"
 	},
@@ -969,7 +972,7 @@
 		"message": "Подробнее"
 	},
 	"notification": {
-		"message": "Оповещения"
+		"message": "Уведомления"
 	},
 	"notification_newtoday": {
 		"message": "Новости"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Пуэрто-Рико"
 	},
+	"practice": {
+		"message": "Обучение"
+	},
 	"press": {
 		"message": "Пресса"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Парагвай"
+	},
+	"quickdraw-machine-know": {
+		"message": "Я знаю: это {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "или"
+	},
+	"quickdraw-machine-see": {
+		"message": "Это"
+	},
+	"quickdraw-newround-button": {
+		"message": "Начать"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ума не приложу, что это."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Сожалею"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Нет догадок."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Тензору показалось, что ваш рисунок также похож на следующие соображения:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Откуда Тензор знает, что это {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Он учится, анализируя рисунки других людей"
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Тензору показалось, что ваш рисунок больше похож на эти изображения:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Это {{thing}} в исполнении Санты."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "{{thing}} – то, что вам нужно было нарисовать."
+	},
+	"quickdraw-slate": {
+		"message": "Нарисовать"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Тензор – робот, который расшифровывает почерк детей со всего мира. Благодаря ему Санте проще читать письма. Хотите, чтобы Тензор попрактиковался? Нарисуйте несколько новогодних предметов, а робот скажет, что видит. Чем больше изображений Тензор анализирует, тем умнее он становится и тем лучше помогает Санте."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Помогите Тензору попрактиковаться в распознавании изображений."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Распознано рисунков: {{recognized}}."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Тензор распознал один из ваших рисунков."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Тензор не распознал ни один рисунок."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Отлично!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Не повезло!"
 	},
 	"ro_country_name": {
 		"message": "Румыния"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Звонок от Санты"
 	},
+	"scene_canvas": {
+		"message": "Рождественская живопись"
+	},
 	"scene_citylights": {
 		"message": "Огни большого города"
+	},
+	"scene_clausdraws": {
+		"message": "Новогодние рисунки"
 	},
 	"scene_codeboogie": {
 		"message": "Буги-вуги"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Быстрый пингвин"
 	},
+	"scene_elfski": {
+		"message": "Лыжный спуск"
+	},
 	"scene_factory": {
 		"message": "Кондитерская фабрика"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Леденцы"
+	},
+	"scene_icecave": {
+		"message": "Ледяная пещера"
+	},
+	"scene_island": {
+		"message": "Остров"
 	},
 	"scene_jamband": {
 		"message": "Эльфы-музыканты"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Доставка подарков"
 	},
+	"scene_quickdraw": {
+		"message": "Зарисовки"
+	},
 	"scene_racer": {
 		"message": "Гонки с Рудольфом"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Раскрась елочную игрушку"
+	},
+	"scene_snowball": {
+		"message": "Снежная перестрелка"
+	},
+	"scene_speedsketch": {
+		"message": "Узоры на окне"
 	},
 	"scene_streetview": {
 		"message": "Просмотр улиц"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Взлет Санты"
 	},
+	"scene_videoscene_museum": {
+		"message": "День в музее"
+	},
 	"scene_videoscene_office": {
 		"message": "Офисный розыгрыш"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Спутник"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Селфи Санты"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Лишь бы не работать"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Искушение"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Сенегал"
+	},
+	"snowball_iced": {
+		"message": "Навылет!"
+	},
+	"snowball_remaining": {
+		"message": "Осталось эльфов: {{remaining}} из {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Смотреть"
+	},
+	"snowball_waiting": {
+		"message": "Ждем остальных эльфов Санты."
 	},
 	"snowflake_choose_background": {
 		"message": "Выберите фон"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Другие занятия"
 	},
+	"village_santa_a2hs": {
+		"message": "Добавить на главный экран"
+	},
 	"village_santa_cardboard": {
 		"message": "Режим для Google Cardboard"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Йемен"
+	},
+	"yourbest": {
+		"message": "Лучший результат"
 	},
 	"zh-CN_language_name": {
 		"message": "китайский (упрощенный)"

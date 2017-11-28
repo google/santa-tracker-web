@@ -19,6 +19,7 @@ goog.provide('app.FrameWrapper');
 goog.require('app.Constants');
 goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
+goog.require('app.shared.Tutorial');
 goog.require('app.shared.Gameover');
 
 /**
@@ -38,12 +39,16 @@ app.FrameWrapper = function(el, staticDir) {
   this.iframeEl = this.el.find('iframe[data-computer-love]');
   this.isPlaying = false;
 
+  this.tutorial = new Tutorial(el, '');
+
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
     gameover: this.gameover.bind(this),
     iframeFocusChange: this.iframeFocusChange.bind(this),
     setLevel: this.setLevel.bind(this),
-    triggerSound: this.triggerSound.bind(this)
+    triggerSound: this.triggerSound.bind(this),
+    showTutorial: this.tutorial.start.bind(this.tutorial),
+    dismissTutorial: this.tutorial.off.bind(this.tutorial),
   });
 
   // internal level number for analytics

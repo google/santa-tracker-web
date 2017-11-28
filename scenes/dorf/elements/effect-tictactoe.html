@@ -1,0 +1,231 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<link rel="import" href="effect-tictactoe_module.html">
+
+<dom-module id="effect-tictactoe">
+<template>
+  <style include="effect-tictactoe_module"></style>
+  <div id="holder">
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div id="elves-red" class="elves"></div>
+    <div id="elves-blue" class="elves"></div>
+    <div id="win"></div>
+  </div>
+</template>
+<script>
+(function() {
+
+const wins = Object.freeze([7, 56, 448, 73, 146, 292, 273, 84]);
+
+const showLineTime = 2 * 1000;
+const restartGameTime = randomRange.bind(null, 20 * 1000, 60 * 1000);
+
+Polymer({
+  is: 'effect-tictactoe',
+
+  properties: {
+
+    /**
+     * If the game is being played or not
+     */
+    _isPlaying: {
+      type: Boolean,
+      value: false,
+    },
+
+    /**
+     * Which players turn, only 2 players so a bool is fine
+     */
+    _turn: {
+      type: Boolean,
+      value: true,
+    },
+
+    /**
+     * Game cells.
+     */
+    _cells: {
+      type: Array,
+      value: null,
+    },
+
+    _redScore: {
+      type: Number,
+    },
+
+    _blueScore: {
+      type: Number,
+    },
+
+    _timers: {
+      value: () => [],
+    },
+
+  },
+
+  attached: function() {
+    this.fire('preload', [
+      'img/easteregg-tictactoe.svg',
+      'img/easteregg-tictactoe-move-red.svg',
+      'img/easteregg-tictactoe-draw-red.svg',
+      'img/easteregg-tictactoe-move-blue.svg',
+      'img/easteregg-tictactoe-draw-blue.svg',
+      'img/easteregg-tictactoe-place-red.svg',
+      'img/easteregg-tictactoe-place-blue.svg',
+      'img/easteregg-tictactoe-win-red.svg',
+      'img/easteregg-tictactoe-win-blue.svg',
+    ]);
+
+    this._timers[0] = this.async(this._play, 2000);
+  },
+
+  detached: function() {
+    this._timers.forEach((timer) => this.cancelAsync(timer));
+    this._timers = [];
+    this._isPlaying = false;
+  },
+
+  _play: function() {
+    if (!this.isAttached) {
+      return;
+    }
+
+    var redTeam = this.$['elves-red'];
+    var blueTeam = this.$['elves-blue'];
+
+    if (!this._isPlaying || !this._cells.length) {
+      this._isPlaying = true;
+
+      // Setup a new game
+      this._redScore = 0;
+      this._blueScore = 0;
+
+      this.$.win.className = '';
+
+      this._cells = [].slice.call(this.$.holder.querySelectorAll('.cell'));
+      this._cells.forEach((cell) => cell.className = 'cell empty');
+
+      redTeam.classList.remove('draw');
+      blueTeam.classList.remove('draw');
+    }
+
+    // Random is the best AI....
+    var rnd = Math.floor(Math.random() * this._cells.length);
+    var cell = this._cells.splice(rnd, 1).pop();
+    var index = Array.prototype.indexOf.call(this.$.holder.children, cell);
+    var player = this._turn ? blueTeam : redTeam;
+    this._playCell(player, cell, index);
+  },
+
+  _playCell: function(player, cell, index) {
+    var moveTime = 500;
+    var drawTime = moveTime + 200;
+    var doneDrawTime = drawTime + 500;
+    var moveBackTime = doneDrawTime + 500;
+    var playAgainTime = moveBackTime + 1000;
+    var posClass = 'to-pos-' + (index + 1);
+    player.classList.add(posClass);
+
+    this._turn = !this._turn;
+    var turn = this._turn;
+
+    var move = function() {
+      player.classList.add('draw');
+    };
+
+    var draw = function() {
+      if (turn) {
+        cell.classList.add('red');
+      } else {
+        cell.classList.add('blue');
+      }
+      cell.classList.remove('empty');
+    };
+
+    var doneDraw = function() {
+      player.classList.remove('draw');
+    };
+
+    var moveBack = function() {
+      player.classList.remove(posClass);
+    };
+
+    this._timers[1] = this.async(move.bind(this), moveTime);
+    this._timers[2] = this.async(draw.bind(this), drawTime);
+    this._timers[3] = this.async(doneDraw.bind(this), doneDrawTime);
+    this._timers[4] = this.async(moveBack.bind(this), moveBackTime);
+
+    if (turn) {
+      this._redScore += (1 << index);
+      var w = this._checkWin(this._redScore);
+      if (w !== false) {
+        this._showWin('red', w);
+        return;
+      }
+    } else {
+      this._blueScore += (1 << index);
+      var w = this._checkWin(this._blueScore);
+      if (w !== false) {
+        this._showWin('blue', w);
+        return;
+      }
+    }
+
+    if (!this._cells.length) {
+      // Draw
+      window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
+    }
+
+    this._timers[0] = this.async(this._play, playAgainTime);
+  },
+
+  _showWin: function(player, w) {
+    this._isPlaying = false;
+    var c = 'pos-' + w;
+
+    window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
+    this._timers[0] = this.async(function() {
+      this.$.win.classList.add(player, c);
+    }, showLineTime);
+
+    this._timers[1] = this.async(function() {
+      this.$.win.classList.remove(player, c);
+      this._play();
+    }, restartGameTime());
+  },
+
+  _checkWin: function(score) {
+    for (let i = 0; i < wins.length; ++i) {
+      if ((wins[i] & score) === wins[i]) {
+        return i;
+      }
+    }
+    return false;
+  },
+
+});
+
+})();
+</script>
+</dom-module>

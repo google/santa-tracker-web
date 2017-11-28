@@ -823,6 +823,10 @@
     "description": "Describes using the Google Maps product to find Santa.",
     "message": "Get Google Maps"
   },
+  "getready": {
+    "description": "Label that informs a user that a game is about to start, and that they should prepare.",
+    "message": "Get Ready!"
+  },
   "gh_country_name": {
     "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
     "message": "Ghana"
@@ -1120,7 +1124,7 @@
     "message": "New"
   },
   "newtoday": {
-    "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates a building that is newly available",
+    "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates a building that is newly available. 10 chars max, and can just say 'New' if that's not enough.",
     "message": "New Today"
   },
   "next": {
@@ -1411,6 +1415,10 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Puerto Rico"
   },
+  "practice": {
+    "description": "Label that informs a user that they are in 'practice' mode, and that scores are not counted. Short, <15 chars.",
+    "message": "Practice"
+  },
   "press": {
     "description": "Menu item for press, aka journalism/media, information.",
     "message": "Press"
@@ -1424,99 +1432,87 @@
     "message": "Paraguay"
   },
   "quickdraw-splashview-title": {
-    "description": "Title on the splash screen.",
+    "description": "Title referring to a robot, named Tensor, that wants to do automated image recognition.",
     "message": "Help Tensor practice his image recognition!"
   },
   "quickdraw-splashview-description": {
-    "description": "Description on splash screen",
-    "message": "Tensor is Santa’s Machine Learning bot that helps him quickly decipher the letters he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and he’ll tell you what he sees. The more you draw, the smarter Tensor will get, so let’s help Santa be more efficient than ever this holiday season!"
+    "description": "Description about how Tensor the robot operates, to recognize different objects.",
+    "message": "Tensor is Santa's Machine Learning robot that helps him quickly decipher the letters he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and he'll tell you what he sees. The more you draw, the smarter Tensor will get, so let's help Santa be more efficient than ever this holiday season!"
   },
-  "quickdraw-splashview-button": {
-    "description": "Label for the button to click to start a game",
-    "message": "Start"
-  },
-  "quickdraw-helping-elf": {
-    "description": "Action/order/verb. Text that appears in the elf slate. 8 character limit.",
-    "message": "Draw"
-	},
   "quickdraw-slate": {
     "description": "Action/order/verb. Text that appears above the word to draw.",
     "message": "Draw"
-	},
+  },
   "quickdraw-newround-button": {
-    "description": "Label for the button to click to start a game round",
+    "description": "Label for a button to click to start a game round",
     "message": "Start"
-	},
-  "quickdraw-timesup-button": {
-    "description": "Label for the button to restart a game.",
-    "message": "Play again!"
   },
   "quickdraw-timesup-title-noguess": {
-    "description": "Interjection on end of game screen. When AI didn't recognize any drawing.",
+    "description": "Title of a message on an end of game screen to indicate that the AI didn't recognize any drawings.",
     "message": "Oops!"
   },
   "quickdraw-timesup-subline-noguess": {
-    "description": "Sentence on end of game screen. When AI didn't recognize any drawing.",
-    "message": "Tensor didn’t recognized any of your drawings."
+    "description": "Text shown on an end of game screen when an robot named Tensor didn't recognize any drawings.",
+    "message": "Tensor didn't recognize any of your drawings."
   },
   "quickdraw-timesup-title-guess": {
-    "description": "Interjection on end of game screen. When AI recognized at least one of player's drawings.",
+    "description": "Title of a message on an end of game screen, when the AI recognized a drawing.",
     "message": "Well done!"
   },
+  "quickdraw-timesup-subline-guess-one": {
+    "description": "Sentence on end of game screen. When a robot recognized one of a player's drawings.",
+    "message": "Tensor recognized one of your drawings."
+  },
   "quickdraw-timesup-subline-guess": {
-    "description": "Sentence on end of game screen. When AI recognized at least one of player's drawings.",
-    "message": "Tensor recognized {{roundsRecognized}} of your drawings."
+    "description": "Sentence on end of game screen. When a robot recognized at least two of a player's drawings.",
+    "raw": "Tensor recognized <ph name=\"RECOGNIZED\"><ex>10</ex>{{recognized}}</ph> of your drawings."
   },
   "quickdraw-round-no-new-guess": {
-    "description": "Sentence displays during the game, when player is drawing, and AI can't guess what is it. 30 character limit.",
-    "message": "I’m not sure what that is."
+    "description": "Sentence displayed during a game, when a robot isn't able to guess what you are drawing. 30 character limit.",
+    "message": "I'm not sure what that is."
   },
   "quickdraw-round-sorry": {
-    "description": "When the AI coudn't guess the drawing and is sorry about it. 8 character limit.",
+    "description": "When a robot coudn't guess your drawing, and is sorry about it. 8 character limit.",
     "message": "Sorry"
   },
   "quickdraw-round-timesup": {
-    "description": "When the timer run out of time and AI didn't guess the drawing. 20 character limit.",
-    "message": "I couldn’t guess it"
+    "description": "When the timer expires, and a robot didn't guess what you are drawing. 20 character limit.",
+    "message": "I couldn't guess it!"
   },
   "quickdraw-machine-see": {
     "description": "'I see' is followed by a list of guesses. 8 character limit.",
     "message": "I see"
   },
   "quickdraw-machine-or": {
-    "description": "This separates different guesses in a list of guesses",
+    "description": "This word separates different guesses in a list of guesses. If there's no suitable word, a comma is OK.",
     "message": "or"
   },
   "quickdraw-machine-know": {
-    "description": "When the AI finally guessed what the drawing is. Followed by the guess. 20 character limit.",
-    "message": "Oh I know, this is"
-  },
-  "quickdraw-rounddetails-back-button": {
-    "description": "Label of back button",
-    "message": "Back"
+    "description": "When the AI finally guessed what the player is drawing. 20 character limit.",
+    "raw": "Oh I know, this is <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph>!"
   },
   "quickdraw-rounddetails-title": {
-    "description": "Display on End of game Screen. Remind what the players were asked to draw.",
-    "message": "You were asked to draw {{word}}"
+    "description": "Displays on a end of game screen. Reminds the players what they were asked to draw.",
+    "raw": "You were asked to draw <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph>."
   },
   "quickdraw-rounddetails-santa-version": {
-    "description": "Display on End of game Screen. Above the santa's version of players' drawings. (i.e. a beautiful drawing).",
-    "message": "This is Santa’s version of {{word}}"
+    "description": "Displays on a end of game screen. Above the canonical drawing of a thing. (i.e. a beautiful drawing).",
+    "raw": "This is Santa's version of <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph>."
   },
   "quickdraw-rounddetails-also-look": {
-    "description": "Display on End of game Screen. Show other guesses drawings that looks like player's drawing. Show When AI recognized the drawing.",
+    "description": "Displays on an end of game screen. Show other drawings that looked like the player's drawing. This is shown when the robot recognized your drawing.",
     "message": "Tensor also thought your drawing looked like these:"
   },
   "quickdraw-rounddetails-look-more": {
-    "description": "Displays on End of game Screen. Show other guesses drawings that looks like player's drawing. When AI didn't recognize the drawing.",
+    "description": "Displays on an end of game screen. Show other drawings that looked like the player's drawing. This is shown when the robot did not recognize your drawing.",
     "message": "Tensor thought your drawing looked more like these:"
   },
   "quickdraw-rounddetails-how-know": {
-    "description": "Ask how the AI did to guess your drawings. Answer is below.",
-    "message": "How does is know what {{word}} look like?"
+    "description": "A title that asks the question of how Tensor the robot knows what you were drawing.",
+    "raw": "How does Tensor know what <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph> looks like?"
   },
   "quickdraw-rounddetails-it-learned": {
-    "description": "Explains how the AI guessed your drawings. Answers the question above",
+    "description": "A title that explains how a robot guessed your drawings.",
     "message": "It learned by looking at these examples drawn by other people."
   },
   "ro_country_name": {
@@ -1627,6 +1623,10 @@
     "description": "Title of a scene/game. Showcases different Street View scenes, containing holiday lights and decorations, from around the world.",
     "message": "City Lights"
   },
+  "scene_clausdraws": {
+    "description": "Title of a scene/game. A drawing game where the player can draw creatively in a Santa-themed environment. In English, this title ryhmes, and 'Claus' refers to 'Santa Claus'.",
+    "message": "Claus Draws"
+  },
   "scene_codeboogie": {
     "description": "Title of a scene/game. You can teach Santa's Elves how to dance ('boogie') through code.",
     "message": "Code Boogie"
@@ -1642,6 +1642,10 @@
   "scene_dash": {
     "description": "Title of a scene/game. Help a penguin navigate icebergs to pick up presents.",
     "message": "Penguin Dash"
+  },
+  "scene_elfski": {
+    "description": "Title of a scene/game. Elves ski down a mountain.",
+    "message": "Elf Ski"
   },
   "scene_factory": {
     "description": "Title of a scene/game. See how Santa makes candy in a factory.",
@@ -1703,6 +1707,10 @@
     "description": "Title of a scene/game. Practice dropping presents into practice chimneys.",
     "message": "Present Drop"
   },
+  "scene_quickdraw": {
+    "description": "Title of a scene/game. Draw shapes and try to have Santa's robot guess what you are drawing.",
+    "message": "Quick Draw"
+  },
   "scene_racer": {
     "description": "Title of a scene/game. Race Rudolph through the snow, collecting the most presents along the way.",
     "message": "Rudolph Racer"
@@ -1714,6 +1722,10 @@
   "scene_runner": {
     "description": "Title of a scene/game. Infinite runner game where you play a generic reindeer and elf companion, collecting presents for as long as you can.",
     "message": "Reindeer Runner"
+  },
+  "scene_canvas": {
+    "description": "Title of a scene/game. A drawing game where the player (note: you are not playing _as_ Santa) can draw creatively on a canvas, including using stickers and Santa-themed effects.",
+    "message": "Santa's Canvas"
   },
   "scene_santasearch": {
     "description": "Title of a scene/game. A \"Where's Wally/Waldo\"-style (not affiliated) experience to find Santa in tricky scenes.",
@@ -1730,6 +1742,14 @@
   "scene_seasonofgiving": {
     "description": "Title of a scene/game. Learn about different charities, and paint baubles.",
     "message": "Season of Giving"
+  },
+  "scene_snowball": {
+    "description": "Title of a scene/game. Throw snowballs at fellow elves until only one remains standing up.",
+    "message": "Snowball Storm"
+  },
+  "scene_speedsketch": {
+    "description": "Title of a scene/game. Draw images on a frosted glass window that Santa's helper robot tries to identify.",
+    "message": "Speed Sketch"
   },
   "scene_streetview": {
     "description": "Title of a scene/game. View a \"street view\" style enviroment in the downtown North Pole.",
@@ -1766,6 +1786,10 @@
   "scene_videoscene_liftoff": {
     "description": "Title of a video scene. Santa is taking off, launching etc.",
     "message": "Santa's Takeoff"
+  },
+  "scene_videoscene_museum": {
+    "description": "Title of a video scene. Shows a history of Santa Tracker in a museum, with Santa and the elves as leading stars.",
+    "message": "A Day at the Museum"
   },
   "scene_videoscene_office": {
     "description": "Title of a video scene. An office prank where an elf has his desk covered in wrapping paper.",
@@ -1842,6 +1866,22 @@
   "share-this": {
     "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
     "message": "Share"
+  },
+  "snowball_iced": {
+    "description": "A player has been 'iced', hit by a snowball and is out of a game.",
+    "message": "Iced!"
+  },
+  "snowball_spectate": {
+    "description": "Label for a button allowing users to keep watching a game",
+    "message": "Spectate"
+  },
+  "snowball_waiting": {
+    "description": "A message saying that a game hasn't started yet because you're waiting for more players to join (you play as one of \"Santa's elves\").",
+    "message": "Waiting for more of Santa's elves"
+  },
+  "snowball_remaining": {
+    "description": "Describes the number of players that are still playing a game, out of a total number that started the game. The numbers will both always be two or greater, so plurals are fine.",
+    "raw": "<ph name=\"REMAINING\"><ex>10</ex>{{remaining}}</ph> of <ph name=\"TOTAL\"><ex>18</ex>{{total}}</ph> elves remaining"
   },
   "snowflake_choose_background": {
     "description": "Tell user to choose background for their postcard.",
@@ -6990,8 +7030,16 @@
     "message": "More Ways to Explore"
   },
   "village_santa_a2hs": {
-    "description": "Menu item for adding Santa to the homescreen.",
+    "description": "Menu item that allows users to add the Santa Tracker site as an app icon to the home screen of a mobile device.",
     "message": "Add to Home Screen"
+  },
+  "village_santa_a2hs_chromeos": {
+    "description": "Menu item for adding Santa Tracker to the shelf of a Chrome OS device.",
+    "message": "Add to Shelf"
+  },
+  "village_santa_a2hs_desktop": {
+    "description": "Menu item for adding Santa Tracker to the desktop, as an application on a user's computer.",
+    "message": "Add to Desktop"
   },
   "village_santa_cardboard": {
     "description": "Menu item for finding Santa as part of an app which supports Google Cardboard (Google's Virtual Reality experience). Don't translate 'Cardboard'.",
@@ -7020,6 +7068,10 @@
   "ye_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Yemen"
+  },
+  "yourbest": {
+    "description": "A label placed next to a user's previous best score in a game, so they know what score to beat.",
+    "message": "Best Score"
   },
   "zh-CN_language_name": {
     "description": "Localised name of a language. Appears in a translation drop down.",

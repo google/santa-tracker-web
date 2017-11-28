@@ -32,7 +32,7 @@ function Tutorial(elem, tutorials) {
   this.target_ = app.shared.utils.unwrapElement(elem);
 
   this.elem_ = document.createElement('santa-tutorial');
-  this.elem_.tutorials = tutorials;
+  this.elem_.tutorials = tutorials || '';
 
   const prev = this.target_.querySelectorAll('santa-tutorial');
   for (let i = 0; i < prev.length; ++i) {
@@ -46,8 +46,12 @@ function Tutorial(elem, tutorials) {
 
 /**
  * Start the tutorial timer.
+ * @param {string=} tutorials to replace the current set with
  */
-Tutorial.prototype.start = function() {
+Tutorial.prototype.start = function(tutorials = undefined) {
+  if (tutorials !== undefined) {
+    this.elem_.tutorials = tutorials;
+  }
   this.elem_.show = true;
 };
 
@@ -57,6 +61,11 @@ Tutorial.prototype.start = function() {
  * @param {string} name The name of the tutorial.
  */
 Tutorial.prototype.off = function(name) {
+  if (name == null) {
+    console.warn('got dismiss for null tutorial');
+    return;
+  }
+
   // nb. This code doesn't know `santa-tutorial` is a Polymer element.
   /** @suppress {missingProperties} */
   this.elem_.dismiss(name);

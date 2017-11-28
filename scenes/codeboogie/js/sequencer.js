@@ -28,6 +28,8 @@ app.Sequencer = class {
     this._track = null;
     this._variant = 0;
     this._playScheduled = false;
+
+    this._active = false;
   }
 
   setTrack(track, bpm) {
@@ -58,6 +60,7 @@ app.Sequencer = class {
     this.tracks = Klang.engineVersion === 'webaudio' ?
         Klang.$('codeboogie_tracks')._content : [];
 
+    this._active = true;
     this.update(0);
     this.play();
   }
@@ -73,10 +76,16 @@ app.Sequencer = class {
   }
 
   stop() {
-    this.getPlayingLoop().fadeOutAndStop(1);
+    const loop = this.getPlayingLoop();
+    loop && loop.fadeOutAndStop(1);
+    this._active = false;
   }
 
   update() {
+    if (!this._active) {
+      return;
+    }
+
     let currPos;
     if (Klang.engineVersion === 'webaudio') {
       let loop = this.getPlayingLoop();
@@ -85,6 +94,9 @@ app.Sequencer = class {
       currPos = new Date().getTime() / 1000;
     }
     let beat = Math.floor(currPos / (60 / this._bpm));
+    if (isNaN(beat)) {
+      beat = -1;
+    }
 
     if (this.beat !== beat) {
       this.beat = beat;

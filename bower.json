@@ -35,10 +35,12 @@
     "google-apis": "GoogleWebComponents/google-apis#2",
     "google-youtube": "GoogleWebComponents/google-youtube#2",
     "closure-library": "google/closure-library",
+    "webcomponentsjs": "^1.0.19",
     "web-animations-js": "web-animations/web-animations-js#^2.0",
     "web-animations-utils": "GoogleChrome/web-animations-utils#^0.1.2",
     "app-layout": "PolymerElements/app-layout#2",
     "iron-icons": "PolymerElements/iron-icons#2",
-    "iron-flex-layout": "^2.0.0"
+    "iron-flex-layout": "^2.0.0",
+    "url": "webcomponents/URL#^0.5.7"
   }
 }

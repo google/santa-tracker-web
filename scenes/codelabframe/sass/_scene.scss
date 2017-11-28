@@ -7,6 +7,7 @@
     right: 0;
     top: 0;
     width: 200px;
+    transition: transform 0.5s;
   }
 
   .scene-underlay {
@@ -17,7 +18,25 @@
     right: 0;
     top: 0;
     transform: translateZ(0);
-    visibility: hidden;
+    transition: opacity 0.5s;
+    cursor: pointer;
+  }
+
+  .responsive {
+    &.show {
+      .scene {
+        transform: translateX(90%);
+        cursor: pointer;
+      }
+      .scene-underlay {
+        pointer-events: none;
+        opacity: 0;
+      }
+    }
+  }
+  *:not(.responsive) .scene-underlay {
+    pointer-events: none;
+    opacity: 0;
   }
 
   .scene__world {

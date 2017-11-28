@@ -20,6 +20,7 @@ goog.require('app.Scoreboard');
 goog.require('app.shared.FrameRPC');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.ShareOverlay');
+goog.require('app.shared.Tutorial');
 goog.require('app.Sequencer');
 goog.require('app.ChooseMode');
 
@@ -45,6 +46,8 @@ app.FrameWrapper = function(el, staticDir) {
   this.shareOverlay =
       new app.shared.ShareOverlay(this.el.find('.shareOverlay'));
 
+  this.tutorial = new Tutorial(el);
+
   // Create a communication channel to the game frame.
   this.iframeChannel = new app.shared.FrameRPC(this.iframeEl[0].contentWindow, {
     gameover: this.gameover.bind(this),
@@ -53,7 +56,9 @@ app.FrameWrapper = function(el, staticDir) {
     setLevel: this.setLevel.bind(this),
     triggerSound: this.triggerSound.bind(this),
     share: this.share.bind(this),
-    setVariant: this.setVariant.bind(this)
+    setVariant: this.setVariant.bind(this),
+    showTutorial: this.tutorial.start.bind(this.tutorial),
+    dismissTutorial: this.tutorial.off.bind(this.tutorial),
   });
 
   this.sequencer = new app.Sequencer();
@@ -64,6 +69,14 @@ app.FrameWrapper = function(el, staticDir) {
 
   // Load the iframe.
   this.setIframeSrc();
+};
+
+/**
+ * Disables the share UI on the wrapped scene.
+ * @export
+ */
+app.FrameWrapper.prototype.disableShare = function() {
+  this.iframeChannel.call('disableShare');
 };
 
 /**
@@ -138,6 +151,7 @@ app.FrameWrapper.prototype.dispose = function() {
         level: this.level_});
   }
 
+  this.sequencer.stop();
   this.iframeChannel.dispose();
   this.iframeEl = null;
 };

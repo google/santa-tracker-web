@@ -91,6 +91,8 @@ app.Game.prototype.showShareOverlay = function() {
  * @export
  */
 app.Game.prototype.dispose = function() {
+  this.instruments.reset();
+
   window.santaApp.fire('analytics-track-game-quit', {
     gameid: 'jamband', timePlayed: new Date - this.gameStartTime, level: 1
   });

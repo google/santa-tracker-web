@@ -22,7 +22,6 @@ goog.require('app.Blockly');
 goog.require('app.Constants');
 goog.require('app.Result');
 goog.require('app.Scene');
-goog.require('app.SceneTutorial');
 goog.require('app.Levels');
 goog.require('app.freestyleLevel');
 goog.require('app.monkeypatches');
@@ -53,14 +52,18 @@ app.Game = class {
     /** @type {?app.GameMode} */
     this.currentMode = null;
     this.isPlaying = false;
-    this.successResult = new app.Result(elem.querySelector('.result--success'), this);
+
+    const successEl = elem.querySelector('.result--success');
+    this.successResult = new app.Result(successEl, this);
     this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
     this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
-    this.tutorial = new app.SceneTutorial(elem.querySelector('.tutorial'));
 
     this.iframeChannel = new app.shared.FrameRPC(window.parent, {
       restart: this.restart.bind(this),
-      beat: this.scene.player.onBeat.bind(this.scene.player)
+      beat: this.scene.player.onBeat.bind(this.scene.player),
+      disableShare: () => {
+        successEl.classList.add('noshare');
+      },
     });
 
     Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
@@ -68,8 +71,13 @@ app.Game = class {
     this.scene.player.listen('start', () => this.iframeChannel.call('setVariant', 1));
     this.scene.player.listen('finish', () => this.iframeChannel.call('setVariant', 0));
 
-    window.addEventListener('blur', this.onBlur.bind(this));
-    window.addEventListener('focus', this.onFocus.bind(this));
+    this.dismissBlocklyTutorial = () => this.dismissTutorial('codeboogie.gif');
+    document.body.addEventListener('blocklyDragBlock', this.dismissBlocklyTutorial, false);
+
+    this.onBlur = this.onBlur.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    window.addEventListener('blur', this.onBlur);
+    window.addEventListener('focus', this.onFocus);
   }
 
   /**
@@ -77,7 +85,10 @@ app.Game = class {
    * @private
    */
   dispose_() {
-    this.tutorial.dispose();
+    document.body.removeEventListener('blocklyDragBlock', this.dismissBlocklyTutorial, false);
+    window.removeEventListener('blur', this.onBlur);
+    window.removeEventListener('focus', this.onFocus);
+
     this.scene.dispose();
   }
 
@@ -102,6 +113,17 @@ app.Game = class {
     this.blockly.setLevel(this.level);
     this.scene.setLevel(this.level);
     this.scene.toggleVisibility(true);
+  }
+
+  /**
+   * @param {!Array<string>} showTutorial
+   */
+  showTutorial(names = []) {
+    this.iframeChannel.call('showTutorial', names.join(' '));
+  }
+
+  dismissTutorial(name) {
+    this.iframeChannel.call('dismissTutorial', name);
   }
 
   onBlur() {

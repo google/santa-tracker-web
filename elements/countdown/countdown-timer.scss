@@ -1,5 +1,3 @@
-$normal-size: 77px;
-$small-size: 65px;
 $tick-time: 0.6s;  // time for number to tick over
 
 :host {
@@ -14,7 +12,7 @@ $tick-time: 0.6s;  // time for number to tick over
 
   // nb: we expand #counter up/down so that its layer can include the animation, otherwise the
   // outer element (or at worst, the page) needs rerendering.
-  $overflow: ceil($normal-size / 2);
+  $overflow: 100px / 2;  // TODO(samthor): We assume box is max 100px.
   margin: -($overflow) 0;
   padding: $overflow 0;
   z-index: 100;
@@ -23,8 +21,8 @@ $tick-time: 0.6s;  // time for number to tick over
 }
 
 .counter-box {
-  width: $normal-size;
-  height: $normal-size;
+  width: var(--countdown-timer-box-size, 77px);
+  height: var(--countdown-timer-box-size, 77px);
   position: relative;
   margin: 0 2px;
 
@@ -41,10 +39,10 @@ $tick-time: 0.6s;  // time for number to tick over
   }
 
   .holder {
-    font-size: 34px;
+    font-size: var(--countdown-timer-font-size, 34px);
     color: white;
     font-weight: 800;
-    line-height: $normal-size;
+    line-height: var(--countdown-timer-box-size, 77px);
     text-shadow: none;
     height: 100%;
     width: 100%;
@@ -66,18 +64,6 @@ $tick-time: 0.6s;  // time for number to tick over
     }
     .holder.prev {
       animation-name: counter-step-prev;
-    }
-  }
-}
-
-// NOTE: This is $width-twocol from village
-@media (max-width: 600px) {
-  .counter-box {
-    width: $small-size;
-    height: $small-size;
-    .holder {
-      line-height: $small-size;
-      font-size: 28px;
     }
   }
 }

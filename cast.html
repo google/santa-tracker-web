@@ -15,12 +15,13 @@ specific language governing permissions and limitations under the License.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link id="DEV" comment="element removed in prod" />
   <title msgid="meta_title">Google Santa Tracker</title>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:800|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:500,600,700,800|Lobster" />
   <link rel="stylesheet" href="sass/santatracker.css" />
   <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js" defer></script>
+  <link id="DEV" comment="element removed in prod" />
+  <link id="ES5_ADAPTER" comment="replaced with es5 adapter in prod" />
   <script>
 
 window.Polymer = {
@@ -33,13 +34,13 @@ window.Polymer = {
 window.ga = () => {};  // no analytics in Cast
 
 window.addEventListener('DOMContentLoaded', () => {
-  if (window.DEV) {
-    const context = cast.framework.CastReceiverContext.getInstance();
-    context.setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
-  }
+  const instance = cast.framework.CastReceiverContext.getInstance();
+  window.DEV && instance.setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
+  instance.start();
+
   window.santaApp.addEventListener('beforeload', (ev) => {
     if (ev.detail !== 'cast') {
-      ev.preventDefault();
+      ev.preventDefault();  // only allow cast
     }
   });
 });

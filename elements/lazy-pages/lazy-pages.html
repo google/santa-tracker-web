@@ -42,35 +42,25 @@ Lazy loads children "pages".
         <i18n-msg msgid="error-not-found">PLACEHOLDER_i18n</i18n-msg>
       </p>
     </div>
-    <slot name="santa-scene"></slot>
+    <div id="scene" on-scene-progress="_onSceneProgress"></div>
   </template>
   <script>
 (function() {
-  const failedToLoad = {};
-  const retainAttr = Object.freeze([
-    'route', 'mode', 'allow-page-scrolling', 'header-color', 'feature-color', 'youtube-id', 'hero-src', 'logo', 'slot',
-  ]);
 
   /**
-   * @param {!HTMLElement} scene
-   * @return {!HTMLElement} the clone of scene, if needed
+   * @type {!Object<string, number>} path to count of load failures
    */
-  function maybeCloneScene(scene) {
-    if (scene.hasAttribute('permanent')) {
-      return scene;  // don't need to recreate it
-    }
-    // Re-construct removed scene as it's e.g. a game that destructively modifies its DOM. Note
-    // that loading-* isn't copied, since the element is already loaded.
-    const clone = document.createElement(scene.localName);
-    retainAttr.forEach(function(attr) {
-      if (scene.hasAttribute(attr)) {
-        clone.setAttribute(attr, scene.getAttribute(attr));
-      }
-    });
-    // TODO(samthor): Otherwise, the scene itself triggers the `scene-progress` event.
-    clone.loaded = true;
-    return clone;
-  }
+  const failedToLoad = {};
+
+  /**
+   * @type {!WeakMap<!HTMLElement, !HTMLElement>} bimap of draft to the real element
+   */
+  const draftMap = new WeakMap();
+
+  /**
+  * @type {!WeakMap<!HTMLElement, number>} weak map of drafts to scroll positions
+   */
+  const scrollFromTop = new WeakMap();
 
   Polymer({
     is: 'lazy-pages',
@@ -87,9 +77,9 @@ Lazy loads children "pages".
       },
 
       /**
-       * An object of route name to scene element.
+       * An object of route name to draft scene element.
        */
-      scenes: {
+      drafts: {
         type: Object,
         readOnly: true,
       },
@@ -113,20 +103,20 @@ Lazy loads children "pages".
       },
 
       /**
-       * The scene that is currently pending.
-       */
-      _pendingItem: {
-        type: Object,
-        value: null,
-      },
-
-      /**
        * The scene that is being loaded via hard URL change, and no other scene is visible.
        */
       bootstrap: {
         type: Object,
         notify: true,
-        computed: '_computeBootstrap(_pendingItem, selectedItem, error)',
+        computed: '_computeBootstrap(_pendingDraft, selectedItem, error)',
+      },
+
+      /**
+       * The draft that is currently pending, if any.
+       */
+      _pendingDraft: {
+        type: Object,
+        value: null,
       },
 
       /**
@@ -148,34 +138,23 @@ Lazy loads children "pages".
         value: Promise.resolve(null),
       },
 
-      /**
-       * Stores scroll locations (from top), to restore on reload.
-       */
-      _scrollFromTop: {
-        type: Object,
-        value: function() { return new WeakMap(); },
-      },
-
-    },
-
-    listeners: {
-      'scene-progress': 'onSceneProgress',
     },
 
     attached: function() {
-      this._observer = Polymer.dom(this).observeNodes(this._updateScenes);
-      this._updateScenes();
+      this._observer = Polymer.dom(this).observeNodes(this._updateDrafts);
+      this._updateDrafts();
     },
 
-    detatched: function() {
+    detached: function() {
       Polymer.dom(this).unobserveNodes(this._observer);
-      this._setScenes(null);
+      this._setDrafts(null);
       this._setSelectedItem(null);
     },
 
-    onSceneProgress: function(ev) {
-      if (this._pendingItem === ev.path[0]) {
-        this._setProgress(ev.detail);  // only update if the correct scene is dispatching events
+    _onSceneProgress: function(ev) {
+      const source = Polymer.dom(ev).path[0];
+      if (source.hasAttribute('preload')) {
+        this._setProgress(ev.detail);
       }
     },
 
@@ -184,26 +163,19 @@ Lazy loads children "pages".
      */
     revalidate: function() {
       const route = this.route;
-      const p = this._loadingPromise;
+      const draft = this.getDraft(route);
+      const draftForSelectedItem = draftMap.get(this.selectedItem);
 
-      const handler = (scene) => {
-        if (p !== this._loadingPromise) {
-          return this.revalidate();  // something changed, try again
-        }
+      if (draft === draftForSelectedItem) {
+        if (this._routeIsOpen(route)) { return; }
 
-        if (scene === this.getRoute(route)) {
-          // possibly close route
-          if (!this._routeIsOpen(route)) {
-            this._setSelectedItem(null);
-            this.load(route);
-          }
-        } else {
-          // will reload if selectedItem is null
-          this._routeChanged(route);
-        }
-      };
-
-      return this._loadingPromise.catch(() => {}).then(handler);
+        // possibly close route
+        this._setSelectedItem(null);
+        this.load(route);
+      } else {
+        // will reload if selectedItem is null
+        this._routeChanged(route);
+      }
     },
 
     _routeChanged: function(route) {
@@ -211,22 +183,35 @@ Lazy loads children "pages".
         return;  // ignore
       }
 
-      const scene = this.getRoute(route);
-      if (scene !== this.selectedItem) {
+      const draft = this.getDraft(route);
+      if (draftMap.get(this.selectedItem) !== draft) {
         this._setSelectedItem(null);  // immediately revoke the current scene
         this.load(route);
       }
     },
 
     load: function(route) {
-      const scene = this.getRoute(route);
-      if (scene && (this.selectedItem === scene || this._pendingItem === scene)) {
-        return;  // already loaded or loading
+      const draft = this.getDraft(route);
+      if (draft && this._pendingDraft === draft) {
+        return;  // already loading
       }
+
+      const preloading = this.$.scene.querySelector('[preload]');
+      preloading && preloading.remove();  // stop previous load
+
+      if (draftMap.get(this.selectedItem) === draft) {
+        this._pendingDraft = null;
+        this._loadingPromise = Promise.resolve(this.selectedItem);
+        this._setProgress(null);
+        return;  // already _loaded_
+      }
+      this._pendingDraft = draft;
+      this._setProgress(0);
 
       let p = null;  // nb. declared here so safe() can use it
       const safe = (fn) => {
         return function() {
+          // nb. this is explicitly .bind() as it passes arguments
           if (this._loadingPromise === p) {
             return fn.apply(this, arguments);
           }
@@ -236,27 +221,39 @@ Lazy loads children "pages".
       const init = () => {
         if (!this._routeIsOpen(route)) {
           return Promise.reject('locked');
-        } else if (!scene) {
+        } else if (!draft) {
           return Promise.reject('missing');
         }
-        return this._loadScene(scene).then((scene) => scene.preload);
+        return this._loadFromDraft(draft).then(safe((scene) => {
+          // wait for scene.preload, then return scene
+          scene.setAttribute('preload', '');
+          this.$.scene.appendChild(scene);
+          if (scene.preload) {
+            return scene.preload.then(() => scene);
+          }
+          console.debug('got scene without preload', scene.localName);
+          return scene;
+        }));
       };
 
-      this._pendingItem = scene;
-      p = this._loadingPromise = init().then(safe(function() {
+      p = this._loadingPromise = init().then(safe(function(scene) {
         this._setSelectedItem(scene);  // actually preloaded (or null), so set item
         this._setError(null);
+        this.fire('embed', 'onready');  // notify embed scene is ready to show
 
         // log that the scene has finished preloading. If this wasn't a preloaded
         // load, the event will be discarded harmlessly (no start event).
-        this.fire('analytics-time-end', {category: 'Scene Load Time',
-            variable: route, time: Date.now()});
+        const detail = {category: 'Scene Load Time', variable: route, time: Date.now()};
+        this.fire('analytics-time-end', detail);
         return scene;
       }));
 
       const caught = p.catch(safe(function(reason) {
-        console.warn('lazy-pages', scene && scene.localName, 'failure', reason);
-        this.fire('embed', 'onfailure');
+        console.warn('lazy-pages', route, 'failure', reason);
+        if (reason !== 'locked') {
+          // embed doesn't want to know about "locked"
+          this.fire('embed', 'onfailure');
+        }
         this._setSelectedItem(null);
 
         const error = {type: (typeof reason === 'string' ? reason : 'error'), route: route};
@@ -268,35 +265,29 @@ Lazy loads children "pages".
 
       // Regardless of outcome, clear progress outcome/_pendingItem on completion.
       caught.catch(() => {}).then(safe(function() {
+        this._pendingDraft = null;
         this.route = route;  // always set route
         this._setProgress(null);
-        this._pendingItem = null;
       }));
     },
 
     /**
      * Updates the `scenes` property based on the current DOM contents.
      */
-    _updateScenes: function() {
+    _updateDrafts: function() {
       const nodes = Polymer.dom(this).queryDistributedElements('[route]');
-      const scenes = {};
+      const drafts = {};
 
       for (let i = 0; i < nodes.length; ++i) {
-        const scene = nodes[i];
-        const route = scene.getAttribute('route');
+        const node = nodes[i];
+        const draft = draftMap.get(node) || node;
+        const route = draft.getAttribute('route');
         if (route) {
-          scenes[route] = scene;
+          drafts[route] = draft;
         }
       }
 
-      this._setScenes(Object.freeze(scenes));
-    },
-
-    /**
-     * Returns the scene with the specified route.
-     */
-    getRoute: function(route) {
-      return this.scenes && this.scenes[route] || null;
+      this._setDrafts(Object.freeze(drafts));
     },
 
     _selectedItemChanged: function(newValue, oldValue) {
@@ -304,53 +295,74 @@ Lazy loads children "pages".
         const scrollTop = window.scrollY;
         if (scrollTop > 0) {
           // Save the scroll position (midpoint of the page) if it was >0.
-          this._scrollFromTop.set(oldValue, scrollTop + (window.innerHeight / 2));
+          const draft = draftMap.get(oldValue);
+          scrollFromTop.set(draft, scrollTop + (window.innerHeight / 2));
         }
-
-        oldValue.removeAttribute('active');
-
-        const scene = maybeCloneScene(oldValue);
-        Polymer.dom(this).replaceChild(scene, oldValue);
+        this.$.scene.removeChild(oldValue);
       }
 
-      if (newValue) {
-        newValue.setAttribute('active', '');
+      if (!newValue) { return; }
 
-        const scrollTopMid = this._scrollFromTop.get(newValue);
-        this._scrollFromTop.delete(newValue);
-        if (scrollTopMid !== undefined) {
-          const scrollTop = scrollTopMid - (window.innerHeight / 2);
-          window.requestAnimationFrame(function() {
-            // this needs to happen in rAF, otherwise the browser might take over.
-            window.scrollTo(0, scrollTop);
-          });
-        }
+      if (this.$.scene !== newValue.parentNode) {
+        throw new Error('expected selectedItem to be parented at scene')
+      }
+      newValue.removeAttribute('preload');
+
+      const draft = draftMap.get(newValue);
+      const scrollTopMid = scrollFromTop.get(draft);
+      scrollFromTop.delete(draft);
+      if (scrollTopMid !== undefined) {
+        const scrollTop = scrollTopMid - (window.innerHeight / 2);
+        window.requestAnimationFrame(function() {
+          // this needs to happen in rAF, otherwise the browser might take over.
+          window.scrollTo(0, scrollTop);
+        });
       }
     },
 
     /**
-     * Loads the HTML import for the underlying scene based on its `path` attribute. If the scene
-     * is already a real Custom Element, then resolves immediately.
-     *
-     * @param {!HTMLElement} scene
-     * @return {!Promise<!HTMLElement>}
+     * Returns the scene draft with the specified route.
      */
-    _loadScene: function(scene) {
-      if (!scene || scene.is) {
-        return Promise.resolve(scene);
+    getDraft(route) {
+      return this.drafts && this.drafts[route] || null;
+    },
+
+    /**
+     * Creates a new element based on the passed draft element, possibly loading its corresponding
+     * HTML import into the page.
+     */
+    _loadFromDraft: function(draft) {
+      function create() {
+        const real = draft.cloneNode(true);
+        draftMap.set(real, draft);
+        return real;
+      }
+
+      // This is already a real element, return early.
+      if (customElements.get(draft.localName)) {
+        return Promise.resolve(create());
+      }
+
+      // This element might still be part of the DOM: replace it with a placeholder so it's not
+      // automatically instantiated by the browser.
+      if (draft.parentNode === this) {
+        const placeholder = document.createElement('dom-placeholder');
+        placeholder.setAttribute('route', draft.getAttribute('route'));
+        Polymer.dom(this).replaceChild(placeholder, draft);
+        draftMap.set(placeholder, draft);
       }
 
       // Grab path from 'path' or 'path$'. The latter is needed as Polymer won't correctly map
       // attributes that have no bindings (e.g. path$="foo" => path$, path$="{{foo}}" => path).
-      const path = scene.getAttribute('path') || scene.getAttribute('path$');
+      const path = draft.getAttribute('path') || draft.getAttribute('path$');
       if (!path) {
         return Promise.reject('path');
       }
 
-      // Start scene loading time.
-      const route = scene.getAttribute('route') || scene.route;
-      this.fire('analytics-time-start', {category: 'Scene Load Time',
-          variable: route, time: Date.now()});
+      // Start scene loading time. Ended in the Promise callback inside `.load()`.
+      const detail =
+          {category: 'Scene Load Time', variable: draft.getAttribute('route'), time: Date.now()};
+      this.fire('analytics-time-start', detail);
 
       return new Promise((resolve, reject) => {
         // Work around Polymer's failure to reload failed imports:
@@ -360,10 +372,10 @@ Lazy loads children "pages".
         const attemptSuffix = attempt ? '?' + attempt : '';
         const resolvedPath = this.resolveUrl('../../' + path);
         this.importHref(resolvedPath + attemptSuffix, function() {
-          // Great! Nothing else to do here. Load timing ends in SantaSceneBehavior, as it includes
-          // all resource preloading.
-          if (customElements.get(scene.localName)) {
-            resolve(scene);
+          if (customElements.get(draft.localName)) {
+            // Great! Yield back to the caller. Load timing ends in SantaSceneBehavior, as it
+            // includes all resource preloading.
+            resolve(create())
           } else {
             reject('element');
           }

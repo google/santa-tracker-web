@@ -113,25 +113,18 @@ Santa Tracker app.
 
       <cast-scene route="cast"
           path$="scenes/cast/cast-scene_[[language]].html"
-          slot="santa-scene" allow-page-scrolling></cast-scene>
+          allow-page-scrolling></cast-scene>
 
-      <dorf-scene id="village" route="village" icon="1f384" permanent
-          today-house="[[todayHouse]]"
-          houses="[[_houses]]"
+      <dorf-scene route="village" icon="1f384"
           path$="scenes/dorf/dorf-scene_[[language]].html"
-          slot="santa-scene" allow-page-scrolling></dorf-scene>
+          allow-page-scrolling></dorf-scene>
 
-      <about-scene route="about" icon="2753" permanent
-          path$="scenes/about/about-scene_[[language]].html"
-          header-color="rgb(39, 186, 131)"
-          slot="santa-scene" allow-page-scrolling></about-scene>
-
-      <educators-scene route="educators" icon="1f3eb" permanent
+      <educators-scene route="educators" icon="1f3eb"
           path$="scenes/educators/educators-scene.html"
           slot="santa-scene"
           allow-page-scrolling></educators-scene>
 
-      <press-scene route="press" icon="1f4f0" permanent
+      <press-scene route="press" icon="1f4f0"
           path$="scenes/press/press-scene.html"
           slot="santa-scene"
           allow-page-scrolling></press-scene>
@@ -142,105 +135,86 @@ Santa Tracker app.
           path$="scenes/airport/airport-scene_[[language]].html"
           header-color="#fdbe27"
           feature-color="#83ce00"
-          logo="scenes/airport/img/logo.svg"
-          slot="santa-scene"></airport-scene>
+          logo="scenes/airport/img/logo.svg"></airport-scene>
 
       <blimp-scene route="blimp" icon="1f6a1"
           path$="scenes/blimp/blimp-scene_[[language]].html"
-          header-color="#575769"
-          slot="santa-scene"></blimp-scene>
+          header-color="#575769"></blimp-scene>
 
       <boatload-scene route="boatload" icon="26f5"
           path$="scenes/boatload/boatload-scene_[[language]].html"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/boatload/img/loading.svg"
-          logo="scenes/boatload/img/logo.svg"
-          slot="santa-scene"></boatload-scene>
+          logo="scenes/boatload/img/logo.svg"></boatload-scene>
 
       <briefing-scene route="briefing" icon="1f634"
           path$="scenes/briefing/briefing-scene_[[language]].html"
           header-color="#007ab6"
-          logo="scenes/briefing/img/logo.svg"
-          slot="santa-scene"></briefing-scene>
-
-      <callfromsanta-scene route="callfromsanta" icon="1f4de" disabled
-          path$="scenes/callfromsanta/callfromsanta-scene.html"
-          mute="[[userMute]]"
-          loading-bg-color="rgb(129,208,0)"
-          logo="scenes/callfromsanta/img/logo.svg"
-          slot="santa-scene"></callfromsanta-scene>
+          logo="scenes/briefing/img/logo.svg"></briefing-scene>
 
       <citylights-scene route="citylights" icon="1f306"
           path$="scenes/citylights/citylights-scene_[[language]].html"
           header-color="#575769"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/citylights/img/loading.svg"
-          logo="scenes/citylights/img/logo.svg"
-          slot="santa-scene"></citylights-scene>
+          logo="scenes/citylights/img/logo.svg"></citylights-scene>
 
       <clausdraws-scene route="clausdraws"
           path$="scenes/clausdraws/clausdraws-scene_[[language]].html"
-          slot="santa-scene"></clausdraws-scene>
+          logo="scenes/clausdraws/img/logo.svg"></clausdraws-scene>
 
       <codeboogie-scene route="codeboogie" icon="1f4dd"
           path$="scenes/codeboogie/codeboogie-scene_[[language]].html"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
+          feature-color="#f9ce1d"
           loading-src="scenes/codeboogie/img/loading.svg"
           hero-src="scenes/codeboogie/img/share.svg"
-          logo="scenes/codeboogie/img/logo.svg"
-          slot="santa-scene"></codeboogie-scene>
+          logo="scenes/codeboogie/img/logo.svg"></codeboogie-scene>
 
       <codelab-scene route="codelab" icon="1f4dd"
           path$="scenes/codelab/codelab-scene_[[language]].html"
           header-color="#9a519f"
           loading-bg-color="#3f4ea1"
+          feature-color="#f9ce1d"
           loading-src="scenes/codelab/img/loading.svg"
-          logo="scenes/codelab/img/logo.svg"
-          slot="santa-scene"></codelab-scene>
+          logo="scenes/codelab/img/logo.svg"></codelab-scene>
 
       <commandcentre-scene route="commandcentre" icon="1f5fc"
           path$="scenes/commandcentre/commandcentre-scene_[[language]].html"
           header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
-          logo="scenes/commandcentre/img/logo.svg"
-          slot="santa-scene"></commandcentre-scene>
+          logo="scenes/commandcentre/img/logo.svg"></commandcentre-scene>
 
-      <elfski-scene route="elfski"
+      <elfski-scene route="elfski" icon="1f3bf"
           path$="scenes/elfski/elfski-scene.html"
-          logo="scenes/commandcentre/img/logo.svg"
-          slot="santa-scene"></elfski-scene>
+          logo="scenes/commandcentre/img/logo.svg"></elfski-scene>
 
       <factory-scene route="factory" icon="1f3ed"
           path$="scenes/factory/factory-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"
-          logo="scenes/factory/img/logo.svg"
-          slot="santa-scene"></factory-scene>
+          logo="scenes/factory/img/logo.svg"></factory-scene>
 
       <glider-scene route="glider" icon="1f343"
           path$="scenes/glider/glider-scene_[[language]].html"
           header-color="#675ab9"
           loading-bg-color="#8d23a9"
           loading-src="scenes/glider/img/loading.svg"
-          logo="scenes/glider/img/logo.svg"
-          slot="santa-scene"></glider-scene>
+          logo="scenes/glider/img/logo.svg"></glider-scene>
 
       <gumball-scene route="gumball" icon="1f36d"
           path$="scenes/gumball/gumball-scene_[[language]].html"
           header-color="#fdbe27"
           loading-bg-color="#8d23a9"
           loading-src="scenes/gumball/img/loading.svg"
-          logo="scenes/gumball/img/logo.svg"
-          slot="santa-scene"></gumball-scene>
+          logo="scenes/gumball/img/logo.svg"></gumball-scene>
 
       <icecave-scene route="icecave" icon="2744"
-          path$="scenes/icecave/icecave-scene_[[language]].html"
-          slot="santa-scene"></icecave-scene>
+          path$="scenes/icecave/icecave-scene_[[language]].html"></icecave-scene>
 
       <island-scene route="island" icon="1f334"
           path$="scenes/island/island-scene_[[language]].html"
-          header-color="#1da1a1"
-          slot="santa-scene"></island-scene>
+          header-color="#1da1a1"></island-scene>
 
       <jamband-scene route="jamband" icon="1f3b6"
           path$="scenes/jamband/jamband-scene_[[language]].html"
@@ -248,109 +222,97 @@ Santa Tracker app.
           loading-bg-color="#fdbe27"
           loading-src="scenes/jamband/img/loading.svg"
           hero-src="scenes/jamband/img/share.svg"
-          logo="scenes/jamband/img/logo.svg"
-          slot="santa-scene"></jamband-scene>
+          logo="scenes/jamband/img/logo.svg"></jamband-scene>
 
       <jetpack-scene route="jetpack" icon="1f680"
           path$="scenes/jetpack/jetpack-scene_[[language]].html"
           header-color="#9a519f"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/jetpack/img/loading.svg"
-          logo="scenes/jetpack/img/logo.svg"
-          slot="santa-scene"></jetpack-scene>
+          logo="scenes/jetpack/img/logo.svg"></jetpack-scene>
 
       <latlong-scene route="latlong" icon="1f3af"
           path$="scenes/latlong/latlong-scene_[[language]].html"
           header-color="#76b1cc"
           loading-bg-color="#ffcc00"
           loading-src="scenes/latlong/img/loading.svg"
-          logo="scenes/latlong/img/logo.svg"
-          slot="santa-scene"></latlong-scene>
+          logo="scenes/latlong/img/logo.svg"></latlong-scene>
 
-      <newtracker-scene route="tracker" icon="1f30d" permanent
+      <newtracker-scene route="tracker" icon="1f30d"
           path$="scenes/newtracker/newtracker-scene_[[language]].html"
           header-color="#00cc81"
-          slot="santa-scene" allow-page-scrolling></newtracker-scene>
+          allow-page-scrolling></newtracker-scene>
 
       <matching-scene route="matching" icon="1f6aa"
           path$="scenes/matching/matching-scene_[[language]].html"
           header-color="#76b1cc"
           loading-bg-color="#b27644"
           loading-src="scenes/matching/img/loading.svg"
-          logo="scenes/matching/img/logo.svg"
-          slot="santa-scene"></matching-scene>
+          logo="scenes/matching/img/logo.svg"></matching-scene>
 
       <mercator-scene route="mercator" icon="1f30e"
           path$="scenes/mercator/mercator-scene_[[language]].html"
           loading-bg-color="#fbbf2c"
           loading-src="scenes/mercator/img/loading.svg"
-          logo="scenes/mercator/img/logo.svg"
-          slot="santa-scene"></mercator-scene>
+          logo="scenes/mercator/img/logo.svg"></mercator-scene>
 
       <penguindash-scene route="penguindash" icon="1f680"
           path$="scenes/penguindash/penguindash-scene_[[language]].html"
           header-color="#9a519f"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/penguindash/img/loading.svg"
-          logo="scenes/penguindash/img/logo.svg"
-          slot="santa-scene"></penguindash-scene>
+          logo="scenes/penguindash/img/logo.svg"></penguindash-scene>
 
       <playground-scene route="playground" icon="1f3aa"
           path$="scenes/playground/playground-scene_[[language]].html"
           header-color="#575769"
           loading-bg-color="rgb(251, 191, 44)"
-          logo="scenes/playground/img/logo.svg"
-          slot="santa-scene"></playground-scene>
+          logo="scenes/playground/img/logo.svg"></playground-scene>
 
       <postcard-scene route="postcard" icon="1f4ec"
           path$="scenes/postcard/postcard-scene_[[language]].html"
           header-color="rgb(244, 123, 32)"
           loading-bg-color="rgb(244, 123, 32)"
           loading-src="scenes/postcard/img/loading.gif"
-          logo="scenes/postcard/img/logo.svg"
-          slot="santa-scene"></postcard-scene>
+          logo="scenes/postcard/img/logo.svg"></postcard-scene>
 
       <presentbounce-scene route="presentbounce" icon="1f381"
           path$="scenes/presentbounce/presentbounce-scene_[[language]].html"
           header-color="#e53935"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentbounce/img/loading.svg"
-          logo="scenes/presentbounce/img/logo.svg"
-          slot="santa-scene"></presentbounce-scene>
+          logo="scenes/presentbounce/img/logo.svg"></presentbounce-scene>
 
       <presentdrop-scene route="presentdrop" icon="1f381"
           path$="scenes/presentdrop/presentdrop-scene_[[language]].html"
           header-color="#b4b6b9"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/presentdrop/img/loading.svg"
-          logo="scenes/presentdrop/img/logo.svg"
-          slot="santa-scene"></presentdrop-scene>
+          logo="scenes/presentdrop/img/logo.svg"></presentdrop-scene>
 
       <racer-scene route="racer" icon="1f3c1"
           path$="scenes/racer/racer-scene_[[language]].html"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/racer/img/loading.svg"
-          logo="scenes/racer/img/logo.svg"
-          slot="santa-scene"></racer-scene>
+          logo="scenes/racer/img/logo.svg"></racer-scene>
 
       <rollercoaster-scene route="rollercoaster" icon="1f3a2"
           path$="scenes/rollercoaster/rollercoaster-scene.html"
-          logo="scenes/rollercoaster/img/logo.svg"
-          slot="santa-scene"></rollercoaster-scene>
+          logo="scenes/rollercoaster/img/logo.svg"></rollercoaster-scene>
 
       <runner-scene route="runner" icon="1f3c7"
           path$="scenes/runner/runner-scene_[[language]].html"
           header-color="#575769"
-          logo="scenes/runner/img/logo.svg"
-          slot="santa-scene"></runner-scene>
+          logo="scenes/runner/img/logo.svg"></runner-scene>
 
-      <santasearch-scene route="santasearch"
+      <santasearch-scene route="santasearch" icon="1f50d"
           path$="scenes/santasearch/santasearch-scene_[[language]].html"
           header-color="#00904a"
+          feature-color="#f9ce1d"
           loading-bg-color="#29B6F6"
           loading-src="scenes/santasearch/img/loading.svg"
           hero-src="scenes/santasearch/img/gameover.svg"
-          slot="santa-scene"></santasearch-scene>
+          logo="scenes/santasearch/img/logo.svg"></santasearch-scene>
 
       <santaselfie-scene route="santaselfie" icon="1f488"
           path$="scenes/santaselfie/santaselfie-scene_[[language]].html"
@@ -358,40 +320,41 @@ Santa Tracker app.
           loading-bg-color="#83D7F5"
           loading-src="scenes/santaselfie/img/loading.svg"
           hero-src="scenes/santaselfie/img/share.svg"
-          logo="scenes/santaselfie/img/pole.svg"
-          slot="santa-scene"></santaselfie-scene>
+          logo="scenes/santaselfie/img/pole.svg"></santaselfie-scene>
 
       <seasonofgiving-scene route="seasonofgiving" icon="1f3ee"
           path$="scenes/seasonofgiving/seasonofgiving-scene_[[language]].html"
           header-color="#09904a"
           loading-src="scenes/seasonofgiving/img/loading.svg"
-          logo="scenes/seasonofgiving/img/header-icon.svg"
-          slot="santa-scene"></seasonofgiving-scene>
+          logo="scenes/seasonofgiving/img/header-icon.svg"></seasonofgiving-scene>
 
-      <smatch-scene route="smatch"
+      <smatch-scene route="smatch" icon="1f3e1"
           path$="scenes/smatch/smatch-scene_[[language]].html"
-          header-color="#00C6ED"
-          loading-bg-color="rgb(129,208,0)"
-          slot="santa-scene"></smatch-scene>
+          header-color="#00c6ed"
+          loading-bg-color="rgb(129,208,0)"></smatch-scene>
 
-      <snowflake-scene route="snowflake"
+      <snowball-scene route="snowball" icon="2603*"
+          path$="scenes/snowball/snowball-scene_[[language]].html"
+          loading-bg-color="#71a7db"
+          loading-src="scenes/snowball/img/loading.svg"
+          logo="scenes/snowball/img/logo.svg"></snowball-scene>
+
+      <snowflake-scene route="snowflake" icon="2744*"
           path$="scenes/snowflake/snowflake-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"
-          slot="santa-scene"></snowflake-scene>
+          logo="scenes/snowflake/img/logo.svg"></snowflake-scene>
 
       <streetview-scene route="streetview" icon="1f3a5"
           path$="scenes/streetview/streetview-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"
-          logo="scenes/streetview/img/logo.svg"
-          slot="santa-scene"></streetview-scene>
+          logo="scenes/streetview/img/logo.svg"></streetview-scene>
 
       <traditions-scene route="traditions" icon="1f4cc"
           path$="scenes/traditions/traditions-scene_[[language]].html"
           header-color="#fdbe27"
           loading-bg-color="rgb(255,224,0)"
           loading-src="scenes/traditions/img/loading.gif"
-          logo="scenes/traditions/img/traditions_icon.svg"
-          slot="santa-scene"></traditions-scene>
+          logo="scenes/traditions/img/traditions_icon.svg"></traditions-scene>
 
       <translations-scene route="translations" icon="1f4e2"
           path$="scenes/translations/translations-scene_[[language]].html"
@@ -399,22 +362,21 @@ Santa Tracker app.
           feature-color="#83ce00"
           loading-bg-color="#8fd7f7"
           loading-src="scenes/translations/img/loading.png"
-          logo="scenes/translations/img/logo.svg"
-          slot="santa-scene"></translations-scene>
+          logo="scenes/translations/img/logo.svg"></translations-scene>
 
-      <trivia-scene route="trivia"
+      <trivia-scene route="trivia" icon="1f914"
           path$="scenes/trivia/trivia-scene_[[language]].html"
-          logo="scenes/traditions/img/traditions_icon.svg"
-          slot="santa-scene"></trivia-scene>
+          logo="scenes/traditions/img/traditions_icon.svg"></trivia-scene>
 
       <undersea-scene route="undersea" icon="1f30a"
           path$="scenes/undersea/undersea-scene_[[language]].html"
-          header-color="#ba594e"
-          slot="santa-scene"></undersea-scene>
+          header-color="#ba594e"></undersea-scene>
 
       <template is="dom-repeat" items="[[_computeVideoRoutes(_videos)]]">
         <video-scene route$="[[item]]" icon="1f4fd"
-            header-color="#ec4582"
+            header-color="#ea4882"
+            feature-color="#f9ce1d"
+            logo="scenes/videoscene/img/logo.svg"
             path="scenes/videoscene/video-scene.html"
             slot="santa-scene"></video-scene>
       </template>
@@ -423,16 +385,14 @@ Santa Tracker app.
           path$="scenes/windtunnel/windtunnel-scene_[[language]].html"
           header-color="#575769"
           loading-bg-color="rgb(129,208,0)"
-          logo="scenes/windtunnel/img/logo.svg"
-          slot="santa-scene"></windtunnel-scene>
+          logo="scenes/windtunnel/img/logo.svg"></windtunnel-scene>
 
       <wrapbattle-scene route="wrapbattle" icon="1f4fb"
           path$="scenes/wrapbattle/wrapbattle-scene_[[language]].html"
           header-color="#1866be"
           feature-color="#003799"
           loading-bg-color="#1866be"
-          logo="scenes/wrapbattle/img/logo.svg"
-          slot="santa-scene"></wrapbattle-scene>
+          logo="scenes/wrapbattle/img/logo.svg"></wrapbattle-scene>
     </lazy-pages>
 
   </santa-chrome>
@@ -443,17 +403,13 @@ Santa Tracker app.
 <script>
 (function() {
 
-var META_THEME = document.head.querySelector('meta[name="theme-color"]')
+const META_THEME = document.head.querySelector('meta[name="theme-color"]')
     || document.createElement('meta');
-var META_THEME_DEFAULT = META_THEME.content;
+const META_THEME_DEFAULT = META_THEME.content;
+const TRACKER_ROUTE = 'tracker';
+const ANALYTICS = new Analytics();
 
-var TRACKER_ROUTE = 'tracker';
-
-var ANALYTICS = new Analytics();
-
-var messagePort;
-
-var sharedVideo;
+let messagePort;
 
 Polymer({
   is: 'santa-app',
@@ -467,7 +423,7 @@ Polymer({
     headerSize: {
       type: Number,
       readOnly: true,
-      value: 44
+      value: 44,
     },
 
     /**
@@ -482,9 +438,10 @@ Polymer({
     /**
      * The house metadata, including unlock information.
      */
-    _houses: {
+    houses: {
       type: Array,
       readOnly: true,
+      notify: true,
       value: window.HOUSES,
     },
 
@@ -494,7 +451,7 @@ Polymer({
     todayHouse: {
       type: String,
       value: '',
-      notify: true
+      notify: true,
     },
 
     /**
@@ -546,7 +503,7 @@ Polymer({
     language: {
       type: String,
       readOnly: true,
-      value: document.documentElement.lang || 'en'
+      value: () => document.documentElement.lang || 'en',
     },
 
     /**
@@ -555,7 +512,7 @@ Polymer({
     selectedScene: {
       type: Element,
       observer: '_selectedSceneChanged',
-      value: null
+      value: null,
     },
 
     /**
@@ -635,7 +592,7 @@ Polymer({
     shareOptions: {
       type: Array,
       value: function() {
-        var options = navigator.share ? ['webshare'] : ['gplus', 'twitter', 'facebook'];
+        const options = navigator.share ? ['webshare'] : ['gplus', 'twitter', 'facebook'];
         return Object.freeze(options);
       },
       readOnly: true,
@@ -668,6 +625,7 @@ Polymer({
     'game-score': 'onScoreGame',
     'share': 'onShare',
     'request-host': 'onRequestHost',
+    'close-drawer': 'onCloseDrawer',
   },
 
   created: function() {
@@ -680,10 +638,10 @@ Polymer({
     // _currentTimeChanged can actually be invoked before ready: is called.
     // TODO(samthor): This could be moved outside `santa-app`, it doesn't use any state.
 
-    var portalMode = getUrlParameter('mode') === 'web_portal';
-    var ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
+    const portalMode = getUrlParameter('mode') === 'web_portal';
+    const ios = navigator.userAgent.match(/iPhone|iPod|iPad/i);
 
-    for (var i = 0, house; house = window.HOUSES[i]; ++i) {
+    for (let i = 0, house; house = window.HOUSES[i]; ++i) {
       house.disabled = false;
       house.locked = !window.DEV;  // initial state
       switch (house.module) {
@@ -705,30 +663,38 @@ Polymer({
 
     // Don't load sounds in Cast mode.
     if (!this.omitSantaChrome(this.mode)) {
-      var staticUrl = this.resolveUrl('../../');
-      var sc = new SoundController(staticUrl, this._soundsLoaded.bind(this));
-      this.addEventListener('sound-preload', sc.loadSounds.bind(sc));
+      const staticUrl = this.resolveUrl('../../');
+      const sc = new SoundController(staticUrl);
+      this.addEventListener('sound-preload', (ev) => {
+        // call SoundController, which returns a Promise, which we can add to the source.
+        // nb. This breaks the sound-preload abstraction a bit, but works fine.
+        const p = sc.loadSounds(ev);
+        const source = Polymer.dom(ev).path[0];
+        if (source && source.preloadPromise) {
+          source.preloadPromise(p);
+        }
+      });
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
     }
 
-    var handler = function() {
-      this._setPageInBackground(document.hidden || false);
-    }.bind(this);
+    const handler = () => this._setPageInBackground(document.hidden || false);
     document.addEventListener('visibilitychange', handler);
     handler();
   },
 
   attached: function() {
-    if (this.route === undefined) {
-      var route = this.defaultRoute;
-      if (window.location.hash) {
-        // drop old query #foo?blah=1...
-        var parts = window.location.hash.substr(1).split('?');
-        route = parts[0] || route;
-      }
-      this.$.lazypages.load(route);
+    if (this.route !== undefined) {
+      return;
     }
+
+    let route = this.defaultRoute;
+    if (window.location.hash) {
+      // drop old query #foo?blah=1...
+      const parts = window.location.hash.substr(1).split('?');
+      route = parts[0] || route;
+    }
+    this.$.lazypages.load(route);
   },
 
   detached: function() {
@@ -736,9 +702,7 @@ Polymer({
   },
 
   onClick: function(ev) {
-    var link = ev.composedPath().filter(function(el) {
-      return el.localName === 'a' && el.href;
-    })[0];
+    const link = ev.composedPath().filter((el) => el.localName === 'a' && el.href)[0];
     if (!link) { return; }
 
     // Ignore if a reload was requested. Allow the new page to load naturally!
@@ -751,19 +715,19 @@ Polymer({
     if (ev.ctrlKey || ev.metaKey || ev.which > 1) { return; }
 
     // Check domain/origin/etc.
-    var targetUrl = new URL(link.href);
+    const targetUrl = new URL(link.href);
     if (targetUrl.origin !== window.location.origin) { return; }
 
     // Check the URLs have the same dirname (e.g. "/foo/bar/" vs "/foo/bar/zing.html").
-    var lastSlash = window.location.pathname.lastIndexOf('/');
+    const lastSlash = window.location.pathname.lastIndexOf('/');
     if (targetUrl.pathname.lastIndexOf('/') !== lastSlash) { return; }
 
     // Pull out either the flat "/", or "/foo.html" at this path.
-    var m = /\/(?:(\w+)\.html|)$/.exec(targetUrl.pathname.substr(lastSlash));
+    const m = /\/(?:(\w+)\.html|)$/.exec(targetUrl.pathname.substr(lastSlash));
     if (!m) { return; }
 
     // Set the route. Hooray! \o/
-    var route = m[1] || this.defaultRoute;
+    const route = m[1] || this.defaultRoute;
     if (this.route === route) {
       this._defaultAction();
     }
@@ -791,7 +755,7 @@ Polymer({
 
     // Update the `santa-video` element that acts on behalf of `video-scene`.
     // TODO(samthor): Move this to a different helper.
-    var v = this.$.video;
+    const v = this.$.video;
     if (newValue && newValue.localName === 'video-scene') {
       v.classList.add('scene');
       v.controls = false;
@@ -825,8 +789,10 @@ Polymer({
   },
 
   _updateStylingForScene: function(scene) {
+    const scrolling = !scene || scene.hasAttribute('allow-page-scrolling');
+
     // Allow scrolling body if scene requests it. Update `santa-chrome` to match.
-    if (!scene || scene.hasAttribute('allow-page-scrolling')) {
+    if (scrolling) {
       document.body.classList.remove('scrollock');
       this.$.chrome.classList.remove('fixed');
     } else {
@@ -836,19 +802,17 @@ Polymer({
     scene = scene || document.createElement('empty-scene');
 
     // Update custom colors and themes.
-    var headerColor = scene.getAttribute('header-color');
+    const headerColor = scene.getAttribute('header-color');
     this.updateStyles({
       '--santa-header-color': headerColor,
       '--santa-feature-color': scene.getAttribute('feature-color'),
     });
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
+    // Show the badge if not in allow-page-scrolling mode.
     this.$.badge.reset();
+    this.$.badge.hidden = scrolling;
     this.$.badge.logoUrl = scene.getAttribute('logo');
-
-    // TODO(samthor): This isn't quite right: the badge should be visible if there's a logo or a
-    // score. But for now, just hide it when there's no logo.
-    this.$.badge.hidden = !this.$.badge.logoUrl;
 
     // Reset the overlay.
     this.$.overlay.reset();
@@ -856,17 +820,22 @@ Polymer({
 
     // Optionally update the document title (with emoji/scene name).
     if (this.routing) {
-      var raw = scene.getAttribute('icon');
-      var icon = '';
+      const raw = scene.getAttribute('icon');
+      let icon = '';
       if (raw && String.fromCodePoint) {  // no emoji on IE11
         icon = String.fromCodePoint(parseInt(raw, 16));
+
+        if (raw.endsWith('*')) {
+          // add VS16/'force emoji' char
+          icon += String.fromCodePoint(0xfe0f);
+        }
       }
       document.title = icon + this.$.strings.s('meta_title');
     }
   },
 
   onBeforeLoad: function(ev) {
-    var route = ev.detail;
+    const route = ev.detail;
 
     if (this.sceneIsOpen(route) === false) {
       if (!window.DEV) {
@@ -890,7 +859,7 @@ Polymer({
     this.userPause = false;
     this.$.overlay.reset();
 
-    var scene = this.selectedScene;
+    const scene = this.selectedScene;
     if (scene) {
       if ('pause' in scene) {
         this.$.chrome.hasGameButtons = true;
@@ -908,7 +877,7 @@ Polymer({
     this.userPause = false;
     this.$.overlay.reset();
 
-    var scene = this.selectedScene;
+    const scene = this.selectedScene;
     if (scene) {
       scene.playExtra && scene.playExtra();
     }
@@ -923,7 +892,7 @@ Polymer({
   onStopGame: function(event, detail) {
     this.$.chrome.hasGameButtons = false;
 
-    var o = this.$.overlay;
+    const o = this.$.overlay;
     detail = detail || {};
     o.score = 'score' in detail ? detail.score : null;  // allow zero
     o.playExtra = detail.hasPlayExtra || false;
@@ -944,7 +913,7 @@ Polymer({
   },
 
   _pauseChanged: function(pause) {
-    var scene = this.selectedScene;
+    const scene = this.selectedScene;
     if (scene && 'pause' in scene) {  // nb. does it implement SantaSceneGameButtonsBehavior
       scene.pause = pause;
     }
@@ -961,14 +930,6 @@ Polymer({
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
     });
-  },
-
-  _soundsLoaded: function(soundsName) {
-    // _soundsLoaded is typically invoked after a scene preloads audio, but the
-    // scene may have changed in that time, so check upgraded state again.
-    if (this.selectedScene && this.selectedScene.fire) {
-      this.selectedScene.fire('sounds-loaded', soundsName);
-    }
   },
 
   trackEvent: function(e, detail) {
@@ -1003,7 +964,7 @@ Polymer({
 
   unlockAllHouses: function() {
     window.ga('send', 'event', 'Routing', 'unlockAllHouses');
-    for (var i = 0, house; house = this._houses[i]; ++i) {
+    for (let i = 0, house; house = this.houses[i]; ++i) {
       house.locked = false;
     }
     if (this.scheduleChecked) {
@@ -1011,7 +972,7 @@ Polymer({
     } else {
       this.$.lazypages.revalidate();
     }
-    this._notifyHouses();
+    this.fire('houses-changed');
   },
 
   /**
@@ -1032,19 +993,19 @@ Polymer({
       return false;  // special-case tracker, as it's open only when Santa is in flight
     }
 
-    var targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
-    var dateNow = new Date(this.currentTime);
-    var userOffset = dateNow.getTimezoneOffset() * 60000;
-    var eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
+    const targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
+    const dateNow = new Date(this.currentTime);
+    const userOffset = dateNow.getTimezoneOffset() * 60000;
+    const eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
 
-    for (var i = 0, house; house = this._houses[i]; ++i) {
+    for (let i = 0, house; house = this.houses[i]; ++i) {
       if (house.module === sceneName) {
         if (house.disabled) {
           return false;
-        } else if (!house.locked) {
+        } else if (house.edu || !house.locked) {
           return true;
         }
-        var launchDate = house.launchDate;
+        let launchDate = house.launchDate;
         if (santaApp.mode == 'portal' && house.portalLaunchDate) {
           launchDate = house.portalLaunchDate;
         }
@@ -1060,16 +1021,16 @@ Polymer({
    * @private
    */
   _updateLock: function(currentTime, scheduleChecked) {
-    var todayDate = new Date(this.currentTime || Date.now());
-    var todayHouse = '';
-    var change = false;
+    const todayDate = new Date(this.currentTime || Date.now());
+    let todayHouse = '';
+    let change = false;
 
     switch (todayDate.getMonth()) {
       case 0:  // January
         // fall-through to December logic
       case 11: // December
-        for (var i = 0, house; house = this._houses[i]; ++i) {
-          var launchDate = house.launchDate;
+        for (let i = 0, house; house = this.houses[i]; ++i) {
+          let launchDate = house.launchDate;
           if (santaApp.mode == 'portal' && house.portalLaunchDate) {
             launchDate = house.portalLaunchDate;
           }
@@ -1077,7 +1038,7 @@ Polymer({
             todayHouse = house.module;
           }
           if (this.scheduleChecked) {
-            var locked = (launchDate > todayDate);
+            const locked = (launchDate > todayDate);
             if (house.locked !== locked) {
               change = true;
               house.locked = locked;
@@ -1087,7 +1048,7 @@ Polymer({
         break;
       default:
         if (this.scheduleChecked) {
-          for (var i = 0, house; house = this._houses[i]; ++i) {
+          for (let i = 0, house; house = this.houses[i]; ++i) {
             if (!house.locked) {
               change = true;
               house.locked = true;
@@ -1097,7 +1058,7 @@ Polymer({
         break;
     }
     this.todayHouse = todayHouse;
-    change && this._notifyHouses();
+    change && this.fire('houses-changed');
 
     this.$.lazypages.revalidate();  // hint to maybe reload
   },
@@ -1111,7 +1072,7 @@ Polymer({
         break;
       case 'enter':
         // TODO(samthor): Clean up ugly state machine.
-        var scene = this.selectedScene;
+        const scene = this.selectedScene;
         if (scene && 'pause' in scene && !this.$.chrome.hasGameButtons && this.$.overlay.pregame) {
           this.onStartGame();
         }
@@ -1125,7 +1086,7 @@ Polymer({
    * @return {boolean} whether no action was performed
    */
   _defaultAction: function() {
-    var action = false;
+    let action = false;
 
     if (this.$.chrome.closeDrawer()) {
       action = true;
@@ -1150,11 +1111,11 @@ Polymer({
    * detail of event).
    */
   onShare: function(e, detail) {
-    var network = detail.network;
-    var url = detail.url || window.location.href;
-    var route = this.route || '';
-    var title = this.$.strings.s('scene-' + route) || this.$.strings.s('santatracker') || '';
-    var hashtags = ['santatracker'];
+    const network = detail.network;
+    const url = detail.url || window.location.href;
+    const route = this.route || '';
+    const hashtags = ['santatracker'];
+    let title = this.$.strings.s(`scene-${route}`) || this.$.strings.s('santatracker') || '';
 
     switch (route) {
     case 'snowflake':
@@ -1168,11 +1129,11 @@ Polymer({
 
     window.ga('send', 'social', network, 'share', '/' + route);
 
-    var shareUrl = this._findShareUrl(network, url, hashtags, title);
+    const shareUrl = this._findShareUrl(network, url, hashtags, title);
     if (network === 'webshare' && navigator.share) {
       navigator.share({title: title, url: url});
     } else if (shareUrl) {
-      var opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
+      const opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
       window.open(shareUrl, '', opts);
     }
   },
@@ -1181,58 +1142,42 @@ Polymer({
    * Returns the URL to popup open in response to a sharing action.
    */
   _findShareUrl: function(network, url, hashtags, title) {
-    var enc = window.encodeURIComponent(url);
+    const enc = window.encodeURIComponent(url);
+    let out = '';
 
     switch (network) {
     case 'gplus':
-      var out = 'https://plus.google.com/share?url=' + enc;
+      out = `https://plus.google.com/share?url=${enc}`;
       if (window.requestLang) {
-        out += '&hl=' + window.requestLang;
+        out += `&hl=${window.requestLang}`;
       }
-      return out;
+      break;
     case 'twitter':
-      var out = 'https://twitter.com/intent/tweet?hashtags=' + hashtags.join(',') + '&text=' +
-          window.encodeURIComponent(title) + '&url=' + enc;
+      out = `https://twitter.com/intent/tweet?hashtags=${hashtags.join(',')}&text=` +
+          window.encodeURIComponent(title) + `&url=${enc}`;
       if (window.requestLang) {
-        out += '&lang=' + window.requestLang;
+        out += `&hl=${window.requestLang}`;
       }
-      return out;
+      break;
     case 'facebook':
-      return 'https://facebook.com/sharer.php?p[url]=' + enc;
+      out = `https://facebook.com/sharer.php?p[url]=${enc}`;
+    default:
+      return undefined;
     }
+
+    return out;
   },
 
-  /**
-   * Notifies bound properties that the houses have changed (useful for the
-   * village). Dedups with a microtask.
-   * @private
-   */
-  _notifyHouses: function() {
-    this.debounce('_notifyHouses', function() {
-      if (!this.$.village.is) {
-        return;  // the village isn't yet a Polymer element, so ignore.
-      }
-
-      // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
-      // there's no way to notify a whole house.
-      var propertiesToNotify = ['locked', 'disabled'];
-
-      this._houses.forEach(function(house, i) {
-        var path = ['houses', i, ''];
-        propertiesToNotify.forEach(function(property) {
-          path[2] = property;
-          this.$.village.notifyPath(path, house[property]);
-        }, this);
-      }, this);
-    });
+  onCloseDrawer: function(event) {
+    this.$.chrome.closeDrawer();
   },
 
   /**
    * Returns the (static) color for the given route. Returns the blank string if there is no color.
    */
   colorForRoute: function(route) {
-    var el = this.$.lazypages.getRoute(route);
-    return (el ? el.getAttribute('header-color') : '') || '';
+    const draft = this.$.lazypages.getDraft(route);
+    return draft && draft.getAttribute('header-color') || '';
   },
 
   omitSantaChrome: function(mode) {

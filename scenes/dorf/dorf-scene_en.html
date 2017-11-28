@@ -20,7 +20,12 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
+<link rel="import" href="../../elements/village-header/village-header.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
+<link rel="import" href="elements/effect-skydive.html">
+<link rel="import" href="elements/effect-snowmobile.html">
+<link rel="import" href="elements/effect-tictactoe.html">
+<link rel="import" href="elements/effect-wrangler.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -32,49 +37,30 @@ Santa's Village.
 
   <santa-strings strings="{{strings}}"></santa-strings>
 
-  <santa-state countdown-finished="{{countdownFinished}}"
-      during-tracker="{{duringTracker}}"
-      remaining-time="{{remainingTime}}"></santa-state>
+  <santa-state countdown-finished="{{_countdownFinished}}"
+      during-tracker="{{_duringTracker}}"
+      remaining-time="{{_remainingTime}}"></santa-state>
 
-  <div id="module-dorf" class$="[[_computeCountdownFinishedClass(countdownFinished)]]">
+  <village-header nobranding remaining-time="[[_remainingTime]]"
+      class$="[[_computeHeaderClass(_countdownFinished, _duringTracker)]]">
+    <a class="button" href$="[[urlFor('tracker')]]">
+      <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
+    </a>
+    <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+
+    <div slot="effects" id="effect-sun"></div>
+    <santa-weather slot="effects"></santa-weather>
+    <div slot="effects" id="effect-plane"></div>
+    <effect-skydive slot="effects" href="https://santadive.withgoogle.com"></effect-skydive>
+  </village-header>
+
+  <div id="mobiletext">
+    <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+  </div>
+
+  <div id="module-dorf" class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
     <smatch-secret character-id="santa"></smatch-secret>
-    <header>
-      <div id="header-background">
-        <div id="header-mobilevillage"></div>
-      </div>
-      <div id="header-skyeffect">
-        <span class="sun"></span>
-        <span class="plane"></span>
-        <span id="village-pegman">
-          <a id="village-pegman-image" href="https://santadive.withgoogle.com">Santa Dive</a>
-        </span>
-        <santa-weather active="[[active]]"></santa-weather>
-        <div id="header-mobileelves"></div>
-      </div>
-      <div id="header-content">
-        <div id="ornament"></div>
-        <div id="countdown">
-          <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-          <countdown-timer remaining-time="[[remainingTime]]" active="[[active]]">
-            <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
-            <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
-          </countdown-timer>
-        </div>
-        <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>
-        <div hidden$="[[!countdownFinished]]">
-          <a hidden$="[[!duringTracker]]" href$="[[urlFor('tracker')]]" class="village-tracker-link">
-            <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
-          </a>
-        </div>
-        <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
-      </div>
-    </header>
     <div id="village-all">
-      <div id="mobiletext">
-        <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
-      </div>
       <div id="ground"></div>
       <div id="road"></div>
       <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
@@ -102,7 +88,7 @@ Santa's Village.
                 <a class="link" href$="[[_calculateHref(item, item.locked)]]">
                   <div class$="card card-[[item.module]]">
                     <div class="image"></div>
-                    <div class="color" style$="background-color: [[_colorForRoute(santaApp, item.module)]]"></div>
+                    <div class="color" style$="background-color: [[_colorForRoute(item.module)]]"></div>
                     <div class="text">
                       <div class="launchdate" hidden$="[[item.hideDate]]">
                         [[_calculateDateNo(item.launchDate)]]
@@ -141,10 +127,10 @@ Santa's Village.
           <div id="easteregg-balloon-ropes" class="easter-egg"></div>
           <div id="easteregg-balloon-flight" class="easter-egg"></div>
 
-          <div id="easteregg-snowmobile1" class="easter-egg"></div>
-          <div id="easteregg-snowmobile2" class="easter-egg"></div>
-          <div id="easteregg-snowmobile3" class="easter-egg"></div>
-          <div id="easteregg-snowmobile4" class="easter-egg"></div>
+          <effect-snowmobile id="easteregg-snowmobile1"></effect-snowmobile>
+          <effect-snowmobile id="easteregg-snowmobile2"></effect-snowmobile>
+          <effect-snowmobile id="easteregg-snowmobile3"></effect-snowmobile>
+          <effect-snowmobile id="easteregg-snowmobile4"></effect-snowmobile>
 
           <div id="easteregg-busstop1" class="easter-egg">
             <div class="elf-stop elf-green"></div>
@@ -189,47 +175,16 @@ Santa's Village.
             </div>
           </div>
 
-          <div id="easteregg-tic-tac-toe" class="easter-egg">
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div class="tic-tac empty"></div>
-            <div id="easteregg-tic-tac-toe-elves-red" class="elves move"></div>
-            <div id="easteregg-tic-tac-toe-elves-blue" class="elves move"></div>
-            <div id="easteregg-tic-tac-toe-win"></div>
-          </div>
+          <effect-tictactoe id="easteregg-tictactoe"></effect-tictactoe>
+          <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
 
-          <div id="easteregg-wrangler" class="easter-egg">
-            <div id="easteregg-wrangler-wrangler">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div id="easteregg-wrangler-reindeer1">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div id="easteregg-wrangler-reindeer2">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
         </div>
       </div><!-- #houses -->
     </div>
 
     <footer>
-      <p hidden$="[[countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <img src$="[[_computeFooterElves(countdownFinished)]]">
+      <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+      <img src$="[[_computeFooterElves(_countdownFinished)]]">
     </footer>
 
     <smatch-storage unlocks="{{smatchUnlocks}}"></smatch-storage>
@@ -240,9 +195,6 @@ Santa's Village.
 
   var RANDOM_EGG_WAIT_MIN = 5000;
   var RANDOM_EGG_WAIT_MAX = 30000;
-
-  var PEGMAN_WAIT_MIN = 15000;  // needs to be > 10s of falling
-  var PEGMAN_WAIT_MAX = 30000;
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
       'snowman-reading', 'rosetta-stone', 'white-board',
@@ -255,24 +207,37 @@ Santa's Village.
 
     properties: {
 
-      /** Bound from `santa-app`, the array of houses to show. */
-      houses: Array,
+      houses: {
+        type: Array,
+        value: null,
+      },
 
-      /** Bound from `santa-app`, today's unlocked house. */
-      todayHouse: String,
+      todayHouse: {
+        type: String,
+        value: '',
+      },
 
       /** Easter eggs helper, used for template. */
       easterEggs: {
         type: Array,
         readOnly: true,
-        value: Object.freeze(EASTER_EGGS)
+        value: Object.freeze(EASTER_EGGS),
       },
 
       /** Bound from `santa-state`, whether the countdown is done. */
-      countdownFinished: Boolean,
+      _countdownFinished: {
+        type: Boolean,
+      },
 
       /** Bound from `santa-state`, whether we are during the tracker. */
-      duringTracker: Boolean,
+      _duringTracker: {
+        type: Boolean,
+      },
+
+      /** Bound from `santa-state`, the remaining time. */
+      _remainingTime: {
+        type: Number,
+      },
 
       /** Strings bound from `santa-strings`. */
       strings: Object,
@@ -287,10 +252,16 @@ Santa's Village.
       'easteregg-busstop2.click': '_triggerBus',
       'easteregg-busstop3.click': '_triggerBus',
       'easteregg-balloon.click': '_flyBalloon',
-      'easteregg-snowmobile1.click': '_driveSnowmobile',
-      'easteregg-snowmobile2.click': '_driveSnowmobile',
-      'easteregg-snowmobile3.click': '_driveSnowmobile',
-      'easteregg-snowmobile4.click': '_driveSnowmobile',
+    },
+
+    _computeHeaderClass: function(countdownFinished, duringTracker) {
+      if (countdownFinished) {
+        if (duringTracker) {
+          return 'track notext';
+        }
+        return 'notext';
+      }
+      return '';
     },
 
     _computeCountdownFinishedClass: function(finished) {
@@ -342,7 +313,7 @@ Santa's Village.
     },
 
     _onHousesOver: function(event) {
-      if (!event.target || event.target.localName != 'a' || !event.target.href) {
+      if (!event.target || event.target.localName !== 'a' || !event.target.href) {
         return;
       }
       this.fire('sound-trigger', 'village_bubble_appear');
@@ -355,42 +326,84 @@ Santa's Village.
       this.fire('sound-trigger', 'village_bubble_disappear');
     },
 
+    /**
+     * Helper method. Just does equality.
+     */
+    _equals: function(a, b) {
+      return a === b;
+    },
+
     onPreload: function() {
       this.preloadSounds('village_load_sounds');
       this.preloadImages([
-        'img/road.svg',
-        'img/ground.svg',
         'img/sun.svg',
-        'img/header-bg.svg',
-        '../../elements/countdown/img/number-bg.svg',
       ]);
 
-      var isMobile = (window.innerWidth < 768);
+      var isMobile = window.innerWidth < 768;
       if (isMobile) {
         this.preloadImages([
-          'img/mobile-header.svg',
-          'img/mobile-header-elves.svg',
+          'img/mobile-elf1.svg',
+          'img/mobile-elf2.svg',
+        ]);
+      } else {
+        this.preloadImages([
+          'img/road.svg',
+          'img/ground.svg',
         ]);
       }
 
       // Preload the first ~7 houses.
-      var houses = this.houses || (this.santaApp && this.santaApp._houses) || [];
-      for (var i = 0; i < 7 && i < houses.length; ++i) {
-        var house = houses[i];
+      for (var i = 0; i < 7 && i < this.houses.length; ++i) {
+        var house = this.houses[i];
         var id = house.module;
 
         var preload = [];
 
         if (!isMobile) {
-          preload.push('img/building-' + id + '.svg');
+          preload.push('img/building/' + id + '.svg');
         }
         preload.push('../../images/scenes/' + id + '_2x.png');
         if (house.locked && !isMobile) {
-          preload.push('img/building-' + id + '-ice.svg')
+          preload.push('img/building/' + id + '-ice.svg')
         }
         this.preloadImages(preload);
       }
 
+    },
+
+    created: function() {
+      const t = window.santaApp;
+      this._refreshHouseData = () => {
+        this.todayHouse = t.todayHouse;
+        this.houses = t.houses;
+
+        // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
+        // there's no way to notify a whole house.
+        const propertiesToNotify = ['locked', 'disabled'];
+        this.houses.forEach((house, i) => {
+          const path = ['houses', i, ''];
+          propertiesToNotify.forEach((property) => {
+            path[2] = property;
+            this.notifyPath(path, house[property]);
+          });
+        });
+      };
+
+      this.todayHouse = t.todayHouse;
+      this.houses = t.houses;
+    },
+
+    attached: function() {
+      const t = window.santaApp;
+      t.addEventListener('today-house-changed', this._refreshHouseData);
+      t.addEventListener('houses-changed', this._refreshHouseData);
+      this._refreshHouseData();
+    },
+
+    detached: function() {
+      const t = window.santaApp;
+      t.removeEventListener('today-house-changed', this._refreshHouseData);
+      t.removeEventListener('houses-changed', this._refreshHouseData);
     },
 
     onShow: function() {
@@ -407,8 +420,8 @@ Santa's Village.
     /**
      * Wraps `santaApp.colorForRoute`.
      */
-    _colorForRoute: function(santaApp, id) {
-      return santaApp.colorForRoute(id);
+    _colorForRoute: function(id) {
+      return window.santaApp.colorForRoute(id);
     },
 
     _onClickNewTodayHouse: function() {
@@ -416,23 +429,6 @@ Santa's Village.
     },
 
     /** NOTE: easteregg code only below this point */
-
-    _pegmanStep: function() {
-      if (!this.active) {
-        return;  // give up, not active
-      }
-      var pegman = this.$['village-pegman'];
-      if (!pegman.classList.contains('active')) {
-        // fall from the sky
-        pegman.classList.add('active');
-      } else {
-        pegman.classList.add('fadeout');
-        this.async(function() {
-          pegman.classList.remove('fadeout', 'active');
-        }, 500);
-      }
-      this.async(this._pegmanStep, randomRange(PEGMAN_WAIT_MIN, PEGMAN_WAIT_MAX));
-    },
 
     /**
      * Async task for _randomEasterEggs.
@@ -442,12 +438,11 @@ Santa's Village.
     _randomEasterEggs: function() {
       this.cancelAsync(this._eggTimer);
 
-      var easterEggs = ['balloon', 'snowmobile1', 'snowmobile2', 'snowmobile3',
-          'snowmobile4', 'busstop1', 'busstop2', 'busstop3'];
+      var easterEggs = ['balloon', 'busstop1', 'busstop2', 'busstop3'];
 
       var eggTime = randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX);
       this._eggTimer = this.async(function() {
-        if (!this.active) {
+        if (!this.isAttached) {
           return;  // give up, not active
         }
         var eggName = 'easteregg-' +
@@ -466,165 +461,6 @@ Santa's Village.
 
         this._randomEasterEggs();
       }, eggTime);
-    },
-
-    /**
-     * If the game is being played or not
-     */
-    _isPlayingTicTacToe: false,
-    /**
-     * Which players turn, only 2 players so a bool is fine
-     */
-    _ticTacToeTurn: true,
-    /**
-     * Game cell
-     */
-    _ticTacToeCells: [],
-    _ticTacToeMove: 1,
-    _ticTacToeScore: {'red': 0, 'blue': 0},
-    _ticTacToeCellValues: [1, 2, 4, 8, 16, 32, 64, 128, 256],
-    _ticTacToeWins: [7, 56, 448, 73, 146, 292, 273, 84],
-    _playTicTacToeTimers: [],
-
-    _playTicTacToe: function() {
-      if (!this.active) {
-        return;
-      }
-
-      var ticTacGameBoard = this.$['easteregg-tic-tac-toe'];
-      var redTeam = this.$['easteregg-tic-tac-toe-elves-red'];
-      var blueTeam = this.$['easteregg-tic-tac-toe-elves-blue'];
-
-      if (!this._isPlayingTicTacToe || this._ticTacToeCells.length == 0) {
-        this._isPlayingTicTacToe = true;
-
-        // Setup a new game
-        this.ticTacToeScore = {'red': 0, 'blue': 0};
-
-        this.$['easteregg-tic-tac-toe-win'].classList.remove('red', 'blue',
-          'pos-0', 'pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5', 'pos-6', 'pos-7');
-
-        this._ticTacToeCells = [].slice.call(ticTacGameBoard.querySelectorAll('.tic-tac'));
-        this._ticTacToeCells.forEach(function(cell) {
-          cell.classList.remove('cross', 'naught', 'red', 'blue');
-          cell.classList.add('empty');
-        });
-
-        redTeam.classList.remove('draw');
-        redTeam.classList.add('move');
-        blueTeam.classList.remove('draw');
-        blueTeam.classList.add('move');
-      }
-
-      // Random is the best AI....
-      var rnd = Math.floor(Math.random() * this._ticTacToeCells.length);
-      var cell = this._ticTacToeCells.splice(rnd, 1).pop();
-      var index = Array.prototype.indexOf.call(ticTacGameBoard.children, cell);
-      var player = this._ticTacToeTurn ? blueTeam : redTeam;
-      this._playTicTacToeCell(player, cell, index);
-    },
-
-    _playTicTacToeCell: function(player, cell, index) {
-      var moveTime = 500;
-      var drawTime = moveTime + 200;
-      var doneDrawTime = drawTime + 500;
-      var moveBackTime = doneDrawTime + 500;
-      var playAgainTime = moveBackTime + 1000;
-      var posClass = 'to-pos-' + (index + 1);
-      player.classList.add(posClass);
-      this._ticTacToeTurn = !this._ticTacToeTurn;
-      var turn = this._ticTacToeTurn;
-
-      var move = function() {
-        player.classList.remove('move');
-        player.classList.add('draw');
-      };
-
-      var draw = function() {
-        if (turn) {
-          cell.classList.add('cross', 'red');
-        } else {
-          cell.classList.add('naught', 'blue');
-        }
-        cell.classList.remove('empty');
-      };
-
-      var doneDraw = function() {
-        player.classList.remove('draw');
-        player.classList.add('move');
-      };
-
-      var moveBack = function() {
-        player.classList.remove(posClass);
-      };
-
-      this._playTicTacToeTimers[1] = this.async(move.bind(this), moveTime);
-      this._playTicTacToeTimers[2] = this.async(draw.bind(this), drawTime);
-      this._playTicTacToeTimers[3] = this.async(doneDraw.bind(this), doneDrawTime);
-      this._playTicTacToeTimers[4] = this.async(moveBack.bind(this), moveBackTime);
-
-      if (turn) {
-        this.ticTacToeScore['red'] += this._ticTacToeCellValues[index];
-        var w = this._checkTicTacToeWin(this.ticTacToeScore['red']);
-        if (w !== false) {
-          this._showTicTacToeWin('red', w);
-          return;
-        }
-      } else {
-        this.ticTacToeScore['blue'] += this._ticTacToeCellValues[index];
-        var w = this._checkTicTacToeWin(this.ticTacToeScore['blue']);
-        if (w !== false) {
-          this._showTicTacToeWin('blue', w);
-          return;
-        }
-      }
-
-      if (this._ticTacToeCells.length == 0) {
-        // Draw
-        window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
-      }
-
-      this._playTicTacToeTimers[0] = this.async(this._playTicTacToe, playAgainTime);
-    },
-
-    _showTicTacToeWin: function(player, w) {
-      var WIN_LINE_TIME = 2000;
-      var RESTART_GAME_TIME = randomRange(20000, 60000);
-      this._isPlayingTicTacToe = false;
-      var c = 'pos-' + w;
-
-      window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
-      this._playTicTacToeTimers[0] = this.async(function() {
-        this.$['easteregg-tic-tac-toe-win'].classList.add(player, c);
-      }, WIN_LINE_TIME);
-
-      this._playTicTacToeTimers[1] = this.async(function() {
-        this.$['easteregg-tic-tac-toe-win'].classList.remove(player, c);
-        this._playTicTacToe();
-      }, RESTART_GAME_TIME);
-    },
-
-    _checkTicTacToeWin: function(score) {
-      for (var i = 0; i < this._ticTacToeWins.length; i++) {
-        if ((this._ticTacToeWins[i] & score) === this._ticTacToeWins[i]) {
-          return i;
-        }
-      }
-      return false;
-    },
-
-    _driveSnowmobile: function(e) {
-      if (!e.fakeEvent) {
-        window.ga('send', 'event', 'village', 'click', 'snowmobile');
-      }
-      var DRIVE_TIME = 10000;
-      var snowmobile = e.currentTarget;
-      if (snowmobile.classList.contains('drive')) return;
-
-      snowmobile.classList.add('drive');
-      this.async(function() {
-        snowmobile.classList.remove('drive');
-      }, DRIVE_TIME + 1);
     },
 
     _flyBalloon: function(e) {
@@ -684,17 +520,9 @@ Santa's Village.
     _startEasterEggs: function() {
       this._stopEasterEggs();
       this._randomEasterEggs();  // stops self if no longer active
-      this._playTicTacToe();
-
-      this._pegmanStep();  // stops self if not active
     },
 
     _stopEasterEggs: function() {
-      for (var i = 0; i < this._playTicTacToeTimers.length; i++) {
-        this.cancelAsync(this._playTicTacToeTimers[i]);
-      }
-      this._playTicTacToeTimers = [];
-
       this.cancelAsync(this._eggTimer);
     },
   });

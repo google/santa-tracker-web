@@ -1,0 +1,222 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<!--
+Shows a carousel of social cards.
+-->
+<dom-module id="social-cards">
+<template>
+  <style>
+    :host {
+      display: block;
+    }
+
+    #cards {
+      box-sizing: border-box;
+      justify-content: center;
+      width: 100%;
+      display: flex;
+    }
+
+    .place {
+      z-index: 10;
+      width: 240px;
+      height: 180px;
+      margin: 0 12px;
+      position: relative;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      background: black;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 2px;
+      transform-origin: bottom center;
+      opacity: 0.95;
+      transition: transform 0.8s, opacity 0.8s;
+    }
+
+    .card.fadein {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    .card.fadeout {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+  </style>
+
+  <div id="cards" on-transitionend="_removeCard">
+    <div class="place"></div>
+    <div class="place"></div>
+    <div class="place"></div>
+  </div>
+
+</template>
+<script>
+(function() {
+
+  // TODO(samthor): Centralize the list of cards. Build step?
+  // TODO(samthor): Include mp4s.
+
+  const allCards = Object.freeze(['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo']);
+
+  const duringTrackerCards = Object.freeze(['cart', 'closecall', 'fireplacehangout', 'infrontofmoon', 'milkandcookies', 'santacrack', 'santaticket', 'shadow', 'stuck']);
+
+  const keepRecentCards = 10;  // don't duplicate in last n
+
+  Polymer({
+    is: 'social-cards',
+
+    properties: {
+
+      /**
+       * Whether to pause card creation.
+       */
+      pause: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
+       * The minimum delay (in seconds) to wait to add a new card.
+       */
+      delay: {
+        type: Number,
+        value: 5,
+      },
+
+      /**
+       * The range to adjust the minimum delay by. Added to delay.
+       */
+      delayRange: {
+        type: Number,
+        value: 3,
+      },
+
+      /**
+       * Whether to show cards that are clearly during Santa's journey.
+       */
+      duringTracker: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
+       * The recent cards shown.
+       */
+      _recentCards: {
+        type: Array,
+        value: () => [],
+      },
+
+    },
+
+    attached: function() {
+      const run = () => {
+        if (!this.isAttached) { return; }
+        const seconds = this.delay + this.delayRange * Math.random();
+        this.debounce('change', run, 1000 * seconds);
+
+        if (!this.pause) {
+          this._changeCard();
+        }
+      }
+      run();
+
+      const places = Array.prototype.slice.call(this.$.cards.children);
+      places.forEach((place) => place.textContent = '');
+
+      places.forEach(() => this._changeCard());
+    },
+
+    /**
+     * Choose a random slot to add a social photo.
+     */
+    _randomChoiceEl: function() {
+      const places = Array.prototype.slice.call(this.$.cards.children);
+      const empty = [];
+
+      for (let i = 0; i < places.length; ++i) {
+        if (places[i].children.length === 0) {
+          empty.push(places[i]);
+        }
+      }
+
+      const from = empty.length ? empty : places;
+      const choice = Math.floor(Math.random() * from.length);
+      return from[choice] || null;
+    },
+
+    _removeCard: function(ev) {
+      const target = ev.target;
+      if (target.classList.contains('fadeout')) {
+        target.remove();
+      }
+    },
+
+    _chooseCardImage: function() {
+      let attempts = 10;
+      let result = null;
+
+      while (--attempts) {
+        result = allCards[Math.floor(Math.random() * allCards.length)];
+
+        if (!this.duringTracker && duringTrackerCards.indexOf(result) !== -1) {
+          continue;
+        } else if (this._recentCards.indexOf(result) !== -1) {
+          continue;
+        }
+
+        break;
+      }
+
+      this._recentCards.unshift(result);
+      this._recentCards = this._recentCards.slice(0, keepRecentCards);
+      return result;
+    },
+
+    _changeCard: function() {
+      const pathToImages = '../../newtracker/img/feed';
+
+      const image = new Image();
+      image.src = this.resolveUrl(`${pathToImages}/${this._chooseCardImage()}.png`);
+      image.onload = () => {
+        const el = this._randomChoiceEl();
+        const previous = el.children[el.children.length - 1] || null;
+        if (previous) {
+          previous.classList.add('fadeout');
+        }
+
+        const update = document.createElement('div');
+        update.className = 'card fadein';
+        update.style.backgroundImage = `url(${image.src})`;
+        el.appendChild(update);
+
+        update.offsetLeft;
+        update.classList.remove('fadein');
+      };
+    },
+
+  });
+})();
+</script>
+</template>
+</dom-module>

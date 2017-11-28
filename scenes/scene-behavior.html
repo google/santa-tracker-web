@@ -22,7 +22,7 @@ specific language governing permissions and limitations under the License.
   /**
    * Max number of milliseconds to wait before timing out and abandoning preload.
    */
-  const maxPreloadTime = 30 * 1000;
+  const maxPreloadTime = 10 * 1000;
 
   /**
    * Number of frames to spread image preload over.
@@ -41,28 +41,6 @@ specific language governing permissions and limitations under the License.
       route: {
         type: String,
         value: null,
-      },
-
-      /**
-       * If `true`, the scene is active. In Santa Tracker, this is set by `lazy-pages.
-       *
-       * Note that this intentionally starts undefined so that its observer is only called after
-       * the object is ready.
-       */
-      active: {
-        type: Boolean,
-        reflectToAttribute: true,
-        observer: '_activeChanged',
-      },
-
-      /**
-       * If `true`, the scene was previously loaded. This includes if a preload
-       * took too long.
-       */
-      loaded: {
-        type: Boolean,
-        notify: true,
-        value: false,
       },
 
       /**
@@ -96,53 +74,69 @@ specific language governing permissions and limitations under the License.
        */
       _pendingPreload: {
         type: Object,
+        value: null,
+      },
+
+      /**
+       * Contains the chain of promises calling onShow and onHide for this scene.
+       */
+      _showPromise: {
+        type: Object,
+        value: Promise.resolve(null),
       },
 
     },
 
+    listeners: {
+      'preload': 'preloadEvent',
+    },
+
     observers: [
-      '_progress(_assetsLoaded, _totalAssets)',
+      '_progress(_assetsLoaded, _totalAssets, _pendingPreload)',
     ],
 
     ready: function() {
-      if (this.loaded) {
-        // we are a clone: pretend to already be loaded
-        this._setPreload(Promise.resolve());
-        return;
+      this._setPreload(new Promise((resolve) => {
+        this.addEventListener('_preload', resolve);
+      }));
+
+      // Run onPreload to preload resources. Resolves when assets are ready, when the timeout
+      // expires, or immediately—if there's nothing to preload.
+      this._pendingPreload = new Set();
+      this.onPreload && this.onPreload();
+      const done = () => this.fire('_preload', null, {bubbles: false});
+      if (!this._pendingPreload.size) {
+        done();
+      } else {
+        this.async(done, maxPreloadTime);
       }
 
-      // Setup preload Promise. This resolves when all assets are ready, or when the timeout
-      // expires. It should never reject.
-
-      const preload = new Set();
-      this._pendingPreload = preload;
-
-      const p = new Promise(function(resolve) {
-        this.onPreload && this.onPreload();
-
-        if (!preload.size) {
-          return resolve();
-        }
-        this.async(resolve, maxPreloadTime);  // resolve on timeout anyway
-        this.addEventListener('preload', resolve);
-      }.bind(this));
-
-      p.then(function() {
-        if (this._pendingPreload === preload) {
-          this._pendingPreload = null;
-        }
-        this.loaded = true;
-      }.bind(this));
-
-      this._setPreload(p);
+      this.preload.then(() => {
+        this._pendingPreload = null;
+      });
     },
 
-    _activeChanged: function() {
-      if (this.active) {
+    attached: function() {
+      const show = this.preload.then(() => {
+        // nb. put onShow into a rAF as this ensures the onHide method from any previous scene
+        // is run before us. The same guarantees don't apply to attached: or detached:, as we
+        // attach scenes to preload them.
+        return new Promise((resolve) => requestAnimationFrame(resolve));
+      }).then(() => {
+        if (this._showPromise !== p || !this.isAttached) {
+          return true;
+        }
         this.onShow && this.onShow();
-      } else {
-        this.onHide && this.onHide();
-      }
+      });
+      const p = this._showPromise = this._showPromise.then(() => show);
+    },
+
+    detached: function() {
+      this._showPromise = this._showPromise.then((skipped) => {
+        if (!skipped) {
+          this.onHide && this.onHide()
+        }
+      });
     },
 
     /**
@@ -156,19 +150,16 @@ specific language governing permissions and limitations under the License.
       }
       preload.add(p);
 
-      const done = function() {
+      ++this._totalAssets;
+      p.catch((error) => {
+        console.warn('preload', this.localName, 'error', error);
+      }).then(() => {
         ++this._assetsLoaded;
-
         preload.delete(p);
         if (!preload.size) {
-          this.fire('preload', preload, {bubbles: false});  // nb. resolves Promise in ready:
+          this.fire('_preload', null, {bubbles: false});  // nb. resolves Promise in ready:
         }
-      }.bind(this);
-
-      ++this._totalAssets;
-      p.catch(function(error) {
-        console.warn('preload', this.localName, 'error', error);
-      }.bind(this)).then(done);
+      });
     },
 
     /**
@@ -180,17 +171,17 @@ specific language governing permissions and limitations under the License.
         return;  // do nothing
       }
 
-      const p = new Promise(function(resolve) {
+      const p = new Promise((resolve) => {
         this._totalAssets += imageUrls.length;
         let done = 0;
 
-        const onload = function() {
+        const onload = () => {
           ++this._assetsLoaded;
           ++done;
           if (done === imageUrls.length) {
             resolve();
           }
-        }.bind(this);
+        };
 
         const imagesPerRaf = Math.max(1, Math.ceil(imageUrls.length / framesToSpread));
         let imageIndex = 0;
@@ -206,7 +197,7 @@ specific language governing permissions and limitations under the License.
             this.async(rafCallback);
           }
         }).call(this);
-      }.bind(this));
+      });
 
       this.preloadPromise(p);
     },
@@ -219,24 +210,27 @@ specific language governing permissions and limitations under the License.
       this.fire('sound-preload', soundSetName);
     },
 
-    _progress: function(assetsLoaded, totalAssets) {
-      if (totalAssets) {
-        this.fire('scene-progress', assetsLoaded / totalAssets);
+    /**
+     * Preload the request from a contained element.
+     */
+    preloadEvent: function(ev) {
+      const source = Polymer.dom(ev).path[0];
+      const detail = ev.detail;
+
+      if (detail instanceof Array) {
+        const urls = ev.detail.map((url) => source.resolveUrl(url));
+        this.preloadImages(urls);
+      } else if (detail instanceof Promise) {
+        this.preloadPromise(detail);
+      } else {
+        console.debug('unknown preload from', source.localName, 'detail', detail);
       }
     },
 
-    /**
-     * Helper method. Just does equality.
-     */
-    _equals: function(a, b) {
-      return a == b;
-    },
-
-    /**
-     * Helper method. Computes the ternary operation on arg.
-     */
-    _computeTernary: function(arg, pve, nve) {
-      return arg ? pve : nve;
+    _progress: function(assetsLoaded, totalAssets, pendingPreload) {
+      if (totalAssets && pendingPreload) {
+        this.fire('scene-progress', assetsLoaded / totalAssets);
+      }
     },
 
   };

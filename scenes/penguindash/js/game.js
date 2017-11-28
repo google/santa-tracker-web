@@ -58,7 +58,7 @@ app.Game = function(elem, componentDir) {
   var detectGyro = function(event){
     if (!this.gyroPresent) {
       var e = event.originalEvent;
-      if(e.alpha || e.beta || e.gamma) {
+      if (e.alpha || e.beta || e.gamma) {
         this.gyroPresent = true;
       }
       this.showLockscreenMessage();
@@ -197,9 +197,12 @@ app.Game.prototype.resume = function() {
  * Show Lockscreen Message.
  */
 app.Game.prototype.showLockscreenMessage = function () {
-  if(this.gyroPresent){
+  if (this.gyroPresent){
     var paused = this.paused;
     var lockElem = this.elem.find('.lockscreen');
+    if (lockElem.attr('hidden')) {
+      return;  // do nothing
+    }
     if (!paused) {
       this.pause();
     }
