@@ -335,6 +335,50 @@ app.Tools = function(game, $elem) {
   this.stickerSnowmanBigPenguin = new app.Sticker($elem, 'snowman-big-penguin');
   this.stickerSnowmanBigTub = new app.Sticker($elem, 'snowman-big-tub');
   this.stickerWalrus = new app.Sticker($elem, 'walrus');
+  this.stickerElfHead1 = new app.Sticker($elem, 'elf-head1');
+  this.stickerElfHead2 = new app.Sticker($elem, 'elf-head2');
+  this.stickerElfHead3 = new app.Sticker($elem, 'elf-head3');
+  this.stickerElfHead4 = new app.Sticker($elem, 'elf-head4');
+  this.stickerElfHead5 = new app.Sticker($elem, 'elf-head5');
+  this.stickerFaceBearMouth = new app.Sticker($elem, 'face-bear-mouth');
+  this.stickerFaceCarrotNose = new app.Sticker($elem, 'face-carrot-nose');
+  this.stickerFaceEyesGlasses2 = new app.Sticker($elem, 'face-eyes-glasses2');
+  this.stickerFaceEyesGlasses3 = new app.Sticker($elem, 'face-eyes-glasses3');
+  this.stickerFaceEyesGlasses4 = new app.Sticker($elem, 'face-eyes-glasses4');
+  this.stickerFaceEyesGlasses5 = new app.Sticker($elem, 'face-eyes-glasses5');
+  this.stickerFaceEyesNormal = new app.Sticker($elem, 'face-eyes-normal');
+  this.stickerFaceEyesSunglasses1 = new app.Sticker($elem, 'face-eyes-sunglasses1');
+  this.stickerFaceEyesSunglasses2 = new app.Sticker($elem, 'face-eyes-sunglasses2');
+  this.stickerFaceEyesSunglasses3 = new app.Sticker($elem, 'face-eyes-sunglasses3');
+  this.stickerFaceEyesSunglasses4 = new app.Sticker($elem, 'face-eyes-sunglasses4');
+  this.stickerFaceMoustache = new app.Sticker($elem, 'face-moustache');
+  this.stickerFaceMouthWhite = new app.Sticker($elem, 'face-mouth-white');
+  this.stickerFaceNosePink = new app.Sticker($elem, 'face-nose-pink');
+  this.stickerFaceNoseRed = new app.Sticker($elem, 'face-nose-red');
+  this.stickerFaceSantaBeard = new app.Sticker($elem, 'face-santa-beard');
+  this.stickerFaceTeeth = new app.Sticker($elem, 'face-teeth');
+  this.stickerFaceWalrusMouth = new app.Sticker($elem, 'face-walrus-mouth');
+  this.stickerHatAntlersBlue = new app.Sticker($elem, 'hat-antlers-blue');
+  this.stickerHatAntlersBrown = new app.Sticker($elem, 'hat-antlers-brown');
+  this.stickerHatBeanie = new app.Sticker($elem, 'hat-beanie');
+  this.stickerHatGreen = new app.Sticker($elem, 'hat-green');
+  this.stickerHatOrange = new app.Sticker($elem, 'hat-orange');
+  this.stickerHatPink = new app.Sticker($elem, 'hat-pink');
+  this.stickerHatPurple = new app.Sticker($elem, 'hat-purple');
+  this.stickerHatSanta = new app.Sticker($elem, 'hat-santa');
+  this.stickerHatYellow = new app.Sticker($elem, 'hat-yellow');
+  this.stickerHeadBear = new app.Sticker($elem, 'head-bear');
+  this.stickerHeadElfHair1 = new app.Sticker($elem, 'head-elf-hair1');
+  this.stickerHeadElfHair2 = new app.Sticker($elem, 'head-elf-hair2');
+  this.stickerHeadElfHair3 = new app.Sticker($elem, 'head-elf-hair3');
+  this.stickerHeadElfHair4 = new app.Sticker($elem, 'head-elf-hair4');
+  this.stickerHeadElfHair5 = new app.Sticker($elem, 'head-elf-hair5');
+  this.stickerHeadElfHair6 = new app.Sticker($elem, 'head-elf-hair6');
+  this.stickerHeadElfHair7 = new app.Sticker($elem, 'head-elf-hair7');
+  this.stickerHeadElfHair8 = new app.Sticker($elem, 'head-elf-hair8');
+  this.stickerHeadElfHair9 = new app.Sticker($elem, 'head-elf-hair9');
+  this.stickerHeadElfHair10 = new app.Sticker($elem, 'head-elf-hair10');
+  this.stickerHeadReindeer = new app.Sticker($elem, 'head-reindeer');
 
 
   this.tools = [
@@ -551,7 +595,51 @@ app.Tools = function(game, $elem) {
     this.stickerShark,
     this.stickerSnowmanBigPenguin,
     this.stickerSnowmanBigTub,
-    this.stickerWalrus
+    this.stickerWalrus,
+    this.stickerElfHead1,
+    this.stickerElfHead2,
+    this.stickerElfHead3,
+    this.stickerElfHead4,
+    this.stickerElfHead5,
+    this.stickerFaceBearMouth,
+    this.stickerFaceCarrotNose,
+    this.stickerFaceEyesGlasses2,
+    this.stickerFaceEyesGlasses3,
+    this.stickerFaceEyesGlasses4,
+    this.stickerFaceEyesGlasses5,
+    this.stickerFaceEyesNormal,
+    this.stickerFaceEyesSunglasses1,
+    this.stickerFaceEyesSunglasses2,
+    this.stickerFaceEyesSunglasses3,
+    this.stickerFaceEyesSunglasses4,
+    this.stickerFaceMoustache,
+    this.stickerFaceMouthWhite,
+    this.stickerFaceNosePink,
+    this.stickerFaceNoseRed,
+    this.stickerFaceSantaBeard,
+    this.stickerFaceTeeth,
+    this.stickerFaceWalrusMouth,
+    this.stickerHatAntlersBlue,
+    this.stickerHatAntlersBrown,
+    this.stickerHatBeanie,
+    this.stickerHatGreen,
+    this.stickerHatOrange,
+    this.stickerHatPink,
+    this.stickerHatPurple,
+    this.stickerHatSanta,
+    this.stickerHatYellow,
+    this.stickerHeadBear,
+    this.stickerHeadElfHair1,
+    this.stickerHeadElfHair2,
+    this.stickerHeadElfHair3,
+    this.stickerHeadElfHair4,
+    this.stickerHeadElfHair5,
+    this.stickerHeadElfHair6,
+    this.stickerHeadElfHair7,
+    this.stickerHeadElfHair8,
+    this.stickerHeadElfHair9,
+    this.stickerHeadElfHair10,
+    this.stickerHeadReindeer
   ];
 };
 
