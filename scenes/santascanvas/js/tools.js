@@ -286,6 +286,7 @@ app.Tools = function(game, $elem) {
   this.stickerHouse = new app.Sticker($elem, 'house');
   this.stickerSantaSleigh = new app.Sticker($elem, 'santa-sleigh');
   this.stickerSchoolBus = new app.Sticker($elem, 'school-bus');
+  this.stickerVillageHouses = new app.Sticker($elem, 'village-houses');
   this.stickerCandies = new app.Sticker($elem, 'candies');
   this.stickerCandycaneGreens = new app.Sticker($elem, 'candycane-greens');
   this.stickerCandycaneHoliday = new app.Sticker($elem, 'candycane-holiday');
@@ -502,6 +503,7 @@ app.Tools = function(game, $elem) {
     this.stickerHouse,
     this.stickerSantaSleigh,
     this.stickerSchoolBus,
+    this.stickerVillageHouses,
     this.stickerCandies,
     this.stickerCandycaneGreens,
     this.stickerCandycaneHoliday,
