@@ -176,6 +176,7 @@ app.GameController.prototype.startNewGameWithChallenge = function(challenge, opt
 
   this.resetGameRounds();
   this.scoreboard.reset();
+  this.scoreboard.score = undefined;
 
   this.level = 1;
   this.completedLevels = 0;
