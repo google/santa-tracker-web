@@ -784,7 +784,9 @@ app.Tools.prototype.onSnowButtonOver_ = function(e) {
 app.Tools.prototype.onCategoryToolsOver_ = function(e) {
   var toolPicker = $(e.target).closest('[data-tool]');
   var toolName = toolPicker.attr('data-tool');
-  window.santaApp.fire('sound-trigger', 'cd_' + toolName + '_over');
+  var index = $(e.target).index();
+
+  window.santaApp.fire('sound-trigger', { name: 'cd_tool_over', args: [index] });
 };
 
 app.Tools.prototype.onResize = function() {

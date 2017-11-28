@@ -114,6 +114,7 @@ app.utils = function() {
 
     triggerStop: function(event) {
       if (audioProxy[event]) {
+        window.santaApp.fire('sound-trigger', 'cd_stop_all_drawing');
         window.santaApp.fire('sound-trigger', this.cleanNameForKlang(event) + '_stop');
         audioProxy[event] = false;
       }
