@@ -254,6 +254,25 @@ app.Tools = function(game, $elem) {
   this.stickerHouse = new app.Sticker($elem, 'house');
   this.stickerSantaSleigh = new app.Sticker($elem, 'santa-sleigh');
   this.stickerSchoolBus = new app.Sticker($elem, 'school-bus');
+  this.stickerCandycaneGreens = new app.Sticker($elem, 'candycane-greens');
+  this.stickerCandycaneHoliday = new app.Sticker($elem, 'candycane-holiday');
+  this.stickerCandycaneRed = new app.Sticker($elem, 'candycane-red');
+  this.stickerCandycaneReds = new app.Sticker($elem, 'candycane-reds');
+  this.stickerCandycaneTropical = new app.Sticker($elem, 'candycane-tropical');
+  this.stickerCandycornHoliday = new app.Sticker($elem, 'candycorn-holiday');
+  this.stickerChocolateGumdrop = new app.Sticker($elem, 'chocolate-gumdrop');
+  this.stickerChocolateNuts = new app.Sticker($elem, 'chocolate-nuts');
+  this.stickerChocolatePretzel = new app.Sticker($elem, 'chocolate-pretzel');
+  this.stickerChocolateSquiggle = new app.Sticker($elem, 'chocolate-squiggle');
+  this.stickerChocolateStripes = new app.Sticker($elem, 'chocolate-stripes');
+  this.stickerChocolateSwirl = new app.Sticker($elem, 'chocolate-swirl');
+  this.stickerCookieKiss = new app.Sticker($elem, 'cookie-kiss');
+  this.stickerCookieSnowman = new app.Sticker($elem, 'cookie-snowman');
+  this.stickerCookieStocking = new app.Sticker($elem, 'cookie-stocking');
+  this.stickerCookieTree = new app.Sticker($elem, 'cookie-tree');
+  this.stickerMilk = new app.Sticker($elem, 'milk');
+  this.stickerMugGreen = new app.Sticker($elem, 'mug-green');
+  this.stickerMugRed = new app.Sticker($elem, 'mug-red');
 
 
   this.tools = [
@@ -389,7 +408,26 @@ app.Tools = function(game, $elem) {
     this.stickerElfCar,
     this.stickerHouse,
     this.stickerSantaSleigh,
-    this.stickerSchoolBus
+    this.stickerSchoolBus,
+    this.stickerCandycaneGreens,
+    this.stickerCandycaneHoliday,
+    this.stickerCandycaneRed,
+    this.stickerCandycaneReds,
+    this.stickerCandycaneTropical,
+    this.stickerCandycornHoliday,
+    this.stickerChocolateGumdrop,
+    this.stickerChocolateNuts,
+    this.stickerChocolatePretzel,
+    this.stickerChocolateSquiggle,
+    this.stickerChocolateStripes,
+    this.stickerChocolateSwirl,
+    this.stickerCookieKiss,
+    this.stickerCookieSnowman,
+    this.stickerCookieStocking,
+    this.stickerCookieTree,
+    this.stickerMilk,
+    this.stickerMugGreen,
+    this.stickerMugRed
   ];
 };
 
