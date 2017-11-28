@@ -28,6 +28,10 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
       background-position: center 20%;
       background-repeat: no-repeat;
       background-size: 100%;
+
+      @media (max-width: 800px) {
+        padding: 10px 30px;
+      }
     }
   }
 
