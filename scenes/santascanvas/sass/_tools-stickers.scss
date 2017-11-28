@@ -9,21 +9,8 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
 ##{$name} {
   // MOBILE CURRENT TOOL
   .Tools-display[data-current-category="sticker"] {
-    pointer-events: auto;
-
-    .Tools-display-outer {
-      background-color: #A341B7;
-      border-radius: 0;
-      height: 100%;
-      margin: 0 auto;
-      width: 100%;
-    }
-
     .Tools-display-inner {
-      border-radius: 0;
-      height: 80%;
-      margin: 10%;
-      width: 80%;
+      background-image: url(img/tools/tool_sticker.svg);
     }
 
     @each $current-sticker in $sticker-animals {

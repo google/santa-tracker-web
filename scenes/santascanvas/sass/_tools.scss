@@ -67,14 +67,30 @@
     top: 0;
     width: 100%;
 
-    &[data-current-category="sticker"] {
-      background: #A341B7;
+    &[data-current-category="eraser"],
+    &[data-current-category="scene"],
+    &[data-current-category="sticker"], {
+      pointer-events: auto;
 
       .Tools-display-outer {
+        background-color: #A341B7;
         border-radius: 0;
         height: 100%;
         margin: 0 auto;
         width: 100%;
+      }
+
+      .Tools-display-inner {
+        border-radius: 0;
+        height: 80%;
+        margin: 10%;
+        width: 80%;
+      }
+    }
+
+    &[data-current-category="eraser"] {
+      .Tools-display-inner {
+        background-image: url(img/tools/tool_eraser.svg);
       }
     }
 
@@ -128,7 +144,7 @@
       top: 44px;
 
       .Tool {
-        border-bottom: 2px solid #eee;
+        border-bottom: 1px solid #eee;
         flex: 0 0 33%;
         // height: 15vh;
         height: 100px;

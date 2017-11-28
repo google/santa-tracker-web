@@ -1,6 +1,14 @@
 $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night", "snow", "underwater";
 
 ##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="scene"] {
+    .Tools-display-inner {
+      background-image: url(img/tools/tool_scene.svg);
+      background-size: cover;
+    }
+  }
+
   // TOOLBAR
   [data-tool-category="scene"] {
     .Tool {
