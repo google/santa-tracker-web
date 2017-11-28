@@ -624,10 +624,10 @@ app.Tools.prototype.onNavClick_ = function(e) {
 
 
 app.Tools.prototype.onResize = function() {
-  var outerWidth = this.secondaryMenu[0].getBoundingClientRect().width;
-
   this.categoryMenuNavs.each(function() {
     var menu = $(this).closest('[data-tool-category-tray]');
+    var outerWidth = menu[0].getBoundingClientRect().width;
+
     if (menu[0] && menu[0].scrollWidth > outerWidth) {
       $(this).addClass('is-active');
     } else {
