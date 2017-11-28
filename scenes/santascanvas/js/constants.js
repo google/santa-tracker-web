@@ -32,7 +32,7 @@ app.Constants = {
   ROTATE_ANGLE: 45,
 
   PEN_MIN: 5,
-  PEN_MAX: 50,
+  PEN_MAX: 125,
   PENCIL_MIN: 5,
   PENCIL_MAX: 10,
   ERASER_MIN: 10,
@@ -51,7 +51,7 @@ app.Constants = {
   SPRAY_SNOW_MAX_SIZE: 5,
   SPRAY_SNOW_MIN_OPACITY: 0.8,
   TINSEL_MIN: 0.1,
-  TINSEL_MAX: 0.2,
+  TINSEL_MAX: 0.4,
   FROSTING_MIN: 0.05,
   FROSTING_MAX: 0.2,
   NEON_MIN: 5,
