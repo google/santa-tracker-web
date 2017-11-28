@@ -420,6 +420,10 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 
       if (app.shared.utils.touchEnabled && insideCanvas && !startedOnSlider) {
         this.game_.sceneElem.addClass('ui-hidden');
+
+        if (this.game_.colorpicker.isPopupOpen()) {
+          this.game_.colorpicker.togglePopup();
+        }
       }
 
       if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
