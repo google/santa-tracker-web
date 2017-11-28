@@ -236,6 +236,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 90px;
+    max-height: 750px;
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 15px;
@@ -442,7 +443,7 @@
     cursor: pointer;
     flex: 1;
     margin: 0 auto;
-    min-height: 65px;
+    min-height: 45px;
     position: relative;
     width: 75px;
 
@@ -502,6 +503,8 @@
     }
 
     &--snow {
+      min-height: auto;
+
       .Button {
         margin: 0 auto;
       }
@@ -532,6 +535,8 @@
     &--spray {
       .Category-inner {
         background: url(img/tools/spray/tool_spray_color.svg) center / contain no-repeat;
+        height: 55%;
+        width: 55%;
       }
     }
 
