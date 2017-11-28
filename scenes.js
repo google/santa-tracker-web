@@ -44,8 +44,8 @@ module.exports = {
     msgid: 'scene_callfromsanta',
     entryPoint: 'app.Scene'
   },
-  clausdraws: {
-    msgid: 'scene_clausdraws',
+  santascanvas: {
+    msgid: 'scene_canvas',
   },
   citylights: {
     msgid: 'scene_citylights',
