@@ -40,6 +40,9 @@
       height: 225px;
       position: relative;
       width: 300px;
+      max-width: 20vw;
+      max-height: 15vw;
+      overflow: hidden;
 
       @media (max-width: 767px) {
         height: 0;

@@ -117,8 +117,16 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
     $sublineElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-subline-guess', 'roundsRecognized', roundsRecognized));
   }
 
+  // GET WIDHT AND HEIGHT
+  var modelElem = $('<div>')
+  .addClass('timesup-card__drawing');
+  $drawingsWrapper.append(modelElem);
+  var modelWidth = modelElem.width();
+  var modelHeight = modelElem.height();
+  modelElem.remove();
+
   rounds.forEach(function(round) {
-    $drawingsWrapper.append(this.createDrawingElem(round));
+    $drawingsWrapper.append(this.createDrawingElem(round, modelWidth, modelHeight));
   }.bind(this));
 
   this.timesup_card
@@ -133,7 +141,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
 };
 
 
-app.view.CardsView.prototype.createDrawingElem = function(round) {
+app.view.CardsView.prototype.createDrawingElem = function(round, width, height) {
   var drawingElem = $('<div>')
     .addClass('timesup-card__drawing');
 
@@ -143,7 +151,7 @@ app.view.CardsView.prototype.createDrawingElem = function(round) {
     drawingElem.addClass('timesup-card__drawing--not-recognized');
   }
 
-  var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, 300, 225, {padding: 10});
+  var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, width, height, {padding: 10});
   drawingElem.append(svgElem);
 
   drawingElem.on('touchend mouseup', function() {
