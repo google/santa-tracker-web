@@ -200,7 +200,6 @@ app.Tools = function(game, $elem) {
   this.stickerRudolphFront = new app.Sticker($elem, 'rudolph-front');
   this.stickerRudolphSide = new app.Sticker($elem, 'rudolph-side');
   this.stickerSantaSled = new app.Sticker($elem, 'santa-sled');
-  this.stickerSantaWave = new app.Sticker($elem, 'santa-wave');
   this.stickerSnowMonster = new app.Sticker($elem, 'snow-monster');
   this.stickerSnowmanBigOrange = new app.Sticker($elem, 'snowman-big-orange');
   this.stickerCloud1 = new app.Sticker($elem, 'cloud1');
@@ -242,7 +241,42 @@ app.Tools = function(game, $elem) {
   this.stickerWindow = new app.Sticker($elem, 'window');
   this.stickerWreath = new app.Sticker($elem, 'wreath');
   this.stickerElf1 = new app.Sticker($elem, 'elf1');
+  this.stickerElf2 = new app.Sticker($elem, 'elf2');
+  this.stickerElf3 = new app.Sticker($elem, 'elf3');
+  this.stickerElf4 = new app.Sticker($elem, 'elf4');
+  this.stickerElf5 = new app.Sticker($elem, 'elf5');
+  this.stickerElf6 = new app.Sticker($elem, 'elf6');
   this.stickerElf7 = new app.Sticker($elem, 'elf7');
+  this.stickerElf8 = new app.Sticker($elem, 'elf8');
+  this.stickerElf9 = new app.Sticker($elem, 'elf9');
+  this.stickerElf10 = new app.Sticker($elem, 'elf10');
+  this.stickerElf11 = new app.Sticker($elem, 'elf11');
+  this.stickerElf12 = new app.Sticker($elem, 'elf12');
+  this.stickerElf13 = new app.Sticker($elem, 'elf13');
+  this.stickerElf14 = new app.Sticker($elem, 'elf14');
+  this.stickerElf15 = new app.Sticker($elem, 'elf15');
+  this.stickerElf16 = new app.Sticker($elem, 'elf16');
+  this.stickerElf17 = new app.Sticker($elem, 'elf17');
+  this.stickerElf18 = new app.Sticker($elem, 'elf18');
+  this.stickerElf19 = new app.Sticker($elem, 'elf19');
+  this.stickerElf20 = new app.Sticker($elem, 'elf20');
+  this.stickerElf21 = new app.Sticker($elem, 'elf21');
+  this.stickerElf22 = new app.Sticker($elem, 'elf22');
+  this.stickerElf23 = new app.Sticker($elem, 'elf23');
+  this.stickerElf24 = new app.Sticker($elem, 'elf24');
+  this.stickerElf25 = new app.Sticker($elem, 'elf25');
+  this.stickerElf26 = new app.Sticker($elem, 'elf26');
+  this.stickerElf27 = new app.Sticker($elem, 'elf27');
+  this.stickerElf28 = new app.Sticker($elem, 'elf28');
+  this.stickerElf29 = new app.Sticker($elem, 'elf29');
+  this.stickerElfDuckFloat = new app.Sticker($elem, 'elf-duck-float');
+  this.stickerElfJamGuitar = new app.Sticker($elem, 'elf-jam-guitar');
+  this.stickerElfJamSing = new app.Sticker($elem, 'elf-jam-sing');
+  this.stickerElfMermaid = new app.Sticker($elem, 'elf-mermaid');
+  this.stickerElfMerman = new app.Sticker($elem, 'elf-merman');
+  this.stickerElfScuba1 = new app.Sticker($elem, 'elf-scuba1');
+  this.stickerElfScuba2 = new app.Sticker($elem, 'elf-scuba2');
+  this.stickerElfSeesaw = new app.Sticker($elem, 'elf-seesaw');
   this.stickerCandycaneGreen = new app.Sticker($elem, 'candycane-green');
   this.stickerCookieChocChip = new app.Sticker($elem, 'cookie-choc-chip');
   this.stickerCookieMan = new app.Sticker($elem, 'cookie-man');
@@ -273,6 +307,8 @@ app.Tools = function(game, $elem) {
   this.stickerMilk = new app.Sticker($elem, 'milk');
   this.stickerMugGreen = new app.Sticker($elem, 'mug-green');
   this.stickerMugRed = new app.Sticker($elem, 'mug-red');
+  this.stickerSantaDance = new app.Sticker($elem, 'santa-dance');
+  this.stickerSantaSleep = new app.Sticker($elem, 'santa-sleep');
 
 
   this.tools = [
@@ -351,7 +387,6 @@ app.Tools = function(game, $elem) {
     this.stickerRudolphFront,
     this.stickerRudolphSide,
     this.stickerSantaSled,
-    this.stickerSantaWave,
     this.stickerSanta,
     this.stickerSnowMonster,
     this.stickerSnowmanBigOrange,
@@ -397,7 +432,42 @@ app.Tools = function(game, $elem) {
     this.stickerWindow,
     this.stickerWreath,
     this.stickerElf1,
+    this.stickerElf2,
+    this.stickerElf3,
+    this.stickerElf4,
+    this.stickerElf5,
+    this.stickerElf6,
     this.stickerElf7,
+    this.stickerElf8,
+    this.stickerElf9,
+    this.stickerElf10,
+    this.stickerElf11,
+    this.stickerElf12,
+    this.stickerElf13,
+    this.stickerElf14,
+    this.stickerElf15,
+    this.stickerElf16,
+    this.stickerElf17,
+    this.stickerElf18,
+    this.stickerElf19,
+    this.stickerElf20,
+    this.stickerElf21,
+    this.stickerElf22,
+    this.stickerElf23,
+    this.stickerElf24,
+    this.stickerElf25,
+    this.stickerElf26,
+    this.stickerElf27,
+    this.stickerElf28,
+    this.stickerElf29,
+    this.stickerElfDuckFloat,
+    this.stickerElfJamGuitar,
+    this.stickerElfJamSing,
+    this.stickerElfMermaid,
+    this.stickerElfMerman,
+    this.stickerElfScuba1,
+    this.stickerElfScuba2,
+    this.stickerElfSeesaw,
     this.stickerCandycaneGreen,
     this.stickerCookieChocChip,
     this.stickerCookieMan,
@@ -427,7 +497,9 @@ app.Tools = function(game, $elem) {
     this.stickerCookieTree,
     this.stickerMilk,
     this.stickerMugGreen,
-    this.stickerMugRed
+    this.stickerMugRed,
+    this.stickerSantaDance,
+    this.stickerSantaSleep
   ];
 };
 
