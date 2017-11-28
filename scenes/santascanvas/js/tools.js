@@ -250,6 +250,10 @@ app.Tools = function(game, $elem) {
   this.stickerFaceMouthBlack = new app.Sticker($elem, 'face-mouth-black');
   this.stickerHatBlue = new app.Sticker($elem, 'hat-blue');
   this.stickerHeadElfHair2 = new app.Sticker($elem, 'head-elf-hair2');
+  this.stickerElfCar = new app.Sticker($elem, 'elf-car');
+  this.stickerHouse = new app.Sticker($elem, 'house');
+  this.stickerSantaSleigh = new app.Sticker($elem, 'santa-sleigh');
+  this.stickerSchoolBus = new app.Sticker($elem, 'school-bus');
 
 
   this.tools = [
@@ -381,7 +385,11 @@ app.Tools = function(game, $elem) {
     this.stickerFaceEyesGlasses1,
     this.stickerFaceMouthBlack,
     this.stickerHatBlue,
-    this.stickerHeadElfHair2
+    this.stickerHeadElfHair2,
+    this.stickerElfCar,
+    this.stickerHouse,
+    this.stickerSantaSleigh,
+    this.stickerSchoolBus
   ];
 };
 
