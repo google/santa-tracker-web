@@ -114,3 +114,17 @@ $idx-dateY: 5;
   }
 }
 
+#links {
+  @for $i from 1 through length($houses) {
+    $house: nth($houses, $i);
+    $id: nth($house, $idx-id);
+
+    .link[house="#{$id}"] {
+      --release-order: (-$i);
+
+      .card::before {
+        background-image: url(../../images/scenes/#{$id}_2x.png);;
+      }
+    }
+  }
+}

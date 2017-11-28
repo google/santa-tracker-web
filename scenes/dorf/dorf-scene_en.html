@@ -61,41 +61,47 @@ Santa's Village.
 
   <iron-media-query query="(min-width: 768px)" query-matches="{{_isSceneVillage}}"></iron-media-query>
 
-  <div id="village-all">
-    <div id="ground"></div>
-    <div id="road"></div>
-    <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
-      <!-- The 'New Today' house exists in the regular grid -->
-      <div class="cell new-today">
-        <div id="house-new-today">
-          <a class="link" href$="[[urlFor(todayHouse)]]"
-              hidden$="[[!todayHouse]]"
-              on-click="_onClickNewTodayHouse">
-            <div class="new-today" house$="[[todayHouse]]">
-              <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_string('scene', todayHouse, strings)]]</h3>
-            </div>
-          </a>
+  <div id="links">
+    <template is="dom-repeat" items="[[houses]]">
+      <a class="link"
+          href$="[[_calculateHref(item, item.locked)]]"
+          house$="[[item.module]]"
+          style$="[[_computeLinkStyle(item.module)]]">
+        <div class="card">
+          <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
+          <h4>[[_string('category', item.category, strings)]]</h4>
+          <h3>[[_string('scene', item.module, strings)]]</h3>
         </div>
-      </div>
-      <template is="dom-repeat" items="[[houses]]">
+      </a>
+    </template>
+  </div>
 
-        <div class="cell">
-          <village-house house="[[item.module]]"
-              opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
-              locked="[[item.locked]]">
-            <a class="link" href$="[[_calculateHref(item, item.locked)]]">
-              <div class="card">
-                <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
-                <h4>[[_string('category', item.category, strings)]]</h4>
-                <h3>[[_string('scene', item.module, strings)]]</h3>
+  <template is="dom-if" if="[[_isSceneVillage]]" restamp>
+    <div id="village-all">
+      <div id="ground"></div>
+      <div id="road"></div>
+      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
+        <!-- The 'New Today' house exists in the regular grid -->
+        <div class="cell new-today">
+          <div id="house-new-today">
+            <a class="link" href$="[[urlFor(todayHouse)]]"
+                hidden$="[[!todayHouse]]"
+                on-click="_onClickNewTodayHouse">
+              <div class="new-today" house$="[[todayHouse]]">
+                <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>[[_string('scene', todayHouse, strings)]]</h3>
               </div>
             </a>
-          </village-house>
+          </div>
         </div>
-      </template>
-    </div>
-    <template is="dom-if" if="[[_isSceneVillage]]" restamp>
+        <template is="dom-repeat" items="[[houses]]">
+          <div class="cell">
+            <village-house house="[[item.module]]"
+                opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
+                locked="[[item.locked]]"></village-house>
+          </div>
+        </template>
+      </div>
       <div id="eastereggs">
         <template is="dom-repeat" items="[[easterEggs]]">
           <div id$="easteregg-[[item]]"></div>
@@ -162,8 +168,8 @@ Santa's Village.
         <effect-tictactoe id="easteregg-tictactoe"></effect-tictactoe>
         <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
       </div>
-    </template>
-  </div>
+    </div>
+  </template>
 
   <footer class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
     <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
@@ -260,30 +266,6 @@ Santa's Village.
         return null;
       }
       return house.link || this.urlFor(house.module);
-    },
-
-    /**
-     * Calculates any optional classes to apply on the `.house` div.
-     */
-    _calculateHouseClass: function(house, locked, todayHouse) {
-      var out = '';
-      if (locked) {
-        out += ' iced';
-      }
-      if (todayHouse === house.module) {
-        out += ' new-today';
-      }
-      return out;
-    },
-
-    /**
-     * Places the most recently opened cells at the top, for mobile only.
-     */
-    _computeCellStyle: function(date, hideDate, locked) {
-      if (hideDate || locked || !date) {
-        return '';
-      }
-      return '--release-order: ' + -date.getDate();
     },
 
     /**
@@ -408,6 +390,18 @@ Santa's Village.
 
     _onClickNewTodayHouse: function() {
       window.ga('send', 'event', 'village', 'click', 'newtoday');
+    },
+
+    /**
+     * Computes the `--scene-color` CSS variable for the link, for its implicit color.
+     */
+    _computeLinkStyle: function(id) {
+      // TODO(samthor): Remove `window.santaApp` refs and instead include this in the CSS.
+      const color = window.santaApp.colorForRoute(id);
+      if (color) {
+        return `--scene-color: ${color}`;
+      }
+      return null;
     },
 
     /** NOTE: easteregg code only below this point */

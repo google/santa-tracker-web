@@ -343,7 +343,7 @@ footer {
 
   &::before {
     content: '';
-    z-index: -1;
+    z-index: -2;
     position: absolute;
     display: block;
     top: 0;
@@ -355,27 +355,37 @@ footer {
     // nb. using a var(--...) here causes Chrome to redraw every frame because _maybe_ it changed
     // look in _houses.scss for the background-image: ...
   }
+
+  &::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    background: var(--scene-color, #00c6ed);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.75;
+  }
 }
 
-// # Cell
+// # Link
 
-.cell {
+#links {
+  display: flex;
+  align-content: flex-start;
+  flex-flow: wrap;
+}
+
+.link {
   position: relative;
   color: #fff;
-
-  &.new-today {
-    z-index: 1;
-  }
 
   @media (max-width: $width-tablet - 1px) {
     width: 50%;
     min-height: 204px;
     flex-grow: 1;
-    order: var(--release-order, 0);
 
-    &.new-today {
-      display: none !important;
-    }
     h4 {
       display: none;
     }
@@ -388,24 +398,36 @@ footer {
       text-shadow: none;
     }
 
-    .card::after {
-      content: '';
-      width: 42px;
-      height: 42px;
-      display: inline-block;
-      margin: 0 auto;
-      background: url(img/lock.svg) no-repeat center;
-      background-size: contain;
-      display: block;
+    &:not([href]) {
+      .launchdate::after {
+        content: '';
+        width: 42px;
+        height: 42px;
+        margin: 0 auto;
+        background: url(img/lock.svg) no-repeat center;
+        background-size: contain;
+        display: block;
+      }
     }
 
-    village-house:not([locked]) .card::after {
-      display: none;
+    .card {
+      z-index: 0;
     }
-    village-house[locked] {
+
+    &[href] {
+      // order in reverse order, if released
+      order: var(--release-order, 0);
+
+      .card {
+        &::after {
+          z-index: -3;  // move below bg, as an indicative color during card load
+          opacity: 1;
+        }
+      }
+    }
+    &:not([href]) {
       .card {
         justify-content: center;
-        background-color: var(--scene-lock-color, rgba(44, 44, 44, 0.4));
       }
       h3 { 
         display: none;
@@ -427,8 +449,6 @@ footer {
 
     width: $dim-house * $tablet-desktop-ratio;
     height: $dim-house * $tablet-desktop-ratio;
-    --house-dim: 128px;
-    --house-scale: 0.6;
 
     village-house {
       position: absolute;
@@ -486,8 +506,6 @@ footer {
   @media (min-width: $width-desktop) {
     width: $dim-house;
     height: $dim-house;
-    --house-dim: 192px;
-    --house-scale: 1;
 
     .card {
       $dim: 282px;
