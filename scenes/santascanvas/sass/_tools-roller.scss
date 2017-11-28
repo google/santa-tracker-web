@@ -55,4 +55,31 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
       }
     }
   }
+
+  // HOVER
+  [data-tool-hover-category="roller"] {
+    .Tool-hover-minitool {
+      height: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(100%, -100%) rotate(-135deg);
+      width: 100px;
+    }
+
+    .Tool-hover-minitool--default {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @each $current-roller in $roller-names {
+    [data-tool-hover-tool="roller-#{$current-roller}"] {
+      .Tool-hover-minitool--default {
+        background-image: url(img/tools/roller/tool_roller_#{$current-roller}.svg);
+        display: block;
+      }
+    }
+  }
 }
