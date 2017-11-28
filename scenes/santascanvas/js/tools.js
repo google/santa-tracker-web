@@ -66,10 +66,12 @@ app.Tools = function(game, $elem) {
   this.mobileEdit = this.tertiaryMenuMobile.find('.Tools-edit');
   this.mobileRotate = this.tertiaryMenuMobile.find('.Tools-rotator');
   this.mobileSlider = this.tertiaryMenuMobile.find('.Tools-slider');
+  this.mobileEraser = this.tertiaryMenuMobile.find('[data-tool="eraser-mobile"]');
 
   this.categoryPickers.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
+  this.mobileEraser.on('touchend.santascanvas', this.onCategoryClick_.bind(this));
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
@@ -152,6 +154,7 @@ app.Tools = function(game, $elem) {
   this.sceneSnow = new app.LayerTool($elem, 'snow', app.LayerTool.Layer.BACKGROUND);
   this.sceneUnderwater = new app.LayerTool($elem, 'underwater', app.LayerTool.Layer.BACKGROUND);
   this.eraser = new app.Eraser($elem, 'eraser');
+  this.eraserMobile = new app.Eraser($elem, 'eraser-mobile');
   this.shapeCircle = new app.Shape($elem, 'circle');
   this.shapeDiamond = new app.Shape($elem, 'diamond');
   this.shapeHeart = new app.Shape($elem, 'heart');
@@ -413,6 +416,7 @@ app.Tools = function(game, $elem) {
     this.sceneSnow,
     this.sceneUnderwater,
     this.eraser,
+    this.eraserMobile,
     this.shapeCircle,
     this.shapeDiamond,
     this.shapeHeart,
