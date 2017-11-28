@@ -27,7 +27,7 @@
       "snowmobile3"     0     0     665   895    ($house-row-3-z-index),
       "snowmobile4"     0     0     220   1950   ($house-row-7-z-index - 1),
       "unicycle"        21    57    310   500    ($house-row-2-z-index + 40),
-      "wrangler"        182   88    700   2250   ($house-row-7-z-index + 150),
+      "wrangler"        0     0     700   2250   ($house-row-7-z-index + 150),
   ;
 
   div {
@@ -43,7 +43,11 @@
 
     #easteregg-#{$id} {
       z-index: nth($row, $idx-z-index) - 1;
-      background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+
+      // only load background-image if the w/h is nonzero
+      @if nth($row, $idx-width) > 0 {
+        background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+      }
 
       // TODO(skarEE): The width/height of each image is expressed in the
       // original SVG size, so it needs to be multiplied by svg-ratio. This is
