@@ -30,7 +30,9 @@ app.LayerTool = function($elem, name, layer) {
   app.Tool.call(this, $elem, 'scene-' + name);
 
   this.soundKey = 'selfie_color';
-  this.image = $elem.find('#scene-' + name)[0];
+  if (name !== 'none') {
+    this.image = $elem.find('#scene-' + name)[0];
+  }
 
   if (layer == app.LayerTool.Layer.BACKGROUND) {
     this.canvas = $elem.find('#back-canvas')[0];
@@ -59,9 +61,13 @@ app.LayerTool.Layer = {
  * Draws this tool to the canvas.
  */
 app.LayerTool.prototype.draw = function() {
-  this.context.drawImage(this.image, 0, 0, this.canvas.width,
-      this.canvas.height);
-  this.backupContext.drawImage(this.image, 0, 0, this.backup.width,
-      this.backup.height);
+  if (this.image) {
+    this.context.drawImage(this.image, 0, 0, this.canvas.width,
+        this.canvas.height);
+    this.backupContext.drawImage(this.image, 0, 0, this.backup.width,
+        this.backup.height);
+  } else {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
   return true;
 };

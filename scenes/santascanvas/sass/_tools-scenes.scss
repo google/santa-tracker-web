@@ -20,6 +20,12 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
         width: 100%;
         z-index: -1;
       }
+
+      &[data-tool="scene-none"] {
+        &::before {
+          background: url(img/tools/tool_scene_none.svg) center 20% / 109% no-repeat;
+        }
+      }
     }
 
     @media (max-width: 800px) {

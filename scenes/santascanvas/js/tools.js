@@ -148,6 +148,7 @@ app.Tools = function(game, $elem) {
   this.sceneIceberg = new app.LayerTool($elem, 'iceberg', app.LayerTool.Layer.BACKGROUND);
   this.sceneLivingroom = new app.LayerTool($elem, 'livingroom', app.LayerTool.Layer.BACKGROUND);
   this.sceneNight = new app.LayerTool($elem, 'night', app.LayerTool.Layer.BACKGROUND);
+  this.sceneNone = new app.LayerTool($elem, 'none', app.LayerTool.Layer.BACKGROUND);
   this.sceneSnow = new app.LayerTool($elem, 'snow', app.LayerTool.Layer.BACKGROUND);
   this.sceneUnderwater = new app.LayerTool($elem, 'underwater', app.LayerTool.Layer.BACKGROUND);
   this.eraser = new app.Eraser($elem, 'eraser');
@@ -279,6 +280,7 @@ app.Tools = function(game, $elem) {
     this.sceneIceberg,
     this.sceneLivingroom,
     this.sceneNight,
+    this.sceneNone,
     this.sceneSnow,
     this.sceneUnderwater,
     this.eraser,
