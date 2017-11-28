@@ -67,13 +67,6 @@
     top: 0;
     width: 100%;
 
-    &[data-current-category="drawing"] {
-      .Tools-display-inner {
-        background-position: center -30%;
-        background-size: 40%;
-      }
-    }
-
     &[data-current-category="sticker"] {
       background: #A341B7;
 
@@ -130,14 +123,16 @@
       bottom: 75px;
       height: auto;
       left: 0;
-      top: 0;
+      position: fixed;
+      // top: 0;
+      top: 44px;
 
       .Tool {
         border-bottom: 2px solid #eee;
         flex: 0 0 33%;
         // height: 15vh;
         height: 100px;
-        margin-top: 30px;
+        margin: 15px 0;
         overflow: hidden;
         width: auto;
       }
@@ -234,6 +229,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 90px;
+    max-height: 750px;
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 15px;
@@ -248,26 +244,15 @@
   }
 
   .Tools-inner {
-    align-items: center;
     bottom: 0;
     display: flex;
     height: 100%;
     left: 0;
     opacity: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
     pointer-events: none;
     position: absolute;
     right: 0;
     top: 0;
-
-    &::after {
-      content: '';
-      display: inline-block;
-      flex: 0 0 50px;
-      height: 100%;
-      width: 50px;
-    }
 
     &.is-active {
       opacity: 1;
@@ -285,18 +270,8 @@
     }
 
     @media (max-width: 800px) {
-      // align-items: flex-start;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0 20px;
-
       .Tools-settings {
         display: none;
-      }
-
-      &::after {
-        content: none;
       }
     }
   }
@@ -317,6 +292,37 @@
       right: 0;
       top: 15px;
       width: 2px;
+    }
+  }
+
+  .Tools-tray {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      flex: 0 0 50px;
+      height: 100%;
+      width: 50px;
+    }
+
+    @media (max-width: 800px) {
+      // align-items: flex-start;
+      align-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 20px;
+      width: 100%;
+
+      &::after {
+        content: none;
+      }
     }
   }
 
@@ -344,7 +350,7 @@
     width: 85px;
 
     &::before {
-      background: linear-gradient(to left, #fff 30%, transparent);
+      background: linear-gradient(to left, #fff 30%, rgba(255, 255, 255, 0));
       content: '';
       height: 100%;
       position: absolute;
@@ -430,7 +436,7 @@
     cursor: pointer;
     flex: 1;
     margin: 0 auto;
-    min-height: 65px;
+    min-height: 45px;
     position: relative;
     width: 75px;
 
@@ -490,6 +496,8 @@
     }
 
     &--snow {
+      min-height: auto;
+
       .Button {
         margin: 0 auto;
       }
@@ -520,6 +528,8 @@
     &--spray {
       .Category-inner {
         background: url(img/tools/spray/tool_spray_color.svg) center / contain no-repeat;
+        height: 55%;
+        width: 55%;
       }
     }
 

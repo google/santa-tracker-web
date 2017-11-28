@@ -70,9 +70,11 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var image = app.ImageManager.getImage(this.imageName, color);
   var rad = this.currentAngle * Math.PI / 180;
 
+  context.save();
   context.translate(drawX, drawY);
   context.rotate(rad);
   context.drawImage(image, -offsetX, -offsetY, drawWidth, drawHeight);
+  context.restore();
   this.stamped = true;
 
   return true;

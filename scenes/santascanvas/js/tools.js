@@ -150,6 +150,7 @@ app.Tools = function(game, $elem) {
   this.sceneIceberg = new app.LayerTool($elem, 'iceberg', app.LayerTool.Layer.BACKGROUND);
   this.sceneLivingroom = new app.LayerTool($elem, 'livingroom', app.LayerTool.Layer.BACKGROUND);
   this.sceneNight = new app.LayerTool($elem, 'night', app.LayerTool.Layer.BACKGROUND);
+  this.sceneNone = new app.LayerTool($elem, 'none', app.LayerTool.Layer.BACKGROUND);
   this.sceneSnow = new app.LayerTool($elem, 'snow', app.LayerTool.Layer.BACKGROUND);
   this.sceneUnderwater = new app.LayerTool($elem, 'underwater', app.LayerTool.Layer.BACKGROUND);
   this.eraser = new app.Eraser($elem, 'eraser');
@@ -201,7 +202,6 @@ app.Tools = function(game, $elem) {
   this.stickerRudolphFront = new app.Sticker($elem, 'rudolph-front');
   this.stickerRudolphSide = new app.Sticker($elem, 'rudolph-side');
   this.stickerSantaSled = new app.Sticker($elem, 'santa-sled');
-  this.stickerSantaWave = new app.Sticker($elem, 'santa-wave');
   this.stickerSnowMonster = new app.Sticker($elem, 'snow-monster');
   this.stickerSnowmanBigOrange = new app.Sticker($elem, 'snowman-big-orange');
   this.stickerCloud1 = new app.Sticker($elem, 'cloud1');
@@ -243,7 +243,42 @@ app.Tools = function(game, $elem) {
   this.stickerWindow = new app.Sticker($elem, 'window');
   this.stickerWreath = new app.Sticker($elem, 'wreath');
   this.stickerElf1 = new app.Sticker($elem, 'elf1');
+  this.stickerElf2 = new app.Sticker($elem, 'elf2');
+  this.stickerElf3 = new app.Sticker($elem, 'elf3');
+  this.stickerElf4 = new app.Sticker($elem, 'elf4');
+  this.stickerElf5 = new app.Sticker($elem, 'elf5');
+  this.stickerElf6 = new app.Sticker($elem, 'elf6');
   this.stickerElf7 = new app.Sticker($elem, 'elf7');
+  this.stickerElf8 = new app.Sticker($elem, 'elf8');
+  this.stickerElf9 = new app.Sticker($elem, 'elf9');
+  this.stickerElf10 = new app.Sticker($elem, 'elf10');
+  this.stickerElf11 = new app.Sticker($elem, 'elf11');
+  this.stickerElf12 = new app.Sticker($elem, 'elf12');
+  this.stickerElf13 = new app.Sticker($elem, 'elf13');
+  this.stickerElf14 = new app.Sticker($elem, 'elf14');
+  this.stickerElf15 = new app.Sticker($elem, 'elf15');
+  this.stickerElf16 = new app.Sticker($elem, 'elf16');
+  this.stickerElf17 = new app.Sticker($elem, 'elf17');
+  this.stickerElf18 = new app.Sticker($elem, 'elf18');
+  this.stickerElf19 = new app.Sticker($elem, 'elf19');
+  this.stickerElf20 = new app.Sticker($elem, 'elf20');
+  this.stickerElf21 = new app.Sticker($elem, 'elf21');
+  this.stickerElf22 = new app.Sticker($elem, 'elf22');
+  this.stickerElf23 = new app.Sticker($elem, 'elf23');
+  this.stickerElf24 = new app.Sticker($elem, 'elf24');
+  this.stickerElf25 = new app.Sticker($elem, 'elf25');
+  this.stickerElf26 = new app.Sticker($elem, 'elf26');
+  this.stickerElf27 = new app.Sticker($elem, 'elf27');
+  this.stickerElf28 = new app.Sticker($elem, 'elf28');
+  this.stickerElf29 = new app.Sticker($elem, 'elf29');
+  this.stickerElfDuckFloat = new app.Sticker($elem, 'elf-duck-float');
+  this.stickerElfJamGuitar = new app.Sticker($elem, 'elf-jam-guitar');
+  this.stickerElfJamSing = new app.Sticker($elem, 'elf-jam-sing');
+  this.stickerElfMermaid = new app.Sticker($elem, 'elf-mermaid');
+  this.stickerElfMerman = new app.Sticker($elem, 'elf-merman');
+  this.stickerElfScuba1 = new app.Sticker($elem, 'elf-scuba1');
+  this.stickerElfScuba2 = new app.Sticker($elem, 'elf-scuba2');
+  this.stickerElfSeesaw = new app.Sticker($elem, 'elf-seesaw');
   this.stickerCandycaneGreen = new app.Sticker($elem, 'candycane-green');
   this.stickerCookieChocChip = new app.Sticker($elem, 'cookie-choc-chip');
   this.stickerCookieMan = new app.Sticker($elem, 'cookie-man');
@@ -251,6 +286,31 @@ app.Tools = function(game, $elem) {
   this.stickerFaceMouthBlack = new app.Sticker($elem, 'face-mouth-black');
   this.stickerHatBlue = new app.Sticker($elem, 'hat-blue');
   this.stickerHeadElfHair2 = new app.Sticker($elem, 'head-elf-hair2');
+  this.stickerElfCar = new app.Sticker($elem, 'elf-car');
+  this.stickerHouse = new app.Sticker($elem, 'house');
+  this.stickerSantaSleigh = new app.Sticker($elem, 'santa-sleigh');
+  this.stickerSchoolBus = new app.Sticker($elem, 'school-bus');
+  this.stickerCandycaneGreens = new app.Sticker($elem, 'candycane-greens');
+  this.stickerCandycaneHoliday = new app.Sticker($elem, 'candycane-holiday');
+  this.stickerCandycaneRed = new app.Sticker($elem, 'candycane-red');
+  this.stickerCandycaneReds = new app.Sticker($elem, 'candycane-reds');
+  this.stickerCandycaneTropical = new app.Sticker($elem, 'candycane-tropical');
+  this.stickerCandycornHoliday = new app.Sticker($elem, 'candycorn-holiday');
+  this.stickerChocolateGumdrop = new app.Sticker($elem, 'chocolate-gumdrop');
+  this.stickerChocolateNuts = new app.Sticker($elem, 'chocolate-nuts');
+  this.stickerChocolatePretzel = new app.Sticker($elem, 'chocolate-pretzel');
+  this.stickerChocolateSquiggle = new app.Sticker($elem, 'chocolate-squiggle');
+  this.stickerChocolateStripes = new app.Sticker($elem, 'chocolate-stripes');
+  this.stickerChocolateSwirl = new app.Sticker($elem, 'chocolate-swirl');
+  this.stickerCookieKiss = new app.Sticker($elem, 'cookie-kiss');
+  this.stickerCookieSnowman = new app.Sticker($elem, 'cookie-snowman');
+  this.stickerCookieStocking = new app.Sticker($elem, 'cookie-stocking');
+  this.stickerCookieTree = new app.Sticker($elem, 'cookie-tree');
+  this.stickerMilk = new app.Sticker($elem, 'milk');
+  this.stickerMugGreen = new app.Sticker($elem, 'mug-green');
+  this.stickerMugRed = new app.Sticker($elem, 'mug-red');
+  this.stickerSantaDance = new app.Sticker($elem, 'santa-dance');
+  this.stickerSantaSleep = new app.Sticker($elem, 'santa-sleep');
 
 
   this.tools = [
@@ -281,6 +341,7 @@ app.Tools = function(game, $elem) {
     this.sceneIceberg,
     this.sceneLivingroom,
     this.sceneNight,
+    this.sceneNone,
     this.sceneSnow,
     this.sceneUnderwater,
     this.eraser,
@@ -328,7 +389,6 @@ app.Tools = function(game, $elem) {
     this.stickerRudolphFront,
     this.stickerRudolphSide,
     this.stickerSantaSled,
-    this.stickerSantaWave,
     this.stickerSanta,
     this.stickerSnowMonster,
     this.stickerSnowmanBigOrange,
@@ -374,14 +434,74 @@ app.Tools = function(game, $elem) {
     this.stickerWindow,
     this.stickerWreath,
     this.stickerElf1,
+    this.stickerElf2,
+    this.stickerElf3,
+    this.stickerElf4,
+    this.stickerElf5,
+    this.stickerElf6,
     this.stickerElf7,
+    this.stickerElf8,
+    this.stickerElf9,
+    this.stickerElf10,
+    this.stickerElf11,
+    this.stickerElf12,
+    this.stickerElf13,
+    this.stickerElf14,
+    this.stickerElf15,
+    this.stickerElf16,
+    this.stickerElf17,
+    this.stickerElf18,
+    this.stickerElf19,
+    this.stickerElf20,
+    this.stickerElf21,
+    this.stickerElf22,
+    this.stickerElf23,
+    this.stickerElf24,
+    this.stickerElf25,
+    this.stickerElf26,
+    this.stickerElf27,
+    this.stickerElf28,
+    this.stickerElf29,
+    this.stickerElfDuckFloat,
+    this.stickerElfJamGuitar,
+    this.stickerElfJamSing,
+    this.stickerElfMermaid,
+    this.stickerElfMerman,
+    this.stickerElfScuba1,
+    this.stickerElfScuba2,
+    this.stickerElfSeesaw,
     this.stickerCandycaneGreen,
     this.stickerCookieChocChip,
     this.stickerCookieMan,
     this.stickerFaceEyesGlasses1,
     this.stickerFaceMouthBlack,
     this.stickerHatBlue,
-    this.stickerHeadElfHair2
+    this.stickerHeadElfHair2,
+    this.stickerElfCar,
+    this.stickerHouse,
+    this.stickerSantaSleigh,
+    this.stickerSchoolBus,
+    this.stickerCandycaneGreens,
+    this.stickerCandycaneHoliday,
+    this.stickerCandycaneRed,
+    this.stickerCandycaneReds,
+    this.stickerCandycaneTropical,
+    this.stickerCandycornHoliday,
+    this.stickerChocolateGumdrop,
+    this.stickerChocolateNuts,
+    this.stickerChocolatePretzel,
+    this.stickerChocolateSquiggle,
+    this.stickerChocolateStripes,
+    this.stickerChocolateSwirl,
+    this.stickerCookieKiss,
+    this.stickerCookieSnowman,
+    this.stickerCookieStocking,
+    this.stickerCookieTree,
+    this.stickerMilk,
+    this.stickerMugGreen,
+    this.stickerMugRed,
+    this.stickerSantaDance,
+    this.stickerSantaSleep
   ];
 };
 
@@ -411,12 +531,12 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     if (mouseCoords.down) {
 
 
-      var insideCanvas = this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.secondaryMenu[0]) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.colorpicker.popup[0]) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileEdit[0]) &&
-        !this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.tools.mobileSlider[0]);
-      // console.log(insideCanvas);
+      var insideCanvas = this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
+        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileSlider[0]);
 
       if (insideCanvas) {
         this.selectedTool.startMousedown();
@@ -426,10 +546,15 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 
       if (app.shared.utils.touchEnabled && insideCanvas && !startedOnSlider) {
         this.game_.sceneElem.addClass('ui-hidden');
+
+        if (this.game_.colorpicker.isPopupOpen()) {
+          this.game_.colorpicker.togglePopup();
+        }
       }
 
       if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
-          this.game_.mouse.isInsideEl(mouseCoords.x, mouseCoords.y, this.game_.canvas.displayCanvas)) {
+          this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+          !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0])) {
         this.secondaryMenu.removeClass('is-active');
 
         if (this.game_.colorpicker.isPopupOpen()) {
@@ -623,9 +748,9 @@ app.Tools.prototype.colorChanged = function(color) {
 
 
 app.Tools.prototype.onNavClick_ = function(e) {
-  var menu = $(e.target).closest('[data-tool-category-menu]');
+  var menu = $(e.target).closest('[data-tool-category-tray]');
   var direction = $(e.target).attr('data-tool-nav') === 'next' ? 1 : -1;
-  var offset = direction * 130; // width of 1 tool
+  var offset = direction * 130 * 2; // width of 2 tools
 
   menu.animate({
     scrollLeft: menu.scrollLeft() + offset
@@ -634,10 +759,10 @@ app.Tools.prototype.onNavClick_ = function(e) {
 
 
 app.Tools.prototype.onResize = function() {
-  var outerWidth = this.secondaryMenu[0].getBoundingClientRect().width;
-
   this.categoryMenuNavs.each(function() {
-    var menu = $(this).closest('[data-tool-category-menu]');
+    var menu = $(this).closest('[data-tool-category-tray]');
+    var outerWidth = menu[0].getBoundingClientRect().width;
+
     if (menu[0] && menu[0].scrollWidth > outerWidth) {
       $(this).addClass('is-active');
     } else {

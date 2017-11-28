@@ -62,10 +62,12 @@ app.Sticker.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   var offsetY = drawHeight / 2;
   var rad = this.currentAngle * Math.PI / 180;
 
+  context.save();
   context.translate(drawX, drawY);
   context.rotate(rad);
   context.drawImage(this.sticker, -offsetX, -offsetY, drawWidth, drawHeight);
-  context.setTransform(1, 0, 0, 1, 0, 0);
+  // context.setTransform(1, 0, 0, 1, 0, 0);
+  context.restore();
   this.stamped = true;
 
   return true;

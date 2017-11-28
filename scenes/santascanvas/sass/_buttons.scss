@@ -51,11 +51,14 @@
 
   .Button--trash {
     background-image: url(img/icons/trash.svg);
+    margin-bottom: 30px;
   }
 
   .Button--snowglobe {
     background-image: url(img/icons/snow.svg);
     background-size: 60%;
+    height: 65px;
+    width: 65px;
   }
 
   .Button--next {
@@ -68,14 +71,23 @@
 
   .Button--redo {
     background-image: url(img/icons/redo.svg);
+    height: 40px;
+    width: 40px;
   }
 
   .Button--undo {
     background-image: url(img/icons/undo.svg);
+    height: 40px;
+    width: 40px;
   }
 
   .Button--save {
+    background-color: #B457C1;
     background-image: url(img/icons/save.svg);
+    box-shadow: 2px 4px 0 #AB44BB, 5px 7px rgba(0,0,0,0.04);
+    height: 40px;
+    margin-top: 30px;
+    width: 40px;
   }
 
   .Button--rotate {

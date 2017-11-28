@@ -5,6 +5,11 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
 ##{$name} {
   // MOBILE CURRENT TOOL
   .Tools-display[data-current-category="drawing"] {
+    .Tools-display-inner {
+      background-position: center -30%;
+      background-size: 40%;
+    }
+
     @each $current-tool in $drawing-tools {
       &[data-current-tool="#{$current-tool}"] {
         .Tools-display-inner {
@@ -15,8 +20,22 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
 
     @each $current-pen in $silly-pens {
       &[data-current-tool="#{$current-pen}"] {
+        pointer-events: auto;
+
+        .Tools-display-outer {
+          background-color: #A341B7;
+          border-radius: 0;
+          height: 100%;
+          margin: 0 auto;
+          width: 100%;
+        }
+
         .Tools-display-inner {
           background-image: url(img/tools/#{$current-pen}/tool.svg);
+          background-position: center 20%;
+          background-size: 100%;
+          border-radius: 0;
+          height: 100%;
         }
       }
     }
@@ -28,6 +47,10 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
       background-position: center 20%;
       background-repeat: no-repeat;
       background-size: 100%;
+
+      @media (max-width: 800px) {
+        padding: 10px 30px;
+      }
     }
   }
 

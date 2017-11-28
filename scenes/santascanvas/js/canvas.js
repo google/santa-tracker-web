@@ -188,7 +188,6 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
   var tools = this.game_.tools;
   var colorpicker = this.game_.colorpicker;
 
-  // TODO check secondary menu bounds
   var rect = this.displayCanvas.getBoundingClientRect();
   var canvasCoords = mouse.transformCoordinates(mouse.x, mouse.y, rect);
 

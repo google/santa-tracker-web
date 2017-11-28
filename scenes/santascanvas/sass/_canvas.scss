@@ -1,8 +1,8 @@
 .Canvas {
-  bottom: 100px;
-  left: 200px;
+  bottom: 50px;
+  left: 115px;
   position: absolute;
-  right: 100px;
+  right: 95px;
   top: 50px;
 
   #back-canvas {
@@ -12,13 +12,14 @@
   canvas {
     left: 50%;
     position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    transform: translate(-50%, 0);
   }
 
   @media (max-width: 800px) {
+    bottom: 50px;
     left: 0;
     right: 0;
-    top: 65px;
+    top: 50px;
   }
 }

@@ -5,7 +5,9 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
   .Tools-display[data-current-category="spray"] {
     &[data-current-tool="spray-color"] {
       .Tools-display-inner {
-        background-image: url(img/tools/spray/tool_spray_color.svg);
+        background-image: url(img/tools/spray/tool_spray_white.svg);
+        background-position: center 0%;
+        background-size: 50% 150%;
       }
     }
 
@@ -55,6 +57,7 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
 
       @media (max-width: 800px) {
         background-position: center 0%;
+        top: auto;
 
         &--spray-color {
           padding: 0 17px;
@@ -99,13 +102,14 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
       .Tool-hover-inactive .Tool-hover-minitool--default {
         background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
         display: block;
-        right: 30%;
+        left: 50%;
+        right: auto;
         top: 40%;
+        transform: translate(-50%, 0);
       }
 
       .Tool-hover-circle {
-        height: 50px !important;
-        width: 50px !important;
+        visibility: hidden;
       }
     }
   }
