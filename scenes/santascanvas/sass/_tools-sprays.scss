@@ -5,7 +5,9 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
   .Tools-display[data-current-category="spray"] {
     &[data-current-tool="spray-color"] {
       .Tools-display-inner {
-        background-image: url(img/tools/spray/tool_spray_color.svg);
+        background-image: url(img/tools/spray/tool_spray_white.svg);
+        background-position: center 0%;
+        background-size: 50% 150%;
       }
     }
 
