@@ -165,7 +165,6 @@ app-toolbar {
     display: flex;
     flex-flow: column;
     will-change: transform, opacity;
-    z-index: -1;
     transition: transform 0.33s, opacity 0.33s;
 
     paper-icon-button {
@@ -209,19 +208,31 @@ app-toolbar {
         color: white;
         font-size: 14px;
         font-weight: 500;
-        opacity: 0;
         pointer-events: none;
-        will-change: opacity;
-        transition: opacity 0.125s;
       }
-      &:hover::before {
-        opacity: 1;
+
+      @media (hover: hover) {
+        &::before {
+          opacity: 0;
+          will-change: opacity;
+          transition: opacity 0.125s;
+        }
+        &:hover::before {
+          opacity: 1;
+        }
       }
     }
 
     @for $i from 1 through 10 {
       :nth-child(#{$i}) {
         transition-delay: 0.04s * ($i - 1);
+      }
+    }
+    @media (hover: hover) {
+      top: 0;
+
+      :nth-child(1) {
+        margin-top: 2px;
       }
     }
 

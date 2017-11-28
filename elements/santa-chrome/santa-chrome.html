@@ -190,9 +190,13 @@ specific language governing permissions and limitations under the License.
       }
     },
 
-    _hideOverflow: function() {
+    _hideOverflow: function(ev) {
+      if (this.$.overflow.classList.contains('fade')) {
+        return;
+      }
       this.$.overflow.classList.add('fade');
       this.$.buttons.classList.toggle('active', !this.$.overflow.classList.contains('fade'));
+      ev && ev.stopPropagation();
     },
 
     _onClickOverflow: function(ev) {
@@ -200,6 +204,7 @@ specific language governing permissions and limitations under the License.
     },
 
     _onShowMore: function(ev) {
+      this.cancelDebouncer('_hideMore');
       ev.stopPropagation();
 
       if (ev.type !== 'click') {
