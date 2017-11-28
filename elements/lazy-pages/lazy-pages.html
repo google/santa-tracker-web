@@ -138,6 +138,32 @@ Lazy loads children "pages".
         value: Promise.resolve(null),
       },
 
+      /**
+       * The route pending load.
+       */
+      _routeToLoad: {
+        type: String,
+      },
+
+      /**
+       * Whether the initial distribution of our child template elements is done.
+       */
+      _initialDistributionDone: {
+        type: Boolean,
+        value: false,
+      },
+
+    },
+
+    observers: [
+      '_load(_routeToLoad, _initialDistributionDone)',
+    ],
+
+    created: function() {
+      window.requestAnimationFrame(() => {
+        // After a rAF, any initial <template is="dom-repeat">... nodes are evaulated.
+        this._initialDistributionDone = true;
+      });
     },
 
     attached: function() {
@@ -171,7 +197,7 @@ Lazy loads children "pages".
 
         // possibly close route
         this._setSelectedItem(null);
-        this.load(route);
+        this._routeToLoad = route;
       } else {
         // will reload if selectedItem is null
         this._routeChanged(route);
@@ -186,11 +212,23 @@ Lazy loads children "pages".
       const draft = this.getDraft(route);
       if (draftMap.get(this.selectedItem) !== draft) {
         this._setSelectedItem(null);  // immediately revoke the current scene
-        this.load(route);
+        this._routeToLoad = route;
       }
     },
 
+    /**
+     * Requests that the specified route is loaded.
+     */
     load: function(route) {
+      this._routeToLoad = route ? String(route) : '';
+    },
+
+    _load: function(route, initialDistributionDone) {
+      if (!initialDistributionDone || route === undefined) {
+        return;
+      }
+      this._routeToLoad = undefined;
+
       const draft = this.getDraft(route);
       if (draft && this._pendingDraft === draft) {
         return;  // already loading
@@ -286,6 +324,7 @@ Lazy loads children "pages".
           drafts[route] = draft;
         }
       }
+      console.info('got', nodes.length, 'scenes in lazy-pages');
 
       this._setDrafts(Object.freeze(drafts));
     },
@@ -343,13 +382,16 @@ Lazy loads children "pages".
         return Promise.resolve(create());
       }
 
-      // This element might still be part of the DOM: replace it with a placeholder so it's not
-      // automatically instantiated by the browser.
+      // This element might still be part of the DOM: replace it (and any element with a matching
+      // tag) with a placeholder, so they're never instantiated by the browser.
       if (draft.parentNode === this) {
-        const placeholder = document.createElement('dom-placeholder');
-        placeholder.setAttribute('route', draft.getAttribute('route'));
-        Polymer.dom(this).replaceChild(placeholder, draft);
-        draftMap.set(placeholder, draft);
+        const queue = Array.prototype.slice.call(Polymer.dom(this).children);
+        queue.filter((curr) => curr.localName === draft.localName).forEach((curr) => {
+          const placeholder = document.createElement('dom-placeholder');
+          placeholder.setAttribute('route', curr.getAttribute('route'));
+          Polymer.dom(this).replaceChild(placeholder, curr);
+          draftMap.set(placeholder, curr);
+        });
       }
 
       // Grab path from 'path' or 'path$'. The latter is needed as Polymer won't correctly map
@@ -395,11 +437,11 @@ Lazy loads children "pages".
       return !event.defaultPrevented;
     },
 
-    _computeBootstrap: function(pendingItem, selectedItem, error) {
+    _computeBootstrap: function(pendingDraft, selectedItem, error) {
       if (selectedItem || error) {
         return null;
       }
-      return pendingItem;
+      return pendingDraft;
     },
 
     _computeErrorClass: function(error) {
