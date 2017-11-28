@@ -195,13 +195,11 @@ app.Tools = function(game, $elem) {
   this.stickerGingerbreadMan = new app.Sticker($elem, 'gingerbread-man');
   this.stickerMrsClaus = new app.Sticker($elem, 'mrs-claus');
   this.stickerNarwhal = new app.Sticker($elem, 'narwhal');
-  this.stickerPenguinHat = new app.Sticker($elem, 'penguin-hat');
   this.stickerPenguinPresents = new app.Sticker($elem, 'penguin-presents');
   this.stickerRudolphFront = new app.Sticker($elem, 'rudolph-front');
   this.stickerRudolphSide = new app.Sticker($elem, 'rudolph-side');
   this.stickerSantaSled = new app.Sticker($elem, 'santa-sled');
   this.stickerSnowMonster = new app.Sticker($elem, 'snow-monster');
-  this.stickerSnowmanBigOrange = new app.Sticker($elem, 'snowman-big-orange');
   this.stickerCloud1 = new app.Sticker($elem, 'cloud1');
   this.stickerCloud2 = new app.Sticker($elem, 'cloud2');
   this.stickerCloud3 = new app.Sticker($elem, 'cloud3');
@@ -309,6 +307,32 @@ app.Tools = function(game, $elem) {
   this.stickerMugRed = new app.Sticker($elem, 'mug-red');
   this.stickerSantaDance = new app.Sticker($elem, 'santa-dance');
   this.stickerSantaSleep = new app.Sticker($elem, 'santa-sleep');
+  this.stickerAstronaut = new app.Sticker($elem, 'astronaut');
+  this.stickerBat = new app.Sticker($elem, 'bat');
+  this.stickerBoxFish = new app.Sticker($elem, 'box-fish');
+  this.stickerBrownBearBaby = new app.Sticker($elem, 'brown-bear-baby');
+  this.stickerBrownBearPirate = new app.Sticker($elem, 'brown-bear-pirate');
+  this.stickerDolphin = new app.Sticker($elem, 'dolphin');
+  this.stickerFishPink = new app.Sticker($elem, 'fish-pink');
+  this.stickerJellyfish = new app.Sticker($elem, 'jellyfish');
+  this.stickerLightFish = new app.Sticker($elem, 'light-fish');
+  this.stickerNutcrackerGreen = new app.Sticker($elem, 'nutcracker-green');
+  this.stickerPegmanHips = new app.Sticker($elem, 'pegman-hips');
+  this.stickerPenguinAngry = new app.Sticker($elem, 'penguin-angry');
+  this.stickerPolarBearScuba = new app.Sticker($elem, 'polar-bear-scuba');
+  this.stickerReindeerBabies = new app.Sticker($elem, 'reindeer-babies');
+  this.stickerReindeerBabyBoy = new app.Sticker($elem, 'reindeer-baby-boy');
+  this.stickerReindeerBabyGirl = new app.Sticker($elem, 'reindeer-baby-girl');
+  this.stickerReindeerWhite = new app.Sticker($elem, 'reindeer-white');
+  this.stickerRobotPurple = new app.Sticker($elem, 'robot-purple');
+  this.stickerRudolphDancing2 = new app.Sticker($elem, 'rudolph-dancing2');
+  this.stickerScubaGreen = new app.Sticker($elem, 'scuba-green');
+  this.stickerScubaOrange = new app.Sticker($elem, 'scuba-orange');
+  this.stickerSeagullFly2 = new app.Sticker($elem, 'seagull-fly2');
+  this.stickerShark = new app.Sticker($elem, 'shark');
+  this.stickerSnowmanBigPenguin = new app.Sticker($elem, 'snowman-big-penguin');
+  this.stickerSnowmanBigTub = new app.Sticker($elem, 'snowman-big-tub');
+  this.stickerWalrus = new app.Sticker($elem, 'walrus');
 
 
   this.tools = [
@@ -382,14 +406,12 @@ app.Tools = function(game, $elem) {
     this.stickerGingerbreadMan,
     this.stickerMrsClaus,
     this.stickerNarwhal,
-    this.stickerPenguinHat,
     this.stickerPenguinPresents,
     this.stickerRudolphFront,
     this.stickerRudolphSide,
     this.stickerSantaSled,
     this.stickerSanta,
     this.stickerSnowMonster,
-    this.stickerSnowmanBigOrange,
     this.stickerCactus,
     this.stickerCloud1,
     this.stickerCloud2,
@@ -499,7 +521,33 @@ app.Tools = function(game, $elem) {
     this.stickerMugGreen,
     this.stickerMugRed,
     this.stickerSantaDance,
-    this.stickerSantaSleep
+    this.stickerSantaSleep,
+    this.stickerAstronaut,
+    this.stickerBat,
+    this.stickerBoxFish,
+    this.stickerBrownBearBaby,
+    this.stickerBrownBearPirate,
+    this.stickerDolphin,
+    this.stickerFishPink,
+    this.stickerJellyfish,
+    this.stickerLightFish,
+    this.stickerNutcrackerGreen,
+    this.stickerPegmanHips,
+    this.stickerPenguinAngry,
+    this.stickerPolarBearScuba,
+    this.stickerReindeerBabies,
+    this.stickerReindeerBabyBoy,
+    this.stickerReindeerBabyGirl,
+    this.stickerReindeerWhite,
+    this.stickerRobotPurple,
+    this.stickerRudolphDancing2,
+    this.stickerScubaGreen,
+    this.stickerScubaOrange,
+    this.stickerSeagullFly2,
+    this.stickerShark,
+    this.stickerSnowmanBigPenguin,
+    this.stickerSnowmanBigTub,
+    this.stickerWalrus
   ];
 };
 
