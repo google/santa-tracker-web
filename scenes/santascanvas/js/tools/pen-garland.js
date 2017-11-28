@@ -172,6 +172,8 @@ app.PenGarland.prototype.drawAlongCurve = function(start, control, end, context,
       currentPoint += this.spacing;
     }
 
+    window.santaApp.fire('sound-trigger', {name: 'cd_draw_garland', args: [this.sizeFactor]});
+
     this.spaceUntilNext = currentPoint - distance;
   } else {
     this.spaceUntilNext -= distance;
