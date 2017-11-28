@@ -29,6 +29,8 @@ app.Rotator = function($elem) {
       this.rotate.bind(this, 1));
   this.rotateL.on('click.santascanvas touchend.santascanvas',
       this.rotate.bind(this, -1));
+  this.rotateR.on('mouseenter.santascanvas', this.onRotateButtonOver.bind(this));
+  this.rotateL.on('mouseenter.santascanvas', this.onRotateButtonOver.bind(this));
 };
 
 
@@ -42,6 +44,11 @@ app.Rotator.prototype.rotate = function(direction) {
   }, this);
 };
 
+app.Rotator.prototype.onRotateButtonOver = function(e) {
+
+  window.santaApp.fire('sound-trigger', 'generic_button_over');
+
+};
 
 app.Rotator.prototype.subscribe = function(callback, context) {
   this.subscribers.push({

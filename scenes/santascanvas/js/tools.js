@@ -55,8 +55,11 @@ app.Tools = function(game, $elem) {
 
   this.secondaryMenu = $elem.find('.Tools--secondary');
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
+  this.categoryTrays = this.secondaryMenu.find('[data-tool-category-tray]');
+  this.categoryTools = this.categoryTrays.find('[data-tool]');
   this.categoryMenuNavs = this.categoryMenus.find('[data-tool-category-nav]');
   this.categoryMenuNavBtns = this.categoryMenuNavs.find('[data-tool-nav]');
+  this.snowButton = $elem.find('.Category--snow');
 
   this.subcategoryPickers = this.categoryMenus.find('[data-tool-subcategory-picker]');
   this.subcategoryMenus = this.categoryMenus.find('[data-tool-subcategory-menu]');
@@ -66,10 +69,18 @@ app.Tools = function(game, $elem) {
   this.mobileEdit = this.tertiaryMenuMobile.find('.Tools-edit');
   this.mobileRotate = this.tertiaryMenuMobile.find('.Tools-rotator');
   this.mobileSlider = this.tertiaryMenuMobile.find('.Tools-slider');
+  this.tertiaryMenuButtons = this.tertiaryMenu.find('.Button');
 
   this.categoryPickers.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
+
+  //mouse enter
+  this.categoryPickers.on('mouseenter.santascanvas', this.onCategoryOver_.bind(this));
+  this.categoryMenuNavBtns.on('mouseenter.santascanvas', this.onGenericOver_.bind(this));
+  this.categoryTools.on('mouseenter.santascanvas', this.onCategoryToolsOver_.bind(this));
+  this.tertiaryMenuButtons.on('mouseenter.santascanvas', this.onGenericOver_.bind(this));
+  this.snowButton.on('mouseenter.santascanvas', this.onSnowButtonOver_.bind(this));
 
   this.lastSize = 0;
 
@@ -700,7 +711,6 @@ app.Tools.prototype.onSubcategoryClick_ = function(e) {
   var subcategoryPicker = $(e.target).closest('[data-tool-subcategory-picker]');
   var subcategoryName = subcategoryPicker.attr('data-tool-subcategory');
   var subcategoryMenu = this.secondaryMenu.find('[data-tool-subcategory="' + subcategoryName + '"]');
-
   this.subcategoryPickers.removeClass('is-active');
   this.subcategoryMenus.removeClass('is-active');
   subcategoryMenu.addClass('is-active');
@@ -757,6 +767,25 @@ app.Tools.prototype.onNavClick_ = function(e) {
   }, 300);
 };
 
+app.Tools.prototype.onCategoryOver_ = function(e) {
+  var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
+  var categoryName = categoryPicker.attr('data-tool-category');
+  window.santaApp.fire('sound-trigger', 'cd_' + categoryName + '_over');
+};
+
+app.Tools.prototype.onGenericOver_ = function(e) {
+  window.santaApp.fire('sound-trigger', 'generic_button_over');
+};
+
+app.Tools.prototype.onSnowButtonOver_ = function(e) {
+  window.santaApp.fire('sound-trigger', 'cd_snow_button_over');
+};
+
+app.Tools.prototype.onCategoryToolsOver_ = function(e) {
+  var toolPicker = $(e.target).closest('[data-tool]');
+  var toolName = toolPicker.attr('data-tool');
+  window.santaApp.fire('sound-trigger', 'cd_' + toolName + '_over');
+};
 
 app.Tools.prototype.onResize = function() {
   this.categoryMenuNavs.each(function() {

@@ -103,10 +103,11 @@ app.utils = function() {
       }, random);
     },
 
-    triggerStart: function(event) {
+    triggerStart: function(event, args) {
       if (!audioProxy[event]) {
+        args = args || [];
         window.santaApp.fire('sound-trigger', 'cd_stop_all_drawing');
-        window.santaApp.fire('sound-trigger', this.cleanNameForKlang(event) + '_start');
+        window.santaApp.fire('sound-trigger', {name: this.cleanNameForKlang(event) + '_start', args: args});
         audioProxy[event] = true;
       }
     },

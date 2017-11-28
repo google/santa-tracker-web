@@ -266,7 +266,7 @@ app.Canvas.prototype.calculateDrawingVolume = function() {
   var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
 
   if (isFinite(speed)) {
-    this.drawingVolume += speed / 5;
+    this.drawingVolume += speed / 2;
   }
 
   this.lastTime = Klang.context.currentTime;
@@ -276,7 +276,7 @@ app.Canvas.prototype.calculateDrawingVolume = function() {
 }
 app.Canvas.prototype.soundUpdate = function(delta) {
   if (isFinite(this.drawingVolume)) {
-    this.drawingVolume *= 0.8;
+    this.drawingVolume *= 0.6;
     Klang.trigger("cd_draw_update", Math.min(1, this.drawingVolume));
   }
 }

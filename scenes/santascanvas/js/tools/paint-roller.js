@@ -30,7 +30,7 @@ goog.require('app.utils');
 app.PaintRoller = function($elem, name) {
   app.Tool.call(this, $elem, 'roller-' + name);
 
-  this.soundKey = 'roller';
+  this.soundKey = 'roller_' + name;
   this.drawing = false;
   this.pattern = $elem.find('#roller-' + name)[0];
   this.patternCanvas = $elem.find('#pattern-canvas')[0];
