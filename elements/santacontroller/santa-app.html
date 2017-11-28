@@ -101,7 +101,7 @@ Santa Tracker app.
     <div id="pip">
       <!-- Shared `santa-video` element. This can't be attached/detached from the DOM without
         stopping the video itself, so it is reused by all video scenes -->
-      <santa-video id="video" active="{{_videoActive}}"></santa-video>
+      <santa-video id="video" active="{{_videoActive}}" mute="[[userMute]]"></santa-video>
     </div>
 
     <!-- Scenes -->
@@ -747,7 +747,6 @@ Polymer({
     const v = this.$.video;
     if (v.videoId !== videoId) {
       const p = v.cue(videoId);
-      console.info('passing prepload promise', p);
       scene && scene.preloadPromise(p);
     }
   },
