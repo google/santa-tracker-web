@@ -67,13 +67,6 @@
     top: 0;
     width: 100%;
 
-    &[data-current-category="drawing"] {
-      .Tools-display-inner {
-        background-position: center -30%;
-        background-size: 40%;
-      }
-    }
-
     &[data-current-category="sticker"] {
       background: #A341B7;
 
