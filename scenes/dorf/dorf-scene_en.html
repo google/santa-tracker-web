@@ -77,53 +77,18 @@ Santa's Village.
             </div>
           </a>
         </div>
-        <template is="dom-repeat" items="[[houses]]">
+      </div>
+      <template is="dom-repeat" items="[[houses]]">
 
-          <div class="cell">
-            <village-house house="[[item.module]]"
-                opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
-                locked="[[item.locked]]">
-              <a class="link" href$="[[_calculateHref(item, item.locked)]]">
-                <div class="card">
-                  <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
-                  <h4>[[_string('category', item.category, strings)]]</h4>
-                  <h3>[[_string('scene', item.module, strings)]]</h3>
-                </div>
-              </a>
-            </village-house>
-          </div>
-<!--
-          <div id$="house-[[item.module]]"
-               class$="house [[_calculateHouseClass(item, item.locked, todayHouse)]]">
-            <div class="assets housez">
-              <div class="building"></div>
-              <div class="launchdate" hidden$="[[item.hideDate]]">
-                [[_calculateDateNo(item.launchDate)]]
-              </div>
-              <div class="ice"></div>
-            </div>
-            <template is="dom-if" if="[[!item.disabled]]">
-              <div class="action">
-                <a class="link" href$="[[_calculateHref(item, item.locked)]]">
-                  <div class$="card card-[[item.module]]">
-                    <div class="image"></div>
-                    <div class="color" style$="background-color: [[_colorForRoute(item.module)]]"></div>
-                    <div class="text">
-                      <div class="launchdate" hidden$="[[item.hideDate]]">
-                        [[_calculateDateNo(item.launchDate)]]
-                      </div>
-                      <h4>[[_string('category', item.category, strings)]]</h4>
-                      <h3>[[_string('scene', item.module, strings)]]</h3>
-                      <div class="img-lock" hidden$="[[!item.locked]]"></div>
-                    </div>
-                    <template is="dom-if" if="[[_equals(todayHouse, item.module)]]">
-                      <div class="label">
-                        <i18n-msg msgid="new">PLACEHOLDER_i18n</i18n-msg>
-                      </div>
-                    </template>
-                  </div>
-                </a>
-                <h5 class="housez">[[_string('category', item.category, strings)]]</h5>
+        <div class="cell">
+          <village-house house="[[item.module]]"
+              opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
+              locked="[[item.locked]]">
+            <a class="link" href$="[[_calculateHref(item, item.locked)]]">
+              <div class="card">
+                <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
+                <h4>[[_string('category', item.category, strings)]]</h4>
+                <h3>[[_string('scene', item.module, strings)]]</h3>
               </div>
             </a>
           </village-house>

@@ -416,7 +416,7 @@ Lazy loads children "pages".
           if (customElements.get(draft.localName)) {
             // Great! Yield back to the caller. Load timing ends in SantaSceneBehavior, as it
             // includes all resource preloading.
-            resolve(create())
+            resolve(create());
           } else {
             reject('element');
           }
