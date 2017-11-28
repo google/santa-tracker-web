@@ -42,7 +42,6 @@ Utils.prototype.getMsgOrNull = function(container, key, variable, varValue) {
     var element = container.find('#' + key);
     if (element.length > 0) {
       text = element.text();
-      text = text.replace(/\\n/g, '\n');
       Utils.CACHE_[key] = text;
     }
   } else {
@@ -50,7 +49,6 @@ Utils.prototype.getMsgOrNull = function(container, key, variable, varValue) {
   }
 
   // Replace value
-  console.log('53', text, variable, varValue);
   if (text && variable && varValue) {
     text = this.replaceVarWithValue(text, variable, varValue);
   }
@@ -59,10 +57,10 @@ Utils.prototype.getMsgOrNull = function(container, key, variable, varValue) {
   return text;
 };
 
-Utils.prototype.replaceVarWithValue = function(string, variable, varValue) {
-  console.log(string, variable, varValue);
-  console.log(string.replace('((' + variable + '))', varValue));
-  return string.replace('((' + variable + '))', varValue);
+Utils.prototype.replaceVarWithValue = function(messageString, variable, varValue) {
+  varValue = String(varValue);
+  var toBeReplacedString = '~' + variable + '~';
+  return messageString.replace(toBeReplacedString, varValue);
 };
 
 app.Utils = new Utils();
