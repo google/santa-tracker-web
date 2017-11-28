@@ -100,13 +100,14 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
       .Tool-hover-inactive .Tool-hover-minitool--default {
         background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
         display: block;
-        right: 30%;
+        left: 50%;
+        right: auto;
         top: 40%;
+        transform: translate(-50%, 0);
       }
 
       .Tool-hover-circle {
-        height: 50px !important;
-        width: 50px !important;
+        visibility: hidden;
       }
     }
   }
