@@ -89,8 +89,8 @@ app.view.CardsView.prototype.showNewRoundCard = function(options) {
   setTimeout(function() {
     this.newround_card
       .find('.newround-card__button')
-      .on('touchend mouseup',function() {
-        this.newround_card.off('touchend mouseup');
+      .on('touchend mouseup', function() {
+        this.newround_card.find('.newround-card__button').off('touchend mouseup');
         _callback();
       }.bind(this));
   }.bind(this), 1000);
