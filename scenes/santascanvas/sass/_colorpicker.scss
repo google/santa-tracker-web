@@ -143,5 +143,11 @@
         display: block;
       }
     }
+
+    @media (max-width: 800px) {
+      &::after {
+        background-size: 60%;
+      }
+    }
   }
 }
