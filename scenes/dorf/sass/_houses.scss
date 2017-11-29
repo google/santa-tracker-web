@@ -95,6 +95,44 @@ $cells:
       }
     }
   }
+
+  #links {
+    .link {
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+    @for $i from 1 through length($cells) {
+      .link:nth-child(#{$i - 1}) {
+        $row: floor(($i - 1) / 4);
+        $col: ($i - 1) % 4;
+
+        $data: nth($cells, $i);
+        $x: nth($data, 1);
+        $y: nth($data, 2);
+
+        left: ($col * 192px) + ($x / 320) * 192px;
+        top: ($row * 192px) + ($y / 320) * 192px;
+      }
+    }
+  }
+}
+@media (min-width: $width-desktop) {
+  #links {
+    // FIXME: this is a horrible clone of above for 320px dimensions.
+    @for $i from 1 through length($cells) {
+      .link:nth-child(#{$i - 1}) {
+        $row: floor(($i - 1) / 4);
+        $col: ($i - 1) % 4;
+
+        $data: nth($cells, $i);
+        $x: nth($data, 1);
+        $y: nth($data, 2);
+
+        left: ($col * 320px) + $x;
+        top: ($row * 320px) + $y;
+      }
+    }
+  }
 }
 
 #houses {

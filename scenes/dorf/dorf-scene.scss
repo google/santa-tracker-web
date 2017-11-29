@@ -385,8 +385,18 @@ footer {
   flex-flow: wrap;
 
   @media (min-width: $width-tablet) {
+    font-size: 12px;
     position: absolute;
     z-index: 10000;
+
+    width: $width-tablet;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  @media (min-width: $width-desktop) {
+    font-size: 16px;
+    width: $width-desktop;
   }
 }
 
@@ -470,10 +480,7 @@ footer {
     // .link isn't visible, but this makes it selectable
     border-radius: 10000px;
     display: block;
-    width: 100%;
-    height: 100%;
     pointer-events: auto;
-    isloation: isolate;
 
     .card {
       position: absolute;

@@ -60,7 +60,7 @@ Santa's Village.
   </div>
 
   <!-- Actual house links -->
-  <div id="links" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut" hidden>
+  <div id="links" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
     <template is="dom-repeat" items="[[houses]]">
       <a class="link"
           href$="[[_calculateHref(item, item.locked)]]"
