@@ -71,7 +71,7 @@ app.Tools = function(game, $elem) {
   this.categoryPickers.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
-  this.mobileEraser.on('touchend.santascanvas', this.onCategoryClick_.bind(this));
+  this.mobileEraser.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
@@ -673,41 +673,31 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     if (mouseCoords.down) {
       this.selectedTool.startMousedown();
 
-      var insideCanvas = this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileSlider[0]);
-
+      // Hide UI when drawing
+      var insideCanvas = this.isInsideCanvas(mouse);
       var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
 
-      if (app.shared.utils.touchEnabled && insideCanvas && !startedOnSlider) {
-        this.game_.sceneElem.addClass('ui-hidden');
-
-        if (this.game_.colorpicker.isPopupOpen()) {
-          this.game_.colorpicker.togglePopup();
+      if (insideCanvas) {
+        if (!this.isMobile && this.secondaryMenuActive) {
+          this.secondaryMenu.removeClass('is-active');
+          if (this.game_.colorpicker.isPopupOpen()) {
+            this.game_.colorpicker.togglePopup();
+          }
         }
-      }
-
-      if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
-          this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
-          !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0])) {
-        this.secondaryMenu.removeClass('is-active');
-
-        if (this.game_.colorpicker.isPopupOpen()) {
-          this.game_.colorpicker.togglePopup();
+        if (this.isMobile && !startedOnSlider) {
+          this.game_.sceneElem.addClass('ui-hidden');
+          if (this.game_.colorpicker.isPopupOpen()) {
+            this.game_.colorpicker.togglePopup();
+          }
         }
       }
     } else {
       this.selectedTool.stopMousedown();
 
-      if (!app.shared.utils.touchEnabled && this.secondaryMenuActive) {
-        this.secondaryMenu.addClass('is-active');
-      }
-
-      if (app.shared.utils.touchEnabled) {
+      if (this.isMobile) {
         this.game_.sceneElem.removeClass('ui-hidden');
+      } else if (this.secondaryMenuActive) {
+        this.secondaryMenu.addClass('is-active');
       }
     }
   }
@@ -740,13 +730,14 @@ app.Tools.prototype.selectTool_ = function(e) {
   })[0];
 
   if (this.selectedTool) {
+    // Apply scene tool and deselect immediately
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
       this.selectedTool = null;
       this.toolDisplay.attr('data-current-tool', '');
       this.toolDisplay.attr('data-current-category', '');
 
-      if (app.shared.utils.touchEnabled) {
+      if (this.isMobile) {
         this.currentCategory = null;
         this.secondaryMenuActive = false;
         this.categoryPickers.removeClass('is-active');
@@ -760,7 +751,7 @@ app.Tools.prototype.selectTool_ = function(e) {
         this.sliderChanged(this.game_.slider.size);
         this.toolDisplay.attr('data-current-tool', this.selectedTool.name);
 
-        if (app.shared.utils.touchEnabled) {
+        if (this.isMobile) {
           this.secondaryMenu.removeClass('is-active');
         }
       } else {
@@ -772,35 +763,26 @@ app.Tools.prototype.selectTool_ = function(e) {
 };
 
 
-app.Tools.prototype.drawToCanvas = function(selectedTool) {
-  this.game_.canvas.updateCanvas(selectedTool, selectedTool.draw);
-  this.game_.canvas.save();
-  this.game_.canvas.needSave = false;
-};
-
-
 app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
   var categoryName = categoryPicker.attr('data-tool-category');
   var categoryMenu = this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]');
 
   if (this.currentCategory && this.currentCategory == categoryName) {
-    if (app.shared.utils.touchEnabled) {
-      if (this.secondaryMenuActive) {
-        if (!this.selectedTool) {
-          categoryPicker.toggleClass('is-active');
-          this.currentCategory = null;
-          this.toolDisplay.attr('data-current-category', '');
-        }
-        this.secondaryMenu.toggleClass('is-active');
-      }
-
-      if (categoryName == 'eraser') {
-        categoryPicker.removeClass('is-active');
+    if (this.secondaryMenuActive) {
+      if (!this.selectedTool) {
+        categoryPicker.toggleClass('is-active');
         this.currentCategory = null;
-        this.selectedTool.deselect();
-        this.selectedTool = null;
+        this.toolDisplay.attr('data-current-category', '');
       }
+      this.secondaryMenu.toggleClass('is-active');
+    }
+
+    if (categoryName == 'eraser' && !$(e.target).closest('[data-slider]').length) {
+      categoryPicker.removeClass('is-active');
+      this.currentCategory = null;
+      this.selectedTool.deselect();
+      this.selectedTool = null;
     }
 
     return;
@@ -840,10 +822,9 @@ app.Tools.prototype.onSubcategoryClick_ = function(e) {
 
   this.subcategoryPickers.removeClass('is-active');
   this.subcategoryMenus.removeClass('is-active');
+  subcategoryMenu.scrollLeft(0);
   subcategoryMenu.addClass('is-active');
   subcategoryPicker.addClass('is-active');
-
-  this.onResize();
 };
 
 
@@ -902,4 +883,20 @@ app.Tools.prototype.onResize = function() {
       $(this).removeClass('is-active');
     }
   });
+
+  if (this.game_.sceneElem[0].getBoundingClientRect().width <= 800) {
+    this.isMobile = true;
+  } else {
+    this.isMobile = false;
+  }
+};
+
+
+app.Tools.prototype.isInsideCanvas = function(mouse) {
+  return this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileSlider[0]);
 };

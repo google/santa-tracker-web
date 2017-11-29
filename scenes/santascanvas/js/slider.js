@@ -30,9 +30,11 @@ app.Slider = function($elem, mouse) {
   this.container.on('mousedown.santascanvas touchstart.santascanvas',
     this.onMousedown.bind(this));
 
+  this.onResize();
+  $(window).on('resize.santascanvas', this.onResize.bind(this));
+
   this.setSize(0.5);
 };
-
 
 
 app.Slider.prototype.mouseChanged = function(mouse) {
@@ -43,7 +45,7 @@ app.Slider.prototype.mouseChanged = function(mouse) {
     }
 
     var bounds = this.checkBounds(mouse);
-    if (app.shared.utils.touchEnabled) {
+    if (this.isMobile) {
       if (bounds && bounds.inY) {
         this.setSize((1 - bounds.coords.normY), bounds.coords.y, true);
       }
@@ -94,7 +96,7 @@ app.Slider.prototype.setSize = function(relativeSize, xPos, vertical) {
   var dotOffset = xPos;
   var rect;
   if (!xPos) {
-    if (app.shared.utils.touchEnabled) {
+    if (this.isMobile) {
       rect = this.base[this.base.length - 1].getBoundingClientRect(); // mobile slider
       dotOffset = rect.height * relativeSize;
     } else {
@@ -128,3 +130,11 @@ app.Slider.prototype.subscribe = function(callback, context) {
   });
 };
 
+
+app.Slider.prototype.onResize = function() {
+  if (this.elem[0].getBoundingClientRect().width <= 800) {
+    this.isMobile = true;
+  } else {
+    this.isMobile = false;
+  }
+};
