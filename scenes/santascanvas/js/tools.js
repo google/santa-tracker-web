@@ -55,8 +55,11 @@ app.Tools = function(game, $elem) {
 
   this.secondaryMenu = $elem.find('.Tools--secondary');
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
+  this.categoryTrays = this.secondaryMenu.find('[data-tool-category-tray]');
+  this.categoryTools = this.categoryTrays.find('[data-tool]');
   this.categoryMenuNavs = this.categoryMenus.find('[data-tool-category-nav]');
   this.categoryMenuNavBtns = this.categoryMenuNavs.find('[data-tool-nav]');
+  this.snowButton = $elem.find('.Category--snow');
 
   this.subcategoryPickers = this.categoryMenus.find('[data-tool-subcategory-picker]');
   this.subcategoryMenus = this.categoryMenus.find('[data-tool-subcategory-menu]');
@@ -66,12 +69,22 @@ app.Tools = function(game, $elem) {
   this.mobileEdit = this.tertiaryMenuMobile.find('.Tools-edit');
   this.mobileRotate = this.tertiaryMenuMobile.find('.Tools-rotator');
   this.mobileSlider = this.tertiaryMenuMobile.find('.Tools-slider');
+  this.tertiaryMenuButtons = this.tertiaryMenu.find('.Button');
   this.mobileEraser = this.tertiaryMenuMobile.find('[data-tool="eraser-mobile"]');
 
   this.categoryPickers.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
   this.mobileEraser.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
+
+  //mouse enter
+  this.categoryPickers.on('mouseenter.santascanvas', this.onCategoryOver_.bind(this));
+  this.categoryMenuNavBtns.on('mouseenter.santascanvas', this.onGenericOver_.bind(this));
+  this.categoryTools.on('mouseenter.santascanvas', this.onCategoryToolsOver_.bind(this));
+  this.tertiaryMenuButtons.on('mouseenter.santascanvas', this.onGenericOver_.bind(this));
+  this.snowButton.on('mouseenter.santascanvas', this.onSnowButtonOver_.bind(this));
+
+  this.lastSize = 0;
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
@@ -671,10 +684,14 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.selectedTool.move(mouseCoords);
 
     if (mouseCoords.down) {
-      this.selectedTool.startMousedown();
+
 
       // Hide UI when drawing
       var insideCanvas = this.isInsideCanvas(mouse);
+
+      if (insideCanvas) {
+        this.selectedTool.startMousedown();
+      }
       var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
 
       if (insideCanvas) {
@@ -832,6 +849,7 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
       this.selectTool_(e);
     }
   }
+  window.santaApp.fire('sound-trigger', 'selfie_click');
 };
 
 
@@ -839,7 +857,6 @@ app.Tools.prototype.onSubcategoryClick_ = function(e) {
   var subcategoryPicker = $(e.target).closest('[data-tool-subcategory-picker]');
   var subcategoryName = subcategoryPicker.attr('data-tool-subcategory');
   var subcategoryMenu = this.secondaryMenu.find('[data-tool-subcategory="' + subcategoryName + '"]');
-
   this.subcategoryPickers.removeClass('is-active');
   this.subcategoryMenus.removeClass('is-active');
   subcategoryMenu.scrollLeft(0);
@@ -866,6 +883,10 @@ app.Tools.prototype.sliderChanged = function(size) {
       y: this.circleSize / 2
     };
   }
+  if (this.lastSize !== size) {
+    window.santaApp.fire('sound-trigger', {name: 'cd_size', args: [size]});
+    this.lastSize = size;
+  }
 };
 
 
@@ -891,8 +912,31 @@ app.Tools.prototype.onNavClick_ = function(e) {
   menu.animate({
     scrollLeft: menu.scrollLeft() + offset
   }, 300);
+
+  window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 
+app.Tools.prototype.onCategoryOver_ = function(e) {
+  var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
+  var categoryName = categoryPicker.attr('data-tool-category');
+  window.santaApp.fire('sound-trigger', 'cd_' + categoryName + '_over');
+};
+
+app.Tools.prototype.onGenericOver_ = function(e) {
+  window.santaApp.fire('sound-trigger', 'generic_button_over');
+};
+
+app.Tools.prototype.onSnowButtonOver_ = function(e) {
+  window.santaApp.fire('sound-trigger', 'cd_snow_button_over');
+};
+
+app.Tools.prototype.onCategoryToolsOver_ = function(e) {
+  var toolPicker = $(e.target).closest('[data-tool]');
+  var toolName = toolPicker.attr('data-tool');
+  var index = $(e.target).index();
+
+  window.santaApp.fire('sound-trigger', { name: 'cd_tool_over', args: [index] });
+};
 
 app.Tools.prototype.onResize = function() {
   this.categoryMenuNavs.each(function() {

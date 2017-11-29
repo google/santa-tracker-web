@@ -32,6 +32,7 @@ app.PenBells = function($elem, name, config) {
   app.PenGarland.call(this, $elem, name, config);
   this.lineColor = '#e43935';
   this.lineSize = 3;
+  this.soundKey = name;
   this.disableColorpicker = true;
 };
 app.PenBells.prototype = Object.create(app.PenGarland.prototype);

@@ -36,6 +36,8 @@ app.Colorpicker = function($elem) {
 
   this.selector.on('click.santascanvas touchend.santascanvas', this.togglePopup.bind(this));
   this.colors.on('click.santascanvas touchend.santascanvas', this.onColorClick.bind(this));
+  this.selector.on('mouseenter.santascanvas', this.onColorPickerOver.bind(this));
+  this.colors.on('mouseenter.santascanvas', this.onColorOver.bind(this));
 };
 
 
@@ -45,6 +47,9 @@ app.Colorpicker.prototype.togglePopup = function() {
   }
 
   this.popup.toggleClass('is-visible');
+  if (this.isPopupOpen()) {
+    window.santaApp.fire('sound-trigger', 'cd_color_popup');
+  }
 };
 
 
@@ -53,8 +58,16 @@ app.Colorpicker.prototype.onColorClick = function(event) {
       .attr('data-colorpicker-color');
   this.setColor(color);
   this.togglePopup();
+  window.santaApp.fire('sound-trigger', 'cd_color_select');
 };
 
+app.Colorpicker.prototype.onColorOver = function(event) {
+  window.santaApp.fire('sound-trigger', 'cd_color_over');
+};
+
+app.Colorpicker.prototype.onColorPickerOver = function(event) {
+  window.santaApp.fire('sound-trigger', 'generic_button_over');
+};
 
 app.Colorpicker.prototype.setColor = function(color) {
   this.selectedColor = color;

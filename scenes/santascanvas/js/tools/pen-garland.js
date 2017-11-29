@@ -30,7 +30,7 @@ goog.require('app.utils');
  */
 app.PenGarland = function($elem, name, config) {
   app.Tool.call(this, $elem, name);
-
+  this.soundKey = name;
   this.textureName = 'texture-' + name;
   this.points = [];
   this.sizeConfig = config && config.sizeConfig || {
@@ -173,6 +173,8 @@ app.PenGarland.prototype.drawAlongCurve = function(start, control, end, context,
 
       currentPoint += this.spacing;
     }
+
+    window.santaApp.fire('sound-trigger', {name: 'cd_' + this.soundKey + '_oneshot', args: [this.sizeFactor]});
 
     this.spaceUntilNext = currentPoint - distance;
   } else {

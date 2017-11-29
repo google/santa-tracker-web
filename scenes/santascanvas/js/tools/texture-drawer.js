@@ -31,7 +31,7 @@ goog.require('app.utils');
 app.TextureDrawer = function($elem, name, config) {
   app.Tool.call(this, $elem, name);
 
-  this.soundKey = 'selfie_color';
+  this.soundKey = name;
   this.textureName = 'texture-' + name;
   this.opacity = config && config.opacity || 1;
   this.drawFrequency = config && config.drawFrequency || 4;

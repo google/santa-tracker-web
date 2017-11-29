@@ -29,17 +29,26 @@ app.Rotator = function($elem) {
       this.rotate.bind(this, 1));
   this.rotateL.on('click.santascanvas touchend.santascanvas',
       this.rotate.bind(this, -1));
+  this.rotateR.on('mouseenter.santascanvas', this.onRotateButtonOver.bind(this));
+  this.rotateL.on('mouseenter.santascanvas', this.onRotateButtonOver.bind(this));
 };
 
 
 app.Rotator.prototype.rotate = function(direction) {
   var angle = app.Constants.ROTATE_ANGLE * direction;
 
+  window.santaApp.fire('sound-trigger', {name: 'cd_rotate', args: [direction]});
+
   this.subscribers.forEach(function(subscriber) {
     subscriber.callback.call(subscriber.context, angle);
   }, this);
 };
 
+app.Rotator.prototype.onRotateButtonOver = function(e) {
+
+  window.santaApp.fire('sound-trigger', 'generic_button_over');
+
+};
 
 app.Rotator.prototype.subscribe = function(callback, context) {
   this.subscribers.push({
@@ -47,4 +56,3 @@ app.Rotator.prototype.subscribe = function(callback, context) {
     context: context
   });
 };
-

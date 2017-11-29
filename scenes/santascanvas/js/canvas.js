@@ -51,6 +51,11 @@ app.Canvas = function(game, $elem) {
     prevY: 0,
     scale: 1
   };
+  //sound
+  this.drawingVolume = 0;
+  this.lastTime = 0;
+  this.lastMouseX = 0;
+  this.lastMouseY = 0;
 
   $elem.find('[data-tool-undo]').on('click.santascanvas touchend.santascanvas', this.undo.bind(this));
 
@@ -239,13 +244,36 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn, isReset)
         this.needSave = true;
       }
     }
+    if (actionFnContext) {
+      this.calculateDrawingVolume(actionFnContext.textureName);
+    }
   }
 
   // TODO check if we need to copy back and fore
   this.copyCanvasIndex(this.drawIndex);
 };
 
+app.Canvas.prototype.calculateDrawingVolume = function() {
 
+  var xPos = Math.abs(this.mouse.x / this.canvasWidth - this.lastMouseX);
+  var yPos = Math.abs(this.mouse.y / this.canvasHeight - this.lastMouseY);
+  var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
+
+  if (isFinite(speed)) {
+    this.drawingVolume += speed / 2;
+  }
+
+  this.lastTime = Klang.context.currentTime;
+  this.lastMouseX = this.mouse.x / this.canvasWidth;
+  this.lastMouseY = this.mouse.y / this.canvasHeight;
+
+}
+app.Canvas.prototype.soundUpdate = function(delta) {
+  if (isFinite(this.drawingVolume)) {
+    this.drawingVolume *= 0.6;
+    Klang.trigger("cd_draw_update", Math.min(1, this.drawingVolume));
+  }
+}
 /**
  * Save state and move to next backup
  */
@@ -255,6 +283,7 @@ app.Canvas.prototype.save = function() {
   this.drawIndex = this.nextIndex(this.baseIndex);
   this.copyCanvasIndex(this.baseIndex, this.drawIndex);
   this.backupCanvases[this.drawIndex].saved = false;
+
 };
 
 
@@ -267,6 +296,7 @@ app.Canvas.prototype.undo = function() {
   if (previous != this.drawIndex && this.backupCanvases[previous].saved) {
     this.baseIndex = previous;
     this.copyCanvasIndex(this.baseIndex);
+    window.santaApp.fire('sound-trigger', 'cd_undo');
   }
   this.undoing = true;
 };
@@ -281,6 +311,7 @@ app.Canvas.prototype.redo = function() {
     if (next != this.drawIndex) {
       this.baseIndex = next;
       this.copyCanvasIndex(this.baseIndex);
+      window.santaApp.fire('sound-trigger', {name: 'cd_redo', args: [this.baseIndex]});
     }
   }
 };
@@ -378,6 +409,7 @@ app.Canvas.prototype.saveToFile = function(e) {
   } else {
     e.target.href = data;
   }
+  window.santaApp.fire('sound-trigger', 'cd_save');
 };
 
 
@@ -390,6 +422,7 @@ app.Canvas.prototype.onTrashClick = function(event) {
   } else {
     this.resetCanvas();
   }
+  window.santaApp.fire('sound-trigger', 'cd_trash');
 };
 
 
@@ -398,5 +431,3 @@ app.Canvas.prototype.onTrashClick = function(event) {
  *          normY: number}}
  */
 app.Canvas.CoordsType;
-
-

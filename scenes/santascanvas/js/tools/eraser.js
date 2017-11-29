@@ -31,7 +31,7 @@ goog.require('app.utils');
 app.Eraser = function($elem, name) {
   app.Tool.call(this, $elem, name);
 
-  this.soundKey = 'selfie_spray_small';
+  this.soundKey = name;
   this.points = [];
 };
 app.Eraser.prototype = Object.create(app.Tool.prototype);
@@ -105,5 +105,3 @@ app.Eraser.prototype.calculateDrawSize = function(size) {
   return app.utils.map(size, app.Constants.ERASER_MIN,
       app.Constants.ERASER_MAX);
 }
-
-

@@ -32,7 +32,7 @@ app.PenHangingLights = function($elem, name, config) {
   app.PenGarland.call(this, $elem, name, config);
   this.lineColor = '#99eaff';
   this.lineSize = 3;
-
+  this.soundKey = name;
   this.$image = $elem.find('#' + this.textureName + '1');
   this.image = this.$image[0];
   this.height = this.$image.height();

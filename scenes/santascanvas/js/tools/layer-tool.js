@@ -29,10 +29,9 @@ goog.require('app.Tool');
 app.LayerTool = function($elem, name, layer) {
   app.Tool.call(this, $elem, 'scene-' + name);
 
-  this.soundKey = 'selfie_color';
-  if (name !== 'none') {
-    this.image = $elem.find('#scene-' + name)[0];
-  }
+  this.soundKey = 'cd_scene_' + name;
+  this.image = $elem.find('#scene-' + name)[0];
+
 
   if (layer == app.LayerTool.Layer.BACKGROUND) {
     this.canvas = $elem.find('#back-canvas')[0];
@@ -66,6 +65,8 @@ app.LayerTool.prototype.draw = function() {
         this.canvas.height);
     this.backupContext.drawImage(this.image, 0, 0, this.backup.width,
         this.backup.height);
+
+    window.santaApp.fire('sound-trigger', this.soundKey);
   } else {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }

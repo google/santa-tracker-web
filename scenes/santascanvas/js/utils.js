@@ -103,29 +103,37 @@ app.utils = function() {
       }, random);
     },
 
-    triggerStart: function(event) {
+    triggerStart: function(event, args) {
       if (!audioProxy[event]) {
-        window.santaApp.fire('sound-trigger', event + '_start');
+        args = args || [];
+        window.santaApp.fire('sound-trigger', 'cd_stop_all_drawing');
+        window.santaApp.fire('sound-trigger', {name: this.cleanNameForKlang(event) + '_start', args: args});
         audioProxy[event] = true;
       }
     },
 
     triggerStop: function(event) {
       if (audioProxy[event]) {
-        window.santaApp.fire('sound-trigger', event + '_stop');
+        window.santaApp.fire('sound-trigger', 'cd_stop_all_drawing');
+        window.santaApp.fire('sound-trigger', this.cleanNameForKlang(event) + '_stop');
         audioProxy[event] = false;
       }
     },
 
-    triggerOnce: function(event) {
+    triggerOnce: function(event, args) {
       if (!audioProxy[event]) {
-        window.santaApp.fire('sound-trigger', event);
+        args = args || [];
+        window.santaApp.fire('sound-trigger', {name: event, args: args});
         audioProxy[event] = true;
       }
     },
 
     triggerReset: function(event) {
       audioProxy[event] = false;
+    },
+
+    cleanNameForKlang: function(event) {
+      return 'cd_' + event.replace(/-/ig, '_')
     }
   };
 }();

@@ -1171,7 +1171,7 @@ Santaselfie scene.
     game: null,
 
     onPreload: function() {
-      this.preloadSounds('selfie_load_sounds', 30);
+      this.preloadSounds('cd_load_sounds', 30);
       this.preloadImages([
         'img/icons/reset.svg',
         'img/loading.svg',
@@ -1195,14 +1195,14 @@ Santaselfie scene.
 
       this.game = new scenes.santascanvas.Game(module);
       this.game.start();
-      this.fire('sound-ambient', 'selfie_start');
-      this.fire('sound-ambient', 'music_start_ingame');
+      this.fire('sound-ambient', 'cd_start');
+      this.fire('sound-ambient', 'music_start_scene');
     },
 
     onHide: function() {
       this.game.dispose();
       this.game = null;
-      this.fire('sound-ambient', 'selfie_end');
+      this.fire('sound-ambient', 'cd_end');
     },
   });
 

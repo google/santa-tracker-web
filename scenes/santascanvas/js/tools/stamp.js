@@ -33,7 +33,7 @@ app.Stamp = function($elem, name) {
 
   this.stampName = name;
   this.imageName = 'image-' + name;
-  this.soundKey = 'selfie_spray_small';
+  this.soundKey = 'cd_stamp_down';
   this.stamped = false;
   this.sizeMultiplier = 1;
   this.stampImages = {};
@@ -85,7 +85,7 @@ app.Stamp.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
  * Mousedown handler
  */
 app.Stamp.prototype.startMousedown = function() {
-  app.utils.triggerOnce(this.soundKey);
+  app.utils.triggerOnce(this.soundKey, [this.sizeMultiplier]);
   this.el.addClass('Tool--down');
 }
 

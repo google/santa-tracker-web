@@ -30,6 +30,7 @@ goog.require('app.utils');
 app.Pencil = function($elem, name) {
   app.TextureDrawer.call(this, $elem, name);
   this.drawFrequency = 2;
+  this.soundKey = name;
 };
 app.Pencil.prototype = Object.create(app.TextureDrawer.prototype);
 

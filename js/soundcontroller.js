@@ -25,8 +25,8 @@ const klangSrc = 'third_party/lib/klang/klang.js';
  * Klang config file URL.
  */
 const klangConfigSrc = 'third_party/lib/klang/config.js';
-//const klangConfigSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/bNsac/config.js';
-
+const klangDebugSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/Wghqk/config.js';
+const loadLocally = true;
 /**
  * @constructor
  * @struct
@@ -91,7 +91,8 @@ SoundController.SoundDetail;
  */
 SoundController.prototype.loadKlangConfig_ = function() {
   // load config script
-  Klang.init(this.baseUrl_ + klangConfigSrc, (success) => {
+  var url = loadLocally ? this.baseUrl_ + klangConfigSrc : klangDebugSrc;
+  Klang.init(url, (success) => {
     if (!success) {
       return console.warn('Klang failed to load');
     }

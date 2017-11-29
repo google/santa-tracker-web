@@ -29,7 +29,7 @@ goog.require('app.ImageManager');
 app.SprayPattern = function($elem, name, config) {
   app.Tool.call(this, $elem, name);
 
-  this.soundKey = 'selfie_shave';
+  this.soundKey = name;
   this.images = config.images || [];
   this.imageIndex = 0;
   this.currentSize = app.Constants.SPRAY_CIRCLE_SIZE;
