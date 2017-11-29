@@ -68,6 +68,12 @@
     background-size: 60%;
     height: 65px;
     width: 65px;
+
+    &[data-snowglobe-snowing="true"] {
+      box-shadow: none !important;
+      transform: translateY(7px) translateZ(0);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
   }
 
   .Button--next {

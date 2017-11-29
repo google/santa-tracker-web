@@ -26,15 +26,17 @@ app.Snow = function($elem, canvas, backupCanvas) {
   this.backupContext = backupCanvas.getContext('2d');
   this.playing = false;
   this.cleared = true;
+  this.button = $elem.find('[data-tool="snowglobe"]');
 
   this.flakes = [];
-  $elem.find('[data-tool="snowglobe"]').on(
+  this.button.on(
       'click.santascanvas touchend.santascanvas', this.toggleSnow.bind(this));
 };
 
 
 app.Snow.prototype.toggleSnow  = function() {
   this.playing = !this.playing;
+  this.button.attr('data-snowglobe-snowing', this.playing);
   window.santaApp.fire('sound-trigger', {name: 'cd_toggle_snow', args: [this.playing ? 1 : 0]});
 };
 
@@ -45,6 +47,7 @@ app.Snow.prototype.reset  = function() {
   this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
   this.cleared = true;
+  this.button.attr('data-snowglobe-snowing', false);
 };
 
 
