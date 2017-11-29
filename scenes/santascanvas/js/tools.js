@@ -75,7 +75,7 @@ app.Tools = function(game, $elem) {
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
-      drawFrequency: 2,
+      drawFrequency: 7,
       sizeConfig: {
         min: app.Constants.PENCIL_MIN,
         max: app.Constants.PENCIL_MAX
