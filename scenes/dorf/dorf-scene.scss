@@ -175,7 +175,6 @@ footer {
   background: url(img/footer-snow-tile.svg) repeat-x;
   background-size: contain;
   background-position: center bottom;
-  min-height: 200px;
 
   @media (min-width: $width-tablet) {
     margin-top: -200px;
@@ -188,20 +187,30 @@ footer {
     line-height: 26px;
     max-width: 400px;
     text-shadow: none;
+    text-shadow: 0 1px 0 white; 
+    position: relative;
+    z-index: 1;  // put above ::after
   }
 
-  img {
+  &::after {
+    content: '';
     width: 100%;
     max-width: $width-desktop + 240px;
-    margin: 20px auto 0;
+    margin: -10% auto 0;
+    padding-bottom: 33%;
     display: block;
+    @include will-change();
+    z-index: -1;
+    background: url(img/footer-elves.svg) center bottom no-repeat;
+    background-size: contain;
   }
 
   &.countdown-finished {
-    img {
+    &::after {
       // finished image is much taller; keep to max size
       width: 800px;
       max-width: 100%;
+      background-image: url(img/day-of-assets-footer.svg);
     }
   }
 }

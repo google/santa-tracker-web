@@ -174,7 +174,6 @@ Santa's Village.
 
   <footer class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
     <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-    <img src$="[[_computeFooterElves(_countdownFinished)]]" />
   </footer>
 
 </template>
@@ -248,11 +247,6 @@ Santa's Village.
 
     _computeCountdownFinishedClass: function(finished) {
       return finished ? 'countdown-finished': '';
-    },
-
-    _computeFooterElves: function(finished) {
-      var url = (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
-      return this.resolveUrl(url);
     },
 
     _computeIsSceneVillage: function(screenWidth) {
