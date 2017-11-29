@@ -16,6 +16,7 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
       background-repeat: no-repeat;
       background-size: 75%;
       flex: 0 0 185px;
+      height: 70%;
       margin-left: 10px;
       position: relative;
 
@@ -42,8 +43,15 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
         background-position: center 30%;
         border-bottom: 0;
         flex: 0 0 49%;
+        height: 20vh;
         margin: 10px 0 0;
         width: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .Tool {
+        height: 16vh;
       }
     }
   }
