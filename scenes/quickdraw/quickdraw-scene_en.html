@@ -202,7 +202,7 @@ Quickdraw scene.
     game: null,
 
     onPreload: function() {
-      this.preloadSounds('selfie_load_sounds', 30);
+      this.preloadSounds('qd_load_sounds', 30);
       this.preloadImages([
       'img/clear-btn.svg',
       'img/elf.svg',
@@ -225,14 +225,14 @@ Quickdraw scene.
 
       this.game = new scenes.quickdraw.Game(module);
       this.game.start();
-      this.fire('sound-ambient', 'selfie_start');
-      this.fire('sound-ambient', 'music_start_ingame');
+      this.fire('sound-ambient', 'qd_start');
+      this.fire('sound-ambient', 'music_start_scene');
     },
 
     onHide: function() {
       this.game.dispose();
       this.game = null;
-      this.fire('sound-ambient', 'selfie_end');
+      this.fire('sound-ambient', 'qd_end');
     },
   });
 

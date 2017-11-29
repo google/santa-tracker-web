@@ -31,6 +31,7 @@ app.view.SplashView.prototype = Object.create(app.EventEmitter.prototype);
 
 app.view.SplashView.prototype.enableButtons = function() {
   this.elem.find('.splashview__button').on('touchend mouseup', function () {
+    window.santaApp.fire('sound-trigger', 'generic_button_click');
     this.emit('START_GAME');
     this.disableButtons();
   }.bind(this));

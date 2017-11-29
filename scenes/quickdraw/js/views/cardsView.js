@@ -112,7 +112,9 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   if (roundsRecognized == 0) {
     $titleElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-title-noguess'));
     $sublineElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-subline-noguess'));
+    window.santaApp.fire('sound-ambient', 'music_ingame_gameover');
   } else {
+    window.santaApp.fire('sound-trigger', 'qd_game_win');
     $titleElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-title-guess'));
     $sublineElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-subline-guess', 'roundsRecognized', roundsRecognized));
   }
@@ -129,10 +131,13 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
     $drawingsWrapper.append(this.createDrawingElem(round, modelWidth, modelHeight));
   }.bind(this));
 
+
+
   this.timesup_card
     .find('.timesup-card__button')
     .off('touchend mouseup')
     .on('touchend mouseup', function() {
+      window.santaApp.fire('sound-trigger', 'generic_button_click');
       if (callback) {
           callback('NEW_GAME');
       }

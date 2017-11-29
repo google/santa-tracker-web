@@ -51,6 +51,7 @@ app.GameController = function(container) {
   }.bind(this));
   this.gameView.addListener('CLEAR', function() {
     this.drawingCanvas.clearDrawingCanvas();
+    window.santaApp.fire('sound-trigger', 'qd_clear');
   }.bind(this));
   this.recognitionController.addListener('NEW_RECOGNITIONS', function(guesses) {
     this.onNewRecognitions(guesses);
@@ -215,11 +216,14 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
     this.drawingCanvas.clearDrawingCanvas();
     this.machineView.reset();
     this.recognitionController.start();
-    window.santaApp.fire('sound-trigger', 'bl_game_start');
 
     //Start The Clock
     this.clock.reset();
     this.clock.startClock();
+    
+    window.santaApp.fire('sound-trigger', 'generic_button_click');
+    window.santaApp.fire('sound-ambient', 'music_start_ingame');
+
   }.bind(this);
 
   this.scoreboard.setLevel(this.level - 1);
@@ -249,8 +253,10 @@ app.GameController.prototype.roundRecognized = function(correctRecognition) {
       if (this.level < app.Constants.TOTAL_LEVELS) {
         this.level++;
         this.startNewRoundWithChallenge(nextChallenge);
+        window.santaApp.fire('sound-trigger', 'qd_level_up');
       } else {
         this.endGame();
+        window.santaApp.fire('sound-trigger', 'qd_complete');
       }
     }.bind(this));
   }.bind(this), 1500);
@@ -301,7 +307,7 @@ app.GameController.prototype.endGame = function() {
   this.recognitionController.stop();
   this.clock.pauseClock();
   this.machineView.reset();
-
+  window.santaApp.fire('sound-ambient', 'music_start_scene');
   this.cardsView.showTimesUpCard(this.previousRounds, function(res) {
     if (res == 'NEW_GAME') {
       this.prepareNewGame(function(challenge) {

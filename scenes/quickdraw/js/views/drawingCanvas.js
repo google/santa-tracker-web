@@ -42,6 +42,12 @@ app.view.DrawingCanvas = function(container) {
   this.tool = new paper.Tool();
   this.path;
 
+  //sound
+  this.lastMouseX = 0;
+  this.lastMouseY = 0;
+  this.lastTime = 1;
+  this.drawingVolume = 0;
+
   this.resizeCanvas();
 
   $(window).on('resize', function() {
@@ -129,6 +135,9 @@ app.view.DrawingCanvas.prototype.startListening = function() {
     this.paths.push([[event.point.x],[event.point.y],[this.currentTimeMs()]]);
 
     paper.view.draw();
+
+    window.santaApp.fire('sound-trigger', 'qd_marker_start');
+
   }.bind(this));
 
   this.tool.on('mousedrag', function(event) {
@@ -146,6 +155,8 @@ app.view.DrawingCanvas.prototype.startListening = function() {
     this.path.smooth();
     paper.view.draw();
     this.emit('DRAWING_UPDATED', this);
+
+    this.calculateDrawingVolume(event.point)
   }.bind(this));
 
   this.tool.on('mouseup', function(event) {
@@ -156,10 +167,34 @@ app.view.DrawingCanvas.prototype.startListening = function() {
     this.paths[this.paths.length - 1][0].push(event.point.x);
     this.paths[this.paths.length - 1][1].push(event.point.y);
     this.paths[this.paths.length - 1][2].push(this.currentTimeMs());
+
+    window.santaApp.fire('sound-trigger', 'qd_marker_stop');
   }.bind(this));
 
 };
+app.view.DrawingCanvas.prototype.calculateDrawingVolume = function(point) {
 
+  var xPos = Math.abs(point.x / this.canvas.width - this.lastMouseX);
+  var yPos = Math.abs(point.y / this.canvas.height - this.lastMouseY);
+  var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
+
+  if (isFinite(speed)) {
+    this.drawingVolume += speed / 2;
+  }
+
+  this.lastTime = Klang.context.currentTime;
+  this.lastMouseX = point.x / this.canvas.width;
+  this.lastMouseY = point.y / this.canvas.height;
+
+  this.soundUpdate();
+
+}
+app.view.DrawingCanvas.prototype.soundUpdate = function() {
+  if (isFinite(this.drawingVolume)) {
+    this.drawingVolume *= 0.6;
+    Klang.trigger("qd_draw_update", Math.min(1, this.drawingVolume));
+  }
+}
 app.view.DrawingCanvas.prototype.stopListening = function() {
   paper.view.off('mousemove');
   this.tool.off('mousedown');
