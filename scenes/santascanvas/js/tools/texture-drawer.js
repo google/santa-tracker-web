@@ -48,6 +48,7 @@ app.TextureDrawer = function($elem, name, config) {
     this.image = this.$image[0];
     this.height = this.$image.height();
     this.width = this.$image.width();
+    this.disableColorpicker = true;
   }
 };
 app.TextureDrawer.prototype = Object.create(app.Tool.prototype);

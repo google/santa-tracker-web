@@ -7,6 +7,11 @@
     position: relative;
     width: 100px;
 
+    &[data-colorpicker-disabled="true"] {
+      filter: grayscale(100%);
+      opacity: 0.5;
+    }
+
     @media (max-width: 800px) {
       height: 70px;
       margin: 8px auto;

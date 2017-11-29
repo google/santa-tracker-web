@@ -30,6 +30,9 @@ app.SpraySnow = function($elem, name) {
 
   this.density = app.Constants.SPRAY_SNOW_DENSITY;
   this.maxOffset = app.Constants.SPRAY_SNOW_OFFSET;
+
+  this.disableResize = true;
+  this.disableColorpicker = true;
 };
 app.SpraySnow.prototype = Object.create(app.Tool.prototype);
 

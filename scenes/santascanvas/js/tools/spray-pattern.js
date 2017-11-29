@@ -38,6 +38,8 @@ app.SprayPattern = function($elem, name, config) {
   this.opacity = config.opacity || 1;
   this.noRotate = config.noRotate;
 
+  this.disableResize = true;
+  this.disableColorpicker = true;
 
   this.populateImages($elem);
 };

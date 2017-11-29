@@ -738,6 +738,9 @@ app.Tools.prototype.selectTool_ = function(e) {
   })[0];
 
   if (this.selectedTool) {
+    this.game_.colorpicker.setDisabled(false);
+    this.game_.slider.setDisabled(false);
+
     // Apply scene tool and deselect immediately
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
@@ -758,6 +761,9 @@ app.Tools.prototype.selectTool_ = function(e) {
         this.selectedTool.select(coords);
         this.sliderChanged(this.game_.slider.size);
         this.toolDisplay.attr('data-current-tool', this.selectedTool.name);
+
+        this.game_.colorpicker.setDisabled(this.selectedTool.disableColorpicker);
+        this.game_.slider.setDisabled(this.selectedTool.disableResize);
 
         if (this.isMobile) {
           this.secondaryMenu.removeClass('is-active');
@@ -800,6 +806,9 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     this.game_.colorpicker.togglePopup();
   }
 
+  this.game_.colorpicker.setDisabled(false);
+  this.game_.slider.setDisabled(false);
+
   this.categoryPickers.removeClass('is-active');
   this.categoryMenus.removeClass('is-active');
   categoryPicker.addClass('is-active');
@@ -836,6 +845,8 @@ app.Tools.prototype.onSubcategoryClick_ = function(e) {
   subcategoryMenu.scrollLeft(0);
   subcategoryMenu.addClass('is-active');
   subcategoryPicker.addClass('is-active');
+  this.game_.colorpicker.setDisabled(false);
+  this.game_.slider.setDisabled(false);
 };
 
 

@@ -47,6 +47,8 @@ app.PenGarland = function($elem, name, config) {
   this.updateSize();
   this.spacing = this.currentSize * 2;
   this.spaceUntilNext = 0;
+
+  this.disableColorpicker = true;
 };
 app.PenGarland.prototype = Object.create(app.Tool.prototype);
 

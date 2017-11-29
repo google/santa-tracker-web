@@ -38,6 +38,8 @@ app.Tool = function($elem, name) {
   // TODO: calculate this based on circle size
   this.mouseOffset = {x: -10, y: 10};
   this.soundKey = '';
+  this.disableResize = false;
+  this.disableColorpicker = false;
 };
 
 

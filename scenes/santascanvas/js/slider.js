@@ -59,6 +59,10 @@ app.Slider.prototype.mouseChanged = function(mouse) {
 
 
 app.Slider.prototype.onMousedown = function() {
+  if (this.disabled) {
+    return;
+  }
+
   this.sliding = true;
 };
 
@@ -138,3 +142,10 @@ app.Slider.prototype.onResize = function() {
     this.isMobile = false;
   }
 };
+
+
+app.Slider.prototype.setDisabled = function(isDisabled) {
+  this.container.attr('data-slider-disabled', isDisabled);
+  this.disabled = isDisabled;
+};
+

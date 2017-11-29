@@ -50,6 +50,8 @@ app.PenStringLights = function($elem, name, config) {
   this.spacing = this.currentSize * .75;
   this.spaceUntilNext = this.spacing / 2;
   this.faceUp = true;
+
+  this.disableColorpicker = true;
 };
 app.PenStringLights.prototype = Object.create(app.PenGarland.prototype);
 

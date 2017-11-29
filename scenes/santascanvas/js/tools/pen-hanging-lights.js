@@ -46,6 +46,8 @@ app.PenHangingLights = function($elem, name, config) {
 
   this.spacing = this.currentSize / 2;
   this.spaceUntilNext = this.spacing / 2;
+
+  this.disableColorpicker = true;
 };
 app.PenHangingLights.prototype = Object.create(app.PenGarland.prototype);
 

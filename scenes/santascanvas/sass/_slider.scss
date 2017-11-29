@@ -2,6 +2,11 @@
   .Slider {
     padding: 20px;
     position: relative;
+
+    &[data-slider-disabled="true"] {
+      filter: grayscale(100%);
+      opacity: 0.5;
+    }
   }
 
   .Slider-inner {

@@ -20,6 +20,7 @@ goog.require('app.Constants');
 
 app.Colorpicker = function($elem) {
   this.elem = $elem;
+  this.container = this.elem.find('[data-colorpicker]');
   this.selector = this.elem.find('[data-colorpicker-selector]');
   this.popup = this.elem.find('[data-colorpicker-popup]');
   this.colors = this.elem.find('[data-colorpicker-color]');
@@ -39,6 +40,10 @@ app.Colorpicker = function($elem) {
 
 
 app.Colorpicker.prototype.togglePopup = function() {
+  if (this.disabled) {
+    return;
+  }
+
   this.popup.toggleClass('is-visible');
 };
 
@@ -68,9 +73,20 @@ app.Colorpicker.prototype.isPopupOpen = function() {
   return this.popup.hasClass('is-visible');
 };
 
+
 app.Colorpicker.prototype.subscribe = function(callback, context) {
   this.subscribers.push({
     callback: callback,
     context: context
   });
 };
+
+
+app.Colorpicker.prototype.setDisabled = function(isDisabled) {
+  this.container.attr('data-colorpicker-disabled', isDisabled);
+  this.disabled = isDisabled;
+  if (isDisabled) {
+    this.popup.removeClass('is-visible');
+  }
+};
+

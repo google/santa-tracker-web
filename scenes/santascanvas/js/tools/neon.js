@@ -31,6 +31,7 @@ app.Neon = function($elem, name) {
   app.Marker.call(this, $elem, name);
 
   this.points = [];
+  this.disableColorpicker = true;
 };
 app.Neon.prototype = Object.create(app.Marker.prototype);
 
