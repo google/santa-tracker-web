@@ -118,7 +118,7 @@ app.Tools = function(game, $elem) {
   this.garland = new app.PenGarland($elem, 'garland', {
       sizeConfig: {
         min: 0.5,
-        max: 5,
+        max: 2.5,
         scale: true
       }
     });

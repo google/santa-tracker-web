@@ -92,8 +92,11 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
 
   if (this.points.length == 1) {
     var p1 = this.points[0];
+    context.save();
+    context.globalAlpha = this.opacity;
     context.drawImage(texture, p1.x - offsetX, p1.y - offsetY,
         drawWidth, drawHeight);
+    context.restore();
   } else if (this.points.length == 2) {
     var p1 = this.points[0];
     var p2 = this.points[1];
