@@ -231,6 +231,13 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     }
   }
 
+  @each $current-sticker in $sticker-food {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/food/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+
   @each $current-sticker in $sticker-silly {
     [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
       background-image: url(img/stickers/silly/#{$current-sticker}.svg);
