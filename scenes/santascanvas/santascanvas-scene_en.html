@@ -1171,6 +1171,12 @@ Santaselfie scene.
     game: null,
 
     onPreload: function() {
+      if ($(window).width() > 800) {
+        console.log('is desktop');
+      } else {
+        console.log('is mobile');
+      }
+
       this.preloadSounds('cd_load_sounds', 30);
       this.preloadImages([
         'img/icons/reset.svg',
@@ -1192,7 +1198,7 @@ Santaselfie scene.
 
     onShow: function() {
       var module = this.$['module-santascanvas'];
-
+      console.log('start game');
       this.game = new scenes.santascanvas.Game(module);
       this.game.start();
       this.fire('sound-ambient', 'cd_start');

@@ -136,7 +136,7 @@ app.Slider.prototype.subscribe = function(callback, context) {
 
 
 app.Slider.prototype.onResize = function() {
-  if (this.elem[0].getBoundingClientRect().width <= 800) {
+  if (this.elem[0].getBoundingClientRect().width <= app.Constants.MOBILE_BREAKPOINT) {
     this.isMobile = true;
   } else {
     this.isMobile = false;

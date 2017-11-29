@@ -975,7 +975,7 @@ app.Tools.prototype.onResize = function() {
     }
   });
 
-  if (this.game_.sceneElem[0].getBoundingClientRect().width <= 800) {
+  if (this.game_.sceneElem[0].getBoundingClientRect().width <= app.Constants.MOBILE_BREAKPOINT) {
     this.isMobile = true;
   } else {
     this.isMobile = false;
