@@ -61,7 +61,7 @@ app.Colorpicker.prototype.onColorOver = function(event) {
 };
 
 app.Colorpicker.prototype.onColorPickerOver = function(event) {
-  window.santaApp.fire('sound-trigger', 'cd_color_picker_over');
+  window.santaApp.fire('sound-trigger', 'generic_button_over');
 };
 
 app.Colorpicker.prototype.setColor = function(color) {

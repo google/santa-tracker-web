@@ -244,7 +244,9 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn, isReset)
         this.needSave = true;
       }
     }
-    this.calculateDrawingVolume(actionFnContext.textureName);
+    if (actionFnContext) {
+      this.calculateDrawingVolume(actionFnContext.textureName);
+    }
   }
 
   // TODO check if we need to copy back and fore

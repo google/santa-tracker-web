@@ -901,6 +901,8 @@ app.Tools.prototype.onNavClick_ = function(e) {
   menu.animate({
     scrollLeft: menu.scrollLeft() + offset
   }, 300);
+
+  window.santaApp.fire('sound-trigger', 'spirit_click');
 };
 
 app.Tools.prototype.onCategoryOver_ = function(e) {

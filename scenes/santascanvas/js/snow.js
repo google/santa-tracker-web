@@ -35,7 +35,7 @@ app.Snow = function($elem, canvas, backupCanvas) {
 
 app.Snow.prototype.toggleSnow  = function() {
   this.playing = !this.playing;
-  window.santaApp.fire('sound-trigger', 'cd_toggle_snow', this.playing);
+  window.santaApp.fire('sound-trigger', {name: 'cd_toggle_snow', args: [this.playing ? 1 : 0]});
 };
 
 
