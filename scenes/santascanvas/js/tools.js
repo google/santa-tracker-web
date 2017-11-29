@@ -676,8 +676,9 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
       // Hide UI when drawing
       var insideCanvas = this.isInsideCanvas(mouse);
       var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
+      var startedOnColorpicker = $(this.game_.mouse.originalTarget).closest('[data-colorpicker]').length;
 
-      if (insideCanvas) {
+      if (insideCanvas && !startedOnColorpicker) {
         if (!this.isMobile && this.secondaryMenuActive) {
           this.secondaryMenu.removeClass('is-active');
           if (this.game_.colorpicker.isPopupOpen()) {
@@ -713,7 +714,7 @@ app.Tools.prototype.selectTool_ = function(e) {
   // Check if on slider or rotator
   if ($(e.target).closest('[data-slider]').length ||
     $(e.target).closest('[data-rotator]').length ||
-    $(e.target).closest('.Colorpicker').length) {
+    $(e.target).closest('[data-colorpicker]').length) {
     return;
   }
 
@@ -918,7 +919,6 @@ app.Tools.prototype.isInsideCanvas = function(mouse) {
   return this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
     !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
     !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
-    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
     !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
     !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileSlider[0]);
 };

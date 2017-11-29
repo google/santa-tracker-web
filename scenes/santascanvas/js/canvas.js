@@ -188,8 +188,9 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
     !(colorpicker.isPopupOpen() &&
         mouse.isInsideEl(mouse.x, mouse.y, colorpicker.popup[0]));
   var startedOnSlider = $(mouse.originalTarget).closest('[data-slider]').length;
+  var startedOnColorpicker = $(mouse.originalTarget).closest('[data-colorpicker]').length;
 
-  if (insideCanvas && this.mouse.down && tools.selectedTool && !startedOnSlider) {
+  if (insideCanvas && this.mouse.down && tools.selectedTool && !startedOnSlider && !startedOnColorpicker) {
     this.updateCanvas(tools.selectedTool, tools.selectedTool.draw);
   } else if ((!insideCanvas || !this.mouse.down) && tools.selectedTool) {
     tools.selectedTool.reset();
