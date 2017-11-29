@@ -1,3 +1,5 @@
+$category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "sticker", "eraser";
+
 ##{$name} {
   .Tools {
     display: inline-block;
@@ -527,54 +529,41 @@
       }
     }
 
+    @each $cat in $category-names {
+      &--#{$cat} {
+        .Category-inner {
+          background: url(img/tools/tool_#{$cat}.svg) center / contain no-repeat;
+        }
+      }
+    }
+
     &--drawing {
       .Category-inner {
-        background: url(img/tools/tool_drawing.svg) center / contain no-repeat;
-      }
-    }
-
-    &--roller {
-      .Category-inner {
-        background: url(img/tools/tool_roller.svg) center / contain no-repeat;
-      }
-    }
-
-    &--stamp {
-      .Category-inner {
-        background: url(img/tools/tool_stamp.svg) center / contain no-repeat;
+        height: 60%;
+        width: 60%;
       }
     }
 
     &--spray {
       .Category-inner {
-        background: url(img/tools/spray/tool_spray_color.svg) center / contain no-repeat;
+        background-image: url(img/tools/spray/tool_spray_color.svg);
         height: 55%;
         width: 55%;
       }
     }
 
-    &--shapes {
-      .Category-inner {
-        background: url(img/tools/tool_shapes.svg) center / contain no-repeat;
-      }
-    }
-
-    &--scene {
-      .Category-inner {
-        background: url(img/tools/tool_scene.svg) center / contain no-repeat;
-      }
-    }
-
     &--sticker {
       .Category-inner {
-        background: url(img/tools/tool_sticker.svg) center / contain no-repeat;
+        height: 70%;
+        width: 70%;
       }
     }
 
     &--eraser {
       .Category-inner {
-        background: url(img/tools/tool_eraser.svg) center / contain no-repeat;
+        height: 75%;
         transform: translate3d(-50%, -50%, 0) rotate(45deg);
+        width: 75%;
       }
 
       &:hover {
