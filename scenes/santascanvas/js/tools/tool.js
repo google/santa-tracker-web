@@ -55,10 +55,11 @@ app.Tool.prototype.select = function(mouseCoords) {
   this.hoverEl.attr('data-tool-hover-category', this.category);
   this.hoverEl.attr('data-tool-hover-tool', this.name);
 
+  // Hide tool on touch devices
   if (app.shared.utils.touchEnabled) {
-    this.elem.css({ 'background-size': 0 }); // Hide tool on touch devices
-  } else {
-    // this.elem.css({ cursor: 'none' });
+    this.hoverEl.css({
+      display: 'none'
+    });
   }
 
   this.move(mouseCoords);
@@ -114,10 +115,12 @@ app.Tool.prototype.deselect = function() {
  * @param {!app.Mouse.CoordsType} mouseCoords transformed coords
  */
 app.Tool.prototype.move = function(mouseCoords) {
-  this.hoverEl.css({
-    left: mouseCoords.x + (this.mouseOffset.x),
-    top: mouseCoords.y + (this.mouseOffset.y) + window.santaApp.headerSize,
-  });
+  if (!app.shared.utils.touchEnabled) {
+    this.hoverEl.css({
+      left: mouseCoords.x + (this.mouseOffset.x),
+      top: mouseCoords.y + (this.mouseOffset.y) + window.santaApp.headerSize,
+    });
+  }
 };
 
 

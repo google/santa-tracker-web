@@ -67,14 +67,30 @@
     top: 0;
     width: 100%;
 
-    &[data-current-category="sticker"] {
-      background: #A341B7;
+    &[data-current-category="eraser"],
+    &[data-current-category="scene"],
+    &[data-current-category="sticker"], {
+      pointer-events: auto;
 
       .Tools-display-outer {
+        background-color: #A341B7;
         border-radius: 0;
         height: 100%;
         margin: 0 auto;
         width: 100%;
+      }
+
+      .Tools-display-inner {
+        border-radius: 0;
+        height: 80%;
+        margin: 10%;
+        width: 80%;
+      }
+    }
+
+    &[data-current-category="eraser"] {
+      .Tools-display-inner {
+        background-image: url(img/tools/tool_eraser.svg);
       }
     }
 
@@ -128,7 +144,7 @@
       top: 44px;
 
       .Tool {
-        border-bottom: 2px solid #eee;
+        border-bottom: 1px solid #eee;
         flex: 0 0 33%;
         // height: 15vh;
         height: 100px;
@@ -146,8 +162,62 @@
     top: 0;
     width: 85px;
 
+    .Tools-desktop {
+      margin-top: 50px;
+    }
+
     .Tools-mobile {
       display: none;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+
+      .Button {
+        height: 50px;
+        margin: 0 0 15px;
+        pointer-events: auto;
+        width: 50px;
+      }
+
+      .Tools-mobile--right,
+      .Tools-mobile--left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform .3s;
+      }
+
+      .Tools-mobile--right {
+        right: 0;
+      }
+
+      .Tools-mobile--left {
+        left: 0;
+      }
+
+      .Tools-rotator {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .Tools-slider {
+        padding: 20px 15px;
+        transform: rotate(-90deg) translate(-50%, 10%);
+        transform-origin: center left;
+
+        .Slider-base,
+        .Slider-dot {
+          pointer-events: auto;
+        }
+
+        .Slider-inner {
+          height: 15px;
+          width: 300px;
+        }
+      }
     }
 
     @media (max-width: 800px) {
@@ -161,56 +231,6 @@
 
       .Tools-mobile {
         display: block;
-        height: 100%;
-        position: absolute;
-        width: 100%;
-
-        .Button {
-          height: 50px;
-          margin: 0 0 15px;
-          pointer-events: auto;
-          width: 50px;
-        }
-
-        .Tools-mobile--right,
-        .Tools-mobile--left {
-          bottom: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          position: absolute;
-          top: 0;
-          transition: transform .3s;
-        }
-
-        .Tools-mobile--right {
-          right: 0;
-        }
-
-        .Tools-mobile--left {
-          left: 0;
-          // width: 50px;
-        }
-
-        .Tools-edit {
-
-        }
-
-        .Tools-rotator {
-          flex-direction: column;
-          padding: 0;
-        }
-
-        .Tools-slider {
-          padding: 15px 20px;
-          transform: rotate(-90deg) translateY(100%);
-          transform-origin: bottom left;
-
-          .Slider-base,
-          .Slider-dot {
-            pointer-events: auto;
-          }
-        }
       }
 
       .Tools-desktop {

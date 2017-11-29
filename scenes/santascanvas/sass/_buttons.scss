@@ -42,6 +42,10 @@
     box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
     height: 50px;
     width: 50px;
+
+    @media (max-width: 800px) {
+      background-color: #EFEFEF;
+    }
   }
 
   .Button--primary {
@@ -52,6 +56,11 @@
   .Button--trash {
     background-image: url(img/icons/trash.svg);
     margin-bottom: 30px;
+  }
+
+  .Button--eraser {
+    background-image: url(img/tools/tool_eraser.svg);
+    background-size: contain;
   }
 
   .Button--snowglobe {

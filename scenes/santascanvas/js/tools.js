@@ -70,10 +70,12 @@ app.Tools = function(game, $elem) {
   this.mobileRotate = this.tertiaryMenuMobile.find('.Tools-rotator');
   this.mobileSlider = this.tertiaryMenuMobile.find('.Tools-slider');
   this.tertiaryMenuButtons = this.tertiaryMenu.find('.Button');
+  this.mobileEraser = this.tertiaryMenuMobile.find('[data-tool="eraser-mobile"]');
 
   this.categoryPickers.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
+  this.mobileEraser.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
 
   //mouse enter
   this.categoryPickers.on('mouseenter.santascanvas', this.onCategoryOver_.bind(this));
@@ -86,7 +88,7 @@ app.Tools = function(game, $elem) {
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       opacity: 0.5,
-      drawFrequency: 2,
+      drawFrequency: 7,
       sizeConfig: {
         min: app.Constants.PENCIL_MIN,
         max: app.Constants.PENCIL_MAX
@@ -165,6 +167,7 @@ app.Tools = function(game, $elem) {
   this.sceneSnow = new app.LayerTool($elem, 'snow', app.LayerTool.Layer.BACKGROUND);
   this.sceneUnderwater = new app.LayerTool($elem, 'underwater', app.LayerTool.Layer.BACKGROUND);
   this.eraser = new app.Eraser($elem, 'eraser');
+  this.eraserMobile = new app.Eraser($elem, 'eraser-mobile');
   this.shapeCircle = new app.Shape($elem, 'circle');
   this.shapeDiamond = new app.Shape($elem, 'diamond');
   this.shapeHeart = new app.Shape($elem, 'heart');
@@ -198,32 +201,30 @@ app.Tools = function(game, $elem) {
   this.rollerTrees = new app.PaintRoller($elem, 'trees');
   this.rollerVertical = new app.PaintRoller($elem, 'vertical');
   this.stickerDinosaur = new app.Sticker($elem, 'dinosaur');
-  this.stickerFishTeal = new app.Sticker($elem, 'fish-teal');
+  this.stickerFishTeal = new app.Sticker($elem, 'fish-teal', 3);
   this.stickerSanta = new app.Sticker($elem, 'santa');
   this.stickerCactus = new app.Sticker($elem, 'cactus');
   this.stickerIgloo = new app.Sticker($elem, 'igloo');
   this.stickerTreePalm = new app.Sticker($elem, 'tree-palm');
   this.stickerBrownBear = new app.Sticker($elem, 'brown-bear');
-  this.stickerFishYellow = new app.Sticker($elem, 'fish-yellow');
-  this.stickerGingerbreadMan = new app.Sticker($elem, 'gingerbread-man');
+  this.stickerFishYellow = new app.Sticker($elem, 'fish-yellow', 3);
+  this.stickerGingerbreadMan = new app.Sticker($elem, 'gingerbread-man', 1.5);
   this.stickerMrsClaus = new app.Sticker($elem, 'mrs-claus');
   this.stickerNarwhal = new app.Sticker($elem, 'narwhal');
-  this.stickerPenguinHat = new app.Sticker($elem, 'penguin-hat');
-  this.stickerPenguinPresents = new app.Sticker($elem, 'penguin-presents');
+  this.stickerPenguinPresents = new app.Sticker($elem, 'penguin-presents', 2);
   this.stickerRudolphFront = new app.Sticker($elem, 'rudolph-front');
   this.stickerRudolphSide = new app.Sticker($elem, 'rudolph-side');
   this.stickerSantaSled = new app.Sticker($elem, 'santa-sled');
   this.stickerSnowMonster = new app.Sticker($elem, 'snow-monster');
-  this.stickerSnowmanBigOrange = new app.Sticker($elem, 'snowman-big-orange');
   this.stickerCloud1 = new app.Sticker($elem, 'cloud1');
-  this.stickerCloud2 = new app.Sticker($elem, 'cloud2');
-  this.stickerCloud3 = new app.Sticker($elem, 'cloud3');
-  this.stickerCoralLarge = new app.Sticker($elem, 'coral-large');
-  this.stickerCoralMedium = new app.Sticker($elem, 'coral-medium');
-  this.stickerCoralSmall = new app.Sticker($elem, 'coral-small');
+  this.stickerCloud2 = new app.Sticker($elem, 'cloud2', 3);
+  this.stickerCloud3 = new app.Sticker($elem, 'cloud3', 3);
+  this.stickerCoralLarge = new app.Sticker($elem, 'coral-large', 4);
+  this.stickerCoralMedium = new app.Sticker($elem, 'coral-medium', 4);
+  this.stickerCoralSmall = new app.Sticker($elem, 'coral-small', 4);
   this.stickerMoon = new app.Sticker($elem, 'moon');
-  this.stickerSeaweedGreen = new app.Sticker($elem, 'seaweed-green');
-  this.stickerSeaweedLime = new app.Sticker($elem, 'seaweed-lime');
+  this.stickerSeaweedGreen = new app.Sticker($elem, 'seaweed-green', 4);
+  this.stickerSeaweedLime = new app.Sticker($elem, 'seaweed-lime', 4);
   this.stickerSun = new app.Sticker($elem, 'sun');
   this.stickerTreeHoliday = new app.Sticker($elem, 'tree-holiday');
   this.stickerTreesBlue = new app.Sticker($elem, 'trees-blue');
@@ -301,6 +302,8 @@ app.Tools = function(game, $elem) {
   this.stickerHouse = new app.Sticker($elem, 'house');
   this.stickerSantaSleigh = new app.Sticker($elem, 'santa-sleigh');
   this.stickerSchoolBus = new app.Sticker($elem, 'school-bus');
+  this.stickerVillageHouses = new app.Sticker($elem, 'village-houses');
+  this.stickerCandies = new app.Sticker($elem, 'candies');
   this.stickerCandycaneGreens = new app.Sticker($elem, 'candycane-greens');
   this.stickerCandycaneHoliday = new app.Sticker($elem, 'candycane-holiday');
   this.stickerCandycaneRed = new app.Sticker($elem, 'candycane-red');
@@ -322,6 +325,76 @@ app.Tools = function(game, $elem) {
   this.stickerMugRed = new app.Sticker($elem, 'mug-red');
   this.stickerSantaDance = new app.Sticker($elem, 'santa-dance');
   this.stickerSantaSleep = new app.Sticker($elem, 'santa-sleep');
+  this.stickerAstronaut = new app.Sticker($elem, 'astronaut');
+  this.stickerBat = new app.Sticker($elem, 'bat', 3);
+  this.stickerBoxFish = new app.Sticker($elem, 'box-fish', 3);
+  this.stickerBrownBearBaby = new app.Sticker($elem, 'brown-bear-baby', 2);
+  this.stickerBrownBearPirate = new app.Sticker($elem, 'brown-bear-pirate');
+  this.stickerDolphin = new app.Sticker($elem, 'dolphin', 1.5);
+  this.stickerFishPink = new app.Sticker($elem, 'fish-pink', 3);
+  this.stickerJellyfish = new app.Sticker($elem, 'jellyfish', 4);
+  this.stickerLightFish = new app.Sticker($elem, 'light-fish', 3);
+  this.stickerNutcrackerGreen = new app.Sticker($elem, 'nutcracker-green');
+  this.stickerPegmanHips = new app.Sticker($elem, 'pegman-hips', 1.5);
+  this.stickerPenguinAngry = new app.Sticker($elem, 'penguin-angry', 3);
+  this.stickerPolarBearScuba = new app.Sticker($elem, 'polar-bear-scuba');
+  this.stickerReindeerBabies = new app.Sticker($elem, 'reindeer-babies');
+  this.stickerReindeerBabyBoy = new app.Sticker($elem, 'reindeer-baby-boy', 2);
+  this.stickerReindeerBabyGirl = new app.Sticker($elem, 'reindeer-baby-girl', 2);
+  this.stickerReindeerWhite = new app.Sticker($elem, 'reindeer-white');
+  this.stickerRobotPurple = new app.Sticker($elem, 'robot-purple');
+  this.stickerRudolphDancing2 = new app.Sticker($elem, 'rudolph-dancing2');
+  this.stickerScubaGreen = new app.Sticker($elem, 'scuba-green');
+  this.stickerScubaOrange = new app.Sticker($elem, 'scuba-orange');
+  this.stickerSeagullFly2 = new app.Sticker($elem, 'seagull-fly2', 3);
+  this.stickerShark = new app.Sticker($elem, 'shark');
+  this.stickerSnowmanBigPenguin = new app.Sticker($elem, 'snowman-big-penguin');
+  this.stickerSnowmanBigTub = new app.Sticker($elem, 'snowman-big-tub');
+  this.stickerWalrus = new app.Sticker($elem, 'walrus', 1.5);
+  this.stickerElfHead1 = new app.Sticker($elem, 'elf-head1');
+  this.stickerElfHead2 = new app.Sticker($elem, 'elf-head2');
+  this.stickerElfHead3 = new app.Sticker($elem, 'elf-head3');
+  this.stickerElfHead4 = new app.Sticker($elem, 'elf-head4');
+  this.stickerElfHead5 = new app.Sticker($elem, 'elf-head5');
+  this.stickerFaceBearMouth = new app.Sticker($elem, 'face-bear-mouth');
+  this.stickerFaceCarrotNose = new app.Sticker($elem, 'face-carrot-nose');
+  this.stickerFaceEyesGlasses2 = new app.Sticker($elem, 'face-eyes-glasses2');
+  this.stickerFaceEyesGlasses3 = new app.Sticker($elem, 'face-eyes-glasses3');
+  this.stickerFaceEyesGlasses4 = new app.Sticker($elem, 'face-eyes-glasses4');
+  this.stickerFaceEyesGlasses5 = new app.Sticker($elem, 'face-eyes-glasses5');
+  this.stickerFaceEyesNormal = new app.Sticker($elem, 'face-eyes-normal');
+  this.stickerFaceEyesSunglasses1 = new app.Sticker($elem, 'face-eyes-sunglasses1');
+  this.stickerFaceEyesSunglasses2 = new app.Sticker($elem, 'face-eyes-sunglasses2');
+  this.stickerFaceEyesSunglasses3 = new app.Sticker($elem, 'face-eyes-sunglasses3');
+  this.stickerFaceEyesSunglasses4 = new app.Sticker($elem, 'face-eyes-sunglasses4');
+  this.stickerFaceMoustache = new app.Sticker($elem, 'face-moustache');
+  this.stickerFaceMouthWhite = new app.Sticker($elem, 'face-mouth-white');
+  this.stickerFaceNosePink = new app.Sticker($elem, 'face-nose-pink');
+  this.stickerFaceNoseRed = new app.Sticker($elem, 'face-nose-red');
+  this.stickerFaceSantaBeard = new app.Sticker($elem, 'face-santa-beard');
+  this.stickerFaceTeeth = new app.Sticker($elem, 'face-teeth');
+  this.stickerFaceWalrusMouth = new app.Sticker($elem, 'face-walrus-mouth');
+  this.stickerHatAntlersBlue = new app.Sticker($elem, 'hat-antlers-blue');
+  this.stickerHatAntlersBrown = new app.Sticker($elem, 'hat-antlers-brown');
+  this.stickerHatBeanie = new app.Sticker($elem, 'hat-beanie');
+  this.stickerHatGreen = new app.Sticker($elem, 'hat-green');
+  this.stickerHatOrange = new app.Sticker($elem, 'hat-orange');
+  this.stickerHatPink = new app.Sticker($elem, 'hat-pink');
+  this.stickerHatPurple = new app.Sticker($elem, 'hat-purple');
+  this.stickerHatSanta = new app.Sticker($elem, 'hat-santa');
+  this.stickerHatYellow = new app.Sticker($elem, 'hat-yellow');
+  this.stickerHeadBear = new app.Sticker($elem, 'head-bear');
+  this.stickerHeadElfHair1 = new app.Sticker($elem, 'head-elf-hair1');
+  this.stickerHeadElfHair2 = new app.Sticker($elem, 'head-elf-hair2');
+  this.stickerHeadElfHair3 = new app.Sticker($elem, 'head-elf-hair3');
+  this.stickerHeadElfHair4 = new app.Sticker($elem, 'head-elf-hair4');
+  this.stickerHeadElfHair5 = new app.Sticker($elem, 'head-elf-hair5');
+  this.stickerHeadElfHair6 = new app.Sticker($elem, 'head-elf-hair6');
+  this.stickerHeadElfHair7 = new app.Sticker($elem, 'head-elf-hair7');
+  this.stickerHeadElfHair8 = new app.Sticker($elem, 'head-elf-hair8');
+  this.stickerHeadElfHair9 = new app.Sticker($elem, 'head-elf-hair9');
+  this.stickerHeadElfHair10 = new app.Sticker($elem, 'head-elf-hair10');
+  this.stickerHeadReindeer = new app.Sticker($elem, 'head-reindeer');
 
 
   this.tools = [
@@ -356,6 +429,7 @@ app.Tools = function(game, $elem) {
     this.sceneSnow,
     this.sceneUnderwater,
     this.eraser,
+    this.eraserMobile,
     this.shapeCircle,
     this.shapeDiamond,
     this.shapeHeart,
@@ -395,14 +469,12 @@ app.Tools = function(game, $elem) {
     this.stickerGingerbreadMan,
     this.stickerMrsClaus,
     this.stickerNarwhal,
-    this.stickerPenguinHat,
     this.stickerPenguinPresents,
     this.stickerRudolphFront,
     this.stickerRudolphSide,
     this.stickerSantaSled,
     this.stickerSanta,
     this.stickerSnowMonster,
-    this.stickerSnowmanBigOrange,
     this.stickerCactus,
     this.stickerCloud1,
     this.stickerCloud2,
@@ -492,6 +564,8 @@ app.Tools = function(game, $elem) {
     this.stickerHouse,
     this.stickerSantaSleigh,
     this.stickerSchoolBus,
+    this.stickerVillageHouses,
+    this.stickerCandies,
     this.stickerCandycaneGreens,
     this.stickerCandycaneHoliday,
     this.stickerCandycaneRed,
@@ -512,7 +586,77 @@ app.Tools = function(game, $elem) {
     this.stickerMugGreen,
     this.stickerMugRed,
     this.stickerSantaDance,
-    this.stickerSantaSleep
+    this.stickerSantaSleep,
+    this.stickerAstronaut,
+    this.stickerBat,
+    this.stickerBoxFish,
+    this.stickerBrownBearBaby,
+    this.stickerBrownBearPirate,
+    this.stickerDolphin,
+    this.stickerFishPink,
+    this.stickerJellyfish,
+    this.stickerLightFish,
+    this.stickerNutcrackerGreen,
+    this.stickerPegmanHips,
+    this.stickerPenguinAngry,
+    this.stickerPolarBearScuba,
+    this.stickerReindeerBabies,
+    this.stickerReindeerBabyBoy,
+    this.stickerReindeerBabyGirl,
+    this.stickerReindeerWhite,
+    this.stickerRobotPurple,
+    this.stickerRudolphDancing2,
+    this.stickerScubaGreen,
+    this.stickerScubaOrange,
+    this.stickerSeagullFly2,
+    this.stickerShark,
+    this.stickerSnowmanBigPenguin,
+    this.stickerSnowmanBigTub,
+    this.stickerWalrus,
+    this.stickerElfHead1,
+    this.stickerElfHead2,
+    this.stickerElfHead3,
+    this.stickerElfHead4,
+    this.stickerElfHead5,
+    this.stickerFaceBearMouth,
+    this.stickerFaceCarrotNose,
+    this.stickerFaceEyesGlasses2,
+    this.stickerFaceEyesGlasses3,
+    this.stickerFaceEyesGlasses4,
+    this.stickerFaceEyesGlasses5,
+    this.stickerFaceEyesNormal,
+    this.stickerFaceEyesSunglasses1,
+    this.stickerFaceEyesSunglasses2,
+    this.stickerFaceEyesSunglasses3,
+    this.stickerFaceEyesSunglasses4,
+    this.stickerFaceMoustache,
+    this.stickerFaceMouthWhite,
+    this.stickerFaceNosePink,
+    this.stickerFaceNoseRed,
+    this.stickerFaceSantaBeard,
+    this.stickerFaceTeeth,
+    this.stickerFaceWalrusMouth,
+    this.stickerHatAntlersBlue,
+    this.stickerHatAntlersBrown,
+    this.stickerHatBeanie,
+    this.stickerHatGreen,
+    this.stickerHatOrange,
+    this.stickerHatPink,
+    this.stickerHatPurple,
+    this.stickerHatSanta,
+    this.stickerHatYellow,
+    this.stickerHeadBear,
+    this.stickerHeadElfHair1,
+    this.stickerHeadElfHair2,
+    this.stickerHeadElfHair3,
+    this.stickerHeadElfHair4,
+    this.stickerHeadElfHair5,
+    this.stickerHeadElfHair6,
+    this.stickerHeadElfHair7,
+    this.stickerHeadElfHair8,
+    this.stickerHeadElfHair9,
+    this.stickerHeadElfHair10,
+    this.stickerHeadReindeer
   ];
 };
 
@@ -542,45 +686,35 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     if (mouseCoords.down) {
 
 
-      var insideCanvas = this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
-        !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileSlider[0]);
+      // Hide UI when drawing
+      var insideCanvas = this.isInsideCanvas(mouse);
 
       if (insideCanvas) {
         this.selectedTool.startMousedown();
       }
-
       var startedOnSlider = $(this.game_.mouse.originalTarget).closest('[data-slider]').length;
 
-      if (app.shared.utils.touchEnabled && insideCanvas && !startedOnSlider) {
-        this.game_.sceneElem.addClass('ui-hidden');
-
-        if (this.game_.colorpicker.isPopupOpen()) {
-          this.game_.colorpicker.togglePopup();
+      if (insideCanvas) {
+        if (!this.isMobile && this.secondaryMenuActive) {
+          this.secondaryMenu.removeClass('is-active');
+          if (this.game_.colorpicker.isPopupOpen()) {
+            this.game_.colorpicker.togglePopup();
+          }
         }
-      }
-
-      if (this.secondaryMenuActive && !app.shared.utils.touchEnabled &&
-          this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
-          !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0])) {
-        this.secondaryMenu.removeClass('is-active');
-
-        if (this.game_.colorpicker.isPopupOpen()) {
-          this.game_.colorpicker.togglePopup();
+        if (this.isMobile && !startedOnSlider) {
+          this.game_.sceneElem.addClass('ui-hidden');
+          if (this.game_.colorpicker.isPopupOpen()) {
+            this.game_.colorpicker.togglePopup();
+          }
         }
       }
     } else {
       this.selectedTool.stopMousedown();
 
-      if (!app.shared.utils.touchEnabled && this.secondaryMenuActive) {
-        this.secondaryMenu.addClass('is-active');
-      }
-
-      if (app.shared.utils.touchEnabled) {
+      if (this.isMobile) {
         this.game_.sceneElem.removeClass('ui-hidden');
+      } else if (this.secondaryMenuActive) {
+        this.secondaryMenu.addClass('is-active');
       }
     }
   }
@@ -595,7 +729,8 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 app.Tools.prototype.selectTool_ = function(e) {
   // Check if on slider or rotator
   if ($(e.target).closest('[data-slider]').length ||
-    $(e.target).closest('[data-rotator]').length) {
+    $(e.target).closest('[data-rotator]').length ||
+    $(e.target).closest('.Colorpicker').length) {
     return;
   }
 
@@ -605,21 +740,29 @@ app.Tools.prototype.selectTool_ = function(e) {
     previousTool.deselect();
   }
 
+  if ($(e.target).closest('.Category').length &&
+      (this.currentCategory !== 'eraser') &&
+      (this.currentCategory !== 'scene')) {
+    var target = this.secondaryMenu.find('[data-tool-category="' + this.currentCategory + '"] [data-tool]');
+  } else {
+    var target =  $(e.target).closest('[data-tool]');
+  }
+
   this.selectedTool = this.tools.filter(function(tool) {
-    var target = $(e.target).closest('[data-tool]');
     if (tool.el[0] === target[0] && !tool.isSelected) {
       return tool;
     }
   })[0];
 
   if (this.selectedTool) {
+    // Apply scene tool and deselect immediately
     if (app.LayerTool.prototype.isPrototypeOf(this.selectedTool)) {
       this.selectedTool.draw();
       this.selectedTool = null;
       this.toolDisplay.attr('data-current-tool', '');
       this.toolDisplay.attr('data-current-category', '');
 
-      if (app.shared.utils.touchEnabled) {
+      if (this.isMobile) {
         this.currentCategory = null;
         this.secondaryMenuActive = false;
         this.categoryPickers.removeClass('is-active');
@@ -633,7 +776,7 @@ app.Tools.prototype.selectTool_ = function(e) {
         this.sliderChanged(this.game_.slider.size);
         this.toolDisplay.attr('data-current-tool', this.selectedTool.name);
 
-        if (app.shared.utils.touchEnabled) {
+        if (this.isMobile) {
           this.secondaryMenu.removeClass('is-active');
         }
       } else {
@@ -645,35 +788,26 @@ app.Tools.prototype.selectTool_ = function(e) {
 };
 
 
-app.Tools.prototype.drawToCanvas = function(selectedTool) {
-  this.game_.canvas.updateCanvas(selectedTool, selectedTool.draw);
-  this.game_.canvas.save();
-  this.game_.canvas.needSave = false;
-};
-
-
 app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
   var categoryName = categoryPicker.attr('data-tool-category');
   var categoryMenu = this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]');
 
   if (this.currentCategory && this.currentCategory == categoryName) {
-    if (app.shared.utils.touchEnabled) {
-      if (this.secondaryMenuActive) {
-        if (!this.selectedTool) {
-          categoryPicker.toggleClass('is-active');
-          this.currentCategory = null;
-          this.toolDisplay.attr('data-current-category', '');
-        }
-        this.secondaryMenu.toggleClass('is-active');
-      }
-
-      if (categoryName == 'eraser') {
-        categoryPicker.removeClass('is-active');
+    if (this.secondaryMenuActive) {
+      if (!this.selectedTool) {
+        categoryPicker.toggleClass('is-active');
         this.currentCategory = null;
-        this.selectedTool.deselect();
-        this.selectedTool = null;
+        this.toolDisplay.attr('data-current-category', '');
       }
+      this.secondaryMenu.toggleClass('is-active');
+    }
+
+    if (categoryName == 'eraser' && !$(e.target).closest('[data-slider]').length) {
+      categoryPicker.removeClass('is-active');
+      this.currentCategory = null;
+      this.selectedTool.deselect();
+      this.selectedTool = null;
     }
 
     return;
@@ -702,6 +836,9 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     this.secondaryMenuActive = true;
     this.secondaryMenu.addClass('is-active');
     categoryMenu.addClass('is-active');
+    if (!this.isMobile) {
+      this.selectTool_(e);
+    }
   }
   window.santaApp.fire('sound-trigger', 'selfie_click');
 };
@@ -713,10 +850,9 @@ app.Tools.prototype.onSubcategoryClick_ = function(e) {
   var subcategoryMenu = this.secondaryMenu.find('[data-tool-subcategory="' + subcategoryName + '"]');
   this.subcategoryPickers.removeClass('is-active');
   this.subcategoryMenus.removeClass('is-active');
+  subcategoryMenu.scrollLeft(0);
   subcategoryMenu.addClass('is-active');
   subcategoryPicker.addClass('is-active');
-
-  this.onResize();
 };
 
 
@@ -800,4 +936,20 @@ app.Tools.prototype.onResize = function() {
       $(this).removeClass('is-active');
     }
   });
+
+  if (this.game_.sceneElem[0].getBoundingClientRect().width <= 800) {
+    this.isMobile = true;
+  } else {
+    this.isMobile = false;
+  }
+};
+
+
+app.Tools.prototype.isInsideCanvas = function(mouse) {
+  return this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.colorpicker.popup[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileSlider[0]);
 };

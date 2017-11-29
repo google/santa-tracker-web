@@ -150,28 +150,15 @@ app.Canvas.prototype.onResize = function() {
  * Resets the canvas to original state.
  */
 app.Canvas.prototype.resetCanvas = function() {
-  this.clearCanvas();
-  this.backupCanvases.forEach(function(canvas, index) {
-    this.clearCanvas(index);
-  }, this);
+  this.updateCanvas(null, null, true);
 
   this.clearCanvasElement(this.backgroundCanvas);
   this.clearCanvasElement(this.foregroundCanvas);
   this.clearCanvasElement(this.backgroundBackup);
   this.clearCanvasElement(this.foregroundBackup);
 
-  this.backupCanvases[0].saved = true;
-  this.baseIndex = 0;
-  this.drawIndex = 1;
+  this.save();
   this.needSave = false;
-  this.mouse = {
-    down: false,
-    x: 0,
-    y: 0,
-    prevX: 0,
-    prevY: 0,
-    scale: 1
-  };
   this.undoing = false;
 };
 
@@ -224,8 +211,8 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
  * Perform actions on canvas. If no action function,
  * just recopy latest updates to display canvas
  */
-app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
-  if (actionFn && actionFnContext) {
+app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn, isReset) {
+  if ((actionFn && actionFnContext) || isReset) {
     if (this.undoing) {
       var cleared = false;
       var clearIndex = this.drawIndex;
@@ -243,14 +230,19 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn) {
       this.undoing = false;
     }
 
-    var slider = this.game_.slider;
-    var colorpicker = this.game_.colorpicker;
-    var drawCanvas = this.backupCanvases[this.drawIndex].canvas;
-    var baseCanvas = this.backupCanvases[this.baseIndex].canvas;
-    var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse,
-        baseCanvas, slider.size, colorpicker.selectedColor);
-    if (didDraw) {
+    if (isReset) {
+      this.clearCanvas(this.drawIndex);
       this.needSave = true;
+    } else {
+      var slider = this.game_.slider;
+      var colorpicker = this.game_.colorpicker;
+      var drawCanvas = this.backupCanvases[this.drawIndex].canvas;
+      var baseCanvas = this.backupCanvases[this.baseIndex].canvas;
+      var didDraw = actionFn.call(actionFnContext, drawCanvas, this.mouse,
+          baseCanvas, slider.size, colorpicker.selectedColor);
+      if (didDraw) {
+        this.needSave = true;
+      }
     }
     this.calculateDrawingVolume(actionFnContext.textureName);
   }

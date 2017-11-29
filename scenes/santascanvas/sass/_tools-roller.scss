@@ -14,6 +14,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
     }
 
     .Tools-display-inner {
+      background-image: url(img/tools/tool_roller.svg);
       background-size: cover;
       height: 70px;
       width: 70px;
@@ -31,24 +32,15 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
   // TOOLBAR
   [data-tool-category="roller"] {
     .Tool {
-      background-image: url(img/tools/tool_roller_regular.svg);
-      background-position: center 250%;
+      background-position: center;
       background-repeat: no-repeat;
       background-size: 80% 80%;
       position: relative;
 
-      &::before {
-        background-position: top right;
-        background-repeat: no-repeat;
-        background-size: cover;
-        bottom: 32%;
-        content: '';
-        height: 64%;
-        left: 23%;
-        position: absolute;
-        transform: rotate(-90deg);
-        width: 42%;
-        z-index: -1;
+      @media (max-width: 800px) {
+        background-size: contain;
+        border: none;
+        height: 120px;
       }
     }
 
@@ -59,8 +51,35 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
   .Tool {
     @each $current-roller in $roller-names {
-      &--roller-#{$current-roller}::before {
-        background-image: url(img/patterns/#{$current-roller}.svg);
+      &--roller-#{$current-roller} {
+        background-image: url(img/tools/roller/tool_roller_#{$current-roller}.svg);
+      }
+    }
+  }
+
+  // HOVER
+  [data-tool-hover-category="roller"] {
+    .Tool-hover-minitool {
+      height: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(100%, -100%) rotate(-135deg);
+      width: 100px;
+    }
+
+    .Tool-hover-minitool--default {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @each $current-roller in $roller-names {
+    [data-tool-hover-tool="roller-#{$current-roller}"] {
+      .Tool-hover-minitool--default {
+        background-image: url(img/tools/roller/tool_roller_#{$current-roller}.svg);
+        display: block;
       }
     }
   }

@@ -3,3 +3,11 @@
     display: none !important;
   }
 }
+
+.u-only-mobile {
+  display: none !important;
+
+  @media (max-width: 800px) {
+    display: block !important;
+  }
+}
