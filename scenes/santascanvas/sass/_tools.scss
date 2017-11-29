@@ -20,13 +20,15 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     z-index: 2;
 
     .Tools-mobile-settings {
-      background-color: #A341B7;
+      background-color: transparent;
+      background: url(img/icons/mobile_ornament.svg) center/contain no-repeat;
       bottom: 0;
       display: none;
       height: 85px;
       left: 0;
+      padding-right: 10px;
       position: absolute;
-      width: 95px;
+      width: 100px;
 
       &::after {
         background: #A341B7;
@@ -64,37 +66,11 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
   .Tools-display {
     height: 100%;
     left: 0;
+    padding-right: 10px;
     pointer-events: none;
     position: absolute;
     top: 0;
     width: 100%;
-
-    &[data-current-category="eraser"],
-    &[data-current-category="scene"],
-    &[data-current-category="sticker"], {
-      pointer-events: auto;
-
-      .Tools-display-outer {
-        background-color: #A341B7;
-        border-radius: 0;
-        height: 100%;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .Tools-display-inner {
-        border-radius: 0;
-        height: 80%;
-        margin: 10%;
-        width: 80%;
-      }
-    }
-
-    &[data-current-category="eraser"] {
-      .Tools-display-inner {
-        background-image: url(img/tools/tool_eraser.svg);
-      }
-    }
 
     .Tools-display-outer {
       border: 1px solid transparent;
@@ -114,6 +90,33 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       margin: 7px auto;
       overflow: hidden;
       width: 55px;
+    }
+
+    &[data-current-category="eraser"],
+    &[data-current-category="scene"],
+    &[data-current-category="sticker"], {
+      pointer-events: auto;
+
+      .Tools-display-outer {
+        background: url(img/icons/mobile_ornament.svg) center/contain no-repeat;
+        border-radius: 0;
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .Tools-display-inner {
+        border-radius: 0;
+        height: 80%;
+        margin: 10%;
+        width: 80%;
+      }
+    }
+
+    &[data-current-category="eraser"] {
+      .Tools-display-inner {
+        background-image: url(img/tools/tool_eraser.svg);
+      }
     }
   }
 
