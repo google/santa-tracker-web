@@ -5,8 +5,8 @@
     &__text {
       font-family: 'Lobster', sans-serif;
       font-size: 45px;
-      line-height: 63px;
       letter-spacing: 0.2px;
+      line-height: 63px;
       margin: 0;
     }
 
@@ -26,13 +26,13 @@
       }
 
       &-container {
-        width: 65%;
         margin: auto;
         margin-top: 50px;
+        width: 65%;
 
         @media (max-width: 767px) {
-          width: 100%;
           margin-top: 20px;
+          width: 100%;
         }
       }
 
@@ -73,9 +73,9 @@
         }
 
         &.rounddetails-card__similar-drawing-neighbor {
+          left: 0;
           position: absolute;
           top: 0;
-          left: 0;
         }
 
         svg {
@@ -99,21 +99,21 @@
         background-color: white;
         box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
         height: 0;
+        margin-top: 5vw;
         padding-bottom: 73.6%;
         position: relative;
         width: 100%;
-        margin-top: 5vw;
       }
     }
 
     &__back-btn {
-      position: fixed;
-      top: 80px;
-      left: 30px;
       background-image: url('img/back-button-arrow.svg');
-      background-size: 40%;
       background-position: center center;
       background-repeat: no-repeat;
+      background-size: 40%;
+      left: 30px;
+      position: fixed;
+      top: 80px;
 
       @media (max-width: 767px) {
         width: 50px;

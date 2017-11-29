@@ -23,14 +23,14 @@
     &__drawings {
       display: flex;
       justify-content: space-between;
+      margin: 50px 0;
       max-width: 1350px;
       width: 90%;
-      margin: 50px 0;
 
       @media (max-width: 767px) {
         flex-wrap: wrap;
-        width: 100%;
         overflow: hidden;
+        width: 100%;
       }
     }
 
@@ -38,17 +38,17 @@
       background-color: white;
       box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
       height: 225px;
+      max-height: 15vw;
+      max-width: 20vw;
+      overflow: hidden;
       position: relative;
       width: 300px;
-      max-width: 20vw;
-      max-height: 15vw;
-      overflow: hidden;
 
       @media (max-width: 767px) {
         height: 0;
+        margin: 10px 0;
         padding-bottom: 73.6%;
         width: calc(100% - 10px);
-        margin: 10px 0;
       }
 
       &--recognized::before,
@@ -77,11 +77,11 @@
         margin: 10px;
 
         @media (max-width: 767px) {
-          position: absolute;
           height: calc(100% - 20px) !important;
-          width: calc(100% - 20px) !important;
-          top: 0;
           left: 0;
+          position: absolute;
+          top: 0;
+          width: calc(100% - 20px) !important;
         }
       }
     }
