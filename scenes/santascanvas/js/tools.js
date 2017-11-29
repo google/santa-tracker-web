@@ -671,6 +671,30 @@ app.Tools.prototype.start = function() {
 
   this.onResize();
   $(window).on('resize.santascanvas', this.onResize.bind(this));
+
+  // Select marker tool immediately on mobile
+  if (this.isMobile) {
+    // Select category
+    var categoryPicker = this.primaryMenu.find('[data-tool-category="drawing"]');
+    var categoryMenu = this.secondaryMenu.find('[data-tool-category="drawing"]');
+    categoryPicker.addClass('is-active');
+    categoryMenu.addClass('is-active');
+    this.currentCategory = 'drawing';
+    this.secondaryMenuActive = true;
+    this.toolDisplay.attr('data-current-category', this.currentCategory);
+
+    // Select tool
+    var markerTool = this.secondaryMenu.find('[data-tool="marker"]');
+    this.selectedTool = this.tools.filter(function(tool) {
+      if (tool.el[0] === markerTool[0] && !tool.isSelected) {
+        return tool;
+      }
+    })[0];
+    var coords = this.game_.mouse.coordinates();
+    this.selectedTool.select(coords);
+    this.sliderChanged(this.game_.slider.size);
+    this.toolDisplay.attr('data-current-tool', this.selectedTool.name);
+  }
 };
 
 
