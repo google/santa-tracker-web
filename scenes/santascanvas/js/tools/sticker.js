@@ -27,7 +27,7 @@ goog.require('app.utils');
  * @param {!jQuery} $elem toolbox elem
  * @param {string} name The name of the sticker
  */
-app.Sticker = function($elem, name) {
+app.Sticker = function($elem, name, addlMultiplier) {
   app.Tool.call(this, $elem, 'sticker-' + name);
 
   this.stickerName = 'sticker-' + name;
@@ -35,6 +35,7 @@ app.Sticker = function($elem, name) {
   this.soundKey = 'selfie_spray_small';
   this.stamped = false;
   this.sizeMultiplier = 1;
+  this.addlMultiplier = addlMultiplier || 1;
 
   this.hoverPreviewEl = $elem.find('.Tool-hover-preview--default');
   this.currentAngle = 0;
@@ -106,7 +107,7 @@ app.Sticker.prototype.reset = function() {
  */
 app.Sticker.prototype.updateSize = function(size) {
   this.sizeMultiplier = app.utils.map(size, app.Constants.STICKER_MIN,
-      app.Constants.STICKER_MAX);
+      app.Constants.STICKER_MAX) * this.addlMultiplier;
   this.currentSize = this.calculateDrawSize(size);
 };
 
