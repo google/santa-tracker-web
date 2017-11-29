@@ -47,15 +47,6 @@ main {
     transform: translateX(-50%) scale(var(--house-scale));
   }
 
-  #top {
-    position: absolute;
-    top: 0;
-    width: var(--house-dim, 128px);
-    height: var(--house-dim, 128px);
-    transform: translate(-50%, -100%);  /* origin is bottom center */
-    z-index: 10000;
-  }
-
   sup {
     vertical-align: normal;
 
@@ -87,9 +78,6 @@ main {
     <sup hidden="[[!opens]]">[[opens]]</sup>
     <img id="ice" />
   </main>
-  <div id="top">
-    <slot></slot>
-  </div>
 
 </template>
 <script>

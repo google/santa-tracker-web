@@ -59,14 +59,13 @@ Santa's Village.
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
   </div>
 
-  <iron-media-query query="(min-width: 768px)" query-matches="{{_isSceneVillage}}"></iron-media-query>
-
+  <!-- Actual house links -->
   <div id="links">
     <template is="dom-repeat" items="[[houses]]">
       <a class="link"
           href$="[[_calculateHref(item, item.locked)]]"
           house$="[[item.module]]"
-          style$="[[_computeLinkStyle(item.module)]]">
+          style$="[[_computeLinkStyle(item.module, item.hideDate, item.launchDate)]]">
         <div class="card">
           <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
           <h4>[[_string('category', item.category, strings)]]</h4>
@@ -76,6 +75,9 @@ Santa's Village.
     </template>
   </div>
 
+  <!-- Interactive village at >768px or above -->
+  <iron-media-query query="(min-width: 768px)"
+      query-matches="{{_isSceneVillage}}"></iron-media-query>
   <template is="dom-if" if="[[_isSceneVillage]]" restamp>
     <div id="village-all">
       <div id="ground"></div>
@@ -393,15 +395,22 @@ Santa's Village.
     },
 
     /**
-     * Computes the `--scene-color` CSS variable for the link, for its implicit color.
+     * Computes the CSS variables for the given module.
      */
-    _computeLinkStyle: function(id) {
+    _computeLinkStyle: function(id, hideDate, launchDate) {
+      const parts = [];
+
+      if (!hideDate) {
+        parts.push(`--release-order: ${-launchDate.getDate()}`);
+      }
+
       // TODO(samthor): Remove `window.santaApp` refs and instead include this in the CSS.
       const color = window.santaApp.colorForRoute(id);
       if (color) {
-        return `--scene-color: ${color}`;
+        parts.push(`--scene-color: ${color}`);
       }
-      return null;
+
+      return parts.join(';');
     },
 
     /** NOTE: easteregg code only below this point */
