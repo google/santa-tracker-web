@@ -16,61 +16,45 @@ specific language governing permissions and limitations under the License.
 <dom-module id="village-house">
 <template>
   <style>
-
-:host {
-}
-
 main {
-  display: none;
+  /* creates stacking context */
+  pointer-events: none;
+  transform: translate(-50%, -100%) scale(var(--house-ratio));  /* origin is bottom center */
+  display: block;
+  position: relative;
 }
 
-#top {
-  height: 100%;
+img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%);
 }
 
-@media (min-width: 768px) {
-  main {
-    /* creates stacking context */
-    pointer-events: none;
-    transform: translate(-50%, -100%);  /* origin is bottom center */
-    display: block;
-    position: relative;
-    z-index: var(--house-layer);
-  }
+sup {
+  vertical-align: normal;
 
-  img {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform-origin: bottom center;
-    transform: translateX(-50%) scale(var(--house-scale));
-  }
+  pointer-events: none;
+  position: absolute;
+  background: transparent center no-repeat;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yNTYgMzQ3LjYgOTguNCA5OC40Ij48c3R5bGU+LnN0MHtmaWxsOiMzMmNiZTZ9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTE5NC40IDM1Ni4yYzMuMS4xIDYtLjEgOC43LS40IDUuNC0uNiAxMi40LTEuMyAxNi41IDMuNCA0LjcgNC4xIDQuMSAxMSAzLjQgMTYuNS0uMyAyLjctLjUgNS42LS40IDguNy4xIDcuNCAzLjQgMTEuMyA4LjYgMTIuNC01LjMgMS4xLTguNSA1LTguNiAxMi40LS4xIDMuMS4xIDYgLjQgOC43LjYgNS41IDEuMyAxMi40LTMuNCAxNi41LTQuMSA0LjctMTEgNC4xLTE2LjUgMy40LTIuNy0uMy01LjYtLjUtOC43LS40LTcuNC4xLTExLjMgMy40LTEyLjQgOC42LTEuMS01LjMtNS04LjYtMTIuNC04LjYtMy4xLS4xLTYgLjEtOC43LjQtNS41LjYtMTIuNCAxLjMtMTYuNS0zLjQtNC43LTQuMS00LTExLjEtMy40LTE2LjUuMy0yLjcuNS01LjYuNC04LjctLjEtNy40LTMuNC0xMS4zLTguNi0xMi40IDUuMi0xLjEgOC41LTUgOC42LTEyLjQuMS0zLjEtLjEtNi0uNC04LjctLjYtNS40LTEuMy0xMi40IDMuNC0xNi41IDQuMS00LjcgMTEtNC4xIDE2LjUtMy40IDIuNy4zIDUuNi41IDguNy40IDcuNC0uMSAxMS4zLTMuMyAxMi40LTguNiAxIDUuMyA1IDguNSAxMi40IDguNnoiLz48L3N2Zz4=);
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  width: 1.6em;
+  height: 1.6em;
+  font-family: 'Lobster';
+  color: white;
+  font-size: 2.5em;
+  line-height: 1.6em;
+  text-align: center;
 
-  sup {
-    vertical-align: normal;
-
-    pointer-events: none;
-    position: absolute;
-    background: transparent center no-repeat;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yNTYgMzQ3LjYgOTguNCA5OC40Ij48c3R5bGU+LnN0MHtmaWxsOiMzMmNiZTZ9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTE5NC40IDM1Ni4yYzMuMS4xIDYtLjEgOC43LS40IDUuNC0uNiAxMi40LTEuMyAxNi41IDMuNCA0LjcgNC4xIDQuMSAxMSAzLjQgMTYuNS0uMyAyLjctLjUgNS42LS40IDguNy4xIDcuNCAzLjQgMTEuMyA4LjYgMTIuNC01LjMgMS4xLTguNSA1LTguNiAxMi40LS4xIDMuMS4xIDYgLjQgOC43LjYgNS41IDEuMyAxMi40LTMuNCAxNi41LTQuMSA0LjctMTEgNC4xLTE2LjUgMy40LTIuNy0uMy01LjYtLjUtOC43LS40LTcuNC4xLTExLjMgMy40LTEyLjQgOC42LTEuMS01LjMtNS04LjYtMTIuNC04LjYtMy4xLS4xLTYgLjEtOC43LjQtNS41LjYtMTIuNCAxLjMtMTYuNS0zLjQtNC43LTQuMS00LTExLjEtMy40LTE2LjUuMy0yLjcuNS01LjYuNC04LjctLjEtNy40LTMuNC0xMS4zLTguNi0xMi40IDUuMi0xLjEgOC41LTUgOC42LTEyLjQuMS0zLjEtLjEtNi0uNC04LjctLjYtNS40LTEuMy0xMi40IDMuNC0xNi41IDQuMS00LjcgMTEtNC4xIDE2LjUtMy40IDIuNy4zIDUuNi41IDguNy40IDcuNC0uMSAxMS4zLTMuMyAxMi40LTguNiAxIDUuMyA1IDguNSAxMi40IDguNnoiLz48L3N2Zz4=);
-    background-size: contain;
-    transform: translate(-50%, -50%);
-    width: 1.6em;
-    height: 1.6em;
-    font-family: 'Lobster';
-    color: white;
-    font-size: 2.5em;
-    line-height: 1.6em;
-    text-align: center;
-
-    top: var(--house-dim, 128px);
-    left: calc(var(--house-dim, 128px) * 0.5);
-    margin-left: var(--date-x, 0);
-    margin-top: var(--date-y, 0);
-  }
+  top: var(--house-dim, 128px);
+  left: calc(var(--house-dim, 128px) * 0.5);
+  margin-left: var(--date-x, 0);
+  margin-top: var(--date-y, 0);
 }
-
   </style>
 
   <main>
@@ -130,13 +114,32 @@ Polymer({
       return;
     }
 
-    h.src = this.resolveUrl('../img/building/' + house + '.svg');
+    // h.src = this.resolveUrl('../img/building/' + house + '.svg');
 
-    if (locked) {
-      i.src = this.resolveUrl('../img/building/' + house + '-ice.svg');
-    } else {
-      i.removeAttribute('src');
-    }
+    this._loadImage(`../img/building/${house}.svg`).then((image) => {
+      // TODO: detect change (unlikely?? - maybe for locked?)
+
+      // TODO: set to either... 0.6 or 0.8
+
+      i.src = image.src;
+      i.width = image.width;
+
+    });
+
+    // if (locked) {
+    //   i.src = this.resolveUrl('../img/building/' + house + '-ice.svg');
+    // } else {
+    //   i.removeAttribute('src');
+    // }
+  },
+
+  _loadImage: function(src) {
+    return new Promise((resolve, reject) => {
+      const i = new Image();
+      i.src = this.resolveUrl(src);
+      i.onload = () => resolve(i);
+      i.onerror = reject;
+    });
   },
 
 });
