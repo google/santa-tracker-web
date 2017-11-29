@@ -26,7 +26,6 @@
   }
 
   .Slider-dot {
-    background: url(img/slider-dot.svg) center/contain no-repeat;
     cursor: pointer;
     height: 14px;
     left: auto;
@@ -34,5 +33,21 @@
     top: 60%;
     transform: translate(-50%, -50%);
     width: 14px;
+
+    &::before {
+      background: url(img/slider-dot.svg) center/contain no-repeat;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 800px) {
+      &::before {
+        transform: rotate(90deg);
+      }
+    }
   }
 }
