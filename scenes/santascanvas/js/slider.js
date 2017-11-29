@@ -92,9 +92,15 @@ app.Slider.prototype.checkBounds = function(mouse) {
 
 app.Slider.prototype.setSize = function(relativeSize, xPos, vertical) {
   var dotOffset = xPos;
+  var rect;
   if (!xPos) {
-    var rect = this.base[0].getBoundingClientRect();
-    dotOffset = rect.width * relativeSize;
+    if (app.shared.utils.touchEnabled) {
+      rect = this.base[this.base.length - 1].getBoundingClientRect(); // mobile slider
+      dotOffset = rect.height * relativeSize;
+    } else {
+      rect = this.base[0].getBoundingClientRect();
+      dotOffset = rect.width * relativeSize;
+    }
   }
 
   if (vertical) {

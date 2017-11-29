@@ -190,12 +190,12 @@
 
         .Tools-mobile--right,
         .Tools-mobile--left {
-          bottom: 0;
           display: flex;
           flex-direction: column;
           justify-content: center;
           position: absolute;
-          top: 0;
+          top: 50%;
+          transform: translateY(-50%);
           transition: transform .3s;
         }
 
@@ -205,11 +205,6 @@
 
         .Tools-mobile--left {
           left: 0;
-          // width: 50px;
-        }
-
-        .Tools-edit {
-
         }
 
         .Tools-rotator {
@@ -218,13 +213,18 @@
         }
 
         .Tools-slider {
-          padding: 15px 20px;
-          transform: rotate(-90deg) translateY(100%);
-          transform-origin: bottom left;
+          padding: 20px 15px;
+          transform: rotate(-90deg) translate(-50%, 10%);
+          transform-origin: center left;
 
           .Slider-base,
           .Slider-dot {
             pointer-events: auto;
+          }
+
+          .Slider-inner {
+            height: 15px;
+            width: 300px;
           }
         }
       }
