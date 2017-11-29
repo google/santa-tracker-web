@@ -84,10 +84,10 @@ Santa's Village.
         <!-- The 'New Today' house exists in the regular grid -->
         <div class="cell new-today">
           <div id="house-new-today">
-            <a class="link" href$="[[urlFor(todayHouse)]]"
+            <a href$="[[urlFor(todayHouse)]]"
                 hidden$="[[!todayHouse]]"
                 on-click="_onClickNewTodayHouse">
-              <div class="new-today" house$="[[todayHouse]]">
+              <div class="new-today" style$="[[_computeTodayHouseStyle(todayHouse)]]">
                 <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
                 <h3>[[_string('scene', todayHouse, strings)]]</h3>
               </div>
@@ -282,6 +282,18 @@ Santa's Village.
      */
     _string: function(type, id, strings) {
       return strings ? strings[type + '-' + id] : null;
+    },
+
+    /**
+     * Computes the style for the specified today house.
+     */
+    _computeTodayHouseStyle: function(todayHouse) {
+      if (!todayHouse) {
+        return null;
+      }
+      // TODO(samthor): This might not always exist. Check first?
+      const url = this.resolveUrl(`img/new-today/${todayHouse}_2x.png`);
+      return `background-image: url(${url})`;
     },
 
     _onHousesOver: function(event) {

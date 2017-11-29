@@ -257,12 +257,6 @@ footer {
   position: relative;  // nb. creates a z-index layer for children
   pointer-events: none;
 
-  #houses {
-    display: flex;
-    align-content: flex-start;
-    flex-flow: wrap;
-  }
-
   @media (min-width: $width-tablet) {
     font-size: 16px;
     pointer-events: none;
@@ -280,7 +274,6 @@ footer {
       width: $width-desktop;
       height: $height-desktop;
       z-index: 10;
-      pointer-events: auto;
     }
 
     #background {
@@ -579,10 +572,13 @@ footer {
 
 #house-new-today {
   left: 16px;
+  top: 32px;
   width: 144px;
   height: 144px;
   position: relative;
   text-align: center;
+  color: white;
+  z-index: 10000;
 
   @media (min-width: $width-desktop) {
     width: 240px;
@@ -590,8 +586,6 @@ footer {
   }
 
   a {
-    z-index: $house-z-index-front;
-
     &:hover {
       .new-today {
         transform: translateY(-16px);
@@ -613,13 +607,7 @@ footer {
     flex-flow: column;
     align-items: center;
 
-    &::before {
-      content: '';
-      
-    }
-
     h4 {
-      padding: 0;
       font-size: 2em;
       transform: none;
     }
