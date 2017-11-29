@@ -723,8 +723,15 @@ app.Tools.prototype.selectTool_ = function(e) {
     previousTool.deselect();
   }
 
+  if ($(e.target).closest('.Category').length &&
+      (this.currentCategory !== 'eraser') &&
+      (this.currentCategory !== 'scene')) {
+    var target = this.secondaryMenu.find('[data-tool-category="' + this.currentCategory + '"] [data-tool]');
+  } else {
+    var target =  $(e.target).closest('[data-tool]');
+  }
+
   this.selectedTool = this.tools.filter(function(tool) {
-    var target = $(e.target).closest('[data-tool]');
     if (tool.el[0] === target[0] && !tool.isSelected) {
       return tool;
     }
@@ -812,6 +819,9 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
     this.secondaryMenuActive = true;
     this.secondaryMenu.addClass('is-active');
     categoryMenu.addClass('is-active');
+    if (!this.isMobile) {
+      this.selectTool_(e);
+    }
   }
 };
 
