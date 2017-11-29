@@ -712,7 +712,8 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 app.Tools.prototype.selectTool_ = function(e) {
   // Check if on slider or rotator
   if ($(e.target).closest('[data-slider]').length ||
-    $(e.target).closest('[data-rotator]').length) {
+    $(e.target).closest('[data-rotator]').length ||
+    $(e.target).closest('.Colorpicker').length) {
     return;
   }
 
