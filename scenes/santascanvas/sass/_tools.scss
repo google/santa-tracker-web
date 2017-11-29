@@ -145,17 +145,21 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       height: auto;
       left: 0;
       position: fixed;
-      // top: 0;
       top: 44px;
 
       .Tool {
         border-bottom: 1px solid #eee;
         flex: 0 0 33%;
-        // height: 15vh;
-        height: 100px;
+        height: 20vh;
         margin: 15px 0;
         overflow: hidden;
         width: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .Tool {
+        height: 16vh;
       }
     }
   }
@@ -590,6 +594,8 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     }
 
     @media (max-width: 800px) {
+      flex: none;
+
       &::before {
         padding-top: 90%;
         width: 90%;
@@ -599,6 +605,10 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
         height: 50%;
         width: 85%;
       }
+    }
+
+    @media (max-width: 480px) {
+      flex: 1;
     }
   }
 

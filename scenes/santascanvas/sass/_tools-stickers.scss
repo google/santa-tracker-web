@@ -103,8 +103,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
 
         &[data-tool-subcategory="silly"] {
           .Tool {
-            height: 45px;
-            margin: 10px 0;
+            height: 8vh;
           }
         }
       }
@@ -112,7 +111,6 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
       .Tool {
         border-bottom: none;
         flex: 0 0 20%;
-        margin-top: 20px;
       }
 
       .Tools-settings {
