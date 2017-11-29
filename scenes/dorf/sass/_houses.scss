@@ -1,5 +1,40 @@
 // All dimensions below assume cell size of 320x320 (i.e., $dim-house).
 
+// nb. 1st is "new today"
+$cells:
+    0   0,
+    123 208,
+    124 227,
+    130 286,
+    135 337,
+    155 188,
+    209 199,
+    146 301,
+    107 283,
+    162 282,
+    186 287,
+    165 235,
+    150 236,
+    166 266,
+    177 243,
+    157 300,
+    157 162,
+    155 220,
+    103 252,
+    160 212,
+    141 286,
+    149 285,
+    183 259,
+    169 290,
+    151 267,
+    148 271,
+    142 245,
+    179 341,
+    125 285,
+    189 292,
+    157 246,
+;
+
 // ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop dateLeft dateTop labelX labelY zIndex
 $houses:
     "codeboogie"      274   224   443   250   20     2     -72    2    102 56  -34 -18 $house-row-1-z-index,
