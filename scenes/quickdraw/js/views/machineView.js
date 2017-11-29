@@ -48,7 +48,6 @@ app.view.MachineView.prototype.setText = function(textA, textB) {
 
 
 app.view.MachineView.prototype.setResultWord = function(word) {
-  var word = word;
   this.guessesQueue = [];
   this.speakAndWrite(app.Utils.getTranslation(this.container, 'quickdraw-machine-know'), word);
   setTimeout(function() {
@@ -60,11 +59,12 @@ app.view.MachineView.prototype.setResultWord = function(word) {
 
 
 app.view.MachineView.prototype.speakAndWrite = function(textA, textB, callback) {
-  var textB = textB || '';
+  textB = textB || '';
   this.setText(textA, textB);
   var text = textA + ' ' + textB;
   this.speak(text, callback);
 };
+
 
 app.view.MachineView.prototype.speak = function(text, callback) {
   this.talking = true;
@@ -75,6 +75,7 @@ app.view.MachineView.prototype.speak = function(text, callback) {
     }
   }.bind(this));
 };
+
 
 app.view.MachineView.prototype.setGuesses = function(words) {
   this.guessesQueue = words.filter(function(word) {
@@ -87,6 +88,7 @@ app.view.MachineView.prototype.setGuesses = function(words) {
 
   return this.guessesQueue.length;
 };
+
 
 app.view.MachineView.prototype.readNextGuess = function(first) {
   this.talkingGuesses = true;

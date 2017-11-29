@@ -17,6 +17,7 @@
 
 goog.provide('app.GameRound');
 
+
 app.GameRound = function(data, level) {
   this.word = data.word;
   this.presentationWord = data.word;
@@ -27,6 +28,7 @@ app.GameRound = function(data, level) {
   this.width = 0;
   this.height = 0;
 };
+
 
 app.GameRound.prototype.getElapsedTime = function() {
   var now = new Date();

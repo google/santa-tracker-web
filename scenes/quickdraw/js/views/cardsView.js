@@ -71,6 +71,7 @@ app.view.CardsView.prototype.hideCard = function(card, cb) {
   }
 };
 
+
 app.view.CardsView.prototype.showNewRoundCard = function(options) {
   this.showCard(this.newround_card);
 
@@ -101,7 +102,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   this.showCard(this.timesup_card);
 
   var roundsRecognized = rounds.filter(function(r) {
-    return r.recognized == true
+    return r.recognized == true;
   }).length;
 
   var $titleElem = this.timesup_card.find('.timesup-card__title');

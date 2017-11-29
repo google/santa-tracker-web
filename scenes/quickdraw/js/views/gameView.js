@@ -39,6 +39,7 @@ app.view.GameView.prototype.initListeners = function() {
   }.bind(this));
 };
 
+
 app.view.GameView.prototype.setCurrentWord = function(word) {
   this.elem.find('.helping-elf__secondary')
     .text(app.Utils.capitalize(word));

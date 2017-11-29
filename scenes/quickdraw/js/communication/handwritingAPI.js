@@ -24,12 +24,19 @@ app.HandwritingAPI = function() {
 
 
 app.HandwritingAPI.prototype.processSegments = function(segments, width, height) {
-  return this.sendRequest(segments, {width: width, height: height});
+  return this.sendRequest(segments, {
+    width: width,
+    height: height
+  });
 };
 
 
 app.HandwritingAPI.prototype.getSimilarDrawings = function(segments, width, height) {
-  return this.sendRequest(segments, {similar_drawings: true, width: width, height: height});
+  return this.sendRequest(segments, {
+    similar_drawings: true,
+    width: width,
+    height: height
+  });
 };
 
 
@@ -45,7 +52,7 @@ app.HandwritingAPI.prototype.sendRequest = function(segments, options) {
     request.requests[0].writing_guide = {
       width: options.width,
       height: options.height
-    }
+    };
   }
 
   if (segments) {

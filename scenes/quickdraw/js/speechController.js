@@ -18,9 +18,9 @@
 goog.provide('app.SpeechController');
 
 app.SpeechController = function() {
-  // this.voiceLang = 'en-US';
   this.supported = false;
   this.synth = window.speechSynthesis;
+
   if(this.synth) {
     this.supported = true;
     this.synth.getVoices();
@@ -32,7 +32,7 @@ app.SpeechController.prototype.speak = function(text, callback) {
     text = text.replace(/'/gi, "’");
     var _callback = function() {
       if (callback) {
-        callback()
+        callback();
       }
     };
 
@@ -57,7 +57,6 @@ app.SpeechController.prototype.speak = function(text, callback) {
     }.bind(this), 500);
 
     utterThis.rate = 1.1;
-    //utterThis.lang = this.voiceLang;
 
     this.synth.speak(utterThis);
   }
