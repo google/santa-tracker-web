@@ -251,6 +251,7 @@ footer {
 @import "sass/houses";
 
 #village-all {
+  pointer-events: none;
   z-index: $base-background-z-index;
   overflow: hidden;
   position: relative;  // nb. creates a z-index layer for children

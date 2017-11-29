@@ -16,6 +16,10 @@ specific language governing permissions and limitations under the License.
 <dom-module id="village-house">
 <template>
   <style>
+    :host {
+      font-size: 16px;
+    }
+
 main {
   /* creates stacking context */
   pointer-events: none;
@@ -41,11 +45,9 @@ img.fadeout {
 }
 
 sup {
-  vertical-align: normal;
-
-  pointer-events: none;
+  z-index: 1000;
   position: absolute;
-  background: transparent center no-repeat;
+  background: center no-repeat;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yNTYgMzQ3LjYgOTguNCA5OC40Ij48c3R5bGU+LnN0MHtmaWxsOiMzMmNiZTZ9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTE5NC40IDM1Ni4yYzMuMS4xIDYtLjEgOC43LS40IDUuNC0uNiAxMi40LTEuMyAxNi41IDMuNCA0LjcgNC4xIDQuMSAxMSAzLjQgMTYuNS0uMyAyLjctLjUgNS42LS40IDguNy4xIDcuNCAzLjQgMTEuMyA4LjYgMTIuNC01LjMgMS4xLTguNSA1LTguNiAxMi40LS4xIDMuMS4xIDYgLjQgOC43LjYgNS41IDEuMyAxMi40LTMuNCAxNi41LTQuMSA0LjctMTEgNC4xLTE2LjUgMy40LTIuNy0uMy01LjYtLjUtOC43LS40LTcuNC4xLTExLjMgMy40LTEyLjQgOC42LTEuMS01LjMtNS04LjYtMTIuNC04LjYtMy4xLS4xLTYgLjEtOC43LjQtNS41LjYtMTIuNCAxLjMtMTYuNS0zLjQtNC43LTQuMS00LTExLjEtMy40LTE2LjUuMy0yLjcuNS01LjYuNC04LjctLjEtNy40LTMuNC0xMS4zLTguNi0xMi40IDUuMi0xLjEgOC41LTUgOC42LTEyLjQuMS0zLjEtLjEtNi0uNC04LjctLjYtNS40LTEuMy0xMi40IDMuNC0xNi41IDQuMS00LjcgMTEtNC4xIDE2LjUtMy40IDIuNy4zIDUuNi41IDguNy40IDcuNC0uMSAxMS4zLTMuMyAxMi40LTguNiAxIDUuMyA1IDguNSAxMi40IDguNnoiLz48L3N2Zz4=);
   background-size: contain;
   transform: translate(-50%, -50%);
@@ -56,9 +58,6 @@ sup {
   font-size: 2.5em;
   line-height: 1.6em;
   text-align: center;
-
-  top: var(--house-dim, 128px);
-  left: calc(var(--house-dim, 128px) * 0.5);
   margin-left: var(--date-x, 0);
   margin-top: var(--date-y, 0);
 }
@@ -72,6 +71,12 @@ sup {
 
 </template>
 <script>
+(function() {
+
+/**
+ * @type {!Array<string>} Houses which, when iced, contain their house asset.
+ */
+const iceWithHouse = Object.freeze(['elfski', 'santascanvas', 'snowball', 'speedsketch',])
 
 Polymer({
   is: 'village-house',
@@ -113,31 +118,32 @@ Polymer({
     const h = this.$.house;
     const i = this.$.ice;
 
-    // TODO: size, and swap in
-
     if (!house) {
       h.removeAttribute('src');
       i.removeAttribute('src');
       return;
     }
+    const changed = () => (house !== this.house || locked !== this.locked);
 
-    // h.src = this.resolveUrl('../img/building/' + house + '.svg');
+    if (!locked || iceWithHouse.indexOf(house) === -1) {
+      this._loadImage(`../img/building/${house}.svg`).then((image) => {
+        if (changed()) { return; }
+        h.src = image.src;
+        h.width = image.width;
+      });
+    } else {
+      h.removeAttribute('src');
+    }
 
-    this._loadImage(`../img/building/${house}.svg`).then((image) => {
-      // TODO: detect change (unlikely?? - maybe for locked?)
-
-      // TODO: set to either... 0.6 or 0.8
-
-      i.src = image.src;
-      i.width = image.width;
-
-    });
-
-    // if (locked) {
-    //   i.src = this.resolveUrl('../img/building/' + house + '-ice.svg');
-    // } else {
-    //   i.removeAttribute('src');
-    // }
+    if (locked) {
+      this._loadImage(`../img/building/${house}-ice.svg`).then((image) => {
+        if (changed()) { return; }
+        i.src = image.src;
+        i.width = image.width;
+      });
+    } else {
+      i.removeAttribute('src');
+    }
   },
 
   _loadImage: function(src) {
@@ -151,5 +157,6 @@ Polymer({
 
 });
 
+}());
 </script>
 </dom-module>

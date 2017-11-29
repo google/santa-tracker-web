@@ -37,13 +37,16 @@
   top: 0;
   left: 50%;
   margin-left: -($width-desktop / 2);
-  pointer-events: auto;
   height: $height-desktop;
 
   @media (max-width: $width-desktop - 1px) {
     width: $width-tablet;
     margin-left: -($width-tablet / 2);
     height: $height-tablet;
+  }
+
+  .clickable {
+    pointer-events: auto;
   }
 
   > *, div {

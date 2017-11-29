@@ -2,82 +2,80 @@
 
 // ID houseWidth iceWidth dateX dateY
 $houses:
-"codeboogie"      274 443 21 152,
-"traditions"      210 424 124 227,
-"airport"         812 627 130 286,
-"app"             280 443 135 337,
-"presentbounce"   310 521 80 19,
-"santasback"      231 499 107 145,
-"translations"    311 512 66 172,
-"snowflake"       333 373 17 193,
-"seasonofgiving"  333 373 79 192,
-"santaselfie"     209 397 99 165,
-"penguindash"     280 440 -56 111,
-"santasearch"     287 484 80 81,
-"codelab"         277 364 -101 108,
-"commandcentre" 197 380 -76 84,
-"gumball" 245 374 -63 165,
-"jamband" 360 580 -96 122,
-"wrapbattle" 350 360 100 46,
-"boatload" 220 472 75 115,
-"runner" 336 440 -107 99,
-"jetpack" 287 367 48 233,
-"carpool" 307 437 75 194,
-"briefing" 315 355 91 169,
-"presentdrop" 198 300 -63 120,
-"mercator" 328 462 -112 205,
-"racer" 345 424 -65 197,
-"matching" 303 457 82 153,
-"liftoff" 276 355 -58 233,
-"callfromsanta" 271 537 98 195,
-"citylights" 360 467 115 112,
-"postcard" 286 364 87 179,
-"santascanvas"    0 0 0 0,
-"elfski"          0 0 0 0,
-"snowball"        0 0 0 0,
-"speedsketch"     0 0 0 0,
+"codeboogie"       21 152,
+"traditions"       124 227,
+"airport"          130 286,
+"app"              105 265,
+"presentbounce"    80 45,
+"santasback"       -107 92,
+"translations"     66 150,
+"snowflake"        -60 193,
+"seasonofgiving"  58 192,
+"santaselfie"      99 165,
+"penguindash"    -56 111,
+"santasearch"    80 81,
+"codelab"        -101 108,
+"commandcentre" -76 84,
+"gumball" -63 165,
+"jamband"  -88 122,
+"wrapbattle"  100 46,
+"boatload" 75 115,
+"runner"  -107 99,
+"jetpack"  47 130,
+"carpool"  75 194,
+"briefing"  91 169,
+"presentdrop" -65 120,
+"mercator" -112 205,
+"racer"  -65 197,
+"matching"  82 153,
+"liftoff"  -58 233,
+"callfromsanta"  98 195,
+"citylights"  115 112,
+"postcard" 87 179,
+"santascanvas"    60 190,
+"elfski"          -20 120,
+"snowball"        60 100,
+"speedsketch"     -80 10,
 ;
 
 // 0th is 'new today'
 $cells:
+    // row 0
     0   0  ,
     123 208,
     124 227,
     130 286,
-    135 337,
-    155 188,
-    209 199,
-    146 301,
-    107 283,
-    162 282,
-    186 287,
-    165 235,
-    150 236,
-    166 266,
-    177 243,
-    157 300,
-    157 162,
-    155 220,
-    103 252,
-    160 212,
-    141 286,
+    // row 1
+    156 353,
+    145 264,
+    192 242,
+    204 240,
+    // row 2
+    136 250,
+    125 222,
+    164 260,
+    170 255,
+    // row 3
+    160 240,
+    174 225,
+    165 250,
+    170 220,
+    // row 4
+    157 170,
+    100 265,
+    94  252,
+    160 262,
+    // row 5
+    141 256,
     149 285,
     183 259,
-    169 290,
-    151 267,
-    148 271,
+    175 296,
+    // row 6
+    151 278,
+    148 260,
     142 245,
     179 341,
-    125 285,
-    189 292,
-    157 246,
 ;
-
-$idx-id: 1;
-$idx-house: 2;
-$idx-ice: 3;
-$idx-dateX: 4;
-$idx-dateY: 5;
 
 // # Tablet and above cell alignment
 
@@ -88,7 +86,7 @@ $idx-dateY: 5;
       $x: nth($data, 1);
       $y: nth($data, 2);
       $row: floor(($i - 1) / 4);
-      $within: ($x / 320);
+      $within: ($y / 320);
 
       .cell:nth-child(#{$i}) {
         --cell-x: $x / 320;
@@ -102,11 +100,11 @@ $idx-dateY: 5;
 #houses {
   @for $i from 1 through length($houses) {
     $house: nth($houses, $i);
-    $id: nth($house, $idx-id);
+    $id: nth($house, 1);
 
     village-house[house="#{$id}"] {
-      --date-x: percent(nth($house, $idx-dateX) * -1, $dim-house);
-      --date-y: percent(nth($house, $idx-dateY) * -1, $dim-house);
+      --date-x: nth($house, 2) * 1px;
+      --date-y: nth($house, 3) * -1px;
     }
   }
 }
@@ -114,7 +112,7 @@ $idx-dateY: 5;
 #links {
   @for $i from 1 through length($houses) {
     $house: nth($houses, $i);
-    $id: nth($house, $idx-id);
+    $id: nth($house, 1);
 
     .link[house="#{$id}"] {
       .card::before {
