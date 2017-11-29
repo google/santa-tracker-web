@@ -60,7 +60,7 @@ Santa's Village.
   </div>
 
   <!-- Actual house links -->
-  <div id="links">
+  <div id="links" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut" hidden>
     <template is="dom-repeat" items="[[houses]]">
       <a class="link"
           href$="[[_calculateHref(item, item.locked)]]"
@@ -80,9 +80,7 @@ Santa's Village.
       query-matches="{{_isSceneVillage}}"></iron-media-query>
   <template is="dom-if" if="[[_isSceneVillage]]" restamp>
     <div id="village-all">
-      <div id="ground"></div>
-      <div id="road"></div>
-      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
+      <div id="houses" class="cells">
         <!-- The 'New Today' house exists in the regular grid -->
         <div class="cell new-today">
           <div id="house-new-today">
@@ -104,6 +102,7 @@ Santa's Village.
           </div>
         </template>
       </div>
+      <div id="background"></div>
       <div id="eastereggs">
         <template is="dom-repeat" items="[[easterEggs]]">
           <div id$="easteregg-[[item]]"></div>

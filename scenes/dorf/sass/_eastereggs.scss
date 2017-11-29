@@ -58,7 +58,10 @@
     $id: nth($row, $idx-id);
 
     #easteregg-#{$id} {
-      z-index: nth($row, $idx-top) + floor(nth($row, $idx-height) * $svg-ratio);
+      $top: nth($row, $idx-top);
+      $height: nth($row, $idx-height) * $svg-ratio;
+      z-index: round($top + $height);
+
       // only load background-image if the w/h is nonzero
       @if nth($row, $idx-width) > 0 {
         background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
@@ -163,7 +166,6 @@
   }
 
   #easteregg-balloon {
-    z-index: $house-z-index-front;
     opacity: 1;
     &.flying {
       opacity: 0;
@@ -180,7 +182,6 @@
   }
 
   #easteregg-balloon-flight {
-    z-index: $house-z-index-front;
     &.flying {
       animation: fly 30s linear;
     }
@@ -213,7 +214,6 @@
   #easteregg-busstop3 {
     $w: 63px;
     $h: 24px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop3.svg);
 
@@ -284,8 +284,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-7-z-index + 80;
-
       .bus {
         transition: transform 10s ease-out;
         @include will-change(transform);
@@ -294,8 +292,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-7-z-index + 80;
-
       .bus {
         transition: transform 10s ease-out;
         @include will-change(transform);
@@ -344,7 +340,6 @@
   #easteregg-busstop2 {
     $w: 45px;
     $h: 24px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop2.svg);
 
@@ -405,8 +400,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-5-z-index - 1;
-
       .bus {
         transition: transform 10s ease-out;
         will-change: transform;
@@ -415,8 +408,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-5-z-index - 1;
-
       .bus {
         transition: transform 10s ease-out;
         will-change: transform;
@@ -466,7 +457,6 @@
   #easteregg-busstop1 {
     $w: 85px;
     $h: 73px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop1.svg);
 
@@ -507,8 +497,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-1-z-index + 30;
-
       .bus {
         animation-fill-mode: forwards;
         animation: to-bus-stop-1 10s linear;
@@ -517,8 +505,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-1-z-index - 50;
-
       .bus {
         animation-fill-mode: forwards;
         animation: from-bus-stop-1 10s linear;

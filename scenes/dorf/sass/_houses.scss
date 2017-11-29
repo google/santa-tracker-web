@@ -38,7 +38,9 @@ $houses:
 "speedsketch"     0 0 0 0,
 ;
 
+// 0th is 'new today'
 $cells:
+    0   0  ,
     123 208,
     124 227,
     130 286,
@@ -77,39 +79,34 @@ $idx-ice: 3;
 $idx-dateX: 4;
 $idx-dateY: 5;
 
-#houses {
-  @for $i from 1 through length($cells) {
-    $data: nth($cells, $i);
-    $x: nth($data, 1);
-    $y: nth($data, 2);
+// # Tablet and above cell alignment
 
-    .cell:nth-child(#{$i + 1}) {
-      village-house {
-        left: percent($x, $dim-house);
-        top: percent($y, $dim-house);
-        --house-layer: $y + (floor($i / 4) * 320);
+@media (min-width: $width-tablet) {
+  .cells {
+    @for $i from 1 through length($cells) {
+      $data: nth($cells, $i);
+      $x: nth($data, 1);
+      $y: nth($data, 2);
+      $row: floor($i / 4);
+      $within: ($x / 320);
+
+      .cell:nth-child(#{$i}) {
+        --cell-x: $x / 320;
+        --cell-y: $y / 320;
+        --cell-layer: round(($row + $within) * 320);  // z-index must be an integer
       }
     }
   }
+}
 
+#houses {
   @for $i from 1 through length($houses) {
     $house: nth($houses, $i);
     $id: nth($house, $idx-id);
 
     village-house[house="#{$id}"] {
-      .card::before {
-        background-image: url(../../images/scenes/#{$id}_2x.png);;
-      }
-
-      --house-width: percent(nth($house, $idx-house), $dim-house);
-      --ice-width: percent(nth($house, $idx-ice), $dim-house);
-
       --date-x: percent(nth($house, $idx-dateX) * -1, $dim-house);
       --date-y: percent(nth($house, $idx-dateY) * -1, $dim-house);
-    }
-
-    .new-today[house="#{$id}"] {
-      background-image: url(img/new-today/#{$id}_2x.png);
     }
   }
 }

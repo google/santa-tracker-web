@@ -270,7 +270,7 @@ footer {
     // Move the village up by 30px, but give the layer an extra 30px to work
     // with: this gives space for the hover cards.
     margin-top: 0 - $village-offset-up - $village-extra-padding;
-    padding-top: $village-extra-padding;
+    border-top: $village-extra-padding solid transparent;
 
     @import "sass/eastereggs";
 
@@ -282,48 +282,51 @@ footer {
       pointer-events: auto;
     }
 
-    #ground {
-      z-index: 1;
+    #background {
       position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: $ground-size-h + $ground-top;
       background-image: url(img/ground.svg);
       background-repeat: repeat-x;
-      background-size: $ground-size-w $ground-size-h;
-      background-position: 50% 0;
-      width: 100%;
-      height: 100%;
-      top: $ground-top + $village-extra-padding;
-    }
+      background-size: auto 100%;
+      background-position: 50% $ground-top;
 
-    #road {
-      position: absolute;
-      z-index: 2;
-      background-image: url(img/road.svg);
-      background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: $road-size-w $road-size-h;
-      width: 100%;
-      height: 100%;
-      top: $road-top + $village-extra-padding;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $road-size-h + $road-top;
+
+        background-image: url(img/road.svg);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: 50% $road-top;
+      }
     }
   }
 
   @media (max-width: ($width-desktop - 1)) and (min-width: $width-tablet) {
     font-size: 12px;
     margin-top: (0 - $village-offset-up - $village-extra-padding) * $tablet-desktop-ratio;
-    padding-top: $village-extra-padding * $tablet-desktop-ratio;
+    border-top-width: $village-extra-padding * $tablet-desktop-ratio;
 
     #houses {
       width: $width-tablet;
       height: $height-tablet;
     }
 
-    #ground {
-      background-size: ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
-      top: ($ground-top + $village-extra-padding) * $tablet-desktop-ratio;
-    }
-    #road {
-      background-size: ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
-      top: ($road-top + $village-extra-padding) * $tablet-desktop-ratio;
+    #background {
+      height: ($ground-size-h + $ground-top) * $tablet-desktop-ratio;
+      background-position-y: $ground-top * $tablet-desktop-ratio;
+
+      &::after {
+        height: ($road-size-h + $road-top) * $tablet-desktop-ratio;
+        background-position-y: $road-top * $tablet-desktop-ratio;
+      }
     }
   }
 
@@ -369,12 +372,17 @@ footer {
   }
 }
 
-// # Link
+// # Links
 
 #links {
   display: flex;
   align-content: flex-start;
   flex-flow: wrap;
+
+  @media (min-width: $width-tablet) {
+    position: absolute;
+    z-index: 10000;
+  }
 }
 
 .link {
@@ -450,22 +458,17 @@ footer {
     width: $dim-house * $tablet-desktop-ratio;
     height: $dim-house * $tablet-desktop-ratio;
 
-    village-house {
-      position: absolute;
-    }
-
     .launchdate {
       display: none;
     }
 
-    .link {
-      // .link isn't visible, but this makes it selectable
-      border-radius: 10000px;
-      display: block;
-      width: 100%;
-      height: 100%;
-      pointer-events: auto;
-    }
+    // .link isn't visible, but this makes it selectable
+    border-radius: 10000px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    isloation: isolate;
 
     .card {
       position: absolute;
@@ -489,9 +492,13 @@ footer {
         transform: rotate(10deg) translateZ(0);
         transition: transform 0.01s ease-out $duration-out;
       }
+      &::after {
+        display: none;
+      }
+
     }
 
-    .link[href]:hover {
+    &[href]:hover {
       .card {
         transition: transform $duration-in $easing-in, opacity $duration-in $easing-in;
         transform: scale(1);
@@ -513,6 +520,45 @@ footer {
       margin-top: -($dim / 2);
       width: $dim;
       height: $dim;
+    }
+  }
+}
+
+// # Cells
+
+.cells {
+  display: flex;
+  align-content: flex-start;
+  flex-flow: wrap;
+
+  @media (min-width: $width-tablet) {
+    $dim: 192px;
+    width: $dim * 4;
+    margin: 0 auto;
+
+    .cell {
+      position: relative;
+      box-sizing: border-box;
+      width: $dim;
+      height: $dim;
+      --house-ratio: 0.6;
+
+      village-house {
+        position: absolute;
+        left: calc(var(--cell-x) * 100%);
+        top: calc(var(--cell-y) * 100%);
+        z-index: var(--cell-layer);
+      }
+    }
+  }
+  @media (min-width: $width-desktop) {
+    $dim: 320px;
+    width: $dim * 4;
+
+    .cell {
+      width: $dim;
+      height: $dim;
+      --house-ratio: 1;
     }
   }
 }
