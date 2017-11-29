@@ -180,7 +180,7 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   .find('.rounddetails-card__santa-title')
   .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-santa-version', 'word', round.word));
   var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa');
-  santaElem.css('background-image', "url('img/santas-" + round.word + ".svg')");
+  santaElem.css('background-image', "url('" + window.location.origin + "/scenes/quickdraw/img/" + round.word + ".svg')");
 
   //Section 3
   if (round.drawing && round.drawing.length > 0) {
