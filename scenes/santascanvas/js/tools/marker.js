@@ -32,7 +32,6 @@ app.Marker = function($elem, name) {
 
   this.soundKey = 'selfie_color';
   this.points = [];
-  this.dpr = 1;
 };
 app.Marker.prototype = Object.create(app.Tool.prototype);
 
@@ -72,8 +71,8 @@ app.Marker.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
     context.lineWidth = this.currentSize;
     context.strokeStyle = color;
     context.beginPath();
-    context.moveTo(p1.x * this.dpr, p1.y * this.dpr);
-    context.lineTo(midpoint.x * this.dpr, midpoint.y * this.dpr);
+    context.moveTo(p1.x, p1.y);
+    context.lineTo(midpoint.x, midpoint.y);
     context.stroke();
   } else {
     context.lineJoin = 'round';
@@ -86,12 +85,12 @@ app.Marker.prototype.draw = function(canvas, mouseCoords, prevCanvas, size,
     var midpoint1 = app.utils.midpoint(p0, p1);
     var midpoint2 = app.utils.midpoint(p1, p2);
     context.beginPath();
-    context.moveTo(midpoint1.x * this.dpr, midpoint1.y * this.dpr);
+    context.moveTo(midpoint1.x, midpoint1.y);
     context.quadraticCurveTo(
-      p1.x * this.dpr,
-      p1.y * this.dpr,
-      midpoint2.x * this.dpr,
-      midpoint2.y * this.dpr
+      p1.x,
+      p1.y,
+      midpoint2.x,
+      midpoint2.y
     );
     context.stroke();
   }

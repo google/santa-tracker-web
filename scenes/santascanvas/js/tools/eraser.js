@@ -33,7 +33,6 @@ app.Eraser = function($elem, name) {
 
   this.soundKey = 'selfie_spray_small';
   this.points = [];
-  this.dpr = 1;
 };
 app.Eraser.prototype = Object.create(app.Tool.prototype);
 
@@ -69,7 +68,7 @@ app.Eraser.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
     var p1 = this.points[0];
     var p2 = this.points[1];
     context.beginPath();
-    context.moveTo(p1.x * this.dpr, p1.y * this.dpr);
+    context.moveTo(p1.x, p1.y);
 
     for (var i = 0; i < this.points.length - 1; i++) {
       p1 = this.points[i];
@@ -80,10 +79,10 @@ app.Eraser.prototype.draw = function(canvas, mouseCoords, prevCanvas, size) {
       };
 
       context.quadraticCurveTo(
-        p1.x * this.dpr,
-        p1.y * this.dpr,
-        midpoint.x * this.dpr,
-        midpoint.y * this.dpr
+        p1.x,
+        p1.y,
+        midpoint.x,
+        midpoint.y
       );
     }
 
