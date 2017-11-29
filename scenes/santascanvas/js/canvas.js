@@ -311,7 +311,7 @@ app.Canvas.prototype.redo = function() {
     if (next != this.drawIndex) {
       this.baseIndex = next;
       this.copyCanvasIndex(this.baseIndex);
-      window.santaApp.fire('sound-trigger', 'cd_redo');
+      window.santaApp.fire('sound-trigger', {name: 'cd_redo', args: [this.baseIndex]});
     }
   }
 };
