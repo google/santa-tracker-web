@@ -162,8 +162,62 @@
     top: 0;
     width: 85px;
 
+    .Tools-desktop {
+      margin-top: 50px;
+    }
+
     .Tools-mobile {
       display: none;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+
+      .Button {
+        height: 50px;
+        margin: 0 0 15px;
+        pointer-events: auto;
+        width: 50px;
+      }
+
+      .Tools-mobile--right,
+      .Tools-mobile--left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform .3s;
+      }
+
+      .Tools-mobile--right {
+        right: 0;
+      }
+
+      .Tools-mobile--left {
+        left: 0;
+      }
+
+      .Tools-rotator {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .Tools-slider {
+        padding: 20px 15px;
+        transform: rotate(-90deg) translate(-50%, 10%);
+        transform-origin: center left;
+
+        .Slider-base,
+        .Slider-dot {
+          pointer-events: auto;
+        }
+
+        .Slider-inner {
+          height: 15px;
+          width: 300px;
+        }
+      }
     }
 
     @media (max-width: 800px) {
@@ -177,56 +231,6 @@
 
       .Tools-mobile {
         display: block;
-        height: 100%;
-        position: absolute;
-        width: 100%;
-
-        .Button {
-          height: 50px;
-          margin: 0 0 15px;
-          pointer-events: auto;
-          width: 50px;
-        }
-
-        .Tools-mobile--right,
-        .Tools-mobile--left {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: transform .3s;
-        }
-
-        .Tools-mobile--right {
-          right: 0;
-        }
-
-        .Tools-mobile--left {
-          left: 0;
-        }
-
-        .Tools-rotator {
-          flex-direction: column;
-          padding: 0;
-        }
-
-        .Tools-slider {
-          padding: 20px 15px;
-          transform: rotate(-90deg) translate(-50%, 10%);
-          transform-origin: center left;
-
-          .Slider-base,
-          .Slider-dot {
-            pointer-events: auto;
-          }
-
-          .Slider-inner {
-            height: 15px;
-            width: 300px;
-          }
-        }
       }
 
       .Tools-desktop {
