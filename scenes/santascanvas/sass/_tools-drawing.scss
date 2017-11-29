@@ -48,48 +48,45 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
       background-repeat: no-repeat;
       background-size: 100%;
 
+      @each $current-tool in $drawing-tools {
+        &--#{$current-tool} {
+          padding: 10px 40px;
+
+          @include generateSVGstyles($current-tool);
+        }
+      }
+
+      @each $current-tool in $silly-pens {
+        &--#{$current-tool} {
+          background-image: url(img/tools/#{$current-tool}/tool.svg);
+        }
+      }
+
       @media (max-width: 800px) {
         padding: 10px 10%;
       }
     }
-  }
 
-  .Tool {
-    @each $current-tool in $drawing-tools {
-      &--#{$current-tool} {
-        padding: 10px 40px;
+    .Tool--selected {
+      @each $current-tool in $drawing-tools {
+        &.Tool--#{$current-tool} {
+          background-image: url(img/tools/#{$current-tool}/tray.svg);
+          background-position: center -10%;
+          background-size: 40%;
+        }
 
-        @include generateSVGstyles($current-tool);
-      }
-    }
-
-    @each $current-tool in $silly-pens {
-      &--#{$current-tool} {
-        background-image: url(img/tools/#{$current-tool}/tool.svg);
-      }
-    }
-  }
-
-  .Tool--selected {
-    @each $current-tool in $drawing-tools {
-      &.Tool--#{$current-tool} {
-        background-image: url(img/tools/#{$current-tool}/tray.svg);
-        background-position: center -10%;
-        background-size: 40%;
+        svg {
+          display: none;
+        }
       }
 
-      svg {
-        display: none;
-      }
-    }
-
-    @each $current-tool in $silly-pens {
-      &.Tool--#{$current-tool} {
-        background-image: url(img/tools/#{$current-tool}/tray.svg);
+      @each $current-tool in $silly-pens {
+        &.Tool--#{$current-tool} {
+          background-image: url(img/tools/#{$current-tool}/tray.svg);
+        }
       }
     }
   }
-
 
   // SVG STYLES
   .Tool--crayon, .Tool-hover-minitool--crayon {

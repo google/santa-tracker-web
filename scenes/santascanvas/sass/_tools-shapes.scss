@@ -25,29 +25,27 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
       justify-content: center;
       padding: 20px 25px;
 
+      @each $current-shape in $shape-names {
+        &[data-tool="shape-#{$current-shape}"] {
+          @include generateSVGstyles('shape');
+        }
+      }
+
       @media (max-width: 800px) {
         border-bottom: none;
         padding: 10px 15px;
       }
     }
-  }
 
-  .Tool {
-    @each $current-shape in $shape-names {
-      &[data-tool="shape-#{$current-shape}"] {
-        @include generateSVGstyles('shape');
-      }
-    }
-  }
+    .Tool--selected {
+      @each $current-shape in $shape-names {
+        &.Tool--shape-#{$current-shape} {
+          background: url(img/tools/shapes/#{$current-shape}_tray.svg) center / contain no-repeat content-box;
+        }
 
-  .Tool--selected {
-    @each $current-shape in $shape-names {
-      &.Tool--shape-#{$current-shape} {
-        background: url(img/tools/shapes/#{$current-shape}_tray.svg) center / contain no-repeat content-box;
-      }
-
-      svg {
-        display: none;
+        svg {
+          display: none;
+        }
       }
     }
   }

@@ -82,6 +82,48 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
       background-position: center;
       background-repeat: no-repeat;
       background-size: 80% 80%;
+
+      @each $current-sticker in $sticker-animals {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/animals/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-nature {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-decorations {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-people {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/people/#{$current-sticker}.svg);
+        }
+      }
+
+      @for $i from 1 through 29 {
+        &--sticker-elf#{$i} {
+          background-image: url(img/stickers/people/elf#{$i}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-food {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/food/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-silly {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/silly/#{$current-sticker}.svg);
+        }
+      }
     }
 
     .Tool--selected {
@@ -129,51 +171,6 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
       }
     }
   }
-
-  .Tool {
-    @each $current-sticker in $sticker-animals {
-      &--sticker-#{$current-sticker} {
-        background-image: url(img/stickers/animals/#{$current-sticker}.svg);
-      }
-    }
-
-    @each $current-sticker in $sticker-nature {
-      &--sticker-#{$current-sticker} {
-        background-image: url(img/stickers/nature/#{$current-sticker}.svg);
-      }
-    }
-
-    @each $current-sticker in $sticker-decorations {
-      &--sticker-#{$current-sticker} {
-        background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
-      }
-    }
-
-    @each $current-sticker in $sticker-people {
-      &--sticker-#{$current-sticker} {
-        background-image: url(img/stickers/people/#{$current-sticker}.svg);
-      }
-    }
-
-    @for $i from 1 through 29 {
-      &--sticker-elf#{$i} {
-        background-image: url(img/stickers/people/elf#{$i}.svg);
-      }
-    }
-
-    @each $current-sticker in $sticker-food {
-      &--sticker-#{$current-sticker} {
-        background-image: url(img/stickers/food/#{$current-sticker}.svg);
-      }
-    }
-
-    @each $current-sticker in $sticker-silly {
-      &--sticker-#{$current-sticker} {
-        background-image: url(img/stickers/silly/#{$current-sticker}.svg);
-      }
-    }
-  }
-
 
   [data-tool-hover-category="sticker"] {
     .Tool-hover-preview {

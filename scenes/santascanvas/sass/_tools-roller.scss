@@ -37,6 +37,12 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
       background-size: 80% 80%;
       position: relative;
 
+      @each $current-roller in $roller-names {
+        &--roller-#{$current-roller} {
+          background-image: url(img/tools/roller/tool_roller_#{$current-roller}.svg);
+        }
+      }
+
       @media (max-width: 800px) {
         background-size: contain;
         border: none;
@@ -45,14 +51,6 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
 
     .Tool--selected {
       opacity: 0.5;
-    }
-  }
-
-  .Tool {
-    @each $current-roller in $roller-names {
-      &--roller-#{$current-roller} {
-        background-image: url(img/tools/roller/tool_roller_#{$current-roller}.svg);
-      }
     }
   }
 

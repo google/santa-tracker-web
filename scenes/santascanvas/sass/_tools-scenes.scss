@@ -29,6 +29,12 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
         z-index: -1;
       }
 
+      @each $current-scene in $scene-names {
+        &[data-tool="scene-#{$current-scene}"] {
+          background-image: url(img/scenes/#{$current-scene}.png);
+        }
+      }
+
       &[data-tool="scene-none"] {
         &::before {
           background: url(img/tools/tool_scene_none.svg) center 20% / 109% no-repeat;
@@ -52,14 +58,6 @@ $scene-names: "air", "airport", "beach", "dock", "iceberg", "livingroom", "night
     @media (max-width: 480px) {
       .Tool {
         height: 16vh;
-      }
-    }
-  }
-
-  .Tool {
-    @each $current-scene in $scene-names {
-      &[data-tool="scene-#{$current-scene}"] {
-        background-image: url(img/scenes/#{$current-scene}.png);
       }
     }
   }
