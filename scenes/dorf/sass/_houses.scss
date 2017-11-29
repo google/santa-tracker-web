@@ -87,7 +87,7 @@ $idx-dateY: 5;
       $data: nth($cells, $i);
       $x: nth($data, 1);
       $y: nth($data, 2);
-      $row: floor($i / 4);
+      $row: floor(($i - 1) / 4);
       $within: ($x / 320);
 
       .cell:nth-child(#{$i}) {

@@ -290,7 +290,7 @@ footer {
       height: $ground-size-h + $ground-top;
       background-image: url(img/ground.svg);
       background-repeat: repeat-x;
-      background-size: auto 100%;
+      background-size: $ground-size-w $ground-size-h;
       background-position: 50% $ground-top;
 
       &::after {
@@ -303,7 +303,7 @@ footer {
 
         background-image: url(img/road.svg);
         background-repeat: no-repeat;
-        background-size: auto 100%;
+        background-size: $road-size-w $road-size-h;
         background-position: 50% $road-top;
       }
     }
@@ -321,10 +321,14 @@ footer {
 
     #background {
       height: ($ground-size-h + $ground-top) * $tablet-desktop-ratio;
+      background-size:
+          ($ground-size-w * $tablet-desktop-ratio) ($ground-size-h * $tablet-desktop-ratio);
       background-position-y: $ground-top * $tablet-desktop-ratio;
 
       &::after {
         height: ($road-size-h + $road-top) * $tablet-desktop-ratio;
+        background-size:
+            ($road-size-w * $tablet-desktop-ratio) ($road-size-h * $tablet-desktop-ratio);
         background-position-y: $road-top * $tablet-desktop-ratio;
       }
     }

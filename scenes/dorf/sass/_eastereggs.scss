@@ -34,7 +34,7 @@
 
   width: $width-desktop;
   position: absolute;
-  top: 82px;
+  top: 0;
   left: 50%;
   margin-left: -($width-desktop / 2);
   pointer-events: auto;
@@ -44,7 +44,6 @@
     width: $width-tablet;
     margin-left: -($width-tablet / 2);
     height: $height-tablet;
-    top: 50px;
   }
 
   > *, div {
