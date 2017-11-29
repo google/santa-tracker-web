@@ -89,6 +89,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       stroke-miterlimit: 10;
       stroke-width: 1.03px;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-2 {
+        opacity: 0.05;
+      }
+    }
   }
 
   .Tool--stamp-ornament-round2, .Tool-hover-preview--stamp-ornament-round2 {
@@ -132,6 +138,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       stroke-linecap: round;
       stroke-width: 1.06px;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-3 {
+        opacity: 0.05;
+      }
+    }
   }
 
   .Tool--stamp-ornament-round3, .Tool-hover-preview--stamp-ornament-round3 {
@@ -154,6 +166,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       stroke-miterlimit: 10;
       stroke-width: 1.03px;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-4 {
+        opacity: 0.05;
+      }
+    }
   }
 
   .Tool--stamp-ornament-skinny1, .Tool-hover-preview--stamp-ornament-skinny1 {
@@ -171,6 +189,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       stroke-miterlimit: 10;
       stroke-width: 1.03px;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-2 {
+        opacity: 0.03;
+      }
+    }
   }
 
   .Tool--stamp-ornament-skinny2, .Tool-hover-preview--stamp-ornament-skinny2 {
@@ -186,6 +210,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
 
     .st3  {
       fill: #607D8B;
+    }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-2 {
+        opacity: 0.03;
+      }
     }
   }
 
@@ -204,6 +234,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
       stroke-miterlimit: 10;
       stroke-width: 1.03px;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-2 {
+        opacity: 0.05;
+      }
+    }
   }
 
   .Tool--stamp-ornament-wide2, .Tool-hover-preview--stamp-ornament-wide2 {
@@ -218,6 +254,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
     .cls-4 {
       fill:#607d8b;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-3 {
+        opacity: 0.05;
+      }
+    }
   }
 
   .Tool--stamp-candy-wrapper1, .Tool-hover-preview--stamp-candy-wrapper1 {
@@ -231,6 +273,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
     .cls-4 {
       opacity: 0.2;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-4 {
+        opacity: 0.05;
+      }
+    }
   }
 
   .Tool--stamp-candy-wrapper2, .Tool-hover-preview--stamp-candy-wrapper2 {
@@ -240,6 +288,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
 
     .cls-5 {
       opacity: 0.1;
+    }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-5 {
+        opacity: 0.05;
+      }
     }
   }
 
@@ -258,6 +312,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
 
     .cls-7 {
       opacity: 0.75;
+    }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-3 {
+        opacity: 0.05;
+      }
     }
   }
 
@@ -280,6 +340,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
     .cls-5 {
       opacity:0.2;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-5 {
+        opacity: 0.05;
+      }
+    }
   }
 
   .Tool--stamp-candy-mint-wheel, .Tool-hover-preview--stamp-candy-mint-wheel {
@@ -289,6 +355,16 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
 
     .cls-3 {
       opacity: 0.2;
+    }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        opacity: 0.05;
+      }
     }
   }
 
@@ -306,6 +382,12 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
 
     .cls-5 {
       opacity: 0.2;
+    }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-5 {
+        opacity: 0.05;
+      }
     }
   }
 

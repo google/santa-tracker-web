@@ -96,6 +96,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
     .cls-3 {
       opacity: 0.05;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-1 {
+        fill: $white-alt-primary;
+      }
+
+      .cls-3 {
+        opacity: 0.025;
+      }
+    }
   }
 
   .Tool--pencil, .Tool-hover-minitool--pencil {
@@ -110,6 +120,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
     .cls-4 {
       opacity: 0.05;
     }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-2 {
+        fill: $white-alt-primary;
+      }
+
+      .cls-4 {
+        opacity: 0.025;
+      }
+    }
   }
 
   .Tool--paintbrush, .Tool-hover-minitool--paintbrush {
@@ -119,6 +139,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
 
     .cls-4 {
       opacity: 0.08;
+    }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-1 {
+        fill: $white-alt-primary;
+      }
+
+      .cls-4 {
+        opacity: 0.04;
+      }
     }
   }
 
@@ -135,6 +165,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
       fill: #bdbdbd;
       opacity: 0.3;
       mix-blend-mode: multiply;
+    }
+
+    &[data-tool-color="#f2faff"] {
+      .cls-3 {
+        fill: $white-alt-primary;
+      }
+
+      .cls-4 {
+        opacity: 0.15;
+      }
     }
   }
 
