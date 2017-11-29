@@ -183,14 +183,19 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   santaElem.css('background-image', "url('img/santas-" + round.word + ".svg')");
 
   //Section 3
-  if (round.recognized) {
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').hide();
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').show();
+  if (round.drawing && round.drawing.length > 0) {
+    this.round_detail_card.find('.rounddetails-card__similar-drawings').show();
+    if (round.recognized) {
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').hide();
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').show();
+    } else {
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').hide();
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').show();
+    }
+    this.fetchAndShowDrawingNeighbors(round);
   } else {
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').hide();
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').show();
+    this.round_detail_card.find('.rounddetails-card__similar-drawings').hide();
   }
-  this.fetchAndShowDrawingNeighbors(round);
 
   //Section 4
   // - NEED ACCESS TO API
