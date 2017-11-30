@@ -155,6 +155,12 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
         margin: 15px 0;
         overflow: hidden;
         width: auto;
+
+        svg {
+          height: auto;
+          position: relative;
+          width: 100%;
+        }
       }
     }
 
