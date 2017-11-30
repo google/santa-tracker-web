@@ -985,9 +985,10 @@ Polymer({
    * has access to it).
    *
    * @param {string} sceneName to check
+   * @param {boolean} skipEdu whether to skip edu checks
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
-  sceneIsOpen: function(sceneName) {
+  sceneIsOpen: function(sceneName, skipEdu) {
     if (this.currentTime === undefined) {
       return true;  // fail open before time ready
     } else if (sceneName === 'village' || sceneName === 'cast') {
@@ -1005,7 +1006,7 @@ Polymer({
       if (house.module === sceneName) {
         if (house.disabled) {
           return false;
-        } else if (house.edu || !house.locked) {
+        } else if ((!skipEdu && house.edu) || !house.locked) {
           return true;
         }
         let launchDate = house.launchDate;

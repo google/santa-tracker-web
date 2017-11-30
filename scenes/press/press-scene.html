@@ -238,7 +238,7 @@ specific language governing permissions and limitations under the License.
       this.scene = new scenes.press.Scene();
       this.androidCards = this.scene.getAndroidModels();
       this.cards = this.scene.getModels(function(key) {
-        var locked = santaApp.sceneIsOpen(key) === false;
+        var locked = santaApp.sceneIsOpen(key, true) === false;
         if (window.DEV && Math.random() > 0.5) {
           locked = true;
         }

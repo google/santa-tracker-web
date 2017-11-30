@@ -150,7 +150,6 @@ window.HOUSES = [{
   launchDate: new Date('Dec 21, 2017'),
   portalLaunchDate: new Date('Dec 21, 2017'),
   category: 'play',
-  edu: true,
 }, {
   module: 'presentdrop',
   launchDate: new Date('Dec 22, 2017'),
