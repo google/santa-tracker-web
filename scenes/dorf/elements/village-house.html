@@ -130,6 +130,7 @@ Polymer({
         if (changed()) { return; }
         h.src = image.src;
         h.width = image.width;
+        h.height = image.height;
       });
     } else {
       h.removeAttribute('src');
@@ -140,6 +141,7 @@ Polymer({
         if (changed()) { return; }
         i.src = image.src;
         i.width = image.width;
+        i.height = image.height;
       });
     } else {
       i.removeAttribute('src');
