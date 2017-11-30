@@ -78,25 +78,31 @@ specific language governing permissions and limitations under the License.
           <div class="feature">
             <slot name="feature"></slot>
           </div>
-          <div class="buttons" id="buttons">
+          <div class="buttons" open$="[[_buttonsOpen]]">
             <paper-icon-button on-click="_onShowMore" on-mouseover="_onShowMore" icon="santa:more"></paper-icon-button>
-          </div>
-          <div class="buttons-overflow fade" id="overflow" on-click="_onClickOverflow">
-            <paper-icon-button data-title="Share"
-                on-click="_onShare"
-                icon="santa:share">
-            </paper-icon-button>
-            <paper-icon-button data-title="Fullscreen"
-                icon="santa:fullscreen">
-            </paper-icon-button>
-            <paper-icon-button data-title="Pause"
-                on-click="_togglePause"
-                icon$="santa:[[_computeTernary(pause, 'play', 'pause')]]">
-            </paper-icon-button>
-            <paper-icon-button data-title="Mute"
-                on-click="_toggleSounds"
-                icon$="santa:sound-[[_computeTernary(mute, 'off', 'on')]]">
-            </paper-icon-button>
+
+            <div class="buttons-overflow" on-click="_onClickOverflow">
+              <div class="group">
+                <paper-icon-button icon="santa:share-facebook"></paper-icon-button>
+                <paper-icon-button icon="santa:share-gplus"></paper-icon-button>
+                <paper-icon-button icon="santa:share-twitter"></paper-icon-button>
+              </div>
+              <paper-icon-button data-title="Share"
+                  on-click="_onShare"
+                  icon="santa:share">
+              </paper-icon-button>
+              <paper-icon-button data-title="Fullscreen"
+                  icon="santa:fullscreen">
+              </paper-icon-button>
+              <paper-icon-button data-title="Pause"
+                  on-click="_togglePause"
+                  icon$="santa:[[_computeTernary(pause, 'play', 'pause')]]">
+              </paper-icon-button>
+              <paper-icon-button data-title="Mute"
+                  on-click="_toggleSounds"
+                  icon$="santa:sound-[[_computeTernary(mute, 'off', 'on')]]">
+              </paper-icon-button>
+            </div>
           </div>
         </app-toolbar>
       </app-header>
@@ -119,6 +125,14 @@ specific language governing permissions and limitations under the License.
     ],
 
     properties: {
+
+      /**
+       * Whether the top-right buttons are visible.
+       */
+      _buttonsOpen: {
+        type: Boolean,
+        value: false,
+      },
 
       /**
        * Whether the current scene has 'game buttons', reset and pause.
@@ -191,12 +205,10 @@ specific language governing permissions and limitations under the License.
     },
 
     _hideOverflow: function(ev) {
-      if (this.$.overflow.classList.contains('fade')) {
-        return;
+      if (this._buttonsOpen) {
+        ev && ev.stopPropagation();
       }
-      this.$.overflow.classList.add('fade');
-      this.$.buttons.classList.toggle('active', !this.$.overflow.classList.contains('fade'));
-      ev && ev.stopPropagation();
+      this._buttonsOpen = false;
     },
 
     _onClickOverflow: function(ev) {
@@ -207,14 +219,11 @@ specific language governing permissions and limitations under the License.
       this.cancelDebouncer('_hideMore');
       ev.stopPropagation();
 
-      if (ev.type !== 'click') {
-        if (!this.$.overflow.classList.contains('fade')) {
-          return;
-        }
+      if (this._buttonsOpen && ev.type === 'click') {
+        this._buttonsOpen = false;
+      } else {
+        this._buttonsOpen = true;
       }
-
-      this.$.overflow.classList.toggle('fade');
-      this.$.buttons.classList.toggle('active', !this.$.overflow.classList.contains('fade'));
     },
 
     _onShare: function(ev) {

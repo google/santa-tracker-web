@@ -144,95 +144,103 @@ app-toolbar {
     justify-content: flex-end;
     font-size: 0;  // fixes alignment issues
 
-    paper-icon-button#gplus {
-      padding: 4px;
+    > paper-icon-button {
+      will-change: opacity;
+      transition: opacity 0.165s;
     }
 
-//    .sep {
-//      background: rgba(0,0,0,0.125);
-//      width: 1px;
-//      margin: 6px;
-//
-//      &:first-child {
-//        visibility: hidden;
-//      }
-//    }
-  }
-  .buttons-overflow {
-    position: absolute;
-    top: 44px;
-    right: 16px;
-    display: flex;
-    flex-flow: column;
-    will-change: transform, opacity;
-    transition: transform 0.33s, opacity 0.33s;
+    .buttons-overflow {
+      position: absolute;
+      top: 44px;
+      right: 0;
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+      will-change: transform, opacity;
+      transition: transform 0.33s, opacity 0.33s;
+      width: 160px;  // make this a large hover target that goes to right
+      padding-right: 16px;
+      padding-bottom: 16px;
 
-    paper-icon-button {
-      margin-top: 12px;
-      background: var(--santa-feature-color, #00e8bf);
-      border-radius: 1000px;
-      color: white;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
-      will-change: transform;
-      transition: transform 0.1s;
-
-      &::after {
-        // nb. this increases the mouse target for the icon, but is otherwise invisible
-        z-index: -2;
-        content: attr(data-title);
-        color: transparent;
-        position: absolute;
-        right: -4px;
-        top: -4px;
-        bottom: -4px;
-        border-radius: 10000px;
-        padding-right: 66px;
-        padding-left: 8px;
-        font-size: 14px;
-      }
-
-      &::before {
-        content: attr(data-title);
-        position: absolute;
-        right: 100%;
-        margin-right: 12px;
-        display: flex;
-        align-items: center;
-        top: 8px;
-        bottom: 8px;
-        padding: 4px 6px;
-        box-sizing: border-box;
-        background: rgba(0, 0, 0, 0.5);
-        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-        border-radius: 2px;
+      paper-icon-button {
+        margin-top: 12px;
+        background: var(--santa-feature-color, #00e8bf);
+        border-radius: 1000px;
         color: white;
-        font-size: 14px;
-        font-weight: 500;
-        pointer-events: none;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+        will-change: transform;
+        transition: transform 0.1s;
+
+        &[data-title] {
+          &::after {
+            // nb. this increases the mouse target for the icon, but is otherwise invisible
+            z-index: -2;
+            content: attr(data-title);
+            color: transparent;
+            position: absolute;
+            right: -4px;
+            top: -4px;
+            bottom: -4px;
+            border-radius: 10000px;
+            padding-right: 66px;
+            padding-left: 8px;
+            font-size: 14px;
+          }
+
+          &::before {
+            content: attr(data-title);
+            position: absolute;
+            right: 100%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            top: 8px;
+            bottom: 8px;
+            padding: 4px 6px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            pointer-events: none;
+          }
+
+          @media (hover: hover) {
+            &::before {
+              opacity: 0;
+              will-change: opacity;
+              transition: opacity 0.125s;
+            }
+            &:hover::before {
+              opacity: 1;
+            }
+          }
+        }
       }
 
+      .group {
+        display: flex;
+
+        paper-icon-button {
+          margin-left: 6px;
+        }
+      }
+
+      @for $i from 1 through 10 {
+        > paper-icon-button:nth-child(#{$i}) {
+          transition-delay: 0.04s * ($i - 1);
+        }
+      }
       @media (hover: hover) {
-        &::before {
-          opacity: 0;
-          will-change: opacity;
-          transition: opacity 0.125s;
-        }
-        &:hover::before {
-          opacity: 1;
-        }
-      }
-    }
+        top: 0;
 
-    @for $i from 1 through 10 {
-      :nth-child(#{$i}) {
-        transition-delay: 0.04s * ($i - 1);
-      }
-    }
-    @media (hover: hover) {
-      top: 0;
-
-      :nth-child(1) {
-        margin-top: 2px;
+        > paper-icon-button:first-child, > :first-child paper-icon-button {
+          margin-top: 2px;
+          background: none;
+          box-shadow: none;
+        }
       }
     }
 
@@ -241,14 +249,26 @@ app-toolbar {
       to   { visibility: visible; }
     }
 
-    &.fade {
-      pointer-events: none;
-      animation: hold 0.33s;
-      visibility: hidden;
-      opacity: 0.33;
-      paper-icon-button {
-        transform: scale(0);
-        transition-delay: 0s !important;
+    &:not([open]) {
+      .buttons-overflow {
+        pointer-events: none;
+        animation: hold 0.33s;
+        visibility: hidden;
+        opacity: 0.33;
+        paper-icon-button {
+          transform: scale(0);
+          transition-delay: 0s !important;
+        }
+      }
+    }
+
+    // in hover, hide the "more" button when active
+    @media (hover: hover) {
+      &[open] {
+        > paper-icon-button {
+          pointer-events: none;
+          opacity: 0;
+        }
       }
     }
   }
