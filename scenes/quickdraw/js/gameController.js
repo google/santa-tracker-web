@@ -112,7 +112,7 @@ app.GameController.prototype.onDrawingUpdated = function(data) {
   this.recognitionController.onDrawingUpdated(data);
   if (this.drawingUntouched) {
       this.drawingUntouched = false;
-      this.machineView.setText('...')
+      this.machineView.setText('...');
   }
 };
 
@@ -317,6 +317,7 @@ app.GameController.prototype.endGame = function() {
   }.bind(this));
 };
 
+
 app.GameController.prototype.exitGame = function() {
   this.pauseGame();
   this.recognitionController.stop();
@@ -326,9 +327,6 @@ app.GameController.prototype.exitGame = function() {
   this.drawingCanvas.stopListening();
 };
 
-
-app.GameController.prototype.gameover = function() {
-};
 
 app.GameController.prototype.prepareGame = function() {
   this.drawingCanvas.startListening();

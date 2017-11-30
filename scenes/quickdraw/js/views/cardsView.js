@@ -71,6 +71,7 @@ app.view.CardsView.prototype.hideCard = function(card, cb) {
   }
 };
 
+
 app.view.CardsView.prototype.showNewRoundCard = function(options) {
   this.showCard(this.newround_card);
 
@@ -88,8 +89,8 @@ app.view.CardsView.prototype.showNewRoundCard = function(options) {
   setTimeout(function() {
     this.newround_card
       .find('.newround-card__button')
-      .on('touchend mouseup',function() {
-        this.newround_card.off('touchend mouseup');
+      .on('touchend mouseup', function() {
+        this.newround_card.find('.newround-card__button').off('touchend mouseup');
         _callback();
       }.bind(this));
   }.bind(this), 1000);
@@ -101,7 +102,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   this.showCard(this.timesup_card);
 
   var roundsRecognized = rounds.filter(function(r) {
-    return r.recognized == true
+    return r.recognized == true;
   }).length;
 
   var $titleElem = this.timesup_card.find('.timesup-card__title');
@@ -184,17 +185,22 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   .find('.rounddetails-card__santa-title')
   .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-santa-version', 'word', round.word));
   var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa');
-  santaElem.css('background-image', "url('img/santas-" + round.word + ".svg')");
+  santaElem.css('background-image', "url('" + window.location.origin + "/scenes/quickdraw/img/" + round.word + ".svg')");
 
   //Section 3
-  if (round.recognized) {
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').hide();
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').show();
+  if (round.drawing && round.drawing.length > 0) {
+    this.round_detail_card.find('.rounddetails-card__similar-drawings').show();
+    if (round.recognized) {
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').hide();
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').show();
+    } else {
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').hide();
+      this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').show();
+    }
+    this.fetchAndShowDrawingNeighbors(round);
   } else {
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--recognized').hide();
-    this.round_detail_card.find('.rounddetails-card__similar-drawings-title--not-recognized').show();
+    this.round_detail_card.find('.rounddetails-card__similar-drawings').hide();
   }
-  this.fetchAndShowDrawingNeighbors(round);
 
   //Section 4
   // - NEED ACCESS TO API

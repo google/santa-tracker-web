@@ -26,7 +26,7 @@ app.DrawingRecognitionController = function() {
   this.handwritingAPI = new app.HandwritingAPI();
   this.processDrawingThrottle = throttle(
     function(drawing) {
-      this.processDrawing(drawing)
+      this.processDrawing(drawing);
     }.bind(this),
     app.Constants.MAX_API_RATE * 1000
   );

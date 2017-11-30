@@ -28,17 +28,17 @@ app.GameAPI.prototype.fetchGallery = function(word) {
     url: app.Constants.GAME_API_URL,
     dataType: 'json',
     data: {
-        method: 'gallery',
-        word: word,
-        locale: this.getLocale()
+      method: 'gallery',
+      word: word,
+      locale: this.getLocale()
     }
   })
   .fail(function(err) {
     throw new Error("Could not fetch new gallery from server", err);
   })
-  .done(function() {
+  .done(function(data) {
     if (!data.images) {
-      throw new Error("Could not fetch new gallery from server", err);
+      throw new Error("Could not fetch new gallery from server");
     } else {
       console.log(data.images);
     }

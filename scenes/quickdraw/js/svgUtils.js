@@ -18,18 +18,18 @@
 goog.provide('app.SVGUtils');
 
 
-SVGUtils = function() {
+var SVGUtils = function() {
 };
 
 SVGUtils.prototype.createSvgFromSegments = function(segments, w, h, options) {
-  var options = options || {};
+  options = options || {};
   options.order = options.order || 0;
   options.color = options.color || '#000000';
 
   var _segments = [];
   if (options.order == 1) {
     // Flip the order of the segments array
-    for (var i = 0; i<segments.length; i++) {
+    for (var i = 0; i < segments.length; i++) {
       var a = [[], []];
       for (var j = 0; j < segments[i].length; j++) {
         a[0].push(segments[i][j][0]);
@@ -60,7 +60,7 @@ SVGUtils.prototype.createSvgFromSegments = function(segments, w, h, options) {
 
   var strokeWidth = 2 * w / 140;
 
-  for (var i = 0; i< _segments.length; i++) {
+  for (var i = 0; i < _segments.length; i++) {
     svg.appendChild(this.createLinePath(_segments[i], offset, scale, strokeWidth, options.color));
   }
 
@@ -117,10 +117,10 @@ SVGUtils.prototype.createLinePath = function(segments, offset, scale, strokeWidt
   };
 
   var aLine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  var d = 'M' + t(segments[0][0],0) + ' ' + t(segments[1][0],1);
+  var d = 'M' + t(segments[0][0], 0) + ' ' + t(segments[1][0], 1);
 
   for (var i = 1; i < segments[0].length; i++) {
-      d += ' L' + t(segments[0][i],0) + ' ' + t(segments[1][i],1);
+      d += ' L' + t(segments[0][i], 0) + ' ' + t(segments[1][i], 1);
   }
 
   aLine.setAttribute('d', d);

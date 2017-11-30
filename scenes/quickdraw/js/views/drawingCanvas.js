@@ -60,7 +60,7 @@ app.view.DrawingCanvas.prototype = Object.create(app.EventEmitter.prototype);
 
 
 app.view.DrawingCanvas.prototype.currentTimeMs = function() {
-  if(!this.startTime) {
+  if (!this.startTime) {
     return 0;
   }
   return (new Date()) - this.startTime;
@@ -132,7 +132,7 @@ app.view.DrawingCanvas.prototype.startListening = function() {
       this.startTime = new Date();
     }
 
-    this.paths.push([[event.point.x],[event.point.y],[this.currentTimeMs()]]);
+    this.paths.push([[event.point.x], [event.point.y], [this.currentTimeMs()]]);
 
     paper.view.draw();
 
@@ -146,10 +146,10 @@ app.view.DrawingCanvas.prototype.startListening = function() {
     var arr = this.paths[this.paths.length - 1];
     if (arr[0].length == 0
       || Math.abs(arr[0][arr[0].length - 1] - event.point.x) > 4
-      || Math.abs(arr[1][arr[1].length - 1]- event.point.y) > 4) {
-      arr[0].push(event.point.x)
-      arr[1].push(event.point.y)
-      arr[2].push(this.currentTimeMs())
+      || Math.abs(arr[1][arr[1].length - 1] - event.point.y) > 4) {
+      arr[0].push(event.point.x);
+      arr[1].push(event.point.y);
+      arr[2].push(this.currentTimeMs());
     }
 
     this.path.smooth();
@@ -178,6 +178,7 @@ app.view.DrawingCanvas.prototype.calculateDrawingVolume = function(point) {
   var yPos = Math.abs(point.y / this.canvas.height - this.lastMouseY);
   var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
 
+<<<<<<< HEAD
   if (isFinite(speed)) {
     this.drawingVolume += speed / 2;
   }
@@ -195,6 +196,9 @@ app.view.DrawingCanvas.prototype.soundUpdate = function() {
     Klang.trigger("qd_draw_update", Math.min(1, this.drawingVolume));
   }
 }
+=======
+
+>>>>>>> quickdraw
 app.view.DrawingCanvas.prototype.stopListening = function() {
   paper.view.off('mousemove');
   this.tool.off('mousedown');
