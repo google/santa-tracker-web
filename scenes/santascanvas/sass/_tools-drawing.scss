@@ -93,15 +93,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
     .cls-3 {
       opacity: 0.05;
     }
+  }
 
-    &[data-tool-color="#f2faff"] {
-      .cls-1 {
-        fill: $white-alt-primary;
-      }
+  .Tool--crayon[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--crayon {
+    .cls-1 {
+      fill: $white-alt-primary !important;
+    }
 
-      .cls-3 {
-        opacity: 0.025;
-      }
+    .cls-3 {
+      opacity: 0.025 !important;
     }
   }
 
@@ -117,15 +118,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
     .cls-4 {
       opacity: 0.05;
     }
+  }
 
-    &[data-tool-color="#f2faff"] {
-      .cls-2 {
-        fill: $white-alt-primary;
-      }
+  .Tool--pencil[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--pencil {
+    .cls-2 {
+      fill: $white-alt-primary !important;
+    }
 
-      .cls-4 {
-        opacity: 0.025;
-      }
+    .cls-4 {
+      opacity: 0.025 !important;
     }
   }
 
@@ -137,15 +139,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
     .cls-4 {
       opacity: 0.08;
     }
+  }
 
-    &[data-tool-color="#f2faff"] {
-      .cls-1 {
-        fill: $white-alt-primary;
-      }
+  .Tool--paintbrush[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--paintbrush {
+    .cls-1 {
+      fill: $white-alt-primary !important;
+    }
 
-      .cls-4 {
-        opacity: 0.04;
-      }
+    .cls-4 {
+      opacity: 0.04 !important;
     }
   }
 
@@ -163,15 +166,16 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
       opacity: 0.3;
       mix-blend-mode: multiply;
     }
+  }
 
-    &[data-tool-color="#f2faff"] {
-      .cls-3 {
-        fill: $white-alt-primary;
-      }
+  .Tool--marker[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--marker {
+    .cls-3 {
+      fill: $white-alt-primary !important;
+    }
 
-      .cls-4 {
-        opacity: 0.15;
-      }
+    .cls-4 {
+      opacity: 0.15 !important;
     }
   }
 
