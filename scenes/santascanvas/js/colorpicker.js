@@ -73,7 +73,9 @@ app.Colorpicker.prototype.setColor = function(color) {
   this.selectedColor = color;
   this.colors.removeClass('is-selected');
   this.elem.find('[data-colorpicker-color="' + color + '"]').addClass('is-selected');
-  this.selector.attr('data-tool-color', color);
+  this.selector.css({
+    'background-color': color
+  });
   this.tools.attr('data-tool-color', color);
 
   this.subscribers.forEach(function(subscriber) {

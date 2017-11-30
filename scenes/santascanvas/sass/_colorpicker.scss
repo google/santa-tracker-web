@@ -48,35 +48,15 @@
   }
 
   .Colorpicker-circle {
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    height: 100%;
-    position: relative;
-    transition: transform .5s;
-    width: 100%;
-
-    &::before {
-      background: url(img/tools/color_wheel_shadow.png) center/contain no-repeat;
-      content: '';
-      height: 100%;
-      position: absolute;
-      width: 100%;
-      z-index: -1;
-    }
-
-    .cls-1 {
-      isolation: isolate;
-    }
-
-    .cls-2 {
-      opacity: .6;
-      mix-blend-mode: multiply;
-    }
-
-    .cls-3 {
-      fill: #fff;
-    }
-
-    @include generateSVGstyles('colorpicker');
+    height: 92%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 92%;
   }
 
   .Colorpicker-popup {
@@ -84,7 +64,7 @@
     bottom: 120px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    padding: 15px;
+    padding: 20px 20px 18px;
     pointer-events: none;
     position: fixed;
     transform: translateX(25px);
@@ -112,16 +92,16 @@
 
   .Colorpicker-colorgrid {
     margin: 0 auto;
-    width: 112px;
+    width: 132px;
   }
 
   .Colorpicker-color {
-    background: pink;
     border: 1px solid #ccc;
     border-radius: 50%;
     cursor: pointer;
     display: inline-block;
     height: 20px;
+    margin: 2px;
     position: relative;
     width: 20px;
 
