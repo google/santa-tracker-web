@@ -90,7 +90,6 @@
   }
 
   .Colorpicker-color {
-    border: 1px solid #ccc;
     border-radius: 50%;
     cursor: pointer;
     display: inline-block;
@@ -99,8 +98,13 @@
     position: relative;
     width: 20px;
 
-    &::after {
-      background: url(img/icons/check.svg) center/contain no-repeat;
+    &[data-colorpicker-color="#f2faff"] {
+      border: 1px solid #eee;
+    }
+
+    &::before {
+      background: rgba(0,0,0,.1);
+      border-radius: 50%;
       bottom: 2px;
       content: '';
       display: none;
@@ -110,9 +114,20 @@
       top: 2px;
     }
 
-    &.is-selected {
-      border: 3px solid #47a4ef;
+    &::after {
+      background: url(img/icons/check.svg) center/contain no-repeat;
+      bottom: 5px;
+      content: '';
+      display: none;
+      left: 5px;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
 
+    &.is-selected {
+
+      &::before,
       &::after {
         display: block;
       }
@@ -122,6 +137,13 @@
       height: 45px;
       margin: 8px 4px;
       width: 45px;
+
+      &::before {
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
+        top: 5px;
+      }
 
       &::after {
         background-size: 60%;
