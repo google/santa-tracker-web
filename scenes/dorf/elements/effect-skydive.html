@@ -29,10 +29,12 @@ specific language governing permissions and limitations under the License.
   height: 128px;
   overflow: hidden;
   will-change: transform;
+  transform: translateZ(0);
 }
 /* Safari should support animation on pseudo-elements, but it refuses here */
 .inner {
   will-change: transform;
+  transform: translateZ(0);  /* try to convince IE/etc to have a layer */
   content: '';
   pointer-events: none;
 
@@ -46,6 +48,7 @@ specific language governing permissions and limitations under the License.
   height: 384px;
 }
 #fall span {
+  /** this contains the label, but never show it */
   visibility: hidden;
 }
 
