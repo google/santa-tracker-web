@@ -126,6 +126,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     box-shadow: 0 -2px 6px rgba(0, 0, 0, .07);
     height: 140px;
     left: 85px;
+    position: fixed;
     right: 0;
     transform: translateY(100%);
     transition: transform .3s;
