@@ -1,0 +1,252 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../santa-icons.html">
+<link rel="import" href="../santa-state.html">
+<link rel="import" href="../santa-strings.html">
+<link rel="import" href="santa-buttons_module.html">
+
+<dom-module id="santa-buttons">
+<template>
+  <style include="santa-buttons_module"></style>
+  <santa-strings strings="{{_strings}}"></santa-strings>
+
+  <iron-media-query query="(min-width: 768px)"
+      query-matches="{{_isTabletMode}}"></iron-media-query>
+
+  <div class="buttons" open$="[[_computeOpenAttr(open, _singleOrNoIcon, _isTabletMode)]]"
+      on-mouseleave="_onDelayHideMore"
+      on-mouseover="_cancelHide">
+
+    <paper-icon-button icon="santa:more"
+        on-click="_onShowMore"
+        on-mouseover="_onShowMore"></paper-icon-button>
+
+    <div class="buttons-overflow" id="choices" on-click="_onClickOverflow">
+      <div class="group" hidden$="[[_supportsWebShare]]" class="external-link" on-click="_onShare">
+        <paper-icon-button id="facebook" icon="santa:share-facebook"></paper-icon-button>
+        <paper-icon-button id="gplus" icon="santa:share-gplus"></paper-icon-button>
+        <paper-icon-button id="twitter" icon="santa:share-twitter"></paper-icon-button>
+      </div>
+
+      <paper-icon-button id="webshare" data-title$="[[_computeLabel(_strings, 'share')]]"
+          class="external-link"
+          hidden$="[[!_supportsWebShare]]"
+          on-click="_onShare"
+          icon="santa:share">
+      </paper-icon-button>
+
+      <!-- <paper-icon-button data-title="Fullscreen"
+          icon="santa:fullscreen">
+      </paper-icon-button> -->
+
+      <paper-icon-button id="sound" data-mute$="[[mute]]"
+          on-click="_toggleSounds"
+          icon$="santa:[[_computeSoundIcon(mute)]]">
+      </paper-icon-button>
+
+      <paper-icon-button hidden$="[[!hasGameButtons]]"
+          on-click="_togglePause"
+          icon$="santa:[[_computeGameIcon(pause)]]">
+      </paper-icon-button>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+
+  /**
+   * @type {number} The time after which to fade out a hover'ed show of icons.
+   */
+  const hoverFadeTime = 1000;
+
+  Polymer({
+    is: 'santa-buttons',
+
+    properties: {
+
+      /**
+       * Whether the button display is open.
+       */
+      open: {
+        type: Boolean,
+        readOnly: true,
+        notify: true,
+        value: false,
+      },
+
+      /**
+       * Whether we support Web Share.
+       */
+      _supportsWebShare: {
+        type: Boolean,
+        value: () => 'share' in navigator,
+      },
+
+      _strings: {
+        type: Object,
+      },
+
+      hasGameButtons: {
+        type: Boolean,
+        value: false,
+      },
+
+      mute: {
+        type: Boolean,
+        notify: true,
+      },
+
+      pause: {
+        type: Boolean,
+        notify: true,
+      },
+
+      _isTabletMode: {
+        type: Boolean,
+      },
+
+      _singleOrNoIcon: {
+        type: Boolean,
+        value: false,
+      },
+
+      _mouseOverAt: {
+        type: Number,
+        value: 0,
+      },
+
+    },
+
+    observers: [
+      '_updateDisplayMode(_supportsWebShare, hasGameButtons, _isTabletMode, mute)',
+    ],
+
+    close: function() {
+      if (this.open) {
+        this._setOpen(false);
+        return true;
+      }
+      return false;
+    },
+
+    _hideOverflow: function(ev) {
+      if (this._buttonsOpen) {
+        ev && ev.stopPropagation();
+      }
+      this._setOpen(false);
+    },
+
+    _onClickOverflow: function(ev) {
+      ev.stopPropagation();
+    },
+
+    _onShowMore: function(ev) {
+      this._cancelHide();
+      ev.stopPropagation();
+      ev.preventDefault();
+
+      if (ev.type === 'mouseover') {
+        this._mouseOverAt = performance.now();
+      }
+
+      if (ev.type === 'click') {
+        // on mobile, we see mouseover then click: prevent it automagically closing us again
+        const now = performance.now();
+        if (now - this._mouseOverAt < 500) {
+          return;
+        }
+      }
+
+      const v = !(this.open && ev.type === 'click');
+      this._setOpen(v);
+    },
+
+    _cancelHide: function() {
+      this.cancelDebouncer('_hide');
+    },
+
+    _onDelayHideMore: function(ev) {
+      this.debounce('_hide', function() {
+        this._hideOverflow(null);
+      }, hoverFadeTime);
+    },
+
+    _computeOpenAttr: function(open, singleOrNoIcon, tabletMode) {
+      if (open) {
+        return true;
+      } else if (singleOrNoIcon && tabletMode) {
+        return true;
+      }
+      return false;
+    },
+
+    _updateDisplayMode: function() {
+      const choices = this.$.choices.children;
+      const found = [];
+      for (let i = 0; i < choices.length; ++i) {
+        const cand = choices[i];
+        if (cand.offsetWidth) {
+          if (!found.length) {
+            cand.classList.add('first');
+          }
+          found.push(cand);
+          continue;
+        }
+        cand.classList.remove('first');
+      }
+
+      this._singleOrNoIcon = (found.length <= 1);
+    },
+
+    _onShare: function(ev) {
+      window.ga('send', 'event', 'nav', 'click', 'share');
+      const p = ev.target.closest('paper-icon-button');
+      if (p) {
+        ev.preventDefault();
+        this.fire('share', {network: p.id});
+      }
+    },
+
+    _computeLabel: function(strings, id) {
+      return (strings && strings[id]) || '';
+    },
+
+    _computeSoundIcon: function(mute) {
+      return mute ? 'sound-off' : 'sound-on';
+    },
+
+    _toggleSounds: function() {
+      window.ga('send', 'event', 'nav', 'click', this.mute ? 'mute' : 'unmute');
+      this.mute = !this.mute;
+    },
+
+    _computeGameIcon: function(pause) {
+      return pause ? 'play' : 'pause';
+    },
+
+    _togglePause: function() {
+      window.ga('send', 'event', 'nav', 'click', this.pause ? 'pause' : 'play');
+      this.pause = !this.pause;
+    },
+
+  });
+}());
+</script>
+</template>

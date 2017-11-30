@@ -23,14 +23,21 @@ if (ua.indexOf('Chrome') === -1 && ua.indexOf('Safari') !== -1) {
   const s = document.createElement('style');
   document.body.appendChild(s);
   let previousWidth = 0;
+  let rAF;
+
+  function fixer() {
+    const dir = (previousWidth < window.innerWidth ? 'max' : 'min');
+    previousWidth = window.innerWidth;
+    s.innerHTML = `@media (${dir}-width: ${window.innerWidth}px) {}`;
+  }
 
   // Safari 11.0.1 doesn't reevaluate media queries inside shadow roots on resize. By modifying a
   // dummy media-query on resize, it seemingly refreshes all of them.
   window.addEventListener('resize', () => {
     // nb. min/max so that whatever resize happens triggers style changes
     // TODO(samthor): This only handles width; the same hack could be used for height?
-    const dir = (previousWidth < window.innerWidth ? 'max' : 'min');
-    previousWidth = window.innerWidth;
-    s.innerHTML = `@media (${dir}-width: ${window.innerWidth}px) {}`;
+
+    window.cancelAnimationFrame(rAF);
+    rAF = window.requestAnimationFrame(fixer);
   });
 }

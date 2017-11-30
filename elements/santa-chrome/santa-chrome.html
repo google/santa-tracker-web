@@ -27,6 +27,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/app-layout/app-header-layout/app-header-layout.html">
 
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../santa-buttons/santa-buttons.html">
 <link rel="import" href="../santa-icons.html">
 <link rel="import" href="../santa-state.html">
 <link rel="import" href="santa-chrome_module.html">
@@ -51,7 +52,7 @@ specific language governing permissions and limitations under the License.
   </style>
   <santa-state offline="{{_offline}}"></santa-state>
 
-  <app-drawer-layout fullbleed force-narrow>
+  <app-drawer-layout fullbleed force-narrow on-click="_maybeCloseButtons">
     <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
       <div class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer">
@@ -78,12 +79,10 @@ specific language governing permissions and limitations under the License.
           <div class="feature">
             <slot name="feature"></slot>
           </div>
-          <div class="share" on-tap="_onShare">
-            <template is="dom-repeat" items="[[shareOptions]]">
-              <div class$="sep share-[[item]]"></div>
-              <paper-icon-button id$="[[item]]" icon$="santa:share-[[item]]" class$="share-[[item]]"></paper-icon-button>
-            </template>
-          </div>
+          <santa-buttons id="buttons"
+              has-game-buttons="[[hasGameButtons]]"
+              mute="{{mute}}"
+              pause="{{pause}}"></santa-buttons>
         </app-toolbar>
       </app-header>
 
@@ -93,25 +92,6 @@ specific language governing permissions and limitations under the License.
 
     </app-header-layout>
   </app-drawer-layout>
-
-  <section id="buttons">
-    <div class="button-set primary" hidden$="[[disabled]]">
-      <button id="sound" on-click="_toggleSounds"
-              class$="[[_computeTernary(mute, 'off', 'on')]]">
-      </button>
-      <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
-              class$="[[_computeTernary(pause, 'paused', 'playing')]]">
-        <iron-icon class="pause" icon="santa:pause"></iron-icon>
-        <iron-icon class="play" icon="santa:play"></iron-icon>
-      </button>
-    </div>
-
-    <div class$="button-set alternate [[_computeTernary(_offline, '', 'hidden')]]">
-      <button id="offline" disabled>
-        <iron-icon icon="santa:offline"></iron-icon>
-      </button>
-    </div>
-  </section>
 
 </template>
 <script>
@@ -124,6 +104,14 @@ specific language governing permissions and limitations under the License.
     ],
 
     properties: {
+
+      /**
+       * Whether the top-right buttons are visible.
+       */
+      _buttonsOpen: {
+        type: Boolean,
+        value: false,
+      },
 
       /**
        * Whether the current scene has 'game buttons', reset and pause.
@@ -174,10 +162,6 @@ specific language governing permissions and limitations under the License.
 
     },
 
-    _computeTernary: function(arg, yesVal, noVal) {
-      return arg ? yesVal : noVal;
-    },
-
     /**
      * Close the `santa-chrome` drawer.
      * @return {boolean} true if the drawer was closed
@@ -195,25 +179,11 @@ specific language governing permissions and limitations under the License.
       }
     },
 
-    _onShare: function(ev) {
-      window.ga('send', 'event', 'nav', 'click', 'share');
-      const p = ev.target.closest('paper-icon-button');
-      if (p) {
+    _maybeCloseButtons: function(ev) {
+      if (this.$.buttons.close()) {
         ev.preventDefault();
-        this.fire('share', {network: p.id});
+        ev.stopPropagation();
       }
-    },
-
-    _toggleSounds: function(ev) {
-      ev.stopPropagation();
-      this.mute = !this.mute;
-      window.ga('send', 'event', 'nav', 'click', this.mute ? 'mute' : 'unmute');
-    },
-
-    _togglePause: function(ev) {
-      ev.stopPropagation();
-      this.pause = !this.pause;
-      window.ga('send', 'event', 'nav', 'click', this.pause ? 'pause' : 'play');
     },
 
     _onTitleClick: function() {

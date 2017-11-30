@@ -16,16 +16,17 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../elements/countdown/countdown-timer.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
 <link rel="import" href="../../elements/village-header/village-header.html">
-<link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="elements/effect-skydive.html">
 <link rel="import" href="elements/effect-snowmobile.html">
 <link rel="import" href="elements/effect-tictactoe.html">
 <link rel="import" href="elements/effect-wrangler.html">
+<link rel="import" href="elements/village-house.html">
 <link rel="import" href="dorf-scene_module.html">
 
 <!--
@@ -58,137 +59,124 @@ Santa's Village.
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
   </div>
 
-  <div id="module-dorf" class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
-    <smatch-secret character-id="santa"></smatch-secret>
-    <div id="village-all">
-      <div id="ground"></div>
-      <div id="road"></div>
-      <div id="houses" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
-        <!-- The 'New Today' house exists in the regular grid -->
-        <div class="house house-new-today">
-          <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]" on-click="_onClickNewTodayHouse">
-            <div class$="card new-today-[[todayHouse]]">
-              <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
-              <h3>[[_string('scene', todayHouse, strings)]]</h3>
-            </div>
-          </a>
+  <!-- Actual house links -->
+  <div id="links" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
+    <template is="dom-repeat" items="[[houses]]">
+      <a class="link"
+          href$="[[_calculateHref(item, item.locked)]]"
+          target$="[[_calculateTarget(item.link)]]"
+          house$="[[item.module]]"
+          style$="[[_computeLinkStyle(item.module, item.hideDate, item.launchDate)]]">
+        <div class="card">
+          <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
+          <h4>[[_string('category', item.category, strings)]]</h4>
+          <h3>[[_string('scene', item.module, strings)]]</h3>
         </div>
-        <template is="dom-repeat" items="[[houses]]" initial-count="7">
-          <div id$="house-[[item.module]]"
-               class$="house [[_calculateHouseClass(item, item.locked, todayHouse)]]">
-            <div class="assets housez">
-              <div class="building"></div>
-              <div class="launchdate" hidden$="[[item.hideDate]]">
-                [[_calculateDateNo(item.launchDate)]]
+      </a>
+    </template>
+  </div>
+
+  <!-- Interactive village at >768px or above -->
+  <iron-media-query query="(min-width: 768px)"
+      query-matches="{{_isSceneVillage}}"></iron-media-query>
+  <template is="dom-if" if="[[_isSceneVillage]]" restamp>
+    <div id="village-all">
+      <div id="houses" class="cells">
+        <!-- The 'New Today' house exists in the regular grid -->
+        <div class="cell new-today">
+          <div id="house-new-today">
+            <a href$="[[urlFor(todayHouse)]]"
+                hidden$="[[!todayHouse]]"
+                on-click="_onClickNewTodayHouse">
+              <div class="new-today" style$="[[_computeTodayHouseStyle(todayHouse)]]">
+                <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>[[_string('scene', todayHouse, strings)]]</h3>
               </div>
-              <div class="ice"></div>
-            </div>
-            <template is="dom-if" if="[[!item.disabled]]">
-              <div class="action">
-                <a class="link" href$="[[_calculateHref(item, item.locked)]]">
-                  <div class$="card card-[[item.module]]">
-                    <div class="image"></div>
-                    <div class="color" style$="background-color: [[_colorForRoute(item.module)]]"></div>
-                    <div class="text">
-                      <div class="launchdate" hidden$="[[item.hideDate]]">
-                        [[_calculateDateNo(item.launchDate)]]
-                      </div>
-                      <h4>[[_string('category', item.category, strings)]]</h4>
-                      <h3>[[_string('scene', item.module, strings)]]</h3>
-                      <div class="img-lock" hidden$="[[!item.locked]]"></div>
-                    </div>
-                    <template is="dom-if" if="[[_equals(todayHouse, item.module)]]">
-                      <div class="label">
-                        <i18n-msg msgid="new">PLACEHOLDER_i18n</i18n-msg>
-                      </div>
-                    </template>
-                  </div>
-                </a>
-                <h5 class="housez">[[_string('category', item.category, strings)]]</h5>
-              </div>
-            </template>
+            </a>
+          </div>
+        </div>
+        <template is="dom-repeat" items="[[houses]]">
+          <div class="cell">
+            <village-house house="[[item.module]]"
+                opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
+                locked="[[item.locked]]"></village-house>
           </div>
         </template>
+      </div>
+      <div id="background"></div>
+      <div id="eastereggs">
+        <template is="dom-repeat" items="[[easterEggs]]">
+          <div id$="easteregg-[[item]]"></div>
+        </template>
 
-        <!-- Note that #eastereggs isn't really a house, but this ensures that the easter eggs can
-          have a shared stacking context with houses -->
-        <div id="eastereggs">
-          <template is="dom-repeat" items="[[easterEggs]]">
-            <div id$="easteregg-[[item]]" class="easter-egg"></div>
-          </template>
-
-          <div id="easteregg-schoolyard" class="easter-egg">
-            <div class="slide"></div>
-            <div class="seesaw"></div>
-            <div class="swing"></div>
-          </div>
-
-          <div id="easteregg-balloon" class="easter-egg"></div>
-          <div id="easteregg-balloon-ropes" class="easter-egg"></div>
-          <div id="easteregg-balloon-flight" class="easter-egg"></div>
-
-          <effect-snowmobile id="easteregg-snowmobile1"></effect-snowmobile>
-          <effect-snowmobile id="easteregg-snowmobile2"></effect-snowmobile>
-          <effect-snowmobile id="easteregg-snowmobile3"></effect-snowmobile>
-          <effect-snowmobile id="easteregg-snowmobile4"></effect-snowmobile>
-
-          <div id="easteregg-busstop1" class="easter-egg">
-            <div class="elf-stop elf-green"></div>
-            <div class="elf-stop elf-orange"></div>
-            <div class="elf-stop elf-orange"></div>
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop biz-snowman"></div>
-            <div class="bus">
-              <div class="snowman-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-            </div>
-          </div>
-
-          <div id="easteregg-busstop2" class="easter-egg">
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop elf-green"></div>
-            <div class="bus">
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-            </div>
-          </div>
-
-          <div id="easteregg-busstop3" class="easter-egg">
-            <div class="elf-stop elf-sit-red"></div>
-            <div class="elf-stop elf-blue"></div>
-            <div class="elf-stop elf-green"></div>
-            <div class="bus">
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-              <div class="elf-bus"></div>
-            </div>
-          </div>
-
-          <effect-tictactoe id="easteregg-tictactoe"></effect-tictactoe>
-          <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
-
+        <div id="easteregg-schoolyard">
+          <div class="slide"></div>
+          <div class="seesaw"></div>
+          <div class="swing"></div>
         </div>
-      </div><!-- #houses -->
+
+        <div id="easteregg-balloon" class="random clickable" on-click="_flyBalloon"></div>
+        <div id="easteregg-balloon-ropes"></div>
+        <div id="easteregg-balloon-flight"></div>
+
+        <effect-snowmobile id="easteregg-snowmobile1" class="clickable"></effect-snowmobile>
+        <effect-snowmobile id="easteregg-snowmobile2" class="clickable"></effect-snowmobile>
+        <effect-snowmobile id="easteregg-snowmobile3" class="clickable"></effect-snowmobile>
+        <effect-snowmobile id="easteregg-snowmobile4" class="clickable"></effect-snowmobile>
+
+        <div id="easteregg-busstop1" class="random clickable" on-click="_triggerBus">
+          <div class="elf-stop elf-green"></div>
+          <div class="elf-stop elf-orange"></div>
+          <div class="elf-stop elf-orange"></div>
+          <div class="elf-stop elf-blue"></div>
+          <div class="elf-stop biz-snowman"></div>
+          <div class="bus">
+            <div class="snowman-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+          </div>
+        </div>
+
+        <div id="easteregg-busstop2" class="random clickable" on-click="_triggerBus">
+          <div class="elf-stop elf-blue"></div>
+          <div class="elf-stop elf-green"></div>
+          <div class="bus">
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+          </div>
+        </div>
+
+        <div id="easteregg-busstop3" class="random clickable" on-click="_triggerBus">
+          <div class="elf-stop elf-sit-red"></div>
+          <div class="elf-stop elf-blue"></div>
+          <div class="elf-stop elf-green"></div>
+          <div class="bus">
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+            <div class="elf-bus"></div>
+          </div>
+        </div>
+
+        <effect-tictactoe id="easteregg-tictactoe"></effect-tictactoe>
+        <effect-wrangler id="easteregg-wrangler"></effect-wrangler>
+      </div>
     </div>
+  </template>
 
-    <footer>
-      <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
-      <img src$="[[_computeFooterElves(_countdownFinished)]]">
-    </footer>
+  <footer class$="[[_computeCountdownFinishedClass(_countdownFinished)]]">
+    <p hidden$="[[_countdownFinished]]"><i18n-msg msgid="village_comeback">PLACEHOLDER_i18n</i18n-msg></p>
+  </footer>
 
-    <smatch-storage unlocks="{{smatchUnlocks}}"></smatch-storage>
-  </div><!-- #module-dorf -->
 </template>
 <script>
 (function() {
@@ -224,6 +212,11 @@ Santa's Village.
         value: Object.freeze(EASTER_EGGS),
       },
 
+      /** Whether this is the full village. Used to control stamping of easter eggs. */
+      _isSceneVillage: {
+        type: Boolean,
+      },
+
       /** Bound from `santa-state`, whether the countdown is done. */
       _countdownFinished: {
         type: Boolean,
@@ -241,17 +234,6 @@ Santa's Village.
 
       /** Strings bound from `santa-strings`. */
       strings: Object,
-
-      /** Bound from `smatch-storage`, to maintain state related to
-          the smatch scene **/
-      smatchUnlocks: Object,
-    },
-
-    listeners: {
-      'easteregg-busstop1.click': '_triggerBus',
-      'easteregg-busstop2.click': '_triggerBus',
-      'easteregg-busstop3.click': '_triggerBus',
-      'easteregg-balloon.click': '_flyBalloon',
     },
 
     _computeHeaderClass: function(countdownFinished, duringTracker) {
@@ -268,9 +250,8 @@ Santa's Village.
       return finished ? 'countdown-finished': '';
     },
 
-    _computeFooterElves: function(finished) {
-      var url = (finished ? 'img/day-of-assets-footer.svg' : 'img/footer-elves.svg');
-      return this.resolveUrl(url);
+    _computeIsSceneVillage: function(screenWidth) {
+      return screenWidth >= 768;
     },
 
     /**
@@ -284,24 +265,17 @@ Santa's Village.
     },
 
     /**
-     * Calculates any optional classes to apply on the `.house` div.
+     * Calculates the target to load this link into.
      */
-    _calculateHouseClass: function(house, locked, todayHouse) {
-      var out = '';
-      if (locked) {
-        out += ' iced';
-      }
-      if (todayHouse === house.module) {
-        out += ' new-today';
-      }
-      return out;
+    _calculateTarget: function(href) {
+      return Boolean(href) ? '_blank' : null;
     },
 
     /**
      * Calculates the numeric (i.e., day of month) date for this Date.
      */
-    _calculateDateNo: function(date) {
-      return date && date.getDate();
+    _computeDateNo: function(hideDate, date) {
+      return !hideDate && date && date.getDate() || '';
     },
 
     /**
@@ -310,6 +284,18 @@ Santa's Village.
      */
     _string: function(type, id, strings) {
       return strings ? strings[type + '-' + id] : null;
+    },
+
+    /**
+     * Computes the style for the specified today house.
+     */
+    _computeTodayHouseStyle: function(todayHouse) {
+      if (!todayHouse) {
+        return null;
+      }
+      // TODO(samthor): This might not always exist. Check first?
+      const url = this.resolveUrl(`img/new-today/${todayHouse}_2x.png`);
+      return `background-image: url(${url})`;
     },
 
     _onHousesOver: function(event) {
@@ -339,16 +325,15 @@ Santa's Village.
         'img/sun.svg',
       ]);
 
-      var isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        this.preloadImages([
-          'img/mobile-elf1.svg',
-          'img/mobile-elf2.svg',
-        ]);
-      } else {
+      if (this._isSceneVillage) {
         this.preloadImages([
           'img/road.svg',
           'img/ground.svg',
+        ]);
+      } else {
+        this.preloadImages([
+          'img/mobile-elf1.svg',
+          'img/mobile-elf2.svg',
         ]);
       }
 
@@ -359,11 +344,11 @@ Santa's Village.
 
         var preload = [];
 
-        if (!isMobile) {
+        if (this._isSceneVillage) {
           preload.push('img/building/' + id + '.svg');
         }
         preload.push('../../images/scenes/' + id + '_2x.png');
-        if (house.locked && !isMobile) {
+        if (house.locked && this._isSceneVillage) {
           preload.push('img/building/' + id + '-ice.svg')
         }
         this.preloadImages(preload);
@@ -380,8 +365,9 @@ Santa's Village.
         // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
         // there's no way to notify a whole house.
         const propertiesToNotify = ['locked', 'disabled'];
+        const path = ['houses', 0, ''];
         this.houses.forEach((house, i) => {
-          const path = ['houses', i, ''];
+          path[1] = i;
           propertiesToNotify.forEach((property) => {
             path[2] = property;
             this.notifyPath(path, house[property]);
@@ -409,70 +395,68 @@ Santa's Village.
     onShow: function() {
       this.fire('sound-ambient', 'music_start_village');
       this.fire('sound-ambient', 'village_start');
-      this._startEasterEggs();
+      this._randomEasterEggs();
     },
 
     onHide: function() {
       this.fire('sound-ambient', 'village_end');
-      this._stopEasterEggs();
-    },
-
-    /**
-     * Wraps `santaApp.colorForRoute`.
-     */
-    _colorForRoute: function(id) {
-      return window.santaApp.colorForRoute(id);
+      this.cancelDebouncer('easteregg');
     },
 
     _onClickNewTodayHouse: function() {
       window.ga('send', 'event', 'village', 'click', 'newtoday');
     },
 
+    /**
+     * Computes the CSS variables for the given module.
+     */
+    _computeLinkStyle: function(id, hideDate, launchDate) {
+      const parts = [];
+
+      if (!hideDate) {
+        parts.push(`--release-order: ${-launchDate.getDate()}`);
+      }
+
+      // TODO(samthor): Remove `window.santaApp` refs and instead include this in the CSS.
+      const color = window.santaApp.colorForRoute(id);
+      if (color) {
+        parts.push(`--scene-color: ${color}`);
+      }
+
+      return parts.join(';');
+    },
+
     /** NOTE: easteregg code only below this point */
 
-    /**
-     * Async task for _randomEasterEggs.
-     */
-    _eggTimer: null,
-
     _randomEasterEggs: function() {
-      this.cancelAsync(this._eggTimer);
-
-      var easterEggs = ['balloon', 'busstop1', 'busstop2', 'busstop3'];
-
-      var eggTime = randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX);
-      this._eggTimer = this.async(function() {
-        if (!this.isAttached) {
-          return;  // give up, not active
-        }
-        var eggName = 'easteregg-' +
-            easterEggs[Math.floor(Math.random() * easterEggs.length)];
-        var easterEgg = this.$[eggName];
-        var bounds = easterEgg.getBoundingClientRect();
-
-        // trigger the easter egg only if it's not display: none
-        if (bounds.width && bounds.height) {
-          var eggTrigger = this.listeners[eggName + '.click'];
-          this[eggTrigger]({
-            fakeEvent: true,
-            currentTarget: easterEgg
-          });
-        }
-
+      this.debounce('easteregg', function() {
+        if (!this.isAttached) { return; }
         this._randomEasterEggs();
-      }, eggTime);
+
+        const eggs = Polymer.dom(this.root).querySelectorAll('#eastereggs .random');
+        if (!eggs.length) { return; }
+
+        const choice = eggs[Math.floor(Math.random() * eggs.length)];
+        const bounds = choice.getBoundingClientRect();
+        if (!bounds.width && !bounds.height) { return; }
+
+        choice.click();
+      }, randomRange(RANDOM_EGG_WAIT_MIN, RANDOM_EGG_WAIT_MAX));
     },
 
     _flyBalloon: function(e) {
-      if (!e.fakeEvent) {
+      if (e.isTrusted || e.screenX) {
         window.ga('send', 'event', 'village', 'click', 'balloon');
       }
 
       var FLIGHT_TIME = 30000;
-      var balloon = this.$['easteregg-balloon'];
-      var balloonRopes = this.$['easteregg-balloon-ropes'];
-      var balloonFlight = this.$['easteregg-balloon-flight'];
-      if (balloon.classList.contains('flying')) return;
+
+      // nb. these may not start on the page
+      const dom = Polymer.dom(this.root);
+      var balloon = dom.querySelector('#easteregg-balloon');
+      var balloonRopes = dom.querySelector('#easteregg-balloon-ropes');
+      var balloonFlight = dom.querySelector('#easteregg-balloon-flight');
+      if (!balloon || balloon.classList.contains('flying')) { return; }
 
       this.fire('sound-trigger', 'village_balloon_click');
 
@@ -487,7 +471,7 @@ Santa's Village.
     },
 
     _triggerBus: function(e) {
-      if (!e.fakeEvent) {
+      if (e.isTrusted || e.screenX) {
         window.ga('send', 'event', 'village', 'click', 'bus');
       }
 
@@ -517,14 +501,6 @@ Santa's Village.
       }, BUS_DRIVE_ANIMATION + 1);
     },
 
-    _startEasterEggs: function() {
-      this._stopEasterEggs();
-      this._randomEasterEggs();  // stops self if no longer active
-    },
-
-    _stopEasterEggs: function() {
-      this.cancelAsync(this._eggTimer);
-    },
   });
 })();
 </script>

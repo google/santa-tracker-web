@@ -8,33 +8,51 @@
 
   // id width height left top z-index
   $all:
-      "tree"            467   581   433   341    ($house-row-3-z-index - 1),
-      "blocks"          360   150   904   646    ($house-row-3-z-index - 60),
-      "statue"          287   171   858   816    ($house-row-4-z-index - 1),
-      "walrus"          22    19    897   1473   ($house-row-6-z-index - 1),
-      "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
-      "snowman-reading" 571   237   -227  1550   ($house-row-6-z-index - 1),
-      "rosetta-stone"   117   96    28    944    ($house-row-4-z-index - 1),
-      "white-board"     121   62    408   952    ($house-row-3-z-index - 0),
-      "schoolyard"      434   160   121   255    ($house-row-1-z-index - 0),
-      "tictactoe"       0     0     922   375    ($house-row-2-z-index - 1),
-      "book-club"       90    97    360   558    ($house-row-2-z-index + 30),
-      "balloon"         183   209   200   804    ($house-z-index-front),
-      "balloon-ropes"   234   40    180   963    ($house-row-4-z-index - 1),
-      "balloon-flight"  155   209   200   804    ($house-row-4-z-index - 1),
-      "snowmobile1"     0     0     310   460    ($house-row-2-z-index - 1),
-      "snowmobile2"     0     0     1015  660    ($house-row-3-z-index - 10),
-      "snowmobile3"     0     0     665   895    ($house-row-3-z-index),
-      "snowmobile4"     0     0     220   1950   ($house-row-7-z-index - 1),
-      "unicycle"        21    57    310   500    ($house-row-2-z-index + 40),
-      "wrangler"        182   88    700   2250   ($house-row-7-z-index + 150),
+      "tree"            467   581   433   341 ,
+      "blocks"          360   150   904   646 ,
+      "statue"          287   171   858   816 ,
+      "walrus"          22    19    897   1473,
+      "penguin-revolt"  174   55    865   1571,
+      "snowman-reading" 571   237   -227  1450,
+      "rosetta-stone"   117   96    28    944 ,
+      "white-board"     121   62    570   1102,
+      "schoolyard"      434   160   121   255 ,
+      "tictactoe"       0     0     922   375 ,
+      "book-club"       90    97    360   558 ,
+      "balloon"         183   209   200   804 ,
+      "balloon-ropes"   234   40    180   963 ,
+      "balloon-flight"  155   209   200   804 ,
+      "snowmobile1"     0     0     310   460 ,
+      "snowmobile2"     0     0     900   680 ,
+      "snowmobile3"     0     0     665   895 ,
+      "snowmobile4"     0     0     640   2090,
+      "unicycle"        21    57    310   500 ,
+      "wrangler"        0     0     700   2250,
   ;
 
-  div {
+  // TODO: top/top for tablet and desktop are magic numbers
+
+  width: $width-desktop;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -($width-desktop / 2);
+  height: $height-desktop;
+
+  @media (max-width: $width-desktop - 1px) {
+    width: $width-tablet;
+    margin-left: -($width-tablet / 2);
+    height: $height-tablet;
+  }
+
+  .clickable {
+    pointer-events: auto;
+  }
+
+  > *, div {
     background: center no-repeat;
     background-size: contain;
     position: absolute;
-    pointer-events: none;
   }
 
   @for $i from 1 through length($all) {
@@ -42,8 +60,14 @@
     $id: nth($row, $idx-id);
 
     #easteregg-#{$id} {
-      z-index: nth($row, $idx-z-index) - 1;
-      background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+      $top: nth($row, $idx-top);
+      $height: nth($row, $idx-height) * $svg-ratio;
+      z-index: round($top + $height);
+
+      // only load background-image if the w/h is nonzero
+      @if nth($row, $idx-width) > 0 {
+        background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+      }
 
       // TODO(skarEE): The width/height of each image is expressed in the
       // original SVG size, so it needs to be multiplied by svg-ratio. This is
@@ -56,11 +80,6 @@
     }
   }
 
-  #easteregg-tictactoe,
-  #easteregg-wrangler,
-  effect-snowmobile {
-    position: absolute;  // not a div
-  }
   #easteregg-tictactoe, effect-snowmobile {
     @media (max-width: ($width-desktop - 1)) {
       transform: scale(0.6);
@@ -140,7 +159,6 @@
 
   #easteregg-balloon, #easteregg-busstop1,
   #easteregg-busstop2, #easteregg-busstop3 {
-    pointer-events: all;
     cursor: pointer;
   }
 
@@ -150,7 +168,6 @@
   }
 
   #easteregg-balloon {
-    z-index: $house-z-index-front;
     opacity: 1;
     &.flying {
       opacity: 0;
@@ -158,6 +175,7 @@
   }
 
   #easteregg-balloon-flight, #easteregg-balloon-ropes {
+    pointer-events: none;
     opacity: 0;
 
     &.flying {
@@ -166,7 +184,6 @@
   }
 
   #easteregg-balloon-flight {
-    z-index: $house-z-index-front;
     &.flying {
       animation: fly 30s linear;
     }
@@ -199,7 +216,6 @@
   #easteregg-busstop3 {
     $w: 63px;
     $h: 24px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop3.svg);
 
@@ -270,8 +286,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-7-z-index + 80;
-
       .bus {
         transition: transform 10s ease-out;
         @include will-change(transform);
@@ -280,8 +294,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-7-z-index + 80;
-
       .bus {
         transition: transform 10s ease-out;
         @include will-change(transform);
@@ -330,7 +342,6 @@
   #easteregg-busstop2 {
     $w: 45px;
     $h: 24px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop2.svg);
 
@@ -391,8 +402,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-5-z-index - 1;
-
       .bus {
         transition: transform 10s ease-out;
         will-change: transform;
@@ -401,8 +410,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-5-z-index - 1;
-
       .bus {
         transition: transform 10s ease-out;
         will-change: transform;
@@ -452,7 +459,6 @@
   #easteregg-busstop1 {
     $w: 85px;
     $h: 73px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop1.svg);
 
@@ -493,8 +499,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-1-z-index + 30;
-
       .bus {
         animation-fill-mode: forwards;
         animation: to-bus-stop-1 10s linear;
@@ -503,8 +507,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-1-z-index - 50;
-
       .bus {
         animation-fill-mode: forwards;
         animation: from-bus-stop-1 10s linear;

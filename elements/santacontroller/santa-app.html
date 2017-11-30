@@ -101,7 +101,7 @@ Santa Tracker app.
     <div id="pip">
       <!-- Shared `santa-video` element. This can't be attached/detached from the DOM without
         stopping the video itself, so it is reused by all video scenes -->
-      <santa-video id="video" active="{{_videoActive}}"></santa-video>
+      <santa-video id="video" active="{{_videoActive}}" mute="[[userMute]]"></santa-video>
     </div>
 
     <!-- Scenes -->
@@ -372,7 +372,7 @@ Santa Tracker app.
           path$="scenes/undersea/undersea-scene_[[language]].html"
           header-color="#ba594e"></undersea-scene>
 
-      <template is="dom-repeat" items="[[_computeVideoRoutes(_videos)]]">
+      <template is="dom-repeat" items="[[_computeVideoRoutes()]]">
         <video-scene route$="[[item]]" icon="1f4fd"
             header-color="#ea4882"
             feature-color="#f9ce1d"
@@ -452,15 +452,6 @@ Polymer({
       type: String,
       value: '',
       notify: true,
-    },
-
-    /**
-     * List of video routes. Used for template binding.
-     */
-    _videos: {
-      type: Object,
-      readOnly: true,
-      value: window.VIDEOS,
     },
 
     /**
@@ -623,8 +614,8 @@ Polymer({
     'game-resume': 'onResumeGame',
     'game-stop': 'onStopGame',
     'game-score': 'onScoreGame',
+    'video-load': 'onVideoLoad',
     'share': 'onShare',
-    'request-host': 'onRequestHost',
     'close-drawer': 'onCloseDrawer',
   },
 
@@ -669,10 +660,8 @@ Polymer({
         // call SoundController, which returns a Promise, which we can add to the source.
         // nb. This breaks the sound-preload abstraction a bit, but works fine.
         const p = sc.loadSounds(ev);
-        const source = Polymer.dom(ev).path[0];
-        if (source && source.preloadPromise) {
-          source.preloadPromise(p);
-        }
+        const source = this._sceneForEvent(ev);
+        source && source.preloadPromise(p);
       });
       this.addEventListener('sound-ambient', sc.playAmbientSounds.bind(sc));
       this.addEventListener('sound-trigger', sc.playSound.bind(sc));
@@ -694,7 +683,7 @@ Polymer({
       const parts = window.location.hash.substr(1).split('?');
       route = parts[0] || route;
     }
-    this.$.lazypages.load(route);
+    this.route = route;
   },
 
   detached: function() {
@@ -743,6 +732,25 @@ Polymer({
     }
   },
 
+  _sceneForEvent: function(ev) {
+    const source = Polymer.dom(ev).path[0];
+    if (source && source.preloadPromise) {
+      return source;
+    }
+    return null;
+  },
+
+  onVideoLoad: function(ev) {
+    const videoId = ev.detail;
+    const scene = this._sceneForEvent(ev);
+
+    const v = this.$.video;
+    if (v.videoId !== videoId) {
+      const p = v.cue(videoId);
+      scene && scene.preloadPromise(p);
+    }
+  },
+
   /**
    * Reset and update various bits of global state when a new scene is made visible.
    */
@@ -759,11 +767,6 @@ Polymer({
     if (newValue && newValue.localName === 'video-scene') {
       v.classList.add('scene');
       v.controls = false;
-
-      if (v.videoId !== newValue.videoId) {
-        // reset the video if the ID has changed
-        v.cue(newValue.videoId);
-      }
     } else {
       v.classList.remove('scene');
       v.controls = true;
@@ -926,10 +929,10 @@ Polymer({
   },
 
   _userMuteChanged: function() {
-    // nb. sound-ambient is bound inside ready:, so dedup this for initial set
+    // nb. dedup this as sound-ambient is bound inside ready:, and changes <frame confuse Klang
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
-    });
+    }, 20);
   },
 
   trackEvent: function(e, detail) {
@@ -982,9 +985,10 @@ Polymer({
    * has access to it).
    *
    * @param {string} sceneName to check
+   * @param {boolean} skipEdu whether to skip edu checks
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
-  sceneIsOpen: function(sceneName) {
+  sceneIsOpen: function(sceneName, skipEdu) {
     if (this.currentTime === undefined) {
       return true;  // fail open before time ready
     } else if (sceneName === 'village' || sceneName === 'cast') {
@@ -1002,7 +1006,7 @@ Polymer({
       if (house.module === sceneName) {
         if (house.disabled) {
           return false;
-        } else if (house.edu || !house.locked) {
+        } else if ((!skipEdu && house.edu) || !house.locked) {
           return true;
         }
         let launchDate = house.launchDate;
@@ -1161,6 +1165,7 @@ Polymer({
       break;
     case 'facebook':
       out = `https://facebook.com/sharer.php?p[url]=${enc}`;
+      break;
     default:
       return undefined;
     }
@@ -1187,8 +1192,8 @@ Polymer({
   /**
    * Converts the map of routes -> YouTube IDs to an array of routes.
    */
-  _computeVideoRoutes: function(videos) {
-    return Object.keys(videos);
+  _computeVideoRoutes: function() {
+    return Object.keys(VIDEOS);
   },
 
 });

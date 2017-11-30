@@ -47,17 +47,18 @@ Shows a carousel of social cards.
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 2px;
-      transform-origin: bottom center;
       opacity: 0.95;
       transition: transform 0.8s, opacity 0.8s;
+      transform-origin: top center;
     }
 
     .card.fadein {
-      transform: translateY(100%);
+      transform: scale(0);
       opacity: 0;
     }
     .card.fadeout {
       transform: scale(0);
+      transform-origin: bottom center;
       opacity: 0;
     }
 
