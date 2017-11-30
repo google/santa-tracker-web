@@ -61,14 +61,22 @@ app.LayerTool.Layer = {
  */
 app.LayerTool.prototype.draw = function() {
   if (this.image) {
-    this.context.drawImage(this.image, 0, 0, this.canvas.width,
+    var r = this.canvas.height / this.image.height;
+    var w = this.image.width * r;
+    var x = this.canvas.width/2 - w/2;
+    this.context.drawImage(this.image, x, 0, w,
         this.canvas.height);
-    this.backupContext.drawImage(this.image, 0, 0, this.backup.width,
+
+    var backupR = this.backup.height / this.image.height;
+    var backupW = this.image.width * backupR;
+    var backupX = this.backup.width/2 - backupW/2;
+    this.backupContext.drawImage(this.image, backupX, 0, backupW,
         this.backup.height);
 
     window.santaApp.fire('sound-trigger', this.soundKey);
   } else {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
   }
   return true;
 };
