@@ -43,6 +43,7 @@ app.Colorpicker = function($elem) {
 
 app.Colorpicker.prototype.togglePopup = function() {
   if (this.disabled) {
+    window.santaApp.fire('sound-trigger', 'cd_fail');
     return;
   }
 

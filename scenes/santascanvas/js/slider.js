@@ -60,6 +60,7 @@ app.Slider.prototype.mouseChanged = function(mouse) {
 
 app.Slider.prototype.onMousedown = function() {
   if (this.disabled) {
+    window.santaApp.fire('sound-trigger', 'cd_fail');
     return;
   }
 

@@ -298,6 +298,8 @@ app.Canvas.prototype.undo = function() {
     this.baseIndex = previous;
     this.copyCanvasIndex(this.baseIndex);
     window.santaApp.fire('sound-trigger', 'cd_undo');
+  }else {
+    window.santaApp.fire('sound-trigger', 'cd_fail');
   }
   this.undoing = true;
 };
@@ -313,6 +315,8 @@ app.Canvas.prototype.redo = function() {
       this.baseIndex = next;
       this.copyCanvasIndex(this.baseIndex);
       window.santaApp.fire('sound-trigger', {name: 'cd_redo', args: [this.baseIndex]});
+    }else {
+      window.santaApp.fire('sound-trigger', 'cd_fail');
     }
   }
 };

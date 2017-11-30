@@ -1172,13 +1172,14 @@ Santaselfie scene.
     game: null,
 
     onPreload: function() {
+      var loadEvent;
       if ($(window).width() > 800) {
-        console.log('is desktop');
+        loadEvent = 'cd_load_sounds_desktop';
       } else {
-        console.log('is mobile');
+        loadEvent = 'cd_load_sounds';
       }
 
-      this.preloadSounds('cd_load_sounds', 30);
+      this.preloadSounds(loadEvent, 30);
       this.preloadImages([
         'img/icons/reset.svg',
         'img/loading.svg',
