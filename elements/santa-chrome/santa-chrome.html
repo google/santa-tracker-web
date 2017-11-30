@@ -78,7 +78,7 @@ specific language governing permissions and limitations under the License.
           <div class="feature">
             <slot name="feature"></slot>
           </div>
-          <div class="buttons" open$="[[_buttonsOpen]]">
+          <div class="buttons" open$="[[_buttonsOpen]]" on-mouseleave="_onDelayHideMore" on-mouseover="_cancelHide">
             <paper-icon-button on-click="_onShowMore" on-mouseover="_onShowMore" icon="santa:more"></paper-icon-button>
 
             <div class="buttons-overflow" on-click="_onClickOverflow">
@@ -224,6 +224,16 @@ specific language governing permissions and limitations under the License.
       } else {
         this._buttonsOpen = true;
       }
+    },
+
+    _cancelHide: function(ev) {
+      this.cancelDebouncer('_hideMore');
+    },
+
+    _onDelayHideMore: function(ev) {
+      this.debounce('_hideMore', function() {
+        this._hideOverflow(null);
+      }, 1000);
     },
 
     _onShare: function(ev) {
