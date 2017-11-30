@@ -585,6 +585,7 @@ footer {
   text-align: center;
   color: white;
   z-index: 10000;
+  pointer-events: auto;
 
   @media (min-width: $width-desktop) {
     width: 240px;
@@ -592,7 +593,6 @@ footer {
   }
 
   a {
-    pointer-events: auto;
     &:hover {
       .new-today {
         transform: translateY(-16px);
