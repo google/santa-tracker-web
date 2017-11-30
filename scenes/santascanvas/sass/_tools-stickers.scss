@@ -144,7 +144,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
 
         &[data-tool-subcategory="nature"] {
           .Tool {
-            flex: 0 0 25%;
+            flex: 0 0 calc(25% - 20px);
           }
         }
 
@@ -157,7 +157,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
 
       .Tool {
         border-bottom: none;
-        flex: 0 0 20%;
+        flex: 0 0 calc(20% - 20px);
       }
 
       .Tools-settings {
