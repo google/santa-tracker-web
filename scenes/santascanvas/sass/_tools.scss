@@ -259,8 +259,8 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     justify-content: space-between;
     margin-bottom: 90px;
     max-height: 750px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    // overflow-x: hidden;
+    // overflow-y: auto;
     padding-top: 15px;
 
     @media (max-width: $mobile-width) {
@@ -269,6 +269,24 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       overflow-x: auto;
       overflow-y: hidden;
       padding: 0;
+    }
+
+    @media (max-height: 640px) {
+      .Category {
+        &::before {
+          padding-top: 60%;
+          width: 60%;
+        }
+      }
+
+      .Category--snow {
+        min-height: 70px;
+
+        .Button--snowglobe {
+          height: 50px;
+          width: 50px;
+        }
+      }
     }
   }
 
@@ -508,8 +526,9 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
       opacity: 0;
       pointer-events: none;
-      position: fixed;
-      transform: translateX(85px);
+      position: absolute;
+      top: 50%;
+      transform: translate(85px, -50%);
       transition: opacity .25s;
 
       &::before {
@@ -527,7 +546,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     }
 
     &--snow {
-      min-height: auto;
+      min-height: 80px;
 
       .Button {
         margin: 0 auto;
