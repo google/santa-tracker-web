@@ -169,7 +169,9 @@ app.view.CardsView.prototype.createDrawingElem = function(round, width, height) 
 
 
 app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
+  this.round_detail_card.scrollTop(0);
   this.showCard(this.round_detail_card);
+  this.round_detail_card.scrollTop(0);
 
   //Section 1
   this.round_detail_card
