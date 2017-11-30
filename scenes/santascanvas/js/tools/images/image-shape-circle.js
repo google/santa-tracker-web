@@ -34,6 +34,6 @@ app.ImageShapeCircle.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageShapeCircle.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><circle class="cls-1" cx="32.5" cy="32.5" r="32.5"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65" width="65" height="65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><circle class="cls-1" cx="32.5" cy="32.5" r="32.5"/></svg>';
   return data;
 };

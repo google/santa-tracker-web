@@ -34,6 +34,6 @@ app.ImageItemConfettiTriangle.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageItemConfettiTriangle.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.24 30.24"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="30.24 30.24 22.14 0 0 22.14 30.24 30.24"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.24 30.24" width="30.24" height="30.24"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="30.24 30.24 22.14 0 0 22.14 30.24 30.24"/></svg>';
   return data;
 };

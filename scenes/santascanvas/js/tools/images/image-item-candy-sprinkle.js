@@ -34,6 +34,6 @@ app.ImageItemCandySprinkle.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageItemCandySprinkle.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.06 6.3"><defs><style>.cls-1{fill:none;stroke:' + color + ';stroke-linecap:round;stroke-miterlimit:10;stroke-width:2.1px;}</style></defs><line class="cls-1" x1="1.05" y1="1.05" x2="6.02" y2="5.26"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.06 6.3" width="7.06" height="6.3"><defs><style>.cls-1{fill:none;stroke:' + color + ';stroke-linecap:round;stroke-miterlimit:10;stroke-width:2.1px;}</style></defs><line class="cls-1" x1="1.05" y1="1.05" x2="6.02" y2="5.26"/></svg>';
   return data;
 };

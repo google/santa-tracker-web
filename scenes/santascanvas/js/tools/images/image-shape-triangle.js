@@ -34,6 +34,6 @@ app.ImageShapeTriangle.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageShapeTriangle.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.06 65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="37.53 0 0 65 75.06 65 37.53 0"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.06 65" width="75.06" height="65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="37.53 0 0 65 75.06 65 37.53 0"/></svg>';
   return data;
 };

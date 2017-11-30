@@ -34,6 +34,6 @@ app.ImageItemConfettiCurve.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageItemConfettiCurve.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.2 42.34"><defs><style>.cls-1{fill:' + color + ';}</style></defs><path class="cls-1" d="M39.85,42.34c-13.69-.28-24.19-4.59-31.21-12.8C-2,17.16.13.69.23,0L17,2.28,8.62,1.14,17,2.22c0,.09-1.12,9.86,4.56,16.39,3.75,4.33,10,6.61,18.61,6.79Z"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.2 42.34" width="40.2" height="42.34"><defs><style>.cls-1{fill:' + color + ';}</style></defs><path class="cls-1" d="M39.85,42.34c-13.69-.28-24.19-4.59-31.21-12.8C-2,17.16.13.69.23,0L17,2.28,8.62,1.14,17,2.22c0,.09-1.12,9.86,4.56,16.39,3.75,4.33,10,6.61,18.61,6.79Z"/></svg>';
   return data;
 };

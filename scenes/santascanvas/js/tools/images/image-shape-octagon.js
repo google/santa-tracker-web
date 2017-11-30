@@ -34,6 +34,6 @@ app.ImageShapeOctagon.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageShapeOctagon.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="53.03 0 21.97 0 0 21.97 0 53.03 21.97 75 53.03 75 75 53.03 75 21.97 53.03 0"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75" width="75" height="75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="53.03 0 21.97 0 0 21.97 0 53.03 21.97 75 53.03 75 75 53.03 75 21.97 53.03 0"/></svg>';
   return data;
 };

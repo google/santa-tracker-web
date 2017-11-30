@@ -34,6 +34,6 @@ app.ImageShapeSquare.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageShapeSquare.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><rect class="cls-1" width="65" height="65"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65" width="65" height="65"><defs><style>.cls-1{fill:' + color + ';}</style></defs><rect class="cls-1" width="65" height="65"/></svg>';
   return data;
 };

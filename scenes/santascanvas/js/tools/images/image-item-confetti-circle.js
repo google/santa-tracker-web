@@ -34,6 +34,6 @@ app.ImageItemConfettiCircle.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageItemConfettiCircle.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.73 19.73"><defs><style>.cls-1{fill:' + color + ';}</style></defs><circle class="cls-1" cx="9.86" cy="9.86" r="9.86"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.73 19.73" width="19.73" height="19.73"><defs><style>.cls-1{fill:' + color + ';}</style></defs><circle class="cls-1" cx="9.86" cy="9.86" r="9.86"/></svg>';
   return data;
 };

@@ -34,6 +34,6 @@ app.ImageShapePentagon.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageShapePentagon.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.86 75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="39.43 0 0 28.65 15.06 75 63.8 75 78.86 28.65 39.43 0"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.86 75" width="78.86" height="75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="39.43 0 0 28.65 15.06 75 63.8 75 78.86 28.65 39.43 0"/></svg>';
   return data;
 };

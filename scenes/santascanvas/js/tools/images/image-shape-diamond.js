@@ -34,6 +34,6 @@ app.ImageShapeDiamond.prototype = Object.create(app.SVGImage.prototype);
 
 
 app.ImageShapeDiamond.prototype.getSVGString = function(color) {
-  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.38 75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="30.69 75 0 37.5 30.69 0 61.38 37.5 30.69 75"/></svg>';
+  var data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.38 75" width="61.38" height="75"><defs><style>.cls-1{fill:' + color + ';}</style></defs><polygon class="cls-1" points="30.69 75 0 37.5 30.69 0 61.38 37.5 30.69 75"/></svg>';
   return data;
 };
