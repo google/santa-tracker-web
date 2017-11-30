@@ -332,5 +332,9 @@ $button-size: 45px;
     &.off::before {
       visibility: visible;
     }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
   }
 }
