@@ -64,6 +64,7 @@ Santa's Village.
     <template is="dom-repeat" items="[[houses]]">
       <a class="link"
           href$="[[_calculateHref(item, item.locked)]]"
+          target$="[[_calculateTarget(item.link)]]"
           house$="[[item.module]]"
           style$="[[_computeLinkStyle(item.module, item.hideDate, item.launchDate)]]">
         <div class="card">
@@ -261,6 +262,13 @@ Santa's Village.
         return null;
       }
       return house.link || this.urlFor(house.module);
+    },
+
+    /**
+     * Calculates the target to load this link into.
+     */
+    _calculateTarget: function(href) {
+      return Boolean(href) ? '_blank' : null;
     },
 
     /**

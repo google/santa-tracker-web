@@ -595,6 +595,7 @@ footer {
   }
 
   a {
+    pointer-events: auto;
     &:hover {
       .new-today {
         transform: translateY(-16px);
