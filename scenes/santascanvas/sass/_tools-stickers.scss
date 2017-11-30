@@ -71,6 +71,10 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
   }
 
   [data-tool-category="sticker"] {
+    .Tools-subsection {
+      padding: 10px 0;
+    }
+
     // SUBCATEGORY ICONS
     @each $current-cat in $sticker-categories {
       .Tools-submenu__item[data-tool-subcategory="#{$current-cat}"] {
@@ -81,7 +85,8 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     .Tool {
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 80% 80%;
+      background-size: contain;
+      margin: 0 10px;
 
       @each $current-sticker in $sticker-animals {
         &--sticker-#{$current-sticker} {
