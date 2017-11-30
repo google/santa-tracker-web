@@ -16,7 +16,7 @@
   }
 
   .Slider-base {
-    background: url(img/slider-base.svg) center/contain no-repeat;
+    background: url(img/tools/slider-base.svg) center/contain no-repeat;
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -35,7 +35,7 @@
     width: 14px;
 
     &::before {
-      background: url(img/slider-dot.svg) center/contain no-repeat;
+      background: url(img/tools/slider-dot.svg) center/contain no-repeat;
       content: '';
       height: 100%;
       left: 0;
