@@ -559,9 +559,6 @@ footer {
 
       village-house {
         position: absolute;
-        left: calc(var(--cell-x) * 100%);
-        top: calc(var(--cell-y) * 100%);
-        z-index: var(--cell-layer);
       }
     }
   }

@@ -89,9 +89,21 @@ $cells:
       $within: ($y / 320);
 
       .cell:nth-child(#{$i}) {
+        $layer: round(($row + $within) * 320);  // z-index must be an integer;
+
+        // TODO(samthor): In 2017, we tried to use CSS variables to pass down positions. IE/Edge
+        // struggled with this (even though e.g. it was also polyfilled in Firefox) mostly because
+        // we used them inside calc. For now, we set the vars but just explicitly position the
+        // `village-house` in the cell here.
         --cell-x: $x / 320;
         --cell-y: $y / 320;
-        --cell-layer: round(($row + $within) * 320);  // z-index must be an integer
+        --cell-layer: $layer;
+
+        village-house {
+          left: $x / 320 * 100%;
+          top: $y / 320 * 100%;
+          z-index: $layer;
+        }
       }
     }
   }
