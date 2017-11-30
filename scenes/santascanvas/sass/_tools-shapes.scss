@@ -31,7 +31,7 @@ $shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", 
         }
       }
 
-      @media (max-width: 800px) {
+      @media (max-width: $mobile-width) {
         border-bottom: none;
         padding: 10px 15px;
       }

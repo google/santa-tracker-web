@@ -43,7 +43,7 @@ $roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes",
         }
       }
 
-      @media (max-width: 800px) {
+      @media (max-width: $mobile-width) {
         background-size: contain;
         border: none;
       }

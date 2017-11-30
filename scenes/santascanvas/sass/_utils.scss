@@ -1,13 +1,15 @@
-.u-above-mobile {
-  @media (max-width: 800px) {
-    display: none !important;
+##{$name} {
+  .u-above-mobile {
+    @media (max-width: $mobile-width) {
+      display: none !important;
+    }
   }
-}
 
-.u-only-mobile {
-  display: none !important;
+  .u-only-mobile {
+    display: none !important;
 
-  @media (max-width: 800px) {
-    display: block !important;
+    @media (max-width: $mobile-width) {
+      display: block !important;
+    }
   }
 }

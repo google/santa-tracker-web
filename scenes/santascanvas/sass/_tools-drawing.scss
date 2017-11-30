@@ -62,7 +62,7 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
         }
       }
 
-      @media (max-width: 800px) {
+      @media (max-width: $mobile-width) {
         padding: 10px 10%;
       }
     }

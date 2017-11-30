@@ -16,7 +16,7 @@
     transform: translate(-50%, 0);
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: $mobile-width) {
     bottom: 50px;
     left: 0;
     right: 0;

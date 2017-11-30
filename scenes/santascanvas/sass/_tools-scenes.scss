@@ -42,7 +42,7 @@ $scene-names: "air", "airport", "beach", "dock", "gingerbread", "iceberg", "livi
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       justify-content: space-around;
 
       .Tool {

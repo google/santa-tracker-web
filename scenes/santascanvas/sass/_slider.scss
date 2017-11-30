@@ -44,7 +44,7 @@
       width: 100%;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       &::before {
         transform: rotate(90deg);
       }

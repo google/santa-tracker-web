@@ -135,7 +135,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
       opacity: 0.5;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       .Tools-subsection {
         align-content: center;
         align-items: center;

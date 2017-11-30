@@ -43,7 +43,7 @@
     height: 50px;
     width: 50px;
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       background-color: #EFEFEF;
     }
   }

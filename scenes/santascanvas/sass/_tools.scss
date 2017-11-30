@@ -42,7 +42,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       flex-direction: row;
       height: 75px;
       padding-left: 95px;
@@ -140,7 +140,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       width: 130px;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       bottom: 75px;
       height: auto;
       left: 0;
@@ -229,7 +229,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       background-color: transparent;
       bottom: 95px;
       left: 20px;
@@ -263,7 +263,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     overflow-y: auto;
     padding-top: 15px;
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       flex-direction: row;
       margin: 0;
       overflow-x: auto;
@@ -298,7 +298,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       .Tools-settings {
         display: none;
       }
@@ -340,7 +340,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       width: 50px;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       // align-items: flex-start;
       align-content: center;
       align-items: center;
@@ -434,7 +434,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       align-items: center;
       height: 100%;
       justify-content: center;
@@ -457,7 +457,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       display: flex;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       flex-wrap: wrap;
       width: 100%;
     }
@@ -533,7 +533,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
         margin: 0 auto;
       }
 
-      @media (max-width: 800px) {
+      @media (max-width: $mobile-width) {
         display: none;
       }
     }
@@ -595,7 +595,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       flex: none;
 
       &::before {

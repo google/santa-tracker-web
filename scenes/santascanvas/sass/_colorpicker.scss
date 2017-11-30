@@ -12,7 +12,7 @@
       opacity: 0.5;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       height: 70px;
       margin: 8px auto;
       width: 70px;
@@ -61,7 +61,7 @@
       width: 0;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       bottom: 75px;
       display: none;
       left: 0;
@@ -81,7 +81,7 @@
     margin: 0 auto;
     width: 132px;
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -118,7 +118,7 @@
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-width) {
       height: 45px;
       margin: 8px 4px;
       width: 45px;

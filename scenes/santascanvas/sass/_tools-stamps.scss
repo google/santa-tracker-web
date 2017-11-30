@@ -47,7 +47,7 @@ $stamp-names: "bow", "present", "ornament-round1", "ornament-round2",
         }
       }
 
-      @media (max-width: 800px) {
+      @media (max-width: $mobile-width) {
         border-bottom: none;
       }
     }
