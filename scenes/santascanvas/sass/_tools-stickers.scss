@@ -85,8 +85,10 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     .Tool {
       background-position: center;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 100% 80%;
+      flex: 0 0 110px;
       margin: 0 10px;
+      width: 110px;
 
       @each $current-sticker in $sticker-animals {
         &--sticker-#{$current-sticker} {
@@ -182,7 +184,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     .Tool-hover-preview {
       background-position: center;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 100% 100%;
       height: 100%;
       left: 50%;
       opacity: 0.5;
