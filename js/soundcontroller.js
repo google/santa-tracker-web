@@ -26,7 +26,7 @@ const klangSrc = 'third_party/lib/klang/klang.js';
  */
 const klangConfigSrc = 'third_party/lib/klang/config.js';
 const klangDebugSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/Wghqk/config.js';
-const loadLocally = false;
+const loadLocally = true;
 
 //const klangConfigSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/bNsac/config.js';
 

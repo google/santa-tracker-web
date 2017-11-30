@@ -173,7 +173,7 @@ app.view.DrawingCanvas.prototype.startListening = function() {
 
 };
 app.view.DrawingCanvas.prototype.calculateDrawingVolume = function(point) {
-
+  if (!Klang.context) return;
   var xPos = Math.abs(point.x / this.canvas.width - this.lastMouseX);
   var yPos = Math.abs(point.y / this.canvas.height - this.lastMouseY);
   var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
