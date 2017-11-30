@@ -46,7 +46,6 @@ app.Game.prototype.start = function() {
   this.splashView.showView();
   this.splashView.addListener('START_GAME', function() {
     this.startGame();
-    window.santaApp.fire('sound-trigger', 'generic_button_click');
     window.santaApp.fire('sound-ambient', 'music_start_ingame');
   }.bind(this));
 };
