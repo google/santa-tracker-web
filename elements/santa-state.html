@@ -65,11 +65,12 @@ santaService.addListener('reload', function() {
     console.warn('dev ignoring reload request', VERSION);
     return;
   }
+  console.info('version reload requested', VERSION);
   window.ga('send', 'event', 'API', 'reload', VERSION);
 
-  // At 30m +/- 15m, try to reload if the page is hidden. After that, reload when the page is
+  // At 10m +/- 5m, try to reload if the page is hidden. After that, reload when the page is
   // made hidden, or force a reload after the same duration again.
-  const duration = (Math.random() + 0.5) * 1000 * 60 * 20;
+  const duration = (Math.random() + 0.5) * (10 * 60 * 1000);
   window.setTimeout(function reloader(force) {
     if (force || document.hidden) {
       window.location.reload();
