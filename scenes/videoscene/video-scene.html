@@ -37,7 +37,7 @@ Polymer({
   },
 
   onPreload: function() {
-    // TODO: somehow enqueue the video as part of preload
+    this.fire('video-load', this.videoId);
   },
 
   onShow: function() {

@@ -1,0 +1,123 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<dom-module id="effect-snowmobile">
+<template>
+  <style>
+@keyframes burnout {
+  0% {
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+  0.5% {
+    transform: rotateZ(-20deg) translateY(-4px) translateX(.5vw);
+  }
+  1% {
+    transform: rotateZ(0) translateY(0) translateX(1vw);
+  }
+  50% {
+    transform: rotateZ(0) translateY(0) translateX(200vw);
+  }
+  50.00001% {
+    transform: rotateZ(0) translateY(0) translateX(-200vw);
+  }
+  99% {
+    transform: rotateZ(0) translateY(0) translateX(-1vw);
+  }
+  99.5% {
+    transform: rotateZ(20deg) translateY(-4px) translateX(-.5vw);
+  }
+  100% {
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+}
+button {
+  display: block;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  transform: translate(-50%, -100%) scaleX(-1);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+#snowmobile {
+  height: 100%;
+  width: 100%;
+  will-change: transform;
+  transform: translateZ(0);
+  transform-origin: bottom center;
+  background: transparent center no-repeat;
+  background-size: contain;
+  transition: transform 0.125s;
+}
+button:not(.active):hover #snowmobile {
+  transform: rotateZ(10deg);
+}
+.active #snowmobile {
+  animation: burnout 10s linear reverse;
+}
+button.reverse {
+  transform: translate(-50%, -100%);
+}
+  </style>
+  <button id="button" on-click="_start">
+    <div id="snowmobile" on-animationend="_onAnimationEnd"></div>
+  </button>
+</template>
+<script>
+
+Polymer({
+  is: 'effect-snowmobile',
+
+  attached: function() {
+    // choose one of four random snowmobiles
+    const model = Math.floor(Math.random() * 4) + 1;
+    const url = this.resolveUrl('img/easteregg-snowmobile' + model + '.svg');
+
+    const reverse = Math.random() > 0.5;
+    if (reverse) {
+      this.$.button.classList.add('reverse');
+    } else {
+      this.$.button.classList.remove('reverse');
+    }
+
+    this.fire('preload', [url]);
+    this.$.snowmobile.style.backgroundImage = 'url(' + url + ')';
+  },
+
+  detached: function() {
+    this.$.button.classList.remove('active');
+  },
+
+  _start: function() {
+    this.$.button.classList.add('active');
+
+    // TODO(samthor): This probably isn't triggering Klang. Find out why (#2259).
+    this.fire('sound-trigger', 'as_Village_Snowmobile');
+  },
+
+  _onAnimationEnd: function() {
+    this.$.button.classList.remove('active');
+  },
+
+
+});
+
+</script>
+</dom-module>

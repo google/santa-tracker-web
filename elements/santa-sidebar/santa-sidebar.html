@@ -53,9 +53,6 @@ specific language governing permissions and limitations under the License.
 
   <div class="links">
     <ul>
-      <li><a href$="[[urlFor('about')]]">
-        <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
-      </a></li>
       <li><a href$="[[urlFor('press')]]">
         <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
@@ -71,6 +68,7 @@ specific language governing permissions and limitations under the License.
       <option value="af">Afrikaans</option>
       <option value="ca">Català</option>
       <option value="zh-CN">中文 (简体)</option>
+      <option value="zh-HK">中文 (香港)</option>
       <option value="zh-TW">中文 (繁體)</option>
       <option value="da">Dansk</option>
       <option value="de">Deutsch</option>
@@ -113,7 +111,15 @@ specific language governing permissions and limitations under the License.
     </h2>
     <ul>
       <li hidden$="[[!a2hsAvailable]]"><a on-click="_onA2HSClick">
-        <i18n-msg msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
+        <div hidden$="[[!onAndroid]]"]>
+          <i18n-msg msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+        <div hidden$="[[!onChromeOS]]"]>
+          <i18n-msg msgid="village_santa_a2hs_chromeos">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+        <div hidden$="[[!onOtherPlatform]]"]>
+          <i18n-msg msgid="village_santa_a2hs_desktop">PLACEHOLDER_i18n</i18n-msg>
+        </div>
       </a></li>
       <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
@@ -153,6 +159,21 @@ Polymer({
       value: false,
     },
 
+    onAndroid: {
+      type: Boolean,
+      value: false,
+    },
+
+    onChromeOS: {
+      type: Boolean,
+      value: false,
+    },
+
+    onOtherPlatform: {
+      type: Boolean,
+      value: false,
+    },
+
   },
 
   _computeTodayHouseBackgroundStyle: function(todayHouse) {
@@ -182,6 +203,7 @@ Polymer({
   _onA2HSClick: function() {
     this.a2hsevent.prompt();
     this.a2hsAvailable = false;
+    this.fire('close-drawer');
   },
 
   /**
@@ -197,8 +219,15 @@ Polymer({
   },
 
   handleBeforeInstallPrompt: function(e) {
+    e.preventDefault();
     this.a2hsevent = e;
     this.a2hsAvailable = true;
+  },
+
+  ready: function() {
+    this.onAndroid = navigator.userAgent.match(/Android/i);
+    this.onChromeOS = navigator.userAgent.match(/CrOS/i);
+    this.onOtherPlatform = !this.onAndroid && !this.onChromeOS;
   },
 
   attached: function() {

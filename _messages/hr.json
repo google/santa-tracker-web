@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Preuzmi Google karte"
 	},
+	"getready": {
+		"message": "Pripremite se!"
+	},
 	"gh_country_name": {
 		"message": "Gana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Portoriko"
 	},
+	"practice": {
+		"message": "Vježba"
+	},
 	"press": {
 		"message": "Mediji"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paragvaj"
+	},
+	"quickdraw-machine-know": {
+		"message": "Znam! To je {{thing}}."
+	},
+	"quickdraw-machine-or": {
+		"message": "ili"
+	},
+	"quickdraw-machine-see": {
+		"message": "To je"
+	},
+	"quickdraw-newround-button": {
+		"message": "Započni"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Nisam siguran što je to."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Žao mi je"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Ne mogu pogoditi!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor misli i da je tvoj crtež sličan ovima:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Kako Tensor zna koji oblik ima {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Naučio sam gledajući ove primjere koje su nacrtali drugi korisnici."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor misli da je tvoj crtež sličniji ovima:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "To je {{thing}} u verziji Djeda Božićnjaka."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Tvoj zadatak za crtanje: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Crtaj"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor je Djedov robot sa strojnim učenjem koji mu pomaže da brzo pročita pisma koja prima od djece sa svih strana svijeta. Da bi se Tensor brže uvježbao, na zaslonu nacrtaj sliku svake praznične riječi, a on će ti reći što vidi. Što više crtaš, Tensor postaje pametniji; pomozimo Djedu da ovih blagdana bude učinkovit kao nikada dosad!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Pomozi Tensoru da uvježba prepoznavanje slika!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor je od svih tvojih crteža prepoznao {{recognized}}."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor je prepoznao jedan od tvojih crteža."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor nije prepoznao nijedan od tvojih crteža."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Sjajno!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Žao nam je!"
 	},
 	"ro_country_name": {
 		"message": "Rumunjska"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Poziv Djeda Božićnjaka"
 	},
+	"scene_canvas": {
+		"message": "Djedovo slikarsko platno"
+	},
 	"scene_citylights": {
 		"message": "Svjetla grada"
+	},
+	"scene_clausdraws": {
+		"message": "Djedovi crteži"
 	},
 	"scene_codeboogie": {
 		"message": "Ples kodova"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Utrka pingvina"
 	},
+	"scene_elfski": {
+		"message": "Skijalište vilenjaka"
+	},
 	"scene_factory": {
 		"message": "Tvornica slatkiša"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Igra s kuglicama"
+	},
+	"scene_icecave": {
+		"message": "Ledena spilja"
+	},
+	"scene_island": {
+		"message": "Otok"
 	},
 	"scene_jamband": {
 		"message": "Vilenjački bend"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Ispuštanje darova"
 	},
+	"scene_quickdraw": {
+		"message": "Brzinsko crtanje"
+	},
 	"scene_racer": {
 		"message": "Rudolf trkač"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Vrijeme darivanja"
+	},
+	"scene_snowball": {
+		"message": "Grudalište"
+	},
+	"scene_speedsketch": {
+		"message": "Brzo skiciranje"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Polazak Djeda Božićnjaka"
 	},
+	"scene_videoscene_museum": {
+		"message": "Dan u muzeju"
+	},
 	"scene_videoscene_office": {
 		"message": "Uredska podvala"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Djedovi selfieji"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Ljenčarenje"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Iskušenje"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Pogođen!"
+	},
+	"snowball_remaining": {
+		"message": "Preostalo vilenjaka: {{remaining}} od {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Promatranje"
+	},
+	"snowball_waiting": {
+		"message": "Čekamo još Djedovih vilenjaka"
 	},
 	"snowflake_choose_background": {
 		"message": "Odaberi pozadinu"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Više načina istraživanja"
 	},
+	"village_santa_a2hs": {
+		"message": "Dodaj na početni zaslon"
+	},
 	"village_santa_cardboard": {
 		"message": "Djed Božićnjak na Cardboardu"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Najbolji rezultat"
 	},
 	"zh-CN_language_name": {
 		"message": "kineski (pojednostavljeni)"

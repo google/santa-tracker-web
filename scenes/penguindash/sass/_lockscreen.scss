@@ -13,6 +13,10 @@ $rotate-bg: $gameover-bg !default;
     &.hidden {
       display: none;
     }
+
+    &[hidden] {
+      display: none !important;
+    }
   }
 
   .lockscreen-graphic {

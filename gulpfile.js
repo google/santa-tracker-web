@@ -23,7 +23,11 @@ const glob = require('glob');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const uglifyES = require('uglify-es');
+const babel = require('babel-core');
 const scripts = require('./gulp_scripts');
+const dom5 = require('dom5');
+const connect = require('connect');
+const serveStatic = require('serve-static');
 
 const fs = require('fs');
 const path = require('path');
@@ -120,7 +124,7 @@ const SCENE_CONFIG = require('./scenes');
 const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].fanout !== false);
 
 // List of scene names to serve.
-const ARG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName); 
+const ARG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName);
 const COMPILE_SCENES = (function() {
   if (!ARG_SCENES.length) {
     // compile all scenes
@@ -271,9 +275,17 @@ gulp.task('compile-scenes', function() {
     const prefixCode =
         'var global=window,app=this.app;var $jscomp=this[\'$jscomp\']={global:global};';
     const mustCompile =
-        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame);
+        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame || config.es2015);
 
-    const compilerFlags = addCompilerFlagOptions({
+    // If some options are appended to the config, they seem to be ignored by the
+    // options generator when invoking the Closure Compiler JAR.
+    const prependOptions = config.es2015
+        ? {
+            new_type_inf: null
+          }
+        : {};
+
+    const compilerFlags = addCompilerFlagOptions(Object.assign(prependOptions, {
       js: compilerSrc,
       externs,
       assume_function_wrapper: true,
@@ -293,7 +305,7 @@ gulp.task('compile-scenes', function() {
           `var scenes = scenes || {};\n` +
           `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
           `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`,
-    });
+    }));
 
     const compilerStream = $.closureCompiler({
       compilerPath: COMPILER_PATH,
@@ -357,6 +369,27 @@ gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
   // bundle, CSP, and do language fanout
   const limit = $.limiter(-2);
   const stream = scripts.generateModules(result, [primaryModuleName].concat(excludes))
+    .pipe(scripts.transformExternalScriptNodes(scriptNode => {
+      if (dom5.getAttribute(scriptNode, 'type') === 'module') {
+        // Removes the node:
+        return null;
+      }
+
+      const newScriptNode = dom5.cloneNode(scriptNode);
+
+      if (dom5.hasAttribute(scriptNode, 'nomodule')) {
+        dom5.removeAttribute(newScriptNode, 'nomodule');
+      }
+
+      return newScriptNode;
+    }))
+    .pipe(scripts.transformInlineScripts(script => {
+      return babel.transform(script, {
+        presets: [['es2015', {
+          modules: false
+        }]]
+      }).code;
+    }))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(limit(scripts.crisper()))
     .on('data', (file) => {
@@ -383,10 +416,14 @@ gulp.task('build-prod', function() {
   const entrypoints = ['index.html', 'error.html', 'upgrade.html', 'cast.html', 'embed.html'];
   const htmlStream = gulp.src(entrypoints)
     .pipe(scripts.mutateHTML.gulp(function() {
+
       if (!argv.pretty) {
         const dev = this.head.querySelector('#DEV');
+
         dev && dev.remove();
       }
+
+      scripts.insertEs5Adapter(this, staticUrl);
 
       // Fix top-level HTML/CSS imports to include static base.
       const relativeLinks = Array.from(this.head.querySelectorAll('link:not([href^="/"])'));
@@ -428,15 +465,19 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     'third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur,mp4}',
-    'elements/**/img/*.{png,jpg,svg,gif}',
+    'elements/**/img/*.{png,jpg,svg,gif,mp4}',
     'components/webcomponentsjs/*.js',
+    'components/url/*.js',
     'js/ccsender.html',
     // TODO(samthor): Better support for custom scenes (#1679).
     'scenes/snowflake/snowflake-maker/{media,third-party}/**',
+    'scenes/snowball/models/*'
   ], {base: './'})
     .pipe(gulp.dest(DIST_STATIC_DIR));
 
+  // include misc assets from the top level of santatracker
   const prodStream = gulp.src([
+    'sw-dummy.js',
     'robots.txt',
     'images/*',
     'images/og/*',
@@ -503,6 +544,17 @@ gulp.task('serve', ['default', 'watch'], function() {
     startPath: firstScene ? `/${firstScene}.html` : '/',
     ui: {port: argv.port + 1},
   });
+});
+
+gulp.task('serve-prod', cb => {
+  const prod = connect();
+
+  prod.use(serveStatic(PROD_DIR, { index: 'index.html' }));
+  prod.use(serveStatic(STATIC_DIR, { index: false }));
+
+  prod.listen(argv.port);
+
+  gutil.log(`Serving prod on port ${argv.port}`);
 });
 
 gulp.task('default', ['sass', 'compile-js', 'compile-scenes']);

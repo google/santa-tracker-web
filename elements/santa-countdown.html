@@ -44,11 +44,11 @@ Polymer({
   },
 
   _remainingTimeChanged: function(value) {
-    var parts = countdownSplit(value);
+    const parts = countdownSplit(value);
 
     // TODO: this is not i18n'd.
-    var msg = [];
-    var text;
+    const msg = [];
+    let text;
     if (value <= 60 * 1000) {
       msg.push(parts.seconds);
       text = msg.join(' ');

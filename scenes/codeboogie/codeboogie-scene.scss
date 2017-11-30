@@ -9,6 +9,10 @@ $board-level-bp: 1025px;
 @import "sass/choose-mode";
 @import "sass/choose-stage";
 
+.hide-noshare {
+  display: var(--link-display);
+}
+
 ##{$name} {
   background: #364189;
   position: absolute;

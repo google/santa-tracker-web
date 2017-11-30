@@ -41,7 +41,7 @@ games. Clickable to dismiss/hide.
 const spaceRe = /\s+/;
 
 function splitParts(s) {
-  var out = s.split(spaceRe);
+  const out = s.split(spaceRe);
   if (out[0] === '') {
     out.shift();
   }

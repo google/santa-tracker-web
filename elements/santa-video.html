@@ -34,6 +34,7 @@ later hit "play" on. This is potentially required for mobile browsers which don'
       position: relative;
       width: 100%;
       height: 100%;
+      background: black;
     }
     #holder, #player {
       width: 100%;
@@ -42,7 +43,7 @@ later hit "play" on. This is potentially required for mobile browsers which don'
     #holder {
       overflow: hidden;
       pointer-events: none;
-      background: black;
+      background: var(--santa-video-background, #21a34a);
       border-radius: inherit;
     }
     #holder[hidden] {
@@ -117,7 +118,8 @@ later hit "play" on. This is potentially required for mobile browsers which don'
     }
   </style>
 
-  <template is="dom-if" if="[[_anyVideoLoaded]]">
+  <!-- nb. use restamp to cause recreation when detached/attached -->
+  <template is="dom-if" if="[[_anyVideoLoaded]]" restamp>
     <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
   </template>
 
@@ -199,6 +201,14 @@ Polymer({
     },
 
     /**
+     * Whether to mute the video being played.
+     */
+    mute: {
+      type: Boolean,
+      value: false,
+    },
+
+    /**
      * The current active operation.
      */
     _op: {
@@ -241,10 +251,15 @@ Polymer({
   observers: [
     '_preparePlayer(_player, _op)',
     '_updatePlaying(active, playing)',
+    '_updateMute(_player, mute)',
   ],
 
   detached: function() {
-    throw new Error('santa-video detached, must recreate YouTube API')
+    this.reset();  // nb. call first, to clear _op before player
+
+    this._anyVideoLoaded = false;
+    this._player = null;
+    this._api = null;
   },
 
   /**
@@ -261,11 +276,20 @@ Polymer({
    */
   cue: function(videoId) {
     this._anyVideoLoaded = true;
-    this._op = {id: videoId, cue: true};
+    const op = this._op = {id: videoId, cue: true};
+
+    // TODO(samthor): This might not always resolve.
+    return new Promise((resolve, reject) => {
+      this.addEventListener('_active', function handler(ev) {
+        this.removeEventListener('_active', handler);
+        ev.detail === op ? resolve() : reject('op changed');
+      });
+    });
   },
 
   /**
-   * Resets this `<santa-video>` to its initial state, not playing a video whatsoever.
+   * Resets this `<santa-video>` to its initial state, not playing a video whatsoever. This does
+   * _not_ destroy the internal YouTube API.
    */
   reset: function() {
     this._op = null;
@@ -295,17 +319,17 @@ Polymer({
       height: '100%',
       playerVars: vars,
       events: {
-        onReady: function(ev) {
+        onReady: (ev) => {
           this._player = player;
-        }.bind(this),
-        onStateChange: function(ev) {
+        },
+        onStateChange: (ev) => {
           this._youtubeStateChange(ev.data);
-        }.bind(this),
-        onError: function(ev) {
+        },
+        onError: (ev) => {
           if (this._hasVideoUrl) {
             this.fire('youtube-error', ev);
           }
-        }.bind(this),
+        },
       },
     });
     // don't save player: wait for onReady to be called
@@ -319,6 +343,8 @@ Polymer({
   },
 
   _youtubeStateChange: function(state) {
+    const wasActive = this.active;
+
     if (state === 3 && !this.active) {
       // do nothing: we're preloading
     } else if (isPlayingState(state)) {
@@ -335,6 +361,10 @@ Polymer({
       this._setStarted(false);
     }
 
+    if (!wasActive && this.active) {
+      this.fire('_active', this._op, {bubbles: false});
+    }
+
     this._cued = (state === 5);
   },
 
@@ -345,13 +375,16 @@ Polymer({
   _preparePlayer: function(player, op) {
     if (!player) { return; }
 
-    player.nextVideo();
-    player.loadVideoById();
+    if (this.isAttached) {
+      player.nextVideo();
+      player.loadVideoById();
+    }
     this._setActive(false);
     this._setStarted(false);
 
-    if (!op) {
+    if (!op || !this.isAttached) {
       this._setVideoId(null);
+      this.playing = false;
       return; // nothing else to do
     }
 
@@ -375,6 +408,16 @@ Polymer({
       player.playVideo();
     } else {
       player.pauseVideo();
+    }
+  },
+
+  _updateMute: function(player, mute) {
+    if (!player) { return; }
+
+    if (mute) {
+      player.mute();
+    } else {
+      player.unMute();
     }
   },
 

@@ -465,13 +465,13 @@
 		"message": "jours"
 	},
 	"countdown_hours": {
-		"message": "hres"
+		"message": "h"
 	},
 	"countdown_minutes": {
-		"message": "min."
+		"message": "min"
 	},
 	"countdown_seconds": {
-		"message": "sec."
+		"message": "s"
 	},
 	"countdown_until": {
 		"message": "Le père Noël commence sa tournée dans"
@@ -612,10 +612,13 @@
 		"message": "Vous avez atteint le niveau :"
 	},
 	"gameover_score": {
-		"message": "Vos résultats :"
+		"message": "Votre résultat :"
 	},
 	"getgooglemaps": {
 		"message": "Télécharger Google Maps"
+	},
+	"getready": {
+		"message": "Prépare-toi!"
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"practice": {
+		"message": "Entraînement"
+	},
 	"press": {
 		"message": "Appuyer"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Oh, il s'agit de {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "ou"
+	},
+	"quickdraw-machine-see": {
+		"message": "Je vois"
+	},
+	"quickdraw-newround-button": {
+		"message": "Démarrer"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Je ne vois pas ce que c'est."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Désolé"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Je n'ai pas deviné!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor croyait également que ton dessin ressemblait à ceux-ci :"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Comment Tensor peut-il savoir à quoi ressemble {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Il a appris en voyant ces exemples dessinés par d'autres personnes."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor croyait que ton dessin ressemblait plutôt à ceux-ci :"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Ceci est la version du père Noël de {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Nous t'avons demandé de dessiner {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Dessin"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor est le robot d'apprentissage automatique du père Noël. Il l'aide à déchiffrer rapidement les lettres qu'il reçoit d'enfants de partout dans le monde. Pour aider Tensor à s'exercer, fais un dessin de chaque mot des Fêtes qui apparaît à l'écran et il te dira ce qu'il voit. Plus tu dessines, plus Tensor deviendra intelligent, alors aidons le père Noël à devenir plus efficace que jamais en cette saison des Fêtes!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Aide Tensor à apprendre à reconnaître les images!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor a reconnu {{recognized}} de tes dessins."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor a reconnu un de tes dessins."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor n'a reconnu aucun de tes dessins."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Bien joué!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oups!"
 	},
 	"ro_country_name": {
 		"message": "Roumanie"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Appel du père Noël"
 	},
+	"scene_canvas": {
+		"message": "La toile du père Noël"
+	},
 	"scene_citylights": {
 		"message": "Les lumières de la ville"
+	},
+	"scene_clausdraws": {
+		"message": "Dessin de Noël"
 	},
 	"scene_codeboogie": {
 		"message": "Boogie du code"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "La ruée du pingouin"
 	},
+	"scene_elfski": {
+		"message": "Le ski des lutins"
+	},
 	"scene_factory": {
 		"message": "La fabrique de bonbons"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Boule de gomme en mouvement"
+	},
+	"scene_icecave": {
+		"message": "Caverne de glace"
+	},
+	"scene_island": {
+		"message": "Île"
 	},
 	"scene_jamband": {
 		"message": "Le jam des lutins"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Lâcher de cadeaux"
 	},
+	"scene_quickdraw": {
+		"message": "Crayonnage"
+	},
 	"scene_racer": {
 		"message": "La course avec Rudolphe"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "La saison pour offrir"
+	},
+	"scene_snowball": {
+		"message": "Tempête de boules de neige"
+	},
+	"scene_speedsketch": {
+		"message": "Croquis rapide"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Envol du père Noël"
 	},
+	"scene_videoscene_museum": {
+		"message": "Une journée au musée"
+	},
 	"scene_videoscene_office": {
 		"message": "Plaisanterie au bureau"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Images satellites"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Égoportraits du père Noël"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Relaxation"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentation"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Sénégal"
+	},
+	"snowball_iced": {
+		"message": "Glacé!"
+	},
+	"snowball_remaining": {
+		"message": "Nombre de lutins restants : {{remaining}} sur {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Regarder"
+	},
+	"snowball_waiting": {
+		"message": "En attente d'autres lutins du père Noël"
 	},
 	"snowflake_choose_background": {
 		"message": "Sélectionnez un arrière-plan"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Autres façons d'explorer"
 	},
+	"village_santa_a2hs": {
+		"message": "Ajouter à l'écran d'accueil"
+	},
 	"village_santa_cardboard": {
 		"message": "Le père Noël sur Cardboard"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yémen"
+	},
+	"yourbest": {
+		"message": "Meilleur score"
 	},
 	"zh-CN_language_name": {
 		"message": "Chinois (simplifié)"

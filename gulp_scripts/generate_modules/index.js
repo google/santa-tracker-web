@@ -86,7 +86,6 @@ module.exports = function(result, excludes=null) {
       const f = new File({
         contents: new Buffer(text),
         cwd: '',
-        base: '',
         path: moduleName,
       });
       this.push(f);

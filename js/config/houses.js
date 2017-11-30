@@ -19,143 +19,145 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Differences_in_assumed_time-zone
 
 window.HOUSES = [{
-  module: "codeboogie",
+  module: 'wrapbattle',
   launchDate: new Date('Dec 1, 2017'),
   portalLaunchDate: new Date('Dec 1, 2017'),
   hideDate: true,
-  category: "play"
+  category: 'play',
 }, {
-  module: "traditions",
+  module: 'traditions',
   launchDate: new Date('Dec 1, 2017'),
   portalLaunchDate: new Date('Dec 1, 2017'),
   hideDate: true,
-  category: "learn"
+  category: 'learn',
+  edu: true,
 }, {
-  module: "airport",
+  module: 'codelab',
   launchDate: new Date('Dec 1, 2017'),
   portalLaunchDate: new Date('Dec 1, 2017'),
   hideDate: true,
-  category: "explore"
+  category: 'learn',
+  edu: true,
 }, {
-  module: "app",
-  launchDate: new Date('Dec 1, 2017'),
-  portalLaunchDate: new Date('Dec 1, 2020'),
-  hideDate: true,
-  category: "play",
-  link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker'
-}, {
-  module: "presentbounce",
+  module: 'airport',
   launchDate: new Date('Dec 1, 2017'),
   portalLaunchDate: new Date('Dec 1, 2017'),
-  category: "play"
+  hideDate: true,
+  category: 'explore',
 }, {
-  module: "santasback",
+  module: 'app',
+  launchDate: new Date('Dec 1, 2017'),
+  category: 'play',
+  link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker',
+}, {
+  module: 'snowflake',
   launchDate: new Date('Dec 2, 2017'),
-  portalLaunchDate: new Date('Dec 2, 2020'),
-  category: "watch"
+  portalLaunchDate: new Date('Dec 2, 2017'),
+  category: 'learn',
+  edu: true,
 }, {
-  module: "translations",
+  module: 'translations',
   launchDate: new Date('Dec 3, 2017'),
-  portalLaunchDate: new Date('Dec 3, 2020'),
-  category: "learn"
+  category: 'learn',
+  edu: true,
 }, {
-  module: "snowflake",
+  module: 'santasback',
   launchDate: new Date('Dec 4, 2017'),
-  portalLaunchDate: new Date('Dec 4, 2017'),
-  category: "learn"
+  category: 'watch',
 }, {
-  module: "codelab",
+  module: 'santascanvas',
   launchDate: new Date('Dec 5, 2017'),
-  portalLaunchDate: new Date('Dec 5, 2017'),
-  category: "learn"
+  category: 'play',
 }, {
-  module: "santaselfie",
+  module: 'codeboogie',
   launchDate: new Date('Dec 6, 2017'),
   portalLaunchDate: new Date('Dec 6, 2017'),
-  category: "play"
+  category: 'play',
+  edu: true,
 }, {
-  module: "penguindash",
+  module: 'presentbounce',
   launchDate: new Date('Dec 7, 2017'),
   portalLaunchDate: new Date('Dec 7, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "santasearch",
+  module: 'penguindash',
   launchDate: new Date('Dec 8, 2017'),
   portalLaunchDate: new Date('Dec 8, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "seasonofgiving",
+  module: 'seasonofgiving',
   launchDate: new Date('Dec 9, 2017'),
   portalLaunchDate: new Date('Dec 9, 2017'),
-  category: "learn"
+  category: 'learn',
+  edu: true,
 }, {
-  module: "commandcentre",
+  module: 'gumball',
   launchDate: new Date('Dec 10, 2017'),
   portalLaunchDate: new Date('Dec 10, 2017'),
-  category: "explore"
+  category: 'play',
 }, {
-  module: "gumball",
+  module: 'jamband',
   launchDate: new Date('Dec 11, 2017'),
-  portalLaunchDate: new Date('Dec 12, 2017'),
-  category: "play"
+  portalLaunchDate: new Date('Dec 11, 2017'),
+  category: 'play',
 }, {
-  module: "jamband",
+  module: 'speedsketch',
   launchDate: new Date('Dec 12, 2017'),
   portalLaunchDate: new Date('Dec 12, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "wrapbattle",
+  module: 'santaselfie',
   launchDate: new Date('Dec 13, 2017'),
   portalLaunchDate: new Date('Dec 13, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "boatload",
+  module: 'santasearch',
   launchDate: new Date('Dec 14, 2017'),
   portalLaunchDate: new Date('Dec 14, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "runner",
+  module: 'carpool',
   launchDate: new Date('Dec 15, 2017'),
-  portalLaunchDate: new Date('Dec 15, 2017'),
-  category: "play"
+  category: 'watch',
 }, {
-  module: "jetpack",
+  module: 'snowball',
   launchDate: new Date('Dec 16, 2017'),
   portalLaunchDate: new Date('Dec 16, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "carpool",
+  module: 'boatload',
   launchDate: new Date('Dec 17, 2017'),
-  portalLaunchDate: new Date('Dec 17, 2020'),
-  category: "watch"
+  portalLaunchDate: new Date('Dec 17, 2017'),
+  category: 'play',
 }, {
-  module: "briefing",
+  module: 'jetpack',
   launchDate: new Date('Dec 18, 2017'),
   portalLaunchDate: new Date('Dec 18, 2017'),
-  category: "explore"
+  category: 'play',
 }, {
-  module: "presentdrop",
+  module: 'runner',
   launchDate: new Date('Dec 19, 2017'),
   portalLaunchDate: new Date('Dec 19, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "mercator",
+  module: 'mercator',
   launchDate: new Date('Dec 20, 2017'),
   portalLaunchDate: new Date('Dec 20, 2017'),
-  category: "learn"
+  category: 'learn',
+  edu: true,
 }, {
-  module: "racer",
+  module: 'elfski',
   launchDate: new Date('Dec 21, 2017'),
   portalLaunchDate: new Date('Dec 21, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "matching",
+  module: 'presentdrop',
   launchDate: new Date('Dec 22, 2017'),
   portalLaunchDate: new Date('Dec 22, 2017'),
-  category: "play"
+  category: 'play',
 }, {
-  module: "liftoff",
+  module: 'liftoff',
   launchDate: new Date('Dec 23, 2017'),
   portalLaunchDate: new Date('Dec 23, 2020'),
-  category: "watch"
+  category: 'watch',
 }];

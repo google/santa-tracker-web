@@ -25,44 +25,29 @@ const klangSrc = 'third_party/lib/klang/klang.js';
  * Klang config file URL.
  */
 const klangConfigSrc = 'third_party/lib/klang/config.js';
-const klangDebugSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/Wghqk/config.js';
-const loadLocally = true;
+//const klangConfigSrc = 'http://klangfiles.s3.amazonaws.com/uploads/projects/bNsac/config.js';
+
 /**
  * @constructor
  * @struct
  * @param {string} baseUrl to load resources under
- * @param {function(string)} loadCallback Callback to be notified when a set of sounds are loaded.
  * @export
  */
-SoundController = function SoundController(baseUrl, loadCallback) {
-  // load Klang
-  const klangScript = document.createElement('script');
-  klangScript.src = baseUrl + klangSrc;
+SoundController = function SoundController(baseUrl) {
+  /** @private {!Promise<void>} */
+  this.klangLoaded_ = new Promise((resolve, reject) => {
+    const klangScript = document.createElement('script');
+    klangScript.src = baseUrl + klangSrc;
+    klangScript.onload = () => {
+      // resolve klangLoaded_ when the config is loaded
+      resolve(this.loadKlangConfig_(baseUrl));
+    };
+    klangScript.onerror = reject;
+    document.head.appendChild(klangScript);
+  });
 
-  klangScript.addEventListener('load', this.loadKlangConfig_.bind(this));
-  document.head.appendChild(klangScript);
-
-  /** @private {string} */
-  this.baseUrl_ = baseUrl;
-
-  /**
-   * A queue of the sounds to load as soon as Klang is ready to go.
-   * @private {!Array<string>}
-   */
-  this.loadQueue_ = [];
-
-  /**
-   * A queue of the sounds to play as soon as the currently loading sounds
-   * finish downloading.
-   * @private {!Array<SoundController.SoundDetail>}
-   */
-  this.soundQueue_ = [];
-
-  /**
-   * Whether Klang and the config file have finished loading.
-   * @private {boolean}
-   */
-  this.klangLoaded_ = false;
+  /** @private {boolean} */
+  this.isKlangLoaded_ = false;
 
   /**
    * The name of the most recently requested set of sounds, or null if the last
@@ -71,11 +56,8 @@ SoundController = function SoundController(baseUrl, loadCallback) {
    */
   this.loadingSounds_ = null;
 
-  /**
-   * Optional callback to be notified when a set of sounds are loaded.
-   * @private {function(string)}
-   */
-  this.loadCallback_ = loadCallback;
+  // run op to set sync bool
+  this.klangLoaded_.then(() => this.isKlangLoaded_ = true);
 }
 
 /**
@@ -87,94 +69,49 @@ SoundController.SoundDetail;
 
 /**
  * Loads the Klang config file; called onload of the Klang library.
+ * @param {string} baseUrl to load resources under
+ * @return {!Promise<void>}
  * @private
  */
-SoundController.prototype.loadKlangConfig_ = function() {
-  // load config script
-  var url = loadLocally ? this.baseUrl_ + klangConfigSrc : klangDebugSrc;
-  Klang.init(url, (success) => {
-    if (!success) {
-      return console.warn('Klang failed to load');
-    }
+SoundController.prototype.loadKlangConfig_ = function(baseUrl) {
+  return new Promise((resolve, reject) => {
+    Klang.init(baseUrl + klangConfigSrc, (success) => {
+      if (!success) {
+        reject(new Error('Klang failed to load config'));
+        return;
+      }
 
-    this.klangLoaded_ = true;
+      document.addEventListener('touchend', function startIOS() {
+        Klang.initIOS();
+        console.debug('initIOS');
+        document.removeEventListener('touchend', startIOS);
+      });
 
-    document.addEventListener('touchend', function startIOS() {
-      Klang.initIOS();
-      console.debug('initIOS');
-      document.removeEventListener('touchend', startIOS);
+      resolve();
     });
-
-    // Run any queued loads of sound sets. Usually only one set of sounds has
-    // been queued, but prioritize the most recent in case of more.
-    for (let i = this.loadQueue_.length - 1; i >= 0; i--) {
-      this.triggerSoundsLoad_(this.loadQueue_[i]);
-    }
-    this.loadQueue_ = [];
   });
 };
 
 /**
- * Load a set of sounds based on a `sound-preload` event.
- * @param {{detail: SoundController.SoundDetail}} loadEvent
+ * Load a set of sounds, returning a Promise for their load.
+ * @param {{detail: string}} loadEvent
+ * @return {!Promise<void>}
  * @export
  */
 SoundController.prototype.loadSounds = function(loadEvent) {
-  this.loadingSounds_ = /** @type {string} */ (loadEvent.detail);
+  this.loadingSounds_ = loadEvent.detail;
 
-  // nb. Historically, we removed the soundQueue_ (except for 'global_'-prefixed sounds) on
-  // loadSounds. This doesn't seem to be required, and we now want to preload while the previous
-  // scene is loading.
-
-  if (!this.klangLoaded_) {
-    // Sound loads predominantly only happen in onPreload, so will only be
-    // done once, so if Klang hasn't finished loading, queue sound load calls.
-    this.loadQueue_.push(this.loadingSounds_);
-    return;
-  }
-
-  this.triggerSoundsLoad_(this.loadingSounds_);
-};
-
-/**
- * Actually trigger the sound load via Klang. Should not be called until after
- * Klang has finished loading.
- * @param {string} soundsName
- * @private
- */
-SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
-  // Klang is already loaded, so attempt to load sound files
-
-  const success = () => {
-    // If this is also the most recently loaded set of sounds, play all queued
-    // ambient sounds and clear queue.
-    if (soundsName === this.loadingSounds_) {
-      for (let i = 0; i < this.soundQueue_.length; ++i) {
-        // Fine to play them all. Klang appears to correctly handle running
-        // even scene_start and scene_end ambient sounds back to back.
-        console.log('Klang: playing queued sound', this.soundQueue_[i]);
-        this.triggerSound_(this.soundQueue_[i]);
+  return this.klangLoaded_.then(() => {
+    // once Klang is loaded...
+    return new Promise((resolve, reject) => {
+      if (loadEvent.detail === this.loadingSounds_) {
+        // TODO(samthor): This is disused now that we're Promise-based.
+        this.loadingSounds_ = null;
       }
-      this.loadingSounds_ = null;
-      this.soundQueue_ = [];
-    }
 
-    // Signal that sounds have loaded (after any queued sounds have begun).
-    this.loadCallback_(soundsName);
-    console.log('Klang: loaded sound', soundsName);
-  };
-
-  const progress = () => {};  // for now, we don't care about this
-
-  const failure = () => {
-    console.warn('Klang: failed to load', soundsName);
-    if (soundsName === this.loadingSounds_) {
-      this.loadingSounds_ = null;
-      this.soundQueue_ = [];
-    }
-  };
-
-  Klang.triggerEvent(soundsName, success, progress, failure);
+      Klang.triggerEvent(loadEvent.detail, resolve, () => {}, reject);
+    });
+  });
 };
 
 /**
@@ -182,17 +119,11 @@ SoundController.prototype.triggerSoundsLoad_ = function(soundsName) {
  * Ambient sounds include the soundtrack and any environmental noises that are
  * scripted in a sequence inside of Klang's config file.
  * @param {{detail: SoundController.SoundDetail}} loadEvent
+ * @return {!Promise<void>}
  * @export
  */
 SoundController.prototype.playAmbientSounds = function(loadEvent) {
-  // ambient sounds are important, so queue them up if the last load (or loading
-  // Klang itself) hasn't finished yet
-  if (!this.klangLoaded_ || this.loadingSounds_) {
-    this.soundQueue_.push(loadEvent.detail);
-  } else {
-    //console.log('Klang: playing sound ' + loadEvent.detail);
-    this.triggerSound_(loadEvent.detail);
-  }
+  return this.klangLoaded_.then(() => this.triggerSound_(loadEvent.detail));
 };
 
 /**
@@ -206,7 +137,7 @@ SoundController.prototype.playSound = function(loadEvent) {
   // loaded, even if the scene's sounds are not. Some sounds are shared between
   // scenes, so it's possible it's already loaded, and if not, this particular
   // sound event likely won't be relevant by the time it is loaded.
-  if (this.klangLoaded_) {
+  if (this.isKlangLoaded_) {
     this.triggerSound_(loadEvent.detail);
   }
 };

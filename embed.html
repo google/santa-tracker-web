@@ -29,6 +29,7 @@ ga('set', 'transport', 'beacon');
   <script async src="https://www.google-analytics.com/analytics.js"></script>
 
   <link id="DEV" comment="element removed in prod" />
+  <link id="ES5_ADAPTER" comment="replaced with es5 adapter in prod">
   <script>
 window.Polymer = {
   noUrlSettings: true,
@@ -56,7 +57,7 @@ document.addEventListener('beforeload', (ev) => {
 }, {capture: true});
 
   </script>
-  <link rel="import" href="elements/elements_en.html" />
+  <link rel="import" href="elements/elements_en.html" crossorigin />
 </head>
 <body unresolved class="scrollock">
 
@@ -133,9 +134,14 @@ document.addEventListener('beforeload', (ev) => {
   }
 
   window.addEventListener('message', (e) => {
+    if (typeof e.data === 'object' || e.data || !e.ports.length) {
+      // this is probably from FrameRPC, ignore
+      // Android sends us an empty string for data.
+      return;
+    }
+
     messagePort = e.ports[0];
     messagePort.onmessage = (e) => recv(e.data);
-    send('onready');  // notify app to establish communication
   });
   s.addEventListener('embed', (e) => send(e.detail));
 }());

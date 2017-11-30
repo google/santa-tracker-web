@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Google マップを入手"
 	},
+	"getready": {
+		"message": "準備はいいですか？"
+	},
 	"gh_country_name": {
 		"message": "ガーナ"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "プエルトリコ"
 	},
+	"practice": {
+		"message": "練習"
+	},
 	"press": {
 		"message": "ニュース"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "パラグアイ"
+	},
+	"quickdraw-machine-know": {
+		"message": "わかった、{{thing}}ですね！"
+	},
+	"quickdraw-machine-or": {
+		"message": "または"
+	},
+	"quickdraw-machine-see": {
+		"message": "わかった"
+	},
+	"quickdraw-newround-button": {
+		"message": "スタート"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "何の絵かわかりません。"
+	},
+	"quickdraw-round-sorry": {
+		"message": "ごめんね"
+	},
+	"quickdraw-round-timesup": {
+		"message": "わかりません。"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "あなたの絵がこちらにも似ていると考えました:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Tensor は、{{thing}}がどのような見た目かどうやってわかるのでしょうか？"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "他の人が描いた絵を見て学びました"
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "あなたの絵がこちらに似ていると考えました:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "サンタさん版{{thing}}です。"
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "絵のテーマは{{thing}}でした。"
+	},
+	"quickdraw-slate": {
+		"message": "絵を描く"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor はサンタさんの機械学習ロボットで、サンタさんが世界中の子供たちから届いた手紙を速く読めるように手伝っています。Tensor が練習できるように、画面に表示されているクリスマスにまつわる言葉の絵を描いてください。すると、Tensor はそれが何に見えるかを答えます。たくさん描くほど Tensor は賢くなります。Tensor がもっとサンタさんの助けになるように、手を貸してください。"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Tensor の画像認識の練習を手伝ってください"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "{{recognized}} 個の絵がわかりました。"
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "1 つの絵がわかりました。"
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "どの絵もわかりませんでした。"
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "上手です！"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "クリア失敗"
 	},
 	"ro_country_name": {
 		"message": "ルーマニア"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "サンタさんからの電話"
 	},
+	"scene_canvas": {
+		"message": "Santa's Canvas"
+	},
 	"scene_citylights": {
 		"message": "街の灯り"
+	},
+	"scene_clausdraws": {
+		"message": "Claus Draws"
 	},
 	"scene_codeboogie": {
 		"message": "Code Boogie"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "ペンギン ダッシュ"
 	},
+	"scene_elfski": {
+		"message": "妖精のスキー"
+	},
 	"scene_factory": {
 		"message": "キャンディ工場"
 	},
@@ -1172,6 +1250,12 @@
 	"scene_gumball": {
 		"message": "Gumball Tilt"
 	},
+	"scene_icecave": {
+		"message": "氷の洞窟"
+	},
+	"scene_island": {
+		"message": "島"
+	},
 	"scene_jamband": {
 		"message": "Elf Jamband"
 	},
@@ -1182,7 +1266,7 @@
 		"message": "プレゼント配り"
 	},
 	"scene_matching": {
-		"message": "Memory Match"
+		"message": "神経衰弱"
 	},
 	"scene_mercator": {
 		"message": "地図クイズ"
@@ -1198,6 +1282,9 @@
 	},
 	"scene_presentdrop": {
 		"message": "Present Drop"
+	},
+	"scene_quickdraw": {
+		"message": "Quick Draw"
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "プレゼントの季節"
+	},
+	"scene_snowball": {
+		"message": "Snowball Storm"
+	},
+	"scene_speedsketch": {
+		"message": "Speed Sketch"
 	},
 	"scene_streetview": {
 		"message": "ストリートビュー"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "サンタさんの出発"
 	},
+	"scene_videoscene_museum": {
+		"message": "思い出記念館"
+	},
 	"scene_videoscene_office": {
 		"message": "オフィスでのいたずら"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "衛星"
+	},
+	"scene_videoscene_selfies": {
+		"message": "サンタの自撮り写真"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "サボりの現行犯"
 	},
 	"scene_videoscene_temptation": {
 		"message": "誘惑"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "セネガル"
+	},
+	"snowball_iced": {
+		"message": "凍った！"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}}/{{total}} 人プレイ中"
+	},
+	"snowball_spectate": {
+		"message": "見るだけにする"
+	},
+	"snowball_waiting": {
+		"message": "サンタさんの妖精たちがもっと集まるのを待っています"
 	},
 	"snowflake_choose_background": {
 		"message": "背景を選択します"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "その他の情報"
 	},
+	"village_santa_a2hs": {
+		"message": "ホーム画面に追加"
+	},
 	"village_santa_cardboard": {
 		"message": "Cardboard でサンタさんを探す"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "イエメン"
+	},
+	"yourbest": {
+		"message": "ベストスコア"
 	},
 	"zh-CN_language_name": {
 		"message": "中国語（簡体）"

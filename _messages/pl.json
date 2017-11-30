@@ -30,7 +30,7 @@
 		"message": "Argentyna"
 	},
 	"ar_language_name": {
-		"message": "Arabski"
+		"message": "arabski"
 	},
 	"ar_tradition": {
 		"message": "W Argentynie Boże Narodzenie zaczyna się punktualnie o północy. Wiele rodzin rozpoczyna świętowanie, organizując uroczystości w swoich domach, otwierając prezenty z bliskimi oraz puszczając fajerwerki o świcie."
@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Pobierz Mapy Google"
 	},
+	"getready": {
+		"message": "Przygotuj się!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -645,7 +648,7 @@
 		"message": "Gwatemala"
 	},
 	"gt_tradition": {
-		"message": "Mieszkańcy Gwatemali świętują Boże Narodzenie tańcem i zabawą. Zakładają kapelusze zwane puritina, jedzą tamale, tańczą i odpalają petardy o północy."
+		"message": "Mieszkańcy Gwatemali świętują Boże Narodzenie tańcem i zabawą. Zakładają kapelusze zwane puritina, jedzą tamale, tańczą, a o północy odpalają fajerwerki."
 	},
 	"gy_country_name": {
 		"message": "Gujana"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Portoryko"
 	},
+	"practice": {
+		"message": "Ćwiczenia"
+	},
 	"press": {
 		"message": "Dla prasy"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paragwaj"
+	},
+	"quickdraw-machine-know": {
+		"message": "Już wiem, to {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "lub"
+	},
+	"quickdraw-machine-see": {
+		"message": "Widzę"
+	},
+	"quickdraw-newround-button": {
+		"message": "Start"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Nie mam pewności, co to jest."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Przepraszam"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Nie zgadłem!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Poza tym Tensor uważa, że Twój rysunek przypomina jeden z tych:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Skąd Tensor wie, jak wygląda {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Nauczył się, obserwując przykłady rysowane przez innych użytkowników."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor uznał, że Twój rysunek bardziej przypominał jeden z tych:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Oto {{thing}} w wersji Mikołaja."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Chodziło o narysowanie tego: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Rysuj"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor to robot Świętego Mikołaja wykorzystujący systemy uczące się. Pomaga Mikołajowi szybko czytać listy od dzieci z całego świata. Aby pomóc Tensorowi w nauce, rysuj obrazki przedstawiające rzeczy opisywane przez wyświetlane na ekranie słowa związane ze Świętami. Tensor powie Ci, co widzi, a im więcej rzeczy narysujesz, tym będzie on mądrzejszy. Wspólnymi siłami poprawmy wydajność Mikołaja w czasie tych Świąt!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Pomóż Tensorowi w nauce rozpoznawania obrazu."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor rozpoznał następującą liczbę Twoich rysunków: {{recognized}}."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor rozpoznał jeden z Twoich rysunków."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor nie rozpoznał żadnego z Twoich rysunków."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Brawo!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ups!"
 	},
 	"ro_country_name": {
 		"message": "Rumunia"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Telefon od Świętego Mikołaja"
 	},
+	"scene_canvas": {
+		"message": "Obraz Mikołaja"
+	},
 	"scene_citylights": {
 		"message": "Światła miasta"
+	},
+	"scene_clausdraws": {
+		"message": "Rysowanie z Mikołajem"
 	},
 	"scene_codeboogie": {
 		"message": "Kodowanie w rytmie boogie"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Pingwini bieg"
 	},
+	"scene_elfski": {
+		"message": "Elf na nartach"
+	},
 	"scene_factory": {
 		"message": "Fabryka słodyczy"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Spadające kulki"
+	},
+	"scene_icecave": {
+		"message": "Jaskinia lodowa"
+	},
+	"scene_island": {
+		"message": "Wyspa"
 	},
 	"scene_jamband": {
 		"message": "Muzyczny zespół elfów"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Wrzucanie prezentów"
 	},
+	"scene_quickdraw": {
+		"message": "Szybki szkic"
+	},
 	"scene_racer": {
 		"message": "Wyścigi z Rudolfem"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Czas prezentów"
+	},
+	"scene_snowball": {
+		"message": "Atak śnieżkami"
+	},
+	"scene_speedsketch": {
+		"message": "Rysowanie na czas"
 	},
 	"scene_streetview": {
 		"message": "Widok ulicy"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Święty Mikołaj odlatuje"
 	},
+	"scene_videoscene_museum": {
+		"message": "Dzień w muzeum"
+	},
 	"scene_videoscene_office": {
 		"message": "Żart biurowy"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelita"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfie Mikołaja"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Zbijanie bąków"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Pokusa"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Przegrywasz"
+	},
+	"snowball_remaining": {
+		"message": "Elfy nadal w grze: {{remaining}} z {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Obserwuj grę"
+	},
+	"snowball_waiting": {
+		"message": "Czekamy na więcej elfów"
 	},
 	"snowflake_choose_background": {
 		"message": "Wybierz tło"
@@ -4875,7 +4989,7 @@
 		"message": "Jaki jest język urzędowy w Syrii, Kuwejcie i Algierii?"
 	},
 	"trivia_medium_081_answer0": {
-		"message": "Arabski"
+		"message": "arabski"
 	},
 	"trivia_medium_081_answer1": {
 		"message": "Ormiański"
@@ -5130,7 +5244,7 @@
 		"message": "Wielka Brytania"
 	},
 	"uk_tradition": {
-		"message": "W Wielkiej Brytanii w Boże Narodzenie podczas kolacji świętujący bawią się „crackerami”. Są to tubki owinięte sreberkiem, z wstążkami na końcach. Wystarczy za nie pociągnąć, by tubka wystrzeliła z hukiem! Wewnątrz znajdują się papierowe czapeczki, zabawki i słodycze, które umilają wigilijną noc."
+		"message": "W Wielkiej Brytanii w Boże Narodzenie podczas kolacji świętujący bawią się „crackerami”. Są to tubki owinięte sreberkiem, ze wstążkami na końcach. Wystarczy za nie pociągnąć, by tubka wystrzeliła z hukiem! Wewnątrz znajdują się papierowe czapeczki, zabawki i słodycze, które umilają wigilijną noc."
 	},
 	"upgrade-warning": {
 		"message": "Ta wersja przeglądarki nie obsługuje Trasy Świętego Mikołaja. Pobierz nowszą przeglądarkę. Więcej informacji znajdziesz na stronie \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5161,6 +5275,9 @@
 	},
 	"village_more": {
 		"message": "Więcej zabawy z Mikołajem"
+	},
+	"village_santa_a2hs": {
+		"message": "Dodaj do ekranu głównego"
 	},
 	"village_santa_cardboard": {
 		"message": "Wypatruj Świętego Mikołaja przez gogle Cardboard"
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Najlepszy wynik"
 	},
 	"zh-CN_language_name": {
 		"message": "chiński (uproszczony)"

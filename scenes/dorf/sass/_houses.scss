@@ -1,129 +1,161 @@
 // All dimensions below assume cell size of 320x320 (i.e., $dim-house).
 
-// ID houseWidth houseHeight iceWidth iceHeight houseLeft houseTop iceLeft iceTop dateLeft dateTop labelX labelY zIndex
+// ID houseWidth iceWidth dateX dateY
 $houses:
-    "codeboogie"      274   224   443   250   20     2     -72    2    102 56  -34 -18 $house-row-1-z-index,
-    "traditions"      210   222   424   236   35     21    -100   10    0   0   -16 -16  $house-row-1-z-index,
-    "airport"         812   179   627   240   -96    122   -105   70     0   0  -180 -15 $house-row-1-z-index,
+"codeboogie"       21 152,
+"traditions"       124 227,
+"airport"          130 286,
+"app"              105 265,
+"presentbounce"    80 45,
+"santasback"       -107 92,
+"translations"     66 150,
+"snowflake"        -60 193,
+"seasonofgiving"  58 192,
+"santaselfie"      99 165,
+"penguindash"    -56 111,
+"santasearch"    80 81,
+"codelab"        -101 108,
+"commandcentre" -76 84,
+"gumball" -63 165,
+"jamband"  -88 122,
+"wrapbattle"  100 46,
+"boatload" 75 115,
+"runner"  -107 99,
+"jetpack"  47 130,
+"carpool"  75 194,
+"briefing"  91 169,
+"presentdrop" -65 120,
+"mercator" -112 205,
+"racer"  -65 197,
+"matching"  82 153,
+"liftoff"  -58 233,
+"callfromsanta"  98 195,
+"citylights"  115 112,
+"postcard" 87 179,
+"santascanvas"    60 190,
+"elfski"          -20 120,
+"snowball"        60 100,
+"speedsketch"     -100 22,
+;
 
-    "app"             280   366   443   351   -29    -11   -81    -3    0   0   24  -18 $house-row-2-z-index + 50,
-    "presentbounce"   310   256   521   248   12     -44  -110    -33    75  169 -12 -24 $house-row-2-z-index + 20,
-    "santasback"      231   180   499   284   95     13    -53    -50   102 54  -2  6   $house-row-2-z-index,
-    "translations"    311   174   512   286   8      121   -50    58    80  129 -18 6   $house-row-2-z-index + 20,
+// 0th is 'new today'
+$cells:
+    // row 0
+    0   0  ,
+    123 208,
+    124 227,
+    130 286,
+    // row 1
+    156 353,
+    145 264,
+    192 242,
+    204 240,
+    // row 2
+    136 250,
+    125 222,
+    164 260,
+    170 255,
+    // row 3
+    160 240,
+    174 225,
+    165 250,
+    170 220,
+    // row 4
+    157 170,
+    100 265,
+    94  252,
+    160 262,
+    // row 5
+    141 256,
+    149 285,
+    183 259,
+    175 296,
+    // row 6
+    151 278,
+    148 260,
+    142 245,
+    179 341,
+;
 
-    "snowflake"       333   233   373   282   -20    60    -30    30    90  90  -40 -10 $house-row-3-z-index,
-    "seasonofgiving"  333   233   373   282   35     59    -40    20   83  90  -40 -10 $house-row-3-z-index,
-    "santaselfie"     209   262   397   348   73     21    -50    10    87  122 8   4   $house-row-3-z-index + 50,
-    "penguindash"     280   223   440   222   40     40    -30    40    221 124 -15 -28 $house-row-3-z-index - 50,
+// # Tablet and above cell alignment
 
-    "santasearch"     287   174   484   246   30     75    -50    20    70  155 -24 -13 $house-row-4-z-index,
-    "codelab"         277   209   364   284   48     60    -30   30    267 158 -21 -3  $house-row-4-z-index,
-    "commandcentre"   197   215   380   271   80     24    0     10    253 159 -2  4   $house-row-4-z-index,
-    "gumball"         245   308   374   359   59     -6    0    -50    220 135 -25 -2  $house-row-4-z-index,
+@media (min-width: $width-tablet) {
+  .cells {
+    @for $i from 1 through length($cells) {
+      $data: nth($cells, $i);
+      $x: nth($data, 1);
+      $y: nth($data, 2);
+      $row: floor(($i - 1) / 4);
+      $within: ($y / 320);
 
-    "jamband"         360   230   580   267   -33    -80   -160   -80   253 40  10  12  $house-row-5-z-index,
-    "wrapbattle"      350   200   360   300   -20    50    -22    -10   55  174  0  -30 $house-row-5-z-index,
-    "boatload"        220   169   472   250   6      76   -105    41    28  137 -13 7   $house-row-5-z-index,
-    "runner"          336   203   440   222   16     30    -30    50    267 113 -24 -21  $house-row-5-z-index,
-
-    "jetpack"         287   258   367   333   20     33    -45    -20    93  53  -23 -5  $house-row-6-z-index + 40,
-    "carpool"         307   337   437   354   25     -56   -70    -57   74  91  -30 4   $house-row-6-z-index,
-    "briefing"        315   246   355   287   -10    20    -20      0   92  90  35 -7   $house-row-6-z-index,
-    "presentdrop"     198   278   300   333   85     8     18     -19   232 170 -15 4   $house-row-6-z-index,
-
-    "mercator"        328   275   462   320   -13    12    -109   -6    263 62  0   -20 $house-row-7-z-index,
-    "racer"           345   259   424   266   0      37    -104   20    213 74  -25 -25 $house-row-7-z-index,
-    "matching"        303   192   457   270   24     50    -58    10    60  92  -34   3 $house-row-7-z-index,
-    "liftoff"         276   294   355   336   55     37    22     11    237 108 -14 10 $house-row-7-z-index,
-
-    // nb. below are disued
-
-    "callfromsanta"   271   298   537   321   11     -20   -120   -20   27  90  -22 7   $house-row-7-z-index,
-    "citylights"      360   311   467   332   -10    0     -34    -10   74  180 19  -19 $house-row-7-z-index,
-    "postcard"        286   224   364   248   20     32    -42    12    70  67  -6  -10 $house-row-4-z-index,
-    ;
-
-
-$idx-id: 1;
-$idx-width: 2;
-$idx-height: 3;
-$idx-iceWidth: 4;
-$idx-iceHeight: 5;
-$idx-left: 6;
-$idx-top: 7;
-$idx-iceLeft: 8;
-$idx-iceTop: 9;
-$idx-dateLeft: 10;
-$idx-dateTop: 11;
-$idx-labelX: 12;
-$idx-labelY: 13;
-$idx-zIndex: 14;
-
-#houses {
-  .house {
-    .card {
-      .image {
-        background: center no-repeat;
-        background-size: cover;
+      .cell:nth-child(#{$i}) {
+        --cell-x: $x / 320;
+        --cell-y: $y / 320;
+        --cell-layer: round(($row + $within) * 320);  // z-index must be an integer
       }
-    }
-    .building, .ice {
-      background: center no-repeat;
-      background-size: contain;
-      position: absolute;
     }
   }
 
-  @for $i from 1 through length($houses) {
-    $house: nth($houses, $i);
-    $id: nth($house, $idx-id);
-
-    .card.new-today-#{$id} {
-      background-image: url(img/new-today/#{$id}_2x.png);
+  #links {
+    .link {
+      position: absolute;
+      transform: translate(-50%, -50%);
     }
+    @for $i from 1 through length($cells) {
+      .link:nth-child(#{$i - 1}) {
+        $row: floor(($i - 1) / 4);
+        $col: ($i - 1) % 4;
 
-    #house-#{$id} {
-      // z-index set on child .assets, not top-level .house (don't create
-      // heirarchy here)
+        $data: nth($cells, $i);
+        $x: nth($data, 1);
+        $y: nth($data, 2);
 
-      .housez {
-        z-index: nth($house, $idx-zIndex) + (1+($i % 4) * 10);
+        left: ($col * 192px) + ($x / 320) * 192px;
+        top: ($row * 192px) + ($y / 320) * 192px;
       }
+    }
+  }
+}
+@media (min-width: $width-desktop) {
+  #links {
+    // FIXME: this is a horrible clone of above for 320px dimensions.
+    @for $i from 1 through length($cells) {
+      .link:nth-child(#{$i - 1}) {
+        $row: floor(($i - 1) / 4);
+        $col: ($i - 1) % 4;
 
-      .assets {
-        .building {
-          background-image: url(img/building-#{$id}.svg);
-          width: percent(nth($house, $idx-width), $dim-house);
-          height: percent(nth($house, $idx-height), $dim-house);
-          left: percent(nth($house, $idx-left), $dim-house);
-          top: percent(nth($house, $idx-top), $dim-house);
-        }
+        $data: nth($cells, $i);
+        $x: nth($data, 1);
+        $y: nth($data, 2);
 
-        .ice {
-          background-image: url(img/building-#{$id}-ice.svg);
-          width: percent(nth($house, $idx-iceWidth), $dim-house);
-          height: percent(nth($house, $idx-iceHeight), $dim-house);
-          left: percent(nth($house, $idx-iceLeft), $dim-house);
-          top: percent(nth($house, $idx-iceTop), $dim-house);
-        }
-
-        .launchdate {
-          left: percent(nth($house, $idx-dateLeft), $dim-house);
-          top: percent(nth($house, $idx-dateTop), $dim-house);
-        }
-      }
-
-      .action {
-        $l: nth($house, $idx-left) + nth($house, $idx-width) / 2 + nth($house, $idx-labelX);
-        $t: nth($house, $idx-top) + nth($house, $idx-height) + nth($house, $idx-labelY);
-        left: percent($l, $dim-house);
-        top: percent($t, $dim-house);
-      }
-
-      .image {
-        background-image: url(../../images/scenes/#{$id}_2x.png);
+        left: ($col * 320px) + $x;
+        top: ($row * 320px) + $y;
       }
     }
   }
 }
 
+#houses {
+  @for $i from 1 through length($houses) {
+    $house: nth($houses, $i);
+    $id: nth($house, 1);
+
+    village-house[house="#{$id}"] {
+      --date-x: nth($house, 2) * 1px;
+      --date-y: nth($house, 3) * -1px;
+    }
+  }
+}
+
+#links {
+  @for $i from 1 through length($houses) {
+    $house: nth($houses, $i);
+    $id: nth($house, 1);
+
+    .link[house="#{$id}"] {
+      .card::before {
+        background-image: url(../../images/scenes/#{$id}_2x.png);;
+      }
+    }
+  }
+}

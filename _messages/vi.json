@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Tải Google Maps"
 	},
+	"getready": {
+		"message": "Sẵn sàng!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Thực hành"
+	},
 	"press": {
 		"message": "Báo chí"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Tôi biết rồi! Đây là {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "hoặc"
+	},
+	"quickdraw-machine-see": {
+		"message": "Tôi thấy"
+	},
+	"quickdraw-newround-button": {
+		"message": "Bắt đầu"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Tôi không chắc bạn vẽ gì."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Rất tiếc"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Tôi không đoán được!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor cũng đã nghĩ rằng bức tranh của bạn có vẻ giống các bức tranh này:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Làm cách nào Tensor biết được {{thing}} trông như thế nào?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Tensor đã học bằng cách xem các bức tranh mẫu do người khác vẽ."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor đã nghĩ rằng bức tranh của bạn có vẻ rất giống các bức tranh này:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Đây là phiên bản {{thing}} về ông già Noel."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Bạn đã được yêu cầu vẽ {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Vẽ"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor là rô bốt Máy học của ông già Noel giúp ông giải mã nhanh các bức thư nhận được từ trẻ em trên khắp thế giới. Để giúp Tensor thực hành, hãy vẽ một bức tranh cho mỗi từ vựng về kỳ nghỉ lễ trên màn hình. Sau đó, Tensor sẽ nói cho bạn biết những gì Tensor nhìn thấy. Bạn càng vẽ nhiều thì Tensor càng thông minh. Hãy cùng giúp ông già Noel làm việc hiệu quả hơn bao giờ hết vào mùa lễ này nhé!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hãy giúp Tensor thực hành khả năng nhận dạng hình ảnh nhé!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor đã nhận ra {{recognized}} bức tranh của bạn."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor đã nhận ra một trong các bức tranh của bạn."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor đã không nhận ra bất kỳ bức tranh nào của bạn."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Tốt lắm!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Rất tiếc!"
 	},
 	"ro_country_name": {
 		"message": "Rumani"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Cuộc gọi từ ông già Noel"
 	},
+	"scene_canvas": {
+		"message": "Bức tranh ông già Noel"
+	},
 	"scene_citylights": {
 		"message": "Ánh đèn thành phố"
+	},
+	"scene_clausdraws": {
+		"message": "Vẽ tranh ông già Noel"
 	},
 	"scene_codeboogie": {
 		"message": "Vũ điệu của mã"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Chim cánh cụt tấn công"
 	},
+	"scene_elfski": {
+		"message": "Yêu tinh trượt tuyết"
+	},
 	"scene_factory": {
 		"message": "Nhà máy kẹo"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Độ nghiêng Gumball"
+	},
+	"scene_icecave": {
+		"message": "Động băng"
+	},
+	"scene_island": {
+		"message": "Đảo nhiệt đới"
 	},
 	"scene_jamband": {
 		"message": "Ban nhạc của chú lùn"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Thả quà"
 	},
+	"scene_quickdraw": {
+		"message": "Vẽ nhanh"
+	},
 	"scene_racer": {
 		"message": "Cuộc đua của Rudolph mũi đỏ"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Mùa trao tặng"
+	},
+	"scene_snowball": {
+		"message": "Bão bóng tuyết"
+	},
+	"scene_speedsketch": {
+		"message": "Ký họa nhanh"
 	},
 	"scene_streetview": {
 		"message": "Chế độ xem phố"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Ông già Noel đang khởi hành"
 	},
+	"scene_videoscene_museum": {
+		"message": "Một ngày ở bảo tàng"
+	},
 	"scene_videoscene_office": {
 		"message": "Ô làm việc phủ giấy"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Vệ tinh"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Ảnh tự chụp của ông già Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Chểnh mảng"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Sự cám dỗ"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Dính tuyết rồi!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}}/{{total}} chú lùn vẫn đang chơi"
+	},
+	"snowball_spectate": {
+		"message": "Xem tiếp"
+	},
+	"snowball_waiting": {
+		"message": "Đang chờ thêm chú lùn của ông già Noel tham gia"
 	},
 	"snowflake_choose_background": {
 		"message": "Chọn phông nền"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Cách  khám phá khác"
 	},
+	"village_santa_a2hs": {
+		"message": "Thêm vào Màn hình chính"
+	},
 	"village_santa_cardboard": {
 		"message": "Ông già Noel trên Cardboard"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Điểm cao nhất"
 	},
 	"zh-CN_language_name": {
 		"message": "Tiếng Trung (giản thể)"

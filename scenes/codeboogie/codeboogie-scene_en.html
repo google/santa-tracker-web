@@ -15,7 +15,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 
 <script src="codeboogie-scene.min.js"></script>
-<link rel="import" href="../../js/webanimations.html">
 <link rel="import" href="codeboogie-scene_module.html">
 
 <!--
@@ -54,7 +53,7 @@ Codeboogie scene.
               </div>
               <div class="choose-mode-info">
                 <h3 class="choose-mode__text"><i18n-msg msgid="codeboogie-mode-freestyle">PLACEHOLDER_i18n</i18n-msg></h3>
-                <h4 class="choose-mode__description"><i18n-msg msgid="codeboogie-mode-freestyle-description">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h4 class="choose-mode__description hide-noshare"><i18n-msg msgid="codeboogie-mode-freestyle-description">PLACEHOLDER_i18n</i18n-msg></h4>
               </div>
             </div>
           </div>
@@ -105,27 +104,16 @@ Codeboogie scene.
 </template>
 <script>
 (function() {
-  // Whether the sounds for the scene are loaded and the band can commence
-  // jamming. Static so that it's permanent across multiple visits to the scene.
-  var soundsLoaded = false;
 
   Polymer({
     is: 'codeboogie-scene',
     behaviors: [window.SantaSceneBehavior],
-    frame: null,
 
     properties: {
-      /**
-       * Whether the scene has already started.
-       */
-      started: {
-        type: Boolean,
-        value: false
-      }
-    },
-
-    listeners: {
-      'sounds-loaded': 'onSoundsLoaded'
+      frame: {
+        type: Object,
+        value: null,
+      },
     },
 
     onPreload: function() {
@@ -248,16 +236,22 @@ Codeboogie scene.
         '../codeboogieframe/img/steps/purple/thriller_3.png',
         '../codeboogieframe/img/steps/purple/watch_0.png',
         '../codeboogieframe/img/steps/purple/watch_1.png',
-        '../codeboogieframe/img/tutorial/maze.gif',
-        '../codeboogieframe/img/tutorial/shadow.svg'
       ]);
     },
 
     onShow: function() {
       var module = this.$['module-codeboogie'];
-      this.frame = new scenes.codeboogie.FrameWrapper(module, this.resolveUrl('.'));
       this.fire('sound-ambient', 'cb_start');
-      this.gatedStart();
+      this.frame = new scenes.codeboogie.FrameWrapper(module, this.resolveUrl('.'));
+      this.frame.start(getUrlParameters());
+
+      // TODO(samthor): This might only work in Chrome, which is the only place we care about
+      // hiding share buttons.
+      const elementStyles = window.getComputedStyle(this);
+      const linkVisibility = elementStyles.getPropertyValue('--link-visibility');
+      if (linkVisibility.trim() === 'hidden') {
+        this.frame.disableShare();
+      }
     },
 
     onHide: function() {
@@ -270,19 +264,6 @@ Codeboogie scene.
       this.frame.restart();
     },
 
-    onSoundsLoaded: function(e, soundsName) {
-      if (soundsName === 'codeboogie_load_sounds') {
-        soundsLoaded = true;
-        this.gatedStart();
-      }
-    },
-
-    gatedStart: function() {
-      if (this.frame && soundsLoaded && !this.started) {
-        this.frame.start(getUrlParameters());
-        this.started = true;
-      }
-    }
   });
 
 })();

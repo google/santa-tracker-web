@@ -37,12 +37,13 @@ match their i18n-msg msgid: some strings have been misnamed.
 <i msgid="scene-callfromsanta"><i18n-msg msgid="scene_callfromsanta">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-carpool"><i18n-msg msgid="scene_videoscene_carpool">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-citylights"><i18n-msg msgid="scene_citylights">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-clausdraws"><i18n-msg msgid="scene_clausdraws">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-codeboogie"><i18n-msg msgid="scene_codeboogie">PLACEHOLDER_i18n</i18n-msg></i>
-<i msgid="scene-santascanvas"><i18n-msg msgid="scene_santascanvas">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-codelab"><i18n-msg msgid="scene_codelab">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-commandcentre"><i18n-msg msgid="scene_commandcentre">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-comroom"><i18n-msg msgid="scene_videoscene_comroom">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-educators"><i18n-msg msgid="educators">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-elfski"><i18n-msg msgid="scene_elfski">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-factory"><i18n-msg msgid="scene_factory">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-glider"><i18n-msg msgid="scene_glider">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-gumball"><i18n-msg msgid="scene_gumball">PLACEHOLDER_i18n</i18n-msg></i>
@@ -64,13 +65,18 @@ match their i18n-msg msgid: some strings have been misnamed.
 <i msgid="scene-reload"><i18n-msg msgid="scene_videoscene_reload">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-rollercoaster"><i18n-msg msgid="scene_rollercoaster">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-runner"><i18n-msg msgid="scene_runner">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-santascanvas"><i18n-msg msgid="scene_canvas">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-santasback"><i18n-msg msgid="scene_videoscene_santasback">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-santasearch"><i18n-msg msgid="scene_santasearch">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-santaselfie"><i18n-msg msgid="scene_santaselfie">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-satellite"><i18n-msg msgid="scene_videoscene_satellite">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-seasonofgiving"><i18n-msg msgid="scene_seasonofgiving">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-selfies"><i18n-msg msgid="scene_videoscene_selfies">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-slackingoff"><i18n-msg msgid="scene_videoscene_slackingoff">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-smatch"><i18n-msg msgid="scene_giftmatch">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-snowball"><i18n-msg msgid="scene_snowball">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-snowflake"><i18n-msg msgid="scene_postcard">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="scene-speedsketch"><i18n-msg msgid="scene_speedsketch">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-streetview"><i18n-msg msgid="scene_streetview">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-temptation"><i18n-msg msgid="scene_videoscene_temptation">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="scene-tired"><i18n-msg msgid="scene_videoscene_tired">PLACEHOLDER_i18n</i18n-msg></i>
@@ -90,6 +96,9 @@ match their i18n-msg msgid: some strings have been misnamed.
 <i msgid="snowflake_message1"><i18n-msg msgid="holiday_message_3">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="snowflake_message2"><i18n-msg msgid="holiday_message_4">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="snowflake_message3"><i18n-msg msgid="holiday_message_5">PLACEHOLDER_i18n</i18n-msg></i>
+
+<i msgid="play"><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></i>
+<i msgid="share"><i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg></i>
 
 <i msgid="tracker_time_from_you_one"><i18n-msg msgid="tracker_time_from_you_one">PLACEHOLDER_i18n</i18n-msg></i>
 <i msgid="tracker_time_from_you_many"><i18n-msg msgid="tracker_time_from_you_many">PLACEHOLDER_i18n</i18n-msg></i>
@@ -113,24 +122,24 @@ as opposed to at compile time.
 (function() {
 'use strict';
 
-var s = document._currentScript || document.currentScript;
-var source = s.ownerDocument.getElementById('santa-strings-source');
+const s = document._currentScript || document.currentScript;
+const source = s.ownerDocument.getElementById('santa-strings-source');
 
 function buildTable() {
   if (!source) {
     throw new Error('could not found `santa-strings-source` element');
   }
-  var table = {};
-  var all = source.children;
-  for (var x, i = 0; x = all[i]; ++i) {
-    var msgid = x.getAttribute('msgid');
+  const table = {};
+  const all = source.children;
+  for (let x, i = 0; x = all[i]; ++i) {
+    const msgid = x.getAttribute('msgid');
     table[msgid] = x.textContent;
   }
   return Object.freeze(table);
 }
 
-var instances = null;
-var table = undefined;
+let instances = null;
+let table = undefined;
 
 // In prod, the strings are just physically in the page so build the table immediately. Otherwise,
 // record instances and wait until the element is ready to create the table.
@@ -151,7 +160,7 @@ Polymer({
     strings: {
       type: Object,
       readOnly: true,
-      value: function() { return table; },
+      value: () => table,
       notify: true,
     },
 
@@ -179,9 +188,7 @@ Polymer({
     }
 
     table = buildTable();
-    instances.forEach(function(instance) {
-      instance._setStrings(table);
-    });
+    instances.forEach((instance) => instance._setStrings(table));
   },
 
   /**
@@ -192,7 +199,7 @@ Polymer({
     if (!table) {
       return undefined;
     }
-    var out = table[id];
+    const out = table[id];
     if (out === undefined) {
       console.debug('santa-strings missing string', id);
     }
