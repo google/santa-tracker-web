@@ -30,7 +30,8 @@ goog.require('app.shared.utils');
  * @constructor
  */
 app.Canvas = function(game, $elem) {
-  this.initCanvases($elem);
+  // this.initCanvases($elem);
+  this.$elem = $elem;
 
   // Base state we're drawing on top of
   this.baseIndex = 0;
@@ -56,6 +57,7 @@ app.Canvas = function(game, $elem) {
   this.lastTime = 0;
   this.lastMouseX = 0;
   this.lastMouseY = 0;
+  this.hasDrawn = false;
 
   $elem.find('[data-tool-undo]').on('click.santascanvas touchend.santascanvas', this.undo.bind(this));
 
@@ -126,6 +128,10 @@ app.Canvas.prototype.initCanvases = function($elem) {
  * Resize handler
  */
 app.Canvas.prototype.onResize = function() {
+  if (!this.hasDrawn) {
+    this.initCanvases(this.$elem);
+  }
+
   this.canvasRatio = Math.min(
       this.container.height() / this.canvasHeight,
       this.container.width() / this.canvasWidth);
@@ -213,6 +219,10 @@ app.Canvas.prototype.mouseChanged = function(mouse, mouseCoords) {
  * just recopy latest updates to display canvas
  */
 app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn, isReset) {
+  if (!this.hasDrawn && !isReset) {
+    this.hasDrawn = true;
+  }
+
   if ((actionFn && actionFnContext) || isReset) {
     if (this.undoing) {
       var cleared = false;
@@ -284,7 +294,6 @@ app.Canvas.prototype.save = function() {
   this.drawIndex = this.nextIndex(this.baseIndex);
   this.copyCanvasIndex(this.baseIndex, this.drawIndex);
   this.backupCanvases[this.drawIndex].saved = false;
-
 };
 
 
