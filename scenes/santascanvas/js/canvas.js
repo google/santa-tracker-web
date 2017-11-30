@@ -255,7 +255,7 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn, isReset)
 };
 
 app.Canvas.prototype.calculateDrawingVolume = function() {
-
+  if (!Klang.context) return;
   var xPos = Math.abs(this.mouse.x / this.canvasWidth - this.lastMouseX);
   var yPos = Math.abs(this.mouse.y / this.canvasHeight - this.lastMouseY);
   var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
