@@ -19,29 +19,39 @@ specific language governing permissions and limitations under the License.
 <template>
   <style include="effect-wrangler_module"></style>
   <div id="holder">
-    <div id="wrangler">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div id="reindeer1">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div id="reindeer2">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <a href="[[href]]">
+      <div id="wrangler">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="reindeer1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="reindeer2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </a>
   </div>
 </template>
 <script>
 
 Polymer({
   is: 'effect-wrangler',
+
+  properties: {
+    href: {
+      type: String,
+      value: null,
+    },
+  },
+
 });
 
 </script>
