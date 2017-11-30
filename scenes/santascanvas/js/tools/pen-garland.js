@@ -160,8 +160,6 @@ app.PenGarland.prototype.drawAlongCurve = function(start, control, end, context,
     return;
   }
 
-  // console.log(distance);
-
   if (distance > this.spaceUntilNext) {
     var currentPoint = this.spaceUntilNext;
 

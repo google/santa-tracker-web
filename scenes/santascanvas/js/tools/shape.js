@@ -73,7 +73,6 @@ app.Shape.prototype.draw = function(canvas, mouseCoords, prevCanvas) {
   context.translate(drawX, drawY);
   context.rotate(rad);
   context.drawImage(image, -offsetX, -offsetY, drawWidth, drawHeight);
-  // context.setTransform(1, 0, 0, 1, 0, 0);
   context.restore();
   this.stamped = true;
 

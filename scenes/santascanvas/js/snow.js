@@ -52,7 +52,6 @@ app.Snow.prototype.reset  = function() {
 
 
 app.Snow.prototype.update = function(delta) {
-  // TODO: connect to button,
   if (!this.playing && this.cleared) {
     return;
   }

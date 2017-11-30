@@ -51,7 +51,6 @@ app.Tool.prototype.select = function(mouseCoords) {
   this.isSelected = true;
 
   this.el.addClass('Tool--selected');
-  // this.width = this.el.width();
 
   this.hoverEl.addClass('is-selected');
   this.hoverEl.attr('data-tool-hover-category', this.category);

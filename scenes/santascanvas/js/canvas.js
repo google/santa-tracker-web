@@ -30,7 +30,6 @@ goog.require('app.shared.utils');
  * @constructor
  */
 app.Canvas = function(game, $elem) {
-  // this.initCanvases($elem);
   this.$elem = $elem;
 
   // Base state we're drawing on top of
@@ -261,7 +260,6 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn, isReset)
     }
   }
 
-  // TODO check if we need to copy back and fore
   this.copyCanvasIndex(this.drawIndex);
 };
 
@@ -356,7 +354,6 @@ app.Canvas.prototype.nextIndex = function(index) {
  */
 app.Canvas.prototype.clearCanvas = function(index) {
   if (typeof index != 'undefined') {
-    // console.log('clearing', index);
     var backup = this.backupCanvases[index];
     this.clearCanvasElement(backup.canvas);
     backup.saved = false;
@@ -378,7 +375,6 @@ app.Canvas.prototype.clearCanvasElement = function(canvas) {
  * copies the backup at fromIndex into the display canvas.
  */
 app.Canvas.prototype.copyCanvasIndex = function(fromIndex, toIndex) {
-  // console.log('copying', fromIndex, 'to', toIndex, 'base', this.baseIndex, 'draw', this.drawIndex);
   var toCanvas = typeof toIndex != 'undefined' ?
       this.backupCanvases[toIndex].canvas : this.displayCanvas;
   this.copyCanvas(this.backupCanvases[fromIndex].canvas, toCanvas);
