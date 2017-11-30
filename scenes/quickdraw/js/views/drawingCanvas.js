@@ -178,7 +178,6 @@ app.view.DrawingCanvas.prototype.calculateDrawingVolume = function(point) {
   var yPos = Math.abs(point.y / this.canvas.height - this.lastMouseY);
   var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
 
-<<<<<<< HEAD
   if (isFinite(speed)) {
     this.drawingVolume += speed / 2;
   }
@@ -196,9 +195,6 @@ app.view.DrawingCanvas.prototype.soundUpdate = function() {
     Klang.trigger("qd_draw_update", Math.min(1, this.drawingVolume));
   }
 }
-=======
-
->>>>>>> quickdraw
 app.view.DrawingCanvas.prototype.stopListening = function() {
   paper.view.off('mousemove');
   this.tool.off('mousedown');
