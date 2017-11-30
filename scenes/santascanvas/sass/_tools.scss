@@ -368,6 +368,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
 
   .Tools-nav {
     align-items: center;
+    bottom: 0;
     display: none;
     flex-direction: column;
     height: 140px;
@@ -384,6 +385,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       height: 100%;
       position: absolute;
       right: 0;
+      top: 0;
       width: 120%;
     }
 
