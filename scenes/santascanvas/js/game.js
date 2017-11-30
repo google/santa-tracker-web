@@ -36,6 +36,7 @@ app.Game = function(elem) {
   this.elem = $(elem);
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
+  this.rotateElem = this.elem.find('.force-rotate');
 
   this.mouse = new app.Mouse(this.sceneElem);
   this.canvas = new app.Canvas(this, this.sceneElem);

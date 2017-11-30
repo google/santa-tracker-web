@@ -985,6 +985,7 @@ app.Tools.prototype.onResize = function() {
 
 app.Tools.prototype.isInsideCanvas = function(mouse) {
   return this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.canvas.displayCanvas) &&
+    !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.game_.rotateElem[0]) &&
     !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.primaryMenu[0]) &&
     !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.secondaryMenu[0]) &&
     !this.game_.mouse.isInsideEl(mouse.x, mouse.y, this.mobileEdit[0]) &&
