@@ -27,6 +27,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/app-layout/app-header-layout/app-header-layout.html">
 
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../santa-buttons/santa-buttons.html">
 <link rel="import" href="../santa-icons.html">
 <link rel="import" href="../santa-state.html">
 <link rel="import" href="santa-chrome_module.html">
@@ -51,7 +52,7 @@ specific language governing permissions and limitations under the License.
   </style>
   <santa-state offline="{{_offline}}"></santa-state>
 
-  <app-drawer-layout fullbleed force-narrow on-click="_hideOverflow">
+  <app-drawer-layout fullbleed force-narrow on-click="_maybeCloseButtons">
     <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
       <div class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer">
@@ -78,32 +79,10 @@ specific language governing permissions and limitations under the License.
           <div class="feature">
             <slot name="feature"></slot>
           </div>
-          <div class="buttons" open$="[[_buttonsOpen]]" on-mouseleave="_onDelayHideMore" on-mouseover="_cancelHide">
-            <paper-icon-button on-click="_onShowMore" on-mouseover="_onShowMore" icon="santa:more"></paper-icon-button>
-
-            <div class="buttons-overflow" on-click="_onClickOverflow">
-              <div class="group">
-                <paper-icon-button icon="santa:share-facebook"></paper-icon-button>
-                <paper-icon-button icon="santa:share-gplus"></paper-icon-button>
-                <paper-icon-button icon="santa:share-twitter"></paper-icon-button>
-              </div>
-              <paper-icon-button data-title="Share"
-                  on-click="_onShare"
-                  icon="santa:share">
-              </paper-icon-button>
-              <paper-icon-button data-title="Fullscreen"
-                  icon="santa:fullscreen">
-              </paper-icon-button>
-              <paper-icon-button data-title="Pause"
-                  on-click="_togglePause"
-                  icon$="santa:[[_computeTernary(pause, 'play', 'pause')]]">
-              </paper-icon-button>
-              <paper-icon-button data-title="Mute"
-                  on-click="_toggleSounds"
-                  icon$="santa:sound-[[_computeTernary(mute, 'off', 'on')]]">
-              </paper-icon-button>
-            </div>
-          </div>
+          <santa-buttons id="buttons"
+              has-game-buttons="[[hasGameButtons]]"
+              mute="{{mute}}"
+              pause="{{pause}}"></santa-buttons>
         </app-toolbar>
       </app-header>
 
@@ -183,10 +162,6 @@ specific language governing permissions and limitations under the License.
 
     },
 
-    _computeTernary: function(arg, yesVal, noVal) {
-      return arg ? yesVal : noVal;
-    },
-
     /**
      * Close the `santa-chrome` drawer.
      * @return {boolean} true if the drawer was closed
@@ -204,57 +179,11 @@ specific language governing permissions and limitations under the License.
       }
     },
 
-    _hideOverflow: function(ev) {
-      if (this._buttonsOpen) {
-        ev && ev.stopPropagation();
-      }
-      this._buttonsOpen = false;
-    },
-
-    _onClickOverflow: function(ev) {
-      ev.stopPropagation();
-    },
-
-    _onShowMore: function(ev) {
-      this.cancelDebouncer('_hideMore');
-      ev.stopPropagation();
-
-      if (this._buttonsOpen && ev.type === 'click') {
-        this._buttonsOpen = false;
-      } else {
-        this._buttonsOpen = true;
-      }
-    },
-
-    _cancelHide: function(ev) {
-      this.cancelDebouncer('_hideMore');
-    },
-
-    _onDelayHideMore: function(ev) {
-      this.debounce('_hideMore', function() {
-        this._hideOverflow(null);
-      }, 1000);
-    },
-
-    _onShare: function(ev) {
-      window.ga('send', 'event', 'nav', 'click', 'share');
-      const p = ev.target.closest('paper-icon-button');
-      if (p) {
+    _maybeCloseButtons: function(ev) {
+      if (this.$.buttons.close()) {
         ev.preventDefault();
-        this.fire('share', {network: p.id});
+        ev.stopPropagation();
       }
-    },
-
-    _toggleSounds: function(ev) {
-      ev.stopPropagation();
-      this.mute = !this.mute;
-      window.ga('send', 'event', 'nav', 'click', this.mute ? 'mute' : 'unmute');
-    },
-
-    _togglePause: function(ev) {
-      ev.stopPropagation();
-      this.pause = !this.pause;
-      window.ga('send', 'event', 'nav', 'click', this.pause ? 'pause' : 'play');
     },
 
     _onTitleClick: function() {
