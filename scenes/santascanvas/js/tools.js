@@ -160,6 +160,7 @@ app.Tools = function(game, $elem) {
   this.sceneAirport = new app.LayerTool($elem, 'airport', app.LayerTool.Layer.BACKGROUND);
   this.sceneBeach = new app.LayerTool($elem, 'beach', app.LayerTool.Layer.BACKGROUND);
   this.sceneDock = new app.LayerTool($elem, 'dock', app.LayerTool.Layer.BACKGROUND);
+  this.sceneGingerbread = new app.LayerTool($elem, 'gingerbread', app.LayerTool.Layer.BACKGROUND);
   this.sceneIceberg = new app.LayerTool($elem, 'iceberg', app.LayerTool.Layer.BACKGROUND);
   this.sceneLivingroom = new app.LayerTool($elem, 'livingroom', app.LayerTool.Layer.BACKGROUND);
   this.sceneNight = new app.LayerTool($elem, 'night', app.LayerTool.Layer.BACKGROUND);
@@ -422,6 +423,7 @@ app.Tools = function(game, $elem) {
     this.sceneAirport,
     this.sceneBeach,
     this.sceneDock,
+    this.sceneGingerbread,
     this.sceneIceberg,
     this.sceneLivingroom,
     this.sceneNight,
