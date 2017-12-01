@@ -68,9 +68,6 @@ app.Game.prototype.start = function() {
   this.rotator.subscribe(this.tools.rotatorChanged, this.tools);
   this.colorpicker.subscribe(this.tools.colorChanged, this.tools);
 
-  this.elem.find('#share-button, #share-button-toolbox').
-    on('click.santascanvas touchend.santascanvas', this.showShareOverlay.bind(this));
-
   this.elem.find('#reset-button, #reset-button-toolbox').
     on('click.santascanvas touchend.santascanvas', this.resetCanvas_.bind(this));
 
@@ -116,15 +113,6 @@ app.Game.prototype.update = function(delta) {
   this.canvas.soundUpdate(delta)
 };
 
-
-/**
- * Show share overlay.
- * TODO: delete?
- */
-app.Game.prototype.showShareOverlay = function() {
-  var urlString = '';
-  this.shareOverlay.show(urlString, true);
-};
 
 
 /**
