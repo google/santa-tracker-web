@@ -30,8 +30,6 @@
  *
  */
 
-goog.provide('Paper');
-
 Paper = function(self, undefined) {
 
   self = self || require('./node/self.js');
