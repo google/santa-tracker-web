@@ -33,7 +33,6 @@ app.TextureDrawer = function($elem, name, config) {
 
   this.soundKey = name;
   this.textureName = 'texture-' + name;
-  this.opacity = config && config.opacity || 1;
   this.drawFrequency = config && config.drawFrequency || 4;
   this.points = [];
   this.monotone = config && config.monotone || false;

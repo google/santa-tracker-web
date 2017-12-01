@@ -87,7 +87,6 @@ app.Tools = function(game, $elem) {
   this.lastSize = 0;
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
-      opacity: 0.5,
       drawFrequency: 7,
       sizeConfig: {
         min: app.Constants.PENCIL_MIN,
@@ -96,7 +95,7 @@ app.Tools = function(game, $elem) {
     });
   this.crayon = new app.TextureDrawer($elem, 'crayon');
   this.marker = new app.Marker($elem, 'marker');
-  this.paintbrush = new app.TextureDrawer($elem, 'paintbrush', { opacity: 0.5 });
+  this.paintbrush = new app.TextureDrawer($elem, 'paintbrush');
   this.tinsel = new app.TextureDrawer($elem, 'tinsel', {
       sizeConfig: {
         min: app.Constants.TINSEL_MIN,
