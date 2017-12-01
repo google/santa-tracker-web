@@ -333,6 +333,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
   .Tools-settings {
     align-items: center;
     display: flex;
+    flex: 0 0 auto;
     height: 100%;
     padding: 0 20px;
     position: relative;
