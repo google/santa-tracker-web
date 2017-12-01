@@ -140,6 +140,14 @@
       @include will-change(transform);
       animation: #{$name}-swing 10s ease-in-out infinite;
     }
+
+    a {
+      position: absolute;
+      width: percent(120 * $svg-ratio, $w);
+      height: percent(100 * $svg-ratio, $h);
+      left: 55%;
+      top: 33%;
+    }
   }
 
   #easteregg-walrus {
