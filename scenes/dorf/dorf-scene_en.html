@@ -109,11 +109,15 @@ Santa's Village.
           <div id$="easteregg-[[item]]"></div>
         </template>
 
+        <div id="easteregg-white-board">
+          <a href="[[urlFor('briefing')]]"></a>
+        </div>
+
         <div id="easteregg-schoolyard">
           <div class="slide"></div>
           <div class="seesaw"></div>
           <div class="swing"></div>
-          <a href="[[urlFor('playground')]]" class="clickable"></a>
+          <a href="[[urlFor('playground')]]"></a>
         </div>
 
         <div id="easteregg-balloon" class="random clickable" on-click="_flyBalloon"></div>
@@ -188,7 +192,7 @@ Santa's Village.
   var RANDOM_EGG_WAIT_MAX = 30000;
 
   var EASTER_EGGS = ['tree', 'blocks', 'statue', 'penguin-revolt',
-      'snowman-reading', 'rosetta-stone', 'white-board',
+      'snowman-reading', 'rosetta-stone',
       'book-club', 'unicycle', 'walrus'];
 
   Polymer({

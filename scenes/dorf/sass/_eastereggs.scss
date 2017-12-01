@@ -12,10 +12,10 @@
       "blocks"          360   150   904   646 ,
       "statue"          287   171   858   816 ,
       "walrus"          22    19    897   1473,
-      "penguin-revolt"  174   55    865   1571,
+      "penguin-revolt"  174   55    356   1590,
       "snowman-reading" 571   237   -227  1450,
       "rosetta-stone"   117   96    28    944 ,
-      "white-board"     121   62    570   1102,
+      "white-board"     121   62    1050  1600,
       "schoolyard"      434   160   121   255 ,
       "tictactoe"       0     0     922   375 ,
       "book-club"       90    97    360   558 ,
@@ -45,7 +45,7 @@
     height: $height-tablet;
   }
 
-  .clickable {
+  .clickable, a[href] {
     pointer-events: auto;
   }
 
@@ -162,6 +162,14 @@
       background-image: url(img/easteregg-walrus.svg);
       @include will-change();
       animation: #{$name}-walrus 3s ease infinite;
+    }
+  }
+
+  #easteregg-white-board {
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
     }
   }
 
