@@ -107,9 +107,7 @@ Polymer({
 
   _start: function() {
     this.$.button.classList.add('active');
-
-    // TODO(samthor): This probably isn't triggering Klang. Find out why (#2259).
-    this.fire('sound-trigger', 'as_Village_Snowmobile');
+    this.fire('sound-trigger', 'village_snowmobile');
   },
 
   _onAnimationEnd: function() {
