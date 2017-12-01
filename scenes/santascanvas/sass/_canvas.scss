@@ -12,8 +12,8 @@
   canvas {
     left: 50%;
     position: absolute;
-    top: 0;
-    transform: translate(-50%, 0);
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   @media (max-width: $mobile-width) {
