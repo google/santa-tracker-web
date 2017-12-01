@@ -548,6 +548,15 @@ app.Models = [
 
 app.AndroidModels = [
   {
+    'key': 'santasnap',
+    'title': 'Santa Snap',
+    'opens': 0,
+    'type': 'Android',
+    'filter': 'android',
+    'description': 'Fly Santa\'s elf throughout the world\'s largest cities in 3D! Capture photos of famous landmarks, collect presents, and much more.',
+    'screenshotUrl': null,
+  },
+  {
     'key': 'presentquest',
     'title': 'Present Quest',
     'opens': 0,
