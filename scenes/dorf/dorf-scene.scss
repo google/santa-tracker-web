@@ -555,9 +555,9 @@ footer {
       box-sizing: border-box;
       width: $dim;
       height: $dim;
-      --house-ratio: 0.6;
 
       village-house {
+        transform: scale(0.6);
         position: absolute;
       }
     }
@@ -569,7 +569,10 @@ footer {
     .cell {
       width: $dim;
       height: $dim;
-      --house-ratio: 1;
+
+      village-house {
+        transform: none;  // revert scale: 0.6
+      }
     }
   }
 }
