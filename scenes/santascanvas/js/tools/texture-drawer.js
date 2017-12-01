@@ -92,11 +92,13 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
 
   if (this.points.length == 1) {
     var p1 = this.points[0];
-    context.save();
-    context.globalAlpha = this.opacity;
-    context.drawImage(texture, p1.x - offsetX, p1.y - offsetY,
-        drawWidth, drawHeight);
-    context.restore();
+    app.utils.simpleTimeout(function() {
+      context.save();
+      context.globalAlpha = this.opacity;
+      context.drawImage(texture, p1.x - offsetX, p1.y - offsetY,
+          drawWidth, drawHeight);
+      context.restore();
+    }.bind(this));
   } else if (this.points.length == 2) {
     var p1 = this.points[0];
     var p2 = this.points[1];
@@ -111,13 +113,16 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
       var point = app.utils.pointInCurve(t, p1, p1, midpoint);
       var rotation = this.noRotation ? 0 : Math.random();
 
-      context.save();
-      context.globalAlpha = this.opacity;
-      context.translate(point.x, point.y);
-      context.rotate(rotation * 2 * Math.PI);
-      context.drawImage(texture, -offsetX, -offsetY,
-          drawWidth, drawHeight);
-      context.restore();
+      app.utils.simpleTimeout(function(point, rotation) {
+        context.save();
+        context.globalAlpha = this.opacity;
+        context.translate(point.x, point.y);
+        context.rotate(rotation * 2 * Math.PI);
+        context.drawImage(texture, -offsetX, -offsetY,
+            drawWidth, drawHeight);
+        context.restore();
+        console.log('inside', point.x, point.y);
+      }.bind(this, point, rotation));
     }
   } else {
     var p0 = this.points[this.points.length - 3];
@@ -135,13 +140,15 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
       var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);
       var rotation = this.noRotation ? 0 : Math.random();
 
-      context.save();
-      context.globalAlpha = this.opacity;
-      context.translate(point.x, point.y);
-      context.rotate(rotation * 2 * Math.PI);
-      context.drawImage(texture, -offsetX, -offsetY,
-          drawWidth, drawHeight);
-      context.restore();
+      app.utils.simpleTimeout(function(point, rotation) {
+        context.save();
+        context.globalAlpha = this.opacity;
+        context.translate(point.x, point.y);
+        context.rotate(rotation * 2 * Math.PI);
+        context.drawImage(texture, -offsetX, -offsetY,
+            drawWidth, drawHeight);
+        context.restore();
+      }.bind(this, point, rotation));
     }
   }
 

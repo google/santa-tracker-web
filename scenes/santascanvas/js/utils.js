@@ -94,6 +94,10 @@ app.utils = function() {
       return img;
     },
 
+    simpleTimeout: function(fn) {
+      window.setTimeout(fn, 0);
+    },
+
     randomLoop: function(fn, minInterval, maxInterval) {
       var random = Math.max(minInterval, Math.random() * maxInterval);
 
