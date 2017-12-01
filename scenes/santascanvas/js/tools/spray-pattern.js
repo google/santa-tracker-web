@@ -17,6 +17,7 @@
 goog.provide('app.SprayPattern');
 goog.require('app.Constants');
 goog.require('app.ImageManager');
+goog.require('app.utils');
 
 
 /**
@@ -72,14 +73,17 @@ app.SprayPattern.prototype.draw = function(canvas, mouseCoords) {
         drawElem = app.ImageManager.getImage(image.name, image.color);
       }
 
-      context.save();
-      context.globalAlpha = this.opacity;
-      context.translate(drawX, drawY);
-      if (!this.noRotate && !image.noRotate) {
-        context.rotate(Math.random() * 2 * Math.PI);
-      }
-      context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
-      context.restore();
+      app.utils.simpleTimeout(function() {
+        context.save();
+        // context.globalAlpha = this.opacity;
+        context.translate(drawX, drawY);
+        if (!this.noRotate && !image.noRotate) {
+          context.rotate(Math.random() * 2 * Math.PI);
+        }
+        context.drawImage(drawElem, offsetX, offsetY, drawWidth, drawHeight);
+
+        context.restore();
+      });
     }
   }
 
