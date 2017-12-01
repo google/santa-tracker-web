@@ -94,7 +94,6 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
     var p1 = this.points[0];
     app.utils.simpleTimeout(function() {
       context.save();
-      context.globalAlpha = this.opacity;
       context.drawImage(texture, p1.x - offsetX, p1.y - offsetY,
           drawWidth, drawHeight);
       context.restore();
@@ -108,22 +107,20 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
       return;
     }
 
-    for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
-      var t = j / distance;
-      var point = app.utils.pointInCurve(t, p1, p1, midpoint);
-      var rotation = this.noRotation ? 0 : Math.random();
+    app.utils.simpleTimeout(function() {
+      for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
+        var t = j / distance;
+        var point = app.utils.pointInCurve(t, p1, p1, midpoint);
+        var rotation = this.noRotation ? 0 : Math.random();
 
-      app.utils.simpleTimeout(function(point, rotation) {
         context.save();
-        context.globalAlpha = this.opacity;
         context.translate(point.x, point.y);
         context.rotate(rotation * 2 * Math.PI);
         context.drawImage(texture, -offsetX, -offsetY,
             drawWidth, drawHeight);
         context.restore();
-        console.log('inside', point.x, point.y);
-      }.bind(this, point, rotation));
-    }
+      }
+    }.bind(this));
   } else {
     var p0 = this.points[this.points.length - 3];
     var p1 = this.points[this.points.length - 2];
@@ -135,21 +132,20 @@ app.TextureDrawer.prototype.draw = function(canvas, mouseCoords, prevCanvas,
       return;
     }
 
-    for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
-      var t = j / distance;
-      var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);
-      var rotation = this.noRotation ? 0 : Math.random();
+    app.utils.simpleTimeout(function() {
+      for (var j = 0; j < distance; j += drawWidth / this.drawFrequency) {
+        var t = j / distance;
+        var point = app.utils.pointInCurve(t, midpoint1, p1, midpoint2);
+        var rotation = this.noRotation ? 0 : Math.random();
 
-      app.utils.simpleTimeout(function(point, rotation) {
         context.save();
-        context.globalAlpha = this.opacity;
         context.translate(point.x, point.y);
         context.rotate(rotation * 2 * Math.PI);
         context.drawImage(texture, -offsetX, -offsetY,
             drawWidth, drawHeight);
         context.restore();
-      }.bind(this, point, rotation));
-    }
+      }
+    }.bind(this));
   }
 
   return true;
