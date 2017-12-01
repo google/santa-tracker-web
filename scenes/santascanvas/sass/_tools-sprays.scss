@@ -1,0 +1,116 @@
+$spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow" "snowflakes";
+
+##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="spray"] {
+    &[data-current-tool="spray-color"] {
+      .Tools-display-inner {
+        background-image: url(img/tools/spray/tool_spray_white.svg);
+        background-position: center 0%;
+        background-size: 50% 150%;
+      }
+    }
+
+    @each $current-tool in $spray-tools {
+      &[data-current-tool="spray-#{$current-tool}"] {
+        pointer-events: auto;
+
+        .Tools-display-outer {
+          background: url(img/icons/mobile_ornament.svg) center/contain no-repeat;
+          border-radius: 0;
+          height: 100%;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .Tools-display-inner {
+          background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
+          background-position: center -20%;
+          background-size: 100%;
+          border-radius: 0;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  // TOOLBAR
+  [data-tool-category="spray"] {
+    .Tool {
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: 70% 140%;
+      position: relative;
+      top: 20px;
+
+      &--spray-color {
+        padding: 0 20px 20px 20px;
+
+        svg {
+          height: 162%;
+        }
+
+        @include generateSVGstyles('spray-color');
+      }
+
+      @each $current-tool in $spray-tools {
+        &--spray-#{$current-tool} {
+          background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
+        }
+      }
+
+      @media (max-width: $mobile-width) {
+        background-position: center 0%;
+        top: auto;
+      }
+    }
+
+    .Tool--selected {
+      background-image: url(img/tools/spray/tray.svg);
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  // HOVER
+  [data-tool-hover-category="spray"] {
+    .Tool-hover-minitool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      position: absolute;
+      right: 25%;
+      top: 75%;
+      transform: translate(100%, 0);
+      width: 100px;
+    }
+  }
+
+  [data-tool-hover-tool="spray-color"] {
+    .Tool-hover-minitool--spray-color {
+      display: block;
+    }
+
+    @include generateSVGstyles('spray-color', '.Tool-hover-minitool--spray-color');
+  }
+
+  @each $current-tool in $spray-tools {
+    [data-tool-hover-tool="spray-#{$current-tool}"] {
+      .Tool-hover-inactive .Tool-hover-minitool--default {
+        background-image: url(img/tools/spray/#{$current-tool}/tool.svg);
+        display: block;
+        left: 50%;
+        right: auto;
+        top: 40%;
+        transform: translate(-50%, 0);
+      }
+
+      .Tool-hover-circle {
+        visibility: hidden;
+      }
+    }
+  }
+}

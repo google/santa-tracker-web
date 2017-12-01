@@ -1,0 +1,251 @@
+$sticker-categories: "animals", "decorations", "people", "food", "nature", "silly";
+$sticker-animals: "brown-bear", "dinosaur", "fish-teal", "fish-yellow", "gingerbread-man", "narwhal", "penguin-presents", "rudolph-front", "rudolph-side", "snow-monster", "astronaut", "bat", "box-fish", "brown-bear-baby", "brown-bear-pirate", "dolphin", "fish-pink", "jellyfish", "light-fish", "nutcracker-green", "pegman-hips", "penguin-angry", "polar-bear-scuba", "reindeer-babies", "reindeer-baby-boy", "reindeer-baby-girl", "reindeer-white", "robot-purple", "rudolph-dancing2", "scuba-green", "scuba-orange", "seagull-fly2", "shark", "snowman-big-penguin", "snowman-big-tub", "walrus";
+$sticker-people: "mrs-claus", "santa-dance", "santa-sled", "santa-sleep", "santa", "elf-duck-float", "elf-jam-guitar", "elf-jam-sing", "elf-mermaid", "elf-merman", "elf-scuba1", "elf-scuba2", "elf-seesaw";
+$sticker-nature: "cactus", "cloud1", "cloud2", "cloud3", "coral-large", "coral-medium", "coral-small", "igloo", "moon", "seaweed-green", "seaweed-lime", "sun", "tree-holiday", "tree-palm", "trees-blue", "trees-green", "school-bus", "santa-sleigh", "house", "elf-car", "village-houses";
+$sticker-decorations: "beach-ball", "bell", "candle", "clock", "disco-ball", "firewood", "frame1", "frame2", "frame3", "holly", "presents-stack", "record-player", "red-bow", "show-lights", "snowglobe-snowman", "snowglobe-tree", "stereo", "stocking-green", "stocking-pink", "stocking-red", "stocking-yellow", "treasure-closed", "treasure-open", "window", "wreath";
+$sticker-food: "candies", "candycane-green", "cookie-choc-chip", "cookie-man", "candycane-greens", "candycane-holiday", "candycane-red", "candycane-reds", "candycane-tropical", "candycorn-holiday", "chocolate-gumdrop", "chocolate-nuts", "chocolate-pretzel", "chocolate-squiggle", "chocolate-stripes", "chocolate-swirl", "cookie-kiss", "cookie-snowman", "cookie-stocking", "cookie-tree", "milk", "mug-green", "mug-red";
+$sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3", "face-eyes-glasses4", "face-eyes-glasses5", "face-eyes-sunglasses1", "face-eyes-sunglasses2", "face-eyes-sunglasses3", "face-eyes-sunglasses4", "face-mouth-black", "hat-antlers-blue", "hat-antlers-brown", "hat-beanie", "hat-blue", "hat-green", "hat-orange", "hat-pink", "hat-purple", "hat-santa", "hat-yellow", "head-elf-hair1", "head-elf-hair2", "head-elf-hair3", "head-elf-hair4", "head-elf-hair5", "head-elf-hair6", "head-elf-hair7", "head-elf-hair8", "head-elf-hair9", "head-elf-hair10", "elf-head1", "elf-head2", "elf-head3", "elf-head4", "elf-head5", "head-reindeer", "head-bear", "face-eyes-normal", "face-carrot-nose", "face-nose-pink", "face-nose-red", "face-bear-mouth", "face-walrus-mouth", "face-mouth-white", "face-moustache", "face-santa-beard", "face-teeth";
+
+##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="sticker"] {
+    .Tools-display-inner {
+      background-image: url(img/tools/tool_sticker.svg);
+    }
+
+    @each $current-sticker in $sticker-animals {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/animals/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    @each $current-sticker in $sticker-nature {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    @each $current-sticker in $sticker-decorations {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    @each $current-sticker in $sticker-people {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/people/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    @for $i from 1 through 29 {
+      &[data-current-tool="sticker-elf#{$i}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/people/elf#{$i}.svg);
+        }
+      }
+    }
+
+    @each $current-sticker in $sticker-food {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/food/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    @each $current-sticker in $sticker-silly {
+      &[data-current-tool="sticker-#{$current-sticker}"] {
+        .Tools-display-inner {
+          background-image: url(img/stickers/silly/#{$current-sticker}.svg);
+        }
+      }
+    }
+  }
+
+  [data-tool-category="sticker"] {
+    .Tools-subsection {
+      padding: 10px 0;
+    }
+
+    // SUBCATEGORY ICONS
+    @each $current-cat in $sticker-categories {
+      .Tools-submenu__item[data-tool-subcategory="#{$current-cat}"] {
+        background-image: url(img/tools/tool_sticker_#{$current-cat}.svg);
+      }
+    }
+
+    .Tool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 80%;
+      flex: 0 0 110px;
+      margin: 0 10px;
+      max-width: 110px;
+      width: 110px;
+
+      @each $current-sticker in $sticker-animals {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/animals/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-nature {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-decorations {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-people {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/people/#{$current-sticker}.svg);
+        }
+      }
+
+      @for $i from 1 through 29 {
+        &--sticker-elf#{$i} {
+          background-image: url(img/stickers/people/elf#{$i}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-food {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/food/#{$current-sticker}.svg);
+        }
+      }
+
+      @each $current-sticker in $sticker-silly {
+        &--sticker-#{$current-sticker} {
+          background-image: url(img/stickers/silly/#{$current-sticker}.svg);
+        }
+      }
+    }
+
+    .Tool--selected {
+      opacity: 0.5;
+    }
+
+    @media (max-width: $mobile-width) {
+      .Tools-subsection {
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 45px;
+
+        &[data-tool-subcategory="nature"] {
+          .Tool {
+            flex: 0 0 calc(25% - 20px);
+          }
+        }
+
+        &[data-tool-subcategory="silly"] {
+          .Tool {
+            height: 8vh;
+          }
+        }
+      }
+
+      .Tool {
+        border-bottom: none;
+        flex: 0 0 calc(20% - 20px);
+        margin: 5px 10px;
+      }
+
+      .Tools-settings {
+        bottom: 0;
+        display: block;
+        height: 45px;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+
+        &::after,
+        .Tools-settings-inner {
+          display: none;
+        }
+      }
+    }
+  }
+
+  [data-tool-hover-category="sticker"] {
+    .Tool-hover-preview {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      height: 100%;
+      left: 50%;
+      opacity: 0.5;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+    .Tool-hover-circle {
+      visibility: hidden;
+    }
+  }
+
+  @each $current-sticker in $sticker-animals {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/animals/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+
+  @each $current-sticker in $sticker-nature {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+
+  @each $current-sticker in $sticker-decorations {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+
+  @each $current-sticker in $sticker-people {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/people/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+
+  @for $i from 1 through 29 {
+    [data-tool-hover-tool="sticker-elf#{$i}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/people/elf#{$i}.svg);
+      display: block;
+    }
+  }
+
+  @each $current-sticker in $sticker-food {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/food/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+
+  @each $current-sticker in $sticker-silly {
+    [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
+      background-image: url(img/stickers/silly/#{$current-sticker}.svg);
+      display: block;
+    }
+  }
+}

@@ -44,9 +44,6 @@ module.exports = {
     msgid: 'scene_callfromsanta',
     entryPoint: 'app.Scene'
   },
-  santascanvas: {
-    msgid: 'scene_canvas',
-  },
   citylights: {
     msgid: 'scene_citylights',
     typeSafe: false,
@@ -178,6 +175,10 @@ module.exports = {
   runner: {
     msgid: 'scene_runner',
     typeSafe: false,
+    entryPoint: 'app.Game'
+  },
+  santascanvas: {
+    msgid: 'scene_canvas',
     entryPoint: 'app.Game'
   },
   santasearch: {

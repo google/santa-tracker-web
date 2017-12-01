@@ -1,0 +1,79 @@
+$shape-names: "circle", "diamond", "heart", "octagon", "pentagon", "rectangle", "square", "star", "triangle";
+
+##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="shape"] {
+    .Tools-display-inner {
+      background-size: 60% 60%;
+    }
+
+    @each $current-shape in $shape-names {
+      &[data-current-tool="shape-#{$current-shape}"] {
+        .Tools-display-inner {
+          background-image: url(img/tools/shapes/#{$current-shape}.svg);
+        }
+      }
+    }
+  }
+
+  // TOOLBAR
+  [data-tool-category="shape"] {
+    .Tool {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 25px;
+
+      @each $current-shape in $shape-names {
+        &[data-tool="shape-#{$current-shape}"] {
+          @include generateSVGstyles('shape');
+        }
+      }
+
+      @media (max-width: $mobile-width) {
+        border-bottom: none;
+        padding: 10px 15px;
+      }
+    }
+
+    .Tool--selected {
+      @each $current-shape in $shape-names {
+        &.Tool--shape-#{$current-shape} {
+          background: url(img/tools/shapes/#{$current-shape}_tray.svg) center / contain no-repeat content-box;
+        }
+
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // HOVER
+  [data-tool-hover-category="shape"] {
+    .Tool-hover-preview {
+      height: 100%;
+      left: 50%;
+      opacity: 0.5;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+    .Tool-hover-circle {
+      visibility: hidden;
+    }
+  }
+
+  @each $current-shape in $shape-names {
+    [data-tool-hover-tool="shape-#{$current-shape}"] {
+      .Tool-hover-preview--shape-#{$current-shape} {
+        display: block;
+      }
+
+      @include generateSVGstyles('shape', '.Tool-hover-preview');
+    }
+  }
+}

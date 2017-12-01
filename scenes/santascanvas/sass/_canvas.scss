@@ -1,0 +1,25 @@
+.Canvas {
+  bottom: 50px;
+  left: 115px;
+  position: absolute;
+  right: 95px;
+  top: 50px;
+
+  #back-canvas {
+    background: white;
+  }
+
+  canvas {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: $mobile-width) {
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    top: 50px;
+  }
+}
