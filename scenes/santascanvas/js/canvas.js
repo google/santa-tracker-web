@@ -405,8 +405,13 @@ app.Canvas.prototype.saveToFile = function(e) {
   saveCtx.drawImage(this.foregroundBackup, 0, 0, this.saveCanvas.width,
       this.saveCanvas.height);
 
-  var data = this.saveCanvas.toDataURL('image/jpeg');
+  if (this.saveCanvas.msToBlob) { // for IE
+    var blob = this.saveCanvas.msToBlob();
+    window.navigator.msSaveBlob(blob, 'santascanvas.jpg');
+    return;
+  }
 
+  var data = this.saveCanvas.toDataURL('image/jpeg');
   if (app.shared.utils.touchEnabled) {
     var windowContent = '<!DOCTYPE html>';
     windowContent += '<html>';
