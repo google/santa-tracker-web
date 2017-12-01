@@ -85,10 +85,18 @@ specific language governing permissions and limitations under the License.
         value: Promise.resolve(null),
       },
 
+      /**
+       * Stores our parent node for an extra frame, so events can be targeted correctly.
+       */
+      _lazyParent: {
+        type: Object,
+      },
+
     },
 
     listeners: {
       'preload': 'preloadEvent',
+      'sound-ambient': 'onSoundAmbient',
     },
 
     observers: [
@@ -129,6 +137,8 @@ specific language governing permissions and limitations under the License.
         this.onShow && this.onShow();
       });
       const p = this._showPromise = this._showPromise.then(() => show);
+
+      this._lazyParent = this.parentNode;
     },
 
     detached: function() {
@@ -136,7 +146,26 @@ specific language governing permissions and limitations under the License.
         if (!skipped) {
           this.onHide && this.onHide()
         }
+        this._lazyParent = null;
       });
+    },
+
+    /**
+     * Catch `sound-ambient` events, so that even if the scene has been removed, they are passed
+     * up to our parent (presumed to be a `santa-app`). Uses the `_lazyParent` property, which
+     * sticks around for a microtask after detached:.
+     */
+    onSoundAmbient: function(ev) {
+      if (this.parentNode) {
+        // do nothing, event is bubbled
+      } else if (this._lazyParent) {
+        // pass to our just-removed parent
+        const opts = {bubbles: true, composed: true, detail: ev.detail};
+        const ce = new CustomEvent('sound-ambient', opts);
+        this._lazyParent.dispatchEvent(ce);
+      } else {
+        console.warn('got sound-ambient without parent', ev.localName, 'sound', ev.detail);
+      }
     },
 
     /**
