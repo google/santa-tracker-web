@@ -39,12 +39,16 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
     .Tool {
       background-position: center top;
       background-repeat: no-repeat;
-      background-size: 70%;
+      background-size: 70% 140%;
       position: relative;
       top: 20px;
 
       &--spray-color {
         padding: 0 20px 20px 20px;
+
+        svg {
+          height: 162%;
+        }
 
         @include generateSVGstyles('spray-color');
       }
@@ -58,10 +62,6 @@ $spray-tools: "sprinkles" "candy" "confetti" "holiday" "ocean" "ornaments" "snow
       @media (max-width: $mobile-width) {
         background-position: center 0%;
         top: auto;
-
-        &--spray-color {
-          padding: 0 5%;
-        }
       }
     }
 

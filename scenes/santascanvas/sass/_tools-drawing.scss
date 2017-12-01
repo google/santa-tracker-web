@@ -7,7 +7,7 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
   .Tools-display[data-current-category="drawing"] {
     .Tools-display-inner {
       background-position: center -30%;
-      background-size: 40%;
+      background-size: 40% 175%;
     }
 
     @each $current-tool in $drawing-tools {
@@ -46,10 +46,15 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
     .Tool {
       background-position: center 20%;
       background-repeat: no-repeat;
-      background-size: 100%;
+      background-size: 100% 200%;
+      position: relative;
 
       svg {
-        margin-top: -16%;
+        height: 185%;
+        left: 50%;
+        margin-top: -12%;
+        position: absolute;
+        transform: translate(-50%, 0);
       }
 
       @each $current-tool in $drawing-tools {
