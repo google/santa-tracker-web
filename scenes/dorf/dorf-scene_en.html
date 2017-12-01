@@ -81,28 +81,6 @@ Santa's Village.
       query-matches="{{_isSceneVillage}}"></iron-media-query>
   <template is="dom-if" if="[[_isSceneVillage]]" restamp>
     <div id="village-all">
-      <div id="houses" class="cells">
-        <!-- The 'New Today' house exists in the regular grid -->
-        <div class="cell new-today">
-          <div id="house-new-today">
-            <a href$="[[urlFor(todayHouse)]]"
-                hidden$="[[!todayHouse]]"
-                on-click="_onClickNewTodayHouse">
-              <div class="new-today" style$="[[_computeTodayHouseStyle(todayHouse)]]">
-                <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>[[_string('scene', todayHouse, strings)]]</h3>
-              </div>
-            </a>
-          </div>
-        </div>
-        <template is="dom-repeat" items="[[houses]]">
-          <div class="cell">
-            <village-house house="[[item.module]]"
-                opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
-                locked="[[item.locked]]"></village-house>
-          </div>
-        </template>
-      </div>
       <div id="background"></div>
       <div id="eastereggs">
         <template is="dom-repeat" items="[[easterEggs]]">
@@ -176,6 +154,28 @@ Santa's Village.
         <effect-wrangler id="easteregg-wrangler"
             class="clickable"
             href="[[urlFor('windtunnel')]]"></effect-wrangler>
+      </div>
+      <div id="houses" class="cells">
+        <!-- The 'New Today' house exists in the regular grid -->
+        <div class="cell new-today">
+          <div id="house-new-today">
+            <a href$="[[urlFor(todayHouse)]]"
+                hidden$="[[!todayHouse]]"
+                on-click="_onClickNewTodayHouse">
+              <div class="new-today" style$="[[_computeTodayHouseStyle(todayHouse)]]">
+                <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3>[[_string('scene', todayHouse, strings)]]</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+        <template is="dom-repeat" items="[[houses]]">
+          <div class="cell">
+            <village-house house="[[item.module]]"
+                opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
+                locked="[[item.locked]]"></village-house>
+          </div>
+        </template>
       </div>
     </div>
   </template>
