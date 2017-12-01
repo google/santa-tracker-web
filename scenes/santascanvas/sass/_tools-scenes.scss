@@ -18,6 +18,7 @@ $scene-names: "air", "airport", "beach", "dock", "gingerbread", "iceberg", "livi
       flex: 0 0 185px;
       height: 70%;
       margin-left: 10px;
+      max-width: 185px;
       position: relative;
 
       &::before {

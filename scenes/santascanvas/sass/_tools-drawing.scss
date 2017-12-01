@@ -48,10 +48,12 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
       background-repeat: no-repeat;
       background-size: 100%;
 
+      svg {
+        margin-top: -16%;
+      }
+
       @each $current-tool in $drawing-tools {
         &--#{$current-tool} {
-          padding: 10px 40px;
-
           @include generateSVGstyles($current-tool);
         }
       }
@@ -61,18 +63,12 @@ $silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
           background-image: url(img/tools/#{$current-tool}/tool.svg);
         }
       }
-
-      @media (max-width: $mobile-width) {
-        padding: 10px 10%;
-      }
     }
 
     .Tool--selected {
       @each $current-tool in $drawing-tools {
         &.Tool--#{$current-tool} {
           background-image: url(img/tools/#{$current-tool}/tray.svg);
-          background-position: center -10%;
-          background-size: 40%;
         }
 
         svg {
