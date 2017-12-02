@@ -85,7 +85,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     .Tool {
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 100% 80%;
+      background-size: contain;
       flex: 0 0 110px;
       margin: 0 10px;
       max-width: 110px;
@@ -185,7 +185,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     .Tool-hover-preview {
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 100% 100%;
+      background-size: contain;
       height: 100%;
       left: 50%;
       opacity: 0.5;
