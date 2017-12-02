@@ -54,6 +54,7 @@ app.Tools = function(game, $elem) {
   this.toolDisplay = this.primaryMenu.find('[data-tool-display]');
 
   this.secondaryMenu = $elem.find('.Tools--secondary');
+  this.secondaryMenuToggle = this.secondaryMenu.find('[data-tool-tray-toggle]');
   this.categoryMenus = this.secondaryMenu.find('[data-tool-category-menu]');
   this.categoryTrays = this.secondaryMenu.find('[data-tool-category-tray]');
   this.categoryTools = this.categoryTrays.find('[data-tool]');
@@ -76,6 +77,7 @@ app.Tools = function(game, $elem) {
   this.subcategoryPickers.on('click.santascanvas touchend.santascanvas', this.onSubcategoryClick_.bind(this));
   this.categoryMenuNavBtns.on('click.santascanvas touchend.santascanvas', this.onNavClick_.bind(this));
   this.mobileEraser.on('click.santascanvas touchend.santascanvas', this.onCategoryClick_.bind(this));
+  this.secondaryMenuToggle.on('click.santascanvas touchend.santascanvas', this.onToggleClick_.bind(this));
 
   //mouse enter
   this.categoryPickers.on('mouseenter.santascanvas', this.onCategoryOver_.bind(this));
@@ -85,6 +87,7 @@ app.Tools = function(game, $elem) {
   this.snowButton.on('mouseenter.santascanvas', this.onSnowButtonOver_.bind(this));
 
   this.lastSize = 0;
+  this.secondaryMenuToggled = false;
 
   this.pencil = new app.TextureDrawer($elem, 'pencil', {
       drawFrequency: 7,
@@ -737,7 +740,7 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 
       if (this.isMobile) {
         this.game_.sceneElem.removeClass('ui-hidden');
-      } else if (this.secondaryMenuActive) {
+      } else if (this.secondaryMenuActive && !this.secondaryMenuToggled) {
         this.secondaryMenu.addClass('is-active');
       }
     }
@@ -754,7 +757,8 @@ app.Tools.prototype.selectTool_ = function(e) {
   // Check if on slider or rotator
   if ($(e.target).closest('[data-slider]').length ||
     $(e.target).closest('[data-rotator]').length ||
-    $(e.target).closest('[data-colorpicker]').length) {
+    $(e.target).closest('[data-colorpicker]').length ||
+    $(e.target).closest('[data-tool-tray-toggle]').length) {
     return;
   }
 
@@ -822,6 +826,7 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
   var categoryPicker = $(e.target).closest('[data-tool-category-picker]');
   var categoryName = categoryPicker.attr('data-tool-category');
   var categoryMenu = this.secondaryMenu.find('[data-tool-category="' + categoryName + '"]');
+  this.secondaryMenuToggled = false;
 
   if (this.currentCategory && this.currentCategory == categoryName) {
     if (this.secondaryMenuActive) {
@@ -864,10 +869,12 @@ app.Tools.prototype.onCategoryClick_ = function(e) {
   if (categoryName == 'eraser') {
     this.secondaryMenuActive = false;
     this.secondaryMenu.removeClass('is-active');
+    this.secondaryMenuToggle.addClass('is-hidden');
     this.selectTool_(e);
   } else {
     this.secondaryMenuActive = true;
     this.secondaryMenu.addClass('is-active');
+    this.secondaryMenuToggle.removeClass('is-hidden');
     categoryMenu.addClass('is-active');
     if (!this.isMobile) {
       this.selectTool_(e);
@@ -888,6 +895,12 @@ app.Tools.prototype.onSubcategoryClick_ = function(e) {
   subcategoryPicker.addClass('is-active');
   this.game_.colorpicker.setDisabled(false);
   this.game_.slider.setDisabled(false);
+};
+
+
+app.Tools.prototype.onToggleClick_ = function(e) {
+  this.secondaryMenuToggled = !this.secondaryMenuToggled;
+  this.secondaryMenu.toggleClass('is-active');
 };
 
 

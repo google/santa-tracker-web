@@ -132,8 +132,58 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     transition: transform .3s;
     z-index: 1;
 
+    .Tools-toggle {
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, .07);
+      cursor: pointer;
+      height: 50px;
+      position: absolute;
+      right: 15px;
+      top: 0;
+      transform: translate(0, -53%);
+      transition: transform .3s;
+      width: 50px;
+      z-index: -1;
+
+      &::before {
+        background: url(img/icons/next.svg) center / 20% no-repeat;
+        border-radius: 50%;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: -10%;
+        transform: rotate(-90deg);
+        transition: transform .3s;
+        width: 100%;
+      }
+
+      &.is-hidden {
+        display: none;
+      }
+
+      @media (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+
+    &:not(.is-active) {
+      .Tools-toggle {
+        &:hover {
+          transform: translate(0, -63%);
+        }
+      }
+    }
+
     &.is-active {
       transform: none;
+
+      .Tools-toggle {
+        &::before {
+          transform: rotate(-90deg) scale(-1);
+        }
+      }
     }
 
     .Tool {
@@ -405,6 +455,10 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     position: fixed;
     right: 0;
     width: 85px;
+
+    .Button {
+      margin: 8px auto;
+    }
 
     &::before {
       background: linear-gradient(to left, #fff 30%, rgba(255, 255, 255, 0));
