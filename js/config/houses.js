@@ -61,7 +61,7 @@ window.HOUSES = [{
   category: 'learn',
   edu: true,
 }, {
-  module: 'santasback',
+  module: 'museum',
   launchDate: new Date('Dec 4, 2017'),
   category: 'watch',
 }, {

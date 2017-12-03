@@ -19,6 +19,7 @@ window.VIDEOS = {
   'comroom': '_WdYujHlmHA',
   'jingle': 'sQnKCU_A0Yc',
   'liftoff': 'YNpwm08ZRD0',  // 2013: BfF7vfw6Zjw, 2014: oCAKV4Ikhec
+  'museum': 'fo25RcjXJI4',
   'office': 'IXmDOu-eSx4',
   'reload': 'vHMeXs36NTE',
   'santasback': 'zE_D9Vd69aw',  // 2015: nXLNcfNsWAY

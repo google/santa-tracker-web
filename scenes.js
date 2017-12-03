@@ -250,6 +250,7 @@ module.exports = {
   comroom: {msgid: 'scene_videoscene_comroom'},
   jingle: {msgid: 'scene_videoscene_jingle'},
   liftoff: {msgid: 'scene_videoscene_liftoff'},
+  museum: {msgid: 'scene_videoscene_museum'},
   office: {msgid: 'scene_videoscene_office'},
   reload: {msgid: 'scene_videoscene_reload'},
   santasback: {msgid: 'scene_videoscene_santasback'},
