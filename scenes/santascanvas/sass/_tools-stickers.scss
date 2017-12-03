@@ -16,7 +16,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     @each $current-sticker in $sticker-animals {
       &[data-current-tool="sticker-#{$current-sticker}"] {
         .Tools-display-inner {
-          background-image: url(img/stickers/animals/#{$current-sticker}.svg);
+          background-image: url(img/stickers/animals/#{$current-sticker}_2.svg);
         }
       }
     }
@@ -24,7 +24,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     @each $current-sticker in $sticker-nature {
       &[data-current-tool="sticker-#{$current-sticker}"] {
         .Tools-display-inner {
-          background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+          background-image: url(img/stickers/nature/#{$current-sticker}_2.svg);
         }
       }
     }
@@ -32,7 +32,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     @each $current-sticker in $sticker-decorations {
       &[data-current-tool="sticker-#{$current-sticker}"] {
         .Tools-display-inner {
-          background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+          background-image: url(img/stickers/decorations/#{$current-sticker}_2.svg);
         }
       }
     }
@@ -40,7 +40,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     @each $current-sticker in $sticker-people {
       &[data-current-tool="sticker-#{$current-sticker}"] {
         .Tools-display-inner {
-          background-image: url(img/stickers/people/#{$current-sticker}.svg);
+          background-image: url(img/stickers/people/#{$current-sticker}_2.svg);
         }
       }
     }
@@ -48,7 +48,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     @for $i from 1 through 29 {
       &[data-current-tool="sticker-elf#{$i}"] {
         .Tools-display-inner {
-          background-image: url(img/stickers/people/elf#{$i}.svg);
+          background-image: url(img/stickers/people/elf#{$i}_2.svg);
         }
       }
     }
@@ -56,7 +56,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     @each $current-sticker in $sticker-food {
       &[data-current-tool="sticker-#{$current-sticker}"] {
         .Tools-display-inner {
-          background-image: url(img/stickers/food/#{$current-sticker}.svg);
+          background-image: url(img/stickers/food/#{$current-sticker}_2.svg);
         }
       }
     }
@@ -64,7 +64,7 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
     @each $current-sticker in $sticker-silly {
       &[data-current-tool="sticker-#{$current-sticker}"] {
         .Tools-display-inner {
-          background-image: url(img/stickers/silly/#{$current-sticker}.svg);
+          background-image: url(img/stickers/silly/#{$current-sticker}_2.svg);
         }
       }
     }
@@ -93,43 +93,43 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
 
       @each $current-sticker in $sticker-animals {
         &--sticker-#{$current-sticker} {
-          background-image: url(img/stickers/animals/#{$current-sticker}.svg);
+          background-image: url(img/stickers/animals/#{$current-sticker}_2.svg);
         }
       }
 
       @each $current-sticker in $sticker-nature {
         &--sticker-#{$current-sticker} {
-          background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+          background-image: url(img/stickers/nature/#{$current-sticker}_2.svg);
         }
       }
 
       @each $current-sticker in $sticker-decorations {
         &--sticker-#{$current-sticker} {
-          background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+          background-image: url(img/stickers/decorations/#{$current-sticker}_2.svg);
         }
       }
 
       @each $current-sticker in $sticker-people {
         &--sticker-#{$current-sticker} {
-          background-image: url(img/stickers/people/#{$current-sticker}.svg);
+          background-image: url(img/stickers/people/#{$current-sticker}_2.svg);
         }
       }
 
       @for $i from 1 through 29 {
         &--sticker-elf#{$i} {
-          background-image: url(img/stickers/people/elf#{$i}.svg);
+          background-image: url(img/stickers/people/elf#{$i}_2.svg);
         }
       }
 
       @each $current-sticker in $sticker-food {
         &--sticker-#{$current-sticker} {
-          background-image: url(img/stickers/food/#{$current-sticker}.svg);
+          background-image: url(img/stickers/food/#{$current-sticker}_2.svg);
         }
       }
 
       @each $current-sticker in $sticker-silly {
         &--sticker-#{$current-sticker} {
-          background-image: url(img/stickers/silly/#{$current-sticker}.svg);
+          background-image: url(img/stickers/silly/#{$current-sticker}_2.svg);
         }
       }
     }
@@ -202,49 +202,49 @@ $sticker-silly: "face-eyes-glasses1", "face-eyes-glasses2", "face-eyes-glasses3"
 
   @each $current-sticker in $sticker-animals {
     [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
-      background-image: url(img/stickers/animals/#{$current-sticker}.svg);
+      background-image: url(img/stickers/animals/#{$current-sticker}_2.svg);
       display: block;
     }
   }
 
   @each $current-sticker in $sticker-nature {
     [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
-      background-image: url(img/stickers/nature/#{$current-sticker}.svg);
+      background-image: url(img/stickers/nature/#{$current-sticker}_2.svg);
       display: block;
     }
   }
 
   @each $current-sticker in $sticker-decorations {
     [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
-      background-image: url(img/stickers/decorations/#{$current-sticker}.svg);
+      background-image: url(img/stickers/decorations/#{$current-sticker}_2.svg);
       display: block;
     }
   }
 
   @each $current-sticker in $sticker-people {
     [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
-      background-image: url(img/stickers/people/#{$current-sticker}.svg);
+      background-image: url(img/stickers/people/#{$current-sticker}_2.svg);
       display: block;
     }
   }
 
   @for $i from 1 through 29 {
     [data-tool-hover-tool="sticker-elf#{$i}"] .Tool-hover-preview--default {
-      background-image: url(img/stickers/people/elf#{$i}.svg);
+      background-image: url(img/stickers/people/elf#{$i}_2.svg);
       display: block;
     }
   }
 
   @each $current-sticker in $sticker-food {
     [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
-      background-image: url(img/stickers/food/#{$current-sticker}.svg);
+      background-image: url(img/stickers/food/#{$current-sticker}_2.svg);
       display: block;
     }
   }
 
   @each $current-sticker in $sticker-silly {
     [data-tool-hover-tool="sticker-#{$current-sticker}"] .Tool-hover-preview--default {
-      background-image: url(img/stickers/silly/#{$current-sticker}.svg);
+      background-image: url(img/stickers/silly/#{$current-sticker}_2.svg);
       display: block;
     }
   }
