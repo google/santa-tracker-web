@@ -19,6 +19,17 @@ Video scene. This scene actually doesn't contain anything: it simply instructs `
 play our video in the main viewport.
 -->
 <dom-module id="video-scene">
+<template>
+  <style>
+#preview {
+  width: 100%;
+  height: 100%;
+  background: black center no-repeat;
+  background-size: contain;
+}
+  </style>
+  <div id="preview"></div>
+</template>
 <script>
 Polymer({
   is: 'video-scene',
@@ -42,6 +53,17 @@ Polymer({
 
   onShow: function() {
     this.fire('sound-ambient', 'videoplayer_start');
+
+    // load image as video is playing, for completion
+    const image = new Image();
+    image.src = `https://img.youtube.com/vi/${this.videoId}/maxresdefault.jpg`;
+    image.onload = () => {
+      if (this.isAttached) {
+        this.$.preview.style.backgroundImage = `url(${image.src})`;
+      }
+    };
+
+    this._logVideoPlay();
   },
 
   onHide: function() {
@@ -51,6 +73,15 @@ Polymer({
   _computeVideoId: function(route) {
     return window.VIDEOS[route] || '';
   },
+
+  start: function() {
+    this.fire('video-play', this.videoId);
+    this._logVideoPlay();
+  },
+
+  _logVideoPlay: function() {
+   window.ga('send', 'event', 'video', 'play', this.route);
+ },
 
 });
 </script>

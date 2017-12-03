@@ -59,8 +59,7 @@ Santa Tracker app.
       width: 320px;
       height: 180px;
       right: 20px;
-      z-index: 1000;
-      background: blue;
+      z-index: 1;  /* above scene */
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
       border-radius: 2px;
       cursor: pointer;
@@ -607,7 +606,6 @@ Polymer({
   listeners: {
     'click': 'onClick',
     'beforeload': 'onBeforeLoad',
-    'analytics-track-event': 'trackEvent',
     'analytics-time-start': 'timeStart',
     'analytics-time-end': 'timeEnd',
     'analytics-track-game-start': 'trackGameStart',
@@ -619,6 +617,8 @@ Polymer({
     'game-stop': 'onStopGame',
     'game-score': 'onScoreGame',
     'video-load': 'onVideoLoad',
+    'video-play': 'onVideoPlay',
+    'video-done': 'onVideoDone',
     'share': 'onShare',
     'close-drawer': 'onCloseDrawer',
   },
@@ -752,6 +752,18 @@ Polymer({
     if (v.videoId !== videoId) {
       const p = v.cue(videoId);
       scene && scene.preloadPromise(p);
+    }
+  },
+
+  onVideoPlay: function(ev) {
+    this.$.video.play(ev.detail);
+  },
+
+  onVideoDone: function(ev) {
+    this.$.video.reset();
+    const ok = this.selectedScene && this.selectedScene.localName === 'video-scene';
+    if (ok) {
+      this.userPause = true;
     }
   },
 
@@ -892,6 +904,10 @@ Polymer({
 
   /** Handler for 'game-resume' event. Just unpauses. */
   onResumeGame: function() {
+    // FIXME(samthor): Hack for `video-scene.`
+    if (this.selectedScene && this.selectedScene.localName === 'video-scene') {
+      this.selectedScene.start();
+    }
     this.userPause = false;
   },
 
@@ -937,11 +953,6 @@ Polymer({
     this.debounce('_userMute', function() {
       this.fire('sound-ambient', this.userMute ? 'global_sound_off' : 'global_sound_on');
     }, 20);
-  },
-
-  trackEvent: function(e, detail) {
-    ANALYTICS.trackEvent(
-        detail.category, detail.action, detail.label, detail.value);
   },
 
   timeStart: function(e, detail) {

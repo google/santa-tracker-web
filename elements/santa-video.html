@@ -84,6 +84,7 @@ later hit "play" on. This is potentially required for mobile browsers which don'
     }
     #controls.hidden, #controls.cued {
       opacity: 0 !important;  /* prevents transitions */
+      pointer-events: none;
     }
     #controls.cued iron-icon {
       display: none !important;
@@ -104,17 +105,13 @@ later hit "play" on. This is potentially required for mobile browsers which don'
 
     #controls {
       --iron-icon-fill-color: white;
-      --iron-icon-width: 52px;
-      --iron-icon-height: 52px;
     }
     #controls:not(.playing) {
       opacity: 1;
     }
-    #controls:not(.playing) iron-icon#pause {
-      display: none;
-    }
-    #controls.playing iron-icon#play {
-      display: none;
+    paper-icon-button {
+      width: 64px;
+      height: 64px;
     }
   </style>
 
@@ -128,8 +125,8 @@ later hit "play" on. This is potentially required for mobile browsers which don'
   </div>
   <button id="overlay" on-click="_clickVideo">
     <div id="controls" class$="[[_computeOverlayClass(controls, active, playing, _cued)]]">
-      <iron-icon id="pause" icon="santa:pause"></iron-icon>
-      <iron-icon id="play" icon="santa:play"></iron-icon>
+      <paper-icon-button icon="santa:close" on-click="_dismissVideo"></paper-icon-button>
+      <paper-icon-button icon="santa:[[_computePlayPauseIcon(playing)]]"></paper-icon-button>
     </div>
   </button>
 
@@ -364,6 +361,9 @@ Polymer({
     if (!wasActive && this.active) {
       this.fire('_active', this._op, {bubbles: false});
     }
+    if (wasActive && !this.active) {
+      this.fire('video-done');
+    }
 
     this._cued = (state === 5);
   },
@@ -436,6 +436,19 @@ Polymer({
       return '';
     }
   },
+
+  _computePlayPauseIcon: function(playing) {
+    return playing ? 'pause' : 'play';
+  },
+
+  _dismissVideo: function(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    // TODO(samthor): This is a leaky abstraction. `santa-video` shouldn't care about `santa-app`.
+    this.fire('video-done');
+  },
+
 });
 
 })();
