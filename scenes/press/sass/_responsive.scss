@@ -16,8 +16,7 @@ $mobilePortraitBreakpoint: 400px;
       width: 100%;
     }
 
-    .card {
-      float: none;
+    info-card {
       margin: 0 auto 30px;
       width: calc(70% - 30px);
     }
@@ -28,16 +27,8 @@ $mobilePortraitBreakpoint: 400px;
       width: 100%;
     }
 
-    .card {
+    info-card {
       width: calc(50% - 30px) !important;
-
-      &.clear-desktop-row {
-        clear: none;
-      }
-      
-      &.clear-tablet-row {
-        clear: left;
-      }
     }
   }
 }
@@ -54,7 +45,7 @@ $mobilePortraitBreakpoint: 400px;
 
     h1 {
       font-size: 60px;
-      
+
       &::first-letter {
         font-size: 80px;
         vertical-align: middle;
@@ -82,20 +73,13 @@ $mobilePortraitBreakpoint: 400px;
       padding: 0 10px;
     }
 
-    .card {
+    info-card {
       width: calc(100% - 30px);
     }
-
-    .card-links {
-      a {
-        float: left;
-        width: 100%;
-      }
-    }   
   }
 
   #press-secondary {
-    .card {
+    info-card {
       clear: both;
       width: calc(100% - 30px) !important;
     }

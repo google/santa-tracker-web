@@ -1,14 +1,10 @@
 $name: 'module-translations';
 
 @import "../shared/sass/penner-easing";
-@import "../shared/sass/tutorial";
 @import "sass/record-player";
 @import "sass/elves";
 
 ##{$name} {
-  @include tutorial(mouse-translations, 'img/tutorial/mouse-translations.svg', 2);
-  @include tutorial(touch-translations, 'img/tutorial/touch-translations.svg', 2);
-
   position: absolute;
   bottom: 0;
   left: 0;

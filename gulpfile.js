@@ -23,7 +23,11 @@ const glob = require('glob');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const uglifyES = require('uglify-es');
+const babel = require('babel-core');
 const scripts = require('./gulp_scripts');
+const dom5 = require('dom5');
+const connect = require('connect');
+const serveStatic = require('serve-static');
 
 const fs = require('fs');
 const path = require('path');
@@ -66,7 +70,7 @@ const argv = require('yargs')
     })
     .option('scene', {
       type: 'string',
-      default: null,
+      default: '',
       describe: 'only compile JS for these scenes (e.g. scene1,scene2,scene3)',
     })
     .option('compile', {
@@ -119,14 +123,15 @@ const DIST_STATIC_DIR = argv.pretty ? PRETTY_DIR : (STATIC_DIR + '/' + argv.buil
 const SCENE_CONFIG = require('./scenes');
 const SCENE_FANOUT = Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].fanout !== false);
 
-// List of scene names to compile.
+// List of scene names to serve.
+const ARG_SCENES = argv.scene.split(',').filter((sceneName) => sceneName);
 const COMPILE_SCENES = (function() {
-  if (!argv.scene) {
+  if (!ARG_SCENES.length) {
+    // compile all scenes
     return Object.keys(SCENE_CONFIG).filter((key) => SCENE_CONFIG[key].entryPoint);
   }
   const out = [];
-  const scenes = argv.scene.split(',').filter((sceneName) => sceneName);
-  scenes.forEach((scene) => {
+  ARG_SCENES.forEach((scene) => {
     const config = SCENE_CONFIG[scene];
     if (!config) {
       throw new Error(`unknown scene: ${scene}`);
@@ -194,18 +199,11 @@ gulp.task('sass', function() {
 });
 
 gulp.task('compile-js', function() {
-  scripts.changedFlag(API_BASE_URL, 'js/.apiflag', function() {
-    try {
-      fs.unlinkSync('js/santa.min.js');
-    } catch (e) {
-      // ignored
-    }
-  });
-
   const closureBasePath = path.resolve('components/closure-library/closure/goog/base.js');
   const externs = [
     'node_modules/google-closure-compiler/contrib/externs/google_universal_analytics_api.js',
   ];
+  scripts.changedFlag('js/santa.min.js', API_BASE_URL)
   return gulp.src(JS_FILES)
     .pipe($.newer('js/santa.min.js'))
     .pipe($.closureCompiler({
@@ -271,26 +269,28 @@ gulp.task('compile-scenes', function() {
     const libraries = (config.libraries || []).map(lib => lib.replace('**/*', '**'));
     compilerSrc.push(...libraries);
 
-    // Configure prefix. In some cases (no libraries, not dist), we can skip scene compilation for
-    // more rapid development. TODO(samthor): Increase the number of skippable compiles.
-    let prefixCode = 'var global=window;';
-    let compilationLevel = 'SIMPLE_OPTIMIZATIONS';
+    // Configure prefix and compilation options. In some cases (no libraries, not dist), we can
+    // skip scene compilation for  more rapid development.
+    // This flag is written to disk (via `scripts.changedFlag`), so a change forces a recompile.
+    const prefixCode =
+        'var global=window,app=this.app;var $jscomp=this[\'$jscomp\']={global:global};';
     const mustCompile =
-        (argv.compile || libraries.length || config.closureLibrary || config.isFrame || argv.dist);
-    if (!mustCompile) {
-      // This (ab)uses Closure. Uncompiled Closure attempts to run `goog.provide` on an object
-      // namespace ("this" in our compile). However, as we're in a JS closure, we want the vars to
-      // exist as "var foo". Precreate known vars, then place it on the object namespace.
-      prefixCode += 'var app=this.app;';
-      ['SB', 'Blockly', 'Box2D'].forEach(v => prefixCode += `var ${v}={};this.${v}=${v};`);
-      compilationLevel = 'WHITESPACE_ONLY';
-    }
+        Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame || config.es2015);
 
-    const compilerFlags = addCompilerFlagOptions({
+    // If some options are appended to the config, they seem to be ignored by the
+    // options generator when invoking the Closure Compiler JAR.
+    const prependOptions = config.es2015
+        ? {
+            new_type_inf: null
+          }
+        : {};
+
+    const compilerFlags = addCompilerFlagOptions(Object.assign(prependOptions, {
       js: compilerSrc,
       externs,
+      assume_function_wrapper: true,
       closure_entry_point: config.entryPoint,
-      compilation_level: compilationLevel,
+      compilation_level: mustCompile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
       warning_level: warningLevel,
       language_in: 'ECMASCRIPT6_STRICT',
       language_out: 'ECMASCRIPT5_STRICT',
@@ -304,10 +304,9 @@ gulp.task('compile-scenes', function() {
       output_wrapper: config.isFrame ? '%output%' :
           `var scenes = scenes || {};\n` +
           `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
-          `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`
-    });
+          `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`,
+    }));
 
-    // TODO(samthor): Log the kickoff of this event.
     const compilerStream = $.closureCompiler({
       compilerPath: COMPILER_PATH,
       continueWithWarnings: true,
@@ -315,13 +314,17 @@ gulp.task('compile-scenes', function() {
       compilerFlags,
     });
 
+    const target = `${dest}/${fileName}`;
+    scripts.changedFlag(target, {mustCompile});
+
     return gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
-        .pipe($.newer(`${dest}/${fileName}`))
+        .pipe($.newer(target))
         .pipe(limit(compilerStream))
         .on('data', (file) => {
           if (file) {
             // if truthy, this is the minified output from Closure
-            gutil.log('Compiled scene', `'${gutil.colors.green(sceneName)}'`)
+            const message = mustCompile ? 'Compiled scene' : 'Fast transpiled';
+            gutil.log(message, `'${gutil.colors.green(sceneName)}'`)
           }
         })
         .pipe(gulp.dest(dest));
@@ -330,7 +333,7 @@ gulp.task('compile-scenes', function() {
   return merged;
 });
 
-gulp.task('bundle', ['sass', 'compile-js'], async function() {
+gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
   const primaryModuleName = 'elements/elements_en.html';   // index.html loads this import
   const excludes = ['elements/i18n-msg.html'];  // never include in output
   const paths = await new Promise((resolve, reject) => {
@@ -366,6 +369,27 @@ gulp.task('bundle', ['sass', 'compile-js'], async function() {
   // bundle, CSP, and do language fanout
   const limit = $.limiter(-2);
   const stream = scripts.generateModules(result, [primaryModuleName].concat(excludes))
+    .pipe(scripts.transformExternalScriptNodes(scriptNode => {
+      if (dom5.getAttribute(scriptNode, 'type') === 'module') {
+        // Removes the node:
+        return null;
+      }
+
+      const newScriptNode = dom5.cloneNode(scriptNode);
+
+      if (dom5.hasAttribute(scriptNode, 'nomodule')) {
+        dom5.removeAttribute(newScriptNode, 'nomodule');
+      }
+
+      return newScriptNode;
+    }))
+    .pipe(scripts.transformInlineScripts(script => {
+      return babel.transform(script, {
+        presets: [['es2015', {
+          modules: false
+        }]]
+      }).code;
+    }))
     .pipe($.htmlmin(HTMLMIN_OPTIONS))
     .pipe(limit(scripts.crisper()))
     .on('data', (file) => {
@@ -392,10 +416,14 @@ gulp.task('build-prod', function() {
   const entrypoints = ['index.html', 'error.html', 'upgrade.html', 'cast.html', 'embed.html'];
   const htmlStream = gulp.src(entrypoints)
     .pipe(scripts.mutateHTML.gulp(function() {
+
       if (!argv.pretty) {
         const dev = this.head.querySelector('#DEV');
+
         dev && dev.remove();
       }
+
+      scripts.insertEs5Adapter(this, staticUrl);
 
       // Fix top-level HTML/CSS imports to include static base.
       const relativeLinks = Array.from(this.head.querySelectorAll('link:not([href^="/"])'));
@@ -437,15 +465,18 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     'third_party/**',
     'sass/*.css',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur,mp4}',
-    'elements/**/img/*.{png,jpg,svg,gif}',
+    'elements/**/img/*.{png,jpg,svg,gif,mp4}',
     'components/webcomponentsjs/*.js',
-    'js/ccsender.html',
+    'components/url/*.js',
     // TODO(samthor): Better support for custom scenes (#1679).
     'scenes/snowflake/snowflake-maker/{media,third-party}/**',
+    'scenes/snowball/models/*'
   ], {base: './'})
     .pipe(gulp.dest(DIST_STATIC_DIR));
 
+  // include misc assets from the top level of santatracker
   const prodStream = gulp.src([
+    'sw-dummy.js',
     'robots.txt',
     'images/*',
     'images/og/*',
@@ -465,6 +496,11 @@ gulp.task('build-contents', ['copy-assets'], function() {
 
 // clean + build a distribution version
 gulp.task('dist', function(callback) {
+  if (!argv.compile) {
+    gutil.log(gutil.colors.red('Warning!'),
+        'Use', gutil.colors.green('--compile'), 'to build scenes for production');
+  }
+
   // nb. 'build-contents' is our leaf here, as it depends on everything else. Be careful what deps
   // you list here, because they're not part of the normal Gulp dependency chain.
   require('run-sequence')('rm-dist', 'build-contents', 'announce-dist', callback);
@@ -493,6 +529,7 @@ gulp.task('serve', ['default', 'watch'], function() {
     return next();
   };
 
+  const firstScene = ARG_SCENES[0];
   const browserSync = require('browser-sync').create();
   browserSync.init({
     files: livereloadFiles,
@@ -503,9 +540,20 @@ gulp.task('serve', ['default', 'watch'], function() {
     middleware: [fanoutHelper],
     port: argv.port,
     server: ['.'],
-    startPath: argv.scene ? `/${COMPILE_SCENES[0]}.html` : '/',
+    startPath: firstScene ? `/${firstScene}.html` : '/',
     ui: {port: argv.port + 1},
   });
+});
+
+gulp.task('serve-prod', cb => {
+  const prod = connect();
+
+  prod.use(serveStatic(PROD_DIR, { index: 'index.html' }));
+  prod.use(serveStatic(STATIC_DIR, { index: false }));
+
+  prod.listen(argv.port);
+
+  gutil.log(`Serving prod on port ${argv.port}`);
 });
 
 gulp.task('default', ['sass', 'compile-js', 'compile-scenes']);

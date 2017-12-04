@@ -1,4 +1,6 @@
 $toolbar-height: 44px;
+$mobile-width: 768px;
+$santa-color: #00c6ed;
 
 // nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
 // using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
@@ -8,12 +10,33 @@ $feature-width: 198px;
   display: block;
 }
 
-[hidden] {
+:host([mode="embed"]) #drawer,
+:host([mode="embed"]) .toolbar-icon,
+:host([mode="embed"]) .title {
   display: none !important;
 }
+:host([mode="embed"]) #buttons {
+  flex-grow: 1;
+}
 
+app-drawer {
+  --app-drawer-width: 320px;
+  --app-drawer-scrim-background: fade-out($santa-color, 0.4);
+}
 app-header {
   background-color: transparent;
+}
+
+.button-set:not(.alternate),
+#fixed-background {
+  color: var(--santa-header-color, $santa-color);
+}
+:host(.fixed) #fixed-background {
+  visibility: visible;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 #fixed-background {
@@ -30,8 +53,6 @@ app-header {
 }
 
 app-drawer {
-  z-index: 1;  // higher than sound button
-
   #main-content {
     position: relative;
     height: 100%;
@@ -47,6 +68,11 @@ app-drawer {
     font-family: 'Lobster';
     font-size: 2em;
     color: #ccc;
+    pointer-events: auto;
+
+    paper-icon-button {
+      margin-right: 6px;
+    }
   }
 }
 
@@ -109,49 +135,15 @@ app-toolbar {
     position: relative;
   }
 
-  .share {
-    padding: ($toolbar-height - 40px)/2 0;  // icon=40px, total=$toolbar-height;
-    height: 100%;
-    box-sizing: border-box;
-    display: var(--link-display, flex);
-    justify-content: flex-end;
-    font-size: 0;  // fixes alignment issues
-
-    paper-icon-button#gplus {
-      padding: 4px;
-    }
-
-    .multi {
-      display: flex;
-    }
-
-    .sep {
-      background: rgba(0,0,0,0.125);
-      width: 1px;
-      margin: 6px;
-
-      &:first-child {
-        visibility: hidden;
-      }
-    }
-  }
-  @media (max-width: 768px - 1px) {
-    .share {
-      *:not(.share-webshare) {
-        display: none;
-      }
-    }
-  }
-
   /**
-   * In the full village experience, make the left/right (.title/.share respectively) grow to the
+   * In the full village experience, make the left/right (.title/.buttons respectively) grow to the
    * same center point.
    */
-  @media (min-width: 768px) {
+  @media (min-width: $mobile-width) {
     .title {
       width: 69px - 44px;
     }
-    .feature:not([hidden]) + .share {
+    .feature:not([hidden]) + santa-buttons {
       // where there's a feature, grow the right-hand side (sharer)
       width: 69px;
       flex-grow: 1;
@@ -160,182 +152,6 @@ app-toolbar {
       // .. and the feature has a min-width set, for future scores/times etc
       min-width: $feature-width;
     }
-  }
-}
-
-
-$button-size: 45px;
-
-#buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  pointer-events: none;
-  position: fixed;
-  bottom: 0;
-  padding-bottom: 24px;
-  height: $button-size;
-  width: 100%;
-}
-
-.button-set {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-
-  button {
-    color: inherit;
-    height: $button-size;
-    width: $button-size;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 0;
-    border: 0;
-    margin: 0;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    background: currentColor;
-    border-radius: 100px;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
-    transition: transform 0.25s, visibility 0.25s;
-    transform: translate(0);
-
-    &:not([disabled]) {
-      pointer-events: auto;
-    }
-
-    &[disabled] {
-      cursor: default;
-    }
-
-    &::after, &::before {
-      width: ($button-size - 14px);
-      top: 0;
-      left: 7px;
-      height: 100%;
-      position: absolute;
-      background-position: center;
-      background-repeat: no-repeat;
-      visibility: hidden;
-    }
-
-    iron-icon {
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding: 2px;
-      height: ($button-size - 4px);
-      width: ($button-size - 4px);
-      fill: white;
-    }
-  }
-
-  &.primary {
-    left: 0;
-
-    button {
-      margin-left: 8px;
-
-      &[disabled] {
-        visibility: hidden;
-        transform: translateY(24px + 10px + $button-size);
-      }
-    }
-    button:first-child {
-      margin-left: 0;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-
-  &.alternate {
-    right: 0;
-    padding-left: $button-size;
-    color: #777;
-
-    transition: transform 0.25s ease-out, visibility 0.25s;
-
-    &.hidden {
-      transform: translate(100%);
-      visibility: hidden;
-    }
-
-    button {
-      margin-right: 8px;
-    }
-    button:last-child {
-      margin-right: 0;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
-
-  /** specific button overrides */
-
-  button#offline {
-    iron-icon {
-      left: 2px;
-      position: relative;
-      width: 33px;
-      height: 33px;
-    }
-  }
-
-  button#pause {
-    &.paused .pause,
-    &.playing .play {
-      visibility: hidden;
-    }
-  }
-
-  button#sound {
-    &::after {
-      content: '';
-      background-image: url(img/sound-on.svg);
-    }
-    &.on::after {
-      visibility: visible;
-    }
-
-    &::before {
-      content: '';
-      background-image: url(img/sound-off.svg);
-    }
-    &.off::before {
-      visibility: visible;
-    }
-  }
-
-  @media (max-width: 768px - 1px) {
-    button#add-player {
-      display: none;
-    }
-  }
-
-  button#add-player {
-    &::after {
-      content: '';
-      visibility: visible;
-      background-image: url(img/add-player.svg);
-    }
-  }
-
-  .overlay {
-    pointer-events: auto;
-    $dim: 100px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
-    color: black;
-    width: $dim;
-    height: $dim;
-    border-radius: 8px;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
-    bottom: 75px;
-    background: #eee;
   }
 }
 

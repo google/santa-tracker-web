@@ -22,7 +22,6 @@ goog.require('app.Blockly');
 goog.require('app.Constants');
 goog.require('app.Result');
 goog.require('app.Scene');
-goog.require('app.SceneTutorial');
 goog.require('app.levels');
 goog.require('app.extraLevels');
 goog.require('app.monkeypatches');
@@ -45,7 +44,6 @@ app.Game = function(elem) {
   this.successResult = new app.Result(elem.querySelector('.result--success'), this);
   this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
   this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
-  this.tutorial_ = new app.SceneTutorial(elem.querySelector('.tutorial'));
 
   this.iframeChannel = new app.shared.FrameRPC(window.parent, {
     restart: this.restart.bind(this),
@@ -54,10 +52,33 @@ app.Game = function(elem) {
 
   Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
 
-  window.addEventListener('blur', this.onBlur.bind(this));
-  window.addEventListener('focus', this.onFocus.bind(this));
+  this.dismissUnnamedTutorial = () => this.dismissTutorial();
+  document.body.addEventListener('blocklyDragBlock', this.dismissUnnamedTutorial, false);
+
+  this.onBlur = this.onBlur.bind(this);
+  this.onFocus = this.onFocus.bind(this);
+  window.addEventListener('blur', this.onBlur);
+  window.addEventListener('focus', this.onFocus);
 
   this.start();
+};
+
+/**
+ * @param {number} levelNumber
+ * @return {string}
+ */
+app.Game.prototype.tutorialForLevel_ = function(levelNumber) {
+  return 'codelab_' + (levelNumber >= 2 ? 'maze' : 'puzzle') + '.mp4';
+};
+
+/**
+ * @param {string=} name
+ */
+app.Game.prototype.dismissTutorial = function(name = undefined) {
+  if (name === undefined) {
+    name = this.tutorialForLevel_(this.levelNumber);
+  }
+  this.iframeChannel.call('dismissTutorial', name);
 };
 
 /**
@@ -65,8 +86,11 @@ app.Game = function(elem) {
  * @private
  */
 app.Game.prototype.dispose_ = function() {
+  document.body.removeEventListener('blocklyDragBlock', this.dismissUnnamedTutorial, false);
+  window.removeEventListener('blur', this.onBlur);
+  window.removeEventListener('focus', this.onFocus);
+
   window.cancelAnimationFrame(this.frameId);
-  this.tutorial_.dispose();
   this.scene.dispose();
 };
 
@@ -96,9 +120,11 @@ app.Game.prototype.bumpLevel = function() {
   this.scene.toggleVisibility(isMaze);
 
   // Show tutorial
-  if (this.levelNumber === 0 || this.levelNumber === 2) {
-    this.tutorial_.schedule();
+  const tutorials = [this.tutorialForLevel_(this.levelNumber)];
+  if (this.levelNumber === 2 && this.scene.getPortraitMode()) {
+    tutorials.unshift('codelab_tray.mp4');  // put first
   }
+  this.iframeChannel.call('showTutorial', tutorials.join(' '));
 };
 
 app.Game.prototype.onBlur = function() {

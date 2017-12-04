@@ -73,6 +73,23 @@ if (!('assign' in Object)) {
   };
 }
 
+// IE11 classList.toggle 2nd arg
+const testEl = document.createElement('div');
+testEl.classList.toggle('testClass', false);
+if (testEl.classList.contains('testClass')) {
+  const original = DOMTokenList.prototype.toggle;
+  DOMTokenList.prototype.toggle = function(name, force) {
+    if (force === undefined) {
+      return original.call(this, name);
+    } else if (force) {
+      this.add(name);
+    } else {
+      this.remove(name);
+    }
+    return this.contains(name);
+  };
+}
+
 // IE11
 if (!('sign' in Math)) {
   Math.sign = function(x) {
@@ -83,3 +100,12 @@ if (!('sign' in Math)) {
     return x > 0 ? +1 : -1;
   }
 }
+
+// prevent Shadow DOM v0 (see https://crbug.com/791400)
+Element.prototype.createShadowRoot = function() {
+  console.warn('createShadowRoot is deprecated, using v1', new Error());
+  if (this.attachShadow) {
+    return this.attachShadow({mode: 'open'});
+  }
+  throw new TypeError('no attachShadow available');
+};

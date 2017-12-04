@@ -90,13 +90,13 @@ h4 {
 
 p {
   font-size: 16px;
-  font-wight: normal;
+  font-weight: normal;
   line-height: 28px;
 }
 
 ul {
   font-size: 16px;
-  font-wight: normal;
+  font-weight: normal;
   line-height: 24px;
 }
 
@@ -214,7 +214,7 @@ ul {
     background: #9575CD;
 
     .rect {
-      background: url(img/illust-new-in2015_2x.png) 50% 50% no-repeat;
+      background: url(img/illust-new_2x.png) 50% 50% no-repeat;
       background-size: contain;
     }
   }
@@ -241,13 +241,6 @@ ul {
   p {
     min-height: 144px;
   }
-
-  .press-card-links {
-    a {
-      float: left;
-      width: 50%;
-    }
-  }
 }
 
 #press-secondary {
@@ -258,50 +251,10 @@ ul {
     margin-bottom: 25px;
   }
 
-  .press-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .press-card {
-    width: calc(33% - 30px);
-
-    .press-card-img {
-      height: 175px;
-    }
-  }
-
   .press-secondary-inner {
     margin: 0 auto;
     overflow: auto;
     width: 1010px;
-
-    .press-card-tabs {
-      padding-bottom: 50px;
-
-      button {
-        font: inherit;
-        border: none;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 20px;
-        position: relative;
-        text-transform: uppercase;
-        z-index: 1;
-        display: inline-block;
-        border-radius: 8px;
-        background: transparent;
-        color: #9575CD;
-
-        &.active {
-          background: #9575CD;
-          color: white;
-        }
-      }
-    }
   }
 }
 

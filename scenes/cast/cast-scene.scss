@@ -1,5 +1,6 @@
 
 $header-size: 720px;
+$snow-color: #f5f2e2;
 
 santa-video {
   pointer-events: none;
@@ -16,108 +17,42 @@ santa-video.active {
 }
 
 header {
-  height: $header-size;
-  background-image: url(../dorf/img/header-bg.svg);
-  background-color: #f5f2e2;
-  background-repeat: repeat-x;
-  background-position: 50% 100%;
-  background-size: 1618px 791px;
-  width: 100%;
-  text-align: center;
-
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-
-  padding-top: 90px;
-  box-sizing: border-box;
+  display: block;
   position: relative;
+  height: $header-size;
+  background: $snow-color;
+  box-shadow: 0 2px 0 $snow-color;  // cover soft svg border
 
-  .ornament {
-    background: url(../dorf/img/ornament.svg) 50% 20% no-repeat;
-    background-size: contain;
-    width: 450px;
-    height: 250px;
-    margin-top: -20px;
-    position: absolute;
-  }
-
-  countdown-timer {
-    margin: 6px 0;
-  }
-
-  .spacer {
-    height: 24px;
-  }
-
-  .google-logo {
-    width: 240px;
-    height: 40px;
-    background: url(../dorf/img/google_logo.svg) no-repeat center;
-    background-size: contain;
-    margin-bottom: 14px;
-    filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.25));
-  }
-
+  // nb. clone this from village-header as cast is never a responsive design, and the mobile-header
+  // needs to be much larger than in cast.
   &::after {
     content: '';
     position: absolute;
-    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 400px;
-    background: url(../dorf/img/mobile-header.svg) center bottom no-repeat;
-    background-size: 200%;
+    right: 0;
+    bottom: 0;
+    height: 240px;
+    background: url(../../elements/village-header/img/mobile-header.svg) center no-repeat;
+    background-size: cover;
   }
+}
+
+village-header {
+  --smallcaps-size: 15px;
+  --countdown-timer-box-size: 102px;
+  --countdown-timer-font-size: 46px;
 }
 
 main {
   // this should never appear (header-size is 720px, size of Cast) but match color just in case
-  background-color: #f5f2e2;
+  background-color: $snow-color;
   height: calc(100vh - #{$header-size});
 }
 
-.cards {
+social-cards {
   position: absolute;
   bottom: 44px;
-  box-sizing: border-box;
-  justify-content: center;
-  width: 100%;
   left: 0;
-  display: flex;
-
-  .card {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    z-index: 10;
-    width: 240px;
-    height: 180px;
-    margin: 0 12px;
-    background: black;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 2px;
-    transform-origin: bottom center;
-    opacity: 0.95;
-  }
+  width: 100%;
 }
 
-h1 {
-  margin: 6px 0;
-  font-family: 'Lobster', sans-serif;
-  font-size: 72px;
-  line-height: 54px;
-  color: white;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-  transform: rotateZ(-3deg) skew(-4deg);
-}
-
-h2 {
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: 1px;
-  font-weight: 800;
-  color: #fff;
-  margin: 0;
-  text-transform: uppercase;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-}

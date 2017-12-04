@@ -27,11 +27,12 @@ Traditions scene.
 <template>
   <style include="traditions-scene_module"></style>
 
+  <santa-maps-api></santa-maps-api>
+
   <iron-a11y-keys keys="up down left right space enter"
                   on-keys-pressed="arrowHandler"></iron-a11y-keys>
 
   <div id="module-traditions">
-    <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
     <div id="traditions-map"></div>
     <div id="tradition-img"></div>
     <div class="traditions-all" id="traditions-all">
@@ -127,103 +128,106 @@ Traditions scene.
     </div>
     <div id="lessons-popup">
       <p>K-12 teachers <span id="teacher-elf"></span> <a href$="[[urlFor('educators')]]">Download lesson plans</a> aligned with the Common Core</p>
-      </div>
     </div>
+  </div>
 </template>
 <script>
-(function() {
-  Polymer({
-    is: 'traditions-scene',
-    behaviors: [window.SantaSceneBehavior],
-    traditions: null,
-    shown: false,
+Polymer({
+  is: 'traditions-scene',
+  behaviors: [window.SantaSceneBehavior],
 
-    nextCountry: function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.traditions.nextCountry();
+  properties: {
+    traditions: {
+      type: Object,
     },
 
-    prevCountry: function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.traditions.prevCountry();
+    mapsAPIReady: {
+      type: Object,
+      value: function() {
+        return new Promise((resolve) => {
+          // Listen to the `api-load` event from `<santa-maps-api>`.
+          this.addEventListener('api-load', resolve);
+        });
+      },
     },
 
-    showWorld: function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.traditions.showWorld();
-    },
+  },
 
-    onPreload: function() {
-      this.preloadSounds('traditions_load_sounds', 30);
+  nextCountry: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.traditions && this.traditions.nextCountry();
+  },
 
-      var icons = [].slice.call(this.$['traditions-all'].children).map(function(div) {
-        return 'img/' + div.dataset['id'] + '.png';
-      });
+  prevCountry: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.traditions && this.traditions.prevCountry();
+  },
 
-      this.preloadImages([
-        'img/pins_small.png',
-        'img/traditions_icon.svg',
-        'img/pins_small_2x.png',
-        'img/right.svg',
-        'img/left.svg',
-        'img/pins_large.png',
-        'img/pins_large_2x.png',
-        'img/smallglobe.svg',
-        'img/close.svg',
-        'img/crayon-3-5.svg',
-        'img/crayon-6-8.svg',
-        'img/crayon-9-10.svg',
-        'img/crayon-k-2.svg'
-      ].concat(icons));
-    },
+  showWorld: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.traditions && this.traditions.showWorld();
+  },
 
-    mapsAPIReady: function() {
-      this.traditions = new scenes.traditions.Traditions(
-          this.$['module-traditions'], this.resolveUrl('.'));
-      if (this.shown) {
-        this.traditions.onShow();
-      }
-    },
+  onPreload: function() {
+    this.preloadSounds('traditions_load_sounds', 30);
 
-    onShow: function() {
-      this.shown = true;
-      if (this.traditions) {
-        this.traditions.onShow();
-      }
-      this.fire('sound-ambient', 'music_start_scene');
-    },
+    // don't need the stamped HTML, the template is fine
+    const template = this.constructor.template;
+    const all = template.content.getElementById('traditions-all');
+    const icons =
+        Array.prototype.slice.call(all.children).map((div) => `img/${div.dataset['id']}.png`);
 
-    onHide: function() {
-      this.shown = false;
-      if (this.traditions) {
-        this.traditions.onHide();
-      }
-    },
+    this.preloadImages([
+      'img/pins_small.png',
+      'img/traditions_icon.svg',
+      'img/pins_small_2x.png',
+      'img/right.svg',
+      'img/left.svg',
+      'img/pins_large.png',
+      'img/pins_large_2x.png',
+      'img/smallglobe.svg',
+      'img/close.svg',
+      'img/crayon-3-5.svg',
+      'img/crayon-6-8.svg',
+      'img/crayon-9-10.svg',
+      'img/crayon-k-2.svg'
+    ].concat(icons));
 
-    arrowHandler: function(e, detail) {
-      e.stopPropagation();
+    this.preloadPromise(this.mapsAPIReady);
+  },
 
-      switch (detail.key) {
-        case 'up':
-        case 'left':
-          this.prevCountry(e);
-          break;
-        case 'down':
-        case 'right':
-        case 'enter':
-          this.nextCountry(e);
-          break;
-        case 'space':
-          this.showWorld(e);
-          break;
-      }
+  onShow: function() {
+    this.traditions = new scenes.traditions.Traditions(
+        this.$['module-traditions'], this.resolveUrl('.'));
+    this.traditions.onShow();
+  },
+
+  onHide: function() {
+    this.traditions.onHide();
+  },
+
+  arrowHandler: function(e, detail) {
+    e.stopPropagation();
+
+    switch (detail.key) {
+      case 'up':
+      case 'left':
+        this.prevCountry(e);
+        break;
+      case 'down':
+      case 'right':
+      case 'enter':
+        this.nextCountry(e);
+        break;
+      case 'space':
+        this.showWorld(e);
+        break;
     }
+  }
 
-  });
-
-})();
+});
 </script>
 </dom-module>

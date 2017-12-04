@@ -24,9 +24,6 @@
  */
 
 module.exports = {
-  about: {
-    msgid: 'about-santa'
-  },
   airport: {
     msgid: 'scene_airport',
     typeSafe: false,
@@ -46,8 +43,6 @@ module.exports = {
   callfromsanta: {
     msgid: 'scene_callfromsanta',
     entryPoint: 'app.Scene'
-  },
-  clausdraws: {
   },
   citylights: {
     msgid: 'scene_citylights',
@@ -91,6 +86,10 @@ module.exports = {
     msgid: 'educators',
     dependencies: ['press']
   },
+  elfski: {
+    msgid: 'scene_elfski',
+    entryPoint: 'app.Game'
+  },
   factory: {
     msgid: 'scene_factory',
     typeSafe: false,
@@ -107,8 +106,10 @@ module.exports = {
     entryPoint: 'app.Game'
   },
   icecave: {
+    msgid: 'scene_icecave',
   },
   island: {
+    msgid: 'scene_island',
   },
   jamband: {
     msgid: 'scene_jamband',
@@ -180,6 +181,10 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Game'
   },
+  santascanvas: {
+    msgid: 'scene_canvas',
+    entryPoint: 'app.Game'
+  },
   santasearch: {
     msgid: 'scene_santasearch',
     entryPoint: 'app.Game'
@@ -196,6 +201,11 @@ module.exports = {
   smatch: {
     msgid: 'scene_giftmatch',
     entryPoint: 'app.Game'
+  },
+  snowball: {
+    msgid: 'scene_snowball',
+    entryPoint: 'scenes/snowball/js/snowball-game.js',
+    es2015: true
   },
   snowflake: {
     msgid: 'scene_postcard',
@@ -244,19 +254,20 @@ module.exports = {
   comroom: {msgid: 'scene_videoscene_comroom'},
   jingle: {msgid: 'scene_videoscene_jingle'},
   liftoff: {msgid: 'scene_videoscene_liftoff'},
+  museum: {msgid: 'scene_videoscene_museum'},
   office: {msgid: 'scene_videoscene_office'},
   reload: {msgid: 'scene_videoscene_reload'},
   santasback: {msgid: 'scene_videoscene_santasback'},
   satellite: {msgid: 'scene_videoscene_satellite'},
-  selfies: {},
-  slackingoff: {},
+  selfies: {msgid: 'scene_videoscene_selfies'},
+  slackingoff: {msgid: 'scene_videoscene_slackingoff'},
   temptation: {msgid: 'scene_videoscene_temptation'},
   tired: {msgid: 'scene_videoscene_tired'},
   trailer: {msgid: 'scene_videoscene_trailer'},
   wheressanta: {msgid: 'scene_videoscene_wheressanta'},
 
 // dummy: used for prod demos
-  
-  somebodypleasethinkofthechildren: {},
+
+  somebodypleasethinkofthechildren: {msgid: 'wrapbattle_feedback_perfect'},
 
 };

@@ -1,8 +1,10 @@
+.DS_Store
 node_modules
 bower_components
 components
 *.DS_Store
 .sass-cache
+*.swp
 dist_prod
 dist_pretty
 dist_static
@@ -10,7 +12,6 @@ sass/*.css
 scenes/**/*.css
 scenes/*/*.min.js
 js/service/*.min.js
-js/.apiflag
 elements/*/*.css
 *_module.html
 *.min.js
@@ -19,3 +20,4 @@ bin/
 nginx/
 dive/
 .devmode
+.changedFlag/

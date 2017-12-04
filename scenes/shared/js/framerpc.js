@@ -29,6 +29,7 @@ app.shared.FrameRPC = function(target, api) {
   this.api = api;
   this.buffered = [];
   this.isReady = isChild;
+  this._disposed = false;
 
   if (!!window.postMessage) {
     window.addEventListener('message', this.onReceiveMessage.bind(this), false);
@@ -46,6 +47,7 @@ app.shared.FrameRPC.prototype.dispose = function() {
   if (!!window.postMessage) {
     window.removeEventListener('message', this.onReceiveMessage, false);
   }
+  this._disposed = true;
 };
 
 /**
@@ -57,8 +59,12 @@ app.shared.FrameRPC.prototype.dispose = function() {
 app.shared.FrameRPC.prototype.call = function(methodName, args) {
   var message = {
     method: methodName,
-    args: Array.prototype.slice.call(arguments, 1)
+    args: Array.prototype.slice.call(arguments, 1),
   };
+
+  if (this._disposed) {
+    throw new Error('FrameRPC use after dispose: ' + methodName)
+  }
 
   if (this.isReady) {
     this.targetWindow.postMessage(message, '*');

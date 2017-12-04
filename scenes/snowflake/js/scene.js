@@ -26,28 +26,32 @@ goog.require('app.shared.ShareOverlay');
 /**
  * Main scene class.
  * @param {!Element} elem The scene element.
+ * @param {!Object<string, string>} strings
  * @constructor
  * @export
  */
-app.Scene = function(elem) {
+app.Scene = function(elem, strings) {
   this.elem = $(elem);
 
   this.bgsTrackElem = this.elem.find('.bgs-left, .bgs-right');
   this.bgsLogoElem = this.elem.find('.picker .bgs .logo');
-  this.background = new app.Slider(this.elem.find('.message .bgs'), {
+
+  const bgElement = /** @type {!Element} */ (elem.querySelector('.message .bgs'));
+  this.background = new app.Slider(bgElement, {
     max: app.Constants.BACKGROUND_COUNT,
     size: app.Constants.SCREEN_WIDTH,
     horizontal: true,
-    changed: this.bgsChanged_.bind(this)
+    changed: this.bgsChanged_.bind(this),
   });
 
-  this.picker = new app.Picker(this);
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright',
-    'keys-leftright', 'spacenav-leftright');
+  this.picker = new app.Picker(this, strings);
+  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-leftright keys-leftright spacenav-leftright');
   this.controls = new app.Controls(this);
   this.drawSnowflakes();
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
   this.elem.find('#shareButton').on('click.snowflake touchend.snowflake', this.showShareOverlay.bind(this));
+
+  this.blocks = '';
 };
 
 app.Scene.prototype.startTutorial = function() {
@@ -91,6 +95,7 @@ app.Scene.prototype.bgsChanged_ = function(selected, pos) {
  */
 app.Scene.prototype.dispose = function() {
   this.tutorial.dispose();
+  this.controls.dispose();
 };
 
 /**

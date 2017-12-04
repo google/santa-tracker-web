@@ -18,6 +18,8 @@ goog.require('Box2D');
 
 goog.provide('b2');
 
+var b2 = {};  // work around Closure-inside-a-closure use in Santa Tracker
+
 /**
  * "shortcuts" to used Box2D classes.
  */

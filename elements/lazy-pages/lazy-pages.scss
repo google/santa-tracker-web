@@ -1,31 +1,39 @@
 :host {
+  // for reasons, we *usually* don't want this to make a layer
   position: static;
   display: block;
 }
 
-:host ::slotted(*) {
+#preload {
+  display: none;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#scene > * {
   position: absolute;
   top: 44px;
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;  /* explicitly only needed for iOS */
-}
-:host ::slotted([allow-page-scrolling]) {
-  top: 0;
-  bottom: auto;
-  overflow: auto;
-}
-:host ::slotted(*:focus) {
-  outline: none;
-}
-:host ::slotted(*:not([active])) {
-  display: none !important;
+  overflow: hidden;  // only needed for iOS
+  z-index: 0;  // gives the scene its own stacking context
+
+  &[allow-page-scrolling] {
+    top: 0;
+    bottom: auto;
+    overflow: auto;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[preload] {
+    display: none !important;
+  }
 }
 
-[hidden] {
-  display: none !important;
-}
 #error {
   position: absolute;
   top: 0;
@@ -48,10 +56,13 @@
   &:not(.error-locked) .icon::before {
     display: none;
   }
-  &:not(.error-network) p.error {
+  &:not(.error-error) p.error {
     display: none;
   }
-  &:not(.missing) p.missing {
+  &:not(.error-network) p.network {
+    display: none;
+  }
+  &:not(.error-missing) p.missing {
     display: none;
   }
 }

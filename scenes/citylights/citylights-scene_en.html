@@ -13,7 +13,6 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-<link rel="import" href="../../js/webanimations.html">
 <link rel="import" href="../../elements/santa-maps-api.html">
 
 <script src="citylights-scene.min.js"></script>
@@ -27,12 +26,13 @@ City lights scene.
 <template>
   <style include="citylights-scene_module"></style>
 
+  <santa-maps-api></santa-maps-api>
+
   <iron-a11y-keys keys="left right"
                   on-keys-pressed="keyHandler"></iron-a11y-keys>
 
   <div id="module-citylights">
     <div class="scene">
-      <santa-maps-api on-api-load="mapsAPIReady"></santa-maps-api>
       <div class="dashboard">
         <div class="dashboard__screens js-index-container">
           <figure data-panoid="RTKw3G42DE0AAAQZExAuvQ" data-heading="218" data-pitch="14" class="js-screen"><img/>
@@ -160,31 +160,30 @@ City lights scene.
     is: 'citylights-scene',
     behaviors: [window.SantaSceneBehavior],
 
-    scene: null,
-
-    showOnMapsReady: false,
-
-    mapsReady: false,
+    properties: {
+      scene: {
+        type: Object,
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('citylights_load_sounds', 30);
       this.preloadImages([
         'img/logo.svg',
         'img/screen-illustrations.png',
-        'img/screen-grids.png'
+        'img/screen-grids.png',
       ]);
+
+      this.preloadPromise(new Promise(function(resolve) {
+        // Listen to the `api-load` event from `<santa-maps-api>`.
+        this.addEventListener('api-load', resolve);
+      }.bind(this)));
     },
 
     onShow: function() {
-      if (!this.mapsReady) {
-        this.showOnMapsReady = true;
-      } else {
-        this.fire('sound-ambient', 'citylights_start');
-        this.fire('sound-ambient', 'music_start_scene');
-        var div = this.$['module-citylights'];
-
-        this.scene = new scenes.citylights.Scene(div);
-      }
+      this.fire('sound-ambient', 'citylights_start');
+      this.fire('sound-ambient', 'music_start_scene');
+      this.scene = new scenes.citylights.Scene(this.$['module-citylights']);
     },
 
     onHide: function() {
@@ -193,14 +192,10 @@ City lights scene.
       this.fire('sound-ambient', 'citylights_end');
     },
 
-    mapsAPIReady: function() {
-      this.mapsReady = true;
-      if (this.showOnMapsReady) {
-        this.onShow();
-      }
-    },
-
     keyHandler: function(e, detail) {
+      if (!this.scene) {
+        return;
+      }
       e.stopPropagation();
       switch (detail.key) {
         case 'left':

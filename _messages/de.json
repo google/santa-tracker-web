@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Google Maps aufrufen"
 	},
+	"getready": {
+		"message": "Gleich geht's los!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Übungsmodus"
+	},
 	"press": {
 		"message": "Presseinhalte"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Das ist Folgendes: {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "oder"
+	},
+	"quickdraw-machine-see": {
+		"message": "Ich sehe"
+	},
+	"quickdraw-newround-button": {
+		"message": "Start"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ich kann das leider nicht erkennen."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Sorry"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Schwer zu erraten!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor findet auch, dass deine Zeichnung eher so aussieht:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Woher weiß Tensor, wie der gesuchte Begriff \"{{thing}}\" aussieht?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Der Roboter lernt, indem er sich diese Beispielzeichnungen anderer Personen ansieht."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor findet, dass deine Zeichnung eher so aussieht:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Das ist die Version des Weihnachtsmanns für den Begriff \"{{thing}}\"."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Du solltest den Begriff \"{{thing}}\" zeichnen."
+	},
+	"quickdraw-slate": {
+		"message": "Zeichnen"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor ist der Roboter des Weihnachtsmanns. Er lernt fortlaufend dazu und hilft dem Weihnachtsmann dabei, die Briefe von Kindern aus aller Welt zu verstehen – und mit deiner Hilfe wird der Roboter immer besser! Male dazu die festlichen Begriffe, die auf dem Bildschirm stehen. Tensor sagt dir dann, was er sieht. Je mehr du zeichnest, desto intelligenter wird der Roboter. Wenn wir ihm alle helfen, kann der Weihnachtsmann seine Geschenke dieses Jahr bestimmt noch schneller als sonst ausliefern."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hilf Tensor dabei, Zeichnungen noch besser zu erkennen."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor hat {{recognized}} deiner Zeichnungen richtig erkannt."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor hat eine deiner Zeichnungen erkannt."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor hat keine deiner Zeichnungen richtig erkannt."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Gut gemacht!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Hoppla!"
 	},
 	"ro_country_name": {
 		"message": "Rumänien"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Anruf vom Weihnachtsmann"
 	},
+	"scene_canvas": {
+		"message": "Die Leinwand des Weihnachtsmanns"
+	},
 	"scene_citylights": {
 		"message": "Lichter der Stadt"
+	},
+	"scene_clausdraws": {
+		"message": "Zeichnen mit dem Weihnachtsmann"
 	},
 	"scene_codeboogie": {
 		"message": "Code-Boogie"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Pinguin gib Acht"
 	},
+	"scene_elfski": {
+		"message": "Wichtel auf der Piste"
+	},
 	"scene_factory": {
 		"message": "Süßigkeitenfabrik"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Lolli-Flipper"
+	},
+	"scene_icecave": {
+		"message": "Eishöhle"
+	},
+	"scene_island": {
+		"message": "Insel"
 	},
 	"scene_jamband": {
 		"message": "Wichtel-Wunschkonzert"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Bescherung"
 	},
+	"scene_quickdraw": {
+		"message": "Schnelles Zeichnen"
+	},
 	"scene_racer": {
 		"message": "Rudolfs Rennen"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Zeit des Gebens"
+	},
+	"scene_snowball": {
+		"message": "Schneeballsturm"
+	},
+	"scene_speedsketch": {
+		"message": "Frostmaler"
 	},
 	"scene_streetview": {
 		"message": "Straßenperspektive"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Abflug des Weihnachtsmanns"
 	},
+	"scene_videoscene_museum": {
+		"message": "Ein Tag im Museum"
+	},
 	"scene_videoscene_office": {
 		"message": "Bürostreich"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies vom Weihnachtsmann"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Faulenzen"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Versuchung"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Erwischt!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} von {{total}} Wichteln verbleiben"
+	},
+	"snowball_spectate": {
+		"message": "Zusehen"
+	},
+	"snowball_waiting": {
+		"message": "Wir warten auf weitere Wichtel, die mitspielen"
 	},
 	"snowflake_choose_background": {
 		"message": "Such einen Hintergrund aus"
@@ -2466,7 +2580,7 @@
 		"message": "Brasilien"
 	},
 	"trivia_beginner_082_answer1": {
-		"message": "Vereinigtes Königreich"
+		"message": "Großbritannien"
 	},
 	"trivia_beginner_082_answer2": {
 		"message": "Vietnam"
@@ -2805,7 +2919,7 @@
 		"message": "Dänemark"
 	},
 	"trivia_hard_013_answer2": {
-		"message": "Vereinigtes Königreich"
+		"message": "Großbritannien"
 	},
 	"trivia_hard_014": {
 		"message": "Welches Land liegt nicht am Schwarzen Meer?"
@@ -3069,7 +3183,7 @@
 		"message": "Türkei"
 	},
 	"trivia_hard_035_answer2": {
-		"message": "Vereinigtes Königreich"
+		"message": "Großbritannien"
 	},
 	"trivia_hard_036": {
 		"message": "Welche Wüste nimmt den Großteil der Fläche zwischen Peking und Ulaanbaatar ein?"
@@ -4290,7 +4404,7 @@
 		"message": "Norwegen"
 	},
 	"trivia_medium_032_answer1": {
-		"message": "Vereinigtes Königreich"
+		"message": "Großbritannien"
 	},
 	"trivia_medium_032_answer2": {
 		"message": "Sri Lanka"
@@ -4554,7 +4668,7 @@
 		"message": "Island"
 	},
 	"trivia_medium_054_answer1": {
-		"message": "Vereinigtes Königreich"
+		"message": "Großbritannien"
 	},
 	"trivia_medium_054_answer2": {
 		"message": "Polen"
@@ -5127,7 +5241,7 @@
 		"message": "Uganda"
 	},
 	"uk_country_name": {
-		"message": "Vereinigtes Königreich"
+		"message": "Großbritannien"
 	},
 	"uk_tradition": {
 		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug und Süßigkeiten für den Weihnachtsabend aus."
@@ -5151,7 +5265,7 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Komm am 24. wieder und hefte dich gemeinsam mit uns die ganze Nacht an die Fersen des Weihnachtsmanns!"
+		"message": "Komm am 24. wieder und verfolge gemeinsam mit uns die ganze Nacht die Spur des Weihnachtsmanns!"
 	},
 	"village_explore": {
 		"message": "Entdecke, spiele und lerne den ganzen Dezember lang gemeinsam mit den Wichteln des Weihnachtsmanns"
@@ -5161,6 +5275,9 @@
 	},
 	"village_more": {
 		"message": "Mehr entdecken"
+	},
+	"village_santa_a2hs": {
+		"message": "Zum Startbildschirm hinzufügen"
 	},
 	"village_santa_cardboard": {
 		"message": "Mit Google Cardboard den Weihnachtsmann suchen"
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Höchste Punktzahl"
 	},
 	"zh-CN_language_name": {
 		"message": "Chinesisch (vereinfacht)"

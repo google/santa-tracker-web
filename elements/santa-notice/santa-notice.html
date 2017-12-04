@@ -48,10 +48,10 @@ specific language governing permissions and limitations under the License.
   }
   .button {
     text-decoration: none;
-    min-width: 80px;
+    min-width: 72px;
     display: inline-block;
     margin: 8px;
-    padding: 6px;
+    padding: 6px 12px;
     border-radius: 2px;
     border: 2px solid transparent;
     background: rgba(255, 255, 255, 0.25);
@@ -82,7 +82,7 @@ specific language governing permissions and limitations under the License.
 window.santaService.addListener('sync', function cb() {
   window.santaService.removeListener('sync', cb);
 
-  var KEY = 'cookie-ok';
+  const KEY = 'cookie-ok';
   if (!window.santaService.getUserInEurope() || window.localStorage.getItem(KEY)) {
     return;  // never declare Polymer element
   }

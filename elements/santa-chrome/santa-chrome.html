@@ -27,6 +27,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/app-layout/app-header-layout/app-header-layout.html">
 
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../santa-buttons/santa-buttons.html">
 <link rel="import" href="../santa-icons.html">
 <link rel="import" href="../santa-state.html">
 <link rel="import" href="santa-chrome_module.html">
@@ -34,22 +35,11 @@ specific language governing permissions and limitations under the License.
 <dom-module id="santa-chrome">
 <template>
   <style include="santa-chrome_module">
-    :host([mode="embed"]) #drawer,
-    :host([mode="embed"]) .share,
-    :host([mode="embed"]) .toolbar-icon,
-    :host([mode="embed"]) .title,
-    :host([mode="embed"]) #sound  {
-      display: none !important;
-    }
-
     app-drawer {
-      --app-drawer-width: 320px;
-      --app-drawer-scrim-background: rgba(48,203,236,0.6);
       --app-drawer-content-container: {
         box-shadow: 2px 0 0 rgba(0,0,0,0.125);
       };
     }
-
     app-header {
       --app-header-background-rear-layer: {
         background-color: var(--santa-header-color, rgb(48,203,236));
@@ -59,20 +49,14 @@ specific language governing permissions and limitations under the License.
         box-shadow: 0 2px 0 rgba(0,0,0,0.25);
       };
     }
-    .button-set:not(.alternate), #fixed-background {
-      color: var(--santa-header-color, rgb(48,203,236));
-    }
-    :host(.fixed) #fixed-background {
-      visibility: visible;
-    }
   </style>
   <santa-state offline="{{_offline}}"></santa-state>
 
-  <app-drawer-layout fullbleed force-narrow>
+  <app-drawer-layout fullbleed force-narrow on-click="_maybeCloseButtons">
     <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
       <div class="drawer-content">
-        <app-toolbar class="close-sidebar" on-tap="closeDrawer" tabindex="0">
-          <iron-icon icon="santa:close"></iron-icon>
+        <app-toolbar class="close-sidebar" on-tap="closeDrawer">
+          <paper-icon-button icon="santa:close"></paper-icon-button>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
         </app-toolbar>
         <slot name="drawer"></slot>
@@ -95,12 +79,10 @@ specific language governing permissions and limitations under the License.
           <div class="feature">
             <slot name="feature"></slot>
           </div>
-          <div class="share" on-tap="_onShare">
-            <template is="dom-repeat" items="[[shareOptions]]">
-              <div class$="sep share-[[item]]"></div>
-              <paper-icon-button id$="[[item]]" icon$="santa:share-[[item]]" class$="share-[[item]]"></paper-icon-button>
-            </template>
-          </div>
+          <santa-buttons id="buttons"
+              has-game-buttons="[[hasGameButtons]]"
+              mute="{{mute}}"
+              pause="{{pause}}"></santa-buttons>
         </app-toolbar>
       </app-header>
 
@@ -110,32 +92,6 @@ specific language governing permissions and limitations under the License.
 
     </app-header-layout>
   </app-drawer-layout>
-
-  <section id="buttons">
-    <div class="button-set primary" hidden$="[[disabled]]">
-      <button id="sound" on-click="_toggleSounds"
-              class$="[[_computeTernary(mute, 'off', 'on')]]"></button>
-      <button id="pause" disabled$="[[!hasGameButtons]]" on-click="_togglePause"
-              class$="[[_computeTernary(pause, 'paused', 'playing')]]">
-        <iron-icon class="pause" icon="santa:pause"></iron-icon>
-        <iron-icon class="play" icon="santa:play"></iron-icon>
-      </button>
-    </div>
-
-    <div class="button-set">
-      <div class="overlay" id="add-player-overlay" hidden$="[[_addPlayerOverlayHidden]]">
-        <h1>[[socketId]]</h1>
-        <h2>[[clients]]<h2>
-      </div>
-      <button id="add-player" on-click="_onAddPlayerClick"></button>
-    </div>
-
-    <div class$="button-set alternate [[_computeTernary(_offline, '', 'hidden')]]">
-      <button id="offline" disabled>
-        <iron-icon icon="santa:offline"></iron-icon>
-      </button>
-    </div>
-  </section>
 
 </template>
 <script>
@@ -150,6 +106,14 @@ specific language governing permissions and limitations under the License.
     properties: {
 
       /**
+       * Whether the top-right buttons are visible.
+       */
+      _buttonsOpen: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
        * Whether the current scene has 'game buttons', reset and pause.
        */
       hasGameButtons: {
@@ -162,8 +126,8 @@ specific language governing permissions and limitations under the License.
        */
       mute: {
         type: Boolean,
-        value: function() { return !!window.DEV; },
-        notify: true
+        value: () => !!window.DEV,
+        notify: true,
       },
 
       /**
@@ -172,7 +136,7 @@ specific language governing permissions and limitations under the License.
       pause: {
         type: Boolean,
         value: false,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -180,36 +144,22 @@ specific language governing permissions and limitations under the License.
        */
       _drawerOpened: {
         type: Boolean,
-        observer: '_drawerOpenedChanged'
-      },
-
-      /**
-       * Whether the add player overlay is hidden.
-       */
-      _addPlayerOverlayHidden: {
-        type: Boolean,
-        value: true,
+        observer: '_drawerOpenedChanged',
       },
 
       /**
        * Whether to disable this `santa-chrome` completely, effectively hiding
        * its contents. Used by cast.
        */
-      disabled: Boolean,
+      disabled: {
+        type: Boolean,
+      },
 
       /** Sharing options available. */
-      shareOptions: Array,
+      shareOptions: {
+        type: Array,
+      },
 
-      /** The optional socketId to show as part of the Add Player UI. */
-      socketId: Number,
-
-      /** The client IDs to show as part of the Add Player UI. */
-      clients: Object,
-
-    },
-
-    _computeTernary: function(arg, yesVal, noVal) {
-      return arg ? yesVal : noVal;
     },
 
     /**
@@ -217,8 +167,7 @@ specific language governing permissions and limitations under the License.
      * @return {boolean} true if the drawer was closed
      */
     closeDrawer: function() {
-      var wasClosed = this.$.drawer.opened;
-
+      const wasClosed = this.$.drawer.opened;
       this.$.drawer.close();
       window.santaApp.focus();
       return wasClosed;
@@ -230,37 +179,15 @@ specific language governing permissions and limitations under the License.
       }
     },
 
-    _onShare: function(ev) {
-      window.ga('send', 'event', 'nav', 'click', 'share');
-      var p = ev.target.closest('paper-icon-button');
-      if (p) {
+    _maybeCloseButtons: function(ev) {
+      if (this.$.buttons.close()) {
         ev.preventDefault();
-        this.fire('share', {network: p.id});
+        ev.stopPropagation();
       }
-    },
-
-    _toggleSounds: function(ev) {
-      ev.stopPropagation();
-      this.mute = !this.mute;
-      window.ga('send', 'event', 'nav', 'click', this.mute ? 'mute' : 'unmute');
-    },
-
-    _togglePause: function(ev) {
-      ev.stopPropagation();
-      this.pause = !this.pause;
-      window.ga('send', 'event', 'nav', 'click', this.pause ? 'pause' : 'play');
     },
 
     _onTitleClick: function() {
       window.ga('send', 'event', 'nav', 'click', 'title');
-    },
-
-    _onAddPlayerClick: function(ev) {
-      this._addPlayerOverlayHidden = !this._addPlayerOverlayHidden;
-      if (this._addPlayerOverlayHidden) {
-        return;
-      }
-      this.fire('request-host');
     },
 
   });

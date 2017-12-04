@@ -27,7 +27,7 @@ specific language governing permissions and limitations under the License.
   <style include="santa-sidebar_module"></style>
 
   <santa-strings strings="{{_strings}}"></santa-strings>
-  <santa-state language="{{_language}}" during-tracker="{{_duringTracker}}"></santa-state>
+  <santa-state language="{{_language}}" during-tracker="{{_duringTracker}}" holiday-season="{{_holidaySeason}}"></santa-state>
 
   <div class="cards">
     <a href$="[[urlFor('village')]]">
@@ -53,9 +53,6 @@ specific language governing permissions and limitations under the License.
 
   <div class="links">
     <ul>
-      <li><a href$="[[urlFor('about')]]">
-        <i18n-msg msgid="about-santa">PLACEHOLDER_i18n</i18n-msg>
-      </a></li>
       <li><a href$="[[urlFor('press')]]">
         <i18n-msg msgid="press">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
@@ -71,6 +68,7 @@ specific language governing permissions and limitations under the License.
       <option value="af">Afrikaans</option>
       <option value="ca">Català</option>
       <option value="zh-CN">中文 (简体)</option>
+      <option value="zh-HK">中文 (香港)</option>
       <option value="zh-TW">中文 (繁體)</option>
       <option value="da">Dansk</option>
       <option value="de">Deutsch</option>
@@ -112,10 +110,21 @@ specific language governing permissions and limitations under the License.
       <i18n-msg msgid="village_more">PLACEHOLDER_i18n</i18n-msg>
     </h2>
     <ul>
-      <li><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
+      <li hidden$="[[!a2hsAvailable]]"><a on-click="_onA2HSClick">
+        <div hidden$="[[!onAndroid]]"]>
+          <i18n-msg msgid="village_santa_a2hs">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+        <div hidden$="[[!onChromeOS]]"]>
+          <i18n-msg msgid="village_santa_a2hs_chromeos">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+        <div hidden$="[[!onOtherPlatform]]"]>
+          <i18n-msg msgid="village_santa_a2hs_desktop">PLACEHOLDER_i18n</i18n-msg>
+        </div>
+      </a></li>
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
-      <li><a target="_blank" href$="[[localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')]]">
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')]]">
         <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
       <li><a target="_blank" href$="[[localizeUrl('https://www.google.com/policies/')]]">
@@ -135,7 +144,7 @@ Polymer({
     window.SantaAppBehavior,
   ],
 
-  properites: {
+  properties: {
 
     /**
      * The house unlocked today, by ID.
@@ -143,6 +152,26 @@ Polymer({
     todayHouse: {
       type: String,
       value: '',
+    },
+
+    a2hsAvailable: {
+      type: Boolean,
+      value: false,
+    },
+
+    onAndroid: {
+      type: Boolean,
+      value: false,
+    },
+
+    onChromeOS: {
+      type: Boolean,
+      value: false,
+    },
+
+    onOtherPlatform: {
+      type: Boolean,
+      value: false,
     },
 
   },
@@ -171,6 +200,12 @@ Polymer({
     window.ga('send', 'event', 'nav', 'click', 'language');
   },
 
+  _onA2HSClick: function() {
+    this.a2hsevent.prompt();
+    this.a2hsAvailable = false;
+    this.fire('close-drawer');
+  },
+
   /**
    * Changes the site URL to set a new language. Preference the /intl/xx/ form (xx_ALL for dev).
    */
@@ -183,6 +218,25 @@ Polymer({
     window.location = window.location.origin + pathname + window.location.hash;
   },
 
+  handleBeforeInstallPrompt: function(e) {
+    e.preventDefault();
+    this.a2hsevent = e;
+    this.a2hsAvailable = true;
+  },
+
+  ready: function() {
+    this.onAndroid = navigator.userAgent.match(/Android/i);
+    this.onChromeOS = navigator.userAgent.match(/CrOS/i);
+    this.onOtherPlatform = !this.onAndroid && !this.onChromeOS;
+  },
+
+  attached: function() {
+    this.listen(window, 'beforeinstallprompt', 'handleBeforeInstallPrompt');
+  },
+
+  detached: function() {
+    this.unlisten(window, 'beforeinstallprompt', 'handleBeforeInstallPrompt');
+  },
 
 });
 </script>

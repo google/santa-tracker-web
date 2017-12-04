@@ -1,0 +1,101 @@
+$tutorial-width: 275px;
+$tutorial-height: 270px;
+$shadow-offset: 16px;
+
+video {
+  display: none;
+}
+
+#outer {
+  pointer-events: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -(floor($tutorial-width / 2));  // show on whole pixels only
+  margin-top: -(floor($tutorial-height / 2));
+  width: $tutorial-width;
+  height: $tutorial-height;
+}
+#tutorial {
+  display: block;
+  width: $tutorial-width;
+  height: $tutorial-height;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  transition: opacity 0.125s;
+  opacity: 0.95;
+  background: transparent;
+
+  &:focus {
+    opacity: 0.7;
+    outline: none;
+  }
+
+  &::after {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    border-radius: 10000px;
+    position: absolute;
+
+    // TODO(samthor): Firefox doesn't respect 'auto' inside 'none' (doesn't matter if it's on a
+    // psuedo-element).
+    pointer-events: auto;  // make the mid circle clickable
+  }
+}
+
+img#shadow {
+  position: absolute;
+  top: $shadow-offset;
+  left: 0;
+  width: inherit;
+  opacity: 0.15;
+  z-index: -100;
+}
+
+#holder {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+img#image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-start;
+  height: $tutorial-height;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $tutorial-width;
+  height: $tutorial-height;
+}
+
+// generate tutorial-steps-N, where it moves -275px each time
+@for $i from 2 through 6 {
+  @keyframes tutorial-steps-#{$i} {
+    $part: (100 / $i);
+
+    @for $j from 0 through ($i - 1) {
+      #{$j * $part}% {
+        transform: translateX(-($j * $tutorial-width));
+      }
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  img.steps-#{$i} {
+    animation-name: tutorial-steps-#{$i};
+    animation-duration: $i * 500ms;
+  }
+}

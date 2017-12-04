@@ -292,7 +292,6 @@ app.world.Level = class {
   toggleBeltTutorial_() {
     if (!this.hasFirstBeltDropped) {
       this.hasFirstBeltDropped = true;
-      window.setTimeout(() => { this.tutorial.show_('conveyor-switch') }, 500);
     }
   }
 
@@ -361,6 +360,8 @@ app.world.Level = class {
    * @public
    */
   dropBall() {
+    this.tutorial.off('presentbounce_go.mp4');
+
     ++this.attempt_;
     const randomInt = this.randomIntFromInterval(0, 3);
 
@@ -455,13 +456,11 @@ app.world.Level = class {
   onInteraction() {
     if (!this.hasInteractionStarted) {
       this.hasInteractionStarted = true;
-      this.tutorial.off('device-tilt');
-      this.tutorial.off('drag-and-drop');
+      this.tutorial.off('presentbounce_drag.mp4');
     }
-    if (this.hasFirstBeltDropped /* && !this.hasBeltInteractionStarted */) {
+    if (this.hasFirstBeltDropped && !this.hasBeltInteractionStarted) {
       this.hasBeltInteractionStarted = true;
-      this.tutorial.hide_();
-      this.tutorial.off('conveyor-switch');
+      this.tutorial.off('presentbounce_conveyor.mp4');
     }
   }
 

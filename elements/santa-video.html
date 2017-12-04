@@ -21,6 +21,10 @@ specific language governing permissions and limitations under the License.
 Video element that wraps up the YouTube API. This is more lightweight than the <google-youtube>
 element, and does not support e.g. queuing or other mechanics. It hides/disables the default
 YouTube API as much as possible.
+
+This is used via an imperative API, rather than a delcarative "youtube-id" attribute. Call
+`.play(videoId)` to immediately play a video, and `.cue(videoId)` to set up a video for the user to
+later hit "play" on. This is potentially required for mobile browsers which don't allow autoplay.
 -->
 <dom-module id="santa-video">
 <template>
@@ -30,6 +34,7 @@ YouTube API as much as possible.
       position: relative;
       width: 100%;
       height: 100%;
+      background: black;
     }
     #holder, #player {
       width: 100%;
@@ -38,12 +43,28 @@ YouTube API as much as possible.
     #holder {
       overflow: hidden;
       pointer-events: none;
-      background: black;
+      background: var(--santa-video-background, #21a34a);
+      border-radius: inherit;
     }
-    #holder.hidden {
+    #holder[hidden] {
+      display: initial !important;
       visibility: hidden;
     }
+
     #overlay {
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #controls {
       z-index: 10;
       background: rgba(33, 33, 33, 0.125);
       opacity: 0;
@@ -58,52 +79,56 @@ YouTube API as much as possible.
       align-items: center;
       justify-content: center;
     }
-    #overlay.hidden {
+    #controls.hidden {
       visibility: hidden;
-      opacity: 0;  /* prevents transitions */
     }
-    #overlay:hover {
-      opacity: 1;
+    #controls.hidden, #controls.cued {
+      opacity: 0 !important;  /* prevents transitions */
+      pointer-events: none;
     }
-    #overlay button {
-      cursor: pointer;
-      border: 0;
-      background: transparent;
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      margin: 0;
+    #controls.cued iron-icon {
+      display: none !important;
     }
-    /* TODO(samthor): Better focus handler for buttons */
 
-    #overlay {
+    /* only show hover where.. hover is supported—stops touch device emulating hover */
+    /* TODO(samthor): Could we leverage :active on the button to do something useful */
+    @media (hover: hover) {
+      #controls:hover {
+        opacity: 1;
+      }
+    }
+    @media not (hover: hover) {
+      iron-icon#pause {
+        visibility: hidden;
+      }
+    }
+
+    #controls {
       --iron-icon-fill-color: white;
-      --iron-icon-width: 52px;
-      --iron-icon-height: 52px;
     }
-    #overlay:not(.playing) {
+    #controls:not(.playing) {
       opacity: 1;
     }
-    #overlay:not(.playing) iron-icon#pause {
-      display: none;
+    paper-icon-button {
+      width: 64px;
+      height: 64px;
     }
-    #overlay.playing iron-icon#play {
-      display: none;
-    }
-
   </style>
 
-  <google-youtube-api on-api-load="_apiLoad" id="loader"></google-youtube-api>
+  <!-- nb. use restamp to cause recreation when detached/attached -->
+  <template is="dom-if" if="[[_anyVideoLoaded]]" restamp>
+    <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
+  </template>
 
-  <div id="holder" class$="[[_computeHolderClass(active)]]">
+  <div id="holder" hidden$="[[!active]]">
     <div id="player" tabindex="-1"></div>
   </div>
-  <div id="overlay" class$="[[_computeOverlayClass(controls, videoId, preload, playing)]]">
-    <button on-click="_clickVideo">
-      <iron-icon id="pause" icon="santa:pause"></iron-icon>
-      <iron-icon id="play" icon="santa:play"></iron-icon>
-    </button>
-  </div>
+  <button id="overlay" on-click="_clickVideo">
+    <div id="controls" class$="[[_computeOverlayClass(controls, active, playing, _cued)]]">
+      <paper-icon-button icon="santa:close" on-click="_dismissVideo"></paper-icon-button>
+      <paper-icon-button icon="santa:[[_computePlayPauseIcon(playing)]]"></paper-icon-button>
+    </div>
+  </button>
 
 </template>
 <script>
@@ -111,6 +136,9 @@ YouTube API as much as possible.
 
 // nb. YouTube player states are documented here:
 //   https://developers.google.com/youtube/iframe_api_reference#Playback_status
+
+// TODO(samthor): Preview images (similar to old -banner.jpg images) are here:
+//   https://img.youtube.com/vi/VIDEOID/maxresdefault.jpg
 
 function isPlayingState(state) {
   return state === 1 || state === 3;
@@ -122,16 +150,8 @@ Polymer({
   properties: {
 
     /**
-     * The optional YouTube video ID to play. Blank clears/stops the video.
-     */
-    videoId: {
-      type: String,
-      value: '',
-    },
-
-    /**
-     * Whether this video is currently playing. This is true if playing forward normally, or
-     * buffering. It will be false if the video is finished (and setting to true will restart).
+     * Controls and notifies whether this video is playing (as opposed to paused), if loaded
+     * (this is ignored if no video is configured with `.load()` or `.cue()`).
      */
     playing: {
       type: Boolean,
@@ -150,29 +170,61 @@ Polymer({
     },
 
     /**
-     * Whether to show the play/pause controls and allow click input.
+     * Whether the player itself has started. This is a subset of `active`.
+     */
+    started: {
+      type: Boolean,
+      readOnly: true,
+      notify: true,
+      value: false,
+    },
+
+    /**
+     * Whether to show the play/pause controls (`santa-video` is always clickable to play/pause).
      */
     controls: {
       type: Boolean,
-      value: true,
+      value: false,
     },
 
     /**
-     * Whether this player is preloading.
+     * The ID of the video being played. This is changed via the imperative API.
      */
-    preload: {
-      type: Boolean,
+    videoId: {
+      type: String,
       readOnly: true,
-      value: true,
+      notify: true,
+      value: null,
     },
 
     /**
-     * Holds the global YouTube API object.
+     * Whether to mute the video being played.
+     */
+    mute: {
+      type: Boolean,
+      value: false,
+    },
+
+    /**
+     * The current active operation.
+     */
+    _op: {
+      type: Object,
+    },
+
+    /**
+     * Holds the global YouTube API object. Set via the _apiLoad method callback.
      */
     _api: {
       type: Object,
-      readOnly: true,
-      observer: '_preparePlayer',
+    },
+
+    /**
+     * Whether any video has been loaded. Controls loading the internal `google-youtube-api`.
+     */
+    _anyVideoLoaded: {
+      type: Boolean,
+      value: false,
     },
 
     /**
@@ -180,40 +232,72 @@ Polymer({
      */
     _player: {
       type: Object,
-      readOnly: true,
+      observer: '_onPlayerChange',
+    },
+
+    /**
+     * Whether the YouTube player is currently cued.
+     */
+    _cued: {
+      type: Boolean,
+      value: false,
     },
 
   },
 
   observers: [
-    '_changeVideo(_player, videoId)',
-    '_updatePlaying(_player, playing)',
+    '_preparePlayer(_player, _op)',
+    '_updatePlaying(active, playing)',
+    '_updateMute(_player, mute)',
   ],
 
-  _apiLoad: function() {
-    this._set_api(this.$.loader.api);
+  detached: function() {
+    this.reset();  // nb. call first, to clear _op before player
+
+    this._anyVideoLoaded = false;
+    this._player = null;
+    this._api = null;
   },
 
-  _youtubeStateChange: function(state) {
-    if (state >= 5) {
-      return;  // ignore cued
-    }
-    if (state === 3 && this.preload) {
-      // don't clear preload, this is the immediate buffer
-    } else {
-      this._setPreload(state === -1);
-    }
-
-    this.playing = isPlayingState(state);
-
-    if (state === 0 || !this.videoId) {
-      this._setActive(false);  // if done or no video, hide
-    } else if (state >= 1 && !this.preload) {
-      this._setActive(true);  // if playing/buffering/etc, show
-    }
+  /**
+   * Loads and plays the specified YouTube video.
+   */
+  play: function(videoId) {
+    this._anyVideoLoaded = true;
+    this._op = {id: videoId, cue: false};
   },
 
-  _preparePlayer: function() {
+  /**
+   * Cues the specified YouTube video. Shows a preview image and waits for 'normal' user
+   * interaction, which is probably required for iOS/other mobile interfaces.
+   */
+  cue: function(videoId) {
+    this._anyVideoLoaded = true;
+    const op = this._op = {id: videoId, cue: true};
+
+    // TODO(samthor): This might not always resolve.
+    return new Promise((resolve, reject) => {
+      this.addEventListener('_active', function handler(ev) {
+        this.removeEventListener('_active', handler);
+        ev.detail === op ? resolve() : reject('op changed');
+      });
+    });
+  },
+
+  /**
+   * Resets this `<santa-video>` to its initial state, not playing a video whatsoever. This does
+   * _not_ destroy the internal YouTube API.
+   */
+  reset: function() {
+    this._op = null;
+  },
+
+  _apiLoad: function(ev) {
+    if (this._api === ev.target.api) {
+      return;
+    }
+    this._api = ev.target.api;
+
     const vars = {
       playsinline: 1,
       cc_load_policy: 1,
@@ -232,39 +316,91 @@ Polymer({
       height: '100%',
       playerVars: vars,
       events: {
-        onReady: function(ev) {
-          this._set_player(player);
-        }.bind(this),
-        onStateChange: function(ev) {
+        onReady: (ev) => {
+          this._player = player;
+        },
+        onStateChange: (ev) => {
           this._youtubeStateChange(ev.data);
-        }.bind(this),
-        onError: function(ev) {
-          if (!this.videoId) {
-            return;  // not an error
+        },
+        onError: (ev) => {
+          if (this._hasVideoUrl) {
+            this.fire('youtube-error', ev);
           }
-          this.fire('youtube-error', ev);
-        }.bind(this),
+        },
       },
     });
     // don't save player: wait for onReady to be called
   },
 
-  _changeVideo: function(player, videoId) {
+  get _hasVideoUrl() {
+    if (!this._player) {
+      return false;
+    }
+    return this._player.getVideoUrl().indexOf('?v=') !== -1;
+  },
+
+  _youtubeStateChange: function(state) {
+    const wasActive = this.active;
+
+    if (state === 3 && !this.active) {
+      // do nothing: we're preloading
+    } else if (isPlayingState(state)) {
+      // playing or paused
+      this._setActive(true);
+      this._setStarted(true);
+    } else if (state === 5) {
+      // cued
+      this._setActive(true);
+    } else if (state === 0) {
+      // done
+      this._op = null;
+      this._setActive(false);
+      this._setStarted(false);
+    }
+
+    if (!wasActive && this.active) {
+      this.fire('_active', this._op, {bubbles: false});
+    }
+    if (wasActive && !this.active) {
+      this.fire('video-done');
+    }
+
+    this._cued = (state === 5);
+  },
+
+  _onPlayerChange: function(newValue, oldValue) {
+    oldValue && oldValue.destroy();
+  },
+
+  _preparePlayer: function(player, op) {
     if (!player) { return; }
 
-    if (videoId) {
-      player.loadVideoById(videoId);
-    } else {
-      // Aggressively hide, as YouTube goes into an error state for a blank videoId.
-      this._setActive(false);
+    if (this.isAttached) {
       player.nextVideo();
       player.loadVideoById();
     }
+    this._setActive(false);
+    this._setStarted(false);
+
+    if (!op || !this.isAttached) {
+      this._setVideoId(null);
+      this.playing = false;
+      return; // nothing else to do
+    }
+
+    if (op.cue) {
+      player.cueVideoById(op.id);
+    } else {
+      player.loadVideoById(op.id);
+    }
+    this.playing = !op.cue;
+    this._setVideoId(op.id);
   },
 
-  _updatePlaying: function(player, playing) {
-    if (!player) { return; }
+  _updatePlaying: function(active, playing) {
+    if (!active) { return; }
 
+    const player = this._player;  // if active==true, we must have a player
     const playerIsPlaying = isPlayingState(player.getPlayerState());
     if (playing === playerIsPlaying) {
       // do nothing
@@ -275,14 +411,25 @@ Polymer({
     }
   },
 
-  _computeHolderClass: function(active) {
-    return active ? '' : 'hidden';
+  _updateMute: function(player, mute) {
+    if (!player) { return; }
+
+    if (mute) {
+      player.mute();
+    } else {
+      player.unMute();
+    }
   },
 
-  _computeOverlayClass: function(controls, videoId, preload, playing) {
-    const showControls = controls && videoId && !preload;
-    if (!showControls) {
+  _clickVideo: function() {
+    this.playing = !this.playing;
+  },
+
+  _computeOverlayClass: function(controls, active, playing, cued) {
+    if (!active) {
       return 'hidden';
+    } else if (cued || !controls) {
+      return 'cued';  // no controls piggybacks on cued
     } else if (playing) {
       return 'playing';
     } else {
@@ -290,9 +437,18 @@ Polymer({
     }
   },
 
-  _clickVideo: function() {
-    this.playing = !this.playing;
+  _computePlayPauseIcon: function(playing) {
+    return playing ? 'pause' : 'play';
   },
+
+  _dismissVideo: function(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    // TODO(samthor): This is a leaky abstraction. `santa-video` shouldn't care about `santa-app`.
+    this.fire('video-done');
+  },
+
 });
 
 })();

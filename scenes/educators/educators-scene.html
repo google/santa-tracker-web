@@ -15,7 +15,10 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="educators-scene_module.html">
 
-<script src="../press/press-scene.min.js"></script>
+<link rel="import" href="../../elements/infopages/info-card.html">
+<link rel="import" href="../../elements/infopages/info-chooser.html">
+
+<link rel="import" href="../press/models.html">
 
 <dom-module id="educators-scene">
 <template>
@@ -43,33 +46,18 @@ specific language governing permissions and limitations under the License.
     <div id="educators-secondary">
       <div class="educators-secondary-inner">
         <h2>Games for the classroom</h2>
-        <div class="educators-card-tabs" on-click="_onFilterClick">
-          <button class$="[[_computeActive(filter, 'education')]]" data-filter="education">View All</button>
-          <button class$="[[_computeActive(filter, 'geography')]]" data-filter="geography">Geography</button>
-          <button class$="[[_computeActive(filter, 'computerscience')]]" data-filter="computerscience">Computer Science</button>
-          <button class$="[[_computeActive(filter, 'language')]]" data-filter="language">Language</button>
-          <button class$="[[_computeActive(filter, 'socialstudies')]]" data-filter="socialstudies">Social Studies</button>
-        </div>
 
-        <div class="educators-card-container">
+        <info-chooser choices="geography computerscience language socialstudies">
           <template is="dom-repeat" items="[[cards]]" as="card">
-            <div class="card" data-locked$="[[card.locked]]" hidden$="[[_computeHidden(filter, card.filter)]]">
-              <a href$="[[_computeUnlockedUrlFor(card.key, card.locked)]]">
-                <div class="card-img" style$="[[_computeCardBackgroundStyle(card.key)]]">
-                  <div class="card-lock">
-                    <span class="card-unlock">Unlocks December</span>
-                    <span class="card-unlock-day">[[card.opens]]<span>[[_computeOrd(card.opens)]]</span></span>
-                  </div>
-                </div>
-              </a>
-              <div class="card-info">
-                <h4>[[card.title]]</h4>
-                <span>Opens December [[card.opens]] • [[card.type]]</span>
-                <p>[[card.description]]</p>
-              </div>
-            </div>
+            <info-card filter$="[[card.filter]]"
+                image="[[_computeInfoCardImage(card.key)]]"
+                type="[[card.type]]"
+                href="[[urlFor(card.key)]]">
+              <div slot="title">[[card.title]]</div>
+              <p>[[card.description]]</p>
+            </info-card>
           </template>
-        </div>
+        </info-chooser>
       </div>
     </div>
 
@@ -77,61 +65,51 @@ specific language governing permissions and limitations under the License.
       <h2>Lesson plans</h2>
       <p class="educators-primary-intro">Light the way for your students with activity ideas, teaching tips, and discussion questions for some of our favorite Santa Tracker games.</p>
       <div class="educators-primary-inner">
-        <div class="card">
-          <div class="card-img" style$="background-image: url([[importPath]]img/lesson-plan-traditions.png)"></div>
-          <div class="card-info">
-            <h4>Christmas traditions around the world</h4>
-            <p>
-              Students will be able to compare, contrast, and reflect upon Christmas traditions in different countries.
-            </p>
-            <div class="card-links">
-              <span class="card-title">Aligned with Common Core standards</span>
-              <a data-id="traditions_k-2" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_K-2.pdf" class="card-dl" target="_blank">Grades K-2 <span>(PDF file)</span></a>
-              <a data-id="traditions_3-5" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_3-5.pdf" class="card-dl" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
-              <a data-id="traditions_6-8" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_6-8.pdf" class="card-dl" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
-              <a data-id="traditions_9-10" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_9-10.pdf" class="card-dl" target="_blank">Grades 9-10 <span>(PDF file)</span></a>
-            </div>
+
+        <info-card image="[[importPath]]img/lesson-plan-traditions.png">
+          <div slot="title">Christmas traditions around the world</div>
+          <p>
+            Students will be able to compare, contrast, and reflect upon Christmas traditions in different countries.
+          </p>
+          <div class="card-links">
+            <span class="card-title">Aligned with Common Core standards</span>
+            <a data-id="traditions_k-2" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank">Grades K-2 <span>(PDF file)</span></a>
+            <a data-id="traditions_3-5" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
+            <a data-id="traditions_6-8" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
+            <a data-id="traditions_9-10" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank">Grades 9-10 <span>(PDF file)</span></a>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-img" style$="background-image: url([[importPath]]img/lesson-plan-code.png)"></div>
-          <div class="card-info">
-            <h4>Practice coding with Santa's elves</h4>
-            <p>
-              Students will learn how to move elves and make snowflakes with code, experimenting with sequences and loops.
-            </p>
-            <div class="card-links">
-              <span class="card-title">Aligned with ISTE standards</span>
-              <a data-id="coding_k-2" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Lab-Grades_K-2.pdf" class="card-dl" target="_blank">Grades K-2: Code Lab <span>(PDF file)</span></a>
-              <a data-id="coding_3-5" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Boogie-Grades_3-5.pdf" class="card-dl" target="_blank">Grades 3-5: Code Boogie <span>(PDF file)</span></a>
-              <a data-id="coding_6-8" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Snowflake-Grades_6-8.pdf" class="card-dl" target="_blank">Grades 6-8: Code a Snowflake <span>(PDF file)</span></a>
-            </div>
+        </info-card>
+
+        <info-card image="[[importPath]]img/lesson-plan-code.png">
+          <div slot="title">Practice coding with Santa's elves</div>
+          <p>
+            Students will learn how to move elves and make snowflakes with code, experimenting with sequences and loops.
+          </p>
+          <div class="card-links">
+            <span class="card-title">Aligned with ISTE standards</span>
+            <a data-id="coding_k-2" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Lab-Grades_K-2.pdf" target="_blank">Grades K-2: Code Lab <span>(PDF file)</span></a>
+            <a data-id="coding_3-5" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Boogie-Grades_3-5.pdf" target="_blank">Grades 3-5: Code Boogie <span>(PDF file)</span></a>
+            <a data-id="coding_6-8" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Snowflake-Grades_6-8.pdf" target="_blank">Grades 6-8: Code a Snowflake <span>(PDF file)</span></a>
           </div>
-        </div>
+        </info-card>
       </div>
     </div>
 
     <div id="educators-secondary">
       <div class="educators-secondary-inner">
-        <h2 hidden>Coding resources</h2>
 
         <div class="educators-card-container center">
-          <div class="card">
-            <div class="card-img" style$="background-image: url([[importPath]]img/coding.png)">
+          <info-card image="[[importPath]]img/coding.png">
+            <div slot="title">Coding resources</div>
+            <p>Learn more about Computer Science through these free, online coding resources.</p>
+            <div class="card-links">
+              <span class="card-title">Links</span>
+              <a href="https://www.cs-first.com/content/2016-hour-code-teachers" class="card-link" target="_blank">Google's Official Hour of Code Activity</a>
+              <a href="https://www.cs-first.com/en/home" class="card-link" target="_blank">CS First</a>
+              <a href="https://madewithcode.com" class="card-link" target="_blank">Made with Code</a>
+              <a href="https://scratch.mit.edu/go" class="card-link" target="_blank">Scratch</a>
             </div>
-            <div class="card-info">
-              <h4>Coding resources</h4>
-              <p>Learn more about Computer Science through these free, online coding resources.</p>
-              <div class="card-links">
-                <span class="card-title">Links</span>
-                <a href="https://www.cs-first.com/content/2016-hour-code-teachers" class="card-link" target="_blank">Google's Official Hour of Code Activity</a>
-                <a href="https://www.cs-first.com/en/home" class="card-link" target="_blank">CS First</a>
-                <a href="https://madewithcode.com" class="card-link" target="_blank">Made with Code</a>
-                <a href="https://scratch.mit.edu/go" class="card-link" target="_blank">Scratch</a>
-              </div>
-
-            </div>
-          </div>
+          </info-card>
         </div>
       </div>
     </div>
@@ -150,13 +128,13 @@ specific language governing permissions and limitations under the License.
         <div class="tile">
           <div class="image" style$="background-image: url([[importPath]]img/logo-donors-choose.png)"></div>
           <h4>DonorsChoose.org</h4>
-          <p>Founded in 2000 by a Bronx history teacher, DonorsChoose.org has raised over US$480m for America's classrooms. Teachers come to DonorsChoose.org to request the materials and experiences they need for their classrooms.</p>
+          <p>Founded in 2000 by a Bronx history teacher, DonorsChoose.org has raised over half-a-billion dollars for America's classrooms. Teachers at three-quarters of the public schools in the U.S. have come to DonorsChoose.org to request what their students need to learn.</p>
           <a href="https://donorschoose.org">Learn More</a>
         </div>
         <div class="tile">
           <div class="image" style$="background-image: url([[importPath]]img/logo-storyweaver.png)"></div>
           <h4>Pratham Books</h4>
-          <p>Close to 40% of the global population does not have access to education in a language they speak or understand. StoryWeaver hopes to change that by helping educators, writers and translators create joyful, supplementary reading resources for children.</p>
+          <p>Close to 40% of the global population does not have access to education in a language they speak or understand. StoryWeaver hopes to change that by helping educators, writers and translators create joyful supplementary reading resources for children in over 100 languages of the world.</p>
           <a href="https://storyweaver.org.in/prathambooks">Learn More</a>
         </div>
         <div class="tile">
@@ -168,14 +146,14 @@ specific language governing permissions and limitations under the License.
         <div class="tile">
           <div class="image" style$="background-image: url([[importPath]]img/logo-lwb.png)"></div>
           <h4>Libraries Without Borders</h4>
-          <p>Libraries Without Borders (LWB) is a leading international NGO in culture-based development founded in 2007, headquartered in Paris. They have built more than 300 libraries around the world.</p>
+          <p>Libraries Without Borders (LWB) is a leading international NGO in culture-based development. With innovative projects around libraries, LWB allows more than 2 million people to develop creative energies and build new livelihood skills.</p>
           <a href="https://librarieswithoutborders.org">Learn More</a>
         </div>
         <div class="tile">
           <div class="image" style$="background-image: url([[importPath]]img/logo-scratch.png)"></div>
           <h4>Scratch Foundation</h4>
-          <p>Scratch is the world's largest free coding platform for kids. Millions of kids create and share interactive projects in the Scratch Online Community. It is used around the world to engage young people in thinking creatively, reasoning systematically, and working collaboratively.</p>
-          <a href="https://www.scratchfoundation.org">Learn More</a>
+          <p>Scratch is the world's largest free coding platform for kids. Millions of kids create and share interactive projects in the Scratch Online Community. It was developed by the MIT Media Lab to engage young people in thinking creatively, reasoning systematically, and working collaboratively.</p>
+          <a href="https://scratch.mit.edu/tips">Learn More</a>
         </div>
       </div>
 
@@ -190,10 +168,6 @@ specific language governing permissions and limitations under the License.
   </div>
 </template>
 <script>
-// Note! The educators page is a copy of the press page, made in late 2016. It shares various
-// resources, including the JS itself (to provide the model). Future engineers may want to merge
-// its logic/display code with the press page.
-
   Polymer({
     is: 'educators-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -201,10 +175,6 @@ specific language governing permissions and limitations under the License.
     properties: {
       scene: Object,
       cards: Array,
-      filter: {
-        type: String,
-        value: 'education',
-      },
     },
 
     onPreload: function() {
@@ -223,7 +193,9 @@ specific language governing permissions and limitations under the License.
       ]);
     },
 
-    ready: function() {
+    onShow: function() {
+      const spaceRe = /\s+/;
+
       this.scene = new scenes.press.Scene();
       this.cards = this.scene.getModels(function(key) {
         var locked = santaApp.sceneIsOpen(key) === false;
@@ -231,59 +203,25 @@ specific language governing permissions and limitations under the License.
           locked = true;
         }
         return locked;
+      }).filter(function(card) {
+        // pre-filter to education cards only
+        return card.filter.split(spaceRe).indexOf('education') !== -1;
       });
     },
 
-    _computeHidden: function(filter, card) {
-      if (!filter) {
-        return false;
-      }
-      var parts = card.split(' ');
-      return parts.indexOf(filter) === -1;
-    },
-
-    _onFilterClick: function(ev) {
-      var filter = ev.target.dataset['filter'];
-      if (filter !== undefined) {
-        this.filter = filter;
-      }
-    },
-
-    _computeActive: function(a, b) {
-      return a === b ? 'active' : '';
-    },
-
-    _computeOrd: function(n) {
-      var off = +n % 10;
-      if (off === 1) {
-        return 'st';
-      } else if (off === 2) {
-        return 'nd';
-      } else if (off === 3) {
-        return 'rd';
-      } else {
-        return 'th';
-      }
-    },
-
-    _computeUnlockedUrlFor: function(scene, locked) {
-      if (locked) {
+    _computeInfoCardImage: function(sceneName) {
+      if (!sceneName) {
         return null;
       }
-      return this.urlFor(scene);
-    },
-
-    _computeCardBackgroundStyle: function(sceneName) {
-      if (sceneName) {
-        var url = this.resolveUrl('../../images/scenes/' + sceneName + '_2x.png');
-        return 'background-image: url(' + url + ')';
-      }
-      return null;
+      return this.resolveUrl('../../images/scenes/' + sceneName + '_2x.png');
     },
 
     _trackLessonPlan: function(e, detail) {
-      var a = e.target.closest('a[href]');
-      var label = a.getAttribute('data-id');
+      var link = e.target.closest('a[href]');
+      if (!link) {
+        return;
+      }
+      var label = link.getAttribute('data-id');
       window.ga('send', 'event', 'lessonPlanDownload', 'click', label);
     },
 

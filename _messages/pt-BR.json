@@ -42,7 +42,7 @@
 		"message": "Austrália"
 	},
 	"au_tradition": {
-		"message": "A localização no Hemisfério Sul faz com que o mês de dezembro na Austrália seja de verão. Em vez de sinos do trenó e chocolate, muitos australianos vão para a praia comemorar as festas de final de ano com camarão no almoço e algumas rodadas de críquete."
+		"message": "Como a Austrália está no Hemisfério Sul, é verão no mês de dezembro. Em vez de tocar sinos e consumir chocolate, muitos australianos vão para a praia comemorar as festas de final de ano com camarão no almoço e algumas rodadas de críquete."
 	},
 	"ba_country_name": {
 		"message": "Bósnia e Herzegovina"
@@ -75,7 +75,7 @@
 		"message": "Brasil"
 	},
 	"br_tradition": {
-		"message": "As comemorações do Natal começam perto da meia-noite, geralmente, com grandes jantares de família, abertura de presentes e a celebração da \"Missa do Galo\" nas igrejas. Apesar do clima de verão tropical quente, temas de inverno e neve não são incomuns."
+		"message": "As comemorações do Natal começam perto da meia-noite, geralmente, com grandes jantares de família, abertura de presentes e a celebração da \"Missa do Galo\" nas igrejas. Apesar do clima quente do verão tropical, decorações de inverno e neve não são incomuns."
 	},
 	"bt_country_name": {
 		"message": "Butão"
@@ -93,10 +93,10 @@
 		"message": "Canadá"
 	},
 	"ca_tradition": {
-		"message": "As crianças canadenses celebram um Natal com neve. Elas usam lenços e toques, uma espécie de touca de lã, para brincar e deslizar na neve e patinar no gelo. Na véspera de Natal, elas deixam leite e biscoitos ao lado da lareira para o Papai Noel (e, às vezes, uma cenoura para suas renas)."
+		"message": "As crianças canadenses celebram um Natal com neve. Elas usam cachecóis e toucas para brincar, deslizar na neve e patinar no gelo. Na véspera de Natal, elas deixam leite e biscoitos ao lado da lareira para o Papai Noel (e, às vezes, uma cenoura para as renas)."
 	},
 	"calendar": {
-		"message": "Agenda"
+		"message": "Calendário"
 	},
 	"category_code": {
 		"message": "Código"
@@ -291,7 +291,7 @@
 		"message": "Dê um passo à direita."
 	},
 	"codeboogie-block-shake": {
-		"message": "Balanço quadril"
+		"message": "Quadril"
 	},
 	"codeboogie-block-shake-tooltip": {
 		"message": "Balance o quadril."
@@ -330,7 +330,7 @@
 		"message": "Dança livre"
 	},
 	"codeboogie-mode-freestyle-description": {
-		"message": "Crie seus próprios passos e compartilhe com amigos"
+		"message": "Crie seus passos e compartilhe com os amigos"
 	},
 	"codeboogie-next-dance": {
 		"message": "Próxima dança"
@@ -438,7 +438,7 @@
 		"message": "Parece que você se perdeu."
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "Tente usar um ou mais dos blocos abaixo para concluir o jogo."
+		"message": "Tente usar um ou mais dos blocos mostrados para concluir o jogo."
 	},
 	"codelab-result-missing-block-success": {
 		"message": "Você sabia que é possível concluir este nível com apenas {{ideal}} blocos? Tente usar o bloco abaixo."
@@ -459,7 +459,7 @@
 		"message": "Copie este link para compartilhar sua mensagem"
 	},
 	"copy-me-short": {
-		"message": "Copiar URL p/ compartilhar"
+		"message": "Copie para compartilhar"
 	},
 	"countdown_days": {
 		"message": "Dias"
@@ -616,6 +616,9 @@
 	},
 	"getgooglemaps": {
 		"message": "Fazer o download do Google Maps"
+	},
+	"getready": {
+		"message": "Prepare-se!"
 	},
 	"gh_country_name": {
 		"message": "Gana"
@@ -867,7 +870,7 @@
 		"message": "Professores e estudantes"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® é uma organização sem fins lucrativos dedicada a expandir o acesso à ciência da computação e aumentar a participação feminina e de alunos cuja raça tenha pouca representatividade. A visão da Code.org® é a de que todos os estudantes em todas as escolas deveriam ter a oportunidade de aprender ciência da computação."
+		"message": "Code.org® é uma organização sem fins lucrativos dedicada a expandir o acesso à ciência da computação e aumentar a participação feminina e de alunos cuja etnia tenha pouca representatividade. A visão da Code.org® é a de que todos os estudantes em todas as escolas deveriam ter a oportunidade de aprender ciência da computação."
 	},
 	"nonprofit-code-type": {
 		"message": "Ciência da computação"
@@ -891,7 +894,7 @@
 		"message": "Compartilhe sua arte com a família e os amigos para que eles também participem."
 	},
 	"nonprofit-intro-type": {
-		"message": "Fizemos uma parceria com o Google.org para apresentar cinco organizações educacionais sem fins lucrativos, que celebram a alegria de presentear o ano todo. Role para baixo e saiba mais sobre o trabalho de cada uma delas. Você também pode apoiá-las: basta colorir esta coleção de enfeites para pendurar na árvore ou dar de presente."
+		"message": "Em parceria com o Google.org, apresentamos cinco organizações educacionais sem fins lucrativos, que celebram a alegria de presentear o ano todo. Role para baixo e saiba mais sobre o trabalho de cada uma delas. Você também pode apoiá-las: basta colorir esta coleção de enfeites para pendurar na árvore ou dar de presente."
 	},
 	"nonprofit-jane-description": {
 		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore o habitat dos chimpanzés\u003c/a\u003e em Gombe, Tanzânia."
@@ -921,7 +924,7 @@
 		"message": "Florestas"
 	},
 	"nonprofit-pratham-description": {
-		"message": "Quase 40% da população mundial não tem acesso a educação no idioma que fala ou entende. O StoryWeaver espera mudar esse cenário ajudando educadores, escritores e tradutores a criar recursos de leitura complementar divertidos para crianças."
+		"message": "Quase 40% da população mundial não tem acesso a educação no idioma que fala ou entende. A StoryWeaver espera mudar esse cenário ajudando educadores, escritores e tradutores a criar recursos de leitura complementar divertidos para crianças."
 	},
 	"nonprofit-pratham-type": {
 		"message": "Leitura"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"practice": {
+		"message": "Treinar"
+	},
 	"press": {
 		"message": "Imprensa"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguai"
+	},
+	"quickdraw-machine-know": {
+		"message": "Já sei! É {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": ","
+	},
+	"quickdraw-machine-see": {
+		"message": "Eu vejo"
+	},
+	"quickdraw-newround-button": {
+		"message": "Iniciar"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Não sei bem o que é isso."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Desculpe"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Não adivinhei!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "O robô Tensor também acha que seu desenho parece com estes:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Como o robô Tensor sabe que a resposta é {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Ele aprendeu depois de ver esses desenhos de outras pessoas."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "O robô Tensor acha que seu desenho parece mais com estes aqui:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Esse é o desenho de {{thing}} feito pelo Papai Noel."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Desenhe: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Desenhar"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor é o robô de aprendizado de máquina do Papai Noel. Ele ajuda a decifrar as cartas que o bom velhinho recebe das crianças do mundo todo. Ajude o Tensor a praticar: desenhe os itens que aparecem na tela, e ele dirá o que vê. Quanto mais você desenhar, mais inteligente o Tensor ficará. Está pronto para ajudar o Papai Noel a ser mais eficiente do que nunca nesta época de festas?"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ajude o robô Tensor a reconhecer melhor as imagens."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "O robô Tensor reconheceu {{recognized}} dos seus desenhos."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "O robô Tensor reconheceu um dos seus desenhos."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "O robô Tensor não reconheceu nenhum dos seus desenhos."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Parabéns!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ops!"
 	},
 	"ro_country_name": {
 		"message": "Romênia"
@@ -1145,11 +1214,17 @@
 	"scene_callfromsanta": {
 		"message": "Ligação do Papai Noel"
 	},
+	"scene_canvas": {
+		"message": "Tela do Papai Noel"
+	},
 	"scene_citylights": {
 		"message": "Luzes da cidade"
 	},
+	"scene_clausdraws": {
+		"message": "Desenhe com o Papai Noel"
+	},
 	"scene_codeboogie": {
-		"message": "Dança de códigos"
+		"message": "Dança dos códigos"
 	},
 	"scene_codelab": {
 		"message": "Laboratório de códigos"
@@ -1159,6 +1234,9 @@
 	},
 	"scene_dash": {
 		"message": "Corrida do pinguim"
+	},
+	"scene_elfski": {
+		"message": "Esqui de duendes"
 	},
 	"scene_factory": {
 		"message": "Fábrica de doces"
@@ -1170,7 +1248,13 @@
 		"message": "Duende paraquedista"
 	},
 	"scene_gumball": {
-		"message": "Ladeira de bolas de chiclete"
+		"message": "Ladeira dos chicletes"
+	},
+	"scene_icecave": {
+		"message": "Caverna de gelo"
+	},
+	"scene_island": {
+		"message": "Ilha"
 	},
 	"scene_jamband": {
 		"message": "Banda dos duendes"
@@ -1182,7 +1266,7 @@
 		"message": "Entrega de presentes"
 	},
 	"scene_matching": {
-		"message": "Jogo de memória"
+		"message": "Jogo da memória"
 	},
 	"scene_mercator": {
 		"message": "Teste do mapa"
@@ -1191,13 +1275,16 @@
 		"message": "Parquinho do Polo Norte"
 	},
 	"scene_postcard": {
-		"message": "Criar um floco de neve"
+		"message": "Crie um floco de neve"
 	},
 	"scene_presentbounce": {
 		"message": "Pula-pula de presentes"
 	},
 	"scene_presentdrop": {
 		"message": "Entrega de presentes"
+	},
+	"scene_quickdraw": {
+		"message": "Rápido, desenhe!"
 	},
 	"scene_racer": {
 		"message": "Corrida do Rodolfo"
@@ -1218,7 +1305,13 @@
 		"message": "Tempo de ajudar"
 	},
 	"scene_seasonofgiving": {
-		"message": "Tempo de generosidade"
+		"message": "Época de bondade"
+	},
+	"scene_snowball": {
+		"message": "Batalha de bolas de neve"
+	},
+	"scene_speedsketch": {
+		"message": "Desenho rápido"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -1236,7 +1329,7 @@
 		"message": "Submarino"
 	},
 	"scene_videoscene_carpool": {
-		"message": "Carro de duendes"
+		"message": "Carro dos duendes"
 	},
 	"scene_videoscene_comroom": {
 		"message": "Sala de comando"
@@ -1246,6 +1339,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "Decolagem do Papai Noel"
+	},
+	"scene_videoscene_museum": {
+		"message": "Um dia no museu"
 	},
 	"scene_videoscene_office": {
 		"message": "Pegadinha no escritório"
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satélite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies do Papai Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Empurrando com a barriga"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentação"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Fica frio aí!"
+	},
+	"snowball_remaining": {
+		"message": "Faltam {{remaining}} de {{total}} duendes"
+	},
+	"snowball_spectate": {
+		"message": "Assistir"
+	},
+	"snowball_waiting": {
+		"message": "Esperando mais duendes do Papai Noel"
 	},
 	"snowflake_choose_background": {
 		"message": "Escolha um cenário"
@@ -5151,7 +5265,7 @@
 		"message": "Venezuela"
 	},
 	"village_comeback": {
-		"message": "Volte no dia 24 e ajude a acompanhar o Papai Noel a noite toda."
+		"message": "Volte no dia 24 e acompanhe o Papai Noel a noite toda."
 	},
 	"village_explore": {
 		"message": "Explore, brinque e aprenda com os duendes do Papai Noel durante todo o mês de dezembro."
@@ -5161,6 +5275,9 @@
 	},
 	"village_more": {
 		"message": "Encontre mais formas de explorar"
+	},
+	"village_santa_a2hs": {
+		"message": "Adicionar à tela inicial"
 	},
 	"village_santa_cardboard": {
 		"message": "Papai Noel no Cardboard"
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Iêmen"
+	},
+	"yourbest": {
+		"message": "Melhor pontuação"
 	},
 	"zh-CN_language_name": {
 		"message": "Chinês (simplificado)"

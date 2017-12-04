@@ -1,0 +1,320 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+
+<script src="elfski-scene.min.js"></script>
+
+<!--
+Elf Ski scene.
+-->
+<dom-module id="elfski-scene">
+<template>
+  <style>
+
+#mountain {
+  background: #f5f2e2;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  touch-action: none; /* TODO: we may want to allow users to drag the screen down */
+}
+#surface {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+}
+#surface canvas {
+  position: absolute;
+}
+
+#gl3d {
+  position: absolute;
+  pointer-events: none;
+}
+
+#ui {
+  height: 791px;
+  position: absolute;
+  bottom: calc(50% - 120px);
+  min-height: calc(50% + 120px);  /* if we're bigger than 50%, then just clamp to top */
+  width: 100%;
+  left: 0%;
+  background-image: url(../dorf/img/header-bg.svg);
+  background-color: transparent;
+  background-repeat: repeat-x;
+  background-position: 0 0;  /* top-left, different origin than village */
+  background-size: 1618px 791px;
+}
+.down #ui {
+  display: none;
+}
+
+  </style>
+
+  <div id="mountain"
+      on-pointerdown="_onPointerDown"
+      on-pointermove="_onPointerMove"
+      on-pointerup="_onPointerUp">
+    <div id="surface">
+      <div id="ui"></div>
+    </div>
+    <canvas id="gl3d"></canvas>
+  </div>
+
+</template>
+<script>
+(function() {
+
+const tickInterval = (1000 / 60);
+
+Polymer({
+  is: 'elfski-scene',
+  behaviors: [window.SantaSceneBehavior],
+
+  properties: {
+
+    /**
+     * Used to calculate frame delta.
+     */
+    _lastFrameAt: {
+      type: Number,
+    },
+
+    _gameStartAt: {
+      type: Number,
+      value: 0,
+    },
+
+    _gameEndAt: {
+      type: Number,
+      value: 0,
+    },
+
+    /**
+     * The game.
+     */
+    _game: {
+      type: Object,
+      value: null,
+    },
+
+    _socket: {
+      type: Object,
+      value: null,
+    },
+
+    _tickInterval: {
+      type: Number,
+      value: 0,
+    },
+
+    /**
+     * The current pointer position, or null.
+     */
+    _pointer: {
+      type: Object,
+      value: null,
+    },
+
+  },
+
+  created: function() {
+    this._draw = this._draw.bind(this);
+    this._tick = this._tick.bind(this);
+    this._onResize = this._onResize.bind(this);
+  },
+
+  observers: [
+    '_sendPlayerState(_socket, _pointer)',
+  ],
+
+  onPreload: function() {
+    this.preloadImages([
+      '../dorf/img/header-bg.svg',
+      'img/tiles.png',
+    ]);
+  },
+
+  onShow: function() {
+    this._lastFrameAt = window.performance.now();
+    window.addEventListener('resize', this._onResize);
+    this._onResize();
+
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    image.src = this.resolveUrl('img/tiles.png');
+    image.onload = function() {
+
+      const canvas = this.$.gl3d;
+      this._game = new scenes.elfski.Game(canvas, image)
+      window.requestAnimationFrame(this._draw);
+      this._tickInterval = window.setInterval(this._tick, tickInterval);
+      this._onResize();
+
+    }.bind(this);
+
+    this._socket = new SantaSocket('elfski');
+    this._socket.addListener('message', (data) => {
+      console.info('got message', data.id);
+      if (!this._game || !data.id) { return; }
+
+      const id = 'p' + data.id;
+      if (!data.at) {
+        this._game.clearRemotePlayer(id);
+      } else {
+        this._game.updateRemotePlayer(id, data.p, data.at);
+      }
+    });
+  },
+
+  onHide: function() {
+    window.removeEventListener('resize', this._onResize);
+    this._socket.close();
+    window.clearInterval(this._tickInterval);
+  },
+
+  _sendPlayerState: function(socket, pointer) {
+    if (!socket || !this._game) { return; }
+    console.info('sending state', pointer);
+    socket.send({
+      p: pointer,
+      at: this._game.playerAt,
+    }, 'player');
+  },
+
+  /**
+   * The misnamed 'start' function is called by `santa-app` when the user wants to play again.
+   */
+  start: function() {
+    // TODO(samthor): This is a bit of a hodge-podge.
+
+    this._gameStartAt = 0;
+    this._gameEndAt = 0;
+
+    this._game.reset();
+    this.$.mountain.className = '';
+    this._onResize();
+
+    this.fire('game-score', {});
+  },
+
+  _onResize: function() {
+    this.$.gl3d.width = this.$.mountain.offsetWidth;
+    this.$.gl3d.height = this.$.mountain.offsetHeight;
+
+    this._game && this._game.resize();
+  },
+
+  /**
+   * Move the skiier in the direction of the click.
+   */
+  _onPointerDown: function(ev) {
+    this.$.mountain.setPointerCapture(ev.pointerId);
+    this._onPointerMove(ev, true);
+  },
+
+  _onPointerMove: function(ev, force) {
+    if (!force && ev.pressure < 0.5) {
+      return;
+    }
+    this._pointer = {
+      x: ev.offsetX - (ev.target.offsetWidth / 2),
+      y: ev.offsetY - (ev.target.offsetHeight / 2),
+    };
+  },
+
+  _onPointerUp: function(ev) {
+    this._pointer = null;
+  },
+
+  _tick: function() {
+    if (!this.isAttached) {
+      return;  // do nothing
+    }
+    const now = window.performance.now();
+    const delta = (now - this._lastFrameAt) / 1000;  // ratio of second
+    this._lastFrameAt = now;
+
+    if (!this._gameStartAt && this.score) {
+      this._gameStartAt = now;
+    }
+
+    const crashed = this._game.tick(delta, this._pointer, Boolean(this._gameEndAt));
+    if (!crashed) {
+      return;
+    }
+
+    this._gameEndAt = now;
+    this.fire('game-stop', {
+      score: this.score,
+    });
+  },
+
+  get score() {
+    if (!this._game) {
+      return 0;
+    }
+    return Math.max(0, Math.floor(this._game.playerAt.y / 100));
+  },
+
+  _draw: function() {
+    this._game._render.draw();
+    window.requestAnimationFrame(this._draw);
+
+    const transform = this._game.transform;
+    if (transform.y >= 800) {
+      // gone too far, just hide UI
+      this.$.surface.hidden = true;
+    } else {
+      this.$.surface.style.transform = 'translateY(' + transform.y + 'px)';
+      this.$.ui.style.transform = 'translateX(' + transform.x + 'px)';
+    }
+
+    if (this._gameStartAt && !this._gameEndAt) {
+      const detail = {
+        score: this.score,
+        time: (window.performance.now() - this._gameStartAt) / 1000,
+      };
+      this.fire('game-score', detail);
+    }
+
+    return;
+
+    // TODO(samthor): Restore old snow code. It was pretty :(
+
+    // draw line
+    const context = this.$.canvas.getContext('2d');
+
+    context.save();
+    context.translate((dim.w / 2) + transform.x, -this._transform.y + (this.$.canvas.height / 2));
+    context.beginPath();
+    context.moveTo(0, 0);
+    context.lineTo(-change.x * unitScale.x, -change.y * unitScale.y);
+
+    context.strokeStyle = 'white';
+    context.lineCap = 'round';
+    context.lineWidth = 5 * (1 + this._player.lineWidth);
+    context.stroke();
+
+    context.restore();
+  },
+
+});
+
+}());
+</script>
+</dom-module>

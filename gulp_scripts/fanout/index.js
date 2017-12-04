@@ -72,7 +72,7 @@ module.exports = function fanout(sceneConfig) {
     });
 
     if (missingOgImages.length) {
-      gutil.log('WARNING[fanout]:', `missing og images: ${missingOgImages}`);
+      gutil.log(gutil.colors.red('Warning!'), `Missing OG images: ${missingOgImages}`);
     }
 
     this.push(file);  // always push original file

@@ -8,33 +8,51 @@
 
   // id width height left top z-index
   $all:
-      "tree"            467   581   433   341    ($house-row-3-z-index - 1),
-      "blocks"          360   150   904   646    ($house-row-3-z-index - 60),
-      "statue"          287   171   858   816    ($house-row-4-z-index - 1),
-      "walrus"          22    19    897   1473   ($house-row-6-z-index - 1),
-      "penguin-revolt"  174   55    865   1571   ($house-row-6-z-index - 1),
-      "snowman-reading" 571   237   -227  1550   ($house-row-6-z-index - 1),
-      "rosetta-stone"   117   96    28    944    ($house-row-4-z-index - 1),
-      "white-board"     121   62    408   952    ($house-row-3-z-index - 0),
-      "schoolyard"      434   160   121   255    ($house-row-1-z-index - 0),
-      "tic-tac-toe"     447   130   740   240    ($house-row-2-z-index - 1),
-      "book-club"       90    97    360   558    ($house-row-2-z-index + 30),
-      "balloon"         183   209   200   804    ($house-z-index-front),
-      "balloon-ropes"   234   40    180   963    ($house-row-4-z-index - 1),
-      "balloon-flight"  155   209   200   804    ($house-row-4-z-index - 1),
-      "snowmobile1"     40    39    290   420    ($house-z-index-front),
-      "snowmobile2"     40    39    995   620    ($house-z-index-front),
-      "snowmobile3"     40    39    645   855    ($house-z-index-front),
-      "snowmobile4"     40    39    200   1910   ($house-z-index-front),
-      "unicycle"        21    57    310   500    ($house-row-2-z-index + 40),
-      "wrangler"        182   88    800   2300   ($house-row-7-z-index + 150),
+      "tree"            467   581   433   341 ,
+      "blocks"          360   150   904   646 ,
+      "statue"          287   171   858   816 ,
+      "walrus"          22    19    897   1473,
+      "penguin-revolt"  174   55    356   1590,
+      "snowman-reading" 571   237   -227  1450,
+      "rosetta-stone"   117   96    28    944 ,
+      "white-board"     121   62    1050  1600,
+      "schoolyard"      434   160   121   255 ,
+      "tictactoe"       0     0     922   375 ,
+      "book-club"       90    97    360   558 ,
+      "balloon"         183   209   200   804 ,
+      "balloon-ropes"   234   40    180   963 ,
+      "balloon-flight"  155   209   200   804 ,
+      "snowmobile1"     0     0     310   460 ,
+      "snowmobile2"     0     0     900   680 ,
+      "snowmobile3"     0     0     665   895 ,
+      "snowmobile4"     0     0     640   2090,
+      "unicycle"        21    57    310   500 ,
+      "wrangler"        0     0     700   2250,
   ;
 
-  div {
+  // TODO: top/top for tablet and desktop are magic numbers
+
+  width: $width-desktop;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -($width-desktop / 2);
+  height: $height-desktop;
+
+  @media (max-width: $width-desktop - 1px) {
+    width: $width-tablet;
+    margin-left: -($width-tablet / 2);
+    height: $height-tablet;
+  }
+
+  .clickable, a[href] {
+    pointer-events: auto;
+  }
+
+  > *, div {
     background: center no-repeat;
     background-size: contain;
     position: absolute;
-    pointer-events: none;
   }
 
   @for $i from 1 through length($all) {
@@ -42,8 +60,14 @@
     $id: nth($row, $idx-id);
 
     #easteregg-#{$id} {
-      z-index: nth($row, $idx-z-index) - 1;
-      background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+      $top: nth($row, $idx-top);
+      $height: nth($row, $idx-height) * $svg-ratio;
+      z-index: round($top + $height);
+
+      // only load background-image if the w/h is nonzero
+      @if nth($row, $idx-width) > 0 {
+        background-image: url(img/easteregg-#{nth($row, $idx-id)}.svg);
+      }
 
       // TODO(skarEE): The width/height of each image is expressed in the
       // original SVG size, so it needs to be multiplied by svg-ratio. This is
@@ -53,6 +77,12 @@
       height: percent(nth($row, $idx-height) * $svg-ratio, $height-desktop);
       left: percent(nth($row, $idx-left), $width-desktop);
       top: percent(nth($row, $idx-top), $height-desktop);
+    }
+  }
+
+  #easteregg-tictactoe, effect-snowmobile {
+    @media (max-width: ($width-desktop - 1)) {
+      transform: scale(0.6);
     }
   }
 
@@ -110,6 +140,14 @@
       @include will-change(transform);
       animation: #{$name}-swing 10s ease-in-out infinite;
     }
+
+    a {
+      position: absolute;
+      width: percent(120 * $svg-ratio, $w);
+      height: percent(100 * $svg-ratio, $h);
+      left: 55%;
+      top: 33%;
+    }
   }
 
   #easteregg-walrus {
@@ -127,478 +165,17 @@
     }
   }
 
-  #easteregg-wrangler {
-    $w: 182;
-    $h: 88;
-
-    #easteregg-wrangler-wrangler {
+  #easteregg-white-board {
+    a {
       position: absolute;
-      width: 85px;
-      height: 102px;
-      left: percent(130, $w);
-      top: percent(-24, $h);
-      z-index: 10;
-
-      & > * {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-
-      :nth-child(1) {
-        background-image: url(img/easteregg-wrangler-wrangler1.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-wrangler-1 5s steps(5, end) infinite;
-      }
-      :nth-child(2) {
-        background-image: url(img/easteregg-wrangler-wrangler2.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-wrangler-2 5s steps(5, end) infinite;
-      }
-      :nth-child(3) {
-        background-image: url(img/easteregg-wrangler-wrangler3.svg);
-        opacity: 0;
-        animation: wrangler-wrangler-3 5s steps(5, end) infinite;
-      }
-    }
-
-    #easteregg-wrangler-reindeer1 {
-      position: absolute;
-      width: 35px;
-      height: 25px;
-      left: percent(115, $w);
-      z-index: 5;
-
-      & > * {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-
-      :nth-child(1) {
-        background-image: url(img/easteregg-wrangler-reindeer1-shadow.svg);
-        animation: wrangler-reindeer1-shadow 5s linear infinite;
-      }
-
-      :nth-child(2) {
-        background-image: url(img/easteregg-wrangler-reindeer1-1.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-reindeer1-1 5s linear infinite;
-      }
-
-      :nth-child(3) {
-        background-image: url(img/easteregg-wrangler-reindeer1-2.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-reindeer1-2 5s linear infinite;
-      }
-
-      :nth-child(4) {
-        background-image: url(img/easteregg-wrangler-reindeer1-3.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-reindeer1-3 5s linear infinite;
-      }
-    }
-
-    #easteregg-wrangler-reindeer2 {
-      position: absolute;
-      width: 31px;
-      height: 29px;
-      top: percent(25, $h);
-      left: percent(-10, $w);
-      z-index: 5;
-
-      & > * {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-
-      :nth-child(1) {
-        background-image: url(img/easteregg-wrangler-reindeer2-shadow.svg);
-        animation: wrangler-reindeer2-shadow 8s linear infinite;
-      }
-
-      :nth-child(2) {
-        background-image: url(img/easteregg-wrangler-reindeer2-1.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-reindeer2-1 8s linear infinite;
-      }
-
-      :nth-child(3) {
-        background-image: url(img/easteregg-wrangler-reindeer2-2.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-reindeer2-2 8s linear infinite;
-      }
-
-      :nth-child(4) {
-        background-image: url(img/easteregg-wrangler-reindeer2-3.svg);
-        @include will-change();
-        opacity: 0;
-        animation: wrangler-reindeer2-3 8s linear infinite;
-      }
-    }
-
-    @media (max-width: ($width-desktop - 1)) {
-      #easteregg-wrangler-wrangler {
-        margin-top: -9px;
-        margin-left: 1px;
-        width: 51px; //85
-        height: 61px; //102
-      }
-
-      #easteregg-wrangler-reindeer1 {
-        width: 21px; //35
-        height: 15px; //25
-      }
-
-      #easteregg-wrangler-reindeer2 {
-        width: 18px; //31
-        height: 17px; //29
-      }
+      width: 100%;
+      height: 100%;
     }
   }
 
-  #easteregg-tic-tac-toe {
-    $w: 447;
-    $h: 130;
-
-    .elves {
-      position: absolute;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      transition: transform .5s linear;
-      transform: translateX(0) translateY(0) translateZ(0);
-      @include will-change(tansform);
-      z-index: 2;
-    }
-
-    #easteregg-tic-tac-toe-elves-red {
-      transform: translateX(265px) translateY(80px) translateZ(0);
-    }
-
-    #easteregg-tic-tac-toe-elves-blue {
-      transform: translateX(250px) translateY(35px) translateZ(0);
-    }
-
-    .elves.draw {
-      width: percent(91 * $svg-ratio, $w);
-      height: percent(72 * $svg-ratio, $h);
-      margin-top: -15px;
-      margin-left: -35px;
-    }
-
-    .elves.move {
-      width: percent(90 * $svg-ratio, $w);
-      height: percent(49 * $svg-ratio, $h);
-      margin-left: -40px;
-    }
-
-    #easteregg-tic-tac-toe-elves-red.move {
-      background-image: url(img/easteregg-tictactoe-move-red.svg);
-    }
-
-    #easteregg-tic-tac-toe-elves-blue.move {
-      background-image: url(img/easteregg-tictactoe-move-blue.svg);
-    }
-
-    #easteregg-tic-tac-toe-elves-red.draw {
-      background-image: url(img/easteregg-tictactoe-draw-red.svg);
-    }
-
-    #easteregg-tic-tac-toe-elves-blue.draw {
-      background-image: url(img/easteregg-tictactoe-draw-blue.svg);
-    }
-
-    .tic-tac {
-      position: absolute;
-      opacity: 1;
-      transition: opacity .2s ease;
-      @include will-change(opacity);
-    }
-
-    .empty {
-      opacity: 0;
-    }
-
-    $startX: 65px;
-    $startY: 21px;
-    $gapX: 55px;
-
-    $startTop: 50px;
-    $startLeft: 70px;
-    $gap: 70px;
-
-    @for $i from 1 through 3 {
-      .tic-tac:nth-child(#{$i}) {
-        top: percent($startTop, $h);
-        left: percent($startLeft + ($i - 1) * $gap, $w);
-      }
-
-      #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
-      #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
-        transform: translateX($startX + ($i - 1) * $gapX) translateY($startY) translateZ(0);
-      }
-    }
-
-    $startTop: 80px;
-    $startLeft: 45px;
-    $gap: 80px;
-
-    $startX: 43px;
-    $startY: 43px;
-    $gapX: 65px;
-
-    @for $i from 4 through 6 {
-      .tic-tac:nth-child(#{$i}) {
-        top: percent($startTop, $h);
-        left: percent($startLeft + ($i - 4) * $gap, $w);
-      }
-
-      #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
-      #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
-        transform: translateX($startX + ($i - 4) * $gapX) translateY($startY) translateZ(0);
-      }
-    }
-
-    $startTop: 110px;
-    $startLeft: 20px;
-    $gap: 90px;
-
-    $startX: 25px;
-    $startY: 67px;
-    $gapX: 70px;
-
-    @for $i from 7 through 9 {
-      .tic-tac:nth-child(#{$i}) {
-        top: percent($startTop, $h);
-        left: percent($startLeft + ($i - 7) * $gap, $w);
-      }
-
-      #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
-      #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
-        transform: translateX($startX + ($i - 7) * $gapX) translateY($startY) translateZ(0);
-      }
-    }
-
-    @media (max-width: ($width-desktop - 1)) {
-      .elves.draw {
-        margin-top: 0;
-        margin-left: 0;
-      }
-
-      .elves.move {
-        margin-left: 0;
-        margin-top: 10px;
-      }
-
-      #easteregg-tic-tac-toe-elves-red {
-        transform: translateX(135px) translateY(35px);
-        z-index: 3;
-      }
-
-      #easteregg-tic-tac-toe-elves-blue {
-        transform: translateX(130px) translateY(25px);
-        z-index: 2;
-      }
-
-      $startX: 16px;
-      $startY: 2px;
-      $gapX: 35px;
-
-      @for $i from 1 through 3 {
-        #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
-        #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
-          transform: translateX($startX + ($i - 1) * $gapX) translateY($startY) translateZ(0);
-        }
-      }
-
-      $startX: 5px;
-      $startY: 17px;
-      $gapX: 37px;
-
-      @for $i from 4 through 6 {
-        #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
-        #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
-          transform: translateX($startX + ($i - 4) * $gapX) translateY($startY) translateZ(0);
-        }
-      }
-
-      $startX: -7px;
-      $startY: 32px;
-      $gapX: 42px;
-
-      @for $i from 7 through 9 {
-        #easteregg-tic-tac-toe-elves-red.to-pos-#{$i},
-        #easteregg-tic-tac-toe-elves-blue.to-pos-#{$i} {
-          transform: translateX($startX + ($i - 7) * $gapX) translateY($startY) translateZ(0);
-        }
-      }
-    }
-
-    .cross {
-      width: percent(54 * $svg-ratio, $w);
-      height: percent(24 * $svg-ratio, $h);
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-size: contain;
-    }
-
-    .cross.red {
-      background-image: url(img/easteregg-tictactoe-cross-red.svg);
-    }
-
-    .cross.blue {
-      background-image: url(img/easteregg-tictactoe-cross-blue.svg);
-    }
-
-    .naught {
-      width: percent(60 * $svg-ratio, $w);
-      height: percent(18 * $svg-ratio, $h);
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-    }
-
-    .naught.red {
-      background-image: url(img/easteregg-tictactoe-naught-red.svg);
-    }
-
-    .naught.blue {
-      background-image: url(img/easteregg-tictactoe-naught-blue.svg);
-    }
-
-    #easteregg-tic-tac-toe-win {
-      position: absolute;
-      width: percent(180 * $svg-ratio, $w);
-      height: percent(9 * $svg-ratio, $h);
-      background-position: 50% 50%;
-      background-size: contain;
-      transform-origin: 50% 50%;
-      opacity: 0;
-      transition: opacity 0.2s ease-out;
-      @include will-change(transform, opacity);
-
-      transform: translate3d(60px, 67px, 0)  rotateZ(0);
-
-      &.red {
-        opacity: 1;
-        background-image: url(img/easteregg-tictactoe-win-red.svg);
-      }
-
-      &.blue {
-        opacity: 1;
-        background-image: url(img/easteregg-tictactoe-win-blue.svg);
-      }
-
-      &.pos-0 {
-        transform: translate3d(70px, 45px, 0)  rotateZ(0deg);
-      }
-
-      &.pos-1 {
-        transform: translate3d(59px, 68px, 0)  rotateZ(0deg);
-      }
-
-      &.pos-2 {
-        transform: translate3d(53px, 91px, 0)  rotateZ(0deg);
-      }
-
-      &.pos-3 {
-        transform: translate3d(-5px, 71px, 0)  rotateZ(128deg);
-      }
-
-      &.pos-4 {
-        transform: translate3d(55px, 81px, 0)  rotateZ(108deg);
-      }
-
-      &.pos-5 {
-        transform: translate3d(125px, 70px, 0)  rotateZ(96deg);
-      }
-
-      &.pos-6 {
-        transform: translate3d(71px, 70px, 0)  rotateZ(27deg);
-      }
-
-      &.pos-7 {
-        transform: translate3d(60px, 66px, 0)  rotateZ(163deg);
-      }
-
-      @media (max-width: ($width-desktop - 1)) {
-        &.pos-0 {
-          transform: translate3d(42px, 26px, 0)  rotateZ(0deg);
-        }
-
-        &.pos-1 {
-          transform: translate3d(39px, 41px, 0)  rotateZ(0deg);
-        }
-
-        &.pos-2 {
-          transform: translate3d(37px, 53px, 0)  rotateZ(0deg);
-        }
-
-        &.pos-3 {
-          transform: translate3d(-1px, 41px, 0)  rotateZ(128deg);
-        }
-
-        &.pos-4 {
-          transform: translate3d(36px, 41px, 0)  rotateZ(108deg);
-        }
-
-        &.pos-5 {
-          transform: translate3d(75px, 41px, 0)  rotateZ(96deg);
-        }
-
-        &.pos-6 {
-          transform: translate3d(43px, 42px, 0)  rotateZ(27deg);
-        }
-
-        &.pos-7 {
-          transform: translate3d(34px, 40px, 0)  rotateZ(163deg);
-        }
-      }
-    }
-  }
-
-  #easteregg-balloon, #easteregg-snowmobile1, #easteregg-snowmobile2,
-  #easteregg-snowmobile3, #easteregg-snowmobile4, #easteregg-busstop1,
+  #easteregg-balloon, #easteregg-busstop1,
   #easteregg-busstop2, #easteregg-busstop3 {
-    pointer-events: all;
     cursor: pointer;
-  }
-
-  #easteregg-snowmobile1.drive,
-  #easteregg-snowmobile2.drive,
-  #easteregg-snowmobile3.drive,
-  #easteregg-snowmobile4.drive {
-    @include will-change(transform);
-    transform-origin: bottom center;
-    animation: burnout 10s linear;
-    animation-direction: reverse;
-  }
-
-  #easteregg-snowmobile1.drive {
-    z-index: $house-row-2-z-index - 1;
-  }
-
-  #easteregg-snowmobile2.drive {
-    z-index: $house-row-3-z-index - 10;
-  }
-
-  #easteregg-snowmobile3.drive {
-    z-index: $house-row-3-z-index;
-    animation-direction: normal;
-  }
-
-  #easteregg-snowmobile4.drive {
-    z-index: $house-row-7-z-index - 1;
   }
 
   #easteregg-balloon, #easteregg-balloon-flight, #easteregg-balloon-ropes {
@@ -607,7 +184,6 @@
   }
 
   #easteregg-balloon {
-    z-index: $house-z-index-front;
     opacity: 1;
     &.flying {
       opacity: 0;
@@ -615,6 +191,7 @@
   }
 
   #easteregg-balloon-flight, #easteregg-balloon-ropes {
+    pointer-events: none;
     opacity: 0;
 
     &.flying {
@@ -623,7 +200,6 @@
   }
 
   #easteregg-balloon-flight {
-    z-index: $house-z-index-front;
     &.flying {
       animation: fly 30s linear;
     }
@@ -656,7 +232,6 @@
   #easteregg-busstop3 {
     $w: 63px;
     $h: 24px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop3.svg);
 
@@ -727,8 +302,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-7-z-index + 80;
-
       .bus {
         transition: transform 10s ease-out;
         @include will-change(transform);
@@ -737,8 +310,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-7-z-index + 80;
-
       .bus {
         transition: transform 10s ease-out;
         @include will-change(transform);
@@ -787,7 +358,6 @@
   #easteregg-busstop2 {
     $w: 45px;
     $h: 24px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop2.svg);
 
@@ -848,8 +418,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-5-z-index - 1;
-
       .bus {
         transition: transform 10s ease-out;
         will-change: transform;
@@ -858,8 +426,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-5-z-index - 1;
-
       .bus {
         transition: transform 10s ease-out;
         will-change: transform;
@@ -909,7 +475,6 @@
   #easteregg-busstop1 {
     $w: 85px;
     $h: 73px;
-    z-index: $house-z-index-front;
 
     background-image: url(img/easteregg-busstop1.svg);
 
@@ -950,8 +515,6 @@
     }
 
     &.to-stop {
-      z-index: $house-row-1-z-index + 30;
-
       .bus {
         animation-fill-mode: forwards;
         animation: to-bus-stop-1 10s linear;
@@ -960,8 +523,6 @@
     }
 
     &.from-stop {
-      z-index: $house-row-1-z-index - 50;
-
       .bus {
         animation-fill-mode: forwards;
         animation: from-bus-stop-1 10s linear;
@@ -1131,33 +692,6 @@
   }
 }
 
-@keyframes burnout {
-  0% {
-    transform: rotateZ(0) translateY(0) translateX(0);
-  }
-  0.5% {
-    transform: rotateZ(-20deg) translateY(-4px) translateX(.5vw);
-  }
-  1% {
-    transform: rotateZ(0) translateY(0) translateX(1vw);
-  }
-  50% {
-    transform: rotateZ(0) translateY(0) translateX(100vw);
-  }
-  50.00001% {
-    transform: rotateZ(0) translateY(0) translateX(-100vw);
-  }
-  99% {
-    transform: rotateZ(0) translateY(0) translateX(-1vw);
-  }
-  99.5% {
-    transform: rotateZ(20deg) translateY(-4px) translateX(-.5vw);
-  }
-  100% {
-    transform: rotateZ(0) translateY(0) translateX(0);
-  }
-}
-
 @keyframes unicycle {
   33% {
     transform: rotateZ(10deg);
@@ -1207,130 +741,4 @@
   100% {
     transform: translateZ(0) translateX(-100vw) translateY(100%) rotateZ(0deg);
   }
-}
-
-@keyframes wrangler-reindeer1-1 {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  19% {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-
-  20%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes wrangler-reindeer1-2 {
-  0% {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-
-  19% {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-
-  20% {
-    opacity: 1;
-    transform: translateY(-5px);
-  }
-
-  39% {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-
-  40%, 60% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes wrangler-reindeer1-3 {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  39% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  40% {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-
-  80% {
-    opacity: 1;
-    transform: translateY(-25px);
-  }
-
-  99% {
-    opacity: 1;
-    transform: translateY(-25px);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes wrangler-reindeer1-shadow {
-  0% { transform: scaleX(1); }
-  80%, 100% { transform: scaleX(.5); }
-}
-
-@keyframes wrangler-wrangler-1 {
-  0%, 78% { opacity: 1; }
-  79%, 100% { opacity: 0; }
-}
-
-@keyframes wrangler-wrangler-2 {
-  0%, 78%, 81% { opacity: 0; }
-  79%, 80% { opacity: 1; }
-}
-
-@keyframes wrangler-wrangler-3 {
-  0%, 80% { opacity: 0; }
-  81%, 100% { opacity: 1; }
-}
-
-@keyframes wrangler-reindeer2-shadow {
-  0%, 20% { transform: scaleX(1); }
-  21%, 49% { transform: scaleX(.8);}
-  50%, 100% { transform: scaleX(1); }
-}
-
-@keyframes wrangler-reindeer2-1 {
-  0%, 19% { opacity: 1; }
-  20%, 54% { opacity: 0; }
-  55%, 100% { opacity: 1; }
-}
-
-@keyframes wrangler-reindeer2-2 {
-  0%, 19% { opacity: 0; }
-  20%, 29% { opacity: 1; }
-  30%, 49% { opacity: 0; }
-  50%, 54% { opacity: 1; }
-  55%, 100% { opacity: 0; }
-}
-
-@keyframes wrangler-reindeer2-3 {
-  0%, 29% { opacity: 0; }
-  30%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
 }

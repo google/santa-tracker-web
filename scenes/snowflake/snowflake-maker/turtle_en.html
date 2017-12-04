@@ -46,6 +46,10 @@ specific language governing permissions and limitations under the License.
       }
     </style>
 
+    <!-- nb. Don't include any HTML imports here: `polymer-bundler` will attempt to roll them up
+      into `elements_en.html`, although the build removes `i18n-msg` anyway -->
+    <link rel="import" href="../../../elements/i18n-msg.html">
+
   </head>
   <body>
     <div id="module-turtle" class="stacked-divs turtle-stacked-divs">

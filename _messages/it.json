@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "La vigilia di Natale saremo lieti di presentarti la plancia di comando di Babbo Natale, super tecnologica, che gli consentirà di guidare la slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale, che stanno lavorando sodo al Polo Nord per aiutare Babbo Natale nei preparativi per il grande giorno. La plancia di comando di Babbo Natale, che presenta le soluzioni più recenti e sofisticate della tecnologia di Google Maps e delle tecniche di costruzione di slitte, ti permetterà di seguire Babbo Natale nel suo viaggio intorno al mondo e scoprire qualche dettaglio su alcune delle tappe lungo il percorso."
+		"message": "La vigilia di Natale ti mostreremo la plancia di comando di Babbo Natale, super tecnologica, che gli consentirà di guidare la slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale, che stanno lavorando sodo al Polo Nord per aiutare Babbo Natale nei preparativi per il grande giorno. La plancia di comando di Babbo Natale, dotata delle soluzioni più recenti e sofisticate della tecnologia di Google Maps e delle tecniche di costruzione di slitte, ti permetterà di seguire Babbo Natale nel suo viaggio intorno al mondo e scoprire qualche dettaglio su alcune delle tappe lungo il percorso."
 	},
 	"about-content-three": {
 		"message": "Segui Babbo Natale di Google Maps è stato creato e sviluppato da Google, con un po' di aiuto da parte degli elfi di Babbo Natale. Hai bisogno di aiuto o hai un'altra domanda? Visita il nostro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro assistenza\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo e scopri il villaggio di Babbo Natale dove potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
+		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo e scopri il villaggio di Babbo Natale, dove potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
 	},
 	"about-santa": {
 		"message": "Informazioni"
@@ -96,7 +96,7 @@
 		"message": "In Canada, i bambini festeggiano un Natale bianco e innevato. Avvolti in sciarpe e berretti toque (tradizionali canadesi) giocano sulla neve, pattinano sul ghiaccio e si divertono sulle tipiche slitte canadesi, chiamate toboga. La notte della Vigilia lasciano latte e biscotti accanto al camino per Babbo Natale, e a volte anche una carota per la sua renna."
 	},
 	"calendar": {
-		"message": "Il calendario"
+		"message": "Calendario"
 	},
 	"category_code": {
 		"message": "Codice"
@@ -420,7 +420,7 @@
 		"message": "Fantastico"
 	},
 	"codelab-mwc-promo": {
-		"message": "Esplora altri progetti di codifica di Google alla pagina \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Esplora altri progetti di programmazione di Google alla pagina \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
 	},
 	"codelab-next-challenge": {
 		"message": "Prossima sfida"
@@ -616,6 +616,9 @@
 	},
 	"getgooglemaps": {
 		"message": "Scarica Google Maps"
+	},
+	"getready": {
+		"message": "Preparati."
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -873,10 +876,10 @@
 		"message": "Informatica"
 	},
 	"nonprofit-donorschoose-description": {
-		"message": "Fondata nel 2000 da un'insegnante di storia del Bronx, DonorsChoose.org ha raccolto più di 480 milioni di dollari USA destinati alle aule dell'intero territorio nazionale. Gli insegnanti si rivolgono a DonorsChoose.org per richiedere i materiali e le competenze necessari per le loro aule."
+		"message": "Fondata nel 2000 da un'insegnante di storia del Bronx, DonorsChoose.org ha raccolto più di 480 milioni di dollari USA destinati alle classi dell'intero territorio nazionale. Gli insegnanti si rivolgono a DonorsChoose.org per richiedere i materiali e le competenze necessari per le loro classi."
 	},
 	"nonprofit-donorschoose-type": {
-		"message": "Aule"
+		"message": "Classi"
 	},
 	"nonprofit-enable-description": {
 		"message": "Secondo il CDC, 7 persone su 1000 soffrono di malformazioni agli arti e le protesi costano molto, fino a $ 10.000. Per i bambini nell'età della crescita, i costi possono aumentare rapidamente. e-Nable è un'organizzazione globale composta da persone che collaborano alla progettazione di mani artificiali tramite la stampa 3D per i bambini affetti da malformazioni agli arti. Google.org è al fianco della Enable Community Foundation per sostenere la e-NABLE Community nella progettazione di mani artificiali per il maggior numero possibile di bambini."
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Portorico"
 	},
+	"practice": {
+		"message": "Esercitati"
+	},
 	"press": {
 		"message": "Stampa"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Ho capito, è {{thing}}."
+	},
+	"quickdraw-machine-or": {
+		"message": "o"
+	},
+	"quickdraw-machine-see": {
+		"message": "Vedo"
+	},
+	"quickdraw-newround-button": {
+		"message": "Avvia"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Non so bene cosa sia."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Scusa"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Non ho indovinato."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor ha anche pensato che il tuo disegno fosse simile a questi:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Come fa Tensor a capire che aspetto ha {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Ho capito guardando questi esempi disegnati da altre persone."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor ha pensato che il tuo disegno fosse più simile a questi:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Questa è la versione di Babbo Natale di {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Ti è stato chiesto di disegnare {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Disegna"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor è il robot di machine learning di Babbo Natale, che lo aiuta a decifrare velocemente le lettere che riceve dai bambini di tutto il mondo. Per aiutarlo a esercitarsi, raffigura le parole associate al periodo natalizio sullo schermo: ti dirà cosa vede. Più parole raffigurerai, più Tensor affinerà le sue capacità. Aiutiamo Babbo Natale a essere più efficiente che mai durante le feste."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Aiuta Tensor a esercitarsi a riconoscere le immagini."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor ha riconosciuto {{recognized}} dei tuoi disegni."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor ha riconosciuto uno dei tuoi disegni."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor non ha riconosciuto nessuno dei tuoi disegni."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Bene."
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Mannaggia!"
 	},
 	"ro_country_name": {
 		"message": "Romania"
@@ -1145,20 +1214,29 @@
 	"scene_callfromsanta": {
 		"message": "Chiamata da Babbo Natale"
 	},
+	"scene_canvas": {
+		"message": "La tela di Babbo Natale"
+	},
 	"scene_citylights": {
 		"message": "Le luci della città"
+	},
+	"scene_clausdraws": {
+		"message": "Disegni di Babbo Natale"
 	},
 	"scene_codeboogie": {
 		"message": "La danza del codice"
 	},
 	"scene_codelab": {
-		"message": "Laboratorio di codici"
+		"message": "Laboratorio del codice"
 	},
 	"scene_commandcentre": {
 		"message": "Centro di comando"
 	},
 	"scene_dash": {
 		"message": "Lo scatto del pinguino"
+	},
+	"scene_elfski": {
+		"message": "Folletti che sciano"
 	},
 	"scene_factory": {
 		"message": "La fabbrica delle caramelle"
@@ -1170,13 +1248,19 @@
 		"message": "L'elfo volante"
 	},
 	"scene_gumball": {
-		"message": "Gumball Tilt"
+		"message": "Palline di zucchero"
+	},
+	"scene_icecave": {
+		"message": "Cava di ghiaccio"
+	},
+	"scene_island": {
+		"message": "Isola"
 	},
 	"scene_jamband": {
 		"message": "La band dei folletti"
 	},
 	"scene_jetpack": {
-		"message": "Elf Jetpack"
+		"message": "L'elfo volante"
 	},
 	"scene_latlong": {
 		"message": "Consegna i regali"
@@ -1191,13 +1275,16 @@
 		"message": "Parco giochi al Polo Nord"
 	},
 	"scene_postcard": {
-		"message": "Codifica un bigliettino natalizio"
+		"message": "Disegna con il codice"
 	},
 	"scene_presentbounce": {
 		"message": "Palleggia con il regalo"
 	},
 	"scene_presentdrop": {
 		"message": "Sgancia il regalo"
+	},
+	"scene_quickdraw": {
+		"message": "Quick, Draw!"
 	},
 	"scene_racer": {
 		"message": "La corsa di Rudolph"
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "La stagione dei regali"
+	},
+	"scene_snowball": {
+		"message": "Battaglia di palle di neve"
+	},
+	"scene_speedsketch": {
+		"message": "Indovina il disegno"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Il decollo di Babbo Natale"
 	},
+	"scene_videoscene_museum": {
+		"message": "Una giornata al museo"
+	},
 	"scene_videoscene_office": {
 		"message": "Scherzo in ufficio"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satellite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "I selfie di Babbo Natale"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Voglia di lavorare zero"
 	},
 	"scene_videoscene_temptation": {
 		"message": "La tentazione"
@@ -1310,6 +1412,18 @@
 	"sn_country_name": {
 		"message": "Senegal"
 	},
+	"snowball_iced": {
+		"message": "Congelato."
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} di {{total}} elfi rimanenti"
+	},
+	"snowball_spectate": {
+		"message": "Assisti"
+	},
+	"snowball_waiting": {
+		"message": "In attesa di altri folletti di Babbo Natale"
+	},
 	"snowflake_choose_background": {
 		"message": "Scegli uno sfondo"
 	},
@@ -1317,13 +1431,13 @@
 		"message": "Utilizza le frecce per scegliere una cartolina"
 	},
 	"snowflake_code": {
-		"message": "Codifica il tuo bigliettino natalizio"
+		"message": "Disegna con il codice"
 	},
 	"snowflake_code_instructions": {
-		"message": "Raggruppa i blocchi per creare il tuo bigliettino natalizio"
+		"message": "Usa i blocchi per disegnare il tuo fiocco di neve"
 	},
 	"snowflake_create_message": {
-		"message": "Crea il tuo bigliettino natalizio"
+		"message": "Crea il tuo fiocco di neve"
 	},
 	"snowflake_draw_now_repeat_message": {
 		"message": "Adesso ripeti!"
@@ -1338,13 +1452,13 @@
 		"message": "Rotazione e ripetizione"
 	},
 	"snowflake_make_your_own": {
-		"message": "Questo bigliettino è stato creato utilizzando del codice. Prova anche tu."
+		"message": "Questo biglietto è stato creato con il codice. Prova anche tu."
 	},
 	"snowflake_share_postcard_message": {
-		"message": "Scegli una cartolina e condividi il tuo bigliettino natalizio con gli amici"
+		"message": "Scegli una cartolina e condividi il tuo biglietto natalizio con gli amici"
 	},
 	"snowflake_shared_message": {
-		"message": "Qualcuno ti ha inviato un bigliettino natalizio!"
+		"message": "Qualcuno ti ha inviato un biglietto natalizio!"
 	},
 	"so_country_name": {
 		"message": "Somalia"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Altri modi per esplorare"
 	},
+	"village_santa_a2hs": {
+		"message": "Aggiungi a schermata Home"
+	},
 	"village_santa_cardboard": {
 		"message": "Babbo Natale su Cardboard"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Miglior punteggio"
 	},
 	"zh-CN_language_name": {
 		"message": "Cinese (semplificato)"

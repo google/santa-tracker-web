@@ -1,0 +1,1231 @@
+<!--
+Copyright 2015 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../js/webanimations.html">
+
+<script src="santascanvas-scene.min.js"></script>
+
+<link rel="import" href="santascanvas-scene_module.html">
+
+<!--
+Santaselfie scene.
+-->
+<dom-module id="santascanvas-scene">
+<template>
+  <style include="santascanvas-scene_module"></style>
+
+  <div id="module-santascanvas">
+    <div class="santascanvas">
+      <div class="scene">
+        <div class="Canvas">
+          <canvas id="back-canvas"></canvas>
+          <canvas id="draw-canvas"></canvas>
+          <canvas id="fore-canvas"></canvas>
+        </div>
+
+        <div class="Tools Tools--primary">
+          <div class="Tools-mobile-settings">
+            <div class="Tools-colorpicker Colorpicker" data-colorpicker>
+              <div class="Colorpicker-circle" data-colorpicker-selector></div>
+              <div class="Colorpicker-popup" data-colorpicker-popup>
+                <div class="Colorpicker-colorgrid">
+                  <div class="Colorpicker-color" data-colorpicker-color="#8bc34a"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#ffeb3b"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#ffc107"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#ff5722"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#e91e63"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#259b24"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#cddc39"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#ff9800"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#e51c23"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#9c27b0"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#3f51b5"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#03a9f4"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#6ae5b9"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#9e9e9e"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#f2faff"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#673ab7"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#5677fc"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#009688"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#795548"></div>
+                  <div class="Colorpicker-color" data-colorpicker-color="#212121"></div>
+                </div>
+              </div>
+            </div>
+            <div class="Tools-display" data-tool-display data-current-category data-current-tool>
+              <div class="Tools-display-outer">
+                <div class="Tools-display-inner"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Tools-categories">
+            <div class="Category Category--snow">
+              <div class="Button Button--snowglobe" data-tool="snowglobe"></div>
+            </div>
+            <div class="Category Category--drawing" data-tool-category-picker data-tool-category="drawing">
+              <div class="Category-inner"></div>
+            </div>
+            <div class="Category Category--stamp u-above-mobile" data-tool-category-picker data-tool-category="stamp">
+              <div class="Category-inner"></div>
+            </div>
+            <div class="Category Category--spray" data-tool-category-picker data-tool-category="spray">
+              <div class="Category-inner"></div>
+            </div>
+            <div class="Category Category--roller" data-tool-category-picker data-tool-category="roller">
+              <div class="Category-inner"></div>
+            </div>
+            <div class="Category Category--shapes u-above-mobile" data-tool-category-picker data-tool-category="shape">
+              <div class="Category-inner"></div>
+            </div>
+            <div class="Category Category--scene" data-tool-category-picker data-tool-category="scene">
+              <div class="Category-inner"></div>
+            </div>
+            <div class="Category Category--sticker" data-tool-category-picker data-tool-category="sticker">
+              <div class="Category-inner"></div>
+            </div>
+            <div class="Category Category--eraser u-above-mobile" data-tool-category-picker data-tool-category="eraser">
+              <div class="Category-inner" data-tool="eraser"></div>
+              <div class="Category-popup">
+                <div class="Tools-slider Slider" data-slider>
+                  <div class="Slider-inner">
+                    <div class="Slider-base" data-slider-base></div>
+                    <div class="Slider-dot" data-slider-dot></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="Tools Tools--secondary">
+          <div class="Tools-toggle" data-tool-tray-toggle></div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="drawing">
+            <div class="Tools-settings">
+              <div class="Tools-colorpicker Colorpicker" data-colorpicker>
+                <div class="Colorpicker-circle" data-colorpicker-selector></div>
+                <div class="Colorpicker-popup" data-colorpicker-popup>
+                  <div class="Colorpicker-colorgrid">
+                    <div class="Colorpicker-color" data-colorpicker-color="#8bc34a"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffeb3b"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffc107"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff5722"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e91e63"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#259b24"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#cddc39"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff9800"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e51c23"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9c27b0"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#3f51b5"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#03a9f4"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#6ae5b9"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9e9e9e"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#f2faff"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#673ab7"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#5677fc"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#009688"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#795548"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#212121"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="Tools-slider Slider" data-slider>
+                <div class="Slider-inner">
+                  <div class="Slider-base" data-slider-base></div>
+                  <div class="Slider-dot" data-slider-dot></div>
+                </div>
+              </div>
+            </div>
+            <div class="Tools-tray" data-tool-category-tray>
+              <div class="Tool Tool--marker" data-tool="marker" data-tool-color>
+                <svg viewBox="0 0 200 385"><rect class="cls-2" x="69.2" y="110.81" width="61.58" height="220.97" rx="12.95" ry="12.95"/><rect class="cls-3" x="69.21" y="294.85" width="61.58" height="7.51"/><rect class="cls-3" x="69.21" y="307.26" width="61.58" height="7.51"/><rect class="cls-3" x="78.61" y="189.11" width="42.8" height="76.33" rx="4.42" ry="4.42"/><rect class="cls-3" x="69.22" y="128.61" width="61.58" height="7.51"/><rect class="cls-3" x="69.21" y="141.02" width="61.58" height="7.51"/><path class="cls-4" d="M100,110.81H82.17a13,13,0,0,0-13,13V318.84a12.83,12.83,0,0,0,1.89,6.72c2,3.75,5.32,6.21,9.12,6.21l19.79,0Z"/><path class="cls-3" d="M105,59.38a5.74,5.74,0,0,0-9.93,0c-2.26,3.81-11.29,21.08-11.29,21.08v9.15h32.52V80.46S107.22,63.19,105,59.38Z"/><path class="cls-4" d="M101.42,59.38a5.82,5.82,0,0,1,1.77-1.88A5.75,5.75,0,0,0,95,59.38c-2.26,3.81-11.29,21.08-11.29,21.08v9.15h6.39V80.46S99.16,63.19,101.42,59.38Z"/><rect class="cls-2" x="82.72" y="89.61" width="34.6" height="21.17"/><rect class="cls-4" x="82.72" y="89.61" width="10.74" height="21.17"/></svg>
+              </div>
+              <div class="Tool Tool--pencil u-above-mobile" data-tool="pencil" data-tool-color>
+                <svg viewBox="0 0 200 385"><polygon class="cls-1" points="105 56.52 74.21 121.49 105 121.49 135.8 121.49 105 56.52"/><polygon class="cls-2" points="118.33 84.65 105 56.52 91.67 84.65 118.33 84.65"/><polygon class="cls-3" points="74.2 322.16 74.2 322.16 74.2 322.16 74.2 322.16"/><path class="cls-2" d="M135.79,332.17V121.49h0l-10.27-10.27-10.26,10.27L105,111.22,94.74,121.49,84.48,111.22,74.21,121.49h0V332.17ZM115.27,121.49Z"/><polygon class="cls-3" points="74.2 322.16 74.2 322.16 74.2 322.16 74.2 322.16"/><path class="cls-4" d="M105,111.22,94.74,121.49,84.48,111.22,74.21,121.49h0V332.17H105Zm10.27,10.27Z"/><path class="cls-3" d="M74.2,322.16"/></svg>
+              </div>
+              <div class="Tool Tool--crayon" data-tool="crayon" data-tool-color>
+                <svg viewBox="0 0 200 385"><path class="cls-1" d="M99.91,56.56H96a11.38,11.38,0,0,0-11.2,9.37L71.85,115H124L111.11,65.93A11.38,11.38,0,0,0,99.91,56.56Z"/><rect class="cls-1" x="67.15" y="110.78" width="61.58" height="221.02"/><rect class="cls-1" x="67.15" y="110.78" width="61.58" height="221.02"/><rect class="cls-2" x="67.15" y="128.5" width="61.58" height="185.57"/><rect class="cls-1" x="67.15" y="281.85" width="61.58" height="7.51"/><rect class="cls-1" x="67.15" y="294.26" width="61.58" height="7.51"/><rect class="cls-1" x="67.15" y="140.94" width="61.58" height="7.51"/><rect class="cls-1" x="67.15" y="153.35" width="61.58" height="7.51"/><rect class="cls-1" x="76.54" y="189.11" width="42.8" height="76.33" rx="4.42" ry="4.42"/><rect class="cls-3" x="67.15" y="110.77" width="30.36" height="220.99" transform="translate(164.65 442.54) rotate(180)"/><path class="cls-3" d="M82.69,110.77H73L84.93,65.89a11.37,11.37,0,0,1,11.2-9.37h3.92a11.21,11.21,0,0,1,2.85.41,11.34,11.34,0,0,0-8.32,9Z"/></svg>
+              </div>
+              <div class="Tool Tool--paintbrush" data-tool="paintbrush" data-tool-color>
+                <svg viewBox="0 0 200 385"><path class="cls-1" d="M118.81,153.42H81.19s-12.35,20.32-12.35,45.77S92.37,327.13,92.37,327.13a8.1,8.1,0,0,0,7.56,5.65h.14a8.1,8.1,0,0,0,7.56-5.65s23.53-102.5,23.53-127.94S118.81,153.42,118.81,153.42Z"/><path class="cls-2" d="M92.16,278.11c-2-6.37-4-13-5.7-19.45-6.91-26.48-12.15-52.06-.55-73.89a113,113,0,0,1,6.34-10.1,117.58,117.58,0,0,0,6.32-10,37.91,37.91,0,0,0,4.06-11.22h-2.3a36.15,36.15,0,0,1-3.76,10.14,114.27,114.27,0,0,1-6.2,9.83,113.86,113.86,0,0,0-6.47,10.32c-13,24.42-5.26,54,.36,75.52C86,265.77,88,272.38,90,278.78c5.44,17.59,11,35.76,10,54h0a8.19,8.19,0,0,0,2.26-.34C103.23,314,97.61,295.74,92.16,278.11Z"/><path class="cls-2" d="M115.88,193c-.81-2.77-1.89-5.62-4.22-7.74s-7.36-3.58-10.59-2.07C90.82,188,90.39,200.42,91,209.31c2.11,33.22,5.39,62.8,23.45,87.18.21-1,.42-2,.64-3-16.65-23.58-19.78-52.23-21.83-84.33-.52-8.23-.18-19.67,8.81-23.88,2.28-1.07,6.3.05,8.1,1.69s2.85,4.25,3.57,6.7c3.17,10.8,3.52,22.28,3.85,33.38.35,11.42.7,23.19,4.11,34.41l1-5.08c-2.23-9.62-2.53-19.64-2.83-29.4C119.49,215.75,119.14,204.12,115.88,193Z"/><path class="cls-2" d="M81,169.18a106.21,106.21,0,0,0,6.63-8.64,35.65,35.65,0,0,0,3.69-7.12H88.89a34.24,34.24,0,0,1-3.15,5.86,101.46,101.46,0,0,1-6.49,8.46c-2,2.39-4,4.86-5.81,7.44-.69,1-1.33,2-2,3-.63,2.56-1.19,5.25-1.62,8.07a54,54,0,0,1,5.43-9.78C77.05,174,79.06,171.54,81,169.18Z"/><path class="cls-2" d="M105.24,212.27a1.13,1.13,0,0,0-1.3-.94,1.15,1.15,0,0,0-1,1.3l3.55,22.13c2,12.65,4.49,27.85,12.3,40.64.23-1.09.45-2.2.68-3.3-6.56-11.79-8.76-25.39-10.73-37.7Z"/><path class="cls-2" d="M109.22,161.65c.63,8.56,7.44,16.43,20.22,23.4l.55.29c-.16-1-.34-1.94-.53-2.89-11.36-6.41-17.42-13.46-18-21a29.21,29.21,0,0,1,.88-8.06h-2.32A30.14,30.14,0,0,0,109.22,161.65Z"/><path class="cls-3" d="M101.74,58.17H98.41c-48,51.24-16,79.52-16,79.52h35.3S149.69,109.41,101.74,58.17Z"/><rect class="cls-1" x="73.71" y="137.69" width="52.73" height="15.73" rx="2.26" ry="2.26"/><path class="cls-1" d="M101,57.07a2,2,0,0,0-1.35-.55,3.23,3.23,0,0,0-1.34.55c-38.71,29.46-14.62,51.78-14.62,51.78h0a5.26,5.26,0,0,0,4,1.93c3,0,5.51-2.76,5.51-6.17v-2c0-3.4,2.47-6.16,5.51-6.16s5.51,2.76,5.51,6.16v.61c0,3.4,2.47,6.16,5.51,6.16a5.08,5.08,0,0,0,3.15-1.11h0S139.74,86.53,101,57.07Z"/><path class="cls-4" d="M101.75,153.42s-14.61,25-14.61,66.7c0,50.09,13.61,112.61,13.61,112.61l-.68,0h-.14a8.1,8.1,0,0,1-7.56-5.65S68.84,224.63,68.84,199.19s12.35-45.77,12.35-45.77Z"/><path class="cls-4" d="M76,153.42h19V137.69H76a2.25,2.25,0,0,0-2.25,2.25v11.22A2.26,2.26,0,0,0,76,153.42Z"/></svg>
+              </div>
+              <div class="Tool Tool--bell" data-tool="bell"></div>
+              <div class="Tool Tool--hanging-lights" data-tool="hanging-lights"></div>
+              <div class="Tool Tool--string-lights" data-tool="string-lights"></div>
+              <div class="Tool Tool--tinsel" data-tool="tinsel"></div>
+              <div class="Tool Tool--icing u-above-mobile" data-tool="icing"></div>
+              <div class="Tool Tool--garland" data-tool="garland"></div>
+              <div class="Tool Tool--neon" data-tool="neon"></div>
+              <div class="Tools-nav" data-tool-category-nav>
+                <div class="Button Button--nav Button--next" data-tool-nav="next"></div>
+                <div class="Button Button--nav Button--prev" data-tool-nav="prev"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="stamp">
+            <div class="Tools-settings">
+              <div class="Tools-colorpicker Colorpicker" data-colorpicker>
+                <div class="Colorpicker-circle" data-colorpicker-selector></div>
+                <div class="Colorpicker-popup" data-colorpicker-popup>
+                  <div class="Colorpicker-colorgrid">
+                    <div class="Colorpicker-color" data-colorpicker-color="#8bc34a"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffeb3b"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffc107"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff5722"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e91e63"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#259b24"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#cddc39"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff9800"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e51c23"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9c27b0"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#3f51b5"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#03a9f4"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#6ae5b9"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9e9e9e"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#f2faff"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#673ab7"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#5677fc"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#009688"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#795548"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#212121"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="Tools-settings-inner">
+                <div class="Tools-slider Slider" data-slider>
+                  <div class="Slider-inner">
+                    <div class="Slider-base" data-slider-base></div>
+                    <div class="Slider-dot" data-slider-dot></div>
+                  </div>
+                </div>
+                <div class="Tools-rotator" data-rotator>
+                  <div class="Button Button--rotate Button--rotate-counter" data-rotate-left></div>
+                  <div class="Button Button--rotate" data-rotate-right></div>
+                </div>
+              </div>
+            </div>
+            <div class="Tools-tray" data-tool-category-tray>
+              <div class="Tool Tool--stamp-present" data-tool="stamp-present" data-tool-color>
+                <svg viewBox="0 0 86.02 104.6"><g class="cls-1"><rect class="cls-2" x="1.6" y="33.21" width="82.99" height="71.39"/><rect class="cls-3" x="1.46" y="59.98" width="83.11" height="17.85"/><rect class="cls-2" y="29.4" width="86.02" height="16.04"/><polygon class="cls-4" points="1.46 80.5 1.46 77.83 84.45 77.83 84.56 79.17 1.46 80.5"/><rect class="cls-3" x="34.63" y="27.58" width="16.04" height="19.68" transform="translate(5.23 80.07) rotate(-90)"/><path class="cls-3" d="M13.8,21.29S12,26.36,12.64,29.4H31S13.8,28.39,13.8,21.29Z"/><path class="cls-5" d="M31,29.4s-17.24-1-17.24-8.11C13.8,21.29,19.25,17.23,31,29.4Z"/><path class="cls-3" d="M72,20.33s1.27,6,.64,9.07H53.37S72,27.42,72,20.33Z"/><path class="cls-5" d="M53.37,29.4s18.6-2,18.6-9.07C72,20.33,65.16,17.23,53.37,29.4Z"/><path class="cls-6" d="M43.64,29.4S42.15,4.14,48.27,1.52L64.9,5.22s2.43,2.7.87,8.44c-2.06,7.63-12.4,15.74-12.4,15.74Z"/><path class="cls-3" d="M48.27,1.52S52,5.27,49,11.86c-1.09,2.41-2.12,4.89-2.92,7.26C59.42,16.61,66.17,8.57,66.19,8.56A6.7,6.7,0,0,0,64.9,5.22Z"/><path class="cls-5" d="M48.27,1.52C42.15,4.14,43.64,29.4,43.64,29.4h1.29C43.43,25.63,46,18.45,49,11.86s-.72-10.34-.72-10.34Z"/><path class="cls-5" d="M41.16,7c0-7.1-4-7-4-7-5.07,9.12,8.11,29.4,8.11,29.4C40.16,18.25,41.16,14.06,41.16,7Z"/><path class="cls-3" d="M36.14,7.67v0L17.9,9.75A13.9,13.9,0,0,0,19,14.08,77.71,77.71,0,0,0,44.72,28.89l.21.51h.3S37.42,17.37,36.14,7.67Z"/><path class="cls-7" d="M36.14,7.67a12.51,12.51,0,0,1,1-7.67S26,4.06,21.91,5.07s-4.05,4-4.05,4c0,.21,0,.42,0,.63L36.14,7.69Z"/><path class="cls-6" d="M19,14.08C22.11,21.84,31,29.4,31,29.4H45.23l-.34-.53A78.9,78.9,0,0,1,19,14.08Z"/><rect class="cls-3" x="13.07" y="66.09" width="59.16" height="17.85" transform="translate(-32.37 117.66) rotate(-90)"/><polygon class="cls-4" points="1.46 48.12 1.46 45.44 84.45 45.44 84.56 46.78 1.46 48.12"/></g></svg>
+              </div>
+              <div class="Tool Tool--stamp-bow" data-tool="stamp-bow" data-tool-color>
+                <svg viewBox="0 0 86.01 63.03"><path class="cls-1" d="M40.86,31.43l-1.2-6.08h0l-.57.56.14,5.63S34,45.75,15.78,55.21h0L15.22,63C37.35,50.12,40.86,31.43,40.86,31.43Z"/><path class="cls-2" d="M39.66,25.35l-.44,6.2S34,45.75,15.78,55.21v.22L16,52.85,4,48.66S29.57,35.41,39.66,25.35"/><path class="cls-1" d="M39.82,21.39S30.24,4.8,14,.26c0,0-3.28-1.5-5.62,2.69A18.92,18.92,0,0,0,7.15,5.6h0c-1.64,0-4.61.29-5.43,3.4C.17,14.92-1.09,23.94,1.45,37.41c0,0,.57,5.74,7.5,3.69,6.16-1.82,29.32-10.24,29.32-10.24Zm-1.31-.33h0ZM7.63,5.63Zm.63.08L8,5.67c.12-.24.24-.48.37-.72C10.7.76,14,2.26,14,2.26,25.91,5.59,34.23,15.4,37.82,20.39,34.53,17.25,22.64,6.9,8.26,5.71Z"/><path class="cls-2" d="M8.26,5.71C22.65,6.9,34.53,17.25,37.82,20.39,34.23,15.4,25.91,5.59,14,2.26,14,2.26,10.7.76,8.36,5c-.13.24-.25.48-.37.72Z"/><path class="cls-3" d="M14,34a102.58,102.58,0,0,1,14.51.28l0,.07,9.75-3.46c-20.49,6-28.45-14.37-17.93-20.56A40.64,40.64,0,0,0,10.13,7.43a4.7,4.7,0,0,0-.64,1.39C8,14.35,7.46,26.33,14.08,34Z"/><path class="cls-4" d="M1.45,37.41S2,43.15,9,41.1c3.49-1,12.85-4.33,20-6.87l-.37,0C6.45,32.44,1.37,37,1.45,37.41Z"/><path class="cls-1" d="M45.15,31.43l1.2-6.08h0l.57.56-.14,5.63s5.26,14.2,23.44,23.66h0L70.79,63C48.66,50.12,45.15,31.43,45.15,31.43Z"/><path class="cls-2" d="M46.35,25.35l.44,6.2s5.26,14.2,23.44,23.66v.22l-.18-2.58,12-4.19S56.44,35.41,46.35,25.35"/><path class="cls-1" d="M47.74,30.86S70.9,39.28,77.06,41.1c6.93,2,7.5-3.69,7.5-3.69C87.1,23.94,85.84,14.92,84.28,9c-.82-3.11-3.79-3.45-5.43-3.4h0A18.92,18.92,0,0,0,77.65,3C75.31-1.24,72,.26,72,.26,55.77,4.8,46.2,21.39,46.2,21.39Zm-.23-9.81h0ZM78.38,5.63ZM48.19,20.39C51.78,15.4,60.1,5.59,72,2.26c0,0,3.28-1.5,5.62,2.69.13.24.25.48.37.72l-.27,0C63.37,6.9,51.49,17.25,48.19,20.39Z"/><path class="cls-2" d="M77.75,5.71C63.37,6.9,51.48,17.25,48.19,20.39,51.78,15.4,60.1,5.59,72,2.26c0,0,3.28-1.5,5.62,2.69.13.24.25.48.37.72Z"/><path class="cls-3" d="M72,34a102.58,102.58,0,0,0-14.51.28l0,.07-9.75-3.46c20.49,6,28.45-14.37,17.93-20.56A40.76,40.76,0,0,1,75.88,7.43a4.7,4.7,0,0,1,.64,1.39c1.45,5.53,2,17.51-4.59,25.15Z"/><path class="cls-4" d="M84.56,37.41s-.57,5.74-7.5,3.69c-3.49-1-12.85-4.33-20-6.87l.37,0C79.56,32.44,84.65,37,84.56,37.41Z"/><path class="cls-2" d="M54.1,24.37c.42-2,5.78-3.52,3.49-5.61S46.31,25.2,46.31,25.2H39.82s-9-8.54-11.28-6.44,3.07,3.6,3.49,5.61-6-.33-6,1.68,6.12,7.86,15.42,1.5a4.11,4.11,0,0,1,3.12,0c9.31,6.36,15.43.52,15.43-1.5S53.68,26.39,54.1,24.37Z"/><rect class="cls-1" x="37.81" y="20.38" width="10.38" height="14.34" rx="2.27" ry="2.27"/><path class="cls-3" d="M37.81,26.39s.61,1.16,5.2,1.16,5.19-1.16,5.19-1.16V22.78H37.81Z"/><path class="cls-2" d="M44.36,32.77H41.65a7.11,7.11,0,0,1-3.84-1.12v.8a2.27,2.27,0,0,0,2.27,2.27h5.85a2.27,2.27,0,0,0,2.27-2.27v-.8A7.08,7.08,0,0,1,44.36,32.77Z"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-ornament-round1 u-above-mobile" data-tool="stamp-ornament-round1" data-tool-color>
+                <svg viewBox="0 0 44.57 59.61"><path class="cls-1" d="M25.87,15.63V11.3H18.26v4.35a22.18,22.18,0,1,0,7.61,0Z"/><path class="cls-2" d="M38,21.74a22,22,0,0,0-12.15-6.15V11.3h-3.8v4a24.38,24.38,0,0,1,.17,44.29A22.15,22.15,0,0,0,38,21.74Z"/><path class="cls-3" d="M17.78,8.73a.1.1,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.11.11,0,0,0,.15,0L22,13.18a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.09.09,0,0,0-.1-.1Z"/><path class="cls-4" d="M22.33,12.25V2.45A1.93,1.93,0,0,0,20.4.52h0a1.92,1.92,0,0,0-1.93,1.93V5.24"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-ornament-round2 u-above-mobile" data-tool="stamp-ornament-round2" data-tool-color>
+                <svg viewBox="0 0 51.41 59.61"><path class="cls-2" d="M29.9,15.63V11.3H22.3v4.35a22.18,22.18,0,1,0,7.6,0Z"/><path class="cls-3" d="M41.79,21.74a22.07,22.07,0,0,0-12.15-6.15V11.3H25.83v4A24.37,24.37,0,0,1,26,59.61,22.15,22.15,0,0,0,41.79,21.74Z"/><path class="cls-4" d="M21.9,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.11.11,0,0,1,.15,0l1.32,1.32a.1.1,0,0,0,.14,0L29,13.18a.1.1,0,0,1,.14,0L30.4,14.4a.1.1,0,0,0,.17-.07V8.83a.09.09,0,0,0-.1-.1Z"/><path class="cls-5" d="M26.44,12.25V2.45A1.92,1.92,0,0,0,24.51.52h0a1.93,1.93,0,0,0-1.93,1.93V5.24"/><g class="cls-6"><line class="cls-7" y1="28.96" x2="51.41" y2="28.96"/><line class="cls-7" y1="45.32" x2="51.41" y2="45.32"/><line class="cls-8" x1="11.66" y1="35.97" x2="16.14" y2="38.56"/><line class="cls-8" x1="11.66" y1="38.56" x2="16.14" y2="35.97"/><line class="cls-8" x1="13.9" y1="39.85" x2="13.9" y2="34.68"/><line class="cls-8" x1="23.88" y1="35.97" x2="28.36" y2="38.56"/><line class="cls-8" x1="23.88" y1="38.56" x2="28.36" y2="35.97"/><line class="cls-8" x1="26.12" y1="39.85" x2="26.12" y2="34.68"/><line class="cls-8" x1="36.09" y1="35.97" x2="40.58" y2="38.56"/><line class="cls-8" x1="36.09" y1="38.56" x2="40.58" y2="35.97"/><line class="cls-8" x1="38.34" y1="39.85" x2="38.34" y2="34.68"/><circle class="cls-1" cx="32.27" cy="37.23" r="1.42"/><circle class="cls-1" cx="19.94" cy="37.23" r="1.42"/><circle class="cls-1" cx="7.86" cy="37.23" r="1.42"/><circle class="cls-1" cx="44.48" cy="37.23" r="1.42"/></g></svg>
+              </div>
+              <div class="Tool Tool--stamp-ornament-round3" data-tool="stamp-ornament-round3" data-tool-color>
+                <svg viewBox="0 0 44.57 59.61"><path class="cls-1" d="M25.87,15.63V11.3H18.26v4.35a22.18,22.18,0,1,0,7.61,0Z"/><circle class="cls-2" cx="9.84" cy="27.39" r="1.41"/><circle class="cls-3" cx="16.73" cy="35.71" r="1.41"/><circle class="cls-2" cx="27.56" cy="35.72" r="1.41"/><circle class="cls-1" cx="20.27" cy="28.75" r="1.41"/><circle class="cls-3" cx="29.69" cy="20.85" r="1.41"/><circle class="cls-3" cx="30.38" cy="43.3" r="1.41"/><circle class="cls-3" cx="31.78" cy="30.15" r="1.41"/><circle class="cls-3" cx="18.34" cy="19.82" r="1.41"/><circle class="cls-2" cx="31.1" cy="52.04" r="1.41"/><circle class="cls-2" cx="14.06" cy="44.71" r="1.41"/><circle class="cls-1" cx="39.63" cy="39.94" r="1.41"/><circle class="cls-3" cx="8.43" cy="49.53" r="1.41"/><circle class="cls-1" cx="5.02" cy="35.71" r="1.41"/><circle class="cls-1" cx="20.27" cy="41.6" r="1.41"/><circle class="cls-1" cx="20.95" cy="54.85" r="1.41"/><path class="cls-4" d="M38,21.74a22,22,0,0,0-12.15-6.15V11.3h-3.8v4a24.38,24.38,0,0,1,.17,44.29A22.15,22.15,0,0,0,38,21.74Z"/><path class="cls-5" d="M17.87,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0l1.32,1.32a.11.11,0,0,0,.15,0L25,13.18a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.1.1,0,0,0-.1-.1Z"/><path class="cls-6" d="M22.41,12.25V2.45A1.92,1.92,0,0,0,20.48.52h0a1.93,1.93,0,0,0-1.93,1.93V5.24"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-ornament-skinny1 u-above-mobile" data-tool="stamp-ornament-skinny1" data-tool-color>
+                <svg viewBox="0 0 23.43 63.08"><path class="cls-1" d="M17.74,16.21a6,6,0,0,0-2.3-1.76V8.66H8v5.79a6,6,0,0,0-2.3,1.76C-8.31,35.4,7.5,58.11,11,62.75a.86.86,0,0,0,1.35,0C15.93,58.11,31.74,35.4,17.74,16.21Z"/><path class="cls-2" d="M17.74,16.21a6,6,0,0,0-2.3-1.76V8.66H12.06v5.79c10.62,21.67,2.67,34.7-2,46.91.4.57.75,1,1,1.39a.86.86,0,0,0,1.35,0C15.93,58.11,31.74,35.4,17.74,16.21Z"/><path class="cls-3" d="M7.5,7.31a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.08l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0l1.32,1.32a.11.11,0,0,0,.15,0l1.32-1.32a.1.1,0,0,1,.14,0L16,13a.1.1,0,0,0,.17-.08V7.41a.1.1,0,0,0-.1-.1Z"/><circle class="cls-4" cx="11.78" cy="3.98" r="3.47"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-ornament-skinny2" data-tool="stamp-ornament-skinny2" data-tool-color>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 25.2 63.1" style="enable-background:new 0 0 25.2 63.1;" xml:space="preserve"><path class="st0" d="M18.6,16.2c-0.6-0.8-1.4-1.4-2.3-1.8V8.7H8.8v5.8c-0.9,0.4-1.7,1-2.3,1.8c-14,19.2,1.8,41.9,5.4,46.5 c0.3,0.4,0.8,0.4,1.2,0.1c0.1,0,0.1-0.1,0.1-0.1C16.8,58.1,32.6,35.4,18.6,16.2z"/><g><path class="st1" d="M0.9,35.3c0,0.4,0,0.8,0.1,1.2l3.1,2l4.4-2.7L4,33.2L0.9,35.3z"/><polygon class="st1" points="8.4,35.9 12.5,38.5 16.8,35.9 12.5,33.2 "/><path class="st1" d="M20.9,33.2l-4,2.6l4,2.7l3.3-2c0-0.4,0.1-0.8,0.1-1.3L20.9,33.2z"/></g><path class="st2" d="M18.6,16.2c-0.6-0.8-1.4-1.4-2.3-1.8V8.7h-3.4v5.8c10.6,21.7,2.7,34.7-2,46.9c0.4,0.6,0.7,1,1,1.4 c0.3,0.4,0.8,0.4,1.2,0.1c0.1,0,0.1-0.1,0.1-0.1C16.8,58.1,32.6,35.4,18.6,16.2z"/><path class="st3" d="M16.9,7.3C16.9,7.3,16.9,7.3,16.9,7.3h-2.1c1.1-0.7,1.8-1.9,1.8-3.3c0-2.2-1.8-4-4-4c-2.2,0-4,1.8-4,4 c0,1.4,0.7,2.6,1.8,3.3H8.3c-0.1,0-0.1,0-0.1,0.1v5.5c0,0.1,0,0.1,0.1,0.1c0,0,0.1,0,0.1,0l1.2-1.2c0,0,0.1,0,0.1,0l1.3,1.3 c0,0,0.1,0,0.1,0l1.3-1.3c0,0,0.1,0,0.1,0l1.3,1.3c0,0,0.1,0,0.1,0l1.3-1.3c0,0,0.1,0,0.1,0l1.2,1.2c0,0,0.1,0,0.1,0c0,0,0,0,0-0.1  V7.4C17,7.4,17,7.3,16.9,7.3z M9.7,4c0-1.6,1.3-3,3-3s3,1.3,3,3s-1.3,3-3,3S9.7,5.6,9.7,4z"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-ornament-wide1" data-tool="stamp-ornament-wide1" data-tool-color>
+                <svg viewBox="0 0 51.25 49.14"><path class="cls-1" d="M51.19,29.16C51,26.84,49.4,22,39,18.9c-10.16-3-10.8-6-10.8-6H23s-.65,3-10.81,6C1.47,22.06.07,27.16,0,29.38H0s0,2.12,0,2.27C.21,34,2.08,39.51,14.82,43c6.7,1.84,9.24,4.24,10.2,5.79a.69.69,0,0,0,1.17,0c.95-1.55,3.49-3.94,10.19-5.79C49.32,39.45,51,33.87,51.17,31.55h0A12.64,12.64,0,0,0,51.19,29.16Z"/><path class="cls-2" d="M51.19,29.16C51,26.84,49.4,22,39,18.9c-10.16-3-10.8-6-10.8-6h-4.8s32,18.2-.19,33.91a8.31,8.31,0,0,1,1.89,2,.59.59,0,0,0,1,0C27,47.35,29.46,44.93,36.38,43,49.32,39.45,51,33.87,51.17,31.55h0A12.64,12.64,0,0,0,51.19,29.16Z"/><path class="cls-3" d="M21.34,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0L27,14.5a.11.11,0,0,0,.15,0l1.32-1.32a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.1.1,0,0,0-.1-.1Z"/><path class="cls-4" d="M25.88,12.25V2.45A1.92,1.92,0,0,0,24,.52h0A1.93,1.93,0,0,0,22,2.45V5.24"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-ornament-wide2 u-above-mobile" data-tool="stamp-ornament-wide2" data-tool-color>
+                <svg viewBox="0 0 51.27 49.14"><path class="cls-1" d="M51.19,29.17C51,26.84,49.4,22,39,18.91c-10.16-3-10.8-6-10.8-6H23s-.65,3-10.81,6C1.47,22.07.07,27.16,0,29.39H0s0,2.11,0,2.27C.21,34,2.08,39.51,14.82,43c6.7,1.85,9.24,4.24,10.2,5.79a.69.69,0,0,0,1.17,0c.95-1.55,3.49-3.94,10.19-5.79C49.32,39.46,51,33.87,51.17,31.55h0A12.56,12.56,0,0,0,51.19,29.17Z"/><polygon class="cls-2" points="31.66 26.67 29.53 27.9 29.96 26.28 29.1 26.05 28.43 28.54 26.09 29.89 26.09 27.18 27.91 25.36 27.27 24.73 26.09 25.92 26.09 23.46 25.19 23.46 25.19 25.92 24 24.73 23.37 25.36 25.19 27.18 25.19 29.89 22.84 28.54 22.18 26.05 21.31 26.28 21.75 27.9 19.62 26.67 19.17 27.45 21.3 28.68 19.68 29.11 19.91 29.98 22.4 29.31 24.74 30.67 22.4 32.02 19.91 31.35 19.68 32.22 21.3 32.65 19.17 33.88 19.62 34.66 21.75 33.43 21.31 35.05 22.18 35.28 22.84 32.8 25.19 31.44 25.19 34.15 23.37 35.97 24 36.6 25.19 35.41 25.19 37.87 26.09 37.87 26.09 35.41 27.27 36.6 27.91 35.97 26.09 34.15 26.09 31.44 28.43 32.8 29.1 35.28 29.96 35.05 29.53 33.43 31.66 34.66 32.1 33.88 29.98 32.65 31.59 32.22 31.36 31.35 28.88 32.02 26.53 30.67 28.88 29.31 31.36 29.98 31.59 29.11 29.98 28.68 32.1 27.45 31.66 26.67"/><polygon class="cls-2" points="10.77 34.15 8.95 35.97 9.59 36.6 10.77 35.41 10.77 37.87 11.67 37.87 11.67 35.41 12.86 36.6 13.49 35.97 11.67 34.15 11.67 31.44 14.01 32.8 14.68 35.28 15.54 35.05 15.11 33.43 17.24 34.66 17.69 33.88 15.56 32.65 17.18 32.22 16.95 31.35 14.46 32.02 12.12 30.67 14.46 29.31 16.95 29.98 17.18 29.11 15.56 28.68 17.69 27.45 17.24 26.67 15.11 27.9 15.54 26.28 14.68 26.05 14.01 28.54 11.67 29.89 11.67 27.18 13.49 25.36 12.86 24.73 11.67 25.92 11.67 23.46 10.77 23.46 10.77 25.92 9.59 24.73 8.95 25.36 10.77 27.18 10.77 29.89 8.43 28.54 7.76 26.05 6.9 26.28 7.33 27.9 5.2 26.67 4.75 27.45 6.88 28.68 5.26 29.11 5.5 29.98 7.98 29.31 10.33 30.67 7.98 32.02 5.5 31.35 5.26 32.22 6.88 32.65 4.75 33.88 5.2 34.66 7.33 33.43 6.9 35.05 7.76 35.28 8.43 32.8 10.77 31.44 10.77 34.15"/><polygon class="cls-2" points="46.01 32.22 45.78 31.35 43.29 32.02 40.95 30.67 43.3 29.31 45.78 29.98 46.01 29.11 44.39 28.68 46.52 27.45 46.07 26.67 43.94 27.9 44.38 26.28 43.51 26.05 42.85 28.54 40.5 29.89 40.5 27.18 42.32 25.36 41.69 24.73 40.5 25.92 40.5 23.46 39.61 23.46 39.61 25.92 38.42 24.73 37.79 25.36 39.61 27.18 39.61 29.89 37.26 28.54 36.6 26.05 35.73 26.28 36.16 27.9 34.03 26.67 33.59 27.45 35.72 28.68 34.1 29.11 34.33 29.98 36.81 29.31 39.16 30.67 36.81 32.02 34.33 31.35 34.1 32.22 35.72 32.65 33.59 33.88 34.03 34.66 36.16 33.43 35.73 35.05 36.6 35.28 37.26 32.8 39.61 31.44 39.61 34.15 37.79 35.97 38.42 36.6 39.61 35.41 39.61 37.87 40.5 37.87 40.5 35.41 41.69 36.6 42.32 35.97 40.5 34.15 40.5 31.44 42.85 32.8 43.51 35.28 44.38 35.05 43.94 33.43 46.07 34.66 46.52 33.88 44.39 32.65 46.01 32.22"/><path class="cls-2" d="M40.92,19.52H10.32c-.81.28-1.54.59-2.23.89H43.16C42.46,20.11,41.73,19.81,40.92,19.52Z"/><path class="cls-2" d="M11.08,41.81H40.17c.79-.29,1.52-.59,2.2-.89H8.87C9.55,41.22,10.29,41.52,11.08,41.81Z"/><g class="cls-3"><path d="M51.21,29.16C51.06,26.84,49.42,22,39,18.9c-10.16-3-10.8-6-10.8-6h-4.8s32,18.2-.19,33.91a7.92,7.92,0,0,1,1.89,2,.6.6,0,0,0,1,0C27,47.35,29.48,44.93,36.4,43c12.94-3.57,14.67-9.15,14.79-11.47h0A12.64,12.64,0,0,0,51.21,29.16Z"/></g><path class="cls-4" d="M21.36,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.11.11,0,0,1,.15,0L27,14.5a.11.11,0,0,0,.15,0l1.32-1.32a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.1.1,0,0,0-.1-.1Z"/><path class="cls-4" d="M26.42,12.25h-1V2.45a1.42,1.42,0,1,0-2.83,0V5.24h-1V2.45a2.45,2.45,0,1,1,4.89,0Z"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-candy-wrapper1" data-tool="stamp-candy-wrapper1" data-tool-color>
+                <svg viewBox="0 0 67.22 27.87"><path class="cls-1" d="M46.07,16.71a37.83,37.83,0,0,0,7.38,6.8c2.59,1.9,5.47,3.65,8.67,3.9A5,5,0,0,0,66.37,26a2.16,2.16,0,0,0,.57-1.7,2.8,2.8,0,0,0-.72-1.3,11.92,11.92,0,0,0-1.7-1.63c-.69-.55-1.51-1.13-1.6-2a2.35,2.35,0,0,1,1.15-2c.64-.47,3.15-1.53,3.15-3.51s-2.51-3-3.15-3.5a2.36,2.36,0,0,1-1.15-2c.09-.88.91-1.46,1.6-2a12,12,0,0,0,1.7-1.64,2.81,2.81,0,0,0,.72-1.29,2.19,2.19,0,0,0-.57-1.71A5,5,0,0,0,62.12.46c-3.2.25-6.08,2-8.67,3.89a38.14,38.14,0,0,0-7.38,6.8Z"/><path class="cls-1" d="M21.15,16.71a37.83,37.83,0,0,1-7.38,6.8c-2.6,1.9-5.47,3.65-8.67,3.9A5,5,0,0,1,.85,26a2.13,2.13,0,0,1-.57-1.7A2.71,2.71,0,0,1,1,23a12.39,12.39,0,0,1,1.69-1.63c.69-.55,1.51-1.13,1.6-2a2.34,2.34,0,0,0-1.14-2C2.51,17,0,15.91,0,13.93s2.51-3,3.15-3.5a2.35,2.35,0,0,0,1.14-2c-.09-.88-.91-1.46-1.6-2A12.47,12.47,0,0,1,1,4.82,2.73,2.73,0,0,1,.28,3.53,2.15,2.15,0,0,1,.85,1.82,5,5,0,0,1,5.1.46c3.2.25,6.07,2,8.67,3.89a38.14,38.14,0,0,1,7.38,6.8Z"/><path class="cls-2" d="M50.47,11.64a80.27,80.27,0,0,1,10.4-3"/><path class="cls-2" d="M50.47,16.23a80.27,80.27,0,0,0,10.4,3"/><path class="cls-2" d="M16.74,11.64a80.12,80.12,0,0,0-10.39-3"/><path class="cls-2" d="M16.74,16.23a80.12,80.12,0,0,1-10.39,3"/><circle class="cls-3" cx="33.61" cy="13.93" r="13.93"/><path class="cls-4" d="M44.33,5A14.08,14.08,0,0,1,44.52,13a17.07,17.07,0,0,1-7.47,9.78,23,23,0,0,1-10.33,3.31A13.94,13.94,0,0,0,44.33,5Z"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-candy-wrapper2 u-above-mobile" data-tool="stamp-candy-wrapper2" data-tool-color>
+                <svg viewBox="0 0 58.61 13.95"><rect class="cls-1" x="10.93" y="1.72" width="36.75" height="11.78" rx="2.84" ry="2.84"/><path class="cls-2" d="M16.83,1.72h-3a2.82,2.82,0,0,0-1.33.34l5.33,11.43h4.55Z"/><path class="cls-2" d="M14.74,13.49,10.93,5.33v5.32a2.84,2.84,0,0,0,2.85,2.84Z"/><polygon class="cls-2" points="24.69 1.72 20.15 1.72 25.64 13.49 30.19 13.49 24.69 1.72"/><polygon class="cls-2" points="32.55 1.72 28.01 1.72 33.5 13.49 38.05 13.49 32.55 1.72"/><path class="cls-2" d="M45.82,13.31,40.41,1.72H35.87l5.49,11.77h3.47A3,3,0,0,0,45.82,13.31Z"/><path class="cls-2" d="M44.83,1.72h-1.1l4,8.47V4.56A2.84,2.84,0,0,0,44.83,1.72Z"/><path class="cls-3" d="M47.68,8.41a19.3,19.3,0,0,0,3.81,3.52,9.07,9.07,0,0,0,4.49,2,2.61,2.61,0,0,0,2.19-.7,1.14,1.14,0,0,0,.3-.89,1.64,1.64,0,0,0-.37-.67,7,7,0,0,0-.88-.84c-.36-.28-.78-.58-.83-1a1.22,1.22,0,0,1,.59-1C57.32,8.55,58.61,8,58.61,7S57.32,5.4,57,5.16a1.2,1.2,0,0,1-.59-1c0-.46.47-.76.83-1a6.35,6.35,0,0,0,.88-.84,1.64,1.64,0,0,0,.37-.67,1.11,1.11,0,0,0-.3-.88A2.59,2.59,0,0,0,56,0a9.16,9.16,0,0,0-4.49,2,19.92,19.92,0,0,0-3.81,3.52Z"/><path class="cls-3" d="M10.93,8.41a19.3,19.3,0,0,1-3.81,3.52,9.07,9.07,0,0,1-4.49,2,2.61,2.61,0,0,1-2.19-.7,1.14,1.14,0,0,1-.3-.89,1.64,1.64,0,0,1,.37-.67,7,7,0,0,1,.88-.84c.36-.28.78-.58.83-1a1.22,1.22,0,0,0-.59-1C1.29,8.55,0,8,0,7S1.29,5.4,1.63,5.16a1.2,1.2,0,0,0,.59-1c-.05-.46-.47-.76-.83-1a6.35,6.35,0,0,1-.88-.84A1.64,1.64,0,0,1,.14,1.6,1.11,1.11,0,0,1,.44.72,2.59,2.59,0,0,1,2.63,0,9.16,9.16,0,0,1,7.12,2a19.92,19.92,0,0,1,3.81,3.52Z"/><path class="cls-4" d="M50,6.06a.27.27,0,0,1-.26-.18.27.27,0,0,1,.16-.35A42.36,42.36,0,0,1,55.27,4a.28.28,0,0,1,.12.54,40.18,40.18,0,0,0-5.34,1.55Z"/><path class="cls-4" d="M55.33,10h-.06a42.36,42.36,0,0,1-5.41-1.57.27.27,0,0,1-.16-.35.27.27,0,0,1,.35-.16,42.43,42.43,0,0,0,5.34,1.55.27.27,0,0,1,.21.32A.28.28,0,0,1,55.33,10Z"/><path class="cls-4" d="M8.65,6.06H8.56A40.18,40.18,0,0,0,3.22,4.5.28.28,0,0,1,3,4.17.27.27,0,0,1,3.34,4,42.36,42.36,0,0,1,8.75,5.53a.27.27,0,0,1,.16.35A.27.27,0,0,1,8.65,6.06Z"/><path class="cls-4" d="M3.28,10A.28.28,0,0,1,3,9.78a.27.27,0,0,1,.21-.32A42.43,42.43,0,0,0,8.56,7.91a.27.27,0,0,1,.35.16.27.27,0,0,1-.16.35A42.36,42.36,0,0,1,3.34,10Z"/><g class="cls-5"><path d="M44.83,10.12h-31a2.85,2.85,0,0,1-2.85-2.85v3.38a2.84,2.84,0,0,0,2.85,2.84H44.83a2.84,2.84,0,0,0,2.85-2.84V7.27A2.85,2.85,0,0,1,44.83,10.12Z"/></g></svg>
+              </div>
+              <div class="Tool Tool--stamp-candy-gumdrop" data-tool="stamp-candy-gumdrop" data-tool-color>
+                <svg viewBox="0 0 25.63 27.9"><path class="cls-2" d="M25.53,21.75,22,4.12a5.14,5.14,0,0,0-5-4.12H8.69a5.15,5.15,0,0,0-5,4.12L.1,21.75a5.14,5.14,0,0,0,5,6.15H20.49A5.14,5.14,0,0,0,25.53,21.75Z" transform="translate(0 0)"/><g class="cls-3"><path d="M25.53,21.75,22,4.12A5.12,5.12,0,0,0,19,.43a5.89,5.89,0,0,1,.33,1l3.55,17.63a5.14,5.14,0,0,1-5,6.15H2.48a5.11,5.11,0,0,1-2-.42A5.13,5.13,0,0,0,5.14,27.9H20.49A5.14,5.14,0,0,0,25.53,21.75Z" transform="translate(0 0)"/></g><g class="cls-4"><g class="cls-5"><path class="cls-6" d="M6.53,25.23a.62.62,0,0,1-.51-.7H6a.62.62,0,0,1,.7-.52h0a.6.6,0,0,1,.51.69h0a.6.6,0,0,1-.6.52h-.1Zm7.27-7.62a.62.62,0,0,1-.54-.68h0a.62.62,0,0,1,.68-.54h0a.61.61,0,0,1,.54.68h0a.62.62,0,0,1-.61.55H13.8Zm-4.87-6a.62.62,0,0,1-.59-.64h0A.61.61,0,0,1,9,10.35H9a.62.62,0,0,1,.59.64h0a.61.61,0,0,1-.61.58h0ZM3.17,18.23a.62.62,0,0,1-.59-.64h0A.61.61,0,0,1,3.22,17h0a.62.62,0,0,1,.59.64h0a.61.61,0,0,1-.61.58h0ZM9,7.12a.61.61,0,0,1,.57-.65h0a.6.6,0,0,1,.65.57h0a.61.61,0,0,1-.57.65h0A.61.61,0,0,1,9,7.12Zm11.32.47a.61.61,0,0,1-.19-.84h0a.61.61,0,0,1,.85-.19h0a.61.61,0,0,1,.19.84h0a.61.61,0,0,1-.52.29h0A.6.6,0,0,1,20.28,7.59Zm-16-1.87A.61.61,0,0,1,4,4.88H4a.61.61,0,0,1,.84-.2h0a.62.62,0,0,1,.2.85h0a.64.64,0,0,1-.52.29h0A.58.58,0,0,1,4.23,5.72Z" transform="translate(0 0)"/></g><g class="cls-7"><path class="cls-6" d="M15.65,25.83a.59.59,0,0,1-.2-.83h0a.61.61,0,0,1,.84-.21h0a.6.6,0,0,1,.2.84h0a.58.58,0,0,1-.52.29h0A.54.54,0,0,1,15.65,25.83Zm6.7,0a.59.59,0,0,1-.2-.83h0a.61.61,0,0,1,.84-.21h0a.6.6,0,0,1,.2.84h0a.58.58,0,0,1-.52.29h0A.54.54,0,0,1,22.35,25.83Zm-2.9-4.59h0a.6.6,0,0,1,.46-.73h0a.62.62,0,0,1,.73.47h0a.61.61,0,0,1-.46.73H20A.6.6,0,0,1,19.45,21.24ZM2.71,22.94a.62.62,0,0,1-.12-.86h0A.62.62,0,0,1,3.45,22h0a.61.61,0,0,1,.12.86h0a.6.6,0,0,1-.49.24h0A.63.63,0,0,1,2.71,22.94Zm8.14-1.22a.61.61,0,0,1-.66-.56h0a.61.61,0,0,1,.56-.66h0a.61.61,0,0,1,.66.55h0a.62.62,0,0,1-.56.67Zm4.39-.15a.62.62,0,0,1-.48-.73h0a.61.61,0,0,1,.72-.48h0a.61.61,0,0,1,.48.72h0a.63.63,0,0,1-.6.5h-.12Zm5.69-8.79h0a.62.62,0,0,1,.17-.85h0a.61.61,0,0,1,.85.17h0a.61.61,0,0,1-.16.85h0a.65.65,0,0,1-.34.11h0A.64.64,0,0,1,20.93,12.78Zm-3.69-.64a.61.61,0,0,1,.41-.76h0a.6.6,0,0,1,.76.4h0a.61.61,0,0,1-.4.77h0l-.18,0h0A.61.61,0,0,1,17.24,12.14Zm-4.46,1a.61.61,0,0,1-.31-.81h0a.6.6,0,0,1,.8-.31h0a.61.61,0,0,1,.32.81h0a.61.61,0,0,1-.56.36h0A.7.7,0,0,1,12.78,13.15ZM4.71,11.91a.61.61,0,0,1-.31-.81h0a.6.6,0,0,1,.8-.31h0a.61.61,0,0,1,.32.81h0A.61.61,0,0,1,5,12H5A.7.7,0,0,1,4.71,11.91Zm3.23,4.85a.6.6,0,0,1-.31-.8h0a.6.6,0,0,1,.8-.32h0a.62.62,0,0,1,.32.82h0a.62.62,0,0,1-.56.35h0A.53.53,0,0,1,7.94,16.76Zm6.83-7.43a.6.6,0,0,1,.46-.73h0a.6.6,0,0,1,.73.46h0a.61.61,0,0,1-.46.73h0l-.14,0h0A.61.61,0,0,1,14.77,9.33Zm1.77-3.65h0A.62.62,0,0,1,16,5h0a.6.6,0,0,1,.64-.57h0a.61.61,0,0,1,.57.65h0a.61.61,0,0,1-.61.57h0Zm2.47,12h0a.62.62,0,0,1-.58-.65h0a.6.6,0,0,1,.64-.57h0a.61.61,0,0,1,.57.65h0a.61.61,0,0,1-.61.57h0ZM10.68,3.64A.61.61,0,0,1,11,2.85h0a.61.61,0,0,1,.79.36h0a.61.61,0,0,1-.36.79h0a.52.52,0,0,1-.21,0h0A.61.61,0,0,1,10.68,3.64Zm-4.55.22a.61.61,0,0,1-.55-.66h0a.61.61,0,0,1,.66-.56h0a.62.62,0,0,1,.56.67h0a.63.63,0,0,1-.61.56H6.13Z" transform="translate(0 0)"/></g></g></svg>
+              </div>
+              <div class="Tool Tool--stamp-candy-jellybean u-above-mobile" data-tool="stamp-candy-jellybean" data-tool-color>
+                <svg viewBox="0 0 26.62 13.95"><path class="cls-1" d="M13.31,14C9.83,14,0,13.11,0,5.71H0A6.11,6.11,0,0,1,.71,2.83,5,5,0,0,1,6.37.31a33.28,33.28,0,0,0,6.94,1.17C17.42,1.48,19.86,0,21.62,0c2.78,0,5,2.62,5,5.71h0C26.62,13.11,16.79,14,13.31,14Z"/><path class="cls-2" d="M3.66,8.33A20.65,20.65,0,0,0,14,10.87c6.34,0,9.52-2.54,9.52-2.54"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-candy-mint-swirl" data-tool="stamp-candy-mint-swirl" data-tool-color>
+                <svg viewBox="0 0 28.25 27.9"><circle class="cls-2" cx="14.3" cy="13.95" r="13.95"/><g class="cls-3"><path class="cls-4" d="M1,19.42A12.63,12.63,0,0,1,2,7.77,14.52,14.52,0,0,1,6.6,3.22a8.69,8.69,0,0,1,1.47-.8,10.92,10.92,0,0,1,1.56-.6,12.7,12.7,0,0,1,3.46-.65,13.09,13.09,0,0,1,12.08,7,12.35,12.35,0,0,1,1.26,3.54,11.25,11.25,0,0,1,.09,4,11.81,11.81,0,0,1-3.75,7,11.84,11.84,0,0,1-3.45,2.09,12.21,12.21,0,0,1-1.93.58,11.22,11.22,0,0,1-2.16.21A10,10,0,0,1,7.64,22a9.87,9.87,0,0,1-1.92-3.79,8.47,8.47,0,0,1,0-4.47A8.32,8.32,0,0,1,7.94,9.85a8.23,8.23,0,0,1,3.87-2,7,7,0,0,1,4.56.44,6.56,6.56,0,0,1,3.82,5.25A5.71,5.71,0,0,1,20,15.82a5.38,5.38,0,0,1-2.92,3.31,5.22,5.22,0,0,1-2.17.42,4.43,4.43,0,0,1-2.15-.67,4,4,0,0,1-1.86-3.64,3.07,3.07,0,0,1,2.57-2.76,2.24,2.24,0,0,1,1.77.49A1.94,1.94,0,0,1,16,14.42v0a.21.21,0,0,1-.42,0,1.48,1.48,0,0,0-1.84-1.09,1.91,1.91,0,0,0-1.38,1.82,2.37,2.37,0,0,0,1.28,2A2.51,2.51,0,0,0,16,17.15a3.05,3.05,0,0,0,1.5-1.94,3.38,3.38,0,0,0-.4-2.44,3.85,3.85,0,0,0-1.9-1.64A3.73,3.73,0,0,0,12.7,11a4.78,4.78,0,0,0-3.39,3.54,5.59,5.59,0,0,0,1.34,4.79,6.15,6.15,0,0,0,4.58,2.07A7.45,7.45,0,0,0,20,19.51,7.7,7.7,0,0,0,22.43,15a8.32,8.32,0,0,0-.85-5.1,9.71,9.71,0,0,0-8.53-5.41A12.05,12.05,0,0,0,3.77,9.15,12.4,12.4,0,0,0,1.4,19.33a.2.2,0,0,1-.16.25A.21.21,0,0,1,1,19.47Z"/></g><path class="cls-5" d="M23,3.12a13.88,13.88,0,0,1-19.5,19.5A13.88,13.88,0,1,0,23,3.12Z"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-candy-mint-wheel u-above-mobile" data-tool="stamp-candy-mint-wheel" data-tool-color>
+                <svg viewBox="0 0 27.9 27.9"><circle class="cls-1" cx="13.95" cy="13.95" r="13.95"/><path class="cls-2" d="M27.42,10.35a14,14,0,0,0-6.49-8.47A13.94,13.94,0,0,0,14,14,13.94,13.94,0,0,1,27.42,10.35Z"/><path class="cls-2" d="M17.55,27.42A14,14,0,0,0,26,20.93,13.93,13.93,0,0,0,14,14,13.94,13.94,0,0,1,17.55,27.42Z"/><path class="cls-2" d="M.49,17.55A14,14,0,0,0,7,26,13.94,13.94,0,0,0,14,14,13.92,13.92,0,0,1,.49,17.55Z"/><path class="cls-2" d="M10.35.49A14,14,0,0,0,1.88,7,13.94,13.94,0,0,0,14,14,13.92,13.92,0,0,1,10.35.49Z"/><path class="cls-3" d="M22.6,3A14,14,0,0,1,3,22.6,14,14,0,1,0,22.6,3Z"/></svg>
+              </div>
+              <div class="Tool Tool--stamp-candy-sucker" data-tool="stamp-candy-sucker" data-tool-color>
+                <svg viewBox="0 0 27.27 67.14"><rect class="cls-1" x="12.12" y="6.22" width="3.04" height="60.92"/><path class="cls-2" d="M11.8,26.77a21.86,21.86,0,0,0-4.49,3.64C6.06,31.68,4.9,33.1,4.74,34.68a2.09,2.09,0,0,0,.9,2.09,1.67,1.67,0,0,0,1.12.28,2.06,2.06,0,0,0,.86-.35,6.92,6.92,0,0,0,1.08-.84A2.19,2.19,0,0,1,10,35.08a1.69,1.69,0,0,1,1.3.56c.31.32,1,1.55,2.32,1.55s2-1.23,2.31-1.55a1.69,1.69,0,0,1,1.3-.56,2.24,2.24,0,0,1,1.33.78,6.84,6.84,0,0,0,1.07.84,2.06,2.06,0,0,0,.86.35,1.7,1.7,0,0,0,1.13-.28,2.11,2.11,0,0,0,.9-2.09c-.17-1.58-1.32-3-2.57-4.27a22.19,22.19,0,0,0-4.5-3.64Z"/><path class="cls-3" d="M15.15,28.73a27.11,27.11,0,0,1,2,4.62"/><path class="cls-3" d="M12.12,28.73a27.93,27.93,0,0,0-2,4.62"/><circle class="cls-4" cx="13.64" cy="13.64" r="13.64"/><path class="cls-5" d="M24.13,4.92a13.79,13.79,0,0,1,.19,7.77A16.8,16.8,0,0,1,17,22.26,22.47,22.47,0,0,1,6.89,25.49,13.64,13.64,0,0,0,24.13,4.92Z"/></svg>
+              </div>
+              <div class="Tools-nav" data-tool-category-nav>
+                <div class="Button Button--nav Button--next" data-tool-nav="next"></div>
+                <div class="Button Button--nav Button--prev" data-tool-nav="prev"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="spray">
+            <div class="Tools-settings">
+              <div class="Tools-colorpicker Colorpicker" data-colorpicker>
+                <div class="Colorpicker-circle" data-colorpicker-selector></div>
+                <div class="Colorpicker-popup" data-colorpicker-popup>
+                  <div class="Colorpicker-colorgrid">
+                    <div class="Colorpicker-color" data-colorpicker-color="#8bc34a"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffeb3b"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffc107"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff5722"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e91e63"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#259b24"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#cddc39"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff9800"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e51c23"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9c27b0"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#3f51b5"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#03a9f4"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#6ae5b9"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9e9e9e"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#f2faff"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#673ab7"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#5677fc"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#009688"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#795548"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#212121"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="Tools-slider Slider" data-slider>
+                <div class="Slider-inner">
+                  <div class="Slider-base" data-slider-base></div>
+                  <div class="Slider-dot" data-slider-dot></div>
+                </div>
+              </div>
+            </div>
+            <div class="Tools-tray" data-tool-category-tray>
+              <div class="Tool Tool--spray-color" data-tool="spray-color" data-tool-color>
+                <svg viewBox="0 0 139.29 300"><polygon class="cls-1" points="66.27 74.09 66.27 29.33 56.36 29.33 56.36 0 83.72 0 83.72 29.33 73.02 29.33 73.02 74.09 135.43 74.09 135.43 296.13 3.86 296.13 3.86 74.09 66.27 74.09"/><rect class="cls-2" x="3.94" y="77.46" width="55.58" height="214.8"/><rect class="cls-3" y="292.26" width="139.29" height="7.74"/><path class="cls-3" d="M8.5,70.23a64.75,64.75,0,0,1,6.28-12.09A39.47,39.47,0,0,1,42.83,40.78V32.21H96.47v8.56A38.8,38.8,0,0,1,123.76,57a65.52,65.52,0,0,1,7,13.21h8.5V78H0V70.23Z"/><circle class="cls-3" cx="69.65" cy="180.27" r="40.24"/></svg>
+              </div>
+              <div class="Tool Tool--spray-sprinkles" data-tool="spray-sprinkles"></div>
+              <div class="Tool Tool--spray-candy" data-tool="spray-candy"></div>
+              <div class="Tool Tool--spray-confetti" data-tool="spray-confetti"></div>
+              <div class="Tool Tool--spray-holiday" data-tool="spray-holiday"></div>
+              <div class="Tool Tool--spray-ocean" data-tool="spray-ocean"></div>
+              <div class="Tool Tool--spray-ornaments" data-tool="spray-ornaments"></div>
+              <div class="Tool Tool--spray-snow" data-tool="spray-snow"></div>
+              <div class="Tool Tool--spray-snowflakes" data-tool="spray-snowflakes"></div>
+              <div class="Tools-nav" data-tool-category-nav>
+                <div class="Button Button--nav Button--next" data-tool-nav="next"></div>
+                <div class="Button Button--nav Button--prev" data-tool-nav="prev"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="roller">
+            <div class="Tools-settings">
+              <div class="Tools-slider Slider" data-slider>
+                <div class="Slider-inner">
+                  <div class="Slider-base" data-slider-base></div>
+                  <div class="Slider-dot" data-slider-dot></div>
+                </div>
+              </div>
+            </div>
+            <div class="Tools-tray" data-tool-category-tray>
+              <div class="Tool Tool--roller-checkered" data-tool="roller-checkered"></div>
+              <div class="Tool Tool--roller-diagonal" data-tool="roller-diagonal"></div>
+              <div class="Tool Tool--roller-horizontal" data-tool="roller-horizontal"></div>
+              <div class="Tool Tool--roller-polkadots" data-tool="roller-polkadots"></div>
+              <div class="Tool Tool--roller-snowflakes" data-tool="roller-snowflakes"></div>
+              <div class="Tool Tool--roller-trees" data-tool="roller-trees"></div>
+              <div class="Tool Tool--roller-vertical u-above-mobile" data-tool="roller-vertical"></div>
+              <div class="Tools-nav" data-tool-category-nav>
+                <div class="Button Button--nav Button--next" data-tool-nav="next"></div>
+                <div class="Button Button--nav Button--prev" data-tool-nav="prev"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="shape">
+            <div class="Tools-settings">
+              <div class="Tools-colorpicker Colorpicker" data-colorpicker>
+                <div class="Colorpicker-circle" data-colorpicker-selector></div>
+                <div class="Colorpicker-popup" data-colorpicker-popup>
+                  <div class="Colorpicker-colorgrid">
+                    <div class="Colorpicker-color" data-colorpicker-color="#8bc34a"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffeb3b"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ffc107"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff5722"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e91e63"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#259b24"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#cddc39"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#ff9800"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#e51c23"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9c27b0"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#3f51b5"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#03a9f4"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#6ae5b9"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#9e9e9e"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#f2faff"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#673ab7"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#5677fc"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#009688"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#795548"></div>
+                    <div class="Colorpicker-color" data-colorpicker-color="#212121"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="Tools-settings-inner">
+                <div class="Tools-slider Slider" data-slider>
+                  <div class="Slider-inner">
+                    <div class="Slider-base" data-slider-base></div>
+                    <div class="Slider-dot" data-slider-dot></div>
+                  </div>
+                </div>
+                <div class="Tools-rotator" data-rotator>
+                  <div class="Button Button--rotate Button--rotate-counter" data-rotate-left></div>
+                  <div class="Button Button--rotate" data-rotate-right></div>
+                </div>
+              </div>
+            </div>
+            <div class="Tools-tray" data-tool-category-tray>
+              <div class="Tool Tool--shape-circle" data-tool="shape-circle" data-tool-color>
+                <svg viewBox="0 0 65 65"><circle class="cls-1" cx="32.5" cy="32.5" r="32.5"/></svg>
+              </div>
+              <div class="Tool Tool--shape-diamond" data-tool="shape-diamond" data-tool-color>
+                <svg viewBox="0 0 61.38 75"><polygon class="cls-1" points="30.69 75 0 37.5 30.69 0 61.38 37.5 30.69 75"/></svg>
+              </div>
+              <div class="Tool Tool--shape-heart" data-tool="shape-heart" data-tool-color>
+                <svg viewBox="0 0 75.16 65"><path class="cls-1" d="M55.89,0A19.48,19.48,0,0,0,37.58,11.46,19.48,19.48,0,0,0,19.27,0C-1.39,0,0,19,0,19,0,42.39,37.58,65,37.58,65S75.14,42.39,75.14,19C75.14,19,76.56,0,55.89,0Z"/></svg>
+              </div>
+              <div class="Tool Tool--shape-octagon" data-tool="shape-octagon" data-tool-color>
+                <svg viewBox="0 0 75 75"><polygon class="cls-1" points="53.03 0 21.97 0 0 21.97 0 53.03 21.97 75 53.03 75 75 53.03 75 21.97 53.03 0"/></svg>
+              </div>
+              <div class="Tool Tool--shape-pentagon" data-tool="shape-pentagon" data-tool-color>
+                <svg viewBox="0 0 78.86 75"><polygon class="cls-1" points="39.43 0 0 28.65 15.06 75 63.8 75 78.86 28.65 39.43 0"/></svg>
+              </div>
+              <div class="Tool Tool--shape-rectangle" data-tool="shape-rectangle" data-tool-color>
+                <svg viewBox="0 0 115.56 65"><rect class="cls-1" width="115.56" height="65"/></svg>
+              </div>
+              <div class="Tool Tool--shape-square" data-tool="shape-square" data-tool-color>
+                <svg viewBox="0 0 65 65"><rect class="cls-1" width="65" height="65"/></svg>
+              </div>
+              <div class="Tool Tool--shape-star" data-tool="shape-star" data-tool-color>
+                <svg viewBox="0 0 78.71 75"><polygon class="cls-1" points="39.2 0 51.5 24.58 78.72 28.38 59.14 47.67 63.93 74.73 39.54 62.08 15.28 75 19.78 47.89 0 28.81 27.17 24.71 39.2 0"/></svg>
+              </div>
+              <div class="Tool Tool--shape-triangle" data-tool="shape-triangle" data-tool-color>
+                <svg viewBox="0 0 75.06 65"><polygon class="cls-1" points="37.53 0 0 65 75.06 65 37.53 0"/></svg>
+              </div>
+              <div class="Tools-nav" data-tool-category-nav>
+                <div class="Button Button--nav Button--next" data-tool-nav="next"></div>
+                <div class="Button Button--nav Button--prev" data-tool-nav="prev"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="scene">
+            <div class="Tools-tray" data-tool-category-tray>
+              <div class="Tool" data-tool="scene-none"></div>
+              <div class="Tool u-above-mobile" data-tool="scene-air"></div>
+              <div class="Tool" data-tool="scene-airport"></div>
+              <div class="Tool" data-tool="scene-beach"></div>
+              <div class="Tool u-above-mobile" data-tool="scene-dock"></div>
+              <div class="Tool u-above-mobile" data-tool="scene-iceberg"></div>
+              <div class="Tool u-above-mobile" data-tool="scene-gingerbread"></div>
+              <div class="Tool u-above-mobile" data-tool="scene-livingroom"></div>
+              <div class="Tool" data-tool="scene-night"></div>
+              <div class="Tool" data-tool="scene-snow"></div>
+              <div class="Tool" data-tool="scene-underwater"></div>
+              <div class="Tools-nav" data-tool-category-nav>
+                <div class="Button Button--nav Button--next" data-tool-nav="next"></div>
+                <div class="Button Button--nav Button--prev" data-tool-nav="prev"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Tools-inner" data-tool-category-menu data-tool-category="sticker">
+            <div class="Tools-settings">
+              <div class="Tools-settings-inner">
+                <div class="Tools-slider Slider" data-slider>
+                  <div class="Slider-inner">
+                    <div class="Slider-base" data-slider-base></div>
+                    <div class="Slider-dot" data-slider-dot></div>
+                  </div>
+                </div>
+                <div class="Tools-rotator" data-rotator>
+                  <div class="Button Button--rotate Button--rotate-counter" data-rotate-left></div>
+                  <div class="Button Button--rotate" data-rotate-right></div>
+                </div>
+              </div>
+              <div class="Tools-submenu">
+                <div class="Tools-submenu__item is-active" data-tool-subcategory-picker data-tool-subcategory="animals"></div>
+                <div class="Tools-submenu__item" data-tool-subcategory-picker data-tool-subcategory="nature"></div>
+                <div class="Tools-submenu__item" data-tool-subcategory-picker data-tool-subcategory="people"></div>
+                <div class="Tools-submenu__item" data-tool-subcategory-picker data-tool-subcategory="decorations"></div>
+                <div class="Tools-submenu__item" data-tool-subcategory-picker data-tool-subcategory="silly"></div>
+                <div class="Tools-submenu__item" data-tool-subcategory-picker data-tool-subcategory="food"></div>
+              </div>
+            </div>
+            <div class="Tools-tray" data-tool-category-tray>
+              <div class="Tools-subsection is-active" data-tool-subcategory-menu data-tool-subcategory="animals">
+                <div class="Tool Tool--sticker-rudolph-dancing2" data-tool="sticker-rudolph-dancing2"></div>
+                <div class="Tool Tool--sticker-rudolph-front" data-tool="sticker-rudolph-front"></div>
+                <div class="Tool Tool--sticker-rudolph-side u-above-mobile" data-tool="sticker-rudolph-side"></div>
+                <div class="Tool Tool--sticker-reindeer-babies u-only-mobile" data-tool="sticker-reindeer-babies"></div>
+                <div class="Tool Tool--sticker-reindeer-baby-boy u-above-mobile" data-tool="sticker-reindeer-baby-boy"></div>
+                <div class="Tool Tool--sticker-reindeer-baby-girl u-above-mobile" data-tool="sticker-reindeer-baby-girl"></div>
+                <div class="Tool Tool--sticker-brown-bear" data-tool="sticker-brown-bear"></div>
+                <div class="Tool Tool--sticker-brown-bear-baby u-above-mobile" data-tool="sticker-brown-bear-baby"></div>
+                <div class="Tool Tool--sticker-penguin-angry u-above-mobile" data-tool="sticker-penguin-angry"></div>
+                <div class="Tool Tool--sticker-penguin-presents" data-tool="sticker-penguin-presents"></div>
+                <div class="Tool Tool--sticker-walrus" data-tool="sticker-walrus"></div>
+                <div class="Tool Tool--sticker-pegman-hips" data-tool="sticker-pegman-hips"></div>
+                <div class="Tool Tool--sticker-gingerbread-man" data-tool="sticker-gingerbread-man"></div>
+                <div class="Tool Tool--sticker-nutcracker-green" data-tool="sticker-nutcracker-green"></div>
+                <div class="Tool Tool--sticker-snow-monster" data-tool="sticker-snow-monster"></div>
+                <div class="Tool Tool--sticker-snowman-big-penguin" data-tool="sticker-snowman-big-penguin"></div>
+                <div class="Tool Tool--sticker-dinosaur" data-tool="sticker-dinosaur"></div>
+                <div class="Tool Tool--sticker-snowman-big-tub u-above-mobile" data-tool="sticker-snowman-big-tub"></div>
+                <div class="Tool Tool--sticker-reindeer-white u-above-mobile" data-tool="sticker-reindeer-white"></div>
+                <div class="Tool Tool--sticker-bat u-above-mobile" data-tool="sticker-bat"></div>
+                <div class="Tool Tool--sticker-seagull-fly2 u-above-mobile" data-tool="sticker-seagull-fly2"></div>
+                <div class="Tool Tool--sticker-astronaut u-above-mobile" data-tool="sticker-astronaut"></div>
+                <div class="Tool Tool--sticker-robot-purple" data-tool="sticker-robot-purple"></div>
+                <div class="Tool Tool--sticker-scuba-green" data-tool="sticker-scuba-green"></div>
+                <div class="Tool Tool--sticker-scuba-orange u-above-mobile" data-tool="sticker-scuba-orange"></div>
+                <div class="Tool Tool--sticker-polar-bear-scuba u-above-mobile" data-tool="sticker-polar-bear-scuba"></div>
+                <div class="Tool Tool--sticker-brown-bear-pirate" data-tool="sticker-brown-bear-pirate"></div>
+                <div class="Tool Tool--sticker-narwhal u-above-mobile" data-tool="sticker-narwhal"></div>
+                <div class="Tool Tool--sticker-shark u-above-mobile" data-tool="sticker-shark"></div>
+                <div class="Tool Tool--sticker-dolphin u-above-mobile" data-tool="sticker-dolphin"></div>
+                <div class="Tool Tool--sticker-light-fish u-above-mobile" data-tool="sticker-light-fish"></div>
+                <div class="Tool Tool--sticker-box-fish u-above-mobile" data-tool="sticker-box-fish"></div>
+                <div class="Tool Tool--sticker-jellyfish u-above-mobile" data-tool="sticker-jellyfish"></div>
+                <div class="Tool Tool--sticker-fish-pink u-above-mobile" data-tool="sticker-fish-pink"></div>
+                <div class="Tool Tool--sticker-fish-teal u-above-mobile" data-tool="sticker-fish-teal"></div>
+                <div class="Tool Tool--sticker-fish-yellow u-above-mobile" data-tool="sticker-fish-yellow"></div>
+              </div>
+              <div class="Tools-subsection" data-tool-subcategory-menu data-tool-subcategory="nature">
+                <div class="Tool Tool--sticker-tree-holiday" data-tool="sticker-tree-holiday"></div>
+                <div class="Tool Tool--sticker-tree-palm" data-tool="sticker-tree-palm"></div>
+                <div class="Tool Tool--sticker-trees-blue" data-tool="sticker-trees-blue"></div>
+                <div class="Tool Tool--sticker-trees-green" data-tool="sticker-trees-green"></div>
+                <div class="Tool Tool--sticker-sun" data-tool="sticker-sun"></div>
+                <div class="Tool Tool--sticker-cactus" data-tool="sticker-cactus"></div>
+                <div class="Tool Tool--sticker-cloud1 u-above-mobile" data-tool="sticker-cloud1"></div>
+                <div class="Tool Tool--sticker-cloud2" data-tool="sticker-cloud2"></div>
+                <div class="Tool Tool--sticker-cloud3 u-above-mobile" data-tool="sticker-cloud3"></div>
+                <div class="Tool Tool--sticker-moon" data-tool="sticker-moon"></div>
+                <div class="Tool Tool--sticker-village-houses" data-tool="sticker-village-houses"></div>
+                <div class="Tool Tool--sticker-igloo" data-tool="sticker-igloo"></div>
+                <div class="Tool Tool--sticker-house" data-tool="sticker-house"></div>
+                <div class="Tool Tool--sticker-santa-sleigh u-above-mobile" data-tool="sticker-santa-sleigh"></div>
+                <div class="Tool Tool--sticker-school-bus u-above-mobile" data-tool="sticker-school-bus"></div>
+                <div class="Tool Tool--sticker-elf-car" data-tool="sticker-elf-car"></div>
+                <div class="Tool Tool--sticker-coral-large u-above-mobile" data-tool="sticker-coral-large"></div>
+                <div class="Tool Tool--sticker-coral-medium u-above-mobile" data-tool="sticker-coral-medium"></div>
+                <div class="Tool Tool--sticker-coral-small u-above-mobile" data-tool="sticker-coral-small"></div>
+                <div class="Tool Tool--sticker-seaweed-green u-above-mobile" data-tool="sticker-seaweed-green"></div>
+                <div class="Tool Tool--sticker-seaweed-lime u-above-mobile" data-tool="sticker-seaweed-lime"></div>
+              </div>
+              <div class="Tools-subsection" data-tool-subcategory-menu data-tool-subcategory="people">
+                <div class="Tool Tool--sticker-santa" data-tool="sticker-santa"></div>
+                <div class="Tool Tool--sticker-santa-sled u-above-mobile" data-tool="sticker-santa-sled"></div>
+                <div class="Tool Tool--sticker-santa-dance u-above-mobile" data-tool="sticker-santa-dance"></div>
+                <div class="Tool Tool--sticker-santa-sleep u-above-mobile" data-tool="sticker-santa-sleep"></div>
+                <div class="Tool Tool--sticker-mrs-claus" data-tool="sticker-mrs-claus"></div>
+                <div class="Tool Tool--sticker-elf1" data-tool="sticker-elf1"></div>
+                <div class="Tool Tool--sticker-elf2 u-above-mobile" data-tool="sticker-elf2"></div>
+                <div class="Tool Tool--sticker-elf3" data-tool="sticker-elf3"></div>
+                <div class="Tool Tool--sticker-elf4 u-above-mobile" data-tool="sticker-elf4"></div>
+                <div class="Tool Tool--sticker-elf5 u-above-mobile" data-tool="sticker-elf5"></div>
+                <div class="Tool Tool--sticker-elf6 u-above-mobile" data-tool="sticker-elf6"></div>
+                <div class="Tool Tool--sticker-elf7" data-tool="sticker-elf7"></div>
+                <div class="Tool Tool--sticker-elf8" data-tool="sticker-elf8"></div>
+                <div class="Tool Tool--sticker-elf9 u-above-mobile" data-tool="sticker-elf9"></div>
+                <div class="Tool Tool--sticker-elf10 u-above-mobile" data-tool="sticker-elf10"></div>
+                <div class="Tool Tool--sticker-elf11" data-tool="sticker-elf11"></div>
+                <div class="Tool Tool--sticker-elf12 u-above-mobile" data-tool="sticker-elf12"></div>
+                <div class="Tool Tool--sticker-elf13 u-above-mobile" data-tool="sticker-elf13"></div>
+                <div class="Tool Tool--sticker-elf14 u-above-mobile" data-tool="sticker-elf14"></div>
+                <div class="Tool Tool--sticker-elf15" data-tool="sticker-elf15"></div>
+                <div class="Tool Tool--sticker-elf16" data-tool="sticker-elf16"></div>
+                <div class="Tool Tool--sticker-elf17 u-above-mobile" data-tool="sticker-elf17"></div>
+                <div class="Tool Tool--sticker-elf18" data-tool="sticker-elf18"></div>
+                <div class="Tool Tool--sticker-elf19 u-above-mobile" data-tool="sticker-elf19"></div>
+                <div class="Tool Tool--sticker-elf20" data-tool="sticker-elf20"></div>
+                <div class="Tool Tool--sticker-elf21 u-above-mobile" data-tool="sticker-elf21"></div>
+                <div class="Tool Tool--sticker-elf22 u-above-mobile" data-tool="sticker-elf22"></div>
+                <div class="Tool Tool--sticker-elf23 u-above-mobile" data-tool="sticker-elf23"></div>
+                <div class="Tool Tool--sticker-elf24 u-above-mobile" data-tool="sticker-elf24"></div>
+                <div class="Tool Tool--sticker-elf25 u-above-mobile" data-tool="sticker-elf25"></div>
+                <div class="Tool Tool--sticker-elf26 u-above-mobile" data-tool="sticker-elf26"></div>
+                <div class="Tool Tool--sticker-elf27" data-tool="sticker-elf27"></div>
+                <div class="Tool Tool--sticker-elf28 u-above-mobile" data-tool="sticker-elf28"></div>
+                <div class="Tool Tool--sticker-elf29" data-tool="sticker-elf29"></div>
+                <div class="Tool Tool--sticker-elf-duck-float u-above-mobile" data-tool="sticker-elf-duck-float"></div>
+                <div class="Tool Tool--sticker-elf-jam-guitar u-above-mobile" data-tool="sticker-elf-jam-guitar"></div>
+                <div class="Tool Tool--sticker-elf-jam-sing u-above-mobile" data-tool="sticker-elf-jam-sing"></div>
+                <div class="Tool Tool--sticker-elf-mermaid" data-tool="sticker-elf-mermaid"></div>
+                <div class="Tool Tool--sticker-elf-merman u-above-mobile" data-tool="sticker-elf-merman"></div>
+                <div class="Tool Tool--sticker-elf-scuba1" data-tool="sticker-elf-scuba1"></div>
+                <div class="Tool Tool--sticker-elf-scuba2 u-above-mobile" data-tool="sticker-elf-scuba2"></div>
+                <div class="Tool Tool--sticker-elf-seesaw u-above-mobile" data-tool="sticker-elf-seesaw"></div>
+              </div>
+              <div class="Tools-subsection" data-tool-subcategory-menu data-tool-subcategory="decorations">
+                <div class="Tool Tool--sticker-holly" data-tool="sticker-holly"></div>
+                <div class="Tool Tool--sticker-stocking-green" data-tool="sticker-stocking-green"></div>
+                <div class="Tool Tool--sticker-stocking-red" data-tool="sticker-stocking-red"></div>
+                <div class="Tool Tool--sticker-stocking-pink" data-tool="sticker-stocking-pink"></div>
+                <div class="Tool Tool--sticker-stocking-yellow" data-tool="sticker-stocking-yellow"></div>
+                <div class="Tool Tool--sticker-red-bow" data-tool="sticker-red-bow"></div>
+                <div class="Tool Tool--sticker-candle" data-tool="sticker-candle"></div>
+                <div class="Tool Tool--sticker-snowglobe-snowman" data-tool="sticker-snowglobe-snowman"></div>
+                <div class="Tool Tool--sticker-snowglobe-tree u-above-mobile" data-tool="sticker-snowglobe-tree"></div>
+                <div class="Tool Tool--sticker-bell" data-tool="sticker-bell"></div>
+                <div class="Tool Tool--sticker-wreath" data-tool="sticker-wreath"></div>
+                <div class="Tool Tool--sticker-presents-stack" data-tool="sticker-presents-stack"></div>
+                <div class="Tool Tool--sticker-clock" data-tool="sticker-clock"></div>
+                <div class="Tool Tool--sticker-disco-ball u-above-mobile" data-tool="sticker-disco-ball"></div>
+                <div class="Tool Tool--sticker-record-player u-above-mobile" data-tool="sticker-record-player"></div>
+                <div class="Tool Tool--sticker-window" data-tool="sticker-window"></div>
+                <div class="Tool Tool--sticker-frame1" data-tool="sticker-frame1"></div>
+                <div class="Tool Tool--sticker-frame2 u-above-mobile" data-tool="sticker-frame2"></div>
+                <div class="Tool Tool--sticker-frame3 u-above-mobile" data-tool="sticker-frame3"></div>
+                <div class="Tool Tool--sticker-firewood u-above-mobile" data-tool="sticker-firewood"></div>
+                <div class="Tool Tool--sticker-treasure-closed u-above-mobile" data-tool="sticker-treasure-closed"></div>
+                <div class="Tool Tool--sticker-treasure-open" data-tool="sticker-treasure-open"></div>
+                <div class="Tool Tool--sticker-beach-ball u-above-mobile" data-tool="sticker-beach-ball"></div>
+                <div class="Tool Tool--sticker-stereo u-above-mobile" data-tool="sticker-stereo"></div>
+                <div class="Tool Tool--sticker-show-lights u-above-mobile" data-tool="sticker-show-lights"></div>
+              </div>
+              <div class="Tools-subsection" data-tool-subcategory-menu data-tool-subcategory="silly">
+                <div class="Tool Tool--sticker-elf-head1 u-above-mobile" data-tool="sticker-elf-head1"></div>
+                <div class="Tool Tool--sticker-elf-head2" data-tool="sticker-elf-head2"></div>
+                <div class="Tool Tool--sticker-elf-head3" data-tool="sticker-elf-head3"></div>
+                <div class="Tool Tool--sticker-elf-head4 u-above-mobile" data-tool="sticker-elf-head4"></div>
+                <div class="Tool Tool--sticker-elf-head5" data-tool="sticker-elf-head5"></div>
+                <div class="Tool Tool--sticker-head-elf-hair1 u-above-mobile" data-tool="sticker-head-elf-hair1"></div>
+                <div class="Tool Tool--sticker-head-elf-hair2 u-above-mobile" data-tool="sticker-head-elf-hair2"></div>
+                <div class="Tool Tool--sticker-head-elf-hair3 u-above-mobile" data-tool="sticker-head-elf-hair3"></div>
+                <div class="Tool Tool--sticker-head-elf-hair4 u-above-mobile" data-tool="sticker-head-elf-hair4"></div>
+                <div class="Tool Tool--sticker-head-elf-hair5 u-above-mobile" data-tool="sticker-head-elf-hair5"></div>
+                <div class="Tool Tool--sticker-head-elf-hair6 u-above-mobile" data-tool="sticker-head-elf-hair6"></div>
+                <div class="Tool Tool--sticker-head-elf-hair7 u-above-mobile" data-tool="sticker-head-elf-hair7"></div>
+                <div class="Tool Tool--sticker-head-elf-hair8 u-above-mobile" data-tool="sticker-head-elf-hair8"></div>
+                <div class="Tool Tool--sticker-head-elf-hair9 u-above-mobile" data-tool="sticker-head-elf-hair9"></div>
+                <div class="Tool Tool--sticker-head-elf-hair10 u-above-mobile" data-tool="sticker-head-elf-hair10"></div>
+                <div class="Tool Tool--sticker-head-reindeer" data-tool="sticker-head-reindeer"></div>
+                <div class="Tool Tool--sticker-head-bear" data-tool="sticker-head-bear"></div>
+                <div class="Tool Tool--sticker-face-eyes-glasses1" data-tool="sticker-face-eyes-glasses1"></div>
+                <div class="Tool Tool--sticker-face-eyes-glasses2" data-tool="sticker-face-eyes-glasses2"></div>
+                <div class="Tool Tool--sticker-face-eyes-glasses3 u-above-mobile" data-tool="sticker-face-eyes-glasses3"></div>
+                <div class="Tool Tool--sticker-face-eyes-glasses4 u-above-mobile" data-tool="sticker-face-eyes-glasses4"></div>
+                <div class="Tool Tool--sticker-face-eyes-glasses5 u-above-mobile" data-tool="sticker-face-eyes-glasses5"></div>
+                <div class="Tool Tool--sticker-face-eyes-sunglasses1" data-tool="sticker-face-eyes-sunglasses1"></div>
+                <div class="Tool Tool--sticker-face-eyes-sunglasses2 u-above-mobile" data-tool="sticker-face-eyes-sunglasses2"></div>
+                <div class="Tool Tool--sticker-face-eyes-sunglasses3 u-above-mobile" data-tool="sticker-face-eyes-sunglasses3"></div>
+                <div class="Tool Tool--sticker-face-eyes-sunglasses4" data-tool="sticker-face-eyes-sunglasses4"></div>
+                <div class="Tool Tool--sticker-face-eyes-normal" data-tool="sticker-face-eyes-normal"></div>
+                <div class="Tool Tool--sticker-face-carrot-nose" data-tool="sticker-face-carrot-nose"></div>
+                <div class="Tool Tool--sticker-face-nose-pink" data-tool="sticker-face-nose-pink"></div>
+                <div class="Tool Tool--sticker-face-nose-red" data-tool="sticker-face-nose-red"></div>
+                <div class="Tool Tool--sticker-face-bear-mouth" data-tool="sticker-face-bear-mouth"></div>
+                <div class="Tool Tool--sticker-face-walrus-mouth" data-tool="sticker-face-walrus-mouth"></div>
+                <div class="Tool Tool--sticker-face-mouth-white" data-tool="sticker-face-mouth-white"></div>
+                <div class="Tool Tool--sticker-face-mouth-black" data-tool="sticker-face-mouth-black"></div>
+                <div class="Tool Tool--sticker-face-moustache" data-tool="sticker-face-moustache"></div>
+                <div class="Tool Tool--sticker-face-santa-beard" data-tool="sticker-face-santa-beard"></div>
+                <div class="Tool Tool--sticker-face-teeth" data-tool="sticker-face-teeth"></div>
+                <div class="Tool Tool--sticker-hat-antlers-blue u-above-mobile" data-tool="sticker-hat-antlers-blue"></div>
+                <div class="Tool Tool--sticker-hat-antlers-brown" data-tool="sticker-hat-antlers-brown"></div>
+                <div class="Tool Tool--sticker-hat-beanie" data-tool="sticker-hat-beanie"></div>
+                <div class="Tool Tool--sticker-hat-blue" data-tool="sticker-hat-blue"></div>
+                <div class="Tool Tool--sticker-hat-green u-above-mobile" data-tool="sticker-hat-green"></div>
+                <div class="Tool Tool--sticker-hat-orange u-above-mobile" data-tool="sticker-hat-orange"></div>
+                <div class="Tool Tool--sticker-hat-pink u-above-mobile" data-tool="sticker-hat-pink"></div>
+                <div class="Tool Tool--sticker-hat-purple" data-tool="sticker-hat-purple"></div>
+                <div class="Tool Tool--sticker-hat-santa" data-tool="sticker-hat-santa"></div>
+                <div class="Tool Tool--sticker-hat-yellow u-above-mobile" data-tool="sticker-hat-yellow"></div>
+              </div>
+              <div class="Tools-subsection" data-tool-subcategory-menu data-tool-subcategory="food">
+                <div class="Tool Tool--sticker-cookie-tree" data-tool="sticker-cookie-tree"></div>
+                <div class="Tool Tool--sticker-cookie-snowman" data-tool="sticker-cookie-snowman"></div>
+                <div class="Tool Tool--sticker-cookie-man" data-tool="sticker-cookie-man"></div>
+                <div class="Tool Tool--sticker-cookie-stocking" data-tool="sticker-cookie-stocking"></div>
+                <div class="Tool Tool--sticker-mug-green" data-tool="sticker-mug-green"></div>
+                <div class="Tool Tool--sticker-mug-red" data-tool="sticker-mug-red"></div>
+                <div class="Tool Tool--sticker-milk" data-tool="sticker-milk"></div>
+                <div class="Tool Tool--sticker-candycane-red" data-tool="sticker-candycane-red"></div>
+                <div class="Tool Tool--sticker-candycane-holiday" data-tool="sticker-candycane-holiday"></div>
+                <div class="Tool Tool--sticker-candycane-green" data-tool="sticker-candycane-green"></div>
+                <div class="Tool Tool--sticker-candycane-tropical" data-tool="sticker-candycane-tropical"></div>
+                <div class="Tool Tool--sticker-candycane-greens" data-tool="sticker-candycane-greens"></div>
+                <div class="Tool Tool--sticker-candycane-reds u-above-mobile" data-tool="sticker-candycane-reds"></div>
+                <div class="Tool Tool--sticker-chocolate-pretzel" data-tool="sticker-chocolate-pretzel"></div>
+                <div class="Tool Tool--sticker-cookie-choc-chip" data-tool="sticker-cookie-choc-chip"></div>
+                <div class="Tool Tool--sticker-cookie-kiss u-above-mobile" data-tool="sticker-cookie-kiss"></div>
+                <div class="Tool Tool--sticker-candies u-only-mobile" data-tool="sticker-candies"></div>
+                <div class="Tool Tool--sticker-chocolate-nuts u-above-mobile" data-tool="sticker-chocolate-nuts"></div>
+                <div class="Tool Tool--sticker-chocolate-gumdrop u-above-mobile" data-tool="sticker-chocolate-gumdrop"></div>
+                <div class="Tool Tool--sticker-chocolate-squiggle u-above-mobile" data-tool="sticker-chocolate-squiggle"></div>
+                <div class="Tool Tool--sticker-chocolate-stripes u-above-mobile" data-tool="sticker-chocolate-stripes"></div>
+                <div class="Tool Tool--sticker-chocolate-swirl u-above-mobile" data-tool="sticker-chocolate-swirl"></div>
+                <div class="Tool Tool--sticker-candycorn-holiday u-above-mobile" data-tool="sticker-candycorn-holiday"></div>
+              </div>
+              <div class="Tools-nav" data-tool-category-nav>
+                <div class="Button Button--nav Button--next" data-tool-nav="next"></div>
+                <div class="Button Button--nav Button--prev" data-tool-nav="prev"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="Tools Tools--tertiary">
+          <div class="Tools-desktop">
+            <div class="Button Button--utility Button--trash" data-tool-trash="desktop"></div>
+            <button class="Button Button--utility Button--primary Button--undo" data-tool-undo></button>
+            <button class="Button Button--utility Button--primary Button--redo" data-tool-redo></button>
+            <a class="Button Button--utility Button--save" href="#" download="santascanvas.jpg" data-tool-save></a>
+          </div>
+
+          <div class="Tools-mobile">
+            <div class="Tools-mobile--right">
+              <div class="Tools-edit">
+                <div class="Button Button--utility Button--trash" data-tool-trash="mobile"></div>
+                <div class="Button Button--utility Button--eraser" data-tool-category-picker data-tool-category="eraser" data-tool="eraser-mobile"></div>
+                <button class="Button Button--utility Button--primary Button--undo" data-tool-undo></button>
+                <button class="Button Button--utility Button--primary Button--redo" data-tool-redo></button>
+                <a class="Button Button--utility Button--save" href="#" download="santascanvas.jpg" data-tool-save></a>
+              </div>
+            </div>
+
+            <div class="Tools-mobile--left">
+              <div class="Tools-slider Slider" data-slider>
+                <div class="Slider-inner">
+                  <div class="Slider-base" data-slider-base></div>
+                  <div class="Slider-dot" data-slider-dot></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shared tool cursor -->
+        <div class="Tool-hover" data-tool-hover data-tool-hover-category="none" data-tool-hover-tool="none" data-tool-color>
+          <div class="Tool-hover-active">
+            <div class="Tool-hover-minitool"></div>
+            <div class="Tool-hover-preview"></div>
+            <div class="Tool-hover-circle" data-tool-hover-circle></div>
+          </div>
+          <div class="Tool-hover-inactive">
+            <div class="Tool-hover-minitool Tool-hover-minitool--default"></div>
+            <div class="Tool-hover-minitool Tool-hover-minitool--spray-color">
+              <svg viewBox="0 0 139.29 300"><polygon class="cls-1" points="66.27 74.09 66.27 29.33 56.36 29.33 56.36 0 83.72 0 83.72 29.33 73.02 29.33 73.02 74.09 135.43 74.09 135.43 296.13 3.86 296.13 3.86 74.09 66.27 74.09"/><rect class="cls-2" x="3.94" y="77.46" width="55.58" height="214.8"/><rect class="cls-3" y="292.26" width="139.29" height="7.74"/><path class="cls-3" d="M8.5,70.23a64.75,64.75,0,0,1,6.28-12.09A39.47,39.47,0,0,1,42.83,40.78V32.21H96.47v8.56A38.8,38.8,0,0,1,123.76,57a65.52,65.52,0,0,1,7,13.21h8.5V78H0V70.23Z"/><circle class="cls-3" cx="69.65" cy="180.27" r="40.24"/></svg>
+            </div>
+            <div class="Tool-hover-minitool Tool-hover-minitool--crayon">
+              <svg viewBox="0 0 61.59 275.27"><path class="cls-1" d="M32.76,0H28.84A11.37,11.37,0,0,0,17.65,9.41L4.71,58.49H56.9L44,9.41A11.4,11.4,0,0,0,32.76,0Z"/><rect class="cls-1" x="0.01" y="54.25" width="61.58" height="221.02"/><rect class="cls-1" x="0.01" y="54.25" width="61.58" height="221.02"/><rect class="cls-2" x="0.01" y="71.98" width="61.58" height="185.57"/><rect class="cls-1" y="225.33" width="61.58" height="7.51"/><rect class="cls-1" y="237.74" width="61.58" height="7.51"/><rect class="cls-1" x="0.01" y="84.42" width="61.58" height="7.51"/><rect class="cls-1" x="0.01" y="96.83" width="61.58" height="7.51"/><rect class="cls-1" x="9.4" y="132.58" width="42.8" height="76.33" rx="4.42" ry="4.42"/><rect class="cls-3" y="54.25" width="30.36" height="220.99" transform="translate(30.36 329.49) rotate(180)"/><path class="cls-3" d="M15.54,54.25H5.89L17.78,9.36A11.38,11.38,0,0,1,29,0h3.92a11.59,11.59,0,0,1,2.84.41,11.34,11.34,0,0,0-8.32,9Z"/></svg>
+            </div>
+            <div class="Tool-hover-minitool Tool-hover-minitool--pencil">
+              <svg viewBox="0 0 61.59 275.64"><polygon class="cls-1" points="30.8 0 0.01 64.97 30.8 64.97 61.59 64.97 30.8 0"/><polygon class="cls-2" points="44.13 28.12 30.8 0 17.47 28.12 44.13 28.12"/><polygon class="cls-3" points="0 265.63 0 265.63 0 265.63 0 265.63"/><path class="cls-2" d="M61.58,275.64V65h0L51.33,54.7,41.06,65,30.8,54.7,20.54,65,10.28,54.7,0,65H0V275.64ZM41.06,65Z"/><polygon class="cls-3" points="0 265.63 0 265.63 0 265.63 0 265.63"/><path class="cls-4" d="M30.8,54.7,20.54,65,10.28,54.7,0,65H0V275.64H30.79ZM41.06,65Z"/><path class="cls-3" d="M0,265.63"/></svg>
+            </div>
+            <div class="Tool-hover-minitool Tool-hover-minitool--paintbrush">
+              <svg viewBox="0 0 62.32 276.26"><path class="cls-1" d="M50,96.89H12.35S0,117.22,0,142.66s23.52,128,23.52,128a8.12,8.12,0,0,0,7.57,5.64h.14a8.1,8.1,0,0,0,7.56-5.64s23.53-102.5,23.53-128S50,96.89,50,96.89Z"/><path class="cls-2" d="M23.32,221.58c-2-6.37-4-13-5.7-19.44-6.91-26.48-12.15-52.06-.55-73.89a113.18,113.18,0,0,1,6.34-10.11,115.86,115.86,0,0,0,6.32-10,38,38,0,0,0,4.06-11.23h-2.3A36.22,36.22,0,0,1,27.73,107a115.83,115.83,0,0,1-6.2,9.83,112.49,112.49,0,0,0-6.47,10.32c-13,24.41-5.26,53.95.36,75.52,1.71,6.54,3.75,13.15,5.73,19.54,5.44,17.6,11,35.76,10,54h0a8.19,8.19,0,0,0,2.26-.34C34.39,257.43,28.77,239.22,23.32,221.58Z"/><path class="cls-2" d="M47,136.51c-.81-2.76-1.89-5.61-4.22-7.73s-7.36-3.59-10.59-2.07c-10.25,4.8-10.68,17.18-10.11,26.08C24.23,186,27.51,215.59,45.57,240c.21-1,.42-2,.64-3-16.66-23.59-19.78-52.24-21.83-84.33-.52-8.24-.18-19.67,8.81-23.88,2.28-1.07,6.3,0,8.1,1.69s2.85,4.25,3.57,6.69c3.17,10.8,3.52,22.29,3.85,33.39.35,11.41.7,23.19,4.11,34.4l1-5.08c-2.23-9.61-2.53-19.63-2.83-29.39C50.65,159.22,50.3,147.59,47,136.51Z"/><path class="cls-2" d="M12.17,112.66A106.37,106.37,0,0,0,18.8,104a35.65,35.65,0,0,0,3.69-7.12H20.05a34.74,34.74,0,0,1-3.15,5.87,103,103,0,0,1-6.49,8.45c-2,2.4-4,4.87-5.81,7.44-.69,1-1.33,2-1.95,3C2,124.22,1.46,126.92,1,129.73A54.64,54.64,0,0,1,6.46,120C8.21,117.45,10.22,115,12.17,112.66Z"/><path class="cls-2" d="M36.4,155.75a1.14,1.14,0,0,0-1.3-.95,1.15,1.15,0,0,0-1,1.3l3.55,22.14c2,12.64,4.49,27.85,12.3,40.64.23-1.1.45-2.2.68-3.31-6.56-11.79-8.76-25.38-10.73-37.69Z"/><path class="cls-2" d="M40.38,105.12c.63,8.56,7.44,16.44,20.22,23.41l.55.28c-.16-1-.34-1.93-.53-2.88-11.36-6.42-17.42-13.47-18-21a29.32,29.32,0,0,1,.88-8.07H41.21A30.22,30.22,0,0,0,40.38,105.12Z"/><path class="cls-3" d="M32.9,1.64H29.57c-48,51.25-16,79.52-16,79.52h35.3S80.85,52.89,32.9,1.64Z"/><rect class="cls-1" x="4.87" y="81.16" width="52.73" height="15.73" rx="2.26" ry="2.26"/><path class="cls-1" d="M32.2.55A2,2,0,0,0,30.85,0a3.23,3.23,0,0,0-1.34.55C-9.2,30,14.89,52.33,14.89,52.33h0a5.23,5.23,0,0,0,4,1.93c3,0,5.51-2.76,5.51-6.16v-2c0-3.41,2.47-6.17,5.51-6.17s5.51,2.76,5.51,6.17v.6c0,3.41,2.47,6.17,5.51,6.17a5.09,5.09,0,0,0,3.15-1.12h0S70.9,30,32.2.55Z"/><path class="cls-4" d="M32.91,96.89s-14.61,25-14.61,66.71c0,50.09,13.61,112.6,13.61,112.6a4.94,4.94,0,0,1-.68.05h-.14a8.12,8.12,0,0,1-7.57-5.64S0,168.11,0,142.66,12.35,96.89,12.35,96.89Z"/><path class="cls-4" d="M7.12,96.89h19V81.16h-19a2.26,2.26,0,0,0-2.25,2.26V94.64A2.25,2.25,0,0,0,7.12,96.89Z"/></svg>
+            </div>
+            <div class="Tool-hover-minitool Tool-hover-minitool--marker">
+              <svg viewBox="0 0 61.6 275.26"><rect class="cls-2" y="54.29" width="61.58" height="220.97" rx="12.95" ry="12.95"/><rect class="cls-3" x="0.01" y="238.33" width="61.58" height="7.51"/><rect class="cls-3" x="0.01" y="250.74" width="61.58" height="7.51"/><rect class="cls-3" x="9.4" y="132.58" width="42.8" height="76.33" rx="4.42" ry="4.42"/><rect class="cls-3" x="0.01" y="72.08" width="61.58" height="7.51"/><rect class="cls-3" x="0.01" y="84.5" width="61.58" height="7.51"/><path class="cls-4" d="M30.82,54.29H13A12.94,12.94,0,0,0,0,67.23V262.31A12.81,12.81,0,0,0,1.91,269c2,3.75,5.32,6.22,9.12,6.22H30.82Z"/><path class="cls-3" d="M35.76,2.85a5.75,5.75,0,0,0-9.93,0C23.57,6.66,14.54,23.94,14.54,23.94v9.14H47.05V23.94S38,6.66,35.76,2.85Z"/><path class="cls-4" d="M32.22,2.85A5.78,5.78,0,0,1,34,1a5.74,5.74,0,0,0-8.16,1.87C23.57,6.66,14.54,23.94,14.54,23.94v9.14h6.39V23.94S30,6.66,32.22,2.85Z"/><rect class="cls-2" x="13.52" y="33.08" width="34.6" height="21.17"/><rect class="cls-4" x="13.52" y="33.08" width="10.74" height="21.17"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--default"></div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-bow">
+              <svg viewBox="0 0 86.01 63.03"><path class="cls-1" d="M40.86,31.43l-1.2-6.08h0l-.57.56.14,5.63S34,45.75,15.78,55.21h0L15.22,63C37.35,50.12,40.86,31.43,40.86,31.43Z"/><path class="cls-2" d="M39.66,25.35l-.44,6.2S34,45.75,15.78,55.21v.22L16,52.85,4,48.66S29.57,35.41,39.66,25.35"/><path class="cls-1" d="M39.82,21.39S30.24,4.8,14,.26c0,0-3.28-1.5-5.62,2.69A18.92,18.92,0,0,0,7.15,5.6h0c-1.64,0-4.61.29-5.43,3.4C.17,14.92-1.09,23.94,1.45,37.41c0,0,.57,5.74,7.5,3.69,6.16-1.82,29.32-10.24,29.32-10.24Zm-1.31-.33h0ZM7.63,5.63Zm.63.08L8,5.67c.12-.24.24-.48.37-.72C10.7.76,14,2.26,14,2.26,25.91,5.59,34.23,15.4,37.82,20.39,34.53,17.25,22.64,6.9,8.26,5.71Z"/><path class="cls-2" d="M8.26,5.71C22.65,6.9,34.53,17.25,37.82,20.39,34.23,15.4,25.91,5.59,14,2.26,14,2.26,10.7.76,8.36,5c-.13.24-.25.48-.37.72Z"/><path class="cls-3" d="M14,34a102.58,102.58,0,0,1,14.51.28l0,.07,9.75-3.46c-20.49,6-28.45-14.37-17.93-20.56A40.64,40.64,0,0,0,10.13,7.43a4.7,4.7,0,0,0-.64,1.39C8,14.35,7.46,26.33,14.08,34Z"/><path class="cls-4" d="M1.45,37.41S2,43.15,9,41.1c3.49-1,12.85-4.33,20-6.87l-.37,0C6.45,32.44,1.37,37,1.45,37.41Z"/><path class="cls-1" d="M45.15,31.43l1.2-6.08h0l.57.56-.14,5.63s5.26,14.2,23.44,23.66h0L70.79,63C48.66,50.12,45.15,31.43,45.15,31.43Z"/><path class="cls-2" d="M46.35,25.35l.44,6.2s5.26,14.2,23.44,23.66v.22l-.18-2.58,12-4.19S56.44,35.41,46.35,25.35"/><path class="cls-1" d="M47.74,30.86S70.9,39.28,77.06,41.1c6.93,2,7.5-3.69,7.5-3.69C87.1,23.94,85.84,14.92,84.28,9c-.82-3.11-3.79-3.45-5.43-3.4h0A18.92,18.92,0,0,0,77.65,3C75.31-1.24,72,.26,72,.26,55.77,4.8,46.2,21.39,46.2,21.39Zm-.23-9.81h0ZM78.38,5.63ZM48.19,20.39C51.78,15.4,60.1,5.59,72,2.26c0,0,3.28-1.5,5.62,2.69.13.24.25.48.37.72l-.27,0C63.37,6.9,51.49,17.25,48.19,20.39Z"/><path class="cls-2" d="M77.75,5.71C63.37,6.9,51.48,17.25,48.19,20.39,51.78,15.4,60.1,5.59,72,2.26c0,0,3.28-1.5,5.62,2.69.13.24.25.48.37.72Z"/><path class="cls-3" d="M72,34a102.58,102.58,0,0,0-14.51.28l0,.07-9.75-3.46c20.49,6,28.45-14.37,17.93-20.56A40.76,40.76,0,0,1,75.88,7.43a4.7,4.7,0,0,1,.64,1.39c1.45,5.53,2,17.51-4.59,25.15Z"/><path class="cls-4" d="M84.56,37.41s-.57,5.74-7.5,3.69c-3.49-1-12.85-4.33-20-6.87l.37,0C79.56,32.44,84.65,37,84.56,37.41Z"/><path class="cls-2" d="M54.1,24.37c.42-2,5.78-3.52,3.49-5.61S46.31,25.2,46.31,25.2H39.82s-9-8.54-11.28-6.44,3.07,3.6,3.49,5.61-6-.33-6,1.68,6.12,7.86,15.42,1.5a4.11,4.11,0,0,1,3.12,0c9.31,6.36,15.43.52,15.43-1.5S53.68,26.39,54.1,24.37Z"/><rect class="cls-1" x="37.81" y="20.38" width="10.38" height="14.34" rx="2.27" ry="2.27"/><path class="cls-3" d="M37.81,26.39s.61,1.16,5.2,1.16,5.19-1.16,5.19-1.16V22.78H37.81Z"/><path class="cls-2" d="M44.36,32.77H41.65a7.11,7.11,0,0,1-3.84-1.12v.8a2.27,2.27,0,0,0,2.27,2.27h5.85a2.27,2.27,0,0,0,2.27-2.27v-.8A7.08,7.08,0,0,1,44.36,32.77Z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-present">
+              <svg viewBox="0 0 86.02 104.6"><g class="cls-1"><rect class="cls-2" x="1.6" y="33.21" width="82.99" height="71.39"/><rect class="cls-3" x="1.46" y="59.98" width="83.11" height="17.85"/><rect class="cls-2" y="29.4" width="86.02" height="16.04"/><polygon class="cls-4" points="1.46 80.5 1.46 77.83 84.45 77.83 84.56 79.17 1.46 80.5"/><rect class="cls-3" x="34.63" y="27.58" width="16.04" height="19.68" transform="translate(5.23 80.07) rotate(-90)"/><path class="cls-3" d="M13.8,21.29S12,26.36,12.64,29.4H31S13.8,28.39,13.8,21.29Z"/><path class="cls-5" d="M31,29.4s-17.24-1-17.24-8.11C13.8,21.29,19.25,17.23,31,29.4Z"/><path class="cls-3" d="M72,20.33s1.27,6,.64,9.07H53.37S72,27.42,72,20.33Z"/><path class="cls-5" d="M53.37,29.4s18.6-2,18.6-9.07C72,20.33,65.16,17.23,53.37,29.4Z"/><path class="cls-6" d="M43.64,29.4S42.15,4.14,48.27,1.52L64.9,5.22s2.43,2.7.87,8.44c-2.06,7.63-12.4,15.74-12.4,15.74Z"/><path class="cls-3" d="M48.27,1.52S52,5.27,49,11.86c-1.09,2.41-2.12,4.89-2.92,7.26C59.42,16.61,66.17,8.57,66.19,8.56A6.7,6.7,0,0,0,64.9,5.22Z"/><path class="cls-5" d="M48.27,1.52C42.15,4.14,43.64,29.4,43.64,29.4h1.29C43.43,25.63,46,18.45,49,11.86s-.72-10.34-.72-10.34Z"/><path class="cls-5" d="M41.16,7c0-7.1-4-7-4-7-5.07,9.12,8.11,29.4,8.11,29.4C40.16,18.25,41.16,14.06,41.16,7Z"/><path class="cls-3" d="M36.14,7.67v0L17.9,9.75A13.9,13.9,0,0,0,19,14.08,77.71,77.71,0,0,0,44.72,28.89l.21.51h.3S37.42,17.37,36.14,7.67Z"/><path class="cls-7" d="M36.14,7.67a12.51,12.51,0,0,1,1-7.67S26,4.06,21.91,5.07s-4.05,4-4.05,4c0,.21,0,.42,0,.63L36.14,7.69Z"/><path class="cls-6" d="M19,14.08C22.11,21.84,31,29.4,31,29.4H45.23l-.34-.53A78.9,78.9,0,0,1,19,14.08Z"/><rect class="cls-3" x="13.07" y="66.09" width="59.16" height="17.85" transform="translate(-32.37 117.66) rotate(-90)"/><polygon class="cls-4" points="1.46 48.12 1.46 45.44 84.45 45.44 84.56 46.78 1.46 48.12"/></g></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-ornament-round1">
+              <svg viewBox="0 0 44.57 59.61"><path class="cls-1" d="M25.87,15.63V11.3H18.26v4.35a22.18,22.18,0,1,0,7.61,0Z"/><path class="cls-2" d="M38,21.74a22,22,0,0,0-12.15-6.15V11.3h-3.8v4a24.38,24.38,0,0,1,.17,44.29A22.15,22.15,0,0,0,38,21.74Z"/><path class="cls-3" d="M17.78,8.73a.1.1,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.11.11,0,0,0,.15,0L22,13.18a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.09.09,0,0,0-.1-.1Z"/><path class="cls-4" d="M22.33,12.25V2.45A1.93,1.93,0,0,0,20.4.52h0a1.92,1.92,0,0,0-1.93,1.93V5.24"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-ornament-round2">
+              <svg viewBox="0 0 51.41 59.61"><path class="cls-2" d="M29.9,15.63V11.3H22.3v4.35a22.18,22.18,0,1,0,7.6,0Z"/><path class="cls-3" d="M41.79,21.74a22.07,22.07,0,0,0-12.15-6.15V11.3H25.83v4A24.37,24.37,0,0,1,26,59.61,22.15,22.15,0,0,0,41.79,21.74Z"/><path class="cls-4" d="M21.9,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.11.11,0,0,1,.15,0l1.32,1.32a.1.1,0,0,0,.14,0L29,13.18a.1.1,0,0,1,.14,0L30.4,14.4a.1.1,0,0,0,.17-.07V8.83a.09.09,0,0,0-.1-.1Z"/><path class="cls-5" d="M26.44,12.25V2.45A1.92,1.92,0,0,0,24.51.52h0a1.93,1.93,0,0,0-1.93,1.93V5.24"/><g class="cls-6"><line class="cls-7" y1="28.96" x2="51.41" y2="28.96"/><line class="cls-7" y1="45.32" x2="51.41" y2="45.32"/><line class="cls-8" x1="11.66" y1="35.97" x2="16.14" y2="38.56"/><line class="cls-8" x1="11.66" y1="38.56" x2="16.14" y2="35.97"/><line class="cls-8" x1="13.9" y1="39.85" x2="13.9" y2="34.68"/><line class="cls-8" x1="23.88" y1="35.97" x2="28.36" y2="38.56"/><line class="cls-8" x1="23.88" y1="38.56" x2="28.36" y2="35.97"/><line class="cls-8" x1="26.12" y1="39.85" x2="26.12" y2="34.68"/><line class="cls-8" x1="36.09" y1="35.97" x2="40.58" y2="38.56"/><line class="cls-8" x1="36.09" y1="38.56" x2="40.58" y2="35.97"/><line class="cls-8" x1="38.34" y1="39.85" x2="38.34" y2="34.68"/><circle class="cls-1" cx="32.27" cy="37.23" r="1.42"/><circle class="cls-1" cx="19.94" cy="37.23" r="1.42"/><circle class="cls-1" cx="7.86" cy="37.23" r="1.42"/><circle class="cls-1" cx="44.48" cy="37.23" r="1.42"/></g></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-ornament-round3">
+              <svg viewBox="0 0 44.57 59.61"><path class="cls-1" d="M25.87,15.63V11.3H18.26v4.35a22.18,22.18,0,1,0,7.61,0Z"/><circle class="cls-2" cx="9.84" cy="27.39" r="1.41"/><circle class="cls-3" cx="16.73" cy="35.71" r="1.41"/><circle class="cls-2" cx="27.56" cy="35.72" r="1.41"/><circle class="cls-1" cx="20.27" cy="28.75" r="1.41"/><circle class="cls-3" cx="29.69" cy="20.85" r="1.41"/><circle class="cls-3" cx="30.38" cy="43.3" r="1.41"/><circle class="cls-3" cx="31.78" cy="30.15" r="1.41"/><circle class="cls-3" cx="18.34" cy="19.82" r="1.41"/><circle class="cls-2" cx="31.1" cy="52.04" r="1.41"/><circle class="cls-2" cx="14.06" cy="44.71" r="1.41"/><circle class="cls-1" cx="39.63" cy="39.94" r="1.41"/><circle class="cls-3" cx="8.43" cy="49.53" r="1.41"/><circle class="cls-1" cx="5.02" cy="35.71" r="1.41"/><circle class="cls-1" cx="20.27" cy="41.6" r="1.41"/><circle class="cls-1" cx="20.95" cy="54.85" r="1.41"/><path class="cls-4" d="M38,21.74a22,22,0,0,0-12.15-6.15V11.3h-3.8v4a24.38,24.38,0,0,1,.17,44.29A22.15,22.15,0,0,0,38,21.74Z"/><path class="cls-5" d="M17.87,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0l1.32,1.32a.11.11,0,0,0,.15,0L25,13.18a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.1.1,0,0,0-.1-.1Z"/><path class="cls-6" d="M22.41,12.25V2.45A1.92,1.92,0,0,0,20.48.52h0a1.93,1.93,0,0,0-1.93,1.93V5.24"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-ornament-skinny1">
+              <svg viewBox="0 0 23.43 63.08"><path class="cls-1" d="M17.74,16.21a6,6,0,0,0-2.3-1.76V8.66H8v5.79a6,6,0,0,0-2.3,1.76C-8.31,35.4,7.5,58.11,11,62.75a.86.86,0,0,0,1.35,0C15.93,58.11,31.74,35.4,17.74,16.21Z"/><path class="cls-2" d="M17.74,16.21a6,6,0,0,0-2.3-1.76V8.66H12.06v5.79c10.62,21.67,2.67,34.7-2,46.91.4.57.75,1,1,1.39a.86.86,0,0,0,1.35,0C15.93,58.11,31.74,35.4,17.74,16.21Z"/><path class="cls-3" d="M7.5,7.31a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.08l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0l1.32,1.32a.11.11,0,0,0,.15,0l1.32-1.32a.1.1,0,0,1,.14,0L16,13a.1.1,0,0,0,.17-.08V7.41a.1.1,0,0,0-.1-.1Z"/><circle class="cls-4" cx="11.78" cy="3.98" r="3.47"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-ornament-skinny2">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 25.2 63.1" style="enable-background:new 0 0 25.2 63.1;" xml:space="preserve"><path class="st0" d="M18.6,16.2c-0.6-0.8-1.4-1.4-2.3-1.8V8.7H8.8v5.8c-0.9,0.4-1.7,1-2.3,1.8c-14,19.2,1.8,41.9,5.4,46.5 c0.3,0.4,0.8,0.4,1.2,0.1c0.1,0,0.1-0.1,0.1-0.1C16.8,58.1,32.6,35.4,18.6,16.2z"/><g><path class="st1" d="M0.9,35.3c0,0.4,0,0.8,0.1,1.2l3.1,2l4.4-2.7L4,33.2L0.9,35.3z"/><polygon class="st1" points="8.4,35.9 12.5,38.5 16.8,35.9 12.5,33.2 "/><path class="st1" d="M20.9,33.2l-4,2.6l4,2.7l3.3-2c0-0.4,0.1-0.8,0.1-1.3L20.9,33.2z"/></g><path class="st2" d="M18.6,16.2c-0.6-0.8-1.4-1.4-2.3-1.8V8.7h-3.4v5.8c10.6,21.7,2.7,34.7-2,46.9c0.4,0.6,0.7,1,1,1.4 c0.3,0.4,0.8,0.4,1.2,0.1c0.1,0,0.1-0.1,0.1-0.1C16.8,58.1,32.6,35.4,18.6,16.2z"/><path class="st3" d="M16.9,7.3C16.9,7.3,16.9,7.3,16.9,7.3h-2.1c1.1-0.7,1.8-1.9,1.8-3.3c0-2.2-1.8-4-4-4c-2.2,0-4,1.8-4,4 c0,1.4,0.7,2.6,1.8,3.3H8.3c-0.1,0-0.1,0-0.1,0.1v5.5c0,0.1,0,0.1,0.1,0.1c0,0,0.1,0,0.1,0l1.2-1.2c0,0,0.1,0,0.1,0l1.3,1.3 c0,0,0.1,0,0.1,0l1.3-1.3c0,0,0.1,0,0.1,0l1.3,1.3c0,0,0.1,0,0.1,0l1.3-1.3c0,0,0.1,0,0.1,0l1.2,1.2c0,0,0.1,0,0.1,0c0,0,0,0,0-0.1  V7.4C17,7.4,17,7.3,16.9,7.3z M9.7,4c0-1.6,1.3-3,3-3s3,1.3,3,3s-1.3,3-3,3S9.7,5.6,9.7,4z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-ornament-wide1">
+              <svg viewBox="0 0 51.25 49.14"><path class="cls-1" d="M51.19,29.16C51,26.84,49.4,22,39,18.9c-10.16-3-10.8-6-10.8-6H23s-.65,3-10.81,6C1.47,22.06.07,27.16,0,29.38H0s0,2.12,0,2.27C.21,34,2.08,39.51,14.82,43c6.7,1.84,9.24,4.24,10.2,5.79a.69.69,0,0,0,1.17,0c.95-1.55,3.49-3.94,10.19-5.79C49.32,39.45,51,33.87,51.17,31.55h0A12.64,12.64,0,0,0,51.19,29.16Z"/><path class="cls-2" d="M51.19,29.16C51,26.84,49.4,22,39,18.9c-10.16-3-10.8-6-10.8-6h-4.8s32,18.2-.19,33.91a8.31,8.31,0,0,1,1.89,2,.59.59,0,0,0,1,0C27,47.35,29.46,44.93,36.38,43,49.32,39.45,51,33.87,51.17,31.55h0A12.64,12.64,0,0,0,51.19,29.16Z"/><path class="cls-3" d="M21.34,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.1.1,0,0,1,.14,0L27,14.5a.11.11,0,0,0,.15,0l1.32-1.32a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.1.1,0,0,0-.1-.1Z"/><path class="cls-4" d="M25.88,12.25V2.45A1.92,1.92,0,0,0,24,.52h0A1.93,1.93,0,0,0,22,2.45V5.24"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-ornament-wide2">
+              <svg viewBox="0 0 51.27 49.14"><path class="cls-1" d="M51.19,29.17C51,26.84,49.4,22,39,18.91c-10.16-3-10.8-6-10.8-6H23s-.65,3-10.81,6C1.47,22.07.07,27.16,0,29.39H0s0,2.11,0,2.27C.21,34,2.08,39.51,14.82,43c6.7,1.85,9.24,4.24,10.2,5.79a.69.69,0,0,0,1.17,0c.95-1.55,3.49-3.94,10.19-5.79C49.32,39.46,51,33.87,51.17,31.55h0A12.56,12.56,0,0,0,51.19,29.17Z"/><polygon class="cls-2" points="31.66 26.67 29.53 27.9 29.96 26.28 29.1 26.05 28.43 28.54 26.09 29.89 26.09 27.18 27.91 25.36 27.27 24.73 26.09 25.92 26.09 23.46 25.19 23.46 25.19 25.92 24 24.73 23.37 25.36 25.19 27.18 25.19 29.89 22.84 28.54 22.18 26.05 21.31 26.28 21.75 27.9 19.62 26.67 19.17 27.45 21.3 28.68 19.68 29.11 19.91 29.98 22.4 29.31 24.74 30.67 22.4 32.02 19.91 31.35 19.68 32.22 21.3 32.65 19.17 33.88 19.62 34.66 21.75 33.43 21.31 35.05 22.18 35.28 22.84 32.8 25.19 31.44 25.19 34.15 23.37 35.97 24 36.6 25.19 35.41 25.19 37.87 26.09 37.87 26.09 35.41 27.27 36.6 27.91 35.97 26.09 34.15 26.09 31.44 28.43 32.8 29.1 35.28 29.96 35.05 29.53 33.43 31.66 34.66 32.1 33.88 29.98 32.65 31.59 32.22 31.36 31.35 28.88 32.02 26.53 30.67 28.88 29.31 31.36 29.98 31.59 29.11 29.98 28.68 32.1 27.45 31.66 26.67"/><polygon class="cls-2" points="10.77 34.15 8.95 35.97 9.59 36.6 10.77 35.41 10.77 37.87 11.67 37.87 11.67 35.41 12.86 36.6 13.49 35.97 11.67 34.15 11.67 31.44 14.01 32.8 14.68 35.28 15.54 35.05 15.11 33.43 17.24 34.66 17.69 33.88 15.56 32.65 17.18 32.22 16.95 31.35 14.46 32.02 12.12 30.67 14.46 29.31 16.95 29.98 17.18 29.11 15.56 28.68 17.69 27.45 17.24 26.67 15.11 27.9 15.54 26.28 14.68 26.05 14.01 28.54 11.67 29.89 11.67 27.18 13.49 25.36 12.86 24.73 11.67 25.92 11.67 23.46 10.77 23.46 10.77 25.92 9.59 24.73 8.95 25.36 10.77 27.18 10.77 29.89 8.43 28.54 7.76 26.05 6.9 26.28 7.33 27.9 5.2 26.67 4.75 27.45 6.88 28.68 5.26 29.11 5.5 29.98 7.98 29.31 10.33 30.67 7.98 32.02 5.5 31.35 5.26 32.22 6.88 32.65 4.75 33.88 5.2 34.66 7.33 33.43 6.9 35.05 7.76 35.28 8.43 32.8 10.77 31.44 10.77 34.15"/><polygon class="cls-2" points="46.01 32.22 45.78 31.35 43.29 32.02 40.95 30.67 43.3 29.31 45.78 29.98 46.01 29.11 44.39 28.68 46.52 27.45 46.07 26.67 43.94 27.9 44.38 26.28 43.51 26.05 42.85 28.54 40.5 29.89 40.5 27.18 42.32 25.36 41.69 24.73 40.5 25.92 40.5 23.46 39.61 23.46 39.61 25.92 38.42 24.73 37.79 25.36 39.61 27.18 39.61 29.89 37.26 28.54 36.6 26.05 35.73 26.28 36.16 27.9 34.03 26.67 33.59 27.45 35.72 28.68 34.1 29.11 34.33 29.98 36.81 29.31 39.16 30.67 36.81 32.02 34.33 31.35 34.1 32.22 35.72 32.65 33.59 33.88 34.03 34.66 36.16 33.43 35.73 35.05 36.6 35.28 37.26 32.8 39.61 31.44 39.61 34.15 37.79 35.97 38.42 36.6 39.61 35.41 39.61 37.87 40.5 37.87 40.5 35.41 41.69 36.6 42.32 35.97 40.5 34.15 40.5 31.44 42.85 32.8 43.51 35.28 44.38 35.05 43.94 33.43 46.07 34.66 46.52 33.88 44.39 32.65 46.01 32.22"/><path class="cls-2" d="M40.92,19.52H10.32c-.81.28-1.54.59-2.23.89H43.16C42.46,20.11,41.73,19.81,40.92,19.52Z"/><path class="cls-2" d="M11.08,41.81H40.17c.79-.29,1.52-.59,2.2-.89H8.87C9.55,41.22,10.29,41.52,11.08,41.81Z"/><g class="cls-3"><path d="M51.21,29.16C51.06,26.84,49.42,22,39,18.9c-10.16-3-10.8-6-10.8-6h-4.8s32,18.2-.19,33.91a7.92,7.92,0,0,1,1.89,2,.6.6,0,0,0,1,0C27,47.35,29.48,44.93,36.4,43c12.94-3.57,14.67-9.15,14.79-11.47h0A12.64,12.64,0,0,0,51.21,29.16Z"/></g><path class="cls-4" d="M21.36,8.73a.09.09,0,0,0-.1.1v5.5a.1.1,0,0,0,.17.07l1.22-1.22a.1.1,0,0,1,.14,0l1.32,1.32a.1.1,0,0,0,.14,0l1.32-1.32a.11.11,0,0,1,.15,0L27,14.5a.11.11,0,0,0,.15,0l1.32-1.32a.1.1,0,0,1,.14,0l1.22,1.22a.1.1,0,0,0,.17-.07V8.83a.1.1,0,0,0-.1-.1Z"/><path class="cls-4" d="M26.42,12.25h-1V2.45a1.42,1.42,0,1,0-2.83,0V5.24h-1V2.45a2.45,2.45,0,1,1,4.89,0Z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-candy-wrapper1">
+              <svg viewBox="0 0 67.22 27.87"><path class="cls-1" d="M46.07,16.71a37.83,37.83,0,0,0,7.38,6.8c2.59,1.9,5.47,3.65,8.67,3.9A5,5,0,0,0,66.37,26a2.16,2.16,0,0,0,.57-1.7,2.8,2.8,0,0,0-.72-1.3,11.92,11.92,0,0,0-1.7-1.63c-.69-.55-1.51-1.13-1.6-2a2.35,2.35,0,0,1,1.15-2c.64-.47,3.15-1.53,3.15-3.51s-2.51-3-3.15-3.5a2.36,2.36,0,0,1-1.15-2c.09-.88.91-1.46,1.6-2a12,12,0,0,0,1.7-1.64,2.81,2.81,0,0,0,.72-1.29,2.19,2.19,0,0,0-.57-1.71A5,5,0,0,0,62.12.46c-3.2.25-6.08,2-8.67,3.89a38.14,38.14,0,0,0-7.38,6.8Z"/><path class="cls-1" d="M21.15,16.71a37.83,37.83,0,0,1-7.38,6.8c-2.6,1.9-5.47,3.65-8.67,3.9A5,5,0,0,1,.85,26a2.13,2.13,0,0,1-.57-1.7A2.71,2.71,0,0,1,1,23a12.39,12.39,0,0,1,1.69-1.63c.69-.55,1.51-1.13,1.6-2a2.34,2.34,0,0,0-1.14-2C2.51,17,0,15.91,0,13.93s2.51-3,3.15-3.5a2.35,2.35,0,0,0,1.14-2c-.09-.88-.91-1.46-1.6-2A12.47,12.47,0,0,1,1,4.82,2.73,2.73,0,0,1,.28,3.53,2.15,2.15,0,0,1,.85,1.82,5,5,0,0,1,5.1.46c3.2.25,6.07,2,8.67,3.89a38.14,38.14,0,0,1,7.38,6.8Z"/><path class="cls-2" d="M50.47,11.64a80.27,80.27,0,0,1,10.4-3"/><path class="cls-2" d="M50.47,16.23a80.27,80.27,0,0,0,10.4,3"/><path class="cls-2" d="M16.74,11.64a80.12,80.12,0,0,0-10.39-3"/><path class="cls-2" d="M16.74,16.23a80.12,80.12,0,0,1-10.39,3"/><circle class="cls-3" cx="33.61" cy="13.93" r="13.93"/><path class="cls-4" d="M44.33,5A14.08,14.08,0,0,1,44.52,13a17.07,17.07,0,0,1-7.47,9.78,23,23,0,0,1-10.33,3.31A13.94,13.94,0,0,0,44.33,5Z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-candy-wrapper2">
+              <svg viewBox="0 0 58.61 13.95"><rect class="cls-1" x="10.93" y="1.72" width="36.75" height="11.78" rx="2.84" ry="2.84"/><path class="cls-2" d="M16.83,1.72h-3a2.82,2.82,0,0,0-1.33.34l5.33,11.43h4.55Z"/><path class="cls-2" d="M14.74,13.49,10.93,5.33v5.32a2.84,2.84,0,0,0,2.85,2.84Z"/><polygon class="cls-2" points="24.69 1.72 20.15 1.72 25.64 13.49 30.19 13.49 24.69 1.72"/><polygon class="cls-2" points="32.55 1.72 28.01 1.72 33.5 13.49 38.05 13.49 32.55 1.72"/><path class="cls-2" d="M45.82,13.31,40.41,1.72H35.87l5.49,11.77h3.47A3,3,0,0,0,45.82,13.31Z"/><path class="cls-2" d="M44.83,1.72h-1.1l4,8.47V4.56A2.84,2.84,0,0,0,44.83,1.72Z"/><path class="cls-3" d="M47.68,8.41a19.3,19.3,0,0,0,3.81,3.52,9.07,9.07,0,0,0,4.49,2,2.61,2.61,0,0,0,2.19-.7,1.14,1.14,0,0,0,.3-.89,1.64,1.64,0,0,0-.37-.67,7,7,0,0,0-.88-.84c-.36-.28-.78-.58-.83-1a1.22,1.22,0,0,1,.59-1C57.32,8.55,58.61,8,58.61,7S57.32,5.4,57,5.16a1.2,1.2,0,0,1-.59-1c0-.46.47-.76.83-1a6.35,6.35,0,0,0,.88-.84,1.64,1.64,0,0,0,.37-.67,1.11,1.11,0,0,0-.3-.88A2.59,2.59,0,0,0,56,0a9.16,9.16,0,0,0-4.49,2,19.92,19.92,0,0,0-3.81,3.52Z"/><path class="cls-3" d="M10.93,8.41a19.3,19.3,0,0,1-3.81,3.52,9.07,9.07,0,0,1-4.49,2,2.61,2.61,0,0,1-2.19-.7,1.14,1.14,0,0,1-.3-.89,1.64,1.64,0,0,1,.37-.67,7,7,0,0,1,.88-.84c.36-.28.78-.58.83-1a1.22,1.22,0,0,0-.59-1C1.29,8.55,0,8,0,7S1.29,5.4,1.63,5.16a1.2,1.2,0,0,0,.59-1c-.05-.46-.47-.76-.83-1a6.35,6.35,0,0,1-.88-.84A1.64,1.64,0,0,1,.14,1.6,1.11,1.11,0,0,1,.44.72,2.59,2.59,0,0,1,2.63,0,9.16,9.16,0,0,1,7.12,2a19.92,19.92,0,0,1,3.81,3.52Z"/><path class="cls-4" d="M50,6.06a.27.27,0,0,1-.26-.18.27.27,0,0,1,.16-.35A42.36,42.36,0,0,1,55.27,4a.28.28,0,0,1,.12.54,40.18,40.18,0,0,0-5.34,1.55Z"/><path class="cls-4" d="M55.33,10h-.06a42.36,42.36,0,0,1-5.41-1.57.27.27,0,0,1-.16-.35.27.27,0,0,1,.35-.16,42.43,42.43,0,0,0,5.34,1.55.27.27,0,0,1,.21.32A.28.28,0,0,1,55.33,10Z"/><path class="cls-4" d="M8.65,6.06H8.56A40.18,40.18,0,0,0,3.22,4.5.28.28,0,0,1,3,4.17.27.27,0,0,1,3.34,4,42.36,42.36,0,0,1,8.75,5.53a.27.27,0,0,1,.16.35A.27.27,0,0,1,8.65,6.06Z"/><path class="cls-4" d="M3.28,10A.28.28,0,0,1,3,9.78a.27.27,0,0,1,.21-.32A42.43,42.43,0,0,0,8.56,7.91a.27.27,0,0,1,.35.16.27.27,0,0,1-.16.35A42.36,42.36,0,0,1,3.34,10Z"/><g class="cls-5"><path d="M44.83,10.12h-31a2.85,2.85,0,0,1-2.85-2.85v3.38a2.84,2.84,0,0,0,2.85,2.84H44.83a2.84,2.84,0,0,0,2.85-2.84V7.27A2.85,2.85,0,0,1,44.83,10.12Z"/></g></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-candy-gumdrop">
+              <svg viewBox="0 0 25.63 27.9"><path class="cls-2" d="M25.53,21.75,22,4.12a5.14,5.14,0,0,0-5-4.12H8.69a5.15,5.15,0,0,0-5,4.12L.1,21.75a5.14,5.14,0,0,0,5,6.15H20.49A5.14,5.14,0,0,0,25.53,21.75Z" transform="translate(0 0)"/><g class="cls-3"><path d="M25.53,21.75,22,4.12A5.12,5.12,0,0,0,19,.43a5.89,5.89,0,0,1,.33,1l3.55,17.63a5.14,5.14,0,0,1-5,6.15H2.48a5.11,5.11,0,0,1-2-.42A5.13,5.13,0,0,0,5.14,27.9H20.49A5.14,5.14,0,0,0,25.53,21.75Z" transform="translate(0 0)"/></g><g class="cls-4"><g class="cls-5"><path class="cls-6" d="M6.53,25.23a.62.62,0,0,1-.51-.7H6a.62.62,0,0,1,.7-.52h0a.6.6,0,0,1,.51.69h0a.6.6,0,0,1-.6.52h-.1Zm7.27-7.62a.62.62,0,0,1-.54-.68h0a.62.62,0,0,1,.68-.54h0a.61.61,0,0,1,.54.68h0a.62.62,0,0,1-.61.55H13.8Zm-4.87-6a.62.62,0,0,1-.59-.64h0A.61.61,0,0,1,9,10.35H9a.62.62,0,0,1,.59.64h0a.61.61,0,0,1-.61.58h0ZM3.17,18.23a.62.62,0,0,1-.59-.64h0A.61.61,0,0,1,3.22,17h0a.62.62,0,0,1,.59.64h0a.61.61,0,0,1-.61.58h0ZM9,7.12a.61.61,0,0,1,.57-.65h0a.6.6,0,0,1,.65.57h0a.61.61,0,0,1-.57.65h0A.61.61,0,0,1,9,7.12Zm11.32.47a.61.61,0,0,1-.19-.84h0a.61.61,0,0,1,.85-.19h0a.61.61,0,0,1,.19.84h0a.61.61,0,0,1-.52.29h0A.6.6,0,0,1,20.28,7.59Zm-16-1.87A.61.61,0,0,1,4,4.88H4a.61.61,0,0,1,.84-.2h0a.62.62,0,0,1,.2.85h0a.64.64,0,0,1-.52.29h0A.58.58,0,0,1,4.23,5.72Z" transform="translate(0 0)"/></g><g class="cls-7"><path class="cls-6" d="M15.65,25.83a.59.59,0,0,1-.2-.83h0a.61.61,0,0,1,.84-.21h0a.6.6,0,0,1,.2.84h0a.58.58,0,0,1-.52.29h0A.54.54,0,0,1,15.65,25.83Zm6.7,0a.59.59,0,0,1-.2-.83h0a.61.61,0,0,1,.84-.21h0a.6.6,0,0,1,.2.84h0a.58.58,0,0,1-.52.29h0A.54.54,0,0,1,22.35,25.83Zm-2.9-4.59h0a.6.6,0,0,1,.46-.73h0a.62.62,0,0,1,.73.47h0a.61.61,0,0,1-.46.73H20A.6.6,0,0,1,19.45,21.24ZM2.71,22.94a.62.62,0,0,1-.12-.86h0A.62.62,0,0,1,3.45,22h0a.61.61,0,0,1,.12.86h0a.6.6,0,0,1-.49.24h0A.63.63,0,0,1,2.71,22.94Zm8.14-1.22a.61.61,0,0,1-.66-.56h0a.61.61,0,0,1,.56-.66h0a.61.61,0,0,1,.66.55h0a.62.62,0,0,1-.56.67Zm4.39-.15a.62.62,0,0,1-.48-.73h0a.61.61,0,0,1,.72-.48h0a.61.61,0,0,1,.48.72h0a.63.63,0,0,1-.6.5h-.12Zm5.69-8.79h0a.62.62,0,0,1,.17-.85h0a.61.61,0,0,1,.85.17h0a.61.61,0,0,1-.16.85h0a.65.65,0,0,1-.34.11h0A.64.64,0,0,1,20.93,12.78Zm-3.69-.64a.61.61,0,0,1,.41-.76h0a.6.6,0,0,1,.76.4h0a.61.61,0,0,1-.4.77h0l-.18,0h0A.61.61,0,0,1,17.24,12.14Zm-4.46,1a.61.61,0,0,1-.31-.81h0a.6.6,0,0,1,.8-.31h0a.61.61,0,0,1,.32.81h0a.61.61,0,0,1-.56.36h0A.7.7,0,0,1,12.78,13.15ZM4.71,11.91a.61.61,0,0,1-.31-.81h0a.6.6,0,0,1,.8-.31h0a.61.61,0,0,1,.32.81h0A.61.61,0,0,1,5,12H5A.7.7,0,0,1,4.71,11.91Zm3.23,4.85a.6.6,0,0,1-.31-.8h0a.6.6,0,0,1,.8-.32h0a.62.62,0,0,1,.32.82h0a.62.62,0,0,1-.56.35h0A.53.53,0,0,1,7.94,16.76Zm6.83-7.43a.6.6,0,0,1,.46-.73h0a.6.6,0,0,1,.73.46h0a.61.61,0,0,1-.46.73h0l-.14,0h0A.61.61,0,0,1,14.77,9.33Zm1.77-3.65h0A.62.62,0,0,1,16,5h0a.6.6,0,0,1,.64-.57h0a.61.61,0,0,1,.57.65h0a.61.61,0,0,1-.61.57h0Zm2.47,12h0a.62.62,0,0,1-.58-.65h0a.6.6,0,0,1,.64-.57h0a.61.61,0,0,1,.57.65h0a.61.61,0,0,1-.61.57h0ZM10.68,3.64A.61.61,0,0,1,11,2.85h0a.61.61,0,0,1,.79.36h0a.61.61,0,0,1-.36.79h0a.52.52,0,0,1-.21,0h0A.61.61,0,0,1,10.68,3.64Zm-4.55.22a.61.61,0,0,1-.55-.66h0a.61.61,0,0,1,.66-.56h0a.62.62,0,0,1,.56.67h0a.63.63,0,0,1-.61.56H6.13Z" transform="translate(0 0)"/></g></g></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-candy-jellybean">
+              <svg viewBox="0 0 26.62 13.95"><path class="cls-1" d="M13.31,14C9.83,14,0,13.11,0,5.71H0A6.11,6.11,0,0,1,.71,2.83,5,5,0,0,1,6.37.31a33.28,33.28,0,0,0,6.94,1.17C17.42,1.48,19.86,0,21.62,0c2.78,0,5,2.62,5,5.71h0C26.62,13.11,16.79,14,13.31,14Z"/><path class="cls-2" d="M3.66,8.33A20.65,20.65,0,0,0,14,10.87c6.34,0,9.52-2.54,9.52-2.54"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-candy-mint-swirl">
+              <svg viewBox="0 0 28.25 27.9"><circle class="cls-2" cx="14.3" cy="13.95" r="13.95"/><g class="cls-3"><path class="cls-4" d="M1,19.42A12.63,12.63,0,0,1,2,7.77,14.52,14.52,0,0,1,6.6,3.22a8.69,8.69,0,0,1,1.47-.8,10.92,10.92,0,0,1,1.56-.6,12.7,12.7,0,0,1,3.46-.65,13.09,13.09,0,0,1,12.08,7,12.35,12.35,0,0,1,1.26,3.54,11.25,11.25,0,0,1,.09,4,11.81,11.81,0,0,1-3.75,7,11.84,11.84,0,0,1-3.45,2.09,12.21,12.21,0,0,1-1.93.58,11.22,11.22,0,0,1-2.16.21A10,10,0,0,1,7.64,22a9.87,9.87,0,0,1-1.92-3.79,8.47,8.47,0,0,1,0-4.47A8.32,8.32,0,0,1,7.94,9.85a8.23,8.23,0,0,1,3.87-2,7,7,0,0,1,4.56.44,6.56,6.56,0,0,1,3.82,5.25A5.71,5.71,0,0,1,20,15.82a5.38,5.38,0,0,1-2.92,3.31,5.22,5.22,0,0,1-2.17.42,4.43,4.43,0,0,1-2.15-.67,4,4,0,0,1-1.86-3.64,3.07,3.07,0,0,1,2.57-2.76,2.24,2.24,0,0,1,1.77.49A1.94,1.94,0,0,1,16,14.42v0a.21.21,0,0,1-.42,0,1.48,1.48,0,0,0-1.84-1.09,1.91,1.91,0,0,0-1.38,1.82,2.37,2.37,0,0,0,1.28,2A2.51,2.51,0,0,0,16,17.15a3.05,3.05,0,0,0,1.5-1.94,3.38,3.38,0,0,0-.4-2.44,3.85,3.85,0,0,0-1.9-1.64A3.73,3.73,0,0,0,12.7,11a4.78,4.78,0,0,0-3.39,3.54,5.59,5.59,0,0,0,1.34,4.79,6.15,6.15,0,0,0,4.58,2.07A7.45,7.45,0,0,0,20,19.51,7.7,7.7,0,0,0,22.43,15a8.32,8.32,0,0,0-.85-5.1,9.71,9.71,0,0,0-8.53-5.41A12.05,12.05,0,0,0,3.77,9.15,12.4,12.4,0,0,0,1.4,19.33a.2.2,0,0,1-.16.25A.21.21,0,0,1,1,19.47Z"/></g><path class="cls-5" d="M23,3.12a13.88,13.88,0,0,1-19.5,19.5A13.88,13.88,0,1,0,23,3.12Z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-candy-mint-wheel">
+              <svg viewBox="0 0 27.9 27.9"><circle class="cls-1" cx="13.95" cy="13.95" r="13.95"/><path class="cls-2" d="M27.42,10.35a14,14,0,0,0-6.49-8.47A13.94,13.94,0,0,0,14,14,13.94,13.94,0,0,1,27.42,10.35Z"/><path class="cls-2" d="M17.55,27.42A14,14,0,0,0,26,20.93,13.93,13.93,0,0,0,14,14,13.94,13.94,0,0,1,17.55,27.42Z"/><path class="cls-2" d="M.49,17.55A14,14,0,0,0,7,26,13.94,13.94,0,0,0,14,14,13.92,13.92,0,0,1,.49,17.55Z"/><path class="cls-2" d="M10.35.49A14,14,0,0,0,1.88,7,13.94,13.94,0,0,0,14,14,13.92,13.92,0,0,1,10.35.49Z"/><path class="cls-3" d="M22.6,3A14,14,0,0,1,3,22.6,14,14,0,1,0,22.6,3Z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--stamp-candy-sucker">
+              <svg viewBox="0 0 27.27 67.14"><rect class="cls-1" x="12.12" y="6.22" width="3.04" height="60.92"/><path class="cls-2" d="M11.8,26.77a21.86,21.86,0,0,0-4.49,3.64C6.06,31.68,4.9,33.1,4.74,34.68a2.09,2.09,0,0,0,.9,2.09,1.67,1.67,0,0,0,1.12.28,2.06,2.06,0,0,0,.86-.35,6.92,6.92,0,0,0,1.08-.84A2.19,2.19,0,0,1,10,35.08a1.69,1.69,0,0,1,1.3.56c.31.32,1,1.55,2.32,1.55s2-1.23,2.31-1.55a1.69,1.69,0,0,1,1.3-.56,2.24,2.24,0,0,1,1.33.78,6.84,6.84,0,0,0,1.07.84,2.06,2.06,0,0,0,.86.35,1.7,1.7,0,0,0,1.13-.28,2.11,2.11,0,0,0,.9-2.09c-.17-1.58-1.32-3-2.57-4.27a22.19,22.19,0,0,0-4.5-3.64Z"/><path class="cls-3" d="M15.15,28.73a27.11,27.11,0,0,1,2,4.62"/><path class="cls-3" d="M12.12,28.73a27.93,27.93,0,0,0-2,4.62"/><circle class="cls-4" cx="13.64" cy="13.64" r="13.64"/><path class="cls-5" d="M24.13,4.92a13.79,13.79,0,0,1,.19,7.77A16.8,16.8,0,0,1,17,22.26,22.47,22.47,0,0,1,6.89,25.49,13.64,13.64,0,0,0,24.13,4.92Z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-circle">
+              <svg viewBox="0 0 65 65"><circle class="cls-1" cx="32.5" cy="32.5" r="32.5"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-diamond">
+              <svg viewBox="0 0 61.38 75"><polygon class="cls-1" points="30.69 75 0 37.5 30.69 0 61.38 37.5 30.69 75"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-heart">
+              <svg viewBox="0 0 75.16 65"><path class="cls-1" d="M55.89,0A19.48,19.48,0,0,0,37.58,11.46,19.48,19.48,0,0,0,19.27,0C-1.39,0,0,19,0,19,0,42.39,37.58,65,37.58,65S75.14,42.39,75.14,19C75.14,19,76.56,0,55.89,0Z"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-octagon">
+              <svg viewBox="0 0 75 75"><polygon class="cls-1" points="53.03 0 21.97 0 0 21.97 0 53.03 21.97 75 53.03 75 75 53.03 75 21.97 53.03 0"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-pentagon">
+              <svg viewBox="0 0 78.86 75"><polygon class="cls-1" points="39.43 0 0 28.65 15.06 75 63.8 75 78.86 28.65 39.43 0"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-rectangle">
+              <svg viewBox="0 0 115.56 65"><rect class="cls-1" width="115.56" height="65"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-square">
+              <svg viewBox="0 0 65 65"><rect class="cls-1" width="65" height="65"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-star">
+              <svg viewBox="0 0 78.71 75"><polygon class="cls-1" points="39.2 0 51.5 24.58 78.72 28.38 59.14 47.67 63.93 74.73 39.54 62.08 15.28 75 19.78 47.89 0 28.81 27.17 24.71 39.2 0"/></svg>
+            </div>
+            <div class="Tool-hover-preview Tool-hover-preview--shape-triangle">
+              <svg viewBox="0 0 75.06 65"><polygon class="cls-1" points="37.53 0 0 65 75.06 65 37.53 0"/></svg>
+            </div>
+            <div class="Tool-hover-circle" data-tool-hover-circle></div>
+          </div>
+        </div>
+
+        <!-- These images are use by canvases-->
+        <div class="hidden">
+          <img id="texture-tinsel" src$="[[importPath]]img/tools/tinsel/texture.svg" width="273.36" height="328.17"/>
+          <img id="texture-icing" src$="[[importPath]]img/tools/icing/texture.svg" width="382" height="382"/>
+          <img id="texture-garland" src$="[[importPath]]img/tools/garland/texture.svg" width="21" height="21"/>
+          <img id="texture-bell" src$="[[importPath]]img/tools/bell/texture.svg" width="301" height="384"/>
+          <img id="texture-hanging-lights1" src$="[[importPath]]img/tools/hanging-lights/texture1.svg" width="281" height="699"/>
+          <img id="texture-hanging-lights2" src$="[[importPath]]img/tools/hanging-lights/texture2.svg" width="281" height="473"/>
+          <img id="texture-hanging-lights3" src$="[[importPath]]img/tools/hanging-lights/texture3.svg" width="281" height="586"/>
+          <img id="texture-string-lights1" src$="[[importPath]]img/tools/string-lights/texture1.svg" width="172" height="172"/>
+          <img id="texture-string-lights2" src$="[[importPath]]img/tools/string-lights/texture2.svg" width="172" height="172"/>
+          <img id="texture-string-lights3" src$="[[importPath]]img/tools/string-lights/texture3.svg" width="172" height="172"/>
+          <img id="texture-string-lights4" src$="[[importPath]]img/tools/string-lights/texture4.svg" width="172" height="172"/>
+          <img id="sprinkle2" src$="[[importPath]]img/sprinkles/sprinkle2.svg" width="100" height="100"/>
+          <img id="sprinkle3" src$="[[importPath]]img/sprinkles/sprinkle3.svg" width="100" height="100"/>
+          <img id="sprinkle4" src$="[[importPath]]img/sprinkles/sprinkle4.svg" width="100" height="100"/>
+          <img id="sprinkle5" src$="[[importPath]]img/sprinkles/sprinkle5.svg" width="100" height="100"/>
+          <img id="candycane_green" src$="[[importPath]]img/tools/spray/candy/texture/candycane_green.svg" width="63.69" height="143.49"/>
+          <img id="candycane_greens" src$="[[importPath]]img/tools/spray/candy/texture/candycane_greens.svg" width="77.54" height="157.65"/>
+          <img id="candycane_holiday" src$="[[importPath]]img/tools/spray/candy/texture/candycane_holiday.svg" width="63.69" height="143.49"/>
+          <img id="candycane_red" src$="[[importPath]]img/tools/spray/candy/texture/candycane_red.svg" width="63.69" height="143.49"/>
+          <img id="candycane_reds" src$="[[importPath]]img/tools/spray/candy/texture/candycane_reds.svg" width="77.54" height="157.65"/>
+          <img id="candycane_tropical" src$="[[importPath]]img/tools/spray/candy/texture/candycane_tropical.svg" width="77.54" height="157.65"/>
+          <img id="candycane_holiday" src$="[[importPath]]img/tools/spray/candy/texture/candycane_holiday.svg" width="28.32" height="41.85"/>
+          <img id="chocolate_gumdrop" src$="[[importPath]]img/tools/spray/candy/texture/chocolate_gumdrop.svg" width="50.63" height="40.8"/>
+          <img id="chocolate_nuts" src$="[[importPath]]img/tools/spray/candy/texture/chocolate_nuts.svg" width="46.19" height="46.77"/>
+          <img id="chocolate_pretzel" src$="[[importPath]]img/tools/spray/candy/texture/chocolate_pretzel.svg" width="26" height="143.67"/>
+          <img id="chocolate_squiggle" src$="[[importPath]]img/tools/spray/candy/texture/chocolate_squiggle.svg" width="49.17" height="41.75"/>
+          <img id="chocolate_stripes" src$="[[importPath]]img/tools/spray/candy/texture/chocolate_stripes.svg" width="49.17" height="41.75"/>
+          <img id="chocolate_swirl" src$="[[importPath]]img/tools/spray/candy/texture/chocolate_swirl.svg" width="44.51" height="44.66"/>
+          <img id="cookie_choc_chip" src$="[[importPath]]img/tools/spray/candy/texture/cookie_choc_chip.svg" width="86.88" height="84.78"/>
+          <img id="cookie_kiss" src$="[[importPath]]img/tools/spray/candy/texture/cookie_kiss.svg" width="94.83" height="44.93"/>
+          <img id="jellybean_green_dots" src$="[[importPath]]img/tools/spray/candy/texture/jellybean_green_dots.svg" width="53.1" height="30.3"/>
+          <img id="jellybean_red_dots" src$="[[importPath]]img/tools/spray/candy/texture/jellybean_red_dots.svg" width="53.1" height="30.3"/>
+          <img id="sprinkle_snow" src$="[[importPath]]img/tools/spray/candy/texture/sprinkle_snow.svg" width="11.18" height="12.42"/>
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/candle.svg" id="candle" width="62.65" height="81.84">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/candycane_red.svg" id="candycane_red" width="42.46" height="95.66">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/cookie_man.svg" id="cookie_man" width="61.49" height="77.12">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/cookie_snowman.svg" id="cookie_snowman" width="53.33" height="76.18">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/cookie_stocking.svg" id="cookie_stocking" width="65.38" height="73.03">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/cookie_tree.svg" id="cookie_tree" width="59.79" height="73.49">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/firewood.svg" id="firewood" width="187.38" height="82.97">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/holiday_bells.svg" id="holiday_bells" width="67.24" height="37.52">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/holiday_hat.svg" id="holiday_hat" width="58.86" height="54.45">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/holiday_mitten.svg" id="holiday_mitten" width="44.13" height="67.69">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/holly.svg" id="holly" width="84.16" height="94.88">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/mug_green.svg" id="mug_green" width="82.5" height="94.26">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/mug_red.svg" id="mug_red" width="76.95" height="97.42">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/red_bow.svg" id="red_bow" width="89.67" height="102.09">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/snowglobe_snowman.svg" id="snowglobe_snowman" width="148.57" height="93.69">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/snowglobe_tree.svg" id="snowglobe_tree" width="148.57" height="93.69">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/stocking_green.svg" id="stocking_green" width="109.19" height="165.4">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/stocking_pink.svg" id="stocking_pink" width="126.69" height="190.74">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/stocking_red.svg" id="stocking_red" width="109.44" height="206.69">
+          <img src$="[[importPath]]img/tools/spray/holiday/texture/stocking_yellow.svg" id="stocking_yellow" width="76.5" height="137.8">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_1.svg" id="snowflake_1" width="92.37" height="102.675">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_2.svg" id="snowflake_2" width="92.37" height="102.675">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_3.svg" id="snowflake_3" width="89.61" height="103.47">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_4.svg" id="snowflake_4" width="99.105" height="102.695">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_5.svg" id="snowflake_5" width="99.105" height="102.695">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_6.svg" id="snowflake_6" width="102.695" height="102.695">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_7.svg" id="snowflake_7" width="102.695" height="102.695">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_8.svg" id="snowflake_8" width="102.695" height="102.695">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_9.svg" id="snowflake_9" width="89.61" height="102.695">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_10.svg" id="snowflake_10" width="89.61" height="102.695">
+          <img src$="[[importPath]]img/tools/spray/snowflakes/texture/snowflake_11.svg" id="snowflake_11" width="71.83" height="90.625">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/box_fish.svg" id="box_fish" width="84.97" height="60.04">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/coral_large.svg" id="coral_large" width="122.64" height="130.23">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/coral_medium.svg" id="coral_medium" width="76.8" height="68.55">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/coral_small.svg" id="coral_small" width="59.36" height="55.3">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/fish_little.svg" id="fish_little" width="60.65" height="44.57">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/fish_pink.svg" id="fish_pink" width="97.31" height="56.18">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/fish_teal.svg" id="fish_teal" width="82.06" height="33.11">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/fish_yellow.svg" id="fish_yellow" width="50.3" height="40.46">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/jellyfish.svg" id="jellyfish" width="41.71" height="47.98">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/light_fish.svg" id="light_fish" width="132.19" height="78.67">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/ocean_bubble.svg" id="ocean_bubble" width="42.67" height="42.67">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/seashell.svg" id="seashell" width="39.08" height="30.99">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/seaweed_green.svg" id="seaweed_green" width="37.79" height="37.47">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/seaweed_lime.svg" id="seaweed_lime" width="57.36" height="114.59">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/starfish.svg" id="starfish" width="38.85" height="37.14">
+          <img src$="[[importPath]]img/tools/spray/ocean/texture/turtle.svg" id="turtle" width="97.83" height="96.04">
+          <img id="scene-air" src$="[[importPath]]img/scenes/air.png" width="1600" height="900"/>
+          <img id="scene-airport" src$="[[importPath]]img/scenes/airport.png" width="1600" height="900"/>
+          <img id="scene-beach" src$="[[importPath]]img/scenes/beach.png" width="1600" height="900"/>
+          <img id="scene-dock" src$="[[importPath]]img/scenes/dock.png" width="1600" height="900"/>
+          <img id="scene-gingerbread" src$="[[importPath]]img/scenes/gingerbread.png" width="1600" height="900"/>
+          <img id="scene-iceberg" src$="[[importPath]]img/scenes/iceberg.png" width="1600" height="900"/>
+          <img id="scene-livingroom" src$="[[importPath]]img/scenes/livingroom.png" width="1600" height="900"/>
+          <img id="scene-night" src$="[[importPath]]img/scenes/night.png" width="1600" height="900"/>
+          <img id="scene-snow" src$="[[importPath]]img/scenes/snow.png" width="1600" height="900"/>
+          <img id="scene-underwater" src$="[[importPath]]img/scenes/underwater.png" width="1600" height="900"/>
+          <img id="roller-checkered" src$="[[importPath]]img/patterns/checkered.svg" width="410.36" height="361.17"/>
+          <img id="roller-diagonal" src$="[[importPath]]img/patterns/diagonal.svg" width="410.36" height="361.17"/>
+          <img id="roller-horizontal" src$="[[importPath]]img/patterns/horizontal.svg" width="410.36" height="361.17"/>
+          <img id="roller-polkadots" src$="[[importPath]]img/patterns/polkadots.svg" width="410.36" height="375.84"/>
+          <img id="roller-snowflakes" src$="[[importPath]]img/patterns/snowflakes.svg" width="410.36" height="361.17"/>
+          <img id="roller-trees" src$="[[importPath]]img/patterns/trees.svg" width="410.36" height="361.17"/>
+          <img id="roller-vertical" src$="[[importPath]]img/patterns/vertical.svg" width="410.36" height="361.17"/>
+          <img id="sticker-brown-bear" src$="[[importPath]]img/stickers/animals/brown-bear.svg" width="251.35" height="355"/>
+          <img id="sticker-dinosaur" src$="[[importPath]]img/stickers/animals/dinosaur.svg" width="743.3" height="645"/>
+          <img id="sticker-fish-teal" src$="[[importPath]]img/stickers/animals/fish-teal.svg" width="82.06" height="33.11"/>
+          <img id="sticker-fish-yellow" src$="[[importPath]]img/stickers/animals/fish-yellow.svg" width="50.3" height="40.46"/>
+          <img id="sticker-gingerbread-man" src$="[[importPath]]img/stickers/animals/gingerbread-man.svg" width="171.78" height="262.43"/>
+          <img id="sticker-mrs-claus" src$="[[importPath]]img/stickers/people/mrs-claus.svg" width="172.02" height="330"/>
+          <img id="sticker-narwhal" src$="[[importPath]]img/stickers/animals/narwhal.svg" width="1045.49" height="313.02"/>
+          <img id="sticker-penguin-presents" src$="[[importPath]]img/stickers/animals/penguin-presents.svg" width="135.86" height="144.03"/>
+          <img id="sticker-rudolph-front" src$="[[importPath]]img/stickers/animals/rudolph-front.svg" width="115.47" height="340.71"/>
+          <img id="sticker-rudolph-side" src$="[[importPath]]img/stickers/animals/rudolph-side.svg" width="260.65" height="365.5"/>
+          <img id="sticker-santa-sled" src$="[[importPath]]img/stickers/people/santa-sled.svg" width="431.88" height="345"/>
+          <img id="sticker-santa" src$="[[importPath]]img/stickers/people/santa.svg" width="219.17" height="355"/>
+          <img id="sticker-snow-monster" src$="[[importPath]]img/stickers/animals/snow-monster.svg" width="384.52" height="567.57"/>
+          <img id="sticker-cactus" src$="[[importPath]]img/stickers/nature/cactus.svg" width="123.7" height="256.03"/>
+          <img id="sticker-cloud1" src$="[[importPath]]img/stickers/nature/cloud1.svg" width="580" height="267"/>
+          <img id="sticker-cloud2" src$="[[importPath]]img/stickers/nature/cloud2.svg" width="250" height="186"/>
+          <img id="sticker-cloud3" src$="[[importPath]]img/stickers/nature/cloud3.svg" width="211" height="163"/>
+          <img id="sticker-coral-large" src$="[[importPath]]img/stickers/nature/coral-large.svg" width="122.64" height="130.23"/>
+          <img id="sticker-coral-medium" src$="[[importPath]]img/stickers/nature/coral-medium.svg" width="76.8" height="68.55"/>
+          <img id="sticker-coral-small" src$="[[importPath]]img/stickers/nature/coral-small.svg" width="59.36" height="55.3"/>
+          <img id="sticker-igloo" src$="[[importPath]]img/stickers/nature/igloo.svg" width="477.76" height="200"/>
+          <img id="sticker-moon" src$="[[importPath]]img/stickers/nature/moon.svg" width="397" height="391"/>
+          <img id="sticker-seaweed-green" src$="[[importPath]]img/stickers/nature/seaweed-green.svg" width="37.79" height="37.47"/>
+          <img id="sticker-seaweed-lime" src$="[[importPath]]img/stickers/nature/seaweed-lime.svg" width="57.36" height="114.59"/>
+          <img id="sticker-sun" src$="[[importPath]]img/stickers/nature/sun.svg" width="486.9" height="492.95"/>
+          <img id="sticker-tree-holiday" src$="[[importPath]]img/stickers/nature/tree-holiday.svg" width="319.54" height="615.58"/>
+          <img id="sticker-tree-palm" src$="[[importPath]]img/stickers/nature/tree-palm.svg" width="387.35" height="613.82"/>
+          <img id="sticker-trees-blue" src$="[[importPath]]img/stickers/nature/trees-blue.svg" width="380.26" height="430"/>
+          <img id="sticker-trees-green" src$="[[importPath]]img/stickers/nature/trees-green.svg" width="434.39" height="430"/>
+          <img id="sticker-beach-ball" src$="[[importPath]]img/stickers/decorations/beach-ball.svg" width="119.02" height="119"/>
+          <img id="sticker-bell" src$="[[importPath]]img/stickers/decorations/bell.svg" width="138.58" height="153.18"/>
+          <img id="sticker-candle" src$="[[importPath]]img/stickers/decorations/candle.svg" width="62.65" height="81.84"/>
+          <img id="sticker-clock" src$="[[importPath]]img/stickers/decorations/clock.svg" width="160.87" height="160.87"/>
+          <img id="sticker-disco-ball" src$="[[importPath]]img/stickers/decorations/disco-ball.svg" width="170.11" height="350.89"/>
+          <img id="sticker-firewood" src$="[[importPath]]img/stickers/decorations/firewood.svg" width="187.38" height="82.97"/>
+          <img id="sticker-frame1" src$="[[importPath]]img/stickers/decorations/frame1.svg" width="186.17" height="146.83"/>
+          <img id="sticker-frame2" src$="[[importPath]]img/stickers/decorations/frame2.svg" width="279.07" height="143.39"/>
+          <img id="sticker-frame3" src$="[[importPath]]img/stickers/decorations/frame3.svg" width="87.38" height="82.95"/>
+          <img id="sticker-holly" src$="[[importPath]]img/stickers/decorations/holly.svg" width="84.16" height="94.88"/>
+          <img id="sticker-presents-stack" src$="[[importPath]]img/stickers/decorations/presents-stack.svg" width="426.59" height="251.88"/>
+          <img id="sticker-record-player" src$="[[importPath]]img/stickers/decorations/record-player.svg" width="183.3" height="214.41"/>
+          <img id="sticker-red-bow" src$="[[importPath]]img/stickers/decorations/red-bow.svg" width="89.67" height="102.09"/>
+          <img id="sticker-show-lights" src$="[[importPath]]img/stickers/decorations/show-lights.svg" width="768.73" height="431.74"/>
+          <img id="sticker-snowglobe-snowman" src$="[[importPath]]img/stickers/decorations/snowglobe-snowman.svg" width="148.57" height="93.69"/>
+          <img id="sticker-snowglobe-tree" src$="[[importPath]]img/stickers/decorations/snowglobe-tree.svg" width="148.57" height="93.69"/>
+          <img id="sticker-stereo" src$="[[importPath]]img/stickers/decorations/stereo.svg" width="97.34" height="185.27"/>
+          <img id="sticker-stocking-green" src$="[[importPath]]img/stickers/decorations/stocking-green.svg" width="109.19" height="165.4"/>
+          <img id="sticker-stocking-pink" src$="[[importPath]]img/stickers/decorations/stocking-pink.svg" width="126.69" height="190.74"/>
+          <img id="sticker-stocking-red" src$="[[importPath]]img/stickers/decorations/stocking-red.svg" width="109.44" height="206.69"/>
+          <img id="sticker-stocking-yellow" src$="[[importPath]]img/stickers/decorations/stocking-yellow.svg" width="76.5" height="137.8"/>
+          <img id="sticker-treasure-closed" src$="[[importPath]]img/stickers/decorations/treasure-closed.svg" width="194.21" height="113.32"/>
+          <img id="sticker-treasure-open" src$="[[importPath]]img/stickers/decorations/treasure-open.svg" width="226.22" height="142.58"/>
+          <img id="sticker-window" src$="[[importPath]]img/stickers/decorations/window.svg" width="271.51" height="369.76"/>
+          <img id="sticker-wreath" src$="[[importPath]]img/stickers/decorations/wreath.svg" width="178.19" height="215.43"/>
+          <img id="sticker-elf1" src$="[[importPath]]img/stickers/people/elf1.svg" width="128.11" height="236.99"/>
+          <img id="sticker-elf2" src$="[[importPath]]img/stickers/people/elf2.svg" width="139.83" height="275.5"/>
+          <img id="sticker-elf3" src$="[[importPath]]img/stickers/people/elf3.svg" width="120.2" height="355"/>
+          <img id="sticker-elf4" src$="[[importPath]]img/stickers/people/elf4.svg" width="149.29" height="285.3"/>
+          <img id="sticker-elf5" src$="[[importPath]]img/stickers/people/elf5.svg" width="147.53" height="233.98"/>
+          <img id="sticker-elf6" src$="[[importPath]]img/stickers/people/elf6.svg" width="122.38" height="236.99"/>
+          <img id="sticker-elf7" src$="[[importPath]]img/stickers/people/elf7.svg" width="131.93" height="257.54"/>
+          <img id="sticker-elf8" src$="[[importPath]]img/stickers/people/elf8.svg" width="145.7" height="313.93"/>
+          <img id="sticker-elf9" src$="[[importPath]]img/stickers/people/elf9.svg" width="144.23" height="285.3"/>
+          <img id="sticker-elf10" src$="[[importPath]]img/stickers/people/elf10.svg" width="147.53" height="262.65"/>
+          <img id="sticker-elf11" src$="[[importPath]]img/stickers/people/elf11.svg" width="131.93" height="275.5"/>
+          <img id="sticker-elf12" src$="[[importPath]]img/stickers/people/elf12.svg" width="128.11" height="355"/>
+          <img id="sticker-elf13" src$="[[importPath]]img/stickers/people/elf13.svg" width="149.29" height="285.3"/>
+          <img id="sticker-elf14" src$="[[importPath]]img/stickers/people/elf14.svg" width="147.53" height="248.88"/>
+          <img id="sticker-elf15" src$="[[importPath]]img/stickers/people/elf15.svg" width="120.2" height="206.54"/>
+          <img id="sticker-elf16" src$="[[importPath]]img/stickers/people/elf16.svg" width="154.34" height="275.5"/>
+          <img id="sticker-elf17" src$="[[importPath]]img/stickers/people/elf17.svg" width="137.79" height="327.86"/>
+          <img id="sticker-elf18" src$="[[importPath]]img/stickers/people/elf18.svg" width="149.29" height="285.3"/>
+          <img id="sticker-elf19" src$="[[importPath]]img/stickers/people/elf19.svg" width="140.36" height="248.49"/>
+          <img id="sticker-elf20" src$="[[importPath]]img/stickers/people/elf20.svg" width="155.48" height="236.99"/>
+          <img id="sticker-elf21" src$="[[importPath]]img/stickers/people/elf21.svg" width="131.93" height="275.5"/>
+          <img id="sticker-elf22" src$="[[importPath]]img/stickers/people/elf22.svg" width="128.11" height="332.36"/>
+          <img id="sticker-elf23" src$="[[importPath]]img/stickers/people/elf23.svg" width="149.29" height="272.75"/>
+          <img id="sticker-elf24" src$="[[importPath]]img/stickers/people/elf24.svg" width="147.53" height="277.75"/>
+          <img id="sticker-elf25" src$="[[importPath]]img/stickers/people/elf25.svg" width="128.11" height="219.4"/>
+          <img id="sticker-elf26" src$="[[importPath]]img/stickers/people/elf26.svg" width="139.83" height="254"/>
+          <img id="sticker-elf27" src$="[[importPath]]img/stickers/people/elf27.svg" width="162.18" height="327.86"/>
+          <img id="sticker-elf28" src$="[[importPath]]img/stickers/people/elf28.svg" width="149.29" height="288.06"/>
+          <img id="sticker-elf29" src$="[[importPath]]img/stickers/people/elf29.svg" width="180.67" height="283.33"/>
+          <img id="sticker-elf-duck-float" src$="[[importPath]]img/stickers/people/elf-duck-float.svg" width="508.05" height="287.94"/>
+          <img id="sticker-elf-jam-guitar" src$="[[importPath]]img/stickers/people/elf-jam-guitar.svg" width="158.03" height="275.5"/>
+          <img id="sticker-elf-jam-sing" src$="[[importPath]]img/stickers/people/elf-jam-sing.svg" width="155.86" height="207.18"/>
+          <img id="sticker-elf-mermaid" src$="[[importPath]]img/stickers/people/elf-mermaid.svg" width="191.53" height="201"/>
+          <img id="sticker-elf-merman" src$="[[importPath]]img/stickers/people/elf-merman.svg" width="196.75" height="201"/>
+          <img id="sticker-elf-scuba1" src$="[[importPath]]img/stickers/people/elf-scuba1.svg" width="154.4" height="251.01"/>
+          <img id="sticker-elf-scuba2" src$="[[importPath]]img/stickers/people/elf-scuba2.svg" width="152.49" height="256.29"/>
+          <img id="sticker-elf-seesaw" src$="[[importPath]]img/stickers/people/elf-seesaw.svg" width="497.44" height="317.9"/>
+          <img id="sticker-candycane-green" src$="[[importPath]]img/stickers/food/candycane-green.svg" width="128.11" height="236.99"/>
+          <img id="sticker-cookie-choc-chip" src$="[[importPath]]img/stickers/food/cookie-choc-chip.svg" width="57.92" height="56.52"/>
+          <img id="sticker-cookie-man" src$="[[importPath]]img/stickers/food/cookie-man.svg" width="61.49" height="77.12"/>
+          <img id="sticker-face-eyes-glasses1" src$="[[importPath]]img/stickers/silly/face-eyes-glasses1.svg" width="157.59" height="54.28"/>
+          <img id="sticker-face-mouth-black" src$="[[importPath]]img/stickers/silly/face-mouth-black.svg" width="90.46" height="45.23"/>
+          <img id="sticker-hat-blue" src$="[[importPath]]img/stickers/silly/hat-blue.svg" width="199.27" height="255.97"/>
+          <img id="sticker-head-elf-hair2" src$="[[importPath]]img/stickers/silly/head-elf-hair2.svg" width="205.4" height="176.54"/>
+          <img id="sticker-elf-car" src$="[[importPath]]img/stickers/nature/elf-car.svg" width="404.66" height="250"/>
+          <img id="sticker-house" src$="[[importPath]]img/stickers/nature/house.svg" width="525.85" height="389.77"/>
+          <img id="sticker-santa-sleigh" src$="[[importPath]]img/stickers/nature/santa-sleigh.svg" width="2647.7" height="426.67"/>
+          <img id="sticker-school-bus" src$="[[importPath]]img/stickers/nature/school-bus.svg" width="1033.95" height="355"/>
+          <img id="sticker-village-houses" src$="[[importPath]]img/stickers/nature/village-houses.svg" width="66.2" height="28.61"/>
+          <img id="sticker-candies" src$="[[importPath]]img/stickers/food/candies.svg" width="64.91" height="71.25"/>
+          <img id="sticker-candycane-greens" src$="[[importPath]]img/stickers/food/candycane-greens.svg" width="51.69" height="105.1"/>
+          <img id="sticker-candycane-holiday" src$="[[importPath]]img/stickers/food/candycane-holiday.svg" width="51.69" height="105.11"/>
+          <img id="sticker-candycane-red" src$="[[importPath]]img/stickers/food/candycane-red.svg" width="42.46" height="95.66"/>
+          <img id="sticker-candycane-reds" src$="[[importPath]]img/stickers/food/candycane-reds.svg" width="51.69" height="105.11"/>
+          <img id="sticker-candycane-tropical" src$="[[importPath]]img/stickers/food/candycane-tropical.svg" width="51.69" height="105.11"/>
+          <img id="sticker-candycorn-holiday" src$="[[importPath]]img/stickers/food/candycorn-holiday.svg" width="18.88" height="27.9"/>
+          <img id="sticker-chocolate-gumdrop" src$="[[importPath]]img/stickers/food/chocolate-gumdrop.svg" width="33.75" height="27.2"/>
+          <img id="sticker-chocolate-nuts" src$="[[importPath]]img/stickers/food/chocolate-nuts.svg" width="30.79" height="31.18"/>
+          <img id="sticker-chocolate-pretzel" src$="[[importPath]]img/stickers/food/chocolate-pretzel.svg" width="17.33" height="95.78"/>
+          <img id="sticker-chocolate-squiggle" src$="[[importPath]]img/stickers/food/chocolate-squiggle.svg" width="32.78" height="27.83"/>
+          <img id="sticker-chocolate-stripes" src$="[[importPath]]img/stickers/food/chocolate-stripes.svg" width="32.78" height="27.83"/>
+          <img id="sticker-chocolate-swirl" src$="[[importPath]]img/stickers/food/chocolate-swirl.svg" width="26.67" height="29.77"/>
+          <img id="sticker-cookie-kiss" src$="[[importPath]]img/stickers/food/cookie-kiss.svg" width="63.22" height="29.95"/>
+          <img id="sticker-cookie-snowman" src$="[[importPath]]img/stickers/food/cookie-snowman.svg" width="53.33" height="76.18"/>
+          <img id="sticker-cookie-stocking" src$="[[importPath]]img/stickers/food/cookie-stocking.svg" width="65.38" height="73.03"/>
+          <img id="sticker-cookie-tree" src$="[[importPath]]img/stickers/food/cookie-tree.svg" width="59.79" height="73.49"/>
+          <img id="sticker-milk" src$="[[importPath]]img/stickers/food/milk.svg" width="64.52" height="91.05"/>
+          <img id="sticker-mug-green" src$="[[importPath]]img/stickers/food/mug-green.svg" width="82.5" height="94.26"/>
+          <img id="sticker-mug-red" src$="[[importPath]]img/stickers/food/mug-red.svg" width="76.95" height="97.42"/>
+          <img id="sticker-santa-dance" src$="[[importPath]]img/stickers/people/santa-dance.svg" width="269.03" height="365.44"/>
+          <img id="sticker-santa-sleep" src$="[[importPath]]img/stickers/people/santa-sleep.svg" width="411.2" height="276.33"/>
+          <img id="sticker-astronaut" src$="[[importPath]]img/stickers/animals/astronaut.svg" width="282.32" height="463.35"/>
+          <img id="sticker-bat" src$="[[importPath]]img/stickers/animals/bat.svg" width="117.42" height="104.19"/>
+          <img id="sticker-box-fish" src$="[[importPath]]img/stickers/animals/box-fish.svg" width="84.97" height="60.04"/>
+          <img id="sticker-brown-bear-baby" src$="[[importPath]]img/stickers/animals/brown-bear-baby.svg" width="116.48" height="171.04"/>
+          <img id="sticker-brown-bear-pirate" src$="[[importPath]]img/stickers/animals/brown-bear-pirate.svg" width="237.38" height="393.26"/>
+          <img id="sticker-dolphin" src$="[[importPath]]img/stickers/animals/dolphin.svg" width="360.36" height="132.68"/>
+          <img id="sticker-fish-pink" src$="[[importPath]]img/stickers/animals/fish-pink.svg" width="97.31" height="56.18"/>
+          <img id="sticker-jellyfish" src$="[[importPath]]img/stickers/animals/jellyfish.svg" width="41.71" height="47.98"/>
+          <img id="sticker-light-fish" src$="[[importPath]]img/stickers/animals/light-fish.svg" width="132.19" height="78.67"/>
+          <img id="sticker-nutcracker-green" src$="[[importPath]]img/stickers/animals/nutcracker-green.svg" width="127.87" height="433.14"/>
+          <img id="sticker-pegman-hips" src$="[[importPath]]img/stickers/animals/pegman-hips.svg" width="136.06" height="290.22"/>
+          <img id="sticker-penguin-angry" src$="[[importPath]]img/stickers/animals/penguin-angry.svg" width="56.7" height="98.2"/>
+          <img id="sticker-polar-bear-scuba" src$="[[importPath]]img/stickers/animals/polar-bear-scuba.svg" width="363.08" height="400"/>
+          <img id="sticker-reindeer-babies" src$="[[importPath]]img/stickers/animals/reindeer-babies.svg" width="298.21" height="242.32"/>
+          <img id="sticker-reindeer-baby-boy" src$="[[importPath]]img/stickers/animals/reindeer-baby-boy.svg" width="154.61" height="181.85"/>
+          <img id="sticker-reindeer-baby-girl" src$="[[importPath]]img/stickers/animals/reindeer-baby-girl.svg" width="186.66" height="155.96"/>
+          <img id="sticker-reindeer-white" src$="[[importPath]]img/stickers/animals/reindeer-white.svg" width="281.65" height="431.92"/>
+          <img id="sticker-robot-purple" src$="[[importPath]]img/stickers/animals/robot-purple.svg" width="252.66" height="355"/>
+          <img id="sticker-rudolph-dancing2" src$="[[importPath]]img/stickers/animals/rudolph-dancing2.svg" width="250.87" height="410.5"/>
+          <img id="sticker-scuba-green" src$="[[importPath]]img/stickers/animals/scuba-green.svg" width="208.86" height="355"/>
+          <img id="sticker-scuba-orange" src$="[[importPath]]img/stickers/animals/scuba-orange.svg" width="268.94" height="355"/>
+          <img id="sticker-seagull-fly2" src$="[[importPath]]img/stickers/animals/seagull-fly2.svg" width="105.65" height="66.65"/>
+          <img id="sticker-shark" src$="[[importPath]]img/stickers/animals/shark.svg" width="667.4" height="199.97"/>
+          <img id="sticker-snowman-big-penguin" src$="[[importPath]]img/stickers/animals/snowman-big-penguin.svg" width="367.27" height="730"/>
+          <img id="sticker-snowman-big-tub" src$="[[importPath]]img/stickers/animals/snowman-big-tub.svg" width="825.07" height="740"/>
+          <img id="sticker-walrus" src$="[[importPath]]img/stickers/animals/walrus.svg" width="195.55" height="320"/>
+          <img id="sticker-elf-head1" src$="[[importPath]]img/stickers/silly/elf-head1.svg" width="205.4" height="149.27"/>
+          <img id="sticker-elf-head2" src$="[[importPath]]img/stickers/silly/elf-head2.svg" width="205.4" height="149.27"/>
+          <img id="sticker-elf-head3" src$="[[importPath]]img/stickers/silly/elf-head3.svg" width="205.4" height="149.27"/>
+          <img id="sticker-elf-head4" src$="[[importPath]]img/stickers/silly/elf-head4.svg" width="205.4" height="149.27"/>
+          <img id="sticker-elf-head5" src$="[[importPath]]img/stickers/silly/elf-head5.svg" width="205.4" height="149.27"/>
+          <img id="sticker-face-bear-mouth" src$="[[importPath]]img/stickers/silly/face-bear-mouth.svg" width="77.6" height="121.95"/>
+          <img id="sticker-face-carrot-nose" src$="[[importPath]]img/stickers/silly/face-carrot-nose.svg" width="105.57" height="38.13"/>
+          <img id="sticker-face-eyes-glasses2" src$="[[importPath]]img/stickers/silly/face-eyes-glasses2.svg" width="152.41" height="54.77"/>
+          <img id="sticker-face-eyes-glasses3" src$="[[importPath]]img/stickers/silly/face-eyes-glasses3.svg" width="145.32" height="54.54"/>
+          <img id="sticker-face-eyes-glasses4" src$="[[importPath]]img/stickers/silly/face-eyes-glasses4.svg" width="143.38" height="57.07"/>
+          <img id="sticker-face-eyes-glasses5" src$="[[importPath]]img/stickers/silly/face-eyes-glasses5.svg" width="142.38" height="43.61"/>
+          <img id="sticker-face-eyes-normal" src$="[[importPath]]img/stickers/silly/face-eyes-normal.svg" width="90.46" height="30.15"/>
+          <img id="sticker-face-eyes-sunglasses1" src$="[[importPath]]img/stickers/silly/face-eyes-sunglasses1.svg" width="157.59" height="54.28"/>
+          <img id="sticker-face-eyes-sunglasses2" src$="[[importPath]]img/stickers/silly/face-eyes-sunglasses2.svg" width="155.91" height="60.14"/>
+          <img id="sticker-face-eyes-sunglasses3" src$="[[importPath]]img/stickers/silly/face-eyes-sunglasses3.svg" width="148.36" height="60.14"/>
+          <img id="sticker-face-eyes-sunglasses4" src$="[[importPath]]img/stickers/silly/face-eyes-sunglasses4.svg" width="140.41" height="60.14"/>
+          <img id="sticker-face-moustache" src$="[[importPath]]img/stickers/silly/face-moustache.svg" width="232.96" height="79.05"/>
+          <img id="sticker-face-mouth-white" src$="[[importPath]]img/stickers/silly/face-mouth-white.svg" width="90.46" height="45.23"/>
+          <img id="sticker-face-nose-pink" src$="[[importPath]]img/stickers/silly/face-nose-pink.svg" width="50.78" height="41.55"/>
+          <img id="sticker-face-nose-red" src$="[[importPath]]img/stickers/silly/face-nose-red.svg" width="51.24" height="51.26"/>
+          <img id="sticker-face-santa-beard" src$="[[importPath]]img/stickers/silly/face-santa-beard.svg" width="260.83" height="170.81"/>
+          <img id="sticker-face-teeth" src$="[[importPath]]img/stickers/silly/face-teeth.svg" width="198.4" height="37.93"/>
+          <img id="sticker-face-walrus-mouth" src$="[[importPath]]img/stickers/silly/face-walrus-mouth.svg" width="147.65" height="183.08"/>
+          <img id="sticker-hat-antlers-blue" src$="[[importPath]]img/stickers/silly/hat-antlers-blue.svg" width="258.71" height="128.29"/>
+          <img id="sticker-hat-antlers-brown" src$="[[importPath]]img/stickers/silly/hat-antlers-brown.svg" width="258.71" height="128.29"/>
+          <img id="sticker-hat-beanie" src$="[[importPath]]img/stickers/silly/hat-beanie.svg" width="269.44" height="141.98"/>
+          <img id="sticker-hat-green" src$="[[importPath]]img/stickers/silly/hat-green.svg" width="199.27" height="255.97"/>
+          <img id="sticker-hat-orange" src$="[[importPath]]img/stickers/silly/hat-orange.svg" width="199.27" height="255.97"/>
+          <img id="sticker-hat-pink" src$="[[importPath]]img/stickers/silly/hat-pink.svg" width="199.27" height="255.97"/>
+          <img id="sticker-hat-purple" src$="[[importPath]]img/stickers/silly/hat-purple.svg" width="199.27" height="255.97"/>
+          <img id="sticker-hat-santa" src$="[[importPath]]img/stickers/silly/hat-santa.svg" width="257.22" height="139.5"/>
+          <img id="sticker-hat-yellow" src$="[[importPath]]img/stickers/silly/hat-yellow.svg" width="199.27" height="255.97"/>
+          <img id="sticker-head-bear" src$="[[importPath]]img/stickers/silly/head-bear.svg" width="233.59" height="189.65"/>
+          <img id="sticker-head-elf-hair1" src$="[[importPath]]img/stickers/silly/head-elf-hair1.svg" width="205.4" height="162.92"/>
+          <img id="sticker-head-elf-hair3" src$="[[importPath]]img/stickers/silly/head-elf-hair3.svg" width="205.4" height="340.16"/>
+          <img id="sticker-head-elf-hair4" src$="[[importPath]]img/stickers/silly/head-elf-hair4.svg" width="205.4" height="162.92"/>
+          <img id="sticker-head-elf-hair5" src$="[[importPath]]img/stickers/silly/head-elf-hair5.svg" width="205.4" height="198.44"/>
+          <img id="sticker-head-elf-hair6" src$="[[importPath]]img/stickers/silly/head-elf-hair6.svg" width="205.4" height="201.89"/>
+          <img id="sticker-head-elf-hair7" src$="[[importPath]]img/stickers/silly/head-elf-hair7.svg" width="205.4" height="180.47"/>
+          <img id="sticker-head-elf-hair8" src$="[[importPath]]img/stickers/silly/head-elf-hair8.svg" width="205.4" height="149.29"/>
+          <img id="sticker-head-elf-hair9" src$="[[importPath]]img/stickers/silly/head-elf-hair9.svg" width="205.4" height="149.27"/>
+          <img id="sticker-head-elf-hair10" src$="[[importPath]]img/stickers/silly/head-elf-hair10.svg" width="205.4" height="117.97"/>
+          <img id="sticker-head-reindeer" src$="[[importPath]]img/stickers/silly/head-reindeer.svg" width="184.73" height="198.7"/>
+
+
+          <canvas id="pattern-canvas"></canvas>
+          <canvas id="save-canvas"></canvas>
+          <canvas id="back-backup"></canvas>
+          <canvas id="fore-backup"></canvas>
+          <canvas id="draw-backup0"></canvas>
+          <canvas id="draw-backup1"></canvas>
+          <canvas id="draw-backup2"></canvas>
+          <canvas id="draw-backup3"></canvas>
+          <canvas id="draw-backup4"></canvas>
+          <canvas id="draw-backup5"></canvas>
+          <canvas id="draw-backup6"></canvas>
+          <canvas id="draw-backup7"></canvas>
+          <canvas id="draw-backup8"></canvas>
+          <canvas id="draw-backup9"></canvas>
+          <canvas id="draw-backup10"></canvas>
+          <canvas id="draw-backup11"></canvas>
+          <canvas id="draw-backup12"></canvas>
+          <canvas id="draw-backup13"></canvas>
+          <canvas id="draw-backup14"></canvas>
+          <canvas id="draw-backup15"></canvas>
+          <canvas id="draw-backup16"></canvas>
+          <canvas id="draw-backup17"></canvas>
+          <canvas id="draw-backup18"></canvas>
+          <canvas id="draw-backup19"></canvas>
+          <canvas id="draw-backup20"></canvas>
+          <canvas id="draw-backup21"></canvas>
+          <canvas id="draw-backup22"></canvas>
+          <canvas id="draw-backup23"></canvas>
+          <canvas id="draw-backup24"></canvas>
+          <canvas id="draw-backup25"></canvas>
+          <canvas id="draw-backup26"></canvas>
+          <canvas id="draw-backup27"></canvas>
+          <canvas id="draw-backup28"></canvas>
+          <canvas id="draw-backup29"></canvas>
+          <canvas id="draw-backup30"></canvas>
+          <canvas id="draw-backup31"></canvas>
+        </div>
+
+        <div class="gui">
+          <div class="force-rotate portrait">
+            <div class="force-rotate-graphic"></div>
+            <div class="force-rotate-explanation">
+              <i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+  Polymer({
+    is: 'santascanvas-scene',
+    behaviors: [window.SantaSceneBehavior],
+    game: null,
+
+    onPreload: function() {
+      var loadEvent;
+      if ($(window).width() > 768) {
+        loadEvent = 'cd_load_sounds_desktop';
+      } else {
+        loadEvent = 'cd_load_sounds';
+      }
+
+      this.preloadSounds(loadEvent, 30);
+      this.preloadImages([
+        'img/icons/reset.svg',
+        'img/loading.svg',
+        'img/share.svg',
+        'img/icons/check.svg',
+        'img/icons/rotate_clock.svg',
+        'img/icons/rotate_counter_clock.svg',
+        'img/icons/snow.svg',
+        'img/icons/trash.svg',
+        'img/icons/save.svg',
+        'img/scenes/air.png',
+        'img/scenes/airport.png',
+        'img/scenes/beach.png',
+        'img/scenes/dock.png',
+        'img/scenes/iceberg.png',
+        'img/scenes/livingroom.png',
+        'img/scenes/snow.png',
+        'img/scenes/underwater.png',
+        'img/tools/tool_pencil_tray.svg',
+        'img/tools/tool_marker_tray.svg',
+        'img/tools/tool_stamp.svg',
+        'img/tools/tool_drawing.svg',
+        'img/tools/spray/tool_spray_color.svg',
+        'img/tools/tool_roller.svg',
+        'img/tools/tool_shapes.svg',
+        'img/tools/tool_scene.svg',
+        'img/tools/tool_sticker.svg',
+        'img/tools/tool_eraser.svg',
+        'img/tools/color_wheel_bottom.svg',
+        'img/tools/slider-base.svg',
+        'img/tools/slider-dot.svg'
+      ]);
+    },
+
+    onShow: function() {
+      var module = this.$['module-santascanvas'];
+
+      this.game = new scenes.santascanvas.Game(module);
+      this.game.start();
+      this.fire('sound-ambient', 'cd_start');
+      this.fire('sound-ambient', 'music_start_scene');
+    },
+
+    onHide: function() {
+      this.game.dispose();
+      this.game = null;
+      this.fire('sound-ambient', 'cd_end');
+    },
+  });
+
+})();
+</script>
+</dom-module>

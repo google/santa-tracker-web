@@ -15,7 +15,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 
 <script src="codelab-scene.min.js"></script>
-<link rel="import" href="../../js/webanimations.html">
 
 <link rel="import" href="codelab-scene_module.html">
 
@@ -44,7 +43,12 @@ Codelab scene.
     is: 'codelab-scene',
     behaviors: [window.SantaSceneBehavior],
 
-    frame: null,
+    properties: {
+      frame: {
+        type: Object,
+        value: null,
+      },
+    },
 
     onPreload: function() {
       this.preloadSounds('computer_load_sounds', 40);
@@ -58,9 +62,6 @@ Codelab scene.
         '../codelabframe/img/jigsaw.png',
         '../codelabframe/img/puzzle-1.png',
         '../codelabframe/img/puzzle-2.png',
-        '../codelabframe/img/tutorial/maze.gif',
-        '../codelabframe/img/tutorial/puzzle.gif',
-        '../codelabframe/img/tutorial/shadow.svg'
       ]);
     },
     onShow: function() {

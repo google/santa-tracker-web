@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "Jouluaattona esittelemme sinulle ylpeinä joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa pukin rekeä matkalla ympäri maailman. Eräs ahkerasti joulupukin matkaa valmistelevista Korvatunturin kehittäjätontuista on päästänyt meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa hyödynnetään Google Mapsin ja rekisuunnittelun uusimpia tekniikoita, ja sen avulla voit seurata joulupukin matkaa ympäri maailman."
+		"message": "Jouluaattona esittelemme sinulle Joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa Pukin rekeä maailman ympäri. Yksi Joulupukin matkaa ahkerasti valmistelevista Korvatunturin kehittäjätontuista päästää meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa on hyödynnetty Google Mapsin ja rekisuunnittelun uusimpia tekniikoita. Seuraa sen avulla Joulupukin matkaa maailman ympäri!"
 	},
 	"about-content-three": {
 		"message": "Google on luonut ja kehittänyt Google Mapsin Joulupukin jäljittimen joulupukin tonttujen avustamana. Tarvitsetko apua tai onko sinulla muuta kysyttävää? Käy \u003ca href=\"//support.google.com/santatracker\"\u003eohjekeskuksessamme\u003c/a\u003e."
@@ -617,6 +617,9 @@
 	"getgooglemaps": {
 		"message": "Hanki Google Maps"
 	},
+	"getready": {
+		"message": "Valmistaudu!"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Harjoittele"
+	},
 	"press": {
 		"message": "Lehdistö"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Hei, sehän on {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "tai"
+	},
+	"quickdraw-machine-see": {
+		"message": "Ymmärrän"
+	},
+	"quickdraw-newround-button": {
+		"message": "Aloita"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "En ole ihan varma, mikä se on."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Harmi"
+	},
+	"quickdraw-round-timesup": {
+		"message": "En arvaa!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensorin mielestä piirustuksesi näytti myös näiltä:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Miten Tensor tietää, miltä {{thing}} näyttää?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Se on katsellut näitä muiden piirtämiä esimerkkipiirustuksia."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensorin mielestä piirustuksesi näytti enemmänkin näiltä:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Joulupukin mielestä {{thing}} näyttää tältä."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Sinun piti piirtää {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Piirrä"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor on oppiva kone, joka auttaa Joulupukkia saamaan nopeasti selvää lasten kirjoittamista kirjeistä. Piirrä jouluisia sanoja esittäviä kuvia ja anna Tensorin arvata, mitä olet piirtämässä. Mitä enemmän piirrät, sitä etevämpi Tensorista tulee ja sitä enemmän apua hänestä on Joulupukille!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Auta Tensoria tunnistamaan kuvia paremmin!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor tunnisti {{recognized}} piirustustasi."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor tunnisti yhden piirustuksesi."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor ei tunnistanut yhtään piirustustasi."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Hyvä!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Hups!"
 	},
 	"ro_country_name": {
 		"message": "Romania"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Puhelu pukilta"
 	},
+	"scene_canvas": {
+		"message": "Jouluista taiteilua"
+	},
 	"scene_citylights": {
 		"message": "Kaupungin valot"
+	},
+	"scene_clausdraws": {
+		"message": "Pukin piirustuspaja"
 	},
 	"scene_codeboogie": {
 		"message": "Kooditanssi"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Pingviinikilpa"
 	},
+	"scene_elfski": {
+		"message": "Tonttuslalom"
+	},
 	"scene_factory": {
 		"message": "Karkkitehdas"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Purkkapallo"
+	},
+	"scene_icecave": {
+		"message": "Jääluola"
+	},
+	"scene_island": {
+		"message": "Saari"
 	},
 	"scene_jamband": {
 		"message": "Tonttujen bilebändi"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Lahjapudotus"
 	},
+	"scene_quickdraw": {
+		"message": "Kuva-arvoitus"
+	},
 	"scene_racer": {
 		"message": "Petterin kilpa-ajo"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "Antamisen aika"
+	},
+	"scene_snowball": {
+		"message": "Lumisota"
+	},
+	"scene_speedsketch": {
+		"message": "Pikapiirros"
 	},
 	"scene_streetview": {
 		"message": "Katunäkymä"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Pukin lähtö"
 	},
+	"scene_videoscene_museum": {
+		"message": "Päivä museossa"
+	},
 	"scene_videoscene_office": {
 		"message": "Toimistojekku"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satelliitti"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Pukin selfiet"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Lorvailua"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Houkutus"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Osuma!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}}/{{total}} tonttua jäljellä"
+	},
+	"snowball_spectate": {
+		"message": "Katso"
+	},
+	"snowball_waiting": {
+		"message": "Odotetaan lisää tonttuja"
 	},
 	"snowflake_choose_background": {
 		"message": "Valitse taustaväri."
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "Lisää hauskoja pelejä"
 	},
+	"village_santa_a2hs": {
+		"message": "Lisää aloitusnäytölle"
+	},
 	"village_santa_cardboard": {
 		"message": "Pukki Cardboardissa"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Paras tulos"
 	},
 	"zh-CN_language_name": {
 		"message": "kiina (yksinkertaistettu)"

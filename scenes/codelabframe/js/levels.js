@@ -83,22 +83,7 @@ app.levels.push(new app.MazeLevel({
   playerX: 3,
   playerY: 4,
   presents: [
-    {x: 4, y: 2}
-  ],
-  requiredBlocks: ['maze_moveNorth', 'maze_moveEast'],
-  toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
-      app.blocks.miniBlockXml('maze_moveSouth') +
-      app.blocks.miniBlockXml('maze_moveWest') +
-      app.blocks.miniBlockXml('maze_moveEast')
-}));
-
-app.levels.push(new app.MazeLevel({
-  bounds: app.Map.LEVEL_BOUNDS[2],
-  idealBlockCount: 4,
-  playerX: 4,
-  playerY: 5,
-  presents: [
-    {x: 3, y: 2}
+    {x: 2, y: 2}
   ],
   requiredBlocks: ['maze_moveNorth', 'maze_moveWest'],
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
@@ -108,15 +93,30 @@ app.levels.push(new app.MazeLevel({
 }));
 
 app.levels.push(new app.MazeLevel({
+  bounds: app.Map.LEVEL_BOUNDS[2],
+  idealBlockCount: 5,
+  playerX: 2,
+  playerY: 5,
+  presents: [
+    {x: 2, y: 0}
+  ],
+  requiredBlocks: ['maze_moveNorth'],
+  toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
+      app.blocks.miniBlockXml('maze_moveSouth') +
+      app.blocks.miniBlockXml('maze_moveWest') +
+      app.blocks.miniBlockXml('maze_moveEast')
+}));
+
+app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[3],
   idealBlockCount: 2,
-  playerX: 3,
+  playerX: 2,
   playerY: 6,
   presents: [
-    {x: 3, y: 1}
+    {x: 2, y: 1}
   ],
   requiredBlocks: ['controls_repeat', 'maze_moveNorth'],
-  startBlocks: app.blocks.blockXml('controls_repeat', null, {TIMES: '3'},
+  startBlocks: app.blocks.blockXml('controls_repeat', null, {TIMES: '1'},
                                    app.blocks.blockXml('maze_moveNorth')),
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
@@ -127,13 +127,17 @@ app.levels.push(new app.MazeLevel({
 
 app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[4],
-  idealBlockCount: 3,
-  playerX: 3,
-  playerY: 7,
+  idealBlockCount: 8,
+  playerX: 2,
+  playerY: 4,
   presents: [
-    {x: 2, y: 1}
+    {x: 2, y: 0}
   ],
-  requiredBlocks: ['maze_moveWest', 'maze_moveNorth', 'controls_repeat'],
+  requiredBlocks: [
+    'maze_moveWest',
+    'maze_moveEast',
+    'maze_moveNorth',
+    'controls_repeat'],
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +
@@ -149,7 +153,11 @@ app.levels.push(new app.MazeLevel({
   presents: [
     {x: 5, y: 1}
   ],
-  requiredBlocks: ['maze_moveSouth', 'maze_moveEast', 'maze_moveNorth', 'controls_repeat'],
+  requiredBlocks: [
+    'maze_moveSouth',
+    'maze_moveEast',
+    'maze_moveNorth',
+    'controls_repeat'],
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +
@@ -159,13 +167,13 @@ app.levels.push(new app.MazeLevel({
 
 app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[6],
-  idealBlockCount: 8,
+  idealBlockCount: 3,
   playerX: 5,
   playerY: 6,
   presents: [
-    {x: 4, y: 1}
+    {x: 1, y: 2}
   ],
-  requiredBlocks: ['maze_moveNorth', 'maze_moveEast', 'controls_repeat', 'maze_moveWest'],
+  requiredBlocks: ['maze_moveNorth', 'maze_moveWest', 'controls_repeat'],
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +
@@ -175,13 +183,17 @@ app.levels.push(new app.MazeLevel({
 
 app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[7],
-  idealBlockCount: 5,
-  playerX: 4,
+  idealBlockCount: 7,
+  playerX: 1,
   playerY: 8,
   presents: [
-    {x: 0, y: 4}
+    {x: 1, y: 0}
   ],
-  requiredBlocks: ['maze_moveNorth', 'maze_moveWest', 'controls_repeat'],
+  requiredBlocks: [
+    'maze_moveNorth',
+    'maze_moveWest',
+    'maze_moveEast',
+    'controls_repeat'],
   toolbox: app.blocks.miniBlockXml('maze_moveNorth') +
       app.blocks.miniBlockXml('maze_moveSouth') +
       app.blocks.miniBlockXml('maze_moveWest') +

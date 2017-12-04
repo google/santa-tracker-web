@@ -1,0 +1,202 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+<dom-module id="village-house">
+<template>
+  <style>
+    :host {
+      font-size: 16px;
+    }
+
+main {
+  /* creates stacking context */
+  pointer-events: none;
+  transform: translate(-50%, -100%);  /* origin is bottom center */
+  display: block;
+  position: relative;
+}
+
+img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%);
+  transition: opacity 0.5s;
+}
+img:not([src]) {
+  opacity: 0;
+}
+img.fadeout {
+  opacity: 0;
+}
+
+sup {
+  z-index: 1000;
+  position: absolute;
+  background: center no-repeat;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yNTYgMzQ3LjYgOTguNCA5OC40Ij48c3R5bGU+LnN0MHtmaWxsOiMzMmNiZTZ9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTE5NC40IDM1Ni4yYzMuMS4xIDYtLjEgOC43LS40IDUuNC0uNiAxMi40LTEuMyAxNi41IDMuNCA0LjcgNC4xIDQuMSAxMSAzLjQgMTYuNS0uMyAyLjctLjUgNS42LS40IDguNy4xIDcuNCAzLjQgMTEuMyA4LjYgMTIuNC01LjMgMS4xLTguNSA1LTguNiAxMi40LS4xIDMuMS4xIDYgLjQgOC43LjYgNS41IDEuMyAxMi40LTMuNCAxNi41LTQuMSA0LjctMTEgNC4xLTE2LjUgMy40LTIuNy0uMy01LjYtLjUtOC43LS40LTcuNC4xLTExLjMgMy40LTEyLjQgOC42LTEuMS01LjMtNS04LjYtMTIuNC04LjYtMy4xLS4xLTYgLjEtOC43LjQtNS41LjYtMTIuNCAxLjMtMTYuNS0zLjQtNC43LTQuMS00LTExLjEtMy40LTE2LjUuMy0yLjcuNS01LjYuNC04LjctLjEtNy40LTMuNC0xMS4zLTguNi0xMi40IDUuMi0xLjEgOC41LTUgOC42LTEyLjQuMS0zLjEtLjEtNi0uNC04LjctLjYtNS40LTEuMy0xMi40IDMuNC0xNi41IDQuMS00LjcgMTEtNC4xIDE2LjUtMy40IDIuNy4zIDUuNi41IDguNy40IDcuNC0uMSAxMS4zLTMuMyAxMi40LTguNiAxIDUuMyA1IDguNSAxMi40IDguNnoiLz48L3N2Zz4=);
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  width: 1.6em;
+  height: 1.6em;
+  font-family: 'Lobster';
+  color: white;
+  font-size: 2.5em;
+  line-height: 1.6em;
+  text-align: center;
+  margin-left: var(--date-x, 0);
+  margin-top: var(--date-y, 0);
+}
+  </style>
+
+  <main>
+    <img id="house" />
+    <sup hidden="[[!opens]]">[[opens]]</sup>
+    <img id="ice" />
+  </main>
+
+</template>
+<script>
+(function() {
+
+/**
+ * @type {!Array<string>} Houses which, when iced, contain their house asset.
+ */
+const iceWithHouse = Object.freeze(['elfski', 'santascanvas', 'snowball', 'speedsketch',])
+
+Polymer({
+  is: 'village-house',
+
+  properties: {
+
+    /**
+     * The day within December that this scene opens. Zero or null for no indicator.
+     */
+    opens: {
+      type: Number,
+      value: 0,
+    },
+
+    /**
+     * The ID of the house to display.
+     */
+    house: {
+      type: String,
+      reflectToAttribute: true,
+    },
+
+    /**
+     * Whether the house is locked. Will show as iced if so.
+     */
+    locked: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
+    },
+
+  },
+
+  observers: [
+    '_updateAssets(house, locked)',
+  ],
+
+  _updateAssets: function(house, locked) {
+    const h = this.$.house;
+    const i = this.$.ice;
+
+    if (!house) {
+      h.removeAttribute('src');
+      i.removeAttribute('src');
+      return;
+    }
+    const changed = () => (house !== this.house || locked !== this.locked);
+
+    if (!locked || iceWithHouse.indexOf(house) === -1) {
+      this._loadImage(`../img/building/${house}.svg`).then((image) => {
+        if (changed()) { return; }
+        this._updateImage(h, image, house);
+      });
+    } else {
+      h.removeAttribute('src');
+    }
+
+    if (locked) {
+      this._loadImage(`../img/building/${house}-ice.svg`).then((image) => {
+        if (changed()) { return; }
+        this._updateImage(i, image, house);
+      });
+    } else {
+      i.removeAttribute('src');
+    }
+  },
+
+  _loadImage: function(src) {
+    return new Promise((resolve, reject) => {
+      const i = new Image();
+      i.src = this.resolveUrl(src);
+      i.onload = () => resolve(i);
+      i.onerror = reject;
+    });
+  },
+
+  _updateImage: function(target, src, id) {
+    target.src = src.src;
+
+    if (!src.width) {
+      // needed for IE11 :-(
+      const data = {
+        wrapbattle: 330,
+        traditions: 235,
+        codelab: 277,
+        airport: 1200,
+        app: 280,
+        snowflake: 286,
+        translations: 311,
+        santasback: 231,
+        santascanvas: 425,
+        codeboogie: 294,
+        presentbounce: 341,
+        penguindash: 310,
+        seasonofgiving: 334,
+        gumball: 257,
+        speedsketch: 432,
+        santaselfie: 209,
+        santasearch: 287,
+        carpool: 307,
+        snowball: 231,
+        boatload: 240,
+        jetpack: 287,
+        runner: 389,
+        mercator: 328,
+        presentdrop: 198,
+        liftoff: 276,
+        jamband: 379,
+        elfski: 419,
+      };
+      target.width = data[id] || 300;
+      return;
+    }
+
+    target.width = src.width;
+    target.height = src.height;
+  },
+
+});
+
+}());
+</script>
+</dom-module>

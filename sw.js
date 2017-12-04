@@ -287,8 +287,9 @@ function urlForProd(pathname, lang) {
     // TODO(samthor): We could limit to actual fanned out routes here.
     switch (pathname) {
     case '/upgrade.html':
+    case '/embed.html':
     case '/cast.html':
-      return;  // don't cache cast or upgrade
+      return;  // don't cache cast, upgrade or embed
     case '/error.html':
       return pathname;  // serve error properly (used for kill switch)
     }

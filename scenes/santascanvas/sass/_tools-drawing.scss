@@ -1,0 +1,222 @@
+$drawing-tools: "crayon", "marker", "pencil", "paintbrush";
+$silly-pens: "tinsel", "icing", "garland", "neon", "bell", "hanging-lights",
+    "string-lights";
+
+##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="drawing"] {
+    .Tools-display-inner {
+      background-position: center -30%;
+      background-size: 40% 175%;
+    }
+
+    @each $current-tool in $drawing-tools {
+      &[data-current-tool="#{$current-tool}"] {
+        .Tools-display-inner {
+          background-image: url(img/tools/#{$current-tool}/tool.svg);
+        }
+      }
+    }
+
+    @each $current-pen in $silly-pens {
+      &[data-current-tool="#{$current-pen}"] {
+        pointer-events: auto;
+
+        .Tools-display-outer {
+          background: url(img/icons/mobile_ornament.svg) center/contain no-repeat;;
+          border-radius: 0;
+          height: 100%;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .Tools-display-inner {
+          background-image: url(img/tools/#{$current-pen}/tool.svg);
+          background-position: center 20%;
+          background-size: 100%;
+          border-radius: 0;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  // TOOLBAR
+  [data-tool-category="drawing"] {
+    .Tool {
+      background-position: center 20%;
+      background-repeat: no-repeat;
+      background-size: 100% 200%;
+      position: relative;
+
+      svg {
+        height: 185%;
+        left: 50%;
+        margin-top: -12%;
+        position: absolute;
+        transform: translate(-50%, 0);
+      }
+
+      @each $current-tool in $drawing-tools {
+        &--#{$current-tool} {
+          @include generateSVGstyles($current-tool);
+        }
+      }
+
+      @each $current-tool in $silly-pens {
+        &--#{$current-tool} {
+          background-image: url(img/tools/#{$current-tool}/tool.svg);
+        }
+      }
+    }
+
+    .Tool--selected {
+      @each $current-tool in $drawing-tools {
+        &.Tool--#{$current-tool} {
+          background-image: url(img/tools/#{$current-tool}/tray.svg);
+        }
+
+        svg {
+          display: none;
+        }
+      }
+
+      @each $current-tool in $silly-pens {
+        &.Tool--#{$current-tool} {
+          background-image: url(img/tools/#{$current-tool}/tray.svg);
+        }
+      }
+    }
+  }
+
+  // SVG STYLES
+  .Tool--crayon, .Tool-hover-minitool--crayon {
+    .cls-3 {
+      opacity: 0.05;
+    }
+  }
+
+  .Tool--crayon[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--crayon {
+    .cls-1 {
+      fill: $white-alt-primary !important;
+    }
+
+    .cls-3 {
+      opacity: 0.025 !important;
+    }
+  }
+
+  .Tool--pencil, .Tool-hover-minitool--pencil {
+    .cls-1 {
+      fill: #f5ce85;
+    }
+
+    .cls-3 {
+      fill: #29b6f6;
+    }
+
+    .cls-4 {
+      opacity: 0.05;
+    }
+  }
+
+  .Tool--pencil[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--pencil {
+    .cls-2 {
+      fill: $white-alt-primary !important;
+    }
+
+    .cls-4 {
+      opacity: 0.025 !important;
+    }
+  }
+
+  .Tool--paintbrush, .Tool-hover-minitool--paintbrush {
+    .cls-3 {
+      fill: #4e342e;
+    }
+
+    .cls-4 {
+      opacity: 0.08;
+    }
+  }
+
+  .Tool--paintbrush[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--paintbrush {
+    .cls-1 {
+      fill: $white-alt-primary !important;
+    }
+
+    .cls-4 {
+      opacity: 0.04 !important;
+    }
+  }
+
+  .Tool--marker, .Tool-hover-minitool--marker {
+    .cls-1 {
+      isolation: isolate;
+    }
+
+    .cls-2 {
+      fill: #f2faff;
+    }
+
+    .cls-4 {
+      fill: #bdbdbd;
+      opacity: 0.3;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  .Tool--marker[data-tool-color="#f2faff"],
+  .Tool-hover[data-tool-color="#f2faff"] .Tool-hover-minitool--marker {
+    .cls-3 {
+      fill: $white-alt-primary !important;
+    }
+
+    .cls-4 {
+      opacity: 0.15 !important;
+    }
+  }
+
+
+  // HOVER
+  [data-tool-hover-category="drawing"] {
+    .Tool-hover-minitool {
+      height: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(100%, -100%) rotate(-125deg);
+      width: 100px;
+    }
+
+    .Tool-hover-minitool--default {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translate(100%, -100%) rotate(45deg);
+    }
+  }
+
+  @each $current-tool in $drawing-tools {
+    [data-tool-hover-tool="#{$current-tool}"] {
+      @include generateSVGstyles($current-tool,
+          '.Tool-hover-minitool--#{$current-tool}');
+
+      .Tool-hover-minitool--#{$current-tool} {
+        display: block;
+      }
+    }
+  }
+
+  @each $current-tool in $silly-pens {
+    [data-tool-hover-tool="#{$current-tool}"] {
+      .Tool-hover-minitool--default {
+        background-image: url(img/tools/#{$current-tool}/tool.svg);
+        display: block;
+      }
+    }
+  }
+}

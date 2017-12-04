@@ -93,7 +93,7 @@
 		"message": "Canadà"
 	},
 	"ca_tradition": {
-		"message": "Normalment, els nens canadencs celebren un Nadal envoltats de neu. S'abriguen bé amb una bufanda i amb un gorro de llana típic del Canadà, el toque, i surten a jugar amb la neu i patinar sobre gel. La nit de Nadal, deixen llet i galetes al costat de la llar de foc per al Pare Noel (i, de vegades, una pastanaga per al ren)."
+		"message": "Normalment, els nens canadencs celebren un Nadal envoltats de neu. S'abriguen bé amb una bufanda i amb una gorra de llana típica del Canadà, el toque, i surten a jugar amb la neu i patinar sobre gel. La nit de Nadal, deixen llet i galetes al costat de la llar de foc per al Pare Noel (i, de vegades, una pastanaga per al ren)."
 	},
 	"calendar": {
 		"message": "Calendari"
@@ -312,7 +312,7 @@
 		"message": "Tothom a ballar!"
 	},
 	"codeboogie-go": {
-		"message": "Fantàstic!"
+		"message": "Som-hi!"
 	},
 	"codeboogie-keep-dancing": {
 		"message": "Continueu ballant"
@@ -411,7 +411,7 @@
 		"message": "Repeteix unes quantes combinacions diverses vegades"
 	},
 	"codelab-block-whenrun": {
-		"message": "en executar"
+		"message": "quan comenci"
 	},
 	"codelab-finish": {
 		"message": "Finalitza"
@@ -435,22 +435,22 @@
 		"message": "Hi ha peces que no estan ben connectades."
 	},
 	"codelab-result-generic-fail": {
-		"message": "Sembla que us heu perdut."
+		"message": "Sembla que t'has perdut."
 	},
 	"codelab-result-missing-block-fail": {
 		"message": "Proveu una d'aquestes peces, o més d'una, per resoldre el trencaclosques."
 	},
 	"codelab-result-missing-block-success": {
-		"message": "Sabeu que només us falten {{ideal}} peces per acabar aquest nivell? Proveu de fer servir aquesta peça:"
+		"message": "Saps que només et falten {{ideal}} peces per acabar aquest nivell? Prova de fer servir aquesta peça:"
 	},
 	"codelab-result-perfect-success": {
 		"message": "L'enhorabona. Heu resolt el trencaclosques a la perfecció."
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "Esteu fent servir les peces correctes, però proveu d'utilitzar-ne més per resoldre aquest trencaclosques."
+		"message": "Estàs fent servir les peces correctes, però prova d'utilitzar-ne més per resoldre aquest trencaclosques."
 	},
 	"codelab-result-too-many-blocks-success": {
-		"message": "Sabeu que només us falten {{ideal}} peces per finalitzar aquest nivell?"
+		"message": "Saps que només et falten {{ideal}} peces per finalitzar aquest nivell?"
 	},
 	"codelab-try-again": {
 		"message": "Torna-ho a provar"
@@ -459,7 +459,7 @@
 		"message": "Copieu aquest enllaç per compartir el missatge"
 	},
 	"copy-me-short": {
-		"message": "Copia l'enllaç per compartir-lo"
+		"message": "Copia l'enllaç per compartir-ho"
 	},
 	"countdown_days": {
 		"message": "Dies"
@@ -588,7 +588,7 @@
 		"message": "Finlàndia"
 	},
 	"fi_tradition": {
-		"message": "Els finlandesos creuen que el Pare Noel, \"Joulupukki\", viu al nord del país, a Korvatunturi, per ser exactes. Si hi vas de visita, és possible que trobis el seu taller secret, on els gnoms treballen de valent. O també és possible que hi trobis rens deambulant pels boscos de pins."
+		"message": "Els finlandesos creuen que el Pare Noel, Joulupukki, viu al nord del país, a Korvatunturi, per ser exactes. Si hi vas de visita, és possible que trobis el seu taller secret, on els gnoms treballen de valent. O també és possible que hi trobis rens deambulant pels boscos de pins."
 	},
 	"finished-text": {
 		"message": "Bon Nadal! El Pare Noel ha completat el seu viatge per tot el món i s'ha agafat un merescut descans. Torneu a visitar-nos l'any vinent!"
@@ -615,7 +615,10 @@
 		"message": "Puntuació:"
 	},
 	"getgooglemaps": {
-		"message": "Baixeu Google Maps"
+		"message": "Baixa Google Maps"
+	},
+	"getready": {
+		"message": "Prepara't!"
 	},
 	"gh_country_name": {
 		"message": "Ghana"
@@ -672,7 +675,7 @@
 		"message": "Els millors desitjos!"
 	},
 	"holiday_message_3": {
-		"message": "Que nevi!"
+		"message": "Visca la neu!"
 	},
 	"holiday_message_4": {
 		"message": "Feliç any nou!"
@@ -702,7 +705,7 @@
 		"message": "Irlanda"
 	},
 	"improve_google_translate": {
-		"message": "Ajudeu a millorar el Traductor de Google"
+		"message": "Ajuda a millorar el Traductor de Google"
 	},
 	"iq_country_name": {
 		"message": "Iraq"
@@ -765,7 +768,7 @@
 		"message": "Il·lumina"
 	},
 	"lightdescription": {
-		"message": "Il·lumineu la televisió amb l'aplicació Seguiu el Pare Noel per a Android i Chromecast."
+		"message": "Il·lumina la televisió amb l'aplicació Segueix el Pare Noel per a Android i Chromecast."
 	},
 	"lk_country_name": {
 		"message": "Sri Lanka"
@@ -876,7 +879,7 @@
 		"message": "Fundada l'any 2000 per un professor d'història del Bronx, DonorsChoose.org ha recaptat més de 480 milions de dòlars per a les aules dels Estats Units. Els professors acudeixen a DonorsChoose.org per sol·licitar els materials i les experiències que necessiten per a les seves classes."
 	},
 	"nonprofit-donorschoose-type": {
-		"message": "Classes"
+		"message": "Aules"
 	},
 	"nonprofit-enable-description": {
 		"message": "Segons l'organització Centers for Disease Control (CDC), 7 de cada 1000 persones presenten diferències en les extremitats i necessiten pròtesis que poden arribar a costar 10.000 USD. La despesa en pròtesis augmenta ràpidament quan els usuaris són nens i estan en edat de creixement. E-Nable és una comunitat de persones de tot el món que treballen per fabricar pròtesis de mans mitjançant impressió 3D destinades als nens que les necessiten. Google.org col·labora amb Enable Community Foundation i recolza la tasca de la comunitat d'e-NABLE perquè puguin dissenyar més pròtesis i arribar a més nens."
@@ -1044,7 +1047,7 @@
 		"message": "Polonès"
 	},
 	"play": {
-		"message": "Jocs"
+		"message": "Joc"
 	},
 	"playagain": {
 		"message": "Torna a jugar"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Puerto Rico"
 	},
+	"practice": {
+		"message": "Pràctica"
+	},
 	"press": {
 		"message": "Premsa"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguai"
+	},
+	"quickdraw-machine-know": {
+		"message": "Ah, ja ho tinc, és {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "o"
+	},
+	"quickdraw-machine-see": {
+		"message": "D'acord"
+	},
+	"quickdraw-newround-button": {
+		"message": "Inicia"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "No tinc gaire clar què és."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Ho sento"
+	},
+	"quickdraw-round-timesup": {
+		"message": "No he sabut què era!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor també ha pensat que el teu dibuix s'assemblava més a aquests:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Com sap Tensor com és el que has dibuixat ({{thing}}) en realitat?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Ho ha après observant aquests exemples que han dibuixat altres persones."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor ha pensat que el teu dibuix s’assemblava més a aquests:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Aquesta és la versió del Pare Noel de: {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Se t'ha demanat que dibuixis: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Dibuix"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor és el robot d'aprenentatge automàtic del Pare Noel, que l'ajuda a desxifrar ràpidament les cartes que rep dels nens de tot el món. Per ajudar Tensor a practicar, dibuixa una imatge de cada paraula relacionada amb el Nadal a la pantalla i et dirà què veu. Com més dibuixis, més intel·ligent es farà Tensor. Ajudem el Pare Noel a ser més eficient que mai durant aquestes festes!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ajuda Tensor a practicar el reconeixement d'imatges!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor ha reconegut {{recognized}} dels teus dibuixos."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor ha reconegut un dels teus dibuixos."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor no ha reconegut cap dels teus dibuixos."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Molt bé!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Vaja!"
 	},
 	"ro_country_name": {
 		"message": "Romania"
@@ -1116,7 +1185,7 @@
 		"message": "Al museu"
 	},
 	"santasearch_level_select": {
-		"message": "Fantàstic!"
+		"message": "Som-hi!"
 	},
 	"santasearch_search_for_santa": {
 		"message": "On és el Pare Noel?"
@@ -1137,7 +1206,7 @@
 		"message": "Recàrrega de regals"
 	},
 	"scene_boatload": {
-		"message": "Joc de tirar regals"
+		"message": "Tira els regals"
 	},
 	"scene_briefing": {
 		"message": "Xerrada de la Mare Noel"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "Trucades del Pare Noel"
 	},
+	"scene_canvas": {
+		"message": "El llenç del Pare Noel"
+	},
 	"scene_citylights": {
 		"message": "Llums de la ciutat"
+	},
+	"scene_clausdraws": {
+		"message": "Dibuixos de Nadal"
 	},
 	"scene_codeboogie": {
 		"message": "El ball del codi"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "Carrera de pingüins"
 	},
+	"scene_elfski": {
+		"message": "Els elfs van a esquiar"
+	},
 	"scene_factory": {
 		"message": "Fàbrica de llaminadures"
 	},
@@ -1170,7 +1248,13 @@
 		"message": "Elf en parapent"
 	},
 	"scene_gumball": {
-		"message": "Joc de guiar els caramels"
+		"message": "Guia els caramels"
+	},
+	"scene_icecave": {
+		"message": "Cova de gel"
+	},
+	"scene_island": {
+		"message": "Illa"
 	},
 	"scene_jamband": {
 		"message": "La banda dels elfs"
@@ -1182,10 +1266,10 @@
 		"message": "Entrega de regals"
 	},
 	"scene_matching": {
-		"message": "El joc de les parelles"
+		"message": "Troba la parella"
 	},
 	"scene_mercator": {
-		"message": "Joc de geografia"
+		"message": "Concurs de geografia"
 	},
 	"scene_playground": {
 		"message": "Parc infantil del pol nord"
@@ -1194,10 +1278,13 @@
 		"message": "Crea un floc de neu amb codi"
 	},
 	"scene_presentbounce": {
-		"message": "Joc de rebotar regals"
+		"message": "Que no caigui el regal!"
 	},
 	"scene_presentdrop": {
-		"message": "Joc de repartir regals"
+		"message": "Llançament de regals"
+	},
+	"scene_quickdraw": {
+		"message": "Dibuix ràpid"
 	},
 	"scene_racer": {
 		"message": "La cursa de trineus de Rudolph"
@@ -1218,7 +1305,13 @@
 		"message": "Temps de solidaritat"
 	},
 	"scene_seasonofgiving": {
-		"message": "Temps de regals"
+		"message": "Època de regals"
+	},
+	"scene_snowball": {
+		"message": "Tempesta de boles de neu"
+	},
+	"scene_speedsketch": {
+		"message": "Esbós ràpid"
 	},
 	"scene_streetview": {
 		"message": "Street view"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "L'enlairament del Pare Noel"
 	},
+	"scene_videoscene_museum": {
+		"message": "Un dia al museu"
+	},
 	"scene_videoscene_office": {
 		"message": "Broma a l'oficina"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Satèl·lit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Les selfies del Pare Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Fent el dropo"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Temptació"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Congelat!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} elfs restants de {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Observa"
+	},
+	"snowball_waiting": {
+		"message": "Estàs esperant que arribin més elfs del Pare Noel"
 	},
 	"snowflake_choose_background": {
 		"message": "Tria un fons"
@@ -1461,7 +1575,7 @@
 		"message": "El Pare Noel arribarà aviat"
 	},
 	"tracker_track": {
-		"message": "Seguiu el Pare Noel"
+		"message": "Segueix el Pare Noel"
 	},
 	"tracker_travelogue": {
 		"message": "Diari de viatge"
@@ -5151,7 +5265,7 @@
 		"message": "Veneçuela"
 	},
 	"village_comeback": {
-		"message": "Torneu la nit de Nadal i ajudeu-nos a seguir el Pare Noel tota la nit!"
+		"message": "Torna la nit de Nadal i ajuda'ns a seguir el Pare Noel tota la nit!"
 	},
 	"village_explore": {
 		"message": "Explora, juga i aprèn amb els elfs del Pare Noel durant tot el mes de desembre"
@@ -5160,7 +5274,10 @@
 		"message": "Baixa l'aplicació Segueix el Pare Noel per a Android"
 	},
 	"village_more": {
-		"message": "Què més podeu fer?"
+		"message": "Què més pots fer?"
+	},
+	"village_santa_a2hs": {
+		"message": "Afegeix a la pantalla d'inici"
 	},
 	"village_santa_cardboard": {
 		"message": "El Pare Noel a Cardboard"
@@ -5178,7 +5295,7 @@
 		"message": "Vietnam"
 	},
 	"watch": {
-		"message": "Vídeos"
+		"message": "Vídeo"
 	},
 	"wrapbattle_combo": {
 		"message": "Bona combinació"
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Iemen"
+	},
+	"yourbest": {
+		"message": "Millor puntuació"
 	},
 	"zh-CN_language_name": {
 		"message": "Xinès (simplificat)"

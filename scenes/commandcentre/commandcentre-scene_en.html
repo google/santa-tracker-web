@@ -13,7 +13,6 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
-<link rel="import" href="../../js/webanimations.html">
 <link rel="import" href="commandcentre-scene_module.html">
 
 <script src="commandcentre-scene.min.js"></script>
@@ -551,13 +550,7 @@ Command center scene.
     onShow: function() {
       this.fire('sound-ambient', 'command_start');
       this.fire('sound-ambient', 'music_start_scene');
-      var div = this.$['module-commandcentre'];
-
-      if (this.santaApp.mode == 'portal') {
-        this.$.santa_dive.target = '';
-      }
-
-      this.scene = new scenes.commandcentre.Scene(div);
+      this.scene = new scenes.commandcentre.Scene(this.$['module-commandcentre']);
     },
 
     onHide: function() {

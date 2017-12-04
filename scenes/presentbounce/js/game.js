@@ -46,7 +46,7 @@ app.Game = function(elem) {
   this.drawer = new app.Drawer(this.elem, this);
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
-  this.tutorial = new app.shared.Tutorial(this.elem, 'drag-and-drop', 'drag-and-drop', 'drag-and-drop');
+  this.tutorial = new app.shared.Tutorial(this.elem, 'presentbounce_drag.mp4 presentbounce_conveyor.mp4 presentbounce_go.mp4');
 
   this.isPlaying = false;
   this.paused = false;
@@ -225,24 +225,31 @@ app.Game.prototype.onLevelCompleted = function(score) {
  * Used both for game over and pausing.
  */
 app.Game.prototype.freezeGame = function() {
+  if (!this.isPlaying) {
+    return;
+  }
   this.isPlaying = false;
   this.elem.addClass('frozen');
   this.drawer.pause();
   this.currentLevel_.pause();
+  window.cancelAnimationFrame(this.requestId);
 };
 
 /**
  * Unfreezes the game, starting the game loop as well.
  */
 app.Game.prototype.unfreezeGame = function() {
-  if (!this.isPlaying) {
-    this.elem.removeClass('frozen').focus();
-    this.isPlaying = true;
-    this.drawer.resume();
-    this.currentLevel_.resume();
-    this.lastFrame = +new Date() / 1000;
-    this.requestId = window.requestAnimationFrame(this.onFrame_);
+  if (this.isPlaying) {
+    return;
   }
+  this.elem.removeClass('frozen').focus();
+  this.isPlaying = true;
+  this.drawer.resume();
+  this.currentLevel_.resume();
+  this.lastFrame = +new Date() / 1000;
+
+  window.cancelAnimationFrame(this.requestId);  // for sanity, not to double-up
+  this.requestId = window.requestAnimationFrame(this.onFrame_);
 };
 
 

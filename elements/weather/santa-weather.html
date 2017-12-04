@@ -24,11 +24,13 @@ Renders random snow and clouds across this element's surface. Used for the villa
       position: relative;
       display: block;
     }
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
   </style>
 
-  <div id="holder">
-    <canvas id="snowcanvas"></canvas>
-  </div>
+  <canvas id="snowcanvas"></canvas>
 
   <slot></slot>
 
@@ -36,39 +38,63 @@ Renders random snow and clouds across this element's surface. Used for the villa
 <script>
 (function() {
 
-var cloudImageSrc = [
-  'img/cloud1.svg',
-  'img/cloud2.svg',
-  'img/cloud3.svg',
+const b64clouds = [
+  'PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDIzMC4zIDEzOC41Ij48c3R5bGU+LnN0MHtmaWxsOiNmZmZ9PC9zdHlsZT48c3ltYm9sIGlkPSJOZXdfU3ltYm9sXzE0IiB2aWV3Qm94PSItNjcuNCAtMjQuMiAxMzQuOCA0OC41Ij48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNjcuNC0xOGMwLTEuOC0uNS00LjgtMS4zLTYuM0gtNjYuMWMtLjggMS40LTEuMyA0LjUtMS4zIDYuMyAwIDUuMyA0LjMgOC41IDkuNyA4LjVoMjYuNHYuNWMwIDcgNS43IDEyLjYgMTIuNiAxMi42IDEuNiAwIDMuMS0uMyA0LjUtLjggMi4zIDEyLjIgMTMgMjEuNCAyNS45IDIxLjQgMTIuNiAwIDIzLjEtOC44IDI1LjctMjAuNkM0My45IDMuMiA0OS0yLjMgNDktOXYtLjVoOC43YzUuNCAwIDkuNy0zLjEgOS43LTguNXoiLz48L3N5bWJvbD48dXNlIHhsaW5rOmhyZWY9IiNOZXdfU3ltYm9sXzE0IiB3aWR0aD0iMTM0LjgiIGhlaWdodD0iNDguNSIgeD0iLTY3LjQiIHk9Ii0yNC4yIiB0cmFuc2Zvcm09Im1hdHJpeCgxLjcwODcgMCAwIC0xLjcwODcgMTE1LjE3MyA0MS40MDYpIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvc3ZnPg==',
+  'PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDE5Ny4zIDExNy42Ij48c3R5bGU+LnN0MHtmaWxsOiNmZmZ9PC9zdHlsZT48c3ltYm9sIGlkPSJOZXdfU3ltYm9sXzE1IiB2aWV3Qm94PSItNTcuNyAtMzQuNCAxMTUuNSA2OC44Ij48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTcuNy0xOS40YzAtNS4zLTEuNy0xMS00LjYtMTVILTU2LjRjLS44IDEuNC0xLjMgMy4xLTEuMyA0LjggMCA1LjMgNC4zIDkuNyA5LjcgOS43aDExLjljLTEuNCAzLjUtMi4yIDcuMi0yLjIgMTEuMiAwIDE2LjYgMTMuNSAzMCAzMCAzMCAxLjMgMCAyLjUtLjEgMy44LS4yIDAgLjEtLjEuMS0uMS4yLjItLjEuNC0uMi41LS4zLjUgMCAxLS4xIDEuNC0uMiAzLjUgOCAxMS41IDEzLjYgMjAuOCAxMy42IDEyLjUgMCAyMi43LTEwLjEgMjIuNy0yMi43VjMuNmM5LjctMy4xIDE2LjktMTIuMiAxNi45LTIzeiIvPjwvc3ltYm9sPjx1c2UgeGxpbms6aHJlZj0iI05ld19TeW1ib2xfMTUiIHdpZHRoPSIxMTUuNSIgaGVpZ2h0PSI2OC44IiB4PSItNTcuNyIgeT0iLTM0LjQiIHRyYW5zZm9ybT0ibWF0cml4KDEuNzA4NyAwIDAgLTEuNzA4NyA5OC42NTIgNTguNzkyKSIgb3ZlcmZsb3c9InZpc2libGUiLz48L3N2Zz4=',
+  'PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDExNy44IDcwLjciPjxzdHlsZT4uc3Qwe2ZpbGw6I2ZmZn08L3N0eWxlPjxzeW1ib2wgaWQ9Ik5ld19TeW1ib2xfMTYiIHZpZXdCb3g9Ii0yNiAtMTUuNiA1Mi4xIDMxLjMiPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMTguMi0zLjloMS4zVjBjMCA1LjggNC43IDEwLjQgMTAuNCAxMC40IDEuOCAwIDMuNC0uNSA0LjctMS4zIDEuNiAzLjggNS4zIDYuNSA5LjYgNi41IDUuOCAwIDEwLjQtNC43IDEwLjQtMTAuNFYxLjVDMjIuNyAwIDI2LTQuMiAyNi05LjFjMC0yLjQtLjgtNC43LTIuMS02LjVILTI1Yy0uNyAxLjEtMSAyLjUtMSAzLjkgMCA0LjMgMy40IDcuOCA3LjggNy44eiIvPjwvc3ltYm9sPjx1c2UgeGxpbms6aHJlZj0iI05ld19TeW1ib2xfMTYiIHdpZHRoPSI1Mi4xIiBoZWlnaHQ9IjMxLjMiIHg9Ii0yNiIgeT0iLTE1LjYiIHRyYW5zZm9ybT0ibWF0cml4KDIuMjYwNSAwIDAgLTIuMjYwNSA1OC44ODQgMzUuMzMpIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvc3ZnPg==',
 ];
+
+const cloudImages = b64clouds.map((src) => {
+  const i = new Image();
+  i.src = 'data:image/svg+xml;base64,' + src;
+  return i;
+});
 
 Polymer({
   is: 'santa-weather',
 
   properties: {
 
-    active: {
-      type: Boolean,
-      observer: '_activeChanged'
-    },
-
-    /** Number of snowflakes to show. Not expected to change after init. */
+    /**
+     * Number of snowflakes to show.
+     */
     snowflakes: {
       type: Number,
       value: 40,
     },
 
-    /** Number of clouds to show. Not expected to change after init. */
+    /**
+     * Number of clouds to show.
+     */
     clouds: {
       type: Number,
       value: 6,
     },
 
-    /** Maximum wind speed. */
+    /**
+     * Maximum wind speed, in... TODO(samthor): units
+     */
     wind: {
       type: Number,
       value: 0,
-    }
+    },
+
+    /**
+     * Fixed directional strength that offsets the
+     * randomly chosen wind value.
+     */
+    directionalStrength: {
+      type: Number,
+      value: 0
+    },
+
+    /**
+     * The fraction of the screen to generate clouds in.
+     */
+    cloudFrac: {
+      type: Number,
+      value: 0.4,
+    },
 
   },
 
@@ -79,17 +105,6 @@ Polymer({
     this._onResize = this._onResize.bind(this);
     this._update = this._update.bind(this);
     this._updateClouds = this._updateClouds.bind(this);
-    this._drawClouds = this._drawClouds.bind(this);
-
-    this._cloudImagesPending = cloudImageSrc.length;
-    this._cloudImages = cloudImageSrc.map(function(src) {
-      var img = new Image();
-      img.src = this.resolveUrl(src);
-      img.onload = function() {
-        --this._cloudImagesPending;
-      }.bind(this);
-      return img;
-    }, this);
   },
 
   ready: function() {
@@ -97,7 +112,6 @@ Polymer({
     this._snowflakes = [];
     this._clouds = [];
     this._currentWind = 0;
-    this._startTime;
   },
 
   attached: function() {
@@ -106,59 +120,41 @@ Polymer({
     this._createClouds();
     this._setWind();
     window.addEventListener('resize', this._onResize);
+    window.requestAnimationFrame(this._update);
   },
 
   detached: function() {
     window.removeEventListener('resize', this._onResize);
   },
 
-  _activeChanged: function() {
-    if (!this.active) {
-      return;
-    }
-
-    window.requestAnimationFrame(this._update);
-  },
-
   _setWind: function() {
-    this.wind = 0.25 - Math.random() * 0.5;
+    this.wind = 0.25 - Math.random() * 0.5 + this.directionalStrength;
 
     // Wait a random amount of time (up to 15 seconds) before changing the wind
     // direction for the snow.
     this.async(this._setWind, Math.random() * 15000);
   },
 
-  /**
-   * Handles the window resizing. Temporarily hides the canvas so that the
-   * container can scale to its natural size. After that's completed the
-   * canvas sizes set, and its visibility restored.
-   */
   _onResize: function() {
-    this.$.snowcanvas.hidden = true;
+    this._width = this.offsetWidth;
+    this._height = this.offsetHeight;
 
-    var bounds = this.getBoundingClientRect();
-
-    this._width = bounds.width;
-    this._height = bounds.height;
-
-    this.$.snowcanvas.width = this._width;
-    this.$.snowcanvas.height = this._height;
-    this.$.snowcanvas.hidden = false;
-
-    // Go into a poll to wait if the element is zero by zero. Ideally this would
-    // be solved with ResizeObservers in the future.
-    if (this._width === 0 && this._height === 0) {
-      return this.async(function() {
-        this._onResize();
-      }, 1000);
+    // use rAF to wait until the element is not zero-by-zero.
+    if (!this._width || !this._height) {
+      if (this.isAttached) {
+        window.requestAnimationFrame(this._onResize);
+      }
+      return;
     }
 
-    // Track the start time to do a fade-in of the overall scene.
-    this._startTime = window.performance.now();
+    const dpi = window.devicePixelRatio || 1;
+    const c = this.$.snowcanvas;
+    c.width = this.offsetWidth * dpi;
+    c.height = this.offsetHeight * dpi;
   },
 
   _createSnowflakes: function() {
-    var count = this._snowflakes.length;
+    const count = this._snowflakes.length;
     this._snowflakes.length = this.snowflakes;
 
     if (count >= this.snowflakes) {
@@ -166,13 +162,15 @@ Polymer({
     }
 
     // Fill up any remaining gaps.
-    for (var i = count; i < this.snowflakes; ++i) {
+    for (let i = count; i < this.snowflakes; ++i) {
       this._resetSnowflake(i);
+      this._snowflakes[i].y = Math.random();
+      this._snowflakes[i].x = Math.random();
     }
   },
 
   _createClouds: function() {
-    var count = this._clouds.length;
+    const count = this._clouds.length;
     this._clouds.length = this.clouds;
 
     if (count >= this.clouds) {
@@ -180,7 +178,7 @@ Polymer({
     }
 
     // Fill up any remaining gaps.
-    for (var i = count; i < this.clouds; ++i) {
+    for (let i = count; i < this.clouds; ++i) {
       this._resetCloud(i, true);
     }
   },
@@ -194,16 +192,16 @@ Polymer({
   },
 
   _createCloud: function(opt_initialView) {
-    var width = 50 + Math.random() * 100;
-    var height = width * 0.6;
-    var x = this.wind > 0 ? -Math.random() * 0.5 : 1 + Math.random() * 0.5;
+    const width = 50 + Math.random() * 100;
+    const height = width * 0.6;
+    let x = this.wind > 0 ? -Math.random() * 0.5 : 1 + Math.random() * 0.5;
 
     if (opt_initialView) {
       x = Math.random();
     }
 
     return {
-      img: Math.floor(Math.random() * cloudImageSrc.length),
+      img: Math.floor(Math.random() * cloudImages.length),
       w: width,
       h: height,
       m: 4 - (width / 50),
@@ -211,27 +209,44 @@ Polymer({
       // Adjust the start position based on the wind value. Positive wind dir
       // should imply that the cloud starts screen left, and vice-versa.
       x: x,
-      y: Math.random() * 0.4,
+      y: Math.random() * this.cloudFrac,
       o: 0.2 + Math.random() * 0.7
-    }
+    };
   },
 
   _createSnowflake: function() {
+    // Snowflakes have a 2/3 chance to spawn on the side of the screen. The
+    // chance for each side is then scaled depending on the directional strength
+    // of the wind.
+    const diversityChance = 2/3;
+    const sideChance = diversityChance / 2.0;
+    const leftChance = sideChance + this.directionalStrength * sideChance;
+    const rightChance = 1.0 - (sideChance -
+        this.directionalStrength * sideChance);
+    const pos = Math.random();
+
+    const x = pos < leftChance
+        ? -0.1
+        : pos > rightChance
+          ? 1.1
+          : Math.random();
+    const y = (pos < leftChance || pos > rightChance)
+        ? Math.random()
+        : 0;
+
     return {
-      x: Math.random(),
-      y: -Math.random(),
+      x, y,
       ry: 0.5 + Math.random(),
       d: 2 + Math.random() * 2,
       o: 0.6 + Math.random() * 0.4
-    }
+    };
   },
 
   _update: function() {
-    if (!this.active) {
-      return;
-    }
+    if (!this.isAttached) { return; }
+    window.requestAnimationFrame(this._update);
 
-    for (var i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
+    for (let i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
       snowflake.x += 0.01 * this._currentWind * (1 / snowflake.d);
       snowflake.y += 0.0002 * snowflake.d * snowflake.ry;
 
@@ -247,12 +262,10 @@ Polymer({
     // Ease the actual wind value to the new wind value.
     this._currentWind += (this.wind - this._currentWind) / 200;
     this._draw();
-
-    window.requestAnimationFrame(this._update);
   },
 
   _updateClouds: function() {
-    for (var c = 0, cloud; cloud = this._clouds[c]; ++c) {
+    for (let c = 0, cloud; cloud = this._clouds[c]; ++c) {
       cloud.x += 0.001 * this._currentWind * cloud.m;
 
       if (this.wind > 0 && cloud.x * this._width > this._width ||
@@ -263,16 +276,15 @@ Polymer({
   },
 
   _draw: function() {
-    if (!this._startTime) {
-      return;
-    }
+    this._ctx.save();
+    this._ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
 
-    var TAU = Math.PI * 2;
+    const TAU = Math.PI * 2;
     this._ctx.fillStyle = '#FFF';
     this._ctx.clearRect(0, 0, this._width, this._height);
 
-    for (var i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
-      var alpha = 1;
+    for (let i = 0, snowflake; snowflake = this._snowflakes[i]; ++i) {
+      let alpha = 1;
 
       if (snowflake.y > 0.9) {
         // Fade out the snowflake at the end.
@@ -293,25 +305,19 @@ Polymer({
       this._ctx.fill();
     }
 
-    // Ensure all cloud images have loaded first before drawing any, because we
-    // don't want any magically-appearing clouds. That's not how clouds work.
-    if (!this._cloudImagesPending) {
-      this._drawClouds();
-    }
-  },
-
-  _drawClouds: function() {
-    for (var c = 0, cloud; cloud = this._clouds[c]; ++c) {
+    for (let c = 0, cloud; cloud = this._clouds[c]; ++c) {
       this._ctx.globalAlpha = cloud.o;
       this._ctx.drawImage(
-          this._cloudImages[cloud.img],
+          cloudImages[cloud.img],
           cloud.x * this._width,
           cloud.y * this._height,
           cloud.w,
           cloud.h
       );
     }
-  }
+
+    this._ctx.restore();
+  },
 });
 
 })();

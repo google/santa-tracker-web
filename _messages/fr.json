@@ -93,7 +93,7 @@
 		"message": "Canada"
 	},
 	"ca_tradition": {
-		"message": "Les enfants canadiens fêtent souvent Noël sous la neige. Avec leurs écharpes et leurs tuques (un bonnet en laine), ils jouent dans la neige, font du patin et dévalent des toboggans. Le 24, ils mettent du lait et des biscuits près de la cheminée pour le père Noël (et parfois une carotte pour son renne)."
+		"message": "Les enfants canadiens fêtent souvent Noël sous la neige. Avec leurs écharpes et leurs tuques (un bonnet en laine), ils jouent dans la neige, font du patin et dévalent des toboggans. Le 24, ils déposent du lait et des biscuits près de la cheminée pour le père Noël (et parfois une carotte pour son renne)."
 	},
 	"calendar": {
 		"message": "Calendrier"
@@ -342,7 +342,7 @@
 		"message": "Sélectionnez le bloc ci-dessous correspondant à la danse."
 	},
 	"codeboogie-result-missing-block-success": {
-		"message": "Savez-vous que vous pouvez compléter cette danse avec seulement {{ideal}} blocs ? Essayez le bloc ci-dessous."
+		"message": "Saviez-vous que vous pouviez réaliser cette danse avec seulement {{ideal}} blocs ? Essayez avec le bloc ci-dessous."
 	},
 	"codeboogie-result-perfect-success": {
 		"message": "Joli ! Vous avez fait un sans-faute."
@@ -411,7 +411,7 @@
 		"message": "Répéter certains énoncés plusieurs fois"
 	},
 	"codelab-block-whenrun": {
-		"message": "lors de l'exec."
+		"message": "séquence"
 	},
 	"codelab-finish": {
 		"message": "Terminer"
@@ -435,7 +435,7 @@
 		"message": "Certains des blocs ne sont pas assemblés correctement."
 	},
 	"codelab-result-generic-fail": {
-		"message": "On dirait que vous vous êtes perdu !"
+		"message": "On dirait que vous avez perdu le fil !"
 	},
 	"codelab-result-missing-block-fail": {
 		"message": "Essayez un ou plusieurs des blocs ci-dessous pour trouver la solution."
@@ -588,7 +588,7 @@
 		"message": "Finlande"
 	},
 	"fi_tradition": {
-		"message": "D'après les légendes finlandaises, le père Noël (Joulupukki) habite à Korvatunturi, au nord du pays. Si vous êtes de passage dans la région, vous pourriez voir les lutins à l'œuvre dans son atelier ou peut-être croiser un renne dans les forêts de pins."
+		"message": "D'après les légendes finlandaises, le père Noël (Joulupukki) habite à Korvatunturi, dans le nord du pays. Si vous êtes de passage dans la région, vous pourriez voir les lutins à l'œuvre dans son atelier ou croiser un renne dans les forêts de pins."
 	},
 	"finished-text": {
 		"message": "Joyeuses fêtes ! Le père Noël a terminé sa tournée internationale et profite maintenant d'un repos bien mérité. À l'année prochaine !"
@@ -617,11 +617,14 @@
 	"getgooglemaps": {
 		"message": "Télécharger Google Maps"
 	},
+	"getready": {
+		"message": "Tenez-vous prêt !"
+	},
 	"gh_country_name": {
 		"message": "Ghana"
 	},
 	"gh_tradition": {
-		"message": "Au Ghana, Noël est un moment de rassemblement pour toute la famille. Les adultes se déguisent pour distribuer des bonbons dans le quartier. Quant aux enfants, ils embellissent leur maison avec des décorations en papier et des dessins qu'ils ont créés à l'école."
+		"message": "Au Ghana, Noël est un moment de rassemblement pour toute la famille. Les adultes se déguisent pour distribuer des bonbons dans le quartier. Quant aux enfants, ils embellissent leur maison avec des décorations en papier et des dessins qu'ils ont réalisés à l'école."
 	},
 	"gl_country_name": {
 		"message": "Groenland"
@@ -729,10 +732,10 @@
 		"message": "Jamaïque"
 	},
 	"kg_country_name": {
-		"message": "Kirghizstan"
+		"message": "Kirghizistan"
 	},
 	"kg_tradition": {
-		"message": "Au Kirghizstan, à minuit le jour de la Saint-Sylvestre, Ayaz Ata\" (\"grand-père Gel\") dépose des cadeaux au pied de l'arbre du Nouvel An. Aux douze coups de minuit, les familles allument des feux d'artifice dans tout le pays afin de fêter la nouvelle année. Les villes brillent alors de mille feux."
+		"message": "Au Kirghizistan, à minuit le jour de la Saint-Sylvestre, Ayaz Ata (\"grand-père Gel\") dépose des cadeaux au pied de l'arbre du Nouvel An. Aux douze coups de minuit, les familles allument des feux d'artifice dans tout le pays afin de fêter la nouvelle année. Les villes brillent alors de mille feux."
 	},
 	"ko_language_name": {
 		"message": "Coréen"
@@ -780,7 +783,7 @@
 		"message": "Lituanie"
 	},
 	"lt_tradition": {
-		"message": "En Lituanie, les décorations de Noël traditionnelles en paille ou en foin sont généralement tressées en forme d'étoile, de flocon de neige ou de cloche. De nombreuses familles utilisent aussi la paille pour décorer leur table lors du dîner du réveillon de Noël, appelé Kūčios."
+		"message": "En Lituanie, les décorations de Noël traditionnelles en paille ou en foin sont généralement tressées en forme d'étoile, de flocon de neige ou de cloche. De nombreuses familles utilisent aussi de la paille pour décorer leur table lors du dîner du réveillon de Noël, appelé Kūčios."
 	},
 	"lv_country_name": {
 		"message": "Lettonie"
@@ -1058,6 +1061,9 @@
 	"pr_country_name": {
 		"message": "Porto Rico"
 	},
+	"practice": {
+		"message": "Entrainement"
+	},
 	"press": {
 		"message": "Presse"
 	},
@@ -1066,6 +1072,69 @@
 	},
 	"py_country_name": {
 		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Je sais, c'est : {{thing}} !"
+	},
+	"quickdraw-machine-or": {
+		"message": "ou"
+	},
+	"quickdraw-machine-see": {
+		"message": "Je vois"
+	},
+	"quickdraw-newround-button": {
+		"message": "Commencer"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Je ne suis pas sûr."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Désolé"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Je ne sais pas !"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor pense également que votre dessin ressemble à ceux-là :"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Comment Tensor a-t-il reconnu le dessin ({{thing}}) ?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Il a appris à le faire en regardant ces exemples dessinés par d'autres personnes."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor pense que votre dessin ressemble à ceux-là :"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Voici la version du père Noël de : {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Vous deviez dessiner : {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Match nul"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor est le robot de machine learning (apprentissage automatique) du père Noël. Il l'aide à lire les lettres qu'il reçoit des enfants du monde entier. Pour aider Tensor à s'entraîner, dessinez une image de chaque mot lié aux fêtes affiché à l'écran, et il vous dira ce qu'il voit. Plus vous dessinez, plus Tensor devient intelligent. Aidons le père Noël à être encore plus efficace pendant les fêtes de fin d'année !"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Aidez Tensor à reconnaître des images"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor a reconnu {{recognized}} de vos dessins."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor a reconnu l'un de vos dessins."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor n'a reconnu aucun de vos dessins."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Bonne réponse"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Raté !"
 	},
 	"ro_country_name": {
 		"message": "Roumanie"
@@ -1077,7 +1146,7 @@
 		"message": "Russe"
 	},
 	"ru_tradition": {
-		"message": "Au lieu d'un sapin de Noël, les enfants russes décorent un arbre du Nouvel An. Ils attendent avec impatience l'arrivée du grand-père Gel, qui distribue des cadeaux dans tout le pays avec sa petite-fille des neiges. Le grand-père Gel vit au fond des bois de Veliki Oustioug, au nord de la Russie."
+		"message": "Au lieu d'un sapin de Noël, les enfants russes décorent un arbre du Nouvel An. Ils attendent avec impatience l'arrivée du grand-père Gel, qui distribue des cadeaux dans tout le pays avec sa petite-fille des neiges. Ce dernier vit au fond des bois de Veliki Oustioug, dans le nord du pays."
 	},
 	"sa_country_name": {
 		"message": "Arabie saoudite"
@@ -1145,8 +1214,14 @@
 	"scene_callfromsanta": {
 		"message": "L'appel du père Noël"
 	},
+	"scene_canvas": {
+		"message": "La toile du père Noël"
+	},
 	"scene_citylights": {
 		"message": "Les lumières de la ville"
+	},
+	"scene_clausdraws": {
+		"message": "Dessine avec le père Noël"
 	},
 	"scene_codeboogie": {
 		"message": "La danse du code"
@@ -1160,6 +1235,9 @@
 	"scene_dash": {
 		"message": "La promenade du pingouin"
 	},
+	"scene_elfski": {
+		"message": "La descente en skis de l'elfe"
+	},
 	"scene_factory": {
 		"message": "L'usine à bonbons"
 	},
@@ -1171,6 +1249,12 @@
 	},
 	"scene_gumball": {
 		"message": "Boules de chewing-gum en balade"
+	},
+	"scene_icecave": {
+		"message": "Grotte de glace"
+	},
+	"scene_island": {
+		"message": "Île"
 	},
 	"scene_jamband": {
 		"message": "Le groupe des lutins"
@@ -1199,6 +1283,9 @@
 	"scene_presentdrop": {
 		"message": "Le lâcher de cadeaux"
 	},
+	"scene_quickdraw": {
+		"message": "Dessin rapide"
+	},
 	"scene_racer": {
 		"message": "La course de Rudolphe"
 	},
@@ -1219,6 +1306,12 @@
 	},
 	"scene_seasonofgiving": {
 		"message": "La saison des fêtes"
+	},
+	"scene_snowball": {
+		"message": "Tempête de boules de neige"
+	},
+	"scene_speedsketch": {
+		"message": "Esquisse rapide"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -1247,6 +1340,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Le décollage du père Noël"
 	},
+	"scene_videoscene_museum": {
+		"message": "Une journée au musée"
+	},
 	"scene_videoscene_office": {
 		"message": "Farce au bureau"
 	},
@@ -1258,6 +1354,12 @@
 	},
 	"scene_videoscene_satellite": {
 		"message": "Le satellite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies du père Noël"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Moment de détente"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentation"
@@ -1309,6 +1411,18 @@
 	},
 	"sn_country_name": {
 		"message": "Sénégal"
+	},
+	"snowball_iced": {
+		"message": "Gelé !"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} lutins restants sur {{total}}"
+	},
+	"snowball_spectate": {
+		"message": "Regarder"
+	},
+	"snowball_waiting": {
+		"message": "En attente d'autres lutins du père Noël"
 	},
 	"snowflake_choose_background": {
 		"message": "Choisissez un fond"
@@ -5037,7 +5151,7 @@
 		"message": "Inde"
 	},
 	"trivia_medium_094_answer2": {
-		"message": "Kirghizstan"
+		"message": "Kirghizistan"
 	},
 	"trivia_medium_095": {
 		"message": "De quelle province du Canada le lac Nipigon est-il le plus grand lac ?"
@@ -5162,6 +5276,9 @@
 	"village_more": {
 		"message": "D'autres manières de s'amuser"
 	},
+	"village_santa_a2hs": {
+		"message": "Ajouter à l'écran d'accueil"
+	},
 	"village_santa_cardboard": {
 		"message": "Le père Noël sur Cardboard"
 	},
@@ -5197,6 +5314,9 @@
 	},
 	"ye_country_name": {
 		"message": "Yémen"
+	},
+	"yourbest": {
+		"message": "Meilleur score"
 	},
 	"zh-CN_language_name": {
 		"message": "Chinois (simplifié)"

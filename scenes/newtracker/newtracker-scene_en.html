@@ -787,7 +787,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      */
     _onScroll: function() {
       this.debounce('_onScroll', function() {
-        if (!this.active) {
+        if (!this.isAttached) {
           return;
         }
         var cand;

@@ -23,7 +23,7 @@ goog.provide('app.TileType');
  * The complete map data. Note that only spaces and T's (trees)
  * are used. X is just for the editor to make a note of level
  * points of interest.
- * @type {string[]}
+ * @type {!Array<string>}
  */
 
 app.MapData = [
@@ -52,40 +52,40 @@ app.MapData = [
  'T     TT',
  'T     TT',
  'T     TT',
- 'T      T', //LEVEL8
- '   S   T',
- '       T',
- ' T    TT',
- 'X TT   T',
+ 'T  S   T', //LEVEL8
+ ' X     T', // level 8
+ '  T    T',
+ 'T   T TT',
+ 'TT T   T',
  'T  TT  T',
- 'TT  TTTT',
- '      TT', //LEVEL7
- '    X TT',
- '  TTTT T',
- '       T',
- '   T   T',
- 'TTTT   T', //LEVEL6
- 'TY T X T',
+ 'T T TTTT',
+ 'T  T  TT', //LEVEL7
+ 'TT T  TT',
+ ' X TT  T',
+ ' T  TT T',
+ '  T  TTT',
+ 'TTTT  TT', //LEVEL6
+ 'TY TTX T',
  'T  T   T',
  'TTTTT  T',
  '  XTT  T', //LEVEL5
  '       T',
+ 'T TTTT T',
+ ' T     T', //LEVEL4
+ 'T XTTT T',
+ '   T T T',
  'T    T T',
- 'T  TTT T',
- '       T',
- '   TTT T', //LEVEL4
- '   X T T',
- '       T', //
- 'T    TTT', //
- 'TT  T  T', //LEVEL3
- ' TT    T',
- ' TTX   T',
- ' TT    T', //LEVEL2
- 'TT  TTTT',
- 'T   XT T',
+ ' T T   T',
+ '     TTT',
+ 'TTX T  T', //LEVEL3
+ ' T   T T',
+ '    TY T',
+ ' T  T  T', //LEVEL2
+ 'TT  T TT',
+ 'T X  T T',
  '  T T  T', //LEVEL1
  'TT X   T',
- '    A TT',
+ 'T   A TT',
  'TT X T T',
  '       T',
  '  T    T',
@@ -173,11 +173,11 @@ app.Map.LEVEL_BOUNDS.unshift(1);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 6);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 3);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 2);
-app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 13);
-app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 7);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 14);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 6);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 5);
+app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 4);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 3);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 6);
-app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 4);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 3);
 app.Map.LEVEL_BOUNDS.unshift(app.Map.LEVEL_BOUNDS[0] + 3);

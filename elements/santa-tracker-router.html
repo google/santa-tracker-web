@@ -32,7 +32,7 @@ either).
    * @return {string|undefined} current route, or undefined for unknown
    */
   function currentRoute() {
-    var m = /\/(\w+)\.html$/.exec(window.location.pathname);
+    const m = /\/(\w+)\.html$/.exec(window.location.pathname);
     if (m && m[1] !== 'index') {
       return m[1];
     }
@@ -59,20 +59,18 @@ either).
        */
       route: {
         type: String,
-        value: function() { return currentRoute(); },
+        value: () => currentRoute(),
         notify: true,
       },
 
     },
 
     observers: [
-      '_updateRoute(enabled, route)'
+      '_updateRoute(enabled, route)',
     ],
 
     ready: function() {
-      window.addEventListener('popstate', function() {
-        this.route = currentRoute();
-      }.bind(this));
+      window.addEventListener('popstate', () => this.route = currentRoute());
     },
 
     detached: function() {
@@ -80,23 +78,23 @@ either).
     },
 
     _updateRoute: function(enabled, route) {
-      if (enabled) {
-        var newUrl = this._makeUrl(route);
-        var current = currentRoute();
-        if (!current) {
-          // this is setting an initial route
-          history.replaceState(null, '', newUrl);
-        } else if (newUrl === this._makeUrl(current)) {
-          // if the URLs are effectively equal, this should do nothing
-        } else {
-          // this is a normal nav
-          history.pushState(null, '', newUrl);
-        }
+      if (!enabled) { return; }
+
+      const newUrl = this._makeUrl(route);
+      const current = currentRoute();
+      if (!current) {
+        // this is setting an initial route
+        history.replaceState(null, '', newUrl);
+      } else if (newUrl === this._makeUrl(current)) {
+        // if the URLs are effectively equal, this should do nothing
+      } else {
+        // this is a normal nav
+        history.pushState(null, '', newUrl);
       }
     },
 
     _makeUrl: function(route) {
-      var path = './';
+      let path = './';
       if (route && route !== 'index') {
         path = route.replace(/[^\w]/, '') + '.html';
       }
