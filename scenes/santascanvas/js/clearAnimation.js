@@ -36,13 +36,11 @@ app.ClearAnimation = function($elem, canvas, backupCanvas, importPath) {
 
 
 app.ClearAnimation.prototype.preloadFrames  = function() {
-  console.log(this.importPath);
   for (var i = 0; i < app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES; i++) {
     var image = new Image();
     image.setAttribute('crossOrigin', 'anonymous');
     image.src = this.importPath + 'img/avalanche/avalanche_' + i + '.png';
     this.frames.push(image);
-    console.log(image.src);
   }
 };
 
