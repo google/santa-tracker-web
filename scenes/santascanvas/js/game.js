@@ -32,8 +32,9 @@ goog.require('app.shared.ShareOverlay');
  * @constructor
  * @export
  */
-app.Game = function(elem) {
+app.Game = function(elem, importPath) {
   this.elem = $(elem);
+  this.importPath = importPath;
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
   this.rotateElem = this.elem.find('.force-rotate');

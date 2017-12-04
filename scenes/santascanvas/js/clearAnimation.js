@@ -19,13 +19,13 @@ goog.require('app.Constants');
 goog.require('app.utils');
 
 
-app.ClearAnimation = function($elem, canvas, backupCanvas) {
+app.ClearAnimation = function($elem, canvas, backupCanvas, importPath) {
   this.canvas = canvas;
   this.context = canvas.getContext('2d');
   this.backup = backupCanvas;
   this.backupContext = backupCanvas.getContext('2d');
+  this.importPath = importPath;
   this.playing = false;
-  this.firstFrame = $('#avalanche-frame', $elem);
 
   this.frames = [];
   this.currentFrame = 0;
@@ -36,13 +36,13 @@ app.ClearAnimation = function($elem, canvas, backupCanvas) {
 
 
 app.ClearAnimation.prototype.preloadFrames  = function() {
-  var src = this.firstFrame.attr('src');
+  console.log(this.importPath);
   for (var i = 0; i < app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES; i++) {
     var image = new Image();
     image.setAttribute('crossOrigin', 'anonymous');
-    image.src = src.replace('avalanche_0.png', 'avalanche_' + i + '.png');
-    console.log(image.src);
+    image.src = this.importPath + 'img/avalanche/avalanche_' + i + '.png';
     this.frames.push(image);
+    console.log(image.src);
   }
 };
 
