@@ -25,6 +25,7 @@ app.ClearAnimation = function($elem, canvas, backupCanvas) {
   this.backup = backupCanvas;
   this.backupContext = backupCanvas.getContext('2d');
   this.playing = false;
+  this.firstFrame = $('#avalanche-frame', $elem);
 
   this.frames = [];
   this.currentFrame = 0;
@@ -35,9 +36,12 @@ app.ClearAnimation = function($elem, canvas, backupCanvas) {
 
 
 app.ClearAnimation.prototype.preloadFrames  = function() {
+  var src = this.firstFrame.attr('src');
   for (var i = 0; i < app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES; i++) {
     var image = new Image();
-    image.src = '/scenes/santascanvas/img/avalanche/avalanche_' + i + '.png';
+    image.setAttribute('crossOrigin', 'anonymous');
+    image.src = src.replace('avalanche_0.png', 'avalanche_' + i + '.png');
+    console.log(image.src);
     this.frames.push(image);
   }
 };
