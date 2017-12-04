@@ -50,6 +50,8 @@ API is used differently in future years, this should be broken out into somethin
     return;  // never create google-cast-button outside Chrome
   }
 
+  // nb. This sets up Santa Tracker's whole config for Cast: so this file is included inside
+  // elements_en.html so that it's always captured.
   const applicationId = (location.hostname === 'santatracker.google.com' ? '76D471B7' : 'FA3B9AAD');
   const namespace = 'urn:x-cast:com.google.cast.santatracker';
   const src = 'https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1';
