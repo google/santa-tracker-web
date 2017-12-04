@@ -61,13 +61,27 @@ API is used differently in future years, this should be broken out into somethin
         return reject('Cast not available');
       }
 
+      // nb. 'chrome.cast' => Cast API?, 'cast' => Cast Framework
+
       // TODO(samthor): Only play to VIDEO_OUT receivers
-      cast.framework.CastContext.getInstance().setOptions({
+      const context = cast.framework.CastContext.getInstance();
+      context.setOptions({
         receiverApplicationId: applicationId,
         autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED,
         resumeSavedSession: true,
       });
-      resolve(window.cast);
+      let activeSession = null;
+      const fn = (sessionState) => {
+        if (sessionState.session) {
+          window.ga('send', 'event', 'cast', 'connect');
+          activeSession = sessionState.session;
+        } else if (activeSession) {
+          window.ga('send', 'event', 'cast', 'disconnect');
+          activeSession = null;
+        }
+      };
+      context.addEventListener(cast.framework.CastContextEventType.CAST_STATE_CHANGED, fn);
+      resolve(cast);
     };
 
     const s = document.createElement('script');
