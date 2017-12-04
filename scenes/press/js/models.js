@@ -98,13 +98,13 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-airport.png',
+        'url': 'https://storage.googleapis.com/santa/scenes/airport.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC1-airport-full.gif',
+        'url': 'https://storage.googleapis.com/santa/scenes/airport.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -155,8 +155,8 @@ app.Models = [
     ]
   },
   {
-    'key': 'santasback',
-    'title': 'Santa\'s Back',
+    'key': 'museum',
+    'title': 'A Day at the Museum',
     'opens': 4,
     'type': 'Watch',
     'filter': '',
@@ -164,17 +164,17 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santasback-screenshot.png',
+        'url': 'https://storage.googleapis.com/santa/scenes/museum.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santasback-animation.gif',
+        'url': 'https://storage.googleapis.com/santa/scenes/museum.gif',
         'type': 'GIF file',
         'class': 'card-dl'
-      }
-    ]
+      },
+    ],
   },
   {
     'key': 'santascanvas',
@@ -184,8 +184,19 @@ app.Models = [
     'filter': 'new',
     'description': 'Draw, color, paint, create. Santa\'s Canvas is Santa\'s very own creative suite. A blank canvas for everyone to get creative. Each tool, brush, and sticker has a custom sound, making this an audio and visual experience.',
     'resources': [
-      // TODO(samthor): resources
-    ]
+      {
+        'title': 'Still Screenshot',
+        'url': 'https://storage.googleapis.com/santa/scenes/santascanvas.png',
+        'type': 'PNG file',
+        'class': 'card-dl'
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/santa/scenes/santascanvas.gif',
+        'type': 'GIF file',
+        'class': 'card-dl'
+      },
+    ],
   },
   {
     'key': 'codeboogie',
@@ -197,13 +208,13 @@ app.Models = [
     'resources': [
       {
         'title': 'Still Screenshot',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-code-boogie.png',
+        'url': 'https://storage.googleapis.com/santa/scenes/codeboogie.png',
         'type': 'PNG file',
         'class': 'card-dl'
       },
       {
         'title': 'Animation',
-        'url': 'https://storage.googleapis.com/mapsdevsite/santa-2015/DEC17-codeboogie-full.gif',
+        'url': 'https://storage.googleapis.com/santa/scenes/codeboogie.gif',
         'type': 'GIF file',
         'class': 'card-dl'
       }
@@ -327,8 +338,19 @@ app.Models = [
     'filter': 'new',
     'description': 'A Santa-fied version of Google\'s popular "Quick, Draw!" where you help teach Santa\'s robot "Tensor" how to recognize holiday-themed doodles.',
     'resources': [
-      // TODO(samthor): resources
-    ]
+      {
+        'title': 'Still Screenshot',
+        'url': 'https://storage.googleapis.com/santa/scenes/speedsketch.png',
+        'type': 'PNG file',
+        'class': 'card-dl',
+      },
+      {
+        'title': 'Animation',
+        'url': 'https://storage.googleapis.com/santa/scenes/speedsketch.gif',
+        'type': 'GIF file',
+        'class': 'card-dl',
+      },
+    ],
   },
   {
     'key': 'santaselfie',
