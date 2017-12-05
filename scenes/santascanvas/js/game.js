@@ -51,6 +51,13 @@ app.Game = function(elem, importPath) {
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
   this.onFrame_ = this.onFrame_.bind(this);
+
+  this.isIE = navigator.userAgent.indexOf('MSIE') !== -1 ||
+    navigator.appVersion.indexOf('Trident/') > 0;
+
+  if (this.isIE) {
+    this.sceneElem.find('[data-tool-save]').addClass('u-hidden');
+  }
 };
 
 
