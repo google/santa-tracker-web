@@ -12,8 +12,8 @@ handlers:
   login: admin
 
 - url: /
-  static_files: dist_pretty/quickdraw.html
-  upload: dist_pretty/quickdraw.html
+  static_files: dist_pretty/speedsketch.html
+  upload: dist_pretty/speedsketch.html
   secure: always
   login: admin
 

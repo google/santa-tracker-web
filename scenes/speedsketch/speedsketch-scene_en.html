@@ -16,24 +16,24 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="../../third_party/lib/paper/paper.js"></script>
-<script src="quickdraw-scene.min.js"></script>
+<script src="speedsketch-scene.min.js"></script>
 
-<link rel="import" href="quickdraw-scene_module.html">
+<link rel="import" href="speedsketch-scene_module.html">
 
 <!--
 Quickdraw scene.
 -->
-<dom-module id="quickdraw-scene">
+<dom-module id="speedsketch-scene">
 <template>
-  <style include="quickdraw-scene_module">
+  <style include="speedsketch-scene_module">
     :host([mode="portal"]) #share-button,
     :host([mode="portal"]) #share-button-toolbox {
       display: none !important;
     }
   </style>
 
-  <div id="module-quickdraw">
-    <div class="quickdraw">
+  <div id="module-speedsketch">
+    <div class="speedsketch">
       <div class="scene">
         <div class="strings" style="display: none;">
           <div id="quickdraw-timesup-title-noguess"><i18n-msg msgid="quickdraw-timesup-title-noguess">PLACEHOLDER_i18n</i18n-msg></div>
@@ -196,7 +196,7 @@ Quickdraw scene.
 <script>
 (function() {
   Polymer({
-    is: 'quickdraw-scene',
+    is: 'speedsketch-scene',
     behaviors: [
       window.SantaSceneBehavior
     ],
@@ -211,7 +211,7 @@ Quickdraw scene.
       'img/pen.svg',
       'img/pens.svg',
       'img/pole.svg',
-      'img/quickdraw-background.svg',
+      'img/speedsketch-background.svg',
       'img/robby.svg',
       'img/speech-bubble.svg',
       'img/splashscreen-image.svg',
@@ -222,9 +222,9 @@ Quickdraw scene.
     },
 
     onShow: function() {
-      var module = this.$['module-quickdraw'];
+      var module = this.$['module-speedsketch'];
 
-      this.game = new scenes.quickdraw.Game(module);
+      this.game = new scenes.speedsketch.Game(module);
       this.game.start();
       this.fire('sound-ambient', 'qd_start');
       this.fire('sound-ambient', 'music_start_scene');

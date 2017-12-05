@@ -165,8 +165,8 @@ module.exports = {
     msgid: 'press',
     entryPoint: 'app.Scene'
   },
-  quickdraw: {
-    msgid: 'scene_quickdraw',
+  speedsketch: {
+    msgid: 'scene_speedsketch',
     entryPoint: 'app.Game'
   },
   racer: {
