@@ -1074,7 +1074,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Oh I know, this is {{thing}}!"
+		"message": "Oh I know, this is"
 	},
 	"quickdraw-machine-or": {
 		"message": "or"
@@ -1092,13 +1092,13 @@
 		"message": "Sorry"
 	},
 	"quickdraw-round-timesup": {
-		"message": "I couldn't guess it!"
+		"message": "I couldn't guess it "
 	},
 	"quickdraw-rounddetails-also-look": {
 		"message": "Tensor also thought your drawing looked like these:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "How does Tensor know what {{thing}} looks like?"
+		"message": "How does is know what ~word~ look like?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "It learned by looking at these examples drawn by other people."
@@ -1107,22 +1107,25 @@
 		"message": "Tensor thought your drawing looked more like these:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "This is Santa's version of {{thing}}."
+		"message": "This is Santa's version of ~word~"
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "You were asked to draw {{thing}}."
+		"message": "You were asked to draw ~word~"
 	},
 	"quickdraw-slate": {
 		"message": "Draw"
 	},
-	"quickdraw-splashview-description": {
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oops!"
+  },
+  "quickdraw-splashview-description": {
 		"message": "Tensor is Santa's Machine Learning robot that helps him quickly decipher the letters he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and he'll tell you what he sees. The more you draw, the smarter Tensor will get, so let's help Santa be more efficient than ever this holiday season!"
 	},
 	"quickdraw-splashview-title": {
 		"message": "Help Tensor practice his image recognition!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor recognized {{recognized}} of your drawings."
+		"message": "Tensor recognized ~roundsRecognized~ of your drawings."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor recognized one of your drawings."
