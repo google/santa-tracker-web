@@ -34,8 +34,12 @@ app.Constants = {
   HANDWRITING_RECOGNITION_THRESHOLD: 2.0,
   // Max allowed rate recognition api can be called in seconds
   MAX_API_RATE: 1.0,
-  WORDS: ["mittens", "present", "jingle bells", "stocking", "candy cane", "present",
-      "campfire", "cookie", "mug", "penguin", "snowflake", "snowman", "star", "tree"]
+  WORDS: ["christmas lights", "stocking", "chimney", "sleigh", "ribbon",
+      "mistletoe", "mug", "tree", "snowflake", "candy cane", "ornament",
+      "cookie", "jetpack", "skiing", "santa", "star", "snowman", "reindeer",
+      "nutcracker", "present", "campfire", "penguin", "ice skating",
+      "jingle bells", "mittens", "gingerbread man", "wreath",
+      "candy", "elf", "peppermint", "sweater"]
 };
 
 

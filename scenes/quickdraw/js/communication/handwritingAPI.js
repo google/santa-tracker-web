@@ -44,8 +44,7 @@ app.HandwritingAPI.prototype.sendRequest = function(segments, options) {
   var request = {
     input_type: 0,
     requests: [{
-      // language: options.similar_drawings ? 'quickdraw-ink' : 'quickdraw'
-      language: 'santa'
+      language: options.similar_drawings ? 'santaquickdraw-ink' : 'santaquickdraw'
     }]
   };
 
