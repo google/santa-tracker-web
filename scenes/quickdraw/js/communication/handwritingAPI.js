@@ -68,7 +68,6 @@ app.HandwritingAPI.prototype.sendRequest = function(segments, options) {
 
 
 app.HandwritingAPI.prototype.parseResponse = function(data) {
-  console.log(data);
   var json = JSON.parse(data[1][0][3]["debug_info"].match(/SCORESINKS: (.+) Combiner:/)[1]);
 
   return json.map(function(s) {
