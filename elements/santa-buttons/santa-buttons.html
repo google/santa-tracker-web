@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
+<!-- <link rel="import" href="../cast-button.html"> -->
 <link rel="import" href="../santa-icons.html">
 <link rel="import" href="../santa-state.html">
 <link rel="import" href="../santa-strings.html">
@@ -64,6 +65,12 @@ specific language governing permissions and limitations under the License.
           on-click="_togglePause"
           icon$="santa:[[_computeGameIcon(pause)]]">
       </paper-icon-button>
+
+      <!-- <paper-button hidden$="[[!_cast]]"
+          on-click="_clickCastButton">
+          <cast-button></cast-button>
+      </paper-button> -->
+
     </div>
   </div>
 
