@@ -21,7 +21,7 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
 
-      @media (max-width: 767px) {
+      @media (max-width: $mobile-breakpoint) {
         font-size: 16px;
       }
     }
@@ -29,14 +29,16 @@
     &__big-text {
       font-family: 'Lobster', sans-serif;
       font-size: 110px;
+      line-height: 1;
+      margin-bottom: 0.3em;
       transform: rotate(-5.6deg);
 
-      @media (max-width: 767px) {
-        font-size: 60px;
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 50px;
       }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: $mobile-breakpoint) {
       padding: 20px 10px;
       max-height: 45vw;
       max-width: 70vw;

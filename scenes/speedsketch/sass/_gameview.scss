@@ -9,7 +9,7 @@
     height: 100%;
     position: relative;
 
-    @media (max-width: 767px) {
+    @media (max-width: $mobile-breakpoint) {
       flex-flow: column;
       position: fixed;
       height: calc(100% - 44px);
@@ -23,7 +23,7 @@
       position: relative;
       width: 100% !important;
 
-      @media (max-width: 767px) {
+      @media (max-width: $mobile-breakpoint) {
         border-radius: 0;
         height: 100% !important;
       }
@@ -39,7 +39,7 @@
       top: 5.3%;
       width: 100% * $width-whiteboard;
 
-      @media (max-width: 767px) {
+      @media (max-width: $mobile-breakpoint) {
         left: initial;
         height: 70%;
         padding-bottom: 0 !important;
@@ -58,7 +58,7 @@
         position: absolute;
         width: calc(100% + 40px);
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           display: none;
         }
       }
@@ -88,7 +88,7 @@
           width: 5vw * $width-whiteboard;
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           display: none;
         }
       }
@@ -105,7 +105,7 @@
         position: absolute;
         width: 15%;
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           display: none !important;
         }
       }
@@ -137,7 +137,7 @@
       right: 2%;
       width: 20%;
 
-      @media (max-width: 767px) {
+      @media (max-width: $mobile-breakpoint) {
         background-color: #009245;
         bottom: initial;
         height: 20%;
@@ -151,7 +151,7 @@
       &__robot {
         width: 100%;
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           display: none;
         }
       }
@@ -165,7 +165,7 @@
         position: relative;
         width: 100%;
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           background-image: url('img/mobile-bubble.svg');
           margin-left: 16px;
           padding-bottom: 42%;
@@ -178,9 +178,9 @@
           text-align: center;
           top: 40%;
           transform: translateY(-50%);
-          width: 98%;
+          width: 95%;
 
-          @media (max-width: 767px) {
+          @media (max-width: $mobile-breakpoint) {
             top: 58%;
             width: 49.4%;
           }
@@ -193,8 +193,8 @@
         font-size: 1.5vw;
         margin: 0;
 
-        @media (max-width: 767px) {
-          font-size: 14px;
+        @media (max-width: $mobile-breakpoint) {
+          font-size: 12px;
         }
       }
 
@@ -202,12 +202,13 @@
         color: $color-machine-secondary;
         font-family: Monaco, Consolas, "Lucida Console", monospace;
         font-size: 40px;
-        font-size: 2.5vw;
+        font-size: 2.3vw;
         margin: 0;
         text-transform: uppercase;
 
-        @media (max-width: 767px) {
-          font-size: 25px;
+        @media (max-width: $mobile-breakpoint) {
+          font-size: 20px;
+          line-height: 1.1;
         }
       }
 
@@ -220,7 +221,7 @@
       width: 15%;
       z-index: 2;
 
-      @media (max-width: 767px) {
+      @media (max-width: $mobile-breakpoint) {
         background-color: #F9CE1D;
         bottom: initial;
         height: 10%;
@@ -234,7 +235,7 @@
       img {
         width: 100%;
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           display: none;
         }
       }
@@ -246,7 +247,7 @@
         transform: translateY(-50%);
         width: 91.5%;
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           display: flex;
           padding-left: 16px;
           position: relative;
@@ -261,7 +262,7 @@
         letter-spacing: 0.16em;
         text-transform: uppercase;
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           font-family: Monaco, Consolas, "Lucida Console", monospace;
           font-size: 15px;
           font-weight: normal;
@@ -278,13 +279,16 @@
         font-family: 'Lobster', sans-serif;
         font-size: 40px;
         font-size: 2.5vw;
-        letter-spacing: 0.02em;
 
-        @media (max-width: 767px) {
+        @media (min-width: $mobile-breakpoint + 1) {
+          letter-spacing: 0.02em;
+          line-height: 1;
+        }
+
+        @media (max-width: $mobile-breakpoint) {
           font-family: Monaco, Consolas, "Lucida Console", monospace;
           font-size: 15px;
           font-weight: normal;
-          letter-spacing: initial;
           padding-left: 3px;
           text-transform: uppercase;
         }

@@ -1,7 +1,7 @@
 ##{$name} {
   .timesup-card {
     color: white;
-    @media (max-width: 767px) {
+    @media (max-width: $mobile-breakpoint) {
       box-sizing: border-box;
       padding: 20px 0;
     }
@@ -27,7 +27,7 @@
       max-width: 1350px;
       width: 90%;
 
-      @media (max-width: 767px) {
+      @media (max-width: $mobile-breakpoint) {
         flex-wrap: wrap;
         overflow: hidden;
         width: 100%;
@@ -39,12 +39,15 @@
       box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
       height: 225px;
       max-height: 15vw;
-      max-width: 20vw;
       overflow: hidden;
       position: relative;
       width: 300px;
 
-      @media (max-width: 767px) {
+      @media (min-width: $mobile-breakpoint + 1) {
+        max-width: 20vw;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
         height: 0;
         margin: 10px 0;
         padding-bottom: 73.6%;
@@ -76,7 +79,7 @@
       > svg {
         margin: 10px;
 
-        @media (max-width: 767px) {
+        @media (max-width: $mobile-breakpoint) {
           height: calc(100% - 20px) !important;
           left: 0;
           position: absolute;
