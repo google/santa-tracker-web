@@ -14,10 +14,10 @@ $scene-names: "air", "airport", "beach", "dock", "gingerbread", "iceberg", "livi
     .Tool {
       background-position: center 10%;
       background-repeat: no-repeat;
-      background-size: 130% 130%;
+      background-size: contain;
       flex: 0 0 185px;
-      height: 70%;
       margin-left: 10px;
+      margin-top: 20px;
       max-width: 185px;
       position: relative;
       width: 185px;
@@ -29,7 +29,7 @@ $scene-names: "air", "airport", "beach", "dock", "gingerbread", "iceberg", "livi
       }
 
       &[data-tool="scene-none"] {
-        background-image: url(img/tools/scenes/tool_scene_none.svg);
+        background-image: url(img/tools/scenes/tool_scene_none.png);
       }
     }
 
@@ -38,7 +38,6 @@ $scene-names: "air", "airport", "beach", "dock", "gingerbread", "iceberg", "livi
 
       .Tool {
         background-position: center 30%;
-        background-size: 110% 110%;
         border-bottom: 0;
         flex: 0 0 49%;
         height: 20vh;
