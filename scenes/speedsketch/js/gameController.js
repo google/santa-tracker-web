@@ -31,7 +31,7 @@ goog.require('app.GameRound');
 goog.require('app.shared.Scoreboard');
 
 
-app.GameController = function(container) {
+app.GameController = function(container, importPath) {
   app.EventEmitter.call(this);
   this.container = container;
   this.recognitionController = new app.DrawingRecognitionController();
@@ -39,7 +39,7 @@ app.GameController = function(container) {
   this.scoreboard = new app.shared.Scoreboard(this, container.find('.board'), app.Constants.TOTAL_LEVELS);
 
   //Views
-  this.cardsView = new app.view.CardsView(container);
+  this.cardsView = new app.view.CardsView(container, importPath);
   this.gameView = new app.view.GameView(container);
   this.machineView = new app.view.MachineView(container);
   this.drawingCanvas = new app.view.DrawingCanvas(container);
@@ -220,7 +220,7 @@ app.GameController.prototype.startNewRoundWithChallenge = function(challenge, op
     //Start The Clock
     this.clock.reset();
     this.clock.startClock();
-    
+
     window.santaApp.fire('sound-trigger', 'generic_button_click');
     window.santaApp.fire('sound-ambient', 'music_start_ingame');
 

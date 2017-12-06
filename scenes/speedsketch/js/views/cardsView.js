@@ -25,8 +25,10 @@ goog.require('app.Utils');
 goog.require('app.EventEmitter');
 
 
-app.view.CardsView = function(container) {
+app.view.CardsView = function(container, importPath) {
   app.EventEmitter.call(this);
+
+  this.importPath = importPath;
 
   this.handwritingAPI = new app.HandwritingAPI();
   this.gameAPI = new app.GameAPI();
@@ -183,14 +185,13 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   drawingElem.append(svg);
 
 
-  var filename = round.word.replace(/\s+/g, '-').toLowerCase();
-  console.log(filename);
   //Section 2
+  var filename = round.word.replace(/\s+/g, '-').toLowerCase();
   this.round_detail_card
   .find('.rounddetails-card__santa-title')
   .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-santa-version', 'word', round.word));
   var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa .rounddetails-card__drawing-inner');
-  santaElem.css('background-image', "url('" + window.location.origin + "/scenes/speedsketch/img/drawings/" + filename + ".svg')");
+  santaElem.css('background-image', "url('" + this.importPath + "img/drawings/" + filename + ".svg')");
 
   //Section 3
   if (round.drawing && round.drawing.length > 0) {

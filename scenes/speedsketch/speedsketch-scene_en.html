@@ -226,7 +226,7 @@ Quickdraw scene.
     onShow: function() {
       var module = this.$['module-speedsketch'];
 
-      this.game = new scenes.speedsketch.Game(module);
+      this.game = new scenes.speedsketch.Game(module, this.importPath);
       this.game.start();
       this.fire('sound-ambient', 'qd_start');
       this.fire('sound-ambient', 'music_start_scene');
