@@ -67,15 +67,25 @@
         align-items: flex-end;
         bottom: 12px;
         display: flex;
-        left: 70%;
+        height: 20%;
+        left: 85%;
         position: absolute;
 
-        img:first-child {
-          width: 15vw * $width-whiteboard;
+        .whiteboard__decoration {
+          background-position: center bottom;
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 100%;
         }
 
-        img:last-child {
-          width: 10vw * $width-whiteboard;
+        .whiteboard__decoration--eraser {
+          background-image: url(img/eraser.svg);
+          width: 7.5vw * $width-whiteboard;
+        }
+
+        .whiteboard__decoration--pen {
+          background-image: url(img/pens.svg);
+          width: 5vw * $width-whiteboard;
         }
 
         @media (max-width: 767px) {
