@@ -50,7 +50,9 @@ $size-inset: 8px;
     top: 0;
     transform: translate(-50%);
     width: 80px;
-    color: var(--santa-feature-color, #00e8bf);
+
+    #shadow { opacity: 0.1; }
+    #fill { fill: var(--santa-feature-color, #00e8bf); }
   }
 
   .value {
