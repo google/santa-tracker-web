@@ -233,6 +233,9 @@ specific language governing permissions and limitations under the License.
         computed: '_computeLessonLangText(_lessonLang)',
       },
 
+      /**
+       * The two-letter language code currently visible for lesson plans, e.g. "en".
+       */
       _lessonLang: {
         type: String,
         computed: '_computeLessonLang(_lessonPlanLanguage)',
@@ -260,13 +263,13 @@ specific language governing permissions and limitations under the License.
       const spaceRe = /\s+/;
 
       this.scene = new scenes.press.Scene();
-      this.cards = this.scene.getModels(function(key) {
-        var locked = santaApp.sceneIsOpen(key) === false;
+      this.cards = this.scene.getModels((key) => {
+        let locked = santaApp.sceneIsOpen(key) === false;
         if (window.DEV && Math.random() > 0.5) {
           locked = true;
         }
         return locked;
-      }).filter(function(card) {
+      }).filter((card) => {
         // pre-filter to education cards only
         return card.filter.split(spaceRe).indexOf('education') !== -1;
       });
@@ -291,11 +294,11 @@ specific language governing permissions and limitations under the License.
     },
 
     _trackLessonPlan: function(e, detail) {
-      var link = e.target.closest('a[href]');
+      const link = e.target.closest('a[href]');
       if (!link) {
         return;
       }
-      var label = link.getAttribute('data-id');
+      const label = this._lessonLang + '/' + link.getAttribute('data-id');
       window.ga('send', 'event', 'lessonPlanDownload', 'click', label);
     },
 
