@@ -36,6 +36,21 @@
         }
       }
 
+      &--santa {
+        .rounddetails-card__drawing-inner {
+          background-color: white;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 80%;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 80%;
+        }
+      }
+
       svg {
         margin-top: 25px;
       }

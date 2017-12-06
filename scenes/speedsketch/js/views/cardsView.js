@@ -182,12 +182,15 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   drawingElem.html('');
   drawingElem.append(svg);
 
+
+  var filename = round.word.replace(/\s+/g, '-').toLowerCase();
+  console.log(filename);
   //Section 2
   this.round_detail_card
   .find('.rounddetails-card__santa-title')
   .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-santa-version', 'word', round.word));
-  var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa');
-  santaElem.css('background-image', "url('" + window.location.origin + "/scenes/quickdraw/img/" + round.word + ".svg')");
+  var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa .rounddetails-card__drawing-inner');
+  santaElem.css('background-image', "url('" + window.location.origin + "/scenes/speedsketch/img/drawings/" + filename + ".svg')");
 
   //Section 3
   if (round.drawing && round.drawing.length > 0) {
