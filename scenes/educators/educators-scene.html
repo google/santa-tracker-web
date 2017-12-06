@@ -64,8 +64,14 @@ specific language governing permissions and limitations under the License.
     <div id="educators-primary" on-click="_trackLessonPlan">
       <h2>Lesson plans</h2>
       <p class="educators-primary-intro">Light the way for your students with activity ideas, teaching tips, and discussion questions for some of our favorite Santa Tracker games.</p>
-      <div class="educators-primary-inner">
 
+      <info-chooser id="lang"
+          hide-all
+          choices="[[_lessonPlanLanguageChoices]]"
+          value="{{_lessonPlanLanguage}}">
+      </info-chooser>
+
+      <div class="educators-primary-inner">
         <info-card image="[[importPath]]img/lesson-plan-traditions.png">
           <div slot="title">Christmas traditions around the world</div>
           <p>
@@ -73,10 +79,10 @@ specific language governing permissions and limitations under the License.
           </p>
           <div class="card-links">
             <span class="card-title">Aligned with Common Core standards</span>
-            <a data-id="traditions_k-2" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_K-2.pdf" target="_blank">Grades K-2 <span>(PDF file)</span></a>
-            <a data-id="traditions_3-5" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_3-5.pdf" target="_blank">Grades 3-5 <span>(PDF file)</span></a>
-            <a data-id="traditions_6-8" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_6-8.pdf" target="_blank">Grades 6-8 <span>(PDF file)</span></a>
-            <a data-id="traditions_9-10" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Grades_9-10.pdf" target="_blank">Grades 9-10 <span>(PDF file)</span></a>
+            <a data-id="traditions_k-2" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades K-2.pdf" target="_blank">Grades K-2 <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="traditions_3-5" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 3-5.pdf" target="_blank">Grades 3-5 <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="traditions_6-8" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 6-8.pdf" target="_blank">Grades 6-8 <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="traditions_9-10" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 9-10.pdf" target="_blank">Grades 9-10 <span>(PDF file, [[_lessonLangText]])</span></a>
           </div>
         </info-card>
 
@@ -87,9 +93,9 @@ specific language governing permissions and limitations under the License.
           </p>
           <div class="card-links">
             <span class="card-title">Aligned with ISTE standards</span>
-            <a data-id="coding_k-2" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Lab-Grades_K-2.pdf" target="_blank">Grades K-2: Code Lab <span>(PDF file)</span></a>
-            <a data-id="coding_3-5" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Boogie-Grades_3-5.pdf" target="_blank">Grades 3-5: Code Boogie <span>(PDF file)</span></a>
-            <a data-id="coding_6-8" href="https://storage.googleapis.com/mapsdevsite/santatracker/educators/ST-Lesson_Plan-Code_Snowflake-Grades_6-8.pdf" target="_blank">Grades 6-8: Code a Snowflake <span>(PDF file)</span></a>
+            <a data-id="coding_k-2" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Lab-Grades K-2.pdf" target="_blank">Grades K-2: Code Lab <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="coding_3-5" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Boogie-Grades 3-5.pdf" target="_blank">Grades 3-5: Code Boogie <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="coding_6-8" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Snowflake-Grades 6-8.pdf" target="_blank">Grades 6-8: Code a Snowflake <span>(PDF file, [[_lessonLangText]])</span></a>
           </div>
         </info-card>
       </div>
@@ -168,13 +174,70 @@ specific language governing permissions and limitations under the License.
   </div>
 </template>
 <script>
+(function() {
+
+  /**
+   * @type {!Object<string, string>} language mappings for lesson plans
+   */
+  const lessonPlans = {
+    'en': 'English',
+    'es': 'Español',
+    'fr': 'Français',
+    'ja': '日本語',
+    'ko': '한국어',
+  };
+
+  /**
+   * @type {!Array<string} languages supported for lesson plans
+   */
+  const lessonPlanLanguages = Object.freeze(['en', 'es', 'fr', 'ja', 'ko']);
+
   Polymer({
     is: 'educators-scene',
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
-      scene: Object,
-      cards: Array,
+
+      scene: {
+        type: Object,
+      },
+
+      cards: {
+        type: Array,
+      },
+
+      /**
+       * The possible lesson plan language choices, including "lang_". Used for template binding.
+       */
+      _lessonPlanLanguageChoices: {
+        type: Array,
+        value: () => lessonPlanLanguages.map((lang) => `lang_${lang}`).join(' '),
+      },
+
+      /**
+       * The lesson plan language, including the "lang_" prefix, e.g., "lang_en".
+       */
+      _lessonPlanLanguage: {
+        type: String,
+        value: () => {
+          const left = (document.documentElement.lang || 'en').substr(0, 2);
+          if (lessonPlanLanguages.indexOf(left) !== -1) {
+            return 'lang_' + left;
+          }
+          return 'lang_' + lessonPlanLanguages[0];
+        },
+      },
+
+      _lessonLangText: {
+        type: String,
+        computed: '_computeLessonLangText(_lessonLang)',
+      },
+
+      _lessonLang: {
+        type: String,
+        computed: '_computeLessonLang(_lessonPlanLanguage)',
+      },
+
     },
 
     onPreload: function() {
@@ -216,6 +279,17 @@ specific language governing permissions and limitations under the License.
       return this.resolveUrl('../../images/scenes/' + sceneName + '_2x.png');
     },
 
+    _computeLessonLang: function(lessonPlanLanguage) {
+      if (lessonPlanLanguage.substr(0, 5) === 'lang_') {
+        return lessonPlanLanguage.substr(5);
+      }
+      return 'en';
+    },
+
+    _computeLessonLangText: function(lessonLang) {
+      return lessonPlans[lessonLang] || '?';
+    },
+
     _trackLessonPlan: function(e, detail) {
       var link = e.target.closest('a[href]');
       if (!link) {
@@ -226,5 +300,7 @@ specific language governing permissions and limitations under the License.
     },
 
   });
+
+}());
 </script>
 </dom-module>

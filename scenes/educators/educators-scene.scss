@@ -9,6 +9,11 @@
   -webkit-font-smoothing: antialiased;
 }
 
+#lang {
+  --info-chooser-background: rgba(255, 255, 255, 0.95);
+  --info-chooser-color: #555;
+}
+
 .clearfix {
   &:after {
     content: '';

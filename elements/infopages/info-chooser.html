@@ -46,14 +46,14 @@ on cards if they are to be made hidden. Hard-coded to work on `info-card`.
       display: inline-block;
       border-radius: 8px;
       background: transparent;
-      color: #9575cd;
+      color: var(--info-chooser-background, #9575cd);
       margin: 2px;
       border: 2px solid transparent;
     }
 
     label input:checked + div {
-      background: #9575cd;
-      color: white;
+      background: var(--info-chooser-background, #9575cd);
+      color: var(--info-chooser-color, white);
     }
     label input:active + div,
     label input:focus + div {
@@ -98,6 +98,11 @@ const names = {
   'computerscience': 'Computer Science',
   'language': 'Language',
   'socialstudies': 'Social Studies',
+  'lang_en': 'English',
+  'lang_es': 'Español',
+  'lang_fr': 'Français',
+  'lang_ja': '日本語',
+  'lang_ko': '한국어',
 };
 
 Polymer({
@@ -107,7 +112,15 @@ Polymer({
 
     _choices: {
       type: Object,
-      computed: '_computeChoicesArray(choices)',
+      computed: '_computeChoicesArray(choices, hideAll)',
+    },
+
+    /**
+     * Whether to hide the "Show All" button.
+     */
+    hideAll: {
+      type: Boolean,
+      value: false,
     },
 
     /**
@@ -156,12 +169,12 @@ Polymer({
     }
   },
 
-  _computeChoicesArray: function(choices) {
+  _computeChoicesArray: function(choices, hideAll) {
     const array = choices.split(spaceRe);
-    if (array[0] !== '') {
+    if (array[0] !== '' && !hideAll) {
       array.unshift('');
     }
-    return array;
+    return Object.freeze(array);
   },
 
   _computeChoiceName: function(choice) {
