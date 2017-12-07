@@ -35,7 +35,7 @@ app.Constants = {
   MAX_API_RATE: 1.0,
   WORDS: ["christmas lights", "stocking", "chimney", "sleigh", "ribbon",
       "mistletoe", "mug", "tree", "snowflake", "candy cane", "ornament",
-      "cookie", "jetpack", "skiing", "santa", "star", "snowman", "reindeer",
+      "cookie", "jetpack", "skier", "santa", "star", "snowman", "reindeer",
       "nutcracker", "present", "campfire", "penguin", "ice skating",
       "jingle bells", "mittens", "gingerbread man", "wreath",
       "candy", "elf", "peppermint", "sweater"]

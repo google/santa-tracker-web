@@ -17,6 +17,7 @@
 
 goog.provide('app.view.MachineView');
 goog.require('app.SpeechController');
+goog.require('app.Utils');
 
 
 app.view.MachineView = function(container) {
@@ -49,7 +50,8 @@ app.view.MachineView.prototype.setText = function(textA, textB) {
 
 app.view.MachineView.prototype.setResultWord = function(word) {
   this.guessesQueue = [];
-  this.speakAndWrite(app.Utils.getTranslation(this.container, 'quickdraw-machine-know'), word);
+  this.speakAndWrite(app.Utils.getTranslation(this.container, 'quickdraw-machine-know'),
+      app.Utils.getItemTranslation(this.container, word));
   setTimeout(function() {
     if (this.guessesQueue.length == 0) {
         this.setText('...');
@@ -105,7 +107,7 @@ app.view.MachineView.prototype.readNextGuess = function(first) {
 
   //Set text
   var textSentenceA = app.Utils.getTranslation(this.container, 'quickdraw-machine-see');
-  var textSentenceB = next;
+  var textSentenceB = app.Utils.getItemTranslation(this.container, next);
   this.setText(textSentenceA, textSentenceB);
 
   //Set speaking text and speak

@@ -27,10 +27,20 @@ Utils.prototype.capitalize = function(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+Utils.prototype.getItemTranslation = function(container, item) {
+  var key = 'speedsketch_item_' + item.replace(/\s+/g, '-');
+  return this.getTranslation(container, key);
+};
+
 Utils.prototype.getTranslation = function(container, key, variable, varValue) {
   var variable = variable || null;
   var varValue = varValue || null;
   var msg = this.getMsgOrNull(container, key, variable, varValue);
+
+  // if (msg === null) {
+  //   console.log('MISSING:', key);
+  // }
+
   return msg === null ? '[Unknown message: ' + key + ']' : msg;
 };
 

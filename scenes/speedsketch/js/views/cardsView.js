@@ -75,7 +75,8 @@ app.view.CardsView.prototype.hideCard = function(card, cb) {
 app.view.CardsView.prototype.showNewRoundCard = function(options) {
   this.showCard(this.newround_card);
 
-  this.newround_card.find('.slate__big-text').text(app.Utils.capitalize(options.word));
+  var word = app.Utils.getItemTranslation(this.container, options.word);
+  this.newround_card.find('.slate__big-text').text(app.Utils.capitalize(word));
   this.newround_card.find('.newround-card__current-round').text(options.level);
   this.newround_card.find('.newround-card__total-rounds').text(app.Constants.TOTAL_LEVELS);
 
@@ -171,7 +172,9 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   //Section 1
   this.round_detail_card
     .find('.rounddetails-card__title')
-    .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-title', 'word', round.word));
+    .text(app.Utils.getTranslation(this.container,
+        'quickdraw-rounddetails-title', 'word',
+        app.Utils.getItemTranslation(this.container, round.word)));
   var drawingElem = this.round_detail_card.find('.rounddetails-card__drawing--user');
   var svg = app.SVGUtils.createSvgFromSegments(round.drawing, drawingElem.width(), drawingElem.width() * 0.736, {padding: 25, color: 'rgba(0,0,0,1.00)'});
   drawingElem.html('');
@@ -182,7 +185,9 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   var filename = round.word.replace(/\s+/g, '-').toLowerCase();
   this.round_detail_card
   .find('.rounddetails-card__santa-title')
-  .text(app.Utils.getTranslation(this.container, 'quickdraw-rounddetails-santa-version', 'word', round.word));
+  .text(app.Utils.getTranslation(this.container,
+      'quickdraw-rounddetails-santa-version', 'word',
+      app.Utils.getItemTranslation(this.container, round.word)));
   var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa .rounddetails-card__drawing-inner');
   santaElem.css('background-image', "url('" + this.importPath + "img/drawings/" + filename + ".svg')");
 
@@ -238,7 +243,8 @@ app.view.CardsView.prototype.fetchAndShowDrawingNeighbors = function(round) {
 
             // Set Text
             var textElem = elem.find('p');
-            textElem.text(neighbors[i].word);
+            textElem.text(app.Utils.getItemTranslation(this.container,
+                neighbors[i].word));
 
             // Set Reference Element
             var referenceElem = elem.find('.rounddetails-card__similar-drawing-reference');
