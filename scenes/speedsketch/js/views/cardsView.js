@@ -120,13 +120,8 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
     $sublineElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-subline-guess', 'roundsRecognized', roundsRecognized));
   }
 
-  // GET WIDTH AND HEIGHT
-  var modelElem = $('<div>')
-  .addClass('timesup-card__drawing');
-  $drawingsWrapper.append(modelElem);
-  var modelWidth = modelElem.outerWidth();
-  var modelHeight = modelElem.outerHeight();
-  modelElem.remove();
+  var modelWidth = 300;
+  var modelHeight = 225;
 
   rounds.forEach(function(round) {
     $drawingsWrapper.append(this.createDrawingElem(round, modelWidth, modelHeight));

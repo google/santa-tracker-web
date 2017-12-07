@@ -28,6 +28,7 @@
       width: 90%;
 
       @media (max-width: $mobile-breakpoint) {
+        display: block;
         flex-wrap: wrap;
         overflow: hidden;
         width: 100%;
@@ -49,7 +50,7 @@
 
       @media (max-width: $mobile-breakpoint) {
         height: 0;
-        margin: 10px 0;
+        margin: 30px 0;
         padding-bottom: 73.6%;
         width: calc(100% - 10px);
       }
@@ -77,14 +78,14 @@
       }
 
       > svg {
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
         margin: 10px;
 
         @media (max-width: $mobile-breakpoint) {
-          height: calc(100% - 20px) !important;
           left: 0;
           position: absolute;
           top: 0;
-          width: calc(100% - 20px) !important;
         }
       }
     }
