@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "I Frankrike brukar barnen ställa sina skor bredvid öppna spisen i väntan på Père Noëls ankomst. Om barnen har varit snälla under året fyller Père Noël skorna med klappar."
 	},
+	"fullscreen": {
+		"message": "Helskärm"
+	},
 	"ga_country_name": {
 		"message": "Gabon"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauretanien"
 	},
+	"mute": {
+		"message": "Dölj"
+	},
 	"mw_country_name": {
 		"message": "Malawi"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "Pausa"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1116,7 +1125,7 @@
 		"message": "Teckna"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor är tomtens maskininlärningsrobot som hjälper honom att snabbt dechiffrera breven som han får från barn över hela världen. Du kan hjälpa Tensor att öva genom att rita en teckning av varje ord på skärmen så berättar han vad han ser. Ju mer du ritar, desto smartare blir Tensor, så låt oss hjälpa tomten att bli effektivare än någonsin under den här julen!"
+		"message": "Tensor är tomtens maskininlärningsrobot som hjälper honom att snabbt dechiffrera breven som han får från barn över hela världen. Du kan hjälpa Tensor att öva genom att rita en teckning av varje ord på skärmen så berättar den vad den ser. Ju mer du ritar, desto smartare blir Tensor, så låt oss hjälpa tomten att bli effektivare än någonsin under den här julen!"
 	},
 	"quickdraw-splashview-title": {
 		"message": "Hjälp Tensor öva på sin bildigenkänningsförmåga!"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Schweiz"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Eiffeltornet"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Kinesiska muren"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstrakt konst"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "hangarfartyg"
+	},
+	"speedsketch_item~airplane": {
+		"message": "flygplan"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "väckarklocka"
+	},
+	"speedsketch_item~alien": {
+		"message": "alien"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulans"
+	},
+	"speedsketch_item~angel": {
+		"message": "ängel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "djurmigration"
+	},
+	"speedsketch_item~ant": {
+		"message": "myra"
+	},
+	"speedsketch_item~anvil": {
+		"message": "städ"
+	},
+	"speedsketch_item~apple": {
+		"message": "äpple"
+	},
+	"speedsketch_item~arm": {
+		"message": "arm"
+	},
+	"speedsketch_item~arrow": {
+		"message": "pil"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "sparris"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "ljudkassett"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokado"
+	},
+	"speedsketch_item~axe": {
+		"message": "yxa"
+	},
+	"speedsketch_item~baby": {
+		"message": "baby"
+	},
+	"speedsketch_item~backpack": {
+		"message": "ryggsäck"
+	},
+	"speedsketch_item~banana": {
+		"message": "banan"
+	},
+	"speedsketch_item~bandage": {
+		"message": "bandage"
+	},
+	"speedsketch_item~barn": {
+		"message": "lada"
+	},
+	"speedsketch_item~baseball": {
+		"message": "baseboll"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "basebollträ"
+	},
+	"speedsketch_item~basket": {
+		"message": "korg"
+	},
+	"speedsketch_item~basketball": {
+		"message": "basket"
+	},
+	"speedsketch_item~bat": {
+		"message": "fladdermus"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "badkar"
+	},
+	"speedsketch_item~beach": {
+		"message": "strand"
+	},
+	"speedsketch_item~bear": {
+		"message": "björn"
+	},
+	"speedsketch_item~beard": {
+		"message": "skägg"
+	},
+	"speedsketch_item~bed": {
+		"message": "säng"
+	},
+	"speedsketch_item~bee": {
+		"message": "bi"
+	},
+	"speedsketch_item~belt": {
+		"message": "bälte"
+	},
+	"speedsketch_item~bench": {
+		"message": "bänk"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "cykel"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "kikare"
+	},
+	"speedsketch_item~bird": {
+		"message": "fågel"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "födelsedagstårta"
+	},
+	"speedsketch_item~black": {
+		"message": "svart"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "björnbär"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "blåbär"
+	},
+	"speedsketch_item~book": {
+		"message": "bok"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "starta"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "kapsyl"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "rosett"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "armband"
+	},
+	"speedsketch_item~brain": {
+		"message": "hjärna"
+	},
+	"speedsketch_item~bread": {
+		"message": "bröd"
+	},
+	"speedsketch_item~bridge": {
+		"message": "bro"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "broccoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "kvast"
+	},
+	"speedsketch_item~bubble": {
+		"message": "bubbla"
+	},
+	"speedsketch_item~bucket": {
+		"message": "hink"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "bulldozer"
+	},
+	"speedsketch_item~bus": {
+		"message": "buss"
+	},
+	"speedsketch_item~bush": {
+		"message": "buske"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "fjäril"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "tårta"
+	},
+	"speedsketch_item~calculator": {
+		"message": "kalkylator"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalender"
+	},
+	"speedsketch_item~camel": {
+		"message": "kamel"
+	},
+	"speedsketch_item~camera": {
+		"message": "kamera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "kamouflage"
+	},
+	"speedsketch_item~campfire": {
+		"message": "lägereld"
+	},
+	"speedsketch_item~candle": {
+		"message": "stearinljus"
+	},
+	"speedsketch_item~candy": {
+		"message": "godis"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "godisklubba"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kanot"
+	},
+	"speedsketch_item~car": {
+		"message": "bil"
+	},
+	"speedsketch_item~carrot": {
+		"message": "morot"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "tecknat"
+	},
+	"speedsketch_item~castle": {
+		"message": "slott"
+	},
+	"speedsketch_item~cat": {
+		"message": "katt"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "takfläkt"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobiltelefon"
+	},
+	"speedsketch_item~cello": {
+		"message": "cello"
+	},
+	"speedsketch_item~chair": {
+		"message": "stol"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "ljusstake"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "kemi"
+	},
+	"speedsketch_item~cherry": {
+		"message": "körsbär"
+	},
+	"speedsketch_item~chicken": {
+		"message": "höna"
+	},
+	"speedsketch_item~child": {
+		"message": "barn"
+	},
+	"speedsketch_item~chimney": {
+		"message": "skorsten"
+	},
+	"speedsketch_item~church": {
+		"message": "kyrka"
+	},
+	"speedsketch_item~circle": {
+		"message": "cirkel"
+	},
+	"speedsketch_item~city": {
+		"message": "stad"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarinett"
+	},
+	"speedsketch_item~clock": {
+		"message": "klocka"
+	},
+	"speedsketch_item~cloud": {
+		"message": "moln"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "majskolv"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "kaffekopp"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompass"
+	},
+	"speedsketch_item~computer": {
+		"message": "dator"
+	},
+	"speedsketch_item~cookie": {
+		"message": "kaka"
+	},
+	"speedsketch_item~cooler": {
+		"message": "kylväska"
+	},
+	"speedsketch_item~couch": {
+		"message": "soffa"
+	},
+	"speedsketch_item~cow": {
+		"message": "ko"
+	},
+	"speedsketch_item~crab": {
+		"message": "krabba"
+	},
+	"speedsketch_item~crayon": {
+		"message": "krita"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodil"
+	},
+	"speedsketch_item~cross": {
+		"message": "kors"
+	},
+	"speedsketch_item~crow": {
+		"message": "kråka"
+	},
+	"speedsketch_item~crown": {
+		"message": "krona"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "kryssningsfartyg"
+	},
+	"speedsketch_item~cube": {
+		"message": "kub"
+	},
+	"speedsketch_item~cup": {
+		"message": "kopp"
+	},
+	"speedsketch_item~darts": {
+		"message": "dart"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "diamantring"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "diskmaskin"
+	},
+	"speedsketch_item~diving board": {
+		"message": "trampolin"
+	},
+	"speedsketch_item~dog": {
+		"message": "hund"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfin"
+	},
+	"speedsketch_item~donut": {
+		"message": "munk"
+	},
+	"speedsketch_item~door": {
+		"message": "dörr"
+	},
+	"speedsketch_item~dragon": {
+		"message": "drake"
+	},
+	"speedsketch_item~dresser": {
+		"message": "byrå"
+	},
+	"speedsketch_item~drill": {
+		"message": "borr"
+	},
+	"speedsketch_item~drums": {
+		"message": "trummor"
+	},
+	"speedsketch_item~duck": {
+		"message": "anka"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "hantel"
+	},
+	"speedsketch_item~ear": {
+		"message": "öra"
+	},
+	"speedsketch_item~egg": {
+		"message": "ägg"
+	},
+	"speedsketch_item~elbow": {
+		"message": "armbåge"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elefant"
+	},
+	"speedsketch_item~elf": {
+		"message": "tomtenisse"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "kuvert"
+	},
+	"speedsketch_item~eraser": {
+		"message": "suddgummi"
+	},
+	"speedsketch_item~eye": {
+		"message": "öga"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "glasögon"
+	},
+	"speedsketch_item~face": {
+		"message": "ansikte"
+	},
+	"speedsketch_item~family": {
+		"message": "familj"
+	},
+	"speedsketch_item~fan": {
+		"message": "fläkt"
+	},
+	"speedsketch_item~feather": {
+		"message": "fjäder"
+	},
+	"speedsketch_item~fence": {
+		"message": "staket"
+	},
+	"speedsketch_item~finger": {
+		"message": "finger"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "brandpost"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "eldstad"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "brandbil"
+	},
+	"speedsketch_item~fish": {
+		"message": "fisk"
+	},
+	"speedsketch_item~flag": {
+		"message": "flagga"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "ficklampa"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "flip-flops"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "golvlampa"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "diskett"
+	},
+	"speedsketch_item~flower": {
+		"message": "blomma"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "flygande tefat"
+	},
+	"speedsketch_item~fog": {
+		"message": "dimma"
+	},
+	"speedsketch_item~foot": {
+		"message": "fot"
+	},
+	"speedsketch_item~fork": {
+		"message": "gaffel"
+	},
+	"speedsketch_item~french fries": {
+		"message": "pommes frites"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "stekt ägg"
+	},
+	"speedsketch_item~frog": {
+		"message": "groda"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "stekpanna"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galax"
+	},
+	"speedsketch_item~garden": {
+		"message": "trädgård"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "trädgårdsslang"
+	},
+	"speedsketch_item~ghost": {
+		"message": "spöke"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "pepparkaksgubbe"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "giraff"
+	},
+	"speedsketch_item~goat": {
+		"message": "get"
+	},
+	"speedsketch_item~goatee": {
+		"message": "bockskägg"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfklubba"
+	},
+	"speedsketch_item~grapes": {
+		"message": "vindruvor"
+	},
+	"speedsketch_item~grass": {
+		"message": "gräs"
+	},
+	"speedsketch_item~group": {
+		"message": "grupp"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gitarr"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburgare"
+	},
+	"speedsketch_item~hammer": {
+		"message": "hammare"
+	},
+	"speedsketch_item~hand": {
+		"message": "hand"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "hänga gubbe, spel"
+	},
+	"speedsketch_item~happiness": {
+		"message": "lycka"
+	},
+	"speedsketch_item~harp": {
+		"message": "harpa"
+	},
+	"speedsketch_item~hat": {
+		"message": "hatt"
+	},
+	"speedsketch_item~headphones": {
+		"message": "hörlurar"
+	},
+	"speedsketch_item~heart": {
+		"message": "hjärta"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "igelkott"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "hjälm"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "sexhörning"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hockeypuck"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hockeyklubba"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "juleljus"
+	},
+	"speedsketch_item~horse": {
+		"message": "häst"
+	},
+	"speedsketch_item~hospital": {
+		"message": "sjukhus"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "luftballong"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "varmkorv"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "badkar"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "timglas"
+	},
+	"speedsketch_item~house": {
+		"message": "hus"
+	},
+	"speedsketch_item~house plant": {
+		"message": "krukväxt"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "orkan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "glass"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "skridskoåkare"
+	},
+	"speedsketch_item~infinity": {
+		"message": "oändligt"
+	},
+	"speedsketch_item~island": {
+		"message": "ö"
+	},
+	"speedsketch_item~italy": {
+		"message": "italien"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jacka"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "jetpack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Bjällerklang"
+	},
+	"speedsketch_item~kale": {
+		"message": "grönkål"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "känguru"
+	},
+	"speedsketch_item~key": {
+		"message": "nyckel"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "tangentbord"
+	},
+	"speedsketch_item~kite": {
+		"message": "drake"
+	},
+	"speedsketch_item~knee": {
+		"message": "knä"
+	},
+	"speedsketch_item~knife": {
+		"message": "kniv"
+	},
+	"speedsketch_item~knot": {
+		"message": "knut"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "stege"
+	},
+	"speedsketch_item~landscape": {
+		"message": "landskap"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lykta"
+	},
+	"speedsketch_item~laptop": {
+		"message": "bärbar dator"
+	},
+	"speedsketch_item~leaf": {
+		"message": "löv"
+	},
+	"speedsketch_item~leg": {
+		"message": "ben"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "glödlampa"
+	},
+	"speedsketch_item~lighter": {
+		"message": "tändare"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "fyr"
+	},
+	"speedsketch_item~lightning": {
+		"message": "blixt"
+	},
+	"speedsketch_item~line": {
+		"message": "linje"
+	},
+	"speedsketch_item~lion": {
+		"message": "lejon"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "läppstift"
+	},
+	"speedsketch_item~lobster": {
+		"message": "hummer"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "slickepinne"
+	},
+	"speedsketch_item~love": {
+		"message": "gilla"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "postlåda"
+	},
+	"speedsketch_item~man": {
+		"message": "man"
+	},
+	"speedsketch_item~map": {
+		"message": "karta"
+	},
+	"speedsketch_item~marker": {
+		"message": "märkpenna"
+	},
+	"speedsketch_item~matches": {
+		"message": "tändstickor"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematik"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "sjöjungfru"
+	},
+	"speedsketch_item~metal": {
+		"message": "metall"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroskop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikrovågsugn"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "mistel"
+	},
+	"speedsketch_item~mittens": {
+		"message": "vantar"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekyl"
+	},
+	"speedsketch_item~money": {
+		"message": "pengar"
+	},
+	"speedsketch_item~monkey": {
+		"message": "apa"
+	},
+	"speedsketch_item~moon": {
+		"message": "måne"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "mygga"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motorcykel"
+	},
+	"speedsketch_item~mountain": {
+		"message": "berg"
+	},
+	"speedsketch_item~mouse": {
+		"message": "mus"
+	},
+	"speedsketch_item~moustache": {
+		"message": "mustasch"
+	},
+	"speedsketch_item~mouth": {
+		"message": "mun"
+	},
+	"speedsketch_item~mug": {
+		"message": "mugg"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "svamp"
+	},
+	"speedsketch_item~music": {
+		"message": "musik"
+	},
+	"speedsketch_item~nail": {
+		"message": "spik"
+	},
+	"speedsketch_item~nature": {
+		"message": "natur"
+	},
+	"speedsketch_item~necklace": {
+		"message": "halsband"
+	},
+	"speedsketch_item~news": {
+		"message": "nyheter"
+	},
+	"speedsketch_item~nose": {
+		"message": "näsa"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "nötknäppare"
+	},
+	"speedsketch_item~ocean": {
+		"message": "ocean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "åtthörning"
+	},
+	"speedsketch_item~octopus": {
+		"message": "bläckfisk"
+	},
+	"speedsketch_item~onion": {
+		"message": "lök"
+	},
+	"speedsketch_item~ornament": {
+		"message": "prydnadsföremål"
+	},
+	"speedsketch_item~oven": {
+		"message": "ugn"
+	},
+	"speedsketch_item~owl": {
+		"message": "uggla"
+	},
+	"speedsketch_item~paint can": {
+		"message": "färgburk"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "pensel"
+	},
+	"speedsketch_item~painting": {
+		"message": "målning"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palm"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "byxor"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "gem"
+	},
+	"speedsketch_item~parachute": {
+		"message": "fallskärm"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papegoja"
+	},
+	"speedsketch_item~passport": {
+		"message": "pass"
+	},
+	"speedsketch_item~peanut": {
+		"message": "jordnöt"
+	},
+	"speedsketch_item~pear": {
+		"message": "päron"
+	},
+	"speedsketch_item~peas": {
+		"message": "ärtor"
+	},
+	"speedsketch_item~pencil": {
+		"message": "penna"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pingvin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "pepparmynta"
+	},
+	"speedsketch_item~piano": {
+		"message": "piano"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "pickup"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "tavelram"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "cirkeldiagram"
+	},
+	"speedsketch_item~pig": {
+		"message": "gris"
+	},
+	"speedsketch_item~pillow": {
+		"message": "kudde"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ping pong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirat"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "tång"
+	},
+	"speedsketch_item~police car": {
+		"message": "polisbil"
+	},
+	"speedsketch_item~politician": {
+		"message": "politiker"
+	},
+	"speedsketch_item~pond": {
+		"message": "damm"
+	},
+	"speedsketch_item~pool": {
+		"message": "pool"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "glasspinne"
+	},
+	"speedsketch_item~portrait": {
+		"message": "porträtt"
+	},
+	"speedsketch_item~postcard": {
+		"message": "vykort"
+	},
+	"speedsketch_item~potato": {
+		"message": "potatis"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "vägguttag"
+	},
+	"speedsketch_item~present": {
+		"message": "present"
+	},
+	"speedsketch_item~prison": {
+		"message": "fängelse"
+	},
+	"speedsketch_item~purse": {
+		"message": "handväska"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "pussel"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "hare"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "tvättbjörn"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "regn"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "regnbåge"
+	},
+	"speedsketch_item~rake": {
+		"message": "kratta"
+	},
+	"speedsketch_item~raven": {
+		"message": "korp"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "ren"
+	},
+	"speedsketch_item~remote control": {
+		"message": "fjärrkontroll"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "noshörning"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "band"
+	},
+	"speedsketch_item~river": {
+		"message": "flod"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "berg- och dalbana"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "rullskridskor"
+	},
+	"speedsketch_item~sadness": {
+		"message": "sorg"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "segelbåt"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "smörgås"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Jultomten"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturnus"
+	},
+	"speedsketch_item~sausage": {
+		"message": "korv"
+	},
+	"speedsketch_item~saw": {
+		"message": "såg"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "skolbuss"
+	},
+	"speedsketch_item~scissors": {
+		"message": "sax"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "skorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "skruv"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "skruvmejsel"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "skulptur"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "sköldpadda"
+	},
+	"speedsketch_item~see saw": {
+		"message": "gungbräda"
+	},
+	"speedsketch_item~shark": {
+		"message": "haj"
+	},
+	"speedsketch_item~sheep": {
+		"message": "får"
+	},
+	"speedsketch_item~shoe": {
+		"message": "sko"
+	},
+	"speedsketch_item~shorts": {
+		"message": "kortbyxor"
+	},
+	"speedsketch_item~shovel": {
+		"message": "skyffel"
+	},
+	"speedsketch_item~sink": {
+		"message": "handfat"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "skida"
+	},
+	"speedsketch_item~skier": {
+		"message": "skidåkare"
+	},
+	"speedsketch_item~skirt": {
+		"message": "kjol"
+	},
+	"speedsketch_item~skull": {
+		"message": "skalle"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "skyskrapa"
+	},
+	"speedsketch_item~sled": {
+		"message": "kälke"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "sovsäck"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "släde"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "smiley"
+	},
+	"speedsketch_item~snail": {
+		"message": "snigel"
+	},
+	"speedsketch_item~snake": {
+		"message": "orm"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorkel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "snöflinga"
+	},
+	"speedsketch_item~snowman": {
+		"message": "snögubbe"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "fotboll"
+	},
+	"speedsketch_item~sock": {
+		"message": "strumpa"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "racerbåt"
+	},
+	"speedsketch_item~sphere": {
+		"message": "klot"
+	},
+	"speedsketch_item~spider": {
+		"message": "spindel"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spiral"
+	},
+	"speedsketch_item~spoon": {
+		"message": "sked"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "kalkylark"
+	},
+	"speedsketch_item~square": {
+		"message": "kvadrat"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "krumelur"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "ekorre"
+	},
+	"speedsketch_item~stairs": {
+		"message": "trappa"
+	},
+	"speedsketch_item~star": {
+		"message": "stjärna"
+	},
+	"speedsketch_item~steak": {
+		"message": "biff"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoskop"
+	},
+	"speedsketch_item~still life": {
+		"message": "stilleben"
+	},
+	"speedsketch_item~stitches": {
+		"message": "stygn"
+	},
+	"speedsketch_item~stock market": {
+		"message": "börsen"
+	},
+	"speedsketch_item~stocking": {
+		"message": "strumpa"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stoppskylt"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stoppur"
+	},
+	"speedsketch_item~stove": {
+		"message": "spis"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "jordgubbe"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "gatlykta"
+	},
+	"speedsketch_item~string bean": {
+		"message": "grön böna"
+	},
+	"speedsketch_item~submarine": {
+		"message": "ubåt"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "resväska"
+	},
+	"speedsketch_item~sun": {
+		"message": "sol"
+	},
+	"speedsketch_item~sunset": {
+		"message": "solnedgång"
+	},
+	"speedsketch_item~swan": {
+		"message": "svan"
+	},
+	"speedsketch_item~sweater": {
+		"message": "tröja"
+	},
+	"speedsketch_item~swing set": {
+		"message": "gungställning"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "t-shirt"
+	},
+	"speedsketch_item~table": {
+		"message": "bord"
+	},
+	"speedsketch_item~teapot": {
+		"message": "tekanna"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "teddybjörn"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "TV"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tennisracket"
+	},
+	"speedsketch_item~tent": {
+		"message": "tält"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "luffarschack, spel"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tiger"
+	},
+	"speedsketch_item~time": {
+		"message": "tid"
+	},
+	"speedsketch_item~toaster": {
+		"message": "brödrost"
+	},
+	"speedsketch_item~toe": {
+		"message": "tå"
+	},
+	"speedsketch_item~toilet": {
+		"message": "toalett"
+	},
+	"speedsketch_item~tooth": {
+		"message": "tand"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "tandborste"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "tandkräm"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "trafikljus"
+	},
+	"speedsketch_item~train": {
+		"message": "tåg"
+	},
+	"speedsketch_item~tree": {
+		"message": "träd"
+	},
+	"speedsketch_item~triangle": {
+		"message": "triangel"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "trehjuling"
+	},
+	"speedsketch_item~trolley": {
+		"message": "vagn"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombon"
+	},
+	"speedsketch_item~trousers": {
+		"message": "byxor"
+	},
+	"speedsketch_item~truck": {
+		"message": "lastbil"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trumpet"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "paraply"
+	},
+	"speedsketch_item~underwear": {
+		"message": "underkläder"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "enhörning"
+	},
+	"speedsketch_item~universe": {
+		"message": "universum"
+	},
+	"speedsketch_item~van": {
+		"message": "skåpbil"
+	},
+	"speedsketch_item~vase": {
+		"message": "vas"
+	},
+	"speedsketch_item~violin": {
+		"message": "fiol"
+	},
+	"speedsketch_item~walnut": {
+		"message": "valnöt"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "tvättmaskin"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "vattenmelon"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "vattenrutschbana"
+	},
+	"speedsketch_item~wave": {
+		"message": "våg"
+	},
+	"speedsketch_item~whale": {
+		"message": "val"
+	},
+	"speedsketch_item~wheel": {
+		"message": "hjul"
+	},
+	"speedsketch_item~windmill": {
+		"message": "väderkvarn"
+	},
+	"speedsketch_item~woman": {
+		"message": "kvinna"
+	},
+	"speedsketch_item~world": {
+		"message": "världen"
+	},
+	"speedsketch_item~wreath": {
+		"message": "girland"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "armbandsur"
+	},
+	"speedsketch_item~yoga": {
+		"message": "yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "yoghurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "sicksack"
+	},
+	"speedsketch_item~zipper": {
+		"message": "dragkedja"
 	},
 	"sr_country_name": {
 		"message": "Surinam"
@@ -5244,7 +6624,10 @@
 		"message": "Storbritannien"
 	},
 	"uk_tradition": {
-		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker och godis att njuta av under julkvällen."
+		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker, skämtgrejer och priser att njuta av under julkvällen."
+	},
+	"unmute": {
+		"message": "Visa"
 	},
 	"upgrade-warning": {
 		"message": "Hoppsan! Följ jultomten stöds inte i den här versionen av din webbläsare. Hämta en modern webbläsare för att använda Följ jultomten. Mer information finns på \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Lägg till på startsidan"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Lägg till på hylla"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Lägg till på skrivbord"
 	},
 	"village_santa_cardboard": {
 		"message": "Jultomten på Cardboard"

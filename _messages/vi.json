@@ -30,7 +30,7 @@
 		"message": "Argentina"
 	},
 	"ar_language_name": {
-		"message": "Arabic"
+		"message": "Tiếng Ả Rập"
 	},
 	"ar_tradition": {
 		"message": "Ở Argentina, Giáng sinh bắt đầu đúng vào lúc nửa đêm. Nhiều gia đình bắt đầu kỳ nghỉ bằng cách tổ chức lễ hội kỷ niệm trong nhà của mình, mở quà tặng với những người thân yêu và đốt pháo hoa trong những giờ đầu của ngày mới."
@@ -75,7 +75,7 @@
 		"message": "Braxin"
 	},
 	"br_tradition": {
-		"message": "Lễ Giáng sinh bắt đầu lúc nửa đêm, thường với bữa ăn tối của đại gia đình, mở quà tặng và tham dự nghi lễ 'Missa do Galo' (thánh lễ nửa đêm) trong nhà thờ. Mặc dù thời tiết mùa hè nhiệt đới ấm áp, nhưng chủ đề về mùa đông và tuyết là phổ biến."
+		"message": "Lễ Giáng sinh bắt đầu vào khoảng nửa đêm, thường với một bữa ăn tối thịnh soạn cùng gia đình, mở quà tặng và tham dự nghi lễ 'Missa do Galo' (thánh lễ nửa đêm) trong nhà thờ. Mặc dù vào thời điểm này thời tiết đang là mùa hè nhiệt đới ấm áp, nhưng chủ đề về mùa đông và tuyết là phổ biến."
 	},
 	"bt_country_name": {
 		"message": "Bhutan"
@@ -591,7 +591,7 @@
 		"message": "Người Phần Lan tin rằng ông già Noel \"Joulupukki\" sống ở phía bắc của đất nước, chính xác là Korvatunturi. Nếu bạn đến đây, bạn có thể tìm thấy xưởng sản xuất đồ chơi bí mật của ông già Noel với các chú lùn đang chăm chỉ làm việc. Hoặc bạn có thể bắt gặp những chú tuần lộc lang thang trong rừng thông."
 	},
 	"finished-text": {
-		"message": "Chúc ngày lễ vui vẻ! Ông già Noel đã hoàn thành cuộc hành trình vòng quanh thế giới của mình và xứng đáng được nghỉ ngơi. Hãy ghé thăm chúng tôi lại vào năm sau!"
+		"message": "Chúc mừng Giáng sinh! Ông già Noel đã hoàn thành cuộc hành trình vòng quanh thế giới của mình và xứng đáng được nghỉ ngơi. Hãy ghé thăm chúng tôi lại vào năm sau nhé!"
 	},
 	"fr_country_name": {
 		"message": "Pháp"
@@ -601,6 +601,9 @@
 	},
 	"fr_tradition": {
 		"message": "Ở Pháp, theo truyền thống, trẻ em đặt giày của chúng bên cạnh lò sưởi để mong đợi ông già Noel sẽ đến. Nếu trẻ em làm điều tốt trong suốt cả năm, thì ông già Noel sẽ nhét đầy quà vào những đôi giày của chúng."
+	},
+	"fullscreen": {
+		"message": "Toàn màn hình"
 	},
 	"ga_country_name": {
 		"message": "Gabon"
@@ -666,7 +669,7 @@
 		"message": "Honduras"
 	},
 	"holiday_message_0": {
-		"message": "Nghỉ lễ vui vẻ!"
+		"message": "Chúc Giáng sinh vui vẻ!"
 	},
 	"holiday_message_1": {
 		"message": "Lời chúc ngày lễ!"
@@ -817,6 +820,9 @@
 	},
 	"mr_country_name": {
 		"message": "Mauritania"
+	},
+	"mute": {
+		"message": "Tắt tiếng"
 	},
 	"mw_country_name": {
 		"message": "Malawi"
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "Tạm dừng"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1035,10 +1044,10 @@
 		"message": "Papua New Guinea"
 	},
 	"ph_country_name": {
-		"message": "Philipin"
+		"message": "Philippines"
 	},
 	"ph_tradition": {
-		"message": "Người Philipin nổi tiếng với mùa Giáng sinh dài nhất thế giới. Bốn tháng được coi là tháng Giáng sinh: tháng 9, tháng 10, tháng 11, tháng 12. Đôi khi, người ta nghe thấy bài hát mừng Giáng sinh vào đầu tháng 9."
+		"message": "Người Philippines nổi tiếng với mùa Giáng sinh dài nhất thế giới. Bốn tháng được coi là tháng Giáng sinh: tháng 9, tháng 10, tháng 11, tháng 12. Đôi khi, người ta nghe thấy bài hát mừng Giáng sinh vào đầu tháng 9."
 	},
 	"pl_country_name": {
 		"message": "Ba Lan"
@@ -1116,10 +1125,10 @@
 		"message": "Vẽ"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor là rô bốt Máy học của ông già Noel giúp ông giải mã nhanh các bức thư nhận được từ trẻ em trên khắp thế giới. Để giúp Tensor thực hành, hãy vẽ một bức tranh cho mỗi từ vựng về kỳ nghỉ lễ trên màn hình. Sau đó, Tensor sẽ nói cho bạn biết những gì Tensor nhìn thấy. Bạn càng vẽ nhiều thì Tensor càng thông minh. Hãy cùng giúp ông già Noel làm việc hiệu quả hơn bao giờ hết vào mùa lễ này nhé!"
+		"message": "Tensor là rô bốt Máy học của ông già Noel giúp ông nhanh chóng giải mã các bức thư nhận được từ trẻ em trên khắp thế giới. Để giúp Tensor luyện tập, hãy vẽ một bức tranh mô tả mỗi từ vựng về Lễ Giáng sinh trên màn hình. Sau đó, Tensor sẽ nói cho bạn biết những gì Tensor nhìn thấy. Bạn càng vẽ nhiều thì Tensor càng thông minh. Hãy cùng giúp ông già Noel làm việc hiệu quả hơn bao giờ hết vào mùa Giáng sinh này nhé!"
 	},
 	"quickdraw-splashview-title": {
-		"message": "Hãy giúp Tensor thực hành khả năng nhận dạng hình ảnh nhé!"
+		"message": "Hãy giúp Tensor luyện tập khả năng nhận dạng hình ảnh!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor đã nhận ra {{recognized}} bức tranh của bạn."
@@ -1392,10 +1401,10 @@
 		"message": "Chọn ngôn ngữ"
 	},
 	"share-button": {
-		"message": "Chia sẻ với bạn bè của bạn trên Google+"
+		"message": "Chia sẻ với bạn bè trên Google+"
 	},
 	"share-text": {
-		"message": "Tôi đã tạo bưu thiếp này cho bạn trong Google Theo chân ông già Noel. Chúc ngày lễ vui vẻ!"
+		"message": "Tôi đã tạo bưu thiếp này trong Google Theo chân ông già Noel. Chúc bạn Giáng sinh vui vẻ nhé!"
 	},
 	"share-this": {
 		"message": "Chia sẻ"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somali"
+	},
+	"speedsketch_item~London": {
+		"message": "Luân Đôn"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Thượng Hải"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Thụy Sĩ"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Tháp Eiffel"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Vạn Lý Trường Thành của Trung Quốc"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "nghệ thuật trừu tượng"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "tàu sân bay"
+	},
+	"speedsketch_item~airplane": {
+		"message": "máy bay"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "đồng hồ báo thức"
+	},
+	"speedsketch_item~alien": {
+		"message": "người ngoài hành tinh"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "xe cứu thương"
+	},
+	"speedsketch_item~angel": {
+		"message": "thiên thần"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "động vật di cư"
+	},
+	"speedsketch_item~ant": {
+		"message": "con kiến"
+	},
+	"speedsketch_item~anvil": {
+		"message": "cái đe"
+	},
+	"speedsketch_item~apple": {
+		"message": "quả táo"
+	},
+	"speedsketch_item~arm": {
+		"message": "cánh tay"
+	},
+	"speedsketch_item~arrow": {
+		"message": "mũi tên"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "măng tây"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "phi hành gia"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "băng cát xét"
+	},
+	"speedsketch_item~avocado": {
+		"message": "trái bơ"
+	},
+	"speedsketch_item~axe": {
+		"message": "cái rìu"
+	},
+	"speedsketch_item~baby": {
+		"message": "em bé"
+	},
+	"speedsketch_item~backpack": {
+		"message": "ba lô"
+	},
+	"speedsketch_item~banana": {
+		"message": "quả chuối"
+	},
+	"speedsketch_item~bandage": {
+		"message": "băng gạc"
+	},
+	"speedsketch_item~barn": {
+		"message": "chuồng ngựa"
+	},
+	"speedsketch_item~baseball": {
+		"message": "bóng chày"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "gậy bóng chày"
+	},
+	"speedsketch_item~basket": {
+		"message": "cái rổ"
+	},
+	"speedsketch_item~basketball": {
+		"message": "bóng rổ"
+	},
+	"speedsketch_item~bat": {
+		"message": "cái gậy"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "bồn tắm"
+	},
+	"speedsketch_item~beach": {
+		"message": "bãi biển"
+	},
+	"speedsketch_item~bear": {
+		"message": "con gấu"
+	},
+	"speedsketch_item~beard": {
+		"message": "râu"
+	},
+	"speedsketch_item~bed": {
+		"message": "giường"
+	},
+	"speedsketch_item~bee": {
+		"message": "con ong"
+	},
+	"speedsketch_item~belt": {
+		"message": "thắt lưng"
+	},
+	"speedsketch_item~bench": {
+		"message": "ghế băng"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "xe đạp"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "ống nhòm"
+	},
+	"speedsketch_item~bird": {
+		"message": "con chim"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "bánh sinh nhật"
+	},
+	"speedsketch_item~black": {
+		"message": "đen"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "quả mâm xôi"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "quả việt quất"
+	},
+	"speedsketch_item~book": {
+		"message": "sách"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumơrang"
+	},
+	"speedsketch_item~boot": {
+		"message": "giày ống"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "nắp chai"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "nơ con bướm"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "vòng tay"
+	},
+	"speedsketch_item~brain": {
+		"message": "bộ não"
+	},
+	"speedsketch_item~bread": {
+		"message": "bánh mì"
+	},
+	"speedsketch_item~bridge": {
+		"message": "cầu"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "bông cải xanh"
+	},
+	"speedsketch_item~broom": {
+		"message": "cái chổi"
+	},
+	"speedsketch_item~bubble": {
+		"message": "bong bóng"
+	},
+	"speedsketch_item~bucket": {
+		"message": "cái xô"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "xe ủi"
+	},
+	"speedsketch_item~bus": {
+		"message": "xe buýt"
+	},
+	"speedsketch_item~bush": {
+		"message": "bụi cây"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "con bướm"
+	},
+	"speedsketch_item~cactus": {
+		"message": "cây xương rồng"
+	},
+	"speedsketch_item~cake": {
+		"message": "bánh ngọt"
+	},
+	"speedsketch_item~calculator": {
+		"message": "máy tính"
+	},
+	"speedsketch_item~calendar": {
+		"message": "lịch"
+	},
+	"speedsketch_item~camel": {
+		"message": "lạc đà"
+	},
+	"speedsketch_item~camera": {
+		"message": "máy ảnh"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "đồ ngụy trang"
+	},
+	"speedsketch_item~campfire": {
+		"message": "lửa trại"
+	},
+	"speedsketch_item~candle": {
+		"message": "nến"
+	},
+	"speedsketch_item~candy": {
+		"message": "kẹo"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "kẹo gậy"
+	},
+	"speedsketch_item~canoe": {
+		"message": "canô"
+	},
+	"speedsketch_item~car": {
+		"message": "ô tô"
+	},
+	"speedsketch_item~carrot": {
+		"message": "cà rốt"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "hoạt hình"
+	},
+	"speedsketch_item~castle": {
+		"message": "lâu đài"
+	},
+	"speedsketch_item~cat": {
+		"message": "con mèo"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "quạt trần"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "điện thoại di động"
+	},
+	"speedsketch_item~cello": {
+		"message": "đàn xelô"
+	},
+	"speedsketch_item~chair": {
+		"message": "cái ghế"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "đèn treo"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "hóa học"
+	},
+	"speedsketch_item~cherry": {
+		"message": "quả anh đào"
+	},
+	"speedsketch_item~chicken": {
+		"message": "gà con"
+	},
+	"speedsketch_item~child": {
+		"message": "đứa trẻ"
+	},
+	"speedsketch_item~chimney": {
+		"message": "ống khói"
+	},
+	"speedsketch_item~church": {
+		"message": "nhà thờ"
+	},
+	"speedsketch_item~circle": {
+		"message": "vòng tròn"
+	},
+	"speedsketch_item~city": {
+		"message": "thành phố"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "kèn clarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "đồng hồ"
+	},
+	"speedsketch_item~cloud": {
+		"message": "đám mây"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "ngô bắp"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "tách cà phê"
+	},
+	"speedsketch_item~compass": {
+		"message": "la bàn"
+	},
+	"speedsketch_item~computer": {
+		"message": "máy tính"
+	},
+	"speedsketch_item~cookie": {
+		"message": "bánh quy"
+	},
+	"speedsketch_item~cooler": {
+		"message": "thùng giữ lạnh"
+	},
+	"speedsketch_item~couch": {
+		"message": "đi văng"
+	},
+	"speedsketch_item~cow": {
+		"message": "con bò cái"
+	},
+	"speedsketch_item~crab": {
+		"message": "con cua"
+	},
+	"speedsketch_item~crayon": {
+		"message": "bút sáp màu"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "con cá sấu"
+	},
+	"speedsketch_item~cross": {
+		"message": "chữ thập"
+	},
+	"speedsketch_item~crow": {
+		"message": "con quạ"
+	},
+	"speedsketch_item~crown": {
+		"message": "vương miện"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "tàu du lịch"
+	},
+	"speedsketch_item~cube": {
+		"message": "hình khối"
+	},
+	"speedsketch_item~cup": {
+		"message": "cái chén"
+	},
+	"speedsketch_item~darts": {
+		"message": "phi tiêu"
+	},
+	"speedsketch_item~diamond": {
+		"message": "kim cương"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "nhẫn kim cương"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "máy rửa bát"
+	},
+	"speedsketch_item~diving board": {
+		"message": "ván nhảy bể bơi"
+	},
+	"speedsketch_item~dog": {
+		"message": "cún con"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "cá heo"
+	},
+	"speedsketch_item~donut": {
+		"message": "bánh rán"
+	},
+	"speedsketch_item~door": {
+		"message": "cái cửa"
+	},
+	"speedsketch_item~dragon": {
+		"message": "con rồng"
+	},
+	"speedsketch_item~dresser": {
+		"message": "tủ quần áo"
+	},
+	"speedsketch_item~drill": {
+		"message": "máy khoan"
+	},
+	"speedsketch_item~drums": {
+		"message": "cái trống"
+	},
+	"speedsketch_item~duck": {
+		"message": "con vịt"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "quả tạ"
+	},
+	"speedsketch_item~ear": {
+		"message": "cái tai"
+	},
+	"speedsketch_item~egg": {
+		"message": "trứng"
+	},
+	"speedsketch_item~elbow": {
+		"message": "khuỷu tay"
+	},
+	"speedsketch_item~elephant": {
+		"message": "con voi"
+	},
+	"speedsketch_item~elf": {
+		"message": "chú lùn"
+	},
+	"speedsketch_item~emoji": {
+		"message": "biểu tượng cảm xúc"
+	},
+	"speedsketch_item~envelope": {
+		"message": "phong bì"
+	},
+	"speedsketch_item~eraser": {
+		"message": "cục tẩy"
+	},
+	"speedsketch_item~eye": {
+		"message": "mắt"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "mắt kính"
+	},
+	"speedsketch_item~face": {
+		"message": "khuôn mặt"
+	},
+	"speedsketch_item~family": {
+		"message": "gia đình"
+	},
+	"speedsketch_item~fan": {
+		"message": "quạt"
+	},
+	"speedsketch_item~feather": {
+		"message": "lông vũ"
+	},
+	"speedsketch_item~fence": {
+		"message": "hàng rào"
+	},
+	"speedsketch_item~finger": {
+		"message": "ngón tay"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "vòi cứu hỏa"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "lò sưởi"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "xe cứu hỏa"
+	},
+	"speedsketch_item~fish": {
+		"message": "cá"
+	},
+	"speedsketch_item~flag": {
+		"message": "gắn cờ"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "chim hồng hạc"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "đèn pin"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "dép tông"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "đèn sàn"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "đĩa mềm"
+	},
+	"speedsketch_item~flower": {
+		"message": "bông hoa"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "đĩa bay"
+	},
+	"speedsketch_item~fog": {
+		"message": "sương mù"
+	},
+	"speedsketch_item~foot": {
+		"message": "bàn chân"
+	},
+	"speedsketch_item~fork": {
+		"message": "cái nĩa"
+	},
+	"speedsketch_item~french fries": {
+		"message": "khoai tây chiên kiểu Pháp"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "trứng chiên"
+	},
+	"speedsketch_item~frog": {
+		"message": "con ếch"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "chảo rán"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "ngân hà"
+	},
+	"speedsketch_item~garden": {
+		"message": "vườn"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "vòi tưới cây"
+	},
+	"speedsketch_item~ghost": {
+		"message": "ma"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "bánh gừng hình người"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "hươu cao cổ"
+	},
+	"speedsketch_item~goat": {
+		"message": "con dê"
+	},
+	"speedsketch_item~goatee": {
+		"message": "con dê"
+	},
+	"speedsketch_item~golf club": {
+		"message": "câu lạc bộ gôn"
+	},
+	"speedsketch_item~grapes": {
+		"message": "chùm nho"
+	},
+	"speedsketch_item~grass": {
+		"message": "cỏ"
+	},
+	"speedsketch_item~group": {
+		"message": "nhóm"
+	},
+	"speedsketch_item~guitar": {
+		"message": "đàn ghi ta"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "bánh hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "cái búa"
+	},
+	"speedsketch_item~hand": {
+		"message": "bàn tay"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "trò chơi người treo cổ"
+	},
+	"speedsketch_item~happiness": {
+		"message": "hạnh phúc"
+	},
+	"speedsketch_item~harp": {
+		"message": "đàn hạc"
+	},
+	"speedsketch_item~hat": {
+		"message": "cái mũ"
+	},
+	"speedsketch_item~headphones": {
+		"message": "tai nghe"
+	},
+	"speedsketch_item~heart": {
+		"message": "trái tim"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "con nhím"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "máy bay trực thăng"
+	},
+	"speedsketch_item~helmet": {
+		"message": "mũ bảo hiểm"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "hình lục giác"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "khúc côn cầu trên băng"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "gậy khúc côn cầu"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "đèn trang trí"
+	},
+	"speedsketch_item~horse": {
+		"message": "con ngựa"
+	},
+	"speedsketch_item~hospital": {
+		"message": "bệnh viện"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "khinh khí cầu"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "bánh mì kẹp xúc xích"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "bồn tắm nước nóng"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "đồng hồ cát"
+	},
+	"speedsketch_item~house": {
+		"message": "ngôi nhà"
+	},
+	"speedsketch_item~house plant": {
+		"message": "cây trồng trong nhà"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "bão tố"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "kem"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "người trượt băng"
+	},
+	"speedsketch_item~infinity": {
+		"message": "vô hạn"
+	},
+	"speedsketch_item~island": {
+		"message": "đảo"
+	},
+	"speedsketch_item~italy": {
+		"message": "ý"
+	},
+	"speedsketch_item~jacket": {
+		"message": "áo khoác"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "động cơ phản lực cá nhân"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jingle Bells"
+	},
+	"speedsketch_item~kale": {
+		"message": "cải xoăn"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "con chuột túi"
+	},
+	"speedsketch_item~key": {
+		"message": "khóa"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "bàn phím"
+	},
+	"speedsketch_item~kite": {
+		"message": "diều"
+	},
+	"speedsketch_item~knee": {
+		"message": "đầu gối"
+	},
+	"speedsketch_item~knife": {
+		"message": "con dao"
+	},
+	"speedsketch_item~knot": {
+		"message": "nút thắt"
+	},
+	"speedsketch_item~koala": {
+		"message": "gấu túi"
+	},
+	"speedsketch_item~ladder": {
+		"message": "cái thang"
+	},
+	"speedsketch_item~landscape": {
+		"message": "phong cảnh"
+	},
+	"speedsketch_item~lantern": {
+		"message": "đèn lồng"
+	},
+	"speedsketch_item~laptop": {
+		"message": "máy tính xách tay"
+	},
+	"speedsketch_item~leaf": {
+		"message": "lá"
+	},
+	"speedsketch_item~leg": {
+		"message": "chân"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "bóng đèn"
+	},
+	"speedsketch_item~lighter": {
+		"message": "cái bật lửa"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "ngọn hải đăng"
+	},
+	"speedsketch_item~lightning": {
+		"message": "tia sét"
+	},
+	"speedsketch_item~line": {
+		"message": "đường kẻ"
+	},
+	"speedsketch_item~lion": {
+		"message": "con sư tử"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "son môi"
+	},
+	"speedsketch_item~lobster": {
+		"message": "con tôm"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "kẹo mút"
+	},
+	"speedsketch_item~love": {
+		"message": "yêu"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "hộp thư"
+	},
+	"speedsketch_item~man": {
+		"message": "đàn ông"
+	},
+	"speedsketch_item~map": {
+		"message": "bản đồ"
+	},
+	"speedsketch_item~marker": {
+		"message": "bút dạ"
+	},
+	"speedsketch_item~matches": {
+		"message": "trận đấu"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "toán học"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "loa"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "người cá"
+	},
+	"speedsketch_item~metal": {
+		"message": "kim loại"
+	},
+	"speedsketch_item~microphone": {
+		"message": "micrô"
+	},
+	"speedsketch_item~microscope": {
+		"message": "kính hiển vi"
+	},
+	"speedsketch_item~microwave": {
+		"message": "lò vi sóng"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "cây tầm gửi"
+	},
+	"speedsketch_item~mittens": {
+		"message": "găng tay hở ngón"
+	},
+	"speedsketch_item~molecule": {
+		"message": "phân tử"
+	},
+	"speedsketch_item~money": {
+		"message": "tiền"
+	},
+	"speedsketch_item~monkey": {
+		"message": "con khỉ"
+	},
+	"speedsketch_item~moon": {
+		"message": "mặt trăng"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "con muỗi"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "xe máy"
+	},
+	"speedsketch_item~mountain": {
+		"message": "ngọn núi"
+	},
+	"speedsketch_item~mouse": {
+		"message": "con chuột"
+	},
+	"speedsketch_item~moustache": {
+		"message": "ria mép"
+	},
+	"speedsketch_item~mouth": {
+		"message": "miệng"
+	},
+	"speedsketch_item~mug": {
+		"message": "cái ca"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "cây nấm"
+	},
+	"speedsketch_item~music": {
+		"message": "âm nhạc"
+	},
+	"speedsketch_item~nail": {
+		"message": "móng tay"
+	},
+	"speedsketch_item~nature": {
+		"message": "thiên nhiên"
+	},
+	"speedsketch_item~necklace": {
+		"message": "vòng cổ"
+	},
+	"speedsketch_item~news": {
+		"message": "tin tức"
+	},
+	"speedsketch_item~nose": {
+		"message": "mũi"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "dụng cụ mở hạt"
+	},
+	"speedsketch_item~ocean": {
+		"message": "đại dương"
+	},
+	"speedsketch_item~octagon": {
+		"message": "hình bát giác"
+	},
+	"speedsketch_item~octopus": {
+		"message": "con bạch tuộc"
+	},
+	"speedsketch_item~onion": {
+		"message": "củ hành"
+	},
+	"speedsketch_item~ornament": {
+		"message": "đồ trang trí"
+	},
+	"speedsketch_item~oven": {
+		"message": "cái lò"
+	},
+	"speedsketch_item~owl": {
+		"message": "con cú"
+	},
+	"speedsketch_item~paint can": {
+		"message": "hộp sơn"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "chổi quét sơn"
+	},
+	"speedsketch_item~painting": {
+		"message": "sơn"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "cây cọ"
+	},
+	"speedsketch_item~panda": {
+		"message": "gấu trúc"
+	},
+	"speedsketch_item~pants": {
+		"message": "quần dài"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "kẹp giấy"
+	},
+	"speedsketch_item~parachute": {
+		"message": "cái dù"
+	},
+	"speedsketch_item~parrot": {
+		"message": "con vẹt"
+	},
+	"speedsketch_item~passport": {
+		"message": "hộ chiếu"
+	},
+	"speedsketch_item~peanut": {
+		"message": "đậu phộng"
+	},
+	"speedsketch_item~pear": {
+		"message": "quả lê"
+	},
+	"speedsketch_item~peas": {
+		"message": "đậu Hà Lan"
+	},
+	"speedsketch_item~pencil": {
+		"message": "bút chì"
+	},
+	"speedsketch_item~penguin": {
+		"message": "chim cánh cụt"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "bạc hà"
+	},
+	"speedsketch_item~piano": {
+		"message": "đàn piano"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "xe tải nhỏ"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "khung ảnh"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "biểu đồ tròn"
+	},
+	"speedsketch_item~pig": {
+		"message": "con lợn"
+	},
+	"speedsketch_item~pillow": {
+		"message": "cái gối"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "quả dứa"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "bóng bàn"
+	},
+	"speedsketch_item~pirate": {
+		"message": "cướp biển"
+	},
+	"speedsketch_item~pizza": {
+		"message": "bánh pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "cái kìm"
+	},
+	"speedsketch_item~police car": {
+		"message": "ô tô cảnh sát"
+	},
+	"speedsketch_item~politician": {
+		"message": "chính trị gia"
+	},
+	"speedsketch_item~pond": {
+		"message": "ao"
+	},
+	"speedsketch_item~pool": {
+		"message": "bể bơi"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "kem que"
+	},
+	"speedsketch_item~portrait": {
+		"message": "chân dung"
+	},
+	"speedsketch_item~postcard": {
+		"message": "bưu thiếp"
+	},
+	"speedsketch_item~potato": {
+		"message": "khoai tây"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "ổ cắm điện"
+	},
+	"speedsketch_item~present": {
+		"message": "hiện tại"
+	},
+	"speedsketch_item~prison": {
+		"message": "nhà tù"
+	},
+	"speedsketch_item~purse": {
+		"message": "cái ví"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "câu đố"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "con thỏ"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "gấu trúc Mỹ"
+	},
+	"speedsketch_item~radio": {
+		"message": "cái đài"
+	},
+	"speedsketch_item~rain": {
+		"message": "mưa"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "cầu vồng"
+	},
+	"speedsketch_item~rake": {
+		"message": "cái cào"
+	},
+	"speedsketch_item~raven": {
+		"message": "con quạ"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "tuần lộc"
+	},
+	"speedsketch_item~remote control": {
+		"message": "điều khiển từ xa"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "con tê giác"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "ruy-băng"
+	},
+	"speedsketch_item~river": {
+		"message": "sông"
+	},
+	"speedsketch_item~robot": {
+		"message": "rô bốt"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "tàu lượn"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "giày patin"
+	},
+	"speedsketch_item~sadness": {
+		"message": "nỗi buồn"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "thuyền buồm"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "bánh sandwich"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Ông già Noel"
+	},
+	"speedsketch_item~saturn": {
+		"message": "sao Thổ"
+	},
+	"speedsketch_item~sausage": {
+		"message": "xúc xích"
+	},
+	"speedsketch_item~saw": {
+		"message": "cái cưa"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxophone"
+	},
+	"speedsketch_item~school bus": {
+		"message": "xe buýt của trường"
+	},
+	"speedsketch_item~scissors": {
+		"message": "cái kéo"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "bọ cạp"
+	},
+	"speedsketch_item~screw": {
+		"message": "đinh ốc"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "cái tua vít"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "nghệ thuật điêu khắc"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "rùa biển"
+	},
+	"speedsketch_item~see saw": {
+		"message": "bập bênh"
+	},
+	"speedsketch_item~shark": {
+		"message": "cá mập"
+	},
+	"speedsketch_item~sheep": {
+		"message": "con cừu"
+	},
+	"speedsketch_item~shoe": {
+		"message": "giày"
+	},
+	"speedsketch_item~shorts": {
+		"message": "quần sooc"
+	},
+	"speedsketch_item~shovel": {
+		"message": "xẻng"
+	},
+	"speedsketch_item~sink": {
+		"message": "bồn rửa"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "ván trượt"
+	},
+	"speedsketch_item~ski": {
+		"message": "trượt tuyết"
+	},
+	"speedsketch_item~skier": {
+		"message": "người trượt tuyết"
+	},
+	"speedsketch_item~skirt": {
+		"message": "chân váy"
+	},
+	"speedsketch_item~skull": {
+		"message": "sọ người"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "nhà chọc trời"
+	},
+	"speedsketch_item~sled": {
+		"message": "xe trượt"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "túi ngủ"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "xe trượt tuyết"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "mặt cười"
+	},
+	"speedsketch_item~snail": {
+		"message": "ốc sên"
+	},
+	"speedsketch_item~snake": {
+		"message": "con rắn"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "ống thở"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "bông tuyết"
+	},
+	"speedsketch_item~snowman": {
+		"message": "người tuyết"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "quả bóng đá"
+	},
+	"speedsketch_item~sock": {
+		"message": "bít tất"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "xuồng cao tốc"
+	},
+	"speedsketch_item~sphere": {
+		"message": "quả cầu"
+	},
+	"speedsketch_item~spider": {
+		"message": "con nhện"
+	},
+	"speedsketch_item~spiral": {
+		"message": "xoắn ốc"
+	},
+	"speedsketch_item~spoon": {
+		"message": "cái thìa"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "bảng tính"
+	},
+	"speedsketch_item~square": {
+		"message": "hình vuông"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "dòng lượn sóng ngắn"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "con sóc"
+	},
+	"speedsketch_item~stairs": {
+		"message": "cầu thang"
+	},
+	"speedsketch_item~star": {
+		"message": "sao"
+	},
+	"speedsketch_item~steak": {
+		"message": "bít tết"
+	},
+	"speedsketch_item~stereo": {
+		"message": "âm thanh nổi"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "ống nghe y tế"
+	},
+	"speedsketch_item~still life": {
+		"message": "tĩnh vật"
+	},
+	"speedsketch_item~stitches": {
+		"message": "vết khâu"
+	},
+	"speedsketch_item~stock market": {
+		"message": "thị trường chứng khoán"
+	},
+	"speedsketch_item~stocking": {
+		"message": "bít tất"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "biển báo dừng"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "đồng hồ bấm giờ"
+	},
+	"speedsketch_item~stove": {
+		"message": "bếp lò"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "dâu tây"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "đèn đường"
+	},
+	"speedsketch_item~string bean": {
+		"message": "đậu que"
+	},
+	"speedsketch_item~submarine": {
+		"message": "tàu ngầm"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "va li"
+	},
+	"speedsketch_item~sun": {
+		"message": "mặt trời"
+	},
+	"speedsketch_item~sunset": {
+		"message": "hoàng hôn"
+	},
+	"speedsketch_item~swan": {
+		"message": "thiên nga"
+	},
+	"speedsketch_item~sweater": {
+		"message": "áo len"
+	},
+	"speedsketch_item~swing set": {
+		"message": "xích đu"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "áo sơ mi"
+	},
+	"speedsketch_item~table": {
+		"message": "bàn"
+	},
+	"speedsketch_item~teapot": {
+		"message": "ấm trà"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "gấu bông"
+	},
+	"speedsketch_item~telephone": {
+		"message": "điện thoại"
+	},
+	"speedsketch_item~television": {
+		"message": "tivi"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "vợt tennis"
+	},
+	"speedsketch_item~tent": {
+		"message": "cái lều"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "trò chơi tic tac toe"
+	},
+	"speedsketch_item~tiger": {
+		"message": "con hổ"
+	},
+	"speedsketch_item~time": {
+		"message": "giờ"
+	},
+	"speedsketch_item~toaster": {
+		"message": "máy nướng bánh mỳ"
+	},
+	"speedsketch_item~toe": {
+		"message": "ngón chân"
+	},
+	"speedsketch_item~toilet": {
+		"message": "nhà vệ sinh"
+	},
+	"speedsketch_item~tooth": {
+		"message": "răng"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "bàn chải đánh răng"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "kem đánh răng"
+	},
+	"speedsketch_item~tornado": {
+		"message": "bão lốc"
+	},
+	"speedsketch_item~tractor": {
+		"message": "máy kéo"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "đèn giao thông"
+	},
+	"speedsketch_item~train": {
+		"message": "tàu"
+	},
+	"speedsketch_item~tree": {
+		"message": "cái cây"
+	},
+	"speedsketch_item~triangle": {
+		"message": "hình tam giác"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "xe đạp ba bánh"
+	},
+	"speedsketch_item~trolley": {
+		"message": "xe đẩy"
+	},
+	"speedsketch_item~trombone": {
+		"message": "kèn trombone"
+	},
+	"speedsketch_item~trousers": {
+		"message": "quần dài"
+	},
+	"speedsketch_item~truck": {
+		"message": "xe tải"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "kèn trompet"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "cái ô"
+	},
+	"speedsketch_item~underwear": {
+		"message": "đồ lót"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "kỳ lân"
+	},
+	"speedsketch_item~universe": {
+		"message": "vũ trụ"
+	},
+	"speedsketch_item~van": {
+		"message": "xe tải"
+	},
+	"speedsketch_item~vase": {
+		"message": "bình hoa"
+	},
+	"speedsketch_item~violin": {
+		"message": "đàn vĩ cầm"
+	},
+	"speedsketch_item~walnut": {
+		"message": "hạt óc chó"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "máy giặt"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "dưa hấu"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "trượt nước"
+	},
+	"speedsketch_item~wave": {
+		"message": "làn sóng"
+	},
+	"speedsketch_item~whale": {
+		"message": "cá voi"
+	},
+	"speedsketch_item~wheel": {
+		"message": "bánh xe"
+	},
+	"speedsketch_item~windmill": {
+		"message": "cối xay gió"
+	},
+	"speedsketch_item~woman": {
+		"message": "phụ nữ"
+	},
+	"speedsketch_item~world": {
+		"message": "thế giới"
+	},
+	"speedsketch_item~wreath": {
+		"message": "vòng nguyệt quế"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "đồng hồ đeo tay"
+	},
+	"speedsketch_item~yoga": {
+		"message": "yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "sữa chua"
+	},
+	"speedsketch_item~zebra": {
+		"message": "ngựa vằn"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "đường dích dắc"
+	},
+	"speedsketch_item~zipper": {
+		"message": "khóa kéo"
 	},
 	"sr_country_name": {
 		"message": "Suriname"
@@ -3117,7 +4497,7 @@
 		"message": "Quốc gia nào được tạo thành từ nhiều hòn đảo?"
 	},
 	"trivia_hard_030_answer0": {
-		"message": "Philipin"
+		"message": "Philippines"
 	},
 	"trivia_hard_030_answer1": {
 		"message": "Campuchia"
@@ -4764,7 +6144,7 @@
 		"message": "New Zealand"
 	},
 	"trivia_medium_062_answer1": {
-		"message": "Philipin"
+		"message": "Philippines"
 	},
 	"trivia_medium_062_answer2": {
 		"message": "Việt Nam"
@@ -4968,7 +6348,7 @@
 		"message": "Nhật Bản"
 	},
 	"trivia_medium_079_answer1": {
-		"message": "Philipin"
+		"message": "Philippines"
 	},
 	"trivia_medium_079_answer2": {
 		"message": "Bangladesh"
@@ -4989,7 +6369,7 @@
 		"message": "Ngôn ngữ chính của Syria, Kuwait và Algeria là gì?"
 	},
 	"trivia_medium_081_answer0": {
-		"message": "Arabic"
+		"message": "Tiếng Ả Rập"
 	},
 	"trivia_medium_081_answer1": {
 		"message": "Armenian"
@@ -5244,7 +6624,10 @@
 		"message": "Vương quốc Anh"
 	},
 	"uk_tradition": {
-		"message": "Ở Vương quốc Anh, người tham dự đủ mọi lứa tuổi thưởng thức pháo Giáng sinh trên bàn trong bữa ăn. Pháo là các ống được bọc bằng giấy đầy màu sắc, với nút kéo ở mỗi đầu. Khi bạn kéo các nút, ống sẽ phát ra tiếng nổ lớn! Bên trong là mũ giấy, đồ chơi và bánh kẹo để thưởng thức trong đêm Giáng sinh."
+		"message": "Ở Vương quốc Anh, người dự lễ Giáng sinh ở mọi lứa tuổi đều thích chơi pháo giật tại bàn ăn tối. Pháo giật là ống bọc bằng giấy nhiều màu có 2 đầu kéo. Khi kéo 2 đầu, ống sẽ vỡ tung kèm theo tiếng động lớn! Bên trong là mũ giấy, đồ chơi, chuyện đùa và phần thưởng để đêm Giáng sinh thêm vui vẻ."
+	},
+	"unmute": {
+		"message": "Bật tiếng"
 	},
 	"upgrade-warning": {
 		"message": "Rất tiếc! Theo chân ông già Noel không được hỗ trợ trong phiên bản trình duyệt này của bạn. Để truy cập Theo chân ông già Noel, hãy tải xuống trình duyệt hiện đại. Để biết thêm thông tin, hãy truy cập vào \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Thêm vào Màn hình chính"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Thêm vào giá"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Thêm vào màn hình"
 	},
 	"village_santa_cardboard": {
 		"message": "Ông già Noel trên Cardboard"

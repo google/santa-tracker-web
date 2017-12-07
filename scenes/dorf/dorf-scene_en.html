@@ -21,7 +21,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
-<link rel="import" href="../../elements/cast-button.html">
 <link rel="import" href="../../elements/village-header/village-header.html">
 <link rel="import" href="elements/effect-skydive.html">
 <link rel="import" href="elements/effect-snowmobile.html">
@@ -50,10 +49,7 @@ Santa's Village.
     </a>
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
 
-    <div slot="effects" id="effect-sun">
-      <!-- for now, put the cast button on the sun -->
-      <cast-button></cast-button>
-    </div>
+    <div slot="effects" id="effect-sun"></div>
     <santa-weather slot="effects"></santa-weather>
     <div slot="effects" id="effect-plane"></div>
     <effect-skydive slot="effects" href="https://santadive.withgoogle.com"></effect-skydive>

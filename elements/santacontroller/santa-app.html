@@ -97,7 +97,7 @@ Santa Tracker app.
         share-options="[[shareOptions]]"></santa-overlay>
 
     <!-- Video Picture-In-Picture -->
-    <div id="pip">
+    <div id="pip" hidden$="[[!_videoActive]]">
       <!-- Shared `santa-video` element. This can't be attached/detached from the DOM without
         stopping the video itself, so it is reused by all video scenes -->
       <santa-video id="video" active="{{_videoActive}}" mute="[[userMute]]"></santa-video>
@@ -183,6 +183,7 @@ Santa Tracker app.
 
       <elfski-scene route="elfski" icon="1f3bf"
           path$="scenes/elfski/elfski-scene.html"
+          loading-src="scenes/elfski/img/loading.svg"
           logo="scenes/commandcentre/img/logo.svg"></elfski-scene>
 
       <factory-scene route="factory" icon="1f3ed"
@@ -334,7 +335,8 @@ Santa Tracker app.
       <smatch-scene route="smatch" icon="1f3e1"
           path$="scenes/smatch/smatch-scene_[[language]].html"
           header-color="#00c6ed"
-          loading-bg-color="rgb(129,208,0)"></smatch-scene>
+          loading-bg-color="rgb(129,208,0)"
+          logo="scenes/smatch/img/logo.svg"></smatch-scene>
 
       <snowball-scene route="snowball" icon="2603*"
           path$="scenes/snowball/snowball-scene_[[language]].html"
@@ -602,7 +604,6 @@ Polymer({
 
     _videoActive: {
       type: Boolean,
-      observer: '_videoActiveChanged',
     },
 
   },
@@ -794,7 +795,12 @@ Polymer({
     } else {
       v.classList.remove('scene');
       v.controls = true;
-      v.started || v.reset();  // reset if we hadn't started playing
+
+      if (v.started && window.matchMedia('(hover: hover)').matches) {
+        // great, keep playing
+      } else {
+        v.reset();  // otherwise, reset, don't show the PIP
+      }
     }
 
     if (!this.selectedScene) {
@@ -809,10 +815,6 @@ Polymer({
       this.$.overlay.pregame = true;
       this.userPause = true;
     }
-  },
-
-  _videoActiveChanged: function(videoActive) {
-    this.$.pip.hidden = !videoActive;
   },
 
   _updateStylingForScene: function(scene) {

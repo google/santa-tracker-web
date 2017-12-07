@@ -32,8 +32,9 @@ goog.require('app.shared.ShareOverlay');
  * @constructor
  * @export
  */
-app.Game = function(elem) {
+app.Game = function(elem, importPath) {
   this.elem = $(elem);
+  this.importPath = importPath;
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
   this.rotateElem = this.elem.find('.force-rotate');
@@ -50,6 +51,13 @@ app.Game = function(elem) {
   this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
   this.onFrame_ = this.onFrame_.bind(this);
+
+  this.isIE = navigator.userAgent.indexOf('MSIE') !== -1 ||
+    navigator.appVersion.indexOf('Trident/') > 0;
+
+  if (this.isIE) {
+    this.sceneElem.find('[data-tool-save]').addClass('u-hidden');
+  }
 };
 
 

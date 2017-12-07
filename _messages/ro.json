@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "În Franța, conform tradiției, copiii își pun încălțămintea lângă șemineu, în așteptarea lui Père Noël. Dacă au fost cuminți în timpul anului, Père Noël le va umple încălțămintea cu cadouri."
 	},
+	"fullscreen": {
+		"message": "Ecran complet"
+	},
 	"ga_country_name": {
 		"message": "Gabon"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritania"
 	},
+	"mute": {
+		"message": "Dezactivează"
+	},
 	"mw_country_name": {
 		"message": "Malawi"
 	},
@@ -1027,6 +1033,9 @@
 	},
 	"pa_country_name": {
 		"message": "Panama"
+	},
+	"pause": {
+		"message": "Întrerupe"
 	},
 	"pe_country_name": {
 		"message": "Peru"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "Londra"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Elveția"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Turnul Eiffel"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Marele Zid Chinezesc"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "artă abstractă"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "portavion"
+	},
+	"speedsketch_item~airplane": {
+		"message": "avion"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "ceas cu alarmă"
+	},
+	"speedsketch_item~alien": {
+		"message": "extraterestru"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulanță"
+	},
+	"speedsketch_item~angel": {
+		"message": "înger"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "migrație de animale"
+	},
+	"speedsketch_item~ant": {
+		"message": "furnică"
+	},
+	"speedsketch_item~anvil": {
+		"message": "nicovală"
+	},
+	"speedsketch_item~apple": {
+		"message": "măr"
+	},
+	"speedsketch_item~arm": {
+		"message": "braț"
+	},
+	"speedsketch_item~arrow": {
+		"message": "săgeată"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "sparanghel"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "casetă audio"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avocado"
+	},
+	"speedsketch_item~axe": {
+		"message": "topor"
+	},
+	"speedsketch_item~baby": {
+		"message": "bebeluș"
+	},
+	"speedsketch_item~backpack": {
+		"message": "rucsac"
+	},
+	"speedsketch_item~banana": {
+		"message": "banană"
+	},
+	"speedsketch_item~bandage": {
+		"message": "bandaj"
+	},
+	"speedsketch_item~barn": {
+		"message": "șură"
+	},
+	"speedsketch_item~baseball": {
+		"message": "minge de baseball"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "bâtă de baseball"
+	},
+	"speedsketch_item~basket": {
+		"message": "coș"
+	},
+	"speedsketch_item~basketball": {
+		"message": "minge de baschet"
+	},
+	"speedsketch_item~bat": {
+		"message": "liliac"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "cadă"
+	},
+	"speedsketch_item~beach": {
+		"message": "plajă"
+	},
+	"speedsketch_item~bear": {
+		"message": "urs"
+	},
+	"speedsketch_item~beard": {
+		"message": "barbă"
+	},
+	"speedsketch_item~bed": {
+		"message": "pat"
+	},
+	"speedsketch_item~bee": {
+		"message": "albină"
+	},
+	"speedsketch_item~belt": {
+		"message": "curea"
+	},
+	"speedsketch_item~bench": {
+		"message": "bancă"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "bicicletă"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "binoclu"
+	},
+	"speedsketch_item~bird": {
+		"message": "pasăre"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "tort pentru ziua de naștere"
+	},
+	"speedsketch_item~black": {
+		"message": "negru"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "mură"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "afină"
+	},
+	"speedsketch_item~book": {
+		"message": "carte"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "cizmă"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "dop de sticlă"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "papion"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "brățară"
+	},
+	"speedsketch_item~brain": {
+		"message": "creier"
+	},
+	"speedsketch_item~bread": {
+		"message": "pâine"
+	},
+	"speedsketch_item~bridge": {
+		"message": "pod"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "broccoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "mătură"
+	},
+	"speedsketch_item~bubble": {
+		"message": "balon"
+	},
+	"speedsketch_item~bucket": {
+		"message": "găleată"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldozer"
+	},
+	"speedsketch_item~bus": {
+		"message": "autobuz"
+	},
+	"speedsketch_item~bush": {
+		"message": "tufiș"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "fluture"
+	},
+	"speedsketch_item~cactus": {
+		"message": "cactus"
+	},
+	"speedsketch_item~cake": {
+		"message": "tort"
+	},
+	"speedsketch_item~calculator": {
+		"message": "calculator"
+	},
+	"speedsketch_item~calendar": {
+		"message": "calendar"
+	},
+	"speedsketch_item~camel": {
+		"message": "cămilă"
+	},
+	"speedsketch_item~camera": {
+		"message": "cameră foto"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "camuflaj"
+	},
+	"speedsketch_item~campfire": {
+		"message": "foc de tabără"
+	},
+	"speedsketch_item~candle": {
+		"message": "lumânare"
+	},
+	"speedsketch_item~candy": {
+		"message": "bomboane"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "baton de zahăr"
+	},
+	"speedsketch_item~canoe": {
+		"message": "canoe"
+	},
+	"speedsketch_item~car": {
+		"message": "mașină"
+	},
+	"speedsketch_item~carrot": {
+		"message": "morcov"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "desen animat"
+	},
+	"speedsketch_item~castle": {
+		"message": "castel"
+	},
+	"speedsketch_item~cat": {
+		"message": "pisică"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "ventilator de plafon"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "telefon mobil"
+	},
+	"speedsketch_item~cello": {
+		"message": "violoncel"
+	},
+	"speedsketch_item~chair": {
+		"message": "scaun"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "lustră"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "chimie"
+	},
+	"speedsketch_item~cherry": {
+		"message": "cireașă"
+	},
+	"speedsketch_item~chicken": {
+		"message": "pui"
+	},
+	"speedsketch_item~child": {
+		"message": "copil"
+	},
+	"speedsketch_item~chimney": {
+		"message": "horn"
+	},
+	"speedsketch_item~church": {
+		"message": "biserică"
+	},
+	"speedsketch_item~circle": {
+		"message": "cerc"
+	},
+	"speedsketch_item~city": {
+		"message": "oraș"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "clarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "ceas"
+	},
+	"speedsketch_item~cloud": {
+		"message": "nor"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "porumb"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "ceașcă de cafea"
+	},
+	"speedsketch_item~compass": {
+		"message": "busolă"
+	},
+	"speedsketch_item~computer": {
+		"message": "computer"
+	},
+	"speedsketch_item~cookie": {
+		"message": "biscuit"
+	},
+	"speedsketch_item~cooler": {
+		"message": "răcitor"
+	},
+	"speedsketch_item~couch": {
+		"message": "canapea"
+	},
+	"speedsketch_item~cow": {
+		"message": "vacă"
+	},
+	"speedsketch_item~crab": {
+		"message": "rac"
+	},
+	"speedsketch_item~crayon": {
+		"message": "creion colorat"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "crocodil"
+	},
+	"speedsketch_item~cross": {
+		"message": "cruce"
+	},
+	"speedsketch_item~crow": {
+		"message": "cioară"
+	},
+	"speedsketch_item~crown": {
+		"message": "coroană"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "vas de croazieră"
+	},
+	"speedsketch_item~cube": {
+		"message": "cub"
+	},
+	"speedsketch_item~cup": {
+		"message": "ceașcă"
+	},
+	"speedsketch_item~darts": {
+		"message": "darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "inel cu diamant"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "mașină de spălat vase"
+	},
+	"speedsketch_item~diving board": {
+		"message": "trambulină"
+	},
+	"speedsketch_item~dog": {
+		"message": "câine"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfin"
+	},
+	"speedsketch_item~donut": {
+		"message": "gogoașă"
+	},
+	"speedsketch_item~door": {
+		"message": "ușă"
+	},
+	"speedsketch_item~dragon": {
+		"message": "dragon"
+	},
+	"speedsketch_item~dresser": {
+		"message": "comodă"
+	},
+	"speedsketch_item~drill": {
+		"message": "burghiu"
+	},
+	"speedsketch_item~drums": {
+		"message": "tobe"
+	},
+	"speedsketch_item~duck": {
+		"message": "rață"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "ganteră"
+	},
+	"speedsketch_item~ear": {
+		"message": "ureche"
+	},
+	"speedsketch_item~egg": {
+		"message": "ou"
+	},
+	"speedsketch_item~elbow": {
+		"message": "cot"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elefant"
+	},
+	"speedsketch_item~elf": {
+		"message": "elf"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "plic"
+	},
+	"speedsketch_item~eraser": {
+		"message": "radieră"
+	},
+	"speedsketch_item~eye": {
+		"message": "ochi"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "ochelari"
+	},
+	"speedsketch_item~face": {
+		"message": "chip"
+	},
+	"speedsketch_item~family": {
+		"message": "familie"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventilator"
+	},
+	"speedsketch_item~feather": {
+		"message": "pană"
+	},
+	"speedsketch_item~fence": {
+		"message": "gard"
+	},
+	"speedsketch_item~finger": {
+		"message": "deget"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "hidrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "șemineu"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "mașină de pompieri"
+	},
+	"speedsketch_item~fish": {
+		"message": "pește"
+	},
+	"speedsketch_item~flag": {
+		"message": "steag"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "lanternă"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "șlapi"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "lampă de podea"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "dischetă"
+	},
+	"speedsketch_item~flower": {
+		"message": "floare"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "farfurie zburătoare"
+	},
+	"speedsketch_item~fog": {
+		"message": "ceață"
+	},
+	"speedsketch_item~foot": {
+		"message": "picior"
+	},
+	"speedsketch_item~fork": {
+		"message": "furculiță"
+	},
+	"speedsketch_item~french fries": {
+		"message": "cartofi prăjiți"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "ou prăjit"
+	},
+	"speedsketch_item~frog": {
+		"message": "broască"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "tigaie"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaxie"
+	},
+	"speedsketch_item~garden": {
+		"message": "grădină"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "furtun de grădină"
+	},
+	"speedsketch_item~ghost": {
+		"message": "fantomă"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "om de turtă dulce"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "girafă"
+	},
+	"speedsketch_item~goat": {
+		"message": "capră"
+	},
+	"speedsketch_item~goatee": {
+		"message": "barbișon"
+	},
+	"speedsketch_item~golf club": {
+		"message": "crosă de golf"
+	},
+	"speedsketch_item~grapes": {
+		"message": "struguri"
+	},
+	"speedsketch_item~grass": {
+		"message": "iarbă"
+	},
+	"speedsketch_item~group": {
+		"message": "grup"
+	},
+	"speedsketch_item~guitar": {
+		"message": "chitară"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "ciocan"
+	},
+	"speedsketch_item~hand": {
+		"message": "mână"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "jocul spânzurătoarea"
+	},
+	"speedsketch_item~happiness": {
+		"message": "fericire"
+	},
+	"speedsketch_item~harp": {
+		"message": "harpă"
+	},
+	"speedsketch_item~hat": {
+		"message": "pălărie"
+	},
+	"speedsketch_item~headphones": {
+		"message": "căști"
+	},
+	"speedsketch_item~heart": {
+		"message": "inimă"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "arici"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "elicopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "cască"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "hexagon"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "puc de hochei"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "crosă de hochei"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "luminițe de crăciun"
+	},
+	"speedsketch_item~horse": {
+		"message": "cal"
+	},
+	"speedsketch_item~hospital": {
+		"message": "spital"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "balon cu aer cald"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hotdog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "jacuzzi"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "clepsidră"
+	},
+	"speedsketch_item~house": {
+		"message": "casă"
+	},
+	"speedsketch_item~house plant": {
+		"message": "plantă ornamentală"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "uragan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "înghețată"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "patinator"
+	},
+	"speedsketch_item~infinity": {
+		"message": "infinit"
+	},
+	"speedsketch_item~island": {
+		"message": "insulă"
+	},
+	"speedsketch_item~italy": {
+		"message": "italia"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jachetă"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "jetpack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "zurgălăi"
+	},
+	"speedsketch_item~kale": {
+		"message": "kale"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "cangur"
+	},
+	"speedsketch_item~key": {
+		"message": "cheie"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "tastatură"
+	},
+	"speedsketch_item~kite": {
+		"message": "zmeu"
+	},
+	"speedsketch_item~knee": {
+		"message": "genunchi"
+	},
+	"speedsketch_item~knife": {
+		"message": "cuțit"
+	},
+	"speedsketch_item~knot": {
+		"message": "nod"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "scară"
+	},
+	"speedsketch_item~landscape": {
+		"message": "peisaj"
+	},
+	"speedsketch_item~lantern": {
+		"message": "felinar"
+	},
+	"speedsketch_item~laptop": {
+		"message": "laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "frunză"
+	},
+	"speedsketch_item~leg": {
+		"message": "picior"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "bec"
+	},
+	"speedsketch_item~lighter": {
+		"message": "brichetă"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "far"
+	},
+	"speedsketch_item~lightning": {
+		"message": "fulger"
+	},
+	"speedsketch_item~line": {
+		"message": "linie"
+	},
+	"speedsketch_item~lion": {
+		"message": "leu"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "ruj"
+	},
+	"speedsketch_item~lobster": {
+		"message": "homar"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "acadea"
+	},
+	"speedsketch_item~love": {
+		"message": "iubire"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "căsuță poștală"
+	},
+	"speedsketch_item~man": {
+		"message": "bărbat"
+	},
+	"speedsketch_item~map": {
+		"message": "hartă"
+	},
+	"speedsketch_item~marker": {
+		"message": "cariocă"
+	},
+	"speedsketch_item~matches": {
+		"message": "chibrituri"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematică"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "sirenă"
+	},
+	"speedsketch_item~metal": {
+		"message": "metal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "microfon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "microscop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "cuptor cu microunde"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "vâsc"
+	},
+	"speedsketch_item~mittens": {
+		"message": "mănuși"
+	},
+	"speedsketch_item~molecule": {
+		"message": "moleculă"
+	},
+	"speedsketch_item~money": {
+		"message": "bani"
+	},
+	"speedsketch_item~monkey": {
+		"message": "maimuță"
+	},
+	"speedsketch_item~moon": {
+		"message": "lună"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "țânțar"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motocicletă"
+	},
+	"speedsketch_item~mountain": {
+		"message": "munte"
+	},
+	"speedsketch_item~mouse": {
+		"message": "șoarece"
+	},
+	"speedsketch_item~moustache": {
+		"message": "mustață"
+	},
+	"speedsketch_item~mouth": {
+		"message": "gură"
+	},
+	"speedsketch_item~mug": {
+		"message": "cană"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "ciupercă"
+	},
+	"speedsketch_item~music": {
+		"message": "muzică"
+	},
+	"speedsketch_item~nail": {
+		"message": "cui"
+	},
+	"speedsketch_item~nature": {
+		"message": "natură"
+	},
+	"speedsketch_item~necklace": {
+		"message": "colier"
+	},
+	"speedsketch_item~news": {
+		"message": "știri"
+	},
+	"speedsketch_item~nose": {
+		"message": "nas"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "spărgător de nuci"
+	},
+	"speedsketch_item~ocean": {
+		"message": "ocean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "octogon"
+	},
+	"speedsketch_item~octopus": {
+		"message": "caracatiță"
+	},
+	"speedsketch_item~onion": {
+		"message": "ceapă"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ornament"
+	},
+	"speedsketch_item~oven": {
+		"message": "cuptor"
+	},
+	"speedsketch_item~owl": {
+		"message": "bufniță"
+	},
+	"speedsketch_item~paint can": {
+		"message": "cutie de vopsea"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "pensulă"
+	},
+	"speedsketch_item~painting": {
+		"message": "pictură"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palmier"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "pantaloni"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "agrafă de birou"
+	},
+	"speedsketch_item~parachute": {
+		"message": "parașută"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papagal"
+	},
+	"speedsketch_item~passport": {
+		"message": "pașaport"
+	},
+	"speedsketch_item~peanut": {
+		"message": "arahidă"
+	},
+	"speedsketch_item~pear": {
+		"message": "pară"
+	},
+	"speedsketch_item~peas": {
+		"message": "mazăre"
+	},
+	"speedsketch_item~pencil": {
+		"message": "creion"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pinguin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "mentă"
+	},
+	"speedsketch_item~piano": {
+		"message": "pian"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "furgonetă"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "ramă foto"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "diagrama radială"
+	},
+	"speedsketch_item~pig": {
+		"message": "porc"
+	},
+	"speedsketch_item~pillow": {
+		"message": "pernă"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ping pong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirat"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "clește"
+	},
+	"speedsketch_item~police car": {
+		"message": "mașină de poliție"
+	},
+	"speedsketch_item~politician": {
+		"message": "politician"
+	},
+	"speedsketch_item~pond": {
+		"message": "iaz"
+	},
+	"speedsketch_item~pool": {
+		"message": "piscină"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "înghețată pe băț"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portret"
+	},
+	"speedsketch_item~postcard": {
+		"message": "carte poștală"
+	},
+	"speedsketch_item~potato": {
+		"message": "cartof"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "priză"
+	},
+	"speedsketch_item~present": {
+		"message": "cadou"
+	},
+	"speedsketch_item~prison": {
+		"message": "închisoare"
+	},
+	"speedsketch_item~purse": {
+		"message": "poșetă"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "puzzle"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "iepure"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "raton"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "ploaie"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "curcubeu"
+	},
+	"speedsketch_item~rake": {
+		"message": "greblă"
+	},
+	"speedsketch_item~raven": {
+		"message": "corb"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "ren"
+	},
+	"speedsketch_item~remote control": {
+		"message": "telecomandă"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "rinocer"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "bandă"
+	},
+	"speedsketch_item~river": {
+		"message": "râu"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "montaigne-russe"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "patine cu rotile"
+	},
+	"speedsketch_item~sadness": {
+		"message": "tristețe"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "barcă cu pânze"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sandviș"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Moș Crăciun"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "cârnat"
+	},
+	"speedsketch_item~saw": {
+		"message": "ferăstrău"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "autobuz școlar"
+	},
+	"speedsketch_item~scissors": {
+		"message": "foarfece"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "scorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "șurub"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "șurubelniță"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "sculptură"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "țestoasă"
+	},
+	"speedsketch_item~see saw": {
+		"message": "balansoar"
+	},
+	"speedsketch_item~shark": {
+		"message": "rechin"
+	},
+	"speedsketch_item~sheep": {
+		"message": "oaie"
+	},
+	"speedsketch_item~shoe": {
+		"message": "pantof"
+	},
+	"speedsketch_item~shorts": {
+		"message": "șort"
+	},
+	"speedsketch_item~shovel": {
+		"message": "lopată"
+	},
+	"speedsketch_item~sink": {
+		"message": "chiuvetă"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "schi"
+	},
+	"speedsketch_item~skier": {
+		"message": "schior"
+	},
+	"speedsketch_item~skirt": {
+		"message": "fustă"
+	},
+	"speedsketch_item~skull": {
+		"message": "craniu"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "zgârie-nori"
+	},
+	"speedsketch_item~sled": {
+		"message": "sanie"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "sac de dormit"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "sanie"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "față zâmbitoare"
+	},
+	"speedsketch_item~snail": {
+		"message": "melc"
+	},
+	"speedsketch_item~snake": {
+		"message": "șarpe"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "tub cu oxigen"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "fulg de nea"
+	},
+	"speedsketch_item~snowman": {
+		"message": "om de zăpadă"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "minge de fotbal"
+	},
+	"speedsketch_item~sock": {
+		"message": "șosetă"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "barcă cu motor"
+	},
+	"speedsketch_item~sphere": {
+		"message": "sferă"
+	},
+	"speedsketch_item~spider": {
+		"message": "păianjen"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spirală"
+	},
+	"speedsketch_item~spoon": {
+		"message": "lingură"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "foaie de calcul"
+	},
+	"speedsketch_item~square": {
+		"message": "pătrat"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "cârlionț"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "veveriță"
+	},
+	"speedsketch_item~stairs": {
+		"message": "scări"
+	},
+	"speedsketch_item~star": {
+		"message": "stea"
+	},
+	"speedsketch_item~steak": {
+		"message": "friptură"
+	},
+	"speedsketch_item~stereo": {
+		"message": "echipament audio"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoscop"
+	},
+	"speedsketch_item~still life": {
+		"message": "natură moartă"
+	},
+	"speedsketch_item~stitches": {
+		"message": "rană cusută"
+	},
+	"speedsketch_item~stock market": {
+		"message": "bursă de valori"
+	},
+	"speedsketch_item~stocking": {
+		"message": "ciorap"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "semnul stop"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "cronometru"
+	},
+	"speedsketch_item~stove": {
+		"message": "aragaz"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "căpșună"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "felinar stradal"
+	},
+	"speedsketch_item~string bean": {
+		"message": "fasole verde"
+	},
+	"speedsketch_item~submarine": {
+		"message": "submarin"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "valiză"
+	},
+	"speedsketch_item~sun": {
+		"message": "soare"
+	},
+	"speedsketch_item~sunset": {
+		"message": "asfințit"
+	},
+	"speedsketch_item~swan": {
+		"message": "lebădă"
+	},
+	"speedsketch_item~sweater": {
+		"message": "pulover"
+	},
+	"speedsketch_item~swing set": {
+		"message": "leagăn"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "tricou"
+	},
+	"speedsketch_item~table": {
+		"message": "masă"
+	},
+	"speedsketch_item~teapot": {
+		"message": "ceainic"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "ursuleț de jucărie"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "televizor"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "rachetă de tenis"
+	},
+	"speedsketch_item~tent": {
+		"message": "cort"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "jocul x și 0"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tigru"
+	},
+	"speedsketch_item~time": {
+		"message": "timp"
+	},
+	"speedsketch_item~toaster": {
+		"message": "prăjitor de pâine"
+	},
+	"speedsketch_item~toe": {
+		"message": "deget de la picior"
+	},
+	"speedsketch_item~toilet": {
+		"message": "toaletă"
+	},
+	"speedsketch_item~tooth": {
+		"message": "dinte"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "periuță de dinți"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "pastă de dinți"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornadă"
+	},
+	"speedsketch_item~tractor": {
+		"message": "tractor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "semafor"
+	},
+	"speedsketch_item~train": {
+		"message": "tren"
+	},
+	"speedsketch_item~tree": {
+		"message": "copac"
+	},
+	"speedsketch_item~triangle": {
+		"message": "triunghi"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "tricicletă"
+	},
+	"speedsketch_item~trolley": {
+		"message": "cărucior"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombon"
+	},
+	"speedsketch_item~trousers": {
+		"message": "pantaloni"
+	},
+	"speedsketch_item~truck": {
+		"message": "camion"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompetă"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "umbrelă"
+	},
+	"speedsketch_item~underwear": {
+		"message": "chiloți"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "inorog"
+	},
+	"speedsketch_item~universe": {
+		"message": "univers"
+	},
+	"speedsketch_item~van": {
+		"message": "camionetă"
+	},
+	"speedsketch_item~vase": {
+		"message": "vază"
+	},
+	"speedsketch_item~violin": {
+		"message": "vioară"
+	},
+	"speedsketch_item~walnut": {
+		"message": "nucă"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "mașină de spălat"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "pepene verde"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "tobogan cu apă"
+	},
+	"speedsketch_item~wave": {
+		"message": "val"
+	},
+	"speedsketch_item~whale": {
+		"message": "balenă"
+	},
+	"speedsketch_item~wheel": {
+		"message": "roată"
+	},
+	"speedsketch_item~windmill": {
+		"message": "moară de vânt"
+	},
+	"speedsketch_item~woman": {
+		"message": "femeie"
+	},
+	"speedsketch_item~world": {
+		"message": "mapamond"
+	},
+	"speedsketch_item~wreath": {
+		"message": "coroniță"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "ceas de mână"
+	},
+	"speedsketch_item~yoga": {
+		"message": "yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "iaurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebră"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzag"
+	},
+	"speedsketch_item~zipper": {
+		"message": "fermoar"
 	},
 	"sr_country_name": {
 		"message": "Surinam"
@@ -5244,7 +6624,10 @@
 		"message": "Regatul Unit"
 	},
 	"uk_tradition": {
-		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării și dulciuri pentru noaptea de Crăciun."
+		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării, glume și premii pentru noaptea de Crăciun."
+	},
+	"unmute": {
+		"message": "Activează"
 	},
 	"upgrade-warning": {
 		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Adaugă pe ecranul de pornire"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Adaugă în raft"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Adaugă pe desktop"
 	},
 	"village_santa_cardboard": {
 		"message": "Moș Crăciun pe Cardboard"

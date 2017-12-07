@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "ஃபிரான்ஸ் நாட்டில், குழந்தைகள் பாரம்பரியமாக பெரி நோயல்  வருகையை எதிர்பார்த்து நெருப்பு மூட்டிய இடத்திற்கு அருகில் தங்களது காலணிகளை வைத்து விடுவார்கள். குழந்தைகள் ஆண்டு முழுவதும் நல்ல காரியங்களைச் செய்திருந்தால், பெரி நோயல்  அவர்கள் காலணிகளில் பரிசுகளை நிரப்பி விட்டுச் செல்வார்."
 	},
+	"fullscreen": {
+		"message": "முழுத்திரை"
+	},
 	"ga_country_name": {
 		"message": "கேபன்"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "மௌரிடானியா"
 	},
+	"mute": {
+		"message": "ஒலியடக்கு"
+	},
 	"mw_country_name": {
 		"message": "மலாவி"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "பனாமா"
 	},
+	"pause": {
+		"message": "இடைநிறுத்து"
+	},
 	"pe_country_name": {
 		"message": "பெரு"
 	},
@@ -1047,10 +1056,10 @@
 		"message": "போலிஷ்"
 	},
 	"play": {
-		"message": "விளையாடுக"
+		"message": "ஆடுக"
 	},
 	"playagain": {
-		"message": "மீண்டும் விளையாடுக"
+		"message": "மீண்டும் ஆடுக"
 	},
 	"playdescription": {
 		"message": "சான்டா டிராக்கர் Android பயன்பாட்டில் நண்பர்களுடன் விளையாடவும்."
@@ -1116,7 +1125,7 @@
 		"message": "வரை"
 	},
 	"quickdraw-splashview-description": {
-		"message": "டென்சார் என்பது உலகெங்கிலும் உள்ள குழந்தைகளிடமிருந்து பெறும் கடிதங்களை விரைவாகப் புரிந்துகொள்ள சான்டாவுக்கு உதவுகின்ற, எந்திரக் கற்றல் ரோபோட் ஆகும். டென்சாருக்குப் பயிற்சியளிக்க, ஒவ்வொரு விடுமுறை வார்த்தையின் படத்தையும் திரையில் வரையவும், என்ன தெரிகிறது என்று அது உங்களுக்குக் கூறும். நீங்கள் அதிகமாக வரைய வரைய, டென்சார் இன்னும் ஸ்மார்ட் ஆகும், எனவே இந்த விடுமுறை சீசனில் சான்டா முன்பை விடச் சிறப்பாகச் செயல்படுவதற்கு அவருக்கு உதவுவோம்!"
+		"message": "டென்சார் என்பது உலகெங்கிலும் உள்ள குழந்தைகளிடமிருந்து பெறும் கடிதங்களை விரைவாகப் புரிந்துகொள்ள சான்டாவுக்கு உதவுகின்ற, எந்திரக் கற்றல் ரோபோட் ஆகும். டென்சாருக்குப் பயிற்சியளிக்க, ஒவ்வொரு விடுமுறை வார்த்தையின் படத்தையும் திரையில் வரையவும், என்ன தெரிகிறது என்று அது உங்களுக்குக் கூறும். நீங்கள் அதிகமாக வரைய வரைய, டென்சார் இன்னும் ஸ்மார்ட் ஆகும். எனவே இந்த விடுமுறை சீசனில் சான்டா முன்பை விடச் சிறப்பாகச் செயல்படுவதற்கு அவருக்கு உதவுவோம்!"
 	},
 	"quickdraw-splashview-title": {
 		"message": "படத்தைக் கண்டறிவதற்கு டென்சாருக்குப் பயிற்சி அளியுங்கள்!"
@@ -1275,7 +1284,7 @@
 		"message": "வட துருவ விளையாட்டுத்திடல்"
 	},
 	"scene_postcard": {
-		"message": "ஸ்னோஃப்ளேக்கைக் கோடிங் செய்யுங்கள்"
+		"message": "ஸ்னோஃப்ளேக் கோடிங்"
 	},
 	"scene_presentbounce": {
 		"message": "பிரசென்ட் பவுன்ஸ்"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "சோமாலியா"
+	},
+	"speedsketch_item~London": {
+		"message": "லண்டன்"
+	},
+	"speedsketch_item~New York": {
+		"message": "நியூயார்க்"
+	},
+	"speedsketch_item~Paris": {
+		"message": "பாரிஸ்"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "ஷாங்காய்"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "ஸ்விட்சர்லாந்து"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "ஈபிள் டவர்"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "சீனப் பெருஞ்சுவர்"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "மோனலிசா ஓவியம்"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "அப்ஸ்ராக்ட் ஆர்ட்"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "விமானத்தாங்கிக் கப்பல்"
+	},
+	"speedsketch_item~airplane": {
+		"message": "விமானம்"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "அலாரக் கடிகாரம்"
+	},
+	"speedsketch_item~alien": {
+		"message": "ஏலியன்"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ஆம்புலன்ஸ்"
+	},
+	"speedsketch_item~angel": {
+		"message": "தேவதை"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "விலங்கு இடம்பெயர்தல்"
+	},
+	"speedsketch_item~ant": {
+		"message": "எறும்பு"
+	},
+	"speedsketch_item~anvil": {
+		"message": "பட்டறைக் கல்"
+	},
+	"speedsketch_item~apple": {
+		"message": "ஆப்பிள்"
+	},
+	"speedsketch_item~arm": {
+		"message": "கை"
+	},
+	"speedsketch_item~arrow": {
+		"message": "அம்பு"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "ஆஸ்பராகஸ்"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "விண்வெளி வீரர்"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "ஆடியோ கேசட்"
+	},
+	"speedsketch_item~avocado": {
+		"message": "அவகாடோ"
+	},
+	"speedsketch_item~axe": {
+		"message": "கோடாரி"
+	},
+	"speedsketch_item~baby": {
+		"message": "பேபி"
+	},
+	"speedsketch_item~backpack": {
+		"message": "முதுகுப்பை"
+	},
+	"speedsketch_item~banana": {
+		"message": "வாழைப்பழம்"
+	},
+	"speedsketch_item~bandage": {
+		"message": "கட்டு"
+	},
+	"speedsketch_item~barn": {
+		"message": "கொட்டகை"
+	},
+	"speedsketch_item~baseball": {
+		"message": "பேஸ்பால்"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "பேஸ்பால் மட்டை"
+	},
+	"speedsketch_item~basket": {
+		"message": "கூடை"
+	},
+	"speedsketch_item~basketball": {
+		"message": "கூடைப்பந்து"
+	},
+	"speedsketch_item~bat": {
+		"message": "பேட்"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "பாத் டப்"
+	},
+	"speedsketch_item~beach": {
+		"message": "கடற்கரை"
+	},
+	"speedsketch_item~bear": {
+		"message": "கரடி"
+	},
+	"speedsketch_item~beard": {
+		"message": "தாடி"
+	},
+	"speedsketch_item~bed": {
+		"message": "மெத்தை"
+	},
+	"speedsketch_item~bee": {
+		"message": "தேனீ"
+	},
+	"speedsketch_item~belt": {
+		"message": "பெல்ட்"
+	},
+	"speedsketch_item~bench": {
+		"message": "மேசை"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "சைக்கிள்"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "பைனாக்குலர்கள்"
+	},
+	"speedsketch_item~bird": {
+		"message": "பறவை"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "பிறந்தநாள் கேக்"
+	},
+	"speedsketch_item~black": {
+		"message": "கருப்பு"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "ப்ளாக்பெர்ரி"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "ப்ளூபெர்ரி"
+	},
+	"speedsketch_item~book": {
+		"message": "புத்தகம்"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "பூமராங்"
+	},
+	"speedsketch_item~boot": {
+		"message": "பூட்"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "பாட்டில் மூடி"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "பௌ டை"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "காப்பு"
+	},
+	"speedsketch_item~brain": {
+		"message": "மூளை"
+	},
+	"speedsketch_item~bread": {
+		"message": "ரொட்டி"
+	},
+	"speedsketch_item~bridge": {
+		"message": "பாலம்"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "ப்ரோக்கோலி"
+	},
+	"speedsketch_item~broom": {
+		"message": "துடைப்பம்"
+	},
+	"speedsketch_item~bubble": {
+		"message": "குமிழ்"
+	},
+	"speedsketch_item~bucket": {
+		"message": "வாளி"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "புல்டோசர்"
+	},
+	"speedsketch_item~bus": {
+		"message": "பேருந்து"
+	},
+	"speedsketch_item~bush": {
+		"message": "புதர்"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "பட்டாம்பூச்சி"
+	},
+	"speedsketch_item~cactus": {
+		"message": "கள்ளிச் செடி"
+	},
+	"speedsketch_item~cake": {
+		"message": "கேக்"
+	},
+	"speedsketch_item~calculator": {
+		"message": "கால்குலேட்டர்"
+	},
+	"speedsketch_item~calendar": {
+		"message": "கேலெண்டர்"
+	},
+	"speedsketch_item~camel": {
+		"message": "ஒட்டகம்"
+	},
+	"speedsketch_item~camera": {
+		"message": "கேமரா"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "கேமோஃபிலேஜ்"
+	},
+	"speedsketch_item~campfire": {
+		"message": "கேம்ப்ஃபயர்"
+	},
+	"speedsketch_item~candle": {
+		"message": "மெழுகுவர்த்தி"
+	},
+	"speedsketch_item~candy": {
+		"message": "மிட்டாய்"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "கேண்டி கேன்"
+	},
+	"speedsketch_item~canoe": {
+		"message": "சிறுபடகு"
+	},
+	"speedsketch_item~car": {
+		"message": "கார்"
+	},
+	"speedsketch_item~carrot": {
+		"message": "கேரட்"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "கார்ட்டூன்"
+	},
+	"speedsketch_item~castle": {
+		"message": "கோட்டை"
+	},
+	"speedsketch_item~cat": {
+		"message": "பூனை"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "சீலிங் ஃபேன்"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "செல் ஃபோன்"
+	},
+	"speedsketch_item~cello": {
+		"message": "செல்லோ"
+	},
+	"speedsketch_item~chair": {
+		"message": "நாற்காலி"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "அலங்கார விளக்கு"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "வேதியியல்"
+	},
+	"speedsketch_item~cherry": {
+		"message": "செர்ரி"
+	},
+	"speedsketch_item~chicken": {
+		"message": "கோழி"
+	},
+	"speedsketch_item~child": {
+		"message": "குழந்தை"
+	},
+	"speedsketch_item~chimney": {
+		"message": "புகைப் போக்கி"
+	},
+	"speedsketch_item~church": {
+		"message": "தேவாலயம்"
+	},
+	"speedsketch_item~circle": {
+		"message": "வட்டம்"
+	},
+	"speedsketch_item~city": {
+		"message": "மாநகரம்"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "கிளாரினெட்"
+	},
+	"speedsketch_item~clock": {
+		"message": "கடிகாரம்"
+	},
+	"speedsketch_item~cloud": {
+		"message": "மேகம்"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "சோளக் கதிர்"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "காஃபி கப்"
+	},
+	"speedsketch_item~compass": {
+		"message": "காம்பஸ்"
+	},
+	"speedsketch_item~computer": {
+		"message": "கணினி"
+	},
+	"speedsketch_item~cookie": {
+		"message": "குக்கீ"
+	},
+	"speedsketch_item~cooler": {
+		"message": "கூலர்"
+	},
+	"speedsketch_item~couch": {
+		"message": "படுக்கை"
+	},
+	"speedsketch_item~cow": {
+		"message": "பசு"
+	},
+	"speedsketch_item~crab": {
+		"message": "நண்டு"
+	},
+	"speedsketch_item~crayon": {
+		"message": "கிரையான்"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "முதலை"
+	},
+	"speedsketch_item~cross": {
+		"message": "கிராஸ்"
+	},
+	"speedsketch_item~crow": {
+		"message": "காகம்"
+	},
+	"speedsketch_item~crown": {
+		"message": "கிரீடம்"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "சொகுசுக் கப்பல்"
+	},
+	"speedsketch_item~cube": {
+		"message": "கனசதுரம்"
+	},
+	"speedsketch_item~cup": {
+		"message": "கப்"
+	},
+	"speedsketch_item~darts": {
+		"message": "ஈட்டிகள்"
+	},
+	"speedsketch_item~diamond": {
+		"message": "வைரம்"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "வைர மோதிரம்"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "டிஷ் வாஷர்"
+	},
+	"speedsketch_item~diving board": {
+		"message": "டைவிங் போர்டு"
+	},
+	"speedsketch_item~dog": {
+		"message": "நாய்"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "டால்பின்"
+	},
+	"speedsketch_item~donut": {
+		"message": "டோனட்"
+	},
+	"speedsketch_item~door": {
+		"message": "கதவு"
+	},
+	"speedsketch_item~dragon": {
+		"message": "டிராகன்"
+	},
+	"speedsketch_item~dresser": {
+		"message": "அலங்கார மேசை"
+	},
+	"speedsketch_item~drill": {
+		"message": "ட்ரில்"
+	},
+	"speedsketch_item~drums": {
+		"message": "டிரம்ஸ்"
+	},
+	"speedsketch_item~duck": {
+		"message": "வாத்து"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "பளு தூக்கும் கருவி (டம்புள்ஸ்)"
+	},
+	"speedsketch_item~ear": {
+		"message": "காது"
+	},
+	"speedsketch_item~egg": {
+		"message": "முட்டை"
+	},
+	"speedsketch_item~elbow": {
+		"message": "முழங்கை"
+	},
+	"speedsketch_item~elephant": {
+		"message": "யானை"
+	},
+	"speedsketch_item~elf": {
+		"message": "எல்ஃப்"
+	},
+	"speedsketch_item~emoji": {
+		"message": "ஈமோஜி"
+	},
+	"speedsketch_item~envelope": {
+		"message": "கடித உறை"
+	},
+	"speedsketch_item~eraser": {
+		"message": "அழிப்பான்"
+	},
+	"speedsketch_item~eye": {
+		"message": "கண்"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "கண் கண்ணாடிகள்"
+	},
+	"speedsketch_item~face": {
+		"message": "முகம்"
+	},
+	"speedsketch_item~family": {
+		"message": "குடும்பம்"
+	},
+	"speedsketch_item~fan": {
+		"message": "விசிறி"
+	},
+	"speedsketch_item~feather": {
+		"message": "இறகு"
+	},
+	"speedsketch_item~fence": {
+		"message": "வேலி"
+	},
+	"speedsketch_item~finger": {
+		"message": "விரல்"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "தீயணைப்புக் குழாய்"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "குளிர்காயும் இடம்"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "தீயணைப்பு வண்டி"
+	},
+	"speedsketch_item~fish": {
+		"message": "மீன்"
+	},
+	"speedsketch_item~flag": {
+		"message": "கொடி"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "ஃபிளமிங்கோ"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "ஃபிளாஷ்லைட்"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "ஃபிளிப் ஃபிளாப்ஸ்"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "தரை விளக்கு"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "நெகிழ் வட்டு"
+	},
+	"speedsketch_item~flower": {
+		"message": "பூ"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "பறக்கும் தட்டு"
+	},
+	"speedsketch_item~fog": {
+		"message": "மூடுபனி"
+	},
+	"speedsketch_item~foot": {
+		"message": "பாதம்"
+	},
+	"speedsketch_item~fork": {
+		"message": "முட்கரண்டி"
+	},
+	"speedsketch_item~french fries": {
+		"message": "பிரெஞ்சு ஃபிரைஸ்"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "வறுத்த முட்டை"
+	},
+	"speedsketch_item~frog": {
+		"message": "தவளை"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "பொரிக்கும் தட்டு"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "கேலக்ஸி"
+	},
+	"speedsketch_item~garden": {
+		"message": "தோட்டம்"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "தோட்டக் குழாய்"
+	},
+	"speedsketch_item~ghost": {
+		"message": "பேய்"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "ஜிஞ்சர்பிரட் மேன்"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "ஒட்டகச்சிவிங்கி"
+	},
+	"speedsketch_item~goat": {
+		"message": "ஆடு"
+	},
+	"speedsketch_item~goatee": {
+		"message": "ஆட்டுத்தாடி"
+	},
+	"speedsketch_item~golf club": {
+		"message": "கோல்ஃப் கிளப்"
+	},
+	"speedsketch_item~grapes": {
+		"message": "திராட்சைகள்"
+	},
+	"speedsketch_item~grass": {
+		"message": "புல்"
+	},
+	"speedsketch_item~group": {
+		"message": "குழு"
+	},
+	"speedsketch_item~guitar": {
+		"message": "கிட்டார்"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "ஹம்பர்கர்"
+	},
+	"speedsketch_item~hammer": {
+		"message": "சுத்தி"
+	},
+	"speedsketch_item~hand": {
+		"message": "கை"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "ஹேங்மேன் கேம்"
+	},
+	"speedsketch_item~happiness": {
+		"message": "மகிழ்ச்சி"
+	},
+	"speedsketch_item~harp": {
+		"message": "யாழ்"
+	},
+	"speedsketch_item~hat": {
+		"message": "தொப்பி"
+	},
+	"speedsketch_item~headphones": {
+		"message": "ஹெட்ஃபோன்கள்"
+	},
+	"speedsketch_item~heart": {
+		"message": "இதயம்"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "ஹெட்ஜ்ஹாக்"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "ஹெலிகாப்டர்"
+	},
+	"speedsketch_item~helmet": {
+		"message": "ஹெல்மெட்"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "அறுங்கோணம்"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "ஹாக்கி பக்"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "ஹாக்கி ஸ்டிக்"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "ஹாலிடே லைட்ஸ்"
+	},
+	"speedsketch_item~horse": {
+		"message": "குதிரை"
+	},
+	"speedsketch_item~hospital": {
+		"message": "மருத்துவமனை"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "வெப்பக் காற்றுப் பலூன்"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "ஹாட் டாக்"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "ஹாட் டப்"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "மணற்கடிகாரம்"
+	},
+	"speedsketch_item~house": {
+		"message": "வீடு"
+	},
+	"speedsketch_item~house plant": {
+		"message": "வீட்டுச் செடி"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "சூறாவளி"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "ஐஸ்கிரீம்"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "ஐஸ் ஸ்கேட்டர்"
+	},
+	"speedsketch_item~infinity": {
+		"message": "முடிவற்ற தன்மை"
+	},
+	"speedsketch_item~island": {
+		"message": "தீவு"
+	},
+	"speedsketch_item~italy": {
+		"message": "இத்தாலி"
+	},
+	"speedsketch_item~jacket": {
+		"message": "ஜாக்கெட்"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "ஜெட்பேக்"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "ஜிங்கில் பெல்ஸ்"
+	},
+	"speedsketch_item~kale": {
+		"message": "காலே"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "கங்காரு"
+	},
+	"speedsketch_item~key": {
+		"message": "சாவி"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "கீபோர்டு"
+	},
+	"speedsketch_item~kite": {
+		"message": "பட்டம்"
+	},
+	"speedsketch_item~knee": {
+		"message": "முழங்கால்"
+	},
+	"speedsketch_item~knife": {
+		"message": "கத்தி"
+	},
+	"speedsketch_item~knot": {
+		"message": "முடிச்சு"
+	},
+	"speedsketch_item~koala": {
+		"message": "கோலா"
+	},
+	"speedsketch_item~ladder": {
+		"message": "ஏணி"
+	},
+	"speedsketch_item~landscape": {
+		"message": "இயற்கை நிலக்காட்சி"
+	},
+	"speedsketch_item~lantern": {
+		"message": "தொங்கும் விளக்கு"
+	},
+	"speedsketch_item~laptop": {
+		"message": "லேப்டாப்"
+	},
+	"speedsketch_item~leaf": {
+		"message": "இலை"
+	},
+	"speedsketch_item~leg": {
+		"message": "கால்"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "மின் விளக்கு"
+	},
+	"speedsketch_item~lighter": {
+		"message": "லைட்டர்"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "கலங்கரை விளக்கம்"
+	},
+	"speedsketch_item~lightning": {
+		"message": "மின்னல்"
+	},
+	"speedsketch_item~line": {
+		"message": "கோடு"
+	},
+	"speedsketch_item~lion": {
+		"message": "சிங்கம்"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "லிப்ஸ்டிக்"
+	},
+	"speedsketch_item~lobster": {
+		"message": "இறால்"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "லாலிபாப்"
+	},
+	"speedsketch_item~love": {
+		"message": "காதல்"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "அஞ்சல் பெட்டி"
+	},
+	"speedsketch_item~man": {
+		"message": "ஆண்"
+	},
+	"speedsketch_item~map": {
+		"message": "வரைபடம்"
+	},
+	"speedsketch_item~marker": {
+		"message": "மார்க்கர்"
+	},
+	"speedsketch_item~matches": {
+		"message": "தீக்குச்சிகள்"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "கணிதம்"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "மெகாஃபோன்"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "கடல் தேவதை"
+	},
+	"speedsketch_item~metal": {
+		"message": "உலோகம்"
+	},
+	"speedsketch_item~microphone": {
+		"message": "மைக்ரோஃபோன்"
+	},
+	"speedsketch_item~microscope": {
+		"message": "நுண்ணோக்கி"
+	},
+	"speedsketch_item~microwave": {
+		"message": "மைக்ரோவேவ்"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "புல்லுருவி"
+	},
+	"speedsketch_item~mittens": {
+		"message": "கையுறைகள்"
+	},
+	"speedsketch_item~molecule": {
+		"message": "மூலக்கூறு"
+	},
+	"speedsketch_item~money": {
+		"message": "பணம்"
+	},
+	"speedsketch_item~monkey": {
+		"message": "குரங்கு"
+	},
+	"speedsketch_item~moon": {
+		"message": "நிலா"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "கொசு"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "மோட்டார்பைக்"
+	},
+	"speedsketch_item~mountain": {
+		"message": "மலை"
+	},
+	"speedsketch_item~mouse": {
+		"message": "எலி"
+	},
+	"speedsketch_item~moustache": {
+		"message": "மீசை"
+	},
+	"speedsketch_item~mouth": {
+		"message": "வாய்"
+	},
+	"speedsketch_item~mug": {
+		"message": "குவளை"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "காளான்"
+	},
+	"speedsketch_item~music": {
+		"message": "இசை"
+	},
+	"speedsketch_item~nail": {
+		"message": "நகம்"
+	},
+	"speedsketch_item~nature": {
+		"message": "இயற்கை"
+	},
+	"speedsketch_item~necklace": {
+		"message": "நெக்லஸ்"
+	},
+	"speedsketch_item~news": {
+		"message": "செய்திகள்"
+	},
+	"speedsketch_item~nose": {
+		"message": "மூக்கு"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "நட்கிராக்கர்"
+	},
+	"speedsketch_item~ocean": {
+		"message": "கடல்"
+	},
+	"speedsketch_item~octagon": {
+		"message": "எண்கோணம்"
+	},
+	"speedsketch_item~octopus": {
+		"message": "ஆக்டோபஸ்"
+	},
+	"speedsketch_item~onion": {
+		"message": "வெங்காயம்"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ஆபரணம்"
+	},
+	"speedsketch_item~oven": {
+		"message": "ஓவன்"
+	},
+	"speedsketch_item~owl": {
+		"message": "ஆந்தை"
+	},
+	"speedsketch_item~paint can": {
+		"message": "பெயிண்ட் கேன்"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "பெயிண்ட்பிரஷ்"
+	},
+	"speedsketch_item~painting": {
+		"message": "ஓவியம்"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "பனைமரம்"
+	},
+	"speedsketch_item~panda": {
+		"message": "பாண்டா"
+	},
+	"speedsketch_item~pants": {
+		"message": "பேண்ட்ஸ்"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "பேப்பர் கிளிப்"
+	},
+	"speedsketch_item~parachute": {
+		"message": "பாராசூட்"
+	},
+	"speedsketch_item~parrot": {
+		"message": "கிளி"
+	},
+	"speedsketch_item~passport": {
+		"message": "பாஸ்போர்ட்"
+	},
+	"speedsketch_item~peanut": {
+		"message": "வேர்க்கடலை"
+	},
+	"speedsketch_item~pear": {
+		"message": "பேரிக்காய்"
+	},
+	"speedsketch_item~peas": {
+		"message": "பட்டாணி"
+	},
+	"speedsketch_item~pencil": {
+		"message": "பென்சில்"
+	},
+	"speedsketch_item~penguin": {
+		"message": "பென்குயின்"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "பெப்பர்மின்ட்"
+	},
+	"speedsketch_item~piano": {
+		"message": "பியானோ"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "சரக்கு ஏற்றும் வண்டி"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "பிக்சர் ஃபிரேம்"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "பை விளக்கப்படம்"
+	},
+	"speedsketch_item~pig": {
+		"message": "பன்றி"
+	},
+	"speedsketch_item~pillow": {
+		"message": "தலையணை"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "அன்னாசிப்பழம்"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "பிங் பாங்"
+	},
+	"speedsketch_item~pirate": {
+		"message": "கடற்கொள்ளையர்"
+	},
+	"speedsketch_item~pizza": {
+		"message": "பீட்சா"
+	},
+	"speedsketch_item~pliers": {
+		"message": "குறடு"
+	},
+	"speedsketch_item~police car": {
+		"message": "போலீஸ் கார்"
+	},
+	"speedsketch_item~politician": {
+		"message": "அரசியல்வாதி"
+	},
+	"speedsketch_item~pond": {
+		"message": "குளம்"
+	},
+	"speedsketch_item~pool": {
+		"message": "நீச்சல்குளம்"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "ஐஸ் குச்சி"
+	},
+	"speedsketch_item~portrait": {
+		"message": "உருவப்படம்"
+	},
+	"speedsketch_item~postcard": {
+		"message": "அஞ்சலட்டை"
+	},
+	"speedsketch_item~potato": {
+		"message": "உருளைக்கிழங்கு"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "மின் பிளக்"
+	},
+	"speedsketch_item~present": {
+		"message": "பிரசென்ட்"
+	},
+	"speedsketch_item~prison": {
+		"message": "சிறைச்சாலை"
+	},
+	"speedsketch_item~purse": {
+		"message": "பர்ஸ்"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "புதிர்"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "முயல்"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "ரக்கூன்"
+	},
+	"speedsketch_item~radio": {
+		"message": "ரேடியோ"
+	},
+	"speedsketch_item~rain": {
+		"message": "மழை"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "வானவில்"
+	},
+	"speedsketch_item~rake": {
+		"message": "குப்பைவாரி"
+	},
+	"speedsketch_item~raven": {
+		"message": "அண்டங்காக்கை"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "கலைமான்"
+	},
+	"speedsketch_item~remote control": {
+		"message": "ரிமோட் கன்ட்ரோல்"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "காண்டாமிருகம்"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "ரிப்பன்"
+	},
+	"speedsketch_item~river": {
+		"message": "ஆறு"
+	},
+	"speedsketch_item~robot": {
+		"message": "ரோபோட்"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "ரோலர் கோஸ்டர்"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "ரோலர்ஸ்கேட்ஸ்"
+	},
+	"speedsketch_item~sadness": {
+		"message": "சோகம்"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "பாய்மரப் படகு"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "சாண்ட்விச்"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "சான்டா கிளாஸ்"
+	},
+	"speedsketch_item~saturn": {
+		"message": "சாட்டர்ன்"
+	},
+	"speedsketch_item~sausage": {
+		"message": "சாசேஜ்"
+	},
+	"speedsketch_item~saw": {
+		"message": "ரம்பம்"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "சாக்ஸோஃபோன்"
+	},
+	"speedsketch_item~school bus": {
+		"message": "பள்ளிப் பேருந்து"
+	},
+	"speedsketch_item~scissors": {
+		"message": "கத்தரிக்கோல்"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "தேள்"
+	},
+	"speedsketch_item~screw": {
+		"message": "திருகு"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "ஸ்க்ரூடிரைவர்"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "சிற்பம்"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "கடல் ஆமை"
+	},
+	"speedsketch_item~see saw": {
+		"message": "சாய்ந்தாடி"
+	},
+	"speedsketch_item~shark": {
+		"message": "சுறா"
+	},
+	"speedsketch_item~sheep": {
+		"message": "செம்மறியாடு"
+	},
+	"speedsketch_item~shoe": {
+		"message": "ஷூ"
+	},
+	"speedsketch_item~shorts": {
+		"message": "ஷார்ட்ஸ்"
+	},
+	"speedsketch_item~shovel": {
+		"message": "மண்வெட்டி"
+	},
+	"speedsketch_item~sink": {
+		"message": "சிங்க்"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "ஸ்கேட்போர்டு"
+	},
+	"speedsketch_item~ski": {
+		"message": "பனிச்சறுக்கு"
+	},
+	"speedsketch_item~skier": {
+		"message": "ஸ்கையர்"
+	},
+	"speedsketch_item~skirt": {
+		"message": "பாவாடை"
+	},
+	"speedsketch_item~skull": {
+		"message": "மண்டையோடு"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "வானளாவிய கட்டிடம்"
+	},
+	"speedsketch_item~sled": {
+		"message": "ஸ்லெட்"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "ஸ்லீப்பிங் பேக்"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "ஸ்லெய்"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "புன்னகைக்கும் முகம்"
+	},
+	"speedsketch_item~snail": {
+		"message": "நத்தை"
+	},
+	"speedsketch_item~snake": {
+		"message": "பாம்பு"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "ஸ்நார்கெல்"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "ஸ்னோஃபிளேக்"
+	},
+	"speedsketch_item~snowman": {
+		"message": "பனிமனிதன்"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "சாக்கர் பந்து"
+	},
+	"speedsketch_item~sock": {
+		"message": "காலுறை"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "ஸ்பீட்போட்"
+	},
+	"speedsketch_item~sphere": {
+		"message": "கோளம்"
+	},
+	"speedsketch_item~spider": {
+		"message": "சிலந்தி"
+	},
+	"speedsketch_item~spiral": {
+		"message": "ஸ்பைரல்"
+	},
+	"speedsketch_item~spoon": {
+		"message": "கரன்டி"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "விரிதாள்"
+	},
+	"speedsketch_item~square": {
+		"message": "சதுரம்"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "வளைந்து நெளிந்த கோடு"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "அணில்"
+	},
+	"speedsketch_item~stairs": {
+		"message": "படிக்கட்டுகள்"
+	},
+	"speedsketch_item~star": {
+		"message": "நட்சத்திரம்"
+	},
+	"speedsketch_item~steak": {
+		"message": "ஸ்டீக்"
+	},
+	"speedsketch_item~stereo": {
+		"message": "ஸ்டீரியோ"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "இதயத்துடிப்பு மானி"
+	},
+	"speedsketch_item~still life": {
+		"message": "ஸ்டில் வாழ்க்கை"
+	},
+	"speedsketch_item~stitches": {
+		"message": "தையல்கள்"
+	},
+	"speedsketch_item~stock market": {
+		"message": "பங்குச் சந்தை"
+	},
+	"speedsketch_item~stocking": {
+		"message": "ஸ்டாக்கிங்"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "நிறுத்து அடையாளம்"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "ஸ்டாப்வாட்ச்"
+	},
+	"speedsketch_item~stove": {
+		"message": "அடுப்பு"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "ஸ்ட்ராபெர்ரி"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "தெரு விளக்கு"
+	},
+	"speedsketch_item~string bean": {
+		"message": "ஸ்டிரிங் பீன்"
+	},
+	"speedsketch_item~submarine": {
+		"message": "நீர்மூழ்கி"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "சூட்கேஸ்"
+	},
+	"speedsketch_item~sun": {
+		"message": "சூரியன்"
+	},
+	"speedsketch_item~sunset": {
+		"message": "சூரிய அஸ்தமம்"
+	},
+	"speedsketch_item~swan": {
+		"message": "அன்னப்பறவை"
+	},
+	"speedsketch_item~sweater": {
+		"message": "ஸ்வெட்டர்"
+	},
+	"speedsketch_item~swing set": {
+		"message": "ஊஞ்சல்"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "டி-சர்ட்"
+	},
+	"speedsketch_item~table": {
+		"message": "மேசை"
+	},
+	"speedsketch_item~teapot": {
+		"message": "தேநீர் குடுவை"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "கரடி பொம்மை"
+	},
+	"speedsketch_item~telephone": {
+		"message": "தொலைபேசி"
+	},
+	"speedsketch_item~television": {
+		"message": "தொலைக்காட்சி"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "டென்னிஸ் மட்டை"
+	},
+	"speedsketch_item~tent": {
+		"message": "கூடாரம்"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "டிக் டாக் டோ கேம்"
+	},
+	"speedsketch_item~tiger": {
+		"message": "புலி"
+	},
+	"speedsketch_item~time": {
+		"message": "நேரம்"
+	},
+	"speedsketch_item~toaster": {
+		"message": "டோஸ்டர்"
+	},
+	"speedsketch_item~toe": {
+		"message": "பெருவிரல்"
+	},
+	"speedsketch_item~toilet": {
+		"message": "கழிப்பறை"
+	},
+	"speedsketch_item~tooth": {
+		"message": "பல்"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "டூத்பிரஷ்"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "பற்பசை"
+	},
+	"speedsketch_item~tornado": {
+		"message": "சுழல் காற்று"
+	},
+	"speedsketch_item~tractor": {
+		"message": "டிராக்டர்"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "ட்ராஃபிக் லைட்"
+	},
+	"speedsketch_item~train": {
+		"message": "ரயில்"
+	},
+	"speedsketch_item~tree": {
+		"message": "மரம்"
+	},
+	"speedsketch_item~triangle": {
+		"message": "முக்கோணம்"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "ட்ரை சைக்கிள்"
+	},
+	"speedsketch_item~trolley": {
+		"message": "தள்ளுவண்டி"
+	},
+	"speedsketch_item~trombone": {
+		"message": "ட்ரோம்போன்"
+	},
+	"speedsketch_item~trousers": {
+		"message": "ட்ரவுசர்ஸ்"
+	},
+	"speedsketch_item~truck": {
+		"message": "டிரக்"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "ட்ரம்பெட்"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "குடை"
+	},
+	"speedsketch_item~underwear": {
+		"message": "உள்ளாடை"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "கொம்புக் குதிரை (யூனிகார்ன்)"
+	},
+	"speedsketch_item~universe": {
+		"message": "பிரபஞ்சம்"
+	},
+	"speedsketch_item~van": {
+		"message": "வேன்"
+	},
+	"speedsketch_item~vase": {
+		"message": "குவளை"
+	},
+	"speedsketch_item~violin": {
+		"message": "வயலின்"
+	},
+	"speedsketch_item~walnut": {
+		"message": "வால்நட்"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "வாஷிங் மெஷின்"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "தர்பூசணி"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "நீர் சறுக்கு"
+	},
+	"speedsketch_item~wave": {
+		"message": "அலை"
+	},
+	"speedsketch_item~whale": {
+		"message": "திமிங்கலம்"
+	},
+	"speedsketch_item~wheel": {
+		"message": "சக்கரம்"
+	},
+	"speedsketch_item~windmill": {
+		"message": "காற்றாலை"
+	},
+	"speedsketch_item~woman": {
+		"message": "பெண்"
+	},
+	"speedsketch_item~world": {
+		"message": "உலகம்"
+	},
+	"speedsketch_item~wreath": {
+		"message": "மலர்வளையம்"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "கைக்கடிகாரம்"
+	},
+	"speedsketch_item~yoga": {
+		"message": "யோகா"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "தயிர்"
+	},
+	"speedsketch_item~zebra": {
+		"message": "வரிக்குதிரை"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "ஏற்ற இறக்கம்"
+	},
+	"speedsketch_item~zipper": {
+		"message": "ஜிப்பர்"
 	},
 	"sr_country_name": {
 		"message": "சுரினாம்"
@@ -5244,7 +6624,10 @@
 		"message": "யுனைடெட் கிங்டம்"
 	},
 	"uk_tradition": {
-		"message": "யுனைடெட் கிங்டமில், இரவு உணவின்போது அனைத்து வயதினரும் பட்டாசுகள் வெடித்து குதூகலமாகக் கொண்டாடுவார்கள். கிறிஸ்துமஸ் இரவைக் கொண்டாடி மகிழ, வண்ணக் காகிதத்தில் சுற்றப்பட்டு உருளை போன்ற வடிவத்தில் உள்ள இந்த பட்டாசுகள் வெடிக்கும்போது, பயங்கர சத்தத்துடன், பேப்பர் தொப்பிகள், பொம்மைகள், மிட்டாய் வகைகள் என பல பொருட்கள் சிதறும்."
+		"message": "யுனைடெட் கிங்டமில், இரவு உணவின்போது அனைத்து வயதினரும் பட்டாசுக வெடித்து குதூகலமாக கொண்டாடுவார்கள். கிறிஸ்துமஸ் இரவை கொண்டாட, வண்ண காகிதத்தில் சுற்றப்பட்டு உருளை வடிவத்தில் உள்ள இந்த பட்டாசுகள் பயங்கர சத்தத்துடன் வெடிக்கும்போது, பேப்பர் தொப்பிகள், பொம்மைகள், ஜோக்ஸ், பரிசுகள் என பல பொருட்கள் சிதறும்."
+	},
+	"unmute": {
+		"message": "ஒலி இயக்கு"
 	},
 	"upgrade-warning": {
 		"message": "அச்சச்சோ! சான்டா டிராக்கர் உங்கள் உலாவியின் இந்தப் பதிப்பில் ஆதரிக்கப்படவில்லை. சான்டா டிராக்கரை அணுக, நவீன உலாவியைப் பதிவிறக்கவும். மேலும் தகவலுக்கு \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003eக்குச் செல்லவும்."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "முகப்புத் திரையில் சேர்"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "ஷெல்ஃபில் சேர்"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "டெஸ்க்டாப்பில் சேர்"
 	},
 	"village_santa_cardboard": {
 		"message": "கார்ட்போர்டில் சான்டா"

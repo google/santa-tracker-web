@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "Francijā bērni parasti novieto apavus kamīna priekšā, gaidot Pjēra Noela (Père Noël) ierašanos. Ja bērni visu gadu ir labi uzvedušies, Pjērs Noels piepilda apavus ar dāvanām."
 	},
+	"fullscreen": {
+		"message": "Pilnekrāna režīms"
+	},
 	"ga_country_name": {
 		"message": "Gabona"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritānija"
 	},
+	"mute": {
+		"message": "Izslēgt skaņu"
+	},
 	"mw_country_name": {
 		"message": "Malāvija"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "Apturēt"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1116,7 +1125,7 @@
 		"message": "Zīmēt"
 	},
 	"quickdraw-splashview-description": {
-		"message": "“Tensor” ir Ziemassvētku vecīša mašīnmācīšanās robots, kas viņam palīdz ātri atšifrēt vēstules no bērniem visā pasaulē. Lai palīdzētu robotam “Tensor” vingrināties, ekrānā uzzīmējiet katra svētku vārda attēlu un viņš jums pateiks, ko redz. Jo vairāk zīmēsit, jo gudrāks kļūs robots “Tensor” Palīdzēsim Ziemassvētku vecītim šajā svētku sezonā darboties efektīvāk nekā jebkad agrāk."
+		"message": "“Tensor” ir Ziemassvētku vecīša mašīnmācīšanās robots, kas viņam palīdz ātri atšifrēt vēstules no bērniem visā pasaulē. Lai palīdzētu robotam “Tensor” vingrināties, ekrānā uzzīmējiet katra svētku vārda attēlu un tas jums pateiks, ko redz. Jo vairāk zīmēsit, jo gudrāks kļūs robots “Tensor”. Palīdzēsim Ziemassvētku vecītim šajā svētku sezonā darboties efektīvāk nekā jebkad agrāk."
 	},
 	"quickdraw-splashview-title": {
 		"message": "Palīdziet robotam “Tensor” vingrināties attēlu atpazīšanā."
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somālija"
+	},
+	"speedsketch_item~London": {
+		"message": "Londona"
+	},
+	"speedsketch_item~New York": {
+		"message": "Ņujorka"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Parīze"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Šanhaja"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Šveice"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Eifeļa tornis"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Ķīnas Lielais mūris"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Liza"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstraktā māksla"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "lidmašīnu bāzes kuģis"
+	},
+	"speedsketch_item~airplane": {
+		"message": "lidmašīna"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "modinātājpulkstenis"
+	},
+	"speedsketch_item~alien": {
+		"message": "citplanētietis"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ātrā palīdzība"
+	},
+	"speedsketch_item~angel": {
+		"message": "eņģelis"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "dzīvnieku migrācija"
+	},
+	"speedsketch_item~ant": {
+		"message": "skudra"
+	},
+	"speedsketch_item~anvil": {
+		"message": "lakta"
+	},
+	"speedsketch_item~apple": {
+		"message": "ābols"
+	},
+	"speedsketch_item~arm": {
+		"message": "roka"
+	},
+	"speedsketch_item~arrow": {
+		"message": "bulta"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "sparģeļi"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronauts"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "audio kasete"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokado"
+	},
+	"speedsketch_item~axe": {
+		"message": "cirvis"
+	},
+	"speedsketch_item~baby": {
+		"message": "mazulis"
+	},
+	"speedsketch_item~backpack": {
+		"message": "mugursoma"
+	},
+	"speedsketch_item~banana": {
+		"message": "banāns"
+	},
+	"speedsketch_item~bandage": {
+		"message": "pārsējs"
+	},
+	"speedsketch_item~barn": {
+		"message": "šķūnis"
+	},
+	"speedsketch_item~baseball": {
+		"message": "beisbols"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "beisbola nūja"
+	},
+	"speedsketch_item~basket": {
+		"message": "grozs"
+	},
+	"speedsketch_item~basketball": {
+		"message": "basketbols"
+	},
+	"speedsketch_item~bat": {
+		"message": "sikspārnis"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "vanna"
+	},
+	"speedsketch_item~beach": {
+		"message": "pludmale"
+	},
+	"speedsketch_item~bear": {
+		"message": "lācis"
+	},
+	"speedsketch_item~beard": {
+		"message": "bārda"
+	},
+	"speedsketch_item~bed": {
+		"message": "gulta"
+	},
+	"speedsketch_item~bee": {
+		"message": "bite"
+	},
+	"speedsketch_item~belt": {
+		"message": "siksna"
+	},
+	"speedsketch_item~bench": {
+		"message": "soliņš"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "velosipēds"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "binoklis"
+	},
+	"speedsketch_item~bird": {
+		"message": "putns"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "dzimšanas dienas kūka"
+	},
+	"speedsketch_item~black": {
+		"message": "melns"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "kazene"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "mellene"
+	},
+	"speedsketch_item~book": {
+		"message": "grāmata"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerangs"
+	},
+	"speedsketch_item~boot": {
+		"message": "zābaks"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "pudeles korķis"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "auduma tauriņš"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "aproce"
+	},
+	"speedsketch_item~brain": {
+		"message": "smadzenes"
+	},
+	"speedsketch_item~bread": {
+		"message": "maize"
+	},
+	"speedsketch_item~bridge": {
+		"message": "tilts"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "brokoļi"
+	},
+	"speedsketch_item~broom": {
+		"message": "slota"
+	},
+	"speedsketch_item~bubble": {
+		"message": "burbulis"
+	},
+	"speedsketch_item~bucket": {
+		"message": "spainis"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldozers"
+	},
+	"speedsketch_item~bus": {
+		"message": "autobuss"
+	},
+	"speedsketch_item~bush": {
+		"message": "krūms"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "tauriņš"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktuss"
+	},
+	"speedsketch_item~cake": {
+		"message": "kūka"
+	},
+	"speedsketch_item~calculator": {
+		"message": "kalkulators"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalendārs"
+	},
+	"speedsketch_item~camel": {
+		"message": "kamielis"
+	},
+	"speedsketch_item~camera": {
+		"message": "kamera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "kamuflāža"
+	},
+	"speedsketch_item~campfire": {
+		"message": "ugunskurs"
+	},
+	"speedsketch_item~candle": {
+		"message": "svece"
+	},
+	"speedsketch_item~candy": {
+		"message": "konfekte"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "karameles spieķītis"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kanoe"
+	},
+	"speedsketch_item~car": {
+		"message": "automašīna"
+	},
+	"speedsketch_item~carrot": {
+		"message": "burkāns"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "multiplikācijas filma"
+	},
+	"speedsketch_item~castle": {
+		"message": "pils"
+	},
+	"speedsketch_item~cat": {
+		"message": "kaķis"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "griestu ventilators"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobilais tālrunis"
+	},
+	"speedsketch_item~cello": {
+		"message": "čells"
+	},
+	"speedsketch_item~chair": {
+		"message": "krēsls"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "lustra"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "ķīmija"
+	},
+	"speedsketch_item~cherry": {
+		"message": "ķirsis"
+	},
+	"speedsketch_item~chicken": {
+		"message": "cālis"
+	},
+	"speedsketch_item~child": {
+		"message": "bērns"
+	},
+	"speedsketch_item~chimney": {
+		"message": "skurstenis"
+	},
+	"speedsketch_item~church": {
+		"message": "baznīca"
+	},
+	"speedsketch_item~circle": {
+		"message": "aplis"
+	},
+	"speedsketch_item~city": {
+		"message": "pilsēta"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarnete"
+	},
+	"speedsketch_item~clock": {
+		"message": "pulkstenis"
+	},
+	"speedsketch_item~cloud": {
+		"message": "mākonis"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "kukurūzas vālīte"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "kafijas tase"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompass"
+	},
+	"speedsketch_item~computer": {
+		"message": "dators"
+	},
+	"speedsketch_item~cookie": {
+		"message": "cepums"
+	},
+	"speedsketch_item~cooler": {
+		"message": "ledusskapis"
+	},
+	"speedsketch_item~couch": {
+		"message": "dīvāns"
+	},
+	"speedsketch_item~cow": {
+		"message": "govs"
+	},
+	"speedsketch_item~crab": {
+		"message": "krabis"
+	},
+	"speedsketch_item~crayon": {
+		"message": "krītiņš"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodils"
+	},
+	"speedsketch_item~cross": {
+		"message": "krusts"
+	},
+	"speedsketch_item~crow": {
+		"message": "vārna"
+	},
+	"speedsketch_item~crown": {
+		"message": "kronis"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "kruīza kuģis"
+	},
+	"speedsketch_item~cube": {
+		"message": "kubs"
+	},
+	"speedsketch_item~cup": {
+		"message": "tase"
+	},
+	"speedsketch_item~darts": {
+		"message": "šautriņas"
+	},
+	"speedsketch_item~diamond": {
+		"message": "dimants"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "briljanta gredzens"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "trauku mazgājamā mašīna"
+	},
+	"speedsketch_item~diving board": {
+		"message": "tramplīna dēlis"
+	},
+	"speedsketch_item~dog": {
+		"message": "suns"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfīns"
+	},
+	"speedsketch_item~donut": {
+		"message": "virtulis"
+	},
+	"speedsketch_item~door": {
+		"message": "durvis"
+	},
+	"speedsketch_item~dragon": {
+		"message": "pūķis"
+	},
+	"speedsketch_item~dresser": {
+		"message": "kumode"
+	},
+	"speedsketch_item~drill": {
+		"message": "urbis"
+	},
+	"speedsketch_item~drums": {
+		"message": "bungas"
+	},
+	"speedsketch_item~duck": {
+		"message": "pīle"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "hantele"
+	},
+	"speedsketch_item~ear": {
+		"message": "auss"
+	},
+	"speedsketch_item~egg": {
+		"message": "ola"
+	},
+	"speedsketch_item~elbow": {
+		"message": "elkonis"
+	},
+	"speedsketch_item~elephant": {
+		"message": "zilonis"
+	},
+	"speedsketch_item~elf": {
+		"message": "rūķītis"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emocijzīme"
+	},
+	"speedsketch_item~envelope": {
+		"message": "aploksne"
+	},
+	"speedsketch_item~eraser": {
+		"message": "dzēšgumija"
+	},
+	"speedsketch_item~eye": {
+		"message": "acs"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "brilles"
+	},
+	"speedsketch_item~face": {
+		"message": "seja"
+	},
+	"speedsketch_item~family": {
+		"message": "ģimene"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventilators"
+	},
+	"speedsketch_item~feather": {
+		"message": "spalva"
+	},
+	"speedsketch_item~fence": {
+		"message": "žogs"
+	},
+	"speedsketch_item~finger": {
+		"message": "pirksts"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "ugunsdzēsības hidrants"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "kamīns"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "ugunsdzēsēju mašīna"
+	},
+	"speedsketch_item~fish": {
+		"message": "zivs"
+	},
+	"speedsketch_item~flag": {
+		"message": "karogs"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "zibspuldze"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "pludmales čības"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "grīdas lampa"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "diskete"
+	},
+	"speedsketch_item~flower": {
+		"message": "puķe"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "lidojošais šķīvītis"
+	},
+	"speedsketch_item~fog": {
+		"message": "migla"
+	},
+	"speedsketch_item~foot": {
+		"message": "pēda"
+	},
+	"speedsketch_item~fork": {
+		"message": "dakša"
+	},
+	"speedsketch_item~french fries": {
+		"message": "kartupeļi frī"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "cepta ola"
+	},
+	"speedsketch_item~frog": {
+		"message": "varde"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "panna"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaktika"
+	},
+	"speedsketch_item~garden": {
+		"message": "dārzs"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "dārza šļūtene"
+	},
+	"speedsketch_item~ghost": {
+		"message": "spoks"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "piparkūku vīriņš"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "žirafe"
+	},
+	"speedsketch_item~goat": {
+		"message": "kaza"
+	},
+	"speedsketch_item~goatee": {
+		"message": "kazbārda"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfa klubs"
+	},
+	"speedsketch_item~grapes": {
+		"message": "vīnogas"
+	},
+	"speedsketch_item~grass": {
+		"message": "zāle"
+	},
+	"speedsketch_item~group": {
+		"message": "grupa"
+	},
+	"speedsketch_item~guitar": {
+		"message": "ģitāra"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburgers"
+	},
+	"speedsketch_item~hammer": {
+		"message": "āmurs"
+	},
+	"speedsketch_item~hand": {
+		"message": "plauksta"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "karātavu spēle"
+	},
+	"speedsketch_item~happiness": {
+		"message": "laime"
+	},
+	"speedsketch_item~harp": {
+		"message": "arfa"
+	},
+	"speedsketch_item~hat": {
+		"message": "cepure"
+	},
+	"speedsketch_item~headphones": {
+		"message": "austiņas"
+	},
+	"speedsketch_item~heart": {
+		"message": "sirds"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "ezis"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikopters"
+	},
+	"speedsketch_item~helmet": {
+		"message": "aizsargcepure"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "sešstūris"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hokeja ripa"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hokeja nūja"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "svētku lampiņas"
+	},
+	"speedsketch_item~horse": {
+		"message": "zirgs"
+	},
+	"speedsketch_item~hospital": {
+		"message": "slimnīca"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "gaisa balons"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hotdogs"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "burbuļvanna"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "smilšu pulkstenis"
+	},
+	"speedsketch_item~house": {
+		"message": "māja"
+	},
+	"speedsketch_item~house plant": {
+		"message": "istabas augs"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "orkāns"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "saldējums"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "slidotājs"
+	},
+	"speedsketch_item~infinity": {
+		"message": "bezgalība"
+	},
+	"speedsketch_item~island": {
+		"message": "sala"
+	},
+	"speedsketch_item~italy": {
+		"message": "Itālija"
+	},
+	"speedsketch_item~jacket": {
+		"message": "žakete"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "lidsoma"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Zvaniņš skan"
+	},
+	"speedsketch_item~kale": {
+		"message": "kacenkāposts"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "ķengurs"
+	},
+	"speedsketch_item~key": {
+		"message": "atslēga"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "tastatūra"
+	},
+	"speedsketch_item~kite": {
+		"message": "gaisa pūķis"
+	},
+	"speedsketch_item~knee": {
+		"message": "celis"
+	},
+	"speedsketch_item~knife": {
+		"message": "nazis"
+	},
+	"speedsketch_item~knot": {
+		"message": "mezgls"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala lācis"
+	},
+	"speedsketch_item~ladder": {
+		"message": "kāpnes"
+	},
+	"speedsketch_item~landscape": {
+		"message": "ainava"
+	},
+	"speedsketch_item~lantern": {
+		"message": "laterna"
+	},
+	"speedsketch_item~laptop": {
+		"message": "klēpjdators"
+	},
+	"speedsketch_item~leaf": {
+		"message": "lapa"
+	},
+	"speedsketch_item~leg": {
+		"message": "kāja"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "spuldze"
+	},
+	"speedsketch_item~lighter": {
+		"message": "šķiltavas"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "bāka"
+	},
+	"speedsketch_item~lightning": {
+		"message": "zibens"
+	},
+	"speedsketch_item~line": {
+		"message": "līnija"
+	},
+	"speedsketch_item~lion": {
+		"message": "lauva"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "lūpu krāsa"
+	},
+	"speedsketch_item~lobster": {
+		"message": "omārs"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "konfekte uz kociņa"
+	},
+	"speedsketch_item~love": {
+		"message": "mīlestība"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "pastkaste"
+	},
+	"speedsketch_item~man": {
+		"message": "vīrietis"
+	},
+	"speedsketch_item~map": {
+		"message": "karte"
+	},
+	"speedsketch_item~marker": {
+		"message": "marķieris"
+	},
+	"speedsketch_item~matches": {
+		"message": "sērkociņi"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matemātika"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafons"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "nāra"
+	},
+	"speedsketch_item~metal": {
+		"message": "metāls"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofons"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroskops"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikroviļņi"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "āmulis"
+	},
+	"speedsketch_item~mittens": {
+		"message": "dūraiņi"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekula"
+	},
+	"speedsketch_item~money": {
+		"message": "nauda"
+	},
+	"speedsketch_item~monkey": {
+		"message": "pērtiķis"
+	},
+	"speedsketch_item~moon": {
+		"message": "mēness"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "ods"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motocikls"
+	},
+	"speedsketch_item~mountain": {
+		"message": "kalns"
+	},
+	"speedsketch_item~mouse": {
+		"message": "pele"
+	},
+	"speedsketch_item~moustache": {
+		"message": "ūsas"
+	},
+	"speedsketch_item~mouth": {
+		"message": "mute"
+	},
+	"speedsketch_item~mug": {
+		"message": "krūze"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "sēne"
+	},
+	"speedsketch_item~music": {
+		"message": "mūzika"
+	},
+	"speedsketch_item~nail": {
+		"message": "nagla"
+	},
+	"speedsketch_item~nature": {
+		"message": "daba"
+	},
+	"speedsketch_item~necklace": {
+		"message": "kaklarota"
+	},
+	"speedsketch_item~news": {
+		"message": "ziņas"
+	},
+	"speedsketch_item~nose": {
+		"message": "deguns"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "riekstu knaibles"
+	},
+	"speedsketch_item~ocean": {
+		"message": "okeāns"
+	},
+	"speedsketch_item~octagon": {
+		"message": "astoņstūris"
+	},
+	"speedsketch_item~octopus": {
+		"message": "astoņkājis"
+	},
+	"speedsketch_item~onion": {
+		"message": "sīpols"
+	},
+	"speedsketch_item~ornament": {
+		"message": "rotājums"
+	},
+	"speedsketch_item~oven": {
+		"message": "krāsns"
+	},
+	"speedsketch_item~owl": {
+		"message": "pūce"
+	},
+	"speedsketch_item~paint can": {
+		"message": "krāsas bundža"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "ota"
+	},
+	"speedsketch_item~painting": {
+		"message": "glezna"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palma"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "bikses"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "saspraude"
+	},
+	"speedsketch_item~parachute": {
+		"message": "izpletnis"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papagailis"
+	},
+	"speedsketch_item~passport": {
+		"message": "pase"
+	},
+	"speedsketch_item~peanut": {
+		"message": "zemesrieksts"
+	},
+	"speedsketch_item~pear": {
+		"message": "bumbieris"
+	},
+	"speedsketch_item~peas": {
+		"message": "zirņi"
+	},
+	"speedsketch_item~pencil": {
+		"message": "zīmulis"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pingvīns"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "piparmētra"
+	},
+	"speedsketch_item~piano": {
+		"message": "klavieres"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "pikaps"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "attēla rāmis"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "sektoru diagramma"
+	},
+	"speedsketch_item~pig": {
+		"message": "cūka"
+	},
+	"speedsketch_item~pillow": {
+		"message": "spilvens"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananass"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "pingpongs"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirāts"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pica"
+	},
+	"speedsketch_item~pliers": {
+		"message": "knaibles"
+	},
+	"speedsketch_item~police car": {
+		"message": "policijas automašīna"
+	},
+	"speedsketch_item~politician": {
+		"message": "politiķis"
+	},
+	"speedsketch_item~pond": {
+		"message": "dīķis"
+	},
+	"speedsketch_item~pool": {
+		"message": "baseins"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "augļu saldējums"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portrets"
+	},
+	"speedsketch_item~postcard": {
+		"message": "pastkarte"
+	},
+	"speedsketch_item~potato": {
+		"message": "kartupelis"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "rozete"
+	},
+	"speedsketch_item~present": {
+		"message": "dāvana"
+	},
+	"speedsketch_item~prison": {
+		"message": "cietums"
+	},
+	"speedsketch_item~purse": {
+		"message": "somiņa"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "atjautības spēle"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "trusis"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "jenots"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "lietus"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "varavīksne"
+	},
+	"speedsketch_item~rake": {
+		"message": "grābeklis"
+	},
+	"speedsketch_item~raven": {
+		"message": "krauklis"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "ziemeļbriedis"
+	},
+	"speedsketch_item~remote control": {
+		"message": "tālvadības pults"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "degunradzis"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "lente"
+	},
+	"speedsketch_item~river": {
+		"message": "upe"
+	},
+	"speedsketch_item~robot": {
+		"message": "robots"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "amerikāņu kalniņi"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "skrituļslidas"
+	},
+	"speedsketch_item~sadness": {
+		"message": "skumjas"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "burulaiva"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sviestmaize"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Ziemassvētku vecītis"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Saturns"
+	},
+	"speedsketch_item~sausage": {
+		"message": "desa"
+	},
+	"speedsketch_item~saw": {
+		"message": "zāģis"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saksofons"
+	},
+	"speedsketch_item~school bus": {
+		"message": "skolas autobuss"
+	},
+	"speedsketch_item~scissors": {
+		"message": "šķēres"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "skorpions"
+	},
+	"speedsketch_item~screw": {
+		"message": "skrūve"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "skrūvgriezis"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "skulptūra"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "jūras bruņurupucis"
+	},
+	"speedsketch_item~see saw": {
+		"message": "līdzsvara šūpoles"
+	},
+	"speedsketch_item~shark": {
+		"message": "haizivs"
+	},
+	"speedsketch_item~sheep": {
+		"message": "aita"
+	},
+	"speedsketch_item~shoe": {
+		"message": "kurpe"
+	},
+	"speedsketch_item~shorts": {
+		"message": "šorti"
+	},
+	"speedsketch_item~shovel": {
+		"message": "lāpsta"
+	},
+	"speedsketch_item~sink": {
+		"message": "izlietne"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skrituļdēlis"
+	},
+	"speedsketch_item~ski": {
+		"message": "slēpošana"
+	},
+	"speedsketch_item~skier": {
+		"message": "slēpotājs"
+	},
+	"speedsketch_item~skirt": {
+		"message": "svārki"
+	},
+	"speedsketch_item~skull": {
+		"message": "galvaskauss"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "debesskrāpis"
+	},
+	"speedsketch_item~sled": {
+		"message": "ragavas"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "guļammaiss"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "kamanas"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "smaidoša seja"
+	},
+	"speedsketch_item~snail": {
+		"message": "gliemezis"
+	},
+	"speedsketch_item~snake": {
+		"message": "čūska"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorkelēšana"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "sniegpārsliņa"
+	},
+	"speedsketch_item~snowman": {
+		"message": "sniegavīrs"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "futbola bumba"
+	},
+	"speedsketch_item~sock": {
+		"message": "zeķe"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "ātrlaiva"
+	},
+	"speedsketch_item~sphere": {
+		"message": "zemeslode"
+	},
+	"speedsketch_item~spider": {
+		"message": "zirneklis"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spirāle"
+	},
+	"speedsketch_item~spoon": {
+		"message": "karote"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "izklājlapa"
+	},
+	"speedsketch_item~square": {
+		"message": "kvadrāts"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "ķeburs"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "vāvere"
+	},
+	"speedsketch_item~stairs": {
+		"message": "kāpnes"
+	},
+	"speedsketch_item~star": {
+		"message": "zvaigzne"
+	},
+	"speedsketch_item~steak": {
+		"message": "steiks"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoskops"
+	},
+	"speedsketch_item~still life": {
+		"message": "klusā daba"
+	},
+	"speedsketch_item~stitches": {
+		"message": "dūrieni"
+	},
+	"speedsketch_item~stock market": {
+		"message": "birža"
+	},
+	"speedsketch_item~stocking": {
+		"message": "zeķe"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stop zīme"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "hronometrs"
+	},
+	"speedsketch_item~stove": {
+		"message": "plīts"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "zemene"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "ielas laterna"
+	},
+	"speedsketch_item~string bean": {
+		"message": "kāršu pupiņas"
+	},
+	"speedsketch_item~submarine": {
+		"message": "zemūdene"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "ceļasoma"
+	},
+	"speedsketch_item~sun": {
+		"message": "saule"
+	},
+	"speedsketch_item~sunset": {
+		"message": "saulriets"
+	},
+	"speedsketch_item~swan": {
+		"message": "gulbis"
+	},
+	"speedsketch_item~sweater": {
+		"message": "džemperis"
+	},
+	"speedsketch_item~swing set": {
+		"message": "šūpoles"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "t-krekls"
+	},
+	"speedsketch_item~table": {
+		"message": "galds"
+	},
+	"speedsketch_item~teapot": {
+		"message": "tējkanna"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "spēļu lācītis"
+	},
+	"speedsketch_item~telephone": {
+		"message": "tālrunis"
+	},
+	"speedsketch_item~television": {
+		"message": "televizors"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tenisa rakete"
+	},
+	"speedsketch_item~tent": {
+		"message": "telts"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "krustiņu un nullīšu spēle"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tīģeris"
+	},
+	"speedsketch_item~time": {
+		"message": "laiks"
+	},
+	"speedsketch_item~toaster": {
+		"message": "tosteris"
+	},
+	"speedsketch_item~toe": {
+		"message": "kājas pirksts"
+	},
+	"speedsketch_item~toilet": {
+		"message": "tualete"
+	},
+	"speedsketch_item~tooth": {
+		"message": "zobs"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "zobu suka"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "zobu pasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "viesuļvētra"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktors"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "luksofors"
+	},
+	"speedsketch_item~train": {
+		"message": "vilciens"
+	},
+	"speedsketch_item~tree": {
+		"message": "koks"
+	},
+	"speedsketch_item~triangle": {
+		"message": "trijstūris"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "trīsritenis"
+	},
+	"speedsketch_item~trolley": {
+		"message": "ratiņi"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombons"
+	},
+	"speedsketch_item~trousers": {
+		"message": "bikses"
+	},
+	"speedsketch_item~truck": {
+		"message": "kravas automašīna"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompete"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "lietussargs"
+	},
+	"speedsketch_item~underwear": {
+		"message": "apakšveļa"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "vienradzis"
+	},
+	"speedsketch_item~universe": {
+		"message": "visums"
+	},
+	"speedsketch_item~van": {
+		"message": "furgons"
+	},
+	"speedsketch_item~vase": {
+		"message": "vāze"
+	},
+	"speedsketch_item~violin": {
+		"message": "vijole"
+	},
+	"speedsketch_item~walnut": {
+		"message": "valrieksts"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "veļasmašīna"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "arbūzs"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "ūdens slidkalniņš"
+	},
+	"speedsketch_item~wave": {
+		"message": "vilnis"
+	},
+	"speedsketch_item~whale": {
+		"message": "valis"
+	},
+	"speedsketch_item~wheel": {
+		"message": "rats"
+	},
+	"speedsketch_item~windmill": {
+		"message": "dzirnavas"
+	},
+	"speedsketch_item~woman": {
+		"message": "sieviete"
+	},
+	"speedsketch_item~world": {
+		"message": "pasaule"
+	},
+	"speedsketch_item~wreath": {
+		"message": "vainags"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "rokas pulkstenis"
+	},
+	"speedsketch_item~yoga": {
+		"message": "joga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "jogurts"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzags"
+	},
+	"speedsketch_item~zipper": {
+		"message": "rāvējslēdzējs"
 	},
 	"sr_country_name": {
 		"message": "Surinama"
@@ -5244,7 +6624,10 @@
 		"message": "Lielbritānija"
 	},
 	"uk_tradition": {
-		"message": "Lielbritānijā svētku dalībnieki neatkarīgi no vecuma pie vakariņu galda šauj plaukšķenes. Tās ir krāsainā papīrā ietītas caurules ar aukliņām abos galos. Paraujot aukliņas, caurule ar skaļu blīkšķi pārplīst. Tajā ir papīra cepurītes, rotaļlietas un saldumi, kas tiek apēsti Ziemassvētku vakarā."
+		"message": "Lielbritānijā svētku dalībnieki neatkarīgi no vecuma pie vakariņu galda šauj plaukšķenes. Tās ir krāsainā papīrā ietītas caurules ar aukliņām abos galos. Paraujot aukliņas, caurule ar skaļu blīkšķi pārplīst. Tajā ir papīra cepures, rotaļlietas, joki un balvas, kas sniedz prieku Ziemassvētku vakarā."
+	},
+	"unmute": {
+		"message": "Ieslēgt skaņu"
 	},
 	"upgrade-warning": {
 		"message": "Diemžēl lietotne Ziemassvētku vecīša ceļojums netiek atbalstīta šajā pārlūkprogrammas versijā. Lai piekļūtu lietotnei Ziemassvētku vecīša ceļojums, lejupielādējiet jaunāku pārlūkprogrammu. Plašāku informāciju skatiet vietnē \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Pievienot sākuma ekrānam"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Pievienot plauktam"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Pievienot datoram"
 	},
 	"village_santa_cardboard": {
 		"message": "Ziemassvētku vecītis pakalpojumā Cardboard"

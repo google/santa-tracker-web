@@ -119,7 +119,7 @@ app.Canvas.prototype.initCanvases = function($elem) {
   this.snow = new app.Snow($elem, this.foregroundCanvas,
       this.foregroundBackup);
   this.clearAnimation = new app.ClearAnimation($elem, this.foregroundCanvas,
-      this.foregroundBackup);
+      this.foregroundBackup, this.game_.importPath);
 };
 
 

@@ -803,6 +803,10 @@
     "description": "Describes a local holiday tradition. Restrict to 300 characters.",
     "message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of P\u00e8re No\u00ebl's arrival. If children have been good throughout the year, P\u00e8re No\u00ebl will fill the shoes with gifts."
   },
+  "fullscreen": {
+    "description": "Label for a button which makes the site fullscreen. Short, but no limit.",
+    "message": "Fullscreen"
+  },
   "ga_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Gabon"
@@ -1091,6 +1095,10 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Mauritania"
   },
+  "mute": {
+    "description": "Button text. 15 char limit. Lets a user mute sounds.",
+    "message": "Mute"
+  },
   "mw_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Malawi"
@@ -1367,6 +1375,10 @@
     "description": "Instructions on how to assemble a printed ornament. This is printed on the same page and refers to a line just below, where the paper should be folded.",
     "message": "Fold here and glue sides together"
   },
+  "pause": {
+    "description": "Button text. 15 char limit. Lets a user pause a game.",
+    "message": "Pause"
+  },
   "pa_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Panama"
@@ -1432,12 +1444,12 @@
     "message": "Paraguay"
   },
   "quickdraw-splashview-title": {
-    "description": "Title referring to a robot, named Tensor, that wants to do automated image recognition.",
-    "message": "Help Tensor practice his image recognition!"
+    "description": "Title referring to a robot, named Tensor (who is gender neutral), that wants to do automated image recognition.",
+    "message": "Help Tensor practice its image recognition!"
   },
   "quickdraw-splashview-description": {
-    "description": "Description about how Tensor the robot operates, to recognize different objects.",
-    "message": "Tensor is Santa's Machine Learning robot that helps him quickly decipher the letters he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and he'll tell you what he sees. The more you draw, the smarter Tensor will get, so let's help Santa be more efficient than ever this holiday season!"
+    "description": "Description about how Tensor (gender neutral) the robot operates, to recognize different objects.",
+    "message": "Tensor is Santa's Machine Learning robot that helps him quickly decipher the letters he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and it will tell you what it sees. The more you draw, the smarter Tensor will get, so let's help Santa be more efficient than ever this holiday season!"
   },
   "quickdraw-slate": {
     "description": "Action/order/verb. Text that appears above the word to draw.",
@@ -1950,6 +1962,1834 @@
   "so_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Somalia"
+  },
+  "speedsketch_item~abstract art": {
+    "message": "abstract art",
+    "description": "Game task: abstract art"
+  },
+  "speedsketch_item~aircraft carrier": {
+    "message": "aircraft carrier",
+    "description": "Game task: aircraft carrier"
+  },
+  "speedsketch_item~airplane": {
+    "message": "airplane",
+    "description": "Game task: airplane"
+  },
+  "speedsketch_item~alarm clock": {
+    "message": "alarm clock",
+    "description": "Game task: alarm clock"
+  },
+  "speedsketch_item~alien": {
+    "message": "alien",
+    "description": "Game task: alien"
+  },
+  "speedsketch_item~ambulance": {
+    "message": "ambulance",
+    "description": "Game task: ambulance"
+  },
+  "speedsketch_item~angel": {
+    "message": "angel",
+    "description": "Game task: angel"
+  },
+  "speedsketch_item~animal migration": {
+    "message": "animal migration",
+    "description": "Game task: animal migration"
+  },
+  "speedsketch_item~ant": {
+    "message": "ant",
+    "description": "Game task: ant"
+  },
+  "speedsketch_item~anvil": {
+    "message": "anvil",
+    "description": "Game task: anvil"
+  },
+  "speedsketch_item~apple": {
+    "message": "apple",
+    "description": "Game task: apple"
+  },
+  "speedsketch_item~arm": {
+    "message": "arm",
+    "description": "Game task: arm"
+  },
+  "speedsketch_item~arrow": {
+    "message": "arrow",
+    "description": "Game task: arrow"
+  },
+  "speedsketch_item~asparagus": {
+    "message": "asparagus",
+    "description": "Game task: asparagus"
+  },
+  "speedsketch_item~astronaut": {
+    "message": "astronaut",
+    "description": "Game task: astronaut"
+  },
+  "speedsketch_item~audio cassette": {
+    "message": "audio cassette",
+    "description": "Game task: audio cassette"
+  },
+  "speedsketch_item~avocado": {
+    "message": "avocado",
+    "description": "Game task: avocado"
+  },
+  "speedsketch_item~axe": {
+    "message": "axe",
+    "description": "Game task: axe"
+  },
+  "speedsketch_item~baby": {
+    "message": "baby",
+    "description": "Game task: baby"
+  },
+  "speedsketch_item~backpack": {
+    "message": "backpack",
+    "description": "Game task: backpack"
+  },
+  "speedsketch_item~banana": {
+    "message": "banana",
+    "description": "Game task: banana"
+  },
+  "speedsketch_item~bandage": {
+    "message": "bandage",
+    "description": "Game task: bandage"
+  },
+  "speedsketch_item~barn": {
+    "message": "barn",
+    "description": "Game task: barn"
+  },
+  "speedsketch_item~baseball": {
+    "message": "baseball",
+    "description": "Game task: baseball"
+  },
+  "speedsketch_item~baseball bat": {
+    "message": "baseball bat",
+    "description": "Game task: baseball bat"
+  },
+  "speedsketch_item~basket": {
+    "message": "basket",
+    "description": "Game task: basket"
+  },
+  "speedsketch_item~basketball": {
+    "message": "basketball",
+    "description": "Game task: basketball"
+  },
+  "speedsketch_item~bat": {
+    "message": "bat",
+    "description": "Game task: bat"
+  },
+  "speedsketch_item~bathtub": {
+    "message": "bathtub",
+    "description": "Game task: bathtub"
+  },
+  "speedsketch_item~beach": {
+    "message": "beach",
+    "description": "Game task: beach"
+  },
+  "speedsketch_item~bear": {
+    "message": "bear",
+    "description": "Game task: bear"
+  },
+  "speedsketch_item~beard": {
+    "message": "beard",
+    "description": "Game task: beard"
+  },
+  "speedsketch_item~bed": {
+    "message": "bed",
+    "description": "Game task: bed"
+  },
+  "speedsketch_item~bee": {
+    "message": "bee",
+    "description": "Game task: bee"
+  },
+  "speedsketch_item~belt": {
+    "message": "belt",
+    "description": "Game task: belt"
+  },
+  "speedsketch_item~bench": {
+    "message": "bench",
+    "description": "Game task: bench"
+  },
+  "speedsketch_item~bicycle": {
+    "message": "bicycle",
+    "description": "Game task: bicycle"
+  },
+  "speedsketch_item~binoculars": {
+    "message": "binoculars",
+    "description": "Game task: binoculars"
+  },
+  "speedsketch_item~bird": {
+    "message": "bird",
+    "description": "Game task: bird"
+  },
+  "speedsketch_item~birthday cake": {
+    "message": "birthday cake",
+    "description": "Game task: birthday cake"
+  },
+  "speedsketch_item~black": {
+    "message": "black",
+    "description": "Game task: black"
+  },
+  "speedsketch_item~blackberry": {
+    "message": "blackberry",
+    "description": "Game task: blackberry"
+  },
+  "speedsketch_item~blueberry": {
+    "message": "blueberry",
+    "description": "Game task: blueberry"
+  },
+  "speedsketch_item~book": {
+    "message": "book",
+    "description": "Game task: book"
+  },
+  "speedsketch_item~boomerang": {
+    "message": "boomerang",
+    "description": "Game task: boomerang"
+  },
+  "speedsketch_item~boot": {
+    "message": "boot",
+    "description": "Game task: boot"
+  },
+  "speedsketch_item~bottlecap": {
+    "message": "bottlecap",
+    "description": "Game task: bottlecap"
+  },
+  "speedsketch_item~bowtie": {
+    "message": "bowtie",
+    "description": "Game task: bowtie"
+  },
+  "speedsketch_item~bracelet": {
+    "message": "bracelet",
+    "description": "Game task: bracelet"
+  },
+  "speedsketch_item~brain": {
+    "message": "brain",
+    "description": "Game task: brain"
+  },
+  "speedsketch_item~bread": {
+    "message": "bread",
+    "description": "Game task: bread"
+  },
+  "speedsketch_item~bridge": {
+    "message": "bridge",
+    "description": "Game task: bridge"
+  },
+  "speedsketch_item~broccoli": {
+    "message": "broccoli",
+    "description": "Game task: broccoli"
+  },
+  "speedsketch_item~broom": {
+    "message": "broom",
+    "description": "Game task: broom"
+  },
+  "speedsketch_item~bubble": {
+    "message": "bubble",
+    "description": "Game task: bubble"
+  },
+  "speedsketch_item~bucket": {
+    "message": "bucket",
+    "description": "Game task: bucket"
+  },
+  "speedsketch_item~bulldozer": {
+    "message": "bulldozer",
+    "description": "Game task: bulldozer"
+  },
+  "speedsketch_item~bus": {
+    "message": "bus",
+    "description": "Game task: bus"
+  },
+  "speedsketch_item~bush": {
+    "message": "bush",
+    "description": "Game task: bush"
+  },
+  "speedsketch_item~butterfly": {
+    "message": "butterfly",
+    "description": "Game task: butterfly"
+  },
+  "speedsketch_item~cactus": {
+    "message": "cactus",
+    "description": "Game task: cactus"
+  },
+  "speedsketch_item~cake": {
+    "message": "cake",
+    "description": "Game task: cake"
+  },
+  "speedsketch_item~calculator": {
+    "message": "calculator",
+    "description": "Game task: calculator"
+  },
+  "speedsketch_item~calendar": {
+    "message": "calendar",
+    "description": "Game task: calendar"
+  },
+  "speedsketch_item~camel": {
+    "message": "camel",
+    "description": "Game task: camel"
+  },
+  "speedsketch_item~camera": {
+    "message": "camera",
+    "description": "Game task: camera"
+  },
+  "speedsketch_item~camouflage": {
+    "message": "camouflage",
+    "description": "Game task: camouflage"
+  },
+  "speedsketch_item~campfire": {
+    "message": "campfire",
+    "description": "Game task: campfire"
+  },
+  "speedsketch_item~candle": {
+    "message": "candle",
+    "description": "Game task: candle"
+  },
+  "speedsketch_item~candy cane": {
+    "message": "candy cane",
+    "description": "Game task: candy cane"
+  },
+  "speedsketch_item~canoe": {
+    "message": "canoe",
+    "description": "Game task: canoe"
+  },
+  "speedsketch_item~car": {
+    "message": "car",
+    "description": "Game task: car"
+  },
+  "speedsketch_item~carrot": {
+    "message": "carrot",
+    "description": "Game task: carrot"
+  },
+  "speedsketch_item~cartoon": {
+    "message": "cartoon",
+    "description": "Game task: cartoon"
+  },
+  "speedsketch_item~castle": {
+    "message": "castle",
+    "description": "Game task: castle"
+  },
+  "speedsketch_item~cat": {
+    "message": "cat",
+    "description": "Game task: cat"
+  },
+  "speedsketch_item~ceiling fan": {
+    "message": "ceiling fan",
+    "description": "Game task: ceiling fan"
+  },
+  "speedsketch_item~cell phone": {
+    "message": "cell phone",
+    "description": "Game task: cell phone"
+  },
+  "speedsketch_item~cello": {
+    "message": "cello",
+    "description": "Game task: cello"
+  },
+  "speedsketch_item~chair": {
+    "message": "chair",
+    "description": "Game task: chair"
+  },
+  "speedsketch_item~chandelier": {
+    "message": "chandelier",
+    "description": "Game task: chandelier"
+  },
+  "speedsketch_item~chemistry": {
+    "message": "chemistry",
+    "description": "Game task: chemistry"
+  },
+  "speedsketch_item~cherry": {
+    "message": "cherry",
+    "description": "Game task: cherry"
+  },
+  "speedsketch_item~chicken": {
+    "message": "chicken",
+    "description": "Game task: chicken"
+  },
+  "speedsketch_item~child": {
+    "message": "child",
+    "description": "Game task: child"
+  },
+  "speedsketch_item~church": {
+    "message": "church",
+    "description": "Game task: church"
+  },
+  "speedsketch_item~circle": {
+    "message": "circle",
+    "description": "Game task: circle"
+  },
+  "speedsketch_item~city": {
+    "message": "city",
+    "description": "Game task: city"
+  },
+  "speedsketch_item~clarinet": {
+    "message": "clarinet",
+    "description": "Game task: clarinet"
+  },
+  "speedsketch_item~clock": {
+    "message": "clock",
+    "description": "Game task: clock"
+  },
+  "speedsketch_item~cloud": {
+    "message": "cloud",
+    "description": "Game task: cloud"
+  },
+  "speedsketch_item~cob of corn": {
+    "message": "cob of corn",
+    "description": "Game task: cob of corn"
+  },
+  "speedsketch_item~coffee cup": {
+    "message": "coffee cup",
+    "description": "Game task: coffee cup"
+  },
+  "speedsketch_item~compass": {
+    "message": "compass",
+    "description": "Game task: compass"
+  },
+  "speedsketch_item~computer": {
+    "message": "computer",
+    "description": "Game task: computer"
+  },
+  "speedsketch_item~cookie": {
+    "message": "cookie",
+    "description": "Game task: cookie"
+  },
+  "speedsketch_item~cooler": {
+    "message": "cooler",
+    "description": "Game task: cooler"
+  },
+  "speedsketch_item~couch": {
+    "message": "couch",
+    "description": "Game task: couch"
+  },
+  "speedsketch_item~cow": {
+    "message": "cow",
+    "description": "Game task: cow"
+  },
+  "speedsketch_item~crab": {
+    "message": "crab",
+    "description": "Game task: crab"
+  },
+  "speedsketch_item~crayon": {
+    "message": "crayon",
+    "description": "Game task: crayon"
+  },
+  "speedsketch_item~crocodile": {
+    "message": "crocodile",
+    "description": "Game task: crocodile"
+  },
+  "speedsketch_item~cross": {
+    "message": "cross",
+    "description": "Game task: cross"
+  },
+  "speedsketch_item~crow": {
+    "message": "crow",
+    "description": "Game task: crow"
+  },
+  "speedsketch_item~crown": {
+    "message": "crown",
+    "description": "Game task: crown"
+  },
+  "speedsketch_item~cruise ship": {
+    "message": "cruise ship",
+    "description": "Game task: cruise ship"
+  },
+  "speedsketch_item~cube": {
+    "message": "cube",
+    "description": "Game task: cube"
+  },
+  "speedsketch_item~cup": {
+    "message": "cup",
+    "description": "Game task: cup"
+  },
+  "speedsketch_item~darts": {
+    "message": "darts",
+    "description": "Game task: darts"
+  },
+  "speedsketch_item~diamond": {
+    "message": "diamond",
+    "description": "Game task: diamond"
+  },
+  "speedsketch_item~diamond ring": {
+    "message": "diamond ring",
+    "description": "Game task: diamond ring"
+  },
+  "speedsketch_item~dishwasher": {
+    "message": "dishwasher",
+    "description": "Game task: dishwasher"
+  },
+  "speedsketch_item~diving board": {
+    "message": "diving board",
+    "description": "Game task: diving board"
+  },
+  "speedsketch_item~dog": {
+    "message": "dog",
+    "description": "Game task: dog"
+  },
+  "speedsketch_item~dolphin": {
+    "message": "dolphin",
+    "description": "Game task: dolphin"
+  },
+  "speedsketch_item~donut": {
+    "message": "donut",
+    "description": "Game task: donut"
+  },
+  "speedsketch_item~door": {
+    "message": "door",
+    "description": "Game task: door"
+  },
+  "speedsketch_item~dragon": {
+    "message": "dragon",
+    "description": "Game task: dragon"
+  },
+  "speedsketch_item~dresser": {
+    "message": "dresser",
+    "description": "Game task: dresser"
+  },
+  "speedsketch_item~drill": {
+    "message": "drill",
+    "description": "Game task: drill"
+  },
+  "speedsketch_item~drums": {
+    "message": "drums",
+    "description": "Game task: drums"
+  },
+  "speedsketch_item~duck": {
+    "message": "duck",
+    "description": "Game task: duck"
+  },
+  "speedsketch_item~dumbbell": {
+    "message": "dumbbell",
+    "description": "Game task: dumbbell"
+  },
+  "speedsketch_item~ear": {
+    "message": "ear",
+    "description": "Game task: ear"
+  },
+  "speedsketch_item~egg": {
+    "message": "egg",
+    "description": "Game task: egg"
+  },
+  "speedsketch_item~elbow": {
+    "message": "elbow",
+    "description": "Game task: elbow"
+  },
+  "speedsketch_item~elephant": {
+    "message": "elephant",
+    "description": "Game task: elephant"
+  },
+  "speedsketch_item~emoji": {
+    "message": "emoji",
+    "description": "Game task: emoji"
+  },
+  "speedsketch_item~envelope": {
+    "message": "envelope",
+    "description": "Game task: envelope"
+  },
+  "speedsketch_item~eraser": {
+    "message": "eraser",
+    "description": "Game task: eraser"
+  },
+  "speedsketch_item~eye": {
+    "message": "eye",
+    "description": "Game task: eye"
+  },
+  "speedsketch_item~eyeglasses": {
+    "message": "eyeglasses",
+    "description": "Game task: eyeglasses"
+  },
+  "speedsketch_item~face": {
+    "message": "face",
+    "description": "Game task: face"
+  },
+  "speedsketch_item~family": {
+    "message": "family",
+    "description": "Game task: family"
+  },
+  "speedsketch_item~fan": {
+    "message": "fan",
+    "description": "Game task: fan"
+  },
+  "speedsketch_item~feather": {
+    "message": "feather",
+    "description": "Game task: feather"
+  },
+  "speedsketch_item~fence": {
+    "message": "fence",
+    "description": "Game task: fence"
+  },
+  "speedsketch_item~finger": {
+    "message": "finger",
+    "description": "Game task: finger"
+  },
+  "speedsketch_item~fire hydrant": {
+    "message": "fire hydrant",
+    "description": "Game task: fire hydrant"
+  },
+  "speedsketch_item~fireplace": {
+    "message": "fireplace",
+    "description": "Game task: fireplace"
+  },
+  "speedsketch_item~firetruck": {
+    "message": "firetruck",
+    "description": "Game task: firetruck"
+  },
+  "speedsketch_item~fish": {
+    "message": "fish",
+    "description": "Game task: fish"
+  },
+  "speedsketch_item~flag": {
+    "message": "flag",
+    "description": "Game task: flag"
+  },
+  "speedsketch_item~flamingo": {
+    "message": "flamingo",
+    "description": "Game task: flamingo"
+  },
+  "speedsketch_item~flashlight": {
+    "message": "flashlight",
+    "description": "Game task: flashlight"
+  },
+  "speedsketch_item~flip flops": {
+    "message": "flip flops",
+    "description": "Game task: flip flops"
+  },
+  "speedsketch_item~floor lamp": {
+    "message": "floor lamp",
+    "description": "Game task: floor lamp"
+  },
+  "speedsketch_item~floppy disk": {
+    "message": "floppy disk",
+    "description": "Game task: floppy disk"
+  },
+  "speedsketch_item~flower": {
+    "message": "flower",
+    "description": "Game task: flower"
+  },
+  "speedsketch_item~flying saucer": {
+    "message": "flying saucer",
+    "description": "Game task: flying saucer"
+  },
+  "speedsketch_item~fog": {
+    "message": "fog",
+    "description": "Game task: fog"
+  },
+  "speedsketch_item~foot": {
+    "message": "foot",
+    "description": "Game task: foot"
+  },
+  "speedsketch_item~fork": {
+    "message": "fork",
+    "description": "Game task: fork"
+  },
+  "speedsketch_item~french fries": {
+    "message": "french fries",
+    "description": "Game task: french fries"
+  },
+  "speedsketch_item~fried egg": {
+    "message": "fried egg",
+    "description": "Game task: fried egg"
+  },
+  "speedsketch_item~frog": {
+    "message": "frog",
+    "description": "Game task: frog"
+  },
+  "speedsketch_item~frying pan": {
+    "message": "frying pan",
+    "description": "Game task: frying pan"
+  },
+  "speedsketch_item~galaxy": {
+    "message": "galaxy",
+    "description": "Game task: galaxy"
+  },
+  "speedsketch_item~garden": {
+    "message": "garden",
+    "description": "Game task: garden"
+  },
+  "speedsketch_item~garden hose": {
+    "message": "garden hose",
+    "description": "Game task: garden hose"
+  },
+  "speedsketch_item~ghost": {
+    "message": "ghost",
+    "description": "Game task: ghost"
+  },
+  "speedsketch_item~giraffe": {
+    "message": "giraffe",
+    "description": "Game task: giraffe"
+  },
+  "speedsketch_item~goat": {
+    "message": "goat",
+    "description": "Game task: goat"
+  },
+  "speedsketch_item~goatee": {
+    "message": "goatee",
+    "description": "Game task: goatee"
+  },
+  "speedsketch_item~golf club": {
+    "message": "golf club",
+    "description": "Game task: golf club"
+  },
+  "speedsketch_item~grapes": {
+    "message": "grapes",
+    "description": "Game task: grapes"
+  },
+  "speedsketch_item~grass": {
+    "message": "grass",
+    "description": "Game task: grass"
+  },
+  "speedsketch_item~group": {
+    "message": "group",
+    "description": "Game task: group"
+  },
+  "speedsketch_item~guitar": {
+    "message": "guitar",
+    "description": "Game task: guitar"
+  },
+  "speedsketch_item~hamburger": {
+    "message": "hamburger",
+    "description": "Game task: hamburger"
+  },
+  "speedsketch_item~hammer": {
+    "message": "hammer",
+    "description": "Game task: hammer"
+  },
+  "speedsketch_item~hand": {
+    "message": "hand",
+    "description": "Game task: hand"
+  },
+  "speedsketch_item~hangman game": {
+    "message": "hangman game",
+    "description": "Game task: hangman game"
+  },
+  "speedsketch_item~happiness": {
+    "message": "happiness",
+    "description": "Game task: happiness"
+  },
+  "speedsketch_item~harp": {
+    "message": "harp",
+    "description": "Game task: harp"
+  },
+  "speedsketch_item~hat": {
+    "message": "hat",
+    "description": "Game task: hat"
+  },
+  "speedsketch_item~headphones": {
+    "message": "headphones",
+    "description": "Game task: headphones"
+  },
+  "speedsketch_item~heart": {
+    "message": "heart",
+    "description": "Game task: heart"
+  },
+  "speedsketch_item~hedgehog": {
+    "message": "hedgehog",
+    "description": "Game task: hedgehog"
+  },
+  "speedsketch_item~helicopter": {
+    "message": "helicopter",
+    "description": "Game task: helicopter"
+  },
+  "speedsketch_item~helmet": {
+    "message": "helmet",
+    "description": "Game task: helmet"
+  },
+  "speedsketch_item~hexagon": {
+    "message": "hexagon",
+    "description": "Game task: hexagon"
+  },
+  "speedsketch_item~hockey puck": {
+    "message": "hockey puck",
+    "description": "Game task: hockey puck"
+  },
+  "speedsketch_item~hockey stick": {
+    "message": "hockey stick",
+    "description": "Game task: hockey stick"
+  },
+  "speedsketch_item~horse": {
+    "message": "horse",
+    "description": "Game task: horse"
+  },
+  "speedsketch_item~hospital": {
+    "message": "hospital",
+    "description": "Game task: hospital"
+  },
+  "speedsketch_item~hot air balloon": {
+    "message": "hot air balloon",
+    "description": "Game task: hot air balloon"
+  },
+  "speedsketch_item~hot dog": {
+    "message": "hot dog",
+    "description": "Game task: hot dog"
+  },
+  "speedsketch_item~hot tub": {
+    "message": "hot tub",
+    "description": "Game task: hot tub"
+  },
+  "speedsketch_item~hourglass": {
+    "message": "hourglass",
+    "description": "Game task: hourglass"
+  },
+  "speedsketch_item~house": {
+    "message": "house",
+    "description": "Game task: house"
+  },
+  "speedsketch_item~house plant": {
+    "message": "house plant",
+    "description": "Game task: house plant"
+  },
+  "speedsketch_item~hurricane": {
+    "message": "hurricane",
+    "description": "Game task: hurricane"
+  },
+  "speedsketch_item~ice cream": {
+    "message": "ice cream",
+    "description": "Game task: ice cream"
+  },
+  "speedsketch_item~ice skater": {
+    "message": "ice skater",
+    "description": "Game task: ice skater"
+  },
+  "speedsketch_item~infinity": {
+    "message": "infinity",
+    "description": "Game task: infinity"
+  },
+  "speedsketch_item~island": {
+    "message": "island",
+    "description": "Game task: island"
+  },
+  "speedsketch_item~italy": {
+    "message": "italy",
+    "description": "Game task: italy"
+  },
+  "speedsketch_item~jacket": {
+    "message": "jacket",
+    "description": "Game task: jacket"
+  },
+  "speedsketch_item~jingle bells": {
+    "message": "Jingle Bells",
+    "description": "Game task: jingle bells"
+  },
+  "speedsketch_item~kale": {
+    "message": "kale",
+    "description": "Game task: kale"
+  },
+  "speedsketch_item~kangaroo": {
+    "message": "kangaroo",
+    "description": "Game task: kangaroo"
+  },
+  "speedsketch_item~key": {
+    "message": "key",
+    "description": "Game task: key"
+  },
+  "speedsketch_item~keyboard": {
+    "message": "keyboard",
+    "description": "Game task: keyboard"
+  },
+  "speedsketch_item~kite": {
+    "message": "kite",
+    "description": "Game task: kite"
+  },
+  "speedsketch_item~knee": {
+    "message": "knee",
+    "description": "Game task: knee"
+  },
+  "speedsketch_item~knife": {
+    "message": "knife",
+    "description": "Game task: knife"
+  },
+  "speedsketch_item~knot": {
+    "message": "knot",
+    "description": "Game task: knot"
+  },
+  "speedsketch_item~koala": {
+    "message": "koala",
+    "description": "Game task: koala"
+  },
+  "speedsketch_item~ladder": {
+    "message": "ladder",
+    "description": "Game task: ladder"
+  },
+  "speedsketch_item~landscape": {
+    "message": "landscape",
+    "description": "Game task: landscape"
+  },
+  "speedsketch_item~lantern": {
+    "message": "lantern",
+    "description": "Game task: lantern"
+  },
+  "speedsketch_item~laptop": {
+    "message": "laptop",
+    "description": "Game task: laptop"
+  },
+  "speedsketch_item~leaf": {
+    "message": "leaf",
+    "description": "Game task: leaf"
+  },
+  "speedsketch_item~leg": {
+    "message": "leg",
+    "description": "Game task: leg"
+  },
+  "speedsketch_item~light bulb": {
+    "message": "light bulb",
+    "description": "Game task: light bulb"
+  },
+  "speedsketch_item~lighter": {
+    "message": "lighter",
+    "description": "Game task: lighter"
+  },
+  "speedsketch_item~lighthouse": {
+    "message": "lighthouse",
+    "description": "Game task: lighthouse"
+  },
+  "speedsketch_item~lightning": {
+    "message": "lightning",
+    "description": "Game task: lightning"
+  },
+  "speedsketch_item~line": {
+    "message": "line",
+    "description": "Game task: line"
+  },
+  "speedsketch_item~lion": {
+    "message": "lion",
+    "description": "Game task: lion"
+  },
+  "speedsketch_item~lipstick": {
+    "message": "lipstick",
+    "description": "Game task: lipstick"
+  },
+  "speedsketch_item~lobster": {
+    "message": "lobster",
+    "description": "Game task: lobster"
+  },
+  "speedsketch_item~lollipop": {
+    "message": "lollipop",
+    "description": "Game task: lollipop"
+  },
+  "speedsketch_item~London": {
+    "message": "London",
+    "description": "Game task: London"
+  },
+  "speedsketch_item~love": {
+    "message": "love",
+    "description": "Game task: love"
+  },
+  "speedsketch_item~mailbox": {
+    "message": "mailbox",
+    "description": "Game task: mailbox"
+  },
+  "speedsketch_item~man": {
+    "message": "man",
+    "description": "Game task: man"
+  },
+  "speedsketch_item~map": {
+    "message": "map",
+    "description": "Game task: map"
+  },
+  "speedsketch_item~marker": {
+    "message": "marker",
+    "description": "Game task: marker"
+  },
+  "speedsketch_item~matches": {
+    "message": "matches",
+    "description": "Game task: matches"
+  },
+  "speedsketch_item~mathematics": {
+    "message": "mathematics",
+    "description": "Game task: mathematics"
+  },
+  "speedsketch_item~megaphone": {
+    "message": "megaphone",
+    "description": "Game task: megaphone"
+  },
+  "speedsketch_item~mermaid": {
+    "message": "mermaid",
+    "description": "Game task: mermaid"
+  },
+  "speedsketch_item~metal": {
+    "message": "metal",
+    "description": "Game task: metal"
+  },
+  "speedsketch_item~microphone": {
+    "message": "microphone",
+    "description": "Game task: microphone"
+  },
+  "speedsketch_item~microscope": {
+    "message": "microscope",
+    "description": "Game task: microscope"
+  },
+  "speedsketch_item~microwave": {
+    "message": "microwave",
+    "description": "Game task: microwave"
+  },
+  "speedsketch_item~molecule": {
+    "message": "molecule",
+    "description": "Game task: molecule"
+  },
+  "speedsketch_item~money": {
+    "message": "money",
+    "description": "Game task: money"
+  },
+  "speedsketch_item~monkey": {
+    "message": "monkey",
+    "description": "Game task: monkey"
+  },
+  "speedsketch_item~moon": {
+    "message": "moon",
+    "description": "Game task: moon"
+  },
+  "speedsketch_item~mosquito": {
+    "message": "mosquito",
+    "description": "Game task: mosquito"
+  },
+  "speedsketch_item~motorbike": {
+    "message": "motorbike",
+    "description": "Game task: motorbike"
+  },
+  "speedsketch_item~mountain": {
+    "message": "mountain",
+    "description": "Game task: mountain"
+  },
+  "speedsketch_item~mouse": {
+    "message": "mouse",
+    "description": "Game task: mouse"
+  },
+  "speedsketch_item~moustache": {
+    "message": "moustache",
+    "description": "Game task: moustache"
+  },
+  "speedsketch_item~mouth": {
+    "message": "mouth",
+    "description": "Game task: mouth"
+  },
+  "speedsketch_item~mug": {
+    "message": "mug",
+    "description": "Game task: mug"
+  },
+  "speedsketch_item~mushroom": {
+    "message": "mushroom",
+    "description": "Game task: mushroom"
+  },
+  "speedsketch_item~music": {
+    "message": "music",
+    "description": "Game task: music"
+  },
+  "speedsketch_item~nail": {
+    "message": "nail",
+    "description": "Game task: nail"
+  },
+  "speedsketch_item~nature": {
+    "message": "nature",
+    "description": "Game task: nature"
+  },
+  "speedsketch_item~necklace": {
+    "message": "necklace",
+    "description": "Game task: necklace"
+  },
+  "speedsketch_item~New York": {
+    "message": "New York",
+    "description": "Game task: New York"
+  },
+  "speedsketch_item~news": {
+    "message": "news",
+    "description": "Game task: news"
+  },
+  "speedsketch_item~nose": {
+    "message": "nose",
+    "description": "Game task: nose"
+  },
+  "speedsketch_item~ocean": {
+    "message": "ocean",
+    "description": "Game task: ocean"
+  },
+  "speedsketch_item~octagon": {
+    "message": "octagon",
+    "description": "Game task: octagon"
+  },
+  "speedsketch_item~octopus": {
+    "message": "octopus",
+    "description": "Game task: octopus"
+  },
+  "speedsketch_item~onion": {
+    "message": "onion",
+    "description": "Game task: onion"
+  },
+  "speedsketch_item~oven": {
+    "message": "oven",
+    "description": "Game task: oven"
+  },
+  "speedsketch_item~owl": {
+    "message": "owl",
+    "description": "Game task: owl"
+  },
+  "speedsketch_item~paint can": {
+    "message": "paint can",
+    "description": "Game task: paint can"
+  },
+  "speedsketch_item~paintbrush": {
+    "message": "paintbrush",
+    "description": "Game task: paintbrush"
+  },
+  "speedsketch_item~painting": {
+    "message": "painting",
+    "description": "Game task: painting"
+  },
+  "speedsketch_item~palm tree": {
+    "message": "palm tree",
+    "description": "Game task: palm tree"
+  },
+  "speedsketch_item~panda": {
+    "message": "panda",
+    "description": "Game task: panda"
+  },
+  "speedsketch_item~pants": {
+    "message": "pants",
+    "description": "Game task: pants"
+  },
+  "speedsketch_item~paper clip": {
+    "message": "paper clip",
+    "description": "Game task: paper clip"
+  },
+  "speedsketch_item~parachute": {
+    "message": "parachute",
+    "description": "Game task: parachute"
+  },
+  "speedsketch_item~Paris": {
+    "message": "Paris",
+    "description": "Game task: Paris"
+  },
+  "speedsketch_item~parrot": {
+    "message": "parrot",
+    "description": "Game task: parrot"
+  },
+  "speedsketch_item~passport": {
+    "message": "passport",
+    "description": "Game task: passport"
+  },
+  "speedsketch_item~peanut": {
+    "message": "peanut",
+    "description": "Game task: peanut"
+  },
+  "speedsketch_item~pear": {
+    "message": "pear",
+    "description": "Game task: pear"
+  },
+  "speedsketch_item~peas": {
+    "message": "peas",
+    "description": "Game task: peas"
+  },
+  "speedsketch_item~pencil": {
+    "message": "pencil",
+    "description": "Game task: pencil"
+  },
+  "speedsketch_item~penguin": {
+    "message": "penguin",
+    "description": "Game task: penguin"
+  },
+  "speedsketch_item~piano": {
+    "message": "piano",
+    "description": "Game task: piano"
+  },
+  "speedsketch_item~pickup truck": {
+    "message": "pickup truck",
+    "description": "Game task: pickup truck"
+  },
+  "speedsketch_item~picture frame": {
+    "message": "picture frame",
+    "description": "Game task: picture frame"
+  },
+  "speedsketch_item~pie chart": {
+    "message": "pie chart",
+    "description": "Game task: pie chart"
+  },
+  "speedsketch_item~pig": {
+    "message": "pig",
+    "description": "Game task: pig"
+  },
+  "speedsketch_item~pillow": {
+    "message": "pillow",
+    "description": "Game task: pillow"
+  },
+  "speedsketch_item~pineapple": {
+    "message": "pineapple",
+    "description": "Game task: pineapple"
+  },
+  "speedsketch_item~ping pong": {
+    "message": "ping pong",
+    "description": "Game task: ping pong"
+  },
+  "speedsketch_item~pirate": {
+    "message": "pirate",
+    "description": "Game task: pirate"
+  },
+  "speedsketch_item~pizza": {
+    "message": "pizza",
+    "description": "Game task: pizza"
+  },
+  "speedsketch_item~pliers": {
+    "message": "pliers",
+    "description": "Game task: pliers"
+  },
+  "speedsketch_item~police car": {
+    "message": "police car",
+    "description": "Game task: police car"
+  },
+  "speedsketch_item~politician": {
+    "message": "politician",
+    "description": "Game task: politician"
+  },
+  "speedsketch_item~pond": {
+    "message": "pond",
+    "description": "Game task: pond"
+  },
+  "speedsketch_item~pool": {
+    "message": "pool",
+    "description": "Game task: pool"
+  },
+  "speedsketch_item~popsicle": {
+    "message": "popsicle",
+    "description": "Game task: popsicle"
+  },
+  "speedsketch_item~portrait": {
+    "message": "portrait",
+    "description": "Game task: portrait"
+  },
+  "speedsketch_item~postcard": {
+    "message": "postcard",
+    "description": "Game task: postcard"
+  },
+  "speedsketch_item~potato": {
+    "message": "potato",
+    "description": "Game task: potato"
+  },
+  "speedsketch_item~power outlet": {
+    "message": "power outlet",
+    "description": "Game task: power outlet"
+  },
+  "speedsketch_item~prison": {
+    "message": "prison",
+    "description": "Game task: prison"
+  },
+  "speedsketch_item~purse": {
+    "message": "purse",
+    "description": "Game task: purse"
+  },
+  "speedsketch_item~puzzle": {
+    "message": "puzzle",
+    "description": "Game task: puzzle"
+  },
+  "speedsketch_item~rabbit": {
+    "message": "rabbit",
+    "description": "Game task: rabbit"
+  },
+  "speedsketch_item~raccoon": {
+    "message": "raccoon",
+    "description": "Game task: raccoon"
+  },
+  "speedsketch_item~radio": {
+    "message": "radio",
+    "description": "Game task: radio"
+  },
+  "speedsketch_item~rain": {
+    "message": "rain",
+    "description": "Game task: rain"
+  },
+  "speedsketch_item~rainbow": {
+    "message": "rainbow",
+    "description": "Game task: rainbow"
+  },
+  "speedsketch_item~rake": {
+    "message": "rake",
+    "description": "Game task: rake"
+  },
+  "speedsketch_item~raven": {
+    "message": "raven",
+    "description": "Game task: raven"
+  },
+  "speedsketch_item~reindeer": {
+    "message": "reindeer",
+    "description": "Game task: reindeer"
+  },
+  "speedsketch_item~remote control": {
+    "message": "remote control",
+    "description": "Game task: remote control"
+  },
+  "speedsketch_item~rhinoceros": {
+    "message": "rhinoceros",
+    "description": "Game task: rhinoceros"
+  },
+  "speedsketch_item~river": {
+    "message": "river",
+    "description": "Game task: river"
+  },
+  "speedsketch_item~robot": {
+    "message": "robot",
+    "description": "Game task: robot"
+  },
+  "speedsketch_item~roller coaster": {
+    "message": "roller coaster",
+    "description": "Game task: roller coaster"
+  },
+  "speedsketch_item~rollerskates": {
+    "message": "rollerskates",
+    "description": "Game task: rollerskates"
+  },
+  "speedsketch_item~sadness": {
+    "message": "sadness",
+    "description": "Game task: sadness"
+  },
+  "speedsketch_item~sailboat": {
+    "message": "sailboat",
+    "description": "Game task: sailboat"
+  },
+  "speedsketch_item~sandwich": {
+    "message": "sandwich",
+    "description": "Game task: sandwich"
+  },
+  "speedsketch_item~santa claus": {
+    "message": "Santa Claus",
+    "description": "Game task: Santa Claus"
+  },
+  "speedsketch_item~saturn": {
+    "message": "saturn",
+    "description": "Game task: saturn"
+  },
+  "speedsketch_item~sausage": {
+    "message": "sausage",
+    "description": "Game task: sausage"
+  },
+  "speedsketch_item~saw": {
+    "message": "saw",
+    "description": "Game task: saw"
+  },
+  "speedsketch_item~saxophone": {
+    "message": "saxophone",
+    "description": "Game task: saxophone"
+  },
+  "speedsketch_item~school bus": {
+    "message": "school bus",
+    "description": "Game task: school bus"
+  },
+  "speedsketch_item~scissors": {
+    "message": "scissors",
+    "description": "Game task: scissors"
+  },
+  "speedsketch_item~scorpion": {
+    "message": "scorpion",
+    "description": "Game task: scorpion"
+  },
+  "speedsketch_item~screw": {
+    "message": "screw",
+    "description": "Game task: screw"
+  },
+  "speedsketch_item~screwdriver": {
+    "message": "screwdriver",
+    "description": "Game task: screwdriver"
+  },
+  "speedsketch_item~sculpture": {
+    "message": "sculpture",
+    "description": "Game task: sculpture"
+  },
+  "speedsketch_item~sea turtle": {
+    "message": "sea turtle",
+    "description": "Game task: sea turtle"
+  },
+  "speedsketch_item~see saw": {
+    "message": "see saw",
+    "description": "Game task: see saw"
+  },
+  "speedsketch_item~Shanghai": {
+    "message": "Shanghai",
+    "description": "Game task: Shanghai"
+  },
+  "speedsketch_item~shark": {
+    "message": "shark",
+    "description": "Game task: shark"
+  },
+  "speedsketch_item~sheep": {
+    "message": "sheep",
+    "description": "Game task: sheep"
+  },
+  "speedsketch_item~shoe": {
+    "message": "shoe",
+    "description": "Game task: shoe"
+  },
+  "speedsketch_item~shorts": {
+    "message": "shorts",
+    "description": "Game task: shorts"
+  },
+  "speedsketch_item~shovel": {
+    "message": "shovel",
+    "description": "Game task: shovel"
+  },
+  "speedsketch_item~sink": {
+    "message": "sink",
+    "description": "Game task: sink"
+  },
+  "speedsketch_item~skateboard": {
+    "message": "skateboard",
+    "description": "Game task: skateboard"
+  },
+  "speedsketch_item~ski": {
+    "message": "ski",
+    "description": "Game task: ski"
+  },
+  "speedsketch_item~skier": {
+    "message": "skier",
+    "description": "Game task: skier"
+  },
+  "speedsketch_item~skirt": {
+    "message": "skirt",
+    "description": "Game task: skirt"
+  },
+  "speedsketch_item~skull": {
+    "message": "skull",
+    "description": "Game task: skull"
+  },
+  "speedsketch_item~skyscraper": {
+    "message": "skyscraper",
+    "description": "Game task: skyscraper"
+  },
+  "speedsketch_item~sled": {
+    "message": "sled",
+    "description": "Game task: sled"
+  },
+  "speedsketch_item~sleeping bag": {
+    "message": "sleeping bag",
+    "description": "Game task: sleeping bag"
+  },
+  "speedsketch_item~smiley face": {
+    "message": "smiley face",
+    "description": "Game task: smiley face"
+  },
+  "speedsketch_item~snail": {
+    "message": "snail",
+    "description": "Game task: snail"
+  },
+  "speedsketch_item~snake": {
+    "message": "snake",
+    "description": "Game task: snake"
+  },
+  "speedsketch_item~snorkel": {
+    "message": "snorkel",
+    "description": "Game task: snorkel"
+  },
+  "speedsketch_item~snowflake": {
+    "message": "snowflake",
+    "description": "Game task: snowflake"
+  },
+  "speedsketch_item~snowman": {
+    "message": "snowman",
+    "description": "Game task: snowman"
+  },
+  "speedsketch_item~soccer ball": {
+    "message": "soccer ball",
+    "description": "Game task: soccer ball"
+  },
+  "speedsketch_item~sock": {
+    "message": "sock",
+    "description": "Game task: sock"
+  },
+  "speedsketch_item~speedboat": {
+    "message": "speedboat",
+    "description": "Game task: speedboat"
+  },
+  "speedsketch_item~sphere": {
+    "message": "sphere",
+    "description": "Game task: sphere"
+  },
+  "speedsketch_item~spider": {
+    "message": "spider",
+    "description": "Game task: spider"
+  },
+  "speedsketch_item~spiral": {
+    "message": "spiral",
+    "description": "Game task: spiral"
+  },
+  "speedsketch_item~spoon": {
+    "message": "spoon",
+    "description": "Game task: spoon"
+  },
+  "speedsketch_item~spreadsheet": {
+    "message": "spreadsheet",
+    "description": "Game task: spreadsheet"
+  },
+  "speedsketch_item~square": {
+    "message": "square",
+    "description": "Game task: square"
+  },
+  "speedsketch_item~squiggle": {
+    "message": "squiggle",
+    "description": "Game task: squiggle"
+  },
+  "speedsketch_item~squirrel": {
+    "message": "squirrel",
+    "description": "Game task: squirrel"
+  },
+  "speedsketch_item~stairs": {
+    "message": "stairs",
+    "description": "Game task: stairs"
+  },
+  "speedsketch_item~star": {
+    "message": "star",
+    "description": "Game task: star"
+  },
+  "speedsketch_item~steak": {
+    "message": "steak",
+    "description": "Game task: steak"
+  },
+  "speedsketch_item~stereo": {
+    "message": "stereo",
+    "description": "Game task: stereo"
+  },
+  "speedsketch_item~stethoscope": {
+    "message": "stethoscope",
+    "description": "Game task: stethoscope"
+  },
+  "speedsketch_item~stocking": {
+    "message": "stocking",
+    "description": "Game task: stocking"
+  },
+  "speedsketch_item~still life": {
+    "message": "still life",
+    "description": "Game task: still life"
+  },
+  "speedsketch_item~stitches": {
+    "message": "stitches",
+    "description": "Game task: stitches"
+  },
+  "speedsketch_item~stock market": {
+    "message": "stock market",
+    "description": "Game task: stock market"
+  },
+  "speedsketch_item~stop sign": {
+    "message": "stop sign",
+    "description": "Game task: stop sign"
+  },
+  "speedsketch_item~stopwatch": {
+    "message": "stopwatch",
+    "description": "Game task: stopwatch"
+  },
+  "speedsketch_item~stove": {
+    "message": "stove",
+    "description": "Game task: stove"
+  },
+  "speedsketch_item~strawberry": {
+    "message": "strawberry",
+    "description": "Game task: strawberry"
+  },
+  "speedsketch_item~streetlight": {
+    "message": "streetlight",
+    "description": "Game task: streetlight"
+  },
+  "speedsketch_item~string bean": {
+    "message": "string bean",
+    "description": "Game task: string bean"
+  },
+  "speedsketch_item~submarine": {
+    "message": "submarine",
+    "description": "Game task: submarine"
+  },
+  "speedsketch_item~suitcase": {
+    "message": "suitcase",
+    "description": "Game task: suitcase"
+  },
+  "speedsketch_item~sun": {
+    "message": "sun",
+    "description": "Game task: sun"
+  },
+  "speedsketch_item~sunset": {
+    "message": "sunset",
+    "description": "Game task: sunset"
+  },
+  "speedsketch_item~swan": {
+    "message": "swan",
+    "description": "Game task: swan"
+  },
+  "speedsketch_item~sweater": {
+    "message": "sweater",
+    "description": "Game task: sweater"
+  },
+  "speedsketch_item~swing set": {
+    "message": "swing set",
+    "description": "Game task: swing set"
+  },
+  "speedsketch_item~Switzerland": {
+    "message": "Switzerland",
+    "description": "Game task: Switzerland"
+  },
+  "speedsketch_item~t-shirt": {
+    "message": "t-shirt",
+    "description": "Game task: t-shirt"
+  },
+  "speedsketch_item~table": {
+    "message": "table",
+    "description": "Game task: table"
+  },
+  "speedsketch_item~teapot": {
+    "message": "teapot",
+    "description": "Game task: teapot"
+  },
+  "speedsketch_item~teddy-bear": {
+    "message": "teddy-bear",
+    "description": "Game task: teddy-bear"
+  },
+  "speedsketch_item~telephone": {
+    "message": "telephone",
+    "description": "Game task: telephone"
+  },
+  "speedsketch_item~television": {
+    "message": "television",
+    "description": "Game task: television"
+  },
+  "speedsketch_item~tennis racquet": {
+    "message": "tennis racquet",
+    "description": "Game task: tennis racquet"
+  },
+  "speedsketch_item~tent": {
+    "message": "tent",
+    "description": "Game task: tent"
+  },
+  "speedsketch_item~The Eiffel Tower": {
+    "message": "The Eiffel Tower",
+    "description": "Game task: The Eiffel Tower"
+  },
+  "speedsketch_item~The Great Wall of China": {
+    "message": "The Great Wall of China",
+    "description": "Game task: The Great Wall of China"
+  },
+  "speedsketch_item~The Mona Lisa": {
+    "message": "The Mona Lisa",
+    "description": "Game task: The Mona Lisa"
+  },
+  "speedsketch_item~tic tac toe game": {
+    "message": "tic tac toe game",
+    "description": "Game task: tic tac toe game"
+  },
+  "speedsketch_item~tiger": {
+    "message": "tiger",
+    "description": "Game task: tiger"
+  },
+  "speedsketch_item~time": {
+    "message": "time",
+    "description": "Game task: time"
+  },
+  "speedsketch_item~toaster": {
+    "message": "toaster",
+    "description": "Game task: toaster"
+  },
+  "speedsketch_item~toe": {
+    "message": "toe",
+    "description": "Game task: toe"
+  },
+  "speedsketch_item~toilet": {
+    "message": "toilet",
+    "description": "Game task: toilet"
+  },
+  "speedsketch_item~tooth": {
+    "message": "tooth",
+    "description": "Game task: tooth"
+  },
+  "speedsketch_item~toothbrush": {
+    "message": "toothbrush",
+    "description": "Game task: toothbrush"
+  },
+  "speedsketch_item~toothpaste": {
+    "message": "toothpaste",
+    "description": "Game task: toothpaste"
+  },
+  "speedsketch_item~tornado": {
+    "message": "tornado",
+    "description": "Game task: tornado"
+  },
+  "speedsketch_item~tractor": {
+    "message": "tractor",
+    "description": "Game task: tractor"
+  },
+  "speedsketch_item~traffic light": {
+    "message": "traffic light",
+    "description": "Game task: traffic light"
+  },
+  "speedsketch_item~train": {
+    "message": "train",
+    "description": "Game task: train"
+  },
+  "speedsketch_item~tree": {
+    "message": "tree",
+    "description": "Game task: tree"
+  },
+  "speedsketch_item~triangle": {
+    "message": "triangle",
+    "description": "Game task: triangle"
+  },
+  "speedsketch_item~tricycle": {
+    "message": "tricycle",
+    "description": "Game task: tricycle"
+  },
+  "speedsketch_item~trolley": {
+    "message": "trolley",
+    "description": "Game task: trolley"
+  },
+  "speedsketch_item~trombone": {
+    "message": "trombone",
+    "description": "Game task: trombone"
+  },
+  "speedsketch_item~trousers": {
+    "message": "trousers",
+    "description": "Game task: trousers"
+  },
+  "speedsketch_item~truck": {
+    "message": "truck",
+    "description": "Game task: truck"
+  },
+  "speedsketch_item~trumpet": {
+    "message": "trumpet",
+    "description": "Game task: trumpet"
+  },
+  "speedsketch_item~umbrella": {
+    "message": "umbrella",
+    "description": "Game task: umbrella"
+  },
+  "speedsketch_item~underwear": {
+    "message": "underwear",
+    "description": "Game task: underwear"
+  },
+  "speedsketch_item~unicorn": {
+    "message": "unicorn",
+    "description": "Game task: unicorn"
+  },
+  "speedsketch_item~universe": {
+    "message": "universe",
+    "description": "Game task: universe"
+  },
+  "speedsketch_item~van": {
+    "message": "van",
+    "description": "Game task: van"
+  },
+  "speedsketch_item~vase": {
+    "message": "vase",
+    "description": "Game task: vase"
+  },
+  "speedsketch_item~violin": {
+    "message": "violin",
+    "description": "Game task: violin"
+  },
+  "speedsketch_item~walnut": {
+    "message": "walnut",
+    "description": "Game task: walnut"
+  },
+  "speedsketch_item~washing machine": {
+    "message": "washing machine",
+    "description": "Game task: washing machine"
+  },
+  "speedsketch_item~watermelon": {
+    "message": "watermelon",
+    "description": "Game task: watermelon"
+  },
+  "speedsketch_item~waterslide": {
+    "message": "waterslide",
+    "description": "Game task: waterslide"
+  },
+  "speedsketch_item~wave": {
+    "message": "wave",
+    "description": "Game task: wave"
+  },
+  "speedsketch_item~whale": {
+    "message": "whale",
+    "description": "Game task: whale"
+  },
+  "speedsketch_item~wheel": {
+    "message": "wheel",
+    "description": "Game task: wheel"
+  },
+  "speedsketch_item~windmill": {
+    "message": "windmill",
+    "description": "Game task: windmill"
+  },
+  "speedsketch_item~woman": {
+    "message": "woman",
+    "description": "Game task: woman"
+  },
+  "speedsketch_item~world": {
+    "message": "world",
+    "description": "Game task: world"
+  },
+  "speedsketch_item~wristwatch": {
+    "message": "wristwatch",
+    "description": "Game task: wristwatch"
+  },
+  "speedsketch_item~yoga": {
+    "message": "yoga",
+    "description": "Game task: yoga"
+  },
+  "speedsketch_item~yoghurt": {
+    "message": "yoghurt",
+    "description": "Game task: yoghurt"
+  },
+  "speedsketch_item~zebra": {
+    "message": "zebra",
+    "description": "Game task: zebra"
+  },
+  "speedsketch_item~zigzag": {
+    "message": "zigzag",
+    "description": "Game task: zigzag"
+  },
+  "speedsketch_item~zipper": {
+    "message": "zipper",
+    "description": "Game task: zipper"
+  },
+  "speedsketch_item~mistletoe": {
+    "message": "mistletoe",
+    "description": "Game task: mistletoe"
+  },
+  "speedsketch_item~mittens": {
+    "message": "mittens",
+    "description": "Game task: mittens"
+  },
+  "speedsketch_item~present": {
+    "message": "present",
+    "description": "Game task: present"
+  },
+  "speedsketch_item~ornament": {
+    "message": "ornament",
+    "description": "Game task: ornament"
+  },
+  "speedsketch_item~holiday lights": {
+    "message": "holiday lights",
+    "description": "Game task: holiday lights"
+  },
+  "speedsketch_item~gingerbread man": {
+    "message": "gingerbread man",
+    "description": "Game task: gingerbread man"
+  },
+  "speedsketch_item~wreath": {
+    "message": "wreath",
+    "description": "Game task: wreath"
+  },
+  "speedsketch_item~candy": {
+    "message": "candy",
+    "description": "Game task: candy"
+  },
+  "speedsketch_item~elf": {
+    "message": "elf",
+    "description": "Game task: elf"
+  },
+  "speedsketch_item~peppermint": {
+    "message": "peppermint",
+    "description": "Game task: peppermint"
+  },
+  "speedsketch_item~nutcracker": {
+    "message": "nutcracker",
+    "description": "Game task: nutcracker"
+  },
+  "speedsketch_item~jetpack": {
+    "message": "jetpack",
+    "description": "Game task: jetpack"
+  },
+  "speedsketch_item~sleigh": {
+    "message": "sleigh",
+    "description": "Game task: sleigh"
+  },
+  "speedsketch_item~ribbon": {
+    "message": "ribbon",
+    "description": "Game task: ribbon"
+  },
+  "speedsketch_item~chimney": {
+    "message": "chimney",
+    "description": "Game task: chimney"
   },
   "sr_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
@@ -6981,13 +8821,17 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Uganda"
   },
+  "unmute": {
+    "description": "Button text. 15 char limit. Lets a user unmute sounds, to hear audio again.",
+    "message": "Unmute"
+  },
   "uk_country_name": {
     "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
     "message": "United Kingdom"
   },
   "uk_tradition": {
     "description": "Describes a local holiday tradition. Restrict to 300 characters.",
-    "message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colorful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys and candy to enjoy during Christmas night."
+    "message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colorful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys, jokes and prizes to enjoy during Christmas night."
   },
   "upgrade-warning": {
     "description": "An error message. Error appears as the sole text on an HTML page.",

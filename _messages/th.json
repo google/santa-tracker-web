@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "ในฝรั่งเศสมีประเพณีที่เด็กๆ จะวางรองเท้าไว้ข้างเตาผิงเพื่อรอให้ Père Noël มาถึง ถ้าพวกเขาเป็นเด็กดีตลอดทั้งปี Père Noël' จะวางของขวัญไว้ในรองเท้า"
 	},
+	"fullscreen": {
+		"message": "แบบเต็มหน้าจอ"
+	},
 	"ga_country_name": {
 		"message": "กาบอง"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "มอริเตเนีย"
 	},
+	"mute": {
+		"message": "ปิดเสียง"
+	},
 	"mw_country_name": {
 		"message": "มาลาวี"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "ปานามา"
 	},
+	"pause": {
+		"message": "หยุดชั่วคราว"
+	},
 	"pe_country_name": {
 		"message": "เปรู"
 	},
@@ -1116,7 +1125,7 @@
 		"message": "วาด"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor เป็นหุ่นยนต์แมชชีนเลิร์นนิงของซานต้าที่ช่วยให้เขาตีความจดหมายที่ได้รับจากเด็กๆ ทั่วโลก เพื่อช่วยให้ Tensor เรียนรู้ ลองวาดภาพคำเกี่ยวกับวันหยุดเทศกาลบนหน้าจอ แล้วเขาจะบอกว่าเขาเห็นอะไร ยิ่งคุณวาดมากเท่าใด Tensor ก็จะยิ่งเข้าใจมากขึ้นเท่านั้น มาช่วยให้ซานต้าทำงานได้อย่างราบรื่นยิ่งกว่าเคยในเทศกาลวันหยุดนี้"
+		"message": "Tensor เป็นหุ่นยนต์แมชชีนเลิร์นนิงของซานต้าที่ช่วยให้เขาตีความจดหมายที่ได้รับจากเด็กๆ ทั่วโลก เพื่อช่วยให้ Tensor เรียนรู้ ลองวาดภาพคำเกี่ยวกับวันหยุดเทศกาลบนหน้าจอ แล้วระบบจะบอกว่าเห็นเป็นอะไร ยิ่งคุณวาดมากเท่าใด Tensor ก็จะยิ่งเข้าใจมากขึ้นเท่านั้น มาช่วยให้ซานต้าทำงานได้อย่างราบรื่นยิ่งกว่าเคยในเทศกาลวันหยุดนี้"
 	},
 	"quickdraw-splashview-title": {
 		"message": "ช่วย Tensor ฝึกฝนการจดจำรูปภาพ"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "โซมาเลีย"
+	},
+	"speedsketch_item~London": {
+		"message": "ลอนดอน"
+	},
+	"speedsketch_item~New York": {
+		"message": "นิวยอร์ก"
+	},
+	"speedsketch_item~Paris": {
+		"message": "ปารีส"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "เซี่ยงไฮ้"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "หอไอเฟล"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "กำแพงเมืองจีน"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "โมนาลิซ่า"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "ศิลปะแอบสแตรก"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "เรือบรรทุกเครื่องบิน"
+	},
+	"speedsketch_item~airplane": {
+		"message": "เครื่องบิน"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "นาฬิกาปลุก"
+	},
+	"speedsketch_item~alien": {
+		"message": "มนุษย์ต่างดาว"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "รถพยาบาล"
+	},
+	"speedsketch_item~angel": {
+		"message": "นางฟ้า"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "การย้ายถิ่นของสัตว์"
+	},
+	"speedsketch_item~ant": {
+		"message": "มด"
+	},
+	"speedsketch_item~anvil": {
+		"message": "ทั่ง"
+	},
+	"speedsketch_item~apple": {
+		"message": "แอปเปิล"
+	},
+	"speedsketch_item~arm": {
+		"message": "แขน"
+	},
+	"speedsketch_item~arrow": {
+		"message": "ลูกธนู"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "หน่อไม้ฝรั่ง"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "นักบินอวกาศ"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "เทปเสียง"
+	},
+	"speedsketch_item~avocado": {
+		"message": "อะโวคาโด"
+	},
+	"speedsketch_item~axe": {
+		"message": "ขวาน"
+	},
+	"speedsketch_item~baby": {
+		"message": "ทารก"
+	},
+	"speedsketch_item~backpack": {
+		"message": "เป้"
+	},
+	"speedsketch_item~banana": {
+		"message": "กล้วย"
+	},
+	"speedsketch_item~bandage": {
+		"message": "ผ้าพันแผล"
+	},
+	"speedsketch_item~barn": {
+		"message": "ยุ้งฉาง"
+	},
+	"speedsketch_item~baseball": {
+		"message": "เบสบอล"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "ไม้เบสบอล"
+	},
+	"speedsketch_item~basket": {
+		"message": "ตะกร้า"
+	},
+	"speedsketch_item~basketball": {
+		"message": "บาสเก็ตบอล"
+	},
+	"speedsketch_item~bat": {
+		"message": "ค้างคาว"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "อ่างอาบน้ำ"
+	},
+	"speedsketch_item~beach": {
+		"message": "ชายหาด"
+	},
+	"speedsketch_item~bear": {
+		"message": "หมี"
+	},
+	"speedsketch_item~beard": {
+		"message": "เครา"
+	},
+	"speedsketch_item~bed": {
+		"message": "เตียง"
+	},
+	"speedsketch_item~bee": {
+		"message": "ผึ้ง"
+	},
+	"speedsketch_item~belt": {
+		"message": "เข็มขัด"
+	},
+	"speedsketch_item~bench": {
+		"message": "ม้านั่ง"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "จักรยาน"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "กล้องส่องทางไกล"
+	},
+	"speedsketch_item~bird": {
+		"message": "นก"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "เค้กวันเกิด"
+	},
+	"speedsketch_item~black": {
+		"message": "ดำ"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "แบล็กเบอร์รี่"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "บลูเบอร์รี่"
+	},
+	"speedsketch_item~book": {
+		"message": "หนังสือ"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "บูมเมอแรง"
+	},
+	"speedsketch_item~boot": {
+		"message": "รองเท้าบูท"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "ฝาขวด"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "โบว์หูกระต่าย"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "สร้อยข้อมือ"
+	},
+	"speedsketch_item~brain": {
+		"message": "สมอง"
+	},
+	"speedsketch_item~bread": {
+		"message": "ขนมปัง"
+	},
+	"speedsketch_item~bridge": {
+		"message": "สะพาน"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "บร็อกโคลี"
+	},
+	"speedsketch_item~broom": {
+		"message": "ไม้กวาด"
+	},
+	"speedsketch_item~bubble": {
+		"message": "ลูกโป่ง"
+	},
+	"speedsketch_item~bucket": {
+		"message": "ถังน้ำ"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "รถเกลี่ยดิน"
+	},
+	"speedsketch_item~bus": {
+		"message": "รถประจำทาง"
+	},
+	"speedsketch_item~bush": {
+		"message": "พุ่มไม้"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "ผีเสื้อ"
+	},
+	"speedsketch_item~cactus": {
+		"message": "กระบองเพชร"
+	},
+	"speedsketch_item~cake": {
+		"message": "เค้ก"
+	},
+	"speedsketch_item~calculator": {
+		"message": "เครื่องคิดเลข"
+	},
+	"speedsketch_item~calendar": {
+		"message": "ปฏิทิน"
+	},
+	"speedsketch_item~camel": {
+		"message": "อูฐ"
+	},
+	"speedsketch_item~camera": {
+		"message": "กล้องถ่ายรูป"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "การอำพรางตัว"
+	},
+	"speedsketch_item~campfire": {
+		"message": "แคมป์ไฟ"
+	},
+	"speedsketch_item~candle": {
+		"message": "เทียน"
+	},
+	"speedsketch_item~candy": {
+		"message": "ลูกกวาด"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "ลูกกวาดไม้เท้า"
+	},
+	"speedsketch_item~canoe": {
+		"message": "แคนู"
+	},
+	"speedsketch_item~car": {
+		"message": "รถยนต์"
+	},
+	"speedsketch_item~carrot": {
+		"message": "แครอท"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "การ์ตูน"
+	},
+	"speedsketch_item~castle": {
+		"message": "ปราสาท"
+	},
+	"speedsketch_item~cat": {
+		"message": "แมว"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "พัดลมติดเพดาน"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "โทรศัพท์มือถือ"
+	},
+	"speedsketch_item~cello": {
+		"message": "เชลโล"
+	},
+	"speedsketch_item~chair": {
+		"message": "เก้าอี้"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "โคมไฟระย้า"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "เคมี"
+	},
+	"speedsketch_item~cherry": {
+		"message": "เชอร์รี"
+	},
+	"speedsketch_item~chicken": {
+		"message": "ไก่"
+	},
+	"speedsketch_item~child": {
+		"message": "เด็ก"
+	},
+	"speedsketch_item~chimney": {
+		"message": "ปล่องไฟ"
+	},
+	"speedsketch_item~church": {
+		"message": "โบสถ์"
+	},
+	"speedsketch_item~circle": {
+		"message": "วงกลม"
+	},
+	"speedsketch_item~city": {
+		"message": "เมือง"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "คลาริเน็ต"
+	},
+	"speedsketch_item~clock": {
+		"message": "นาฬิกา"
+	},
+	"speedsketch_item~cloud": {
+		"message": "เมฆ"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "ซังข้าวโพด"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "ถ้วยกาแฟ"
+	},
+	"speedsketch_item~compass": {
+		"message": "เข็มทิศ"
+	},
+	"speedsketch_item~computer": {
+		"message": "คอมพิวเตอร์"
+	},
+	"speedsketch_item~cookie": {
+		"message": "คุกกี้"
+	},
+	"speedsketch_item~cooler": {
+		"message": "กระติกน้ำแข็ง"
+	},
+	"speedsketch_item~couch": {
+		"message": "โซฟา"
+	},
+	"speedsketch_item~cow": {
+		"message": "วัว"
+	},
+	"speedsketch_item~crab": {
+		"message": "ปู"
+	},
+	"speedsketch_item~crayon": {
+		"message": "ดินสอสี"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "จระเข้"
+	},
+	"speedsketch_item~cross": {
+		"message": "ไม้กางเขน"
+	},
+	"speedsketch_item~crow": {
+		"message": "อีกา"
+	},
+	"speedsketch_item~crown": {
+		"message": "มงกุฏ"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "เรือสำราญ"
+	},
+	"speedsketch_item~cube": {
+		"message": "ลูกบาศก์"
+	},
+	"speedsketch_item~cup": {
+		"message": "ถ้วย"
+	},
+	"speedsketch_item~darts": {
+		"message": "ลูกดอก"
+	},
+	"speedsketch_item~diamond": {
+		"message": "เพชร"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "แหวนเพชร"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "เครื่องล้างจาน"
+	},
+	"speedsketch_item~diving board": {
+		"message": "กระดานกระโดดน้ำ"
+	},
+	"speedsketch_item~dog": {
+		"message": "สุนัข"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "โลมา"
+	},
+	"speedsketch_item~donut": {
+		"message": "โดนัท"
+	},
+	"speedsketch_item~door": {
+		"message": "ประตู"
+	},
+	"speedsketch_item~dragon": {
+		"message": "มังกร"
+	},
+	"speedsketch_item~dresser": {
+		"message": "ตู้ลิ้นชัก"
+	},
+	"speedsketch_item~drill": {
+		"message": "สว่าน"
+	},
+	"speedsketch_item~drums": {
+		"message": "กลอง"
+	},
+	"speedsketch_item~duck": {
+		"message": "เป็ด"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "ดัมเบล"
+	},
+	"speedsketch_item~ear": {
+		"message": "หู"
+	},
+	"speedsketch_item~egg": {
+		"message": "ไข่"
+	},
+	"speedsketch_item~elbow": {
+		"message": "ข้อศอก"
+	},
+	"speedsketch_item~elephant": {
+		"message": "ช้าง"
+	},
+	"speedsketch_item~elf": {
+		"message": "เอลฟ์"
+	},
+	"speedsketch_item~emoji": {
+		"message": "อีโมจิ"
+	},
+	"speedsketch_item~envelope": {
+		"message": "ซอง"
+	},
+	"speedsketch_item~eraser": {
+		"message": "ยางลบ"
+	},
+	"speedsketch_item~eye": {
+		"message": "ดวงตา"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "แว่นตา"
+	},
+	"speedsketch_item~face": {
+		"message": "ใบหน้า"
+	},
+	"speedsketch_item~family": {
+		"message": "ครอบครัว"
+	},
+	"speedsketch_item~fan": {
+		"message": "พัดลม"
+	},
+	"speedsketch_item~feather": {
+		"message": "ขนนก"
+	},
+	"speedsketch_item~fence": {
+		"message": "รั้ว"
+	},
+	"speedsketch_item~finger": {
+		"message": "นิ้ว"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "หัวจ่ายน้ำดับเพลิง"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "เตาผิง"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "รถดับเพลิง"
+	},
+	"speedsketch_item~fish": {
+		"message": "ปลา"
+	},
+	"speedsketch_item~flag": {
+		"message": "ธง"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "ฟลามิงโก"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "ไฟฉาย"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "รองเท้าแตะ"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "โคมไฟตั้งพื้น"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "ฟลอปปี้ดิสก์"
+	},
+	"speedsketch_item~flower": {
+		"message": "ดอกไม้"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "จานบิน"
+	},
+	"speedsketch_item~fog": {
+		"message": "หมอก"
+	},
+	"speedsketch_item~foot": {
+		"message": "เท้า"
+	},
+	"speedsketch_item~fork": {
+		"message": "ส้อม"
+	},
+	"speedsketch_item~french fries": {
+		"message": "มันฝรั่งทอด"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "ไข่ดาว"
+	},
+	"speedsketch_item~frog": {
+		"message": "กบ"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "กระทะ"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "กาแล็กซี"
+	},
+	"speedsketch_item~garden": {
+		"message": "สวน"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "สายยางรดน้ำ"
+	},
+	"speedsketch_item~ghost": {
+		"message": "วิญญาณ"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "มนุษย์ขนมปังขิง"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "ยีราฟ"
+	},
+	"speedsketch_item~goat": {
+		"message": "แพะ"
+	},
+	"speedsketch_item~goatee": {
+		"message": "เคราแพะ"
+	},
+	"speedsketch_item~golf club": {
+		"message": "สโมสรกอล์ฟ"
+	},
+	"speedsketch_item~grapes": {
+		"message": "องุ่น"
+	},
+	"speedsketch_item~grass": {
+		"message": "ทุ่งหญ้า"
+	},
+	"speedsketch_item~group": {
+		"message": "กลุ่ม"
+	},
+	"speedsketch_item~guitar": {
+		"message": "กีตาร์"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "แฮมเบอร์เกอร์"
+	},
+	"speedsketch_item~hammer": {
+		"message": "ค้อน"
+	},
+	"speedsketch_item~hand": {
+		"message": "มือ"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "เกมทายคำศัพท์"
+	},
+	"speedsketch_item~happiness": {
+		"message": "ความสุข"
+	},
+	"speedsketch_item~harp": {
+		"message": "พิณ"
+	},
+	"speedsketch_item~hat": {
+		"message": "หมวก"
+	},
+	"speedsketch_item~headphones": {
+		"message": "หูฟัง"
+	},
+	"speedsketch_item~heart": {
+		"message": "หัวใจ"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "เม่น"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "เฮลิคอปเตอร์"
+	},
+	"speedsketch_item~helmet": {
+		"message": "หมวกนิรภัย"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "รูป 6 เหลี่ยม"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "ลูกพัค"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "ไม้ฮ็อคกี้"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "ไฟประดับงานเทศกาล"
+	},
+	"speedsketch_item~horse": {
+		"message": "ม้า"
+	},
+	"speedsketch_item~hospital": {
+		"message": "โรงพยาบาล"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "บอลลูน"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "ฮอตดอก"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "อ่างน้ำอุ่น"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "นาฬิกาทราย"
+	},
+	"speedsketch_item~house": {
+		"message": "บ้าน"
+	},
+	"speedsketch_item~house plant": {
+		"message": "ไม้ประดับในอาคาร"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "เฮอริเคน"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "ไอศกรีม"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "นักกีฬาสเก็ตน้ำแข็ง"
+	},
+	"speedsketch_item~infinity": {
+		"message": "อนันต์"
+	},
+	"speedsketch_item~island": {
+		"message": "เกาะ"
+	},
+	"speedsketch_item~italy": {
+		"message": "อิตาลี"
+	},
+	"speedsketch_item~jacket": {
+		"message": "แจ็กเก็ต"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "เจ็ทแพ็ค"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "จิงเกิลเบลส์"
+	},
+	"speedsketch_item~kale": {
+		"message": "ผักเคล"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "จิงโจ้"
+	},
+	"speedsketch_item~key": {
+		"message": "กุญแจ"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "แป้นพิมพ์"
+	},
+	"speedsketch_item~kite": {
+		"message": "ว่าว"
+	},
+	"speedsketch_item~knee": {
+		"message": "เข่า"
+	},
+	"speedsketch_item~knife": {
+		"message": "มีด"
+	},
+	"speedsketch_item~knot": {
+		"message": "ปม"
+	},
+	"speedsketch_item~koala": {
+		"message": "โคอาลา"
+	},
+	"speedsketch_item~ladder": {
+		"message": "บันได"
+	},
+	"speedsketch_item~landscape": {
+		"message": "ภูมิประเทศ"
+	},
+	"speedsketch_item~lantern": {
+		"message": "โคมไฟ"
+	},
+	"speedsketch_item~laptop": {
+		"message": "แล็ปท็อป"
+	},
+	"speedsketch_item~leaf": {
+		"message": "ใบไม้"
+	},
+	"speedsketch_item~leg": {
+		"message": "ขา"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "หลอดไฟฟ้า"
+	},
+	"speedsketch_item~lighter": {
+		"message": "ไฟแช็ก"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "ประภาคาร"
+	},
+	"speedsketch_item~lightning": {
+		"message": "สายฟ้า"
+	},
+	"speedsketch_item~line": {
+		"message": "บรรทัด"
+	},
+	"speedsketch_item~lion": {
+		"message": "สิงโต"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "ลิปสติก"
+	},
+	"speedsketch_item~lobster": {
+		"message": "กุ้งมังกร"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "อมยิ้ม"
+	},
+	"speedsketch_item~love": {
+		"message": "รัก"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "กล่องจดหมาย"
+	},
+	"speedsketch_item~man": {
+		"message": "ผู้ชาย"
+	},
+	"speedsketch_item~map": {
+		"message": "แผนที่"
+	},
+	"speedsketch_item~marker": {
+		"message": "สีเมจิก"
+	},
+	"speedsketch_item~matches": {
+		"message": "ไม้ขีดไฟ"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "คณิตศาสตร์"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "โทรโข่ง"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "เงือก"
+	},
+	"speedsketch_item~metal": {
+		"message": "โลหะ"
+	},
+	"speedsketch_item~microphone": {
+		"message": "ไมโครโฟน"
+	},
+	"speedsketch_item~microscope": {
+		"message": "กล้องจุลทรรศน์"
+	},
+	"speedsketch_item~microwave": {
+		"message": "ไมโครเวฟ"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "มิสเซิลโท"
+	},
+	"speedsketch_item~mittens": {
+		"message": "นวม"
+	},
+	"speedsketch_item~molecule": {
+		"message": "โมเลกุล"
+	},
+	"speedsketch_item~money": {
+		"message": "เงิน"
+	},
+	"speedsketch_item~monkey": {
+		"message": "ลิง"
+	},
+	"speedsketch_item~moon": {
+		"message": "ดวงจันทร์"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "ยุง"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "รถจักรยานยนต์"
+	},
+	"speedsketch_item~mountain": {
+		"message": "ภูเขา"
+	},
+	"speedsketch_item~mouse": {
+		"message": "หนู"
+	},
+	"speedsketch_item~moustache": {
+		"message": "หนวด"
+	},
+	"speedsketch_item~mouth": {
+		"message": "ปาก"
+	},
+	"speedsketch_item~mug": {
+		"message": "แก้วมัค"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "เห็ด"
+	},
+	"speedsketch_item~music": {
+		"message": "เพลง"
+	},
+	"speedsketch_item~nail": {
+		"message": "เล็บ"
+	},
+	"speedsketch_item~nature": {
+		"message": "ธรรมชาติ"
+	},
+	"speedsketch_item~necklace": {
+		"message": "สร้อยคอ"
+	},
+	"speedsketch_item~news": {
+		"message": "ข่าว"
+	},
+	"speedsketch_item~nose": {
+		"message": "จมูก"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "เครื่องกะเทาะเปลือกผลไม้"
+	},
+	"speedsketch_item~ocean": {
+		"message": "มหาสมุทร"
+	},
+	"speedsketch_item~octagon": {
+		"message": "รูปแปดเหลี่ยม"
+	},
+	"speedsketch_item~octopus": {
+		"message": "ปลาหมึก"
+	},
+	"speedsketch_item~onion": {
+		"message": "หัวหอม"
+	},
+	"speedsketch_item~ornament": {
+		"message": "เครื่องประดับ"
+	},
+	"speedsketch_item~oven": {
+		"message": "เตาอบ"
+	},
+	"speedsketch_item~owl": {
+		"message": "นกฮูก"
+	},
+	"speedsketch_item~paint can": {
+		"message": "กระป๋องสี"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "พู่กัน"
+	},
+	"speedsketch_item~painting": {
+		"message": "ภาพวาด"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "ต้นปาล์ม"
+	},
+	"speedsketch_item~panda": {
+		"message": "แพนด้า"
+	},
+	"speedsketch_item~pants": {
+		"message": "กางเกง"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "คลิปหนีบกระดาษ"
+	},
+	"speedsketch_item~parachute": {
+		"message": "ร่มชูชีพ"
+	},
+	"speedsketch_item~parrot": {
+		"message": "นกแก้ว"
+	},
+	"speedsketch_item~passport": {
+		"message": "หนังสือเดินทาง"
+	},
+	"speedsketch_item~peanut": {
+		"message": "ถั่วลิสง"
+	},
+	"speedsketch_item~pear": {
+		"message": "ลูกแพร์"
+	},
+	"speedsketch_item~peas": {
+		"message": "ถั่ว"
+	},
+	"speedsketch_item~pencil": {
+		"message": "ดินสอ"
+	},
+	"speedsketch_item~penguin": {
+		"message": "เพนกวิน"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "เป็บเปอร์มินท์"
+	},
+	"speedsketch_item~piano": {
+		"message": "เปียโน"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "รถกระบะ"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "กรอบรูป"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "แผนภูมิวงกลม"
+	},
+	"speedsketch_item~pig": {
+		"message": "หมู"
+	},
+	"speedsketch_item~pillow": {
+		"message": "หมอน"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "สับปะรด"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ปิงปอง"
+	},
+	"speedsketch_item~pirate": {
+		"message": "โจรสลัด"
+	},
+	"speedsketch_item~pizza": {
+		"message": "พิซซ่า"
+	},
+	"speedsketch_item~pliers": {
+		"message": "คีม"
+	},
+	"speedsketch_item~police car": {
+		"message": "รถตำรวจ"
+	},
+	"speedsketch_item~politician": {
+		"message": "นักการเมือง"
+	},
+	"speedsketch_item~pond": {
+		"message": "หนองน้ำ"
+	},
+	"speedsketch_item~pool": {
+		"message": "สระว่ายน้ำ"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "ไอศกรีมแท่ง"
+	},
+	"speedsketch_item~portrait": {
+		"message": "ภาพบุคคล"
+	},
+	"speedsketch_item~postcard": {
+		"message": "โปสการ์ด"
+	},
+	"speedsketch_item~potato": {
+		"message": "มันฝรั่ง"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "ปลั๊กพ่วง"
+	},
+	"speedsketch_item~present": {
+		"message": "ของขวัญ"
+	},
+	"speedsketch_item~prison": {
+		"message": "เรือนจำ"
+	},
+	"speedsketch_item~purse": {
+		"message": "กระเป๋าสตางค์"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "ปริศนา"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "กระต่าย"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "แรคคูน"
+	},
+	"speedsketch_item~radio": {
+		"message": "วิทยุ"
+	},
+	"speedsketch_item~rain": {
+		"message": "ฝน"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "รุ้ง"
+	},
+	"speedsketch_item~rake": {
+		"message": "คราด"
+	},
+	"speedsketch_item~raven": {
+		"message": "นกกาเหว่า"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "กวางเรนเดียร์"
+	},
+	"speedsketch_item~remote control": {
+		"message": "รีโมตคอนโทรล"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "แรด"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "ริบบิ้น"
+	},
+	"speedsketch_item~river": {
+		"message": "แม่น้ำ"
+	},
+	"speedsketch_item~robot": {
+		"message": "หุ่นยนต์"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "รถไฟเหาะ"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "โรลเลอร์สเกต"
+	},
+	"speedsketch_item~sadness": {
+		"message": "ความเศร้า"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "เรือใบ"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "แซนด์วิช"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "ซานตาคลอส"
+	},
+	"speedsketch_item~saturn": {
+		"message": "ดาวเสาร์"
+	},
+	"speedsketch_item~sausage": {
+		"message": "ไส้กรอก"
+	},
+	"speedsketch_item~saw": {
+		"message": "เลื่อย"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "แซกโซโฟน"
+	},
+	"speedsketch_item~school bus": {
+		"message": "รถโรงเรียน"
+	},
+	"speedsketch_item~scissors": {
+		"message": "กรรไกร"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "แมงป่อง"
+	},
+	"speedsketch_item~screw": {
+		"message": "สกรู"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "ไขควง"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "ประติมากรรม"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "เต่าทะเล"
+	},
+	"speedsketch_item~see saw": {
+		"message": "ไม้กระดานหก"
+	},
+	"speedsketch_item~shark": {
+		"message": "ปลาฉลาม"
+	},
+	"speedsketch_item~sheep": {
+		"message": "แกะ"
+	},
+	"speedsketch_item~shoe": {
+		"message": "รองเท้า"
+	},
+	"speedsketch_item~shorts": {
+		"message": "กางเกงขาสั้น"
+	},
+	"speedsketch_item~shovel": {
+		"message": "พลั่ว"
+	},
+	"speedsketch_item~sink": {
+		"message": "อ่างล้างจาน"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "สเกตบอร์ด"
+	},
+	"speedsketch_item~ski": {
+		"message": "สกี"
+	},
+	"speedsketch_item~skier": {
+		"message": "นักเล่นสกี"
+	},
+	"speedsketch_item~skirt": {
+		"message": "กระโปรง"
+	},
+	"speedsketch_item~skull": {
+		"message": "หัวกะโหลก"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "ตึกระฟ้า"
+	},
+	"speedsketch_item~sled": {
+		"message": "เลื่อน"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "ถุงนอน"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "เลื่อน"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "หน้ายิ้ม"
+	},
+	"speedsketch_item~snail": {
+		"message": "หอยทาก"
+	},
+	"speedsketch_item~snake": {
+		"message": "งู"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "สนอกเกิ้ล"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "เกล็ดหิมะ"
+	},
+	"speedsketch_item~snowman": {
+		"message": "ตุ๊กตาหิมะ"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "ลูกฟุตบอล"
+	},
+	"speedsketch_item~sock": {
+		"message": "ถุงเท้า"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "เรือเร็ว"
+	},
+	"speedsketch_item~sphere": {
+		"message": "ลูกโลก"
+	},
+	"speedsketch_item~spider": {
+		"message": "แมงมุม"
+	},
+	"speedsketch_item~spiral": {
+		"message": "เกลียว"
+	},
+	"speedsketch_item~spoon": {
+		"message": "ช้อน"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "สเปรดชีต"
+	},
+	"speedsketch_item~square": {
+		"message": "สี่เหลี่ยม"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "เส้นหยัก"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "กระรอก"
+	},
+	"speedsketch_item~stairs": {
+		"message": "ขั้นบันได"
+	},
+	"speedsketch_item~star": {
+		"message": "ดาว"
+	},
+	"speedsketch_item~steak": {
+		"message": "สเต็ก"
+	},
+	"speedsketch_item~stereo": {
+		"message": "สเตอริโอ"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "หูฟังของหมอ"
+	},
+	"speedsketch_item~still life": {
+		"message": "ภาพหุ่นนิ่ง"
+	},
+	"speedsketch_item~stitches": {
+		"message": "รอยเย็บ"
+	},
+	"speedsketch_item~stock market": {
+		"message": "ตลาดหุ้น"
+	},
+	"speedsketch_item~stocking": {
+		"message": "ถุงน่อง"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "ป้ายหยุด"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "นาฬิกาจับเวลา"
+	},
+	"speedsketch_item~stove": {
+		"message": "เตา"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "สตรอเบอร์รี่"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "ไฟถนน"
+	},
+	"speedsketch_item~string bean": {
+		"message": "ถั่วฝักยาว"
+	},
+	"speedsketch_item~submarine": {
+		"message": "เรือดำน้ำ"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "กระเป๋าเดินทาง"
+	},
+	"speedsketch_item~sun": {
+		"message": "ดวงอาทิตย์"
+	},
+	"speedsketch_item~sunset": {
+		"message": "พระอาทิตย์ตก"
+	},
+	"speedsketch_item~swan": {
+		"message": "หงส์"
+	},
+	"speedsketch_item~sweater": {
+		"message": "สเวตเตอร์"
+	},
+	"speedsketch_item~swing set": {
+		"message": "ชิงช้า"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "เสื้อยืด"
+	},
+	"speedsketch_item~table": {
+		"message": "โต๊ะ"
+	},
+	"speedsketch_item~teapot": {
+		"message": "กาน้ำชา"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "หมีเท็ดดี้"
+	},
+	"speedsketch_item~telephone": {
+		"message": "โทรศัพท์"
+	},
+	"speedsketch_item~television": {
+		"message": "โทรทัศน์"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "ไม้เทนนิส"
+	},
+	"speedsketch_item~tent": {
+		"message": "เต็นท์"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "เกมโอเอกซ์"
+	},
+	"speedsketch_item~tiger": {
+		"message": "เสือ"
+	},
+	"speedsketch_item~time": {
+		"message": "เวลา"
+	},
+	"speedsketch_item~toaster": {
+		"message": "เครื่องปิ้งขนมปัง"
+	},
+	"speedsketch_item~toe": {
+		"message": "นิ้วเท้า"
+	},
+	"speedsketch_item~toilet": {
+		"message": "ห้องน้ำ"
+	},
+	"speedsketch_item~tooth": {
+		"message": "ฟัน"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "แปรงสีฟัน"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "ยาสีฟัน"
+	},
+	"speedsketch_item~tornado": {
+		"message": "ทอร์นาโด"
+	},
+	"speedsketch_item~tractor": {
+		"message": "รถแทร็กเตอร์"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "ไฟจราจร"
+	},
+	"speedsketch_item~train": {
+		"message": "รถไฟ"
+	},
+	"speedsketch_item~tree": {
+		"message": "ต้นไม้"
+	},
+	"speedsketch_item~triangle": {
+		"message": "รูปสามเหลี่ยม"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "จักรยานสามล้อ"
+	},
+	"speedsketch_item~trolley": {
+		"message": "รถเข็น"
+	},
+	"speedsketch_item~trombone": {
+		"message": "ทรอมโบน"
+	},
+	"speedsketch_item~trousers": {
+		"message": "กางเกงขายาว"
+	},
+	"speedsketch_item~truck": {
+		"message": "รถบรรทุก"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "ทรัมเป็ต"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "ร่ม"
+	},
+	"speedsketch_item~underwear": {
+		"message": "ชุดชั้นใน"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "ยูนิคอร์น"
+	},
+	"speedsketch_item~universe": {
+		"message": "จักรวาล"
+	},
+	"speedsketch_item~van": {
+		"message": "รถตู้"
+	},
+	"speedsketch_item~vase": {
+		"message": "แจกัน"
+	},
+	"speedsketch_item~violin": {
+		"message": "ไวโอลิน"
+	},
+	"speedsketch_item~walnut": {
+		"message": "วอลนัท"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "เครื่องซักผ้า"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "แตงโม"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "สไลเดอร์น้ำ"
+	},
+	"speedsketch_item~wave": {
+		"message": "คลื่น"
+	},
+	"speedsketch_item~whale": {
+		"message": "วาฬ"
+	},
+	"speedsketch_item~wheel": {
+		"message": "ล้อ"
+	},
+	"speedsketch_item~windmill": {
+		"message": "กังหันลม"
+	},
+	"speedsketch_item~woman": {
+		"message": "ผู้หญิง"
+	},
+	"speedsketch_item~world": {
+		"message": "โลก"
+	},
+	"speedsketch_item~wreath": {
+		"message": "พวงดอกไม้"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "นาฬิกาข้อมือ"
+	},
+	"speedsketch_item~yoga": {
+		"message": "โยคะ"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "โยเกิร์ต"
+	},
+	"speedsketch_item~zebra": {
+		"message": "ม้าลาย"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "ซิกแซ็ก"
+	},
+	"speedsketch_item~zipper": {
+		"message": "ซิป"
 	},
 	"sr_country_name": {
 		"message": "ซูรินาเม"
@@ -5244,7 +6624,10 @@
 		"message": "สหราชอาณาจักร"
 	},
 	"uk_tradition": {
-		"message": "ในสหราชอาณาจักร ผู้เฉลิมฉลองทุกเพศทุกวัยจะสนุกกับประทัดคริสต์มาสบนโต๊ะอาหารในมื้อเย็น ประทัดนี้มีลักษณะเป็นท่อห่อด้วยกระดาษสีสันสดใสโดยมีแถบสำหรับดึงติดอยู่ทั้งสองด้าน เมื่อดึงแถบ ประทัดจะระเบิดพร้อมเสียงดัง ข้างในประทัดจะมีหมวกกระดาษ ของเล่น และลูกอมให้ได้สนุกกันในคืนคริสต์มาส"
+		"message": "ในสหราชอาณาจักร ผู้เฉลิมฉลองทุกเพศทุกวัยจะสนุกกับประทัดคริสต์มาสบนโต๊ะอาหารในมื้อเย็น ประทัดนี้มีลักษณะเป็นท่อห่อด้วยกระดาษสีสันสดใสโดยมีแถบสำหรับดึงติดอยู่ทั้งสองด้าน เมื่อดึงแถบ ประทัดจะระเบิดพร้อมเสียงดัง ข้างในประทัดจะมีหมวกกระดาษ ของเล่น เรื่องตลก และรางวัลให้ได้สนุกกันในคืนคริสต์มาส"
+	},
+	"unmute": {
+		"message": "เปิดเสียง"
 	},
 	"upgrade-warning": {
 		"message": "อ๊ะ! ตามติดซานต้าไม่ได้รับการสนับสนุนในเบราว์เซอร์เวอร์ชันนี้ หากต้องการเข้าถึงตามติดซานต้า ให้ดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่ สำหรับข้อมูลเพิ่มเติม ไปที่\u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e"
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "เพิ่มลงในหน้าแรก"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "เพิ่มไปยังชั้นวาง"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "เพิ่มไปยังเดสก์ท็อป"
 	},
 	"village_santa_cardboard": {
 		"message": "ซานต้าบน Cardboard"

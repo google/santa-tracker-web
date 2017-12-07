@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "Prantsusmaal panevad lapsed traditsioonikohaselt Père Noëli oodates kinga kamina kõrvale. Kui laps on terve aasta tubli olnud, täidab Père Noël tema kinga kinkidega."
 	},
+	"fullscreen": {
+		"message": "Täisekraan"
+	},
 	"ga_country_name": {
 		"message": "Gabon"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritaania"
 	},
+	"mute": {
+		"message": "Vaigista"
+	},
 	"mw_country_name": {
 		"message": "Malawi"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "Peata"
+	},
 	"pe_country_name": {
 		"message": "Peruu"
 	},
@@ -1116,7 +1125,7 @@
 		"message": "Joonista"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor on jõuluvana masinõpperobot, mis aitab tal kogu maailma lastelt saadud kirju kiiresti analüüsida. Aidake Tensoril harjutada – joonistage ekraanile pühadega seotud sõnale vastav pilt ja laske tal sõna ära arvata. Mida rohkem joonistate, seda rohkem Tensor õpib ja seda paremini oskab jõuluvana laste soove täita."
+		"message": "Tensor on jõuluvana masinõpperobot, mis aitab tal kogu maailma lastelt saadud kirju kiiresti analüüsida. Aidake Tensoril harjutada – joonistage ekraanile pühadega seotud sõnale vastav pilt ja laske tal sõna ära arvata. Mida rohkem joonistate, seda rohkem Tensor õpib ja seda paremini oskab jõuluvana laste soove täita!"
 	},
 	"quickdraw-splashview-title": {
 		"message": "Aidake Tensoril pildituvastust harjutada!"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somaalia"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Pariis"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Šveits"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Eiffeli torn"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Suur Hiina müür"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstraktne kunst"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "lennukikandja"
+	},
+	"speedsketch_item~airplane": {
+		"message": "lennuk"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "äratuskell"
+	},
+	"speedsketch_item~alien": {
+		"message": "tulnukas"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "kiirabiauto"
+	},
+	"speedsketch_item~angel": {
+		"message": "ingel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "loomade ränne"
+	},
+	"speedsketch_item~ant": {
+		"message": "sipelgas"
+	},
+	"speedsketch_item~anvil": {
+		"message": "alasi"
+	},
+	"speedsketch_item~apple": {
+		"message": "õun"
+	},
+	"speedsketch_item~arm": {
+		"message": "käsivars"
+	},
+	"speedsketch_item~arrow": {
+		"message": "nool"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "asparaagus"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "helikassett"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokaado"
+	},
+	"speedsketch_item~axe": {
+		"message": "kirves"
+	},
+	"speedsketch_item~baby": {
+		"message": "beebi"
+	},
+	"speedsketch_item~backpack": {
+		"message": "seljakott"
+	},
+	"speedsketch_item~banana": {
+		"message": "banaan"
+	},
+	"speedsketch_item~bandage": {
+		"message": "side"
+	},
+	"speedsketch_item~barn": {
+		"message": "taluhoone"
+	},
+	"speedsketch_item~baseball": {
+		"message": "pesapall"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "pesapallikurikas"
+	},
+	"speedsketch_item~basket": {
+		"message": "korv"
+	},
+	"speedsketch_item~basketball": {
+		"message": "korvpall"
+	},
+	"speedsketch_item~bat": {
+		"message": "nahkhiir"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "vann"
+	},
+	"speedsketch_item~beach": {
+		"message": "rand"
+	},
+	"speedsketch_item~bear": {
+		"message": "karu"
+	},
+	"speedsketch_item~beard": {
+		"message": "habe"
+	},
+	"speedsketch_item~bed": {
+		"message": "voodi"
+	},
+	"speedsketch_item~bee": {
+		"message": "mesilane"
+	},
+	"speedsketch_item~belt": {
+		"message": "vöö"
+	},
+	"speedsketch_item~bench": {
+		"message": "pink"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "jalgratas"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "binokkel"
+	},
+	"speedsketch_item~bird": {
+		"message": "lind"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "sünnipäevatort"
+	},
+	"speedsketch_item~black": {
+		"message": "must"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "põldmari"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "mustikas"
+	},
+	"speedsketch_item~book": {
+		"message": "raamat"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "saabas"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "pudelikork"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "kikilips"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "käevõru"
+	},
+	"speedsketch_item~brain": {
+		"message": "aju"
+	},
+	"speedsketch_item~bread": {
+		"message": "leib"
+	},
+	"speedsketch_item~bridge": {
+		"message": "sild"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "spargelkapsas"
+	},
+	"speedsketch_item~broom": {
+		"message": "põrandahari"
+	},
+	"speedsketch_item~bubble": {
+		"message": "mull"
+	},
+	"speedsketch_item~bucket": {
+		"message": "ämber"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldooser"
+	},
+	"speedsketch_item~bus": {
+		"message": "buss"
+	},
+	"speedsketch_item~bush": {
+		"message": "põõsas"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "liblikas"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "tort"
+	},
+	"speedsketch_item~calculator": {
+		"message": "kalkulaator"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalender"
+	},
+	"speedsketch_item~camel": {
+		"message": "kaamel"
+	},
+	"speedsketch_item~camera": {
+		"message": "kaamera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "kamuflaaž"
+	},
+	"speedsketch_item~campfire": {
+		"message": "lõke"
+	},
+	"speedsketch_item~candle": {
+		"message": "küünal"
+	},
+	"speedsketch_item~candy": {
+		"message": "kompvek"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "kommipulk"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kanuu"
+	},
+	"speedsketch_item~car": {
+		"message": "auto"
+	},
+	"speedsketch_item~carrot": {
+		"message": "porgand"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "multifilm"
+	},
+	"speedsketch_item~castle": {
+		"message": "loss"
+	},
+	"speedsketch_item~cat": {
+		"message": "kass"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "laeventilaator"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobiiltelefon"
+	},
+	"speedsketch_item~cello": {
+		"message": "tšello"
+	},
+	"speedsketch_item~chair": {
+		"message": "tool"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "lühter"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "keemia"
+	},
+	"speedsketch_item~cherry": {
+		"message": "kirss"
+	},
+	"speedsketch_item~chicken": {
+		"message": "kana"
+	},
+	"speedsketch_item~child": {
+		"message": "laps"
+	},
+	"speedsketch_item~chimney": {
+		"message": "korsten"
+	},
+	"speedsketch_item~church": {
+		"message": "kirik"
+	},
+	"speedsketch_item~circle": {
+		"message": "ring"
+	},
+	"speedsketch_item~city": {
+		"message": "linn"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarnet"
+	},
+	"speedsketch_item~clock": {
+		"message": "kell"
+	},
+	"speedsketch_item~cloud": {
+		"message": "pilv"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "maisitõlvik"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "kohvitass"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompass"
+	},
+	"speedsketch_item~computer": {
+		"message": "arvuti"
+	},
+	"speedsketch_item~cookie": {
+		"message": "küpsis"
+	},
+	"speedsketch_item~cooler": {
+		"message": "külmakast"
+	},
+	"speedsketch_item~couch": {
+		"message": "diivan"
+	},
+	"speedsketch_item~cow": {
+		"message": "lehm"
+	},
+	"speedsketch_item~crab": {
+		"message": "krabi"
+	},
+	"speedsketch_item~crayon": {
+		"message": "rasvakriit"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodill"
+	},
+	"speedsketch_item~cross": {
+		"message": "rist"
+	},
+	"speedsketch_item~crow": {
+		"message": "vares"
+	},
+	"speedsketch_item~crown": {
+		"message": "kroon"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "kruiisilaev"
+	},
+	"speedsketch_item~cube": {
+		"message": "kuup"
+	},
+	"speedsketch_item~cup": {
+		"message": "tass"
+	},
+	"speedsketch_item~darts": {
+		"message": "noolemäng"
+	},
+	"speedsketch_item~diamond": {
+		"message": "teemant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "teemantsõrmus"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "nõudepesumasin"
+	},
+	"speedsketch_item~diving board": {
+		"message": "hüppelaud"
+	},
+	"speedsketch_item~dog": {
+		"message": "koer"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfiin"
+	},
+	"speedsketch_item~donut": {
+		"message": "sõõrik"
+	},
+	"speedsketch_item~door": {
+		"message": "uks"
+	},
+	"speedsketch_item~dragon": {
+		"message": "draakon"
+	},
+	"speedsketch_item~dresser": {
+		"message": "kummut"
+	},
+	"speedsketch_item~drill": {
+		"message": "puur"
+	},
+	"speedsketch_item~drums": {
+		"message": "trummid"
+	},
+	"speedsketch_item~duck": {
+		"message": "part"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "hantel"
+	},
+	"speedsketch_item~ear": {
+		"message": "kõrv"
+	},
+	"speedsketch_item~egg": {
+		"message": "muna"
+	},
+	"speedsketch_item~elbow": {
+		"message": "küünarnukk"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elevant"
+	},
+	"speedsketch_item~elf": {
+		"message": "päkapikk"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emotikon"
+	},
+	"speedsketch_item~envelope": {
+		"message": "ümbrik"
+	},
+	"speedsketch_item~eraser": {
+		"message": "kustutuskumm"
+	},
+	"speedsketch_item~eye": {
+		"message": "silm"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "prillid"
+	},
+	"speedsketch_item~face": {
+		"message": "nägu"
+	},
+	"speedsketch_item~family": {
+		"message": "pere"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventilaator"
+	},
+	"speedsketch_item~feather": {
+		"message": "sulg"
+	},
+	"speedsketch_item~fence": {
+		"message": "tara"
+	},
+	"speedsketch_item~finger": {
+		"message": "sõrm"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "tuletõrjehüdrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "kamin"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "tuletõrjeauto"
+	},
+	"speedsketch_item~fish": {
+		"message": "kala"
+	},
+	"speedsketch_item~flag": {
+		"message": "lipp"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "taskulamp"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "plätud"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "põrandalamp"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "flopiketas"
+	},
+	"speedsketch_item~flower": {
+		"message": "lill"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "lendav taldrik"
+	},
+	"speedsketch_item~fog": {
+		"message": "udu"
+	},
+	"speedsketch_item~foot": {
+		"message": "jalalaba"
+	},
+	"speedsketch_item~fork": {
+		"message": "kahvel"
+	},
+	"speedsketch_item~french fries": {
+		"message": "friikartulid"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "praemuna"
+	},
+	"speedsketch_item~frog": {
+		"message": "konn"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "praepann"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaktika"
+	},
+	"speedsketch_item~garden": {
+		"message": "aed"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "aiavoolik"
+	},
+	"speedsketch_item~ghost": {
+		"message": "kummitus"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "piparkoogimehike"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "kaelkirjak"
+	},
+	"speedsketch_item~goat": {
+		"message": "kits"
+	},
+	"speedsketch_item~goatee": {
+		"message": "kitsehabe"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfikepp"
+	},
+	"speedsketch_item~grapes": {
+		"message": "viinamarjad"
+	},
+	"speedsketch_item~grass": {
+		"message": "muru"
+	},
+	"speedsketch_item~group": {
+		"message": "grupp"
+	},
+	"speedsketch_item~guitar": {
+		"message": "kitarr"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "vasar"
+	},
+	"speedsketch_item~hand": {
+		"message": "käsi"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "poomismäng"
+	},
+	"speedsketch_item~happiness": {
+		"message": "õnn"
+	},
+	"speedsketch_item~harp": {
+		"message": "harf"
+	},
+	"speedsketch_item~hat": {
+		"message": "müts"
+	},
+	"speedsketch_item~headphones": {
+		"message": "kõrvaklapid"
+	},
+	"speedsketch_item~heart": {
+		"message": "süda"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "siil"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "kiiver"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "kuusnurk"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hokilitter"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hokikepp"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "jõulutuled"
+	},
+	"speedsketch_item~horse": {
+		"message": "hobune"
+	},
+	"speedsketch_item~hospital": {
+		"message": "haigla"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "kuumaõhupall"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hot dog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "mullivann"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "liivakell"
+	},
+	"speedsketch_item~house": {
+		"message": "maja"
+	},
+	"speedsketch_item~house plant": {
+		"message": "toataim"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "orkaan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "jäätis"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "uisutaja"
+	},
+	"speedsketch_item~infinity": {
+		"message": "lõpmatus"
+	},
+	"speedsketch_item~island": {
+		"message": "saar"
+	},
+	"speedsketch_item~italy": {
+		"message": "Itaalia"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jakk"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "rakettranits"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "aisakell"
+	},
+	"speedsketch_item~kale": {
+		"message": "lehtkapsas"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "känguru"
+	},
+	"speedsketch_item~key": {
+		"message": "võti"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "klaviatuur"
+	},
+	"speedsketch_item~kite": {
+		"message": "tuulelohe"
+	},
+	"speedsketch_item~knee": {
+		"message": "põlv"
+	},
+	"speedsketch_item~knife": {
+		"message": "nuga"
+	},
+	"speedsketch_item~knot": {
+		"message": "sõlm"
+	},
+	"speedsketch_item~koala": {
+		"message": "koaala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "redel"
+	},
+	"speedsketch_item~landscape": {
+		"message": "maastik"
+	},
+	"speedsketch_item~lantern": {
+		"message": "latern"
+	},
+	"speedsketch_item~laptop": {
+		"message": "sülearvuti"
+	},
+	"speedsketch_item~leaf": {
+		"message": "puuleht"
+	},
+	"speedsketch_item~leg": {
+		"message": "jalg"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "lambipirn"
+	},
+	"speedsketch_item~lighter": {
+		"message": "välgumihkel"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "tuletorn"
+	},
+	"speedsketch_item~lightning": {
+		"message": "välk"
+	},
+	"speedsketch_item~line": {
+		"message": "joon"
+	},
+	"speedsketch_item~lion": {
+		"message": "lõvi"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "huulepulk"
+	},
+	"speedsketch_item~lobster": {
+		"message": "homaar"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "pulgakomm"
+	},
+	"speedsketch_item~love": {
+		"message": "armastus"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "postkast"
+	},
+	"speedsketch_item~man": {
+		"message": "mees"
+	},
+	"speedsketch_item~map": {
+		"message": "kaart"
+	},
+	"speedsketch_item~marker": {
+		"message": "marker"
+	},
+	"speedsketch_item~matches": {
+		"message": "tikud"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matemaatika"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "ruupor"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "merineitsi"
+	},
+	"speedsketch_item~metal": {
+		"message": "metall"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroskoop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikrolaineahi"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "puuvõõrik"
+	},
+	"speedsketch_item~mittens": {
+		"message": "käpikud"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekul"
+	},
+	"speedsketch_item~money": {
+		"message": "raha"
+	},
+	"speedsketch_item~monkey": {
+		"message": "pärdik"
+	},
+	"speedsketch_item~moon": {
+		"message": "kuu"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "sääsk"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "mootorratas"
+	},
+	"speedsketch_item~mountain": {
+		"message": "mägi"
+	},
+	"speedsketch_item~mouse": {
+		"message": "hiir"
+	},
+	"speedsketch_item~moustache": {
+		"message": "vuntsid"
+	},
+	"speedsketch_item~mouth": {
+		"message": "suu"
+	},
+	"speedsketch_item~mug": {
+		"message": "tass"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "seen"
+	},
+	"speedsketch_item~music": {
+		"message": "muusika"
+	},
+	"speedsketch_item~nail": {
+		"message": "nael"
+	},
+	"speedsketch_item~nature": {
+		"message": "loodus"
+	},
+	"speedsketch_item~necklace": {
+		"message": "kaelakee"
+	},
+	"speedsketch_item~news": {
+		"message": "uudised"
+	},
+	"speedsketch_item~nose": {
+		"message": "nina"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "pähklipureja"
+	},
+	"speedsketch_item~ocean": {
+		"message": "ookean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "kaheksanurk"
+	},
+	"speedsketch_item~octopus": {
+		"message": "kaheksajalg"
+	},
+	"speedsketch_item~onion": {
+		"message": "sibul"
+	},
+	"speedsketch_item~ornament": {
+		"message": "kaunistus"
+	},
+	"speedsketch_item~oven": {
+		"message": "ahi"
+	},
+	"speedsketch_item~owl": {
+		"message": "öökull"
+	},
+	"speedsketch_item~paint can": {
+		"message": "värvipurk"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "pintsel"
+	},
+	"speedsketch_item~painting": {
+		"message": "maal"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palmipuu"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "püksid"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "kirjaklamber"
+	},
+	"speedsketch_item~parachute": {
+		"message": "langevari"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papagoi"
+	},
+	"speedsketch_item~passport": {
+		"message": "pass"
+	},
+	"speedsketch_item~peanut": {
+		"message": "maapähkel"
+	},
+	"speedsketch_item~pear": {
+		"message": "pirn"
+	},
+	"speedsketch_item~peas": {
+		"message": "herned"
+	},
+	"speedsketch_item~pencil": {
+		"message": "pliiats"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pingviin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "piparmünt"
+	},
+	"speedsketch_item~piano": {
+		"message": "klaver"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "kastiauto"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "pildiraam"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "sektordiagramm"
+	},
+	"speedsketch_item~pig": {
+		"message": "siga"
+	},
+	"speedsketch_item~pillow": {
+		"message": "padi"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananass"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "lauatennis"
+	},
+	"speedsketch_item~pirate": {
+		"message": "piraat"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pitsa"
+	},
+	"speedsketch_item~pliers": {
+		"message": "näpitstangid"
+	},
+	"speedsketch_item~police car": {
+		"message": "politseiauto"
+	},
+	"speedsketch_item~politician": {
+		"message": "poliitik"
+	},
+	"speedsketch_item~pond": {
+		"message": "tiik"
+	},
+	"speedsketch_item~pool": {
+		"message": "bassein"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "mahlapulk"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portree"
+	},
+	"speedsketch_item~postcard": {
+		"message": "postkaart"
+	},
+	"speedsketch_item~potato": {
+		"message": "kartul"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "pistikupesa"
+	},
+	"speedsketch_item~present": {
+		"message": "kingitus"
+	},
+	"speedsketch_item~prison": {
+		"message": "vangla"
+	},
+	"speedsketch_item~purse": {
+		"message": "käekott"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "pusle"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "küülik"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "pesukaru"
+	},
+	"speedsketch_item~radio": {
+		"message": "raadio"
+	},
+	"speedsketch_item~rain": {
+		"message": "vihm"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "vikerkaar"
+	},
+	"speedsketch_item~rake": {
+		"message": "reha"
+	},
+	"speedsketch_item~raven": {
+		"message": "ronk"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "põhjapõder"
+	},
+	"speedsketch_item~remote control": {
+		"message": "kaugjuhtimispult"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "ninasarvik"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "lint"
+	},
+	"speedsketch_item~river": {
+		"message": "jõgi"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "Ameerika mäed"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "rulluisud"
+	},
+	"speedsketch_item~sadness": {
+		"message": "kurbus"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "purjekas"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "võileib"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Jõuluvana"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "vorst"
+	},
+	"speedsketch_item~saw": {
+		"message": "saag"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saksofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "koolibuss"
+	},
+	"speedsketch_item~scissors": {
+		"message": "käärid"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "skorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "kruvi"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "kruvikeeraja"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "skulptuur"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "merikilpkonn"
+	},
+	"speedsketch_item~see saw": {
+		"message": "kaalukiik"
+	},
+	"speedsketch_item~shark": {
+		"message": "hai"
+	},
+	"speedsketch_item~sheep": {
+		"message": "lammas"
+	},
+	"speedsketch_item~shoe": {
+		"message": "king"
+	},
+	"speedsketch_item~shorts": {
+		"message": "lühikesed püksid"
+	},
+	"speedsketch_item~shovel": {
+		"message": "labidas"
+	},
+	"speedsketch_item~sink": {
+		"message": "kraanikauss"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "rula"
+	},
+	"speedsketch_item~ski": {
+		"message": "suusk"
+	},
+	"speedsketch_item~skier": {
+		"message": "suusataja"
+	},
+	"speedsketch_item~skirt": {
+		"message": "seelik"
+	},
+	"speedsketch_item~skull": {
+		"message": "kolju"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "pilvelõhkuja"
+	},
+	"speedsketch_item~sled": {
+		"message": "kelk"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "magamiskott"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "kelk"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "naerunägu"
+	},
+	"speedsketch_item~snail": {
+		"message": "tigu"
+	},
+	"speedsketch_item~snake": {
+		"message": "madu"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorkel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "lumehelves"
+	},
+	"speedsketch_item~snowman": {
+		"message": "lumememm"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "jalgpall"
+	},
+	"speedsketch_item~sock": {
+		"message": "sokk"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "kiirpaat"
+	},
+	"speedsketch_item~sphere": {
+		"message": "kera"
+	},
+	"speedsketch_item~spider": {
+		"message": "ämblik"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spiraal"
+	},
+	"speedsketch_item~spoon": {
+		"message": "lusikas"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "arvutustabel"
+	},
+	"speedsketch_item~square": {
+		"message": "ruut"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "laineline joon"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "orav"
+	},
+	"speedsketch_item~stairs": {
+		"message": "trepp"
+	},
+	"speedsketch_item~star": {
+		"message": "taevatäht"
+	},
+	"speedsketch_item~steak": {
+		"message": "lihalõik"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoskoop"
+	},
+	"speedsketch_item~still life": {
+		"message": "vaikelu"
+	},
+	"speedsketch_item~stitches": {
+		"message": "õmblused"
+	},
+	"speedsketch_item~stock market": {
+		"message": "aktsiaturg"
+	},
+	"speedsketch_item~stocking": {
+		"message": "sukk"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stoppmärk"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stopper"
+	},
+	"speedsketch_item~stove": {
+		"message": "pliit"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "maasikas"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "tänavalatern"
+	},
+	"speedsketch_item~string bean": {
+		"message": "Türgi uba"
+	},
+	"speedsketch_item~submarine": {
+		"message": "allveelaev"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "kohver"
+	},
+	"speedsketch_item~sun": {
+		"message": "päike"
+	},
+	"speedsketch_item~sunset": {
+		"message": "päikeseloojang"
+	},
+	"speedsketch_item~swan": {
+		"message": "luik"
+	},
+	"speedsketch_item~sweater": {
+		"message": "sviiter"
+	},
+	"speedsketch_item~swing set": {
+		"message": "kiik"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "T-särk"
+	},
+	"speedsketch_item~table": {
+		"message": "laud"
+	},
+	"speedsketch_item~teapot": {
+		"message": "teekann"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "kaisukaru"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "teler"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tennisereket"
+	},
+	"speedsketch_item~tent": {
+		"message": "telk"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "trips-traps-trull"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tiiger"
+	},
+	"speedsketch_item~time": {
+		"message": "aeg"
+	},
+	"speedsketch_item~toaster": {
+		"message": "röster"
+	},
+	"speedsketch_item~toe": {
+		"message": "varvas"
+	},
+	"speedsketch_item~toilet": {
+		"message": "tualett"
+	},
+	"speedsketch_item~tooth": {
+		"message": "hammas"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "hambahari"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "hambapasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornaado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "valgusfoor"
+	},
+	"speedsketch_item~train": {
+		"message": "rong"
+	},
+	"speedsketch_item~tree": {
+		"message": "puu"
+	},
+	"speedsketch_item~triangle": {
+		"message": "kolmnurk"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "kolmratas"
+	},
+	"speedsketch_item~trolley": {
+		"message": "käru"
+	},
+	"speedsketch_item~trombone": {
+		"message": "tromboon"
+	},
+	"speedsketch_item~trousers": {
+		"message": "püksid"
+	},
+	"speedsketch_item~truck": {
+		"message": "veok"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompet"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "vihmavari"
+	},
+	"speedsketch_item~underwear": {
+		"message": "aluspesu"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "ükssarvik"
+	},
+	"speedsketch_item~universe": {
+		"message": "universum"
+	},
+	"speedsketch_item~van": {
+		"message": "kaubik"
+	},
+	"speedsketch_item~vase": {
+		"message": "vaas"
+	},
+	"speedsketch_item~violin": {
+		"message": "viiul"
+	},
+	"speedsketch_item~walnut": {
+		"message": "kreeka pähkel"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "pesumasin"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "arbuus"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "veeliumägi"
+	},
+	"speedsketch_item~wave": {
+		"message": "laine"
+	},
+	"speedsketch_item~whale": {
+		"message": "vaal"
+	},
+	"speedsketch_item~wheel": {
+		"message": "ratas"
+	},
+	"speedsketch_item~windmill": {
+		"message": "tuuleveski"
+	},
+	"speedsketch_item~woman": {
+		"message": "naine"
+	},
+	"speedsketch_item~world": {
+		"message": "maailm"
+	},
+	"speedsketch_item~wreath": {
+		"message": "pärg"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "käekell"
+	},
+	"speedsketch_item~yoga": {
+		"message": "jooga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "jogurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "sebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "sik-sak"
+	},
+	"speedsketch_item~zipper": {
+		"message": "tõmblukk"
 	},
 	"sr_country_name": {
 		"message": "Suriname"
@@ -5244,7 +6624,10 @@
 		"message": "Ühendkuningriik"
 	},
 	"uk_tradition": {
-		"message": "Ühendkuningriigis tunnevad kõik jõuluõhtusöögil osalejad suurt rõõmu paukkommidest. Need on värvilisse paberisse pakitud torud, mida saab kummastki otsast tõmmata. Otste tõmbamisel puruneb toru kõva plaksuga. Toru sees on pabermütsid, mänguasjad ja kommid, mida saab jõuluõhtul nautida."
+		"message": "Ühendkuningriigis kuuluvad jõululaua juurde alati paukkommid. Need on värvilisse paberisse pakitud torud, mida saab kummastki otsast tõmmata. Otstest tõmbamisel puruneb toru kõva plaksuga. Toru sees on pabermütsid, mänguasjad, naljad ja auhinnad, mis jõuluõhtut elavdavad."
+	},
+	"unmute": {
+		"message": "Tühista vaigistus"
 	},
 	"upgrade-warning": {
 		"message": "Oih! Teie brauseri versioon ei toeta jõuluvana teekonna jälgimise rakendust. Jõuluvana teekonna jälgimiseks laadige alla uuem brauser. Lisateavet leiate aadressilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Lisa avalehele"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Lisa riiulisse"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Lisa töölauale"
 	},
 	"village_santa_cardboard": {
 		"message": "Jõuluvana Cardboardis"

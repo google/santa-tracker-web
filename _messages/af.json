@@ -42,7 +42,7 @@
 		"message": "Australië"
 	},
 	"au_tradition": {
-		"message": "Australië se ligging in die suidelike halfrond beteken dat dit in Desember somer is. Pleks van sleeklokke en kakao, kies baie Australiërs koers na die strand om die vakansiedae met 'n garnaalmiddagete en 'n paar beurte krieket te vier."
+		"message": "Australië se ligging in die suidelike halfrond beteken dat dit in Desember somer is. Pleks van sleeklokke en warmsjokoladedrankies, kies baie Australiërs koers na die strand om die vakansiedae met 'n garnaalmiddagete en 'n paar beurte krieket te vier."
 	},
 	"ba_country_name": {
 		"message": "Bosnië en Herzegowina"
@@ -564,7 +564,7 @@
 		"message": "Daar was 'n probleem, maar Kersvader se elwe is besig om dit te ondersoek."
 	},
 	"error-lost-connection": {
-		"message": "Dit lyk asof ons ons verbinding met die Noordpool verloor het. Kersvader se elfies werk hard om dit reg te maak – hou net vas!"
+		"message": "Dit lyk asof ons ons verbinding met die Noordpool verloor het. Kersvader se elfies werk hard om dit reg te maak – byt net vas!"
 	},
 	"error-not-found": {
 		"message": "Agge nee, Kersvader se elwe kan nie hierdie bladsy vind nie! Dit sal dalk beter wees as jy teruggaan na \u003ca href=\"./village.html\"\u003eKersvader se dorpie\u003c/a\u003e."
@@ -601,6 +601,9 @@
 	},
 	"fr_tradition": {
 		"message": "In Frankryk plaas kinders tradisioneel hul skoene langs die kaggel in afwagting van Père Noël se aankoms. As kinders deur die jaar soet was, sal Père Noël geskenke in die skoene plaas."
+	},
+	"fullscreen": {
+		"message": "Volskerm"
 	},
 	"ga_country_name": {
 		"message": "Gaboen"
@@ -735,7 +738,7 @@
 		"message": "Kirgistan"
 	},
 	"kg_tradition": {
-		"message": "In Kirgistan kom Ayaz Ata (Oupa Ys) op Oujaarsaand teen middernag en los presente onder die Nuwejaarsboom. As middernag aanbreek, steek gesinne oor die land heen vuurwerk aan om hierdie pragtige geleentheid te vier. Die stede word so helder soos daglig."
+		"message": "In Kirgistan kom Ayaz Ata (Oupa Ys) op Oujaarsaand teen middernag en los presente onder die Nuwejaarsboom. As middernag aanbreek, steek gesinne oor die land heen vuurwerke aan om hierdie pragtige geleentheid te vier. Die stede word so helder soos daglig."
 	},
 	"ko_language_name": {
 		"message": "Koreaans"
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritanië"
 	},
+	"mute": {
+		"message": "Demp"
+	},
 	"mw_country_name": {
 		"message": "Malawi"
 	},
@@ -894,7 +900,7 @@
 		"message": "Deel jou kuns met jou familie en vriende sodat hulle ook kan leer."
 	},
 	"nonprofit-intro-type": {
-		"message": "Ons het 'n vennootskap met Google.org aangegaan om vyf opvoedkundige niewinsorganisasies ten toon te stel wat reg deur die jaar die seisoen van welwillendheid vier. Rollees af om meer te wete te kom oor hoe elke organisasie teruggee. Wys jou ondersteuning deur hierdie versameling ornamente in te kleur en hulle dan aan jou boom te hang of vir jou geliefdes te gee."
+		"message": "Ons werk saam met Google.org om vyf opvoedkundige niewinsorganisasies bekend te stel wat reg deur die jaar gee soos in die Kerstyd. Rol af om meer uit te vind oor hoe elke organisasie teruggee. Wys jou ondersteuning deur hierdie versameling ornamente in te kleur en hulle dan aan jou boom te hang of vir jou geliefdes te gee."
 	},
 	"nonprofit-jane-description": {
 		"message": "Sjimpansees is mense se naaste lewende familie in die diereryk! Vandag is daar minder as 300 000 sjimpansees oor weens habitatverliese, siekte en onwettige handel. Die Jane Goodall Instituut (JGI) beskerm sjimpansees deur hul gedrag, sowel as die habitatte waarin hulle leef, waar te neem en te verstaan. Die JGI beywer homself ook om 'n gemeenskap van mense te bou wat die natuurlewe en die omgewings wat ons deel, beskerm en bewaar. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eVerken die sjimpansee-habitatte\u003c/a\u003e in Gombe, Tanzanië."
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "Laat wag"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1116,10 +1125,10 @@
 		"message": "Skets"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor is Kersvader se masjienleer-robot wat hom help om die briewe wat hy vanaf kinders wêreldwyd ontvang, vinnig te ontsyfer. Help Tensor oefen deur 'n prent van elke vakansiewoord op die skerm te teken en hy sal jou sê wat hy sien. Hoe meer jy teken, hoe slimmer sal Tensor word. So kom ons help Kersvader om hierdie vakansie nog doeltreffender as ooit tevore te wees!"
+		"message": "Tensor is Kersvader se masjienleer-robot wat hom help om die briewe wat hy vanaf kinders wêreldwyd ontvang, vinnig te ontsyfer. Help Tensor oefen deur 'n prent van elke vakansiewoord op die skerm te teken en dit sal jou sê wat dit sien. Hoe meer jy teken, hoe slimmer sal Tensor word. So kom ons help Kersvader om hierdie vakansie nog doeltreffender as ooit tevore te wees!"
 	},
 	"quickdraw-splashview-title": {
-		"message": "Help Tensor om sy prentherkenning te oefen!"
+		"message": "Help Tensor om prentherkenning te oefen!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor het {{recognized}} van jou tekeninge herken."
@@ -1287,7 +1296,7 @@
 		"message": "Kitsteken"
 	},
 	"scene_racer": {
-		"message": "Rudolph se jaer"
+		"message": "Rudolph die jaer"
 	},
 	"scene_rollercoaster": {
 		"message": "Elf-wipwaentjie"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalië"
+	},
+	"speedsketch_item~London": {
+		"message": "Londen"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Parys"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Sjanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Switserland"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Die Eiffeltoring"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Die groot muur van China"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Die Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstrakte kuns"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "vliegdekskip"
+	},
+	"speedsketch_item~airplane": {
+		"message": "vliegtuig"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "wekker"
+	},
+	"speedsketch_item~alien": {
+		"message": "ruimtewese"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulans"
+	},
+	"speedsketch_item~angel": {
+		"message": "engel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "dieremigrasie"
+	},
+	"speedsketch_item~ant": {
+		"message": "mier"
+	},
+	"speedsketch_item~anvil": {
+		"message": "aambeeld"
+	},
+	"speedsketch_item~apple": {
+		"message": "appel"
+	},
+	"speedsketch_item~arm": {
+		"message": "arm"
+	},
+	"speedsketch_item~arrow": {
+		"message": "pyltjie"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "aspersies"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "ruimtevaarder"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "oudiokasset"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokado"
+	},
+	"speedsketch_item~axe": {
+		"message": "byl"
+	},
+	"speedsketch_item~baby": {
+		"message": "baba"
+	},
+	"speedsketch_item~backpack": {
+		"message": "rugsak"
+	},
+	"speedsketch_item~banana": {
+		"message": "piesang"
+	},
+	"speedsketch_item~bandage": {
+		"message": "verband"
+	},
+	"speedsketch_item~barn": {
+		"message": "skuur"
+	},
+	"speedsketch_item~baseball": {
+		"message": "bofbal"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "bofbalkolf"
+	},
+	"speedsketch_item~basket": {
+		"message": "mandjie"
+	},
+	"speedsketch_item~basketball": {
+		"message": "basketbal"
+	},
+	"speedsketch_item~bat": {
+		"message": "kolf"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "bad"
+	},
+	"speedsketch_item~beach": {
+		"message": "strand"
+	},
+	"speedsketch_item~bear": {
+		"message": "beer"
+	},
+	"speedsketch_item~beard": {
+		"message": "baard"
+	},
+	"speedsketch_item~bed": {
+		"message": "bed"
+	},
+	"speedsketch_item~bee": {
+		"message": "by"
+	},
+	"speedsketch_item~belt": {
+		"message": "gordel"
+	},
+	"speedsketch_item~bench": {
+		"message": "bankie"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "fiets"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "verkyker"
+	},
+	"speedsketch_item~bird": {
+		"message": "voël"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "verjaardagkoek"
+	},
+	"speedsketch_item~black": {
+		"message": "swart"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "swartbessie"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "bloubessie"
+	},
+	"speedsketch_item~book": {
+		"message": "boek"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "boemerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "stewel"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "bottelproppie"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "strikdas"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "armband"
+	},
+	"speedsketch_item~brain": {
+		"message": "brein"
+	},
+	"speedsketch_item~bread": {
+		"message": "brood"
+	},
+	"speedsketch_item~bridge": {
+		"message": "brug"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "broccoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "besem"
+	},
+	"speedsketch_item~bubble": {
+		"message": "borrel"
+	},
+	"speedsketch_item~bucket": {
+		"message": "emmer"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "stootskraper"
+	},
+	"speedsketch_item~bus": {
+		"message": "bus"
+	},
+	"speedsketch_item~bush": {
+		"message": "struik"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "skoenlapper"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "koek"
+	},
+	"speedsketch_item~calculator": {
+		"message": "sakrekenaar"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalender"
+	},
+	"speedsketch_item~camel": {
+		"message": "kameel"
+	},
+	"speedsketch_item~camera": {
+		"message": "kamera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "kamoeflering"
+	},
+	"speedsketch_item~campfire": {
+		"message": "kampvuur"
+	},
+	"speedsketch_item~candle": {
+		"message": "kers"
+	},
+	"speedsketch_item~candy": {
+		"message": "lekkergoed"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "lekkergoedstokkie"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kano"
+	},
+	"speedsketch_item~car": {
+		"message": "motor"
+	},
+	"speedsketch_item~carrot": {
+		"message": "wortel"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "strokiesprent"
+	},
+	"speedsketch_item~castle": {
+		"message": "kasteel"
+	},
+	"speedsketch_item~cat": {
+		"message": "kat"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "plafonwaaier"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "selfoon"
+	},
+	"speedsketch_item~cello": {
+		"message": "tjello"
+	},
+	"speedsketch_item~chair": {
+		"message": "stoel"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "kroonkandelaar"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "chemie"
+	},
+	"speedsketch_item~cherry": {
+		"message": "kersie"
+	},
+	"speedsketch_item~chicken": {
+		"message": "hoender"
+	},
+	"speedsketch_item~child": {
+		"message": "kind"
+	},
+	"speedsketch_item~chimney": {
+		"message": "skoorsteen"
+	},
+	"speedsketch_item~church": {
+		"message": "kerk"
+	},
+	"speedsketch_item~circle": {
+		"message": "sirkel"
+	},
+	"speedsketch_item~city": {
+		"message": "stad"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "horlosie"
+	},
+	"speedsketch_item~cloud": {
+		"message": "wolk"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "groenmielie"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "koffiekoppie"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompas"
+	},
+	"speedsketch_item~computer": {
+		"message": "rekenaar"
+	},
+	"speedsketch_item~cookie": {
+		"message": "koekie"
+	},
+	"speedsketch_item~cooler": {
+		"message": "verkoeler"
+	},
+	"speedsketch_item~couch": {
+		"message": "rusbank"
+	},
+	"speedsketch_item~cow": {
+		"message": "koei"
+	},
+	"speedsketch_item~crab": {
+		"message": "krap"
+	},
+	"speedsketch_item~crayon": {
+		"message": "kryt"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodil"
+	},
+	"speedsketch_item~cross": {
+		"message": "kruis"
+	},
+	"speedsketch_item~crow": {
+		"message": "kraai"
+	},
+	"speedsketch_item~crown": {
+		"message": "kroon"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "passasierskip"
+	},
+	"speedsketch_item~cube": {
+		"message": "kubus"
+	},
+	"speedsketch_item~cup": {
+		"message": "koppie"
+	},
+	"speedsketch_item~darts": {
+		"message": "veerpyltjies"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "diamantring"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "skottelgoedwasser"
+	},
+	"speedsketch_item~diving board": {
+		"message": "duikplank"
+	},
+	"speedsketch_item~dog": {
+		"message": "hond"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "dolfyn"
+	},
+	"speedsketch_item~donut": {
+		"message": "oliebol"
+	},
+	"speedsketch_item~door": {
+		"message": "deur"
+	},
+	"speedsketch_item~dragon": {
+		"message": "draak"
+	},
+	"speedsketch_item~dresser": {
+		"message": "spieëltafel"
+	},
+	"speedsketch_item~drill": {
+		"message": "boor"
+	},
+	"speedsketch_item~drums": {
+		"message": "tromme"
+	},
+	"speedsketch_item~duck": {
+		"message": "eend"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "handgewig"
+	},
+	"speedsketch_item~ear": {
+		"message": "oor"
+	},
+	"speedsketch_item~egg": {
+		"message": "eier"
+	},
+	"speedsketch_item~elbow": {
+		"message": "elmboog"
+	},
+	"speedsketch_item~elephant": {
+		"message": "olifant"
+	},
+	"speedsketch_item~elf": {
+		"message": "elf"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emosiekoon"
+	},
+	"speedsketch_item~envelope": {
+		"message": "koevert"
+	},
+	"speedsketch_item~eraser": {
+		"message": "uitveër"
+	},
+	"speedsketch_item~eye": {
+		"message": "oog"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "bril"
+	},
+	"speedsketch_item~face": {
+		"message": "gesig"
+	},
+	"speedsketch_item~family": {
+		"message": "gesin"
+	},
+	"speedsketch_item~fan": {
+		"message": "waaier"
+	},
+	"speedsketch_item~feather": {
+		"message": "veer"
+	},
+	"speedsketch_item~fence": {
+		"message": "heining"
+	},
+	"speedsketch_item~finger": {
+		"message": "vinger"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "brandkraan"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "kaggel"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "brandweerwa"
+	},
+	"speedsketch_item~fish": {
+		"message": "vis"
+	},
+	"speedsketch_item~flag": {
+		"message": "vlag"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamink"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "flitslig"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "plakkies"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "staanlamp"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "disket"
+	},
+	"speedsketch_item~flower": {
+		"message": "blom"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "vlieënde piering"
+	},
+	"speedsketch_item~fog": {
+		"message": "mis"
+	},
+	"speedsketch_item~foot": {
+		"message": "voet"
+	},
+	"speedsketch_item~fork": {
+		"message": "vurk"
+	},
+	"speedsketch_item~french fries": {
+		"message": "aartappelskyfies"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "gebakte eier"
+	},
+	"speedsketch_item~frog": {
+		"message": "padda"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "braaipan"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "sterrestelsel"
+	},
+	"speedsketch_item~garden": {
+		"message": "tuin"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "tuinslang"
+	},
+	"speedsketch_item~ghost": {
+		"message": "spook"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "gemmerbroodmannetjie"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "kameelperd"
+	},
+	"speedsketch_item~goat": {
+		"message": "bok"
+	},
+	"speedsketch_item~goatee": {
+		"message": "bokbaardjie"
+	},
+	"speedsketch_item~golf club": {
+		"message": "gholfstok"
+	},
+	"speedsketch_item~grapes": {
+		"message": "druiwe"
+	},
+	"speedsketch_item~grass": {
+		"message": "gras"
+	},
+	"speedsketch_item~group": {
+		"message": "groep"
+	},
+	"speedsketch_item~guitar": {
+		"message": "kitaar"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "hamer"
+	},
+	"speedsketch_item~hand": {
+		"message": "hand"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "laksman-speletjie"
+	},
+	"speedsketch_item~happiness": {
+		"message": "blydskap"
+	},
+	"speedsketch_item~harp": {
+		"message": "harp"
+	},
+	"speedsketch_item~hat": {
+		"message": "hoed"
+	},
+	"speedsketch_item~headphones": {
+		"message": "oorfone"
+	},
+	"speedsketch_item~heart": {
+		"message": "hartjie"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "krimpvarkie"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "valhelm"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "seshoek"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hokkieskyf"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hokkiestok"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "vakansieliggies"
+	},
+	"speedsketch_item~horse": {
+		"message": "perd"
+	},
+	"speedsketch_item~hospital": {
+		"message": "hospitaal"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "warmlugballon"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "worsbroodjie"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "borrelbad"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "uurglas"
+	},
+	"speedsketch_item~house": {
+		"message": "huis"
+	},
+	"speedsketch_item~house plant": {
+		"message": "huisplant"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "orkaan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "roomys"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "ysskaatser"
+	},
+	"speedsketch_item~infinity": {
+		"message": "oneindigheid"
+	},
+	"speedsketch_item~island": {
+		"message": "eiland"
+	},
+	"speedsketch_item~italy": {
+		"message": "italië"
+	},
+	"speedsketch_item~jacket": {
+		"message": "baadjie"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "stralerpak"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Veerklokkies"
+	},
+	"speedsketch_item~kale": {
+		"message": "krulkool"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kangaroe"
+	},
+	"speedsketch_item~key": {
+		"message": "sleutel"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "sleutelbord"
+	},
+	"speedsketch_item~kite": {
+		"message": "vlieër"
+	},
+	"speedsketch_item~knee": {
+		"message": "knie"
+	},
+	"speedsketch_item~knife": {
+		"message": "mes"
+	},
+	"speedsketch_item~knot": {
+		"message": "knoop"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "leer"
+	},
+	"speedsketch_item~landscape": {
+		"message": "landskap"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lantern"
+	},
+	"speedsketch_item~laptop": {
+		"message": "skootrekenaar"
+	},
+	"speedsketch_item~leaf": {
+		"message": "blaar"
+	},
+	"speedsketch_item~leg": {
+		"message": "been"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "gloeilamp"
+	},
+	"speedsketch_item~lighter": {
+		"message": "vuuraansteker"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "vuurtoring"
+	},
+	"speedsketch_item~lightning": {
+		"message": "weerlig"
+	},
+	"speedsketch_item~line": {
+		"message": "lyn"
+	},
+	"speedsketch_item~lion": {
+		"message": "leeu"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "lipstiffie"
+	},
+	"speedsketch_item~lobster": {
+		"message": "kreef"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "stokkielekker"
+	},
+	"speedsketch_item~love": {
+		"message": "liefde"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "posbus"
+	},
+	"speedsketch_item~man": {
+		"message": "man"
+	},
+	"speedsketch_item~map": {
+		"message": "kaart"
+	},
+	"speedsketch_item~marker": {
+		"message": "merker"
+	},
+	"speedsketch_item~matches": {
+		"message": "vuurhoutjies"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "wiskunde"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafoon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "meermin"
+	},
+	"speedsketch_item~metal": {
+		"message": "metaal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofoon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroskoop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikrogolf"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "mistel"
+	},
+	"speedsketch_item~mittens": {
+		"message": "duimhandskoene"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekule"
+	},
+	"speedsketch_item~money": {
+		"message": "geld"
+	},
+	"speedsketch_item~monkey": {
+		"message": "aap"
+	},
+	"speedsketch_item~moon": {
+		"message": "maan"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "muskiet"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motorfiets"
+	},
+	"speedsketch_item~mountain": {
+		"message": "berg"
+	},
+	"speedsketch_item~mouse": {
+		"message": "muis"
+	},
+	"speedsketch_item~moustache": {
+		"message": "snor"
+	},
+	"speedsketch_item~mouth": {
+		"message": "mond"
+	},
+	"speedsketch_item~mug": {
+		"message": "beker"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "sampioen"
+	},
+	"speedsketch_item~music": {
+		"message": "musiek"
+	},
+	"speedsketch_item~nail": {
+		"message": "spyker"
+	},
+	"speedsketch_item~nature": {
+		"message": "natuur"
+	},
+	"speedsketch_item~necklace": {
+		"message": "halssnoer"
+	},
+	"speedsketch_item~news": {
+		"message": "nuus"
+	},
+	"speedsketch_item~nose": {
+		"message": "neus"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "neutekraker"
+	},
+	"speedsketch_item~ocean": {
+		"message": "oseaan"
+	},
+	"speedsketch_item~octagon": {
+		"message": "agthoek"
+	},
+	"speedsketch_item~octopus": {
+		"message": "seekat"
+	},
+	"speedsketch_item~onion": {
+		"message": "ui"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ornament"
+	},
+	"speedsketch_item~oven": {
+		"message": "oond"
+	},
+	"speedsketch_item~owl": {
+		"message": "uil"
+	},
+	"speedsketch_item~paint can": {
+		"message": "verfblik"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "verfkwas"
+	},
+	"speedsketch_item~painting": {
+		"message": "skildery"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palmboom"
+	},
+	"speedsketch_item~panda": {
+		"message": "pandabeer"
+	},
+	"speedsketch_item~pants": {
+		"message": "broek"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "skuifspeld"
+	},
+	"speedsketch_item~parachute": {
+		"message": "valskerm"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papegaai"
+	},
+	"speedsketch_item~passport": {
+		"message": "paspoort"
+	},
+	"speedsketch_item~peanut": {
+		"message": "grondboontjie"
+	},
+	"speedsketch_item~pear": {
+		"message": "peer"
+	},
+	"speedsketch_item~peas": {
+		"message": "ertjies"
+	},
+	"speedsketch_item~pencil": {
+		"message": "potlood"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pikkewyn"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "peperment"
+	},
+	"speedsketch_item~piano": {
+		"message": "klavier"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "bakkie"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "prentraam"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "sirkeldiagram"
+	},
+	"speedsketch_item~pig": {
+		"message": "vark"
+	},
+	"speedsketch_item~pillow": {
+		"message": "kussing"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "pynappel"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "tafeltennis"
+	},
+	"speedsketch_item~pirate": {
+		"message": "seerower"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "tang"
+	},
+	"speedsketch_item~police car": {
+		"message": "polisiemotor"
+	},
+	"speedsketch_item~politician": {
+		"message": "politikus"
+	},
+	"speedsketch_item~pond": {
+		"message": "dammetjie"
+	},
+	"speedsketch_item~pool": {
+		"message": "swembad"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "suigstokkie"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portret"
+	},
+	"speedsketch_item~postcard": {
+		"message": "poskaart"
+	},
+	"speedsketch_item~potato": {
+		"message": "aartappel"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "kragpunt"
+	},
+	"speedsketch_item~present": {
+		"message": "geskenk"
+	},
+	"speedsketch_item~prison": {
+		"message": "tronk"
+	},
+	"speedsketch_item~purse": {
+		"message": "beursie"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "legkaart"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "haas"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "wasbeer"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "reën"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "reënboog"
+	},
+	"speedsketch_item~rake": {
+		"message": "hark"
+	},
+	"speedsketch_item~raven": {
+		"message": "raaf"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "rendier"
+	},
+	"speedsketch_item~remote control": {
+		"message": "afstandbeheer"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "renoster"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "lint"
+	},
+	"speedsketch_item~river": {
+		"message": "rivier"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "tuimeltrein"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "rolskaatse"
+	},
+	"speedsketch_item~sadness": {
+		"message": "hartseer"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "seilboot"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "toebroodjie"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Kersvader"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturnus"
+	},
+	"speedsketch_item~sausage": {
+		"message": "wors"
+	},
+	"speedsketch_item~saw": {
+		"message": "saag"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxofoon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "skoolbus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "skêr"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "skerpioen"
+	},
+	"speedsketch_item~screw": {
+		"message": "skroef"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "skroewedraaier"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "beeldhoukuns"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "seeskilpad"
+	},
+	"speedsketch_item~see saw": {
+		"message": "wipplank"
+	},
+	"speedsketch_item~shark": {
+		"message": "haai"
+	},
+	"speedsketch_item~sheep": {
+		"message": "skaap"
+	},
+	"speedsketch_item~shoe": {
+		"message": "skoen"
+	},
+	"speedsketch_item~shorts": {
+		"message": "kortbroek"
+	},
+	"speedsketch_item~shovel": {
+		"message": "graaf"
+	},
+	"speedsketch_item~sink": {
+		"message": "wasbak"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skaatsplank"
+	},
+	"speedsketch_item~ski": {
+		"message": "ski"
+	},
+	"speedsketch_item~skier": {
+		"message": "skiër"
+	},
+	"speedsketch_item~skirt": {
+		"message": "romp"
+	},
+	"speedsketch_item~skull": {
+		"message": "kopbeen"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "wolkekrabber"
+	},
+	"speedsketch_item~sled": {
+		"message": "slee"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "slaapsak"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "slee"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "glimlaggie"
+	},
+	"speedsketch_item~snail": {
+		"message": "slak"
+	},
+	"speedsketch_item~snake": {
+		"message": "slang"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorkel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "sneeuvlokkie"
+	},
+	"speedsketch_item~snowman": {
+		"message": "sneeuman"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "sokkerbal"
+	},
+	"speedsketch_item~sock": {
+		"message": "sokkie"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "snelboot"
+	},
+	"speedsketch_item~sphere": {
+		"message": "sfeer"
+	},
+	"speedsketch_item~spider": {
+		"message": "spinnekop"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spiraal"
+	},
+	"speedsketch_item~spoon": {
+		"message": "lepel"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "sigblad"
+	},
+	"speedsketch_item~square": {
+		"message": "vierkant"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "krabbel"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "eekhoring"
+	},
+	"speedsketch_item~stairs": {
+		"message": "trappe"
+	},
+	"speedsketch_item~star": {
+		"message": "ster"
+	},
+	"speedsketch_item~steak": {
+		"message": "steak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoskoop"
+	},
+	"speedsketch_item~still life": {
+		"message": "stillewe"
+	},
+	"speedsketch_item~stitches": {
+		"message": "steke"
+	},
+	"speedsketch_item~stock market": {
+		"message": "aandelemark"
+	},
+	"speedsketch_item~stocking": {
+		"message": "kous"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stopteken"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stophorlosie"
+	},
+	"speedsketch_item~stove": {
+		"message": "stoof"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "aarbei"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "straatlig"
+	},
+	"speedsketch_item~string bean": {
+		"message": "snyboontjie"
+	},
+	"speedsketch_item~submarine": {
+		"message": "duikboot"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "tas"
+	},
+	"speedsketch_item~sun": {
+		"message": "son"
+	},
+	"speedsketch_item~sunset": {
+		"message": "sonsondergang"
+	},
+	"speedsketch_item~swan": {
+		"message": "swaan"
+	},
+	"speedsketch_item~sweater": {
+		"message": "trui"
+	},
+	"speedsketch_item~swing set": {
+		"message": "swaaistel"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "t-hemp"
+	},
+	"speedsketch_item~table": {
+		"message": "tafel"
+	},
+	"speedsketch_item~teapot": {
+		"message": "teepot"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "teddiebeer"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefoon"
+	},
+	"speedsketch_item~television": {
+		"message": "televisie"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tennisraket"
+	},
+	"speedsketch_item~tent": {
+		"message": "tent"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "nulletjies-en-kruisies"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tier"
+	},
+	"speedsketch_item~time": {
+		"message": "tyd"
+	},
+	"speedsketch_item~toaster": {
+		"message": "broodrooster"
+	},
+	"speedsketch_item~toe": {
+		"message": "toon"
+	},
+	"speedsketch_item~toilet": {
+		"message": "toilet"
+	},
+	"speedsketch_item~tooth": {
+		"message": "tand"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "tandeborsel"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "tandepasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "trekker"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "verkeerslig"
+	},
+	"speedsketch_item~train": {
+		"message": "trein"
+	},
+	"speedsketch_item~tree": {
+		"message": "boom"
+	},
+	"speedsketch_item~triangle": {
+		"message": "driehoek"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "driewiel"
+	},
+	"speedsketch_item~trolley": {
+		"message": "trollie"
+	},
+	"speedsketch_item~trombone": {
+		"message": "skuiftrompet"
+	},
+	"speedsketch_item~trousers": {
+		"message": "broek"
+	},
+	"speedsketch_item~truck": {
+		"message": "vragmotor"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompet"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "sambreel"
+	},
+	"speedsketch_item~underwear": {
+		"message": "onderklere"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "eenhoring"
+	},
+	"speedsketch_item~universe": {
+		"message": "heelal"
+	},
+	"speedsketch_item~van": {
+		"message": "afleweringsvoertuig"
+	},
+	"speedsketch_item~vase": {
+		"message": "blompot"
+	},
+	"speedsketch_item~violin": {
+		"message": "viool"
+	},
+	"speedsketch_item~walnut": {
+		"message": "okkerneut"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "wasmasjien"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "waatlemoen"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "waterglybaan"
+	},
+	"speedsketch_item~wave": {
+		"message": "golf"
+	},
+	"speedsketch_item~whale": {
+		"message": "walvis"
+	},
+	"speedsketch_item~wheel": {
+		"message": "wiel"
+	},
+	"speedsketch_item~windmill": {
+		"message": "windmeul"
+	},
+	"speedsketch_item~woman": {
+		"message": "vrou"
+	},
+	"speedsketch_item~world": {
+		"message": "wêreld"
+	},
+	"speedsketch_item~wreath": {
+		"message": "krans"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "polshorlosie"
+	},
+	"speedsketch_item~yoga": {
+		"message": "joga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "jogurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "sebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "sigsag"
+	},
+	"speedsketch_item~zipper": {
+		"message": "ritssluiter"
 	},
 	"sr_country_name": {
 		"message": "Suriname"
@@ -5244,7 +6624,10 @@
 		"message": "Verenigde Koninkryk"
 	},
 	"uk_tradition": {
-		"message": "In die Verenigde Koninkryk geniet pretmakers van alle ouderdomme Kersklappers saam met aandete. Klappers is helderkleurige buise van karton en papier met punte aan elke kant wat getrek kan word. Wanneer jy die punte trek, bars die buis met 'n harde klap oop! Binne-in is papierhoede, speelgoed en lekkers om op Kersaand te geniet."
+		"message": "In die VK geniet pretmakers van alle ouderdomme Kersklappers met aandete. Klappers is buise in kleurryke papier met 'n treklus aan elke punt. Wanneer jy die lusse trek, bars die buis met 'n harde klapgeluid oop! Binne-in is papierhoede, speelgoed, grappies en pryse om op Kersaand te geniet."
+	},
+	"unmute": {
+		"message": "Ontdemp"
 	},
 	"upgrade-warning": {
 		"message": "Oeps! Hierdie weergawe van jou blaaier steun nie Santa Tracker nie. Laai 'n moderne blaaier af om toegang tot Santa Tracker te verkry. Besoek \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e vir verdere inligting."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Voeg by tuisskerm"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Voeg by op rak"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Voeg by op rekenaar"
 	},
 	"village_santa_cardboard": {
 		"message": "Kersvader op Cardboard"
