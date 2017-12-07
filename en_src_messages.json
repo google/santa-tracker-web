@@ -1459,10 +1459,6 @@
     "description": "Label for a button to click to start a game round",
     "message": "Start"
   },
-  "quickdraw-timesup-button": {
-    "description": "Label for the button to restart a game.",
-    "message": "Play again!"
-  },
   "quickdraw-timesup-title-noguess": {
     "description": "Title of a message on an end of game screen to indicate that the AI didn't recognize any drawings.",
     "message": "Oops!"
