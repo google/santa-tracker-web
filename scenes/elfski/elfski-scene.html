@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../js/third_party/three.html">
 
 <script src="elfski-scene.min.js"></script>
 
@@ -112,11 +113,6 @@ Polymer({
       value: null,
     },
 
-    _socket: {
-      type: Object,
-      value: null,
-    },
-
     _tickInterval: {
       type: Number,
       value: 0,
@@ -138,10 +134,6 @@ Polymer({
     this._onResize = this._onResize.bind(this);
   },
 
-  observers: [
-    '_sendPlayerState(_socket, _pointer)',
-  ],
-
   onPreload: function() {
     this.preloadImages([
       '../dorf/img/header-bg.svg',
@@ -160,40 +152,17 @@ Polymer({
     image.onload = function() {
 
       const canvas = this.$.gl3d;
-      this._game = new scenes.elfski.Game(canvas, image)
+      this._game = new scenes.elfski.GameThree(canvas, image)
       window.requestAnimationFrame(this._draw);
       this._tickInterval = window.setInterval(this._tick, tickInterval);
       this._onResize();
 
     }.bind(this);
-
-    this._socket = new SantaSocket('elfski');
-    this._socket.addListener('message', (data) => {
-      console.info('got message', data.id);
-      if (!this._game || !data.id) { return; }
-
-      const id = 'p' + data.id;
-      if (!data.at) {
-        this._game.clearRemotePlayer(id);
-      } else {
-        this._game.updateRemotePlayer(id, data.p, data.at);
-      }
-    });
   },
 
   onHide: function() {
     window.removeEventListener('resize', this._onResize);
-    this._socket.close();
     window.clearInterval(this._tickInterval);
-  },
-
-  _sendPlayerState: function(socket, pointer) {
-    if (!socket || !this._game) { return; }
-    console.info('sending state', pointer);
-    socket.send({
-      p: pointer,
-      at: this._game.playerAt,
-    }, 'player');
   },
 
   /**
@@ -216,7 +185,7 @@ Polymer({
     this.$.gl3d.width = this.$.mountain.offsetWidth;
     this.$.gl3d.height = this.$.mountain.offsetHeight;
 
-    this._game && this._game.resize();
+    this._game && this._game.measure();
   },
 
   /**
@@ -272,7 +241,7 @@ Polymer({
   },
 
   _draw: function() {
-    this._game._render.draw();
+    this._game.render();
     window.requestAnimationFrame(this._draw);
 
     const transform = this._game.transform;
