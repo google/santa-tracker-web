@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "Във Франция децата традиционно поставят обувките си до огнището в очакване на пристигането на Пер Ноел (Дядо Коледа). Ако са били послушни през годината, той ще напълни обувките им с подаръци."
 	},
+	"fullscreen": {
+		"message": "Цял екран"
+	},
 	"ga_country_name": {
 		"message": "Габон"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Мавритания"
 	},
+	"mute": {
+		"message": "Без звук"
+	},
 	"mw_country_name": {
 		"message": "Малави"
 	},
@@ -1027,6 +1033,9 @@
 	},
 	"pa_country_name": {
 		"message": "Панама"
+	},
+	"pause": {
+		"message": "Пауза"
 	},
 	"pe_country_name": {
 		"message": "Перу"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Сомалия"
+	},
+	"speedsketch_item~London": {
+		"message": "Лондон"
+	},
+	"speedsketch_item~New York": {
+		"message": "Ню Йорк"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Париж"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Шанхай"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Швейцария"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Айфеловата кула"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Великата китайска стена"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Мона Лиза"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "абстрактно изкуство"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "самолетоносач"
+	},
+	"speedsketch_item~airplane": {
+		"message": "самолет"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "будилник"
+	},
+	"speedsketch_item~alien": {
+		"message": "извънземно"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "линейка"
+	},
+	"speedsketch_item~angel": {
+		"message": "ангел"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "мигриране на животни"
+	},
+	"speedsketch_item~ant": {
+		"message": "мравка"
+	},
+	"speedsketch_item~anvil": {
+		"message": "наковалня"
+	},
+	"speedsketch_item~apple": {
+		"message": "ябълка"
+	},
+	"speedsketch_item~arm": {
+		"message": "ръка"
+	},
+	"speedsketch_item~arrow": {
+		"message": "стрелка"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "аспержа"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "космонавт"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "аудиокасета"
+	},
+	"speedsketch_item~avocado": {
+		"message": "авокадо"
+	},
+	"speedsketch_item~axe": {
+		"message": "брадва"
+	},
+	"speedsketch_item~baby": {
+		"message": "бебе"
+	},
+	"speedsketch_item~backpack": {
+		"message": "раница"
+	},
+	"speedsketch_item~banana": {
+		"message": "банан"
+	},
+	"speedsketch_item~bandage": {
+		"message": "превръзка"
+	},
+	"speedsketch_item~barn": {
+		"message": "хамбар"
+	},
+	"speedsketch_item~baseball": {
+		"message": "бейзбол"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "бейзболна бухалка"
+	},
+	"speedsketch_item~basket": {
+		"message": "кош"
+	},
+	"speedsketch_item~basketball": {
+		"message": "баскетбол"
+	},
+	"speedsketch_item~bat": {
+		"message": "бухалка"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "вана"
+	},
+	"speedsketch_item~beach": {
+		"message": "плаж"
+	},
+	"speedsketch_item~bear": {
+		"message": "мечка"
+	},
+	"speedsketch_item~beard": {
+		"message": "брада"
+	},
+	"speedsketch_item~bed": {
+		"message": "легло"
+	},
+	"speedsketch_item~bee": {
+		"message": "пчела"
+	},
+	"speedsketch_item~belt": {
+		"message": "колан"
+	},
+	"speedsketch_item~bench": {
+		"message": "пейка"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "велосипед"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "бинокъл"
+	},
+	"speedsketch_item~bird": {
+		"message": "птица"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "торта за рожден ден"
+	},
+	"speedsketch_item~black": {
+		"message": "черно"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "къпина"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "боровинка"
+	},
+	"speedsketch_item~book": {
+		"message": "книга"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "бумеранг"
+	},
+	"speedsketch_item~boot": {
+		"message": "ботуш"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "капачка на бутилка"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "папийонка"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "гривна"
+	},
+	"speedsketch_item~brain": {
+		"message": "мозък"
+	},
+	"speedsketch_item~bread": {
+		"message": "хляб"
+	},
+	"speedsketch_item~bridge": {
+		"message": "мост"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "броколи"
+	},
+	"speedsketch_item~broom": {
+		"message": "метла"
+	},
+	"speedsketch_item~bubble": {
+		"message": "балонче"
+	},
+	"speedsketch_item~bucket": {
+		"message": "кофа"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "булдозер"
+	},
+	"speedsketch_item~bus": {
+		"message": "автобус"
+	},
+	"speedsketch_item~bush": {
+		"message": "храст"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "пеперуда"
+	},
+	"speedsketch_item~cactus": {
+		"message": "кактус"
+	},
+	"speedsketch_item~cake": {
+		"message": "торта"
+	},
+	"speedsketch_item~calculator": {
+		"message": "калкулатор"
+	},
+	"speedsketch_item~calendar": {
+		"message": "календар"
+	},
+	"speedsketch_item~camel": {
+		"message": "камила"
+	},
+	"speedsketch_item~camera": {
+		"message": "камера"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "маскировка"
+	},
+	"speedsketch_item~campfire": {
+		"message": "лагерен огън"
+	},
+	"speedsketch_item~candle": {
+		"message": "свещ"
+	},
+	"speedsketch_item~candy": {
+		"message": "бонбон"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "захарно бастунче"
+	},
+	"speedsketch_item~canoe": {
+		"message": "кану"
+	},
+	"speedsketch_item~car": {
+		"message": "автомобил"
+	},
+	"speedsketch_item~carrot": {
+		"message": "морков"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "анимация"
+	},
+	"speedsketch_item~castle": {
+		"message": "замък"
+	},
+	"speedsketch_item~cat": {
+		"message": "котка"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "вентилатор на таван"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "мобилен телефон"
+	},
+	"speedsketch_item~cello": {
+		"message": "виолончело"
+	},
+	"speedsketch_item~chair": {
+		"message": "стол"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "полилей"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "химия"
+	},
+	"speedsketch_item~cherry": {
+		"message": "череша"
+	},
+	"speedsketch_item~chicken": {
+		"message": "пиле"
+	},
+	"speedsketch_item~child": {
+		"message": "дете"
+	},
+	"speedsketch_item~chimney": {
+		"message": "комин"
+	},
+	"speedsketch_item~church": {
+		"message": "църква"
+	},
+	"speedsketch_item~circle": {
+		"message": "кръг"
+	},
+	"speedsketch_item~city": {
+		"message": "град"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "кларинет"
+	},
+	"speedsketch_item~clock": {
+		"message": "часовник"
+	},
+	"speedsketch_item~cloud": {
+		"message": "облак"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "кочан царевица"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "чаша за кафе"
+	},
+	"speedsketch_item~compass": {
+		"message": "компас"
+	},
+	"speedsketch_item~computer": {
+		"message": "компютър"
+	},
+	"speedsketch_item~cookie": {
+		"message": "курабийка"
+	},
+	"speedsketch_item~cooler": {
+		"message": "коктейл"
+	},
+	"speedsketch_item~couch": {
+		"message": "диван"
+	},
+	"speedsketch_item~cow": {
+		"message": "крава"
+	},
+	"speedsketch_item~crab": {
+		"message": "рак"
+	},
+	"speedsketch_item~crayon": {
+		"message": "пастел"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "крокодил"
+	},
+	"speedsketch_item~cross": {
+		"message": "кръст"
+	},
+	"speedsketch_item~crow": {
+		"message": "врана"
+	},
+	"speedsketch_item~crown": {
+		"message": "корона"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "круизен кораб"
+	},
+	"speedsketch_item~cube": {
+		"message": "куб"
+	},
+	"speedsketch_item~cup": {
+		"message": "чаша"
+	},
+	"speedsketch_item~darts": {
+		"message": "дартс"
+	},
+	"speedsketch_item~diamond": {
+		"message": "диамант"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "пръстен с диамант"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "съдомиялна машина"
+	},
+	"speedsketch_item~diving board": {
+		"message": "трамплин"
+	},
+	"speedsketch_item~dog": {
+		"message": "куче"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "делфин"
+	},
+	"speedsketch_item~donut": {
+		"message": "поничка"
+	},
+	"speedsketch_item~door": {
+		"message": "врата"
+	},
+	"speedsketch_item~dragon": {
+		"message": "дракон"
+	},
+	"speedsketch_item~dresser": {
+		"message": "скрин"
+	},
+	"speedsketch_item~drill": {
+		"message": "бормашина"
+	},
+	"speedsketch_item~drums": {
+		"message": "барабани"
+	},
+	"speedsketch_item~duck": {
+		"message": "пате"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "гира"
+	},
+	"speedsketch_item~ear": {
+		"message": "ухо"
+	},
+	"speedsketch_item~egg": {
+		"message": "яйце"
+	},
+	"speedsketch_item~elbow": {
+		"message": "лакът"
+	},
+	"speedsketch_item~elephant": {
+		"message": "слон"
+	},
+	"speedsketch_item~elf": {
+		"message": "джудже"
+	},
+	"speedsketch_item~emoji": {
+		"message": "емотикони"
+	},
+	"speedsketch_item~envelope": {
+		"message": "плик"
+	},
+	"speedsketch_item~eraser": {
+		"message": "гума"
+	},
+	"speedsketch_item~eye": {
+		"message": "око"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "очила"
+	},
+	"speedsketch_item~face": {
+		"message": "лице"
+	},
+	"speedsketch_item~family": {
+		"message": "семейство"
+	},
+	"speedsketch_item~fan": {
+		"message": "ветрило"
+	},
+	"speedsketch_item~feather": {
+		"message": "перо"
+	},
+	"speedsketch_item~fence": {
+		"message": "ограда"
+	},
+	"speedsketch_item~finger": {
+		"message": "пръст"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "пожарен кран"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "огнище"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "пожарна кола"
+	},
+	"speedsketch_item~fish": {
+		"message": "риба"
+	},
+	"speedsketch_item~flag": {
+		"message": "флаг"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "фламинго"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "фенерче"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "джапанки"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "стояща лампа"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "дискета"
+	},
+	"speedsketch_item~flower": {
+		"message": "цвете"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "летяща чиния"
+	},
+	"speedsketch_item~fog": {
+		"message": "мъгла"
+	},
+	"speedsketch_item~foot": {
+		"message": "стъпало"
+	},
+	"speedsketch_item~fork": {
+		"message": "вилица"
+	},
+	"speedsketch_item~french fries": {
+		"message": "пържени картофи"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "пържено яйце"
+	},
+	"speedsketch_item~frog": {
+		"message": "жаба"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "тиган"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "галактика"
+	},
+	"speedsketch_item~garden": {
+		"message": "градина"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "градински маркуч"
+	},
+	"speedsketch_item~ghost": {
+		"message": "призрак"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "джинджифилово човече"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "жираф"
+	},
+	"speedsketch_item~goat": {
+		"message": "коза"
+	},
+	"speedsketch_item~goatee": {
+		"message": "козя брадичка"
+	},
+	"speedsketch_item~golf club": {
+		"message": "стик за голф"
+	},
+	"speedsketch_item~grapes": {
+		"message": "грозде"
+	},
+	"speedsketch_item~grass": {
+		"message": "трева"
+	},
+	"speedsketch_item~group": {
+		"message": "група"
+	},
+	"speedsketch_item~guitar": {
+		"message": "китара"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "хамбургер"
+	},
+	"speedsketch_item~hammer": {
+		"message": "чук"
+	},
+	"speedsketch_item~hand": {
+		"message": "ръка"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "бесеница"
+	},
+	"speedsketch_item~happiness": {
+		"message": "щастие"
+	},
+	"speedsketch_item~harp": {
+		"message": "арфа"
+	},
+	"speedsketch_item~hat": {
+		"message": "шапка"
+	},
+	"speedsketch_item~headphones": {
+		"message": "слушалки"
+	},
+	"speedsketch_item~heart": {
+		"message": "сърце"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "таралеж"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "хеликоптер"
+	},
+	"speedsketch_item~helmet": {
+		"message": "шлем"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "шестоъгълник"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "шайба за хокей"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "стик за хокей"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "празнични светлини"
+	},
+	"speedsketch_item~horse": {
+		"message": "кон"
+	},
+	"speedsketch_item~hospital": {
+		"message": "болница"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "балон с горещ въздух"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "хот-дог"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "гореща вана"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "пясъчен часовник"
+	},
+	"speedsketch_item~house": {
+		"message": "къща"
+	},
+	"speedsketch_item~house plant": {
+		"message": "стайно растение"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "ураган"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "сладолед"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "фигурист"
+	},
+	"speedsketch_item~infinity": {
+		"message": "безкрайност"
+	},
+	"speedsketch_item~island": {
+		"message": "остров"
+	},
+	"speedsketch_item~italy": {
+		"message": "Италия"
+	},
+	"speedsketch_item~jacket": {
+		"message": "яке"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "реактивна раница"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "коледни звънчета"
+	},
+	"speedsketch_item~kale": {
+		"message": "къдраво зеле"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "кенгуру"
+	},
+	"speedsketch_item~key": {
+		"message": "ключ"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "клавиатура"
+	},
+	"speedsketch_item~kite": {
+		"message": "хвърчило"
+	},
+	"speedsketch_item~knee": {
+		"message": "коляно"
+	},
+	"speedsketch_item~knife": {
+		"message": "нож"
+	},
+	"speedsketch_item~knot": {
+		"message": "възел"
+	},
+	"speedsketch_item~koala": {
+		"message": "коала"
+	},
+	"speedsketch_item~ladder": {
+		"message": "стълба"
+	},
+	"speedsketch_item~landscape": {
+		"message": "пейзаж"
+	},
+	"speedsketch_item~lantern": {
+		"message": "фенер"
+	},
+	"speedsketch_item~laptop": {
+		"message": "преносим компютър"
+	},
+	"speedsketch_item~leaf": {
+		"message": "листо"
+	},
+	"speedsketch_item~leg": {
+		"message": "крак"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "крушка"
+	},
+	"speedsketch_item~lighter": {
+		"message": "запалка"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "фар"
+	},
+	"speedsketch_item~lightning": {
+		"message": "светкавица"
+	},
+	"speedsketch_item~line": {
+		"message": "линия"
+	},
+	"speedsketch_item~lion": {
+		"message": "лъв"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "червило"
+	},
+	"speedsketch_item~lobster": {
+		"message": "омар"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "близалка"
+	},
+	"speedsketch_item~love": {
+		"message": "любов"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "пощенска кутия"
+	},
+	"speedsketch_item~man": {
+		"message": "мъж"
+	},
+	"speedsketch_item~map": {
+		"message": "карта"
+	},
+	"speedsketch_item~marker": {
+		"message": "маркер"
+	},
+	"speedsketch_item~matches": {
+		"message": "кибрит"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "математика"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "мегафон"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "русалка"
+	},
+	"speedsketch_item~metal": {
+		"message": "метал"
+	},
+	"speedsketch_item~microphone": {
+		"message": "микрофон"
+	},
+	"speedsketch_item~microscope": {
+		"message": "микроскоп"
+	},
+	"speedsketch_item~microwave": {
+		"message": "микровълнова фурна"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "имел"
+	},
+	"speedsketch_item~mittens": {
+		"message": "ръкавици"
+	},
+	"speedsketch_item~molecule": {
+		"message": "молекула"
+	},
+	"speedsketch_item~money": {
+		"message": "пари"
+	},
+	"speedsketch_item~monkey": {
+		"message": "маймуна"
+	},
+	"speedsketch_item~moon": {
+		"message": "луна"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "комар"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "мотоциклет"
+	},
+	"speedsketch_item~mountain": {
+		"message": "планина"
+	},
+	"speedsketch_item~mouse": {
+		"message": "мишка"
+	},
+	"speedsketch_item~moustache": {
+		"message": "мустаци"
+	},
+	"speedsketch_item~mouth": {
+		"message": "уста"
+	},
+	"speedsketch_item~mug": {
+		"message": "халба"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "гъба"
+	},
+	"speedsketch_item~music": {
+		"message": "музика"
+	},
+	"speedsketch_item~nail": {
+		"message": "нокът"
+	},
+	"speedsketch_item~nature": {
+		"message": "природа"
+	},
+	"speedsketch_item~necklace": {
+		"message": "колие"
+	},
+	"speedsketch_item~news": {
+		"message": "новини"
+	},
+	"speedsketch_item~nose": {
+		"message": "нос"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "лешникотрошачка"
+	},
+	"speedsketch_item~ocean": {
+		"message": "океан"
+	},
+	"speedsketch_item~octagon": {
+		"message": "осмоъгълник"
+	},
+	"speedsketch_item~octopus": {
+		"message": "октопод"
+	},
+	"speedsketch_item~onion": {
+		"message": "лук"
+	},
+	"speedsketch_item~ornament": {
+		"message": "украшение"
+	},
+	"speedsketch_item~oven": {
+		"message": "фурна"
+	},
+	"speedsketch_item~owl": {
+		"message": "бухал"
+	},
+	"speedsketch_item~paint can": {
+		"message": "кутия с боя"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "четка за рисуване"
+	},
+	"speedsketch_item~painting": {
+		"message": "картина"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "палмово дърво"
+	},
+	"speedsketch_item~panda": {
+		"message": "панда"
+	},
+	"speedsketch_item~pants": {
+		"message": "панталони"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "кламер"
+	},
+	"speedsketch_item~parachute": {
+		"message": "парашут"
+	},
+	"speedsketch_item~parrot": {
+		"message": "папагал"
+	},
+	"speedsketch_item~passport": {
+		"message": "паспорт"
+	},
+	"speedsketch_item~peanut": {
+		"message": "фъстък"
+	},
+	"speedsketch_item~pear": {
+		"message": "круша"
+	},
+	"speedsketch_item~peas": {
+		"message": "грах"
+	},
+	"speedsketch_item~pencil": {
+		"message": "молив"
+	},
+	"speedsketch_item~penguin": {
+		"message": "пингвин"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "ментов бонбон"
+	},
+	"speedsketch_item~piano": {
+		"message": "пиано"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "пикап"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "рамка на снимка"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "кръгова диаграма"
+	},
+	"speedsketch_item~pig": {
+		"message": "прасе"
+	},
+	"speedsketch_item~pillow": {
+		"message": "възглавница"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ананас"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "тенис на маса"
+	},
+	"speedsketch_item~pirate": {
+		"message": "пират"
+	},
+	"speedsketch_item~pizza": {
+		"message": "пица"
+	},
+	"speedsketch_item~pliers": {
+		"message": "клещи"
+	},
+	"speedsketch_item~police car": {
+		"message": "полицейска кола"
+	},
+	"speedsketch_item~politician": {
+		"message": "политик"
+	},
+	"speedsketch_item~pond": {
+		"message": "изкуствено езеро"
+	},
+	"speedsketch_item~pool": {
+		"message": "басейн"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "сладолед на клечка"
+	},
+	"speedsketch_item~portrait": {
+		"message": "портрет"
+	},
+	"speedsketch_item~postcard": {
+		"message": "пощенска картичка"
+	},
+	"speedsketch_item~potato": {
+		"message": "картоф"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "електрически контакт"
+	},
+	"speedsketch_item~present": {
+		"message": "подарък"
+	},
+	"speedsketch_item~prison": {
+		"message": "затвор"
+	},
+	"speedsketch_item~purse": {
+		"message": "портмоне"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "пъзел"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "заек"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "енот"
+	},
+	"speedsketch_item~radio": {
+		"message": "радио"
+	},
+	"speedsketch_item~rain": {
+		"message": "дъжд"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "дъга"
+	},
+	"speedsketch_item~rake": {
+		"message": "гребло"
+	},
+	"speedsketch_item~raven": {
+		"message": "гарван"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "елен"
+	},
+	"speedsketch_item~remote control": {
+		"message": "дистанционно управление"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "носорог"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "лента"
+	},
+	"speedsketch_item~river": {
+		"message": "река"
+	},
+	"speedsketch_item~robot": {
+		"message": "робот"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "влакче в увеселителен парк"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "ролкови кънки"
+	},
+	"speedsketch_item~sadness": {
+		"message": "тъга"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "платноходка"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "сандвич"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Дядо Коледа"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Сатурн"
+	},
+	"speedsketch_item~sausage": {
+		"message": "наденица"
+	},
+	"speedsketch_item~saw": {
+		"message": "трион"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "саксофон"
+	},
+	"speedsketch_item~school bus": {
+		"message": "училищен автобус"
+	},
+	"speedsketch_item~scissors": {
+		"message": "ножица"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "скорпион"
+	},
+	"speedsketch_item~screw": {
+		"message": "винт"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "отвертка"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "скулптура"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "морска костенурка"
+	},
+	"speedsketch_item~see saw": {
+		"message": "климушка"
+	},
+	"speedsketch_item~shark": {
+		"message": "акула"
+	},
+	"speedsketch_item~sheep": {
+		"message": "овца"
+	},
+	"speedsketch_item~shoe": {
+		"message": "обувка"
+	},
+	"speedsketch_item~shorts": {
+		"message": "шорти"
+	},
+	"speedsketch_item~shovel": {
+		"message": "лопата"
+	},
+	"speedsketch_item~sink": {
+		"message": "мивка"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "скейтборд"
+	},
+	"speedsketch_item~ski": {
+		"message": "ски"
+	},
+	"speedsketch_item~skier": {
+		"message": "скиор"
+	},
+	"speedsketch_item~skirt": {
+		"message": "пола"
+	},
+	"speedsketch_item~skull": {
+		"message": "череп"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "небостъргач"
+	},
+	"speedsketch_item~sled": {
+		"message": "шейна"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "спален чувал"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "шейна"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "усмивка"
+	},
+	"speedsketch_item~snail": {
+		"message": "охлюв"
+	},
+	"speedsketch_item~snake": {
+		"message": "змия"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "шнорхел"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "снежинка"
+	},
+	"speedsketch_item~snowman": {
+		"message": "снежен човек"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "топка за футбол"
+	},
+	"speedsketch_item~sock": {
+		"message": "чорап"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "бърза моторна лодка"
+	},
+	"speedsketch_item~sphere": {
+		"message": "сфера"
+	},
+	"speedsketch_item~spider": {
+		"message": "паяк"
+	},
+	"speedsketch_item~spiral": {
+		"message": "спирала"
+	},
+	"speedsketch_item~spoon": {
+		"message": "лъжица"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "електронна таблица"
+	},
+	"speedsketch_item~square": {
+		"message": "квадрат"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "завъртулка"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "катерица"
+	},
+	"speedsketch_item~stairs": {
+		"message": "стълби"
+	},
+	"speedsketch_item~star": {
+		"message": "звезда"
+	},
+	"speedsketch_item~steak": {
+		"message": "пържола"
+	},
+	"speedsketch_item~stereo": {
+		"message": "стерео"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "стетоскоп"
+	},
+	"speedsketch_item~still life": {
+		"message": "натюрморт"
+	},
+	"speedsketch_item~stitches": {
+		"message": "бримки"
+	},
+	"speedsketch_item~stock market": {
+		"message": "фондова борса"
+	},
+	"speedsketch_item~stocking": {
+		"message": "дълъг чорап"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "знак „стоп“"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "хронометър"
+	},
+	"speedsketch_item~stove": {
+		"message": "готварска печка"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "ягода"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "улично осветление"
+	},
+	"speedsketch_item~string bean": {
+		"message": "зелен боб"
+	},
+	"speedsketch_item~submarine": {
+		"message": "подводница"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "куфар"
+	},
+	"speedsketch_item~sun": {
+		"message": "слънце"
+	},
+	"speedsketch_item~sunset": {
+		"message": "залез"
+	},
+	"speedsketch_item~swan": {
+		"message": "лебед"
+	},
+	"speedsketch_item~sweater": {
+		"message": "пуловер"
+	},
+	"speedsketch_item~swing set": {
+		"message": "люлки"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "тениска"
+	},
+	"speedsketch_item~table": {
+		"message": "маса"
+	},
+	"speedsketch_item~teapot": {
+		"message": "чайник"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "плюшено мече"
+	},
+	"speedsketch_item~telephone": {
+		"message": "телефон"
+	},
+	"speedsketch_item~television": {
+		"message": "телевизор"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "ракета за тенис"
+	},
+	"speedsketch_item~tent": {
+		"message": "палатка"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "морски шах"
+	},
+	"speedsketch_item~tiger": {
+		"message": "тигър"
+	},
+	"speedsketch_item~time": {
+		"message": "час"
+	},
+	"speedsketch_item~toaster": {
+		"message": "тостер"
+	},
+	"speedsketch_item~toe": {
+		"message": "пръст на крак"
+	},
+	"speedsketch_item~toilet": {
+		"message": "тоалетна"
+	},
+	"speedsketch_item~tooth": {
+		"message": "зъб"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "четка за зъби"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "паста за зъби"
+	},
+	"speedsketch_item~tornado": {
+		"message": "торнадо"
+	},
+	"speedsketch_item~tractor": {
+		"message": "трактор"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "светофар"
+	},
+	"speedsketch_item~train": {
+		"message": "влак"
+	},
+	"speedsketch_item~tree": {
+		"message": "дърво"
+	},
+	"speedsketch_item~triangle": {
+		"message": "триъгълник"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "триколка"
+	},
+	"speedsketch_item~trolley": {
+		"message": "количка"
+	},
+	"speedsketch_item~trombone": {
+		"message": "тромбон"
+	},
+	"speedsketch_item~trousers": {
+		"message": "панталони"
+	},
+	"speedsketch_item~truck": {
+		"message": "камион"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "тромпет"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "чадър"
+	},
+	"speedsketch_item~underwear": {
+		"message": "бельо"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "еднорог"
+	},
+	"speedsketch_item~universe": {
+		"message": "вселена"
+	},
+	"speedsketch_item~van": {
+		"message": "ван"
+	},
+	"speedsketch_item~vase": {
+		"message": "ваза"
+	},
+	"speedsketch_item~violin": {
+		"message": "цигулка"
+	},
+	"speedsketch_item~walnut": {
+		"message": "орех"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "пералня"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "диня"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "водна пързалка"
+	},
+	"speedsketch_item~wave": {
+		"message": "вълна"
+	},
+	"speedsketch_item~whale": {
+		"message": "кит"
+	},
+	"speedsketch_item~wheel": {
+		"message": "колело"
+	},
+	"speedsketch_item~windmill": {
+		"message": "вятърна мелница"
+	},
+	"speedsketch_item~woman": {
+		"message": "жена"
+	},
+	"speedsketch_item~world": {
+		"message": "свят"
+	},
+	"speedsketch_item~wreath": {
+		"message": "венец"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "ръчен часовник"
+	},
+	"speedsketch_item~yoga": {
+		"message": "йога"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "кисело мляко"
+	},
+	"speedsketch_item~zebra": {
+		"message": "зебра"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "зигзаг"
+	},
+	"speedsketch_item~zipper": {
+		"message": "цип"
 	},
 	"sr_country_name": {
 		"message": "Суринам"
@@ -5244,7 +6624,10 @@
 		"message": "Великобритания"
 	},
 	"uk_tradition": {
-		"message": "Във Великобритания празнуващите от всички възрасти се забавляват с „коледните бонбони“ на масата по време на вечеря. Това са тръбички, увити в многоцветна хартия, с издърпващи се капачета от двете страни. Когато тези капачета се дръпнат, тръбичката се отваря с трясък! В нея има хартиени шапки, играчки и бонбони за забавление през коледната нощ."
+		"message": "В Обединеното кралство по време на вечеря деца и възрастни се забавляват с „коледни бонбони“. Това са картонени цилиндри, увити с цветна хартия. При издърпване на двата края в противоположна посока бонбонът се отваря с пукане. В него има играчки, шеги и награди за забавление през коледната нощ."
+	},
+	"unmute": {
+		"message": "Със звук"
 	},
 	"upgrade-warning": {
 		"message": "Ами сега! „Къде е Дядо Коледа“ не се поддържа в тази версия на браузъра ви. За достъп до „Къде е Дядо Коледа“ изтеглете съвременен браузър. За повече информация посетете \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Добавяне на началния екран"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Добавяне към лавицата"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Добавяне към работния плот"
 	},
 	"village_santa_cardboard": {
 		"message": "Дядо Коледа в Cardboard"

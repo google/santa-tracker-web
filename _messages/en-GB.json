@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of Père Noël's arrival. If children have been good throughout the year, Père Noël will fill the shoes with gifts."
 	},
+	"fullscreen": {
+		"message": "Full screen"
+	},
 	"ga_country_name": {
 		"message": "Gabon"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritania"
 	},
+	"mute": {
+		"message": "Mute"
+	},
 	"mw_country_name": {
 		"message": "Malawi"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "Pause"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1116,10 +1125,10 @@
 		"message": "Draw"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor is Santa's Machine Learning robot that helps him quickly decipher the letters that he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and he'll tell you what he sees. The more you draw, the smarter Tensor will get, so let's help Santa be more efficient than ever this holiday season!"
+		"message": "Tensor is Santa's Machine Learning robot that helps him quickly decipher the letters that he receives from children all over the world. To help Tensor practise, draw a picture of each Christmas word on the screen and it will tell you what it sees. The more you draw, the smarter Tensor will get, so let's help Santa be more efficient than ever this Christmas!"
 	},
 	"quickdraw-splashview-title": {
-		"message": "Help Tensor practise his image recognition!"
+		"message": "Help Tensor practice its image recognition!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor recognised {{recognized}} of your drawings."
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Switzerland"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "The Eiffel Tower"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "The Great Wall of China"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "The Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstract art"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "aircraft carrier"
+	},
+	"speedsketch_item~airplane": {
+		"message": "aeroplane"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "alarm clock"
+	},
+	"speedsketch_item~alien": {
+		"message": "alien"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulance"
+	},
+	"speedsketch_item~angel": {
+		"message": "angel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "animal migration"
+	},
+	"speedsketch_item~ant": {
+		"message": "ant"
+	},
+	"speedsketch_item~anvil": {
+		"message": "anvil"
+	},
+	"speedsketch_item~apple": {
+		"message": "apple"
+	},
+	"speedsketch_item~arm": {
+		"message": "arm"
+	},
+	"speedsketch_item~arrow": {
+		"message": "arrow"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "asparagus"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "audio cassette"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avocado"
+	},
+	"speedsketch_item~axe": {
+		"message": "axe"
+	},
+	"speedsketch_item~baby": {
+		"message": "baby"
+	},
+	"speedsketch_item~backpack": {
+		"message": "backpack"
+	},
+	"speedsketch_item~banana": {
+		"message": "banana"
+	},
+	"speedsketch_item~bandage": {
+		"message": "bandage"
+	},
+	"speedsketch_item~barn": {
+		"message": "barn"
+	},
+	"speedsketch_item~baseball": {
+		"message": "baseball"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "baseball bat"
+	},
+	"speedsketch_item~basket": {
+		"message": "basket"
+	},
+	"speedsketch_item~basketball": {
+		"message": "basketball"
+	},
+	"speedsketch_item~bat": {
+		"message": "bat"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "bath"
+	},
+	"speedsketch_item~beach": {
+		"message": "beach"
+	},
+	"speedsketch_item~bear": {
+		"message": "bear"
+	},
+	"speedsketch_item~beard": {
+		"message": "beard"
+	},
+	"speedsketch_item~bed": {
+		"message": "bed"
+	},
+	"speedsketch_item~bee": {
+		"message": "bee"
+	},
+	"speedsketch_item~belt": {
+		"message": "belt"
+	},
+	"speedsketch_item~bench": {
+		"message": "bench"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "bicycle"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "binoculars"
+	},
+	"speedsketch_item~bird": {
+		"message": "bird"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "birthday cake"
+	},
+	"speedsketch_item~black": {
+		"message": "black"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "blackberry"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "blueberry"
+	},
+	"speedsketch_item~book": {
+		"message": "book"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "boomerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "boot"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "bottle cap"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "bow tie"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "bracelet"
+	},
+	"speedsketch_item~brain": {
+		"message": "brain"
+	},
+	"speedsketch_item~bread": {
+		"message": "bread"
+	},
+	"speedsketch_item~bridge": {
+		"message": "bridge"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "broccoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "broom"
+	},
+	"speedsketch_item~bubble": {
+		"message": "bubble"
+	},
+	"speedsketch_item~bucket": {
+		"message": "bucket"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "bulldozer"
+	},
+	"speedsketch_item~bus": {
+		"message": "bus"
+	},
+	"speedsketch_item~bush": {
+		"message": "bush"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "butterfly"
+	},
+	"speedsketch_item~cactus": {
+		"message": "cactus"
+	},
+	"speedsketch_item~cake": {
+		"message": "cake"
+	},
+	"speedsketch_item~calculator": {
+		"message": "calculator"
+	},
+	"speedsketch_item~calendar": {
+		"message": "calendar"
+	},
+	"speedsketch_item~camel": {
+		"message": "camel"
+	},
+	"speedsketch_item~camera": {
+		"message": "camera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "camouflage"
+	},
+	"speedsketch_item~campfire": {
+		"message": "campfire"
+	},
+	"speedsketch_item~candle": {
+		"message": "candle"
+	},
+	"speedsketch_item~candy": {
+		"message": "candy"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "candy cane"
+	},
+	"speedsketch_item~canoe": {
+		"message": "canoe"
+	},
+	"speedsketch_item~car": {
+		"message": "car"
+	},
+	"speedsketch_item~carrot": {
+		"message": "carrot"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "cartoon"
+	},
+	"speedsketch_item~castle": {
+		"message": "castle"
+	},
+	"speedsketch_item~cat": {
+		"message": "cat"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "ceiling fan"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobile phone"
+	},
+	"speedsketch_item~cello": {
+		"message": "cello"
+	},
+	"speedsketch_item~chair": {
+		"message": "chair"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "chandelier"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "chemistry"
+	},
+	"speedsketch_item~cherry": {
+		"message": "cherry"
+	},
+	"speedsketch_item~chicken": {
+		"message": "chicken"
+	},
+	"speedsketch_item~child": {
+		"message": "child"
+	},
+	"speedsketch_item~chimney": {
+		"message": "chimney"
+	},
+	"speedsketch_item~church": {
+		"message": "church"
+	},
+	"speedsketch_item~circle": {
+		"message": "circle"
+	},
+	"speedsketch_item~city": {
+		"message": "city"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "clarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "clock"
+	},
+	"speedsketch_item~cloud": {
+		"message": "cloud"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "corn on the cob"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "coffee cup"
+	},
+	"speedsketch_item~compass": {
+		"message": "compass"
+	},
+	"speedsketch_item~computer": {
+		"message": "computer"
+	},
+	"speedsketch_item~cookie": {
+		"message": "biscuit"
+	},
+	"speedsketch_item~cooler": {
+		"message": "cooler"
+	},
+	"speedsketch_item~couch": {
+		"message": "sofa"
+	},
+	"speedsketch_item~cow": {
+		"message": "cow"
+	},
+	"speedsketch_item~crab": {
+		"message": "crab"
+	},
+	"speedsketch_item~crayon": {
+		"message": "crayon"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "crocodile"
+	},
+	"speedsketch_item~cross": {
+		"message": "cross"
+	},
+	"speedsketch_item~crow": {
+		"message": "crow"
+	},
+	"speedsketch_item~crown": {
+		"message": "crown"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "cruise ship"
+	},
+	"speedsketch_item~cube": {
+		"message": "cube"
+	},
+	"speedsketch_item~cup": {
+		"message": "cup"
+	},
+	"speedsketch_item~darts": {
+		"message": "darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamond"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "diamond ring"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "dishwasher"
+	},
+	"speedsketch_item~diving board": {
+		"message": "diving board"
+	},
+	"speedsketch_item~dog": {
+		"message": "dog"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "dolphin"
+	},
+	"speedsketch_item~donut": {
+		"message": "doughnut"
+	},
+	"speedsketch_item~door": {
+		"message": "door"
+	},
+	"speedsketch_item~dragon": {
+		"message": "dragon"
+	},
+	"speedsketch_item~dresser": {
+		"message": "dresser"
+	},
+	"speedsketch_item~drill": {
+		"message": "drill"
+	},
+	"speedsketch_item~drums": {
+		"message": "drums"
+	},
+	"speedsketch_item~duck": {
+		"message": "duck"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "dumbbell"
+	},
+	"speedsketch_item~ear": {
+		"message": "ear"
+	},
+	"speedsketch_item~egg": {
+		"message": "egg"
+	},
+	"speedsketch_item~elbow": {
+		"message": "elbow"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elephant"
+	},
+	"speedsketch_item~elf": {
+		"message": "elf"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "envelope"
+	},
+	"speedsketch_item~eraser": {
+		"message": "eraser"
+	},
+	"speedsketch_item~eye": {
+		"message": "eye"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "spectacles"
+	},
+	"speedsketch_item~face": {
+		"message": "face"
+	},
+	"speedsketch_item~family": {
+		"message": "family"
+	},
+	"speedsketch_item~fan": {
+		"message": "fan"
+	},
+	"speedsketch_item~feather": {
+		"message": "feather"
+	},
+	"speedsketch_item~fence": {
+		"message": "fence"
+	},
+	"speedsketch_item~finger": {
+		"message": "finger"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "fire hydrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "fireplace"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "fire engine"
+	},
+	"speedsketch_item~fish": {
+		"message": "fish"
+	},
+	"speedsketch_item~flag": {
+		"message": "flag"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "torch"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "flip-flops"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "floor lamp"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "floppy disk"
+	},
+	"speedsketch_item~flower": {
+		"message": "flower"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "flying saucer"
+	},
+	"speedsketch_item~fog": {
+		"message": "fog"
+	},
+	"speedsketch_item~foot": {
+		"message": "foot"
+	},
+	"speedsketch_item~fork": {
+		"message": "fork"
+	},
+	"speedsketch_item~french fries": {
+		"message": "chips"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "fried egg"
+	},
+	"speedsketch_item~frog": {
+		"message": "frog"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "frying pan"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaxy"
+	},
+	"speedsketch_item~garden": {
+		"message": "garden"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "garden hose"
+	},
+	"speedsketch_item~ghost": {
+		"message": "ghost"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "gingerbread man"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "giraffe"
+	},
+	"speedsketch_item~goat": {
+		"message": "goat"
+	},
+	"speedsketch_item~goatee": {
+		"message": "goatee"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golf club"
+	},
+	"speedsketch_item~grapes": {
+		"message": "grapes"
+	},
+	"speedsketch_item~grass": {
+		"message": "grass"
+	},
+	"speedsketch_item~group": {
+		"message": "group"
+	},
+	"speedsketch_item~guitar": {
+		"message": "guitar"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "hammer"
+	},
+	"speedsketch_item~hand": {
+		"message": "hand"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "hangman game"
+	},
+	"speedsketch_item~happiness": {
+		"message": "happiness"
+	},
+	"speedsketch_item~harp": {
+		"message": "harp"
+	},
+	"speedsketch_item~hat": {
+		"message": "hat"
+	},
+	"speedsketch_item~headphones": {
+		"message": "headphones"
+	},
+	"speedsketch_item~heart": {
+		"message": "heart"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "hedgehog"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helicopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "helmet"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "hexagon"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hockey puck"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hockey stick"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "Christmas lights"
+	},
+	"speedsketch_item~horse": {
+		"message": "horse"
+	},
+	"speedsketch_item~hospital": {
+		"message": "hospital"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "hot air balloon"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hot dog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "hot tub"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "hourglass"
+	},
+	"speedsketch_item~house": {
+		"message": "house"
+	},
+	"speedsketch_item~house plant": {
+		"message": "house plant"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "hurricane"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "ice cream"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "ice skater"
+	},
+	"speedsketch_item~infinity": {
+		"message": "infinity"
+	},
+	"speedsketch_item~island": {
+		"message": "island"
+	},
+	"speedsketch_item~italy": {
+		"message": "Italy"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jacket"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "jetpack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jingle Bells"
+	},
+	"speedsketch_item~kale": {
+		"message": "kale"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kangaroo"
+	},
+	"speedsketch_item~key": {
+		"message": "key"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "keyboard"
+	},
+	"speedsketch_item~kite": {
+		"message": "kite"
+	},
+	"speedsketch_item~knee": {
+		"message": "knee"
+	},
+	"speedsketch_item~knife": {
+		"message": "knife"
+	},
+	"speedsketch_item~knot": {
+		"message": "knot"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "ladder"
+	},
+	"speedsketch_item~landscape": {
+		"message": "landscape"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lantern"
+	},
+	"speedsketch_item~laptop": {
+		"message": "laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "leaf"
+	},
+	"speedsketch_item~leg": {
+		"message": "leg"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "light bulb"
+	},
+	"speedsketch_item~lighter": {
+		"message": "lighter"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "lighthouse"
+	},
+	"speedsketch_item~lightning": {
+		"message": "lightning"
+	},
+	"speedsketch_item~line": {
+		"message": "line"
+	},
+	"speedsketch_item~lion": {
+		"message": "lion"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "lipstick"
+	},
+	"speedsketch_item~lobster": {
+		"message": "lobster"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "lollipop"
+	},
+	"speedsketch_item~love": {
+		"message": "love"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "post box"
+	},
+	"speedsketch_item~man": {
+		"message": "man"
+	},
+	"speedsketch_item~map": {
+		"message": "map"
+	},
+	"speedsketch_item~marker": {
+		"message": "marker"
+	},
+	"speedsketch_item~matches": {
+		"message": "matches"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "mathematics"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megaphone"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "mermaid"
+	},
+	"speedsketch_item~metal": {
+		"message": "metal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "microphone"
+	},
+	"speedsketch_item~microscope": {
+		"message": "microscope"
+	},
+	"speedsketch_item~microwave": {
+		"message": "microwave"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "mistletoe"
+	},
+	"speedsketch_item~mittens": {
+		"message": "mittens"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molecule"
+	},
+	"speedsketch_item~money": {
+		"message": "money"
+	},
+	"speedsketch_item~monkey": {
+		"message": "monkey"
+	},
+	"speedsketch_item~moon": {
+		"message": "moon"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "mosquito"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motorbike"
+	},
+	"speedsketch_item~mountain": {
+		"message": "mountain"
+	},
+	"speedsketch_item~mouse": {
+		"message": "mouse"
+	},
+	"speedsketch_item~moustache": {
+		"message": "moustache"
+	},
+	"speedsketch_item~mouth": {
+		"message": "mouth"
+	},
+	"speedsketch_item~mug": {
+		"message": "mug"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "mushroom"
+	},
+	"speedsketch_item~music": {
+		"message": "music"
+	},
+	"speedsketch_item~nail": {
+		"message": "nail"
+	},
+	"speedsketch_item~nature": {
+		"message": "nature"
+	},
+	"speedsketch_item~necklace": {
+		"message": "necklace"
+	},
+	"speedsketch_item~news": {
+		"message": "news"
+	},
+	"speedsketch_item~nose": {
+		"message": "nose"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "nutcracker"
+	},
+	"speedsketch_item~ocean": {
+		"message": "ocean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "octagon"
+	},
+	"speedsketch_item~octopus": {
+		"message": "octopus"
+	},
+	"speedsketch_item~onion": {
+		"message": "onion"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ornament"
+	},
+	"speedsketch_item~oven": {
+		"message": "oven"
+	},
+	"speedsketch_item~owl": {
+		"message": "owl"
+	},
+	"speedsketch_item~paint can": {
+		"message": "paint tin"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "paint brush"
+	},
+	"speedsketch_item~painting": {
+		"message": "painting"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palm tree"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "trousers"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "paper clip"
+	},
+	"speedsketch_item~parachute": {
+		"message": "parachute"
+	},
+	"speedsketch_item~parrot": {
+		"message": "parrot"
+	},
+	"speedsketch_item~passport": {
+		"message": "passport"
+	},
+	"speedsketch_item~peanut": {
+		"message": "peanut"
+	},
+	"speedsketch_item~pear": {
+		"message": "pear"
+	},
+	"speedsketch_item~peas": {
+		"message": "peas"
+	},
+	"speedsketch_item~pencil": {
+		"message": "pencil"
+	},
+	"speedsketch_item~penguin": {
+		"message": "penguin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "peppermint"
+	},
+	"speedsketch_item~piano": {
+		"message": "piano"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "pick-up truck"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "picture frame"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "pie chart"
+	},
+	"speedsketch_item~pig": {
+		"message": "pig"
+	},
+	"speedsketch_item~pillow": {
+		"message": "pillow"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "pineapple"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ping pong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirate"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "pliers"
+	},
+	"speedsketch_item~police car": {
+		"message": "police car"
+	},
+	"speedsketch_item~politician": {
+		"message": "politician"
+	},
+	"speedsketch_item~pond": {
+		"message": "pond"
+	},
+	"speedsketch_item~pool": {
+		"message": "pool"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "ice lolly"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portrait"
+	},
+	"speedsketch_item~postcard": {
+		"message": "postcard"
+	},
+	"speedsketch_item~potato": {
+		"message": "potato"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "power socket"
+	},
+	"speedsketch_item~present": {
+		"message": "present"
+	},
+	"speedsketch_item~prison": {
+		"message": "prison"
+	},
+	"speedsketch_item~purse": {
+		"message": "handbag"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "puzzle"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "rabbit"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "raccoon"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "rain"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "rainbow"
+	},
+	"speedsketch_item~rake": {
+		"message": "rake"
+	},
+	"speedsketch_item~raven": {
+		"message": "raven"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "reindeer"
+	},
+	"speedsketch_item~remote control": {
+		"message": "remote control"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "rhinoceros"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "ribbon"
+	},
+	"speedsketch_item~river": {
+		"message": "river"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "roller coaster"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "roller skates"
+	},
+	"speedsketch_item~sadness": {
+		"message": "sadness"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "sailing boat"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sandwich"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Santa Claus"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "sausage"
+	},
+	"speedsketch_item~saw": {
+		"message": "saw"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxophone"
+	},
+	"speedsketch_item~school bus": {
+		"message": "school bus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "scissors"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "scorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "screw"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "screwdriver"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "sculpture"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "sea turtle"
+	},
+	"speedsketch_item~see saw": {
+		"message": "see-saw"
+	},
+	"speedsketch_item~shark": {
+		"message": "shark"
+	},
+	"speedsketch_item~sheep": {
+		"message": "sheep"
+	},
+	"speedsketch_item~shoe": {
+		"message": "shoe"
+	},
+	"speedsketch_item~shorts": {
+		"message": "shorts"
+	},
+	"speedsketch_item~shovel": {
+		"message": "shovel"
+	},
+	"speedsketch_item~sink": {
+		"message": "sink"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "ski"
+	},
+	"speedsketch_item~skier": {
+		"message": "skier"
+	},
+	"speedsketch_item~skirt": {
+		"message": "skirt"
+	},
+	"speedsketch_item~skull": {
+		"message": "skull"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "skyscraper"
+	},
+	"speedsketch_item~sled": {
+		"message": "sled"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "sleeping bag"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "sleigh"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "smiley face"
+	},
+	"speedsketch_item~snail": {
+		"message": "snail"
+	},
+	"speedsketch_item~snake": {
+		"message": "snake"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorkel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "snowflake"
+	},
+	"speedsketch_item~snowman": {
+		"message": "snowman"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "football"
+	},
+	"speedsketch_item~sock": {
+		"message": "sock"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "speedboat"
+	},
+	"speedsketch_item~sphere": {
+		"message": "sphere"
+	},
+	"speedsketch_item~spider": {
+		"message": "spider"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spiral"
+	},
+	"speedsketch_item~spoon": {
+		"message": "spoon"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "spreadsheet"
+	},
+	"speedsketch_item~square": {
+		"message": "square"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "squiggle"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "squirrel"
+	},
+	"speedsketch_item~stairs": {
+		"message": "stairs"
+	},
+	"speedsketch_item~star": {
+		"message": "star"
+	},
+	"speedsketch_item~steak": {
+		"message": "steak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stethoscope"
+	},
+	"speedsketch_item~still life": {
+		"message": "still life"
+	},
+	"speedsketch_item~stitches": {
+		"message": "stitches"
+	},
+	"speedsketch_item~stock market": {
+		"message": "stock market"
+	},
+	"speedsketch_item~stocking": {
+		"message": "stocking"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stop sign"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stopwatch"
+	},
+	"speedsketch_item~stove": {
+		"message": "cooker"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "strawberry"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "street light"
+	},
+	"speedsketch_item~string bean": {
+		"message": "green bean"
+	},
+	"speedsketch_item~submarine": {
+		"message": "submarine"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "suitcase"
+	},
+	"speedsketch_item~sun": {
+		"message": "sun"
+	},
+	"speedsketch_item~sunset": {
+		"message": "sunset"
+	},
+	"speedsketch_item~swan": {
+		"message": "swan"
+	},
+	"speedsketch_item~sweater": {
+		"message": "sweater"
+	},
+	"speedsketch_item~swing set": {
+		"message": "swing set"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "t-shirt"
+	},
+	"speedsketch_item~table": {
+		"message": "table"
+	},
+	"speedsketch_item~teapot": {
+		"message": "teapot"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "teddy bear"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telephone"
+	},
+	"speedsketch_item~television": {
+		"message": "television"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tennis racket"
+	},
+	"speedsketch_item~tent": {
+		"message": "tent"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "tic-tac-toe game"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tiger"
+	},
+	"speedsketch_item~time": {
+		"message": "time"
+	},
+	"speedsketch_item~toaster": {
+		"message": "toaster"
+	},
+	"speedsketch_item~toe": {
+		"message": "toe"
+	},
+	"speedsketch_item~toilet": {
+		"message": "toilet"
+	},
+	"speedsketch_item~tooth": {
+		"message": "tooth"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "toothbrush"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "toothpaste"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "tractor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "traffic light"
+	},
+	"speedsketch_item~train": {
+		"message": "train"
+	},
+	"speedsketch_item~tree": {
+		"message": "tree"
+	},
+	"speedsketch_item~triangle": {
+		"message": "triangle"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "tricycle"
+	},
+	"speedsketch_item~trolley": {
+		"message": "trolley"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombone"
+	},
+	"speedsketch_item~trousers": {
+		"message": "trousers"
+	},
+	"speedsketch_item~truck": {
+		"message": "truck"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trumpet"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "umbrella"
+	},
+	"speedsketch_item~underwear": {
+		"message": "underwear"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "unicorn"
+	},
+	"speedsketch_item~universe": {
+		"message": "universe"
+	},
+	"speedsketch_item~van": {
+		"message": "van"
+	},
+	"speedsketch_item~vase": {
+		"message": "vase"
+	},
+	"speedsketch_item~violin": {
+		"message": "violin"
+	},
+	"speedsketch_item~walnut": {
+		"message": "walnut"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "washing machine"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "watermelon"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "water slide"
+	},
+	"speedsketch_item~wave": {
+		"message": "wave"
+	},
+	"speedsketch_item~whale": {
+		"message": "whale"
+	},
+	"speedsketch_item~wheel": {
+		"message": "wheel"
+	},
+	"speedsketch_item~windmill": {
+		"message": "windmill"
+	},
+	"speedsketch_item~woman": {
+		"message": "woman"
+	},
+	"speedsketch_item~world": {
+		"message": "world"
+	},
+	"speedsketch_item~wreath": {
+		"message": "wreath"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "watch"
+	},
+	"speedsketch_item~yoga": {
+		"message": "yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "yoghurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzag"
+	},
+	"speedsketch_item~zipper": {
+		"message": "zipper"
 	},
 	"sr_country_name": {
 		"message": "Suriname"
@@ -5244,7 +6624,10 @@
 		"message": "United Kingdom"
 	},
 	"uk_tradition": {
-		"message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colourful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys and sweets to enjoy during Christmas night."
+		"message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colourful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys, jokes and prizes to enjoy during Christmas night."
+	},
+	"unmute": {
+		"message": "Unmute"
 	},
 	"upgrade-warning": {
 		"message": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Add to Home Screen"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Add to Shelf"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Add to Desktop"
 	},
 	"village_santa_cardboard": {
 		"message": "Santa on Cardboard"

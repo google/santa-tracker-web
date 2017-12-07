@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "フランスでは、クリスマスになると子供たちは暖炉のそばに靴を置いてサンタクロースの「ペール・ノエル」がやってくるのを心待ちにします。子供たちが 1 年間ずっといい子にしていたら、ペール・ノエルからのプレゼントが靴の中に入っています。"
 	},
+	"fullscreen": {
+		"message": "全画面表示"
+	},
 	"ga_country_name": {
 		"message": "ガボン"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "モーリタニア"
 	},
+	"mute": {
+		"message": "ミュート"
+	},
 	"mw_country_name": {
 		"message": "マラウイ"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "パナマ"
 	},
+	"pause": {
+		"message": "一時停止"
+	},
 	"pe_country_name": {
 		"message": "ペルー"
 	},
@@ -1206,7 +1215,7 @@
 		"message": "プレゼント補充"
 	},
 	"scene_boatload": {
-		"message": "Gift Slingshot"
+		"message": "ギフト スリングショット"
 	},
 	"scene_briefing": {
 		"message": "サンタさんの奥さんから一言"
@@ -1215,19 +1224,19 @@
 		"message": "サンタさんからの電話"
 	},
 	"scene_canvas": {
-		"message": "Santa's Canvas"
+		"message": "サンタのキャンバス"
 	},
 	"scene_citylights": {
 		"message": "街の灯り"
 	},
 	"scene_clausdraws": {
-		"message": "Claus Draws"
+		"message": "サンタのお絵かき"
 	},
 	"scene_codeboogie": {
-		"message": "Code Boogie"
+		"message": "コードブギ"
 	},
 	"scene_codelab": {
-		"message": "Code Lab"
+		"message": "コードラボ"
 	},
 	"scene_commandcentre": {
 		"message": "管制センター"
@@ -1242,13 +1251,13 @@
 		"message": "キャンディ工場"
 	},
 	"scene_giftmatch": {
-		"message": "Gift Matcher"
+		"message": "ギフトマッチ"
 	},
 	"scene_glider": {
 		"message": "妖精のグライダー"
 	},
 	"scene_gumball": {
-		"message": "Gumball Tilt"
+		"message": "ガムボール ティルト"
 	},
 	"scene_icecave": {
 		"message": "氷の洞窟"
@@ -1260,13 +1269,13 @@
 		"message": "Elf Jamband"
 	},
 	"scene_jetpack": {
-		"message": "Elf Jetpack"
+		"message": "ジェットパック"
 	},
 	"scene_latlong": {
 		"message": "プレゼント配り"
 	},
 	"scene_matching": {
-		"message": "神経衰弱"
+		"message": "記憶ゲーム"
 	},
 	"scene_mercator": {
 		"message": "地図クイズ"
@@ -1278,16 +1287,16 @@
 		"message": "雪の結晶を描こう"
 	},
 	"scene_presentbounce": {
-		"message": "Present Bounce"
+		"message": "プレゼント バウンス"
 	},
 	"scene_presentdrop": {
-		"message": "Present Drop"
+		"message": "プレゼント ドロップ"
 	},
 	"scene_quickdraw": {
 		"message": "Quick Draw"
 	},
 	"scene_racer": {
-		"message": "Rudolph Racer"
+		"message": "赤鼻のトナカイのレース"
 	},
 	"scene_rollercoaster": {
 		"message": "妖精のローラーコースター"
@@ -1299,7 +1308,7 @@
 		"message": "サンタさんを探す"
 	},
 	"scene_santaselfie": {
-		"message": "サンタさんの自分撮り写真"
+		"message": "サンタの自撮り写真"
 	},
 	"scene_seasonofcaring": {
 		"message": "思いやりの季節"
@@ -1308,10 +1317,10 @@
 		"message": "プレゼントの季節"
 	},
 	"scene_snowball": {
-		"message": "Snowball Storm"
+		"message": "雪玉の嵐"
 	},
 	"scene_speedsketch": {
-		"message": "Speed Sketch"
+		"message": "スピード スケッチ"
 	},
 	"scene_streetview": {
 		"message": "ストリートビュー"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "ソマリア"
+	},
+	"speedsketch_item~London": {
+		"message": "ロンドン"
+	},
+	"speedsketch_item~New York": {
+		"message": "ニューヨーク"
+	},
+	"speedsketch_item~Paris": {
+		"message": "パリ"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "上海"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "スイス"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "エッフェル塔"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "万里の長城"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "モナリザ"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "抽象画"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "航空母艦"
+	},
+	"speedsketch_item~airplane": {
+		"message": "飛行機"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "目覚まし時計"
+	},
+	"speedsketch_item~alien": {
+		"message": "宇宙人"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "救急車"
+	},
+	"speedsketch_item~angel": {
+		"message": "天使"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "動物の渡り"
+	},
+	"speedsketch_item~ant": {
+		"message": "アリ"
+	},
+	"speedsketch_item~anvil": {
+		"message": "ハンマー台"
+	},
+	"speedsketch_item~apple": {
+		"message": "リンゴ"
+	},
+	"speedsketch_item~arm": {
+		"message": "腕"
+	},
+	"speedsketch_item~arrow": {
+		"message": "矢"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "アスパラガス"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "宇宙飛行士"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "オーディオ カセット"
+	},
+	"speedsketch_item~avocado": {
+		"message": "アボカド"
+	},
+	"speedsketch_item~axe": {
+		"message": "斧"
+	},
+	"speedsketch_item~baby": {
+		"message": "赤ちゃん"
+	},
+	"speedsketch_item~backpack": {
+		"message": "リュックサック"
+	},
+	"speedsketch_item~banana": {
+		"message": "バナナ"
+	},
+	"speedsketch_item~bandage": {
+		"message": "絆創膏"
+	},
+	"speedsketch_item~barn": {
+		"message": "納屋"
+	},
+	"speedsketch_item~baseball": {
+		"message": "野球のボール"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "野球のバット"
+	},
+	"speedsketch_item~basket": {
+		"message": "かご"
+	},
+	"speedsketch_item~basketball": {
+		"message": "バスケットボール"
+	},
+	"speedsketch_item~bat": {
+		"message": "コウモリ"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "バスタブ"
+	},
+	"speedsketch_item~beach": {
+		"message": "砂浜"
+	},
+	"speedsketch_item~bear": {
+		"message": "クマ"
+	},
+	"speedsketch_item~beard": {
+		"message": "あごひげ"
+	},
+	"speedsketch_item~bed": {
+		"message": "ベッド"
+	},
+	"speedsketch_item~bee": {
+		"message": "蜂"
+	},
+	"speedsketch_item~belt": {
+		"message": "ベルト"
+	},
+	"speedsketch_item~bench": {
+		"message": "ベンチ"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "自転車"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "双眼鏡"
+	},
+	"speedsketch_item~bird": {
+		"message": "鳥"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "バースデー ケーキ"
+	},
+	"speedsketch_item~black": {
+		"message": "黒人"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "ブラックベリー"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "ブルーベリー"
+	},
+	"speedsketch_item~book": {
+		"message": "本"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "ブーメラン"
+	},
+	"speedsketch_item~boot": {
+		"message": "ブーツ"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "瓶のキャップ"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "蝶ネクタイ"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "ブレスレット"
+	},
+	"speedsketch_item~brain": {
+		"message": "脳"
+	},
+	"speedsketch_item~bread": {
+		"message": "パン"
+	},
+	"speedsketch_item~bridge": {
+		"message": "橋"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "ブロッコリー"
+	},
+	"speedsketch_item~broom": {
+		"message": "ほうき"
+	},
+	"speedsketch_item~bubble": {
+		"message": "バルーン"
+	},
+	"speedsketch_item~bucket": {
+		"message": "バケット"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "ブルドーザー"
+	},
+	"speedsketch_item~bus": {
+		"message": "バス"
+	},
+	"speedsketch_item~bush": {
+		"message": "茂み"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "蝶"
+	},
+	"speedsketch_item~cactus": {
+		"message": "サボテン"
+	},
+	"speedsketch_item~cake": {
+		"message": "ケーキ"
+	},
+	"speedsketch_item~calculator": {
+		"message": "電卓"
+	},
+	"speedsketch_item~calendar": {
+		"message": "カレンダー"
+	},
+	"speedsketch_item~camel": {
+		"message": "ラクダ"
+	},
+	"speedsketch_item~camera": {
+		"message": "カメラ"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "カモフラージュ"
+	},
+	"speedsketch_item~campfire": {
+		"message": "キャンプファイヤー"
+	},
+	"speedsketch_item~candle": {
+		"message": "ロウソク"
+	},
+	"speedsketch_item~candy": {
+		"message": "キャンディ"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "キャンディ ケイン"
+	},
+	"speedsketch_item~canoe": {
+		"message": "カヌー"
+	},
+	"speedsketch_item~car": {
+		"message": "自動車"
+	},
+	"speedsketch_item~carrot": {
+		"message": "ニンジン"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "漫画"
+	},
+	"speedsketch_item~castle": {
+		"message": "城"
+	},
+	"speedsketch_item~cat": {
+		"message": "猫"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "シーリング ファン"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "携帯電話"
+	},
+	"speedsketch_item~cello": {
+		"message": "チェロ"
+	},
+	"speedsketch_item~chair": {
+		"message": "椅子"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "シャンデリア"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "化学"
+	},
+	"speedsketch_item~cherry": {
+		"message": "さくらんぼ"
+	},
+	"speedsketch_item~chicken": {
+		"message": "チキン"
+	},
+	"speedsketch_item~child": {
+		"message": "子供"
+	},
+	"speedsketch_item~chimney": {
+		"message": "煙突"
+	},
+	"speedsketch_item~church": {
+		"message": "教会"
+	},
+	"speedsketch_item~circle": {
+		"message": "円"
+	},
+	"speedsketch_item~city": {
+		"message": "都市"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "クラリネット"
+	},
+	"speedsketch_item~clock": {
+		"message": "時計"
+	},
+	"speedsketch_item~cloud": {
+		"message": "雲"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "トウモロコシ"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "コーヒーカップ"
+	},
+	"speedsketch_item~compass": {
+		"message": "方位磁石"
+	},
+	"speedsketch_item~computer": {
+		"message": "パソコン"
+	},
+	"speedsketch_item~cookie": {
+		"message": "クッキー"
+	},
+	"speedsketch_item~cooler": {
+		"message": "クーラー ボックス"
+	},
+	"speedsketch_item~couch": {
+		"message": "ソファ"
+	},
+	"speedsketch_item~cow": {
+		"message": "牛"
+	},
+	"speedsketch_item~crab": {
+		"message": "カニ"
+	},
+	"speedsketch_item~crayon": {
+		"message": "クレヨン"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "ワニ"
+	},
+	"speedsketch_item~cross": {
+		"message": "十字架"
+	},
+	"speedsketch_item~crow": {
+		"message": "カラス"
+	},
+	"speedsketch_item~crown": {
+		"message": "王冠"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "クルーズ船"
+	},
+	"speedsketch_item~cube": {
+		"message": "直方体"
+	},
+	"speedsketch_item~cup": {
+		"message": "カップ"
+	},
+	"speedsketch_item~darts": {
+		"message": "ダーツ"
+	},
+	"speedsketch_item~diamond": {
+		"message": "ダイヤモンド"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "ダイヤモンドの指輪"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "食器洗い機"
+	},
+	"speedsketch_item~diving board": {
+		"message": "飛び込み台"
+	},
+	"speedsketch_item~dog": {
+		"message": "犬"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "イルカ"
+	},
+	"speedsketch_item~donut": {
+		"message": "ドーナツ"
+	},
+	"speedsketch_item~door": {
+		"message": "ドア"
+	},
+	"speedsketch_item~dragon": {
+		"message": "ドラゴン"
+	},
+	"speedsketch_item~dresser": {
+		"message": "タンス"
+	},
+	"speedsketch_item~drill": {
+		"message": "ドリル"
+	},
+	"speedsketch_item~drums": {
+		"message": "ドラム"
+	},
+	"speedsketch_item~duck": {
+		"message": "アヒル"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "ダンベル"
+	},
+	"speedsketch_item~ear": {
+		"message": "耳"
+	},
+	"speedsketch_item~egg": {
+		"message": "エッグ"
+	},
+	"speedsketch_item~elbow": {
+		"message": "肘"
+	},
+	"speedsketch_item~elephant": {
+		"message": "ゾウ"
+	},
+	"speedsketch_item~elf": {
+		"message": "妖精"
+	},
+	"speedsketch_item~emoji": {
+		"message": "絵文字"
+	},
+	"speedsketch_item~envelope": {
+		"message": "封筒"
+	},
+	"speedsketch_item~eraser": {
+		"message": "消しゴム"
+	},
+	"speedsketch_item~eye": {
+		"message": "目"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "メガネ"
+	},
+	"speedsketch_item~face": {
+		"message": "顔"
+	},
+	"speedsketch_item~family": {
+		"message": "家族"
+	},
+	"speedsketch_item~fan": {
+		"message": "扇風機"
+	},
+	"speedsketch_item~feather": {
+		"message": "羽根"
+	},
+	"speedsketch_item~fence": {
+		"message": "フェンス"
+	},
+	"speedsketch_item~finger": {
+		"message": "指"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "消火栓"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "暖炉"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "消防車"
+	},
+	"speedsketch_item~fish": {
+		"message": "魚"
+	},
+	"speedsketch_item~flag": {
+		"message": "報告"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "フラミンゴ"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "懐中電灯"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "ビーチサンダル"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "フロアランプ"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "フロッピー ディスク"
+	},
+	"speedsketch_item~flower": {
+		"message": "花"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "UFO"
+	},
+	"speedsketch_item~fog": {
+		"message": "霧"
+	},
+	"speedsketch_item~foot": {
+		"message": "足"
+	},
+	"speedsketch_item~fork": {
+		"message": "フォーク"
+	},
+	"speedsketch_item~french fries": {
+		"message": "フライドポテト"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "目玉焼き"
+	},
+	"speedsketch_item~frog": {
+		"message": "カエル"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "フライパン"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "銀河"
+	},
+	"speedsketch_item~garden": {
+		"message": "庭園"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "ホース"
+	},
+	"speedsketch_item~ghost": {
+		"message": "ゴースト"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "ジンジャーブレッド マン"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "キリン"
+	},
+	"speedsketch_item~goat": {
+		"message": "ヤギ"
+	},
+	"speedsketch_item~goatee": {
+		"message": "ヤギひげ"
+	},
+	"speedsketch_item~golf club": {
+		"message": "ゴルフクラブ"
+	},
+	"speedsketch_item~grapes": {
+		"message": "ブドウ"
+	},
+	"speedsketch_item~grass": {
+		"message": "芝生"
+	},
+	"speedsketch_item~group": {
+		"message": "グループ"
+	},
+	"speedsketch_item~guitar": {
+		"message": "ギター"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "ハンバーガー"
+	},
+	"speedsketch_item~hammer": {
+		"message": "ハンマー"
+	},
+	"speedsketch_item~hand": {
+		"message": "手"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "ハングマン ゲーム"
+	},
+	"speedsketch_item~happiness": {
+		"message": "幸せ"
+	},
+	"speedsketch_item~harp": {
+		"message": "ハープ"
+	},
+	"speedsketch_item~hat": {
+		"message": "帽子"
+	},
+	"speedsketch_item~headphones": {
+		"message": "ヘッドフォン"
+	},
+	"speedsketch_item~heart": {
+		"message": "ハート"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "ハリネズミ"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "ヘリコプター"
+	},
+	"speedsketch_item~helmet": {
+		"message": "ヘルメット"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "六角形"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "ホッケーパック"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "ホッケー スティック"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "イルミネーション"
+	},
+	"speedsketch_item~horse": {
+		"message": "馬"
+	},
+	"speedsketch_item~hospital": {
+		"message": "病院"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "熱気球"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "ホットドッグ"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "大浴場"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "砂時計"
+	},
+	"speedsketch_item~house": {
+		"message": "家"
+	},
+	"speedsketch_item~house plant": {
+		"message": "観葉植物"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "ハリケーン"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "アイスクリーム"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "アイス スケーター"
+	},
+	"speedsketch_item~infinity": {
+		"message": "無限大"
+	},
+	"speedsketch_item~island": {
+		"message": "島"
+	},
+	"speedsketch_item~italy": {
+		"message": "イタリア"
+	},
+	"speedsketch_item~jacket": {
+		"message": "ジャケット"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "ジェットパック"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "ジングルベル"
+	},
+	"speedsketch_item~kale": {
+		"message": "ケール"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "カンガルー"
+	},
+	"speedsketch_item~key": {
+		"message": "キー"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "キーボード"
+	},
+	"speedsketch_item~kite": {
+		"message": "凧"
+	},
+	"speedsketch_item~knee": {
+		"message": "膝"
+	},
+	"speedsketch_item~knife": {
+		"message": "ナイフ"
+	},
+	"speedsketch_item~knot": {
+		"message": "結び目"
+	},
+	"speedsketch_item~koala": {
+		"message": "コアラ"
+	},
+	"speedsketch_item~ladder": {
+		"message": "はしご"
+	},
+	"speedsketch_item~landscape": {
+		"message": "風景"
+	},
+	"speedsketch_item~lantern": {
+		"message": "ランプ"
+	},
+	"speedsketch_item~laptop": {
+		"message": "ノートパソコン"
+	},
+	"speedsketch_item~leaf": {
+		"message": "葉"
+	},
+	"speedsketch_item~leg": {
+		"message": "脚"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "電球"
+	},
+	"speedsketch_item~lighter": {
+		"message": "ライター"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "灯台"
+	},
+	"speedsketch_item~lightning": {
+		"message": "稲妻"
+	},
+	"speedsketch_item~line": {
+		"message": "線"
+	},
+	"speedsketch_item~lion": {
+		"message": "ライオン"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "口紅"
+	},
+	"speedsketch_item~lobster": {
+		"message": "ロブスター"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "棒付きキャンディー"
+	},
+	"speedsketch_item~love": {
+		"message": "ラブ"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "郵便受け"
+	},
+	"speedsketch_item~man": {
+		"message": "男性"
+	},
+	"speedsketch_item~map": {
+		"message": "地図"
+	},
+	"speedsketch_item~marker": {
+		"message": "マーカー"
+	},
+	"speedsketch_item~matches": {
+		"message": "マッチ"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "数学"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "メガホン"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "人魚"
+	},
+	"speedsketch_item~metal": {
+		"message": "金属"
+	},
+	"speedsketch_item~microphone": {
+		"message": "マイク"
+	},
+	"speedsketch_item~microscope": {
+		"message": "顕微鏡"
+	},
+	"speedsketch_item~microwave": {
+		"message": "電子レンジ"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "ヤドリギ"
+	},
+	"speedsketch_item~mittens": {
+		"message": "手袋"
+	},
+	"speedsketch_item~molecule": {
+		"message": "分子"
+	},
+	"speedsketch_item~money": {
+		"message": "お金"
+	},
+	"speedsketch_item~monkey": {
+		"message": "サル"
+	},
+	"speedsketch_item~moon": {
+		"message": "月"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "蚊"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "バイク"
+	},
+	"speedsketch_item~mountain": {
+		"message": "山"
+	},
+	"speedsketch_item~mouse": {
+		"message": "ハツカネズミ"
+	},
+	"speedsketch_item~moustache": {
+		"message": "口ひげ"
+	},
+	"speedsketch_item~mouth": {
+		"message": "口"
+	},
+	"speedsketch_item~mug": {
+		"message": "マグカップ"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "マッシュルーム"
+	},
+	"speedsketch_item~music": {
+		"message": "音楽"
+	},
+	"speedsketch_item~nail": {
+		"message": "爪"
+	},
+	"speedsketch_item~nature": {
+		"message": "自然景観"
+	},
+	"speedsketch_item~necklace": {
+		"message": "ネックレス"
+	},
+	"speedsketch_item~news": {
+		"message": "ニュース"
+	},
+	"speedsketch_item~nose": {
+		"message": "鼻"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "くるみ割り器"
+	},
+	"speedsketch_item~ocean": {
+		"message": "海"
+	},
+	"speedsketch_item~octagon": {
+		"message": "八角形"
+	},
+	"speedsketch_item~octopus": {
+		"message": "タコ"
+	},
+	"speedsketch_item~onion": {
+		"message": "玉ねぎ"
+	},
+	"speedsketch_item~ornament": {
+		"message": "装飾品"
+	},
+	"speedsketch_item~oven": {
+		"message": "オーブン"
+	},
+	"speedsketch_item~owl": {
+		"message": "フクロウ"
+	},
+	"speedsketch_item~paint can": {
+		"message": "ペンキ缶"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "絵筆"
+	},
+	"speedsketch_item~painting": {
+		"message": "絵画"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "ヤシの木"
+	},
+	"speedsketch_item~panda": {
+		"message": "パンダ"
+	},
+	"speedsketch_item~pants": {
+		"message": "ズボン"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "クリップ"
+	},
+	"speedsketch_item~parachute": {
+		"message": "パラシュート"
+	},
+	"speedsketch_item~parrot": {
+		"message": "オウム"
+	},
+	"speedsketch_item~passport": {
+		"message": "パスポート"
+	},
+	"speedsketch_item~peanut": {
+		"message": "ピーナッツ"
+	},
+	"speedsketch_item~pear": {
+		"message": "洋ナシ"
+	},
+	"speedsketch_item~peas": {
+		"message": "グリーンピース"
+	},
+	"speedsketch_item~pencil": {
+		"message": "鉛筆"
+	},
+	"speedsketch_item~penguin": {
+		"message": "ペンギン"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "ペパーミント"
+	},
+	"speedsketch_item~piano": {
+		"message": "ピアノ"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "ピックアップ トラック"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "額縁"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "円グラフ"
+	},
+	"speedsketch_item~pig": {
+		"message": "ブタ"
+	},
+	"speedsketch_item~pillow": {
+		"message": "枕"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "パイナップル"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "卓球"
+	},
+	"speedsketch_item~pirate": {
+		"message": "海賊"
+	},
+	"speedsketch_item~pizza": {
+		"message": "ピザ"
+	},
+	"speedsketch_item~pliers": {
+		"message": "ペンチ"
+	},
+	"speedsketch_item~police car": {
+		"message": "パトカー"
+	},
+	"speedsketch_item~politician": {
+		"message": "政治家"
+	},
+	"speedsketch_item~pond": {
+		"message": "池"
+	},
+	"speedsketch_item~pool": {
+		"message": "プール"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "アイス キャンディー"
+	},
+	"speedsketch_item~portrait": {
+		"message": "ポートレート"
+	},
+	"speedsketch_item~postcard": {
+		"message": "ポストカード"
+	},
+	"speedsketch_item~potato": {
+		"message": "ジャガイモ"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "コンセント"
+	},
+	"speedsketch_item~present": {
+		"message": "在籍中"
+	},
+	"speedsketch_item~prison": {
+		"message": "刑務所"
+	},
+	"speedsketch_item~purse": {
+		"message": "ハンドバッグ"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "パズル"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "ウサギ"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "アライグマ"
+	},
+	"speedsketch_item~radio": {
+		"message": "ラジオ"
+	},
+	"speedsketch_item~rain": {
+		"message": "雨"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "虹"
+	},
+	"speedsketch_item~rake": {
+		"message": "熊手"
+	},
+	"speedsketch_item~raven": {
+		"message": "ワタリガラス"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "トナカイ"
+	},
+	"speedsketch_item~remote control": {
+		"message": "リモコン"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "サイ"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "メニュー"
+	},
+	"speedsketch_item~river": {
+		"message": "川"
+	},
+	"speedsketch_item~robot": {
+		"message": "ロボット"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "ジェットコースター"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "ローラースケート"
+	},
+	"speedsketch_item~sadness": {
+		"message": "悲しみ"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "ヨット"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "サンドイッチ"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "サンタクロース"
+	},
+	"speedsketch_item~saturn": {
+		"message": "土星"
+	},
+	"speedsketch_item~sausage": {
+		"message": "ソーセージ"
+	},
+	"speedsketch_item~saw": {
+		"message": "のこぎり"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "サックス"
+	},
+	"speedsketch_item~school bus": {
+		"message": "スクールバス"
+	},
+	"speedsketch_item~scissors": {
+		"message": "はさみ"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "サソリ"
+	},
+	"speedsketch_item~screw": {
+		"message": "ねじ"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "ねじ回し"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "彫刻"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "ウミガメ"
+	},
+	"speedsketch_item~see saw": {
+		"message": "シーソー"
+	},
+	"speedsketch_item~shark": {
+		"message": "サメ"
+	},
+	"speedsketch_item~sheep": {
+		"message": "ヒツジ"
+	},
+	"speedsketch_item~shoe": {
+		"message": "靴"
+	},
+	"speedsketch_item~shorts": {
+		"message": "半ズボン"
+	},
+	"speedsketch_item~shovel": {
+		"message": "シャベル"
+	},
+	"speedsketch_item~sink": {
+		"message": "シンク"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "スケートボード"
+	},
+	"speedsketch_item~ski": {
+		"message": "スキー"
+	},
+	"speedsketch_item~skier": {
+		"message": "スキーヤー"
+	},
+	"speedsketch_item~skirt": {
+		"message": "スカート"
+	},
+	"speedsketch_item~skull": {
+		"message": "頭蓋骨"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "高層ビル"
+	},
+	"speedsketch_item~sled": {
+		"message": "そり"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "寝袋"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "そり"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "スマイルマーク"
+	},
+	"speedsketch_item~snail": {
+		"message": "カタツムリ"
+	},
+	"speedsketch_item~snake": {
+		"message": "ヘビ"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "シュノーケル"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "雪の結晶"
+	},
+	"speedsketch_item~snowman": {
+		"message": "雪だるま"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "サッカーボール"
+	},
+	"speedsketch_item~sock": {
+		"message": "靴下"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "スピードボート"
+	},
+	"speedsketch_item~sphere": {
+		"message": "球体"
+	},
+	"speedsketch_item~spider": {
+		"message": "クモ"
+	},
+	"speedsketch_item~spiral": {
+		"message": "らせん"
+	},
+	"speedsketch_item~spoon": {
+		"message": "スプーン"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "スプレッドシート"
+	},
+	"speedsketch_item~square": {
+		"message": "正方形"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "くねくねした線"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "リス"
+	},
+	"speedsketch_item~stairs": {
+		"message": "階段"
+	},
+	"speedsketch_item~star": {
+		"message": "星"
+	},
+	"speedsketch_item~steak": {
+		"message": "ステーキ"
+	},
+	"speedsketch_item~stereo": {
+		"message": "ステレオ"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "聴診器"
+	},
+	"speedsketch_item~still life": {
+		"message": "静物画"
+	},
+	"speedsketch_item~stitches": {
+		"message": "縫い傷"
+	},
+	"speedsketch_item~stock market": {
+		"message": "株式市場"
+	},
+	"speedsketch_item~stocking": {
+		"message": "ストッキング"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "一時停止の標識"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "ストップウォッチ"
+	},
+	"speedsketch_item~stove": {
+		"message": "ガスコンロ"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "イチゴ"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "街灯"
+	},
+	"speedsketch_item~string bean": {
+		"message": "インゲンマメ"
+	},
+	"speedsketch_item~submarine": {
+		"message": "潜水艦"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "スーツケース"
+	},
+	"speedsketch_item~sun": {
+		"message": "太陽"
+	},
+	"speedsketch_item~sunset": {
+		"message": "夕焼け"
+	},
+	"speedsketch_item~swan": {
+		"message": "白鳥"
+	},
+	"speedsketch_item~sweater": {
+		"message": "セーター"
+	},
+	"speedsketch_item~swing set": {
+		"message": "ブランコ"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "T シャツ"
+	},
+	"speedsketch_item~table": {
+		"message": "テーブル"
+	},
+	"speedsketch_item~teapot": {
+		"message": "ティーポット"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "テディベア"
+	},
+	"speedsketch_item~telephone": {
+		"message": "電話"
+	},
+	"speedsketch_item~television": {
+		"message": "テレビ"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "テニスラケット"
+	},
+	"speedsketch_item~tent": {
+		"message": "テント"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "三目並べ"
+	},
+	"speedsketch_item~tiger": {
+		"message": "トラ"
+	},
+	"speedsketch_item~time": {
+		"message": "時間"
+	},
+	"speedsketch_item~toaster": {
+		"message": "トースター"
+	},
+	"speedsketch_item~toe": {
+		"message": "つま先"
+	},
+	"speedsketch_item~toilet": {
+		"message": "トイレ"
+	},
+	"speedsketch_item~tooth": {
+		"message": "歯"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "歯ブラシ"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "歯磨き粉"
+	},
+	"speedsketch_item~tornado": {
+		"message": "竜巻"
+	},
+	"speedsketch_item~tractor": {
+		"message": "トラクター"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "信号"
+	},
+	"speedsketch_item~train": {
+		"message": "電車"
+	},
+	"speedsketch_item~tree": {
+		"message": "木"
+	},
+	"speedsketch_item~triangle": {
+		"message": "三角形"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "三輪車"
+	},
+	"speedsketch_item~trolley": {
+		"message": "トロリー"
+	},
+	"speedsketch_item~trombone": {
+		"message": "トロンボーン"
+	},
+	"speedsketch_item~trousers": {
+		"message": "ズボン"
+	},
+	"speedsketch_item~truck": {
+		"message": "トラック"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "トランペット"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "傘"
+	},
+	"speedsketch_item~underwear": {
+		"message": "下着"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "ユニコーン"
+	},
+	"speedsketch_item~universe": {
+		"message": "宇宙"
+	},
+	"speedsketch_item~van": {
+		"message": "ワゴン車"
+	},
+	"speedsketch_item~vase": {
+		"message": "花瓶"
+	},
+	"speedsketch_item~violin": {
+		"message": "バイオリン"
+	},
+	"speedsketch_item~walnut": {
+		"message": "クルミ"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "洗濯機"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "スイカ"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "ウォータースライダー"
+	},
+	"speedsketch_item~wave": {
+		"message": "波"
+	},
+	"speedsketch_item~whale": {
+		"message": "クジラ"
+	},
+	"speedsketch_item~wheel": {
+		"message": "車輪"
+	},
+	"speedsketch_item~windmill": {
+		"message": "風車"
+	},
+	"speedsketch_item~woman": {
+		"message": "女性"
+	},
+	"speedsketch_item~world": {
+		"message": "全地域"
+	},
+	"speedsketch_item~wreath": {
+		"message": "花輪"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "腕時計"
+	},
+	"speedsketch_item~yoga": {
+		"message": "ヨガ"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "ヨーグルト"
+	},
+	"speedsketch_item~zebra": {
+		"message": "シマウマ"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "ジグザグ"
+	},
+	"speedsketch_item~zipper": {
+		"message": "ジッパー"
 	},
 	"sr_country_name": {
 		"message": "スリナム"
@@ -5244,7 +6624,10 @@
 		"message": "英国"
 	},
 	"uk_tradition": {
-		"message": "英国では、世代を超えてディナーの余興としてクリスマス クラッカーで賑わいます。クラッカーは色とりどりの紙に包まれた円筒状になっており、両端を引っ張ると「パン！」という大きな音とともに筒が弾け、中から紙の帽子やおもちゃ、キャンディなどが出てくるという趣向です。こうしてクリスマスの夜を楽しみます。"
+		"message": "英国では、世代を超えてディナーの余興としてクリスマス クラッカーを鳴らします。クラッカーは色とりどりの紙に包まれた円筒状になっており、両端を引っ張ると大きな音とともに筒が弾け、中から紙の帽子やおもちゃ、なぞなぞ問題、賞品などが出てくるという趣向です。こうしてクリスマスの夜を楽しみます。"
+	},
+	"unmute": {
+		"message": "ミュート解除"
 	},
 	"upgrade-warning": {
 		"message": "アプリ「サンタを追いかけよう」はこのバージョンのブラウザには対応していません。このアプリをご利用になるには、最新のブラウザをダウンロードしてください。詳しくは \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e をご覧ください。"
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "ホーム画面に追加"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "シェルフに追加"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "デスクトップに追加"
 	},
 	"village_santa_cardboard": {
 		"message": "Cardboard でサンタさんを探す"

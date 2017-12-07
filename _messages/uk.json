@@ -372,7 +372,7 @@
 		"message": "Ваша черга"
 	},
 	"codelab-block-jump-length": {
-		"message": "перестрибніть через"
+		"message": "перестрибнути через"
 	},
 	"codelab-block-jump-tooltip": {
 		"message": "Перестрибуйте фрагменти."
@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "У Франції на Різдво діти ставлять своє взуття біля каміна. Якщо протягом року вони добре поводилися, Пер Ноель покладе у взуття подарунки."
 	},
+	"fullscreen": {
+		"message": "На весь екран"
+	},
 	"ga_country_name": {
 		"message": "Габон"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Мавританія"
 	},
+	"mute": {
+		"message": "Вимкнути звук"
+	},
 	"mw_country_name": {
 		"message": "Малаві"
 	},
@@ -1027,6 +1033,9 @@
 	},
 	"pa_country_name": {
 		"message": "Панама"
+	},
+	"pause": {
+		"message": "Призупинити"
 	},
 	"pe_country_name": {
 		"message": "Перу"
@@ -1257,7 +1266,7 @@
 		"message": "Острів"
 	},
 	"scene_jamband": {
-		"message": "Музичний гурт помічників Діда Мороза"
+		"message": "Музичний гурт ельфів"
 	},
 	"scene_jetpack": {
 		"message": "Реактивні помічники Діда Мороза"
@@ -1299,7 +1308,7 @@
 		"message": "Пошук Діда Мороза"
 	},
 	"scene_santaselfie": {
-		"message": "Автопортрет Діда Мороза"
+		"message": "Діда Мороз змінює стиль"
 	},
 	"scene_seasonofcaring": {
 		"message": "Час турботи"
@@ -1431,7 +1440,7 @@
 		"message": "Виберіть листівку за допомогою клавіш зі стрілками"
 	},
 	"snowflake_code": {
-		"message": "Створіть код сніжинки"
+		"message": "Створіть сніжинку з коду"
 	},
 	"snowflake_code_instructions": {
 		"message": "З’єднайте частини, щоб створити власну сніжинку"
@@ -1452,7 +1461,7 @@
 		"message": "Обертання та повторення"
 	},
 	"snowflake_make_your_own": {
-		"message": "Цю сніжинку створено за допомогою коду. Спробуйте самі!"
+		"message": "Ось така сніжинка з коду. Спробуй створити свою!"
 	},
 	"snowflake_share_postcard_message": {
 		"message": "Виберіть листівку та поділіться сніжинкою з друзями"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Сомалі"
+	},
+	"speedsketch_item~London": {
+		"message": "Лондон"
+	},
+	"speedsketch_item~New York": {
+		"message": "Нью-Йорк"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Париж"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Шанхай"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Швейцарія"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Ейфелева вежа"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Велика китайська стіна"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Мона Ліза"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "абстрактне мистецтво"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "авіаносець"
+	},
+	"speedsketch_item~airplane": {
+		"message": "літак"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "будильник"
+	},
+	"speedsketch_item~alien": {
+		"message": "інопланетянин"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "швидка допомога"
+	},
+	"speedsketch_item~angel": {
+		"message": "ангел"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "міграція тварин"
+	},
+	"speedsketch_item~ant": {
+		"message": "мураха"
+	},
+	"speedsketch_item~anvil": {
+		"message": "ковадло"
+	},
+	"speedsketch_item~apple": {
+		"message": "яблуко"
+	},
+	"speedsketch_item~arm": {
+		"message": "рука"
+	},
+	"speedsketch_item~arrow": {
+		"message": "стрілка"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "спаржа"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "астронавт"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "аудіокасета"
+	},
+	"speedsketch_item~avocado": {
+		"message": "авокадо"
+	},
+	"speedsketch_item~axe": {
+		"message": "сокира"
+	},
+	"speedsketch_item~baby": {
+		"message": "немовля"
+	},
+	"speedsketch_item~backpack": {
+		"message": "рюкзак"
+	},
+	"speedsketch_item~banana": {
+		"message": "банан"
+	},
+	"speedsketch_item~bandage": {
+		"message": "пов’язка"
+	},
+	"speedsketch_item~barn": {
+		"message": "комора"
+	},
+	"speedsketch_item~baseball": {
+		"message": "бейсбол"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "бейсбольна бита"
+	},
+	"speedsketch_item~basket": {
+		"message": "кошик"
+	},
+	"speedsketch_item~basketball": {
+		"message": "баскетбол"
+	},
+	"speedsketch_item~bat": {
+		"message": "кажан"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "ванна"
+	},
+	"speedsketch_item~beach": {
+		"message": "пляж"
+	},
+	"speedsketch_item~bear": {
+		"message": "ведмідь"
+	},
+	"speedsketch_item~beard": {
+		"message": "борода"
+	},
+	"speedsketch_item~bed": {
+		"message": "ліжко"
+	},
+	"speedsketch_item~bee": {
+		"message": "бджола"
+	},
+	"speedsketch_item~belt": {
+		"message": "ремінь"
+	},
+	"speedsketch_item~bench": {
+		"message": "лавка"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "велосипед"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "бінокль"
+	},
+	"speedsketch_item~bird": {
+		"message": "пташка"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "торт на день народження"
+	},
+	"speedsketch_item~black": {
+		"message": "чорний"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "ожина"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "чорниця"
+	},
+	"speedsketch_item~book": {
+		"message": "книга"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "бумеранг"
+	},
+	"speedsketch_item~boot": {
+		"message": "черевик"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "корок"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "краватка-метелик"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "браслет"
+	},
+	"speedsketch_item~brain": {
+		"message": "мозок"
+	},
+	"speedsketch_item~bread": {
+		"message": "хліб"
+	},
+	"speedsketch_item~bridge": {
+		"message": "міст"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "броколі"
+	},
+	"speedsketch_item~broom": {
+		"message": "мітла"
+	},
+	"speedsketch_item~bubble": {
+		"message": "бульбашка"
+	},
+	"speedsketch_item~bucket": {
+		"message": "відро"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "бульдозер"
+	},
+	"speedsketch_item~bus": {
+		"message": "автобус"
+	},
+	"speedsketch_item~bush": {
+		"message": "кущ"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "метелик"
+	},
+	"speedsketch_item~cactus": {
+		"message": "кактус"
+	},
+	"speedsketch_item~cake": {
+		"message": "торт"
+	},
+	"speedsketch_item~calculator": {
+		"message": "калькулятор"
+	},
+	"speedsketch_item~calendar": {
+		"message": "календар"
+	},
+	"speedsketch_item~camel": {
+		"message": "верблюд"
+	},
+	"speedsketch_item~camera": {
+		"message": "фотоапарат"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "камуфляж"
+	},
+	"speedsketch_item~campfire": {
+		"message": "багаття"
+	},
+	"speedsketch_item~candle": {
+		"message": "свічка"
+	},
+	"speedsketch_item~candy": {
+		"message": "цукерка"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "карамельна паличка"
+	},
+	"speedsketch_item~canoe": {
+		"message": "каное"
+	},
+	"speedsketch_item~car": {
+		"message": "автомобіль"
+	},
+	"speedsketch_item~carrot": {
+		"message": "морква"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "мультфільм"
+	},
+	"speedsketch_item~castle": {
+		"message": "замок"
+	},
+	"speedsketch_item~cat": {
+		"message": "кіт"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "стельовий вентилятор"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "мобільний телефон"
+	},
+	"speedsketch_item~cello": {
+		"message": "віолончель"
+	},
+	"speedsketch_item~chair": {
+		"message": "стілець"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "люстра"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "хімія"
+	},
+	"speedsketch_item~cherry": {
+		"message": "вишня"
+	},
+	"speedsketch_item~chicken": {
+		"message": "курка"
+	},
+	"speedsketch_item~child": {
+		"message": "дитина"
+	},
+	"speedsketch_item~chimney": {
+		"message": "димар"
+	},
+	"speedsketch_item~church": {
+		"message": "церква"
+	},
+	"speedsketch_item~circle": {
+		"message": "коло"
+	},
+	"speedsketch_item~city": {
+		"message": "місто"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "кларнет"
+	},
+	"speedsketch_item~clock": {
+		"message": "годинник"
+	},
+	"speedsketch_item~cloud": {
+		"message": "хмара"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "кукурудза"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "чашка кави"
+	},
+	"speedsketch_item~compass": {
+		"message": "компас"
+	},
+	"speedsketch_item~computer": {
+		"message": "комп’ютер"
+	},
+	"speedsketch_item~cookie": {
+		"message": "печиво"
+	},
+	"speedsketch_item~cooler": {
+		"message": "кулер"
+	},
+	"speedsketch_item~couch": {
+		"message": "диван"
+	},
+	"speedsketch_item~cow": {
+		"message": "корова"
+	},
+	"speedsketch_item~crab": {
+		"message": "краб"
+	},
+	"speedsketch_item~crayon": {
+		"message": "кольоровий олівець"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "крокодил"
+	},
+	"speedsketch_item~cross": {
+		"message": "хрест"
+	},
+	"speedsketch_item~crow": {
+		"message": "ворона"
+	},
+	"speedsketch_item~crown": {
+		"message": "корона"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "круїзний корабель"
+	},
+	"speedsketch_item~cube": {
+		"message": "куб"
+	},
+	"speedsketch_item~cup": {
+		"message": "чашка"
+	},
+	"speedsketch_item~darts": {
+		"message": "дартс"
+	},
+	"speedsketch_item~diamond": {
+		"message": "діамант"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "діамантовий перстень"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "посудомийна машина"
+	},
+	"speedsketch_item~diving board": {
+		"message": "трамплін для стрибків у воду"
+	},
+	"speedsketch_item~dog": {
+		"message": "собака"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "дельфін"
+	},
+	"speedsketch_item~donut": {
+		"message": "пончик"
+	},
+	"speedsketch_item~door": {
+		"message": "двері"
+	},
+	"speedsketch_item~dragon": {
+		"message": "дракон"
+	},
+	"speedsketch_item~dresser": {
+		"message": "комод"
+	},
+	"speedsketch_item~drill": {
+		"message": "свердло"
+	},
+	"speedsketch_item~drums": {
+		"message": "барабани"
+	},
+	"speedsketch_item~duck": {
+		"message": "качка"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "гантель"
+	},
+	"speedsketch_item~ear": {
+		"message": "вухо"
+	},
+	"speedsketch_item~egg": {
+		"message": "яйце"
+	},
+	"speedsketch_item~elbow": {
+		"message": "лікоть"
+	},
+	"speedsketch_item~elephant": {
+		"message": "слон"
+	},
+	"speedsketch_item~elf": {
+		"message": "ельф"
+	},
+	"speedsketch_item~emoji": {
+		"message": "смайли"
+	},
+	"speedsketch_item~envelope": {
+		"message": "конверт"
+	},
+	"speedsketch_item~eraser": {
+		"message": "гумка"
+	},
+	"speedsketch_item~eye": {
+		"message": "око"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "окуляри"
+	},
+	"speedsketch_item~face": {
+		"message": "обличчя"
+	},
+	"speedsketch_item~family": {
+		"message": "сім’я"
+	},
+	"speedsketch_item~fan": {
+		"message": "вентилятор"
+	},
+	"speedsketch_item~feather": {
+		"message": "пір’їна"
+	},
+	"speedsketch_item~fence": {
+		"message": "огорожа"
+	},
+	"speedsketch_item~finger": {
+		"message": "палець"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "пожежний гідрант"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "камін"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "пожежна машина"
+	},
+	"speedsketch_item~fish": {
+		"message": "риба"
+	},
+	"speedsketch_item~flag": {
+		"message": "прапор"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "фламінго"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "ліхтарик"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "шльопанці"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "торшер"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "дискета"
+	},
+	"speedsketch_item~flower": {
+		"message": "квітка"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "літаюча тарілка"
+	},
+	"speedsketch_item~fog": {
+		"message": "туман"
+	},
+	"speedsketch_item~foot": {
+		"message": "стопа"
+	},
+	"speedsketch_item~fork": {
+		"message": "виделка"
+	},
+	"speedsketch_item~french fries": {
+		"message": "картопля фрі"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "яєшня"
+	},
+	"speedsketch_item~frog": {
+		"message": "жаба"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "сковорідка"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "галактика"
+	},
+	"speedsketch_item~garden": {
+		"message": "сад"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "садовий шланг"
+	},
+	"speedsketch_item~ghost": {
+		"message": "привид"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "пряник"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "жираф"
+	},
+	"speedsketch_item~goat": {
+		"message": "коза"
+	},
+	"speedsketch_item~goatee": {
+		"message": "цапина борідка"
+	},
+	"speedsketch_item~golf club": {
+		"message": "гольф-клуб"
+	},
+	"speedsketch_item~grapes": {
+		"message": "виноград"
+	},
+	"speedsketch_item~grass": {
+		"message": "трава"
+	},
+	"speedsketch_item~group": {
+		"message": "група"
+	},
+	"speedsketch_item~guitar": {
+		"message": "гітара"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "гамбургер"
+	},
+	"speedsketch_item~hammer": {
+		"message": "молоток"
+	},
+	"speedsketch_item~hand": {
+		"message": "рука"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "гра \"вішалка\""
+	},
+	"speedsketch_item~happiness": {
+		"message": "щастя"
+	},
+	"speedsketch_item~harp": {
+		"message": "арфа"
+	},
+	"speedsketch_item~hat": {
+		"message": "капелюх"
+	},
+	"speedsketch_item~headphones": {
+		"message": "навушники"
+	},
+	"speedsketch_item~heart": {
+		"message": "серце"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "їжак"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "вертоліт"
+	},
+	"speedsketch_item~helmet": {
+		"message": "шолом"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "шестикутник"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "хокейна шайба"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "хокейна ключка"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "гірлянда"
+	},
+	"speedsketch_item~horse": {
+		"message": "кінь"
+	},
+	"speedsketch_item~hospital": {
+		"message": "лікарня"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "повітряна куля"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "хот-дог"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "джакузі"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "пісочний годинник"
+	},
+	"speedsketch_item~house": {
+		"message": "будинок"
+	},
+	"speedsketch_item~house plant": {
+		"message": "кімнатна рослина"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "ураган"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "морозиво"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "фігурист"
+	},
+	"speedsketch_item~infinity": {
+		"message": "нескінченність"
+	},
+	"speedsketch_item~island": {
+		"message": "острів"
+	},
+	"speedsketch_item~italy": {
+		"message": "Італія"
+	},
+	"speedsketch_item~jacket": {
+		"message": "куртка"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "реактивний наплічник"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jingle Bells"
+	},
+	"speedsketch_item~kale": {
+		"message": "капуста"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "кенгуру"
+	},
+	"speedsketch_item~key": {
+		"message": "ключ"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "клавіатура"
+	},
+	"speedsketch_item~kite": {
+		"message": "повітряний змій"
+	},
+	"speedsketch_item~knee": {
+		"message": "коліно"
+	},
+	"speedsketch_item~knife": {
+		"message": "ніж"
+	},
+	"speedsketch_item~knot": {
+		"message": "вузол"
+	},
+	"speedsketch_item~koala": {
+		"message": "коала"
+	},
+	"speedsketch_item~ladder": {
+		"message": "драбина"
+	},
+	"speedsketch_item~landscape": {
+		"message": "ландшафт"
+	},
+	"speedsketch_item~lantern": {
+		"message": "ліхтар"
+	},
+	"speedsketch_item~laptop": {
+		"message": "ноутбук"
+	},
+	"speedsketch_item~leaf": {
+		"message": "листок"
+	},
+	"speedsketch_item~leg": {
+		"message": "нога"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "лампочка"
+	},
+	"speedsketch_item~lighter": {
+		"message": "запальничка"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "маяк"
+	},
+	"speedsketch_item~lightning": {
+		"message": "блискавка"
+	},
+	"speedsketch_item~line": {
+		"message": "лінія"
+	},
+	"speedsketch_item~lion": {
+		"message": "лев"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "помада"
+	},
+	"speedsketch_item~lobster": {
+		"message": "омар"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "льодяник"
+	},
+	"speedsketch_item~love": {
+		"message": "кохання"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "поштова скринька"
+	},
+	"speedsketch_item~man": {
+		"message": "чоловік"
+	},
+	"speedsketch_item~map": {
+		"message": "мапа"
+	},
+	"speedsketch_item~marker": {
+		"message": "маркер"
+	},
+	"speedsketch_item~matches": {
+		"message": "сірники"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "математика"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "рупор"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "русалка"
+	},
+	"speedsketch_item~metal": {
+		"message": "метал"
+	},
+	"speedsketch_item~microphone": {
+		"message": "мікрофон"
+	},
+	"speedsketch_item~microscope": {
+		"message": "мікроскоп"
+	},
+	"speedsketch_item~microwave": {
+		"message": "мікрохвильова піч"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "омела"
+	},
+	"speedsketch_item~mittens": {
+		"message": "рукавиці"
+	},
+	"speedsketch_item~molecule": {
+		"message": "молекула"
+	},
+	"speedsketch_item~money": {
+		"message": "гроші"
+	},
+	"speedsketch_item~monkey": {
+		"message": "мавпа"
+	},
+	"speedsketch_item~moon": {
+		"message": "місяць"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "комар"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "мотоцикл"
+	},
+	"speedsketch_item~mountain": {
+		"message": "гора"
+	},
+	"speedsketch_item~mouse": {
+		"message": "миша"
+	},
+	"speedsketch_item~moustache": {
+		"message": "вуса"
+	},
+	"speedsketch_item~mouth": {
+		"message": "рот"
+	},
+	"speedsketch_item~mug": {
+		"message": "кухоль"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "гриб"
+	},
+	"speedsketch_item~music": {
+		"message": "музика"
+	},
+	"speedsketch_item~nail": {
+		"message": "цвях"
+	},
+	"speedsketch_item~nature": {
+		"message": "природа"
+	},
+	"speedsketch_item~necklace": {
+		"message": "намисто"
+	},
+	"speedsketch_item~news": {
+		"message": "новини"
+	},
+	"speedsketch_item~nose": {
+		"message": "ніс"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "щипці для горіхів"
+	},
+	"speedsketch_item~ocean": {
+		"message": "океан"
+	},
+	"speedsketch_item~octagon": {
+		"message": "восьмикутник"
+	},
+	"speedsketch_item~octopus": {
+		"message": "восьминіг"
+	},
+	"speedsketch_item~onion": {
+		"message": "цибуля"
+	},
+	"speedsketch_item~ornament": {
+		"message": "орнамент"
+	},
+	"speedsketch_item~oven": {
+		"message": "піч"
+	},
+	"speedsketch_item~owl": {
+		"message": "сова"
+	},
+	"speedsketch_item~paint can": {
+		"message": "банка з фарбою"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "пензель"
+	},
+	"speedsketch_item~painting": {
+		"message": "картина"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "пальма"
+	},
+	"speedsketch_item~panda": {
+		"message": "панда"
+	},
+	"speedsketch_item~pants": {
+		"message": "штани"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "скріпка для паперу"
+	},
+	"speedsketch_item~parachute": {
+		"message": "парашут"
+	},
+	"speedsketch_item~parrot": {
+		"message": "папуга"
+	},
+	"speedsketch_item~passport": {
+		"message": "паспорт"
+	},
+	"speedsketch_item~peanut": {
+		"message": "арахіс"
+	},
+	"speedsketch_item~pear": {
+		"message": "груша"
+	},
+	"speedsketch_item~peas": {
+		"message": "горох"
+	},
+	"speedsketch_item~pencil": {
+		"message": "олівець"
+	},
+	"speedsketch_item~penguin": {
+		"message": "пінгвін"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "м’ятний льодяник"
+	},
+	"speedsketch_item~piano": {
+		"message": "фортепіано"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "пікап"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "фоторамка"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "секторна діаграма"
+	},
+	"speedsketch_item~pig": {
+		"message": "свиня"
+	},
+	"speedsketch_item~pillow": {
+		"message": "подушка"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ананас"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "пінг-понг"
+	},
+	"speedsketch_item~pirate": {
+		"message": "пірат"
+	},
+	"speedsketch_item~pizza": {
+		"message": "піца"
+	},
+	"speedsketch_item~pliers": {
+		"message": "плоскогубці"
+	},
+	"speedsketch_item~police car": {
+		"message": "поліцейський автомобіль"
+	},
+	"speedsketch_item~politician": {
+		"message": "політик"
+	},
+	"speedsketch_item~pond": {
+		"message": "ставок"
+	},
+	"speedsketch_item~pool": {
+		"message": "басейн"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "фруктове морозиво"
+	},
+	"speedsketch_item~portrait": {
+		"message": "портрет"
+	},
+	"speedsketch_item~postcard": {
+		"message": "листівка"
+	},
+	"speedsketch_item~potato": {
+		"message": "картопля"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "розетка"
+	},
+	"speedsketch_item~present": {
+		"message": "подарунок"
+	},
+	"speedsketch_item~prison": {
+		"message": "тюрма"
+	},
+	"speedsketch_item~purse": {
+		"message": "гаманець"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "головоломка"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "кролик"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "єнот"
+	},
+	"speedsketch_item~radio": {
+		"message": "радіо"
+	},
+	"speedsketch_item~rain": {
+		"message": "дощ"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "веселка"
+	},
+	"speedsketch_item~rake": {
+		"message": "граблі"
+	},
+	"speedsketch_item~raven": {
+		"message": "ворон"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "північний олень"
+	},
+	"speedsketch_item~remote control": {
+		"message": "пульт ДК"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "носоріг"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "стрічка"
+	},
+	"speedsketch_item~river": {
+		"message": "річка"
+	},
+	"speedsketch_item~robot": {
+		"message": "робот"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "американські гірки"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "ролики"
+	},
+	"speedsketch_item~sadness": {
+		"message": "смуток"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "вітрильник"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "бутерброд"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Дід Мороз"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Сатурн"
+	},
+	"speedsketch_item~sausage": {
+		"message": "ковбаса"
+	},
+	"speedsketch_item~saw": {
+		"message": "пилка"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "саксофон"
+	},
+	"speedsketch_item~school bus": {
+		"message": "шкільний автобус"
+	},
+	"speedsketch_item~scissors": {
+		"message": "ножиці"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "скорпіон"
+	},
+	"speedsketch_item~screw": {
+		"message": "гвинт"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "викрутка"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "скульптура"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "черепаха"
+	},
+	"speedsketch_item~see saw": {
+		"message": "гойдалка"
+	},
+	"speedsketch_item~shark": {
+		"message": "акула"
+	},
+	"speedsketch_item~sheep": {
+		"message": "вівця"
+	},
+	"speedsketch_item~shoe": {
+		"message": "черевик"
+	},
+	"speedsketch_item~shorts": {
+		"message": "шорти"
+	},
+	"speedsketch_item~shovel": {
+		"message": "лопата"
+	},
+	"speedsketch_item~sink": {
+		"message": "умивальник"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "скейтборд"
+	},
+	"speedsketch_item~ski": {
+		"message": "лижі"
+	},
+	"speedsketch_item~skier": {
+		"message": "лижник"
+	},
+	"speedsketch_item~skirt": {
+		"message": "спідниця"
+	},
+	"speedsketch_item~skull": {
+		"message": "череп"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "хмарочос"
+	},
+	"speedsketch_item~sled": {
+		"message": "сани"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "спальний мішок"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "сани"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "усміхнене обличчя"
+	},
+	"speedsketch_item~snail": {
+		"message": "равлик"
+	},
+	"speedsketch_item~snake": {
+		"message": "змія"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "трубка для підводного плавання"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "сніжинка"
+	},
+	"speedsketch_item~snowman": {
+		"message": "сніговик"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "футбольний м’яч"
+	},
+	"speedsketch_item~sock": {
+		"message": "шкарпетка"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "катер"
+	},
+	"speedsketch_item~sphere": {
+		"message": "сфера"
+	},
+	"speedsketch_item~spider": {
+		"message": "павук"
+	},
+	"speedsketch_item~spiral": {
+		"message": "спіраль"
+	},
+	"speedsketch_item~spoon": {
+		"message": "ложка"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "електронна таблиця"
+	},
+	"speedsketch_item~square": {
+		"message": "квадрат"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "карлючка"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "білка"
+	},
+	"speedsketch_item~stairs": {
+		"message": "сходи"
+	},
+	"speedsketch_item~star": {
+		"message": "зірка"
+	},
+	"speedsketch_item~steak": {
+		"message": "стейк"
+	},
+	"speedsketch_item~stereo": {
+		"message": "стерео"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "стетоскоп"
+	},
+	"speedsketch_item~still life": {
+		"message": "натюрморт"
+	},
+	"speedsketch_item~stitches": {
+		"message": "стібки"
+	},
+	"speedsketch_item~stock market": {
+		"message": "фондова біржа"
+	},
+	"speedsketch_item~stocking": {
+		"message": "панчоха"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "знак зупинки"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "секундомір"
+	},
+	"speedsketch_item~stove": {
+		"message": "плита"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "полуниця"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "вуличний ліхтар"
+	},
+	"speedsketch_item~string bean": {
+		"message": "стручкова квасоля"
+	},
+	"speedsketch_item~submarine": {
+		"message": "підводний човен"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "валіза"
+	},
+	"speedsketch_item~sun": {
+		"message": "сонце"
+	},
+	"speedsketch_item~sunset": {
+		"message": "захід сонця"
+	},
+	"speedsketch_item~swan": {
+		"message": "лебідь"
+	},
+	"speedsketch_item~sweater": {
+		"message": "светр"
+	},
+	"speedsketch_item~swing set": {
+		"message": "гойдалки"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "футболка"
+	},
+	"speedsketch_item~table": {
+		"message": "стіл"
+	},
+	"speedsketch_item~teapot": {
+		"message": "чайник"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "плюшевий ведмідь"
+	},
+	"speedsketch_item~telephone": {
+		"message": "телефон"
+	},
+	"speedsketch_item~television": {
+		"message": "телевізор"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "тенісна ракетка"
+	},
+	"speedsketch_item~tent": {
+		"message": "намет"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "гра в хрестики-нулики"
+	},
+	"speedsketch_item~tiger": {
+		"message": "тигр"
+	},
+	"speedsketch_item~time": {
+		"message": "час"
+	},
+	"speedsketch_item~toaster": {
+		"message": "тостер"
+	},
+	"speedsketch_item~toe": {
+		"message": "палець ноги"
+	},
+	"speedsketch_item~toilet": {
+		"message": "туалет"
+	},
+	"speedsketch_item~tooth": {
+		"message": "зуб"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "зубна щітка"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "зубна паста"
+	},
+	"speedsketch_item~tornado": {
+		"message": "торнадо"
+	},
+	"speedsketch_item~tractor": {
+		"message": "трактор"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "світлофор"
+	},
+	"speedsketch_item~train": {
+		"message": "потяг"
+	},
+	"speedsketch_item~tree": {
+		"message": "дерево"
+	},
+	"speedsketch_item~triangle": {
+		"message": "трикутник"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "триколісний велосипед"
+	},
+	"speedsketch_item~trolley": {
+		"message": "візок"
+	},
+	"speedsketch_item~trombone": {
+		"message": "тромбон"
+	},
+	"speedsketch_item~trousers": {
+		"message": "штани"
+	},
+	"speedsketch_item~truck": {
+		"message": "вантажівка"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "труба"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "парасоля"
+	},
+	"speedsketch_item~underwear": {
+		"message": "нижня білизна"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "єдиноріг"
+	},
+	"speedsketch_item~universe": {
+		"message": "усесвіт"
+	},
+	"speedsketch_item~van": {
+		"message": "фургон"
+	},
+	"speedsketch_item~vase": {
+		"message": "ваза"
+	},
+	"speedsketch_item~violin": {
+		"message": "скрипка"
+	},
+	"speedsketch_item~walnut": {
+		"message": "волоський горіх"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "пральна машина"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "кавун"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "водна гірка"
+	},
+	"speedsketch_item~wave": {
+		"message": "хвиля"
+	},
+	"speedsketch_item~whale": {
+		"message": "кит"
+	},
+	"speedsketch_item~wheel": {
+		"message": "колесо"
+	},
+	"speedsketch_item~windmill": {
+		"message": "вітряк"
+	},
+	"speedsketch_item~woman": {
+		"message": "жінка"
+	},
+	"speedsketch_item~world": {
+		"message": "світ"
+	},
+	"speedsketch_item~wreath": {
+		"message": "вінок"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "наручний годинник"
+	},
+	"speedsketch_item~yoga": {
+		"message": "йога"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "йогурт"
+	},
+	"speedsketch_item~zebra": {
+		"message": "зебра"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "зигзаг"
+	},
+	"speedsketch_item~zipper": {
+		"message": "замок-блискавка"
 	},
 	"sr_country_name": {
 		"message": "Суринам"
@@ -5244,7 +6624,10 @@
 		"message": "Велика Британія"
 	},
 	"uk_tradition": {
-		"message": "У Великій Британії дорослі й діти обожнюють святкові хлопавки – традиційні забавки в яскравих обгортках. Якщо потягнути за кінці обгортки, пролунає гучний постріл, а з хлопавки посиплються солодощі, іграшки та паперові капелюхи."
+		"message": "У Великій Британії дорослі й діти обожнюють святкові хлопавки – традиційні забавки в яскравих обгортках. Якщо потягнути за кінці обгортки, пролунає гучний постріл, а з хлопавки посиплються подарунки, жарти, іграшки та паперові капелюхи."
+	},
+	"unmute": {
+		"message": "Увімкнути звук"
 	},
 	"upgrade-warning": {
 		"message": "На жаль, поточна версія вашого веб-переглядача не підтримує додаток Де Дід Мороз. Щоб користуватися ним, завантажте найновішу версію. Дізнайтеся більше на сайті \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Додати на головний екран"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Додати на полицю"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Додати на робочий стіл"
 	},
 	"village_santa_cardboard": {
 		"message": "Дід Мороз у Cardboard"

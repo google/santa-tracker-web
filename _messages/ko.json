@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "전통적으로 프랑스의 어린이들이 산타클로스를 기대하며 벽난로 옆에 신발을 벗어둡니다. 어린이가 1년 동안 착한 일을 했다면 산타클로스가 신발 속을 선물로 가득 채워줍니다."
 	},
+	"fullscreen": {
+		"message": "전체화면"
+	},
 	"ga_country_name": {
 		"message": "가봉"
 	},
@@ -666,7 +669,7 @@
 		"message": "온두라스"
 	},
 	"holiday_message_0": {
-		"message": "즐거운 연말연시를 보내세요."
+		"message": "즐거운 연말연시 보내세요."
 	},
 	"holiday_message_1": {
 		"message": "행복한 연말 보내세요."
@@ -744,7 +747,7 @@
 		"message": "한국"
 	},
 	"kr_tradition": {
-		"message": "대한민국에서는 크리스마스가 공휴일이며 연인을 위한 휴일로도 알려져 있습니다. 많은 연인이 크리스마스 조명이 반짝이는 거리와 상점이 즐비한 도시에서 데이트합니다."
+		"message": "대한민국에서는 크리스마스가 공휴일이며 연인을 위한 휴일로도 알려져 있습니다. 크리스마스 조명으로 장식한 매장이 즐비한 거리에서 많은 연인이 데이트를 즐깁니다."
 	},
 	"kz_country_name": {
 		"message": "카자흐스탄"
@@ -817,6 +820,9 @@
 	},
 	"mr_country_name": {
 		"message": "모리타니"
+	},
+	"mute": {
+		"message": "음소거"
 	},
 	"mw_country_name": {
 		"message": "말라위"
@@ -894,7 +900,7 @@
 		"message": "가족과 친구도 장식을 만들 수 있도록 장식을 공유해 보세요."
 	},
 	"nonprofit-intro-type": {
-		"message": "Google.org와 제휴하여 나눔의 계절을 일 년 내내 기념할 수 있는 비영리 교육 단체 다섯 곳을 소개합니다. 아래로 스크롤하면 각 단체가 받은 사랑을 어떻게 돌려주는지 확인할 수 있습니다. 이 장식에 색을 칠하고 트리에 매달거나 가족과 친구에게 선물로 보내 후원하는 단체를 알려보세요."
+		"message": "일 년 내내 나눔의 계절에 참여하실 수 있도록 Google.org와 제휴한 비영리 교육 단체 다섯 곳을 소개합니다. 아래로 스크롤하면 각 단체가 어떻게 사랑을 실천하고 있는지 확인할 수 있습니다. 참여하려면 장식에 색을 칠하거나 트리에 매달 수도 있고, 가족과 친구에게 선물로 보내실 수도 있습니다."
 	},
 	"nonprofit-jane-description": {
 		"message": "침팬지는 동물의 왕국에서 인간과 가장 가까운 친척입니다. 현재 서식지 감소, 질병, 불법 거래로 인해 30만 마리 이하의 침팬지만 남아 있습니다. Jane Goodall Institute(JGI, 제인 구달 협회)는 침팬지를 관찰하고 행동 양식을 파악하여 침팬지는 물론 침팬지 서식지를 보호하고 있습니다. 또한 JGI는 야생 동물을 보호하고 환경을 보전하는 공동체를 구축하기 위해 노력하고 있습니다. 탄자니아 곰베에 있는 \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e침팬지 서식지를 살펴보세요\u003c/a\u003e."
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "파나마"
 	},
+	"pause": {
+		"message": "일시중지"
+	},
 	"pe_country_name": {
 		"message": "페루"
 	},
@@ -1116,10 +1125,10 @@
 		"message": "그리기"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor는 산타가 온 세상 어린이들이 보내는 편지를 빨리 알아볼 수 있도록 도와주는 머신러닝 로봇입니다. 화면에 표시된 명절과 관련된 단어를 그림으로 그리면 Tensor가 무엇인지 말해줍니다. 많이 그릴수록 Tensor가 똑똑해져서 산타를 훨씬 더 잘 도와드릴 수 있답니다."
+		"message": "텐서는 산타가 온 세상 어린이들이 보내는 편지를 빨리 알아볼 수 있도록 도와주는 머신러닝 로봇입니다. 화면에 표시된 명절과 관련된 단어를 그림으로 그리면 텐서가 무엇인지 말해줍니다. 많이 그릴수록 텐서가 똑똑해져서 산타를 훨씬 더 잘 도와드릴 수 있답니다."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Tensor의 이미지 인식 연습을 도와주세요."
+		"message": "텐서의 이미지 인식 연습 돕기"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor가 그림 중 {{recognized}}개를 알아보았습니다."
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "소말리아"
+	},
+	"speedsketch_item~London": {
+		"message": "런던"
+	},
+	"speedsketch_item~New York": {
+		"message": "뉴욕"
+	},
+	"speedsketch_item~Paris": {
+		"message": "파리"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "상하이"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "스위스"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "에펠탑"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "중국의 만리장성"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "모나리자"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "추상 미술"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "항공모함"
+	},
+	"speedsketch_item~airplane": {
+		"message": "비행기"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "알람 시계"
+	},
+	"speedsketch_item~alien": {
+		"message": "외계인"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "구급차"
+	},
+	"speedsketch_item~angel": {
+		"message": "천사"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "동물의 이주"
+	},
+	"speedsketch_item~ant": {
+		"message": "개미"
+	},
+	"speedsketch_item~anvil": {
+		"message": "모루"
+	},
+	"speedsketch_item~apple": {
+		"message": "사과"
+	},
+	"speedsketch_item~arm": {
+		"message": "팔"
+	},
+	"speedsketch_item~arrow": {
+		"message": "화살"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "아스파라거스"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "우주비행사"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "오디오 카세트"
+	},
+	"speedsketch_item~avocado": {
+		"message": "아보카도"
+	},
+	"speedsketch_item~axe": {
+		"message": "도끼"
+	},
+	"speedsketch_item~baby": {
+		"message": "아기"
+	},
+	"speedsketch_item~backpack": {
+		"message": "배낭"
+	},
+	"speedsketch_item~banana": {
+		"message": "바나나"
+	},
+	"speedsketch_item~bandage": {
+		"message": "붕대"
+	},
+	"speedsketch_item~barn": {
+		"message": "외양간"
+	},
+	"speedsketch_item~baseball": {
+		"message": "야구"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "야구 방망이"
+	},
+	"speedsketch_item~basket": {
+		"message": "바구니"
+	},
+	"speedsketch_item~basketball": {
+		"message": "농구"
+	},
+	"speedsketch_item~bat": {
+		"message": "박쥐"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "욕조"
+	},
+	"speedsketch_item~beach": {
+		"message": "해변"
+	},
+	"speedsketch_item~bear": {
+		"message": "곰"
+	},
+	"speedsketch_item~beard": {
+		"message": "턱수염"
+	},
+	"speedsketch_item~bed": {
+		"message": "침대"
+	},
+	"speedsketch_item~bee": {
+		"message": "벌"
+	},
+	"speedsketch_item~belt": {
+		"message": "허리띠"
+	},
+	"speedsketch_item~bench": {
+		"message": "벤치"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "자전거"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "쌍안경"
+	},
+	"speedsketch_item~bird": {
+		"message": "새"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "생일 케이크"
+	},
+	"speedsketch_item~black": {
+		"message": "검은색"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "블랙베리"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "블루베리"
+	},
+	"speedsketch_item~book": {
+		"message": "책"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "부메랑"
+	},
+	"speedsketch_item~boot": {
+		"message": "부팅"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "병뚜껑"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "나비넥타이"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "팔찌"
+	},
+	"speedsketch_item~brain": {
+		"message": "뇌"
+	},
+	"speedsketch_item~bread": {
+		"message": "빵"
+	},
+	"speedsketch_item~bridge": {
+		"message": "다리(건축물)"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "브로콜리"
+	},
+	"speedsketch_item~broom": {
+		"message": "빗자루"
+	},
+	"speedsketch_item~bubble": {
+		"message": "풍선"
+	},
+	"speedsketch_item~bucket": {
+		"message": "양동이"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "불도저"
+	},
+	"speedsketch_item~bus": {
+		"message": "버스"
+	},
+	"speedsketch_item~bush": {
+		"message": "덤불"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "나비"
+	},
+	"speedsketch_item~cactus": {
+		"message": "선인장"
+	},
+	"speedsketch_item~cake": {
+		"message": "케이크"
+	},
+	"speedsketch_item~calculator": {
+		"message": "계산기"
+	},
+	"speedsketch_item~calendar": {
+		"message": "달력"
+	},
+	"speedsketch_item~camel": {
+		"message": "낙타"
+	},
+	"speedsketch_item~camera": {
+		"message": "카메라"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "위장(카무플라주)"
+	},
+	"speedsketch_item~campfire": {
+		"message": "모닥불"
+	},
+	"speedsketch_item~candle": {
+		"message": "양초"
+	},
+	"speedsketch_item~candy": {
+		"message": "사탕"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "지팡이 사탕"
+	},
+	"speedsketch_item~canoe": {
+		"message": "카누"
+	},
+	"speedsketch_item~car": {
+		"message": "자동차"
+	},
+	"speedsketch_item~carrot": {
+		"message": "당근"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "만화"
+	},
+	"speedsketch_item~castle": {
+		"message": "성"
+	},
+	"speedsketch_item~cat": {
+		"message": "고양이"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "천장 선풍기"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "휴대전화"
+	},
+	"speedsketch_item~cello": {
+		"message": "첼로"
+	},
+	"speedsketch_item~chair": {
+		"message": "의자"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "샹들리에"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "화학"
+	},
+	"speedsketch_item~cherry": {
+		"message": "체리"
+	},
+	"speedsketch_item~chicken": {
+		"message": "닭"
+	},
+	"speedsketch_item~child": {
+		"message": "어린이"
+	},
+	"speedsketch_item~chimney": {
+		"message": "굴뚝"
+	},
+	"speedsketch_item~church": {
+		"message": "교회"
+	},
+	"speedsketch_item~circle": {
+		"message": "원"
+	},
+	"speedsketch_item~city": {
+		"message": "도시"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "클라리넷"
+	},
+	"speedsketch_item~clock": {
+		"message": "시계"
+	},
+	"speedsketch_item~cloud": {
+		"message": "구름"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "옥수수 속대"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "커피잔"
+	},
+	"speedsketch_item~compass": {
+		"message": "나침반"
+	},
+	"speedsketch_item~computer": {
+		"message": "컴퓨터"
+	},
+	"speedsketch_item~cookie": {
+		"message": "쿠키"
+	},
+	"speedsketch_item~cooler": {
+		"message": "아이스박스"
+	},
+	"speedsketch_item~couch": {
+		"message": "소파"
+	},
+	"speedsketch_item~cow": {
+		"message": "소"
+	},
+	"speedsketch_item~crab": {
+		"message": "게"
+	},
+	"speedsketch_item~crayon": {
+		"message": "크레용"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "악어"
+	},
+	"speedsketch_item~cross": {
+		"message": "십자가"
+	},
+	"speedsketch_item~crow": {
+		"message": "까마귀"
+	},
+	"speedsketch_item~crown": {
+		"message": "왕관"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "유람선"
+	},
+	"speedsketch_item~cube": {
+		"message": "정육면체"
+	},
+	"speedsketch_item~cup": {
+		"message": "컵"
+	},
+	"speedsketch_item~darts": {
+		"message": "다트"
+	},
+	"speedsketch_item~diamond": {
+		"message": "마름모"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "다이아몬드 반지"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "식기 세척기"
+	},
+	"speedsketch_item~diving board": {
+		"message": "다이빙 보드"
+	},
+	"speedsketch_item~dog": {
+		"message": "개"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "돌고래"
+	},
+	"speedsketch_item~donut": {
+		"message": "도넛"
+	},
+	"speedsketch_item~door": {
+		"message": "문"
+	},
+	"speedsketch_item~dragon": {
+		"message": "용"
+	},
+	"speedsketch_item~dresser": {
+		"message": "옷장"
+	},
+	"speedsketch_item~drill": {
+		"message": "드릴"
+	},
+	"speedsketch_item~drums": {
+		"message": "드럼"
+	},
+	"speedsketch_item~duck": {
+		"message": "오리"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "아령"
+	},
+	"speedsketch_item~ear": {
+		"message": "귀"
+	},
+	"speedsketch_item~egg": {
+		"message": "달걀"
+	},
+	"speedsketch_item~elbow": {
+		"message": "팔꿈치"
+	},
+	"speedsketch_item~elephant": {
+		"message": "코끼리"
+	},
+	"speedsketch_item~elf": {
+		"message": "엘프"
+	},
+	"speedsketch_item~emoji": {
+		"message": "그림 이모티콘"
+	},
+	"speedsketch_item~envelope": {
+		"message": "봉투"
+	},
+	"speedsketch_item~eraser": {
+		"message": "지우개"
+	},
+	"speedsketch_item~eye": {
+		"message": "눈"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "안경"
+	},
+	"speedsketch_item~face": {
+		"message": "얼굴"
+	},
+	"speedsketch_item~family": {
+		"message": "가족"
+	},
+	"speedsketch_item~fan": {
+		"message": "선풍기"
+	},
+	"speedsketch_item~feather": {
+		"message": "깃털"
+	},
+	"speedsketch_item~fence": {
+		"message": "울타리"
+	},
+	"speedsketch_item~finger": {
+		"message": "손가락"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "소화전"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "벽난로"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "소방차"
+	},
+	"speedsketch_item~fish": {
+		"message": "물고기"
+	},
+	"speedsketch_item~flag": {
+		"message": "깃발"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "플라밍고"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "손전등"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "플립플롭 슬리퍼"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "플로어 램프"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "플로피 디스크"
+	},
+	"speedsketch_item~flower": {
+		"message": "꽃"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "비행접시"
+	},
+	"speedsketch_item~fog": {
+		"message": "안개"
+	},
+	"speedsketch_item~foot": {
+		"message": "발"
+	},
+	"speedsketch_item~fork": {
+		"message": "포크"
+	},
+	"speedsketch_item~french fries": {
+		"message": "프렌치프라이"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "달걀 프라이"
+	},
+	"speedsketch_item~frog": {
+		"message": "개구리"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "프라이팬"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "은하수"
+	},
+	"speedsketch_item~garden": {
+		"message": "정원"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "정원 호스"
+	},
+	"speedsketch_item~ghost": {
+		"message": "유령"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "진저브레드맨"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "기린"
+	},
+	"speedsketch_item~goat": {
+		"message": "염소"
+	},
+	"speedsketch_item~goatee": {
+		"message": "염소수염"
+	},
+	"speedsketch_item~golf club": {
+		"message": "골프채"
+	},
+	"speedsketch_item~grapes": {
+		"message": "포도"
+	},
+	"speedsketch_item~grass": {
+		"message": "잔디"
+	},
+	"speedsketch_item~group": {
+		"message": "그룹"
+	},
+	"speedsketch_item~guitar": {
+		"message": "기타"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "햄버거"
+	},
+	"speedsketch_item~hammer": {
+		"message": "망치"
+	},
+	"speedsketch_item~hand": {
+		"message": "손"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "행맨 게임"
+	},
+	"speedsketch_item~happiness": {
+		"message": "행복"
+	},
+	"speedsketch_item~harp": {
+		"message": "하프"
+	},
+	"speedsketch_item~hat": {
+		"message": "모자"
+	},
+	"speedsketch_item~headphones": {
+		"message": "헤드폰"
+	},
+	"speedsketch_item~heart": {
+		"message": "하트"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "고슴도치"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "헬리콥터"
+	},
+	"speedsketch_item~helmet": {
+		"message": "헬멧"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "육각형"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "하키 퍽"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "하키 스틱"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "크리스마스 전등"
+	},
+	"speedsketch_item~horse": {
+		"message": "말"
+	},
+	"speedsketch_item~hospital": {
+		"message": "병원"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "열기구"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "핫도그"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "월풀 욕조"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "모래시계"
+	},
+	"speedsketch_item~house": {
+		"message": "집"
+	},
+	"speedsketch_item~house plant": {
+		"message": "실내용 화초"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "허리케인"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "아이스크림"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "아이스 스케이트 타는 사람"
+	},
+	"speedsketch_item~infinity": {
+		"message": "무한대"
+	},
+	"speedsketch_item~island": {
+		"message": "섬"
+	},
+	"speedsketch_item~italy": {
+		"message": "이탈리아"
+	},
+	"speedsketch_item~jacket": {
+		"message": "재킷"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "제트 추진"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "징글벨"
+	},
+	"speedsketch_item~kale": {
+		"message": "케일"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "캥거루"
+	},
+	"speedsketch_item~key": {
+		"message": "열쇠"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "키보드"
+	},
+	"speedsketch_item~kite": {
+		"message": "연"
+	},
+	"speedsketch_item~knee": {
+		"message": "무릎"
+	},
+	"speedsketch_item~knife": {
+		"message": "칼"
+	},
+	"speedsketch_item~knot": {
+		"message": "매듭"
+	},
+	"speedsketch_item~koala": {
+		"message": "코알라"
+	},
+	"speedsketch_item~ladder": {
+		"message": "사다리"
+	},
+	"speedsketch_item~landscape": {
+		"message": "풍경 사진"
+	},
+	"speedsketch_item~lantern": {
+		"message": "랜턴"
+	},
+	"speedsketch_item~laptop": {
+		"message": "노트북"
+	},
+	"speedsketch_item~leaf": {
+		"message": "잎"
+	},
+	"speedsketch_item~leg": {
+		"message": "다리(신체 부위)"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "전구"
+	},
+	"speedsketch_item~lighter": {
+		"message": "라이터"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "등대"
+	},
+	"speedsketch_item~lightning": {
+		"message": "번개"
+	},
+	"speedsketch_item~line": {
+		"message": "선"
+	},
+	"speedsketch_item~lion": {
+		"message": "사자"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "립스틱"
+	},
+	"speedsketch_item~lobster": {
+		"message": "바닷가재"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "막대사탕"
+	},
+	"speedsketch_item~love": {
+		"message": "사랑"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "편지함"
+	},
+	"speedsketch_item~man": {
+		"message": "남성"
+	},
+	"speedsketch_item~map": {
+		"message": "지도"
+	},
+	"speedsketch_item~marker": {
+		"message": "마커"
+	},
+	"speedsketch_item~matches": {
+		"message": "성냥"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "수학"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "메가폰"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "인어"
+	},
+	"speedsketch_item~metal": {
+		"message": "금속"
+	},
+	"speedsketch_item~microphone": {
+		"message": "마이크"
+	},
+	"speedsketch_item~microscope": {
+		"message": "현미경"
+	},
+	"speedsketch_item~microwave": {
+		"message": "전자레인지"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "겨우살이"
+	},
+	"speedsketch_item~mittens": {
+		"message": "벙어리 장갑"
+	},
+	"speedsketch_item~molecule": {
+		"message": "분자"
+	},
+	"speedsketch_item~money": {
+		"message": "돈"
+	},
+	"speedsketch_item~monkey": {
+		"message": "원숭이"
+	},
+	"speedsketch_item~moon": {
+		"message": "달"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "모기"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "오토바이"
+	},
+	"speedsketch_item~mountain": {
+		"message": "산"
+	},
+	"speedsketch_item~mouse": {
+		"message": "쥐"
+	},
+	"speedsketch_item~moustache": {
+		"message": "콧수염"
+	},
+	"speedsketch_item~mouth": {
+		"message": "입"
+	},
+	"speedsketch_item~mug": {
+		"message": "머그잔"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "버섯"
+	},
+	"speedsketch_item~music": {
+		"message": "음악"
+	},
+	"speedsketch_item~nail": {
+		"message": "못"
+	},
+	"speedsketch_item~nature": {
+		"message": "자연"
+	},
+	"speedsketch_item~necklace": {
+		"message": "목걸이"
+	},
+	"speedsketch_item~news": {
+		"message": "뉴스"
+	},
+	"speedsketch_item~nose": {
+		"message": "코"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "호두 까는 기구"
+	},
+	"speedsketch_item~ocean": {
+		"message": "바다"
+	},
+	"speedsketch_item~octagon": {
+		"message": "팔각형"
+	},
+	"speedsketch_item~octopus": {
+		"message": "문어"
+	},
+	"speedsketch_item~onion": {
+		"message": "양파"
+	},
+	"speedsketch_item~ornament": {
+		"message": "장식"
+	},
+	"speedsketch_item~oven": {
+		"message": "오븐"
+	},
+	"speedsketch_item~owl": {
+		"message": "올빼미"
+	},
+	"speedsketch_item~paint can": {
+		"message": "페인트 통"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "페인트 붓"
+	},
+	"speedsketch_item~painting": {
+		"message": "그림"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "야자나무"
+	},
+	"speedsketch_item~panda": {
+		"message": "판다"
+	},
+	"speedsketch_item~pants": {
+		"message": "바지"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "클립"
+	},
+	"speedsketch_item~parachute": {
+		"message": "낙하산"
+	},
+	"speedsketch_item~parrot": {
+		"message": "앵무새"
+	},
+	"speedsketch_item~passport": {
+		"message": "여권"
+	},
+	"speedsketch_item~peanut": {
+		"message": "땅콩"
+	},
+	"speedsketch_item~pear": {
+		"message": "서양배(과일)"
+	},
+	"speedsketch_item~peas": {
+		"message": "완두콩"
+	},
+	"speedsketch_item~pencil": {
+		"message": "연필"
+	},
+	"speedsketch_item~penguin": {
+		"message": "펭귄"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "페퍼민트"
+	},
+	"speedsketch_item~piano": {
+		"message": "피아노"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "픽업트럭"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "액자"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "원형 차트"
+	},
+	"speedsketch_item~pig": {
+		"message": "돼지"
+	},
+	"speedsketch_item~pillow": {
+		"message": "베개"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "파인애플"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "탁구"
+	},
+	"speedsketch_item~pirate": {
+		"message": "해적"
+	},
+	"speedsketch_item~pizza": {
+		"message": "피자"
+	},
+	"speedsketch_item~pliers": {
+		"message": "펜치"
+	},
+	"speedsketch_item~police car": {
+		"message": "경찰차"
+	},
+	"speedsketch_item~politician": {
+		"message": "정치인"
+	},
+	"speedsketch_item~pond": {
+		"message": "연못"
+	},
+	"speedsketch_item~pool": {
+		"message": "수영장"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "아이스바"
+	},
+	"speedsketch_item~portrait": {
+		"message": "인물 사진"
+	},
+	"speedsketch_item~postcard": {
+		"message": "엽서"
+	},
+	"speedsketch_item~potato": {
+		"message": "감자"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "전원 콘센트"
+	},
+	"speedsketch_item~present": {
+		"message": "현재"
+	},
+	"speedsketch_item~prison": {
+		"message": "감옥"
+	},
+	"speedsketch_item~purse": {
+		"message": "핸드백"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "퍼즐"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "토끼"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "너구리"
+	},
+	"speedsketch_item~radio": {
+		"message": "라디오"
+	},
+	"speedsketch_item~rain": {
+		"message": "비"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "무지개"
+	},
+	"speedsketch_item~rake": {
+		"message": "갈퀴"
+	},
+	"speedsketch_item~raven": {
+		"message": "큰까마귀"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "순록"
+	},
+	"speedsketch_item~remote control": {
+		"message": "리모컨"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "코뿔소"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "리본"
+	},
+	"speedsketch_item~river": {
+		"message": "강"
+	},
+	"speedsketch_item~robot": {
+		"message": "로봇"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "롤러코스터"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "롤러스케이트"
+	},
+	"speedsketch_item~sadness": {
+		"message": "슬픔"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "범선"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "샌드위치"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "산타클로스"
+	},
+	"speedsketch_item~saturn": {
+		"message": "토성"
+	},
+	"speedsketch_item~sausage": {
+		"message": "소시지"
+	},
+	"speedsketch_item~saw": {
+		"message": "톱"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "색소폰"
+	},
+	"speedsketch_item~school bus": {
+		"message": "학교 버스"
+	},
+	"speedsketch_item~scissors": {
+		"message": "가위"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "전갈"
+	},
+	"speedsketch_item~screw": {
+		"message": "나사"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "드라이버"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "조각"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "바다거북"
+	},
+	"speedsketch_item~see saw": {
+		"message": "시소"
+	},
+	"speedsketch_item~shark": {
+		"message": "상어"
+	},
+	"speedsketch_item~sheep": {
+		"message": "양"
+	},
+	"speedsketch_item~shoe": {
+		"message": "신발"
+	},
+	"speedsketch_item~shorts": {
+		"message": "반바지"
+	},
+	"speedsketch_item~shovel": {
+		"message": "삽"
+	},
+	"speedsketch_item~sink": {
+		"message": "싱크"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "스케이트보드"
+	},
+	"speedsketch_item~ski": {
+		"message": "스키"
+	},
+	"speedsketch_item~skier": {
+		"message": "스키 타는 사람"
+	},
+	"speedsketch_item~skirt": {
+		"message": "치마"
+	},
+	"speedsketch_item~skull": {
+		"message": "해골"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "마천루"
+	},
+	"speedsketch_item~sled": {
+		"message": "썰매"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "침낭"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "썰매"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "웃는 얼굴"
+	},
+	"speedsketch_item~snail": {
+		"message": "달팽이"
+	},
+	"speedsketch_item~snake": {
+		"message": "뱀"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "스노클"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "눈송이"
+	},
+	"speedsketch_item~snowman": {
+		"message": "눈사람"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "축구공"
+	},
+	"speedsketch_item~sock": {
+		"message": "양말"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "모터보트"
+	},
+	"speedsketch_item~sphere": {
+		"message": "구"
+	},
+	"speedsketch_item~spider": {
+		"message": "거미"
+	},
+	"speedsketch_item~spiral": {
+		"message": "나선형"
+	},
+	"speedsketch_item~spoon": {
+		"message": "숟가락"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "스프레드시트"
+	},
+	"speedsketch_item~square": {
+		"message": "정사각형"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "구불구불한 선"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "다람쥐"
+	},
+	"speedsketch_item~stairs": {
+		"message": "계단"
+	},
+	"speedsketch_item~star": {
+		"message": "별"
+	},
+	"speedsketch_item~steak": {
+		"message": "스테이크"
+	},
+	"speedsketch_item~stereo": {
+		"message": "스테레오"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "청진기"
+	},
+	"speedsketch_item~still life": {
+		"message": "정물화"
+	},
+	"speedsketch_item~stitches": {
+		"message": "바늘땀"
+	},
+	"speedsketch_item~stock market": {
+		"message": "주식 시장"
+	},
+	"speedsketch_item~stocking": {
+		"message": "스타킹"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "정지 신호"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "스톱워치"
+	},
+	"speedsketch_item~stove": {
+		"message": "레인지"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "딸기"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "가로등"
+	},
+	"speedsketch_item~string bean": {
+		"message": "껍질콩"
+	},
+	"speedsketch_item~submarine": {
+		"message": "잠수함"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "여행 가방"
+	},
+	"speedsketch_item~sun": {
+		"message": "해"
+	},
+	"speedsketch_item~sunset": {
+		"message": "일몰"
+	},
+	"speedsketch_item~swan": {
+		"message": "백조"
+	},
+	"speedsketch_item~sweater": {
+		"message": "스웨터"
+	},
+	"speedsketch_item~swing set": {
+		"message": "그네"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "티셔츠"
+	},
+	"speedsketch_item~table": {
+		"message": "테이블"
+	},
+	"speedsketch_item~teapot": {
+		"message": "주전자"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "곰 인형"
+	},
+	"speedsketch_item~telephone": {
+		"message": "전화"
+	},
+	"speedsketch_item~television": {
+		"message": "텔레비전"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "테니스 라켓"
+	},
+	"speedsketch_item~tent": {
+		"message": "텐트"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "틱택토 게임"
+	},
+	"speedsketch_item~tiger": {
+		"message": "호랑이"
+	},
+	"speedsketch_item~time": {
+		"message": "시간"
+	},
+	"speedsketch_item~toaster": {
+		"message": "토스터"
+	},
+	"speedsketch_item~toe": {
+		"message": "발가락"
+	},
+	"speedsketch_item~toilet": {
+		"message": "화장실"
+	},
+	"speedsketch_item~tooth": {
+		"message": "치아"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "칫솔"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "치약"
+	},
+	"speedsketch_item~tornado": {
+		"message": "토네이도"
+	},
+	"speedsketch_item~tractor": {
+		"message": "트랙터"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "신호등"
+	},
+	"speedsketch_item~train": {
+		"message": "학습"
+	},
+	"speedsketch_item~tree": {
+		"message": "나무"
+	},
+	"speedsketch_item~triangle": {
+		"message": "삼각형"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "삼륜차"
+	},
+	"speedsketch_item~trolley": {
+		"message": "트롤리"
+	},
+	"speedsketch_item~trombone": {
+		"message": "트롬본"
+	},
+	"speedsketch_item~trousers": {
+		"message": "바지"
+	},
+	"speedsketch_item~truck": {
+		"message": "트럭"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "트럼펫"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "우산"
+	},
+	"speedsketch_item~underwear": {
+		"message": "속옷"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "유니콘"
+	},
+	"speedsketch_item~universe": {
+		"message": "우주"
+	},
+	"speedsketch_item~van": {
+		"message": "승합차"
+	},
+	"speedsketch_item~vase": {
+		"message": "꽃병"
+	},
+	"speedsketch_item~violin": {
+		"message": "바이올린"
+	},
+	"speedsketch_item~walnut": {
+		"message": "호두"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "세탁기"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "수박"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "워터슬라이드"
+	},
+	"speedsketch_item~wave": {
+		"message": "물결"
+	},
+	"speedsketch_item~whale": {
+		"message": "고래"
+	},
+	"speedsketch_item~wheel": {
+		"message": "바퀴"
+	},
+	"speedsketch_item~windmill": {
+		"message": "풍차"
+	},
+	"speedsketch_item~woman": {
+		"message": "여성"
+	},
+	"speedsketch_item~world": {
+		"message": "세계"
+	},
+	"speedsketch_item~wreath": {
+		"message": "화환"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "손목시계"
+	},
+	"speedsketch_item~yoga": {
+		"message": "요가"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "요거트"
+	},
+	"speedsketch_item~zebra": {
+		"message": "얼룩말"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "지그재그"
+	},
+	"speedsketch_item~zipper": {
+		"message": "지퍼"
 	},
 	"sr_country_name": {
 		"message": "수리남"
@@ -5244,7 +6624,10 @@
 		"message": "영국"
 	},
 	"uk_tradition": {
-		"message": "영국에서는 남녀노소 모두 저녁 식사 자리에서 크리스마스 크래커를 즐깁니다. 크래커는 형형색색의 포장지로 꾸민 사탕 모양의 원통형 장식입니다. 양쪽 끝을 잡아 당기면 '뻥'하는  소리와 함께 터지면서 안에 있던 종이 모자, 장난감, 사탕 등으로 즐거운 저녁 시간을 보낼 수 있습니다."
+		"message": "영국에서는 남녀노소 모두 저녁 식사 자리에서 크리스마스 크래커를 즐깁니다. 크래커는 형형색색의 포장지로 꾸민 사탕 모양의 원통형 장식입니다. 양쪽 끝을 잡아당기면 '뻥'하는 소리와 함께 열립니다. 크래커 안에 있는 종이 왕관, 장난감, 종이에 적힌 크리스마스 조크, 선물 등으로 즐거운 크리스마스 저녁 시간을 보낼 수 있습니다."
+	},
+	"unmute": {
+		"message": "음소거 해제"
 	},
 	"upgrade-warning": {
 		"message": "산타 추적기가 지원되지 않는 버전의 브라우저입니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하세요. 자세한 내용은 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e를 방문하세요."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "홈 화면에 추가"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "실행기에 추가"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "데스크톱에 추가"
 	},
 	"village_santa_cardboard": {
 		"message": "Cardboard에서 산타 찾기"

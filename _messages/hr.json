@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "U Francuskoj djeca u očekivanju dolaska Père Noëla ostavljaju cipele uz kamin. Ako su kroz godinu bila dobra, Père Noël napunit će cipele darovima."
 	},
+	"fullscreen": {
+		"message": "Cijeli zaslon"
+	},
 	"ga_country_name": {
 		"message": "Gabon"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritanija"
 	},
+	"mute": {
+		"message": "Isključi zvuk"
+	},
 	"mw_country_name": {
 		"message": "Malavi"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "Pauza"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1116,7 +1125,7 @@
 		"message": "Crtaj"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor je Djedov robot sa strojnim učenjem koji mu pomaže da brzo pročita pisma koja prima od djece sa svih strana svijeta. Da bi se Tensor brže uvježbao, na zaslonu nacrtaj sliku svake praznične riječi, a on će ti reći što vidi. Što više crtaš, Tensor postaje pametniji; pomozimo Djedu da ovih blagdana bude učinkovit kao nikada dosad!"
+		"message": "Tensor je Djedov robot sa strojnim učenjem koji mu pomaže da brzo pročita pisma koja prima od djece sa svih strana svijeta. Da bi se Tensor brže uvježbao, na zaslonu nacrtaj sliku svake praznične riječi, a on će ti reći što vidi. Što više crtaš, Tensor postaje pametniji; pomozimo Djedu da ovih blagdana podijeli više darova nego ikada dosad!"
 	},
 	"quickdraw-splashview-title": {
 		"message": "Pomozi Tensoru da uvježba prepoznavanje slika!"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalija"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Pariz"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Šangaj"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Švicarska"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Eiffelov toranj"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Veliki kineski zid"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "apstraktna umjetnost"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "nosač zrakoplova"
+	},
+	"speedsketch_item~airplane": {
+		"message": "zrakoplov"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "budilica"
+	},
+	"speedsketch_item~alien": {
+		"message": "vanzemaljac"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "vozilo hitne pomoći"
+	},
+	"speedsketch_item~angel": {
+		"message": "anđeo"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "migracija životinja"
+	},
+	"speedsketch_item~ant": {
+		"message": "mrav"
+	},
+	"speedsketch_item~anvil": {
+		"message": "nakovanj"
+	},
+	"speedsketch_item~apple": {
+		"message": "jabuka"
+	},
+	"speedsketch_item~arm": {
+		"message": "ruka"
+	},
+	"speedsketch_item~arrow": {
+		"message": "strelica"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "šparoga"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "audiokaseta"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokado"
+	},
+	"speedsketch_item~axe": {
+		"message": "sjekira"
+	},
+	"speedsketch_item~baby": {
+		"message": "beba"
+	},
+	"speedsketch_item~backpack": {
+		"message": "ruksak"
+	},
+	"speedsketch_item~banana": {
+		"message": "banana"
+	},
+	"speedsketch_item~bandage": {
+		"message": "zavoj"
+	},
+	"speedsketch_item~barn": {
+		"message": "štala"
+	},
+	"speedsketch_item~baseball": {
+		"message": "bejzbolska loptica"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "bejzbolska palica"
+	},
+	"speedsketch_item~basket": {
+		"message": "koš"
+	},
+	"speedsketch_item~basketball": {
+		"message": "košarkaška lopta"
+	},
+	"speedsketch_item~bat": {
+		"message": "šišmiš"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "kada"
+	},
+	"speedsketch_item~beach": {
+		"message": "plaža"
+	},
+	"speedsketch_item~bear": {
+		"message": "medo"
+	},
+	"speedsketch_item~beard": {
+		"message": "brada"
+	},
+	"speedsketch_item~bed": {
+		"message": "krevet"
+	},
+	"speedsketch_item~bee": {
+		"message": "pčela"
+	},
+	"speedsketch_item~belt": {
+		"message": "remen"
+	},
+	"speedsketch_item~bench": {
+		"message": "klupa"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "bicikl"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "dvogled"
+	},
+	"speedsketch_item~bird": {
+		"message": "ptica"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "rođendanska torta"
+	},
+	"speedsketch_item~black": {
+		"message": "crna"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "kupina"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "borovnica"
+	},
+	"speedsketch_item~book": {
+		"message": "knjiga"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "čizma"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "čep od boce"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "leptir mašna"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "narukvica"
+	},
+	"speedsketch_item~brain": {
+		"message": "mozak"
+	},
+	"speedsketch_item~bread": {
+		"message": "kruh"
+	},
+	"speedsketch_item~bridge": {
+		"message": "most"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "brokula"
+	},
+	"speedsketch_item~broom": {
+		"message": "metla"
+	},
+	"speedsketch_item~bubble": {
+		"message": "oblačić"
+	},
+	"speedsketch_item~bucket": {
+		"message": "kanta"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldožer"
+	},
+	"speedsketch_item~bus": {
+		"message": "autobus"
+	},
+	"speedsketch_item~bush": {
+		"message": "grm"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "leptir"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "torta"
+	},
+	"speedsketch_item~calculator": {
+		"message": "kalkulator"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalendar"
+	},
+	"speedsketch_item~camel": {
+		"message": "deva"
+	},
+	"speedsketch_item~camera": {
+		"message": "fotoaparat"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "kamuflaža"
+	},
+	"speedsketch_item~campfire": {
+		"message": "logorska vatra"
+	},
+	"speedsketch_item~candle": {
+		"message": "svijeća"
+	},
+	"speedsketch_item~candy": {
+		"message": "bombon"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "šlatkiš"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kanu"
+	},
+	"speedsketch_item~car": {
+		"message": "automobil"
+	},
+	"speedsketch_item~carrot": {
+		"message": "mrkva"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "crtić"
+	},
+	"speedsketch_item~castle": {
+		"message": "dvorac"
+	},
+	"speedsketch_item~cat": {
+		"message": "mačka"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "stropni ventilator"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobitel"
+	},
+	"speedsketch_item~cello": {
+		"message": "violončelo"
+	},
+	"speedsketch_item~chair": {
+		"message": "stolica"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "luster"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "kemija"
+	},
+	"speedsketch_item~cherry": {
+		"message": "trešnja"
+	},
+	"speedsketch_item~chicken": {
+		"message": "kokoš"
+	},
+	"speedsketch_item~child": {
+		"message": "dijete"
+	},
+	"speedsketch_item~chimney": {
+		"message": "dimnjak"
+	},
+	"speedsketch_item~church": {
+		"message": "crkva"
+	},
+	"speedsketch_item~circle": {
+		"message": "krug"
+	},
+	"speedsketch_item~city": {
+		"message": "grad"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "sat"
+	},
+	"speedsketch_item~cloud": {
+		"message": "oblak"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "kuhani kukuruz"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "šalica kave"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompas"
+	},
+	"speedsketch_item~computer": {
+		"message": "računalo"
+	},
+	"speedsketch_item~cookie": {
+		"message": "kolačić"
+	},
+	"speedsketch_item~cooler": {
+		"message": "hladnjak"
+	},
+	"speedsketch_item~couch": {
+		"message": "kauč"
+	},
+	"speedsketch_item~cow": {
+		"message": "krava"
+	},
+	"speedsketch_item~crab": {
+		"message": "rak"
+	},
+	"speedsketch_item~crayon": {
+		"message": "bojica"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodil"
+	},
+	"speedsketch_item~cross": {
+		"message": "križ"
+	},
+	"speedsketch_item~crow": {
+		"message": "vrana"
+	},
+	"speedsketch_item~crown": {
+		"message": "kruna"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "kruzer"
+	},
+	"speedsketch_item~cube": {
+		"message": "kocka"
+	},
+	"speedsketch_item~cup": {
+		"message": "šalica"
+	},
+	"speedsketch_item~darts": {
+		"message": "pikado"
+	},
+	"speedsketch_item~diamond": {
+		"message": "dijamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "dijamantni prsten"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "perilica suđa"
+	},
+	"speedsketch_item~diving board": {
+		"message": "skakaonica"
+	},
+	"speedsketch_item~dog": {
+		"message": "pas"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "dupin"
+	},
+	"speedsketch_item~donut": {
+		"message": "krafna"
+	},
+	"speedsketch_item~door": {
+		"message": "vrata"
+	},
+	"speedsketch_item~dragon": {
+		"message": "zmaj"
+	},
+	"speedsketch_item~dresser": {
+		"message": "komoda"
+	},
+	"speedsketch_item~drill": {
+		"message": "bušilica"
+	},
+	"speedsketch_item~drums": {
+		"message": "bubnjevi"
+	},
+	"speedsketch_item~duck": {
+		"message": "patka"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "ručni uteg"
+	},
+	"speedsketch_item~ear": {
+		"message": "uho"
+	},
+	"speedsketch_item~egg": {
+		"message": "jaje"
+	},
+	"speedsketch_item~elbow": {
+		"message": "lakat"
+	},
+	"speedsketch_item~elephant": {
+		"message": "slon"
+	},
+	"speedsketch_item~elf": {
+		"message": "vilenjak"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "omotnica"
+	},
+	"speedsketch_item~eraser": {
+		"message": "gumica"
+	},
+	"speedsketch_item~eye": {
+		"message": "oko"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "naočale"
+	},
+	"speedsketch_item~face": {
+		"message": "lice"
+	},
+	"speedsketch_item~family": {
+		"message": "obitelj"
+	},
+	"speedsketch_item~fan": {
+		"message": "lepeza"
+	},
+	"speedsketch_item~feather": {
+		"message": "pero"
+	},
+	"speedsketch_item~fence": {
+		"message": "ograda"
+	},
+	"speedsketch_item~finger": {
+		"message": "prst"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "vatrogasni hidrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "kamin"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "vatrogasno vozilo"
+	},
+	"speedsketch_item~fish": {
+		"message": "riba"
+	},
+	"speedsketch_item~flag": {
+		"message": "označi"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "plamenac"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "baterija"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "japanke"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "podna svjetiljka"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "disketa"
+	},
+	"speedsketch_item~flower": {
+		"message": "cvijet"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "leteći tanjur"
+	},
+	"speedsketch_item~fog": {
+		"message": "magla"
+	},
+	"speedsketch_item~foot": {
+		"message": "stopalo"
+	},
+	"speedsketch_item~fork": {
+		"message": "vilica"
+	},
+	"speedsketch_item~french fries": {
+		"message": "pomfrit"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "prženo jaje"
+	},
+	"speedsketch_item~frog": {
+		"message": "žaba"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "tava"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaksija"
+	},
+	"speedsketch_item~garden": {
+		"message": "vrt"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "vrtno crijevo"
+	},
+	"speedsketch_item~ghost": {
+		"message": "duh"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "đumbirko"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "žirafa"
+	},
+	"speedsketch_item~goat": {
+		"message": "koza"
+	},
+	"speedsketch_item~goatee": {
+		"message": "kozja bradica"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfski klub"
+	},
+	"speedsketch_item~grapes": {
+		"message": "grožđe"
+	},
+	"speedsketch_item~grass": {
+		"message": "trava"
+	},
+	"speedsketch_item~group": {
+		"message": "grupa"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gitara"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "čekić"
+	},
+	"speedsketch_item~hand": {
+		"message": "šaka"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "igra vješala"
+	},
+	"speedsketch_item~happiness": {
+		"message": "sreća"
+	},
+	"speedsketch_item~harp": {
+		"message": "harfa"
+	},
+	"speedsketch_item~hat": {
+		"message": "šešir"
+	},
+	"speedsketch_item~headphones": {
+		"message": "slušalice"
+	},
+	"speedsketch_item~heart": {
+		"message": "srce"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "jež"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "kaciga"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "šesterokut"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hokejaški pak"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hokejaški štap"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "blagdanske žaruljice"
+	},
+	"speedsketch_item~horse": {
+		"message": "konj"
+	},
+	"speedsketch_item~hospital": {
+		"message": "bolnica"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "balon na topli zrak"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hot-dog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "masažna kada"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "pješčani sat"
+	},
+	"speedsketch_item~house": {
+		"message": "kuća"
+	},
+	"speedsketch_item~house plant": {
+		"message": "kućna biljka"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "uragan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "sladoled"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "klizač"
+	},
+	"speedsketch_item~infinity": {
+		"message": "beskonačnost"
+	},
+	"speedsketch_item~island": {
+		"message": "otok"
+	},
+	"speedsketch_item~italy": {
+		"message": "italija"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jakna"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "ruksak na mlazni pogon"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Zvončići"
+	},
+	"speedsketch_item~kale": {
+		"message": "kelj"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "klokan"
+	},
+	"speedsketch_item~key": {
+		"message": "ključ"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "tipkovnica"
+	},
+	"speedsketch_item~kite": {
+		"message": "zmaj"
+	},
+	"speedsketch_item~knee": {
+		"message": "koljeno"
+	},
+	"speedsketch_item~knife": {
+		"message": "nož"
+	},
+	"speedsketch_item~knot": {
+		"message": "čvor"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "ljestve"
+	},
+	"speedsketch_item~landscape": {
+		"message": "pejzaž"
+	},
+	"speedsketch_item~lantern": {
+		"message": "fenjer"
+	},
+	"speedsketch_item~laptop": {
+		"message": "prijenosno računalo"
+	},
+	"speedsketch_item~leaf": {
+		"message": "list"
+	},
+	"speedsketch_item~leg": {
+		"message": "noga"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "žarulja"
+	},
+	"speedsketch_item~lighter": {
+		"message": "upaljač"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "svjetionik"
+	},
+	"speedsketch_item~lightning": {
+		"message": "munja"
+	},
+	"speedsketch_item~line": {
+		"message": "crta"
+	},
+	"speedsketch_item~lion": {
+		"message": "lav"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "ruž"
+	},
+	"speedsketch_item~lobster": {
+		"message": "jastog"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "lizalica"
+	},
+	"speedsketch_item~love": {
+		"message": "ljubav"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "poštanski sandučić"
+	},
+	"speedsketch_item~man": {
+		"message": "muškarac"
+	},
+	"speedsketch_item~map": {
+		"message": "karta"
+	},
+	"speedsketch_item~marker": {
+		"message": "marker"
+	},
+	"speedsketch_item~matches": {
+		"message": "šibice"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematika"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "sirena"
+	},
+	"speedsketch_item~metal": {
+		"message": "metal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroskop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikrovalna pećnica"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "imela"
+	},
+	"speedsketch_item~mittens": {
+		"message": "rukavice"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekula"
+	},
+	"speedsketch_item~money": {
+		"message": "novac"
+	},
+	"speedsketch_item~monkey": {
+		"message": "majmun"
+	},
+	"speedsketch_item~moon": {
+		"message": "mjesec"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "komarac"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motocikl"
+	},
+	"speedsketch_item~mountain": {
+		"message": "planina"
+	},
+	"speedsketch_item~mouse": {
+		"message": "miš"
+	},
+	"speedsketch_item~moustache": {
+		"message": "brkovi"
+	},
+	"speedsketch_item~mouth": {
+		"message": "usta"
+	},
+	"speedsketch_item~mug": {
+		"message": "šalica"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "gljiva"
+	},
+	"speedsketch_item~music": {
+		"message": "glazba"
+	},
+	"speedsketch_item~nail": {
+		"message": "nokat"
+	},
+	"speedsketch_item~nature": {
+		"message": "priroda"
+	},
+	"speedsketch_item~necklace": {
+		"message": "ogrlica"
+	},
+	"speedsketch_item~news": {
+		"message": "vijesti"
+	},
+	"speedsketch_item~nose": {
+		"message": "nos"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "kliješta za orahe"
+	},
+	"speedsketch_item~ocean": {
+		"message": "ocean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "osmerokut"
+	},
+	"speedsketch_item~octopus": {
+		"message": "hobotnica"
+	},
+	"speedsketch_item~onion": {
+		"message": "luk"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ukras"
+	},
+	"speedsketch_item~oven": {
+		"message": "pećnica"
+	},
+	"speedsketch_item~owl": {
+		"message": "sova"
+	},
+	"speedsketch_item~paint can": {
+		"message": "limenka s bojom"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "kist"
+	},
+	"speedsketch_item~painting": {
+		"message": "slika"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palma"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "hlače"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "spajalica"
+	},
+	"speedsketch_item~parachute": {
+		"message": "padobran"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papiga"
+	},
+	"speedsketch_item~passport": {
+		"message": "putovnica"
+	},
+	"speedsketch_item~peanut": {
+		"message": "kikiriki"
+	},
+	"speedsketch_item~pear": {
+		"message": "kruška"
+	},
+	"speedsketch_item~peas": {
+		"message": "grašak"
+	},
+	"speedsketch_item~pencil": {
+		"message": "olovka"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pingvin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "pepermint"
+	},
+	"speedsketch_item~piano": {
+		"message": "klavir"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "kamionet"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "okvir za sliku"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "tortni grafikon"
+	},
+	"speedsketch_item~pig": {
+		"message": "svinja"
+	},
+	"speedsketch_item~pillow": {
+		"message": "jastuk"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ping pong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "gusar"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "kliješta"
+	},
+	"speedsketch_item~police car": {
+		"message": "policijski automobil"
+	},
+	"speedsketch_item~politician": {
+		"message": "političar"
+	},
+	"speedsketch_item~pond": {
+		"message": "jezero"
+	},
+	"speedsketch_item~pool": {
+		"message": "bazen"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "sladoled na štapiću"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portret"
+	},
+	"speedsketch_item~postcard": {
+		"message": "razglednica"
+	},
+	"speedsketch_item~potato": {
+		"message": "krumpir"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "utičnica"
+	},
+	"speedsketch_item~present": {
+		"message": "poklon"
+	},
+	"speedsketch_item~prison": {
+		"message": "zatvor"
+	},
+	"speedsketch_item~purse": {
+		"message": "torbica"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "slagalica"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "zec"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "rakun"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "kiša"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "duga"
+	},
+	"speedsketch_item~rake": {
+		"message": "grablje"
+	},
+	"speedsketch_item~raven": {
+		"message": "gavran"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "sob"
+	},
+	"speedsketch_item~remote control": {
+		"message": "daljinski upravljač"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "nosorog"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "vrpca"
+	},
+	"speedsketch_item~river": {
+		"message": "rijeka"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "vlak smrti"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "koturaljke"
+	},
+	"speedsketch_item~sadness": {
+		"message": "tuga"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "jedrilica"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sendvič"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Djed Božićnjak"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "kobasica"
+	},
+	"speedsketch_item~saw": {
+		"message": "pila"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saksofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "školski autobus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "škare"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "škorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "vijak"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "odvijač"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "kip"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "morska kornjača"
+	},
+	"speedsketch_item~see saw": {
+		"message": "klackalica"
+	},
+	"speedsketch_item~shark": {
+		"message": "morski pas"
+	},
+	"speedsketch_item~sheep": {
+		"message": "ovca"
+	},
+	"speedsketch_item~shoe": {
+		"message": "cipela"
+	},
+	"speedsketch_item~shorts": {
+		"message": "kratke hlače"
+	},
+	"speedsketch_item~shovel": {
+		"message": "lopata"
+	},
+	"speedsketch_item~sink": {
+		"message": "umivaonik"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "skijanje"
+	},
+	"speedsketch_item~skier": {
+		"message": "skijaš"
+	},
+	"speedsketch_item~skirt": {
+		"message": "suknja"
+	},
+	"speedsketch_item~skull": {
+		"message": "lubanja"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "neboder"
+	},
+	"speedsketch_item~sled": {
+		"message": "saonice"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "vreća za spavanje"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "sanjke"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "smajlić"
+	},
+	"speedsketch_item~snail": {
+		"message": "puž"
+	},
+	"speedsketch_item~snake": {
+		"message": "zmija"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "dihalica"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "snježna pahuljica"
+	},
+	"speedsketch_item~snowman": {
+		"message": "snjegović"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "nogometna lopta"
+	},
+	"speedsketch_item~sock": {
+		"message": "čarapa"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "gliser"
+	},
+	"speedsketch_item~sphere": {
+		"message": "sfera"
+	},
+	"speedsketch_item~spider": {
+		"message": "pauk"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spirala"
+	},
+	"speedsketch_item~spoon": {
+		"message": "žlica"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "proračunska tablica"
+	},
+	"speedsketch_item~square": {
+		"message": "kvadrat"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "črčkarija"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "vjeverica"
+	},
+	"speedsketch_item~stairs": {
+		"message": "stube"
+	},
+	"speedsketch_item~star": {
+		"message": "zvjezdica"
+	},
+	"speedsketch_item~steak": {
+		"message": "odrezak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoskop"
+	},
+	"speedsketch_item~still life": {
+		"message": "mrtva priroda"
+	},
+	"speedsketch_item~stitches": {
+		"message": "šavovi"
+	},
+	"speedsketch_item~stock market": {
+		"message": "burza"
+	},
+	"speedsketch_item~stocking": {
+		"message": "duga čarapa"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "znak stop"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "štoperica"
+	},
+	"speedsketch_item~stove": {
+		"message": "štednjak"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "jagoda"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "ulična rasvjeta"
+	},
+	"speedsketch_item~string bean": {
+		"message": "mahuna"
+	},
+	"speedsketch_item~submarine": {
+		"message": "podmornica"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "kovčeg"
+	},
+	"speedsketch_item~sun": {
+		"message": "sunce"
+	},
+	"speedsketch_item~sunset": {
+		"message": "zalazak sunca"
+	},
+	"speedsketch_item~swan": {
+		"message": "labud"
+	},
+	"speedsketch_item~sweater": {
+		"message": "džemper"
+	},
+	"speedsketch_item~swing set": {
+		"message": "ljuljačke"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "majica kratkih rukava"
+	},
+	"speedsketch_item~table": {
+		"message": "stol"
+	},
+	"speedsketch_item~teapot": {
+		"message": "čajnik"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "plišani medvjedić"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "televizor"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "teniski reket"
+	},
+	"speedsketch_item~tent": {
+		"message": "šator"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "kružić-križić"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tigar"
+	},
+	"speedsketch_item~time": {
+		"message": "vrijeme"
+	},
+	"speedsketch_item~toaster": {
+		"message": "toster"
+	},
+	"speedsketch_item~toe": {
+		"message": "nožni prst"
+	},
+	"speedsketch_item~toilet": {
+		"message": "toalet"
+	},
+	"speedsketch_item~tooth": {
+		"message": "zub"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "četkica za zube"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "pasta za zube"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "semafor"
+	},
+	"speedsketch_item~train": {
+		"message": "vlak"
+	},
+	"speedsketch_item~tree": {
+		"message": "stablo"
+	},
+	"speedsketch_item~triangle": {
+		"message": "trokut"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "tricikl"
+	},
+	"speedsketch_item~trolley": {
+		"message": "kolica"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombon"
+	},
+	"speedsketch_item~trousers": {
+		"message": "hlače"
+	},
+	"speedsketch_item~truck": {
+		"message": "kamion"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "truba"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "kišobran"
+	},
+	"speedsketch_item~underwear": {
+		"message": "donje rublje"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "jednorog"
+	},
+	"speedsketch_item~universe": {
+		"message": "svemir"
+	},
+	"speedsketch_item~van": {
+		"message": "kombi"
+	},
+	"speedsketch_item~vase": {
+		"message": "vaza"
+	},
+	"speedsketch_item~violin": {
+		"message": "violina"
+	},
+	"speedsketch_item~walnut": {
+		"message": "orah"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "perilica rublja"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "lubenica"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "vodeni tobogan"
+	},
+	"speedsketch_item~wave": {
+		"message": "val"
+	},
+	"speedsketch_item~whale": {
+		"message": "kit"
+	},
+	"speedsketch_item~wheel": {
+		"message": "kotač"
+	},
+	"speedsketch_item~windmill": {
+		"message": "vjetrenjača"
+	},
+	"speedsketch_item~woman": {
+		"message": "žena"
+	},
+	"speedsketch_item~world": {
+		"message": "svijet"
+	},
+	"speedsketch_item~wreath": {
+		"message": "vijenac"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "ručni sat"
+	},
+	"speedsketch_item~yoga": {
+		"message": "joga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "jogurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "cik-cak"
+	},
+	"speedsketch_item~zipper": {
+		"message": "patentni zatvarač"
 	},
 	"sr_country_name": {
 		"message": "Surinam"
@@ -5244,7 +6624,10 @@
 		"message": "Ujedinjeno Kraljevstvo"
 	},
 	"uk_tradition": {
-		"message": "U Ujedinjenom Kraljevstvu veseljaci svih dobi uživaju u božićnim praskavcima uz večeru. Praskavci su valjci omotani šarenim papirom s jezičcima za povlačenje na oba kraja. Kada te jezičke povučete, valjak se raspukne uz glasan prasak! Unutar njega nalaze se papirnate kape, igračke i slatkiši za zabavu na Badnjak."
+		"message": "U Ujedinjenom Kraljevstvu veseljaci svih dobi uz večeru uživaju u božićnim praskavcima. Praskavci su cijevi omotane šarenim papirom s jezičcima za povlačenje na oba kraja. Kad se jezičci povuku, cijev se raspukne uz glasan prasak! U njoj su papirnate kape, igračke, šale i nagrade za božićnu zabavu."
+	},
+	"unmute": {
+		"message": "Uključi zvuk"
 	},
 	"upgrade-warning": {
 		"message": "Ups! Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji preglednika. Da biste pristupili aplikaciji Slijedi Djeda Božićnjaka, preuzmite suvremeni preglednik. Više informacija potražite na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Dodaj na početni zaslon"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Dodaj na policu"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Dodaj na radnu površinu"
 	},
 	"village_santa_cardboard": {
 		"message": "Djed Božićnjak na Cardboardu"

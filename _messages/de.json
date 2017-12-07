@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "In Frankreich stellen Kinder traditionell ihre Schuhe neben den Kamin und warten auf die Ankunft von Père Noël. Wenn die Kinder das Jahr über brav waren, füllt Père Noël die Schuhe mit Geschenken."
 	},
+	"fullscreen": {
+		"message": "Vollbild"
+	},
 	"ga_country_name": {
 		"message": "Gabun"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauretanien"
 	},
+	"mute": {
+		"message": "Mikrofon aus"
+	},
 	"mw_country_name": {
 		"message": "Malawi"
 	},
@@ -1027,6 +1033,9 @@
 	},
 	"pa_country_name": {
 		"message": "Panama"
+	},
+	"pause": {
+		"message": "Anhalten"
 	},
 	"pe_country_name": {
 		"message": "Peru"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Schweiz"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Der Eiffelturm"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Die Chinesische Mauer"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Die Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "Abstrakte Kunst"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "Flugzeugträger"
+	},
+	"speedsketch_item~airplane": {
+		"message": "Flugzeug"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "Wecker"
+	},
+	"speedsketch_item~alien": {
+		"message": "Außerirdischer"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "Krankenwagen"
+	},
+	"speedsketch_item~angel": {
+		"message": "Engel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "Tierwanderung"
+	},
+	"speedsketch_item~ant": {
+		"message": "Ameise"
+	},
+	"speedsketch_item~anvil": {
+		"message": "Amboss"
+	},
+	"speedsketch_item~apple": {
+		"message": "Apfel"
+	},
+	"speedsketch_item~arm": {
+		"message": "Arm"
+	},
+	"speedsketch_item~arrow": {
+		"message": "Pfeil"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "Spargel"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "Astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "Audiokassette"
+	},
+	"speedsketch_item~avocado": {
+		"message": "Avocado"
+	},
+	"speedsketch_item~axe": {
+		"message": "Axt"
+	},
+	"speedsketch_item~baby": {
+		"message": "Baby"
+	},
+	"speedsketch_item~backpack": {
+		"message": "Rucksack"
+	},
+	"speedsketch_item~banana": {
+		"message": "Banane"
+	},
+	"speedsketch_item~bandage": {
+		"message": "Verband"
+	},
+	"speedsketch_item~barn": {
+		"message": "Scheune"
+	},
+	"speedsketch_item~baseball": {
+		"message": "Baseball"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "Baseballschläger"
+	},
+	"speedsketch_item~basket": {
+		"message": "Korb"
+	},
+	"speedsketch_item~basketball": {
+		"message": "Basketball"
+	},
+	"speedsketch_item~bat": {
+		"message": "Fledermaus"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "Badewanne"
+	},
+	"speedsketch_item~beach": {
+		"message": "Strand"
+	},
+	"speedsketch_item~bear": {
+		"message": "Bär"
+	},
+	"speedsketch_item~beard": {
+		"message": "Vollbart"
+	},
+	"speedsketch_item~bed": {
+		"message": "Bett"
+	},
+	"speedsketch_item~bee": {
+		"message": "Biene"
+	},
+	"speedsketch_item~belt": {
+		"message": "Gürtel"
+	},
+	"speedsketch_item~bench": {
+		"message": "Sitzbank"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "Fahrrad"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "Fernglas"
+	},
+	"speedsketch_item~bird": {
+		"message": "Vogel"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "Geburtstagstorte"
+	},
+	"speedsketch_item~black": {
+		"message": "schwarz"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "Brombeere"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "Blaubeere"
+	},
+	"speedsketch_item~book": {
+		"message": "Buch"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "Bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "Stiefel"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "Flaschenverschluss"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "Fliege"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "Armband"
+	},
+	"speedsketch_item~brain": {
+		"message": "Gehirn"
+	},
+	"speedsketch_item~bread": {
+		"message": "Brot"
+	},
+	"speedsketch_item~bridge": {
+		"message": "Brücke"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "Brokkoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "Besen"
+	},
+	"speedsketch_item~bubble": {
+		"message": "Bubble"
+	},
+	"speedsketch_item~bucket": {
+		"message": "Eimer"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "Bulldozer"
+	},
+	"speedsketch_item~bus": {
+		"message": "Bus"
+	},
+	"speedsketch_item~bush": {
+		"message": "Busch"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "Schmetterling"
+	},
+	"speedsketch_item~cactus": {
+		"message": "Kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "Kuchen"
+	},
+	"speedsketch_item~calculator": {
+		"message": "Taschenrechner"
+	},
+	"speedsketch_item~calendar": {
+		"message": "Kalender"
+	},
+	"speedsketch_item~camel": {
+		"message": "Kamel"
+	},
+	"speedsketch_item~camera": {
+		"message": "Kamera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "Tarnstoff"
+	},
+	"speedsketch_item~campfire": {
+		"message": "Lagerfeuer"
+	},
+	"speedsketch_item~candle": {
+		"message": "Kerze"
+	},
+	"speedsketch_item~candy": {
+		"message": "Süßigkeit"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "Zuckerstange"
+	},
+	"speedsketch_item~canoe": {
+		"message": "Kanu"
+	},
+	"speedsketch_item~car": {
+		"message": "Auto"
+	},
+	"speedsketch_item~carrot": {
+		"message": "Karotte"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "Zeichentrick"
+	},
+	"speedsketch_item~castle": {
+		"message": "Schloss"
+	},
+	"speedsketch_item~cat": {
+		"message": "Katze"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "Deckenventilator"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "Handy"
+	},
+	"speedsketch_item~cello": {
+		"message": "Cello"
+	},
+	"speedsketch_item~chair": {
+		"message": "Stuhl"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "Kronleuchter"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "Chemie"
+	},
+	"speedsketch_item~cherry": {
+		"message": "Kirsche"
+	},
+	"speedsketch_item~chicken": {
+		"message": "Huhn"
+	},
+	"speedsketch_item~child": {
+		"message": "Kind"
+	},
+	"speedsketch_item~chimney": {
+		"message": "Schornstein"
+	},
+	"speedsketch_item~church": {
+		"message": "Kirche"
+	},
+	"speedsketch_item~circle": {
+		"message": "Kreis"
+	},
+	"speedsketch_item~city": {
+		"message": "Stadt"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "Klarinette"
+	},
+	"speedsketch_item~clock": {
+		"message": "Uhr"
+	},
+	"speedsketch_item~cloud": {
+		"message": "Wolke"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "Maiskolben"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "Kaffeetasse"
+	},
+	"speedsketch_item~compass": {
+		"message": "Kompass"
+	},
+	"speedsketch_item~computer": {
+		"message": "Computer"
+	},
+	"speedsketch_item~cookie": {
+		"message": "Keks"
+	},
+	"speedsketch_item~cooler": {
+		"message": "Kühlbox"
+	},
+	"speedsketch_item~couch": {
+		"message": "Sofa"
+	},
+	"speedsketch_item~cow": {
+		"message": "Kuh"
+	},
+	"speedsketch_item~crab": {
+		"message": "Krabbe"
+	},
+	"speedsketch_item~crayon": {
+		"message": "Buntstift"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "Krokodil"
+	},
+	"speedsketch_item~cross": {
+		"message": "Kreuz"
+	},
+	"speedsketch_item~crow": {
+		"message": "Krähe"
+	},
+	"speedsketch_item~crown": {
+		"message": "Krone"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "Kreuzfahrtschiff"
+	},
+	"speedsketch_item~cube": {
+		"message": "Würfel"
+	},
+	"speedsketch_item~cup": {
+		"message": "Tasse"
+	},
+	"speedsketch_item~darts": {
+		"message": "Darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "Diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "Diamantring"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "Geschirrspülmaschine"
+	},
+	"speedsketch_item~diving board": {
+		"message": "Sprungbrett"
+	},
+	"speedsketch_item~dog": {
+		"message": "Hund"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "Delfin"
+	},
+	"speedsketch_item~donut": {
+		"message": "Donut"
+	},
+	"speedsketch_item~door": {
+		"message": "Tür"
+	},
+	"speedsketch_item~dragon": {
+		"message": "Drache"
+	},
+	"speedsketch_item~dresser": {
+		"message": "Kommode"
+	},
+	"speedsketch_item~drill": {
+		"message": "Bohrmaschine"
+	},
+	"speedsketch_item~drums": {
+		"message": "Schlagzeug"
+	},
+	"speedsketch_item~duck": {
+		"message": "Ente"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "Hantel"
+	},
+	"speedsketch_item~ear": {
+		"message": "Ohr"
+	},
+	"speedsketch_item~egg": {
+		"message": "Ei"
+	},
+	"speedsketch_item~elbow": {
+		"message": "Ellbogen"
+	},
+	"speedsketch_item~elephant": {
+		"message": "Elefant"
+	},
+	"speedsketch_item~elf": {
+		"message": "Wichtel"
+	},
+	"speedsketch_item~emoji": {
+		"message": "Emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "Briefumschlag"
+	},
+	"speedsketch_item~eraser": {
+		"message": "Radiergummi"
+	},
+	"speedsketch_item~eye": {
+		"message": "Auge"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "Brille"
+	},
+	"speedsketch_item~face": {
+		"message": "Gesicht"
+	},
+	"speedsketch_item~family": {
+		"message": "Familie"
+	},
+	"speedsketch_item~fan": {
+		"message": "Ventilator"
+	},
+	"speedsketch_item~feather": {
+		"message": "Feder"
+	},
+	"speedsketch_item~fence": {
+		"message": "Zaun"
+	},
+	"speedsketch_item~finger": {
+		"message": "Finger"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "Hydrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "Kamin"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "Feuerlöschfahrzeug"
+	},
+	"speedsketch_item~fish": {
+		"message": "Fisch"
+	},
+	"speedsketch_item~flag": {
+		"message": "Flagge"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "Flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "Taschenlampe"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "Flipflops"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "Stehlampe"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "Diskette"
+	},
+	"speedsketch_item~flower": {
+		"message": "Blume"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "Fliegende Untertasse"
+	},
+	"speedsketch_item~fog": {
+		"message": "Nebel"
+	},
+	"speedsketch_item~foot": {
+		"message": "Fuß"
+	},
+	"speedsketch_item~fork": {
+		"message": "Gabel"
+	},
+	"speedsketch_item~french fries": {
+		"message": "Pommes frites"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "Spiegelei"
+	},
+	"speedsketch_item~frog": {
+		"message": "Frosch"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "Bratpfanne"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "Galaxie"
+	},
+	"speedsketch_item~garden": {
+		"message": "Garten"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "Gartenschlauch"
+	},
+	"speedsketch_item~ghost": {
+		"message": "Geist"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "Lebkuchenmann"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "Giraffe"
+	},
+	"speedsketch_item~goat": {
+		"message": "Ziege"
+	},
+	"speedsketch_item~goatee": {
+		"message": "Ziegenbart"
+	},
+	"speedsketch_item~golf club": {
+		"message": "Golfschläger"
+	},
+	"speedsketch_item~grapes": {
+		"message": "Trauben"
+	},
+	"speedsketch_item~grass": {
+		"message": "Gras"
+	},
+	"speedsketch_item~group": {
+		"message": "Gruppe"
+	},
+	"speedsketch_item~guitar": {
+		"message": "Gitarre"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "Hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "Hammer"
+	},
+	"speedsketch_item~hand": {
+		"message": "Hand"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "Spiel \"Galgenmännchen\""
+	},
+	"speedsketch_item~happiness": {
+		"message": "Fröhlichkeit"
+	},
+	"speedsketch_item~harp": {
+		"message": "Harfe"
+	},
+	"speedsketch_item~hat": {
+		"message": "Hut"
+	},
+	"speedsketch_item~headphones": {
+		"message": "Kopfhörer"
+	},
+	"speedsketch_item~heart": {
+		"message": "Herz"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "Igel"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "Hubschrauber"
+	},
+	"speedsketch_item~helmet": {
+		"message": "Helm"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "Sechseck"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "Eishockeyscheibe"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "Eishockeyschläger"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "Weihnachtsbeleuchtung"
+	},
+	"speedsketch_item~horse": {
+		"message": "Pferd"
+	},
+	"speedsketch_item~hospital": {
+		"message": "Krankenhaus"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "Heißluftballon"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "Hotdog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "Whirlpool"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "Sanduhr"
+	},
+	"speedsketch_item~house": {
+		"message": "Haus"
+	},
+	"speedsketch_item~house plant": {
+		"message": "Zimmerpflanze"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "Orkan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "Eiscreme"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "Eiskunstläufer"
+	},
+	"speedsketch_item~infinity": {
+		"message": "Unendlichkeit"
+	},
+	"speedsketch_item~island": {
+		"message": "Insel"
+	},
+	"speedsketch_item~italy": {
+		"message": "Italien"
+	},
+	"speedsketch_item~jacket": {
+		"message": "Jacke"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "Raketenrucksack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jingle Bells"
+	},
+	"speedsketch_item~kale": {
+		"message": "Kohl"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "Känguru"
+	},
+	"speedsketch_item~key": {
+		"message": "Schlüssel"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "Keyboard"
+	},
+	"speedsketch_item~kite": {
+		"message": "Drachen"
+	},
+	"speedsketch_item~knee": {
+		"message": "Knie"
+	},
+	"speedsketch_item~knife": {
+		"message": "Messer"
+	},
+	"speedsketch_item~knot": {
+		"message": "Knoten"
+	},
+	"speedsketch_item~koala": {
+		"message": "Koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "Leiter"
+	},
+	"speedsketch_item~landscape": {
+		"message": "Landschaft"
+	},
+	"speedsketch_item~lantern": {
+		"message": "Laterne"
+	},
+	"speedsketch_item~laptop": {
+		"message": "Laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "Blatt"
+	},
+	"speedsketch_item~leg": {
+		"message": "Bein"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "Glühbirne"
+	},
+	"speedsketch_item~lighter": {
+		"message": "Feuerzeug"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "Leuchtturm"
+	},
+	"speedsketch_item~lightning": {
+		"message": "Blitz"
+	},
+	"speedsketch_item~line": {
+		"message": "Linie"
+	},
+	"speedsketch_item~lion": {
+		"message": "Löwe"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "Lippenstift"
+	},
+	"speedsketch_item~lobster": {
+		"message": "Hummer"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "Lutscher"
+	},
+	"speedsketch_item~love": {
+		"message": "Liebe"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "Briefkasten"
+	},
+	"speedsketch_item~man": {
+		"message": "Mann"
+	},
+	"speedsketch_item~map": {
+		"message": "Karte"
+	},
+	"speedsketch_item~marker": {
+		"message": "Filzstift"
+	},
+	"speedsketch_item~matches": {
+		"message": "Streichhölzer"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "Mathematik"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "Megafon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "Meerjungfrau"
+	},
+	"speedsketch_item~metal": {
+		"message": "Metall"
+	},
+	"speedsketch_item~microphone": {
+		"message": "Mikrofon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "Mikroskop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "Mikrowelle"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "Mistelzweig"
+	},
+	"speedsketch_item~mittens": {
+		"message": "Fausthandschuhe"
+	},
+	"speedsketch_item~molecule": {
+		"message": "Molekül"
+	},
+	"speedsketch_item~money": {
+		"message": "Geld"
+	},
+	"speedsketch_item~monkey": {
+		"message": "Affe"
+	},
+	"speedsketch_item~moon": {
+		"message": "Mond"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "Mücke"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "Motorrad"
+	},
+	"speedsketch_item~mountain": {
+		"message": "Berg"
+	},
+	"speedsketch_item~mouse": {
+		"message": "Maus"
+	},
+	"speedsketch_item~moustache": {
+		"message": "Schnurrbart"
+	},
+	"speedsketch_item~mouth": {
+		"message": "Mund"
+	},
+	"speedsketch_item~mug": {
+		"message": "Becher"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "Pilz"
+	},
+	"speedsketch_item~music": {
+		"message": "Musik"
+	},
+	"speedsketch_item~nail": {
+		"message": "Nagel"
+	},
+	"speedsketch_item~nature": {
+		"message": "Natur"
+	},
+	"speedsketch_item~necklace": {
+		"message": "Halskette"
+	},
+	"speedsketch_item~news": {
+		"message": "Nachrichten"
+	},
+	"speedsketch_item~nose": {
+		"message": "Nase"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "Nussknacker"
+	},
+	"speedsketch_item~ocean": {
+		"message": "Ozean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "Achteck"
+	},
+	"speedsketch_item~octopus": {
+		"message": "Krake"
+	},
+	"speedsketch_item~onion": {
+		"message": "Zwiebel"
+	},
+	"speedsketch_item~ornament": {
+		"message": "Verzierung"
+	},
+	"speedsketch_item~oven": {
+		"message": "Ofen"
+	},
+	"speedsketch_item~owl": {
+		"message": "Eule"
+	},
+	"speedsketch_item~paint can": {
+		"message": "Lackdose"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "Pinsel"
+	},
+	"speedsketch_item~painting": {
+		"message": "Gemälde"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "Palme"
+	},
+	"speedsketch_item~panda": {
+		"message": "Panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "Hose"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "Büroklammer"
+	},
+	"speedsketch_item~parachute": {
+		"message": "Fallschirm"
+	},
+	"speedsketch_item~parrot": {
+		"message": "Papagei"
+	},
+	"speedsketch_item~passport": {
+		"message": "Pass"
+	},
+	"speedsketch_item~peanut": {
+		"message": "Erdnuss"
+	},
+	"speedsketch_item~pear": {
+		"message": "Birne"
+	},
+	"speedsketch_item~peas": {
+		"message": "Erbsen"
+	},
+	"speedsketch_item~pencil": {
+		"message": "Bleistift"
+	},
+	"speedsketch_item~penguin": {
+		"message": "Pinguin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "Pfefferminze"
+	},
+	"speedsketch_item~piano": {
+		"message": "Klavier"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "Pick-up"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "Bilderrahmen"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "Kreisdiagramm"
+	},
+	"speedsketch_item~pig": {
+		"message": "Schwein"
+	},
+	"speedsketch_item~pillow": {
+		"message": "Kissen"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "Ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "Tischtennis"
+	},
+	"speedsketch_item~pirate": {
+		"message": "Pirat"
+	},
+	"speedsketch_item~pizza": {
+		"message": "Pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "Zange"
+	},
+	"speedsketch_item~police car": {
+		"message": "Polizeiauto"
+	},
+	"speedsketch_item~politician": {
+		"message": "Politiker"
+	},
+	"speedsketch_item~pond": {
+		"message": "Teich"
+	},
+	"speedsketch_item~pool": {
+		"message": "Schwimmbecken"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "Eis am Stiel"
+	},
+	"speedsketch_item~portrait": {
+		"message": "Portrait"
+	},
+	"speedsketch_item~postcard": {
+		"message": "Postkarte"
+	},
+	"speedsketch_item~potato": {
+		"message": "Kartoffel"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "Steckdose"
+	},
+	"speedsketch_item~present": {
+		"message": "Geschenk"
+	},
+	"speedsketch_item~prison": {
+		"message": "Gefängnis"
+	},
+	"speedsketch_item~purse": {
+		"message": "Geldbörse"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "Rätsel"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "Kaninchen"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "Waschbär"
+	},
+	"speedsketch_item~radio": {
+		"message": "Funkgerät"
+	},
+	"speedsketch_item~rain": {
+		"message": "Regen"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "Regenbogen"
+	},
+	"speedsketch_item~rake": {
+		"message": "Harke"
+	},
+	"speedsketch_item~raven": {
+		"message": "Rabe"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "Rentier"
+	},
+	"speedsketch_item~remote control": {
+		"message": "Fernbedienung"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "Nashorn"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "Seitenleiste"
+	},
+	"speedsketch_item~river": {
+		"message": "Fluss"
+	},
+	"speedsketch_item~robot": {
+		"message": "Roboter"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "Achterbahn"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "Rollschuhe"
+	},
+	"speedsketch_item~sadness": {
+		"message": "Traurigkeit"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "Segelboot"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "Sandwich"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Weihnachtsmann"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "Würstchen"
+	},
+	"speedsketch_item~saw": {
+		"message": "Säge"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "Saxofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "Schulbus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "Schere"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "Skorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "Schraube"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "Schraubenzieher"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "Skulptur"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "Meeresschildkröte"
+	},
+	"speedsketch_item~see saw": {
+		"message": "Wippe"
+	},
+	"speedsketch_item~shark": {
+		"message": "Hai"
+	},
+	"speedsketch_item~sheep": {
+		"message": "Schaf"
+	},
+	"speedsketch_item~shoe": {
+		"message": "Schuh"
+	},
+	"speedsketch_item~shorts": {
+		"message": "Shorts"
+	},
+	"speedsketch_item~shovel": {
+		"message": "Schaufel"
+	},
+	"speedsketch_item~sink": {
+		"message": "Senke"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "Skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "Ski"
+	},
+	"speedsketch_item~skier": {
+		"message": "Skifahrer"
+	},
+	"speedsketch_item~skirt": {
+		"message": "Rock"
+	},
+	"speedsketch_item~skull": {
+		"message": "Totenschädel"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "Wolkenkratzer"
+	},
+	"speedsketch_item~sled": {
+		"message": "Schlitten"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "Schlafsack"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "Schlitten"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "Smiley"
+	},
+	"speedsketch_item~snail": {
+		"message": "Schnecke"
+	},
+	"speedsketch_item~snake": {
+		"message": "Schlange"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "Schnorchel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "Schneeflocke"
+	},
+	"speedsketch_item~snowman": {
+		"message": "Schneemann"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "Fußball"
+	},
+	"speedsketch_item~sock": {
+		"message": "Socke"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "Schnellboot"
+	},
+	"speedsketch_item~sphere": {
+		"message": "Kugel"
+	},
+	"speedsketch_item~spider": {
+		"message": "Spinne"
+	},
+	"speedsketch_item~spiral": {
+		"message": "Spirale"
+	},
+	"speedsketch_item~spoon": {
+		"message": "Löffel"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "Tabelle"
+	},
+	"speedsketch_item~square": {
+		"message": "Quadrat"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "Schnörkel"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "Eichhörnchen"
+	},
+	"speedsketch_item~stairs": {
+		"message": "Treppe"
+	},
+	"speedsketch_item~star": {
+		"message": "Stern"
+	},
+	"speedsketch_item~steak": {
+		"message": "Steak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "Stereoanlage"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "Ste­tho­s­kop"
+	},
+	"speedsketch_item~still life": {
+		"message": "Stillleben"
+	},
+	"speedsketch_item~stitches": {
+		"message": "Nähte"
+	},
+	"speedsketch_item~stock market": {
+		"message": "Börse"
+	},
+	"speedsketch_item~stocking": {
+		"message": "Weihnachtsstrumpf"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "Stoppschild"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "Stoppuhr"
+	},
+	"speedsketch_item~stove": {
+		"message": "Herd"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "Erdbeere"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "Straßenlaterne"
+	},
+	"speedsketch_item~string bean": {
+		"message": "Grüne Bohne"
+	},
+	"speedsketch_item~submarine": {
+		"message": "U-Boot"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "Koffer"
+	},
+	"speedsketch_item~sun": {
+		"message": "Sonne"
+	},
+	"speedsketch_item~sunset": {
+		"message": "Sonnenuntergang"
+	},
+	"speedsketch_item~swan": {
+		"message": "Schwan"
+	},
+	"speedsketch_item~sweater": {
+		"message": "Pullover"
+	},
+	"speedsketch_item~swing set": {
+		"message": "Schaukel"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "T-Shirt"
+	},
+	"speedsketch_item~table": {
+		"message": "Tisch"
+	},
+	"speedsketch_item~teapot": {
+		"message": "Teekanne"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "Teddybär"
+	},
+	"speedsketch_item~telephone": {
+		"message": "Telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "Fernseher"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "Tennisschläger"
+	},
+	"speedsketch_item~tent": {
+		"message": "Zelt"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "Spiel \"Tic-Tac-Toe\""
+	},
+	"speedsketch_item~tiger": {
+		"message": "Tiger"
+	},
+	"speedsketch_item~time": {
+		"message": "Zeit"
+	},
+	"speedsketch_item~toaster": {
+		"message": "Toaster"
+	},
+	"speedsketch_item~toe": {
+		"message": "Zeh"
+	},
+	"speedsketch_item~toilet": {
+		"message": "Toilette"
+	},
+	"speedsketch_item~tooth": {
+		"message": "Zahn"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "Zahnbürste"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "Zahnpasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "Tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "Traktor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "Ampel"
+	},
+	"speedsketch_item~train": {
+		"message": "Zug"
+	},
+	"speedsketch_item~tree": {
+		"message": "Baum"
+	},
+	"speedsketch_item~triangle": {
+		"message": "Dreieck"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "Dreirad"
+	},
+	"speedsketch_item~trolley": {
+		"message": "Einkaufswagen"
+	},
+	"speedsketch_item~trombone": {
+		"message": "Posaune"
+	},
+	"speedsketch_item~trousers": {
+		"message": "Hose"
+	},
+	"speedsketch_item~truck": {
+		"message": "Lkw"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "Trompete"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "Regenschirm"
+	},
+	"speedsketch_item~underwear": {
+		"message": "Unterwäsche"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "Einhorn"
+	},
+	"speedsketch_item~universe": {
+		"message": "Universum"
+	},
+	"speedsketch_item~van": {
+		"message": "Lieferwagen"
+	},
+	"speedsketch_item~vase": {
+		"message": "Vase"
+	},
+	"speedsketch_item~violin": {
+		"message": "Geige"
+	},
+	"speedsketch_item~walnut": {
+		"message": "Walnuss"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "Waschmaschine"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "Wassermelone"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "Wasserrutsche"
+	},
+	"speedsketch_item~wave": {
+		"message": "Welle"
+	},
+	"speedsketch_item~whale": {
+		"message": "Wal"
+	},
+	"speedsketch_item~wheel": {
+		"message": "Steuerrad"
+	},
+	"speedsketch_item~windmill": {
+		"message": "Windmühle"
+	},
+	"speedsketch_item~woman": {
+		"message": "Frau"
+	},
+	"speedsketch_item~world": {
+		"message": "Welt"
+	},
+	"speedsketch_item~wreath": {
+		"message": "Kranz"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "Armbanduhr"
+	},
+	"speedsketch_item~yoga": {
+		"message": "Yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "Joghurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "Zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "Zickzacklinie"
+	},
+	"speedsketch_item~zipper": {
+		"message": "Reißverschluss"
 	},
 	"sr_country_name": {
 		"message": "Suriname"
@@ -5244,7 +6624,10 @@
 		"message": "Großbritannien"
 	},
 	"uk_tradition": {
-		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug und Süßigkeiten für den Weihnachtsabend aus."
+		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug, Scherzartikel und Preise für den Weihnachtsabend aus."
+	},
+	"unmute": {
+		"message": "Mikrofon ein"
 	},
 	"upgrade-warning": {
 		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen. Weitere Informationen findest du unter \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Zum Startbildschirm hinzufügen"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Der Ablage hinzufügen"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Dem Desktop hinzufügen"
 	},
 	"village_santa_cardboard": {
 		"message": "Mit Google Cardboard den Weihnachtsmann suchen"

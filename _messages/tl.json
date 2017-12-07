@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "Sa France, nakagawian na ng mga bata na ilagay ang kanilang mga sapatos malapit sa fireplace sa pag-asang darating si Père Noël. Kung naging mabait ang mga bata sa buong taon, pupunuin ni Père Noël ng mga regalo ang mga sapatos."
 	},
+	"fullscreen": {
+		"message": "Fullscreen"
+	},
 	"ga_country_name": {
 		"message": "Gabon"
 	},
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritania"
 	},
+	"mute": {
+		"message": "I-mute"
+	},
 	"mw_country_name": {
 		"message": "Malawi"
 	},
@@ -1028,6 +1034,9 @@
 	"pa_country_name": {
 		"message": "Panama"
 	},
+	"pause": {
+		"message": "I-pause"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1116,7 +1125,7 @@
 		"message": "Iguhit"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Si Tensor ang Machine Learning robot ni Santa na tumutulong sa kanya na mabilis na maunawaan ang mga liham na natatanggap niya mula sa mga bata sa buong mundo. Upang makatulong sa pagsasanay ni Tensor, gumuhit ng isang larawan ng bawat salita ng kapaskuhan sa screen at sasabihin niya sa iyo kung ano ang nakikita niya. Mas marami kang iginuguhit, mas tumatalino si Tensor, kaya tulungan natin si Santa na maging mas mahusay kaysa dati ngayong kapaskuhan!"
+		"message": "Si Tensor ang Machine Learning robot ni Santa na tumutulong sa kanya na mabilis na maunawaan ang mga liham na natatanggap niya mula sa mga bata sa buong mundo. Upang tulungang magsanay si Tensor, gumuhit ng isang larawan ng bawat salita ng kapaskuhan sa screen at sasabihin niya sa iyo kung ano ang nakikita niya. Mas marami kang iginuguhit, mas tumatalino si Tensor, kaya tulungan natin si Santa na maging mas mahusay kaysa dati ngayong kapaskuhan!"
 	},
 	"quickdraw-splashview-title": {
 		"message": "Tulungan si Tensor na sanayin ang kanyang pagkilala sa larawan!"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Switzerland"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "The Eiffel Tower"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "The Great Wall of China"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "The Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstract art"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "aircraft carrier"
+	},
+	"speedsketch_item~airplane": {
+		"message": "eroplano"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "alarm clock"
+	},
+	"speedsketch_item~alien": {
+		"message": "alien"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulansya"
+	},
+	"speedsketch_item~angel": {
+		"message": "anghel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "paglipat ng hayop sa ibang lugar"
+	},
+	"speedsketch_item~ant": {
+		"message": "langgam"
+	},
+	"speedsketch_item~anvil": {
+		"message": "palihan"
+	},
+	"speedsketch_item~apple": {
+		"message": "mansanas"
+	},
+	"speedsketch_item~arm": {
+		"message": "braso"
+	},
+	"speedsketch_item~arrow": {
+		"message": "arrow"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "asparagus"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "audio cassette"
+	},
+	"speedsketch_item~avocado": {
+		"message": "abukado"
+	},
+	"speedsketch_item~axe": {
+		"message": "palakol"
+	},
+	"speedsketch_item~baby": {
+		"message": "sanggol"
+	},
+	"speedsketch_item~backpack": {
+		"message": "backpack"
+	},
+	"speedsketch_item~banana": {
+		"message": "saging"
+	},
+	"speedsketch_item~bandage": {
+		"message": "benda"
+	},
+	"speedsketch_item~barn": {
+		"message": "kamalig"
+	},
+	"speedsketch_item~baseball": {
+		"message": "baseball"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "baseball bat"
+	},
+	"speedsketch_item~basket": {
+		"message": "basket"
+	},
+	"speedsketch_item~basketball": {
+		"message": "basketball"
+	},
+	"speedsketch_item~bat": {
+		"message": "paniki"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "bathtub"
+	},
+	"speedsketch_item~beach": {
+		"message": "beach"
+	},
+	"speedsketch_item~bear": {
+		"message": "oso"
+	},
+	"speedsketch_item~beard": {
+		"message": "balbas"
+	},
+	"speedsketch_item~bed": {
+		"message": "kama"
+	},
+	"speedsketch_item~bee": {
+		"message": "bubuyog"
+	},
+	"speedsketch_item~belt": {
+		"message": "sinturon"
+	},
+	"speedsketch_item~bench": {
+		"message": "bench"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "bisikleta"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "largabista"
+	},
+	"speedsketch_item~bird": {
+		"message": "ibon"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "birthday cake"
+	},
+	"speedsketch_item~black": {
+		"message": "itim"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "blackberry"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "blueberry"
+	},
+	"speedsketch_item~book": {
+		"message": "aklat"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "boomerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "boot"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "takip ng bote"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "bowtie"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "pulseras"
+	},
+	"speedsketch_item~brain": {
+		"message": "utak"
+	},
+	"speedsketch_item~bread": {
+		"message": "tinapay"
+	},
+	"speedsketch_item~bridge": {
+		"message": "tulay"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "broccoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "walis"
+	},
+	"speedsketch_item~bubble": {
+		"message": "bula"
+	},
+	"speedsketch_item~bucket": {
+		"message": "timba"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "bulldozer"
+	},
+	"speedsketch_item~bus": {
+		"message": "bus"
+	},
+	"speedsketch_item~bush": {
+		"message": "bush"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "paruparo"
+	},
+	"speedsketch_item~cactus": {
+		"message": "cactus"
+	},
+	"speedsketch_item~cake": {
+		"message": "cake"
+	},
+	"speedsketch_item~calculator": {
+		"message": "calculator"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalendaryo"
+	},
+	"speedsketch_item~camel": {
+		"message": "camel"
+	},
+	"speedsketch_item~camera": {
+		"message": "camera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "camouflage"
+	},
+	"speedsketch_item~campfire": {
+		"message": "campfire"
+	},
+	"speedsketch_item~candle": {
+		"message": "kandila"
+	},
+	"speedsketch_item~candy": {
+		"message": "candy"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "candy cane"
+	},
+	"speedsketch_item~canoe": {
+		"message": "canoe"
+	},
+	"speedsketch_item~car": {
+		"message": "kotse"
+	},
+	"speedsketch_item~carrot": {
+		"message": "carrot"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "cartoon"
+	},
+	"speedsketch_item~castle": {
+		"message": "kastilyo"
+	},
+	"speedsketch_item~cat": {
+		"message": "pusa"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "ceiling fan"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "cell phone"
+	},
+	"speedsketch_item~cello": {
+		"message": "cello"
+	},
+	"speedsketch_item~chair": {
+		"message": "upuan"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "chandelier"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "chemistry"
+	},
+	"speedsketch_item~cherry": {
+		"message": "cherry"
+	},
+	"speedsketch_item~chicken": {
+		"message": "manok"
+	},
+	"speedsketch_item~child": {
+		"message": "anak"
+	},
+	"speedsketch_item~chimney": {
+		"message": "chimney"
+	},
+	"speedsketch_item~church": {
+		"message": "simbahan"
+	},
+	"speedsketch_item~circle": {
+		"message": "bilog"
+	},
+	"speedsketch_item~city": {
+		"message": "lungsod"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "clarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "orasan"
+	},
+	"speedsketch_item~cloud": {
+		"message": "ulap"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "busal ng mais"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "tasa ng kape"
+	},
+	"speedsketch_item~compass": {
+		"message": "compass"
+	},
+	"speedsketch_item~computer": {
+		"message": "computer"
+	},
+	"speedsketch_item~cookie": {
+		"message": "cookie"
+	},
+	"speedsketch_item~cooler": {
+		"message": "cooler"
+	},
+	"speedsketch_item~couch": {
+		"message": "sofa"
+	},
+	"speedsketch_item~cow": {
+		"message": "baka"
+	},
+	"speedsketch_item~crab": {
+		"message": "alimango"
+	},
+	"speedsketch_item~crayon": {
+		"message": "krayola"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "buwaya"
+	},
+	"speedsketch_item~cross": {
+		"message": "krus"
+	},
+	"speedsketch_item~crow": {
+		"message": "crow"
+	},
+	"speedsketch_item~crown": {
+		"message": "korona"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "cruise ship"
+	},
+	"speedsketch_item~cube": {
+		"message": "cube"
+	},
+	"speedsketch_item~cup": {
+		"message": "tasa"
+	},
+	"speedsketch_item~darts": {
+		"message": "darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamante"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "diyamanteng singsing"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "dishwasher"
+	},
+	"speedsketch_item~diving board": {
+		"message": "diving board"
+	},
+	"speedsketch_item~dog": {
+		"message": "aso"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "dolphin"
+	},
+	"speedsketch_item~donut": {
+		"message": "donut"
+	},
+	"speedsketch_item~door": {
+		"message": "pinto"
+	},
+	"speedsketch_item~dragon": {
+		"message": "dragon"
+	},
+	"speedsketch_item~dresser": {
+		"message": "dresser"
+	},
+	"speedsketch_item~drill": {
+		"message": "barena"
+	},
+	"speedsketch_item~drums": {
+		"message": "mga tambol"
+	},
+	"speedsketch_item~duck": {
+		"message": "bibe"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "dumbbell"
+	},
+	"speedsketch_item~ear": {
+		"message": "tainga"
+	},
+	"speedsketch_item~egg": {
+		"message": "itlog"
+	},
+	"speedsketch_item~elbow": {
+		"message": "siko"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elepante"
+	},
+	"speedsketch_item~elf": {
+		"message": "duwende"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "sobre"
+	},
+	"speedsketch_item~eraser": {
+		"message": "pambura"
+	},
+	"speedsketch_item~eye": {
+		"message": "mata"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "salamin sa mata"
+	},
+	"speedsketch_item~face": {
+		"message": "mukha"
+	},
+	"speedsketch_item~family": {
+		"message": "pamilya | kapamilya"
+	},
+	"speedsketch_item~fan": {
+		"message": "tagahanga"
+	},
+	"speedsketch_item~feather": {
+		"message": "balahibo"
+	},
+	"speedsketch_item~fence": {
+		"message": "bakod"
+	},
+	"speedsketch_item~finger": {
+		"message": "daliri"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "fire hydrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "fireplace"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "truck ng bumbero"
+	},
+	"speedsketch_item~fish": {
+		"message": "isda"
+	},
+	"speedsketch_item~flag": {
+		"message": "bandera"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "flashlight"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "tsinelas"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "floor lamp"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "floppy disk"
+	},
+	"speedsketch_item~flower": {
+		"message": "bulaklak"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "flying saucer"
+	},
+	"speedsketch_item~fog": {
+		"message": "fog"
+	},
+	"speedsketch_item~foot": {
+		"message": "paa"
+	},
+	"speedsketch_item~fork": {
+		"message": "tinidor"
+	},
+	"speedsketch_item~french fries": {
+		"message": "french fries"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "pritong itlog"
+	},
+	"speedsketch_item~frog": {
+		"message": "palaka"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "kawali"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaxy"
+	},
+	"speedsketch_item~garden": {
+		"message": "hardin"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "garden hose"
+	},
+	"speedsketch_item~ghost": {
+		"message": "multo"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "gingerbread man"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "giraffe"
+	},
+	"speedsketch_item~goat": {
+		"message": "kambing"
+	},
+	"speedsketch_item~goatee": {
+		"message": "goatee"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golf club"
+	},
+	"speedsketch_item~grapes": {
+		"message": "ubas"
+	},
+	"speedsketch_item~grass": {
+		"message": "damo"
+	},
+	"speedsketch_item~group": {
+		"message": "grupo"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gitara"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "martilyo"
+	},
+	"speedsketch_item~hand": {
+		"message": "kamay"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "hangman game"
+	},
+	"speedsketch_item~happiness": {
+		"message": "kaligayahan"
+	},
+	"speedsketch_item~harp": {
+		"message": "harp"
+	},
+	"speedsketch_item~hat": {
+		"message": "sumbrero"
+	},
+	"speedsketch_item~headphones": {
+		"message": "headphones"
+	},
+	"speedsketch_item~heart": {
+		"message": "puso"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "hedgehog"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helicopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "helmet"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "hexagon"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hockey puck"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hockey stick"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "holiday lights"
+	},
+	"speedsketch_item~horse": {
+		"message": "kabayo"
+	},
+	"speedsketch_item~hospital": {
+		"message": "ospital"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "hot air balloon"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hot dog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "hot tub"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "hourglass"
+	},
+	"speedsketch_item~house": {
+		"message": "bahay"
+	},
+	"speedsketch_item~house plant": {
+		"message": "halaman sa bahay"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "bagyo"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "sorbetes"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "ice skater"
+	},
+	"speedsketch_item~infinity": {
+		"message": "walang katapusan"
+	},
+	"speedsketch_item~island": {
+		"message": "isla"
+	},
+	"speedsketch_item~italy": {
+		"message": "italy"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jacket"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "jetpack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jingle Bells"
+	},
+	"speedsketch_item~kale": {
+		"message": "kale"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kangaroo"
+	},
+	"speedsketch_item~key": {
+		"message": "susi"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "keyboard"
+	},
+	"speedsketch_item~kite": {
+		"message": "saranggola"
+	},
+	"speedsketch_item~knee": {
+		"message": "tuhod"
+	},
+	"speedsketch_item~knife": {
+		"message": "kutsilyo"
+	},
+	"speedsketch_item~knot": {
+		"message": "buhol"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "hagdanan"
+	},
+	"speedsketch_item~landscape": {
+		"message": "landscape"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lantern"
+	},
+	"speedsketch_item~laptop": {
+		"message": "laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "dahon"
+	},
+	"speedsketch_item~leg": {
+		"message": "binti"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "bumbilya"
+	},
+	"speedsketch_item~lighter": {
+		"message": "lighter"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "parola"
+	},
+	"speedsketch_item~lightning": {
+		"message": "kidlat"
+	},
+	"speedsketch_item~line": {
+		"message": "linya"
+	},
+	"speedsketch_item~lion": {
+		"message": "leon"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "lipstick"
+	},
+	"speedsketch_item~lobster": {
+		"message": "lobster"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "lollipop"
+	},
+	"speedsketch_item~love": {
+		"message": "pagmamahal | pag-ibig"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "mailbox"
+	},
+	"speedsketch_item~man": {
+		"message": "lalaki"
+	},
+	"speedsketch_item~map": {
+		"message": "mapa"
+	},
+	"speedsketch_item~marker": {
+		"message": "marker"
+	},
+	"speedsketch_item~matches": {
+		"message": "mga katugma"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematika"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megaphone"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "sirena"
+	},
+	"speedsketch_item~metal": {
+		"message": "metal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikropono"
+	},
+	"speedsketch_item~microscope": {
+		"message": "microscope"
+	},
+	"speedsketch_item~microwave": {
+		"message": "microwave"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "mistletoe"
+	},
+	"speedsketch_item~mittens": {
+		"message": "mittens"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molecule"
+	},
+	"speedsketch_item~money": {
+		"message": "pera"
+	},
+	"speedsketch_item~monkey": {
+		"message": "unggoy"
+	},
+	"speedsketch_item~moon": {
+		"message": "buwan"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "lamok"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motorsiklo"
+	},
+	"speedsketch_item~mountain": {
+		"message": "bundok"
+	},
+	"speedsketch_item~mouse": {
+		"message": "daga"
+	},
+	"speedsketch_item~moustache": {
+		"message": "bigote"
+	},
+	"speedsketch_item~mouth": {
+		"message": "bibig"
+	},
+	"speedsketch_item~mug": {
+		"message": "mug"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "kabute"
+	},
+	"speedsketch_item~music": {
+		"message": "musika"
+	},
+	"speedsketch_item~nail": {
+		"message": "pako"
+	},
+	"speedsketch_item~nature": {
+		"message": "kalikasan"
+	},
+	"speedsketch_item~necklace": {
+		"message": "kuwintas"
+	},
+	"speedsketch_item~news": {
+		"message": "balita"
+	},
+	"speedsketch_item~nose": {
+		"message": "ilong"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "nutcracker"
+	},
+	"speedsketch_item~ocean": {
+		"message": "karagatan"
+	},
+	"speedsketch_item~octagon": {
+		"message": "octagon"
+	},
+	"speedsketch_item~octopus": {
+		"message": "pugita"
+	},
+	"speedsketch_item~onion": {
+		"message": "sibuyas"
+	},
+	"speedsketch_item~ornament": {
+		"message": "palamuti"
+	},
+	"speedsketch_item~oven": {
+		"message": "oven"
+	},
+	"speedsketch_item~owl": {
+		"message": "kuwago"
+	},
+	"speedsketch_item~paint can": {
+		"message": "lata ng pintura"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "brutsa"
+	},
+	"speedsketch_item~painting": {
+		"message": "pagpipinta"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palm tree"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "pantalon"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "paper clip"
+	},
+	"speedsketch_item~parachute": {
+		"message": "parachute"
+	},
+	"speedsketch_item~parrot": {
+		"message": "loro"
+	},
+	"speedsketch_item~passport": {
+		"message": "pasaporte"
+	},
+	"speedsketch_item~peanut": {
+		"message": "mani"
+	},
+	"speedsketch_item~pear": {
+		"message": "peras"
+	},
+	"speedsketch_item~peas": {
+		"message": "gisantes"
+	},
+	"speedsketch_item~pencil": {
+		"message": "lapis"
+	},
+	"speedsketch_item~penguin": {
+		"message": "penguin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "peppermint"
+	},
+	"speedsketch_item~piano": {
+		"message": "piano"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "pickup truck"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "kuwadro"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "pie chart"
+	},
+	"speedsketch_item~pig": {
+		"message": "baboy"
+	},
+	"speedsketch_item~pillow": {
+		"message": "unan"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "pinya"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ping pong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirata"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "plais"
+	},
+	"speedsketch_item~police car": {
+		"message": "sasakyan ng pulis"
+	},
+	"speedsketch_item~politician": {
+		"message": "politiko"
+	},
+	"speedsketch_item~pond": {
+		"message": "lawa-lawaan"
+	},
+	"speedsketch_item~pool": {
+		"message": "pool"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "popsicle"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portrait"
+	},
+	"speedsketch_item~postcard": {
+		"message": "postcard"
+	},
+	"speedsketch_item~potato": {
+		"message": "patatas"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "power outlet"
+	},
+	"speedsketch_item~present": {
+		"message": "kasalukuyan"
+	},
+	"speedsketch_item~prison": {
+		"message": "bilangguan"
+	},
+	"speedsketch_item~purse": {
+		"message": "purse"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "puzzle"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "kuneho"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "raccoon"
+	},
+	"speedsketch_item~radio": {
+		"message": "radyo"
+	},
+	"speedsketch_item~rain": {
+		"message": "ulan"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "bahaghari"
+	},
+	"speedsketch_item~rake": {
+		"message": "kalaykay"
+	},
+	"speedsketch_item~raven": {
+		"message": "raven"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "reindeer"
+	},
+	"speedsketch_item~remote control": {
+		"message": "remote control"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "rhinoceros"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "ribbon"
+	},
+	"speedsketch_item~river": {
+		"message": "ilog"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "roller coaster"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "rollerskates"
+	},
+	"speedsketch_item~sadness": {
+		"message": "kalungkutan"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "bangkang may layag"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sandwich"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Santa Claus"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "sausage"
+	},
+	"speedsketch_item~saw": {
+		"message": "lagari"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxophone"
+	},
+	"speedsketch_item~school bus": {
+		"message": "school bus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "gunting"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "alakdan"
+	},
+	"speedsketch_item~screw": {
+		"message": "turnilyo"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "screwdriver"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "iskultura"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "pawikan"
+	},
+	"speedsketch_item~see saw": {
+		"message": "see saw"
+	},
+	"speedsketch_item~shark": {
+		"message": "pating"
+	},
+	"speedsketch_item~sheep": {
+		"message": "tupa"
+	},
+	"speedsketch_item~shoe": {
+		"message": "sapatos"
+	},
+	"speedsketch_item~shorts": {
+		"message": "shorts"
+	},
+	"speedsketch_item~shovel": {
+		"message": "pala"
+	},
+	"speedsketch_item~sink": {
+		"message": "sink"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "ski"
+	},
+	"speedsketch_item~skier": {
+		"message": "skier"
+	},
+	"speedsketch_item~skirt": {
+		"message": "skirt"
+	},
+	"speedsketch_item~skull": {
+		"message": "bungo"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "skyscraper"
+	},
+	"speedsketch_item~sled": {
+		"message": "sled"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "sleeping bag"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "sleigh"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "nakangiting mukha"
+	},
+	"speedsketch_item~snail": {
+		"message": "kuhol"
+	},
+	"speedsketch_item~snake": {
+		"message": "ahas"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorkel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "snowflake"
+	},
+	"speedsketch_item~snowman": {
+		"message": "snowman"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "soccer ball"
+	},
+	"speedsketch_item~sock": {
+		"message": "medyas"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "speedboat"
+	},
+	"speedsketch_item~sphere": {
+		"message": "globo"
+	},
+	"speedsketch_item~spider": {
+		"message": "gagamba"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spiral"
+	},
+	"speedsketch_item~spoon": {
+		"message": "kutsara"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "spreadsheet"
+	},
+	"speedsketch_item~square": {
+		"message": "parisukat"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "squiggle"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "squirrel"
+	},
+	"speedsketch_item~stairs": {
+		"message": "hagdan"
+	},
+	"speedsketch_item~star": {
+		"message": "star"
+	},
+	"speedsketch_item~steak": {
+		"message": "steak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stethoscope"
+	},
+	"speedsketch_item~still life": {
+		"message": "still life"
+	},
+	"speedsketch_item~stitches": {
+		"message": "mga tahi"
+	},
+	"speedsketch_item~stock market": {
+		"message": "stock market"
+	},
+	"speedsketch_item~stocking": {
+		"message": "stocking"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stop sign"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stopwatch"
+	},
+	"speedsketch_item~stove": {
+		"message": "kalan"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "strawberry"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "ilaw sa poste"
+	},
+	"speedsketch_item~string bean": {
+		"message": "sitaw"
+	},
+	"speedsketch_item~submarine": {
+		"message": "submarino"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "maleta"
+	},
+	"speedsketch_item~sun": {
+		"message": "araw"
+	},
+	"speedsketch_item~sunset": {
+		"message": "paglubog ng araw"
+	},
+	"speedsketch_item~swan": {
+		"message": "swan"
+	},
+	"speedsketch_item~sweater": {
+		"message": "sweater"
+	},
+	"speedsketch_item~swing set": {
+		"message": "swing set"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "t-shirt"
+	},
+	"speedsketch_item~table": {
+		"message": "mesa"
+	},
+	"speedsketch_item~teapot": {
+		"message": "teapot"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "teddy-bear"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telepono"
+	},
+	"speedsketch_item~television": {
+		"message": "telebisyon"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "raketa ng tennis"
+	},
+	"speedsketch_item~tent": {
+		"message": "tent"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "tic tac toe game"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tigre"
+	},
+	"speedsketch_item~time": {
+		"message": "oras"
+	},
+	"speedsketch_item~toaster": {
+		"message": "toaster"
+	},
+	"speedsketch_item~toe": {
+		"message": "daliri sa paa"
+	},
+	"speedsketch_item~toilet": {
+		"message": "kubeta"
+	},
+	"speedsketch_item~tooth": {
+		"message": "ipin"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "sipilyo"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "toothpaste"
+	},
+	"speedsketch_item~tornado": {
+		"message": "buhawi"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktora"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "traffic light"
+	},
+	"speedsketch_item~train": {
+		"message": "tren"
+	},
+	"speedsketch_item~tree": {
+		"message": "puno"
+	},
+	"speedsketch_item~triangle": {
+		"message": "tatsulok"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "tricycle"
+	},
+	"speedsketch_item~trolley": {
+		"message": "trolley"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombone"
+	},
+	"speedsketch_item~trousers": {
+		"message": "pantalon"
+	},
+	"speedsketch_item~truck": {
+		"message": "truck"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trumpeta"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "payong"
+	},
+	"speedsketch_item~underwear": {
+		"message": "underwear"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "unicorn"
+	},
+	"speedsketch_item~universe": {
+		"message": "sanlibutan"
+	},
+	"speedsketch_item~van": {
+		"message": "van"
+	},
+	"speedsketch_item~vase": {
+		"message": "vase"
+	},
+	"speedsketch_item~violin": {
+		"message": "violin"
+	},
+	"speedsketch_item~walnut": {
+		"message": "walnut"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "washing machine"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "pakwan"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "waterslide"
+	},
+	"speedsketch_item~wave": {
+		"message": "alon"
+	},
+	"speedsketch_item~whale": {
+		"message": "balyena"
+	},
+	"speedsketch_item~wheel": {
+		"message": "gulong"
+	},
+	"speedsketch_item~windmill": {
+		"message": "windmill"
+	},
+	"speedsketch_item~woman": {
+		"message": "babae"
+	},
+	"speedsketch_item~world": {
+		"message": "mundo"
+	},
+	"speedsketch_item~wreath": {
+		"message": "wreath"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "relo"
+	},
+	"speedsketch_item~yoga": {
+		"message": "yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "yoghurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzag"
+	},
+	"speedsketch_item~zipper": {
+		"message": "zipper"
 	},
 	"sr_country_name": {
 		"message": "Suriname"
@@ -5244,7 +6624,10 @@
 		"message": "United Kingdom"
 	},
 	"uk_tradition": {
-		"message": "Sa United Kingdom, nagpapaputok ang mga nagdiriwang, anuman ang edad, ng mga Christmas cracker sa hapag sa hapunan. Ang cracker ay tube na binalot sa makukulay na papel, na may hahataking tab sa magkabilang dulo. Kapag hinatak mo ang mga tab, sasabog ang tube nang may malakas na tunog! May laman itong mga paper hat, laruan at candy na ie-enjoy sa gabi ng Pasko."
+		"message": "Sa United Kingdom, ang mga nagdiriwang sa kahit anong edad ay nag-e-enjoy ng mga Christmas cracker sa hapag-kainan sa hapunan. Ang cracker ay mga tube na binalutan ng makukulay na papel, na may de-hatak na tab sa magkabilang dulo. Kapag hinatak mo ang mga tab, sasabog ang tube na may malakas na tunog! May laman itong mga paper hat, laruan, joke at mga premyo na mae-enjoy sa gabi ng Pasko."
+	},
+	"unmute": {
+		"message": "I-unmute"
 	},
 	"upgrade-warning": {
 		"message": "Oops! Hindi suportado ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa karagdagang impormasyon, bisitahin ang \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Idagdag sa Home Screen"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Idagdag sa Shelf"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Idagdag sa Desktop"
 	},
 	"village_santa_cardboard": {
 		"message": "Santa sa Cardboard"

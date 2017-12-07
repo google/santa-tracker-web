@@ -567,7 +567,7 @@
 		"message": "Panašu, kad ką tik praradome ryšį su Šiaurės ašigaliu. Kalėdų Senelio elfai stengiasi išspręsti šią problemą – stebėkite naujienas!"
 	},
 	"error-not-found": {
-		"message": "Apgailestaujame, Kalėdų Senelio elfams nepavyko rasti šio puslapio. Galbūt labiau pasisektų, jei grįžtumėte į \u003ca href=\"./village.html\"\u003eKalėdų Senelio kaimą\u003c/a\u003e."
+		"message": "Apgailestaujame, Kalėdų Senelio elfams nepavyko rasti šio puslapio. Galbūt labiau pasisektų, jei grįžtumėte į \u003ca href=\"./village.html\"\u003eKalėdų Senelio kaimelį\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Bandykite dar kartą"
@@ -602,6 +602,9 @@
 	"fr_tradition": {
 		"message": "Prancūzijoje vaikai tradiciškai išdėlioja savo batus prie židinio laukdami ateinant Père'o Noëlio. Jei vaikai visus metus buvo geri, Père'as Noëlis pripildys batus dovanų."
 	},
+	"fullscreen": {
+		"message": "Visas ekranas"
+	},
 	"ga_country_name": {
 		"message": "Gabonas"
 	},
@@ -612,7 +615,7 @@
 		"message": "Perėjote į kitą lygį:"
 	},
 	"gameover_score": {
-		"message": "Jūsų rezultatas:"
+		"message": "Tavo rezultatas:"
 	},
 	"getgooglemaps": {
 		"message": "Gauti „Google“ žemėlapius"
@@ -818,6 +821,9 @@
 	"mr_country_name": {
 		"message": "Mauritanija"
 	},
+	"mute": {
+		"message": "Nutildyti"
+	},
 	"mw_country_name": {
 		"message": "Malavis"
 	},
@@ -1002,7 +1008,7 @@
 		"message": "Tik prisijungus"
 	},
 	"offline_notification": {
-		"message": "Kalėdų Senelio kaimas nuo šiol pasiekiamas neprisijungus! Be to, gruodžio mėnesį elfai gali atnešti naujo turinio."
+		"message": "Kalėdų Senelio kaimelis nuo šiol pasiekiamas neprisijungus! Be to, gruodžio mėnesį elfai gali atnešti naujo turinio."
 	},
 	"offline_notification_nothanks": {
 		"message": "Ne, ačiū"
@@ -1027,6 +1033,9 @@
 	},
 	"pa_country_name": {
 		"message": "Panama"
+	},
+	"pause": {
+		"message": "Pristabdyti"
 	},
 	"pe_country_name": {
 		"message": "Peru"
@@ -1191,7 +1200,7 @@
 		"message": "Ieškokite Kalėdų Senelio!"
 	},
 	"santasvillage": {
-		"message": "Kalėdų Senelio kaimas"
+		"message": "Kalėdų Senelio kaimelis"
 	},
 	"santatracker": {
 		"message": "Kalėdų Senelio kelionė"
@@ -1462,6 +1471,1377 @@
 	},
 	"so_country_name": {
 		"message": "Somalis"
+	},
+	"speedsketch_item~London": {
+		"message": "Londonas"
+	},
+	"speedsketch_item~New York": {
+		"message": "Niujorkas"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paryžius"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Šanchajus"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Šveicarija"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Eifelio bokštas"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Didžioji kinų siena"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Liza"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstraktusis menas"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "lėktuvnešis"
+	},
+	"speedsketch_item~airplane": {
+		"message": "lėktuvas"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "žadintuvas"
+	},
+	"speedsketch_item~alien": {
+		"message": "ateivis"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "greitosios pagalbos automobilis"
+	},
+	"speedsketch_item~angel": {
+		"message": "angelas"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "gyvūnų migracija"
+	},
+	"speedsketch_item~ant": {
+		"message": "skruzdėlė"
+	},
+	"speedsketch_item~anvil": {
+		"message": "priekalas"
+	},
+	"speedsketch_item~apple": {
+		"message": "obuolys"
+	},
+	"speedsketch_item~arm": {
+		"message": "ranka"
+	},
+	"speedsketch_item~arrow": {
+		"message": "strėlė"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "šparagas"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronautas"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "garso kasetė"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokadas"
+	},
+	"speedsketch_item~axe": {
+		"message": "kirvis"
+	},
+	"speedsketch_item~baby": {
+		"message": "kūdikis"
+	},
+	"speedsketch_item~backpack": {
+		"message": "kuprinė"
+	},
+	"speedsketch_item~banana": {
+		"message": "bananas"
+	},
+	"speedsketch_item~bandage": {
+		"message": "tvarstis"
+	},
+	"speedsketch_item~barn": {
+		"message": "tvartas"
+	},
+	"speedsketch_item~baseball": {
+		"message": "beisbolas"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "beisbolo lazda"
+	},
+	"speedsketch_item~basket": {
+		"message": "krepšys"
+	},
+	"speedsketch_item~basketball": {
+		"message": "krepšinis"
+	},
+	"speedsketch_item~bat": {
+		"message": "šikšnosparnis"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "vonia"
+	},
+	"speedsketch_item~beach": {
+		"message": "paplūdimys"
+	},
+	"speedsketch_item~bear": {
+		"message": "lokys"
+	},
+	"speedsketch_item~beard": {
+		"message": "barzda"
+	},
+	"speedsketch_item~bed": {
+		"message": "lova"
+	},
+	"speedsketch_item~bee": {
+		"message": "bitė"
+	},
+	"speedsketch_item~belt": {
+		"message": "diržas"
+	},
+	"speedsketch_item~bench": {
+		"message": "suolas"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "dviratis"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "žiūronai"
+	},
+	"speedsketch_item~bird": {
+		"message": "paukštis"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "gimtadienio tortas"
+	},
+	"speedsketch_item~black": {
+		"message": "juodas"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "gervuogė"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "mėlynė"
+	},
+	"speedsketch_item~book": {
+		"message": "knyga"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerangas"
+	},
+	"speedsketch_item~boot": {
+		"message": "batas"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "kamštelis"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "varlytė"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "apyrankė"
+	},
+	"speedsketch_item~brain": {
+		"message": "smegenys"
+	},
+	"speedsketch_item~bread": {
+		"message": "duona"
+	},
+	"speedsketch_item~bridge": {
+		"message": "tiltas"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "brokolis"
+	},
+	"speedsketch_item~broom": {
+		"message": "šluota"
+	},
+	"speedsketch_item~bubble": {
+		"message": "burbulas"
+	},
+	"speedsketch_item~bucket": {
+		"message": "kibiras"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldozeris"
+	},
+	"speedsketch_item~bus": {
+		"message": "autobusas"
+	},
+	"speedsketch_item~bush": {
+		"message": "krūmas"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "drugelis"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktusas"
+	},
+	"speedsketch_item~cake": {
+		"message": "tortas"
+	},
+	"speedsketch_item~calculator": {
+		"message": "skaičiuotuvas"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalendorius"
+	},
+	"speedsketch_item~camel": {
+		"message": "kupranugaris"
+	},
+	"speedsketch_item~camera": {
+		"message": "fotoaparatas"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "maskuotė"
+	},
+	"speedsketch_item~campfire": {
+		"message": "laužas"
+	},
+	"speedsketch_item~candle": {
+		"message": "žvakė"
+	},
+	"speedsketch_item~candy": {
+		"message": "saldainis"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "ledinukas"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kanoja"
+	},
+	"speedsketch_item~car": {
+		"message": "automobilis"
+	},
+	"speedsketch_item~carrot": {
+		"message": "morka"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "animacinis filmas"
+	},
+	"speedsketch_item~castle": {
+		"message": "pilis"
+	},
+	"speedsketch_item~cat": {
+		"message": "katė"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "lubų ventiliatorius"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobilusis telefonas"
+	},
+	"speedsketch_item~cello": {
+		"message": "violončelė"
+	},
+	"speedsketch_item~chair": {
+		"message": "kėdė"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "sietynas"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "chemija"
+	},
+	"speedsketch_item~cherry": {
+		"message": "vyšnia"
+	},
+	"speedsketch_item~chicken": {
+		"message": "višta"
+	},
+	"speedsketch_item~child": {
+		"message": "vaikas"
+	},
+	"speedsketch_item~chimney": {
+		"message": "kaminas"
+	},
+	"speedsketch_item~church": {
+		"message": "bažnyčia"
+	},
+	"speedsketch_item~circle": {
+		"message": "ratas"
+	},
+	"speedsketch_item~city": {
+		"message": "miestas"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarnetas"
+	},
+	"speedsketch_item~clock": {
+		"message": "laikrodis"
+	},
+	"speedsketch_item~cloud": {
+		"message": "debesis"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "kukurūzų burbuolės kotas"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "kavos puodelis"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompasas"
+	},
+	"speedsketch_item~computer": {
+		"message": "kompiuteris"
+	},
+	"speedsketch_item~cookie": {
+		"message": "sausainis"
+	},
+	"speedsketch_item~cooler": {
+		"message": "aušintuvas"
+	},
+	"speedsketch_item~couch": {
+		"message": "sofa"
+	},
+	"speedsketch_item~cow": {
+		"message": "karvė"
+	},
+	"speedsketch_item~crab": {
+		"message": "krabas"
+	},
+	"speedsketch_item~crayon": {
+		"message": "kreidelė"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodilas"
+	},
+	"speedsketch_item~cross": {
+		"message": "kryžiukas"
+	},
+	"speedsketch_item~crow": {
+		"message": "varna"
+	},
+	"speedsketch_item~crown": {
+		"message": "karūna"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "kruizinis laivas"
+	},
+	"speedsketch_item~cube": {
+		"message": "kubas"
+	},
+	"speedsketch_item~cup": {
+		"message": "puodelis"
+	},
+	"speedsketch_item~darts": {
+		"message": "smiginis"
+	},
+	"speedsketch_item~diamond": {
+		"message": "deimantas"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "deimantinis žiedas"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "indaplovė"
+	},
+	"speedsketch_item~diving board": {
+		"message": "nardymo lenta"
+	},
+	"speedsketch_item~dog": {
+		"message": "šuo"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfinas"
+	},
+	"speedsketch_item~donut": {
+		"message": "spurga"
+	},
+	"speedsketch_item~door": {
+		"message": "durys"
+	},
+	"speedsketch_item~dragon": {
+		"message": "drakonas"
+	},
+	"speedsketch_item~dresser": {
+		"message": "spintelė"
+	},
+	"speedsketch_item~drill": {
+		"message": "grąžtas"
+	},
+	"speedsketch_item~drums": {
+		"message": "būgnai"
+	},
+	"speedsketch_item~duck": {
+		"message": "antis"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "svarmuo"
+	},
+	"speedsketch_item~ear": {
+		"message": "ausis"
+	},
+	"speedsketch_item~egg": {
+		"message": "kiaušinis"
+	},
+	"speedsketch_item~elbow": {
+		"message": "alkūnė"
+	},
+	"speedsketch_item~elephant": {
+		"message": "dramblys"
+	},
+	"speedsketch_item~elf": {
+		"message": "elfas"
+	},
+	"speedsketch_item~emoji": {
+		"message": "jaustukai"
+	},
+	"speedsketch_item~envelope": {
+		"message": "vokas"
+	},
+	"speedsketch_item~eraser": {
+		"message": "trintukas"
+	},
+	"speedsketch_item~eye": {
+		"message": "akis"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "akiniai"
+	},
+	"speedsketch_item~face": {
+		"message": "veidas"
+	},
+	"speedsketch_item~family": {
+		"message": "šeima"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventiliatorius"
+	},
+	"speedsketch_item~feather": {
+		"message": "tėvas"
+	},
+	"speedsketch_item~fence": {
+		"message": "tvora"
+	},
+	"speedsketch_item~finger": {
+		"message": "pirštas"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "gaisrinis hidrantas"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "židinys"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "gaisrinis automobilis"
+	},
+	"speedsketch_item~fish": {
+		"message": "žuvis"
+	},
+	"speedsketch_item~flag": {
+		"message": "pažymėti"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingas"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "žibintuvėlis"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "šlepetės"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "grindų šviestuvas"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "diskelis"
+	},
+	"speedsketch_item~flower": {
+		"message": "gėlė"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "skraidanti lėkštė"
+	},
+	"speedsketch_item~fog": {
+		"message": "rūkas"
+	},
+	"speedsketch_item~foot": {
+		"message": "pėda"
+	},
+	"speedsketch_item~fork": {
+		"message": "šakutė"
+	},
+	"speedsketch_item~french fries": {
+		"message": "gruzdintos bulvytės"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "keptas kiaušinis"
+	},
+	"speedsketch_item~frog": {
+		"message": "varlė"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "keptuvė"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaktika"
+	},
+	"speedsketch_item~garden": {
+		"message": "sodas"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "sodo žarna"
+	},
+	"speedsketch_item~ghost": {
+		"message": "vaiduoklis"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "imbierinis žmogeliukas"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "žirafa"
+	},
+	"speedsketch_item~goat": {
+		"message": "ožys"
+	},
+	"speedsketch_item~goatee": {
+		"message": "smaili barzdelė"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfo lazda"
+	},
+	"speedsketch_item~grapes": {
+		"message": "vynuogės"
+	},
+	"speedsketch_item~grass": {
+		"message": "žolė"
+	},
+	"speedsketch_item~group": {
+		"message": "grupė"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gitara"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "mėsainis"
+	},
+	"speedsketch_item~hammer": {
+		"message": "plaktukas"
+	},
+	"speedsketch_item~hand": {
+		"message": "ranka"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "kartuvių žaidimas"
+	},
+	"speedsketch_item~happiness": {
+		"message": "laimė"
+	},
+	"speedsketch_item~harp": {
+		"message": "arfa"
+	},
+	"speedsketch_item~hat": {
+		"message": "kepurė"
+	},
+	"speedsketch_item~headphones": {
+		"message": "ausinės"
+	},
+	"speedsketch_item~heart": {
+		"message": "širdelė"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "ežiukas"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "sraigtasparnis"
+	},
+	"speedsketch_item~helmet": {
+		"message": "šalmas"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "šešiakampis"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "ledo ritulys"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "ledo ritulio lazda"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "šventinės lempučių girliandos"
+	},
+	"speedsketch_item~horse": {
+		"message": "arklys"
+	},
+	"speedsketch_item~hospital": {
+		"message": "ligoninė"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "karšto oro balionas"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "dešrainis"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "karšta vonia"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "smėlio laikrodis"
+	},
+	"speedsketch_item~house": {
+		"message": "namas"
+	},
+	"speedsketch_item~house plant": {
+		"message": "naminis augalas"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "uraganas"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "ledai"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "čiuožėjas ledu"
+	},
+	"speedsketch_item~infinity": {
+		"message": "begalybė"
+	},
+	"speedsketch_item~island": {
+		"message": "sala"
+	},
+	"speedsketch_item~italy": {
+		"message": "Italija"
+	},
+	"speedsketch_item~jacket": {
+		"message": "švarkas"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "reaktyvinė kuprinė"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jingle Bells"
+	},
+	"speedsketch_item~kale": {
+		"message": "lapinis kopūstas"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kengūra"
+	},
+	"speedsketch_item~key": {
+		"message": "raktas"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "klaviatūra"
+	},
+	"speedsketch_item~kite": {
+		"message": "aitvaras"
+	},
+	"speedsketch_item~knee": {
+		"message": "kelis"
+	},
+	"speedsketch_item~knife": {
+		"message": "peilis"
+	},
+	"speedsketch_item~knot": {
+		"message": "mazgas"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "kopėčios"
+	},
+	"speedsketch_item~landscape": {
+		"message": "peizažas"
+	},
+	"speedsketch_item~lantern": {
+		"message": "žibintas"
+	},
+	"speedsketch_item~laptop": {
+		"message": "skreitinis kompiuteris"
+	},
+	"speedsketch_item~leaf": {
+		"message": "lapas"
+	},
+	"speedsketch_item~leg": {
+		"message": "koja"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "lemputė"
+	},
+	"speedsketch_item~lighter": {
+		"message": "žiebtuvėlis"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "švyturys"
+	},
+	"speedsketch_item~lightning": {
+		"message": "žaibas"
+	},
+	"speedsketch_item~line": {
+		"message": "linija"
+	},
+	"speedsketch_item~lion": {
+		"message": "liūtas"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "lūpų dažai"
+	},
+	"speedsketch_item~lobster": {
+		"message": "omaras"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "ledinukas"
+	},
+	"speedsketch_item~love": {
+		"message": "meilė"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "pašto dėžutė"
+	},
+	"speedsketch_item~man": {
+		"message": "vyras"
+	},
+	"speedsketch_item~map": {
+		"message": "žemėlapis"
+	},
+	"speedsketch_item~marker": {
+		"message": "žymeklis"
+	},
+	"speedsketch_item~matches": {
+		"message": "degtukai"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematika"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafonas"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "undinė"
+	},
+	"speedsketch_item~metal": {
+		"message": "metalas"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofonas"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroskopas"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikrobangų krosnelė"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "amalas"
+	},
+	"speedsketch_item~mittens": {
+		"message": "kumštinės pirštinės"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekulė"
+	},
+	"speedsketch_item~money": {
+		"message": "pinigai"
+	},
+	"speedsketch_item~monkey": {
+		"message": "beždžionė"
+	},
+	"speedsketch_item~moon": {
+		"message": "mėnulis"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "uodas"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motociklas"
+	},
+	"speedsketch_item~mountain": {
+		"message": "kalnas"
+	},
+	"speedsketch_item~mouse": {
+		"message": "pelė"
+	},
+	"speedsketch_item~moustache": {
+		"message": "ūsai"
+	},
+	"speedsketch_item~mouth": {
+		"message": "burna"
+	},
+	"speedsketch_item~mug": {
+		"message": "puodelis"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "grybas"
+	},
+	"speedsketch_item~music": {
+		"message": "muzika"
+	},
+	"speedsketch_item~nail": {
+		"message": "vinis"
+	},
+	"speedsketch_item~nature": {
+		"message": "gamta"
+	},
+	"speedsketch_item~necklace": {
+		"message": "karoliai"
+	},
+	"speedsketch_item~news": {
+		"message": "naujienos"
+	},
+	"speedsketch_item~nose": {
+		"message": "nosis"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "riešutų spaustukas"
+	},
+	"speedsketch_item~ocean": {
+		"message": "vandenynas"
+	},
+	"speedsketch_item~octagon": {
+		"message": "aštuonkampis"
+	},
+	"speedsketch_item~octopus": {
+		"message": "aštuonkojis"
+	},
+	"speedsketch_item~onion": {
+		"message": "svogūnas"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ornamentas"
+	},
+	"speedsketch_item~oven": {
+		"message": "orkaitė"
+	},
+	"speedsketch_item~owl": {
+		"message": "pelėda"
+	},
+	"speedsketch_item~paint can": {
+		"message": "dažų skardinė"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "teptukas"
+	},
+	"speedsketch_item~painting": {
+		"message": "tapyba"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palmė"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "kelnės"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "sąvaržėlė"
+	},
+	"speedsketch_item~parachute": {
+		"message": "parašiutas"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papūga"
+	},
+	"speedsketch_item~passport": {
+		"message": "pasas"
+	},
+	"speedsketch_item~peanut": {
+		"message": "žemės riešutas"
+	},
+	"speedsketch_item~pear": {
+		"message": "kriaušė"
+	},
+	"speedsketch_item~peas": {
+		"message": "žirniai"
+	},
+	"speedsketch_item~pencil": {
+		"message": "pieštukas"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pingvinas"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "pipirmėtė"
+	},
+	"speedsketch_item~piano": {
+		"message": "pianinas"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "pikapas"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "paveikslo rėmas"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "skritulinė diagrama"
+	},
+	"speedsketch_item~pig": {
+		"message": "kiaulė"
+	},
+	"speedsketch_item~pillow": {
+		"message": "pagalvė"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananasas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "stalo tenisas"
+	},
+	"speedsketch_item~pirate": {
+		"message": "piratas"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pica"
+	},
+	"speedsketch_item~pliers": {
+		"message": "replės"
+	},
+	"speedsketch_item~police car": {
+		"message": "policijos automobilis"
+	},
+	"speedsketch_item~politician": {
+		"message": "politikas"
+	},
+	"speedsketch_item~pond": {
+		"message": "tvenkinys"
+	},
+	"speedsketch_item~pool": {
+		"message": "baseinas"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "ledai"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portretas"
+	},
+	"speedsketch_item~postcard": {
+		"message": "atvirukas"
+	},
+	"speedsketch_item~potato": {
+		"message": "bulvė"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "elektros lizdas"
+	},
+	"speedsketch_item~present": {
+		"message": "dabar"
+	},
+	"speedsketch_item~prison": {
+		"message": "kalėjimas"
+	},
+	"speedsketch_item~purse": {
+		"message": "piniginė"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "dėlionė"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "triušis"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "meškėnas"
+	},
+	"speedsketch_item~radio": {
+		"message": "radijas"
+	},
+	"speedsketch_item~rain": {
+		"message": "lietus"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "vaivorykštė"
+	},
+	"speedsketch_item~rake": {
+		"message": "grėblys"
+	},
+	"speedsketch_item~raven": {
+		"message": "varnas"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "šiaurės elnias"
+	},
+	"speedsketch_item~remote control": {
+		"message": "nuotolinio valdymo pultelis"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "raganosis"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "juosta"
+	},
+	"speedsketch_item~river": {
+		"message": "upė"
+	},
+	"speedsketch_item~robot": {
+		"message": "robotas"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "linksmieji kalneliai"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "riedučiai"
+	},
+	"speedsketch_item~sadness": {
+		"message": "liūdesys"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "burlaivis"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sumuštinis"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Kalėdų Senelis"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Saturnas"
+	},
+	"speedsketch_item~sausage": {
+		"message": "dešrelė"
+	},
+	"speedsketch_item~saw": {
+		"message": "pjūklas"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saksofonas"
+	},
+	"speedsketch_item~school bus": {
+		"message": "mokyklinis autobusas"
+	},
+	"speedsketch_item~scissors": {
+		"message": "žirklės"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "skorpionas"
+	},
+	"speedsketch_item~screw": {
+		"message": "varžtas"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "atsuktuvas"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "skulptūra"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "jūrų vėžlys"
+	},
+	"speedsketch_item~see saw": {
+		"message": "supimosi lenta"
+	},
+	"speedsketch_item~shark": {
+		"message": "ryklys"
+	},
+	"speedsketch_item~sheep": {
+		"message": "avis"
+	},
+	"speedsketch_item~shoe": {
+		"message": "batas"
+	},
+	"speedsketch_item~shorts": {
+		"message": "šortai"
+	},
+	"speedsketch_item~shovel": {
+		"message": "kastuvas"
+	},
+	"speedsketch_item~sink": {
+		"message": "kriauklė"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "riedlentė"
+	},
+	"speedsketch_item~ski": {
+		"message": "slidė"
+	},
+	"speedsketch_item~skier": {
+		"message": "slidininkas"
+	},
+	"speedsketch_item~skirt": {
+		"message": "sijonas"
+	},
+	"speedsketch_item~skull": {
+		"message": "kaukolė"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "dangoraižis"
+	},
+	"speedsketch_item~sled": {
+		"message": "rogutės"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "miegmaišis"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "rogės"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "besišypsantis veidas"
+	},
+	"speedsketch_item~snail": {
+		"message": "sraigė"
+	},
+	"speedsketch_item~snake": {
+		"message": "gyvatė"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "nardymo įranga"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "snaigė"
+	},
+	"speedsketch_item~snowman": {
+		"message": "sniego senis"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "futbolo kamuolys"
+	},
+	"speedsketch_item~sock": {
+		"message": "kojinė"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "motorinis kateris"
+	},
+	"speedsketch_item~sphere": {
+		"message": "sfera"
+	},
+	"speedsketch_item~spider": {
+		"message": "voras"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spiralė"
+	},
+	"speedsketch_item~spoon": {
+		"message": "šaukštas"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "skaičiuoklė"
+	},
+	"speedsketch_item~square": {
+		"message": "kvadratas"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "vingiuota linija"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "voverė"
+	},
+	"speedsketch_item~stairs": {
+		"message": "laiptai"
+	},
+	"speedsketch_item~star": {
+		"message": "žvaigždė"
+	},
+	"speedsketch_item~steak": {
+		"message": "kepsnys"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoskopas"
+	},
+	"speedsketch_item~still life": {
+		"message": "natiurmortas"
+	},
+	"speedsketch_item~stitches": {
+		"message": "siūlės"
+	},
+	"speedsketch_item~stock market": {
+		"message": "vertybinių popierių birža"
+	},
+	"speedsketch_item~stocking": {
+		"message": "kojinė"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "ženklas „sustoti“"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "chronometras"
+	},
+	"speedsketch_item~stove": {
+		"message": "viryklė"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "braškė"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "gatvės šviesa"
+	},
+	"speedsketch_item~string bean": {
+		"message": "šparaginė pupelė"
+	},
+	"speedsketch_item~submarine": {
+		"message": "povandeninis laivas"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "lagaminas"
+	},
+	"speedsketch_item~sun": {
+		"message": "saulė"
+	},
+	"speedsketch_item~sunset": {
+		"message": "saulėlydis"
+	},
+	"speedsketch_item~swan": {
+		"message": "gulbė"
+	},
+	"speedsketch_item~sweater": {
+		"message": "megztinis"
+	},
+	"speedsketch_item~swing set": {
+		"message": "supynės"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "marškinėliai"
+	},
+	"speedsketch_item~table": {
+		"message": "stalas"
+	},
+	"speedsketch_item~teapot": {
+		"message": "arbatinukas"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "meškiukas"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefonas"
+	},
+	"speedsketch_item~television": {
+		"message": "televizorius"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "teniso raketė"
+	},
+	"speedsketch_item~tent": {
+		"message": "palapinė"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "žaidimas kryžiukais ir nuliukais"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tigras"
+	},
+	"speedsketch_item~time": {
+		"message": "laikas"
+	},
+	"speedsketch_item~toaster": {
+		"message": "skrudintuvas"
+	},
+	"speedsketch_item~toe": {
+		"message": "kojos pirštas"
+	},
+	"speedsketch_item~toilet": {
+		"message": "tualetas"
+	},
+	"speedsketch_item~tooth": {
+		"message": "dantis"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "dantų šepetėlis"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "dantų pasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornadas"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktorius"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "šviesoforas"
+	},
+	"speedsketch_item~train": {
+		"message": "traukinys"
+	},
+	"speedsketch_item~tree": {
+		"message": "medis"
+	},
+	"speedsketch_item~triangle": {
+		"message": "trikampis"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "triratis"
+	},
+	"speedsketch_item~trolley": {
+		"message": "vežimėlis"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombonas"
+	},
+	"speedsketch_item~trousers": {
+		"message": "kelnės"
+	},
+	"speedsketch_item~truck": {
+		"message": "sunkvežimis"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trimitas"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "skėtis"
+	},
+	"speedsketch_item~underwear": {
+		"message": "apatiniai drabužiai"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "vienaragis"
+	},
+	"speedsketch_item~universe": {
+		"message": "visata"
+	},
+	"speedsketch_item~van": {
+		"message": "furgonas"
+	},
+	"speedsketch_item~vase": {
+		"message": "vaza"
+	},
+	"speedsketch_item~violin": {
+		"message": "smuikas"
+	},
+	"speedsketch_item~walnut": {
+		"message": "graikinis riešutas"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "skalbimo mašina"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "arbūzas"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "vandens čiuožykla"
+	},
+	"speedsketch_item~wave": {
+		"message": "banga"
+	},
+	"speedsketch_item~whale": {
+		"message": "banginis"
+	},
+	"speedsketch_item~wheel": {
+		"message": "ratas"
+	},
+	"speedsketch_item~windmill": {
+		"message": "vėjo malūnas"
+	},
+	"speedsketch_item~woman": {
+		"message": "moteris"
+	},
+	"speedsketch_item~world": {
+		"message": "pasaulis"
+	},
+	"speedsketch_item~wreath": {
+		"message": "vainikas"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "laikrodis"
+	},
+	"speedsketch_item~yoga": {
+		"message": "joga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "jogurtas"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebras"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzagas"
+	},
+	"speedsketch_item~zipper": {
+		"message": "užtrauktukas"
 	},
 	"sr_country_name": {
 		"message": "Surinamas"
@@ -5244,7 +6624,10 @@
 		"message": "Jungtinė Karalystė"
 	},
 	"uk_tradition": {
-		"message": "Jungtinėje Karalystėje bet kokio amžiaus švenčiantieji mėgaujasi kalėdinėmis papliauškomis ant pietų stalo. Papliauškos – tai į spalvingą popierių įvynioti vamzdeliai su ištraukiamomis ąselėmis kiekviename gale. Ištraukus ąseles vamzdelis sprogsta garsiai pliaukštelėdamas! Viduje paslėptos popierinės kepurės, žaislai ir saldainiai, kad Kalėdų naktį būtų linksma."
+		"message": "JK švenčiantieji mėgaujasi kalėdinėmis papliauškomis ant pietų stalo. Papliauškos – tai į spalvingą popierių įvynioti vamzdeliai su ištraukiamomis ąselėmis galuose. Ištraukus ąseles vamzdelis garsiai sprogsta! Viduje – popierinės kepurės, žaislai, pokštai ir prizai, kad Kalėdų naktį būtų linksma."
+	},
+	"unmute": {
+		"message": "Garsas"
 	},
 	"upgrade-warning": {
 		"message": "Oi! Kalėdų Senelio kelionė nepalaikoma šios versijos naršyklėje. Kad pasiektumėte Kalėdų Senelio kelionę, atsisiųskite modernią naršyklę. Jei reikia daugiau informacijos, apsilankykite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
@@ -5278,6 +6661,12 @@
 	},
 	"village_santa_a2hs": {
 		"message": "Pridėti prie pagrindinio ekrano"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Pridėti prie lentynos"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Pridėti prie darbalaukio"
 	},
 	"village_santa_cardboard": {
 		"message": "Kalėdų Senelis platformoje „Cardboard“"
