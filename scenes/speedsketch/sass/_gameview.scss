@@ -157,18 +157,11 @@
       }
 
       &__bubble {
-        background-image: url('img/speech-bubble.svg');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        padding-bottom: 62%;
         position: relative;
         width: 100%;
 
         @media (max-width: $mobile-breakpoint) {
-          background-image: url('img/mobile-bubble.svg');
           margin-left: 16px;
-          padding-bottom: 42%;
           width: calc(100% - 32px);
         }
 
@@ -183,6 +176,22 @@
           @media (max-width: $mobile-breakpoint) {
             top: 58%;
             width: 49.4%;
+          }
+        }
+      }
+
+      &__bubbleBg {
+        width: 100%;
+
+        @media (max-width: $mobile-breakpoint) {
+          display: none;
+        }
+
+        &--mobile {
+          display: none;
+
+          @media (max-width: $mobile-breakpoint) {
+            display: block;
           }
         }
       }
