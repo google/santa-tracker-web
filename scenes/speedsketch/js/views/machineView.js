@@ -111,9 +111,11 @@ app.view.MachineView.prototype.readNextGuess = function(first) {
   this.setText(textSentenceA, textSentenceB);
 
   //Set speaking text and speak
-  var speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-or') + ' ' + next;
+  var speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-or') +
+      ' ' + app.Utils.getItemTranslation(this.container, next);
   if (first) {
-    speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-see') + ' ' + next;
+    speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-see') +
+        ' ' + app.Utils.getItemTranslation(this.container, next);
   }
   this.speak(speakSentence, function() {
     this.readNextGuess();
