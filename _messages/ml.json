@@ -1475,7 +1475,7 @@
 	"speedsketch_item~London": {
 		"message": "ലണ്ടന്‍"
 	},
-	"speedsketch_item~New York": {
+	"speedsketch_item~New_York": {
 		"message": "ന്യൂയോര്‍ക്ക്"
 	},
 	"speedsketch_item~Paris": {
@@ -1487,25 +1487,25 @@
 	"speedsketch_item~Switzerland": {
 		"message": "സ്വിറ്റ്സർലാന്റ്"
 	},
-	"speedsketch_item~The Eiffel Tower": {
+	"speedsketch_item~The_Eiffel_Tower": {
 		"message": "ഈഫൽ ടവർ"
 	},
-	"speedsketch_item~The Great Wall of China": {
+	"speedsketch_item~The_Great_Wall_of_China": {
 		"message": "ചൈനയിലെ വൻമതിൽ"
 	},
-	"speedsketch_item~The Mona Lisa": {
+	"speedsketch_item~The_Mona_Lisa": {
 		"message": "മോണാലിസ"
 	},
-	"speedsketch_item~abstract art": {
+	"speedsketch_item~abstract_art": {
 		"message": "അമൂർത്ത കല"
 	},
-	"speedsketch_item~aircraft carrier": {
+	"speedsketch_item~aircraft_carrier": {
 		"message": "വിമാനവാഹിനിക്കപ്പൽ"
 	},
 	"speedsketch_item~airplane": {
 		"message": "വിമാനം"
 	},
-	"speedsketch_item~alarm clock": {
+	"speedsketch_item~alarm_clock": {
 		"message": "അലാറം ക്ലോക്ക്"
 	},
 	"speedsketch_item~alien": {
@@ -1517,7 +1517,7 @@
 	"speedsketch_item~angel": {
 		"message": "മാലാഖ"
 	},
-	"speedsketch_item~animal migration": {
+	"speedsketch_item~animal_migration": {
 		"message": "മൃഗങ്ങളുടെ ദേശാടനം"
 	},
 	"speedsketch_item~ant": {
@@ -1541,7 +1541,7 @@
 	"speedsketch_item~astronaut": {
 		"message": "ബഹിരാകാശ സഞ്ചാരി"
 	},
-	"speedsketch_item~audio cassette": {
+	"speedsketch_item~audio_cassette": {
 		"message": "ഓഡിയോ കാസറ്റ്"
 	},
 	"speedsketch_item~avocado": {
@@ -1568,7 +1568,7 @@
 	"speedsketch_item~baseball": {
 		"message": "ബേസ്‌ബോൾ"
 	},
-	"speedsketch_item~baseball bat": {
+	"speedsketch_item~baseball_bat": {
 		"message": "ബേസ്‌ബോൾ ബാറ്റ്"
 	},
 	"speedsketch_item~basket": {
@@ -1613,7 +1613,7 @@
 	"speedsketch_item~bird": {
 		"message": "പക്ഷി"
 	},
-	"speedsketch_item~birthday cake": {
+	"speedsketch_item~birthday_cake": {
 		"message": "പിറന്നാൾ കേക്ക്"
 	},
 	"speedsketch_item~black": {
@@ -1706,7 +1706,7 @@
 	"speedsketch_item~candy": {
 		"message": "മിഠായി"
 	},
-	"speedsketch_item~candy cane": {
+	"speedsketch_item~candy_cane": {
 		"message": "കാൻഡി കേയ്‌ൻ"
 	},
 	"speedsketch_item~canoe": {
@@ -1727,10 +1727,10 @@
 	"speedsketch_item~cat": {
 		"message": "പൂച്ച"
 	},
-	"speedsketch_item~ceiling fan": {
+	"speedsketch_item~ceiling_fan": {
 		"message": "സീലിംഗ് ഫാൻ"
 	},
-	"speedsketch_item~cell phone": {
+	"speedsketch_item~cell_phone": {
 		"message": "സെൽഫോൺ"
 	},
 	"speedsketch_item~cello": {
@@ -1775,10 +1775,10 @@
 	"speedsketch_item~cloud": {
 		"message": "മേഘം"
 	},
-	"speedsketch_item~cob of corn": {
+	"speedsketch_item~cob_of_corn": {
 		"message": "ചോളക്കതിർ"
 	},
-	"speedsketch_item~coffee cup": {
+	"speedsketch_item~coffee_cup": {
 		"message": "കോഫി കപ്പ്"
 	},
 	"speedsketch_item~compass": {
@@ -1817,7 +1817,7 @@
 	"speedsketch_item~crown": {
 		"message": "കിരീടം"
 	},
-	"speedsketch_item~cruise ship": {
+	"speedsketch_item~cruise_ship": {
 		"message": "യാത്രാ കപ്പൽ"
 	},
 	"speedsketch_item~cube": {
@@ -1832,13 +1832,13 @@
 	"speedsketch_item~diamond": {
 		"message": "വജ്രം"
 	},
-	"speedsketch_item~diamond ring": {
+	"speedsketch_item~diamond_ring": {
 		"message": "വജ്രമോതിരം"
 	},
 	"speedsketch_item~dishwasher": {
 		"message": "ഡിഷ് വാഷർ"
 	},
-	"speedsketch_item~diving board": {
+	"speedsketch_item~diving_board": {
 		"message": "ഡൈവിംഗ് ബോർഡ്"
 	},
 	"speedsketch_item~dog": {
@@ -1919,7 +1919,7 @@
 	"speedsketch_item~finger": {
 		"message": "വിരൽ"
 	},
-	"speedsketch_item~fire hydrant": {
+	"speedsketch_item~fire_hydrant": {
 		"message": "അഗ്നിശമന ഹൈഡ്രന്‍റ്"
 	},
 	"speedsketch_item~fireplace": {
@@ -1940,19 +1940,19 @@
 	"speedsketch_item~flashlight": {
 		"message": "ഫ്ലാഷ് ലൈറ്റ്"
 	},
-	"speedsketch_item~flip flops": {
+	"speedsketch_item~flip_flops": {
 		"message": "മെതിയടി"
 	},
-	"speedsketch_item~floor lamp": {
+	"speedsketch_item~floor_lamp": {
 		"message": "ഫ്ലോർ ലാമ്പ്"
 	},
-	"speedsketch_item~floppy disk": {
+	"speedsketch_item~floppy_disk": {
 		"message": "ഫ്ലോപ്പി ഡിസ്‌ക്"
 	},
 	"speedsketch_item~flower": {
 		"message": "പൂവ്"
 	},
-	"speedsketch_item~flying saucer": {
+	"speedsketch_item~flying_saucer": {
 		"message": "പറക്കും തളിക"
 	},
 	"speedsketch_item~fog": {
@@ -1964,16 +1964,16 @@
 	"speedsketch_item~fork": {
 		"message": "ഫോർക്ക്"
 	},
-	"speedsketch_item~french fries": {
+	"speedsketch_item~french_fries": {
 		"message": "ഫ്രഞ്ച് ഫ്രൈസ്"
 	},
-	"speedsketch_item~fried egg": {
+	"speedsketch_item~fried_egg": {
 		"message": "ഫ്രൈഡ് എഗ്ഗ്"
 	},
 	"speedsketch_item~frog": {
 		"message": "തവള"
 	},
-	"speedsketch_item~frying pan": {
+	"speedsketch_item~frying_pan": {
 		"message": "വറചട്ടി"
 	},
 	"speedsketch_item~galaxy": {
@@ -1982,13 +1982,13 @@
 	"speedsketch_item~garden": {
 		"message": "പൂന്തോട്ടം"
 	},
-	"speedsketch_item~garden hose": {
+	"speedsketch_item~garden_hose": {
 		"message": "പൂന്തോട്ടത്തിലെ ഹോസ്"
 	},
 	"speedsketch_item~ghost": {
 		"message": "ഭൂതം"
 	},
-	"speedsketch_item~gingerbread man": {
+	"speedsketch_item~gingerbread_man": {
 		"message": "ജിഞ്ചർബ്രെഡ് മാൻ"
 	},
 	"speedsketch_item~giraffe": {
@@ -2000,7 +2000,7 @@
 	"speedsketch_item~goatee": {
 		"message": "ഊശാന്താടി"
 	},
-	"speedsketch_item~golf club": {
+	"speedsketch_item~golf_club": {
 		"message": "ഗോൾഫ് ക്ലബ്"
 	},
 	"speedsketch_item~grapes": {
@@ -2024,7 +2024,7 @@
 	"speedsketch_item~hand": {
 		"message": "കൈ"
 	},
-	"speedsketch_item~hangman game": {
+	"speedsketch_item~hangman_game": {
 		"message": "ഹാംഗ് മാൻ ഗെയിം"
 	},
 	"speedsketch_item~happiness": {
@@ -2054,13 +2054,13 @@
 	"speedsketch_item~hexagon": {
 		"message": "ഷഡ്‌ഭുജം"
 	},
-	"speedsketch_item~hockey puck": {
+	"speedsketch_item~hockey_puck": {
 		"message": "ഹോക്കി പക്ക്"
 	},
-	"speedsketch_item~hockey stick": {
+	"speedsketch_item~hockey_stick": {
 		"message": "ഹോക്കി സ്‌റ്റിക്ക്"
 	},
-	"speedsketch_item~holiday lights": {
+	"speedsketch_item~holiday_lights": {
 		"message": "ഹോളിഡേ ലൈ‌റ്റ്‌സ്"
 	},
 	"speedsketch_item~horse": {
@@ -2069,13 +2069,13 @@
 	"speedsketch_item~hospital": {
 		"message": "ആശുപത്രി"
 	},
-	"speedsketch_item~hot air balloon": {
+	"speedsketch_item~hot_air_balloon": {
 		"message": "ഹോട്ട് എയർ ബലൂൺ"
 	},
-	"speedsketch_item~hot dog": {
+	"speedsketch_item~hot_dog": {
 		"message": "ഹോട്ട് ഡോഗ്"
 	},
-	"speedsketch_item~hot tub": {
+	"speedsketch_item~hot_tub": {
 		"message": "ഹോട്ട് ടബ്"
 	},
 	"speedsketch_item~hourglass": {
@@ -2084,16 +2084,16 @@
 	"speedsketch_item~house": {
 		"message": "വീട്"
 	},
-	"speedsketch_item~house plant": {
+	"speedsketch_item~house_plant": {
 		"message": "വീട്ടിനുള്ളിൽ വളർത്തുന്ന ചെടി"
 	},
 	"speedsketch_item~hurricane": {
 		"message": "കൊടുങ്കാറ്റ്"
 	},
-	"speedsketch_item~ice cream": {
+	"speedsketch_item~ice_cream": {
 		"message": "ഐസ് ക്രീം"
 	},
-	"speedsketch_item~ice skater": {
+	"speedsketch_item~ice_skater": {
 		"message": "ഐസ് സ്‌കേറ്റർ"
 	},
 	"speedsketch_item~infinity": {
@@ -2111,7 +2111,7 @@
 	"speedsketch_item~jetpack": {
 		"message": "ജെറ്റ്‌പാക്ക്"
 	},
-	"speedsketch_item~jingle bells": {
+	"speedsketch_item~jingle_bells": {
 		"message": "ജിംഗിൾ ബെൽസ്"
 	},
 	"speedsketch_item~kale": {
@@ -2159,7 +2159,7 @@
 	"speedsketch_item~leg": {
 		"message": "കാൽ"
 	},
-	"speedsketch_item~light bulb": {
+	"speedsketch_item~light_bulb": {
 		"message": "ബൾബ്"
 	},
 	"speedsketch_item~lighter": {
@@ -2309,7 +2309,7 @@
 	"speedsketch_item~owl": {
 		"message": "മൂങ്ങ"
 	},
-	"speedsketch_item~paint can": {
+	"speedsketch_item~paint_can": {
 		"message": "പെയിന്‍റ് ടിൻ"
 	},
 	"speedsketch_item~paintbrush": {
@@ -2318,7 +2318,7 @@
 	"speedsketch_item~painting": {
 		"message": "പെയിന്‍റിംഗ്"
 	},
-	"speedsketch_item~palm tree": {
+	"speedsketch_item~palm_tree": {
 		"message": "പന"
 	},
 	"speedsketch_item~panda": {
@@ -2327,7 +2327,7 @@
 	"speedsketch_item~pants": {
 		"message": "പാന്‍റ്"
 	},
-	"speedsketch_item~paper clip": {
+	"speedsketch_item~paper_clip": {
 		"message": "പേപ്പർ ക്ലിപ്പ്"
 	},
 	"speedsketch_item~parachute": {
@@ -2360,13 +2360,13 @@
 	"speedsketch_item~piano": {
 		"message": "പിയാനോ"
 	},
-	"speedsketch_item~pickup truck": {
+	"speedsketch_item~pickup_truck": {
 		"message": "പിക്കപ്പ് ട്രക്ക്"
 	},
-	"speedsketch_item~picture frame": {
+	"speedsketch_item~picture_frame": {
 		"message": "ചിത്ര ഫ്രെയിം"
 	},
-	"speedsketch_item~pie chart": {
+	"speedsketch_item~pie_chart": {
 		"message": "പൈ ചാർട്ട്"
 	},
 	"speedsketch_item~pig": {
@@ -2378,7 +2378,7 @@
 	"speedsketch_item~pineapple": {
 		"message": "പൈനാപ്പിൾ"
 	},
-	"speedsketch_item~ping pong": {
+	"speedsketch_item~ping_pong": {
 		"message": "പിംഗ് പോംഗ്"
 	},
 	"speedsketch_item~pirate": {
@@ -2390,7 +2390,7 @@
 	"speedsketch_item~pliers": {
 		"message": "കൊടിൽ"
 	},
-	"speedsketch_item~police car": {
+	"speedsketch_item~police_car": {
 		"message": "പോലീസ് കാർ"
 	},
 	"speedsketch_item~politician": {
@@ -2414,7 +2414,7 @@
 	"speedsketch_item~potato": {
 		"message": "ഉരുളക്കിഴങ്ങ്"
 	},
-	"speedsketch_item~power outlet": {
+	"speedsketch_item~power_outlet": {
 		"message": "പവർ ഔട്ട്‌ലെറ്റ്"
 	},
 	"speedsketch_item~present": {
@@ -2453,7 +2453,7 @@
 	"speedsketch_item~reindeer": {
 		"message": "റെയിൻഡിയർ"
 	},
-	"speedsketch_item~remote control": {
+	"speedsketch_item~remote_control": {
 		"message": "റിമോട്ട് കൺട്രോൾ"
 	},
 	"speedsketch_item~rhinoceros": {
@@ -2468,7 +2468,7 @@
 	"speedsketch_item~robot": {
 		"message": "റോബോട്ട്"
 	},
-	"speedsketch_item~roller coaster": {
+	"speedsketch_item~roller_coaster": {
 		"message": "റോളർ കോസ്‌റ്റർ"
 	},
 	"speedsketch_item~rollerskates": {
@@ -2483,7 +2483,7 @@
 	"speedsketch_item~sandwich": {
 		"message": "സാൻഡ്‌വിച്ച്"
 	},
-	"speedsketch_item~santa claus": {
+	"speedsketch_item~santa_claus": {
 		"message": "സാന്താ ക്ലോസ്"
 	},
 	"speedsketch_item~saturn": {
@@ -2498,7 +2498,7 @@
 	"speedsketch_item~saxophone": {
 		"message": "സാക്‌സോഫോൺ"
 	},
-	"speedsketch_item~school bus": {
+	"speedsketch_item~school_bus": {
 		"message": "സ്‌കൂൾ ബസ്"
 	},
 	"speedsketch_item~scissors": {
@@ -2516,10 +2516,10 @@
 	"speedsketch_item~sculpture": {
 		"message": "ശിൽപ്പം"
 	},
-	"speedsketch_item~sea turtle": {
+	"speedsketch_item~sea_turtle": {
 		"message": "കടലാമ"
 	},
-	"speedsketch_item~see saw": {
+	"speedsketch_item~see_saw": {
 		"message": "സീസോ"
 	},
 	"speedsketch_item~shark": {
@@ -2561,13 +2561,13 @@
 	"speedsketch_item~sled": {
 		"message": "സ്ലെഡ്"
 	},
-	"speedsketch_item~sleeping bag": {
+	"speedsketch_item~sleeping_bag": {
 		"message": "സ്ലീപ്പിംഗ് ബാഗ്"
 	},
 	"speedsketch_item~sleigh": {
 		"message": "ഹിമവണ്ടി"
 	},
-	"speedsketch_item~smiley face": {
+	"speedsketch_item~smiley_face": {
 		"message": "ചിരിക്കുന്ന മുഖം"
 	},
 	"speedsketch_item~snail": {
@@ -2585,7 +2585,7 @@
 	"speedsketch_item~snowman": {
 		"message": "ഹിമമനുഷ്യൻ"
 	},
-	"speedsketch_item~soccer ball": {
+	"speedsketch_item~soccer_ball": {
 		"message": "ഫുട്‌ബോൾ"
 	},
 	"speedsketch_item~sock": {
@@ -2633,19 +2633,19 @@
 	"speedsketch_item~stethoscope": {
 		"message": "സ്‌റ്റെതസ്‌കോപ്പ്"
 	},
-	"speedsketch_item~still life": {
+	"speedsketch_item~still_life": {
 		"message": "നിശ്ചല ജീവിതം"
 	},
 	"speedsketch_item~stitches": {
 		"message": "തുന്നൽ"
 	},
-	"speedsketch_item~stock market": {
+	"speedsketch_item~stock_market": {
 		"message": "സ്റ്റോക്ക് മാര്‍‌ക്കറ്റ്"
 	},
 	"speedsketch_item~stocking": {
 		"message": "സ്റ്റോക്കിംഗ്"
 	},
-	"speedsketch_item~stop sign": {
+	"speedsketch_item~stop_sign": {
 		"message": "നിർത്താനുള്ള അടയാളം"
 	},
 	"speedsketch_item~stopwatch": {
@@ -2660,7 +2660,7 @@
 	"speedsketch_item~streetlight": {
 		"message": "തെരുവ് വിളക്ക്"
 	},
-	"speedsketch_item~string bean": {
+	"speedsketch_item~string_bean": {
 		"message": "ബീൻസ്"
 	},
 	"speedsketch_item~submarine": {
@@ -2681,7 +2681,7 @@
 	"speedsketch_item~sweater": {
 		"message": "കമ്പിളിക്കുപ്പായം"
 	},
-	"speedsketch_item~swing set": {
+	"speedsketch_item~swing_set": {
 		"message": "ഊഞ്ഞാലുകൾ"
 	},
 	"speedsketch_item~t-shirt": {
@@ -2702,13 +2702,13 @@
 	"speedsketch_item~television": {
 		"message": "ടെലിവിഷൻ"
 	},
-	"speedsketch_item~tennis racquet": {
+	"speedsketch_item~tennis_racquet": {
 		"message": "ടെന്നീസ് റാക്കറ്റ്"
 	},
 	"speedsketch_item~tent": {
 		"message": "കൂടാരം"
 	},
-	"speedsketch_item~tic tac toe game": {
+	"speedsketch_item~tic_tac_toe_game": {
 		"message": "ടിക് ടാക് ടോ ഗെയിം"
 	},
 	"speedsketch_item~tiger": {
@@ -2741,7 +2741,7 @@
 	"speedsketch_item~tractor": {
 		"message": "ട്രാക്‌ടർ"
 	},
-	"speedsketch_item~traffic light": {
+	"speedsketch_item~traffic_light": {
 		"message": "ട്രാഫിക് ലൈറ്റ്"
 	},
 	"speedsketch_item~train": {
@@ -2795,7 +2795,7 @@
 	"speedsketch_item~walnut": {
 		"message": "വാൾനട്ട്"
 	},
-	"speedsketch_item~washing machine": {
+	"speedsketch_item~washing_machine": {
 		"message": "വാഷിംഗ് മെഷീൻ"
 	},
 	"speedsketch_item~watermelon": {
