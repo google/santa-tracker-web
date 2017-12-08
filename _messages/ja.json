@@ -1083,7 +1083,7 @@
 		"message": "パラグアイ"
 	},
 	"quickdraw-machine-know": {
-		"message": "わかった、{{thing}}ですね！"
+		"message": "わかった、~word~ですね！"
 	},
 	"quickdraw-machine-or": {
 		"message": "または"
@@ -1107,7 +1107,7 @@
 		"message": "あなたの絵がこちらにも似ていると考えました:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Tensor は、{{thing}}がどのような見た目かどうやってわかるのでしょうか？"
+		"message": "Tensor は、~word~がどのような見た目かどうやってわかるのでしょうか？"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "他の人が描いた絵を見て学びました"
@@ -1116,10 +1116,10 @@
 		"message": "あなたの絵がこちらに似ていると考えました:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "サンタさん版{{thing}}です。"
+		"message": "サンタさん版~word~です。"
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "絵のテーマは{{thing}}でした。"
+		"message": "絵のテーマは~word~でした。"
 	},
 	"quickdraw-slate": {
 		"message": "絵を描く"

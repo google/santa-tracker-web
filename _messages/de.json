@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Das ist Folgendes: {{thing}}!"
+		"message": "Das ist Folgendes: ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "oder"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor findet auch, dass deine Zeichnung eher so aussieht:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Woher weiß Tensor, wie der gesuchte Begriff \"{{thing}}\" aussieht?"
+		"message": "Woher weiß Tensor, wie der gesuchte Begriff \"~word~\" aussieht?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Der Roboter lernt, indem er sich diese Beispielzeichnungen anderer Personen ansieht."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor findet, dass deine Zeichnung eher so aussieht:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Das ist die Version des Weihnachtsmanns für den Begriff \"{{thing}}\"."
+		"message": "Das ist die Version des Weihnachtsmanns für den Begriff \"~word~\"."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Du solltest den Begriff \"{{thing}}\" zeichnen."
+		"message": "Du solltest den Begriff \"~word~\" zeichnen."
 	},
 	"quickdraw-slate": {
 		"message": "Zeichnen"

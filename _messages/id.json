@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Aku tahu, ini {{thing}}!"
+		"message": "Aku tahu, ini ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "atau"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor juga mengira gambar Anda mirip ini:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Bagaimana Tensor tahu seperti apa bentuk {{thing}}?"
+		"message": "Bagaimana Tensor tahu seperti apa bentuk ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Tensor belajar dengan melihat contoh-contoh yang digambar orang lain."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor mengira gambar Anda lebih mirip ini:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Ini adalah versi Sinterklas dari {{thing}}."
+		"message": "Ini adalah versi Sinterklas dari ~word~."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Anda diminta menggambar {{thing}}."
+		"message": "Anda diminta menggambar ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Gambar"

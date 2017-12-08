@@ -1083,7 +1083,7 @@
 		"message": "Парагвай"
 	},
 	"quickdraw-machine-know": {
-		"message": "О, я знаю, це ж {{thing}}!"
+		"message": "О, я знаю, це ж ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "або"
@@ -1107,7 +1107,7 @@
 		"message": "Крім того, робот Тензор вважає, що ваш малюнок схожий на такі зображення:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Звідки робот Тензор знає, як зображують {{thing}}?"
+		"message": "Звідки робот Тензор знає, як зображують ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Він дізнався, вивчаючи малюнки інших людей."
@@ -1116,10 +1116,10 @@
 		"message": "Робот Тензор вважає, що ваш малюнок більше схожий на це:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Ось так Дід Мороз уявляє собі {{thing}}."
+		"message": "Ось так Дід Мороз уявляє собі ~word~."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Вас попросили намалювати {{thing}}."
+		"message": "Вас попросили намалювати ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Малювати"

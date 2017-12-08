@@ -1083,7 +1083,7 @@
 		"message": "Paraguai"
 	},
 	"quickdraw-machine-know": {
-		"message": "Tean küll, see on {{thing}}!"
+		"message": "Tean küll, see on ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "või"
@@ -1107,7 +1107,7 @@
 		"message": "Lisaks arvas Tensor, et teie joonistus sarnaneb neile:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Kuidas Tensor teab, milline {{thing}} välja näeb?"
+		"message": "Kuidas Tensor teab, milline ~word~ välja näeb?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "See õppis, vaadeldes neid teiste inimeste joonistatud näiteid."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor arvas, et teie joonistus sarnaneb rohkem neile:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Nii joonistas selle ({{thing}}) jõuluvana."
+		"message": "Nii joonistas selle (~word~) jõuluvana."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Teil paluti joonistada {{thing}}."
+		"message": "Teil paluti joonistada ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Joonista"

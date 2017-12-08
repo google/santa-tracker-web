@@ -1083,7 +1083,7 @@
 		"message": "Paragvaj"
 	},
 	"quickdraw-machine-know": {
-		"message": "Že vem, to je {{thing}}."
+		"message": "Že vem, to je ~word~."
 	},
 	"quickdraw-machine-or": {
 		"message": "ali"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor meni tudi, da je vaša risba podobna tem:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Kako Tensor ve, kako je videti predmet {{thing}}?"
+		"message": "Kako Tensor ve, kako je videti predmet ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Naučil se je tako, da si je ogledal te risbe drugih."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor meni, da je vaša risba bolj podobna tem:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "To je Božičkova različica predmeta {{thing}}."
+		"message": "To je Božičkova različica predmeta ~word~."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Prosili smo vas, da narišete: {{thing}}."
+		"message": "Prosili smo vas, da narišete: ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Nariši"

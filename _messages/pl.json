@@ -1083,7 +1083,7 @@
 		"message": "Paragwaj"
 	},
 	"quickdraw-machine-know": {
-		"message": "Już wiem, to {{thing}}!"
+		"message": "Już wiem, to ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "lub"
@@ -1107,7 +1107,7 @@
 		"message": "Poza tym Tensor uważa, że Twój rysunek przypomina jeden z tych:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Skąd Tensor wie, jak wygląda {{thing}}?"
+		"message": "Skąd Tensor wie, jak wygląda ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Nauczył się, obserwując przykłady rysowane przez innych użytkowników."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor uznał, że Twój rysunek bardziej przypominał jeden z tych:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Oto {{thing}} w wersji Mikołaja."
+		"message": "Oto ~word~ w wersji Mikołaja."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Chodziło o narysowanie tego: {{thing}}."
+		"message": "Chodziło o narysowanie tego: ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Rysuj"

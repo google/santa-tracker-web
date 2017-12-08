@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Jeg vet, dette er {{thing}}!"
+		"message": "Jeg vet, dette er ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "eller"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor syntes også at tegningen din lignet på disse:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Hvordan vet Tensor hvordan {{thing}} ser ut?"
+		"message": "Hvordan vet Tensor hvordan ~word~ ser ut?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Den har lært seg dette ved å se på hvordan andre personer har tegnet disse tingene."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor syntes at tegningen din lignet mer på disse:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Dette er julenissens versjon av {{thing}}."
+		"message": "Dette er julenissens versjon av ~word~."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Du ble bedt om å tegne {{thing}}."
+		"message": "Du ble bedt om å tegne ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Tegning"

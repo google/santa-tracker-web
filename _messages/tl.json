@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Ay alam ko, {{thing}} ito!"
+		"message": "Ay alam ko, ~word~ ito!"
 	},
 	"quickdraw-machine-or": {
 		"message": "o"
@@ -1107,7 +1107,7 @@
 		"message": "Sa palagay din ni Tensor parang ganito ang iyong drawing:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Paano nalalaman ni Tensor kung ano ang hitsura ng {{thing}}?"
+		"message": "Paano nalalaman ni Tensor kung ano ang hitsura ng ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Natuto ito sa pamamagitan ng pagtingin sa mga halimbawa na ito na iginuhit ng iba pang tao."
@@ -1116,10 +1116,10 @@
 		"message": "Sa palagay ni Tensor mas parang ganito ang iyong drawing:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Ito ang bersyon ng {{thing}} ni Santa."
+		"message": "Ito ang bersyon ng ~word~ ni Santa."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Hiniling  sa iyo na gumuhit ng {{thing}}."
+		"message": "Hiniling  sa iyo na gumuhit ng ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Iguhit"

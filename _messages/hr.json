@@ -1083,7 +1083,7 @@
 		"message": "Paragvaj"
 	},
 	"quickdraw-machine-know": {
-		"message": "Znam! To je {{thing}}."
+		"message": "Znam! To je ~word~."
 	},
 	"quickdraw-machine-or": {
 		"message": "ili"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor misli i da je tvoj crtež sličan ovima:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Kako Tensor zna koji oblik ima {{thing}}?"
+		"message": "Kako Tensor zna koji oblik ima ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Naučio sam gledajući ove primjere koje su nacrtali drugi korisnici."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor misli da je tvoj crtež sličniji ovima:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "To je {{thing}} u verziji Djeda Božićnjaka."
+		"message": "To je ~word~ u verziji Djeda Božićnjaka."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Tvoj zadatak za crtanje: {{thing}}."
+		"message": "Tvoj zadatak za crtanje: ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Crtaj"

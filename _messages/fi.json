@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Hei, sehän on {{thing}}!"
+		"message": "Hei, sehän on ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "tai"
@@ -1107,7 +1107,7 @@
 		"message": "Tensorin mielestä piirustuksesi näytti myös näiltä:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Miten Tensor tietää, miltä {{thing}} näyttää?"
+		"message": "Miten Tensor tietää, miltä ~word~ näyttää?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Se on katsellut näitä muiden piirtämiä esimerkkipiirustuksia."
@@ -1116,10 +1116,10 @@
 		"message": "Tensorin mielestä piirustuksesi näytti enemmänkin näiltä:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Joulupukin mielestä {{thing}} näyttää tältä."
+		"message": "Joulupukin mielestä ~word~ näyttää tältä."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Sinun piti piirtää {{thing}}."
+		"message": "Sinun piti piirtää ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Piirrä"

@@ -1083,7 +1083,7 @@
 		"message": "巴拉圭"
 	},
 	"quickdraw-machine-know": {
-		"message": "噢，我知道了，這是{{thing}}！"
+		"message": "噢，我知道了，這是~word~！"
 	},
 	"quickdraw-machine-or": {
 		"message": "或"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor 覺得您的作品亦很像這些物件："
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Tensor 如何知道{{thing}}是什麼樣子的？"
+		"message": "Tensor 如何知道~word~是什麼樣子的？"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Tensor 是透過觀察這些由其他人所畫的作品學習。"
@@ -1116,10 +1116,10 @@
 		"message": "Tensor 覺得您的作品比較像這些物件："
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "這是聖誕老人所畫的{{thing}}。"
+		"message": "這是聖誕老人所畫的~word~。"
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "您要畫的是{{thing}}。"
+		"message": "您要畫的是~word~。"
 	},
 	"quickdraw-slate": {
 		"message": "繪圖"

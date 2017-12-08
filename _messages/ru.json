@@ -1083,7 +1083,7 @@
 		"message": "Парагвай"
 	},
 	"quickdraw-machine-know": {
-		"message": "Я знаю: это {{thing}}!"
+		"message": "Я знаю: это ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "или"
@@ -1107,7 +1107,7 @@
 		"message": "Тензору показалось, что ваш рисунок также похож на следующие соображения:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Откуда Тензор знает, что это {{thing}}?"
+		"message": "Откуда Тензор знает, что это ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Он учится, анализируя рисунки других людей"
@@ -1116,10 +1116,10 @@
 		"message": "Тензору показалось, что ваш рисунок больше похож на эти изображения:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Это {{thing}} в исполнении Санты."
+		"message": "Это ~word~ в исполнении Санты."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "{{thing}} – то, что вам нужно было нарисовать."
+		"message": "~word~ – то, что вам нужно было нарисовать."
 	},
 	"quickdraw-slate": {
 		"message": "Нарисовать"

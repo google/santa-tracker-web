@@ -1083,7 +1083,7 @@
 		"message": "பராகுவே"
 	},
 	"quickdraw-machine-know": {
-		"message": "எனக்குத் தெரியும், இது {{thing}}!"
+		"message": "எனக்குத் தெரியும், இது ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "அல்லது"
@@ -1107,7 +1107,7 @@
 		"message": "நீங்கள் வரைந்தது இவற்றைப் போன்றும் உள்ளது என டென்சார் நினைக்கிறது:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "{{thing}} போல் உள்ளது என்பது டென்சாருக்கு எப்படி தெரியும்?"
+		"message": "~word~ போல் உள்ளது என்பது டென்சாருக்கு எப்படி தெரியும்?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "இது மற்றவர்கள் வரைந்த இந்த உதாரணங்களைப் பார்த்து கற்றுக் கொண்டது."
@@ -1116,10 +1116,10 @@
 		"message": "நீங்கள் வரைந்தது கிட்டத்தட்ட இவற்றைப் போன்று உள்ளது என டென்சார் நினைக்கிறது:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "இது சான்டாவின் {{thing}} பதிப்பு."
+		"message": "இது சான்டாவின் ~word~ பதிப்பு."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "உங்களிடம் {{thing}}ஐ வரையுமாறு கேட்கப்பட்டது."
+		"message": "உங்களிடம் ~word~ஐ வரையுமாறு கேட்கப்பட்டது."
 	},
 	"quickdraw-slate": {
 		"message": "வரை"

@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "¡Ya sé! Es {{thing}}."
+		"message": "¡Ya sé! Es ~word~."
 	},
 	"quickdraw-machine-or": {
 		"message": "o"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor también detectó que tu dibujo se parecía a estos:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "¿Cómo sabe Tensor qué aspecto tiene {{thing}}?"
+		"message": "¿Cómo sabe Tensor qué aspecto tiene ~word~?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Aprendió mirando estos ejemplos que dibujaron otras personas."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor detectó que tu dibujo se parecía más a estos:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Esta es la versión de {{thing}} que tiene Santa."
+		"message": "Esta es la versión de ~word~ que tiene Santa."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Te pedimos que dibujaras {{thing}}."
+		"message": "Te pedimos que dibujaras ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Dibujar"

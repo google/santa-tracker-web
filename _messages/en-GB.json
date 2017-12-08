@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Oh I know, this is {{thing}}!"
+		"message": "Oh I know, this is ~word~!"
 	},
 	"quickdraw-machine-or": {
 		"message": "or"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor also thought your drawing looked like these:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "How does Tensor know what {{thing}} looks like?"
+		"message": "How does Tensor know what ~word~ looks like?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "It learned by looking at these examples drawn by other people."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor thought your drawing looked more like these:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "This is Santa's version of {{thing}}."
+		"message": "This is Santa's version of ~word~."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "You were asked to draw {{thing}}."
+		"message": "You were asked to draw ~word~."
 	},
 	"quickdraw-slate": {
 		"message": "Draw"
