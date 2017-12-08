@@ -1473,7 +1473,7 @@
   },
   "quickdraw-timesup-subline-guess": {
     "description": "Sentence on end of game screen. When a robot recognized at least two of a player's drawings.",
-    "message": "Tensor recognized {{roundsRecognized}} of your drawings."
+    "raw": "Tensor recognized <ph name=\"RECOGNIZED\"><ex>10</ex>{{recognized}}</ph> of your drawings."
   },
   "quickdraw-round-no-new-guess": {
     "description": "Sentence displayed during a game, when a robot isn't able to guess what you are drawing. 30 character limit.",
@@ -1496,16 +1496,16 @@
     "message": "or"
   },
   "quickdraw-machine-know": {
-    "description": "When the AI finally guessed what the drawing is. Followed by the guess.",
-    "message": "Oh I know, this is"
+    "description": "When the AI finally guessed what the player is drawing. 20 character limit.",
+    "raw": "Oh I know, this is <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph>!"
   },
   "quickdraw-rounddetails-title": {
     "description": "Displays on a end of game screen. Reminds the players what they were asked to draw.",
-    "message": "You were asked to draw {{word}}"
+    "raw": "You were asked to draw <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph>."
   },
   "quickdraw-rounddetails-santa-version": {
     "description": "Displays on a end of game screen. Above the canonical drawing of a thing. (i.e. a beautiful drawing).",
-    "message": "This is Santa’s version of {{word}}"
+    "raw": "This is Santa's version of <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph>."
   },
   "quickdraw-rounddetails-also-look": {
     "description": "Displays on an end of game screen. Show other drawings that looked like the player's drawing. This is shown when the robot recognized your drawing.",
@@ -1517,7 +1517,7 @@
   },
   "quickdraw-rounddetails-how-know": {
     "description": "A title that asks the question of how Tensor the robot knows what you were drawing.",
-    "message": "How does is know what {{word}} look like?"
+    "raw": "How does Tensor know what <ph name=\"THING\"><ex>Mittens</ex>{{thing}}</ph> looks like?"
   },
   "quickdraw-rounddetails-it-learned": {
     "description": "A title that explains how a robot guessed your drawings.",
@@ -1716,7 +1716,7 @@
     "message": "Present Drop"
   },
   "scene_quickdraw": {
-    "description": "Title of a scene/game. Teach Tensor the robot how to draw!",
+    "description": "Title of a scene/game. Draw shapes and try to have Santa's robot guess what you are drawing.",
     "message": "Speed Sketch"
   },
   "scene_racer": {
