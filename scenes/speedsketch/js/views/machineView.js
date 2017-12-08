@@ -25,6 +25,7 @@ app.view.MachineView = function(container) {
   this.elem = container.find('.machineview');
   this.elemA = this.elem.find('.machineview__primary');
   this.elemB = this.elem.find('.machineview__secondary');
+  this.elemC = this.elem.find('.machineview__tertiary');
 
   this.speech = new app.SpeechController();
 }
@@ -39,19 +40,29 @@ app.view.MachineView.prototype.reset = function() {
 };
 
 
-app.view.MachineView.prototype.setText = function(textA, textB) {
+app.view.MachineView.prototype.setText = function(textA, textB, textC) {
   var textA = textA || '';
   var textB = textB || '';
+  var textC = textC || '';
   this.elemA.text(textA);
   this.elemB.text(textB);
-  //this.resetTextAfterDelay();
+  this.elemC.text(textC);
 };
 
 
 app.view.MachineView.prototype.setResultWord = function(word) {
   this.guessesQueue = [];
-  this.speakAndWrite(app.Utils.getTranslation(this.container, 'quickdraw-machine-know'),
-      app.Utils.getItemTranslation(this.container, word));
+  var resultSentence = app.Utils.getTranslation(this.container,
+      'quickdraw-machine-know', 'word',
+      '~' + app.Utils.getItemTranslation(this.container, word) + '~');
+  console.log(resultSentence);
+  var sentenceParts = resultSentence.split('~');
+
+  if (sentenceParts[2] == '!') {
+    sentenceParts[1] += '!';
+  }
+
+  this.speakAndWrite(sentenceParts[0], sentenceParts[1], sentenceParts[2]);
   setTimeout(function() {
     if (this.guessesQueue.length == 0) {
         this.setText('...');
@@ -60,10 +71,11 @@ app.view.MachineView.prototype.setResultWord = function(word) {
 };
 
 
-app.view.MachineView.prototype.speakAndWrite = function(textA, textB, callback) {
+app.view.MachineView.prototype.speakAndWrite = function(textA, textB, textC, callback) {
   textB = textB || '';
-  this.setText(textA, textB);
-  var text = textA + ' ' + textB;
+  textC = textC || '';
+  this.setText(textA, textB, textC);
+  var text = textA + ' ' + textB + ' ' + textC;
   this.speak(text, callback);
 };
 
