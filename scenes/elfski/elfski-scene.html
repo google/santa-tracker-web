@@ -152,7 +152,7 @@ Polymer({
     image.onload = function() {
 
       const canvas = this.$.gl3d;
-      this._game = new scenes.elfski.GameThree(canvas, image)
+      this._game = new scenes.elfski.GameThree(canvas, this.resolveUrl('.'))
       window.requestAnimationFrame(this._draw);
       this._tickInterval = window.setInterval(this._tick, tickInterval);
       this._onResize();

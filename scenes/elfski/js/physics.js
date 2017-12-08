@@ -58,6 +58,13 @@ export class Character {
   }
 
   /**
+   * @param {vec.Vector} angle vector
+   */
+  get angleVec() {
+    return this._vec;
+  }
+
+  /**
    * @param {number} v angle in rads
    */
   set angle(v) {
