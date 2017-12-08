@@ -144,6 +144,7 @@
       left: 30px;
       position: fixed;
       top: 80px;
+      z-index: 1;
 
       @media (max-width: $mobile-breakpoint) {
         width: 50px;
