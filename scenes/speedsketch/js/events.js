@@ -20,32 +20,32 @@ goog.provide('app.EventEmitter');
 
 // Object that can be exteded to handle event emitting
 app.EventEmitter = function() {
-    this.listeners = {};
+  this.listeners = {};
 };
 
 app.EventEmitter.prototype.addListener = function(label, callback) {
-    if(!this.listeners.hasOwnProperty(label))
-        this.listeners[label] = [];
+  if(!this.listeners.hasOwnProperty(label))
+    this.listeners[label] = [];
 
-    this.listeners[label].push(callback);
+  this.listeners[label].push(callback);
 };
 
 app.EventEmitter.prototype.isFunction = function(obj) {
-    return typeof obj == 'function' || false;
+  return typeof obj == 'function' || false;
 };
 
 app.EventEmitter.prototype.emit = function(label) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
-    }
+  for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    args[_key - 1] = arguments[_key];
+  }
 
-    var listeners = this.listeners[label];
+  var listeners = this.listeners[label];
 
-    if (listeners && listeners.length) {
-        listeners.forEach(function (listener) {
-            listener.apply(this, args);
-        });
-        return true;
-    }
-    return false;
+  if (listeners && listeners.length) {
+    listeners.forEach(function (listener) {
+      listener.apply(this, args);
+    });
+    return true;
+  }
+  return false;
 };
