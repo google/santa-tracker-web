@@ -1131,7 +1131,7 @@
 		"message": "Hãy giúp Tensor luyện tập khả năng nhận dạng hình ảnh!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor đã nhận ra {{recognized}} bức tranh của bạn."
+		"message": "Tensor đã nhận ra ~roundsRecognized~ bức tranh của bạn."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor đã nhận ra một trong các bức tranh của bạn."

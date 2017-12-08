@@ -1131,7 +1131,7 @@
 		"message": "Hilf Tensor dabei, Zeichnungen noch besser zu erkennen."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor hat {{recognized}} deiner Zeichnungen richtig erkannt."
+		"message": "Tensor hat ~roundsRecognized~ deiner Zeichnungen richtig erkannt."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor hat eine deiner Zeichnungen erkannt."

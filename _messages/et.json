@@ -1131,7 +1131,7 @@
 		"message": "Aidake Tensoril pildituvastust harjutada!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor tundis ära {{recognized}} teie joonistust."
+		"message": "Tensor tundis ära ~roundsRecognized~ teie joonistust."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor tundis ühe teie joonistustest ära."

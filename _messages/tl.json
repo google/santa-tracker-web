@@ -1131,7 +1131,7 @@
 		"message": "Tulungan si Tensor na sanayin ang kanyang pagkilala sa larawan!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Nakilala ni Tensor ang {{recognized}} sa iyong mga drawing."
+		"message": "Nakilala ni Tensor ang ~roundsRecognized~ sa iyong mga drawing."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Nakilala ni Tensor ang isa sa iyong mga drawing."

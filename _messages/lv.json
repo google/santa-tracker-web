@@ -1131,7 +1131,7 @@
 		"message": "Palīdziet robotam “Tensor” vingrināties attēlu atpazīšanā."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Robots “Tensor” atpazina {{recognized}} no jūsu zīmējumiem."
+		"message": "Robots “Tensor” atpazina ~roundsRecognized~ no jūsu zīmējumiem."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Robots “Tensor” atpazina vienu no jūsu zīmējumiem."

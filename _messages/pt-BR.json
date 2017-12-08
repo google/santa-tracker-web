@@ -1131,7 +1131,7 @@
 		"message": "Ajude o Tensor a praticar o reconhecimento de imagens."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "O robô Tensor reconheceu {{recognized}} dos seus desenhos."
+		"message": "O robô Tensor reconheceu ~roundsRecognized~ dos seus desenhos."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "O robô Tensor reconheceu um dos seus desenhos."

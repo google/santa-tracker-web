@@ -1131,7 +1131,7 @@
 		"message": "Tensor potrzebuje Twojej pomocy w nauce rozpoznawania obrazu."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor rozpoznał następującą liczbę Twoich rysunków: {{recognized}}."
+		"message": "Tensor rozpoznał następującą liczbę Twoich rysunków: ~roundsRecognized~."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor rozpoznał jeden z Twoich rysunków."

@@ -1131,7 +1131,7 @@
 		"message": "Ajuda Tensor a practicar el reconeixement d'imatges!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor ha reconegut {{recognized}} dels teus dibuixos."
+		"message": "Tensor ha reconegut ~roundsRecognized~ dels teus dibuixos."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor ha reconegut un dels teus dibuixos."

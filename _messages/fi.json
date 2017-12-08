@@ -1131,7 +1131,7 @@
 		"message": "Auta Tensoria tunnistamaan paremmin kuvia!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor tunnisti {{recognized}} piirustustasi."
+		"message": "Tensor tunnisti ~roundsRecognized~ piirustustasi."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor tunnisti yhden piirustuksesi."

@@ -1131,7 +1131,7 @@
 		"message": "帮助 Tensor 练习识图吧！"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor 认出了 {{recognized}} 幅画。"
+		"message": "Tensor 认出了 ~roundsRecognized~ 幅画。"
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor 认出了 1 幅画。"

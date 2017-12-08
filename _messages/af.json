@@ -1131,7 +1131,7 @@
 		"message": "Help Tensor om prentherkenning te oefen!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor het {{recognized}} van jou tekeninge herken."
+		"message": "Tensor het ~roundsRecognized~ van jou tekeninge herken."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor het een van jou tekeninge herken."

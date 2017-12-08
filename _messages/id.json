@@ -1131,7 +1131,7 @@
 		"message": "Bantu Tensor berlatih mengenali gambar!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor mengenali {{recognized}} dari gambar Anda."
+		"message": "Tensor mengenali ~roundsRecognized~ dari gambar Anda."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor mengenali salah satu gambar Anda."

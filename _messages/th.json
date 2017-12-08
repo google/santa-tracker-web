@@ -1131,7 +1131,7 @@
 		"message": "ช่วย Tensor ฝึกฝนการจดจำรูปภาพ"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor จำ {{recognized}} ภาพที่คุณวาดได้"
+		"message": "Tensor จำ ~roundsRecognized~ ภาพที่คุณวาดได้"
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor จำภาพใดภาพหนึ่งที่คุณวาดได้"

@@ -1131,7 +1131,7 @@
 		"message": "Помогите Тензору попрактиковаться в распознавании изображений."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Распознано рисунков: {{recognized}}."
+		"message": "Распознано рисунков: ~roundsRecognized~."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Тензор распознал один из ваших рисунков."

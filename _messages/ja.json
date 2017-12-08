@@ -1131,7 +1131,7 @@
 		"message": "Tensor の画像認識の練習を手伝ってください"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "{{recognized}} 個の絵がわかりました。"
+		"message": "~roundsRecognized~ 個の絵がわかりました。"
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "1 つの絵がわかりました。"

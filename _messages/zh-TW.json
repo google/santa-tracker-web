@@ -1131,7 +1131,7 @@
 		"message": "幫助 Tensor 練習辨識繪畫的內容！"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor 猜出你畫的 {{recognized}} 幅作品。"
+		"message": "Tensor 猜出你畫的 ~roundsRecognized~ 幅作品。"
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor 猜出你畫的其中一幅作品。"

@@ -1131,7 +1131,7 @@
 		"message": "幫助 Tensor 練習圖像識別技巧！"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor 猜對了您其中 {{recognized}} 幅作品。"
+		"message": "Tensor 猜對了您其中 ~roundsRecognized~ 幅作品。"
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor 猜對了您其中一幅作品。"

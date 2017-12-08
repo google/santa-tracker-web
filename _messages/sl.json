@@ -1131,7 +1131,7 @@
 		"message": "Pomagajte Tensorju pri vadbi prepoznavanja slik."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor je prepoznal toliko vaših slik: {{recognized}}."
+		"message": "Tensor je prepoznal toliko vaših slik: ~roundsRecognized~."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor je prepoznal eno od vaših risb."

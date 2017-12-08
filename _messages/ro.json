@@ -1131,7 +1131,7 @@
 		"message": "Ajută-l pe Tensor să exerseze recunoașterea imaginilor!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor a ghicit {{recognized}} dintre desenele tale."
+		"message": "Tensor a ghicit ~roundsRecognized~ dintre desenele tale."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor a ghicit unul dintre desenele tale."

@@ -1131,7 +1131,7 @@
 		"message": "Hjælp Tensor med at øve sig i at genkende billeder."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor genkendte {{recognized}} af dine tegninger."
+		"message": "Tensor genkendte ~roundsRecognized~ af dine tegninger."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor genkendte en af dine tegninger."

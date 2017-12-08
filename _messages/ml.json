@@ -1131,7 +1131,7 @@
 		"message": "ചിത്രം തിരിച്ചറിയാൻ പരിശീലിക്കാൻ Tensor-നെ സഹായിക്കുക!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "നിങ്ങളുടെ ഡ്രോയിംഗുകളിൽ {{recognized}} എണ്ണം Tensor തിരിച്ചറിഞ്ഞു."
+		"message": "നിങ്ങളുടെ ഡ്രോയിംഗുകളിൽ ~roundsRecognized~ എണ്ണം Tensor തിരിച്ചറിഞ്ഞു."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "നിങ്ങളുടെ ഡ്രോയിംഗുകളിൽ ഒന്ന് Tensor തിരിച്ചറിഞ്ഞു."

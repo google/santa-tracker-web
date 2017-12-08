@@ -1131,7 +1131,7 @@
 		"message": "텐서의 이미지 인식 연습 돕기"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor가 그림 중 {{recognized}}개를 알아보았습니다."
+		"message": "Tensor가 그림 중 ~roundsRecognized~개를 알아보았습니다."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor가 그림 중 하나를 알아보았습니다."

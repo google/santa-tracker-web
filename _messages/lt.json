@@ -1131,7 +1131,7 @@
 		"message": "Padėkite Tenzoriui treniruotis atpažinti vaizdus!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tenzorius atpažino {{recognized}} iš jūsų piešinių."
+		"message": "Tenzorius atpažino ~roundsRecognized~ iš jūsų piešinių."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tenzorius atpažino vieną jūsų piešinių."
