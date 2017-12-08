@@ -24,7 +24,7 @@ goog.provide('Constants');
  */
 app.Constants = {
   // Number of rounds in a game
-  TOTAL_LEVELS: 31,
+  TOTAL_LEVELS: 4,
   // Duration of game in seconds
   INITIAL_COUNTDOWN: 30,
   COUNTDOWN_FLASH: 10,
