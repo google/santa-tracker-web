@@ -1,5 +1,6 @@
 ##{$name} {
   .newround-card {
+    display: flex; // for ie11
 
     &__button {
       margin-top: 10vh;

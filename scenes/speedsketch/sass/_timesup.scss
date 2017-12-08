@@ -1,6 +1,8 @@
 ##{$name} {
   .timesup-card {
     color: white;
+    display: flex; // ie11
+
     @media (max-width: $mobile-breakpoint) {
       box-sizing: border-box;
       padding: 20px 0;

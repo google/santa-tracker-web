@@ -122,9 +122,9 @@ app.GameController.prototype.onNewRecognitions = function(recognitions) {
 
   if (this.recognitionController.isRecognizing) {
     // Check if the correct word has been recognized
-    var correctRecognition = recognitions.find(function(recognition) {
+    var correctRecognition = recognitions.filter(function(recognition) {
       return recognition.word == this.currentRound.word && recognition.score < app.Constants.HANDWRITING_RECOGNITION_THRESHOLD;
-    }.bind(this));
+    }.bind(this))[0];
 
     if (this.currentRound && correctRecognition) {
       this.roundRecognized(correctRecognition);

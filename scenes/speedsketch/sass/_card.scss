@@ -1,62 +1,64 @@
-.covercard {
-  background-color: $color-card;
-  height: 100%;
-  left:0;
-  overflow: scroll;
-  position: absolute;
-  text-align: center;
-  top:-100%;
-  transition: top 0.8s ease-in-out,
-              left 0.8s linear,
-              width 0.8s linear,
-              transform 0.8s linear;
-  width: 100%;
-  z-index: 100;
-  -webkit-overflow-scrolling: touch;
-
-  &.visible {
-    top:0;
-
-    .cards-cover {
-      display: inherit;
-    }
-  }
-
-  .card-container {
-    align-items: center;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
+##{$name} {
+  .covercard {
+    background-color: $color-card;
+    height: 100%;
+    left:0;
+    overflow: scroll;
+    position: absolute;
+    text-align: center;
+    top:-100%;
+    transition: top 0.8s ease-in-out,
+                left 0.8s linear,
+                width 0.8s linear,
+                transform 0.8s linear;
     width: 100%;
+    z-index: 100;
+    -webkit-overflow-scrolling: touch;
 
-    @media (max-width: $mobile-breakpoint) {
-      margin: auto;
-      max-width: 90%;
+    &.visible {
+      top:0;
+
+      .cards-cover {
+        display: inherit;
+      }
     }
 
-    &.fill {
-      min-height: 100%;
-    }
+    .card-container {
+      align-items: center;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto;
+      width: 100%;
 
-    &.scroll {
-      max-width: 1280px;
-      width: 90%;
-    }
-  }
-
-  .card-row {
-    margin: 100px 0;
-    width: 100%;
-
-    @media (max-width: $mobile-breakpoint) {
-      margin: 50px 0;
-    }
-
-    &:first-child {
       @media (max-width: $mobile-breakpoint) {
-        margin-top: 100px;
+        margin: auto;
+        max-width: 90%;
+      }
+
+      &.fill {
+        min-height: 100%;
+      }
+
+      &.scroll {
+        max-width: 1280px;
+        width: 90%;
+      }
+    }
+
+    .card-row {
+      margin: 100px 0;
+      width: 100%;
+
+      @media (max-width: $mobile-breakpoint) {
+        margin: 50px 0;
+      }
+
+      &:first-child {
+        @media (max-width: $mobile-breakpoint) {
+          margin-top: 100px;
+        }
       }
     }
   }

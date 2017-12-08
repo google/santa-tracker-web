@@ -150,6 +150,7 @@
       }
 
       &__robot {
+        min-height: 60%; // ie11
         width: 100%;
 
         @media (max-width: $mobile-breakpoint) {
