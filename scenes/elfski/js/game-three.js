@@ -45,7 +45,6 @@ app.GameThree = class GameThree {
     this._camera.lookAt(0, 0, 0);
 
     this._scene = new THREE.Scene();
-//    this._scene.add(this._camera);
 
     const scene = this._scene;
 var directionalLight = new THREE.DirectionalLight( 0xdddddd );
