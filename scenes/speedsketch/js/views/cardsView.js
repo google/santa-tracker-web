@@ -244,7 +244,7 @@ app.view.CardsView.prototype.fetchAndShowDrawingNeighbors = function(round) {
             // Set Text
             var textElem = elem.find('p');
             textElem.text(app.Utils.getItemTranslation(this.container,
-                neighbors[i].word));
+                neighbors[i].word) || neighbors[i].word);
 
             // Set Reference Element
             var referenceElem = elem.find('.rounddetails-card__similar-drawing-reference');

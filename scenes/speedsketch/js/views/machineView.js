@@ -105,21 +105,23 @@ app.view.MachineView.prototype.readNextGuess = function(first) {
 
   var next = this.guessesQueue.shift();
 
-  //Set text
-  var textSentenceA = app.Utils.getTranslation(this.container, 'quickdraw-machine-see');
-  var textSentenceB = app.Utils.getItemTranslation(this.container, next);
-  this.setText(textSentenceA, textSentenceB);
+  if (app.Utils.getItemTranslation(this.container, next)) {
+    //Set text
+    var textSentenceA = app.Utils.getTranslation(this.container, 'quickdraw-machine-see');
+    var textSentenceB = app.Utils.getItemTranslation(this.container, next);
+    this.setText(textSentenceA, textSentenceB);
 
-  //Set speaking text and speak
-  var speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-or') +
-      ' ' + app.Utils.getItemTranslation(this.container, next);
-  if (first) {
-    speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-see') +
+    //Set speaking text and speak
+    var speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-or') +
         ' ' + app.Utils.getItemTranslation(this.container, next);
+    if (first) {
+      speakSentence = app.Utils.getTranslation(this.container, 'quickdraw-machine-see') +
+          ' ' + app.Utils.getItemTranslation(this.container, next);
+    }
+    this.speak(speakSentence, function() {
+      this.readNextGuess();
+    }.bind(this));
   }
-  this.speak(speakSentence, function() {
-    this.readNextGuess();
-  }.bind(this));
 
   this.recentMentionedWords.push(next);
   this.mentionedWords[next] = 1;

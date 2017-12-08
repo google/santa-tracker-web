@@ -24,7 +24,7 @@ goog.provide('Constants');
  */
 app.Constants = {
   // Number of rounds in a game
-  TOTAL_LEVELS: 4,
+  TOTAL_LEVELS: 31,
   // Duration of game in seconds
   INITIAL_COUNTDOWN: 30,
   COUNTDOWN_FLASH: 10,
@@ -33,10 +33,10 @@ app.Constants = {
   HANDWRITING_RECOGNITION_THRESHOLD: 2.0,
   // Max allowed rate recognition api can be called in seconds
   MAX_API_RATE: 1.0,
-  WORDS: ["christmas lights", "stocking", "chimney", "sleigh", "ribbon",
+  WORDS: ["holiday lights", "stocking", "chimney", "sleigh", "ribbon",
       "mistletoe", "mug", "tree", "snowflake", "candy cane", "ornament",
       "cookie", "jetpack", "skier", "santa", "star", "snowman", "reindeer",
-      "nutcracker", "present", "campfire", "penguin", "ice skating",
+      "nutcracker", "present", "campfire", "penguin", "ice skater",
       "jingle bells", "mittens", "gingerbread man", "wreath",
       "candy", "elf", "peppermint", "sweater"]
 };

@@ -19,6 +19,8 @@ goog.provide('app.Utils');
 
 
 Utils = function() {
+  this.lang = $('html').attr('lang');
+  this.isEnglish = this.lang == 'en' || this.lang == 'en-GB';
 };
 
 Utils.CACHE_ = {};
@@ -29,17 +31,19 @@ Utils.prototype.capitalize = function(string) {
 
 Utils.prototype.getItemTranslation = function(container, item) {
   var key = 'speedsketch_item_' + item.replace(/\s+/g, '-');
-  return this.getTranslation(container, key);
+  var msg = this.getMsgOrNull(container, key);
+
+  if (!msg && this.isEnglish) {
+    return item;
+  }
+
+  return msg;
 };
 
 Utils.prototype.getTranslation = function(container, key, variable, varValue) {
   var variable = variable || null;
   var varValue = varValue || null;
   var msg = this.getMsgOrNull(container, key, variable, varValue);
-
-  // if (msg === null) {
-  //   console.log('MISSING:', key);
-  // }
 
   return msg === null ? '[Unknown message: ' + key + ']' : msg;
 };
