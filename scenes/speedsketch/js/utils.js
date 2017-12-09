@@ -71,9 +71,14 @@ Utils.prototype.getMsgOrNull = function(container, key, variable, varValue) {
   return text;
 };
 
+Utils.prototype.getInterpolatedTranslation = function(key, variable, varValue, strings) {
+  var message = strings[key];
+  return this.replaceVarWithValue(message, variable, varValue);
+};
+
 Utils.prototype.replaceVarWithValue = function(messageString, variable, varValue) {
   varValue = String(varValue);
-  var toBeReplacedString = '~' + variable + '~';
+  var toBeReplacedString = '{{' + variable + '}}';
   return messageString.replace(toBeReplacedString, varValue);
 };
 

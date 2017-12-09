@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "¡Ya sé! Es ~word~."
+		"message": "¡Ya sé! Es {{thing}}."
 	},
 	"quickdraw-machine-or": {
 		"message": "o"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor también detectó que tu dibujo se parecía a estos:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "¿Cómo sabe Tensor qué aspecto tiene ~word~?"
+		"message": "¿Cómo sabe Tensor qué aspecto tiene {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Aprendió mirando estos ejemplos que dibujaron otras personas."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor detectó que tu dibujo se parecía más a estos:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Esta es la versión de ~word~ que tiene Santa."
+		"message": "Esta es la versión de {{thing}} que tiene Santa."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Te pedimos que dibujaras ~word~."
+		"message": "Te pedimos que dibujaras {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Dibujar"
@@ -1131,7 +1131,7 @@
 		"message": "Ayuda a Tensor a practicar para reconocer imágenes."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor reconoció ~roundsRecognized~ de tus dibujos."
+		"message": "Tensor reconoció {{recognized}} de tus dibujos."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor reconoció uno de tus dibujos."

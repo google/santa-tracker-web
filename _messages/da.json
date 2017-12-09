@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Jeg ved det! Det er ~word~"
+		"message": "Jeg ved det! Det er {{thing}}"
 	},
 	"quickdraw-machine-or": {
 		"message": "eller"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor synes også, din tegning ligner disse:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Hvordan ved Tensor, hvordan ~word~ ser ud?"
+		"message": "Hvordan ved Tensor, hvordan {{thing}} ser ud?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Den har lært det ved at se på disse eksempler, som andre har tegnet."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor synes, din tegning mere ligner disse:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Dette er julemandens version af ~word~."
+		"message": "Dette er julemandens version af {{thing}}."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Du blev bedt om at tegne ~word~."
+		"message": "Du blev bedt om at tegne {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Tegn"
@@ -1131,7 +1131,7 @@
 		"message": "Hjælp Tensor med at øve sig i at genkende billeder."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor genkendte ~roundsRecognized~ af dine tegninger."
+		"message": "Tensor genkendte {{recognized}} af dine tegninger."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor genkendte en af dine tegninger."

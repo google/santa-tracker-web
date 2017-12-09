@@ -1083,7 +1083,7 @@
 		"message": "Paragvajus"
 	},
 	"quickdraw-machine-know": {
-		"message": "Žinau, tai – ~word~!"
+		"message": "Žinau, tai – {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "arba"
@@ -1107,7 +1107,7 @@
 		"message": "Tenzorius taip pat pamanė, kad piešinys panašus į:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Iš kur tenzorius žino, kaip atrodo ~word~?"
+		"message": "Iš kur tenzorius žino, kaip atrodo {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Jis išmoko žiūrėdamas į šiuos kitų žmonių nupieštus pavyzdžius."
@@ -1116,10 +1116,10 @@
 		"message": "Tenzorius pamanė, kad piešinys labiau panašus į:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "~word~, kaip tai įsivaizduoja Kalėdų Senelis."
+		"message": "{{thing}}, kaip tai įsivaizduoja Kalėdų Senelis."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Štai ko jūsų prašyta nupiešti: ~word~."
+		"message": "Štai ko jūsų prašyta nupiešti: {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Piešti"
@@ -1131,7 +1131,7 @@
 		"message": "Padėkite Tenzoriui treniruotis atpažinti vaizdus!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tenzorius atpažino ~roundsRecognized~ iš jūsų piešinių."
+		"message": "Tenzorius atpažino {{recognized}} iš jūsų piešinių."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tenzorius atpažino vieną jūsų piešinių."

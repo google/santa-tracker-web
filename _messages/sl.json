@@ -1083,7 +1083,7 @@
 		"message": "Paragvaj"
 	},
 	"quickdraw-machine-know": {
-		"message": "Že vem, to je ~word~."
+		"message": "Že vem, to je {{thing}}."
 	},
 	"quickdraw-machine-or": {
 		"message": "ali"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor meni tudi, da je vaša risba podobna tem:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Kako Tensor ve, kako je videti predmet ~word~?"
+		"message": "Kako Tensor ve, kako je videti predmet {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Naučil se je tako, da si je ogledal te risbe drugih."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor meni, da je vaša risba bolj podobna tem:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "To je Božičkova različica predmeta ~word~."
+		"message": "To je Božičkova različica predmeta {{thing}}."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Prosili smo vas, da narišete: ~word~."
+		"message": "Prosili smo vas, da narišete: {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Nariši"
@@ -1131,7 +1131,7 @@
 		"message": "Pomagajte Tensorju pri vadbi prepoznavanja slik."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor je prepoznal toliko vaših slik: ~roundsRecognized~."
+		"message": "Tensor je prepoznal toliko vaših slik: {{recognized}}."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor je prepoznal eno od vaših risb."

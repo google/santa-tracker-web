@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "O, ek weet, dit is ~word~!"
+		"message": "O, ek weet, dit is {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "of"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor het ook gedink jou tekening lyk soos dié:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Hoe weet Tensor hoe ~word~ lyk?"
+		"message": "Hoe weet Tensor hoe {{thing}} lyk?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Dit het geleer deur te kyk na hierdie voorbeelde wat deur ander mense geteken is."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor het gedink jou tekening lyk meer soos dié:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Hierdie is Kersvader se weergawe van ~word~."
+		"message": "Hierdie is Kersvader se weergawe van {{thing}}."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Jy is gevra om ~word~ te teken."
+		"message": "Jy is gevra om {{thing}} te teken."
 	},
 	"quickdraw-slate": {
 		"message": "Skets"
@@ -1131,7 +1131,7 @@
 		"message": "Help Tensor om prentherkenning te oefen!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor het ~roundsRecognized~ van jou tekeninge herken."
+		"message": "Tensor het {{recognized}} van jou tekeninge herken."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor het een van jou tekeninge herken."

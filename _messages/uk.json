@@ -1083,7 +1083,7 @@
 		"message": "Парагвай"
 	},
 	"quickdraw-machine-know": {
-		"message": "О, я знаю, це ж ~word~!"
+		"message": "О, я знаю, це ж {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "або"
@@ -1107,7 +1107,7 @@
 		"message": "Крім того, робот Тензор вважає, що ваш малюнок схожий на такі зображення:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Звідки робот Тензор знає, як зображують ~word~?"
+		"message": "Звідки робот Тензор знає, як зображують {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Він дізнався, вивчаючи малюнки інших людей."
@@ -1116,10 +1116,10 @@
 		"message": "Робот Тензор вважає, що ваш малюнок більше схожий на це:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Ось так Дід Мороз уявляє собі ~word~."
+		"message": "Ось так Дід Мороз уявляє собі {{thing}}."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Вас попросили намалювати ~word~."
+		"message": "Вас попросили намалювати {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Малювати"
@@ -1131,7 +1131,7 @@
 		"message": "Допоможіть роботу Тензору попрактикуватися в розпізнаванні зображень."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Робот Тензор розпізнав стільки ваших малюнків: ~roundsRecognized~."
+		"message": "Робот Тензор розпізнав стільки ваших малюнків: {{recognized}}."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Робот Тензор розпізнав один із ваших малюнків."

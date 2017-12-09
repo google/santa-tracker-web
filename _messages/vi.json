@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Tôi biết rồi! Đây là ~word~!"
+		"message": "Tôi biết rồi! Đây là {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "hoặc"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor cũng đã nghĩ rằng bức tranh của bạn có vẻ giống các bức tranh này:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Làm cách nào Tensor biết được ~word~ trông như thế nào?"
+		"message": "Làm cách nào Tensor biết được {{thing}} trông như thế nào?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Tensor đã học bằng cách xem các bức tranh mẫu do người khác vẽ."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor đã nghĩ rằng bức tranh của bạn có vẻ rất giống các bức tranh này:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Đây là phiên bản ~word~ về ông già Noel."
+		"message": "Đây là phiên bản {{thing}} về ông già Noel."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Bạn đã được yêu cầu vẽ ~word~."
+		"message": "Bạn đã được yêu cầu vẽ {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Vẽ"
@@ -1131,7 +1131,7 @@
 		"message": "Hãy giúp Tensor luyện tập khả năng nhận dạng hình ảnh!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor đã nhận ra ~roundsRecognized~ bức tranh của bạn."
+		"message": "Tensor đã nhận ra {{recognized}} bức tranh của bạn."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor đã nhận ra một trong các bức tranh của bạn."

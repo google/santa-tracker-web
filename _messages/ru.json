@@ -1083,7 +1083,7 @@
 		"message": "Парагвай"
 	},
 	"quickdraw-machine-know": {
-		"message": "Я знаю: это ~word~!"
+		"message": "Я знаю: это {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "или"
@@ -1107,7 +1107,7 @@
 		"message": "Тензору показалось, что ваш рисунок также похож на следующие соображения:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Откуда Тензор знает, что это ~word~?"
+		"message": "Откуда Тензор знает, что это {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Он учится, анализируя рисунки других людей"
@@ -1116,10 +1116,10 @@
 		"message": "Тензору показалось, что ваш рисунок больше похож на эти изображения:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Это ~word~ в исполнении Санты."
+		"message": "Это {{thing}} в исполнении Санты."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "~word~ – то, что вам нужно было нарисовать."
+		"message": "{{thing}} – то, что вам нужно было нарисовать."
 	},
 	"quickdraw-slate": {
 		"message": "Нарисовать"
@@ -1131,7 +1131,7 @@
 		"message": "Помогите Тензору попрактиковаться в распознавании изображений."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Распознано рисунков: ~roundsRecognized~."
+		"message": "Распознано рисунков: {{recognized}}."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Тензор распознал один из ваших рисунков."

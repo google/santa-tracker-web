@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../js/webanimations.html">
 
 <script src="../../third_party/lib/paper/paper.js"></script>
@@ -25,6 +26,9 @@ Quickdraw scene.
 -->
 <dom-module id="speedsketch-scene">
 <template>
+  <santa-state language="{{language}}"></santa-state>
+  <santa-strings strings="{{_strings}}"></santa-strings>
+
   <style include="speedsketch-scene_module"></style>
 
   <div id="module-speedsketch">
@@ -34,15 +38,11 @@ Quickdraw scene.
           <div id="quickdraw-timesup-title-noguess"><i18n-msg msgid="quickdraw-timesup-title-noguess">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-timesup-subline-noguess"><i18n-msg msgid="quickdraw-timesup-subline-noguess">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-timesup-title-guess"><i18n-msg msgid="quickdraw-timesup-title-guess">PLACEHOLDER_i18n</i18n-msg></div>
-          <div id="quickdraw-timesup-subline-guess"><i18n-msg msgid="quickdraw-timesup-subline-guess">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-round-no-new-guess"><i18n-msg msgid="quickdraw-round-no-new-guess">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-round-sorry"><i18n-msg msgid="quickdraw-round-sorry">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-round-timesup"><i18n-msg msgid="quickdraw-round-timesup">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-machine-see"><i18n-msg msgid="quickdraw-machine-see">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-machine-or"><i18n-msg msgid="quickdraw-machine-or">PLACEHOLDER_i18n</i18n-msg></div>
-          <div id="quickdraw-machine-know"><i18n-msg msgid="quickdraw-machine-know">PLACEHOLDER_i18n</i18n-msg></div>
-          <div id="quickdraw-rounddetails-title"><i18n-msg msgid="quickdraw-rounddetails-title">PLACEHOLDER_i18n</i18n-msg></div>
-          <div id="quickdraw-rounddetails-santa-version"><i18n-msg msgid="quickdraw-rounddetails-santa-version">PLACEHOLDER_i18n</i18n-msg></div>
 
           <div id="speedsketch_item_abstract-art"><i18n-msg msgid="speedsketch_item~abstract_art">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="speedsketch_item_aircraft-carrier"><i18n-msg msgid="speedsketch_item~aircraft_carrier">PLACEHOLDER_i18n</i18n-msg></div>
@@ -625,6 +625,15 @@ Quickdraw scene.
     ],
     game: null,
 
+    properties: {
+      /** Language. Bound from `santa-state`. */
+      language: String,
+
+      /** Shared strings. Bound from `santa-strings`. */
+      _strings: Object,
+    },
+
+
     onPreload: function() {
       this.preloadSounds('qd_load_sounds', 30);
       this.preloadImages([
@@ -649,7 +658,7 @@ Quickdraw scene.
     onShow: function() {
       var module = this.$['module-speedsketch'];
 
-      this.game = new scenes.speedsketch.Game(module, this.importPath);
+      this.game = new scenes.speedsketch.Game(module, this.importPath, this._strings);
       this.game.start();
       this.fire('sound-ambient', 'qd_start');
       this.fire('sound-ambient', 'music_start_scene');

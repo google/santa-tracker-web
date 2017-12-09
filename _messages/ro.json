@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Știu, este ~word~!"
+		"message": "Știu, este {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "sau"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor a crezut că desenul tău semăna cu:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "De unde știe Tensor cum arată ~word~?"
+		"message": "De unde știe Tensor cum arată {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "A învățat uitându-se la aceste exemple desenate de alți oameni."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor a crezut că desenul tău semăna mai mult cu:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Desenul lui Moș Crăciun cu ~word~."
+		"message": "Desenul lui Moș Crăciun cu {{thing}}."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Ți s-a cerut să desenezi ~word~."
+		"message": "Ți s-a cerut să desenezi {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Desen"
@@ -1131,7 +1131,7 @@
 		"message": "Ajută-l pe Tensor să exerseze recunoașterea imaginilor!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor a ghicit ~roundsRecognized~ dintre desenele tale."
+		"message": "Tensor a ghicit {{recognized}} dintre desenele tale."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor a ghicit unul dintre desenele tale."

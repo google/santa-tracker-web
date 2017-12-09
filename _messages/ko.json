@@ -1083,7 +1083,7 @@
 		"message": "파라과이"
 	},
 	"quickdraw-machine-know": {
-		"message": "아, 알겠어요. ~word~ 맞죠?"
+		"message": "아, 알겠어요. {{thing}} 맞죠?"
 	},
 	"quickdraw-machine-or": {
 		"message": "또는"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor가 그림이 다음과도 비슷하다고 판단했습니다."
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Tensor가 ~word~의 모양을 어떻게 아는 것일까요?"
+		"message": "Tensor가 {{thing}}의 모양을 어떻게 아는 것일까요?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "다른 사람들이 그린 아래와 같은 예시를 보고 배운 것입니다."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor가 그림이 다음과 비슷하다고 판단했습니다."
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "산타가 그린 ~word~입니다."
+		"message": "산타가 그린 {{thing}}입니다."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "~word~ 그림을 그려보세요."
+		"message": "{{thing}} 그림을 그려보세요."
 	},
 	"quickdraw-slate": {
 		"message": "그리기"
@@ -1131,7 +1131,7 @@
 		"message": "텐서의 이미지 인식 연습 돕기"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor가 그림 중 ~roundsRecognized~개를 알아보았습니다."
+		"message": "Tensor가 그림 중 {{recognized}}개를 알아보았습니다."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor가 그림 중 하나를 알아보았습니다."

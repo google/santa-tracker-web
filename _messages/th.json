@@ -1083,7 +1083,7 @@
 		"message": "ปารากวัย"
 	},
 	"quickdraw-machine-know": {
-		"message": "อ๊ะ ฉันรู้แล้ว นี่คือ ~word~"
+		"message": "อ๊ะ ฉันรู้แล้ว นี่คือ {{thing}}"
 	},
 	"quickdraw-machine-or": {
 		"message": "หรือ"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor ยังคิดว่าภาพที่คุณวาดมีรูปร่างคล้ายสิ่งเหล่านี้ด้วย:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Tensor รู้ได้อย่างไรว่า ~word~ มีรูปร่างแบบไหน"
+		"message": "Tensor รู้ได้อย่างไรว่า {{thing}} มีรูปร่างแบบไหน"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "ระบบได้เรียนรู้จากการดูตัวอย่างภาพที่วาดโดยผู้เล่นคนอื่น"
@@ -1116,10 +1116,10 @@
 		"message": "Tensor คิดว่าภาพที่คุณวาดมีรูปร่างคล้ายสิ่งเหล่านี้:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "นี่คือ ~word~ ในเวอร์ชันซานต้า"
+		"message": "นี่คือ {{thing}} ในเวอร์ชันซานต้า"
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "ระบบได้ขอให้คุณวาด ~word~"
+		"message": "ระบบได้ขอให้คุณวาด {{thing}}"
 	},
 	"quickdraw-slate": {
 		"message": "วาด"
@@ -1131,7 +1131,7 @@
 		"message": "ช่วย Tensor ฝึกฝนการจดจำรูปภาพ"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor จำ ~roundsRecognized~ ภาพที่คุณวาดได้"
+		"message": "Tensor จำ {{recognized}} ภาพที่คุณวาดได้"
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor จำภาพใดภาพหนึ่งที่คุณวาดได้"

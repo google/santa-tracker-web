@@ -1083,7 +1083,7 @@
 		"message": "Paraguai"
 	},
 	"quickdraw-machine-know": {
-		"message": "Ah, ja ho tinc, és ~word~!"
+		"message": "Ah, ja ho tinc, és {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "o"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor també ha pensat que el teu dibuix s'assemblava més a aquests:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Com sap Tensor com és el que has dibuixat (~word~) en realitat?"
+		"message": "Com sap Tensor com és el que has dibuixat ({{thing}}) en realitat?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Ho ha après observant aquests exemples que han dibuixat altres persones."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor ha pensat que el teu dibuix s’assemblava més a aquests:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Aquesta és la versió del Pare Noel de: ~word~."
+		"message": "Aquesta és la versió del Pare Noel de: {{thing}}."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Se t'ha demanat que dibuixis: ~word~."
+		"message": "Se t'ha demanat que dibuixis: {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Dibuix"
@@ -1131,7 +1131,7 @@
 		"message": "Ajuda Tensor a practicar el reconeixement d'imatges!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor ha reconegut ~roundsRecognized~ dels teus dibuixos."
+		"message": "Tensor ha reconegut {{recognized}} dels teus dibuixos."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor ha reconegut un dels teus dibuixos."

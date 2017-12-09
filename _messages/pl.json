@@ -1083,7 +1083,7 @@
 		"message": "Paragwaj"
 	},
 	"quickdraw-machine-know": {
-		"message": "Już wiem, to ~word~!"
+		"message": "Już wiem, to {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "lub"
@@ -1107,7 +1107,7 @@
 		"message": "Poza tym Tensor uważa, że Twój rysunek przypomina jeden z tych:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Skąd Tensor wie, jak wygląda ~word~?"
+		"message": "Skąd Tensor wie, jak wygląda {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Nauczył się, obserwując przykłady rysowane przez innych użytkowników."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor uznał, że Twój rysunek bardziej przypominał jeden z tych:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Oto ~word~ w wersji Mikołaja."
+		"message": "Oto {{thing}} w wersji Mikołaja."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Chodziło o narysowanie tego: ~word~."
+		"message": "Chodziło o narysowanie tego: {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Rysuj"
@@ -1131,7 +1131,7 @@
 		"message": "Tensor potrzebuje Twojej pomocy w nauce rozpoznawania obrazu."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor rozpoznał następującą liczbę Twoich rysunków: ~roundsRecognized~."
+		"message": "Tensor rozpoznał następującą liczbę Twoich rysunków: {{recognized}}."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor rozpoznał jeden z Twoich rysunków."

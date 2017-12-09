@@ -20,13 +20,14 @@ goog.require('app.SpeechController');
 goog.require('app.Utils');
 
 
-app.view.MachineView = function(container) {
+app.view.MachineView = function(container, strings) {
   this.container = container;
   this.elem = container.find('.machineview');
   this.elemA = this.elem.find('.machineview__primary');
   this.elemB = this.elem.find('.machineview__secondary');
   this.elemC = this.elem.find('.machineview__tertiary');
 
+  this.strings = strings;
   this.speech = new app.SpeechController();
 }
 
@@ -52,10 +53,10 @@ app.view.MachineView.prototype.setText = function(textA, textB, textC) {
 
 app.view.MachineView.prototype.setResultWord = function(word) {
   this.guessesQueue = [];
-  var resultSentence = app.Utils.getTranslation(this.container,
-      'quickdraw-machine-know', 'word',
-      '~' + app.Utils.getItemTranslation(this.container, word) + '~');
-  console.log(resultSentence);
+  var resultSentence = app.Utils.getInterpolatedTranslation(
+      'quickdraw-machine-know', 'thing',
+      '~' + app.Utils.getItemTranslation(this.container, word) + '~',
+      this.strings);
   var sentenceParts = resultSentence.split('~');
 
   if (sentenceParts[2] == '!') {

@@ -1083,7 +1083,7 @@
 		"message": "പരാഗ്വേ"
 	},
 	"quickdraw-machine-know": {
-		"message": "എനിക്കറിയാം, അത് ~word~ ആണ്!"
+		"message": "എനിക്കറിയാം, അത് {{thing}} ആണ്!"
 	},
 	"quickdraw-machine-or": {
 		"message": "അല്ലെങ്കിൽ"
@@ -1107,7 +1107,7 @@
 		"message": "നിങ്ങളുടെ ഡ്രോയിംഗ് ഇതുപോലെയുണ്ടെന്നും Tensor-ന് തോന്നി:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "~word~ എന്തിനെ പോലെയുണ്ടെന്ന് Tensor എങ്ങനെയാണ് മനസ്സിലാക്കുന്നത്?"
+		"message": "{{thing}} എന്തിനെ പോലെയുണ്ടെന്ന് Tensor എങ്ങനെയാണ് മനസ്സിലാക്കുന്നത്?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "മറ്റ് ആളുകൾ വരച്ച ഈ ഉദാഹരണങ്ങൾ നോക്കിയാണ് അത് പഠിച്ചത്."
@@ -1116,10 +1116,10 @@
 		"message": "നിങ്ങളുടെ ഡ്രോയിംഗ് ഇത് പോലെയുണ്ടെന്ന് Tensor-ന് തോന്നി:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "ഇത് ~word~ എന്നതിന്റെ സാന്താ പതിപ്പാണ്."
+		"message": "ഇത് {{thing}} എന്നതിന്റെ സാന്താ പതിപ്പാണ്."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "~word~ വരയ്ക്കാൻ നിങ്ങളോട് ആവശ്യപ്പെട്ടു."
+		"message": "{{thing}} വരയ്ക്കാൻ നിങ്ങളോട് ആവശ്യപ്പെട്ടു."
 	},
 	"quickdraw-slate": {
 		"message": "വരയ്ക്കുക"
@@ -1131,7 +1131,7 @@
 		"message": "ചിത്രം തിരിച്ചറിയാൻ പരിശീലിക്കാൻ Tensor-നെ സഹായിക്കുക!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "നിങ്ങളുടെ ഡ്രോയിംഗുകളിൽ ~roundsRecognized~ എണ്ണം Tensor തിരിച്ചറിഞ്ഞു."
+		"message": "നിങ്ങളുടെ ഡ്രോയിംഗുകളിൽ {{recognized}} എണ്ണം Tensor തിരിച്ചറിഞ്ഞു."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "നിങ്ങളുടെ ഡ്രോയിംഗുകളിൽ ഒന്ന് Tensor തിരിച്ചറിഞ്ഞു."

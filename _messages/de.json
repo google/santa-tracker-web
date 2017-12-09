@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Das ist Folgendes: ~word~!"
+		"message": "Das ist Folgendes: {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "oder"
@@ -1107,7 +1107,7 @@
 		"message": "Tensor findet auch, dass deine Zeichnung eher so aussieht:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Woher weiß Tensor, wie der gesuchte Begriff \"~word~\" aussieht?"
+		"message": "Woher weiß Tensor, wie der gesuchte Begriff \"{{thing}}\" aussieht?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Der Roboter lernt, indem er sich diese Beispielzeichnungen anderer Personen ansieht."
@@ -1116,10 +1116,10 @@
 		"message": "Tensor findet, dass deine Zeichnung eher so aussieht:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Das ist die Version des Weihnachtsmanns für den Begriff \"~word~\"."
+		"message": "Das ist die Version des Weihnachtsmanns für den Begriff \"{{thing}}\"."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Du solltest den Begriff \"~word~\" zeichnen."
+		"message": "Du solltest den Begriff \"{{thing}}\" zeichnen."
 	},
 	"quickdraw-slate": {
 		"message": "Zeichnen"
@@ -1131,7 +1131,7 @@
 		"message": "Hilf Tensor dabei, Zeichnungen noch besser zu erkennen."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor hat ~roundsRecognized~ deiner Zeichnungen richtig erkannt."
+		"message": "Tensor hat {{recognized}} deiner Zeichnungen richtig erkannt."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor hat eine deiner Zeichnungen erkannt."

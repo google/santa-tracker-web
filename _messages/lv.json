@@ -1083,7 +1083,7 @@
 		"message": "Paragvaja"
 	},
 	"quickdraw-machine-know": {
-		"message": "Es zinu! Tas ir “~word~”."
+		"message": "Es zinu! Tas ir “{{thing}}”."
 	},
 	"quickdraw-machine-or": {
 		"message": "vai"
@@ -1107,7 +1107,7 @@
 		"message": "Robots “Tensor” arī uzskatīja, ka jūsu zīmējums līdzinājās šiem zīmējumiem."
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Kā robots “Tensor” zina, kā izskatās “~word~”?"
+		"message": "Kā robots “Tensor” zina, kā izskatās “{{thing}}”?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Robots apguva savas prasmes, apskatot citu lietotāju zīmējumu paraugus."
@@ -1116,10 +1116,10 @@
 		"message": "Robots “Tensor” uzskatīja, ka jūsu zīmējums vairāk līdzinājās šiem zīmējumiem."
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Šī ir Ziemassvētku vecīša versija: “~word~”."
+		"message": "Šī ir Ziemassvētku vecīša versija: “{{thing}}”."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Jums ir jāuzzīmē “~word~”."
+		"message": "Jums ir jāuzzīmē “{{thing}}”."
 	},
 	"quickdraw-slate": {
 		"message": "Zīmēt"
@@ -1131,7 +1131,7 @@
 		"message": "Palīdziet robotam “Tensor” vingrināties attēlu atpazīšanā."
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Robots “Tensor” atpazina ~roundsRecognized~ no jūsu zīmējumiem."
+		"message": "Robots “Tensor” atpazina {{recognized}} no jūsu zīmējumiem."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Robots “Tensor” atpazina vienu no jūsu zīmējumiem."

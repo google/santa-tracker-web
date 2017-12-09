@@ -24,10 +24,11 @@ goog.require('app.Utils');
 goog.require('app.EventEmitter');
 
 
-app.view.CardsView = function(container, importPath) {
+app.view.CardsView = function(container, importPath, strings) {
   app.EventEmitter.call(this);
 
   this.importPath = importPath;
+  this.strings = strings;
 
   this.handwritingAPI = new app.HandwritingAPI();
 
@@ -118,7 +119,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   } else {
     window.santaApp.fire('sound-trigger', 'qd_game_win');
     $titleElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-title-guess'));
-    $sublineElem.text(app.Utils.getTranslation(this.container, 'quickdraw-timesup-subline-guess', 'roundsRecognized', roundsRecognized));
+    $sublineElem.text(app.Utils.getInterpolatedTranslation('quickdraw-timesup-subline-guess', 'recognized', roundsRecognized, this.strings));
   }
 
   var modelWidth = 300;
@@ -172,9 +173,10 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   //Section 1
   this.round_detail_card
     .find('.rounddetails-card__title')
-    .text(app.Utils.getTranslation(this.container,
-        'quickdraw-rounddetails-title', 'word',
-        app.Utils.getItemTranslation(this.container, round.word)));
+    .text(app.Utils.getInterpolatedTranslation('quickdraw-rounddetails-title',
+        'thing',
+        app.Utils.getItemTranslation(this.container, round.word),
+        this.strings));
   var drawingElem = this.round_detail_card.find('.rounddetails-card__drawing--user');
   var svg = app.SVGUtils.createSvgFromSegments(round.drawing, drawingElem.width(), drawingElem.width() * 0.736, {padding: 25, color: 'rgba(0,0,0,1.00)'});
   drawingElem.html('');
@@ -185,9 +187,10 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   var filename = round.word.replace(/\s+/g, '-').toLowerCase();
   this.round_detail_card
   .find('.rounddetails-card__santa-title')
-  .text(app.Utils.getTranslation(this.container,
-      'quickdraw-rounddetails-santa-version', 'word',
-      app.Utils.getItemTranslation(this.container, round.word)));
+  .text(app.Utils.getInterpolatedTranslation(
+      'quickdraw-rounddetails-santa-version', 'thing',
+      app.Utils.getItemTranslation(this.container, round.word),
+      this.strings));
   var santaElem = this.round_detail_card.find('.rounddetails-card__drawing--santa .rounddetails-card__drawing-inner');
   santaElem.css('background-image', "url('" + this.importPath + "img/drawings/" + filename + ".svg')");
 

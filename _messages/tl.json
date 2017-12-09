@@ -1083,7 +1083,7 @@
 		"message": "Paraguay"
 	},
 	"quickdraw-machine-know": {
-		"message": "Ay alam ko, ~word~ ito!"
+		"message": "Ay alam ko, {{thing}} ito!"
 	},
 	"quickdraw-machine-or": {
 		"message": "o"
@@ -1107,7 +1107,7 @@
 		"message": "Sa palagay din ni Tensor parang ganito ang iyong drawing:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Paano nalalaman ni Tensor kung ano ang hitsura ng ~word~?"
+		"message": "Paano nalalaman ni Tensor kung ano ang hitsura ng {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Natuto ito sa pamamagitan ng pagtingin sa mga halimbawa na ito na iginuhit ng iba pang tao."
@@ -1116,10 +1116,10 @@
 		"message": "Sa palagay ni Tensor mas parang ganito ang iyong drawing:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Ito ang bersyon ng ~word~ ni Santa."
+		"message": "Ito ang bersyon ng {{thing}} ni Santa."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Hiniling  sa iyo na gumuhit ng ~word~."
+		"message": "Hiniling  sa iyo na gumuhit ng {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Iguhit"
@@ -1131,7 +1131,7 @@
 		"message": "Tulungan si Tensor na sanayin ang kanyang pagkilala sa larawan!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Nakilala ni Tensor ang ~roundsRecognized~ sa iyong mga drawing."
+		"message": "Nakilala ni Tensor ang {{recognized}} sa iyong mga drawing."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Nakilala ni Tensor ang isa sa iyong mga drawing."

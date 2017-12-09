@@ -1083,7 +1083,7 @@
 		"message": "Парагвай"
 	},
 	"quickdraw-machine-know": {
-		"message": "Сетих се, това е ~word~!"
+		"message": "Сетих се, това е {{thing}}!"
 	},
 	"quickdraw-machine-or": {
 		"message": "или"
@@ -1107,7 +1107,7 @@
 		"message": "Според Tensor рисунката ви прилича и на тези:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Откъде Tensor знае как изглежда ~word~?"
+		"message": "Откъде Tensor знае как изглежда {{thing}}?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Той се учи чрез тези примерни рисунки, създадени от други хора."
@@ -1116,10 +1116,10 @@
 		"message": "Според Tensor рисунката ви прилича повече на тези:"
 	},
 	"quickdraw-rounddetails-santa-version": {
-		"message": "Това е версия на Дядо Коледа за ~word~."
+		"message": "Това е версия на Дядо Коледа за {{thing}}."
 	},
 	"quickdraw-rounddetails-title": {
-		"message": "Трябва да нарисувате ~word~."
+		"message": "Трябва да нарисувате {{thing}}."
 	},
 	"quickdraw-slate": {
 		"message": "Рисуване"
@@ -1131,7 +1131,7 @@
 		"message": "Помогнете на Tensor да се упражнява в разпознаването на изображения!"
 	},
 	"quickdraw-timesup-subline-guess": {
-		"message": "Tensor позна ~roundsRecognized~ от рисунките ви."
+		"message": "Tensor позна {{recognized}} от рисунките ви."
 	},
 	"quickdraw-timesup-subline-guess-one": {
 		"message": "Tensor позна една от рисунките ви."

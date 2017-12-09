@@ -31,7 +31,7 @@ goog.require('app.GameRound');
 goog.require('app.shared.Scoreboard');
 
 
-app.GameController = function(container, importPath) {
+app.GameController = function(container, importPath, strings) {
   app.EventEmitter.call(this);
   this.container = container;
   this.recognitionController = new app.DrawingRecognitionController();
@@ -39,9 +39,9 @@ app.GameController = function(container, importPath) {
   this.scoreboard = new app.shared.Scoreboard(this, container.find('.board'), app.Constants.TOTAL_LEVELS);
 
   //Views
-  this.cardsView = new app.view.CardsView(container, importPath);
+  this.cardsView = new app.view.CardsView(container, importPath, strings);
   this.gameView = new app.view.GameView(container);
-  this.machineView = new app.view.MachineView(container);
+  this.machineView = new app.view.MachineView(container, strings);
   this.drawingCanvas = new app.view.DrawingCanvas(container);
 
   //Listeners
