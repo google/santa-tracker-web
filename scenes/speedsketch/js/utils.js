@@ -20,7 +20,7 @@ goog.provide('app.Utils');
 
 Utils = function() {
   this.lang = $('html').attr('lang');
-  this.isEnglish = this.lang == 'en' || this.lang == 'en-GB';
+  this.isEnglish = (this.lang.split('-')[0] === 'en');;
 };
 
 Utils.CACHE_ = {};
