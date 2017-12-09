@@ -1,0 +1,95 @@
+##{$name} {
+  .timesup-card {
+    color: white;
+    display: flex; // ie11
+
+    @media (max-width: $mobile-breakpoint) {
+      box-sizing: border-box;
+      padding: 20px 0;
+    }
+
+    &__title {
+      font-family: 'Lobster', sans-serif;
+      font-size: 45px;
+      margin: 0;
+    }
+
+    &__subline {
+      font-family: 'Roboto', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      margin: 0;
+      margin-top: 20px;
+    }
+
+    &__drawings {
+      display: flex;
+      justify-content: space-between;
+      margin: 50px 0;
+      max-width: 1350px;
+      width: 90%;
+
+      @media (max-width: $mobile-breakpoint) {
+        display: block;
+        flex-wrap: wrap;
+        overflow: hidden;
+        width: 100%;
+      }
+    }
+
+    &__drawing {
+      background-color: white;
+      box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
+      height: 225px;
+      max-height: 15vw;
+      overflow: hidden;
+      position: relative;
+      width: 300px;
+
+      @media (min-width: $mobile-breakpoint + 1) {
+        max-width: 20vw;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
+        height: 0;
+        margin: 30px 0;
+        padding-bottom: 73.6%;
+        width: calc(100% - 10px);
+      }
+
+      &--recognized::before,
+      &--not-recognized::before {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: 47px;
+        left: 5%;
+        position: absolute;
+        top: 5%;
+        width: 44px;
+      }
+
+      &--recognized::before {
+        background-image: url('img/tag-recognized.svg');
+      }
+
+      &--not-recognized::before {
+        background-image: url('img/tag-not-recognized.svg');
+      }
+
+      > svg {
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
+        margin: 10px;
+
+        @media (max-width: $mobile-breakpoint) {
+          left: 0;
+          position: absolute;
+          top: 0;
+        }
+      }
+    }
+  }
+}

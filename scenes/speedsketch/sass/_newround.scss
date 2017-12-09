@@ -1,0 +1,14 @@
+##{$name} {
+  .newround-card {
+    display: flex; // for ie11
+
+    &__button {
+      margin-top: 10vh;
+      padding: 0 40px;
+    }
+
+    .slate {
+      transform: rotate(3deg);
+    }
+  }
+}

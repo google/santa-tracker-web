@@ -1,0 +1,155 @@
+##{$name} {
+  .rounddetails-card {
+    color: white;
+
+    &__text {
+      font-family: 'Lobster', sans-serif;
+      font-size: 45px;
+      letter-spacing: 0.2px;
+      line-height: 63px;
+      margin: 0;
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 35px;
+        line-height: 1.2;
+      }
+    }
+
+    &__drawing {
+      background-color: white;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      box-shadow: 20px 20px 0 0 rgba(0, 0, 0, 0.2);
+      height: 0;
+      padding-bottom: 73.6%;
+      position: relative;
+      width: 100%;
+
+      @media (max-width: $mobile-breakpoint) {
+        margin-top: 20px;
+      }
+
+      &-container {
+        margin: auto;
+        margin-top: 50px;
+        width: 65%;
+
+        @media (max-width: $mobile-breakpoint) {
+          margin-top: 20px;
+          width: 100%;
+        }
+      }
+
+      &--santa {
+        .rounddetails-card__drawing-inner {
+          background-color: white;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 80%;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 80%;
+        }
+      }
+
+      svg {
+        margin-top: 25px;
+      }
+    }
+
+    &__similar-drawings {
+      &-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+
+        @media (max-width: $mobile-breakpoint) {
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    &__similar-drawing {
+      flex: 30% 0 0;
+      position: relative;
+
+      @media (max-width: $mobile-breakpoint) {
+        flex: 100% 0 0;
+      }
+
+      > div {
+        box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
+        height: 0;
+        padding-bottom: 73.6%;
+        position: relative;
+        width: 100%;
+
+        &.rounddetails-card__similar-drawing-reference {
+          background-color: white;
+        }
+
+        &.rounddetails-card__similar-drawing-neighbor {
+          left: 0;
+          position: absolute;
+          top: 0;
+        }
+
+        svg {
+          margin-top: 10px;
+        }
+      }
+
+      p {
+        font-size: 24px;
+        margin-top: 30px;
+
+        @media (max-width: $mobile-breakpoint) {
+          font-size: 20px;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__gallery {
+      &-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+
+    &__gallery-drawing {
+      flex: 30% 0 0;
+
+      > div {
+        background-color: white;
+        box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.2);
+        height: 0;
+        margin-top: 5vw;
+        padding-bottom: 73.6%;
+        position: relative;
+        width: 100%;
+      }
+    }
+
+    &__back-btn {
+      background-image: url('img/back-button-arrow.svg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 40%;
+      left: 30px;
+      position: fixed;
+      top: 80px;
+      z-index: 1;
+
+      @media (max-width: $mobile-breakpoint) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}

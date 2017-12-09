@@ -165,6 +165,10 @@ module.exports = {
     msgid: 'press',
     entryPoint: 'app.Scene'
   },
+  speedsketch: {
+    msgid: 'scene_speedsketch',
+    entryPoint: 'app.Game'
+  },
   racer: {
     msgid: 'scene_racer',
     entryPoint: 'app.Game'
