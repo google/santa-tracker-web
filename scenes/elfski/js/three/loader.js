@@ -26,8 +26,15 @@ export function gltf(path, base='.') {
   });
 }
 
-export function texture(path, base='.') {
+export function texture(path, base='.', cb=null) {
   return new Promise((resolve, reject) => {
-    textureLoader.load(`${base}/img/${path}.png`, resolve, () => {}, reject);
+    const texture = textureLoader.load(`${base}/img/${path}.png`, resolve, () => {}, reject);
+    cb && cb(texture);
   });
+}
+
+export function immediateTexture(path, base='.') {
+  let out;
+  texture(path, base, (texture) => out = texture);
+  return out;
 }
