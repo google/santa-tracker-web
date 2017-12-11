@@ -405,6 +405,8 @@ app.Canvas.prototype.saveToFile = function(e) {
   saveCtx.drawImage(this.foregroundBackup, 0, 0, this.saveCanvas.width,
       this.saveCanvas.height);
 
+  window.ga('send', 'event', 'game', 'save', 'santascanvas');
+
   if (this.saveCanvas.msToBlob) { // for IE
     var blob = this.saveCanvas.msToBlob();
     window.navigator.msSaveBlob(blob, 'santascanvas.jpg');
@@ -432,6 +434,8 @@ app.Canvas.prototype.saveToFile = function(e) {
 app.Canvas.prototype.onTrashClick = function(event) {
   var button = $(event.target).closest('[data-tool-trash]');
   this.snow.reset();
+
+  window.ga('send', 'event', 'game', 'trash', 'santascanvas');
 
   if (button.attr('data-tool-trash') == 'desktop') {
     this.clearAnimation.beginAnimation(this.resetCanvas.bind(this));
