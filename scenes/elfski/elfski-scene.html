@@ -14,6 +14,7 @@ specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../js/third_party/three.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <script src="elfski-scene.min.js"></script>
 
@@ -62,7 +63,6 @@ Elf Ski scene.
   background-position: 0 0;  /* top-left, different origin than village */
   background-size: 1618px 791px;
   will-change: transform;
-  background: red;
 }
 .down #ui {
   display: none;
@@ -70,6 +70,9 @@ Elf Ski scene.
 
   </style>
 
+  <iron-a11y-keys keys="left right"
+      target="[[_keyTarget]]"
+      on-keys-pressed="_keysHandler"></iron-a11y-keys>
   <div id="mountain"
       on-pointerdown="_onPointerDown"
       on-pointermove="_onPointerMove"
@@ -109,6 +112,11 @@ Polymer({
       value: 0,
     },
 
+    _playerCrashedAt: {
+      type: Number,
+      value: 0,
+    },
+
     /**
      * The game.
      */
@@ -130,6 +138,11 @@ Polymer({
       value: null,
     },
 
+    _keyTarget: {
+      type: Object,
+      value: () => this,
+    },
+
   },
 
   created: function() {
@@ -140,20 +153,21 @@ Polymer({
 
   onPreload: function() {
     this.preloadImages([
-      '../dorf/img/header-bg.svg',
       'img/tiles.png',
     ]);
+    this.preloadSounds('elfski_load_sounds');
   },
 
   onShow: function() {
     this._lastFrameAt = window.performance.now();
     window.addEventListener('resize', this._onResize);
 
-    const canvas = this.$.gl3d;
-    this._game = new scenes.elfski.GameThree(canvas, this.resolveUrl('.'))
+    this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
     window.requestAnimationFrame(this._draw);
     this._tickInterval = window.setInterval(this._tick, tickInterval);
     this._onResize();
+
+    this.fire('sound-ambient', 'elfski_loop_start');
   },
 
   onHide: function() {
@@ -161,6 +175,8 @@ Polymer({
 
     window.removeEventListener('resize', this._onResize);
     window.clearInterval(this._tickInterval);
+
+    this.fire('sound-ambient', 'elfski_loop_stop');
   },
 
   /**
@@ -171,8 +187,11 @@ Polymer({
 
     this._gameStartAt = 0;
     this._gameEndAt = 0;
+    this._playerCrashedAt = 0;
 
-    this._game.reset();
+    this._game && this._game.dispose();
+    this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
+
     this.$.mountain.className = '';
     this._onResize();
 
@@ -208,6 +227,32 @@ Polymer({
     this._pointer = null;
   },
 
+  _keysHandler: function(ev) {
+    let dir = 0;
+    const key = ev.detail.keyboardEvent.key;
+    if (key.indexOf('Left') !== -1) {
+      dir = -1;
+    } else if (key.indexOf('Right') !== -1) {
+      dir = +1;
+    } else {
+      return;
+    }
+
+    const angle = this._game.angle + dir * 2;
+    const pointer = {
+      x: Math.sin(angle) * 100,
+      y: Math.cos(angle) * 100,
+    };
+    this._pointer = pointer;
+
+    // TODO: this feels a little janky, fine for now
+    this.debounce('_keysHandler', () => {
+      if (this._pointer === pointer) {
+        this._pointer = null;
+      }
+    }, 17 * 3);  // hold for ~3 frames unless changed
+  },
+
   _tick: function() {
     if (!this.isAttached) {
       return;  // do nothing
@@ -225,10 +270,21 @@ Polymer({
       return;
     }
 
-    this._gameEndAt = now;
-    this.fire('game-stop', {
-      score: this.score,
-    });
+    if (!this._playerCrashedAt) {
+      this.fire('sound-trigger', 'elfski_crash');
+      this._playerCrashedAt = now;
+    }
+
+    if (this._gameEndAt) {
+      return;
+    }
+    if (now - this._playerCrashedAt > 4 * 1000) {
+      // TODO: magic number, show 'game over' 4s later
+      this._gameEndAt = now;
+      this.fire('game-stop', {
+        score: this.score,
+      });
+    }
   },
 
   get score() {
@@ -239,6 +295,10 @@ Polymer({
   },
 
   _draw: function() {
+    if (!this.isAttached) {
+      return;
+    }
+
     this._game.render();
     window.requestAnimationFrame(this._draw);
 

@@ -16,6 +16,7 @@
 
 const vertexShader = `
 uniform float spriteSize;
+uniform float devicePixelRatio;
 attribute float spriteIndex;
 varying float vSpriteIndex;
 
@@ -23,7 +24,7 @@ void main() {
   vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
 
   vSpriteIndex = spriteIndex;  // passed through without modification
-  gl_PointSize = spriteSize;
+  gl_PointSize = spriteSize * devicePixelRatio;
   gl_Position = projectionMatrix * mvPosition;
 }
 `;
@@ -56,7 +57,7 @@ void main() {
 }
 `;
 
-const spriteSize = 256;
+const spriteSize = 128;
 
 export class Points {
   constructor(points, texture) {
@@ -76,6 +77,10 @@ export class Points {
         type: 'f',
         value: spriteSize,
       },
+      'devicePixelRatio': {
+        type: 'f',
+        value: window.devicePixelRatio,
+      },
     };
 
     const material = new THREE.ShaderMaterial({
@@ -87,6 +92,7 @@ export class Points {
     material.extensions.fragDepth = true;
     material.fog = true;
     material.flatShading = true;
+    this._material = material;
 
     const geometry = new THREE.BufferGeometry();
 
@@ -112,6 +118,8 @@ export class Points {
 
     this._updateLow = -1;
     this._updateHigh = -1;
+
+    this._knownDPI = window.devicePixelRatio || 1;
 
     this.particles = particles;
   }
@@ -160,6 +168,12 @@ export class Points {
   }
 
   update() {
+    const updateDPI = window.devicePixelRatio;
+    if (this._knownDPI !== updateDPI) {
+      this._material.uniforms['devicePixelRatio'].value = updateDPI;
+      this._knownDPI = updateDPI;
+    }
+
     if (this._updateLow === -1) {
       return;
     }

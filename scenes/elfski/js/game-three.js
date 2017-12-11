@@ -22,9 +22,12 @@ import {Points} from './three/points.js';
 import * as vec from './vec.js';
 import {Character} from './physics.js';
 
-const cameraOffset = Object.freeze(new THREE.Vector3(400, 400, 20));
-const startAtY = 1000;  // when we start at zero, we get ~12 FPS for some reason
+const cameraOffset = Object.freeze(new THREE.Vector3(800, 800, 0));
+const startAtY = -200;
 const skiierSize = 48;  // magic number that makes us appear through trees
+const crashThreshold = 12;  // px from tree base to crash
+const crashDuration = 2;  // seconds to crash for
+const unitScale = /** @type {vec.Vector} */ ({x: 400, y: -600});
 
 /**
  * @export
@@ -45,7 +48,7 @@ app.GameThree = class GameThree {
       this._camera = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 2000);
     } else {
       // for experiments
-      this._camera = new THREE.PerspectiveCamera( 45, 4 / 3, 1, 1000 );
+      this._camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000);
     }
 
     this._camera.position.set(startAtY, 0, 0);
@@ -79,6 +82,16 @@ app.GameThree = class GameThree {
     });
 
     this._character = new Character();
+
+    /**
+     * @type {number|undefined}
+     */
+    this._hitTreeAt = undefined;
+
+    /**
+     * @type {?THREE.Object3d}
+     */
+    this._snowball = null;
   }
 
   measure() {
@@ -107,9 +120,10 @@ app.GameThree = class GameThree {
   }
 
   render() {
-    if (this._p) {
+    if (this._p && this._hitTreeAt === undefined) {
       this._p.update();
 
+      // TODO(samthor): These are magic numbers, and break down at huge screen heights.
       const p = this.playerAt;
       const viewport = {
         from: p.y - (this._height / 2) * 2,
@@ -138,13 +152,37 @@ app.GameThree = class GameThree {
    */
   tick(delta, pointer, ended) {
     if (!this._skiier) {
-      return;
+      return false;
+    } else if (this._hitTreeAt !== undefined) {
+
+      if (this._hitTreeAt < crashDuration) {
+        this._hitTreeAt = Math.min(crashDuration, this._hitTreeAt + delta);
+
+        const scale = (this._hitTreeAt / crashDuration);
+        this._snowball.scale.set(scale, scale, scale);
+
+        // move in same direction during this time, but slow down
+        const change = this._character.tick(delta * (1 - scale), null);
+        const cv = vec.multVec(change, unitScale);
+        const p = this._skiier.position;
+
+        this._skiier.position.set(p.x - cv.y, skiierSize / 2, p.z - cv.x);
+        this._skiier.rotateX(delta);
+        this._snowball.position.set(p.x, p.y, p.z);
+
+        this._skiier.rotateY(delta * (Math.random() - 0.5));
+        this._skiier.rotateZ(delta * (Math.random() - 0.5));
+      }
+
+      return true;
     }
 
     const change = ended ? {x: 0, y: 0} : this._character.tick(delta, pointer);
-    const unitScale = {x: 400, y: -600};
 
     const cv = vec.multVec(change, unitScale);
+    if (!cv.x && !cv.y) {
+      return;  // not moving
+    }
 
     const p = this._skiier.position;
     this._skiier.position.set(p.x - cv.y, skiierSize / 2, p.z - cv.x);
@@ -152,12 +190,43 @@ app.GameThree = class GameThree {
     const angle = this._character.angleVec;
     this._skiier.lookAt(p.x + angle.y, skiierSize / 2, p.z - angle.x);
 
-    const mult = 50;
-    this._camera.position.set(p.x + angle.y * mult, 0, p.z - angle.x * mult);
+    // look forward, but more Y and less X
+    const forwardPoint = new THREE.Vector3(p.x + angle.y * 50, 0, p.z - angle.x * 10);
+    this._camera.position.set(forwardPoint.x, forwardPoint.y, forwardPoint.z)
     this._camera.position.add(cameraOffset);
-    this._camera.lookAt(p);
+    this._camera.lookAt(forwardPoint);
+
+    // can only crash if >0.5 towards max speed
+    if (this._decorator && this._character.speedRatio > 0.5) {
+      const playerAt = this.playerAt;
+      const nearby = this._decorator.treesNear(playerAt);
+
+      const hit = nearby.some((at) => {
+        const dist = vec.dist(at, playerAt);
+        return dist < crashThreshold;
+      });
+
+      if (hit) {
+        const geometry = new THREE.SphereGeometry(16, 14, 5, 0, Math.PI * 2, 0);
+        const material = new THREE.MeshBasicMaterial({color: 0xffffff});
+        const sphere = new THREE.Mesh(geometry, material);
+        sphere.position.set(p.x, p.y, p.z);
+        sphere.scale.set(0.001, 0.001, 0.001);
+
+        this._scene.add(sphere);
+        this._snowball = sphere;
+
+        this._hitTreeAt = 0;
+        return true;
+      }
+    }
+
+    return false;
   }
 
+  /**
+   * @return {vec.Vector}
+   */
   get transform() {
     if (!this._skiier) {
       return vec.zero;
@@ -169,10 +238,20 @@ app.GameThree = class GameThree {
     };
   }
 
+  /**
+   * @return {vec.Vector}
+   */
   get playerAt() {
     const out = this.transform;
     out.y *= -1;
     return out;
+  }
+
+  /**
+   * @return {number}
+   */
+  get angle() {
+    return this._character.angle;
   }
 
   _prepareModel(gltf) {
@@ -195,8 +274,15 @@ app.GameThree = class GameThree {
 
 
 class SceneDecorator {
-  constructor(points, dim=64) {
+  constructor(points, dim=96) {
     this._points = points;
+
+    // every game is different!
+    const ox = (Math.random() * 1000 - 500);
+    const oy = (Math.random() * 1000 - 500);
+    this._noise = (x, y) => {
+      return noise(x + ox, y + oy);
+    };
 
     this._dim = dim;
     this._depth = 0;
@@ -245,14 +331,60 @@ class SceneDecorator {
    * @return {number}
    */
   _treeType(x, y) {
-    const type = ~~((0.5 + noise(x / 1.00124, y / 0.1241)) * 4);
+    const treeCount = 6;
+    const type = ~~((0.5 + this._noise(x / 1.00124, y / 0.1241)) * treeCount);
     if (type < 0) {
       return 0;
-    } else if (type > 3) {
-      return 3;
+    } else if (type >= treeCount) {
+      return treeCount - 1;
     } else {
       return type;
     }
+  }
+
+  /**
+   * Returns the collidable trees near the player position.
+   *
+   * @param {vec.Vector} at
+   * @return {!Array<{x: number, y: number}>
+   */
+  treesNear(at) {
+    const x = Math.round(at.x / this._dim);
+    const y = Math.round(at.y / this._dim);
+    const out = [];
+
+    for (let i = -1; i < 2; ++i) {
+      for (let j = -1; j < 2; ++j) {
+        const at = this._treeForCell(x + i, y + j);
+        at && out.push(at);
+      }
+    }
+
+    return out;
+  }
+
+  _treeForCell(x, y) {
+    if (y < 0) {
+      // no trees at top
+      return null;
+    }
+
+    let v = this._noise(x / 3.27, y / 8.742);
+    if (y < 5) {
+      // slowly fade trees in
+      v -= (5 - y) * 0.1;
+    }
+
+    if (v <= 0 && v > -0.5) {
+      return null;
+    }
+
+    const offX = 2 * this._noise(x / 4.1222, y / 8.2421);
+    const offY = 2 * this._noise(x / 1.21, y / 2.31);
+    return {
+      x: this._dim * (x + 0.5 + offX),
+      y: this._dim * (y + 0.5 + offY),
+    };
   }
 
   /**
@@ -261,20 +393,11 @@ class SceneDecorator {
    * @param {!Array<number>} alloc
    */
   _decorate(x, y, alloc) {
-    let v = noise(x / 3.27, y / 8.742);
-    if (v <= -0.1) {
-      return;
+    const at = this._treeForCell(x, y);
+    if (at) {
+      const type = this._treeType(x, y);
+      const id = this._points.alloc(at.x, at.y, type);
+      alloc.push(id);
     }
-
-    const offX = noise(x / 4.1222, y / 8.2421);
-    const offY = noise(x / 1.21, y / 2.31);
-    const at = {
-      x: this._dim * (x + 0.5 + 2 * offX),
-      y: this._dim * (y + 0.5 + 2 * offY),
-    };
-
-    const type = this._treeType(x, y);
-    const id = this._points.alloc(at.x, at.y, type);
-    alloc.push(id);
   }
 }

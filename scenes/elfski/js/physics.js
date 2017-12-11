@@ -19,7 +19,7 @@ import {clamp} from './util.js';
 
 const slerpRatio = 4;
 const accelerationBar = 0.5;
-const maximumSpeed = 0.5;
+const maximumSpeed = 0.66;
 const stopBar = 0.75;  // angle at which we are trying to stop
 const initialVec = {x: 1, y: 0};
 
@@ -41,6 +41,13 @@ export class Character {
    */
   get speed() {
     return this._speed;
+  }
+
+ /**
+  * @return {number}
+  */
+  get speedRatio() {
+    return this._speed / maximumSpeed;
   }
 
   /**
@@ -107,7 +114,7 @@ export class Character {
         };
       }
 
-      const by = slerpRatio * delta * (1 - this._speed);
+      const by = slerpRatio * delta * (maximumSpeed * 2 - this._speed);
       this._vec = vec.slerp(this._vec, target, by);
 
       this._line = vec.angleBetween(this._vec, target);  // difference between player/goal
