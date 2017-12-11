@@ -43,6 +43,7 @@ app.GameThree = class GameThree {
     this._renderer = new THREE.WebGLRenderer(opts);
     this._renderer.autoClear = true;
     this._renderer.setClearColor(0xf5f2e2);
+    this._renderer.gammaOutput = true;
 
     if (true) {
       this._camera = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 2000);
@@ -55,8 +56,17 @@ app.GameThree = class GameThree {
     this._cameraFocus(10, startAtY);
 
     const scene = this._scene;
-    const light = new THREE.AmbientLight(0xffffff);
-    scene.add(light);
+
+    const spot = new THREE.SpotLight(0xffffff);
+    spot.decay = 0;
+    spot.power = Math.PI * 5;
+    this._spot = spot;
+    scene.add(this._spot);
+
+    const helper = new THREE.SpotLightHelper(spot);
+    scene.add(helper);
+
+    scene.add(new THREE.AmbientLight(0xffffff));
 
     loader.gltf('elfskiing', assetBaseUrl)
         .then((gltf) => this._prepareModel(gltf))
@@ -67,6 +77,7 @@ app.GameThree = class GameThree {
           object.lookAt(startAtY, skiierSize / 2, -100);  // right, to match start camera
 
           this._skiier = object;
+          this._spot.target = object;
         });
 
     loader.texture('tiles', assetBaseUrl).then((texture) => {
@@ -198,7 +209,11 @@ app.GameThree = class GameThree {
     this._skiier.position.set(p.x - cv.y, skiierSize / 2, p.z - cv.x);
 
     const angle = this._character.angleVec;
-    this._skiier.lookAt(p.x + angle.y, skiierSize / 2, p.z - angle.x);
+    const lookAt = new THREE.Vector3(p.x + angle.y, skiierSize / 2, p.z - angle.x);
+    this._skiier.lookAt(lookAt.x, lookAt.y, lookAt.z);
+
+    // move spotlight in front of elf, it's focused on it
+    this._spot.position.set(p.x + angle.y * 10, skiierSize * 2, p.z - angle.x * 10);
 
     // look forward, but more Y and less X
     this._cameraFocus(-p.z + angle.x * 10, p.x + angle.y * 50);
