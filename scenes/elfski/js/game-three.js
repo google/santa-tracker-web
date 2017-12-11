@@ -51,11 +51,8 @@ app.GameThree = class GameThree {
       this._camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000);
     }
 
-    this._camera.position.set(startAtY, 0, 0);
-    this._camera.position.add(cameraOffset);
-    this._camera.lookAt(startAtY, 0, 0);
-
     this._scene = new THREE.Scene();
+    this._cameraFocus(10, startAtY);
 
     const scene = this._scene;
     const light = new THREE.AmbientLight(0xffffff);
@@ -67,7 +64,7 @@ app.GameThree = class GameThree {
           this._scene.add(object);
 
           object.position.set(startAtY, skiierSize / 2, 0);
-          object.lookAt(100, skiierSize / 2, 0);  // down
+          object.lookAt(startAtY, skiierSize / 2, -100);  // right, to match start camera
 
           this._skiier = object;
         });
@@ -94,6 +91,9 @@ app.GameThree = class GameThree {
     this._snowball = null;
   }
 
+  /**
+   * @export
+   */
   measure() {
     // force proper reeval of size
     this._canvas.style.width = null;
@@ -117,8 +117,22 @@ app.GameThree = class GameThree {
 
     this._renderer.setPixelRatio(window.devicePixelRatio);
     this._renderer.setSize(w, h, true);
+
+    this._cameraFocus(this._transform.x, -this._transform.y);
   }
 
+  _cameraFocus(x, y) {
+    y += (this._canvas.offsetHeight / 4);  // move up screen
+
+    this._transform = {x: x, y: -y};
+    this._camera.position.set(y, 0, -x);
+    this._camera.position.add(cameraOffset);
+    this._camera.lookAt(y, 0, -x);
+  }
+
+  /**
+   * @export
+   */
   render() {
     if (this._p && this._hitTreeAt === undefined) {
       this._p.update();
@@ -126,18 +140,14 @@ app.GameThree = class GameThree {
       // TODO(samthor): These are magic numbers, and break down at huge screen heights.
       const p = this.playerAt;
       const viewport = {
-        from: p.y - (this._height / 2) * 2,
-        at: p.y + (this._height / 2) * 2,
+        from: p.y - (this._height / 2) * 1,
+        at: p.y + (this._height / 2) * 2.5,
         l: p.x - (this._width / 2) * 1.5,
         r: p.x + (this._width / 2) * 1.5,
       };
       this._decorator.update(viewport);
     }
     this._renderer.render(this._scene, this._camera);
-  }
-
-  reset() {
-    
   }
 
   dispose() {
@@ -191,10 +201,7 @@ app.GameThree = class GameThree {
     this._skiier.lookAt(p.x + angle.y, skiierSize / 2, p.z - angle.x);
 
     // look forward, but more Y and less X
-    const forwardPoint = new THREE.Vector3(p.x + angle.y * 50, 0, p.z - angle.x * 10);
-    this._camera.position.set(forwardPoint.x, forwardPoint.y, forwardPoint.z)
-    this._camera.position.add(cameraOffset);
-    this._camera.lookAt(forwardPoint);
+    this._cameraFocus(-p.z + angle.x * 10, p.x + angle.y * 50);
 
     // can only crash if >0.5 towards max speed
     if (this._decorator && this._character.speedRatio > 0.5) {
@@ -228,23 +235,21 @@ app.GameThree = class GameThree {
    * @return {vec.Vector}
    */
   get transform() {
-    if (!this._skiier) {
-      return vec.zero;
-    }
-    const p = this._skiier.position;
-    return {
-      x: -p.z,
-      y: -p.x,
-    };
+    return this._transform;
   }
 
   /**
    * @return {vec.Vector}
    */
   get playerAt() {
-    const out = this.transform;
-    out.y *= -1;
-    return out;
+    if (!this._skiier) {
+      return vec.zero;
+    }
+    const p = this._skiier.position;
+    return {
+      x: -p.z,
+      y: p.x,
+    };
   }
 
   /**

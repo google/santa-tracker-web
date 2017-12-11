@@ -15,7 +15,6 @@
  */
 
 import * as vec from './vec.js';
-import {clamp} from './util.js';
 
 const slerpRatio = 4;
 const accelerationBar = 0.5;
@@ -127,7 +126,13 @@ export class Character {
     if (accel < 0) {
       accel = Math.tan(accel);
     }
-    this._speed = clamp(this._speed + accel * delta, 0, maximumSpeed);
+
+    this._speed += accel * delta;
+    if (this._speed < 0) {
+      this._speed = 0;
+    } else if (this._speed > maximumSpeed) {
+      this._speed = maximumSpeed;
+    }
 
     return {
       x: this._speed * Math.sin(angle) * delta,
