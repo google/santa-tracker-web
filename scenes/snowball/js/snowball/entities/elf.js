@@ -108,6 +108,20 @@ const EntityObject3D = Entity(Object3D);
 const AllocatableEntityObject3D = Allocatable(EntityObject3D);
 
 export class Elf extends AllocatableEntityObject3D {
+  static fromJson(json) {
+    const elf = Elf.allocate(json.id, json.arrival.tileIndex);
+
+    elf.position.copy(json.position);
+
+    Object.assign(elf.health, json.health);
+    Object.assign(elf.arrival, json.arrival);
+    Object.assign(elf.presence, json.presence);
+
+    elf.powerups.copyFromJson(json.powerups);
+
+    return elf;
+  }
+
   randomizeColors() {
     const material = this.elf.children[0].material;
     material.map.image = generateElfTexture(randomElement(majorColors), randomElement(minorColors));
@@ -309,7 +323,7 @@ export class Elf extends AllocatableEntityObject3D {
           this.dolly.remove(clientPlayerMarker);
         }
 
-        if (this.currentLod === lod.HIGH) {
+        if (this.currentLod === lod.HIGH && this.elf != null) {
           const material = this.elf.children[0].material;
           material.opacity = visibility.opacity;
         }

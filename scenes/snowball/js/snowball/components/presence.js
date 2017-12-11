@@ -1,7 +1,10 @@
+import { Component } from './component.js';
+
 // NOTE(cdata): This component might have too much overlap with
 // Arrival. Consider combining the two.
-export class Presence {
+export class Presence extends Component {
   constructor() {
+    super();
     this.present = true;
     this.exiting = false;
   }

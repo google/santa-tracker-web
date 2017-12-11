@@ -1,4 +1,5 @@
 import { BasicElement } from '../utils/basic-element.js';
+import { Gamelike } from '../utils/gamelike.js';
 import { RenderSystem } from '../systems/render-system.js';
 import { ClockSystem } from '../systems/clock-system.js';
 import { InputSystem } from '../systems/input-system.js';
@@ -21,7 +22,14 @@ template.innerHTML = `
   }
 </style>`;
 
-export class Game extends BasicElement {
+/**
+ * @constructor
+ * @extends {BasicElement}
+ * @implements GamelikeInterface
+ */
+const GamelikeBasicElement = Gamelike(BasicElement);
+
+export class Game extends GamelikeBasicElement {
   static get template() { return template; }
 
   constructor(...args) {
@@ -29,31 +37,12 @@ export class Game extends BasicElement {
 
     this.stampTemplate();
     this.renderSystem = new RenderSystem();
-    this.clockSystem = new ClockSystem();
     this.inputSystem = new InputSystem();
 
     this.camera = new OrthographicCamera(1, 1, 1, 1, 1, 100000);
-    this.currentLevel = null;
-    this.ready = false;
 
     this.shadowRoot.appendChild(this.renderSystem);
     this.shadowRoot.appendChild(this.inputSystem);
-
-    this.clockSystem.startClock('gameloop', time => {
-      this.preciseTick = time * 60 / 1000;
-      this.tick = Math.floor(this.preciseTick);
-
-      if (!this.ready) {
-        this.setup();
-        this.ready = true;
-      }
-
-      if (this.currentLevel == null) {
-        return;
-      }
-
-      this.update();
-    });
 
     self.addEventListener('resize', () => this.measure());
   }
@@ -81,29 +70,18 @@ export class Game extends BasicElement {
     this.renderSystem.measure(this);
   }
 
-  setup() {}
-
   update() {
     this.currentLevel.update(this);
     this.renderSystem.update(this);
     this.inputSystem.update(this);
   }
 
-  set level(level) {
-    if (this.currentLevel) {
-      this.currentLevel.teardown(this);
-    }
+  setLevel(level) {
+    super.setLevel(level);
 
     this.camera.position.copy(level.position);
     this.camera.position.z = -3200;
     this.camera.lookAt(level.position);
     this.camera.rotation.z = 0;
-
-    this.currentLevel = level;
-    this.currentLevel.setup(this);
-  }
-
-  get level() {
-    return this.currentLevel;
   }
 }

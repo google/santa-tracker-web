@@ -10,7 +10,8 @@ export class ClockSystem {
     return performance.now() - this.timeZero + this.timeSyncDelta;
   }
 
-  synchronize(time) {
+  synchronize(timeZero, time) {
+    this.timeZero = timeZero;
     this.timeSyncDelta = time - performance.now();
   }
 

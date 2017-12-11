@@ -1,6 +1,11 @@
 import { Elf } from '../entities/elf.js';
 
-const { Math: ThreeMath, Object3D, Vector2 } = self.THREE;
+const {
+  Math: ThreeMath,
+  Object3D,
+  Vector2,
+  Vector3
+} = self.THREE;
 
 const intermediateVector2 = new Vector2();
 const PI_OVER_TWO = Math.PI / 2.0;
@@ -18,13 +23,35 @@ export class PlayerSystem {
     this.playerTargetedPositions = {};
   }
 
+  hasPlayer(id) {
+    return !!this.playerMap[id];
+  }
+
+  addPlayerFromJson(playerJson) {
+    const player = this.addPlayerInstance(Elf.fromJson(playerJson));
+    const { path } = playerJson;
+    const { destination } = path;
+
+    if (destination != null) {
+      this.assignPlayerDestination(player.playerId, {
+        index: destination.index,
+        position: new Vector3().copy(destination.position)
+      });
+    }
+
+    return player;
+  }
+
   addPlayer(id = ThreeMath.generateUUID(), startingTileIndex = -1) {
     if (this.playerMap[id]) {
       throw new Error(`player ${id} already described`);
     }
 
-    const player = Elf.allocate(id, startingTileIndex);
-    this.playerMap[id] = player;
+    return this.addPlayerInstance(Elf.allocate(id, startingTileIndex));
+  }
+
+  addPlayerInstance(player) {
+    this.playerMap[player.playerId] = player;
     this.players.push(player);
     this.newPlayers.push(player);
     return player;
@@ -115,9 +142,11 @@ export class PlayerSystem {
       }
 
       player.setup(game);
-      parachuteSystem.dropEntity(player);
 
-      this.parachutingPlayers.push(player);
+      if (!arrival.arrived) {
+        parachuteSystem.dropEntity(player);
+        this.parachutingPlayers.push(player);
+      }
     }
 
     // Arrived players are positioned and placed with existing players...

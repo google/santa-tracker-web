@@ -46,6 +46,8 @@ export class GameMap {
 
     const tileRings = [];
 
+    let passableTileCount = 0;
+
     for (let q = 0; q < grid.width; ++q) {
       for (let r = 0; r < grid.height; ++r) {
         oddq.set(q, r, 0);
@@ -77,6 +79,10 @@ export class GameMap {
           tileRings[ringIndex].push(index);
         }
 
+        if (state === 1.0) {
+          passableTileCount++;
+        }
+
         // Stash tile details into geometry attributes
         tileStates.setXY(index, state, 0.0);
         tileOffsets.setXYZ(index, offset.x, -offset.y, 0.0);
@@ -84,6 +90,7 @@ export class GameMap {
       }
     }
 
+    this.passableTileCount = passableTileCount;
     this.tileCount = tileCount;
     this.tileRings = tileRings;
 
@@ -149,6 +156,7 @@ export class GameMap {
 
     for (let i = 0; i < numberOfTiles; ++i) {
       const ring = this.tileRings[this.tileRings.length - 1];
+
       if (ring == null) {
         this.tileRings.pop();
         continue;
@@ -157,6 +165,10 @@ export class GameMap {
       const ringIndex = this.erodeSeedRandom.randRange(ring.length);
       const index = ring[ringIndex];
       const state = this.getTileState(index);
+
+      if (state === 1.0) {
+        this.passableTileCount--;
+      }
 
       // TODO(cdata): Show some kind of "collapse" effect when the tile
       // goes from raised (5.0) to shaking (3.0)...

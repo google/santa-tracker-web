@@ -8,12 +8,18 @@ import { PlayerSystem } from './snowball/systems/player-system.js';
 import { ClientSystem } from './snowball/systems/client-system.js';
 import { NetworkSystem } from './snowball/systems/network-system.js';
 import { ParachuteSystem } from './snowball/systems/parachute-system.js';
+import { StateSystem } from './snowball/systems/state-system.js';
 import { EntityRemovalSystem } from './snowball/systems/entity-removal-system.js';
 import { DropSystem } from './snowball/systems/drop-system.js';
 import { LocalLevel } from './snowball/levels/local-level.js';
-import { NetworkLevel } from './snowball/levels/network-level.js';
+import { LobbyLevel } from './snowball/levels/lobby-level.js';
 
 const { Scene, PerspectiveCamera } = self.THREE;
+
+const GameType = {
+  LOCAL: 'local',
+  MULTIPLAYER: 'multiplayer'
+};
 
 export class SnowballGame extends Game {
   static get is() { return 'snowball-game'; }
@@ -32,16 +38,9 @@ export class SnowballGame extends Game {
     this.clientSystem = new ClientSystem();
     this.networkSystem = new NetworkSystem();
     this.playerSystem = new PlayerSystem();
+    this.stateSystem = new StateSystem();
 
     this.renderSystem.renderer.setClearColor(0x71A7DB, 1.0);
-  }
-
-  get networkLevelType() {
-    return NetworkLevel;
-  }
-
-  get localLevelType() {
-    return LocalLevel;
   }
 
   get assetBaseUrl() {
@@ -49,6 +48,8 @@ export class SnowballGame extends Game {
   }
 
   setup() {
+    this.setupTick = this.tick;
+
     super.setup();
 
     this.mapSystem.setup(this);
@@ -56,6 +57,7 @@ export class SnowballGame extends Game {
     this.clientSystem.setup(this);
     this.networkSystem.setup(this);
     this.dropSystem.setup(this);
+    this.stateSystem.setup(this);
   }
 
   update() {
@@ -74,9 +76,16 @@ export class SnowballGame extends Game {
     this.playerSystem.update(this);
   }
 
-  start() {
-    const LevelClass = this.localLevelType;
-    this.level = new LevelClass();
+  start(gameType = GameType.MULTIPLAYER) {
+    switch (gameType) {
+      case GameType.MULTIPLAYER:
+        this.networkSystem.connect();
+        this.setLevel(new LobbyLevel());
+        break;
+      case GameType.LOCAL:
+        this.setLevel(new LocalLevel());
+        break;
+    }
   }
 };
 

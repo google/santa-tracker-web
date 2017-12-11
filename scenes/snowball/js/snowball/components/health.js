@@ -1,5 +1,8 @@
-export class Health {
+import { Component } from './component.js';
+
+export class Health extends Component {
   constructor() {
+    super();
     this.lastAliveTime = -1;
   }
 
@@ -19,5 +22,9 @@ export class Health {
 
   get dead() {
     return !this.alive;
+  }
+
+  revive() {
+    this.lastAliveTime = -1;
   }
 };

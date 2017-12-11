@@ -45,9 +45,9 @@ Snowball Storm scene.
       height: 100%;
     }
     @keyframes snowball-sleigh {
-      0%   { transform: translateY(-10%); }
-      50% { transform: translateY(10%); }
-      100% { transform: translateY(-10%); }
+      0%   { transform: translateY(-200%); }
+      50% { transform: translateY(-210%); }
+      100% { transform: translateY(-200%); }
     }
     #mover {
       pointer-events: none;
@@ -67,6 +67,12 @@ Snowball Storm scene.
 
     [hidden] {
       display: none;
+    }
+
+    @media (max-width: 600px) {
+      #sleigh {
+        transform: scale(0.5);
+      }
     }
   </style>
 
