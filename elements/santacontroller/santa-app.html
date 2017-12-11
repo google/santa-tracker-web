@@ -84,7 +84,7 @@ Santa Tracker app.
   <santa-chrome id="chrome"
       mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
-      share-options="[[shareOptions]]"
+      hide-buttons="[[hideButtons(mode)]]"
       clients="[[clients]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
@@ -1211,6 +1211,10 @@ Polymer({
 
   omitSantaChrome: function(mode) {
     return mode === 'cast';
+  },
+
+  hideButtons: function(mode) {
+    return mode === 'embed';
   },
 
   /**

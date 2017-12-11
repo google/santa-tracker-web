@@ -133,7 +133,7 @@ $bighover-media: "(min-width: $tablet-width) and (hover: hover), (min-width: $ta
 
 .buttons {
   @keyframes hold {
-    from { visibility: visible; }s
+    from { visibility: visible; }
     to   { visibility: visible; }
   }
 
@@ -165,6 +165,9 @@ $bighover-media: "(min-width: $tablet-width) and (hover: hover), (min-width: $ta
 // FIXME(samthor): We could just unmute on <768px change.
 #sound:not([data-mute]) {
   @media (max-width: ($tablet-width - 1px)) {
+    display: none;
+  }
+  @media (hover: none) {
     display: none;
   }
 }

@@ -56,12 +56,14 @@ specific language governing permissions and limitations under the License.
           icon="santa:fullscreen">
       </paper-icon-button> -->
 
-      <paper-icon-button id="sound" data-mute$="[[mute]]"
+      <paper-icon-button id="sound" data-title$="[[_computeMuteString(_strings, mute)]]"
+          data-mute$="[[mute]]"
           on-click="_toggleSounds"
           icon$="santa:[[_computeSoundIcon(mute)]]">
       </paper-icon-button>
 
-      <paper-icon-button hidden$="[[!hasGameButtons]]"
+      <paper-icon-button data-title$="[[_computePauseString(_strings, pause)]]"
+          hidden$="[[!hasGameButtons]]"
           on-click="_togglePause"
           icon$="santa:[[_computeGameIcon(pause)]]">
       </paper-icon-button>
@@ -233,6 +235,16 @@ specific language governing permissions and limitations under the License.
 
     _computeLabel: function(strings, id) {
       return (strings && strings[id]) || '';
+    },
+
+    _computeMuteString: function(strings, mute) {
+      const id = mute ? 'unmute' : 'mute';
+      return this._computeLabel(strings, id);
+    },
+
+    _computePauseString: function(strings, pause) {
+      const id = pause ? 'play' : 'pause';
+      return this._computeLabel(strings, id);
     },
 
     _computeSoundIcon: function(mute) {

@@ -80,6 +80,7 @@ specific language governing permissions and limitations under the License.
             <slot name="feature"></slot>
           </div>
           <santa-buttons id="buttons"
+              hidden="[[hideButtons]]"
               has-game-buttons="[[hasGameButtons]]"
               mute="{{mute}}"
               pause="{{pause}}"></santa-buttons>
@@ -122,6 +123,15 @@ specific language governing permissions and limitations under the License.
       },
 
       /**
+       * Whether to hide all buttons. Quick override to fix Embed bug, as it does not always
+       * seem to pass down CSS variables properly.
+       */
+      hideButtons: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
        * True if sounds should be muted.
        */
       mute: {
@@ -153,11 +163,6 @@ specific language governing permissions and limitations under the License.
        */
       disabled: {
         type: Boolean,
-      },
-
-      /** Sharing options available. */
-      shareOptions: {
-        type: Array,
       },
 
     },
