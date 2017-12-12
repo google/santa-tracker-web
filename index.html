@@ -290,8 +290,12 @@ if (window.santaApp.mode === 'portal') {
 }
 
 window.setTimeout(function() {
-  console.log('%cHi there! Are you interested in learning about how the helper elves build Santa Tracker? 🎅🎄🎁 %cWatch us 👩‍💻👨‍💻 on the Chrome Developers Channel:', 'font-size: 16px; color: blue;', 'font-size: 16px; color: red;');
-  console.log('%chttps://www.youtube.com/playlist?list=PLNYkxOF6rcIAQ-xb-Y04twWvKJU6N2UVm', 'font-size: 16px;');
+  var urlStyle = 'font-size: 16px; line-height: 24px; background: #555; color: white; padding: 4px; border-radius: 4px;';
+  var textStyle = function(color) { return 'font-size: 16px; line-height: 24px; color: ' + color + ';' }
+  console.log('%cHi there! Are you interested in learning about how the helper elves build Santa Tracker? 🎅🎄🎁 %cWatch us 👩‍💻👨‍💻 on the Chrome Developers Channel:', textStyle('blue'), textStyle('red'));
+  console.log('%chttps://youtube.com/playlist?list=PLNYkxOF6rcIAQ-xb-Y04twWvKJU6N2UVm', urlStyle);
+  console.log('%cOr find the source code on GitHub:', textStyle('green'));
+  console.log('%chttps://github.com/google/santa-tracker-web', urlStyle);
 }, 1000);
 
 })();
