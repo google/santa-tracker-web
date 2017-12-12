@@ -272,10 +272,20 @@ gulp.task('compile-scenes', function() {
     // Configure prefix and compilation options. In some cases (no libraries, not dist), we can
     // skip scene compilation for  more rapid development.
     // This flag is written to disk (via `scripts.changedFlag`), so a change forces a recompile.
-    const prefixCode =
+    let prefixCode =
         'var global=window,app=this.app;var $jscomp=this[\'$jscomp\']={global:global};';
     const mustCompile =
         Boolean(argv.compile || libraries.length || config.closureLibrary || config.isFrame || config.es2015);
+    if (!mustCompile) {
+      // Add simple $jscomp methods needed for ES6 => ES5 transpilation.
+      // (Most $jscomp helpers are added as part of --rewrite_polyfills, which we don't use, but
+      // ES6 class transpilation is special.)
+      prefixCode += `$jscomp.inherits=function(c,p){
+              c.prototype=Object.create(p.prototype);
+              c.prototype.constructor=c;
+              Object.setPrototypeOf(c,p);
+            };`.replace(/\s+/g, '');
+    }
 
     // If some options are appended to the config, they seem to be ignored by the
     // options generator when invoking the Closure Compiler JAR.

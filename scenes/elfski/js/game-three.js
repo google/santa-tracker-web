@@ -82,7 +82,7 @@ app.GameThree = class GameThree {
     loader.texture('tiles', assetBaseUrl).then((texture) => {
       texture.flipY = false;
       const p = new Points(10000, texture);
-      scene.add(p.particles);
+      scene.add(p);
 
       this._p = p;
       this._decorator = new SceneDecorator(this._p);

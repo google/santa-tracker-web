@@ -59,8 +59,10 @@ void main() {
 
 const spriteSize = 128;
 
-export class Points {
+export class Points extends THREE.Object3D {
   constructor(points, texture) {
+    super();
+
     this._points = points;
     this._texture = texture;
 
@@ -121,7 +123,7 @@ export class Points {
 
     this._knownDPI = window.devicePixelRatio || 1;
 
-    this.particles = particles;
+    this.add(particles);
   }
 
   _next() {
