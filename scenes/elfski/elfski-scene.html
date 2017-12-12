@@ -13,6 +13,8 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../js/third_party/three.html">
+<link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 
 <script src="elfski-scene.min.js"></script>
 
@@ -30,48 +32,20 @@ Elf Ski scene.
   height: 100%;
   touch-action: none; /* TODO: we may want to allow users to drag the screen down */
 }
-#surface {
-  position: absolute;
-  pointer-events: none;
-  will-change: transform;
-  width: 100%;
-  height: 100%;
-}
-#surface canvas {
-  position: absolute;
-}
-
 #gl3d {
   position: absolute;
   pointer-events: none;
 }
 
-#ui {
-  height: 791px;
-  position: absolute;
-  bottom: calc(50% - 120px);
-  min-height: calc(50% + 120px);  /* if we're bigger than 50%, then just clamp to top */
-  width: 100%;
-  left: 0%;
-  background-image: url(../dorf/img/header-bg.svg);
-  background-color: transparent;
-  background-repeat: repeat-x;
-  background-position: 0 0;  /* top-left, different origin than village */
-  background-size: 1618px 791px;
-}
-.down #ui {
-  display: none;
-}
-
   </style>
 
+  <iron-a11y-keys keys="left right"
+      target="[[_keyTarget]]"
+      on-keys-pressed="_keysHandler"></iron-a11y-keys>
   <div id="mountain"
       on-pointerdown="_onPointerDown"
       on-pointermove="_onPointerMove"
       on-pointerup="_onPointerUp">
-    <div id="surface">
-      <div id="ui"></div>
-    </div>
     <canvas id="gl3d"></canvas>
   </div>
 
@@ -104,15 +78,15 @@ Polymer({
       value: 0,
     },
 
+    _playerCrashedAt: {
+      type: Number,
+      value: 0,
+    },
+
     /**
      * The game.
      */
     _game: {
-      type: Object,
-      value: null,
-    },
-
-    _socket: {
       type: Object,
       value: null,
     },
@@ -130,6 +104,11 @@ Polymer({
       value: null,
     },
 
+    _keyTarget: {
+      type: Object,
+      value: () => this,
+    },
+
   },
 
   created: function() {
@@ -138,62 +117,32 @@ Polymer({
     this._onResize = this._onResize.bind(this);
   },
 
-  observers: [
-    '_sendPlayerState(_socket, _pointer)',
-  ],
-
   onPreload: function() {
     this.preloadImages([
-      '../dorf/img/header-bg.svg',
       'img/tiles.png',
     ]);
+    this.preloadSounds('elfski_load_sounds');
   },
 
   onShow: function() {
     this._lastFrameAt = window.performance.now();
     window.addEventListener('resize', this._onResize);
+
+    this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
+    window.requestAnimationFrame(this._draw);
+    this._tickInterval = window.setInterval(this._tick, tickInterval);
     this._onResize();
 
-    const image = new Image();
-    image.crossOrigin = 'anonymous';
-    image.src = this.resolveUrl('img/tiles.png');
-    image.onload = function() {
-
-      const canvas = this.$.gl3d;
-      this._game = new scenes.elfski.Game(canvas, image)
-      window.requestAnimationFrame(this._draw);
-      this._tickInterval = window.setInterval(this._tick, tickInterval);
-      this._onResize();
-
-    }.bind(this);
-
-    this._socket = new SantaSocket('elfski');
-    this._socket.addListener('message', (data) => {
-      console.info('got message', data.id);
-      if (!this._game || !data.id) { return; }
-
-      const id = 'p' + data.id;
-      if (!data.at) {
-        this._game.clearRemotePlayer(id);
-      } else {
-        this._game.updateRemotePlayer(id, data.p, data.at);
-      }
-    });
+    this.fire('sound-ambient', 'elfski_loop_start');
   },
 
   onHide: function() {
-    window.removeEventListener('resize', this._onResize);
-    this._socket.close();
-    window.clearInterval(this._tickInterval);
-  },
+    this._game.teardown();
 
-  _sendPlayerState: function(socket, pointer) {
-    if (!socket || !this._game) { return; }
-    console.info('sending state', pointer);
-    socket.send({
-      p: pointer,
-      at: this._game.playerAt,
-    }, 'player');
+    window.removeEventListener('resize', this._onResize);
+    window.clearInterval(this._tickInterval);
+
+    this.fire('sound-ambient', 'elfski_loop_stop');
   },
 
   /**
@@ -204,8 +153,11 @@ Polymer({
 
     this._gameStartAt = 0;
     this._gameEndAt = 0;
+    this._playerCrashedAt = 0;
 
-    this._game.reset();
+    this._game && this._game.dispose();
+    this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
+
     this.$.mountain.className = '';
     this._onResize();
 
@@ -213,10 +165,12 @@ Polymer({
   },
 
   _onResize: function() {
-    this.$.gl3d.width = this.$.mountain.offsetWidth;
-    this.$.gl3d.height = this.$.mountain.offsetHeight;
+    const w = this.$.mountain.offsetWidth;
+    const h = this.$.mountain.offsetHeight;
+    this.$.gl3d.width = w;
+    this.$.gl3d.height = h;
 
-    this._game && this._game.resize();
+    this._game && this._game.measure();
   },
 
   /**
@@ -233,12 +187,38 @@ Polymer({
     }
     this._pointer = {
       x: ev.offsetX - (ev.target.offsetWidth / 2),
-      y: ev.offsetY - (ev.target.offsetHeight / 2),
+      y: ev.offsetY - (ev.target.offsetHeight / 3),
     };
   },
 
   _onPointerUp: function(ev) {
     this._pointer = null;
+  },
+
+  _keysHandler: function(ev) {
+    let dir = 0;
+    const key = ev.detail.keyboardEvent.key;
+    if (key.indexOf('Left') !== -1) {
+      dir = -1;
+    } else if (key.indexOf('Right') !== -1) {
+      dir = +1;
+    } else {
+      return;
+    }
+
+    const angle = this._game.angle + dir * 2;
+    const pointer = {
+      x: Math.sin(angle) * 100,
+      y: Math.cos(angle) * 100,
+    };
+    this._pointer = pointer;
+
+    // TODO: this feels a little janky, fine for now
+    this.debounce('_keysHandler', () => {
+      if (this._pointer === pointer) {
+        this._pointer = null;
+      }
+    }, 17 * 3);  // hold for ~3 frames unless changed
   },
 
   _tick: function() {
@@ -258,10 +238,21 @@ Polymer({
       return;
     }
 
-    this._gameEndAt = now;
-    this.fire('game-stop', {
-      score: this.score,
-    });
+    if (!this._playerCrashedAt) {
+      this.fire('sound-trigger', 'elfski_crash');
+      this._playerCrashedAt = now;
+    }
+
+    if (this._gameEndAt) {
+      return;
+    }
+    if (now - this._playerCrashedAt > 3 * 1000) {
+      // TODO: magic number, show 'game over' 3s later
+      this._gameEndAt = now;
+      this.fire('game-stop', {
+        score: this.score,
+      });
+    }
   },
 
   get score() {
@@ -272,19 +263,14 @@ Polymer({
   },
 
   _draw: function() {
-    this._game._render.draw();
-    window.requestAnimationFrame(this._draw);
-
-    const transform = this._game.transform;
-    if (transform.y >= 800) {
-      // gone too far, just hide UI
-      this.$.surface.hidden = true;
-    } else {
-      this.$.surface.style.transform = 'translateY(' + transform.y + 'px)';
-      this.$.ui.style.transform = 'translateX(' + transform.x + 'px)';
+    if (!this.isAttached) {
+      return;
     }
 
-    if (this._gameStartAt && !this._gameEndAt) {
+    this._game.render();
+    window.requestAnimationFrame(this._draw);
+
+    if (this._gameStartAt && !this._gameEndAt && !this._playerCrashedAt) {
       const detail = {
         score: this.score,
         time: (window.performance.now() - this._gameStartAt) / 1000,

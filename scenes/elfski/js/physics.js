@@ -15,11 +15,10 @@
  */
 
 import * as vec from './vec.js';
-import {clamp} from './util.js';
 
 const slerpRatio = 4;
 const accelerationBar = 0.5;
-const maximumSpeed = 0.5;
+const maximumSpeed = 0.66;
 const stopBar = 0.75;  // angle at which we are trying to stop
 const initialVec = {x: 1, y: 0};
 
@@ -43,6 +42,13 @@ export class Character {
     return this._speed;
   }
 
+ /**
+  * @return {number}
+  */
+  get speedRatio() {
+    return this._speed / maximumSpeed;
+  }
+
   /**
    * @return {number} line width due to rotation
    */
@@ -55,6 +61,13 @@ export class Character {
    */
   get angle() {
     return Math.atan2(this._vec.x, this._vec.y);
+  }
+
+  /**
+   * @return {vec.Vector} angle vector
+   */
+  get angleVec() {
+    return this._vec;
   }
 
   /**
@@ -100,7 +113,7 @@ export class Character {
         };
       }
 
-      const by = slerpRatio * delta * (1 - this._speed);
+      const by = slerpRatio * delta * (maximumSpeed * 2 - this._speed);
       this._vec = vec.slerp(this._vec, target, by);
 
       this._line = vec.angleBetween(this._vec, target);  // difference between player/goal
@@ -113,7 +126,13 @@ export class Character {
     if (accel < 0) {
       accel = Math.tan(accel);
     }
-    this._speed = clamp(this._speed + accel * delta, 0, maximumSpeed);
+
+    this._speed += accel * delta;
+    if (this._speed < 0) {
+      this._speed = 0;
+    } else if (this._speed > maximumSpeed) {
+      this._speed = maximumSpeed;
+    }
 
     return {
       x: this._speed * Math.sin(angle) * delta,

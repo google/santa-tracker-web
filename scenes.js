@@ -88,7 +88,7 @@ module.exports = {
   },
   elfski: {
     msgid: 'scene_elfski',
-    entryPoint: 'app.Game'
+    entryPoint: 'app.GameThree'
   },
   factory: {
     msgid: 'scene_factory',
