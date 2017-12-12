@@ -52,6 +52,31 @@ app.GameThree = class GameThree {
       this._camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000);
     }
 
+    /**
+     * @private {number}
+     */
+    this._width = 0;
+
+   /**
+    * @private {number}
+    */
+    this._height = 0;
+
+    /**
+     * @private {THREE.Object3D}
+     */
+    this._skiier = null;
+
+    /**
+     * @private {SceneDecorator}
+     */
+    this._decorator = null;
+
+    /**
+     * @private {Points}
+     */
+    this._p = null;
+
     this._scene = new THREE.Scene();
     this._cameraFocus(10, startAtY);
 
@@ -91,12 +116,12 @@ app.GameThree = class GameThree {
     this._character = new Character();
 
     /**
-     * @type {number|undefined}
+     * @private {number|undefined}
      */
     this._hitTreeAt = undefined;
 
     /**
-     * @type {?THREE.Object3d}
+     * @private {THREE.Object3D}
      */
     this._snowball = null;
   }
@@ -133,8 +158,6 @@ app.GameThree = class GameThree {
 
   _cameraFocus(x, y) {
     y += (this._canvas.offsetHeight / 4);  // move up screen
-
-    this._transform = {x: x, y: -y};
     this._camera.position.set(y, 0, -x);
     this._camera.position.add(cameraOffset);
     this._camera.lookAt(y, 0, -x);
@@ -256,13 +279,6 @@ app.GameThree = class GameThree {
   /**
    * @return {vec.Vector}
    */
-  get transform() {
-    return this._transform;
-  }
-
-  /**
-   * @return {vec.Vector}
-   */
   get playerAt() {
     if (!this._skiier) {
       return vec.zero;
@@ -301,6 +317,11 @@ app.GameThree = class GameThree {
 
 
 class SceneDecorator {
+
+  /**
+   * @param {!Points} points
+   * @param {number=} dim
+   */
   constructor(points, dim=96) {
     this._points = points;
 

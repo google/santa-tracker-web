@@ -64,7 +64,7 @@ export class Character {
   }
 
   /**
-   * @param {vec.Vector} angle vector
+   * @return {vec.Vector} angle vector
    */
   get angleVec() {
     return this._vec;
