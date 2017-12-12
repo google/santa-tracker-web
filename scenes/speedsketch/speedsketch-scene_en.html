@@ -34,7 +34,7 @@ Quickdraw scene.
   <div id="module-speedsketch">
     <div class="speedsketch">
       <div class="scene">
-        <div class="strings" style="display: none;">
+        <div class="strings" hidden>
           <div id="quickdraw-timesup-title-noguess"><i18n-msg msgid="quickdraw-timesup-title-noguess">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-timesup-subline-noguess"><i18n-msg msgid="quickdraw-timesup-subline-noguess">PLACEHOLDER_i18n</i18n-msg></div>
           <div id="quickdraw-timesup-title-guess"><i18n-msg msgid="quickdraw-timesup-title-guess">PLACEHOLDER_i18n</i18n-msg></div>
@@ -505,7 +505,7 @@ Quickdraw scene.
 
         <div class="splashview">
           <div class="splashview__container">
-            <img src="[[importPath]]img/splashscreen-image.svg" class="splashview__picture" alt="">
+            <img src="[[importPath]]img/splashscreen-image.svg" class="splashview__picture" />
             <h2 class="splashview__title"><i18n-msg msgid="quickdraw-splashview-title">PLACEHOLDER_i18n</i18n-msg></h2>
             <p class="splashview__description"><i18n-msg msgid="quickdraw-splashview-description">PLACEHOLDER_i18n</i18n-msg></p>
             <button class="Button splashview__button"><i18n-msg msgid="quickdraw-newround-button">PLACEHOLDER_i18n</i18n-msg></button>
@@ -531,15 +531,15 @@ Quickdraw scene.
           </div>
           <div class="machineview">
             <div class="machineview__bubble">
-              <img src="[[importPath]]img/speech-bubble.svg" alt="Speech bubble" class="machineview__bubbleBg">
-              <img src="[[importPath]]img/mobile-bubble.svg" alt="Speech bubble" class="machineview__bubbleBg--mobile">
+              <img src="[[importPath]]img/speech-bubble.svg" alt="Speech bubble" class="machineview__bubbleBg" />
+              <img src="[[importPath]]img/mobile-bubble.svg" alt="Speech bubble" class="machineview__bubbleBg--mobile" />
               <div class="machineview__bubble-inner">
                 <p class="machineview__primary"></p>
                 <p class="machineview__secondary"></p>
                 <p class="machineview__tertiary"></p>
               </div>
             </div>
-            <img src="[[importPath]]img/robby.svg" alt="Robby the robot" class="machineview__robot">
+            <img src="[[importPath]]img/robby.svg" alt="Tensor" class="machineview__robot" />
           </div>
         </div>
         <div class="cards">
@@ -570,45 +570,43 @@ Quickdraw scene.
             <button class="Button Button--round rounddetails-card__back-btn"></button>
             <div class="card-container scroll">
 
-                  <div class="card-row">
-                    <div class="rounddetails-card__text rounddetails-card__title"></div>
-                    <div class="rounddetails-card__drawing-container">
-                      <div class="rounddetails-card__drawing rounddetails-card__drawing--user"></div>
-                    </div>
-                  </div>
-
-                  <div class="card-row">
-                    <div class="rounddetails-card__text rounddetails-card__santa-title"></div>
-                    <div class="rounddetails-card__drawing-container">
-                      <div class="rounddetails-card__drawing rounddetails-card__drawing--santa">
-                        <div class="rounddetails-card__drawing-inner"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card-row rounddetails-card__similar-drawings">
-                    <div class="rounddetails-card__text rounddetails-card__similar-drawings-title--recognized"><i18n-msg msgid="quickdraw-rounddetails-also-look">PLACEHOLDER_i18n</i18n-msg></div>
-                    <div class="rounddetails-card__text rounddetails-card__similar-drawings-title--not-recognized"><i18n-msg msgid="quickdraw-rounddetails-look-more">PLACEHOLDER_i18n</i18n-msg></div>
-                    <div class="rounddetails-card__similar-drawings-container">
-                      <div class="rounddetails-card__similar-drawing">
-                        <div class="rounddetails-card__similar-drawing-reference"></div>
-                        <div class="rounddetails-card__similar-drawing-neighbor"></div>
-                        <p></p>
-                      </div>
-                      <div class="rounddetails-card__similar-drawing">
-                        <div class="rounddetails-card__similar-drawing-reference"></div>
-                        <div class="rounddetails-card__similar-drawing-neighbor"></div>
-                        <p></p>
-                      </div>
-                      <div class="rounddetails-card__similar-drawing">
-                        <div class="rounddetails-card__similar-drawing-reference"></div>
-                        <div class="rounddetails-card__similar-drawing-neighbor"></div>
-                        <p></p>
-                      </div>
-                    </div>
-                  </div>
+              <div class="card-row">
+                <div class="rounddetails-card__text rounddetails-card__title"></div>
+                <div class="rounddetails-card__drawing-container">
+                  <div class="rounddetails-card__drawing rounddetails-card__drawing--user"></div>
+                </div>
               </div>
-            </div>
+
+              <div class="card-row">
+                <div class="rounddetails-card__text rounddetails-card__santa-title"></div>
+                <div class="rounddetails-card__drawing-container">
+                  <div class="rounddetails-card__drawing rounddetails-card__drawing--santa">
+                    <div class="rounddetails-card__drawing-inner"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-row rounddetails-card__similar-drawings">
+                <div class="rounddetails-card__text rounddetails-card__similar-drawings-title--recognized"><i18n-msg msgid="quickdraw-rounddetails-also-look">PLACEHOLDER_i18n</i18n-msg></div>
+                <div class="rounddetails-card__text rounddetails-card__similar-drawings-title--not-recognized"><i18n-msg msgid="quickdraw-rounddetails-look-more">PLACEHOLDER_i18n</i18n-msg></div>
+                <div class="rounddetails-card__similar-drawings-container">
+                  <div class="rounddetails-card__similar-drawing">
+                    <div class="rounddetails-card__similar-drawing-reference"></div>
+                    <div class="rounddetails-card__similar-drawing-neighbor"></div>
+                    <p></p>
+                  </div>
+                  <div class="rounddetails-card__similar-drawing">
+                    <div class="rounddetails-card__similar-drawing-reference"></div>
+                    <div class="rounddetails-card__similar-drawing-neighbor"></div>
+                    <p></p>
+                  </div>
+                  <div class="rounddetails-card__similar-drawing">
+                    <div class="rounddetails-card__similar-drawing-reference"></div>
+                    <div class="rounddetails-card__similar-drawing-neighbor"></div>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </div>

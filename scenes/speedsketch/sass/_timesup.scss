@@ -45,6 +45,7 @@
       overflow: hidden;
       position: relative;
       width: 300px;
+      cursor: pointer;
 
       @media (min-width: $mobile-breakpoint + 1) {
         max-width: 20vw;

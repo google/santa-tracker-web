@@ -48,13 +48,11 @@ app.view.CardsView.prototype = Object.create(app.EventEmitter.prototype);
 app.view.CardsView.prototype.showCard = function(card, cb) {
   card.isVisible = true;
   card.show({
-    duration:0,
-    complete: function() {
-        card.addClass('visible');
-        if (cb) {
-          cb()
-        }
-    }
+    duration: 0,
+    complete: () => {
+      card.addClass('visible');
+      cb && cb();
+    },
   });
 };
 
@@ -63,12 +61,10 @@ app.view.CardsView.prototype.hideCard = function(card, cb) {
   card.isVisible = false;
   if (card.hasClass('visible')) {
     card.removeClass('visible');
-    setTimeout(function() {
+    window.setTimeout(() => {
       card.hide();
-      if(cb) {
-        cb();
-      }
-    }.bind(this), 1000);
+      cb && cb();
+    }, 1000);
   }
 };
 
@@ -81,21 +77,21 @@ app.view.CardsView.prototype.showNewRoundCard = function(options) {
   this.newround_card.find('.newround-card__current-round').text(options.level);
   this.newround_card.find('.newround-card__total-rounds').text(app.Constants.TOTAL_LEVELS);
 
-  var _callback = function() {
+  var _callback = () => {
     if (options.onCardDismiss) {
       options.onCardDismiss();
     }
     this.hideCard(this.newround_card);
-  }.bind(this);
+  };
 
-  setTimeout(function() {
+  window.setTimeout(() => {
     this.newround_card
       .find('.newround-card__button')
-      .on('touchend mouseup', function() {
+      .on('touchend mouseup', () => {
         this.newround_card.find('.newround-card__button').off('touchend mouseup');
         _callback();
-      }.bind(this));
-  }.bind(this), 1000);
+      });
+  }, 1000);
 };
 
 
@@ -103,9 +99,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
   this.hideCard(this.newround_card);
   this.showCard(this.timesup_card);
 
-  var roundsRecognized = rounds.filter(function(r) {
-    return r.recognized == true;
-  }).length;
+  var roundsRecognized = rounds.filter((r) => r.recognized == true).length;
 
   var $titleElem = this.timesup_card.find('.timesup-card__title');
   var $sublineElem = this.timesup_card.find('.timesup-card__subline');
@@ -122,30 +116,30 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
     $sublineElem.text(app.Utils.getInterpolatedTranslation('quickdraw-timesup-subline-guess', 'recognized', roundsRecognized, this.strings));
   }
 
+  window.ga('send', 'event', 'game', 'recognized', 'speedsketch', roundsRecognized);
+
   var modelWidth = 300;
   var modelHeight = 225;
 
-  rounds.forEach(function(round) {
+  rounds.forEach((round) => {
     $drawingsWrapper.append(this.createDrawingElem(round, modelWidth, modelHeight));
-  }.bind(this));
-
-
+  });
 
   this.timesup_card
     .find('.timesup-card__button')
     .off('touchend mouseup')
-    .on('touchend mouseup', function() {
+    .on('touchend mouseup', () => {
       window.santaApp.fire('sound-trigger', 'generic_button_click');
       if (callback) {
-          callback('NEW_GAME');
+        callback('NEW_GAME');
       }
       this.hideCard(this.timesup_card);
-    }.bind(this));
+    });
 };
 
 
 app.view.CardsView.prototype.createDrawingElem = function(round, width, height) {
-  var drawingElem = $('<div>')
+  const drawingElem = $('<div>')
     .addClass('timesup-card__drawing');
 
   if (round.recognized) {
@@ -154,12 +148,10 @@ app.view.CardsView.prototype.createDrawingElem = function(round, width, height) 
     drawingElem.addClass('timesup-card__drawing--not-recognized');
   }
 
-  var svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, width, height, {padding: 10});
+  const svgElem = app.SVGUtils.createSvgFromSegments(round.drawing, width, height, {padding: 10});
   drawingElem.append(svgElem);
 
-  drawingElem.on('touchend mouseup', function() {
-    this.showRoundDetailsCard(round);
-  }.bind(this));
+  drawingElem.on('click', () => this.showRoundDetailsCard(round));
 
   return drawingElem;
 };
@@ -212,9 +204,9 @@ app.view.CardsView.prototype.showRoundDetailsCard = function(round) {
   this.round_detail_card
     .find('.rounddetails-card__back-btn')
     .off('touchend mouseup')
-    .on('touchend mouseup', function() {
+    .on('touchend mouseup', () => {
       this.hideCard(this.round_detail_card);
-    }.bind(this));
+    });
 };
 
 
@@ -222,17 +214,15 @@ app.view.CardsView.prototype.fetchAndShowDrawingNeighbors = function(round) {
   var neighborElems = this.round_detail_card.find('.rounddetails-card__similar-drawing');
   if (round.drawing && round.drawing.length > 0) {
     this.handwritingAPI.getSimilarDrawings(round.drawing, round.width, round.height)
-    .fail(function(jqXHR, textStatus, errorThrown) {
+    .fail((jqXHR, textStatus, errorThrown) => {
       console.error(jqXHR, textStatus, errorThrown);
     })
-    .done(function(data) {
-      if(data[0] == "SUCCESS") {
+    .done((data) => {
+      if (data[0] == "SUCCESS") {
         var data = this.handwritingAPI.parseResponse(data);
-        var neighbors = data.filter(function(d) {
-          return d.neighbor;
-        });
+        var neighbors = data.filter((d) => d.neighbor);
 
-        neighbors = neighbors.filter(function(neighbor) {
+        neighbors = neighbors.filter((neighbor) => {
           return neighbor.word != round.word;
         });
 
@@ -266,7 +256,7 @@ app.view.CardsView.prototype.fetchAndShowDrawingNeighbors = function(round) {
           }
         } //ENDFOR
       }
-    }.bind(this));
+    });
   } else {
     neighborElems.hide();
   }
