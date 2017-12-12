@@ -141,6 +141,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
 app.view.CardsView.prototype.createDrawingElem = function(round, width, height) {
   const drawingElem = $('<div>')
     .addClass('timesup-card__drawing');
+  drawingElem.tabIndex = 0;  // acts like a button
 
   if (round.recognized) {
     drawingElem.addClass('timesup-card__drawing--recognized');
