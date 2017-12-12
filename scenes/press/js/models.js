@@ -419,12 +419,12 @@ app.Models = [
     ]
   },
   {
-    'key': 'snowball',
-    'title': 'Snowball Storm',
+    'key': 'elfski',
+    'title': 'Elf Ski',
     'opens': 16,
     'type': 'Play',
     'filter': 'new',
-    'description': 'Participate in a traditional snowball fight, plus a few twists, with fellow elves from all over the world!',
+    'description': 'On your marks, get set, go! See how far you can get down the hill, collecting presents that have been hidden along the way.',
     'resources': [
       // TODO(samthor): resources
     ]
@@ -512,12 +512,12 @@ app.Models = [
     ]
   },
   {
-    'key': 'elfski',
-    'title': 'Elf Ski',
+    'key': 'snowball',
+    'title': 'Snowball Storm',
     'opens': 21,
     'type': 'Play',
     'filter': 'new',
-    'description': 'On your marks, get set, go! See how far you can get down the hill, collecting presents that have been hidden along the way.',
+    'description': 'Participate in a traditional snowball fight, plus a few twists, with fellow elves from all over the world!',
     'resources': [
       // TODO(samthor): resources
     ]

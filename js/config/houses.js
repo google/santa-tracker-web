@@ -120,7 +120,7 @@ window.HOUSES = [{
   launchDate: new Date('Dec 15, 2017'),
   category: 'watch',
 }, {
-  module: 'snowball',
+  module: 'elfski',
   launchDate: new Date('Dec 16, 2017'),
   portalLaunchDate: new Date('Dec 16, 2017'),
   category: 'play',
@@ -146,7 +146,7 @@ window.HOUSES = [{
   category: 'learn',
   edu: true,
 }, {
-  module: 'elfski',
+  module: 'snowball',
   launchDate: new Date('Dec 21, 2017'),
   portalLaunchDate: new Date('Dec 21, 2017'),
   category: 'play',
