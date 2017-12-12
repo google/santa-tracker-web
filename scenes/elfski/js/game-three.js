@@ -57,18 +57,15 @@ app.GameThree = class GameThree {
 
     const scene = this._scene;
 
+    // feature a spotlight that shines onto the elf
     const spot = new THREE.SpotLight(0xffffff);
-    spot.decay = 0;
-    spot.power = Math.PI * 5;
+    spot.power = Math.PI * 2;
     this._spot = spot;
     scene.add(this._spot);
 
-    const helper = new THREE.SpotLightHelper(spot);
-    scene.add(helper);
+    scene.add(new THREE.AmbientLight(0xaaaaaa));
 
-    scene.add(new THREE.AmbientLight(0xffffff));
-
-    loader.gltf('elfskiing', assetBaseUrl)
+    loader.gltf('elf-ski', assetBaseUrl)
         .then((gltf) => this._prepareModel(gltf))
         .then((object) => {
           this._scene.add(object);
@@ -78,6 +75,8 @@ app.GameThree = class GameThree {
 
           this._skiier = object;
           this._spot.target = object;
+
+          this._internalTick();  // force position
         });
 
     loader.texture('tiles', assetBaseUrl).then((texture) => {
@@ -129,7 +128,7 @@ app.GameThree = class GameThree {
     this._renderer.setPixelRatio(window.devicePixelRatio);
     this._renderer.setSize(w, h, true);
 
-    this._cameraFocus(this._transform.x, -this._transform.y);
+    this._internalTick();  // force camera reposition
   }
 
   _cameraFocus(x, y) {
@@ -188,9 +187,9 @@ app.GameThree = class GameThree {
         const p = this._skiier.position;
 
         this._skiier.position.set(p.x - cv.y, skiierSize / 2, p.z - cv.x);
-        this._skiier.rotateX(delta);
         this._snowball.position.set(p.x, p.y, p.z);
 
+        this._skiier.rotateX(delta * -Math.random());  // always fall backwards
         this._skiier.rotateY(delta * (Math.random() - 0.5));
         this._skiier.rotateZ(delta * (Math.random() - 0.5));
       }
@@ -199,10 +198,18 @@ app.GameThree = class GameThree {
     }
 
     const change = ended ? {x: 0, y: 0} : this._character.tick(delta, pointer);
-
     const cv = vec.multVec(change, unitScale);
-    if (!cv.x && !cv.y) {
-      return;  // not moving
+    if (cv.x || cv.y) {
+      this._internalTick(cv);
+    }
+  }
+
+  /**
+   * @param {vec.Vector=} cv
+   */
+  _internalTick(cv = vec.zero) {
+    if (!this._skiier) {
+      return;
     }
 
     const p = this._skiier.position;
@@ -230,7 +237,7 @@ app.GameThree = class GameThree {
 
       if (hit) {
         const geometry = new THREE.SphereGeometry(16, 14, 5, 0, Math.PI * 2, 0);
-        const material = new THREE.MeshBasicMaterial({color: 0xffffff});
+        const material = new THREE.MeshBasicMaterial({color: 0xeeeeee});
         const sphere = new THREE.Mesh(geometry, material);
         sphere.position.set(p.x, p.y, p.z);
         sphere.scale.set(0.001, 0.001, 0.001);
