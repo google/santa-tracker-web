@@ -101,7 +101,7 @@ export class EntityRemovalSystem {
 
         iceberg.remove(entity);
         this.icebergLayer.remove(iceberg);
-        this.entityIcebergs[entity.uuid] = null;
+        delete this.entityIcebergs[entity.uuid];
         this.frozenEntities.splice(i--, 1);
         Iceberg.free(iceberg);
 

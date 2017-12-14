@@ -62,21 +62,21 @@ Snowball Storm scene.
     @keyframes parachute-drop {
       0%   {
         opacity: 0;
-        transform: translate(-20%, -20%); }
+        transform: translate(0%, -20%); }
 
       49% {
         opacity: 0;
-        transform: translate(-20%, -20%);
+        transform: translate(0%, -20%);
       }
 
       50%  {
         opacity: 1;
-        transform: translate(-20%, -20%);
+        transform: translate(0%, -20%);
       }
 
       100% {
         opacity: 1;
-        transform: translate(-20%, 100%);
+        transform: translate(0%, 100%);
       }
     }
 
@@ -141,7 +141,7 @@ Snowball Storm scene.
       margin-top: -80px;
 
       background-image: url(img/elves-parachuting.svg);
-      background-size: 320px;
+      background-size: 200%;
       background-position: top left;
     }
 
@@ -211,10 +211,25 @@ Snowball Storm scene.
       #sleigh {
         transform: scale(0.5) translateY(100%);
       }
+
+      #dropCloud {
+        height: 128px;
+      }
+
+      #parachutingElf {
+        width: 100px;
+        margin-left: -50px;
+      }
+
+      #parachutingElf:after {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+      }
     }
   </style>
 
-  <div id="splash" on-click="onSplashClicked">
+  <div id="splash">
     <div id="mid">
       <div id="mover">
         <div id="sleigh"></div>
@@ -223,7 +238,7 @@ Snowball Storm scene.
       <div id="parachutingElf"></div>
     </div>
     <santa-weather cloud-frac="1.0" clouds="20" directional-strength="-1.0"></santa-weather>
-    <button id="jumpBtn" alt="Start"></button>
+    <button id="jumpBtn" alt="Start" on-click="onJumpClicked"></button>
   </div>
 
   <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4"></santa-tutorial>
@@ -256,7 +271,7 @@ Snowball Storm scene.
       ]);
     },
 
-    onSplashClicked() {
+    onJumpClicked() {
       this.$.jumpBtn.hidden = true;
       this.classList.add('intro');
 
@@ -293,14 +308,17 @@ Snowball Storm scene.
 
     onShow() {
       if (this.$.splash.parentNode == null) {
+        this.$.jumpBtn.hidden = false;
         this.shadowRoot.appendChild(this.$.splash);
       }
     },
 
     onHide() {
-      this.game.teardown();
-      this.shadowRoot.removeChild(this.game);
-      this.game = null;
+      if (this.game != null) {
+        this.game.teardown();
+        this.shadowRoot.removeChild(this.game);
+        this.game = null;
+      }
     }
   });
 })();

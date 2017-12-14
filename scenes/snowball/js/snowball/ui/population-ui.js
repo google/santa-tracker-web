@@ -37,6 +37,13 @@ h1 {
 h2 {
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  :host {
+    transform-origin: top right;
+    transform: scale(0.7);
+  }
+}
 </style>
 <div id="container">
   <h1><span id="remaining">0</span>/<span id="maximum">100</span></h1>

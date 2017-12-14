@@ -233,9 +233,7 @@ export class PlayerSystem {
       } else if (presence.gone) {
         this.players.splice(i--, 1);
 
-        if (player === clientPlayer) {
-          window.santaApp.fire('game-stop', {});
-        } else {
+        if (player !== clientPlayer) {
           player.teardown(game);
           Elf.free(player);
           this.playerLayer.remove(player);
