@@ -1,6 +1,7 @@
 import { BasicElement } from '../utils/basic-element.js';
 import { Event } from '../core/event.js';
 import { Entity } from '../core/entity.js';
+import { combine } from '../utils/function.js';
 
 const { Vector2, Raycaster, Octree } = self.THREE;
 
@@ -31,6 +32,12 @@ template.innerHTML = `
 }
 </style>`;
 
+const addEventListener = (target, eventName, listener) => {
+  const removableListener = event => listener(event);
+  target.addEventListener(eventName, removableListener, { passive: true });
+  return () => target.removeEventListener(eventName, removableListener);
+};
+
 export class InputSystem extends EntityElement {
   static get is() { return 'input-system'; }
 
@@ -55,16 +62,20 @@ export class InputSystem extends EntityElement {
     this.hitSourceEvents = new Map();
     this.previousMoveHits = new Map();
 
-    this.on('click', event => this.hitSourceEvents.set('click', event));
-    this.on('pointer-move',
-        event => this.hitSourceEvents.set('pointer-move', event));
+    this.unsubscribe = combine(
+        this.on('click', event => this.hitSourceEvents.set('click', event)),
+        this.on('pointer-move',
+            event => this.hitSourceEvents.set('pointer-move', event)),
+        addEventListener(this, 'mousemove',
+            event => this.onPointerMove(event), { passive: true }),
+        addEventListener(this, 'touchmove',
+            event => this.onPointerMove(event), { passive: true }),
+        addEventListener(this, 'click',
+            event => this.onClick(event), { passive: true }));
+  }
 
-    this.addEventListener('mousemove',
-        event => this.onPointerMove(event), { passive: true });
-    this.addEventListener('touchmove',
-        event => this.onPointerMove(event), { passive: true });
-    this.addEventListener('click',
-        event => this.onClick(event), { passive: true });
+  teardown(game) {
+    this.unsubscribe();
   }
 
   onPointerMove(event) {

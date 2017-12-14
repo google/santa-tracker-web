@@ -2,7 +2,7 @@ const {
   ShadyCSS
 } = self;
 
-const preparedTemplates = new WeakSet();
+const preparedTemplates = new Set();
 
 export class BasicElement extends HTMLElement {
   static get is() { return null; }

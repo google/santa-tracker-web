@@ -22,6 +22,11 @@ export class Collision2DSystem {
     this.collisionLimit = null;
   }
 
+  teardown(game) {
+    this.quadTree.clear();
+    this.collidables.clear();
+  }
+
   set limit(limit) {
     this.collisionLimit = limit;
 
@@ -81,7 +86,7 @@ export class Collision2DSystem {
     this.collisionHandlers.get(collidable).push(handler);
 
     return () => {
-      const handlers = this.collisionHandlers.get(collidable);
+      const handlers = this.collisionHandlers.get(collidable) || [];
       const handlerIndex = handlers.indexOf(handler);
 
       handlers.splice(handlerIndex, 1);

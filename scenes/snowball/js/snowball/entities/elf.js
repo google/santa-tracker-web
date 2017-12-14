@@ -93,8 +93,10 @@ const generateElfTexture = (() => {
     context.fillRect(0, 467, 512, 45);
 
     // Eyes..
-    context.ellipse(44, 207, 21, 21, 0, 0, TWO_PI);
-    context.ellipse(150, 207, 21, 21, 0, 0, TWO_PI);
+    // NOTE(cdata): IE11 does not support
+    // CanvasRenderingContext2D.prototype.ellipse
+    context.arc(44, 207, 21, 0, TWO_PI);
+    context.arc(150, 207, 21, 0, TWO_PI);
     context.fill();
 
     // Buckle...

@@ -8,6 +8,8 @@ export class BotSystem {
     this.oldBots = [];
   }
 
+  teardown(game) {}
+
   addBot() {
     const bot = new Bot();
     this.botMap[bot.id] = bot;

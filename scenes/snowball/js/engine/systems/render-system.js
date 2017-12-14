@@ -51,6 +51,8 @@ export class RenderSystem extends BasicElement {
     this.renderer.render(currentLevel, camera);
   }
 
+  teardown(game) {}
+
   clear() {
     this.renderer.clearColor();
   }

@@ -24,6 +24,11 @@ export class EffectSystem {
     this.effectsLayer.add(this.snowsplatEffect.layer);
   }
 
+  teardown(game) {
+    this.trailEffect.teardown(game);
+    this.snowsplatEffect.teardown(game);
+  }
+
   update(game) {
     this.trailEffect.update(game);
     this.snowsplatEffect.update(game);

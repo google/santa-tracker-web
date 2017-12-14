@@ -18,6 +18,20 @@ export class EntityRemovalSystem {
     this.icebergLayer = new Object3D();
   }
 
+  teardown(game) {
+    for (let entityId in this.entityIcebergs) {
+      const iceberg = this.entityIcebergs[entityId];
+      iceberg.teardown(game);
+      Iceberg.free(iceberg);
+      this.icebergLayer.remove(iceberg);
+    }
+
+    this.entityIcebergs = {};
+    this.teleportingEntities = [];
+    this.freezingEntities = [];
+    this.frozenEntities = [];
+  }
+
   teleportEntity(entity) {
     if (entity.presence == null || entity.presence.exiting) {
       return;
@@ -89,7 +103,7 @@ export class EntityRemovalSystem {
 
         iceberg.remove(entity);
         this.icebergLayer.remove(iceberg);
-        this.entityIcebergs[entity.uuid] = null;
+        delete this.entityIcebergs[entity.uuid];
         this.frozenEntities.splice(i--, 1);
         Iceberg.free(iceberg);
 

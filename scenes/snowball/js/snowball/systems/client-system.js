@@ -20,6 +20,7 @@ export class ClientSystem {
     arrivalMarker.material.depthTest = false;
 
     this.arrivalMarker = arrivalMarker;
+    this.announcedDeath = false;
   }
 
   assignTarget(target) {
@@ -34,11 +35,11 @@ export class ClientSystem {
     this.player = player;
   }
 
-  reset(game) {
+  teardown(game) {
     const { playerSystem } = game;
 
     if (this.player != null) {
-      playerSystem.removePlayer(this.player.playerId);
+      playerSystem.removePlayer(this.player.playerId, game);
     }
 
     const { arrivalMarker } = this;
@@ -57,9 +58,13 @@ export class ClientSystem {
     }
 
     const { camera } = game;
-    const { playerId, health, path, arrival } = this.player;
+    const { presence, playerId, health, path, arrival } = this.player;
 
     if (health.dead) {
+      if (presence.gone && !this.announcedDeath) {
+        window.santaApp.fire('game-stop', {});
+        this.announcedDeath = true;
+      }
       return;
     }
 

@@ -23,7 +23,7 @@ export class LocalLevel extends MainLevel {
     const player = playerSystem.addPlayer(id, -1);
     clientSystem.assignPlayer(player);
 
-    for (let i = 0; i < 30; ++i) {
+    for (let i = 0; i < Math.floor(game.maximumPlayers / 4); ++i) {
       dropSystem.addDrop();
       botSystem.addBot();
     }
@@ -59,6 +59,11 @@ export class LocalLevel extends MainLevel {
         botSystem.addBot();
         this.lastBotTick = tick;
       }
+    }
+
+    if (population.knockedOut >= (population.maximum - 1)) {
+      // TODO(cdata): Is there a special victory screen?
+      window.santaApp.fire('game-stop', {});
     }
   }
 }

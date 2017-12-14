@@ -66,4 +66,6 @@ export class StateSystem {
       this.finishMatch(tick, lastLivingPlayer);
     }
   }
+
+  teardown(game) {}
 };
