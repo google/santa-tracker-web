@@ -1,3 +1,4 @@
+
 export class StateSystem {
   get hasCurrentPopulation() {
     return this.population &&

@@ -185,6 +185,27 @@ export class GameMap {
     }
   }
 
+  getRandomNearbyPassableTileIndex(index, maxRadius, random = this.seedRandom) {
+    const radius = Math.floor(Math.random() * (maxRadius - 1)) + 1;
+    const ring = this.grid.indexToRingIndices(index, radius);
+
+    while (ring.length) {
+      const ringIndex = Math.floor(Math.random() * ring.length);
+      const tileIndex = ring[ringIndex];
+
+      const tileState = this.getTileState(tileIndex);
+
+      if (this.getTileState(index) === 1.0 &&
+        this.getTileObstacle(index) === -1.0) {
+        return tileIndex;
+      }
+
+      ring.splice(ringIndex, 1);
+    }
+
+    return index;
+  }
+
   getRandomHabitableTileIndex(random = this.seedRandom) {
     for (let i = 0; i < this.tileCount; ++i) {
       if (this.tileRings.length === 0) {

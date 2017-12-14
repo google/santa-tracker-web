@@ -164,6 +164,7 @@ export class InputSystem extends EntityElement {
     const { width, height, camera } = game;
 
     this.octree.update();
+    this.octree.rebuild();
     this.testHits(width, height, camera);
   }
 

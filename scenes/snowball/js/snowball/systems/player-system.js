@@ -120,7 +120,8 @@ export class PlayerSystem {
       snowballSystem,
       clientSystem,
       parachuteSystem,
-      entityRemovalSystem
+      entityRemovalSystem,
+      stateSystem
     } = game;
     const { grid, map } = mapSystem;
     const { player: clientPlayer } = clientSystem;
@@ -147,6 +148,8 @@ export class PlayerSystem {
         parachuteSystem.dropEntity(player);
         this.parachutingPlayers.push(player);
       }
+
+      stateSystem.recordPlayerConnected();
     }
 
     // Arrived players are positioned and placed with existing players...
@@ -225,10 +228,15 @@ export class PlayerSystem {
       } else if (presence.gone) {
         this.players.splice(i--, 1);
 
-        if (player !== clientPlayer) {
-          Elf.free(player);
-          this.playerLayer.remove(player);
+        if (player === clientPlayer) {
+          clientSystem.player = null;
         }
+
+        player.teardown(game);
+        Elf.free(player);
+        this.playerLayer.remove(player);
+
+        stateSystem.recordPlayerKnockedOut();
       }
     }
   }

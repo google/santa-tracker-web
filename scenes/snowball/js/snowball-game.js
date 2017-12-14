@@ -11,6 +11,7 @@ import { ParachuteSystem } from './snowball/systems/parachute-system.js';
 import { StateSystem } from './snowball/systems/state-system.js';
 import { EntityRemovalSystem } from './snowball/systems/entity-removal-system.js';
 import { DropSystem } from './snowball/systems/drop-system.js';
+import { BotSystem } from './snowball/systems/bot-system.js';
 import { LocalLevel } from './snowball/levels/local-level.js';
 import { LobbyLevel } from './snowball/levels/lobby-level.js';
 
@@ -24,6 +25,8 @@ const GameType = {
 export class SnowballGame extends Game {
   static get is() { return 'snowball-game'; }
 
+  get maximumPlayers() { return 100; };
+
   constructor() {
     super();
 
@@ -35,6 +38,7 @@ export class SnowballGame extends Game {
     this.entityRemovalSystem = new EntityRemovalSystem();
     this.dropSystem = new DropSystem();
     this.mapSystem = new MapSystem(64.0, 64.0, 64.0);
+    this.botSystem = new BotSystem();
     this.clientSystem = new ClientSystem();
     this.networkSystem = new NetworkSystem();
     this.playerSystem = new PlayerSystem();
@@ -73,6 +77,7 @@ export class SnowballGame extends Game {
     this.mapSystem.update(this);
     this.clientSystem.update(this);
     this.networkSystem.update(this);
+    this.botSystem.update(this);
     this.playerSystem.update(this);
   }
 
