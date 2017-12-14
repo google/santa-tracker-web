@@ -19,12 +19,14 @@ export class EntityRemovalSystem {
   }
 
   teardown(game) {
-    Object.values(this.entityIcebergs).forEach(iceberg => {
+    for (let entityId in this.entityIcebergs) {
+      const iceberg = this.entityIcebergs[entityId];
       iceberg.teardown(game);
       Iceberg.free(iceberg);
       this.icebergLayer.remove(iceberg);
-    });
+    }
 
+    this.entityIcebergs = {};
     this.teleportingEntities = [];
     this.freezingEntities = [];
     this.frozenEntities = [];
