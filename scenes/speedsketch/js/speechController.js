@@ -16,6 +16,7 @@
 'use strict';
 
 goog.provide('app.SpeechController');
+goog.require('app.Utils');
 
 app.SpeechController = function() {
   this.supported = false;
@@ -37,6 +38,7 @@ app.SpeechController.prototype.speak = function(text, callback) {
     };
 
     var utterThis = new SpeechSynthesisUtterance(text);
+    utterThis.lang = app.Utils.lang === 'en' ? 'en-US' : app.Utils.lang;
 
     utterThis.addEventListener('end', function() {
       _callback();
