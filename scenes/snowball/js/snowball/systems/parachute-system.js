@@ -42,7 +42,7 @@ export class ParachuteSystem {
     this.removedEntities.push(entity);
   }
 
-  reset() {
+  teardown() {
     this.undroppedEntities.forEach((entity) => this.removeEntity(entity));
     this.droppingEntities.forEach((entity) => this.removeEntity(entity));
   }

@@ -20,6 +20,8 @@ export class NetworkSystem {
     this.socket = null; // set when connect is invoked
   }
 
+  teardown(game) {}
+
   //connect(serverUrl = 'wss://game-dot-next-santa-api.appspot.com/socket') {
   connect(serverUrl = 'ws://localhost:8080/socket') {
     this.socket = new Socket(serverUrl, 'snowball');

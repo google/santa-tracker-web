@@ -30,6 +30,7 @@ export class SnowballGame extends Game {
   constructor() {
     super();
 
+    this.assetBaseUrl = '';
     this.collisionSystem = new Collision2DSystem(object => object.collider || object);
     this.lodSystem = new LodSystem();
     this.effectSystem = new EffectSystem();
@@ -45,10 +46,6 @@ export class SnowballGame extends Game {
     this.stateSystem = new StateSystem();
 
     this.renderSystem.renderer.setClearColor(0x71A7DB, 1.0);
-  }
-
-  get assetBaseUrl() {
-    return this.getAttribute('asset-base-url') || '';
   }
 
   setup() {
@@ -79,6 +76,24 @@ export class SnowballGame extends Game {
     this.networkSystem.update(this);
     this.botSystem.update(this);
     this.playerSystem.update(this);
+  }
+
+  teardown() {
+    super.teardown();
+
+    this.collisionSystem.teardown(this);
+    this.lodSystem.teardown(this);
+    this.snowballSystem.teardown(this);
+    this.entityRemovalSystem.teardown(this);
+    this.dropSystem.teardown(this);
+    this.parachuteSystem.teardown(this);
+    this.effectSystem.teardown(this);
+    this.mapSystem.teardown(this);
+    this.clientSystem.teardown(this);
+    this.networkSystem.teardown(this);
+    this.botSystem.teardown(this);
+    this.playerSystem.teardown(this);
+    this.stateSystem.teardown(this);
   }
 
   start(gameType = GameType.MULTIPLAYER) {

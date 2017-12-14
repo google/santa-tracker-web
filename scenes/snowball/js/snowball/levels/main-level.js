@@ -82,10 +82,6 @@ export class MainLevel extends Level {
   teardown(game) {
     this.unsubscribe();
 
-    game.clientSystem.reset(game);
-    game.playerSystem.clearAllPlayers();
-    game.parachuteSystem.reset();
-
     this.remove(game.mapSystem.mapLayer);
     this.remove(game.effectSystem.effectsLayer);
     this.remove(game.snowballSystem.snowballLayer);

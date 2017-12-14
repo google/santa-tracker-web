@@ -76,12 +76,25 @@ export class Game extends GamelikeBasicElement {
     this.inputSystem.update(this);
   }
 
+  teardown() {
+    super.teardown();
+
+    if (this.currentLevel != null) {
+      this.setLevel(null);
+    }
+
+    this.inputSystem.teardown(this);
+    this.renderSystem.teardown(this);
+  }
+
   setLevel(level) {
     super.setLevel(level);
 
-    this.camera.position.copy(level.position);
-    this.camera.position.z = -3200;
-    this.camera.lookAt(level.position);
-    this.camera.rotation.z = 0;
+    if (level != null) {
+      this.camera.position.copy(level.position);
+      this.camera.position.z = -3200;
+      this.camera.lookAt(level.position);
+      this.camera.rotation.z = 0;
+    }
   }
 }

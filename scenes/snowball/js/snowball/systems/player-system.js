@@ -23,6 +23,10 @@ export class PlayerSystem {
     this.playerTargetedPositions = {};
   }
 
+  teardown(game) {
+    this.clearAllPlayers(game);
+  }
+
   hasPlayer(id) {
     return !!this.playerMap[id];
   }
@@ -61,18 +65,19 @@ export class PlayerSystem {
     return this.playerMap[id];
   }
 
-  clearAllPlayers() {
+  clearAllPlayers(game) {
     const all = Object.keys(this.playerMap);
-    all.forEach((id) => this.removePlayer(id));
+    all.forEach((id) => this.removePlayer(id, game));
   }
 
-  removePlayer(id) {
+  removePlayer(id, game) {
     const player = this.playerMap[id];
     if (player === undefined) {
       return;
     }
 
     this.playerLayer.remove(player);
+    player.teardown(game);
     Elf.free(player);
 
     const possibleArrays = [this.players, this.newPlayers, this.parachutingPlayers];
@@ -186,7 +191,7 @@ export class PlayerSystem {
       } else if (player === clientPlayer) {
         clientSystem.assignTarget(destination);
       } else {
-        console.debug('can\'t navigate', playerId, 'to', destination);
+        //console.debug('can\'t navigate', playerId, 'to', destination);
         // TODO(samthor): this should throw a snowball—where is the method?
         // clientSystem.assignTargetedPosition(destination.position);
       }
@@ -229,12 +234,12 @@ export class PlayerSystem {
         this.players.splice(i--, 1);
 
         if (player === clientPlayer) {
-          clientSystem.player = null;
+          window.santaApp.fire('game-stop', {});
+        } else {
+          player.teardown(game);
+          Elf.free(player);
+          this.playerLayer.remove(player);
         }
-
-        player.teardown(game);
-        Elf.free(player);
-        this.playerLayer.remove(player);
 
         stateSystem.recordPlayerKnockedOut();
       }

@@ -49,15 +49,22 @@ export const Gamelike = (SuperClass = DefaultBaseClass) => class extends SuperCl
 
   update() {}
 
+  teardown() {
+    this.clockSystem.teardown(this);
+  }
+
   // NOTE(cdata): Closure compiler does not support assigning to a super
   // property yet, so this is not a setter:
   setLevel(level) {
-    if (this.currentLevel) {
+    if (this.currentLevel != null) {
       this.currentLevel.teardown(this);
     }
 
     this.currentLevel = level;
-    this.currentLevel.setup(this);
+
+    if (this.currentLevel != null) {
+      this.currentLevel.setup(this);
+    }
   }
 
   get level() {

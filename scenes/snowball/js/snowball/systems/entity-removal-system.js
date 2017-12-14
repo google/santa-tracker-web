@@ -18,6 +18,18 @@ export class EntityRemovalSystem {
     this.icebergLayer = new Object3D();
   }
 
+  teardown(game) {
+    Object.values(this.entityIcebergs).forEach(iceberg => {
+      iceberg.teardown(game);
+      Iceberg.free(iceberg);
+      this.icebergLayer.remove(iceberg);
+    });
+
+    this.teleportingEntities = [];
+    this.freezingEntities = [];
+    this.frozenEntities = [];
+  }
+
   teleportEntity(entity) {
     if (entity.presence == null || entity.presence.exiting) {
       return;

@@ -36,6 +36,10 @@ export class MapSystem {
     this.pickHandlers = [];
   }
 
+  teardown(game) {
+    this.hexMap.teardown(game);
+  }
+
   handleMapPick(handler) {
     this.pickHandlers.push(handler);
 

@@ -34,11 +34,11 @@ export class ClientSystem {
     this.player = player;
   }
 
-  reset(game) {
+  teardown(game) {
     const { playerSystem } = game;
 
     if (this.player != null) {
-      playerSystem.removePlayer(this.player.playerId);
+      playerSystem.removePlayer(this.player.playerId, game);
     }
 
     const { arrivalMarker } = this;

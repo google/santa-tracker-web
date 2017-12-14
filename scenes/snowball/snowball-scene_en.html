@@ -214,8 +214,6 @@ Snowball Storm scene.
     }
   </style>
 
-  <snowball-game id="game" hidden></snowball-game>
-
   <div id="splash" on-click="onSplashClicked">
     <div id="mid">
       <div id="mover">
@@ -227,7 +225,8 @@ Snowball Storm scene.
     <santa-weather cloud-frac="1.0" clouds="20" directional-strength="-1.0"></santa-weather>
     <button id="jumpBtn" alt="Start"></button>
   </div>
-  <!--<santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4" show></santa-tutorial>-->
+
+  <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4"></santa-tutorial>
 
 </template>
 <script>
@@ -246,11 +245,7 @@ Snowball Storm scene.
     is: 'snowball-scene',
     behaviors: [window.SantaSceneBehavior],
 
-    ready() {
-      this.$.game.setAttribute('asset-base-url', this.resolveUrl('.'));
-    },
-
-    onPreload: function() {
+    onPreload() {
       this.preloadImages([
         'img/sleigh.png',
         'img/item-frame.png',
@@ -261,21 +256,51 @@ Snowball Storm scene.
       ]);
     },
 
-    onSplashClicked: function() {
+    onSplashClicked() {
       this.$.jumpBtn.hidden = true;
       this.classList.add('intro');
 
       awaitAnimation(this.$.dropCloud).then(() => {
-        this.classList.remove('intro');
-        this.$.game.hidden = false;
-        this.$.game.start('local');
+        this.start();
+      });
+    },
+
+    start() {
+      if (this.game != null) {
+        this.game.teardown();
+        this.shadowRoot.removeChild(this.game);
+      }
+
+      this.classList.remove('intro');
+      this.game = document.createElement('snowball-game');
+
+      this.shadowRoot.insertBefore(this.game, this.shadowRoot.firstElementChild);
+
+      this.game.assetBaseUrl = this.resolveUrl('.');
+
+      requestAnimationFrame(() => {
+        this.game.start('local');
 
         setTimeout(() => {
           requestAnimationFrame(() => {
-            this.shadowRoot.removeChild(this.$.splash);
+            if (this.$.splash.parentNode != null) {
+              this.shadowRoot.removeChild(this.$.splash);
+            }
           });
         }, 1000);
       });
+    },
+
+    onShow() {
+      if (this.$.splash.parentNode == null) {
+        this.shadowRoot.appendChild(this.$.splash);
+      }
+    },
+
+    onHide() {
+      this.game.teardown();
+      this.shadowRoot.removeChild(this.game);
+      this.game = null;
     }
   });
 })();
