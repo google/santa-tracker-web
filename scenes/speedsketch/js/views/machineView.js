@@ -62,6 +62,9 @@ app.view.MachineView.prototype.setResultWord = function(word) {
   if (sentenceParts[2] == '!') {
     sentenceParts[1] += '!';
     sentenceParts[2] = null;
+  } else if (sentenceParts[2] == '.') {
+    sentenceParts[1] += '.';
+    sentenceParts[2] = null;
   }
 
   this.speakAndWrite(sentenceParts[0], sentenceParts[1], sentenceParts[2]);
