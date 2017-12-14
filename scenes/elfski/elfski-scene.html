@@ -84,13 +84,16 @@ Polymer({
     },
 
     /**
-     * The game.
+     * The game object.
      */
     _game: {
       type: Object,
       value: null,
     },
 
+    /**
+     * The setInterval timeout for the tick call.
+     */
     _tickInterval: {
       type: Number,
       value: 0,
@@ -137,7 +140,7 @@ Polymer({
   },
 
   onHide: function() {
-    this._game.teardown();
+    this._game.dispose();
 
     window.removeEventListener('resize', this._onResize);
     window.clearInterval(this._tickInterval);
@@ -157,8 +160,6 @@ Polymer({
 
     this._game && this._game.dispose();
     this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
-
-    this.$.mountain.className = '';
     this._onResize();
 
     this.fire('game-score', {});
@@ -222,9 +223,6 @@ Polymer({
   },
 
   _tick: function() {
-    if (!this.isAttached) {
-      return;  // do nothing
-    }
     const now = window.performance.now();
     const delta = (now - this._lastFrameAt) / 1000;  // ratio of second
     this._lastFrameAt = now;
@@ -266,9 +264,9 @@ Polymer({
     if (!this.isAttached) {
       return;
     }
+    window.requestAnimationFrame(this._draw);
 
     this._game.render();
-    window.requestAnimationFrame(this._draw);
 
     if (this._gameStartAt && !this._gameEndAt && !this._playerCrashedAt) {
       const detail = {

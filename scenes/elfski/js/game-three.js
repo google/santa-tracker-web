@@ -23,7 +23,8 @@ import * as vec from './vec.js';
 import {Character} from './physics.js';
 
 const cameraOffset = Object.freeze(new THREE.Vector3(800, 800, 0));
-const startAtY = -200;
+const startAtY = 800;
+const treeStartAtY = 1000;
 const skiierSize = 48;  // magic number that makes us appear through trees
 const crashThreshold = 12;  // px from tree base to crash
 const crashDuration = 2;  // seconds to crash for
@@ -412,6 +413,9 @@ class SceneDecorator {
   }
 
   _treeForCell(x, y) {
+    const ay = y;
+    y -= Math.floor(treeStartAtY / this._dim);
+
     if (y < 0) {
       // no trees at top
       return null;
@@ -431,7 +435,7 @@ class SceneDecorator {
     const offY = 2 * this._noise(x / 1.21, y / 2.31);
     return {
       x: this._dim * (x + 0.5 + offX),
-      y: this._dim * (y + 0.5 + offY),
+      y: this._dim * (ay + 0.5 + offY),  // use "actual y"
     };
   }
 
