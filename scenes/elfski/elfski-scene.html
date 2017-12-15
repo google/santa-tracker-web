@@ -133,16 +133,34 @@ Polymer({
 
   ready: function() {
     if (!('onpointerdown' in document.body)) {
-      // Add mouse events for iOS.
+      // Add events for WebKit.
 
       this.async(() => {
-        this.$.mountain.addEventListener('mousedown', this._onPointerDown.bind(this));
+        // mouse handler for Safari
+        this.$.mountain.addEventListener('mousedown', (ev) => {
+          this._onPointerMove(ev, true);
+        });
         this.$.mountain.addEventListener('mousemove', (ev) => {
           if (ev.which) {
             this._onPointerMove(ev);
           }
         });
         this.$.mountain.addEventListener('mouseup', this._onPointerUp.bind(this));
+
+        // touch handler for iOS
+        const touchMove = (ev) => {
+          ev.preventDefault();
+          const t = ev.touches[0];
+          const fakeEvent = {
+            offsetX: t.clientX,
+            offsetY: t.clientY,
+            target: this.$.mountain,
+          }
+          this._onPointerMove(fakeEvent, true);
+        };
+        this.$.mountain.addEventListener('touchdown', touchMove);
+        this.$.mountain.addEventListener('touchmove', touchMove);
+        this.$.mountain.addEventListener('touchup', this._onPointerUp.bind(this));
       });
     }
   },
