@@ -25,6 +25,10 @@ Elf Ski scene.
 <template>
   <style>
 
+:host {
+  -webkit-overflow-scrolling: auto;
+}
+
 #mountain {
   background: #f5f2e2;
   position: relative;
@@ -127,6 +131,22 @@ Polymer({
     this._onResize = this._onResize.bind(this);
   },
 
+  ready: function() {
+    if (!('onpointerdown' in document.body)) {
+      // Add mouse events for iOS.
+
+      this.async(() => {
+        this.$.mountain.addEventListener('mousedown', this._onPointerDown.bind(this));
+        this.$.mountain.addEventListener('mousemove', (ev) => {
+          if (ev.which) {
+            this._onPointerMove(ev);
+          }
+        });
+        this.$.mountain.addEventListener('mouseup', this._onPointerUp.bind(this));
+      });
+    }
+  },
+
   onPreload: function() {
     this.preloadImages([
       'img/tiles.png',
@@ -192,12 +212,14 @@ Polymer({
    * Move the skiier in the direction of the click.
    */
   _onPointerDown: function(ev) {
-    this.$.mountain.setPointerCapture(ev.pointerId);
+    if (this.$.mountain.setPointerCapture) {
+      this.$.mountain.setPointerCapture(ev.pointerId);
+    }
     this._onPointerMove(ev, true);
   },
 
   _onPointerMove: function(ev, force) {
-    if (!force && ev.pressure < 0.5) {
+    if (!force && ev.pressure !== undefined && ev.pressure < 0.5) {
       return;
     }
     this._pointer = {
