@@ -120,17 +120,27 @@ export class Present extends THREE.Object3D {
   }
 
   /**
+   * @return {boolean} whether already collected
+   */
+  get collected() {
+    return Boolean(this._pickupAt);
+  }
+
+  /**
    * Indicate that this has been picked up.
+   * @return {boolean} whether it was picked up
    */
   pickup() {
-    if (!this.pickupAt) {
+    if (!this._pickupAt) {
       this._pickupAt = this._time;
+      return true;
     }
+    return false;
   }
 
   /**
    * @param {number} delta
-   * @return {boolean} whether to remove this
+   * @return {boolean} whether this should remain
    */
   tick(delta) {
     this._time += delta;
@@ -138,13 +148,14 @@ export class Present extends THREE.Object3D {
     this._model.position.y = 24 + Math.sin(this._time) * 4;
 
     if (this._pickupAt) {
-      const scale = 1 - (this._time - this._pickupAt);
+      const scale = 1 - ((this._time - this._pickupAt) * 2);
       if (scale <= 0) {
-        return true;
+        return false;
       }
-      this._model.scale.set(scale, scale, scale);
+      // can't change model, we already abuse its scale
+      this.scale.set(scale, scale, scale);
     }
 
-    return false;
+    return true;
   }
 };

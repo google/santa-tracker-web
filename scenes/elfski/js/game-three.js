@@ -30,6 +30,8 @@ const treeStartAtY = 1000;
 const skiierSize = 48;  // magic number that makes us appear through trees
 const crashThreshold = 12;  // px from tree base to crash
 const crashDuration = 2;  // seconds to crash for
+const distanceScoreRatio = 100;
+const presentScore = 25;
 const unitScale = /** @type {vec.Vector} */ ({x: 400, y: -600});
 
 /**
@@ -94,6 +96,11 @@ app.GameThree = class GameThree {
      * @private {THREE.Object3D}
      */
     this._snowball = null;
+
+    /**
+     * @private {number}
+     */
+    this._presentsFound = 0;
 
     this._scene = new THREE.Scene();
     this._cameraFocus(10, startAtY);
@@ -265,9 +272,22 @@ app.GameThree = class GameThree {
     // look forward, but more Y and less X
     this._cameraFocus(-p.z + angle.x * 10, p.x + angle.y * 50);
 
+    // at
+    const playerAt = this.playerAt;
+
+    // get presents at any speed
+    if (this._decorator && this._character.speedRatio > 0) {
+      const pickups = this._decorator.presentsNear(playerAt);
+
+      if (pickups.length) {
+        pickups.forEach((pickup) => pickup.pickup());
+        window.santaApp.fire('sound-trigger', 'pb_level_up');
+        this._presentsFound += pickups.length;
+      }
+    }
+
     // can only crash if >0.5 towards max speed
     if (this._decorator && this._character.speedRatio > 0.5) {
-      const playerAt = this.playerAt;
       const nearby = this._decorator.treesNear(playerAt);
 
       const hit = nearby.some((at) => {
@@ -311,7 +331,8 @@ app.GameThree = class GameThree {
   get score() {
     const p = this.playerAt;
     const scoreFrom = startAtY + 50;
-    const rawScore = Math.floor((p.y - scoreFrom) / 100);
+    const rawScore =
+        Math.floor((p.y - scoreFrom) / distanceScoreRatio) + this._presentsFound * presentScore;
     return Math.max(0, rawScore);
   }
 
@@ -460,6 +481,21 @@ class SceneDecorator {
     return out;
   }
 
+  presentsNear(at) {
+    return this._presents.filter((present) => {
+      if (present.collected) {
+        return false;
+      }
+
+      const p = {x: -present.position.z, y: present.position.x};
+      const dist = vec.dist(at, p);
+      if (dist < crashThreshold * 2) {
+        return true;
+      }
+      return false;
+    });
+  }
+
   _treeForCell(x, y) {
     const ay = y;
     y -= Math.floor(treeStartAtY / this._dim);
@@ -508,7 +544,13 @@ class SceneDecorator {
   }
 
   tick(delta) {
-    this._presents.forEach((present) => present.tick(delta));
+    this._prensets = this._presents.filter((present) => {
+      if (present.tick(delta)) {
+        return true;
+      }
+      this._points.remove(present);
+      return false;
+    });
   }
 
   /**
