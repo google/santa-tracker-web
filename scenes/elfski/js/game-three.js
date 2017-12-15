@@ -19,6 +19,7 @@ goog.provide('app.GameThree');
 import noise from './noise.js';
 import * as loader from './three/loader.js';
 import {Points} from './three/points.js';
+import {SkiTrail} from './three/skitrail.js';
 import * as vec from './vec.js';
 import {Character} from './physics.js';
 
@@ -78,6 +79,26 @@ app.GameThree = class GameThree {
      */
     this._p = null;
 
+    /**
+     *
+     */
+    this._trail = null;
+
+    /**
+     * @private {!Character}
+     */
+    this._character = new Character();
+
+    /**
+     * @private {number|undefined}
+     */
+    this._hitTreeAt = undefined;
+
+    /**
+     * @private {THREE.Object3D}
+     */
+    this._snowball = null;
+
     this._scene = new THREE.Scene();
     this._cameraFocus(10, startAtY);
 
@@ -89,8 +110,10 @@ app.GameThree = class GameThree {
     this._spot = spot;
     scene.add(this._spot);
 
+    // always have a background color
     scene.add(new THREE.AmbientLight(0xaaaaaa));
 
+    // load elf and add to scene
     loader.gltf('elf-ski', assetBaseUrl)
         .then((gltf) => this._prepareModel(gltf))
         .then((object) => {
@@ -105,6 +128,7 @@ app.GameThree = class GameThree {
           this._internalTick();  // force position
         });
 
+    // load tiles and set up decorator
     loader.texture('tiles', assetBaseUrl).then((texture) => {
       texture.flipY = false;
       const p = new Points(10000, texture);
@@ -114,17 +138,8 @@ app.GameThree = class GameThree {
       this._decorator = new SceneDecorator(this._p);
     });
 
-    this._character = new Character();
-
-    /**
-     * @private {number|undefined}
-     */
-    this._hitTreeAt = undefined;
-
-    /**
-     * @private {THREE.Object3D}
-     */
-    this._snowball = null;
+    this._trail = new SkiTrail({x: 0, y: startAtY});
+    scene.add(this._trail);
   }
 
   /**
@@ -211,7 +226,7 @@ app.GameThree = class GameThree {
         const p = this._skiier.position;
 
         this._skiier.position.set(p.x - cv.y, skiierSize / 2, p.z - cv.x);
-        this._snowball.position.set(p.x, p.y, p.z);
+        this._trail.push({x: -p.z, y: p.x});  // awkwardly go back to x,y coord system
 
         this._skiier.rotateX(delta * -Math.random());  // always fall backwards
         this._skiier.rotateY(delta * (Math.random() - 0.5));
@@ -238,6 +253,7 @@ app.GameThree = class GameThree {
 
     const p = this._skiier.position;
     this._skiier.position.set(p.x - cv.y, skiierSize / 2, p.z - cv.x);
+    this._trail.push({x: -p.z, y: p.x});  // awkwardly go back to x,y coord system
 
     const angle = this._character.angleVec;
     const lookAt = new THREE.Vector3(p.x + angle.y, skiierSize / 2, p.z - angle.x);
@@ -260,13 +276,17 @@ app.GameThree = class GameThree {
       });
 
       if (hit) {
-        const geometry = new THREE.SphereGeometry(16, 14, 5, 0, Math.PI * 2, 0);
-        const material = new THREE.MeshBasicMaterial({color: 0xeeeeee});
+        const size = 5;
+        const geometry = new THREE.SphereGeometry(size, 8, 8);
+        const material = new THREE.MeshToonMaterial({
+          color: 0xeeeeee,
+          specular: 0xffffff,
+        });
         const sphere = new THREE.Mesh(geometry, material);
-        sphere.position.set(p.x, p.y, p.z);
         sphere.scale.set(0.001, 0.001, 0.001);
+        sphere.position.y = (4 - size) / 2;  // skiier is about 4 units below head
 
-        this._scene.add(sphere);
+        this._skiier.add(sphere);
         this._snowball = sphere;
 
         this._hitTreeAt = 0;
