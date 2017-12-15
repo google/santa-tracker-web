@@ -170,6 +170,7 @@ Polymer({
     this._gameStartAt = 0;
     this._gameEndAt = 0;
     this._playerCrashedAt = 0;
+    this._lastValidScore = 0;
 
     this._game && this._game.dispose();
     this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
@@ -248,6 +249,14 @@ Polymer({
     const crashed = this._game.tick(delta, this._pointer, Boolean(this._gameEndAt));
     this._skiingNoises = Boolean(this._game.speed) && !this._gameEndAt;
     if (!crashed) {
+      if (this._gameStartAt && !this._gameEndAt) {
+        const detail = {
+          score: this.score,
+          time: (window.performance.now() - this._gameStartAt) / 1000,
+        };
+        this.fire('game-score', detail);
+        this._lastValidScore = this.score;
+      }
       return;
     }
 
@@ -263,7 +272,7 @@ Polymer({
       // TODO: magic number, show 'game over' 3s later
       this._gameEndAt = now;
       this.fire('game-stop', {
-        score: this.score,
+        score: this._lastValidScore,
       });
     }
   },
@@ -277,36 +286,7 @@ Polymer({
       return;
     }
     window.requestAnimationFrame(this._draw);
-
     this._game.render();
-
-    if (this._gameStartAt && !this._gameEndAt && !this._playerCrashedAt) {
-      const detail = {
-        score: this.score,
-        time: (window.performance.now() - this._gameStartAt) / 1000,
-      };
-      this.fire('game-score', detail);
-    }
-
-    return;
-
-    // TODO(samthor): Restore old snow code. It was pretty :(
-
-    // draw line
-    const context = this.$.canvas.getContext('2d');
-
-    context.save();
-    context.translate((dim.w / 2) + transform.x, -this._transform.y + (this.$.canvas.height / 2));
-    context.beginPath();
-    context.moveTo(0, 0);
-    context.lineTo(-change.x * unitScale.x, -change.y * unitScale.y);
-
-    context.strokeStyle = 'white';
-    context.lineCap = 'round';
-    context.lineWidth = 5 * (1 + this._player.lineWidth);
-    context.stroke();
-
-    context.restore();
   },
 
 });
