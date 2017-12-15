@@ -474,7 +474,7 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     '!images/og/*',  // don't include OG images, too large
     'third_party/**',
     'sass/*.css',
-    'scenes/**/models/**/*.{gltf,bin,png}'
+    'scenes/**/models/**/*.{gltf,bin,png}',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur,mp4}',
     'elements/**/img/*.{png,jpg,svg,gif,mp4}',
     'components/webcomponentsjs/*.js',
