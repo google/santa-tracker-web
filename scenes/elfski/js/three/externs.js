@@ -68,7 +68,7 @@ THREE.Scene = function() {};
 
 /**
  * @constructor
- * @param {!Object<string, *>=}
+ * @param {!Object<string, *>=} parameters
  */
 THREE.WebGLRenderer = function(parameters) {};
 

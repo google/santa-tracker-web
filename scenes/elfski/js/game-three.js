@@ -20,6 +20,7 @@ import noise from './noise.js';
 import * as loader from './three/loader.js';
 import {Points} from './three/points.js';
 import {SkiTrail} from './three/skitrail.js';
+import {Present} from './three/present.js';
 import * as vec from './vec.js';
 import {Character} from './physics.js';
 
@@ -123,7 +124,7 @@ app.GameThree = class GameThree {
           object.lookAt(startAtY, skiierSize / 2, -100);  // right, to match start camera
 
           this._skiier = object;
-          this._spot.target = object;
+          this._spottarget = object;
 
           this._internalTick();  // force position
         });
@@ -210,6 +211,10 @@ app.GameThree = class GameThree {
    * @export
    */
   tick(delta, pointer, ended) {
+    if (this._decorator) {
+      this._decorator.tick(delta);
+    }
+
     if (!this._skiier) {
       return false;
     } else if (this._hitTreeAt !== undefined) {
@@ -278,10 +283,7 @@ app.GameThree = class GameThree {
       if (hit) {
         const size = 5;
         const geometry = new THREE.SphereGeometry(size, 8, 8);
-        const material = new THREE.MeshToonMaterial({
-          color: 0xeeeeee,
-          specular: 0xffffff,
-        });
+        const material = new THREE.MeshBasicMaterial({color: 0xffffff,});
         const sphere = new THREE.Mesh(geometry, material);
         sphere.scale.set(0.001, 0.001, 0.001);
         sphere.position.y = (4 - size) / 2;  // skiier is about 4 units below head
@@ -356,6 +358,9 @@ class SceneDecorator {
     this._dim = dim;
     this._depth = 0;
 
+    this._presents = [];
+    this._presentCellY = new WeakMap();
+
     /**
      * @private {!Array<{l: number, r: number}>}
      */
@@ -375,9 +380,23 @@ class SceneDecorator {
     }
 
     const low = Math.floor(from / this._dim);
+    let freedAny = false;
     while (this._ranges.length > (high - low)) {
       const last = this._ranges.shift();
       last.alloc.forEach((id) => this._points.free(id));
+      freedAny = true;
+    }
+
+    if (freedAny) {
+      // cleanup presents
+      this._presents = this._presents.filter((present) => {
+        const cellY = this._presentCellY.get(present) || -1;
+        if (cellY < low) {
+          this._points.remove(present);
+          return false;
+        }
+        return true;  // keep around for now
+      });
     }
 
     const lc = Math.floor(l / this._dim);
@@ -447,7 +466,7 @@ class SceneDecorator {
       v -= (5 - y) * 0.1;
     }
 
-    if (v <= 0 && v > -0.5) {
+    if (v <= -y * 0.001 && v > -0.5) {  // get harder over time
       return null;
     }
 
@@ -457,6 +476,30 @@ class SceneDecorator {
       x: this._dim * (x + 0.5 + offX),
       y: this._dim * (ay + 0.5 + offY),  // use "actual y"
     };
+  }
+
+  _presentForCell(x, y) {
+    if (y < Math.floor(treeStartAtY / this._dim) * 2) {
+      // no presents at top
+      return null;
+    }
+
+    const v = this._noise(x / 12.24, y / 13.531);
+    if (v < 0.0 || v > 0.12) {
+      return null;
+    }
+
+    const offX = 2 * this._noise(x / 3.1051, y / 3.951);
+    const offY = 2 * this._noise(x / 6.71, y / 152.1535);
+    return {
+      x: this._dim * (x + 0.5 + offX),
+      y: this._dim * (y + 0.5 + offY),
+    };
+
+  }
+
+  tick(delta) {
+    this._presents.forEach((present) => present.tick(delta));
   }
 
   /**
@@ -470,6 +513,17 @@ class SceneDecorator {
       const type = this._treeType(x, y);
       const id = this._points.alloc(at.x, at.y, type);
       alloc.push(id);
+    }
+
+
+    const presentAt = this._presentForCell(x, y);
+    if (presentAt) {
+      const p = new Present();
+      p.position.set(presentAt.y, 0, -presentAt.x);
+      this._points.add(p);
+
+      this._presents.push(p);
+      this._presentCellY.set(p, y);
     }
   }
 }
