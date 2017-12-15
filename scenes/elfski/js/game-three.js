@@ -81,11 +81,6 @@ app.GameThree = class GameThree {
     this._p = null;
 
     /**
-     *
-     */
-    this._trail = null;
-
-    /**
      * @private {!Character}
      */
     this._character = new Character();
@@ -313,11 +308,25 @@ app.GameThree = class GameThree {
     };
   }
 
+  get score() {
+    const p = this.playerAt;
+    const scoreFrom = startAtY + 50;
+    const rawScore = Math.floor((p.y - scoreFrom) / 100);
+    return Math.max(0, rawScore);
+  }
+
   /**
    * @return {number}
    */
   get angle() {
     return this._character.angle;
+  }
+
+ /**
+  * @return {number}
+  */
+  get speed() {
+    return this._character.speed;
   }
 
   _prepareModel(gltf) {

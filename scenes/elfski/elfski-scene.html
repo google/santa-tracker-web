@@ -48,6 +48,7 @@ Elf Ski scene.
       on-pointerup="_onPointerUp">
     <canvas id="gl3d"></canvas>
   </div>
+  <santa-tutorial tutorials="elfski.mp4" show id="tutorial"></santa-tutorial>
 
 </template>
 <script>
@@ -107,6 +108,12 @@ Polymer({
       value: null,
     },
 
+    _skiingNoises: {
+      type: Boolean,
+      value: false,
+      observer: '_skiingNoisesChanged',
+    },
+
     _keyTarget: {
       type: Object,
       value: () => this,
@@ -124,7 +131,7 @@ Polymer({
     this.preloadImages([
       'img/tiles.png',
     ]);
-    this.preloadSounds('elfski_load_sounds');
+   this.preloadSounds('elfski_load_sounds');
   },
 
   onShow: function() {
@@ -135,8 +142,6 @@ Polymer({
     window.requestAnimationFrame(this._draw);
     this._tickInterval = window.setInterval(this._tick, tickInterval);
     this._onResize();
-
-    this.fire('sound-ambient', 'elfski_loop_start');
   },
 
   onHide: function() {
@@ -145,7 +150,15 @@ Polymer({
     window.removeEventListener('resize', this._onResize);
     window.clearInterval(this._tickInterval);
 
-    this.fire('sound-ambient', 'elfski_loop_stop');
+    this._skiingNoises = false;
+  },
+
+  _skiingNoisesChanged: function(skiingNoises) {
+    if (skiingNoises) {
+      this.fire('sound-ambient', 'elfski_loop_start');
+    } else {
+      this.fire('sound-ambient', 'elfski_loop_stop');
+    }
   },
 
   /**
@@ -229,9 +242,11 @@ Polymer({
 
     if (!this._gameStartAt && this.score) {
       this._gameStartAt = now;
+      this.$.tutorial.dismiss('elfski.mp4');
     }
 
     const crashed = this._game.tick(delta, this._pointer, Boolean(this._gameEndAt));
+    this._skiingNoises = Boolean(this._game.speed) && !this._gameEndAt;
     if (!crashed) {
       return;
     }
@@ -254,10 +269,7 @@ Polymer({
   },
 
   get score() {
-    if (!this._game) {
-      return 0;
-    }
-    return Math.max(0, Math.floor(this._game.playerAt.y / 100));
+    return this._game ? this._game.score : 0;
   },
 
   _draw: function() {
