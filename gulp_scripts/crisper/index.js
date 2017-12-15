@@ -42,7 +42,8 @@ module.exports = function plugin(opts) {
     }
     jsFileName += '.js';
 
-    const out = crisper({source: file.contents.toString(), scriptInHead: true, jsFileName});
+    // nb. scriptInHead is false so that HTML imports and JS occur in the right order
+    const out = crisper({source: file.contents.toString(), scriptInHead: false, jsFileName});
     for (const ext in out) {
       const contents = out[ext];
       if (!contents) { continue; }
