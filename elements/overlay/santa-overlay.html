@@ -25,6 +25,11 @@ Shared overlay for Santa Tracker games.
 <template>
   <style include="santa-overlay_module"></style>
 
+  <div hidden>
+    <!-- preloader -->
+    <img src="[[_computeHeroUrl(hero)]]" />
+  </div>
+
   <div id="background" class="fit"></div>
   <div id="main" class="fit" on-click="_onMainClick">
     <div id="bigbutton" hidden$="[[_computeButtonHidden(pregame, _hasValidScore, shareUrl)]]">
@@ -183,11 +188,16 @@ Polymer({
     });
   },
 
-  _computeBackgroundStyle: function(heroUrl) {
-    if (heroUrl) {
-      return 'background-image: url(' + heroUrl + ')';
+  _computeBackgroundStyle: function(hero) {
+    if (hero) {
+      const url = this._computeHeroUrl(hero);
+      return `background-image: url(${url})`;
     }
     return null;
+  },
+
+  _computeHeroUrl: function(hero) {
+    return hero ? this.resolveUrl('../../' + hero) : '';
   },
 
   _onStartDown: function() {
