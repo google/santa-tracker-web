@@ -244,10 +244,15 @@ Polymer({
       x: ev.offsetX - (ev.target.offsetWidth / 2),
       y: ev.offsetY - (ev.target.offsetHeight / 3),
     };
+    this._dismissTutorial();
   },
 
   _onPointerUp: function(ev) {
     this._pointer = null;
+  },
+
+  _dismissTutorial: function() {
+    this.$.tutorial.dismiss('elfski.mp4');
   },
 
   _keysHandler: function(ev) {
@@ -283,7 +288,7 @@ Polymer({
 
     if (!this._gameStartAt && this.score) {
       this._gameStartAt = now;
-      this.$.tutorial.dismiss('elfski.mp4');
+      this._dismissTutorial();
     }
 
     const crashed = this._game.tick(delta, this._pointer, Boolean(this._gameEndAt));
