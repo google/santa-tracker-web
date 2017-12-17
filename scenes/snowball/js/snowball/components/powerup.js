@@ -1,10 +1,13 @@
+import { Component } from './component.js';
+
 export const powerupType = {
   NOTHING: 0,
   BIG_SNOWBALL: 1
 };
 
-export class Powerups {
+export class Powerups extends Component {
   constructor() {
+    super();
     this.primary = null;
     this.secondary = null;
     this.swapped = false;
@@ -75,10 +78,25 @@ export class Powerups {
       this.inactive = new Powerup(type);
     }
   }
+
+  copyFromJson(json) {
+    this.primary = this.secondary = null;
+
+    if (json.primary != null) {
+      this.collect(json.primary.type);
+
+      if (json.secondary != null) {
+        this.collect(json.secondary.type);
+      }
+    }
+
+    this.swapped = json.swapped;
+  }
 };
 
-export class Powerup {
+export class Powerup extends Component {
   constructor(type) {
+    super();
     this.type = type;
     this.quantity = 3;
   }

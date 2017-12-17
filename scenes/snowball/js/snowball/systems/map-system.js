@@ -36,6 +36,10 @@ export class MapSystem {
     this.pickHandlers = [];
   }
 
+  teardown(game) {
+    this.hexMap.teardown(game);
+  }
+
   handleMapPick(handler) {
     this.pickHandlers.push(handler);
 
@@ -96,19 +100,21 @@ export class MapSystem {
     this.obstacles.map = this.map;
 
     this.obstacleCollidables = new Set();
-    this.map.tileObstacles.array.forEach((obstacle, index) => {
-      if (obstacle < 0) {
-        return;
-      }
+    // NOTE(cdata): IE11 does not have Float32Array.prototype.forEach
+    Array.from(this.map.tileObstacles.array)
+        .forEach((obstacle, index) => {
+          if (obstacle < 0) {
+            return;
+          }
 
-      const position = this.grid.indexToPosition(index);
-      position.y -= this.grid.cellSize / 2.0;
-      const tree = new Tree(index, position);
+          const position = this.grid.indexToPosition(index);
+          position.y -= this.grid.cellSize / 2.0;
+          const tree = new Tree(index, position);
 
-      tree.setup(game);
+          tree.setup(game);
 
-      game.collisionSystem.addCollidable(tree);
-      this.obstacleCollidables.add(tree);
-    });
+          game.collisionSystem.addCollidable(tree);
+          this.obstacleCollidables.add(tree);
+        });
   }
 };

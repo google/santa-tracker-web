@@ -1,14 +1,31 @@
 import { SeedRandom } from '../utils/seed-random.js';
+import { Socket } from '../network/socket.js';
+import { MessageType, LevelType } from '../constants.js';
+import { LobbyLevel } from '../levels/lobby-level.js';
+import { NetworkLevel } from '../levels/network-level.js';
+import { throwSnowball, move } from '../messages.js';
 
 export class NetworkSystem {
   setup(game) {
-    const { clientSystem } = game;
+    const { clientSystem, clockSystem } = game;
     const { clientId } = clientSystem;
 
-    this.globalResetState = null;
-    this.pendingUpdateState = [];
+    this.synchronizeTime = (timeZero, time) =>
+        clockSystem.synchronize(timeZero, time);
+    this.pendingGameInitialization = null;
+    this.pendingLevelChange = null;
+    this.pendingMessages = [];
+    this.clientPlayerId = null;
 
-    this.socket = null;  // set by caller
+    this.socket = null; // set when connect is invoked
+  }
+
+  teardown(game) {}
+
+  //connect(serverUrl = 'wss://game-dot-next-santa-api.appspot.com/socket') {
+  connect(serverUrl = 'ws://localhost:8080/socket') {
+    this.socket = new Socket(serverUrl, 'snowball');
+    this.socket.target = this;
   }
 
   post(payload, coalesce) {
@@ -18,109 +35,143 @@ export class NetworkSystem {
   }
 
   postMove(from, to) {
-    this.post({
-      op: 'move',
-      path: [from, to],
-    });
+    this.post(move(from, to));
   }
+
   postTargetedPosition(targetedPosition) {
-    this.post({
-      op: 'target',
-      target: targetedPosition,
-    });
+    this.post(throwSnowball(targetedPosition));
   }
 
   update(game) {
-    const { mapSystem, dropSystem, clientSystem, playerSystem } = game;
+    const {
+      stateSystem,
+      mapSystem,
+      dropSystem,
+      clientSystem,
+      playerSystem
+    } = game;
 
-    if (this.pendingResetState) {
-      const s = this.pendingResetState;
+    if (this.pendingGameInitialization) {
+      const { seed, erode, players } = this.pendingGameInitialization;
 
-      // TODO(samthor): This should only happen once, but this isn't yet controlled.
-      // e.g. triggering a reconnect causes snowballs to hit the own player.
+      mapSystem.rebuildMap(game, seed);
 
-      mapSystem.rebuildMap(game, s.seed);
-      for (let erode = 0; erode < s.erode; ++erode) {
+      for (let i = 0; i < erode; ++i) {
         mapSystem.map.erode();
       }
 
-      Object.keys(s.players).forEach((id) => {
-        const playerState = s.players[id];
-        const index = this._indexFor(game, playerState.joinTick, playerState.at);
-        const player = playerSystem.addPlayer(id, index);
+      for (let i = 0; i < players.length; ++i) {
+        const playerJson = players[i];
+        const player = playerSystem.hasPlayer(playerJson.id)
+            ? playerSystem.getPlayer(playerJson.id)
+            : playerSystem.addPlayerFromJson(playerJson);
 
-        if (id === this.socket.playerId) {
+        if (player.playerId === this.clientPlayerId &&
+            clientSystem.player == null) {
           clientSystem.assignPlayer(player);
         }
-      });
+      }
     }
-    this.pendingResetState = null;
 
-    this.pendingUpdateState.forEach((update) => {
-      const { mapSystem, playerSystem, clientSystem } = game;
-      const { state, tick } = update;
+    this.pendingGameInitialization = null;
 
-      if (state.op === 'join') {
-        playerSystem.addPlayer(state.id, this._indexFor(game, tick, null));
+    if (this.pendingLevelChange != null) {
+      const { state } = this.pendingLevelChange;
+      let LevelClass = null;
+
+      switch (state.level) {
+        case LevelType.LOBBY:
+          LevelClass = LobbyLevel;
+          break;
+        case LevelType.MAIN:
+          LevelClass = NetworkLevel;
+          break;
+        default:
+          console.warn('Unknown level:', state);
+          break;
       }
-      const player = state.id ? playerSystem.getPlayer(state.id) : null;
 
-      switch (state.op) {
-      case 'erode':
-        mapSystem.map.erode();
-        break;
-
-      case 'join':
-        break;
-
-      case 'part':
-        playerSystem.removePlayer(state.id);
-        break;
-
-      case 'move':
-        if (player.health.dead) {
-          // server clearly believes we're alive
-          player.health.dead = false;
-        }
-        const lastPath = state.path[state.path.length - 1];
-        const destination = {
-          position: lastPath,
-          index: mapSystem.grid.positionToIndex(lastPath),
-        };
-        playerSystem.assignPlayerDestination(state.id, destination);
-        break;
-
-      default:
-        console.info('got unhandled update at tick', tick, state);
+      if (LevelClass != null && !(game.currentLevel instanceof LevelClass)) {
+        game.setLevel(new LevelClass());
       }
-    });
-    this.pendingUpdateState = [];
+    }
+
+    this.pendingLevelChange = null;
+
+    while (this.pendingMessages.length) {
+      const message = this.pendingMessages.shift();
+      const { type, state, tick } = message;
+
+      switch (type) {
+        case MessageType.POPULATION_ANNOUNCED:
+          Object.assign(stateSystem.population, state);
+          break;
+        case MessageType.TILE_ERODED:
+          mapSystem.map.erode();
+          break;
+        case MessageType.PLAYER_JOINED:
+          if (!playerSystem.hasPlayer(state.id)) {
+            playerSystem.addPlayerFromJson(state);
+          }
+          break;
+        case MessageType.PLAYER_LEFT:
+          playerSystem.removePlayer(state.id);
+          break;
+        case MessageType.PLAYER_MOVED:
+          if (player.health.dead) {
+            player.health.revive();
+          }
+
+          const lastPath = state.path[state.path.length - 1];
+          const destination = {
+            position: lastPath,
+            index: mapSystem.grid.positionToIndex(lastPath),
+          };
+
+          playerSystem.assignPlayerDestination(state.id, destination);
+
+          break;
+        case MessageType.SNOWBALL_THROWN:
+          // TODO
+          break;
+        default:
+          console.warn('Unhandled socket message', message);
+          break;
+      }
+    }
   }
 
   _indexFor(game, tick, position) {
-    const { mapSystem } = game;
+    const { mapSystem, playerSystem } = game;
+    const { map } = mapSystem;
+
     if (position != null) {
       return mapSystem.grid.positionToIndex(position);
     }
-    const random = new SeedRandom(tick);
-    return mapSystem.map.getRandomHabitableTileIndex(random);
+
+    return map.getRandomHabitableTileIndex(playerSystem.random);
   }
 
-  resetState(tick, state) {
-    // `state` contains {seed: number, erode: number, players: {...}}.
-    // It's documented in the relay server, and represents the current state at this server `tick`:
-    //   https://github.com/santatracker/relay/blob/master/gce/game/snowball/state.go
+  onSocketMessage(message) {
+    console.log('Handling message', message);
 
-    // nb. `tick` is the server tick this state is from; it's not yet used, but could be in future
-    this.pendingResetState = state;
+    switch (message.type) {
+      case MessageType.TIME_SYNCHRONIZED:
+        const { timeZero, time } = message;
+        this.synchronizeTime(timeZero, time);
+        break;
+      case MessageType.GAME_INITIALIZED:
+        this.pendingGameInitialization = message;
+        break;
+      case MessageType.LEVEL_CHANGED:
+        this.pendingLevelChange = message;
+        break;
+      case MessageType.PLAYER_ASSIGNED:
+        this.clientPlayerId = message.state.id;
+        break;
+      default:
+        this.pendingMessages.push(message);
+        break;
+    }
   }
-
-  updateState(tick, state) {
-    // `state` can be a number of things, but conatins at least {op: string, id: string, ...}.
-    // It's documented in the relay server, and is a single operation, possibly user-generated— if
-    // so, the `id` field is set to the originating player.
-    //   https://github.com/santatracker/relay/blob/master/gce/game/snowball/impl.go#L57
-    this.pendingUpdateState.push({state, tick});
-  }
-
 };

@@ -150,7 +150,10 @@ export class Snowball extends AllocatableEntityMesh {
 
   teardown(game) {
     const { effectSystem } = game;
-    this.unsubscribeFromCollisions();
+    if (this.unsubscribeFromCollisions != null) {
+      this.unsubscribeFromCollisions();
+      this.unsubscribeFromCollisions = null;
+    }
     effectSystem.trailEffect.remove(this);
   }
 

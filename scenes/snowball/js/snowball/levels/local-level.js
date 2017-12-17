@@ -4,10 +4,17 @@ export class LocalLevel extends MainLevel {
   setup(game) {
     super.setup(game);
 
-    const { clientSystem, dropSystem, mapSystem, playerSystem } = game;
+    const {
+      clientSystem,
+      dropSystem,
+      mapSystem,
+      playerSystem,
+      botSystem
+    } = game;
 
     this.lastErosionTick = 0;
     this.lastDropTick = 0;
+    this.lastBotTick = 0;
 
     const seed = (Math.random() * 0x100000000) & 0xffffffff;  // 32bit int
     mapSystem.rebuildMap(game, seed);
@@ -16,27 +23,47 @@ export class LocalLevel extends MainLevel {
     const player = playerSystem.addPlayer(id, -1);
     clientSystem.assignPlayer(player);
 
-    for (let i = 0; i < 15; ++i) {
+    for (let i = 0; i < Math.floor(game.maximumPlayers / 4); ++i) {
       dropSystem.addDrop();
+      botSystem.addBot();
     }
   }
 
   update(game) {
     super.update(game);
 
-    const { mapSystem, dropSystem } = game;
+    const {
+      mapSystem,
+      dropSystem,
+      botSystem,
+      stateSystem,
+      tick
+    } = game;
+
     const { map } = mapSystem;
+    const { population } = stateSystem;
 
     // 300000 ms / 30 drops / 16 ms/f = 625 f/drop
-    if (map && (game.tick - this.lastDropTick) > 625) {
-      this.lastDropTick = game.tick;
+    if (map && (tick - this.lastDropTick) > 625) {
+      this.lastDropTick = tick;
       dropSystem.addDrop();
     }
 
-    if (map && (game.tick - this.lastErosionTick) > 16) {
-      this.lastErosionTick = game.tick;
+    if (map && (tick - this.lastErosionTick) > 16) {
+      this.lastErosionTick = tick;
       map.erode();
     }
-  }
 
+    if (population.allTime < population.maximum) {
+      if (map && (tick - this.lastBotTick) > 128) {
+        botSystem.addBot();
+        this.lastBotTick = tick;
+      }
+    }
+
+    if (population.knockedOut >= (population.maximum - 1)) {
+      // TODO(cdata): Is there a special victory screen?
+      window.santaApp.fire('game-stop', {});
+    }
+  }
 }

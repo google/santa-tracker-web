@@ -27,6 +27,24 @@ export class SnowballSystem {
     this.drag = drag;
   }
 
+  teardown(game) {
+    const snowballs = this.newSnowballs.concat(this.snowballs);
+
+    for (let i = 0; i < snowballs.length; ++i) {
+      const snowball = snowballs[i];
+
+      if (snowball.parent != null) {
+        this.snowballLayer.remove(snowball);
+      }
+
+      snowball.teardown(game);
+      snowball.constructor.free(snowball);
+    }
+
+    this.snowballs = [];
+    this.newSnowballs = [];
+  }
+
   update(game) {
 
     const { mapSystem, collisionSystem, effectSystem } = game;
@@ -85,7 +103,7 @@ export class SnowballSystem {
     collisionSystem.removeCollidable(snowball);
 
     snowball.teardown(game);
-    Snowball.free(snowball);
+    snowball.constructor.free(snowball);
   }
 
   throwSnowball(thrower, target) {

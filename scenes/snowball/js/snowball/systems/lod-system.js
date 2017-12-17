@@ -15,6 +15,10 @@ export class LodSystem {
     this.limit = null;
   }
 
+  teardown(game) {
+    this.lodEntities = [];
+  }
+
   addEntity(entity) {
     this.lodEntities.push(entity);
   }

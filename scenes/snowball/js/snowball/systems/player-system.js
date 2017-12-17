@@ -1,6 +1,11 @@
 import { Elf } from '../entities/elf.js';
 
-const { Math: ThreeMath, Object3D, Vector2 } = self.THREE;
+const {
+  Math: ThreeMath,
+  Object3D,
+  Vector2,
+  Vector3
+} = self.THREE;
 
 const intermediateVector2 = new Vector2();
 const PI_OVER_TWO = Math.PI / 2.0;
@@ -18,13 +23,39 @@ export class PlayerSystem {
     this.playerTargetedPositions = {};
   }
 
+  teardown(game) {
+    this.clearAllPlayers(game);
+  }
+
+  hasPlayer(id) {
+    return !!this.playerMap[id];
+  }
+
+  addPlayerFromJson(playerJson) {
+    const player = this.addPlayerInstance(Elf.fromJson(playerJson));
+    const { path } = playerJson;
+    const { destination } = path;
+
+    if (destination != null) {
+      this.assignPlayerDestination(player.playerId, {
+        index: destination.index,
+        position: new Vector3().copy(destination.position)
+      });
+    }
+
+    return player;
+  }
+
   addPlayer(id = ThreeMath.generateUUID(), startingTileIndex = -1) {
     if (this.playerMap[id]) {
       throw new Error(`player ${id} already described`);
     }
 
-    const player = Elf.allocate(id, startingTileIndex);
-    this.playerMap[id] = player;
+    return this.addPlayerInstance(Elf.allocate(id, startingTileIndex));
+  }
+
+  addPlayerInstance(player) {
+    this.playerMap[player.playerId] = player;
     this.players.push(player);
     this.newPlayers.push(player);
     return player;
@@ -34,18 +65,19 @@ export class PlayerSystem {
     return this.playerMap[id];
   }
 
-  clearAllPlayers() {
+  clearAllPlayers(game) {
     const all = Object.keys(this.playerMap);
-    all.forEach((id) => this.removePlayer(id));
+    all.forEach((id) => this.removePlayer(id, game));
   }
 
-  removePlayer(id) {
+  removePlayer(id, game) {
     const player = this.playerMap[id];
     if (player === undefined) {
       return;
     }
 
     this.playerLayer.remove(player);
+    player.teardown(game);
     Elf.free(player);
 
     const possibleArrays = [this.players, this.newPlayers, this.parachutingPlayers];
@@ -93,7 +125,8 @@ export class PlayerSystem {
       snowballSystem,
       clientSystem,
       parachuteSystem,
-      entityRemovalSystem
+      entityRemovalSystem,
+      stateSystem
     } = game;
     const { grid, map } = mapSystem;
     const { player: clientPlayer } = clientSystem;
@@ -115,9 +148,13 @@ export class PlayerSystem {
       }
 
       player.setup(game);
-      parachuteSystem.dropEntity(player);
 
-      this.parachutingPlayers.push(player);
+      if (!arrival.arrived) {
+        parachuteSystem.dropEntity(player);
+        this.parachutingPlayers.push(player);
+      }
+
+      stateSystem.recordPlayerConnected();
     }
 
     // Arrived players are positioned and placed with existing players...
@@ -154,7 +191,7 @@ export class PlayerSystem {
       } else if (player === clientPlayer) {
         clientSystem.assignTarget(destination);
       } else {
-        console.debug('can\'t navigate', playerId, 'to', destination);
+        //console.debug('can\'t navigate', playerId, 'to', destination);
         // TODO(samthor): this should throw a snowball—where is the method?
         // clientSystem.assignTargetedPosition(destination.position);
       }
@@ -197,9 +234,12 @@ export class PlayerSystem {
         this.players.splice(i--, 1);
 
         if (player !== clientPlayer) {
+          player.teardown(game);
           Elf.free(player);
           this.playerLayer.remove(player);
         }
+
+        stateSystem.recordPlayerKnockedOut();
       }
     }
   }

@@ -10,6 +10,7 @@ const cubicNeighborhood = [
   new HexCoord(1, -1, 0), new HexCoord(1, 0, -1), new HexCoord(0, 1, -1),
   new HexCoord(-1, 1, 0), new HexCoord(-1, 0, 1), new HexCoord(0, -1, 1)
 ];
+
 const SQRT_THREE = Math.sqrt(3);
 
 const defaultHeuristic = (() => {
@@ -116,6 +117,11 @@ export class HexGrid {
     return oddq;
   }
 
+  indexToRingIndices(index, radius) {
+    return this.cubeToRingIndices(
+        this.indexToCube(index, intermediateHexCoord), radius);
+  }
+
   indexToNeighborIndices(index) {
     return this.cubeToNeighborIndices(
         this.indexToCube(index, intermediateHexCoord));
@@ -164,6 +170,27 @@ export class HexGrid {
     axial.s = 0;
 
     return axial;
+  }
+
+  cubeToRingIndices(cube, radius) {
+    if (radius === 0) {
+      return [this.cubeToIndex(cube)];
+    }
+
+    const ring = [];
+    const cursor = cubicNeighborhood[4]
+        .clone()
+        .multiplyScalar(radius)
+        .add(cube);
+
+    for (let i = 0; i < 6; ++i) {
+      for (let j = 0; j < radius; ++j) {
+        ring.push(this.cubeToIndex(cursor));
+        cursor.add(cubicNeighborhood[i]);
+      }
+    }
+
+    return ring;
   }
 
   cubeToNeighborCubes(cube, neighbors = []) {

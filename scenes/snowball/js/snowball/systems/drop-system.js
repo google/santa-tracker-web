@@ -17,7 +17,20 @@ export class DropSystem {
     this.dropLayer = new Object3D();
   }
 
-  reset(game) {
+  teardown(game) {
+    const drops = this.drops
+        .concat(this.newDrops)
+        .concat(this.parachutingDrops);
+    for (let i = 0; i < drops.length; ++i) {
+      const drop = drops[i];
+      this.dropLayer.remove(drop);
+      drop.teardown(game);
+      Drop.free(drop);
+    }
+
+    this.drops = [];
+    this.newDrops = [];
+    this.parachutingDrops = [];
   }
 
   addDrop(tileIndex = -1, containedItem = randomValue(powerupType)) {

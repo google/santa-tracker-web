@@ -3,6 +3,7 @@ import { Rectangle } from '../../engine/utils/collision-2d.js';
 import { TetheredCameraTracker } from '../utils/camera-tracking.js';
 import { Drop } from '../entities/drop.js';
 import { PowerupUi } from '../ui/powerup-ui.js';
+import { PopulationUi } from '../ui/population-ui.js';
 
 const { AmbientLight } = self.THREE;
 
@@ -19,7 +20,8 @@ export class MainLevel extends Level {
       playerSystem,
       clientSystem,
       lodSystem,
-      mapSystem
+      mapSystem,
+      stateSystem
     } = game;
 
     const { snowballLayer } = snowballSystem;
@@ -35,6 +37,7 @@ export class MainLevel extends Level {
     this.cameraTracker = new TetheredCameraTracker(camera);
     this.light = new AmbientLight(0xbbaaaa, Math.PI);
     this.powerupUi = new PowerupUi();
+    this.populationUi = new PopulationUi();
 
     this.measure(game);
 
@@ -58,6 +61,9 @@ export class MainLevel extends Level {
 
     game.shadowRoot.insertBefore(this.powerupUi,
         game.shadowRoot.firstElementChild);
+
+    game.shadowRoot.insertBefore(this.populationUi,
+        game.shadowRoot.firstElementChild);
   }
 
   measure(game) {
@@ -75,10 +81,6 @@ export class MainLevel extends Level {
 
   teardown(game) {
     this.unsubscribe();
-
-    game.clientSystem.reset(game);
-    game.playerSystem.clearAllPlayers();
-    game.parachuteSystem.reset();
 
     this.remove(game.mapSystem.mapLayer);
     this.remove(game.effectSystem.effectsLayer);
@@ -118,6 +120,7 @@ export class MainLevel extends Level {
     }
 
     this.powerupUi.update(game);
+    this.populationUi.update(game);
 
     this.pickEvent = null;
   }

@@ -1,9 +1,12 @@
+import { Component } from './component.js';
+
 const {
   Vector2
 } = self.THREE;
 
-export class Trajectory {
+export class Trajectory extends Component {
   constructor() {
+    super();
     this.origin = new Vector2();
     this.targetPosition = new Vector2();
   }

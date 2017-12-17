@@ -1,5 +1,8 @@
-export class Contents {
+import { Component } from './component.js';
+
+export class Contents extends Component {
   constructor() {
+    super();
     this.inventory = [];
   }
 

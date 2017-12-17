@@ -6,11 +6,16 @@ export class ClockSystem {
     this.timeSyncDelta = 0;
   }
 
+  teardown(game) {
+    this.clocks.clear();
+  }
+
   get time() {
     return performance.now() - this.timeZero + this.timeSyncDelta;
   }
 
-  synchronize(time) {
+  synchronize(timeZero, time) {
+    this.timeZero = timeZero;
     this.timeSyncDelta = time - performance.now();
   }
 

@@ -1,5 +1,8 @@
-export class Path {
+import { Component } from './component.js';
+
+export class Path extends Component {
   constructor() {
+    super();
     this.destination = null;
     this.waypoints = [];
   }

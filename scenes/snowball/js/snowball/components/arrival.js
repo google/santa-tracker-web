@@ -1,5 +1,8 @@
-export class Arrival {
+import { Component } from './component.js';
+
+export class Arrival extends Component {
   constructor(tileIndex) {
+    super();
     this.droppedTick = Infinity;
     this.arrived = false;
     this.tileIndex = tileIndex;

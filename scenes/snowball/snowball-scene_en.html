@@ -27,6 +27,7 @@ Snowball Storm scene.
     :host {
       background: #71a7db;
     }
+
     santa-weather {
       position: absolute;
       top: 0;
@@ -34,8 +35,10 @@ Snowball Storm scene.
       width: 100%;
       height: 100%;
     }
+
     #mid {
       position: absolute;
+      background-color: #7CA6D6;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -44,11 +47,39 @@ Snowball Storm scene.
       width: 100%;
       height: 100%;
     }
+
     @keyframes snowball-sleigh {
-      0%   { transform: translateY(-10%); }
-      50% { transform: translateY(10%); }
-      100% { transform: translateY(-10%); }
+      0%   { transform: translateY(-200%); }
+      50%  { transform: translateY(-210%); }
+      100% { transform: translateY(-200%); }
     }
+
+    @keyframes fly-by-cloud {
+      0%   { transform: translate(100%, -90%); }
+      100% { transform: translate(-100%, -90%); }
+    }
+
+    @keyframes parachute-drop {
+      0%   {
+        opacity: 0;
+        transform: translate(0%, -20%); }
+
+      49% {
+        opacity: 0;
+        transform: translate(0%, -20%);
+      }
+
+      50%  {
+        opacity: 1;
+        transform: translate(0%, -20%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(0%, 100%);
+      }
+    }
+
     #mover {
       pointer-events: none;
       width: 100%;
@@ -56,6 +87,7 @@ Snowball Storm scene.
       animation: snowball-sleigh 3s ease-in-out infinite;
       will-change: transform;
     }
+
     #sleigh {
       display: block;
       margin: auto;
@@ -65,50 +97,230 @@ Snowball Storm scene.
       background-size: contain;
     }
 
+    #dropCloud {
+      position: absolute;
+      width: 100%;
+      height: 256px;
+      top: 50%;
+      margin-top: -128px;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDExNy44IDcwLjciPjxzdHlsZT4uc3Qwe2ZpbGw6I2ZmZn08L3N0eWxlPjxzeW1ib2wgaWQ9Ik5ld19TeW1ib2xfMTYiIHZpZXdCb3g9Ii0yNiAtMTUuNiA1Mi4xIDMxLjMiPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMTguMi0zLjloMS4zVjBjMCA1LjggNC43IDEwLjQgMTAuNCAxMC40IDEuOCAwIDMuNC0uNSA0LjctMS4zIDEuNiAzLjggNS4zIDYuNSA5LjYgNi41IDUuOCAwIDEwLjQtNC43IDEwLjQtMTAuNFYxLjVDMjIuNyAwIDI2LTQuMiAyNi05LjFjMC0yLjQtLjgtNC43LTIuMS02LjVILTI1Yy0uNyAxLjEtMSAyLjUtMSAzLjkgMCA0LjMgMy40IDcuOCA3LjggNy44eiIvPjwvc3ltYm9sPjx1c2UgeGxpbms6aHJlZj0iI05ld19TeW1ib2xfMTYiIHdpZHRoPSI1Mi4xIiBoZWlnaHQ9IjMxLjMiIHg9Ii0yNiIgeT0iLTE1LjYiIHRyYW5zZm9ybT0ibWF0cml4KDIuMjYwNSAwIDAgLTIuMjYwNSA1OC44ODQgMzUuMzMpIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvc3ZnPg==);
+      background-repeat: no-repeat;
+      background-position: center;
+      visibility: hidden;
+    }
+
+    #parachutingElf {
+      position: absolute;
+
+      width: 160px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      margin-left: -80px;
+      visibility: hidden;
+    }
+
+    :host(.intro) #dropCloud {
+      visibility: visible;
+      animation: fly-by-cloud 5s linear;
+    }
+
+    :host(.intro) #parachutingElf {
+      visibility: visible;
+      animation: parachute-drop 5s linear;
+    }
+
+    #parachutingElf:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      top: 50%;
+      left: 0;
+      margin-top: -80px;
+
+      background-image: url(img/elves-parachuting.svg);
+      background-size: 200%;
+      background-position: top left;
+    }
+
+    #jumpBtn {
+      display: block;
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border: 0;
+      outline: none;
+      margin: 0;
+      padding: 0;
+
+      width: 280px;
+      height: 280px;
+      border-radius: 140px;
+      background-color: #fff;
+      box-shadow: 0px 5% 0 rgba(0, 0, 0, 0.2);
+    }
+
+    #jumpBtn:active:after {
+      top: 5%;
+    }
+
+    #jumpBtn:after {
+      content: '';
+      display: block;
+      position: absolute;
+      border-radius: 100%;
+      width: 88%;
+      height: 88%;
+      left: 5.5%;
+      top: -1.5%;
+      background-color: #56AD57;
+
+      background-image: url('img/parachute-button.png');
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position: center;
+    }
+
+    #jumpBtn:before {
+      content: '';
+      display: block;
+      position: absolute;
+      border-radius: 100%;
+      width: 88%;
+      height: 88%;
+      left: 5.5%;
+      top: 5%;
+      background-color: #448B4D;
+    }
+
     [hidden] {
-      display: none;
+      display: none !important;
+    }
+
+    @media (max-width: 600px) {
+      #jumpBtn {
+        transform: translate(-50%, -50%) scale(0.75);
+      }
+
+      #sleigh {
+        transform: scale(0.5) translateY(100%);
+      }
+
+      #dropCloud {
+        height: 128px;
+      }
+
+      #parachutingElf {
+        width: 100px;
+        margin-left: -50px;
+      }
+
+      #parachutingElf:after {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+      }
     }
   </style>
 
-  <div id="splash" on-click="onSplashClicked">
+  <div id="splash">
     <div id="mid">
       <div id="mover">
         <div id="sleigh"></div>
       </div>
+      <div id="dropCloud"></div>
+      <div id="parachutingElf"></div>
     </div>
     <santa-weather cloud-frac="1.0" clouds="20" directional-strength="-1.0"></santa-weather>
-    <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4" show></santa-tutorial>
+    <button id="jumpBtn" alt="Start" on-click="onJumpClicked"></button>
   </div>
-  <snowball-game id="game" hidden></snowball-game>
+
+  <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4"></santa-tutorial>
 
 </template>
 <script>
 // wss://game-dot-next-santa-api.appspot.com/socket
-Polymer({
-  is: 'snowball-scene',
-  behaviors: [window.SantaSceneBehavior],
+(() => {
+  const awaitAnimation = element => new Promise(resolve => {
+    const cleanup = event => {
+      element.removeEventListener('animationend', cleanup);
+      resolve();
+    };
 
-  ready() {
-    this.$.game.setAttribute('asset-base-url', this.resolveUrl('.'));
-  },
+    element.addEventListener('animationend', cleanup);
+  });
 
-  onPreload: function() {
-    this.preloadImages([
-      'img/sleigh.png',
-      'img/item-frame.png',
-      'img/parachute.png',
-      'img/powerup-1.png',
-      'img/snowball.png',
-      'img/tiles.png',
-    ]);
-  },
+  Polymer({
+    is: 'snowball-scene',
+    behaviors: [window.SantaSceneBehavior],
 
-  onSplashClicked: function() {
-    this.shadowRoot.removeChild(this.$.splash);
-    this.$.tutorial.show = false;
-    this.$.game.hidden = false;
-    this.$.game.start();
-  }
-});
+    onPreload() {
+      this.preloadImages([
+        'img/sleigh.png',
+        'img/item-frame.png',
+        'img/parachute.png',
+        'img/powerup-1.png',
+        'img/snowball.png',
+        'img/tiles.png',
+      ]);
+    },
+
+    onJumpClicked() {
+      this.$.jumpBtn.hidden = true;
+      this.classList.add('intro');
+
+      awaitAnimation(this.$.dropCloud).then(() => {
+        this.start();
+      });
+    },
+
+    start() {
+      if (this.game != null) {
+        this.game.teardown();
+        this.shadowRoot.removeChild(this.game);
+      }
+
+      this.classList.remove('intro');
+      this.game = document.createElement('snowball-game');
+
+      this.shadowRoot.insertBefore(this.game, this.shadowRoot.firstElementChild);
+
+      this.game.assetBaseUrl = this.resolveUrl('.');
+
+      requestAnimationFrame(() => {
+        this.game.start('local');
+
+        setTimeout(() => {
+          requestAnimationFrame(() => {
+            if (this.$.splash.parentNode != null) {
+              this.shadowRoot.removeChild(this.$.splash);
+            }
+          });
+        }, 1000);
+      });
+    },
+
+    onShow() {
+      if (this.$.splash.parentNode == null) {
+        this.$.jumpBtn.hidden = false;
+        this.shadowRoot.appendChild(this.$.splash);
+      }
+    },
+
+    onHide() {
+      if (this.game != null) {
+        this.game.teardown();
+        this.shadowRoot.removeChild(this.game);
+        this.game = null;
+      }
+    }
+  });
+})();
 </script>
 </dom-module>
