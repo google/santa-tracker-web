@@ -15,59 +15,65 @@
  */
 
 /**
+ * @param {!Object<string, (string|number)>} data
+ * @return {string}
+ */
+function buildQueryString(data) {
+  const enc = (v) => window.encodeURIComponent(v);
+  const mapper = (key) => `${enc(key)}=${enc(data[key])}`;
+
+  const out = Object.keys(data).map(mapper).join('&');
+  if (out) {
+    return `?${out}`;
+  }
+  return '';
+}
+
+/**
  * Performs a cross-domain AJAX request to the Santa API.
  *
  * @param {string} url
- * @param {!Object} data
- * @param {function(!Object)} done
- * @param {function()} fail
+ * @param {!Object<string, (string|number)>} data
+ * @return {!Promise<!Object<string, (string|number|boolean)>>}
  */
-function santaAPIRequest(url, data, done, fail) {
-  // TODO(samthor): support a Promise as a return type.
-  let requests = 0;
+function santaAPIRequest(url, data) {
+  return new Promise((resolve, reject) => {
+    let requests = 0;
+    const query = buildQueryString(data);
 
-  const query = (function() {
-    const m = key => window.encodeURIComponent(key) + '=' + window.encodeURIComponent(data[key]);
-    const out = Object.keys(data).map(m).join('&');
-    return out ? '?' + out : '';
-  })();
-
-  /** @this {XMLHttpRequest} */
-  function onload() {
-    let out;
-    try {
-      out = JSON.parse(this.responseText);
-    } catch (e) {
-      console.debug('invalid JSON from santa-api', e);
-      fail();
-      return;
+    /** @this {XMLHttpRequest} */
+    function onload() {
+      let out;
+      try {
+        out = JSON.parse(this.responseText);
+      } catch (e) {
+        console.debug('invalid JSON from santa-api', e);
+        return reject(e)
+      }
+      if (!out || typeof out !== 'object') {
+        console.warn('non-object JSON return', out);
+        out = {'status': out};
+      }
+      resolve(/** @type {!Object<string, (string|number|boolean)>} */ (out));
     }
-    if (!out || typeof out !== 'object') {
-      console.warn('non-object JSON return', out);
-      out = {'status': out};
-    }
-    done(/** @type {!Object} */ (out));
-  }
 
-  function request() {
-    if (requests >= santaAPIRequest.MAX_RETRIES) {
-      fail();
-      return;
-    }
-    ++requests;
+    (function request() {
+      if (requests >= santaAPIRequest.MAX_RETRIES) {
+        return reject();
+      }
+      ++requests;
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', santaAPIRequest.BASE + url + query);
-    xhr.timeout = santaAPIRequest.TIMEOUT;  // IE needs this >open but <send
-    xhr.onload = onload;
-    xhr.onerror = function() {
-      // Retry with exponential backoff (625ms, ~1.5s, ~4s, ~10s, ...).
-      window.setTimeout(request, Math.pow(2.5, requests) * 250);
-    };
-    xhr.send(null);
-  }
-
-  request();
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', santaAPIRequest.BASE + url + query);
+      xhr.timeout = santaAPIRequest.TIMEOUT;  // IE needs this >open but <send
+      xhr.onload = onload;
+      xhr.onerror = () => {
+        // Retry with exponential backoff (625ms, ~1.5s, ~4s, ~10s, ...).
+        window.setTimeout(request, Math.pow(2.5, requests) * 250);
+      };
+      xhr.send(null);
+    })();
+  });
 }
 
 /** @define {string} */

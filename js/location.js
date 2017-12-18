@@ -178,3 +178,35 @@ SantaLocation.prototype.prev = function() {
 SantaLocation.prototype.next = function() {
   return this.array_[this.index_ + 1] || this.array_[this.array_.length - 1];
 };
+
+/**
+ * @param {(LatLng|string|null|undefined)} s
+ * @return {?LatLng}
+ */
+function parseLatLng(s) {
+  if (!s) {
+    return null;
+  }
+
+  /** @type {?LatLng} */
+  let out = null;
+
+  if (typeof s === 'object') {
+    // support passing an existing LatLng object
+    out = {
+      lat: s.lat,
+      lng: s.lng,
+    };
+  } else {
+    const parts = s.split(',');
+    if (parts.length !== 2) {
+      return null;
+    }
+    out = {lat: +parts[0], lng: +parts[1]};
+  }
+
+  if (!isFinite(out.lat) || !isFinite(out.lng)) {
+    return null;  // NaN or Infinity
+  }
+  return out;
+}

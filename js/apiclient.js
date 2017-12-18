@@ -31,7 +31,7 @@ goog.provide('SantaService');
  * @export
  */
 SantaService = function SantaService(clientId, lang, version) {
-  /** @private {string} */
+  /** @const @private {string} */
   this.lang_ = lang;
 
   /** @const @private {string} */
@@ -39,7 +39,7 @@ SantaService = function SantaService(clientId, lang, version) {
 
   /**
    * The user's (optional) location on the Earth, from geo-ip.
-   * @private {?string}
+   * @private {?LatLng}
    */
   this.userLocation_ = null;
 
@@ -47,12 +47,12 @@ SantaService = function SantaService(clientId, lang, version) {
    * A number between 0 and 1, consistent within a user session. Sent to the
    * server to determine a consistent time offset for this client.
    *
-   * @private {number}
+   * @const @private {number}
    */
   this.jitterRand_ = Math.random();
 
   /**
-   * @private {string}
+   * @const @private {string}
    */
   this.clientId_ = clientId;
 
@@ -72,16 +72,10 @@ SantaService = function SantaService(clientId, lang, version) {
   this.killed_ = false;
 
   /**
-   * True if there is already a pending sync.
-   * @private {boolean}
+   * Active sync promise.
+   * @private {Promise<undefined>}
    */
-  this.syncInFlight_ = false;
-
-  /**
-   * True if a sync has occurred at any point.
-   * @private {boolean}
-   */
-  this.synced_ = false;
+  this.activeSync_ = null;
 
   /**
    * Santa's next stop. Used to determine whether to trigger the "next stop"
@@ -112,7 +106,13 @@ SantaService = function SantaService(clientId, lang, version) {
       this.debugOffset_ = overrideParam - new Date();
     }
   }
-}
+
+  // perform initial sync and further syncs on 'online' event
+  window.addEventListener('online', () => {
+    this.sync();
+  });
+  Promise.resolve(true).then(() => this.sync());
+};
 
 /**
  * @param {string} eventName
@@ -134,26 +134,18 @@ SantaService.prototype.removeListener = function(eventName, handler) {
 };
 
 /**
- * @param {string} lang to set
- * @export
- */
-SantaService.prototype.setLang = function(lang) {
-  this.lang_ = lang;
-};
-
-/**
  * @param {function(SantaState)} callback
  * @export
  */
 SantaService.prototype.getCurrentLocation = function(callback) {
   callback(/** @type {SantaState} */ ({
-    position: null,
+    position: {lat: 0, lng: 0},
     presentsDelivered: 0,
     distanceTravelled: 0,
     heading: 0,
     prev: null,
     stopover: null,
-    next: null,
+    next: {lat: 0, lng: 10},
   }));
 };
 
@@ -169,29 +161,11 @@ SantaService.prototype.getDestinations = function() {
 };
 
 /**
- * List of cards sorted reverse chronologically (lastest cards first).
- *
- * @return {Array<!StreamCard>} a list of cards, or null if the
- * service isn't ready.
- * @export
- */
-SantaService.prototype.getTimeline = function() {
-  return null;
-};
-
-/**
  * @return {?LatLng} the user's location
  * @export
  */
 SantaService.prototype.getUserLocation = function() {
-  if (!this.userLocation_) {
-    return null;
-  }
-  var parts = this.userLocation_.split(',');
-  if (parts.length != 2) {
-    return null;
-  }
-  return {lat: +parts[0], lng: +parts[1]};
+  return this.userLocation_;
 };
 
 /**
@@ -204,14 +178,6 @@ SantaService.prototype.getUserInEurope = function() {
     return true;  // can't be too sure
   }
   return !(loc.lng > 39.869 || loc.lng < -31.266 || loc.lat > 81.008 || loc.lat < 27.636);
-};
-
-/**
- * @return {string} the user's stop, or the empty string
- * @export
- */
-SantaService.prototype.getUserStop = function() {
-  return '';
 };
 
 /**
@@ -236,20 +202,22 @@ SantaService.prototype.getStream = function() {
  * synchronization is performed asynchronously.
  *
  * @export
+ * @return {!Promise<undefined>}
  */
 SantaService.prototype.sync = function() {
-  if (this.syncInFlight_) {
-    return;
+  if (this.activeSync_) {
+    return this.activeSync_;
   }
-  this.syncInFlight_ = true;
 
   const data = {
     'rand': this.jitterRand_,
     'client': this.clientId_,
     'language': this.lang_,
   };
+  const p = santaAPIRequest('info', data);
+  this.activeSync_ = p.then(() => null);
 
-  const done = (result) => {
+  p.then((result) => {
     let ok = true;
     if (result['status'] !== 'OK') {
       console.error('api', result['status']);
@@ -266,7 +234,7 @@ SantaService.prototype.sync = function() {
     if (result['upgradeToVersion'] && this.version_) {
       if (this.version_ < result['upgradeToVersion']) {
         console.warn('reload: this', this.version_, 'upgrade to', result['upgradeToVersion']);
-        this.scheduleReload_();
+        Events.trigger(this, 'reload');
       }
     }
 
@@ -274,27 +242,49 @@ SantaService.prototype.sync = function() {
       this.reconnect_();
     }
 
-    this.userLocation_ = result['location'] || null;
+    this.userLocation_ = parseLatLng(/** @type {string} */ (result['location']));
+    this.scheduleSync_(/** @type {number} */ (result['refresh']), false);
 
-    this.synced_ = true;
-    this.syncInFlight_ = false;
-    Events.trigger(this, 'sync');
+    // trigger event in microtask
+    Promise.resolve(true).then(() => Events.trigger(this, 'sync'));
+  });
 
-    window.clearTimeout(this.syncTimeout_);
-    this.syncTimeout_ = window.setTimeout(this.sync.bind(this), result['refresh']);
-  };
-
-  const fail = () => {
-    this.syncInFlight_ = false;
-    window.clearTimeout(this.syncTimeout_);
-    this.syncTimeout_ = window.setTimeout(() => {
-      // Sync after 60s, but only if the page is in the foreground.
-      window.requestAnimationFrame(this.sync.bind(this));
-    }, 60 * 1000);
+  p.catch(() => {
+    this.scheduleSync_(0, true);
     this.disconnect_();
-  };
+  }).then(() => {
+    // always clear activeSync_
+    this.activeSync_ = null;
+  });
 
-  santaAPIRequest('info', data, done, fail);
+  return this.activeSync_;
+};
+
+/**
+ * Schedules another sync, clearing any previous pending sync.
+ *
+ * @param {number} after how long to wait before sync (zero or -ve uses default)
+ * @param {boolean} foreground whether to wait for Santa to be in the foreground (rAF)
+ */
+SantaService.prototype.scheduleSync_ = function(after, foreground) {
+  if (!after || !isFinite(after) || after <= 0) {
+    after = (1000 * 60 * (Math.random() + 0.5));
+  }
+
+  const localTimeout = window.setTimeout(() => {
+    if (foreground) {
+      // only sync when we go back into the foreground
+      return window.requestAnimationFrame(() => {
+        if (localTimeout === this.syncTimeout_) {
+          this.sync();
+        }
+      });
+    }
+    this.sync();
+  }, after);
+
+  window.clearTimeout(this.syncTimeout_);
+  this.syncTimeout_ = localTimeout; 
 };
 
 /**
@@ -319,7 +309,7 @@ SantaService.prototype.disconnect_ = function() {
     this.offline_ = true;
     Events.trigger(this, 'offline');
   }
-}
+};
 
 /**
  * Send the online event, if not already online.
@@ -332,16 +322,6 @@ SantaService.prototype.reconnect_ = function() {
     Events.trigger(this, 'online');
   }
 };
-
-/**
- * Register to reload the page in a while, after the user has stopped clicking on it.
- *
- * @private
- */
-SantaService.prototype.scheduleReload_ = function() {
-  Events.trigger(this, 'reload');
-};
-
 
 /**
  * @return {number}
@@ -357,22 +337,6 @@ SantaService.prototype.now = function() {
  */
 SantaService.prototype.dateNow = function() {
   return new Date(this.now());
-};
-
-/**
- * @return {boolean} true if time has been synchronized with the server.
- * @export
- */
-SantaService.prototype.isSynced = function() {
-  return this.synced_;
-};
-
-/**
- * @return {boolean} true if the service has been killed.
- * @export
- */
-SantaService.prototype.isKilled = function() {
-  return this.killed_;
 };
 
 /**
