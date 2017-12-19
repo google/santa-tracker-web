@@ -1107,7 +1107,7 @@
 		"message": "Tensor també ha pensat que el teu dibuix s'assemblava més a aquests:"
 	},
 	"quickdraw-rounddetails-how-know": {
-		"message": "Com sap Tensor com és el que has dibuixat ({{thing}}) en realitat?"
+		"message": "Com sap Tensor com és {{thing}} en realitat?"
 	},
 	"quickdraw-rounddetails-it-learned": {
 		"message": "Ho ha après observant aquests exemples que han dibuixat altres persones."
@@ -1475,7 +1475,7 @@
 	"speedsketch_item~London": {
 		"message": "Londres"
 	},
-	"speedsketch_item~New_York": {
+	"speedsketch_item~New York": {
 		"message": "Nova York"
 	},
 	"speedsketch_item~Paris": {
@@ -1487,25 +1487,25 @@
 	"speedsketch_item~Switzerland": {
 		"message": "Suïssa"
 	},
-	"speedsketch_item~The_Eiffel_Tower": {
+	"speedsketch_item~The Eiffel Tower": {
 		"message": "La torre Eiffel"
 	},
-	"speedsketch_item~The_Great_Wall_of_China": {
+	"speedsketch_item~The Great Wall of China": {
 		"message": "La Gran Muralla xinesa"
 	},
-	"speedsketch_item~The_Mona_Lisa": {
+	"speedsketch_item~The Mona Lisa": {
 		"message": "La Mona Lisa"
 	},
-	"speedsketch_item~abstract_art": {
+	"speedsketch_item~abstract art": {
 		"message": "art abstracte"
 	},
-	"speedsketch_item~aircraft_carrier": {
+	"speedsketch_item~aircraft carrier": {
 		"message": "portaavions"
 	},
 	"speedsketch_item~airplane": {
 		"message": "avió"
 	},
-	"speedsketch_item~alarm_clock": {
+	"speedsketch_item~alarm clock": {
 		"message": "rellotge despertador"
 	},
 	"speedsketch_item~alien": {
@@ -1517,7 +1517,7 @@
 	"speedsketch_item~angel": {
 		"message": "àngel"
 	},
-	"speedsketch_item~animal_migration": {
+	"speedsketch_item~animal migration": {
 		"message": "migració d'animals"
 	},
 	"speedsketch_item~ant": {
@@ -1541,7 +1541,7 @@
 	"speedsketch_item~astronaut": {
 		"message": "astronauta"
 	},
-	"speedsketch_item~audio_cassette": {
+	"speedsketch_item~audio cassette": {
 		"message": "casset"
 	},
 	"speedsketch_item~avocado": {
@@ -1568,7 +1568,7 @@
 	"speedsketch_item~baseball": {
 		"message": "pilota de beisbol"
 	},
-	"speedsketch_item~baseball_bat": {
+	"speedsketch_item~baseball bat": {
 		"message": "bat de beisbol"
 	},
 	"speedsketch_item~basket": {
@@ -1613,7 +1613,7 @@
 	"speedsketch_item~bird": {
 		"message": "ocell"
 	},
-	"speedsketch_item~birthday_cake": {
+	"speedsketch_item~birthday cake": {
 		"message": "pastís d'aniversari"
 	},
 	"speedsketch_item~black": {
@@ -1695,7 +1695,7 @@
 		"message": "càmera"
 	},
 	"speedsketch_item~camouflage": {
-		"message": "roba de camuflatge"
+		"message": "camuflatge"
 	},
 	"speedsketch_item~campfire": {
 		"message": "foguera"
@@ -1706,7 +1706,7 @@
 	"speedsketch_item~candy": {
 		"message": "caramel"
 	},
-	"speedsketch_item~candy_cane": {
+	"speedsketch_item~candy cane": {
 		"message": "bastonet de sucre"
 	},
 	"speedsketch_item~canoe": {
@@ -1727,10 +1727,10 @@
 	"speedsketch_item~cat": {
 		"message": "gat"
 	},
-	"speedsketch_item~ceiling_fan": {
+	"speedsketch_item~ceiling fan": {
 		"message": "ventilador de sostre"
 	},
-	"speedsketch_item~cell_phone": {
+	"speedsketch_item~cell phone": {
 		"message": "telèfon mòbil"
 	},
 	"speedsketch_item~cello": {
@@ -1775,10 +1775,10 @@
 	"speedsketch_item~cloud": {
 		"message": "núvol"
 	},
-	"speedsketch_item~cob_of_corn": {
+	"speedsketch_item~cob of corn": {
 		"message": "panotxa"
 	},
-	"speedsketch_item~coffee_cup": {
+	"speedsketch_item~coffee cup": {
 		"message": "tassa de cafè"
 	},
 	"speedsketch_item~compass": {
@@ -1817,7 +1817,7 @@
 	"speedsketch_item~crown": {
 		"message": "corona"
 	},
-	"speedsketch_item~cruise_ship": {
+	"speedsketch_item~cruise ship": {
 		"message": "creuer"
 	},
 	"speedsketch_item~cube": {
@@ -1832,13 +1832,13 @@
 	"speedsketch_item~diamond": {
 		"message": "diamant"
 	},
-	"speedsketch_item~diamond_ring": {
+	"speedsketch_item~diamond ring": {
 		"message": "anell de diamants"
 	},
 	"speedsketch_item~dishwasher": {
 		"message": "rentaplats"
 	},
-	"speedsketch_item~diving_board": {
+	"speedsketch_item~diving board": {
 		"message": "trampolí"
 	},
 	"speedsketch_item~dog": {
@@ -1919,7 +1919,7 @@
 	"speedsketch_item~finger": {
 		"message": "dit"
 	},
-	"speedsketch_item~fire_hydrant": {
+	"speedsketch_item~fire hydrant": {
 		"message": "boca d'incendis"
 	},
 	"speedsketch_item~fireplace": {
@@ -1940,19 +1940,19 @@
 	"speedsketch_item~flashlight": {
 		"message": "llanterna"
 	},
-	"speedsketch_item~flip_flops": {
+	"speedsketch_item~flip flops": {
 		"message": "xancletes"
 	},
-	"speedsketch_item~floor_lamp": {
+	"speedsketch_item~floor lamp": {
 		"message": "làmpada de peu"
 	},
-	"speedsketch_item~floppy_disk": {
+	"speedsketch_item~floppy disk": {
 		"message": "disquet"
 	},
 	"speedsketch_item~flower": {
 		"message": "flor"
 	},
-	"speedsketch_item~flying_saucer": {
+	"speedsketch_item~flying saucer": {
 		"message": "plat volador"
 	},
 	"speedsketch_item~fog": {
@@ -1964,16 +1964,16 @@
 	"speedsketch_item~fork": {
 		"message": "forquilla"
 	},
-	"speedsketch_item~french_fries": {
+	"speedsketch_item~french fries": {
 		"message": "patates fregides"
 	},
-	"speedsketch_item~fried_egg": {
+	"speedsketch_item~fried egg": {
 		"message": "ou fregit"
 	},
 	"speedsketch_item~frog": {
 		"message": "granota"
 	},
-	"speedsketch_item~frying_pan": {
+	"speedsketch_item~frying pan": {
 		"message": "paella"
 	},
 	"speedsketch_item~galaxy": {
@@ -1982,13 +1982,13 @@
 	"speedsketch_item~garden": {
 		"message": "jardí"
 	},
-	"speedsketch_item~garden_hose": {
+	"speedsketch_item~garden hose": {
 		"message": "mànega de jardí"
 	},
 	"speedsketch_item~ghost": {
 		"message": "fantasma"
 	},
-	"speedsketch_item~gingerbread_man": {
+	"speedsketch_item~gingerbread man": {
 		"message": "home de gingebre"
 	},
 	"speedsketch_item~giraffe": {
@@ -2000,7 +2000,7 @@
 	"speedsketch_item~goatee": {
 		"message": "barba de pera"
 	},
-	"speedsketch_item~golf_club": {
+	"speedsketch_item~golf club": {
 		"message": "club de golf"
 	},
 	"speedsketch_item~grapes": {
@@ -2024,7 +2024,7 @@
 	"speedsketch_item~hand": {
 		"message": "mà"
 	},
-	"speedsketch_item~hangman_game": {
+	"speedsketch_item~hangman game": {
 		"message": "joc del penjat"
 	},
 	"speedsketch_item~happiness": {
@@ -2054,13 +2054,13 @@
 	"speedsketch_item~hexagon": {
 		"message": "hexàgon"
 	},
-	"speedsketch_item~hockey_puck": {
+	"speedsketch_item~hockey puck": {
 		"message": "disc d'hoquei"
 	},
-	"speedsketch_item~hockey_stick": {
+	"speedsketch_item~hockey stick": {
 		"message": "pal d'hoquei"
 	},
-	"speedsketch_item~holiday_lights": {
+	"speedsketch_item~holiday lights": {
 		"message": "llums de Nadal"
 	},
 	"speedsketch_item~horse": {
@@ -2069,13 +2069,13 @@
 	"speedsketch_item~hospital": {
 		"message": "hospital"
 	},
-	"speedsketch_item~hot_air_balloon": {
+	"speedsketch_item~hot air balloon": {
 		"message": "globus aerostàtic"
 	},
-	"speedsketch_item~hot_dog": {
+	"speedsketch_item~hot dog": {
 		"message": "frankfurt"
 	},
-	"speedsketch_item~hot_tub": {
+	"speedsketch_item~hot tub": {
 		"message": "banyera d'hidromassatge"
 	},
 	"speedsketch_item~hourglass": {
@@ -2084,16 +2084,16 @@
 	"speedsketch_item~house": {
 		"message": "casa"
 	},
-	"speedsketch_item~house_plant": {
+	"speedsketch_item~house plant": {
 		"message": "planta d'interior"
 	},
 	"speedsketch_item~hurricane": {
 		"message": "huracà"
 	},
-	"speedsketch_item~ice_cream": {
+	"speedsketch_item~ice cream": {
 		"message": "gelat"
 	},
-	"speedsketch_item~ice_skater": {
+	"speedsketch_item~ice skater": {
 		"message": "patinador sobre gel"
 	},
 	"speedsketch_item~infinity": {
@@ -2111,8 +2111,8 @@
 	"speedsketch_item~jetpack": {
 		"message": "motxilla propulsora"
 	},
-	"speedsketch_item~jingle_bells": {
-		"message": "Jingle Bells"
+	"speedsketch_item~jingle bells": {
+		"message": "cascavells"
 	},
 	"speedsketch_item~kale": {
 		"message": "col verda"
@@ -2159,7 +2159,7 @@
 	"speedsketch_item~leg": {
 		"message": "cama"
 	},
-	"speedsketch_item~light_bulb": {
+	"speedsketch_item~light bulb": {
 		"message": "bombeta"
 	},
 	"speedsketch_item~lighter": {
@@ -2309,7 +2309,7 @@
 	"speedsketch_item~owl": {
 		"message": "mussol"
 	},
-	"speedsketch_item~paint_can": {
+	"speedsketch_item~paint can": {
 		"message": "pot de pintura"
 	},
 	"speedsketch_item~paintbrush": {
@@ -2318,7 +2318,7 @@
 	"speedsketch_item~painting": {
 		"message": "pintura"
 	},
-	"speedsketch_item~palm_tree": {
+	"speedsketch_item~palm tree": {
 		"message": "palmera"
 	},
 	"speedsketch_item~panda": {
@@ -2327,7 +2327,7 @@
 	"speedsketch_item~pants": {
 		"message": "pantalons"
 	},
-	"speedsketch_item~paper_clip": {
+	"speedsketch_item~paper clip": {
 		"message": "clip"
 	},
 	"speedsketch_item~parachute": {
@@ -2355,18 +2355,18 @@
 		"message": "pingüí"
 	},
 	"speedsketch_item~peppermint": {
-		"message": "menta pebrera"
+		"message": "menta"
 	},
 	"speedsketch_item~piano": {
 		"message": "piano"
 	},
-	"speedsketch_item~pickup_truck": {
+	"speedsketch_item~pickup truck": {
 		"message": "camioneta descoberta"
 	},
-	"speedsketch_item~picture_frame": {
+	"speedsketch_item~picture frame": {
 		"message": "marc de fotos"
 	},
-	"speedsketch_item~pie_chart": {
+	"speedsketch_item~pie chart": {
 		"message": "gràfic circular"
 	},
 	"speedsketch_item~pig": {
@@ -2378,7 +2378,7 @@
 	"speedsketch_item~pineapple": {
 		"message": "pinya"
 	},
-	"speedsketch_item~ping_pong": {
+	"speedsketch_item~ping pong": {
 		"message": "tennis de taula"
 	},
 	"speedsketch_item~pirate": {
@@ -2390,7 +2390,7 @@
 	"speedsketch_item~pliers": {
 		"message": "alicates"
 	},
-	"speedsketch_item~police_car": {
+	"speedsketch_item~police car": {
 		"message": "cotxe de policia"
 	},
 	"speedsketch_item~politician": {
@@ -2414,7 +2414,7 @@
 	"speedsketch_item~potato": {
 		"message": "patata"
 	},
-	"speedsketch_item~power_outlet": {
+	"speedsketch_item~power outlet": {
 		"message": "endoll"
 	},
 	"speedsketch_item~present": {
@@ -2453,7 +2453,7 @@
 	"speedsketch_item~reindeer": {
 		"message": "ren"
 	},
-	"speedsketch_item~remote_control": {
+	"speedsketch_item~remote control": {
 		"message": "comandament"
 	},
 	"speedsketch_item~rhinoceros": {
@@ -2468,7 +2468,7 @@
 	"speedsketch_item~robot": {
 		"message": "robot"
 	},
-	"speedsketch_item~roller_coaster": {
+	"speedsketch_item~roller coaster": {
 		"message": "muntanya russa"
 	},
 	"speedsketch_item~rollerskates": {
@@ -2483,7 +2483,7 @@
 	"speedsketch_item~sandwich": {
 		"message": "entrepà"
 	},
-	"speedsketch_item~santa_claus": {
+	"speedsketch_item~santa claus": {
 		"message": "Pare Noel"
 	},
 	"speedsketch_item~saturn": {
@@ -2496,9 +2496,9 @@
 		"message": "serra"
 	},
 	"speedsketch_item~saxophone": {
-		"message": "saxofon"
+		"message": "saxòfon"
 	},
-	"speedsketch_item~school_bus": {
+	"speedsketch_item~school bus": {
 		"message": "autobús escolar"
 	},
 	"speedsketch_item~scissors": {
@@ -2516,10 +2516,10 @@
 	"speedsketch_item~sculpture": {
 		"message": "escultura"
 	},
-	"speedsketch_item~sea_turtle": {
+	"speedsketch_item~sea turtle": {
 		"message": "tortuga marina"
 	},
-	"speedsketch_item~see_saw": {
+	"speedsketch_item~see saw": {
 		"message": "balancí"
 	},
 	"speedsketch_item~shark": {
@@ -2561,13 +2561,13 @@
 	"speedsketch_item~sled": {
 		"message": "trineu"
 	},
-	"speedsketch_item~sleeping_bag": {
+	"speedsketch_item~sleeping bag": {
 		"message": "sac de dormir"
 	},
 	"speedsketch_item~sleigh": {
 		"message": "trineu"
 	},
-	"speedsketch_item~smiley_face": {
+	"speedsketch_item~smiley face": {
 		"message": "cara somrient"
 	},
 	"speedsketch_item~snail": {
@@ -2585,7 +2585,7 @@
 	"speedsketch_item~snowman": {
 		"message": "ninot de neu"
 	},
-	"speedsketch_item~soccer_ball": {
+	"speedsketch_item~soccer ball": {
 		"message": "pilota de futbol"
 	},
 	"speedsketch_item~sock": {
@@ -2633,19 +2633,19 @@
 	"speedsketch_item~stethoscope": {
 		"message": "fonendoscopi"
 	},
-	"speedsketch_item~still_life": {
+	"speedsketch_item~still life": {
 		"message": "natura morta"
 	},
 	"speedsketch_item~stitches": {
 		"message": "punts de sutura"
 	},
-	"speedsketch_item~stock_market": {
-		"message": "borsa"
+	"speedsketch_item~stock market": {
+		"message": "mercat de valors"
 	},
 	"speedsketch_item~stocking": {
 		"message": "mitjó nadalenc"
 	},
-	"speedsketch_item~stop_sign": {
+	"speedsketch_item~stop sign": {
 		"message": "senyal d'estop"
 	},
 	"speedsketch_item~stopwatch": {
@@ -2660,7 +2660,7 @@
 	"speedsketch_item~streetlight": {
 		"message": "fanal de carrer"
 	},
-	"speedsketch_item~string_bean": {
+	"speedsketch_item~string bean": {
 		"message": "mongeta verda"
 	},
 	"speedsketch_item~submarine": {
@@ -2681,7 +2681,7 @@
 	"speedsketch_item~sweater": {
 		"message": "jersei"
 	},
-	"speedsketch_item~swing_set": {
+	"speedsketch_item~swing set": {
 		"message": "gronxadors"
 	},
 	"speedsketch_item~t-shirt": {
@@ -2702,13 +2702,13 @@
 	"speedsketch_item~television": {
 		"message": "televisor"
 	},
-	"speedsketch_item~tennis_racquet": {
+	"speedsketch_item~tennis racquet": {
 		"message": "raqueta de tennis"
 	},
 	"speedsketch_item~tent": {
 		"message": "tenda de campanya"
 	},
-	"speedsketch_item~tic_tac_toe_game": {
+	"speedsketch_item~tic tac toe game": {
 		"message": "tres en ratlla"
 	},
 	"speedsketch_item~tiger": {
@@ -2741,7 +2741,7 @@
 	"speedsketch_item~tractor": {
 		"message": "tractor"
 	},
-	"speedsketch_item~traffic_light": {
+	"speedsketch_item~traffic light": {
 		"message": "semàfor"
 	},
 	"speedsketch_item~train": {
@@ -2795,7 +2795,7 @@
 	"speedsketch_item~walnut": {
 		"message": "nou"
 	},
-	"speedsketch_item~washing_machine": {
+	"speedsketch_item~washing machine": {
 		"message": "rentadora"
 	},
 	"speedsketch_item~watermelon": {
