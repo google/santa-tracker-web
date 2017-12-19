@@ -83,12 +83,6 @@ SantaService = function SantaService(clientId, lang, version) {
   this.previousSync_ = null;
 
   /**
-   * The known URL for route data.
-   * @private {?string}
-   */
-  this.routeUrl_ = null;
-
-  /**
    * The pending Route.
    */
   this.route_ = null;
@@ -150,29 +144,83 @@ SantaService.prototype.removeListener = function(eventName, handler) {
 
 /**
  * @param {function(SantaState)} callback
+ * @return {!Promise<SantaState>}
  * @export
  */
 SantaService.prototype.getCurrentLocation = function(callback) {
-  callback(/** @type {SantaState} */ ({
-    position: {lat: 0, lng: 0},
-    presentsDelivered: 0,
-    distanceTravelled: 0,
-    heading: 0,
-    prev: null,
-    stopover: null,
-    next: {lat: 0, lng: 10},
-  }));
+  const p = this.route().then((route) => {
+    const now = this.now();
+    const dest = route.findDestination(now);
+    const next = dest.next();
+
+    if (now < dest.departure) {
+      // Santa is at this location.
+      return /** @type {SantaState} */ ({
+        position: dest.getLocation(),
+        presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest.prev(), dest, next),
+        distanceTravelled: dest.getDistanceTravelled(),
+        heading: 0,
+        prev: dest.prev(),
+        stopover: dest,
+        next: next,
+      });
+    }
+
+    // Santa is in transit.
+    const travelTime = next.arrival - dest.departure;
+    const elapsed = Math.max(now - dest.departure, 0);
+
+    const userLocation = this.getUserLocation();
+    let currentLocation;
+
+/*    if (dest.id === this.userStopAfter_ && userLocation != null) {
+      const ratio = elapsed / travelTime;
+      // If this is the segment where the user is, interpolate to them.
+      var firstDistance = Spherical.computeDistanceBetween(dest.getLocation(), userLocation);
+      var secondDistance = Spherical.computeDistanceBetween(userLocation, next.getLocation());
+      var along = (firstDistance + secondDistance) * ratio;
+      if (along < firstDistance) {
+        var firstRatio = firstDistance ? (along / firstDistance) : 0;
+        currentLocation = Spherical.interpolate(dest.getLocation(), userLocation, firstRatio);
+      } else {
+        var secondRatio = secondDistance ? ((along - firstDistance) / secondDistance) : 0;
+        currentLocation = Spherical.interpolate(userLocation, next.getLocation(), secondRatio);
+      }
+    } else */ {
+      // Otherwise, interpolate between stops normally.
+      currentLocation = Spherical.interpolate(
+          dest.getLocation(),
+          next.getLocation(),
+          elapsed / travelTime);
+    }
+
+    return /** @type {SantaState} */ ({
+      position: currentLocation,
+      heading: Spherical.computeHeading(currentLocation, next.getLocation()),
+      presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest, null, next),
+      distanceTravelled: 0, // this.calculateDistanceTravelled_(now, dest, next),
+      prev: dest,
+      stopover: null,
+      next: next,
+    });
+  });
+
+  if (callback) {
+    p.then((state) => callback(state));
+  }
+  return p;
 };
 
 /**
  * List of destinations, sorted chronologically (latest destinations last).
  *
- * @return {Array<!SantaLocation>} a list of destinations, or null if the
+ * @return {!Array<!SantaLocation>} a list of destinations, or null if the
  * service isn't ready.
  * @export
  */
 SantaService.prototype.getDestinations = function() {
-  return null;
+  // TODO(samthor): Slice by most recent destinations.
+  return [];
 };
 
 /**
@@ -196,7 +244,8 @@ SantaService.prototype.getUserInEurope = function() {
 };
 
 /**
- * Returns the expected arrival time of Santa. This is not transformed by any offset.
+ * Returns the expected arrival time of Santa for this specific user. This is not transformed by
+ * any offset.
  * @return {number} the expected arrival time of Santa, or zero if unknown
  * @export
  */
@@ -263,8 +312,6 @@ SantaService.prototype.sync = function() {
       }
     }
 
-    console.info('got result', result);
-
     this.userLocation_ = parseLatLng(/** @type {string} */ (result['location']));
     this.scheduleSync_(/** @type {number} */ (result['refresh']), false);
 
@@ -290,11 +337,63 @@ class Route {
   /**
    * @param {!Object<string, *>} data
    */
-  constructor(data) {
+  constructor(url, data) {
+    /** @type {string} */
+    this.url = url;
+
     // TODO
-    this.destinations_ = data['destination'];
     this.stream_ = data['stream'];
+
+    const destinations = /** @type {!Array<!Object>} */ (data['destinations']) || [];
+    const arr = [];
+    const update = destinations.map((raw, i) => new SantaLocation(raw, arr, i));
+    arr.push(...update);
+
+    /**
+     * @export @const @type {!Array<!SantaLocation>}
+     */
+    this.locations = arr;
+    if (!this.locations.length) {
+      console.warn('got bad data', data);
+      throw new Error('no destinations for Santa');
+    }
+
+    /**
+     * @type {number}
+     */
+    this.previousFoundDestination_ = 0;
   }
+
+  /**
+   * @return {!Array<!SantaLocation>}
+   * @export
+   */
+  getLocations() {
+    return this.locations;
+  }
+
+  /**
+   * Finds Santa's current SantaLocation, or the one he was most recently at.
+   *
+   * @param {number} timestamp
+   * @return {!SantaLocation}
+   * @private
+   */
+  findDestination(timestamp) {
+    const first = this.locations[0];
+    if (first.departure > timestamp) {
+      return first;  // not flying yet, assume at workshop
+    }
+
+    let i;
+    for (i = 0; i < this.locations.length; ++i) {
+      const dest = this.locations[i];
+      if (timestamp < dest.arrival) {
+        break;
+      }
+    }
+    return this.locations[i - 1] || first;
+  };
 }
 
 /**
@@ -304,7 +403,12 @@ class Route {
  * @export
  */
 SantaService.prototype.route = function() {
-  return this.recent().then((data) => {
+  if (this.route_) {
+    // TODO: we need to be able to invalidate thsi
+    return this.route_;
+  }
+
+  const p = this.recent().then((data) => {
     const url = /** @type {string} */ (data['route']);
 
     const previousUrl = window.localStorage['routeUrl'];
@@ -318,13 +422,13 @@ SantaService.prototype.route = function() {
           // ignore
         }
         if (json && typeof json === 'object') {
-          return new Route(json);
+          return new Route(url, json);
         }
         console.debug('couldn\'t parse cached route JSON');
       }
     }
 
-    const p = fetchJSON(url).then((routeData) => {
+    return fetchJSON(url).then((routeData) => {
       if (this.route_ !== p) {
         return this.route_;  // we got changed, return the replacement
       }
@@ -339,11 +443,12 @@ SantaService.prototype.route = function() {
       // this is totally safe to do. At worst, eviction will just force another network request.
       window.localStorage['routeUrl'] = url;
       window.localStorage['route'] = JSON.stringify(routeData);
-      return new Route(data);
+      return new Route(url, data);
     });
-    this.route_ = p;
-    return p;
   });
+
+  this.route_ = p;
+  return p;
 };
 
 /**

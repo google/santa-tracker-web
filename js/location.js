@@ -25,12 +25,11 @@ goog.provide('SantaLocation');
  *
  * @constructor
  * @param {!Object} destination Destination response from the server.
- * @param {function(string, function(SantaDetails))} fetchDetails
  * @param {!Array<!SantaLocation>} array The route array.
  * @param {number} index Index of this location in the array.
  * @export
  */
-SantaLocation = function SantaLocation(destination, fetchDetails, array, index) {
+SantaLocation = function SantaLocation(destination, array, index) {
   // We copy fields from destination onto this object. The fields are-
   // >> id, arrival, departure, presentsDelivered, population, city, region, location, details
 
@@ -72,23 +71,11 @@ SantaLocation = function SantaLocation(destination, fetchDetails, array, index) 
 
   // Properties below are private and not from destination.
 
-  /** @private {number} */
-  this.lastFetchAttempt_ = 0;
-
-  /** @private {!Array<function(SantaDetails)>} */
-  this.queuedCallbacks_ = [];
-
-  /** @private {function(string, function(SantaDetails))} */
-  this.fetchDetails_ = fetchDetails;
-
   /** @private {!Array<!SantaLocation>} */
   this.array_ = array;
 
   /** @private {number} */
   this.index_ = index;
-
-  /** @private {SantaDetails} */
-  this.details_ = null;
 
   /** @private {?number} */
   this.distanceTravelled_ = null;
@@ -118,28 +105,7 @@ SantaLocation.prototype.getDistanceTravelled = function() {
  * @export
  */
 SantaLocation.prototype.getDetails = function(callback) {
-  if (!callback) {
-    return;
-  }
-  if (this.details_) {
-    callback(this.details_);
-    return;
-  }
-  this.queuedCallbacks_.push(callback);
-  // Only fetch once every 10 seconds.
-  if (new Date() - this.lastFetchAttempt_ < 10 * 1000) {
-    // Too soon, junior.
-    return;
-  }
-  this.lastFetchAttempt_ = +new Date();
-
-  this.fetchDetails_(this.id, details => {
-    this.details_ = details;
-    for (let i = 0, cb; cb = this.queuedCallbacks_[i]; ++i) {
-      cb(details);
-    }
-    this.queuedCallbacks_ = [];
-  });
+  callback && callback(this.details);
 };
 
 /**
@@ -171,8 +137,7 @@ SantaLocation.prototype.prev = function() {
 };
 
 /**
- * @return {!SantaLocation} Santa's next destination, or null if
- * there is no next destination.
+ * @return {!SantaLocation} Santa's next destination.
  * @export
  */
 SantaLocation.prototype.next = function() {

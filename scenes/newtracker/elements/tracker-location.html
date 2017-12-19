@@ -124,7 +124,7 @@ Tracker location information, including photos.
     },
 
     _onDetailsChanged: function(details) {
-      if (this.details && this.details.hasWiki) {
+      if (this.details && this.details.hasWiki && this.details.wikipedia) {
         this._wikiHtml = this.details.wikipedia.excerpt;
       } else {
         this._wikiHtml = null;
