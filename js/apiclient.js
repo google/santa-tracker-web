@@ -46,7 +46,6 @@ SantaService = function SantaService(clientId, lang, version) {
   /**
    * A number between 0 and 1, consistent within a user session. Sent to the
    * server to determine a consistent time offset for this client.
-   *
    * @const @private {number}
    */
   this.jitterRand_ = Math.random();
@@ -73,13 +72,29 @@ SantaService = function SantaService(clientId, lang, version) {
 
   /**
    * Active sync promise.
-   * @private {Promise<undefined>}
+   * @private {Promise<!Object<string, *>>}
    */
   this.activeSync_ = null;
 
   /**
-   * Santa's next stop. Used to determine whether to trigger the "next stop"
-   * card.
+   * Active or previous sync promise.
+   * @private {Promise<!Object<string, *>>}
+   */
+  this.previousSync_ = null;
+
+  /**
+   * The known URL for route data.
+   * @private {?string}
+   */
+  this.routeUrl_ = null;
+
+  /**
+   * The pending Route.
+   */
+  this.route_ = null;
+
+  /**
+   * Santa's next stop. Used to determine whether to trigger the "next stop" card.
    * @private {SantaLocation}
    */
   this.nextStop_ = null;
@@ -198,11 +213,23 @@ SantaService.prototype.getStream = function() {
 };
 
 /**
+ * Synchronize info with the server, but not if a sync was recently completed.
+ *
+ * @return {!Promise<!Object<string, *>>}
+ */
+SantaService.prototype.recent = function() {
+  if (this.recentSync_) {
+    return this.recentSync_;
+  }
+  return this.sync();
+};
+
+/**
  * Synchronize info with the server. This function returns immediately, the
  * synchronization is performed asynchronously.
  *
  * @export
- * @return {!Promise<undefined>}
+ * @return {!Promise<!Object<string, *>>}
  */
 SantaService.prototype.sync = function() {
   if (this.activeSync_) {
@@ -215,21 +242,19 @@ SantaService.prototype.sync = function() {
     'language': this.lang_,
   };
   const p = santaAPIRequest('info', data);
-  this.activeSync_ = p.then(() => null);
+  this.activeSync_ = p;
+  this.recentSync_ = p;
 
   p.then((result) => {
-    let ok = true;
-    if (result['status'] !== 'OK') {
-      console.error('api', result['status']);
+    const ok = (result['status'] === 'OK' && !result['switchOff']);
+    if (ok) {
+      this.setOffline_(false);
+    } else {
+      console.error('api', result['status'], result['switchOff']);
       this.kill_();
-      ok = false;
     }
 
     this.offset_ = result['now'] + result['timeOffset'] - new Date();
-    if (result['switchOff']) {
-      this.kill_();
-      ok = false;  // not technically offline, but let's pretend
-    }
 
     if (result['upgradeToVersion'] && this.version_) {
       if (this.version_ < result['upgradeToVersion']) {
@@ -238,9 +263,7 @@ SantaService.prototype.sync = function() {
       }
     }
 
-    if (ok) {
-      this.reconnect_();
-    }
+    console.info('got result', result);
 
     this.userLocation_ = parseLatLng(/** @type {string} */ (result['location']));
     this.scheduleSync_(/** @type {number} */ (result['refresh']), false);
@@ -251,13 +274,76 @@ SantaService.prototype.sync = function() {
 
   p.catch(() => {
     this.scheduleSync_(0, true);
-    this.disconnect_();
+    this.setOffline_(true);
   }).then(() => {
     // always clear activeSync_
     this.activeSync_ = null;
   });
 
   return this.activeSync_;
+};
+
+/**
+ * @export
+ */
+class Route {
+  /**
+   * @param {!Object<string, *>} data
+   */
+  constructor(data) {
+    // TODO
+    this.destinations_ = data['destination'];
+    this.stream_ = data['stream'];
+  }
+}
+
+/**
+ * Fetches the route.
+ *
+ * @return {!Promise<!Route>}
+ * @export
+ */
+SantaService.prototype.route = function() {
+  return this.recent().then((data) => {
+    const url = /** @type {string} */ (data['route']);
+
+    const previousUrl = window.localStorage['routeUrl'];
+    if (previousUrl === url) {
+      const routeData = window.localStorage['route'];
+      if (routeData) {
+        let json;
+        try {
+          json = /** @type {!Object<string, *>} */ (JSON.parse(routeData));
+        } catch (e) {
+          // ignore
+        }
+        if (json && typeof json === 'object') {
+          return new Route(json);
+        }
+        console.debug('couldn\'t parse cached route JSON');
+      }
+    }
+
+    const p = fetchJSON(url).then((routeData) => {
+      if (this.route_ !== p) {
+        return this.route_;  // we got changed, return the replacement
+      }
+
+      // hard-coded removal of most of the JSON
+      routeData = {
+        'destinations': routeData['destinations'],
+        'stream': routeData['stream'],
+      };
+
+      // This will store about ~600-700kb of route data: the best resources online indicate that
+      // this is totally safe to do. At worst, eviction will just force another network request.
+      window.localStorage['routeUrl'] = url;
+      window.localStorage['route'] = JSON.stringify(routeData);
+      return new Route(data);
+    });
+    this.route_ = p;
+    return p;
+  });
 };
 
 /**
@@ -288,7 +374,7 @@ SantaService.prototype.scheduleSync_ = function(after, foreground) {
 };
 
 /**
- * Send the kill event, if not already killed.
+ * Send the kill event, if not already killed. Once killed, a client must restart.
  *
  * @private
  */
@@ -300,28 +386,22 @@ SantaService.prototype.kill_ = function() {
 };
 
 /**
- * Send the offline event, if not alreay offline.
+ * Set offline status, including firing relevant events
  *
+ * @param {boolean} offline whether we are probably offline
  * @private
  */
-SantaService.prototype.disconnect_ = function() {
-  if (!this.offline_) {
+SantaService.prototype.setOffline_ = function(offline) {
+  if (this.offline_ === offline) {
+    // do nothing
+  } else if (offline) {
     this.offline_ = true;
     Events.trigger(this, 'offline');
-  }
-};
-
-/**
- * Send the online event, if not already online.
- *
- * @private
- */
-SantaService.prototype.reconnect_ = function() {
-  if (this.offline_) {
+  } else {
     this.offline_ = false;
     Events.trigger(this, 'online');
   }
-};
+}
 
 /**
  * @return {number}

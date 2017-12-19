@@ -30,16 +30,14 @@ function buildQueryString(data) {
 }
 
 /**
- * Performs a cross-domain AJAX request to the Santa API.
+ * Performs a cross-domain AJAX request to fetch JSON.
  *
  * @param {string} url
- * @param {!Object<string, (string|number)>} data
- * @return {!Promise<!Object<string, (string|number|boolean)>>}
+ * @return {!Promise<!Object<string, *>>}
  */
-function santaAPIRequest(url, data) {
+function fetchJSON(url) {
   return new Promise((resolve, reject) => {
     let requests = 0;
-    const query = buildQueryString(data);
 
     /** @this {XMLHttpRequest} */
     function onload() {
@@ -47,14 +45,14 @@ function santaAPIRequest(url, data) {
       try {
         out = JSON.parse(this.responseText);
       } catch (e) {
-        console.debug('invalid JSON from santa-api', e);
+        console.debug('invalid JSON', e);
         return reject(e)
       }
       if (!out || typeof out !== 'object') {
         console.warn('non-object JSON return', out);
         out = {'status': out};
       }
-      resolve(/** @type {!Object<string, (string|number|boolean)>} */ (out));
+      resolve(/** @type {!Object<string, *>} */ (out));
     }
 
     (function request() {
@@ -64,7 +62,7 @@ function santaAPIRequest(url, data) {
       ++requests;
 
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', santaAPIRequest.BASE + url + query);
+      xhr.open('GET', url);
       xhr.timeout = santaAPIRequest.TIMEOUT;  // IE needs this >open but <send
       xhr.onload = onload;
       xhr.onerror = () => {
@@ -74,6 +72,18 @@ function santaAPIRequest(url, data) {
       xhr.send(null);
     })();
   });
+}
+
+/**
+ * Performs a cross-domain AJAX request to the Santa API.
+ *
+ * @param {string} url
+ * @param {!Object<string, (string|number)>} data
+ * @return {!Promise<!Object<string, *>>}
+ */
+function santaAPIRequest(url, data) {
+  const query = buildQueryString(data);
+  return fetchJSON(santaAPIRequest.BASE + url + query);
 }
 
 /** @define {string} */
