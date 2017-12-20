@@ -443,7 +443,7 @@ SantaService.prototype.route = function() {
       // this is totally safe to do. At worst, eviction will just force another network request.
       window.localStorage['routeUrl'] = url;
       window.localStorage['route'] = JSON.stringify(routeData);
-      return new Route(url, data);
+      return new Route(url, routeData);
     });
   });
 
