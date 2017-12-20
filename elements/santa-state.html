@@ -82,9 +82,6 @@ santaService.addListener('reload', function() {
   }, duration);
 });
 
-santaService.sync();
-window.addEventListener('online', () => santaService.sync());
-
 let currentTime = Date.now();  // TODO(samthor): could be undefined to start with?
 let notifyTimeout = window.setTimeout(notifyCurrentTime, 2500);  // trigger after 2.5s
 function notifyCurrentTime() {

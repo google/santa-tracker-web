@@ -415,13 +415,13 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     ],
 
     _santaSync: function(data) {
-      var wrapper = function(data) {
-        window.requestAnimationFrame(function() {
+      const wrapper = (data) => {
+        window.requestAnimationFrame(() => {
           window.clearTimeout(this._updateSantaTimeout);
           this._updateSantaTimeout = window.setTimeout(this._santaSync, UPDATE_MS);
           this._santaUpdate(data);
-        }.bind(this));
-      }.bind(this);
+        });
+      };
 
       if (data && data.position && data.position.lat) {
         wrapper(data);
@@ -626,7 +626,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _computeArrivalTime: function(hours, strings) {
-      console.info('computing arrival time', hours, strings);
       if (!strings) {
         return '';
       }
