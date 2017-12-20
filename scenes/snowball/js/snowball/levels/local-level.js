@@ -15,6 +15,7 @@ export class LocalLevel extends MainLevel {
     this.lastErosionTick = 0;
     this.lastDropTick = 0;
     this.lastBotTick = 0;
+    this.startTime = +new Date;
 
     const seed = (Math.random() * 0x100000000) & 0xffffffff;  // 32bit int
     mapSystem.rebuildMap(game, seed);
@@ -66,6 +67,7 @@ export class LocalLevel extends MainLevel {
       window.santaApp.fire('game-stop', {
         score: population.knockedOut,
       });
+      window.ga('send', 'event', 'game', 'win', 'snowball');
     }
   }
 }
