@@ -24,17 +24,17 @@ template.innerHTML = `
   text-align: center;
   color: #fff;
   background-color: #68E4C1;
-  font-family: Lobster;
+  font-family: 'Lobster';
   border-radius: 6px;
-  box-shadow: 0px 5px 0px rgba(204, 204, 204, 0.5);
+  box-shadow: 0px 4px 0px rgba(66, 66, 66, 0.5);
+}
+
+small {
+  transform: scale(0.5);
 }
 
 h1 {
   font-size: 4em;
-  margin: 0;
-}
-
-h2 {
   margin: 0;
 }
 
@@ -46,8 +46,7 @@ h2 {
 }
 </style>
 <div id="container">
-  <h1><span id="remaining">0</span>/<span id="maximum">100</span></h1>
-  <h2>Elves Remaining</h2>
+  <h1><span id="remaining">0</span><small>/</small><span id="maximum">100</span></h1>
 </div>
 `;
 

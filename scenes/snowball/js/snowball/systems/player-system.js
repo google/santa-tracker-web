@@ -21,6 +21,7 @@ export class PlayerSystem {
 
     this.playerDestinations = {};
     this.playerTargetedPositions = {};
+    this.playerPowerups = [];
   }
 
   teardown(game) {
@@ -99,6 +100,7 @@ export class PlayerSystem {
     const { powerups } = player;
 
     powerups.collect(powerupType);
+    this.playerPowerups.push(player);
   }
 
   assignPlayerDestination(playerId, destination) {
@@ -134,6 +136,12 @@ export class PlayerSystem {
     if (map == null) {
       return;
     }
+
+    // Generate noise iff a powerup was collected by a player.
+    if (this.playerPowerups.some((player) => player === clientPlayer)) {
+      window.santaApp.fire('sound-trigger', 'snowball_pickup');
+    }
+    this.playerPowerups = [];
 
     // New players are passed through the parachute system...
     while (this.newPlayers.length) {
@@ -209,6 +217,10 @@ export class PlayerSystem {
       const targetPosition = this.playerTargetedPositions[playerId];
       const partial = intermediateVector2;
 
+      if (player === clientPlayer) {
+        // only make noise if we're throwing it
+        window.santaApp.fire('sound-trigger', 'snowball_throw');
+      }
       snowballSystem.throwSnowball(player, targetPosition);
 
       partial.subVectors(targetPosition, player.position).normalize();
@@ -239,6 +251,7 @@ export class PlayerSystem {
           Elf.free(player);
           this.playerLayer.remove(player);
         }
+        window.santaApp.fire('sound-trigger', 'snowball_frozen');
 
         stateSystem.recordPlayerKnockedOut();
       }

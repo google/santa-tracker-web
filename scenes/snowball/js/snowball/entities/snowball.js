@@ -140,6 +140,7 @@ export class Snowball extends AllocatableEntityMesh {
           if (collidable === this.thrower) {
             return;
           }
+          window.santaApp.fire('sound-trigger', 'snowball_hit');
 
           this.collidedWith = collidable;
           this.visible = false;
@@ -235,6 +236,4 @@ export class Snowball extends AllocatableEntityMesh {
     };
   };
 };
-
-window.S = Snowball;
 
