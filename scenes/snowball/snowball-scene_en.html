@@ -241,7 +241,7 @@ Snowball Storm scene.
     <button id="jumpBtn" alt="Start" on-click="onJumpClicked"></button>
   </div>
 
-  <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4"></santa-tutorial>
+  <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4" show delay="500"></santa-tutorial>
 
 </template>
 <script>
@@ -275,6 +275,8 @@ Snowball Storm scene.
     onJumpClicked() {
       this.$.jumpBtn.hidden = true;
       this.classList.add('intro');
+
+      this.$.tutorial.show = false;  // only show before game starts
 
       awaitAnimation(this.$.dropCloud).then(() => {
         this.start();
