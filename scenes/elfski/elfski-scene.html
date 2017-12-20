@@ -240,6 +240,11 @@ Polymer({
     if (!force && ev.pressure !== undefined && ev.pressure < 0.5) {
       return;
     }
+    if (ev && 'buttons' in ev) {
+      if (!ev.buttons) {
+        return;
+      }
+    }
     this._pointer = {
       x: ev.offsetX - (ev.target.offsetWidth / 2),
       y: ev.offsetY - (ev.target.offsetHeight / 3),
