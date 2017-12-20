@@ -230,6 +230,7 @@ export class PlayerSystem {
       if (tileState === 4.0 && presence.present && !presence.exiting) {
         player.sink();
         entityRemovalSystem.freezeEntity(player);
+        player.health.alive = false;
       } else if (presence.gone) {
         this.players.splice(i--, 1);
 

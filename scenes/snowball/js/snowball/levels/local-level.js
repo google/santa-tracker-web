@@ -63,7 +63,9 @@ export class LocalLevel extends MainLevel {
 
     if (population.knockedOut >= (population.maximum - 1)) {
       // TODO(cdata): Is there a special victory screen?
-      window.santaApp.fire('game-stop', {});
+      window.santaApp.fire('game-stop', {
+        score: population.knockedOut,
+      });
     }
   }
 }

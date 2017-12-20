@@ -21,6 +21,7 @@ export class ClientSystem {
 
     this.arrivalMarker = arrivalMarker;
     this.announcedDeath = false;
+    this.lastValidScore = 0;
   }
 
   assignTarget(target) {
@@ -57,16 +58,28 @@ export class ClientSystem {
       return;
     }
 
+    const { clockSystem, stateSystem } = game;
+    const { population } = stateSystem;
+    const { knockedOut, maximum } = population;
+
     const { camera } = game;
     const { presence, playerId, health, path, arrival } = this.player;
 
     if (health.dead) {
       if (presence.gone && !this.announcedDeath) {
-        window.santaApp.fire('game-stop', {});
+        window.santaApp.fire('game-stop', {
+          score: this.lastValidScore,
+        });
         this.announcedDeath = true;
       }
       return;
     }
+
+    window.santaApp.fire('game-score', {
+      score: knockedOut,
+      time: (clockSystem.time / 1000),
+    });
+    this.lastValidScore = knockedOut;
 
     const { networkSystem, playerSystem, mapSystem } = game;
     const { grid } = mapSystem;
