@@ -517,7 +517,7 @@ app.Models = [
     'opens': 21,
     'type': 'Play',
     'filter': 'new',
-    'description': 'Participate in a traditional snowball fight, plus a few twists, with fellow elves from all over the world!',
+    'description': 'Participate in a traditional snowball fight with other elves!',
     'resources': [
       // TODO(samthor): resources
     ]
