@@ -26,6 +26,7 @@ Snowball Storm scene.
   <style>
     :host {
       background: #71a7db;
+      touch-action: none;
     }
 
     santa-weather {
@@ -241,7 +242,7 @@ Snowball Storm scene.
     <button id="jumpBtn" alt="Start" on-click="onJumpClicked"></button>
   </div>
 
-  <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4"></santa-tutorial>
+  <santa-tutorial id="tutorial" tutorials="snowball_move.mp4 snowball_throw.mp4" show delay="500"></santa-tutorial>
 
 </template>
 <script>
@@ -261,6 +262,7 @@ Snowball Storm scene.
     behaviors: [window.SantaSceneBehavior],
 
     onPreload() {
+      this.preloadSounds('snowball_load_sounds');
       this.preloadImages([
         'img/sleigh.png',
         'img/item-frame.png',
@@ -269,11 +271,21 @@ Snowball Storm scene.
         'img/snowball.png',
         'img/tiles.png',
       ]);
+      this.preloadPaths([
+        'models/elf-animated.bin',
+        'models/elf-animated.gltf',
+        'models/elf-tidy.png',
+        'models/elf.bin',
+        'models/elf.gltf',
+        'models/elf.png',
+      ]);
     },
 
     onJumpClicked() {
       this.$.jumpBtn.hidden = true;
       this.classList.add('intro');
+
+      this.$.tutorial.show = false;  // only show before game starts
 
       awaitAnimation(this.$.dropCloud).then(() => {
         this.start();

@@ -192,6 +192,27 @@ specific language governing permissions and limitations under the License.
     },
 
     /**
+     * A helper method that makes AJAX requests to load resources.
+     */
+    preloadPaths: function(urls) {
+      if (!urls.length) {
+        return;
+      }
+
+      const promises = urls.map((url) => {
+        return new Promise((resolve) => {
+          const x = new XMLHttpRequest();
+          x.open('GET', this.resolveUrl(url));
+          x.onload = resolve;
+          x.onerror = resolve;
+          x.send(null);
+        });
+      });
+
+      this.preloadPromise(Promise.all(promises));
+    },
+
+    /**
      * A helper method for preloading an array of image URLs.
      * @param {!Array<string>} imageUrls
      */

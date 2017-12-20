@@ -107,6 +107,14 @@ Polymer({
     },
 
     /**
+     * The delay, in ms, to wait before showing tutorials.
+     */
+    delay: {
+      type: Number,
+      value: 4000,
+    },
+
+    /**
      * The type of tutorials to show. Allows 'mouse' (or anything/default), 'touch' and 'spacenav'.
      */
     _mode: {
@@ -124,7 +132,7 @@ Polymer({
   },
 
   observers: [
-    '_updateTutorials(show, _tutorials, dismissed)',
+    '_updateTutorials(show, _tutorials, dismissed, delay)',
   ],
 
   ready: function() {
@@ -207,7 +215,7 @@ Polymer({
     return s;
   },
 
-  _updateTutorials: function(show, tutorialSet, dismissed) {
+  _updateTutorials: function(show, tutorialSet, dismissed, delay) {
     if (!show) {
       this.cancelDebouncer('_updateTutorials');
       this._setActive(null);
@@ -235,7 +243,7 @@ Polymer({
         }
       }, this);
       done || this._setActive(null);
-    }, 4000);
+    }, delay);
   },
 
   _activeChanged: function(active) {

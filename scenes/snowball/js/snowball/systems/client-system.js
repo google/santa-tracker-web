@@ -7,6 +7,7 @@ const {
   MeshBasicMaterial
 } = self.THREE;
 
+const endGameAfter = 2500;
 const localClientId = 'local';
 
 export class ClientSystem {
@@ -21,6 +22,8 @@ export class ClientSystem {
 
     this.arrivalMarker = arrivalMarker;
     this.announcedDeath = false;
+    this.lastValidScore = 0;
+    this.wasDeadAt = 0;
   }
 
   assignTarget(target) {
@@ -57,16 +60,35 @@ export class ClientSystem {
       return;
     }
 
+    const { clockSystem, stateSystem } = game;
+    const { population } = stateSystem;
+    const { knockedOut, maximum } = population;
+
     const { camera } = game;
     const { presence, playerId, health, path, arrival } = this.player;
 
     if (health.dead) {
-      if (presence.gone && !this.announcedDeath) {
-        window.santaApp.fire('game-stop', {});
+      const now = performance.now();
+      if (!this.wasDeadAt) {
+        // even if the player isn't gone, announce the game over status quickly
+        this.wasDeadAt = now;
+      }
+
+      if ((presence.gone || now - this.wasDeadAt > endGameAfter) && !this.announcedDeath) {
+        console.info('now was', now, 'wasDeadAt', this.wasDeadAt);
+        window.santaApp.fire('game-stop', {
+          score: this.lastValidScore,
+        });
         this.announcedDeath = true;
       }
       return;
     }
+
+    window.santaApp.fire('game-score', {
+      score: knockedOut,
+      time: (clockSystem.time / 1000),
+    });
+    this.lastValidScore = knockedOut;
 
     const { networkSystem, playerSystem, mapSystem } = game;
     const { grid } = mapSystem;
