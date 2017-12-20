@@ -30,8 +30,11 @@ Tracker map.
 
   <iron-media-query query="(pointer: fine)" query-matches="{{_hasPointer}}"></iron-media-query>
 
-  <img src="../img/marker.png" id="marker" hidden />
-  <img src="../img/northpole.png" id="northpoleMarker" hidden />
+  <div hidden>
+    <!-- preloading -->
+    <img src$="[[importPath]]../img/marker.png" id="marker" />
+    <img src$="[[importPath]]../img/northpole.png" id="northpoleMarker" />
+  </div>
 
   <div id="santa" tabindex="0" hidden>
     <div class="presents" hidden>
