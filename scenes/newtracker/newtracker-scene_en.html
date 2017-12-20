@@ -763,14 +763,16 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         return;
       }
 
-      var start = document.body.scrollTop;
-      var duration = Math.abs(to - start) / 2;
-      var prev = start;
+      const se = document.scrollingElement;
+      const start = se.scrollTop;
+      const duration = Math.abs(to - start) / 4;
+      let prev = start;
+      let anim;  // set below, needed in onsample
 
-      var div = document.createElement('div');
-      var effect = new KeyframeEffect(div, [], {duration: duration, easing: 'ease-out'});
-      effect.onsample = function(frac) {
-        if (document.body.scrollTop !== prev) {
+      const div = document.createElement('div');
+      const effect = new KeyframeEffect(div, [], {duration: duration, easing: 'ease-out'});
+      effect.onsample = (frac) => {
+        if (se.scrollTop !== prev) {
           prev = NaN;
           anim.cancel();  // give up, we're done, something moved
         } else {
