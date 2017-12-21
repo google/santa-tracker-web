@@ -188,23 +188,20 @@ Tracker map.
     /**
      * Builds or reuses a marker for the tracker.
      */
-    SantaLayer.prototype._fetchMarker = function(position, data) {
+    SantaLayer.prototype._fetchMarker = function(data) {
       let next = this._markerPool.pop();
       if (next) {
-        next.setPosition(position);
+        next.setPosition(data.location);
         next.setMap(this.getMap());
       } else {
         next = new google.maps.Marker({
-          position: position,
+          position: data.location,
           map: this.getMap(),
         });
         next.addListener('click', this._onRouteMarkerClick.bind(this, next));
       }
 
-      // TODO(samthor): This is a bit ugly just for one location.
-      const northpole = (data && data.id === 'takeoff');
-      next.setIcon(northpole ? this._northpoleIcon : this._locationIcon);
-
+      next.setIcon(data.isNorthPole() ? this._northpoleIcon : this._locationIcon);
       next.set('st_dest', data);
       return next;
     };
@@ -243,7 +240,7 @@ Tracker map.
           continue;
         }
         const dest = destinations[this._markers.length];
-        this._markers.push(this._fetchMarker(dest.location, dest));
+        this._markers.push(this._fetchMarker(dest));
       }
 
       // If a limit was specified, then hide previous markers.
@@ -514,7 +511,8 @@ Tracker map.
 
     _mapsAPIReady: function() {
       if (this._map) {
-        throw new Error('can\'t mapsAPIReady more than once');
+        console.warn('shouldn\'t mapsAPIReady more than once');
+        return;
       }
 
       const map = new google.maps.Map(this.$.map, {

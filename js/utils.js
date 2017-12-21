@@ -60,7 +60,7 @@ function randomChoice(array) {
 }
 
 /**
- * Shuffles an array.
+ * Shuffles an array. Returns a new array, not the previous array.
  *
  * @param {!IArrayLike<T>} opts to shuffle
  * @param {number=} limit return only this many elements

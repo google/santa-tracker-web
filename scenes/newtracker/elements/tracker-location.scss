@@ -142,20 +142,6 @@ $photo-maxwidth: 600px;
   }
 }
 
-p, ul, ol {
-  margin: 0;
-  margin-top: 8px;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  font: inherit;
-  b, strong {
-    font-weight: 500;
-  }
-}
-
 h1 {
   margin: 0;
   font-family: 'Lobster';

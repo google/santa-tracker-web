@@ -30,14 +30,14 @@ Tracker location information, including photos.
       <div class="size">
         <div class="move move-photo1 offscreen" id="move1">
           <div class="photo">
-            <div class="overlay" style$="[[_computeOverlayStyle(_overlayBit)]]"></div>
+            <div class="overlay" style$="[[_computeOverlayStyle(_overlays.0)]]"></div>
           </div>
         </div>
       </div>
       <div class="size">
         <div class="move move-photo0 offscreen" id="move0">
           <div class="photo">
-            <div class="overlay" style$="[[_computeOverlayStyle(_overlayBit)]]"></div>
+            <div class="overlay" style$="[[_computeOverlayStyle(_overlays.1)]]"></div>
           </div>
         </div>
       </div>
@@ -48,50 +48,20 @@ Tracker location information, including photos.
         </div>
       </div>
     </div>
-    <div id="wiki"></div>
+    <div id="wiki"><!-- disused, used for sizing -->
   </div>
 </template>
 <script>
 (function() {
-  const CHAR_LIMIT = 1200;
+  const OVERLAY_COUNT = 17;
   const PANORAMIO_PATH_MEDIUM = '//mw2.google.com/mw-panoramio/photos/medium/';
   const PANORAMIO_PATH_ORIGINAL = '//static.panoramio.com.storage.googleapis.com/photos/large/';
 
-  function limitHtml(html) {
-    const out = document.createDocumentFragment();
-    if (!html) {
-      return out;
-    }
-
-    let charCount = 0;
-    const dom = document.createElement('div');
-    dom.innerHTML = html;
-    Array.prototype.slice.call(dom.children).forEach((node) => {
-      if (charCount > CHAR_LIMIT) {
-        return;
-      }
-
-      const name = node.localName.toLowerCase();
-      switch (name) {
-      case 'script':
-        return;
-      case 'p':
-        const prevCharCount = charCount;
-        charCount += node.textContent.length;
-
-        if (charCount > CHAR_LIMIT) {
-          node.textContent = node.textContent.substr(0, CHAR_LIMIT - prevCharCount) + '...';
-        }
-        if (!node.textContent) {
-          return;
-        }
-      }
-
-      out.appendChild(node);
-    });
-
-    return out;
+  const overlays = [];
+  for (let i = 0; i < OVERLAY_COUNT; ++i) {
+    overlays.push(i);
   }
+  Object.freeze(overlays);
 
   Polymer({
     is: 'tracker-location',
@@ -108,30 +78,17 @@ Tracker location information, including photos.
       },
 
       /**
-       * The wiki HTML to display. Set through `_onDetailsChanged`.
+       * Randomly ordered overlay IDs.
        */
-      _wikiHtml: {
-        type: String,
-        value: null,
-        observer: '_onWikiHtmlChanged'
-      },
-
-      _overlayBit: {
-        type: Boolean,
-        value: false,
+      _overlays: {
+        type: Array,
+        value: () => shuffleArray(overlays),
       },
 
     },
 
     _onDetailsChanged: function(details) {
-      if (this.details && this.details.hasWiki && this.details.wikipedia) {
-        this._wikiHtml = this.details.wikipedia.excerpt;
-      } else {
-        this._wikiHtml = null;
-      }
-
-      // Hide previous photos. If any were hid, then flip the overlay bit so new overlay characters
-      // appear.
+      // Hide previous photos. If any were hid, then shuffle the overlay choices.
       const move = [this.$.move0, this.$.move1];
       let hiding = false;
       move.reverse().forEach((move) => {
@@ -142,7 +99,7 @@ Tracker location information, including photos.
       });
       if (hiding) {
         this.async(() => {
-          this._overlayBit = !this._overlayBit;
+          this._overlay = shuffleArray(this._overlay);
         }, 1500);
       }
 
@@ -184,28 +141,12 @@ Tracker location information, including photos.
       });
     },
 
-    _onWikiHtmlChanged: function() {
-      this.$.wiki.textContent = '';
-      this.$.wiki.appendChild(limitHtml(this._wikiHtml));
-      this.scopeSubtree(this.$.wiki);
-    },
-
     /**
-     * Specifies a random overlay as a `background-image`.
+     * Specifies an overlay as a `background-image`.
      */
-    _computeOverlayStyle: function() {
-      // TODO(samthor): Prevent duplicates.
-      const overlay = Math.floor(Math.random() * 17);
-      const url = this.resolveUrl('../img/overlay/overlay' + overlay + '.svg');
+    _computeOverlayStyle: function(index) {
+      const url = this.resolveUrl(`../img/overlay/overlay${index}.svg`);
       return `background-image: url(${url})`;
-    },
-
-    _computeWikiHref: function(details) {
-      if (this.details && this.details.hasWiki && this.details.wikipedia) {
-        return (this.details.wikipedia.url || '').replace(/^http\b/, 'https');
-      } else {
-        return null;
-      }
     },
 
   });

@@ -120,12 +120,22 @@ SantaLocation.prototype.distanceTo = function(to) {
 };
 
 /**
- * @return {!SantaLocation} Santa's previous destination, or null
- * if there is no previous destination.
+ * Whether this SantaLocation represents the North Pole. Just return for the first location, as
+ * the last shouldn't be drawn twice.
+ *
+ * @return {boolean} whether this is the North Pole
+ * @export
+ */
+SantaLocation.prototype.isNorthPole = function() {
+  return this.index_ <= 0;
+};
+
+/**
+ * @return {!SantaLocation} Santa's previous destination.
  * @export
  */
 SantaLocation.prototype.prev = function() {
-  return this.array_[this.index_ - 1] || this.array_[0];
+  return this.array_[this.index_ - 1] || this;
 };
 
 /**
@@ -133,7 +143,7 @@ SantaLocation.prototype.prev = function() {
  * @export
  */
 SantaLocation.prototype.next = function() {
-  return this.array_[this.index_ + 1] || this.array_[this.array_.length - 1];
+  return this.array_[this.index_ + 1] || this;
 };
 
 /**

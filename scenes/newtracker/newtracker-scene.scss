@@ -5,6 +5,7 @@ $color-red: #ff002b;
 :host {
   display: flex;
   flex-flow: column nowrap;
+  background: #68d5d0;
 }
 
 *[hidden] {
