@@ -53,30 +53,30 @@ Tracker location information, including photos.
 </template>
 <script>
 (function() {
-  var CHAR_LIMIT = 1200;
-  var PANORAMIO_PATH_MEDIUM = '//mw2.google.com/mw-panoramio/photos/medium/';
-  var PANORAMIO_PATH_ORIGINAL = '//static.panoramio.com.storage.googleapis.com/photos/large/';
+  const CHAR_LIMIT = 1200;
+  const PANORAMIO_PATH_MEDIUM = '//mw2.google.com/mw-panoramio/photos/medium/';
+  const PANORAMIO_PATH_ORIGINAL = '//static.panoramio.com.storage.googleapis.com/photos/large/';
 
   function limitHtml(html) {
-    var out = document.createDocumentFragment();
+    const out = document.createDocumentFragment();
     if (!html) {
       return out;
     }
 
-    var charCount = 0;
-    var dom = document.createElement('div');
+    let charCount = 0;
+    const dom = document.createElement('div');
     dom.innerHTML = html;
-    Array.prototype.slice.call(dom.children).forEach(function(node) {
+    Array.prototype.slice.call(dom.children).forEach((node) => {
       if (charCount > CHAR_LIMIT) {
         return;
       }
 
-      var name = node.localName.toLowerCase();
+      const name = node.localName.toLowerCase();
       switch (name) {
       case 'script':
         return;
       case 'p':
-        var prevCharCount = charCount;
+        const prevCharCount = charCount;
         charCount += node.textContent.length;
 
         if (charCount > CHAR_LIMIT) {
@@ -132,16 +132,16 @@ Tracker location information, including photos.
 
       // Hide previous photos. If any were hid, then flip the overlay bit so new overlay characters
       // appear.
-      var move = [this.$.move0, this.$.move1];
-      var hiding = false;
-      move.reverse().forEach(function(move) {
+      const move = [this.$.move0, this.$.move1];
+      let hiding = false;
+      move.reverse().forEach((move) => {
         if (!move.classList.contains('offscreen')) {
           move.classList.add('offscreen');
           hiding = true;
         }
       });
       if (hiding) {
-        this.async(function() {
+        this.async(() => {
           this._overlayBit = !this._overlayBit;
         }, 1500);
       }
@@ -151,37 +151,37 @@ Tracker location information, including photos.
       }
 
       // Queue function for the below onload handler.
-      var rotate = -((Math.random() * 2) + 3);
+      let rotate = -((Math.random() * 2) + 3);
       function queue(i, src) {
         if (this.details !== details) {
           return;  // abort
         }
 
-        var div = move[i];
+        const div = move[i];
         div.classList.remove('offscreen');
 
-        var photo = div.querySelector('.photo');
-        var scale = 100 - i * (Math.random() * 5);
+        const photo = div.querySelector('.photo');
+        const scale = 100 - i * (Math.random() * 5);
         photo.style.transform = 'rotate(' + rotate + 'deg) scale(' + scale/100 + ')';
-        photo.style.backgroundImage = 'url(' + src + ')';
+        photo.style.backgroundImage = `url(${src})`
         rotate *= -0.90;
       }
 
       // Load photos for this location. On onload, slide in the new images.
-      var delay = 0;
-      this.details.panoramio.forEach(function(photo, i) {
+      let delay = 0;
+      this.details.panoramio.forEach((photo, i) => {
         if (i >= move.length) {
           return;  // should never be more than 2 photos, but just in case
         }
-        var image = new Image();
+        const image = new Image();
         image.src = PANORAMIO_PATH_ORIGINAL + photo.id + '.jpg';
-        image.onload = function() {
+        image.onload = () => {
           this.async(queue.bind(this, i, image.src), delay);
           delay += 1000;
-        }.bind(this);
+        };
         // If there was an error loading the photo (e.g. 404), that's fine. We can just ignore it
         // and that photo div will never move onscreen.
-      }, this);
+      });
     },
 
     _onWikiHtmlChanged: function() {
@@ -195,9 +195,9 @@ Tracker location information, including photos.
      */
     _computeOverlayStyle: function() {
       // TODO(samthor): Prevent duplicates.
-      var overlay = Math.floor(Math.random() * 17);
-      var url = this.resolveUrl('../img/overlay/overlay' + overlay + '.svg');
-      return 'background-image: url(' + url + ')';
+      const overlay = Math.floor(Math.random() * 17);
+      const url = this.resolveUrl('../img/overlay/overlay' + overlay + '.svg');
+      return `background-image: url(${url})`;
     },
 
     _computeWikiHref: function(details) {

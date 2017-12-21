@@ -237,18 +237,18 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 </template>
 <script>
 (function() {
-  var UPDATE_MS = 250;
-  var SOCIALFEED_COUNT = 11;
-  var TRAVELOGUE_COUNT = 4;
-  var LISTVIEW_COUNT = 7;
+  const UPDATE_MS = 250;
+  const SOCIALFEED_COUNT = 11;
+  const TRAVELOGUE_COUNT = 4;
+  const LISTVIEW_COUNT = 7;
 
-  var FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
-  var FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
+  const FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
+  const FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
 
-  var FALLBACK_CARDS = ['comroom', 'glider', 'jingle', 'latlong', 'office', 'reload', 'satellite', 'selfies', 'slackingoff', 'temptation', 'tired', 'trailer', 'trivia'];
+  const FALLBACK_CARDS = ['comroom', 'glider', 'jingle', 'latlong', 'office', 'reload', 'satellite', 'selfies', 'slackingoff', 'temptation', 'tired', 'trailer', 'trivia'];
 
-  var INITIAL_GAMES = ['smatch', 'codeboogie', 'codelab', 'penguindash', 'santaselfie', 'wrapbattle', 'presentbounce', 'snowflake'];
-  var ALL_GAMES = INITIAL_GAMES.concat([
+  const INITIAL_GAMES = ['smatch', 'codeboogie', 'codelab', 'penguindash', 'santaselfie', 'wrapbattle', 'presentbounce', 'snowflake'];
+  const ALL_GAMES = INITIAL_GAMES.concat([
     'traditions', 'translations', 'santasearch', 'seasonofgiving', 'gumball', 'jamband', 'boatload', 'runner', 'jetpack', 'presentdrop', 'mercator', 'racer', 'matching',  // 2016
     'trivia', 'glider', 'latlong', 'postcard',  // older games
   ]);
@@ -267,9 +267,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
        */
       _feedImages: {
         type: Array,
-        value: function() {
-          return new Array(SOCIALFEED_COUNT);
-        },
+        value: () => new Array(SOCIALFEED_COUNT),
       },
 
       /**
@@ -285,9 +283,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
        */
       _gamesList: {
         type: Array,
-        value: function() {
-          return shuffleArray(INITIAL_GAMES, LISTVIEW_COUNT / 2);
-        },
+        value: () => shuffleArray(INITIAL_GAMES, LISTVIEW_COUNT / 2),
       },
 
       /**
@@ -295,9 +291,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
        */
       _videosList: {
         type: Array,
-        value: function() {
-          return shuffleArray(Object.keys(window.VIDEOS), LISTVIEW_COUNT / 2);
-        },
+        value: () => shuffleArray(Object.keys(window.VIDEOS), LISTVIEW_COUNT / 2),
       },
 
       /**
@@ -354,7 +348,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
        */
       _limitDestinations: {
         type: Array,
-        value: function() { return []; },
+        value: () => [],
       },
 
       /**
@@ -435,8 +429,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      * short timeout.
      */
     _santaUpdate: function(data) {
-      var p = this.$.map.santaLatLng;
-      var move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
+      const p = this.$.map.santaLatLng;
+      const move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 
       // Only perform some updates and calculations while Santa is moving (and not if stopped).
       if (move) {
@@ -444,7 +438,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         this.$.map.santaHeading = data.stopover ? null : data.heading;
 
         // Work out the distance from the user to Santa.
-        var userLocation = window.santaService.getUserLocation();
+        const userLocation = window.santaService.getUserLocation();
         if (userLocation) {
           this._distance = Spherical.computeDistanceBetween(data.position, userLocation);
         } else {
@@ -453,10 +447,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
         // Calculate the rough numbers of hours until Santa arrives.
         // This is gated by whether Santa is moving, but each stop is only at most 1m.
-        var hasArrivalHours = false;
-        var arrivalTime = window.santaService.getArrivalTime();
+        let hasArrivalHours = false;
+        const arrivalTime = window.santaService.getArrivalTime();
         if (arrivalTime) {
-          var hours = (arrivalTime - window.santaService.now()) / (60 * 60 * 1000);
+          const hours = (arrivalTime - window.santaService.now()) / (60 * 60 * 1000);
           if (hours > 0.08) {  // don't show anything when he's within 5m
             this._arrivalHours = this._computeNumberFraction(hours, 1);
             hasArrivalHours = true;
@@ -468,7 +462,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         if (this._prev !== data.prev) {
           // The trail can have current/future stops included, strip them until we find the
           // previous stop.
-          var dests = window.santaService.getDestinations().slice();
+          const dests = window.santaService.getDestinations().slice();
           while (data.prev && dests.length && dests[dests.length - 1] !== data.prev) {
             dests.pop();
           }
@@ -485,8 +479,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
       // TODO(samthor): Set a timeout at the next whole second, rather than relying on a rapid rate
       // of UPDATE_MS.
-      var now = window.santaService.now();
-      var ms = -1;
+      const now = window.santaService.now();
+      let ms = -1;
       if (data.stopover) {
         ms = data.stopover.departure - now;
       } else if (data.next) {
@@ -505,7 +499,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         this._details = null;
         return;
       }
-      this._current.getDetails(function(details) {
+      this._current.getDetails((details) => {
         // TODO(samthor): What about a HTTP failure case?
         if (current !== this._current) {
           return;  // stop changed from under us
@@ -513,14 +507,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         // nb. Clone stop information onto details, for use by clients.
         details.stop = this._current;
         this._details = details;
-      }.bind(this));
+      });
     },
 
     _refreshCards: function(current, upcoming) {
       this.debounce('_refreshCards', function() {
-        this._pushSocialImage(function(src) {
+        this._pushSocialImage((src) => {
           this._cardFeedImage = src;
-        }.bind(this));
+        });
       }, 100);
     },
 
@@ -532,15 +526,15 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         return randomChoice(FEED_STATIC) + '.png';
       }
 
-      var src;
-      var count = 10;
+      let src;
+      let count = 10;
       while (--count && (!src || this._feedImages.indexOf(src) !== -1)) {
         src = 'img/feed/' + chooseImage();
       }
 
-      var image = new Image();
+      const image = new Image();
       image.src = this.resolveUrl(src);
-      image.onload = function() {
+      image.onload = () => {
         opt_callback && opt_callback.call(this, src);
 
         // If the image isn't already in the feed, add it here.
@@ -552,22 +546,22 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         } else {
           this._pushSocialImage();
         }
-      }.bind(this);
+      };
     },
 
     _pushListViewImage: function(path, choice) {
       // TODO(samthor): This allows duplicates.
-      var image = new Image();
+      const image = new Image();
       image.src = this._urlForCardImage(choice);
-      image.onload = function() {
-        var base = path + 'List';
-        var node = this.$$('#' + base);
+      image.onload = () => {
+        const base = path + 'List';
+        const node = this.$$('#' + base);
         if (!node) {
           return;
         }
 
         // nb. unshift doesn't notify path.0, needed for top cards
-        var array = this.get('_' + base).slice();
+        const array = this.get('_' + base).slice();
         array.unshift(choice);
         if (array.length > LISTVIEW_COUNT) {
           // push 2x, so our :last-of-type selector doesn't muck up.
@@ -582,7 +576,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           node.offsetLeft;  // force layout
           node.classList.remove('appear');
         });
-      }.bind(this);
+      };
     },
 
     _urlForCardImage: function(module) {
@@ -601,14 +595,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         return '';
       }
 
-      var seconds = Math.floor(s) % 60;
+      const seconds = Math.floor(s) % 60;
       s /= 60;
-      var mins = Math.floor(s) % 60;
+      const mins = Math.floor(s) % 60;
       s /= 60;
-      var hours = Math.floor(s) % 24;
-      var days = Math.floor(s / 24);
+      const hours = Math.floor(s) % 24;
+      const days = Math.floor(s / 24);
 
-      var parts = [padDigits(seconds)];
+      const parts = [padDigits(seconds)];
       if (hours) {
         parts.unshift(padDigits(mins), padDigits(hours));
       } else {
@@ -621,7 +615,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       if (!(m >= 0)) {
         return '';
       }
-      var km = Math.round(m / 1000);
+      const km = Math.round(m / 1000);
       return new Number(km).toLocaleString() + 'km';
     },
 
@@ -632,20 +626,20 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       if (!hours) {
         return strings['tracker_time_from_you_one'];
       }
-      var s = strings['tracker_time_from_you_many'] || '';
+      const s = strings['tracker_time_from_you_many'] || '';
       return s.replace('{{hours}}', hours);
     },
 
     _computeNumberFraction: function(num, opt_min) {
       opt_min = opt_min || 0;
 
-      var floor = Math.floor(num);
+      const floor = Math.floor(num);
       if (floor < opt_min) {
         return null;
       }
 
-      var frac = num % 1;
-      var suffix = '';
+      const frac = num % 1;
+      let suffix = '';
       if (frac > 0.75) {
         ++floor;
       } else if (frac > 0.25) {
@@ -671,12 +665,12 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }
 
       // prevent floats gone wild, only show one digit
-      var opts = {minimumFractionDigits: 1, maximumFractionDigits: 1};
+      const opts = {minimumFractionDigits: 1, maximumFractionDigits: 1};
       function format(v) {
         return new Number(v).toLocaleString(undefined, opts);
       }
 
-      var out = format(details.weather.tempC) + '°C';
+      let out = format(details.weather.tempC) + '°C';
       if (window.navigator.language === 'en-US') {
         out += ' / ' + format(details.weather.tempF) + '°F';
       }
@@ -685,8 +679,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     _computeBackgroundImageStyle: function(path) {
       if (path) {
-        var url = this.resolveUrl(path);
-        return 'background-image: url(' + url + ')';
+        const url = this.resolveUrl(path);
+        return `background-image: url(${url})`;
       }
       return null;
     },
@@ -696,8 +690,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _computeCardStyle: function(module) {
-      var url = this._urlForCardImage(module);
-      return 'background-image: url(' + url + ')';
+      const url = this._urlForCardImage(module);
+      return `background-image: url(${url})`;
     },
 
     _computeTrackerCountdown: function(countdown, upcoming) {
@@ -705,14 +699,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     _computeStopTime: function(departure) {
-      var x = new Date(departure);
+      const x = new Date(departure);
       return x.toLocaleTimeString(undefined, {hour: 'numeric', minute: 'numeric'});
     },
 
     _onCardClick: function(event) {
-      var link = event.target;
-      var href = link.getAttribute('href');
-      var target = href && this.$$(href);  // needs $$ as template means these aren't on $
+      const link = event.target;
+      const href = link.getAttribute('href');
+      const target = href && this.$$(href);  // needs $$ as template means these aren't on $
       if (!target) {
         return;
       }
@@ -722,14 +716,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       // Place this in the center of the screen. This works because our sections are contained by
       // a full-height div, so they are relative to y=0. Also, scroll to slightly before the top
       // of the section, if it's actually too big for the viewport.
-      var y = target.offsetTop + target.offsetHeight / 2 - window.innerHeight / 2;
+      const y = target.offsetTop + target.offsetHeight / 2 - window.innerHeight / 2;
       this._scrollTo(Math.min(target.offsetTop - 44 - 12, y));
     },
 
     _streamChanged: function(stream) {
       // Find the most recent stream update.
-      var cand = null;
-      for (var i = stream.length - 1; cand = stream[i]; --i) {
+      let cand = null;
+      for (let i = stream.length - 1; cand = stream[i]; --i) {
         if (cand.didyouknow || cand.status || cand.update) {
           break;
         }
@@ -739,8 +733,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }
 
       this._factoidText = cand.didyouknow || cand.status || cand.update;
-      var opts = ['didyouknow', 'status', 'update'];
-      for (var i = 0; i < opts.length; ++i) {
+      const opts = ['didyouknow', 'status', 'update'];
+      for (let i = 0; i < opts.length; ++i) {
         if (opts[i] in cand) {
           this._factoidClass = opts[i];
           break;
@@ -791,10 +785,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         if (!this.isAttached) {
           return;
         }
-        var cand;
-        var y = document.body.scrollTop + window.innerHeight * 0.5;
-        var s = this.$.sections;
-        for (var i = 0, opt; opt = s.children[i]; ++i) {
+        let cand;
+        const y = document.body.scrollTop + window.innerHeight * 0.5;
+        const s = this.$.sections;
+        for (let i = 0, opt; opt = s.children[i]; ++i) {
           if (opt.localName !== 'section') {
             continue;
           }
@@ -807,7 +801,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           cand = opt;
         }
 
-        var search = cand ? '#' + cand.id : '';
+        const search = cand ? '#' + cand.id : '';
         window.history.replaceState(null, null, window.location.pathname + search);
         window.ga('send', 'event', 'tracker', 'scroll', cand ? cand.id : '');
       }, 100);
@@ -827,7 +821,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       // TODO(samthor): There's no cache/list of images currently being loaded, so this might
       // load duplicates and then the feed will have fewer than SOCIALFEED_COUNT entries: until
       // we randomly load enough from Santa's flight, that is.
-      for (var i = 0; i < SOCIALFEED_COUNT; ++i) {
+      for (let i = 0; i < SOCIALFEED_COUNT; ++i) {
         this._pushSocialImage();
       }
 
@@ -841,7 +835,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     onPreload: function() {
-      var images = [
+      const images = [
         'img/sleigh/effects.svg',
         'img/presents/magic.png',
         'img/presents/roof.png',
@@ -853,10 +847,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         'img/factoid/status.svg',
         'img/factoid/update.svg',
       ];
-      'n ne e se s sw w nw'.split(' ').forEach(function(dir) {
-        images.push('img/sleigh/sleigh-' + dir + '-back.svg');
-        images.push('img/sleigh/sleigh-' + dir + '-front.svg');
-        images.push('img/sleigh/sleigh-' + dir + '-santa.svg');
+      'n ne e se s sw w nw'.split(' ').forEach((dir) => {
+        images.push(`img/sleigh/sleigh-${dir}-back.svg`);
+        images.push(`img/sleigh/sleigh-${dir}-front.svg`);
+        images.push(`img/sleigh/sleigh-${dir}-santa.svg`);
       });
 
       this.preloadImages(images);
@@ -868,18 +862,18 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
       // Every 20s, push a random game or video.
       // TODO(samthor): Let the server control this again.
-      this._listviewInterval = window.setInterval(function() {
+      this._listviewInterval = window.setInterval(() => {
         if (Math.random() < 0.5) {
           this._pushListViewImage('videos', randomChoice(Object.keys(window.VIDEOS)));
         } else {
-          var choice = randomChoice(ALL_GAMES);
+          let choice = randomChoice(ALL_GAMES);
           if (Math.random() < 0.25) {
             // higher chance of more awesome initial games
             choice = randomChoice(INITIAL_GAMES);
           }
           this._pushListViewImage('games', choice);
         }
-      }.bind(this), 30 * 1000);
+      }, 30 * 1000);
     },
 
     onHide: function() {
