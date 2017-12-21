@@ -30,13 +30,9 @@ specific language governing permissions and limitations under the License.
   <iron-media-query query="(min-width: 768px)"
       query-matches="{{_isTabletMode}}"></iron-media-query>
 
-  <div class="buttons" open$="[[_computeOpenAttr(open, _singleOrNoIcon, _isTabletMode)]]"
-      on-mouseleave="_onDelayHideMore"
-      on-mouseover="_cancelHide">
+  <div class="buttons" open$="[[_computeOpenAttr(open, _singleOrNoIcon, _isTabletMode)]]">
 
-    <paper-icon-button icon="santa:more"
-        on-click="_onShowMore"
-        on-mouseover="_onShowMore"></paper-icon-button>
+    <paper-icon-button icon="santa:more" on-click="_onShowMore"></paper-icon-button>
 
     <div class="buttons-overflow" id="choices" on-click="_onClickOverflow">
       <div class="group" hidden$="[[_supportsWebShare]]" class="external-link" on-click="_onShare">
@@ -79,11 +75,6 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
 (function() {
-
-  /**
-   * @type {number} The time after which to fade out a hover'ed show of icons.
-   */
-  const hoverFadeTime = 1000;
 
   Polymer({
     is: 'santa-buttons',
@@ -136,11 +127,6 @@ specific language governing permissions and limitations under the License.
         value: false,
       },
 
-      _mouseOverAt: {
-        type: Number,
-        value: 0,
-      },
-
     },
 
     observers: [
@@ -155,46 +141,16 @@ specific language governing permissions and limitations under the License.
       return false;
     },
 
-    _hideOverflow: function(ev) {
-      if (this._buttonsOpen) {
-        ev && ev.stopPropagation();
-      }
-      this._setOpen(false);
-    },
-
     _onClickOverflow: function(ev) {
       ev.stopPropagation();
     },
 
     _onShowMore: function(ev) {
-      this._cancelHide();
       ev.stopPropagation();
       ev.preventDefault();
 
-      if (ev.type === 'mouseover') {
-        this._mouseOverAt = performance.now();
-      }
-
-      if (ev.type === 'click') {
-        // on mobile, we see mouseover then click: prevent it automagically closing us again
-        const now = performance.now();
-        if (now - this._mouseOverAt < 500) {
-          return;
-        }
-      }
-
       const v = !(this.open && ev.type === 'click');
       this._setOpen(v);
-    },
-
-    _cancelHide: function() {
-      this.cancelDebouncer('_hide');
-    },
-
-    _onDelayHideMore: function(ev) {
-      this.debounce('_hide', function() {
-        this._hideOverflow(null);
-      }, hoverFadeTime);
     },
 
     _computeOpenAttr: function(open, singleOrNoIcon, tabletMode) {
@@ -221,7 +177,8 @@ specific language governing permissions and limitations under the License.
         cand.classList.remove('first');
       }
 
-      this._singleOrNoIcon = (found.length <= 1);
+      // TODO: restore when CSS supports this
+      // this._singleOrNoIcon = (found.length <= 1);
     },
 
     _onShare: function(ev) {

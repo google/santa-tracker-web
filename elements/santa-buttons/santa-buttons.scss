@@ -117,16 +117,16 @@ $bighover-media: "(min-width: $tablet-width) and (hover: hover), (min-width: $ta
   }
 
   // when hover and on a tablet, use the space the "more" button consumed
-  @media #{$bighover-media} {
-    top: 0;
-
-    > paper-icon-button.first,
-    > .first paper-icon-button {
-      margin-top: 2px;
-      background: none;
-      box-shadow: none;
-    }
-  }
+//  @media #{$bighover-media} {
+//    top: 0;
+//
+//    > paper-icon-button.first,
+//    > .first paper-icon-button {
+//      margin-top: 2px;
+//      background: none;
+//      box-shadow: none;
+//    }
+//  }
 }
 
 // open/closed modifiers
@@ -146,16 +146,6 @@ $bighover-media: "(min-width: $tablet-width) and (hover: hover), (min-width: $ta
       paper-icon-button {
         transform: scale(0);
         transition-delay: 0s !important;
-      }
-    }
-  }
-
-  // in hover, hide the "more" button when active
-  @media #{$bighover-media} {
-    &[open] {
-      > paper-icon-button {
-        pointer-events: none;
-        opacity: 0;
       }
     }
   }
