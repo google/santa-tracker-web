@@ -143,75 +143,6 @@ SantaService.prototype.removeListener = function(eventName, handler) {
 };
 
 /**
- * @param {function(SantaState)} callback
- * @return {!Promise<SantaState>}
- * @export
- */
-SantaService.prototype.getCurrentLocation = function(callback) {
-  const p = this.route().then((route) => {
-    const now = this.now();
-    const dest = route.findDestination(now);
-    const next = dest.next();
-
-    if (now < dest.departure) {
-      // Santa is at this location.
-      return /** @type {SantaState} */ ({
-        position: dest.getLocation(),
-        presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest.prev(), dest, next),
-        distanceTravelled: dest.getDistanceTravelled(),
-        heading: 0,
-        prev: dest.prev(),
-        stopover: dest,
-        next: next,
-      });
-    }
-
-    // Santa is in transit.
-    const travelTime = next.arrival - dest.departure;
-    const elapsed = Math.max(now - dest.departure, 0);
-
-    const userLocation = this.getUserLocation();
-    let currentLocation;
-
-/*    if (dest.id === this.userStopAfter_ && userLocation != null) {
-      const ratio = elapsed / travelTime;
-      // If this is the segment where the user is, interpolate to them.
-      var firstDistance = Spherical.computeDistanceBetween(dest.getLocation(), userLocation);
-      var secondDistance = Spherical.computeDistanceBetween(userLocation, next.getLocation());
-      var along = (firstDistance + secondDistance) * ratio;
-      if (along < firstDistance) {
-        var firstRatio = firstDistance ? (along / firstDistance) : 0;
-        currentLocation = Spherical.interpolate(dest.getLocation(), userLocation, firstRatio);
-      } else {
-        var secondRatio = secondDistance ? ((along - firstDistance) / secondDistance) : 0;
-        currentLocation = Spherical.interpolate(userLocation, next.getLocation(), secondRatio);
-      }
-    } else */ {
-      // Otherwise, interpolate between stops normally.
-      currentLocation = Spherical.interpolate(
-          dest.getLocation(),
-          next.getLocation(),
-          elapsed / travelTime);
-    }
-
-    return /** @type {SantaState} */ ({
-      position: currentLocation,
-      heading: Spherical.computeHeading(currentLocation, next.getLocation()),
-      presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest, null, next),
-      distanceTravelled: 0, // this.calculateDistanceTravelled_(now, dest, next),
-      prev: dest,
-      stopover: null,
-      next: next,
-    });
-  });
-
-  if (callback) {
-    p.then((state) => callback(state));
-  }
-  return p;
-};
-
-/**
  * List of destinations, sorted chronologically (latest destinations last).
  *
  * @return {!Array<!SantaLocation>} a list of destinations, or null if the
@@ -369,7 +300,19 @@ class Route {
    * @export
    */
   getLocations() {
-    return this.locations;
+    return this.locations.slice();
+  }
+
+  /**
+   * @param {number} timestamp to fetch locations to
+   * @param {number=} limit or zero to return all
+   * @return {!Array<!SantaLocation>}
+   * @export
+   */
+  getLocationsTo(timestamp, limit) {
+    const index = this.findDestinationIndex_(timestamp);
+    const low = (limit > 0 ? Math.max(0, index - limit + 1) : 0);
+    return this.locations.slice(low, index + 1);
   }
 
   /**
@@ -377,12 +320,79 @@ class Route {
    *
    * @param {number} timestamp
    * @return {!SantaLocation}
-   * @private
+   * @export
    */
   findDestination(timestamp) {
+    return this.locations[this.findDestinationIndex_(timestamp)];
+  }
+
+  /**
+   * Return the SantaState object for the current time.
+   *
+   * @param {number} timestamp
+   * @param {?LatLng=} userLocation
+   * @return {SantaState}
+   * @export
+   */
+  getState(timestamp, userLocation = null) {
+    const dest = this.findDestination(timestamp);
+    const next = dest.next();
+
+    if (timestamp < dest.departure) {
+      // Santa is at this location.
+      return /** @type {SantaState} */ ({
+        position: dest.getLocation(),
+        presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest.prev(), dest, next),
+        distanceTravelled: dest.getDistanceTravelled(),
+        heading: 0,
+        prev: dest.prev(),
+        stopover: dest,
+        next: next,
+      });
+    }
+
+    // Santa is in transit.
+    const travelTime = next.arrival - dest.departure;
+    const elapsed = Math.max(timestamp - dest.departure, 0);
+
+    let currentLocation;
+
+/*    if (dest.id === this.userStopAfter_ && userLocation != null) {
+      const ratio = elapsed / travelTime;
+      // If this is the segment where the user is, interpolate to them.
+      var firstDistance = Spherical.computeDistanceBetween(dest.getLocation(), userLocation);
+      var secondDistance = Spherical.computeDistanceBetween(userLocation, next.getLocation());
+      var along = (firstDistance + secondDistance) * ratio;
+      if (along < firstDistance) {
+        var firstRatio = firstDistance ? (along / firstDistance) : 0;
+        currentLocation = Spherical.interpolate(dest.getLocation(), userLocation, firstRatio);
+      } else {
+        var secondRatio = secondDistance ? ((along - firstDistance) / secondDistance) : 0;
+        currentLocation = Spherical.interpolate(userLocation, next.getLocation(), secondRatio);
+      }
+    } else */ {
+      // Otherwise, interpolate between stops normally.
+      currentLocation = Spherical.interpolate(
+          dest.getLocation(),
+          next.getLocation(),
+          elapsed / travelTime);
+    }
+
+    return /** @type {SantaState} */ ({
+      position: currentLocation,
+      heading: Spherical.computeHeading(currentLocation, next.getLocation()),
+      presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest, null, next),
+      distanceTravelled: 0, // this.calculateDistanceTravelled_(now, dest, next),
+      prev: dest,
+      stopover: null,
+      next: next,
+    });
+  }
+
+  findDestinationIndex_(timestamp) {
     const first = this.locations[0];
     if (first.departure > timestamp) {
-      return first;  // not flying yet, assume at workshop
+      return 0;  // not flying yet, assume at workshop
     }
 
     let i;
@@ -392,8 +402,8 @@ class Route {
         break;
       }
     }
-    return this.locations[i - 1] || first;
-  };
+    return Math.max(0, i - 1);
+  }
 }
 
 /**

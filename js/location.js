@@ -101,14 +101,6 @@ SantaLocation.prototype.getDistanceTravelled = function() {
 };
 
 /**
- * @param {function(SantaDetails)} callback
- * @export
- */
-SantaLocation.prototype.getDetails = function(callback) {
-  callback && callback(this.details);
-};
-
-/**
  * @return {LatLng}
  * @export
  */
