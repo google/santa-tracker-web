@@ -342,7 +342,7 @@ class Route {
       // Santa is at this location.
       return /** @type {SantaState} */ ({
         position: dest.getLocation(),
-        presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest.prev(), dest, next),
+        presentsDelivered: calculatePresentsDelivered(timestamp, dest.prev(), dest, next),
         distanceTravelled: dest.getDistanceTravelled(),
         heading: 0,
         prev: dest.prev(),
@@ -381,8 +381,8 @@ class Route {
     return /** @type {SantaState} */ ({
       position: currentLocation,
       heading: Spherical.computeHeading(currentLocation, next.getLocation()),
-      presentsDelivered: 0, // this.calculatePresentsDelivered_(now, dest, null, next),
-      distanceTravelled: 0, // this.calculateDistanceTravelled_(now, dest, next),
+      presentsDelivered: calculatePresentsDelivered(timestamp, dest, null, next),
+      distanceTravelled: calculateDistanceTravelled(timestamp, dest, next),
       prev: dest,
       stopover: null,
       next: next,

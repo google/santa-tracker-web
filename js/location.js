@@ -167,3 +167,49 @@ function parseLatLng(s) {
   }
   return out;
 }
+
+const PRESENTS_OVER_WATER = .3;
+const PRESENTS_IN_CITY = 1 - PRESENTS_OVER_WATER;
+
+/**
+ * @param {number} now
+ * @param {SantaLocation} prev
+ * @param {SantaLocation} stopover
+ * @param {SantaLocation} next
+ * @return {number}
+ */
+function calculatePresentsDelivered(now, prev, stopover, next) {
+  if (!stopover) {
+    const elapsed = now - prev.departure;
+    const duration = next.arrival - prev.departure;
+    const delivering = (next.presentsDelivered - prev.presentsDelivered) * PRESENTS_OVER_WATER;
+
+    // While flying, deliver some of the quota.
+    return Math.floor(prev.presentsDelivered + delivering * elapsed / duration);
+  }
+
+  const elapsed = now - stopover.arrival;
+  const duration = (stopover.departure - stopover.arrival) || 1e-10;
+  const delivering = stopover.presentsDelivered - prev.presentsDelivered;
+
+  // While stopped, deliver remaining quota.
+  return Math.floor(prev.presentsDelivered +
+                    (delivering * PRESENTS_OVER_WATER) +
+                    delivering * PRESENTS_IN_CITY * elapsed / duration);
+}
+
+/**
+ * @param {number} now
+ * @param {SantaLocation} prev
+ * @param {SantaLocation} next
+ * @return {number}
+ */
+function calculateDistanceTravelled(now, prev, next) {
+  const elapsed = now - prev.departure;
+  const travelTime = next.arrival - prev.departure;
+  if (!travelTime) {
+    return next.getDistanceTravelled();
+  }
+  const legLength = next.getDistanceTravelled() - prev.getDistanceTravelled();
+  return prev.getDistanceTravelled() + (legLength * (elapsed / travelTime));
+}

@@ -7,6 +7,10 @@ $color-red: #ff002b;
   flex-flow: column nowrap;
 }
 
+*[hidden] {
+  display: none !important;
+}
+
 a {
   color: white;
   &:hover {
