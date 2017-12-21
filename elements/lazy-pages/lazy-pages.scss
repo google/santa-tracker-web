@@ -49,8 +49,8 @@
   background: url(img/error.svg) bottom center no-repeat;
   background-size: cover;
 
-  .hidden {
-    display: none;
+  &.hidden {
+    display: none !important;
   }
 
   &:not(.error-locked) .icon::before {
