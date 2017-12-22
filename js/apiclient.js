@@ -246,6 +246,11 @@ SantaService.prototype.sync = function() {
     this.userLocation_ = parseLatLng(/** @type {string} */ (result['location']));
     this.scheduleSync_(/** @type {number} */ (result['refresh']), false);
 
+    const routeUrl = /** @type {string} */ (result['route']);
+    if (routeUrl && window.localStorage['routeUrl'] !== routeUrl) {
+      this.route_ = null;  // invalid promise, force refresh
+    }
+
     // trigger event in microtask
     Promise.resolve(true).then(() => Events.trigger(this, 'sync'));
   });
@@ -414,15 +419,16 @@ class Route {
  */
 SantaService.prototype.route = function() {
   if (this.route_) {
-    // TODO: we need to be able to invalidate thsi
+    // nb. This is invalidated as part of sync(), if the URL changes.
     return this.route_;
   }
 
   const p = this.recent().then((data) => {
     const url = /** @type {string} */ (data['route']);
 
+    // Check old data, if we have any at all.
     const previousUrl = window.localStorage['routeUrl'];
-    if (previousUrl === url) {
+    if (previousUrl && previousUrl === url) {
       const routeData = window.localStorage['route'];
       if (routeData) {
         let json;
@@ -436,6 +442,11 @@ SantaService.prototype.route = function() {
         }
         console.debug('couldn\'t parse cached route JSON');
       }
+    }
+
+    if (!url) {
+      console.warn('no route URL found in /info response', data);
+      throw new Error('no route URL in JSON data');
     }
 
     return fetchJSON(url).then((routeData) => {

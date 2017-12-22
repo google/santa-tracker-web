@@ -36,6 +36,10 @@ function buildQueryString(data) {
  * @return {!Promise<!Object<string, *>>}
  */
 function fetchJSON(url) {
+  if (!url) {
+    return Promise.reject(`invalid URL: ${url}`);
+  }
+
   return new Promise((resolve, reject) => {
     let requests = 0;
 
@@ -45,8 +49,9 @@ function fetchJSON(url) {
       try {
         out = JSON.parse(this.responseText);
       } catch (e) {
-        console.debug('invalid JSON', e);
-        return reject(e)
+        console.warn('invalid JSON', url);
+        console.debug('raw', this.responseText)
+        return reject(e);
       }
       if (!out || typeof out !== 'object') {
         console.warn('non-object JSON return', out);
@@ -57,7 +62,7 @@ function fetchJSON(url) {
 
     (function request() {
       if (requests >= santaAPIRequest.MAX_RETRIES) {
-        return reject();
+        return reject(`exceeded retry limit for: ${url}`);
       }
       ++requests;
 
