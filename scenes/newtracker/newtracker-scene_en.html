@@ -409,20 +409,17 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     ],
 
     _santaSync: function() {
-      const wrapper = (state, dests) => {
+      const wrapper = (state) => {
         window.requestAnimationFrame(() => {
           window.clearTimeout(this._updateSantaTimeout);
           this._updateSantaTimeout = window.setTimeout(this._santaSync, UPDATE_MS);
-          this._santaUpdate(state, dests);
+          this._santaUpdate(state);
         });
       };
 
       // TODO: throw away dup requests
-      const p = window.santaService.route().then((route) => {
-        const now = window.santaService.now();
-        const state = route.getState(now);
-        const dests = route.getLocationsTo(now);
-        wrapper(state, dests);
+      const p = window.santaService.state().then((state) => {
+        wrapper(state);
       });
     },
 
@@ -430,7 +427,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      * Called to actually update Santa's state: should be called as a result of sync, or every
      * short timeout.
      */
-    _santaUpdate: function(data, dests) {
+    _santaUpdate: function(data) {
       const p = this.$.map.santaLatLng;
       const move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 
@@ -450,9 +447,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         // Calculate the rough numbers of hours until Santa arrives.
         // This is gated by whether Santa is moving, but each stop is only at most 1m.
         let hasArrivalHours = false;
-        const arrivalTime = window.santaService.getArrivalTime();
-        if (arrivalTime) {
-          const hours = (arrivalTime - window.santaService.now()) / (60 * 60 * 1000);
+        if (data.arrivalTime) {
+          const hours = (data.arrivalTime - window.santaService.now()) / (60 * 60 * 1000);
           if (hours > 0.08) {  // don't show anything when he's within 5m
             this._arrivalHours = this._computeNumberFraction(hours, 1);
             hasArrivalHours = true;
@@ -464,8 +460,8 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         if (this._prev !== data.prev) {
           // The trail can have current/future stops included, strip them until we find the
           // previous stop.
-          this.$.map.trail = dests;
-          this._limitDestinations = dests.slice(-TRAVELOGUE_COUNT).reverse();
+          this.$.map.trail = data.dests;
+          this._limitDestinations = data.dests.slice(-TRAVELOGUE_COUNT).reverse();
         }
       }
 

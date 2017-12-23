@@ -182,6 +182,18 @@ const PRESENTS_OVER_WATER = .3;
 const PRESENTS_IN_CITY = 1 - PRESENTS_OVER_WATER;
 
 /**
+ * @param {?LatLng} a
+ * @param {?LatLng} b
+ * @return {boolean} whether these are the same
+ */
+function latLngEqual(a, b) {
+  if (!a) {
+    return !b;
+  }
+  return a.lat === b.lat && a.lng === b.lng;
+}
+
+/**
  * @param {number} now
  * @param {SantaLocation} prev
  * @param {SantaLocation} stopover

@@ -25,6 +25,11 @@
 function SantaState() {}
 
 /**
+ * @type {!Array<!SantaLocation>}
+ */
+SantaState.prototype.dests;
+
+/**
  * @type {LatLng}
  */
 SantaState.prototype.position;
@@ -33,6 +38,11 @@ SantaState.prototype.position;
  * @type {number}
  */
 SantaState.prototype.heading;
+
+/**
+ * @type {number}
+ */
+SantaState.prototype.arrivalTime;
 
 /**
  * @type {SantaLocation}
