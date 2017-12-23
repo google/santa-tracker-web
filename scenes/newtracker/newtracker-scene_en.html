@@ -26,6 +26,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="./elements/tracker-map.html">
 <link rel="import" href="./elements/tracker-location.html">
 <link rel="import" href="./elements/tracker-attribution.html">
+<link rel="import" href="./elements/tracker-listview.html">
 
 <!--
 Tracker scene.
@@ -35,37 +36,6 @@ Tracker scene.
   <style include="newtracker-scene_module"></style>
 
   <santa-strings strings="{{_strings}}"></santa-strings>
-
-  <svg height="0" width="0">
-    <defs>
-      <clipPath id="cardMask1" transform="scale(.7, .7)">
-        <path d="M0,199.1c14,2.8,22.9,23,23.1,42.8l0,91.9c0,22.6,18.3,40.8,40.9,40.8c43.3-0.1,105.9,0.2,111.5,0.4
-c19.8,0.3,40,9.1,42.8,23.1h0c2.8-14.1,23-22.9,42.8-23.1c5.5-0.2,68.2-0.5,111.5-0.4c22.6,0,40.9-18.2,40.9-40.8v-91.9
-c0.3-19.8,9.1-40,23.1-42.8v-0.1c-14-2.8-22.9-23-23.1-42.8V64.4c0-22.6-18.3-40.8-40.9-40.8c-43.3,0.1-105.9-0.2-111.5-0.4
-c-19.8-0.3-40-9.1-42.8-23.1l0,0c-2.8,14.1-23,22.9-42.8,23.1c-5.5,0.2-68.2,0.5-111.5,0.4c-22.6,0-40.9,18.2-40.9,40.8l0,91.9
-C22.9,176,14,196.2,0,199.1L0,199.1z"/>
-      </clipPath>
-      <clipPath id="cardMask2"  transform="scale(.7, .7)">
-        <path d="M16.8,188.4c0,18.7-12,85.1-13.6,93.8c-17,89.8,38.6,98.8,77.2,90.1c9.8-2.2,104.3-21,118.2,4.6h0.2
-c13.9-25.5,108.4-6.8,118.2-4.6c38.5,8.7,94.1-0.2,77.2-90.1c-1.6-8.7-13.6-75.1-13.6-93.8s12-85.1,13.6-93.8
-c17-89.8-38.6-98.8-77.2-90.1c-9.8,2.2-104.3,21-118.2-4.6l-0.2,0C184.6,25.5,90.1,6.8,80.3,4.6C41.8-4.2-13.8,4.8,3.1,94.6
-C4.8,103.3,16.8,169.7,16.8,188.4z"/>
-      </clipPath>
-      <clipPath id="cardMask3"  transform="scale(.7, .7)">
-        <path d="M526.7,265.3c0.6,9.5-2.3,18.4-10,22.7c-6.4,3.6-14.4,4.9-21.4,4.9c-0.1,0-231.9,0-231.9,0s-231.8,0-231.9,0
-c-7,0-15-1.3-21.4-4.9c-7.7-4.4-10.6-13.3-10-22.7c0.8-12,5.3-24.1,8.4-35.6c2.5-9.1,5-18.3,7.4-27.4c2.6-9.6,6.8-20.6,4.6-30.8
-c-2.2-10-9.1-17.9-15.3-25c6.2-7.1,13.1-15,15.3-25c2.2-10.2-2-21.2-4.6-30.8c-2.5-9.1-5-18.3-7.4-27.4C5.4,51.8,0.9,39.6,0.1,27.6
-c-0.6-9.5,2.3-18.4,10-22.7C16.5,1.3,24.4,0,31.5,0c0.1,0,231.9,0,231.9,0s231.8,0,231.9,0c7,0,15,1.3,21.4,4.9
-c7.7,4.4,10.6,13.3,10,22.7c-0.8,12-5.3,24.1-8.4,35.6c-2.5,9.1-5,18.3-7.4,27.4c-2.6,9.6-6.8,20.6-4.6,30.8
-c2.2,10,9.1,17.9,15.3,25c-6.2,7.1-13.1,15-15.3,25c-2.2,10.2,2,21.2,4.6,30.8c2.5,9.1,5,18.3,7.4,27.4
-C521.4,241.1,525.9,253.3,526.7,265.3z"/>
-      </clipPath>
-      <clipPath id="cardMask4"  transform="scale(.7, .7)">
-        <path d="M536.1,21.7L536.1,21.7l-23.6-3.9L491.2,0h-220h-220L29.8,17.7L6.2,21.6v0c-8.3,1.6-8.3,252.9,0,254.6v0
-	l23.6,3.9l21.4,17.7h220h220l21.4-17.7l23.6-3.9v0C544.5,274.6,544.5,23.3,536.1,21.7z"/>
-      </clipPath>
-    </defs>
-  </svg>
 
   <div class="contain" id="sections">
     <section id="main">
@@ -116,15 +86,15 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         </article>
 
         <article class="rotate rotate-games">
-          <div class="bg" id="feedbg" style$="[[_computeCardStyle(_gamesList.0)]]"></div>
+          <div class="bg" id="feedbg" style$="[[_computeCardStyle(_firstGameImage)]]"></div>
           <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
-          <h3 class="title">[[_computeCardTitle(_gamesList.0, _strings)]]</h3>
+          <h3 class="title">[[_computeCardTitle(_firstGame, _strings)]]</h3>
           <a class="bg" href="#games"></a>
         </article>
         <article class="rotate rotate-videos">
-          <div class="bg" id="feedbg" style$="[[_computeCardStyle(_videosList.0)]]"></div>
+          <div class="bg" id="feedbg" style$="[[_computeCardStyle(_firstVideoImage)]]"></div>
           <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
-          <h3 class="title">[[_computeCardTitle(_videosList.0, _strings)]]</h3>
+          <h3 class="title">[[_computeCardTitle(_firstVideo, _strings)]]</h3>
           <a class="bg" href="#videos"></a>
         </article>
         <article class="big rotate rotate-livefeed">
@@ -187,30 +157,14 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     <section id="games" class="listview">
       <h1><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h1>
       <div id="games-asset"></div>
-      <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="gamesList">
-        <template is="dom-repeat" items="[[_gamesList]]">
-          <a href="[[urlFor(item)]]" class="over">
-            <div class="card">
-              <div class="card--inner" style$="[[_computeCardStyle(item)]]">
-                <h3>[[_computeCardTitle(item, _strings)]]</h3>
-              </div>
-            </div>
-          </a>
-        </template>
-      </div>
+      <tracker-listview id="gamesList"
+          url-for-first="{{_firstGameImage}}" first="{{_firstGame}}"></tracker-listview>
     </section>
     <section id="videos" class="listview">
       <h1><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h1>
       <div id="videos-asset"></div>
-      <div class="horizontal-list" on-mouseover="_onCardOver" on-mouseout="_onCardOut" id="videosList">
-        <template is="dom-repeat" items="[[_videosList]]">
-          <a href="[[urlFor(item)]]" class="over">
-            <div class="card">
-              <div class="card--inner" style$="[[_computeCardStyle(item)]]"></div>
-            </div>
-          </a>
-        </template>
-      </div>
+      <tracker-listview id="videosList" video-style
+          url-for-first="{{_firstVideoImage}}" first="{{_firstVideo}}"></tracker-listview>
     </section>
     <section id="livefeed">
       <span class="title">
@@ -238,7 +192,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 (function() {
   const UPDATE_MS = 250;
   const TRAVELOGUE_COUNT = 4;
-  const LISTVIEW_COUNT = 7;
   const SOCIALFEED_COUNT = 11;
 
   const FALLBACK_CARDS = ['comroom', 'glider', 'jingle', 'latlong', 'office', 'reload', 'satellite', 'selfies', 'slackingoff', 'temptation', 'tired', 'trailer', 'trivia'];
@@ -254,24 +207,16 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
-      _updateSantaTimeout: Number,
-      _listviewInterval: Number,
-      _strings: Object,
-
-      /**
-       * Game scenes to show.
-       */
-      _gamesList: {
-        type: Array,
-        value: () => shuffleArray(INITIAL_GAMES, LISTVIEW_COUNT / 2),
+      _updateSantaTimeout: {
+        type: Number,
       },
 
-      /**
-       * Video scenes to show.
-       */
-      _videosList: {
-        type: Array,
-        value: () => shuffleArray(Object.keys(window.VIDEOS), LISTVIEW_COUNT / 2),
+      _listviewInterval: {
+        type: Number,
+      },
+
+      _strings: {
+        type: Object,
       },
 
       /**
@@ -489,46 +434,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     /**
-     * This pushes images for our 'games' or 'videos' list views.
-     */
-    _pushListViewImage: function(path, choice) {
-      // TODO(samthor): This allows duplicates.
-      const image = new Image();
-      image.src = this._urlForCardImage(choice);
-      image.onload = () => {
-        const base = path + 'List';
-        const node = this.$$('#' + base);
-        if (!node) {
-          return;
-        }
-
-        // nb. unshift doesn't notify path.0, needed for top cards
-        const array = this.get('_' + base).slice();
-        array.unshift(choice);
-        if (array.length > LISTVIEW_COUNT) {
-          // push 2x, so our :last-of-type selector doesn't muck up.
-          array.pop();
-          array.pop();
-        }
-
-        this.set('_' + base, array);
-
-        node.classList.add('appear');
-        this.async(function() {
-          node.offsetLeft;  // force layout
-          node.classList.remove('appear');
-        });
-      };
-    },
-
-    _urlForCardImage: function(module) {
-      if (FALLBACK_CARDS.indexOf(module) !== -1) {
-        return this.resolveUrl('img/fallback-cards/' + module + '.png');
-      }
-      return this.resolveUrl('../../images/scenes/' + module + '_2x.png');
-    },
-
-    /**
      * Converts a value in seconds, to a formatted string in the form 'hh:mm:ss', or some suffix of
      * that.
      */
@@ -619,21 +524,15 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       return out;
     },
 
-    _computeBackgroundImageStyle: function(path) {
-      if (path) {
-        const url = this.resolveUrl(path);
-        return `background-image: url(${url})`;
-      }
-      return null;
-    },
-
     _computeCardTitle: function(module, strings) {
       return strings && strings['scene-' + module] || '';
     },
 
-    _computeCardStyle: function(module) {
-      const url = this._urlForCardImage(module);
-      return `background-image: url(${url})`;
+    _computeCardStyle: function(url) {
+      if (url) {
+        return `background-image: url(${url})`;
+      }
+      return null;
     },
 
     _computeTrackerCountdown: function(countdown, upcoming) {
@@ -750,6 +649,19 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }, 100);
     },
 
+    _pushVideoCard: function() {
+      this.$.videosList.pushFrom(Object.keys(window.VIDEOS));
+    },
+
+    _pushGameCard: function() {
+      let choices = ALL_GAMES;
+      if (Math.random() < 0.25) {
+        // higher chance of more awesome initial games
+        choices = INITIAL_GAMES;
+      }
+      this.$.gamesList.pushFrom(choices);
+    },
+
     created: function() {
       this._santaSync = this._santaSync.bind(this);
       this._streamChanged = this._streamChanged.bind(this);
@@ -776,22 +688,22 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       window.addEventListener('scroll', this._onScroll, {passive: true});
       this.async(() => this._santaSync());
 
+      for (let i = 0; i < 3; ++i) {
+        this._pushVideoCard();
+        this._pushGameCard();
+      }
+
       this.fire('sound-ambient', 'music_start_village');
 
       // Every 20s, push a random game or video.
       // TODO(samthor): Let the server control this again.
       this._listviewInterval = window.setInterval(() => {
         if (Math.random() < 0.5) {
-          this._pushListViewImage('videos', randomChoice(Object.keys(window.VIDEOS)));
+          this._pushVideoCard();
         } else {
-          let choice = randomChoice(ALL_GAMES);
-          if (Math.random() < 0.25) {
-            // higher chance of more awesome initial games
-            choice = randomChoice(INITIAL_GAMES);
-          }
-          this._pushListViewImage('games', choice);
+          this._pushGameCard();
         }
-      }, 30 * 1000);
+      }, 20 * 1000);
     },
 
     onHide: function() {
@@ -800,18 +712,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       window.removeEventListener('scroll', this._onScroll, {passive: true});
 
       window.clearInterval(this._listviewInterval);
-    },
-
-    _onCardOver: function(event) {
-      if (event.target.classList.contains('over')) {
-        this.fire('sound-trigger', 'village_bubble_appear');
-      }
-    },
-
-    _onCardOut: function(event) {
-      if (event.target.classList.contains('over')) {
-        this.fire('sound-trigger', 'village_bubble_disappear');
-      }
     },
 
   });
