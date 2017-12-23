@@ -13,6 +13,8 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 
+<link rel="import" href="../../../elements/social-card/social-card.html">
+
 <!--
 Shows a carousel of social cards.
 -->
@@ -38,7 +40,7 @@ Shows a carousel of social cards.
       position: relative;
     }
 
-    .card {
+    social-card {
       width: 100%;
       height: 100%;
       position: absolute;
@@ -52,11 +54,11 @@ Shows a carousel of social cards.
       transform-origin: top center;
     }
 
-    .card.fadein {
+    social-card.fadein {
       transform: scale(0);
       opacity: 0;
     }
-    .card.fadeout {
+    social-card.fadeout {
       transform: scale(0);
       transform-origin: bottom center;
       opacity: 0;
@@ -73,15 +75,6 @@ Shows a carousel of social cards.
 </template>
 <script>
 (function() {
-
-  // TODO(samthor): Centralize the list of cards. Build step?
-  // TODO(samthor): Include mp4s.
-
-  const allCards = Object.freeze(['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo']);
-
-  const duringTrackerCards = Object.freeze(['cart', 'closecall', 'fireplacehangout', 'infrontofmoon', 'milkandcookies', 'santacrack', 'santaticket', 'shadow', 'stuck']);
-
-  const keepRecentCards = 10;  // don't duplicate in last n
 
   Polymer({
     is: 'social-cards',
@@ -173,47 +166,27 @@ Shows a carousel of social cards.
       }
     },
 
-    _chooseCardImage: function() {
-      let attempts = 10;
-      let result = null;
-
-      while (--attempts) {
-        result = allCards[Math.floor(Math.random() * allCards.length)];
-
-        if (!this.duringTracker && duringTrackerCards.indexOf(result) !== -1) {
-          continue;
-        } else if (this._recentCards.indexOf(result) !== -1) {
-          continue;
-        }
-
-        break;
+    _changeCard: function() {
+      const el = this._randomChoiceEl();
+      const previous = el.children[el.children.length - 1] || null;
+      if (previous) {
+        previous.classList.add('fadeout');
       }
 
-      this._recentCards.unshift(result);
-      this._recentCards = this._recentCards.slice(0, keepRecentCards);
-      return result;
-    },
+      const update = document.createElement('social-card');
+      update.duringTracker = this.duringTracker;
+      update.className = 'card fadein';
+      update.offsetLeft;  // force layout
+      el.appendChild(update);
 
-    _changeCard: function() {
-      const pathToImages = '../../newtracker/img/feed';
+      const safety = window.setTimeout(() => {
+        update.remove();
+      }, 10 * 1000);
 
-      const image = new Image();
-      image.src = this.resolveUrl(`${pathToImages}/${this._chooseCardImage()}.png`);
-      image.onload = () => {
-        const el = this._randomChoiceEl();
-        const previous = el.children[el.children.length - 1] || null;
-        if (previous) {
-          previous.classList.add('fadeout');
-        }
-
-        const update = document.createElement('div');
-        update.className = 'card fadein';
-        update.style.backgroundImage = `url(${image.src})`;
-        el.appendChild(update);
-
-        update.offsetLeft;
+      update.addEventListener('load', (ev) => {
+        window.clearTimeout(safety);
         update.classList.remove('fadein');
-      };
+      });
     },
 
   });
