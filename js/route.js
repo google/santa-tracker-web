@@ -133,7 +133,7 @@ const Route = class Route {
   getState(timestamp, userLocation = null, nearestDestination = null) {
     const destIndex = this.findDestinationIndex_(timestamp);
     const dest = this.locations[destIndex];
-    const dests = this.locations.slice(0, destIndex);
+    const dests = this.locations.slice(0, destIndex + 1);  // include dest in slice
     const next = dest.next();
     const arrivalTime = nearestDestination ? nearestDestination.arrival : 0;
 

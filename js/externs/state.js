@@ -25,6 +25,7 @@
 function SantaState() {}
 
 /**
+ * All previous destinations, including the most recent destination.
  * @type {!Array<!SantaLocation>}
  */
 SantaState.prototype.dests;
