@@ -32,16 +32,12 @@ Tracker map.
 
   <div hidden>
     <!-- preloading -->
-    <img src$="[[importPath]]../img/marker.png" id="marker" />
-    <img src$="[[importPath]]../img/northpole.png" id="northpoleMarker" />
+    <img src$="[[importPath]]/img/marker.png" id="marker" />
+    <img src$="[[importPath]]/img/northpole.png" id="northpoleMarker" />
   </div>
 
   <div id="santa" tabindex="0" hidden>
-    <div class="presents" hidden>
-      <div class="deliver0"></div>
-      <div class="deliver1"></div>
-      <div class="deliver2"></div>
-    </div>
+    <div id="presents" hidden></div>
     <div class="sleigh" data-dir="se">
       <div class="back"></div>
       <div class="santa"></div>
@@ -81,7 +77,7 @@ Tracker map.
       this.setValues(options);
 
       this._sleigh = this._container.querySelector('.sleigh');
-      this._presents = this._container.querySelector('.presents');
+      this._presents = this._container.querySelector('#presents');
 
       this._routeClickHandler = routeClickHandler;
       this._markerPool = [];
@@ -139,15 +135,12 @@ Tracker map.
       const presents = (heading == null);  // null or undefined are fine
       this._sleigh.hidden = presents;
 
-      if (this._presents.hidden !== !presents) {
-        this._presents.hidden = !presents;
-        const previous = this._presents.querySelector('.active');
-        previous && previous.classList.remove('active');
-        const choice = randomChoice(this._presents.children);
-        choice && choice.classList.add('active');
-      }
+      this._presents.hidden = !presents;
 
-      if (!presents) {
+      if (presents) {
+        const v = Math.round(Math.random());  // 0 or 1
+        this._presents.className = `mode${v}`;
+      } else if (!presents) {
         const dir = dirForHeading(heading);
         dir && this._sleigh.setAttribute('data-dir', dir);
         this._sleigh.hidden = !dir;
@@ -467,6 +460,22 @@ Tracker map.
     attached: function() {
       this._onWindowResize = this._onWindowResize.bind(this);
       window.addEventListener('resize', this._onWindowResize);
+
+      const urls = [
+        'img/chimney1.gif',
+        'img/chimney2.gif',
+        'img/marker.png',
+        'img/northpole.png',
+        'img/sleigh/effects.svg',
+      ];
+
+      'n ne e se s sw w nw'.split(' ').forEach((dir) => {
+        urls.push(`img/sleigh/sleigh-${dir}-back.svg`);
+        urls.push(`img/sleigh/sleigh-${dir}-front.svg`);
+        urls.push(`img/sleigh/sleigh-${dir}-santa.svg`);
+      });
+
+      this.fire('preload', urls);
     },
 
     detached: function() {

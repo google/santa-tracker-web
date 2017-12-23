@@ -818,25 +818,16 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     onPreload: function() {
       const images = [
-        'img/sleigh/effects.svg',
-        'img/presents/magic.png',
-        'img/presents/roof.png',
-        'img/presents/tree.png',
-        'img/northpole.png',
         'img/ornament.svg',
         'img/thanks.svg',
         'img/factoid/didyouknow.svg',
         'img/factoid/status.svg',
         'img/factoid/update.svg',
       ];
-      'n ne e se s sw w nw'.split(' ').forEach((dir) => {
-        images.push(`img/sleigh/sleigh-${dir}-back.svg`);
-        images.push(`img/sleigh/sleigh-${dir}-front.svg`);
-        images.push(`img/sleigh/sleigh-${dir}-santa.svg`);
-      });
 
       this.preloadImages(images);
       this.preloadSounds('village_load_sounds');
+      this.preloadPromise(window.santaService.route());
     },
 
     onShow: function() {

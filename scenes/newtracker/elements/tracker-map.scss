@@ -32,69 +32,21 @@
 
 @import "../sass/animations";
 
-@keyframes deliver-step {
-  0% {
-    transform: translateY(0);
-  }
-  12.5% {
-    transform: translateY(-12.5%);
-  }
-  25.0% {
-    transform: translateY(-25.0%);
-  }
-  37.5% {
-    transform: translateY(-37.5%);
-  }
-  50.0% {
-    transform: translateY(-50.0%);
-  }
-  62.5% {
-    transform: translateY(-62.5%);
-  }
-  75.0% {
-    transform: translateY(-75.0%);
-  }
-  87.5% {
-    transform: translateY(-87.5%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.presents {
-  width: 75px;
-  height: 76px;  // real height is 76px
+#presents {
+  width: 95px;
+  height: 83px;
   position: absolute;
   transform: translate(-50%, -50%);
-  overflow: hidden;
 
-  > div {
-    // note: backgrounds are 1206 x 149, but should be 1216 x 149
-    background: transparent center no-repeat;
-    position: absolute;
-    background-size: contain;
-    width: 75px;
-    top: -3px;  // shift santa frame by this much up
-    height: 608px;
-    will-change: transform;
-    display: none;
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+  background: transparent center no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
 
-    &.active {
-      display: block;
-      animation: deliver-step 2s steps(1) infinite;
-    }
+  &.mode0 {
+    background-image: url(img/chimney1.gif);
   }
-
-  .deliver0 {
-    background-image: url(../img/presents/magic.png);
-  }
-  .deliver1 {
-    background-image: url(../img/presents/roof.png);
-  }
-  .deliver2 {
-    background-image: url(../img/presents/tree.png);
+  &.mode1 {
+    background-image: url(img/chimney2.gif);
   }
 }
 
@@ -103,6 +55,7 @@
   height: 84px;
   position: absolute;
   transform: translate(-50%, -50%);
+  filter: drop-shadow(2px 4px 1px rgba(0, 0, 0, 0.25));
 
   div {
     width: 100%;
@@ -120,7 +73,7 @@
   // presents falling from the sleigh
   div.santa:after {
     content: '';
-    background: url(../img/sleigh/effects.svg) 50% 0 no-repeat;
+    background: url(img/sleigh/effects.svg) 50% 0 no-repeat;
     position: absolute;
     width: 100%;
     top: 66%;
@@ -134,13 +87,13 @@
 
     &[data-dir="#{$dir}"] {
       .front {
-        background-image: url(../img/sleigh/sleigh-#{$dir}-front.svg);
+        background-image: url(img/sleigh/sleigh-#{$dir}-front.svg);
       }
       .santa {
-        background-image: url(../img/sleigh/sleigh-#{$dir}-santa.svg);
+        background-image: url(img/sleigh/sleigh-#{$dir}-santa.svg);
       }
       .back {
-        background-image: url(../img/sleigh/sleigh-#{$dir}-back.svg);
+        background-image: url(img/sleigh/sleigh-#{$dir}-back.svg);
       }
     }
   }
