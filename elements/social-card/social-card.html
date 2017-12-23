@@ -30,6 +30,7 @@ This stops reuse of images globally.
     :host {
       display: inline-block;
       position: relative;
+      border-radius: inherit;
     }
     #holder {
       position: absolute;
@@ -37,6 +38,7 @@ This stops reuse of images globally.
       left: 0;
       right: 0;
       bottom: 0;
+      border-radius: inherit;
     }
     .fit {
       display: block;
@@ -52,12 +54,6 @@ This stops reuse of images globally.
       background-size: cover;
     }
     video {
-      position: absolute;
-      top: 50%; 
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      min-width: 100%; 
-      min-height: 100%; 
       width: auto;
       height: 100%;
     }
@@ -314,7 +310,7 @@ This stops reuse of images globally.
       this.$.img.style.backgroundImage = null;
       this.$.video.hidden = false;
 
-     this._sizeVideo();
+      this._sizeVideo();
     },
 
     _sizeVideo: function() {
