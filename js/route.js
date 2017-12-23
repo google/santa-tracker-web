@@ -139,10 +139,14 @@ const Route = class Route {
 
     if (timestamp < dest.departure) {
       // Santa is at this location.
+      const position = dest.getLocation();
+      const distanceToUser =
+          userLocation ? Spherical.computeDistanceBetween(position, userLocation) : -1;
       return /** @type {SantaState} */ ({
-        position: dest.getLocation(),
+        position: position,
         presentsDelivered: calculatePresentsDelivered(timestamp, dest.prev(), dest, next),
         distanceTravelled: dest.getDistanceTravelled(),
+        distanceToUser: distanceToUser,
         arrivalTime: arrivalTime,
         heading: 0,
         prev: dest.prev(),
@@ -180,11 +184,14 @@ const Route = class Route {
           elapsed / travelTime);
     }
 
+    const distanceToUser =
+        userLocation ? Spherical.computeDistanceBetween(currentLocation, userLocation) : -1;
     return /** @type {SantaState} */ ({
       position: currentLocation,
       heading: Spherical.computeHeading(currentLocation, next.getLocation()),
       presentsDelivered: calculatePresentsDelivered(timestamp, dest, null, next),
       distanceTravelled: calculateDistanceTravelled(timestamp, dest, next),
+      distanceToUser: distanceToUser,
       arrivalTime: arrivalTime,
       prev: dest,
       stopover: null,

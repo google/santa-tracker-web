@@ -70,3 +70,9 @@ SantaState.prototype.presentsDelivered;
  * @type {number}
  */
 SantaState.prototype.distanceTravelled;
+
+/**
+ * Distance in meters to user, or -1.
+ * @type {number}
+ */
+SantaState.prototype.distanceToUser;

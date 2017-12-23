@@ -73,18 +73,19 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
       <div class="cards" on-click="_onCardClick">
         <article class="stats">
-          <div class="data" hidden$="[[_hasArrivalHours]]">
+          <div class="data" hidden$="[[!_hasValidDistance(_distance, _arrivalHours)]]">
             <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
             <big>[[_computeDistance(_distance)]]</big>
           </div>
-          <div class="data" hidden$="[[!_hasArrivalHours]]">
+          <div class="data" hidden$="[[!_arrivalHours]]">
             <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
             <big class="lessbig">[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
           </div>
-          <!-- <div class="data">
+          <!-- This is normally hidden, but is here as a fallback to users with no geoIP -->
+          <div class="data" hidden$="[[_hasValidDistance(_distance)]]">
             <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
             <big>[[_computeNumber(presentsDelivered)]]</big>
-          </div> -->
+          </div>
 
           <div class="divider"></div>
 
@@ -139,11 +140,11 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       <div class="stats">
 
         <div class="split top">
-          <div class="data" hidden$="[[!_hasArrivalHours]]">
+          <div class="data" hidden$="[[!_arrivalHours]]">
             <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
             <big>[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
           </div>
-          <div class="data left">
+          <div class="data left" hidden$="[[!_hasValidDistance(_distance)]]">
             <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
             <big>[[_computeDistance(_distance)]]</big>
           </div>
@@ -360,14 +361,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       },
 
       /**
-       * Whether to show the number of arrival hours.
-       */
-      _hasArrivalHours: {
-        type: Boolean,
-        value: false,
-      },
-
-      /**
        * The formatted number of arrival hours.
        */
       _arrivalHours: {
@@ -437,24 +430,18 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
         this.$.map.santaHeading = data.stopover ? null : data.heading;
 
         // Work out the distance from the user to Santa.
-        const userLocation = window.santaService.getUserLocation();
-        if (userLocation) {
-          this._distance = Spherical.computeDistanceBetween(data.position, userLocation);
-        } else {
-          this._distance = -1;
-        }
+        this._distance = data.distanceToUser;
 
         // Calculate the rough numbers of hours until Santa arrives.
         // This is gated by whether Santa is moving, but each stop is only at most 1m.
-        let hasArrivalHours = false;
+        let arrivalHours = '';
         if (data.arrivalTime) {
           const hours = (data.arrivalTime - window.santaService.now()) / (60 * 60 * 1000);
           if (hours > 0.08) {  // don't show anything when he's within 5m
-            this._arrivalHours = this._computeNumberFraction(hours, 1);
-            hasArrivalHours = true;
+            arrivalHours = this._computeNumberFraction(hours, 1);
           }
         }
-        this._hasArrivalHours = hasArrivalHours;
+        this._arrivalHours = arrivalHours;
 
         // If the previous stop has changed, then rebuild Santa's trail.
         if (this._prev !== data.prev) {
@@ -735,6 +722,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
     _computeFactoidTextClass: function(text) {
       return text && text.length > 30 ? 'long' : null;
+    },
+
+    _hasValidDistance: function(distance, arrivalHours) {
+      return distance >= 0 && !arrivalHours;  // show distance if no arrival hours
     },
 
     /**

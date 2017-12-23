@@ -149,18 +149,6 @@ SantaService.prototype.removeListener = function(eventName, handler) {
 };
 
 /**
- * List of destinations, sorted chronologically (latest destinations last).
- *
- * @return {!Array<!SantaLocation>} a list of destinations, or null if the
- * service isn't ready.
- * @export
- */
-SantaService.prototype.getDestinations = function() {
-  // TODO(samthor): Slice by most recent destinations.
-  return [];
-};
-
-/**
  * @return {?LatLng} the user's location
  * @export
  */
