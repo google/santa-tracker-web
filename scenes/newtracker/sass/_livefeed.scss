@@ -6,7 +6,7 @@
   padding: 1px;
 }
 
-div.image, span.title, span.factoid {
+social-card, span.title, span.factoid {
   flex-grow: 1;
   background: transparent center no-repeat;
   background-size: cover;
@@ -79,7 +79,7 @@ span.factoid {
   }
 }
 
-div.image:first-of-type {
+social-card:first-of-type {
   order: -10;
 }
 
@@ -118,7 +118,7 @@ span.title {
 }
 
 @media (max-width: (768px - 1px)) {
-  div.image, span.title {
+  social-card, span.title {
     width: 30vw;
     max-height: 40vh;
   }
@@ -131,10 +131,10 @@ span.title {
   span.factoid {
     order: -15;
   }
-  div.image:first-of-type {
+  social-card:first-of-type {
     width: 80vw;
   }
-  div.image, span.title {
+  social-card, span.title {
     width: 40vw;
   }
 }

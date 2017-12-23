@@ -16,6 +16,7 @@
     transform: translateZ(0);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 1px 4px rgba(0,0,0,0.33);
     width: 250px;
     height: 130px;
@@ -72,7 +73,12 @@
         transition: opacity 0.2s;
       }
       &:hover::before {
-        opacity: 0.25;
+        opacity: 0.15;
+      }
+
+      &:focus {
+        border: 2px solid rgba(0, 0, 0, 0.25);
+        border-bottom: none;
       }
     }
 

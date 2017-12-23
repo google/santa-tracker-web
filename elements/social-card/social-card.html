@@ -1,0 +1,342 @@
+<!--
+Copyright 2017 Google Inc. All rights reserved.
+
+Licensed under the Apache License,
+Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed
+under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND,
+either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<!--
+Social card for Santa Tracker.
+
+Renders social cards. This element should be used more or less like a div which has a background.
+This stops reuse of images globally.
+-->
+<dom-module id="social-card">
+<template>
+  <style>
+    :host {
+      display: inline-block;
+      position: relative;
+      border-radius: inherit;
+    }
+    #holder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: inherit;
+    }
+    .fit {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    #img {
+      overflow: hidden;
+      background: transparent center no-repeat;
+      background-size: cover;
+    }
+    video {
+      width: auto;
+      height: 100%;
+    }
+    video.taller {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <div id="holder">
+    <div id="img" class="fit" on-error="_onError">
+      <video id="video" autoplay muted loop hidden
+          on-play="_onPlayVideo"
+          on-contextmenu="_onContextMenu"></video>
+      <img id="preload" on-load="_onLoad" hidden />
+    </div>
+    <slot></slot>
+  </div>
+</template>
+<script>
+(function() {
+
+  const allCards = Object.freeze([
+    'abbyroad.png',
+    'awwman.png',
+    'babybird.png',
+    'badsweater.png',
+    'bjornpenguin.png',
+    'calm.png',
+    'cart.png',
+    'catchsnow.png',
+    'chiquitasanta.png',
+    'closecall.png',
+    'cookies.png',
+    'crossing.png',
+    'dance.png',
+    'dog.png',
+    'dunks.png',
+    'elfpower.png',
+    'faceswap.mp4',
+    'feetup.png',
+    'fireplacehangout.png',
+    'gear.png',
+    'gondola.png',
+    'grocery.png',
+    'hanging.png',
+    'hanginthere.png',
+    'hearts.png',
+    'hotcoco.png',
+    'icecarving.png',
+    'icicle.png',
+    'igloo.png',
+    'inflightmeal.png',
+    'infrontofmoon.png',
+    'inthebag.png',
+    'jackson.png',
+    'kickflip.png',
+    'kiss.png',
+    'ladybug.png',
+    'lights.mp4',
+    'master.png',
+    'metafriend.png',
+    'milkandcookies.png',
+    'mints.png',
+    'mintybreath.mp4',
+    'mrsclaus.mp4',
+    'mustache.png',
+    'nightsky.png',
+    'nutcrackers.png',
+    'packingcenter.png',
+    'palmtree.png',
+    'phonepole.png',
+    'pinch.png',
+    'pineapple.png',
+    'pyramid.png',
+    'ramen.png',
+    'reindeercuddle.png',
+    'rocker.mp4',
+    'route66.png',
+    'sadtree.png',
+    'santaarms.png',
+    'santacone.png',
+    'santacrack.png',
+    'santascoat.png',
+    'santasled.png',
+    'santaticket.png',
+    'scuba.png',
+    'shadow.png',
+    'snowangels.png',
+    'snowball.png',
+    'snowcones.png',
+    'snowdog.png',
+    'snowmanhead.png',
+    'split.png',
+    'stocking.png',
+    'stuck.png',
+    'syrup.png',
+    'tongueonpole.png',
+    'truelove.png',
+    'twins.png',
+    'underwater.png',
+    'uptree.png',
+    'waymo.png',
+  ]);
+
+  // only show these cards during the Tracker.
+  const duringTrackerCards = Object.freeze([
+    'cart.png',
+    'closecall.png',
+    'elfpower.png',
+    'feetup.png',
+    'fireplacehangout.png',
+    'gondola.png',
+    'hanginthere.png',
+    'infrontofmoon.png',
+    'milkandcookies.png',
+    'mrsclaus.mp4',
+    'santacrack.png',
+    'santaticket.png',
+    'shadow.png',
+    'stuck.png',
+  ]);
+
+  /**
+   * @type {!Array<string>} recent social cards
+   */
+  const recentCards = [];
+
+  /**
+   * @type {number} the total number of cards to keep before reuse
+   */
+  const skipRecentCards = 10;
+
+  /**
+   * @type {number} the total number of currently visible social cards
+   */
+  let socialCardCount = 0;
+
+  /**
+   * @param {boolean} duringTracker whether we are inflight
+   * @return {string} the card image to display
+   */
+  function nextCard(duringTracker) {
+    let attempts = 16;  // should fail O(never)
+    let result = null;
+
+    while (--attempts) {
+      result = allCards[Math.floor(Math.random() * allCards.length)];
+
+      if (result.slice(-4) === '.mp4') {
+        const last = recentCards[0] || '';
+        if (last.slice(-4) === '.mp4') {
+          continue;  // don't allow video-after-video
+        }
+      }
+
+      if (duringTracker && duringTrackerCards.indexOf(result) !== -1) {
+        continue;
+      } else if (recentCards.indexOf(result) !== -1) {
+        continue;
+      }
+
+      break;  // hooray!
+    }
+
+    recentCards.unshift(result);
+    const cardLimit = Math.max(skipRecentCards, socialCardCount);
+    while (recentCards.length > cardLimit) {
+      recentCards.pop();
+    }
+
+    return result;
+  }
+
+  Polymer({
+    is: 'social-card',
+
+    properties: {
+
+      /**
+       * Whether it is during the Tracker, and the inflight social cards can be displayed.
+       */
+      duringTracker: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
+       * The card to display. If none is set externally, this will be set randomly, not choosing
+       * any of the last few cards.
+       */
+      card: {
+        type: String,
+        notify: true,
+        observer: '_onCardChanged',
+      },
+
+    },
+
+    attached: function() {
+      ++socialCardCount;
+
+      if (this.card) {
+        this.fire('preload', [`img/${this.card}`]);
+      }
+    },
+
+    ready: function() {
+      if (!this.card) {
+        this.card = nextCard(this.duringTracker);
+      }
+    },
+
+    detached: function() {
+      --socialCardCount;
+    },
+
+    loadNext: function() {
+      this.card = nextCard(this.duringTracker);
+    },
+
+    _onCardChanged: function(card) {
+      const resolved = this.resolveUrl(`img/${card}`);
+
+      const suffix = card.substring(card.lastIndexOf('.'))
+      if (suffix === '.mp4') {
+        // TODO: this replaces the playing video immediately, but we prevent dup videos anyway
+        this.$.video.src = resolved;
+      } else {
+        this.$.preload.src = resolved;
+      }
+    },
+
+    /**
+     * Called when the image is preloaded.
+     */
+    _onLoad: function(ev) {
+      ev.stopPropagation();
+      this.fire('load');
+
+      const p = this.$.preload;
+      this.$.img.style.backgroundImage = `url(${p.src})`;
+
+      const v = this.$.video;
+      v.removeAttribute('src');
+      v.hidden = true;
+    },
+
+    /**
+     * Called when the video plays a frame.
+     */
+    _onPlayVideo: function() {
+      this.fire('load');
+
+      this.$.img.style.backgroundImage = null;
+      this.$.video.hidden = false;
+
+      this._sizeVideo();
+    },
+
+    _sizeVideo: function() {
+      const v = this.$.video;
+      if (!v.src) {
+        return;
+      }
+
+      if (this.offsetWidth > this.offsetHeight) {
+        v.className = 'taller';
+      } else {
+        v.className = '';
+      }
+      window.requestAnimationFrame(this._sizeVideo.bind(this));
+    },
+
+    _onError: function(ev) {
+      // TODO: show picture of Santa
+      console.warn('got error', ev);
+    },
+
+    _onContextMenu: function(ev) {
+      ev.preventDefault();
+    },
+
+  });
+}());
+</script>
+</dom-module>

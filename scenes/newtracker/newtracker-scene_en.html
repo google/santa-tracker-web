@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
+<link rel="import" href="../../elements/social-card/social-card.html">
 <link rel="import" href="newtracker-scene_module.html">
 
 <!-- nb: intentionally in subfolder, to deal with Vulcanize issue in same dir -->
@@ -127,7 +128,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           <a class="bg" href="#videos"></a>
         </article>
         <article class="big rotate rotate-livefeed">
-          <div class="bg" style$="[[_computeBackgroundImageStyle(_cardFeedImage)]]"></div>
+          <social-card id="social" class="bg"></social-card>
           <h2><i18n-msg msgid="tracker_feed">PLACEHOLDER_i18n</i18n-msg></h2>
           <a class="bg" href="#livefeed"></a>
         </article>
@@ -221,9 +222,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
           <p class$="[[_computeFactoidTextClass(_factoidText)]]">[[_factoidText]]</p>
         </div>
       </span>
-      <template is="dom-repeat" items="[[_feedImages]]">
-        <div class="image" style$="[[_computeBackgroundImageStyle(item)]]"></div>
-      </template>
     </section>
     <section id="thanks">
       <div class="ornament"></div>
@@ -239,19 +237,16 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 <script>
 (function() {
   const UPDATE_MS = 250;
-  const SOCIALFEED_COUNT = 11;
   const TRAVELOGUE_COUNT = 4;
   const LISTVIEW_COUNT = 7;
-
-  const FEED_STATIC = ['abbyroad', 'awwman', 'babybird', 'badsweater', 'bjornpenguin', 'calm', 'catchsnow', 'chiquitasanta', 'closecall', 'cookies', 'dance', 'dog', 'dunks', 'elfpower', 'feetup', 'fireplacehangout', 'grocery', 'hanging', 'hanginthere', 'hotcoco', 'icecarving', 'icecycle', 'igloo', 'inflightmeal', 'infrontofmoon', 'inthebag', 'kiss', 'ladybug', 'metafriend', 'milkandcookies', 'mints', 'mustache', 'nightsky', 'nutcrackers', 'packingcenter', 'palmtree', 'phonepole', 'pyramid', 'ramen', 'reindeercuddle', 'route66', 'sadtree', 'santaarms', 'santacone', 'santacrack', 'santascoat', 'santasled', 'santaticket', 'shadow', 'snowangles', 'snowballfight', 'snowcones', 'snowdog', 'snowmanhead', 'split', 'stocking', 'stuck', 'syrup', 'tongueonpole', 'underwater', 'uptree', 'waymo'];
-  const FEED_ANIMATION = ['faceswap', 'lights', 'mintybreath', 'mrsclaus', 'rocker'];
+  const SOCIALFEED_COUNT = 11;
 
   const FALLBACK_CARDS = ['comroom', 'glider', 'jingle', 'latlong', 'office', 'reload', 'satellite', 'selfies', 'slackingoff', 'temptation', 'tired', 'trailer', 'trivia'];
 
-  const INITIAL_GAMES = ['smatch', 'codeboogie', 'codelab', 'penguindash', 'santaselfie', 'wrapbattle', 'presentbounce', 'snowflake'];
+  const INITIAL_GAMES = ['smatch', 'codeboogie', 'penguindash', 'santaselfie', 'wrapbattle', 'presentbounce', 'snowball', 'elfski', 'speedsketch'];
   const ALL_GAMES = INITIAL_GAMES.concat([
-    'traditions', 'translations', 'santasearch', 'seasonofgiving', 'gumball', 'jamband', 'boatload', 'runner', 'jetpack', 'presentdrop', 'mercator', 'racer', 'matching',  // 2016
-    'trivia', 'glider', 'latlong', 'postcard',  // older games
+    'traditions', 'translations', 'santasearch', 'seasonofgiving', 'gumball', 'jamband', 'snowball', 'elfski', 'boatload', 'runner', 'jetpack', 'presentdrop', 'mercator', 'racer', 'matching',
+    'trivia', 'glider', 'latlong', 'postcard',  // hidden games
   ]);
 
   Polymer({
@@ -262,22 +257,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       _updateSantaTimeout: Number,
       _listviewInterval: Number,
       _strings: Object,
-
-      /**
-       * The images currently being displayed in the social feed.
-       */
-      _feedImages: {
-        type: Array,
-        value: () => new Array(SOCIALFEED_COUNT),
-      },
-
-      /**
-       * The main social card background.
-       */
-      _cardFeedImage: {
-        type: String,
-        value: null,
-      },
 
       /**
        * Game scenes to show.
@@ -398,7 +377,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     observers: [
-      '_refreshCards(_current, _upcoming)',
+      '_updateSocialCard(_current, _upcoming)',
     ],
 
     _santaSync: function() {
@@ -488,45 +467,30 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       }
     },
 
-    _refreshCards: function(current, upcoming) {
-      this.debounce('_refreshCards', function() {
-        this._pushSocialImage((src) => {
-          this._cardFeedImage = src;
-        });
-      }, 100);
-    },
-
-    _pushSocialImage: function(opt_callback) {
-      function chooseImage() {
-        if (Math.random() < 0.2) {
-          return randomChoice(FEED_ANIMATION) + '.gif';
+    _updateSocialCard: function(current, upcoming) {
+      this.debounce('_updateSocialCard', () => {
+        const q = this.$.livefeed;
+        const collect = q.getElementsByTagName('social-card');
+        if (collect.length === SOCIALFEED_COUNT) {
+          collect[collect.length - 1].remove();
         }
-        return randomChoice(FEED_STATIC) + '.png';
-      }
 
-      let src;
-      let count = 10;
-      while (--count && (!src || this._feedImages.indexOf(src) !== -1)) {
-        src = 'img/feed/' + chooseImage();
-      }
+        while (collect.length < SOCIALFEED_COUNT) {
+          const update = document.createElement('social-card');
 
-      const image = new Image();
-      image.src = this.resolveUrl(src);
-      image.onload = () => {
-        opt_callback && opt_callback.call(this, src);
-
-        // If the image isn't already in the feed, add it here.
-        if (this._feedImages.indexOf(src) === -1) {
-          this.unshift('_feedImages', src);
-          while (this._feedImages.length > SOCIALFEED_COUNT) {
-            this.pop('_feedImages');
+          if (this.$.social.card) {
+            update.card = this.$.social.card;
+            this.$.social.loadNext();
           }
-        } else {
-          this._pushSocialImage();
+
+          q.insertBefore(update, collect[0] || null);
         }
-      };
+      }, 250);
     },
 
+    /**
+     * This pushes images for our 'games' or 'videos' list views.
+     */
     _pushListViewImage: function(path, choice) {
       // TODO(samthor): This allows duplicates.
       const image = new Image();
@@ -763,10 +727,7 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
      * of the page.
      */
     _onScroll: function() {
-      this.debounce('_onScroll', function() {
-        if (!this.isAttached) {
-          return;
-        }
+      this.debounce('_onScroll', () => {
         let cand;
         const y = document.body.scrollTop + window.innerHeight * 0.5;
         const s = this.$.sections;
@@ -795,27 +756,6 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
       this._onScroll = this._onScroll.bind(this);
     },
 
-    attached: function() {
-      window.santaService.addListener('sync', this._santaSync);
-      window.santaService.addListener('stream_changed', this._streamChanged);
-      this.async(() => this._santaSync());
-
-      // TODO(samthor): There's no cache/list of images currently being loaded, so this might
-      // load duplicates and then the feed will have fewer than SOCIALFEED_COUNT entries: until
-      // we randomly load enough from Santa's flight, that is.
-      for (let i = 0; i < SOCIALFEED_COUNT; ++i) {
-        this._pushSocialImage();
-      }
-
-      window.addEventListener('scroll', this._onScroll, {passive: true});
-    },
-
-    detached: function() {
-      window.santaService.removeListener('sync', this._santaSync);
-      window.santaService.removeListener('stream_changed', this._streamChanged);
-      window.removeEventListener('scroll', this._onScroll, {passive: true});
-    },
-
     onPreload: function() {
       const images = [
         'img/ornament.svg',
@@ -827,10 +767,15 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
 
       this.preloadImages(images);
       this.preloadSounds('village_load_sounds');
-      this.preloadPromise(window.santaService.route());
+      this.preloadPromise(window.santaService.route());  // wait for route data
     },
 
     onShow: function() {
+      window.santaService.addListener('sync', this._santaSync);
+      window.santaService.addListener('stream_changed', this._streamChanged);
+      window.addEventListener('scroll', this._onScroll, {passive: true});
+      this.async(() => this._santaSync());
+
       this.fire('sound-ambient', 'music_start_village');
 
       // Every 20s, push a random game or video.
@@ -850,6 +795,10 @@ C521.4,241.1,525.9,253.3,526.7,265.3z"/>
     },
 
     onHide: function() {
+      window.santaService.removeListener('sync', this._santaSync);
+      window.santaService.removeListener('stream_changed', this._streamChanged);
+      window.removeEventListener('scroll', this._onScroll, {passive: true});
+
       window.clearInterval(this._listviewInterval);
     },
 
