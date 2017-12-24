@@ -1471,6 +1471,10 @@
     "description": "Title of a message on an end of game screen, when the AI recognized a drawing.",
     "message": "Well done!"
   },
+  "quickdraw-timesup-subline-guess-one": {
+    "description": "Sentence on end of game screen. When a robot recognized one of a player's drawings.",
+    "message": "Tensor recognized one of your drawings."
+  },
   "quickdraw-timesup-subline-guess": {
     "description": "Sentence on end of game screen. When a robot recognized at least two of a player's drawings.",
     "raw": "Tensor recognized <ph name=\"RECOGNIZED\"><ex>10</ex>{{recognized}}</ph> of your drawings."
@@ -1717,7 +1721,7 @@
   },
   "scene_quickdraw": {
     "description": "Title of a scene/game. Draw shapes and try to have Santa's robot guess what you are drawing.",
-    "message": "Speed Sketch"
+    "message": "Quick Draw"
   },
   "scene_racer": {
     "description": "Title of a scene/game. Race Rudolph through the snow, collecting the most presents along the way.",
@@ -1959,11 +1963,11 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Somalia"
   },
-  "speedsketch_item~abstract_art": {
+  "speedsketch_item~abstract art": {
     "message": "abstract art",
     "description": "Game task: abstract art"
   },
-  "speedsketch_item~aircraft_carrier": {
+  "speedsketch_item~aircraft carrier": {
     "message": "aircraft carrier",
     "description": "Game task: aircraft carrier"
   },
@@ -1971,7 +1975,7 @@
     "message": "airplane",
     "description": "Game task: airplane"
   },
-  "speedsketch_item~alarm_clock": {
+  "speedsketch_item~alarm clock": {
     "message": "alarm clock",
     "description": "Game task: alarm clock"
   },
@@ -1987,7 +1991,7 @@
     "message": "angel",
     "description": "Game task: angel"
   },
-  "speedsketch_item~animal_migration": {
+  "speedsketch_item~animal migration": {
     "message": "animal migration",
     "description": "Game task: animal migration"
   },
@@ -2019,7 +2023,7 @@
     "message": "astronaut",
     "description": "Game task: astronaut"
   },
-  "speedsketch_item~audio_cassette": {
+  "speedsketch_item~audio cassette": {
     "message": "audio cassette",
     "description": "Game task: audio cassette"
   },
@@ -2055,7 +2059,7 @@
     "message": "baseball",
     "description": "Game task: baseball"
   },
-  "speedsketch_item~baseball_bat": {
+  "speedsketch_item~baseball bat": {
     "message": "baseball bat",
     "description": "Game task: baseball bat"
   },
@@ -2115,7 +2119,7 @@
     "message": "bird",
     "description": "Game task: bird"
   },
-  "speedsketch_item~birthday_cake": {
+  "speedsketch_item~birthday cake": {
     "message": "birthday cake",
     "description": "Game task: birthday cake"
   },
@@ -2235,7 +2239,7 @@
     "message": "candle",
     "description": "Game task: candle"
   },
-  "speedsketch_item~candy_cane": {
+  "speedsketch_item~candy cane": {
     "message": "candy cane",
     "description": "Game task: candy cane"
   },
@@ -2263,11 +2267,11 @@
     "message": "cat",
     "description": "Game task: cat"
   },
-  "speedsketch_item~ceiling_fan": {
+  "speedsketch_item~ceiling fan": {
     "message": "ceiling fan",
     "description": "Game task: ceiling fan"
   },
-  "speedsketch_item~cell_phone": {
+  "speedsketch_item~cell phone": {
     "message": "cell phone",
     "description": "Game task: cell phone"
   },
@@ -2323,11 +2327,11 @@
     "message": "cloud",
     "description": "Game task: cloud"
   },
-  "speedsketch_item~cob_of_corn": {
+  "speedsketch_item~cob of corn": {
     "message": "cob of corn",
     "description": "Game task: cob of corn"
   },
-  "speedsketch_item~coffee_cup": {
+  "speedsketch_item~coffee cup": {
     "message": "coffee cup",
     "description": "Game task: coffee cup"
   },
@@ -2379,7 +2383,7 @@
     "message": "crown",
     "description": "Game task: crown"
   },
-  "speedsketch_item~cruise_ship": {
+  "speedsketch_item~cruise ship": {
     "message": "cruise ship",
     "description": "Game task: cruise ship"
   },
@@ -2399,7 +2403,7 @@
     "message": "diamond",
     "description": "Game task: diamond"
   },
-  "speedsketch_item~diamond_ring": {
+  "speedsketch_item~diamond ring": {
     "message": "diamond ring",
     "description": "Game task: diamond ring"
   },
@@ -2407,7 +2411,7 @@
     "message": "dishwasher",
     "description": "Game task: dishwasher"
   },
-  "speedsketch_item~diving_board": {
+  "speedsketch_item~diving board": {
     "message": "diving board",
     "description": "Game task: diving board"
   },
@@ -2511,7 +2515,7 @@
     "message": "finger",
     "description": "Game task: finger"
   },
-  "speedsketch_item~fire_hydrant": {
+  "speedsketch_item~fire hydrant": {
     "message": "fire hydrant",
     "description": "Game task: fire hydrant"
   },
@@ -2539,15 +2543,15 @@
     "message": "flashlight",
     "description": "Game task: flashlight"
   },
-  "speedsketch_item~flip_flops": {
+  "speedsketch_item~flip flops": {
     "message": "flip flops",
     "description": "Game task: flip flops"
   },
-  "speedsketch_item~floor_lamp": {
+  "speedsketch_item~floor lamp": {
     "message": "floor lamp",
     "description": "Game task: floor lamp"
   },
-  "speedsketch_item~floppy_disk": {
+  "speedsketch_item~floppy disk": {
     "message": "floppy disk",
     "description": "Game task: floppy disk"
   },
@@ -2555,7 +2559,7 @@
     "message": "flower",
     "description": "Game task: flower"
   },
-  "speedsketch_item~flying_saucer": {
+  "speedsketch_item~flying saucer": {
     "message": "flying saucer",
     "description": "Game task: flying saucer"
   },
@@ -2571,11 +2575,11 @@
     "message": "fork",
     "description": "Game task: fork"
   },
-  "speedsketch_item~french_fries": {
+  "speedsketch_item~french fries": {
     "message": "french fries",
     "description": "Game task: french fries"
   },
-  "speedsketch_item~fried_egg": {
+  "speedsketch_item~fried egg": {
     "message": "fried egg",
     "description": "Game task: fried egg"
   },
@@ -2583,7 +2587,7 @@
     "message": "frog",
     "description": "Game task: frog"
   },
-  "speedsketch_item~frying_pan": {
+  "speedsketch_item~frying pan": {
     "message": "frying pan",
     "description": "Game task: frying pan"
   },
@@ -2595,7 +2599,7 @@
     "message": "garden",
     "description": "Game task: garden"
   },
-  "speedsketch_item~garden_hose": {
+  "speedsketch_item~garden hose": {
     "message": "garden hose",
     "description": "Game task: garden hose"
   },
@@ -2615,7 +2619,7 @@
     "message": "goatee",
     "description": "Game task: goatee"
   },
-  "speedsketch_item~golf_club": {
+  "speedsketch_item~golf club": {
     "message": "golf club",
     "description": "Game task: golf club"
   },
@@ -2647,7 +2651,7 @@
     "message": "hand",
     "description": "Game task: hand"
   },
-  "speedsketch_item~hangman_game": {
+  "speedsketch_item~hangman game": {
     "message": "hangman game",
     "description": "Game task: hangman game"
   },
@@ -2687,11 +2691,11 @@
     "message": "hexagon",
     "description": "Game task: hexagon"
   },
-  "speedsketch_item~hockey_puck": {
+  "speedsketch_item~hockey puck": {
     "message": "hockey puck",
     "description": "Game task: hockey puck"
   },
-  "speedsketch_item~hockey_stick": {
+  "speedsketch_item~hockey stick": {
     "message": "hockey stick",
     "description": "Game task: hockey stick"
   },
@@ -2703,15 +2707,15 @@
     "message": "hospital",
     "description": "Game task: hospital"
   },
-  "speedsketch_item~hot_air_balloon": {
+  "speedsketch_item~hot air balloon": {
     "message": "hot air balloon",
     "description": "Game task: hot air balloon"
   },
-  "speedsketch_item~hot_dog": {
+  "speedsketch_item~hot dog": {
     "message": "hot dog",
     "description": "Game task: hot dog"
   },
-  "speedsketch_item~hot_tub": {
+  "speedsketch_item~hot tub": {
     "message": "hot tub",
     "description": "Game task: hot tub"
   },
@@ -2723,7 +2727,7 @@
     "message": "house",
     "description": "Game task: house"
   },
-  "speedsketch_item~house_plant": {
+  "speedsketch_item~house plant": {
     "message": "house plant",
     "description": "Game task: house plant"
   },
@@ -2731,11 +2735,11 @@
     "message": "hurricane",
     "description": "Game task: hurricane"
   },
-  "speedsketch_item~ice_cream": {
+  "speedsketch_item~ice cream": {
     "message": "ice cream",
     "description": "Game task: ice cream"
   },
-  "speedsketch_item~ice_skater": {
+  "speedsketch_item~ice skater": {
     "message": "ice skater",
     "description": "Game task: ice skater"
   },
@@ -2755,7 +2759,7 @@
     "message": "jacket",
     "description": "Game task: jacket"
   },
-  "speedsketch_item~jingle_bells": {
+  "speedsketch_item~jingle bells": {
     "message": "Jingle Bells",
     "description": "Game task: jingle bells"
   },
@@ -2819,7 +2823,7 @@
     "message": "leg",
     "description": "Game task: leg"
   },
-  "speedsketch_item~light_bulb": {
+  "speedsketch_item~light bulb": {
     "message": "light bulb",
     "description": "Game task: light bulb"
   },
@@ -2975,7 +2979,7 @@
     "message": "necklace",
     "description": "Game task: necklace"
   },
-  "speedsketch_item~New_York": {
+  "speedsketch_item~New York": {
     "message": "New York",
     "description": "Game task: New York"
   },
@@ -3011,7 +3015,7 @@
     "message": "owl",
     "description": "Game task: owl"
   },
-  "speedsketch_item~paint_can": {
+  "speedsketch_item~paint can": {
     "message": "paint can",
     "description": "Game task: paint can"
   },
@@ -3023,7 +3027,7 @@
     "message": "painting",
     "description": "Game task: painting"
   },
-  "speedsketch_item~palm_tree": {
+  "speedsketch_item~palm tree": {
     "message": "palm tree",
     "description": "Game task: palm tree"
   },
@@ -3035,7 +3039,7 @@
     "message": "pants",
     "description": "Game task: pants"
   },
-  "speedsketch_item~paper_clip": {
+  "speedsketch_item~paper clip": {
     "message": "paper clip",
     "description": "Game task: paper clip"
   },
@@ -3079,15 +3083,15 @@
     "message": "piano",
     "description": "Game task: piano"
   },
-  "speedsketch_item~pickup_truck": {
+  "speedsketch_item~pickup truck": {
     "message": "pickup truck",
     "description": "Game task: pickup truck"
   },
-  "speedsketch_item~picture_frame": {
+  "speedsketch_item~picture frame": {
     "message": "picture frame",
     "description": "Game task: picture frame"
   },
-  "speedsketch_item~pie_chart": {
+  "speedsketch_item~pie chart": {
     "message": "pie chart",
     "description": "Game task: pie chart"
   },
@@ -3103,7 +3107,7 @@
     "message": "pineapple",
     "description": "Game task: pineapple"
   },
-  "speedsketch_item~ping_pong": {
+  "speedsketch_item~ping pong": {
     "message": "ping pong",
     "description": "Game task: ping pong"
   },
@@ -3119,7 +3123,7 @@
     "message": "pliers",
     "description": "Game task: pliers"
   },
-  "speedsketch_item~police_car": {
+  "speedsketch_item~police car": {
     "message": "police car",
     "description": "Game task: police car"
   },
@@ -3151,7 +3155,7 @@
     "message": "potato",
     "description": "Game task: potato"
   },
-  "speedsketch_item~power_outlet": {
+  "speedsketch_item~power outlet": {
     "message": "power outlet",
     "description": "Game task: power outlet"
   },
@@ -3199,7 +3203,7 @@
     "message": "reindeer",
     "description": "Game task: reindeer"
   },
-  "speedsketch_item~remote_control": {
+  "speedsketch_item~remote control": {
     "message": "remote control",
     "description": "Game task: remote control"
   },
@@ -3215,7 +3219,7 @@
     "message": "robot",
     "description": "Game task: robot"
   },
-  "speedsketch_item~roller_coaster": {
+  "speedsketch_item~roller coaster": {
     "message": "roller coaster",
     "description": "Game task: roller coaster"
   },
@@ -3235,7 +3239,7 @@
     "message": "sandwich",
     "description": "Game task: sandwich"
   },
-  "speedsketch_item~santa_claus": {
+  "speedsketch_item~santa claus": {
     "message": "Santa Claus",
     "description": "Game task: Santa Claus"
   },
@@ -3255,7 +3259,7 @@
     "message": "saxophone",
     "description": "Game task: saxophone"
   },
-  "speedsketch_item~school_bus": {
+  "speedsketch_item~school bus": {
     "message": "school bus",
     "description": "Game task: school bus"
   },
@@ -3279,11 +3283,11 @@
     "message": "sculpture",
     "description": "Game task: sculpture"
   },
-  "speedsketch_item~sea_turtle": {
+  "speedsketch_item~sea turtle": {
     "message": "sea turtle",
     "description": "Game task: sea turtle"
   },
-  "speedsketch_item~see_saw": {
+  "speedsketch_item~see saw": {
     "message": "see saw",
     "description": "Game task: see saw"
   },
@@ -3343,11 +3347,11 @@
     "message": "sled",
     "description": "Game task: sled"
   },
-  "speedsketch_item~sleeping_bag": {
+  "speedsketch_item~sleeping bag": {
     "message": "sleeping bag",
     "description": "Game task: sleeping bag"
   },
-  "speedsketch_item~smiley_face": {
+  "speedsketch_item~smiley face": {
     "message": "smiley face",
     "description": "Game task: smiley face"
   },
@@ -3371,7 +3375,7 @@
     "message": "snowman",
     "description": "Game task: snowman"
   },
-  "speedsketch_item~soccer_ball": {
+  "speedsketch_item~soccer ball": {
     "message": "soccer ball",
     "description": "Game task: soccer ball"
   },
@@ -3439,7 +3443,7 @@
     "message": "stocking",
     "description": "Game task: stocking"
   },
-  "speedsketch_item~still_life": {
+  "speedsketch_item~still life": {
     "message": "still life",
     "description": "Game task: still life"
   },
@@ -3447,11 +3451,11 @@
     "message": "stitches",
     "description": "Game task: stitches"
   },
-  "speedsketch_item~stock_market": {
+  "speedsketch_item~stock market": {
     "message": "stock market",
     "description": "Game task: stock market"
   },
-  "speedsketch_item~stop_sign": {
+  "speedsketch_item~stop sign": {
     "message": "stop sign",
     "description": "Game task: stop sign"
   },
@@ -3471,7 +3475,7 @@
     "message": "streetlight",
     "description": "Game task: streetlight"
   },
-  "speedsketch_item~string_bean": {
+  "speedsketch_item~string bean": {
     "message": "string bean",
     "description": "Game task: string bean"
   },
@@ -3499,7 +3503,7 @@
     "message": "sweater",
     "description": "Game task: sweater"
   },
-  "speedsketch_item~swing_set": {
+  "speedsketch_item~swing set": {
     "message": "swing set",
     "description": "Game task: swing set"
   },
@@ -3531,7 +3535,7 @@
     "message": "television",
     "description": "Game task: television"
   },
-  "speedsketch_item~tennis_racquet": {
+  "speedsketch_item~tennis racquet": {
     "message": "tennis racquet",
     "description": "Game task: tennis racquet"
   },
@@ -3539,19 +3543,19 @@
     "message": "tent",
     "description": "Game task: tent"
   },
-  "speedsketch_item~The_Eiffel_Tower": {
+  "speedsketch_item~The Eiffel Tower": {
     "message": "The Eiffel Tower",
     "description": "Game task: The Eiffel Tower"
   },
-  "speedsketch_item~The_Great_Wall_of_China": {
+  "speedsketch_item~The Great Wall of China": {
     "message": "The Great Wall of China",
     "description": "Game task: The Great Wall of China"
   },
-  "speedsketch_item~The_Mona_Lisa": {
+  "speedsketch_item~The Mona Lisa": {
     "message": "The Mona Lisa",
     "description": "Game task: The Mona Lisa"
   },
-  "speedsketch_item~tic_tac_toe_game": {
+  "speedsketch_item~tic tac toe game": {
     "message": "tic tac toe game",
     "description": "Game task: tic tac toe game"
   },
@@ -3595,7 +3599,7 @@
     "message": "tractor",
     "description": "Game task: tractor"
   },
-  "speedsketch_item~traffic_light": {
+  "speedsketch_item~traffic light": {
     "message": "traffic light",
     "description": "Game task: traffic light"
   },
@@ -3667,7 +3671,7 @@
     "message": "walnut",
     "description": "Game task: walnut"
   },
-  "speedsketch_item~washing_machine": {
+  "speedsketch_item~washing machine": {
     "message": "washing machine",
     "description": "Game task: washing machine"
   },
@@ -3743,11 +3747,11 @@
     "message": "ornament",
     "description": "Game task: ornament"
   },
-  "speedsketch_item~holiday_lights": {
+  "speedsketch_item~holiday lights": {
     "message": "holiday lights",
     "description": "Game task: holiday lights"
   },
-  "speedsketch_item~gingerbread_man": {
+  "speedsketch_item~gingerbread man": {
     "message": "gingerbread man",
     "description": "Game task: gingerbread man"
   },
