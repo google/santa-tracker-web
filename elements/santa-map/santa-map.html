@@ -606,7 +606,7 @@ Tracker map.
 
       const map = new google.maps.Map(this.$.map, {
         center: this.santaLatLng || {lat: 83.124668, lng: 154.891364},
-        zoom: 1,
+        zoom: 2,
         minZoom: 2,
         maxZoom: 6,  // ROK has own tiles at 7+
         // 'noPerTile': true,  // ???
@@ -630,14 +630,20 @@ Tracker map.
         }
       });
 
-      map.addListener('zoom_changed', () => {
-        // If it's not a map change, this is a user changing the zoom level.
-        if (!this._duringMapChange) {
-          this._userZoom = true;
-          this._updateMapState();  // need to reposition Santa, due to offsets
-          window.ga('send', 'event', 'tracker', 'map', 'zoom');
-        }
-      });
+      // TODO(samthor): This is a bit ugly, but we're seeing slow loads on Slippy. Try kicking the
+      // map after 1000ms.
+      this.async(() => {
+        map.setZoom(4);  // kick map
+        map.addListener('zoom_changed', () => {
+          // If it's not a map change, this is a user changing the zoom level.
+          if (!this._duringMapChange) {
+            this._userZoom = true;
+            this._updateMapState();  // need to reposition Santa, due to offsets
+            window.ga('send', 'event', 'tracker', 'map', 'zoom');
+          }
+        });
+        this._updateMapState();
+      }, 1000);
 
       map.addListener('mapdataproviders_changed', () => {
         const providers = /** @type {string} */ (map.get('mapDataProviders'));
