@@ -58,11 +58,11 @@ module.exports = function fanout(sceneConfig) {
 
         if (config.msgid) {
           const title = this.head.querySelector('title');
-          title.setAttribute('msgid', `${config.msgid} ` + title.getAttribute('msgid'));
+          title.setAttribute('msgid', `${config.msgid},` + title.getAttribute('msgid'));
           const ogTitle = this.head.querySelector('[property="og:title"]');
-          ogTitle.setAttribute('msgid', `${config.msgid} ` + ogTitle.getAttribute('msgid'));
+          ogTitle.setAttribute('msgid', `${config.msgid},` + ogTitle.getAttribute('msgid'));
           const twitterTitle = this.head.querySelector('[name="twitter:title"]');
-          twitterTitle.setAttribute('msgid', `${config.msgid} ` + twitterTitle.getAttribute('msgid'));
+          twitterTitle.setAttribute('msgid', `${config.msgid},` + twitterTitle.getAttribute('msgid'));
         }
       });
 

@@ -181,8 +181,8 @@ class MessageData {
   /**
    * Formats the passed msgid. Splits on comma.
    *
-   * FIXME(samthor): It's not clear this behavior was ever used, and it broke us in 2017 because
-   * it previously used spaces (now used by Speed Sketch's translated messages).
+   * This behavior is a bit flaky, as maybe we have msgids with commas. It's only used by the
+   * fanout task.
    *
    * @param {string} lang
    * @param {string} s
