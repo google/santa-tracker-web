@@ -37,24 +37,29 @@ Tracker scene.
 
   <santa-strings strings="{{_strings}}"></santa-strings>
 
+  <paper-icon-button id="search" icon="santa:search"
+      data-title$="[[_computeSearchTitle(_strings)]]"
+      class$="[[_computeFocusButtonClass(_focusOnSanta, _scrollTop)]]"
+      on-click="_onFocusOnSantaClick"></paper-icon-button>
+
   <div class="contain" id="sections">
     <section id="main">
       <div id="topbar"></div>
-      <tracker-map id="map"></tracker-map>
+      <tracker-map id="map" focus-on-santa="{{_focusOnSanta}}"></tracker-map>
 
       <div class="cards" on-click="_onCardClick">
         <article class="stats">
           <div class="data" hidden$="[[!_hasValidDistance(_distance, _arrivalHours)]]">
-            <h4><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h2><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h2>
             <big>[[_computeDistance(_distance)]]</big>
           </div>
           <div class="data" hidden$="[[!_arrivalHours]]">
-            <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h2><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h2>
             <big class="lessbig">[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
           </div>
           <!-- This is normally hidden, but is here as a fallback to users with no geoIP -->
           <div class="data" hidden$="[[_hasValidDistance(_distance)]]">
-            <h4><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h2><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h2>
             <big>[[_computeNumber(presentsDelivered)]]</big>
           </div>
 
@@ -87,19 +92,29 @@ Tracker scene.
 
         <article class="rotate rotate-games">
           <div class="bg" id="feedbg" style$="[[_computeCardStyle(_firstGameImage)]]"></div>
-          <h2><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></h2>
-          <h3 class="title">[[_computeCardTitle(_firstGame, _strings)]]</h3>
+          <div class="fade">
+            <h2>
+              <i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg>
+              <small>[[_computeCardTitle(_firstGame, _strings)]]</small>
+            </h2>
+          </div>
           <a class="bg" href="#games"></a>
         </article>
         <article class="rotate rotate-videos">
           <div class="bg" id="feedbg" style$="[[_computeCardStyle(_firstVideoImage)]]"></div>
-          <h2><i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg></h2>
-          <h3 class="title">[[_computeCardTitle(_firstVideo, _strings)]]</h3>
+          <div class="fade">
+            <h2>
+              <i18n-msg msgid="watch">PLACEHOLDER_i18n</i18n-msg>
+              <small>[[_computeCardTitle(_firstVideo, _strings)]]</small>
+            </h2>
+          </div>
           <a class="bg" href="#videos"></a>
         </article>
         <article class="big rotate rotate-livefeed">
           <social-card id="social" class="bg"></social-card>
-          <h2><i18n-msg msgid="tracker_feed">PLACEHOLDER_i18n</i18n-msg></h2>
+          <div class="fade">
+            <h2><i18n-msg msgid="tracker_feed">PLACEHOLDER_i18n</i18n-msg></h2>
+          </div>
           <a class="bg" href="#livefeed"></a>
         </article>
       </div>
@@ -311,6 +326,21 @@ Tracker scene.
         type: Number,
         value: -1,
         readOnly: true,
+      },
+
+      /**
+       * Whether the user is focused on Santa. Bound from `tracker-map`.
+       */
+      _focusOnSanta: {
+        type: Boolean,
+      },
+
+      /**
+       * The debounced position of the scroll viewport.
+       */
+      _scrollTop: {
+        type: Number,
+        value: 0,
       },
 
     },
@@ -596,6 +626,8 @@ Tracker scene.
      */
     _onScroll: function() {
       this.debounce('_onScroll', () => {
+        this._scrollTop = document.scrollingElement.scrollTop;
+
         let cand;
         const y = document.scrollingElement.scrollTop + window.innerHeight * 0.5;
         const s = this.$.sections;
@@ -678,6 +710,19 @@ Tracker scene.
       window.removeEventListener('scroll', this._onScroll, {passive: true});
 
       window.clearInterval(this._listviewInterval);
+    },
+
+    _onFocusOnSantaClick: function() {
+      this._focusOnSanta = true;
+      this._scrollTo(0);
+    },
+
+    _computeSearchTitle: function(strings) {
+      return strings['santa'];
+    },
+
+    _computeFocusButtonClass: function(focusOnSanta, scrollTop) {
+      return focusOnSanta && (scrollTop < window.innerHeight / 2) ? 'hidden' : '';
     },
 
   });

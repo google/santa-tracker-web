@@ -22,26 +22,41 @@
     height: 130px;
     margin: 0 4px;
     background: $color-green;
-    padding: 2px 10px;
     box-sizing: border-box;
     z-index: 2;
+
+    .fade {
+      background: rgba(192, 192, 192, 0.5);
+      padding: 2px 10px;
+    }
+
+    &.stats {
+      padding: 2px 10px;
+    }
 
     &.rotate {
       z-index: 1;  // rotate cards, on right, stay behind main cards
     }
 
     h2 {
-      font-size: 11px;
-      line-height: 13px;
+      font-size: 13px;
+      line-height: 15px;
       color: white;
       margin: 8px;
-      margin-bottom: 4px;
       text-transform: uppercase;
       font-weight: 900;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
-    }
-    h3.title {
-      margin: 0 8px;
+
+      small {
+        &:not(:empty)::before {
+          content: ' · ';
+        }
+
+        display: inline;
+        font: inherit;
+        text-transform: none;
+        color: $color-yellow;
+      }
     }
 
     .bg {
