@@ -22,6 +22,26 @@
 /**
  * @interface
  */
+function StreamUpdate() {};
+
+/**
+ * @type {number} Timestamp in seconds.
+ */
+StreamUpdate.prototype.timestamp;
+
+/**
+ * @type {string} Type of update.
+ */
+StreamUpdate.prototype.type;
+
+/**
+ * @type {string} Message of update.
+ */
+StreamUpdate.prototype.message;
+
+/**
+ * @interface
+ */
 function SantaDetails() {};
 
 /**

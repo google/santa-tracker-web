@@ -171,9 +171,11 @@ Tracker scene.
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 440"><g><path d="M68.08,215.52c0,18.69-12,85.1-13.62,93.76-17,89.83,38.64,98.79,77.15,90.05,9.77-2.22,104.29-21,118.17,4.57H250c13.88-25.54,108.4-6.79,118.17-4.57,38.51,8.74,94.12-.22,77.15-90.05-1.64-8.67-13.62-75.07-13.62-93.76s12-85.1,13.62-93.76c17-89.83-38.64-98.79-77.15-90.05-9.77,2.22-104.29,21-118.17-4.57h-.22c-13.88,25.54-108.4,6.79-118.17,4.57C93.1,23,37.49,31.92,54.46,121.76,56.1,130.43,68.08,196.83,68.08,215.52Z"/></g></svg>
         <h1><i18n-msg msgid="tracker_just_in">PLACEHOLDER_i18n</i18n-msg></h1>
       </span>
-      <span class$="factoid [[_factoidClass]]">
+      <span class$="factoid [[_streamUpdate.type]]">
         <div class="content">
-          <p class$="[[_computeFactoidTextClass(_factoidText)]]">[[_factoidText]]</p>
+          <p class$="[[_computeFactoidTextClass(_streamUpdate.message)]]">
+            [[_streamUpdate.message]]
+          </p>
         </div>
       </span>
     </section>
@@ -220,18 +222,10 @@ Tracker scene.
       },
 
       /**
-       * The class to use for the factoid.
+       * The StreamUpdate object from Santa's API.
        */
-      _factoidClass: {
-        type: String,
-        value: null,
-      },
-
-      /**
-       * The text to show for the factoid.
-       */
-      _factoidText: {
-        type: String,
+      _streamUpdate: {
+        type: Object,
         value: null,
       },
 
@@ -393,10 +387,7 @@ Tracker scene.
       }
       this._setCountdown(Math.floor(ms / 1000));
 
-      // Kick the stream listener.
-      if (!this._factoidText) {
-        this._streamChanged(santaService.getStream());
-      }
+      this._streamUpdate = data.stream;
     },
 
     _onCurrentChanged: function(current) {
@@ -561,28 +552,6 @@ Tracker scene.
       this._scrollTo(Math.min(target.offsetTop - 44 - 12, y));
     },
 
-    _streamChanged: function(stream) {
-      // Find the most recent stream update.
-      let cand = null;
-      for (let i = stream.length - 1; cand = stream[i]; --i) {
-        if (cand.didyouknow || cand.status || cand.update) {
-          break;
-        }
-      }
-      if (!cand) {
-        return;
-      }
-
-      this._factoidText = cand.didyouknow || cand.status || cand.update;
-      const opts = ['didyouknow', 'status', 'update'];
-      for (let i = 0; i < opts.length; ++i) {
-        if (opts[i] in cand) {
-          this._factoidClass = opts[i];
-          break;
-        }
-      }
-    },
-
     _computeFactoidTextClass: function(text) {
       return text && text.length > 30 ? 'long' : null;
     },
@@ -664,7 +633,6 @@ Tracker scene.
 
     created: function() {
       this._santaSync = this._santaSync.bind(this);
-      this._streamChanged = this._streamChanged.bind(this);
       this._onScroll = this._onScroll.bind(this);
     },
 
@@ -684,7 +652,6 @@ Tracker scene.
 
     onShow: function() {
       window.santaService.addListener('sync', this._santaSync);
-      window.santaService.addListener('stream_changed', this._streamChanged);
       window.addEventListener('scroll', this._onScroll, {passive: true});
       this.async(() => this._santaSync());
 
@@ -708,7 +675,6 @@ Tracker scene.
 
     onHide: function() {
       window.santaService.removeListener('sync', this._santaSync);
-      window.santaService.removeListener('stream_changed', this._streamChanged);
       window.removeEventListener('scroll', this._onScroll, {passive: true});
 
       window.clearInterval(this._listviewInterval);

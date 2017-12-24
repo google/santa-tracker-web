@@ -77,3 +77,8 @@ SantaState.prototype.distanceTravelled;
  * @type {number}
  */
 SantaState.prototype.distanceToUser;
+
+/**
+ * @type {StreamUpdate}
+ */
+SantaState.prototype.stream;

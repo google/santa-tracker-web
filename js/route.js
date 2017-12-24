@@ -22,6 +22,44 @@
 goog.provide('Route');
 
 /**
+ * @param {!Array<!Object>} raw
+ * @return {!Array<!StreamUpdate>}
+ */
+function buildStream(raw) {
+  const out = [];
+  const valid = ['didyouknow', 'status', 'update'];
+
+  function findValid(cand) {
+    for (let i = 0; i < valid.length; ++i) {
+      const t = valid[i];
+      if (t in cand && cand[t]) {
+        return t;
+      }
+    }
+    return null;
+  }
+
+  raw.forEach((cand) => {
+    if (!cand.timestamp) {
+      return;
+    }
+    const type = findValid(cand);
+    if (!type) {
+      return;  // old-style stream that we don't care about
+    }
+
+    const update = /** @type {!StreamUpdate} */ ({
+      timestamp: /** @type {number} */ (cand.timestamp),
+      type: type,
+      message: /** @type {string} */ (cand[type]),
+    });
+    out.push(update);
+  });
+
+  return out;
+}
+
+/**
  * @export
  */
 const Route = class Route {
@@ -32,8 +70,8 @@ const Route = class Route {
     /** @type {string} */
     this.url = url;
 
-    // TODO: we don't do anything with the stream.
-    this.stream_ = data['stream'];
+    /** @type {!Array<!StreamUpdate>} */
+    this.stream_ = buildStream(/** @type {!Array<!Object>} */ (data['stream']));
 
     const destinations = /** @type {!Array<!Object>} */ (data['destinations']) || [];
     const arr = [];
@@ -48,42 +86,6 @@ const Route = class Route {
       console.warn('got bad data', data);
       throw new Error('no destinations for Santa');
     }
-
-    /**
-     * @type {number}
-     */
-    this.previousFoundDestination_ = 0;
-  }
-
-  /**
-   * @return {!Array<!SantaLocation>}
-   * @export
-   */
-  getLocations() {
-    return this.locations.slice();
-  }
-
-  /**
-   * @param {number} timestamp to fetch locations to
-   * @param {number=} limit or zero to return all
-   * @return {!Array<!SantaLocation>}
-   * @export
-   */
-  getLocationsTo(timestamp, limit) {
-    const index = this.findDestinationIndex_(timestamp);
-    const low = (limit > 0 ? Math.max(0, index - limit + 1) : 0);
-    return this.locations.slice(low, index + 1);
-  }
-
-  /**
-   * Finds Santa's current SantaLocation, or the one he was most recently at.
-   *
-   * @param {number} timestamp
-   * @return {!SantaLocation}
-   * @export
-   */
-  findDestination(timestamp) {
-    return this.locations[this.findDestinationIndex_(timestamp)];
   }
 
   /**
@@ -136,6 +138,7 @@ const Route = class Route {
     const dests = this.locations.slice(0, destIndex + 1);  // include dest in slice
     const next = dest.next();
     const arrivalTime = nearestDestination ? nearestDestination.arrival : 0;
+    const stream = this.findStream_(timestamp);
 
     if (timestamp < dest.departure) {
       // Santa is at this location.
@@ -153,6 +156,7 @@ const Route = class Route {
         stopover: dest,
         next: next,
         dests: dests,
+        stream: stream,
       });
     }
 
@@ -197,9 +201,29 @@ const Route = class Route {
       stopover: null,
       next: next,
       dests: dests,
+      stream: stream,
     });
   }
 
+  /**
+   * @param {number} timestamp
+   * @return {StreamUpdate} closest stream entry, or null
+   */
+  findStream_(timestamp) {
+    const sl = this.stream_.length;
+    for (let i = 0; i < sl; ++i) {
+      const cand = this.stream_[i];
+      if (timestamp <= cand.timestamp) {
+        return cand;
+      }
+    }
+    return this.stream_[sl - 1] || null;
+  }
+
+  /**
+   * @param {number} timestamp
+   * @return {number} index of location
+   */
   findDestinationIndex_(timestamp) {
     const first = this.locations[0];
     if (first.departure > timestamp) {
@@ -207,7 +231,8 @@ const Route = class Route {
     }
 
     let i;
-    for (i = 0; i < this.locations.length; ++i) {
+    const ll = this.locations.length;
+    for (i = 0; i < ll; ++i) {
       const dest = this.locations[i];
       if (timestamp < dest.arrival) {
         break;
