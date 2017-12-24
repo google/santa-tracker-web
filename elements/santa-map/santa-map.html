@@ -605,7 +605,7 @@ Tracker map.
       }
 
       const map = new google.maps.Map(this.$.map, {
-        center: {lat: 0, lng: 0},
+        center: this.santaLatLng || {lat: 83.124668, lng: 154.891364},
         zoom: 1,
         minZoom: 2,
         maxZoom: 6,  // ROK has own tiles at 7+
@@ -643,6 +643,9 @@ Tracker map.
         const providers = /** @type {string} */ (map.get('mapDataProviders'));
         this.$.legalnotices.textContent = providers || '';
       });
+
+      map.addListener('tilesloaded', () => this._updateMapState());
+      map.addListener('idle', () => this._updateMapState());
 
       const SantaLayer = createSantaLayer(this.$.santa,
           this.$.marker, this.$.northpoleMarker, this.$.easteregg);
