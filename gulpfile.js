@@ -476,7 +476,7 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
     'sass/*.css',
     'scenes/**/models/**/*.{gltf,bin,png}',
     'scenes/**/img/**/*.{png,jpg,svg,gif,cur,mp4}',
-    'elements/**/img/*.{png,jpg,svg,gif,mp4}',
+    'elements/**/img/**/*.{png,jpg,svg,gif,mp4}',
     'components/webcomponentsjs/*.js',
     'components/url/*.js',
     // TODO(samthor): Better support for custom scenes (#1679).
