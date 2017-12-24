@@ -49,18 +49,13 @@ Tracker scene.
 
       <div class="cards" on-click="_onCardClick">
         <article class="stats">
-          <div class="data" hidden$="[[!_hasValidDistance(_distance, _isBeforeArrival)]]">
-            <h2><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h2>
-            <big>[[_computeDistance(_distance)]]</big>
+          <div class="data" hidden$="[[isBeforeArrival]]">
+            <h2><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h2>
+            <big>[[_computeNumber(presentsDelivered)]]</big>
           </div>
           <div class="data" hidden$="[[!_isBeforeArrival]]">
             <h2><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h2>
             <big class="lessbig">[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
-          </div>
-          <!-- This is normally hidden, but is here as a fallback to users with no geoIP -->
-          <div class="data" hidden$="[[_hasValidDistance(_distance)]]">
-            <h2><i18n-msg msgid="tracker_gifts_delivered">PLACEHOLDER_i18n</i18n-msg></h2>
-            <big>[[_computeNumber(presentsDelivered)]]</big>
           </div>
 
           <div class="divider"></div>
@@ -408,16 +403,17 @@ Tracker scene.
         // Calculate the rough numbers of hours until Santa arrives.
         // This is gated by whether Santa is moving, but each stop is only at most 1m.
         let arrivalHours = '';
+        let isBeforeArrival = false;
         if (data.arrivalTime) {
           const hours = (data.arrivalTime - window.santaService.now()) / (60 * 60 * 1000);
           if (hours > 0.08) {  // don't show anything when he's within 5m
             arrivalHours = this._computeNumberFraction(hours, 1);
+            isBeforeArrival = true;
           }
           this._isBeforeArrival = true;  // need this, as arrivalHours can be null
-        } else {
-          this._isBeforeArrival = false;
         }
         this._arrivalHours = arrivalHours;
+        this._isBeforeArrival = isBeforeArrival;
 
         // If the previous stop has changed, then rebuild Santa's trail.
         if (this._prev !== data.prev) {
