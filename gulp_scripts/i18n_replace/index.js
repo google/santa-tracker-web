@@ -179,13 +179,17 @@ class MessageData {
   }
 
   /**
-   * Formats the passed msgid. Splits on space.
+   * Formats the passed msgid. Splits on comma.
+   *
+   * FIXME(samthor): It's not clear this behavior was ever used, and it broke us in 2017 because
+   * it previously used spaces (now used by Speed Sketch's translated messages).
+   *
    * @param {string} lang
    * @param {string} s
    * @return {string}
    */
   format(lang, s) {
-    const parts = s.split(' ').filter((x) => x);
+    const parts = s.split(',').filter((x) => x);
     return parts.map((part) => this.get(lang, part)).join(' \u2014 ');  // mdash
   }
 
