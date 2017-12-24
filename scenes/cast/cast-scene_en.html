@@ -187,9 +187,8 @@ videos and other audio.
         // TODO(samthor): avoid previous selection.
         // TODO(samthor): Limit to unlocked videos.
         const videoId = randomChoice(Object.values(VIDEOS));
-        console.info('should be playing', videoId);
         this.$.video.play(videoId);
-      }, randomRange(3, 6) * 1000)
+      }, randomRange(30, 60) * 1000)
     },
 
     _computeVideoClass: function(videoActive) {
