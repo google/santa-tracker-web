@@ -498,7 +498,7 @@ Tracker map.
             // If focused, the zoom is roughly inverse with screen size. Smaller devices see more
             // of the Earth, because they have less context around Santa.
             const min = (window.innerWidth + window.innerHeight) / 2;
-            let zoom = Math.round(min / 160);
+            let zoom = Math.round(min / 200);
             if (this.santaHeading === null) {
               zoom += 2;  // zoom in at cities
             }
