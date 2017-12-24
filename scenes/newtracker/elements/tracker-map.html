@@ -304,7 +304,6 @@ Tracker map.
       _hasPointer: {
         type: Boolean,
         value: false,
-        observer: '_hasPointerChanged',
       },
 
       /**
@@ -371,6 +370,7 @@ Tracker map.
     observers: [
       '_updateMapState(_map, focusOnSanta, santaLatLng, santaHeading)',
       '_updateTrail(_map, trail, trailLength)',
+      '_controlZoomButtons(_map, _hasPointer, minimalUi)',
     ],
 
     _calculateMapOffset: function() {
@@ -501,10 +501,10 @@ Tracker map.
       }
     },
 
-    _hasPointerChanged: function() {
-      if (this._map) {
+    _controlZoomButtons: function(map, hasPointer, minimalUi) {
+      if (map) {
         // If the browser has a pointer (i.e., a mouse on desktop), show zoom controls.
-        this._map.setOptions({zoomControl: this._hasPointer && !this.minimalUi});
+        map.setOptions({zoomControl: hasPointer && !minimalUi});
       }
     },
 
@@ -535,10 +535,10 @@ Tracker map.
         zoomControlOptions: {
           position: google.maps.ControlPosition.RIGHT_CENTER,
         },
-        backgroundColor: '#69d5d0',  // TODO: bottom color
+        backgroundColor: '#68d5d0',
         styles: mapstyles.styles,
         scrollwheel: false,
-        hideLegalNotices: !this.minimalUi,
+        hideLegalNotices: true,  // rendered by mapdataproviders_changed
       });
 
       map.addListener('center_changed', () => {
@@ -559,14 +559,10 @@ Tracker map.
         }
       });
 
-      if (!this.minimalUi) {
-        map.addListener('mapdataproviders_changed', () => {
-          const providers = /** @type {string} */ (map.get('mapDataProviders'));
-          if (providers) {
-            this.$.legalnotices.textContent = providers;
-          }
-        });
-      }
+      map.addListener('mapdataproviders_changed', () => {
+        const providers = /** @type {string} */ (map.get('mapDataProviders'));
+        this.$.legalnotices.textContent = providers || '';
+      });
 
       const SantaLayer = createSantaLayer(this.$.santa, this.$.marker, this.$.northpoleMarker);
       this._santaLayer = new SantaLayer(
