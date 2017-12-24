@@ -20,10 +20,10 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../scenes/smatch/html/smatch-secret.html">
 <link rel="import" href="../../elements/social-card/social-card.html">
+<link rel="import" href="../../elements/santa-map/santa-map.html">
 <link rel="import" href="newtracker-scene_module.html">
 
 <!-- nb: intentionally in subfolder, to deal with Vulcanize issue in same dir -->
-<link rel="import" href="./elements/tracker-map.html">
 <link rel="import" href="./elements/tracker-location.html">
 <link rel="import" href="./elements/tracker-attribution.html">
 <link rel="import" href="./elements/tracker-listview.html">
@@ -45,7 +45,7 @@ Tracker scene.
   <div class="contain" id="sections">
     <section id="main">
       <div id="topbar"></div>
-      <tracker-map id="map" focus-on-santa="{{_focusOnSanta}}"></tracker-map>
+      <santa-map id="map" focus-on-santa="{{_focusOnSanta}}"></santa-map>
 
       <div class="cards" on-click="_onCardClick">
         <article class="stats">
@@ -336,7 +336,7 @@ Tracker scene.
       },
 
       /**
-       * Whether the user is focused on Santa. Bound from `tracker-map`.
+       * Whether the user is focused on Santa. Bound from `santa-map`.
        */
       _focusOnSanta: {
         type: Boolean,
