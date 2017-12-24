@@ -49,6 +49,8 @@ API is used differently in future years (2018+), this should be broken out into 
 (function() {
   if (navigator.userAgent.indexOf('Chrome') === -1) {
     return;  // never create google-cast-button outside Chrome
+  } else if (window.santaApp.mode) {
+    return;  // don't load in a nonstandard mode
   }
 
   // nb. This sets up Santa Tracker's whole config for Cast: so this file is included inside
