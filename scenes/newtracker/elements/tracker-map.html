@@ -359,6 +359,14 @@ Tracker map.
       },
 
       /**
+       * The default lower padding to display.
+       */
+      paddingBottom: {
+        type: Number,
+        value: 0,
+      },
+
+      /**
        * Whether to display in minimal UI mode.
        */
       minimalUi: {
@@ -373,7 +381,7 @@ Tracker map.
       '_controlZoomButtons(_map, _hasPointer, minimalUi)',
     ],
 
-    _calculateMapOffset: function() {
+    _calculateMapOffset: function(paddingBottom) {
       const out = {x: 0, y: 0};
       if (!this.minimalUi) {
         // TODO(samthor): This could happen outside `tracker-map`, as this element shouldn't care
@@ -385,6 +393,8 @@ Tracker map.
           out.y = -60;  // roughly 1/2 the size of cards
         }
       }
+
+      out.y -= (paddingBottom);
       return out;
     },
 
@@ -403,7 +413,7 @@ Tracker map.
         }
 
         let offsetSantaLatLng;
-        const offset = this._calculateMapOffset();
+        const offset = this._calculateMapOffset(this.paddingBottom);
         const projection = this._map.getProjection();
         if ((offset.x || offset.y) && projection) {
           // TODO(samthor): This code doesn't always run while Santa is delivering presents.

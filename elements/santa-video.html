@@ -341,9 +341,17 @@ Polymer({
 
   _youtubeStateChange: function(state) {
     const wasActive = this.active;
+    console.info('got state', state, this._op, 'active', wasActive);
 
     if (state === 3 && !this.active) {
       // do nothing: we're preloading
+
+      if (this._op && !this._op.cue) {
+        this.async(() => {
+          this._player.playVideo();
+        }, 0);
+      }
+
     } else if (isPlayingState(state)) {
       // playing or paused
       this._setActive(true);

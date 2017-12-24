@@ -19,13 +19,13 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-state.html">
 <link rel="import" href="../../elements/santa-video.html">
 <link rel="import" href="../../elements/village-header/village-header.html">
+<link rel="import" href="../newtracker/elements/tracker-map.html">
 <link rel="import" href="elements/social-cards.html">
 <link rel="import" href="cast-scene_module.html">
 
 <!--
 Minimal code for the Cast scene. This contains a cutback view of the Village, Tracker, and plays
 videos and other audio.
-TODO(samthor): Bring in the Tracker with shared elements.
 -->
 <dom-module id="cast-scene">
 <template>
@@ -33,7 +33,9 @@ TODO(samthor): Bring in the Tracker with shared elements.
 
   <audio autoplay loop src="[[_srcForAudio(_videoActive, isAttached)]]"></audio>
 
-  <santa-state remaining-time="{{_remainingTime}}"></santa-state>
+  <santa-state
+      remaining-time="{{_remainingTime}}"
+      during-tracker="{{_duringTracker}}"></santa-state>
 
   <header>
     <village-header remaining-time="[[_remainingTime]]" fast mobile></village-header>
@@ -41,7 +43,13 @@ TODO(samthor): Bring in the Tracker with shared elements.
 
   <main></main>
 
-  <social-cards pause="[[_videoActive]]"></social-cards>
+  <tracker-map id="map"
+      minimal-ui
+      padding-bottom="120"
+      class$="[[_computeTrackerMapClass(_duringTracker, _mapReady)]]">
+  </tracker-map>
+
+  <social-cards pause="[[_videoActive]]" during-tracker="[[_duringTracker]]"></social-cards>
 
   <santa-video id="video" class$="[[_computeVideoClass(_videoActive)]]"
       active="{{_videoActive}}"></santa-video>
@@ -58,6 +66,8 @@ TODO(samthor): Bring in the Tracker with shared elements.
     '8038_938d698bc5c2e57e75b153c6e5514e2b_Codeboogie_130bpm_idle.ogg',
   ];
 
+  const TRACKER_UPDATE = 1000;
+
   Polymer({
     is: 'cast-scene',
 
@@ -73,12 +83,40 @@ TODO(samthor): Bring in the Tracker with shared elements.
       },
 
       /**
+       * Whether it is during the tracker. Bound from `santa-state`.
+       */
+      _duringTracker: {
+        type: Boolean,
+        observer: '_duringTrackerChanged',
+      },
+
+      /**
+       * Whether we have the initial route and the map can be shown.
+       */
+      _mapReady: {
+        type: Boolean,
+        value: false,
+      },
+
+      /**
        * Whether the video is active. Bound from `santa-video`.
        */
       _videoActive: {
         type: Boolean,
         observer: '_videoActiveChanged',
         value: false,
+      },
+
+      _statePromise: {
+        type: Object,
+      },
+
+      _updateInterval: {
+        type: Number,
+      },
+
+      _previousStop: {
+        type: Object,
       },
 
     },
@@ -89,6 +127,45 @@ TODO(samthor): Bring in the Tracker with shared elements.
 
     detached: function() {
       this.debounce('video', () => {});  // no longer play a video
+    },
+
+    _duringTrackerChanged: function(duringTracker) {
+      this._mapReady = false;
+
+      if (duringTracker) {
+        this._updateInterval = window.setInterval(() => {
+          // don't allow duplicates
+          const p = window.santaService.state().then((state) => {
+            if (this._statePromise === p) {
+              this._mapReady = true;
+              this._updateMap(state);
+              this._statePromise = null;
+            }
+          });
+          this._statePromise = p;
+        }, TRACKER_UPDATE);
+      } else {
+        window.clearInterval(this._updateInterval);
+        this._statePromise = null;
+      }
+    },
+
+    _updateMap: function(state) {
+      // TODO: actually update map
+
+      const m = this.$.map;
+      m.santaLatLng = state.position;
+      m.santaHeading = state.stopover ? null : state.heading;
+
+      if (this._previousStop !== state.prev) {
+        m.trail = state.dests;
+      }
+
+      if (state.stopover) {
+        // stopped at location
+      } else {
+        // moving
+      }
     },
 
     /**
@@ -110,12 +187,17 @@ TODO(samthor): Bring in the Tracker with shared elements.
         // TODO(samthor): avoid previous selection.
         // TODO(samthor): Limit to unlocked videos.
         const videoId = randomChoice(Object.values(VIDEOS));
+        console.info('should be playing', videoId);
         this.$.video.play(videoId);
-      }, randomRange(30, 60) * 1000)
+      }, randomRange(3, 6) * 1000)
     },
 
     _computeVideoClass: function(videoActive) {
       return videoActive ? 'active' : '';
+    },
+
+    _computeTrackerMapClass: function(duringTracker, mapReady) {
+      return (duringTracker && mapReady) ? '' : 'hidden';
     },
 
   });
