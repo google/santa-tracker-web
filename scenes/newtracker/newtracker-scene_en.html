@@ -49,11 +49,11 @@ Tracker scene.
 
       <div class="cards" on-click="_onCardClick">
         <article class="stats">
-          <div class="data" hidden$="[[!_hasValidDistance(_distance, _arrivalHours)]]">
+          <div class="data" hidden$="[[!_hasValidDistance(_distance, _isBeforeArrival)]]">
             <h2><i18n-msg msgid="tracker_distance_from_you">PLACEHOLDER_i18n</i18n-msg></h2>
             <big>[[_computeDistance(_distance)]]</big>
           </div>
-          <div class="data" hidden$="[[!_arrivalHours]]">
+          <div class="data" hidden$="[[!_isBeforeArrival]]">
             <h2><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h2>
             <big class="lessbig">[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
           </div>
@@ -126,7 +126,7 @@ Tracker scene.
       <div class="stats">
 
         <div class="split top">
-          <div class="data" hidden$="[[!_arrivalHours]]">
+          <div class="data" hidden$="[[!_isBeforeArrival]]">
             <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
             <big>[[_computeArrivalTime(_arrivalHours, _strings)]]</big>
           </div>
@@ -361,6 +361,11 @@ Tracker scene.
         value: 0,
       },
 
+      _isBeforeArrival: {
+        type: Boolean,
+        value: false,
+      },
+
     },
 
     observers: [
@@ -408,6 +413,9 @@ Tracker scene.
           if (hours > 0.08) {  // don't show anything when he's within 5m
             arrivalHours = this._computeNumberFraction(hours, 1);
           }
+          this._isBeforeArrival = true;  // need this, as arrivalHours can be null
+        } else {
+          this._isBeforeArrival = false;
         }
         this._arrivalHours = arrivalHours;
 
