@@ -329,6 +329,13 @@ Tracker scene.
       },
 
       /**
+       * Whether Santa is actually in flight right now.
+       */
+      _inFlight: {
+        type: Boolean,
+      },
+
+      /**
        * Whether the user is focused on Santa. Bound from `tracker-map`.
        */
       _focusOnSanta: {
@@ -371,6 +378,8 @@ Tracker scene.
     _santaUpdate: function(data) {
       const p = this.$.map.santaLatLng;
       const move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
+
+      this._inFlight = !(data.stopover);
 
       // Only perform some updates and calculations while Santa is moving (and not if stopped).
       if (move) {
@@ -706,6 +715,8 @@ Tracker scene.
     },
 
     onHide: function() {
+      this.fire('sound-ambient', 'village_end');
+
       window.santaService.removeListener('sync', this._santaSync);
       window.removeEventListener('scroll', this._onScroll, {passive: true});
 
