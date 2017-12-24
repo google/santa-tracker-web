@@ -582,8 +582,8 @@ Tracker map.
 
     _controlZoomButtons: function(map, hasPointer, minimalUi) {
       if (map) {
-        // If the browser has a pointer (i.e., a mouse on desktop), show zoom controls.
-        map.setOptions({zoomControl: hasPointer && !minimalUi});
+        // Show zoom controls if we're not minimal UI.
+        map.setOptions({zoomControl: !minimalUi});
       }
     },
 
