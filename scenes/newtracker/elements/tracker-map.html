@@ -70,7 +70,7 @@ Tracker map.
     function SantaLayer(options, clickHandler, routeClickHandler) {
       // TODO(samthor): Use real template.
       this._container = santaDiv.cloneNode(true);
-      this._container.addEventListener('click', function(event) {
+      this._container.addEventListener('click', (event) => {
         event.stopPropagation();  // prevents marker clicks when Santa was intended
         clickHandler();
       });
@@ -272,12 +272,13 @@ Tracker map.
 
       if (!latLng || !projection) {
         this._container.hidden = true;
-      } else {
-        this._container.hidden = false;
-
-        const pos = projection.fromLatLngToDivPixel(latLng);
-        this._container.style.transform = 'translate(' + pos.x + 'px, ' + pos.y + 'px)';
+        return;
       }
+
+      this._container.hidden = false;
+
+      const pos = projection.fromLatLngToDivPixel(latLng);
+      this._container.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
     };
     return SantaLayer;
   }
@@ -415,15 +416,15 @@ Tracker map.
         let offsetSantaLatLng;
         const offset = this._calculateMapOffset(this.paddingBottom);
         const projection = this._map.getProjection();
-        if ((offset.x || offset.y) && projection) {
-          // TODO(samthor): This code doesn't always run while Santa is delivering presents.
+        if ((!offset.x && !offset.y) || !projection) {
+          // TODO(samthor): Sometimes, there's no projection available.
+          offsetSantaLatLng = santaLatLng;
+        } else {
           const point = projection.fromLatLngToPoint(santaLatLng);
           const pow = Math.pow(2, this._map.getZoom());
           point.x -= offset.x / pow;
           point.y -= offset.y / pow;
           offsetSantaLatLng = projection.fromPointToLatLng(point);
-        } else {
-          offsetSantaLatLng = santaLatLng;
         }
 
         try {
@@ -524,6 +525,7 @@ Tracker map.
           this.focusOnSanta = true;
         }, FOCUS_TIMEOUT);
       } else {
+        this._userZoom = false;
         this.cancelDebouncer('_focusOnSantaChanged');
       }
     },
