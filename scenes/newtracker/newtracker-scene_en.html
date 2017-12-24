@@ -510,7 +510,7 @@ Tracker scene.
     _computeNumberFraction: function(num, opt_min) {
       opt_min = opt_min || 0;
 
-      const floor = Math.floor(num);
+      let floor = Math.floor(num);
       if (floor < opt_min) {
         return null;
       }
