@@ -138,7 +138,7 @@ Tracker map.
       this._presents.hidden = !presents;
 
       if (presents) {
-        const v = Math.round(Math.random());  // 0 or 1
+        const v = Math.abs(Math.round(lat)) % 2;  // 0 or 1, but predictably
         this._presents.className = `mode${v}`;
       } else if (!presents) {
         const dir = dirForHeading(heading);
@@ -434,8 +434,13 @@ Tracker map.
           if (!this._userZoom) {
             // If focused, the zoom is roughly inverse with screen size. Smaller devices see more
             // of the Earth, because they have less context around Santa.
-            let zoom = Math.round(window.innerWidth / 240);
+            const min = (window.innerWidth + window.innerHeight) / 2;
+            let zoom = Math.round(min / 240);
+            if (this.santaHeading === null) {
+              zoom += 2;  // zoom in at cities
+            }
             zoom = Math.max(2, Math.min(6, zoom));
+
             this._map.setZoom(zoom);
           }
         } finally {
@@ -584,7 +589,7 @@ Tracker map.
 
     _computeLegalNoticesStyle: function(minimalUi) {
       if (minimalUi) {
-        return null;
+        return 'display: none;';
       }
       return 'top: 44px;';
     },
