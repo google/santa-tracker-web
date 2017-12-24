@@ -45,7 +45,7 @@ Tracker map.
     </div>
   </div>
 
-  <div id="legalnotices"></div>
+  <div id="legalnotices" style$="[[_computeLegalNoticesStyle(minimalUi)]]"></div>
   <div id="map"></div>
 
 </template>
@@ -572,7 +572,14 @@ Tracker map.
       this._santaLayer = new SantaLayer(
           {map: map}, this._onFollowSantaClick.bind(this), this._onRouteMarkerClick.bind(this));
       this._map = map;
-    }
+    },
+
+    _computeLegalNoticesStyle: function(minimalUi) {
+      if (minimalUi) {
+        return null;
+      }
+      return 'top: 44px;';
+    },
 
   });
 

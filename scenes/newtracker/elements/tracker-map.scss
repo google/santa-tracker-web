@@ -1,17 +1,18 @@
 :host {
   position: relative;
+  overflow: hidden;
 }
 #map {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -40px;
 }
 
 #legalnotices {
   position: absolute;
-  top: 44px;
+  top: 0;
   right: 0;
   z-index: 10;
   background: rgba(245, 245, 245, 1.0);
