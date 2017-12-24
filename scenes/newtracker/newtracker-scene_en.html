@@ -597,7 +597,7 @@ Tracker scene.
     _onScroll: function() {
       this.debounce('_onScroll', () => {
         let cand;
-        const y = document.body.scrollTop + window.innerHeight * 0.5;
+        const y = document.scrollingElement.scrollTop + window.innerHeight * 0.5;
         const s = this.$.sections;
         for (let i = 0, opt; opt = s.children[i]; ++i) {
           if (opt.localName !== 'section') {
