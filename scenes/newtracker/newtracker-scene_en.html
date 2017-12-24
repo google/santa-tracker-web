@@ -219,6 +219,17 @@ Tracker scene.
     'trivia', 'glider', 'latlong', 'postcard',  // hidden games
   ]);
 
+  const HIDDEN_SCENES = {
+    'blimp': {lat: 53.088767, lng: -58.457173},
+    'factory': {lat: 69.454482, lng: 27.499857},
+    'icecave': {lat: 67.115344, lng: -36.836080},
+    'island': {lat: -10.276050, lng: 95.441719},
+    'playground': {lat: 35.679426, lng: 140.380885},
+    'rollercoaster': {lat: 80.434582, lng: 95.223408},
+    'streetview': {lat: 36.160202, lng: -121.265514},
+    'undersea': {lat: 31.882379, lng: -65.081432},
+  };
+
   Polymer({
     is: 'newtracker-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -700,6 +711,8 @@ Tracker scene.
         this._pushVideoCard();
         this._pushGameCard();
       }
+
+      this.$.map.scenes = HIDDEN_SCENES;
 
       this.fire('sound-ambient', 'music_start_village');
 

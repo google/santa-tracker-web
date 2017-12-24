@@ -33,6 +33,7 @@ Tracker map.
   <div hidden>
     <!-- preloading -->
     <img src$="[[importPath]]/img/marker.png" id="marker" />
+    <img src$="[[importPath]]/img/easteregg.png" id="easteregg" />
     <img src$="[[importPath]]/img/northpole.png" id="northpoleMarker" />
   </div>
 
@@ -66,7 +67,7 @@ Tracker map.
     return DIR_NAMES[index];
   }
 
-  function createSantaLayer(santaDiv, marker, northpoleMarker) {
+  function createSantaLayer(santaDiv, marker, northpoleMarker, easteregg) {
     function SantaLayer(options, clickHandler, routeClickHandler) {
       // TODO(samthor): Use real template.
       this._container = santaDiv.cloneNode(true);
@@ -82,7 +83,9 @@ Tracker map.
       this._routeClickHandler = routeClickHandler;
       this._markerPool = [];
       this._markers = [];
+      this._eastereggs = [];
       this._lines = [];
+      this._lowestLng = 180;
       this._trailEndLatLng = null;
 
       this._activeTrail = new google.maps.Polyline({
@@ -105,6 +108,12 @@ Tracker map.
         anchor: new google.maps.Point(66, 50),
       });
 
+      this._eastereggIcon = /** @type {google.maps.Icon} */({
+        url: easteregg.src,
+        size: new google.maps.Size(20, 24),
+        scaledSize: new google.maps.Size(20, 24),
+        anchor: new google.maps.Point(10, 12),
+      });
     }
     SantaLayer.prototype = new google.maps.OverlayView;
 
@@ -138,6 +147,7 @@ Tracker map.
       this._presents.hidden = !presents;
 
       if (presents) {
+        const lat = latLng.lat();
         const v = Math.abs(Math.round(lat)) % 2;  // 0 or 1, but predictably
         this._presents.className = `mode${v}`;
       } else if (!presents) {
@@ -148,6 +158,8 @@ Tracker map.
 
       this.draw();
       this._updateActiveTrail();
+
+      this._revealScenes(latLng.lng());
     };
 
     /**
@@ -171,11 +183,15 @@ Tracker map.
         }
       }
 
+      let low = 180;
       this._lines.forEach(function(line, i) {
         line.setPath(trail.slice(i, i + 2));
+        low = Math.min(low, trail[i].lng);
       });
       this._trailEndLatLng = trail[0] || null;
       this._updateActiveTrail();
+
+      this._revealScenes(low);
     };
 
     /**
@@ -191,7 +207,7 @@ Tracker map.
           position: data.location,
           map: this.getMap(),
         });
-        next.addListener('click', this._onRouteMarkerClick.bind(this, next));
+        next.setClickable(false);  // nb. clicking on markers does nothing
       }
 
       next.setIcon(data.isNorthPole() ? this._northpoleIcon : this._locationIcon);
@@ -210,9 +226,47 @@ Tracker map.
       }
     };
 
-    SantaLayer.prototype._onRouteMarkerClick = function(marker) {
-      const dest = marker.get('st_dest');
-      dest && this._routeClickHandler(dest);
+    SantaLayer.prototype._onSceneClick = function(scene) {
+      this._routeClickHandler(scene);
+    };
+
+    SantaLayer.prototype.setScenes = function(scenes) {
+      this._eastereggs.forEach((marker) => {
+        marker.setMap(null);
+      });
+
+      if (!scenes) {
+        this._eastereggs = [];
+        return;
+      }
+      this._eastereggs = Object.keys(scenes).map((scene) => {
+        const position = scenes[scene];
+
+        const next = new google.maps.Marker({
+          position: position,
+          map: this.getMap(),
+        });
+        next.setVisible(false);
+        next.setIcon(this._eastereggIcon);
+        next.addListener('click', this._onSceneClick.bind(this, scene));
+        return next;
+      });
+
+      if (this.get('position')) {
+        this._revealScenes(this.get('position').lng());
+      }
+    };
+
+    SantaLayer.prototype._revealScenes = function(lng) {
+      if (this._lowestLng <= lng) {
+        return;
+      }
+      this._lowestLng = lng;
+
+      this._eastereggs.forEach((m) => {
+        const ll = m.getPosition();
+        m.setVisible(ll.lng() > this._lowestLng);
+      });
     };
 
     /**
@@ -352,6 +406,14 @@ Tracker map.
       },
 
       /**
+       * Hidden/easteregg scenes on the map.
+       */
+      scenes: {
+        type: Object,
+        value: null,
+      },
+
+      /**
        * The length of a trail to display.
        */
       trailLength: {
@@ -380,6 +442,7 @@ Tracker map.
       '_updateMapState(_map, focusOnSanta, santaLatLng, santaHeading)',
       '_updateTrail(_map, trail, trailLength)',
       '_controlZoomButtons(_map, _hasPointer, minimalUi)',
+      '_updateMapScenes(_santaLayer, scenes)',
     ],
 
     _calculateMapOffset: function(paddingBottom) {
@@ -506,8 +569,8 @@ Tracker map.
 
     _onRouteMarkerClick: function(dest) {
       window.ga('send', 'event', 'tracker', 'marker', 'click');
-      // TODO(samthor): do something.
-      console.info('dest clicked', dest.id);
+      // FIXME(samthor): This is very fragile.
+      window.santaApp.$.lazypages.load(dest);
     },
 
     _userZoomChanged: function() {
@@ -581,7 +644,8 @@ Tracker map.
         this.$.legalnotices.textContent = providers || '';
       });
 
-      const SantaLayer = createSantaLayer(this.$.santa, this.$.marker, this.$.northpoleMarker);
+      const SantaLayer = createSantaLayer(this.$.santa,
+          this.$.marker, this.$.northpoleMarker, this.$.easteregg);
       this._santaLayer = new SantaLayer(
           {map: map}, this._onFollowSantaClick.bind(this), this._onRouteMarkerClick.bind(this));
       this._map = map;
@@ -592,6 +656,12 @@ Tracker map.
         return 'display: none;';
       }
       return 'top: 44px;';
+    },
+
+    _updateMapScenes: function(layer, scenes) {
+      if (layer) {
+        layer.setScenes(scenes);
+      }
     },
 
   });
