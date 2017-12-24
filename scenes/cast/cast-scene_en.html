@@ -19,7 +19,7 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../elements/santa-state.html">
 <link rel="import" href="../../elements/santa-video.html">
 <link rel="import" href="../../elements/village-header/village-header.html">
-<link rel="import" href="../newtracker/elements/tracker-map.html">
+<link rel="import" href="../../elements/santa-map/santa-map.html">
 <link rel="import" href="elements/social-cards.html">
 <link rel="import" href="cast-scene_module.html">
 
@@ -43,11 +43,11 @@ videos and other audio.
 
   <main></main>
 
-  <tracker-map id="map"
+  <santa-map id="map"
       minimal-ui
       padding-bottom="120"
       class$="[[_computeTrackerMapClass(_duringTracker, _mapReady)]]">
-  </tracker-map>
+  </santa-map>
 
   <social-cards pause="[[_videoActive]]" during-tracker="[[_duringTracker]]"></social-cards>
 
