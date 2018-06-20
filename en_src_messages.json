@@ -900,7 +900,7 @@
     "message": "Holiday wishes!"
   },
   "holiday_message_2": {
-    "description": "Seasonal message that will be displayed on a postcard. Keep short.",
+    "description": "Seasonal message that will be displayed on a postcard. Keep short. Intended to be an irrerevant, non-denominational holiday message.",
     "message": "Happy everything!"
   },
   "holiday_message_3": {
@@ -2013,7 +2013,7 @@
   },
   "speedsketch_item~arrow": {
     "message": "arrow",
-    "description": "Game task: arrow"
+    "description": "An item to draw, a conceptual arrow that points in some direction"
   },
   "speedsketch_item~asparagus": {
     "message": "asparagus",
@@ -2057,7 +2057,7 @@
   },
   "speedsketch_item~baseball": {
     "message": "baseball",
-    "description": "Game task: baseball"
+    "description": "An item to draw, a baseball (not the concept, the actual ball)"
   },
   "speedsketch_item~baseball bat": {
     "message": "baseball bat",
@@ -2153,7 +2153,7 @@
   },
   "speedsketch_item~bowtie": {
     "message": "bowtie",
-    "description": "Game task: bowtie"
+    "description": "An item to draw, a bowtie, an item of clothing"
   },
   "speedsketch_item~bracelet": {
     "message": "bracelet",
@@ -2179,17 +2179,13 @@
     "message": "broom",
     "description": "Game task: broom"
   },
-  "speedsketch_item~bubble": {
-    "message": "bubble",
-    "description": "Game task: bubble"
-  },
   "speedsketch_item~bucket": {
     "message": "bucket",
     "description": "Game task: bucket"
   },
   "speedsketch_item~bulldozer": {
     "message": "bulldozer",
-    "description": "Game task: bulldozer"
+    "description": "An item to draw, a bulldozer that is used in construction/large machinery"
   },
   "speedsketch_item~bus": {
     "message": "bus",
@@ -2227,10 +2223,6 @@
     "message": "camera",
     "description": "Game task: camera"
   },
-  "speedsketch_item~camouflage": {
-    "message": "camouflage",
-    "description": "Game task: camouflage"
-  },
   "speedsketch_item~campfire": {
     "message": "campfire",
     "description": "Game task: campfire"
@@ -2254,10 +2246,6 @@
   "speedsketch_item~carrot": {
     "message": "carrot",
     "description": "Game task: carrot"
-  },
-  "speedsketch_item~cartoon": {
-    "message": "cartoon",
-    "description": "Game task: cartoon"
   },
   "speedsketch_item~castle": {
     "message": "castle",
@@ -2285,7 +2273,7 @@
   },
   "speedsketch_item~chandelier": {
     "message": "chandelier",
-    "description": "Game task: chandelier"
+    "description": "An item to draw, the large expansive light fitting that hangs from the ceiling"
   },
   "speedsketch_item~chemistry": {
     "message": "chemistry",
@@ -2294,10 +2282,6 @@
   "speedsketch_item~cherry": {
     "message": "cherry",
     "description": "Game task: cherry"
-  },
-  "speedsketch_item~chicken": {
-    "message": "chicken",
-    "description": "Game task: chicken"
   },
   "speedsketch_item~child": {
     "message": "child",
@@ -2370,10 +2354,6 @@
   "speedsketch_item~crocodile": {
     "message": "crocodile",
     "description": "Game task: crocodile"
-  },
-  "speedsketch_item~cross": {
-    "message": "cross",
-    "description": "Game task: cross"
   },
   "speedsketch_item~crow": {
     "message": "crow",
@@ -2569,7 +2549,7 @@
   },
   "speedsketch_item~foot": {
     "message": "foot",
-    "description": "Game task: foot"
+    "description": "An item to draw, the body part of a foot"
   },
   "speedsketch_item~fork": {
     "message": "fork",
@@ -2651,10 +2631,6 @@
     "message": "hand",
     "description": "Game task: hand"
   },
-  "speedsketch_item~hangman game": {
-    "message": "hangman game",
-    "description": "Game task: hangman game"
-  },
   "speedsketch_item~happiness": {
     "message": "happiness",
     "description": "Game task: happiness"
@@ -2729,7 +2705,7 @@
   },
   "speedsketch_item~house plant": {
     "message": "house plant",
-    "description": "Game task: house plant"
+    "description": "An item to draw, a small potted plant that one might keep inside"
   },
   "speedsketch_item~hurricane": {
     "message": "hurricane",
@@ -2751,21 +2727,13 @@
     "message": "island",
     "description": "Game task: island"
   },
-  "speedsketch_item~italy": {
-    "message": "italy",
-    "description": "Game task: italy"
-  },
   "speedsketch_item~jacket": {
     "message": "jacket",
     "description": "Game task: jacket"
   },
   "speedsketch_item~jingle bells": {
     "message": "Jingle Bells",
-    "description": "Game task: jingle bells"
-  },
-  "speedsketch_item~kale": {
-    "message": "kale",
-    "description": "Game task: kale"
+    "description": "An item to draw, two bells adjacent to each other as might appear on a Christmas wreath"
   },
   "speedsketch_item~kangaroo": {
     "message": "kangaroo",
@@ -2881,7 +2849,7 @@
   },
   "speedsketch_item~marker": {
     "message": "marker",
-    "description": "Game task: marker"
+    "description": "An item to draw, a whiteboard marker that is used to draw something"
   },
   "speedsketch_item~matches": {
     "message": "matches",
@@ -2945,7 +2913,7 @@
   },
   "speedsketch_item~mouse": {
     "message": "mouse",
-    "description": "Game task: mouse"
+    "description": "An item to draw, a live animal mouse"
   },
   "speedsketch_item~moustache": {
     "message": "moustache",
@@ -2969,7 +2937,7 @@
   },
   "speedsketch_item~nail": {
     "message": "nail",
-    "description": "Game task: nail"
+    "description": "An item to draw, a nail that is used in construction"
   },
   "speedsketch_item~nature": {
     "message": "nature",
@@ -3093,7 +3061,7 @@
   },
   "speedsketch_item~pie chart": {
     "message": "pie chart",
-    "description": "Game task: pie chart"
+    "description": "An item to draw, a pie chart as might appear on some technical diagrams or presentation"
   },
   "speedsketch_item~pig": {
     "message": "pig",
@@ -3137,7 +3105,7 @@
   },
   "speedsketch_item~pool": {
     "message": "pool",
-    "description": "Game task: pool"
+    "description": "An item to draw, a swimming pool"
   },
   "speedsketch_item~popsicle": {
     "message": "popsicle",
@@ -3155,10 +3123,6 @@
     "message": "potato",
     "description": "Game task: potato"
   },
-  "speedsketch_item~power outlet": {
-    "message": "power outlet",
-    "description": "Game task: power outlet"
-  },
   "speedsketch_item~prison": {
     "message": "prison",
     "description": "Game task: prison"
@@ -3166,10 +3130,6 @@
   "speedsketch_item~purse": {
     "message": "purse",
     "description": "Game task: purse"
-  },
-  "speedsketch_item~puzzle": {
-    "message": "puzzle",
-    "description": "Game task: puzzle"
   },
   "speedsketch_item~rabbit": {
     "message": "rabbit",
@@ -3197,7 +3157,7 @@
   },
   "speedsketch_item~raven": {
     "message": "raven",
-    "description": "Game task: raven"
+    "description": "An item to draw, a black bird named as a raven"
   },
   "speedsketch_item~reindeer": {
     "message": "reindeer",
@@ -3257,7 +3217,7 @@
   },
   "speedsketch_item~saxophone": {
     "message": "saxophone",
-    "description": "Game task: saxophone"
+    "description": "An item to draw, the musical instrument"
   },
   "speedsketch_item~school bus": {
     "message": "school bus",
@@ -3411,10 +3371,6 @@
     "message": "square",
     "description": "Game task: square"
   },
-  "speedsketch_item~squiggle": {
-    "message": "squiggle",
-    "description": "Game task: squiggle"
-  },
   "speedsketch_item~squirrel": {
     "message": "squirrel",
     "description": "Game task: squirrel"
@@ -3433,7 +3389,7 @@
   },
   "speedsketch_item~stereo": {
     "message": "stereo",
-    "description": "Game task: stereo"
+    "description": "An item to draw, a stereo system with speakers"
   },
   "speedsketch_item~stethoscope": {
     "message": "stethoscope",
@@ -3441,19 +3397,11 @@
   },
   "speedsketch_item~stocking": {
     "message": "stocking",
-    "description": "Game task: stocking"
+    "description": "An item to draw, a holiday stocking that you might hang from the fireplace"
   },
   "speedsketch_item~still life": {
     "message": "still life",
     "description": "Game task: still life"
-  },
-  "speedsketch_item~stitches": {
-    "message": "stitches",
-    "description": "Game task: stitches"
-  },
-  "speedsketch_item~stock market": {
-    "message": "stock market",
-    "description": "Game task: stock market"
   },
   "speedsketch_item~stop sign": {
     "message": "stop sign",
@@ -3619,10 +3567,6 @@
     "message": "tricycle",
     "description": "Game task: tricycle"
   },
-  "speedsketch_item~trolley": {
-    "message": "trolley",
-    "description": "Game task: trolley"
-  },
   "speedsketch_item~trombone": {
     "message": "trombone",
     "description": "Game task: trombone"
@@ -3637,7 +3581,7 @@
   },
   "speedsketch_item~trumpet": {
     "message": "trumpet",
-    "description": "Game task: trumpet"
+    "description": "An item to draw, Trumpet is a musical instrument"
   },
   "speedsketch_item~umbrella": {
     "message": "umbrella",
@@ -3691,10 +3635,6 @@
     "message": "whale",
     "description": "Game task: whale"
   },
-  "speedsketch_item~wheel": {
-    "message": "wheel",
-    "description": "Game task: wheel"
-  },
   "speedsketch_item~windmill": {
     "message": "windmill",
     "description": "Game task: windmill"
@@ -3737,15 +3677,15 @@
   },
   "speedsketch_item~mittens": {
     "message": "mittens",
-    "description": "Game task: mittens"
+    "description": "An item to draw, mittens are like a glove but without specific holes for fingers"
   },
   "speedsketch_item~present": {
     "message": "present",
-    "description": "Game task: present"
+    "description": "An item to draw, a gift-wrapped present that you might recieve as a gift"
   },
   "speedsketch_item~ornament": {
     "message": "ornament",
-    "description": "Game task: ornament"
+    "description": "An item to draw, a holiday ornament hung on a tree (often known as a 'bauble')"
   },
   "speedsketch_item~holiday lights": {
     "message": "holiday lights",
@@ -3769,7 +3709,7 @@
   },
   "speedsketch_item~peppermint": {
     "message": "peppermint",
-    "description": "Game task: peppermint"
+    "description": "An item to draw, a candy known as a peppermint: a round circle with red streaks"
   },
   "speedsketch_item~nutcracker": {
     "message": "nutcracker",
@@ -3781,11 +3721,11 @@
   },
   "speedsketch_item~sleigh": {
     "message": "sleigh",
-    "description": "Game task: sleigh"
+    "description": "An item to draw, a sleigh that Santa might ride in as he delivers presents"
   },
   "speedsketch_item~ribbon": {
     "message": "ribbon",
-    "description": "Game task: ribbon"
+    "description": "An item to draw, a ribbon or bow that normally sits atop a holiday gift"
   },
   "speedsketch_item~chimney": {
     "message": "chimney",
