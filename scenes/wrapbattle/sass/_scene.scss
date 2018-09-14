@@ -331,7 +331,7 @@
 
       @each $color in blue, green, red {
         @each $success in true, false {
-          .present-box--#{$color}-#{$success} {
+          .present-box--#{"" + $color}-#{$success} {
             background: url(img/presents/gift_#{$color}_#{$success}.png) center bottom/contain no-repeat;
           }
         }
