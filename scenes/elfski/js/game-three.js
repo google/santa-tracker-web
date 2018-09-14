@@ -14,7 +14,9 @@
  * the License.
  */
 
-goog.provide('app.GameThree');
+// nb. replaces goog.provide, which can't be merged with ES6 modules
+app = app || {};
+app.GameThree = app.GameThree || {};
 
 import noise from './noise.js';
 import * as loader from './three/loader.js';
@@ -398,9 +400,10 @@ class SceneDecorator {
   }
 
   /**
-   * @param {{from: number, at: number, l: number, r: number}}
+   * @param {{from: number, at: number, l: number, r: number}} args
    */
-  update({from, at, l, r}) {
+  update(args) {
+    const {from, at, l, r} = args;
     const wasDepth = this._depth;
     const high = Math.ceil(at / this._dim)
 
@@ -464,7 +467,7 @@ class SceneDecorator {
    * Returns the collidable trees near the player position.
    *
    * @param {vec.Vector} at
-   * @return {!Array<{x: number, y: number}>
+   * @return {!Array<{x: number, y: number}>}
    */
   treesNear(at) {
     const x = Math.round(at.x / this._dim);
