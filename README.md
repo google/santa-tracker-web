@@ -54,15 +54,15 @@ If you'd like to serve another way, then you can build all development dependenc
 
 First, build for prod and set a `baseurl` for static assets:
 
-    gulp dist --baseurl="http://localhost:9000/"
+    gulp dist --compile --baseurl="http://localhost:9000/"
 
 Serve prod:
 
-    serve -p 3000 dist_prod/
+    static-server -p 3000 dist_prod/
 
 Separately, serve the static resources:
 
-    serve -p 9000 --cors dist_static/
+    static-server -p 9000 --cors http://localhost:3000 dist_static/
 
 Open http://localhost:3000/.
 
