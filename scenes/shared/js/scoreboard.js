@@ -23,7 +23,7 @@ goog.require('app.shared.SharedGameOver');
 // We are *leaking* the Scoreboard global for backwards compatibility.
 app.shared.Scoreboard = Scoreboard;
 
-var Constants =
+Constants =
     /** @type {{INITIAL_COUNTDOWN: number, COUNTDOWN_FLASH: number}} */ (Constants || {});
 
 /**

@@ -471,7 +471,7 @@ Game.prototype.dispose = function() {
 
   this.levelUp.dispose();
 
-  pools.empty();
+  app.shared.pools.empty();
   this.tutorial.dispose();
   Coordinator.waiting = [];
 };

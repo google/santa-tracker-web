@@ -47,7 +47,7 @@ Present = function(game) {
 /**
  * Create pool for presents.
  */
-pools.mixin(Present);
+app.shared.pools.mixin(Present);
 
 /** @const */
 Present.PRESENT_CENTER = Constants.PRESENT_WIDTH / 2;
