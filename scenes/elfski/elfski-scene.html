@@ -176,7 +176,7 @@ Polymer({
     this._lastFrameAt = window.performance.now();
     window.addEventListener('resize', this._onResize);
 
-    this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
+    this._game = new scenes.elfski.Game(this.$.gl3d, this.resolveUrl('.'))
     window.requestAnimationFrame(this._draw);
     this._tickInterval = window.setInterval(this._tick, tickInterval);
     this._onResize();
@@ -204,7 +204,6 @@ Polymer({
    */
   start: function() {
     // TODO(samthor): This is a bit of a hodge-podge.
-
     this._gameStartAt = 0;
     this._gameEndAt = 0;
     this._playerCrashedAt = 0;

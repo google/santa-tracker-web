@@ -88,7 +88,7 @@ module.exports = {
   },
   elfski: {
     msgid: 'scene_elfski',
-    entryPoint: 'scenes/elfski/game-three.js',
+    entryPoint: 'scenes/elfski/js/game-three.js',
     es2015: true,
   },
   factory: {

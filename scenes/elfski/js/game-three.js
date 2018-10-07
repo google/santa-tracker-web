@@ -14,10 +14,6 @@
  * the License.
  */
 
-// nb. replaces goog.provide, which can't be merged with ES6 modules
-app = app || {};
-app.GameThree = app.GameThree || {};
-
 import noise from './noise.js';
 import * as loader from './three/loader.js';
 import {Points} from './three/points.js';
@@ -39,7 +35,7 @@ const unitScale = /** @type {vec.Vector} */ ({x: 400, y: -600});
 /**
  * @export
  */
-app.GameThree = class GameThree {
+export class GameThree {
   constructor(canvas, assetBaseUrl) {
     this._canvas = canvas;
 
@@ -581,3 +577,7 @@ class SceneDecorator {
     }
   }
 }
+
+// nb. replaces goog.provide, which can't be merged with ES6 modules
+app = app || {};
+app.Game = GameThree;
