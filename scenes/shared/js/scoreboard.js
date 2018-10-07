@@ -23,8 +23,15 @@ goog.require('app.shared.SharedGameOver');
 // We are *leaking* the Scoreboard global for backwards compatibility.
 app.shared.Scoreboard = Scoreboard;
 
-Constants =
-    /** @type {{INITIAL_COUNTDOWN: number, COUNTDOWN_FLASH: number}} */ (Constants || {});
+
+function constantWithDefault(key, d) {
+  const raw = Constants ? Constants[key] : undefined;
+  if (+raw === raw) {
+    return raw;
+  }
+  return d;
+}
+
 
 /**
  * Manages the scoreboard and game countdown.
@@ -38,7 +45,7 @@ function Scoreboard(game, elem, opt_levels) {
   this.game = game;
 
   /** @private {number} */
-  this.initialCountdown_ = isFinite(Constants.INITIAL_COUNTDOWN) ? Constants.INITIAL_COUNTDOWN : 60;
+  this.initialCountdown_ = constantWithDefault('INITIAL_COUNTDOWN', 60);
 
   this.levels = opt_levels || 0;
   this.level = 0;
@@ -91,8 +98,10 @@ Scoreboard.prototype.onFrame = function(delta) {
       this.game.gameover();
     }
 
+    const flash = constantWithDefault('COUNTDOWN_FLASH', 10);
+
     // Are we losing (But not yet gameover).
-    const losing = seconds <= Constants.COUNTDOWN_FLASH && seconds !== 0;
+    const losing = seconds <= flash && seconds !== 0;
     if (this.losing !== losing) {
       this.losing = losing;
       if (seconds > 0) {
