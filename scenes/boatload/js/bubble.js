@@ -34,7 +34,7 @@ Bubble = function(game) {
   this.game.bubblesElem.append(this.elem);
 };
 
-pools.mixin(Bubble);
+app.shared.pools.mixin(Bubble);
 
 /**
  * Initialize bubble for reuse.

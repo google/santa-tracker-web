@@ -67,8 +67,8 @@ Tutorial.prototype.off = function(name) {
   }
 
   // nb. This code doesn't know `santa-tutorial` is a Polymer element.
-  /** @suppress {missingProperties} */
-  this.elem_.dismiss(name);
+  const dismissHelper = this.elem_['dismiss'];
+  dismissHelper && dismissHelper.call(this.elem_, name);
 };
 
 /**

@@ -45,7 +45,10 @@ void main() {
 }
 `;
 
-class Snowsplat extends Allocatable(Entity(Points)) {
+// FIXME(cdata): Closure Compiler complains that it cannot infer the type of a method call
+// in the 'extends' slot of a class. So we just save it to a variable first.
+const tmpAlloc = Allocatable(Entity(Points));
+class Snowsplat extends tmpAlloc {
   constructor(particleCount = 5) {
     const uniforms = {
       map: {

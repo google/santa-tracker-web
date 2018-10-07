@@ -36,15 +36,16 @@ Clone project, then from within the repo:
 $ yarn install
 ```
 
-For a list of commands, run `gulp --help`.
+This will implicitly install dependencies and run `gulp`.
+For a list of commands, run `gulp help` (`--help` shows Gulp's help)
 
 ## Build and run
 
 Build and run with `gulp serve`.
 This will serve from the root directory and recompile JavaScript or CSS on watched changes.
-The first build might take some time (~10-20m), as it compiles every scene.
+The first build might take some time (~5-10m), as it compiles every scene.
 
-You can load scenes (even while locked) via their ID, e.g. at `/#codeboogie`.
+You can load scenes (even while locked) via their ID, e.g. at `/codeboogie.html`.
 Alternatively, unlock houses (in dev) by calling `santaApp.unlockAllHouses()`.
 
 If you'd like to serve another way, then you can build all development dependencies with `gulp`.
@@ -64,23 +65,6 @@ Separately, serve the static resources:
     serve -p 9000 --cors dist_static/
 
 Open http://localhost:3000/.
-
-## Release
-
-Use `gulp dist --pretty` to build.
-This performs additional steps, such as vulcanizing code and internationalization.
-Serve from `./dist_pretty`.
-
-## Portal Docker deployment
-
-* Checkout / update any dependent repos
-* Build the image: `docker build -t santa .`
-* Create the container: `docker create --restart always -p 8080:8080 --name santa santa`
-* Run the container: `docker start -d santa`
-* Verify that the container is running: `docker ps`
-* Verify that the container is listening: `curl -I http://lg-head:8080`
-
-To rebuild, run `docker rm -f santa` and start over from building the image.
 
 # Development Guide
 

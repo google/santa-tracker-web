@@ -57,7 +57,7 @@ app.Present = function(options) {
   this.player = document.timeline.play(dummy);
 };
 
-pools.mixin(app.Present, {fixed: true});
+app.shared.pools.mixin(app.Present, {fixed: true});
 
 
 app.Present.prototype.onInit = function(x, velocityX) {

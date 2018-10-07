@@ -216,7 +216,7 @@
 
 }
 
-@keyframe #{$name}-counter-bounce {
+@keyframes #{$name}-counter-bounce {
 	0% {
 		transform: scale(1);
 	}

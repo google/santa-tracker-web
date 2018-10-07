@@ -1,0 +1,3 @@
+{
+  "npm's serve package tries to be too smart, and it's unsuitable for dev: use Python's server or `gulp serve`": true
+}

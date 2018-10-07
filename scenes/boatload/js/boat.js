@@ -26,14 +26,14 @@ goog.require('app.shared.pools');
  */
 var Boat = function(game) {
   this.game = game;
-  this.elem = $('<div class="boat hidden"></div>');
+  this.elem = $('<div class="boat hidden "></div>');
   this.game.boatsElem.append(this.elem);
 };
 
 /**
  * Add methods for reusing objects.
  */
-pools.mixin(Boat);
+app.shared.pools.mixin(Boat);
 
 /**
  * Initializes the Boat for use.

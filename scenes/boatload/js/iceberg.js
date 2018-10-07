@@ -32,7 +32,7 @@ Iceberg = function(game) {
 /**
  * Add methods for reusing objects.
  */
-pools.mixin(Iceberg);
+app.shared.pools.mixin(Iceberg);
 
 /**
  * Resets the Iceberg for reuse.

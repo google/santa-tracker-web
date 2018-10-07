@@ -18,6 +18,7 @@
 
 const $ = require('gulp-load-plugins')();
 const bundler = require('polymer-bundler');
+const closureCompiler = require('google-closure-compiler').gulp();
 const del = require('del');
 const glob = require('glob');
 const gulp = require('gulp');
@@ -35,8 +36,8 @@ const path = require('path');
 /* Default version is 'vYYYYMMDDHHMM'. */
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
 
-const argv = require('yargs')
-    .help('help')
+const yargs = require('yargs')
+    .help('shelp')  // gulp steals --help
     .strict()
     .epilogue('https://github.com/google/santa-tracker-web')
     .command('default', 'build CSS and JavaScript for development version')
@@ -83,10 +84,9 @@ const argv = require('yargs')
       type: 'number',
       default: 3000,
       describe: 'port to serve on',
-    })
-    .argv;
+    });
+const argv = yargs.argv;
 
-const COMPILER_PATH = 'node_modules/google-closure-compiler/compiler.jar';
 const SASS_FILES = '{scenes,sass,elements}/**/*.scss';
 const IGNORE_COMPILED_JS = '!**/*.min.js';
 const CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
@@ -168,74 +168,65 @@ const HTMLMIN_OPTIONS = {
   collapseBooleanAttributes: false,  // if true, htmlmin will eat e.g. disabled="[[blah]]"
 };
 
-// Shared compiler helper for command line flags.
-function addCompilerFlagOptions(opts) {
-  if (argv.pretty) {
-    opts.formatting = 'PRETTY_PRINT';
-  }
-  return opts;
-}
+exports.help = function help(done) {
+  yargs.showHelp();
+  done();
+};
 
-gulp.task('clean', function() {
+exports.clean = function clean() {
   return del([
     '{scenes,sass,elements}/**/*.css',
     '{scenes,sass,elements}/**/*_module.html',
     'scenes/**/*.min.js',
     'js/*.min.js',
   ]);
-});
+};
 
-gulp.task('rm-dist', function() {
+exports.rmDist = function rmDist() {
   return del([PROD_DIR, STATIC_DIR, PRETTY_DIR]);
-});
+};
 
-gulp.task('sass', function() {
+exports.sass = function sass() {
   return gulp.src(SASS_FILES, {base: '.'})  // nb. compile all sass files, it's fast
-    .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
+    .pipe($.dartSass({outputStyle: 'compressed'}).on('error', $.dartSass.logError))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(scripts.styleModules('_module'))
     .pipe($.changed('.', {hasChanged: $.changed.compareSha1Digest}))
     .pipe(gulp.dest('.'));
-});
+};
 
-gulp.task('compile-js', function() {
+exports.compileJs = function compileJs() {
   const closureBasePath = path.resolve('components/closure-library/closure/goog/base.js');
   const externs = [
     'node_modules/google-closure-compiler/contrib/externs/google_universal_analytics_api.js',
   ];
-  scripts.changedFlag('js/santa.min.js', API_BASE_URL)
+  scripts.changedFlag('js/santa.min.js', API_BASE_URL);
   return gulp.src(JS_FILES)
     .pipe($.newer('js/santa.min.js'))
-    .pipe($.closureCompiler({
-      compilerPath: COMPILER_PATH,
-      fileName: 'santa.min.js',
-      compilerFlags: addCompilerFlagOptions({
-        js: [closureBasePath],
-        externs,
-        compilation_level: 'ADVANCED_OPTIMIZATIONS',
-        warning_level: 'VERBOSE',
-        language_in: 'ECMASCRIPT6_STRICT',
-        language_out: 'ECMASCRIPT5_STRICT',
-        define: [`santaAPIRequest.BASE="${API_BASE_URL}"`],
-        output_wrapper: '(function(){%output%}).call(window);',
-        rewrite_polyfills: false,
-        generate_exports: true,
-        export_local_property_definitions: true,
-        jscomp_warning: [
-          // https://github.com/google/closure-compiler/wiki/Warnings
-          'accessControls',
-          'const',
-          'visibility',
-        ],
-      })
+    .pipe(closureCompiler({
+      js_output_file: 'santa.min.js',
+      js: [closureBasePath],
+      externs,
+      compilation_level: 'ADVANCED_OPTIMIZATIONS',
+      warning_level: 'VERBOSE',
+      language_in: 'ECMASCRIPT6_STRICT',
+      language_out: 'ECMASCRIPT5_STRICT',
+      define: [`santaAPIRequest.BASE="${API_BASE_URL}"`],
+      output_wrapper: '(function(){%output%}).call(window);',
+      rewrite_polyfills: false,
+      generate_exports: true,
+      export_local_property_definitions: true,
+    }, {
+      platform: ['java'],
     }))
     .pipe(gulp.dest('js'));
-});
+};
 
-gulp.task('compile-scenes', function() {
+exports.compileScenes = function compileScenes() {
   const closureLibraryPath = path.resolve('components/closure-library/closure/goog');
   const externs = [
-    'components/web-animations-utils/externs*.js',
+    'components/web-animations-js/externs/web-animations.js',
+    'components/web-animations-js/externs/web-animations-next.js',
     'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
     'node_modules/google-closure-compiler/contrib/externs/jquery-1.9.js',
   ];
@@ -295,11 +286,13 @@ gulp.task('compile-scenes', function() {
           }
         : {};
 
-    const compilerFlags = addCompilerFlagOptions(Object.assign(prependOptions, {
+    const compilerFlags = Object.assign(prependOptions, {
+      js_output_file: fileName,
       js: compilerSrc,
       externs,
       assume_function_wrapper: true,
       closure_entry_point: config.entryPoint,
+      only_closure_dependencies: null,
       compilation_level: mustCompile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
       warning_level: warningLevel,
       language_in: 'ECMASCRIPT6_STRICT',
@@ -307,7 +300,6 @@ gulp.task('compile-scenes', function() {
       process_closure_primitives: null,
       generate_exports: null,
       jscomp_warning: warnings,
-      only_closure_dependencies: null,
       rewrite_polyfills: false,
       // scenes namespace themselves to `app.*`. Move this namespace into the global
       // `scenes.sceneName`, unless it's building for a frame. Note that this must be ES5.
@@ -315,19 +307,14 @@ gulp.task('compile-scenes', function() {
           `var scenes = scenes || {};\n` +
           `scenes.${sceneName} = scenes.${sceneName} || {};\n` +
           `(function(){${prefixCode}%output%}).call({app: scenes.${sceneName}});`,
-    }));
-
-    const compilerStream = $.closureCompiler({
-      compilerPath: COMPILER_PATH,
-      continueWithWarnings: true,
-      fileName,
-      compilerFlags,
     });
+
+    const compilerStream = closureCompiler(compilerFlags);
 
     const target = `${dest}/${fileName}`;
     scripts.changedFlag(target, {mustCompile});
 
-    return gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'])
+    return gulp.src([`scenes/${sceneName}/js/**/*.js`, 'scenes/shared/js/*.js'], {base: '.'})
         .pipe($.newer(target))
         .pipe(limit(compilerStream))
         .on('data', (file) => {
@@ -341,9 +328,9 @@ gulp.task('compile-scenes', function() {
   }).forEach((stream) => merged.add(stream));
 
   return merged;
-});
+};
 
-gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
+exports.bundle = gulp.series(gulp.parallel(exports.sass, exports.compileJs, exports.compileScenes), async function bundle() {
   const primaryModuleName = 'elements/elements_en.html';   // index.html loads this import
   const excludes = ['elements/i18n-msg.html'];  // never include in output
   const paths = await new Promise((resolve, reject) => {
@@ -420,7 +407,7 @@ gulp.task('bundle', ['sass', 'compile-js', 'compile-scenes'], async function() {
   });
 });
 
-gulp.task('build-prod', function() {
+exports.buildProd = function buildProd() {
   const staticUrl = argv.pretty ? '/' : (STATIC_BASE_URL + argv.build + '/');
 
   const entrypoints = ['index.html', 'error.html', 'upgrade.html', 'cast.html', 'embed.html'];
@@ -458,16 +445,16 @@ gulp.task('build-prod', function() {
     .pipe(gulp.dest(DIST_PROD_DIR));
 
   return scripts.merge(htmlStream, jsStream);
-});
+};
 
-gulp.task('build-prod-manifest', function() {
+exports.buildProdManifest = function buildProdManifest() {
   return gulp.src(['manifest.json'])
     .pipe(scripts.i18nManifest({path: '_messages'}))
     .pipe(gulp.dest(DIST_PROD_DIR));
-});
+};
 
 // copy needed assets (images, sounds, polymer elements, etc) to dist directories
-gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], function() {
+exports.copyAssets = gulp.series(gulp.parallel(exports.bundle, exports.buildProd, exports.buildProdManifest), function copyAssets() {
   const staticStream = gulp.src([
     'audio/*',
     'images/**/*',
@@ -498,36 +485,40 @@ gulp.task('copy-assets', ['bundle', 'build-prod', 'build-prod-manifest'], functi
 });
 
 // builds a JSON manifest file containing files and hashes
-gulp.task('build-contents', ['copy-assets'], function() {
+exports.buildContents = gulp.series(exports.copyAssets, function buildContents() {
   const stream = scripts.fileManifest(STATIC_VERSION, DIST_STATIC_DIR);
   return gulp.src([`${DIST_STATIC_DIR}/**/*`])
     .pipe(stream)
     .pipe(gulp.dest(DIST_STATIC_DIR));
 });
 
+exports.announceDist = function announceDist(done) {
+  gutil.log('Built version', gutil.colors.red(STATIC_VERSION));
+  done();
+};
+
 // clean + build a distribution version
-gulp.task('dist', function(callback) {
+exports.dist = gulp.series(function dist(done) {
   if (!argv.compile) {
     gutil.log(gutil.colors.red('Warning!'),
         'Use', gutil.colors.green('--compile'), 'to build scenes for production');
+    throw new Error(`you must specify --compile`);
   }
+  done();
 
   // nb. 'build-contents' is our leaf here, as it depends on everything else. Be careful what deps
   // you list here, because they're not part of the normal Gulp dependency chain.
-  require('run-sequence')('rm-dist', 'build-contents', 'announce-dist', callback);
-});
+}, exports.rmDist, exports.buildContents, exports.announceDist);
 
-gulp.task('announce-dist', function() {
-  gutil.log('Built version', gutil.colors.red(STATIC_VERSION));
-});
+exports.watch = function watch() {
+  gulp.watch(SASS_FILES, exports.sass);
+  gulp.watch(CLOSURE_FILES, exports.compileScenes);
+  gulp.watch(JS_FILES, exports.compileJs);
+};
 
-gulp.task('watch', function() {
-  gulp.watch(SASS_FILES, ['sass']);
-  gulp.watch(CLOSURE_FILES, ['compile-scenes']);
-  gulp.watch(JS_FILES, ['compile-js']);
-});
+exports.default = gulp.parallel(exports.sass, exports.compileJs, exports.compileScenes);
 
-gulp.task('serve', ['default', 'watch'], function() {
+exports.serve = gulp.series(exports.default, gulp.parallel(exports.watch, function serve() {
   const livereloadFiles = ['**/*.css', '**/*.min.js', '**/*.html'];
 
   const simplePath = new RegExp(/^\/(\w+)\.html(|\?.*)$/);
@@ -554,9 +545,9 @@ gulp.task('serve', ['default', 'watch'], function() {
     startPath: firstScene ? `/${firstScene}.html` : '/',
     ui: {port: argv.port + 1},
   });
-});
+}));
 
-gulp.task('serve-prod', cb => {
+exports.serveProd = function serveProd(cb) {
   const prod = connect();
 
   prod.use(serveStatic(PROD_DIR, { index: 'index.html' }));
@@ -565,6 +556,5 @@ gulp.task('serve-prod', cb => {
   prod.listen(argv.port);
 
   gutil.log(`Serving prod on port ${argv.port}`);
-});
+};
 
-gulp.task('default', ['sass', 'compile-js', 'compile-scenes']);
