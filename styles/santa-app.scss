@@ -1,3 +1,12 @@
+$duration-sidebar: 0.25s;
+$color-loader: #db513c;
+$size-header: 38px;
+
+@keyframes santa-app__hide-nav {
+  from { visibility: visible; pointer-events: none; }
+    to { visibility: hidden; pointer-events: none; }
+}
+
 :host {
   display: block;
 }
@@ -12,15 +21,6 @@ main {
   flex-flow: column;
 }
 
-input#sidebar {
-  visibility: hidden;
-}
-
-@keyframes santa-app__hide-nav {
-  from { visibility: visible; pointer-events: none; }
-    to { visibility: hidden; pointer-events: none; }
-}
-
 .sidebar {
   santa-sidebar {
     z-index: 9;
@@ -31,8 +31,8 @@ input#sidebar {
     outline: 2px solid rgba(0, 0, 0, 0.125);
     min-width: 320px;
     transform: translate(-100%);
-    transition: transform 0.25s ease-out;
-    animation: santa-app__hide-nav 0.25s step-end forwards;
+    transition: transform $duration-sidebar ease-out;
+    animation: santa-app__hide-nav $duration-sidebar step-end forwards;
     pointer-events: none;
     will-change: transform;
   }
@@ -46,8 +46,8 @@ input#sidebar {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,198,237,0.6);
-    transition: opacity 0.25s ease-in-out;
+    background: rgba(0, 198, 237, 0.6);
+    transition: opacity $duration-sidebar ease-in-out;
     will-change: opacity;
     opacity: 0;
   }
@@ -92,9 +92,8 @@ input#sidebar {
     height: 100%;
     padding-left: 10%;
     box-sizing: border-box;
-    color: #db513c;
-    background: currentColor;
-    box-shadow: 0 0 2px currentColor;
+    background: $color-loader;
+    box-shadow: 0 0 2px $color-loader;
   }
 }
 
@@ -112,7 +111,7 @@ santa-loader {
 
 .closer {
   position: relative;
-  height: 38px;
+  height: $size-header;
   display: flex;
   align-items: center;
   padding: 0 12px;
@@ -121,7 +120,7 @@ santa-loader {
 
 header {
   z-index: 7;
-  height: 38px;
+  height: $size-header;
   padding: 0 12px;
   display: flex;
   align-items: center;
@@ -141,17 +140,6 @@ header {
     transition: opacity 0.4s ease-in-out;
   }
 
-  h1 {
-    margin: 0;
-    font-family: 'Lobster', Sans-Serif;
-    font-size: 19px;
-    line-height: 38px;
-    font-weight: 300;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
   .linkwrap {
     text-decoration: none;
     display: inline-flex;
@@ -159,16 +147,28 @@ header {
     align-items: center;
     text-decoration: none;
     color: inherit;
+    margin-left: 4px;
 
     .logo {
       width: 62px;
       min-width: 62px;
-      background: url(img/google_logo.svg) 0 11px no-repeat;
+      background: url(img/google_logo.svg) 0 0 no-repeat;
       background-size: contain;
-      margin: 0 4px;
       color: transparent;
       font-size: 0;
-      line-height: 38px;
+      line-height: $size-header;
+    }
+
+    h1 {
+      margin: 0;
+      margin-left: 0.4ch;
+      font-family: 'Lobster', Sans-Serif;
+      font-size: 19px;
+      line-height: $size-header;
+      font-weight: 300;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }
@@ -190,11 +190,11 @@ main.scroll {
 
 .svg-label {
   cursor: pointer;
-  height: 38px;
+  height: $size-header;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
+  width: $size-header;
   position: relative;
   z-index: 0;
 
