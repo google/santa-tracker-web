@@ -47,6 +47,10 @@ export class SantaAppElement extends LitElement {
       return;
     }
 
+    const scope = new URL('./', window.location.href);
+    const updateUrl = new URL(`${sceneName || 'village'}.html`, scope);
+    window.history.pushState(null, null, updateUrl);
+
     const loader = this.shadowRoot.querySelector('santa-loader');
     loader.load(sceneName || 'village');
     ev.preventDefault();
@@ -83,22 +87,16 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderLoad(ev) {
-    this._progress = null;
     this.closeSidebar();
+
+    this._progress = null;
     this._sceneName = ev.detail;
     console.debug('scene is', this._sceneName);
-
-    const sceneName = this._sceneFromUrl(window.location);
-    if (sceneName === ev.detail) {
-      return;  // already here, don't pushState
-    }
-
-    const scope = new URL('./', window.location.href);
-    const updateUrl = new URL(`${ev.detail}.html`, scope);
-    window.history.pushState(null, null, updateUrl);
   }
 
   _onLoaderError(ev) {
+    this.closeSidebar();
+
     this._progress = null;
     this._sceneName = null;
   }
