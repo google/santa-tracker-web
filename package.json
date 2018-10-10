@@ -1,16 +1,18 @@
 {
   "name": "santa-lit",
   "version": "0.0.1",
+  "license": "Apache-2",
   "scripts": {
     "start": "polymer serve --module-resolution=node"
   },
   "dependencies": {
+    "@babel/core": "^7.1.2",
     "@polymer/lit-element": "^0.6.0",
     "@webcomponents/webcomponentsjs": "latest",
+    "babylon": "^6.18.0",
     "gulp": "^4.0.0",
     "koa": "^2.5.3",
     "koa-static": "^5.0.0",
-    "polymer-cli": "next",
     "sass": "^1.14.1"
   }
 }
