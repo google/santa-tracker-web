@@ -23,11 +23,13 @@ export class SantaAppElement extends LitElement {
       _iframeScroll: {type: Boolean},
       _sceneName: {type: String},  // actually loaded scene (not in progress)
       _progress: {type: Number},
+      _idPrefix: {type: String},
     };
   }
 
   constructor() {
     super();
+    this._idPrefix = `_${Math.random().toString(16).slice(2)}_`;
 
     this.addEventListener('click', this._onClick);
     window.addEventListener('popstate', (ev) => this._onRouteChange(ev));
@@ -72,7 +74,7 @@ export class SantaAppElement extends LitElement {
   }
 
   closeSidebar() {
-    const input = this.shadowRoot.getElementById('sidebar');
+    const input = this.shadowRoot.getElementById(`${this._idPrefix}sidebar`);
     if (input) {
       input.checked = false;
     }
@@ -125,20 +127,20 @@ export class SantaAppElement extends LitElement {
   <div class="bar" style="width: ${(this._progress || 0) * 100}%"></div>
 </div>
 <div class="sidebar">
-  <input type="checkbox" id="sidebar" />
+  <input type="checkbox" id="${this._idPrefix}sidebar" />
   <santa-sidebar .todayHouse=${this.todayHouse} .trackerIsOpen=${this.trackerIsOpen}>
     <div class="closer">
-      <label for="sidebar" class="svg-label" tabindex="0">
+      <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
       </label>
     </div>
   </santa-sidebar>
-  <label class="hider" for="sidebar"></label>
+  <label class="hider" for="${this._idPrefix}sidebar"></label>
 </div>
 <main @focusin=${this._onMainFocus} class=${sceneIsScroll(this._sceneName) ? 'scroll' : ''}>
   <header class=${this._iframeScroll ? '' : 'up'}>
     <div class="bg" style="background-color: ${colorForScene(this._sceneName)};"></div>
-    <label for="sidebar" class="svg-label" tabindex="0">
+    <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
     </label>
     <a class="linkwrap" href="./">
