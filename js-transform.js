@@ -87,24 +87,24 @@ const resolveBareSpecifiers = () => {
     }
 
     const ext = path.extname(specifier);
+    const cand = path.join('node_modules/', specifier);
     if (ext === '.js') {
-      node.source.value = '/node_modules/' + specifier;
+      node.source.value = `/${cand}`;
       return;
     }
-    const cand = path.join('node_modules/', specifier);
 
     // look for package.json in same folder, OR add a .js ext
-    let packageConfig;
+    let def;
     try {
       const raw = fs.readFileSync(path.join('./', cand, 'package.json'), 'utf8');
-      packageConfig = JSON.parse(raw);
+      def = JSON.parse(raw);
     } catch (e) {
       node.source.value = `/${cand}.js`;
       return;  // best chance is just to append .js
     }
 
-    const f = packageConfig['module'] || packageConfig['jsnext:main'] || packageConfig['main'];
-    node.source.value = path.join('/node_modules', specifier, f);
+    const f = def['module'] || def['jsnext:main'] || def['main'] || 'index.js';
+    node.source.value = path.join('/', cand, f);
   };
   
   return {
