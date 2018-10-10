@@ -1,7 +1,7 @@
 import {LitElement, html} from '@polymer/lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
-import {_msg, runtimeTranslate, getLanguage, localizeUrl} from '../lib/runtime.js';
+import {_msg, _style, runtimeTranslate, getLanguage, localizeUrl} from '../lib/runtime.js';
 
 export class SantaSidebarElement extends LitElement {
   static get properties() {
@@ -27,15 +27,7 @@ export class SantaSidebarElement extends LitElement {
     ` : '');
 
     return html`
-<style>
-/* TODO: from generated code */
-:host {
-  display: block;
-  background: white;
-  overflow-y: auto;
-}
-.cards{border-bottom:4px solid #eee}.links{padding:12px 12px 4px 24px}.links h2{color:#7bc7e5}.links a{color:#64ae69}.links a:hover{text-decoration:underline}.lang{padding-left:20px;line-height:32px;padding-bottom:8px}.lang select{vertical-align:middle}a{color:inherit;text-decoration:none}.menucard{box-sizing:border-box;height:150px;background:transparent center right no-repeat;background-size:cover;padding:12px 12px 12px 24px;color:#fff;display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-pack:center;justify-content:center;position:relative}.menucard .lock{position:absolute;top:0;left:0;right:0;bottom:0;background:url(img/lock.svg) 90% 50% no-repeat;background-color:rgba(87,214,147,.5);background-size:42px 42px}.menucard-village{background-image:url(img/menu-village.png)}.menucard-tracker{background-image:url(img/menu-tracker.png)}h2{font-size:1em;letter-spacing:1px;font-weight:600;margin:6px 0;line-height:1em;text-transform:uppercase}h3{margin:0;font-size:2.875em;line-height:1.25em;text-shadow:0 2px 0 rgba(0,0,0,.25);font-family:"Lobster"}ul{list-style:none;margin:0;padding:0;padding-top:6px;line-height:1.2em;font-size:1.2em;font-weight:500}ul li{margin:0;padding:.4em 0}ul li a{display:block}
-</style>
+<style>${_style`santa-sidebar`}</style>
 
 <slot></slot>
 

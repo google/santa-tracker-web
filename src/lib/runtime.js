@@ -1,9 +1,22 @@
 import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 
 
-export function runtimeTranslate(id) {
+const messagesJSON = window.fetch('./en_src_messages.json').then((out) => out.json());
+
+
+export async function runtimeTranslate(runtimeId) {
   // TODO(samthor): Implement mapping code.
-  return _msg(id.replace('/', '_'));
+  const id = runtimeId.replace('/', '_');
+
+  const messages = await messagesJSON;
+  const data = messages[id];
+  if (!data) {
+    return '?'
+  }
+  if (data.raw) {
+    return unsafeHTML(data.raw);
+  }
+  return data.message || '?';
 }
 
 
@@ -41,17 +54,11 @@ export function localizeUrl(url) {
 }
 
 
-const messagesJSON = window.fetch('./en_src_messages.json').then((out) => out.json());
-
-export async function _msg(id) {
-  const messages = await messagesJSON;
-  const data = messages[id];
-  if (!data) {
-    return '?'
-  }
-  if (data.raw) {
-    return unsafeHTML(data.raw);
-  }
-  return data.message || '?';
+export function _msg(id) {
+  throw new Error('replaced by js-transform');
 }
 
+
+export function _style(id) {
+  throw new Error('replaced by js-transform');
+}

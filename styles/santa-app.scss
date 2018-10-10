@@ -1,0 +1,263 @@
+:host {
+  display: block;
+}
+
+main {
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column;
+}
+
+input#sidebar {
+  visibility: hidden;
+}
+
+@keyframes santa-app__hide-nav {
+  from { visibility: visible; pointer-events: none; }
+    to { visibility: hidden; pointer-events: none; }
+}
+
+.sidebar {
+  santa-sidebar {
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    visibility: hidden;
+    outline: 2px solid rgba(0, 0, 0, 0.125);
+    min-width: 320px;
+    transform: translate(-100%);
+    transition: transform 0.25s ease-out;
+    animation: santa-app__hide-nav 0.25s step-end forwards;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .hider {
+    pointer-events: none;
+    z-index: 8;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,198,237,0.6);
+    transition: opacity 0.25s ease-in-out;
+    will-change: opacity;
+    opacity: 0;
+  }
+
+  > input {
+    display: none;
+
+    &:checked ~ santa-sidebar {
+      visibility: visible;
+      pointer-events: auto;
+      animation: none;
+      transform: translate(0);
+    }
+
+    &:checked ~ .hider {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+}
+
+.preload {
+  display: block;
+  z-index: 10;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.125);
+  opacity: 0;
+  transition: opacity 0.5s;
+  will-change: opacity;
+
+  &:not([hidden]) {
+    transition-duration: 0s;
+    opacity: 1;
+  }
+
+  .bar {
+    height: 100%;
+    padding-left: 10%;
+    box-sizing: border-box;
+    color: #db513c;
+    background: currentColor;
+    box-shadow: 0 0 2px currentColor;
+  }
+}
+
+santa-loader {
+  flex-grow: 1;
+  position: relative;
+
+  iframe {
+    border: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.closer {
+  position: relative;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+
+header {
+  z-index: 7;
+  height: 38px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+
+  .bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #30cbec;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    will-change: opacity;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: 'Lobster', Sans-Serif;
+    font-size: 19px;
+    line-height: 38px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .linkwrap {
+    text-decoration: none;
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+    .logo {
+      width: 62px;
+      min-width: 62px;
+      background: url(img/google_logo.svg) 0 11px no-repeat;
+      background-size: contain;
+      margin: 0 4px;
+      color: transparent;
+      font-size: 0;
+      line-height: 38px;
+    }
+  }
+}
+
+main.scroll {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    &.up {
+      .bg {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.svg-label {
+  cursor: pointer;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    background: black;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.125s;
+    border-radius: 10000px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    z-index: -100;
+
+    :active & {
+      opacity: 0.1;
+    }
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+}
+
+.noscene {
+  background: url(img/error.svg) bottom center no-repeat;
+  background-size: cover;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  &[hidden] {
+    display: none;
+  }
+
+  .icon {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 10000px;
+    box-shadow: 4px 14px 0 rgba(0,0,0,.125);
+    background: #7ec6e5 url(img/snowman.png) center no-repeat;
+    background-size: 179px 214px;
+    overflow: hidden;
+  }
+
+  p {
+    margin: 2em auto;
+    max-width: 90%;
+    color: #fff;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  &:not([hidden]) ~ santa-loader {
+    display: none;
+  }
+}
