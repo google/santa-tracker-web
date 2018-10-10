@@ -211,10 +211,9 @@ main.scroll {
     right: 2px;
     bottom: 2px;
     z-index: -100;
-
-    :active & {
-      opacity: 0.1;
-    }
+  }
+  &:active::before {
+    opacity: 0.1;
   }
 
   svg {
