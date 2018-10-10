@@ -1,0 +1,12 @@
+{
+  "name": "santa-lit",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "polymer serve --module-resolution=node"
+  },
+  "dependencies": {
+    "@polymer/lit-element": "^0.6.0",
+    "polymer-cli": "next",
+    "@webcomponents/webcomponentsjs": "latest"
+  }
+}
