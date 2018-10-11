@@ -134,7 +134,8 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #30cbec;
+    color: #30cbec;
+    background: currentColor;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
     will-change: opacity;
     transition: opacity 0.4s ease-in-out;
