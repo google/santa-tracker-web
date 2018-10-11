@@ -16,6 +16,24 @@
   <script type="module" src="./src/elements.js"></script>
   <script type="module">
     santaApp.todayHouse = 'boatload';
+
+    import * as sc from './src/soundcontroller.js';
+
+    const runner = async () => {
+      // Most Klang sounds won't start unless the preload event has been explicitly waited for.
+      await sc.dispatch('village_load_sounds');
+      sc.ambient('village_start');
+      sc.ambient('music_start_village');
+
+      await new Promise((r) => window.setTimeout(r, 20 * 1000));
+
+      // Some Klang sounds need to be "closed off", otherwise they can keep playing: possibly
+      // forever. There should be a way to record 'cleanup' events on scene setup, that are called
+      // before a new scene is allowed to make its audio requests.
+      sc.ambient('village_end');
+    };
+    runner();
+
   </script>
 </body>
 </html>

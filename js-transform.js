@@ -120,7 +120,7 @@ const resolveBareSpecifiers = () => {
 module.exports = async (ctx, next) => {
   const ext = path.extname(ctx.url);
   const match = (ext === '.js' || ext === '.mjs');
-  if (!match) {
+  if (!match || ctx.url.startsWith('/third_party/')) {
     return next();
   }
 
