@@ -148,6 +148,7 @@ export class SantaAppElement extends LitElement {
     </a>
   </header>
   <div class="noscene" ?hidden=${this._sceneName != null}>
+    <santa-weather></santa-weather>
     <div class="icon"></div>
     <p>${_msg`error-not-found`}</p>
   </div>
