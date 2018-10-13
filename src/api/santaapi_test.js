@@ -290,4 +290,6 @@ suite('santaapi', () => {
 
     // TODO(samthor): Test that location drift occurs over the user's location.
   });
+
+  // TODO(samthor): Test stream, if it is even still relevant in 2018+.
 });
