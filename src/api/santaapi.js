@@ -52,6 +52,7 @@ export class SantaAPI extends EventTarget {
     this._jitterRand = Math.random();
 
     /**
+     * If zero, sync is stopped.
      * @private {number}
      */
     this._syncTimeout = 0;
@@ -89,10 +90,21 @@ export class SantaAPI extends EventTarget {
   }
 
   /**
+   * Wraps `transport.request` mostly for test overriding.
+   *
+   * @param {string} url
+   * @param {?Object<string, (string|number)>=} data
+   * @return {!Promise<!Object<string, *>>}
+   */
+  _request(url, data=null) {
+    return transport.request(url, data);
+  }
+
+  /**
    * @param {?LatLng}
    */
   set userLocation(v) {
-    this._userProvidedLocation = v;
+    this._userProvidedLocation = location.parseLatLng(v);  // clones
     this._userDestination = undefined;  // forces recalc
   }
 
@@ -109,7 +121,7 @@ export class SantaAPI extends EventTarget {
    * @export
    */
   get userInEurope() {
-    const loc = this._userLocation;
+    const loc = this.userLocation;
     if (loc === null) {
       return true;
     }
@@ -142,6 +154,14 @@ export class SantaAPI extends EventTarget {
   }
 
   /**
+   * @return {boolean} whether this class is syncing
+   * @export
+   */
+  get syncing() {
+    return this._syncTimeout !== 0;
+  }
+
+  /**
    * @param {boolean} state 
    */
   _updateOnlineState(online) {
@@ -157,16 +177,29 @@ export class SantaAPI extends EventTarget {
   }
 
   /**
+   * Triggers sync, but also makes the class regularly sync.
    * @export
    * @return {!Promise<*>}
    */
   sync() {
+    window.clearTimeout(this._syncTimeout);
+    this._syncTimeout = -1;  // set to non-zero, explicit sync action
+
+    return this.instantSync();
+  }
+
+  /**
+   * Performs a single sync action. Does not change sync state.
+   * @export
+   * @return {!Promise<*>}
+   */
+  instantSync() {
+    window.clearTimeout(this._syncTimeout);
     if (this._activeSync) {
       return this._activeSync;
     }
-    window.clearTimeout(this._syncTimeout);
 
-    const p = transport.request(this._infoUrl, {
+    const p = this._request(this._infoUrl, {
       'rand': this._jitterRand,
       'client': this._clientId,
       'language': this._lang,
@@ -182,8 +215,12 @@ export class SantaAPI extends EventTarget {
       }
 
       // The API provides a time and offset that the client must respect.
-      const localNow = +new Date();
-      this._timeOffset = result['now'] + result['timeOffset'] - localNow;
+      if ('now' in result || +result['timeOffset']) {
+        const localNow = +new Date();
+        const now = ('now' in result ? +result['now'] : localNow);
+        const timeOffset = +result['timeOffset'] || 0;
+        this._timeOffset = now - localNow + timeOffset;
+      }
   
       // The API can force the client to reload until it reaches a high water mark.
       const upgradeToVersion = result['upgradeToVersion'];
@@ -199,8 +236,12 @@ export class SantaAPI extends EventTarget {
       // this allows the Elves to upload a new route at any point.
       const routeUrl = result['route'];
       if (routeUrl && this._routeUrl !== routeUrl) {
-        this._route = null;  // clear route, next request will fetch anew
-        this._userDestination = undefined;
+        this._userDestination = undefined;  // force recalc
+        if (this._routeUrl) {
+          // only clear route if we already had one
+          this._route = null;
+        }
+        this._routeUrl = routeUrl;
       }
 
       // Pass result to the block below, to schedule another sync.
@@ -211,10 +252,13 @@ export class SantaAPI extends EventTarget {
     this._lastInternalSync = internalSync;
     this._activeSync = internalSync.then(() => null);
 
-    // Schedule another sync and deal with errors, if any.
-    internalSync
+    // Schedule another sync to refresh and deal with errors, if any.
+    const safePromise = internalSync
         .then((result) => {
-          this._scheduleSync(+result['refresh']);
+          const after = parseInt(result['refresh']);  // parseInt so '' becomes NaN
+          if (after >= 0 || !isFinite(after)) {
+            this._scheduleSync(after);
+          }
         })
         .catch((err) => {
           console.warn('unhandled sync err', err);
@@ -231,19 +275,35 @@ export class SantaAPI extends EventTarget {
         });
 
     // Inform listeners that sync has occured.
-    internalSync.then(() => this.dispatchEvent(new CustomEvent('sync')));
+    safePromise.then(() => this.dispatchEvent(new CustomEvent('sync')));
 
     return this._activeSync;
   }
 
   /**
-   * @param {?number=} after to schedule after
+   * @return {boolean} whether a sync was pending
+   * @export
+   */
+  cancelSync() {
+    window.clearTimeout(this._syncTimeout);
+    const wasSync = Boolean(this._syncTimeout);
+    this._syncTimeout = 0;
+    return wasSync;
+  }
+
+  /**
+   * @param {?number=} after to schedule after, <=0 to get random value
    */
   _scheduleSync(after=null) {
+    if (this._syncTimeout === 0) {
+      return false;  // sync was disabled or not yet enabled
+    }
+
     const foregroundRequest = (after < 0);
-    if (!after || !isFinite(after) || after <= 0) {
+    if (!after || !isFinite(after) || after <= 0 || after > 60 * 60 * 1000) {
       // If there's no value here, then it wasn't sent by the server: refresh fairly aggressively,
       // but with lots of jitter. Currently 60s +/- 30s.
+      // Also catch values >1hr (for sanity).
       after = (1000 * 60 * (Math.random() + 0.5));
     }
   
@@ -264,7 +324,24 @@ export class SantaAPI extends EventTarget {
   }
 
   /**
+   * @return {!Promise<{departure: number, arrival: number}>}
+   * @export
+   */
+  range() {
+    const p = this._lastRoute();
+    return p.then((route) => {
+      const first = route.locations[0];
+      const last = route.locations[route.locations.length - 1];
+      return {
+        departure: first.departure,
+        arrival: last.arrival
+      };
+    });
+  }
+
+  /**
    * @return {!Promise<!SantaState>}
+   * @export
    */
   state() {
     const p = this._lastRoute();
@@ -272,9 +349,10 @@ export class SantaAPI extends EventTarget {
       const userLocation = this.userLocation;
       if (this._userDestination === undefined) {
         this._userDestination = route.nearestDestinationTo(userLocation);
-        console.debug('found nearest stop to user', this._userDestination, userLocation);
+        if (this._userDestination) {
+          console.debug('found nearest stop to user', this._userDestination, userLocation);
+        }
       }
-
       return route.getState(this.now, userLocation, this._userDestination);
     });
   }
@@ -283,20 +361,15 @@ export class SantaAPI extends EventTarget {
    * @return {!Promise<!Route>}
    */
   _lastRoute() {
-    if (this._route) {
-      return this._route;  // nulled in sync() if URL changes
+    if (this._route === null) {
+      // nulled in sync() if URL changes, but the old route is still valid
+      this._route = this._internalGetRoute();
     }
-    const localRoute = this._route = this._internalGetRoute();
-    return localRoute.then(() => {
-      if (localRoute !== this._route) {
-        return this.route();  // something changed, return the replacement
-      }
-      return localRoute;
-    });
+    return this._route;
   }
 
   async _internalGetRoute() {
-    const internalSync = this._lastInternalSync || this.sync().then(() => this._lastInternalSync);
+    const internalSync = this._lastInternalSync || this.instantSync().then(() => this._lastInternalSync);
     const result = await internalSync;
     const routeUrl = result['route'];
 
@@ -306,7 +379,7 @@ export class SantaAPI extends EventTarget {
 
     // TODO(samthor): outsource to indexdb
 
-    const routeData = await transport.request(routeUrl);
+    const routeData = await this._request(routeUrl);
     const route = new location.Route(routeUrl, routeData);
     if (!route.locations.length) {
       console.warn('got bad data', routeData);

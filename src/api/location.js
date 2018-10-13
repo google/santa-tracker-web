@@ -146,7 +146,13 @@ export class Route {
 
     const destinations = /** @type {!Array<!Object>} */ (data['destinations']) || [];
     const arr = [];
-    const update = destinations.map((raw, i) => new SantaLocation(raw, arr, i));
+    const update = destinations.map((raw, i) => {
+      // nb. There should not be any bad data, but act defensively.
+      if (raw['departure'] < raw['arrival'] && i !== destinations.length - 1) {
+        raw['departure'] = raw['arrival'];  // departure is >= arrival
+      }
+      return new SantaLocation(raw, arr, i)
+    });
     arr.push(...update);
 
     /**
@@ -200,73 +206,75 @@ export class Route {
    * @return {!SantaState}
    * @export
    */
-  getState(timestamp, userLocation = null, userDestination = null) {
+  getState(timestamp, userLocation=null, userDestination=null) {
     const destIndex = this._findDestinationIndex(timestamp);
     const dest = this.locations[destIndex];
-    const dests = this.locations.slice(0, destIndex + 1);  // include dest in slice
-    const next = dest.next || dest;
+    const dests = this.locations.slice(0, destIndex);  // do not include dest in slice
     const arrivalTime = userDestination ? userDestination.arrival : 0;
     const stream = this._findNearestStream(timestamp);
 
-    if (timestamp < dest.departure) {
-      // Santa is at this location.
+    if (timestamp >= dest.arrival || dest.prev === null) {
+      dests.push(dest);
+
+      // Santa is at `dest`.
       const position = dest.location;
       const distanceToUser =
           userLocation ? spherical.computeDistanceBetween(position, userLocation) : -1;
       return /** @type {!SantaState} */ ({
         position,
         heading: 0,
-        presentsDelivered: calculatePresentsDelivered(timestamp, dest.prev || dest, dest, next),
+        presentsDelivered: calculatePresentsDelivered(timestamp, dest.prev, dest, dest.next),
         distanceTravelled: dest.distanceTravelled,
         distanceToUser,
         userDestination,
         arrivalTime,
-        prev: dest.prev || dest,
+        prev: dest.prev,
         stopover: dest,
-        next,
+        next: dest.next,
         dests,
         stream,
       });
     }
 
     // Santa is in transit.
-    const travelTime = next.arrival - dest.departure;
-    const elapsed = Math.max(timestamp - dest.departure, 0);
+    const {prev} = dest;
+    const travelTime = dest.arrival - prev.departure;
+    const elapsed = Math.max(timestamp - prev.departure, 0);
     const ratio = elapsed / travelTime;
 
     let currentLocation;
     if (userDestination && userLocation && dest.id === userDestination.id) {
       // If this is the segment where the user is, interpolate to them.
-      const firstDistance = spherical.computeDistanceBetween(dest.location, userLocation);
-      const secondDistance = spherical.computeDistanceBetween(userLocation, next.location);
+      const firstDistance = spherical.computeDistanceBetween(prev.location, userLocation);
+      const secondDistance = spherical.computeDistanceBetween(userLocation, dest.location);
       const along = (firstDistance + secondDistance) * ratio;
       if (along < firstDistance) {
         // Interpolate between the previous location and the user's location.
         const firstRatio = firstDistance ? (along / firstDistance) : 0;
-        currentLocation = spherical.interpolate(dest.location, userLocation, firstRatio);
+        currentLocation = spherical.interpolate(prev.location, userLocation, firstRatio);
       } else {
-        // Interpolate between the user's location and the upcoming location.
+        // Interpolate between the user's location and the destination.
         const secondRatio = secondDistance ? ((along - firstDistance) / secondDistance) : 0;
-        currentLocation = spherical.interpolate(userLocation, next.location, secondRatio);
+        currentLocation = spherical.interpolate(userLocation, dest.location, secondRatio);
       }
     } else {
       // Otherwise, interpolate between stops normally.
-      currentLocation = spherical.interpolate(dest.location, next.location, ratio);
+      currentLocation = spherical.interpolate(prev.location, dest.location, ratio);
     }
 
     const distanceToUser =
         userLocation ? spherical.computeDistanceBetween(currentLocation, userLocation) : -1;
     return /** @type {!SantaState} */ ({
       position: currentLocation,
-      heading: spherical.computeHeading(currentLocation, next.location),
-      presentsDelivered: calculatePresentsDelivered(timestamp, dest, null, next),
-      distanceTravelled: calculateDistanceTravelled(timestamp, dest, next),
+      heading: spherical.computeHeading(currentLocation, dest.location),
+      presentsDelivered: calculatePresentsDelivered(timestamp, prev, null, dest),
+      distanceTravelled: calculateDistanceTravelled(timestamp, prev, dest),
       distanceToUser,
       userDestination,
       arrivalTime,
-      prev: dest,
+      prev: dest.prev,
       stopover: null,
-      next,
+      next: dest,
       dests,
       stream,
     });
@@ -286,11 +294,16 @@ export class Route {
    * @return {number} index of location
    */
   _findDestinationIndex(timestamp) {
-    const first = this.locations[0];
+    const locations = this.locations;
+    const first = locations[0];
     if (!first || first.departure > timestamp) {
       return 0;  // not flying yet, assume at workshop
     }
-    return sort.bisectLeft(this.locations, timestamp, (entry) => entry.departure);
+    const index = sort.bisectLeft(locations, timestamp, (entry) => entry.departure);
+    if (index >= locations.length) {
+      return locations.length - 1;
+    }
+    return index;
   }
 }
 
@@ -377,11 +390,30 @@ export function parseLatLng(s) {
  * @return {number}
  */
 export function calculatePresentsDelivered(now, prev, stopover, next) {
+  if (next === null) {
+    if (stopover !== null) {
+      // nb. only happens at landing, which has no gifts
+      return stopover.presentsDelivered;
+    } else if (prev !== null) {
+      return prev.presentsDelivered;
+    }
+  }
+  if (prev === null) {
+    return 0;
+  }
+
   if (!stopover) {
     // Santa is flying between prev and next.
     const elapsed = now - prev.departure;
     const duration = next.arrival - prev.departure;
-    const delivering = (next.presentsDelivered - prev.presentsDelivered) * PRESENTS_OVER_WATER;
+
+    let delivering = (next.presentsDelivered - prev.presentsDelivered);
+    if (next.next === null) {
+      // The next stop is the final stop, so deliver all the presents before Santa arrives: don't
+      // adjust by PRESENTS_OVER_WATER, which reduces the amount so that we can deliver at city.
+    } else {
+      delivering *= PRESENTS_OVER_WATER;
+    }
 
     // While flying, deliver some of the quota.
     return Math.floor(prev.presentsDelivered + delivering * elapsed / duration);
