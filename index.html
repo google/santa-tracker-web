@@ -79,7 +79,7 @@
       document.body.getAttribute('data-version'));
 
     // perform initial sync and further syncs on 'online' event
-    Promise.resolve(true).then(() => api.sync());
+    Promise.resolve().then(() => api.sync());
     window.addEventListener('online', () => api.sync());
 
     api.addEventListener('sync', (ev) => {
