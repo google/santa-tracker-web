@@ -109,12 +109,16 @@ export class SantaWeatherElement extends HTMLElement {
       this._canvas.style.width = `${width}px`;
       this._canvas.style.height = `${height}px`;
     }
-    if (width === 0 || height === 0 || !this.isConnected) {
+    if (!this.isConnected) {
       return false;
     }
 
     // re-request draw again
     window.requestAnimationFrame(this._draw);
+    if (width === 0 || height === 0) {
+      // TODO(samthor): use ResizeObserver where it's supported so we don't call rAF while away.
+      return;
+    }
 
     // update or create snowflakes
     this._snowflakes = this._snowflakes.map((snowflake) => {
