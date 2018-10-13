@@ -151,6 +151,14 @@ suite('santaapi', () => {
     assert.isTrue(api.syncing, 'client should be syncing');
     await Promise.resolve();  // microtask
 
+    // now, wait for the inevitable sync to occur in a _whole_ 1ms
+    api.expect('info', undefined, {'status': 'OK'});
+    await new Promise((resolve, reject) => {
+      api.addEventListener('sync', resolve, {once: true});
+      window.setTimeout(reject, 100);
+    });
+
+    // cleanup state
     assert.isTrue(api.cancelSync(), 'class was syncing, should clear state');
     assert.isFalse(api.syncing, 'test cancelSync');
     api.expect('info', undefined, {
@@ -226,6 +234,13 @@ suite('santaapi', () => {
     assert.isBelow(stateAtSydney.presentsDelivered, 146084997);
     assert.equal(stateAtSydney.next.id, 'landing');
 
+    // confirm just after
+    const stateJustAfterSydney = await stateDelayFrame({
+      'status': 'OK',
+      'now': SANTA_TAKEOFF + (1000 * 120) + 1,  // just 1ms after Sydney
+    });
+    assert.isAbove(stateJustAfterSydney.presentsDelivered, 146084997);
+
     // check while at takeoff
     const stateAtTakeoff = await stateDelayFrame({
       'status': 'OK',
@@ -272,5 +287,7 @@ suite('santaapi', () => {
     const state = await stateDelayFrame();
     assert.isNotNull(state.userDestination);
     assert.equal(state.userDestination.id, 'sydney');
+
+    // TODO(samthor): Test that location drift occurs over the user's location.
   });
 });
