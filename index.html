@@ -71,6 +71,25 @@
     };
     runner();
 
+    import {SantaAPI} from './src/api/santaapi.js';
+    const api = new SantaAPI(
+      'https://next-santa-api.appspot.com',
+      'web',
+      document.documentElement.lang,
+      document.body.getAttribute('data-version'));
+
+    // perform initial sync and further syncs on 'online' event
+    Promise.resolve(true).then(() => api.sync());
+    window.addEventListener('online', () => api.sync());
+
+    api.addEventListener('sync', (ev) => {
+      console.debug('got sync OK', api.dateNow);
+
+      api.state().then((state) => {
+        console.info('state', state);
+      });
+    });
+
   </script>
 </body>
 </html>
