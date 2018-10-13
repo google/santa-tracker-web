@@ -9,7 +9,7 @@
     "@babel/core": "^7.1.2",
     "@polymer/lit-element": "^0.6.0",
     "@webcomponents/webcomponentsjs": "latest",
-    "@polymer/broadway": "git@github.com:PolymerLabs/broadway.git#initial-implementation",
+    "@polymer/broadway": "git+ssh://git@github.com:PolymerLabs/broadway.git#initial-implementation",
     "babylon": "^6.18.0",
     "gulp": "^4.0.0",
     "koa": "^2.5.3",

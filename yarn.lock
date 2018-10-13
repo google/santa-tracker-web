@@ -107,6 +107,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@polymer/broadway@git+ssh://git@github.com:PolymerLabs/broadway.git#initial-implementation":
+  version "0.0.1"
+  resolved "git+ssh://git@github.com:PolymerLabs/broadway.git#dc545c4029402ca381a77231b24da28315a807a2"
+
 "@polymer/lit-element@^0.6.0":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@polymer/lit-element/-/lit-element-0.6.2.tgz#589f2fa19e84d23c1debb2c329cbab758ae30581"
