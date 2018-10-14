@@ -17,6 +17,7 @@
   <script type="module">
     import * as route from './src/route.js';
     import * as sc from './src/soundcontroller.js';
+    import {formatDuration} from './src/lib/time.js';
 
     santaApp.todayHouse = 'boatload';
 
@@ -82,12 +83,6 @@
     Promise.resolve().then(() => api.sync());
     window.addEventListener('online', () => api.sync());
 
-    function formatMs(ms) {
-      const sec = ~~(ms / 1000);
-      const min = ~~(sec / 60);
-      const hours = ~~(min / 60);
-      return `${~~hours}h${~~(min - hours*60)}m${~~(sec - min*60)}s`;
-    }
 
     api.addEventListener('sync', (ev) => {
       const p = (async () => {
@@ -99,11 +94,11 @@
         if (range === null) {
           // skip
         } else if (now < range.start) {
-          console.debug('Santa takeoff in', formatMs(range.start - now));
+          console.debug('Santa takeoff in', formatDuration(range.start - now));
         } else if (now >= range.end) {
-          console.debug('Santa landed', formatMs(now - range.end), 'ago');
+          console.debug('Santa landed', formatDuration(now - range.end), 'ago');
         } else {
-          console.debug('Santa flying for', formatMs(now - range.start), 'remaining', formatMs(range.end - now));
+          console.debug('Santa flying for', formatDuration(now - range.start), 'remaining', formatDuration(range.end - now));
         }
       })();
       p.catch((err) => {
