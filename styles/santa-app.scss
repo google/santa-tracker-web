@@ -24,7 +24,7 @@ main {
 .sidebar {
   santa-sidebar {
     z-index: 9;
-    position: absolute;
+    position: fixed;
     top: 0;
     height: 100%;
     visibility: hidden;
@@ -35,6 +35,10 @@ main {
     animation: santa-app__hide-nav $duration-sidebar step-end forwards;
     pointer-events: none;
     will-change: transform;
+  }
+
+  .sidebar-focuser {
+    position: absolute;
   }
 
   .hider {
@@ -246,13 +250,20 @@ main.scroll {
   }
 
   .icon {
+    $size-icon: 250px;
+    $size-background: 214px;
+
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: $size-icon;
+    height: $size-icon;
     border-radius: 10000px;
     box-shadow: 4px 14px 0 rgba(0,0,0,.125);
     background: #7ec6e5 url(img/snowman.png) center no-repeat;
-    background-size: 179px 214px;
+    // background is contained within border, so create one which limits us
+    // to the target $background-size
+    background-size: contain;
+    border: (($size-icon - $size-background) / 2) solid transparent;
+    box-sizing: border-box;
     overflow: hidden;
   }
 
@@ -267,5 +278,20 @@ main.scroll {
 
   &:not([hidden]) ~ santa-loader {
     display: none;
+  }
+
+  @media (max-height: 400px) {
+    flex-flow: row;
+
+    .icon {
+      $size-icon: 192px;
+      $size-background: 164px;
+  
+      width: $size-icon;
+      height: $size-icon;
+      min-width: $size-icon;  // otherwise we get squished
+      border: (($size-icon - $size-background) / 2) solid transparent;
+      margin: 0 1em;
+    }
   }
 }

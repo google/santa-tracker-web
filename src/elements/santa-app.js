@@ -33,6 +33,15 @@ export class SantaAppElement extends LitElement {
 
     this.addEventListener('click', this._onClick);
     window.addEventListener('popstate', (ev) => this._onRouteChange(ev));
+
+    // Handle 'Enter' on a focusable <label> element.
+    this.shadowRoot.addEventListener('keydown', (ev) => {
+      const t = ev.target;
+      if (ev.key === 'Enter' && t.localName === 'label' && t.getAttribute('for')) {
+        ev.preventDefault();
+        t.click();
+      }
+    });
   }
 
   _onClick(ev) {
@@ -120,6 +129,18 @@ export class SantaAppElement extends LitElement {
     this._iframeScroll = (ev.detail !== 0);
   }
 
+  _onCheckboxChange(ev) {
+    if (!ev.target.checked) {
+      return;
+    }
+    // Focus an element at the start of the sidebar, but then immediately disallow focus. This
+    // places the browser's "cursor" here, so a keyboard tab will go to the next item.
+    const node = this.shadowRoot.querySelector('.sidebar-focuser');
+    node.setAttribute('tabindex', '0')
+    node.focus();
+    node.removeAttribute('tabindex');
+  }
+
   render() {
     return html`
 <style>${_style`santa-app`}</style>
@@ -127,9 +148,10 @@ export class SantaAppElement extends LitElement {
   <div class="bar" style="width: ${(this._progress || 0) * 100}%"></div>
 </div>
 <div class="sidebar">
-  <input type="checkbox" id="${this._idPrefix}sidebar" />
+  <input type="checkbox" id="${this._idPrefix}sidebar" @change=${this._onCheckboxChange} />
   <santa-sidebar .todayHouse=${this.todayHouse} .trackerIsOpen=${this.trackerIsOpen}>
     <div class="closer">
+      <div class="sidebar-focuser"></div>
       <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
       </label>
