@@ -37,6 +37,9 @@
       }
       if (santaApp.route === sceneName) {
         santaApp.sidebarOpen = false;
+        // TODO(samthor): If the scene is loaded but there's been an error, perhaps that could be
+        // reported declaratively: we could here then `santaApp.error = null`, to indicate that we
+        // don't care and we do want to retry.
       } else {
         santaApp.route = sceneName;
       }

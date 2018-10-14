@@ -74,7 +74,12 @@ class SantaLoaderElement extends HTMLElement {
 
   set route(v) {
     this._route = v;
-    this.isConnected && this._load(v);
+
+    Promise.resolve().then(() => {
+      // nb. This delays by a microtask because otherwise some side-effects in santa-app don't
+      // seem to occur.
+      this.isConnected && this._load(v);
+    });
   }
 
   get route() {
@@ -110,10 +115,11 @@ class SantaLoaderElement extends HTMLElement {
     pf.contentWindow.addEventListener('scroll', (ev) => this._onFrameScroll(), {passive: true});
 
     // wait a frame for a 'hello' message once load is done, or fail
+    let ready = false;
     pf.addEventListener('load', (ev) => {
       window.setTimeout(() => {
-        if (this._preloadFrame === pf) {
-          console.info('route', route, 'failed to hello');
+        if (!ready) {
+          console.warn(route, 'did not send \'hello\'');
           this._fail(pf, 'failed to send hello event');
         }
       }, 0);
@@ -124,7 +130,22 @@ class SantaLoaderElement extends HTMLElement {
         // TODO(samthor): Could this change for external scenes (with full URL)? They might not
         // be changable to support 'hello'-ing us.
         if (ev.data === 'hello') {
-          this._upgradePreload(route);
+          ready = true;
+
+          // TODO(samthor): Demonstrate that a scene might take a bit to load.
+          const d = 1000 + (Math.random() * 500);
+          window.setTimeout(() => {
+            // nb. the "are we still preloading" checks are especially awkward
+            if (this._preloadFrame === pf) {
+              this.dispatchEvent(new CustomEvent('progress', {detail: 0.5}));
+            }
+          }, d / 2);
+          window.setTimeout(() => {
+            if (this._preloadFrame === pf) {
+              this._upgradePreload(route);
+            }
+          }, d);
+
         }
       } else if (this._activeFrame === pf) {
         console.info('got data from', route, ev.data);
