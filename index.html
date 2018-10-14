@@ -15,9 +15,43 @@
   <santa-app id="santaApp"></santa-app>
   <script type="module" src="./src/elements.js"></script>
   <script type="module">
+    import * as route from './src/route.js';
+    import * as sc from './src/soundcontroller.js';
+
     santaApp.todayHouse = 'boatload';
 
-    import * as sc from './src/soundcontroller.js';
+    const mo = new MutationObserver(() => {
+      // if santaApp change its route from the active one, push new state
+      if (santaApp.route !== route.fromUrl(window.location)) {
+        window.history.pushState(null, null, route.urlFromRoute(santaApp.route));
+      } else {
+        // nb. should only happen on 1st mutation, ignore
+      }
+    });
+    mo.observe(santaApp, {attributeFilter: ['route'], attributes: true});
+
+    santaApp.addEventListener('click', (ev) => {
+      const sceneName = route.fromClick(ev);
+      if (sceneName === null) {
+        return null;  // probably an external link
+      }
+      if (santaApp.route === sceneName) {
+        santaApp.sidebarOpen = false;
+      } else {
+        santaApp.route = sceneName;
+      }
+      ev.preventDefault();
+    });
+
+    window.addEventListener('popstate', (ev) => {
+      const sceneName = route.fromUrl(window.location);
+      if (sceneName === null) {
+        window.location.href = window.location.href;  // abort, unknown scene
+      } else {
+        santaApp.route = sceneName;
+      }
+    });
+    window.dispatchEvent(new CustomEvent('popstate'));
 
     const runner = async () => {
       // Most Klang sounds won't start unless the preload event has been explicitly waited for.
