@@ -15,6 +15,11 @@ function colorForScene(sceneName) {
 }
 
 
+function featureColorForScene(sceneName) {
+  return sceneName === 'boatload' ? '#003799' : '';
+}
+
+
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
@@ -161,13 +166,14 @@ export class SantaAppElement extends LitElement {
 </div>
 <main @focusin=${this._onMainFocus} class=${sceneIsScroll(this._sceneName) ? 'scroll' : ''}>
   <header class=${this._iframeScroll ? '' : 'up'}>
-    <div class="bg" style="background-color: ${colorForScene(this._sceneName)};"></div>
+    <div class="bg" style="color: ${colorForScene(this._sceneName)}"></div>
     <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
     </label>
     <a class="linkwrap" href="./">
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
+    <santa-badge style="color: ${featureColorForScene(this._sceneName)}"></santa-badge>
   </header>
   <div class="noscene" ?hidden=${this._sceneName != null}>
     <santa-weather></santa-weather>

@@ -1,5 +1,3 @@
-import {_msg, _style, runtimeTranslate, getLanguage, localizeUrl} from '../lib/runtime.js';
-
 const DIRECTIONAL_STRENGTH = 0;
 const SNOWFLAKE_COUNT = 40;
 const CLOUD_COUNT = 6;
