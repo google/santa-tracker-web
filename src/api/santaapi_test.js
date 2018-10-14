@@ -271,6 +271,19 @@ suite('santaapi', () => {
     });
   });
 
+  test('noroute', async () => {
+    api.expect('info', undefined, {
+      'status': 'OK',
+      'now': SANTA_TAKEOFF - (1000 * 30),
+    });
+
+    const state = await stateDelayFrame();
+    assert.isNull(state);
+
+    const range = await api.range();
+    assert.isNull(range);
+  });
+
   test('location', async () => {
     api.userLocation = {
       'lat': -33,

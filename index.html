@@ -82,11 +82,32 @@
     Promise.resolve().then(() => api.sync());
     window.addEventListener('online', () => api.sync());
 
-    api.addEventListener('sync', (ev) => {
-      console.debug('got sync OK', api.dateNow);
+    function formatMs(ms) {
+      const sec = ~~(ms / 1000);
+      const min = ~~(sec / 60);
+      const hours = ~~(min / 60);
+      return `${~~hours}h${~~(min - hours*60)}m${~~(sec - min*60)}s`;
+    }
 
-      api.state().then((state) => {
+    api.addEventListener('sync', (ev) => {
+      const p = (async () => {
+        const now = api.now;
+        const state = await api.state();
         console.info('state', state);
+
+        const range = await api.range();
+        if (range === null) {
+          // skip
+        } else if (now < range.start) {
+          console.debug('Santa takeoff in', formatMs(range.start - now));
+        } else if (now >= range.end) {
+          console.debug('Santa landed', formatMs(now - range.end), 'ago');
+        } else {
+          console.debug('Santa flying for', formatMs(now - range.start), 'remaining', formatMs(range.end - now));
+        }
+      })();
+      p.catch((err) => {
+        console.warn('err reading route', err);
       });
     });
 

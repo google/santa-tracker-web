@@ -324,34 +324,37 @@ export class SantaAPI extends EventTarget {
   }
 
   /**
-   * @return {!Promise<{departure: number, arrival: number}>}
+   * @return {!Promise<?{start: number, end: number}>}
    * @export
    */
   range() {
     const p = this._lastRoute();
     return p.then((route) => {
+      if (route === null) {
+        return null;
+      }
       const first = route.locations[0];
       const last = route.locations[route.locations.length - 1];
       return {
-        departure: first.departure,
-        arrival: last.arrival
+        start: first.departure,
+        end: last.arrival,
       };
     });
   }
 
   /**
-   * @return {!Promise<!SantaState>}
+   * @return {!Promise<?SantaState>}
    * @export
    */
   state() {
     const p = this._lastRoute();
     return p.then((route) => {
+      if (route === null) {
+        return null;
+      }
       const userLocation = this.userLocation;
       if (this._userDestination === undefined) {
         this._userDestination = route.nearestDestinationTo(userLocation);
-        if (this._userDestination) {
-          console.debug('found nearest stop to user', this._userDestination, userLocation);
-        }
       }
       return route.getState(this.now, userLocation, this._userDestination);
     });
@@ -371,10 +374,10 @@ export class SantaAPI extends EventTarget {
   async _internalGetRoute() {
     const internalSync = this._lastInternalSync || this.instantSync().then(() => this._lastInternalSync);
     const result = await internalSync;
-    const routeUrl = result['route'];
 
+    const routeUrl = result['route'];
     if (!routeUrl) {
-      throw new Error('no route URL available');
+      return null;  // no route available, possibly too early or too late
     }
 
     // TODO(samthor): outsource to indexdb
@@ -382,7 +385,7 @@ export class SantaAPI extends EventTarget {
     const routeData = await this._request(routeUrl);
     const route = new location.Route(routeUrl, routeData);
     if (!route.locations.length) {
-      console.warn('got bad data', routeData);
+      console.warn('got bad data, no dests', routeData);
       throw new Error('no destinations found for Santa');
     }
 
