@@ -9,6 +9,13 @@
 </head>
 <body>
 
+  <script type="module">
+    import {SceneApi} from '../src/app/scene-api.js';
+
+    self.sceneApi = new SceneApi('village');
+    sceneApi.loadStarted();
+  </script>
+
   Some random text<br /><br />
 
   I'm the village!
@@ -19,13 +26,7 @@
   Long
 
   <script type="module">
-    console.info('even as type module')
-    window.onmessage = (ev) => {
-      switch (ev.data) {
-        // TODO: something
-      }
-    };
-    window.parent.postMessage('hello', '*');
+    sceneApi.loadCompleted();
   </script>
 
 </body>

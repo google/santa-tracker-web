@@ -1,3 +1,4 @@
+import {LitElement} from '@polymer/lit-element';
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 
@@ -22,39 +23,102 @@ function iframeForRoute(route) {
   if (route !== 'index' && /^(|\w+)$/.exec(route)) {
     iframe.src = `./scenes/${route || 'index'}.html`;
   }
+
   return iframe;
 }
 
 
-class SantaLoaderElement extends HTMLElement {
+const SCENE_LOAD_START_TIMEOUT_MS = 1000;
+
+class SantaLoaderElement extends LitElement {
+  static get properties() {
+    return {
+      activeSceneName: {type: Object},
+      selectedSceneName: {type: Object},
+      loadingSceneDetails: {type: Object}
+    };
+  }
+
   constructor() {
     super();
 
     this._onFrameScrollNotify = false;
-
-    this._route = null;
-  
-    this._onMessage = this._onMessage.bind(this);
-    this._onMessageHandler = new WeakMap();
-
-    this._activeFrame = document.createElement('iframe');
-    this._activeFrame.src = EMPTY_PAGE;
+    this._activeFrame = null;
     this._preloadFrame = null;
-    this._preloadResolve = null;
+
+    this._lastProgress = -1;
+    this._markSceneLoadStarted = null;
+    this._markSceneLoadFailed = null;
   }
 
-  connectedCallback() {
-    window.addEventListener('message', this._onMessage);
-    this._load(this._route);  // in case route changed while disconnected
+  async _preloadSelectedScene(sceneName) {
+    if (this._preloadFrame != null) {
+      this._preloadFrame.remove();
+      this._preloadFrame = null;
+    }
+
+    this._lastProgress = -1;
+    const preloadFrame = this._preloadFrame = iframeForRoute(sceneName);
+    preloadFrame.hidden = true;
+    this.appendChild(preloadFrame);
+
+    preloadFrame._unloadListener = (ev) =>
+        this._fail(preloadFrame, 'URL loaded inside frame');
+    preloadFrame._scrollListener = (ev) => this._onFrameScroll();
+
+
+    let timeoutTimer;
+    try {
+      await new Promise((resolve, reject) => {
+        timeoutTimer = setTimeout(
+            () => reject('Timed out waiting for preload to start'),
+            SCENE_LOAD_START_TIMEOUT_MS);
+        this._markSceneLoadStarted = resolve;
+        this._markSceneLoadFailed = reject;
+      });
+    } catch (error) {
+      return this._fail(preloadFrame, error);
+    }
+
+    this.dispatchEvent(new CustomEvent('preload', {detail: sceneName}));
+
+    clearTimeout(timeoutTimer);
   }
 
-  disconnectedCallback() {
-    window.removeEventListener('message', this._onMessage);
+  _upgradePreloadFrame() {
+    if (this._preloadFrame == null) {
+      return;
+    }
+
+    if (this._activeFrame != null) {
+      this._dispose(this._activeFrame);
+    }
+
+    this._activeFrame = this._preloadFrame;
+    this._activeFrame.hidden = false;
+    this._preloadFrame = null;
+
+    this.dispatchEvent(
+        new CustomEvent('activate', {detail: this.selectedSceneName}));
+    this._onFrameScroll();
   }
 
-  _onMessage(ev) {
-    const src = this._onMessageHandler.get(ev.source);
-    src && src(ev);
+  _dispose(iframe) {
+    iframe.remove();
+    if (iframe._unloadListener) {
+      iframe.removeEventListener('beforeunload', iframe._unloadListener);
+    }
+    if (iframe._scrollListener) {
+      iframe.removeEventListener('scroll', iframe._scrollListener);
+    }
+  }
+
+  _fail(iframe, reason = 'failed') {
+    console.error('Loader critical failure:', reason);
+
+    this._dispose(iframe);
+    this.dispatchEvent(new CustomEvent('error', {detail: reason}));
+    this._onFrameScroll();
   }
 
   _onFrameScroll() {
@@ -65,125 +129,65 @@ class SantaLoaderElement extends HTMLElement {
       this._onFrameScrollNotify = false;
       let scrollTop = 0;
       if (this._activeFrame.contentDocument) {
-        scrollTop = this._activeFrame.contentDocument.scrollingElement.scrollTop;
+        scrollTop =
+            this._activeFrame.contentDocument.scrollingElement.scrollTop;
       }
       this.dispatchEvent(new CustomEvent('iframe-scroll', {detail: scrollTop}));
     });
     this._onFrameScrollNotify = true;
   }
 
-  set route(v) {
-    this._route = v;
-
-    Promise.resolve().then(() => {
-      // nb. This delays by a microtask because otherwise some side-effects in santa-app don't
-      // seem to occur.
-      this.isConnected && this._load(v);
-    });
+  createRenderRoot() {
+    return this;
   }
 
-  get route() {
-    return this._route;
-  }
-
-  _load(route) {
-    if (this._preloadFrame) {
-      // nb. this does not call _fail, as it's not really a failure
-      this._preloadResolve(new Error('cancelled'));
-      this._preloadFrame.remove();
-      this._preloadFrame = null;
-      this._preloadResolve = null;
+  update(changedProperties) {
+    super.update(changedProperties);
+    if (changedProperties.has('selectedSceneName') &&
+        this.selectedSceneName !== this.activeSceneName) {
+      this._preloadSelectedScene(this.selectedSceneName);
     }
 
-    const pf = iframeForRoute(route);
-    if (this._activeFrame.src === pf.src) {
-      // nothing to do, already loaded; a different preload was pending?
-      this.dispatchEvent(new CustomEvent('load', {detail: route}));
-      return Promise.resolve();
-    }
+    if (changedProperties.has('loadingSceneDetails')) {
+      const details = this.loadingSceneDetails;
 
-    // great, kick off the preload: mark iframe hidden, add to DOM
-    pf.hidden = true;
-    this._preloadFrame = pf;
-    this.dispatchEvent(new CustomEvent('progress', {detail: 0}));
-    this.appendChild(pf);
-
-    // explicitly disallow URL changes in this frame by failing if we're unloaded
-    pf.contentWindow.addEventListener('beforeunload', (ev) => this._fail(pf, 'URL loaded inside frame'));
-
-    // listen to scroll so the top bar can be made visible/hidden
-    pf.contentWindow.addEventListener('scroll', (ev) => this._onFrameScroll(), {passive: true});
-
-    // wait a frame for a 'hello' message once load is done, or fail
-    let ready = false;
-    pf.addEventListener('load', (ev) => {
-      window.setTimeout(() => {
-        if (!ready) {
-          console.warn(route, 'did not send \'hello\'');
-          this._fail(pf, 'failed to send hello event');
-        }
-      }, 0);
-    });
-
-    this._onMessageHandler.set(pf.contentWindow, (ev) => {
-      if (this._preloadFrame === pf) {
-        // TODO(samthor): Could this change for external scenes (with full URL)? They might not
-        // be changable to support 'hello'-ing us.
-        if (ev.data === 'hello') {
-          ready = true;
-
-          // TODO(samthor): Demonstrate that a scene might take a bit to load.
-          const d = 1000 + (Math.random() * 500);
-          window.setTimeout(() => {
-            // nb. the "are we still preloading" checks are especially awkward
-            if (this._preloadFrame === pf) {
-              this.dispatchEvent(new CustomEvent('progress', {detail: 0.5}));
-            }
-          }, d / 2);
-          window.setTimeout(() => {
-            if (this._preloadFrame === pf) {
-              this._upgradePreload(route);
-            }
-          }, d);
-
-        }
-      } else if (this._activeFrame === pf) {
-        console.info('got data from', route, ev.data);
-      } else {
-        // frame no longer active, ignore
+      if (details.name !== this.selectedSceneName) {
+        return;
       }
-    });
 
-    return new Promise((resolve) => {
-      this._preloadResolve = resolve;
-    });
-  }
+      if (details.error != null) {
+        if (this._markSceneLoadFailed) {
+          this._markSceneLoadFailed(details.error);
+        }
+        return;
+      }
 
-  _fail(iframe, reason='failed') {
-    if (iframe === this._preloadFrame) {
-      // failed to load a new scene
-      this._preloadFrame.remove();
-      this._preloadResolve(new Error(reason));
-      this._preloadFrame = null;
-      this._preloadResolve = null;
+      if (this._markSceneLoadStarted) {
+        this._markSceneLoadStarted();
+
+        // explicitly disallow URL changes in this frame by failing if we're
+        // unloaded
+        this._preloadFrame.contentWindow.addEventListener(
+            'beforeunload', this._preloadFrame._unloadListener);
+
+        // listen to scroll so the top bar can be made visible/hidden
+        this._preloadFrame.contentWindow.addEventListener(
+            'scroll', this._preloadFrame._scrollListener, {passive: true});
+
+        this._markSceneLoadStarted = null;
+      }
+
+      if (this._lastProgress < details.progress) {
+        this._lastProgress = details.progress;
+        this.dispatchEvent(
+            new CustomEvent('progress', {detail: details.progress}));
+      }
+
+      if (details.ready && this.activeSceneName !== this.selectedSceneName) {
+        this.dispatchEvent(new CustomEvent('load', {detail: details.name}));
+        this._upgradePreloadFrame();
+      }
     }
-
-    this._activeFrame.remove();
-    this._activeFrame = document.createElement('iframe');
-    this.dispatchEvent(new CustomEvent('error'));
-    this._onFrameScroll();
-  }
-
-  _upgradePreload(route) {
-    this._preloadFrame.hidden = false;
-    this._activeFrame.remove();
-    this._activeFrame = this._preloadFrame;
-    this._preloadResolve();
-    this._preloadFrame = null;
-    this._preloadResolve = null;
-
-    this.dispatchEvent(new CustomEvent('load', {detail: route}));
-    this._onFrameScroll();
   }
 }
 

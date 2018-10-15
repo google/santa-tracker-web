@@ -1,7 +1,8 @@
 import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 
 
-const messagesJSON = window.fetch('./en_src_messages.json').then((out) => out.json());
+const messagesJSON =
+    window.fetch('./en_src_messages.json').then((out) => out.json());
 
 
 export async function runtimeTranslate(runtimeId) {

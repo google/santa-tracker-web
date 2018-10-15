@@ -5,15 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster" />
-</head>  
+</head>
 <body>
+
+  <script type="module">
+    import {SceneApi} from '../src/app/scene-api.js';
+
+    self.sceneApi = new SceneApi('boatload');
+    sceneApi.loadStarted();
+  </script>
 
   I'm the boatload!
 
   <script type="module">
-    window.parent.postMessage('hello', '*');
+    sceneApi.loadCompleted();
   </script>
-
 
 </body>
 </html>

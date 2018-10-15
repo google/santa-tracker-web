@@ -1,7 +1,7 @@
-import {LitElement, html} from '@polymer/lit-element';
+import {html, LitElement} from '@polymer/lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
-import {_msg, _style, runtimeTranslate, getLanguage, localizeUrl} from '../lib/runtime.js';
+import {_msg, _style, getLanguage, localizeUrl, runtimeTranslate} from '../lib/runtime.js';
 
 export class SantaSidebarElement extends LitElement {
   static get properties() {
@@ -17,14 +17,17 @@ export class SantaSidebarElement extends LitElement {
   }
 
   render() {
-    const todayHouse = (this.todayHouse ? html`
+    const todayHouse =
+        (this.todayHouse ? html`
 <a href="./${this.todayHouse}.html">
-  <div class="menucard" style="background-image: url(img/scenes/${this.todayHouse}_2x.png)">
+  <div class="menucard" style="background-image: url(img/scenes/${
+                               this.todayHouse}_2x.png)">
     <h2>${_msg`newtoday`}</h2>
     <h3>${runtimeTranslate(`scene/${this.todayHouse}`)}</h3>
   </div>
 </a>
-    ` : '');
+    ` :
+                           '');
 
     return html`
 <style>${_style`santa-sidebar`}</style>
@@ -32,7 +35,7 @@ export class SantaSidebarElement extends LitElement {
 <slot></slot>
 
 <div class="cards">
-  <a href="./">
+  <a href="./village.html">
     <div class="menucard menucard-village">
       <h2>${_msg`calendar`}</h2>
       <h3>${_msg`santasvillage`}</h3>
@@ -56,7 +59,8 @@ export class SantaSidebarElement extends LitElement {
 </div>
 
 <div class="lang">
-  <select id="language" .value=${getLanguage()} @change=${this._onLanguageChange}>
+  <select id="language" .value=${getLanguage()} @change=${
+        this._onLanguageChange}>
     <option value="af">Afrikaans</option>
     <option value="ca">Català</option>
     <option value="zh-CN">中文 (简体)</option>
@@ -102,16 +106,26 @@ export class SantaSidebarElement extends LitElement {
   <ul>
     <!-- TODO(samthor): re-add A2HS code -->
     <li>
-      <a target="_blank" rel="noopener" href=${localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')}>${_msg`village_get_the_app`}</a>
+      <a target="_blank" rel="noopener" href=${
+        localizeUrl(
+            'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')}>${
+        _msg`village_get_the_app`}</a>
     </li>
     <li>
-      <a target="_blank" rel="noopener" href=${localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')}>${_msg`village_santa_crx`}</a>
+      <a target="_blank" rel="noopener" href=${
+        localizeUrl(
+            'https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')}>${
+        _msg`village_santa_crx`}</a>
     </li>
     <li>
-      <a target="_blank" rel="noopener" href=${localizeUrl('https://policies.google.com/')}>${_msg`terms-and-privacy`}</a>
+      <a target="_blank" rel="noopener" href=${
+        localizeUrl(
+            'https://policies.google.com/')}>${_msg`terms-and-privacy`}</a>
     </li>
     <li>
-      <a target="_blank" rel="noopener" href=${localizeUrl('https://maps.google.com/maps/about/')}>${_msg`getgooglemaps`}</a>
+      <a target="_blank" rel="noopener" href=${
+        localizeUrl(
+            'https://maps.google.com/maps/about/')}>${_msg`getgooglemaps`}</a>
     </li>
   </ul>
 </div>

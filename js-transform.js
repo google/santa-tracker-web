@@ -5,6 +5,9 @@ const sass = require('sass');
 
 const babelCore = require('@babel/core');
 const babylon = require('babylon');
+const rollup = require('rollup');
+const rollupNodeResolve = require('rollup-plugin-node-resolve');
+const rollupInject = require('rollup-plugin-inject');
 
 const fsp = {
   readFile: util.promisify(fs.readFile),
@@ -96,7 +99,8 @@ const resolveBareSpecifiers = () => {
     // look for package.json in same folder, OR add a .js ext
     let def;
     try {
-      const raw = fs.readFileSync(path.join('./', cand, 'package.json'), 'utf8');
+      const raw =
+          fs.readFileSync(path.join('./', cand, 'package.json'), 'utf8');
       def = JSON.parse(raw);
     } catch (e) {
       node.source.value = `/${cand}.js`;
@@ -106,7 +110,7 @@ const resolveBareSpecifiers = () => {
     const f = def['module'] || def['jsnext:main'] || def['main'] || 'index.js';
     node.source.value = path.join('/', cand, f);
   };
-  
+
   return {
     visitor: {
       ImportDeclaration: handler,
@@ -117,17 +121,55 @@ const resolveBareSpecifiers = () => {
 };
 
 
+const handledFileRe = /^\.(js|mjs)(\?rollup)?$/i;
+const rollupRe = /\?rollup$/i;
+
+const rollupInputOptions = filename => ({
+  input: filename,
+  plugins: [
+    rollupNodeResolve(),
+    // NOTE(cdata): This is only necessary to support redux until
+    // https://github.com/reduxjs/redux/pull/3143 lands in a release
+    rollupInject({
+      include: 'node_modules/redux/**/*.js',
+      modules: {process: path.resolve('./src/lib/process.js')}
+    })
+  ]
+});
+
+const rollupOutputOptions = filename => ({name: filename, format: 'umd'});
+
 module.exports = async (ctx, next) => {
   const ext = path.extname(ctx.url);
-  const match = (ext === '.js' || ext === '.mjs');
+
+  const match = handledFileRe.test(ext);
+
   if (!match || ctx.url.startsWith('/third_party/')) {
     return next();
   }
 
+  const doRollup = rollupRe.test(ext);
+  let filePath = path.join(process.cwd(), ctx.url);
+  let js = null;
+
+  if (doRollup) {
+    filePath = filePath.replace(rollupRe, '');
+
+    try {
+      const bundle = await rollup.rollup(rollupInputOptions(filePath));
+      const {code} = await bundle.generate(rollupOutputOptions(filePath));
+      js = code;
+    } catch (e) {
+      console.error(`ERROR: Rollup failed on ${ctx.url}`, e);
+    }
+  }
+
+  if (js == null) {
+    js = await fsp.readFile(filePath, 'utf8');
+  }
+
   const presets = [];
   const plugins = [];
-
-  const js = await fsp.readFile(`.${ctx.url}`, 'utf8');
 
   let ast;
   try {
