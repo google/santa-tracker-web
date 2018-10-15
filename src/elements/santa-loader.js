@@ -1,19 +1,51 @@
+
+const EMPTY_PAGE = 'data:text/html;base64,';
+
+
+function iframeForRoute(route) {
+  const iframe = document.createElement('iframe');
+  iframe.src = EMPTY_PAGE;
+
+  if (route == null || typeof route !== 'string') {
+    return iframe;
+  }
+
+  try {
+    const url = new URL(route);
+    iframe.src = url.toString();
+    return iframe;
+  } catch (e) {
+    // ignore
+  }
+
+  // don't actually load "index", or URLs that aren't in the simple \w+ form
+  if (route !== 'index' && /^(|\w+)$/.exec(route)) {
+    iframe.src = `./scenes/${route || 'index'}.html`;
+  }
+  return iframe;
+}
+
+
 class SantaLoaderElement extends HTMLElement {
   constructor() {
     super();
 
     this._onFrameScrollNotify = false;
 
+    this._route = null;
+  
     this._onMessage = this._onMessage.bind(this);
     this._onMessageHandler = new WeakMap();
 
     this._activeFrame = document.createElement('iframe');
+    this._activeFrame.src = EMPTY_PAGE;
     this._preloadFrame = null;
     this._preloadResolve = null;
   }
 
   connectedCallback() {
     window.addEventListener('message', this._onMessage);
+    this._load(this._route);  // in case route changed while disconnected
   }
 
   disconnectedCallback() {
@@ -40,31 +72,54 @@ class SantaLoaderElement extends HTMLElement {
     this._onFrameScrollNotify = true;
   }
 
-  load(sceneName) {
-    // TODO: don't reload scene if we're already loaded, just fire 'load'
+  set route(v) {
+    this._route = v;
 
-    this.dispatchEvent(new CustomEvent('progress', {detail: 0}));
+    Promise.resolve().then(() => {
+      // nb. This delays by a microtask because otherwise some side-effects in santa-app don't
+      // seem to occur.
+      this.isConnected && this._load(v);
+    });
+  }
 
-    const pf = document.createElement('iframe');
+  get route() {
+    return this._route;
+  }
+
+  _load(route) {
     if (this._preloadFrame) {
       // nb. this does not call _fail, as it's not really a failure
       this._preloadResolve(new Error('cancelled'));
       this._preloadFrame.remove();
+      this._preloadFrame = null;
+      this._preloadResolve = null;
     }
-    this._preloadFrame = pf;
 
-    pf.src = `./scenes/${sceneName}.html`;
+    const pf = iframeForRoute(route);
+    if (this._activeFrame.src === pf.src) {
+      // nothing to do, already loaded; a different preload was pending?
+      this.dispatchEvent(new CustomEvent('load', {detail: route}));
+      return Promise.resolve();
+    }
+
+    // great, kick off the preload: mark iframe hidden, add to DOM
     pf.hidden = true;
+    this._preloadFrame = pf;
+    this.dispatchEvent(new CustomEvent('progress', {detail: 0}));
     this.appendChild(pf);
 
-    // explicitly disallow URL changes in this frame by removing self if we're unloaded
+    // explicitly disallow URL changes in this frame by failing if we're unloaded
     pf.contentWindow.addEventListener('beforeunload', (ev) => this._fail(pf, 'URL loaded inside frame'));
+
+    // listen to scroll so the top bar can be made visible/hidden
     pf.contentWindow.addEventListener('scroll', (ev) => this._onFrameScroll(), {passive: true});
 
     // wait a frame for a 'hello' message once load is done, or fail
+    let ready = false;
     pf.addEventListener('load', (ev) => {
       window.setTimeout(() => {
-        if (this._preloadFrame === pf) {
+        if (!ready) {
+          console.warn(route, 'did not send \'hello\'');
           this._fail(pf, 'failed to send hello event');
         }
       }, 0);
@@ -72,13 +127,30 @@ class SantaLoaderElement extends HTMLElement {
 
     this._onMessageHandler.set(pf.contentWindow, (ev) => {
       if (this._preloadFrame === pf) {
+        // TODO(samthor): Could this change for external scenes (with full URL)? They might not
+        // be changable to support 'hello'-ing us.
         if (ev.data === 'hello') {
-          this._upgradePreload(sceneName);
+          ready = true;
+
+          // TODO(samthor): Demonstrate that a scene might take a bit to load.
+          const d = 1000 + (Math.random() * 500);
+          window.setTimeout(() => {
+            // nb. the "are we still preloading" checks are especially awkward
+            if (this._preloadFrame === pf) {
+              this.dispatchEvent(new CustomEvent('progress', {detail: 0.5}));
+            }
+          }, d / 2);
+          window.setTimeout(() => {
+            if (this._preloadFrame === pf) {
+              this._upgradePreload(route);
+            }
+          }, d);
+
         }
       } else if (this._activeFrame === pf) {
-        console.info('got data from', sceneName, ev.data);
+        console.info('got data from', route, ev.data);
       } else {
-        // ???
+        // frame no longer active, ignore
       }
     });
 
@@ -102,7 +174,7 @@ class SantaLoaderElement extends HTMLElement {
     this._onFrameScroll();
   }
 
-  _upgradePreload(sceneName) {
+  _upgradePreload(route) {
     this._preloadFrame.hidden = false;
     this._activeFrame.remove();
     this._activeFrame = this._preloadFrame;
@@ -110,7 +182,7 @@ class SantaLoaderElement extends HTMLElement {
     this._preloadFrame = null;
     this._preloadResolve = null;
 
-    this.dispatchEvent(new CustomEvent('load', {detail: sceneName}));
+    this.dispatchEvent(new CustomEvent('load', {detail: route}));
     this._onFrameScroll();
   }
 }

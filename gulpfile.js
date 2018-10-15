@@ -7,6 +7,13 @@ const cssTransform = require('./css-transform.js');
 exports.serve = async function serve() {
   server.use(jsTransform);
   server.use(cssTransform);
+  server.use(async (ctx, next) => {
+    const simplePathMatch = /^\/(\w+)\.html(|\?.*)$/.exec(ctx.url);
+    if (simplePathMatch) {
+      ctx.url = '/index.html';
+    }
+    return next();
+  });
   server.use(koaStatic('.'));
 
   const PORT = process.env.PORT || 5000;
