@@ -98,6 +98,7 @@ suite('santaapi', () => {
     assert.isUndefined(api.online);
 
     api.expect('info', undefined, new TypeError('pretend we are offline'));
+//    api.expect('info', undefined, {status: 'OK'});
 
     let offlineEvent = 0;
     api.addEventListener('offline', (ev) => {
@@ -113,6 +114,9 @@ suite('santaapi', () => {
     assert.isFalse(api.cancelSync(), 'no pending sync');
     assert.isFalse(api.online, 'api is not online');
     assert.equal(offlineEvent, 1);
+
+    // TODO(samthor): We don't test actual network retries here, as the mocking occurs before e.g.
+    // calling xhrRequest inside `transport.js`.
   });
 
   test('online', async () => {
@@ -266,8 +270,8 @@ suite('santaapi', () => {
     // check range
     const range = await api.range();
     assert.deepEqual(range, {
-      departure: SANTA_TAKEOFF,
-      arrival: SANTA_TAKEOFF + (1000 * 240),
+      start: SANTA_TAKEOFF,
+      end: SANTA_TAKEOFF + (1000 * 240),
     });
   });
 

@@ -83,7 +83,6 @@
     Promise.resolve().then(() => api.sync());
     window.addEventListener('online', () => api.sync());
 
-
     api.addEventListener('sync', (ev) => {
       const p = (async () => {
         const now = api.now;
@@ -105,6 +104,8 @@
         console.warn('err reading route', err);
       });
     });
+
+    window._api = api;
 
   </script>
 </body>

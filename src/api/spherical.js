@@ -7,10 +7,17 @@
 /**
  * Earth's radius in meters.
  *
- * @const
- * @type {number}
+ * @const {number}
  */
 const EARTH_RADIUS = 6378137;
+
+
+/**
+ * Math.PI by 180, for deg <=> rad conversion.
+ *
+ * @const {number}
+ */
+const PI_BY_180 = Math.PI / 180;
 
 
 /**
@@ -45,8 +52,7 @@ function wrap(value, min, max) {
  * @return {number} Result in radians.
  */
 export function degreesToRadians(deg) {
-  // Make sure there are ( ) around PI/180 so that the JSCompiler folds that constant.
-  return deg * (Math.PI / 180);
+  return deg * PI_BY_180;
 }
 
 
@@ -57,7 +63,7 @@ export function degreesToRadians(deg) {
  * @return {number} Result in degrees.
  */
 export function radiansToDegrees(rad) {
-  return rad / (Math.PI / 180);
+  return rad / PI_BY_180;
 }
 
 
@@ -71,7 +77,7 @@ export function radiansToDegrees(rad) {
  * @export
  */
 export function computeHeading(from, to) {
-  // http://williams.best.vwh.net/avform.htm#Crs
+  // https://www.edwilliams.org/avform.htm#Crs
   const fromLat = degreesToRadians(from.lat);
   const fromLng = degreesToRadians(from.lng);
   const toLat = degreesToRadians(to.lat);
@@ -135,7 +141,7 @@ export function interpolate(from, to, fraction) {
  * @return {number} Angle between the two locations, in degrees.
  */
 export function computeAngleBetween(from, to) {
-  // Haversine's formula
+  // the haversine formula
   const fromLat = degreesToRadians(from.lat);
   const fromLng = degreesToRadians(from.lng);
   const toLat = degreesToRadians(to.lat);
