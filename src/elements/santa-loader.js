@@ -21,7 +21,7 @@ function iframeForRoute(route) {
 
   // don't actually load "index", or URLs that aren't in the simple \w+ form
   if (route !== 'index' && /^(|\w+)$/.exec(route)) {
-    iframe.src = `./scenes/${route || 'index'}.html`;
+    iframe.src = `./scenes/${route || 'index'}/`;
   }
 
   return iframe;
