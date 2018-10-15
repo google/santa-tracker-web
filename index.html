@@ -17,6 +17,7 @@
   <script type="module">
     import * as route from './src/route.js';
     import * as sc from './src/soundcontroller.js';
+    import {formatDuration} from './src/lib/time.js';
 
     santaApp.todayHouse = 'boatload';
 
@@ -70,6 +71,41 @@
       sc.ambient('village_end');
     };
     runner();
+
+    import {SantaAPI} from './src/api/santaapi.js';
+    const api = new SantaAPI(
+      'https://next-santa-api.appspot.com',
+      'web',
+      document.documentElement.lang,
+      document.body.getAttribute('data-version'));
+
+    // perform initial sync and further syncs on 'online' event
+    Promise.resolve().then(() => api.sync());
+    window.addEventListener('online', () => api.sync());
+
+    api.addEventListener('sync', (ev) => {
+      const p = (async () => {
+        const now = api.now;
+        const state = await api.state();
+        console.info('state', state);
+
+        const range = await api.range();
+        if (range === null) {
+          // skip
+        } else if (now < range.start) {
+          console.debug('Santa takeoff in', formatDuration(range.start - now));
+        } else if (now >= range.end) {
+          console.debug('Santa landed', formatDuration(now - range.end), 'ago');
+        } else {
+          console.debug('Santa flying for', formatDuration(now - range.start), 'remaining', formatDuration(range.end - now));
+        }
+      })();
+      p.catch((err) => {
+        console.warn('err reading route', err);
+      });
+    });
+
+    window._api = api;
 
   </script>
 </body>
