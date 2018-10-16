@@ -1,4 +1,3 @@
-
 const MAX_RETRIES = 3;
 const TIMEOUT = 5000;
 
@@ -11,7 +10,7 @@ function buildQueryString(data) {
   if (!data) {
     return '';
   }
-  const enc = window.encodeURIComponent;
+  const enc = self.encodeURIComponent;
   const mapper = (key) => `${enc(key)}=${enc(data[key])}`;
 
   const out = Object.keys(data).map(mapper).join('&');
@@ -54,7 +53,7 @@ function fetchJSON(url) {
  * @param {function(!XMLHttpRequest)} resolve to call with loaded XHR
  * @param {number=} requestNo request count, for retries
  */
-function xhrRequest(url, resolve, requestNo=0) {
+function xhrRequest(url, resolve, requestNo = 0) {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.timeout = TIMEOUT;  // IE needs this >open but <send
@@ -68,7 +67,7 @@ function xhrRequest(url, resolve, requestNo=0) {
     // Retry with exponential backoff (625ms, ~1.5s, ~4s, ~10s, ...).
     const at = Math.pow(2.5, requestNo) * 250;
     console.debug('xhr failure, retry', requestNo, 'delay', at, 'url', url);
-    window.setTimeout(() => xhrRequest(url, resolve, requestNo), at);
+    self.setTimeout(() => xhrRequest(url, resolve, requestNo), at);
   };
   xhr.send(null);
 }
@@ -81,8 +80,7 @@ function xhrRequest(url, resolve, requestNo=0) {
  * @param {?Object<string, (string|number)>=} data
  * @return {!Promise<!Object<string, *>>}
  */
-export function request(url, data=null) {
+export function request(url, data = null) {
   const query = buildQueryString(data);
   return fetchJSON(url + query);
 }
-

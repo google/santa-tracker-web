@@ -13,100 +13,11 @@
 </head>
 <body>
   <santa-app id="santaApp"></santa-app>
-  <script type="module" src="./src/elements.js"></script>
   <script type="module">
-    import * as route from './src/route.js';
-    import * as sc from './src/soundcontroller.js';
-    import {formatDuration} from './src/lib/time.js';
+    import './src/elements.js';
+    import {Entrypoint} from './src/app/entrypoint.js';
 
-    santaApp.todayHouse = 'boatload';
-
-    const mo = new MutationObserver(() => {
-      // if santaApp change its route from the active one, push new state
-      if (santaApp.route !== route.fromUrl(window.location)) {
-        window.history.pushState(null, null, route.urlFromRoute(santaApp.route));
-      } else {
-        // nb. should only happen on 1st mutation, ignore
-      }
-    });
-    mo.observe(santaApp, {attributeFilter: ['route'], attributes: true});
-
-    santaApp.addEventListener('click', (ev) => {
-      const sceneName = route.fromClick(ev);
-      if (sceneName === null) {
-        return null;  // probably an external link
-      }
-      if (santaApp.route === sceneName) {
-        santaApp.sidebarOpen = false;
-        // TODO(samthor): If the scene is loaded but there's been an error, perhaps that could be
-        // reported declaratively: we could here then `santaApp.error = null`, to indicate that we
-        // don't care and we do want to retry.
-      } else {
-        santaApp.route = sceneName;
-      }
-      ev.preventDefault();
-    });
-
-    window.addEventListener('popstate', (ev) => {
-      const sceneName = route.fromUrl(window.location);
-      if (sceneName === null) {
-        window.location.href = window.location.href;  // abort, unknown scene
-      } else {
-        santaApp.route = sceneName;
-      }
-    });
-    window.dispatchEvent(new CustomEvent('popstate'));
-
-    const runner = async () => {
-      // Most Klang sounds won't start unless the preload event has been explicitly waited for.
-      await sc.dispatch('village_load_sounds');
-      sc.ambient('village_start');
-      sc.ambient('music_start_village');
-
-      await new Promise((r) => window.setTimeout(r, 2 * 1000));
-
-      // Some Klang sounds need to be "closed off", otherwise they can keep playing: possibly
-      // forever. There should be a way to record 'cleanup' events on scene setup, that are called
-      // before a new scene is allowed to make its audio requests.
-      sc.ambient('village_end');
-    };
-    runner();
-
-    import {SantaAPI} from './src/api/santaapi.js';
-    const api = new SantaAPI(
-      'https://next-santa-api.appspot.com',
-      'web',
-      document.documentElement.lang,
-      document.body.getAttribute('data-version'));
-
-    // perform initial sync and further syncs on 'online' event
-    Promise.resolve().then(() => api.sync());
-    window.addEventListener('online', () => api.sync());
-
-    api.addEventListener('sync', (ev) => {
-      const p = (async () => {
-        const now = api.now;
-        const state = await api.state();
-        console.info('state', state);
-
-        const range = await api.range();
-        if (range === null) {
-          // skip
-        } else if (now < range.start) {
-          console.debug('Santa takeoff in', formatDuration(range.start - now));
-        } else if (now >= range.end) {
-          console.debug('Santa landed', formatDuration(now - range.end), 'ago');
-        } else {
-          console.debug('Santa flying for', formatDuration(now - range.start), 'remaining', formatDuration(range.end - now));
-        }
-      })();
-      p.catch((err) => {
-        console.warn('err reading route', err);
-      });
-    });
-
-    window._api = api;
-
+    window.entrypoint = new Entrypoint(santaApp);
   </script>
 </body>
 </html>

@@ -1,4 +1,8 @@
-import {LitElement, html} from '@polymer/lit-element';
+import {Adapter} from '@polymer/broadway/lib/adapter';
+import {html, LitElement} from '@polymer/lit-element';
+
+import {SantaTrackerAction} from '../app/action.js';
+import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
 import {findClosestLink} from '../lib/dom.js';
 
 
@@ -20,16 +24,14 @@ function featureColorForScene(sceneName) {
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
-      route: {
-        type: String,
-        attribute: true,
-        reflect: true,
-      },  // target scene (not nessecarily loaded yet)
-      todayHouse: {type: String},
-      trackerIsOpen: {type: Boolean},
-      sidebarOpen: {type: Boolean},
+      _selectedScene: {type: Object},
+      _activeScene: {type: Object},
+      _loadingScene: {type: Object},
+      _showError: {type: Boolean},
+      _todayHouse: {type: String},
+      _trackerIsOpen: {type: Boolean},
+      _sidebarOpen: {type: Boolean},
       _iframeScroll: {type: Boolean},
-      _loadedSceneName: {type: String},  // actually loaded scene (not in progress)
       _progress: {type: Number},
       _idPrefix: {type: String},
     };
@@ -47,26 +49,37 @@ export class SantaAppElement extends LitElement {
         t.click();
       }
     });
+
+    this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
+    this.adapter.subscribe((state) => {
+      console.log('New state:', state);
+      this._sidebarOpen = state.showSidebar;
+      this._todayHouse = state.todayHouse;
+
+      this._selectedScene = state.selectedScene;
+      this._activeScene = state.activeScene;
+      this._loadingScene = state.loadingScene;
+      this._showError = state.showError;
+
+      this._progress = state.loadingScene ? state.loadingScene.progress : null;
+    });
   }
 
   _onMainFocus(ev) {
-    this.sidebarOpen = false;
+    this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
   }
 
-  _onLoaderProgress(ev) {
-    this._progress = ev.detail;
-  }
-
-  _onLoaderLoad(ev) {
-    this.sidebarOpen = false;
-    this._progress = null;
-    this._loadedSceneName = ev.detail;
+  _onLoaderPreload(ev) {
+    this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
   }
 
   _onLoaderError(ev) {
-    this.sidebarOpen = false;
-    this._progress = null;
-    this._loadedSceneName = null;
+    this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_FAILED});
+  }
+
+  _onLoaderActivate(ev) {
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: {name: ev.detail}});
   }
 
   _onIframeScroll(ev) {
@@ -74,29 +87,41 @@ export class SantaAppElement extends LitElement {
   }
 
   _onCheckboxChange(ev) {
-    // nb. This is basically two-way binding to the <input type="checkbox">, but as it is being
-    // used to control sidebar visibility, the binding seems warranted.
-    this.sidebarOpen = ev.target.checked;
-    if (!this.sidebarOpen) {
-      return;
+    // nb. This is basically two-way binding to the <input type="checkbox">, but
+    // as it is being used to control sidebar visibility, the binding seems
+    // warranted.
+    this.adapter.dispatch({
+      type: ev.target.checked ? SantaTrackerAction.SIDEBAR_REQUESTED :
+                                SantaTrackerAction.SIDEBAR_DISMISSED
+    });
+  }
+
+  update(changedProperties) {
+    super.update(changedProperties);
+
+    if (changedProperties.has('sidebarOpen') && this.sidebarOpen) {
+      // Focus an element at the start of the sidebar, but then immediately
+      // disallow focus. This places the browser's "cursor" here, so a keyboard
+      // tab will go to the next item.
+      const node = this.shadowRoot.querySelector('.sidebar-focuser');
+      node.setAttribute('tabindex', '0')
+      node.focus();
+      node.removeAttribute('tabindex');
     }
-    // Focus an element at the start of the sidebar, but then immediately disallow focus. This
-    // places the browser's "cursor" here, so a keyboard tab will go to the next item.
-    const node = this.shadowRoot.querySelector('.sidebar-focuser');
-    node.setAttribute('tabindex', '0')
-    node.focus();
-    node.removeAttribute('tabindex');
   }
 
   render() {
+    const activeSceneName = this._activeScene && this._activeScene.name;
+    const selectedSceneName = this._selectedScene && this._selectedScene.name;
     return html`
 <style>${_style`santa-app`}</style>
 <div class="preload" ?hidden=${this._progress == null}>
   <div class="bar" style="width: ${(this._progress || 0) * 100}%"></div>
 </div>
 <div class="sidebar">
-  <input type="checkbox" id="${this._idPrefix}sidebar" @change=${this._onCheckboxChange} .checked=${this.sidebarOpen} />
-  <santa-sidebar .todayHouse=${this.todayHouse} .trackerIsOpen=${this.trackerIsOpen}>
+  <input type="checkbox" id="${this._idPrefix}sidebar" @change=${this._onCheckboxChange} .checked=${
+        this._sidebarOpen} />
+  <santa-sidebar .todayHouse=${this._todayHouse} .trackerIsOpen=${this._trackerIsOpen}>
     <div class="closer">
       <div class="sidebar-focuser"></div>
       <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
@@ -117,12 +142,19 @@ export class SantaAppElement extends LitElement {
     </a>
     <santa-badge style="color: ${featureColorForScene(this._sceneName)}"></santa-badge>
   </header>
-  <div class="noscene" ?hidden=${this._loadedSceneName != null}>
+  <div class="noscene" ?hidden=${!this._showError}>
     <santa-weather></santa-weather>
     <div class="icon"></div>
     <p>${_msg`error-not-found`}</p>
   </div>
-  <santa-loader .route=${this.route} @load=${this._onLoaderLoad} @progress=${this._onLoaderProgress} @error=${this._onLoaderError} @iframe-scroll=${this._onIframeScroll}></santa-loader>
+  <santa-loader
+      .loadingSceneDetails="${this._loadingScene}"
+      .selectedSceneName="${selectedSceneName}"
+      .activeSceneName="${activeSceneName}"
+      @preload=${this._onLoaderPreload}
+      @activate=${this._onLoaderActivate}
+      @error=${this._onLoaderError}
+      @iframe-scroll=${this._onIframeScroll}></santa-loader>
 </main>
     `;
   }
