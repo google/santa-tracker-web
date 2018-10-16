@@ -36,7 +36,7 @@ class SantaTrackerController extends Controller {
 
     // Subscribe to actions from the Controller. These always come from one
     // of the UI frames:
-    this.actionSubscription = this.subscribe(action => {
+    this.actionSubscription = this.subscribe((action) => {
       // For now, actions can just be dispatched directly to the
       // store. Eventually, we may want to map the actions to
       // action creators, which are functions that should be invoked
@@ -69,7 +69,7 @@ class SantaTrackerController extends Controller {
       })();
 
       p.catch((err) => {
-        logger.warn('Error reading route', err);
+        logger.warn('Error syncing', err);
       });
     });
   }

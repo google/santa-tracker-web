@@ -23,7 +23,6 @@ export class SceneApi {
   }
 
   loadFailed(error) {
-    debugger;
     adapter.dispatch(
         {type: SantaTrackerAction.SCENE_LOAD_FAILED, payload: {name: this.name, error}});
   }

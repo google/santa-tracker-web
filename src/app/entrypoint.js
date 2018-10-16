@@ -16,7 +16,7 @@ export class Entrypoint {
     // Update brower location as the activated
     let selectedSceneName = '';
 
-    this.adapter.subscribe(state => {
+    this.adapter.subscribe((state) => {
       if (state.selectedScene.name !== selectedSceneName) {
         selectedSceneName = state.selectedScene.name;
         const historyStrategy = state.selectedScene.replace ? 'replaceState' : 'pushState';

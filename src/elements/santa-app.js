@@ -28,9 +28,9 @@ export class SantaAppElement extends LitElement {
       _activeScene: {type: Object},
       _loadingScene: {type: Object},
       _showError: {type: Boolean},
-      todayHouse: {type: String},
-      trackerIsOpen: {type: Boolean},
-      sidebarOpen: {type: Boolean},
+      _todayHouse: {type: String},
+      _trackerIsOpen: {type: Boolean},
+      _sidebarOpen: {type: Boolean},
       _iframeScroll: {type: Boolean},
       _progress: {type: Number},
       _idPrefix: {type: String},
@@ -51,10 +51,10 @@ export class SantaAppElement extends LitElement {
     });
 
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
-    this.adapter.subscribe(state => {
-      console.log('STATE', state);
-      this.sidebarOpen = state.showSidebar;
-      this.todayHouse = state.todayHouse;
+    this.adapter.subscribe((state) => {
+      console.log('New state:', state);
+      this._sidebarOpen = state.showSidebar;
+      this._todayHouse = state.todayHouse;
 
       this._selectedScene = state.selectedScene;
       this._activeScene = state.activeScene;
@@ -120,8 +120,8 @@ export class SantaAppElement extends LitElement {
 </div>
 <div class="sidebar">
   <input type="checkbox" id="${this._idPrefix}sidebar" @change=${this._onCheckboxChange} .checked=${
-        this.sidebarOpen} />
-  <santa-sidebar .todayHouse=${this.todayHouse} .trackerIsOpen=${this.trackerIsOpen}>
+        this._sidebarOpen} />
+  <santa-sidebar .todayHouse=${this._todayHouse} .trackerIsOpen=${this._trackerIsOpen}>
     <div class="closer">
       <div class="sidebar-focuser"></div>
       <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
