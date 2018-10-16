@@ -144,7 +144,7 @@ module.exports = async (ctx, next) => {
 
   const match = handledFileRe.test(ext);
 
-  if (!match || ctx.url.startsWith('/third_party/')) {
+  if (!match || ctx.url.startsWith('/third_party/') || ctx.url.endsWith('.min.js')) {
     return next();
   }
 
