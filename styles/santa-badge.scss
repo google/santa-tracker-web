@@ -1,4 +1,10 @@
 $size-inset: 8px;
+$size-overflow: 12px;
+$size-cell: 56px;
+
+// santa-badge will either be:
+//    168px wide (at >=768px, or iPad portrait size)
+// or 112px wide (for smaller devices).
 
 :host {
   height: 100%;
@@ -17,11 +23,12 @@ $size-inset: 8px;
   position: relative;
 
   // this hides the top part, while allowing the SVG to extend below
-  padding-bottom: 12px;
+  padding-bottom: $size-overflow;
   overflow: hidden;
 
   > div {
-    min-width: 56px;
+    width: $size-cell;
+    max-width: $size-cell;
   }
 }
 
@@ -40,6 +47,8 @@ $size-inset: 8px;
   font-size: 17px;
   line-height: 21px;
   will-change: transform;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .feature {
@@ -55,10 +64,10 @@ $size-inset: 8px;
     transform: translate(-50%, -50%) translateY(4px) scaleX(0.9);
     width: 68px;
 
-    #shadow {
+    .shadow {
       opacity: 0.1;
     }
-    #fill {
+    .fill {
       fill: currentColor;
     }
   }
@@ -108,28 +117,32 @@ small {
 }
 
 @media (max-width: 768px - 1px) {
-  #level {
-    // This is a bit ugly: we're still in the flexbox, but move us to the left, where the #score
-    // exists. We then translate ourselves up to hide.
+  .items {
+    // extend to right so in small mode, the feature icon isn't cut off
+    padding-right: $size-overflow;
+    margin-right: -$size-overflow;
+  }
+
+  .part-level {
+    // This is a bit ugly: we're still in the flexbox, but move us to the left, where the
+    // .part-score exists. We then translate ourselves up to hide.
     position: absolute;
-    top: 0;
     left: 0;
-    height: 100%;
     transform: translateY(-100%);
     will-change: transform;
     transition: transform 0.4s;
   }
 
-  #score {
+  .part-score {
     transform: translateY(0);
     will-change: transform;
     transition: transform 0.4s;
   }
 
-  .level-active #level {
+  .level-active .part-level {
     transform: translateY(0);
   }
-  .level-active #score {
+  .level-active .part-score {
     transform: translateX(100%);
   }
 }
