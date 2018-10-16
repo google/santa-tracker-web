@@ -1,0 +1,145 @@
+##{$name} {
+  .boat {
+    background-repeat: no-repeat;
+    position: absolute;
+    transform: translateZ(0);
+  }
+
+  .boat--1 {
+    background-image: url(img/boat1.svg);
+    height: 194px;
+    width: 88px;
+  }
+
+  .boat--2 {
+    background-image: url(img/boat2.svg);
+    height: 164px;
+    width: 81px;
+  }
+
+  .boat--3 {
+    background-image: url(img/boat3.svg);
+    height: 172px;
+    width: 81px;
+  }
+
+  .bubbles {
+    position: absolute;
+    right: 115px;
+    top: 0;
+    transform: translateZ(0);
+    width: 20px;
+  }
+
+  .bubble {
+    animation-name: #{$name}-bubble-left;
+    background-color: #7ccaef;
+    border-radius: 50%;
+    position: absolute;
+    top: -100px;
+    opacity: 1;
+  }
+
+  .bubble.animate {
+    transition: opacity 600ms ease-out;
+  }
+
+  .bubble--1 {
+    animation-delay: -1s;
+    height: 8px;
+    left: 0;
+    width: 8px;
+  }
+
+  .bubble--2 {
+    animation-name: #{$name}-bubble-right;
+    animation-delay: -.2s;
+    height: 5px;
+    left: 2px;
+    width: 5px;
+  }
+
+  .bubble--3 {
+    animation-delay: -2s;
+    height: 4px;
+    left: -2px;
+    width: 4px;
+  }
+
+  .bubble--4 {
+    animation-name: #{$name}-bubble-right;
+    animation-delay: -2.5s;
+    height: 8px;
+    left: 4px;
+    width: 8px;
+  }
+
+  .bubble--5 {
+    animation-delay: -.5s;
+    height: 4px;
+    left: -1px;
+    width: 4px;
+  }
+
+  .bubble--6 {
+    animation-name: #{$name}-bubble-right;
+    animation-delay: -.7s;
+    height: 5px;
+    left: 3px;
+    width: 5px;
+  }
+}
+
+@keyframes #{$name}-bubble-right {
+  0% {
+    transform: translate(0, 0) translateZ(0);
+  }
+  10% {
+    transform: translate(3px, 0) translateZ(0);
+  }
+  20% {
+    transform: translate(5px, 2px) translateZ(0);
+  }
+  30% {
+    transform: translate(5px, 5px) translateZ(0);
+  }
+  40% {
+    transform: translate(3px, 8px) translateZ(0);
+  }
+  50% {
+    transform: translate(2px, 8px) translateZ(0);
+  }
+  60% {
+    transform: translate(5px, 10px) translateZ(0);
+  }
+  100% {
+    transform: translate(3px, 12px) translateZ(0);
+  }
+}
+
+@keyframes #{$name}-bubble-left {
+  0% {
+    transform: translate(0, 0) translateZ(0);
+  }
+  10% {
+    transform: translate(-3px, 0) translateZ(0);
+  }
+  20% {
+    transform: translate(-5px, 2px) translateZ(0);
+  }
+  30% {
+    transform: translate(-5px, 5px) translateZ(0);
+  }
+  40% {
+    transform: translate(-3px, 8px) translateZ(0);
+  }
+  50% {
+    transform: translate(-2px, 8px) translateZ(0);
+  }
+  60% {
+    transform: translate(-5px, 10px) translateZ(0);
+  }
+  100% {
+    transform: translate(-2px, 12px) translateZ(0);
+  }
+}

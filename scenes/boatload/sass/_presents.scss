@@ -1,0 +1,61 @@
+##{$name} {
+  .present {
+    height: 20px;
+    position: absolute;
+    top: 0;
+    transform: translateX(0);
+    opacity: 1;
+    width: 20px;
+    z-index: 1;
+
+    polygon {
+      fill: #d94736;
+    }
+
+    &.throw--back {
+      animation: 300ms #{$name}-throw-move;
+    }
+
+    &.throw--forward {
+      animation: 100ms #{$name}-throw-move alternative;
+    }
+  }
+
+  // Yellow
+  .present--1 {
+    rect {
+      fill: #fedf00;
+    }
+  }
+
+  // Red
+  .present--2 {
+    rect {
+      fill: #d94736;
+    }
+    polygon {
+      fill: #f68b37;
+    }
+  }
+
+  // Orange
+  .present--3 {
+    rect {
+      fill: #f68b37;
+    }
+  }
+
+  .present--missed {
+    animation: 600ms #{$name}-present-sink;
+    z-index: -1;
+  }
+}
+
+@keyframes #{$name}-present-sink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

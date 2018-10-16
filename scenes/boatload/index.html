@@ -5,21 +5,113 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster" />
+  <link rel="stylesheet" href="boatload-scene.css" />
 </head>
 <body>
 
-  <script type="module">
-    import {SceneApi} from '../src/app/scene-api.js';
+<div id="module-boatload">
+  <div class="bg">
+    <div class="river"></div>
+  </div>
+  <div class="view">
+    <div class="background">
+      <div class="trees trees--left"></div>
+      <div class="trees trees--top"></div>
+      <div class="trees trees--bottom"></div>
+      <div class="trees trees--right"></div>
+    </div>
+    <div class="player-rails"></div>
+    <div class="player">
+      <div class="player-crossbow"></div>
+      <div class="player-elf"></div>
+      <div class="player-rope player-rope--left"></div>
+      <div class="player-rope player-rope--right"></div>
+    </div>
+    <div class="splash hidden">
+      <div class="splash--1"></div>
+      <div class="splash--2"></div>
+      <div class="splash--3"></div>
+      <div class="splash--4"></div>
+    </div>
+    <div class="icebergs"></div>
+    <div class="bubbles"></div>
+    <div class="boats"></div>
+    <div class="presents"></div>
+    <div class="score-sign hidden"></div>
+  </div>
+  <div class="gui">
+    <div class="levelup"></div>
+    <div class="levelup--number"></div>
+    <div class="force-rotate landscape">
+      <div class="force-rotate-graphic"></div>
+      <div class="force-rotate-explanation"><i18n-msg msgid="tilt">PLACEHOLDER_i18n</i18n-msg></div>
+    </div>
+  </div>
+</div>
 
-    self.sceneApi = new SceneApi('boatload');
-    sceneApi.loadStarted();
-  </script>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module">
+  import {SceneApi} from '../src/app/scene-api.js';
+  import Game from './boatload-scene.min.js';
 
-  I'm the boatload!
+  const game = new Game(document.getElementById('module-boatload'));
 
-  <script type="module">
-    sceneApi.loadCompleted();
-  </script>
+  self.sceneApi = new SceneApi('boatload');
+  sceneApi.loadStarted();
+
+  // TODO: preload
+
+  sceneApi.loadCompleted();
+
+  // api.preloadSounds('bl_load_sounds');
+  // api.preloadImages([
+  //   'img/boat1.svg',
+  //   'img/boat2.svg',
+  //   'img/boat3.svg',
+  //   'img/iceberg1.svg',
+  //   'img/iceberg2.svg',
+  //   'img/iceberg3.svg',
+  //   'img/iceberg4.svg',
+  //   'img/iceberg5.svg',
+  //   'img/iceberg6.svg',
+  //   'img/logo.svg',
+  //   'img/player-crossbow.svg',
+  //   'img/player-elf.svg',
+  //   'img/player-ropes.svg',
+  //   'img/present.svg',
+  //   'img/rail.png',
+  //   'img/trees-bottom.svg',
+  //   'img/trees-left.svg',
+  //   'img/trees-right.svg',
+  //   'img/trees-top.svg',
+  //   'img/rotate.svg',
+  // ]);
+  // api.cleanupSoundEvent('bl_end_game');
+
+  window.santaApp = {
+    fire(eventName, arg) {
+      // TODO: do something with events
+      switch (eventName) {
+      case 'sound-trigger':
+        break;
+      case 'sound-ambient':
+        break;
+      case 'game-score':
+        // TODO: emit score to game
+        break;
+      case 'game-stop':
+        // TODO: game is stopped
+        break;
+      }
+    },
+  };
+  window.ga = function() {
+    // TODO: log events
+  }
+
+  game.start();
+
+</script>
 
 </body>
 </html>
