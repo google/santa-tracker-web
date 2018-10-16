@@ -19,10 +19,8 @@ export class Entrypoint {
     this.adapter.subscribe(state => {
       if (state.selectedScene.name !== selectedSceneName) {
         selectedSceneName = state.selectedScene.name;
-        const historyStrategy =
-            state.selectedScene.replace ? 'replaceState' : 'pushState';
-        window.history[historyStrategy](
-            null, null, route.urlFromRoute(selectedSceneName));
+        const historyStrategy = state.selectedScene.replace ? 'replaceState' : 'pushState';
+        window.history[historyStrategy](null, null, route.urlFromRoute(selectedSceneName));
       }
 
       const {api} = state;
@@ -61,10 +59,8 @@ export class Entrypoint {
         // `santaApp.error = null`, to indicate that we don't care and we do
         // want to retry.
       } else {
-        this.adapter.dispatch({
-          type: SantaTrackerAction.SCENE_SELECTED,
-          payload: {name: sceneName || 'village'}
-        });
+        this.adapter.dispatch(
+            {type: SantaTrackerAction.SCENE_SELECTED, payload: {name: sceneName || 'village'}});
       }
       ev.preventDefault();
     });
@@ -74,8 +70,7 @@ export class Entrypoint {
 
     this.syncIsOnline();
 
-    document.addEventListener(
-        'visibilitychange', (ev) => this.syncVisibility());
+    document.addEventListener('visibilitychange', (ev) => this.syncVisibility());
 
     this.syncVisibility();
 
@@ -124,9 +119,7 @@ export class Entrypoint {
       return;
     }
 
-    this.adapter.dispatch({
-      type: SantaTrackerAction.SCENE_SELECTED,
-      payload: {name: sceneName, replace: true}
-    });
+    this.adapter.dispatch(
+        {type: SantaTrackerAction.SCENE_SELECTED, payload: {name: sceneName, replace: true}});
   }
 }

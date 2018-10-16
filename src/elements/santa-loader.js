@@ -62,8 +62,7 @@ class SantaLoaderElement extends LitElement {
     preloadFrame.hidden = true;
     this.appendChild(preloadFrame);
 
-    preloadFrame._unloadListener = (ev) =>
-        this._fail(preloadFrame, 'URL loaded inside frame');
+    preloadFrame._unloadListener = (ev) => this._fail(preloadFrame, 'URL loaded inside frame');
     preloadFrame._scrollListener = (ev) => this._onFrameScroll();
 
 
@@ -71,8 +70,7 @@ class SantaLoaderElement extends LitElement {
     try {
       await new Promise((resolve, reject) => {
         timeoutTimer = setTimeout(
-            () => reject('Timed out waiting for preload to start'),
-            SCENE_LOAD_START_TIMEOUT_MS);
+            () => reject('Timed out waiting for preload to start'), SCENE_LOAD_START_TIMEOUT_MS);
         this._markSceneLoadStarted = resolve;
         this._markSceneLoadFailed = reject;
       });
@@ -98,8 +96,7 @@ class SantaLoaderElement extends LitElement {
     this._activeFrame.hidden = false;
     this._preloadFrame = null;
 
-    this.dispatchEvent(
-        new CustomEvent('activate', {detail: this.selectedSceneName}));
+    this.dispatchEvent(new CustomEvent('activate', {detail: this.selectedSceneName}));
     this._onFrameScroll();
   }
 
@@ -129,8 +126,7 @@ class SantaLoaderElement extends LitElement {
       this._onFrameScrollNotify = false;
       let scrollTop = 0;
       if (this._activeFrame.contentDocument) {
-        scrollTop =
-            this._activeFrame.contentDocument.scrollingElement.scrollTop;
+        scrollTop = this._activeFrame.contentDocument.scrollingElement.scrollTop;
       }
       this.dispatchEvent(new CustomEvent('iframe-scroll', {detail: scrollTop}));
     });
@@ -179,8 +175,7 @@ class SantaLoaderElement extends LitElement {
 
       if (this._lastProgress < details.progress) {
         this._lastProgress = details.progress;
-        this.dispatchEvent(
-            new CustomEvent('progress', {detail: details.progress}));
+        this.dispatchEvent(new CustomEvent('progress', {detail: details.progress}));
       }
 
       if (details.ready && this.activeSceneName !== this.selectedSceneName) {

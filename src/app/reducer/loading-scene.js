@@ -9,8 +9,7 @@ export const loadingSceneReducer = (state, action) => {
     return state;
   }
 
-  if (action.type !== SantaTrackerAction.SCENE_LOAD_STARTED &&
-      name !== state.name) {
+  if (action.type !== SantaTrackerAction.SCENE_LOAD_STARTED && name !== state.name) {
     // This is an action from a scene that we don't care about
     // anymore because it was probably discarded while loading.
     return state;
@@ -35,13 +34,7 @@ export const loadingSceneReducer = (state, action) => {
       };
 
     case SantaTrackerAction.SCENE_LOAD_COMPLETED:
-      return {
-        ...state,
-        loading: false,
-        progress: null,
-        error: null,
-        ready: true
-      };
+      return {...state, loading: false, progress: null, error: null, ready: true};
 
     case SantaTrackerAction.SCENE_LOAD_FAILED:
       return {

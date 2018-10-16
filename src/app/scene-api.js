@@ -10,31 +10,21 @@ export class SceneApi {
   }
 
   loadStarted() {
-    adapter.dispatch({
-      type: SantaTrackerAction.SCENE_LOAD_STARTED,
-      payload: {name: this.name}
-    });
+    adapter.dispatch({type: SantaTrackerAction.SCENE_LOAD_STARTED, payload: {name: this.name}});
   }
 
   loadProgress(progress) {
-    adapter.dispatch({
-      type: SantaTrackerAction.SCENE_LOAD_PROGRESSED,
-      payload: {name: this.name, progress}
-    });
+    adapter.dispatch(
+        {type: SantaTrackerAction.SCENE_LOAD_PROGRESSED, payload: {name: this.name, progress}});
   }
 
   loadCompleted() {
-    adapter.dispatch({
-      type: SantaTrackerAction.SCENE_LOAD_COMPLETED,
-      payload: {name: this.name}
-    });
+    adapter.dispatch({type: SantaTrackerAction.SCENE_LOAD_COMPLETED, payload: {name: this.name}});
   }
 
   loadFailed(error) {
     debugger;
-    adapter.dispatch({
-      type: SantaTrackerAction.SCENE_LOAD_FAILED,
-      payload: {name: this.name, error}
-    });
+    adapter.dispatch(
+        {type: SantaTrackerAction.SCENE_LOAD_FAILED, payload: {name: this.name, error}});
   }
 }

@@ -19,16 +19,14 @@ class SantaTrackerController extends Controller {
       pageVisible: undefined,
       online: undefined,
       api: null,
-      loadingScene:
-          {loading: false, ready: false, progress: -1, error: null, name: ''}
+      loadingScene: {loading: false, ready: false, progress: -1, error: null, name: ''}
     };
   }
 
   constructor() {
     super();
 
-    const santaTrackerStore =
-        createStore(santaTrackerReducer, SantaTrackerController.initialState);
+    const santaTrackerStore = createStore(santaTrackerReducer, SantaTrackerController.initialState);
 
     // Subscribe to state changes from the Redux store, and update
     // the Controller's state, which will notify Adapters:
@@ -63,13 +61,11 @@ class SantaTrackerController extends Controller {
 
     santaApi.addEventListener('sync', (ev) => {
       const p = (async () => {
-        const [now, state, range] = await Promise.all(
-            [santaApi.now, santaApi.state(), santaApi.range()]);
+        const [now, state, range] =
+            await Promise.all([santaApi.now, santaApi.state(), santaApi.range()]);
 
-        santaTrackerStore.dispatch({
-          type: SantaTrackerAction.API_SYNC_COMPLETED,
-          payload: {now, state, range}
-        });
+        santaTrackerStore.dispatch(
+            {type: SantaTrackerAction.API_SYNC_COMPLETED, payload: {now, state, range}});
       })();
 
       p.catch((err) => {

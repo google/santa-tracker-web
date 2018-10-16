@@ -122,9 +122,7 @@ export class SantaAPI extends EventTarget {
     if (loc === null) {
       return true;
     }
-    return !(
-        loc.lng > 39.869 || loc.lng < -31.266 || loc.lat > 81.008 ||
-        loc.lat < 27.636);
+    return !(loc.lng > 39.869 || loc.lng < -31.266 || loc.lat > 81.008 || loc.lat < 27.636);
   }
 
   /**
@@ -209,8 +207,7 @@ export class SantaAPI extends EventTarget {
       if (ok) {
         this._updateOnlineState(true);
       } else {
-        console.error(
-            'api', result['status'], 'switchOff', result['switchOff']);
+        console.error('api', result['status'], 'switchOff', result['switchOff']);
         this.dispatchEvent(new CustomEvent('kill'));
       }
 
@@ -225,12 +222,9 @@ export class SantaAPI extends EventTarget {
       // The API can force the client to reload until it reaches a high water
       // mark.
       const upgradeToVersion = result['upgradeToVersion'];
-      if (upgradeToVersion && this._version &&
-          this._version < upgradeToVersion) {
-        console.warn(
-            'reload: this', this._version, 'upgrade to', upgradeToVersion);
-        this.dispatchEvent(
-            new CustomEvent('reload', {detail: upgradeToVersion}));
+      if (upgradeToVersion && this._version && this._version < upgradeToVersion) {
+        console.warn('reload: this', this._version, 'upgrade to', upgradeToVersion);
+        this.dispatchEvent(new CustomEvent('reload', {detail: upgradeToVersion}));
       }
 
       // The API may return a guess of the user's location, based on geoIP.
@@ -258,28 +252,27 @@ export class SantaAPI extends EventTarget {
     this._activeSync = internalSync.then(() => null);
 
     // Schedule another sync to refresh and deal with errors, if any.
-    const safePromise =
-        internalSync
-            .then((result) => {
-              const after =
-                  parseInt(result['refresh']);  // parseInt so '' becomes NaN
-              if (after >= 0 || !isFinite(after)) {
-                this._scheduleSync(after);
-              }
-            })
-            .catch((err) => {
-              console.warn('unhandled sync err', err);
-              try {
-                this._updateOnlineState(false);
-                this._scheduleSync(-1);
-              } catch (e) {
-                console.warn('internal sync err', err);
-              }
-            })
-            .then(() => {
-              // always clear _activeSync
-              this._activeSync = null;
-            });
+    const safePromise = internalSync
+                            .then((result) => {
+                              const after =
+                                  parseInt(result['refresh']);  // parseInt so '' becomes NaN
+                              if (after >= 0 || !isFinite(after)) {
+                                this._scheduleSync(after);
+                              }
+                            })
+                            .catch((err) => {
+                              console.warn('unhandled sync err', err);
+                              try {
+                                this._updateOnlineState(false);
+                                this._scheduleSync(-1);
+                              } catch (e) {
+                                console.warn('internal sync err', err);
+                              }
+                            })
+                            .then(() => {
+                              // always clear _activeSync
+                              this._activeSync = null;
+                            });
 
     // Inform listeners that sync has occured.
     safePromise.then(() => this.dispatchEvent(new CustomEvent('sync')));
@@ -383,8 +376,8 @@ export class SantaAPI extends EventTarget {
   }
 
   async _internalGetRoute() {
-    const internalSync = this._lastInternalSync ||
-        this.instantSync().then(() => this._lastInternalSync);
+    const internalSync =
+        this._lastInternalSync || this.instantSync().then(() => this._lastInternalSync);
     const result = await internalSync;
 
     const routeUrl = result['route'];

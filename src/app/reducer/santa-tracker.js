@@ -10,12 +10,7 @@ export const santaTrackerReducer = (state, action) => {
       return {...state, activeScene: {...action.payload}, showError: false};
 
     case SantaTrackerAction.SCENE_FAILED:
-      return {
-        ...state,
-        activeScene: {name: ''},
-        selectedScene: {name: ''},
-        showError: true
-      };
+      return {...state, activeScene: {name: ''}, selectedScene: {name: ''}, showError: true};
 
     case SantaTrackerAction.PAGE_BECAME_VISIBLE:
       return {...state, pageVisible: true};
@@ -42,10 +37,7 @@ export const santaTrackerReducer = (state, action) => {
     case SantaTrackerAction.SCENE_LOAD_PROGRESSED:
     case SantaTrackerAction.SCENE_LOAD_COMPLETED:
     case SantaTrackerAction.SCENE_LOAD_FAILED:
-      return {
-        ...state,
-        loadingScene: loadingSceneReducer(state.loadingScene, action)
-      };
+      return {...state, loadingScene: loadingSceneReducer(state.loadingScene, action)};
   }
 
   return state;

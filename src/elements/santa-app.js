@@ -44,8 +44,7 @@ export class SantaAppElement extends LitElement {
     // Handle 'Enter' on a focusable <label> element.
     this.shadowRoot.addEventListener('keydown', (ev) => {
       const t = ev.target;
-      if (ev.key === 'Enter' && t.localName === 'label' &&
-          t.getAttribute('for')) {
+      if (ev.key === 'Enter' && t.localName === 'label' && t.getAttribute('for')) {
         ev.preventDefault();
         t.click();
       }
@@ -80,8 +79,7 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderActivate(ev) {
-    this.adapter.dispatch(
-        {type: SantaTrackerAction.SCENE_ACTIVATED, payload: {name: ev.detail}});
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: {name: ev.detail}});
   }
 
   _onIframeScroll(ev) {
@@ -121,10 +119,9 @@ export class SantaAppElement extends LitElement {
   <div class="bar" style="width: ${(this._progress || 0) * 100}%"></div>
 </div>
 <div class="sidebar">
-  <input type="checkbox" id="${this._idPrefix}sidebar" @change=${
-        this._onCheckboxChange} .checked=${this.sidebarOpen} />
-  <santa-sidebar .todayHouse=${this.todayHouse} .trackerIsOpen=${
-        this.trackerIsOpen}>
+  <input type="checkbox" id="${this._idPrefix}sidebar" @change=${this._onCheckboxChange} .checked=${
+        this.sidebarOpen} />
+  <santa-sidebar .todayHouse=${this.todayHouse} .trackerIsOpen=${this.trackerIsOpen}>
     <div class="closer">
       <div class="sidebar-focuser"></div>
       <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
@@ -134,19 +131,16 @@ export class SantaAppElement extends LitElement {
   </santa-sidebar>
   <label class="hider" for="${this._idPrefix}sidebar"></label>
 </div>
-<main @focusin=${this._onMainFocus} class=${
-        sceneIsScroll(this._loadedSceneName) ? 'scroll' : ''}>
+<main @focusin=${this._onMainFocus} class=${sceneIsScroll(this._loadedSceneName) ? 'scroll' : ''}>
   <header class=${this._iframeScroll ? '' : 'up'}>
-    <div class="bg" style="color: ${
-        colorForScene(this._loadedSceneName)}"></div>
+    <div class="bg" style="color: ${colorForScene(this._loadedSceneName)}"></div>
     <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
     </label>
     <a class="linkwrap" href="./">
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
-    <santa-badge style="color: ${
-        featureColorForScene(this._sceneName)}"></santa-badge>
+    <santa-badge style="color: ${featureColorForScene(this._sceneName)}"></santa-badge>
   </header>
   <div class="noscene" ?hidden=${!this._showError}>
     <santa-weather></santa-weather>
