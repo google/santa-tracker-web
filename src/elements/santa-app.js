@@ -24,8 +24,8 @@ function featureColorForScene(sceneName) {
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
-      _selectedScene: {type: Object},
-      _activeScene: {type: Object},
+      _selectedScene: {type: String},
+      _activeScene: {type: String},
       _loadingScene: {type: Object},
       _showError: {type: Boolean},
       _todayHouse: {type: String},
@@ -79,7 +79,7 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderActivate(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: {name: ev.detail}});
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: ev.detail});
   }
 
   _onIframeScroll(ev) {
@@ -111,8 +111,6 @@ export class SantaAppElement extends LitElement {
   }
 
   render() {
-    const activeSceneName = this._activeScene && this._activeScene.name;
-    const selectedSceneName = this._selectedScene && this._selectedScene.name;
     return html`
 <style>${_style`santa-app`}</style>
 <div class="preload" ?hidden=${this._progress == null}>
@@ -131,26 +129,26 @@ export class SantaAppElement extends LitElement {
   </santa-sidebar>
   <label class="hider" for="${this._idPrefix}sidebar"></label>
 </div>
-<main @focusin=${this._onMainFocus} class=${sceneIsScroll(this._loadedSceneName) ? 'scroll' : ''}>
+<main @focusin=${this._onMainFocus} class=${sceneIsScroll(this._activeScene) ? 'scroll' : ''}>
   <header class=${this._iframeScroll ? '' : 'up'}>
-    <div class="bg" style="color: ${colorForScene(this._loadedSceneName)}"></div>
+    <div class="bg" style="color: ${colorForScene(this._activeScene)}"></div>
     <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
     </label>
     <a class="linkwrap" href="./">
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
-    <santa-badge style="color: ${featureColorForScene(this._sceneName)}"></santa-badge>
+    <santa-badge style="color: ${featureColorForScene(this._activeScene)}"></santa-badge>
   </header>
-  <div class="noscene" ?hidden=${!this._showError}>
+  <div class="noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>
     <div class="icon"></div>
-    <p>${_msg`error-not-found`}</p>
+    <p ?hidden=${!this._showError}>${_msg`error-not-found`}</p>
   </div>
   <santa-loader
       .loadingSceneDetails="${this._loadingScene}"
-      .selectedSceneName="${selectedSceneName}"
-      .activeSceneName="${activeSceneName}"
+      .selectedScene="${this._selectedScene}"
+      .activeScene="${this._activeScene}"
       @preload=${this._onLoaderPreload}
       @activate=${this._onLoaderActivate}
       @error=${this._onLoaderError}

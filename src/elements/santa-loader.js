@@ -35,9 +35,9 @@ const $scrollListener = Symbol('scrollListener');
 class SantaLoaderElement extends LitElement {
   static get properties() {
     return {
-      activeSceneName: {type: Object},
-      selectedSceneName: {type: Object},
-      loadingSceneDetails: {type: Object}
+      activeScene: {type: String},
+      selectedScene: {type: String},
+      loadingSceneDetails: {type: Object},
     };
   }
 
@@ -54,7 +54,7 @@ class SantaLoaderElement extends LitElement {
   }
 
   async _preloadSelectedScene(sceneName) {
-    if (this._preloadFrame != null) {
+    if (this._preloadFrame !== null) {
       this._preloadFrame.remove();
       this._preloadFrame = null;
     }
@@ -79,7 +79,7 @@ class SantaLoaderElement extends LitElement {
     let timeoutTimer;
     try {
       await new Promise((resolve, reject) => {
-        timeoutTimer = setTimeout(
+        timeoutTimer = window.setTimeout(
             () => reject('Timed out waiting for preload to start'), SCENE_LOAD_START_TIMEOUT_MS);
         this._markSceneLoadStarted = resolve;
         this._markSceneLoadFailed = reject;
@@ -106,7 +106,7 @@ class SantaLoaderElement extends LitElement {
     this._activeFrame.hidden = false;
     this._preloadFrame = null;
 
-    this.dispatchEvent(new CustomEvent('activate', {detail: this.selectedSceneName}));
+    this.dispatchEvent(new CustomEvent('activate', {detail: this.selectedScene}));
     this._onFrameScroll();
   }
 
@@ -117,7 +117,7 @@ class SantaLoaderElement extends LitElement {
   }
 
   _fail(iframe, reason = 'failed') {
-    console.error('Loader critical failure:', reason);
+    console.error('Loader critical failure:', iframe.src, reason);
 
     this._dispose(iframe);
     this.dispatchEvent(new CustomEvent('error', {detail: reason}));
@@ -131,7 +131,7 @@ class SantaLoaderElement extends LitElement {
     window.requestAnimationFrame(() => {
       this._onFrameScrollNotify = false;
       let scrollTop = 0;
-      if (this._activeFrame.contentDocument) {
+      if (this._activeFrame && this._activeFrame.contentDocument) {
         scrollTop = this._activeFrame.contentDocument.scrollingElement.scrollTop;
       }
       this.dispatchEvent(new CustomEvent('iframe-scroll', {detail: scrollTop}));
@@ -145,15 +145,15 @@ class SantaLoaderElement extends LitElement {
 
   update(changedProperties) {
     super.update(changedProperties);
-    if (changedProperties.has('selectedSceneName') &&
-        this.selectedSceneName !== this.activeSceneName) {
-      this._preloadSelectedScene(this.selectedSceneName);
+
+    if (changedProperties.has('selectedScene') && this.selectedScene !== this.activeScene) {
+      this._preloadSelectedScene(this.selectedScene);
     }
 
     if (changedProperties.has('loadingSceneDetails')) {
       const details = this.loadingSceneDetails;
 
-      if (details.name !== this.selectedSceneName) {
+      if (details.name !== this.selectedScene) {
         return;
       }
 
@@ -166,9 +166,6 @@ class SantaLoaderElement extends LitElement {
 
       if (this._markSceneLoadStarted) {
         this._markSceneLoadStarted();
-
-
-
         this._markSceneLoadStarted = null;
       }
 
@@ -177,7 +174,7 @@ class SantaLoaderElement extends LitElement {
         this.dispatchEvent(new CustomEvent('progress', {detail: details.progress}));
       }
 
-      if (details.ready && this.activeSceneName !== this.selectedSceneName) {
+      if (details.ready && this.activeScene !== this.selectedScene) {
         this.dispatchEvent(new CustomEvent('load', {detail: details.name}));
         this._upgradePreloadFrame();
       }
