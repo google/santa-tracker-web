@@ -28,7 +28,12 @@ function iframeForRoute(route) {
 }
 
 
-const SCENE_LOAD_START_TIMEOUT_MS = 1000;
+// TODO(samthor): In dev, this must be really high as a compile might take a while to finish.
+// In prod, it should be a realistic but lower value.
+// TODO(samthor): Should failure to start just open the frame anyway, or actively error? Could we
+// continue to load in background but show a warning or error?
+const SCENE_LOAD_START_TIMEOUT_MS = 30 * 1000;
+
 const $unloadListener = Symbol('unloadListener');
 const $scrollListener = Symbol('scrollListener');
 
@@ -118,6 +123,12 @@ class SantaLoaderElement extends LitElement {
 
   _fail(iframe, reason = 'failed') {
     console.error('Loader critical failure:', iframe.src, reason);
+
+    if (this._preloadFrame === iframe) {
+      // also dispose activeFrame at this point, as we've failed to load the new scene and it'll
+      // be hidden from view anyway
+      this._dispose(this._activeFrame);
+    }
 
     this._dispose(iframe);
     this.dispatchEvent(new CustomEvent('error', {detail: reason}));

@@ -14,7 +14,7 @@ module.exports = async (ctx, next) => {
   };
 
   const start = +new Date;
-  const compile = true;
+  const compile = false;
   const out = await compileScene(config, compile);
   const duration = (+new Date) - start;
   console.info(compile ? 'compiled' : 'transpiled', config.sceneName, 'duration', `${duration}ms`);
