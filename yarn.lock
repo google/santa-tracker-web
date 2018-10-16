@@ -121,7 +121,7 @@
 
 "@polymer/broadway@git+ssh://git@github.com:PolymerLabs/broadway.git#initial-implementation":
   version "0.0.1"
-  resolved "git+ssh://git@github.com:PolymerLabs/broadway.git#b21c65830849c381ffdf3c9789980e7af39a1ec4"
+  resolved "git+ssh://git@github.com:PolymerLabs/broadway.git#e0df3f9272655db79144c60e70fad5ede7df6517"
 
 "@polymer/lit-element@^0.6.0":
   version "0.6.2"
