@@ -17,6 +17,18 @@ export const santaTrackerReducer = (state, action) => {
         showError: true
       };
 
+    case SantaTrackerAction.PAGE_BECAME_VISIBLE:
+      return {...state, pageVisible: true};
+
+    case SantaTrackerAction.PAGE_BECAME_HIDDEN:
+      return {...state, pageVisible: false};
+
+    case SantaTrackerAction.DEVICE_WENT_ONLINE:
+      return {...state, online: true};
+
+    case SantaTrackerAction.DEVICE_WENT_OFFLINE:
+      return {...state, online: false};
+
     case SantaTrackerAction.API_SYNC_COMPLETED:
       return {...state, api: action.payload};
 

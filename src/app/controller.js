@@ -16,6 +16,8 @@ class SantaTrackerController extends Controller {
       selectedScene: {name: 'village'},
       todayHouse: 'boatload',
       showSidebar: false,
+      pageVisible: undefined,
+      online: undefined,
       api: null,
       loadingScene:
           {loading: false, ready: false, progress: -1, error: null, name: ''}

@@ -132,7 +132,7 @@ const rollupInputOptions = filename => ({
     // https://github.com/reduxjs/redux/pull/3143 lands in a release
     rollupInject({
       include: 'node_modules/redux/**/*.js',
-      modules: {process: path.resolve('./src/lib/process.js')}
+      modules: {process: path.resolve('./src/lib/process.js')},
     })
   ]
 });

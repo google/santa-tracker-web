@@ -56,7 +56,6 @@ export class SantaAppElement extends LitElement {
       console.log('STATE', state);
       this.sidebarOpen = state.showSidebar;
       this.todayHouse = state.todayHouse;
-      // this.route = state.selectedScene.name;
 
       this._selectedScene = state.selectedScene;
       this._activeScene = state.activeScene;

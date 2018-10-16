@@ -69,7 +69,18 @@ export class Entrypoint {
       ev.preventDefault();
     });
 
+    window.addEventListener('offline', (ev) => this.syncIsOnline());
+    window.addEventListener('online', (ev) => this.syncIsOnline());
+
+    this.syncIsOnline();
+
+    document.addEventListener(
+        'visibilitychange', (ev) => this.syncVisibility());
+
+    this.syncVisibility();
+
     window.addEventListener('popstate', (ev) => this.syncLocation());
+
     this.syncLocation();
     this.startDefaultMusic();
   }
@@ -88,6 +99,20 @@ export class Entrypoint {
     // events on scene setup, that are called before a new scene is allowed to
     // make its audio requests.
     sc.ambient('village_end');
+  }
+
+  syncVisibility() {
+    this.adapter.dispatch({
+      type: document.hidden ? SantaTrackerAction.PAGE_BECAME_HIDDEN :
+                              SantaTrackerAction.PAGE_BECAME_VISIBLE
+    });
+  }
+
+  syncIsOnline() {
+    this.adapter.dispatch({
+      type: navigator.onLine ? SantaTrackerAction.DEVICE_WENT_ONLINE :
+                               SantaTrackerAction.DEVICE_WENT_OFFLINE
+    });
   }
 
   syncLocation() {
