@@ -35,7 +35,7 @@ export class SantaSidebarElement extends LitElement {
 <slot></slot>
 
 <div class="cards">
-  <a href="./village.html">
+  <a href="./">
     <div class="menucard menucard-village">
       <h2>${_msg`calendar`}</h2>
       <h3>${_msg`santasvillage`}</h3>

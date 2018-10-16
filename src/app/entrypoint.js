@@ -14,14 +14,14 @@ export class Entrypoint {
   constructor(santaApp) {
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
     // Update brower location as the activated
-    let selectedSceneName = '';
+    let selectedScene = '';
 
     this.adapter.subscribe((state) => {
-      if (state.selectedScene.name !== selectedSceneName) {
-        selectedSceneName = state.selectedScene.name;
-        const historyStrategy = state.selectedScene.replace ? 'replaceState' : 'pushState';
-        window.history[historyStrategy](null, null, route.urlFromRoute(selectedSceneName));
+      const currentScene = route.fromUrl(window.location);
+      if (state.selectedScene !== currentScene) {
+        window.history.pushState(null, null, route.urlFromRoute(state.selectedScene));
       }
+      selectedScene = state.selectedScene;
 
       const {api} = state;
 
@@ -52,15 +52,14 @@ export class Entrypoint {
       if (sceneName === null) {
         return null;  // probably an external link
       }
-      if (selectedSceneName === sceneName) {
+      if (selectedScene === sceneName) {
         this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
         // TODO(samthor): If the scene is loaded but there's been an error,
         // perhaps that could be reported declaratively: we could here then
         // `santaApp.error = null`, to indicate that we don't care and we do
         // want to retry.
       } else {
-        this.adapter.dispatch(
-            {type: SantaTrackerAction.SCENE_SELECTED, payload: {name: sceneName || 'village'}});
+        this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
       }
       ev.preventDefault();
     });
@@ -111,15 +110,7 @@ export class Entrypoint {
   }
 
   syncLocation() {
-    let sceneName = route.fromUrl(window.location);
-
-    if (sceneName === '') {
-      sceneName = 'village';
-    } else if (sceneName == null) {
-      return;
-    }
-
-    this.adapter.dispatch(
-        {type: SantaTrackerAction.SCENE_SELECTED, payload: {name: sceneName, replace: true}});
+    const sceneName = route.fromUrl(window.location);
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
   }
 }

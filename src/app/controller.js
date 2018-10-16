@@ -12,14 +12,14 @@ logger.enabled = false;
 class SantaTrackerController extends Controller {
   static get initialState() {
     return {
-      activeScene: {name: ''},
-      selectedScene: {name: 'village'},
+      activeScene: null,
+      selectedScene: '',  // empty scene is the index or "village"
       todayHouse: 'boatload',
       showSidebar: false,
       pageVisible: undefined,
       online: undefined,
       api: null,
-      loadingScene: {loading: false, ready: false, progress: -1, error: null, name: ''}
+      loadingScene: {loading: false, ready: false, progress: -1, error: null, name: ''},
     };
   }
 

@@ -1,13 +1,7 @@
 import {SantaTrackerAction} from '../action.js';
-import {UNLOCKED_SCENES} from '../common.js';
 
 export const loadingSceneReducer = (state, action) => {
   const {name} = action.payload;
-  const sceneIsUnlocked = UNLOCKED_SCENES.has(name);
-
-  if (!sceneIsUnlocked) {
-    return state;
-  }
 
   if (action.type !== SantaTrackerAction.SCENE_LOAD_STARTED && name !== state.name) {
     // This is an action from a scene that we don't care about

@@ -4,13 +4,14 @@ import {loadingSceneReducer} from './loading-scene.js';
 export const santaTrackerReducer = (state, action) => {
   switch (action.type) {
     case SantaTrackerAction.SCENE_SELECTED:
-      return {...state, selectedScene: {replace: false, ...action.payload}};
+      return {...state, selectedScene: action.payload};
 
     case SantaTrackerAction.SCENE_ACTIVATED:
-      return {...state, activeScene: {...action.payload}, showError: false};
+      return {...state, activeScene: action.payload, showError: false};
 
     case SantaTrackerAction.SCENE_FAILED:
-      return {...state, activeScene: {name: ''}, selectedScene: {name: ''}, showError: true};
+      // nb. selectedScene remains the same, as the URL should not change.
+      return {...state, activeScene: null, showError: true};
 
     case SantaTrackerAction.PAGE_BECAME_VISIBLE:
       return {...state, pageVisible: true};
