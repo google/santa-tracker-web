@@ -29,6 +29,8 @@ function iframeForRoute(route) {
 
 
 const SCENE_LOAD_START_TIMEOUT_MS = 1000;
+const $unloadListener = Symbol('unloadListener');
+const $scrollListener = Symbol('scrollListener');
 
 class SantaLoaderElement extends LitElement {
   static get properties() {
@@ -62,9 +64,17 @@ class SantaLoaderElement extends LitElement {
     preloadFrame.hidden = true;
     this.appendChild(preloadFrame);
 
-    preloadFrame._unloadListener = (ev) => this._fail(preloadFrame, 'URL loaded inside frame');
-    preloadFrame._scrollListener = (ev) => this._onFrameScroll();
+    preloadFrame[$unloadListener] = (ev) => this._fail(preloadFrame, 'URL loaded inside frame');
+    preloadFrame[$scrollListener] = (ev) => this._onFrameScroll();
 
+    // explicitly disallow URL changes in this frame by failing if we're
+    // unloaded
+    this._preloadFrame.contentWindow.addEventListener(
+        'beforeunload', this._preloadFrame[$unloadListener]);
+
+    // listen to scroll so the top bar can be made visible/hidden
+    this._preloadFrame.contentWindow.addEventListener(
+        'scroll', this._preloadFrame[$scrollListener], {passive: true});
 
     let timeoutTimer;
     try {
@@ -102,12 +112,8 @@ class SantaLoaderElement extends LitElement {
 
   _dispose(iframe) {
     iframe.remove();
-    if (iframe._unloadListener) {
-      iframe.removeEventListener('beforeunload', iframe._unloadListener);
-    }
-    if (iframe._scrollListener) {
-      iframe.removeEventListener('scroll', iframe._scrollListener);
-    }
+    iframe.removeEventListener('beforeunload', iframe[$unloadListener]);
+    iframe.removeEventListener('scroll', iframe[$scrollListener]);
   }
 
   _fail(iframe, reason = 'failed') {
@@ -161,14 +167,7 @@ class SantaLoaderElement extends LitElement {
       if (this._markSceneLoadStarted) {
         this._markSceneLoadStarted();
 
-        // explicitly disallow URL changes in this frame by failing if we're
-        // unloaded
-        this._preloadFrame.contentWindow.addEventListener(
-            'beforeunload', this._preloadFrame._unloadListener);
 
-        // listen to scroll so the top bar can be made visible/hidden
-        this._preloadFrame.contentWindow.addEventListener(
-            'scroll', this._preloadFrame._scrollListener, {passive: true});
 
         this._markSceneLoadStarted = null;
       }
