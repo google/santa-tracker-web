@@ -56,15 +56,13 @@
 
   const game = new Game(document.getElementById('module-boatload'));
 
-  self.sceneApi = new SceneApi('boatload');
+  const sceneApi = new SceneApi('boatload');
+  sceneApi.installV1Handlers();
   sceneApi.loadStarted();
 
   // TODO: preload
-
-  sceneApi.loadCompleted();
-
-  // api.preloadSounds('bl_load_sounds');
-  // api.preloadImages([
+  // sceneApi.preloadSounds('bl_load_sounds');
+  // sceneApi.preloadImages([
   //   'img/boat1.svg',
   //   'img/boat2.svg',
   //   'img/boat3.svg',
@@ -86,29 +84,9 @@
   //   'img/trees-top.svg',
   //   'img/rotate.svg',
   // ]);
-  // api.cleanupSoundEvent('bl_end_game');
+  // sceneApi.cleanupSoundEvent('bl_end_game');
 
-  window.santaApp = {
-    fire(eventName, arg) {
-      // TODO: do something with events
-      switch (eventName) {
-      case 'sound-trigger':
-        break;
-      case 'sound-ambient':
-        break;
-      case 'game-score':
-        // TODO: emit score to game
-        break;
-      case 'game-stop':
-        // TODO: game is stopped
-        break;
-      }
-    },
-  };
-  window.ga = function() {
-    // TODO: log events
-  }
-
+  sceneApi.loadCompleted();
   game.start();
 
 </script>

@@ -26,4 +26,27 @@ export class SceneApi {
     adapter.dispatch(
         {type: SantaTrackerAction.SCENE_LOAD_FAILED, payload: {name: this.name, error}});
   }
+
+  installV1Handlers() {
+    window.santaApp = {
+      fire(eventName, arg) {
+        // TODO(samthor): do something with events
+        switch (eventName) {
+        case 'sound-trigger':
+          break;
+        case 'sound-ambient':
+          break;
+        case 'game-score':
+          // TODO: emit score to game
+          break;
+        case 'game-stop':
+          // TODO: game is stopped
+          break;
+        }
+      },
+    };
+    window.ga = function() {
+      // TODO: log events
+    };
+  }
 }
