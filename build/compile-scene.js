@@ -50,7 +50,7 @@ function relativeSrc(all) {
  *   typeSafe: (boolean|undefined),
  * }} config
  * @param {boolean=} compile
- * @return {string} compiled output source
+ * @return {{compile: boolean, js: string}} compiled output source
  */
 module.exports = async function compile(config, compile=false) {
   const compilerSrc = [
@@ -113,13 +113,17 @@ ${leftEntryPoint}={};
   };
 
   const compiler = new closureCompiler.compiler(compilerFlags);
-  return await new Promise((resolve, reject) => {
+  const js = await new Promise((resolve, reject) => {
     const process = compiler.run((status, stdout, stderr) => {
-      console.info(stderr);
+      if (stderr.trim().length) {
+        console.info(stderr);
+      }
       if (status) {
         return reject(status);
       }
       resolve(stdout);
     });
   });
+
+  return {js, compile};
 };
