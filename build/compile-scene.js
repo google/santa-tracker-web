@@ -92,7 +92,7 @@ module.exports = async function compile(config, compile=false) {
     // Adds simple $jscomp and goog.provide/goog.require methods for fast transpilation mode, which
     // declare globals suitable for execution in module scope. This is required as Closure's
     // built-in `goog.provide` doesn't play well when imported as a module.
-    compilerSrc.unshift('build/goog/base.js');
+    compilerSrc.unshift('build/transpile/base.js');
     outputWrapper = `%output%;${outputWrapper}`;
   }
 
@@ -115,7 +115,7 @@ module.exports = async function compile(config, compile=false) {
 
   const compiler = new closureCompiler.compiler(compilerFlags);
 
-  // If there's a native Closure image available, use it instead. This can be up to 10x speed.
+  // Use any native image available, as this can be up to 10x (!) speed improvement on Java.
   const nativeImage = closureCompilerUtils.getNativeImagePath();
   if (nativeImage) {
     compiler.JAR_PATH = undefined;

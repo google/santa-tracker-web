@@ -12,23 +12,6 @@ const EXPIRY_TIMEOUT = 120 * 1000;  // watch for this long, but don't automatica
 const COMPILE_DELAY = 1000;         // compile due to changed file only after this delay
 
 
-
-function buildHelper(sceneName) {
-  const config = {
-    sceneName: sceneName,
-    entryPoint: 'app.Game',  // TODO(samthor): This is the most common for now. Have a defs file.
-  };
-  return compileScene(config, false);
-}
-
-function logHelper(sceneName, out, duration) {
-  const mode = out.compile ? 'compiled' : 'transpiled';
-  log(`Scene '${colors.green(sceneName)}' ${mode} in ${colors.red(prettyMs(duration))}`);
-}
-
-const worker = new WorkStream(buildHelper, logHelper);
-
-
 /**
  * @param {string} sceneName to watch for its JS changes
  * @param {function(string): void} callback
@@ -146,21 +129,38 @@ class SceneWatcher {
 let recentWatcher = null;
 
 
-module.exports = async (ctx, next) => {
-  const m = matchSceneMin.exec(ctx.url);
-  if (!m) {
-    return next();
-  }
-  const sceneName = m[1];
+module.exports = function(options={}) {
+  const buildHelper = (sceneName) => {
+    const config = {
+      // TODO(samthor): There's currently no way to pass additional arguments through.
+      sceneName: sceneName,
+    };
+    return compileScene(config, options.compile || false);
+  };
+  
+  const logHelper = (sceneName, out, duration) => {
+    const mode = out.compile ? 'compiled' : 'transpiled';
+    log(`Scene '${colors.green(sceneName)}' ${mode} in ${colors.red(prettyMs(duration))}`);
+  };
 
-  if (recentWatcher === null || recentWatcher.sceneName !== sceneName) {
-    // Set up a watch task for this scene, so we aggressively recompile while a developer is
-    // working on this code. This expires after `EXPIRY_TIMEOUT`.
-    log(`Watching scene '${colors.green(sceneName)}'...`);
-    recentWatcher && recentWatcher.dispose();
-    recentWatcher = new SceneWatcher(sceneName, () => worker.run(sceneName));
-  }
+  const worker = new WorkStream(buildHelper, logHelper);
 
-  ctx.response.type = 'text/javascript';
-  ctx.response.body = (await recentWatcher.build).js;
+  return async (ctx, next) => {
+    const m = matchSceneMin.exec(ctx.url);
+    if (!m) {
+      return next();
+    }
+    const sceneName = m[1];
+  
+    if (recentWatcher === null || recentWatcher.sceneName !== sceneName) {
+      // Set up a watch task for this scene, so we aggressively recompile while a developer is
+      // working on this code. This expires after `EXPIRY_TIMEOUT`.
+      log(`Watching scene '${colors.green(sceneName)}'...`);
+      recentWatcher && recentWatcher.dispose();
+      recentWatcher = new SceneWatcher(sceneName, () => worker.run(sceneName));
+    }
+  
+    ctx.response.type = 'text/javascript';
+    ctx.response.body = (await recentWatcher.build).js;
+  };
 };
