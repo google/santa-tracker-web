@@ -61,7 +61,7 @@ function relativeSrc(all) {
 module.exports = async function compile(config, compile=false) {
   const compilerSrc = [
     `scenes/${config.sceneName}/js/**.js`,
-    'scenes/shared/js/*.js',
+    'scenes/_shared/js/*.js',
   ];
   const entryPoint = config.entryPoint || 'app.Game';
 

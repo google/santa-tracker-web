@@ -35,8 +35,8 @@ const worker = new WorkStream(buildHelper, logHelper);
  * @return {function(): void} cleanup/shutdown method
  */
 function watchForSceneJs(sceneName, cb) {
-  if (sceneName === 'shared') {
-    throw new Error(`unexpected 'shared' scene requested`);
+  if (sceneName === '_shared') {
+    throw new Error(`unexpected '_shared' scene requested`);
   }
 
   const handler = (eventType, p) => {
@@ -45,7 +45,7 @@ function watchForSceneJs(sceneName, cb) {
     }
   };
   // TODO(samthor): {recursive: true} does not work on Linux.
-  const watchShared = fs.watch('scenes/shared', {recursive: true}, handler);
+  const watchShared = fs.watch('scenes/_shared', {recursive: true}, handler);
   const watchScene = fs.watch(`scenes/${sceneName}`, {recursive: true}, handler);
   return () => {
     watchShared.close();

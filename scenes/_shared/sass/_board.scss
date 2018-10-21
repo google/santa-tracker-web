@@ -116,8 +116,8 @@ $board-level-bp: 1350px !default;
     z-index: 120;
 
     .back {
-      background: url(../shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
-          url(../shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
+      background: url(../_shared/img/village-nav-bg.svg) 50% 100%/204px 45px no-repeat,
+          url(../_shared/img/back-arrow.svg) 10px 50%/31px 31px no-repeat;
       box-sizing: border-box;
       color: #fff;
       font-size: 14px;
@@ -188,7 +188,7 @@ $board-level-bp: 1350px !default;
     }
 
     .status {
-      background: url(../shared/img/board/status.svg) no-repeat;
+      background: url(../_shared/img/board/status.svg) no-repeat;
       bottom: 0;
       height: 12px;
       position: absolute;

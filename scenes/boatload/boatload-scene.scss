@@ -2,8 +2,8 @@ $name: 'module-boatload';
 $gameover-bg: #8fd7f7;
 $rotate-bg: $gameover-bg;
 
-@import "../shared/sass/rotate";
-@import "../shared/sass/levelup";
+@import "../_shared/sass/rotate";
+@import "../_shared/sass/levelup";
 
 @import "sass/environment";
 @import "sass/player";
