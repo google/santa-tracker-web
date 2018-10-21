@@ -1,4 +1,5 @@
 const closureCompiler = require('google-closure-compiler');
+const closureCompilerUtils = require('google-closure-compiler/lib/utils.js');
 const path = require('path');
 
 
@@ -24,6 +25,11 @@ const CLOSURE_TYPESAFE_WARNINGS = CLOSURE_WARNINGS.concat([
 ]);
 
 
+// nb. This assumes `compile-scene.js` is one level up from `node_modules`.
+const rootDir = path.join(__dirname, '..');
+let hasJava = undefined;
+
+
 /**
  * @typedef {{
  *   sceneName: string,
@@ -46,8 +52,7 @@ function relativeSrc(all) {
     if (negate) {
       p = p.substr(1);
     }
-    // nb. This assumes `compile-scene.js` is one level up from `node_modules`.
-    p = path.join(__dirname, '..', p)
+    p = path.join(rootDir, p)
     return (negate ? '!' : '') + p;
   });
 }
@@ -56,19 +61,16 @@ function relativeSrc(all) {
 /**
  * @param {!CompileSceneOptions} config
  * @param {boolean=} compile
- * @return {{compile: boolean, js: string}} compiled output source
+ * @return {{compile: boolean, js: string, sourceMap: ?string}}
  */
 module.exports = async function compile(config, compile=false) {
+  const libraries = config.libraries || [];
   const compilerSrc = [
     `scenes/${config.sceneName}/js/**.js`,
     'scenes/_shared/js/*.js',
+    ...libraries,  // extra libraries required by scene
   ];
   const entryPoint = config.entryPoint || 'app.Game';
-
-  // Extra closure compiled libraries required by scene. Unfortunately, Closure Compiler does not
-  // support standard bash glob '**/*.ext', only '**.ext' which bash/gulp does not support.
-  const libraries = (config.libraries || []).map((lib) => lib.replace('**/*', '**'));
-  compilerSrc.push(...libraries);
 
   // Configure prefix and compilation options. In some cases (no libraries, not dist), we can
   // skip scene compilation for  more rapid development.
@@ -90,7 +92,7 @@ module.exports = async function compile(config, compile=false) {
     // Adds simple $jscomp and goog.provide/goog.require methods for fast transpilation mode, which
     // declare globals suitable for execution in module scope. This is required as Closure's
     // built-in `goog.provide` doesn't play well when imported as a module.
-    compilerSrc.unshift('build/transpile/base.js');
+    compilerSrc.unshift('build/goog/base.js');
     outputWrapper = `%output%;${outputWrapper}`;
   }
 
@@ -112,21 +114,30 @@ module.exports = async function compile(config, compile=false) {
   };
 
   const compiler = new closureCompiler.compiler(compilerFlags);
-  const js = await new Promise((resolve, reject) => {
+
+  // If there's a native Closure image available, use it instead. This can be up to 10x speed.
+  const nativeImage = closureCompilerUtils.getNativeImagePath();
+  if (nativeImage) {
+    compiler.JAR_PATH = undefined;
+    compiler.javaPath = nativeImage;
+  }
+
+  const js = await invokeCompiler(compiler);
+  return {
+    compile,
+    js,
+    sourceMap: null,  // TODO(samthor): retrieve the source map.
+  };
+};
+
+function invokeCompiler(compiler) {
+  return new Promise((resolve, reject) => {
     const callback = (status, stdout, stderr) => {
       if (stderr.trim().length !== 0) {
         console.info(stderr);
       }
       status ? reject(status) : resolve(stdout);
     };
-
-    const args = [callback];
-    if (compiler instanceof closureCompiler.jsCompiler) {
-      // TODO(samthor): Expand Closure-style globs and prepend files as array to args.
-      throw new TypeError('Closure jsCompiler currently unsupported');
-    }
-    compiler.run.apply(compiler, args);
+    compiler.run(callback);
   });
-
-  return {js, compile};
-};
+}

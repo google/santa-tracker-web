@@ -9,7 +9,8 @@ Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 
 
 # Run
 
-You'll need `yarn` or `npm`, as well as Java (these instructions will assume `yarn`).
+You'll need `yarn` or `npm`.
+On any platform but macOS or Linux, you'll also need Java.
 
 Clone the project, run `yarn` to install dependencies, then `yarn start` to bring up a development server.
 Compilation of scenes, CSS etc is done via middleware at serve time: if you're interested, see the `-transform.js` files in this directory.
