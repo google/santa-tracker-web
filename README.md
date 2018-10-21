@@ -29,7 +29,7 @@ These scenes can typically be run on their own, as well as part of the whole.
 To add a new scene, you'll need to update some locations.
 
 1. The [`scenes.js`](scenes.js) file is the master definition for all scenes.
-   It contains details about its colors, category, strings etc.
+   It contains details about each scene's colors, rotation, category, strings etc.
 2. Every scene should have associated PNG assets.
    * `images/scenes/sceneName_2x.png` (950x564) and `sceneName_1x.png` (475x282)
    * `images/scenes/sceneName_og.png` (1333x1000)
@@ -39,10 +39,10 @@ To add a new scene, you'll need to update some locations.
 Santa Tracker generates JavaScript that is modified from its original source.
 
 * There are some special template tags, which are compiled away.
-  1. <code>_msg`msgid_here`</code> is replaced with the translated string contents
-  2. <code>_style`style_name`</code> is replaced with the compiled style file from within `/styles`
+  1. ``_msg`msgid_here` `` is replaced with the translated string contents
+  2. ``_style`style_name` `` is replaced with the compiled style file from within `/styles`
 
-* Non-relative ES module imports, those importing `node_modules`, are translated to their actual paths (e.g. `import '@polymer/...`)
+* Non-relative ES module imports, those importing `node_modules`, are translated to their actual paths (e.g. `import '@polymer/...';`)
 
 ## Translations
 
