@@ -1,4 +1,6 @@
 
+const emptyFunc = () => {};
+
 /**
  * @template K
  * @template O
@@ -7,9 +9,9 @@ module.exports = class WorkStream {
 
   /**
    * @param {function(K): (!O|!Promise<O>)} fn
-   * @param {function(K, O, number): void} log
+   * @param {function(K, O, number): void=} log
    */
-  constructor(fn, log) {
+  constructor(fn, log=emptyFunc) {
     this._fn = async (arg) => fn(arg);  // always returns Promise
     this._log = log;
 
