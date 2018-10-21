@@ -27,6 +27,10 @@ export class SceneApi {
         {type: SantaTrackerAction.SCENE_LOAD_FAILED, payload: {name: this.name, error}});
   }
 
+  route(sceneName) {
+    adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
+  }
+
   installV1Handlers() {
     window.santaApp = {
       fire(eventName, arg) {
