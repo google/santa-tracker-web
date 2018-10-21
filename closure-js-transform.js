@@ -160,7 +160,9 @@ module.exports = function(options={}) {
       recentWatcher = new SceneWatcher(sceneName, () => worker.run(sceneName));
     }
   
+    const {js, sourceMap} = await recentWatcher.build;
     ctx.response.type = 'text/javascript';
-    ctx.response.body = (await recentWatcher.build).js;
+    ctx.response.body = `${js}
+//# sourceMappingURL=data:application/json;base64,${sourceMap.toString('base64')}`;
   };
 };

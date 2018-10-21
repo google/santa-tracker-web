@@ -1,7 +1,13 @@
 const closureCompiler = require('google-closure-compiler');
 const closureCompilerUtils = require('google-closure-compiler/lib/utils.js');
+const fs = require('fs');
 const path = require('path');
+const tmp = require('tmp');
+const util = require('util');
 
+const fsp = {
+  readFile: util.promisify(fs.readFile),
+};
 
 const CLOSURE_LIBRARY_PATH = 'node_modules/google-closure-library/closure/goog';
 const EXTERNS = [
@@ -52,8 +58,45 @@ function relativeSrc(all) {
     if (negate) {
       p = p.substr(1);
     }
-    p = path.join(rootDir, p)
+    p = path.relative(rootDir, p)
     return (negate ? '!' : '') + p;
+  });
+}
+
+
+/**
+ * Process a raw source map, including adding source file contents. This is a tiny performance hit
+ * and creates a HUGE source map, but it should only be served in dev.
+ *
+ * @param {!Buffer} buf raw sourceMap to process
+ * @param {string} root path to apply to sourceMap
+ * @return {!Buffer} updated sourceMap containing all source file contents
+ */
+async function processSourceMap(buf, root='../../') {
+  const o = JSON.parse(buf.toString());
+  o.sourceRoot = root;
+  o.sourcesContent = [];
+  for (const source of o.sources) {
+    const buf = await fsp.readFile(source);
+    o.sourcesContent.push(buf.toString());
+  }
+  return Buffer.from(JSON.stringify(o), 'utf8');;
+}
+
+
+/**
+ * @param {!closureCompiler.compiler} compiler
+ * @return {!Promise<string>}
+ */
+function invokeCompiler(compiler) {
+  return new Promise((resolve, reject) => {
+    const callback = (status, stdout, stderr) => {
+      if (stderr.trim().length !== 0) {
+        console.info(stderr);
+      }
+      status ? reject(status) : resolve(stdout);
+    };
+    compiler.run(callback);
   });
 }
 
@@ -61,7 +104,7 @@ function relativeSrc(all) {
 /**
  * @param {!CompileSceneOptions} config
  * @param {boolean=} compile
- * @return {{compile: boolean, js: string, sourceMap: ?string}}
+ * @return {{compile: boolean, js: string, sourceMap: !Buffer}}
  */
 module.exports = async function compile(config, compile=false) {
   const libraries = config.libraries || [];
@@ -96,9 +139,13 @@ module.exports = async function compile(config, compile=false) {
     outputWrapper = `%output%;${outputWrapper}`;
   }
 
+  // Create a temporary place to store the source map. Closure can only write this to a real file.
+  const sourceMapTemp = tmp.fileSync();
+
   const compilerFlags = {
     js: relativeSrc(compilerSrc),
     externs: relativeSrc(EXTERNS),
+    create_source_map: sourceMapTemp.name,
     assume_function_wrapper: true,
     dependency_mode: 'STRICT',  // ignore all but exported via entryPoint
     entry_point: entryPoint,
@@ -123,21 +170,8 @@ module.exports = async function compile(config, compile=false) {
   }
 
   const js = await invokeCompiler(compiler);
-  return {
-    compile,
-    js,
-    sourceMap: null,  // TODO(samthor): retrieve the source map.
-  };
-};
+  const sourceMap = await processSourceMap(await fsp.readFile(sourceMapTemp.name));
+  sourceMapTemp.removeCallback();
 
-function invokeCompiler(compiler) {
-  return new Promise((resolve, reject) => {
-    const callback = (status, stdout, stderr) => {
-      if (stderr.trim().length !== 0) {
-        console.info(stderr);
-      }
-      status ? reject(status) : resolve(stdout);
-    };
-    compiler.run(callback);
-  });
-}
+  return {compile, js, sourceMap};
+};
