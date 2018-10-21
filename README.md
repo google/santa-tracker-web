@@ -39,8 +39,8 @@ To add a new scene, you'll need to update some locations.
 Santa Tracker generates JavaScript that is modified from its original source.
 
 * There are some special template tags, which are compiled away.
-  1. ``_msg`msgid_here` `` is replaced with the translated string contents
-  2. ``_style`style_name` `` is replaced with the compiled style file from within `/styles`
+  1. ``_msg`msgid_here`​`` is replaced with the translated string contents
+  2. ``_style`style_name`​`` is replaced with the compiled style file from within `/styles`
 
 * Non-relative ES module imports, those importing `node_modules`, are translated to their actual paths (e.g. `import '@polymer/...';`)
 
