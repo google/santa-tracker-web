@@ -104,17 +104,17 @@ export default {
   liftoff: {video: 'BfF7vfw6Zjw'},  // 2013
   museum: {video: 'fo25RcjXJI4'},
   office: {video: 'IXmDOu-eSx4'},
-  reindeerworries: {video: 'nXLNcfNsWAY'},
+  onvacation: {video: 'IdpQSy4IB_I'},
+  reindeerworries: {video: 'nXLNcfNsWAY'},  // 2015
   reload: {video: 'vHMeXs36NTE'},
   santasback: {video: 'zE_D9Vd69aw'},
   satellite: {video: 'ZJPL56IPTjw'},
   selfies: {video: 'JA8Jn5DGt64'},
   slackingoff: {video: 'uEl2WIZOVdQ'},
-  takeoff: {video: 'YNpwm08ZRD0'},
+  takeoff: {video: 'YNpwm08ZRD0'},  // 2015+
   temptation: {video: '2FtcJJ9vzVQ'},
   tired: {video: '2UGX3bT9u20'},
-  trailer: {video: 'IdpQSy4IB_I'},
-  wheressanta: {video: '0qrFL0mn3Uk'},
+  wheressanta: {video: '0qrFL0mn3Uk'},  // 2013
   workshop: {video: 'oCAKV4Ikhec'},  // 2014
 
 // dummy: used for prod demos
