@@ -1,12 +1,6 @@
 const path = require('path');
-const fs = require('fs');
-const util = require('util');
-
+const fsp = require('./build/fsp.js');
 const sass = require('sass');
-
-const fsp = {
-  readFile: util.promisify(fs.readFile),
-};
 
 module.exports = async (ctx, next) => {
   const ext = path.extname(ctx.url);

@@ -9,7 +9,7 @@ const matchSceneMin = /^\/scenes\/(\w+)\/\1-scene\.min\.js$/;
 
 const BUILD_TIMEOUT = 15 * 1000;    // automatically build for this long after use
 const EXPIRY_TIMEOUT = 120 * 1000;  // watch for this long, but don't automatically build
-const COMPILE_DELAY = 1000;         // compile due to changed file only after this delay
+const COMPILE_DELAY = 1 * 1000;     // autocompile due to changed file only after this delay
 
 
 /**
@@ -87,7 +87,7 @@ class SceneWatcher {
    */
   _fileChange() {
     this._build = null;
-    if (+new Date < this._buildUntil) {
+    if ((+new Date) < this._buildUntil) {
       global.clearTimeout(this._delayBuildTimeout);
       this._delayBuildTimeout = global.setTimeout(() => this._ensureBuild(), COMPILE_DELAY);
     }

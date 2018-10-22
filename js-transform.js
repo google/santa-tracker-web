@@ -1,17 +1,12 @@
-const path = require('path');
-const fs = require('fs');
-const util = require('util');
-const sass = require('sass');
-
 const babelCore = require('@babel/core');
 const babylon = require('babylon');
+const fs = require('fs');
+const fsp = require('./build/fsp.js');
+const path = require('path');
 const rollup = require('rollup');
 const rollupNodeResolve = require('rollup-plugin-node-resolve');
 const rollupInject = require('rollup-plugin-inject');
-
-const fsp = {
-  readFile: util.promisify(fs.readFile),
-};
+const sass = require('sass');
 
 const messages = require('./en_src_messages.json');
 

@@ -1,13 +1,8 @@
 const closureCompiler = require('google-closure-compiler');
 const closureCompilerUtils = require('google-closure-compiler/lib/utils.js');
-const fs = require('fs');
+const fsp = require('./fsp.js');
 const path = require('path');
 const tmp = require('tmp');
-const util = require('util');
-
-const fsp = {
-  readFile: util.promisify(fs.readFile),
-};
 
 const CLOSURE_LIBRARY_PATH = 'node_modules/google-closure-library/closure/goog';
 const EXTERNS = [
