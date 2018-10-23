@@ -3,7 +3,6 @@ import {html, LitElement} from '@polymer/lit-element';
 
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
-import {findClosestLink} from '../lib/dom.js';
 
 
 function sceneIsScroll(sceneName) {
@@ -24,9 +23,8 @@ function featureColorForScene(sceneName) {
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
-      _selectedScene: {type: String},
       _activeScene: {type: String},
-      _loadingScene: {type: Object},
+      _selectedScene: {type: String},
       _showError: {type: Boolean},
       _todayHouse: {type: String},
       _trackerIsOpen: {type: Boolean},
@@ -52,16 +50,13 @@ export class SantaAppElement extends LitElement {
 
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
     this.adapter.subscribe((state) => {
-      console.log('New state:', state);
       this._sidebarOpen = state.showSidebar;
       this._todayHouse = state.todayHouse;
 
-      this._selectedScene = state.selectedScene;
       this._activeScene = state.activeScene;
-      this._loadingScene = state.loadingScene;
+      this._progress = state.loadProgress;
+      this._selectedScene = state.selectedScene;
       this._showError = state.showError;
-
-      this._progress = state.loadingScene ? state.loadingScene.progress : null;
     });
   }
 
@@ -69,17 +64,16 @@ export class SantaAppElement extends LitElement {
     this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
   }
 
-  _onLoaderPreload(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
+  _onLoaderLoad(ev) {
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: ev.detail});
+  }
+
+  _onLoaderProgress(ev) {
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_LOAD_PROGRESS, payload: ev.detail});
   }
 
   _onLoaderError(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
     this.adapter.dispatch({type: SantaTrackerAction.SCENE_FAILED});
-  }
-
-  _onLoaderActivate(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: ev.detail});
   }
 
   _onIframeScroll(ev) {
@@ -113,8 +107,8 @@ export class SantaAppElement extends LitElement {
   render() {
     return html`
 <style>${_style`santa-app`}</style>
-<div class="preload" ?hidden=${this._progress == null}>
-  <div class="bar" style="width: ${(this._progress || 0) * 100}%"></div>
+<div class="preload" ?hidden=${this._progress === 1}>
+  <div class="bar" style="width: ${this._progress * 100}%"></div>
 </div>
 <div class="sidebar">
   <input type="checkbox" id="${this._idPrefix}sidebar" @change=${this._onCheckboxChange} .checked=${
@@ -146,11 +140,9 @@ export class SantaAppElement extends LitElement {
     <p ?hidden=${!this._showError}>${_msg`error-not-found`}</p>
   </div>
   <santa-loader
-      .loadingSceneDetails="${this._loadingScene}"
       .selectedScene="${this._selectedScene}"
-      .activeScene="${this._activeScene}"
-      @preload=${this._onLoaderPreload}
-      @activate=${this._onLoaderActivate}
+      @progress=${this._onLoaderProgress}
+      @load=${this._onLoaderLoad}
       @error=${this._onLoaderError}
       @iframe-scroll=${this._onIframeScroll}></santa-loader>
 </main>

@@ -51,43 +51,40 @@
 
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module">
-  import {SceneApi} from '../../src/app/scene-api.js';
+  import api from '../../src/scene/api.js';
   import Game from './boatload-scene.min.js';
 
+  api.preload.sounds('bl_load_sounds');
+  api.preload.images(
+    'img/boat1.svg',
+    'img/boat2.svg',
+    'img/boat3.svg',
+    'img/iceberg1.svg',
+    'img/iceberg2.svg',
+    'img/iceberg3.svg',
+    'img/iceberg4.svg',
+    'img/iceberg5.svg',
+    'img/iceberg6.svg',
+    'img/logo.svg',
+    'img/player-crossbow.svg',
+    'img/player-elf.svg',
+    'img/player-ropes.svg',
+    'img/present.svg',
+    'img/rail.png',
+    'img/trees-bottom.svg',
+    'img/trees-left.svg',
+    'img/trees-right.svg',
+    'img/trees-top.svg',
+    'img/rotate.svg',
+  );
+
+  api.installV1Handlers();
   const game = new Game(document.getElementById('module-boatload'));
 
-  const sceneApi = new SceneApi('boatload');
-  sceneApi.installV1Handlers();
-  sceneApi.loadStarted();
-
-  // TODO: preload
-  // sceneApi.preloadSounds('bl_load_sounds');
-  // sceneApi.preloadImages([
-  //   'img/boat1.svg',
-  //   'img/boat2.svg',
-  //   'img/boat3.svg',
-  //   'img/iceberg1.svg',
-  //   'img/iceberg2.svg',
-  //   'img/iceberg3.svg',
-  //   'img/iceberg4.svg',
-  //   'img/iceberg5.svg',
-  //   'img/iceberg6.svg',
-  //   'img/logo.svg',
-  //   'img/player-crossbow.svg',
-  //   'img/player-elf.svg',
-  //   'img/player-ropes.svg',
-  //   'img/present.svg',
-  //   'img/rail.png',
-  //   'img/trees-bottom.svg',
-  //   'img/trees-left.svg',
-  //   'img/trees-right.svg',
-  //   'img/trees-top.svg',
-  //   'img/rotate.svg',
-  // ]);
-  // sceneApi.cleanupSoundEvent('bl_end_game');
-
-  sceneApi.loadCompleted();
-  game.start();
+  api.ready(async (manager) => {
+    // TODO(samthor): hook up play/pause global state.
+    game.start();
+  });
 
 </script>
 

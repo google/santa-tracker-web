@@ -8,18 +8,16 @@
 <body>
 
 <script type="module">
-  import {SceneApi} from '../../src/app/scene-api.js';
+  import api from '../../src/scene/api.js';
   import Game from './test-scene.min.js';
 
   const game = new Game();
 
-  const sceneApi = new SceneApi('boatload');
-  sceneApi.loadStarted();
-  sceneApi.loadCompleted();
-
-  const el = document.createElement('div');
-  el.textContent = 'Done!';
-  document.body.appendChild(el);
+  api.ready(async (manager) => {
+    const el = document.createElement('div');
+    el.textContent = 'Done!';
+    document.body.appendChild(el);
+  });
 </script>
 
 </body>

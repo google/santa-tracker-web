@@ -1,17 +1,35 @@
 import {SantaTrackerAction} from '../action.js';
-import {loadingSceneReducer} from './loading-scene.js';
 
 export const santaTrackerReducer = (state, action) => {
   switch (action.type) {
     case SantaTrackerAction.SCENE_SELECTED:
-      return {...state, selectedScene: action.payload};
+      return {
+        ...state,
+        selectedScene: action.payload,
+        loadProgress: 0,
+      };
+
+    case SantaTrackerAction.SCENE_LOAD_PROGRESS:
+      return {...state, loadProgress: action.payload};
 
     case SantaTrackerAction.SCENE_ACTIVATED:
-      return {...state, activeScene: action.payload, showError: false};
+      return {
+        ...state,
+        activeScene: action.payload,
+        loadProgress: 1,
+        showError: false,
+        showSidebar: false,
+      };
 
     case SantaTrackerAction.SCENE_FAILED:
       // nb. selectedScene remains the same, as the URL should not change.
-      return {...state, activeScene: null, showError: true};
+      return {
+        ...state,
+        activeScene: null,
+        loadProgress: 1,
+        showError: true,
+        showSidebar: false,
+      };
 
     case SantaTrackerAction.PAGE_BECAME_VISIBLE:
       return {...state, pageVisible: true};
@@ -33,12 +51,6 @@ export const santaTrackerReducer = (state, action) => {
 
     case SantaTrackerAction.SIDEBAR_DISMISSED:
       return {...state, showSidebar: false};
-
-    case SantaTrackerAction.SCENE_LOAD_STARTED:
-    case SantaTrackerAction.SCENE_LOAD_PROGRESSED:
-    case SantaTrackerAction.SCENE_LOAD_COMPLETED:
-    case SantaTrackerAction.SCENE_LOAD_FAILED:
-      return {...state, loadingScene: loadingSceneReducer(state.loadingScene, action)};
   }
 
   return state;

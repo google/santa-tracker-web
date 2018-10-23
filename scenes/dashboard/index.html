@@ -13,37 +13,34 @@ body {
 <ul id="listing"></ul>
 
 <script type="module">
-  import {SceneApi} from '../../src/app/scene-api.js';
+  import api from '../../src/scene/api.js';
   import scenes from '../../scenes.js';
 
-  const sceneApi = new SceneApi('dashboard');
-  sceneApi.loadStarted();
+  api.ready(async (manager) => {
+    const listing = document.getElementById('listing');
+    const keys = Object.keys(scenes).sort();
 
-  const listing = document.getElementById('listing');
-  const keys = Object.keys(scenes).sort();
+    const handler = (sceneName, ev) => {
+      ev.preventDefault();
+      manager.route(sceneName);
+    };
 
-  const handler = (sceneName, ev) => {
-    ev.preventDefault();
-    sceneApi.route(sceneName);
-  };
+    keys.forEach((sceneName) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
 
-  keys.forEach((sceneName) => {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
+      a.href = `/${sceneName}.html`;
+      a.textContent = sceneName;
+      a.addEventListener('click', handler.bind(null, sceneName));
 
-    a.href = `/${sceneName}.html`;
-    a.textContent = sceneName;
-    a.addEventListener('click', handler.bind(null, sceneName));
+      if (scenes[sceneName].video) {
+        li.appendChild(document.createTextNode('video '));
+      }
+      li.appendChild(a);
 
-    if (scenes[sceneName].video) {
-      li.appendChild(document.createTextNode('video '));
-    }
-    li.appendChild(a);
-
-    listing.appendChild(li);
+      listing.appendChild(li);
+    });
   });
-
-  sceneApi.loadCompleted();
 
 </script>
 

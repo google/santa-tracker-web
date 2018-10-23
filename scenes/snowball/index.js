@@ -1,31 +1,24 @@
+
+import api from '../../src/scene/api.js';
 import './js/snowball-game.js';
-import {SceneApi} from '../../src/app/scene-api.js';
 
-const sceneApi = new SceneApi('snowball');
-sceneApi.installV1Handlers();
-sceneApi.loadStarted();
-
-// TODO: preload
-
-// sceneApi.preloadSounds('snowball_load_sounds');
-// sceneApi.preloadImages([
-//   'img/sleigh.png',
-//   'img/item-frame.png',
-//   'img/parachute.png',
-//   'img/powerup-1.png',
-//   'img/snowball.png',
-//   'img/tiles.png',
-// ]);
-// sceneApi.preloadPaths([
-//   'models/elf-animated.bin',
-//   'models/elf-animated.gltf',
-//   'models/elf-tidy.png',
-//   'models/elf.bin',
-//   'models/elf.gltf',
-//   'models/elf.png',
-// ]);
-
-sceneApi.loadCompleted();
+api.preload.sounds('snowball_load_sounds');
+api.preload.images(
+  'img/sleigh.png',
+  'img/item-frame.png',
+  'img/parachute.png',
+  'img/powerup-1.png',
+  'img/snowball.png',
+  'img/tiles.png',
+  'models/elf-tidy.png',
+  'models/elf.png',
+);
+api.preload.paths(
+  'models/elf-animated.bin',
+  'models/elf-animated.gltf',
+  'models/elf.bin',
+  'models/elf.gltf',
+);
 
 
 const awaitAnimation = (element) => new Promise((resolve) => {
@@ -40,13 +33,16 @@ const jumpBtn = document.getElementById('jumpBtn');
 const splash = document.getElementById('splash');
 let game = null;
 
-jumpBtn.addEventListener('click', (ev) => {
-  jumpBtn.hidden = true;
-  document.body.classList.add('intro');
-
-  // this.$.tutorial.show = false;  // only show before game starts
-
-  awaitAnimation(dropCloud).then(() => startGame());
+api.installV1Handlers();
+api.ready(async () => {
+  jumpBtn.addEventListener('click', (ev) => {
+    jumpBtn.hidden = true;
+    document.body.classList.add('intro');
+  
+    // this.$.tutorial.show = false;  // only show before game starts
+  
+    awaitAnimation(dropCloud).then(() => startGame());
+  });  
 });
 
 // TODO(cdata): Wire this up to an API event.

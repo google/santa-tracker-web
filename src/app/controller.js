@@ -13,13 +13,14 @@ class SantaTrackerController extends Controller {
   static get initialState() {
     return {
       activeScene: null,
-      selectedScene: '',  // empty scene is the index or "village"
+      selectedScene: null,  // nothing loaded until we're asked
       todayHouse: 'boatload',
+      loadProgress: 1,
       showSidebar: false,
       pageVisible: undefined,
+      showError: false,
       online: undefined,
       api: null,
-      loadingScene: {loading: false, ready: false, progress: -1, error: null, name: ''},
     };
   }
 

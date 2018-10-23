@@ -10,10 +10,7 @@
 <body>
 
   <script type="module">
-    import {SceneApi} from '../../src/app/scene-api.js';
-
-    self.sceneApi = new SceneApi('');
-    sceneApi.loadStarted();
+    import api from '../../src/scene/api.js';
   </script>
 
   Some random text<br /><br />
@@ -24,10 +21,6 @@
   <div style="height: 1000px; width: 20px; background: red;">
   </div>
   Long
-
-  <script type="module">
-    sceneApi.loadCompleted();
-  </script>
 
 </body>
 </html>
