@@ -55,20 +55,22 @@ async function release() {
   // traversing their dependencies like CSS and JS. It doesn't specifically compile CSS or JS on
   // its own, it must be included by one of our HTML entry points.
   const htmlFiles = ['index.html'].concat(glob.sync('scenes/**/*.html'));
-  for (const file of htmlFiles) {
-    const src = await fsp.readFile(file, 'utf8');
-    const node = dom.parse(src);
+  for (const htmlFile of htmlFiles) {
+    const dir = path.dirname(htmlFile);
+    const src = await fsp.readFile(htmlFile, 'utf8');
+    const document = dom.parse(src);
 
     // Inline all local styles.
-    const styleLinks = Array.from(node.querySelectorAll('link[rel="stylesheet"]'));
+    const styleLinks = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
     for (const styleLink of styleLinks) {
       if (isUrl(styleLink.href)) {
         continue;
       }
       // TODO(samthor): Make reusable for compiling CSS-in-JS.
       // TODO(samthor): Pass through autoprefixer browser request. Create 'style compiler' helper?
-      const css = await compileCss(path.join(path.dirname(file), styleLink.href), {compile: true});
-      const inlineStyleTag = node.createElement('style');
+      const cssFile = path.join(dir, styleLink.href);
+      const css = await compileCss(cssFile, {compile: true});
+      const inlineStyleTag = document.createElement('style');
       inlineStyleTag.innerHTML = css;
       styleLink.parentNode.replaceChild(inlineStyleTag, styleLink);
     }
@@ -78,7 +80,8 @@ async function release() {
     // TODO(samthor): As elements defined in JS contain language strings, these should be built
     // per-language. Language switching is "rare", so don't bother trying to dedup, just build
     // separately per-language.
-    const scripts = Array.from(node.querySelectorAll('script')).filter((s) => s.type === 'module');
+    const scripts =
+        Array.from(document.querySelectorAll('script')).filter((s) => s.type === 'module');
     for (const script of scripts) {
       console.info('got module script', script.src);
 
@@ -87,13 +90,18 @@ async function release() {
       // => For modules, build and ship the minimum tree of splits.
       let entrypoint;
       if (script.src) {
-        entrypoint = path.join(file, script.src);
+        entrypoint = path.join(dir, script.src);
       } else {
-        entrypoint = file;
+        entrypoint = htmlFile;
       }
     }
 
     // TODO(samthor): Some scenes need to be expanded to local language versions. 
+
+    // TODO(samthor): Just a demo of writing out to dist for now.
+    const outputDir = (dir === '.' ? 'dist/prod' : path.join('dist/static', dir));
+    await fsp.mkdirp(outputDir);
+    await fsp.writeFile(path.join(outputDir, path.basename(htmlFile)), dom.serialize(document));
   }
 }
 
