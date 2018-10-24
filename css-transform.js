@@ -1,6 +1,5 @@
 const path = require('path');
-const fsp = require('./build/fsp.js');
-const sass = require('sass');
+const compileCss = require('./build/compile-css.js');
 
 module.exports = async (ctx, next) => {
   const ext = path.extname(ctx.url);
@@ -9,19 +8,7 @@ module.exports = async (ctx, next) => {
     return next();
   }
 
-  let css;
-  try {
-    css = await fsp.readFile(`.${ctx.url}`, 'utf8');
-  } catch (e) {
-    // fine
-  }
-
-  if (!css) {
-    // nb. use renderSync, https://sass-lang.com/dart-sass is adamant it's 2x faster
-    const result = sass.renderSync({file: `.${ctx.url.substr(0, ctx.url.length - 4)}.scss`});
-    css = result.css;
-  }
-
+  const filename = ctx.url.slice(1);
   ctx.response.type = 'text/css';
-  ctx.response.body = css;
+  ctx.response.body = await compileCss(filename);;
 };

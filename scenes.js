@@ -2,7 +2,9 @@
  * @fileoverview Runtime information for Santa Tracker's scenes.
  */
 
-export default {
+// nb. This module expects to just export a single dictionary, wrapped in parenthesis. The build
+// system (which runs in Node) also parses this code, but needs to remove the ES6 module syntax.
+export default ({
   airport: {},
   blimp: {},
   boatload: {
@@ -120,4 +122,4 @@ export default {
 // dummy: used for prod demos
 
   somebodypleasethinkofthechildren: {msgid: 'wrapbattle_feedback_perfect'},
-};
+});
