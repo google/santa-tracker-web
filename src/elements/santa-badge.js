@@ -1,8 +1,6 @@
 import {LitElement, html} from '@polymer/lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
-import {_msg, _style} from '../lib/runtime.js';
-
 
 const MAX_TIME = (10 * 60) - 1;  // max is 9:59
 const LEVEL_ACTIVE_TIME = 1500;  // show score on small screens for this long

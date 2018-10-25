@@ -53,13 +53,3 @@ export function localizeUrl(url) {
   const hasQuery = url.indexOf('?') !== -1;
   return url + (hasQuery ? '&' : '?') + `hl=${loadedWithLang}`;
 }
-
-
-export function _msg(id) {
-  throw new Error('replaced by js-transform');
-}
-
-
-export function _style(id) {
-  throw new Error('replaced by js-transform');
-}

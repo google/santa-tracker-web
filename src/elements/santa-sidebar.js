@@ -1,7 +1,7 @@
 import {html, LitElement} from '@polymer/lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
-import {_msg, _style, getLanguage, localizeUrl, runtimeTranslate} from '../lib/runtime.js';
+import {getLanguage, localizeUrl, runtimeTranslate} from '../lib/runtime.js';
 
 export class SantaSidebarElement extends LitElement {
   static get properties() {
