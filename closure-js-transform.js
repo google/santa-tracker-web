@@ -3,9 +3,8 @@ const compileScene = require('./build/compile-scene.js');
 const fs = require('fs');
 const log = require('fancy-log');
 const colors = require('ansi-colors');
+const matchSceneMin = require('./build/match-scene-min.js');
 const prettyMs = require('pretty-ms');
-
-const matchSceneMin = /^\/scenes\/(\w+)\/\1-scene\.min\.js$/;
 
 const BUILD_TIMEOUT = 15 * 1000;    // automatically build for this long after use
 const EXPIRY_TIMEOUT = 120 * 1000;  // watch for this long, but don't automatically build
@@ -146,11 +145,10 @@ module.exports = function(options={}) {
   const worker = new WorkStream(buildHelper, logHelper);
 
   return async (ctx, next) => {
-    const m = matchSceneMin.exec(ctx.url);
-    if (!m) {
+    const sceneName = matchSceneMin(ctx.url.slice(1));
+    if (sceneName === null) {
       return next();
     }
-    const sceneName = m[1];
   
     if (recentWatcher === null || recentWatcher.sceneName !== sceneName) {
       // Set up a watch task for this scene, so we aggressively recompile while a developer is
