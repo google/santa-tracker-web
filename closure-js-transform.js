@@ -145,7 +145,7 @@ module.exports = function(options={}) {
   const worker = new WorkStream(buildHelper, logHelper);
 
   return async (ctx, next) => {
-    const sceneName = matchSceneMin(ctx.url.slice(1));
+    const sceneName = matchSceneMin(ctx.path.slice(1));
     if (sceneName === null) {
       return next();
     }
