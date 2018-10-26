@@ -229,10 +229,11 @@ async function release() {
     scriptNode.removeAttribute('src');
     scriptNode.textContent = compiled;
 
-
     // TODO(samthor): This should compile to ES5 for a `<script nomodule>`.
     // TODO(samthor): This should minify (Closure again?) per-language.
-    // TODO(samthor): This should run Babel to replace `_script` and `_msg`.
+
+    // TODO(samthor): Instead of replacing `_msg`, we should work out the transitive string deps
+    // of this entrypoint and just include the relevant strings in a helper.
   }
 
   // Write out all documents.
