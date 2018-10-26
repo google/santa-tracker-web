@@ -11,25 +11,73 @@
 <div id="module-languagematch">
   <div class="bg"></div>
   <div class="cards">
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
 
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
- 
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
 
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
     </div>
 </div>
 
@@ -37,12 +85,10 @@
   import api from '../../src/scene/api.js';
   import Game from './languagematch-scene.min.js';
 
-  const game = new Game();
+  const game = new Game(document.getElementById('module-languagematch'));
 
   api.ready(async (manager) => {
-    const el = document.createElement('div');
-    el.textContent = 'Done!';
-    document.body.appendChild(el);
+    console.log('ready');
   });
 </script>
 

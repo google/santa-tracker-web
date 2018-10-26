@@ -32,7 +32,30 @@
     }
 
     .card {
-        background-color: rgb(158, 36, 36);
+        transition: transform 0.5s;
+        transform: perspective(500px);
+        transform-style: preserve-3d;
+    }
+
+    .flipped {
+        transform: rotateY(180deg);
+    }
+
+    %card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
         border-radius: 5px;
+        backface-visibility: hidden;
+    }
+
+    .card-back {
+        @extend %card-face;
+        background-color: rgb(158, 36, 36);
+    }
+    .card-front {
+        @extend %card-face;
+        background-color: rgb(255, 255, 255);
+        transform: rotateY(180deg);
     }
 }
