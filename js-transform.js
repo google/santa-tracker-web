@@ -1,11 +1,9 @@
-const babelCore = require('@babel/core');
-const babylon = require('babylon');
+const compileCss = require('./build/compile-css.js');
 const fsp = require('./build/fsp.js');
+const normalizeJs = require('./build/normalize-js.js');
 const path = require('path');
 const rollupEntrypoint = require('./build/rollup-entrypoint.js');
-
-const buildInlineJsHelpers = require('./build/babel/inline-js-helpers.js');
-const buildResolveBareSpecifiers = require('./build/babel/resolve-bare-specifiers.js');
+const sass = require('sass');
 
 const messages = require('./en_src_messages.json');
 
@@ -19,7 +17,7 @@ module.exports = async (ctx, next) => {
 
   // Retrieve JS, optionally invoking Rollup (needed for Worker code, which doesn't support modules
   // in late 2018).
-  const filename = path.join(process.cwd(), ctx.path);
+  const filename = ctx.path.substr(1);
   let js;
   if ('rollup' in ctx.query) {
     js = await rollupEntrypoint(filename);
@@ -27,35 +25,19 @@ module.exports = async (ctx, next) => {
     js = await fsp.readFile(filename, 'utf8');
   }
 
-  let ast;
-  try {
-    ast = babylon.parse(js, {
-      sourceType: 'module',
-      plugins: [
-        'asyncGenerators',
-        'objectRestSpread',
-      ],
-    });
-  } catch (e) {
-    if (e.constructor.name === 'SyntaxError') {
-      console.error('ERROR: failed to parse JavaScript', e);
-      return next();
-    } else {
-      throw e;
+  // Rewrites found template literals with specific names. Needed for build-time messages and CSS.
+  const inlineHandler = (name, arg) => {
+    switch (name) {
+      case '_msg': {
+        const object = messages[arg];
+        return object && (object.raw || object.message) || '?';
+      }
+      case '_style': {
+        return compileCss(`styles/${arg}.scss`);
+      }
     }
-  }
-
-  const messageLookup = (key) => {
-    const object = messages[key];
-    return object && (object.raw || object.message) || null;
   };
-  const inlineJsHelpers = buildInlineJsHelpers(messageLookup)
 
-  const plugins = [
-    buildResolveBareSpecifiers(),
-    inlineJsHelpers.plugin,
-  ];
-  const result = babelCore.transformFromAst(ast, js, {presets: [], plugins});
   ctx.response.type = 'text/javascript';
-  ctx.response.body = result.code;
+  ctx.response.body = normalizeJs(filename, js, inlineHandler);
 };

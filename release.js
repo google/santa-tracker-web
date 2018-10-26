@@ -4,19 +4,18 @@
  * @fileoverview Builds Santa Tracker for release to production.
  */
 
-const log = require('fancy-log');
 const colors = require('ansi-colors');
-const glob = require('glob');
-const dom = require('./build/dom.js');
-const fsp = require('./build/fsp.js');
-const isUrl = require('./build/is-url.js');
-const globAll = require('./build/glob-all.js');
-const path = require('path');
 const compileCss = require('./build/compile-css.js');
 const compileScene = require('./build/compile-scene.js');
-const rollupEntrypoint = require('./build/rollup-entrypoint.js');
+const dom = require('./build/dom.js');
+const fsp = require('./build/fsp.js');
+const globAll = require('./build/glob-all.js');
+const isUrl = require('./build/is-url.js');
+const log = require('fancy-log');
 const matchSceneMin = require('./build/match-scene-min.js');
-const tmp = require('tmp');
+const normalizeJs = require('./build/normalize-js.js');
+const path = require('path');
+const rollupEntrypoint = require('./build/rollup-entrypoint.js');
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
@@ -71,6 +70,25 @@ function prodToStatic(req) {
     return new URL(req, yargs.baseurl);
   }
   return path.join(yargs.baseurl, req);
+}
+
+function buildInlineHandler(lang) {
+  const messages = require(`./_messages/${lang}.json`);
+  return (name, arg) => {
+    switch (name) {
+      case '_msg': {
+        const object = messages[arg];
+        if (!object) {
+          log(`Warning: missing string ${colors.red(arg)} for ${colors.green(lang)}`);
+          return '?';
+        }
+        return object.message;
+      }
+      case '_style': {
+        return compileCss(`styles/${arg}.scss`, true);
+      }
+    }
+  };
 }
 
 async function releaseAssets(target, req, extra=[]) {
@@ -139,7 +157,7 @@ async function release() {
   // Santa Tracker builds by finding HTML entry points and parsing/rewriting each file, including
   // traversing their dependencies like CSS and JS. It doesn't specifically compile CSS or JS on
   // its own, it must be included by one of our HTML entry points.
-  const htmlFiles = ['index.html'].concat(glob.sync('scenes/**/*.html'));
+  const htmlFiles = ['index.html'].concat(globAll('scenes/**/*.html'));
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);
@@ -205,9 +223,12 @@ async function release() {
     // Run Rollup on the entrypoint. After compilation, it still contains magic template literals
     // `_msg` and `_style`. These are build-time translations and styles. If the output has any use
     // of `_msg`, the JS and HTML files must be fanned out per-language.
-    const out = await rollupEntrypoint(entrypoint, virtualModuleContent);
+    const js = await rollupEntrypoint(entrypoint, virtualModuleContent);
+    const compiled = normalizeJs(entrypoint, js, buildInlineHandler('en'));
+
     scriptNode.removeAttribute('src');
-    scriptNode.textContent = out;
+    scriptNode.textContent = compiled;
+
 
     // TODO(samthor): This should compile to ES5 for a `<script nomodule>`.
     // TODO(samthor): This should minify (Closure again?) per-language.
