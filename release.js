@@ -74,7 +74,6 @@ function prodToStatic(req) {
 }
 
 async function releaseAssets(target, req, extra=[]) {
-  console.info('got extra', extra, 'for', target);
   const assetsToCopy = globAll(...[].concat(req, extra));
   log(`Copying ${colors.blue(`${assetsToCopy.length} ${target}`)} assets`);
   for (const asset of assetsToCopy) {
