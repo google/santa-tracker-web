@@ -167,7 +167,8 @@ async function release() {
 
     const allScripts = Array.from(document.querySelectorAll('script'));
 
-    // Find non-module scripts, as they contain dependencies like jQuery, THREE.js etc.
+    // Find non-module scripts, as they contain dependencies like jQuery, THREE.js etc. These are
+    // catalogued and then included in the production output.
     const plainScriptNodes = allScripts.filter((s) => !s.type && s.src);
     for (const scriptNode of plainScriptNodes) {
       const resolved = path.relative(__dirname, path.join(dir, scriptNode.src));
@@ -179,16 +180,15 @@ async function release() {
       }
     }
     
-    // Find all module scripts. Normal scripts are ignored; these are used for things like jQuery,
-    // THREE.js, and other libraries that are effectively globals.
+    // Find all module scripts, so that all JS entrypoints can be catalogued and built together.
     const moduleScriptNodes = allScripts.filter((s) => s.type === 'module');
     for (const scriptNode of moduleScriptNodes) {
       let entrypoint;
       if (scriptNode.src) {
         entrypoint = path.join(dir, scriptNode.src);
       } else {
-        // This is a script node with local script. Create a virtual script that is used as the
-        // Rollup entry point.
+        // This is a script node with inline script. Create a virtual script that is used as the
+        // Rollup entry point, with its content base64-encoded as a suffix.
         entrypoint = `${dir}/:${++virtualScriptIndex}::\0` +
             Buffer.from(scriptNode.textContent).toString('base64');
       }
@@ -216,7 +216,7 @@ async function release() {
   }
 
   // Write out all documents.
-  log(`Writing ${colors.blue(`${htmlDocuments.size} HTML entrypoints`)}`)
+  log(`Writing ${colors.blue(`${htmlDocuments.size} HTML entrypoints`)}`);
   for (const [htmlFile, document] of htmlDocuments) {
     const dir = path.dirname(htmlFile);
     const outputDir = (dir === '.' ? 'dist/prod' : path.join('dist/static', dir));
