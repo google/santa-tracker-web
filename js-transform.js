@@ -2,52 +2,30 @@ const babelCore = require('@babel/core');
 const babylon = require('babylon');
 const fsp = require('./build/fsp.js');
 const path = require('path');
-const rollup = require('rollup');
-const rollupNodeResolve = require('rollup-plugin-node-resolve');
-const rollupInject = require('rollup-plugin-inject');
+const rollupEntrypoint = require('./build/rollup-entrypoint.js');
 
-const buildUpgradeHTMLDeps = require('./build/babel/upgrade-html-deps.js');
+const buildInlineJsHelpers = require('./build/babel/inline-js-helpers.js');
 const buildResolveBareSpecifiers = require('./build/babel/resolve-bare-specifiers.js');
 
-const rollupInputOptions = filename => ({
-  input: filename,
-  plugins: [
-    rollupNodeResolve(),
-    // NOTE(cdata): This is only necessary to support redux until
-    // https://github.com/reduxjs/redux/pull/3143 lands in a release
-    rollupInject({
-      include: 'node_modules/redux/**/*.js',
-      modules: {process: path.resolve('./src/lib/process.js')},
-    }),
-  ],
-});
-
-const rollupOutputOptions = filename => ({name: filename, format: 'umd'});
+const messages = require('./en_src_messages.json');
 
 module.exports = async (ctx, next) => {
   const ext = path.extname(ctx.path);
-  if (!['.js', '.mjs'].includes(ext) || ctx.path.startsWith('/third_party/') || ctx.path.endsWith('.min.js')) {
+  if (!['.js', '.mjs'].includes(ext) ||
+      ctx.path.startsWith('/third_party/') ||
+      ctx.path.endsWith('.min.js')) {
     return next();
   }
 
+  // Retrieve JS, optionally invoking Rollup (needed for Worker code, which doesn't support modules
+  // in late 2018).
   const filename = path.join(process.cwd(), ctx.path);
-  let js = null;
-
+  let js;
   if ('rollup' in ctx.query) {
-    try {
-      const bundle = await rollup.rollup(rollupInputOptions(filename));
-      const {code} = await bundle.generate(rollupOutputOptions(filename));
-      js = code;
-    } catch (e) {
-      console.error(`ERROR: Rollup failed on ${ctx.path}`, e);
-    }
-  }
-  if (!js) {
+    js = await rollupEntrypoint(filename);
+  } else {
     js = await fsp.readFile(filename, 'utf8');
   }
-
-  const presets = [];
-  const plugins = [];
 
   let ast;
   try {
@@ -67,10 +45,17 @@ module.exports = async (ctx, next) => {
     }
   }
 
-  plugins.push(buildResolveBareSpecifiers());
-  plugins.push(buildUpgradeHTMLDeps());
+  const messageLookup = (key) => {
+    const object = messages[key];
+    return object && (object.raw || object.message) || null;
+  };
+  const inlineJsHelpers = buildInlineJsHelpers(messageLookup)
 
-  const result = babelCore.transformFromAst(ast, js, {presets, plugins});
+  const plugins = [
+    buildResolveBareSpecifiers(),
+    inlineJsHelpers.plugin,
+  ];
+  const result = babelCore.transformFromAst(ast, js, {presets: [], plugins});
   ctx.response.type = 'text/javascript';
   ctx.response.body = result.code;
 };
